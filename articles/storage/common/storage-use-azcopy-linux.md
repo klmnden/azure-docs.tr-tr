@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 79aa9cd3e634238702419d01650c7ef29c4dbb95
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 1059dec80dcca80380b58aa8057162679496adc6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242034"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467382"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux üzerinde AzCopy ile veri aktarma
 
@@ -92,7 +92,7 @@ azcopy --source <source> --destination <destination> [Options]
 
 Aşağıdaki örnekler, veri ve Microsoft Azure BLOB'ları ve dosyaları kopyalamak için çeşitli senaryolar gösterir. Başvurmak `azcopy --help` menüsünde her örnekte kullanılan parametrelerden ayrıntılı bir açıklama.
 
-## <a name="blob-download"></a>BLOB: indirin
+## <a name="blob-download"></a>Blob: İndirme
 ### <a name="download-single-blob"></a>Tek bir blob indirme
 
 ```azcopy
@@ -211,7 +211,7 @@ azcopy \
     --exclude-older
 ```
 
-## <a name="blob-upload"></a>BLOB: karşıya yükleme
+## <a name="blob-upload"></a>Blob: Karşıya Yükle
 ### <a name="upload-single-file"></a>Tek dosya karşıya yükleme
 
 ```azcopy
@@ -346,7 +346,7 @@ azcopy \
 ### <a name="customizing-the-mime-content-type-mapping"></a>MIME içerik türü eşlemeyi özelleştirme
 AzCopy, içerik türü için dosya uzantısı eşlemesi içeren bir yapılandırma dosyası kullanır. Bu eşlemeyi özelleştirme ve yeni çiftleri gerektiği gibi ekleyin. Eşleme şu konumdadır:  ```/usr/lib/azcopy/AzCopyConfig.json```
 
-## <a name="blob-copy"></a>BLOB: kopyalama
+## <a name="blob-copy"></a>Blob: Kopyala
 ### <a name="copy-single-blob-within-storage-account"></a>Tek bir blob depolama hesabında kopyalama
 
 ```azcopy
@@ -420,7 +420,7 @@ azcopy \
 
 `--sync-copy` zaman uyumsuz kopya kıyasla ek çıkış maliyet oluşturabilir. Çıkış maliyet önlemek için kaynak depolama hesabının aynı bölgede olan bir Azure VM'de, bu seçeneği kullanmak için önerilen yaklaşımdır bakın.
 
-## <a name="file-download"></a>Dosya: indirin
+## <a name="file-download"></a>Dosya: İndirme
 ### <a name="download-single-file"></a>Tek dosya indirme
 
 ```azcopy
@@ -444,7 +444,7 @@ azcopy \
 
 Boş klasörleri indirilmez unutmayın.
 
-## <a name="file-upload"></a>Dosya: karşıya yükleme
+## <a name="file-upload"></a>Dosya: Karşıya Yükle
 ### <a name="upload-single-file"></a>Tek dosya karşıya yükleme
 
 ```azcopy
@@ -477,7 +477,7 @@ azcopy \
     --recursive
 ```
 
-## <a name="file-copy"></a>Dosya: kopyalama
+## <a name="file-copy"></a>Dosya: Kopyala
 ### <a name="copy-across-file-shares"></a>Dosya paylaşımlarında kopyalayın
 
 ```azcopy
@@ -715,10 +715,10 @@ Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklar
 ### <a name="azure-storage-blog-posts"></a>Azure depolama blog gönderilerini:
 * [AzCopy üzerinde Linux Önizleme Duyurusu](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Azure depolama veri taşıma kitaplığı Önizleme Tanıtımı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: zaman uyumlu kopya ve özelleştirilmiş içerik türü ile tanışın](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Genel kullanılabilirlik, AzCopy 3.0 yanı sıra tablo ve dosya desteği Önizleme sürümü AzCopy 4.0, Duyurusu](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Zaman uyumlu kopya ve özelleştirilmiş içerik türü ile tanışın](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Genel kullanılabilirlik, AzCopy 3.0 Duyurusu yanı sıra tablo ve dosya desteği AzCopy 4.0 sürümü önizlemesi](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: Büyük ölçekli kopyalama senaryoları için iyileştirilmiş](https://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Okuma erişimli coğrafi olarak yedekli depolama desteği](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: yeniden başlatılabilir modu ve SAS belirteci ile veri aktarma](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: hesap arası kopyalama Blob kullanma](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Azure BLOB'ları karşıya yükleme/indirme dosyaları](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: Okuma erişimli coğrafi olarak yedekli depolama için destek](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: Yeniden başlatılabilir modu ve SAS belirteci ile veri aktarma](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Çapraz-hesap kopya blob'u kullanma](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Azure blobları karşıya yükleme/indirme dosyaları](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

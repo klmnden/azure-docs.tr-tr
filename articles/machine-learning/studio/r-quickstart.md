@@ -1,6 +1,6 @@
 ---
-Başlık: Hızlı Başlangıç öğreticisi için R dili titleSuffix: Azure Machine Learning Studio açıklaması: Hızlı bir şekilde tahmin çözümü oluşturmak için Azure Machine Learning Studio ile R dili ile çalışmaya başlamak için R programlama Bu öğreticiyi kullanın.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Hızlı Başlangıç öğreticisi için R dili titleSuffix: Azure Machine Learning Studio açıklaması: Hızlı bir şekilde tahmin çözümü oluşturmak için Azure Machine Learning Studio ile R dili ile çalışmaya başlamak için R programlama Bu öğreticiyi kullanın.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 01/06/2017
 ---

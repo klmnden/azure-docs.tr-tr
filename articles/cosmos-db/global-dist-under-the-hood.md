@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB genel dağıtımını - başlık altında
+title: Genel dağıtım ile Azure Cosmos DB - başlık altında
 description: Bu makalede Azure Cosmos DB genel dağıtımını ilgili teknik ayrıntılar sağlar
 author: dharmas-cosmos
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e1c84bb28747cf1799b39c70b6df3dc0cb9f8d78
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 86e4441174fa89fc688fa4e411ead0a7b3ebc8ee
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038951"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475389"
 ---
-# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure Cosmos DB genel dağıtımını - başlık altında
+# <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Azure Cosmos DB - başlık altında genel veri dağılımı
 
 Azure Cosmos DB, Azure'nın temel bir hizmet olduğundan tüm Azure bölgeleri arasında genel, bağımsız, Savunma Bakanlığı (DoD) ve kamu bulutlarında dahil olmak üzere dünya çapında dağıtılır. Bir veri merkezi içinde dağıtın ve Azure Cosmos DB, makinelerin büyük Damgalar üzerinde her ayrılmış yerel depolama ile yönetin. Bir veri merkezi içinde Azure Cosmos DB her potansiyel olarak birden fazla donanım Nesilleri çalıştıran birçok kümeler arasında dağıtılır. Kümesindeki makineleri genellikle 10-20 hata etki alanlarına yayılır. Cosmos DB genel dağıtım sistemin topolojisi aşağıdaki resimde gösterilmektedir:
 

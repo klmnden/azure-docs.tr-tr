@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e8a849fdc6674a0c6ab801bd8f26a01f89fb8857
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969592"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458066"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Parçalı veritabanları arasında veri taşıma için bir ayırma-birleştirme hizmetini dağıtma
 
@@ -143,7 +143,7 @@ Lütfen şifreleme, sunucu sertifikası ve istemci sertifikaları için CA serti
    ```
 
 * Sunucu adı ile başlamayan olun **https://**.
-* Azure SQL veritabanı sunucunuza bağlanmak Azure Services verdiğinden emin olun. Bunu yapmak için veritabanınızı portalda açın ve emin **Azure hizmetlerine erişime izin ver** ayarı **üzerinde**\*\*.
+* Azure SQL veritabanı sunucunuza bağlanmak Azure Services verdiğinden emin olun. Bunu yapmak için veritabanınızı portalda açın ve emin **Azure hizmetlerine erişime izin ver** ayarı ** üzerinde ***.
 
 ## <a name="test-the-service-deployment"></a>Hizmet dağıtımı test etme
 ### <a name="connect-with-a-web-browser"></a>Bir web tarayıcısı ile bağlanma
@@ -204,7 +204,7 @@ Bulunan komut dosyaları şunlardır:
    
 ## <a name="use-powershell-to-verify-your-deployment"></a>Dağıtımınızı doğrulamak için PowerShell kullanma
 1. Yeni bir PowerShell penceresi açın ve ayırma-birleştirme paketi karşıdan yüklediğiniz dizine gidin ve ardından "powershell" dizinine gidin.
-2. Bir Azure SQL veritabanı sunucusu oluşturma (veya var olan bir sunucu seçin) parça eşleme Yöneticisi ve parçalar oluşturulacağı.
+2. Azure SQL veritabanı sunucusu oluşturun (veya var olan bir sunucu seçin) parça eşleme Yöneticisi ve parçalar oluşturulacağı.
    
    > [!NOTE]
    > SetupSampleSplitMergeEnvironment.ps1 betik bu veritabanları aynı sunucu üzerinde betik basit tutmak için varsayılan olarak oluşturur. Bu bir kısıtlama bölme-birleştirme hizmetinin kendisi değil.

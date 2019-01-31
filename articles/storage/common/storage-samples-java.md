@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 83080d1e73ddb06de9b454f106517ef230c4b25a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.subservice: common
+ms.openlocfilehash: 7cc051697f3928e360ec0b3c6647a3a718315c18
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984273"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477276"
 ---
 # <a name="azure-storage-samples-using-java"></a>Java kullanarak azure depolama örnekleri
 
@@ -22,14 +22,14 @@ ms.locfileid: "49984273"
 
 Aşağıdaki tabloda örnekleri depomuzda ve her örneğinde kapsanan senaryolar hakkında genel bir bakış sağlar. Github'da karşılık gelen örnek kod için bağlantılar'a tıklayın.
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">Uç Nokta</th><th style="font-size:110%">Senaryo</th><th style="font-size:110%">Örnek kod</th></tr></thead><tbody> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">Uç Nokta</th><th style="font-size:110%">Senaryo</th><th style="font-size:110%">Örnek Kod</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Ekleme blobu</td> 
+<td>Ekleme Blobu</td> 
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td> 
 </tr> 
 <tr> 
-<td>Blok blobu</td>
+<td>Blok Blobu</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
 </tr> 
 <tr> 
@@ -73,7 +73,7 @@ Aşağıdaki tabloda örnekleri depomuzda ve her örneğinde kapsanan senaryolar
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
 </tr> 
 <tr> 
-<td>Sayfa blobu</td>
+<td>Sayfa Blobu</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
 </tr>
 <tr> 
@@ -210,5 +210,5 @@ Yükleme ve Azure depolama istemci kitaplıkları ile çalışmaya başlama konu
 
 Diğer diller için örnekleri hakkında daha fazla bilgi için:
 
-* .NET: [.NET kullanarak azure depolama örnekleri](storage-samples-dotnet.md)
-* Diğer tüm diller: [Azure depolama örnekleri](storage-samples.md)
+* .NET: [.NET kullanan Azure Depolama örnekleri](storage-samples-dotnet.md)
+* Tüm diğer diller için: [Azure depolama örnekleri](storage-samples.md)

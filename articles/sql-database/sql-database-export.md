@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 804202149234a55de4f7f99b18dc40b8136463a3
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: e980ec81f66e1045a4d9df33b3392589f5c1a668
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651054"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463761"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL veritabanını BACPAC dosyasına dışarı aktarma
 
@@ -47,7 +47,7 @@ Veritabanını kullanarak dışarı aktarmak için [Azure portalında](https://p
 
 ![Veritabanı dışarı aktarma](./media/sql-database-export/database-export.png)
 
-Dışarı aktarma işleminin ilerleme durumunu izlemek için dışa aktarılan veritabanının içeren mantıksal sunucu için sayfayı açın. Ekranı aşağı kaydırarak **işlemleri** ve ardından **içeri/dışarı aktarma** geçmişi.
+Dışarı aktarma işleminin ilerleme durumunu izlemek için dışarı aktarılan veritabanını içeren SQL veritabanı sunucusu için sayfayı açın. Ekranı aşağı kaydırarak **işlemleri** ve ardından **içeri/dışarı aktarma** geçmişi.
 
 ![dışarı aktarma geçmişi](./media/sql-database-export/export-history.png)
 ![geçmişi durumunu Dışarı Aktar](./media/sql-database-export/export-history2.png)
@@ -97,7 +97,7 @@ $exportStatus
 
 - Arşiv amacıyla bir veritabanını alternatif dışarı gibi bir Azure SQL veritabanı yedeklemesini, uzun süreli yedek saklama hakkında bilgi edinmek için [uzun süreli yedek saklama](sql-database-long-term-retention.md).
 - BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
-- Bir SQL Server veritabanına BACPAC aktarma hakkında bilgi edinmek için [bir BACPCAC için SQL Server veritabanını içeri aktarma](https://msdn.microsoft.com/library/hh710052.aspx).
+- Bir SQL Server veritabanına BACPAC aktarma hakkında bilgi edinmek için [bir SQL Server veritabanına BACPAC aktarma](https://msdn.microsoft.com/library/hh710052.aspx).
 - SQL Server veritabanındaki verileri bir BACPAC aktarma hakkında bilgi edinmek için [veri katmanı uygulaması dışarı aktarma](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 - Veri geçiş hizmeti kullanarak bir veritabanını geçirme hakkında bilgi edinmek için [Azure SQL veritabanı için SQL Server'ı geçirme DMS kullanarak çevrimdışı](../dms/tutorial-sql-server-to-azure-sql.md).
 - Azure SQL veritabanı'na geçiş için bir tanıtımlar olarak SQL Server'dan verdiğiniz olup [bir SQL Server veritabanını Azure SQL veritabanı'na geçirme](sql-database-cloud-migrate.md).

@@ -12,19 +12,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5b6bef8194123ed6c83a48dd5e819085d4bc5424
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434249"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453476"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory Azure SSIS tümleştirme çalışma zamanı oluşturma
 Bu makale, sağlama Azure-SSIS Integration Runtime (IR) Azure Data Factory (ADF) için adımları sağlar. Ardından, dağıtmak ve bu tümleştirme çalışma zamanı azure'da üzerinde SQL Server Integration Services (SSIS) paketlerini çalıştırmak için SQL Server veri Araçları (SSDT) veya SQL Server Management Studio (SSMS) kullanabilirsiniz. 
 
 [Öğreticisi: SSIS paketlerini Azure'a dağıtma](tutorial-create-azure-ssis-runtime-portal.md) konak SSIS Kataloğu veritabanını (SSISDB) için Azure SQL veritabanı sunucusu kullanarak Azure-SSIS IR oluşturma işlemi gösterilmektedir. Bu makale öğreticiyi genişletip ve aşağıdaki işlemleri gösterilmektedir: 
 
-- İsteğe bağlı olarak sanal ağ hizmet uç noktaları/yönetilen örnek SSISDB'yi barındırmak için Azure SQL veritabanı sunucusu kullanın. SSISDB'yi barındırmak için veritabanı sunucu türünü seçmek kılavuzluk etmesi için bkz [karşılaştırma Azure SQL veritabanı sunucusu ve yönetilen örneği](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Bir önkoşul olarak, Azure-SSIS IR'yi bir sanal ağa katılın ve sanal ağın izinlerini/ayarlarını gereken şekilde yapılandırmanız gerekir. Bkz: [katılın Azure-SSIS IR'yi bir sanal ağa](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+- İsteğe bağlı olarak sanal ağ hizmet uç noktaları/yönetilen örnek SSISDB'yi barındırmak için Azure SQL veritabanı sunucusu kullanın. SSISDB'yi barındırmak için veritabanı sunucu türünü seçmek kılavuzluk etmesi için bkz [karşılaştırma Azure SQL veritabanı tek veritabanlarını elastik havuzları ve yönetilen örneği](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). Bir önkoşul olarak, Azure-SSIS IR'yi bir sanal ağa katılın ve sanal ağın izinlerini/ayarlarını gereken şekilde yapılandırmanız gerekir. Bkz: [katılın Azure-SSIS IR'yi bir sanal ağa](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
 - İsteğe bağlı olarak Azure Active Directory (AAD) kimlik doğrulaması ile ADF için yönetilen kimlik veritabanı sunucusuna bağlanmak için kullanın. Bir önkoşul olarak ihtiyacınız olacak, Azure SQL veritabanı sunucusu/yönetilen içinde örneği SSISDB istemcilerinizle bağımsız veritabanı kullanıcısı olarak, ADF için yönetilen kimlik eklemek için bkz: [etkinleştirme AAD kimlik doğrulaması için Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
@@ -55,11 +55,11 @@ Azure-SSIS IR sağladığınızda, Azure Feature Pack SSIS ve Access Redistribut
 ### <a name="region-support"></a>Bölge desteği
 Azure bölgesi ile ADF ve Azure-SSIS IR'yi şu anda kullanılabilir bir listesi için bkz. [ADF + SSIS IR bölgelere göre kullanılabilirliği](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
-### <a name="compare-sql-database-logical-server-and-sql-database-managed-instance"></a>SQL veritabanı mantıksal sunucusu ve SQL veritabanı yönetilen örneği karşılaştırın
+### <a name="compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance"></a>SQL veritabanı tek veritabanı esnek havuzunu ve SQL veritabanı yönetilen örneği karşılaştırın
 
 Bunlar SSIR Azure IR için ilgili olarak aşağıdaki tabloda Azure SQL veritabanı yönetilen örneği ve belirli özellikleri karşılaştırılır:
 
-| Özellik | Azure SQL veritabanı sunucusu| Yönetilen Örnek |
+| Özellik | tek veritabanı elastik havuz| Yönetilen Örnek |
 |---------|--------------|------------------|
 | **Zamanlama** | SQL Server Aracısı kullanılamıyor.<br/><br/>Bkz: [ADF işlem hattındaki bir paket yürütmeyi zamanlama](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Yönetilen örnek aracı kullanılabilir. |
 | **Kimlik doğrulaması** | SSISDB ile ADF yönetilen kimliğe sahip tüm AAD grubu üyesi olarak temsil eden bir bağımsız veritabanı kullanıcısı oluşturabilirsiniz **db_owner** rol.<br/><br/>Bkz: [SSISDB Azure SQL veritabanı sunucusu oluşturmak için kimlik doğrulamasını etkinleştirme Azure AD'ye](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | SSISDB ile ADF yönetilen kimliğini temsil eden bağımsız veritabanı kullanıcısı oluşturabilirsiniz. <br/><br/>Bkz: [Azure SQL veritabanı yönetilen örneği'nde SSISDB oluşturmak için kimlik doğrulamasını etkinleştirme Azure AD'ye](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
@@ -69,9 +69,11 @@ Bunlar SSIR Azure IR için ilgili olarak aşağıdaki tabloda Azure SQL veritaba
 | | | |
 
 ## <a name="azure-portal"></a>Azure portal
+
 Bu bölümde, Azure portalı, özellikle ADF kullanıcı arabirimi (UI) kullanmanızı / Azure-SSIS IR oluşturmak için uygulama 
 
 ### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma 
+
 1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir. 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın. 
 1. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 

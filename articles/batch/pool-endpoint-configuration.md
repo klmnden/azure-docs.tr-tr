@@ -1,39 +1,39 @@
 ---
 title: Azure Batch havuzunda düğümü uç noktalarını yapılandırma | Microsoft Docs
-description: Yapılandırma veya bir Azure Batch havuzundaki işlem düğümlerinde SSH veya RDP bağlantı noktalarına erişimini devre dışı bırakma.
+description: Yapılandırma veya bir Azure Batch havuzundaki işlem düğümlerinde SSH veya RDP bağlantı noktası erişimi devre dışı bırakma.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: danlep
-ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: lahugh
+ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358736"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457624"
 ---
-# <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Yapılandırma veya işlem bir Azure Batch havuzunda düğümleri için uzaktan erişim devre dışı bırakma
+# <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Yapılandırma veya bir Azure Batch havuzu düğümlerinde işlem uzak erişimi devre dışı bırak
 
-Varsayılan olarak, toplu sağlayan bir [düğüm kullanıcı](/rest/api/batchservice/computenode/adduser) Batch havuzundaki işlem düğümünde dışarıdan bağlanmak için ağ bağlantısı ile. Örneğin, bir kullanıcı tarafından Uzak Masaüstü (RDP) 3389 numaralı bağlantı noktasına bir Windows havuzdaki işlem düğümü üzerinde bağlanabilir. Benzer şekilde, varsayılan olarak, bir kullanıcı tarafından güvenli Kabuk (SSH) bağlantı noktası 22 bir Linux havuzdaki işlem düğümü üzerinde bağlanabilir. 
+Varsayılan olarak, Batch sağlar bir [düğümü kullanıcı](/rest/api/batchservice/computenode/adduser) harici olarak Batch havuzunda işlem düğümüne bağlanmak için ağ bağlantısı ile. Örneğin, bir kullanıcı tarafından Uzak Masaüstü (RDP) bir işlem düğümünde bir Windows havuzu için 3389 numaralı bağlantı noktasında bağlanabilirsiniz. Benzer şekilde, varsayılan olarak, bir kullanıcı tarafından Secure Shell (SSH) bağlantı noktası 22 Linux havuzu içindeki bir işlem düğümüne bağlanabilirsiniz. 
 
-Ortamınızda, erişimi kısıtlamak veya bu varsayılan dış erişim ayarlarını devre dışı bırakmak gerekebilir. Ayarlamak için Batch API'lerini kullanarak bu ayarları değiştirebilirsiniz [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) özelliği. 
+Ortamınızda, erişimi kısıtlamak veya bu varsayılan dış erişim ayarlarını devre dışı bırakmak gerekebilir. Bu ayarları ayarlamak üzere Batch API'lerini kullanarak değiştirebileceğiniz [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) özelliği. 
 
 ## <a name="about-the-pool-endpoint-configuration"></a>Havuz uç nokta yapılandırması hakkında
-Uç nokta yapılandırması bir veya daha fazla oluşur [ağ adresi çevirisi (NAT) havuzları](/rest/api/batchservice/pool/add#inboundnatpool) ön uç bağlantı noktaları. (Toplu işlem düğümü havuzu oluşturacak olan bir NAT havuzu karıştırmayın.) Havuzun işlem düğümleri varsayılan bağlantı ayarlarını geçersiz kılmak için her NAT havuzunu ayarlayın. 
+Bir veya daha fazla uç nokta yapılandırması oluşur [ağ adresi çevirisi (NAT) havuzları](/rest/api/batchservice/pool/add#inboundnatpool) ön uç bağlantı noktası. (İşlem düğümleri Batch havuzu ile bir NAT havuzunu karıştırmayın.) Havuzun işlem düğümleri üzerinde varsayılan bağlantı ayarlarını geçersiz kılmak için her NAT havuzunu ayarlayın. 
 
-Bir veya daha fazla her NAT havuzu yapılandırması içeren [ağ güvenlik grubu (NSG) kuralları](/rest/api/batchservice/pool/add#networksecuritygrouprule). Her NSG kural sağlar veya belirli ağ trafiğini uç reddeder. İzin verilen veya reddedilen tüm trafiği, tarafından tanımlanan trafiği seçebilirsiniz bir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) (örneğin, "Internet"), ya da belirli IP adresleri veya alt gelen trafiği.
+Bir veya daha fazla her NAT havuzu yapılandırması içeren [ağ güvenlik grubu (NSG) kuralları](/rest/api/batchservice/pool/add#networksecuritygrouprule). Her bir NSG kuralı izin verir veya belirli ağ trafiği uç noktasına reddeder. Veya tüm trafiği, tarafından tanımlanan trafiği reddetmek seçebileceğiniz bir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) (örneğin, "Internet") veya belirli IP adresleri veya alt ağlara gelen trafiği.
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
-* Havuz uç nokta yapılandırması havuzunun parçası olan [ağ yapılandırması](/rest/api/batchservice/pool/add#NetworkConfiguration). Ağ Yapılandırması isteğe bağlı olarak havuzuna katılmaya ayarları içerebilir bir [Azure sanal ağı](batch-virtual-network.md). Bir sanal ağ havuzunda ayarladıysanız, sanal ağ adresi ayarları kullanmak NSG kuralları oluşturabilirsiniz.
-* NAT havuzunu yapılandırırken, birden fazla NSG kuralları yapılandırabilirsiniz. Kurallar öncelik sırasına göre denetlenir. Bir kural uygulandığı zaman eşleştirme için başka hiçbir kural test edilmez.
+* Havuz uç nokta yapılandırması havuzun parçası olan [ağ yapılandırması](/rest/api/batchservice/pool/add#NetworkConfiguration). Ağ Yapılandırması isteğe bağlı olarak havuza eklemenizi ayarları içerebilir bir [Azure sanal ağı](batch-virtual-network.md). Bir sanal ağ içinde havuz ayarlarsanız, bir sanal ağ adresi ayarlarını kullanmaya NSG kuralları oluşturabilirsiniz.
+* Bir NAT havuzu yapılandırdığınız sırada birden fazla NSG kuralları yapılandırabilirsiniz. Kurallar öncelik sırasına göre denetlenir. Bir kural uygulandığı zaman eşleştirme için başka hiçbir kural test edilmez.
 
 
-## <a name="example-deny-all-rdp-traffic"></a>Örnek: tüm RDP trafiği engelle
+## <a name="example-deny-all-rdp-traffic"></a>Örnek: Tüm RDP trafiği engelle
 
-Aşağıdaki C# kod parçacığında, tüm ağ trafiğini engellemek için bir Windows havuzdaki işlem düğümleri üzerinde RDP uç noktasını yapılandırma gösterilmektedir. Uç nokta bağlantı noktası aralığındaki bir ön uç havuzu kullanır *60000 60099*. 
+Aşağıdaki C# kod parçacığı, tüm ağ trafiği reddetmeye yönelik bir Windows havuzdaki işlem düğümleri üzerinde RDP uç noktası yapılandırmak nasıl gösterir. Uç nokta bağlantı noktası aralığında bir ön uç havuzunu kullanan *60000 60099*. 
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -48,9 +48,9 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Örnek: tüm SSH trafiğini internet'ten Reddet
+## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Örnek: Tüm SSH trafiği internet'ten Reddet
 
-Aşağıdaki Python parçacığını, tüm Internet trafiği engellemek için bir Linux havuzdaki işlem düğümlerinde SSH uç noktasını yapılandırma gösterilmektedir. Uç nokta bağlantı noktası aralığındaki bir ön uç havuzu kullanır *4000 4100*. 
+Aşağıdaki Python kod parçacığı, tüm internet trafiği reddetmeye yönelik bir Linux havuzdaki işlem düğümleri üzerinde SSH uç noktası yapılandırma işlemi gösterilmektedir. Uç nokta bağlantı noktası aralığında bir ön uç havuzunu kullanan *4000 4100*. 
 
 ```python
 pool.network_configuration=batchmodels.NetworkConfiguration(
@@ -76,7 +76,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 
 ## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>Örnek: Belirli bir IP adresinden gelen RDP trafiğine izin ver
 
-Aşağıdaki C# kod parçacığında, yalnızca IP adresinden gelen RDP erişime izin vermek için bir Windows havuzdaki işlem düğümleri üzerinde RDP uç noktası yapılandırmak gösterilmiştir *198.51.100.7*. İkinci NSG kural IP adresi eşleşmiyor trafiği engeller.
+Aşağıdaki C# kod parçacığı, yalnızca IP adresi ağdan RDP erişimine izin vermek için bir Windows havuzdaki işlem düğümleri üzerinde RDP uç noktası yapılandırmak nasıl gösterir *198.51.100.7*. İkinci bir NSG kuralı IP adresi eşleşmeyen trafiği engeller.
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -92,9 +92,9 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Örnek: Belirli bir alt ağdan SSH trafiğine izin ver
+## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>Örnek: Belirli bir alt ağından gelen SSH trafiğine izin ver
 
-Aşağıdaki Python parçacığını alt ağdan yalnızca erişime izin vermek için bir Linux havuzdaki işlem düğümlerinde SSH uç noktasını yapılandırma gösterilmektedir *192.168.1.0/24*. İkinci NSG kural alt ağ eşleşmiyor trafiği engeller.
+Aşağıdaki Python kod parçacığı, SSH uç noktası yalnızca alt ağından erişime izin vermek için bir Linux havuzdaki işlem düğümleri üzerinde yapılandırma işlemi gösterilmektedir *192.168.1.0/24*. İkinci bir NSG kuralı alt eşleşmeyen trafiği engeller.
 
 ```python
 pool.network_configuration=batchmodels.NetworkConfiguration(
@@ -125,7 +125,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure'da NSG kuralları hakkında daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/security-overview.md).
+- Azure'da NSG kuralları hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları ile ağ trafiğini filtreleme](../virtual-network/security-overview.md).
 
-- Toplu ayrıntılı bir bakış için bkz: [geliştirme büyük ölçekli paralel işlem çözümleri yığın](batch-api-basics.md).
+- Batch ayrıntılı genel bakış için bkz: [büyük ölçekli paralel işlem çözümleri geliştirme batch'le](batch-api-basics.md).
 

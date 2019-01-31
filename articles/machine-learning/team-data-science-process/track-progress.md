@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7745a53084f4477f7b736ea9d130ffd3eed771f4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134314"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451997"
 ---
 # <a name="tracking-the-progress-of-data-science-projects"></a>Veri bilimi projeleri ilerlemesini izleme
 
@@ -39,7 +39,7 @@ Oluşturma ve pencere öğeleri ve panolarda Azure DevOps üzerine özelleştirm
 
 Paneller kalan birikmeli akış diyagramı (CFD), burndown ve bir projenin tamamlanma durumunu göster:
 
-- **Alt sol**: CFD gri mavi olarak kabul edilen ve yeşil renkte Bitti, onaylanan gösteren belirli bir durumdaki iş miktarı.
+- **Alt sol**:  Gri mavi olarak kabul edilen ve yeşil renkte Bitti, onaylanan gösteren CFD belirli bir durumdaki iş miktarı.
 - **Sağ üst**: burndown grafiği ve kalan süre tamamlamak için kalan iş).
 - **Sağ alt**: toplam miktarı iş tamamlanan iş tamamlanma durumunu grafik.
 

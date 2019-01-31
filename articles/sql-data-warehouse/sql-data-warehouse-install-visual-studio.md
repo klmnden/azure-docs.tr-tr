@@ -4,20 +4,20 @@ description: Azure SQL Data Warehouse için Visual Studio'yu ve SQL Server Veri 
 services: sql-data-warehouse
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ba84b64afb1d5ebcd5ec153787ddc7d0739bd8d8
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e27a3d4f2fe4b8421b637e485d77d6376d15bf9a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307394"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461500"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>SQL Data Warehouse için Visual Studio ve SSDT yükleme
 SQL veri ambarı için uygulama geliştirmek üzere Visual Studio'nun en son sürümü ile SQL Server veri Araçları (SSDT) en son sürümü kullanmanızı öneririz.  Geriye dönük uyumluluk için SSDT ile Visual Studio 2013 Güncelleştirme 5 de desteklenir.  
@@ -29,7 +29,7 @@ SSDT ile Visual Studio kullanarak görsel olarak tablolar, görünümler, saklı
 > 
 > 
 
-## <a name="step-1-install-visual-studio"></a>1. adım: Visual Studio yükleme
+## <a name="step-1-install-visual-studio"></a>1. Adım: Visual Studio yükleme
 Karşıdan yükleyip Visual Studio'yu yüklemek için aşağıdaki bağlantıları izleyin. Visual Studio 2013 zaten var veya sonraki bir sürümü yüklüyse, adım 2'ye atlayabilirsiniz SSDT'yi yükleme.
 
 1. [Visual Studio'yu indirin][].

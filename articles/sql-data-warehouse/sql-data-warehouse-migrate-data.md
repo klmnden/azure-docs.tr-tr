@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: fc7bf4eaeb073b0337be68632e5057bfce96e06a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: a09037f2e33d87446696dd11477c4e8b45af4187
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307831"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474182"
 ---
 # <a name="migrate-your-data"></a>Verilerinizi geçirme
 Farklı kaynaktaki verileri çeşitli araçlarla, SQL veri ambarı'na taşınabilir.  ADF kopyalama, SSIS ve bcp tüm bu hedefe ulaşmak için kullanılabilir. Ancak, veri arttıkça miktarda veri geçiş işlemi adımlara bölmek hakkında düşünmelisiniz. Her adım için performans ve esneklik kesintisiz veri geçişini sağlamak için en iyi duruma getirme olanağı verir.
@@ -157,7 +157,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
 3. AZCopy, verileri Azure Blob Depolama kapsayıcısında
 4. Verileri PolyBase kullanarak SQL Data Warehouse'a veri yükleme
 
-Tüm belgeleri kullanılabilir: [AZCopy][AZCopy].
+Kullanılabilir tüm belgeler: [AZCopy][AZCopy].
 
 ## <a name="optimizing-data-export"></a>En iyi duruma getirme verileri dışarı aktarma
 Dışarı aktarma PolyBase tarafından belirtilen gereksinimlere uyan sağlamaya ek olarak, ayrıca verilerin dışarı aktarılmasını işlem daha da geliştirmek için en iyi duruma getirmek arama.

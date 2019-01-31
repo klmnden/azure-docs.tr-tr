@@ -9,13 +9,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: queues
-ms.openlocfilehash: 594407ac5f5dc012ab542cedc6393b702fa31804
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: queues
+ms.openlocfilehash: bec1632199e59994831efe4af583617b01374c53
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525408"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473808"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Java’dan Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "39525408"
 ## <a name="overview"></a>Genel Bakış
 Bu kılavuzda Azure kuyruk depolama hizmetini kullanarak, yaygın senaryoları gerçekleştirmek nasıl gösterir. Örnekler Java dilinde yazılır ve [Java için Azure Depolama SDK’sı][Azure Storage SDK for Java] kullanır. Senaryoları ele alınmaktadır **ekleme**, **gözatma**, **alma**, ve **silme** kuyruk iletileri yanı  **oluşturma** ve **silme** sıralar. Kuyruklar hakkında daha fazla bilgi için bkz. [sonraki adımlar](#Next-Steps) bölümü.
 
-Not: Bir SDK'sı Android cihazlarında Azure depolama kullanan geliştiriciler için kullanılabilir. Daha fazla bilgi için bkz. [Android için Azure Depolama SDK’sı][Azure Storage SDK for Android].
+Not: Android cihazlarda Azure Depolama kullanan geliştiriciler için bir SDK mevcuttur. Daha fazla bilgi için bkz. [Android için Azure Depolama SDK’sı][Azure Storage SDK for Android].
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -66,8 +66,8 @@ String storageConnectionString =
 
 Aşağıdaki örnekler, depolama bağlantı dizesini almak için bu iki yöntemden birini kullandığınızı varsayar.
 
-## <a name="how-to-create-a-queue"></a>Nasıl yapılır: bir kuyruk oluşturun
-A **CloudQueueClient** nesne kuyruklar için başvuru nesneleri almanıza olanak tanır. Aşağıdaki kod oluşturur bir **CloudQueueClient** nesne. (Not: oluşturmak için ek yolla **CloudStorageAccount** nesnelerini; daha fazla bilgi için bkz **CloudStorageAccount** içinde [Azure Depolama İstemcisi SDK Başvurusu].)
+## <a name="how-to-create-a-queue"></a>Nasıl yapılır: Bir kuyruk oluşturma
+A **CloudQueueClient** nesne kuyruklar için başvuru nesneleri almanıza olanak tanır. Aşağıdaki kod oluşturur bir **CloudQueueClient** nesne. (Not: Oluşturmak için ek yolla **CloudStorageAccount** nesnelerini; daha fazla bilgi için bkz **CloudStorageAccount** içinde [Azure Depolama İstemcisi SDK Başvurusu].)
 
 Kullanma **CloudQueueClient** sıranın kullanmak istediğiniz bir başvuru almak için nesne. Yoksa, kuyruk oluşturabilirsiniz.
 
@@ -94,7 +94,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-add-a-message-to-a-queue"></a>Nasıl yapılır: bir kuyruğa bir ileti ekleyin
+## <a name="how-to-add-a-message-to-a-queue"></a>Nasıl yapılır: Kuyruğa bir ileti ekleyin
 Varolan bir sıraya bir ileti yerleştirmek için ilk olarak yeni bir **CloudQueueMessage** oluşturun. Ardından, arama **addMessage** yöntemi. A **CloudQueueMessage** bir dizeden (UTF-8 biçiminde) veya bayt dizisi oluşturulabilir. İşte (yoksa), bir kuyruk oluşturan kodu ve "Hello, World" iletisini ekler.
 
 ```java
@@ -124,7 +124,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Nasıl yapılır: sonraki iletiye gözatın
+## <a name="how-to-peek-at-the-next-message"></a>Nasıl yapılır: Sonraki iletiye gözatın
 Kuyruğun iletiyi kuyruktan kaldırmadan çağırarak peek **peekMessage**.
 
 ```java
@@ -156,7 +156,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl yapılır: bir kuyruğa alınan iletinin içeriğini değiştirme
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl yapılır: Kuyruğa alınan iletinin içeriğini değiştirme
 Kuyrukta yer alan bir iletinin içeriğini değiştirebilirsiniz. Eğer ileti bir iş görevini temsil ediyorsa, bu özelliği kullanarak iş görevinin durumunu güncelleştirebilirsiniz. Aşağıdaki kod kuyruk iletisini yeni içeriklerle güncelleştirir ve görünürlük zaman aşımını 60 saniye daha uzatır. Bu, ileti ile ilişkili işin durumunu kaydeder ve istemciye ileti üzerinde çalışmaya devam etmesi için bir dakika daha zaman verir. Bir işleme adımı donanım veya yazılım arızasından dolayı başarısız olursa baştan başlamanıza gerek kalmadan kuyruk iletilerindeki çok adımlı iş akışlarını izlemek için bu yöntemi kullanabilirsiniz. Genellikle bir yeniden deneme sayacı tutmanı gerekir ve bir ileti *n* seferden daha fazla yeniden denenirse, silebilirsiniz. Bu, her işlendiğinde bir uygulama hatası tetikleyen bir iletiye karşı koruma sağlar.
 
 Aşağıdaki kod örnek aramaları ileti kuyruğu üzerinden içeriğini, "Hello, World" eşleşen sonra içerik ileti değiştirir ve çıkar ilk iletiyi bulur.
@@ -239,7 +239,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Nasıl yapılır: kuyruk uzunluğu alma
+## <a name="how-to-get-the-queue-length"></a>Nasıl yapılır: Kuyruk uzunluğu alma
 Bir kuyruktaki ileti sayısı ile ilgili bir tahmin alabilirsiniz. **DownloadAttributes** kaç iletiler bir kuyrukta olan sayısına dahil yöntemi çeşitli geçerli değerler için kuyruk hizmeti sorar. İletileri eklenebilir veya kuyruk hizmeti, isteğine yanıt vermeden sonra kaldırılan sayısı yalnızca yaklaşık olmasıdır. **GetApproximateMessageCount** yöntem çağrısı tarafından alınan en son değeri döndürür **downloadAttributes**, kuyruk hizmetini çağırmadan olmadan.
 
 ```java
@@ -271,7 +271,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Nasıl yapılır: bir sonraki iletiyi sıradan çıkar
+## <a name="how-to-dequeue-the-next-message"></a>Nasıl yapılır: Sonraki iletiyi sıradan çıkar
 Kodunuzun bir iletiyi bir kuyruktan iki adımda dequeues. Çağırdığınızda **retrieveMessage**, sonraki iletiyi bir kuyruğa alın. Öğesinden döndürülen bir ileti **retrieveMessage** bu kuyruktan iletileri okuyan herhangi bir kod için görünmez hale gelir. Varsayılan olarak bu ileti 30 saniye görünmez kalır. İletiyi kuyruktan kaldırmayı tamamlamak için de çağırmanız gerekir **deleteMessage**. Bir iletinin iki adımlı kaldırılma süreci, donanım veya yazılım arızasından dolayı kodunuzun bir iletiyi işleyememesi durumunda kodunuzun başka bir örneğinin aynı iletiyi alıp yeniden denemesini sağlar. Kod çağrılarınızı **deleteMessage** ileti işlendikten sonra sağ.
 
 ```java
@@ -335,7 +335,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-list-the-queues"></a>Nasıl yapılır: kuyrukların listesi
+## <a name="how-to-list-the-queues"></a>Nasıl yapılır: Kuyrukların listesi
 Geçerli kuyruk listesini almak için çağrı **CloudQueueClient.listQueues()** koleksiyonunu döndürür yöntemi **CloudQueue** nesneleri.
 
 ```java
@@ -363,7 +363,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-a-queue"></a>Nasıl yapılır: bir kuyruk silme
+## <a name="how-to-delete-a-queue"></a>Nasıl yapılır: Bir kuyruk silme
 Bir kuyruk ve içerdiği tüm iletileri silmek için çağrı **deleteIfExists** metodunda **CloudQueue** nesne.
 
 ```java

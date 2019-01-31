@@ -2,22 +2,22 @@
 title: Azure Hızlı Başlangıç - Batch işi çalıştırma - CLI
 description: Azure CLI ile bir Batch işi çalıştırmayı hızlı bir şekilde öğrenin.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 75703b4b10bbf3864076952990df2e6c2a9ab28d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 10f84a758bdb2e01793aee06cba59a29b5639775
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969657"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470969"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Hızlı başlangıç: Azure CLI ile ilk Batch işinizi çalıştırma
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI ile ilk Batch işinizi çalıştırma
 
 Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta, Azure CLI’sini kullanarak bir Batch hesabı, bir işlem düğümleri (sanal makine) *havuzu* ve havuz üzerinde *görevler* çalıştıran bir *iş* oluşturma işlemi gösterilmektedir. Her örnek görev, havuz düğümlerinden biri üzerinde temel bir komut çalıştırır. Bu hızlı başlangıcı tamamladıktan sonra, Batch hizmetinin temel kavramlarını anlayacak ve Batch’i daha büyük ölçekte daha gerçekçi iş yükleri ile denemeye hazır olacaksınız.
 
@@ -170,7 +170,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-`stdout.txt` dosyasının içeriğini bir metin düzenleyicisinde görüntüleyebilirsiniz. İçerik, düğüm üzerinde ayarlanmış Azure Batch ortam değişkenlerini gösterir. Kendi Batch işlerinizi oluşturduğunuzda, görev komut satırlarında bu görev değişkenlerine ve komut satırları tarafından çalıştırılan uygulama ve betiklere başvurabilirsiniz. Örnek:
+`stdout.txt` dosyasının içeriğini bir metin düzenleyicisinde görüntüleyebilirsiniz. İçerik, düğüm üzerinde ayarlanmış Azure Batch ortam değişkenlerini gösterir. Kendi Batch işlerinizi oluşturduğunuzda, görev komut satırlarında bu görev değişkenlerine ve komut satırları tarafından çalıştırılan uygulama ve betiklere başvurabilirsiniz. Örneğin:
 
 ```
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1

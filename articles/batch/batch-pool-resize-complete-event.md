@@ -1,8 +1,8 @@
 ---
-title: Azure Batch havuzu yeniden boyutlandırma complete olayını | Microsoft Docs
-description: Batch havuzundaki başvurusunu complete olayını yeniden boyutlandırın.
+title: Azure Batch havuzu yeniden boyutlandırma tamamlama olayı | Microsoft Docs
+description: Batch havuzu başvurusunu yeniden boyutlandırma tamamlama olayı.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,19 +11,19 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: e91ba664a69d28cae1f82710d427bd2a391305a2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: 87c98b89a49adbad88841dccbd4ba47d370b2be7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315670"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474318"
 ---
 # <a name="pool-resize-complete-event"></a>Havuz yeniden boyutlandırma tamamlama olayı
 
- Havuzu yeniden boyutlandırma tamamlandı veya başarısız olduğunda bu olay yayınlanır.
+ Havuz yeniden boyutlandırma tamamlandıysa veya başarısız olduğunda bu olay yayılır.
 
- Aşağıdaki örnek boyutu artar ve başarıyla tamamlandı bir havuz için havuzu yeniden boyutlandırma complete olayını gövdesi gösterir.
+ Aşağıdaki örnek boyutu artar ve başarıyla tamamlanmış bir havuzu için havuz yeniden boyutlandırma tamamlama olayı gövdesi gösterir.
 
 ```
 {
@@ -40,15 +40,15 @@ ms.locfileid: "30315670"
 }
 ```
 
-|Öğe|Tür|Notlar|
+|Öğe|Type|Notlar|
 |-------------|----------|-----------|
-|id|Dize|Havuzun kimliği.|
-|nodeDeallocationOption|Dize|Havuz boyutunun küçülmesi durumunda ne zaman düğüm havuzdan kaldırılabilir belirtir.<br /><br /> Olası değerler şunlardır:<br /><br /> **requeue** – yürütülen görevleri sonlandırır ve onları yeniden kuyruğa alır. İş etkinleştirildiğinde görevler yeniden yürütülür. Görevler sonlandırıldı hemen düğümleri kaldırın.<br /><br /> **sonlandırma** – çalışan görevlerin sonlandır. Görevler yeniden çalışmaz. Görevler sonlandırıldı hemen düğümleri kaldırın.<br /><br /> **net_offline_option** – tamamlamak için izin şu anda çalışan görevler. Beklenirken hiç yeni görev zamanlamaz. Tüm görevler tamamlandığında düğümleri kaldırın.<br /><br /> **Retaineddata** -izin şu anda çalışan görevlerin tamamlayın ve ardından tüm veri saklama sürelerini süresi dolmak üzere görev için bekleyin. Beklenirken hiç yeni görev zamanlamaz. Tüm görev bekletme süreleri dolduğunda düğümleri kaldırın.<br /><br /> Requeue varsayılan değerdir.<br /><br /> Havuz boyutunun artırılması sonra değer kümesine **geçersiz**.|
-|currentDedicated|Int32|Şu anda havuzuna atanmış işlem düğümleri sayısı.|
-|targetDedicated|Int32|Havuzu için istenen işlem düğümleri sayısı.|
-|enableAutoScale|Bool|Havuz boyutu otomatik olarak zaman içinde ayarlar olup olmadığını belirtir.|
-|isAutoPool|Bool|Bir işin AutoPool mekanizması havuzu oluşturulup oluşturulmadığını belirtir.|
-|startTime|DateTime|Havuzu yeniden boyutlandırma zaman başlatıldı.|
-|endTime|DateTime|Tamamlanan havuzu yeniden boyutlandırma süre.|
-|resultCode|Dize|Yeniden boyutlandırma sonucu.|
-|resultMessage|Dize|Yeniden boyutlandırma hatası sonucu ayrıntılarını içerir.<br /><br /> Yeniden boyutlandırma formu başarıyla tamamlanırsa işlemin başarılı olduğunu belirtir.|
+|id|String|Havuz kimliği.|
+|nodeDeallocationOption|String|Havuz boyutu azalıyorsa ne zaman düğüm havuzdan kaldırılabilir belirtir.<br /><br /> Olası değerler şunlardır:<br /><br /> **yeniden kuyruğa alma** – çalışan görevleri sonlandırın ve yeniden kuyruğa ekleyin. İş etkinleştirildiğinde görevler yeniden çalıştırılır. Görevleri sonlandırıldı hemen sonra düğümleri kaldırma.<br /><br /> **sonlandırma** – çalışan görevleri sonlandır. Görevleri yeniden çalışmaz. Görevleri sonlandırıldı hemen sonra düğümleri kaldırma.<br /><br /> **net_offline_option** – tamamlanması şu anda çalışan görevlerin izin ver. Hiç yeni görev beklenirken zamanlayın. Tüm görevler tamamlandığında düğümleri kaldırma.<br /><br /> **Retaineddata** -izin şu anda çalışan görevlerin tamamlayın ve ardından tüm veri tutma sürelerinin sona görev için bekleyin. Hiç yeni görev beklenirken zamanlayın. Tüm görev bekletme süreleri dolmuş olduğunda düğümleri kaldırma.<br /><br /> Yeniden kuyruğa alma varsayılan değerdir.<br /><br /> Havuz boyutunu artırma sonra değeri şuna ayarlı **geçersiz**.|
+|currentDedicated|Int32|Havuza atanmış işlem düğümleri sayısı.|
+|targetDedicated|Int32|Havuz için istenen işlem düğümleri sayısı.|
+|enableAutoScale|Bool|Havuz boyutunu otomatik olarak zaman içinde ayarlar olup olmadığını belirtir.|
+|isAutoPool|Bool|Havuza bir işin AutoPool mekanizması oluşturulup oluşturulmadığını belirtir.|
+|startTime|DateTime|Havuz yeniden boyutlandırma zaman başlatıldı.|
+|endTime|DateTime|Tamamlanan havuz yeniden boyutlandırma zaman.|
+|ResultCode|String|Yeniden boyutlandırma sonucu.|
+|Sonuç iletisi|String|Yeniden boyutlandırma hatası sonucunun ayrıntılarını içerir.<br /><br /> Yeniden boyutlandırma başarıyla tamamlandı, işlemin başarılı olduğunu belirtir.|

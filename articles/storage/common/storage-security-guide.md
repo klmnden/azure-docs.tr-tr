@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243803"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454496"
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
@@ -89,7 +89,7 @@ Bir Azure depolama hesabı yönetim işlemlerini erişmek için RBAC kullanma ha
 * [Azure Active Directory Rol Tabanlı Erişim Denetimi](../../role-based-access-control/role-assignments-portal.md)
 
   Bu makalede Azure Active Directory Rol Tabanlı Access Control ve nasıl çalıştığı açıklanmaktadır.
-* [RBAC: Yerleşik Roller](../../role-based-access-control/built-in-roles.md)
+* [RBAC: Yerleşik roller](../../role-based-access-control/built-in-roles.md)
 
   Bu makalede RBAC'de kullanılabilen yerleşik rollerin tümünde ayrıntıları.
 * [Resource Manager dağıtımını ve klasik dağıtımı anlama](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -98,7 +98,7 @@ Bir Azure depolama hesabı yönetim işlemlerini erişmek için RBAC kullanma ha
 * [Rol Tabanlı Erişim Denetimini REST API’si ile Yönetme](../../role-based-access-control/role-assignments-rest.md)
 
   Bu makalede RBAC yönetimi için REST API’sinin nasıl kullanılacağı gösterilmektedir.
-* [Azure depolama kaynak sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/azure/mt163683.aspx)
+* [Azure Depolama Kaynak Sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Bu API Başvurusu, depolama hesabınızın programlı olarak yönetmek için kullanabileceğiniz API'ler açıklar.
 * [Aboneliklere erişmek için Kaynak Yöneticisi'ni kullanın kimlik doğrulama API'si](../../azure-resource-manager/resource-manager-api-authentication.md)
@@ -148,7 +148,7 @@ Azure Key Vault'u kullanarak başka bir avantajı, erişimi Azure Active Directo
 #### <a name="resources"></a>Kaynaklar
 
 * [Azure portalında depolama hesabı ayarlarını yönetme](storage-account-manage.md)
-* [Azure depolama kaynak sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/mt163683.aspx)
+* [Azure Depolama Kaynak Sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/mt163683.aspx)
 
 ## <a name="data-plane-security"></a>Veri düzlemi güvenliği
 Veri düzlemi güvenliği Azure Depolama: bloblar, kuyruklar, tablolar ve dosyalar depolanan veri nesnelerini güvenli hale getirmek için kullanılan yöntemler ifade eder. Güvenlik ve veri veri aktarım sırasında şifrelemek için yöntemleri gördük ancak nesnelere erişimi denetleme hakkında nasıl devam?
@@ -240,7 +240,7 @@ Paylaşılan erişim imzalarını ve depolanan erişim ilkelerini örnekleri ile
 * Paylaşılan erişim imzalarını ve depolanan erişim ilkelerini oluşturmak için .NET istemci kitaplığını kullanma öğreticileri şunlardır.
 
   * [Paylaşılan erişim imzaları (SAS) kullanma](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Paylaşılan erişim imzaları, bölüm 2: Oluşturma ve Blob hizmetiyle SAS kullanın](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [Paylaşılan erişim imzaları, bölüm 2: Oluşturma ve Blob hizmetiyle SAS kullanma](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Bu makale, SAS Modeli'ni veya paylaşılan erişim imzaları örnekleri bir açıklama içerir ve SAS'ın en iyi yöntem önerileri kullanın. De ele izni iptal olur.
 
@@ -328,7 +328,7 @@ Microsoft Azure'da etkinleştirildiğinde çözüm Iaas Vm'leri için aşağıda
 
 
 > [!NOTE]
-> Linux işletim sistemi disk şifreleme aşağıdaki Linux dağıtımlarında şu anda desteklenmiyor: RHEL 7.2 CentOS 7.2n ve Ubuntu 16.04.
+> Linux işletim sistemi disk şifreleme şu anda aşağıdaki Linux dağıtımlarında desteklenir: RHEL 7.2 CentOS 7.2n ve Ubuntu 16.04.
 >
 >
 
@@ -411,7 +411,7 @@ GetBlob girdilerini ilgilendiğimiz ve yetkileri nasıl kadar ihtiyacımız olan
    1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
 3. Blob özel olduğu ve depolama anahtarını erişmek için kullanıldı. Bu durumda, istek durumu olan "**başarı**"ve Yetkilendirme türü"**kimliği doğrulanmış**".
 
-   1.0; 2015-11-16T18:32:24.3174537Z; GetBlob; **Başarı**; 206; 59; 22; **Kimliği doğrulanmış**; depolamam...
+   1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
 
 Microsoft ileti Çözümleyicisi'ni görüntülemek ve bu günlükleri analiz etmek için kullanabilirsiniz. Bu, arama ve filtreleme yetenekleri içerir. Örneğin, aramak istediğiniz, diğer bir deyişle, beklediğiniz kullanım ise emin olmak için biri değil eriştiği, depolama hesabınızı uygunsuz bir şekilde görmek için GetBlob örnekleri.
 
@@ -504,6 +504,6 @@ CORS ve nasıl etkinleştirileceğini hakkında daha fazla bilgi için bu kaynak
 * [FIPS 140 doğrulaması](https://technet.microsoft.com/library/cc750357.aspx)
 
   Bu makalede nasıl Microsoft ürünleri ve şifreleme modüllerine FIPS standardıyla ABD uyumlu hakkında bilgi sağlar. Federal Hükümet.
-* ["Sistem şifrelemesi: kullanım FIPS uyumlu algoritmaları şifreleme, kodlama ve imzalama için" sonraki Windows sürümlerinde ve Windows XP'de güvenlik ayarları etkileri](https://support.microsoft.com/kb/811833)
+* ["Sistem şifrelemesi: Şifreleme, kodlama ve imzalama için FIPS uyumlu algoritmaları kullan"güvenlik ayarları etkileri Windows XP ve sonraki Windows sürümlerinde](https://support.microsoft.com/kb/811833)
 
   Bu makalede, FIPS modunda daha eski Windows bilgisayarları kullanımı hakkında konuşuyor.

@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257315"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296928"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer ile TCP boşta kalma (genel Önizleme) Sıfırla
 
-Kullanabileceğiniz [Standard Load Balancer](load-balancer-standard-overview.md) her yapılandırılabilir boşta kalma zaman aşımı için çift yönlü TCP sıfırlar (TCP lk paket) ile senaryolarınız için daha öngörülebilir bir uygulama davranışı oluşturmak için.  Load Balancer'ın varsayılan davranışı, Akışlar bir akışın boşta kalma zaman aşımı ulaşıldığında sessizce bırak sağlamaktır.
+Kullanabileceğiniz [Standard Load Balancer](load-balancer-standard-overview.md) için belirli bir kural sıfırlama TCP boşta üzerinde'ı etkinleştirerek senaryolarınız için daha öngörülebilir bir uygulama davranışı oluşturmak için. Load Balancer'ın varsayılan davranışı, Akışlar bir akışın boşta kalma zaman aşımı ulaşıldığında sessizce bırak sağlamaktır.  Bu özelliği etkinleştirmek, Load Balancer'ı çift yönlü TCP sıfırlar (TCP lk paket) boşta kalma zaman aşımını göndermeye neden olur.  Bu bağlantı zaman aşımına uğradı ve artık kullanılamaz, uygulama uç noktalarını bildirir.  Uç noktaları, hemen gerekirse yeni bir bağlantı kurabilirsiniz.
 
 ![Yük Dengeleyici TCP Sıfırla](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -69,31 +69,10 @@ API sürümü 2018-07-01 kullanarak, iki TCP sıfırlar yönlü üzerinde bir ku
 
 ## <a name="regions"></a> Bölge kullanılabilirliği
 
-Bu parametre aşağıdaki bölgelerde şu anda etkilidir.  Burada listelenmeyen bölgelerde parametrenin etkisi yoktur.
-
-| Bölge |
-|---|
-| Güneydoğu Asya |
-| Güney Brezilya |
-| Orta Kanada |
-| Batı Avrupa |
-| Hindistan Orta |
-| Hindistan Batı |
-| Japonya Batı |
-| Kore Orta |
-| Kore Güney |
-| UK Kuzey |
-| UK Güney 2 |
-| ABD Doğu |
-| ABD Doğu 2 |
-| ABD Kuzey |
-| ABD Batı |
-
-Bu tablo, Önizleme, diğer bölgelere ayrıntılı olarak güncelleştirilecektir.  
+Tüm bölgelerde kullanılabilir.
 
 ## <a name="limitations"></a>Sınırlamalar
 
-- Sınırlı [bölge kullanılabilirliği](#regions).
 - Portal, yapılandırma veya TCP sıfırlama görüntülemek için kullanılamaz.  Bunun yerine şablonları, REST API, Az CLI 2. 0'ı veya PowerShell kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar

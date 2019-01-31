@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d75a2cef96eaafb606c66d469b0e27fed8bb3573
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827389"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466821"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT Hub kotaları ve azaltma
 
@@ -85,7 +85,7 @@ IOT hub'ı diğer kullanım sınırlamaları uygular:
 <sup>1</sup>bu özellik, IOT Hub'ın temel katmanda kullanılabilir değil. Daha fazla bilgi için [doğru IOT hub'a seçme](iot-hub-scaling.md).
 
 > [!NOTE]
-> Şu anda en fazla cihazları tek bir IOT hub'ına bağlanabilir 500.000 sayısıdır. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Şu anda, cihazları tek bir IOT hub'ına bağlanabilir sayısı 1.000.000 ' dir. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## <a name="latency"></a>Gecikme süresi
 Tüm işlemler için düşük gecikme süresi sağlamak IOT hub'ı içindedir. Ancak, ağ koşulları ve öngörülemeyen diğer faktörler nedeniyle, bir en yüksek gecikme süresi garanti edemez. Çözümünüzü tasarlarken, aşağıdakileri yapmalısınız:

@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/25/2019
+ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052726"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478483"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -83,7 +83,7 @@ Vardır [iki kimlik doğrulama yöntemleri](sql-database-control-access.md#authe
 - [Azure Active Directory kimlik doğrulaması](sql-database-aad-authentication.md)
 - SQL kimlik doğrulaması
 
-Geleneksel windows kimlik doğrulaması desteklenmiyor. Azure Active Directory (AD) bir merkezi kimlik ve erişim yönetimi hizmetidir. Bu, çok bir kolayca bir çoklu oturum açma erişimi (SSO) için tüm personel, kuruluşunuzda sağlayabilirsiniz. Ne bu kimlik bilgileri daha basit kimlik doğrulaması için tüm Azure hizmetleri arasında paylaşıldığı anlamına gelir. Destekleyen AAD [MFA (çok faktörlü kimlik doğrulamasını)](sql-database-ssms-mfa-authentication.md) ile bir [yalnızca birkaç tıklamayla](../active-directory/hybrid/how-to-connect-install-express.md) AAD Windows Server Active Directory ile tümleştirilebilir. SQL kimlik doğrulaması, tam olarak, geçmişte kullandığınız gibi çalışır. Bir kullanıcı adı/parola sağlayın ve kullanıcıların belirli bir mantıksal sunucu üzerindeki herhangi bir veritabanı için kimlik doğrulaması yapabilir. Bu da çok faktörlü kimlik doğrulaması ve Azure AD etki alanı içinde Konuk kullanıcı hesaplarını sunmak SQL veritabanı ve SQL veri ambarı sağlar. Bir Active Directory şirket içi zaten varsa, dizininize Azure'a genişletmek için Azure Active Directory ile dizin ad'sini birleştirebilir.
+Geleneksel windows kimlik doğrulaması desteklenmiyor. Azure Active Directory (AD) bir merkezi kimlik ve erişim yönetimi hizmetidir. Bu, çok bir kolayca bir çoklu oturum açma erişimi (SSO) için tüm personel, kuruluşunuzda sağlayabilirsiniz. Ne bu kimlik bilgileri daha basit kimlik doğrulaması için tüm Azure hizmetleri arasında paylaşıldığı anlamına gelir. Destekleyen AAD [MFA (çok faktörlü kimlik doğrulamasını)](sql-database-ssms-mfa-authentication.md) ile bir [yalnızca birkaç tıklamayla](../active-directory/hybrid/how-to-connect-install-express.md) AAD Windows Server Active Directory ile tümleştirilebilir. SQL kimlik doğrulaması, tam olarak, geçmişte kullandığınız gibi çalışır. Bir kullanıcı adı/parola sağlayın ve kullanıcıların belirli bir SQL veritabanı sunucu üzerindeki herhangi bir veritabanı için kimlik doğrulaması yapabilir. Bu da çok faktörlü kimlik doğrulaması ve Azure AD etki alanı içinde Konuk kullanıcı hesaplarını sunmak SQL veritabanı ve SQL veri ambarı sağlar. Bir Active Directory şirket içi zaten varsa, dizininize Azure'a genişletmek için Azure Active Directory ile dizin ad'sini birleştirebilir.
 
 |**Varsa...**|**SQL veritabanı / SQL veri ambarı**|
 |---|---|
@@ -106,7 +106,7 @@ Elinizin altında uygulamanız için en iyi bağlantı kuruluş elde etmek için
 
 #### <a name="firewall"></a>Güvenlik duvarı
 
-Bir güvenlik duvarı erişimi sunucunuza bir dış varlık mantıksal sunucunuza yalnızca belirli varlıklara erişimi vererek engeller. Varsayılan olarak, tüm bağlantılar ve mantıksal sunucu içindeki veritabanlarına, diğer Azure hizmetlerinden gelen bağlantılar dışında izin verilmez. Bir güvenlik duvarı kuralı, bu bilgisayarın IP adresini güvenlik duvarı üzerinden izin vererek onayladığınız yalnızca varlıklara (örneğin, bir geliştirici makine), sunucunuza erişim açabilirsiniz. Ayrıca, mantıksal sunucuya erişmesine izin vermek istediğiniz IP aralığı belirtmenize olanak sağlar. Örneğin, geliştirici Makine IP adresleri kuruluşunuzdaki tek seferde Güvenlik Duvarı ayarları sayfasındaki bir aralığı belirterek eklenebilir.
+Bir güvenlik duvarı erişimi sunucunuza bir dış varlık SQL veritabanı sunucunuza yalnızca belirli varlıklara erişimi vererek engeller. Varsayılan olarak, tüm bağlantılar ve SQL veritabanı sunucu içindeki veritabanlarına, diğer Azure hizmetlerinden gelen bağlantılar dışında izin verilmez. Bir güvenlik duvarı kuralı, bu bilgisayarın IP adresini güvenlik duvarı üzerinden izin vererek onayladığınız yalnızca varlıklara (örneğin, bir geliştirici makine), sunucunuza erişim açabilirsiniz. Ayrıca, SQL veritabanı sunucusuna erişmesine izin vermek istediğiniz IP aralığı belirtmenize olanak sağlar. Örneğin, geliştirici Makine IP adresleri kuruluşunuzdaki tek seferde Güvenlik Duvarı ayarları sayfasındaki bir aralığı belirterek eklenebilir.
 
 Sunucu düzeyinde veya veritabanı düzeyinde güvenlik duvarı kuralları oluşturabilirsiniz. Sunucu düzeyinde güvenlik duvarı kuralları ya da Azure portal veya ile SSMS kullanarak oluşturulabilir. Bir sunucu ve veritabanı düzeyinde güvenlik duvarı kuralı ayarlama hakkında daha fazla bilgi için bkz: [SQL veritabanı'nda güvenlik duvarı kuralları oluşturma](sql-database-security-tutorial.md#create-firewall-rules).
 
@@ -240,7 +240,7 @@ SQL veritabanı'nda platformunun performansını izlemek ve buna uygun olarak ay
 
 #### <a name="azure-portal"></a>Azure portal
 
-Azure portalında veritabanı seçerek ve genel bakış bölmesinin grafikte tıklayarak tek veritabanlarının kullanımını gösterir. CPU yüzdesi, DTU yüzdesi, veri g/ç yüzdesi, oturumları yüzdesi ve veritabanı boyutunun yüzdesi de dahil olmak üzere birden çok ölçüm göstermek için grafiğin değiştirebilirsiniz.
+Azure portalında veritabanı seçme ve grafik genel bakış bölmesinde tıklatarak bir veritabanlarının kullanımını gösterir. CPU yüzdesi, DTU yüzdesi, veri g/ç yüzdesi, oturumları yüzdesi ve veritabanı boyutunun yüzdesi de dahil olmak üzere birden çok ölçüm göstermek için grafiğin değiştirebilirsiniz.
 
 ![Grafik izleme](./media/sql-database-manage-after-migration/monitoring-chart.png)
 

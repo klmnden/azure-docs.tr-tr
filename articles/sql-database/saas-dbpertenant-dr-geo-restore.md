@@ -12,16 +12,16 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d430a9f1ddec785d236f2501178bd3c7d493f716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264759"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470611"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Coğrafi geri yükleme, çok kiracılı bir SaaS uygulaması, veritabanı yedeklerinden kurtarma için kullanın
 
-Bu öğretici, bir uygulanan kiracılı model başına veritabanı ile çok kiracılı bir SaaS uygulaması için eksiksiz olağanüstü durum kurtarma senaryosuna açıklar. Kullandığınız [coğrafi geri yükleme](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups) katalog ve Kiracı veritabanları, bir alternatif kurtarma bölgeye otomatik olarak tutulan coğrafi olarak yedekli yedeklemelerden kurtarmak için. Kesinti giderildikten sonra kullandığınız [coğrafi çoğaltma](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) repatriate kendi özgün bölgeye değişen veritabanları için.
+Bu öğretici, bir uygulanan kiracılı model başına veritabanı ile çok kiracılı bir SaaS uygulaması için eksiksiz olağanüstü durum kurtarma senaryosuna açıklar. Kullandığınız [coğrafi geri yükleme](sql-database-recovery-using-backups.md) katalog ve Kiracı veritabanları, bir alternatif kurtarma bölgeye otomatik olarak tutulan coğrafi olarak yedekli yedeklemelerden kurtarmak için. Kesinti giderildikten sonra kullandığınız [coğrafi çoğaltma](sql-database-geo-replication-overview.md) repatriate kendi özgün bölgeye değişen veritabanları için.
 
 ![Coğrafi geri yükleme mimarisi](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -63,12 +63,12 @@ Olağanüstü Durum Kurtarma (DR), uyumluluk nedenleriyle veya iş sürekliliği
 Bu öğretici, bu sorunları gidermek üzere Azure SQL veritabanı ve Azure platformunun özelliklerini kullanır:
 
 * [Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), tüm gerekli kapasite mümkün olan en kısa sürede ayırmak için. Azure Resource Manager şablonları, bir Ayna görüntüsünü özgün sunucuları ve kurtarma bölgedeki elastik havuzların sağlamak için kullanılır. Yeni kiracılar sağlama için ayrı bir sunucu ve havuzu da oluşturulur.
-* [Elastik veritabanı istemci Kitaplığı](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (oluşturmak ve bir kiracı veritabanı Kataloğu korumak için EDCL),. Genişletilmiş Kataloğu düzenli aralıklarla Yenilenen havuz ve veritabanı yapılandırma bilgilerini içerir.
-* [Parça yönetim kurtarma özellikleri](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) Katalog veritabanı konumu girişlerini kurtarma ve repatriation sırasında korumak için EDCL.  
-* [Coğrafi geri yükleme](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery), otomatik olarak tutulan coğrafi olarak yedekli yedeklemelerden katalog ve Kiracı veritabanlarını kurtarmak için. 
+* [Elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) (oluşturmak ve bir kiracı veritabanı Kataloğu korumak için EDCL),. Genişletilmiş Kataloğu düzenli aralıklarla Yenilenen havuz ve veritabanı yapılandırma bilgilerini içerir.
+* [Parça yönetim kurtarma özellikleri](sql-database-elastic-database-recovery-manager.md) Katalog veritabanı konumu girişlerini kurtarma ve repatriation sırasında korumak için EDCL.  
+* [Coğrafi geri yükleme](sql-database-disaster-recovery.md), otomatik olarak tutulan coğrafi olarak yedekli yedeklemelerden katalog ve Kiracı veritabanlarını kurtarmak için. 
 * [Zaman uyumsuz geri yükleme işlemleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), Kiracı öncelik sırasına gönderilen, sistem tarafından her havuzu için sıraya alındı ve havuz aşırı yüklü değilse toplu olarak işlenir. Bu işlemler, önce veya gerekirse yürütme sırasında iptal edilebilir.   
-* [Coğrafi çoğaltma](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)kesinti sonra veritabanları özgün bölgeye repatriate için. Yapıldığında hiçbir veri kaybı ve Kiracı üzerinde en az etki coğrafi çoğaltma kullanın.
-* [SQL sunucu DNS diğer adları](https://docs.microsoft.com/azure/sql-database/dns-alias-overview)konumuna bakılmaksızın etkin Kataloğu'na bağlanmak kataloğun eşitleme işlemini izin vermek için.  
+* [Coğrafi çoğaltma](sql-database-geo-replication-overview.md)kesinti sonra veritabanları özgün bölgeye repatriate için. Yapıldığında hiçbir veri kaybı ve Kiracı üzerinde en az etki coğrafi çoğaltma kullanın.
+* [SQL sunucu DNS diğer adları](dns-alias-overview.md)konumuna bakılmaksızın etkin Kataloğu'na bağlanmak kataloğun eşitleme işlemini izin vermek için.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Olağanüstü durum kurtarma betiklerini alma
 
@@ -378,4 +378,4 @@ Deneyin [coğrafi veri tabanı çoğaltmayı kullanarak çok kiracılı bir SaaS
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-[Wingtip SaaS uygulamasına geliştirecek ek öğreticilerden](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+[Wingtip SaaS uygulamasına geliştirecek ek öğreticilerden](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

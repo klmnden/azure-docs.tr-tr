@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fa53a7e598b42e93e86eb059c36ff89f38bb7093
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424532"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300600"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Yedekleme ve sanal makineleri geri yükleme için PowerShell kullanma
 
@@ -355,11 +355,17 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Yönetilen diskleri geri yükle
 
 > [!NOTE]
-> Yedeklenen sanal makine yönetilen diskleri ve bunları yönetilen diskler olarak geri yüklemek istiyorsanız, Azure PowerShell v'den 6.7.0 yeteneği ekledik. ve sonraki sürümler
+> Yedeklenen sanal makine yönetilen diskleri ve bunları yönetilen diskler olarak geri yüklemek istiyorsanız, Azure PowerShell RM modülünden v 6.7.0 yeteneği ekledik. ve sonraki sürümler
 >
 >
 
-Ek bir parametre sağlayın **TargetResourceGroupName** için yönetilen diskleri geri yükleneceği RG belirtmek için.
+Ek bir parametre sağlayın **TargetResourceGroupName** için yönetilen diskleri geri yükleneceği RG belirtmek için. 
+
+> [!NOTE]
+> Kullanılacak önemle tavsiye edilir **TargetResourceGroupName** önemli performans geliştirmeleri sonuçları olduğundan geri yükleme parametresi yönetilen diskler. Ayrıca, Azure Powershell Az modülünden 1.0 veya sonraki sürümleri, bu parametre yönetilen disklere sahip bir geri yükleme durumunda zorunludur
+>
+>
+
 
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"

@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8a37c200e52e1d2786690a8a0e669af57312294d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f733b2c9bcd8dc8ad8c068c465e1beda00b45d28
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139189"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471020"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformlar ve araçlar için veri bilimi projeleri
 
@@ -73,7 +73,7 @@ Azure SQL veri ambarı hakkında daha fazla bilgi için bkz. [SQL veri ambarı](
 
 Bir Kurumsal Çapta depo her türde herhangi bir resmi gereksinim veya uygulanan şema önce tek bir konumda toplanan verileri Azure veri gölü gibidir. Her türde verinin boyutu ya da yapı bağımsız olarak bir veri gölü veya ne kadar hızlı içe alındığından tutulması için bu esneklik sağlar. Kuruluşlar, ardından Hadoop kullanabilir veya bulmak için Gelişmiş analiz bu veri gölleri desen. Veri gölleri veri puanlamalar ve veri ambarı'na taşımadan önce daha düşük maliyetli veri hazırlığı için bir depo görebilir.
 
-Azure Data Lake hakkında daha fazla bilgi için bkz. [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Bir Azure Data Lake ile ölçeklenebilir uçtan uca veri bilimi çözümü oluşturmayı öğrenmek için bkz: [Azure Data lake'te ölçeklenebilir veri bilimi: uçtan uca kılavuz](data-lake-walkthrough.md)
+Azure Data Lake hakkında daha fazla bilgi için bkz. [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Bir Azure Data Lake ile ölçeklenebilir uçtan uca veri bilimi çözümü oluşturmayı öğrenmek için bkz: [Azure Data lake'te ölçeklenebilir veri bilimi: Uçtan uca kılavuz](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Azure HDInsight Hive (Hadoop) kümesi
@@ -103,7 +103,7 @@ R Services (veritabanında) SQL Server araçları ve teknolojileri kapsamlı bir
 TDSP takım Microsoft SQL Server 2016 R Services veri bilimi çözümlerini oluşturmak nasıl gösteren iki uçtan uca izlenecek yollar yayımladığı: biri R programcılarının, diğeri SQL geliştiricileri için. İçin **R programcılarının**, bkz: [veri bilimi uçtan uca kılavuz](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). İçin **SQL geliştiricileri**, bkz: [(eğitim) SQL geliştiricileri için veritabanında Advanced Analytics](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
-## <a name="appendix"></a>Ek: veri bilimi projeler için Araçlar
+## <a name="appendix"></a>Ek: Veri bilimi projeler için Araçlar
 
 ### <a name="install-git-credential-manager-on-windows"></a>Windows üzerinde Git kimlik bilgisi Yöneticisi'ni yükleyin
 

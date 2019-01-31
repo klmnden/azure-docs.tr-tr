@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 2d5fdde14c1a33ace81e8999dbb365dac9de3e6e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 01/25/2019
+ms.openlocfilehash: 25936fa1156dea4beff6e593646d0468a4687f36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227905"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476188"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>En fazla 100 TB için hiper ölçekli hizmet Katmanı (Önizleme)
 
 Azure SQL veritabanı altyapı hataları durumda bile % 99,99 kullanılabilirlik sağlamak üzere bulut ortamı için ayarlanmış bir SQL Server veritabanı altyapısı mimarisini temel alır. Azure SQL veritabanı'nda kullanılan üç Mimari modeli vardır:
+
 - Genel amaçlı/standart 
 - Kritik iş/Premium
 - Hiper ölçeklendirme
@@ -150,7 +151,7 @@ Hiper ölçekli hizmet katmanı şu anda genel önizlemede ve aşağıdaki Azure
 
 | Sorun | Açıklama |
 | :---- | :--------- |
-| Yedekleri Yönet bölmesinde bir mantıksal sunucu, Hiper ölçekli veritabanları, SQL Server'dan filtrelenir göstermez için ->  | Hiper ölçekli yedeklemeler yönetmek için ayrı bir yöntem vardır ve bu nedenle zaman yedek saklama ayarları noktasında ve uzun süreli saklama uygulanmaz / geçersiz kılınır. Buna göre hiper ölçekli veritabanlarını yedeklemeyi yönetme Bölmesi'nde görünmez. |
+| SQL server hiper ölçekli veritabanları, SQL Server'dan filtrelenir göstermez veritabanı yedekleri Yönet bölmesi ->  | Hiper ölçekli yedeklemeler yönetmek için ayrı bir yöntem vardır ve bu nedenle zaman yedek saklama ayarları noktasında ve uzun süreli saklama uygulanmaz / geçersiz kılınır. Buna göre hiper ölçekli veritabanlarını yedeklemeyi yönetme Bölmesi'nde görünmez. |
 | Belirli bir noktaya geri yükleme | Bir veritabanı hiper ölçekli hizmet katmanına geçirildikten sonra bir-belirli bir noktaya geçişten önce geri yükleme desteklenmiyor.|
 | Bir veritabanı dosyası etkin bir iş yükü nedeniyle geçiş sırasında artar ve dosya sınır başına 1 TB'ı aştığında, geçiş başarısız olur. | Risk azaltma işlemleri: <br> -Eğer Mümkünse, çalışan hiçbir güncelleştirme iş yükü olduğunda veritabanını geçirin.<br> -Geçiş işlemini yeniden deneyin, geçiş sırasında 1 TB sınır aşıldığında değil sürece başarılı olur.|
 | Yönetilen örnek şu anda desteklenmiyor | Şu anda desteklenmiyor |
@@ -162,6 +163,6 @@ Hiper ölçekli hizmet katmanı şu anda genel önizlemede ve aşağıdaki Azure
 
 - Üzerinde hiper ölçekli bir SSS için bkz: [hiper ölçekli hakkında sık sorulan sorular](sql-database-service-tier-hyperscale-faq.md).
 - Hizmet katmanları hakkında daha fazla bilgi için bkz: [hizmet katmanları](sql-database-service-tiers.md)
-- Bkz: [kaynak bakış sınırlayan bir mantıksal sunucuda](sql-database-resource-limits-logical-server.md) sunucusu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
+- Bkz: [kaynak bakış sınırlayan bir SQL veritabanı sunucusunda](sql-database-resource-limits-database-server.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 - Model sınırları tek bir veritabanı için satın almak için bkz: [Azure SQL veritabanı sanal çekirdek tabanlı satın alma modeli sınırları tek bir veritabanı için](sql-database-vcore-resource-limits-single-databases.md).
 - Bir özellik için ve karşılaştırma listesini görmek [SQL ortak özellikleri](sql-database-features.md).

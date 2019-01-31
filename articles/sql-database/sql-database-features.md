@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/24/2019
-ms.openlocfilehash: 4ba34c35d2dd2d986b4a8c78f42fd4e97158391b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.date: 01/25/2019
+ms.openlocfilehash: 8cda0b5a06eb4299c439b58ecf721971288fa5fb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885082"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455091"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: Azure SQL veritabanı SQL Server ile karşılaştırması
 
-Azure SQL veritabanı ile SQL Server ortak bir kod temeli paylaşır. Azure SQL veritabanı tarafından desteklenen bir SQL Server özelliklerinin oluşturduğunuz Azure SQL veritabanı türüne bağlıdır. Azure SQL veritabanı ile ya da bir parçası olarak bir veritabanı oluşturabilirsiniz bir [yönetilen örnek](sql-database-managed-instance.md) ya da elastik bir havuzun parçası olan mantıksal sunucu ve isteğe bağlı olarak yerleştirilmiş bir veritabanı oluşturabilirsiniz.
+Azure SQL veritabanı ile SQL Server ortak bir kod temeli paylaşır. Azure SQL veritabanı tarafından desteklenen bir SQL Server özelliklerinin oluşturduğunuz Azure SQL veritabanı türüne bağlıdır. Azure SQL veritabanı ile bir parçası olarak bir veritabanı oluşturabilirsiniz bir [yönetilen örnek](sql-database-managed-instance.md), tek bir veritabanı veya elastik bir havuzun parçası olarak.
 
 Microsoft Azure SQL veritabanı'na özellik eklemeye devam eder. Hizmet güncelleştirmeleri Web sayfası için Azure bu filtreleri kullanarak en son güncelleştirmeler için ziyaret edin:
 
@@ -32,7 +32,7 @@ Microsoft Azure SQL veritabanı'na özellik eklemeye devam eder. Hizmet güncell
 
 Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlantı özelliği hakkında daha fazla bilgi için bu özellik kısmen veya tamamen desteklenir ve hakkında bilgi sağlar.
 
-| **SQL özellik** | **Azure SQL veritabanı/mantıksal sunucu içinde desteklenir** | **Azure SQL veritabanı/yönetilen örneği'nde desteklenir** |
+| **SQL özellik** | **Tek veritabanlarını elastik havuzlarda desteklenir** | **Azure SQL veritabanı/yönetilen örneği'nde desteklenir** |
 | --- | --- | --- |
 | [Etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) | Evet - yalnızca katmanları genel amaçlı ve iş açısından kritik hizmet| Hayır, bkz: [otomatik yük devretme grupları](sql-database-auto-failover-group.md) |
 | [Otomatik yük devretme grupları](sql-database-auto-failover-group.md) | Evet - yalnızca katmanları genel amaçlı ve iş açısından kritik hizmet| [Evet-Önizleme](sql-database-auto-failover-group.md)|
@@ -52,14 +52,14 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 | [Değişiklik verilerini yakalama](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Hayır | Evet |
 | [Değişiklik izleme](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Evet |Evet |
 | [Harmanlama - veritabanı](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Evet | Evet |
-| [Harmanlama - server/örneği](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Hayır | [Evet (Önizleme)](https://docs.microsoft.com/azure/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template)|
+| [Harmanlama - server/örneği](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Hayır | [Evet (Önizleme)](/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
 | [Columnstore dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Evet - [Premium katman, standart katman - S3 ve üstü, genel amaçlı katmanı ve iş açısından kritik katmanları](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Evet |
 | [Ortak dil çalışma zamanı (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Hayır | Evet - bkz [CLR farkları](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Kapsanan veritabanları](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Evet | Evet |
 | [Bağımsız kullanıcılar](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Evet | Evet |
 | [Denetim akışı dil anahtar sözcükleri](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Evet | Evet |
 | [Veritabanları arası sorgular](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Hayır - bkz [esnek sorgular](sql-database-elastic-query-overview.md) | Evet, artı [esnek sorgular](sql-database-elastic-query-overview.md) |
-| [Veritabanları arası işlemler](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Hayır | Evet - bkz [bağlı sunucu farkları](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#linked-servers) |
+| [Veritabanları arası işlemler](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Hayır | Evet - bkz [bağlı sunucu farkları](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
 | [İmleçler](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Evet |Evet |
 | [Veri sıkıştırma](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Evet |Evet |
 | [Veritabanı posta](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Hayır | Evet |
@@ -90,7 +90,7 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 | [Coğrafi geri yükleme](sql-database-recovery-using-backups.md#geo-restore) | Evet - yalnızca katmanları genel amaçlı ve iş açısından kritik hizmet | Hayır, COPY_ONLY geri yükleyebilirsiniz düzenli aralıklarla - aldığınız tam yedeklemeler bakın [fark yedekleme](sql-database-managed-instance-transact-sql-information.md#backup) ve [geri farklar](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Grafik işleme](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Evet | Evet |
 | [Bellek içi iyileştirme](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Evet - [yalnızca Premium ve iş açısından kritik katmanları](sql-database-in-memory.md) | Evet - [iş yalnızca kritik katmanı](sql-database-managed-instance.md) |
-| [JSON veri desteği](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Evet](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Evet](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
+| [JSON veri desteği](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Evet](sql-database-json-features.md) | [Evet](sql-database-json-features.md) |
 | [Dil öğeleri](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Çoğu - bkz. ayrı ayrı öğeler |  Evet - bkz [T-SQL farklılıkları](sql-database-managed-instance-transact-sql-information.md) |
 | [Bağlı sunucular](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Hayır - bkz [esnek sorgu](sql-database-elastic-query-horizontal-partitioning.md) | Yalnızca SQL Server ve SQL veritabanı |
 | [Günlük aktarma](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) ile her veritabanı bulunur. Olağanüstü durum kurtarma ele alınmıştır [Azure SQL veritabanı ile iş sürekliliğine genel bakış](sql-database-business-continuity.md) |[Yüksek kullanılabilirlik](sql-database-high-availability.md) ile her veritabanı bulunur. Olağanüstü durum kurtarma ele alınmıştır [Azure SQL veritabanı ile iş sürekliliğine genel bakış](sql-database-business-continuity.md) |
@@ -127,7 +127,7 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Hayır - bkz [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Hayır - bkz [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [SQL Server denetimi](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Hayır - bkz [SQL veritabanı denetimi](sql-database-auditing.md) | Evet - bkz [farklar denetleme](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Veri Araçları (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Evet | Evet |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Evet, bir yönetilen SSIS paketleri depolandığı Azure SQL veritabanı tarafından barındırılan ve Azure SSIS tümleştirme çalışma zamanı (IR) yürütülen SSISDB içinde Azure Data Factory (ADF) ortamında görmek [ADF içinde Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>SQL veritabanı mantıksal sunucusu ve yönetilen örneği SSIS özellikleri karşılaştırmak için bkz [karşılaştırma SQL veritabanı mantıksal sunucusu ve yönetilen örneği](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). | Evet, bir yönetilen SSIS paketleri depolandığı yönetilen örneği tarafından barındırılan ve Azure SSIS tümleştirme çalışma zamanı (IR) yürütülen SSISDB içinde Azure Data Factory (ADF) ortamında görmek [ADF içinde Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>SQL veritabanı yönetilen örneği, SSIS özellikleri karşılaştırmak için bkz [karşılaştırma SQL veritabanı mantıksal sunucusu ve yönetilen örneği](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Evet, bir yönetilen SSIS paketleri depolandığı Azure SQL veritabanı tarafından barındırılan ve Azure SSIS tümleştirme çalışma zamanı (IR) yürütülen SSISDB içinde Azure Data Factory (ADF) ortamında görmek [ADF içinde Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>SQL veritabanı sunucusu ve yönetilen örneği SSIS özellikleri karşılaştırmak için bkz [karşılaştırma Azure SQL veritabanı tek veritabanlarını elastik havuzları ve yönetilen örneği](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). | Evet, bir yönetilen SSIS paketleri depolandığı yönetilen örneği tarafından barındırılan ve Azure SSIS tümleştirme çalışma zamanı (IR) yürütülen SSISDB içinde Azure Data Factory (ADF) ortamında görmek [ADF içinde Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>SQL veritabanı yönetilen örneği, SSIS özellikleri karşılaştırmak için bkz [karşılaştırma Azure SQL veritabanı tek veritabanlarını elastik havuzları ve yönetilen örneği](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Evet | Evet |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Evet | Evet |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Hayır - bkz [genişletilmiş olaylar](sql-database-xevent-db-diff-from-svr.md) | Evet |
@@ -139,7 +139,7 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 | [Sistem tabloları](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Bazıları - bkz tek tek tablolar | Evet - bkz [T-SQL farklılıkları](sql-database-managed-instance-transact-sql-information.md) |
 | [Sistem kataloğu görünümleri](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Bazıları - bkz. tek bir görünüm | Evet - bkz [T-SQL farklılıkları](sql-database-managed-instance-transact-sql-information.md) |
 | [Geçici tablolar](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Yerel ve veritabanı kapsamlı genel geçici tablolar | Yerel ve örnek kapsamlı genel geçici tablolar |
-| [Zamana bağlı tablolar](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Evet](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) | [Evet](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) |
+| [Zamana bağlı tablolar](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Evet](sql-database-temporal-tables.md) | [Evet](sql-database-temporal-tables.md) |
 |Tehdit algılama|  [Evet](sql-database-threat-detection.md)|[Evet](sql-database-managed-instance-threat-detection.md)|
 | [İzleme Bayrakları](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Hayır | Hayır |
 | [Değişkenler](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Evet | Evet |

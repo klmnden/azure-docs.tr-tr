@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: c5f5b43a96d5fad5d5f7737ef82585593cd05a7b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.date: 01/25/2019
+ms.openlocfilehash: 470a00e62aba4baf5dd13a9c80a0c72df04a81c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240667"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478347"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL hiper ölçekli veritabanları hakkında SSS
 
@@ -75,9 +75,9 @@ Hiper ölçekli Hizmet katmanını, öncelikle şirket içi SQL Server veritaban
 
 Hiper ölçekli şu anda tek veritabanı aşağıdaki bölgelerde kullanılabilir:  Batı US1, Batı abd2, US1 Doğu, Orta ABD, Batı Avrupa, Kuzey Avrupa, UK Batı, Güneydoğu Asya, Japonya Doğu, Kore Orta, Avustralya Güneydoğu ve Avustralya Doğu.
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Mantıksal sunucu başına birden fazla hiper ölçekli veritabanı oluşturabilirim
+### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>SQL veritabanı sunucu başına birden fazla hiper ölçekli veritabanı oluşturabilirim
 
-Evet. Daha fazla bilgi ve hiper ölçekli veritabanlarının her mantıksal sunucu sayısına yönelik sınırlar için bkz. [bir mantıksal sunucuda tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](sql-database-resource-limits-logical-server.md).
+Evet. Daha fazla bilgi ve hiper ölçekli SQL veritabanı sunucu başına veritabanı sayısı üst sınırı için bkz. [bir SQL veritabanı sunucusunda tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](sql-database-resource-limits-database-server.md).
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Bir hiper ölçekli veritabanının performans özelliği nelerdir
 
@@ -98,7 +98,7 @@ SQL veritabanı hiper ölçekli, iş yükü talebe göre hızlı ölçeklenebili
 
 ## <a name="deep-dive-questions"></a>Derin Dalış sorular
 
-### <a name="can-i-mix-hyperscale-and-single-databases-on-my-logical-server"></a>Mantıksal Sunucumda hiper ölçekli ile tek veritabanları karıştırabilirsiniz
+### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>Hiper ölçekli ile tek veritabanları karıştırabilirsiniz bir my SQL veritabanı sunucusu
 
 Evet, uygulayabilirsiniz.
 
@@ -235,7 +235,7 @@ Henüz (hala Önizleme aşamasında) bilinen
 
 Azure Depolama'dan veri okumak ve veri yükleme (yalnızca normal tek bir veritabanı ile yapabileceğiniz gibi) bir hiper ölçekli veritabanına yükleyin. Polybase, Azure SQL veritabanı üzerinde şu anda desteklenmiyor. Polybase kullanarak yapabileceğiniz [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) ya da bir Spark işi çalıştırma [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) ile [SQL için Spark Bağlayıcısı](sql-database-spark-connector.md). Spark Bağlayıcısı-SQL toplu ekleme destekler.
 
-Basit kurtarma veya toplu günlük modeli hiper ölçekli desteklenmiyor. Tam kurtarma modeli, yüksek kullanılabilirlik sağlamak için gereklidir. Ancak, daha büyük ölçekli sağlar alabilen yeni günlük mimarisi nedeniyle tek bir Azure SQL veritabanına kıyasla oranı.
+Basit kurtarma veya toplu günlük modeli hiper ölçekli desteklenmiyor. Tam kurtarma modeli, yüksek kullanılabilirlik sağlamak için gereklidir. Ancak, daha büyük ölçekli sağlar alabilen yeni günlük mimarisi nedeniyle tek bir veritabanına kıyasla oranı.
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>SQL veritabanı hiper ölçekli, büyük miktarlarda veri almak için birden çok düğüm sağlama izin veriyor mu
 

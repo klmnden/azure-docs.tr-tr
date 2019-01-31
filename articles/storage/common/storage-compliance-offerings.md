@@ -7,19 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 293067b2d76f7ef88b6946aee9d39d4c6da97230
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 49ea6a3c6be2325acdcdf61188ced777bd36f0da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229553"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478143"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure depolama uyumluluk teklifleri
 
 Uyumlu yardımcı olmak üzere Ulusal, Bölgesel ve sektöre özgü gereksinimleri toplama ve Microsoft Azure ve Azure depolama bireylerin veri kullanımını yöneten en kapsamlı sertifikaları ve herhangi bir onayları sunar Bulut hizmeti sağlayıcısı.
 
-Uyumluluk teklifi sunan Azure Depolama'da, Azure depolama hizmetini kullanarak düzenlemesi hizmetinizi emin olmak için aşağıda bulabilirsiniz. Aşağıdaki Azure depolama teklifler için geçerlidir: Bloblar, dosyalar, kuyruklar, tablolar, diskleri, seyrek erişimli depolama ve Premium depolama.
+Uyumluluk teklifi sunan Azure Depolama'da, Azure depolama hizmetini kullanarak düzenlemesi hizmetinizi emin olmak için aşağıda bulabilirsiniz. Bunlar, aşağıdaki Azure depolama teklifler için geçerlidir: Bloblar, dosyalar, kuyruklar, tablolar, diskleri, seyrek erişimli depolama ve Premium depolama.
 
 ## <a name="global"></a>Genel
 
@@ -76,12 +76,12 @@ Uyumluluk teklifi sunan Azure Depolama'da, Azure depolama hizmetini kullanarak d
 * [CCSL/IRAP (Avustralya)](https://www.microsoft.com/en-us/trustcenter/compliance/ccsl)
 * [CS Gold işaretlemek (Japonya)](https://www.microsoft.com/en-us/trustcenter/compliance/cloud-security-mark)
 * [DJCP (Çin)](https://www.trustcenter.cn/compliance/default.html#DJCP)
-* [ENISA IAF (AB)](https://aka.ms/AzureCompliance)
+* [ENISA IAF (EU)](https://aka.ms/AzureCompliance)
 * [ENS (İspanya)](https://www.microsoft.com/en-us/trustcenter/compliance/spainens)
 * [AB Model maddeleri](https://www.microsoft.com/en-us/trustcenter/compliance/eu-model-clauses)
 * [AB-ABD Gizlilik kalkanı](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030 (Çin)](https://www.trustcenter.cn/compliance/default.html#GB18030)
-* [GDPR (AB)](https://www.microsoft.com/en-us/trustcenter/privacy/gdpr)
+* [GDPR (EU)](https://www.microsoft.com/en-us/trustcenter/privacy/gdpr)
 * [BT Grundschutz çalışma kitabı (Almanya)](https://www.microsoft.com/en-us/TrustCenter/Compliance/IT-Grundschutz)
 * [LOPD (İspanya)](https://aka.ms/AzureCompliance)
 * [MTCS (Singapur)](https://www.microsoft.com/en-us/trustcenter/compliance/mtcs)

@@ -2,20 +2,20 @@
 title: SQL veri ambarı ile Azure Stream Analytics'i kullanma | Microsoft Docs
 description: Azure Stream Analytics ile Azure SQL veri ambarı çözümleri geliştirmek için kullanma hakkında ipuçları.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3aca356b9caadc3a4ffee98ca7dc330eb1c520d8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7c940b10e88e50988b574dbc1fa365dc9d8fd7d5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962954"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452405"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL veri ambarı ile Azure Stream Analytics'i kullanma
 Azure Stream Analytics, akış verileri bulutta üzerinden düşük gecikme süreli, yüksek oranda kullanılabilir ve ölçeklenebilir karmaşık olay işleme sağlayan tam olarak yönetilen bir hizmettir. Okuyarak temellerini öğrenebilirsiniz [Azure Stream analytics'e giriş][Introduction to Azure Stream Analytics]. Stream Analytics ile izleyerek uçtan uca çözüm oluşturmaya nasıl ardından öğrenebilirsiniz [Azure Stream Analytics'i kullanmaya başlama] [ Get started using Azure Stream Analytics] öğretici.
@@ -48,14 +48,14 @@ Sonraki sayfasında aşağıdaki değerleri girin:
 * *Abonelik*:
   * SQL Data Warehouse veritabanınıza Stream Analytics işiyle aynı abonelikte gerekiyorsa geçerli abonelikten SQL veritabanını kullan'ı seçin.
   * Farklı bir abonelikte, veritabanınızı ise SQL veritabanını kullan başka bir aboneliği seçin.
-* *Veritabanı*: hedef veritabanının adını belirtin.
-* *Sunucu adı*: yalnızca belirtilen veritabanı sunucusu adını belirtin. Bunu bulmak için Azure portalını kullanabilirsiniz.
+* *Veritabanı*: Hedef veritabanının adını belirtin.
+* *Sunucu adı*: Yalnızca belirtilen veritabanı sunucusu adını belirtin. Bunu bulmak için Azure portalını kullanabilirsiniz.
 
 ![][server-name]
 
-* *Kullanıcı adı*: veritabanı için yazma izinlerine sahip hesabın kullanıcı adını belirtin.
+* *Kullanıcı adı*: Yazma veritabanı için izinleri olan bir hesabın kullanıcı adını belirtin.
 * *Parola*: Belirtilen kullanıcı hesabı için parola sağlayın.
-* *Tablo*: veritabanında hedef tablonun adını belirtin.
+* *Tablo*: Veritabanında hedef tablonun adını belirtin.
 
 ![][add-database]
 

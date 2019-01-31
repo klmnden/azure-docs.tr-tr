@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 5f67a8ffde24d3c3e39065806b07bdd5cba2857a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522052"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470544"
 ---
 # <a name="design-for-data-modification"></a>Veri değişikliği için tasarım
 Bu makalede, ekleme, güncelleştirme iyileştirmek için tasarım konuları üzerinde odaklanır ve siler. Bazı durumlarda (Tasarım stillerden yönetme teknikleri olmasına rağmen tasarımlarında ilişkisel veritabanları için yaptığınız gibi veri değişikliği için en iyi duruma getirme tasarımları karşı sorgulama için en iyi duruma getirme tasarımları arasındaki dengeyi değerlendirin gerekir farklı ilişkisel bir veritabanındaki). Bölüm [tablo Tasarım desenleri](#table-design-patterns) tablo hizmeti için bazı ayrıntılı tasarım desenleri açıklar ve bazı bu stillerden vurgular. Uygulamada, varlıklar da değiştirmek için birçok tasarım varlıkları sorgulama için en iyi duruma getirilmiş ayrıca iş bulabilirsiniz.  

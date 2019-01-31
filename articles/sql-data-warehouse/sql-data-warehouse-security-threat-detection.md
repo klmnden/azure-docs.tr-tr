@@ -2,7 +2,7 @@
 title: Tehdit algılama - Azure SQL veri ambarı | Microsoft Docs
 description: Tehdit algılamayı yapılandırma ve Azure SQL veri ambarı'nda şüpheli olayları inceleyin.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 112d093946099e623d1edfa4555eda681069892e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f07699b49b7791894d1f183b0686161375ea17a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243394"
+ms.locfileid: "55295426"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı tehdit algılama
 Tehdit algılamayı yapılandırma ve Azure SQL veri ambarı'nda şüpheli olayları inceleyin.

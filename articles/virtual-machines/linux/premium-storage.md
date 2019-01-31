@@ -8,13 +8,13 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.component: disks
-ms.openlocfilehash: 5a5b29de7c87317c88257c783120f4fe9a28edf4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: c9c01bfc53ccba7ede1b64153e8fbbac18370716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250688"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455651"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 
@@ -27,4 +27,4 @@ ms.locfileid: "51250688"
 
 ### <a name="blog-posts"></a>Blog yazıları
 * [Azure Premium depolama genel kullanıma sunuldu](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [GS serisi ile tanışın: Genel bulutta büyük vm'lere ekleme Premium depolama desteği](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+* [GS serisi ile tanışın: En büyük genel bulut Vm'leri Premium depolama desteği ekleme](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278466"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472662"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell (Önizleme) kullanarak SQL veritabanı esnek işler oluşturma ve yönetme
 
@@ -189,7 +189,7 @@ Aşağıdaki tabloda tüm nesne türlerini **elastik veritabanı işleri** açı
 </table>
 
 ## <a name="supported-elastic-database-jobs-group-types"></a>Desteklenen esnek veritabanı işleri türlerini gruplama
-İş, veritabanlarından oluşan bir grupta Transact-SQL (T-SQL) betikleri veya DACPACs uygulamasının yürütür. Bir işi veritabanlarından oluşan bir grupta yürütülecek gönderildiğinde iş "genişletir" burada her gerçekleştiren tek bir veritabanında istenen yürütme grubunda alt işlere. 
+İş, veritabanlarından oluşan bir grupta Transact-SQL (T-SQL) betikleri veya DACPACs uygulamasının yürütür. Bir işi veritabanlarından oluşan bir grupta yürütülecek gönderildiğinde iş "genişletir" burada her gerçekleştiren tek bir veritabanına karşı yürütme grubunda alt işlere. 
 
 Grupların oluşturabileceğiniz iki tür vardır: 
 

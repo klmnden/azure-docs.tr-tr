@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339527"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296130"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure'da SQL Server Yedekleme sorunlarını giderme
 
@@ -37,6 +37,15 @@ Bir sanal makinede SQL Server veritabanı için koruma yapılandırılamadı **A
 ## <a name="troubleshooting-errors"></a>Sorun giderme hataları
 
 Bilgileri aşağıdaki tablolarda, sorunlar ve Azure SQL Server'ı korurken karşılaşılan hataları giderme öğrenin.
+
+## <a name="alerts"></a>Uyarılar
+
+### <a name="backup-type-unsupported"></a>Yedekleme türü desteklenmiyor
+
+| Severity | Açıklama | Olası nedenler | Önerilen eylem |
+|---|---|---|---|
+| Uyarı | Bu veritabanı için geçerli ayarları, belirli türde bir ilişkili ilkeyi mevcut yedekleme türleri desteklemez. | <li>**Ana DB**: Yalnızca tam veritabanı yedekleme işlemi, ana veritabanı üzerinde gerçekleştirilebilir; ne **fark** yedekleme ya da işlem **günlükleri** yedekleme mümkündür. </li> <li>Herhangi bir veritabanına **basit kurtarma modelini** işlem için izin vermiyor **günlükleri** gerçekleştirilecek yedekleme.</li> | Veritabanı ayarlarını, ilke yedekleme türleri desteklenir gibi değiştirin. Alternatif olarak, geçerli ilkeyi yalnızca desteklenen yedekleme türleri içerecek şekilde değiştirin. Aksi takdirde, desteklenmeyen yedekleme türleri zamanlanan yedekleme sırasında atlanacak veya geçici yedekleme için yedekleme işi başarısız olur.
+
 
 ## <a name="backup-failures"></a>Yedekleme hataları
 

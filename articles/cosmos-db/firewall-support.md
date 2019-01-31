@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 2bb3665f0d0ab15f212741a6ce032fcd7ac2620d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7cc8e46c841b6e385d1a3b442fdb63d465486af8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358122"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477735"
 ---
-# <a name="ip-firewall-for-azure-cosmos-accounts"></a>Azure Cosmos hesapları için IP Güvenlik Duvarı
+# <a name="ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB'de IP Güvenlik Duvarı
 
 Hesabınızda depolanan verilerin güvenliğini sağlamak için Azure Cosmos DB kullanan bir tanımlayıcı karma tabanlı ileti kimlik doğrulama kodu (HMAC) gizli tabanlı yetkilendirme modeli destekler. Ayrıca, Azure Cosmos DB için gelen güvenlik duvarı desteği IP tabanlı erişim denetimlerini destekler. Bu model, geleneksel veritabanı sistemi güvenlik duvarı kurallarına benzer ve ek bir güvenlik hesabınıza düzeyi sağlar. Güvenlik duvarları ile erişilebilir yalnızca onaylanmış bir makine kümesinden ve/veya Bulut Hizmetleri için Azure Cosmos hesabınıza yapılandırabilirsiniz. Bu onaylı kümelerinden makineleri ve Hizmetleri Azure Cosmos veritabanında saklanan verilere erişim hala geçerli bir yetkilendirme belirteciyle sunmak çağıranın gerektirir.
 

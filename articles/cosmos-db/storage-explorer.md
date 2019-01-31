@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 24df1cb5b7a9cc1209940bbaaa1217a80ea74918
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c99b22a5dad1e64525b2b2ebcd214c3dc5bfb28f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259657"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473604"
 ---
-# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Azure Depolama Gezgini'ni kullanarak Azure Cosmos DB kaynaklarını yönetme
+# <a name="work-with-data-using-azure-storage-explorer"></a>Azure Depolama Gezgini'ni kullanarak verileri ile çalışma
 
 Azure Depolama Gezgini’nde Azure Cosmos DB kullanılması, kullanıcıların Azure Cosmos DB varlıklarını yönetmesine, verileri düzenlemesine, saklı yordamların ve tetikleyicilerin yanı sıra Depolama blob’ları ve kuyrukları gibi diğer Azure varlıklarını güncelleştirmesine imkan tanır. Artık farklı Azure varlıklarını aynı aracı kullanarak tek bir yerde yönetebilirsiniz. Şu anda, Azure Depolama Gezgini SQL, MongoDB, graf ve tablo API'leri için yapılandırılmış Cosmos hesaplarını destekler.
 

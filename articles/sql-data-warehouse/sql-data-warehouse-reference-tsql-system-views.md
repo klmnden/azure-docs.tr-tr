@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: c4663c71bb3aee3547174345cfe9fb1d06c4015e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6e68fe624a92d0a2d5a8accd3f34b1c5c10f2868
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256213"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472176"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda desteklenen sistem görünümleri
 Azure SQL veri ambarı'nda desteklenen T-SQL bildirimleri belgelerine bağlantılar.
@@ -76,7 +76,7 @@ Aşağıdaki Dmv'leri SQL veri ambarı'na geçerlidir, ancak bağlanarak yürüt
 * [sys.assembly_types](https://msdn.microsoft.com/library/ms178020.aspx)
 * [sys.Certificates](https://msdn.microsoft.com/library/ms189774.aspx)
 * [sys.check_constraints](https://msdn.microsoft.com/library/ms187388.aspx)
-* [sys.Columns](https://msdn.microsoft.com/library/ms176106.aspx)
+* [sys.columns](https://msdn.microsoft.com/library/ms176106.aspx)
 * [sys.computed_columns](https://msdn.microsoft.com/library/ms188744.aspx)
 * [sys.credentials](https://msdn.microsoft.com/library/ms189745.aspx)
 * [sys.data_spaces](https://msdn.microsoft.com/library/ms190289.aspx)
@@ -85,7 +85,7 @@ Aşağıdaki Dmv'leri SQL veri ambarı'na geçerlidir, ancak bağlanarak yürüt
 * [sys.database_permissions](https://msdn.microsoft.com/library/ms188367.aspx)
 * [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx)
 * [sys.database_role_members](https://msdn.microsoft.com/library/ms189780.aspx)
-* [sys.Databases](https://msdn.microsoft.com/library/ms178534.aspx)
+* [sys.databases](https://msdn.microsoft.com/library/ms178534.aspx)
 * [sys.default_constraints](https://msdn.microsoft.com/library/ms173758.aspx)
 * [sys.external_data_sources](https://msdn.microsoft.com/library/dn935019.aspx)
 * [sys.external_file_formats](https://msdn.microsoft.com/library/dn935025.aspx)
@@ -99,7 +99,7 @@ Aşağıdaki Dmv'leri SQL veri ambarı'na geçerlidir, ancak bağlanarak yürüt
 * [sys.key_constraints](https://msdn.microsoft.com/library/ms174321.aspx)
 * [sys.numbered_procedures](https://msdn.microsoft.com/library/ms179865.aspx)
 * [sys.objects](https://msdn.microsoft.com/library/ms190324.aspx)
-* [sys.Parameters](https://msdn.microsoft.com/library/ms176074.aspx)
+* [sys.parameters](https://msdn.microsoft.com/library/ms176074.aspx)
 * [sys.partition_functions](https://msdn.microsoft.com/library/ms187381.aspx)
 * [sys.partition_parameters](https://msdn.microsoft.com/library/ms175054.aspx)
 * [sys.partition_range_values](https://msdn.microsoft.com/library/ms187780.aspx)
@@ -113,7 +113,7 @@ Aşağıdaki Dmv'leri SQL veri ambarı'na geçerlidir, ancak bağlanarak yürüt
 * [sys.stats](https://msdn.microsoft.com/library/ms177623.aspx)
 * [sys.stats_columns](https://msdn.microsoft.com/library/ms187340.aspx)
 * [sys.symmetric_keys](https://msdn.microsoft.com/library/ms189446.aspx)
-* [sys.SYNONYMS](https://msdn.microsoft.com/library/ms189458.aspx)
+* [sys.synonyms](https://msdn.microsoft.com/library/ms189458.aspx)
 * [sys.syscharsets](https://msdn.microsoft.com/library/ms190300.aspx)
 * [sys.syscolumns](https://msdn.microsoft.com/library/ms186816.aspx)
 * [sys.sysdatabases](https://msdn.microsoft.com/library/ms179900.aspx)
@@ -129,7 +129,7 @@ Aşağıdaki Dmv'leri SQL veri ambarı'na geçerlidir, ancak bağlanarak yürüt
 * [sys.sysusers](https://msdn.microsoft.com/library/ms179871.aspx)
 * [sys.Tables](https://msdn.microsoft.com/library/ms187406.aspx)
 * [sys.Types](https://msdn.microsoft.com/library/ms188021.aspx)
-* [denetlenmedi](https://msdn.microsoft.com/library/ms190334.aspx)
+* [sys.views](https://msdn.microsoft.com/library/ms190334.aspx)
 
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Server Dmv'lerdeki kullanılabilir SQL veri ambarı
 SQL veri ambarı birçok SQL Server dinamik yönetim görünümlerini (Dmv'ler) kullanıma sunar. SQL veri ambarı'nda sorgulandığında bu görünümler, SQL veritabanları dağıtımlarında çalışan durumunu bildirmektedir.

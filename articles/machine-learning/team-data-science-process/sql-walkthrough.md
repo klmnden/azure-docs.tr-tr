@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2e71cf90c6e894946a2f3a1c8bfce2179f214a29
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141416"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453663"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process'in çalışması: SQL Server'ı kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak makine öğrenme modeli dağıtma sürecinde size yol-- [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi iş akışı yordamdan sonraki: alma ve verileri, mühendislik işlevlerini, öğrenme süreçlerini kolaylaştırmasına sonra yapı ve model dağıtma keşfedin.
@@ -46,15 +46,15 @@ Seyahat katılmak için benzersiz anahtar\_veri ve seyahat\_taksi alanlarını o
 ## <a name="mltasks"></a>Tahmin görev örnekleri
 Biz formüle göre üç tahmin sorunları *İpucu\_tutarı*, yani:
 
-1. İkili sınıflandırma: bir ipucu için bir seyahat, yani ödenmiş olup olmadığını tahmin bir *İpucu\_tutar* büyük pozitif bir örnek 0 TL'dir daha açıkken bir *İpucu\_tutar* $0 olan bir Negatif örnek.
-2. Sınıflı sınıflandırma: ipucu için seyahat Ücretli aralığını tahmin etmek için. Biz bölmek *İpucu\_tutarı* beş depo veya sınıflar:
+1. İkili sınıflandırma: İpucu için bir seyahat, yani ödenmiş olup olmadığını tahmin bir *İpucu\_tutarı* büyük pozitif bir örnek 0 TL'dir daha açıkken bir *İpucu\_tutarı* 0 veya negatif bir örnektir.
+2. Sınıflı sınıflandırma: İpucu aralığını tahmin etmek için seyahat Ücretli. Biz bölmek *İpucu\_tutarı* beş depo veya sınıflar:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Regresyon görev: bir seyahat için ücretli ipucu miktarını tahmin edin.  
+3. Regresyon. Görev: İpucu miktarı tahmin etmek için bir seyahat Ücretli.  
 
 ## <a name="setup"></a>Azure yedekleme ayarı veri bilimi ortamını Gelişmiş analiz
 Gelen gördüğünüz gibi [ortamınızı planlama](plan-your-environment.md) Kılavuzu, Azure NYC taksi Gelişlerin veri kümesi ile çalışmak için birkaç seçenek vardır:
@@ -79,7 +79,7 @@ Azure veri bilimi ortamı oluşturmanız için:
    > 
    > 
 
-Veri kümesi boyutu, veri kaynağı konumu ve seçili Azure hedef ortama bağlı olarak, bu senaryo benzer [senaryo \#5: büyük veri kümesinde bir yerel dosyalar, hedef Azure VM'de SQL Server](plan-sample-scenarios.md#largelocaltodb).
+Veri kümesi boyutu, veri kaynağı konumu ve seçili Azure hedef ortama bağlı olarak, bu senaryo benzer [senaryo \#5: Büyük veri kümesinde bir yerel dosyalar, hedef Azure VM'de SQL Server](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Genel kaynaktan veri alma
 Alınacak [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi genel konumundan kullanabilirsiniz açıklanan yöntemlerden herhangi birini [için ve Azure Blob Depolama'dan veri taşıma](move-azure-blob.md) verileri yeni sanal makinenize kopyalamak için.
@@ -87,7 +87,7 @@ Alınacak [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri k�
 AzCopy kullanarak verileri kopyalamak için:
 
 1. Sanal makinenize (VM) oturum açın
-2. Sanal makinenin veri disk yeni bir dizin oluşturma (Not: bir veri diski olarak VM ile birlikte gelen geçici Disk kullanmayın).
+2. Sanal makinenin veri disk yeni bir dizin oluşturma (Not: VM veri diski olarak ile birlikte gelen geçici Disk kullanmayın).
 3. Bir komut istemi penceresinde aşağıdaki Azcopy komutunu (2)'de oluşturulan veri klasörünüz < path_to_data_folder > yerine satırı çalıştırın:
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -137,7 +137,7 @@ Kullanarak yükleme ve aktarma büyük miktarda verileri bir SQL veritabanı ve 
 12. NYC taksi dönüş verileri iki ayrı tablolarda yüklenir. Birleştirme işlemleri iyileştirmek için dizin tabloları için önerilir. Örnek betik **oluşturma\_bölümlenmiş\_index.sql** bölümlenmiş dizinleri bileşik birleştirme anahtarı oluşturur **medallion hack\_lisans ve alma\_ DateTime**.
 
 ## <a name="dbexplore"></a>Veri keşfi ve SQL Server özellik Mühendisliği
-Bu bölümde, biz veri keşfi ve özellik nesil doğrudan SQL sorguları çalıştırarak gerçekleştirir **SQL Server Management Studio** daha önce SQL Server veritabanı kullanılarak oluşturulmuş. Adlandırılmış bir örnek betiği **örnek\_queries.sql** sağlanan **örnek betikler** klasör. Varsayılandan farklı olması durumunda, veritabanı adını değiştirmek için komut dosyasını değiştirin: **TaxiNYC**.
+Bu bölümde, biz veri keşfi ve özellik nesil doğrudan SQL sorguları çalıştırarak gerçekleştirir **SQL Server Management Studio** daha önce SQL Server veritabanı kullanılarak oluşturulmuş. Adlandırılmış bir örnek betiği **örnek\_queries.sql** sağlanan **örnek betikler** klasör. Varsayılandan farklı olması durumunda veritabanı adını değiştirmek için komut dosyasını değiştirin: **TaxiNYC**.
 
 Bu alıştırmada yapacağız:
 
@@ -163,7 +163,7 @@ Daha önce paralel toplu olarak içeri aktarma kullanarak doldurulmuş tablo iç
     -- Report number of columns in table nyctaxi_trip
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
-#### <a name="exploration-trip-distribution-by-medallion"></a>İnceleme: Seyahat dağıtım medallion tarafından
+#### <a name="exploration-trip-distribution-by-medallion"></a>Keşfetme: Seyahat dağıtım medallion tarafından
 Bu örnek, belirli bir süre içinde 100'den fazla gelişlerin medallion (taksi numaraları) tanımlar. Bölümleme düzeni koşuluna bağlıdır beri sorgu bölümlenmiş tabloda erişimden avantaj elde edecektir **toplama\_datetime**. Tam bir veri kümesinin sorgulanmasını ayrıca bölümlenmiş tablosunu kullanmak ve/veya dizin tarama yapar.
 
     SELECT medallion, COUNT(*)
@@ -172,14 +172,14 @@ Bu örnek, belirli bir süre içinde 100'den fazla gelişlerin medallion (taksi 
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>İnceleme: Seyahat dağıtım medallion ve hack_license
+#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Keşfetme: Seyahat dağıtım medallion ve hack_license
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Veri Kalitesi değerlendirme: yanlış boylam ve/veya enlem kayıtlarla doğrulayın
+#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Veri Kalitesi değerlendirmesi: Yanlış boylam ve/veya enlem kayıtlarla doğrulayın
 Herhangi bir boylam ve/veya enlem alanı ya da geçersiz bir değer içeriyorsa, bu örnekte araştırır (radian derece -90 ile 90 arasında olmalıdır), veya (0, 0) koordinatları.
 
     SELECT COUNT(*) FROM nyctaxi_trip
@@ -191,7 +191,7 @@ Herhangi bir boylam ve/veya enlem alanı ya da geçersiz bir değer içeriyorsa,
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>İnceleme: Eğimli vs. Eğimli Gelişlerin dağıtım yok
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Keşfetme: Eğimli vs. Eğimli Gelişlerin dağıtım yok
 Bu örnek karşılaştırması belirli bir zaman dönemi (veya kapsayan tam yıl, tam veri kümesi) Eğimli değil Eğimli dönüş sayısı bulur. Bu dağıtım için ikili sınıflandırma modelleme daha sonra kullanılmak üzere ikili etiket dağılımı yansıtır.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -200,7 +200,7 @@ Bu örnek karşılaştırması belirli bir zaman dönemi (veya kapsayan tam yıl
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-#### <a name="exploration-tip-classrange-distribution"></a>İnceleme: Sınıf/aralığı dağıtım İpucu
+#### <a name="exploration-tip-classrange-distribution"></a>Keşfetme: Sınıf/aralığı dağıtım İpucu
 Bu örnek, belirli bir süre içinde (veya kapsayan tam yıl, tam veri kümesi) dağıtım ipucu aralıklarının hesaplar. Daha sonra çok sınıflı sınıflandırma model için kullanılacak etiket sınıfların dağıtımıdır.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
@@ -215,7 +215,7 @@ Bu örnek, belirli bir süre içinde (veya kapsayan tam yıl, tam veri kümesi) 
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>İnceleme: İşlem ve seyahat uzaklık karşılaştırın
+#### <a name="exploration-compute-and-compare-trip-distance"></a>Keşfetme: İşlem ve seyahat uzaklık karşılaştırın
 Bu örnek dönüştürür alma ve dropoff boylam ve enlem SQL coğrafi konum için işaret, SQL Coğrafya noktaları fark kullanarak seyahat uzaklığı hesaplar ve sonuçları karşılaştırma için rastgele oluşturulmuş bir örnek döndürür. Bu örnek yalnızca daha önce veri kalitesi değerlendirme sorgusu kullanarak geçerli koordinat sonuçları sınırlar.
 
     SELECT
@@ -328,7 +328,7 @@ Artık, örneklenen verileri araştırmak hazırsınız. Açıklayıcı istatist
 
     df1['trip_distance'].describe()
 
-#### <a name="visualization-box-plot-example"></a>Görselleştirme: Kutusu Diagram örneği
+#### <a name="visualization-box-plot-example"></a>Görselleştirme: Kutu Diagram örneği
 Sonraki Kutu Çizimi quantiles görselleştirmek seyahat uzaklığı için şu konuları
 
     df1.boxplot(column='trip_distance',return_type='dict')
@@ -362,7 +362,7 @@ Biz de yukarıdaki bin dağıtım çubuğundaki çizim veya aşağıda gösteril
 
 ![#4 Çiz][4]
 
-#### <a name="visualization-scatterplot-example"></a>Görselleştirme: Dağılım grafiği örnek
+#### <a name="visualization-scatterplot-example"></a>Görselleştirme: Dağılım Grafiği örneği
 Dağılım grafiğinde noktalara arasında göstereceğiz **seyahat\_zaman\_içinde\_saniye** ve **seyahat\_uzaklık** herhangi bir ilişki olup olmadığını görmek için
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -407,7 +407,7 @@ Bu bölümde, biz tabloları birleştirme **nyctaxi\_seyahat** ve **nyctaxi\_tak
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Veri keşfi Ipython Notebook SQL sorgularını kullanma
 Bu bölümde, yukarıda oluşturduğumuz yeni tablodaki kalıcı %1 örnek verileri kullanarak veri dağıtımları inceleyeceğiz. Benzer araştırmaları kullanarak isteğe bağlı olarak, özgün tabloda kullanılarak gerçekleştirilebilir Not **TABLESAMPLE** örnek veya belirli bir zaman dönemi using sonuçlarını sınırlayarak araştırma sınırlamak için **toplama\_datetime** de gösterildiği gibi bölümler [veri keşfi ve özellik Mühendisliği SQL Server'da](#dbexplore) bölümü.
 
-#### <a name="exploration-daily-distribution-of-trips"></a>İnceleme: Günlük gelişlerin dağılımı
+#### <a name="exploration-daily-distribution-of-trips"></a>Keşfetme: Dönüş günlük dağıtımı
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM nyctaxi_one_percent
@@ -416,7 +416,7 @@ Bu bölümde, yukarıda oluşturduğumuz yeni tablodaki kalıcı %1 örnek veril
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>İnceleme: Seyahat dağıtım medallion başına
+#### <a name="exploration-trip-distribution-per-medallion"></a>Keşfetme: Seyahat dağıtım medallion başına
     query = '''
         SELECT medallion,count(*) AS c
         FROM nyctaxi_one_percent
@@ -456,7 +456,7 @@ Aşağıdaki örnekte, biz iki model için kullanılacak etiketleri oluşturun:
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Özellik Mühendisliği: Kategorik sütunlar Count özellikleri
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Özellik Mühendisliği: Kategorik sütunlar için sayısı özellikleri
 Bu örnek, bir kategorik alan veri alt yineleme sayısı ile her kategori değiştirerek bir sayısal alana dönüştürür.
 
     nyctaxi_one_percent_insert_col = '''
@@ -486,7 +486,7 @@ Bu örnek, bir kategorik alan veri alt yineleme sayısı ile her kategori deği�
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Özellik Mühendisliği: Sayısal bir sütun depo özellikleri
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Özellik Mühendisliği: Sayısal sütunlara bin özellikleri
 Bu örnekte önceden oluşturulmuş kategori aralıkları, yani, sayısal alana bir kategorik alanı dönüştürme sürekli bir sayısal alana dönüştürür.
 
     nyctaxi_one_percent_insert_col = '''
@@ -514,7 +514,7 @@ Bu örnekte önceden oluşturulmuş kategori aralıkları, yani, sayısal alana 
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Özellik Mühendisliği: Ondalık enlem/boylam konumu özellikleri ayıklayın.
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Özellik Mühendisliği: Ondalık enlem/boylam konumu özellikleri ayıklayın
 Bu örnek bir enlem ve/veya boylam alan ondalık gösterimini farklı ayrıntı düzeyi, birden çok bölgeye alanlarına gibi keser ülke, şehir, şehir, blok, vb. Yeni coğrafi alanları gerçek konumlara eşlenmedi unutmayın. Eşleme coğrafi konumları hakkında daha fazla bilgi için bkz: [Bing Haritalar REST Hizmetleri](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
@@ -546,9 +546,9 @@ Bu örnek bir enlem ve/veya boylam alan ondalık gösterimini farklı ayrıntı 
 
 Model yapı ve model dağıtımı, devam etmeye hazır sunmaktayız [Azure Machine Learning](https://studio.azureml.net). Veri herhangi biri daha önce yani tanımlanan tahmin sorunları için hazırdır:
 
-1. İkili sınıflandırma: tahmin etmek için olup olmadığını bir ipucu Ücretli bir seyahat için.
-2. Sınıflı sınıflandırma: aralığı, önceden tanımlanmış sınıfları göre Ücretli ipucu tahmin etmek için.
-3. Regresyon görev: bir seyahat için ücretli ipucu miktarını tahmin edin.  
+1. İkili sınıflandırma: Tahmin etmek için olup olmadığını bir ipucu için bir seyahat ödenmiş.
+2. Sınıflı sınıflandırma: İpucu aralığını tahmin etmek için önceden tanımlanmış sınıfları göre Ücretli.
+3. Regresyon. Görev: İpucu miktarı tahmin etmek için bir seyahat Ücretli.  
 
 ## <a name="mlmodel"></a>Azure Machine Learning modelleri oluşturma
 Modelleme alıştırma başlamak için Azure Machine Learning çalışma alanına oturum açın. Machine learning çalışma alanı henüz oluşturmadıysanız, bkz: [bir Azure Machine Learning çalışma alanı oluşturma](../studio/create-workspace.md).

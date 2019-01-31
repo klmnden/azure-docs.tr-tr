@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390381"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453936"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Azure SQL için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
@@ -162,7 +162,7 @@ Azure SQL veritabanı sorgu Düzenleyicisi, azure'da sanal makineler üzerinde d
 
 ### <a name="impact-on-data-sync"></a>Veri Eşitleme etkisi
 
-Azure SQL veritabanı, Azure IP'ler kullanarak veritabanlarınızı bağlanan veri eşitleme özelliği vardır. Hizmet uç noktaları kullanırken, kapanır emin olma olasılığı yüksektir **izin Azure Hizmetleri için erişim sunucusu** mantıksal sunucunuza erişim. Veri eşitleme özelliği çalışmamasına neden olur.
+Azure SQL veritabanı, Azure IP'ler kullanarak veritabanlarınızı bağlanan veri eşitleme özelliği vardır. Hizmet uç noktaları kullanırken, kapanır emin olma olasılığı yüksektir **izin Azure Hizmetleri için erişim sunucusu** SQL veritabanı sunucunuza erişim. Veri eşitleme özelliği çalışmamasına neden olur.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure depolama ile sanal ağ hizmet uç noktaları kullanma etkileri
 
@@ -173,17 +173,18 @@ Azure depolama, Azure depolama hesabınızın bağlantısını sınırlamanıza 
 PolyBase, verileri Azure depolama hesaplarını Azure SQL Data Warehouse'a yüklemek için yaygın olarak kullanılır. Verilerden yüklenmekte olan Azure depolama hesabına yalnızca bir sanal ağ alt kümesine erişim getiriyorsa, PolyBase kullanılarak hesabı bağlantı çalışmamasına neden olur. Her iki PolyBase etkinleştirmek için alma ve senaryoları sanal ağa güvenli Azure Depolama'ya bağlanan Azure SQL veri ambarı ile dışarı aktarma, aşağıda belirtilen adımları izleyin:
 
 #### <a name="prerequisites"></a>Önkoşullar
+
 1.  Bunu kullanarak Azure PowerShell'i yükleyin [Kılavuzu](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Genel amaçlı v1 veya blob depolama hesabı varsa, genel amaçlı v2'ye yükseltmeniz gerekir bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Olmalıdır **güvenilen Microsoft hizmetlerinin bu depolama hesabına erişmesine izin ver** Azure depolama hesabı altında açık **güvenlik duvarları ve sanal ağları** ayarlar menüsü. Bu [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) daha fazla bilgi için.
  
 #### <a name="steps"></a>Adımlar
-1.  PowerShell'de, **mantıksal SQL sunucunuza kaydetmek** ile Azure Active Directory (AAD):
+1.  PowerShell'de, **SQL veritabanı sunucunuza kaydetmek** ile Azure Active Directory (AAD):
 
     ```powershell
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
     ```
     
  1. Oluşturma bir **genel amaçlı v2 depolama hesabı** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -192,7 +193,7 @@ PolyBase, verileri Azure depolama hesaplarını Azure SQL Data Warehouse'a yükl
     > - Genel amaçlı v1 veya blob depolama hesabı varsa, şunları yapmalısınız **v2'ye yükseltmeniz** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     > - Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar için lütfen şuna bakın [Kılavuzu](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.  Depolama hesabınız kapsamında gidin **erişim denetimi (IAM)**, tıklatıp **rol ataması Ekle**. Ata **depolama Blob verileri katkıda bulunan (Önizleme)** mantıksal SQL sunucunuza RBAC rolü.
+1.  Depolama hesabınız kapsamında gidin **erişim denetimi (IAM)**, tıklatıp **rol ataması Ekle**. Ata **depolama Blob verileri katkıda bulunan (Önizleme)** SQL veritabanı sunucunuza RBAC rolü.
 
     > [!NOTE] 
     > Bu adım yalnızca sahibi ayrıcalığa sahip üyeleri gerçekleştirebilir. Azure kaynakları için çeşitli yerleşik roller için şuna başvurun [Kılavuzu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

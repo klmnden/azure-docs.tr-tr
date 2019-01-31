@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: ea81cb52b8492e429903de15a9ff0156c91abae2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cdaa151f0603cddc9ca1bf17b0ff304f646cfdde
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309595"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462843"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 
@@ -68,8 +68,8 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
     |---------|---------|
     |/j:     |.Jrn uzantısına sahip bir günlük dosyası adı. Sürücü bir günlük dosyası oluşturulur. Disk seri numarası günlük dosyası adı kullanmanızı öneririz.         |
     |/id:     |Oturum kimliği Benzersiz oturum sayısı komutu her örneği için kullanın.      |
-    |/SK:     |Azure depolama hesabı anahtarı.         |
-    |/ t:     |Gönderilmeye diskinin sürücü harfi. Örneğin, sürücü `D`.         |
+    |/sk:     |Azure depolama hesabı anahtarı.         |
+    |/t:     |Gönderilmeye diskinin sürücü harfi. Örneğin, sürücü `D`.         |
     |/bk:     |Sürücüsü için BitLocker anahtarı. Çıktısından sayısal parolası ` manage-bde -protectors -get D: `      |
     |/srcdir:     |Ardından gönderilmeye diskinin sürücü harfi `:\`. Örneğin, `D:\`.         |
     |/dstdir:     |Azure depolama alanındaki hedef kapsayıcısının adı.         |
@@ -129,16 +129,16 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
     ![4. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives"></a>3. adım: Sürücüleri gönderin 
+## <a name="step-3-ship-the-drives"></a>3. Adım: Sürücüleri gönderin 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
 
-## <a name="step-4-update-the-job-with-tracking-information"></a>4. adım: İş izleme bilgilerini güncelleştir
+## <a name="step-4-update-the-job-with-tracking-information"></a>4. Adım: İş izleme bilgilerini güncelleştir
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>5. adım: Azure'a verilerin yüklendiğini doğrulama
+## <a name="step-5-verify-data-upload-to-azure"></a>5. Adım: Azure'a verilerin yüklendiğini doğrulama
 
 İş tamamlanana kadar izleyin. İş tamamlandıktan sonra verilerinizi Azure'a karşıya yüklendiğini doğrulayın. Yalnızca, karşıya yükleme başarılı olduğunu doğruladıktan sonra şirket içi verileri silin.
 

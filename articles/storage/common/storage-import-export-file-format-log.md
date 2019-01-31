@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316599"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454853"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure içeri/dışarı aktarma hizmeti günlük dosyası biçimi
 Microsoft Azure içeri/dışarı aktarma hizmeti içeri aktarma işi veya dışarı aktarma işi bir parçası olarak bir sürücüde bir eylem gerçekleştirdiğinde, günlükleri blok blobları, işi ile ilişkili depolama hesabına yazılır.  
@@ -101,19 +101,19 @@ properties-status ::=
 
 Aşağıdaki tabloda, günlük dosyasının öğeleri açıklar.  
   
-|XML öğesi|Tür|Açıklama|  
+|XML öğesi|Type|Açıklama|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML öğesi|Bir sürücü günlük temsil eder.|  
 |`Version`|Öznitelik, dize|Günlük biçimi sürümü.|  
-|`DriveId`|Dize|Sürücünün donanım seri numarası.|  
-|`Status`|Dize|Sürücü işlem durumu. Bkz: `Drive Status Codes` daha fazla bilgi için tablo aşağıda.|  
+|`DriveId`|String|Sürücünün donanım seri numarası.|  
+|`Status`|String|Sürücü işlem durumu. Bkz: `Drive Status Codes` daha fazla bilgi için tablo aşağıda.|  
 |`Blob`|İç içe geçmiş XML öğesi|Bir blob temsil eder.|  
-|`Blob/BlobPath`|Dize|Blob URI'si.|  
-|`Blob/FilePath`|Dize|Sürücüdeki dosyaya göreli yol.|  
+|`Blob/BlobPath`|String|Blob URI'si.|  
+|`Blob/FilePath`|String|Sürücüdeki dosyaya göreli yol.|  
 |`Blob/Snapshot`|DateTime|Yalnızca bir dışarı aktarma işi için blob anlık görüntü sürümü.|  
 |`Blob/Length`|Tamsayı|Blob bayt cinsinden uzunluğu.|  
 |`Blob/LastModified`|DateTime|Blob son değiştirildiği, tarih yalnızca bir dışarı aktarma işi için.|  
-|`Blob/ImportDisposition`|Dize|Yalnızca içeri aktarma işi için blob alma eğilimini.|  
+|`Blob/ImportDisposition`|String|Yalnızca içeri aktarma işi için blob alma eğilimini.|  
 |`Blob/ImportDisposition/@Status`|Öznitelik, dize|İçeri aktarma değerlendirme durumu.|  
 |`PageRangeList`|İç içe geçmiş XML öğesi|Bir sayfa blobu için sayfa aralıklarını listesini temsil eder.|  
 |`PageRange`|XML öğesi|Sayfa aralığını temsil eder.|  
@@ -130,17 +130,17 @@ Aşağıdaki tabloda, günlük dosyasının öğeleri açıklar.
 |`Block/@Status`|Öznitelik, dize|Blok işlem durumu.|  
 |`Metadata`|İç içe geçmiş XML öğesi|Blob meta verileri temsil eder.|  
 |`Metadata/@Status`|Öznitelik, dize|Blob meta verilerini işlenmesini durumu.|  
-|`Metadata/GlobalPath`|Dize|Genel meta veri dosyası için göreli yol.|  
+|`Metadata/GlobalPath`|String|Genel meta veri dosyası için göreli yol.|  
 |`Metadata/GlobalPath/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karması genel meta veri dosyası.|  
-|`Metadata/Path`|Dize|Meta veri dosyası için göreli yol.|  
+|`Metadata/Path`|String|Meta veri dosyası için göreli yol.|  
 |`Metadata/Path/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karması meta veri dosyası.|  
 |`Properties`|İç içe geçmiş XML öğesi|Blob özelliklerini temsil eder.|  
 |`Properties/@Status`|Öznitelik, dize|Blob özelliklerini, örneğin dosya bulunamadı, işleme durumu tamamlandı.|  
-|`Properties/GlobalPath`|Dize|Genel Özellikler dosyasının göreli yolu.|  
+|`Properties/GlobalPath`|String|Genel Özellikler dosyasının göreli yolu.|  
 |`Properties/GlobalPath/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karması genel özellikler dosyası.|  
-|`Properties/Path`|Dize|Özellikler dosyasına göreli yol.|  
+|`Properties/Path`|String|Özellikler dosyasına göreli yol.|  
 |`Properties/Path/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karması özellikler dosyası.|  
-|`Blob/Status`|Dize|Blob işlem durumu.|  
+|`Blob/Status`|String|Blob işlem durumu.|  
   
 ## <a name="drive-status-codes"></a>Sürücü durum kodları  
 Aşağıdaki tablo, bir sürücü işlemek için durum kodları listeler.  

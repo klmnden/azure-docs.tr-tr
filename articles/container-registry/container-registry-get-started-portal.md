@@ -5,21 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 865c53fdda60f6a0384157ec68042b4b8b243a7a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 93c22475a4043d1cbf5cb0ad7f9b134e8ac717cc
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255372"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298424"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir özel kapsayıcı kayıt defteri oluşturma
 
-Azure kapsayıcı kayıt defteri, Azure’da özel Docker kapsayıcısı görüntülerinizi depolayıp yönetebileceğiniz özel bir Docker kayıt defteridir. Bu hızlı başlangıçta Azure portalını kullanarak bir kapsayıcı kayıt defteri oluşturacak, kayıt defterine bir kapsayıcı görüntüsü gönderecek ve son olarak kapsayıcıyı kayıt defterinizden Azure Container Instances’a (ACI) dağıtacaksınız.
+Azure kapsayıcı kayıt defteri, Azure’da özel Docker kapsayıcısı görüntülerinizi depolayıp yönetebileceğiniz özel bir Docker kayıt defteridir. Bu hızlı başlangıçta, Azure portalıyla bir kapsayıcı kayıt defteri oluşturursunuz. Sonra kayıt defterine bir kapsayıcı görüntüsü göndermeye Docker komutlarını kullanın ve son olarak çekmek ve görüntüyü kayıt defterinizden çalıştırın.
 
-Bu hızlı başlangıcı tamamlayabilmeniz için Docker yerel olarak yüklü olmalıdır. Docker [Mac][docker-mac], [Windows][docker-windows] veya [Linux][docker-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
+Kapsayıcı görüntüleri ile çalışmak için kayıt defterinde oturum açmak için bu hızlı başlangıçta Azure CLI'yı çalıştıran gerektirir (2.0.55 sürümü veya üzeri önerilir). Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli].
+
+Ayrıca sisteminizde yerel olarak Docker yüklü olması gerekir. Docker [Mac][docker-mac], [Windows][docker-windows] veya [Linux][docker-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -35,141 +37,69 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ![Azure portalında kapsayıcı kayıt defteri oluşturma][qs-portal-03]
 
-Bu hızlı başlangıçta *Temel* kayıt defteri oluşturulur. Azure Container Registry, aşağıdaki tabloda kısaca açıklandığı gibi çeşitli SKU’lar altında sunulur. Her biriyle ilgili ayrıntılı bilgi edinmek için bkz. [Kapsayıcı kayıt defteri SKU'ları][container-registry-skus].
+Bu hızlı başlangıçta oluşturduğunuz bir *temel* maliyet açısından iyileştirilmiş bir seçenek Azure Container Registry hakkında öğrenme geliştiriciler için kayıt defteri. Kullanılabilir hizmet katmanları hakkında daha fazla bilgi için bkz: [kapsayıcı kayıt defteri SKU'ları][container-registry-skus].
 
-[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
+Zaman **dağıtım başarılı** iletisi göründüğünde, portalda kapsayıcı kayıt defteri seçin. 
 
-**Dağıtım başarılı** iletisi göründüğünde, portalda kapsayıcı kayıt defterini seçip **Erişim anahtarları**’nı seçin.
+![Azure portalındaki kapsayıcı kayıt defteri genel bakış][qs-portal-05]
 
-![Azure portalında kapsayıcı kayıt defteri oluşturma][qs-portal-05]
+Değerini not **oturum açma sunucusu**. Aşağıdaki adımlarda Azure CLI ve Docker ile kayıt defteriniz üzerinde çalışırken bu değeri kullanın.
 
-**Yönetici kullanıcı** altında **Etkinleştir**’i seçin. Aşağıdaki değerleri not alın:
+## <a name="log-in-to-registry"></a>Kayıt defterinde oturum açma
 
-* Oturum açma sunucusu
-* Kullanıcı adı
-* password
+Kapsayıcı görüntülerini gönderip çekmeden önce ACR örneğinde oturum açmalısınız. İşletim sisteminizde bir komut kabuğunu açın ve kullanmak [az acr oturum açma] [ az-acr-login] Azure CLI komutu.
 
-Bu değerleri aşağıdaki adımlarda, Docker CLI ile kayıt defteriniz üzerinde çalışırken kullanırsınız.
-
-![Azure portalında kapsayıcı kayıt defteri oluşturma][qs-portal-06]
-
-## <a name="log-in-to-acr"></a>ACR üzerinde oturum açın
-
-Kapsayıcı görüntülerini gönderip çekmeden önce ACR örneğinde oturum açmalısınız. Bunu yapmak için [docker login][docker-login] komutunu kullanın. *username*, *password* ve *login server* değerlerini bir önceki adımda not aldığınız değerlerle değiştirin.
-
-```bash
-docker login --username <username> --password <password> <login server>
+```azurecli
+az acr login --name <acrName>
 ```
 
-Bu komut tamamlandığında `Login Succeeded` döndürülür. `--password-stdin` parametresinin kullanılmasını öneren bir güvenlik uyarısı da görebilirsiniz. Bunun kullanımı bu makalenin kapsamında olmasa da bu en iyi yöntemin izlenmesi önerilir. Daha fazla bilgi edinmek için [docker login][docker-login] komut başvurusuna bakın.
+Bu komut tamamlandığında `Login Succeeded` döndürülür. 
 
-## <a name="push-image-to-acr"></a>Görüntüyü ACR’ye gönderme
-
-Azure Container Registry’nize görüntü gönderebilmeniz için önce bir görüntünüz olmalıdır. Gerekirse aşağıdaki komutu çalıştırarak Docker Hub’dan mevcut bir görüntüyü çekin.
-
-```bash
-docker pull microsoft/aci-helloworld
-```
-
-Görüntüyü kayıt defterinize göndermeden önce ACR oturum açma sunucusunun adıyla etiketlemeniz gerekir. Görüntüyü [docker tag][docker-tag] komutunu kullanarak etiketleyin. *login server* değerini daha önce kaydettiğiniz oturum açma sunucusu adıyla değiştirin. Görüntünüzü depoya yerleştirmek için **`myrepo`** gibi bir *depo adı* ekleyin.
-
-```bash
-docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
-```
-
-Son olarak, [docker push][docker-push] komutunu kullanarak görüntüyü ACR örneğine gönderin. *login server* değerini ACR örneğinizin oturum açma sunucusu adıyla ve *repository name* değerini önceki komutta kullandığınız deponun adıyla değiştirin.
-
-```bash
-docker push <login server>/<repository name>/aci-helloworld:v1
-```
-
-Başarılı bir `docker push` komutunun çıktısı şuna benzer:
-
-```
-The push refers to repository [specificregistryname.azurecr.io/myrepo/aci-helloworld]
-31ba1ebd9cf5: Pushed
-cd07853fe8be: Pushed
-73f25249687f: Pushed
-d8fbd47558a8: Pushed
-44ab46125c35: Pushed
-5bef08742407: Pushed
-v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
-```
+[!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
 ## <a name="list-container-images"></a>Kapsayıcı görüntülerini listeleme
 
-ACR örneğinizdeki görüntüleri listelemek için portalda kayıt defterinize gidin ve **Depolar**’ı seçip `docker push` ile oluşturduğunuz depoyu seçin.
+Kayıt defterinizde seçin ve portal gidin, kayıt defterindeki görüntüleri listelemek için **depoları**, ardından ile oluşturduğunuz depoyu seçin `docker push`.
 
-Bu örnekte **aci-helloworld** deposunu seçiyoruz ve **TAGS** altında `v1` etiketli görüntüyü görebiliyoruz.
+Bu örnekte, seçiyoruz **busybox** ve depo görmesi `v1`-altında Etiketli Resim **ETİKETLERİ**.
 
-![Azure portalında kapsayıcı kayıt defteri oluşturma][qs-portal-09]
+![Azure portalında kapsayıcı görüntülerini listeleme][qs-portal-09]
 
-## <a name="deploy-image-to-aci"></a>Görüntüyü ACI’ya dağıtma
-
-Bir örneği kayıt defterinden dağıtmak için depoya (aci-helloworld) gitmemiz ve sonra v1 ifadesinin yanındaki üç noktaya tıklamamız gerekir.
-
-![Portaldan bir Azure Container Örneği başlatma][qs-portal-10]
-
-Açılır menü görüntülendiğinde **Örneği çalıştır**’ı seçin:
-
-![ACI açılır menüsünü başlatma][qs-portal-11]
-
-**Kapsayıcı adı**’nı doldurun, doğru aboneliğin seçildiğinden emin olun, mevcut **Kaynak grubu**: "myResourceGroup" öğesini seçin. Azure Kapsayıcı Örneğini başlatmak için “Genel IP adresi” seçeneğinin **Evet**’e ayarlayıp **Tamam**’a tıklanarak etkinleştirilmiş olduğundan emin olun.
-
-![ACI dağıtım seçeneklerini başlatma][qs-portal-12]
-
-Dağıtım başlatıldığında, dağıtım ilerlemesini gösteren bir kutucuk portal panonuza yerleştirilir. Dağıtım tamamlandığında, kutucuk yeni **mycontainer** kapsayıcı grubunuzu göstermek için güncelleştirilir.
-
-![ACI dağıtım durumu][qs-portal-13]
-
-Kapsayıcı grubu özelliklerini görüntülemek için mycontainer kapsayıcı grubunu seçin. Kapsayıcı grubunun **IP adresi** ve kapsayıcının **STATUS** değerini not edin.
-
-![ACI kapsayıcı ayrıntıları][qs-portal-14]
-
-## <a name="view-the-application"></a>Uygulamayı görüntüleme
-
-Kapsayıcı **Çalışıyor** durumuna geçtikten sonra uygulamayı görüntülemek için sık kullandığınız tarayıcıdan önceki adımda not ettiğiniz IP adresine gidin.
-
-![Tarayıcıdaki Merhaba Dünya uygulaması][qs-portal-15]
+[!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kaynaklarınızı temizlemek için portaldaki **myResourceGroup** kaynak grubuna gidin. Kaynak grubu yüklendikten sonra **Kaynak grubunu sil**’e tıklayarak kaynak grubunu, Azure Container Registry’yi ve tüm Azure Container Örneklerini kaldırın.
+Kaynaklarınızı temizlemek için gidin **myResourceGroup** portalında kaynak grubu. Kaynak grubu yüklendikten sonra tıklayarak **kaynak grubunu Sil** kaynak grubunu, kapsayıcı kayıt defteri ve kapsayıcı görüntülerini kaldırmak için depolanan vardır.
 
 ![Azure portalında kaynak grubunu silme][qs-portal-08]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure CLI ile bir Azure Container Registry oluşturdunuz ve Azure Container Instances üzerinden bir örneğini başlattınız. ACI’ya daha ayrıntılı bir bakış için Azure Container Instances öğreticisine geçin.
+Bu hızlı başlangıçta, Azure portalı ile bir Azure Container Registry oluşturdunuz, bir kapsayıcı görüntüsü gönderdiniz çekilir ve kayıt defterinden görüntü çalıştı. ACR derin göz atmak için Azure Container Registry öğreticilere geçin.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances öğreticileri][container-instances-tutorial-prepare-app]
+> [Azure Container Registry öğreticileri][container-registry-tutorial-quick-task]
 
 <!-- IMAGES -->
 [qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
 [qs-portal-02]: ./media/container-registry-get-started-portal/qs-portal-02.png
 [qs-portal-03]: ./media/container-registry-get-started-portal/qs-portal-03.png
-[qs-portal-04]: ./media/container-registry-get-started-portal/qs-portal-04.png
 [qs-portal-05]: ./media/container-registry-get-started-portal/qs-portal-05.png
-[qs-portal-06]: ./media/container-registry-get-started-portal/qs-portal-06.png
-[qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
-[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
-[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
-[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
-[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
-[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
-[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-pull]: https://docs.docker.com/engine/reference/commandline/pull/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-rmi]: https://docs.docker.com/engine/reference/commandline/rmi/
+[docker-run]: https://docs.docker.com/engine/reference/commandline/run/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
+[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
+[azure-cli]: /cli/azure/install-azure-cli
+[az-acr-login]: /cli/azure/acr#az-acr-login

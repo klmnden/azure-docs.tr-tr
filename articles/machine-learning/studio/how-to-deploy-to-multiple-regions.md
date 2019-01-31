@@ -1,6 +1,6 @@
 ---
-Başlık: Studio web hizmeti için birden çok bölgede titleSuffix dağıtın: Azure Machine Learning Studio açıklaması: (Kopya) yeni bir Web hizmetini diğer bölgeler dağıtma adımları. Birden çok abonelik veya çalışma alanları gerek kalmadan kolayca bir web hizmetini birden fazla bölgeye dağıtın.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Studio web hizmeti için birden çok bölgede titleSuffix dağıtın: Azure Machine Learning Studio açıklaması: (Kopya) yeni bir Web hizmetini diğer bölgeler dağıtma adımları. Birden çok abonelik veya çalışma alanları gerek kalmadan kolayca bir web hizmetini birden fazla bölgeye dağıtın.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

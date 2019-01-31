@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 81796e30ea9f1277f9265e86a712fbefea5adee3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ff346f9c842672b426a75eadaa278ca91de5d9c6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160413"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297506"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Nasıl Yapılır: Oturum açma risk ilkesini yapılandırma
 
@@ -77,7 +77,7 @@ Ancak, güvenlik nedeniyle, bu ayar yalnızca MFA için önceden kaydedilmiş ol
 
 Riskli oturum açma işlemleri için mfa'yı gerekli istiyorsanız, şunları yapmalısınız:
 
-1. Etkinleştirme [çok faktörlü kimlik doğrulaması kayıt ilkesi](#multi-factor-authentication-registration-policy) etkilenen kullanıcılar için.
+1. Etkinleştirme [çok faktörlü kimlik doğrulaması kayıt ilkesi](howto-mfa-policy.md) etkilenen kullanıcılar için.
 
 2. Etkilenen kullanıcıların bir MFA kayıt gerçekleştirmek için riskli olmayan bir oturum için oturum açmanız gerekir.
 

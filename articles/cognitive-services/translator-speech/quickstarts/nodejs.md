@@ -1,30 +1,30 @@
 ---
-title: "Hızlı Başlangıç: Translator Konuşma Çevirisi API'si Node.js"
+title: "Hızlı Başlangıç: Translator konuşma tanıma API'si Node.js"
 titlesuffix: Azure Cognitive Services
 description: Translator Konuşma Çevirisi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3db4e242ad630949533823c22a16587daa4f9786
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: a88eade0d5fbfe4fd951e3e98c72a1e697099f1a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389709"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466328"
 ---
-# <a name="quickstart-translator-speech-api-with-nodejs"></a>Hızlı Başlangıç: Node.js dilinde Translator Konuşma Çevirisi API'si 
+# <a name="quickstart-translator-speech-api-with-nodejs"></a>Hızlı Başlangıç: Translator konuşma tanıma API'si ile Node.js 
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Bu makalede Translator Konuşma Çevirisi API'si’ni kullanarak bir .wav dosyasında konuşulan sözcüklerin nasıl çevrileceği gösterilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu çalıştırmak için [Node.js 6](https://nodejs.org/en/download/) gerekir.
 

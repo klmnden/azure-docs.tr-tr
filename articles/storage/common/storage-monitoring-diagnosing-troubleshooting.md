@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.component: common
-ms.openlocfilehash: e451fd2c2dad5c411d0a8faa8e9c044648759001
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: common
+ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121745"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474012"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage izleme, tanılama ve sorun giderme
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -471,9 +471,9 @@ Bu hatanın en yaygın nedeni, bir istemcidir depolama hizmeti zaman aşımı s�
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-… |Konum modunu PrimaryOnly başına, birincil konumla işlemi başlatılıyor. |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Eşzamanlı isteği başlatma https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;sı mypolicy =&amp;sig OFnd4Rd7z01fIvh 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % = 3B&amp;api sürümü 2014-02-14 =. |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Yanıt bekleniyor. |
-| Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |Yanıtı beklenirken özel durum: Uzak sunucu bir hata döndürdü: (403) Yasak. |
+| Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |Yanıtı beklenirken özel durum: Uzak sunucu hata döndürdü: (403) Yasak. |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Yanıt alındı. Durum kodu 403, istek kimliği = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, içerik MD5 = =, ETag =. |
-| Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |İşlem sırasında özel bir durum oluştu: Uzak sunucu bir hata döndürdü: (403) Yasak... |
+| Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |İşlem sırasında özel bir durum oluştu: Uzak sunucu hata döndürdü: (403) Yasak... |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |İşlemi yeniden denetleniyor. Yeniden deneme sayısı = 0, HTTP durum kodu 403, özel durum = = uzak sunucu bir hata döndürdü: (403) Yasak... |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Sonraki konuma için birincil konum modunu dayalı olarak ayarlandı. |
 | Microsoft.WindowsAzure.Storage |Hata |1 |85d077ab-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Başarısız olan uzak sunucu hata döndürdü: (403) Yasak. |
@@ -515,41 +515,41 @@ Günlük girdileri:
 | İstek Kimliği | İşlem metin |
 | --- | --- |
 | 07b26a5d-... |Eşzamanlı isteği başlatma https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| 07b26a5d-... |StringToSign HEAD...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, Haziran 2014'ten 03 = 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Yanıt bekleniyor. |
 | 07b26a5d-... |Yanıt alındı. Durum kodu 200, istek kimliği = eeead849... = İçerik MD5 =, ETag = &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Yanıt Üstbilgileri işlemi geri kalanıyla devam etmeden başarıyla işlendi. |
 | 07b26a5d-... |Yanıt gövdesi indiriliyor. |
 | 07b26a5d-... |İşlem başarıyla tamamlandı. |
 | 07b26a5d-... |Eşzamanlı isteği başlatma https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| 07b26a5d-... |StringToSign DELETE...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, Haziran 2014'ten 03 = 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Yanıt bekleniyor. |
 | 07b26a5d-... |Yanıt alındı. Durum kodu 202, istek kimliği = 6ab2a4cf-..., içerik MD5 = =, ETag =. |
 | 07b26a5d-... |Yanıt Üstbilgileri işlemi geri kalanıyla devam etmeden başarıyla işlendi. |
 | 07b26a5d-... |Yanıt gövdesi indiriliyor. |
 | 07b26a5d-... |İşlem başarıyla tamamlandı. |
 | e2d06d78-... |Zaman uyumsuz istek için başlangıç https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
-| e2d06d78-... |StringToSign HEAD...x-ms-client-request-id:e2d06d78-...x-ms-date:Tue, Haziran 2014'ten 03 = 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Yanıt bekleniyor. |
 | de8b1c3c-... |Eşzamanlı isteği başlatma https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign PUT =... 64.qCmF+TQLPhq/YYK50mP9ZQ==...x-MS-BLOB-Type:BlockBlob.x-MS-Client-Request-id:de8b1c3c-...x-MS-Date:TUE, 03 Haziran 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |İstek verileri yazmak hazırlanıyor. |
-| e2d06d78-... |Yanıtı beklenirken özel durum: Uzak sunucu bir hata döndürdü: (404) bulunamadı... |
+| e2d06d78-... |Yanıtı beklenirken özel durum: Uzak sunucu hata döndürdü: (404) bulunamadı... |
 | e2d06d78-... |Yanıt alındı. Durum kodu 404, istek kimliği = 353ae3bc-..., içerik MD5 = =, ETag =. |
 | e2d06d78-... |Yanıt Üstbilgileri işlemi geri kalanıyla devam etmeden başarıyla işlendi. |
 | e2d06d78-... |Yanıt gövdesi indiriliyor. |
 | e2d06d78-... |İşlem başarıyla tamamlandı. |
 | e2d06d78-... |Zaman uyumsuz istek için başlangıç https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| e2d06d78-... |StringToSign PUT =... 0...x-MS-Client-Request-id:e2d06d78-...x-MS-Date:TUE, 03 Haziran 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Yanıt bekleniyor. |
 | de8b1c3c-... |Yazma istek verileri. |
 | de8b1c3c-... |Yanıt bekleniyor. |
-| e2d06d78-... |Yanıtı beklenirken özel durum: Uzak sunucu bir hata döndürdü: Çakışma (409)... |
+| e2d06d78-... |Yanıtı beklenirken özel durum: Uzak sunucu hata döndürdü: Çakışma (409)... |
 | e2d06d78-... |Yanıt alındı. Durum kodu 409, istek kimliği = c27da20e-..., içerik MD5 = =, ETag =. |
 | e2d06d78-... |İndirme hatası yanıt gövdesi. |
-| de8b1c3c-... |Yanıtı beklenirken özel durum: Uzak sunucu bir hata döndürdü: (404) bulunamadı... |
+| de8b1c3c-... |Yanıtı beklenirken özel durum: Uzak sunucu hata döndürdü: (404) bulunamadı... |
 | de8b1c3c-... |Yanıt alındı. Durum kodu 404, istek kimliği = 0eaeab3e-..., içerik MD5 = =, ETag =. |
-| de8b1c3c-... |İşlem sırasında özel bir durum oluştu: Uzak sunucu bir hata döndürdü: (404) bulunamadı... |
+| de8b1c3c-... |İşlem sırasında özel bir durum oluştu: Uzak sunucu hata döndürdü: (404) bulunamadı... |
 | de8b1c3c-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Başarısız olan uzak sunucu hata döndürdü: (404) bulunamadı... |
 | e2d06d78-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Başarısız olan uzak sunucu hata döndürdü: Çakışma (409)... |
 
@@ -569,7 +569,7 @@ Aşağıdaki tabloda örnek bir sunucu tarafı günlük ileti günlüğü depola
 | Kimlik doğrulaması türü| SAS                          |
 | Hizmet türü       | Blob                         |
 | İstek URL'si        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| &nbsp;                 |   ? sv 2014-02-14 = & sr = c & si = mypolicy & sig XXXXX =&;api sürümü 2014-02-14 = |
+| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | İstek Kimliği üst bilgisi  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | İstemci istek kimliği  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 

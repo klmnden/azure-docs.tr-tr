@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: a8c371d9d221ac6232c9293f6ca3192f163dfacb
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 115be0ad1b7dec44f036f6d50c2ac30ceba37ba7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156298"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457097"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık Sorulan Sorular
 
@@ -69,7 +69,7 @@ Ayrıntılar projenin türüne bağlıdır. Bir web uygulaması için:
 * Bu dosyalar, projenize ekler:
 
   * Applicationınsights.config.
-  * Ai.js
+  * ai.js
 * Bu NuGet paketlerini yükler:
 
   * *Application Insights API* -core API'si
@@ -245,42 +245,51 @@ SDK'larımızda kullanın ve kullanmak öneririz [SDK API'si](../../azure-monito
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Bir intranet web sunucusu izleyebilirim?
 
-İki yöntem aşağıda verilmiştir:
+Evet, ancak güvenlik duvarı özel durumları ya da proxy yeniden yönlendirmeleri hizmetlerimizi trafiğine izin vermek ihtiyacınız olacak.
+- QuickPulse `rt.services.visualstudio.com:443` 
+- ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
+- TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
-### <a name="firewall-door"></a>Güvenlik Duvarı kapısı
 
-Web sunucunuza bizim uç noktalarına telemetri göndermesine izin https://dc.services.visualstudio.com:443 ve https://rt.services.visualstudio.com:443. 
+Hizmetlerini ve IP adreslerini listemizi gözden geçirin [burada](../../azure-monitor/app/ip-addresses.md).
 
-### <a name="proxy"></a>Ara sunucu
+### <a name="firewall-exception"></a>Güvenlik Duvarı özel durumu
 
-Sunucunuza giden trafik bir ağ geçidi, bu ayarlar örnekte Applicationınsights.config üzerine yazarak intranetinizde yol. Bu "Bitiş" özellikleri, yapılandırmada mevcut değilse, aşağıdaki örnekte gösterilen varsayılan değerler bu sınıfların kullanacaklardır.
+Web sunucunuza bizim uç noktalarına telemetri göndermesine izin verin. 
 
-#### <a name="example-applicationinsightsconfig"></a>Örnek Applicationınsights.config:
+### <a name="proxy-redirect"></a>Proxy yönlendirme
+
+Sunucunuza giden trafik bir ağ geçidi yapılandırma uç noktaları yazarak intranetinizde yol.
+Bu "Bitiş" özellikleri, yapılandırmada mevcut değilse, bu sınıflar Applicationınsights.config örnekte aşağıda gösterilen varsayılan değerleri kullanır. 
+
+Ağ geçidi trafiği bizim uç noktasının temel adresine yönlendirmesi. Yapılandırmanızda, varsayılan değerlerle değiştirin `http://<your.gateway.address>/<relative path>`.
+
+
+#### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Varsayılan uç noktaları ile örnek Applicationınsights.config:
 ```xml
 <ApplicationInsights>
+  ...
+  <TelemetryModules>
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+      <QuickPulseServiceEndpoint>https://rt.services.visualstudio.com/QuickPulseService.svc</QuickPulseServiceEndpoint>
+    </Add>
+  </TelemetryModules>
     ...
-    <TelemetryChannel>
-         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
-    </TelemetryChannel>
-    ...
-    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
-        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
-    </ApplicationIdProvider>
-    ...
+  <TelemetryChannel>
+     <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+  </TelemetryChannel>
+  ...
+  <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+    <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+  </ApplicationIdProvider>
+  ...
 </ApplicationInsights>
 ```
 
 _Not ApplicationIdProvider v2.6.0 içinde itibaren kullanılabilir_
 
-Ağ geçidi trafiği yönlendirmek https://dc.services.visualstudio.com:443
 
-Yukarıdaki değerlerle değiştirin: `http://<your.gateway.address>/<relative path>`
  
-Örnek: 
-```
-http://<your.gateway.endpoint>/v2/track 
-http://<your.gateway.endpoint>/api/profiles/{0}/apiId
-```
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Bir intranet sunucusunda kullanılabilirlik web testleri çalıştırabilir miyim?
 

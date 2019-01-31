@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 73c5e6d1d5078040fee23a2c94bb4fbb649fada4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 31c845673c524a504bd3078fc62c1fc73aa4ca63
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082172"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459375"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için kaynak işlevleri
 
@@ -49,7 +49,7 @@ Bu işlev sözdizimi listeleme işlemleri adına göre değişir. Her uygulama, 
 |:--- |:--- |:--- |:--- |
 | resourceName veya Resourceıdentifier |Evet |dize |Kaynağın benzersiz tanımlayıcısı. |
 | apiVersion |Evet |dize |Kaynak çalışma zamanı durumu API sürümü. Genellikle, biçiminde **yyyy-aa-gg**. |
-| functionValues |Hayır |object | İşlev için değerleri içeren nesne. Yalnızca bu nesne için parametre değerlerini içeren bir nesne gibi almayı destekleyen işlevleri sağlar **listAccountSas** bir depolama hesabı üzerinde. | 
+| functionValues |Hayır |object | İşlev için değerleri içeren nesne. Yalnızca bu nesne için parametre değerlerini içeren bir nesne gibi almayı destekleyen işlevleri sağlar **listAccountSas** bir depolama hesabı üzerinde. Bu makalede işlevi değerler geçirerek bir örnek gösterilmektedir. | 
 
 ### <a name="implementations"></a>Uygulamalar
 
@@ -57,129 +57,98 @@ Olası listesini * kullanımları aşağıdaki tabloda gösterilmektedir.
 
 | Kaynak türü | İşlev adı |
 | ------------- | ------------- |
-| Microsoft.Addons/supportProviders | listsupportplaninfo |
-| Microsoft.AnalysisServices/servers | listGatewayStatus |
-| Microsoft.Automation/automationAccounts | Listkeys'i |
-| Microsoft.AzureStack/registrations/products | listDetails |
-| Microsoft.Batch/batchAccounts | listkeys'i |
-| Microsoft.BatchAI/workspaces/experiments/jobs | listoutputfiles |
-| Microsoft.BingMaps/mapApis | listSecrets |
-| Microsoft.BingMaps/mapApis | listSingleSignOnToken |
-| Microsoft.Cache/redis | Listkeys'i |
-| Microsoft.Cache/redis | listUpgradeNotifications |
-| Microsoft.CognitiveServices/accounts | Listkeys'i |
-| Microsoft.ContainerRegistry/registries/buildTasks | listSourceRepositoryProperties |
-| Microsoft.ContainerRegistry/registries/buildTasks/steps | listBuildArguments |
-| Microsoft.ContainerRegistry/registries | listBuildSourceUploadUrl |
-| Microsoft.ContainerRegistry/registries | listCredentials |
-| Microsoft.ContainerRegistry/registries | listPolicies |
-| Microsoft.ContainerRegistry/registries | listUsages |
-| Microsoft.ContainerRegistry/registries/runs | listLogSasUrl |
-| Microsoft.ContainerRegistry/registries/tasks | listDetails |
-| Microsoft.ContainerRegistry/registries/webhooks | listEvents |
-| Microsoft.ContainerService/managedClusters/accessProfiles | listCredential |
-| Microsoft.ContainerService/managedClusters | listClusterAdminCredential |
-| Microsoft.ContainerService/managedClusters | listClusterUserCredential |
-| Microsoft.ContentModerator/applications | listSecrets |
-| Microsoft.ContentModerator/applications | listSingleSignOnToken |
-| Microsoft.ContentModerator | listCommunicationPreference |
-| Microsoft.DataBox/jobs | listCredentials |
+| Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft.Automation/automationAccounts | [Listkeys'i](/rest/api/automation/keys/listbyautomationaccount) |
+| Microsoft.Batch/batchAccounts | [listkeys'i](/rest/api/batchmanagement/batchaccount/getkeys) |
+| Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
+| Microsoft.Cache/redis | [Listkeys'i](/rest/api/redis/redis/listkeys) |
+| Microsoft.CognitiveServices/accounts | [Listkeys'i](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
+| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
+| Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
+| Microsoft.ContainerRegistry/registries | [listPolicies](/rest/api/containerregistry/registries/listpolicies) |
+| Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
+| Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
+| Microsoft.ContainerService/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
+| Microsoft.ContainerService/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
 | Microsoft.DataFactory/datafactories/gateways | listauthkeys |
-| Microsoft.DataFactory/factories/integrationruntimes | listauthkeys |
-| Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | listSasTokens |
-| Microsoft.Devices/elasticPools/iotHubTenants/iotHubKeys | listkeys'i |
-| Microsoft.Devices/elasticPools/iotHubTenants | Listkeys'i |
-| Microsoft.Devices/iotHubs/iotHubKeys | listkeys'i |
-| Microsoft.Devices/ıothubs | listkeys'i |
-| Microsoft.Devices/provisioningServices/keys | listkeys'i |
-| Microsoft.Devices/provisioningServices | listkeys'i |
-| Microsoft.DevSpaces/controllers | listConnectionDetails |
-| Microsoft.DevTestLab/labs | ListVhds |
-| Microsoft.DevTestLab/labs/schedules | ListApplicable |
-| Microsoft.DevTestLab/labs/users/serviceFabrics | ListApplicableSchedules |
-| Microsoft.DevTestLab/labs/virtualMachines | ListApplicableSchedules |
-| Microsoft.DocumentDB/databaseAccounts | listConnectionStrings |
-| Microsoft.DocumentDB/databaseAccounts | Listkeys'i |
-| Microsoft.DomainRegistration | listDomainRecommendations |
-| Microsoft.DomainRegistration/topLevelDomains | listAgreements |
-| Microsoft.EventGrid/topics | Listkeys'i |
-| Microsoft.EventHub/namespaces/authorizationRules | listkeys'i |
-| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys'i |
-| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | listkeys'i |
-| Microsoft.ImportExport/jobs | listBitLockerKeys |
-| Microsoft.Insights | ListMigrationDate |
-| Microsoft.LabServices/users | ListEnvironments |
-| Microsoft.LabServices/users | ListLabs |
-| Microsoft.LocationBasedServices/accounts | Listkeys'i |
-| Microsoft.LocationServices/accounts | Listkeys'i |
-| Microsoft.Logic/integrationAccounts/agreements | listContentCallbackUrl |
-| Microsoft.Logic/integrationAccounts/assemblies | listContentCallbackUrl |
-| Microsoft.Logic/integrationAccounts | listCallbackUrl |
-| Microsoft.Logic/integrationAccounts | listKeyVaultKeys |
-| Microsoft.Logic/integrationAccounts/maps | listContentCallbackUrl |
-| Microsoft.Logic/integrationAccounts/partners | listContentCallbackUrl |
-| Microsoft.Logic/integrationAccounts/schemas | listContentCallbackUrl |
-| Microsoft.Logic/workflows/accessKeys | list |
-| Microsoft.Logic/workflows | listCallbackUrl |
-| Microsoft.Logic/workflows | listSwagger |
-| Microsoft.Logic/workflows/runs/actions | listExpressionTraces |
-| Microsoft.Logic/workflows/runs/actions/repetitions | listExpressionTraces |
-| Microsoft.Logic/workflows/triggers | listCallbackUrl |
-| Microsoft.Logic/workflows/versions/triggers | listCallbackUrl |
-| Microsoft.MachineLearning/webServices | listkeys'i |
+| Microsoft.DataFactory/factories/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
+| Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
+| Microsoft.Devices/ıothubs | [listkeys'i](/rest/api/iothub/iothubresource/listkeys) |
+| Microsoft.Devices/provisioningServices/keys | [listkeys'i](/rest/api/iot-dps/iotdpsresource/listkeysforkeyname) |
+| Microsoft.Devices/provisioningServices | [listkeys'i](/rest/api/iot-dps/iotdpsresource/listkeys) |
+| Microsoft.DevTestLab/labs | [ListVhds](/rest/api/dtl/labs/listvhds) |
+| Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
+| Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
+| Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
+| Microsoft.DocumentDB/databaseAccounts | [Listkeys'i](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
+| Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
+| Microsoft.EventGrid/topics | [Listkeys'i](/rest/api/eventgrid/topics/listsharedaccesskeys) |
+| Microsoft.EventHub/namespaces/authorizationRules | [listkeys'i](/rest/api/eventhub/namespaces/listkeys) |
+| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys'i](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
+| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys'i](/rest/api/eventhub/eventhubs/listkeys) |
+| Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
+| Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
+| Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
+| Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
+| Microsoft.Logic/integrationAccounts | [listKeyVaultKeys](/rest/api/logic/integrationaccounts/listkeyvaultkeys) |
+| Microsoft.Logic/integrationAccounts/maps | [listContentCallbackUrl](/rest/api/logic/maps/listcontentcallbackurl) |
+| Microsoft.Logic/integrationAccounts/partners | [listContentCallbackUrl](/rest/api/logic/partners/listcontentcallbackurl) |
+| Microsoft.Logic/integrationAccounts/schemas | [listContentCallbackUrl](/rest/api/logic/schemas/listcontentcallbackurl) |
+| Microsoft.Logic/workflows | [listCallbackUrl](/rest/api/logic/workflows/listcallbackurl) |
+| Microsoft.Logic/workflows | [listSwagger](/rest/api/logic/workflows/listswagger) |
+| Microsoft.MachineLearning/webServices | [listkeys'i](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningCompute/operationalizationClusters | Listkeys'i |
 | Microsoft.MachineLearningServices/workspaces/computes | Listkeys'i |
 | Microsoft.MachineLearningServices/workspaces | Listkeys'i |
-| Microsoft.Maps/accounts | Listkeys'i |
-| Microsoft.MarketplaceApps/ClassicDevServices | listSecrets |
-| Microsoft.MarketplaceApps/ClassicDevServices | listSingleSignOnToken |
-| Microsoft.Media/mediaservices/assets | listContainerSas |
-| Microsoft.Media/mediaservices/assets | listStreamingLocators |
-| Microsoft.Media/mediaservices/streamingLocators | listContentKeys |
-| Microsoft.Media/mediaservices/streamingLocators | listPaths |
-| Microsoft.Network/applicationSecurityGroups | listIpConfigurations |
-| Microsoft.Network/vpngateways | listvpnconnectionshealth |
-| Microsoft.NotificationHubs/Namespaces/authorizationRules | listkeys'i |
-| Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | listkeys'i |
-| Microsoft.OperationalInsights/workspaces | Listkeys'i |
-| Microsoft.OperationalInsights/workspaces | Listkeys'i |
-| Microsoft.PolicyInsights/remediations | listDeployments |
-| Microsoft.Relay/namespaces/authorizationRules | listkeys'i |
-| Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys'i |
-| Microsoft.Relay/namespaces/HybridConnections/authorizationRules | listkeys'i |
-| Microsoft.Relay/namespaces/WcfRelays/authorizationRules | listkeys'i |
-| Microsoft.SaaS/saasresources | listaccesstoken |
-| Microsoft.Search/searchServices | listAdminKeys |
-| Microsoft.Search/searchServices | listQueryKeys |
-| Microsoft.ServiceBus/namespaces/authorizationRules | listkeys'i |
-| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys'i |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | listkeys'i |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | listkeys'i |
-| Microsoft.SignalRService/SignalR | listFeatures |
-| Microsoft.SignalRService/SignalR | listkeys'i |
-| Microsoft.Storage/storageAccounts | listAccountSas |
-| Microsoft.Storage/storageAccounts | listkeys'i |
-| Microsoft.Storage/storageAccounts | listServiceSas |
-| Microsoft.StorSimple/managers/devices | listFailoverSets |
-| Microsoft.StorSimple/managers/devices | listFailoverTargets |
-| Microsoft.StorSimple/managers | listActivationKey |
-| Microsoft.StorSimple/managers | listPublicEncryptionKey |
-| Microsoft.Web/apimanagementaccounts/apis/Connections | listconnectionkeys |
-| Microsoft.Web/apimanagementaccounts/apis/Connections | listsecrets |
+| Microsoft.Maps/accounts | [Listkeys'i](/rest/api/maps-management/accounts/listkeys) |
+| Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
+| Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
+| Microsoft.Media/mediaservices/streamingLocators | [listContentKeys](/rest/api/media/streaminglocators/listcontentkeys) |
+| Microsoft.Media/mediaservices/streamingLocators | [listPaths](/rest/api/media/streaminglocators/listpaths) |
+| Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys'i](/rest/api/notificationhubs/namespaces/listkeys) |
+| Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys'i](/rest/api/notificationhubs/notificationhubs/listkeys) |
+| Microsoft.OperationalInsights/workspaces | [Listkeys'i](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
+| Microsoft.Relay/namespaces/authorizationRules | [listkeys'i](/rest/api/relay/namespaces/listkeys) |
+| Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys'i](/rest/api/relay/hybridconnections/listkeys) |
+| Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys'i](/rest/api/relay/wcfrelays/listkeys) |
+| Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/adminkeys/get) |
+| Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/querykeys/listbysearchservice) |
+| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys'i](/rest/api/servicebus/namespaces/listkeys) |
+| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys'i](/rest/api/servicebus/disasterrecoveryconfigs/listkeys) |
+| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys'i](/rest/api/servicebus/queues/listkeys) |
+| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys'i](/rest/api/servicebus/topics/listkeys) |
+| Microsoft.SignalRService/SignalR | [listkeys'i](/rest/api/signalr/signalr/listkeys) |
+| Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
+| Microsoft.Storage/storageAccounts | [listkeys'i](/rest/api/storagerp/storageaccounts/listkeys) |
+| Microsoft.Storage/storageAccounts | [listServiceSas](/rest/api/storagerp/storageaccounts/listservicesas) |
+| Microsoft.StorSimple/managers/devices | [listFailoverSets](/rest/api/storsimple/devices/listfailoversets) |
+| Microsoft.StorSimple/managers/devices | [listFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
+| Microsoft.StorSimple/managers | [listActivationKey](/rest/api/storsimple/managers/getactivationkey) |
+| Microsoft.StorSimple/managers | [listPublicEncryptionKey](/rest/api/storsimple/managers/getpublicencryptionkey) |
 | Microsoft.Web/connectionGateways | ListStatus |
 | Microsoft.Web/Connections | listconsentlinks |
 | Microsoft.Web/customApis | listWsdlInterfaces |
 | Microsoft.Web/Locations | listwsdlinterfaces |
-| Microsoft.Web/Sites/Backups | list |
-| Microsoft.Web/sites/config | list |
-| Microsoft.Web/Sites/Functions | listsecrets |
-| Microsoft.Web/Sites/hybridconnectionnamespaces/relays | listkeys'i |
-| Microsoft.Web/Sites | listsyncfunctiontriggerstatus |
-| Microsoft.Web/Sites/slots/Backups | list |
-| Microsoft.Web/sites/slots/config | list |
-| Microsoft.Web/Sites/slots/Functions | listsecrets |
+| Microsoft.Web/Sites/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
+| Microsoft.Web/Sites/hybridconnectionnamespaces/relays | [listkeys'i](/rest/api/appservice/webapps/listhybridconnectionkeys) |
+| Microsoft.Web/Sites | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
+| Microsoft.Web/Sites/slots/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
 
+Hangi kaynak türlerinin bir listesini işlemi olduğunu belirlemek için aşağıdaki seçenekleriniz vardır:
+
+* Görünüm [REST API işlemleri](/rest/api/) bir kaynak sağlayıcısı ve liste işlemleri arayın. Örneğin, depolama hesaplarının [Listkeys'i işlemi](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Kullanım [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) PowerShell cmdlet'i. Aşağıdaki örnek, depolama hesapları için tüm listeleme işlemleri alır:
+
+  ```powershell
+  Get-AzProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
+  ```
+* Listeleme işlemleri filtrelemek için aşağıdaki Azure CLI komutunu kullanın:
+
+  ```azurecli
+  az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
+  ```
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -206,27 +175,13 @@ Diğer liste işlevleri farklı dönüş biçimlerine sahip. Bir işlev biçimin
 
 ### <a name="remarks"></a>Açıklamalar
 
-[Listesi hesap SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) işlem gerektiriyor istek gövde parametreleri ister *signedExpiry*. Bir şablonda bu işlevi kullanmak için bir nesne birlikte gövdede parametre değerlerini sağlayın.
-
-Hangi kaynak türlerinin bir listesini işlemi olduğunu belirlemek için aşağıdaki seçenekleriniz vardır:
-
-* Görünüm [REST API işlemleri](/rest/api/) bir kaynak sağlayıcısı ve liste işlemleri arayın. Örneğin, depolama hesaplarının [Listkeys'i işlemi](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
-* Kullanım [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) PowerShell cmdlet'i. Aşağıdaki örnek, depolama hesapları için tüm listeleme işlemleri alır:
-
-  ```powershell
-  Get-AzProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
-  ```
-* Listeleme işlemleri filtrelemek için aşağıdaki Azure CLI komutunu kullanın:
-
-  ```azurecli
-  az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
-  ```
-
-Kaynak adı kullanarak bir kaynak belirtin veya [ResourceId işlevi](#resourceid). Bu işlev, başvurulan kaynak dağıtan aynı şablonda kullanırken, kaynak adı kullanın.
+Kaynak adı kullanarak bir kaynak belirtin veya [ResourceId işlevi](#resourceid). Başvurulan kaynak dağıtan aynı şablonda bir liste işlevini kullanarak, kaynak adı kullanın.
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) nasıl çıktılar bölümünü bir depolama hesabı birincil ve ikincil anahtarları döndürüleceğini gösterir. Ayrıca, depolama hesabı için bir SAS belirtecini döndürür. Bu belirteci almak için bir nesne listAccountSas işleve geçirir. Bu örnekte liste işlevlerini nasıl kullanacağınız göstermek için tasarlanmıştır. Genellikle, bir kaynak değerinde bir SAS belirteci kullanabilir yerine, bir çıkış değeri döndürür. Çıkış değerleri dağıtım geçmişini depolanır ve güvenli değildir. Bir süre sonu gelecekteki dağıtımın başarılı olması belirtmeniz gerekir.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) nasıl çıktılar bölümünü bir depolama hesabı birincil ve ikincil anahtarları döndürüleceğini gösterir. Ayrıca, depolama hesabı için bir SAS belirtecini döndürür. 
+
+SAS belirteci belirteci almak için bir nesne için süre sonu geçirin. Süre sonu gelecekteki olması gerekir. Bu örnekte liste işlevlerini nasıl kullanacağınız göstermek için tasarlanmıştır. Genellikle, bir kaynak değerinde bir SAS belirteci kullanabilir yerine, bir çıkış değeri döndürür. Çıkış değerleri dağıtım geçmişini depolanır ve güvenli değildir.
 
 ```json
 {

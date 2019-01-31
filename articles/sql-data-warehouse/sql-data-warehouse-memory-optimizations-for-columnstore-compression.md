@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: de7cc0e67960edf95ace67808ffc677b57a46dab
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097002"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463370"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kaliteli columnstore için en üst düzeye çıkarma
 
@@ -124,10 +124,10 @@ Her dağıtım, birden fazla CPU çekirdeği dağıtım kullanılabilir rowgroup
 
 Bellek baskısı azaltmak için yükleme işlemi her dağıtım içinde seri modunda çalışmaya zorlamak için MAXDOP sorgu ipucunu kullanabilirsiniz.
 
-```
+```sql
 CREATE TABLE MyFactSalesQuota
 WITH (DISTRIBUTION = ROUND_ROBIN)
-AS SELECT * FROM FactSalesQUota
+AS SELECT * FROM FactSalesQuota
 OPTION (MAXDOP 1);
 ```
 

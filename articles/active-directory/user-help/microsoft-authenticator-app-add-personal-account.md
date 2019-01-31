@@ -6,17 +6,17 @@ author: eross-msft
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 7eada7015af86b774d75709379804e3fa1a96d5b
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: d3fa60dedb3d8319e80eebf5d29ea1defa509bdb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904787"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468555"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Kişisel Microsoft hesaplarınız Ekle
 Kişisel Microsoft hesapları gibi Outlook.com ve Xbox LIVE için Microsoft Authenticator uygulamasını hem standart iki Faktörlü doğrulama işlemi, hem de oturum açma parolasız telefon yöntemi ekleyin.

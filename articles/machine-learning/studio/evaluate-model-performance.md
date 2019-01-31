@@ -1,6 +1,6 @@
 ---
-Başlık: Model performansını titleSuffix değerlendirin: Azure Machine Learning Studio açıklaması: Bu makalede, Azure Machine Learning Studio'da bir model performansını değerlendirme yapmayı gösteren ve bu görev için mevcut olan ölçümler için kısa bir açıklama sağlar.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Model performansını titleSuffix değerlendirin: Azure Machine Learning Studio açıklaması: Bu makalede, Azure Machine Learning Studio'da bir model performansını değerlendirme yapmayı gösteren ve bu görev için mevcut olan ölçümler için kısa bir açıklama sağlar.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: seodec18, yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/20/2017
 ---

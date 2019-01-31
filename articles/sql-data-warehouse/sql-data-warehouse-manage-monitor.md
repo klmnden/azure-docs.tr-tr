@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe989a1693d73dbbea7ed0e3e91ed7aaf6fc37c4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fdb51bf249990a10b8476a55be1103cb05c5821b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466992"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV’leri kullanarak iş yükünüzü izleme
 Bu makalede, dinamik yönetim görünümlerini (Dmv'ler) iş yükünüzü izleme için kullanmayı açıklar. Bu, Azure SQL veri ambarı, sorgu yürütme araştırma içerir.
@@ -45,7 +45,7 @@ SQL veri ambarı üzerinde yürütülen tüm sorguları oturum [sys.dm_pdw_exec_
 
 Sorgu yürütme planları ve belirli bir sorgu saatleri araştırmak için izlemeniz gereken adımlar aşağıda verilmiştir.
 
-### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>1. adım: araştırmak istediğiniz sorgu tanımlama
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>ADIM 1: Araştırmak istediğiniz sorgu tanımlama
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -80,7 +80,7 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### <a name="step-2-investigate-the-query-plan"></a>2. adım: sorgu planı araştırın
+### <a name="step-2-investigate-the-query-plan"></a>2. ADIM: Sorgu planı araştırın
 İstek Kimliği sorgu dağıtılmış SQL (DSQL) plandan almanızı [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql

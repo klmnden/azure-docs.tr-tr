@@ -1,5 +1,5 @@
 ---
-Başlık: Yaklaşım analizi modeli titleSuffix oluşturun: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio modülleri için metin ön işleme, N-gram kullanarak metin analiz modelleri oluşturun veya karma services özellik: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Yaklaşım analizi modeli titleSuffix oluşturun: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio modülleri için metin ön işleme, N-gram kullanarak metin analiz modelleri oluşturun veya karma services özellik: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2018
 ---

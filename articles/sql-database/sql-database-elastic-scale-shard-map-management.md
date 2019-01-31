@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 77ef1fed7bbdb53898a688f14944b9b6b16773c7
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/25/2019
+ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200981"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476800"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Veritabanları parça eşleme Yöneticisi ile ölçeklendirme
 
@@ -40,11 +40,11 @@ Tek kiracılı model için oluşturduğunuz bir **liste eşlemesi** parça eşle
 
 ![Liste eşlemesi][1]
 
-Çok kiracılı model, tek bir veritabanı için birden çok kiracıyı atar (ve birden fazla veritabanında kiracılar gruplarını dağıtabilirsiniz). Küçük veri gereksinimlerine sahip her bir kiracı beklediğiniz bu modeli kullanın. Bu modelde, kiracıların kullanarak bir veritabanına atama **aralığı eşleme**.
+Çok kiracılı model için tek bir veritabanının birden çok kiracıyı atar (ve birden fazla veritabanında kiracılar gruplarını dağıtabilirsiniz). Küçük veri gereksinimlerine sahip her bir kiracı beklediğiniz bu modeli kullanın. Bu modelde, kiracıların kullanarak bir veritabanına atama **aralığı eşleme**.
 
 ![Aralık eşleme][2]
 
-Veya, bir çok kiracılı veritabanı modeli kullanarak uygulayabileceğiniz bir *liste eşlemesi* birden fazla Kiracı için tek bir veritabanı atamak için. Örneğin, DB1 Kiracı kimliği 1 ve 5 hakkındaki bilgileri depolamak için kullanılır ve DB2 7 Kiracı ve Kiracı 10 verilerini depolar.
+Veya, bir çok kiracılı veritabanı modeli kullanarak uygulayabileceğiniz bir *liste eşlemesi* birden fazla Kiracı için tek bir veritabanının atamak için. Örneğin, DB1 Kiracı kimliği 1 ve 5 hakkındaki bilgileri depolamak için kullanılır ve DB2 7 Kiracı ve Kiracı 10 verilerini depolar.
 
 ![Birden çok kiracının tek DB][3]
 

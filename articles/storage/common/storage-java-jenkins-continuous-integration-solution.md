@@ -7,13 +7,13 @@ author: tarcher
 services: devops
 custom: jenkins
 ms.date: 07/31/2018
-ms.component: common
-ms.openlocfilehash: 040f7ef8d9b50998ac2b84ed9d4e3712f4ed5835
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 22db4690ccbd05b25f907e2d2134fa7ce5233d60
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246880"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476902"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins sürekli tümleştirme çözümüyle Azure depolama kullanma
 
@@ -127,10 +127,10 @@ Bir derlemeyi çalıştırdıktan sonra derleme geçmişi konsol çıkışı den
 ## <a name="components-used-by-the-blob-service"></a>Blob hizmeti tarafından kullanılan bileşenler
 Bu bölümde, Blob hizmeti bileşenlerini genel bir bakış sağlar.
 
-* **Depolama Hesabı**: Tüm Azure Depolama erişimi bir depolama hesabı üzerinden yapılır. Bloblara erişmek için ad alanı en üst düzey bir depolama hesabıdır. Kendi toplam boyutu altında 100 TB olduğu sürece bir hesapta kapsayıcılar, sınırsız sayıda olabilir.
-* **Kapsayıcı**: bir kapsayıcı bir dizi blobun bir gruplandırmasını sağlar. Tüm bloblar bir kapsayıcıda olmalıdır. Bir hesapta sınırsız sayıda kapsayıcı olabilir. Kapsayıcıda sınırsız sayıda blob depolanabilir.
-* **BLOB**: bir dosyayı herhangi bir türü ve boyutu. Azure Depolama'da depolanan BLOB'ları iki tür vardır: blok ve sayfa blobları. Çoğu dosya blok blobudur. Tek bir blok blobu en fazla 200 GB boyutunda olabilir. Bu öğreticide, blok blobları kullanılır. Bir dosyadaki bayt aralıkları sık değişiklik yapıldığında, sayfa blobları, başka bir blob türü, en fazla 1 TB boyut ve daha verimli olabilir. BLOB'ları hakkında daha fazla bilgi için bkz: [anlama blok Blobları, ekleme Blobları ve sayfa Blobları](https://msdn.microsoft.com/library/azure/ee691964.aspx).
-* **URL biçimi**: blobudur şu URL biçimi kullanılarak adreslenebilir:
+* **Depolama hesabı**: Tüm Azure depolama erişimi bir depolama hesabı üzerinden yapılır. Bloblara erişmek için ad alanı en üst düzey bir depolama hesabıdır. Kendi toplam boyutu altında 100 TB olduğu sürece bir hesapta kapsayıcılar, sınırsız sayıda olabilir.
+* **kapsayıcı**: Bir kapsayıcı, BLOB'ları kümesi bir gruplandırmasını sağlar. Tüm bloblar bir kapsayıcıda olmalıdır. Bir hesapta sınırsız sayıda kapsayıcı olabilir. Kapsayıcıda sınırsız sayıda blob depolanabilir.
+* **BLOB**: Bir dosya herhangi bir türü ve boyutu. Azure Depolama'da depolanan BLOB'ları iki tür vardır: blok ve sayfa blobları. Çoğu dosya blok blobudur. Tek bir blok blobu en fazla 200 GB boyutunda olabilir. Bu öğreticide, blok blobları kullanılır. Bir dosyadaki bayt aralıkları sık değişiklik yapıldığında, sayfa blobları, başka bir blob türü, en fazla 1 TB boyut ve daha verimli olabilir. BLOB'ları hakkında daha fazla bilgi için bkz: [anlama blok Blobları, ekleme Blobları ve sayfa Blobları](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **URL biçimi**: BLOB'ları şu URL biçimi kullanılarak adreslenebilir:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   

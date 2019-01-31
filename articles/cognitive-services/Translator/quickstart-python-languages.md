@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Desteklenen dillerin listesini alma, Python - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: Translator metin çevirisi API'si - Python olan desteklenen dillerin listesini alın"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Python ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 8b78ec4e358f654342140df1491e19d3fc62fee7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c99dbdb95c4dd7a6e078fd6e9ee15a590c8c40c9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992390"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458304"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Hızlı Başlangıç: Python ve Translator Metin Çevirisi API'sini kullanarak desteklenen dillerin listesini alma
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Python kullanarak desteklenen dillerin listesini almak için kullanın
 
 Bu hızlı başlangıçta Python ve Translator Metin Çevirisi API'sini kullanarak desteklenen dillerin listesini döndüren bir GET isteği göndermeyi öğreneceksiniz.
 
@@ -67,7 +67,7 @@ else:
 Şu anda Translator Metin Çevirisi için bir uç nokta kullanılabilir ve `base_url` olarak ayarlanmıştır. `path`, `languages` rotasını ayarlar ve API sürüm 3’ü kullanmak istediğimizi belirler.
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Diller](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Diller](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

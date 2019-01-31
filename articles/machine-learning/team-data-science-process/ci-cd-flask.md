@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: bace951141ea1d437d102b11ac4f548beaf5c75e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d99149f8112c19a07208523a1ee26ba1c36e5362
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329421"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474233"
 ---
 # <a name="creating-continuous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Docker, Kubernetes ve Python Flask uygulaması kullanarak Azure üzerinde sürekli tümleştirme işlem hattı oluşturma
 Yapay ZEKA uygulaması için iş, veri Bilimcileri makine öğrenimi modelleri ve bir uygulama oluşturmak ve kullanmak için son kullanıcılara gösterme uygulama geliştiriciler genellikle iki akışlarını vardır. Bu makalede, biz nasıl sürekli tümleştirme (CI) uygulanacağını gösteren / sürekli teslim (CD) işlem hattı için yapay ZEKA uygulama. Yapay ZEKA uygulaması, uygulama kodu kullanan machine learning (ML) bir modelle katıştırılmış birleşimidir. Bu makalede, biz pretrained modeli özel Azure blob depolama hesabından getiriliyor, AWS S3 hesabı da olabilir. Makale için bir basit bir python flask web uygulaması kullanacağız.

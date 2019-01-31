@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715248"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296092"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Linux üzerinde Azure App Service'te yetkilendirme
 
@@ -317,7 +317,7 @@ Sol tarayıcıda **abonelikler** > **_&lt;sizin\_aboneliğiniz>_** > **resourceG
 
 Uygulamalarınız artık yapılandırılmıştır. Ön uç artık doğru bir erişim belirteci ile arka uca erişmeye hazırdır.
 
-Bunu diğer sağlayıcılar için yapılandırma hakkında daha fazla bilgi için bkz. [Erişim belirteçlerini yenileme](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-access-tokens).
+Bunu diğer sağlayıcılar için yapılandırma hakkında daha fazla bilgi için bkz. [Erişim belirteçlerini yenileme](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens).
 
 ## <a name="call-api-securely-from-server-code"></a>Sunucu kodundan güvenli bir şekilde API çağırma
 

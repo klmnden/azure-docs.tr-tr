@@ -1,21 +1,21 @@
 ---
-title: "Öğretici: Azure işlevleri'nde Azure SQL veri ambarı ile işlem yönetme | Microsoft Docs"
+title: "Öğretici: Azure SQL veri ambarı'nda Azure işlevleri ile işlemleri yönetme | Microsoft Docs"
 description: Veri ambarınızın işlemini yönetmek için Azure işlevlerini kullanma.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f366718a11f715b0c91a556eb3b0f216424b82c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287910"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470204"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>İşlem kaynakları Azure SQL veri ambarı'nda yönetmek için Azure işlevlerini kullanın
 

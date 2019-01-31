@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: fa76762fc9a2eb178e2edce2de254894bde1934c
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651427"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461348"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Bir Azure SQL veritabanı işlemsel olarak tutarlı bir kopyası kopyalayın
 
@@ -32,11 +32,11 @@ Veritabanı kopyasını kopya isteğini tarihindeki kaynak veritabanı anlık g�
 
 ## <a name="logins-in-the-database-copy"></a>Veritabanı kopyasını oturum açma
 
-Aynı mantıksal sunucu için veritabanı kopyalama, aynı giriş bilgilerini hem veritabanlarında kullanılabilir. Güvenlik sorumlusu veritabanını kopyalamak için kullandığınız yeni bir veritabanı üzerinde veritabanı sahibi olur. Tüm veritabanı kullanıcıları ve izinlerini kendi güvenlik tanımlayıcılarını (SID'ler) veritabanı kopyasını kopyalanır.  
+Bir veritabanını aynı SQL veritabanı sunucusuna kopyalayın, aynı giriş bilgilerini hem veritabanlarında kullanılabilir. Güvenlik sorumlusu veritabanını kopyalamak için kullandığınız yeni bir veritabanı üzerinde veritabanı sahibi olur. Tüm veritabanı kullanıcıları ve izinlerini kendi güvenlik tanımlayıcılarını (SID'ler) veritabanı kopyasını kopyalanır.  
 
-Bir veritabanı için farklı bir mantıksal sunucu kopyaladığınızda, güvenlik sorumlusu yeni sunucuda yeni bir veritabanı üzerinde veritabanı sahibi olur. Kullanırsanız [kapsanan veritabanı kullanıcıları](sql-database-manage-logins.md) birincil ve ikincil veritabanları her zaman aynı kullanıcı kimlik bilgilerine sahip veri erişimi için kopyalama tamamlandıktan sonra hemen ile aynı kimlik bilgilerini erişebildiğinizden emin olun . 
+Bir veritabanı farklı bir SQL veritabanı sunucusuna kopyaladığınızda, güvenlik sorumlusu yeni sunucuda yeni bir veritabanı üzerinde veritabanı sahibi olur. Kullanırsanız [kapsanan veritabanı kullanıcıları](sql-database-manage-logins.md) birincil ve ikincil veritabanları her zaman aynı kullanıcı kimlik bilgilerine sahip veri erişimi için kopyalama tamamlandıktan sonra hemen ile aynı kimlik bilgilerini erişebildiğinizden emin olun . 
 
-Kullanırsanız [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), kopyalama kimlik bilgilerini yönetme gereksinimini tamamen ortadan kaldırabilir. Veritabanını yeni bir sunucuya kopyalama, oturum açma bilgileri yeni sunucuda mevcut değil çünkü ancak oturum açma tabanlı erişim, çalışmayabilir. Farklı bir mantıksal sunucu için veritabanı kopyalama sırasında oturumları yönetme hakkında bilgi edinmek için [olağanüstü durum kurtarma işleminden sonra Azure SQL veritabanı güvenliği yönetmek nasıl](sql-database-geo-replication-security-config.md). 
+Kullanırsanız [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), kopyalama kimlik bilgilerini yönetme gereksinimini tamamen ortadan kaldırabilir. Veritabanını yeni bir sunucuya kopyalama, oturum açma bilgileri yeni sunucuda mevcut değil çünkü ancak oturum açma tabanlı erişim, çalışmayabilir. Bir veritabanı farklı bir SQL veritabanı sunucusuna kopyaladığınızda oturumları yönetme hakkında bilgi edinmek için [olağanüstü durum kurtarma işleminden sonra Azure SQL veritabanı güvenliği yönetmek nasıl](sql-database-geo-replication-security-config.md). 
 
 Kopyalama başarılı olduktan sonra ve diğer kullanıcıların eşleştirilir önce veritabanı sahibi, kopyalama, başlatılan oturum açma için yeni veritabanı oturum açabilir. Kopyalama işlemi tamamlandıktan sonra oturum açma bilgileri çözümlemek için bkz: [çözmek oturumları](#resolve-logins).
 
@@ -104,7 +104,7 @@ Yeni veritabanı hedef sunucuda çevrimiçi olduktan sonra kullanmak [ALTER USER
 
 Yeni veritabanı içindeki tüm kullanıcılar sahip oldukları kaynak veritabanında izinlerini korur. Veritabanı kopyasını başlatan kullanıcı yeni veritabanının veritabanı sahibi olur ve yeni bir güvenlik tanımlayıcısı (SID) atanır. Kopyalama başarılı olduktan sonra ve diğer kullanıcıların eşleştirilir önce veritabanı sahibi, kopyalama, başlatılan oturum açma için yeni veritabanı oturum açabilir.
 
-Farklı bir mantıksal sunucu için veritabanı kopyalama sırasında kullanıcılar ve oturum açma bilgilerini yönetme hakkında bilgi edinmek için [olağanüstü durum kurtarma işleminden sonra Azure SQL veritabanı güvenliği yönetmek nasıl](sql-database-geo-replication-security-config.md).
+Bir veritabanı farklı bir SQL veritabanı sunucusuna kopyaladığınızda, kullanıcılar ve oturum açma bilgilerini yönetme hakkında bilgi edinmek için [olağanüstü durum kurtarma işleminden sonra Azure SQL veritabanı güvenliği yönetmek nasıl](sql-database-geo-replication-security-config.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

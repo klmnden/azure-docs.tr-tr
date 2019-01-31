@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: b51067b9e854566991d49aeb1ff2b1ad13999a51
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b6178c4e9c197539359058347b2409210d976569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957751"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458933"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>Translator metin çevirisi API'si 3.0: Sözlük arama
+# <a name="translator-text-api-30-dictionary-lookup"></a>Translator metin çevirisi API'si 3.0: Sözlük Arama
 
 Bir sözcük ve az sayıda deyimler için alternatif çevirileri sağlar. Her çeviri arka çevirileri listesini ve bir-konuşma bölümü vardır. Arka-çevirileri bir kullanıcı bağlamında çeviri anlamak etkinleştirin. [Sözlük örnek](./v3-0-dictionary-examples.md) işlemi her çeviri çifti bakın örnek kullanımları daha fazla detaya sağlar.
 
@@ -94,15 +94,15 @@ Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile 
 
   * `normalizedSource`: Kaynak terim normalleştirilmiş şeklinde veren bir dize. Örneğin, istek "JOHN" ise, normalleştirilmiş form "john" olacaktır. Bu alanın içeriğini giriş olur [arama örnekler](./v3-0-dictionary-examples.md).
     
-  * `displaySource`: Kaynak ifadesi bir formda en iyi vererek bir dizeyi son kullanıcı görüntüsü için uygundur. Örneğin, Giriş "JOHN" ise, her zamanki adının yazımını görüntüleme formu yansıtır: "John". 
+  * `displaySource`: Kaynak ifadesi bir formda en iyi veren bir dize, son kullanıcı görüntüsü için uygundur. Örneğin, Giriş "JOHN" ise, her zamanki adının yazımını görüntüleme formu yansıtır: "John". 
 
-  * `translations`: Çeviriler kaynak dönem bir listesi. Listedeki her öğe, aşağıdaki özelliklere sahip bir nesnedir:
+  * `translations`: Çeviriler kaynak terim listesi. Listedeki her öğe, aşağıdaki özelliklere sahip bir nesnedir:
 
-    * `normalizedTarget`: Bu terim normalleştirilmiş biçiminin hedef dilde vererek bir dize. Bu değer, giriş olarak kullanılmalıdır [arama örnekler](./v3-0-dictionary-examples.md).
+    * `normalizedTarget`: Bu terim normalleştirilmiş biçiminin hedef dilde veren bir dize. Bu değer, giriş olarak kullanılmalıdır [arama örnekler](./v3-0-dictionary-examples.md).
 
     * `displayTarget`: Bir dize ifadesi hedef dil ve bir formda en iyi vererek son kullanıcı görüntüsü için uygundur. Genellikle, bu yalnızca farklılık `normalizedTarget` büyük/küçük harf bakımından. Örneğin, "Juan" olacaktır gibi özel isim `normalizedTarget = "juan"` ve `displayTarget = "Juan"`.
 
-    * `posTag`: Bu terim bir konuşma bölümü etiketle ilişkilendirilmesi bir dize.
+    * `posTag`: Bu terim bir konuşma bölümü etiketle ilişkilendirmek için bir dize.
 
         | Etiket adı | Açıklama  |
         |----------|--------------|
@@ -110,24 +110,24 @@ Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile 
         | ADV      | Zarflar      |
         | CONJ     | Bağlaçlar |
         | DET      | Determiners  |
-        | KALICI    | Fiiller        |
+        | KALICI    | Verbs        |
         | İSİM     | Adlar        |
         | HAZIRLIĞI     | Edat |
         | PRON     | Zamirler     |
-        | FİİLİ     | Fiiller        |
+        | VERB     | Verbs        |
         | DİĞER    | Diğer        |
 
         Bir uygulama Not Bu etiketleri-İngilizce yan etiketleme ve ardından her kaynak/hedef çifti için en sık rastlanan etiketi alma konuşma bölümü olarak belirlenmiştir. Bu nedenle kişiler için farklı bir konuşma bölümü etiketi İngilizce, İspanyolca bir kelime sık Çevir, etiketleri (İspanyolca bir kelime göre) yanlış olan sonlandırabiliriz.
 
-    * `confidence`: Bir değeri 0.0 ile 1.0 "olasılık" temsil eden (veya belki de daha doğru bir şekilde "olasılık eğitim veri") Bu çeviri çifti. Bir kaynak sözcük için güven puanlarını toplamı olabilir veya 1.0 toplamı değildir. 
+    * `confidence`: Değeri 0.0 ile 1.0 "olasılık" temsil eden (veya belki de daha doğru bir şekilde "olasılık eğitim veri") Bu çeviri çifti. Bir kaynak sözcük için güven puanlarını toplamı olabilir veya 1.0 toplamı değildir. 
 
-    * `prefixWord`: Çeviri ön eki olarak görüntülenecek word vererek bir dize. Şu anda determiners gendered dillerde isimleri, gendered determiner budur. Örneğin, "mosca" İspanyolca dişi bir isim olduğundan "on", İspanyolca bir kelime "mosca" ön ekidir. Bu yalnızca çeviri ve kaynağında bağlıdır. Önek yok ise, boş bir dize olacaktır.
+    * `prefixWord`: Çeviri ön eki olarak görüntülenecek word veren bir dize. Şu anda determiners gendered dillerde isimleri, gendered determiner budur. Örneğin, "mosca" İspanyolca dişi bir isim olduğundan "on", İspanyolca bir kelime "mosca" ön ekidir. Bu yalnızca çeviri ve kaynağında bağlıdır. Önek yok ise, boş bir dize olacaktır.
     
-    * `backTranslations`: "Geri çevirileri" hedef bir listesi. Örneğin, hedef için çevirebilir sözcükleri kaynağı. İstenen kaynak sözcüğünü içeren liste sağlanır (örneğin, word kaynağı olan görünüyorsa "Çık" olan ve ardından içinde "Çık" olacağı garanti edilir `backTranslations` listesi). Ancak, bunu ilk konumda olmasını garanti edilmez ve genellikle olmayacaktır. Her öğeyi `backTranslations` liste, şu özellikler tarafından açıklanan bir nesnedir:
+    * `backTranslations`: "Geri çevirileri" hedef listesi. Örneğin, hedef için çevirebilir sözcükleri kaynağı. İstenen kaynak sözcüğünü içeren liste sağlanır (örneğin, word kaynağı olan görünüyorsa "Çık" olan ve ardından içinde "Çık" olacağı garanti edilir `backTranslations` listesi). Ancak, bunu ilk konumda olmasını garanti edilmez ve genellikle olmayacaktır. Her öğeyi `backTranslations` liste, şu özellikler tarafından açıklanan bir nesnedir:
 
         * `normalizedText`: Geri çevirme hedef kaynak terimi normalleştirilmiş şeklinde veren bir dize. Bu değer, giriş olarak kullanılmalıdır [arama örnekler](./v3-0-dictionary-examples.md).        
 
-        * `displayText`: Geri çevirme hedefinin bir formda en iyi kaynak terimi vererek bir dizeyi son kullanıcı görüntüsü için uygundur.
+        * `displayText`: Geri çevirme hedefinin bir formda en iyi kaynak terimi veren bir dize, son kullanıcı görüntüsü için uygundur.
 
         * `numExamples`: Bu çeviri çifti için kullanılabilir örneklerin sayısını temsil eden bir tamsayı. Gerçek örnekler alınan, ayrı bir çağrıyla [arama örnekler](./v3-0-dictionary-examples.md). Sayı çoğunlukla bir UX görüntüde kolaylaştırmak için tasarlanmıştır Örneğin, bir kullanıcı arabirimi örnekleri sayısı sıfırdan büyük olması durumunda, geri çevirme için köprü ekleme ve örnek varsa, geri çevirme düz metin olarak göster. Bir çağrı tarafından döndürülen örnek gerçek sayısı Not [arama örnekler](./v3-0-dictionary-examples.md) olabilir küçüktür `numExamples`, ek bir filtreleme "kötü" örnekler kaldırmak için çalışma sırasında uygulanabilir.
         

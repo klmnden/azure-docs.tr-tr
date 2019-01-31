@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191148"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463948"
 ---
-# <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>JavaScript dil ile tümleşik sorgu API'si ile Azure Cosmos DB ile çalışma
+# <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB'de JavaScript sorgu API'si
 
 Azure Cosmos DB'de SQL API'sini kullanarak sorgu göndermeye ek olarak [Cosmos DB sunucu tarafı SDK](https://azure.github.io/azure-cosmosdb-js-server/) bir JavaScript arabirimi kullanarak en iyi duruma getirilmiş sorguları yapmanıza olanak tanır. Bu JavaScript arabirimi kullanmak için SQL dilinin haberdar olmanız gerekmez. API işlevi dizisine koşul işlevleri geçirerek sorguları programlı olarak oluşturmanıza olanak sağlayan JavaScript sorgu ECMAScript5'ın dizi öğelerin ve yaygın olarak kullanılan JavaScript kitaplıklarını Lodash gibi tanıdık bir söz dizimi ile çağırır. Sorgular, JavaScript çalışma zamanı tarafından ayrıştırılan ve Azure Cosmos DB dizinleri kullanarak verimli bir şekilde yürütüldü.
 
@@ -56,7 +56,7 @@ Aşağıdaki tabloda, çeşitli SQL sorguları ve karşılık gelen JavaScript s
 |SEÇİN *<br>Belgelerinden| __.map(function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;Belge döndürür;<br>});|Sonuç tüm belgelerde (devamlılık belirteci ile sayfalandırılmış) olur.|
 |SELECT <br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;docs.Message msg, olarak<br>&nbsp;&nbsp;&nbsp;docs.Actions <br>Belgelerinden|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;{döndürür<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|Kimliği, ileti (diğer adlı msg için) ve tüm belgeleri eylemden projeleri.|
 |SEÇİN *<br>Belgelerinden<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;doc.id dönüş === "X998_Y998";<br>});|Sorgular için koşul belgelerle: kimlik = "X998_Y998".|
-|SEÇİN *<br>Belgelerinden<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS (belgeleri. Etiketler, 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;x.Tags dönüş & & x.Tags.indexOf(123) > -1;<br>});|Etiketler özelliği ve etiketlere sahip olan belgeler için sorgulardır 123 değerini içeren bir dizi.|
+|SEÇİN *<br>Belgelerinden<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS(docs.Tags, 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;x.Tags dönüş & & x.Tags.indexOf(123) > -1;<br>});|Etiketler özelliği ve etiketlere sahip olan belgeler için sorgulardır 123 değerini içeren bir dizi.|
 |SELECT<br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;docs.Message msg olarak<br>Belgelerinden<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc.id dönüş === "X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{döndürür<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.Value();|Bir koşul ile belgeler için sorgu kimliği = "X998_Y998" ve ardından kodu ve iletinin (ileti için diğer adlı) projeleri.|
 |DEĞER etiketi<br>Belgelerinden<br>Etiket IN docs katılın. Etiketleri<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Belge döndürür. Etiketler & & Array.isArray (doc. Etiketler);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc._ts döndürür;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.Value()|Etiketler, bir dizi özelliği ve elde edilen belgeler _ts zaman damgası sistem özelliği sıralar ve ardından projeleri + etiketler dizisi düzleştirir belgeler için filtreler.|
 

@@ -1,6 +1,6 @@
 ---
-Başlık: TitleSuffix R ile denemenizi genişletme: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da R dili ile R betiği yürütme modülünü kullanarak genişletmek nasıl.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: TitleSuffix R ile denemenizi genişletme: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da R dili ile R betiği yürütme modülünü kullanarak genişletmek nasıl.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/20/2017
 ---

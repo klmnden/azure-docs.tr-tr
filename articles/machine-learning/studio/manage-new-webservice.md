@@ -1,6 +1,6 @@
 ---
-Başlık: Azure Machine Learning Studio Web Hizmetleri portalı titleSuffix kullanın: Azure Machine Learning Studio açıklaması: Machine Learning yeni ve Klasik Web Hizmetleri Microsoft Azure Machine Learning Web Hizmetleri portalını kullanarak yönetebilirsiniz. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel teknolojileri aldığından, biraz farklı yönetim özellikleri bunların her biri için sizde.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Azure Machine Learning Studio Web Hizmetleri portalı titleSuffix kullanın: Azure Machine Learning Studio açıklaması: Machine Learning yeni ve Klasik Web Hizmetleri Microsoft Azure Machine Learning Web Hizmetleri portalını kullanarak yönetebilirsiniz. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel teknolojileri aldığından, biraz farklı yönetim özellikleri bunların her biri için sizde.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 02/28/2017
 ---

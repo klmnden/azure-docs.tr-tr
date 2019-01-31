@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: fd3d1c464c6f2d4cbecd715db0689581ca141769
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654079"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468844"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
 
@@ -66,28 +66,3 @@ Varsayılan ağ güvenlik grubu (NSG) değiştirilmez ve bağlantı noktası 22 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Yükseltme veya ölçeklendirme hale getirmeye çalışıyorum ve alıyorum bir "ileti: "Imagereference' özelliğinin değiştirilmesine izin" bir hata oluştu.  Bu sorunu nasıl düzeltebilirim?
 
 AKS kümesi içindeki aracı düğümleri etiketleri değiştirdiğiniz çünkü bu hatayı alma. Değiştirme ve silme etiketleri ve diğer özellikleri MC_ * kaynak grubundaki kaynakların beklenmeyen sonuçlara neden olabilir. Aks'deki MC_ * grubundaki kaynakların değiştirilmesi, hizmet düzeyi hedefi (SLO) küme keser.
-
-## <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>My AKS kümesinde hizmet sorumlusu gizli anahtarı nasıl yenileyebilirim?
-
-Varsayılan olarak, bir yıllık sona erme zamanına sahip bir hizmet sorumlusu AKS kümeleri oluşturulur. Sona erme tarihine yakın,, ek bir süre için hizmet sorumlusu genişletmek için kimlik bilgilerini sıfırlayabilirsiniz.
-
-Aşağıdaki örnek, aşağıdaki adımları gerçekleştirir:
-
-1. Hizmet sorumlusu kimliği kümenizin kullanarak alır [az aks show](/cli/azure/aks#az-aks-show) komutu.
-1. Hizmet sorumlusu istemci parolasını kullanarak listeleri [az ad sp kimlik bilgileri listesi](/cli/azure/ad/sp/credential#az-ad-sp-credential-list).
-1. Hizmet sorumlusunu kullanarak başka bir yıl boyunca genişletir [az ad sp reset kimlik bilgisi](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) komutu. Hizmet sorumlusu istemci parolası düzgün şekilde çalışması AKS kümesi için aynı kalmalıdır.
-
-```azurecli
-# Get the service principal ID of your AKS cluster.
-sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
-    --query servicePrincipalProfile.clientId -o tsv)
-
-# Get the existing service principal client secret.
-key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
-
-# Reset the credentials for your AKS service principal and extend for one year.
-az ad sp credential reset \
-    --name $sp_id \
-    --password $key_secret \
-    --years 1
-```

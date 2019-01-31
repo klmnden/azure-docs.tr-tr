@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
-ms.component: files
-ms.openlocfilehash: a0f427ef84a6540522f521cd365e2422a70eb0cd
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.subservice: files
+ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623660"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470460"
 ---
 # <a name="cloud-tiering-overview"></a>Bulut katmanlama genel bakış
 Bulut katmanlaması olduğundan, sık erişilen dosyaları önbelleğe alınır yerel sunucuda tüm dosyaları Azure İlkesi ayarlarına göre dosyaları katmanlı sırasında Azure dosya eşitleme'nin isteğe bağlı bir özelliktir. Bir dosya katmanlı, Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasını yerel olarak bir işaretçi veya yeniden ayrıştırma noktası ile değiştirir. Yeniden ayrıştırma noktası, Azure dosyaları'nda bir dosyaya bir URL temsil eder. Katmanlanmış bir dosyanın, hem "Çevrimdışı" özniteliği hem de üçüncü taraf uygulamaların katmanlı dosyaları güvenli bir şekilde belirleyebilmek NTFS FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS özniteliği vardır.
@@ -105,7 +105,7 @@ Bir dosya çağrılmaya zorlamak için PowerShell de kullanabilirsiniz. Bu seçe
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Neden olmayan *disk boyutu* özelliği için bir dosya eşleşmesi *boyutu* Azure dosya eşitleme kullandıktan sonra özellik? 
-Windows dosya Gezgini'nde, bir dosyanın boyutunu göstermek için iki özellik sunar: **boyutu** ve **disk boyutu**. Bu özellikler, farenizin anlamları farklılık gösterir. **Boyutu** dosyasının tam boyutunu temsil eder. **Disk boyutu** diskte depolanan dosya akışı boyutunu temsil eder. Bu özelliklerin değerleri için çeşitli nedenlerle, sıkıştırma gibi farklı, yinelenen verileri kaldırma kullanın veya Bulut katmanlaması Azure dosya eşitleme ile. Bir dosya, bir Azure dosya paylaşımına katmanlı, Azure dosya paylaşımınızı ve diskteki dosya akışı depolandığı için disk boyutu sıfır olur. Bir dosya kısmen katmanlı (veya kısmen yükümlülüğümüz) olmasını da mümkündür. Kısmen katmanlı dosyasında, dosyanın disk üzerinde parçasıdır. Dosyaları kısmen multimedya oynatıcıları gibi uygulamalar tarafından okunur veya yardımcı programlarını zip olduğunda bu durum oluşabilir. 
+Windows dosya Gezgini'nde, bir dosyanın boyutunu göstermek için iki özellik sunar: **Boyutu** ve **disk boyutu**. Bu özellikler, farenizin anlamları farklılık gösterir. **Boyutu** dosyasının tam boyutunu temsil eder. **Disk boyutu** diskte depolanan dosya akışı boyutunu temsil eder. Bu özelliklerin değerleri için çeşitli nedenlerle, sıkıştırma gibi farklı, yinelenen verileri kaldırma kullanın veya Bulut katmanlaması Azure dosya eşitleme ile. Bir dosya, bir Azure dosya paylaşımına katmanlı, Azure dosya paylaşımınızı ve diskteki dosya akışı depolandığı için disk boyutu sıfır olur. Bir dosya kısmen katmanlı (veya kısmen yükümlülüğümüz) olmasını da mümkündür. Kısmen katmanlı dosyasında, dosyanın disk üzerinde parçasıdır. Dosyaları kısmen multimedya oynatıcıları gibi uygulamalar tarafından okunur veya yardımcı programlarını zip olduğunda bu durum oluşabilir. 
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Bir dosya veya dizin katmanlanmış nasıl zorlarım?

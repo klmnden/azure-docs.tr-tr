@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 01/31/2018
-ms.openlocfilehash: 92a1745f8da9783a22c7cbf417acb0709759f41c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 12beb167c5225f669529dd2db375468fc881c8eb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054334"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468572"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Uygulama başına Kiracı SaaS düzeni kullanarak sağlama ve kataloğa yeni Kiracı
 
@@ -28,6 +28,7 @@ Bu makalede, iki ana bölümden oluşur:
     * Öğretici Kiracı deseni başına tek başına uygulamaya göre uyarlanmış Wingtip bilet örnek SaaS uygulaması kullanır.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Kiracı deseni başına tek başına uygulama
+
 Kiracı deseni başına tek başına uygulamayı çok kiracılı SaaS uygulamaları için birkaç modelinden biridir.  Bu düzende, her Kiracı için tek başına uygulama sağlanır. Uygulama, uygulama düzeyinde bileşenleri ve bir SQL veritabanı oluşur.  Her Kiracı uygulamanın satıcının abonelikte dağıtılabilir.  Alternatif olarak, Azure'un sunduğu bir [yönetilen uygulamaların program](https://docs.microsoft.com/azure/managed-applications/overview) , bir uygulama içinde bir kiracının aboneliğinin dağıtılabilir ve kiracının adınıza satıcı tarafından yönetilen içinde. 
 
    ![Kiracı başına uygulama düzeni](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -35,6 +36,7 @@ Kiracı deseni başına tek başına uygulamayı çok kiracılı SaaS uygulamala
 Bir kiracı için bir uygulama dağıtım yaparken, uygulama ve veritabanı için bir kiracı oluşturulduğunda yeni bir kaynak grubu sağlanır.  Ayrı kaynak gruplarını kullanma, her bir kiracının uygulama kaynakları yalıtan ve bunları birbirinden bağımsız olarak yönetilmesini sağlar. Her kaynak grubu içinde her uygulama örneği, ilgili veritabanını doğrudan erişmek için yapılandırılır.  Bu bağlantı modeli Kataloğu'nu uygulama ve veritabanı arasında aracı bağlantılar için diğer desenleri ile karşılaştırır.  Ve kaynak paylaşımı gibi her Kiracı veritabanı, yoğun yükünü işlemek için yeterli kaynak sağlanması gerekir. Bu düzen daha az kiracılar, SaaS uygulamaları için kullanılan eğilimindedir olduğunda güçlü bir vurguyu Kiracı yalıtımı ve kaynak maliyetleri indirimlere daha az.  
 
 ## <a name="using-a-tenant-catalog-with-the-application-per-tenant-pattern"></a>Uygulama başına Kiracı düzeni ile bir kiracı kataloğunu kullanma
+
 Her bir kiracının uygulama ve veritabanı tamamen yalıtılmış olsa da, çeşitli yönetim ve analiz senaryolarına kiracılar genelinde çalışabilir.  Örneğin, uygulamanın yeni bir yayın için bir şema değişikliği uygulayarak, her Kiracı veritabanının şemasında yapılan değişiklikler gerektirir. Raporlama ve analiz senaryoları da bunlar dağıtıldığı bağımsız olarak tüm Kiracı veritabanlarına erişim gerektirebilir.
 
    ![Kiracı başına uygulama düzeni](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
@@ -42,19 +44,22 @@ Her bir kiracının uygulama ve veritabanı tamamen yalıtılmış olsa da, çe�
 Kiracı Kataloğu Kiracı tanımlayıcısı ve bir sunucu ve veritabanı adı çözülmesi için bir tanımlayıcı sağlayan bir kiracı veritabanı arasındaki eşlemeyi içerir.  Wingtip SaaS uygulamasında Kiracı tanımlayıcısı, diğer düzenleri kullanılabilir olsa da Kiracı adı, karma olarak hesaplanır.  Tek başına uygulamalar bağlantıları yönetmek için katalog gerekmez ancak katalog kapsamı Kiracı veritabanları kümesi için diğer eylemler için kullanılabilir. Örneğin, esnek sorgu, katalog kiracılar arası raporlama için sorgular, üzerinden dağıtılan veritabanları kümesini belirlemek için kullanabilirsiniz.
 
 ## <a name="elastic-database-client-library"></a>Elastik Veritabanı İstemci Kitaplığı
-Wingtip örnek uygulama Kataloğu parça yönetim özelliklerine göre uygulanır [elastik veritabanı istemci Kitaplığı](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  Kitaplığı oluşturmak, yönetmek ve bir veritabanında depolanan bir parça eşlemesi kullanmak bir uygulama sağlar. Katalog depolanır Wingtip bilet örnek *Kiracı Kataloğu* veritabanı.  Parça parça (veritabanı) için bir kiracı anahtarı, kiracının verileri depolanır eşler.  EDCL işlevlerini yönetmek bir *genel parça eşleme* tablolarında depolanan *Kiracı Kataloğu* veritabanı ve *yerel parça eşlemesi* her parça içinde depolanmış.
+
+Wingtip örnek uygulama Kataloğu parça yönetim özelliklerine göre uygulanır [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) (EDCL).  Kitaplığı oluşturmak, yönetmek ve bir veritabanında depolanan bir parça eşlemesi kullanmak bir uygulama sağlar. Katalog depolanır Wingtip bilet örnek *Kiracı Kataloğu* veritabanı.  Parça parça (veritabanı) için bir kiracı anahtarı, kiracının verileri depolanır eşler.  EDCL işlevlerini yönetmek bir *genel parça eşleme* tablolarında depolanan *Kiracı Kataloğu* veritabanı ve *yerel parça eşlemesi* her parça içinde depolanmış.
 
 EDCL İşlevler, uygulamaları veya PowerShell betikleri oluşturmak ve parça eşlemesi girişleri yönetmek için çağrılabilir. Diğer EDCL işlevleri parçalar kümesini almak veya belirtilen doğru veritabanına bağlanmak için kullanılan Kiracı anahtarı. 
-    
-> [!IMPORTANT] 
+
+> [!IMPORTANT]
 > Katalog veritabanındaki verilerle veya Kiracı veritabanlarını yerel parça eşlemesinde doğrudan düzenlemeyin. Doğrudan güncelleştirmeleri yüksek veri bozulması riski nedeniyle desteklenmez. Bunun yerine, yalnızca EDCL API'lerini kullanarak eşleme verilerini düzenleyin.
 
 ## <a name="tenant-provisioning"></a>Kiracı sağlama 
+
 Her Kiracı ve kaynaklar içinde sağlanabilir önce oluşturulması gereken yeni bir Azure kaynak grubu gerektirir. Kaynak grubu mevcut olduğunda, uygulama bileşenlerini ve veritabanınızı dağıtmak ve ardından veritabanı bağlantısını yapılandırmak için bir Azure kaynak yönetimi şablonu kullanılabilir. Veritabanı şeması'nı başlatmak için şablon bir bacpac dosyasını içeri aktarabilirsiniz.  Alternatif olarak, veritabanı, 'şablon' veritabanının bir kopyasını oluşturulabilir.  Veritabanı sonra daha fazla ilk mekan verilerle güncelleştirilir ve kataloğa kayıtlı.
 
 ## <a name="tutorial"></a>Öğretici
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+
 * Bir kataloğu hazırlama
 * Dağıttığınız örnek Kiracı veritabanları daha önce kataloğa kaydetme
 * Bir ek Kiracı sağlama ve kataloğa kaydetme
@@ -64,12 +69,16 @@ Bir Azure Resource Manager şablonu dağıtma ve uygulama yapılandırma, Kirac�
 Bu öğreticinin sonunda, kataloğa her bir veritabanı ile tek başına Kiracı uygulamalar kümesine sahiptir.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun: 
+
 * Azure PowerShell’in yüklendiğinden. Ayrıntılar için bkz. [Azure PowerShell’i kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Üç örnek Kiracı uygulamalar dağıtılır. Beş dakikadan kısa bir süre içinde bu uygulamaları dağıtmak için bkz: [Dağıt ve Wingtip bilet SaaS tek başına uygulama desenini keşfedin](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).
+* Üç örnek Kiracı uygulamalar dağıtılır. Beş dakikadan kısa bir süre içinde bu uygulamaları dağıtmak için bkz: [Dağıt ve Wingtip bilet SaaS tek başına uygulama desenini keşfedin](saas-standaloneapp-get-started-deploy.md).
 
 ## <a name="provision-the-catalog"></a>Kataloğu hazırlama
+
 Bu görevde, tüm Kiracı veritabanlarına kaydetmek için kullanılan Kataloğu hazırlama hakkında bilgi edinin. Yapacaklarınız: 
+
 * **Katalog veritabanı sağlama** bir Azure kaynak yönetimi şablonu ile. Veritabanını bacpac dosyasını içeri aktararak başlatılır.  
 * **Örnek Kiracı uygulamaları kaydetme** daha önce dağıttığınız.  Her bir kiracı oluşturulur karmasını Kiracı adı bir anahtar kullanılarak kaydedilir.  Kiracı adı, ayrıca kataloğunda bir uzantı tablosunda depolanır.
 
@@ -108,6 +117,7 @@ Artık oluşturduğunuz kaynakları arayın.
 ## <a name="provision-a-new-tenant-application"></a>Yeni bir kiracı uygulaması sağlayın
 
 Bu görevde, tek kiracılı bir uygulama sağlama hakkında bilgi edinin. Yapacaklarınız:  
+
 * **Yeni bir kaynak grubu oluşturma** Kiracı. 
 * **Uygulama ve veritabanı sağlama** bir Azure kaynak yönetimi şablonu ile yeni kaynak grubuna.  Bu eylem, bir bacpac dosyasını içeri aktararak veritabanını ortak şema ve başvuru verileri başlatma içerir. 
 * **Temel Kiracı bilgileri veritabanıyla başlatmak**. Bu eylem, kendi olaylarını web sitesindeki bir arka plan olarak kullanılan fotoğraf belirleyen mekan türü belirtme içerir. 
@@ -129,7 +139,7 @@ Ardından Azure portalında oluşturulan yeni kaynakları inceleyebilirsiniz.
    ![Red maple yarış kaynakları](media/saas-standaloneapp-provision-and-catalog/redmapleracing-resources.png)
 
 
-## <a name="to-stop-billing-delete-resource-groups"></a>Faturalandırmayı durdurmak için kaynak gruplarını silin. ##
+## <a name="to-stop-billing-delete-resource-groups"></a>Faturalandırmayı durdurmak için kaynak gruplarını silin.
 
 Örneği keşfetme tamamladıktan sonra ilgili faturalandırmayı durdurmak için oluşturulan tüm kaynak gruplarını silin.
 
@@ -146,4 +156,4 @@ Bu öğreticide şunları öğrendiniz:
 > * Sunucuları ve uygulamayı oluşturan veritabanları hakkında.
 > * İlgili faturalandırmayı durdurmak için örnek kaynakları silme yapma.
 
-Katalog Kiracı başına veritabanı sürümünü kullanarak çeşitli kiracılar arası senaryoları desteklemek için nasıl kullanıldığını keşfedebilirsiniz [Wingtip bilet SaaS uygulaması](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+Katalog Kiracı başına veritabanı sürümünü kullanarak çeşitli kiracılar arası senaryoları desteklemek için nasıl kullanıldığını keşfedebilirsiniz [Wingtip bilet SaaS uygulaması](saas-dbpertenant-wingtip-app-overview.md).  

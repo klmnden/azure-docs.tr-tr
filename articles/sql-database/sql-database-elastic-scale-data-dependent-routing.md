@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/25/2019
+ms.openlocfilehash: fe9098592fcfde2d5e23b78a3e33f2b4ebb9e2dc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201117"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468657"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Veri bağımlı bir sorgu için uygun veritabanı yönlendirmek için yönlendirme kullanın
 
-**Verilere bağımlı yönlendirme** veri isteği yönlendirmek için uygun bir veritabanı için sorguda kullanma yeteneğidir. Veri bağımlı yönlendirme temel düzeni, parçalı veritabanları ile çalışırken. Özellikle parçalama anahtarı sorgunun bir parçası değilse, istek bağlamı isteği yönlendirmek için de kullanılabilir. Her özel bir sorgu veya verilere bağımlı yönlendirme kullanarak uygulama işlemde istek başına tek bir veritabanı erişimi sınırlıdır. Azure SQL veritabanı elastik araçlar için bu yönlendirme ile gerçekleştirilir **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) sınıfı.
+**Verilere bağımlı yönlendirme** veri isteği yönlendirmek için uygun bir veritabanı için sorguda kullanma yeteneğidir. Veri bağımlı yönlendirme temel düzeni, parçalı veritabanları ile çalışırken. Özellikle parçalama anahtarı sorgunun bir parçası değilse, istek bağlamı isteği yönlendirmek için de kullanılabilir. Her özel bir sorgu veya verilere bağımlı yönlendirme kullanarak uygulama işlemde istek başına bir veritabanı erişimi sınırlıdır. Azure SQL veritabanı elastik araçlar için bu yönlendirme ile gerçekleştirilir **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) sınıfı.
 
 Uygulama çeşitli bağlantı dizelerini veya farklı parçalı ortamında veri dilimleri ilişkili DB konumları izlemeniz gerekmez. Bunun yerine, [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md) parça eşlemesi ve uygulamanın isteğin hedefi parçalama anahtarı değerini veriler temelinde gerekli değilse, doğru veritabanlarına bağlantı açar. Genellikle anahtardır *customer_id*, *Kiracı*, *date_key*, veya bir temel veritabanı istek parametresi bazı bir belirli tanımlayıcısı.
 

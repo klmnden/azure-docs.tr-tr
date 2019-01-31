@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956997"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470884"
 ---
-# <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Çevir
+# <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Translate
 
 Metni çevirir.
 
@@ -141,31 +141,31 @@ Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile 
 
     `detectedLanguage` Özelliği varsa yalnızca sonuç nesnesinde otomatik dil algılama istendiğinde.
 
-  * `translations`: Çeviri sonuçları bir dizi. Dizinin boyutu hedef aracılığıyla belirtilen dil sayısı ile eşleşen `to` sorgu parametresi. Dizideki her öğe şunları içerir:
+  * `translations`: Çeviri sonuçları dizisi. Dizinin boyutu hedef aracılığıyla belirtilen dil sayısı ile eşleşen `to` sorgu parametresi. Dizideki her öğe şunları içerir:
 
     * `to`: Hedef Dil dil kodunu temsil eden bir dize.
 
-    * `text`: Çevrilmiş metin vererek bir dize.
+    * `text`: Çevrilmiş metin veren bir dize.
 
     * `transliteration`: Bir nesne tarafından belirtilen komut dosyasındaki çevrilmiş metnin vererek `toScript` parametresi.
 
-      * `script`: Hedef betiği belirtme bir dize.   
+      * `script`: Hedef betiği belirten bir dize.   
 
-      * `text`: Çevrilmiş metin hedef betikte vererek bir dize.
+      * `text`: Çevrilen metni hedef betikte veren bir dize.
 
     `transliteration` Nesne değilse dahil harf çevirisi gerçekleşmez.
 
-    * `alignment`: Bir nesne adlı tek bir dize özelliği `proj`, hangi haritalar, çevrilmiş metni için metin girişi. Hizalama bilgileri yalnızca zaman sağlanır istek parametresi `includeAlignment` olduğu `true`. Hizalama, aşağıdaki biçimde bir dize değeri olarak döndürülür: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  İki nokta üst üste başlangıç ayırır ve dilleri uç dizini, dash ayırır ve sözcükler alanı ayırır. Bir sözcük ile sıfır, bir veya birden çok sözcük başka bir dil yeteri kadar ve hizalanmış sözcükleri bitişik olmayan olabilir. Hizalama bilgi kullanılabilir duruma geldiğinde hizalama öğesi boş olur. Bkz: [hizalama bilgi elde](#obtain-alignment-information) örneği ve kısıtlamaları için.
+    * `alignment`: Adlı bir tek bir dize özelliği bir nesne `proj`, hangi haritalar, çevrilmiş metni için metin girişi. Hizalama bilgileri yalnızca zaman sağlanır istek parametresi `includeAlignment` olduğu `true`. Hizalama, aşağıdaki biçimde bir dize değeri olarak döndürülür: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  İki nokta üst üste başlangıç ayırır ve dilleri uç dizini, dash ayırır ve sözcükler alanı ayırır. Bir sözcük ile sıfır, bir veya birden çok sözcük başka bir dil yeteri kadar ve hizalanmış sözcükleri bitişik olmayan olabilir. Hizalama bilgi kullanılabilir duruma geldiğinde hizalama öğesi boş olur. Bkz: [hizalama bilgi elde](#obtain-alignment-information) örneği ve kısıtlamaları için.
 
-    * `sentLen`: Giriş ve çıkış metinleri cümle sınırları döndürüyor bir nesne.
+    * `sentLen`: Giriş ve çıkış metinleri cümle sınırları döndüren bir nesne.
 
       * `srcSentLen`: Giriş metni cümleleri uzunluklarının temsil eden bir tamsayı dizisi. Dizinin uzunluğunu cümleler sayısıdır ve her cümle uzunluğunu değerlerdir.
 
-      * `transSentLen`: Çevrilmiş metin cümleleri uzunluklarının temsil eden bir tamsayı dizisi. Dizinin uzunluğunu cümleler sayısıdır ve her cümle uzunluğunu değerlerdir.
+      * `transSentLen`:  Çevrilmiş metin cümleleri uzunluklarının temsil eden bir tamsayı dizisi. Dizinin uzunluğunu cümleler sayısıdır ve her cümle uzunluğunu değerlerdir.
 
     Tümce sınırları, yalnızca zaman dahil edilen istek parametresi `includeSentenceLength` olduğu `true`.
 
-  * `sourceText`: Bir nesne adlı tek bir dize özelliği `text`, kaynak dili varsayılan betikte giriş metni sağlar. `sourceText` özelliği, yalnızca giriş dili için her zamanki betiği değil bir betik ifade edilir olduğunda. Örneğin, giriş ardından Latin kodda yazılmış Arapça oluşturduysanız `sourceText.text` aynı Arapça metni Arap komut dosyasına dönüştürülür.
+  * `sourceText`: Adlı bir tek bir dize özelliği bir nesne `text`, kaynak dili varsayılan betikte giriş metni sağlar. `sourceText` özelliği, yalnızca giriş dili için her zamanki betiği değil bir betik ifade edilir olduğunda. Örneğin, giriş ardından Latin kodda yazılmış Arapça oluşturduysanız `sourceText.text` aynı Arapça metni Arap komut dosyasına dönüştürülür.
 
 Örnek JSON yanıtları verilmiştir [örnekler](#examples) bölümü.
 
@@ -377,7 +377,7 @@ Kaynak metin küfür varlığını bakılmaksızın çevirisini küfür girmeyi 
     <td>`NoAction`</td>
     <td>Bu varsayılan davranıştır. Küfür kaynaktan hedefe geçer.<br/><br/>
     **Örnek kaynak (Japonca)**: 彼はジャッカスです。<br/>
-    **Örnek çeviri (İngilizce)**: bir jackass He's.
+    **Örnek çeviri (İngilizce)**: He bir jackass olur.
     </td>
   </tr>
   <tr>

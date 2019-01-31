@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 14cb821152e6a380de1be4fddef76aa2edec4a8f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042266"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454224"
 ---
-# <a name="working-with-azure-cosmos-db-stored-procedures-triggers-and-user-defined-functions"></a>Azure Cosmos DB ile çalışma yordamları, Tetikleyicileri ve kullanıcı tanımlı işlevleri depolanan
+# <a name="stored-procedures-triggers-and-user-defined-functions"></a>Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler
 
 Azure Cosmos DB, JavaScript dil ile tümleşik, işlem yürütülmesini sağlar. Azure Cosmos DB SQL API'sini kullanarak, yazabileceğiniz **saklı yordamlar**, **Tetikleyicileri**, ve **kullanıcı tanımlı işlevler (UDF'ler)** JavaScript dilinde. Veritabanı altyapısının içinden yürütülen JavaScript'te mantığınızı yazabilirsiniz. Oluşturabilir ve tetikleyicileri, saklı yordamlar ve UDF'ler kullanarak yürütme [Azure portalında](https://portal.azure.com/), [JavaScript dil tümleşik Azure Cosmos DB'de sorgu API'si](javascript-query-api.md) veya [Cosmos DB SQL API istemcisi SDK'ları](how-to-use-stored-procedures-triggers-udfs.md).
 

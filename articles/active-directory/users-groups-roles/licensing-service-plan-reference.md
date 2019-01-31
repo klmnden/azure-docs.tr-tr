@@ -13,13 +13,13 @@ ms.workload: identity
 ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.custom: seo-update-jan
-ms.openlocfilehash: 49756f516a2e8132d4c3829b07a30f631380cad1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 3d2c15d3658ed93348c5ec23198d2cc97a94e0aa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182196"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297880"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Ürün adları ve lisans için hizmet planı tanımlayıcıları
 
@@ -27,13 +27,13 @@ Lisansları yönetirken [Azure portalında](https://portal.azure.com/#blade/Micr
 
 - **Ürün adı**: Yönetim portallarında kullanılan
 - **Dize kimliği**: Lisans işlemlerini gerçekleştirirken PowerShell v1.0 cmdlet'leri tarafından kullanılan
-- **GUID kimliği**: Azure AD Graph ve Microsoft Graph tarafından kullanılan GUID
+- **GUID**: Azure AD Graph ve Microsoft Graph tarafından kullanılan GUID
 - **Hizmet planları dahil**: Ürün kimliği dizesi ve GUID karşılık gelen hizmet planları listesi
 
 >[!NOTE]
 >Bu bilgiler, 17 Ağustos 2018'den itibaren doğru olur.
 
-| Ürün Adı | Dize kimliği | GUID | Hizmet planları dahil |
+| Ürün adı | Dize kimliği | GUID | Hizmet planları dahil |
 | --- | --- | --- |--- |
 | SES KONFERANSI | MCOMEETADV | 0c266dff-15dd-4B49-8397-2bb16070ed52 |MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
 | AZURE ACTIVE DIRECTORY TEMEL  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) |

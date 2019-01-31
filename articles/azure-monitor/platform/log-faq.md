@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214751"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301263"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -49,9 +49,9 @@ C: Özel alanlar Klasik desteklenen ayıklama günlükleri karşılaşırsınız
 
 C: Liste Görünümü'ndeki yeni günlükleri kullanılamaz. Sonuçları tablodaki her bir kaydın sol ok yoktur. Belirli bir kaydın ayrıntılarını açmak için bu oka tıklayın. 
 
-### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>S. Bir sorgu çalıştırdıktan sonra önerilen filtrelerinin listesi gösterilir, ancak tüm filtreleri içermez. Rest nasıl görebilirim? 
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>S. Bir sorgu çalıştırdıktan sonra önerilen filtrelerinin listesi kullanılabilir. Filtreleri nasıl görebilirim? 
 
-C: Şu anda gördüğünüz yeni filtreleri uygulamayı önizlemesidir. Bu artık UI 10.000 kaydı sınırına göre sınırlı kalmak yerine tam Sonuç kümenizi temel alır. Şu anda en popüler filtreleri ve her filtre için en yaygın 10 değerleri listesi budur. 
+C: Yeni filtreleri uygulamasının bir önizlemesini görmek için sol kaydırma 'Filtreler' tıklayın. Bu artık UI 10.000 kaydı sınırına göre sınırlı kalmak yerine tam Sonuç kümenizi temel alır. Şu anda en popüler filtreleri ve her filtre için en yaygın 10 değerleri listesi budur. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>S. Neden bir hata alıyorum: "Kaynak Sağlayıcısı 'Bu sorgu etkinleştirmek için Microsoft.Insights' Bu abonelik için günlüklere sonrası ayrıntılara VM'den Kaydet"? 
 

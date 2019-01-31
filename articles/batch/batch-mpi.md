@@ -3,7 +3,7 @@ title: MPI uygulamaları - Azure Batch çalıştırmak için çok örnekli göre
 description: Azure Batch hizmetinde çok örnekli görev türü kullanarak ileti geçirme arabirimi (MPI) uygulamaları çalıştırma hakkında bilgi edinin.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 06/12/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a443dd7ed4f95b3e283603fa8938a08c2c177827
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f2c7d6f75b9f2d6932ae3c8de863ad277fea8ffe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174426"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460548"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Batch'de ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için çok örnekli görevleri kullanma
 
@@ -268,7 +268,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 ## <a name="code-sample"></a>Kod örneği
 [MultiInstanceTasks] [ github_mpi] github'daki kod örneği, bir çok örnekli görev çalıştırmak amacıyla kullanmak üzere nasıl gösterir bir [MS MPI] [ msmpi_msdn] uygulaması Batch işlem düğümleri. Bağlantısındaki [hazırlık](#preparation) ve [yürütme](#execution) örneği çalıştırmak için.
 
-### <a name="preparation"></a>Hazırlama
+### <a name="preparation"></a>Hazırlık
 1. İlk iki adımını izleyin [nasıl derlenip çalıştırılacağı basit bir MS-MPI program][msmpi_howto]. Bu, aşağıdaki adımı önkoşullarını karşılar.
 2. Derleme bir *yayın* sürümünü [MPIHelloWorld] [ helloworld_proj] örnek MPI programı. Çok örnekli görev tarafından işlem düğümlerinde çalıştırılacak programı budur.
 3. İçeren bir ZIP dosyası oluşturma `MPIHelloWorld.exe` (hangi derlediğiniz 2. adım) ve `MSMpiSetup.exe` (indirmiş 1. adım). Sonraki adımda bir uygulama paketi olarak bu ZIP dosyasını karşıya yükleyelim.
@@ -286,7 +286,7 @@ await subtasks.ForEachAsync(async (subtask) =>
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Batch ve Storage hesabı kimlik bilgilerinizi girin `AccountSettings.settings` içinde **Microsoft.Azure.Batch.Samples.Common** proje.
 4. **Derleme ve çalıştırma** MultiInstanceTasks çözüm MPI yürütmek için örnek bir Batch havuzundaki işlem düğümlerinde uygulama.
-5. *İsteğe bağlı*: kullanım [Azure portalında] [ portal] veya [Batch Gezgini] [ batch_labs] örnek havuzu, iş ve görev incelemek için (" MultiInstanceSamplePool","MultiInstanceSampleJob","MultiInstanceSampleTask") önce kaynakları silin.
+5. *İsteğe bağlı*: Kullanım [Azure portalında] [ portal] veya [Batch Gezgini] [ batch_labs] örnek havuzu, iş ve görev incelemek için ("MultiInstanceSamplePool"," MultiInstanceSampleJob","MultiInstanceSampleTask") önce kaynakları silin.
 
 > [!TIP]
 > İndirebileceğiniz [Visual Studio Community] [ visual_studio] ücretsiz Visual Studio yoksa.

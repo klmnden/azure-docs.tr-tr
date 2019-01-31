@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 738cc5b4e90d9572b65f122076973e2d9f1b264f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450499"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302130"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Azure Data Box ağ geçidi önizlemesi sürüm notları
 
@@ -50,7 +50,9 @@ Aşağıdaki tabloda, önizleme sürümünü çalıştıran, veri kutusu ağ ge�
 | **5.** |Dosya türleri | Aşağıdaki Linux dosya türlerinde desteklenmez: karakter dosyaları, dosyaları engelleme, yuva, Kanallar, simgesel bağlantılar.  |Bu dosyaları kopyalama NFS oluşturulmakta 0 uzunluklu dosyalar sonuçlarında paylaşın. Bu dosyalar bir hata durumunda kalır ve ayrıca bildirilen *error.xml*. |
 | **6.** |Silme | NFS paylaşımını silinirse, bu sürümde bir hata nedeniyle, paylaşım ardından silinemez. Paylaşım durumu *silme*.  |Desteklenmeyen dosya adını kullanarak paylaşıma yalnızca bu gerçekleşir. |
 | **7.** |Yenile | İzinler ve erişim denetim listeleri (ACL'ler), bir yenileme işlemi arasında korunmaz.  | |
-| **8.** |Çevrimiçi Yardım |Azure portalı Yardım bağlantıları belgelerinin bağlantısı yok.|Yardım bağlantıları genel kullanım sürümünde çalışır. |
+| **8.** |Kopyala | Veri kopyalama hatasıyla başarısız oluyor:  Bir dosya sistemi sınırlaması nedeniyle istenen işlem tamamlanamadı.  |128 KB (ReFS için üst sınır) dosyası ile ilişkili diğer veri Stream (REKLAM) aştığında, bu hata oluşur.  |
+| **9.** |Simgesel bağlantılar |Sembolik bağlantılar desteklenmez.  |Sembolik bağlantılar dizinler için hiçbir zaman çevrimdışı olarak işaretlenmiş dizinlerde neden. Sonuç olarak, gri arası dizinleri çevrimdışı olduğunu ve tüm ilişkili içeriği tamamen Azure'da yüklenen gösterir dizinlerde göremeyebilirsiniz. |
+| **10.** |Çevrimiçi Yardım |Azure portalı Yardım bağlantıları belgelerinin bağlantısı yok.|Yardım bağlantıları genel kullanım sürümünde çalışır. |
 
 
 

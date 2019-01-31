@@ -8,13 +8,13 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.component: disks
-ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: 968c8aa74a35bf753d92e7c417aaec2a1361f425
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234723"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467977"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Azure Windows Vm'leri için diskleri depolama hakkında
 
@@ -55,7 +55,7 @@ Veri diskleri için sanal makine herhangi bir zamanda göre ekleyebileceğiniz *
 
 Önizleme boyutlar için bkz. bizim [SSS](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) bulunan hangi bölgelerde öğrenin.
 
-## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Bir son öneri: kullanım yönetilmeyen standart diskler ile KIRPMA
+## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Bir son öneri: Standart yönetilmeyen diskler ile KIRPMA kullanma
 
 Yönetilmeyen standart diskler (HDD) kullanıyorsanız, KIRPMA etkinleştirmeniz gerekir. Yalnızca gerçekten kullandığınız depolama alanı için faturalandırılır, böylece TRIM diskte kullanılmayan blokları atar. Büyük dosyaları oluşturup ardından bunları silerseniz bu maliyetlerinden tasarruf edebilirler.
 
@@ -72,7 +72,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> Not: Windows Server 2012 ile kırpma desteği başlatır / Windows 8 ve yukarıda bkz [yeni API "TRIM ve eşlemeyi" ipuçları depolama ortamına göndermek, uygulamaların verir](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> Not: Kırpma desteği, Windows Server 2012 ile başlayan / Windows 8 ve yukarıda bkz [yeni API "TRIM ve eşlemeyi" ipuçları depolama ortamına göndermek, uygulamaların verir](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->

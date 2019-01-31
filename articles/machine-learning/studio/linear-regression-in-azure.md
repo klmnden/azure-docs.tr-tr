@@ -1,5 +1,5 @@
 ---
-Başlık: Analiz için Azure Machine Learning Studio titleSuffix Excel'den Geçir: Azure Machine Learning Studio açıklaması: Doğrusal regresyon modeli Excel'de ve Azure Machine Learning Studio Services karşılaştırması: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Analiz için Azure Machine Learning Studio titleSuffix Excel'den Geçir: Azure Machine Learning Studio açıklaması: Doğrusal regresyon modeli Excel'de ve Azure Machine Learning Studio Services karşılaştırması: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/20/2017
 ---

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 51cf04509608435117e0368b25952a58f7fc3557
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9a394c0dff74ec5f926356a3d700c5bbba4c0e4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609710"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478296"
 ---
 # <a name="in-memory-sample"></a>Bellek içi örnek
 
@@ -55,7 +55,7 @@ Daha fazla alıyormuş, ancak daha görsel olarak çekici performans gösteri i�
 4. SSMS ile T-SQL betiğini yapıştırın ve ardından betiği yürütün. `MEMORY_OPTIMIZED = ON` Yan tümcesi CREATE TABLE deyimleri çok önemlidir. Örneğin:
 
 
-```
+```sql
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
     [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
     ...
@@ -69,7 +69,7 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
 T-SQL komut dosyasını çalıştırırken hata 40536 alırsanız, veritabanı, bellek içi destekleyip desteklemediğini doğrulamak için aşağıdaki T-SQL betiğini çalıştırın:
 
 
-```
+```sql
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
@@ -94,7 +94,7 @@ Bellek için iyileştirilmiş tablolar üzerinden inceleyebilirsiniz **Nesne Gez
 Veya, Katalog görünümleri gibi sorgulayabilirsiniz:
 
 
-```
+```sql
 SELECT is_memory_optimized, name, type_desc, durability_desc
     FROM sys.tables
     WHERE is_memory_optimized = 1;
@@ -104,7 +104,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 **Saklı yordam doğal olarak derlenen**: Bir katalog sorguyu görüntüle SalesLT.usp_InsertSalesOrder_inmem inceleyebilirsiniz:
 
 
-```
+```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
     FROM sys.sql_modules
     WHERE uses_native_compilation = 1;
@@ -145,7 +145,7 @@ Aşağıdaki betiği, bellek için iyileştirilmiş aşağıdaki beş satır ö�
 - SalesLT.SalesOrderDetail_inmem
 
 
-```
+```sql
 DECLARE
     @i int = 0,
     @od SalesLT.SalesOrderDetailType_inmem,
@@ -244,7 +244,7 @@ Sonuçtan sonra *_inmem* çalıştırın, için aşağıdaki adımları gerçekl
 
 
 1. Ssms'de önceki çalışması tarafından eklenen tüm verileri silmek için aşağıdaki komutu çalıştırarak veritabanını sıfırlama:
-```
+```sql
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -315,7 +315,7 @@ Vardır [çalıştırabileceğiniz T-SQL sorgusu türlerinden](https://raw.githu
 Aşağıdaki T-SQL betiği alıntı, GÇ ve sorgunun her tablonun süresi istatistikleri yazdırır.
 
 
-```
+```sql
 /*********************************************************************
 Step 2 -- Overview
 -- Page Compressed BTree table v/s Columnstore table performance differences

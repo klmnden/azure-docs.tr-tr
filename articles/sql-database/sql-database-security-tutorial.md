@@ -1,6 +1,6 @@
 ---
-title: Tek bir veritabanını Azure SQL veritabanı'nda güvenli | Microsoft Docs
-description: Teknikleri ve Azure SQL veritabanı'nda tek bir veritabanının güvenliğini sağlamak için özellikleri hakkında bilgi edinin.
+title: Bir tek başına veya havuza alınmış veritabanının Azure SQL veritabanı'nda güvenli | Microsoft Docs
+description: Teknikleri ve tek başına veya havuza alınmış veritabanını Azure SQL veritabanı'nda güvenli hale getirmek için özellikleri hakkında bilgi edinin.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 05d1f69a5a8bc38c63a842a92266dd15e010d694
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 01/30/2019
+ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227276"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461211"
 ---
-# <a name="tutorial-single-database-security-in-azure-sql-database"></a>Öğretici: Azure SQL veritabanı tek veritabanı güvenliği
+# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Öğretici: Bir tek başına veya havuza alınmış veritabanının güvenliğini sağlama
 
-Azure SQL veritabanı, tek bir SQL veritabanında veri olanak sağlayarak korur:
+Azure SQL veritabanı, izin vererek tek başına veya havuza veritabanı verilerini korur:
 
 - Güvenlik duvarı kurallarını kullanarak erişimi sınırlama
 - Kimlik gerektiren kimlik doğrulama mekanizmaları kullanma
@@ -35,7 +35,7 @@ Yalnızca birkaç basit adımda, veritabanı güvenliği artırabilirsiniz. Bu �
 > - Sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları oluşturma
 > - Bir Azure Active Directory (AD) Yöneticisi'ni yapılandırma
 > - SQL kimlik doğrulaması, Azure AD kimlik doğrulaması ve güvenli bağlantı dizeleri kullanıcı erişimini yönetme
-> - Tehdit koruması, Denetim, veri maskeleme ve şifreleme gibi güvenlik özelliklerini etkinleştirme
+> - Gelişmiş veri güvenliği, denetimi, veri maskeleme ve şifreleme gibi güvenlik özelliklerini etkinleştirme
 
 Daha fazla bilgi için bkz. [Azure SQL veritabanı güvenliğine genel bakış](/azure/sql-database/sql-database-security-index) ve [özellikleri](sql-database-security-overview.md) makaleler.
 
@@ -45,7 +45,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulların karşılandığın
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Bir Azure SQL server ve veritabanı
-    - Oluşturabilir [Azure portalında](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), veya [PowerShell](sql-database-powershell-samples.md)
+  - Oluşturabilir [Azure portalında](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), veya [PowerShell](sql-database-powershell-samples.md)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -62,9 +62,9 @@ Ayarlama **Azure hizmetlerine erişime izin ver** için **OFF** için en güvenl
 > [!NOTE]
 > SQL Veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden gelen bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe verilmez. Bu durumda, yöneticinize 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL veritabanı sunucusuna bağlanamıyor.
 
-### <a name="set-up-server-level-firewall-rules"></a>Sunucu düzeyinde güvenlik duvarı kurallarını ayarlayın
+### <a name="set-up-sql-database-server-firewall-rules"></a>SQL veritabanı sunucusu güvenlik duvarı kurallarını ayarlayın
 
-Sunucu düzeyinde güvenlik duvarı kuralları, aynı mantıksal sunucu içindeki tüm veritabanlarına uygulayın.
+Sunucu düzeyinde güvenlik duvarı kuralları, aynı SQL veritabanı sunucu içindeki tüm veritabanlarına uygulayın.
 
 Sunucu düzeyinde güvenlik duvarı kurallarını ayarlamak için:
 
@@ -88,7 +88,7 @@ Artık sunucuda belirtilen IP adresine veya IP adresi aralığına sahip herhang
 > [!IMPORTANT]
 > Varsayılan olarak, SQL veritabanı güvenlik duvarı üzerinden erişim tüm Azure Hizmetleri için altında etkin **Azure hizmetlerine erişime izin ver**. Seçin **OFF** erişim tüm Azure Hizmetleri için devre dışı bırakmak için.
 
-### <a name="setup-database-level-firewall-rules"></a>Veritabanı düzeyinde güvenlik duvarı kuralları ayarla
+### <a name="setup-database-firewall-rules"></a>Veritabanı güvenlik duvarı kuralları ayarla
 
 Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca tek tek veritabanları için geçerlidir. Bu kurallar, taşınabilir ve veritabanı sunucusu yük devretme sırasında takip eder. Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca Transact-SQL (T-SQL) deyimleri kullanılarak yapılandırılabilir ve sonra yalnızca sunucu düzeyinde güvenlik duvarı kuralı yapılandırdınız.
 
@@ -231,30 +231,30 @@ Güvenli bir bağlantı dizesi kopyalamak için:
 
 ## <a name="enable-security-features"></a>Güvenlik özelliklerini etkinleştirme
 
-Azure SQL veritabanı, Azure portalını kullanarak erişilen güvenlik özellikleri sağlar. Bu özellikler yalnızca veritabanı üzerinde kullanılabilir olduğu hem veritabanı hem de veri maskeleme dışında bir sunucu için kullanılabilir. Daha fazla bilgi için bkz. [Gelişmiş tehdit algılama](sql-advanced-threat-protection.md), [denetim](sql-database-auditing.md), [dinamik veri maskeleme](sql-database-dynamic-data-masking-get-started.md), ve [saydam veri şifrelemesi](transparent-data-encryption-azure-sql.md).
+Azure SQL veritabanı, Azure portalını kullanarak erişilen güvenlik özellikleri sağlar. Bu özellikler yalnızca veritabanı üzerinde kullanılabilir olduğu hem veritabanı hem de veri maskeleme dışında bir sunucu için kullanılabilir. Daha fazla bilgi için bkz. [gelişmiş veri güvenliği](sql-advanced-threat-protection.md), [denetim](sql-database-auditing.md), [dinamik veri maskeleme](sql-database-dynamic-data-masking-get-started.md), ve [saydam veri şifrelemesi](transparent-data-encryption-azure-sql.md).
 
-### <a name="advanced-threat-protection"></a>Gelişmiş tehdit koruması
+### <a name="advanced-data-security"></a>Gelişmiş veri güvenliği
 
-Oluşur ve anormal etkinliklerde güvenlik uyarıları sağlar Gelişmiş tehdit Koruması özelliği, olası tehditleri algılar. Kullanıcılar denetim özelliğini kullanarak bu şüpheli etkinlikleri araştırıp ve olay erişim, güvenlik ihlali veya veritabanındaki verileri yararlanma olup olmadığını belirlemek. Kullanıcılar bir güvenlik açığı değerlendirmesi ve veri bulma ve sınıflandırma aracı içeren bir güvenliğine genel bakış da sağlanır.
+Gelişmiş Veri güvenlik özelliği olası tehditleri algılar, oluşur ve anormal etkinliklerde güvenlik uyarıları sağlar. Kullanıcılar denetim özelliğini kullanarak bu şüpheli etkinlikleri araştırıp ve olay erişim, güvenlik ihlali veya veritabanındaki verileri yararlanma olup olmadığını belirlemek. Kullanıcılar bir güvenlik açığı değerlendirmesi ve veri bulma ve sınıflandırma aracı içeren bir güvenliğine genel bakış da sağlanır.
 
 > [!NOTE]
 > Bir örnek tehdit SQL eklemesi, burada saldırganlar uygulama için girdiler olarak kötü amaçlı SQL ekleme bir işlem olarak. Uygulama daha sonra farkında olmadan kötü amaçlı SQL yürütme ve saldırganlar güvenlik ihlali veya veritabanındaki verileri değiştirme erişimi verin.
 
-Tehdit Koruması'nı etkinleştirmek için:
+Gelişmiş veri güvenliği etkinleştirmek için:
 
 1. Azure portalında **SQL veritabanları** sol menüdeki ve veritabanınızı seçin **SQL veritabanları** sayfası.
 
 1. Üzerinde **genel bakış** sayfasında **sunucu adı** bağlantı. Veritabanı Sunucu sayfasına açılır.
 
-1. Üzerinde **SQL server** sayfasında, bulmak **güvenlik** seçin ve bölüm **Gelişmiş tehdit koruması**.
+1. Üzerinde **SQL server** sayfasında, bulmak **güvenlik** seçin ve bölüm **gelişmiş veri güvenliği**.
 
-    1. Seçin **ON** altında **Gelişmiş tehdit koruması** özelliği etkinleştirmek için. Daha sonra **Kaydet**’e tıklayın.
+    1. Seçin **ON** altında **gelişmiş veri güvenliği** özelliği etkinleştirmek için. Güvenlik Açığı değerlendirme sonuçlarını kaydetmek için bir depolama hesabı seçin. Daha sonra **Kaydet**’e tıklayın.
 
     ![Gezinti bölmesi](./media/sql-database-security-tutorial/threat-settings.png)
 
     Ayrıca, güvenlik uyarıları, depolama ayrıntıları ve tehdit algılama türleri alacak e-postalar yapılandırabilirsiniz.
 
-1. Geri dönüp **SQL veritabanları** sayfasını seçin ve veritabanı **Gelişmiş tehdit koruması** altında **güvenlik** bölümü. Burada veritabanı için çeşitli güvenlik göstergeler bulabilirsiniz.
+1. Geri dönüp **SQL veritabanları** sayfasını seçin ve veritabanı **gelişmiş veri güvenliği** altında **güvenlik** bölümü. Burada veritabanı için çeşitli güvenlik göstergeler bulabilirsiniz.
 
     ![Tehdit durumu](./media/sql-database-security-tutorial/threat-status.png)
 
@@ -344,7 +344,7 @@ Bu öğreticide, yalnızca birkaç basit adımla veritabanınızın güvenliğin
 > - Sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları oluşturma
 > - Bir Azure Active Directory (AD) Yöneticisi'ni yapılandırma
 > - SQL kimlik doğrulaması, Azure AD kimlik doğrulaması ve güvenli bağlantı dizeleri kullanıcı erişimini yönetme
-> - Tehdit koruması, Denetim, veri maskeleme ve şifreleme gibi güvenlik özelliklerini etkinleştirme
+> - Gelişmiş veri güvenliği, denetimi, veri maskeleme ve şifreleme gibi güvenlik özelliklerini etkinleştirme
 
 Coğrafi dağıtım uygulama hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 

@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: a87f3861a74bbc7a482423d5f2a2f1b859f83a10
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1f3aaf34283f4e7c81f97b8e2ec4987749f3935c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604438"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465291"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Azure SQL veritabanı performansı izleme dinamik yönetim görünümlerini kullanarak
 
@@ -549,7 +549,7 @@ Diğer uygulama türleri aynı grafikte farklı yorumlayabilir. Örneğin, uygul
 Tüketilen kaynak bilgilerini active her veritabanı için Azure SQL veritabanı kullanıma sunan **sys.resource_stats** görünümünü **ana** her bir sunucudaki veritabanı. Tablodaki verileri için 5 dakikalık aralıklarla toplanır. Temel, standart ve Premium hizmet katmanlarıyla veri tabloda, bu verileri neredeyse gerçek zamanlı analiz yerine geçmiş çözümleme için daha yararlı olacak şekilde görünmesini fazla 5 dakika sürebilir. Sorgu **sys.resource_stats** bir veritabanının en son geçmişini görmek için görüntüleyin ve doğrulamak için mi ayırma, seçtiğiniz gerektiğinde istediğiniz performans teslim.
 
 > [!NOTE]
-> Bağlanmanız gereken **ana** mantıksal SQL veritabanı sunucunuzun sorgu için veritabanı **sys.resource_stats** ilişkin aşağıdaki örneklerde.
+> İçin bağlanmalıdır **ana** SQL veritabanı sunucunuzun sorgu için veritabanı **sys.resource_stats** ilişkin aşağıdaki örneklerde.
 
 Bu örnekte, bu görünümdeki veriler nasıl sunulur gösterir:
 

@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/16/2018
-ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: 7ca54117b014cb093b63e265864b0b0efa787865
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536381"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461228"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL veritabanı dinamik veri maskeleme
 
@@ -28,12 +28,15 @@ Dinamik veri maskeleme müşterilerin uygulama katmanını çok az etkileyerek h
 Örneğin, çağrı merkezindeki temsilcisiyle çağıranlar, kredi kartı numarası birkaç basamak tarafından tanımlamaya başlayabilir, ancak veri öğelerin tam olarak temsilcisiyle sunulmamalıdır. Tüm maskeleri ancak sonuç tüm kredi kartı numarasının son dört rakamı herhangi bir sorgu kümesi bir maskeleme kuralı tanımlanabilir. Bir geliştirici uyumluluk düzenlemelerini ihlal etmeden sorun giderme amacıyla üretim ortamlarında sorgulayabilmesi başka bir örnek olarak, kişisel bilgileri (PII) verileri korumak için uygun veri maskesi tanımlanabilir.
 
 ## <a name="sql-database-dynamic-data-masking-basics"></a>SQL veritabanı dinamik veri maskeleme temelleri
+
 Dinamik veri maskeleme işlemi SQL veritabanının yapılandırma dikey penceresinde ya da ayarlar dikey penceresi seçerek Azure portalında Bu ilkeyi maskeleme dinamik bir veri ayarlayın.
 
 ### <a name="dynamic-data-masking-permissions"></a>Dinamik veri maskeleme izinleri
-Dinamik veri maskeleme, Azure veritabanı yöneticisi, sunucu yöneticisi tarafından yapılandırılabilir veya [SQL Güvenlik Yöneticisi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) rolleri.
+
+Dinamik veri maskeleme, Azure SQL veritabanı yöneticisi, sunucu yöneticisi tarafından yapılandırılabilir veya [SQL Güvenlik Yöneticisi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) rolleri.
 
 ### <a name="dynamic-data-masking-policy"></a>Dinamik veri maskeleme İlkesi
+
 * **Maskeleme işlemi hariç tutulan SQL kullanıcıları** - kümesi SQL kullanıcıları veya SQL maskelenmemiş veri alma AAD kimlikleri sorgu sonuçları. Yönetici ayrıcalıklarına sahip kullanıcılar maskeleme işlemi her zaman hariç tutulur ve özgün veriler olmadan herhangi bir maskesi bakın.
 * **Maskeleme kuralları** -bir dizi gizlenmeye belirlenen alanları tanımlayan kuralları ve kullanılan maskeleme işlevi. Veritabanı şema adı, tablo adını ve sütun adını kullanarak belirtilen alanlar tanımlanabilir.
 * **İşlevleri maskeleme** -bir dizi farklı senaryolar için verilerin açığa denetleyen yöntemleri.
@@ -49,11 +52,13 @@ Dinamik veri maskeleme, Azure veritabanı yöneticisi, sunucu yöneticisi taraf�
 <a name="Anchor1"></a>
 
 ### <a name="recommended-fields-to-mask"></a>Maskelenmesi önerilen alanlar
+
 DDM hizmetinin öneriler motoru, veritabanınızdaki belirli alanları maskeleme için iyi adaylar olabilir hassas olabilecek alanlar olarak işaretler. Portalı'nda dinamik veri maskeleme dikey penceresinde, veritabanınız için önerilen sütunlar görürsünüz. Tek yapmak için ihtiyacınız olan tıklayın **maske Ekle** bir veya birden çok sütunun ve ardından **Kaydet** bu alanlar için bir maske uygulamak için.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Dinamik veri maskeleme veritabanınız için Powershell cmdlet'lerini kullanarak ayarlama
+
 Bkz: [Azure SQL veritabanı cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Dinamik veri maskelemeyi REST API kullanarak veritabanınızı ayarlayın
-Bkz: [işlemleri için Azure SQL veritabanı](https://msdn.microsoft.com/library/dn505719.aspx).
 
+Bkz: [işlemleri için Azure SQL veritabanı](https://msdn.microsoft.com/library/dn505719.aspx).

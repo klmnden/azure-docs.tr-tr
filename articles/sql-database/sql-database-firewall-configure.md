@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: e4079a4dcaadab8e9cea0cc1b30a609a091e5937
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 0579746bc4dc554fd7e082f6258f2c13ce22f69b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035279"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477684"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL veritabanı ve SQL veri ambarı güvenlik duvarı kuralları
 
@@ -47,11 +47,11 @@ Azure SQL sunucunuzdaki veritabanlarından yalnızca birine seçmeli olarak eri�
 
 - **Sunucu düzeyinde güvenlik duvarı kuralları:**
 
-  Bu kurallar, diğer bir deyişle, tüm aynı mantıksal sunucu içindeki veritabanlarına istemcilerin tüm Azure SQL sunucunuza erişmesini sağlar. Bu kurallar **ana** veritabanına depolanır. Sunucu düzeyinde güvenlik duvarı kuralları, portal ya da Transact-SQL deyimleri kullanılarak yapılandırılabilir. Azure portalı veya PowerShell kullanarak sunucu düzeyinde güvenlik duvarı kuralları oluşturmak için abonelik sahibi veya abonelik katkıda bulunanı olmanız gerekir. Transact-SQL kullanarak sunucu düzeyinde güvenlik duvarı kuralı oluşturmak için SQL Veritabanı örneğine sunucu düzeyi asıl oturum açma bilgileriyle veya Azure Active Directory yöneticisi olarak bağlanmanız gerekir (başka bir deyişle, sunucu düzeyi güvenlik duvarı kuralının önce Azure düzeyi izinlere sahip bir kullanıcı tarafından oluşturulması gerekir).
+  Bu kurallar, diğer bir deyişle, tüm veritabanlarının aynı SQL veritabanı sunucusu istemcilerin tüm Azure SQL sunucunuza erişmesini sağlar. Bu kurallar **ana** veritabanına depolanır. Sunucu düzeyinde güvenlik duvarı kuralları, portal ya da Transact-SQL deyimleri kullanılarak yapılandırılabilir. Azure portalı veya PowerShell kullanarak sunucu düzeyinde güvenlik duvarı kuralları oluşturmak için abonelik sahibi veya abonelik katkıda bulunanı olmanız gerekir. Transact-SQL kullanarak sunucu düzeyinde güvenlik duvarı kuralı oluşturmak için SQL Veritabanı örneğine sunucu düzeyi asıl oturum açma bilgileriyle veya Azure Active Directory yöneticisi olarak bağlanmanız gerekir (başka bir deyişle, sunucu düzeyi güvenlik duvarı kuralının önce Azure düzeyi izinlere sahip bir kullanıcı tarafından oluşturulması gerekir).
 
 - **Veritabanı düzeyinde güvenlik duvarı kuralları:**
 
-  Bu kurallar istemcilerin aynı mantıksal sunucu içindeki bazı (güvenli) veritabanlarına erişmesini sağlar. Her veritabanı için kurallar oluşturabilirsiniz (dahil olmak üzere **ana** veritabanı) ve bunlar tek veritabanlarına depolanır. Ana ve kullanıcı veritabanları için veritabanı düzeyinde güvenlik duvarı kuralları yalnızca oluşturulur ve yalnızca ilk sunucu düzeyinde Güvenlik Duvarı'nı yapılandırdıktan sonra ve Transact-SQL deyimleri kullanılarak yönetilir. Veritabanı düzeyinde güvenlik kuralı için, sunucu düzeyinde güvenlik duvarı kuralında belirtilen aralığın dışındaki bir IP adresi aralığını belirtirseniz, yalnızca veritabanı düzeyi aralığındaki IP adreslerine sahip istemciler veritabanına erişebilir. Bir veritabanı için en fazla 128 veritabanı düzeyinde güvenlik duvarı kuralınız olabilir. Veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için makale ve bkz örnek ilerleyen bölümlerinde bkz [sp_set_database_firewall_rule (Azure SQL veritabanı)](https://msdn.microsoft.com/library/dn270010.aspx).
+  Bu kurallar istemcilerin aynı SQL veritabanı sunucu içindeki bazı (güvenli) veritabanlarına erişmesini sağlar. Her veritabanı için kurallar oluşturabilirsiniz (dahil olmak üzere **ana** veritabanı) ve bunlar tek veritabanlarına depolanır. Ana ve kullanıcı veritabanları için veritabanı düzeyinde güvenlik duvarı kuralları yalnızca oluşturulur ve yalnızca ilk sunucu düzeyinde Güvenlik Duvarı'nı yapılandırdıktan sonra ve Transact-SQL deyimleri kullanılarak yönetilir. Veritabanı düzeyinde güvenlik kuralı için, sunucu düzeyinde güvenlik duvarı kuralında belirtilen aralığın dışındaki bir IP adresi aralığını belirtirseniz, yalnızca veritabanı düzeyi aralığındaki IP adreslerine sahip istemciler veritabanına erişebilir. Bir veritabanı için en fazla 128 veritabanı düzeyinde güvenlik duvarı kuralınız olabilir. Veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için makale ve bkz örnek ilerleyen bölümlerinde bkz [sp_set_database_firewall_rule (Azure SQL veritabanı)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ### <a name="recommendation"></a>Öneri
 
@@ -94,7 +94,7 @@ Performansı artırmak için sunucu düzeyinde güvenlik duvarı kuralları veri
 
 ## <a name="manage-firewall-rules-using-the-azure-portal"></a>Azure portalını kullanarak güvenlik duvarı kurallarını yönetme
 
-Azure portalında sunucu düzeyinde güvenlik duvarı kuralını ayarlamak için ya da Genel Bakış sayfasına, Azure SQL veritabanınızı veya genel bakış sayfası için Azure veritabanı mantıksal sunucusu için gidebilirsiniz.
+Azure portalında sunucu düzeyinde güvenlik duvarı kuralını ayarlamak için ya da Genel Bakış sayfasına, Azure SQL veritabanınızı veya genel bakış sayfası için SQL veritabanı sunucunuz için gidebilirsiniz.
 
 > [!TIP]
 > Bir öğretici için bkz. [Azure portalını kullanarak bir veritabanı oluşturma](sql-database-get-started-portal.md).
@@ -165,7 +165,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ```
 
 > [!TIP]
-> PowerShell örneklerini Hızlı Başlangıç için bağlamında, [DB oluşturma - PowerShell](sql-database-powershell-samples.md) ve [tek veritabanı oluşturma ve PowerShell kullanarak bir güvenlik duvarı kuralı yapılandırma](scripts/sql-database-create-and-configure-database-powershell.md)
+> PowerShell örneklerini Hızlı Başlangıç için bağlamında, [DB oluşturma - PowerShell](sql-database-powershell-samples.md) ve [tek veritabanı oluşturma ve PowerShell kullanarak SQL veritabanı güvenlik duvarı kuralı yapılandırma](scripts/sql-database-create-and-configure-database-powershell.md)
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Azure CLI kullanarak güvenlik duvarı kurallarını yönetme
 
@@ -185,7 +185,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ```
 
 > [!TIP]
-> Azure CLI örneği bir hızlı başlangıç için bağlamında, bkz: [DB oluşturma - Azure CLI](sql-database-cli-samples.md) ve [tek veritabanı oluşturma ve Azure CLI kullanarak bir güvenlik duvarı kuralı yapılandırma](scripts/sql-database-create-and-configure-database-cli.md)
+> Azure CLI örneği bir hızlı başlangıç için bağlamında, bkz: [DB oluşturma - Azure CLI](sql-database-cli-samples.md) ve [tek veritabanı oluşturma ve Azure CLI kullanarak bir SQL veritabanı güvenlik duvarı kuralı yapılandırma](scripts/sql-database-create-and-configure-database-cli.md)
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>REST API kullanarak güvenlik duvarı kurallarını yönetme
 

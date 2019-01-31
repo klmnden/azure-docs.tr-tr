@@ -11,17 +11,17 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 0d532f976304e164732be5184ff132421e13c6b4
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: a70af29c07c532b43fdf25d0517ae880bfd3cff8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53649898"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476341"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>CLI kullanarak SQL elastik havuzunda bir Azure SQL veritabanını taşıma
 
-Bu Azure CLI betik örneği iki elastik havuz oluşturur ve bir Azure SQL veritabanını bir SQL elastik havuzundan başka bir SQL elastik havuzuna taşır, sonra da veritabanını elastik havuzun dışındaki tek bir Azure veritabanı işlem boyutuna taşır. 
+Bu Azure CLI betik örneği iki elastik havuz oluşturur ve bir Azure SQL veritabanı bir SQL elastik havuzundan başka bir SQL elastik havuzuna taşır ve ardından veritabanı tek veritabanı için elastik havuz dışına işlem boyutu taşır. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -48,9 +48,9 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 | Komut | Notlar |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Bir veritabanı veya elastik havuz barındıran bir mantıksal sunucu oluşturur. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Mantıksal sunucu içinde bir elastik havuz oluşturur. |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Bir mantıksal sunucuda tek veya havuza alınmış bir veritabanı olarak veritabanı oluşturur. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Tek veritabanları ve elastik havuzlar barındıran bir SQL veritabanı sunucusu oluşturur. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Elastik havuz oluşturur. |
+| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Tek bir veritabanı veya veritabanı içinde bir elastik havuz oluşturur. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Veritabanı özelliklerini güncelleştirir veya bir veritabanını elastik havuzun içine veya dışına ya da elastik havuzlar arasında taşır. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 

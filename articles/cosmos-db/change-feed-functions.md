@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 41cbb657a4fc83b498c5cc9a6a16397a619aa075
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034055"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469490"
 ---
-# <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>Azure Cosmos DB değişiklik akışı ile Azure işlevleri'ni kullanma
+# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Azure işlevleri Azure Cosmos DB tetikleyicisi
 
 Azure işlevleri'ni kullanıyorsanız, eklemek için değişiklik akışını bağlanmak için en kolay yolu olan bir [Azure Cosmos DB tetikleyicisi](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) Azure işlevleri uygulamanıza. Bir Azure işlev uygulaması Cosmos DB tetikleyicisi oluşturduğunuzda, bağlanmak için Cosmos kapsayıcıyı seçin ve kapsayıcıdaki bir şey değiştiğinde işlevi tetiklenir.
 

@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3237932c66c77f979c4e95798163621e65735bed
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3e58c22048c9b71b00cffb0657fc924277304662
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247162"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462441"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight Kurumsal güvenlik paketi kullanma
 
@@ -71,24 +71,24 @@ Federasyon kullanılıyor ve parola karmalarının eşitlenmiş correcty, ancak 
 
  2. ```Connect-AzureAD``` bir genel yönetici (Kiracı Yöneticisi) kimlik bilgilerini kullanarak
 
- 3. "Azure powershell" hizmet sorumlusu zaten oluşturulduğunu denetleyin
+ 3. "Microsoft Azure Powershell" hizmet sorumlusu zaten oluşturulduğunu denetleyin
 
 ```
- Get-AzureADServicePrincipal -SearchString "1950a258-227b-4e31-a9cf-717495945fc2"
+ $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
 ```
 
- 4. Ardından, mevcut olmaması halinde hizmet sorumlusunu oluşturma
+ 4. Yoksa (yani, ($powershellSPN - q $null)) sonra hizmet sorumlusu oluşturma
 
 ```
- New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+ $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
 ```
 
- 5. Bu hizmet sorumlusuna ilke ekleme: 
+ 5. Oluşturma ve bu hizmet sorumlusuna ilke ekleme: 
 
 ```
- $policy = New-AzureADPolicy -Definition @("{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+ $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
 
- Add-AzureADServicePrincipalPolicy -Id <Service Principal ID> -refObjectID $policy.ID
+ Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

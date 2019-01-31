@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/08/2018
-ms.openlocfilehash: eb788c07ed9424ae6d5beed5be11c71a11c62265
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/25/2018
+ms.openlocfilehash: 03ea4a7db27e32b370be89adf308ded9a22f9e37
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304289"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478432"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Öğretici: Şirket içi Azure SQL veritabanı ve SQL Server arasındaki SQL Data Sync'i ayarlama
 
@@ -71,11 +71,11 @@ Yeni eşitleme grubu oluşturulur ve dağıtılır, sonra **(2. adım) eşitleme
 
 ### <a name="to-add-an-azure-sql-database"></a>Azure SQL veritabanı eklemek için
 
-İçinde **üye veritabanı** bölümüne, isteğe bağlı olarak seçerek Azure SQL veritabanı eşitleme grubuna ekleyin **Azure veritabanı ekleme**. **Azure veritabanını Yapılandır** sayfası açılır.
+İçinde **üye veritabanı** bölümüne, isteğe bağlı olarak seçerek Azure SQL veritabanı eşitleme grubuna ekleyin **Azure SQL veritabanı ekleme**. **Azure SQL veritabanını Yapılandır** sayfası açılır.
 
   ![Adım 2 - veritabanı yapılandırma](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  Üzerinde **Azure veritabanını Yapılandır** sayfasında, aşağıdaki ayarları değiştirin:
+  Üzerinde **Azure SQL veritabanını Yapılandır** sayfasında, aşağıdaki ayarları değiştirin:
 
   | Ayar                       | Açıklama |
   | ----------------------------- | ------------------------------------------------- |

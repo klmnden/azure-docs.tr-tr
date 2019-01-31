@@ -3,7 +3,7 @@ title: Azure portalını kullanarak Batch hesabı oluşturma | Microsoft Docs
 description: Büyük ölçekli paralel iş yükleri bulutta çalıştırmak için Azure portalda bir Azure Batch hesabı oluşturmayı öğrenin
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/18/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 89e41dc8e27cf39d9d0e6168dc7352267c321623
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724103"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460531"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure portalıyla Batch hesabı oluşturma
 
@@ -42,19 +42,19 @@ Batch hesapları ve senaryoları hakkında arka plan bilgileri için bkz. [özel
 
     ![Batch hesabı oluşturma][account_portal]
 
-    a. **Hesap adı**: Seçtiğiniz ad, hesabın oluşturulduğu Azure bölgesinde benzersiz olmalıdır (aşağıdaki **Konum** bölümüne bakın). Hesap adı yalnızca küçük harfler, sayılar içerebilir ve 3-24 karakter uzunluğunda olmalıdır.
+    a. **Hesap adı**: Seçtiğiniz ad hesabın oluşturulduğu Azure bölgesi içinde benzersiz olması gerekir (bkz **konumu** aşağıda). Hesap adı yalnızca küçük harfler, sayılar içerebilir ve 3-24 karakter uzunluğunda olmalıdır.
 
     b. **Abonelik**: Batch hesabının oluşturulacağı bir abonelik. Yalnızca bir aboneliğiniz varsa, varsayılan olarak seçilidir.
 
-    c. **Kaynak grubu**: Yeni Batch hesabınız için mevcut bir kaynak grubu seçebilir ya da isterseniz yeni bir tane oluşturabilirsiniz.
+    c. **Kaynak grubu**: Yeni Batch hesabınız için mevcut bir kaynak grubunu seçin ya da isteğe bağlı olarak yeni bir tane oluşturun.
 
-    d. **Konum**: Batch hesabının oluşturulacağı bir Azure bölgesi. Yalnızca aboneliğiniz ve kaynak grubunuz tarafından desteklenen bölgeler seçenek olarak görüntülenir.
+    d. **Konum**: Batch hesabının oluşturulacağı Azure bölgesi. Yalnızca aboneliğiniz ve kaynak grubunuz tarafından desteklenen bölgeler seçenek olarak görüntülenir.
 
-    e. **Depolama hesabı** (isteğe bağlı): Batch hesabınızla ilişkilendireceğiniz bir Azure Depolama hesabı. Çoğu Batch hesabı için önerilen seçenek budur. Batch’teki depolama hesabı seçenekleri için bkz. [Batch özelliğine genel bakış](batch-api-basics.md#azure-storage-account). Portalda mevcut bir depolama hesabını seçin veya isteğe bağlı olarak yeni bir depolama hesabı oluşturun.
+    e. **Depolama hesabı** (isteğe bağlı): Batch hesabınızla ilişkilendireceğiniz bir Azure depolama hesabı. Çoğu Batch hesabı için önerilen seçenek budur. Batch’teki depolama hesabı seçenekleri için bkz. [Batch özelliğine genel bakış](batch-api-basics.md#azure-storage-account). Portalda mevcut bir depolama hesabını seçin veya isteğe bağlı olarak yeni bir depolama hesabı oluşturun.
 
       ![Depolama hesabı oluşturma][storage_account]
 
-    f. **Havuz ayırma modu**: Çoğu senaryoda varsayılan **Batch hizmeti**'ni kabul edin.
+    f. **Havuz ayırma modu**: Çoğu senaryo için varsayılan değerleri kabul **Batch hizmeti**.
 
 1. Hesabı oluşturmak için **Oluştur**'u seçin.
 
@@ -65,7 +65,7 @@ Hesap oluşturulduktan sonra seçerek ayarlarına ve özelliklerine erişebilirs
 
 ![Azure portalında Batch hesabı sayfası][account_blade]
 
-* **Batch hesabı adı, URL’si ve anahtarları**: [Batch API'leri](batch-apis-tools.md#azure-accounts-for-batch-development) ile uygulama geliştirirken, Batch kaynaklarınıza erişebilmeniz için bir hesap URL'si ve anahtarı gereklidir. (Batch, Azure Active Directory kimlik doğrulamasını da destekler.)
+* **Batch hesabı adı, URL ve anahtarları**: İle bir uygulama geliştirirken [Batch API'leri](batch-apis-tools.md#azure-accounts-for-batch-development), Batch kaynaklarınıza erişebilmeniz için bir hesap URL'si ve anahtar gerekir. (Batch, Azure Active Directory kimlik doğrulamasını da destekler.)
 
     Batch hesabı erişim bilgilerini görüntülemek için **Anahtarlar**'ı seçin.
 

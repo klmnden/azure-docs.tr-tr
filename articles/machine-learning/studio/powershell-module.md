@@ -1,5 +1,5 @@
 ---
-Başlık: PowerShell modülleri için Machine Learning Studio titleSuffix: Azure Machine Learning Studio açıklaması: Oluşturmak ve Azure Machine Learning Studio çalışma alanları, denemeler, web hizmetleri ve daha fazlasını yönetmek için PowerShell'i kullanın. Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: PowerShell modülleri için Machine Learning Studio titleSuffix: Azure Machine Learning Studio açıklaması: Oluşturmak ve Azure Machine Learning Studio çalışma alanları, denemeler, web hizmetleri ve daha fazlasını yönetmek için PowerShell'i kullanın. Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=haining, yazar önceki = hning86 ms.date: 01/25/2019
 ---

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/24/2019
+ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc0ffc0a209dab0e8610966cb24596d95b7927c3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 5cacd2d0e4308e15b562169f72efb0f98ce45289
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913436"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476405"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -62,7 +62,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
    - Yeni bir ad belirtin **Log Analytics çalışma alanı**, "ContosoLAWorkspace" gibi.
    - Seçin bir **abonelik** varsayılan seçili uygun değilse açılan listeden seçerek bağlamak için.
    - İçin **kaynak grubu**, yeni bir kaynak grubu oluşturun veya varolan bir tanesini seçin.
-   - Bir **Konum** seçin. Şu anda yalnızca mevcut konumlarının **Avustralya Güneydoğu**, **Kanada orta**, **Orta Hindistan**, **Doğu ABD**, **Doğu Japonya**, **Güneydoğu Asya**, **UK Güney**, ve **Batı Avrupa**.
+   - Bir **Konum** seçin. Şu anda yalnızca mevcut konumlarının **Avustralya Güneydoğu**, **Kanada orta**, **Orta Hindistan**, **Doğu ABD**, **Doğu Japonya**, **Güneydoğu Asya**, **UK Güney**, **Batı Avrupa**, ve **Batı ABD 2**.
    - Bir **Fiyatlandırma katmanı** seçin. Seçin **GB başına (tek başına)** seçeneği. Log Analytics'e güncelleştirdi [fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) ve GB başına katman tek seçenektir.
 
 5. Gerekli bilgileri girdikten sonra **Log Analytics çalışma alanı** sayfasında **Oluştur**. Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüden döndüren size **Çözüm Ekle** işiniz bittiğinde sayfa.

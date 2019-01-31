@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: b1ef03b97f9fe95286d427effc40e69ae07b6b3c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 3d6010df64c4e3c75bd05e2eb9828c07cf3fb342
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601500"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471394"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL veritabanı yedeklemeleri için 10 yıla kadar Store
 
 Birçok uygulama yasal yoksa, uyumluluk veya diğer iş amaçlı veritabanı yedeklemelerini Azure SQL veritabanı tarafından sağlanan 7-35 gün dışında tutulacak gerektiren [otomatik yedeklemeler](sql-database-automated-backups.md). Uzun süreli saklama (LTR) özelliğini kullanarak, belirtilen SQL veritabanı tam yedeklemelerde depolayabilirsiniz [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob depolama için 10 yıla kadar. Ardından, yeni bir veritabanı olarak herhangi bir yedekleme geri yükleyebilirsiniz.
 
 > [!NOTE]
-> Azure SQL veritabanı mantıksal sunucuları barındırılan veritabanlarında LTR etkinleştirilebilir. Henüz yönetilen örnekleri'nde barındırılan veritabanları için kullanılabilir değil. SQL Aracısı işleri zamanlamak için kullanabileceğiniz [yalnızca kopya yedekleri](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) 35 gün ötesinde LTR alternatif olarak.
+> LTR tek başına için etkinleştirilebilir ve havuza alınmış veritabanları. Mevcut örneği için yönetilen örnekleri'nde veritabanlarını değil henüz bu değil. SQL Aracısı işleri zamanlamak için kullanabileceğiniz [yalnızca kopya yedekleri](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) 35 gün ötesinde LTR alternatif olarak.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL veritabanı uzun süreli saklama nasıl çalışır?

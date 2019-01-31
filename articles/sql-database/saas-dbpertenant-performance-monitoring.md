@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.date: 01/25/2019
+ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259146"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459494"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Azure SQL veritabanlarının ve havuzların bir çok kiracılı SaaS uygulaması performansını izleme ve yönetme
 
 Bu öğreticide, SaaS uygulamalarında kullanılan birkaç temel performans yönetimi senaryosu incelenmektedir. Tüm Kiracı veritabanlarında etkinliği benzetimi için bir yük oluşturucuyu kullanarak, yerleşik izleme ve uyarı özelliklerini SQL veritabanı ve elastik havuzların gösterilmiştir.
 
-Wingtip bilet SaaS her Kiracı veritabanı uygulama, her mekanın (kiracının) kendi veritabanına sahip olduğu bir tek kiracılı veri modeli kullanır. Birçok SaaS uygulaması gibi, beklenen kiracı iş yükü düzeni öngörülemez ve düzensizdir. Diğer bir deyişle, bilet satışı herhangi bir zamanda gerçekleşebilir. Bu tipik veritabanı kullanım düzeninden yararlanmak için kiracı veritabanları elastik veritabanı havuzlarına dağıtılır. Elastik havuzlar, kaynakları çok sayıda veritabanı arasında paylaştırarak çözüm maliyetini en iyi duruma getirir. Bu düzen türü ile yüklerin havuzlar arasında makul bir şekilde dengelendiğinden emin olmak için veritabanı ve havuz kaynak kullanımının izlenmesi önemlidir. Ayrıca, her bir veritabanının yeterli kaynağa sahip olduğundan ve havuzların [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model) sınırına ulaşmadığından emin olmanız gerekir. Bu öğreticide, veritabanı ve havuzları izleyip yönetme yollarını ve iş yükündeki değişikliklere yanıt olarak nasıl düzeltici işlem yapılacağını incelenmektedir.
+Wingtip bilet SaaS her Kiracı veritabanı uygulama, her mekanın (kiracının) kendi veritabanına sahip olduğu bir tek kiracılı veri modeli kullanır. Birçok SaaS uygulaması gibi, beklenen kiracı iş yükü düzeni öngörülemez ve düzensizdir. Diğer bir deyişle, bilet satışı herhangi bir zamanda gerçekleşebilir. Bu tipik veritabanı kullanım düzeninden yararlanmak için Kiracı veritabanları elastik havuzlarına dağıtılır. Elastik havuzlar, kaynakları çok sayıda veritabanı arasında paylaştırarak çözüm maliyetini en iyi duruma getirir. Bu düzen türü ile yüklerin havuzlar arasında makul bir şekilde dengelendiğinden emin olmak için veritabanı ve havuz kaynak kullanımının izlenmesi önemlidir. Ayrıca, her bir veritabanının yeterli kaynağa sahip olduğundan ve havuzların [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model) sınırına ulaşmadığından emin olmanız gerekir. Bu öğreticide, veritabanı ve havuzları izleyip yönetme yollarını ve iş yükündeki değişikliklere yanıt olarak nasıl düzeltici işlem yapılacağını incelenmektedir.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -42,7 +42,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>SaaS performans yönetimi düzenlerine giriş
 
-Veritabanı performans yönetimi, performans verilerini derleyip çözümlemeyi ve ardından uygulamanız için kabul edilebilir bir yanıt süresi sağlamak için parametreleri ayarlayarak bu verilere yanıt vermeyi içerir. Elastik veritabanı havuzları birden çok kiracıyı barındırdığında, öngörülemez iş yükü içeren bir veritabanı grubu için kaynakları sağlama ve yönetmenin uygun maliyetli bir yolunu sunar. Bazı iş yükü düzenlerinde iki S3 veritabanı bile tek bir havuzda yönetilebilir.
+Veritabanı performans yönetimi, performans verilerini derleyip çözümlemeyi ve ardından uygulamanız için kabul edilebilir bir yanıt süresi sağlamak için parametreleri ayarlayarak bu verilere yanıt vermeyi içerir. Birden çok kiracıyı barındırdığında, elastik havuzlar sağlamak ve öngörülemeyen iş yükleri ile veritabanı grubu için kaynakları yönetmek için uygun maliyetli bir yoldur. Bazı iş yükü düzenlerinde iki S3 veritabanı bile tek bir havuzda yönetilebilir.
 
 ![Uygulama diyagramı](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
@@ -169,7 +169,7 @@ Havuz ölçeğini artırmanın alternatif bir yolu, ikinci bir havuz oluşturup 
 
 1. İçinde [Azure portalında](https://portal.azure.com)açın **tenants1-dpt -&lt;kullanıcı&gt;**  sunucusu.
 1. Tıklayın **+ yeni havuz** geçerli sunucu üzerinde havuz oluşturmak için.
-1. Üzerinde **esnek veritabanı havuzu** şablonu:
+1. Üzerinde **elastik havuz** şablonu:
 
     1. Ayarlama **adı** için *Pool2*.
     1. Fiyatlandırma katmanını **Standart Havuz** olarak bırakın.
@@ -189,9 +189,9 @@ Gözat **Pool2** (üzerinde *tenants1-dpt -\<kullanıcı\>*  sunucusu) havuzu a�
 
 Üzerindeki kaynak kullanımının artık bkz *Pool1* bıraktı ve *Pool2* artık benzer şekilde yüklenir.
 
-## <a name="manage-performance-of-a-single-database"></a>Tek bir veritabanının performansını yönetme
+## <a name="manage-performance-of-an-individual-database"></a>Tek veritabanı performansını yönetme
 
-Bir havuzdaki tek bir veritabanı sürekli yüksek bir yük altındaysa, havuz yapılandırmasına bağlı olarak, havuzdaki kaynaklara yön vermeye ve diğer veritabanlarını etkilemeye eğilimli olabilir. Etkinlik için bir süre devam etme olasılığı ise, veritabanı geçici olarak havuz dışına taşınabilir. Bu ek kaynaklara ihtiyaç duyar ve diğer veritabanlarından ayırır sahip veritabanına sağlar.
+Bir havuzdaki tek veritabanı, havuz yapılandırmasına bağlı olarak uzun süreli yüksek yük altındaysa Havuzu'ndaki kaynakları baskındır ve diğer veritabanlarını eğilimli olabilir. Etkinlik için bir süre devam etme olasılığı ise, veritabanı geçici olarak havuz dışına taşınabilir. Bu ek kaynaklara ihtiyaç duyar ve diğer veritabanlarından ayırır sahip veritabanına sağlar.
 
 Bu alıştırmada, popüler bir konser için biletler satışa çıktığında yüksek bir yükle karşılaşan Contoso Konser Salonu etkisinin benzetimi gerçekleştirilmektedir.
 
@@ -203,7 +203,7 @@ Bu alıştırmada, popüler bir konser için biletler satışa çıktığında y
 
 1. İçinde [Azure portalında](https://portal.azure.com), veritabanlarının listesini Gözat *tenants1-dpt -\<kullanıcı\>*  sunucusu. 
 1. Tıklayarak **contosoconcerthall** veritabanı.
-1. Havuzda'a tıklayın, **contosoconcerthall** bulunmaktadır. Havuzda bulun **esnek veritabanı havuzu** bölümü.
+1. Havuzda'a tıklayın, **contosoconcerthall** bulunmaktadır. Havuzda bulun **elastik havuz** bölümü.
 
 1. İnceleme **esnek Havuz izleme** grafik ve artan havuz eDTU kullanımı bakın. Bir veya iki dakika sonra, daha yüksek olan yük etkisini göstermeye başlar ve havuzun %100 kullanıma ulaştığını görürsünüz.
 2. İnceleme **elastik veritabanı izleme** görüntülemek, son bir saat içinde en yoğun veritabanlarını gösterir. *Contosoconcerthall* veritabanı kısa süre içinde görünmelidir beş en yoğun veritabanlarını biri olarak.

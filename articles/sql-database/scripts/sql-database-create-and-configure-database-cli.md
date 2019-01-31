@@ -3,7 +3,7 @@ title: CLI örneği-Azure SQL veritabanı oluşturma | Microsoft Docs
 description: Bir SQL veritabanı oluşturmak için bu Azure CLI örnek betiğini kullanın.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,13 +11,13 @@ author: CarlRabeler
 manager: craigg
 ms.author: carlrab
 ms.reviewer: ''
-ms.date: 09/20/2018
-ms.openlocfilehash: d239236e9e6f7133aa57eb617c3cc9e8626fc178
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.date: 01/25/2019
+ms.openlocfilehash: 24f45ea22a50e471a2947b926b817f06aefa9aa8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055484"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451793"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Tek bir Azure SQL veritabanı oluşturmak ve bir güvenlik duvarı kuralını yapılandırmak için CLI kullanma
 
@@ -48,9 +48,9 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 | Komut | Notlar |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | SQL Veritabanını barındıran bir mantıksal sunucu oluşturur. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Sunucudaki tüm SQL Veritabanlarına, girilen IP adresi aralığından erişmeyi sağlayacak bir güvenlik duvarı kuralı oluşturur. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Mantıksal sunucuda SQL Veritabanı oluşturur. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Tek veritabanı veya elastik havuz barındıran bir SQL veritabanı sunucusu oluşturur. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | SQL veritabanı sunucusunda girilen IP adresi aralığındaki bir elastik havuzlar bütün tek veritabanları erişmesine izin vermek için bir güvenlik duvarı kuralı oluşturur. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Tek veritabanı veya elastik havuz oluşturur. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

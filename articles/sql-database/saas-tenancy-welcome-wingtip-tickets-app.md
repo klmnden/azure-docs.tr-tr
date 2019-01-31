@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a05a8ad495e33734a531405902ce34e3591bfe15
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b27877e25dd3bdd4711d1c036e2f203e1b8c0e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056327"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462153"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip bilet SaaS uygulaması
 
@@ -46,7 +46,7 @@ Kullanıma [öğreticiler] [ docs-tutorials-for-wingtip-dpt] ve github'daki [...
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Parçalı çok kiracılı veritabanı deseni
 
-Çok kiracılı veritabanları, Kiracı ve azaltılmış Kiracı yalıtımı ile tamamdır başına daha düşük maliyetli aranıyor hizmet sağlayıcıları için geçerlidir. Bu düzen, Kiracı başına maliyet aşağı sürüş tek bir veritabanına kiracılar çok sayıda paket sağlar. Neredeyse sınırsız ölçeklendirme ile parçalama mümkündür kiracılar genelinde birden çok veritabanı. Katalog veritabanı için veritabanlarını kiracılar eşler.  
+Çok kiracılı veritabanları, Kiracı ve azaltılmış Kiracı yalıtımı ile tamamdır başına daha düşük maliyetli aranıyor hizmet sağlayıcıları için geçerlidir. Bu düzen, Kiracı başına maliyet aşağı sürüş tek bir veritabanı içine kiracılar çok sayıda paket sağlar. Neredeyse sınırsız ölçeklendirme ile parçalama mümkündür kiracılar genelinde birden çok veritabanı. Katalog veritabanı için veritabanlarını kiracılar eşler.  
 
 Bu düzen ayrıca sağlar bir *karma* içinde maliyeti ile birden fazla Kiracı veritabanı için en iyi duruma getirme, veya yapabilirsiniz kendi veritabanında tek bir kiracı yalıtımı için en iyi duruma getirme modeli. Kiracı sağlanan ya da daha sonra uygulama üzerinde herhangi bir etkisi olduğunda seçimi ya da bir kiracı tarafından Kiracı temelinde yapılabilir.  Bu model, kiracıların grupları farklı şekilde değerlendirilmesi gerektiğinde etkili bir şekilde kullanılabilir. Örneğin, Premium kiracılar kendi veritabanlarına atanabilirken paylaşılan veritabanları için düşük maliyetli kiracılar atanabilir. 
 

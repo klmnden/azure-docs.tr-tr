@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: b2312534cdd63f5672f6b2294e3aef6b50be229a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600055"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461602"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>El ile Azure SQL veritabanında sorgu performansını ayarlama
 
@@ -246,7 +246,7 @@ Veritabanı parçalama bir çözüm için toplam kaynak kapasitesini azaltmaz an
 
 ### <a name="functional-partitioning"></a>İşlevsel bölümleme
 
-SQL Server kullanıcıları genellikle tek bir veritabanında çok sayıda işlevleri birleştirin. Örneğin, bir uygulamanın mantıksal deposunun envanterini yönetmek için varsa, veritabanı satınalma siparişleri, saklı yordamlar ve ayın son raporlamayı yönetme dizinli ya da gerçekleştirilmiş görünümler izleme envanteri ile ilişkili mantıksal olabilir. Bu teknik veritabanı için yedekleme gibi işlemleri yönetmenizi kolaylaştırır, ancak bir uygulamanın tüm işlevlerinin yükü işlemek için donanım boyutlandırmak de gerektirir.
+SQL Server kullanıcıları tek tek bir veritabanında çok sayıda işlevleri genellikle birleştirin. Örneğin, bir uygulamanın mantıksal deposunun envanterini yönetmek için varsa, veritabanı satınalma siparişleri, saklı yordamlar ve ayın son raporlamayı yönetme dizinli ya da gerçekleştirilmiş görünümler izleme envanteri ile ilişkili mantıksal olabilir. Bu teknik veritabanı için yedekleme gibi işlemleri yönetmenizi kolaylaştırır, ancak bir uygulamanın tüm işlevlerinin yükü işlemek için donanım boyutlandırmak de gerektirir.
 
 Azure SQL veritabanı'nda bir ölçek genişletmeli mimarisinden kullanırsanız, uygulamanın farklı veritabanlarındaki farklı işlevlere bölmek için iyi bir fikirdir. Bu tekniği kullanarak, her uygulamayı bağımsız şekilde ölçeklendirir. Uygulama meşgul duruma (ve veritabanı üzerindeki yükü artırır gibi), yönetici uygulamada her işlev için bağımsız işlem boyutları seçebilirsiniz. Bu mimari ile sınır, uygulamanın yük, birden çok makineye yayılmış çünkü tek ticari makine işleyebileceğinden daha büyük olabilir.
 

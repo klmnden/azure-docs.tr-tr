@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 63a6daa7c409aeb77b07e98cc0108b727f263d4c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453264"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457216"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Veritabanı işlerini kullanarak yönetim görevlerini otomatikleştirme
 
@@ -26,6 +26,7 @@ Hedef veritabanı veya Azure SQL veritabanlarında burada iş yürütülür ve a
 Bir iş, hedef veritabanına oturum açmanın görev işler. Ayrıca tanımlamak, korumak ve Azure SQL veritabanlarından oluşan bir grupta yürütülecek Transact-SQL betikleri kalıcı.
 
 Proje Otomasyon kullanabilirsiniz, birçok senaryo vardır:
+
 - Yönetim görevlerini otomatikleştirmenizi ve sonra saat, vb. haftanın her günü çalıştırmak için zamanlayabilirsiniz.
   - Şema değişiklikleri, kimlik bilgileri yönetimi, performans verisi toplama veya kiracı (müşteri) telemetri verilerini toplama gibi görevleri dağıtın.
   - (Tüm veritabanlarında ortak bilgiler) başvuru verilerini güncelleştirme, Azure Blob depolamadan veri yükleme.
@@ -39,14 +40,15 @@ Proje Otomasyon kullanabilirsiniz, birçok senaryo vardır:
  - SQL Server Integration Services (SSIS) kullanarak veritabanlarınıza ya da veri yükleme işleri oluşturun.
 
 Aşağıdaki iş zamanlama teknolojiler, Azure SQL veritabanı'nda mevcuttur:
+
 - **SQL Aracısı işleri** olan Klasik ve Kendini ispatlamış SQL Server İş Zamanlama yönetilen örneği'nde kullanılabilir olan bir bileşen. SQL Aracısı işleri tek veritabanlarında kullanılabilir değil.
 - **Elastik veritabanı işleri** , bir veya birden çok Azure SQL veritabanlarında özel işleri çalıştırır, iş zamanlama hizmetidir.
 
-Bunu birkaç SQL Aracısı arasındaki farklar hatalarının ayıklanabileceğini belirtmekte yarar (şirket içinde ve SQL veritabanı yönetilen örneği bir parçası olarak) ve veritabanı elastik İş Aracısı (tekil SQL veritabanı ve SQL veri ambarı için kullanılabilir).
+Bunu birkaç SQL Aracısı arasındaki farklar hatalarının ayıklanabileceğini belirtmekte yarar (şirket içinde ve SQL veritabanı yönetilen örneği bir parçası olarak) ve veritabanı elastik İş Aracısı (Azure SQL veritabanı ve SQL veri ambarı veritabanlarını tek veritabanları için kullanılabilir).
 
 |  |Elastik İşler  |SQL Aracısı |
 |---------|---------|---------|
-|Kapsam     |  İş aracısıyla aynı Azure bulutundaki herhangi bir sayıda Azure SQL veritabanı ve/veya veri ambarı. Hedefler farklı mantıksal sunucularda, aboneliklerde ve/veya bölgelerde olabilir. <br><br>Hedef gruplar tek veritabanı veya veri ambarlarının yanı sıra bir sunucu, havuz veya parça eşlemesi içindeki tüm veritabanlarından (iş zamanında dinamik olarak numaralandırılır) oluşabilir. | SQL aracısıyla aynı SQL Server örneğindeki tek bir veritabanı. |
+|Kapsam     |  İş aracısıyla aynı Azure bulutundaki herhangi bir sayıda Azure SQL veritabanı ve/veya veri ambarı. Hedef farklı SQL veritabanı sunucuları, abonelikleri ve/veya bölgeleri olabilir. <br><br>Hedef gruplar tek veritabanı veya veri ambarlarının yanı sıra bir sunucu, havuz veya parça eşlemesi içindeki tüm veritabanlarından (iş zamanında dinamik olarak numaralandırılır) oluşabilir. | Herhangi tek bir veritabanı aynı SQL Server örneğinde SQL Aracısı. |
 |Desteklenen API’ler ve Araçlar     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 ## <a name="sql-agent-jobs"></a>SQL Aracısı işleri
@@ -54,6 +56,7 @@ Bunu birkaç SQL Aracısı arasındaki farklar hatalarının ayıklanabileceğin
 SQL Aracısı işleri T-SQL betiklerini veritabanına karşı belirtilen dizi var. İşler, bir veya birden çok kez çalıştırmak ve başarı veya başarısızlık için izlenen bir yönetim görevi tanımlamak için kullanın.
 Bir iş, bir yerel sunucuda veya birden çok uzak sunucularda çalıştırabilirsiniz. SQL aracı işi yönetilen örneğe hizmet içinde yürütülen bir iç veritabanı altyapısı bileşendir.
 SQL Aracısı işleri birkaç temel kavram vardır:
+
 - **İş adımları** işinde yürütülen bir veya daha çok adım kümesi. Her bir iş adımı için yeniden deneme stratejisi ve iş adımı başarılı veya başarısız olursa gerçekleşmesi gereken eylemi tanımlayabilirsiniz.
 - **Zamanlamalar** işin ne zaman yürütülmesi gereken tanımlayın.
 - **Bildirimleri** , iş tamamlandığında e-posta aracılığıyla işleçleri bildirmek için kullanılan kuralları tanımlamanıza olanak sağlar.
@@ -64,11 +67,13 @@ SQL aracı işi, SQL Aracısı yürütülecek Eylemler dizisi adımlardır. Her 
 SQL Aracısı işi adımları, tek bir Transact-SQL toplu iş veritabanında yürütülen Transact-SQL işi adımı veya özel işletim sistemi betiği yürütebilirsiniz işletim sistemi komut/PowerShell adımları gibi farklı türlerde oluşturmanızı sağlayan, verileri yüklemek SSIS iş adımları sağlar SSIS çalışma zamanı, kullanan veya [çoğaltma](sql-database-managed-instance-transactional-replication.md) Değişiklikleri veritabanınızdan başka bir veritabanına yayımlayabilirsiniz adımları.
 
 [İşlem çoğaltma](sql-database-managed-instance-transactional-replication.md) bir veritabanındaki bir veya birden çok tablolarda yapılan değişiklikleri yayımlamak ve yayımlama/abonelik veritabanları kümesi için dağıtın olanak tanıyan bir veritabanı altyapısı özelliğidir. Aşağıdaki SQL Aracısı işi adımı türlerini kullanarak değişiklikleri yayımlanmasıyla uygulanır:
+
 - İşlem günlüğü okuyucu.
 - Anlık görüntü.
 - Dağıtıcı.
 
 İş adımları diğer türleri şu anda, dahil olmak üzere desteklenmez:
+
 - Birleştirme çoğaltması iş adımı desteklenmiyor.
 - Sıra okuyucusu desteklenmiyor.
 - Analysis Services desteklenmiyor
@@ -77,6 +82,7 @@ SQL Aracısı işi adımları, tek bir Transact-SQL toplu iş veritabanında yü
 
 Bir zamanlama, bir işin ne zaman çalışacağını belirtir. Birden fazla işi aynı zamanlamaya göre çalıştırabilir ve birden fazla zamanlama aynı projeye uygulayabilirsiniz.
 Bir zamanlama bir işinin çalışma zamanını kez aşağıdaki koşullar tanımlayabilirsiniz:
+
 - Örneği yeniden başlatıldığında (veya SQL Server Agent başladığında). İş, her bir yük devretme işleminden sonra etkinleştirilir.
 - Bir kez bir belirli bir tarih ve saatte, olan bazı işinin Gecikmeli yürütme için kullanışlıdır.
 - Tekrarlayan bir zamanlamaya göre.
@@ -215,7 +221,7 @@ Geçerli önizlemede, Elastik İş aracısı oluşturmak için bir Azure SQL ver
 
 *Hedef grup*, işin üzerinde çalışacağı veritabanı kümesini tanımlar. Hedef grup içinde aşağıdaki bileşenlerden birden fazlası veya birleşimi bulunabilir:
 
-- **Azure SQL sunucusu**: Sunucu belirtilirse işin yürütülmesi sırasında sunucuda mevcut olan tüm veritabanları gruba dahil edilir. İş yürütülmeden önce grubun numaralandırılması ve güncelleştirilmesi için asıl veritabanı kimlik bilgisinin sağlanması gerekir.
+- **SQL veritabanı sunucusu** -bir sunucu belirtilmişse, iş yürütme sırasında sunucuda mevcut tüm veritabanlarını grubun parçası olan. İş yürütülmeden önce grubun numaralandırılması ve güncelleştirilmesi için asıl veritabanı kimlik bilgisinin sağlanması gerekir.
 - **Elastik havuz**: Elastik havuz belirtilirse işin yürütülmesi sırasında elastik havuzda mevcut olan tüm veritabanları gruba dahil edilir. Sunucuda olduğu gibi iş yürütülmeden önce grubun güncelleştirilmesi için asıl veritabanı kimlik bilgisinin sağlanması gerekir.
 - **Tek veritabanı**: Gruba eklenmek üzere bir veya daha fazla tek veritabanı belirtin.
 - **Parça eşlemesi**: Bir parça eşlemesinin veritabanlarıdır.
@@ -258,6 +264,7 @@ Her işte yürütülecek bir T-SQL betiği, bu T-SQL betiğinin çalıştırıla
 #### <a name="job-history"></a>İş geçmişi
 
 İş yürütme geçmişi *İş veritabanında* depolanır. Sistem temizleme işlemi 45 günden daha eski olan yürütme geçmişi verilerini siler. 45 günden daha yeni olan geçmişi kaldırmak için *İş veritabanında* **sp_purge_history** saklı yordamını çağırın.
+
 ### <a name="agent-performance-capacity-and-limitations"></a>Aracı performansı, kapasitesi ve sınırlamaları
 
 Elastik İşler, uzun süren işlerin tamamlanması sırasında en az düzeyde işlem kaynağı kullanır.

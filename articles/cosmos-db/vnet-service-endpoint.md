@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 199e1dda3e4629c0298d4aae1cb5d09e20e4b3b8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358737"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452050"
 ---
-# <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Erişim Azure Cosmos DB kaynaklarını sanal ağlardan
+# <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Azure Cosmos DB'den sanal ağları (VNet) erişim
 
-Yalnızca sanal ağın (VNET) belirli bir alt ağından erişime izin vermek için Azure Cosmos hesabı yapılandırabilirsiniz. Etkinleştirerek [hizmet uç noktası](../virtual-network/virtual-network-service-endpoints-overview.md) bir sanal ağ içindeki alt ağdaki Azure Cosmos DB'ye erişmek için bu alt ağ trafiği için Azure Cosmos DB ile sanal ağ ve alt ağ kimliğini gönderilir. Azure Cosmos DB hizmet uç noktası etkinleştirildikten sonra Azure Cosmos hesabınıza ekleyerek alt ağa erişimi sınırlayabilirsiniz.
+Yalnızca sanal ağın (VNet) belirli bir alt ağından erişime izin vermek için Azure Cosmos hesabı yapılandırabilirsiniz. Etkinleştirerek [hizmet uç noktası](../virtual-network/virtual-network-service-endpoints-overview.md) bir sanal ağ içindeki alt ağdaki Azure Cosmos DB'ye erişmek için bu alt ağ trafiği için Azure Cosmos DB ile sanal ağ ve alt ağ kimliğini gönderilir. Azure Cosmos DB hizmet uç noktası etkinleştirildikten sonra Azure Cosmos hesabınıza ekleyerek alt ağa erişimi sınırlayabilirsiniz.
 
 Varsayılan olarak, isteğin bir geçerli bir yetkilendirme belirteciyle birlikte sunulduğu, bir Azure Cosmos hesabı herhangi bir kaynaktan erişilebilir. Sanal ağ içindeki bir veya daha fazla alt ağlar eklediğinizde, yalnızca bu alt ağlardan kaynaklanan isteklerin geçerli bir yanıt alırsınız. Başka bir kaynaktan gelen istekler, 403 (Yasak) yanıt alırsınız. 
 

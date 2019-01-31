@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f63a42afd9dc629bd87dfb23e07e14737ea42a2f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393273"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299852"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Kiracılar arası Analytics'i kullanarak veri - tek kiracılı uygulama ayıklanan
  
-Bu öğreticide, bir tam analytics senaryosu için tek bir kiracı implementatoin yol. Analytics akıllı kararlar işletmelere nasıl olanak sağlayabileceğiniz senaryosunu gösterir. Her Kiracı veritabanından ayıklanmış verileri kullanarak Analiz Kiracı davranışı, kullanımları örnek Wingtip bilet SaaS uygulaması dahil olmak üzere Öngörüler edinmek için kullanın. Bu senaryoda üç adımdan oluşur: 
+Bu öğreticide, bir tam analytics senaryosu tek kiracılı uygulaması için size yol. Analytics akıllı kararlar işletmelere nasıl olanak sağlayabileceğiniz senaryosunu gösterir. Her Kiracı veritabanından ayıklanmış verileri kullanarak Analiz Kiracı davranışı, kullanımları örnek Wingtip bilet SaaS uygulaması dahil olmak üzere Öngörüler edinmek için kullanın. Bu senaryoda üç adımdan oluşur: 
 
 1.  **Ayıklama** her Kiracı veritabanı verileri ve **yük** bir analytics deposuna.
 2.  **Ayıklanan verileri dönüştürme** analiz işleme için.

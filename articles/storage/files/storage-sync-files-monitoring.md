@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: 7b03860fbcfd3380b92343575e88bd9cc7be5c13
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.subservice: files
+ms.openlocfilehash: 032b39846d19e34f2eb87c1311feeb4bb890cb24
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199251"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467467"
 ---
-# <a name="monitor-azure-file-sync"></a>Azure dosya eşitleme İzleyicisi
+# <a name="monitor-azure-file-sync"></a>Azure Dosya Eşitleme’yi izleme
 
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
 

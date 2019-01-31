@@ -2,7 +2,7 @@
 title: Batch Azure Application Insights ile izleme | Microsoft Docs
 description: Azure Application Insights Kitaplığı'nı kullanarak bir Azure Batch .NET uygulama izleme hakkında bilgi edinin.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.devlang: .NET
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: danlep
-ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.author: lahugh
+ms.openlocfilehash: 42ea8398fa1a8b1fbc42108d1165dc17da2c34d7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119916"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473471"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>İzleme ve Application Insights ile bir Azure Batch .NET uygulama hatalarını ayıklama
 

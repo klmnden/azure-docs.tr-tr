@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 32e67343c5d799157d67408b34753da5a38b6f8e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197254"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297676"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux kümesi Syslog olayları
 
@@ -84,7 +84,7 @@ SyslogConsumer etkinleştirmek için kümenizin bir yükseltme gerçekleştirmek
 Duyurmak için değişiklikler aşağıda belirtilmiştir
 1. Genel bölümünde, adlı yeni bir parametre yok `LinuxStructuredTracesEnabled`. **Bu, yapılandırılmış ve Syslog ile gönderildiğinde serileştirilmiş Linux olayları için gereklidir.**
 2. Tanılama bölümünde, yeni ConsumerInstance: SyslogConsumer eklendi. Bu platform, başka bir tüketici olayların yoktur bildirir. 
-3. Yeni bir bölüm olması gerekiyor SyslogConsumer `IsEnabled` olarak `true`. Bu, Local0 tesis otomatik olarak kullanmak üzere configurd olur. Başka bir parametre ekleyerek bunu geçersiz kılabilirsiniz.
+3. Yeni bir bölüm olması gerekiyor SyslogConsumer `IsEnabled` olarak `true`. Local0 tesis otomatik olarak kullanmak üzere yapılandırılır. Başka bir parametre ekleyerek bunu geçersiz kılabilirsiniz.
 
 ```json
     {

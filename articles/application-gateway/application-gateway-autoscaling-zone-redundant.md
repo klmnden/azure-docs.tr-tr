@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/29/2019
+ms.date: 1/31/2019
 ms.author: victorh
-ms.openlocfilehash: 7301460014e4d547d1950c8edfbd7534d8a4c103
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0c8a600342e0240d435999b1b5ddabc0234c142f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101677"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461449"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi (genel Önizleme)
 
@@ -53,9 +53,9 @@ SKU otomatik ölçeklendirme aşağıdaki bölgelerde kullanılabilir: eastus2, 
 |FIPS modundayken, WebSocket|Bunlar şu anda desteklenmemektedir.|
 |ILB yalnızca modu|Bu şu anda desteklenmiyor. Genel ve ILB modu birlikte desteklenir.|
 |Web uygulaması Güvenlik Duvarı'nı otomatik ölçeklendirme|WAF, otomatik ölçeklendirme modu desteklemez. Sabit kapasite modu desteklenir.|
+|Netwatcher tümleştirme|Genel Önizleme sürümünde desteklenmiyor.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Azure PowerShell kullanarak bir ayrılmış sanal IP adresiyle bir otomatik ölçeklendirme, bölge yedekli uygulama ağ geçidi oluşturma](tutorial-autoscale-ps.md)
 - Daha fazla bilgi edinin [Application Gateway](overview.md).
-- Daha fazla bilgi edinin [Azure Güvenlik Duvarı](../firewall/overview.md). 
-
+- Daha fazla bilgi edinin [Azure Güvenlik Duvarı](../firewall/overview.md).

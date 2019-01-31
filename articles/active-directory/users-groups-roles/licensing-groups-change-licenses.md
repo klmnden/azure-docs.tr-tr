@@ -1,6 +1,6 @@
 ---
-title: Kullanıcı grupları - Azure Active Directory ile ürün lisansları arasında geçirme | Microsoft Docs
-description: Önerilen kullanıcılar (Office 365 Kurumsal E1 ve E3) farklı ürün lisansları arasında geçirme işlemi açıklanmaktadır grup tabanlı lisanslama kullanma
+title: Kullanıcıları ürün lisansları grupları - Azure Active Directory ile geçiş yapma | Microsoft Docs
+description: Bir gruptaki kullanıcıların farklı ürün lisansları (Office 365 Kurumsal E1 ve E3) geçirmek için önerilen anlatmaktadır grup tabanlı lisanslama kullanma
 services: active-directory
 keywords: Azure AD lisanslama
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.custom: seo-update-jan
-ms.openlocfilehash: 847801b56fcafc3f1c349cf96690cdf09709b4ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: ea6159f487b35192e0e2137662a664a2796843c0
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198308"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294582"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Güvenli bir şekilde kullanıcıları grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme
 

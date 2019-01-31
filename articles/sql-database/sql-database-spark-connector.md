@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2018
-ms.openlocfilehash: 09035b19ee48602fde70736ab918fccae71108a5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 864cf49634e4f9452829a30ce4b260179bdeb8db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166269"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476222"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Azure SQL veritabanı ve SQL Server için Spark Bağlayıcısı ile gerçek zamanlı büyük veri analizi hızlandırın
 
@@ -161,7 +161,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Kurulum gereksinimi
 Erişim belirteci tabanlı kimlik doğrulaması modunu kullanıyorsanız, indirmeniz gerekmez [azure-activedirectory-kitaplığı-için-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) ve onun bağımlılıklarını ve bunları Java derleme yolu içerir.
 
-Bkz: [kullanımı Azure Active Directory kimlik doğrulamasını SQL veritabanı ile](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) erişim Azure SQL veritabanınıza belirteci alma hakkında bilgi edinmek için.
+Bkz: [kullanımı Azure Active Directory kimlik doğrulamasını SQL veritabanı ile](sql-database-aad-authentication.md) erişim Azure SQL veritabanınıza belirteci alma hakkında bilgi edinmek için.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config

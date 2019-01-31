@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e2cb1a76bfde5bea7707cf3cc6658e3fc82163c5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043099"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457675"
 ---
-# <a name="optimize-the-cost-required-to-run-queries-in-azure-cosmos-db"></a>Azure Cosmos DB'de sorgular çalıştırmak için gerekli maliyeti iyileştirin
+# <a name="optimize-query-cost-in-azure-cosmos-db"></a>Azure Cosmos DB'de sorgu gerçekleştirerek
 
 Azure Cosmos DB veritabanı işlemleri bir kapsayıcı içindeki öğeleri üzerinde çalışacağı ilişkisel ve hiyerarşik sorgular da dahil olmak üzere zengin bir özellik kümesi sunar. Bu işlemlerden her biriyle ilişkilendirilmiş maliyet, CPU, GÇ ve işlemi tamamlamak için gerekli belleğe göre değişir. Hakkında düşünmek ve donanım kaynaklarını yönetmek yerine, bir istek Birimi'ni (RU), bir isteğe hizmet vermek için çeşitli veritabanı işlemlerini gerçekleştirmek için gereken kaynaklar için tek ölçü olarak düşünebilirsiniz. Bu makalede, bir sorgu için istek birimi ücreti değerlendirmek ve sorgu performansı ve maliyet açısından en iyi duruma getirmek açıklar. 
 

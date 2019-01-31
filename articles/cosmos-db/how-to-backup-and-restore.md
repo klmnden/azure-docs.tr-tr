@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e21a3ae23ca6a856c9524e52e80f33362f53cae1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040855"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455941"
 ---
-# <a name="how-to-restore-azure-cosmos-db-data-from-a-backup"></a>Azure Cosmos DB verileri bir yedekten geri yükleme
+# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Verileri Azure Cosmos DB'de bir yedekten geri yükleyin 
 
 Veritabanınız veya bir kapsayıcı kaza ile silerseniz, şunları yapabilirsiniz [bir destek bileti]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) veya [Azure destek çağrısı]( https://azure.microsoft.com/support/options/) çevrimiçi otomatik yedeklemelerden veri geri yükleme. Azure desteği, seçili planlarında yalnızca gibi **standart**, ** geliştirici ve bunları yüksek planlar. Azure desteği ile kullanılabilir değildir **temel** planı. Farklı destek planları hakkında bilgi edinmek için [Azure destek planları](https://azure.microsoft.com/support/plans/) sayfası. 
 

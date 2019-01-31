@@ -6,22 +6,22 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3669f93538670e9b2c5fcd5080480a54ef1299f5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 6e58fa83bfdce5e5363ef61d1e3deaa61397301a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669468"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461942"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL veri ambarı veri yönetimi iş ortakları
 Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Microsoft iş ortağı şirketlerden veri yönetimi araçları ve Azure SQL veri ambarı destek çözümleriyle vurgulanır.
 
 ## <a name="data-management-partners"></a>Veri Yönetimi iş ortakları
-| Partner | Açıklama | Bağlantılar | Videolar |
+| İş ortağı | Açıklama | Bağlantılar | Videolar |
 | --- | --- | --- | --- |
 | ![Coffing veri ambarı][1] |**Coffing veri ambarı**<br>Coffing veri ambarlama, Nexus Chameleon, 10 yıl tasarım sistemlerinin sorgulama için adanmış bir araç sağlar. Nexus, SQL veri ambarı için bir sorgu araç olarak kullanılabilir. Şirket içinde sorgulamak ve farklı platformlar arasında bulut bilgisayarları ve verileri birleştirme için nexus kullanın. Noktası-Click-rapor! |[Web sitesi][coffing_website]<br>[Basın bülteni][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![video coffing](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
 | ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD hassas veri modeli oluşturma, veri yedekliği azaltmak, verimliliği artırmak ve standartları gözlemlemek için ihtiyacınız olan araçları sağlar. Kapsamlı kullanıcı deneyimleri temel geliştirilmiştir, kullanıcı Arabirimi kullanarak bir Modelleyicisi DB modeller üzerinde kolayca ve uygun şekilde çalışabilir. MicroERD yeni ve geliştirilmiş işlevleri istemi işlevsel iyileştirmeler ve Güncelleştirmeler aracılığıyla sürekli olarak yararlanabilirsiniz. |[Web sitesi][inbrein_website]<br>[Veri sayfası][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![video inbrein](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |

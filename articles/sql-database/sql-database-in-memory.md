@@ -11,17 +11,18 @@ author: jodebrui
 ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/18/2018
-ms.openlocfilehash: 890ed64779c6e5704915609552cdd7490ede123a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 01/25/2019
+ms.openlocfilehash: 235d6174153e32b40885811350d967af5b98ecc4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210310"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478374"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL veritabanında bellek içi teknolojileri kullanarak performansını iyileştirin
 
 Azure SQL veritabanında bellek içi teknolojileri, uygulamanızın performansını sağlar ve potansiyel olarak veritabanı maliyetini azaltın. Azure SQL veritabanı'nda Bellek içi teknolojileri kullanarak, çeşitli iş yükleriyle performans iyileştirmeleri elde edebilirsiniz:
+
 - **İşlem** (çevrimiçi işlem gerçekleştirme (OLTP)) burada isteklerin çoğunu okuma veya güncelleştirme daha küçük veri (örneğin, CRUD işlemleri) kümesi.
 - **Analitik** (çevrimiçi analitik işlem (OLAP)) çoğu sorgu ve raporlama için karmaşık hesaplamalar sahip olduğu amacıyla, belirli sayıda yüklemek ve verileri (Bu nedenle toplu yükleme olarak adlandırılır) mevcut tablolar eklemek ya da silme sorguları ile tablolardaki verileri. 
 - **Karma** (hibrit işlem/analitik işlem (HTAP)) OLTP ve OLAP sorguları aynı veri kümesi üzerinde yürütülen burada.
@@ -43,13 +44,13 @@ Daha verimli sorgu ve işlem nedeniyle, bellek içi teknolojileri de maliyetini 
 Bellek içi OLTP performansını önemli ölçüde artırmak için nasıl yardımcı oldu iki örnek aşağıda verilmiştir:
 
 - Bellek içi OLTP kullanarak [70 oranında Dtu artırırken iş yüklerinin çift çekirdek iş çözümleri bağlanabildi](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU anlamına gelir *veritabanı işlem birimi*, ve bir ölçüm kaynak tüketimi içerir.
+
+  - DTU anlamına gelir *veritabanı işlem birimi*, ve bir ölçüm kaynak tüketimi içerir.
 - Aşağıdaki video, bir örnek iş yükü ile kaynak tüketimi önemli bir iyileştirme göstermektedir: [Azure SQL veritabanı video bellek içi OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
-    - Daha fazla bilgi için blog gönderisine bakın: [Azure SQL veritabanı Web günlüğü gönderisinde bellek içi OLTP](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
+  - Daha fazla bilgi için blog gönderisine bakın: [Azure SQL veritabanı Web günlüğü gönderisinde bellek içi OLTP](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
->  
->  Bellek içi teknolojileri, Premium ve iş açısından kritik katmanında Azure SQL veritabanları ve Premium elastik havuzlar için kullanılabilir.
+> Bellek içi teknolojileri, Premium ve iş açısından kritik katmanında Azure SQL veritabanları ve Premium elastik havuzlar için kullanılabilir.
 
 Aşağıdaki videoda, olası performans artışı ile Azure SQL veritabanında bellek içi teknolojiler açıklanmaktadır. Her zaman gördüğünüz performans kazancı iş yüküne ve veri erişimi deseni veritabanının yapısını dahil olmak üzere birçok faktöre bağlı olduğunu unutmayın ve benzeri.
 
@@ -58,11 +59,13 @@ Aşağıdaki videoda, olası performans artışı ile Azure SQL veritabanında b
 >
 
 Bu makalede, Azure SQL veritabanı'na özgü bellek içi OLTP ve columnstore dizinleri yönlerini açıklar ve ayrıca örnekleri içerir:
+
 - Depolama ve veri boyut sınırları, bu teknolojiler etkisini göreceksiniz.
 - Bu teknolojiler farklı fiyatlandırma katmanları arasında kullanan veritabanlarını hareketini yönetme görürsünüz.
 - Azure SQL veritabanında columnstore dizinleri yanı sıra, bellek içi OLTP kullanımını gösteren iki örnek görürsünüz.
 
 Daha fazla bilgi için bkz.
+
 - [Bellek içi OLTP genel bakış ve kullanım senaryoları](https://msdn.microsoft.com/library/mt774593.aspx) (müşteri örnek olay incelemeleri ve kullanmaya başlamak için bilgi başvurular içerir)
 - [Bellek içi OLTP için belgeleri](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Columnstore dizinleri Kılavuzu](https://msdn.microsoft.com/library/gg492088.aspx)
@@ -71,6 +74,7 @@ Daha fazla bilgi için bkz.
 ## <a name="in-memory-oltp"></a>Bellek içi OLTP
 
 Bellek içi OLTP teknolojisi, tüm verileri bellek içinde tutarak son derece hızlı veri erişimi işlemleri sağlar. Bu da özelleştirilmiş dizinler, sorgu ve veri erişim Mandal yerel derleme OLTP iş yükünün performansını geliştirmek için kullanır. Bellek içi OLTP olarak verilerinizi düzenlemek için iki yol vardır:
+
 - **Bellek için iyileştirilmiş rowstore** her satır ayrı bir bellek nesne olduğu biçimi. Yüksek performanslı OLTP iş yükleri için iyileştirilmiş klasik bir bellek içi OLTP biçimi budur. Bellek için iyileştirilmiş tablolar, bellek için iyileştirilmiş rowstore biçiminde kullanılabilir iki tür vardır:
   - *Dayanıklı tabloları* (schema_and_data dayanıklılığına) burada bellekte yer satırları korunur sunucuyu yeniden başlattıktan sonra. Bu tür bir tablo, bellek içi iyileştirmeler ek avantajları ile geleneksel rowstore tablo gibi davranır.
   - *Dayanıklı olmayan tablolar* (SCEMA_ONLY) satırları nerede değil korunur yeniden başlatıldıktan sonra. Bu tür bir tabloya geçici verileri (örneğin, geçici tabloları değiştirme) için tasarlanmıştır ya da (Bu nedenle hazırlama tabloları da denir) bazı kalıcı tabloya taşımadan önce tablolar, hızlı bir şekilde gereken veri yükleyin.
@@ -137,6 +141,7 @@ Standart/temel veritabanına düşürme önce tüm bellek için iyileştirilmiş
 
 Bellek içi columnstore teknolojisi, depolamak ve çok miktarda tablolardaki verileri sorgulamak etkileştirir. Columnstore teknolojisi, sütun tabanlı bir veri depolama biçimini kullanır ve elde etmek için sorgu toplu işleme, geleneksel satır yönelimli depolamaya 10 kata kadar sorgu performansı OLAP iş yükleri edinin. Ayrıca üzerinde sıkıştırılmamış veri boyutu 10 kez veri sıkıştırma en fazla kazanç elde edebilirsiniz.
 Columnstore modellerin olarak verilerinizi düzenlemek için kullanabileceğiniz iki tür vardır:
+
 - **Kümelenmiş columnstore** nerede tablosundaki tüm verileri düzenlenir sütunlu biçiminde. Bu modelde, tablodaki tüm satırları, yüksek oranda verileri sıkıştırır ve analitik sorguları ve raporları tablosunda yürütülecek sağlayan irdelemenizde yerleştirilir. Verilerinizi doğasına bağlı olarak, verilerin boyutunu azalan 10 olabilir x-100 x. Kümelenmiş columnstore modeli, verilerin diskte depolanan önce 100 bin satır sıkıştırılır değerinden büyük toplu beri büyük boyutlu verileri (toplu yükleme) hızlı alımı de sağlar. Bu model, Klasik veri ambarı senaryoları için iyi bir seçimdir. 
 - **Olmayan kümelenmiş columnstore** burada veri geleneksel rowstore tablosunda depolanır ve analitik sorgular için kullanılan columnstore biçiminde bir dizin yok. Karma işlem analitik işleme (HTAP) Bu modeli sağlar: bir işlem yüküne üzerinde yüksek performanslı gerçek zamanlı analiz çalıştırma olanağı. OLTP sorguları taramaları ve analiz için daha iyi bir seçimdir columnstore dizininde OLAP sorgular yürütülürken küçük bir satır erişmek için optimize edilmiştir rowstore tablosunda yürütülür. Azure SQL veritabanı sorgu iyileştiricisi temelli rowstore veya columnstore biçiminde dinamik olarak seçer. Olmayan kümelenmiş columnstore dizinleri, özgün veri kümesi herhangi bir değişiklik olmadan özgün rowstore tabloda bulunduğundan verilerin boyutunu azaltmak yok. Ancak, ek bir columnstore dizini boyutu, büyüklük sırası eşdeğer B-Ağacı dizini daha küçük olmalıdır.
 
@@ -144,6 +149,7 @@ Columnstore modellerin olarak verilerinizi düzenlemek için kullanabileceğiniz
 > Bellek içi columnstore teknolojisi, diskteki belleğe sığamıyorsa veri barındırırken, bellek, işleme için gereken verileri tutar. Bu nedenle, bellek içi columnstore yapılardaki veri miktarı, kullanılabilir bellek miktarını aşabilir. 
 
 Ayrıntılı video teknolojisi hakkında:
+
 - [Columnstore dizini: Bellek içi analiz videolardan 2016 Ignite](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Veri boyutu ve depolama için columnstore dizinleri
@@ -158,7 +164,7 @@ Kümelenmemiş columnstore dizinleri kullandığınızda, temel tablo hala gelen
 
 ### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Columnstore dizinleri içeren veritabanları hizmet katmanlarını değiştirme
 
-*Tek veritabanı için temel veya standart eski sürüme düşürme* hedef katmanınızı S3 ise mümkün olmayabilir. Columnstore dizinleri yalnızca iş kritik/Premium fiyatlandırma katmanını temel ve standart katmanda, S3 ve yukarıda ve değil, temel katmanı desteklenir. Veritabanınızı desteklenmeyen katmanı veya düzeyini düşürme, columnstore dizininiz kullanılamaz duruma gelir. Sistem, columnstore dizini korur, ancak hiç dizin yararlanır. Daha sonra desteklenen katmanı veya düzeyi geri yükseltirseniz, columnstore dizininiz tekrar havuzlamanızı hemen hazırdır.
+*Eski sürüme düşürme tek veritabanı için temel veya standart* hedef katmanınızı S3 ise mümkün olmayabilir. Columnstore dizinleri yalnızca iş kritik/Premium fiyatlandırma katmanını temel ve standart katmanda, S3 ve yukarıda ve değil, temel katmanı desteklenir. Veritabanınızı desteklenmeyen katmanı veya düzeyini düşürme, columnstore dizininiz kullanılamaz duruma gelir. Sistem, columnstore dizini korur, ancak hiç dizin yararlanır. Daha sonra desteklenen katmanı veya düzeyi geri yükseltirseniz, columnstore dizininiz tekrar havuzlamanızı hemen hazırdır.
 
 Varsa bir **kümelenmiş** columnstore dizini, tüm tablonun kullanım dışı olur sonra düşürme. Bu nedenle tüm bırak öneririz *kümelenmiş* veritabanınızı desteklenmeyen katmanı veya düzeyini düşürme önce columnstore dizinini oluşturur.
 
@@ -170,39 +176,28 @@ Varsa bir **kümelenmiş** columnstore dizini, tüm tablonun kullanım dışı o
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Hızlı Başlangıç 1: T-SQL daha hızlı performans için bellek içi OLTP teknolojileri](https://msdn.microsoft.com/library/mt694156.aspx)
-
 - [Mevcut bir Azure SQL uygulamadaki bellek içi OLTP kullanın](sql-database-in-memory-oltp-migration.md)
-
 - [İzleyici bellek içi OLTP depolama alanını](sql-database-in-memory-oltp-monitoring.md) için bellek içi OLTP
-
 - [Azure SQL veritabanında bellek içi özellikleri deneyin](sql-database-in-memory-sample.md)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-#### <a name="deeper-information"></a>Daha ayrıntılı bilgi
+### <a name="deeper-information"></a>Daha ayrıntılı bilgi
 
 - [SQL veritabanında bellek içi OLTP ile 70 oranında DTU düşürürken çekirdek anahtar veritabanının iş yükü nasıl Katlar öğrenin](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
-
 - [Azure SQL veritabanı Web günlüğü gönderisinde bellek içi OLTP](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
-
 - [Bellek içi OLTP hakkında bilgi edinin](https://msdn.microsoft.com/library/dn133186.aspx)
-
 - [Columnstore dizinleri hakkında bilgi edinin](https://msdn.microsoft.com/library/gg492088.aspx)
-
 - [Gerçek zamanlı işlem analizi hakkında bilgi edinin](https://msdn.microsoft.com/library/dn817827.aspx)
-
 - Bkz: [yaygın iş yükü düzenleri ve geçiş konuları](https://msdn.microsoft.com/library/dn673538.aspx) (burada bellek içi OLTP yaygın olarak sağlayan önemli ölçüde performans kazanımı iş yükü düzenleri açıklayan)
 
-#### <a name="application-design"></a>Uygulama tasarımı
+### <a name="application-design"></a>Uygulama tasarımı
 
 - [Bellek içi OLTP (bellek içi iyileştirme)](https://msdn.microsoft.com/library/dn133186.aspx)
-
 - [Mevcut bir Azure SQL uygulamadaki bellek içi OLTP kullanın](sql-database-in-memory-oltp-migration.md)
 
-#### <a name="tools"></a>Araçlar
+### <a name="tools"></a>Araçlar
 
 - [Azure portal](https://portal.azure.com/)
-
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-
 - [SQL Server Veri Araçları (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

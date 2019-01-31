@@ -11,24 +11,28 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
-ms.date: 08/27/2018
-ms.openlocfilehash: b3bdcc81776067f279c1f95458a0a79a8824f51c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603058"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462979"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Esnek veritabanı araçlarını kullanmaya başlayın
+
 Bu belge, geliştirici deneyimini tanıtır [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) yardımcı olarak örnek uygulamasını çalıştırın. Örnek uygulama, basit bir parçalı uygulama oluşturur ve Azure SQL veritabanı'nın elastik veritabanı araçları özelliği'nin önemli özelliklerini açıklar. Kullanım durumları için odaklanır [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md), [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md), ve [çok parçalı sorgulama](sql-database-elastic-scale-multishard-querying.md). İstemci Kitaplığı, Java yanı sıra .NET için kullanılabilir. 
 
 ## <a name="elastic-database-tools-for-java"></a>Java için esnek veritabanı araçları
+
 ### <a name="prerequisites"></a>Önkoşullar
+
 * Bir Java Developer Kit (JDK), sürüm 1.8 veya sonraki bir sürümü
 * [Maven](http://maven.apache.org/download.cgi)
-* Azure'da veya yerel bir SQL Server örneği bir mantıksal sunucu
+* Azure'da veya yerel bir SQL Server örneğini bir SQL veritabanı sunucusu
 
 ### <a name="download-and-run-the-sample-app"></a>Örnek uygulamasını indirme ve çalıştırma
+
 Örnek projeyle birlikte kullanmaya başlayın ve JAR dosyaları oluşturmak için aşağıdakileri yapın: 
 1. Kopya [GitHub deposu](https://github.com/Microsoft/elastic-db-tools-for-java) istemci kitaplığı örnek uygulaması ile birlikte içeren. 
 
@@ -51,7 +55,7 @@ Bu belge, geliştirici deneyimini tanıtır [elastik veritabanı istemci Kitapl�
     
 5. İstemci kitaplığı özellikleri hakkında daha fazla bilgi edinmek için çeşitli seçeneklerle denemeler yapın. Örnek uygulamayı uygulama hakkında bilgi edinmek için kodu keşfedin çekinmeyin.
 
-    ![İlerleme-java][5]
+    ![Progress-java][5]
     
 Tebrikler! Başarıyla oluşturulan ve Azure SQL veritabanı elastik veritabanı araçları kullanarak ilk parçalı uygulamanızı çalıştırın. SQL veritabanı'na bağlanma ve örnek oluşturulan parçalar hızlı göz atın, Visual Studio veya SQL Server Management Studio'yu kullanın. Yeni örnek parça veritabanları ve örnek oluşturduğu bir parça eşleme Yöneticisi veritabanını göreceksiniz. 
 
@@ -65,12 +69,15 @@ Tebrikler! Başarıyla oluşturulan ve Azure SQL veritabanı elastik veritabanı
 </dependency> 
 ```
 
-## <a name="elastic-database-tools-for-net"></a>.NET için esnek veritabanı araçları 
+## <a name="elastic-database-tools-for-net"></a>.NET için esnek veritabanı araçları
+
 ### <a name="prerequisites"></a>Önkoşullar
+
 * Visual Studio 2012 veya üzeri ile C#. Ücretsiz bir sürümde indirme [Visual Studio indirmeleri](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 veya sonraki bir sürümü. En son sürümü edinmek için bkz. [NuGet yükleme](http://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>Örnek uygulamasını indirme ve çalıştırma
+
 Kitaplığı yüklemek için Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Kitaplığı, aşağıdaki bölümde açıklanan örnek uygulaması ile birlikte yüklenir.
 
 İndirme ve çalıştırma örneği için bu adımları izleyin: 
@@ -91,10 +98,9 @@ Tebrikler! Başarıyla oluşturulan ve SQL veritabanı elastik veritabanı araç
 
 > [!IMPORTANT]
 > Böylece, Azure ve SQL veritabanı güncelleştirmeleriyle kalmasını her zaman Management Studio'nun en son sürümünü kullanmanızı öneririz. [SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Kod örneği temel
+
 * **Parça ve parça yönetme eşler**: Kod parçaları, aralıkları ve eşlemeler ile nasıl çalışılacağını göstermektedir *ShardManagementUtils.cs* dosya. Daha fazla bilgi için [veritabanları parça eşleme Yöneticisi ile ölçeklendirme](https://go.microsoft.com/?linkid=9862595).  
 
 * **Verilere bağımlı yönlendirme**: İşlemlerin uygun parçaya yönlendirmesi gösterilir *DataDependentRoutingSample.cs* dosya. Daha fazla bilgi için [verilere bağımlı yönlendirme](https://go.microsoft.com/?linkid=9862596). 
@@ -104,11 +110,13 @@ Tebrikler! Başarıyla oluşturulan ve SQL veritabanı elastik veritabanı araç
 * **Boş bir parça ekleme**: Yeni boş parçalar yinelemeli ekleme kodu tarafından gerçekleştirilen *CreateShardSample.cs* dosya. Daha fazla bilgi için [veritabanları parça eşleme Yöneticisi ile ölçeklendirme](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Diğer elastik ölçeklendirme işlemleri
+
 * **Mevcut bir parça bölme**: Ayırma-Birleştirme aracı tarafından parçalara bölmek olanağı sağlanır. Daha fazla bilgi için [ölçeği genişletilen bulut veritabanları arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md).
 
 * **Varolan parçaların birleştirme**: Parça birleştirmeleri bölme-birleştirme aracını kullanarak da gerçekleştirilir. Daha fazla bilgi için [ölçeği genişletilen bulut veritabanları arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Maliyet
+
 Elastik veritabanı araçları kitaplığı ücretsizdir. Esnek veritabanı araçlarını kullandığınızda, Azure kullanımınızı maliyetini ötesinde herhangi bir ek ücret uygulanır. 
 
 Örneğin, örnek uygulama, yeni veritabanları oluşturur. Bu özellik maliyeti, seçtiğiniz SQL Database sürümünü ve uygulamanızın Azure kullanımını bağlıdır.
@@ -116,6 +124,7 @@ Elastik veritabanı araçları kitaplığı ücretsizdir. Esnek veritabanı ara�
 Fiyatlandırma bilgileri için bkz: [SQL veritabanı fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Esnek veritabanı araçları hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * Kod örnekleri: 

@@ -3,7 +3,7 @@ title: Bir Azure geliştirme boşluk ile çalışırken, gizli anahtarları yön
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 05/11/2018
@@ -11,12 +11,12 @@ ms.topic: article
 ms.technology: azds-kubernetes
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
-ms.openlocfilehash: e155b4151a3b974e9ccc56a88028a89c35896522
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7081412172b617632073cad4e76d7c8fc4e81519
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014010"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466566"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Bir Azure geliştirme boşluk ile çalışırken, gizli anahtarları yönetme
 
@@ -67,7 +67,7 @@ Azure geliştirme alanları, iki önerilen gizli dizileri depolamak için seçen
 7. Eklediğiniz emin _values.dev.yaml_ için _.gitignore_ gizli dizileri kaynak denetiminde yürüten önlemek için.
  
  
-## <a name="method-2-inline-directly-in-azdsyaml"></a>2. yöntem: Satır doğrudan azds.yaml içinde
+## <a name="method-2-inline-directly-in-azdsyaml"></a>2. yöntem: Satır içi doğrudan azds.yaml
 1.  İçinde _azds.yaml_, gizli dizileri yaml bölüm yapılandırmaları/geliştirme/yükleme ayarlayın. Kolaylıkla olsa da, çünkü önerilmez doğrudan gizli değerleri _azds.yaml_ kaynak denetimine iade edildi. Bunun yerine "$PLACEHOLDER" sözdizimini kullanarak yer tutucu ekleyin.
 
     ```yaml

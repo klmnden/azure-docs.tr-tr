@@ -1,6 +1,6 @@
 ---
 title: Yük devretme grupları - Azure SQL veritabanı | Microsoft Docs
-description: Otomatik Yük devretme grupları, çoğaltma ve yük devretme otomatik / eşgüdümlü bir grup veritabanı bir mantıksal sunucuda veya tüm veritabanı yönetilen örneğinde yönetmenize olanak sağlayan bir SQL veritabanı özelliğidir.
+description: Otomatik Yük devretme grupları, çoğaltma ve yük devretme otomatik / eşgüdümlü bir grup veritabanı bir SQL veritabanı sunucusunda veya tüm veritabanı yönetilen örneğinde yönetmenize olanak sağlayan bir SQL veritabanı özelliğidir.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,24 +11,24 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033817"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468708"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma
 
-Otomatik Yük devretme grupları, çoğaltma ve yük devretme grubundaki veritabanları bir mantıksal sunucuda veya başka bir bölgede (şu anda genel Önizleme yönetilen örneği için) bir yönetilen örneğe içindeki tüm veritabanlarına yönetmenize olanak sağlayan bir SQL veritabanı özelliğidir. Aynı temel teknoloji olarak kullandığı [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md). Yük devretme el ile başlatabilir veya kullanıcı tanımlı bir ilkesini temel alarak SQL veritabanı hizmeti için temsilci. İkinci seçeneği, otomatik olarak geri dönülemez bir arıza ya da birincil bölgedeki SQL veritabanı hizmetinizin kullanılabilirliğini tam veya kısmi kaybı ile sonuçlanır diğer planlanmamış bir olay sonra ikincil bir bölgede birden çok ilişkili veritabanlarını kurtarmanıza olanak tanır. Ayrıca, okunabilir ikincil veritabanı salt okunur sorgu iş yükleri yük boşaltması için kullanabilirsiniz. Otomatik Yük devretme grupları, birden çok veritabanı içerdiğinden, bu veritabanları birincil sunucuda yapılandırılması gerekir. Yük devretme grubundaki veritabanları için birincil ve ikincil sunucular, aynı abonelikte olmalıdır. Otomatik Yük devretme grupları için farklı bir bölgedeki tek bir ikincil sunucu grubundaki tüm veritabanlarının çoğaltma destekler.
+Otomatik Yük devretme grupları, çoğaltma ve yük devretme grubunun veritabanı bir SQL veritabanı sunucusunda veya yönetilen bir örneği için başka bir bölgede (şu anda genel Önizleme yönetilen örneği için) içindeki tüm veritabanlarına yönetmenize olanak sağlayan bir SQL veritabanı özelliğidir. Aynı temel teknoloji olarak kullandığı [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md). Yük devretme el ile başlatabilir veya kullanıcı tanımlı bir ilkesini temel alarak SQL veritabanı hizmeti için temsilci. İkinci seçeneği, otomatik olarak geri dönülemez bir arıza ya da birincil bölgedeki SQL veritabanı hizmetinizin kullanılabilirliğini tam veya kısmi kaybı ile sonuçlanır diğer planlanmamış bir olay sonra ikincil bir bölgede birden çok ilişkili veritabanlarını kurtarmanıza olanak tanır. Ayrıca, okunabilir ikincil veritabanı salt okunur sorgu iş yükleri yük boşaltması için kullanabilirsiniz. Otomatik Yük devretme grupları, birden çok veritabanı içerdiğinden, bu veritabanları birincil sunucuda yapılandırılması gerekir. Yük devretme grubundaki veritabanları için birincil ve ikincil sunucular, aynı abonelikte olmalıdır. Otomatik Yük devretme grupları için farklı bir bölgedeki tek bir ikincil sunucu grubundaki tüm veritabanlarının çoğaltma destekler.
 
 > [!NOTE]
-> Bir mantıksal sunucu ve tek veya havuza alınmış veritabanlarıyla çalışmayı aynı veya farklı bölgelerde birden fazla ikincil veritabanı istediğinizde kullanın [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md).
+> Çalışan tek başına veya havuza alınmış veritabanları ve SQL veritabanı sunucusu ile aynı veya farklı bölgelerde birden fazla ikincil veritabanı istediğinizde kullanın [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md).
 
 Ne zaman birinde veya birkaçında otomatik yük devretme grubu sonuçlarında veritabanlarında etkileyen herhangi bir kesinti, otomatik yük devretme İlkesi ile birlikte otomatik yük devretme grupları kullanmıyorsunuz demektir. Ayrıca, otomatik yük devretme grupları okuma-yazma sağlar ve kalan salt okuma dinleyici uç noktalarının yük devretme sırasında açısından bir farklılık göstermez. El ile veya otomatik yük devretme etkinleştirme kullanmanıza bakılmaksızın, yük devretme grubunda tüm ikincil veritabanlarını birincil geçer. Veritabanı yük devretme tamamlandıktan sonra yeni bölge için Uç noktalara yönlendirmek için DNS kaydını otomatik olarak güncelleştirilir. Belirli RPO ve RTO verileri için bkz: [iş Sürekliliğine genel bakış](sql-database-business-continuity.md).
 
-Ne zaman mantıksal sunucu içindeki veritabanlarına etkiler veya otomatik yük devretme örneği sonuçları yönetilen herhangi bir kesinti, otomatik yük devretme İlkesi ile birlikte otomatik yük devretme grupları kullanmıyorsunuz demektir. Otomatik Yük devretme grubu kullanarak yönetebilirsiniz:
+Otomatik Yük devretme grupları, SQL veritabanı sunucusundaki veritabanlarının etkiler veya otomatik yük devretme örneği sonuçları yönetilen herhangi bir kesinti, otomatik yük devretme İlkesi ile birlikte kullandığınızda. Otomatik Yük devretme grubu kullanarak yönetebilirsiniz:
 
 - [Azure portalı](sql-database-implement-geo-distributed-database.md)
 - [PowerShell: Yük devretme grubu](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -42,11 +42,11 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **Yük devretme grubu**
 
-  Bir yük devretme grubu, tek bir mantıksal sunucu ya da tüm veya bazı birincil veritabanı birincil bölgede kesinti nedeniyle kullanılamıyor, başka bir bölgede bir birim olarak yük devredebilir tek bir yönetilen örnek içinde yönetilen bir veritabanı için kullanılan bir gruptur.
+  Bir yük devretme grubu, tek bir SQL veritabanı sunucusu ya da tüm veya bazı birincil veritabanı birincil bölgede kesinti nedeniyle kullanılamıyor, başka bir bölgede bir birim olarak yük devredebilir tek bir yönetilen örnek içinde yönetilen bir veritabanı için kullanılan bir gruptur.
 
-  - **Mantıksal sunucu**
+  - **SQL veritabanı sunucuları**
 
-     Mantıksal sunucuları ile bir yük devretme grubunda bazılarını veya tümünü tek bir sunucuda kullanıcı veritabanları yerleştirilebilir. Ayrıca, bir mantıksal sunucu, tek bir sunucu üzerinde birden çok yük devretme grupları destekler.
+     SQL veritabanı sunucuları ile bir yük devretme grubunda bazılarını veya tümünü tek bir SQL veritabanı sunucusu kullanıcı veritabanlarında yerleştirilebilir. Ayrıca, SQL veritabanı sunucusu, tek bir SQL veritabanı sunucusunda birden çok yük devretme grupları destekler.
 
   - **Yönetilen örnek**
   
@@ -54,15 +54,15 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **Birincil**
 
-  Mantıksal sunucu veya yük devretme grubunda birincil veritabanlarını barındıran yönetilen örneği.
+  SQL veritabanı sunucu veya yük devretme grubunda birincil veritabanlarını barındıran yönetilen örneği.
 
 - **İkincil**
 
-  Mantıksal sunucu veya yük devretme grubundaki ikincil veritabanlarını barındıran yönetilen örneği. İkincil birincil olarak aynı bölgede olamaz.
+  SQL veritabanı sunucu veya yük devretme grubundaki ikincil veritabanlarını barındıran yönetilen örneği. İkincil birincil olarak aynı bölgede olamaz.
 
-- **Bir mantıksal sunucu üzerinde yük devretme grubu için veritabanlarını ekleme**
+- **Veritabanları, SQL veritabanı sunucusu yük devretme grubuna ekleme**
 
-  Çeşitli tek bir veritabanı veya veritabanı içinde bir elastik havuz aynı mantıksal sunucu üzerinde aynı yük devretme grubuna koyabilirsiniz. Tek bir veritabanı yük devretme grubuna eklerseniz, otomatik olarak aynı sürümü ve işlem boyutu kullanarak ikincil bir veritabanı oluşturur. Birincil veritabanını bir elastik havuzda, aynı ada sahip bir elastik havuzdaki ikincil otomatik olarak oluşturulur. İkincil bir veritabanı ikincil sunucuya zaten olan bir veritabanının eklerseniz, söz konusu coğrafi çoğaltma grubu tarafından devralınır. Yeni bir ikincil, ikincil sunucuya eklediğinizde, ikincil veritabanına yük devretme grubunun parçası olmayan bir Server'da zaten bir veritabanı oluşturulur.
+  Çeşitli tek bir veritabanı veya veritabanı içinde bir elastik havuz aynı SQL veritabanı sunucusunda aynı yük devretme grubuna koyabilirsiniz. Tek bir veritabanı yük devretme grubuna eklerseniz, otomatik olarak aynı sürümü ve işlem boyutu kullanarak ikincil bir veritabanı oluşturur. Birincil veritabanını bir elastik havuzda, aynı ada sahip bir elastik havuzdaki ikincil otomatik olarak oluşturulur. İkincil bir veritabanı ikincil sunucuya zaten olan bir veritabanının eklerseniz, söz konusu coğrafi çoğaltma grubu tarafından devralınır. Yeni bir ikincil, ikincil sunucuya eklediğinizde, ikincil veritabanına yük devretme grubunun parçası olmayan bir Server'da zaten bir veritabanı oluşturulur.
   
 > [!IMPORTANT]
   > Bir yönetilen örnek, tüm kullanıcı veritabanlarına çoğaltılır. Kullanıcı veritabanı çoğaltması için bir alt kümesi yük devretme grubunda seçemezsiniz.
@@ -71,9 +71,9 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
   Geçerli birincil ait URL işaret eden DNS CNAME kaydı oluşturulmuş. Yük devretme sonrasında birincil değiştiğinde şeffaf bir şekilde birincil veritabanına bağlanmak okuma-yazma SQL uygulamalar sağlar.
 
-  - **Mantıksal sunucu okuma / yazma dinleyici için DNS CNAME kaydı**
+  - **SQL veritabanı sunucusu için okuma / yazma dinleyici DNS CNAME kaydı**
 
-     Bir mantıksal sunucuda, geçerli birincil 's URL'si için yük devretme grubu için DNS CNAME kaydı olarak biçimlendirilmiş `failover-group-name.database.windows.net`.
+     Bir SQL veritabanı sunucusunda, geçerli birincil 's URL'si için yük devretme grubu için DNS CNAME kaydı olarak biçimlendirilmiş `failover-group-name.database.windows.net`.
 
   - **Örnek DNS CNAME kaydı okuma / yazma dinleyici için yönetilen**
 
@@ -83,9 +83,9 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
   Bir DNS CNAME kaydı ikincil ait URL işaret eden salt okunur dinleyicisi işaret eden oluşturulmuş. Belirtilen yük dengeleyici kurallarını kullanarak ikincil şeffaf bir şekilde bağlanmak salt okunur SQL uygulamalar sağlar.
 
-  - **Mantıksal sunucu salt okuma dinleyici için DNS CNAME kaydı**
+  - **SQL veritabanı sunucusu salt okuma dinleyici için DNS CNAME kaydı**
 
-     Bir mantıksal sunucuda ikincil 's URL'si için salt okunur dinleyici için DNS CNAME kaydı olarak biçimlendirilmiş `failover-group-name.secondary.database.windows.net`.
+     Bir SQL veritabanı sunucusuna ikincil 's URL'si için salt okunur dinleyici için DNS CNAME kaydı olarak biçimlendirilmiş `failover-group-name.secondary.database.windows.net`.
 
   - **Örnek DNS CNAME kaydı salt okuma dinleyici için yönetilen**
 
@@ -128,7 +128,7 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Yük devretme grupları, tek veritabanları ve elastik havuzlar ile kullanmanın en iyi uygulamalar
 
-Otomatik Yük devretme grubu birincil bir mantıksal sunucuda yapılandırılmalıdır ve farklı bir Azure bölgesinde ikincil mantıksal sunucusuna bağlanır.  Grupları, bu sunuculara tüm veya bazı veritabanları içerebilir. Aşağıdaki diyagramda, birden çok veritabanını ve otomatik yük devretme grubu kullanarak coğrafi olarak yedekli bir bulut uygulamasının tipik yapılandırma gösterilmektedir.
+Otomatik Yük devretme grubu, birincil SQL veritabanı sunucusunda yapılandırılmalıdır ve farklı bir Azure bölgesinde ikincil SQL veritabanı sunucusuna bağlanır.  Grupları, bu sunuculara tüm veya bazı veritabanları içerebilir. Aşağıdaki diyagramda, birden çok veritabanını ve otomatik yük devretme grubu kullanarak coğrafi olarak yedekli bir bulut uygulamasının tipik yapılandırma gösterilmektedir.
 
 ![Otomatik Yük devretme](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -295,7 +295,7 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 | [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Yük devretme grubu yapılandırmasını alır. |
 | [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Yük devretme grubu yapılandırmasını değiştirir |
 | [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | İkincil sunucuya Yük devretme grubu yük devretme Tetikleyicileri |
-| [AzureRmSqlDatabaseToFailoverGroup ekleyin](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Bir veya daha fazla veritabanı için bir Azure SQL veritabanı yük devretme grubu ekler|
+| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Bir veya daha fazla veritabanı için bir Azure SQL veritabanı yük devretme grubu ekler|
 |  | |
 
 > [!IMPORTANT]
@@ -325,13 +325,13 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 
 | API | Açıklama |
 | --- | --- |
-| Yeni AzureRmSqlDatabaseInstanceFailoverGroup |Bu komut, bir yük devretme grubu oluşturur ve birincil ve ikincil sunucularda kaydeder|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Bu komut, bir yük devretme grubu oluşturur ve birincil ve ikincil sunucularda kaydeder|
 | Set-AzureRmSqlDatabaseInstanceFailoverGroup |Yük devretme grubu yapılandırmasını değiştirir|
 | Get-AzureRmSqlDatabaseInstanceFailoverGroup |Yük devretme grubu yapılandırmasını alır.|
-| Anahtar AzureRmSqlDatabaseInstanceFailoverGroup |İkincil sunucuya Yük devretme grubu yük devretme Tetikleyicileri|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |İkincil sunucuya Yük devretme grubu yük devretme Tetikleyicileri|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Bir yük devretme grubunu kaldırır|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: Tek ve havuza alınmış veritabanları ile SQL veritabanı yük devretme grupları yönetme
+### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>REST API: Tek başına ve havuza alınmış veritabanları ile SQL veritabanı yük devretme grupları yönetme
 
 | API | Açıklama |
 | --- | --- |
@@ -339,7 +339,7 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 | [Yük devretme grubunu sil](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Yük devretme grubuna sunucudan kaldırır |
 | [Yük devretme (Planlı)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Geçerli birincil sunucudan bu sunucuya devreder. |
 | [Zorla yük devretme, veri kaybı izin ver](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |üzerinden bu sunucu için geçerli birincil sunucudan ails. Bu işlem veri kaybına neden. |
-| [Yük devretme grubunu Al](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Bir yük devretme grubunu alır. |
+| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Bir yük devretme grubunu alır. |
 | [Sunucu tarafından yük devretme grupları Listele](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Sunucu yük devretme gruplarını listeler. |
 | [Yük devretme grubu güncelleştirme](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Bir yük devretme grubu güncelleştirir. |
 |  | |
@@ -352,7 +352,7 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 | [Yük devretme grubunu sil](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Yük devretme grubuna sunucudan kaldırır |
 | [Yük devretme (Planlı)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Geçerli birincil sunucudan bu sunucuya devreder. |
 | [Zorla yük devretme, veri kaybı izin ver](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |üzerinden bu sunucu için geçerli birincil sunucudan ails. Bu işlem veri kaybına neden. |
-| [Yük devretme grubunu Al](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Bir yük devretme grubunu alır. |
+| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Bir yük devretme grubunu alır. |
 | [Yük devretme grupları - konuma göre listesi](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Bir konumdaki yük devretme gruplarını listeler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

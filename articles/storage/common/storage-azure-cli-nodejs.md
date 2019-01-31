@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 211051254e08d69c06afd4242599c909048e7e17
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258723"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464849"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Azure Klasik CLI ile Azure depolama kullanma
 
@@ -35,7 +35,7 @@ Bu kılavuzda, Azure Depolama'nın temel kavramlarını anladığınızı varsay
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Azure depolama ve Azure Klasik CLI ile 5 dakika içinde kullanmaya başlayın
 Bu kılavuzda Ubuntu örnekler için kullanılır, ancak diğer işletim sistemi platformları benzer şekilde gerçekleştirmeniz gerekir.
 
-**Azure'da yeni:** bir Microsoft Azure aboneliği ve bu abonelikle ilişkili bir Microsoft hesabı alın. Azure satın alma seçenekleri hakkında daha fazla bilgi için bkz: [ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/), [satın alma seçenekleri](https://azure.microsoft.com/pricing/purchase-options/), ve [üye Tekliflerimizi](https://azure.microsoft.com/pricing/member-offers/) (MSDN, Microsoft Partner Network ve BizSpark üyeleri için ve başka Microsoft programlarını).
+**Azure'da yeni:** Microsoft Azure aboneliği ve bu abonelikle ilişkili bir Microsoft hesabı alın. Azure satın alma seçenekleri hakkında daha fazla bilgi için bkz: [ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/), [satın alma seçenekleri](https://azure.microsoft.com/pricing/purchase-options/), ve [üye Tekliflerimizi](https://azure.microsoft.com/pricing/member-offers/) (MSDN, Microsoft Partner Network ve BizSpark üyeleri için ve başka Microsoft programlarını).
 
 Bkz: [Azure Active Directory'de (Azure AD) yönetici rolleri atama](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) Azure abonelikleri hakkında daha fazla bilgi.
 
@@ -78,7 +78,7 @@ Bkz: [Azure Active Directory'de (Azure AD) yönetici rolleri atama](https://docs
 5. Yerel bilgisayarınızda, tercih edilen bir metin düzenleyicisi (örneğin vim) açın. Yukarıdaki betik metin düzenleyicinize yazın.
 6. Şimdi, yapılandırma ayarlarınızı temel alan betik değişkenlerini güncelleştirmeniz gerekir.
 
-   * **< Depolama_hesabı_adı >** belirtilen ada komut dosyasını kullanın veya depolama hesabınız için yeni bir ad girin. **Önemli:** depolama hesabı adı Azure'da benzersiz olması gerekir. Çok küçük olmalıdır!
+   * **< Depolama_hesabı_adı >** belirtilen ada komut dosyasını kullanın veya depolama hesabınız için yeni bir ad girin. **Önemli:** Depolama hesabı adı Azure'da benzersiz olması gerekir. Çok küçük olmalıdır!
    * **< Storage_account_key >** depolama hesabınızın erişim anahtarı.
    * **< Container_name >** belirtilen ada komut dosyasını kullanın veya kapsayıcınız için yeni bir ad girin.
    * **< İmage_to_upload >** yerel bilgisayarınızda, bir resim yolu gibi girin: "~ / images/HelloWorld.png".
@@ -132,7 +132,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Anonim okuma erişimini üç düzeyi vardır: **kapalı**, **Blob**, ve **kapsayıcı**. Bloblar için anonim erişimi engellemek için izni parametre ayarlamak **kapalı**. Varsayılan olarak yeni kapsayıcı özeldir ve yalnızca hesap sahibi tarafından erişilebilir. Anonim izin vermek için genel okuma erişimini blob kaynakları, ancak kapsayıcı meta verileri için veya kapsayıcıdaki blobları listesine izin parametre kümesine **Blob**. İzni parametresi kaynakları, kapsayıcı meta verileri ve kapsayıcıdaki blobların listesi BLOB tam genel okuma erişimi sağlamak istiyorsanız kümesine **kapsayıcı**. Daha fazla bilgi için bkz. [Kapsayıcılara ve bloblara anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).
+> Anonim okuma erişimini üç düzeyi vardır: **Kapalı**, **Blob**, ve **kapsayıcı**. Bloblar için anonim erişimi engellemek için izni parametre ayarlamak **kapalı**. Varsayılan olarak yeni kapsayıcı özeldir ve yalnızca hesap sahibi tarafından erişilebilir. Anonim izin vermek için genel okuma erişimini blob kaynakları, ancak kapsayıcı meta verileri için veya kapsayıcıdaki blobları listesine izin parametre kümesine **Blob**. İzni parametresi kaynakları, kapsayıcı meta verileri ve kapsayıcıdaki blobların listesi BLOB tam genel okuma erişimi sağlamak istiyorsanız kümesine **kapsayıcı**. Daha fazla bilgi için bkz. [Kapsayıcılara ve bloblara anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).
 >
 >
 

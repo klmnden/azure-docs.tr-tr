@@ -11,19 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 04fcb84b22e84060652b4a3743cb73e4543ee573
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868455"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455108"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuz kaynakları ölçeklendirin
 
 Bu makalede, Azure SQL veritabanı'nda elastik havuzlara ve havuza alınmış veritabanları için kullanılabilen işlem ve depolama kaynaklarının ölçeğini açıklar.
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>Sanal çekirdek tabanlı satın alma modeli: esnek havuz depolama boyutunu değiştirme
+## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>Sanal çekirdek tabanlı satın alma modeli: Esnek havuz depolama boyutunu değiştir
 
 - En büyük boyut sınırı en fazla depolama alanı sağlanabilir:
 
@@ -35,7 +35,7 @@ Bu makalede, Azure SQL veritabanı'nda elastik havuzlara ve havuza alınmış ve
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>Sanal çekirdek tabanlı satın alma modeli: elastik havuzunu Değiştir bilgi işlem kaynakları (sanal çekirdek)
+## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>Sanal çekirdek tabanlı satın alma modeli: Elastik havuzunu Değiştir bilgi işlem kaynakları (sanal çekirdek)
 
 Artırmak veya azaltmak kaynağını ihtiyaçlarını kullanarak temel bir elastik havuz için işlem boyutu [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), veya [ REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
@@ -44,7 +44,7 @@ Artırmak veya azaltmak kaynağını ihtiyaçlarını kullanarak temel bir elast
 - Genel olarak, veritabanı başına veritabanı veya en çok sanal çekirdek başına minimum sanal çekirdekler değiştirmek için süre beş dakikadır veya daha az.
 - Havuzu sanal çekirdekler downsizing, kullanılan havuzu alanını hedef hizmet katmanı ve havuzu sanal çekirdekler, izin verilen boyut üst sınırı aşıyor küçük olması gerekir.
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU tabanlı satın alma modeli: esnek havuz depolama boyutunu değiştirme
+## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU tabanlı satın alma modeli: Esnek havuz depolama boyutunu değiştir
 
 - Belirli miktarda bir ek maliyet olmadan depolama için elastik havuz eDTU fiyatı içerir. Dahil edilen miktarın üzerinde ek depolama alanı 1 TB'kurmak 250 GB'lık artışlarla ve 1 TB ötesinde 256 GB'lık artışlarla maksimum boyut sınırına kadar ek bir maliyet sağlanabilir. Dahil edilen depolama alanı miktarları ve en büyük boyutu sınırlar için bkz: [elastik havuz: depolama boyutlarına ve bilgi işlem boyutlarına](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
 - En büyük boyutu kullanarak artırarak bir elastik havuz için ek depolama alanı sağlanabilir [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), veya [REST API ](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
@@ -53,7 +53,7 @@ Artırmak veya azaltmak kaynağını ihtiyaçlarını kullanarak temel bir elast
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU tabanlı satın alma modeli: işlem kaynakları (Edtu) esnek havuzunu Değiştir
+## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU tabanlı satın alma modeli: İşlem kaynakları (Edtu) esnek havuzunu Değiştir
 
 Artırmak veya azaltmak kaynağını ihtiyaçlarını kullanarak temel bir elastik havuz için kullanılabilir kaynakları [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), veya [ REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 

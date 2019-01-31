@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7c0a48c22e6fe1d1904771915aef401ffa58d588
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cf38b2096e958a7484e5161277a608ec2cb88224
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152546"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470495"
 ---
 # <a name="design-process-overview"></a>Tasarım işlemine genel bakış
 Proje akustik iş akışı, tüm üç aşamada tasarım amacınızla ifade edebilirsiniz: önceden hazırlama Sahne Kurulum, ses kaynak yerleştirme ve sonrası hazırlama tasarım. Tasarımcı denetime nasıl Sahne sesleri korurken Yankı birimler yerleştirme ile ilişkili daha az biçimlendirme işlemi gerektirir.
@@ -64,21 +64,27 @@ Ses DSP sağladığı **Microsoft Acoustics** Unity spatializer eklentisinin Uni
 Akustik player konum etrafındaki ortalanmış bir "benzetimi bölge" kutusu hesaplama gerçekleştirir. Bir ses kaynak Player'dan bu simülasyon bölge dışında bulunan uzak ise yalnızca geometri kutusundaki occluders kapsamına player olduğunda epey iyi çalışan (örneğin, kapatma neden) ses yayılmasını etkiler. Ancak, durumlarda player boş bir alanı ancak occluders uzak ses kaynak sesi unrealistically disoccluded haline. Bizim önerilen çözüm Böyle durumlarda ses zayıflama 0 yaklaşık 45 m, kutusunun Player'a yatay uzaklığını varsayılan olarak olduğundan emin olun olabilir.
 
 ### <a name="tuning-scene-parameters"></a>Sahne parametrelerini ayarlama
-Kanal Şerit Unity'nın tüm kaynakları için parametrelerini ayarlamak için tıklayın **ses Mixer**ve parametreleri ayarlamasına **akustik Mixer** efekt.
+Kanal Şerit Unity'nın tüm kaynakları için parametrelerini ayarlamak için tıklayın **ses Mixer**ve parametreleri ayarlamasına **proje akustik Mixer** efekt.
 
 ![Mixer özelleştirme](media/MixerParameters.png)
+
+* **Wetness Ayarla** -üzerinde kaynak dinleyici uzaklığı sahnedeki tüm kaynaklarını Yankı güç, dB, ayarlar. Negatif değerler ses daha kuru yaparken pozitif değerlere ses daha reverberant olun.
+* **RT60 ölçek** - çarpma skaler Yankı kez.
+* **Kaydırma kullanın** -denetimleri ses olup çıkış binaural (0) veya çok kanallı (1) yatay olarak. 1 yanı sıra herhangi bir değer binaural gösterir. Çıkış ile HRTFs kulaklık ile kullanılmak üzere spatialized ve çok kanallı VBAP ile çok kanallı saran Konuşmacı sistemleriyle kullanılacak spatialized çıkış binaural. Çok kanallı panlayıcı kullanarak, cihaz ayarlarınızı eşleşen hoparlör modu seçtiğinizden emin altında bulunan **proje ayarları** > **ses**.
+
+![SpeakerMode](media/SpeakerMode.png)
 
 ### <a name="tuning-source-parameters"></a>Kaynak parametrelerini ayarlama
 İliştirme **AcousticsAdjust** betik bir kaynak için bu kaynak için ayar parametreleri sağlar. Komut dosyası eklemek için tıklatın **Bileşen Ekle** alt kısmındaki **denetçisi** gidin ve panel **betikleri > akustik ayarlamak**. Betik altı denetimlerine sahiptir:
 
 ![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Akustik etkinleştirme** -bu kaynak için akustik uygulanıp uygulanmayacağını denetler. İşaretlenmediğinde, kaynak HRTFs ile ancak akustik anlamsızdır, kapatma ve düzeyi ve decay zamanı gibi dinamik reverberation parametreleri olmadan anlamına gelir, spatialized. Reverberation yine de bir sabit düzeyi ve decay saat ile uygulanır.
+* **Akustik etkinleştirme** -bu kaynak için akustik uygulanıp uygulanmayacağını denetler. İşaretlenmediğinde, kaynak HRTFs veya kaydırma spatialized ancak hiçbir akustik olacaktır. Bu, hiçbir engel, kapatma ve düzeyi ve decay zamanı gibi dinamik reverberation parametreleri anlamına gelir. Reverberation yine de bir sabit düzeyi ve decay saat ile uygulanır.
 * **Kapatma** -çarpanı akustik sistem tarafından hesaplanan kapatma dB düzeyinde uygulanır. Bu çarpan 1'den büyükse, kapatma exaggerated değerleri 1'den küçük kapatma etkisini daha hafif olun ve kapatma 0 değerini devre dışı bırakır.
 * **İletim (dB)** -geometri iletim kaynaklanan zayıflama (veritabanında) ayarlayın. Bu kaydırıcı iletimini devre dışı bırakmak için en düşük düzeyine ayarlayın. Akustik Sahne geometri (portaling) geçici olarak gelen olarak ilk kuru ses spatializes. İletim satırı görüş yönde spatialized ek bir kuru varış sağlar. Uzaklık zayıflama eğrinin kaynağı için de geçerli olduğunu unutmayın.
-* **Wetness (dB)** -Yankı güç, dB, kaynaktan daha fazla mesafe göre ayarlar. Negatif değerler ses daha kuru yaparken pozitif değerlere ses daha reverberant olun. Eğri Düzenleyicisi ' getirmek için eğri denetim (yeşil bir çizgi) tıklayın. Eğriyi noktaları eklemek için sol tıklatma ve istediğiniz işlev oluşturmak için bu noktaları sürükleyerek değiştirin. X ekseni kaynak uzaklığı ve y ekseni DB'de Yankı ayarlama. Bkz. Bu [Unity el ile](https://docs.unity3d.com/Manual/EditingCurves.html) eğrilerini düzenleme hakkında daha fazla bilgi. Eğriyi geri varsayılana sıfırlamak için sağ tıklayın **Wetness** seçip **sıfırlama**.
+* **Wetness (dB)** -Yankı güç, dB, kaynaktan daha fazla mesafe göre ayarlar. Negatif değerler ses daha kuru yaparken pozitif değerlere ses daha reverberant olun. Eğri Düzenleyicisi ' getirmek için eğri denetim (yeşil bir çizgi) tıklayın. Eğriyi noktaları eklemek için sol tıklatma ve istediğiniz işlev oluşturmak için bu noktaları sürükleyerek değiştirin. X ekseni kaynak uzaklığı ve y ekseni DB'de Yankı ayarlama. Eğrileri düzenleme hakkında daha fazla bilgi için bkz. Bu [Unity el ile](https://docs.unity3d.com/Manual/EditingCurves.html). Eğriyi geri varsayılana sıfırlamak için sağ tıklayın **Wetness** seçip **sıfırlama**.
 * **Zaman ölçeğini decay** -çarpanı decay saatini ayarlar. Örneğin, hazırlama sonucu 750 milisaniye decay süresini belirtir, ancak bu değeri 1,5 olarak ayarlanır, kaynak decay uygulanırken 1,125 milisaniyedir.
-* **Outdoorness** -kaynak üzerinde reverberation nasıl "dışarıda" ses bir ek ayarlama akustik sistemin tahmini. Bu ayarı 1 bir kaynağı her zaman tamamen dışarıda ses yapar, ayar çalışırken, -1'e bir kaynak içeride ses bulabilmesini sağlar.
+* **Outdoorness** -kaynak üzerinde reverberation nasıl "dışarıda" ses bir ek ayarlama akustik sistemin tahmini. -1 olarak ayarlandığında bir kaynak içeride ses hale getirir ancak bu değer 1 olarak ayarlandığında bir kaynağı her zaman tamamen dışarıda ses hale getirir.
 
 Farklı kaynaklar estetik veya oyun bazı efektler elde etmek farklı ayarlar gerektirebilir. İletişim bir olası bir örnektir. İletişim genellikle oyun için anlaşılır olması gerekiyor ancak İnsan kulak daha konuşma, reverberation attuned. Bu iletişim olmayan-diegetic taşıyarak yapmadan hesap **Wetness** aşağı yönde, ayarlama **Algısal uzaklık Warp** bazı ekleme, aşağıda açıklanan parametresi  **İletim** duvarları yayılan ve/veya azaltma kuru bazı ses boost için **kapatma** portallar aracılığıyla ulaşması daha fazla ses 1.
 
@@ -86,5 +92,5 @@ Farklı kaynaklar estetik veya oyun bazı efektler elde etmek farklı ayarlar ge
 
 ![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
 
-* **Algısal uzaklık Warp** -üstel kuru ıslak oranını hesaplamak için kullanılan uzaklık çarpıtma uygulayın. Akustik sistem alanı boyunca düzgün uzaklığı ile değişir ve Algısal uzaklık ipuçlarını sağlama ıslak düzeylerine hesaplar. Daha fazla mesafe ilgili reverberation düzeyleri artırarak Bu etkiyi 1 exaggerate değerleri çarpıtma, yapmayı ses "uzak", 1'den az yapma sesi yapmanın daha hafif uzaklık tabanlı reverberation değişiklik değerleri çarpıtma sırasında "var."
+* **Algısal uzaklık Warp** -üstel kuru ıslak oranını hesaplamak için kullanılan uzaklık çarpıtma uygulayın. Akustik sistem alanı boyunca düzgün uzaklığı ile değişir ve Algısal uzaklık ipuçlarını sağlama ıslak düzeylerine hesaplar. Çarpıtma değerleri 1'den büyük "uzak" ses yapmadan uzaklık ilgili reverberation düzeyleri, artırarak Bu etkiyi exaggerate. Değer 1'den az yapma çarpıtma uzaklık tabanlı reverberation daha hafif, yapmayı ses daha fazla "var" değiştirin.
 

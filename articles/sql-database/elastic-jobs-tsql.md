@@ -11,13 +11,13 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449410"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458100"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Elastik veritabanı işleri oluşturmak ve yönetmek için Transact-SQL (T-SQL) kullanın
 
@@ -75,9 +75,9 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## <a name="exclude-a-single-database"></a>Tek bir veritabanını hariç tut
+## <a name="exclude-an-individual-database"></a>Tek bir veritabanını hariç tut
 
-Aşağıdaki örnek, bir işin tüm veritabanlarında veritabanı tarafından adlandırılan dışında bir sunucuda yürütülecek gösterilmektedir *MappingDB*.  
+Aşağıdaki örnekte adlı veritabanı dışında bir SQL veritabanı sunucusu bir işi tüm veritabanlarında yürütün gösterilmiştir *MappingDB*.  
 Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 ```sql
@@ -103,7 +103,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -1032,10 +1032,10 @@ Hedef grup üyesi dahil dışlanan ya da söndürüleceğini belirler. target_gr
 Hedef veritabanı veya sunucu tüm veritabanları, elastik bir havuzdaki tüm veritabanları, bir parça eşlemesi içindeki tüm veritabanlarına veya tek bir veritabanı gibi veritabanlarının koleksiyon türü. target_type varsayılansız bir nvarchar(128) ' dir. 'SqlServer', 'SqlElasticPool', 'Temel' veya 'SqlShardMap' target_type için geçerli değerlerdir. 
 
 [  **@refresh_credential_name =** ] 'refresh_credential_name'  
-Mantıksal sunucunun adı. refresh_credential_name varsayılansız bir nvarchar(128) ' dir.
+SQL veritabanı sunucu adı. refresh_credential_name varsayılansız bir nvarchar(128) ' dir.
 
 [  **@server_name =** ] 'sunucu_adı'  
-Belirtilen hedef gruba eklenmelidir mantıksal sunucunun adı. target_type 'SqlServer' olduğunda sunucu_adı belirtilmelidir. SERVER_NAME varsayılansız bir nvarchar(128) ' dir.
+Belirtilen hedef gruba eklenmelidir SQL veritabanı sunucu adı. target_type 'SqlServer' olduğunda sunucu_adı belirtilmelidir. SERVER_NAME varsayılansız bir nvarchar(128) ' dir.
 
 [  **@database_name =** ] 'database_name'  
 Belirtilen hedef gruba eklenmelidir veritabanının adı. target_type 'Temel' olduğunda database_name belirtilmelidir. database_name varsayılansız bir nvarchar(128) ' dir.
@@ -1051,7 +1051,7 @@ Hedef kimlik numarası oluşturduysanız hedef grubu üyesine atanmış hedef gr
 Dönüş kodu değerler 0 (başarılı) veya 1 (hata)
 
 #### <a name="remarks"></a>Açıklamalar
-Bir sunucu içindeki tüm veritabanlarına üzerinde bir iş çalıştırır veya elastik havuz bir mantıksal sunucu ya da elastik havuz yürütme zamanında hedef gruba dahil edildi.
+Şirket içinde SQL veritabanı sunucusu veya elastik bir havuzdaki tüm tek veritabanları, SQL veritabanı sunucusu, yürütme sırasında bir iş yürütür veya elastik havuz hedef gruba dahil edildi.
 
 #### <a name="permissions"></a>İzinler
 Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
@@ -1229,7 +1229,7 @@ Aşağıdaki görünümleri kullanılabilir [işleri veritabanı](sql-database-j
 |**target_type**|   nvarchar(128)   |Hedef veritabanı veya tüm veritabanları bir sunucu, bir elastik havuzdaki tüm veritabanları veya veritabanı gibi veritabanlarının koleksiyon türü. 'SqlServer', 'SqlElasticPool' veya 'Temel' target_type için geçerli değerlerdir. NULL, bu üst iş yürütme olduğunu gösterir.
 |**target_id**  |benzersiz tanımlayıcı|  Hedef grup üyesi benzersiz kimliği.  NULL, bu üst iş yürütme olduğunu gösterir.
 |**target_group_name**  |nvarchar(128)  |Hedef grubun adı. NULL, bu üst iş yürütme olduğunu gösterir.
-|**target_server_name**|    nvarchar(256)|  Hedef grup içinde bulunan mantıksal sunucunun adıdır. Yalnızca target_type 'SqlServer' belirtilmelidir. NULL, bu üst iş yürütme olduğunu gösterir.
+|**target_server_name**|    nvarchar(256)|  Hedef grup içinde bulunan SQL veritabanı sunucusunun adı. Yalnızca target_type 'SqlServer' belirtilmelidir. NULL, bu üst iş yürütme olduğunu gösterir.
 |**target_database_name**   |nvarchar(128)| Hedef grup içinde bulunan veritabanının adı. Target_type 'Temel' olduğunda yalnızca belirtilen. NULL, bu üst iş yürütme olduğunu gösterir.
 
 
@@ -1253,7 +1253,7 @@ Tüm işleri gösterir.
 
 ### <a name="jobversions-view"></a>job_versions görüntüle
 
-[iş]. [job_verions]
+[iş]. [job_versions]
 
 Tüm iş sürümlerini gösterir.
 
@@ -1332,7 +1332,7 @@ Tüm hedef grupların tüm üyeleri gösterir.
 |**refresh_credential_name**    |nvarchar(128)  |Veritabanının adı hedef grubu üyesine bağlanmak için kullanılan kimlik bilgilerini kapsamı.|
 |**subscription_id**    |benzersiz tanımlayıcı|  Abonelik benzersiz kimliği.|
 |**resource_group_name**    |nvarchar(128)| Hedef grup üyesi bulunduğu kaynak grubunun adı.|
-|**SERVER_NAME**    |nvarchar(128)  |Hedef grup içinde bulunan mantıksal sunucunun adıdır. Yalnızca target_type 'SqlServer' belirtilmelidir. |
+|**SERVER_NAME**    |nvarchar(128)  |Hedef grup içinde bulunan SQL veritabanı sunucusunun adı. Yalnızca target_type 'SqlServer' belirtilmelidir. |
 |**database_name**  |nvarchar(128)  |Hedef grup içinde bulunan veritabanının adı. Target_type 'Temel' olduğunda yalnızca belirtilen.|
 |**elastic_pool_name**  |nvarchar(128)| Hedef grup içinde bulunan bir elastik havuz adı. Target_type 'SqlElasticPool' olduğunda yalnızca belirtilen.|
 |**shard_map_name** |nvarchar(128)| Hedef grup içinde bulunan parça eşlemesi adı. Target_type 'SqlShardMap' olduğunda yalnızca belirtilen.|

@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d266ee48a4248584ae22a9ba678d516fe28cd712
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 610b140fd6049842b993c17fd53bebf799f83f5c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259724"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453153"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Derin Öğrenme ve AI çerçeveleri
 [Veri bilimi sanal makinesi](https://aka.ms/dsvm) (DSVM) ve [derin öğrenme VM](https://aka.ms/dsvm/deeplearning) Tahmine dayalı analiz ile yapay zeka (AI) uygulamaları oluşturmanıza yardımcı olmak için ayrıntılı öğrenme çerçevelerini destekler ve bilişsel yetenekleri, görüntü ve dil anlama gibi.
@@ -195,7 +195,7 @@ Hizmeti başlatmak için yaklaşık bir dakika sürer. Bir web tarayıcısını 
 | Desteklenen DSVM sürümleri      | Ubuntu     |
 | Nasıl, yapılandırılmış / DSVM üzerinde yüklü?  | Theano Python 2.7 yüklenir (_kök_), Python 3.5 yanı sıra (_py35_) ortamı.   |
 | DSVM ilgili araçları      | Keras      |
-| Kullanma / çalıştırın nasıl?    | * Bir terminal, (kök veya py35) python çalıştırın, sonra theano alma Python sürümü etkinleştirin. <br/> * Jupyter, Python 2.7 veya 3.5 çekirdek seçin ve ardından theano içeri aktarın.  <br/>Son MKL hatanın geçici olarak çözmek için katman iş parçacığı MKL ayarlamanız gerekir:<br/><br/>_dışarı aktarma MKL_THREADING_LAYER GNU =_|
+| Kullanma / çalıştırın nasıl?    | * Bir terminal, (kök veya py35) python çalıştırın, sonra theano alma Python sürümü etkinleştirin. <br/> * Jupyter, Python 2.7 veya 3.5 çekirdek seçin ve ardından theano içeri aktarın.  <br/>Son MKL hatanın geçici olarak çözmek için katman iş parçacığı MKL ayarlamanız gerekir:<br/><br/>_export MKL_THREADING_LAYER=GNU_|
 
 
 

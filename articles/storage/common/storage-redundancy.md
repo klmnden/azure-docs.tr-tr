@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 7afbdaba46674b69aa601355e80160e7c72ff373
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240979"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455516"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
 
@@ -26,7 +26,7 @@ Microsoft Azure Depolama hesabınızdaki veriler, dayanıklılık ve yüksek kul
 Bir depolama hesabı oluşturduğunuzda şu çoğaltma seçeneklerinden birini seçebilirsiniz:
 
 * [Yerel olarak yedekli depolama (LRS)](storage-redundancy-lrs.md)
-* [Bölgesel olarak yedekli depolama (ZRS)](storage-redundancy-zrs.md)
+* [Alanlar arası yedekli depolama (ZRS)](storage-redundancy-zrs.md)
 * [Coğrafi olarak yedekli depolama (GRS)](storage-redundancy-grs.md)
 * [Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -39,7 +39,7 @@ Aşağıdaki tabloda, dayanıklılık ve kullanılabilirlik her çoğaltma strat
 | Bir bölge çapında kesinti                                                                                     | Hayır                              | Hayır                               | Evet                                  | Evet                                  |
 | Bölge genelinde kullanım dışı kalması durumunda (bir bölgede uzaktan, coğrafi olarak çoğaltılmış) verilerinize okuma erişimi | Hayır                              | Hayır                               | Hayır                                   | Evet                                  |
 | Sağlamak üzere tasarlanmış \_ \_ belirli bir yıl boyunca nesnelerin dayanıklılık                                          | en az % 99,999999999 (11 9) | en az % 99,9999999999 (12 9) | en az % 99,99999999999999 (16 9) | en az % 99,99999999999999 (16 9) |
-| Desteklenen depolama hesabı türleri                                                                   | GPv1, GPv2 ve Blob                | GPv2                             | GPv1, GPv2 ve Blob                     | GPv1, GPv2 ve Blob                     |
+| Desteklenen depolama hesabı türleri                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | Okuma istekleri için kullanılabilirlik SLA'sı | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,99 oranında (seyrek erişimli katman için % 99,9) |
 | Yazma isteklerine ilişkin kullanılabilirlik SLA'sı | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) |
 
@@ -69,4 +69,4 @@ LRS için GRS değiştirirseniz, hiçbir ek ücret yoktur, ancak ikincil konumda
 - [Azure depolama ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md)
 - [RA-GRS depolama kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama](../storage-designing-ha-apps-with-ragrs.md)
 - [Microsoft Azure depolama yedekliliği seçenekleri ve okuma erişimli coğrafi olarak yedekli depolama ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [SOSP belgesi - Azure Depolama: Yüksek oranda kullanılabilir depolama ile bulut hizmeti güçlü tutarlılık](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [SOSP belgesi - Azure Depolama: Güçlü tutarlılık ile yüksek oranda kullanılabilir bulut depolama hizmeti](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

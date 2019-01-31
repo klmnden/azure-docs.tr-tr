@@ -11,13 +11,13 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/10/2017
-ms.openlocfilehash: 8750552499a5112b1a46b2cb4929c029d5e7e3a0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 01/25/2019
+ms.openlocfilehash: 318dce78059a169ede2f19f6aadaab9d61e07086
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063838"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474964"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Excel kullanarak Azure SQL veritabanına bağlanan ve rapor oluşturma
 
@@ -28,47 +28,48 @@ Başlayabilmek için Azure'da bir SQL veritabanınızın olması gerekir. Henüz
 Ayrıca, bir Excel kopyanızın olması gerekir. Bu makalede [Microsoft Excel 2016](https://products.office.com/) kullanılmıştır.
 
 ## <a name="connect-excel-to-a-sql-database-and-load-data"></a>Excel'i SQL veritabanı ve yük veri bağlama
+
 1. Excel'i SQL veritabanına bağlamak için Excel'i açarak yeni bir çalışma kitabı oluşturun veya var olan bir Excel çalışma kitabını açın.
 2. Sayfanın üstündeki menü çubuğunda seçin **veri** sekmesinde **Veri Al**, Azure'ı seçin ve ardından **Azure SQL veritabanı'ndan**. 
-   
-   ![Veri kaynağı seçin: Excel'i SQL veritabanına bağlayın.](./media/sql-database-connect-excel/excel_data_source.png)
-   
+
+   ![Veri kaynağı seçin: Excel, SQL veritabanı'na bağlanın.](./media/sql-database-connect-excel/excel_data_source.png)
+
    Veri Bağlantı Sihirbazı açılır.
 3. **Veritabanı Sunucusuna Bağlan** iletişim kutusunda, bağlanmak istediğiniz SQL Database **Sunucu adını** şu biçimde girin: <*sunucuadı*>**.database.windows.net**. Örneğin, **msftestserver.database.windows.net**. İsteğe bağlı olarak, veritabanınızın adını girin. Seçin **Tamam** kimlik bilgilerini penceresini açın. 
 
    ![Sunucu name.png](media/sql-database-connect-excel/server-name.png)
 
-1. İçinde **SQL Server veritabanı** iletişim kutusunda **veritabanı** sol tarafında ve ardından girin, **kullanıcı adı** ve **parola** için SQL veritabanı sunucusuna bağlanmak istediğiniz. Seçin **Connect** açmak için **Gezgin**. 
+4. İçinde **SQL Server veritabanı** iletişim kutusunda **veritabanı** sol tarafında ve ardından girin, **kullanıcı adı** ve **parola** için Bağlanmak istediğiniz SQL veritabanı sunucusu. Seçin **Connect** açmak için **Gezgin**. 
 
   ![Sunucu adını ve oturum açma kimlik bilgilerini girme](./media/sql-database-connect-excel/connect-to-server.png)
-   
+
   > [!TIP]
   > Ağ ortamınıza bağlı olarak, SQL Database sunucusunun istemci IP adresinizden gelen trafiğe izin vermemesi halinde bağlanamayabilirsiniz veya mevcut bağlantınız kesilebilir. [Azure portalına](https://portal.azure.com/) gidip SQL sunucuları seçeneğine tıklayın, sunucunuza tıklayın ve ardından ayarlar altında bulunan güvenlik duvarı seçeneğine tıklayıp istemci IP adresinizi ekleyin. Ayrıntılı bilgi için bkz. [Güvenlik duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md).
-   
-   
-5. İçinde **Gezgin**seçin listeden çalışmak istediğiniz veritabanını seçin tabloları veya görünümleri ile çalışmak istediğiniz (seçtik **vGetAllCategories**) ve ardından **yük**için SQL Azure veritabanındaki veri taşımak için excel elektronik tablosu.
-   
+
+5. İçinde **Gezgin**seçin listeden çalışmak istediğiniz veritabanını seçin tabloları veya görünümleri ile çalışmak istediğiniz (seçtik **vGetAllCategories**) ve ardından **yük**Excel elektronik tablosuna veritabanınızdan verileri taşımak için.
+
     ![Bir veritabanı ve tablo seçin.](./media/sql-database-connect-excel/select-database-and-table.png)
-   
 
 ## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Excel'e veri aktarma ve özet grafik oluşturma
+
 Bağlantı kurduktan sonra veri yükleme ile birkaç farklı seçeneğiniz vardır. Örneğin, aşağıdaki adımları SQL veritabanı'nda bulunan verileri temel alan bir Özet Grafik oluşturun. 
 
 1. Önceki bölümde, ancak seçmek yerine bu kez, adımları **yük**seçin **yük** gelen **yük** açılır.
 2. Ardından, bu verileri çalışma kitabınızı görüntüleme istediğiniz şekli seçin. Biz **PivotChart** seçeneğini belirledik. Ayrıca, **Yeni çalışma sayfası** oluşturmayı veya **Bu verileri Veri Modeline ekle** seçeneğini belirlemeyi de tercih edebilirsiniz. Veri Modelleri hakkında daha fazla bilgi için bkz. [Excel'de veri modeli oluşturma](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). 
-   
+
     ![Excel'de veri biçimini belirleme](./media/sql-database-connect-excel/import-data.png)
-   
+
     Artık çalışma sayfasında boş bir özet grafiği ve grafik var.
-2. **PivotTable Alanları** altında, görüntülemek istediğiniz alanların onay kutularını işaretleyin.
-   
+3. **PivotTable Alanları** altında, görüntülemek istediğiniz alanların onay kutularını işaretleyin.
+
     ![Veritabanı raporunu yapılandırın.](./media/sql-database-connect-excel/power-pivot-results.png)
 
 > [!TIP]
 > Diğer Excel çalışma kitaplarını ve çalışma sayfalarını veritabanına bağlanmak istiyorsanız seçin **veri** sekmesine tıklayın ve **son kaynaklar** başlatmak için **son kaynaklar** iletişim kutusu. Buradan, listeden oluşturduğunuz bağlantıyı seçin ve ardından **açık**.
 > ![Son bağlantılar](media/sql-database-connect-excel/recent-connections.png)
- 
+
 ## <a name="create-a-permanent-connection-using-odc-file"></a>.Odc dosyası kullanarak kalıcı bir bağlantı oluşturma
+
 Bağlantı ayrıntıları kalıcı olarak kaydetmek için bir .odc dosyası oluşturabilir ve bu bağlantısı içinde seçilebilir bir seçenek **varolan bağlantılar** iletişim kutusu. 
 
 1. Sayfanın üstündeki menü çubuğunda seçin **veri** sekmesine tıklayın ve ardından **varolan bağlantılar** başlatmak için **varolan bağlantılar** iletişim kutusu. 
@@ -97,7 +98,7 @@ Bağlantı ayrıntıları kalıcı olarak kaydetmek için bir .odc dosyası olu�
     ![Mevcut bağlantı](media/sql-database-connect-excel/existing-connection.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * Gelişmiş sorgulama ve analiz için [SQL Server Management Studio ile SQL Database'e bağlanma](sql-database-connect-query-ssms.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
 * [Esnek havuzların](sql-database-elastic-pool.md) avantajları hakkında bilgi edinin.
 * [Arka uçta SQL Database'e bağlanan bir web uygulaması oluşturma](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md) hakkında bilgi edinin.
-

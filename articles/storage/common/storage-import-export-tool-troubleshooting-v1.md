@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 58ba44488e8ef211e7c318fc9ba6497a5b1b69bb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 9a4e47143515c7f9c21d701809c35d61853d91ec
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523283"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471921"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Azure İçeri/Dışarı Aktarma Aracı ile ilgili sorunları giderme
 Bir sorunla karşılaşırsanız çalıştırıyorsa, Microsoft Azure içeri/dışarı aktarma aracı, hata iletileri döndürür. Bu konuda, kullanıcıların içine çalışabilir bazı yaygın sorunlar listelenmiştir.  
@@ -24,7 +24,7 @@ Bir sorunla karşılaşırsanız çalıştırıyorsa, Microsoft Azure içeri/dı
  Örneğin bir ağ paylaşımı için kısa bir süre çevrimdışı ve şimdi yeniden çevrimiçi olana yeniden denenebilir bir hatadır, kopya oturumu devam edebilir. Hata yeniden denenebilir, komut satırı parametreleri yanlış kaynak dosyası dizini belirtilen örneğin değilse, kopya oturumu iptal etmek gerekir. Bkz: [içeri aktarma işi için sabit disk hazırlama](../storage-import-export-tool-preparing-hard-drives-import-v1.md) kopyalama oturumları iptal ediliyor ve sürdürme hakkında daha fazla bilgi.  
   
 ## <a name="i-cant-resume-or-abort-a-copy-session"></a>Ben sürdürmek veya kopya oturumu iptal değiştirilemez.  
- İlk kopyalama oturumun bir sürücü için kopyalama oturumdur sonra hata iletisi belirtmelidir: "ilk kopya oturumu durduruldu veya sürdürülemez." Bu durumda, eski günlük dosyasını silin ve komutu yeniden çalıştırın.  
+ Kopya oturumu ilk kopyalama oturum için bir sürücü varsa, hata iletisi olması gerekir: "İlk kopya oturumu durduruldu veya sürdürülemez." Bu durumda, eski günlük dosyasını silin ve komutu yeniden çalıştırın.  
   
  Bir kopya oturumu İlki bir sürücü için değilse, bu her zaman sürdürüldü durduruldu veya.  
   

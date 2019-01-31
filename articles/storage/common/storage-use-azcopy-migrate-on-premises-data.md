@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 347092fd7d5865379911265b19477ac16e3bcd69
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 25a0867d9a2060989ce7206279b4acabe39b4ff3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261392"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478279"
 ---
-#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Öğretici: AzCopy kullanarak şirket içi verileri bulut depolamasına taşıma
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Öğretici: AzCopy komutunu kullanarak bulut depolamaya şirket içi verileri geçirme
 
 AzCopy; basit komutlar kullanılarak Azure Blob depolamaya, Azure Dosyaları’na ve Azure Tablosu depolama alanına veya bunlardan veri kopyalamaya yönelik bir komut satırı aracıdır. Komutlar, en iyi performans için tasarlanmıştır. AzCopy ile bir dosya sistemi ile depolama hesabı arasında veya depolama hesapları arasında verileri kopyalayabilirsiniz. AzCopy, yerel verileri (şirket içi) bir depolama hesabına kopyalamak için kullanılabilir.
 
@@ -34,7 +34,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için, [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) veya [Windows](https://aka.ms/downloadazcopy) üzerinde en son AzCopy sürümünü indirin.
 

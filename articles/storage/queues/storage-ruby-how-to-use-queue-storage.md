@@ -9,13 +9,13 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: queues
+ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231575"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456281"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby’den Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -63,7 +63,7 @@ Bu değerleri Azure portalında bir klasik veya Kaynak Yöneticisi depolama hesa
 4. Açılan Erişim anahtarları dikey penceresinde, 1. ve 2. erişim anahtarını göreceksiniz. Bunlardan birini kullanabilirsiniz. 
 5. Anahtarı panoya kopyalamak için Kopyala simgesine tıklayın. 
 
-## <a name="how-to-create-a-queue"></a>Nasıl yapılır: bir kuyruk oluşturun.
+## <a name="how-to-create-a-queue"></a>Nasıl Yapılır: Kuyruk oluşturma
 Aşağıdaki kod oluşturur bir **Azure::QueueService** kuyrukları ile çalışmanıza olanak sağlayan nesne.
 
 ```ruby
@@ -80,14 +80,14 @@ rescue
 end
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Nasıl yapılır: bir ileti bir kuyruğa yerleştirin.
+## <a name="how-to-insert-a-message-into-a-queue"></a>Nasıl Yapılır: Kuyruğa bir ileti Ekle
 Bir kuyruğa ileti eklemek için kullanın **create_message()** yöntemi yeni bir ileti oluşturun ve kuyruğa ekleyin.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Nasıl yapılır: sonraki iletiye gözatın
+## <a name="how-to-peek-at-the-next-message"></a>Nasıl Yapılır: Sonraki iletiye gözatın
 Kuyruğun iletiyi kuyruktan kaldırmadan çağırarak peek **gözlem\_messages()** yöntemi. Varsayılan olarak, **gözlem\_messages()** peeks tek bir iletiye. Özet istediğiniz ileti sayısını da belirtebilirsiniz.
 
 ```ruby
@@ -95,7 +95,7 @@ result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Nasıl yapılır: bir sonraki iletiyi sıradan çıkar
+## <a name="how-to-dequeue-the-next-message"></a>Nasıl Yapılır: Sonraki iletiyi sıradan çıkar
 Bir iletiyi bir kuyruktan iki adımda kaldırabilirsiniz.
 
 1. Çağırdığınızda **listesi\_messages()**, varsayılan olarak sonraki iletiyi kuyruğa alın. Almak istediğiniz ileti sayısını da belirtebilirsiniz. Döndürülen iletilerin **listesi\_messages()** bu kuyruktan iletileri okuyan herhangi bir kod için görünmez hale gelir. Görünebilirlik zaman aşımı saniye parametresi olarak geçirin.
@@ -109,7 +109,7 @@ azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl yapılır: bir kuyruğa alınan iletinin içeriğini değiştirme
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl Yapılır: Kuyruğa Alınan iletinin içeriğini değiştirme
 Kuyrukta yer alan bir iletinin içeriğini değiştirebilirsiniz. Aşağıdaki kod kullanır **update_message()** bir ileti güncelleştirmek için yöntemi. Yöntem üstten alma girişi kuyruk iletisi ve ileti sırasına görünür olduğunda temsil eden bir UTC tarih saat değeri içeren bir tanımlama grubu döndürür.
 
 ```ruby
@@ -119,7 +119,7 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Nasıl yapılır: iletileri kuyruktan çıkarma işlemlerini için ek seçenekler
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Nasıl Yapılır: İletileri sıradan çıkarmak için ek seçenekler
 İletilerin bir kuyruktan alınma şeklini iki yöntemle özelleştirebilirsiniz.
 
 1. Toplu ileti alabilirsiniz.
@@ -135,7 +135,7 @@ azure_queue_service.list_messages("test-queue", 300
 end
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Nasıl yapılır: kuyruk uzunluğu alma
+## <a name="how-to-get-the-queue-length"></a>Nasıl Yapılır: Kuyruk uzunluğu alma
 Kuyrukta ileti sayısını tahmini elde edebilirsiniz. **Alma\_kuyruk\_metadata()** yöntemi yaklaşık ileti sayısı ve kuyruk hakkındaki meta verileri döndürmek için kuyruk hizmeti sorar.
 
 ```ruby
@@ -143,7 +143,7 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
   "test-queue")
 ```
 
-## <a name="how-to-delete-a-queue"></a>Nasıl yapılır: bir kuyruk silme
+## <a name="how-to-delete-a-queue"></a>Nasıl Yapılır: Bir kuyruk silme
 Bir kuyruk ve içerdiği tüm iletileri silmek için çağrı **Sil\_queue()** kuyruk nesnesi üzerinde yöntemi.
 
 ```ruby

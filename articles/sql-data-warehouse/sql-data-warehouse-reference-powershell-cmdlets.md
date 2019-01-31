@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f38c9e3bed93a77cd9b35c6d23983ee5785a34a7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 412c2faead0102d3995e3df9db31b81c4dd4aa22
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714485"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452014"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>PowerShell cmdlet'leri ve REST API'leri için SQL veri ambarı
 Birçok SQL veri ambarı yönetim görevleri, Azure PowerShell cmdlet'lerini veya REST API'leri kullanılarak yönetilebilir.  SQL veri ambarı ortak görevleri otomatikleştirmek için PowerShell komutlarını kullanmayı bazı örnekler aşağıdadır.  Bazı iyi diğer örnekler için bkz [REST ölçeklenebilirliğiyle yönetme][Manage scalability with REST].
@@ -74,13 +74,13 @@ Bu PowerShell cmdlet'lerini, Azure SQL veri ambarı ile desteklenir.
 * [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
 * [Get-AzureRmSqlDeletedDatabaseBackup][Get-AzureRmSqlDeletedDatabaseBackup]
 * [Get-AzureRmSqlDatabaseRestorePoints][Get-AzureRmSqlDatabaseRestorePoints]
-* [Yeni-AzureRmSqlDatabase][New-AzureRmSqlDatabase]
+* [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase]
 * [Remove-AzureRmSqlDatabase][Remove-AzureRmSqlDatabase]
 * [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase]
 * [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase]
 * [Select-AzureRmSubscription][Select-AzureRmSubscription]
 * [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]
-* [Askıya Al-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
+* [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla PowerShell örnekleri için bkz:

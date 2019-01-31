@@ -1,6 +1,6 @@
 ---
-Başlık: ' 1. adım: Bir çalışma alanı Oluştur ' titleSuffix: Azure Machine Learning Studio açıklaması: ' Adım 1 / geliştirme Tahmine dayalı çözüm Kılavuzu: Yeni bir Azure Machine Learning Studio çalışma alanını ayarlama hakkında bilgi edinin.'
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: ' 1. adım: Bir çalışma alanı Oluştur ' titleSuffix: Azure Machine Learning Studio açıklaması: ' Adım 1 / geliştirme Tahmine dayalı çözüm Kılavuzu: Yeni bir Azure Machine Learning Studio çalışma alanını ayarlama hakkında bilgi edinin.'
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 03/23/2017
 ---

@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 38da370e8e3cd81e209d0fd592d6b2afa8c82e44
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.subservice: queues
+ms.openlocfilehash: 295ca353530fb438d0bd77a9144813543102b997
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138529"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472720"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Node.js’den Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -64,7 +64,7 @@ var azure = require('azure-storage');
 ## <a name="setup-an-azure-storage-connection"></a>Bir Azure depolama bağlantısı kurma
 Azure modülü AZURE ortam değişkenlerini okur\_depolama\_hesabı ve AZURE\_depolama\_erişim\_anahtarı veya AZURE\_depolama\_bağlantı\_ Azure depolama hesabınıza bağlanmak için gereken bilgi DİZESİ. Bu ortam değişkenleri ayarlanmazsa çağırırken hesap bilgilerini belirtmelisiniz **createQueueService**.
 
-## <a name="how-to-create-a-queue"></a>Nasıl yapılır: bir kuyruk oluşturun.
+## <a name="how-to-create-a-queue"></a>Nasıl Yapılır: Kuyruk oluşturma
 Aşağıdaki kod oluşturur bir **QueueService** kuyrukları ile çalışmanıza olanak sağlayan nesne.
 
 ```javascript
@@ -105,7 +105,7 @@ var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Nasıl yapılır: bir ileti bir kuyruğa yerleştirin.
+## <a name="how-to-insert-a-message-into-a-queue"></a>Nasıl Yapılır: Kuyruğa bir ileti Ekle
 Bir kuyruğa ileti eklemek için kullanın **CreateMessage nesne** yöntemi yeni bir ileti oluşturun ve kuyruğa ekleyin.
 
 ```javascript
@@ -116,7 +116,7 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Nasıl yapılır: sonraki iletiye gözatın
+## <a name="how-to-peek-at-the-next-message"></a>Nasıl Yapılır: Sonraki iletiye gözatın
 Kuyruğun iletiyi kuyruktan kaldırmadan çağırarak peek **peekMessages** yöntemi. Varsayılan olarak, **peekMessages** tek bir ileti göz atar.
 
 ```javascript
@@ -134,7 +134,7 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 > 
 > 
 
-## <a name="how-to-dequeue-the-next-message"></a>Nasıl yapılır: bir sonraki iletiyi sıradan çıkar
+## <a name="how-to-dequeue-the-next-message"></a>Nasıl Yapılır: Sonraki iletiyi sıradan çıkar
 Bir iletiyi işlemeyi iki aşamalı bir işlemdir:
 
 1. İletiyi sıradan çıkar.
@@ -164,7 +164,7 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 > 
 > 
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl yapılır: bir kuyruğa alınan iletinin içeriğini değiştirme
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl Yapılır: Kuyruğa Alınan iletinin içeriğini değiştirme
 Bir ileti kuyruğu kullanarak yerinde içeriğini değiştirebilirsiniz **updateMessage**. Aşağıdaki örnek, bir ileti metni güncelleştirir:
 
 ```javascript
@@ -181,7 +181,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Nasıl yapılır: iletileri kuyruktan çıkarma işlemlerini için ek seçenekler
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Nasıl Yapılır: İletileri sıradan çıkarmak için ek seçenekler
 Bir kuyruktan ileti alma özelleştirebilirsiniz iki yolu vardır:
 
 * `options.numOfMessages` -Alma toplu iletiler (en fazla 32.)
@@ -206,7 +206,7 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 });
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Nasıl yapılır: kuyruk uzunluğu alma
+## <a name="how-to-get-the-queue-length"></a>Nasıl Yapılır: Kuyruk uzunluğu alma
 **GetQueueMetadata** iletiler kuyrukta yaklaşık sayısı dahil olmak üzere kuyruk hakkındaki meta verileri döndürür.
 
 ```javascript
@@ -217,7 +217,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 });
 ```
 
-## <a name="how-to-list-queues"></a>Nasıl yapılır: Sorgular listesi
+## <a name="how-to-list-queues"></a>Nasıl Yapılır: Kuyrukları listeleme
 Kuyrukların listesini almak için kullanın **listQueuesSegmented**. Belirli bir ön eke göre filtrelenmiş bir listesini almak için kullanın **listQueuesSegmentedWithPrefix**.
 
 ```javascript
@@ -230,7 +230,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 
 Tüm Kuyruklar döndürülemez, `result.continuationToken` ilk parametresi olarak kullanılabilmesi için **listQueuesSegmented** veya ikinci parametresi **listQueuesSegmentedWithPrefix** daha fazla sonuç almak için.
 
-## <a name="how-to-delete-a-queue"></a>Nasıl yapılır: bir kuyruk silme
+## <a name="how-to-delete-a-queue"></a>Nasıl Yapılır: Bir kuyruk silme
 Bir kuyruk ve içerdiği tüm iletileri silmek için çağrı **deleteQueue** kuyruk nesnesi üzerinde yöntemi.
 
 ```javascript
@@ -243,7 +243,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 Silmeden bir kuyruktan tüm iletileri silmek için kullanın **clearMessages**.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>Nasıl yapılır: paylaşılan erişim imzaları ile çalışma
+## <a name="how-to-work-with-shared-access-signatures"></a>Nasıl yapılır: Paylaşılan Erişim İmzaları ile çalışma
 Paylaşılan erişim imzaları (SAS) depolama hesabı adı veya anahtarlarının sağlamadan kuyruklar için ayrıntılı erişim sağlamak için güvenli bir yoludur. SAS genellikle iletiler göndermek mobil uygulama izin verme gibi Kuyruklarınızı sınırlı erişim sağlamak için kullanılır.
 
 SAS kullanarak bulut tabanlı bir hizmet gibi güvenilen bir uygulama oluşturur **generateSharedAccessSignature** , **QueueService**, güvenilmeyen veya yarı güvenilir uygulamaya sağlar. Örneğin, bir mobil uygulama. SAS’ın geçerli olduğu başlangıç ve bitiş tarihlerini ve SAS sahibine verilen erişim düzeyini açıklayan bir ilke kullanılarak SAS oluşturulur.

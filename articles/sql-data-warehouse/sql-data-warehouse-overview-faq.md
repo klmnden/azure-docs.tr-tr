@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306749"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462554"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL veri ambarı sık sorulan sorular
 
@@ -82,21 +82,21 @@ S. Hangi istemci sürücüleri destekliyorsunuz?
 
 A. DW sürücü desteği bulunabilir [bağlantı dizeleri] sayfası
 
-S: hangi dosya biçimlerine PolyBase ile SQL veri ambarı tarafından destekleniyor mu?
+S: Hangi dosya biçimlerine PolyBase ile SQL veri ambarı tarafından destekleniyor mu?
 
-Y: Orc, RC, Parquet ve sınırlandırılmış düz metin
+C: ORC, RC, Parquet ve sınırlandırılmış düz metin
 
-S: hangi PolyBase aracılığıyla SQL DW'ye bağlanabilirim? 
+S: Ne için PolyBase aracılığıyla SQL DW'ye bağlayabilirim? 
 
-Y: [Azure Data Lake Store] ve [Azure depolama BLOB'ları]
+C: [Azure Data Lake Store] ve [Azure depolama BLOB'ları]
 
-S: itme hesaplama Azure depolama Blobları veya ADLS bağlanırken mi? 
+S: Azure depolama Blobları veya ADLS bağlanırken hesaplama itme mümkün mü? 
 
 C: Hayır, SQL DW PolyBase yalnızca depolama bileşenleri etkileşim kurar. 
 
-HDI için bağlanabilirim miyim?
+S: HDI için bağlayabilirim?
 
-Y: HDI ADLS ya da WASB HDFS katman olarak kullanabilirsiniz. HDFS katmanınızdaki olarak varsa, bu verileri SQL DW'ye yükleyebilirsiniz. Ancak, itme hesaplama HDI örneği oluşturulamıyor. 
+C: HDI ADLS ya da WASB HDFS katman olarak kullanabilirsiniz. HDFS katmanınızdaki olarak varsa, bu verileri SQL DW'ye yükleyebilirsiniz. Ancak, itme hesaplama HDI örneği oluşturulamıyor. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir bütün olarak SQL veri ambarı hakkında daha fazla bilgi için bkz. bizim [genel bakış] sayfası.

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: a345b410dcf256e8cd07e7708906f5582b5f1828
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077396"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456026"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
@@ -73,6 +73,11 @@ Bir Linux makinesinde aracıyı yüklemek için:
 
 [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) hakkında MMA tarafından Linux işletim sistemleri desteği listesi.
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-scom"></a>SCOM tarafından izlenen bir makinedeki aracıyı yükleyin.
+
+System Center Operations Manager 2012 R2 veya üzeri izlenen makineler için MMA aracısını yüklemek için gerek yoktur. Hizmet eşlemesi, gerekli bağımlılık verileri toplamak için SCOM MMA'yı yararlanan SCOM ile bir tümleştirmeye sahiptir. Tümleştirme yönergeleri kullanarak etkinleştirebilirsiniz [burada](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Ancak, bu makinelerde yüklü bağımlılık Aracısı'nı gerektiğini unutmayın.
+
+
 ### <a name="install-the-dependency-agent"></a>Bağımlılık aracısını yükleme
 1. Bir Windows makinede bağımlılık Aracısı'nı yüklemek için kurulum dosyasına çift tıklayın ve sihirbazı izleyin.
 2. Bağımlılık Aracısı'nı bir Linux makineye yüklemek için aşağıdaki komutu kullanarak kök olarak yükleyin:
@@ -82,6 +87,7 @@ Bir Linux makinesinde aracıyı yüklemek için:
 Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) ve [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) işletim sistemleri.
 
 [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) bağımlılık Aracısı'nı yüklemek için komut dosyalarını nasıl kullanabileceğiniz hakkında.
+
 
 ## <a name="create-a-group"></a>Grup oluşturma
 
@@ -115,7 +121,7 @@ Grup oluşturulduktan sonra grubun tüm makinelerde aracıları yüklemek ve tü
 
 ## <a name="query-dependency-data-from-log-analytics"></a>Log Analytics sorgu bağımlılık verileri
 
-Hizmet eşlemesi tarafından yakalanan bağımlılık veriler, Log Analytics'te sorgulama için kullanılabilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) Log Analytics'te sorgu hizmet eşlemesi veri tabloları hakkında. 
+Hizmet eşlemesi tarafından yakalanan bağımlılık verileri sorgulamak için Azure geçişi projenizle ilişkili Log Analytics çalışma alanında kullanılabilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) Log Analytics'te sorgu hizmet eşlemesi veri tabloları hakkında. 
 
 Log Analytics sorguları çalıştırmak için:
 

@@ -1,27 +1,27 @@
 ---
-title: "Hızlı Başlangıç: Metinden dili tanımlama, Ruby - Translator Metin Çevirisi API'si"
+title: "Hızlı Başlangıç: Metin dili tanımlamak Ruby - Translator metin çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Ruby ile Translator Metin Çevirisi API’sini kullanarak kaynak metnin dilini tanımlayacaksınız.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: ee6792358e6d5852c259b8045f77df24d14a6397
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: d710f1ae1df04cf5e97a3583a0cbe9a7c59abdb3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644881"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461143"
 ---
-# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-ruby"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API’si (Ruby) ile metinden dil tanımlama
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-ruby"></a>Hızlı Başlangıç: Translator metin REST API'si (Ruby) ile metin dili tanımlama
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak kaynak metnin dilini tanımlayacaksınız.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu çalıştırmak için [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) veya üzeri bir sürümüne ihtiyacınız olacak.
 

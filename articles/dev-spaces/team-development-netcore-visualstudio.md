@@ -5,19 +5,19 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 0b0b80bace73798d64c198c31799fa62886f38e0
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: ecacb7d3d4576b18eee3faf88c2a598d6acf94a0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705370"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465376"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces ile Ekip Geliştirmesi
 
@@ -77,7 +77,7 @@ Zamandan kazanmak adına örnek kodu bir GitHub deposundan indirelim. https://gi
 1. `webfrontend` projesindeki kesme noktasını tetiklemek için sayfanın üst kısmındaki **Hakkında** bağlantısına tıklayın. 
 1. Devam etmek için F10'a basın. `mywebapi` projesindeki kesme noktası tetiklenir.
 1. Devam etmek üzere F5’e basarak `webfrontend` projesindeki koda dönersiniz.
-1. F5’e bir kez daha bastığınızda istek tamamlanır ve tarayıcıda bir sayfa döndürülür. Web uygulamasında Hakkında sayfası iki hizmet tarafından birleştirilmiş bir ileti görüntüler: "Hello from webfrontend and Hello from mywebapi."
+1. F5’e bir kez daha bastığınızda istek tamamlanır ve tarayıcıda bir sayfa döndürülür. Web uygulamasında hakkında sayfasında iki hizmet tarafından birleştirilmiş bir ileti görüntülenir: "Hello webfrontend ve Hello mywebapi gelen."
 
 Bravo! Artık her kapsayıcının ayrı ayrı geliştirilip dağıtılabileceği çok kapsayıcılı bir uygulamanız var.
 

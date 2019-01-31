@@ -1,6 +1,6 @@
 ---
-Başlık: Veri aktarmak Machine Learning Studio titleSuffix: Azure Machine Learning Studio açıklaması: Verilerinizi çeşitli veri kaynaklarından Azure Machine Learning Studio'ya içeri aktarma. Hangi veri türlerini ve veri biçimleri desteklendiğini öğrenin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Veri aktarmak Machine Learning Studio titleSuffix: Azure Machine Learning Studio açıklaması: Verilerinizi çeşitli veri kaynaklarından Azure Machine Learning Studio'ya içeri aktarma. Hangi veri türlerini ve veri biçimleri desteklendiğini öğrenin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 11/29/2017
 ---
@@ -53,12 +53,12 @@ Açıkça belirtebilir veya sütunların kullanarak başlıklar ve veri türleri
 
 Aşağıdaki **veri türleri** Machine Learning Studio tarafından tanınan:
 
-* Dize
+* String
 * Tamsayı
-* çift
+* Double
 * Boole
 * DateTime
-* Zaman aralığı
+* TimeSpan
 
 Machine Learning Studio'da adlı bir iç veri türü kullanan ***veri tablosu*** modülleri arasında veri iletmek için. Verilerinizi biçimini kullanarak veri tablosuna açıkça dönüştürebilir [veri kümesine Dönüştür] [ convert-to-dataset] modülü.
 

@@ -1,6 +1,6 @@
 ---
-Başlık: Python makine öğrenimi betiklerini titleSuffix yürütün: Azure Machine Learning Studio açıklaması: Anahatları Python betikleri Azure Machine Learning Studio, temel kullanım senaryoları, özellikler ve sınırlamalar için destek temel ilkeleri tasarlayın.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Python makine öğrenimi betiklerini titleSuffix yürütün: Azure Machine Learning Studio açıklaması: Anahatları Python betikleri Azure Machine Learning Studio, temel kullanım senaryoları, özellikler ve sınırlamalar için destek temel ilkeleri tasarlayın.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 11/29/2017
 ---

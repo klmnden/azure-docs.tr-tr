@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 6fc3aa3810fa79e0995fd94708d03310cc5cef53
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 76db38a59d2239de79ebcdcfd454ac60a8f514be
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244989"
+ms.locfileid: "55299903"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimi (Dwu) ve işlem veri ambarı birimi (cDWUs)
 Veri ambarı birimi (dwu'ları, cDWUs) fiyat ve performans ve birim sayısını değiştirmek nasıl en iyi duruma getirmek için ideal sayısını seçme önerileri. 
@@ -62,7 +62,7 @@ WITH
 Her performans katmanı, veri ambarı birimleri için biraz daha farklı bir ölçü kullanır. Ölçek birimi için faturalandırma doğrudan çevirir. Bu fark faturada yansıtılır.
 
 - Gen1 veri ambarları, veri ambarı birimi (Dwu) ölçülür.
-- 2. nesil veri warehousesr işlem veri ambarı birimi (cDWUs) ölçülür. 
+- 2. nesil veri ambarları ölçülür, veri ambarı birimi (cDWUs) işlem. 
 
 Dwu'lar hem cDWUs yukarı veya aşağı ölçeklendirme işlem desteği ve duraklatma işlem, veri ambarı kullanmanız gerekmez. Bu işlemlerin tümü isteğe bağlı. Gen2 performansını artırmak için işlem düğümlerinde disk tabanlı yerel önbelleği kullanır. Ölçeklendirin veya sistem duraklatmak, önbellekte geçersiz kılınan ve önbellek hazırlanıyor, bir süre önce en iyi performans elde edilir şekilde gereklidir.  
 

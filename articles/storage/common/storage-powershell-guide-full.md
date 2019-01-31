@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0db6cc02be385ab82d41ecef214c5b158892c415
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: 7fbbcefde583d7e464633d9011e591b4c9bf6f65
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628143"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460327"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage ile Azure PowerShell’i kullanma
 
@@ -181,8 +181,8 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 Varsayılan olarak, tüm depolama hesapları, internet erişimi olan herhangi bir ağ tarafından erişilebilir. Ancak, yalnızca belirli sanal ağlar uygulamalardan bir depolama hesabına erişmesine izin vermek için ağ kuralları yapılandırabilirsiniz. Daha fazla bilgi için [Azure depolama güvenlik duvarlarını yapılandırın ve sanal ağları](storage-network-security.md). 
 
 Bu makalede aşağıdaki PowerShell cmdlet'lerini kullanarak bu ayarlarının nasıl yönetileceğini gösterir:
-* [AzStorageAccountNetworkRule ekleyin](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
-* [Güncelleştirme AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
+* [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
+* [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
 * [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
 ## <a name="use-storage-analytics"></a>Depolama analizi kullanma  

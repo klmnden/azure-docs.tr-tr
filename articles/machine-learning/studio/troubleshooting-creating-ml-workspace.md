@@ -1,6 +1,6 @@
 ---
-Başlık: ' Sorunlarını giderme: Oluşturma, Machine Learning Studio çalışma alanına bağlamak ' titleSuffix: Azure Machine Learning Studio açıklaması: Bu kılavuz, Azure Machine Learning Studio çalışma alanları ayarlarken çözümleri bazı zorluklar sık karşılaşıldı. sağlar.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: ' Sorunlarını giderme: Oluşturma, Machine Learning Studio çalışma alanına bağlamak ' titleSuffix: Azure Machine Learning Studio açıklaması: Bu kılavuz, Azure Machine Learning Studio çalışma alanları ayarlarken çözümleri bazı zorluklar sık karşılaşıldı. sağlar.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/20/2017
 ---

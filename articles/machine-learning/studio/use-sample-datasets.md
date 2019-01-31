@@ -1,6 +1,6 @@
 ---
-Başlık: Örnek veri kümeleri titleSuffix kullanın: Azure Machine Learning Studio açıklaması: Machine Learning Studio'da bulunan örnek modellerde kullanılan veri kümelerine açıklamaları. Bu örnek veri kümeleri için denemelerinizi kullanabilirsiniz.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Örnek veri kümeleri titleSuffix kullanın: Azure Machine Learning Studio açıklaması: Machine Learning Studio'da bulunan örnek modellerde kullanılan veri kümelerine açıklamaları. Bu örnek veri kümeleri için denemelerinizi kullanabilirsiniz.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 01/19/2018
 ---

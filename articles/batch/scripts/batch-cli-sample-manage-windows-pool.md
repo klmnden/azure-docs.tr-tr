@@ -3,7 +3,7 @@ title: Azure CLI Betik Örneği - Batch’te Windows Havuzu | Microsoft Docs
 description: Azure CLI Betik Örneği - Batch’te Windows havuzu oluşturma ve yönetme
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: danlep
-ms.openlocfilehash: 18fc7f9b0675f5c83f716aedfa6968d1ce48c0ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: lahugh
+ms.openlocfilehash: c4906ca67137790e19342f0434e6c2b3932819fd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969012"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472242"
 ---
-# <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>CLI örneği: Azure Batch’te bir Windows havuzu oluşturma ve yönetme
+# <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>CLI örneği: Bir Azure batch'te Windows havuzu oluşturma ve yönetme
 
 Bu betikte, Azure Batch’te Windows işlem düğümleri havuzu oluşturmaya ve yönetmeye yönelik Azure CLI’de kullanılabilir komutlardan bazıları gösterilir. Bir Windows havuzu iki şekilde yapılandırılabilir, bir Cloud Services yapılandırmasıyla veya Sanal Makine yapılandırmasıyla. Bu örnek, bir Windows havuzunu Cloud Services yapılandırmasıyla oluşturmayı gösterir.
 

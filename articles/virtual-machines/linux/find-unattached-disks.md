@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.component: disks
-ms.openlocfilehash: 58a54b7e867b625adf76d6287d5067c326c80f17
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 034d2433b2251351d54c2c5f41f78b5d45ab80e1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462802"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470765"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Bulma ve eklenmemiş Azure yönetilen ve yönetilmeyen disk silme
 Bir sanal makine (VM), azure'daki varsayılan olarak, sildiğinizde VM'ye bağlı tüm diskleri silinmez. Bu özellik VM'ler yanlışlıkla silinmesini nedeniyle veri kaybını önlemeye yardımcı olur. VM silindikten sonra eklenmemiş disk için ödeme yapmaya devam edersiniz. Bu makalede bulup eklenmemiş tüm diskleri silin ve gereksiz maliyetleri azaltın gösterilmektedir. 

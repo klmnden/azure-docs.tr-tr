@@ -1,5 +1,5 @@
 ---
-Başlık: Machine Learning Studio çalışma alanı titleSuffix yönetin: Azure Machine Learning Studio açıklaması: Azure Machine Learning çalışma alanları, erişimi yönetmek ve dağıtmak ve ML API web services hizmetlerini yönetme: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Machine Learning Studio çalışma alanı titleSuffix yönetin: Azure Machine Learning Studio açıklaması: Azure Machine Learning çalışma alanları, erişimi yönetmek ve dağıtmak ve ML API web services hizmetlerini yönetme: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 02/27/2017
 ---

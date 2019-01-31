@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f7d5fcf1905200bc214a3ff42db9b7b511768dd0
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.subservice: common
+ms.openlocfilehash: 6a3fe8c7235a0cf475f188a3379e372cd777ce8c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214904"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477650"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell kullanarak Azure bağımsız bulutlarda depolama yönetme
 
@@ -86,7 +86,7 @@ Bu komut, aşağıdaki sonuçları döndürür.
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | Core.Windows.NET |
 | AzureGermanCloud | core.cloudapi.de|
-| AzureUSGovernment | Core.usgovcloudapi.NET |
+| AzureUSGovernment | core.usgovcloudapi.net |
 
 Belirtilen ortam için özelliklerin tümünü almak için arama **Get-AzEnvironment** ve bulut adı belirtin. Bu kod parçacığı özelliklerin bir listesini döndürür; Aranacak **StorageEndpointSuffix** listesinde. Aşağıdaki örnek, Almanya bulutu için aynıdır.
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 01/25/2019
+ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584171"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455765"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme
 
@@ -34,9 +34,9 @@ Rezervasyon satın alma işlemleri için Kurumsal müşteriler ve Kullandıkça 
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Satın almadan önce doğru SQL boyutunu belirler
 
-Rezervasyon boyutunu temel veritabanı ve/veya belirli bir bölgedeki elastik havuzların tek işlem mevcut veya yakında-için--dağıtılabilir SQL tarafından kullanılan toplam miktarı ve aynı performans katmanına ve donanım oluşturmayı kullanarak. 
+Rezervasyon boyutu mevcut yakında-için--dağıtılabilir veya tek tarafından kullanılan işlem toplam miktarını dayanmalıdır veritabanları ve/veya belirli bir bölgede ve aynı performans katmanına ve donanım oluşturmayı kullanarak elastik havuzlar. 
 
-Örneğin, bir genel amaçlı, 5. nesil-16 sanal çekirdek elastik havuz ve iki iş açısından kritik, 5. nesil-4 sanal çekirdek tek veritabanının çalıştığını varsayalım. Ayrıca, ek bir genel amaçlı ve 5. nesil-16 sanal çekirdek elastik havuz, bir iş açısından kritik, 5. nesil-32 sanal çekirdek elastik havuz gelecek ay içinde dağıtmayı planladığınız şimdi gerekiyor. Ayrıca, en az 1 yıl için bu kaynakları gerekir bildiğiniz varsayalım. Bu durumda bir 32 satın almalıdır (2 x 16) sanal çekirdek, SQL veritabanı tek/elastik havuz genel amaçlı - işlem 5. nesil ve bir 40 (2 x 4 + 32) için 1 yıl ayırma için SQL veritabanı tek/elastik havuz iş açısından kritik - işlem 5. nesil sanal çekirdek 1 yıl ayırma.
+Örneğin, bir genel amaçlı, 5. nesil-16 sanal çekirdek elastik havuz ve iki iş açısından kritik, 5. nesil-4 sanal çekirdek tek veritabanının çalıştığını varsayalım. Ayrıca, ek bir genel amaçlı ve 5. nesil-16 sanal çekirdek elastik havuz, bir iş açısından kritik, 5. nesil-32 sanal çekirdek elastik havuz gelecek ay içinde dağıtmayı planladığınız şimdi gerekiyor. Ayrıca, en az 1 yıl için bu kaynakları gerekir bildiğiniz varsayalım. Bu durumda bir 32 satın almalıdır (2 x 16) sanal çekirdek, 1 yıl ayırma SQL veritabanı tek başına/esnek havuz için - genel amaçlı işlem 5. nesil ve (2 x 4 + 32) bir 40 sanal çekirdek 1 yıl ayırma için SQL veritabanı tek başına/elastik havuz iş açısından kritik - işlem 5. nesil.
 
 ## <a name="buy-sql-database-reserved-capacity"></a>SQL veritabanı ayrılmış kapasite satın alın
 
@@ -50,7 +50,7 @@ Rezervasyon boyutunu temel veritabanı ve/veya belirli bir bölgedeki elastik ha
     | Alan      | Açıklama|
     |:------------|:--------------|
     |Ad        |Bu rezervasyon adı.| 
-    |Abonelik|SQL veritabanı ayrılmış kapasite ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet SQL veritabanı ayrılmış kapasite ayırma için ücretlendirilir. Abonelik, kurumsal anlaşma (teklif numarası: MS-AZR-0017P) veya Kullandıkça Öde (teklif numarası: MS-AZR-0003P) türündedir. Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde aboneliğinde ücretler, aboneliğin kredi kartı veya fatura ödeme yöntemi ile faturalandırılır.|    
+    |Abonelik|SQL veritabanı ayrılmış kapasite ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet SQL veritabanı ayrılmış kapasite ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (teklif numarası: MS-AZR-0017P) ya da Kullandıkça Öde (teklif numarası: MS-AZR-0003P). Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde aboneliğinde ücretler, aboneliğin kredi kartı veya fatura ödeme yöntemi ile faturalandırılır.|    
     |Kapsam       |Sanal çekirdek ayırma'nın kapsamı, bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <ul><li>Tek bir abonelik - sanal çekirdek ayırma indirimini bu Abonelikteki SQL veritabanı örneklerine uygulanır. </li><li>Paylaşılan - sanal çekirdek ayırma indirimi, herhangi bir abonelik, fatura bağlamı içinde çalışan SQL veritabanı örneklerine uygulanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt (geliştirme ve test abonelikleri) hariç tüm aboneliklere dahildir. Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.</li></ul>|
     |Bölge      |SQL veritabanı tarafından kapsanan Azure bölgesini kapasite ayırma saklıdır.|    
     |Dağıtım Türü|İçin ayırma satın almak istediğiniz SQL kaynak türü.|
@@ -87,7 +87,7 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Kurumsal kayıt için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [İş ortağı merkezi bulut çözümü sağlayıcısı (CSP) programında Azure ayırmalar](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

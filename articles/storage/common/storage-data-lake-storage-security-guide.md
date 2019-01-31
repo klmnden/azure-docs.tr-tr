@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: d2182942b8d1ce78fd4a72ff387c7a6a1cfead5a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: common
+ms.openlocfilehash: ca1012e0f1b0b7a9e0d8bd88d94876c20d22dec5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473792"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake depolama Gen2 Güvenlik Kılavuzu
 
@@ -79,7 +79,7 @@ Bir Azure depolama hesabı yönetim işlemlerini erişmek için RBAC kullanma ha
 * [Azure Active Directory Rol Tabanlı Erişim Denetimi](../../role-based-access-control/role-assignments-portal.md)
 
   Bu makalede Azure Active Directory Rol Tabanlı Access Control ve nasıl çalıştığı açıklanmaktadır.
-* [RBAC: Yerleşik Roller](../../role-based-access-control/built-in-roles.md)
+* [RBAC: Yerleşik roller](../../role-based-access-control/built-in-roles.md)
 
   Bu makalede RBAC'de kullanılabilen yerleşik rollerin tümünde ayrıntıları.
 * [Resource Manager dağıtımını ve klasik dağıtımı anlama](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -225,7 +225,7 @@ Paylaşılan erişim imzalarını ve depolanan erişim ilkelerini örnekleri ile
 * Paylaşılan erişim imzalarını ve depolanan erişim ilkelerini oluşturmak için .NET istemci kitaplığını kullanma öğreticileri şunlardır.
 
   * [Paylaşılan erişim imzaları (SAS) kullanma](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Paylaşılan erişim imzaları, bölüm 2: Oluşturma ve Blob hizmetiyle SAS kullanın](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [Paylaşılan erişim imzaları, bölüm 2: Oluşturma ve Blob hizmetiyle SAS kullanma](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Bu makale, SAS Modeli'ni veya paylaşılan erişim imzaları örnekleri bir açıklama içerir ve SAS'ın en iyi yöntem önerileri kullanın. De ele izni iptal olur.
 

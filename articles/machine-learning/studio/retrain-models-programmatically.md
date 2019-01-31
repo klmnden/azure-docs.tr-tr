@@ -1,6 +1,6 @@
 ---
-Başlık: Retrain Machine Learning Studio'da, programlı olarak titleSuffix modelleri: Azure Machine Learning Studio açıklaması: Program aracılığıyla kullanarak modeli yeniden eğitme öğrenin C# ve Machine Learning Batch Execution hizmeti.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Retrain Machine Learning Studio'da, programlı olarak titleSuffix modelleri: Azure Machine Learning Studio açıklaması: Program aracılığıyla kullanarak modeli yeniden eğitme öğrenin C# ve Machine Learning Batch Execution hizmeti.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

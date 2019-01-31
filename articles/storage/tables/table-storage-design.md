@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237783"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472567"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Ölçeklenebilir ve performansa yönelik tablolar tasarlama
 
@@ -132,7 +132,7 @@ Tablo adı, hesap adı ve **PartitionKey** birlikte depolama hizmetindeki tablo 
 
 Tablo hizmetinde Hizmetleri tek bir düğüm bir veya daha fazla tamamlamak bölümleri ve hizmet ölçekler dinamik olarak yük dengeleyici tarafından düğümleri arasında bölümler. Bir düğümü yük altında ise, tablo hizmeti için *bölme* bölümler çeşitli hizmet, farklı düğümlerde düğüme tarafından; trafiği kısalana hizmet yapabilirsiniz *birleştirme* sessiz düğümlerden bölüm aralığı geri tek bir düğüme.  
 
-Daha fazla bilgi için iç ayrıntıları tablo hizmeti ve belirli bölümler hizmet yönetir nasıl incelemeye bakın [Microsoft Azure Depolama: yüksek oranda kullanılabilir bulut depolama hizmet güçlü tutarlılıkla](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Daha fazla bilgi için iç ayrıntıları tablo hizmeti ve belirli bölümler hizmet yönetir nasıl incelemeye bakın [Microsoft Azure Depolama: Güçlü tutarlılık ile yüksek oranda kullanılabilir bulut depolama hizmeti](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ## <a name="entity-group-transactions"></a>Varlık grubu işlemleri
 Tablo hizmeti, varlık grubu işlemleri (EGTs) birden fazla varlıkta atomik güncelleştirmeleri gerçekleştirmek için yalnızca yerleşik mekanizmasıdır. EGTs bazen de denir *toplu işlemler*. EGTs yalnızca çalışabilir varlıklar aynı bölümde depolanır (diğer bir deyişle, bir tablodaki aynı bölüm anahtarına paylaşma). Bu nedenle birden fazla varlıkta atomik işlem davranışı gerektiren her zaman, bu varlıklar aynı bölümde olduğunu emin olmalısınız. Genellikle birden çok varlık türleri aynı tablonun (ve bölüm) tutulması ve birden fazla tablo farklı varlık türleri için kullanmayan bir nedeni de budur. Tek bir EGT en fazla 100 varlık üzerinde çalışabilir.  İşleme için birden çok eş zamanlı EGTs gönderirseniz, söz konusu EGTs EGTs arasında ortak olan varlıklar üzerinde çalıştırmayın sağlamak önemlidir; Aksi takdirde, işlem ertelenebilir.

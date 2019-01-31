@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 52f08511d16e216ced7e3d1de11eae960cdbaeb8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f56b1b06e8be46c1a111e920cfb98bc58d4f6636
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041875"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466872"
 ---
-# <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'de çeşitli tutarlılık düzeyleri için kullanılabilirlik ve performans seçenekleri
+# <a name="consistency-availability-and-performance-tradeoffs"></a>Tutarlılık, kullanılabilirlik ve performans seçenekleri 
 
 Yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi için çoğaltma kullanan dağıtılmış veritabanları ödünler yapmanız gerekir. Kullanılabilirlik, gecikme süresi ve aktarım hızı ve okuma tutarlılığı dengelemeleri arasındadır. 
 

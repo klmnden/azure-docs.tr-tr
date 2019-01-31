@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ee8e3e3ef33a8b09b92d4dfc262fce26dd60abb3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: adf713fc3f875168f99b302b0a9affef88e8414f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134412"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457695"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Veri bilimi projeleri, Çevik Geliştirme
 
@@ -38,20 +38,20 @@ Tipik bir sprint planlama, kodlama aşağıdaki şekilde gösterilmiştir ve uyg
 
 ##  1. <a name='Terminology-1'></a>Terminolojisi 
 
-TDSP sprint planlama framework, sık kullanılan dört tür **iş öğelerini**: **özellik**, **kullanıcı hikayesi**, **görev**, ve **Hata**. Tüm iş öğeleri için tek bir biriktirme listesi her proje tutar. Git deposu düzeyinde bir projesi altındaki hiçbir biriktirme listesi yoktur. Tanımlarını şunlardır:
+TDSP sprint planlama framework, sık kullanılan dört tür **iş öğelerini**: **Özellik**, **kullanıcı hikayesi**, **görev**, ve **hata**. Tüm iş öğeleri için tek bir biriktirme listesi her proje tutar. Git deposu düzeyinde bir projesi altındaki hiçbir biriktirme listesi yoktur. Tanımlarını şunlardır:
 
-- **Özellik**: bir özellik için bir proje engagement karşılık gelir. İstemcisi ile farklı angajmanları farklı özellikleri olarak kabul edilir. Benzer şekilde, farklı bir proje aşamasının farklı özelliklere sahip bir istemci dikkate alınması gereken en iyisidir. Bir şema gibi seçerseniz ***ClientName EngagementName*** özelliklerinizi adlandırmak için ardından, kolayca adları proje/engagement'tan bağlamında tanıyabilir.
-- **Hikaye**: hikayeleri olan bir özellik (Proje) için uçtan uca tamamlamak için gereken farklı iş öğeleri. Hikayeler örnekleri şunlardır:
+- **Özellik**: Bir özellik için bir proje engagement karşılık gelir. İstemcisi ile farklı angajmanları farklı özellikleri olarak kabul edilir. Benzer şekilde, farklı bir proje aşamasının farklı özelliklere sahip bir istemci dikkate alınması gereken en iyisidir. Bir şema gibi seçerseniz ***ClientName EngagementName*** özelliklerinizi adlandırmak için ardından, kolayca adları proje/engagement'tan bağlamında tanıyabilir.
+- **Hikaye**: Hikayeler bir özellik (Proje) için uçtan uca tamamlamak için gereken farklı iş öğelerdir. Hikayeler örnekleri şunlardır:
     - Veri alma 
     - Verileri Araştırma 
     - Özellikleri oluşturma
     - Yapı modelleri
     - Faaliyete geçirmeye yönelik model 
     - Modelleri yeniden eğitme
-- **Görev**: görevleridir atanabilir kodu veya belge iş öğeleri ya da belirli bir hikayeyi tamamlamak üzere gerçekleştirilmesi gereken diğer etkinlikler. Örneğin, öyküyü görevleri *veri alma* olabilir:
+- **Görev**: Atanabilir kod veya belge iş öğeleri ya da belirli bir hikayeyi tamamlamak üzere gerçekleştirilmesi gereken diğer etkinlikleri görevlerdir. Örneğin, öyküyü görevleri *veri alma* olabilir:
     -  SQL Server'ın kimlik bilgilerini alma 
     -  SQL Data Warehouse'a veri yükleme. 
-- **Hata**: hatalar genellikle bir görevi tamamlanırken yapılan bir var olan kod veya belge için gerekli düzeltmeleri için bakın. Aşamalar veya görevleri sırasıyla eksik hataya neden oluyorsa, bir hikayesi veya bir görev olarak ilerletebilirler. 
+- **Hata**: Hataları, genellikle bir görevi tamamlanırken yapılan bir var olan kod veya belge için gerekli düzeltmeleri için bakın. Aşamalar veya görevleri sırasıyla eksik hataya neden oluyorsa, bir hikayesi veya bir görev olarak ilerletebilirler. 
 
 > [!NOTE]
 > Kavramları, özellikleri, hikayeleri, görevleri ve yazılım kodu Yönetimi (SCM) veri bilimi kullanılacak hatalardan ödünç. Bunlar, geleneksel SCM tanımlarından biraz farklı olabilir.

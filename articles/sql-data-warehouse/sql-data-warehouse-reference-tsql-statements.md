@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: fa497979349346016e1c176ace98407d98eebdca
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4cec5dd38d41f354f4d1430240a23f0b328cbb7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307741"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452439"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda desteklenen T-SQL deyimleri
 Azure SQL veri ambarı'nda desteklenen T-SQL bildirimleri belgelerine bağlantılar.
@@ -86,7 +86,7 @@ Azure SQL veri ambarı'nda desteklenen T-SQL bildirimleri belgelerine bağlantı
 * [Alt sorgular](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Güvenlik deyimleri
-* İzinler: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [REDDET](https://msdn.microsoft.com/library/ms188338.aspx), [iptal et](https://msdn.microsoft.com/library/ms187728.aspx)
+* İzinler: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [REDDET](https://msdn.microsoft.com/library/ms188338.aspx), [İPTAL ET](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ALTER YETKİLENDİRME](https://msdn.microsoft.com/library/ms187359.aspx)
 * [SERTİFİKA DEĞİŞTİRME](https://msdn.microsoft.com/library/ms189511.aspx)
 * [VERİTABANI ŞİFRELEME ANAHTARI DEĞİŞTİRME](https://msdn.microsoft.com/library/bb630389.aspx)

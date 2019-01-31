@@ -2,20 +2,20 @@
 title: Saydam veri şifrelemesi SQL veri ambarı (Portal) | Microsoft Docs
 description: SQL veri ambarı'nda saydam veri şifrelemesi (TDE)
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: e641ddb5360c18b5977fb79de41334d4216c2b90
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 6ca5ac013716db9712063e8efc0e2116570008a9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306196"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455618"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>İle saydam veri şifrelemesi (TDE) SQL veri ambarı'nda kullanmaya başlayın
 > [!div class="op_single_selector"]
@@ -52,12 +52,12 @@ SQL veri ambarı için TDE devre dışı bırakmak için aşağıdaki adımları
 ## <a name="encryption-dmvs"></a>Şifreleme Dmv'ler
 Şifreleme ile aşağıdaki Dmv'leri onaylanabilir:
 
-* [sys.Databases]
+* [sys.databases]
 * [sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--MSDN references-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-[sys.Databases]: http://msdn.microsoft.com/library/ms178534.aspx
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
 [sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
 <!--Image references-->

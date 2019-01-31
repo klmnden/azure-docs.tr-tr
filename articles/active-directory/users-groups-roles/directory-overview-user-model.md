@@ -11,13 +11,13 @@ ms.topic: overview
 ms.service: active-directory
 ms.workload: identity
 services: active-directory
-ms.custom: it-pro;seo-update-jan
-ms.openlocfilehash: 8a5d09b476e8c8d17bd49ebece2e00dfb660c9cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 2e8fc0cd0321fb59a641e5527b1609c85802dc63
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192035"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295194"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Büyük kuruluşlar için kullanıcılar, gruplar, lisanslama ve roller
 
@@ -58,7 +58,7 @@ Yeni Azure AD yönetici rolleri eklenmektedir. Kullanılabilir rollerin listesi 
 
 ## <a name="assign-app-access"></a>Uygulama erişimi atama
 
-Azure AD'yi kullanarak [Azure AD kiracınızda dağıtılmış olan kurumsal uygulamalara](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-a-group-directly-to-an-application-as-an-administrator?context=azure/active-directory/users-groups-roles/context/ugr-context) grup erişimi atayabilirsiniz. Dinamik grupları uygulamalara grup atama özelliğiyle birlikte kullanarak kuruluşunuz büyürken kullanıcıların uygulama erişimi atamalarını otomatikleştirebilirsiniz. Kurumsal uygulamalara erişim atamak için Azure Active Directory Premium P1 veya Premium P2 lisansına ihtiyacınız olacaktır.
+Azure AD'yi kullanarak [Azure AD kiracınızda dağıtılmış olan kurumsal uygulamalara](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context) grup erişimi atayabilirsiniz. Dinamik grupları uygulamalara grup atama özelliğiyle birlikte kullanarak kuruluşunuz büyürken kullanıcıların uygulama erişimi atamalarını otomatikleştirebilirsiniz. Kurumsal uygulamalara erişim atamak için Azure Active Directory Premium P1 veya Premium P2 lisansına ihtiyacınız olacaktır.
 
 Azure AD ayrıca uygulama ile erişim atadığınız gruplar arasındaki veri akışı üzerinde ayrıntılı denetime sahip olmanızı da sağlar. [Kurumsal Uygulamalar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) sayfasında bir uygulamayı açıp **Sağlama**'yı seçerek:
 
@@ -72,4 +72,4 @@ Azure AD ayrıca uygulama ile erişim atadığınız gruplar arasındaki veri ak
 
 Yeni bir Azure AD yöneticisiyseniz temel bilgiler için bkz. [Azure Active Directory Temel Konuları](https://docs.microsoft.com/azure/active-directory/fundamentals/index).
 
-Dilerseniz [grup oluşturma](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [lisans atama](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [uygulama erişimi atama](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-a-group-directly-to-an-application-as-an-administrator?context=azure/active-directory/users-groups-roles/context/ugr-context) veya [yönetici rolü atama](directory-assign-admin-roles.md) işlemlerine başlayabilirsiniz.
+Dilerseniz [grup oluşturma](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [lisans atama](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [uygulama erişimi atama](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context) veya [yönetici rolü atama](directory-assign-admin-roles.md) işlemlerine başlayabilirsiniz.

@@ -11,20 +11,20 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/09/2018
-ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056344"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471156"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Coğrafi çoğaltma veritabanı kullanan çok kiracılı SaaS uygulaması için olağanüstü durum kurtarma
 
-Bu öğreticide, bir kiracı başına veritabanı modeli kullanılarak uygulanan bir çok kiracılı SaaS uygulaması için eksiksiz olağanüstü durum kurtarma senaryosuna keşfedin. Uygulama kesintiden korumak için kullandığınız [ _coğrafi çoğaltma_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) bir alternatif kurtarma bölgesinde yinelemeler için katalog ve Kiracı veritabanları oluşturmak için. Bir kesinti oluşursa, hızlı bir şekilde normal iş işlemlerini sürdürmek için bu çoğaltmaların yük devri. Yük devretmede, özgün bölgede veritabanları veritabanlarının kurtarma bölgesindeki ikincil çoğaltma olur. Bu çoğaltmaların yeniden çevrimiçi duruma geldikten sonra bunlar otomatik olarak veritabanlarının kurtarma bölgesindeki durumuna flow'unu yakalayın. Kesinti giderildikten sonra geri özgün üretim bölgede veritabanları için başarısız.
+Bu öğreticide, bir kiracı başına veritabanı modeli kullanılarak uygulanan bir çok kiracılı SaaS uygulaması için eksiksiz olağanüstü durum kurtarma senaryosuna keşfedin. Uygulama kesintiden korumak için kullandığınız [ _coğrafi çoğaltma_ ](sql-database-geo-replication-overview.md) bir alternatif kurtarma bölgesinde yinelemeler için katalog ve Kiracı veritabanları oluşturmak için. Bir kesinti oluşursa, hızlı bir şekilde normal iş işlemlerini sürdürmek için bu çoğaltmaların yük devri. Yük devretmede, özgün bölgede veritabanları veritabanlarının kurtarma bölgesindeki ikincil çoğaltma olur. Bu çoğaltmaların yeniden çevrimiçi duruma geldikten sonra bunlar otomatik olarak veritabanlarının kurtarma bölgesindeki durumuna flow'unu yakalayın. Kesinti giderildikten sonra geri özgün üretim bölgede veritabanları için başarısız.
 
 Bu öğretici, yük devretme ve yeniden çalışma iş akışları açıklar. Şunları öğrenirsiniz:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Kiracı kataloğa veritabanı ve elastik havuzu yapılandırma bilgilerini eşitleme
 >* Uygulama, sunucuları ve havuzları kapsayan bir kurtarma ortamı farklı bir bölgede ayarlayın
@@ -53,9 +53,9 @@ Coğrafi çoğaltma üzerinde dayalı olarak bir kurtarma planı, üç farklı b
 Tüm bölümleri dikkatlice olarak değerlendirilmesi uygun ölçekte özellikle işletim varsa. Genel olarak, plan çeşitli hedeflere ulaşmak gerekir:
 
 * Kurulum
-    * Kurmak ve kurtarma bölgesinde bir Ayna görüntüsünü ortamı güncelleştirin. Elastik havuzlar oluşturma ve bu kurtarma ortamdaki tek veritabanları çoğaltma kurtarma bölgesindeki kapasite ayırır. Bu ortamı bulundurmak, bunlar sağlanırken yeni Kiracı veritabanları çoğaltmayı içerir.  
+    * Kurmak ve kurtarma bölgesinde bir Ayna görüntüsünü ortamı güncelleştirin. Elastik havuzlar oluşturma ve bu kurtarma ortamda herhangi bir veritabanına çoğaltma kurtarma bölgesindeki kapasite ayırır. Bu ortamı bulundurmak, bunlar sağlanırken yeni Kiracı veritabanları çoğaltmayı içerir.  
 * Kurtarma
-    * Günlük maliyetleri azaltmak için ölçeği aşağı kurtarma ortamı kullanıldığı havuzlarını ve tek veritabanlarını kurtarma bölgesindeki tam işlem kapasitesi edinmek için ölçeği gerekir
+    * Günlük maliyetleri azaltmak için ölçeği aşağı kurtarma ortamı kullanıldığı havuzları ve veritabanlarını kurtarma bölgesindeki tam işlem kapasitesi edinmek için ölçeği gerekir
     * Yeni Kiracı kurtarma bölgesinde olabildiğince çabuk sağlamayı etkinleştir  
     * Kiracılar öncelik sırasına geri yüklemek için iyileştirilmiş
     * Kiracılar çevrimiçi mümkün olduğunca hızlı pratik olduğunda paralel adımları uygulayarak almak için iyileştirilmiş
@@ -67,10 +67,10 @@ Tüm bölümleri dikkatlice olarak değerlendirilmesi uygun ölçekte özellikle
 Bu öğreticide, Azure SQL veritabanı ve Azure platformunun özelliklerini kullanarak bu sorunları ele alınır:
 
 * [Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), tüm gerekli kapasite mümkün olan en kısa sürede ayırmak için. Azure Resource Manager şablonları, bir Ayna görüntüsünü üretim sunucuları ve kurtarma bölgedeki elastik havuzların sağlamak için kullanılır.
-* [Coğrafi çoğaltma](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), tüm veritabanları için zaman uyumsuz olarak çoğaltılan salt okunur olan ikincil veritabanı oluşturmayı. Kesinti sırasında kurtarma bölgedeki çoğaltmalarına yük devri.  Kesinti giderildikten sonra veri kaybı olmadan özgün bölgede veritabanları için geri başarısız.
+* [Coğrafi çoğaltma](sql-database-geo-replication-overview.md), tüm veritabanları için zaman uyumsuz olarak çoğaltılan salt okunur olan ikincil veritabanı oluşturmayı. Kesinti sırasında kurtarma bölgedeki çoğaltmalarına yük devri.  Kesinti giderildikten sonra veri kaybı olmadan özgün bölgede veritabanları için geri başarısız.
 * [Zaman uyumsuz](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) yük devretme işlemleri için çok sayıda veritabanıyla yük devretme süresini en aza indirmek için Kiracı öncelik sırasıyla gönderilir.
-* [Parça yönetim kurtarma özellikleri](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager), kurtarma ve repatriation sırasında Katalog veritabanı girişlerini değiştirmek için. Bu özellikler uygulama yapılandırmadan, Kiracı veritabanlarına konumdan bağımsız olarak bağlanmasına olanak sağlar.
-* [SQL sunucu DNS diğer adları](https://docs.microsoft.com/azure/sql-database/dns-alias-overview)sorunsuz hangi bölge ne olursa olsun uygulama işletim yeni kiracılar sağlama etkinleştirmek için. DNS diğer adları konumuna bakılmaksızın etkin Kataloğu'na bağlanmak kataloğun eşitleme işlemini izin vermek için de kullanılır.
+* [Parça yönetim kurtarma özellikleri](sql-database-elastic-database-recovery-manager.md), kurtarma ve repatriation sırasında Katalog veritabanı girişlerini değiştirmek için. Bu özellikler uygulama yapılandırmadan, Kiracı veritabanlarına konumdan bağımsız olarak bağlanmasına olanak sağlar.
+* [SQL sunucu DNS diğer adları](dns-alias-overview.md)sorunsuz hangi bölge ne olursa olsun uygulama işletim yeni kiracılar sağlama etkinleştirmek için. DNS diğer adları konumuna bakılmaksızın etkin Kataloğu'na bağlanmak kataloğun eşitleme işlemini izin vermek için de kullanılır.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Olağanüstü durum kurtarma betiklerini alma 
 
@@ -92,8 +92,8 @@ Daha sonra bir ayrı repatriation adımda, özgün bölgeye kurtarma bölgesinde
 Kurtarma işlemine başlamadan önce uygulama normal sağlıklı durumunu gözden geçirin.
 1. Wingtip biletleri olay hub'ı web tarayıcınızda açın (http://events.wingtip-dpt.&lt; kullanıcı&gt;. trafficmanager.net - değiştirin &lt;kullanıcı&gt; dağıtımınızın kullanıcı değeri ile).
     * Sayfanın en altına gidin ve kataloğu sunucu adını ve konumunu altbilgisindeki dikkat edin. Uygulamanın dağıtıldığı bölge konumdur.
-    *İpucu: fare görüntü büyütmek için konum gelin.*
-    ![Olayları hub sağlam durumda özgün bölge](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *İPUCU: Fare görünen büyütmek için konumu üzerinde gelin. * 
+     ![Olay hub'ı sağlıklı duruma özgün bölgede](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Contoso Konser Salonu kiracıda'a tıklayın ve kendi olay sayfasını açın.
     * Alt bilgisinde Kiracı sunucu adına dikkat edin. Konum Kataloğu server'ın konumu ile aynı olacaktır.
@@ -126,7 +126,7 @@ Arka planda çalışan PowerShell penceresine bırakın ve bu öğreticinin geri
 Bu görevde, yinelenen uygulama örneği dağıtır ve Katalog ve tüm Kiracı veritabanlarında bir kurtarma bölgeye çoğaltır bir işlem başlatın.
 
 > [!Note]
-> Bu öğreticide, Wingtip bilet örnek uygulamaya coğrafi çoğaltma koruması ekler. Coğrafi çoğaltma kullanan bir uygulamayı bir üretim senaryosunda, her Kiracı gizliliğe coğrafi olarak yedekli bir veritabanından ile sağlanması. Bkz: [Azure SQL veritabanı ile yüksek oranda kullanılabilir hizmetler tasarlama](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+> Bu öğreticide, Wingtip bilet örnek uygulamaya coğrafi çoğaltma koruması ekler. Coğrafi çoğaltma kullanan bir uygulamayı bir üretim senaryosunda, her Kiracı gizliliğe coğrafi olarak yedekli bir veritabanından ile sağlanması. Bkz: [Azure SQL veritabanı ile yüksek oranda kullanılabilir hizmetler tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
 1. İçinde *PowerShell ISE*...\Learning Modules\Business sürekliliği ve olağanüstü durum Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 komut dosyasını açın ve aşağıdaki değerleri ayarlayın:
     * **$DemoScenario = 2**yansıma kurtarma ortamı oluşturun ve çoğaltmak katalog ve Kiracı veritabanları
@@ -135,12 +135,14 @@ Bu görevde, yinelenen uygulama örneği dağıtır ve Katalog ve tüm Kiracı v
 ![Eşitleme işlemi](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>Normal uygulama durumunu gözden geçirin
+
 Bu noktada uygulama normal olarak özgün bölgede çalışan ve coğrafi çoğaltma tarafından artık korunur.  İkincil çoğaltmaların salt okunur mevcut tüm veritabanları için kurtarma bölgesindeki. 
+
 1. Azure portalında kaynak grupları ve bir kaynak grubu - ile oluşturulan Not bakmak kurtarma bölgesindeki kurtarma soneki. 
 
-1. Kurtarma kaynak grubundaki kaynakları keşfedin.  
+2. Kurtarma kaynak grubundaki kaynakları keşfedin.  
 
-1. Contoso Konser Salonu veritabanında tıklayın _tenants1-dpt -&lt;kullanıcı&gt;-kurtarma_ sunucusu.  Coğrafi çoğaltma üzerinde sol taraftaki tıklayın. 
+3. Contoso Konser Salonu veritabanında tıklayın _tenants1-dpt -&lt;kullanıcı&gt;-kurtarma_ sunucusu.  Coğrafi çoğaltma üzerinde sol taraftaki tıklayın. 
 
     ![Contoso Konser coğrafi çoğaltma bağlantısı](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -193,6 +195,7 @@ Artık uygulama dağıtılan ve kurtarma betiği çalıştırmak bir bölgede ke
 > Kodu kurtarma işleri için keşfetmek için PowerShell betikleri ...\Learning Modules\Business sürekliliği ve olağanüstü durum Recovery\DR-FailoverToReplica\RecoveryJobs klasöründe gözden geçirin.
 
 ### <a name="review-the-application-state-during-recovery"></a>Kurtarma sırasında uygulama durumunu gözden geçirin
+
 Uygulama, uygulama uç noktasını Traffic Manager'da devre dışı bırakıldığında kullanılamaz. Katalog Kurtarma bölgeye devredilen ve tüm kiracılar çevrimdışı olarak işaretlenmiş sonra uygulamayı tekrar çevrimiçi olana. Uygulama kullanılabilir olsa da, her Kiracı veritabanına yük devretme kadar olay hub'ında çevrimdışı görüntülenir. Çevrimdışı Kiracı veritabanlarını işlemek için uygulamanızı tasarlamak önemlidir.
 
 1. Katalog veritabanı kurtarıldıktan sonra en kısa sürede web tarayıcınızda Wingtip biletleri olay hub'ı yenileyin.
@@ -301,7 +304,7 @@ Kiracı veritabanlarını kurtarma ve özgün bölgeler arasında bir süre boyu
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Kiracı kataloğa veritabanı ve elastik havuzu yapılandırma bilgilerini eşitleme
 >* Uygulama, sunucuları ve havuzları kapsayan bir kurtarma ortamı farklı bir bölgede ayarlayın
@@ -313,4 +316,4 @@ Azure SQL veritabanı sağlar, iş sürekliliği sağlamak teknolojileri hakkın
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Wingtip SaaS uygulamasına geliştirecek ek öğreticilerden](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Wingtip SaaS uygulamasına geliştirecek ek öğreticilerden](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

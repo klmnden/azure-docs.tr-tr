@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716421"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297098"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Azure App Service'te yetkilendirme
 
@@ -293,7 +293,7 @@ Sol tarayıcıda **abonelikler** > **_&lt;sizin\_aboneliğiniz>_** > **resourceG
 
 Uygulamalarınız artık yapılandırılmıştır. Ön uç artık doğru bir erişim belirteci ile arka uca erişmeye hazırdır.
 
-Bunu diğer sağlayıcılar için yapılandırma hakkında daha fazla bilgi için bkz. [Erişim belirteçlerini yenileme](app-service-authentication-how-to.md#refresh-access-tokens).
+Bunu diğer sağlayıcılar için yapılandırma hakkında daha fazla bilgi için bkz: [kimlik sağlayıcısı belirteçleri yenileme](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## <a name="call-api-securely-from-server-code"></a>Sunucu kodundan güvenli bir şekilde API çağırma
 
@@ -417,7 +417,7 @@ Tebrikler! İstemci kodunuz artık kimliği doğrulanmış kullanıcı adına ar
 
 ## <a name="when-access-tokens-expire"></a>Erişim belirteçlerinin sona erme zamanı
 
-Erişim belirtecinizin süresi bir süre sonra sona erer. Kullanıcıların uygulamanızda yeniden kimlik doğrulamasından geçmesine gerek kalmadan erişim belirteçlerini yenileme hakkında bilgi için bkz. [Erişim belirteçlerini yenileme](app-service-authentication-how-to.md#refresh-access-tokens).
+Erişim belirtecinizin süresi bir süre sonra sona erer. Kullanıcıların uygulamanızla birlikte yeniden kimlik doğrulamaya zorlayabilir gerek kalmadan, erişim belirteçleri yenileme hakkında daha fazla bilgi için bkz: [kimlik sağlayıcısı belirteçleri yenileme](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

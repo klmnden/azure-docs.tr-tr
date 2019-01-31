@@ -11,86 +11,49 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 096b72e8abf43d803a5e6c4aa016f904e795366c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5ba555ad31545e1ae1aa822ec58b0bd22ef486ac
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250952"
+ms.locfileid: "55295160"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Azure Machine Learning hizmeti keşfetmek için Jupyter not defterleri kullanma
-
 
 Kolaylık olması için Jupyter Python not defterleri, Azure Machine Learning hizmeti keşfetmek için kullanabileceğiniz bir dizi geliştirdik. 
 
 Bu sitedeki belgelere hizmeti kullanmak ve bunları kendi durumunuza özelleştirmek için bu not defterlerini kullanma hakkında bilgi edinin. 
 
-## <a name="prerequisite"></a>Önkoşul
+Bu örnek not defterleri ile bir not defteri sunucusu çalıştırmak için aşağıdaki yollardan birini kullanın.  Sunucu çalıştırıldıktan sonra öğretici not defterlerinde Bul **öğreticiler** klasöründe veya farklı özellikleri keşfedin **Yardım-How-to-kullanın-azureml** klasör.
 
-Tamamlamak [Azure Machine Learning Python hızlı](quickstart-get-started.md) bir çalışma alanı oluşturma ve Azure not defterleri başlatın.
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Azure not defterleri deneyin: Bulutta ücretsiz Jupyter Not Defterleri
 
 Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
   
-+ Çalıştırılacak **öğretici not defterlerini çekirdek**:
-  1. Git [Azure not defterleri](https://notebooks.azure.com/).
-    
-  1. Bulma **öğreticiler** klasöründe **Başlarken** önkoşul hızlı başlangıç sırasında oluşturulan kitaplığı.
-    
-  1. Çalıştırmak istediğiniz not defterini açın.
-    
-+ Çalıştırılacak **diğer not defterlerini**:
-
-  1. [Örnek Not Defterleri alma](https://aka.ms/aml-clone-azure-notebooks) Azure not defterleri ile.
-
-  1. Bir çalışma alanı yapılandırma dosyası, bu yöntemlerden birini kullanarak kitaplığa ekleyin:
-     + Kopyalama **config.json** dosya **Başlarken** kitaplığına yeni kopyalanan kitaplığı.
-
-     + Kod kullanarak yeni bir çalışma alanı oluşturma [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-    
-  1. Çalıştırmak istediğiniz not defterini açın.     
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
 ## <a name="use-a-data-science-virtual-machine-dsvm"></a>Bir veri bilimi sanal makinesi (DSVM) kullanın
 
-[Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) ve not defteri sunucusu zaten yüklü ve sizin için bir DSVM üzerinde yapılandırılır. Not defterlerini çalıştırmak aşağıdaki adımları kullanın.
+[Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) ve not defteri sunucusu zaten yüklü ve sizin için bir DSVM üzerinde yapılandırılır. 
 
-1. [Bir DSVM oluşturma](how-to-configure-environment.md#dsvm).
+Çalıştırdıktan sonra [bir DSVM oluşturma](how-to-configure-environment.md#dsvm), not defterlerini çalıştırmak için DSVM üzerinde aşağıdaki adımları kullanın.
 
-1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
+[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-1. Bir çalışma alanı yapılandırma dosyası, bu yöntemlerden birini kullanarak kitaplığa ekleyin:
-    * Kopyalama **aml_config\config.json** kopyalanmış dizine önkoşul Hızlı Başlangıç'ı kullanarak oluşturduğunuz dosya.
-
-    * Kod kullanarak yeni bir çalışma alanı oluşturma [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
-
-1. Kopyaladığınız dizinden notebook sunucusunu başlatın.
 
 ## <a name="use-your-own-jupyter-notebook-server"></a>Kendi Jupyter notebook sunucusu kullanma
 
 Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın.
 
-1. Azure Machine Learning SDK'ları yüklediğiniz önkoşul hızlı başlangıcını tamamladınız emin olun.
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
+<a name="automated-ml-setup"></a>
 
-1. Bir çalışma alanı yapılandırma dosyası, bu yöntemlerden birini kullanarak kitaplığa ekleyin:
-    * Kopyalama **aml_config\config.json** kopyalanmış dizine önkoşul Hızlı Başlangıç'ı kullanarak oluşturduğunuz dosya.
-    
-    * Kod kullanarak yeni bir çalışma alanı oluşturma [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
+## <a name="automated-machine-learning-setup"></a>Otomatik makine öğrenimi Kurulumu 
 
-1. Kopyaladığınız dizinden notebook sunucusunu başlatın.
-
-1. Not içeren klasöre gidin.
-
-1. Notebook'u açın.
-
-<a name="auto"></a>
-
-## <a name="automated-ml-setup"></a>Otomatik ML Kurulumu 
-
-**Bu adımları yalnızca not defterlerinde uygulamak `automated-machine-learning` klasör.**
+_Bu adımları yalnızca not defterlerinde uygulamak **how-to-use-azureml/automated-machine-learning** klasör._
 
 Yukarıdaki seçeneklerden herhangi birini kullanabilirsiniz, ancak ortamını yükleyin ve aşağıdaki yönergeleri ile aynı zamanda bir çalışma alanı oluşturun. 
 
@@ -106,7 +69,7 @@ Yukarıdaki seçeneklerden herhangi birini kullanabilirsiniz, ancak ortamını y
    
    1. Yerel makinenize ayıklanan dosyaları gidin.
    
-   1. Açık `automated-machine-learning` klasör.
+   1. Açık **otomatik-makine öğrenimi** klasör.
    
    1. Yürütme `automl_setup.cmd` conda istemi, Windows veya `.sh` işletim sisteminiz için dosya. Yürütme yaklaşık 10 dakika sürebilir.
 
@@ -123,7 +86,7 @@ Yukarıdaki seçeneklerden herhangi birini kullanabilirsiniz, ancak ortamını y
 
 1. Not defterlerini kaydettiğiniz yoluna gidin. 
 
-1. Otomatik-makine öğrenimi klasörü açın ve ardından `configuration.ipynb` dizüstü bilgisayar. 
+1. Otomatik-makine öğrenimi klasörü açın ve ardından **configuration.ipynb** dizüstü bilgisayar. 
 
 1. Hücreleri Machine Learning Services kaynak sağlayıcısını kaydedin ve bir çalışma alanı oluşturmak için Not defterini yürütün.
 

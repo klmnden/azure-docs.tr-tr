@@ -1,6 +1,6 @@
 ---
-title: Güvenli bir şekilde bir Azure Service Fabric kümesine bağlanma | Microsoft Docs
-description: Service Fabric kümesi istemci erişimi kimlik doğrulaması ve istemcileri ile bir küme arasındaki iletişimin güvenliğini açıklar.
+title: Güvenli bir şekilde bir Azure Service Fabric kümesine bağlanın | Microsoft Docs
+description: Bir Service Fabric kümesinde istemci erişimi kimlik doğrulaması yapmayı ve istemcilerle bir küme arasındaki iletişimin güvenliğini sağlamak nasıl açıklar.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,66 +12,72 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 01/29/2019
 ms.author: ryanwi
-ms.openlocfilehash: f2a181fbae8ab1e08669021c42c5b4be08f66172
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 55564de4a3c5ff2d3ba3ddc5e68fa3d1b2d51e71
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364820"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296401"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Güvenli bir kümeye bağlanma
 
-Bir istemci bir Service Fabric küme düğümüne bağlandığında, istemci kimliği doğrulanmış ve güvenli iletişim sertifika güvenliği veya Azure Active Directory (AAD) kullanılarak oluşturulmuş olabilir. Bu kimlik doğrulaması yalnızca yetkili kullanıcılar küme erişebilir ve uygulamaları dağıtılan ve yönetim görevlerini gerçekleştirme sağlar.  Küme oluştururken sertifika veya AAD güvenlik daha önce kümede etkinleştirilmiş olmalıdır.  Küme güvenlik senaryoları hakkında daha fazla bilgi için bkz: [küme güvenlik](service-fabric-cluster-security.md). Sertifikalar ile güvenli bir kümeye bağlanıyorsanız [istemci sertifika ayarlama](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) bilgisayarda kümeye bağlanır. 
+İstemci bir Service Fabric küme düğümüne bağlandığında istemci sertifika güvenliği veya Azure Active Directory (AAD) kullanılarak kimliği doğrulanmış ve güvenli iletişimi olabilir. Bu kimlik doğrulaması yalnızca yetkili kullanıcıların kümesine erişebilirsiniz ve dağıtılan uygulamalar ve yönetim görevlerini gerçekleştirme sağlar.  Kümeyi oluştururken sertifika veya AAD güvenlik daha önce kümede etkinleştirilmiş olmalıdır.  Küme güvenliği senaryoları hakkında daha fazla bilgi için bkz. [küme güvenlik](service-fabric-cluster-security.md). Sertifika ile güvenli bir kümeye bağlanıyorsanız [istemci sertifika ayarlama](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) bilgisayarda kümeye bağlanır. 
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI (sfctl) kullanarak güvenli bir kümeye bağlanın
+## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI (sfctl) kullanarak güvenli bir kümeye bağlanma
 
-Service Fabric CLI (sfctl) kullanarak güvenli bir kümeye bağlanmak için birkaç farklı yolu vardır. Kimlik doğrulaması için bir istemci sertifikası kullanıyorsanız sertifika bilgilerinin küme düğümlerine dağıtılmış olan bir sertifikayla eşleşmesi gerekir. Sertifikanızı sertifika yetkilileri (CA) varsa, güvenilen CA'lar ayrıca belirtmeniz gerekir.
+Service Fabric CLI (sfctl) kullanarak güvenli bir kümeye bağlanmak için birkaç farklı yolu vardır. Kimlik doğrulaması için bir istemci sertifikası kullanıyorsanız sertifika bilgilerinin küme düğümlerine dağıtılmış olan bir sertifikayla eşleşmesi gerekir. Sertifikanızı sertifika yetkilileri (CA'lar) varsa, güvenilen CA'lar ayrıca belirtmeniz gerekir.
 
-Kullanarak bir küme bağlanabilir `sfctl cluster select` komutu.
+Kullanarak kümeye bağlanabilir `sfctl cluster select` komutu.
 
-İstemci sertifikaları, bir sertifika ve anahtar çifti olarak ya da tek pem dosyası olarak iki farklı fashions belirtilebilir. Parola korumalı için `pem` istenir otomatik olarak parola girmesini dosyaları,.
+İstemci sertifikaları bir sertifika ve anahtar çifti olarak veya tek bir PFX dosyası olarak iki farklı fashions belirtilebilir. Parola korumalı PEM dosyaları için otomatik olarak parolayı girmeniz istenir. Önce istemci sertifikasını bir PFX dosyası olarak aldıysanız, PFX dosyasını aşağıdaki komutu kullanarak bir PEM dosyasına dönüştürmek. 
 
-Pem dosyası olarak istemci sertifikasını belirtmek için dosya yolu belirtin `--pem` bağımsız değişkeni. Örneğin:
+```bash
+openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
+```
+
+.Pfx dosyanızı parola korumalı değilse, - passin geçişini kullanın: son parametresi için.
+
+Pem dosyası olarak istemci sertifikasını belirtmek için dosya yolu belirtin. `--pem` bağımsız değişken. Örneğin:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Pem dosyaları herhangi bir komut çalıştırılmadan önce parola istemeyeceğini parola korumalı.
+Pem dosyaları herhangi bir komutu çalıştırmadan önce parolası ister parola korumalı.
 
-Bir sertifika belirtmek için anahtar çifti kullanımı `--cert` ve `--key` ilgili her dosya için dosya yolları belirtmek için bağımsız değişkenler.
+Bir sertifika belirtmek için anahtar çifti kullanımı `--cert` ve `--key` ilgili her dosya için dosya yollarını belirtmek için bağımsız değişkenler.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Bazen test veya geliştirme kümesi güvenliğini sağlamak için kullanılan sertifikalar sertifika doğrulaması başarısız. Sertifika doğrulama atlamak üzere belirtin `--no-verify` seçeneği. Örneğin:
+Bazen test veya geliştirme kümelerini korumak için kullanılan sertifikaları, sertifika doğrulama başarısız. Sertifika doğrulamasını atlamak için belirtin `--no-verify` seçeneği. Örneğin:
 
 > [!WARNING]
-> Kullanmayın `no-verify` Service Fabric kümeleri üretim bağlanırken seçeneği.
+> Kullanmayın `no-verify` seçeneği için Service Fabric kümelerini üretim bağlanırken.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Ayrıca, güvenilir CA sertifikaları ya da tek tek sertifikaları dizinler için yol belirtebilirsiniz. Bu yolları belirtmek için kullanın `--ca` bağımsız değişkeni. Örneğin:
+Ayrıca, dizinleri güvenilir CA sertifikaları ya da tek tek sertifikaları için yol belirtebilirsiniz. Bu yolları belirtmek için kullanın `--ca` bağımsız değişken. Örneğin:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
-Bağlandıktan sonra şunları yapabilirsiniz [diğer sfctl komutlarının çalıştırılmasını](service-fabric-cli.md) kümeyle etkileşim kurmak için.
+Bağlandıktan sonra yapabilmelisiniz [diğer sfctl komutlarının çalıştırılmasını](service-fabric-cli.md) kümeyle etkileşim kurmak için.
 
 <a id="connectsecurecluster"></a>
 
-## <a name="connect-to-a-cluster-using-powershell"></a>PowerShell kullanarak bir kümeye bağlanın
-PowerShell aracılığıyla bir kümede işlemleri gerçekleştirmeden önce ilk küme bağlantı kurun. Küme bağlantısı verilen PowerShell oturumunda izleyen tüm komutlar için kullanılır.
+## <a name="connect-to-a-cluster-using-powershell"></a>PowerShell kullanarak bir kümeye bağlanma
+İlk PowerShell aracılığıyla bir kümede bir işlem gerçekleştirmeden önce kümeye bağlantı kurun. Küme bağlantısı verilen PowerShell oturumunda sonraki tüm komutlar için kullanılır.
 
-### <a name="connect-to-an-unsecure-cluster"></a>Güvenli olmayan bir kümeye bağlanın
+### <a name="connect-to-an-unsecure-cluster"></a>Güvenli olmayan bir kümeye bağlanma
 
 Güvenli olmayan bir kümeye bağlanmak için küme uç nokta adresine sağlamak **Connect-ServiceFabricCluster** komutu:
 
@@ -79,9 +85,9 @@ Güvenli olmayan bir kümeye bağlanmak için küme uç nokta adresine sağlamak
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 
 ```
 
-### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak güvenli bir kümeye bağlanın
+### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory kullanarak güvenli bir kümeye bağlanma
 
-Küme Yöneticisi erişim yetkisi vermek için Azure Active Directory kullanan güvenli bir kümeye bağlanmak için küme sertifika parmak izini verin ve kullanmak *AzureActiveDirectory* bayrağı.  
+Küme Yöneticisi erişim yetkisi vermek için Azure Active Directory kullanan güvenli bir kümeye bağlanmak için küme sertifikası parmak izi ve makul *AzureActiveDirectory* bayrağı.  
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -89,11 +95,11 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 -AzureActiveDirectory
 ```
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası ile güvenli bir kümeye bağlanın
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası ile güvenli bir kümeye bağlanma
 Yönetici erişim yetkisi vermek için istemci sertifikalarını kullanan güvenli bir kümeye bağlanmak için aşağıdaki PowerShell komutunu çalıştırın. 
 
-#### <a name="connect-using-certificate-common-name"></a>Sertifika ortak adı kullanarak bağlan
-Küme sertifika ortak adı ve küme yönetimi için izinleri verildi istemci sertifikası ortak adı sağlayın. Sertifika ayrıntılarını küme düğümlerinde bir sertifika ile eşleşmesi gerekir.
+#### <a name="connect-using-certificate-common-name"></a>Sertifika ortak adını kullanarak bağlanma
+Küme sertifikasını ortak ad ve küme yönetimi için izinleri verilmiş olan istemci sertifikası ortak adı sağlayın. Sertifika ayrıntıları, küme düğümlerinde bir sertifikayla eşleşmesi gerekir.
 
 ```powershell
 Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
@@ -104,7 +110,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My 
 ```
-*ServerCommonName* küme düğümlerinde yüklü Sunucu sertifikanın ortak adı. *FindValue* ortak yönetici istemci sertifikası adıdır. Parametreleri doldurulduğunda, komut aşağıdaki gibi görünür:
+*ServerCommonName* küme düğümlerinde yüklü sunucu sertifikasının ortak addır. *FindValue* ortak yönetici istemci sertifikası adıdır. Parametreleri doldurulduğunda, komutu aşağıdaki örnekteki gibi görünür:
 ```powershell
 $ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
 $certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
@@ -119,7 +125,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
 ```
 
 #### <a name="connect-using-certificate-thumbprint"></a>Sertifika parmak izini kullanarak bağlan
-Küme sertifika parmak izi ve küme yönetimi için izinleri verildi istemci sertifikası parmak izi sağlayın. Sertifika ayrıntılarını küme düğümlerinde bir sertifika ile eşleşmesi gerekir.
+Küme sertifikası parmak izi ve küme yönetimi için izinleri verilmiş olan istemci sertifikası parmak izi sağlayın. Sertifika ayrıntıları, küme düğümlerinde bir sertifikayla eşleşmesi gerekir.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `  
@@ -129,7 +135,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-*ServerCertThumbprint* küme düğümlerinde yüklü sunucu sertifikasının parmak izi. *FindValue* yönetici istemci sertifikasının parmak izi.  Parametreleri doldurulduğunda, komut aşağıdaki gibi görünür:
+*ServerCertThumbprint* küme düğümlerinde yüklü sunucu sertifikasının parmak izi. *FindValue* yönetici istemci sertifikasının parmak izi.  Parametreleri doldurulduğunda, komutu aşağıdaki örnekteki gibi görünür:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `  
@@ -139,8 +145,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
           -StoreLocation CurrentUser -StoreName My 
 ```
 
-### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Windows Active Directory kullanarak güvenli bir kümeye bağlanın
-Tek başına kümenizi AD güvenlik kullanarak dağıtılmışsa, anahtar "WindowsCredential" ekleyerek kümeye bağlanın.
+### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Windows Active Directory kullanarak güvenli bir kümeye bağlanma
+AD güvenlik kullanarak tek başına kümenizi dağıtılırsa, ' % s'anahtarı "WindowsCredential" ekleyerek kümeye bağlanın.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -149,26 +155,26 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 
 <a id="connectsecureclusterfabricclient"></a>
 
-## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>FabricClient API'lerini kullanarak bir kümeye bağlanın
-Service Fabric SDK sağlar [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) küme yönetimi için sınıf. FabricClient API'ları kullanmak için Microsoft.ServiceFabric NuGet paketi alın.
+## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>FabricClient API'leri kullanarak bir kümeye bağlanma
+Service Fabric SDK'sı sağlar [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) küme yönetimi için sınıf. FabricClient API'leri kullanmak için Microsoft.ServiceFabric NuGet paketini alın.
 
-### <a name="connect-to-an-unsecure-cluster"></a>Güvenli olmayan bir kümeye bağlanın
+### <a name="connect-to-an-unsecure-cluster"></a>Güvenli olmayan bir kümeye bağlanma
 
-Uzak güvenli olmayan bir kümeye bağlanmak için bir FabricClient örneği oluşturun ve küme adresini sağlayın:
+Uzaktan güvenli olmayan bir kümeye bağlanmak için FabricClient örneği oluşturun ve küme adresini sağlayın:
 
 ```csharp
 FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
 ```
 
-Bir küme içinde çalışan için kodu, örneğin, güvenilir bir hizmetinde bir FabricClient oluşturmak *olmadan* küme adresini belirtme. Kod, üzerinde çalışmakta olan düğüm üzerinde yerel yönetim ağ geçidi ek ağ atlama önleme FabricClient bağlanır.
+Bir küme içinde çalışan kod için güvenilir bir hizmet, örneğin, bir FabricClient oluşturun. *olmadan* küme adresini belirtin. Yerel Yönetim ağ geçidi kodu şu anda, üzerinde çalıştığı düğüm üzerinde fazladan ağ atlama önleme FabricClient bağlanır.
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
 ```
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası ile güvenli bir kümeye bağlanın
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası ile güvenli bir kümeye bağlanma
 
-Kümedeki düğümler geçerli sertifikaların ortak adı olması gerekir veya SAN DNS adıyla görünür [RemoteCommonNames özelliği](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) ayarlamak [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Bu işlem aşağıdaki istemci ve küme düğümleri arasında karşılıklı kimlik doğrulamasını etkinleştirir.
+Kümedeki düğümler geçerli sertifikaların ortak adı olması gerekir veya SAN DNS adı görünür [RemoteCommonNames özelliği](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) ayarlamak [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Bu işlem aşağıdaki istemci ve küme düğümleri arasında karşılıklı kimlik doğrulaması sağlar.
 
 ```csharp
 using System.Fabric;
@@ -206,11 +212,11 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 }
 ```
 
-### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Etkileşimli olarak Azure Active Directory'yi kullanarak güvenli bir kümeye bağlanın
+### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Etkileşimli olarak Azure Active Directory kullanarak güvenli bir kümeye bağlanma
 
 Aşağıdaki örnek, Azure Active Directory istemci kimliği ve sunucu sertifikası sunucu kimliği için kullanır.
 
-Bir iletişim kutusu penceresinin otomatik olarak etkileşimli oturum açma için kümeye bağlandıktan sonra açılır.
+Bir iletişim penceresi otomatik olarak etkileşimli oturum açma için kümeye bağlandıktan sonra açılır.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -232,11 +238,11 @@ catch (Exception e)
 }
 ```
 
-### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Etkileşimsiz Azure Active Directory'yi kullanarak güvenli bir kümeye bağlanın
+### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Etkileşimli olmayan Azure Active Directory kullanarak güvenli bir kümeye bağlanma
 
-Aşağıdaki örnek Microsoft.IdentityModel.Clients.activedirectory tarafından üzerinde sürüm kullanır: 2.19.208020213.
+Aşağıdaki örnek, Microsoft.IdentityModel.Clients.activedirectory, sürüm kullanır: 2.19.208020213.
 
-AAD belirteci edinme hakkında daha fazla bilgi için bkz: [Microsoft.IdentityModel.Clients.activedirectory tarafından](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+AAD belirteç edinme hakkında daha fazla bilgi için bkz. [Microsoft.IdentityModel.Clients.activedirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -289,9 +295,9 @@ static string GetAccessToken(
 
 ```
 
-### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak önceki meta veri bilgisi olmadan güvenli bir kümeye bağlanın
+### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Önceki meta veri bilgisi olmadan Azure Active Directory kullanarak güvenli bir kümeye bağlanma
 
-Aşağıdaki örnek, etkileşimli olmayan belirteç edinme kullanır, ancak aynı yaklaşımı özel etkileşimli belirteç edinme deneyim oluşturmak için kullanılabilir. Belirteç alımı için gereken Azure Active Directory meta veri kümesi yapılandırmasından okuyun.
+Aşağıdaki örnek, etkileşimli olmayan belirteç edinme işlemi kullanır, ancak aynı yaklaşımı özel etkileşimli belirteç edinme deneyim oluşturmak için kullanılabilir. Belirteç edinme işlemi için gereken Azure Active Directory meta veriler, küme yapılandırmasından okunur.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -334,24 +340,24 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 
 <a id="connectsecureclustersfx"></a>
 
-## <a name="connect-to-a-secure-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer kullanarak güvenli bir kümeye bağlanın
-Ulaşmaya [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) verilmiş bir küme için tarayıcınızı noktası:
+## <a name="connect-to-a-secure-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer kullanarak güvenli bir kümeye bağlanma
+Ulaşmak için [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) belirli bir küme için tarayıcınızı noktası:
 
 `http://<your-cluster-endpoint>:19080/Explorer`
 
-Tam URL Azure Portalı'nın küme essentials bölmesinde kullanılabilir.
+Tam URL'si Azure portal'ın küme temel bileşenler bölmesinde kullanılabilir.
 
-Windows veya OS X bir tarayıcı kullanarak güvenli bir kümeye bağlanma, istemci sertifikasını içeri aktarabilirsiniz, ve tarayıcı, kümeye bağlanmak için kullanılacak sertifika ister.  Linux makinelerde sertifika (her tarayıcı farklı mekanizmalar vardır) gelişmiş tarayıcı ayarlarınızı kullanarak içe aktarılması ve diskte sertifika konuma noktası gerekir.
+Windows veya OS X bir tarayıcı kullanarak güvenli bir kümeye bağlanmak için istemci sertifikasını içeri aktarın ve tarayıcı sizin için kümeye bağlanmak için kullanılacak sertifikayı ister.  Linux makinelerinde, sertifika (her tarayıcıda farklı mekanizmalar vardır) gelişmiş tarayıcı ayarlarınızı kullanarak içe aktarılması ve diskte sertifika konuma işaret gerekecektir. Okuma [istemci sertifika ayarlama](#connectsecureclustersetupclientcert) daha fazla bilgi için.
 
-### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak güvenli bir kümeye bağlanın
+### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory kullanarak güvenli bir kümeye bağlanma
 
 AAD ile güvenli bir kümeye bağlanmak için tarayıcınızı noktası:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Otomatik olarak sorulur AAD oturum oturum.
+Otomatik olarak sorulur AAD oturum açmak için.
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası ile güvenli bir kümeye bağlanın
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası ile güvenli bir kümeye bağlanma
 
 Sertifikaları güvenli bir kümeye bağlanmak için tarayıcınızı noktası:
 
@@ -360,29 +366,33 @@ Sertifikaları güvenli bir kümeye bağlanmak için tarayıcınızı noktası:
 Otomatik olarak sorulur bir istemci sertifikası seçin.
 
 <a id="connectsecureclustersetupclientcert"></a>
-## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Uzak bilgisayarda bir istemci sertifikası ayarlama
-Bir küme ve sunucu sertifikası ve istemci erişimi için başka bir küme güvenliğini sağlamak için en az iki sertifika kullanılmalıdır.  Ayrıca ek ikincil sertifikalar ve istemci erişim sertifikalarını kullanmanızı öneririz.  İstemci ve sertifika güvenliği kullanarak bir küme düğümünü arasındaki iletişimin güvenliğini sağlamak için önce istemci sertifikası edinin ve yükleyin gerekir. Kişisel (My) deposuna yerel bilgisayar veya geçerli kullanıcı sertifika yüklenebilir.  İstemci küme doğrulanabilmesi Ayrıca sunucu sertifikasının parmak izi gerekir.
 
-İstemci sertifikası kümeye erişmek bilgisayarda ayarlamak için aşağıdaki PowerShell cmdlet'ini çalıştırın.
+## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Uzak bilgisayardaki bir istemci sertifikası ayarlama
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-        -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+Bir küme ve sunucu sertifikası ve istemci erişimi için başka bir kümenin güvenliğini sağlamak için en az iki sertifika kullanılmalıdır.  Ayrıca ek ikincil sertifika ve istemci erişim sertifikası kullanmanızı öneririz.  Bir istemci sertifikası güvenlik kullanarak bir küme düğümü arasındaki iletişimin güvenliğini sağlamak için önce alma ve istemci sertifikasını yükleme gerekir. Kişisel (My) deposuna, yerel bilgisayar ya da geçerli kullanıcı sertifika yüklenebilir.  Böylece istemci, küme kimlik doğrulaması yapabilir sunucu sertifikasının parmak izini de gerekir.
 
-Kendinden imzalı bir sertifika ise, güvenli bir kümeye bağlanmak için bu sertifikayı kullanmadan önce makinenizin "güvenilir kişiler" deposuna içeri aktarmanız gerekir.
+* Windows'da: PFX dosyasına çift tıklayın ve kişisel deponuza sertifikayı yüklemek için istemleri takip edin `Certificates - Current User\Personal\Certificates`. Alternatif olarak, PowerShell komutunu kullanabilirsiniz:
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
--FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
--Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
+
+    Otomatik olarak imzalanan sertifika ise, güvenli bir kümeye bağlanmak için bu sertifika kullanabilmeniz için önce makinenizin "güvenilir kişiler" depoya almanız gerekir.
+
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
+    -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+    -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
+
+* Mac'te: PFX dosyasına çift tıklayın ve Anahtarlığınıza sertifikayı yüklemek için istemleri takip edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Service Fabric kümesi yükseltme işlemi ve sizden beklentileri](service-fabric-cluster-upgrade.md)
-* [Visual Studio'da, Service Fabric uygulamaları yönetme](service-fabric-manage-application-in-visual-studio.md)
+* [Service Fabric kümesini yükseltme işlemi ve sizden beklentileri](service-fabric-cluster-upgrade.md)
+* [Visual Studio'da Service Fabric uygulamalarınızı yönetme](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric sistem durumu modeli giriş](service-fabric-health-introduction.md)
 * [Uygulama güvenliği ve farklı çalıştır](service-fabric-application-runas-security.md)
 * [Service Fabric CLI ile çalışmaya başlama](service-fabric-cli.md)

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: eb34385087118614f8d7057c2229bc3c9e8d1ae4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 550201e692bb79197d50c2f44017c43ab9ea2016
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039495"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477347"
 ---
-# <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Azure Cosmos DB kapsayıcısına aktarım hızı sağlama
+# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Bir Azure Cosmos kapsayıcısında aktarım hızını sağlama
 
 Bu makalede bir Azure Cosmos DB’deki kapsayıcıya (koleksiyon, grafik, tablo) nasıl aktarım hızı sağlandığı açıklanır. Tek bir kapsayıcıya aktarım hızı sağlayabilir veya aktarım hızını [veritabanına sağlayıp](how-to-provision-database-throughput.md) veritabanındaki kapsayıcılar arasında paylaştırabilirsiniz. Azure portalı, Azure CLI veya CosmosDB SDK’larını kullanarak bir kapsayıcıya aktarım hızı sağlayabilirsiniz.
 

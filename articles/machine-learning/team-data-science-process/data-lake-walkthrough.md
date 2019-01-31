@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e99ffb7f89aab0e9b00495c9ffa8a47c84ec1cc5
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2f47a145f00748a3366ea5bd1aa961f4b556a08f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080982"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474675"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake ile ölçeklenebilir veri bilimi: Uçtan uca kılavuz
 Bu yönerge, Azure Data Lake veri keşfi ve NYC taksi seyahat örneği ikili sınıflandırma görevleri ve masrafları ipucu tarafından bir taksi Ücretli olup olmadığını tahmin etmek için veri kümesi için nasıl kullanılacağını gösterir. Bu adımlarında size kılavuzluk eder [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), uçtan uca, eğitim modeli için veri alma ve sonra model yayımlayan bir web hizmeti dağıtımı için.

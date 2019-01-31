@@ -9,18 +9,18 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed5e506e5bb38e6c11c3d8ecd52c85d4f21cf1f2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6811888b5113a2cf5a06811f0e1b1bcee57d864b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242935"
+ms.locfileid: "55298067"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme
 
-Bu öğreticide, makine öğrenmesi modelini hem yerel olarak hem de uzak işlem kaynaklarında eğitiyorsunuz. Azure Machine Learning hizmetinde bir Python Jupyter not defteri için eğitim ve dağıtım iş akışı'nı kullanın. Ardından not defterini şablon olarak kullanıp kendi verilerinizle kendi makine öğrenmesi modelinizi eğitebilirsiniz. Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**.  
+Bu öğreticide, bir machine learning modeli uzak işlem kaynakları üzerinde eğitin. Azure Machine Learning hizmetinin (önizleme) eğitim ve dağıtım iş akışını bir Python Jupyter not defterinde kullanacaksınız.  Ardından not defterini şablon olarak kullanıp kendi verilerinizle kendi makine öğrenmesi modelinizi eğitebilirsiniz. Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**.  
 
 Bu öğreticide basit bir Lojistik regresyon kullanarak eğitir [MNIST](http://yann.lecun.com/exdb/mnist/) veri kümesi ve [scikit-bilgi](https://scikit-learn.org) Azure Machine Learning hizmeti ile. MNIST, 70.000 gri tonlamalı resimden oluşan popüler bir veri kümesidir. Her bir el yazısı basamak 28 x 28 piksel, dokuz sıfırdan bir sayıyı temsil eden görüntüsüdür. Belirli bir görüntüyü basamak tanımlamak için bir çok sınıflı sınıflandırıcı oluşturulacağını temsil eden hedeftir. 
 
@@ -38,16 +38,40 @@ Bir model seçin ve bunu dağıtma hakkında bilgi edinin [Bu öğreticinin İki
 Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 >[!NOTE]
-> Bu makalede kod, Azure Machine Learning SDK sürümü 1.0.2 ile test edilmiştir.
+> Bu makalede kod, Azure Machine Learning SDK sürüm zamanlarını 1.0.8 ile test edilmiştir.
 
-## <a name="get-the-notebook"></a>Not defterini alma
+## <a name="prerequisites"></a>Önkoşullar
 
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb) olarak sağlanır. Çalıştırma `tutorials/img-classification-part1-training.ipynb` Not Defteri veya [Azure not defterleri](https://notebooks.azure.com/) veya kendi Jupyter notebook sunucusu.
+Atlamak [geliştirme ortamınızı ayarlama](#start) not defteri adımları okuyun veya not defterini alma ve Azure not defterleri veya kendi notebook sunucusu üzerinde çalıştırmak için aşağıdaki yönergeleri kullanın.  İhtiyacınız olacak not defteri çalıştırmak için:
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* Aşağıdakilerin yüklü olan bir Python 3.6 Not Defteri sunucusu:
+    * Azure Machine için Python SDK'sı Learning
+    * `matplotlib` ve `scikit-learn`
+* Öğretici not defteri ve dosya utils.py
+* Bir machine learning çalışma alanı 
+* Not Defteri ile aynı dizinde çalışma alanı için yapılandırma dosyası 
+
+Bu Önkoşullar aşağıdaki bölümlerde birinden alın.
+ 
+* Kullanım [Azure Not Defterleri](#azure) 
+* Kullanım [kendi not defteri sunucusu](#server)
+
+### <a name="azure"></a>Azure not defterleri kullanın: Bulutta ücretsiz Jupyter Not Defterleri
+
+Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
+
+Aşağıdaki adımları tamamladıktan sonra Çalıştır **öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb** Not Defteri, **Başlarken** proje.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
-## <a name="set-up-your-development-environment"></a>Geliştirme ortamınızı kurma
+### <a name="server"></a>Kendi Jupyter notebook sunucusu kullanma
+
+Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın.  Adımları tamamladıktan sonra Çalıştır **öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb** dizüstü bilgisayar.
+
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+## <a name="start"></a>Geliştirme ortamınızı ayarlama
 
 Geliştirme çalışmanızdaki tüm kurulum bir Python not defterinde gerçekleştirilebilir. Kurulumu, aşağıdaki eylemleri içerir:
 
@@ -63,11 +87,10 @@ Bu oturumda ihtiyacınız olan Python paketlerini içeri aktarın. Ayrıca Azure
 ```python
 %matplotlib inline
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 
-import azureml
-from azureml.core import Workspace, Run
+import azureml.core
+from azureml.core import Workspace
 
 # check core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
@@ -94,11 +117,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-amlcompute"></a>Oluşturun veya var olan bir AMlCompute ekleme
+### <a name="create-or-attach-an-existing-compute-resource"></a>Oluşturun veya var olan bir işlem kaynağı ekleme
 
-Azure Machine Learning işlem (AmlCompute) yönetilen bir hizmet kullanarak veri bilimcileri makine öğrenimi modellerini Azure sanal makinelerini kümeleri hakkında eğitebilirsiniz. Örnekler, GPU desteğine sahip sanal makinelerini içerir. Bu öğreticide, eğitim ortamınızı AmlCompute oluşturun. Çalışma alanınızda zaten mevcut olmaması durumunda bu kod, sizin için işlem kümeleri olarak oluşturur.
+Azure Machine Learning işlemi, yönetilen bir hizmet kullanarak veri bilimcileri makine öğrenimi modellerini Azure sanal makinelerini kümeleri hakkında eğitebilirsiniz. Örnekler, GPU desteğine sahip sanal makinelerini içerir. Bu öğreticide, Azure Machine Learning işlem eğitim ortamınızı oluşturun. Çalışma alanınızda zaten mevcut olmaması durumunda aşağıdaki kod, sizin için işlem kümeleri olarak oluşturur.
 
- **İşlem oluşturulması yaklaşık beş dakika sürer.** İşlem çalışma alanında ise, bu kod kullanır ve oluşturma işlemi atlanıyor:
+ **İşlem oluşturulması yaklaşık beş dakika sürer.** İşlem çalışma alanında ise, kod kullanır ve oluşturma işlemini atlar.
 
 
 ```python
@@ -132,8 +155,8 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current AmlCompute status, use the 'status' property    
-    print(compute_target.status.serialize())
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
 ```
 
 Artık bulutta bir modeli eğitmek için gerekli paketleriniz ve işlem kaynaklarınız vardır. 
@@ -155,13 +178,15 @@ MNIST veri kümesini indirin ve dosyaları yerel olarak `data` dizinine kaydedin
 import os
 import urllib.request
 
-os.makedirs('./data', exist_ok = True)
+data_path = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_path, exist_ok = True)
 
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
 ```
+Şuna benzer bir çıktı görürsünüz: ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
 
 ### <a name="display-some-sample-images"></a>Bazı örnek görüntüleri gösterme
 
@@ -210,60 +235,32 @@ Adlı bir dizine MNIST dosyalar yüklendiğinde `mnist` veri deposu, kökünde:
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_path, target_path='mnist', overwrite=True, show_progress=True)
 ```
 Artık modeli eğitmeye başlamak için gereken her şeye sahipsiniz. 
 
-## <a name="train-a-local-model"></a>Yerel bir model eğitip
-
-Scikit kullanarak basit bir Lojistik regresyon modelini eğitme-yerel olarak öğrenin.
-
-**Yerel olarak eğitim alabilir bir veya iki dakika** bilgisayar yapılandırmanıza bağlı olarak:
-
-```python
-%%time
-from sklearn.linear_model import LogisticRegression
-
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
-```
-
-Sonraki test kümesi kullanarak tahmin yapmayı ve doğrulukta hesaplama: 
-
-```python
-y_hat = clf.predict(X_test)
-print(np.average(y_hat == y_test))
-```
-
-Yerel modelin doğruluğu görüntülenir:
-
-`0.9202`
-
-Yalnızca birkaç kod satırıyla, 92 yüzde kesinliğe sahip.
 
 ## <a name="train-on-a-remote-cluster"></a>Uzak kümede eğitme
 
-Şimdi, farklı bir düzenleme hızıyla bir model oluşturarak bu basit modeli genişletebilirsiniz. Bu kez, uzak kaynak modeli eğitin.  
-
-Bu görev için, işi daha önce ayarlamış olduğunuz uzak eğitim kümesine gönderin. Bir işi göndermek için aşağıdaki adımları uygulayın:
-* Bir dizin oluşturun.
-* Bir eğitim betiği oluşturun.
-* Tahmin nesnesi oluşturun.
-* İşi Gönder.
+Bu görev için, işi daha önce ayarlamış olduğunuz uzak eğitim kümesine gönderin.  İş göndermek için şunları yaparsınız:
+* Dizin oluşturma
+* Eğitim betiği oluşturma
+* Tahmin nesne oluşturma
+* İşi gönderme 
 
 ### <a name="create-a-directory"></a>Dizin oluşturma
 
-Gerekli kodu bilgisayarınızdan uzak kaynağa sunmak için bir dizin oluşturun:
+Gerekli kodu bilgisayarınızdan uzak kaynağa teslim etmek için bir dizin oluşturun.
 
 ```python
 import os
-script_folder = './sklearn-mnist'
+script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
 ### <a name="create-a-training-script"></a>Eğitim betiği oluşturma
 
-İşi kümeye göndermek için, önce bir eğitim betiği oluşturun. Adlı bir eğitim betiği oluşturmak için aşağıdaki kodu çalıştırın `train.py` oluşturduğunuz dizine. Bu eğitim, eğitim algoritması için normalleştirme oranını ekler. Bu nedenle yerel belirtilenden biraz daha farklı bir model oluşturur:
+İşi kümeye göndermek için, önce bir eğitim betiği oluşturun. Aşağıdaki kodu çalıştırarak, az önce oluşturduğunuz dizinde `train.py` adlı eğitim betiğini oluşturun.
 
 ```python
 %%writefile $script_folder/train.py
@@ -406,6 +403,8 @@ Bu yine de anlık görüntü eğitim sonunda gösterilen pencere öğesi şöyle
 
 ![Not Defteri pencere öğesi](./media/tutorial-train-models-with-aml/widget.png)
 
+Çalıştırma iptal etmeniz gerekiyorsa, izleyebilirsiniz [bu yönergeleri](https://aka.ms/aml-docs-cancel-run).
+
 ### <a name="get-log-results-upon-completion"></a>Tamamlandıktan sonra günlük sonuçlarını alma
 
 Model eğitimi ve izlemesi arka planda yapılır. Daha fazla kod çalıştırmadan önce model eğitim tamamlanana kadar bekleyin. Kullanım `wait_for_completion` modeli eğitimi tamamlandığında göstermek için: 
@@ -422,7 +421,7 @@ Artık uzak düğümde eğitilmiş bir modeliniz vardır. Modelin doğruluğunu 
 ```python
 print(run.get_metrics())
 ```
-Çıktı normalleştirme oranını eklenmesini eğitim sırasında nedeniyle yerel modelinden biraz daha yüksek doğruluk uzaktan modeline sahip gösterir:  
+Çıktı 0.9204 doğruluğunu uzaktan modeline sahip gösterir:
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
@@ -465,8 +464,7 @@ Bu Azure Machine Learning hizmeti öğreticide aşağıdaki görevler için Pyth
 > [!div class="checklist"]
 > * Geliştirme ortamınızı ayarlayın.
 > * Erişim ve verileri inceleyin.
-> * Popüler scikit kullanarak yerel olarak basit bir Lojistik regresyon eğitme-makine öğrenimi kitaplığı öğrenin.
-> * Bir uzak kümesi üzerinde birden çok modeli eğitin.
+> * Popüler scikit kullanarak bir uzak kümesi üzerinde birden çok modeli eğitme-makine öğrenimi kitaplığı öğrenin
 > * Eğitim ayrıntılarını gözden geçirin ve en iyi modeli kaydedin.
 
 Kayıtlı Bu model, öğretici serisinin bir sonraki bölümü içindeki yönergeleri kullanarak dağıtmaya hazırsınız:

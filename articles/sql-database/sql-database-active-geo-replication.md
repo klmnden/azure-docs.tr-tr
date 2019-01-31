@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/24/2019
-ms.openlocfilehash: 3a567bd3656ad31157d51bedcd866290b232af2c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.date: 01/25/2019
+ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884631"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468283"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Etkin coğrafi çoğaltmayı kullanarak okunabilir ikincil veritabanı oluşturma
 
-Etkin coğrafi çoğaltma, aynı veya farklı bir veri merkezi (bölge) bir mantıksal sunucuda tek veritabanlarının okunabilir ikincil veritabanı oluşturmanıza olanak sağlar, Azure SQL veritabanı özelliğidir.
+Etkin coğrafi çoğaltma, okunabilir ikincil veritabanı veritabanlarını tek tek bir SQL veritabanı sunucusunda aynı veya farklı bir veri merkezi (bölge) oluşturmanıza olanak sağlar, Azure SQL veritabanı özelliğidir.
 
 > [!NOTE]
 > Etkin coğrafi çoğaltma, yönetilen örneği tarafından desteklenmiyor. Kullanmak için coğrafi yük devretme yönetilen örnekleri [otomatik yük devretme grupları](sql-database-auto-failover-group.md).
@@ -122,7 +122,7 @@ Geniş alan ağları yüksek gecikme nedeniyle, sürekli kopyalama bir zaman uyu
 
 Daha önce açıklandığı gibi etkin coğrafi çoğaltma ayrıca Azure PowerShell ve REST API'sini kullanarak program aracılığıyla yönetilebilir. Aşağıdaki tabloda kullanılabilir komut kümesi açıklanmaktadır. Etkin coğrafi çoğaltma içeren bir Azure Resource Manager API'leri kümesi yönetimi için de dahil olmak üzere [Azure SQL veritabanı REST API](https://docs.microsoft.com/rest/api/sql/) ve [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/azure/overview). Bu API'ler, kaynak gruplarının kullanımı gerektirir ve rol tabanlı güvenlik (RBAC) desteği. Uygulama erişim rolleri hakkında daha fazla bilgi için bkz. [Azure rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Yük devretme işlemlerini tek ve havuza alınmış veritabanlarını yönetme
+### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: Yük devretme tek başına ve havuza alınmış veritabanlarını yönetme
 
 > [!IMPORTANT]
 > Yalnızca şu Transact-SQL komutlarını uygulamak için etkin coğrafi çoğaltma ve yük devretme grupları için geçerli değildir. Yalnızca Yük devretme grupları destekledikleri olarak bu nedenle, bunlar da yönetilen örnekleri için geçerli değildir.
@@ -132,13 +132,13 @@ Daha önce açıklandığı gibi etkin coğrafi çoğaltma ayrıca Azure PowerSh
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |İkincil üzerinde Sunucu Ekle bağımsız değişkeni bir var olan veritabanı ve başladığında veri çoğaltma için ikincil bir veritabanı oluşturmak için kullanın |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Yük devretmeyi başlatmak için birincil olarak ikincil bir veritabanı geçiş için yük DEVRETME veya FORCE_FAILOVER_ALLOW_DATA_LOSS kullanın |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Bir SQL veritabanı ile belirtilen ikincil veritabanı arasında bir veri çoğaltma sonlandırmak için ikincil üzerinde SUNUCUYU Kaldır'ı kullanın. |
-| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Azure SQL veritabanı mantıksal sunucusuna her veritabanı için mevcut tüm yineleme bağlantıları hakkında bilgi döndürür. |
+| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Azure SQL veritabanı sunucusunda her veritabanı için mevcut tüm yineleme bağlantıları hakkında bilgi döndürür. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Belirli bir SQL veritabanı için son çoğaltma saati, son çoğaltma gecikmesine ve çoğaltma bağlantısı ile ilgili diğer bilgileri alır. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Çoğaltma bağlantılarının durumunu ve dahil olmak üzere tüm veritabanı işlemlerinin durumunu gösterir. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |tüm kaydedilmiş işlemleri çoğaltılır ve etkin ikincil veritabanı tarafından onaylanır kadar beklenecek uygulamanın neden olur. |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Yük devretme işlemlerini tek ve havuza alınmış veritabanlarını yönetme
+### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: Yük devretme tek başına ve havuza alınmış veritabanlarını yönetme
 
 | Cmdlet | Açıklama |
 | --- | --- |
@@ -152,7 +152,7 @@ Daha önce açıklandığı gibi etkin coğrafi çoğaltma ayrıca Azure PowerSh
 > [!IMPORTANT]
 > Örnek betikler için bkz: [yapılandırın ve yük devretme etkin coğrafi çoğaltmayı kullanarak tek veritabanı](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) ve [yapılandırın ve yük devretme etkin coğrafi çoğaltmayı kullanarak havuza alınmış bir veritabanı](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: Yük devretme işlemlerini tek ve havuza alınmış veritabanlarını yönetme
+### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>REST API: Yük devretme tek başına ve havuza alınmış veritabanlarını yönetme
 
 | API | Açıklama |
 | --- | --- |

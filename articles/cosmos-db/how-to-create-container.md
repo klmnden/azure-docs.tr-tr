@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 7434407c7d1afe197a560d9ed9c4f1e7e94b6c2b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 183f596c213f833a2ca633398d1102e86f328912
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468861"
 ---
-# <a name="create-a-container-in-azure-cosmos-db"></a>Azure Cosmos DB'de kapsayıcı oluşturma
+# <a name="create-an-azure-cosmos-container"></a>Bir Azure Cosmos kapsayıcısı oluşturma
 
 Bu makalede kapsayıcı oluşturmanın farklı yolları (koleksiyon, tablo, graf) açıklanır. Azure portalı, Azure CLI veya desteklenen SDK'lar kullanılarak kapsayıcı oluşturulabilir. Bu makalede kapsayıcıyı oluşturma, bölüm anahtarını belirtme ve aktarım hızını sağlama işlemleri gösterilir.
 

@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3c2ea1e28ebbc6859db135b743d579d3c632133
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901148"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301450"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -108,7 +108,7 @@ Windows bilgisayarlarda izlemeye dosyaları yapılandırmak için aşağıdaki a
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Joker karakter, özyineleme ve ortam ayarları
 
-Özyineleme, dizinleri ve dosyaları ortamlarında birden çok izleme olanak tanımak için ortam değişkenlerini izleme veya dinamik basitleştirmek için joker karakterler belirtmenize olanak sağlar sürücü adları. Özyineleme yapılandırırken bilmeniz gereken genel bilgileri listesi verilmiştir:
+Özyineleme, dizinleri ve dosyaları ortamlarında birden çok izleme olanak tanımak için ortam değişkenlerini izleme veya dinamik basitleştirmek için joker karakterler belirtmenize olanak sağlar sürücü adları. Aşağıdaki liste, özyineleme yapılandırırken bilmeniz gereken genel bilgileri gösterir:
 
 * Joker karakter, birden çok dosyayı izlemek için gereklidir
 * Joker karakterler kullanılıyorsa, bunlar yalnızca yolun son segmentinde kullanılabilir. (C:\folder gibi\\**dosya** veya /etc/*.conf)
@@ -138,7 +138,7 @@ Windows bilgisayarlarda kayıt defteri anahtarı izlemeyi yapılandırmak için 
 
 ## <a name="limitations"></a>Sınırlamalar
 
-Değişiklik izleme çözümü, aşağıdaki öğeler şu anda desteklemez:
+Değişiklik izleme çözümü şu anda aşağıdakileri desteklemez:
 
 * İzleme Windows kayıt defteri için özyineleme
 * Ağ dosya sistemleri
@@ -154,7 +154,7 @@ Diğer sınırlamalar:
 
 Değişiklik izleme çözümü şu anda aşağıdaki sorunlarla karşılaşıyor:
 
-* İçin Windows 10 Creators Update ve Windows Server 2016 Core RS3 makineleri düzeltme güncelleştirmelerini toplanmadı.
+* Düzeltme güncelleştirmelerini, Windows Server 2016 Core RS3 makinelerde toplanmadı.
 
 ## <a name="change-tracking-data-collection-details"></a>Değişiklik izleme veri koleksiyonu ayrıntıları
 
@@ -183,11 +183,11 @@ Aşağıdaki tablo, değişiklik izleme için makine başına izlenen öğe sın
 
 ### <a name="windows-service-tracking"></a>Windows hizmeti izleme
 
-Windows Hizmetleri için varsayılan toplama sıklığı 30 dakikadır. Sıklığı yapılandırma Git **değişiklik izleme**. Altında **ayarlarını Düzenle** üzerinde **Windows Hizmetleri** sekmesinde, Windows Hizmetleri'nden için toplama sıklığı için en çok 30 dakika olarak 10 saniye olan en kısa sürede değiştirmenize izin veren bir kaydırıcı yoktur. Kaydırıcı çubuğunu taşımak istediğiniz sıklığı ve onu otomatik olarak kaydeder.
+Windows Hizmetleri için varsayılan toplama sıklığı 30 dakikadır. Sıklığını yapılandırmak için şu adrese gidin **değişiklik izleme**. Altında **ayarlarını Düzenle** üzerinde **Windows Hizmetleri** sekmesinde, Windows Hizmetleri'nden için toplama sıklığı için en çok 30 dakika olarak 10 saniye olan en kısa sürede değiştirmenize izin veren bir kaydırıcı yoktur. Kaydırıcı çubuğunu taşımak istediğiniz sıklığı ve onu otomatik olarak kaydeder.
 
 ![Windows Hizmetleri kaydırıcı](./media/automation-change-tracking/windowservices.png)
 
-Aracı yalnızca değişiklikleri izler, bu aracı performansını iyileştirir. Hizmet ilk durumuna geri döndürüldü., eşiğin üstüne ayarlayarak değişiklikleri eksik olabilir. Sıklığı ayarını daha küçük bir değere, aksi takdirde atlanabilir değişiklikleri yakalamak sağlar.
+Aracı yalnızca değişiklikleri izler, bu aracı performansını iyileştirir. Hizmet ilk durumuna geri döndürüldü, yüksek bir eşik ayarı değişiklikleri kaçırabilir. Sıklığı ayarını daha küçük bir değere, aksi takdirde atlanabilir değişiklikleri yakalamak sağlar.
 
 > [!NOTE]
 > Aracı için sırada değişiklikleri izleme için 10 ikinci bir aralık, veriler yine de portalında görüntülenmesi birkaç dakika sürer. Portalda görüntülemek için süre sırasında değişiklikleri hala izlenen ve günlüğe kaydedilir.
@@ -269,6 +269,41 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan kayıtlarına ilişkin ör
 |---------|---------|
 |ConfigurationData<br>&#124;Burada ConfigDataType "WindowsServices" ve SvcStartupType == "Auto" ==<br>&#124;Burada SvcState "Durduruldu" ==<br>&#124;Özetleme arg_max(TimeGenerated, *) SoftwareName, bilgisayar tarafından         | Otomatik olarak ayarlanmış, ancak durduruldu olarak bildirilen bir Windows Hizmetleri için en son Envanter kayıtlarının gösterir<br>Sonuçları en son kayıt için söz konusu ve bilgisayar ölçütlerine sınırlıdır      |
 |ConfigurationChange<br>&#124;Burada ConfigChangeType "Yazılım" ve ChangeCategory == "Kaldırıldı" ==<br>&#124;TimeGenerated desc sıralama|Kaldırılacak yazılım için değişiklik kayıtları gösterir|
+
+## <a name="alert-on-changes"></a>Değişikliklerle ilgili uyarı
+
+Bir anahtar özellik değişiklik izleme ve stok yapılandırma durumunu ve karma ortamınızın yapılandırma durumu değişiklikleri uyarı yeteneğidir.  
+
+Aşağıdaki örnekte, ekran görüntüsünde, dosya gösterilmektedir `C:\windows\system32\drivers\etc\hosts` bir makinede değişiklik yapılmadı. Hosts dosyasını ana bilgisayar adları için IP adresleri ve bağlantı sorunları veya yeniden yönlendirme trafiği kötü amaçlı veya tehlikeli Aksi halde Web sitelerine neden bile DNS önceliklidir gidermek için Windows tarafından kullanıldığı için bu önemli bir dosyadır.
+
+![Ana dosya değişikliği gösteren bir grafiği](./media/automation-change-tracking/changes.png)
+
+Bu değişikliği daha fazla analiz yapmak için günlük araması tıklama ile Git **Log Analytics**. Günlük araması'nda, Hosts dosyasına bir sorgu ile içerik değişikliklerini kez arama `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Bu sorgu, bir değişiklik, tam nitelenmiş bir yol "ana bilgisayarlar" sözcüğünü içeren dosyalar için dosya içeriğini dahil edilen değişiklikler arar. Tam hâli yol bölümü değiştirerek belirli bir dosya için isteyebilir (örneğin `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+
+Sorgu istediğiniz sonuçları döndürdükten sonra tıklayın **yeni uyarı kuralı** uyarı oluşturma sayfasını açmak için günlük arama deneyimini düğmesi. Bu deneyim için konuma yönlendirilemedi **Azure İzleyici** Azure portalında. Uyarı oluşturma deneyiminde sorgumuzu tekrar kontrol edin ve uyarı mantığının değiştirin. Bu durumda, ortamdaki tüm makinelerde algılanan bile bir değişiklik olursa tetiklenmesi için uyarıyı istersiniz.
+
+![Hosts dosyasına izleme değişiklikleri için değişiklik sorgu gösteren görüntü](./media/automation-change-tracking/change-query.png)
+
+Koşul mantığı ayarlandıktan sonra tetiklenen uyarının yanıt eylemleri gerçekleştirmek için Eylem grupları atayın. Bu durumda, ı gönderilecek e-postalar ve oluşturulacak bir ITSM bileti yedekleme ayarladınız.  Diğer birçok kullanışlı eylemi tetiklemek gibi bir Azure işlevi, Otomasyon runbook'u, Web kancası veya mantıksal uygulama da alınabilir.
+
+![Görüntüyü değişikliğin uyarı için bir eylem grubu yapılandırma](./media/automation-change-tracking/action-groups.png)
+
+Tüm parametreler ve mantıksal ayarladıktan sonra uyarı ortama uygulayabilirsiniz.
+
+### <a name="alert-suggestions"></a>Uyarı önerileri
+
+Hosts dosyasına değişiklikler uyarı uyarı değişiklik izleme veya envanter verileri için iyi bir uygulama olsa da, uyarı verme, aşağıdaki bölümde, örnek sorgularını birlikte tanımlanan durumlar da dahil olmak üzere pek çok daha fazla senaryo vardır.
+
+|Sorgu  |Açıklama  |
+|---------|---------|
+|ConfigurationChange <br>&#124;Burada ConfigChangeType "Files" ve FileSystemPath == içeren "c:\\windows\\system32\\sürücüleri\\"|Kritik sistem dosyaları için değişiklik izleme için yararlı|
+|ConfigurationChange <br>&#124;Burada FieldsChanged içeren "FileContentChecksum" ve FileSystemPath == "c:\\windows\\system32\\sürücüleri\\vb.\\ana bilgisayarlar"|Anahtar yapılandırma dosyaları için değişiklik izleme için yararlı|
+|ConfigurationChange <br>&#124;Burada ConfigChangeType == "WindowsServices" ve "w3svc" ve SvcState SvcName içeren "Stopped" ==|Sistem kritik Hizmetleri için değişiklik izleme için yararlı|
+|ConfigurationChange <br>&#124;Burada ConfigChangeType == "Daemon'ları" ve "ssh" ve SvcState SvcName içerir! = "Çalışıyor"|Sistem kritik Hizmetleri için değişiklik izleme için yararlı|
+|ConfigurationChange <br>&#124;Burada ConfigChangeType "Yazılım" ve ChangeCategory == "Eklenir" ==|Yararlı ortamlar için gereken yazılım yapılandırmaları kilitli|
+|ConfigurationData <br>&#124;Burada SoftwareName içeren "Monitoring Agent" ve CurrentVersion! = "8.0.11081.0"|Bir güncel olmayan veya uyumlu olmayan yazılım sürümü yüklü olan makineleri görmek için faydalıdır. Son raporlanan yapılandırma durumu değişiklikleri rapor.|
+|ConfigurationChange <br>&#124;Burada RegistryKey == "HKEY_LOCAL_MACHINE\\yazılım\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Değişiklikleri izlemek önemli virüsten koruma anahtarları için yararlı|
+|ConfigurationChange <br>&#124;Burada RegistryKey içeren "HKEY_LOCAL_MACHINE\\sistem\\CurrentControlSet\\Hizmetleri\\SharedAccess\\parametreleri\\FirewallPolicy"| Güvenlik Duvarı ayarları değişiklikleri izlemek için yararlı|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

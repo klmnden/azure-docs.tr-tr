@@ -3,19 +3,19 @@ title: .NET Core ve VS Code kullanarak Azure Dev Spaces ile ekip geliştirmesi |
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 4357c3a2e13e0eda2eb1d8c0071a21ed21aa36ef
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: c411a227c9cb277f6bf16df5085b1e674bd37176
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705744"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463914"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces ile Ekip Geliştirmesi
 
@@ -74,7 +74,7 @@ Zamandan kazanmak adına örnek kodu bir GitHub deposundan indirelim. https://gi
 1. `webfrontend` projesinde, `mywebapi/api/values` konumuna GET isteği göndermeden hemen önce bir kesme noktası ayarlayın.
 1. `webfrontend` projesinde F5'e basın.
 1. Web uygulamasını çağırın ve her iki hizmette de kodun üzerinden geçin.
-1. Web uygulamasında Hakkında sayfası iki hizmet tarafından birleştirilmiş bir ileti görüntüler: "Hello from webfrontend and Hello from mywebapi."
+1. Web uygulamasında hakkında sayfasında iki hizmet tarafından birleştirilmiş bir ileti görüntülenir: "Hello webfrontend ve Hello mywebapi gelen."
 
 
 Bravo! Artık her kapsayıcının ayrı ayrı geliştirilip dağıtılabileceği çok kapsayıcılı bir uygulamanız var.

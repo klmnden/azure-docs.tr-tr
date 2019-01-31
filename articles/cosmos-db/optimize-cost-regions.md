@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: b4c873e319dd611221c81deb948db3a64062631e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032610"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457658"
 ---
-# <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Azure Cosmos DB'de çok bölgeli dağıtımlar maliyetini en iyi duruma getirme
+# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Azure Cosmos DB çok bölgeli maliyetini en iyi duruma getirme
 
 Ekleme ve bölgeler, Azure Cosmos hesabınıza dilediğiniz zaman kaldırın. Çeşitli Azure Cosmos veritabanları ve kapsayıcılar için yapılandırdığınız aktarım hızı, hesabınızla ilişkili her bölgede ayrılmış. Saat başına aktarım hızı sağlanmış, varsa, Azure Cosmos hesabınız için tüm veritabanlarını ve kapsayıcılar arasında yapılandırılan RU/sn Topla `T` ve veritabanı hesabınızla ilişkili Azure bölgelerinin sayısı `N`, toplam sağlanan aktarım hızı belirli bir saat Cosmos hesabınız için eşittir:
 
@@ -35,8 +35,8 @@ Batı ABD'deki kapsayıcı sahip göz önünde bulundurun 10 K RU/sn aktarım h�
 |----|----|----|----|
 |(Birden çok yazma bölgeleri) Batı ABD'deki kapsayıcı için aktarım hızı faturası |10 K RU/sn * 24 * 31 |0,016 başına saat başına 100 RU/sn |$1,190.40 |
 |3 ek bölge - Doğu ABD, Kuzey Avrupa ve Doğu Asya (birden çok yazma bölgeleri) için aktarım hızı faturası |(3 + 1) * 10 K RU/sn * 24 * 31 |0,016 başına saat başına 100 RU/sn |$4,761.60 |
-|Batı ABD’deki kapsayıcı için depolama faturası |100 GB |0,25 DOLAR/GB |25 ABD Doları |
-|3 ek bölge (Doğu ABD, Kuzey Avrupa ve Doğu Asya) için depolama faturası |3 * 1 TB |0,25 DOLAR/GB |75 |
+|Batı ABD’deki kapsayıcı için depolama faturası |100 GB |0,25 DOLAR/GB |$25 |
+|3 ek bölge (Doğu ABD, Kuzey Avrupa ve Doğu Asya) için depolama faturası |3 * 1 TB |0,25 DOLAR/GB |$75 |
 |**Toplam**|||**$6,052** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>İşleme kullanımı geliştirmemizi bir bölge temelinde

@@ -1,5 +1,5 @@
 ---
-title: 'Azure portal: SQL Veritabanı güvenlik duvarı kuralı oluşturma | Microsoft Docs'
+title: 'Azure portalı: Bir SQL veritabanı güvenlik duvarı kuralı oluşturun. | Microsoft Docs'
 description: SQL Veritabanı sunucusu düzeyinde bir güvenlik duvarı kuralı oluşturma
 services: sql-database
 ms.service: sql-database
@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/01/2018
-ms.openlocfilehash: cab92539b5019d4807ddefb2b84279c844f53016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/25/2019
+ms.openlocfilehash: 589d3fa8c0ee8c8f374cd4f34f17401caa46d265
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721910"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462265"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak SQL veritabanınız için sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
+# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalı kullanarak SQL veritabanınız için sunucu düzeyinde bir güvenlik duvarı kuralı oluşturun
 
 Bu hızlı başlangıç, bir Azure SQL veritabanına şirket içi bir kaynaktan bağlanmanızı sağlamak üzere veritabanı için sunucu düzeyinde bir güvenlik duvarı kuralı oluşturmanın adımlarını göstermektedir.
 
@@ -57,7 +57,7 @@ SQL veritabanı hizmeti, sunucu düzeyinde bir güvenlik duvarı oluşturur. Bu 
    > Varsayılan olarak, SQL Veritabanı güvenlik duvarı üzerinden erişim tüm Azure hizmetleri için etkindir. Seçin **OFF** tüm Azure Hizmetleri için devre dışı bırakmak için bu sayfadaki.
    >
 
-5. **Kaydet**’i seçin. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
+5. **Kaydet**’i seçin. SQL veritabanı sunucusu üzerindeki 1433 numaralı bağlantı noktasını açma geçerli IP adresiniz için sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
 
 6. Kapat **Güvenlik Duvarı ayarları** sayfası.
 
@@ -66,7 +66,6 @@ SQL Server Management Studio veya seçtiğiniz başka bir aracı kullanarak, art
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [Sonraki adımlar](#next-steps)’a geçip farklı yöntemler kullanarak veritabanını sorgulama hakkında bilgi edinmek istiyorsanız bu kaynakları kaydedin. Bu hızlı başlangıçta oluşturduğunuz kaynakları silmek istiyorsanız, aşağıdaki adımları kullanın.
-
 
 1. Azure portalında sol taraftaki menüden seçin **kaynak grupları** seçip **myResourceGroup**.
 2. Kaynak grubu sayfanızda seçin **Sil**, türü **myResourceGroup** metin kutusuna ve ardından **Sil**.

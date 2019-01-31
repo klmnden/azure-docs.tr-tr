@@ -6,19 +6,19 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 57f20a6b3a8d2845b0459f05e7b9d9ccd8d44424
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139631"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463302"
 ---
-# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process'in çalışması: kullanımı Azure HDInsight Hadoop kümeleri
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process'in çalışması: Azure HDInsight Hadoop kümelerini kullanma
 Bu kılavuzda kullandığımız [Team Data Science işlem (TDSP)](overview.md) uçtan uca bir senaryoda. Kullandığımız bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi verileri genel olarak kullanılabilir ve [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) dataset ve aşağı örnek veriler için. İkili ve çok sınıflı sınıflandırma ve regresyon Tahmine dayalı görevler işlemek üzere Azure Machine Learning ile veri modelleri ekleriz. 
 
 Daha büyük bir veri kümesi ne yapılacağını gösteren bir kılavuz için bkz. [Team Data Science Process - Azure HDInsight Hadoop kümeleri kullanan bir 1 TB veri çubuğunda](hive-criteo-walkthrough.md).
@@ -50,18 +50,18 @@ Seyahat katılmak için benzersiz anahtar\_veri ve seyahat\_taksi alanlarını o
 ## <a name="mltasks"></a>Tahmin görev örnekleri
 Yapmak istediğiniz Öngörüler tür veri Analizine göre belirleyin. Bu, işleminize dahil etmek için gereken görevleri açıklamak yardımcı olur. Biz bu kılavuzda ele tahmin sorunları üç örnekleri aşağıda verilmiştir. Bu temel alan *İpucu\_tutarı*:
 
-- **İkili sınıflandırma**: bir ipucu için bir seyahat Ücretli olup olmadığını tahmin edin. Diğer bir deyişle, bir *İpucu\_tutarı* büyük pozitif bir örnek 0 TL'dir daha açıkken bir *İpucu\_tutarı* 0 veya negatif bir örnektir.
+- **İkili sınıflandırma**: İpucu için bir seyahat Ücretli olup olmadığını tahmin edin. Diğer bir deyişle, bir *İpucu\_tutarı* büyük pozitif bir örnek 0 TL'dir daha açıkken bir *İpucu\_tutarı* 0 veya negatif bir örnektir.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **Sınıflı sınıflandırma**: seyahat için ücretli ipucu tutarları aralığını tahmin edin. Biz bölmek *İpucu\_tutarı* beş sınıfı içine:
+- **Sınıflı sınıflandırma**: Seyahat için ücretli ipucu tutarları aralığını tahmin edin. Biz bölmek *İpucu\_tutarı* beş sınıfı içine:
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **Regresyon görev**: yolculuğu için ücretli bahşiş miktarını tahmin edin.  
+- **Regresyon görev**: Seyahat için ücretli bahşiş miktarını tahmin edin.  
 
 ## <a name="setup"></a>Gelişmiş analiz için bir HDInsight Hadoop kümesi oluşturma
 > [!NOTE]
@@ -76,7 +76,7 @@ Bir HDInsight kümesi üç adımda kullanan gelişmiş analiz için bir Azure or
    
    * Oluşturduğunuz zaman, HDInsight kümenizle 1. adımda oluşturduğunuz depolama hesabına bağlanmak unutmayın. Küme içinde işlenen verileri bu depolama hesabına erişir.
    * Kümeyi oluşturduktan sonra küme baş düğümüne uzaktan erişimi etkinleştirin. Gözat **yapılandırma** sekmesine tıklayın ve **etkinleştirme uzak**. Bu adım, uzaktan oturum açma için kullanılan kullanıcı kimlik bilgilerini belirtir.
-3. [Azure Machine Learning çalışma alanı oluşturma](../studio/create-workspace.md): Makine öğrenimi modelleri oluşturmak için bu çalışma alanını kullanın. Bu görev ilk veri İnceleme tamamladıktan sonra aşağı örnekleme, HDInsight kümesi kullanarak değinilmiştir.
+3. [Bir Azure Machine Learning çalışma alanı oluşturma](../studio/create-workspace.md): Makine öğrenimi modelleri oluşturmak için bu çalışma alanını kullanın. Bu görev ilk veri İnceleme tamamladıktan sonra aşağı örnekleme, HDInsight kümesi kullanarak değinilmiştir.
 
 ## <a name="getdata"></a>Bir genel kaynaktan veri alma
 > [!NOTE]
@@ -286,7 +286,7 @@ Veri keşfi ve özellik mühendislik Hive tablolarına yüklenen veriler için g
 * İkili ve çok sınıflı sınıflandırma etiketleri ipucu miktarı üzerinden oluşturur.
 * Özellikler, doğrudan seyahat uzaklıkları bilgi işlem tarafından oluşturur.
 
-### <a name="exploration-view-the-top-10-records-in-table-trip"></a>İnceleme: ilk 10 kayıtları tablosu seyahat içinde görüntüleyin.
+### <a name="exploration-view-the-top-10-records-in-table-trip"></a>Keşfetme: İlk 10 kayıtları tablosu seyahat içinde görüntüleme
 > [!NOTE]
 > Bu genellikle bir veri Bilimcisi görevdir.
 > 
@@ -306,7 +306,7 @@ Kayıtların uygun görüntülemek için bir dosyaya kaydedebilirsiniz. Önceki 
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
-### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>İnceleme: kayıt sayısını 12 bölümlerin her görüntüleyin
+### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>Keşfetme: Görünümü her 12 bölüme kayıt sayısı
 > [!NOTE]
 > Bu genellikle bir veri Bilimcisi görevdir.
 > 
@@ -376,7 +376,7 @@ Bu verir:
 
 Her iki tablodaki kayıtları toplam sayısı da de aynıdır. Bu verileri doğru şekilde yüklenmiş olan ikinci bir doğrulama sağlar.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>İnceleme: Seyahat dağıtım medallion tarafından
+### <a name="exploration-trip-distribution-by-medallion"></a>Keşfetme: Seyahat dağıtım medallion tarafından
 > [!NOTE]
 > Bu genellikle bir veri Bilimcisi görevdir.
 > 
@@ -410,7 +410,7 @@ Hive directory isteminden aşağıdaki komutu çalıştırın:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>İnceleme: Seyahat dağıtım medallion ve hack lisans tarafından
+### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Keşfetme: Seyahat dağıtım medallion ve hack lisans tarafından
 > [!NOTE]
 > Bu genellikle bir veri Bilimcisi görevdir.
 > 
@@ -435,7 +435,7 @@ Hive directory isteminde çalıştırın:
 
 Sorgu sonuçlarını yerel bir dosyaya yazılır **C:\temp\queryoutput.tsv**.
 
-### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Keşfetme: geçersiz bir boylam veya enlem kayıtlar için işaretleyerek veri kalitesi değerlendiriliyor
+### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Keşfetme: Veri kalitesi için geçersiz boylam veya enlem kayıtlarını denetleyerek değerlendiriliyor
 > [!NOTE]
 > Bu genellikle bir veri Bilimcisi görevdir.
 > 
@@ -459,7 +459,7 @@ Hive directory isteminde çalıştırın:
 
 *-S* Bu komutta yer alan bir bağımsız değişken Hive Map/Reduce işleri durumu ekran çıktısını engeller. Bunu bir ekran daha okunabilir Hive sorgusu çıkışı yazdırma yaptığından, bu yararlıdır.
 
-### <a name="exploration-binary-class-distributions-of-trip-tips"></a>İnceleme: İkili sınıfı dağıtımlarını seyahat ipuçları
+### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Keşfetme: İkili sınıfı dağıtımlarını seyahat ipuçları
 > [!NOTE]
 > Bu genellikle bir veri Bilimcisi görevdir.
 > 
@@ -485,7 +485,7 @@ Hive directory isteminde çalıştırın:
     hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 
 
-### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>İnceleme: dağıtımlar çok sınıflı ayarında sınıfı
+### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Keşfetme: Sınıf dağıtımları çok sınıflı ayarı
 > [!NOTE]
 > Bu genellikle bir veri Bilimcisi görevdir.
 > 
@@ -508,7 +508,7 @@ Hadoop komut satırı konsolundan aşağıdaki komutu çalıştırın:
 
     hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 
-### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>İnceleme: boylam enlem iki konum arasında doğrudan uzaklık işlem
+### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Keşfetme: Boylam-enlem iki konum arasında doğrudan uzaklık işlem
 > [!NOTE]
 > Bu genellikle bir veri Bilimcisi görevdir.
 > 
@@ -721,15 +721,15 @@ Artık iç tablo sahibiz **nyctaxidb.nyctaxi_downsampled_dataset**, hangi erişi
 
 Hakkında bazı ayrıntılar aşağıdadır [verileri içeri aktarma] [ import-data] modülü ve giriş parametreleri:
 
-**HCatalog sunucusu URI**: küme adı ise **abc123**, sadece budur: https://abc123.azurehdinsight.net.
+**HCatalog sunucusu URI**: Küme adı ise **abc123**, sadece budur: https://abc123.azurehdinsight.net.
 
-**Hadoop kullanıcı hesabı adı**: (uzaktan erişim kullanıcı adı değil) küme için seçilen kullanıcı adı.
+**Hadoop kullanıcı hesabı adı**: (Uzaktan erişim kullanıcı adı değil) küme için seçilen kullanıcı adı.
 
-**Hadoop kullanıcı hesabı parolasını**: (uzaktan erişim parolayı değil) kümenin seçtiğiniz parola.
+**Hadoop kullanıcı hesabı parolasını**: (Uzaktan erişim parolayı değil) küme için seçilen parolası.
 
-**Çıktı verilerini konumunu**: Bu Azure olarak seçilir.
+**Çıktı verilerini konumunu**: Bu, Azure olarak seçilir.
 
-**Azure depolama hesabı adı**: varsayılan depolama hesabı adı, kümeyle ilişkili.
+**Azure depolama hesabı adı**: Kümeyle ilişkilendirilmiş varsayılan depolama hesabı adı.
 
 **Azure kapsayıcı adı**: Bu küme için varsayılan kapsayıcı adı ve genellikle küme adıyla aynı. Adlı bir küme için **abc123**, abc123 budur.
 
@@ -757,9 +757,9 @@ Veri kümesi, makine öğrenimi modelleri oluşturmak için başlangıç noktas�
 ### <a name="mlmodel"></a>Machine Learning modelleri oluşturma
 Şimdi modeli yapı ve model dağıtımda geçebilirsiniz [Machine Learning](https://studio.azureml.net). Verileri, bizim daha önce tanımlanan tahmin sorunları gidermede kullanmak için hazırdır:
 
-- **İkili sınıflandırma**: tahmin etmek için olup olmadığını bir ipucu Ücretli bir seyahat için.
+- **İkili sınıflandırma**: Tahmin etmek için olup olmadığını bir ipucu için bir seyahat ödenmiş.
 
-  **Kullanılan learner:** iki sınıflı Lojistik regresyon
+  **Kullanılan learner:** İki sınıflı Lojistik regresyon
 
   a. Bu sorun için hedef (veya sınıf) etikettir **Eğimli**. Özgün alt örneklenen veri kümesi bu sınıflandırma deneme için hedef sızıntılarını olan birkaç sütun içeriyor. Özellikle, **İpucu\_sınıfı**, **İpucu\_tutarı**, ve **toplam\_tutarı** etiket hedef bilgilerini açığa çıkar Test süresi kullanılabilir değil. Biz bu sütunları kullanarak göz kaldırma [kümesindeki sütunları seçme] [ select-columns] modülü.
 
@@ -777,13 +777,13 @@ Veri kümesi, makine öğrenimi modelleri oluşturmak için başlangıç noktas�
 
   ![Grafik AUC değeri](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Sınıflı sınıflandırma**: önceden tanımlanmış sınıfları kullanarak seyahat için ücretli ipucu tutarları aralığını tahmin etmek için.
+- **Sınıflı sınıflandırma**: İpucu tutarları aralığını tahmin etmek için önceden tanımlanmış sınıfları kullanarak seyahat için ücretli.
 
-  **Kullanılan learner:** çok sınıflı Lojistik regresyon
+  **Kullanılan learner:** Çok sınıflı Lojistik regresyon
 
   a. Bu, hedef (veya sınıf) etiketimizi geçirmesidir **İpucu\_sınıfı**, hangi birini alabilir beş değerleri (0,1,2,3,4). İkili sınıflandırma durumda olduğu gibi bu deneme için hedef sızıntılarını olan birkaç sütunlar sahibiz. Özellikle, **Eğimli**, **İpucu\_tutarı**, ve **toplam\_tutarı** kullanılamıyor hedef etiketi hakkındaki bilgileri açığa çıkar Test süresi. Biz kullanarak bu sütunları kaldırın [kümesindeki sütunları seçme] [ select-columns] modülü.
 
-  Aşağıdaki diyagramda, hangi Kutusu'na bir ipucu kalan olasılığı tahmin etmek için deneme gösterilmektedir. Depo olan: sınıf 0: ipucu 0 ABD Doları, sınıf 1 =: ipucu > $0 ve ipucu < 5 ABD Doları, sınıf 2 =: ipucu > $5 ve ipucu < 10 ABD Doları, sınıf 3 =: ipucu > $10 ve ipucu < = 20 ve sınıf 4: > $20 ipucu.
+  Aşağıdaki diyagramda, hangi Kutusu'na bir ipucu kalan olasılığı tahmin etmek için deneme gösterilmektedir. Depo şunlardır: Sınıfı 0: ipucu 0 ABD Doları, sınıf 1 =: ipucu > $0 ve ipucu < 5 ABD Doları, sınıf 2 =: ipucu > $5 ve ipucu < 10 ABD Doları, sınıf 3 =: ipucu > $10 ve ipucu < = 20 ve sınıf 4: > $20 ipucu.
 
   ![İpucu için depo tahmin etmek için deneme diyagramı](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -797,9 +797,9 @@ Veri kümesi, makine öğrenimi modelleri oluşturmak için başlangıç noktas�
 
   Yaygın sınıflarda sınıfı doğruluk oldukça iyi olsa da, model "öğrenme" iyi bir iş nadir sınıflarında edilmediğini unutmayın.
 
-- **Regresyon görev**: ipucu için bir seyahat Ücretli miktarını tahmin edin.
+- **Regresyon görev**: İpucu miktarı tahmin etmek için bir seyahat Ücretli.
 
-  **Kullanılan learner:** Boosted karar ağacı
+  **Kullanılan learner:** artırmalı karar ağacı
 
   a. Bu sorun için hedef (veya sınıf) etikettir **İpucu\_tutarı**. Bu durumda hedef sızıntılarını olan: **Eğimli**, **İpucu\_sınıfı**, ve **toplam\_tutarı**. Tüm bu değişkenler, test süresi genellikle kullanılabilir olan ipucu miktarı hakkında bilgi gösterir. Biz kullanarak bu sütunları kaldırın [kümesindeki sütunları seçme] [ select-columns] modülü.
 

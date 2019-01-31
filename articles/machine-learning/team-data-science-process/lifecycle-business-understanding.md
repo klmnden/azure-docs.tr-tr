@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141671"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477463"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process yaşam döngüsü aşaması iş anlama
 
@@ -40,8 +40,8 @@ TDSP yaşam döngüsü görsel bir temsilini şu şekildedir:
 ## <a name="how-to-do-it"></a>Nasıl yapılır
 Bu aşamada ele iki ana görevi vardır: 
 
-   * **Hedefleri tanımlamanıza**: anlamak ve iş sorunlarını belirlemek için müşteri ve diğer proje katılımcıları ile çalışma. Veri bilimi teknikleri hedefleyebilen iş hedeflerinizi sorular düzenleyin.
-   * **Veri kaynaklarını tanımlama**: yardımcı olan ilgili verileri projenin hedefleri tanımlamanıza ve sorulara yanıt bulun.
+   * **Hedefleri tanımlamanıza**: Anlama ve iş sorunlarını belirlemek için müşteri ve diğer proje katılımcıları çalışın. Veri bilimi teknikleri hedefleyebilen iş hedeflerinizi sorular düzenleyin.
+   * **Veri kaynaklarını tanımlama**: Projenin hedefleri tanımlamanıza soruları yanıtlamanıza yardımcı olan ilgili verileri bulun.
 
 ### <a name="define-objectives"></a>Hedeflerini belirleyin
 1. Bu adımın merkezi bir hedefi tahmin analizi ihtiyaçlarınızın önemli iş değişkenleri belirlemektir. Bu değişkenler diyoruz *model hedefleri*, ve onlarla ilişkili ölçümleri projenin başarısını belirlemek için kullanıyoruz. İki tür hedeflerle satış tahminlerini veya bir sipariş edilen sahte olasılığını örnekleridir.
@@ -77,9 +77,9 @@ Diyez sorularınızın yanıtlarını bilinen örneklerini içeren veri kaynakla
 ## <a name="artifacts"></a>Yapıtlar
 Bu aşamada teslim edilebilir öğeler şunlardır:
 
-   * [Kurucu belge](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): standart şablonunu TDSP projesi yapı tanımında sağlanır. Kurucu, oturma belge belgesidir. Şablon proje boyunca yeni bulmalar yaptığınız ve iş gereksinimleri değiştikçe güncelleştirin. Bulma işlemi ilerlemeyi olarak daha fazla ayrıntı ekleme, bu belge üzerinde yineleme yapmak için kullanılan anahtardır. Bir müşteriye ve diğer proje katılımcıları söz konusu değişiklikler yaparken ve açıkça bunları değişiklikleri nedenlerle iletişim.  
-   * [Veri kaynakları](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): **ham veri kaynakları** bölümünü **veri tanımlarını** TDSP projesinde bulunan rapor **veri raporu** klasör verileri içerir kaynakları. Bu bölümde, ham veriler için özgün ve hedef konumları belirtir. Daha sonraki aşamalarda, analitik ortamınıza verileri taşımak için komut dosyaları gibi ek ayrıntıları doldurun.  
-   * [Veri sözlükleri](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Bu belgede istemci tarafından sağlanan veri açıklamaları sağlanır. Bu açıklamalar varsa şema (veri türleri ve varsa doğrulama kuralları bilgi) ve varlık ilişkisi diyagramları hakkında bilgi içerir.
+   * [Kurucu belge](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): Standart şablon TDSP projesi yapı tanımında sağlanır. Kurucu, oturma belge belgesidir. Şablon proje boyunca yeni bulmalar yaptığınız ve iş gereksinimleri değiştikçe güncelleştirin. Bulma işlemi ilerlemeyi olarak daha fazla ayrıntı ekleme, bu belge üzerinde yineleme yapmak için kullanılan anahtardır. Bir müşteriye ve diğer proje katılımcıları söz konusu değişiklikler yaparken ve açıkça bunları değişiklikleri nedenlerle iletişim.  
+   * [Veri kaynakları](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): **Ham veri kaynakları** bölümünü **veri tanımlarını** TDSP projesinde bulunan rapor **veri raporu** klasörü, veri kaynaklarını içerir. Bu bölümde, ham veriler için özgün ve hedef konumları belirtir. Daha sonraki aşamalarda, analitik ortamınıza verileri taşımak için komut dosyaları gibi ek ayrıntıları doldurun.  
+   * [Veri sözlükleri](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Bu belge, istemci tarafından sağlanan veri açıklamaları sağlar. Bu açıklamalar varsa şema (veri türleri ve varsa doğrulama kuralları bilgi) ve varlık ilişkisi diyagramları hakkında bilgi içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanı - Tekliyi yapılandırmak nasıl | Microsoft Docs
-description: Yapılandırma ve Azure SQL veritabanı - tek veritabanını yönetme hakkında bilgi edinin.
+title: Azure SQL veritabanı - tek başına yapılandırma | Microsoft Docs
+description: Yapılandırma ve Azure SQL veritabanı - tek başına veritabanını yönetme hakkında bilgi edinin
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: d34853220e423e73c6ca8cf7c76ba616b815b8bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440656"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477803"
 ---
-# <a name="how-to-use-single-database"></a>Tek veritabanı nasıl kullanılır
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek bir veritabanını kullanma
 
-Bu bölümde çeşitli kılavuzları, betikleri ve Azure SQL veritabanı - tek veritabanı yönetip yardımcı olabilecek açıklamalar bulabilirsiniz.
+Bu bölümde, çeşitli kılavuzları, betikler ve yönetmenizi ve Azure SQL veritabanı'nda, tek veritabanı yapılandırma yardımcı olabilecek açıklamaları bulabilirsiniz
 
 ## <a name="migrate"></a>Geçiş
 
@@ -66,7 +66,7 @@ Bu bölümde çeşitli kılavuzları, betikleri ve Azure SQL veritabanı - tek v
 - Çalıştırma [çok parçalı sorgular](sql-database-elastic-scale-multishard-querying.md).
 - [Parçalı verileri taşıma](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Güvenlik Yapılandırma](sql-database-elastic-scale-split-merge-security-configuration.md) veritabanı parçalardaki.
-- [Parça ekleme](sql-database-elastic-scale-add-a-shard.md) geçerli veritabanı parçalarını od ayarlayın.
+- [Parça ekleme](sql-database-elastic-scale-add-a-shard.md) veritabanı parçalarını geçerli dizi.
 - [Parça eşleme sorunlarını düzeltme](sql-database-elastic-database-recovery-manager.md).
 - [Parçalı veritabanını geçirme](sql-database-elastic-convert-to-use-elastic-tools.md).
 - [Sayaç oluşturma](sql-database-elastic-database-perf-counters.md).
@@ -74,4 +74,4 @@ Bu bölümde çeşitli kılavuzları, betikleri ve Azure SQL veritabanı - tek v
 - [Kullanım Dapper framework](sql-database-elastic-scale-working-with-dapper.md) sorgu parçalı veriler için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Daha fazla bilgi edinin [yönetilen örneği'nde nasıl yapılır kılavuzları](sql-database-howto-managed-instance.md)
+- Daha fazla bilgi edinin [yönetilen örnek için nasıl yapılır kılavuzları](sql-database-howto-managed-instance.md)

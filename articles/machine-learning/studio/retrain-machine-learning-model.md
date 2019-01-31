@@ -1,6 +1,6 @@
 ---
-Başlık: Machine Learning Studio'da model titleSuffix yeniden eğitme: Azure Machine Learning Studio açıklaması: Modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için Web hizmetini güncelleştirmek hakkında bilgi edinin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Machine Learning Studio'da model titleSuffix yeniden eğitme: Azure Machine Learning Studio açıklaması: Modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için Web hizmetini güncelleştirmek hakkında bilgi edinin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

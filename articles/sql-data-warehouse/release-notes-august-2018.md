@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 11125fb1c78852a048787e99d78bf4cb941184fa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 492bdd30a656a37196cf4d27a2510dbc3a79807d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320370"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463574"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Ağustos 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Ağustos 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -32,7 +32,7 @@ Microsoft gelen [otomatik Intelligent ınsights](https://azure.microsoft.com/blo
 
 | Unvan | Açıklama |
 |:---|:---|
-| **Bölme sayısı üst sınırı aşarsa olası sorgu hatası** |Üst sınır 1 milyon dosya bölme sınırı aşıldığında işlenmeyen bir özel durum dökümünü almak SQL altyapısı neden ve tüm sorguların başarısız oldu. Bu düzeltme addresse sorunu doğru özel durum işleme ve sorguların başarısız olmasına neden olmadan bir hata döndürüyor. |
+| **Bölme sayısı üst sınırı aşarsa olası sorgu hatası** |Üst sınır 1 milyon dosya bölme sınırı aşıldığında işlenmeyen bir özel durum dökümünü almak SQL altyapısı neden ve tüm sorguların başarısız oldu. Bu düzeltme, sorunu doğru özel durum işleme ve sorguların başarısız olmasına neden olmadan bir hatayı döndürmeden tarafından ele alınan. |
 | **Daha fazla ExternalMoveReadersPerNode varsayılan değer, yük performansını geliştirmek için** |Bu sorunu ExternalMoveReadersPerNode özelliğini ayarlayarak ayarı service fabric ile eşitlenmemiş olması nedeniyle oluştu. Bu regresyon bir Gen2 yük performansın düşmesine neden neden oldu. Düzeltme 2. nesil yükleme performansını en iyi duruma getirilmiş tasarım parametreleri içinde geri getirir.|
 
 

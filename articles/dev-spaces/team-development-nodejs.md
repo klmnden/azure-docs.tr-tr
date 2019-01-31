@@ -3,19 +3,19 @@ title: VS Code kullanarak Azure Dev Spaces ile ekip geliştirmesi | Microsoft Do
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 4b45cf6d986aa8bf404e77e7a6cf0005183f1133
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 8a7200723b39c40fe9596bbab0acaf752acbbaf8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706577"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451402"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces ile ekip geliştirmesi
 
@@ -70,7 +70,7 @@ Bu kılavuz için `samples` adlı klasörün altında zaten `mywebapi` örnek ko
 1. Varsayılan GET `/` işleyicisinde bir kesme noktası ayarlayın.
 1. `webfrontend` projesinde, `http://mywebapi` konumuna GET isteği göndermeden hemen önce bir kesme noktası ayarlayın.
 1. `webfrontend` projesinde F5'e basın.
-1. Web uygulamasını açın ve her iki hizmette de kodun üzerinden geçin. Web uygulamasında iki hizmet tarafından birleştirilmiş bir ileti görüntüleniyor olmalıdır: "Hello from webfrontend and Hello from mywebapi."
+1. Web uygulamasını açın ve her iki hizmette de kodun üzerinden geçin. Web uygulaması, iki hizmet tarafından birleştirilmiş bir ileti görüntülenmelidir: "Hello webfrontend ve Hello mywebapi gelen."
 
 Bravo! Artık her kapsayıcının ayrı ayrı geliştirilip dağıtılabileceği çok kapsayıcılı bir uygulamanız var.
 

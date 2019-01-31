@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 40cfadd3880b1875e775aae21e667ba0e20086ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219762"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294732"
 ---
-# <a name="configure-language-understanding-docker-containers"></a>Language Understanding docker kapsayıcıları yapılandırın 
+# <a name="configure-language-understanding-docker-containers"></a>Dil anlama Docker kapsayıcıları yapılandırın 
 
-Language Understanding (LUIS) kapsayıcı çalışma zamanı ortamı kullanılarak yapılandırılan `docker run` komut bağımsız değişkenleri. LUIS birkaç isteğe bağlı ayarları ile birlikte gerekli birkaç ayar vardır. Birkaç [örnekler](#example-docker-run-commands) komutu kullanılabilir. Giriş kapsayıcısı özgü ayarlar şunlardır [bağlama ayarları](#mount-settings) ve fatura ayarlar. 
+**Language Understanding** (LUIS) kapsayıcı çalışma zamanı ortamı kullanarak yapılandırılmış `docker run` komut bağımsız değişkenleri. LUIS birkaç isteğe bağlı ayarları ile birlikte gerekli birkaç ayar vardır. Birkaç [örnekler](#example-docker-run-commands) komutu kullanılabilir. Giriş kapsayıcısı özgü ayarlar şunlardır [bağlama ayarları](#mount-settings) ve fatura ayarlar. 
 
 Kapsayıcı ayarları [hiyerarşik](#hierarchical-settings) ve ayarlanabilir [ortam değişkenlerini](#environment-variable-settings) ya da docker [komut satırı bağımsız değişkenleri](#command-line-argument-settings).
 

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 17e0cf170197b99037e2892d1b74a699a3a9eef5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a91778f1646807a092a3c8cda66bd3bd104ff8b5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275338"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301892"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -196,7 +196,7 @@ module.exports = function(ctx) {
 };
 ```
 
-### <a name="contextbindings-property"></a>Context.Bindings özelliği
+### <a name="contextbindings-property"></a>context.bindings property
 
 ```js
 context.bindings
@@ -230,7 +230,7 @@ context.bindings.myOutput = {
 
 Çıkış veri bağlama kullanarak tanımlamak seçebileceğiniz `context.done` yöntemi yerine `context.binding` nesne (aşağıya bakın).
 
-### <a name="contextbindingdata-property"></a>context.bindingData özelliği
+### <a name="contextbindingdata-property"></a>context.bindingData property
 
 ```js
 context.bindingData
@@ -326,7 +326,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ### <a name="configure-the-trace-level-for-console-logging"></a>Konsol günlüğü için izleme düzeyini yapılandırın
 
-İşlevleri şekilde izlemeleri işlevinizden konsoluna yazılan denetim kolaylaştırır konsola yazma için eşik izleme düzeyini tanımlamanıza olanak sağlar. Konsoluna yazılan tüm izlemeleri eşiği ayarlamak için kullanın `tracing.consoleLevel` host.json dosyasındaki özellik. Bu ayar, işlev uygulamanızdaki tüm işlevler için geçerlidir. Aşağıdaki örnek, ayrıntılı günlük kaydını etkinleştirmek için izleme eşiği ayarlar:
+Eşik izleme düzeyi için kolaylaştıran konsola yazma için tanımladığınız işlevleri 1.x sağlar izlemeleri işlevinizden konsoluna yazılan denetlenmesine. Konsoluna yazılan tüm izlemeleri eşiği ayarlamak için kullanın `tracing.consoleLevel` host.json dosyasındaki özellik. Bu ayar, işlev uygulamanızdaki tüm işlevler için geçerlidir. Aşağıdaki örnek, ayrıntılı günlük kaydını etkinleştirmek için izleme eşiği ayarlar:
 
 ```json
 {
@@ -336,7 +336,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 }  
 ```
 
-Değerleri **consoleLevel** adları için karşılık gelen `context.log` yöntemleri. Konsola tüm izleme günlüğü devre dışı bırakmak için ayarlanmış **consoleLevel** için _kapalı_. Daha fazla bilgi için [host.json başvurusu](functions-host-json.md).
+Değerleri **consoleLevel** adları için karşılık gelen `context.log` yöntemleri. Konsola tüm izleme günlüğü devre dışı bırakmak için ayarlanmış **consoleLevel** için _kapalı_. Daha fazla bilgi için [host.json başvurusu](functions-host-json-v1.md).
 
 ## <a name="http-triggers-and-bindings"></a>HTTP Tetikleyicileri ve bağlamaları
 

@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 8dfcee6e7f0e2fd21c35ed2507b572c6e8cffc42
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 01/29/2019
+ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217246"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466601"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı veri bulma ve sınıflandırma
 
@@ -123,7 +123,7 @@ Kiracı genelinde bir ilke oluşturulduktan sonra özelleştirilmiş ilkenizi ku
 
 ## <a id="subheading-3"></a>Hassas verilere erişimi denetleme
 
-Bilgi koruma paradigma önemli bir yönüdür hassas verilere erişimi izlemek için yeteneğidir. [Azure SQL veritabanı denetimi](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) Denetim günlüğüne adlı yeni bir alan eklemek için Gelişmiş *data_sensitivity_information*, günlükleri tarafından döndürülen gerçek verilerin duyarlılık sınıflandırmaları (etiketler) Sorgu.
+Bilgi koruma paradigma önemli bir yönüdür hassas verilere erişimi izlemek için yeteneğidir. [Azure SQL veritabanı denetimi](sql-database-auditing.md) Denetim günlüğüne adlı yeni bir alan eklemek için Gelişmiş *data_sensitivity_information*, günlükleri tarafından döndürülen gerçek verilerin duyarlılık sınıflandırmaları (etiketler) Sorgu.
 
 ![Denetleme günlüğü](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -148,7 +148,7 @@ Sınıflandırmaları programlı olarak yönetmek için REST API de kullanabilir
 ## <a id="subheading-5"></a>Sonraki adımlar
 
 - Daha fazla bilgi edinin [SQL gelişmiş veri güvenliği](sql-advanced-threat-protection.md).
-- Yapılandırmayı göz önünde bulundurun [Azure SQL veritabanı denetimi](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) izleme ve, sınıflandırılmış hassas verilere erişimi denetleme.
+- Yapılandırmayı göz önünde bulundurun [Azure SQL veritabanı denetimi](sql-database-auditing.md) izleme ve, sınıflandırılmış hassas verilere erişimi denetleme.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

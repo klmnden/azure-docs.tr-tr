@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/09/2019
-ms.openlocfilehash: 818dbf84f7b706d6f4a89354291775f091bb1afc
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/30/2019
+ms.openlocfilehash: 48cdd064155bfbdfa2fef2ce5a8410e4c95e4c3b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215482"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461075"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları elastik havuzlar için satın alma
 
@@ -53,7 +53,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Maks. eş zamanlı çalışan (istek) havuz başına * |210|420|630|840|1050|1260|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|100|200|300|500|500|500|
-|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0,5, 1|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1... 3|0, 0.25, 0,5, 1... 4|0, 0.25, 0,5, 1... 5|0, 0.25, 0,5, 1... 6|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|
@@ -79,7 +79,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1470|1680|1890|2100|3360|5040|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|200|500|500|500|500|500|
-|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0,5, 1... 7|0, 0.25, 0,5, 1... 8|0, 0.25, 0,5, 1... 9|0, 0.25, 0,5, 1... 10|0, 0.25, 0,5, 1... 10, 16|0, 0.25, 0,5, 1... 10, 16, 24|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|
@@ -93,7 +93,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|
 |Sanal çekirdekler|2|4|6|8|10|12|14|
-|Bellek (GB)|10.2|20,4 inç|30.6|40.8|51|61.2|71.4|
+|Bellek (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Bellek içi OLTP depolama alanı (GB)|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |En yüksek veri boyutu (GB)|512|756|756|1536|1536|1536|
@@ -105,7 +105,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Maks. eş zamanlı çalışan (istek) havuz başına *|210|420|630|840|1050|1260|1470|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|200|500|500|500|500|500|500|
-|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1... 4|0, 0.25, 0,5, 1... 6|0, 0.25, 0,5, 1... 8|0, 0.25, 0,5, 1... 10|0, 0.25, 0,5, 1... 12|0, 0.25, 0,5, 1... 14|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
@@ -130,7 +130,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Hedef IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1680|1890|2100|2520|33600|4200|8400|
 |Havuz başına en fazla veritabanı|500|500|500|500|500|500|500|
-|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0,5, 1... 16|0, 0.25, 0,5, 1... 18|0, 0.25, 0,5, 1... 20|0, 0.25, 0,5, 1... 20, 24|0, 0.25, 0,5, 1... 20, 24, 32|0, 0.25, 0,5, 1... 16, 24, 32, 40|0, 0.25, 0,5, 1... 16, 24, 32, 40, 80|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
@@ -146,7 +146,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |:--- | --: |--: |--: |--: |--: |--: |
 |S/W oluşturma|4|4|4|4|4|4|
 |Sanal çekirdekler|1|2|3|4|5|6|
-|Bellek (GB)|10.2|20,4 inç|30.6|40.8|51|61.2|71.4|
+|Bellek (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore desteği|Yok|Yok|Yok|Yok|Yok|Yok|
 |Bellek içi OLTP depolama alanı (GB)|1|2|3|4|5|6|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
@@ -158,7 +158,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Maks. eş zamanlı çalışan (istek) havuz başına *|210|420|630|840|1050|1260|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|Yalnızca tek veritabanları için bu işlem boyutu desteklenir|50|100|100|100|100|
-|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|Yok|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1... 3|0, 0.25, 0,5, 1... 4|0, 0.25, 0,5, 1... 5|0, 0.25, 0,5, 1... 6|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|Yok|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Çoğaltma sayısı|4|4|4|4|4|4|
 |Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
@@ -184,7 +184,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1470|1680|1890|2100|3360|5040|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|100|100|100|100|100|100|
-|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0,5, 1... 7|0, 0.25, 0,5, 1... 8|0, 0.25, 0,5, 1... 9|0, 0.25, 0,5, 1... 10|0, 0.25, 0,5, 1... 10, 16|0, 0.25, 0,5, 1... 10, 16, 24|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Çoğaltma sayısı|4|4|4|4|4|4|
 |Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
@@ -200,7 +200,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Sanal çekirdekler|2|4|6|8|10|12|14|
 |Bellek (GB)|11|22|33|44|55|66|77|
 |Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
-|Bellek içi OLTP depolama alanı (GB)|1.571|3,142|4.713|6.284|8.655|11.026|13.397|
+|Bellek içi OLTP depolama alanı (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |En yüksek veri boyutu (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Maksimum günlük boyutu (GB)|307|307|307|461|461|461|461|
 |TempDB boyutu (GB)|64|128|192|256|320|384|384|
@@ -210,7 +210,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Maks. eş zamanlı çalışan (istek) havuz başına *|210|420|630|840|1050|1260|1470|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|Yalnızca tek veritabanları için bu işlem boyutu desteklenir|50|100|100|100|100|100|
-|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|Yok|0, 0.25, 0,5, 1... 4|0, 0.25, 0,5, 1... 6|0, 0.25, 0,5, 1... 8|0, 0.25, 0,5, 1... 10|0, 0.25, 0,5, 1... 12|0, 0.25, 0,5, 1... 14|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|Yok|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Çoğaltma sayısı|4|4|4|4|4|4|4|
 |Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
@@ -236,7 +236,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1680|1890|2100|2520|3360|4200|8400|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Havuz başına en fazla veritabanı|100|100|100|100|100|100|100|
-|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0,5, 1... 16|0, 0.25, 0,5, 1... 18|0, 0.25, 0,5, 1... 20|0, 0.25, 0,5, 1... 20, 24|0, 0.25, 0,5, 1... 20, 24, 32|0, 0.25, 0,5, 1... 20, 24, 32, 40|0, 0.25, 0,5, 1... 20, 24, 32, 40, 80|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Çoğaltma sayısı|4|4|4|4|4|4|4|
 |Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
@@ -260,5 +260,5 @@ Aşağıdaki tabloda, havuza alınmış veritabanları için özellikleri tanım
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.
-- Bkz: [kaynak bakış sınırlayan bir mantıksal sunucuda](sql-database-resource-limits-logical-server.md) sunucusu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
+- Bkz: [kaynak bakış sınırlayan bir SQL veritabanı sunucusunda](sql-database-resource-limits-database-server.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 - Genel Azure sınırları hakkında daha fazla bilgi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).

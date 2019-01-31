@@ -1,9 +1,9 @@
 ---
-title: Oluşturma, Azure SQL sunucuları ve tek veritabanlarını yönetmek | Microsoft Docs
-description: Oluşturma ve mantıksal sunucuları ve tek veritabanlarını yönetme hakkında bilgi edinin.
+title: Oluşturma, Azure SQL veritabanı sunucuları ve tek veritabanları yönetme | Microsoft Docs
+description: Oluşturma ve SQL veritabanı sunucuları ve tek veritabanları yönetme hakkında bilgi edinin.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,29 +11,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 32b532cab7e970d01c3963729658c32ac4a020b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388607"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465053"
 ---
-# <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Mantıksal sunucuları ve Azure SQL veritabanı'nda tek veritabanları oluşturma ve yönetme
+# <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>SQL veritabanı sunucuları ve Azure SQL veritabanı'nda tek veritabanları oluşturma ve yönetme
 
-Oluşturun ve Azure SQL veritabanı mantıksal sunucuları ve Azure portalı, PowerShell, Azure CLI, REST API ve Transact-SQL kullanarak tek veritabanlarını yönetmek.
+Oluşturabilir ve SQL veritabanı sunucuları ve Azure portalı, PowerShell, Azure CLI, REST API ve Transact-SQL kullanarak tek veritabanlarını yönetmek.
 
-## <a name="azure-portal-manage-logical-servers-and-databases"></a>Azure portalı: Mantıksal sunucuları ve veritabanlarını yönetme
+## <a name="azure-portal-manage-sql-database-servers-and-single-databases"></a>Azure portalı: SQL veritabanı sunucuları ve tek veritabanlarını yönetmek
 
 Azure SQL veritabanı'nın kaynak grubu önceden veya sunucunun kendisini oluştururken oluşturabilirsiniz. Yeni SQL server forma yeni bir SQL server oluşturma veya yeni bir veritabanı oluşturma işleminin parçası olarak almak için birden fazla yöntem vardır.
 
-### <a name="create-a-blank-sql-server-logical-server"></a>Boş bir SQL server (mantıksal sunucu) oluşturma
+### <a name="create-a-blank-sql-database-server"></a>Boş bir SQL veritabanı sunucusu oluşturma
 
-Sunucu (olmadan, bir veritabanı) kullanarak bir Azure SQL veritabanı oluşturmak için [Azure portalında](https://portal.azure.com), boş bir SQL server (mantıksal sunucu) formunu için gidin.  
+Kullanarak bir SQL veritabanı sunucusu oluşturmak için [Azure portalında](https://portal.azure.com), boş bir SQL server (mantıksal sunucu) formunu için gidin.  
 
-### <a name="create-a-blank-or-sample-sql-database"></a>Boş veya örnek SQL veritabanı oluşturma
+### <a name="create-a-blank-or-sample-sql-single-database"></a>Boş veya örnek SQL tek veritabanı oluşturma
 
-Kullanarak bir Azure SQL veritabanı oluşturmak için [Azure portalında](https://portal.azure.com)için boş bir SQL veritabanı formunu gidin ve istenen bilgileri sağlayın. Azure SQL veritabanı'nın kaynak grubu ve mantıksal sunucuya önceden veya veritabanı oluşturulurken oluşturabilirsiniz. Boş bir veritabanı oluşturun veya Adventure Works LT. üzerinde bağlı örnek bir veritabanı oluşturun
+Bir Azure SQL kullanarak tek veritabanı oluşturmak için [Azure portalında](https://portal.azure.com)için boş bir SQL veritabanı formunu gidin ve istenen bilgileri sağlayın. Azure SQL veritabanı'nın kaynak grubu ve SQL veritabanı sunucusu önceden oluşturmak veya tek oluşturulurken kendisini veritabanı. Boş bir veritabanı oluşturun veya Adventure Works LT. üzerinde bağlı örnek bir veritabanı oluşturun
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -42,9 +42,9 @@ Kullanarak bir Azure SQL veritabanı oluşturmak için [Azure portalında](https
 
 Bir yönetilen örnek oluşturmak için bkz [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md)
 
-## <a name="manage-an-existing-sql-server"></a>Mevcut bir SQL server'ı yönetme
+## <a name="manage-an-existing-sql-database-server"></a>Mevcut bir SQL veritabanı sunucusunu yönetme
 
-Mevcut bir sunucuyu yönetmek için bir dizi yöntem - gibi belirli SQL veritabanı sayfasında, uğradıysa kullanarak sunucuya gidin **SQL sunucuları** sayfasında veya **tüm kaynakları** sayfası.
+Mevcut bir SQL veritabanı sunucusunu yönetmek için bir dizi yöntem - gibi belirli SQL veritabanı sayfasında, uğradıysa kullanarak sunucuya gidin **SQL sunucuları** sayfasında veya **tüm kaynakları** sayfası.
 
 Varolan bir veritabanını yönetmek için gidin **SQL veritabanları** sayfasında ve yönetmek istediğiniz veritabanına tıklayın. Aşağıdaki ekran görüntüsünde, bir veritabanından için sunucu düzeyinde güvenlik duvarı ayarını başlamak gösterilmektedir **genel bakış** bir veritabanı için sayfa.
 
@@ -55,12 +55,12 @@ Varolan bir veritabanını yönetmek için gidin **SQL veritabanları** sayfası
 > [!TIP]
 > Bir Azure portalı Hızlı Başlangıç için bkz: [Azure portalında bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md).
 
-## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: Mantıksal sunucuları ve veritabanlarını yönetme
+## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: SQL veritabanı sunucuları ve tek veritabanlarını yönetmek
 
-Azure SQL mantıksal sunucuları, tek ve havuza alınmış veritabanları ve Azure PowerShell ile mantıksal sunucu güvenlik duvarları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps).
+Azure SQL veritabanı sunucularını, tek başına ve havuza alınan veritabanları ve SQL veritabanı sunucusu güvenlik duvarı Azure PowerShell ile oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> PowerShell örnek komut dosyaları için bkz: [tek bir Azure SQL veritabanı oluşturma ve bir mantıksal sunucu güvenlik duvarı kuralı yapılandırmak için PowerShell kullanma](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek tek bir SQL veritabanını PowerShell kullanarak](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> PowerShell örnek komut dosyaları için bkz: [tek bir Azure SQL veritabanı oluşturun ve bir SQL veritabanı sunucusu güvenlik duvarı kuralı yapılandırmak için PowerShell kullanma](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek bir SQL veritabanını PowerShell kullanarak tek](scripts/sql-database-monitor-and-scale-database-powershell.md) .
 
 | Cmdlet | Açıklama |
 | --- | --- |
@@ -79,12 +79,12 @@ Azure SQL mantıksal sunucuları, tek ve havuza alınmış veritabanları ve Azu
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Bir güvenlik duvarı kuralı, bir sunucudan siler.|
 | New-AzureRmSqlServerVirtualNetworkRule | Oluşturur bir [ *sanal ağ kuralı*](sql-database-vnet-service-endpoint-rule-overview.md)bağlı olarak bir sanal ağ hizmet uç noktası olan bir alt ağ. |
 
-## <a name="azure-cli-manage-logical-servers-and-databases"></a>Azure CLI: Mantıksal sunucuları ve veritabanlarını yönetme
+## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>Azure CLI: SQL veritabanı sunucuları ve tek veritabanlarını yönetmek
 
 Azure SQL server, veritabanlarını ve güvenlik duvarlarıyla oluşturmak ve yönetmek için [Azure CLI](/cli/azure), aşağıdaki [Azure CLI SQL veritabanı](/cli/azure/sql/db) komutları. CLI’yi tarayıcınızda çalıştırmak için [Cloud Shell](/azure/cloud-shell/overview) kullanın veya macOS, Linux ya da Windows’da [yükleyin](/cli/azure/install-azure-cli). Oluşturma ve elastik havuzları yönetme için bkz: [elastik havuzlar](sql-database-elastic-pool.md).
 
 > [!TIP]
-> Azure CLI Hızlı Başlangıç için bkz. [Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-cli-samples.md). Azure CLI örnek betikler için bkz: [kullanımı tek bir Azure SQL veritabanı oluşturma ve bir güvenlik duvarı kuralı yapılandırmak için CLI](scripts/sql-database-create-and-configure-database-cli.md) ve [kullanımı tek bir SQL veritabanını izleme ve ölçeklendirme için CLI](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Azure CLI Hızlı Başlangıç için bkz. [Azure CLI kullanarak Azure SQL tek veritabanı oluşturma](sql-database-cli-samples.md). Azure CLI örnek betikler için bkz: [kullanımı tek bir Azure SQL veritabanı oluşturun ve bir SQL veritabanı güvenlik duvarı kuralı yapılandırmak için CLI](scripts/sql-database-create-and-configure-database-cli.md) ve [kullanım izleme ve ölçeklendirme tek bir Azure SQL veritabanı CLI](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 | Cmdlet | Açıklama |
@@ -109,7 +109,7 @@ Azure SQL server, veritabanlarını ve güvenlik duvarlarıyla oluşturmak ve y�
 |[az sql server güvenlik duvarı kuralı güncelleştirme](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Bir güvenlik duvarı kuralını güncelleştirir|
 |[az sql server güvenlik duvarı kuralını Sil](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Bir güvenlik duvarı kuralını siler|
 
-## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Mantıksal sunucuları ve veritabanlarını yönetme
+## <a name="transact-sql-manage-sql-database-servers-and-single-databases"></a>Transact-SQL: SQL veritabanı sunucuları ve tek veritabanlarını yönetmek
 
 Azure SQL server, veritabanları ve Transact-SQL ile güvenlik duvarları oluşturmak ve yönetmek için aşağıdaki T-SQL komutlarını kullanın. Azure portalını kullanarak şu komutları verebilirsiniz [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), veya bir Azure SQL Database sunucusuna bağlanma ve Transact-SQL geçirmek başka bir programı komutları. Elastik havuzlar için bkz. [elastik havuzlar](sql-database-elastic-pool.md).
 
@@ -135,7 +135,7 @@ Azure SQL server, veritabanları ve Transact-SQL ile güvenlik duvarları oluşt
 |[sys.database_firewall_rules (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Microsoft Azure SQL veritabanı ile ilişkili veritabanı düzeyinde güvenlik duvarı ayarları hakkında bilgi döndürür. |
 |[sp_delete_database_firewall_rule (Azure SQL veritabanı)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Veritabanı düzeyinde güvenlik duvarı ayarı, Azure SQL veritabanı veya SQL veri ambarı kaldırır. |
 
-## <a name="rest-api-manage-logical-servers-and-databases"></a>REST API: Mantıksal sunucuları ve veritabanlarını yönetme
+## <a name="rest-api-manage-sql-database-servers-and-single-databases"></a>REST API: SQL veritabanı sunucuları ve tek veritabanlarını yönetmek
 
 Azure SQL server, veritabanlarını ve güvenlik duvarları oluşturmak ve yönetmek için bu REST API istekleri'ni kullanın.
 

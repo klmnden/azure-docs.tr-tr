@@ -4,132 +4,128 @@ description: Azure Active Directory ve Clarizen arasında çoklu oturum açmayı
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2017
+ms.topic: tutorial
+ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: a7280111856f9cb2a20ebb7b52be04818c4b43c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f4c7efdb0a43c352450056a9f6f79e3e189c820c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195282"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458321"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Öğretici: Clarizen ile Azure Active Directory Tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) tümleştirmeyi Clarizen ile öğrenin. Bu tümleştirme, aşağıdaki avantajları sunar:
+Bu öğreticide, Azure Active Directory (Azure AD) ile Clarizen tümleştirme konusunda bilgi edinin.
+Azure AD ile Clarizen tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Clarizen erişimi olan Azure AD'de, denetleyebilirsiniz.
-- Kullanıcılarınız için Clarizen (çoklu oturum açma) ile Azure AD hesaplarına otomatik olarak oturum açmanız etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda, Azure portalında yönetebilir.
+* Clarizen erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) Clarizen için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Bu öğreticide senaryo iki ana görevden oluşur:
-
-1. Galeriden Clarizen ekleyin.
-1. Yapılandırma ve Azure AD çoklu oturum açmayı test edin.
-
-Azure AD ile bir hizmet (SaaS) uygulamasını tümleştirme olarak yazılım hakkında daha fazla bilgi istiyorsanız bkz [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Azure AD Tümleştirmesi ile Clarizen yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Çoklu oturum açma için etkinleştirilen Clarizen abonelik
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik Clarizen çoklu oturum açma etkin
 
-Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
+## <a name="scenario-description"></a>Senaryo açıklaması
 
-- Azure AD çoklu oturum açma bir test ortamında test edin. Bu gerekli olmadıkça, üretim ortamında kullanmayın.
-- Bir Azure AD test ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-## <a name="add-clarizen-from-the-gallery"></a>Galeriden Clarizen Ekle
-Azure AD'de Clarizen tümleştirmesini yapılandırmak için Clarizen Galeriden yönetilen SaaS uygulamaları listenize ekleyin.
+* Clarizen destekler **IDP** tarafından başlatılan
 
-1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede **Azure Active Directory** simgesi.
+## <a name="adding-clarizen-from-the-gallery"></a>Galeriden Clarizen ekleme
 
-    ![Azure Active Directory simgesi][1]
+Azure AD'de Clarizen tümleştirmesini yapılandırmak için Clarizen Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-1. Tıklayın **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+**Galeriden Clarizen eklemek için aşağıdaki adımları gerçekleştirin:**
 
-    !["Kurumsal uygulamalar" ve "Tüm uygulamalar"][2]
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-1. Tıklayın **Ekle** iletişim kutusunun üstündeki düğmesi.
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-    !["Ekle" düğmesi][3]
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-1. Arama kutusuna **Clarizen**.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Arama kutusuna "Clarizen"](./media/clarizen-tutorial/tutorial_clarizen_000.png)
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Sonuçlar bölmesinde seçin **Clarizen**ve ardından **Ekle** uygulama eklemek için.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Sonuçlar bölmesinde Clarizen seçme](./media/clarizen-tutorial/tutorial_clarizen_0001.png)
+4. Arama kutusuna **Clarizen**seçin **Clarizen** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Sonuç listesinde Clarizen](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
-Aşağıdaki bölümlerde, yapılandırın ve Azure AD çoklu oturum açmayı test kullanıcıya Britta Simon bağlı Clarizen sınayın.
 
-Tek iş için oturum açma için Azure AD ne Clarizen karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Clarizen ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir. Değerini atayarak bu bağlantı ilişki kurmak **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** Clarizen içinde.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Clarizen adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Clarizen ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Clarizen ile test etmek için aşağıdaki yapı taşlarını tamamlayın:
+Yapılandırma ve Azure AD çoklu oturum açma Clarizen ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)**  kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Clarizen test kullanıcısı oluşturma](#create-a-clarizen-test-user)**  bir karşılığı Britta simon'un Azure AD'ye gösterimini her için bağlı Clarizen sağlamak için.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Clarizen çoklu oturum açmayı yapılandırma](#configure-clarizen-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Clarizen test kullanıcısı oluşturma](#create-clarizen-test-user)**  - kullanıcı Azure AD gösterimini bağlı Clarizen Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
-Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Clarizen uygulamanızda çoklu oturum açmayı yapılandırın.
 
-1. Azure portalında, üzerinde **Clarizen** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-    !["Çoklu oturum açma" tıklayarak][4]
+Azure AD çoklu oturum açma ile Clarizen yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. İçinde **çoklu oturum açma** iletişim kutusu için **modu**seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Clarizen** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    !["SAML tabanlı oturum açma" seçme](./media/clarizen-tutorial/tutorial_clarizen_01.png)
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. İçinde **Clarizen etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Kutuları tanımlayıcı ve yanıt URL'si](./media/clarizen-tutorial/tutorial_clarizen_02.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    a. İçinde **tanımlayıcı** değeri olarak yazın: **Clarizen**
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    b. İçinde **yanıt URL'si** şu biçimi kullanarak bir URL yazın: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
+
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında, aşağıdaki adımları gerçekleştirin:
+
+    ![Clarizen etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
+
+    a. İçinde **tanımlayıcı** metin kutusuna bir değer yazın: `Clarizen`
+
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
 
     > [!NOTE]
     > Bunlar gerçek değerlerin değildir. Gerçek tanımlayıcısı kullanın ve yanıt URL'si gerekir. Burada, benzersiz bir dize değerini tanımlayıcı olarak kullanmanızı öneririz. Gerçek değerlere ulaşmak için ilgili kişi [Clarizen Destek ekibine](https://success.clarizen.com/hc/en-us/requests/new).
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **yeni sertifika oluştur**.
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    !["Yeni Sertifika Oluştur"'ı tıklatarak](./media/clarizen-tutorial/tutorial_clarizen_03.png)    
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-1. İçinde **yeni sertifika oluştur** iletişim kutusuna Takvim simgesine ve sona erme tarihini seçin. Daha sonra **Kaydet**'e tıklayın.
+6. Üzerinde **Clarizen kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Seçme ve sona erme tarihini kaydediliyor](./media/clarizen-tutorial/tutorial_general_300.png)
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-1. İçinde **SAML imzalama sertifikası** bölümünden **yeni sertifikayı etkin hale getirin**ve ardından **Kaydet**.
+    a. Oturum Açma URL'si:
 
-    ![Yeni sertifikayı etkin hale getirme için onay kutusunu işaretleyerek](./media/clarizen-tutorial/tutorial_clarizen_04.png)
+    b. Azure Ad tanımlayıcısı
 
-1. İçinde **geçiş sertifikası** iletişim kutusu, tıklayın **Tamam**.
+    c. Oturum Kapatma URL'si
 
-    ![Sertifikayı etkinleştirmek istediğinizi onaylamak için "Tamam" ı tıklayarak](./media/clarizen-tutorial/tutorial_general_400.png)
-
-1. İçinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
-
-    ![Tıklayıp "yüklemeyi başlatmak için sertifika (Base64)"](./media/clarizen-tutorial/tutorial_clarizen_05.png)
-
-1. İçinde **Clarizen yapılandırma** bölümünde **yapılandırma Clarizen** açmak için **yapılandırma oturum açma** penceresi.
-
-    !["Clarizen Yapılandır" ı tıklatarak](./media/clarizen-tutorial/tutorial_clarizen_06.png)
-
-    ![""Oturum açma Yapılandır penceresinde, dosyaları ve URL'leri dahil](./media/clarizen-tutorial/tutorial_clarizen_07.png)
+### <a name="configure-clarizen-single-sign-on"></a>Clarizen tek oturum açmayı yapılandırın
 
 1. Farklı bir web tarayıcı penceresinde Clarizen şirketinizin sitesi için bir yönetici olarak oturum açın.
 
@@ -149,7 +145,7 @@ Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Clarizen uygula
 
     b. Tıklayın **karşıya** indirilen sertifikanızı karşıya yüklemek için.
 
-    c. İçinde **oturum açma URL'si** kutusunda, değeri girin **SAML çoklu oturum açma hizmeti URL'si** penceresinden Azure AD uygulama yapılandırması.
+    c. İçinde **oturum açma URL'si** kutusunda, değeri girin **oturum açma URL'si** penceresinden Azure AD uygulama yapılandırması.
 
     d. İçinde **oturum kapatma URL'si** kutusunda, değeri girin **oturum kapatma URL'si** penceresinden Azure AD uygulama yapılandırması.
 
@@ -157,36 +153,58 @@ Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Clarizen uygula
 
     f. **Kaydet**’e tıklayın.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Azure portalında Britta Simon adlı bir test kullanıcısı oluşturun.
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
-![Azure AD test kullanıcı adı ve e-posta adresi][100]
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** simgesi.
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-    ![Azure Active Directory simgesi](./media/clarizen-tutorial/create_aaduser_01.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Tıklayın **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar** kullanıcılar listesini görüntüleyin.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar"](./media/clarizen-tutorial/create_aaduser_02.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim kutusu.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Ekle" düğmesi](./media/clarizen-tutorial/create_aaduser_03.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    !["Kullanıcı" iletişim kutusu adı, e-posta adresi ve parola ile doldurulur](./media/clarizen-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon hesabın e-posta adresini yazın.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
 
-### <a name="create-a-clarizen-test-user"></a>Clarizen test kullanıcısı oluşturma
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma kullanmak için Clarizen erişim vererek Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Clarizen**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **Clarizen**.
+
+    ![Uygulamalar listesinde Clarizen bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-clarizen-test-user"></a>Clarizen test kullanıcısı oluşturma
 
 Bu bölümün amacı Clarizen Britta Simon adlı bir kullanıcı oluşturmaktır.
 
@@ -215,53 +233,17 @@ Azure AD kullanıcıları için Clarizen oturum açmak etkinleştirmek için kul
     > [!NOTE]
     > Azure Active Directory hesap sahibinin e-posta alır ve bunu etkinleştirilmeden önce hesabını onaylamak için bağlantıyı izleyin.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
-Britta Simon, Azure çoklu oturum açma için Clarizen erişim vererek kullanmak etkinleştirin.
 
-![Atanan test kullanıcısı][200]
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
-1. Azure uygulamaları görüntüleyin, portal Aç directory görünüme Gözat'a tıklayın **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-    !["Kurumsal uygulamalar" ve "Tüm uygulamalar"][201]
+Erişim paneli Clarizen kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Clarizen için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-1. Uygulamalar listesinde **Clarizen**.
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-    ![Clarizen listeden](./media/clarizen-tutorial/tutorial_clarizen_50.png)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-1. Sol bölmede **kullanıcılar ve gruplar**.
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-    !["Kullanıcılar ve Gruplar" tıklayarak][202]
-
-1. **Ekle** düğmesine tıklayın. Ardından **atama Ekle** iletişim kutusunda **kullanıcılar ve gruplar**.
-
-    !["Ekle" düğmesi ve "Atama Ekle" iletişim kutusu][203]
-
-1. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcılar listesinde.
-
-1. İçinde **kullanıcılar ve gruplar** iletişim kutusu, tıklayın **seçin** düğmesi.
-
-1. İçinde **atama Ekle** iletişim kutusu, tıklayın **atama** düğmesi.
-
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
-Azure AD çoklu oturum açma yapılandırmanızı erişim panelini kullanarak test edin.
-
-Erişim paneli Clarizen kutucuğa tıkladığınızda, size otomatik olarak Clarizen uygulamanıza oturum açmanız.
-
-## <a name="additional-resources"></a>Ek kaynaklar
-
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/clarizen-tutorial/tutorial_general_01.png
-[2]: ./media/clarizen-tutorial/tutorial_general_02.png
-[3]: ./media/clarizen-tutorial/tutorial_general_03.png
-[4]: ./media/clarizen-tutorial/tutorial_general_04.png
-
-[100]: ./media/clarizen-tutorial/tutorial_general_100.png
-
-[200]: ./media/clarizen-tutorial/tutorial_general_200.png
-[201]: ./media/clarizen-tutorial/tutorial_general_201.png
-[202]: ./media/clarizen-tutorial/tutorial_general_202.png
-[203]: ./media/clarizen-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

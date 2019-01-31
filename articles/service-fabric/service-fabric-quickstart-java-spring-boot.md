@@ -12,17 +12,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/23/2017
+ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 97dcde4cd3597262b49000f2330e487e4fa48188
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e4fde75aeaf86219518daf92b67434fe9fd63f86
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241897"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297422"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Hızlı Başlangıç: Service Fabric'e Java Spring Boot uygulaması dağıtma
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Hızlı Başlangıç: Bir Service Fabric Java Spring Boot uygulaması dağıtma
 
 Azure Service Fabric; mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur.
 
@@ -34,11 +34,10 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 
 * Service Fabric’e Spring Boot uygulaması dağıtma
 * Uygulamayı yerel kümenize dağıtma
-* Uygulamayı Azure'da bir kümeye dağıtma
 * Birden çok düğüm arasında uygulamanın ölçeğini genişletme
 * Kullanılabilirliği etkilemeden hizmetinizin yük devretmesini gerçekleştirme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -168,68 +167,6 @@ Bu aşamada, Spring Boot Kullanmaya Başlama örneği için Service Fabric’e d
 
 Bir Service Fabric kümesine dağıtılmış Spring Boot uygulamasına artık erişebilirsiniz.
 
-## <a name="deploy-the-application-to-azure"></a>Uygulamayı Azure’a dağıtma
-
-### <a name="set-up-your-azure-service-fabric-cluster"></a>Azure Service Fabric Kümesi’ni ayarlama
-
-Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi oluşturun.
-
-Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleri olup Service Fabric ekibi tarafından çalıştırılır. Uygulamaları dağıtmak ve platform hakkında bilgi edinmek için grup kümelerini kullanabilirsiniz. Küme, düğümden düğüme ve istemciden düğüme güvenlik için tek bir otomatik olarak imzalanan sertifika kullanır.
-
-Oturum açın ve bir [Linux kümesine](https://aka.ms/tryservicefabric) katılın. **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. **BeniOku** bağlantısına tıklayarak, sertifikayı kullanmak için çeşitli ortamların nasıl yapılandırılacağına ilişkin sertifika parolasını ve yönergelerini bulun. Hem **Hoş Geldiniz** sayfasını hem de **BeniOku** sayfasını açık tutun. Aşağıdaki adımlarda yer alan yönergelerden bazılarını kullanacaksınız.
-
-> [!Note]
-> Saat başına sınırlı sayıda grup kümesi vardır. Bir grup kümesine kaydolmaya çalıştığınızda hata alırsanız bir süre bekleyebilir ve tekrar deneyebilirsiniz veya [Azure’da Service Fabric kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md) bölümündeki adımları izleyerek aboneliğinizde bir küme oluşturabilirsiniz.
->
-> Spring Boot hizmeti 8080 numaralı bağlantı noktasında gelen trafiği dinleyecek şekilde yapılandırılmıştır. Kümenizde bu bağlantı noktasının açık olduğundan emin olun. Grup Kümesi kullanıyorsanız bu bağlantı noktası açık durumdadır.
->
-
-Service Fabric, bir kümeyi ve uygulamalarını yönetmek için kullanabileceğiniz birçok araç sağlar:
-
-* Tarayıcı tabanlı bir araç: Service Fabric Explorer.
-* Azure CLI üzerinde çalışan Service Fabric Komut Satırı Arabirimi (CLI).
-* PowerShell komutları.
-
-Bu hızlı başlangıçta, Service Fabric CLI ve Service Fabric Explorer’ı kullanacaksınız.
-
-CLI kullanmak için, indirdiğiniz PFX dosyasını temel alarak bir PEM dosyası oluşturmanız gerekir. Dosyayı dönüştürmek için aşağıdaki komutu kullanın. (Grup kümeleri için, **BeniOku** sayfasındaki yönergelerden PFX dosyanıza özgü bir komutu kopyalayabilirsiniz.)
-
-```bash
-openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-``` 
-
-Service Fabric Explorer’ı kullanmak için, Grup Kümesi web sitesinden indirdiğiniz sertifika PFX dosyasını sertifika deponuza (Windows veya Mac) ya da tarayıcıya (Ubuntu) aktarmanız gerekir. **BeniOku** sayfasından alabileceğiniz PFX özel anahtar parolası gerekir.
-
-Sisteminizde sertifikayı içeri aktarmak için size en rahat gelen yöntemi kullanın. Örnek:
-
-* Windows üzerinde: PFX dosyasına çift tıklayın ve `Certificates - Current User\Personal\Certificates` dizinindeki kişisel deponuza sertifikayı yüklemek için istemleri izleyin. Alternatif olarak, **BeniOku** yönergelerinde PowerShell komutunu kullanabilirsiniz.
-* Mac üzerinde: PFX dosyasına çift tıklayın ve Anahtarlığınıza sertifikayı yüklemek için istemleri izleyin.
-* Ubuntu üzerinde: Mozilla Firefox, Ubuntu 16.04 sistemindeki varsayılan tarayıcıdır. Sertifikayı Firefox’a aktarmak için, tarayıcınızın sağ üst köşesindeki menü düğmesine ve ardından **Seçenekler**’e tıklayın. **Tercihler** sayfasında arama kutusunu kullanarak "sertifikalar" terimini arayın. **Sertifikaları Görüntüle**’ye tıklayın, **Sertifikalarınız** sekmesini seçin, **İçeri Aktar**’a tıklayın ve sertifikayı içeri aktarma istemlerini izleyin.
-
-   ![Firefox’ta sertifika yükleme](./media/service-fabric-quickstart-java-spring-boot/install-cert-firefox.png)
-
-### <a name="deploy-the-application-using-cli"></a>CLI kullanarak uygulamayı dağıtma
-
-Uygulama ve kümeniz qhazır olduğuna göre, doğrudan komut satırındaki bir kümeye dağıtabilirsiniz.
-
-1. `gs-spring-boot/SpringServiceFabric` klasörüne gidin.
-1. Azure kümenize bağlanmak için aşağıdaki komutu çalıştırın.
-
-    ```bash
-    sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
-    ```
-1. `install.sh` betiğini çalıştırın.
-
-    ```bash
-    ./install.sh
-    ```
-
-1. Web tarayıcınızı açın ve **http://\<ConnectionIPOrUrl>:8080** adresine giderek uygulamaya erişin.
-
-    ![Uygulama ön ucu Konumu](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
-
-Artık Azure’da bir Service Fabric kümesi çalıştıran Spring Boot uygulamasına erişebilirsiniz.
-
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Bir kümedeki uygulamaları ve hizmetleri ölçeklendirme
 
 Hizmet yükündeki bir değişikliği karşılamak için kümedeki hizmetler kolayca ölçeklendirilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz. Hizmetlerinizi ölçeklendirmenin birçok yolu vardır; örneğin, Service Fabric CLI’den (sfctl) betikler veya komutlar kullanabilirsiniz. Aşağıdaki adımlarda Service Fabric Explorer kullanılmaktadır.
@@ -283,7 +220,6 @@ Bu hızlı başlangıçta şunları öğrendiniz:
 
 * Service Fabric’e Spring Boot uygulaması dağıtma
 * Uygulamayı yerel kümenize dağıtma
-* Uygulamayı Azure'da bir kümeye dağıtma
 * Birden çok düğüm arasında uygulamanın ölçeğini genişletme
 * Kullanılabilirliği etkilemeden hizmetinizin yük devretmesini gerçekleştirme
 

@@ -1,5 +1,5 @@
 ---
-Başlık: Uygulama yaşam döngüsü yönetimi titleSuffix: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio hizmetlerindeki en iyi uygulama yaşam döngüsü yönetimi uygulama: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Uygulama yaşam döngüsü yönetimi titleSuffix: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio hizmetlerindeki en iyi uygulama yaşam döngüsü yönetimi uygulama: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=haining, yazar önceki = hning86 ms.date: 10/27/2016
 ---

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7c4c1a5991445448f015dc0912383baf53f4e38c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbc11e2fc54ecffbea22a66354f334f3562e3339
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034939"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459222"
 ---
-# <a name="working-with-azure-cosmos-account"></a>Azure Cosmos hesabıyla çalışma
+# <a name="work-with-azure-cosmos-account"></a>Azure Cosmos hesabıyla çalışma
 
 Azure Cosmos DB, bir tam olarak yönetilen platformu-bir hizmet olarak (PaaS) ' dir. Azure Cosmos DB'yi kullanmaya başlamak için başlangıçta, Azure aboneliğinizde bir Azure Cosmos hesabı oluşturmanız gerekir. Azure Cosmos hesabınıza benzersiz bir DNS adı içerir ve bir hesabı, Azure portalı, Azure CLI kullanarak veya farklı dile özgü SDK'ları kullanarak yönetebilir. Daha fazla bilgi için [Azure Cosmos hesabınızı yönetmek nasıl](how-to-manage-database-account.md).
 

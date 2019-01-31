@@ -1,6 +1,6 @@
 ---
-Başlık: Azure AI Gallery titleSuffix: Azure Machine Learning Studio açıklaması: Paylaşın ve analytics kaynakları ve daha fazlasını Azure AI Gallery keşfedin. Diğerlerinden öğrenmek ve topluluğa kendi katkı.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Azure AI Gallery titleSuffix: Azure Machine Learning Studio açıklaması: Paylaşın ve analytics kaynakları ve daha fazlasını Azure AI Gallery keşfedin. Diğerlerinden öğrenmek ve topluluğa kendi katkı.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 01/11/2019
 ---

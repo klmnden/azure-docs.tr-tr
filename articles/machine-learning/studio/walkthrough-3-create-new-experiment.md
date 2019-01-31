@@ -1,6 +1,6 @@
 ---
-Başlık: ' 3. adım: Yeni bir Machine Learning Studio'da deneme oluşturma ' titleSuffix: Azure Machine Learning Studio açıklaması: ' Adım 3 / geliştirme Tahmine dayalı çözüm Kılavuzu: Azure Machine Learning Studio'da yeni bir eğitim denemesini oluşturun.'
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: ' 3. adım: Yeni bir Machine Learning Studio'da deneme oluşturma ' titleSuffix: Azure Machine Learning Studio açıklaması: ' Adım 3 / geliştirme Tahmine dayalı çözüm Kılavuzu: Azure Machine Learning Studio'da yeni bir eğitim denemesini oluşturun.'
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: garyericson ms.author: garye MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/23/2017
 ---

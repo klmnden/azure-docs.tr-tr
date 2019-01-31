@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/24/2019
-ms.openlocfilehash: 2638617679e1aaadfdb18f1d8580f3aef28ab127
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.date: 01/25/2019
+ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884360"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468334"
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
@@ -34,7 +34,7 @@ Azure SQL veritabanı performansını izlemeye, seçtiğiniz veritabanı perform
 - Kullanım [SQL veritabanı Danışmanı](sql-database-advisor-portal.md) oluşturmak ve dizinleri bırakmayı, sorguları kümesini parametreleştirme ve şema sorunlarını giderme önerileri görüntüleyebilirsiniz.
 - Kullanım [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) otomatik, veritabanı performansını izleme. Bir performans sorunu algılandığında bir tanılama günlüğü, Ayrıntılar ve sorunun kök neden analizi (RCA) ile oluşturulur. Mümkün olduğunda performans iyileştirme öneri sağlanmaktadır.
 - [Otomatik ayarlamayı etkinleştirme](sql-database-automatic-tuning-enable.md) ve Azure SQL tanımlanan düzeltme performans sorunlarını otomatik olarak veritabanı sağlar.
-- Kullanım [dinamik yönetim görünümlerini (Dmv'ler)](sql-database-monitoring-with-dmvs.md), [genişletilmiş olaylar](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr)ve [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) daha ayrıntılı performans sorunlarını gidermek için.
+- Kullanım [dinamik yönetim görünümlerini (Dmv'ler)](sql-database-monitoring-with-dmvs.md), [genişletilmiş olaylar](sql-database-xevent-db-diff-from-svr.md)ve [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) daha ayrıntılı performans sorunlarını gidermek için.
 
 > [!TIP]
 > Bkz: [performans rehberi](sql-database-performance-guidance.md) tanımlayan bir veya daha yukarıdaki yöntemlerden birini kullanarak performans sorunu sonra Azure SQL veritabanı performansını artırmak için kullanabileceğiniz teknikleri bulunacak.
@@ -204,7 +204,7 @@ Query Store ve bekleme istatistikleri izleme dinamik yönetim görünümlerini y
 
 Son olarak, veritabanınızın performansını iyileştirebilir hiçbir eyleme dönüştürülebilir öğe varsa, Azure SQL veritabanı'nda kullanılabilir kaynakların miktarını değiştirebilirsiniz. Daha fazla kaynak değiştirerek atayabilirsiniz [DTU hizmet katmanı](sql-database-service-tiers-dtu.md) tek veritabanı veya elastik havuz edtu'ları dilediğiniz zaman artırın. Alternatif olarak, kullanıyorsanız [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md), hizmet katmanını değiştirebilir veya veritabanınız için ayrılan kaynakları artırın.
 
-1. Tek veritabanları için yapabilecekleriniz [hizmet katmanlarını değiştirme](sql-database-service-tiers-dtu.md) veya [işlem kaynaklarını](sql-database-service-tiers-vcore.md) veritabanı performansını artırmak için isteğe bağlı.
+1. Tek veritabanları için yapabilecekleriniz [hizmet katmanlarını değiştirme](sql-database-single-database-scale.md) veya [işlem kaynaklarını](sql-database-single-database-scale.md) veritabanı performansını artırmak için isteğe bağlı.
 2. Birden fazla veritabanı için kullanmayı [elastik havuzlar](sql-database-elastic-pool-guidance.md) kaynakları otomatik olarak ölçeklendirmek için.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Ayarlayın ve yeniden düzenleme uygulama veya veritabanı kod

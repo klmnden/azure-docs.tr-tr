@@ -1,8 +1,8 @@
 ---
-title: Azure Batch havuzu Sil Tamam olayını | Microsoft Docs
-description: Batch havuzundaki başvurusunu complete olayını silin.
+title: Azure Batch havuz silme tamamlama olayı | Microsoft Docs
+description: Sil Tamam olayını Batch havuzu için başvuru.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,19 +11,19 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: bfcbcf40efc64ab1c79ee1a86e02502c68ad6d47
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: e715ccd0f5e79f9c640a3c060b0252b798748b4d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30310323"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474557"
 ---
 # <a name="pool-delete-complete-event"></a>Havuz silme tamamlama olayı
 
- Bir havuzu silme işlemi tamamlandığında bu olay yayınlanır.
+ Havuz silme işlemi tamamlandıktan sonra bu olay yayılır.
 
- Aşağıdaki örnek, bir havuz Sil Tamam olayını gövdesi gösterir.
+ Aşağıdaki örnek, bir havuz silme tamamlama olayı gövdesi gösterir.
 
 ```
 {
@@ -33,11 +33,11 @@ ms.locfileid: "30310323"
 }
 ```
 
-|Öğe|Tür|Notlar|
+|Öğe|Type|Notlar|
 |-------------|----------|-----------|
-|id|Dize|Havuzun kimliği.|
-|startTime|DateTime|Havuzunu silme zamanı başlatıldı.|
-|endTime|DateTime|Tamamlanan havuzunu silme zamanı.|
+|id|String|Havuz kimliği.|
+|startTime|DateTime|Havuz silme zaman başlatıldı.|
+|endTime|DateTime|Tamamlanma havuzunu silme zamanı.|
 
 ## <a name="remarks"></a>Açıklamalar
-Durumları ve havuzu yeniden boyutlandırma işlemi için hata kodları hakkında daha fazla bilgi için bkz: [bir hesaptan bir havuzunu silme](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
+Durumları ve havuz yeniden boyutlandırma işlemi için hata kodları hakkında daha fazla bilgi için bkz. [bir hesaptan bir havuzunu silme](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).

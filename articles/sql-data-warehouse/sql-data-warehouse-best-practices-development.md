@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 09/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 6c60ec516a5bcefc3fac98fbc09abc89683e2004
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 13e6aba896e1de8066e942fa0c713567290c2fdf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783595"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460871"
 ---
 # <a name="development-best-practices-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için en iyi uygulamaları geliştirme
 Bu makalede, rehberlik ve en iyi uygulamalar, veri ambarı Çözümünüzü geliştirirken açıklanır. 

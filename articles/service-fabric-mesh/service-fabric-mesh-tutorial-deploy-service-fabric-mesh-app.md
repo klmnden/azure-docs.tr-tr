@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e1f2991b2e006c97087c6288d3ed3c20d2927e8c
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c08e5dc196c377b006be70339f402b2c023a3826
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413490"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299818"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Öğretici: Bir Service Fabric Mesh uygulaması dağıtma
 
@@ -95,11 +95,11 @@ Yayımla iletişim kutusunda **Yayımla** düğmesine basarak Service Fabric uyg
 
 Azure'da ilk kez uygulama yayımladığınızda, Docker görüntüsü Azure Container Registry (ACR) konumuna iletilir ve bu da görüntünün boyutuna göre zaman alabilir. Aynı projenin sonraki yayımlama işlemleri daha hızlı olacaktır. Visual Studio **Çıktı** penceresinde **Service Fabric Araçları** bölmesini seçerek dağıtımın ilerleme durumunu izleyebilirsiniz. Dağıtım tamamlandıktan sonra **Service Fabric Araçları** çıktısı, uygulamanızın IP adresini ve bağlantı noktasını URL biçiminde gösterir.
 
-```json
+```
 Packaging Application...
 Building Images...
 Web1 -> C:\Code\ServiceFabricMeshApp\ToDoService\bin\Any CPU\Release\netcoreapp2.0\ToDoService.dll
-Uploading the images to Azure Container Registy...
+Uploading the images to Azure Container Registry...
 Deploying application to remote endpoint...
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```

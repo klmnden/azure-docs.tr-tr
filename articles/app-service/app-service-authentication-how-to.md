@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722660"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301586"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelliğinin Gelişmiş kullanımı
 
@@ -176,9 +176,9 @@ Sunucu kodunuzdan kolayca erişebilmeleri için sağlayıcıya özel belirteçle
 > [!NOTE]
 > Erişim belirteci sağlayıcısı kaynakları bir gizli anahtar ile sağlayıcınız yapılandırırsanız mevcut şekilde erişmek için ' dir. Yenileme belirteçlerini almak hakkında bilgi için bkz. [erişim belirteçlerini yenileme](#refresh-access-tokens).
 
-## <a name="refresh-access-tokens"></a>Erişim belirteci yenileyin
+## <a name="refresh-identity-provider-tokens"></a>Kimlik sağlayıcısı belirteçleri yenileme
 
-Sağlayıcınızın erişim belirtecinin süresi dolduğunda, kullanıcının yeniden kimlik doğrulamaya zorlayabilir gerekir. Hale getirerek belirteç süresinin dolmasını engellemek bir `GET` çağrısı `/.auth/refresh` uygulamanızın uç noktası. Çağrıldığında, App Service, erişim belirteçleri belirteç deposundaki kimliği doğrulanmış kullanıcı için otomatik olarak yenilenir. Sonraki istekleri için belirteçleri, uygulama kodunuz ile yenilenmesini belirteç alın. Ancak, çalışma belirteç yenileme işlemi için belirteç deposu içermelidir [yenileme belirteçleri](https://auth0.com/learn/refresh-tokens/) sağlayıcınız için. Yenileme belirteçleri yolu her bir sağlayıcı tarafından belgelenen, ancak liste aşağıda kısa bir özeti verilmiştir:
+Zaman sağlayıcınızın erişim belirteci (değil [Oturum belirteci](#extend-session-token-expiration-grace-period)) süresi, bu belirteci yeniden kullanmadan önce kullanıcının yeniden kimlik doğrulamaya zorlayabilir gerekir. Hale getirerek belirteç süresinin dolmasını engellemek bir `GET` çağrısı `/.auth/refresh` uygulamanızın uç noktası. Çağrıldığında, App Service, erişim belirteçleri belirteç deposundaki kimliği doğrulanmış kullanıcı için otomatik olarak yenilenir. Sonraki istekleri için belirteçleri, uygulama kodunuz ile yenilenmesini belirteç alın. Ancak, çalışma belirteç yenileme işlemi için belirteç deposu içermelidir [yenileme belirteçleri](https://auth0.com/learn/refresh-tokens/) sağlayıcınız için. Yenileme belirteçleri yolu her bir sağlayıcı tarafından belgelenen, ancak liste aşağıda kısa bir özeti verilmiştir:
 
 - **Google**: Append bir `access_type=offline` sorgu dizesi parametresi, `/.auth/login/google` API çağrısı. Mobile Apps SDK'sı kullanıyorsanız, parametre birine ekleyebileceğiniz `LogicAsync` aşırı yüklemeler (bkz [Google yenileme belirteçleri](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Yenileme belirteçleri sağlamaz. Uzun süreli belirteçlerin süresi 60 gün içinde (bkz [Facebook zaman aşımı ve erişim belirteçleri uzantısı](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
@@ -213,9 +213,9 @@ function refreshTokens() {
 
 Bir kullanıcı uygulamanıza, aramanız için verilen izinler iptal eder, `/.auth/me` ile başarısız olabilir bir `403 Forbidden` yanıt. Hataları tanılamak için Ayrıntılar için uygulama günlüklerini kontrol edin.
 
-## <a name="extend-session-expiration-grace-period"></a>Oturum sona erme yetkisiz kullanım süresi
+## <a name="extend-session-token-expiration-grace-period"></a>Oturum belirteci süre sonu yetkisiz kullanım süresi
 
-Kimliği doğrulanmış bir oturumun sona erdikten sonra varsayılan olarak 72 saat yetkisiz kullanım süresi yoktur. Bu yetkisiz kullanım süresi içinde kullanıcının yeniden kimlik doğrulaması gerçekleştirilmesi olmadan oturum tanımlama bilgisi veya App Service ile oturum belirteci yenileme izin verilir. Yalnızca çağırabilirsiniz `/.auth/refresh` ne zaman oturum tanımlama bilgisi veya oturum belirteci geçersiz hale gelir ve belirteci süre sonu kendiniz izleyin gerekmez. 72 saat yetkisiz kullanım süresi kesildiyse olduktan sonra kullanıcının yeniden geçerli bir oturum tanımlama bilgisi veya oturum belirteci almak oturum açmanız gerekir.
+Kimliği doğrulanan oturum 8 saat sonra süresi dolar. Kimliği doğrulanmış bir oturumun sona erdikten sonra varsayılan olarak 72 saat yetkisiz kullanım süresi yoktur. Bu yetkisiz kullanım süresi içinde kullanıcının yeniden kimlik doğrulaması gerçekleştirilmesi olmadan App Service ile oturum belirteci yenileme izin verilir. Yalnızca çağırabilirsiniz `/.auth/refresh` ne zaman, oturum belirteci geçersiz hale gelir ve belirteci süre sonu kendiniz izleyin gerekmez. 72 saat yetkisiz kullanım süresi kesildiyse olduktan sonra kullanıcının yeniden geçerli bir oturum belirteci almak oturum açmanız gerekir.
 
 72 saat sizin için yeterli zaman yoksa, bu sona erme penceresinin genişletebilirsiniz. Uzun bir süre içinde sona erme genişletme (örneğin, ne zaman bir kimlik doğrulama belirteci sızdırıldıysa veya çalınırsa) önemli güvenlik etkileri olabilir. Bu nedenle 72 saat varsayılan olarak bırakın veya uzantı süresi en küçük değere ayarlayın.
 

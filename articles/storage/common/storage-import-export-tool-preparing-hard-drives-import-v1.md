@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 861b3302e065689a4ea9c0df0879f9c0df12e619
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526955"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454683"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 Bir veya daha fazla sabit sürücüleri içeri aktarma işine hazırlamak için aşağıdaki adımları izleyin:
@@ -104,8 +104,8 @@ Bir veya daha fazla sabit sürücüleri içeri aktarma işine hazırlamak için 
 
 |Komut satırı parametresi|Açıklama|
 |-----------------------------|-----------------|
-|**/SK:**< StorageAccountKey\>|`Optional.` Verileri içeri aktarılacak depolama hesabı için depolama hesabı anahtarı. Ya da içermelidir **/sk:**< StorageAccountKey\> veya **/csas:**< ContainerSas\> komutu.|
-|**/csas:**< ContainerSas\>|`Optional`. Kapsayıcı SAS depolama hesabına veri alma için kullanılacak. Ya da içermelidir **/sk:**< StorageAccountKey\> veya **/csas:**< ContainerSas\> komutu.<br /><br /> Bu parametre için değer, ardından bir soru işareti (?) ve SAS belirteci, bir kapsayıcı adı ile başlamalıdır. Örneğin:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> İzinleri URL ya da depolanmış erişim ilkesini belirtilen, okuma, içermelidir olup olmadığını yazma ve dışarı aktarma işleri için içeri aktarma işlerinde ve okuma ve yazma için liste silin.<br /><br /> Bu parametre belirtildiğinde içeri veya dışarı aktarılacak tüm BLOB paylaşılan erişim imzasını belirtilen kapsayıcı içinde olması gerekir.|
+|**/sk:**<StorageAccountKey\>|`Optional.` Verileri içeri aktarılacak depolama hesabı için depolama hesabı anahtarı. Ya da içermelidir **/sk:**< StorageAccountKey\> veya **/csas:**< ContainerSas\> komutu.|
+|**/csas:**<ContainerSas\>|`Optional`. Kapsayıcı SAS depolama hesabına veri alma için kullanılacak. Ya da içermelidir **/sk:**< StorageAccountKey\> veya **/csas:**< ContainerSas\> komutu.<br /><br /> Bu parametre için değer, ardından bir soru işareti (?) ve SAS belirteci, bir kapsayıcı adı ile başlamalıdır. Örneğin:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> İzinleri URL ya da depolanmış erişim ilkesini belirtilen, okuma, içermelidir olup olmadığını yazma ve dışarı aktarma işleri için içeri aktarma işlerinde ve okuma ve yazma için liste silin.<br /><br /> Bu parametre belirtildiğinde içeri veya dışarı aktarılacak tüm BLOB paylaşılan erişim imzasını belirtilen kapsayıcı içinde olması gerekir.|
 |**/ t:**< TargetDriveLetter\>|`Required.` Sürücü harfini izleyen iki nokta üst üste olmadan geçerli kopyalama oturumu için hedef sabit sürücünün.|
 |**Özetteki**|`Optional.` Sürücünün biçimlendirilmesi gerektiğinde bu parametreyi belirtin; Aksi takdirde, atlayın. Aracı sürücüyü biçimlendiren önce konsolundan bir onay ister. Onay bastırmak için /silentmode parametre belirtin.|
 |**/silentmode**|`Optional.` Targert sürücüyü biçimlendirmek için onay gizlemek için bu parametreyi belirtin.|
@@ -172,7 +172,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [Azure içeri/dışarı aktarma Aracı'nı ayarlama](storage-import-export-tool-setup-v1.md)
 * [İçeri aktarma işlemi sırasında özellikleri ve meta verileri ayarlama](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 * [Sabit sürücüleri içeri aktarma işine hazırlamak için örnek iş akışı](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
-* [Sık kullanılan komutlar için hızlı başvuru](storage-import-export-tool-quick-reference-v1.md) 
+* [Sık kullanılan komutlar için hızlı başvuru](storage-import-export-tool-quick-reference-v1.md) 
 * [Kopyalama günlük dosyalarıyla iş durumunu gözden geçirme](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Bir içeri aktarma işini onarma](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Bir dışarı aktarma işini onarma](storage-import-export-tool-repairing-an-export-job-v1.md)

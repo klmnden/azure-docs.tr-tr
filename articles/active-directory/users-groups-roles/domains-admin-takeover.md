@@ -13,13 +13,13 @@ ms.workload: identity
 ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.custom: it-pro;seo-update-jan
-ms.openlocfilehash: ec1f36bee1a764f98473d7a6d1a6d7359dde9ea7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 9cef490d22a013b952d6692d0ac0e932a35c9ba3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156165"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297642"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma
 Bu makalede, Azure Active Directory (Azure AD) bir yönetilmeyen dizinde bir DNS etki alanı adı ele iki yolu açıklanır. Bir self servis kullanıcısı, Azure AD kullanan bir bulut hizmetine kaydolduğunda bu kullanıcı, e-posta etki alanına göre yönetilmeyen bir Azure AD dizinine eklenir. Self Servis veya "viral" hizmeti için kayıt hakkında daha fazla bilgi için bkz. [Azure Active Directory için Self Servis kaydolma nedir?](directory-self-service-signup.md)

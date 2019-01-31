@@ -1,6 +1,6 @@
 ---
-Başlık: ' 4. adım: Tahmine dayalı analiz modellerini titleSuffix Eğitimi: Azure Machine Learning Studio açıklaması: ' Geliştir Tahmine dayalı çözüm Kılavuzu, adım 4: Eğitme, Puanlama ve Azure Machine Learning Studio'da birden fazla modeli değerlendirin.'
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: ' 4. adım: Tahmine dayalı analiz modellerini titleSuffix Eğitimi: Azure Machine Learning Studio açıklaması: ' Geliştir Tahmine dayalı çözüm Kılavuzu, adım 4: Eğitme, Puanlama ve Azure Machine Learning Studio'da birden fazla modeli değerlendirin.'
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: garyericson ms.author: garye MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/23/2017
 ---

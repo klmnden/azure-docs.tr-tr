@@ -6,16 +6,16 @@ author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4a45d00559a84c178ab760acf8616f97ce7bb57c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718313"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466294"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda verilere erişmek, Azure SQL veritabanı'nda esnek sorgu kullanmak için en iyi uygulamalar
 Azure SQL veritabanından Azure SQL veri ambarı'nda verilere erişme elastik sorgu kullanarak en iyi yöntemleri öğrenin. 
@@ -61,7 +61,7 @@ Esnek sorgu etkili bir şekilde kullanmak için bu en iyi uygulamaları kullanı
 ### <a name="general"></a>Genel
 
 - Uzaktan sorgu yürütme kullanırken, yalnızca gerekli sütunların seçilmesi ve doğru filtreler uygulayarak emin olun. Yalnızca mu gerekli işlem bu artış, ancak daha da artırır sonuç kümesinin boyutunu ve bu nedenle, veri miktarı, iki örnekleri arasında taşınması gereken.
-- Kümelenmiş columnstore analytiIcal performans için hem SQL veritabanı, hem de SQL veri ambarı analitik amaçlar için verileri korur.
+- Kümelenmiş columnstore analitik performans için hem SQL veritabanı, hem de SQL veri ambarı analitik amaçlar için verileri korur.
 - Kaynak tablolarına sorgu ve veri taşıma işlemi için bölümlenir emin olun.
 - Daha ayrıntılı güncelleştirmeleri ve daha kolay yönetimini etkinleştirmek için bir önbellek olarak kullanılan SQL veritabanı örnekleri bölümlenir emin olun. 
 - İdeal olarak bunlar g/ç yoğunluklu iş yüklerini indirimli fiyatla Premium veritabanlarında odaklanan dizin kümelenmiş columnstore analitik avantajlarından sağladıklarından PremiumRS veritabanlarını kullanır.
@@ -125,29 +125,29 @@ Azure SQL kullanmak ne zaman veritabanı:
 
 ## <a name="faq"></a>SSS
 
-S: veritabanlarını elastik sorgu içeren bir elastik havuzun içine kullanabilirim?
+S: Esnek sorgu ile elastik bir havuzdaki veritabanları kullanabilir miyim?
 
 C: Evet. SQL veritabanları, elastik bir havuzdaki elastik sorgu kullanabilirsiniz. 
 
-S: kaç veritabanları elastik sorgu için kullanabileceğim bir sınır var mı?
+S: Esnek sorgu için kullanabileceğim kaç veritabanları için bir sınır var mıdır?
 
-Y: yoktur hiçbir sabit sınır kaç veritabanları için esnek sorgu kullanılabilir üzerinde. Ancak, her bir elastik sorgu (SQL veri ambarı isabet sorgular) normal Eş zamanlılık limitlerine doğru olarak sayılır.
+C: Kaç veritabanı için esnek sorgu kullanımına ilişkin hiçbir sabit bir sınır yoktur. Ancak, her bir elastik sorgu (SQL veri ambarı isabet sorgular) normal Eş zamanlılık limitlerine doğru olarak sayılır.
 
-S: DTU sınırları esnek sorgu ile ilgili var mı?
+S: DTU sınırları esnek sorgu ile ilgili var mıdır?
 
-Y: DTU sınırları olmayan farklı ile esnek sorgu uygulanmaz. Müşteriler, yanlışlıkla uyarabilirsiniz önlemek için bir yerde sahip olacak mantıksal sunucuları DTU sınırları standart ilkesidir. Bir SQL Data Warehouse örneğine yanı sıra esnek sorgu için birden fazla veritabanı etkinleştiriyorsanız cap beklenmedik bir şekilde karşılaşabilirsiniz. Bu meydana gelirse, mantıksal sunucunuzdaki DTU sınırını artırmak için bir istek gönderin. Tarafından kotanızı artırabilirsiniz [bir destek bileti oluşturma](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) seçerek *kota* olarak istek türü
+C: DTU sınırları olmayan farklı ile esnek sorgu uygulanmaz. Müşteriler, yanlışlıkla uyarabilirsiniz önlemek için bir yerde sahip olacak mantıksal sunucuları DTU sınırları standart ilkesidir. Bir SQL Data Warehouse örneğine yanı sıra esnek sorgu için birden fazla veritabanı etkinleştiriyorsanız cap beklenmedik bir şekilde karşılaşabilirsiniz. Bu meydana gelirse, mantıksal sunucunuzdaki DTU sınırını artırmak için bir istek gönderin. Tarafından kotanızı artırabilirsiniz [bir destek bileti oluşturma](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) seçerek *kota* olarak istek türü
 
-Satır düzeyi güvenlik/dinamik veri kullanın s: ile esnek sorgu maskeleme?
+S: Kullanabileceğim satır düzeyi güvenlik/dinamik veri maskeleme ile esnek sorgu?
 
-Y: SQL veritabanı ile daha gelişmiş güvenlik özellikleri kullanmak isteyen müşteriler, ilk taşıyarak ve verileri SQL veritabanı'nda depolayarak bunu yapabilirsiniz. Dış tablolar sorgulanan veriler üzerinde şu anda satır düzeyi güvenlik veya DDM uygulanamıyor. 
+C: SQL veritabanı ile daha gelişmiş güvenlik özellikleri kullanmak isteyen müşteriler, ilk taşıyarak ve verileri SQL veritabanı'nda depolayarak bunu yapabilirsiniz. Dış tablolar sorgulanan veriler üzerinde şu anda satır düzeyi güvenlik veya DDM uygulanamıyor. 
 
-Veri ambarı örneği için SQL veritabanı Örneğim yazma miyim?
+S: Veri ambarı örneği için SQL veritabanı Örneğim yazma?
 
-Y: şu anda bu özellik desteklenmiyor. Ziyaret bizim [geri bildirim sayfası] [ Feedback page] oluşturma/bu işlevselliği için bir özellik gelecekte görmek istediğiniz buysa oy için. 
+C: Bu özellik şu anda desteklenmiyor. Ziyaret bizim [geri bildirim sayfası] [ Feedback page] oluşturma/bu işlevselliği için bir özellik gelecekte görmek istediğiniz buysa oy için. 
 
-Geometri/Coğrafya gibi uzamsal türlerini kullanabilirim miyim?
+S: Uzamsal türler geometri/Coğrafya gibi kullanabilir miyim?
 
-VARBINARY(max) değerleri olarak SQL veri ambarı'nda c: uzamsal türlerini depolayabilirsiniz. Elastik sorgu kullanarak bu sütunları sorguladığınızda, çalışma zamanında uygun türlerine dönüştürme yapabilirsiniz.
+C: SQL veri ambarı'nda uzamsal türler VARBINARY(max) değerleri olarak depolayabilirsiniz. Elastik sorgu kullanarak bu sütunları sorguladığınızda, çalışma zamanında uygun türlerine dönüştürme yapabilirsiniz.
 
 ![uzamsal türler](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 

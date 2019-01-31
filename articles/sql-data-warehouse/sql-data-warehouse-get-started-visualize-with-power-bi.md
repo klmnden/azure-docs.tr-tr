@@ -2,20 +2,20 @@
 title: Power BI ile SQL Data Warehouse verilerini görselleştirme | Microsoft Azure
 description: Power BI ile SQL Data Warehouse verilerini görselleştirme
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: df1fe833a5b0cb65372f8df73fb17231463d4d64
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051450"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466277"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI ile verileri görselleştirme
 Bu öğreticide SQL Data Warehouse'a bağlanmak ve birkaç temel görselleştirme oluşturmak üzere Power BI'ı nasıl kullanacağınız gösterilmiştir.

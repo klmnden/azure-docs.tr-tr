@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139648"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465274"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Takım için görevleri takım veri bilimi işlemi takıma sağlama
 
@@ -48,9 +48,9 @@ Bu konuda, kısaltılmış depoları ve dizinler için kullanılır. Bu adlar di
 - **R1**: **GroupProjectTemplate** Azure DevOps grubu sunucunuzda, Grup Yöneticisi ayarladığınız Git deposunda.
 - **R3**: Takım **ProjectTemplate** ayarladığınız Git deposunda.
 - **R4**: **TeamUtilities** ayarladığınız Git deposunda.
-- **D1**: yerel dizin R1 kopyalandı ve D3 için kopyalanır.
-- **D3**: yerel dizin R3 ' kopyalanabilir, özelleştirme ve R3 için kopyalanır.
-- **D4**: yerel dizin R4 kopyalanan, özelleştirme ve yeniden R4 için kopyalanır.
+- **D1**: Yerel dizin R1 kopyalandı ve D3 için kopyalanır.
+- **D3**: Yerel dizin R3 ' kopyalanabilir, özelleştirme ve R3 için kopyalanır.
+- **D4**: Yerel dizin R4 kopyalanan, özelleştirme ve yeniden R4 için kopyalanır.
 
 Bu öğreticide depolar ve dizin için belirtilen adlar hedefiniz daha büyük bir veri bilimi grup içinde kendi ekibiniz için ayrı bir proje oluşturmaktır varsayımına üzerinde sağlanmıştır. Ancak, ekip lideri açık diğer seçenekleri mevcuttur:
 
@@ -140,9 +140,9 @@ Dengeli dağıtım yordam dizinleri yerel DSVM'ye Ara hazırlama siteler olarak 
 
 - Yerel dizine grubu depoyu Kopyala: yerel D1 -> için kopyalanan R1 - takım
 - Yerel dizine takım depoları kopyalayarak: R3 & yerel D3 & D4 -> için kopyalanan R4 - takım
-- Grup proje şablonu içeriğini team yerel klasöre kopyalayın: D1 - D3 -> için kopyalanan içeriği
+- Grup proje şablonu içeriğini yerel takım klasörüne kopyalayın:  D1 - D3 -> için kopyalanan içeriği
 - Yerel D3 & D4 özelleştirme (isteğe bağlı)
-- Yerel dizin içeriğini team depolara itme: D3 & D4 - içeriğini Ekle -> için R3 & R4 takım
+- Yerel dizin içeriğini, takım depolarını gönderin: D3 & D4 - içeriğini Ekle -> için R3 & R4 takım
 
 
 ### <a name="initialize-the-team-repositories"></a>Takım depolarını Başlat
@@ -355,7 +355,7 @@ Yeni bir F sürücü makinenize başarıyla bağlı olduğunu onaylayın.
 
 ![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
 
-**Azure dosya depolama bilgilerini el ile girmek nasıl:** bir metin dosyasını Azure dosya depolama bilgilerinizi yoksa, gerekli olan abonelik, depolama hesabı ve Azure yazmak için aşağıdaki ekranda yönergeleri izleyebilirsiniz dosya depolama bilgileri:
+**Azure dosya depolama bilgilerini el ile girmek nasıl:** Bir metin dosyasını Azure dosya depolama bilgilerinizi yoksa, aşağıdaki ekranda gerekli olan abonelik, depolama hesabı ve Azure dosya depolama bilgileri yazmak için yönergeleri izleyin:
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
@@ -384,7 +384,7 @@ Yeni bir F sürücü makinenize başarıyla bağlı olduğunu onaylayın.
 
 ![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
 
-**Azure dosya depolama bilgilerini el ile girmek nasıl:** bir metin dosyasını Azure dosya depolama bilgilerinizi yoksa, gerekli olan abonelik, depolama hesabı ve Azure yazmak için aşağıdaki ekranda yönergeleri izleyebilirsiniz dosya depolama bilgileri:
+**Azure dosya depolama bilgilerini el ile girmek nasıl:** Bir metin dosyasını Azure dosya depolama bilgilerinizi yoksa, aşağıdaki ekranda gerekli olan abonelik, depolama hesabı ve Azure dosya depolama bilgileri yazmak için yönergeleri izleyin:
 
 - Giriş **n**.
 - Azure dosya depolama önceki adımda oluşturulduğu abonelik adı dizinini seçin:

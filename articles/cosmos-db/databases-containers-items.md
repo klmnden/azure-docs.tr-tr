@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107744"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468147"
 ---
-# <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Azure Cosmos veritabanı, kapsayıcıları ve öğeleri ile çalışma
+# <a name="work-with-databases-containers-and-items"></a>Veritabanları, kapsayıcılar ve öğeleri ile çalışma
 
 Oluşturduktan sonra bir [Azure Cosmos DB hesabı](account-overview.md) Azure aboneliğiniz kapsamındaki verileri hesabınızdaki veritabanları, kapsayıcılar ve öğeleri oluşturarak yönetebilirsiniz. Bu makalede bu varlıkların açıklar: veritabanları, kapsayıcılar ve öğeleri. Aşağıdaki resimde, bir Azure Cosmos hesabında farklı varlık hiyerarşisi gösterilmektedir:
 
@@ -113,7 +113,7 @@ Her Azure Cosmos öğesi aşağıdaki sistem tanımlı özelliklerine sahiptir. 
 
 |**Sistem tarafından tanımlanan özelliği** | **Sistem oluşturulan veya kullanıcı ayarlanabilir**| **Amacı** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_kimliği | Sistem tarafından oluşturulan | Öğenin benzersiz tanıtıcısı | Evet | Hayır | Hayır | Hayır | Hayır |
+|_id | Sistem tarafından oluşturulan | Öğenin benzersiz tanıtıcısı | Evet | Hayır | Hayır | Hayır | Hayır |
 |_etag | Sistem tarafından oluşturulan | İyimser eşzamanlılık denetimi için kullanılan varlık etiketi | Evet | Hayır | Hayır | Hayır | Hayır |
 |_ts | Sistem tarafından oluşturulan | Öğesinin son güncelleştirilen zaman damgası | Evet | Hayır | Hayır | Hayır | Hayır |
 |_self | Sistem tarafından oluşturulan | Öğenin adreslenebilir URI'si | Evet | Hayır | Hayır | Hayır | Hayır |

@@ -3,7 +3,7 @@ title: Sanal makine üzerinde çalıştırma Linux işlem düğümlerini - Azure
 description: Azure batch'te Linux sanal makinelerinin havuzlarında paralel işlem iş yüklerinizi işlemek öğrenin.
 services: batch
 documentationcenter: python
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 06/01/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 713583a6a184a583145c610b4e014f56941efa4c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a841fae791648d179975c2a5330bb41d48d388dd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113520"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453561"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch havuzlarında Linux işlem düğümleri sağlama
 
@@ -67,7 +67,7 @@ Batch düğüm Aracısı, havuzdaki her düğümde çalışan ve Batch hizmeti d
 >
 >
 
-## <a name="create-a-linux-pool-batch-python"></a>Linux havuzu oluşturma: Batch Python
+## <a name="create-a-linux-pool-batch-python"></a>Linux havuzu oluşturun: Batch Python
 Aşağıdaki kod parçacığını nasıl kullanılacağına ilişkin bir örnektir [Python için Microsoft Azure Batch istemci kitaplığını] [ py_batch_package] işlem düğümleri havuzu Ubuntu Server oluşturmak için. Batch Python modülünde için başvuru belgeleri bulunabilir [azure.batch paket] [ py_batch_docs] okunur belgeleri.
 
 Bu kod parçacığı oluşturur bir [Imagereference] [ py_imagereference] açıkça ve her özelliklerini (yayımcı, teklif, SKU, sürüm) belirtir. Üretim kodunda ancak kullanmanızı öneririz [list_node_agent_skus] [ py_list_skus] yöntemini belirlemek ve kullanılabilir görüntü ve düğüm Aracısı SKU birleşimlerini zamanında seçin.
@@ -145,7 +145,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
     node_agent_sku_id = ubuntu1404agent.id)
 ```
 
-## <a name="create-a-linux-pool-batch-net"></a>Linux havuzu oluşturma: Batch .NET
+## <a name="create-a-linux-pool-batch-net"></a>Linux havuzu oluşturun: Batch .NET
 Aşağıdaki kod parçacığını nasıl kullanılacağına ilişkin bir örnektir [Batch .NET] [ nuget_batch_net] işlem düğümleri havuzu Ubuntu Server oluşturmak için istemci kitaplığı. Bulabilirsiniz [Batch .NET başvuru belgeleri] [ api_net] docs.microsoft.com'da.
 
 Aşağıdaki kod parçacığı kullandığı [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] listesinden şu anda seçmek için Market görüntüsü ve düğüm Aracısı SKU bileşimleri desteklenir. Desteklenen kombinasyonlar listesini zaman zaman değişebilir olduğundan bu arzu bir tekniktir. En yaygın olarak desteklenen kombinasyonlar eklenir.
@@ -217,32 +217,32 @@ Aşağıdaki tabloda, bu makalenin son güncelleştirildiği zaman kullanılabil
 | **Yayımcı** | **Teklif** | **Görüntü SKU'su** | **Sürüm** | **Düğüm Aracısı SKU kimliği** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
 | toplu iş | işleme centos73 | işleme | en son | Batch.node.centos 7 |
-| toplu iş | işleme windows2016 | işleme | en son | Batch.node.Windows amd64 |
+| toplu iş | rendering-windows2016 | işleme | en son | Batch.node.Windows amd64 |
 | Canonical | UbuntuServer | 16.04-LTS | en son | Batch.node.ubuntu 16.04 |
 | Canonical | UbuntuServer | 14.04.5-LTS | en son | Batch.node.ubuntu 14.04 |
-| credativ | Debian | 9 | en son | Batch.node.debian 9 |
-| credativ | Debian | 8 | en son | Batch.node.debian 8 |
+| credativ | Debian | 9 | en son | batch.node.debian 9 |
+| credativ | Debian | 8 | en son | batch.node.debian 8 |
 | Microsoft reklamları | linux-data-science-vm | linuxdsvm | en son | Batch.node.centos 7 |
-| Microsoft reklamları | Standart veri bilimi vm | Standart veri bilimi vm | en son | Batch.node.Windows amd64 |
+| Microsoft reklamları | standard-data-science-vm | standard-data-science-vm | en son | Batch.node.Windows amd64 |
 | Microsoft azure batch | centos kapsayıcı | 7-4 | en son | Batch.node.centos 7 |
 | Microsoft azure batch | centos kapsayıcı rdma | 7-4 | en son | Batch.node.centos 7 |
 | Microsoft azure batch | ubuntu server kapsayıcı | 16-04-lts | en son | Batch.node.ubuntu 16.04 |
-| Microsoft azure batch | ubuntu server kapsayıcı rdma | 16-04-lts | en son | Batch.node.ubuntu 16.04 |
+| Microsoft azure batch | ubuntu-server-container-rdma | 16-04-lts | en son | Batch.node.ubuntu 16.04 |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | en son | Batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2016 Datacenter smalldisk | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | Kapsayıcılar ile 2016 Datacenter | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | en son | Batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | en son | Batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | en son | Batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012 Datacenter smalldisk | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | en son | Batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008 R2 SP1 smalldisk | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | en son | Batch.node.Windows amd64 |
 | OpenLogic | CentOS | 7.4 | en son | Batch.node.centos 7 |
-| OpenLogic | CentOS HPC | 7.4 | en son | Batch.node.centos 7 |
-| OpenLogic | CentOS HPC | 7.3 | en son | Batch.node.centos 7 |
-| OpenLogic | CentOS HPC | 7.1 | en son | Batch.node.centos 7 |
-| Oracle | Oracle Linux | 7.4 | en son | Batch.node.centos 7 |
-| SUSE | SLES HPC | 12 SP2 | en son | Batch.node.opensuse 42.1 |
+| OpenLogic | CentOS-HPC | 7.4 | en son | Batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.3 | en son | Batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | en son | Batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.4 | en son | Batch.node.centos 7 |
+| SUSE | SLES-HPC | 12-SP2 | en son | Batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>SSH kullanarak Linux düğümlere bağlanma
 Geliştirme sırasında veya sorun giderme sırasında havuzunuzdaki düğümler için oturum açmak gerekli bulabilirsiniz. Windows işlem düğümleri, Linux düğümlerine bağlanmak için Uzak Masaüstü Protokolü (RDP) kullanamazsınız. Bunun yerine, Batch hizmeti için Uzak bağlantı SSH erişimini her düğümde sağlar.
@@ -350,6 +350,6 @@ Uygulama kullanarak Batch düğümlerine dağıtıyorsanız [uygulama paketleri]
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [py_computenodeuser]: https://docs.microsoft.com/python/api/azure.batch.models.computenodeuser
 [py_imagereference]: https://docs.microsoft.com/python/api/azure.mgmt.batch.models.imagereference
-[py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
+[py_list_skus]: https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.AccountOperations?view=azure-python#list-node-agent-skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/

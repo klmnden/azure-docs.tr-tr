@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning Studio
 description: Nasıl bir geliştirme, Azure Machine Learning modeli ilerler çalışır hale getirilen bir Web hizmeti için deneme mekanizması genel bakış.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: d084917f247aa20f59aea5179efa045838d7a2af
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a2e7c45615c1f9d07ef3392ee10579a1b5e3588f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076902"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477990"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio'da model denemeden bir çalışır hale getirilen Web hizmetine nasıl ilerlediğini
 Azure Machine Learning Studio geliştirin, çalıştırın, test etme ve yineleme olanak tanıyan etkileşimli bir tuvale sağlayan bir ***deneme*** Tahmine dayalı bir modeli temsil eden. Çok çeşitli için modüller vardır:

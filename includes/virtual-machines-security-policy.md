@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841465"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302368"
 ---
 Sanal makinenize (VM), çalışan uygulamalar için güvenli tutmak önemlidir. Sanal makinelerinize güvenli hale getirme, bir veya daha fazla Azure Hizmetleri ve VM'ler ve güvenli depolama verilerinizin güvenli erişim kapsayan özellikler içerebilir. Bu makalede, VM ve uygulamalarınızı güvenli tutmak sağlayan bilgiler sağlar.
 
@@ -20,6 +20,8 @@ Modern tehditlere bulut ortamları için uyumluluk ve güvenlik gereksinimlerini
 ## <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 
 [Azure Güvenlik Merkezi](../articles/security-center/security-center-intro.md) önleyin, algılayın ve vm'lere tehditlere yanıt verin yardımcı olur. Güvenlik Merkezi, Azure aboneliklerinizde tümleşik güvenlik izleme ve ilke yönetimi sağlar, aksi takdirde gözden kaçan geçebilir tehditleri ve güvenlik çözümlerinin geniş ekosistemiyle çalışır algılamaya yardımcı olur.
+
+Güvenlik Merkezi'nin tam zamanında erişim Vm'lere gerektiğinde bağlanılabilmesi için kolay erişim sağlamanın yanı sıra saldırılara maruz kalma riskinizi azaltır, Azure Vm'lere gelen trafiği kilitlemek için VM dağıtımı arasında uygulanabilir. Just-ın-time etkin olduğundan ve bir kullanıcı bir sanal makine erişimine izin istekleri, Güvenlik Merkezi sanal makine için kullanıcının sahip olduğu izinleri denetler. Bunlar doğru izinlere sahip değilse isteğin onaylanacağını ve Güvenlik Merkezi, ağ güvenlik grupları (Nsg'ler) sınırlı bir süre için seçilen bağlantı noktalarına gelen trafiğe izin verecek şekilde otomatik olarak yapılandırır. Süresi dolduktan sonra Güvenlik Merkezi Nsg'ler önceki durumlarına geri yükler. 
 
 ## <a name="encryption"></a>Şifreleme
 
@@ -33,7 +35,7 @@ Gizli diziler ve sertifikalar kullanılabilir kaynaklar olarak modellenir ve tar
 
 Key vault erişim ilkeleri anahtarlara, parolalara ve sertifikalara ayrı ayrı izinler. Örneğin, bir kullanıcıya parolalar için herhangi bir izin vermeden yalnızca anahtarlar için erişim verebilirsiniz. Ancak, anahtar, parola veya sertifikalara erişim izni kasa düzeyinde verilir. Diğer bir deyişle, [anahtar kasası erişim ilkesi](../articles/key-vault/key-vault-secure-your-key-vault.md) nesne düzeyinde izinleri desteklemez.
 
-Vm'lere bağlanma, oturum için daha güvenli bir yol sağlamak üzere ortak anahtar şifrelemesi kullanmanız gerekir. Bu işlem, kendiniz yerine bir kullanıcı adı ve parola kimlik doğrulaması için güvenli Kabuk (SSH) komutunu kullanarak genel ve özel bir anahtar değişimi içerir. Parolalar için kaba kuvvet saldırıları, web sunucuları gibi İnternete vm'lerde özellikle etkilenir. Güvenli Kabuk (SSH) anahtar çifti ile oluşturduğunuz bir [Linux VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md) ihtiyacını ortadan oturum açmak parola kimlik doğrulaması için SSH anahtarları kullanan. Bağlanmak için SSH anahtarları kullanabilirsiniz bir [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md) bir Linux VM.
+Vm'lere bağlanma, oturum için daha güvenli bir yol sağlamak üzere ortak anahtar şifrelemesi kullanmanız gerekir. Bu işlem, kendiniz yerine bir kullanıcı adı ve parola kimlik doğrulaması için güvenli Kabuk (SSH) komutunu kullanarak genel ve özel bir anahtar değişimi içerir. Parolalar için kaba kuvvet saldırıları, web sunucuları gibi İnternete vm'lerde özellikle etkilenir. Güvenli Kabuk (SSH) anahtar çifti ile oluşturduğunuz bir [Linux VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md) kimlik doğrulaması, oturum açmak için parolalara gereksinimi ortadan kaldırmak için SSH anahtarları kullanan. Bağlanmak için SSH anahtarları kullanabilirsiniz bir [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md) bir Linux VM.
 
 ## <a name="managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikler
 

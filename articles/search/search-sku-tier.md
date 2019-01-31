@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471829"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467450"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
@@ -108,7 +108,7 @@ Daha yaygın olarak kullanılan standart katmanlar için odak kaydırma **S1 S3*
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| Bölüm boyutu|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| Bölüm boyutu|  25 GB | 100 GB | 200 GB |  |  |  |  |
 | Dizin ve dizin oluşturucu sınırları| 50 | 200 | 200 |  |  |  |  |
 
 **S1** seçeneği olarak ayrılmış kaynaklarda ve birden çok bölüm olduğunda ortak bir seçimdir. Hizmet başına en fazla 12 bölümler için 25 GB bölümleri ile sınırlamak üzerinde **S1** çoğaltmalar bölümlerin en üst düzeye toplam 300 GB olan (bkz [tahsis bölümleri ve çoğaltmalarını](search-capacity-planning.md#chart) daha dengeli için birleşimleri.)

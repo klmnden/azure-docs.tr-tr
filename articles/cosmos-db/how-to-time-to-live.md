@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: 681878d43422e86df3db1050da24be88881d4b2e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a9f6676f1b2fdf812ec87595083ba6317a11873c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036299"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462163"
 ---
-# <a name="how-to-configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB'de yaşam süresi yapılandırma
+# <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB'de yaşam süresi yapılandırma
 
 Azure Cosmos DB, yaşam süresi (TTL) kapsayıcı düzeyinde yapılandırmayı seçtiğinize veya kapsayıcının ayarlanmasından sonra bir öğe düzeyinde kılabilirsiniz. Azure portalı veya dile özgü SDK'larını kullanarak bir kapsayıcı için TTL yapılandırabilirsiniz. Öğe düzeyinde TTL geçersiz kılmalar, SDK'ları kullanılarak yapılandırılabilir.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 9375b042885459ab88b7c1f2a76a471da55ff5c8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474879"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -32,7 +32,7 @@ Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranı
    * [Azure AD'ye katılmış](../device-management-azure-portal.md) veya
    * [Hibrit Azure AD'ye katılmış](../device-management-hybrid-azuread-joined-devices-setup.md), bir etki alanı denetleyicisine ağ bağlantısı ile.
 * Etkinleştirmeniz Azure AD Self Servis parola sıfırlama.
-* Windows 10 cihazlarınızı bir proxy sunucusu veya güvenlik duvarı ise URL'leri eklemelisiniz `passwordreset.microsoftonline.com` ve `ajax.aspnet.cdn.com` HTTPS trafiğinin (bağlantı noktası 443) izin verilen URL'ler listesine.
+* Windows 10 cihazlarınızı bir proxy sunucusu veya güvenlik duvarı ise URL'leri eklemelisiniz `passwordreset.microsoftonline.com` ve `ajax.aspnetcdn.com` HTTPS trafiğinin (bağlantı noktası 443) izin verilen URL'ler listesine.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma
 

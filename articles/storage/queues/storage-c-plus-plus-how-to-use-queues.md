@@ -9,13 +9,13 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
-ms.component: queues
-ms.openlocfilehash: 36fa2e5bc7eda7c47017713008aec2a245213462
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: queues
+ms.openlocfilehash: 1f2f52fc08ab4da4a7525f3018b7a9aea2f7c576
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521576"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457370"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Kuyruk Depolama'yı C++ kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -41,8 +41,8 @@ Bunu yapmak için, C++ için Azure Depolama İstemci Kitaplığı’nı yükleme
 
 C++ için Azure Depolama İstemci Kitaplığı’nı aşağıdaki yöntemleri kullanarak yükleyebilirsiniz:
 
-* **Linux:** verilen yönergeleri izleyerek [C++ Benioku için Azure depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.
-* **Windows:** Visual Studio'da **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) basın **ENTER**.
+* **Linux:** Verilen yönergeleri izleyerek [C++ Benioku için Azure depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.
+* **Windows:** Visual Studio'da, **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) basın **ENTER**.
 
 ```  
 Install-Package wastorage
@@ -83,7 +83,7 @@ Kullanabileceğiniz **cloud_storage_account** , depolama hesabı bilgileri temsi
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-queue"></a>Nasıl yapılır: bir kuyruk oluşturun
+## <a name="how-to-create-a-queue"></a>Nasıl yapılır: Bir kuyruk oluşturma
 A **cloud_queue_client** nesne kuyruklar için başvuru nesneleri almanıza olanak tanır. Aşağıdaki kod oluşturur bir **cloud_queue_client** nesne.
 
 ```cpp
@@ -104,7 +104,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
  queue.create_if_not_exists();  
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Nasıl yapılır: bir kuyruğa bir ileti Ekle
+## <a name="how-to-insert-a-message-into-a-queue"></a>Nasıl yapılır: Kuyruğa bir ileti yerleştirme
 Varolan bir kuyruğa ileti eklemek için ilk olarak yeni bir oluşturma **cloud_queue_message**. Ardından, arama **add_message** yöntemi. A **cloud_queue_message** herhangi birinden bir dize oluşturulabilir veya **bayt** dizisi. Burada, bir kuyruk oluşturan (eğer yoksa) ve 'Hello, World' iletisini yerleştiren bir kod yer almaktadır:
 
 ```cpp
@@ -125,7 +125,7 @@ azure::storage::cloud_queue_message message1(U("Hello, World"));
 queue.add_message(message1);  
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Nasıl yapılır: sonraki iletiye gözatın
+## <a name="how-to-peek-at-the-next-message"></a>Nasıl yapılır: Sonraki iletiye gözatın
 Kuyruğun iletiyi kuyruktan kaldırmadan çağırarak peek **peek_message** yöntemi.
 
 ```cpp
@@ -145,7 +145,7 @@ azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl yapılır: bir kuyruğa alınan iletinin içeriğini değiştirme
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl yapılır: Kuyruğa alınan iletinin içeriğini değiştirme
 Kuyrukta yer alan bir iletinin içeriğini değiştirebilirsiniz. Eğer ileti bir iş görevini temsil ediyorsa, bu özelliği kullanarak iş görevinin durumunu güncelleştirebilirsiniz. Aşağıdaki kod kuyruk iletisini yeni içeriklerle güncelleştirir ve görünürlük zaman aşımını 60 saniye daha uzatır. Bu, ileti ile ilişkili işin durumunu kaydeder ve istemciye ileti üzerinde çalışmaya devam etmesi için bir dakika daha zaman verir. Bir işleme adımı donanım veya yazılım arızasından dolayı başarısız olursa baştan başlamanıza gerek kalmadan kuyruk iletilerindeki çok adımlı iş akışlarını izlemek için bu yöntemi kullanabilirsiniz. Genellikle bir yeniden deneme sayısı yanı tutacak ve ileti n kereden fazla denenirse silmeniz. Bu, her işlendiğinde bir uygulama hatası tetikleyen bir iletiye karşı koruma sağlar.
 
 ```cpp
@@ -171,7 +171,7 @@ queue.update_message(changed_message, std::chrono::seconds(60), true);
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a>Nasıl yapılır: bir sonraki iletiyi sıradan çıkarmak
+## <a name="how-to-de-queue-the-next-message"></a>Nasıl yapılır: Sonraki iletiyi sıradan çıkarmak
 Kodunuz, bir iletiyi bir kuyruktan iki adımda çıkarır. Çağırdığınızda **get_message**, sonraki iletiyi bir kuyruğa alın. Öğesinden döndürülen bir ileti **get_message** bu kuyruktan iletileri okuyan herhangi bir kod için görünmez hale gelir. İletiyi kuyruktan kaldırmayı tamamlamak için de çağırmanız gerekir **delete_message**. Bir iletinin iki adımlı kaldırılma süreci, donanım veya yazılım arızasından dolayı kodunuzun bir iletiyi işleyememesi durumunda kodunuzun başka bir örneğinin aynı iletiyi alıp yeniden denemesini sağlar. Kod çağrılarınızı **delete_message** ileti işlendikten sonra sağ.
 
 ```cpp
@@ -192,7 +192,7 @@ std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() <<
 queue.delete_message(dequeued_message);
 ```
 
-## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Nasıl yapılır: yararlanarak iletilerin kuyruktan çıkarılması için ek seçenekler
+## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Nasıl yapılır: İletilerin kuyruktan çıkarılması için ek seçenekleri kullanma
 İletilerin bir kuyruktan alınma şeklini iki yöntemle özelleştirebilirsiniz. İlk olarak toplu iletiler alabilirsiniz (en fazla 32). İkinci olarak daha uzun veya daha kısa bir görünmezlik süresi ayarlayarak kodunuzun her iletiyi tamamen işlemesi için daha az veya daha fazla zaman tanıyabilirsiniz. Aşağıdaki kod örneğinde **get_messages** tek çağrıda 20 ileti almak için yöntemi. Her bir iletiyi kullanarak işler sonra bir **için** döngü. Ayrıca her ileti için görünmezlik zaman aşımı beş dakika olarak ayarlanır. Bu nedenle sonra 5 dakika 5 dakika için tüm iletiler aynı anda başlatır Not geçirilen çağrısından sonra **get_messages**, silinmeyen tüm iletiler yeniden görünür hale gelir.
 
 ```cpp
@@ -220,7 +220,7 @@ for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Nasıl yapılır: kuyruk uzunluğu alma
+## <a name="how-to-get-the-queue-length"></a>Nasıl yapılır: Kuyruk uzunluğu alma
 Bir kuyruktaki ileti sayısı ile ilgili bir tahmin alabilirsiniz. **Download_attributes** yöntemi kuyruk hizmetinin ileti sayısı dahil olmak üzere kuyruk özniteliklerini almasını ister. **Approximate_message_count** yöntemi kuyrukta yaklaşık iletilerin sayısını alır.
 
 ```cpp
@@ -243,7 +243,7 @@ int cachedMessageCount = queue.approximate_message_count();
 std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 ```
 
-## <a name="how-to-delete-a-queue"></a>Nasıl yapılır: bir kuyruk silme
+## <a name="how-to-delete-a-queue"></a>Nasıl yapılır: Bir kuyruk silme
 Bir kuyruk ve içerdiği tüm iletileri silmek için çağrı **delete_queue_if_exists** kuyruk nesnesi üzerinde yöntemi.
 
 ```cpp

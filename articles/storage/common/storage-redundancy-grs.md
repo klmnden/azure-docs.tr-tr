@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 85d69db2f94e4bddf1258233c34c64dcf78a3eeb
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.subservice: common
+ms.openlocfilehash: 8ffd3c34628f96888145a3639ddfe4a190dffc7f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219231"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467076"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -36,7 +36,7 @@ RA-GRS kullanırken akılda tutulması gereken bazı noktalar:
 ## <a name="what-is-the-rpo-and-rto-with-grs"></a>GRS ile RTO ve RPO nedir?
 **Kurtarma noktası hedefi (RPO):** GRS ve RA-GRS depolama hizmeti zaman uyumsuz olarak coğrafi-çoğaltır birincil ikincil konumdaki verileri. Birincil bölgede bir ana bölgesel olağanüstü durumda Microsoft ikincil bölgeye yük devretme gerçekleştirir. Bir yük devretme durumda coğrafi olarak çoğaltılmış henüz yapmadıysanız son değişiklikler kaybolabilir. Kayıp olası veri dakika sayısını RPO bilinir. RPO, verilerin kurtarılabilir zaman noktası gösterir. Azure depolama, genellikle 15 dakikadan kısa bir RPO sahip, rağmen şu anda SLA üzerinde ne kadar süreyle coğrafi çoğaltma olur.
 
-**Kurtarma süresi hedefi (RTO):** RTO yük devretme gerçekleştirmek ve depolama hesabı çevrimiçine almak için ne kadar sürer ölçüdür. Yük devretme gerçekleştirmek için zaman, aşağıdaki eylemleri içerir:
+**Kurtarma süresi hedefi (RTO):** RTO, bir yük devretme gerçekleştirin ve depolama hesabı çevrimiçine almak için ne kadar sürer, bir ölçüdür. Yük devretme gerçekleştirmek için zaman, aşağıdaki eylemleri içerir:
 
    * Veriler birincil konuma geri yüklenebilir veya bir yük devretme gerekli olup olmadığını belirlemek için Microsoft süresi gerektirir
    * Depolama hesabı için yük devretme ikincil konuma işaret edecek şekilde birincil DNS girişlerini değiştirerek gerçekleştirilecek saat

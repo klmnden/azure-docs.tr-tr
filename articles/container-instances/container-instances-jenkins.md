@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354198"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478205"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Kullanım Azure Container Instances olarak bir Jenkins derleme aracısı
 
@@ -28,9 +28,9 @@ Azure Container Instances hakkında daha fazla bilgi için bkz. [Azure Container
 
    - **Ad**: Jenkins dağıtımı için bir ad girin.
    - **Kullanıcı adı**: Jenkins sanal makinenin yönetici kullanıcı için bir ad girin.
-   - **Kimlik doğrulama türü**: kimlik doğrulaması için SSH ortak anahtarı öneririz. Bu seçeneği belirlerseniz, Jenkins sanal makineye oturum açmak için kullanılacak bir SSH ortak anahtarını yapıştırın.
+   - **Kimlik doğrulama türü**: Kimlik doğrulaması için SSH ortak anahtarı öneririz. Bu seçeneği belirlerseniz, Jenkins sanal makineye oturum açmak için kullanılacak bir SSH ortak anahtarını yapıştırın.
    - **Abonelik**: Bir Azure aboneliği seçin.
-   - **Kaynak grubu**: Bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.
+   - **Kaynak grubu**: Kaynak grubu oluşturun veya var olan bir grubu seçin.
    - **Konum**: Jenkins sunucusu için bir konum seçin.
 
    ![Jenkins portal dağıtım için temel ayarları](./media/container-instances-jenkins/jenkins-portal-01.png)
@@ -38,16 +38,16 @@ Azure Container Instances hakkında daha fazla bilgi için bkz. [Azure Container
 3. Üzerinde **ek ayarlar** formunda, aşağıdaki öğeleri tamamlayın:
 
    - **Boyutu**: Jenkins sanal makineniz için uygun boyutlandırma seçeneğini belirleyin.
-   - **VM disk türü**: seçeneklerinden birini belirtin **HDD** (sabit disk sürücüsü) veya **SSD** (katı hal sürücüsü) Jenkins sunucusu için.
-   - **Sanal ağ**: varsayılan ayarlarını değiştirmek istiyorsanız oku seçin.
-   - **Alt ağlar**: oku seçin, bilgileri doğrulayın ve seçin **Tamam**.
-   - **Genel IP adresi**: genel IP adresi, özel bir ad verin, SKU yapılandırma ve atama yöntemini ayarlamak için oku seçin.
+   - **VM disk türü**: Seçeneklerinden birini belirtin **HDD** (sabit disk sürücüsü) veya **SSD** (katı hal sürücüsü) Jenkins sunucusu için.
+   - **Sanal ağ**: Varsayılan ayarları değiştirmek istiyorsanız oku seçin.
+   - **Alt ağlar**: Oku seçin, bilgileri doğrulayın ve seçin **Tamam**.
+   - **Genel IP adresi**: Genel IP adresi, özel bir ad verin, SKU yapılandırma ve atama yöntemini ayarlamak için oku seçin.
    - **Etki alanı adı etiketi**: Jenkins sanal makinesi için tam bir URL oluşturmak için bir değer belirtin.
-   - **Jenkins yayın türünü**: İstenen sürüm türü seçenekleri: **LTS**, **haftalık yapı**, veya **Azure doğrulandı**.
+   - **Jenkins yayın türünü**: İstenen sürüm türü seçeneklerden birini belirleyin: **LTS**, **haftalık yapı**, veya **Azure doğrulandı**.
 
    ![Jenkins portal dağıtım için ek ayarlar](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Hizmet sorumlusu tümleştirmesi seçin **Auto(MSI)** [kimliklerini Azure kaynakları için yönetilen için] [yönetilen-kimlik-azure-kaynaklar] otomatik olarak Jenkins örneği için bir kimlik doğrulama kimliğini oluşturun. Seçin **el ile** kendi hizmet sorumlusu kimlik bilgileri sağlamak için.
+4. Hizmet sorumlusu tümleştirmesi seçin **Auto(MSI)** olmasını [kimliklerini Azure kaynakları için yönetilen] [ managed-identities-azure-resources] için bir kimlik doğrulama kimliğini otomatik olarak oluştur Jenkins örneği. Seçin **el ile** kendi hizmet sorumlusu kimlik bilgileri sağlamak için.
 
 5. Jenkins derleme işleri için bulut tabanlı bir platform bulut aracılarını yapılandırın. Bu makalede amacıyla seçin **ACI**. ACI bulut Aracısı ile her bir Jenkins derleme işi container Instance üzerinde çalıştırılır.
 
@@ -138,4 +138,4 @@ Azure üzerinde Jenkins hakkında daha fazla bilgi için bkz: [Azure ve Jenkins]
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md
 [jenkins-azure]: ../jenkins/overview.md
-[managed-service-identity]: ../active-directory/managed-service-identity/overview.md
+[managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md

@@ -1,6 +1,6 @@
 ---
-Başlık: Machine Learning Studio titleSuffix içindeki model sonuçlarını yorumlama: Azure Machine Learning Studio açıklaması: Bir algoritma kullanarak ve score model çıktıları görselleştirme için en iyi parametresinde nasıl seçeceğinizi öğrenin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Machine Learning Studio titleSuffix içindeki model sonuçlarını yorumlama: Azure Machine Learning Studio açıklaması: Bir algoritma kullanarak ve score model çıktıları görselleştirme için en iyi parametresinde nasıl seçeceğinizi öğrenin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 11/29/2017
 ---

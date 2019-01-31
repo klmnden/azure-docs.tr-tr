@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 25ea4f41ac1fa36c7f9b6f64bc7c4eede4702f38
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: 0480a8d4079a39c8e365dde893a9a1af2d7341aa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315188"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453119"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Blob depolama alanından verileri dışarı aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede Azure içeri/dışarı aktarma hizmeti büyük miktarda veriyi Azure Blob depolama alanından güvenli bir şekilde dışarı aktarmak için nasıl kullanılacağını adım adım yönergeler sağlar. Hizmet, Azure veri merkezine boş sürücüleri gönderin gerektirir. Hizmet veri sürücüleri için depolama hesabınızdan verir ve ardından sürücüleri geri gelir.
@@ -105,12 +105,12 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-3-update-the-job-with-tracking-information"></a>3. adım: İş izleme bilgilerini güncelleştir
+## <a name="step-3-update-the-job-with-tracking-information"></a>3. Adım: İş izleme bilgilerini güncelleştir
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
 
-## <a name="step-4-receive-the-disks"></a>4. adım: Diskleri
+## <a name="step-4-receive-the-disks"></a>4. Adım: Diskleri
 Pano işin tamamlandığından emin bildirdiğinde, diskleri size gönderilir ve sevk irsaliyesi için takip numarasını portalda kullanılabilir.
 
 1. Dışarı aktarılan verileri sürücüleriyle aldıktan sonra sürücüleri kilidini açmak için BitLocker anahtarlarını edinmeniz gerekir. Azure portalında dışarı aktarma işi gidin. Tıklayın **içeri/dışarı aktarma** sekmesi. 

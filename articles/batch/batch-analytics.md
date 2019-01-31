@@ -1,8 +1,8 @@
 ---
-title: Azure toplu analizi | Microsoft Docs
-description: Azure toplu analizi için başvuru.
+title: Azure Batch analizi | Microsoft Docs
+description: Azure Batch analizi referansı.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,29 +11,29 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 4c81acb282b24bbd899227c4dcc449fed4ba6c7d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: 999c3037196044250b8a12d6b6b380553e58c6ba
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30312686"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460191"
 ---
 # <a name="batch-analytics"></a>Batch Analizi
-Konular toplu analizi, olaylar ve Uyarılar için toplu service kaynakları kullanılabilir için başvuru bilgileri içerir.
+Toplu analiz konularındaki olayları ve Uyarıları Batch hizmet kaynakları için kullanılabilir yönelik başvuru bilgileri içerir.
 
-Bkz: [Azure Batch tanılama günlük](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) etkinleştirme ve toplu tanılama günlüklerini kullanma hakkında daha fazla bilgi.
+Bkz: [Azure Batch tanılama günlüğüne kaydetme](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) etkinleştirme ve Batch tanılama günlükleri'ni kullanma hakkında daha fazla bilgi.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 
-Azure Batch hizmeti aşağıdaki tanılama günlük olayları belirli Batch kaynaklarını ömrü boyunca yayar.
+Azure Batch hizmeti, belirli Batch kaynaklarını ömrü boyunca aşağıdaki tanılama günlüğü olaylar gönderir.
 
-**Hizmeti oturum açma olayları**
+**Hizmet günlüğü olayları**
 * [Havuz oluşturma](batch-pool-create-event.md)
-* [Havuzu silme Başlat](batch-pool-delete-start-event.md)
-* [Havuzu silme tamamlandı](batch-pool-delete-complete-event.md)
-* [Havuzu yeniden boyutlandırma Başlat](batch-pool-resize-start-event.md)
-* [Tam havuzu yeniden boyutlandırma](batch-pool-resize-complete-event.md)
+* [Havuz silme başlangıç](batch-pool-delete-start-event.md)
+* [Tam havuzunu Sil](batch-pool-delete-complete-event.md)
+* [Havuz yeniden boyutlandırma başlangıç](batch-pool-resize-start-event.md)
+* [Tam havuzunu boyutlandırma](batch-pool-resize-complete-event.md)
 * [Görev Başlat](batch-task-start-event.md)
 * [Görev tamamlandı](batch-task-complete-event.md)
 * [Görev başarısız](batch-task-fail-event.md)

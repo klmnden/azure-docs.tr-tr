@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 38f0d9cc6f507aa7d521aba0ff737f7bbaf2b211
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388570"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468130"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
@@ -39,7 +39,7 @@ Buradan tüm bir toplu işlemde herhangi bir birleşimini kaydetmek ve aşağıd
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Elastik havuzlara ve havuza alınmış veritabanlarını yönetme
 
-SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan veritabanları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps). Oluşturma ve elastik havuzlar için mantıksal sunucuları yönetmek için bkz: [oluştur ve yönetilen mantıksal sunucuları](sql-database-logical-servers.md). Oluşturma ve güvenlik duvarı kurallarını yönetmek için bkz: [oluşturma ve PowerShell kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan veritabanları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps). Oluşturma ve elastik havuzlar için SQL veritabanı sunucularını yönetmek için bkz: [oluşturma ve SQL veritabanı sunucularını yönetme](sql-database-servers.md). Oluşturma ve güvenlik duvarı kurallarını yönetmek için bkz: [oluşturma ve PowerShell kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > PowerShell örnek komut dosyaları için bkz: [elastik havuzlar oluşturma ve PowerShell kullanarak bir havuz dışına ve havuzlar arasında veritabanlarını taşıma](scripts/sql-database-move-database-between-pools-powershell.md) ve [PowerShell kullanarak izleme veAzureSQLveritabanındabirSQLelastikhavuzunuölçeklendirme](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -47,11 +47,11 @@ SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan verita
 
 | Cmdlet | Açıklama |
 | --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Esnek veritabanı havuzu, bir mantıksal SQL sunucusu üzerinde oluşturur.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Bir mantıksal SQL sunucusu üzerinde elastik havuzlar ve özellik değerlerini alır.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Bir mantıksal SQL sunucusu üzerinde esnek veritabanı havuzu özelliklerini değiştirir. Örneğin, **StorageMB** özelliği en fazla depolama alanı, bir elastik havuzun değiştirilecek.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Bir mantıksal SQL sunucusu üzerinde esnek veritabanı havuzu siler.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Elastik havuz bir mantıksal SQL sunucusu üzerinde işlemleri durumunu alır.|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Elastik havuz oluşturur.|
+|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Elastik havuzlar ve özellik değerlerini alır.|
+|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Örneğin, kullanım elastik havuz özelliklerini değiştirir **StorageMB** özelliği en fazla depolama alanı, bir elastik havuzun değiştirilecek.|
+|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Elastik havuz siler.|
+|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Elastik havuz üzerinde işlem durumunu alır|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Mevcut havuzlardan veya tek bir veritabanı olarak yeni bir veritabanı oluşturur. |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Bir veya daha fazla veritabanını alır.|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Bir veritabanı özelliklerini ayarlar veya mevcut bir veritabanı içine, dışı ya da elastik havuzlar arasında taşır.|
@@ -90,7 +90,7 @@ Oluşturma ve veritabanlarını taşıma mevcut elastik havuzlar için ya da Tra
 |[Veritabanı (Azure SQL veritabanı) oluşturma](/sql/t-sql/statements/create-database-azure-sql-database)|Mevcut havuzlardan veya tek bir veritabanı olarak yeni bir veritabanı oluşturur. Yeni bir veritabanı oluşturmak için ana veritabanına bağlı olmanız gerekir.|
 | [ALTER DATABASE (Azure SQL veritabanı)](/sql/t-sql/statements/alter-database-azure-sql-database) |Bir veritabanı içine, dışı ya da elastik havuzlar arasında taşıyın.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Bir veritabanını siler.|
-|[sys.elastic_pool_resource_stats (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Bir mantıksal sunucu içinde elastik veritabanı havuzları için kaynak kullanım istatistiklerini döndürür. Her bir esnek veritabanı havuzu için her 15 saniyede penceresi (dakika başına dört satır) raporlama için bir satır yok. Bu CPU, GÇ, günlük, depolama alanı tüketimi ve eş zamanlı istek/oturum kullanımı havuzdaki tüm veritabanları tarafından içerir.|
+|[sys.elastic_pool_resource_stats (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Tüm elastik havuzlar için kaynak kullanım istatistikleri, SQL veritabanı sunucusu döndürür. Her bir elastik havuz için her 15 saniyede penceresi (dakika başına dört satır) raporlama için bir satır yok. Bu CPU, GÇ, günlük, depolama alanı tüketimi ve eş zamanlı istek/oturum kullanımı havuzdaki tüm veritabanları tarafından içerir.|
 |[sys.database_service_objectives (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Edition (hizmet katmanı), hizmet hedefi (fiyatlandırma katmanı) ve elastik havuz adı varsa, Azure SQL veritabanına veya bir Azure SQL veri ambarı için döndürür. Azure SQL veritabanı sunucusu ana veritabanında oturum açtıysanız, tüm veritabanlarında bilgileri döndürür. Azure SQL veri ambarı için ana veritabanına bağlı olmanız gerekir.|
 
 ## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>REST API: Elastik havuzlara ve havuza alınmış veritabanlarını yönetme
@@ -102,7 +102,7 @@ SQL veritabanı elastik havuzları ve havuza alınan veritabanları oluşturmak 
 |[Elastik havuzlar - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Yeni bir elastik havuz oluşturur veya mevcut bir elastik havuz güncelleştirir.|
 |[Elastik havuzlar - Sil](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Esnek havuz siler.|
 |[Elastik havuzlar - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Elastik havuz alır.|
-|[Elastik havuzlar - sunucusu listesi](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Bir sunucu elastik havuzları listesini döndürür.|
+|[Elastik havuzlar - sunucu listesi](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Bir sunucu elastik havuzları listesini döndürür.|
 |[Elastik havuzlar - güncelleştirme](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Var olan bir esnek havuzun güncelleştirir.|
 |[Elastik havuz etkinlikleri](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Elastik havuz etkinlikleri döndürür.|
 |[Elastik havuz veritabanı etkinlikleri](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|İçinde bir elastik havuzdaki veritabanları üzerinde etkinlik döndürür.|

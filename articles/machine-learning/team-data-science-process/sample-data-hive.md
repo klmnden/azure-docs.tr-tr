@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6d833dc41677ddb027964ff535b27324e2b0c3da
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c417950e07ae3c6922aa260a3ef40d862870aa1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133086"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452337"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Azure HDInsight Hive tablolarındaki örnek veriler
 Bu makalede, aşağı örnek bunu analiz için daha kolay yönetilebilir bir boyuta indirmeyi Hive sorgularını kullanarak Azure HDInsight Hive tablolarında depolanan veriler açıklar. Üç bu özellik kullanılan örnekleme yöntemleri kapsar:
@@ -81,7 +81,7 @@ Gruplandırma ölçütü bu örnekleri örnek bir sorgu aşağıdadır:
     on b.catfield=c.catfield
 
 ## <a name="stratified"></a>Stratified örnekleme
-Elde edilen örnekler üst popülasyon oldukları gibi aynı oranı mevcut olan kategorik değerlere sahip olduğunda rastgele örnekleme Kategorik bir değişkene göre stratified. Yukarıdaki olarak aynı örneği kullanarak verilerinizi durumlara göre aşağıdaki gözlemlere sahip olduğunu varsayalım: NJ varsa 100 gözlemleri, NY olan 60 gözlemleri ve WA 300 gözlemler. 0,5 olmasını stratified örnekleme oranını belirtin, ardından alınan örnek yaklaşık 50, 30 ve 150 gözlemleri NJ, NY ve WA sırasıyla olmalıdır.
+Elde edilen örnekler üst popülasyon oldukları gibi aynı oranı mevcut olan kategorik değerlere sahip olduğunda rastgele örnekleme Kategorik bir değişkene göre stratified. Aynı örneği kullanarak yukarıdaki verilerinizi durumlara göre aşağıdaki gözlemlere sahip olduğunu varsayalım: 100 gözlemler NJ sahip, NY 60 gözlemler varsa ve WA 300 gözlemler. 0,5 olmasını stratified örnekleme oranını belirtin, ardından alınan örnek yaklaşık 50, 30 ve 150 gözlemleri NJ, NY ve WA sırasıyla olmalıdır.
 
 Örnek bir sorgu aşağıda verilmiştir:
 

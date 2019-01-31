@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: dd1c60a2c2ad88abf686e89972d29768ef600e4e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c2b518b695fa18a2babb5c5bc4ee84a1193b69d4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344566"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460354"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Translator konuşma tanıma API'si tarafından desteklenen diller
 
@@ -28,13 +28,13 @@ Aşağıdaki dilleri konuşma çevirisi için desteklenir. Konuşma çevirisi, k
 | Arapça (Modern standart)      |
 | Çince (Mandarin)      |
 | Türkçe      |
-| Fransızca      |
-| Almanca      |
+| Fransızca       |
+| Almanca       |
 | İtalyanca      |
 | Japonca      |
 | Portekizce (Brezilya)     |
 | Rusça      |
-| İspanyolca      | 
+| İspanyolca       | 
 
 Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil olarak aşağıdaki dilleri desteklemektedir. 
 
@@ -52,14 +52,14 @@ Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil
 | Hırvatça      | `hr`          |
 | Çekçe      | `cs`          |
 | Danca      | `da`          |
-| Hollanda dili      | `nl`          |
+| Felemenkçe      | `nl`          |
 | Türkçe      | `en`          |
 | Estonca      | `et`          |
 | Fiji Adaları dili      | `fj`          |
 | Filipin dili      | `fil`          |
 | Fince      | `fi`          |
-| Fransızca      | `fr`          |
-| Almanca      | `de`          |
+| Fransızca       | `fr`          |
+| Almanca       | `de`          |
 | Yunanca      | `el`          |
 | Haiti Kreyolu      | `ht`          |
 | İbranice      | `he`          |
@@ -73,7 +73,7 @@ Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil
 | Svahili dili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
-| Kore dili      | `ko`          |
+| Korece      | `ko`          |
 | Letonca      | `lv`          |
 | Litvanca      | `lt`          |
 | Malgaşça      | `mg`          |
@@ -91,8 +91,8 @@ Translator konuşma tanıma API'si, metin çevirisi konuşma için bir hedef dil
 | Sırpça (Latin)      | `sr-Latn`          |
 | Slovakça     | `sk`          |
 | Slovence      | `sl`          |
-| İspanyolca      | `es`          |
-| İsveç dili      | `sv`          |
+| İspanyolca       | `es`          |
+| İsveççe      | `sv`          |
 | Tahitian      | `ty`          |
 | Tamil dili      | `ta`          |
 | Tay Dili      | `th`          |

@@ -1,8 +1,8 @@
 ---
-title: Azure Batch görev complete olayını | Microsoft Docs
-description: Toplu Görev complete olayını referansı.
+title: Azure Batch görev tamamlama olayı | Microsoft Docs
+description: Toplu görev tamamlama olayı için başvuru.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,20 +11,20 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 9f25d9cbdc70282afd71b1a4b9ac72250922d163
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315326"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459256"
 ---
 # <a name="task-complete-event"></a>Görev tamamlama olayı
 
- Bu olay, bir görev tamamlandığında, çıkış kodu bağımsız olarak yayılır. Bu olay, bir görevin süresini görevi çalıştı ve bu denenen olup olmadığını belirlemek için kullanılabilir.
+ Bu olay, bir görev tamamlandığında, çıkış kodu bağımsız olarak yayınlanır. Bu olay, bir görevin süresini görevin ve onu yeniden olup olmadığını belirlemek için kullanılabilir.
 
 
- Aşağıdaki örnek, bir görev complete olayını gövdesi gösterir.
+ Aşağıdaki örnek, bir görev tamamlama olayı gövdesi gösterir.
 
 ```
 {
@@ -52,42 +52,42 @@ ms.locfileid: "30315326"
 }
 ```
 
-|Öğe adı|Tür|Notlar|
+|Öğe adı|Type|Notlar|
 |------------------|----------|-----------|
-|jobId|Dize|Görevi içeren işi kimliği.|
-|id|Dize|Görev kimliği.|
-|taskType|Dize|Görev türü. Bu, her bir iş yöneticisi görevi olduğunu gösteren'JobManager ' veya 'kullanıcı bir iş yöneticisi görevi değil belirten' olabilir. Bu olay, iş hazırlama görevleri, iş sürüm görevleri veya başlangıç görevleri için gösterilen değil.|
-|systemTaskVersion|Int32|Bir görev iç yeniden deneme sayacı budur. Dahili olarak Batch hizmeti geçici sorunlar için hesap için bir görevi yeniden deneyebilirsiniz. Bu sorunları iç zamanlama hatalar içerebilir veya kurtarma girişimleri işlem düğümleri hatalı bir durumda.|
+|iş kimliği|String|Görevi içeren işi kimliği.|
+|id|String|Görevin kimliği.|
+|taskType|String|Görev türü. Bu, 'bir iş yöneticisi görevi, belirten JobManager' olabilir veya bir iş yöneticisi görevi değil belirten'User ' olabilir. Bu olay, iş hazırlama görevleri, iş sürüm görevleri veya başlangıç görevleri yayılan değil.|
+|systemTaskVersion|Int32|Bu görevde iç yeniden deneme sayacı toplanır. Dahili olarak Batch hizmeti hesap için geçici bir sorun için bir görevi yeniden deneyebilirsiniz. Bu sorunları iç zamanlama hatalar içerebilir veya girişimleri, kurtarılır işlem düğümleri hatalı durumda.|
 |[nodeInfo](#nodeInfo)|Karmaşık Tür|İşlem düğümünde görevin çalıştırıldığı hakkındaki bilgileri içerir.|
-|[multiInstanceSettings](#multiInstanceSettings)|Karmaşık Tür|Görevi birden çok işlem düğümleri gerektiren çok örnekli görev olduğunu belirtir.  Bkz: [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) Ayrıntılar için.|
-|[Kısıtlamaları](#constraints)|Karmaşık Tür|Bu görev için geçerli yürütme kısıtlamaları.|
-|[executionInfo](#executionInfo)|Karmaşık Tür|Görevin yürütülmesi hakkında bilgiler içerir.|
+|[multiInstanceSettings](#multiInstanceSettings)|Karmaşık Tür|Görev birden çok işlem düğümü gerektiren bir çok örnekli görev olduğunu belirtir.  Bkz: [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) Ayrıntılar için.|
+|[Kısıtlamaları](#constraints)|Karmaşık Tür|Bu görevin geçerli yürütme kısıtlamaları.|
+|[executionInfo](#executionInfo)|Karmaşık Tür|Görevin yürütülmesi hakkında bilgi içerir.|
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|Öğe adı|Tür|Notlar|
+|Öğe adı|Type|Notlar|
 |------------------|----------|-----------|
-|poolId|Dize|Görevin çalıştırıldığı havuzun kimliği.|
-|nodeId|Dize|Görevin çalıştırıldığı düğümün kimliği.|
+|poolId|String|Görevin çalıştırıldığı Havuz kimliği.|
+|NodeId|String|Görevin çalıştırıldığı düğümün kimliği.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|Öğe adı|Tür|Notlar|
+|Öğe adı|Type|Notlar|
 |------------------|----------|-----------|
 |numberOfInstances|Int32|Görevin gerektirdiği işlem düğüm sayısı.|
 
 ###  <a name="constraints"></a> Kısıtlamaları
 
-|Öğe adı|Tür|Notlar|
+|Öğe adı|Type|Notlar|
 |------------------|----------|-----------|
-|maxTaskRetryCount|Int32|Maksimum görev yeniden sayısı. Çıkış kodu sıfır değilse toplu işlem hizmeti görevi yeniden dener.<br /><br /> Bu değer özellikle yeniden deneme sayısını kontrol edin. Toplu işlem hizmeti görevi bir kez dener ve bu sınıra kadar daha sonra yeniden deneyebilir. Örneğin, en fazla yeniden deneme sayısı 3, toplu çalıştığında bir görevin en fazla ise 4 (bir ilk deneyin ve 3 yeniden denemeyi) zaman.<br /><br /> En fazla yeniden deneme sayısının 0 olması durumunda toplu işlem hizmetinin görevleri yeniden denemez.<br /><br /> En fazla yeniden deneme sayısı -1 ise, Batch hizmeti görevleri sınır olmaksızın yeniden dener.<br /><br /> Varsayılan değer 0 (yeniden deneme)'dır.|
+|maxTaskRetryCount|Int32|Maksimum görev yeniden deneme sayısı. Çıkış kodu sıfır değilse toplu işlem hizmeti görevi yeniden dener.<br /><br /> Bu değer özel yeniden deneme sayısını kontrol edin. Batch hizmeti görevi bir kez dener ve sonra bu sınıra kadar yeniden deneyebilir. Örneğin, en fazla yeniden deneme sayısı 3, Batch çalışır bir görevin en fazla ise 4 (bir ilk deneme ve 3 yeniden deneme) zaman.<br /><br /> En fazla yeniden deneme sayısının 0 olması durumunda toplu işlem hizmeti görevleri yeniden denemez.<br /><br /> En fazla yeniden deneme sayısı -1 olması durumunda, Batch hizmeti görevleri sınır olmaksızın yeniden dener.<br /><br /> Varsayılan değer 0 (yeniden deneme yok) ' dir.|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Öğe adı|Tür|Notlar|
+|Öğe adı|Type|Notlar|
 |------------------|----------|-----------|
-|startTime|DateTime|Görev çalıştıran başladığı zaman. 'Çalışıyor' karşılık gelen **çalıştıran** görev kaynak dosyaları veya uygulama paketleri belirtiyorsa, başlangıç saati görev başladığı indirilirken veya bunlar dağıtma zaman yansıtır şekilde belirtin.  Görev yeniden ya da yeniden, bu görev çalıştıran başladığı en son ne zaman olur.|
-|endTime|DateTime|Hangi görev tamamlandı süre.|
-|exitCode|Int32|Görev çıkış kodu.|
-|retryCount|Int32|Görev Batch hizmeti tarafından denenen sayısı. Belirtilen MaxTaskRetryCount kadar bir sıfır olmayan çıkış kodu ile bulunup bulunmadığını görev denenir.|
-|requeueCount|Int32|Batch hizmeti tarafından bir kullanıcı isteğin sonucu olarak görev yeniden kuyruğa sayısı.<br /><br /> Yeniden boyutlandırma veya havuza küçültme) bir havuz (veya ne zaman işi devre dışı bırakılıyor, kullanıcı kullanıcı kaldırır düğümleri çalışan düğümlerine görevleri belirttiğinizde çalıştırılmak üzere yeniden kuyruğa. Bu sayı, şu nedenlerden dolayı kaç kez görev sıraya izler.|
+|startTime|DateTime|Hangi çalışan görev başlama zamanı. 'Çalışıyor' karşılık gelen **çalıştıran** durum görev kaynak dosyaları veya uygulama paketlerini belirtir, başlangıç zamanı, görevi başlattığınız indirerek veya bu dağıtımı zaman yansıtmasını sağlayın.  Görev yeniden ya da yeniden, çalışan, görevi başlattığınız en son zamanı budur.|
+|endTime|DateTime|Hangi görev tamamlanma zamanı.|
+|ExitCode|Int32|Görevin çıkış kodu.|
+|RetryCount|Int32|Görev Batch hizmeti tarafından yeniden deneme sayısı. Belirtilen MaxTaskRetryCount kadar bir sıfır olmayan çıkış kodu ile çıkılıyorsa görevi yeniden denenir.|
+|requeueCount|Int32|Batch hizmeti tarafından bir kullanıcı isteğinin sonucu olarak görev yeniden kuyruğa sayısı.<br /><br /> Çalışan düğümlerine görevleri yeniden boyutlandırma veya havuza küçültme) bir havuz (veya zaman işi devre dışı bırakılıyor, kullanıcı kullanıcı kaldırır düğümleri belirttiğinizde, yürütme için yeniden kuyruğa. Bu sayı, bu nedenle kaç kez görevi yeniden kuyruğa izler.|

@@ -12,12 +12,12 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 01/29/2019
-ms.openlocfilehash: 2f52cbaf5d50eca13a87ff8e745b0f8baefbe23e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4c9700344ca5b973b8dad9fd1505d15f58c06126
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210387"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451725"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL veritabanı tehdit algılama
 
@@ -27,7 +27,6 @@ Tehdit algılama parçasıdır [SQL gelişmiş veri güvenliği](sql-advanced-th
 
 > [!NOTE]
 > Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
-
 
 ## <a name="what-is-threat-detection"></a>Tehdit algılama nedir
 
@@ -78,7 +77,7 @@ Tıklayın **tehdit algılaması Uyarısı** Azure Güvenlik Merkezi'ni başlatm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [tek veritabanı tehdit algılama](sql-database-threat-detection.md).
+- Daha fazla bilgi edinin [tehdit algılama tek başına ve havuza alınmış veritabanlarını](sql-database-threat-detection.md).
 - Daha fazla bilgi edinin [yönetilen örnek tehdit algılama](sql-database-managed-instance-threat-detection.md).
 - Daha fazla bilgi edinin [SQL gelişmiş veri güvenliği](sql-advanced-threat-protection.md).
 - Daha fazla bilgi edinin [Azure SQL veritabanı denetimi](sql-database-auditing.md)

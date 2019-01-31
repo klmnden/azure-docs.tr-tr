@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463754"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472793"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -228,7 +228,7 @@ SQL Server'da etkin belgelenmemiş DBCC deyimleri, yönetilen örneği'nde deste
 
 ### <a name="distributed-transactions"></a>Dağıtılmış işlemler
 
-Hiçbiri MSDTC ya da [elastik işlemler](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) şu anda yönetilen örneği'nde desteklenir.
+Hiçbiri MSDTC ya da [elastik işlemler](sql-database-elastic-transactions-overview.md) şu anda yönetilen örneği'nde desteklenir.
 
 ### <a name="extended-events"></a>Genişletilmiş Olaylar
 
@@ -279,8 +279,8 @@ Bağlı sunucuları yönetilen örneğinde hedefleri sınırlı sayıda destekle
 - Oluşturulan SQL oturum açmaları `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, ve `FROM SID` desteklenir. Bkz: [Oluştur oturum açma](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (AAD) oturum açmalar oluşturulurken [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) sözdizimi veya [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) söz dizimi desteklenir (**genel Önizleme**).
 - Windows oturum açma bilgileri ile oluşturulan `CREATE LOGIN ... FROM WINDOWS` sözdizimi desteklenmiyor. Azure Active Directory oturum açma bilgileri ve kullanıcılar bu seçeneği kullanın.
-- Örneği oluşturan azure Active Directory (Azure AD) kullanıcı [Kısıtlanmamış yönetici ayrıcalıkları](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
-- Yönetici olmayan Azure Active Directory (Azure AD) veritabanı düzeyinde kullanıcılar kullanarak oluşturulabilir `CREATE USER ... FROM EXTERNAL PROVIDER` söz dizimi. Bkz: [kullanıcı oluştur... DIŞ SAĞLAYICISINDAN](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
+- Örneği oluşturan azure Active Directory (Azure AD) kullanıcı [Kısıtlanmamış yönetici ayrıcalıkları](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Yönetici olmayan Azure Active Directory (Azure AD) veritabanı düzeyinde kullanıcılar kullanarak oluşturulabilir `CREATE USER ... FROM EXTERNAL PROVIDER` söz dizimi. Bkz: [kullanıcı oluştur... DIŞ SAĞLAYICISINDAN](sql-database-manage-logins.md#non-administrator-users)
 
 ### <a name="polybase"></a>Polybase
 

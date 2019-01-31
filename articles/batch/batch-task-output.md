@@ -2,7 +2,7 @@
 title: Sonuçları ya da bir veri deposu - Azure Batch için tamamlanan işler ve görevler günlüklerinden kalıcı | Microsoft Docs
 description: Toplu iş görevlerini ve işleri kalıcı çıktı verileri için farklı seçenekler hakkında bilgi edinin. Azure depolama alanına veya başka bir veri deposuna verileri kalıcı hale getirebilirsiniz.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 463c3605f96774b6f05235f3c9d7fe0e5a7139f2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: ff7224b342aa421c576c170f3c23ac64cad9f161
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705727"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474354"
 ---
 # <a name="persist-job-and-task-output"></a>İş ve görev çıktılarını kalıcı hale getirme
 
@@ -77,13 +77,13 @@ Ayrıca, kendi tam dosya taşıma çözümü uygulayabilirsiniz. Bu yaklaşım n
 
 Batch çözümünüzü tasarlarken, iş ve görev çıktıları ilgili aşağıdaki faktörleri göz önünde bulundurun.
 
-- **İşlem düğümü ömrü**: düğümleri genellikle geçici, özellikle otomatik ölçeklendirme özellikli havuzlarınızdaki işlem. Bir düğüm üzerinde çalışan bir görev çıktısı, yalnızca düğümün var ve yalnızca dosya elde tutma süresi içinde görevi için ayarladığınız sırada kullanılabilir. Bir görev görev tamamlandıktan sonra gerekli olabilecek bir çıktı oluşturulur, ardından görev Çıkış dosyalarını Azure depolama gibi dayanıklı bir depolama alanına yüklemeniz gerekir.
+- **İşlem düğümü ömrü**: İşlem düğümleri özellikle otomatik ölçeklendirme özellikli havuzlarında çoğunlukla geçici olur. Bir düğüm üzerinde çalışan bir görev çıktısı, yalnızca düğümün var ve yalnızca dosya elde tutma süresi içinde görevi için ayarladığınız sırada kullanılabilir. Bir görev görev tamamlandıktan sonra gerekli olabilecek bir çıktı oluşturulur, ardından görev Çıkış dosyalarını Azure depolama gibi dayanıklı bir depolama alanına yüklemeniz gerekir.
 
-- **Çıkış depolama**: Azure depolama, görev çıkışı için bir veri deposu olarak önerilir, ancak herhangi bir kalıcı depolama alanı kullanabilirsiniz. Görev çıktısını Azure depolama alanına yazılmasını Batch hizmeti API'ye tümleşiktir. Dayanıklı depolama, başka bir form kullanırsanız, görev kendiniz çıktısını kalıcı hale getirmek için uygulama mantığı yazmak gerekir.
+- **Çıkış depolama**: Görev çıktısı için bir veri deposu olarak Azure depolama önerilir, ancak herhangi bir kalıcı depolama alanı kullanabilirsiniz. Görev çıktısını Azure depolama alanına yazılmasını Batch hizmeti API'ye tümleşiktir. Dayanıklı depolama, başka bir form kullanırsanız, görev kendiniz çıktısını kalıcı hale getirmek için uygulama mantığı yazmak gerekir.
 
-- **Çıkış alma**: görev çıktısını kalıcı, havuzunuzdaki işlem düğümlerine doğrudan ya da Azure depolama veya başka bir veri deposundan görev çıktısı alabilirsiniz. Doğrudan işlem düğümünden bir görevin çıkış almak için dosya adı ve çıkış konumunu düğümde gerekir. Azure depolama için görev çıktılarını kalıcı hale getirme, Azure depolama SDK'sı ile çıkış dosyalarını indirmek için Azure depolamadaki dosyanın tam yolu gerekir.
+- **Çıkış alma**: Görev çıktısını kalıcı durumunda görev çıktısını havuzunuzdaki işlem düğümlerine doğrudan ya da Azure depolama veya başka bir veri deposundan alabilirsiniz. Doğrudan işlem düğümünden bir görevin çıkış almak için dosya adı ve çıkış konumunu düğümde gerekir. Azure depolama için görev çıktılarını kalıcı hale getirme, Azure depolama SDK'sı ile çıkış dosyalarını indirmek için Azure depolamadaki dosyanın tam yolu gerekir.
 
-- **Çıkışını görüntüleme**: gittiğinizde Azure portal ve select Batch göreve **düğüm üzerindeki dosyalar**çıkış dosyalarının yalnızca ilginizi çeken, görev ile ilişkili tüm dosyaları ile sunulur. Yine, işlem düğümlerinde dosyaları yalnızca düğüm yok ve dosyayı elde tutma süresi içinde yalnızca görev için ayarladığınız sırada kullanılabilir. Azure Depolama'da kalıcı hale görev çıktısını görüntülemek için Azure portalı veya bir Azure depolama istemci uygulaması gibi kullanabileceğiniz [Azure Depolama Gezgini][storage_explorer]. Portalı veya başka bir aracı ile çıktı verilerini Azure Depolama'da görüntülemek için dosyanın konumunu bilmeniz ve ona doğrudan gidin.
+- **Çıktıyı görüntüleme**: Gittiğinizde Azure portal ve select Batch göreve **düğüm üzerindeki dosyalar**çıkış dosyalarının yalnızca ilginizi çeken, görev ile ilişkili tüm dosyaları ile sunulur. Yine, işlem düğümlerinde dosyaları yalnızca düğüm yok ve dosyayı elde tutma süresi içinde yalnızca görev için ayarladığınız sırada kullanılabilir. Azure Depolama'da kalıcı hale görev çıktısını görüntülemek için Azure portalı veya bir Azure depolama istemci uygulaması gibi kullanabileceğiniz [Azure Depolama Gezgini][storage_explorer]. Portalı veya başka bir aracı ile çıktı verilerini Azure Depolama'da görüntülemek için dosyanın konumunu bilmeniz ve ona doğrudan gidin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

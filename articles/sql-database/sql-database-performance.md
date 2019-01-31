@@ -10,15 +10,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 3629215dc1f6dfcb28194c487358adb058af3e8e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602928"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453017"
 ---
 # <a name="monitor-and-improve-performance"></a>İzleme ve performansı geliştirin
+
 Azure SQL veritabanı, veritabanı olası sorunları tanımlar ve akıllı ayarlama işlemleri ve öneriler sağlayarak İş yükünüzün performansını iyileştirebilir Eylemler önerir.
 
 Veritabanı performansınızı gözden geçirmek için **performans** döşeme genel bakış sayfasında veya gidin "Destek + sorun giderme aşağı" bölümünde:
@@ -34,6 +35,7 @@ Veritabanı performansınızı gözden geçirmek için **performans** döşeme g
 4. [Otomatik ayarlama](#automatic-tuning) Azure SQL veritabanı otomatik olarak veritabanınızı iyileştirin izin vermek için.
 
 ## <a name="performance-overview"></a>Performansa genel bakış
+
 Bu görünüm, veritabanınızın performansını özetini sağlar ve performansı ayarlamaya ve sorun gidermeye yardımcı olur. 
 
 ![Performans](./media/sql-database-performance/performance.png)
@@ -44,6 +46,7 @@ Bu görünüm, veritabanınızın performansını özetini sağlar ve performans
 * **Veritabanı sorguları** kutucuğu (kaynak kullanan sorgular genel DTU kullanımını ve üst) veritabanı sorgu performansı özetini gösterir. Bu kutucuğa tıklamak  **[sorgu performansı İçgörüleri](#query-performance-insight)**.
 
 ## <a name="performance-recommendations"></a>Performans önerileri
+
 Bu sayfa, akıllı sağlar [önerilerinde](sql-database-advisor.md) veritabanınızın performansını geliştirebilir. Öneriler aşağıdaki türde, bu sayfada gösterilir:
 
 * Hangi dizin oluşturma veya drop ilgili öneriler.
@@ -57,9 +60,11 @@ Geçmişte uygulanan eylemler ayarlama, tüm geçmişi de bulabilirsiniz.
 Performans önerilerini Uygula bulmayı öğrenin [bulun ve performans önerilerini uygulama](sql-database-advisor-portal.md) makalesi.
 
 ## <a name="automatic-tuning"></a>Otomatik ayarlama
+
 Azure SQL veritabanları otomatik olarak ayarla veritabanı performansı uygulayarak [performans önerileri](sql-database-advisor.md). Daha fazla bilgi edinmek için [otomatik ayarlama makale](sql-database-automatic-tuning.md). Bunu etkinleştirmek için okuma [otomatik ayarlamayı etkinleştirme](sql-database-automatic-tuning-enable.md).
 
 ## <a name="query-performance-insight"></a>Sorgu Performansı İçgörüleri
+
 [Sorgu performansı İçgörüleri](sql-database-query-performance.md) veritabanı performans sorunlarını giderme sağlayarak daha az süre beklemesini sağlar:
 
 * Veritabanları (DTU) kaynak tüketiminizi ayrıntılı Öngörüler. 
@@ -71,6 +76,7 @@ Azure SQL veritabanları otomatik olarak ayarla veritabanı performansı uygulay
 Bu sayfa hakkında daha fazla bilgi makalesinde Bul  **[sorgu performansı İçgörüleri'ni kullanmayı](sql-database-query-performance.md)**.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
+
 * [Tek veritabanları için Azure SQL Database performans rehberi](sql-database-performance-guidance.md)
 * [Elastik havuz ne zaman kullanılmalıdır?](sql-database-elastic-pool-guidance.md)
 

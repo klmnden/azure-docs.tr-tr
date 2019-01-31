@@ -1,5 +1,5 @@
 ---
-Başlık: Studio çalışma alanına Azure Resource Manager titleSuffix ile dağıtın: Azure Machine Learning Studio açıklaması: Azure Machine Learning kullanarak Azure Resource Manager şablonu Hizmetleri için bir çalışma alanı dağıtma: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Studio çalışma alanına Azure Resource Manager titleSuffix ile dağıtın: Azure Machine Learning Studio açıklaması: Azure Machine Learning kullanarak Azure Resource Manager şablonu Hizmetleri için bir çalışma alanı dağıtma: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---

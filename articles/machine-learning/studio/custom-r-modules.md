@@ -1,5 +1,5 @@
 ---
-Başlık: Özel R modülleri titleSuffix tanımlayın: Azure Machine Learning Studio açıklaması: Bu konuda, yazar ve Azure Machine learning'de özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar. Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
+Başlık: Özel R modülleri titleSuffix tanımlayın: Azure Machine Learning Studio açıklaması: Bu konuda, yazar ve Azure Machine learning'de özel bir R modülü dağıtma işlemleri açıklanmaktadır. Bu özel R modülleri nedir ve hangi dosyaların bunları tanımlamak için kullanılan açıklar. Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---

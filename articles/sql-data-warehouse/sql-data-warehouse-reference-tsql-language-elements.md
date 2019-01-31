@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 06/13/2018
 ms.author: mausher
 ms.reviewer: igorstan
-ms.openlocfilehash: d40861650f479f8ef840c5150b2153f461871331
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d88d1390f590a86c83273f2170f3854a7972a24b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307905"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466232"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda desteklenen T-SQL dil öğeleri
 Azure SQL veri ambarı'nda desteklenen T-SQL dil öğeleri belgelerine bağlantılar.
@@ -187,7 +187,7 @@ Azure SQL veri ambarı'nda desteklenen T-SQL dil öğeleri belgelerine bağlant�
 * [SCHEMA_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 * [SCHEMA_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 * [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
-* [SESSION_USER'I](https://msdn.microsoft.com/library/ms177587.aspx)
+* [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
 * [OTURUM](https://msdn.microsoft.com/library/ms188420.aspx)
 * [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 * [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
@@ -247,7 +247,7 @@ Azure SQL veri ambarı'nda desteklenen T-SQL dil öğeleri belgelerine bağlant�
 * [sp_pdw_remove_network_credentials](https://msdn.microsoft.com/library/mt204038.aspx)
 * [sp_pkeys](https://msdn.microsoft.com/library/ms189813.aspx)
 * [sp_prepare](https://msdn.microsoft.com/library/ff848808.aspx)
-* [bilgilerini sp_spaceused](https://msdn.microsoft.com/library/ms188776.aspx)
+* [sp_spaceused](https://msdn.microsoft.com/library/ms188776.aspx)
 * [sp_special_columns_100](https://msdn.microsoft.com/library/mt204025.aspx)
 * [sp_sproc_columns](https://msdn.microsoft.com/library/ms182705.aspx)
 * [sp_statistics](https://msdn.microsoft.com/library/ms173842.aspx)

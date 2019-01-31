@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/16/2019
-ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/25/2019
+ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360097"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467672"
 ---
 # <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği'nde çoğaltmayı yapılandırma
 
-İşlem çoğaltma verileri SQL Server veya Azure SQL veritabanı yönetilen örneği veritabanlarından yönetilen örneğe veya veritabanlarınızda yönetilen örneği, diğer SQL Server, Azure tek veritabanı veya diğer yapılan anında iletme değişiklikleri çoğaltmanıza olanak sağlar Yönetilen örnek. Çoğaltma üzerinde genel önizlemede olan [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). Bir yönetilen örnek, yayımcı ve dağıtıcı abone veritabanlarını barındırabilir. Bkz: [işlem çoğaltması yapılandırmaları](sql-database-managed-instance-transactional-replication.md#common-configurations) kullanılabilir yapılandırmaları için.
+İşlem çoğaltma sağlar, yönetilen örneği SQL Server veya Azure SQL veritabanı yönetilen örneği veritabanlarına verileri çoğaltmak için veya veritabanlarınızda başka SQL Server, SQL veritabanı tek veritabanı yönetilen örneğinde yapılan değişiklikleri göndermek veya Elastik havuz veya diğer yönetilen örneği. Çoğaltma üzerinde genel önizlemede olan [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). Bir yönetilen örnek, yayımcı ve dağıtıcı abone veritabanlarını barındırabilir. Bkz: [işlem çoğaltması yapılandırmaları](sql-database-managed-instance-transactional-replication.md#common-configurations) kullanılabilir yapılandırmaları için.
 
 ## <a name="requirements"></a>Gereksinimler
 
@@ -46,7 +46,7 @@ Desteklediği Özel Uygulamalar:
 
 - Şirket içi ve Azure SQL veritabanı yönetilen örneği örnekleri karışımını işlem ve anlık görüntü çoğaltma.
 
-- Aboneler, şirket içi, Azure SQL veritabanı'nda tek veritabanları veya havuza alınmış veritabanlarını Azure SQL veritabanı elastik havuzları olabilir.
+- Aboneler, şirket içi, Azure SQL veritabanı tek veritabanı veya havuza alınmış veritabanlarını Azure SQL veritabanı elastik havuzları olabilir.
 
 - Tek yönlü veya çift yönlü çoğaltma.
 
@@ -71,7 +71,7 @@ Aşağıdaki özellikler desteklenmez:
 
    Aşağıdaki örnek komut dosyalarında `<SQL_USER>` ve `<PASSWORD>` bu SQL Server hesabı ile veritabanı kullanıcı adı ve parola.
 
-5. [SQL veritabanı yönetilen örneğine bağlanın](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [SQL veritabanı yönetilen örneğine bağlanın](sql-database-connect-query-ssms.md).
 
 6. Dağıtıcı ve dağıtım veritabanı eklemek için aşağıdaki sorguyu çalıştırın.
 
@@ -172,4 +172,4 @@ Aşağıdaki özellikler desteklenmez:
 ## <a name="see-also"></a>Ayrıca Bkz.
 
 - [İşlem çoğaltması](sql-database-managed-instance-transactional-replication.md)
-- [Yönetilen örnek nedir?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Yönetilen örnek nedir?](sql-database-managed-instance.md)

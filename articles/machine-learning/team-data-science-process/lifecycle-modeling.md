@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139969"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474029"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process yaşam döngüsü aşaması modelleme
 
@@ -41,8 +41,8 @@ TDSP yaşam döngüsü görsel bir temsilini şu şekildedir:
 ## <a name="how-to-do-it"></a>Nasıl yapılır
 Bu aşamada yönelik üç ana görev vardır:
 
-  * **Özellik Mühendisliği**: ham verilerden model eğitiminin kolaylaştırmak için veri özelliklerini oluşturun.
-  * **Model Eğitimi**: kendi başarı ölçümlerini karşılaştırarak en doğru soruyu yanıtlar model bulun.
+  * **özellik Mühendisliği**: Veri özellikleri, model eğitiminin kolaylaştırmak için ham verileri oluşturun.
+  * **Eğitim modeli**: Kendi başarı ölçümlerini karşılaştırarak en doğru soruyu yanıtlar model bulun.
   * Modelinizi olup olmadığının **üretim için uygundur.**
 
 ### <a name="feature-engineering"></a>Özellik mühendisliği
@@ -63,7 +63,7 @@ Yanıtlamaya çalıştığınız sorunun türüne bağlı olarak, kullanılabili
    * **"En uygun" çözümü belirlemek** alternatif yöntemler arasında başarı ölçümlerini karşılaştırarak soruyu yanıtlamak için.
 
 > [!NOTE]
-> **Sızıntısını önlemek**: model veya makine öğrenimi algoritması unrealistically iyi tahminler elde etmeye olanak sağlayan bir eğitim veri kümesi dışından verileri dahil ettiyseniz veri sızıntısına neden olabilir. Sızıntısına neden veri uzmanları, Tahmine dayalı sonuçları alın, tedirgin doğru olması abartılı yaygın bir nedenidir. Bu bağımlılıklar algılanması zor olabilir. Genellikle sızıntısını önlemek için bir analysis veri kümesi oluşturma, bir model oluşturma ve değerlendirme sonuçları doğruluğunu arasında yineleme gerektirir. 
+> **Sızıntısını önlemek**: Bir model veya makine öğrenimi algoritması unrealistically iyi tahminler elde etmeye olanak sağlayan bir eğitim veri kümesi dışından verileri dahil ettiyseniz veri sızıntısına neden olabilir. Sızıntısına neden veri uzmanları, Tahmine dayalı sonuçları alın, tedirgin doğru olması abartılı yaygın bir nedenidir. Bu bağımlılıklar algılanması zor olabilir. Genellikle sızıntısını önlemek için bir analysis veri kümesi oluşturma, bir model oluşturma ve değerlendirme sonuçları doğruluğunu arasında yineleme gerektirir. 
 > 
 > 
 
@@ -72,9 +72,9 @@ Sağladığımız bir [modelleme ve raporlama aracıyla Otomatik](https://github
 ## <a name="artifacts"></a>Yapıtlar
 Bu aşamada üretilen yapıtları içerir:
 
-   * [Özellik kümeleri](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): geliştirilen model için özelliklerin açıklanan **özellik kümeleri** bölümünü **veri tanımı** rapor. Bu özellikler ve özellik nasıl oluşturulduğunu tanımını oluşturmak için kod işaretçileri içerir.
-   * [Rapor modeli](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): denenir, her modeli için bir standart her deneme hakkında ayrıntılar sağlayan şablon tabanlı bir rapor oluşturulur.
-   * **Denetim noktası karar**: model, bir üretim sistemine dağıtmak için yeterince iyi gerçekleştirir olup olmadığını değerlendirin. Bazı temel sorular sormak için şunlardır:
+   * [Özellik kümeleri](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): Geliştirilen model için özelliklerin açıklanan **özellik kümeleri** bölümünü **veri tanımı** rapor. Bu özellikler ve özellik nasıl oluşturulduğunu tanımını oluşturmak için kod işaretçileri içerir.
+   * [Rapor modeli](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): Denenen, her model için bir standart her deneme hakkında ayrıntılar sağlayan şablon tabanlı bir rapor oluşturulur.
+   * **Denetim noktası karar**: Model, bir üretim sistemine dağıtmak için yeterince iyi gerçekleştirir olup olmadığını değerlendirin. Bazı temel sorular sormak için şunlardır:
      * Modeli belirtilen test veri yeterli güvenle sorusunu mu? 
      * Herhangi bir alternatif yaklaşımlar çalışmanız gerekir? Ek veri topla, daha fazla özellik Mühendisliği yapın veya diğer algoritmalar ile denemeler?
 

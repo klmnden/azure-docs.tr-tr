@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600871"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455074"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
@@ -50,7 +50,7 @@ Akıllı İçgörüler otomatik olarak algılar performans sorunlarını sorgu y
 | [Fiyatlandırma katmanı düşürme](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Fiyatlandırma katmanı indirgeme eylemi kullanılabilir kaynaklar azaltılabilir. Bu SQL veritabanı performansı etkilediğini. | Fiyatlandırma katmanı indirgeme eylemi kullanılabilir kaynaklar azaltılabilir. Bu veritabanı performansı etkilediğini. |
 
 > [!TIP]
-> SQL veritabanı'nın sürekli performans iyileştirme için etkinleştirme [Azure SQL veritabanı otomatik ayarlama](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). SQL veritabanı'nın yerleşik zekası, bu benzersiz özellik sürekli olarak izler, SQL veritabanı, otomatik olarak dizinleri tabanlarını ve sorgu yürütme planı düzeltmeleri uygular.
+> SQL veritabanı'nın sürekli performans iyileştirme için etkinleştirme [Azure SQL veritabanı otomatik ayarlama](sql-database-automatic-tuning.md). SQL veritabanı'nın yerleşik zekası, bu benzersiz özellik sürekli olarak izler, SQL veritabanı, otomatik olarak dizinleri tabanlarını ve sorgu yürütme planı düzeltmeleri uygular.
 >
 
 Aşağıdaki bölümde algılanabilir performans modellerini daha ayrıntılı açıklanmaktadır.
@@ -61,7 +61,7 @@ Aşağıdaki bölümde algılanabilir performans modellerini daha ayrıntılı a
 
 Bu algılanabilir performans desen, kullanılabilir kaynak sınırları, çalışan sınırları ve oturum sınırlarını ulaşma için ilgili performans sorunlarını birleştirir. Bu performans sorununu algılandıktan sonra bir açıklama alanı tanılama günlüğü, performans sorunu kaynak, çalışan veya oturum sınırları ilgili olup olmadığını gösterir.
 
-SQL veritabanı'nda kaynaklar için genellikle adlandırılır [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) veya [sanal çekirdek](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) kaynakları. Kaynak sınırlarını ulaşma desenini algılanan değerlendirilmiştir sorgu performansında nedeni ölçülen kaynak sınırlarını ulaşma.
+SQL veritabanı'nda kaynaklar için genellikle adlandırılır [DTU](sql-database-what-is-a-dtu.md) veya [sanal çekirdek](sql-database-service-tiers-vcore.md) kaynakları. Kaynak sınırlarını ulaşma desenini algılanan değerlendirilmiştir sorgu performansında nedeni ölçülen kaynak sınırlarını ulaşma.
 
 Oturumu sınırları kaynak SQL veritabanı kullanılabilir eşzamanlı oturum açma sayısını gösterir. Bu performans desen, SQL veritabanlarına bağlanan uygulamalar veritabanına kullanılabilir eşzamanlı oturum açma sayısı üst sınırına ulaştınız, tanınır. Uygulamaları bir veritabanı üzerinde bulunandan daha fazla oturumları kullanmayı denerseniz, sorgu performansı etkilenir.
 
@@ -73,7 +73,7 @@ Tanılama Günlüğü performans ve kaynak tüketimi yüzdeleri etkilenen sorgu 
 
 Kullanılabilir oturum sınırları ulaştıysanız, veritabanında yapılan oturum açma sayısını azaltarak uygulamalarınızı en iyi duruma getirebilirsiniz. Oturumlarının veritabanına uygulamalarınızdan azaltmak yapamıyorsanız, artan veritabanı fiyatlandırma katmanı göz önünde bulundurun. Bölme ve veritabanınızı daha dengeli bir iş yükü dağıtımı için birden çok veritabanı içine taşıyın.
 
-Oturum sınırları çözümleme hakkında daha fazla öneri için bkz. [ile SQL veritabanı en fazla oturum açma bilgileri sınırlarını başa çıkma](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Bkz: [kaynak bakış sınırlayan bir mantıksal sunucuda](sql-database-resource-limits-logical-server.md) sunucusu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
+Oturum sınırları çözümleme hakkında daha fazla öneri için bkz. [ile SQL veritabanı en fazla oturum açma bilgileri sınırlarını başa çıkma](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Bkz: [kaynak bakış sınırlayan bir SQL veritabanı sunucusunda](sql-database-resource-limits-database-server.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 
 ## <a name="workload-increase"></a>İş yükü artışı
 

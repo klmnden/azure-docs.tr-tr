@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: d209e1f6924e5c7d6bba7512606504b7165f0ed3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 308d4527c9ea56a408ddaf05532f5a0b36136262
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359434"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451776"
 ---
-# <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB hesabınız için bir IP Güvenlik Duvarı yapılandırma
+# <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB'de IP Güvenlik Duvarı yapılandırma
 
 IP Güvenlik Duvarı'nı kullanarak Azure Cosmos DB hesabınızda depolanan verilerin güvenliğini sağlayabilirsiniz. Azure Cosmos DB için gelen güvenlik duvarı desteği IP tabanlı erişim denetimlerini destekler. Aşağıdaki yöntemlerden birini kullanarak bir IP Güvenlik Duvarı Azure Cosmos DB hesabı ayarlayabilirsiniz:
 

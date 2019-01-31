@@ -2,18 +2,18 @@
 title: System Center 2012 R2 DPM ile Azure Backup’a Exchange sunucusu yedekleme
 description: System Center 2012 R2 DPM kullanarak Azure Backup için bir Exchange sunucusunu yedeklemek hakkında bilgi edinin
 services: backup
-author: adigan
-manager: NKolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/19/2018
-ms.author: adigan
-ms.openlocfilehash: 7e95fa0cc6b5f9476df68ab44e5dbc8bb5432d52
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/31/2019
+ms.author: kasinh
+ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234469"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298322"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM ile Azure Backup’a Exchange sunucusu yedekleme
 Bu makalede, Azure Backup için bir Microsoft Exchange sunucusunu yedeklemek için System Center 2012 R2 Data Protection Manager (DPM) sunucusunun nasıl yapılandırılacağı açıklanır.  
@@ -110,11 +110,11 @@ Exchange sunucusunda DPM koruma aracısını yüklemek için aşağıdaki adıml
 
 Çevrimiçi kurtarma noktaları için beş kurtarma türü vardır:
 
-* **Özgün Exchange Server konumuna Kurtar:** verileri özgün Exchange Server'a kurtarılır.
-* **Exchange Server üzerindeki başka bir veritabanına Kurtar:** verileri başka bir Exchange server üzerindeki başka bir veritabanına kurtarılır.
-* **Bir kurtarma veritabanına Kurtar:** bir Exchange kurtarma veritabanına (RDB) verileri kurtarılır.
-* **Bir ağ klasörüne kopyala:** verileri bir ağ klasörüne kurtarılır.
-* **Banda Kopyala:** bir bant kitaplığı veya bağlı ve DPM sunucusunda yapılandırılan bir tek başına bant sürücüsü varsa, kurtarma noktası bir boş banda kopyalanır.
+* **Özgün Exchange Server konumuna Kurtar:** Verileri özgün Exchange Server'a kurtarılır.
+* **Exchange Server üzerindeki başka bir veritabanına Kurtar:** Verileri başka bir Exchange server üzerindeki başka bir veritabanına kurtarılır.
+* **Bir kurtarma veritabanına kurtarma:** Bir Exchange kurtarma veritabanına (RDB) verileri kurtarılır.
+* **Bir ağ klasörüne kopyala:** Verileri bir ağ klasörüne kurtarılır.
+* **Banda Kopyala:** Bir bant kitaplığı veya bağlı ve DPM sunucusunda yapılandırılan bir tek başına bant sürücüsü varsa, kurtarma noktası bir boş banda kopyalanır.
 
     ![Çevrimiçi çoğaltma seçin](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 

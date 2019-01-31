@@ -6,16 +6,16 @@ author: diberry
 manager: cgronlun
 displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: cf652c1b0edd469f29d14ed10d66ebe78b0fbb7c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7f519729f3ad94324b847ca6b15b254ea7c6abbb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247842"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463744"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Bilgi bankasını geliştirmek için etkin öğrenmeyi kullanma
 
@@ -42,7 +42,7 @@ Tüm öneriler birlikte benzerliğe göre kümelenir ve diğer sorular için en 
 
 ## <a name="upgrade-version-to-use-active-learning"></a>Etkin öğrenmeyi kullanma sürüme yükseltme
 
-Etkin öğrenme, çalışma zamanı sürümü 4.4.0 ve sonraki sürümlerde desteklenir. Bilgi bankanızı bir önceki sürümünde oluşturulduysa [hizmetinizi yükseltme](upgrade-qnamaker-service.md) bu özelliği kullanmak için. 
+Etkin öğrenme, çalışma zamanı sürümü 4.4.0 ve sonraki sürümlerde desteklenir. Bilgi bankanızı bir önceki sürümünde oluşturulduysa [, çalışma zamanını yükseltme](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) bu özelliği kullanmak için. 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 

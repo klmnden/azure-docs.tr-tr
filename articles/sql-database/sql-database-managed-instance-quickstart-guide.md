@@ -12,16 +12,16 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b8eb6d483b9e7a92b50a269e5efbc8ca55946931
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 77deed43c106a451d3de768989233c749e1280e1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104227"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468181"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği ile çalışmaya başlama
 
-[Azure SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) olan SQL Server'ın tam olarak yönetilen PaaS sürümünü Azure bulutunda barındırılan ve kendi sanal ağ özel IP adresiyle yerleştirilir. Bu bölümde, hızlı bir şekilde yapılandırın ve yönetilen örneği oluşturma ve veritabanlarınızı öğreneceksiniz.
+[Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance-index.yml) olan SQL Server'ın tam olarak yönetilen PaaS sürümünü Azure bulutunda barındırılan ve kendi sanal ağ özel IP adresiyle yerleştirilir. Bu bölümde, hızlı bir şekilde yapılandırın ve yönetilen örneği oluşturma ve veritabanlarınızı öğreneceksiniz.
 
 ## <a name="quickstart-overview"></a>Hızlı genel bakış
 
@@ -30,6 +30,7 @@ Bu bölümde, yönetilen örnekler ile hızlıca çalışmaya başlamanıza yard
 Kullanmak istediğiniz kendi ağ veya ağ özelleştirmek bkz. isterseniz nasıl [ağ ortamını yapılandırmak](#configure-network-environment) yönetilen örneği için.
 
 Yönetilen Örneğinize oluşturduğunuzda, aşağıdaki yaklaşımlardan birini kullanarak örneğe bağlanmak gerekir:
+
 * Oluşturma [Azure sanal makine](sql-database-managed-instance-configure-vm.md) SQL Server Management Studio ve yönetilen Örneğinize nereye yerleştirilir aynı VNet içindeki bir alt ağdaki yönetilen Örneğinize erişmek için kullanılan diğer uygulamalar ile yüklenmiştir. VM, yönetilen örneği ile aynı alt ağda olamaz.
 * Ayarlanan [noktadan siteye bağlantı](sql-database-managed-instance-configure-p2s.md) bilgisayarınızda ağınızdaki diğer SQL Server yönetilen örneği nereye yerleştirilir Vnet'e bilgisayarınızı katılın ve yönetilen örneği'ni kullanın olanak tanıyacaktır.
 

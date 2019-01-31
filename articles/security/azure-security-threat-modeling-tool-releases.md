@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: 00f3cded865fe76a4220c4ab2fa5f747320308e1
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 322e3d08812a75f67995c1e29ae40f168d56869c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389771"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297132"
 ---
 # <a name="threat-modeling-tool-releases"></a>Tehdit modelleme Aracı sürümleri
 
@@ -28,11 +28,18 @@ Microsoft tehdit modelleme aracı şu anda ücretsiz sunulan [tıklatın indirme
 ## <a name="system-requirements"></a>Sistem Gereksinimleri
 
 - Desteklenen İşletim Sistemleri
-  - Microsoft Windows 10
+  - Microsoft Windows 10 Yıldönümü güncelleştirmesi veya üstü
+- Gerekli .NET sürümü
+  - .NET 4.7.1 veya üzeri
 - Ek Gereksinimler
   - Şablonlar ve araç için güncelleştirmeleri almak için Internet bağlantısı gerekir.
 
 ## <a name="release-notes"></a>Sürüm Notları
 
 - [Microsoft tehdit modelleme aracı GA sürümünü 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) - 12 Eylül 2018
-- [Microsoft tehdit modelleme aracı GA sürümünü 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) - 1 Kasım 2018'den
+- [Microsoft tehdit modelleme aracı güncelleştirme sürümünü 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) - 1 Kasım 2018'den
+- [Microsoft tehdit modelleme aracı güncelleştirme sürümünü 7.1.60126.1](./azure-security-threat-modeling-tool-releases-71601261.md) - 29 Ocak 2019
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+En son sürümünü indirin [Microsoft tehdit modelleme aracı](https://aka.ms/threatmodelingtool).

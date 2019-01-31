@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 0c46ba3d2fcd59f43df2383c3e0471fa36217536
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551716"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300260"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL veritabanı çok modelli özellikleri
 
@@ -50,7 +50,7 @@ Graf ilişkileri ve grafik sorgu işlevleri Transact-SQL ile Tümleştirildi ve 
 
 Bir şey yok bir grafik veritabanı ulaşabilir, hangi ilişkisel veritabanı kullanarak elde edemiyor. Ancak, bir grafik veritabanı bazı sorgular express daha kolay yapabilirsiniz. Kararınız birinin yerine diğerini seçmek için aşağıdaki etmenlere dayalı olabilir:
 
-- Bu nedenle HieararchyId kullanılamaz bir düğümü birden çok üst öğeye burada olabilir hiyerarşik veri modeli
+- Bu nedenle HierarchyId kullanılamaz bir düğümü birden çok üst öğeye burada sahip olabilir hiyerarşik veri modeli
 - Modeli vardır, uygulamanızın karmaşık çok-çok ilişkisi; var Uygulama geliştikçe yeni ilişkiler eklenir.
 - Birbirine bağlı veri ve ilişkilerini analiz etmeniz.
 
@@ -96,7 +96,7 @@ Azure SQL veritabanı ayrıca sağlayan özelleştirilmiş [uzaysal dizinler](ht
 SQL Server, yarı yapılandırılmış veri yönetimi için zengin uygulamalar geliştirmeye yönelik güçlü bir platform sağlar. XML için destek, SQL Server'daki tüm bileşenleri tümleşik ve aşağıdakileri içerir:
 
 - Xml veri türü. XML değerleri, yerel olarak bir xml veri türü sütununda XML şema koleksiyonu göre belirlenmiş veya sol türsüz depolanabilir. XML sütunu dizine ekleyebilir.
-- XML veri sütunları ve xml türünde değişkenler, depolanan bir XQuery sorgusunu belirtme olanağı. Veritabanınızda kullanan herhangi bir veri modeli erişim herhangi bir Transact-SQL sorgu XQUery işlevleri kullanılabilir.
+- XML veri sütunları ve xml türünde değişkenler, depolanan bir XQuery sorgusunu belirtme olanağı. Veritabanınızda kullanan herhangi bir veri modeli erişim herhangi bir Transact-SQL sorgu XQuery işlevleri kullanılabilir.
 - XML belgeleri kullanarak tüm öğeler otomatik olarak dizinini [birincil XML dizini](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) veya kullanılarak dizine tam yollarını belirtin [ikincil XML dizini](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
 - Bu OPENROWSET XML veri toplu yüklenmesine izin verir.
 - İlişkisel verileri XML biçimine dönüştürün.

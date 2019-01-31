@@ -2,19 +2,18 @@
 title: Azure Backup için Log Analytics veri modeli
 description: Bu makalede, verileri Azure Backup için Log Analytics veri modeli ayrıntıları hakkında konuşuyor.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09f7d4c5e76d4f74d447f8e8760e1f348462c769
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5921ca696076a16e39252a6cb3bfae98854b5a85
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887028"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299581"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Verileri Azure Backup için log Analytics veri modeli
 Log Analytics veri modeli, raporlar oluşturmak için kullanın. Veri modeli ile özel sorgular ve panolar oluşturmak veya istediğiniz ancak Azure Backup verileri, özelleştirebilir.

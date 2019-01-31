@@ -2,20 +2,20 @@
 title: Saydam veri şifrelemesi SQL veri ambarı (T-SQL) | Microsoft Docs
 description: Itanium tabanlı sistemler için saydam veri şifrelemesi (TDE) SQL veri ambarı (T-SQL)
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ccdba241a2921a59f7db9668ec2b6f0921aa9f44
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 50b6077687da2ed24a3a90b227d129c43f70bfc9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307696"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465818"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Saydam veri şifrelemesi (TDE) ile çalışmaya başlama
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ FROM
 Sonucu ```1``` şifrelenmiş bir veritabanı gösterir ```0``` şifrelenmemiş bir veritabanını gösterir.
 
 ## <a name="encryption-dmvs"></a>Şifreleme Dmv'ler
-* [sys.Databases][sys.databases] 
+* [sys.databases][sys.databases] 
 * [sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--Anchors-->

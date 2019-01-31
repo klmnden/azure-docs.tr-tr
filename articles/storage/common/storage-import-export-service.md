@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528565"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453392"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti nedir?
 
@@ -27,18 +27,18 @@ Microsoft tarafından sağlanan disk sürücüleri kullanarak veri aktarmak isti
 
 Azure içeri/dışarı aktarma hizmeti veri yükleme veya ağ üzerinden indirme çok yavaş olduğunda veya ek ağ bant genişliği alma maliyetle kullanmayı düşünün. Bu hizmet aşağıdaki senaryolarda kullanın:
 
-* **Bulutta veri taşıma**: büyük miktarlarda verinin hızla Azure'a taşıyın ve hesaplı.
-* **İçerik dağıtım**: veri müşteri sitelerinize hızla gönderin.
-* **Yedekleme**: Azure depolamada depolamak için şirket içi verilerinizin yedeklerini yararlanın.
-* **Veri Kurtarma**: Kurtarma büyük Depolama'da depolanan veriler miktarını ve şirket içi konumunuza teslim edilmesini.
+* **Bulutta veri taşıma**: Büyük miktarlarda verinin hızla Azure'a taşıyın ve hesaplı.
+* **İçerik dağıtım**: Hızlı bir şekilde veri müşteri sitelerinize gönderin.
+* **Yedekleme**: Azure depolamada depolamak için şirket içi verilerinizin yedeklerini uygulayın.
+* **Veri Kurtarma**: Büyük Depolama'da depolanan veriler miktarda kurtarın ve şirket içi konumunuza teslim edilmesini.
 
 ## <a name="importexport-components"></a>İçeri/dışarı aktarma bileşenleri
 
 İçeri/dışarı aktarma hizmeti, aşağıdaki bileşenleri kullanır:
 
-- **İçeri/dışarı aktarma hizmeti**: Bu hizmet Azure portalından kullanılabilir oluşturmalarına yardımcı olur ve izleme verilerini (karşıya yükleme) içeri aktarın ve (indirme) işleri dışarı aktar.  
+- **İçeri/dışarı aktarma hizmeti**: Azure portalında kullanılabilen bu hizmet, kullanıcı oluşturma ve veri alma (yükleme) izlemek ve (indirme) işleri dışarı aktar yardımcı olur.  
 
-- **WAImportExport aracı**: aşağıdaki komut satırı aracı budur: 
+- **WAImportExport aracı**: Bu aşağıdakileri yapan bir komut satırı aracıdır: 
     - Disk sürücülerinizden gönderilir ve içeri aktarma için hazırlar.
     - Sürücüye veri kopyalama işlemini kolaylaştırır.
     - Bir sürücüde BitLocker ile verileri şifreler.
@@ -52,7 +52,7 @@ Azure içeri/dışarı aktarma hizmeti veri yükleme veya ağ üzerinden indirme
 >
 > WAImportExport aracın yalnızca 64 bit Windows işletim sistemi ile uyumludur. Desteklenen belirli işletim sistemi sürümleri için Git [Azure içeri/dışarı aktarma gereksinimleri](storage-import-export-requirements.md#supported-operating-systems).
 
-- **Disk sürücüleri**: katı hal sürücüleri (SSD'ler) sevk edebilir veya Azure veri merkezine sabit disk sürücüleri (HDD). İçeri aktarma işi oluşturma, disk, verilerini içeren sürücüler gönderin. Dışarı aktarma işi oluşturma, Azure veri merkezine boş sürücüleri gönderin. Belirli disk türleri için Git [desteklenen disk türleri](storage-import-export-requirements.md#supported-hardware).
+- **Disk sürücüleri**: Katı hal sürücüleri (SSD'ler) veya bir Azure veri merkezine sabit disk sürücülerinin (HDD'ler) sevk edebilir. İçeri aktarma işi oluşturma, disk, verilerini içeren sürücüler gönderin. Dışarı aktarma işi oluşturma, Azure veri merkezine boş sürücüleri gönderin. Belirli disk türleri için Git [desteklenen disk türleri](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>İçeri/dışarı aktarma nasıl çalışır?
 

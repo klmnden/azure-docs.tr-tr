@@ -1,6 +1,6 @@
 ---
-Başlık: Dosya titleSuffix veri içeri aktar: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da eğitim veri dosyasına sabit sürücünüzden karşıya yüklemeyi öğrenin. Bu çalışma alanında bir veri kümesi modülü oluşturur.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Dosya titleSuffix veri içeri aktar: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da eğitim veri dosyasına sabit sürücünüzden karşıya yüklemeyi öğrenin. Bu çalışma alanında bir veri kümesi modülü oluşturur.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

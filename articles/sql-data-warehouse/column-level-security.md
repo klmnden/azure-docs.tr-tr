@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 323879fff90fa478797f85415faae9ae02ea5bcd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301064"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461517"
 ---
 # <a name="column-level-security"></a>Sütun düzeyinde güvenlik 
 Sütun düzeyi güvenlik (CLS), kullanıcının yürütme bağlamı veya grup üyeliklerini temel veritabanı tablo sütunları erişimi denetlemek müşterilerin sağlar.  
@@ -76,7 +76,7 @@ Msg 230, Level 14, State 1, Line 12
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'. 
 ``` 
 
-## <a name="use-cases"></a>Kullanım örnekleri
+## <a name="use-cases"></a>Kullanım Örnekleri
 CLS bugün nasıl kullanıldığını ilişkin bazı örnekler: 
 - Finansal hizmet şirketi yalnızca hesap yöneticileri müşteri sosyal güvenlik numarası (SSN), telefon numaraları ve diğer kişisel bilgileri (PII) erişmesini sağlar.
 - Sağlık Hizmetleri Sağlayıcısı yalnızca Doktorlar ve nurses fatura departmanı üyeleri sağlanmıyor hassas sağlık kayıtlarına erişim sağlamak bu verileri görüntüleme olanak sağlar.

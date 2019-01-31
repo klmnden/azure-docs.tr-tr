@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0ade4ac054f345084cf0bc0a6dc7885329eb8b9c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141892"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458032"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Bir Hadoop kümesinde Hive sorgularını kullanarak verilerin özelliklerini oluşturma
 Bu belge, Hive sorgularını kullanarak bir Azure HDInsight Hadoop kümesinde depolanan verilerin özelliklerini oluşturma işlemi gösterilmektedir. Bu Hive sorguları katıştırılmış Hive User-Defined betikleri, sağlanan işlevler (UDF'ler) kullanın.
@@ -136,26 +136,26 @@ Bu sorguda kullanılan adlı, toplama ve dropoff konumları GPS koordinatların�
 
 Katıştırılmış UDF'ler bulunabilir Hive tam listesini **yerleşik işlevler** bölümünde <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a> Gelişmiş konular: Sorgu hızını artırmak için ayar Hive parametreleri
+## <a name="tuning"></a> Gelişmiş konular: Sorgu hızını artırmak için Hive parametrelerini ayarlama
 Hive kümesinin varsayılan parametre ayarları Hive sorguları ve sorgular işlenirken veri için uygun olmayabilir. Bu bölümde, kullanıcılar Hive sorgularının performansını geliştirmek için dinleyebilirsiniz bazı parametreler açıklanmaktadır. Veri işleme sorgular önce sorguları ayarlama parametre eklemek kullanıcıların gerekir.
 
-1. **Java yığın alanı**: büyük veri kümelerini katılma veya uzun kayıtları işleme içeren sorgular için **yığın alanı kalmadı çalıştıran** sık karşılaşılan biridir. Bu hata, parametreleri ayarlayarak önlenebilir *mapreduce.map.java.opts* ve *mapreduce.task.io.sort.mb* için istenen değerleri. Örnek aşağıda verilmiştir:
+1. **Java yığın alanı**: Büyük veri kümelerini katılma veya uzun kayıtları işleme içeren sorgular için **yığın alanı kalmadı çalıştıran** sık karşılaşılan biridir. Bu hata, parametreleri ayarlayarak önlenebilir *mapreduce.map.java.opts* ve *mapreduce.task.io.sort.mb* için istenen değerleri. Örnek aşağıda verilmiştir:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Bu parametre, Java yığın alanı için 4 GB bellek ayırır ve ayrıca sıralama daha verimli daha fazla bellek ayırarak yapar. Yığın alanı ilgili bir başarısızlık hatalarını herhangi bir iş varsa bu ayırmaları ile yürütmek için iyi bir fikirdir.
 
-1. **DFS bloğu boyutunu**: Bu parametre en küçük birim dosya sistemi depolar veri ayarlar. DFS blok boyutu düşük ve en fazla 128 MB, ardından boyuttaki veriyi olursa örnek olarak, 128 MB tek bir blok içinde depolanır. 128 MB'den büyük veri, ek blokları atanır. 
+1. **DFS bloğu boyutunu**: Bu parametre, en küçük birim dosya sistemi depolar veri ayarlar. DFS blok boyutu düşük ve en fazla 128 MB, ardından boyuttaki veriyi olursa örnek olarak, 128 MB tek bir blok içinde depolanır. 128 MB'den büyük veri, ek blokları atanır. 
 2. Ad düğümü dosyasıyla ilgili blok bulmak için çok daha fazla isteklerini işlemek olduğundan küçük blok boyutu seçme büyük ek yüklerini Hadoop neden olur. Bir önerilen ilgilenme gigabayt ile (veya daha büyük olduğunda) ayarı veriler:
 
         set dfs.block.size=128m;
 
-2. **Hive katılma işleminde en iyi duruma getirme**: birleştirme işlemleri map/reduce Framework azaltın aşamasında, bazen bir yerde genellikle alırken çok büyük bir kazanç birleşimler ("mapjoins" olarak da bilinir) map aşamasında zamanlama tarafından gerçekleştirilebilir. Mümkün olduğunda bunu yapmak için Hive yönlendirmek için aşağıdakileri ayarlayın:
+2. **Hive katılma işleminde en iyi duruma getirme**: Birleştirme işlemleri map/reduce Framework azaltın aşamasında, bazen bir yerde genellikle alırken çok büyük bir kazanç birleşimler ("mapjoins" olarak da bilinir) map aşamasında zamanlama tarafından gerçekleştirilebilir. Mümkün olduğunda bunu yapmak için Hive yönlendirmek için aşağıdakileri ayarlayın:
    
        set hive.auto.convert.join=true;
 
-3. **Hive için azaltıcının sayısını belirten**: sırada Hadoop genişletin sayısını ayarlamak kullanıcının sağlar, azaltıcının sayısı genellikle kullanıcı tarafından ayarlanamaz. Bu sayı denetimde bir ölçüde veren el Hadoop değişkenleri seçmektir *mapred.min.split.size* ve *mapred.max.split.size* her eşleme boyutu görev tarafından belirlenir:
+3. **Hive için azaltıcının sayısını belirten**: Hadoop genişletin sayısını ayarlamasına olanak sağlar, ancak genellikle azaltıcının sayısı olan kullanıcı tarafından ayarlanamaz. Bu sayı denetimde bir ölçüde veren el Hadoop değişkenleri seçmektir *mapred.min.split.size* ve *mapred.max.split.size* her eşleme boyutu görev tarafından belirlenir:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

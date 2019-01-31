@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9a1d0775c12d424c35e9e9d366f69e07ec9b1468
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a44e53d7a32ab151fa951d1bc89b741390a70dfb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096985"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464798"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
@@ -27,6 +27,8 @@ Azure Data Lake depolama Gen2, neredeyse tüm Azure HDInsight küme türleri iç
 > Data Lake depolama 2. nesil olarak seçtiğinizde, **birincil depolama türü**, ek depolama alanı olarak Data Lake depolama Gen1 hesabı seçemezsiniz.
 
 ## <a name="creating-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma
+
+## <a name="using-the-azure-portal"></a>Azure portalını kullanma
 
 Data Lake depolama Gen2 için depolamayı kullanan bir HDInsight kümesi oluşturmak için doğru şekilde yapılandırılmış bir Data Lake depolama Gen2'ye hesabı oluşturmak için aşağıdaki adımları kullanın.
 
@@ -62,6 +64,48 @@ Data Lake depolama Gen2 için depolamayı kullanan bir HDInsight kümesi oluştu
         * Altında **kimlik** doğru aboneliği seçin ve yeni oluşturulan kullanıcı-yönetilen bir kimlik atanır.
         
             ![Kimlik ayarları, Azure HDInsight ile Data Lake depolama Gen2 kullanma](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+
+### <a name="using-a-resource-manager-template-deployed-with-azure-cli"></a>Azure CLI ile dağıtılan bir Resource Manager şablonu kullanma
+
+Bir örnek indirebilirsiniz [Burada şablon dosyası](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) ve [örnek parametreler dosyası burada](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Şablon kullanmadan önce dize için gerçek Azure abonelik Kimliğinizi yerine `<SUBSCRIPTION_ID>`. Ayrıca, dize için seçilen parolanız yerine `<PASSWORD>` kullanacağınız her iki oturum açma parolasını ayarlamak için SSH parolası yanı sıra, küme oturum açmak için.
+
+Aşağıdaki kod parçacığı ilk aşağıdaki adımları gerçekleştirir:
+
+1. Azure hesabınızda oturum açın.
+1. Etkin aboneliği oluşturma işlemlerini nerede gerçekleştirilecek ayarlayın.
+1. Yeni dağıtım etkinlikler için yeni bir kaynak grubu oluşturma `hdinsight-deployment-rg`.
+1. Bir kullanıcı oluşturma yönetilen hizmet kimliği (MSI) `test-hdinsight-msi`.
+1. Data Lake depolama 2. nesil için özellikleri kullanmak için Azure CLI uzantısı ekleyin.
+1. Yeni bir Data Lake depolama Gen2 hesabı oluşturma `hdinsightadlsgen2`, kullanarak `--hierarchical-namespace true` bayrağı.
+
+```azurecli
+az login
+az account set --subscription <subscription_id>
+
+#create resource group
+az group create --name hdinsight-deployment-rg --location eastus
+
+# Create managed identity
+az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
+
+az extension add --name storage-preview
+
+az storage account create --name hdinsightadlsgen2 \
+    --resource-group hdinsight-deployment-rg \
+    --location eastus --sku Standard_LRS \
+    --kind StorageV2 --hierarchical-namespace true
+```
+
+İleri portalında oturum açın ve eklemek için yeni MSI **depolama Blob verileri katkıda bulunan (Önizleme)** rolü altında Yukarıdaki 3 adımda açıklandığı gibi depolama hesabında [Azure portalını kullanarak](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+
+Aşağıdaki kod parçacığını kullanarak şablonu dağıtmak için MSI rol ataması portalında tamamladıktan sonra devam edin.
+
+```azurecli
+az group deployment create --name HDInsightADLSGen2Deployment \
+    --resource-group hdinsight-deployment-rg \
+    --template-file hdinsight-adls-gen2-template.json \
+    --parameters parameters.json
+```
 
 ## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>Data Lake depolama 2. nesil'deki HDInsight için erişim denetimi
 

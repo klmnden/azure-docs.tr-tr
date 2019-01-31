@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Azure SQL Veri Ambarı’nda işlem ölçeğini genişletme - Azure portalı | Microsoft Docs'
+title: "Hızlı Başlangıç: Azure SQL veri ambarı - Azure Portalı'nda işlem ölçeğini | Microsoft Docs"
 description: Azure portalından Azure SQL Veri Ambarı’nda işlemi ölçeklendirin. Daha iyi performans için işlem ölçeğini genişletin veya maliyet tasarrufu için işlem ölçeğini daraltın.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1abafb011a445847757af3efb9e0ea4e6170408d
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
-ms.translationtype: HT
+ms.openlocfilehash: 31ec1537a0075f486130a3bcf1017d35b47e499d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285542"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463659"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalından Azure SQL Veri Ambarı’nda işlemi ölçeklendirme
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında Azure SQL veri ambarı'nda ölçek işlem
 
 Azure portalından Azure SQL Veri Ambarı’nda işlemi ölçeklendirin. Daha iyi performans için [işlem ölçeğini genişletin](sql-data-warehouse-manage-compute-overview.md) veya maliyet tasarrufu için işlem ölçeğini daraltın. 
 

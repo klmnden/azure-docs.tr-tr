@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e6f13994d404d58082b953fc98ac6028eea2e43e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216216"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296911"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -32,7 +32,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 LUIS kapsayıcıyı çalıştırmak için aşağıdakilere sahip olmanız gerekir: 
 
-|Gereklidir|Amaç|
+|Gerekli|Amaç|
 |--|--|
 |Docker altyapısı| Docker Altyapısı'nın kurulu ihtiyacınız bir [ana bilgisayar](#the-host-computer). Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), ve [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).<br><br> Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek izin verecek şekilde yapılandırılmalıdır. <br><br> **Windows üzerinde**, Docker de Linux kapsayıcıları destekler şekilde yapılandırılmalıdır.<br><br>|
 |Docker ile aşinalık | Bir temel kavramlarını Docker kayıt defterleri, havuzları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra temel bilgi gibi olmalıdır `docker` komutları.| 
@@ -40,11 +40,7 @@ LUIS kapsayıcıyı çalıştırmak için aşağıdakilere sahip olmanız gereki
 
 ### <a name="the-host-computer"></a>Ana bilgisayar
 
-**Konak** , docker kapsayıcısı çalıştıran bilgisayardır. Bu, bir bilgisayara şirket içinde veya Azure dahil olmak üzere hizmeti barındıran bir docker olabilir:
-
-* [Azure Kubernetes Service](../../aks/index.yml)
-* [Azure Container Instances](../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) kümesi dağıtıldı için [Azure Stack](../../azure-stack/index.yml). Daha fazla bilgi için [Azure Stack dağıtma Kubernetes](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>Kapsayıcı gereksinimleri ve önerileri
 
@@ -52,9 +48,11 @@ Bu kapsayıcı için ayarları en düşük ve önerilen değerlerini destekler:
 
 |Ayar| Minimum | Önerilen |
 |-----------|---------|-------------|
-|Çekirdek<BR>`--cpus`|1 çekirdek<BR>en az 2.6 gigahertz (GHz) veya daha hızlı|1 çekirdek|
+|Çekirdek<BR>`--cpus`|1 çekirdek|1 çekirdek|
 |Bellek<BR>`--memory`|2 GB|4 GB|
 |Saniye başına işlem<BR>(TPS)|20 TPS|40 TPS|
+
+Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
 
 `--cpus` Ve `--memory` ayarları bir parçası olarak kullanılan `docker run` komutu.
 
@@ -66,17 +64,12 @@ Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
+Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) komutu, kapsayıcı görüntüsü indirilemedi.
+
 Kullanılabilir etiketler, tam bir açıklaması için gibi `latest` önceki komutta kullanılan bkz [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) Docker Hub üzerinde.
 
-> [!TIP]
-> Kullanabileceğiniz [docker görüntüleri](https://docs.docker.com/engine/reference/commandline/images/) indirilen kapsayıcı görüntülerinizi listelemek için komutu. Örneğin, aşağıdaki komut kimliği, havuz ve tablo olarak biçimlendirilmiş her indirilen kapsayıcı görüntüsünün etiketi listeler:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        mcr.microsoft.com/azure-cognitive-services/luis                           latest
->  ``` 
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
 
 ## <a name="how-to-use-the-container"></a>Kapsayıcı kullanma
 
@@ -169,7 +162,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Yer tutucu | Value |
+| Yer tutucu | Değer |
 |-------------|-------|
 |{APPLICATION_ID} | Yayımlanan LUIS uygulaması uygulama kimliği. |
 |{APPLICATION_ENVIRONMENT} | Yayımlanan LUIS uygulaması ortam. Aşağıdaki değerlerden birini kullanın:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -197,7 +190,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Yer tutucu | Value |
+| Yer tutucu | Değer |
 |-------------|-------|
 |{APPLICATION_ID} | Eğitilen LUIS uygulamasının uygulama kimliği. |
 |{APPLICATION_VERSION} | Eğitilen LUIS uygulamasının uygulama sürümü. |
@@ -219,7 +212,7 @@ Başarılı olursa, yanıt bir LUIS paket dosyasıdır. Kapsayıcının giriş b
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) kapsayıcıyı çalıştırmak için komutu. Komutu şu parametreleri kullanır:
 
-| Yer tutucu | Value |
+| Yer tutucu | Değer |
 |-------------|-------|
 |{ENDPOINT_KEY} | Bu anahtar kapsayıcısı başlatmak için kullanılır. Başlangıç anahtarı kullanmayın. |
 |{BILLING_ENDPOINT} | Fatura uç nokta değerini Azure portalının dil anlama genel bakış sayfasında kullanılabilir.|
@@ -325,14 +318,7 @@ Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](luis-container
 
 ## <a name="containers-api-documentation"></a>Kapsayıcının API belgeleri
 
-Kapsayıcı uç noktaları için belgeleri tam bir dizi sağlar hem de bir `Try it now` özelliği. Bu özellik, web tabanlı bir HTML formuna ayarlarınızı girdikten ve herhangi bir kod yazmak zorunda kalmadan sorgu yapmanıza olanak tanır. Sorgunun döndürdüğü CURL komutu bir örnek sağlanır sonra HTTP üst bilgilerini gösterme ve gerekli biçim gövde. 
-
-> [!TIP]
-> Okuma [Openapı belirtimi](https://swagger.io/docs/specification/about/), gelen kapsayıcı tarafından desteklenen API işlemleri açıklayan `/swagger` göreli URI'si. Örneğin:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Faturalandırma
 
@@ -346,7 +332,7 @@ Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlan
 |--------|-------------|
 | `ApiKey` | API anahtarı _Language Understanding_ kaynak faturalandırma bilgileri izlemek için kullanılır.<br/>Bu seçeneğin değeri, belirtilen sağlanan LUIS Azure kaynağı için bir API anahtarı ayarlanmalıdır `Billing`. |
 | `Billing` | Uç noktası _Language Understanding_ kaynak faturalandırma bilgileri izlemek için kullanılır.<br/>Bu seçeneğin değeri, sağlanan bir LUIS Azure kaynağın URI'sini uç noktasına ayarlamanız gerekir.|
-| `Eula` | Kapsayıcı lisansını kabul ettiğiniz gösterir.<br/>Bu seçenek değeri ayarlanmalıdır `accept`. |
+| `Eula` | Kapsayıcı lisansını kabul ettiğinizi gösterir.<br/>Bu seçenek değeri ayarlanmalıdır `accept`. |
 
 > [!IMPORTANT]
 > Seçeneklerin üçünü geçerli değerlerle belirtilmiş olmalı veya kapsayıcı başlatılamıyor.
@@ -371,7 +357,7 @@ Desteklenmeyen uygulama yapılandırmaları|Ayrıntılar|
 
 Bu makalede, kavramlar ve indirme, yükleme ve Language Understanding (LUIS) kapsayıcıları çalıştırmak için iş akışı öğrendiniz. Özet:
 
-* Language Understanding (LUIS), bir Linux kapsayıcılarını Docker sağlayan uç noktası sorgu tahminler konuşma için sağlar.
+* Language Understanding (LUIS) Docker sağlayan uç noktası sorgu tahminler konuşma için bir Linux kapsayıcı sağlar.
 * Kapsayıcı görüntülerini Microsoft kapsayıcı kayıt defteri (MCR) alanından indirilir.
 * Docker kapsayıcı görüntüleri çalıştırın.
 * REST API konak kapsayıcısının URI belirterek kapsayıcı uç noktalarını sorgulamak için kullanabilirsiniz.

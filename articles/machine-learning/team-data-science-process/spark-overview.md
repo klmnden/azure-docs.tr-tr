@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9e22299a508810cabaa9361d764fd2a8e1ecdee8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: b49ec91af0c2b55185d7f750420825bb174c4b6d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975993"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473744"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Azure HDInsight üzerinde Spark kullanan veri bilimi genel bakış
 
@@ -41,9 +41,9 @@ Bu not defterlerini Jupyter notebook sunucusu pySpark Çekirdeği'nde çalışt�
 ### <a name="spark-20-notebooks"></a>Spark 2.0 Not Defterleri
 Bu not defterlerini Jupyter notebook sunucusu pySpark3 Çekirdeği'nde çalıştırılması üzeresiniz.
 
-- [Spark2.0-pySpark3-Machine-Learning-Data-Science-Spark-Advanced-Data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Bu dosya, veri keşfi, modelleme, gerçekleştirme konusunda bilgi sağlar ve Spark 2.0 Puanlama NYC taksi seyahat ve açıklanan taksi verileri kümesi kullanarak kümelerini [burada](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Bu not defteri hızla Spark 2.0 için sağladık Kodu Keşfetme için iyi bir başlangıç noktası olabilir. Daha ayrıntılı bir not defteri NYC taksi verileri analiz eder, bu listedeki sonraki not bakın. Bu not defterlerini karşılaştırma bu listeye aşağıdaki notlara bakın.
-- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Bu dosya denetimi veri (işlem), Spark SQL ve veri çerçevesi model ve puanlama NYC taksi seyahat ve açıklanan taksi verileri kümesi kullanarak keşif gerçekleştirmeyi gösterir [burada](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): Bu dosya, denetimi veri (işlem), Spark SQL ve veri keşfi, modelleme ve iyi bilinen Havayolu zamanında kalkış veri kümesinden 2011 ve 2012 kullanarak Puanlama yapma işlemi açıklanır. Bu hava durumu özellikleri modele dahil edilebilecek şekilde (örneğin, windspeed, sıcaklık, yükseklik vb.) havaalanı hava durumu verilerini Havayolu kümesiyle modelleme önce tümleştirdik.
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Bu dosya, veri keşfi, modelleme, gerçekleştirme konusunda bilgi sağlar ve Spark 2.0 Puanlama NYC taksi seyahat ve açıklanan taksi verileri kümesi kullanarak kümelerini [burada](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Bu not defteri hızla Spark 2.0 için sağladık Kodu Keşfetme için iyi bir başlangıç noktası olabilir. Daha ayrıntılı bir not defteri NYC taksi verileri analiz eder, bu listedeki sonraki not bakın. Bu not defterlerini karşılaştırma bu listeye aşağıdaki notlara bakın.
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Bu dosya denetimi veri (işlem), Spark SQL ve veri çerçevesi model ve puanlama NYC taksi seyahat ve açıklanan taksi verileri kümesi kullanarak keşif gerçekleştirmeyi gösterir [burada](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): Bu dosya, denetimi veri (işlem), Spark SQL ve veri keşfi, modelleme ve iyi bilinen Havayolu zamanında kalkış veri kümesinden 2011 ve 2012 kullanarak Puanlama yapma işlemi açıklanır. Bu hava durumu özellikleri modele dahil edilebilecek şekilde (örneğin, windspeed, sıcaklık, yükseklik vb.) havaalanı hava durumu verilerini Havayolu kümesiyle modelleme önce tümleştirdik.
 
 <!-- -->
 
@@ -61,7 +61,7 @@ Bu not defterlerini Jupyter notebook sunucusu pySpark3 Çekirdeği'nde çalışt
 <!-- -->
 
 > [!NOTE]
-Spark 2.0 not defterleri ile ilgili NYC taksi ve Havayolu uçuş gecikme veri kümeleri, 10 dakika veya (HDI kümenizin boyutuna bağlı olarak) çalıştırmak için daha fazla sürebilir. Yukarıdaki listede ilk not defterini veri keşfi, Görselleştirme ve ML model eğitiminin birçok yönden alt örneklenen NYC veri taksi ve taksi dosyalarını önceden birleştirilmiş silinmiş kümesi ile çalıştırmak için daha az zaman alan bir not defteri gösterir: [Spark2.0-pySpark3-Machine-Learning-Data-Science-Spark-Advanced-Data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Bu Not Defteri (2-3 dakika) tamamlanması daha kısa bir zaman alır ve iyi bir kolayca Spark 2.0 için sağladık Kodu Keşfetme noktası başlatılıyor olabilir.
+Spark 2.0 not defterleri ile ilgili NYC taksi ve Havayolu uçuş gecikme veri kümeleri, 10 dakika veya (HDI kümenizin boyutuna bağlı olarak) çalıştırmak için daha fazla sürebilir. Yukarıdaki listede ilk not defterini veri keşfi, Görselleştirme ve ML model eğitiminin birçok yönden alt örneklenen NYC veri taksi ve taksi dosyalarını önceden birleştirilmiş silinmiş kümesi ile çalıştırmak için daha az zaman alan bir not defteri gösterir: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Bu Not Defteri (2-3 dakika) tamamlanması daha kısa bir zaman alır ve iyi bir kolayca Spark 2.0 için sağladık Kodu Keşfetme noktası başlatılıyor olabilir.
 
 <!-- -->
 

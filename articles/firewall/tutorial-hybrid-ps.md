@@ -1,19 +1,19 @@
 ---
 title: "Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma"
-description: Bu öğreticide Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtmayı ve yapılandırmayı öğreneceksiniz.
+description: Bu öğreticide, dağıtma ve Azure Azure PowerShell kullanarak güvenlik duvarı yapılandırma hakkında bilgi edinin.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431529"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458258"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -61,6 +61,8 @@ Bu yolların nasıl oluşturulduğunu görmek için [Yolları Oluşturma](#creat
 
 >[!NOTE]
 >Azure Güvenlik Duvarı varsayılan ağ geçidi için bir UDR işaret ediyor olsa bile doğrudan eşlenmiş sanal ağlar arasındaki trafiği doğrudan yönlendirilir. Bu senaryoda bir güvenlik duvarı alt ağ için alt ağ trafiği göndermek için bir UDR her iki alt ağ üzerinde açıkça hedef alt ağ ön eki içermesi gerekir.
+
+İlgili Azure PowerShell başvuru belgeleri gözden geçirmek için bkz: [Azure PowerShell başvurusu](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

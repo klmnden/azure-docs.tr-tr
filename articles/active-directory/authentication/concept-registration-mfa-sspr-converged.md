@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: fd56d8e0500b80bcce743a8865b6ca90ca8658a6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 4080fe07f6624c96f6385492268042f6401f3694
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080557"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472686"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Yakınsanmış kaydı için Self Servis parola sıfırlama ve Azure multi-Factor Authentication (genel Önizleme)
 
@@ -74,8 +74,6 @@ Bu sayfada, önceden kaydedilmiş kimlik doğrulama yöntemleri ve kimlik doğru
 Bu yeni deneyim için Denetim günlükleri, Denetim günlüğü kimlik doğrulama yöntemleri kategorisinde yok.  
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-
-Burada yakınsanmış kaydı için etkin B2B Konuk kullanıcılar için mfa'yı kaydetmek mümkün değildir yakınsanmış kaydı ile bir hata belirledik. Ne zaman bunlar sayfa hataları kayıt sayfasına yönlendirilir. Geliştiricilerimiz bu sorunun farkındayız ve bir çözüm sağlamak için çalışıyoruz. Şimdilik, bir grup oluşturun ve tüm B2B kullanıcıları o gruptan hariç tutmak için kullanılması önerilir.
 
 **Kullanıcı kısa mesaj kullanarak telefon kaydederken telefon araması set varsayılan MFA yöntemi**
 

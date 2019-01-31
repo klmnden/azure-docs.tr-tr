@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.component: common
-ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c45c70055817eeeed19f9c8a832a76b10beceaa6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526207"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467042"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage İstemci Araçları
 Azure Depolama'nın kullanıcıların sık görünüm/bir Azure depolama istemci aracı kullanarak verileri ile etkileşemeyebilirsiniz istiyorsunuz. Aşağıdaki tablolarda, biz bunu olanak tanıyan bir dizi listeleyin. Ya da numaralandırma ve/veya veri soyutlama erişim olanağı sağlar, size her bir bloğunda bir "X" yerleştirin. Tablo ayrıca araçları olup olmadığını boş olmadığını gösterir. "Deneme" ücretsiz deneme sürümü yoktur, ancak tam ürün ücretsiz değil gösterir. "E/H", farklı bir sürümünü satın alınabilir olduğu sürece bir sürümünü ücretsiz olarak kullanılabilir olduğunu gösterir.
@@ -25,9 +25,9 @@ Yalnızca bir anlık görüntü kullanılabilir Azure depolama istemci Araçlar�
 <table>
   <tr>
     <th rowspan="2">Azure depolama istemci aracı</th>
-    <th rowspan="2">Blok blobu</th>
-    <th rowspan="2">Sayfa blobu</th>
-    <th rowspan="2">Ekleme blobu</th>
+    <th rowspan="2">Blok Blobu</th>
+    <th rowspan="2">Sayfa Blobu</th>
+    <th rowspan="2">Ekleme Blobu</th>
     <th rowspan="2">Tablolar</th>
     <th rowspan="2">Kuyruklar</th>
     <th rowspan="2">Dosyalar</th>
@@ -91,9 +91,9 @@ Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işle
 <table>
   <tr>
     <th rowspan="2">Azure depolama istemci aracı</th>
-    <th rowspan="2">Blok blobu</th>
-    <th rowspan="2">Sayfa blobu</th>
-    <th rowspan="2">Ekleme blobu</th>
+    <th rowspan="2">Blok Blobu</th>
+    <th rowspan="2">Sayfa Blobu</th>
+    <th rowspan="2">Ekleme Blobu</th>
     <th rowspan="2">Tablolar</th>
     <th rowspan="2">Kuyruklar</th>
     <th rowspan="2">Dosyalar</th>
@@ -107,7 +107,7 @@ Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işle
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure yönetim Studio</a></td>
+    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -156,7 +156,7 @@ Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işle
     <td></td>
     <td></td>
     <td>X</td>
-    <td>E/H</td>
+    <td>Y/N</td>
     <td></td>
     <td>X</td>
     <td></td>

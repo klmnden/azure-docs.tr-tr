@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 1bc93b083b0f6f0d813f209c9371ce38e8a9daa6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 7b5f4db51fca97f79f2b43bfcd5ce8dead3ba50b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228819"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470357"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Paylaşılan erişim imzaları (SAS) kullanma
 
@@ -40,7 +40,7 @@ Bir SAS kullanışlı olduğu bir yaygın senaryo burada kullanıcılar okuyup k
 
 1. İstemciler, indirin ve kimlik doğrulaması yapan bir ön uç proxy hizmeti aracılığıyla veri yükleyin. Bu ön uç proxy hizmeti için iş kuralları doğrulama sağlayan avantajı olsa da, büyük miktarlarda veri veya yüksek hacimli işlemler için isteğe bağlı şekilde bir hizmet oluşturma pahalı veya zor olabilir.
 
-  ![Senaryo diyagramı: ön uç proxy hizmeti](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+  ![Senaryo diyagramı: Ön uç proxy hizmeti](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. Basit bir hizmet gerektiği gibi istemcinin kimliğini doğrular ve ardından bir SAS oluşturuyor. SAS istemci aldıktan sonra doğrudan SAS ve SAS tarafından izin verilen zaman aralığı için tanımlanan izinlere sahip depolama hesabı kaynaklarına erişebilirsiniz. SAS, ön uç proxy hizmeti aracılığıyla tüm verileri yönlendirme gereksinimini azaltır.
 
@@ -110,9 +110,9 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 
 | Ad | SAS bölümü | Açıklama |
 | --- | --- | --- |
-| BLOB URI'si |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Blob adresi. HTTPS kullanarak önemle tavsiye edilir unutmayın. |
+| Blob URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Blob adresi. HTTPS kullanarak önemle tavsiye edilir unutmayın. |
 | Depolama Hizmetleri sürümü |`sv=2015-04-05` |Depolama Hizmetleri sürüm 2012-02-12 ve daha sonra bu parametre kullanılacak sürümünü gösterir. |
-| Başlangıç zamanı |`st=2015-04-29T22%3A18%3A26Z` |UTC saati belirtilmiş. SAS hemen geçerli olmasını istiyorsanız, başlangıç zamanı atlayın. |
+| Başlangıç saati |`st=2015-04-29T22%3A18%3A26Z` |UTC saati belirtilmiş. SAS hemen geçerli olmasını istiyorsanız, başlangıç zamanı atlayın. |
 | Süre sonu |`se=2015-04-30T02%3A23%3A26Z` |UTC saati belirtilmiş. |
 | Kaynak |`sr=b` |Bir blobu bir kaynaktır. |
 | İzinler |`sp=rw` |SAS'den izinler Read (r) içerir ve yazma (w). |
@@ -140,8 +140,8 @@ Hizmet düzeyi izinleri kısıtlanır düşünüldüğünde, bu SAS erişilebili
 ## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Bir depolanmış erişim ilkesini ile SAS denetleme
 Paylaşılan erişim imzası iki biçimlerden birini alabilir:
 
-* **Geçici SAS:** , başlangıç zamanı, bitiş zamanı, geçici bir SAS oluşturma ve SAS izinlerini tüm SAS URI'sini belirtilen (veya zımni başlangıç zamanı burada atlanırsa durumda). Bu tür bir SAS, hesap SAS ise bir ya da hizmet SAS oluşturulabilir.
-* **Depolanmış erişim ilkesini ile SAS:** depolanmış erişim ilkesini bir kaynak kapsayıcı--bir blob kapsayıcısı tanımlanır, tablo, kuyruk, veya dosya paylaşımı--ve kısıtlamalar bir veya daha fazla paylaşılan erişim imzalarını yönetmek için kullanılabilir. Bir SAS bir depolanmış erişim ilkesini ile ilişkilendirdiğinizde, SAS başlangıç zamanı, süre sonu ve izinleri--depolanmış erişim ilkesini için tanımlanmış kısıtlamalar devralır.
+* **Geçici SAS:** Geçici bir SAS'ı oluşturduğunuzda, başlangıç zamanı, süre sonu ve SAS izinleri tüm SAS URI'de belirtilen (veya ima, burada başlangıç zamanı atlanır durumda). Bu tür bir SAS, hesap SAS ise bir ya da hizmet SAS oluşturulabilir.
+* **Depolanmış erişim ilkesini ile SAS:** Bir depolanmış erişim ilkesini bir kaynak kapsayıcı--bir blob kapsayıcısı tanımlanır, tablo, kuyruk, veya dosya paylaşımını--ve biri için kısıtlamalarını yönetmek için kullanılabilir veya daha fazla paylaşılan erişim imzaları. Bir SAS bir depolanmış erişim ilkesini ile ilişkilendirdiğinizde, SAS başlangıç zamanı, süre sonu ve izinleri--depolanmış erişim ilkesini için tanımlanmış kısıtlamalar devralır.
 
 > [!NOTE]
 > Şu anda hesap SAS ise bir geçici bir SAS olmalıdır. Erişim için hesap SAS ilkeleri henüz desteklenmemektedir depolanır.
@@ -235,7 +235,7 @@ Bu C# örnekleri çalıştırmak için aşağıdaki NuGet paketlerini projenize 
 
 Oluşturma ve bir SAS test gösteren ek örnekler için bkz: [Azure depolama kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage).
 
-### <a name="example-create-and-use-an-account-sas"></a>Örnek: Oluşturma ve bir hesap SAS'ı kullanma
+### <a name="example-create-and-use-an-account-sas"></a>Örnek: Oluşturma ve bir hesap SAS kullanma
 Aşağıdaki kod örneği, bir hesap, Blob ve Dosya Hizmetleri için geçerli olan ve istemciye izinlerini okuma, yazma ve liste hizmet düzeyi API'lere erişim izni verir. SAS oluşturur. İstek ile HTTPS yapılması için hesap SAS Protokolü HTTPS için sınırlar.
 
 ```csharp
@@ -302,7 +302,7 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-### <a name="example-create-a-stored-access-policy"></a>Örnek: bir depolanmış erişim ilkesini oluşturma
+### <a name="example-create-a-stored-access-policy"></a>Örnek: Bir depolanmış erişim ilkesini oluşturma
 Aşağıdaki kod bir depolanmış erişim ilkesini bir kapsayıcı oluşturur. Erişim ilkesi, kapsayıcıya veya bloblarına bir hizmet SAS için sınırlamalar belirlemek için kullanabilirsiniz.
 
 ```csharp
@@ -328,7 +328,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 }
 ```
 
-### <a name="example-create-a-service-sas-on-a-container"></a>Örnek: bir kapsayıcı hizmet SAS oluşturma
+### <a name="example-create-a-service-sas-on-a-container"></a>Örnek: Bir kapsayıcı hizmet SAS oluşturma
 Aşağıdaki kod bir SAS bir kapsayıcı oluşturur. Varolan bir depolanmış erişim ilkesini adı sağlanmazsa, bu ilke SAS ile ilişkilendirilir. Hiçbir depolanmış erişim ilkesini sağlanırsa, kod kapsayıcısını geçici SAS oluşturur.
 
 ```csharp
@@ -371,7 +371,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 }
 ```
 
-### <a name="example-create-a-service-sas-on-a-blob"></a>Örnek: blob üzerinde hizmet SAS oluşturma
+### <a name="example-create-a-service-sas-on-a-blob"></a>Örnek: Blob üzerinde hizmet SAS oluşturma
 Aşağıdaki kod blob üzerinde bir SAS oluşturur. Varolan bir depolanmış erişim ilkesini adı sağlanmazsa, bu ilke SAS ile ilişkilendirilir. Hiçbir depolanmış erişim ilkesini sağlanırsa, kod bloba geçici SAS oluşturur.
 
 ```csharp
@@ -421,7 +421,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Paylaşılan erişim imzaları, depolama hesabınıza sınırlı izinlere hesap anahtarı bulunmamalıdır istemcilerine sağlamak için kullanışlıdır. Bu nedenle, Azure depolama kullanan uygulamalar için güvenlik modelinin önemli bir parçası olan. Burada listelenen en iyi uygulamaları izlerseniz, uygulamanızın güvenliğini tehlikeye atmadan depolama hesabınızdaki kaynaklara erişim daha fazla esneklik sağlamak için SAS'ı kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Paylaşılan erişim imzaları, 2. Bölüm: Oluşturma ve bir SAS Blob Depolama ile kullanma](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [Paylaşılan erişim imzaları, bölüm 2: Oluşturma SAS ve Blob Depolama ile kullanma](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md)
 * [Paylaşılan Erişim İmzası ile Erişim için Temsilci Seçme](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Tablo ve kuyruk SAS ile tanışın](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

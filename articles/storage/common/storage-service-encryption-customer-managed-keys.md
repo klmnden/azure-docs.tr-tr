@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: e2497233ec97ffc88bf13797f62d601d4da373a1
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: c749a9dedef3970002c4f0672ffcc67aeaea422a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628502"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457437"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi
 
@@ -91,7 +91,7 @@ Varsayılan olarak, Microsoft tarafından yönetilen anahtarlar SSE kullanır. M
 
 ![Şifreleme seçeneği Portal gösteren ekran görüntüsü](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
-### <a name="step-4-select-your-key"></a>4. adım: Anahtarınızı seçin
+### <a name="step-4-select-your-key"></a>4. Adım: Anahtarınızı seçin
 
 Anahtarınızı bir URI olarak veya bir anahtar kasasından anahtar seçerek belirtebilirsiniz.
 
@@ -130,11 +130,11 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAcco
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
-### <a name="step-5-copy-data-to-storage-account"></a>5. adım: Depolama hesabına veri kopyalama
+### <a name="step-5-copy-data-to-storage-account"></a>5. Adım: Depolama hesabına veri kopyalama
 
 Şifrelenir, böylece yeni depolama hesabınızı veri aktarmak için. Daha fazla bilgi için [depolama hizmeti şifrelemesi hakkında SSS](storage-service-encryption.md#faq-for-storage-service-encryption).
 
-### <a name="step-6-query-the-status-of-the-encrypted-data"></a>6. adım: Şifrelenmiş verilerin durumu
+### <a name="step-6-query-the-status-of-the-encrypted-data"></a>6. Adım: Şifrelenmiş verilerin durumu
 
 Şifrelenmiş veriler durumunu sorgulayın.
 

@@ -6,22 +6,22 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: f8073fd746bc02c23efab914c45c61830942a677
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577993"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460735"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Eylül 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Eylül 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>SQL veri ambarı Gen2 için yeni alt giriş noktası
-Nisan 2018'de [Microsoft annouced](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL veri ambarı Gen2 sunduğu performans x 5, 5 x işlem ölçeği, 4 x eşzamanlılık ve sınırsız depolama. Belirtilen [Kıyaslama bulut veri ambarında](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) Gigaom, SQL veri ambarı Gen2'ye göre **%42 Amazon Redshift çok daha iyi**.
+Nisan 2018'de [Microsoft tarafından Duyuruldu](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL veri ambarı Gen2 sunduğu performans x 5, 5 x işlem ölçeği, 4 x eşzamanlılık ve sınırsız depolama. Belirtilen [Kıyaslama bulut veri ambarında](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) Gigaom, SQL veri ambarı Gen2'ye göre **%42 Amazon Redshift çok daha iyi**.
 
 2. nesil bir alt giriş noktası, daha küçük boyutlu veri ambarı veya geliştirme/test ortamları tüm yapılan en son hizmet geliştirmeleri ile çalıştırmanıza izin vererek DWU500c en genel kullanıma sunulmuştur. Yeni giriş noktası da dahil olmak üzere 2. nesil özelliklerin tümünü korur [Uyarlamalı önbelleğe alma](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [aydınlatma hızlı veri karıştırma](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), için ve Destek [gerçek zamanlı veri ambarı](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 

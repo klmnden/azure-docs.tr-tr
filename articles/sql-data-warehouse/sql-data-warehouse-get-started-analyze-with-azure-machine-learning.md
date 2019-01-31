@@ -2,20 +2,20 @@
 title: Azure Machine Learning ile veri çözümleme | Microsoft Belgeleri
 description: Azure SQL Data Warehouse’a depolanmış verilere göre tahmine dayalı bir machine learning modeli oluşturmak için Azure Machine Learning’i kullanın.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247535"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477667"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning ile veri çözümleme
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Veriler AdventureWorksDW veritabanında bulunan dbo.vTargetMail görünümünded
 
 1. [Azure Machine Learning Studio][Azure Machine Learning studio]'da oturum açıp denemelerim seçeneğine tıklayın.
 2. **+NEW (+YENİ)** düğmesine tıklayıp **Blank Experiment (Boş Deneme)** öğesini seçin.
-3. Denemeniz için bir ad girin: Hedeflenen Pazarlama.
+3. Denemeniz için bir ad girin: Hedeflenen pazarlama.
 4. Modüller bölmesindeki **Reader (Okuyucu)** modülünü tuvale sürükleyin.
 5. Özellikler bölmesinde SQL Data Warehouse veritabanınıza ilişkin bilgileri belirtin.
 6. İstediğiniz verileri okumak için veritabanı **sorgusunu** belirtin.
@@ -80,18 +80,18 @@ Verileri temizlemek için modelle ilgili olmayan bazı sütunları kaldırın. B
 1. **Project Columns (Proje Sütunları)** modülünü tuvale sürükleyin.
 2. Hangi sütunları kaldırmak istediğinizi belirtmek için Properties (Özellikler) bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** öğesine tıklayın.
    ![Proje Sütunları][4]
-3. Şu iki sütunu dışlayın: CustomerAlternateKey ve GeographyKey.
+3. İki sütunu dışlayın: CustomerAlternateKey ve GeographyKey.
    ![Gereksiz sütunları kaldırma][5]
 
 ## <a name="3-build-the-model"></a>3. Modeli oluşturma
-Biz verilerin %80'ini Machine Learning modelini eğitmek ve %20'sini de modeli test etmek üzere kullanacak şekilde 80'e 20 oranında böleceğiz. Bu ikili sınıflandırma sorunu için "İki Sınıflı" algoritmalardan yararlanacağız.
+Biz verilerin 80-20 bölecek: Makine öğrenme modeli eğitmek için %80 ve % modeli test etmek için 20. Bu ikili sınıflandırma sorunu için "İki Sınıflı" algoritmalardan yararlanacağız.
 
 1. **Split (Bölme)** modülünü tuvale sürükleyin.
 2. Properties (Özellikler) bölmesindeki ilk çıkış veri kümesinde bulunan satırlar için kesir değerini 0,8 olarak girin.
    ![Verileri eğitim ve test kümesi olarak bölme][6]
 3. **Two-Class Boosted Decision Tree (İki Sınıflı Gelişmiş Karar Ağacı)** modülünü tuvale sürükleyin.
 4. **Train Model (Model Eğitme)** modülünü tuvale sürükleyip girişleri belirtin. Ardından Properties (Özellikler) bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** öğesine tıklayın.
-   * İlk giriş: ML algoritması
+   * İlk giriş: ML algoritması.
    * İkinci giriş: Algoritmayı eğitmeye yönelik veriler.
      ![Model Eğitme modülünü bağlama][7]
 5. Tahminde bulunulacak sütun olarak **BikeBuyer** sütununu seçin.
@@ -101,7 +101,7 @@ Biz verilerin %80'ini Machine Learning modelini eğitmek ve %20'sini de modeli t
 Şimdi modelin test verileri üzerindeki işlevini test edeceğiz. Hangisinin daha iyi sonuç verdiğini görmek üzere kendi seçtiğimiz algoritmayla başka bir algoritmayı karşılaştıracağız.
 
 1. **Score Model (Model Puanlama)** modülünü tuvale sürükleyin.
-    İlk giriş: Eğitilmiş model İkinci giriş: Test verileri ![Modeli puanlama][9]
+    İlk giriş: Eğitilmiş model ikinci giriş: Test verileri ![modeli Puanlama][9]
 2. **Two-Class Bayes Point Machine (İki Sınıflı Bayes Noktası Makinesi)** modülünü deneme tuvaline sürükleyin. Bu algoritma ile Two-Class Boosted Decision Tree'nin (İki Sınıflı Gelişmiş Karar Ağacı'nın) işlevlerini karşılaştıracağız.
 3. Train Model (Model Eğitme) ve Score Model (Model Puanlama) modüllerini kopyalayıp tuvale yapıştırın.
 4. İki algoritmayı karşılaştırmak için **Evaluate Model (Model Değerlendirme)** modülünü tuvale sürükleyin.

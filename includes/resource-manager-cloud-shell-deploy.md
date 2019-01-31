@@ -2,18 +2,18 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: a2ee8705be3f34b6df113c68d88e375411f84bf2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440502"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302351"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell'den şablon dağıtma
 
-Şablonunuzu dağıtmak için [Cloud Shell](../articles/cloud-shell/overview.md) kullanabilirsiniz. Ancak, ilk şablonunuzu depolama hesabına Cloud Shell yüklemeniz gerekir. Daha önce Cloud Shell kullanmadıysanız, kurulumu hakkında bilgi için bkz. [Azure Cloud Shell’e Genel Bakış](../articles/cloud-shell/overview.md).
+Şablonunuzu dağıtmak için [Cloud Shell](../articles/cloud-shell/overview.md) kullanabilirsiniz. Dış bir şablonu dağıtmak için tam olarak, tüm dış dağıtımda olduğu gibi şablon URI'si belirtin. Yerel bir şablonu dağıtmak için Cloud Shell için depolama hesabına şablonunuzu yüklemelisiniz. Bu bölümde, cloud shell hesabınıza şablonu yükle ve yerel dosya olarak dağıtmak açıklar. Cloud Shell kullanmadıysanız bkz [Azure Cloud shell'e genel bakış](../articles/cloud-shell/overview.md) kurulumu hakkında bilgi için.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
@@ -55,7 +55,7 @@ ms.locfileid: "52440502"
 
 1. URL'yi kopyalayın.
 
-   ![URL'yi Kopyala](./media/resource-manager-cloud-shell-deploy/copy-url.png)
+   ![URL'yi kopyala](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. İstemi açın.
 

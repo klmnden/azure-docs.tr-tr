@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: fdc45f6f1fbbb4580b71a46740fa51278b869ec0
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889319"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473451"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için bellek ve eşzamanlılık sınırları
 Çeşitli performans düzeylerini ve Azure SQL veri ambarı kaynak sınıflarında ayrılan bellek ve eşzamanlılık sınırları görüntüleyin. Daha fazla bilgi için ve bu özellikler iş yükü yönetimi planınızı uygulamak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md). 
@@ -56,7 +56,7 @@ Hizmet düzeyleri için DW100 DW6000-Gen1 arasındadır.
 
 | Performans düzeyi | İşlem düğümleri | İşlem düğümü başına dağıtımları | Bellek (GB) veri ambarı başına |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
-| DEĞERİ DW100             | 1             | 60                             |  24                            |
+| DW100             | 1             | 60                             |  24                            |
 | DW200             | 2             | 30                             |  48                            |
 | DW300             | 3             | 20                             |  72                            |
 | DW400             | 4             | 15                             |  96                            |
@@ -108,9 +108,9 @@ Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvalar
 
 | Hizmet Düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok | Smallrc tarafından kullanılan yuvaları | Mediumrc tarafından kullanılan yuvaları | Largerc tarafından kullanılan yuvaları | Xlargerc tarafından kullanılan yuvaları |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
-| DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
-| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
-| DW300c        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
+| DW100c        |  4                         |    4                        | 1                     |  1.                     |  1.                    |   2                    |
+| DW200c        |  8                         |    8                        | 1                     |  1.                     |  1                    |   5                    |
+| DW300c        | 12                         |   12                        | 1                     |  1.                     |  2                    |   8                    |
 | DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
 | DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
@@ -135,7 +135,7 @@ Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvalar
 
 | Hizmet düzeyi | En fazla eş zamanlı sorguları | En fazla eşzamanlılık yuvası |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| DEĞERİ DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
+| DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
 | DW300         | 12                         |  12                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
 | DW400         | 16                         |  16                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
@@ -158,7 +158,7 @@ Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvalar
 
 | Hizmet düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok | smallrc | mediumrc | largerc | xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
-| DEĞERİ DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
+| DW100         |  4                         |   4                         | 1       |  1.       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |
 | DW300         | 12                         |  12                         | 1       |  2       |  4      |   8      |
 | DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |

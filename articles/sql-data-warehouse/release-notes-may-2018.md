@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: d26ae755b658ce39df04788b7edeee6da7e20a47
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 0ffb9b9105ee455d35d080bb45063c158cadce1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288101"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463404"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Mayıs 2018 
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Mayıs 2018'de sunulan değişiklikler ve yeni özellikleri açıklar. 
@@ -26,7 +26,7 @@ Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, May�
 Bkz: [yükseltebileceğinizi bulut analizi, Azure SQL veri ambarı ile](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) blog duyurusuna Rohan Kumar, Kurumsal Başkan Yardımcısı, Azure veri.
 
 ## <a name="auto-statistics"></a>Otomatik İstatistikler
-İstatistikleri sorgu planı moderl maliyet tabanlı iyileştiricileri gibi SQL veri ambarı altyapısında nesildeki iyileştirmek için kritik öneme sahiptir. Tüm sorguları önceden bilindiğinde ise istatistikleri nesne oluşturulması gerektiğini belirleme ulaşılabilir bir görevdir. Sistemin geçici ve veri ambarı iş yükleriniz için tipik olan rastgele sorgular ile karşı karşıya kalındığında, ancak sistem yöneticileri ne istatistikleri büyük olasılıkla yetersiz sorgu yürütme planlarını azure'a oluşturulması gerektiğini tahmin uğraşıyor ve Sorgu yanıt süreleri daha uzun. Bu sorunu çözmek için bir yol istatistiklerini nesneler üzerinde tüm tablo sütunları önceden oluşturmaktır. Ancak, işlem istatistikleri nesneleri sırasında yükleme işlemi, daha uzun yükleme süreleri neden tablo saklanması gerektiği bir ceza ile birlikte gelir.
+İstatistikleri sorgu planı oluşturma, SQL veri ambarı altyapısında gibi modern maliyet tabanlı iyileştiricileri en iyi duruma getirmek için kritik öneme sahiptir. Tüm sorguları önceden bilindiğinde ise istatistikleri nesne oluşturulması gerektiğini belirleme ulaşılabilir bir görevdir. Sistemin geçici ve veri ambarı iş yükleriniz için tipik olan rastgele sorgular ile karşı karşıya kalındığında, ancak sistem yöneticileri ne istatistikleri büyük olasılıkla yetersiz sorgu yürütme planlarını azure'a oluşturulması gerektiğini tahmin uğraşıyor ve Sorgu yanıt süreleri daha uzun. Bu sorunu çözmek için bir yol istatistiklerini nesneler üzerinde tüm tablo sütunları önceden oluşturmaktır. Ancak, işlem istatistikleri nesneleri sırasında yükleme işlemi, daha uzun yükleme süreleri neden tablo saklanması gerektiği bir ceza ile birlikte gelir.
 
 SQL veri ambarı artık daha fazla esneklik, üretkenlik ve kullanım kolaylığı, sistem yöneticileri ve geliştiriciler için sistem kalitesini yürütme planlarını ve en iyi sunmaya devam etmesini sağlar sağlama istatistikleri nesneleri otomatik olarak oluşturulmasını destekler. yanıt süreleri.
 

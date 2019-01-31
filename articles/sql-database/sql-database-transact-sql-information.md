@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4d9618bbceacf4167aac843e3d5fd818f225d297
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997675"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467824"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL veritabanına geçiş sırasında Transact-SQL farklılıklarını çözümleme
 
@@ -39,43 +39,43 @@ Desteklenen ve SQL veritabanı tarafından desteklenmeyen özellikler listesi i�
 
 - OLUŞTUR ve ALTER DATABASE deyimleri üzerinde üç düzine seçeneğiniz vardır. İfadeler, dosya yerleşimi, FILESTREAM ve yalnızca SQL Server için geçerli hizmet Aracısı seçenekleri içerir. Geçiş, ancak veritabanı oluşturan T-SQL kodu geçiriyorsanız karşılaştırmanız gerekir önce veritabanları oluşturursanız bu Önemsiz olabilir [veritabanı oluşturma (Azure SQL veritabanı)](https://msdn.microsoft.com/library/dn268335.aspx) SQL Server söz dizimi ile [oluştur Veritabanı (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) kullandığınız tüm seçenekleri desteklenen emin olmak için. Azure SQL veritabanı için veritabanı oluşturma, hizmet hedefi ve yalnızca SQL veritabanı'na geçerli esnek ölçeklendirme seçenekleri de vardır.
 - OLUŞTUR ve ALTER TABLE deyimleri FILESTREAM desteklenmediğinden, SQL veritabanı'nda kullanılamayan FileTable seçeneğiniz vardır.
-- OLUŞTUR ve Değiştir oturum açma deyimleri desteklenir ancak SQL veritabanı seçenekleri sunmaz. Veritabanınızı daha taşınabilir yapmak için mümkün olduğunda oturumları yerine bağımsız veritabanı kullanıcılarını kullanarak SQL veritabanı teşvik eder. Daha fazla bilgi için [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) ve [denetleme ve veritabanına erişim izni verme](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+- OLUŞTUR ve Değiştir oturum açma deyimleri desteklenir ancak SQL veritabanı seçenekleri sunmaz. Veritabanınızı daha taşınabilir yapmak için mümkün olduğunda oturumları yerine bağımsız veritabanı kullanıcılarını kullanarak SQL veritabanı teşvik eder. Daha fazla bilgi için [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) ve [denetleme ve veritabanına erişim izni verme](sql-database-manage-logins.md).
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Azure SQL veritabanında desteklenmeyen transact-SQL söz dizimi
 
 Açıklanan desteklenmeyen özelliklerle ilgili Transact-SQL deyimleriyle yanı sıra [Azure SQL veritabanı özellik karşılaştırması](sql-database-features.md), aşağıdaki deyim ve deyim grupları da desteklenmez. Bu nedenle, bu T-SQL özellikleri ve ifadeleri ortadan kaldırmak için T-SQL veritabanınızı geçirilmesi aşağıdaki özelliklerden herhangi birini kullanırken, yeniden mühendislik.
 
 - Harmanlanmış sistem nesneleri
-- Bağlantıyla ilişkili: uç nokta deyimleri. SQL Veritabanı Windows kimlik doğrulamasını desteklemez ancak ona benzer olan Azure Active Directory kimlik doğrulamasını destekler. Bazı kimlik doğrulaması türleri için SSMS'nin en son sürümü gerekir. Daha fazla bilgi için bkz. [Azure Active Directory Kimlik Doğrulamasını Kullanarak SQL Veritabanına veya SQL Veri Ambarına Bağlanma](sql-database-aad-authentication.md).
+- Bağlantıyla ilişkili: Uç nokta deyimleri. SQL Veritabanı Windows kimlik doğrulamasını desteklemez ancak ona benzer olan Azure Active Directory kimlik doğrulamasını destekler. Bazı kimlik doğrulaması türleri için SSMS'nin en son sürümü gerekir. Daha fazla bilgi için bkz. [Azure Active Directory Kimlik Doğrulamasını Kullanarak SQL Veritabanına veya SQL Veri Ambarına Bağlanma](sql-database-aad-authentication.md).
 - Üç veya dört bölüm adı kullanan veritabanları arası sorgular. (Salt okunur veritabanları arası sorgular [elastik veritabanı sorgusu](sql-database-elastic-query-overview.md) kullanılarak desteklenir.)
 - Veritabanları arası sahiplik zinciri, `TRUSTWORTHY` ayarı
 - `EXECUTE AS LOGIN` Bunun yerine "EXECUTE AS USER" kullanın.
 - Genişletilebilir anahtar yönetimi haricinde şifreleme desteklenir
 - Olay: Olaylar, olay bildirimleri, sorgu bildirimleri
-- Dosya yerleştirme: ilgili söz Dizimleri veritabanı dosya yerleşimi, boyut ve Microsoft Azure tarafından otomatik olarak yönetilen veritabanı dosyaları.
-- Yüksek Kullanılabilirlik: Microsoft Azure hesabınız yönetilen yüksek kullanılabilirlik için ilgili söz Dizimleri. Buna yedekleme, geri yükleme, Her Zaman Açık, veritabanı yansıtması, günlük aktarma ve kurtarma modları için söz dizimleri dahildir.
-- Günlük Okuyucusu: SQL veritabanı'nda kullanılabilir olmayan günlük okuyucusu üzerine kullanır söz dizimi: gönderme temelli çoğaltma, değişiklik verilerini yakalama. SQL Veritabanı gönderme temelli çoğaltma gönderisinin abonesi olabilir.
+- Dosya yerleşimi: Veritabanı dosya yerleşimi, boyut ve Microsoft Azure tarafından otomatik olarak yönetilen veritabanı dosyalarıyla ilgili söz dizimi.
+- Yüksek Kullanılabilirlik: Microsoft Azure hesabınız aracılığıyla yönetilen yüksek kullanılabilirlikle ilgili söz dizimi. Buna yedekleme, geri yükleme, Her Zaman Açık, veritabanı yansıtması, günlük aktarma ve kurtarma modları için söz dizimleri dahildir.
+- Günlük Okuyucusu: SQL veritabanı'nda kullanılabilir olmayan günlük okuyucusu üzerine kullanır sözdizimi: Çoğaltma, değişiklik verilerini yakalama gönderin. SQL Veritabanı gönderme temelli çoğaltma gönderisinin abonesi olabilir.
 - İşlevler: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
-- Donanım: Sunucu donanım ile ilgili ayarları ilgili söz Dizimleri: bellek, çalışan iş parçacığı, CPU benzeşimi gibi izleme bayrakları. Hizmet katmanları ve boyutları bunun yerine işlem.
+- Donanım: Sunucu donanımı ayarlar ilgili söz dizimleri: bellek, çalışan iş parçacığı, CPU benzeşimi gibi izleme bayrakları. Hizmet katmanları ve boyutları bunun yerine işlem.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`ve dört kısımlı adlar
-- .NET framework: SQL Server ile CLR tümleştirmesi
+- .NET Framework: SQL Server ile CLR tümleştirmesi
 - Anlamsal arama
-- Sunucu kimlik bilgileri: kullanım [veritabanı kapsamlı kimlik bilgilerini](https://msdn.microsoft.com/library/mt270260.aspx) yerine.
-- Sunucu düzeyi öğeler: sunucu rolleri `sys.login_token`. `GRANT`, `REVOKE` ve `DENY` sunucu düzeyi izinler kullanılamaz ancak bazıları veritabanı düzeyi izinlerle değiştirilmiştir. Sunucu düzeyi kullanışlı DMV'lerden bazıları, eşdeğer veritabanı düzeyi DMV'lerine sahiptir.
+- Sunucu kimlik bilgileri: Kullanım [veritabanı kapsamlı kimlik bilgilerini](https://msdn.microsoft.com/library/mt270260.aspx) yerine.
+- Sunucu düzeyi öğeler: Sunucu rollerini `sys.login_token`. `GRANT`, `REVOKE` ve `DENY` sunucu düzeyi izinler kullanılamaz ancak bazıları veritabanı düzeyi izinlerle değiştirilmiştir. Sunucu düzeyi kullanışlı DMV'lerden bazıları, eşdeğer veritabanı düzeyi DMV'lerine sahiptir.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
 - `sp_configure` seçenekleri ve `RECONFIGURE`. Bazı seçenekler [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx) ile kullanılabilir.
 - `sp_helpuser`
 - `sp_migrate_user_to_contained`
-- SQL Server Aracısı: SQL Server Agent veya MSDB veritabanına bağımlı söz dizimi: uyarılar, işleçler, merkezi yönetim sunucuları. Bunun yerine Azure PowerShell gibi betik uygulamaları kullanın.
-- SQL Server Denetim: bunun yerine kullanım SQL veritabanı denetimi.
+- SQL Server Aracısı: SQL Server Agent veya MSDB veritabanına bağımlı söz dizimleri: uyarılar, işleçler, merkezi yönetim sunucuları. Bunun yerine Azure PowerShell gibi betik uygulamaları kullanın.
+- SQL Server denetimi: Bunun yerine SQL Veritabanı denetimini kullanın.
 - SQL Server izleme
-- İzleme bayrakları: bazı izleme bayrağı öğeleri uyumluluk modlarına taşınmıştır.
+- İzleme bayrakları: Bazı izleme bayrağı öğeleri uyumluluk modlarına taşınmıştır.
 - Transact-SQL hata ayıklama
-- Tetikleyiciler: Sunucu kapsamlı veya oturum açma tetikleyicileri
-- `USE` deyimi: Veritabanı bağlamını farklı bir veritabanıyla değiştirmek için yeni veritabanıyla yeni bir bağlantı kurmanız gerekir.
+- Tetikleyicileri: Sunucu kapsamlı veya oturum açma Tetikleyicileri
+- `USE` deyimi: Farklı bir veritabanı için veritabanı bağlamı değiştirmek için yeni veritabanıyla yeni bir bağlantı yapmanız gerekir.
 
 ## <a name="full-transact-sql-reference"></a>Tam Transact-SQL başvurusu
 

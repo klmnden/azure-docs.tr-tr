@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: a615b6c59d178fcc1d47d11bf89691c7e83249f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1cf2f25ab96fde342244c99029db6a96c72a5681
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250665"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473112"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  Her bir SDK tam bir açıklaması için başvuru belgelerini ziyaret edin:
 + Azure Machine Learning'ın [ **Python için ana SDK'sı**](https://aka.ms/aml-sdk)
-+ Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/aml-sdk)
++ Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/data-prep-sdk)
 
 ## <a name="2019-01-28"></a>2019-01-28
 

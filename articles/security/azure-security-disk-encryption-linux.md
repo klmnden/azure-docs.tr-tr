@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/17/2018
 ms.custom: seodec18
-ms.openlocfilehash: 27204710cb6a94efaebc0b8f075b0a8f50b45a6c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 608cc7a9e7c3b09c4b033397cbae6ac68e0a503a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079843"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478449"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Linux Iaas sanal makineleri için Azure Disk şifrelemesini etkinleştirme 
 
@@ -24,7 +24,7 @@ Ele bir [anlık görüntü](../virtual-machines/windows/snapshot-copy-managed-di
 >[!WARNING]
 > - Daha önce kullandıysanız [Azure AD uygulaması ile Azure Disk şifrelemesi](azure-security-disk-encryption-prerequisites-aad.md) bu sanal Makineyi şifrelemek için devam gerekecektir VM'nizi şifrelemek için bu seçeneği kullanın. Kullanamazsınız [Azure Disk şifrelemesi](azure-security-disk-encryption-prerequisites.md) bu desteklenen bir senaryo değildir gibi şifrelenmiş bu VM üzerinde bu VM şifreli için AAD uygulaması uzağa anlamı geçiş henüz desteklenmiyor.
  > - Azure Disk şifrelemesi, anahtar kasası ve VM'lerin aynı bölgede bulunması gerekir. Oluşturun ve şifrelenmiş VM ile aynı bölgede olan bir anahtar Kasası'nı kullanın.
-> - Linux işletim sistemi birimlerinin şifrelerken işlemi birkaç saat sürebilir. Linux işletim sistemi birimleri şifrelemek için veri birimleri uzun sürmesine normaldir. 
+> - Linux işletim sistemi birimlerinin şifrelerken sanal Makineyi kullanılamaz hale gelir ve SSH devre dışı bırakılır. İlerleme durumunu denetlemek için [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) veya [vm şifreleme show](/cli/azure/vm/encryption#az-vm-encryption-show) komutları kullanılabilir. Bu işlem birkaç saat 30 GB işletim sistemi birimi yanı sıra, veri hacimleri şifrelemek için ek süre olması için beklenebilir. Verileri toplu şifreleme süresi için boyutuyla orantılı olur ve veri birimlerini miktarını şifrele biçimlendirme sürece tüm seçeneği kullanılır. 
 > - Linux vm'lerinde şifreleme devre dışı bırakıldığında, yalnızca veri birimleri için desteklenir. İşletim sistemi birimi şifreli değilse veri veya işletim sistemi birimleri üzerinde desteklenmiyor.  
 
 

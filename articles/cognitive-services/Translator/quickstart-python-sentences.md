@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Cümle uzunluklarını alma, Python - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: Translator metin çevirisi API'si cümlesi işlediklerinde, Python - Al"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Python ve Translator Metin Çevirisi API'sini kullanarak cümle uzunluklarını (karakter cinsinden) belirlemeyi öğreneceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 1d7ba50bf57a5c7f88f4380c4874d6053f07082e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 22b12349ac93f0c9dd595e01ecb4661e019c346b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992602"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458263"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Hızlı Başlangıç: Python ve Translator Metin Çevirisi API'sini kullanarak cümle uzunluğunu belirleme
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Python kullanarak cümle belirlemek için kullanın
 
 Bu hızlı başlangıçta Python ve Translator Metin Çevirisi API'sini kullanarak cümle uzunluklarını (karakter cinsinden) belirlemeyi öğreneceksiniz.
 
@@ -69,7 +69,7 @@ else:
 Bu örnekteki `params` değeri, sağlanan metnin dilini ayarlamak için kullanılır. `params`, `breaksentence` rotası için gerekli değildir. İstek dışında bırakılması halinde API, sağlanan metnin dilini algılamaya çalışır ve bu bilgiyi yanıtta bir güvenilirlik puanıyla birlikte iletir.
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Diller](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Diller](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

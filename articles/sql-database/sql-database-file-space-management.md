@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605985"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468640"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
 Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
@@ -27,6 +27,7 @@ Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini el
 Azure SQL veritabanı'nda vardır iş yükü düzenleri ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir. Bu durum kullanılan alanın artması ve sonrasında verilerin silinmesi durumunda ortaya çıkabilir. Bunun nedeni, veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.
 
 Aşağıdaki senaryolarda dosya alanı kullanımının izlenmesi ve veri dosyalarının küçültülmesi gerekli olabilir:
+
 - Bir elastik havuzun veritabanları için ayrılan dosya alanının maksimum havuz boyutuna erişmesi durumunda veri artışına izin verilmesi.
 - Tek bir veritabanının veya elastik havuzun maksimum boyutunun küçülmesine izin verilmesi.
 - Tek bir veritabanının veya elastik havuzun daha düşük maksimum boyuta sahip farklı bir hizmet katmanına veya performans katmanına geçmesine izin verilmesi.
@@ -118,6 +119,7 @@ Aşağıdaki depolama alanı miktarları anlama dosya alanı, bir elastik havuzu
 Aşağıdaki sorgularda, bir elastik havuz için depolama alanı miktarları belirlemek için kullanılabilir.  
 
 ### <a name="elastic-pool-data-space-used"></a>Kullanılan elastik havuzu veri alanı
+
 Kullanılan elastik havuzu veri alanı miktarı aşağıdaki sorguyu değiştirin.  MB cinsinden sorgu sonucu birimleridir.
 
 ```sql
@@ -234,9 +236,9 @@ Veritabanı veri dosyaları küçültülebilir sonra dizinleri parçalanmış ve
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - En büyük veritabanı boyutları hakkında daha fazla bilgi için bkz:
-  - [Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
-  - [DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
-  - [Azure SQL veritabanı sanal çekirdek tabanlı model sınırları elastik havuzlar için satın alma](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
-  - [DTU tabanlı satın alma modeli kullanarak elastik havuzlar için kaynak sınırları](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools)
+  - [Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma](sql-database-vcore-resource-limits-single-databases.md)
+  - [DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları](sql-database-dtu-resource-limits-single-databases.md)
+  - [Azure SQL veritabanı sanal çekirdek tabanlı model sınırları elastik havuzlar için satın alma](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [DTU tabanlı satın alma modeli kullanarak elastik havuzlar için kaynak sınırları](sql-database-dtu-resource-limits-elastic-pools.md)
 - Hakkında daha fazla bilgi için `SHRINKDATABASE` komutu, bkz: [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Parçalanma ve dizinlerini yeniden oluşturma hakkında daha fazla bilgi için bkz. [Reorganıze ve dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

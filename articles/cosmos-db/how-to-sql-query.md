@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: c3a25f69424d56e77022a89580ace59259af0e47
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888626"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459035"
 ---
-# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB'den verileri sorgulamak için SQL sorgu örnekleri
+# <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorgu örnekleri
 
 Azure Cosmos DB SQL API hesabı bir JSON sorgu dili olarak SQL (yapılandırılmış sorgu dili) kullanarak sorgulama öğeleri destekler. Azure Cosmos DB için sorgu dili tasarlarken aşağıdaki iki hedefleri olarak kabul edilir:
 

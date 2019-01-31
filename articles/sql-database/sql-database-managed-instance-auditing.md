@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427925"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456043"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL veritabanı yönetilen örneği denetimini kullanmaya başlama
 
@@ -207,7 +207,7 @@ Blob günlükleri denetleme görüntülemek için kullanabileceğiniz çeşitli 
 
 - Denetim günlükleri gibi bir araç kullanarak keşfedebilirsiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/). Azure depolama alanında, Denetim günlükleri, denetim günlüklerini depolamak için tanımlanmış olan bir kapsayıcıdaki blob dosyaları koleksiyonu olarak kaydedilir. Depolama klasörü hiyerarşisi hakkında daha fazla ayrıntı için bkz: adlandırma kuralları ve günlük biçimi, [Blob denetim günlük biçimi başvurusu](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Denetim Günlüğü Tüketim yöntemi tam bir listesi için başvurmak [SQL veritabanı denetimini kullanmaya başlama](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- Denetim Günlüğü Tüketim yöntemi tam bir listesi için başvurmak [SQL veritabanı denetimini kullanmaya başlama](sql-database-auditing.md).
 
   > [!IMPORTANT]
   > Denetim kayıtları Azure portalından ('denetim kayıtları' bölme), yönetilen örneği için şu anda kullanılamıyor.
@@ -242,7 +242,7 @@ Anahtarının farklar içinde `CREATE AUDIT` denetleme için Azure blob depolama
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Denetim Günlüğü Tüketim yöntemi tam bir listesi için başvurmak [SQL veritabanı denetimini kullanmaya başlama](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- Denetim Günlüğü Tüketim yöntemi tam bir listesi için başvurmak [SQL veritabanı denetimini kullanmaya başlama](sql-database-auditing.md).
 - Azure hakkında daha fazla bilgi bu standartlara uyumluluk programları için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
 
 <!--Image references-->

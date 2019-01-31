@@ -1,6 +1,6 @@
 ---
-Başlık: Bir Machine Learning Studio Klasik web hizmeti titleSuffix yeniden eğitme sorunlarını giderme: Azure Machine Learning Studio açıklaması: Tanımlamak ve bir Azure Machine Learning Studio web hizmeti için modeli yeniden eğitme karşılaşılan genel sorunları düzeltin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Bir Machine Learning Studio Klasik web hizmeti titleSuffix yeniden eğitme sorunlarını giderme: Azure Machine Learning Studio açıklaması: Tanımlamak ve bir Azure Machine Learning Studio web hizmeti için modeli yeniden eğitme karşılaşılan genel sorunları düzeltin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 11/01/2017
 ---

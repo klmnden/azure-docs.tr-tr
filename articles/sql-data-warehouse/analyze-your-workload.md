@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 9025eccabcbf7052131fee741a1e1f6a2139366b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248102"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476766"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı iş yükünüzü çözümleme
 Azure SQL veri ambarı iş yükünüz için öncelik teknikleri analiz etmek için sorgu.
@@ -144,10 +144,10 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 
 SQL veri ambarı, aşağıdaki türleri bekleyin sahiptir:
 
-* **LocalQueriesConcurrencyResourceType**: eşzamanlılık yuvası çerçevenin dışında sit sorgular. DMV sorgular ve sistem işlevleri gibi `SELECT @@VERSION` yerel sorgular örnekleridir.
-* **UserConcurrencyResourceType**: eşzamanlılık yuvası framework içinde sit sorgular. Son kullanıcı tablolarda yürütülen sorgular, bu kaynak türü kullanacağınız örnekleri temsil eder.
-* **DmsConcurrencyResourceType**: veri taşıma işlemlerini kaynaklanan bekler.
-* **BackupConcurrencyResourceType**: Bu bekleme bir veritabanı yedekleniyor olduğunu gösterir. Bu kaynak türü için maksimum değeri 1'dir. Aynı zamanda, diğer birden çok yedekleme istenen, kuyruk.
+* **LocalQueriesConcurrencyResourceType**: Eşzamanlılık yuvası çerçevenin dışında sit sorgular. DMV sorgular ve sistem işlevleri gibi `SELECT @@VERSION` yerel sorgular örnekleridir.
+* **UserConcurrencyResourceType**: İçinde eşzamanlılık yuvası framework sit sorgular. Son kullanıcı tablolarda yürütülen sorgular, bu kaynak türü kullanacağınız örnekleri temsil eder.
+* **DmsConcurrencyResourceType**: Veri taşıma işlemlerini kaynaklanan bekler.
+* **BackupConcurrencyResourceType**: Bu bekleme, bir veritabanı yedekleniyor olduğunu gösterir. Bu kaynak türü için maksimum değeri 1'dir. Aynı zamanda, diğer birden çok yedekleme istenen, kuyruk.
 
 `sys.dm_pdw_waits` DMV, hangi kaynakların bir isteği bekliyor görmek için kullanılabilir.
 

@@ -1,5 +1,5 @@
 ---
-Başlık: Basit bir deneme titleSuffix: Azure Machine Learning Studio açıklaması: Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz.
+Başlık: Basit bir deneme titleSuffix: Azure Machine Learning Studio açıklaması: Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz.
 Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: Öğreticisi
 
 Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 03/20/2017

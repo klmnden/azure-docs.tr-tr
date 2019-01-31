@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 8b4ae066edc1c62c25762b5c6feebce1ecfff5a2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521549"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470748"
 ---
 # <a name="design-for-querying"></a>Sorgulama için tasarım
 Tablo hizmeti çözümleri, yoğun, yazma yoğun veya ikisinin bir karışımı okunabilir. Bu makalede, okuma işlemleri verimli bir şekilde destekleyin, tablo hizmeti tasarlarken göz önünde ayı gerekenler odaklanır. Genellikle, desteklediği işlemleri verimli bir şekilde okuyun bir tasarım de yazma işlemleri için verimli olur. Ancak, destekleyecek şekilde tasarlama yazdığınızda makalesinde açıklanan işlem, göz önünde işlenmesi için ek hususlar vardır [veri değişikliği için tasarım](table-storage-design-for-modification.md).
@@ -42,7 +42,7 @@ Aşağıdaki örneklerde, tablo hizmeti aşağıdaki yapıya sahip çalışan va
 | **FirstName** |Dize |
 | **Soyadı** |Dize |
 | **Geçerlilik süresi** |Tamsayı |
-| **EmailAddress** |Dize |
+| **EmailAddress** |String |
 
 Makaleyi [Azure tablo depolamaya genel bakış](table-storage-overview.md) Azure tablo hizmeti için sorgu tasarlama üzerinde doğrudan bir etkisi olan anahtar özelliklerinden bazılarını açıklar. Bunlar, tablo hizmeti sorguları tasarlamaya yönelik aşağıdaki genel yönergeleri sonuçlanır. Daha fazla bilgi için tablo hizmeti REST API, aşağıdaki örneklerde kullanılan filtre söz dizimi olduğuna dikkat edin [varlıkları sorgulayın](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

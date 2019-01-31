@@ -8,14 +8,14 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: b099848f2d0392a25a0906a96dba53885962c79b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102354"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475202"
 ---
-# <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL dil başvurusu 
+# <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL dil başvurusu 
 
 Tanıdık bir SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını azure Cosmos DB destekler, bir açık şema veya ikincil dizinlerin oluşturulmasını gerek kalmadan, hiyerarşik JSON belgelerini dilbilgisi ister. Bu makalede SQL API hesabı ile uyumlu SQL sorgu dili sözdizimi için belgeler sağlar. Örnek SQL sorguları için bkz [Cosmos DB'de SQL sorguları](how-to-sql-query.md).  
   

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 03d307a324826a4805da5ed6ff8b995b7c3eab62
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.subservice: common
+ms.openlocfilehash: d28ea2972b8b73921bb078d8570afe9a6dffce8f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019319"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461786"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows üzerinde AzCopy ile veri aktarma
 AzCopy, en iyi performans için tasarlanmış basit komut kullanarak Microsoft Azure Blob, dosya ve tablo depolama içine/dışına veri kopyalamak için tasarlanan bir komut satırı yardımcı programıdır. Bir dosya sistemi ile depolama hesabı arasında veya depolama hesapları arasında verileri kopyalayabilirsiniz.  
@@ -879,7 +879,7 @@ Belirten `destination` kaynaktır bir blob depolama öykünücüsünde çalışa
 
 **İçin uygulanabilir:** Bloblar, tablolar
 
-### <a name="pkrskey1key2key3"></a>/ PKRS: "key1 #key2 anahtar3 #..."
+### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
 
 Tablo verilerini dışarı aktarma işlemi hızını artıran paralel olarak dışarı aktarma özelliğini etkinleştirmesi için bölüm anahtar aralığı böler.
 
@@ -935,7 +935,7 @@ Blob Depolama, dosya depolama içinde ya da dosya depolamaya veya Blob Depolama 
 
 **İçin uygulanabilir:** Bloblar, dosyalar
 
-### <a name="setcontenttypecontent-type"></a>/ SetContentType: "content-type"
+### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
 
 Hedef BLOB veya dosyalar için MIME içerik türünü belirtir.
 
@@ -945,7 +945,7 @@ Bu seçenek olmadan bir değer belirtirseniz, AzCopy her blob veya dosyanın iç
 
 **İçin uygulanabilir:** Bloblar, dosyalar
 
-### <a name="payloadformatjson--csv"></a>/ PayloadFormat: "JSON" | "CSV"
+### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
 
 Tablo dışarı aktarılan verileri dosyasının biçimini belirtir.
 

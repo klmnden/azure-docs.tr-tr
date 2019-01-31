@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7489c4298abe91755a2bf9edd8335061ed42d6d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129650"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470935"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator metin çevirisi API'si 3.0: diller
+# <a name="translator-text-api-30-languages"></a>Translator metin çevirisi API'si 3.0: Languages
 
 Translator metin çevirisi API'si, diğer işlemler tarafından şu anda desteklenen diller kümesini alır. 
 
@@ -52,7 +52,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <th>Açıklama</th>
   <tr>
     <td>Kabul dil</td>
-    <td>*İsteğe bağlı bir istek üst bilgisi*.<br/>Kullanıcı arabirimi dizeleri için kullanılacak dili. Yanıt alanları dil adını veya bölge adlarını bazılarıdır. Bu adlar döndürülen dil tanımlamak için bu parametreyi kullanın. Dil, doğru biçimlendirilmiş BCP 47 dil etiketi sağlayarak belirtilir. Örneğin, değerini kullanın `fr` Fransızca adlarında istek veya değeri kullanmak için `zh-Hant` isteği adlarına Geleneksel Çince.<br/>Hedef Dil belirtilmediğinde veya yerelleştirme mevcut olmadığında, adları İngilizce dilinde sağlanır.
+    <td>*İsteğe bağlı bir istek üst bilgisi*.<br/>Kullanıcı arabirimi dizelerinde kullanılacak dil. Yanıt alanları dil adını veya bölge adlarını bazılarıdır. Bu adlar döndürülen dil tanımlamak için bu parametreyi kullanın. Dil, doğru biçimlendirilmiş BCP 47 dil etiketi sağlayarak belirtilir. Örneğin, değerini kullanın `fr` Fransızca adlarında istek veya değeri kullanmak için `zh-Hant` isteği adlarına Geleneksel Çince.<br/>Hedef Dil belirtilmediğinde veya yerelleştirme mevcut olmadığında, adları İngilizce dilinde sağlanır.
     </td>
   </tr>
   <tr>
@@ -97,11 +97,11 @@ Her bir özellik değeri aşağıdaki gibidir.
 
   Değerini `translation` özelliktir (anahtar, değer) sözlüğü çiftleri. Her bir BCP 47 dil etiketi anahtardır. Bir anahtar için metin için çevrilmiş veya yapabilirsiniz den çevrilen bir dil tanımlar. Anahtarıyla ilişkilendirilmiş değeri, dil tanımlayan özelliklere sahip bir JSON nesnesidir:
 
-  * `name`: Yerel ayarında aracılığıyla istenen dil görünen adını `Accept-Language` başlığı.
+  * `name`: Görünen adı aracılığıyla istenen yerel dilde `Accept-Language` başlığı.
 
-  * `nativeName`: Bu dil için yerel ayardaki dil görünen adı.
+  * `nativeName`: Bu dil için dil yerel ayardaki görünen adı.
 
-  * `dir`: Olan yönlülüğü, `rtl` sağdan sola diller için veya `ltr` sağdan sola diller için.
+  * `dir`: Olan yönlülüğü `rtl` sağdan sola diller için veya `ltr` sağdan sola diller için.
 
   Bir örnek verilmiştir:
           
@@ -123,19 +123,19 @@ Her bir özellik değeri aşağıdaki gibidir.
 
   Değerini `transliteration` özelliktir (anahtar, değer) sözlüğü çiftleri. Her bir BCP 47 dil etiketi anahtardır. Bir anahtar için metin bir komut dosyasından başka bir betiğe dönüştürülebilir bir dil tanımlar. Anahtarıyla ilişkilendirilmiş değeri, dil ve desteklenen, komut dosyaları tanımlayan özelliklere sahip bir JSON nesnesidir:
 
-  * `name`: Yerel ayarında aracılığıyla istenen dil görünen adını `Accept-Language` başlığı.
+  * `name`: Görünen adı aracılığıyla istenen yerel dilde `Accept-Language` başlığı.
 
-  * `nativeName`: Bu dil için yerel ayardaki dil görünen adı.
+  * `nativeName`: Bu dil için dil yerel ayardaki görünen adı.
 
   * `scripts`: Dönüştürmek için komut listesi. Her öğeyi `scripts` listesi özelliklere sahiptir:
 
-    * `code`: Betiği tanımlayan kod.
+    * `code`: Komut tanımlayıcı kod.
 
     * `name`: Komut dosyası aracılığıyla istenen yerel ayarında görünen adını `Accept-Language` başlığı.
 
-    * `nativeName`: Dil yerel ayardaki dil görünen adı.
+    * `nativeName`: Dil adını dilini yerel ayarında görüntüler.
 
-    * `dir`: Olan yönlülüğü, `rtl` sağdan sola diller için veya `ltr` sağdan sola diller için.
+    * `dir`: Olan yönlülüğü `rtl` sağdan sola diller için veya `ltr` sağdan sola diller için.
 
     * `toScripts`: Metne dönüştürmek kullanılabilir komut listesi. Her öğeyi `toScripts` listesi olan özellikleri `code`, `name`, `nativeName`, ve `dir` daha önce açıklandığı gibi.
 
@@ -190,19 +190,19 @@ Her bir özellik değeri aşağıdaki gibidir.
 
   * `name`: Kaynak dili aracılığıyla istenen yerel ayarında görünen adını `Accept-Language` başlığı.
 
-  * `nativeName`: Bu dil için yerel ayardaki dil görünen adı.
+  * `nativeName`: Bu dil için dil yerel ayardaki görünen adı.
 
-  * `dir`: Olan yönlülüğü, `rtl` sağdan sola diller için veya `ltr` sağdan sola diller için.
+  * `dir`: Olan yönlülüğü `rtl` sağdan sola diller için veya `ltr` sağdan sola diller için.
 
   * `translations`: Diğer çevirileri ve örnekler için kaynak dilinde ifade sorgu dillerin listesi. Her öğeyi `translations` listesi özelliklere sahiptir:
 
-    * `name`: İstenen aracılığıyla yerel hedef dilde görünen adını `Accept-Language` başlığı.
+    * `name`: Görünen adı aracılığıyla istenen yerel hedef dilde `Accept-Language` başlığı.
 
-    * `nativeName`: Hedef dil için yerel ayardaki hedef dil görünen adı.
+    * `nativeName`: Hedef dil adı, hedef dil için yerel ayarında görüntüler.
 
-    * `dir`: Olan yönlülüğü, `rtl` sağdan sola diller için veya `ltr` sağdan sola diller için.
+    * `dir`: Olan yönlülüğü `rtl` sağdan sola diller için veya `ltr` sağdan sola diller için.
     
-    * `code`: Hedef Dil tanımlama dil kodu.
+    * `code`: Hedef Dil tanımlayan dil kodu.
 
   Bir örnek verilmiştir:
 

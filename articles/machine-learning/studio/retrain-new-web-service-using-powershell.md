@@ -1,6 +1,6 @@
 ---
-Başlık: Yeni bir Machine Learning Studio web hizmeti PowerShell titleSuffix ile yeniden eğitme: Azure Machine Learning Studio açıklaması: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning Machine Learning Yönetimi PowerShell cmdlet'lerini kullanarak yeni eğitim modeli kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Yeni bir Machine Learning Studio web hizmeti PowerShell titleSuffix ile yeniden eğitme: Azure Machine Learning Studio açıklaması: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning Machine Learning Yönetimi PowerShell cmdlet'lerini kullanarak yeni eğitim modeli kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/28/2017
 ---

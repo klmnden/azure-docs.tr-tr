@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: c2b2ba0e238887531297f6ac2a486d42d885794d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 41bdc2497ff19f0033a5253814771072b47eef62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079095"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475195"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalışır? Azure AD Self Servis parola sıfırlama
 
@@ -50,7 +50,7 @@ Sıfırlama sayfası parola ardındaki mantığı hakkında bilgi edinmek için 
        * Kimlik doğrulama yöntemlerini yapılandırılmamışsa, kullanıcı parolalarını sıfırlamak için kendi yöneticisine başvurmanız önerilir.
      * Ardından, ciddi bir şekilde İlkesi iki yöntem gerektiriyorsa, kullanıcı tanımlı en az iki Yönetici İlkesi tarafından etkin kimlik doğrulama yöntemleri için uygun veri sahip olmasını sağlar.
        * Kimlik doğrulama yöntemlerini yapılandırılmamışsa, kullanıcı parolalarını sıfırlamak için kendi yöneticisine başvurmanız önerilir.
-     * Azure Yönetici rolü kullanıcıya atanmış ise güçlü iki ağ geçidi parola ilkesini zorunlu tutulur. Bu ilke hakkında daha fazla bilgi bölümünde bulunabilir [yönetici sıfırlama İlkesi farklar](concept-sspr-policy.md#administrator-reset-policy-differences).
+     * Azure yöneticisi rolleri kullanıcıya atanmış ise, güçlü iki ağ geçidi parola ilkesini zorunlu tutulur. Bu ilke hakkında daha fazla bilgi bölümünde bulunabilir [yönetici sıfırlama İlkesi farklar](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Kullanıcının parolası olup olmadığını görmek için denetimleri şirket içinde (Federal, geçişli kimlik doğrulaması veya parola karması eşitlenmiş) yönetilir.
      * Geri yazma dağıtılır ve yönetilen şirket kullanıcı parolasının ise, kullanıcının kimliğini doğrulamak ve kullanıcının parolasını sıfırlamak için devam izin verilmez.
      * Kullanıcının parolasını sıfırlamak için yönetici iletişim kurması istenir daha sonra yönetilen şirket içi geri yazma dağıtılmadığı ve kullanıcının parolasını ise.
@@ -84,7 +84,7 @@ Bir kullanıcının kayıtlı gerekli en düşük yöntemleri yoksa bunları yö
 
 #### <a name="mobile-app-and-sspr-preview"></a>Mobil uygulama ve SSPR (Önizleme)
 
-Microsoft Authenticator uygulaması gibi bir mobil uygulama olarak parola sıfırlama için bir yöntem kullanırken aşağıdakilerin farkında olmalıdır:
+Microsoft Authenticator uygulaması gibi bir mobil uygulama, parola sıfırlama için bir yöntem olarak kullanırken aşağıdaki uyarılar bilmeniz gerekir:
 
 * Yöneticiler bir yöntem gerektirdiğinde olması bir parola sıfırlama için kullanılan doğrulama kodu kullanılabilecek tek seçenek budur.
 * Yöneticiler iki yöntem gerektirdiğinde olması bir parola sıfırlama için kullanılan, kullanıcıların kullanmaya **EITHER** bildirim **veya** doğrulama kodu yanı sıra diğer yöntemleri etkinleştirildi.
@@ -119,7 +119,7 @@ Bir kullanıcı kullandığı kimlik doğrulama yöntemlerini türlerini değiş
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Oturum açarken kaydolmalarını iste
 
-Bu seçenek etkinleştirildiğinde, kullanıcılar Azure AD'yi kullanarak uygulamalarda oturum açarsanız parola sıfırlama kaydı tamamlamak bir kullanıcı gerektirir. Bu, şu uygulamalar içerir:
+Bu seçenek etkinleştirildiğinde, kullanıcılar Azure AD'yi kullanarak uygulamalarda oturum açarsanız parola sıfırlama kaydı tamamlamak bir kullanıcı gerektirir. Bu iş akışı aşağıdaki uygulamaları içerir:
 
 * Office 365
 * Azure portal
@@ -132,7 +132,7 @@ Kayıt gerektiren devre dışı bırakıldığında, kullanıcıların el ile ka
 > [!NOTE]
 > Kullanıcılar, parola sıfırlama kayıt portalı seçerek kapatabilir **iptal** veya penceresini kapatarak. Ancak kullanıcılar, kayıt işlemini tamamlayana kadar oturum her zaman kaydı istenir.
 >
-> Bu, zaten oturum açmış kullanıcının bağlantı sonu gelmez.
+> Bu kesme, bunlar zaten oturum açmış kullanıcının bağlantı sonu gelmez.
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Kullanıcıların kendi kimlik doğrulama bilgilerini yeniden onaylamasını istemeden önce geçen gün sayısını ayarla
 
@@ -169,7 +169,7 @@ Bu sayfayı hızlı bir şirket içi geri yazma istemci durumunu sağlar, geçer
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Parolalar şirket içi dizininize geri yazmak
 
-Bu denetim, bu dizin için parola geri yazma özelliğinin etkin olup olmadığını belirler. Geri yazma açıksa, şirket içi geri yazma hizmetinin durumunu gösterir. Bu, parola geri yazma'nın Azure AD Connect'i yeniden yapılandırmak zorunda kalmadan geçici olarak devre dışı bırakmak istiyorsanız kullanışlıdır.
+Bu denetim, bu dizin için parola geri yazma özelliğinin etkin olup olmadığını belirler. Geri yazma açıksa, şirket içi geri yazma hizmetinin durumunu gösterir. Bu denetim, parola geri yazma'nın Azure AD Connect'i yeniden yapılandırmak zorunda kalmadan geçici olarak devre dışı bırakmak istiyorsanız kullanışlıdır.
 
 * Anahtar ayarlanırsa **Evet**geri yazma sonra etkinleştirilir ve birleştirilmiş, geçişli kimlik doğrulaması veya parola karması eşitlenmiş kullanıcılar parolalarını sıfırlayabilir.
 * Anahtar ayarlanırsa **Hayır**sonra geri yazmayı devre dışı bırakıldı ve birleştirilmiş, geçişli kimlik doğrulaması veya parola karması eşitlenmiş kullanıcılar parolalarını sıfırlayabilir değildir.
@@ -180,6 +180,10 @@ Bu denetim seçeneği kullanıcının parolasını sıfırlamak zorunda kalmadan
 
 * Varsa kümesine **Evet**, sonra da kullanıcıların parolalarını sıfırlama ve hesabın kilidini açma veya parolayı sıfırlamak zorunda kalmadan hesaplarının kilidini seçeneği sunulur.
 * Varsa kümesine **Hayır**, ardından kullanıcıları olan yalnızca bir birleşik bir parola sıfırlama gerçekleştirebilir ve hesap kilidini açma işlemi.
+
+### <a name="on-premises-active-directory-password-filters"></a>Şirket içi Active Directory parola filtreleri
+
+Azure AD Self Servis parola sıfırlama, bir yönetici tarafından başlatılan parola sıfırlama Active Directory'de denk gerçekleştirir. Özel parola kurallarını zorunlu tutmak için üçüncü taraf parola filtresi kullanıyorsanız ve bu parola filtresi sırasında Azure AD Self Servis denetlenir gerektiren varsa, parola sıfırlama, üçüncü taraf parola filtresi çözümü olarak uygulamak için yapılandırıldığından emin olun Senaryo yönetici parolasını sıfırlayın. [Windows Server Active Directory için Azure AD parola koruması](concept-password-ban-bad-on-premises.md) varsayılan olarak desteklenir.
 
 ## <a name="password-reset-for-b2b-users"></a>B2B kullanıcılar için parola sıfırlamayı
 

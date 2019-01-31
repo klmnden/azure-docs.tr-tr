@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı yönetilen örneği'ne genel bakış | Microsoft Docs
-description: Bu konu Azure SQL veritabanı yönetilen örneği ve nasıl çalıştığını ve nasıl tek bir veritabanının Azure SQL veritabanı'nda farklı olduğunu açıklar.
+description: Bu konu Azure SQL veritabanı yönetilen örneği ve nasıl çalıştığını ve nasıl bir tek veya havuza alınmış veritabanının Azure SQL veritabanı'nda farklı olduğunu açıklar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/25/2019
+ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994768"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465716"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL veritabanı yönetilen örneği, sanal ağlarla ve neredeyse % 100 uyumluluk kullanın
 
@@ -34,7 +34,7 @@ ISV tam olarak yönetilen PaaS bulut ortamında, ortama mümkün olduğunca az g
 
 Genel kullanılabilirlik tarafından hazırlanmış yayın planı aracılığıyla en son şirket içi SQL Server sürümü ile % 100 yüzey alanını uyumluluk yakın sunmak için yönetilen örneği amaçlar.
 
-Azure SQL veritabanı tek veritabanı ve Azure SQL veritabanı yönetilen örneği SQL Server Iaas sanal makine bakın barındırılan arasında karar [Azure bulutunda SQL Server'ın doğru sürümü seçmek nasıl](sql-database-paas-vs-sql-server-iaas.md).
+Azure SQL veritabanı tek veritabanı, havuza alınmış veritabanını, yönetilen örnek ve sanal makinede barındırılan SQL Server arasında karar vermek için bkz: [Azure bulutunda SQL Server'ın doğru sürümü seçmek nasıl](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Temel özellikleri
 
@@ -185,7 +185,7 @@ Azure blob depolama için yedeklemeleri SQL geçiş yaklaşımı yararlanır. Az
 - URL'den geri yükleme hakkında daha fazla bilgi için bkz. [yerel geri URL'den](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Bir yönetilen örnek yedeklerden yalnızca başka bir yönetilen örneğe geri yüklenebilir. Bunlar, bir şirket içi SQL Server'a veya tek veya havuza alınmış Azure SQL veritabanı mantıksal sunucusu veritabanına geri yüklenemez.
+> Bir yönetilen örnek yedeklerden yalnızca başka bir yönetilen örneğe geri yüklenebilir. Bunlar, şirket içi SQL Server veya bir tek veritabanı elastik havuz için geri yüklenemez.
 
 ### <a name="data-migration-service"></a>Veri geçiş hizmeti
 
@@ -210,7 +210,7 @@ Yönetilen örnek avantajları engeller her zaman yukarı-başından bu yana bul
 - Yönetilen örnek, tüm ilgili senaryolar farklı desteklenen zorunda tam fiziksel yolunu belirtmeye izin vermiyor: Geri yükleme DB WITH MOVE desteklemez, fiziksel yollar, Azure BLOB'ları ile çalışır BULK INSERT DB oluşturma izin vermeyen yalnızca, vb.
 - Örnek destekleyen yönetilen [Azure AD kimlik doğrulaması](sql-database-aad-authentication.md) bulut alternatif Windows kimlik doğrulaması olarak.
 - Yönetilen örnek XTP dosyası grubu ve bellek içi OLTP nesnelerini içeren veritabanları için dosyaları otomatik olarak yönetir
-- Yönetilen örneği SQL Server Integration Services (SSIS) destekler ve SSIS kataloğunu (SSISDB) SSIS paketlerini depolar barındırabilirsiniz, ancak bunlar üzerinde bir yönetilen Azure-SSIS Integration Runtime (IR) Azure Data Factory (ADF) yürütülür, bkz: [oluştur Azure-SSIS IR ADF içinde](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). SQL veritabanı yönetilen örneği, SSIS özellikleri karşılaştırmak için bkz [karşılaştırma SQL veritabanı mantıksal sunucusu ve yönetilen örneği](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
+- Yönetilen örneği SQL Server Integration Services (SSIS) destekler ve SSIS kataloğunu (SSISDB) SSIS paketlerini depolar barındırabilirsiniz, ancak bunlar üzerinde bir yönetilen Azure-SSIS Integration Runtime (IR) Azure Data Factory (ADF) yürütülür, bkz: [oluştur Azure-SSIS IR ADF içinde](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). SQL veritabanı yönetilen örneği, SSIS özellikleri karşılaştırmak için bkz [karşılaştırma Azure SQL veritabanı tek veritabanlarını elastik havuzları ve yönetilen örneği](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Yönetilen örnek yönetim özellikleri
 

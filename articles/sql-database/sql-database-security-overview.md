@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 01/29/2019
-ms.openlocfilehash: f1376e98dc1a018bd6c0b263939cecbc012d4815
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250781"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462027"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -45,7 +45,7 @@ IP güvenlik duvarı kurallarını her isteğin kaynak IP adresine göre veritab
 ## <a name="access-management"></a>Erişim Yönetimi
 
 > [!IMPORTANT]
-> Azure’daki veritabanlarının ve mantıksal sunucuların yönetilmesi, portal kullanıcısı hesabınıza atanan rollerle denetlenir. Bu makalede hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
+> Veritabanları ve Azure içinde veritabanı sunucularını yönetme, portal kullanıcı hesabınızın rol atamaları tarafından denetlenir. Bu makalede hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 
@@ -53,7 +53,7 @@ Kimlik doğrulaması, kullanıcı kanıtlama işlemini kim iddia şeklindedir. A
 
 - **SQL kimlik doğrulaması**:
 
-    SQL veritabanı kimlik doğrulaması başvuran bir kullanıcı kimlik doğrulaması için bağlanırken [Azure SQL veritabanı](sql-database-technical-overview.md) kullanıcı adı ve parola kullanarak. Veritabanı mantıksal sunucusu oluşturma sırasında bir "Sunucu Yöneticisi" oturum açma kullanıcı adı ve parola belirtilmelidir. Bu kimlik bilgilerini kullanarak, "Sunucu Yöneticisi" mantıksal sunucu üzerindeki herhangi bir veritabanı için veritabanı sahibi olarak kimlik doğrulaması yapabilir. Bundan sonra ek SQL oturumları ve kullanıcıları sunucu yöneticisi tarafından kullanıcı adı ve parola kullanarak bağlanmasına olanak tanıyan oluşturulabilir.
+    SQL veritabanı kimlik doğrulaması başvuran bir kullanıcı kimlik doğrulaması için bağlanırken [Azure SQL veritabanı](sql-database-technical-overview.md) kullanıcı adı ve parola kullanarak. Veritabanı için veritabanı sunucusu oluşturma sırasında bir "Sunucu Yöneticisi" oturum açma kullanıcı adı ve parola belirtilmelidir. Bu kimlik bilgilerini kullanarak, "Sunucu Yöneticisi" o veritabanı sunucusundaki herhangi bir veritabanı için veritabanı sahibi olarak kimlik doğrulaması yapabilir. Bundan sonra ek SQL oturumları ve kullanıcıları sunucu yöneticisi tarafından kullanıcı adı ve parola kullanarak bağlanmasına olanak tanıyan oluşturulabilir.
 
 - **Azure Active Directory kimlik doğrulaması**:
 
@@ -63,7 +63,8 @@ Kimlik doğrulaması, kullanıcı kanıtlama işlemini kim iddia şeklindedir. A
 
     Ek Azure AD kimlik doğrulama seçenekleri kullanılabilir [Active Directory Evrensel kimlik doğrulaması için SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) bağlantılar dahil olmak üzere [multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) ve [ Koşullu erişim](sql-database-conditional-access.md).
 
-### <a name="authorization"></a>Yetkilendirme
+> [!IMPORTANT]
+> Veritabanları ve Azure içinde sunucularını yönetme, portal kullanıcı hesabınızın rol atamaları tarafından denetlenir. Bu makalede hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi](../role-based-access-control/overview.md). Güvenlik duvarı kuralları ile erişimi denetleme mu *değil* uygulamak **Azure SQL veritabanı yönetilen örneği**. Üzerinde lütfen şu makaleye bakın [yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md) gereken ağ yapılandırması hakkında daha fazla bilgi.
 
 Yetkilendirme, bir Azure SQL veritabanındaki bir kullanıcıya atanan izinleri belirtir ve kullanıcı yapmak için verileceğini belirler. İzinleri, kullanıcı hesapları eklenerek denetlenir [veritabanı rolleri](/sql/relational-databases/security/authentication-access/database-level-roles) veritabanı düzeyi izinler veya belirli kullanıcı verme tanımlayan [nesne düzeyi izinleri](/sql/relational-databases/security/permissions-database-engine). Daha fazla bilgi için [oturumlar ve kullanıcılar](sql-database-manage-logins.md)
 
@@ -75,7 +76,7 @@ Satır düzeyi güvenlik (örneğin, grup üyeliği veya yürütme bağlamı) So
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
-### <a name="permissions"></a>İzinler
+  Bu kimlik doğrulama yöntemi, bir kullanıcı adı ve parola kullanır. 
 
 Azure SQL veritabanı izinleri genel bakış için bkz. [oturumlar ve kullanıcılar](sql-database-manage-logins.md#permissions)
 

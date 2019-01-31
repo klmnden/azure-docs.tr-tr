@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Azure SQL Veri Ambarı’nda işlem ölçeğini genişletme - T-SQL | Microsoft Docs'
-description: T-SQL ve SQL Server Management Studio (SSMS) kullanarak Azure SQL Veri Ambarı’nda işlemi ölçeklendirin. Daha iyi performans için işlemin ölçeğini genişletin veya maliyet tasarrufu sağlamak için işlemin ölçeğini geri daraltın.
+title: 'Hızlı Başlangıç: Azure SQL veri ambarı - T-SQL işlem ölçeğini genişletin | Microsoft Docs'
+description: T-SQL ve SQL Server Management Studio (SSMS) kullanarak Azure SQL Veri Ambarı’nda işlemi ölçeklendirin. Daha iyi performans için işlem ölçeğini genişletin veya maliyet tasarrufu için işlem ölçeğini daraltın.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e499a2a2201e81d40354069c007790e4bcdff671
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: a734e0173a3432e03c5876d30cf54ea3fd23d4dc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245789"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460361"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Hızlı Başlangıç: T-SQL kullanarak Azure SQL Veri Ambarı’nda işlemi ölçeklendirme
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Hızlı Başlangıç: T-SQL kullanarak Azure SQL veri ambarı'nda işlemi ölçeklendirme
 
 T-SQL ve SQL Server Management Studio (SSMS) kullanarak Azure SQL Veri Ambarı’nda işlemi ölçeklendirin. Daha iyi performans için [işlem ölçeğini genişletin](sql-data-warehouse-manage-compute-overview.md) veya maliyet tasarrufu için işlem ölçeğini daraltın. 
 

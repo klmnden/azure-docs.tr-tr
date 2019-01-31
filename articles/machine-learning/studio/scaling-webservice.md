@@ -1,6 +1,6 @@
 ---
-Başlık: Bir Machine Learning Studio web hizmeti titleSuffix ölçeğini genişletin: Azure Machine Learning Studio açıklaması: Ek uç noktaları ekleyerek eşzamanlılığı bir Azure Machine Learning Studio web hizmeti hakkında bilgi edinin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Bir Machine Learning Studio web hizmeti titleSuffix ölçeğini genişletin: Azure Machine Learning Studio açıklaması: Ek uç noktaları ekleyerek eşzamanlılığı bir Azure Machine Learning Studio web hizmeti hakkında bilgi edinin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: seodec18, önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 01/23/2017
 ---

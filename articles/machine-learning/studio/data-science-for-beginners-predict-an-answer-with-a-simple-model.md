@@ -1,6 +1,6 @@
 ---
-Başlık: Regresyon modellerini titleSuffix yanıtlarla tahmin: Azure Machine Learning Studio açıklaması: Nasıl bir veri bilimi video 4 yeni başlayanlar için fiyatı tahmin etmek için bir basit bir regresyon modeli oluşturun. Bir doğrusal regresyon hedef verilerle içerir.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Regresyon modellerini titleSuffix yanıtlarla tahmin: Azure Machine Learning Studio açıklaması: Nasıl bir veri bilimi video 4 yeni başlayanlar için fiyatı tahmin etmek için bir basit bir regresyon modeli oluşturun. Bir doğrusal regresyon hedef verilerle içerir.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 01/03/2018
 ---

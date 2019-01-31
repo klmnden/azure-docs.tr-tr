@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Metni başka alfabeye çevirme, Python - Translator Metin Çevirisi API'si"
+title: "Hızlı Başlangıç: Metin, Python - Translator metin çevirisi API'si alfabeye"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Python ve Translator Metin Çevirisi API'sini kullanarak bir metni bir alfabeden başka bir alfabeye çevirmeyi (dönüştürmeyi) öğreneceksiniz. Bu örnekte Japonca, Latin alfabesine dönüştürülmektedir.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 4f6418602fcf1de6ea98c45635029f71aa6fdf06
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0997b12ed7bc86134d0f2cc875a98ee554c667d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999281"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461245"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Hızlı Başlangıç: Python ve Translator Metin Çevirisi REST API’sini kullanarak metni başka alfabeye çevirme
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Hızlı Başlangıç: Python kullanarak metin alfabeye için Translator Text API kullanın
 
 Bu hızlı başlangıçta Python ve Translator Metin Çevirisi API'sini kullanarak bir metni bir alfabeden başka bir alfabeye çevirmeyi (dönüştürmeyi) öğreneceksiniz. Verilen örnekte Japonca, Latin alfabesine dönüştürülmektedir.
 
@@ -69,7 +69,7 @@ else:
 `params`, giriş diline en olarak giriş ve çıkış betiklerini ayarlamak için kullanılır. Bu örnekte Japonca metni Latin alfabesine dönüştürüyoruz.
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Karakter dönüştürme](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Alfabeye](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

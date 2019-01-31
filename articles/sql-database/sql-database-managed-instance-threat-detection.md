@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: f87b7093a732639db8a53ebec68fcae8f29735f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.date: 01/25/2019
+ms.openlocfilehash: 59a3b4a4e1b08a9a9985836a9f9be44d1eff9c71
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158678"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472074"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Tehdit algılama (Önizleme) Azure SQL veritabanı yönetilen örneği'nde yapılandırın.
 
@@ -25,7 +25,7 @@ Azure SQL [tehdit algılama](sql-database-threat-detection-overview.md) için [S
 
 Algılanan tehditler hakkında bildirim alabilir [e-posta bildirimleri](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) veya [Azure portalı](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
-[Tehdit algılama](sql-database-threat-detection-overview.md) parçasıdır [SQL Gelişmiş tehdit koruması](sql-advanced-threat-protection.md) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir (ATP) teklifi. Tehdit algılama, erişilebilir ve merkezi SQL ATP portalı üzerinden yönetilebilir. Tehdit algılama hizmetine 15$ / yönetilen örnek, her ay ilk 30 gün ile ücretsiz olarak ücretlendirilir.
+[Tehdit algılama](sql-database-threat-detection-overview.md) parçasıdır [SQL gelişmiş veri güvenliği](sql-advanced-threat-protection.md) (REKLAM) sunumunun Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Tehdit algılama, erişilebilir ve merkezi SQL REKLAM portalı üzerinden yönetilebilir. Tehdit algılama hizmetine 15$ / yönetilen örnek, her ay ilk 30 gün ile ücretsiz olarak ücretlendirilir.
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Azure portalında, yönetilen örneği için tehdit Algılama ' ayarlayın
 
@@ -43,6 +43,6 @@ Algılanan tehditler hakkında bildirim alabilir [e-posta bildirimleri](sql-data
 
 - Daha fazla bilgi edinin [tehdit algılama](sql-database-threat-detection-overview.md).
 - Yönetilen örneği hakkında bilgi edinmek bkz [yönetilen örnek nedir](sql-database-managed-instance.md).
-- Daha fazla bilgi edinin [tek veritabanı için tehdit algılama](sql-database-threat-detection.md).
-- Daha fazla bilgi edinin [yönetilen örnek denetim](https://go.microsoft.com/fwlink/?linkid=869430).
+- Daha fazla bilgi edinin [tehdit algılama tek veritabanı için](sql-database-threat-detection.md).
+- Daha fazla bilgi edinin [yönetilen örneği denetim](https://go.microsoft.com/fwlink/?linkid=869430).
 - Daha fazla bilgi edinin [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro).

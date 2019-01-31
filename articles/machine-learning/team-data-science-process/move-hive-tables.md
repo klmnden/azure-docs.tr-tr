@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be257b49e5ad5acc47a6daeec203e8513995e52e
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390932"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477871"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme
 
@@ -25,12 +25,12 @@ Bu makalede, Hive tabloları oluşturma ve Azure blob depolamadan veri yükleme 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, olduğunu varsayar:
 
-* Bir Azure depolama hesabı oluşturuldu. Yönergelere ihtiyacınız varsa bkz [Azure depolama hesapları hakkında](../../storage/common/storage-create-storage-account.md).
-* HDInsight hizmeti ile özelleştirilmiş bir Hadoop kümesi hazırlandı.  Yönergelere ihtiyacınız varsa bkz [özelleştirme Azure HDInsight Hadoop kümeleri için Gelişmiş analiz](customize-hadoop-cluster.md).
-* Kümeye uzaktan erişimin etkinleştirilmesi, oturum ve Hadoop komut satırı konsolu açılır. Yönergelere ihtiyacınız varsa bkz [Hadoop küme baş düğümüne erişmek](customize-hadoop-cluster.md).
+* Bir Azure depolama hesabı oluşturuldu. Yönergelere ihtiyacınız varsa bkz [Azure depolama hesapları hakkında](../../storage/common/storage-introduction.md).
+* HDInsight hizmeti ile özelleştirilmiş bir Hadoop kümesi hazırlandı.  Yönergelere ihtiyacınız varsa bkz [Kurulum HDInsight kümelerinde](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
+* Kümeye uzaktan erişimin etkinleştirilmesi, oturum ve Hadoop komut satırı konsolu açılır. Yönergelere ihtiyacınız varsa bkz [yönetme Apache Hadoop kümelerini](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure blob depolama alanına veri yükleme
-Bir Azure sanal makinesi bölümlerinde sağlanan yönergeleri izleyerek oluşturduysanız [Gelişmiş analiz için Azure sanal Makine'yi ayarlayın](../data-science-virtual-machine/setup-virtual-machine.md), bu komut dosyası için indirilip *C:\\kullanıcılar \\ \<kullanıcı adı\>\\belgeleri\\veri bilimi betikleri* sanal makinesinde dizin. Bu Hive sorguları yalnızca kendi veri şemasını ve Azure blob depolama yapılandırması gönderimi için hazır olmasını uygun alanları eklenti gereklidir.
+Bir Azure sanal makinesi bölümlerinde sağlanan yönergeleri izleyerek oluşturduysanız [Gelişmiş analiz için Azure sanal Makine'yi ayarlayın](../../machine-learning/data-science-virtual-machine/overview.md), bu komut dosyası için indirilip *C:\\kullanıcılar \\ \<kullanıcı adı\>\\belgeleri\\veri bilimi betikleri* sanal makinesinde dizin. Bu Hive sorguları yalnızca kendi veri şemasını ve Azure blob depolama yapılandırması gönderimi için hazır olmasını uygun alanları eklenti gereklidir.
 
 Hive tablolarını verilerini olduğunu varsayıyoruz bir **sıkıştırılmamış** tablosal biçimde ve verileri varsayılan (veya ek bir) yüklendiğini Hadoop kümesi tarafından kullanılan depolama hesabı kapsayıcısı.
 
@@ -38,7 +38,7 @@ Uygulama için isterseniz **NYC taksi seyahat verilerini**, gerekir:
 
 * **indirme** 24 [NYC taksi seyahat verilerini](http://www.andresmh.com/nyctaxitrips) (12 seyahat dosyalar ve 12 taksi dosyaları)
 * **Unzip** .csv dosyalarına tüm dosyaları ve ardından
-* **karşıya yükleme** bölümünde açıklanan yordamı tarafından oluşturulan Azure depolama hesabının varsayılan (veya uygun bir kapsayıcı) onları [özelleştirme Azure HDInsight Hadoop kümeleri için Gelişmiş analitik işlemi ve teknolojisi](customize-hadoop-cluster.md)konu. Bu işlem depolama hesabındaki varsayılan kapsayıcı .csv dosyalarını yüklemek için bulunabilir [sayfa](hive-walkthrough.md#upload).
+* **karşıya yükleme** bunları varsayılan (veya uygun bir kapsayıcı) Azure depolama hesabı; bu tür bir hesabınız görünür seçenekleri [Azure HDInsight kümeleri ile Azure'daki depolama](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) konu. Bu işlem depolama hesabındaki varsayılan kapsayıcı .csv dosyalarını yüklemek için bulunabilir [sayfa](hive-walkthrough.md#upload).
 
 ## <a name="submit"></a>Hive sorguları göndermek nasıl
 Hive sorgularını kullanarak gönderilebilir:

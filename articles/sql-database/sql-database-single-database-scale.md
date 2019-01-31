@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: a3a4e2c109541effdac01e0c9c03ee91cfdb30bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.date: 01/25/2019
+ms.openlocfilehash: b3ee256072e5c0b5b92daac07eae5b41b194ae8a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812259"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475967"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL veritabanı'nda ölçek tek veritabanı kaynakları
 
@@ -35,7 +35,7 @@ Bu makalede, Azure SQL veritabanı'nda işlem ve depolama kaynaklarını tek bir
 
 ## <a name="vcore-based-purchasing-model-change-compute-resources"></a>Sanal çekirdek tabanlı satın alma modeli: Değişiklik işlem kaynakları
 
-Başlangıçta çekirdek sayısını seçtikten sonra, tek bir veritabanının ölçeğini artırıp dinamik olarak gerçek deneyime kullanımına dayalı ölçeklendirebilirsiniz [Azure portalında](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+Başlangıçta çekirdek sayısını seçtikten sonra, tek bir veritabanının ölçeğini artırıp dinamik olarak gerçek deneyime kullanımına dayalı ölçeklendirebilirsiniz [Azure portalında](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Hizmet değiştiriliyor katmanının ve/veya işlem bir veritabanının boyut yeni işlem boyutu özgün veritabanının bir kopyasını oluşturur ve ardından bağlantıları çoğaltmaya geçirir. Bu işlem sırasında veri kaybı olmaz, ancak çoğaltmaya geçişin gerçekleştiği kısa süre zarfında veritabanıyla bağlantılar devre dışı bırakılır, bu nedenle uçuştaki bazı işlemler geri alınabilir. Anahtar üzerinden için süre farklılık gösterir ancak genellikle 30 saniyeden % süresi 99. Varsa büyük işlem şu bağlantıları uçuşta devre dışı bırakıldı, anahtar üzerinden süreyi daha uzun olabilir.
 

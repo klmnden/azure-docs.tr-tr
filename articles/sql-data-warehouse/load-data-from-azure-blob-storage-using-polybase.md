@@ -1,23 +1,23 @@
 ---
-title: 'Öğretici: Yük New York taksi verilerini Azure SQL veri ambarı | Microsoft Docs'
+title: "Öğretici: New York taksi verilerini Azure SQL veri ambarı'nı yükleme | Microsoft Docs"
 description: Öğreticide, Azure portalı ve New York taksi verilerini genel bir Azure yük için SQL Server Management Studio'yu Azure SQL veri ambarı'na blob.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 09/12/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: b9c42f5b0fc6fb9468d8fd0a1c34270d1734391a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 979488009f7afa2ccae3993d756e92e1ae15d5a0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579931"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466538"
 ---
-# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Öğretici: Yük New York taksi verilerini Azure SQL veri ambarı
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Öğretici: New York taksi verilerini Azure SQL veri ambarı'nı yükleme
 
 Bu öğretici kullanan New York taksi verilerini genel kullanıma yüklemek için PolyBase Azure SQL veri ambarı için Azure blob. Öğreticide aşağıdaki işlemler için [Azure Portal](https://portal.azure.com) ve [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) kullanılır: 
 

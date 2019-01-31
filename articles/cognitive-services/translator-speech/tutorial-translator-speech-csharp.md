@@ -1,23 +1,23 @@
 ---
-title: "Öğretici: Translator Konuşma Çevirisi API'si C#"
+title: "Öğretici: Translator konuşma çevirisi API'siC#"
 titleSuffix: Azure Cognitive Services
 description: Translator Konuşma Çevirisi API'sini kullanarak gerçek zamanlı metin çevirisi yapın.
 services: cognitive-services
 author: v-jerkin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6a53eaf2154162ab9ec85a5a75c2cd52962b53a9
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 01e56366fc8ae0e711664d35e95ac1aacc89730f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340435"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458508"
 ---
-# <a name="tutorial-translator-speech-application-in-c"></a>Öğretici: C# ile yazılmış Translator Konuşma Çevirisi uygulaması
+# <a name="tutorial-translator-speech-application-in-c"></a>Öğretici: Translator konuşma uygulamaC#
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -39,23 +39,23 @@ Visual Studio çözümü, uygulama için bir yükleyici de derler. Bu işlevi ku
 
 Ayrıca Microsoft Azure panosundan alabileceğiniz Translator Konuşma Çevirisi hizmeti abonelik anahtarı da gereklidir. Ayda 10 saat konuşmaya kadar ücretsiz olarak çeviri yapmanıza olanak sağlayan ücretsiz bir fiyatlandırma katmanı bulunur. Bu katman bu öğretici için yeterli olacaktır.
 
-Üçüncü taraf [JSON.Net kitaplığı](https://www.newtonsoft.com/json) (Newtonsoft tarafından yayımlanan) da gereklidir. Visual Studio seçeneklerinde Paket Geri Yükleme seçeneklerinin ikisi de etkin olduğunda NuGet tarafından otomatik olarak yüklenir.
+Üçüncü taraf [JSON.Net kitaplığı](https://www.newtonsoft.com/json) (Newtonsoft tarafından yayımlanan) da gereklidir. Bu bütünleştirilmiş kod, Visual Studio seçeneklerinde Paket Geri Yükleme onay kutularının her ikisi de işaretli olduğunda NuGet tarafından otomatik olarak yüklenir.
 
 ## <a name="trying-the-translation-app"></a>Çeviri uygulamasını deneme
 
-Konuşma Çevirmeni çözümünü (`SpeechTranslator.sln`) Visual Studio'da açtıktan sonra F5 tuşuna basarak uygulamayı derleyin ve çalıştırın.  Programın ana penceresi görüntülenir.
+Konuşma Çevirisi çözümünü (`SpeechTranslator.sln`) Visual Studio'da açtıktan sonra F5 tuşuna basarak uygulamayı derleyin ve çalıştırın.  Programın ana penceresi görüntülenir.
 
 ![[Konuşma Çevirmeni ana penceresi]](media/speech-translator-main-window.png)
 
-Programı ilk kez çalıştırdıktan sonra **Ayarlar** menüsünden **Hesap Ayarları**'nı seçerek burada gösterilen pencereyi açın.
+Programı ilk kez çalıştırdıktan sonra **Settings** (Ayarlar) menüsünden **Account Settings**'i (Hesap Ayarları) seçerek burada gösterilen pencereyi açın.
 
 ![[Konuşma Çevirmeni ana penceresi]](media/speech-translator-settings-window.png)
 
-Translator Konuşma Çevirisi abonelik anahtarınızı bu pencereye yapıştırıp **Kaydet**'e tıklayın. Anahtarınız kaydedilir ve programı yeniden çalıştırdığınızda aynı anahtar kullanılır.
+Translator Konuşma Çevirisi abonelik anahtarınızı bu pencereye yapıştırıp **Save**'e (Kaydet) tıklayın. Anahtarınız kaydedilir ve programı yeniden çalıştırdığınızda aynı anahtar kullanılır.
 
-Ana pencereye geri dönüp kullanmak istediğiniz ses giriş ve çıkış cihazlarının yanı sıra Kaynak ve Hedef dilleri seçin. Çeviriyi duymak istiyorsanız **TTS** (metin okuma) seçeneğinin işaretlenmiş olduğundan emin olun. Konuşurken olası kısmi çevirileri görmek istiyorsanız **Kısmi Sonuçlar** seçeneğini etkinleştirin.
+Ana pencereye geri dönüp kullanmak istediğiniz ses giriş ve çıkış cihazlarının yanı sıra Kaynak ve Hedef dilleri seçin. Çeviriyi duymak istiyorsanız **TTS** (metin okuma) seçeneğinin işaretlenmiş olduğundan emin olun. Konuşurken olası kısmi çevirileri görmek istiyorsanız **Partial Results** (Kısmi Sonuçlar) seçeneğini etkinleştirin.
 
-Son olarak **Başlat**'a tıklayarak çeviriyi başlatın. Çevrilmesini istediğiniz bir şeyler söyleyip pencerede metnin tanınmasını ve çevirinin görünmesini izleyin. TTS seçeneğini etkinleştirdiyseniz çeviriyi duyarsınız.
+Son olarak **Start**'a (Başlat) tıklayarak çeviriyi başlatın. Çevrilmesini istediğiniz bir şeyler söyleyip pencerede metnin tanınmasını ve çevirinin görünmesini izleyin. TTS seçeneğini etkinleştirdiyseniz çeviriyi duyarsınız.
 
 ## <a name="obtaining-supported-languages"></a>Desteklenen dilleri alma
 

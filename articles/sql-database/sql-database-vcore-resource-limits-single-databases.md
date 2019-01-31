@@ -3,7 +3,7 @@ title: Azure SQL veritabanı sanal çekirdek tabanlı kaynak sınırları - tek 
 description: Bu sayfa, Azure SQL veritabanı'nda tek bir veritabanı için bazı ortak sanal çekirdek tabanlı kaynak sınırları açıklar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,24 +11,24 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/09/2019
-ms.openlocfilehash: 894922a80ab874e5304ef441571e03ef559a34b0
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/25/2019
+ms.openlocfilehash: e38f90acf1ffb0b63379727287f7451f99b6dd0d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215431"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460174"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
 
 Bu makalede ayrıntılı kaynak sınırları sanal çekirdek tabanlı satın alma modelini kullanarak Azure SQL veritabanı tek veritabanı sağlar.
 
-DTU tabanlı satın alma modeli sınırları için bir mantıksal sunucuda tek veritabanları için bkz: [kaynak bakış sınırlayan bir mantıksal sunucuda](sql-database-resource-limits-logical-server.md).
+DTU tabanlı satın alma modeli sınırları için bir SQL veritabanı sunucusunda tek veritabanları için bkz: [kaynak bakış sınırlayan bir SQL veritabanı sunucusunda](sql-database-resource-limits-database-server.md).
 
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
-Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek veritabanı için ayarlayabileceğiniz [Azure portalında](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), veya [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek veritabanı için ayarlayabileceğiniz [Azure portalında](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases), veya [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Genel amaçlı hizmet katmanı: Depolama boyutlarına ve işlem boyutları
 
@@ -82,7 +82,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|
 |Sanal çekirdekler|2|4|6|8|10|12|14|
-|Bellek (GB)|10.2|20,4 inç|30.6|40.8|51|61.2|71.4|
+|Bellek (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Bellek içi OLTP depolama alanı (GB)|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |En yüksek veri boyutu (GB)|1024|1024|1024|1536|1536|1536|1536|
@@ -174,7 +174,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Sanal çekirdekler|2|4|6|8|10|12|14|
 |Bellek (GB)|11|22|33|44|55|66|77|
 |Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
-|Bellek içi OLTP depolama alanı (GB)|1.571|3,142|4.713|6.284|8.655|11.026|13.397|
+|Bellek içi OLTP depolama alanı (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |En yüksek veri boyutu (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Maksimum günlük boyutu (GB)|307|307|307|461|461|461|461|
 |TempDB boyutu (GB)|64|128|192|256|320|384|384|
@@ -241,7 +241,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|5|
 |Sanal çekirdekler|2|4|8|16|24|32|40|80|
-|Bellek (GB)|10.2|20,4 inç|40.8|81.6|122.4|163.2|204|408|
+|Bellek (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
 |Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Bellek içi OLTP depolama alanı (GB)|Yok|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |En yüksek veri boyutu (TB)|100 |100 |100 |100 |100 |100 |100 |100 |

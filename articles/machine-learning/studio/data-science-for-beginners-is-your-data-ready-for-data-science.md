@@ -1,6 +1,6 @@
 ---
-Başlık: Veri değerlendirme titleSuffix: Azure Machine Learning Studio açıklaması: Dört ölçütleri verilerinizin veri bilimi için hazır olması için karşılaması gerekir. Bu video ile temel veri değerlendirme yardımcı olmak için somut örnekler vardır.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Veri değerlendirme titleSuffix: Azure Machine Learning Studio açıklaması: Dört ölçütleri verilerinizin veri bilimi için hazır olması için karşılaması gerekir. Bu video ile temel veri değerlendirme yardımcı olmak için somut örnekler vardır.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 01/03/2018
 ---

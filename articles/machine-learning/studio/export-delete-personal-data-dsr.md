@@ -1,10 +1,22 @@
 ---
-Başlık: Dışarı aktarma ve Machine Learning Studio titleSuffix verilerinizi silin: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da tarafından depolanan ürün içi verileri dışarı aktarma ve silme işlemi Azure portalından ve kimliği doğrulanmış REST API aracılığıyla da kullanılabilir. Telemetri verilerini Azure gizlilik Portal üzerinden erişilebilir. Bu makalede, nasıl gösterir.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: kavramsal
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 05/25/2018
+title: Dışarı aktarma ve Machine Learning Studio'dan verilerinizi silme
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio'da tarafından depolanan ürün içi verileri dışarı aktarma ve silme işlemi Azure portalından ve kimliği doğrulanmış REST API aracılığıyla da kullanılabilir. Telemetri verilerini Azure gizlilik Portal üzerinden erişilebilir. Bu makalede, nasıl gösterir.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: conceptual
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 05/25/2018
+ms.openlocfilehash: d2276eb11ce904b485440a6ce91981846a980dbc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462197"
 ---
-
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Dışarı aktarma ve Azure Machine Learning Studio'dan ürün içi kullanıcı verilerini sil
 
 Silmeniz veya ürün içi verileri dışa Studio arabirimini, PowerShell, Azure portalı kullanarak Azure Machine Learning Studio'da tarafından depolanan ve kimliği doğrulanmış REST API'leri. Bu makalede nasıl yapılacağı açıklanmaktadır. 

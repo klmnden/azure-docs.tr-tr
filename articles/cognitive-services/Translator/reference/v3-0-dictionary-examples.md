@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b12b9d56f42911da606e3bdcfedbe3f789d2c4e8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968006"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466946"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Translator metin çevirisi API'si 3.0: Sözlük örnekleri
+# <a name="translator-text-api-30-dictionary-examples"></a>Translator metin çevirisi API'si 3.0: Sözlük Örnekleri
 
 Sözlük terimlerini bağlam içinde nasıl kullanılacağını gösteren örnekler sağlar. Bu işlem dağıtımınızla birlikte kullanılan [sözlük arama](./v3-0-dictionary-lookup.md).
 
@@ -79,7 +79,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
 
   * `Text`: Terim araması belirten bir dize. Bu değeri olmalıdır bir `normalizedText` önceki geri çevirileri alanını [sözlük arama](./v3-0-dictionary-lookup.md) isteği. Değerini olabilir `normalizedSource` alan.
 
-  * `Translation`: Belirten tarafından daha önce döndürülen çevrilmiş metin dizesi [sözlük arama](./v3-0-dictionary-lookup.md) işlemi. Bu değeri olmalıdır `normalizedTarget` alanındaki `translations` listesi [sözlük arama](./v3-0-dictionary-lookup.md) yanıt. Hizmet örnekleri için belirli kaynak-hedef sözcük çiftini döndürür.
+  * `Translation`: Daha önce döndürülen çevrilmiş metin belirten bir dize [sözlük arama](./v3-0-dictionary-lookup.md) işlemi. Bu değeri olmalıdır `normalizedTarget` alanındaki `translations` listesi [sözlük arama](./v3-0-dictionary-lookup.md) yanıt. Hizmet örnekleri için belirli kaynak-hedef sözcük çiftini döndürür.
 
 Bir örnek verilmiştir:
 
@@ -100,21 +100,21 @@ Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile 
 
   * `normalizedSource`: Kaynak terim normalleştirilmiş şeklinde veren bir dize. Genellikle, bu değeri olarak aynı olmalıdır `Text` isteğin gövdesindeki eşleşen liste dizinindeki alan.
     
-  * `normalizedTarget`: Normalleştirilmiş formun hedef döneminin vererek bir dize. Genellikle, bu değeri olarak aynı olmalıdır `Translation` isteğin gövdesindeki eşleşen liste dizinindeki alan.
+  * `normalizedTarget`: Normalleştirilmiş formun hedef döneminin veren bir dize. Genellikle, bu değeri olarak aynı olmalıdır `Translation` isteğin gövdesindeki eşleşen liste dizinindeki alan.
   
-  * `examples`:, (Kaynak terim için hedef terim) örneklerinin listesi çifti. Listedeki her öğe, aşağıdaki özelliklere sahip bir nesnedir:
+  * `examples`: Örnekler (kaynak terim için hedef terim) listesini çifti. Listedeki her öğe, aşağıdaki özelliklere sahip bir nesnedir:
 
-    * `sourcePrefix`: Birleştirilecek dize _önce_ değerini `sourceTerm` tam bir örnek oluşturmak için. Olmalıydı zaten var olduğundan, bir boşluk karakteri eklemeyin. Bu değer, boş bir dize olabilir.
+    * `sourcePrefix`: Dize birleştirme _önce_ değerini `sourceTerm` tam bir örnek oluşturmak için. Olmalıydı zaten var olduğundan, bir boşluk karakteri eklemeyin. Bu değer, boş bir dize olabilir.
 
-    * `sourceTerm`: Gerçek terimi eşit bir dizeyi aranabilir. Dize ile eklenen `sourcePrefix` ve `sourceSuffix` tam bir örnek oluşturmak için. Değeri, kullanıcı arabiriminde, örneğin kalın işaretlenebilir şekilde ayrılır.
+    * `sourceTerm`: Gerçek terimi dizesi eşit aranabilir. Dize ile eklenen `sourcePrefix` ve `sourceSuffix` tam bir örnek oluşturmak için. Değeri, kullanıcı arabiriminde, örneğin kalın işaretlenebilir şekilde ayrılır.
 
-    * `sourceSuffix`: Birleştirilecek dize _sonra_ değerini `sourceTerm` tam bir örnek oluşturmak için. Olmalıydı zaten var olduğundan, bir boşluk karakteri eklemeyin. Bu değer, boş bir dize olabilir.
+    * `sourceSuffix`: Dize birleştirme _sonra_ değerini `sourceTerm` tam bir örnek oluşturmak için. Olmalıydı zaten var olduğundan, bir boşluk karakteri eklemeyin. Bu değer, boş bir dize olabilir.
 
-    * `targetPrefix`: Benzer şekilde bir dizeyi `sourcePrefix` ancak hedef.
+    * `targetPrefix`: Benzer bir dize `sourcePrefix` ancak hedef.
 
-    * `targetTerm`: Benzer şekilde bir dizeyi `sourceTerm` ancak hedef.
+    * `targetTerm`: Benzer bir dize `sourceTerm` ancak hedef.
 
-    * `targetSuffix`: Benzer şekilde bir dizeyi `sourceSuffix` ancak hedef.
+    * `targetSuffix`: Benzer bir dize `sourceSuffix` ancak hedef.
 
     > [!NOTE]
     > Sözlükte örnek varsa, yanıt 200 (Tamam). ancak `examples` listesi boş bir listedir.

@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0cf9ffddffe7f97008e69c9c4fb7945faeb779da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138050"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469609"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Senaryoları tanımlama ve gelişmiş analiz verileri işlemeyi planlama
 Hangi kaynakların bir ortamı ayarlama, Gelişmiş analiz bir veri kümesi üzerinde işlem yapmak için ayarlarken içerecek şekilde planlamanız gerekir? Bu makalede bir dizi soru sormak ilgili Yardım için önerdiği görevler ve kaynaklarla ilgili senaryonuzu tanımlama. Tahmine dayalı analiz için üst düzey adımları sırasını açıklandığı [Team Data Science işlem (TDSP) nedir?](overview.md). Bu adımların her biri, özel senaryonuzla ilgili görevler için özel kaynakları gerektirir. Senaryonuzu tanımlama için anahtar soruları veri lojistiğini, özellikleri, veri kümeleri ve araçları ve dilleri analiz yapmak için tercih ettiğiniz kalitesini ilgilendiriyor.
@@ -65,14 +65,14 @@ Bu sorular depolama planlama ve her biri çeşitli veri türleri için uygun ola
    * SQL Server tabloları
 3. **Verilerinizi ne kadar büyük?**
    
-   * Küçük: en az 2 GB
+   * Küçük: En az 2 GB
    * Orta: 2 GB ve boyutu 10 GB'tan büyük
    * Büyük: 10 GB değerinden fazla
 
 Örneğin, Azure Machine Learning Studio'da ortamı uygulayın:
 
 * Veri biçimleri ve Azure Machine Learning Studio tarafından desteklenen türleri listesi için bkz. [veri biçimlerini ve desteklenen veri türleri](../studio/import-data.md#data-formats-and-data-types-supported) bölümü.
-* Azure Machine Learning Studio için data sınırlamaları hakkında daha fazla bilgi için bkz: **ne kadar büyük veri kümesi modüllerim için da olabilir?** bölümünü [alma ve Machine Learning için verileri dışarı aktarma](../studio/faq.md#machine-learning-studio-questions)
+
 
 Analytics işleminde kullanılan diğer Azure Hizmetleri sınırlamaları hakkında daha fazla bilgi için bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../../azure-subscription-service-limits.md).
 
