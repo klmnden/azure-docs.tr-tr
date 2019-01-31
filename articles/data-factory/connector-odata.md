@@ -21,7 +21,7 @@ ms.locfileid: "54018492"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir OData kaynaktan veri kopyalama
 
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-odata-connector.md)
 > * [Geçerli sürüm](connector-odata.md)
 
