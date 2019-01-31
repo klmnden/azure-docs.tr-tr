@@ -167,27 +167,27 @@ SAP BW veri kopyalama işlemi sırasında aşağıdaki eşlemeler SAP BW veri t�
 | SAP BW veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | Dize |
-| CLNT | Dize |
-| PB | Onluk |
-| CUKY | Dize |
-| ARA | Onluk |
-| FLTP | çift |
-| INT1 | Bayt |
+| CHAR | String |
+| CLNT | String |
+| CURR | Decimal |
+| CUKY | String |
+| DEC | Decimal |
+| FLTP | Double |
+| INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| DİL | Dize |
-| LCHR | Dize |
-| LRAW | Bayt] |
+| LANG | String |
+| LCHR | String |
+| LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | Onluk |
-| HAM | Bayt] |
-| RAWSTRING | Bayt] |
-| DİZE | Dize |
-| BİRİM | Dize |
-| DATS | Dize |
-| NUMC | Dize |
-| TIMS | Dize |
+| QUAN | Decimal |
+| RAW | Byte[] |
+| RAWSTRING | Byte[] |
+| STRING | String |
+| UNIT | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
