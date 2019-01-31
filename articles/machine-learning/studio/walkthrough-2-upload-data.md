@@ -1,6 +1,6 @@
 ---
-Başlık: ' 2. adım: Bir Machine Learning Studio denemesine veri yükleme ' titleSuffix: Azure Machine Learning Studio açıklaması: ' Adım 2 / geliştirme Tahmine dayalı çözüm Kılavuzu: Karşıya yükleme, Azure Machine Learning Studio'ya genel veri depolanan.'
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: ' 2. adım: Bir Machine Learning Studio denemesine veri yükleme ' titleSuffix: Azure Machine Learning Studio açıklaması: ' Adım 2 / geliştirme Tahmine dayalı çözüm Kılavuzu: Karşıya yükleme, Azure Machine Learning Studio'ya genel veri depolanan.'
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: garyericson ms.author: garye MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/23/2017
 ---

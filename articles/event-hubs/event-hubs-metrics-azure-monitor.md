@@ -1,5 +1,5 @@
 ---
-title: Azure İzleyici (Önizleme) - Azure Event Hubs ölçümlerde | Microsoft Docs
+title: Azure İzleyici - ölçümler Azure olay hub'ları | Microsoft Docs
 description: Bu makale, Azure Event Hubs'ı izlemek için Azure izleme kullanımı konusunda bilgi sağlar
 services: event-hubs
 documentationcenter: .NET
@@ -15,14 +15,14 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 148071d71030638ddec4095ef2e33482327f3db3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 31aaa24dd6020cb8203e4ab1bfec8ce3e0ffd2b8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537929"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299699"
 ---
-# <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme), Azure Event Hubs ölçümleri
+# <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure İzleyici'de Azure Event Hubs ölçümleri
 
 Olay hub'ları ölçümleri Event Hubs kaynakları Azure aboneliğinizde durumunu sağlar. Ölçüm verileri zengin ile event hubs'ınız değil yalnızca ad alanı düzeyinde, aynı zamanda varlık düzeyinde genel durumunu değerlendirebilirsiniz. Bu istatistikler, olay hub'larınız durumunu izlemek için yardımcı önemli olabilir. Ölçümler, Azure desteğine başvurun gerek kalmadan kök neden sorunlarını da yardımcı olabilir.
 
@@ -40,7 +40,7 @@ Zaman içinde ölçümleri izleyebilirsiniz [Azure portalında](https://portal.a
 
 ![Başarılı ölçümlerini görüntüleme][1]
 
-Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından **ölçümleri (Peview)**. Olay hub'ı kapsamına filtrelenmiş ölçümleri görüntülemek için olay hub'ı seçin ve ardından **ölçümler (Önizleme)**.
+Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından ** ölçümleri **. Olay hub'ı kapsamına filtrelenmiş ölçümleri görüntülemek için olay hub'ı seçin ve ardından **ölçümleri**.
 
 Ölçümleri boyutlarını desteklemek için aşağıdaki örnekte gösterildiği gibi istenen boyut değerine sahip filtre gerekir:
 
@@ -48,7 +48,7 @@ Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapm
 
 ## <a name="billing"></a>Faturalandırma
 
-Ölçümleri kullanarak Azure İzleyici'de önizleme şu an ücretsizdir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Gelişmiş analiz için ölçüm verileri Log analytics'e akış sahipse Azure tarafından ayrıca faturalandırılır.
+Ölçümleri kullanarak Azure İzleyici'de şu anda ücretsiz olarak kullanılabilir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Gelişmiş analiz için ölçüm verileri Log analytics'e akış sahipse Azure tarafından ayrıca faturalandırılır.
 
 Aşağıdaki ölçümler size sistem hizmetinizin genel bakış sunar. 
 

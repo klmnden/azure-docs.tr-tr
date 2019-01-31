@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 663df77a7fb574f05cfaa9378dff53ca5db21c49
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526118"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456145"
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET kullanarak azure depolama örnekleri
 
@@ -25,11 +25,11 @@ Aşağıdaki tabloda örnekleri depomuzda ve her örneğinde kapsanan senaryolar
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Uç Nokta</th><th style="font-size:110%">Senaryo</th><th style="font-size:110%">Örnek Kod</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Ekleme blobu</td> 
+<td>Ekleme Blobu</td> 
 <td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference yöntemi örneği</a></td> 
 </tr> 
 <tr> 
-<td>Blok blobu</td>
+<td>Blok Blobu</td>
 <td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Depolama Fotoğraf Galerisi Web uygulaması</a></td>
 </tr> 
 <tr> 
@@ -73,7 +73,7 @@ Aşağıdaki tabloda örnekleri depomuzda ve her örneğinde kapsanan senaryolar
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">BLOB'ları ile çalışmaya başlama</a></td>
 </tr> 
 <tr> 
-<td>Sayfa blobu</td>
+<td>Sayfa Blobu</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">BLOB'ları ile çalışmaya başlama</a></td>
 </tr>
 <tr> 
@@ -210,5 +210,5 @@ Yükleme ve Azure depolama istemci kitaplıkları ile çalışmaya başlama konu
 
 Diğer diller için örnekleri hakkında daha fazla bilgi için:
 
-* Java: [Java kullanan Azure depolama örnekleri](storage-samples-java.md)
-* Diğer tüm diller: [Azure depolama örnekleri](../storage-samples.md)
+* Java: [Java kullanan Azure Depolama örnekleri](storage-samples-java.md)
+* Tüm diğer diller için: [Azure depolama örnekleri](../storage-samples.md)

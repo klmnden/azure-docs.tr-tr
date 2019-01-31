@@ -1,6 +1,6 @@
 ---
-Başlık: Azure Batch hizmeti için Machine Learning Studio işleri titleSuffix: Azure Machine Learning Studio açıklaması: Machine Learning işler için Azure Batch hizmetlerine genel bakış. Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Azure Batch hizmeti için Machine Learning Studio işleri titleSuffix: Azure Machine Learning Studio açıklaması: Machine Learning işler için Azure Batch hizmetlerine genel bakış. Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: seodec18, önceki başlık =' ayrılmış kapasitesini toplu yürütme hizmeti işlerin - Azure Machine Learning Studio | Microsoft Docs' ms.date: 04/19/2017
 ---

@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e63dd0a6feaedf95bb4845a3c5eded89e6585e36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318852"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463506"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Temmuz 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Temmuz 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -24,11 +24,11 @@ Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Temm
 [Azure SQL veri ambarı](https://aka.ms/sqldw) karıştırma işlemlerinin artıran anında veri erişim sunulmasıyla birlikte, yeni performans kıyaslamaları ayarlar. Hızlı veri erişimi, doğrudan SQL Server için SQL Server yerel veri işlemleri kullanarak veri taşıma işlemleri için ek yükü azaltır. SQL veri ambarı artık, doğrudan veri taşıma için SQL Server altyapısı ile tümleştirme anlamına gelir **%67 Amazon Redshift daha hızlı** standart iyi tanınan sektörden türetilmiş bir iş yükünü kullanarak [TPC Y (TPC-H) benchmark™](http://www.tpc.org/tpch/).
 
 ![Azure SQL veri ambarı, daha hızlı ve ucuz Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
-<sub>kaynak: [Gigaom araştırma analisti raporunu: veri ambarı'nda bulut Kıyaslama](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+<sub>kaynağı: [Gigaom araştırma analisti raporu: Veri ambarı'nda bulut Kıyaslama](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
 Çalışma zamanı performansını ötesinde [Gigaom araştırma](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) rapor, belirli iş yüklerinin ABD Doları maliyet ölçmek için fiyat-performans oranı de ölçülür. SQL veri ambarı olan **en az yüzde 23 ucuz** Redshift 30 TB iş yükleri için daha. Yalnızca hizmet kullanımda olduğunda işlem elastik olarak ölçeklendirmenize yanı sıra duraklatma ve sürdürme iş yükleri için SQL veri ambarı'nın özelliği sayesinde, daha fazla maliyetlerini düşüren, müşterilerin ödeme yaparsınız.
 ![Azure SQL veri ambarı, daha hızlı ve ucuz Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
-<sub>kaynak: [Gigaom araştırma analisti raporunu: veri ambarı'nda bulut Kıyaslama](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+<sub>kaynağı: [Gigaom araştırma analisti raporu: Veri ambarı'nda bulut Kıyaslama](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
 ### <a name="query-concurrency"></a>Sorgu eşzamanlılık
 SQL veri ambarı Ayrıca, veri, kuruluşlar arasında erişilebilir olmasını sağlar. Microsoft, böylece daha fazla kullanıcı aynı veritabanını sorgulama yapabilirsiniz ve diğer istekleri tarafından engellenmiş değil 128 eş zamanlı sorguları desteklemek için hizmet geliştirdi. Buna karşılık, Amazon Redshift en fazla eş zamanlı sorguları 50'ye kuruluş içindeki veri erişimi sınırlandırma kısıtlar.

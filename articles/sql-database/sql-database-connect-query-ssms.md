@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 01/25/2019
+ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150759"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461755"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: Bağlanmak ve bir Azure SQL veritabanı sorgulamak için SQL Server Management Studio'yu kullanın.
 
@@ -30,7 +30,9 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-#### <a name="install-the-latest-ssms"></a>En son SSMS’yi yükleyin
+* Yapılandırılmış sunucu düzeyinde güvenlik duvarı kuralı. Daha fazla bilgi için [sunucu düzeyinde güvenlik duvarı kuralı oluşturma](sql-database-get-started-portal-firewall.md).
+
+## <a name="install-the-latest-ssms"></a>En son SSMS’yi yükleyin
 
 Başlamadan önce en son yüklediğinizden emin olun [SSMS][ssms-install-latest-84g]. 
 
@@ -43,7 +45,7 @@ Başlamadan önce en son yüklediğinizden emin olun [SSMS][ssms-install-latest-
 SMSS Azure SQL veritabanı sunucunuza bağlanın. 
 
 > [!IMPORTANT]
-> Azure SQL Veritabanı mantıksal sunucusu 1433 numaralı bağlantı noktasında dinler. Kurumsal bir güvenlik duvarının korumasında mantıksal sunucusuna bağlanmak için güvenlik duvarının Bu bağlantı noktası açık olması gerekir.
+> Azure SQL veritabanı sunucusu 1433 numaralı bağlantı noktasını dinler. Kurumsal bir güvenlik duvarının arkasından bir SQL veritabanı sunucusuna bağlanmak için güvenlik duvarının Bu bağlantı noktası açık olması gerekir.
 >
 
 1. SSMS’i açın. **Sunucuya Bağlan** iletişim kutusu görüntülenir.

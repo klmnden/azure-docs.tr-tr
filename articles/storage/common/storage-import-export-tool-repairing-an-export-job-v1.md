@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ef5a5f81c5eb3994f62469139c6e835bd802eaa9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 395ff654bcacf1a4f70a9032492deb2a9d5202f3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522732"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454768"
 ---
 # <a name="repairing-an-export-job"></a>Bir dışarı aktarma işini onarma
 Dışarı aktarma işi tamamlandıktan sonra Microsoft Azure içeri/dışarı aktarma aracı şirket içine çalıştırabilirsiniz:  
@@ -35,10 +35,10 @@ Aşağıdaki parametreler ile belirtilen **RepairExport**:
 |**/ r: < RepairFile\>**|Gereklidir. Bu onarım ilerlemesini izler ve kesintiye uğramış bir onarım devam etmek için Onar dosyasının yolu. Her sürücü bir ve yalnızca bir onarım dosyası olması gerekir. Belirli bir sürücü için onarım başlattığınızda, henüz mevcut olmayan bir onarım dosya yolunda geçer. Kesintiye uğramış bir onarım devam etmek için var olan bir onarım dosya adını geçmelidir. Hedef sürücüye karşılık gelen onarım dosyasını her zaman belirtilmesi gerekir.|  
 |**/ LOGDIR: < LogDirectory\>**|İsteğe bağlı. Günlük dizini. Ayrıntılı günlük dosyası bu dizine yazılır. Hiçbir günlük dizini belirtilmezse, geçerli dizin günlük dizini kullanılır.|  
 |**/ d: < TargetDirectory\>**|Gereklidir. Doğrulama ve onarma dizin. Dışarı aktarma sürücünün kök dizininde genellikle budur ancak bir ağ dosya paylaşımına dışa aktarılan dosyaların bir kopyasını da içeren.|  
-|**/BK: < BitLockerKey\>**|İsteğe bağlı. Bir şifrelenmiş dışa aktarılan dosyaların depolandığı kilidini açmak için araç istiyorsanız BitLocker anahtarı belirtmeniz gerekir.|  
+|**/bk:<BitLockerKey\>**|İsteğe bağlı. Bir şifrelenmiş dışa aktarılan dosyaların depolandığı kilidini açmak için araç istiyorsanız BitLocker anahtarı belirtmeniz gerekir.|  
 |**/sn: < StorageAccountName\>**|Gereklidir. Dışarı aktarma işi için depolama hesabı adı.|  
-|**/SK: < StorageAccountKey\>**|**Gerekli** kapsayıcı SAS belirtilmedi ve yalnızca. Dışarı aktarma işi için depolama hesabı için hesap anahtarı.|  
-|**/csas: < ContainerSas\>**|**Gerekli** depolama hesap anahtarı belirtilmedi ve yalnızca. Dışarı aktarma işi ile ilişkili bloblara erişmek için kapsayıcı SAS.|  
+|**/sk:<StorageAccountKey\>**|**Gerekli** kapsayıcı SAS belirtilmedi ve yalnızca. Dışarı aktarma işi için depolama hesabı için hesap anahtarı.|  
+|**/csas:<ContainerSas\>**|**Gerekli** depolama hesap anahtarı belirtilmedi ve yalnızca. Dışarı aktarma işi ile ilişkili bloblara erişmek için kapsayıcı SAS.|  
 |**/ CopyLogFile: < DriveCopyLogFile\>**|Gereklidir. Sürücüyü Kopyala günlük dosyası yolu. Dosya Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve iş ile ilişkili blob depolamadan indirebilirsiniz. Kopyalama günlük dosyası başarısız bloblar ya da onarılması dosyaları hakkında bilgi içerir.|  
 |**/ Manıfestfıle: < DriveManifestFile\>**|İsteğe bağlı. Dışarı aktarma sürücünün bildirim dosyasının yolu. Bu dosya Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve dışarı aktarma sürücüsünde ve isteğe bağlı olarak işle ilişkili depolama hesabındaki bir blob içinde depolanan.<br /><br /> Dosyaları dışarı aktarma sürücüde içeriğini, bu dosyada bulunan MD5 karmaları ile doğrulanır. Bozulmuş belirlenen dosyaları indirilir ve hedef dizinler yeniden.|  
   

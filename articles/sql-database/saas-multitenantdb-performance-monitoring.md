@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 01/25/2019
+ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830014"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458134"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Çok kiracılı SaaS uygulamasında parçalı çok kiracılı Azure SQL veritabanının performansını izleyin ve yönetin
 
@@ -161,7 +161,7 @@ Yeni bir kiracı kendi veritabanında zaten sağlanmış, sonraki birkaç adım�
 
 Betik bu kiracıya ayrı bir veritabanı sağlama, veritabanı ve Kiracı kataloğa kaydetmek ve ardından kiracının olayları sayfası tarayıcıda açın. Olay hub'ı sayfayı yenileyin ve "Salix Salsa" bir mekan eklenmiş olan görürsünüz.
 
-## <a name="manage-performance-of-a-single-database"></a>Tek bir veritabanının performansını yönetme
+## <a name="manage-performance-of-an-individual-database"></a>Tek veritabanı performansını yönetme
 
 Tek bir kiracı içinde bir çok kiracılı veritabanı sürekli yüksek bir yük karşılaşırsa, veritabanı kaynaklarının baskındır ve diğer kiracılar aynı veritabanında etkisi eğilimli olabilir. Etkinlik için bir süre devam etme olasılığı ise, Kiracı geçici veritabanı dışına ve kendi tek kiracılı veritabanına taşınabilir. Bu, Kiracı ek kaynaklara ihtiyaç duyar ve tam olarak, diğer kiracılardan ayırır sahip sağlar.
 

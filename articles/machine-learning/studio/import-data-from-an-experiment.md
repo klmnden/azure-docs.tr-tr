@@ -1,6 +1,6 @@
 ---
-Başlık: Başka bir deneme titleSuffix Machine Learning Studio'ya veri alma: Azure Machine Learning Studio açıklaması: Nasıl Azure Machine Learning Studio'da eğitim verilerini kaydetmek ve başka bir deneme kullanın.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Başka bir deneme titleSuffix Machine Learning Studio'ya veri alma: Azure Machine Learning Studio açıklaması: Nasıl Azure Machine Learning Studio'da eğitim verilerini kaydetmek ve başka bir deneme kullanın.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=deguhath, yazar önceki = deguhath ms.date: 03/20/2017
 ---

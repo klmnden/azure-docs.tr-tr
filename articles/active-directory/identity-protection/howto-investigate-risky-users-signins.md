@@ -9,21 +9,21 @@ manager: mtillman
 ms.author: markvi
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.date: 01/25/2019
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.reviewer: raluthra
-ms.openlocfilehash: 25482d9cfc634b63b05e944cf7ca91f90b24f5f1
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: f72819bacd7c65ced7ccff3665789d3b96c5e30f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914087"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478381"
 ---
-# <a name="how-to-investigate-risky-users-and-sign-ins"></a>Nasıl Yapılır: Riskli kullanıcılar ve oturum açma işlemleri araştırın 
+# <a name="how-to-investigate-risky-users-and-sign-ins"></a>Nasıl Yapılır: Riskli kullanıcıları ve oturum açma işlemlerini araştırma 
 
 
 Riskli oturum açma işlemleri ve riskli kullanıcılar raporları kullanarak araştırın ve ortamınızda risk öngörü. Filtreleme ve kullanıcıların ve riskli oturum açma işlemleri sıralama olanağı, olası yetkisiz erişim kuruluşunuza daha iyi anlayabilirsiniz. 
@@ -55,7 +55,7 @@ Riskli kullanıcılar raporu aşağıdakileri gösteren bir varsayılan görün�
 
 - Riskin son güncelleştirilmesi
 
-- Tür
+- Type
 
 - Durum
  
@@ -112,7 +112,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 
 - Risk düzeyi
 
-- Tür
+- Type
 
 - Durum
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531655"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476205"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Depolama REST API’sini kullanma
 
@@ -58,13 +58,13 @@ REST kullanma bilmek yararlı bir yetenektir. Azure ürün ekibine sık yeni öz
 
 Bakarsanız [Blob hizmeti REST API'si](/rest/api/storageservices/Blob-Service-REST-API), tüm blob depolama alanında gerçekleştirebileceğiniz işlemler. Depolama istemci kitaplıkları vardır ve REST API'ler etrafında sarmalayıcıları – bunlar sizin için erişim depolama için doğrudan REST API'lerini kullanarak olmadan kolaylaştırır. Ancak, yukarıda belirtildiği gibi bazen REST API depolama istemci kitaplığı yerine kullanmak istediğiniz.
 
-## <a name="rest-api-reference-list-containers-api"></a>REST API Başvurusu: Liste kapsayıcıları API
+## <a name="rest-api-reference-list-containers-api"></a>REST API Başvurusu: Kapsayıcıları API listesi
 
 Sayfa için REST API başvurusundaki göz atalım [ListContainers](/rest/api/storageservices/List-Containers2) nereden bazı alanlar istek ve yanıt kodu ile bir sonraki bölümde geldiğini anlamak için işlemi.
 
-**İstek yöntemi**: alın. Bu fiili bir istek nesnesi özelliği olarak belirttiğiniz HTTP yöntemidir. Bu eylem için diğer değerler, HEAD, PUT ve DELETE, aradığınız API bağlı olarak içerir.
+**İstek yöntemi**: AL. Bu fiili bir istek nesnesi özelliği olarak belirttiğiniz HTTP yöntemidir. Bu eylem için diğer değerler, HEAD, PUT ve DELETE, aradığınız API bağlı olarak içerir.
 
-**İstek URI'si**: https://myaccount.blob.core.windows.net/?comp=list blob depolama hesabı uç noktasından oluşturulmuş `http://myaccount.blob.core.windows.net` ve kaynak dizesi `/?comp=list`.
+**İstek URI'si**: https://myaccount.blob.core.windows.net/?comp=list  Bu blob depolama hesabı uç noktasından oluşturulmuş `http://myaccount.blob.core.windows.net` ve kaynak dizesi `/?comp=list`.
 
 [URI parametreleri](/rest/api/storageservices/List-Containers2#uri-parameters): ListContainers çağırırken kullanabileceğiniz ek sorgu parametreleri vardır. Birkaç bu parametreleri olan *zaman aşımı* çağrısı (saniye cinsinden) için ve *önek*, filtreleme için kullanılır.
 
@@ -76,15 +76,15 @@ Ek parametreler kullanmak için şu örnekteki gibi bir değeri ile kaynak dizes
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[İstek üst](/rest/api/storageservices/List-Containers2#request-headers)**:** bu bölümü gerekli ve isteğe bağlı bir istek üst bilgilerini listeler. Üç üst bilgiler gereklidir: bir *yetkilendirme* başlık *x-ms-date* (içeriyor. istek için UTC saati), ve *x-ms-version* (REST sürümünü belirtir API) kullanın. Dahil olmak üzere *x-ms-istemci-request-id* üst için herhangi bir şey bu alan için değer ayarlayabilirsiniz; günlüğe kaydetme etkinleştirilmişse depolama analizi günlüklere yazılır isteğe bağlı – bilgilerindedir.
+[İstek üst bilgileri](/rest/api/storageservices/List-Containers2#request-headers)**:** Bu bölümde, gerekli ve isteğe bağlı bir istek üst bilgilerini listeler. Üç üst bilgiler gereklidir: bir *yetkilendirme* başlık *x-ms-date* (içeriyor. istek için UTC saati), ve *x-ms-version* (REST sürümünü belirtir API) kullanın. Dahil olmak üzere *x-ms-istemci-request-id* üst için herhangi bir şey bu alan için değer ayarlayabilirsiniz; günlüğe kaydetme etkinleştirilmişse depolama analizi günlüklere yazılır isteğe bağlı – bilgilerindedir.
 
-[İstek gövdesi](/rest/api/storageservices/List-Containers2#request-body)**:** ListContainers için hiçbir istek gövdesi yok. İstek gövdesi tüm PUT işlemleri uygulamak için bir XML saklı erişim ilkeleri listesinde göndermenize olanak tanıyan SetContainerAccessPolicy yanı sıra, BLOB'ları karşıya yüklenirken kullanılır. Saklı erişim ilkeleri makalesinde açıklanan [paylaşılan erişim imzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
+[İstek gövdesi](/rest/api/storageservices/List-Containers2#request-body)**:** Hiçbir istek gövdesi için ListContainers yoktur. İstek gövdesi tüm PUT işlemleri uygulamak için bir XML saklı erişim ilkeleri listesinde göndermenize olanak tanıyan SetContainerAccessPolicy yanı sıra, BLOB'ları karşıya yüklenirken kullanılır. Saklı erişim ilkeleri makalesinde açıklanan [paylaşılan erişim imzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
-[Yanıt durum kodu](/rest/api/storageservices/List-Containers2#status-code)**:** Tells bilmeniz gereken herhangi bir durum kodu. Bu örnekte, bir HTTP durum kodu 200 Tamam. HTTP durum kodlarının tam bir listesi için kullanıma [durum kodu tanımları](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Depolama REST API'leri için belirli hata kodlarını görmek için bkz: [ortak REST API hata kodları](/rest/api/storageservices/common-rest-api-error-codes)
+[Yanıt durum kodu](/rest/api/storageservices/List-Containers2#status-code)**:** Bilmeniz gereken herhangi bir durum kodları söyler. Bu örnekte, bir HTTP durum kodu 200 Tamam. HTTP durum kodlarının tam bir listesi için kullanıma [durum kodu tanımları](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Depolama REST API'leri için belirli hata kodlarını görmek için bkz: [ortak REST API hata kodları](/rest/api/storageservices/common-rest-api-error-codes)
 
-[Yanıt üstbilgileri](/rest/api/storageservices/List-Containers2#response-headers)**:** bunlar *içerik türü*; *x-ms-request-id* (istek kimliği, varsa geçirilen); *x-ms-version* (kullanılan Blob hizmetinin sürümü gösterir) ve *tarih* (UTC, isteğin ne zaman yapıldığını belirtir).
+[Yanıt üstbilgileri](/rest/api/storageservices/List-Containers2#response-headers)**:** Bunlar *içerik türü*; *x-ms-request-id* (istek kimliği, varsa geçirilen); *x-ms-version* (kullanılan Blob hizmetinin sürümü gösterir) ve *tarih* (UTC, isteğin ne zaman yapıldığını belirtir).
 
-[Yanıt gövdesi](/rest/api/storageservices/List-Containers2#response-body): Bu alan istenen veri sağlayan bir XML yapısıdır. Bu örnekte, yanıtı kapsayıcıları ve onların özelliklerini listesidir.
+[Yanıt gövdesi](/rest/api/storageservices/List-Containers2#response-body): Bu alan, istenen veri sağlayan bir XML yapısıdır. Bu örnekte, yanıtı kapsayıcıları ve onların özelliklerini listesidir.
 
 ## <a name="creating-the-rest-request"></a>REST isteği oluşturma
 
@@ -204,7 +204,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**Yanıt gövdesi (XML):** için ListContainers'ı tıklatın, bu gösterir kapsayıcılar ve özelliklerinin listesi.
+**Yanıt gövdesi (XML):** ListContainers için bu kapsayıcıları ve özelliklerinin listesini gösterir.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -283,24 +283,24 @@ Bu kod parçacığı, paylaşılan anahtar imzası dizesi biçimi göstermektedi
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 Bu alanların çoğu nadiren kullanılır. BLOB Depolama için FİİLİ, md5, içerik uzunluğu, kurallı üst bilgileri ve kurallı bir kaynak belirtin. Diğerleri boş bırakabilirsiniz (ancak, put `\n` boş oldukları bilmesi için).
 
-CanonicalizedHeaders ve CanonicalizedResource nedir? İyi soru. Aslında, ne yaptığını ortalama kurallı? Microsoft Word bile, bir sözcük tanımaz. İşte [Wikipedia belirten standart hale getirme hakkında](http://en.wikipedia.org/wiki/Canonicalization): *bilgisayar biliminde standart hale getirme (bazen Standardizasyon veya normalleştirme), birden fazla mümkün olan verileri dönüştürmek için bir işlemdir "standart", "normal" veya kurallı forma gösterimi.* Buna normal konuşurken, (örneğin, üstbilgiler kurallı üst bilgileri söz konusu olduğunda) öğelerinin listesini alabilir ve bunları gerekli bir biçime standart hale getirmek bu anlamına gelir. Temel olarak, Microsoft karar biçimi ve onunla eşleşecek şekilde gerekir.
+CanonicalizedHeaders ve CanonicalizedResource nedir? İyi soru. Aslında, ne yaptığını ortalama kurallı? Microsoft Word bile, bir sözcük tanımaz. İşte [Wikipedia belirten standart hale getirme hakkında](http://en.wikipedia.org/wiki/Canonicalization): *Bilgisayar biliminde standart hale getirme (bazen Standardizasyon veya normalleştirme), "standart", "normal" veya kurallı bir form birden fazla olası gösterimine sahip verileri dönüştürmek için bir işlemdir.* Buna normal konuşurken, (örneğin, üstbilgiler kurallı üst bilgileri söz konusu olduğunda) öğelerinin listesini alabilir ve bunları gerekli bir biçime standart hale getirmek bu anlamına gelir. Temel olarak, Microsoft karar biçimi ve onunla eşleşecek şekilde gerekir.
 
 Yetkilendirme üst bilgisi oluşturmak için gerekli olduğundan bu iki Kurallaştırılan alanları ile başlayalım.
 
@@ -512,7 +512,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Yanıt gövdesi (XML):** bu XML yanıtı, blobları ve özelliklerinin listesini gösterir. 
+**Yanıt gövdesi (XML):** Bu XML yanıtı, blobları ve özelliklerinin listesini gösterir. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

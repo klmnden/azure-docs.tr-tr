@@ -2,20 +2,20 @@
 title: Azure SQL veri ambarı için kimlik doğrulaması | Microsoft Docs
 description: Azure SQL veri ambarı'na, Azure Active Directory (AAD) veya SQL Server kimlik doğrulamasını kullanarak kimlik doğrulaması yapmayı öğrenin.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/12/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d082ba8bd2819450609a8a6e4ab41b4320158d4b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f26ded5fae1bde5b2e6485ae2a2f99eebb17563
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307832"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463337"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için kimlik doğrulaması
 Azure SQL veri ambarı'na, Azure Active Directory (AAD) veya SQL Server kimlik doğrulamasını kullanarak kimlik doğrulaması yapmayı öğrenin.
@@ -67,7 +67,7 @@ Azure Active Directory avantajları şunlardır:
 Azure Active Directory kimlik doğrulamasını yapılandırmak için aşağıdaki adımları izleyin.
 
 1. Oluşturma ve Azure Active Directory doldurma
-2. İsteğe bağlı: İlişkilendirmek veya şu anda Azure aboneliğinizle ilişkili olan active directory değiştirme
+2. İsteğe bağlı: İlişkilendirme veya şu anda Azure aboneliğinizle ilişkili olan active directory değiştirme
 3. Azure SQL veri ambarı için Azure Active Directory Yöneticisi oluşturun.
 4. İstemci bilgisayarlarınızın yapılandırın
 5. Azure AD kimlikleri için eşlenmiş veritabanında bağımsız veritabanı kullanıcılarını oluşturun.

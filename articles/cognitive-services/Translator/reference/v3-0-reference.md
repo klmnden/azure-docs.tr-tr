@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870412"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459103"
 ---
 # <a name="translator-text-api-v30"></a>Translator metin çevirisi API'si v3.0
 
@@ -44,9 +44,9 @@ Belirli bir veri merkezi tarafından işlenmek üzere istek zorlamak için isten
 |Açıklama|Bölge|Temel URL|
 |:--|:--|:--|
 |Azure|Genel|  api.cognitive.microsofttranslator.com|
-|Azure|Kuzey Amerika|   API nam.cognitive.microsofttranslator.com|
-|Azure|Avrupa|  API eur.cognitive.microsofttranslator.com|
-|Azure|Asya Pasifik|    API apc.cognitive.microsofttranslator.com|
+|Azure|Kuzey Amerika|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Avrupa|  api-eur.cognitive.microsofttranslator.com|
+|Azure|Asya Pasifik|    api-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
@@ -109,9 +109,9 @@ Bölge için hepsi bir arada Text API aboneliği gereklidir.
 
 Standart hata yanıtı ile ad/değer çifti adlı bir JSON nesnesidir `error`. Ayrıca özelliklere sahip bir JSON nesnesi değerdir:
 
-  * `code`Server tanımlı hata kodu.
+  * `code`: Bir sunucu tanımlı hata kodu.
 
-  * `message`: Hata kullanıcı tarafından okunabilen bir gösterimini sağlar bir dize.
+  * `message`: Hata insanlar tarafından okunabilen bir temsilini veren bir dize.
 
 Örneğin, ücretsiz kotayı bitti sonra ücretsiz deneme aboneliği olan bir müşteri aşağıdaki hatayı alırsınız:
 
@@ -160,7 +160,7 @@ Standart hata yanıtı ile ad/değer çifti adlı bir JSON nesnesidir `error`. A
 | 405000| İstenen kaynak için istek yöntemi desteklenmiyor.|
 | 408001| İstenen özel çeviri sistemi henüz kullanılamıyor. Lütfen birkaç dakika sonra yeniden deneyin.|
 | 415000| Content-Type üst bilgisi eksik veya geçersiz.|
-| 429000, 429001 429002| İstemci çok fazla istek gönderdiği için sunucu isteği reddetti. Azaltmayı önlemek için istekleri sıklığını azaltın.|
+| 429000, 429001, 429002| İstemci çok fazla istek gönderdiği için sunucu isteği reddetti. Azaltmayı önlemek için istekleri sıklığını azaltın.|
 | 500000| Beklenmeyen bir hata oluştu. Hata devam ederse, hatanın tarih/saat ile rapor istek tanımlayıcısı yanıt üst bilgisi X-RequestId ve istek üst bilgisi X-ClientTraceId alınan istemci tanımlayıcısı.|
 | 503000| Hizmet geçici olarak kullanılamıyor. Lütfen yeniden deneyin. Hata devam ederse, hatanın tarih/saat ile rapor istek tanımlayıcısı yanıt üst bilgisi X-RequestId ve istek üst bilgisi X-ClientTraceId alınan istemci tanımlayıcısı.|
 

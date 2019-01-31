@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: fd2d9bd325d79a1fd8aa0da74da64f6ba98decda
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bd1ffcfd915fe9ece683ec88d27f54b3a9214621
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101065"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475695"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight kümeleri (Önizleme) otomatik olarak ölçeklendirme
 
@@ -27,17 +27,17 @@ Azure HDInsight'ın küme otomatik ölçeklendirme özelliği yukarı ve aşağ�
 > [!Note]
 > Otomatik ölçeklendirme şu anda yalnızca Azure HDInsight Hive, MapReduce ve Spark kümeleri için sürümü 3.6 desteklenir.
 
-Azure portalını kullanarak HDInsight kümesi oluşturma adımları tamamlama bulunabilir [Azure portalını kullanarak HDInsight oluşturma Linux tabanlı kümelerde](hdinsight-hadoop-create-linux-clusters-portal.md).  Oluşturma işlemi sırasında otomatik ölçeklendirmeyi etkinleştirme birkaç sapmalar normal yükleme adımlarını gerektirir.  
+Otomatik ölçeklendirme özelliği etkinleştirmek için normal bir küme oluşturma işleminin bir parçası olarak aşağıdakileri yapın:
 
 1. Seçin **özel (boyut, ayarları, uygulamalar)** yerine **hızlı oluşturma**.
-2. Özel üzerinde 5. adım **küme boyutu**, kontrol **çalışan düğümü otomatik ölçeklendirme** onay kutusu.
+2. Üzerinde **özel** 5. adım (**küme boyutu**) denetleyin **çalışan düğümü otomatik ölçeklendirme** onay kutusu.
 3. İstenen değerleri girin:  
-  &#8226;İlk **numarası, çalışan düğümleri**.  
-  &#8226;**Minimum** çalışan düğümü sayısı.  
-  &#8226;**Maksimum** çalışan düğümü sayısı.  
+
+    * İlk **numarası, çalışan düğümleri**.  
+    * **En az** çalışan düğümü sayısı.  
+    * **En fazla** çalışan düğümü sayısı.  
 
 ![Çalışan düğümü otomatik ölçeklendirme seçeneğini etkinleştirin](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
-
 
 İlk alt düğüm sayısını, minimum ve maksimum, kapsamlı arasında olması gerekir. Oluşturulduğunda kümenin ilk boyutu bu değer tanımlar. Çalışan düğüm sayısı alt sınırı 0'dan büyük olmalıdır.
 
@@ -48,9 +48,11 @@ Aboneliğiniz, her bölge için bir kapasite kotası vardır. Kapasite kota topl
 > [!Note]  
 > Toplam çekirdek kota sınırını aşarsanız, 'en fazla düğüm bu bölgede kullanılabilir çekirdek sayısı aşıldı, Lütfen başka bir bölge seçin veya Kotayı artırmak için desteğe başvurun.' belirten bir hata iletisi alırsınız.
 
+Azure portalını kullanarak HDInsight küme oluşturma hakkında daha fazla bilgi için bkz. [Azure portalını kullanarak HDInsight oluşturma Linux tabanlı kümelerde](hdinsight-hadoop-create-linux-clusters-portal.md).  
+
 ### <a name="create-a-cluster-with-a-resource-manager-template"></a>Resource Manager şablonu ile küme oluşturma
 
-Resource Manager şablonlarını kullanarak HDInsight kümesi oluşturma adımları tamamlama bulunabilir [Apache Hadoop kümeleri oluşturma HDInsight Resource Manager şablonları kullanarak](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  Bir Azure Resource Manager şablonu ile bir HDInsight kümesi oluşturduğunuzda, aşağıdaki ayarları "computeProfile" "workernode" bölümünde eklemek ve buna göre düzenleyin gerekir:
+Bir Azure Resource Manager şablonu ile bir HDInsight kümesi oluşturmak için bir `autoscale` düğüme `computeProfile`  >  `workernode` özelliklerini bölümle `minInstanceCount` ve `maxInstanceCount` json aşağıdaki kod parçacığında gösterildiği gibi.
 
 ```json
 {                            
@@ -73,6 +75,8 @@ Resource Manager şablonlarını kullanarak HDInsight kümesi oluşturma adımla
     "scriptActions": []
 }
 ```
+
+Resource Manager şablonları ile oluşturma hakkında daha fazla bilgi kümeleri için bkz: [Apache Hadoop kümeleri oluşturma HDInsight Resource Manager şablonları kullanarak](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Etkinleştirme ve otomatik ölçeklendirme, çalışan bir küme için devre dışı
 
@@ -106,7 +110,7 @@ Aşağıdaki koşullar tespit edildiğinde, otomatik ölçeklendirme isteği öl
 * Toplam CPU bekleyen 1 dakikadan fazla bir süre için toplam boş CPU büyüktür.
 * Toplam bellek bekleyen 1 dakikadan fazla bir süre için toplam boş belleğin büyüktür.
 
-N yeni çalışan düğümlerindeki geçerli CPU ve bellek gereksinimlerini karşılamak ve ardından N yeni çalışan düğümlerindeki isteyerek ölçeği isteği vermek için gerekli olup olmadığını hesaplama yapar.
+Belirli bir sayıda yeni çalışan düğümlerindeki geçerli CPU ve bellek gereksinimlerini karşılamak ve ardından bu yeni çalışan düğüm sayısı ekler isteği ölçeği vermek için gerekli olup olmadığını hesaplama yapar.
 
 ### <a name="cluster-scale-down"></a>Küme ölçeği azaltma
 
@@ -115,7 +119,7 @@ Aşağıdaki koşullar tespit edildiğinde, otomatik ölçeklendirme isteği aş
 * Toplam CPU bekleyen toplam boş CPU 10 dakikadan daha küçüktür.
 * Toplam bellek bekleyen toplam boş belleğin 10 dakikadan daha küçüktür.
 
-Geçerli CPU ve bellek gereksinimlerini yanı sıra, düğüm başına AM kapsayıcıların sayısına bağlı olarak, otomatik ölçeklendirme hangi düğümleri kaldırma için potansiyel adaylar belirten N düğümleri kaldırma isteği göndereceksiniz. Varsayılan olarak, iki düğüm bir döngüsü içinde kaldırılacak.
+Geçerli CPU ve bellek gereksinimlerini yanı sıra, düğüm başına AM kapsayıcıların sayısına bağlı olarak, otomatik ölçeklendirme hangi düğümleri kaldırma için potansiyel adaylar belirterek belirli bir sayıda düğüm kaldırılması için istekte verecek. Varsayılan olarak, iki düğüm bir döngüsü içinde kaldırılacak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

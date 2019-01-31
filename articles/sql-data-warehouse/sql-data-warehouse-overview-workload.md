@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c26dfc6f3fd8be28e56c18f0af379130c31aa859
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302175"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463625"
 ---
 # <a name="data-warehouse-workload"></a>Veri ambarı iş yükü
 Veri ambarı iş yükü, bir veri ambarında gerçekleşen tüm işlemleri niteler. Veri ambarına verilerin yüklenmesi, veri ambarıyla ilgili analiz ve raporlama yapılması, veri ambarındaki verilerin yönetilmesi ve veri ambarından verilerin dışarı aktarılması sürecinin tamamı veri ambarı iş yükünün kapsamındadır. Bu bileşenlerin derinliği ve genişliği genellikle veri ambarının olgunluk seviyesi ile orantılıdır.

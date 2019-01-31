@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: a910b0537234d1653be93eb406fe3b2261305ee5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3c1896dc756675b838b97d978cec40b4650760fe
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461986"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298978"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Birleştirilmiş uyarılar ve Azure İzleyici'de izleme Klasik uyarı ve izleme değiştirir.
 
@@ -36,9 +36,9 @@ Yeni birleştirilmiş izleme ve uyarı verme için Application Insights içerir:
 - **Application Insights özel ölçümleri** – olanak sağlayan tanımlama ve izleme ve Uyarılar için kendi ölçümleri göster. Kullanma hakkında daha fazla bilgi için bu makalede bkz [özel ölçüm için Application ınsights'ı yeni Azure İzleyicisi](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Application Insights hata Anomalileri (Akıllı algılama parçası)** –, otomatik olarak bildirir, neredeyse gerçek zamanlı olarak web uygulamanızın olağandışı artışı başarısız HTTP isteklerini veya bağımlılık çağrıları oranını karşılaşırsa. Application Insights hata Anomalileri (Akıllı algılama parçası) yeni Azure İzleyici, bir parçası olarak kullanılabilir olan en kısa sürede ve bunu-önümüzdeki aylarda kullanıma gibi bu belgenin sonraki yineleme bağlantıları ile güncelleştireceğiz.
 
-## <a name="unified-metrics--alerts-for-other-azure-resources"></a>Birleşik Ölçümler ve diğer Azure kaynakları için uyarılar
+## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>Birleşik ölçümleri ve diğer Azure kaynakları için uyarılar
 
-Mart 2018'den itibaren yeni nesil çok boyutlu Azure kaynakları için izleme ve uyarı kullanılabilirlik olmuştur. Şimdi yeni ölçüm platform ve uyarı neredeyse gerçek zamanlı özelliklerle daha hızlı. Daha da önemlisi, yeni platform boyutları, dilim ve filtre belirli değer birleşimi, koşul veya işlem için izin ver seçeneği içerdiğinden daha yeni ölçüm platform uyarılar, daha fazla ayrıntı sağlar. Yeni Azure İzleyici'de tüm uyarılar gibi yeni ölçüm uyarılarının e-posta veya SMS, sesli, Azure işlevi, Otomasyon Runbook'u ve daha fazla Web kancası ötesine genişletmek bildirimleri verme ActionGroups – kullanarak daha genişletilebilir.
+Mart 2018'den itibaren yeni nesil çok boyutlu Azure kaynakları için izleme ve uyarı kullanılabilirlik olmuştur. Şimdi yeni ölçüm platform ve uyarı neredeyse gerçek zamanlı özelliklerle daha hızlı. Daha da önemlisi, yeni platform boyutları, dilim ve filtre belirli değer birleşimi, koşul veya işlem için izin ver seçeneği içerdiğinden daha yeni ölçüm platform uyarılar, daha fazla ayrıntı sağlar. Yeni Azure İzleyici'de tüm uyarılar gibi yeni ölçüm uyarılarının e-posta veya SMS, sesli, Azure işlevi, Otomasyon Runbook'u ve daha fazla Web kancası ötesine genişletmek bildirimleri verme ActionGroups – kullanarak daha genişletilebilir. Daha fazla bilgi için [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak ölçüm Uyarıları yönetme](../../azure-monitor/platform/alerts-metric.md).
 Azure kaynakları için yeni ölçümler olarak kullanılabilir:
 
 - **Azure İzleyici standart platform ölçümleri** – çeşitli Azure Hizmetleri ve ürünleriyle popüler önceden doldurulmuş ölçümleri sağlar. Daha fazla bilgi için bu makaleye bakın [desteklenen ölçümler üzerinde Azure İzleyici](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported) ve [üzerinde Azure İzleyici ölçüm uyarıları destekleyen](../../azure-monitor/platform/alerts-metric-overview.md#supported-resource-types-for-metric-alerts).
@@ -60,6 +60,10 @@ Azure İzleyici'de, Haziran 2019 sonunda:
 - Klasik izleme ve Uyarılar hizmetinin kullanımdan kaldırılmış ve artık yeni uyarı kuralları oluşturma
 - Uyarılar (Klasik) Haziran 2019 ötesinde var olmaya devam uyarı kuralları yürütün ve bildirimleri harekete geçin, ancak değişiklik kullanılamaz.
 - Temmuz 2019 başlayarak, hiçbir uyarı kuralları Klasik izleme ve uyarı otomatik olarak Microsoft tarafından eşdeğerine yeni Azure İzleyici platformuna geçirilecektir. İşlem kapalı kalma süresi sorunsuz ve müşterilerinin kapsamı izleme kaybı olmadan olacaktır.
+- Uyarı kuralları geçişi yeni uyarılar platformu izleme kapsamı önceki gibi sağlar ancak yeni yüklerini bildirimi ateşlenir. Tüm e-posta adresi, klasik bir uyarı kuralı ile ilişkili Web kancası uç noktası veya mantıksal uygulama bağlantısı geçişi olduğunda İleri taşınır, ancak doğru şekilde çalışmayabilir uyarı yükü yeni platformu farklı olarak
+
+> [!IMPORTANT]
+> Microsoft Azure İzleyici olur, otomatik olarak yeni platformu açın, Klasik uyarı kuralları yakında geçirmek aracı sağlar. Çalıştırıp onu zorla yine de mevcut, Temmuz 2019 başlayan tüm Klasik uyarı kuralları tarafından. Müşteriler kullanan klasik bir uyarı kuralı yükü yeni yükü işlemek için uyarlanmış Otomasyon sağlamak gerekir [birleşik ölçümleri ve Uyarıları Application ınsights'ta](#unified-metrics-and-alerts-in-application-insights) veya [birleşik ölçümleri ve diğer Azure uyarıları Kaynakları](#unified-metrics-and-alerts-for-other-azure-resources), Klasik uyarı kuralları geçiş sonrası. 
 
 Araçlar, uyarılardan gönüllü geçirmenizi yakında sağlayacağız [uyarılar (Klasik) bölümünde](../../azure-monitor/platform/alerts-classic.overview.md) yeni Azure uyarıları için Azure portal'ın. Uyarılar (Klasik), yeni Azure İzleyicisi geçişi yapılandırılan tüm kurallar ücretsiz kalır ve ücret alınmaz. Geçirilen Klasik uyarı kuralları için e-posta, Web kancası veya mantıksal uygulama bildirimleri gönderme herhangi bir ücrete da size aittir değil. Ancak, daha yeni bir bildirim ya da eylem türleri (örneğin, SMS, sesli arama, ITSM tümleştirmesi, vb.) kullanımı için geçirilen veya yeni bir uyarı eklenip ücrete tabi olacaktır. Daha fazla bilgi için [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -70,7 +74,7 @@ Ayrıca, aşağıdaki ambit altında ücrete tabi olacaktır [Azure İzleyici fi
 - Application Insights tarafından yürütülen herhangi bir çok test web testi
 - Azure İzleyici'de dahil edilen ücretsiz birimleri aşan depolanan tüm özel ölçümler
 
-Bu makalede, sürekli güncelleştirilen olacak bağlantılar ve yeni Azure izleme ile ilgili & işlevselliği yanı sıra yeni Azure İzleyici platformu benimsenmesi kullanıcılara yardımcı olmak için araçları kullanılabilirliğini uyarı ayrıntıları olacaktır.
+Bu makalede, bağlantılar ve yeni Azure İzleyici platformu benimsenmesi kullanıcılara yardımcı olmak için izleme ve kullanılabilirlik araçların yanı sıra işlevselliği uyarı yeni Azure ile ilgili ayrıntıları ile sürekli olarak güncelleştirilir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

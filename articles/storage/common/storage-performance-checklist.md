@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: d627fa1ca52356c43c9a771f612ae6d043299678
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231797"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460838"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Depolama Performansı ve Ölçeklenebilirlik Onay Listesi
 ## <a name="overview"></a>Genel Bakış
@@ -147,7 +147,7 @@ Normalde, bir tarayıcıda JavaScript bir "başka bir etki alanı için PUT" gib
 Bu iki teknoloji gereksiz yük (ve performans sorunlarını) web uygulamanızda önlemenize yardımcı olabilir.  
 
 #### <a name="useful-resources"></a>Yararlı Kaynaklar
-SAS hakkında daha fazla bilgi için bkz: [paylaşılan erişim imzaları, bölüm 1: SAS modelini anlama](../storage-dotnet-shared-access-signature-part-1.md).  
+SAS hakkında daha fazla bilgi için bkz: [paylaşılan erişim imzaları, 1. Bölüm: SAS modelini anlama](../storage-dotnet-shared-access-signature-part-1.md).  
 
 CORS hakkında daha fazla bilgi için bkz: [Azure Storage Hizmetleri için çıkış noktaları arası kaynak paylaşımı (CORS) desteği](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
@@ -178,7 +178,7 @@ Tüm bağlantıları açmadan önce bağlantı üst sınırına ayarlamanız ger
 
 Diğer programlama dili için nasıl bağlantı üst sınırına ayarlanacağını belirlemek için dil belgelerine bakın.  
 
-Ek bilgi için blog gönderisine bakın [Web Hizmetleri: eş zamanlı bağlantı](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Ek bilgi için blog gönderisine bakın [Web Hizmetleri: Eş zamanlı bağlantı](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>İş parçacığı havuzu en az iş parçacığı zaman uyumlu bir kod ile zaman uyumsuz görevleri kullanıyorsanız artırın
 Bu kod, iş parçacığı havuzu min iş parçacıkları artırır:  
@@ -255,10 +255,10 @@ Hızlı blobları karşıya yüklemek için ilk soru olduğu: olan, bir blob ya 
 #### <a name="subheading21"></a>Bir büyük blob hızlı bir şekilde karşıya yükleme
 Tek bir büyük blob hızlı bir şekilde karşıya yüklemek için İstemci uygulamanızın, blokları veya sayfaları paralel (oluşturduğunu tek tek bloblar ve bir bütün olarak depolama hesabı için ölçeklenebilirlik hedefleri olan) yüklemeniz gerekir.  Resmi Microsoft tarafından sağlanan RTM depolama istemcisi kitaplıkları (.NET, Java) bunu olanağına sahip olduğunu unutmayın.  Her kitaplık eşzamanlılık düzeyini ayarlamak için belirtilen nesne/özelliği altında:  
 
-* .NET: kullanılacak kümesi ParallelOperationThreadCount Locationmode nesne üzerinde.
-* Java/Android: BlobRequestOptions.setConcurrentRequestCount() kullanın
+* .NET: ParallelOperationThreadCount kullanılacak Locationmode nesnesi üzerinde ayarlayın.
+* Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
 * Node.js: İstek seçenekleri veya blob hizmetinde parallelOperationThreadCount kullanın.
-* C++: blob_request_options::set_parallelism_factor yöntemi kullanın.
+* C++: Blob_request_options::set_parallelism_factor yöntemi kullanın.
 
 #### <a name="subheading22"></a>Hızlı bir şekilde birçok blobları karşıya yükleme
 Hızlı bir şekilde birçok blobları karşıya yüklemek için BLOB'ları paralel karşıya yükleyin. Bu, depolama hizmetinin birden çok bölümde karşıya yükleme yayılan çünkü tek bloblar aynı anda paralel blok karşıya karşıya daha hızlıdır. Tek bir blob aktarım hızı 60 MB/saniye (yaklaşık 480 Mb/sn) yalnızca destekler. Makalenin yazıldığı sırada bir ABD bankasına bağlı LRS hesabına daha fazladır tek bir blob tarafından desteklenen aktarım hızı olan en fazla 20 GB/sn giriş destekler.  [AzCopy](#subheading18) yüklemeleri varsayılan olarak paralel olarak gerçekleştirir ve bu senaryo için önerilir.  
@@ -286,7 +286,7 @@ Bu bölümde, tablo hizmetinde önemli performans geliştirmeleri yapmak için k
 #### <a name="subheading25"></a>JSON kullanın
 Depolama hizmeti sürüm 2013-08-15 ile başlayarak, tablo hizmeti JSON XML tabanlı AtomPub biçimi yerine tablo verilerini aktarmak için kullanarak destekler. Bu, yük boyutları olarak 75 oranında azaltabilir ve uygulamanızın performansını önemli ölçüde artırabilir.
 
-Daha fazla bilgi için gönderiye bakın [Microsoft Azure tabloları: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) ve [tablo hizmeti işlemleri için yükü biçimi](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Daha fazla bilgi için gönderiye bakın [Microsoft Azure tabloları: JSON ile tanışın](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) ve [tablo hizmeti işlemleri için yükü biçimi](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle kapalı
 Nagle'nın algoritması, yaygın olarak TCP/IP ağları arasında ağ performansını artırmak için bir yol uygulanır. Ancak, tüm durumlarda (örneğin, yüksek oranda etkileşimli ortamları) uygun değil. Azure depolama için Nagle'nın algoritması, tablo ve kuyruk hizmetlere yönelik istekler, performans üzerinde olumsuz bir etkisi yoktur. ve mümkünse devre dışı.  
@@ -304,7 +304,7 @@ Nasıl temsil eder ve verilerinizi sorgulayın, tablo Hizmeti performansını et
 Tablolar bölümlere ayrılır. Bir bölüm içinde depolanan her varlık aynı bölüm anahtarına paylaşır ve bu bölüm içinde tanımlamak için benzersiz bir satır anahtarına sahiptir. Bölümler avantajları sağlar, ancak sıra ölçeklenebilirlik sınırları uygular.  
 
 * Avantajlar: En fazla 100 ayrı depolama işlemleri (4 MB Toplam boyut sınırı) içeren bir tek atomic, toplu işlem aynı bölümde varlıklarda güncelleştirebilirsiniz. Alınacak varlıkları aynı sayıda varsayıldığında, ayrıca tek bir bölüm içindeki verileri kapsayan (ancak tablo verilerini sorgulama hakkında daha fazla öneri için okumaya devam edin) bölümleri verileri daha verimli sorgulayabilirsiniz.
-* Ölçeklenebilirlik sınırı: tek bir bölüm içinde depolanan varlıklara erişimi kullanılamaz yük dengeli atomik toplu işlem bölümleri tarafından desteklemediklerinden. Bu nedenle, tek tek tablo bölümü için ölçeklenebilirlik hedefine bir bütün olarak için tablo hizmeti daha düşüktür.  
+* Ölçeklenebilirlik sınırı: Tek bir bölüm içinde depolanan varlıklara erişimi-atomik toplu işlem bölümleri tarafından desteklemediklerinden dengeli yük olamaz. Bu nedenle, tek tek tablo bölümü için ölçeklenebilirlik hedefine bir bütün olarak için tablo hizmeti daha düşüktür.  
 
 Tablolar ve bölümler bu özelliklerini nedeniyle, aşağıdaki tasarım ilkeleri benimseyin:  
 
@@ -359,8 +359,8 @@ Toplu işlem, Azure Depolama'daki varlık grubu işlemleri (ETG) olarak bilinir;
 ##### <a name="subheading36"></a>Upsert
 Kullanımı tablo **Upsert** işlemlerini mümkün olan her yerde. İki tür vardır **Upsert**, ikisi için de geleneksel bir daha verimli olabilir **Ekle** ve **güncelleştirme** işlemleri:  
 
-* **InsertOrMerge**: bir varlığın özellik alt kümesi karşıya yüklemek istediğiniz zaman bu kullanır, ancak emin değilseniz olup varlık zaten mevcut. Varlık varsa, bu çağrı dahil özelliklerini güncelleştirir. **Upsert** işlemi ve tüm mevcut özellikler çıktığında varlık mevcut değilse, olduğu gibi yeni bir varlık ekler. Değiştirmekte olduğunuz özelliklerini yüklemek yalnızca gerektiren bu sorguda projeksiyon kullanmaya benzer.
-* **Insertorreplace**: tamamen yeni bir varlık karşıya yüklemek istediğiniz, ancak zaten var olup olmadığını emin değilseniz bu kullanın. Yeni yüklenen varlık tamamen eski varlık yazdığından tamamen doğru olduğunu bildiğiniz durumlarda yalnızca bu kullanmanız gerekir. Örneğin, uygulama daha önce depolanan kullanıcı konum verileri olup olmadığına bakılmaksızın, bir kullanıcının geçerli konumuna depolar varlık güncelleştirmek istediğiniz; Yeni bir konum varlık tamamlandıktan ve önceki herhangi bir varlık bilgileri gerekmez.
+* **InsertOrMerge**: Bir varlığın özellik alt kümesi karşıya yüklemek istediğiniz, ancak emin değilseniz varlık zaten var olup, bunu kullanın. Varlık varsa, bu çağrı dahil özelliklerini güncelleştirir. **Upsert** işlemi ve tüm mevcut özellikler çıktığında varlık mevcut değilse, olduğu gibi yeni bir varlık ekler. Değiştirmekte olduğunuz özelliklerini yüklemek yalnızca gerektiren bu sorguda projeksiyon kullanmaya benzer.
+* **Insertorreplace**: Tamamen yeni bir varlık karşıya yüklemek istediğiniz, ancak zaten var olup olmadığını emin değilseniz bu kullanın. Yeni yüklenen varlık tamamen eski varlık yazdığından tamamen doğru olduğunu bildiğiniz durumlarda yalnızca bu kullanmanız gerekir. Örneğin, uygulama daha önce depolanan kullanıcı konum verileri olup olmadığına bakılmaksızın, bir kullanıcının geçerli konumuna depolar varlık güncelleştirmek istediğiniz; Yeni bir konum varlık tamamlandıktan ve önceki herhangi bir varlık bilgileri gerekmez.
 
 ##### <a name="subheading37"></a>Veri serisi içinde tek bir varlık depolama
 Bazı durumlarda, bir uygulamayı sık tümünü tek seferde almak için gereken verileri bir dizi depolar: Örneğin, bir uygulamanın CPU kullanım zaman içinde son 24 saat verileri sıralı bir grafiği çizmek için izleyebilir. Belirli bir saati temsil eden ve CPU kullanımı bu saat için depolama her bir varlık ile bir tablo varlık, saatlik bir yaklaşımdır. Bu verileri çizmek için uygulamanın en son 24 saatten verileri tutan varlıkları alma gerekir.  
@@ -395,7 +395,7 @@ Maliyet güncel bilgi için bkz: [Azure depolama fiyatlandırması](https://azur
 ### <a name="subheading44"></a>UpdateMessage
 Kullanabileceğiniz **UpdateMessage** görünmezlik zaman aşımı süresini artırın veya iletinin durum bilgilerini güncelleştirmek için. Bu güçlü olmakla birlikte, her unutmayın **UpdateMessage** ölçeklenebilirlik hedef işlem sayılır. Ancak, bu işin her adımı tamamlandı olarak bir iş, bir kuyruktan yanında, geçirir. bir iş akışı sahip daha çok daha etkili bir yaklaşım olabilir. Kullanarak **UpdateMessage** işlemi iletiye iş durumu kaydedin ve ardından yapılacak işin bir sonraki adım için yeniden kuyruğa bir adım tamamlanan her zaman yerine çalışma, devam etmek için uygulamanızı sağlar.  
 
-Daha fazla bilgi için bkz [nasıl yapılır: bir kuyruğa alınan iletinin içeriğini değiştirme](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
+Daha fazla bilgi için bkz [nasıl yapılır: Kuyruğa Alınan iletinin içeriğini değiştirme](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
 ### <a name="subheading45"></a>Uygulama mimarisi
 Uygulama Mimarinizi ölçeklenebilir hale getirmek için kuyrukları kullanmanız gerekir. Kuyruklar, uygulamanızın daha ölçeklenebilir hale getirmek için kullanabileceğiniz bazı yollarını listeler:  

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 95ada2cb146bdbc972afee883a1d174c95aa67d7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713978"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297591"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Azure bölgeleri arasında SAP HANA kullanılabilirliği
 
@@ -39,7 +39,7 @@ Azure sanal ağı, farklı bir IP adresi aralığını kullanır. IP adresleri, 
 
 ## <a name="simple-availability-between-two-azure-regions"></a>İki Azure bölgeleri arasında basit kullanılabilirlik
 
-Değil tek bir bölgedeki herhangi bir kullanılabilirlik yapılandırma yararlanılmasını, ancak bir olağanüstü durum oluşursa sunulan iş yükü için isteğe bağlı çözümlenmedi seçebilirsiniz. Tipik sistemleri bu gibi durumlarda, üretim dışı sistemleridir. Yarım gün veya bile bir gün için aşağı sistem sorun sürdürülebilir olsa da, 48 saat veya daha fazla bilgi için kullanılamaz olarak sistem izin veremez. Kurulumu daha az masraflı bir hale getirmek için VM'yi bile daha az önemli olan başka bir sistem çalıştırın. Sistemden bir hedef olarak çalışır. Daha küçük olacak şekilde ikincil bölgedeki VM boyutunu ve veri dağıtılacak değil seçin. Yük devretmeyi el ile ve uygulamanın yığın üzerinde başarısız olan birçok daha fazla adım gerektirir, VM'yi kapatın, yeniden boyutlandırabilir ve VM yeniden için ek süre kabul edilebilir olmasıdır.
+Değil tek bir bölgedeki herhangi bir kullanılabilirlik yapılandırma yararlanılmasını, ancak bir olağanüstü durum oluşursa sunulan iş yükü için isteğe bağlı çözümlenmedi seçebilirsiniz. Bu tür senaryolar için tipik durumlarda, üretim dışı sistemleridir. Yarım gün veya bile bir gün için aşağı sistem sorun sürdürülebilir olsa da, 48 saat veya daha fazla bilgi için kullanılamaz olarak sistem izin veremez. Kurulumu daha az masraflı bir hale getirmek için VM'yi bile daha az önemli olan başka bir sistem çalıştırın. Sistemden bir hedef olarak çalışır. Daha küçük olacak şekilde ikincil bölgedeki VM boyutunu ve veri dağıtılacak değil seçin. Yük devretmeyi el ile ve uygulamanın yığın üzerinde başarısız olan birçok daha fazla adım gerektirir, VM'yi kapatın, yeniden boyutlandırabilir ve VM yeniden için ek süre kabul edilebilir olmasıdır.
 
 Bir sanal makinede bir QA sistemiyle DR hedef paylaşımı, senaryosu kullanıyorsanız, bu konuları dikkate almak gerekir:
 
@@ -64,14 +64,24 @@ Kullanılabilirlik bölgeler içinde ve arasında bir birleşimi tarafından bu 
 - Kuruluş işleyemeyeceği ya da daha büyük bir bölgeyi etkileyen bir ana doğal felaketler tarafından etkilenen genel işlemler mümkün değildir. Bu, geçtiğimiz birkaç yılda Karayipler'deki isabet bazı kasırgalar durum oluştu.
 - İsteğe bağlı açıkça hangi Azure kullanılabilirlik alanları sağlayabilir birincil ve ikincil siteler arasında uzaklıkları düzenlemelerine.
 
-Bu durumlarda, hangi SAP aramaları ayarlayabileceğiniz bir [SAP HANA çok katmanlı sistem çoğaltma yapılandırması](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) HANA sistem çoğaltması kullanarak. Mimari şöyle görünür:
+Bu durumlarda, hangi SAP aramaları ayarlayabileceğiniz bir [SAP HANA çok katmanlı sistem çoğaltma yapılandırması](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) HANA sistem çoğaltması kullanarak. Mimarisi gibi görünür:
 
 ![Üç sanal makineye sahip iki bölgeleri diyagramı](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+
+Sunulan SAP [birden çok hedef sistem çoğaltma](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) HANA 2.0 SPS3 ile. Birden çok hedef sistem çoğaltma güncelleştirme senaryolarda bazı avantajları getirir. Örneğin, Bakım veya güncelleştirmeler için aşağı HA ikincil olduğunda, DR sitesi (bölge 2) etkilenmez. HANA'ya çok hedef sistem çoğaltma hakkında daha fazla bilgi bulabilirsiniz [burada](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
+Birden çok hedef çoğaltma ile olası mimari gibi görünür:
+
+![Üç sanal makineye sahip iki bölgeleri milti-hedef diyagramı](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)
+
+Kuruluşta second(DR) Azure bölgesi içinde yüksek kullanılabilirlik hazırlık gereksinimleri varsa, mimarisi gibi görünür:
+
+![Üç sanal makineye sahip iki bölgeleri milti-hedef diyagramı](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+
 
 Logreplay işlem modu kullanarak, bu yapılandırma bir RPO sağlar = 0, birincil bölge içinde düşük RTO ile. İkinci bölgeye taşıma söz konusuysa yapılandırma de iyi bir RPO sağlar. Verileri önceden yüklenmişse ikinci bölgedeki RTO zamanları bağımlıdır. Birçok müşteri, bir test sistemini çalıştırmak için ikincil bölge'de VM kullanır. Kullanım örneği, veri kaynağı.
 
 > [!IMPORTANT]
-> İşlem modları farklı Katmanlar arasındaki homojen olması gerekir. **Olamaz** logreply işlem modunu Katman 1 ve Katman 2 ve sağlamak için delta_datashipping 3 katmanı olarak kullanın. Yalnızca bir ya da tüm katmanları için tutarlı olması gereken bir işlem modu da seçebilirsiniz. Delta_datashipping bir RPO vermek uygun olmadığından bu tür bir çoklu katman yapılandırma logreplay kalır tarafından = 0, yalnızca uygun işlem modu. İşlem modları ve bazı kısıtlamalar hakkında daha fazla ayrıntı için SAP bkz [işlem modları için SAP HANA sistem çoğaltması](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
+> İşlem modları farklı Katmanlar arasındaki homojen olması gerekir. **Olamaz** logreply işlem modunu Katman 1 ve Katman 2 ve sağlamak için delta_datashipping 3 katmanı olarak kullanın. Yalnızca bir ya da tüm katmanları için tutarlı olması gereken bir işlem modu da seçebilirsiniz. Delta_datashipping bir RPO vermek uygun olmadığından bu tür bir çok katmanlı yapılandırma logreplay kalır tarafından = 0, yalnızca uygun işlem modu. İşlem modları ve bazı kısıtlamalar hakkında daha fazla ayrıntı için SAP bkz [işlem modları için SAP HANA sistem çoğaltması](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

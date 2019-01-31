@@ -4,20 +4,20 @@ description: Avere kümesini yönetme - ekleme veya düğümleri kaldırma, yeni
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189618"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300195"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT kümesini yönetme
 
 Küme oluşturulduktan sonra küme düğümleri Ekle veya durdurmak kümeye yeniden başlatmanız gerekebilir. Ve projeniz tamamlandığında durdurma ve kümeyi kalıcı olarak kaldırma bilmeniz gerekir. 
 
-Küme yönetimi göreve bağlı olarak, yapmak için Avere Denetim Masası'nı, vfxt.py küme oluşturma komut veya Azure Portalı'nı kullanmanız gerekebilir. 
+Küme yönetimi göreve bağlı olarak, yapmak için Avere Denetim Masası'nı, vfxt.py komut satırı küme oluşturma komut veya Azure Portalı'nı kullanmanız gerekebilir. 
 
 Bu tablo, her görev için hangi Araçlar kullanılabilir genel bir bakış sağlar. 
 
@@ -71,7 +71,11 @@ Okuma [küme > düğümler FXT](<https://azure.github.io/Avere/legacy/ops_guide/
 
 Bir küme kapatılıyor, durum iletileri gönderir. **Pano** ilk sekmesi. Birkaç dakika sonra Avere Denetim Masası'ndaki oturumunu yanıt vermeyi anlamına kümeye kapatıldı durdurur.
 
-## <a name="manage-the-cluster-with-vfxtpy"></a>Vfxt.py ile küme yönetme 
+## <a name="manage-the-cluster-with-vfxtpy"></a>Vfxt.py ile küme yönetme
+
+vfxt.PY bir küme oluşturma ve yönetme için komut satırı aracıdır. 
+
+vfxt.PY VM kümesi denetleyicisinde önceden yüklenir. Başka bir sistem üzerinde yüklemek istiyorsanız, adresindeki belgelere başvurun <https://github.com/Azure/AvereSDK>.
 
 Vfxt.py betiği bu küme yönetim görevleri için kullanılabilir:
 
@@ -80,8 +84,6 @@ Vfxt.py betiği bu küme yönetim görevleri için kullanılabilir:
 * Bir kümeyi yok edin
 
 Avere Denetim Masası'nda gibi değiştirilen verileri kalıcı olarak arka uç depolama kümesi veya düğüm yok etme veya kapatmadan önce depolanan emin olmak vfxt.py işlemleri deneyin. Bu Avere portalı daha güvenli bir seçenek sağlar.
-
-vfxt.PY VM kümesi denetleyicisinde önceden yüklenir. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 Tam vfxt.py Kullanım Kılavuzu, GitHub üzerinde kullanılabilir: [Bulut vfxt.py ile küme yönetimi](https://github.com/azure/averesdk/blob/master/docs/README.md)
 

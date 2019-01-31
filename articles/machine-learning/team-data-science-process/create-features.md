@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5767399189e4ed5168fbcc083ef9b4830cac1421
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138985"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478058"
 ---
 # <a name="feature-engineering-in-data-science"></a>Veri bilimi, özellik Mühendisliği
 Bu makalede, özellik Mühendisliği amaçları açıklanır ve machine Learning veri geliştirme sürecinde rolü örnekleri sağlar. Bu işlemi canlandırmak adına kullanılan örnekleri, Azure Machine Learning Studio'dan çizilir. 
@@ -49,7 +49,7 @@ Azure Machine Learning'i kullanmaya Başlarken concretely Studio'da sağlanan ö
 * Regresyon örnek [bisiklet kiralama sayısını tahmin](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) hedef değerleri bilinir burada denetimli bir denemede
 * Bir metin araştırma sınıflandırma örneği kullanarak [özellik karma](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
-## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Örnek 1: bir regresyon modeli için zamana bağlı özellikleri ekleyin
+## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Örnek 1: Zamana bağlı bir regresyon modeli özellikleri ekleyin
 "Talep tahmini bisiklet" denemeyi Azure Machine Learning Studio'da bir regresyon görev için özellik işlemini göstermek için kullanalım. Bu deneyde amaç, diğer bir deyişle, bir özel ay/gün/saat içinde bisiklet kiralama sayısını bisiklet talebini tahmin etmektir. Veri kümesi "bisiklet kiralama UCI veri kümesi" ham girdi verisi olarak kullanılır. Bu veri kümesi bir Amerika Birleşik Devletleri'nde, Washington DC bisiklet kiralama ağında tutan büyük Bikeshare şirketin gerçek verileri temel alır. Veri kümesi, 2011 ve yılı 2012 yıllarda günün belirli bir saat içinde bisiklet kiralama sayısını temsil eder ve 17379 satırları ve 17 sütunları içerir. Hava koşulları (sıcaklık/nem/Rüzgar hızı) ve günlük (tatil/haftanın günü) türü ham özellik kümesini içerir. Tahmin etmek için "cnt" sayısı belirli bir saat içinde bisiklet kiralama temsil eden ve hangi 977 için 1 ile arasında bir alandır.
 
 Eğitim verileri, dört regresyon modellerini aynı algoritmayı kullanılarak oluşturulan ancak dört farklı bir eğitim veri kümeleri ile etkin özellikler oluşturmak hedefle. Dört veri kümeleri aynı ham girdi verilerini temsil eder, ancak artan sayıda özellikleri ile ayarlayın. Bu özellikler, dört kategorilerde gruplanır:
@@ -71,7 +71,7 @@ Performans sonuçlarını olan dört model oluşturduğunuz bir karşılaştırm
 
 En iyi sonuçları A + B + C özellikleri tarafından gösterilir. Hata oranının ne zaman azaltır Not ek özellik kümesi, eğitim verileri dahil edilir. Bu özellik kümesi B, C regresyon görev ilgili ek bilgileri sağlayın presumption doğrular. Ancak, ek hata oranının kısalma sağlamak için D özellik ekleme görünmüyor.
 
-## <a name="example2"></a> Örnek 2: özellikleri içinde metin araştırma oluşturma
+## <a name="example2"></a> Örnek 2: İçinde metin araştırma özellikleri oluşturma
 Özellik Mühendisliği, metin madenciliği, belge sınıflandırma ve yaklaşım analizi gibi ilgili görevleri yaygın olarak uygulanır. Belgeler, çeşitli kategorilerde sınıflandırmak istediğiniz zaman, örneğin, bir tipik bir belge kategorisindeki word/tümcecikleri başka bir belge kategorisinde oluşma olasılığı daha varsayılır. Diğer bir deyişle, sözcük/tümcecikleri dağıtım sıklığını farklı Belge kategorileri niteleyen kuramıyor. Metin içeriği tek tek parça genellikle girdi verisi olarak gördükleri için metin araştırma uygulamalarda, sözcüğün/tümceciğin frekansları ilgili özellikler oluşturmak için işlem mühendislik özelliği gereklidir.
 
 Bu görevi gerçekleştirmek için bir yöntem olarak adlandırılan **özellik karma** verimli bir şekilde dizinler rastgele metin özellikleri etkinleştirmek için uygulanır. Her metin özelliği (sözcük/tümcecikleri) belirli bir dizinden bir karma işlevi özellikleri için uygulama ve dizinlerin karma değerlerini kullanarak, doğrudan bu yöntemi işlevleri ilişkilendirilmek yerine.

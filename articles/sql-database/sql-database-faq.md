@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: a7ebf246300fdafe69f45aca0237964c8e669d5c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541634"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463965"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL veritabanı sık sorulan sorular (SSS)
 
@@ -35,7 +35,7 @@ Hayır. Düzeltme eki uygulama etkisini genellikle belirgin değil ise, [yeniden
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL veritabanı için yeni sanal çekirdek tabanlı satın alma modeli nedir
 
-Yeni satın alma modeli, mevcut DTU temelli model üzerinde yapılan bir eklemedir. Sanal çekirdek tabanlı model, müşterilere esneklik, denetimi, saydamlık sağlamak üzere tasarlanmıştır ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Ayrıca, iş yükü ihtiyaçlarını alarak kendi işlem ve depolama kaynakları yönetebileceğiniz ölçeklendirme müşterilerin olanak tanır. Tek veritabanı ve elastik havuz seçenekleri vCore modeli kullanarak da ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) daha fazla bilgi için.
+Yeni satın alma modeli, mevcut DTU temelli model üzerinde yapılan bir eklemedir. Sanal çekirdek tabanlı model, müşterilere esneklik, denetimi, saydamlık sağlamak üzere tasarlanmıştır ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Ayrıca, iş yükü ihtiyaçlarını alarak işlem ve depolama kaynaklarını ölçeklendirme müşterilerin sağlar. Tek veritabanı ve elastik havuz seçenekleri vCore modeli kullanarak da ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) daha fazla bilgi için.
 
 ## <a name="what-is-a-vcore"></a>VCore nedir
 
@@ -141,9 +141,9 @@ Sıklıkta istediğiniz. Bkz: [elastik havuzları yönetme](sql-database-elastic
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Ne kadar Hizmet katmanını değiştirebilirsiniz veya tek bir veritabanının boyutunu işlem ya da bir veritabanını bir elastik havuzun içine ve dışına taşımak için sürer
 
-Arka plan işlemi olarak platformunda kopyalanacak veritabanı havuzunun içine veya dışına taşımak ve bir veritabanının Hizmet katmanını değiştirmeniz gerekir. Hizmet katmanını değiştirmeniz birkaç dakika veya veritabanlarını boyutuna bağlı olarak birkaç saat sürebilir. Her iki durumda da, veritabanlarını taşıma işlemi sırasında çevrimiçi ve kullanılabilir kalır. Tek veritabanları değiştirme hakkında daha fazla bilgi için bkz [bir veritabanının Hizmet katmanını değiştirebilirsiniz](sql-database-service-tiers-dtu.md).
+Arka plan işlemi olarak platformunda kopyalanacak veritabanı havuzunun içine veya dışına taşımak ve bir veritabanının Hizmet katmanını değiştirmeniz gerekir. Hizmet katmanını değiştirmeniz birkaç dakika veya veritabanlarını boyutuna bağlı olarak birkaç saat sürebilir. Her iki durumda da, veritabanlarını taşıma işlemi sırasında çevrimiçi ve kullanılabilir kalır. Tek veritabanları değiştirme hakkında daha fazla bilgi için bkz [bir veritabanının Hizmet katmanını değiştirebilirsiniz](sql-database-single-database-scale.md).
 
-## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Tek bir veritabanı ve elastik veritabanları ne zaman kullanmalıyım
+## <a name="when-should-i-use-a-single-database-vs-elastic-pools"></a>Tek bir veritabanı elastik havuz ne zaman kullanmalıyım
 
 Genel olarak, elastik havuzlar için tipik bir tasarlanmıştır [hizmet olarak yazılım (SaaS) uygulama düzeni](sql-database-design-patterns-multi-tenancy-saas-applications.md), müşteri veya Kiracı başına bir veritabanı olduğunda. Ayrı veritabanları satın karşılamak alıp her veritabanı için aşırı sağlama, ekonomik verimli değildir. Havuzlar, havuzun toplu performansını yönetin ve veritabanlarını otomatik olarak yukarı ve aşağı ölçeklendirin. Azure'nın akıllı altyapısı kullanım deseniyle gerektirdiğini veritabanları için bir havuz kullanılmasını önerir. Ayrıntılar için bkz [elastik havuzu kılavuzluğu](sql-database-elastic-pool.md).
 

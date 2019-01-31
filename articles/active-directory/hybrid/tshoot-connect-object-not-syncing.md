@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: d10b8760409d5deb0828d15e8c0daf50853a9624
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158273"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296614"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD ile eşitlenmeyen bir nesneyle ilgili sorunları giderme
 
@@ -28,6 +28,34 @@ Bir nesne, Azure AD ile beklendiği şekilde eşitlenmeyen, çeşitli nedenlerde
 
 >[!IMPORTANT]
 >İçin Azure Active Directory (AAD) dağıtım 1.1.749.0 sürümü ile bağlantı kurulamadı veya üzeri kullanın [görev sorun giderme](tshoot-connect-objectsync.md) nesne eşitleme sorunlarını gidermek için Sihirbazı'nda. 
+
+## <a name="synchronization-process"></a>Eşitleme işlemi
+
+Eşitleme sorunlarını araştırma önce anlayalım **Azure AD Connect** eşitleme işlemi:
+
+  ![Azure AD Connect eşitleme işlemi](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+
+### <a name="terminology"></a>**Terminoloji**
+
+* **CS:** Bağlayıcı alanı, veritabanındaki bir tablo.
+* **MV:** Meta veri deposu, veritabanındaki bir tablo.
+* **AD:** Active Directory
+* **AAD:** Azure Active Directory
+
+### <a name="synchronization-steps"></a>**Eşitleme adımları**
+Eşitleme işlemi, aşağıdaki adımları içerir:
+
+1. **AD Al:** **Active Directory** nesneleri yönergeyle **AD CS**.
+
+2. **AAD alma:** **Azure Active Directory** nesneleri yönergeyle **AAD CS**.
+
+3. **Eşitleme:** **Gelen eşitleme kuralları** ve **giden eşitleme kuralı** gelen için daha düşük öncelik numarası sırasına göre daha yüksek çalıştırılır. Eşitleme kurallarını görüntülemek için giderek **eşitleme kuralları Düzenleyicisi** Masaüstü uygulamalarından. **Gelen olan eşitleme kuralları** verilerinde MV için CS getirir. **Giden eşitleme kuralı** CS'e MV verileri taşır.
+
+4. **AD için dışarı aktarın:** Eşitleme çalıştırıldıktan sonra nesneleri öğesinden AD CS için dışarı aktarılan **Active Directory**.
+
+5. **AAD'ye dışarı aktarın:** Eşitleme çalıştırıldıktan sonra nesneleri öğesinden AAD CS için dışarı aktarılan **Azure Active Directory**.
+
+## <a name="troubleshooting"></a>Sorun giderme
 
 Hataları bulmak için aşağıdaki sırayla birkaç farklı yerlerde bakmak olacak:
 
@@ -123,7 +151,28 @@ Active Directory kaynak aramaya başlamak daha iyi [bağlayıcı alanına](#conn
 
 İçinde **arama sonuçları** penceresinde nesneye tıklayın.
 
-Nesne bulunamadı, ardından da henüz meta veri deposu ulaşılmamış. Active Directory nesnesi için aramaya devam edin [bağlayıcı alanına](#connector-space-object-properties). Meta veri deposu için yakında nesnesinin engelleme eşitleme bir hata olabilir veya filtre uygulanmış olabilir.
+Nesne bulunamadı, ardından da henüz meta veri deposu ulaşılmamış. Nesnesi için aramaya devam edin **Active Directory** [bağlayıcı alanına](#connector-space-object-properties). Nesnesinde bulursanız **Active Directory** bağlayıcı alanında ardından olabilir bir hata için meta veri deposu yakında nesnesinin engelleme eşitleme veya kapsam belirleme filtresi uygulanmış bir eşitleme kuralı olabilir.
+
+### <a name="object-not-found-in-the-mv"></a>Nesnesi, MV içinde bulunamadı
+Nesne ise **Active Directory** CS, kapsam belirleme filtresi uygulandıktan sonra MV ancak mevcut değil. 
+
+* Kapsam belirleme filtresi bakmak için masaüstü uygulaması menüsüne gidin ve tıklayarak **eşitleme kuralları Düzenleyicisi**. Geçerli kuralları, aşağıdaki filtre ayarlayarak nesnenin filtreleyin.
+
+  ![Gelen eşitleme kuralları arama](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+
+* Yukarıdaki listede her kural görüntülemek ve denetlemek **Scoping filtre**. İçinde, kapsam belirleme filtresi, aşağıdaki **isCriticalSystemObject** değeri null veya boş ya da FALSE sonra kapsamları dahilinde olması.
+
+  ![Gelen eşitleme kuralları arama](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+
+* Git [CS alma](#cs-import) öznitelik listesi ve filtre için MV taşımak için nesnenin engelleme denetleyin. Bu parçalama **bağlayıcı alanına** öznitelik listesi yalnızca null olmayan ve boş olmayan öznitelikleri gösterir. Örneğin, varsa **isCriticalSystemObject** bu bu özniteliğin değeri null veya boş olduğu anlamına gelir. ardından listede gösterilmiyor.
+
+### <a name="object-not-found-in-the-aad-cs"></a>Nesnesi, AAD CS içinde bulunamadı
+Nesne içinde mevcut değilse **bağlayıcı alanına** , **Azure Active Directory**. Ancak, MV içinde mevcut olduğundan, Scoping filtreyi ardından Ara **giden** karşılık gelen kuralları **bağlayıcı alanına** ve nesne nedeniyle filtrenin dışında kaldı, iade [MV öznitelikleri](#mv-attributes) ölçütleri karşılamıyor.
+
+* Giden kapsam belirleme filtresi aramak için aşağıdaki filtre ayarlayarak nesne için uygun kuralları'nı seçin. Her kural görüntüleyin ve karşılık gelen en Ara [MV özniteliği](#mv-attributes) değeri.
+
+  ![Giden Synchroniztion kuralları arama](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+
 
 ### <a name="mv-attributes"></a>MV öznitelikleri
 Öznitelikler sekmesinde hangi bağlayıcı katkıda bulunan ve değerlerini görebilirsiniz.  

@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
-ms.date: 11/28/2018
+ms.component: hybrid
+ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0648a0208ac02e846b74ef33fdc162dd89ecb887
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cb1ba63a0f32d026d51507fe66432a520a6f6e71
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190692"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298985"
 ---
 # <a name="what-is-azure-ad-connect"></a>Azure AD Connect nedir?
 
@@ -49,6 +50,20 @@ Bilgiler, [Azure AD Connect Health Portalı](https://aka.ms/aadconnecthealth)'nd
 
 ## <a name="why-use-azure-ad-connect-health"></a>Azure AD Connect Health neden kullanılır?
 Hem bulut hem de şirket içi kaynaklara erişmek için ortak bir kimlik olduğundan, Azure AD ile kullanıcılarınızın daha üretken olmaları sağlanır. Kullanıcıları bu kaynaklara erişebilmesi için güvenilir, ortamıdır sağlamak zor hale gelir.  Azure AD Connect Health, izleme ve bu nedenle bu ortam güvenilirliğini sağlayarak şirket içi kimlik altyapınızı içgörüler edinin yardımcı olur. Her bir şirket içi kimlik sunucunuza bir aracı yüklemek kadar basittir.
+
+AD FS'ye ilişkin Azure AD Connect Health Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016 üzerinde AD FS 2.0'ı destekler. Ayrıca, extranet erişimi için kimlik doğrulaması desteği sağlayan AD FS ve web uygulaması ara sunucularının izlenmesini de destekler. AD FS için Azure AD Connect Health, çabucak ve kolayca kurulan Sistem Durumu Aracısı ile bir dizi başlıca özellik sunar.
+
+Başlıca yararları ve en iyi uygulamalar:
+
+|Önemli Avantajlar|En İyi Uygulamalar|
+|-----|-----|
+|Gelişmiş güvenlik|[Extranet kilitlemede trendler](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Başarısız oturum açma raporu](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[Gizlilik uyumlu](reference-connect-health-user-privacy.md)|
+|Hakkında uyarı alın [tüm önemli ADFS sistem sorunları](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Sunucu yapılandırması ve kullanılabilirlik</br>[Performans ve bağlantı](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Düzenli bakım|
+|Kurulumu ve yönetimi kolay|[Hızlı bir aracı yüklemesi](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Aracıyı en sün sürüme otomatik yükseltme</br>Dakikalar içinde portalda veri|
+Zengin [kullanım ölçümleri](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|En çok kullanılan uygulamalar</br>Ağ konumları ve TCP bağlantısı</br>Sunucu başına belirteç istekleri|
+|Harika kullanıcı deneyimini|Azure portaldan bir pano tarzında</br>[E-postayla uyarılar](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+
+
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

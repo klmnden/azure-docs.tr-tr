@@ -2,18 +2,18 @@
 title: Bir SharePoint grubunu Azure'da DPM/Azure Backup sunucusu koruma
 description: Bu makalede Azure'da DPM/Azure Backup sunucusu koruma SharePoint grubunun genel bir bakış sağlar.
 services: backup
-author: adigan
-manager: Nkolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 79b4962e1c37858fbd52d65aff56476e55ffa371
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946054"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296469"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Bir SharePoint grubunu Azure’a yedekleme
 Microsoft Azure'a çok diğer veri kaynaklarını yedekleme aynı şekilde, System Center Data Protection Manager (DPM) kullanarak bir SharePoint grubunu yedekleme. Azure Backup, yedekleme zamanlaması günlük oluşturmak için esneklik sağlar, haftalık, aylık veya yıllık yedekleme işaret ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekleri sunar. DPM, Hızlı Kurtarma süresi hedeflerini (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun süreli saklama için azure'a kopyaları depolamak için yeteneği sağlar.
@@ -229,14 +229,14 @@ Aşağıdaki örnekte, *SharePoint kurtarma öğesi* yanlışlıkla silinmişse 
 5. Bu noktada izleyin [kurtarma adımları bu makalenin önceki bölümlerinde](#restore-a-sharepoint-item-from-disk-using-dpm) diskten bir SharePoint içerik veritabanını kurtarmak için.
 
 ## <a name="faqs"></a>SSS
-S: hangi sürümlerinin DPM, SQL Server 2014 ve SQL 2012 (SP2) destekliyor?<br>
-Y: DPM 2012 R2 güncelleştirme paketi 4 ile her ikisini de destekler.
+S: Hangi sürümlerinin DPM, SQL Server 2014 ve SQL 2012 (SP2) destekliyor?<br>
+C: DPM 2012 R2 güncelleştirme paketi 4 ile her ikisini de destekler.
 
-Özgün konuma bir SharePoint öğesi, SharePoint, SQL AlwaysOn (disk koruması) kullanılarak yapılandırılmışsa, Kurtarma miyim?<br>
+S: SharePoint, SQL AlwaysOn (disk koruması) kullanılarak yapılandırılmışsa, bir SharePoint öğesi için özgün konuma kurtarma gerçekleştirebilir miyim?<br>
 C: Evet, öğe özgün SharePoint sitesine kurtarılabilir.
 
-Bir SharePoint veritabanını özgün konumuna, SharePoint, SQL Alwayson'u kullanarak yapılandırılmışsa kurtarma miyim?<br>
-Y: SharePoint veritabanlarını SQL AlwaysOn yapılandırıldığından, bunlar kullanılabilirlik grubu kaldırılmadığı sürece değiştirilemez. Sonuç olarak, DPM veritabanını özgün konumuna geri yükleyemezsiniz. Bir SQL Server veritabanını başka bir SQL Server örneğine kurtarabilirsiniz.
+S: SharePoint, SQL Alwayson'u kullanarak yapılandırılmışsa, bir SharePoint veritabanını özgün konumuna kurtarma gerçekleştirebilir miyim?<br>
+C: SharePoint veritabanlarını SQL AlwaysOn yapılandırıldığından, bunlar kullanılabilirlik grubu kaldırılmadığı sürece değiştirilemez. Sonuç olarak, DPM veritabanını özgün konumuna geri yükleyemezsiniz. Bir SQL Server veritabanını başka bir SQL Server örneğine kurtarabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * SharePoint DPM koruma hakkında daha fazla bilgi - bkz [Video serisi - SharePoint DPM koruma](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)

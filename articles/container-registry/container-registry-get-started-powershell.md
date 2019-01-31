@@ -5,19 +5,19 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 05/08/2018
+ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: fa6b4de9282eec75747ca87b26058a47320f2fd3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b8ff8e671d51a148177e66b30225dd7536a48028
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428146"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299752"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir özel kapsayıcı kayıt defteri oluşturma
 
-Azure Container Registry, Docker kapsayıcı görüntülerini oluşturmak, depolamak ve sunmak için kullanılan özel bir yönetilen Docker kapsayıcı kayıt defteridir. Bu hızlı başlangıçta PowerShell kullanarak Azure Container Registry oluşturmayı öğreneceksiniz. Kayıt defterini oluşturduktan sonra, ona bir kapsayıcı görüntüsü göndereceksiniz ve ardından kapsayıcıyı kayıt defterinizden Azure Container Instances’a (ACI) dağıtacaksınız.
+Azure Container Registry, Docker kapsayıcı görüntülerini oluşturmak, depolamak ve sunmak için kullanılan özel bir yönetilen Docker kapsayıcı kayıt defteridir. Bu hızlı başlangıçta PowerShell kullanarak Azure Container Registry oluşturmayı öğreneceksiniz. Sonra kayıt defterine bir kapsayıcı görüntüsü göndermeye Docker komutlarını kullanın ve son olarak çekmek ve görüntüyü kayıt defterinizden çalıştırın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -53,9 +53,11 @@ Kaynak defteri adı Azure’da benzersiz olmalı ve 5-50 arası alfasayısal kar
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
+Bu hızlı başlangıçta oluşturduğunuz bir *temel* maliyet açısından iyileştirilmiş bir seçenek Azure Container Registry hakkında öğrenme geliştiriciler için kayıt defteri. Kullanılabilir hizmet katmanları hakkında daha fazla bilgi için bkz: [kapsayıcı kayıt defteri SKU'ları][container-registry-skus].
+
 ## <a name="log-in-to-registry"></a>Kayıt defterinde oturum açma
 
-Kapsayıcı görüntülerini gönderip çekmeden önce kayıt defterinizde oturum açmalısınız. Önce, kayıt defterinin yönetici kimlik bilgilerini almak için [Get-AzureRmContainerRegistryCredential][Get-AzureRmContainerRegistryCredential] komutunu kullanın:
+Kapsayıcı görüntülerini gönderip çekmeden önce kayıt defterinizde oturum açmalısınız. Üretim senaryolarında, bir bireysel kimlik veya hizmet sorumlusu için kapsayıcı kayıt defteri erişimini kullanır, ancak bu hızlı başlangıcı kısa tutmak için kullanarak kayıt defterinizde yönetici kullanıcıyı etkinleştirin [Get-AzureRmContainerRegistryCredential] [ Get-AzureRmContainerRegistryCredential] komutu:
 
 ```powershell
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
@@ -67,162 +69,15 @@ Ardından, oturum açmak için [docker login][docker-login] komutunu çalıştı
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
 ```
 
-Başarılı bir oturum açma işlemi `Login Succeeded` döndürür:
+Bu komut tamamlandığında `Login Succeeded` döndürülür.
 
-```console
-PS Azure:\> $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
-Login Succeeded
-```
+[!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
-## <a name="push-image-to-registry"></a>Kayıt defterine görüntü gönderme
-
-Kayıt defterinde oturum açtığınıza göre, artık ona kapsayıcı görüntüleri gönderebilirsiniz. Kayıt defterinize gönderebileceğiniz bir görüntü almak için, Docker Hub’dan [aci-helloworld][aci-helloworld-image] ortak görüntüsünü çekin. [aci-helloworld][aci-helloworld-github] görüntüsü, Azure Container Instances logosunu gösteren statik bir HTML sayfası sunan küçük bir Node.js uygulamasıdır.
-
-```powershell
-docker pull microsoft/aci-helloworld
-```
-
-Görüntü çekildikten sonra çıkış aşağıdakine benzer:
-
-```console
-PS Azure:\> docker pull microsoft/aci-helloworld
-Using default tag: latest
-latest: Pulling from microsoft/aci-helloworld
-88286f41530e: Pull complete
-84f3a4bf8410: Pull complete
-d0d9b2214720: Pull complete
-3be0618266da: Pull complete
-9e232827e52f: Pull complete
-b53c152f538f: Pull complete
-Digest: sha256:a3b2eb140e6881ca2c4df4d9c97bedda7468a5c17240d7c5d30a32850a2bc573
-Status: Downloaded newer image for microsoft/aci-helloworld:latest
-```
-
-Azure kapsayıcı kayıt defterinize görüntü gönderebilmeniz için, kayıt defterinizin tam etki alanı adını (FQDN) görüntüye etiketlemeniz gerekir. Azure kapsayıcı kayıt defterlerinin FQDN’si *\<registry-name\>.azurecr.io* biçimindedir.
-
-Bir değişkeni tam görüntü etiketiyle doldurun. Oturum açma sunucusunu, depo adını ("aci-helloworld") ve görüntü sürümünü ("v1") ekleyin:
-
-```powershell
-$image = $registry.LoginServer + "/aci-helloworld:v1"
-```
-
-Şimdi görüntüyü [docker tag][docker-tag] ile etiketleyin:
-
-```powershell
-docker tag microsoft/aci-helloworld $image
-```
-
-Ve son olarak, görüntüyü kayıt defterinize [docker push][docker-push] ile gönderin:
-
-```powershell
-docker push $image
-```
-
-Docker istemcisi görüntünüzü gönderdiğinde, çıkış aşağıdakine benzer:
-
-```console
-PS Azure:\> docker push $image
-The push refers to repository [myContainerRegistry007.azurecr.io/aci-helloworld]
-31ba1ebd9cf5: Pushed
-cd07853fe8be: Pushed
-73f25249687f: Pushed
-d8fbd47558a8: Pushed
-44ab46125c35: Pushed
-5bef08742407: Pushed
-v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
-```
-
-Tebrikler! Az önce kayıt defterinize ilk kapsayıcı görüntünüzü gönderdiniz.
-
-## <a name="deploy-image-to-aci"></a>Görüntüyü ACI’ya dağıtma
-
-Görüntü artık kayıt defterinizde olduğuna göre, Azure’da çalıştığını görmek için bir kapsayıcıyı doğrudan Azure Container Instances’a dağıtın.
-
-İlk olarak, kayıt defteri kimlik bilgilerini *PSCredential*’a dönüştürün. Kapsayıcı örneğini oluşturmak için kullandığınız `New-AzureRmContainerGroup` komutu bu biçimde olmasını gerektirir.
-
-```powershell
-$secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
-$pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
-```
-
-Ayrıca, kapsayıcınızın DNS ad etiketi oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Bir değişkeni oluşturulan bir adla doldurmak için aşağıdaki komutu yürütün:
-
-```powershell
-$dnsname = "aci-demo-" + (Get-Random -Maximum 9999)
-```
-
-Son olarak, bir kapsayıcıyı kayıt defterinizdeki görüntüden 1 CPU çekirdek ve 1 GB bellek ile dağıtmak için [New-AzureRmContainerGroup][New-AzureRmContainerGroup] komutunu çalıştırın:
-
-```powershell
-New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
-```
-
-Azure ’dan kapsayıcınızın ayrıntılarını içeren ilk yanıtı almanız gerekir ve durumu ilk olarak “Beklemede” olur:
-
-```console
-PS Azure:\> New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
-ResourceGroupName        : myResourceGroup
-Id                       : /subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
-Name                     : mycontainer
-Type                     : Microsoft.ContainerInstance/containerGroups
-Location                 : eastus
-Tags                     :
-ProvisioningState        : Creating
-Containers               : {mycontainer}
-ImageRegistryCredentials : {myContainerRegistry007}
-RestartPolicy            : Always
-IpAddress                : 40.117.255.198
-DnsNameLabel             : aci-demo-8751
-Fqdn                     : aci-demo-8751.eastus.azurecontainer.io
-Ports                    : {80}
-OsType                   : Linux
-Volumes                  :
-State                    : Pending
-Events                   : {}
-```
-
-Durumunu izlemek ve ne zaman çalıştığını belirlemek için [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] komutunu birkaç kez çalıştırın. Kapsayıcının başlaması en fazla bir dakika sürmelidir.
-
-```powershell
-(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
-```
-
-Burada, kapsayıcının ProvisioningState durumunun ilk olarak *Oluşturuluyor* olduğunu ve ardından sorunsuz bir şekilde çalışmaya başladığında *Başarılı* durumuna geçtiğini görebilirsiniz:
-
-```console
-PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
-Creating
-PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
-Succeeded
-```
-
-## <a name="view-running-application"></a>Çalışan uygulamayı görüntüleme
-
-ACI’ye dağıtım başarılı olduğunda ve kapsayıcınız sorunsuz bir şekilde çalıştığında, uygulamanın Azure’da çalıştığını görmek için tarayıcınızda tam etki alanı adına (FQDN) gidin.
-
-[Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] ile kapsayıcınızın FQDN’sini alın:
-
-
-```powershell
-(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
-```
-
-Komutun çıkışı, kapsayıcı örneğinizin FQDN'sidir:
-
-```console
-PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
-aci-demo-8571.eastus.azurecontainer.io
-```
-
-Hazır olduğuna göre tarayıcınızda FQDN’ye gidin:
-
-![Tarayıcıdaki Merhaba Dünya uygulaması][qs-psh-01-running-app]
-
-Tebrikler! Azure’da uygulama çalıştıran ve doğrudan özel Azure kapsayıcı kayıt defterinizdeki bir kapsayıcı görüntüsünden dağıtılmış olan bir kapsayıcınız var.
+[!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu hızlı başlangıçta oluşturduğunuz kaynaklarla işiniz bittiğinde, kaynak grubunu, kapsayıcı kayıt defterini ve kapsayıcı örneğini kaldırmak için [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] komutunu kullanın:
+İşiniz bittiğinde kaynaklarla çalışmak, bu hızlı başlangıçta oluşturduğunuz, kullanın [Remove-AzureRmResourceGroup] [ Remove-AzureRmResourceGroup] kaynak grubunu, kapsayıcı kayıt defteri ve kapsayıcı kaldırmak için komutu depolanan görüntüler:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -230,14 +85,12 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure CLI ile bir Azure Container Registry oluşturdunuz ve Azure Container Instances’da bir örneğini başlattınız. ACI’ya daha ayrıntılı bir bakış için Azure Container Instances öğreticisine geçin.
+Bu hızlı başlangıçta, Azure PowerShell ile bir Azure Container Registry oluşturdunuz, bir kapsayıcı görüntüsü gönderdiniz çekilir ve kayıt defterinden görüntü çalıştı. ACR derin göz atmak için Azure Container Registry öğreticilere geçin.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances öğreticisi](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Azure Container Registry öğreticileri][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
-[aci-helloworld-github]: https://github.com/Azure-Samples/aci-helloworld
-[aci-helloworld-image]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
@@ -247,13 +100,10 @@ Bu hızlı başlangıçta Azure CLI ile bir Azure Container Registry oluşturdun
 
 <!-- Links - internal -->
 [Connect-AzureRmAccount]: /powershell/module/azurerm.profile/connect-azurermaccount
-[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
 [Get-AzureRmContainerRegistryCredential]: /powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
-[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [New-AzureRMContainerRegistry]: /powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
-
-<!-- IMAGES> -->
-[qs-psh-01-running-app]: ./media/container-registry-get-started-powershell/qs-psh-01-running-app.png
+[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
+[container-registry-skus]: container-registry-skus.md

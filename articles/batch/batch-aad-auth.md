@@ -3,7 +3,7 @@ title: Azure Batch hizmeti çözümlerinin kimliğini doğrulamak için Azure Ac
 description: Batch, Batch hizmetinden gelen kimlik doğrulaması için Azure AD destekler.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
-ms.author: danlep
-ms.openlocfilehash: 964ef3bd988d71bfb90dbaa473b4b259769064b3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.author: lahugh
+ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722064"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477615"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Batch hizmeti çözümlerinin Active Directory ile kimlik doğrulaması
 
@@ -171,7 +171,7 @@ Bu bölümdeki kod örnekleri, bir hizmet sorumlusu ile tümleşik kimlik doğru
 >
 >
 
-### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Kod örneği: Batch .NET ile tümleşik kimlik doğrulaması Azure AD kullanma
+### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Kod örneği: Tümleşik Batch .NET ile Azure AD kullanarak kimlik doğrulaması
 
 Batch .NET tümleşik kimlik doğrulaması ile kimlik doğrulaması için başvuru [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) paket ve [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) paket.
 
@@ -244,7 +244,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Kod örneği: Batch .NET ile bir Azure AD hizmet sorumlusu kullanma
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Kod örneği: Bir Azure AD hizmet sorumlusu ile Batch .NET kullanma
 
 Batch .NET gelen hizmet sorumlusu kimlik doğrulaması yapmak için başvuru [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) paket ve [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) paket.
 
@@ -311,7 +311,7 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Kod örneği: Batch Python ile bir Azure AD hizmet sorumlusu kullanma
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Kod örneği: Bir Azure AD hizmet sorumlusu ile Batch Python kullanma
 
 Batch Python gelen hizmet sorumlusu kimlik doğrulaması yapmak için yükleme ve başvuru [azure-batch](https://pypi.org/project/azure-batch/) ve [azure ortak](https://pypi.org/project/azure-common/) modüller.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7fbf86a24ca6b2ba55ca33b20e67dea6a6e0c994
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b66b293e5d6e422c994e2b7cef13fd4100144cbf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731713"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297013"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde kimlik doğrulaması ve yetkilendirme
 
@@ -64,7 +64,7 @@ App Service web uygulamaları, API'leri, yerel mobil uygulamalar veya kullanıc�
 - Kimliği doğrulanmış kullanıcının Facebook zaman tünelinde Yayınla
 - Azure Active Directory Graph API'sini ya da Microsoft Graph bile kullanıcının şirket verilerini okuyun
 
-Genellikle toplamak, depolamak ve bu belirteçler, uygulamanızda yenileme için kod yazmanız gerekir. Belirteç Deposu ile yeni [belirteçlerini almak](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) gerektiğinde bunları ve [yenilemek için App Service söyleyin](app-service-authentication-how-to.md#refresh-access-tokens) zaman haline gelmeden geçersiz. 
+Genellikle toplamak, depolamak ve bu belirteçler, uygulamanızda yenileme için kod yazmanız gerekir. Belirteç Deposu ile yeni [belirteçlerini almak](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) gerektiğinde bunları ve [yenilemek için App Service söyleyin](app-service-authentication-how-to.md#refresh-identity-provider-tokens) zaman haline gelmeden geçersiz. 
 
 Kimliği doğrulanan oturum için kimliği belirteçleri, erişim belirteci ve yenileme belirteçleri önbelleğe ve bunlar yalnızca ilişkili kullanıcı tarafından erişilebilir.  
 
@@ -151,7 +151,7 @@ Sağlayıcıya özgü nasıl yapılır kılavuzları:
 * [Uygulamanızı Google oturum açma bilgilerini kullanacak şekilde yapılandırma][Google]
 * [Microsoft Account login kullanmak için uygulamanızı yapılandırma][MSA]
 * [Uygulamanızı twitter oturum açma bilgilerini kullanacak şekilde yapılandırma][Twitter]
-* [Nasıl Yapılır: Uygulamanız için özel kimlik doğrulaması kullan][custom-auth]
+* [Nasıl yapılır: Uygulamanız için özel kimlik doğrulaması kullan][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

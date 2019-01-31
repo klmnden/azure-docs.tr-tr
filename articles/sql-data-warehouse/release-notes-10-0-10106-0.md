@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 12/12/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 074276e4550b9b2e347e5cd30c597a1d09f6cb2f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8e82e352ebea4634b1b99864245adcf606352657
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440256"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469354"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-version---100101060"></a>Yeni Azure SQL veri ambarı sürümü - 10.0.10106.0 nedir?
 Azure SQL veri ambarı (SQL DW) sürekli olarak geliştirme. Bu makalede SQL DW sürümü 10.0.10106.0 sürümünde değişiklikleri ve yeni özellikleri açıklar.

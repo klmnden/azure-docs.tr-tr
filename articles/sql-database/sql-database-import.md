@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: 9e79aa2315118bcd9ce4328e74d51d7a22ea6247
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/25/2019
+ms.openlocfilehash: c1b6c55475c1600c89c1ac1cae9dee0068b92070
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744573"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478228"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Hızlı Başlangıç: Yeni bir Azure SQL veritabanına BACPAC dosyasını içeri aktarma
 
@@ -33,7 +33,7 @@ Bu bölümde gösterilmiştir nasıl, [Azure portalında](https://portal.azure.c
 > [!NOTE]
 > [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md) bu makaledeki diğer yöntemleri kullanarak BACPAC dosyasından alma destekler, ancak şu anda Azure portalında geçişini desteklemez.
 
-Azure portalında bir veritabanını içeri aktarmak için içeri aktarma barındırmak ve, araç çubuğunda mantıksal sunucu için sayfayı açın **veritabanını içeri aktar**.  
+Azure portalında bir veritabanını içeri aktarmak için içeri aktarma barındırmak ve, araç çubuğunda, SQL veritabanı sunucusu için sayfayı açın **veritabanını içeri aktar**.  
 
    ![Veritabanı içeri aktarma](./media/sql-database-import/import.png)
 
@@ -41,7 +41,7 @@ Depolama hesabı, kapsayıcı ve BACPAC dosyasını içeri aktarmak istediğiniz
 
 ### <a name="monitor-imports-progress"></a>Alma işleminin ilerleme durumunu izleyin
 
-İçeri aktarılan veritabanı mantıksal sunucusu sayfasında, bir içeri aktarmanın ilerleme durumunu izlemek için ve altında **ayarları**seçin **içeri/dışarı aktarma geçmişi**. Başarılı olduğunda, içeri aktarma sahip bir **tamamlandı** durumu.
+Alınan veritabanı sunucusu sayfasında, bir içeri aktarmanın ilerleme durumunu izlemek için ve altında **ayarları**seçin **içeri/dışarı aktarma geçmişi**. Başarılı olduğunda, içeri aktarma sahip bir **tamamlandı** durumu.
 
 Veritabanı sunucusunda Canlı doğrulamak için **SQL veritabanları** ve yeni veritabanı doğrulayın **çevrimiçi**.
 
@@ -51,14 +51,14 @@ Bir SQL veritabanını kullanarak içeri aktarmak için [SqlPackage](https://doc
 
 Ölçek ve performans için çoğu üretim ortamlarında SqlPackage kullanmanızı öneririz. BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
-Aşağıdaki komut SqlPackage alır **AdventureWorks2008R2** yerel depolama veritabanından adlı bir Azure SQL veritabanı mantıksal sunucusuna **mynewserver20170403**. Adlı yeni bir veritabanı oluşturur **myMigratedDatabase** ile bir **Premium** hizmet katmanı ve bir **P6** hizmet hedefi. Bu değerleri ortamınız için uygun şekilde değiştirin.
+Aşağıdaki komut SqlPackage alır **AdventureWorks2008R2** adlı bir Azure SQL veritabanı sunucusu yerel depodan veritabanına **mynewserver20170403**. Adlı yeni bir veritabanı oluşturur **myMigratedDatabase** ile bir **Premium** hizmet katmanı ve bir **P6** hizmet hedefi. Bu değerleri ortamınız için uygun şekilde değiştirin.
 
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<your_server_admin_account_user_id>;Password=<your_server_admin_account_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> Azure SQL Veritabanı mantıksal sunucusu 1433 numaralı bağlantı noktasında dinler. Kurumsal bir güvenlik duvarının korumasında mantıksal sunucusuna bağlanmak için güvenlik duvarının Bu bağlantı noktası açık olması gerekir.
+> SQL veritabanı sunucusu 1433 numaralı bağlantı noktasını dinler. Kurumsal bir güvenlik duvarının arkasından bir SQL veritabanı sunucusuna bağlanmak için güvenlik duvarının Bu bağlantı noktası açık olması gerekir.
 >
 
 Bu örnek, bir veritabanını Active Directory Evrensel kimlik doğrulaması ile SqlPackage kullanarak içeri aktarma gösterir.
@@ -107,7 +107,7 @@ Başka bir komut dosyası örneği için bkz. [veritabanını BACPAC dosyasında
 
 ## <a name="limitations"></a>Sınırlamalar
 
-Elastik havuzdaki bir veritabanı için içeri aktarma desteklenmiyor. Verileri tek bir veritabanına içeri aktarabilir ve sonra veritabanını havuza taşıma.
+Elastik havuzdaki bir veritabanı için içeri aktarma desteklenmiyor. Bir tek veritabanı'na veri aktarma ve ardından veritabanını bir elastik havuz için taşıma.
 
 ## <a name="import-using-wizards"></a>İçeri aktarma sihirbazları
 
@@ -118,7 +118,7 @@ Bu sihirbazlar de kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bağlanmak ve içeri aktarılan bir SQL veritabanını sorgulama hakkında bilgi edinmek için [hızlı başlangıç: Azure SQL veritabanı: Verileri bağlama ve sorgulama için SQL Server Management Studio kullanın](sql-database-connect-query-ssms.md).
+- Bağlanmak ve içeri aktarılan bir SQL veritabanını sorgulama hakkında bilgi edinmek için [hızlı başlangıç: Azure SQL Veritabanı: Verileri bağlama ve sorgulama için SQL Server Management Studio kullanın](sql-database-connect-query-ssms.md).
 - BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 - Performans önerileri de dahil olmak üzere tüm SQL Server veritabanı geçiş işlemi, hakkında ayrıntılı bilgi için bkz. [Azure SQL veritabanı için SQL Server veritabanı geçişi](sql-database-cloud-migrate.md).
 - Depolama anahtarları ve paylaşılan erişim imzaları güvenli bir şekilde, bkz: yönetmek ve paylaşmak hakkında bilgi edinmek için [Azure depolama Güvenlik Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

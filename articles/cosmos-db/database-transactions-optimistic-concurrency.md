@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 044fe3de265d298ecd366a50b9db77eeea32bbb7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389096"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457947"
 ---
-# <a name="database-transactions-and-optimistic-concurrency-control"></a>Veritabanı işlemleri ve iyimser eşzamanlılık denetimi
+# <a name="transactions-and-optimistic-concurrency-control"></a>İşlemler ve iyimser eşzamanlılık denetimi
 
 Veritabanı işlemleri verileri eşzamanlı değişikliklerle başa çıkmak için bir güvenli ve öngörülebilir programlama modeli sağlar. Geleneksel ilişkisel veritabanları, SQL Server gibi tetiklenir ve/veya depolanan yordamları kullanarak iş mantığı yazmanıza izin, doğrudan veritabanı altyapısının içinde yürütme için sunucuya gönderin. İki farklı programlama dilleri - ile (işlem olmayan) uygulama programlama dili gibi JavaScript, Python, işlem için gerekli olan geleneksel veri tabanlarına C#, Java vb. ve işlem programlama dili (T-SQL) olan yerel olarak veritabanı tarafından yürütülen.
 

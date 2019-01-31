@@ -3,7 +3,7 @@ title: İşlem düğümleri Azure Batch havuzunda otomatik olarak | Microsoft Do
 description: Havuzdaki işlem düğümü sayısını dinamik olarak ayarlamak için bir bulut havuzunda otomatik ölçeklendirmeyi etkinleştirin.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab41211fb0b0b6360bdbc255e367d0492c2438ed
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331082"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459851"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch havuzundaki işlem düğümlerini ölçekleme için bir otomatik ölçeklendirme formülü oluşturma
 
@@ -192,8 +192,8 @@ Bu önceden tanımlanmış **işlevleri** bir otomatik ölçeklendirme formülü
 | yüzdebirlik (doubleVec v, çift p) |double |Vektör v yüzdebirlik öğeyi döndürür. |
 | rand() |double |0,0 ile 1,0 arasında rastgele bir değer döndürür. |
 | Range(doubleVecList) |double |DoubleVecList içinde en az ve maksimum değerleri arasındaki farkı döndürür. |
-| Std(doubleVecList) |double |İçinde doubleVecList örnek değerlerin standart sapmasını döndürür. |
-| Stop() | |Otomatik ölçeklendirme ifadesi değerlendirmesi durdurur. |
+| std(doubleVecList) |double |İçinde doubleVecList örnek değerlerin standart sapmasını döndürür. |
+| stop() | |Otomatik ölçeklendirme ifadesi değerlendirmesi durdurur. |
 | SUM(doubleVecList) |double |DoubleVecList bileşenlerinin tümünü toplamını döndürür. |
 | zaman (TarihSaat string = "") |timestamp |Geçirilirse, bu parametre geçirilmezse geçerli zamandan itibaren zaman damgası veya tarih saat dizesi zaman damgasını döndürür. Desteklenen tarih/saat biçimleri W3C DTF ve RFC 1123 olacaktır. |
 | VAL (doubleVec v, çift i) |double |Konumda i vektör v, başlangıç dizini sıfır olan öğenin değerini döndürür. |
@@ -215,7 +215,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | --- | --- |
 | GetSample() |`GetSample()` Yöntemi veri örnekleri vektörünü döndürür.<br/><br/>Ölçüm verileri 30 saniye değerinde bir örnektir. Diğer bir deyişle, örnekler, her 30 saniyede elde edilir. Ancak, aşağıda belirtildiği gibi bir örnek ne zaman kullanılacağını ve bir formül olarak kullanılabilir olduğunda arasında bir gecikme yoktur. Bu nedenle, belirli bir süre için tüm örnekleri bir formül olarak değerlendirme için kullanılamıyor olabilir.<ul><li>`doubleVec GetSample(double count)`<br/>Toplanan en son örneklerini almak için örnek sayısını belirtir.<br/><br/>`GetSample(1)` kullanılabilir son örnek döndürür. Ölçümleri ister için `$CPUPercent`, bilmek olanaksızdır olduğundan ancak bu kullanılmamalıdır *olduğunda* örnek toplanmadı. Son olabilir ya da sistem sorunları nedeniyle daha eski olabilir. Böyle durumlarda, aşağıda gösterildiği gibi bir zaman aralığı kullanmak daha iyidir.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Örnek verileri toplamak için bir zaman çerçevesi belirtir. İsteğe bağlı olarak, istenen zaman dilimi içinde kullanılabilir örneklerin yüzdesi de belirtir.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` Son 10 dakika için tüm örnekleri CPUPercent geçmişi mevcut olması durumunda 20 örnekleri getirir. Geçmiş, geçen dakikada kullanılabilir değilse, ancak yalnızca 18 örnekleri döndürülür. Bu durumda:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` örnekler yüzde 90'ını yalnızca kullanılabilir olmadığından başarısız olur.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` başarılı olabilir.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Başlangıç ve bitiş zamanını hem verileri toplamak için bir zaman çerçevesi belirtir.<br/><br/>Yukarıda belirtildiği gibi bir örnek ne zaman kullanılacağını ve bir formül olarak kullanılabilir olduğunda arasında bir gecikme olur. Kullandığınızda bu gecikmeyi dikkate `GetSample` yöntemi. Bkz: `GetSamplePercent` aşağıda. |
 | GetSamplePeriod() |Alınan örnekleri dönemi geçmiş örnek veri kümesinde döndürür. |
-| Count() işlevi |Örneklerin toplam sayısı, ölçüm geçmişi döndürür. |
+| Count() |Örneklerin toplam sayısı, ölçüm geçmişi döndürür. |
 | HistoryBeginTime() |Ölçüm için eski mevcut veriler örnek zaman damgasını döndürür. |
 | GetSamplePercent() |Belirtilen zaman aralığı için kullanılabilir örneklerin yüzdesi döndürür. Örneğin:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Çünkü `GetSample` örneklerin yüzdesi döndürülür yöntemi bozulursa küçüktür `samplePercent` kullanabileceğiniz belirtilen `GetSamplePercent` denetlemek için önce yöntemi. Yetersiz örnekleri varsa, otomatik ölçeklendirme değerlendirme durdurma olmadan, alternatif bir eylem gerçekleştirebilirsiniz. |
 
@@ -579,7 +579,7 @@ Error:
 ## <a name="example-autoscale-formulas"></a>Örnek otomatik ölçeklendirme formülleri
 Bir havuzdaki işlem kaynaklarının miktarını ayarlamak için farklı yollar gösterilmiştir birkaç formülleri bakalım.
 
-### <a name="example-1-time-based-adjustment"></a>Örnek 1: Saat temelli ayarlama
+### <a name="example-1-time-based-adjustment"></a>Örnek 1: Zamana bağlı ayarlama
 Haftanın günü ve günün saatini temel alan havuz boyutunu ayarlamak istediğinizi varsayalım. Bu örnek artırmak ya da buna göre havuzdaki düğüm sayısını azaltmak nasıl gösterir.
 
 Formül, öncelikle geçerli saati alır. Haftanın günü (1-5) ise ve çalışma saatleri (8: 00 için 18: 00) içinde hedef havuz boyutunu 20 düğümlerine ayarlanır. Aksi takdirde, 10 düğümü için ayarlanır.
@@ -592,7 +592,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>Örnek 2: Görev-tabanlı ayarlama
+### <a name="example-2-task-based-adjustment"></a>Örnek 2: Görev tabanlı ayarlama
 Bu örnekte, havuz boyutunu, kuyruktaki görevlerin sayısına göre ayarlanır. Hem açıklamaları hem de satır sonları formül dizelerde kabul edilir.
 
 ```csharp
@@ -632,7 +632,7 @@ $TargetDedicatedNodes = max(0,min($targetVMs,3));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-4-setting-an-initial-pool-size"></a>Örnek 4: bir ilk havuz boyutunu ayarlama
+### <a name="example-4-setting-an-initial-pool-size"></a>Örnek 4: İlk havuz boyutunu ayarlama
 Bu örnek, bir C# kod parçacığı bir belirtilen sayıda düğüme ilk bir süre için havuz boyutunu ayarlayan bir otomatik ölçeklendirme formülü ile gösterir. Havuz boyutunu göre çalışan sayısı ve etkin ayarlar daha sonra ilk süre geçtikten sonra görevleri.
 
 Aşağıdaki kod parçacığı formülü:

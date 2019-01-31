@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d574f62a51b8aed7acbd1ba7f8b427395add854a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135173"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454139"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Team Data Science Process içinde proje için görevleri sağlama
 
@@ -36,9 +36,9 @@ Bu konu, şu anda proje liderleri için bu iş akışı görevleri 1,2 ve 6 kaps
 Bu öğreticide, kısaltılmış depoları ve dizinler için kullanılır. Bu adlar dizinlerini ve depoları işlemleri izlemenizi kolaylaştırır. Bu gösterim (Git depoları için R) ve D DSVM'ye yerel dizinleri için aşağıdaki bölümlerde kullanılır:
 
 - **R3**: Takım **ProjectTemplate** , ekip lideri ayarlanmış bir Git deposunda.
-- **R5**: Kurulum projeniz için Git proje havuzda.
-- **D3**: yerel dizin R3 ' kopyalanabilir.
-- **D5**: yerel dizin R5 kopyalandı.
+- **R5**: Proje Git deposunu projeniz için ayarlayın.
+- **D3**: Yerel dizin R3 kopyalandı.
+- **D5**: Yerel dizin R5 kopyalandı.
 
 
 ## <a name="0-prerequisites"></a>0. Önkoşullar
@@ -84,15 +84,15 @@ Burada özetlemek gerekirse, aşağıdaki gereksinimleri ekip sağlama görevler
 
 ## <a name="2-seed-the-dsproject1-project-repository"></a>2. Çekirdek DSProject1 proje deposu
 
-Burada için çekirdek görevdir **DSProject1** proje şablonu deponuzu (R3) (R5) deposundan proje. Dengeli dağıtım yordam D3 ve D5 dizinleri yerel DSVM'ye Ara hazırlama siteler olarak kullanır. Özet olarak, dengeli dağıtım yoludur: R3 -> D3 D5 -> R5 ->.
+Burada için çekirdek görevdir **DSProject1** proje şablonu deponuzu (R3) (R5) deposundan proje. Dengeli dağıtım yordam D3 ve D5 dizinleri yerel DSVM'ye Ara hazırlama siteler olarak kullanır. Özet olarak, dengeli dağıtım yoludur: R3 -> D3 -> D5 -> R5.
 
 Özelleştirmeniz gerekirse, **DSProject1** bazı belirli karşılamak için proje deposuna proje gereksinimleriniz, aşağıdaki yordamın sondan adımında bunu. İçeriği sağlamak için kullanılan adımlarla bir özeti aşağıda verilmiştir **DSProject1** proje deposu. Her bir adımı alt bölümlere dengeli dağıtım yordamda karşılık gelir:
 
 - Proje şablonu depoyu yerel dizine kopyala: yerel D3 -> için kopyalanan R3 - takım.
 - Yerel bir dizine DSProject1 depoyu Kopyala: yerel D5 -> için kopyalanan R5 - takım.
-- Kopyalanan proje şablonu içeriği DSProject1 depo yerel kopyasını kopyalayın: D3 - D5 -> için kopyalanan içeriği.
+- Kopyalanan proje şablonu içeriği DSProject1 depo yerel kopyasını kopyalayın:  D3 - D5 -> için kopyalanan içeriği.
 - (İsteğe bağlı) Yerel D5 özelleştirme.
-- Takım depolarını yerel DSProject1 anında içerik: D5 - içeriğini Ekle -> takım R5.
+- Takım depolarını yerel DSProject1 içeriği gönderin: D5 - içeriğini team R5 -> için ekleyin.
 
 
 ### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Proje şablonu deponuza (R3) bir ' % s'dizini (D3) yerel makinenize kopyalayın.

@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Metin çevirme, Python - Translator Metin Çevirisi API'si"
+title: "Hızlı Başlangıç: Metin, Python - Translator metin çevirisi API'si Çevir"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, 10 dakikadan daha kısa bir sürede Python ile Translator Metin Çevirisi API'sini kullanarak metni bir dilden diğerine çevireceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: db2328d09f9e06ccabdc2408327a342fe94fefe0
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b5307db01cc7242ba73876409f18d511c2516091
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999580"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458168"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Hızlı Başlangıç: Python kullanarak bir dizeyi çevirmek için Translator Metin Çevirisi API'sini kullanma
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Hızlı Başlangıç: Python kullanarak bir dizeye çevirmek için Translator Text API kullanın
 
 Bu hızlı başlangıçta, Python ve Translator Metin Çevirisi REST API'sini kullanarak bir metin dizesini İngilizceden İtalyanca ve Almancaya çevirmeyi öğreneceksiniz.
 
@@ -69,7 +69,7 @@ else:
 `params` çıkış dillerini ayarlamak için kullanılır. Bu örnekte İngilizceden İtalyanca ve Almancaya çeviri yapacağız: `it` ve `de`.
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Çeviri](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Çevirme](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

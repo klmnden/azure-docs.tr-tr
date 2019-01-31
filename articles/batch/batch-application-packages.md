@@ -3,7 +3,7 @@ title: İşlem düğümlerinde - Azure Batch uygulama paketleri yükle | Microso
 description: İşlem düğümlerini birden çok uygulamaları ve sürümlerini toplu yükleme için kolayca yönetmek için Azure Batch uygulama paketleri özelliği kullanın.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/15/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 333161042e968b4baf4b962869d688fd0b696b24
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094144"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454618"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı
 
@@ -114,8 +114,8 @@ Bu menü seçeneğini belirleyerek açılır **uygulamaları** penceresi:
 Bu pencereyi her uygulama Kimliğini hesabınızı ve aşağıdaki özellikleri görüntüler:
 
 * **Paketleri**: Bu uygulamayla ilişkili sürüm sayısı.
-* **Varsayılan sürüm**: uygulama havuzu için belirttiğiniz zaman, bir sürüm belirtmiyorsa yüklü uygulama sürümü. Bu ayar isteğe bağlıdır.
-* **Güncelleştirmelere izin ver**: olup paketini güncelleştirir, silme ve ekleme belirten değeri izin verilir. Bu ayarlanırsa **Hayır**, paket güncelleştirmeleri ve silme işlemleri uygulama için devre dışıdır. Yalnızca yeni uygulama paketi sürümleri eklenebilir. Varsayılan değer **Evet**’tir.
+* **Varsayılan sürüm**: Uygulama havuzu için belirttiğiniz zaman, bir sürüm belirtmiyorsa yüklü uygulama sürümü. Bu ayar isteğe bağlıdır.
+* **Güncelleştirmelere izin ver**: Paket olup olmadığını güncelleştirir, silme ve ekleme belirten değeri izin verilir. Bu ayarlanırsa **Hayır**, paket güncelleştirmeleri ve silme işlemleri uygulama için devre dışıdır. Yalnızca yeni uygulama paketi sürümleri eklenebilir. Varsayılan değer **Evet**’tir.
 
 ### <a name="view-application-details"></a>Uygulama ayrıntılarını görüntüle
 Uygulama ayrıntılarını görmek için uygulamayı seçin. **uygulamaları** penceresi.
@@ -124,9 +124,9 @@ Uygulama ayrıntılarını görmek için uygulamayı seçin. **uygulamaları** p
 
 Uygulama ayrıntıları, uygulamanız için aşağıdaki ayarları yapılandırabilirsiniz.
 
-* **Güncelleştirmelere izin ver**: uygulama paketleri, güncelleştirildi veya silinebilir olup olmadığını belirtin. "Güncelleştirme veya uygulama paketi silme" Bu makalenin ilerleyen bölümlerinde bkz.
-* **Varsayılan sürüm**: işlem düğümlerine dağıtmak için bir varsayılan uygulama paketi belirleyin.
-* **Görünen ad**: Batch çözümünüzü uygulamayla ilgili bilgileri gibi Batch aracılığıyla müşterilerinize sağlayan bir hizmetin kullanıcı arabirimini gösterildiğinde kullanabileceğiniz bir kolay ad belirtin.
+* **Güncelleştirmelere izin ver**: Uygulama paketleri, güncelleştirildi veya silinebilir olup olmadığını belirtin. "Güncelleştirme veya uygulama paketi silme" Bu makalenin ilerleyen bölümlerinde bkz.
+* **Varsayılan sürüm**: İşlem düğümlerine dağıtmak için bir varsayılan uygulama paketini belirtin.
+* **Görünen ad**: Batch çözümünüz uygulamayla ilgili bilgileri gibi Batch aracılığıyla müşterilerinize sağlayan bir hizmetin kullanıcı arabirimini gösterildiğinde kullanabileceğiniz bir kolay ad belirtin.
 
 ### <a name="add-a-new-application"></a>Yeni uygulama Ekle
 Yeni bir uygulama oluşturmak için bir uygulama paketi ekleme ve yeni, benzersiz bir uygulama kimliği belirtin. Yeni uygulama kimliği ile eklediğiniz ilk uygulama paketini, yeni uygulama da oluşturur.

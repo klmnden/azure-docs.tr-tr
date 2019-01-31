@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
 ms.reviewer: sngun
-ms.openlocfilehash: c80f555a3789a12420cef0dc91ef7accc6a4388d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8a3863ff67549c77692f8629c2e7315aec94faf8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036197"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463319"
 ---
-# <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Azure Cosmos DB anahtarlara erişmek ve depolamak için Key Vault'u kullanın
+# <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Cosmos anahtarları Azure Key Vault'u kullanarak güvenli hale getirme 
 
 Azure Cosmos DB için uygulamalarınızı kullanırken, uygulamanın yapılandırma dosyası içinde uç noktası URI'si ve anahtar kullanarak veritabanı, koleksiyonlar, belgeler erişebilirsiniz.  Ancak, kullanılabilir tüm kullanıcılar için düz metin biçiminde olduğundan, anahtarları ve URL'yi doğrudan uygulama koduna koymak güvenli değildir. URI'si ve anahtarlar kullanılabilir, ancak güvenli bir mekanizma aracılığıyla olduğundan emin olmanız gerekir. Bu, Azure Key Vault, güvenli bir şekilde depolamak ve uygulama parolalarını yönetme burada yardımcı olur.
 

@@ -1,5 +1,5 @@
 ---
-Başlık: Model dağıtımı titleSuffix için hazırlayın: Azure Machine Learning Studio açıklaması: Machine Learning Studio'da eğitim denemesini öngörücü bir denemeye dönüştürme tarafından eğitilen modeli bir web hizmeti olarak dağıtım için hazırlamayı öğrenin.
+Başlık: Model dağıtımı titleSuffix için hazırlayın: Azure Machine Learning Studio açıklaması: Machine Learning Studio'da eğitim denemesini öngörücü bir denemeye dönüştürme tarafından eğitilen modeli bir web hizmeti olarak dağıtım için hazırlamayı öğrenin.
 Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.date: 03/28/2017

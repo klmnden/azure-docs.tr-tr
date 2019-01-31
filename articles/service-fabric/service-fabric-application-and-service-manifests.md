@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: fa3c94854f8f67da9caa2955f5c62581843e39c8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156114"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465632"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric uygulama ve hizmet bildirimleri
 Bu makalede tanımlanan ve tutulan ApplicationManifest.xml ve ServiceManifest.xml dosyalarını kullanarak Service Fabric uygulamaları ve hizmetleri nasıl açıklar.  Daha ayrıntılı örnekler için bkz: [uygulama ve hizmet bildirimi örnekleri](service-fabric-manifest-examples.md).  Bu bildirim dosyaları için XML Şeması belgelenen [ServiceFabricServiceModel.xsd şema belgeleri](service-fabric-service-model-schema.md).
@@ -96,7 +96,7 @@ SetupEntryPoint yapılandırma hakkında daha fazla bilgi için bkz. [Hizmet Kur
 </Settings>
 ```
 
-**Kaynakları**, uç noktaları gibi hizmet tarafından bildirilen ve değiştirilen derlenmiş kodunu değiştirmeden için kullanılır.  Hizmet bildiriminde belirtilen kaynaklara erişimi aracılığıyla denetlenebilir **IDAP** uygulama bildiriminde.  Olduğunda bir **uç nokta** kaynak hizmet bildiriminde tanımlanan, Service Fabric bir bağlantı noktası açıkça belirtilmediğinde, bu bağlantı noktalarını ayrılmış uygulama bağlantı noktası aralığından atar.  Daha fazla bilgi edinin [belirterek veya uç nokta kaynakları geçersiz kılma](service-fabric-service-manifest-resources.md).
+Service Fabric hizmeti **uç nokta** bir Service Fabric kaynak; örneğidir Bir Service Fabric kaynak derlenmiş kodunu değiştirmeden, bildirilen/değiştirilmiş olabilir. Hizmet bildiriminde belirtilen Service Fabric kaynaklarına erişimi aracılığıyla denetlenebilir **IDAP** uygulama bildiriminde. Hizmet bildiriminde tanımlanan uç nokta kaynağı oluşturduğunuzda, Service Fabric açıkça bir bağlantı noktası belirtilmezse ayrılmış uygulama bağlantı noktası aralığından bağlantı noktaları atar. Daha fazla bilgi edinin [belirterek veya uç nokta kaynakları geçersiz kılma](service-fabric-service-manifest-resources.md).
 
 
 <!--

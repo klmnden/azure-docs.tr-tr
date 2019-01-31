@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: ed7e8346cba2a2243ef71cb9782219fb26481dc7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 01/25/2019
+ms.openlocfilehash: 35759f03d7cf09a4114ca6dca74bd3ee92fdcbfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190102"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462180"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Esnek veritabanı araçlarını kullanarak çok parçalı sorgulama
 
@@ -59,7 +59,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 }
 ```
 
-Önemli bir fark bağlantı çok parçalı bir yapıdır. Burada **SqlConnection** tek bir veritabanı üzerinde çalışır **MultiShardConnection** götüren bir ***parçalar koleksiyonu*** giriş olarak. Parça parça eşlemesinden koleksiyonunu doldurur. Sorgu kullanarak parçalar koleksiyonu üzerinde yürütülür **UNION ALL** semantiği tek bir genel sonuç derlemek için. İsteğe bağlı olarak satır kaynaklandığı parça adını kullanarak çıkış eklenebilir **ExecutionOptions** özelliği komutu.
+Önemli bir fark bağlantı çok parçalı bir yapıdır. Burada **SqlConnection** tek bir veritabanının üzerinde çalıştığı **MultiShardConnection** alır bir ***parçalar koleksiyonu*** giriş olarak. Parça parça eşlemesinden koleksiyonunu doldurur. Sorgu kullanarak parçalar koleksiyonu üzerinde yürütülür **UNION ALL** semantiği tek bir genel sonuç derlemek için. İsteğe bağlı olarak satır kaynaklandığı parça adını kullanarak çıkış eklenebilir **ExecutionOptions** özelliği komutu.
 
 Çağrı Not **myShardMap.GetShards()**. Bu yöntem, tüm parça parça eşlemesinden alır ve tüm ilgili veritabanları arasında sorgu çalıştırmak için kolay bir yol sağlar. Parçalar koleksiyonu çok parçalı sorgu daraltılmış olabilir. daha fazla koleksiyon üzerinde bir LINQ Sorgu gerçekleştirerek döndürülen çağrısından **myShardMap.GetShards()**. Kısmi sonuçlar İlkesi ile birlikte, çok parçalı sorgulama geçerli özellik parçalar yüzlerce en fazla on için iyi çalışacak şekilde tasarlanmıştır.
 

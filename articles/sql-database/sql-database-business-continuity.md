@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3b3f1268866c936ae4674188f8e3297702167415
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599442"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473434"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -46,7 +46,7 @@ Ardından, SQL veritabanı yüksek kullanılabilirlik mimarisi ile gibi işlenem
 
 - [Zamana bağlı tablolarda](sql-database-temporal-tables.md) satır sürümleri herhangi bir noktadan geri yükleme sağlar.
 - [Yerleşik otomatik yedeklerinde](sql-database-automated-backups.md) ve [geri yükleme noktası](sql-database-recovery-using-backups.md#point-in-time-restore) son 35 gün içindeki belirli bir noktada tam veritabanını geri yüklemenize olanak sağlar.
-- Yapabilecekleriniz [silinen bir veritabanını geri yükleme](sql-database-recovery-using-backups.md#deleted-database-restore) başlangıçtan silinmiş varsa noktasına **mantıksal sunucu silinmediğini**.
+- Yapabilecekleriniz [silinen bir veritabanını geri yükleme](sql-database-recovery-using-backups.md#deleted-database-restore) başlangıçtan silinmiş varsa noktasına **SQL veritabanı sunucusu silinmediğini**.
 - [Uzun süreli yedek saklama](sql-database-long-term-retention.md) yedeklemeleri 10 yıla kadar açık kalmasını sağlar.
 - [Etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) okunabilir çoğaltma ve el ile bir veri merkezi kesintisi veya uygulama yükseltmesi durumunda herhangi bir çoğaltmaya yük devretme oluşturmanıza olanak sağlar.
 - [Otomatik Yük devretme grubu](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) uygulamayı otomatik olarak bir veri merkezi kesintisi durumunda kurtarma sağlar.
@@ -63,7 +63,7 @@ Aşağıdaki tabloda, her hizmet katmanı için üç yaygın senaryo için ERT v
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Sunucunun var olan bir veritabanını kurtarma
 
-SQL veritabanı otomatik olarak her 12 saatte bir, genellikle yapılan Türevsel veritabanı yedekleri tam veritabanı yedeklemeleri birlikte haftalık, gerçekleştirir ve işlem işletmenizi veri kaybına karşı korumak için 5-10 dakikada bir yedekleme günlüğü. Yedeklemeler, yedeklemeler için 7 gün depolandığı temel DTU hizmet katmanları dışındaki tüm hizmet katmanları için 35 gün boyunca RA-GRS depolama alanında depolanır. Daha fazla bilgi için [otomatik veritabanı yedeklemelerini](sql-database-automated-backups.md). Var olan bir veritabanı formunu otomatik yedekleri için daha önceki bir noktaya Azure portalı, PowerShell veya REST API'yi kullanarak aynı mantıksal sunucu üzerinde yeni bir veritabanı olarak zaman içinde geri yükleyebilirsiniz. Daha fazla bilgi için [-belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL veritabanı otomatik olarak her 12 saatte bir, genellikle yapılan Türevsel veritabanı yedekleri tam veritabanı yedeklemeleri birlikte haftalık, gerçekleştirir ve işlem işletmenizi veri kaybına karşı korumak için 5-10 dakikada bir yedekleme günlüğü. Yedeklemeler, yedeklemeler için 7 gün depolandığı temel DTU hizmet katmanları dışındaki tüm hizmet katmanları için 35 gün boyunca RA-GRS depolama alanında depolanır. Daha fazla bilgi için [otomatik veritabanı yedeklemelerini](sql-database-automated-backups.md). Var olan bir veritabanı formunu otomatik yedekleri için daha önceki bir noktaya aynı SQL veritabanı sunucusunda Azure portalı, PowerShell veya REST API'yi kullanarak yeni bir veritabanı olarak zaman içinde geri yükleyebilirsiniz. Daha fazla bilgi için [-belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Maksimum desteklenen-belirli bir noktaya geri yükleme (PITR) saklama süresi uygulamanız için yeterli değil, veritabanları için bir uzun süreli saklama (LTR) ilkesi yapılandırarak genişletebilirsiniz. Daha fazla bilgi için [uzun süreli yedek saklama](sql-database-long-term-retention.md).
 

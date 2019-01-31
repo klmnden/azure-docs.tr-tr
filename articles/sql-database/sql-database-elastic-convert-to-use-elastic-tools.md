@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/25/2019
+ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251602"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455601"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Ölçeği genişletmek için mevcut veritabanlarını geçirme
 Azure SQL veritabanı, veritabanı araçları kullanarak mevcut, ölçeği genişletilen parçalı veritabanlarını kolayca yönetin (gibi [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md)). Var olan bir veritabanı kullanmak için kümesi dönüştürmeniz [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md). 
@@ -69,11 +69,11 @@ Tek kiracılı model için oluşturduğunuz bir **liste eşlemesi** parça eşle
 
 ![Liste eşlemesi][1]
 
-Çok kiracılı model, tek bir veritabanı için birden çok kiracıyı atar (ve birden fazla veritabanında kiracılar gruplarını dağıtabilirsiniz). Küçük veri gereksinimlerine sahip her bir kiracı beklediğiniz bu modeli kullanın. Bu modelde, kiracıların kullanarak bir veritabanına atama **aralığı eşleme**. 
+Çok kiracılı model için tek bir veritabanının birden çok kiracıyı atar (ve birden fazla veritabanında kiracılar gruplarını dağıtabilirsiniz). Küçük veri gereksinimlerine sahip her bir kiracı beklediğiniz bu modeli kullanın. Bu modelde, kiracıların kullanarak bir veritabanına atama **aralığı eşleme**. 
 
 ![Aralık eşleme][2]
 
-Veya, bir çok kiracılı veritabanı modeli kullanarak uygulayabileceğiniz bir *liste eşlemesi* birden fazla Kiracı için tek bir veritabanı atamak için. Örneğin, DB1 Kiracı kimliği 1 ve 5 hakkındaki bilgileri depolamak için kullanılır ve DB2 7 Kiracı ve Kiracı 10 verilerini depolar. 
+Veya, bir çok kiracılı veritabanı modeli kullanarak uygulayabileceğiniz bir *liste eşlemesi* birden fazla Kiracı için tek bir veritabanının atamak için. Örneğin, DB1 Kiracı kimliği 1 ve 5 hakkındaki bilgileri depolamak için kullanılır ve DB2 7 Kiracı ve Kiracı 10 verilerini depolar. 
 
 ![Birden çok kiracının tek DB][3] 
 
@@ -98,10 +98,10 @@ Bu eşleme düzeni kullanmaz, Kiracı kimliği değerleri için sürekli aralık
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>Seçenek 3: tek bir veritabanındaki eşlemeleri listesi
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Seçenek 3: Tek bir veritabanı üzerinde listesi eşlemeleri
 Bu deseni oluşturan ayarı Ayrıca liste eşlemesi oluşturulmasını adım 2, 1. seçenek gösterildiği gerektirir.
 
-## <a name="step-3-prepare-individual-shards"></a>3. adım: tek tek parça hazırlama
+## <a name="step-3-prepare-individual-shards"></a>3. Adım: Tek parça hazırlama
 Her parça (veritabanı) için parça eşleme Yöneticisi ekleyin. Bu, tek veritabanlarını eşleme bilgilerini depolamak için hazırlar. Bu yöntem, her parça üzerinde yürütün.
 
     Add-Shard 
@@ -111,7 +111,7 @@ Her parça (veritabanı) için parça eşleme Yöneticisi ekleyin. Bu, tek verit
     # The $ShardMap is the shard map created in step 2.
 
 
-## <a name="step-4-add-mappings"></a>4. adım: eşlemeleri ekleme
+## <a name="step-4-add-mappings"></a>4. Adım: Eşleme Ekle
 Eşlemeleri eklenmesi, oluşturduğunuz aralık parça eşlemesi türüne bağlıdır. Bir liste eşlemesi oluşturduysanız, liste eşlemelerini ekleyin. Bir aralık harita oluşturduysanız, aralığı eşlemelerini ekleyin.
 
 ### <a name="option-1-map-the-data-for-a-list-mapping"></a>Seçenek 1: verileri bir liste eşlemesi için eşleme
@@ -138,7 +138,7 @@ Tüm Kiracı kimliği aralığı için - veritabanı ilişkileri aralığı eşl
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>4. adım seçenek 3: tek bir veritabanının birden çok kiracının verileri eşleme
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>4. adım seçenek 3: tek bir veritabanının birden çok kiracının verileri eşleme
 Her Kiracı için Add-ListMapping (1. seçenek) çalıştırın. 
 
 ## <a name="checking-the-mappings"></a>Eşlemeleri denetleniyor
@@ -154,7 +154,7 @@ Kurulumu tamamladıktan sonra elastik veritabanı istemci kitaplığını kullan
 ## <a name="next-steps"></a>Sonraki adımlar
 PowerShell betiklerinden alma [Azure SQL veritabanı elastik veritabanı araçları betikleri](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-Araç da Github'da vardır: [Azure/elastik-db-tools](https://github.com/Azure/elastic-db-tools).
+Araç, Github'da da vardır: [Azure/elastik-db-tools](https://github.com/Azure/elastic-db-tools).
 
 Ayırma-Birleştirme aracı için bir tek kiracılı model veya çok kiracılı model aracılığıyla veri taşımak için kullanın. Bkz: [bölme-Birleştirme aracı](sql-database-elastic-scale-get-started.md).
 

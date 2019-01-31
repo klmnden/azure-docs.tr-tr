@@ -4,29 +4,23 @@ description: Bir arka uç depolama sistemi için Azure, Avere vFXT için ekleme
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8cd9bece53cd7fb961c5d81ae0c709dc89300ab9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190866"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299461"
 ---
 # <a name="configure-storage"></a>Depolama alanını yapılandırma
 
-Bu adım arka uç depolama sistemi vFXT kümeniz için ayarlar.
+Bu adım bir arka uç depolama sistemi vFXT kümeniz için ayarlar.
 
 > [!TIP]
-> Kullandıysanız `create-cloudbacked-cluster` kapsayıcı zaten ayarlandığından kullanılmak ve depolama alanı eklemek ihtiyaç duymayan Avere vFXT küme birlikte yeni bir Blob kapsayıcısı oluşturmak için prototip betiği.
->
-> Ancak, yeni Blob kapsayıcı bir varsayılan şifreleme anahtarıyla şifrelenmiş, kümeden anahtar kurtarma dosyayı indirin veya veri depolamadan önce varsayılan anahtarı yeni anahtarla değiştirin. Varsayılan anahtar yalnızca kümedeki kaydedilir ve küme kaybolur veya kullanılamaz hale gelirse alınamıyor.
->
-> Avere Denetim Masası'na bağladıktan sonra tıklayın **ayarları** sekmesine ve ardından seçin **çekirdek dosyalayıcı** > **bulut şifreleme ayarları**. İçinde **yerel anahtarı Store** bölümünde, aşağıdaki seçeneklerden birini seçin: 
-> * Kullanım **onarma kurtarma dosya** varolan anahtar için kurtarma dosyasını almak için düğme. Kurtarma dosyasını küme yönetim parolası ile şifrelenir. Dosya güvenilir bir yere kaydettiğinizden emin olun. 
-> * Bölümündeki yönergeleri **yeni bir ana anahtar oluşturun** denetim yeni bir şifreleme anahtarı oluşturmak için sayfanın bölümü. Bu seçenek, benzersiz bir parola belirtmenizi sağlar ve bu karşıya yükleme ve parola dosyası çifti doğrulamak için kurtarma dosyayı yeniden yüklemek için gerekir.
+> Avere vFXT küme birlikte yeni bir Azure Blob kapsayıcısı oluşturduysanız, bu kapsayıcı zaten kullanılmak üzere ayarlanmış ve depolama alanı eklemek gerekmez.
 
-Kullandıysanız, bu yönergeleri izleyin `create-minimal-cluster` , kümeniz için prototip komut dosyası veya bir ek donanım veya bulut tabanlı depolama sistemi eklemek istiyorsanız.
+Yeni bir Blob kapsayıcısı ile kümenizi oluşturmadıysanız, ya da bir ek donanım veya bulut tabanlı depolama sistemi eklemek istiyorsanız aşağıdaki yönergeleri izleyin.
 
 İki ana görevi vardır:
 
@@ -43,12 +37,11 @@ Bu adımları Avere Denetim Masası'nı kullanın. Okuma [vFXT kümeye erişmek]
 Bir çekirdek dosyalayıcı eklemek için iki ana tür çekirdek filtrelerin birini seçin:
 
   * [NAS çekirdek dosyalayıcı](#nas-core-filer) -NAS çekirdek dosyalayıcı eklemeyi açıklar 
-  * [Azure depolama hesabı bulut çekirdek dosyalayıcı](#azure-storage-account-cloud-core-filer) -bulut çekirdek dosyalayıcı bir Azure depolama hesabı eklemeyi açıklar
+  * [Azure depolama bulut çekirdek dosyalayıcı](#azure-storage-cloud-core-filer) -bulut çekirdek dosyalayıcı bir Azure depolama hesabı eklemeyi açıklar
 
 ### <a name="nas-core-filer"></a>NAS çekirdek dosyalayıcı
 
-Bir şirket içi NetApp NAS çekirdek dosyalayıcı olabilir veya Isilon ya da bulutta bir NAS uç noktası.  
-Depolama sistemine güvenilir bir yüksek hızlı bağlantıyı Avere vFXT kümeye - Örneğin, 1 GB/sn ExpressRoute bağlantı (VPN değil) - olmalıdır ve kullanılan NAS dışarı aktarmaları için küme kök erişim vermelisiniz.
+Bir şirket içi NetApp NAS çekirdek dosyalayıcı olabilir veya Isilon ya da bulutta bir NAS uç noktası. Depolama sistemine güvenilir bir yüksek hızlı bağlantıyı Avere vFXT kümeye - Örneğin, 1 GB/sn ExpressRoute bağlantı (VPN değil) - olmalıdır ve kullanılan NAS dışarı aktarmaları için küme kök erişim vermelisiniz.
 
 Aşağıdaki adımlar bir NAS çekirdek gösterecek şekilde ekleyin:
 
@@ -79,7 +72,7 @@ Ardından, devam [bir birleşim oluşturma](#create-a-junction).
 VFXT kümenizin arka uç depolama alanı olarak Azure Blob Depolama kullanmak için boş bir kapsayıcı bir çekirdek dosyalayıcı eklemeniz gerekir.
 
 > [!TIP] 
-> ``create-cloudbacked-cluster`` Örnek betik bir depolama kapsayıcısı oluşturur, bir çekirdek dosyalayıcı tanımlar ve ad alanı birleşim vFXT kümesi oluşturmanın bir parçası oluşturur. ``create-minimal-cluster`` Örnek betik bir Azure depolama kapsayıcısı oluşturmaz. Oluşturma ve Küme oluşturulduktan sonra bir Azure depolama çekirdek dosyalayıcı yapılandırmak zorunda kalmamak için kullanmak ``create-cloudbacked-cluster`` vFXT kümenize dağıtmak için komut dosyası.
+> Bir blob kapsayıcısı Avere vFXT küme oluşturma aynı anda oluşturmayı seçerseniz, dağıtım şablonu veya betik bir depolama kapsayıcısı oluşturur, bir çekirdek dosyalayıcı tanımlar ve ad alanı birleşim vFXT kümesi oluşturmanın bir parçası oluşturur. 
 
 BLOB Depolama, kümeye ekleme, bu görevleri gerektirir:
 

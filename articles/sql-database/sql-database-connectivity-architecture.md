@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388331"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469131"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
 
@@ -34,7 +34,7 @@ Bu makalede, Azure SQL Örneğiniz için trafiği farklı bileşenleri işlevi n
 >
 > Hizmet uç noktası kullanıcılar yine de aşağıdaki senaryolarda etkilenebilir:
 > - Bizim telemetri uygulamalarla ilgili bilgileri yakalamak yaramadı şekilde uygulama mevcut bir sunucuyu seyrek bağlanır
-> - Otomatik dağıtım logic hizmet uç noktası bağlantıları için varsayılan davranışı olduğunu varsayarsak bir mantıksal sunucu oluşturur. `Proxy`
+> - Otomatik dağıtım logic hizmet uç noktası bağlantıları için varsayılan davranışı olduğunu varsayarsak SQL veritabanı sunucusu oluşturur. `Proxy`
 >
 > Azure SQL sunucusuna bağlantılara hizmet uç noktası kurulamadı ve bu değişiklikten etkilenen suspecting, bağlantı türü açıkça değerine ayarlandığını doğrulayın `Redirect`. Bu durumda, Sql ait tüm Azure IP adreslerine bölgedeki VM Güvenlik duvarı kuralları ve ağ güvenlik grupları (NSG) açmanız gerekir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) 11000 12000 bağlantı noktaları. Bu, sizin için bir seçenek değilse, sunucu açıkça geçiş `Proxy`.
 > [!NOTE]

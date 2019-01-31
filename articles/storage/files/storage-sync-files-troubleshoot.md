@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: fe712648cf3e76f4161f9f3a7b97b7990bc692a1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.subservice: files
+ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214475"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471411"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -852,6 +852,9 @@ Bunlar Atla çevrimdışı özniteliğe dikkat edip ilgili dosyaların içeriği
 Çözümlerinin çevrimdışı dosyaları okumayı atlayacak şekilde yapılandırılması konusunda bilgi almak için yazılım satıcınızla iletişime geçin.
 
 İstenmeyen geri çekme de zaman dosya Gezgini'nde dosyaları tarama gibi diğer senaryolarda oluşabilir. Dosya Gezgini'nde bulut katmanlı dosyalara sahip bir klasörün açılması, istenmeyen geri çekme işlemlerine neden olabilir. Bu durumun gerçekleşme olasılığı, sunucuda virüsten koruma çözümünün etkinleştirilmiş olması halinde daha yüksektir.
+
+> [!NOTE]
+>Olay Kimliği 9059 Telemetri olay günlüğünde ınsights'taki hangi uygulamaların geri çekme neden olduğunu belirlemek için kullanın. Bu olay, uygulama geri çekme dağıtım için sunucu uç noktası sağlar ve saatte bir günlüğe kaydedilir.
 
 ## <a name="general-troubleshooting"></a>Genel sorun giderme
 Bir sunucuda Azure dosya eşitleme ile sorunlarla karşılaşırsanız, aşağıdaki adımları tamamlayarak başlayın:

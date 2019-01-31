@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351655"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300617"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>İşlemci SDK'sı .NET değişiklik akışı: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -40,6 +40,12 @@ ms.locfileid: "54351655"
 ## <a name="release-notes"></a>Sürüm notları
 
 ### <a name="v2-builds"></a>v2 oluşturur.
+
+### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
+* Gözlemci özel durumları işleme İyileştirildi.
+* Gözlemci hatalarıyla ilgili daha zengin bilgi:
+ * Gözlemci gözlemci'nın ProcessChangesAsync tarafından oluşturulan bir özel durum nedeniyle kapalı olduğunda, CloseAsync artık ayarlamak için ChangeFeedObserverCloseReason.ObserverError neden parametresi alır.
+ * Kullanıcı kodunda bir gözlemci içindeki hataları belirlemek için eklenen izler.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Paylaşılan veritabanı aktarım hızını kullanan koleksiyonlardaki bölünmüş işlemek için destek eklendi.
@@ -157,6 +163,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |29 Ocak 2019 |--- |
 | [2.2.5](#2.2.5) |13 Aralık 2018'e |--- |
 | [2.2.4](#2.2.4) |29 Kasım 2018 |--- |
 | [2.2.3](#2.2.3) |19 Kasım 2018 |--- |

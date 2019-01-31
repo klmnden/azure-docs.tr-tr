@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 61bece83697a4907a7bf3c881003f4da9b0e8a84
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247121"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466899"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>HTTP ile tetiklenmeyen bir işlevi el ile çalıştırma
 
@@ -35,6 +35,9 @@ Olmayan HTTP ile tetiklenen bir işlev çalıştırmak için Azure için bir ist
 - **İşlev adı:** Çalıştırmak istediğiniz işlev adı.
 
 Postman isteği bu konumda Azure isteğinde işlevin ana anahtarı ile birlikte, işlev çalıştırmak için kullanın.
+
+> [!NOTE]
+> Yerel olarak çalışırken, işlevin ana anahtarı gerekli değildir. Doğrudan yapabilecekleriniz [işlev çağrısı](#call-the-function) atlama `x-functions-key` başlığı.
 
 ## <a name="get-the-functions-master-key"></a>İşlevin ana anahtarı alma
 

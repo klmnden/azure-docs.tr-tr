@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: c25dd911b5648cdf4b64053ef26a7b70c9156074
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599765"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468912"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure portalı ve başlatma yük devretme Azure SQL veritabanı için etkin coğrafi çoğaltmayı yapılandırma
 
-Bu makalede, SQL veritabanı'nda mantıksal bir server(sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) [etkin coğrafi çoğaltma tek ve havuza alınmış veritabanları için] yapılandırma kullanarakgösterir[Azure portalında](http://portal.azure.com) ve yük devretme başlatın.
+Bu makalede nasıl yapılacağı gösterilmektedir [tek ve havuza alınmış veritabanları için etkin coğrafi çoğaltma](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) Azure SQL veritabanı'nı kullanarak [Azure portalında](http://portal.azure.com) ve yük devretme başlatın.
 
 Tek ve havuza alınmış veritabanlarıyla otomatik yük devretme grupları hakkında daha fazla bilgi için bkz. [en iyi uygulamalar ile tek ve havuza alınmış veritabanları yük devretme grupları kullanma](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Yönetilen örnek (Önizleme) ile otomatik yük devretme grupları hakkında daha fazla bilgi için bkz. [en iyi uygulamalar ile tek ve havuza alınmış veritabanları yük devretme grupları kullanma](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
@@ -40,7 +40,7 @@ Aşağıdaki adımlar bir coğrafi çoğaltma ortaklığı yeni bir ikincil veri
 
 Bir ikincil veritabanı eklemek için abonelik sahibi veya ortak sahibi olmalıdır.
 
-İkincil veritabanı için birincil veritabanıyla aynı ada sahip ve varsayılan olarak, aynı hizmet katmanı ve işlem boyutu vardır. İkincil veritabanı, tek bir veritabanı veya elastik bir havuzdaki bir veritabanı olabilir. Daha fazla bilgi için [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
+İkincil veritabanı için birincil veritabanıyla aynı ada sahip ve varsayılan olarak, aynı hizmet katmanı ve işlem boyutu vardır. İkincil veritabanı, tek bir veritabanı veya havuza alınmış bir veritabanı olabilir. Daha fazla bilgi için [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 İkincil oluşturulan ve çekirdek değeri oluşturulmuş sonra veri yeni ikincil veritabanı için birincil veritabanından çoğaltmaya başlar.
 
 > [!NOTE]

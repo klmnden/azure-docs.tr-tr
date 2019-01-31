@@ -9,15 +9,15 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/19/2019
+ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 4a7e6189914728fac24e51f3b2dee66cc0bd8a05
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463720"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301467"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Öğretici: Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme
 
@@ -68,11 +68,21 @@ Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıy
 
 Aşağıdaki komutta, genel depolama hesabına ilişkin kendi genel benzersiz adınızı `<general_storage_account>` yer tutucusunu gördüğünüz yere yerleştirin. 
 
-```azurecli-interactive
-az storage account create --name <general_storage_account> \
---location westcentralus --resource-group myResourceGroup \
---sku Standard_LRS --kind storage
-```
+1. Önceki öğreticide oluşturduğunuz kaynak grubunun adını tutacak bir değişken ayarlayın. 
+
+    ```azurecli-interactive
+    resourceGroupName=<Name of the resource group that you created in the previous tutorial>
+    ```
+2. Azure işlevi gerektirir depolama hesabının adı için bir değişken ayarlayın. 
+
+    ```azurecli-interactive
+    functionstorage=<name of the storage account to be used by function>
+    ```
+3. Depolama hesabı için Azure işlevi oluşturun. Bu görüntüleri içeren depolama alanından farklıdır. 
+
+    ```azurecli-interactive
+    az storage account create --name $functionstorage --location eastus --resource-group $resourceGroupName --sku Standard_LRS --kind storage
+    ```
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma  
 
@@ -80,10 +90,16 @@ az storage account create --name <general_storage_account> \
 
 Aşağıdaki komutta kendi benzersiz işlev uygulamanızın adını `<function_app>` yer tutucusunun yerine ekleyin. İşlev uygulaması adı, işlev uygulamasının varsayılan DNS etki alanı olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. `<general_storage_account>` için, oluşturduğunuz genel depolama hesabının adını kullanın.
 
-```azurecli-interactive
-az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
---resource-group myResourceGroup --consumption-plan-location westcentralus
-```
+1. Oluşturulması gereken işlev uygulaması için bir ad belirtin. 
+
+    ```azurecli-interactive
+    functionapp=<name of the function app>
+    ```
+2. Azure işlevi oluşturun. 
+
+    ```azurecli-interactive
+    az functionapp create --name $functionapp --storage-account  $functionstorage --resource-group $resourceGroupName --consumption-plan-location eastus
+    ```
 
 Şimdi, işlev uygulamasını [önceki öğreticide][previous-tutorial] oluşturduğunuz Blob depolama hesabına bağlanacak şekilde yapılandırmanız gerekir.
 
@@ -93,18 +109,18 @@ az functionapp create --name <function_app> --storage-account  <general_storage_
 
 Aşağıdaki CLI komutlarında `<blob_storage_account>`, önceki öğreticide oluşturduğunuz Blob depolama hesabının adıdır.
 
-```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
---resource-group myResourceGroup --name <blob_storage_account> \
---query connectionString --output tsv)
+1. Görüntüleri içeren depolama hesabı için bağlantı dizesini alın. 
 
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup \
---settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
-```
+    ```azurecli-interactive
+    storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
+    ```
+2. İşlev uygulamasını yapılandırın. 
 
-`FUNCTIONS_EXTENSION_VERSION=~2` ayarı işlev uygulamasının Azure İşlevleri çalışma zamanının 2.x sürümünde çalışmasını sağlar.
+    ```azurecli-interactive
+    az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+    ```
+
+    `FUNCTIONS_EXTENSION_VERSION=~2` ayarı işlev uygulamasının Azure İşlevleri çalışma zamanının 2.x sürümünde çalışmasını sağlar.
 
 Bu işlev uygulamasına bir işlev kodu projesi dağıtabilirsiniz.
 
@@ -117,9 +133,7 @@ Bu işlev uygulamasına bir işlev kodu projesi dağıtabilirsiniz.
 Aşağıdaki komutta `<function_app>`, daha önce oluşturduğunuz işlev uygulamasının adıdır.
 
 ```azurecli-interactive
-az functionapp deployment source config --name <function_app> \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/function-image-upload-resize
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
@@ -148,11 +162,11 @@ Bu işlev hakkında daha fazla bilgi edinmek için bkz. [function.json ve run.cs
 
 Olay aboneliği, belirli bir uç noktaya gönderilmesini istediğiniz, sağlayıcı tarafından oluşturulmuş olayları gösterir. Bu örnekte uç nokta, işleviniz tarafından kullanıma sunulur. Azure Portal'da işlevinize bildirimler gönderen bir olay aboneliği oluşturmak için aşağıdaki adımları kullanın: 
 
-1. [Azure Portal](https://portal.azure.com)'da, sol altta bulunan oka tıklayarak tüm hizmetleri genişletin, **Filtre** alanına *işlevler* yazın ve **İşlev Uygulamaları**'nı seçin. 
+1. İçinde [Azure portalında](https://portal.azure.com)seçin **tüm hizmetleri** sol menüsünü ve ardından **işlev uygulamaları**. 
 
     ![Azure portalında İşlev Uygulamalarına göz atma](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
-2. İşlev uygulamanızı genişletin, **imageresizerfunc** işlevini ve ardından **Event Grid aboneliği ekle**’yi seçin.
+2. İşlev uygulamanızı genişletin, seçin **küçük resim** işlevi ve ardından **Event Grid aboneliği Ekle**.
 
     ![Azure portalında İşlev Uygulamalarına göz atma](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
@@ -162,6 +176,7 @@ Olay aboneliği, belirli bir uç noktaya gönderilmesini istediğiniz, sağlayı
 
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ |  ------- | -------------------------------------------------- |
+    | **Ad** | imageresizersub | Yeni olay aboneliğinizi tanımlayan ad. | 
     | **Konu türü** |  Depolama hesapları | Depolama hesabı olay sağlayıcısını seçin. | 
     | **Abonelik** | Azure aboneliğiniz | Varsayılan olarak, geçerli Azure aboneliğiniz seçili durumdadır.   |
     | **Kaynak grubu** | myResourceGroup | **Var olanı kullan**’ı seçin ve bu öğreticide kullandığınız kaynak grubunu belirleyin.  |
@@ -169,9 +184,8 @@ Olay aboneliği, belirli bir uç noktaya gönderilmesini istediğiniz, sağlayı
     | **Olay türleri** | Oluşturulan blob | **Oluşturulan blob** dışındaki tüm türlerin işaretini kaldırın. Yalnızca `Microsoft.Storage.BlobCreated` türündeki olaylar işleve geçirilir.| 
     | **Abone türü** |  otomatik oluşturulmuş |  Web Kancası olarak önceden tanımlanmış. |
     | **Abone uç noktası** | otomatik oluşturulmuş | Sizin için oluşturulan uç nokta URL'sini kullanın. | 
-    | **Ad** | imageresizersub | Yeni olay aboneliğinizi tanımlayan ad. | 
 4. *İsteğe bağlı:* Gelecekte diğer amaçlar için ek kapsayıcıları aynı blob depolama alanında oluşturmak için ihtiyacınız olması durumunda, kullanabileceğiniz **konu filtreleme** özellikleri **filtreleri** daha ayrıntılı blob hedeflemek için sekmesinde işlev uygulamanızı emin olmak için olayları yalnızca BLOB eklendiğinde çağırılır **görüntüleri** kapsayıcı özellikle. 
-5. Olay aboneliği eklemek için **Oluştur**’a tıklayın. Bu işlem, *images* kapsayıcısına bir blob eklendiğinde `imageresizerfunc` olayını tetikleyen bir olay aboneliği oluşturur. İşlev, görüntüleri yeniden boyutlandırır ve *thumbnails* kapsayıcısına ekler.
+5. Olay aboneliği eklemek için **Oluştur**’a tıklayın. Bu tetikleyen bir olay aboneliği oluşturur `Thumbnail` işlev bir blob eklendiğinde *görüntüleri* kapsayıcı. İşlev, görüntüleri yeniden boyutlandırır ve *thumbnails* kapsayıcısına ekler.
 
 Arka uç hizmetleri yapılandırıldıktan sonra, görüntü yeniden boyutlandırma işlevini örnek web uygulamasında test edin. 
 

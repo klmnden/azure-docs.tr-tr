@@ -3,21 +3,21 @@ title: Azure SQL veritabanı DTU tabanlı kaynak sınırları tek veritabanları
 description: Bu sayfa, Azure SQL veritabanı'nda tek veritabanları için bazı ortak DTU tabanlı kaynak sınırları açıklar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: sachinpMSFT
-ms.author: sachinp
-ms.reviewer: carlrab
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 5ddcacbf805ae9d2ce093058b21d53189457ffb9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/25/2019
+ms.openlocfilehash: e73bb2f1908abd049ea6e2406c0d1db02381695f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233778"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455550"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları
 
@@ -28,9 +28,9 @@ DTU tabanlı satın alma modeli kaynak sınırları için elastik havuzlar için
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>Tek veritabanı: depolama boyutlarına ve işlem boyutları
+## <a name="single-database-storage-sizes-and-compute-sizes"></a>Tek veritabanı: Depolama boyutlarına ve işlem boyutları
 
-Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir veritabanı için kullanılabilir kaynakları göster ve işlem boyutu. Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek veritabanı için ayarlayabileceğiniz [Azure portalında](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), veya [ REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+Aşağıdaki tablolarda her hizmet katmanında tek bir veritabanı için kullanılabilir kaynakları göster ve işlem boyutu. Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek veritabanı için ayarlayabileceğiniz [Azure portalında](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases), veya [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 ### <a name="basic-service-tier"></a>Temel hizmet katmanı
 
@@ -81,17 +81,17 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir 
 |||||||
 
 > [!IMPORTANT]
-> 1 TB'den fazla depolama Premium katmanında şu anda aşağıdakiler dışındaki tüm bölgelerde: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Birleşik Krallık Kuzey, UK Güney, ABD DOD Orta, US DOD Doğu, ABD kamu Orta ve Batı Orta ABD.  Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> 1 TB'den fazla depolama Premium katmanında şu anda aşağıdakiler dışında tüm bölgelerde kullanılabilir: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Birleşik Krallık Kuzey, UK Güney, ABD DOD Orta, US DOD Doğu, ABD kamu Orta ve Batı Orta ABD.  Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
-## <a name="single-database-change-storage-size"></a>Tek veritabanı: depolama boyutunu değiştirme
+## <a name="single-database-change-storage-size"></a>Tek veritabanı: Depolama boyutunu değiştir
 
-- Belirli miktarda bir ek maliyet olmadan depolama tek veritabanı DTU ücretini içerir. Dahil edilen miktarın üzerinde ek depolama alanı 1 TB'kurmak 250 GB'lık artışlarla ve 1 TB ötesinde 256 GB'lık artışlarla maksimum boyut sınırına kadar ek bir maliyet sağlanabilir. Dahil edilen depolama alanı miktarları ve en büyük boyutu sınırlar için bkz: [tek veritabanı: depolama boyutlarına ve bilgi işlem boyutlarına](#single-database-storage-sizes-and-compute-sizes).
-- En büyük boyutu kullanarak artırarak tek bir veritabanı için ek depolama alanı sağlanabilir [Azure portalında](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Belirli miktarda bir ek maliyet olmadan depolama tek veritabanı DTU ücretini içerir. Dahil edilen miktarın üzerinde ek depolama alanı 1 TB'kurmak 250 GB'lık artışlarla ve 1 TB ötesinde 256 GB'lık artışlarla maksimum boyut sınırına kadar ek bir maliyet sağlanabilir. Dahil edilen depolama alanı miktarları ve en büyük boyutu sınırlar için bkz: [tek veritabanı: Depolama boyutlarına ve bilgi işlem boyutlarına](#single-database-storage-sizes-and-compute-sizes).
+- En büyük boyutu kullanarak artırarak tek bir veritabanı için ek depolama alanı sağlanabilir [Azure portalında](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-storage-size), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - Ek depolama alanı için tek bir veritabanının hizmet katmanı ek depolama alanı birim fiyatı ile çarpılan ek depolama alanı miktarı fiyatıdır. Ek depolama alanının fiyatı hakkında daha fazla bilgi için bkz: [SQL veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## <a name="single-database-change-dtus"></a>Tek veritabanı: Dtu Değiştir
+## <a name="single-database-change-dtus"></a>Tek veritabanı: Dtu değiştirme
 
-Başlangıçta bir hizmet katmanı, işlem boyutu ve depolama alanı miktarı seçtikten sonra tek bir veritabanının ölçeğini artırıp dinamik olarak gerçek deneyime kullanımına dayalı ölçekleme yapabilirsiniz [Azure portalında](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [ PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+Başlangıçta bir hizmet katmanı, işlem boyutu ve depolama alanı miktarı seçtikten sonra tek bir veritabanının ölçeğini artırıp dinamik olarak gerçek deneyime kullanımına dayalı ölçekleme yapabilirsiniz [Azure portalında](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [ PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Aşağıdaki video gösterildiği hizmet dinamik olarak değiştirme katmanı ve tek bir veritabanı için kullanılabilir Dtu'lar artırmak için boyutu işlem.
 
@@ -103,7 +103,7 @@ Hizmet değiştiriliyor katmanının ve/veya işlem bir veritabanının boyut ye
 Tüm ölçek artırma işleminin süresi hem veritabanı boyutuna hem de değişiklikten önceki ve sonraki hizmet katmanına bağlı olarak değişir. Örneğin, bir 250 GB veritabanı için ya da bir standart hizmet katmanında değiştirme altı saat içinde tamamlamanız gerekir. Bir veritabanı için Premium hizmet katmanında işlem boyutları ile değişiyor aynı boyutta, ölçek büyütme üç saat içinde tamamlanır.
 
 > [!TIP]
-> Devam eden işlemleri izlemek için bkz: [işlemlerini SQL REST API kullanarak yönetmek](https://docs.microsoft.com/rest/api/sql/databaseoperations/listbydatabase
+> Devam eden işlemleri izlemek için bkz: [İşlemleri SQL REST API kullanarak yönetmek](https://docs.microsoft.com/rest/api/sql/databaseoperations/listbydatabase
 ), [CLI kullanarak işlemlerini yönetmek](/cli/azure/sql/db/op), [T-SQL kullanarak işlemlerini izleyin](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) ve bu iki PowerShell komutları: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) ve [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 - Daha yüksek bir hizmet katmanına yükseltme veya boyutu işlem, veritabanı boyutu üst sınırını (maxsıze) daha büyük bir boyut, açıkça belirtmediğiniz sürece artırmaz.
@@ -124,14 +124,14 @@ P11 ve P15 veritabanları en büyük boyutu 1 TB'den büyük ile aşağıdaki ö
 - Oluşturma veya güncelleştirme P11 veya P15 veritabanı, yalnızca 256 GB'lık artışlarla en büyük boyutu 1 TB ile 4 TB arasında seçim yapabilirsiniz. P11/P15 oluştururken, varsayılan depolama alanı 1 TB'lık önceden seçilmiş seçenektir. Desteklenen bölgelerden birinde bulunan veritabanları için en fazla 4 TB'ın yeni veya mevcut bir tek veritabanı için depolama en artırabilirsiniz. Diğer tüm bölgeler için 1 TB üst sınırı yükseltilemez. Dahil edilen depolama 4 TB'ı seçtiğinizde fiyat değiştirmez.
 - Bir veritabanının en yüksek boyutu 1 TB'den büyük ayarlanırsa, 1 TB kullanılan gerçek depolama olsa bile, ardından 1 TB ile değiştirilemez. Bu nedenle, en fazla bir 1 TB P11 ya da 1 TB P15 1 TB'den büyük P11 veya P15 düşürme veya alt boyutu, P1-P6 gibi işlem). Belirli bir noktaya, dahil olmak üzere kopyalama senaryoları ve geri yükleme için de bu kısıtlamanın uygulandığı coğrafi geri yükleme, uzun-vadeli-yedekleme-elde tutma ve veritabanı kopyası. En fazla boyutu 1 TB'den büyük olan bir veritabanı yapılandırıldıktan sonra bu veritabanının tüm geri yükleme işlemleri en büyük boyutu 1 TB'den büyük P11/P15 çalıştırmanız gerekir.
 - Etkin coğrafi çoğaltma senaryoları için:
-  - Bir coğrafi çoğaltma ilişkisi ayarlama: birincil veritabanının P11 veya P15 ise secondary(ies) da P11 veya P15; olması gerekir 1 TB'den fazla destekleme kapasitesine sahip olmadığından, alt bilgi işlem boyutlarına ikincil veritabanı reddedilir.
-  - Coğrafi çoğaltma ilişkisinde birincil veritabanını yükseltmeden: 1 TB'den fazla birincil veritabanında en büyük boyutunu değiştirmek, ikincil veritabanında aynı değişikliği tetikler. Her iki yükseltmeleri değişikliğin etkili olması için birincil başarılı olması gerekir. Birden fazla 1 TB seçeneği için bölge sınırlamalar uygulanır. İkincil 1 TB'den fazla desteklemeyen bir bölgede, birincil yükseltilmez.
+  - Coğrafi çoğaltma ilişki kurma: Birincil veritabanı P11 veya P15 ise secondary(ies) ayrıca P11 veya P15 olmalıdır; 1 TB'den fazla destekleme kapasitesine sahip olmadığından, alt bilgi işlem boyutlarına ikincil veritabanı reddedilir.
+  - Coğrafi çoğaltma ilişkisinde birincil veritabanı yükseltiliyor: En büyük boyutu 1 TB'den fazla birincil veritabanında değiştirmek, ikincil veritabanında aynı değişikliği tetikler. Her iki yükseltmeleri değişikliğin etkili olması için birincil başarılı olması gerekir. Birden fazla 1 TB seçeneği için bölge sınırlamalar uygulanır. İkincil 1 TB'den fazla desteklemeyen bir bölgede, birincil yükseltilmez.
 - 1 TB'den fazla P11/P15 veritabanlarını yüklemek için içeri/dışarı aktarma hizmetini kullanarak desteklenmiyor. Kullanmak için SqlPackage.exe [alma](sql-database-import.md) ve [dışarı](sql-database-export.md) veri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.
-- Bkz: [kaynak bakış sınırlayan bir mantıksal sunucuda](sql-database-resource-limits-logical-server.md) sunucusu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
+- Bkz: [kaynak bakış sınırlayan bir SQL veritabanı sunucusunda](sql-database-resource-limits-database-server.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 - Genel Azure sınırları hakkında daha fazla bilgi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
 - Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz: [Dtu'lar ve Edtu'lar](sql-database-service-tiers.md#dtu-based-purchasing-model).
 - Tempdb boyutu sınırları hakkında daha fazla bilgi için bkz: [SQL veritabanı tempdb sınırları](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634516"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473213"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure depolama ölçümlerini ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi kullanarak uçtan uca sorun giderme
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -344,17 +344,17 @@ Günlük verilerinizi analiz etmek için ileti Çözümleyicisi kullanımıyla i
 | Araştırmak için... | Filtre ifadesi kullan... | İfade günlüğüne uygular (istemci, sunucu, ağ, tüm) |
 | --- | --- | --- |
 | Kuyrukta ileti tesliminde beklenmeyen gecikmeler |"Yeniden deneniyor, işlem başarısız oldu." AzureStorageClientDotNetV4.Description içerir |İstemci |
-| HTTP Percentthrottlingerror'da artış |HTTP. Response.StatusCode 500 == &#124; &#124; HTTP. Response.StatusCode 503 == |Ağ |
-| Percenttimeouterror'da artış artırın |HTTP. Response.StatusCode 500 == |Ağ |
+| HTTP Percentthrottlingerror'da artış |HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503 |Ağ |
+| Percenttimeouterror'da artış artırın |HTTP.Response.StatusCode   == 500 |Ağ |
 | (Tümü) Percenttimeouterror'da artış artırın |* StatusCode 500 == |Tümü |
-| Percentnetworkerror'da artış artırın |AzureStorageClientDotNetV4.EventLogEntry.Level < 2 |İstemci |
-| HTTP 403 (Yasak) iletileri |HTTP. Response.StatusCode 403 == |Ağ |
+| Percentnetworkerror'da artış artırın |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |İstemci |
+| HTTP 403 (Yasak) iletileri |HTTP.Response.StatusCode   == 403 |Ağ |
 | HTTP 404 (bulunamadı) iletileri |HTTP. Response.StatusCode 404 == |Ağ |
 | 404 (Tümü) |* Durum kodu 404 == |Tümü |
 | Paylaşılan erişim imzası (SAS) yetkilendirme sorunu |AzureStorageLog.RequestStatus "SASAuthorizationError" == |Ağ |
-| 409 (Çakışma) HTTP iletileri |HTTP. Response.StatusCode 409 == |Ağ |
+| 409 (Çakışma) HTTP iletileri |HTTP.Response.StatusCode   == 409 |Ağ |
 | 409 (Tümü) |* StatusCode 409 == |Tümü |
-| Düşük PercentSuccess veya Analiz günlük girişlerini ClientOtherErrors işlem durumundaki işlemlerini sahip |AzureStorageLog.RequestStatus "ClientOtherError" == |Sunucu |
+| Düşük PercentSuccess veya Analiz günlük girişlerini ClientOtherErrors işlem durumundaki işlemlerini sahip |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Sunucu |
 | Nagle Uyarısı |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) ve (AzureStorageLog.RequestPacketSize < 1460) ve (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Sunucu |
 | Sunucu ve ağ günlüklerinde zaman aralığı |#Timestamp > = 2014-10-20T16:36:38 ve #Timestamp < = 2014-10-20T16:36:39 |Sunucu, ağ |
 | Sunucu günlükleri, zaman aralığı |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 ve AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Sunucu |

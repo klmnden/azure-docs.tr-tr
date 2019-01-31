@@ -1,6 +1,6 @@
 ---
-Başlık: Başkalarının veri bilimi örnekler titleSuffix kopyalayın: Azure Machine Learning Studio açıklaması: ' Ticari sır veri bilimi: Diğer iş sizin için gerçekleştirmesini istemeniz alın. Machine learning örnekleri Azure yapay ZEKA galerideki alın.'
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Başkalarının veri bilimi örnekler titleSuffix kopyalayın: Azure Machine Learning Studio açıklaması: ' Ticari sır veri bilimi: Diğer iş sizin için gerçekleştirmesini istemeniz alın. Machine learning örnekleri Azure yapay ZEKA galerideki alın.'
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 01/05/2018
 ---

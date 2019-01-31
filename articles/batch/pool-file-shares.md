@@ -1,9 +1,9 @@
 ---
-title: Azure dosya paylaşımı için Azure Batch havuzları | Microsoft Docs
-description: Bir Azure dosya paylaşımının Azure Batch bir Linux veya Windows havuzdaki işlem düğümlerinden nasıl.
+title: Azure dosya paylaşımı için Azure Batch havuzlarında | Microsoft Docs
+description: Azure batch'te bir Linux veya Windows havuzdaki işlem düğümlerinden bir Azure dosya paylaşımını bağlayabilmeniz nasıl.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,26 +13,26 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 88d7c0d033d7b517a396df27468de8be7ae20be9
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34811755"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469575"
 ---
-# <a name="use-an-azure-file-share-with-a-batch-pool"></a>Azure dosya paylaşımının Batch havuzuyla kullanın
+# <a name="use-an-azure-file-share-with-a-batch-pool"></a>Bir Azure dosya paylaşımı ile bir Batch havuzu kullanma
 
-[Azure dosyaları](../storage/files/storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları, sunucu ileti bloğu (SMB) protokolü aracılığıyla erişilebilir bulutta sunar. Bu makalede bağlanması ve Azure dosya paylaşımının havuz işlem düğümlerinde kullanmak için bilgi ve kod örnekleri sağlar. Kod örnekleri Batch .NET ve Python SDK'ları kullanın, ancak diğer toplu SDK'lar ve araçlar kullanılarak benzer işlemler gerçekleştirebilirsiniz.
+[Azure dosyaları](../storage/files/storage-files-introduction.md) tam olarak yönetilen sunucu ileti bloğu (SMB) protokolü aracılığıyla erişilebilir bulut dosya paylaşımları sunar. Bu makalede, bağlama ve bir Azure dosya paylaşımı üzerinde işlem düğümleri havuzu kullanmak için bilgi ve kod örnekleri sağlar. Kod örnekleri Batch .NET ve Python SDK'ları kullanın, ancak diğer Batch SDK'ları ve araçları kullanarak benzer işlemleri gerçekleştirebilirsiniz.
 
-Batch, Azure Storage bloblarında kullanarak veri okumak veya yazmak için yerel API desteği sağlar. Ancak, bazı durumlarda, havuzu işlem düğümleri bir Azure dosya paylaşımına erişmek isteyebilirsiniz. Örneğin, bir SMB dosya paylaşımında bağlıdır eski bir iş yükü sahip veya paylaşılan veri erişim veya paylaşılan bir çıktı oluşturmak için görevlerinizi olması gerekir. 
+Batch, veri okuma ve yazma için Azure depolama BLOB'ları kullanmak için yerel API desteği sağlar. Ancak, bazı durumlarda, işlem düğümleri havuzu bir Azure dosya paylaşımı erişim isteyebilirsiniz. Örneğin, sahip olduğunuz bir SMB dosya paylaşımında bağlı eski bir iş yükü veya görevlerinizi Paylaşılan verilere erişmek veya paylaşılan çıkış üretmesi gerekir. 
 
-## <a name="considerations-for-use-with-batch"></a>Batch ile kullanmak için dikkat edilecek noktalar
+## <a name="considerations-for-use-with-batch"></a>Batch ile kullanmak için dikkat edilmesi gerekenler
 
-* Paralel Görevler göreli olarak az sayıda çalıştırmak havuzları varsa, Azure dosya paylaşımının kullanmayı düşünün. Gözden geçirme [performansı ve ölçeği hedefleri](../storage/files/storage-files-scale-targets.md) Azure (Azure Storage hesabı kullanır) dosyaları kullanılması gerekip gerekmediğini, verilen beklenen havuz boyutu ve varlık dosyaları sayısını belirlemek için. 
+* Paralel Görevler görece az sayıda çalışan havuzları varsa, bir Azure dosya paylaşımı kullanmayı düşünün. Gözden geçirme [performans ve ölçeklendirme hedeflerini](../storage/files/storage-files-scale-targets.md) Azure dosyaları (Bu bir Azure depolama hesabını kullanır) kullanılması gerekip gerekmediğini, verilen beklenen havuz boyutunu ve varlık dosyalarının sayısını belirlemek için. 
 
-* Azure dosya paylaşımları olan [ekonomik](https://azure.microsoft.com/pricing/details/storage/files/) ve yapılandırılabilir verilerle başka bir bölgeye çoğaltma şekilde genel gereksiz. 
+* Azure dosya paylaşımları [maliyet açısından verimli](https://azure.microsoft.com/pricing/details/storage/files/) ve yapılandırılabilir verilerle başka bir bölgeye çoğaltma şekilde Global yedekli. 
 
 * Bir şirket içi bilgisayardan eşzamanlı olarak bir Azure dosya paylaşımı bağlayabilir.
 
@@ -41,44 +41,44 @@ Batch, Azure Storage bloblarında kullanarak veri okumak veya yazmak için yerel
 
 ## <a name="create-a-file-share"></a>Dosya paylaşımı oluşturma
 
-[Bir dosya paylaşımı oluşturmak](../storage/files/storage-how-to-create-file-share.md) Batch hesabınıza bağlı bir depolama hesabı ya da ayrı bir depolama hesabı.
+[Dosya paylaşımı oluşturma](../storage/files/storage-how-to-create-file-share.md) Batch hesabınıza bağlı bir depolama hesabı veya ayrı bir depolama hesabı.
 
-## <a name="mount-a-share-on-a-windows-pool"></a>Bir Windows havuzunda paylaşımını bağlama
+## <a name="mount-a-share-on-a-windows-pool"></a>Bir Windows havuzu paylaşımında bağlama
 
-Bu bölümdeki adımları sağlar ve Windows düğümlerinin havuzunu üzerinde bağlamak ve bir Azure dosyası kullanmak için kod örnekleri paylaşın. Ek bilgiler için bkz: [belgelerine](../storage/files/storage-how-to-use-files-windows.md) Windows dosya paylaşımını Azure bağlanması için. 
+Bu bölümdeki adımları sağlar ve bir Windows düğümleri havuzu üzerinde bağlamak ve bir Azure dosyası kullanmak için kod örnekleri paylaşın. Ek bilgiler için bkz. [belgeleri](../storage/files/storage-how-to-use-files-windows.md) Linux'tan bir Azure dosya paylaşımını Windows üzerinde. 
 
-Toplu işlemde her zaman Windows düğümüne bir görevi çalıştırmayı ve paylaşımı bağlamak gerekir. Şu anda Windows düğümlerinde görevler arasında ağ bağlantısı devam ettirmek olası değil.
+Toplu işlemde her zaman bir Windows düğümde görev çalıştırılır ve paylaşımı bağlamak gerekir. Şu anda, Windows düğümlerindeki görevler arasında ağ bağlantısı kalıcı hale getirmek mümkün değildir.
 
-Örneğin, bir `net use` her görev komut satırının parçası olarak dosya paylaşımını bağlamak için komutu. Dosya paylaşımını bağlamak için aşağıdaki kimlik bilgileri gereklidir:
+Örneğin, bir `net use` her görev komut satırının bir parçası dosya paylaşımını bağlamak için komutu. Dosya paylaşımını bağlayabilmeniz için aşağıdaki kimlik bilgilerini gerekir:
 
 * **Kullanıcı adı**: AZURE\\\<storageaccountname\>, örneğin, AZURE\\*mystorageaccountname*
-* **Parola**: < StorageAccountKeyWhichEnds içinde == >, örneğin, *XXXXXXXXXXXXXXXXXXXXX ==*
+* **Parola**: < StorageAccountKeyWhichEnds içinde == > Örneğin, *XXXXXXXXXXXXXXXXXXXXX ==*
 
-Aşağıdaki komutu bir dosya paylaşımı bağladığı *myfileshare* depolama hesabındaki *mystorageaccountname* olarak *S:* sürücü:
+Aşağıdaki komutu bir dosya paylaşımı bağlar *myfileshare* depolama hesabındaki *mystorageaccountname* olarak *S:* sürücü:
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
 ```
 
-Kolaylık olması için burada örnekler kimlik bilgilerini doğrudan metin olarak geçirin. Uygulamada, ortam değişkenleri, sertifikalar veya Azure anahtar kasası gibi bir çözüm kullanarak kimlik bilgilerini yönetme öneririz.
+Kolaylık olması için buradaki örnekler kimlik bilgilerini doğrudan metin geçirin. Uygulamada, ortam değişkenleri, sertifikaları veya Azure anahtar kasası gibi bir çözüm kullanarak kimlik bilgilerinin yönetimiyle öneririz.
 
-Bağlama işlemi kolaylaştırmak için isteğe bağlı olarak düğümler üzerinde kimlik bilgilerini kalıcı olmasını sağlar. Ardından, kimlik bilgileri olmadan paylaşımı bağlayabilir. Aşağıdaki iki adımı gerçekleştirin:
+Bağlama işlemi basitleştirmek için isteğe bağlı olarak düğümlerinde kimlik bilgilerini kalıcı hale getirin. Ardından, kimlik bilgileri olmadan paylaşımı bağlayabilir. Aşağıdaki iki adımı uygulayın:
 
-1. Çalıştırma `cmdkey` havuzu yapılandırmasında bir başlangıç görevi kullanarak komut satırı yardımcı programı. Bu kimlik bilgileri her bir Windows düğümde devam ettirir. Başlangıç görevi komut satırı benzer:
+1. Çalıştırma `cmdkey` havuz yapılandırmasına bir başlangıç görevi kullanarak komut satırı yardımcı programı. Bu, her bir düğümde Windows kimlik bilgilerini devam ettirir. Başlangıç görevi komut satırı benzer:
 
   ```
   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
   ```
 
-2. Her görev kullanan bir parçası olarak her bir düğümde paylaşımını bağlama `net use`. Örneğin, aşağıdaki görev komut satırı dosya paylaşımı olarak bağlar *S:* sürücü. Bu bir komut veya paylaşım başvuruda bulunan komut dosyası tarafından izlenmesi. Önbelleğe alınmış kimlik bilgilerini çağrısında kullanılan `net use`. Bu adım, başlangıç görevi tüm senaryolar için uygun değil havuzunda kullanılan görevler için aynı kullanıcı kimliğini kullandığınızı varsayar.
+2. Her görevi kullanılarak bir parçası olarak her bir düğümde paylaşımını `net use`. Örneğin, aşağıdaki görev komut satırı dosya paylaşımı olarak bağlar *S:* sürücü. Bu, bir komut veya paylaşım başvuran bir betik tarafından takip. Önbelleğe alınmış kimlik bilgilerini çağrısında kullanılan `net use`. Bu adım, görev başlatma tüm senaryolar için uygun olmayan havuzunda kullanılan görevler için aynı kullanıcı kimliğini kullanarak varsayar.
 
   ```
   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
   ```
 
-### <a name="c-example"></a>C# örnek
-Aşağıdaki C# örnek bir başlangıç görevi kullanarak bir Windows havuzunda kimlik kalıcı gösterilmektedir. Depolama dosya hizmet adı ve depolama kimlik tanımlı sabitler olarak geçirilir. Burada, başlangıç görevi havuzu kapsamlı bir standart (yönetici olmayan) otomatik-kullanıcı hesabı altında çalışır.
+### <a name="c-example"></a>C# örneği
+Aşağıdaki C# örnek, bir başlangıç görevi kullanarak bir Windows havuzu şirket kimlik bilgilerini kalıcı hale getirmek nasıl gösterir. Depolama dosya hizmeti adı ve depolama kimlik bilgileri, tanımlı sabitler geçirilir. Burada, başlangıç görevinin havuzu kapsamlı bir standart (yönetici olmayan) otomatik kullanıcı hesabı altında çalışır.
 
 ```csharp
 ...
@@ -102,7 +102,7 @@ pool.StartTask = new StartTask
 pool.Commit();
 ```
 
-Bu kimlik bilgilerini depolama sonra görev komut satırları ve paylaşımı bağlamak ve Paylaşım okuma başvuru ya da yazma işlemleri için kullanın. Temel bir örnek olarak, aşağıdaki kod parçacığında görev komut satırında kullanan `dir` dosya paylaşımında dosyaları listeleme komutu. Aynı kullanarak her iş görevi çalıştırıldığından emin olun [kullanıcı kimliği](batch-user-accounts.md) havuzda başlangıç görevi çalıştırmak için kullanılır. 
+Kimlik bilgilerini depolama sonrasında, görev komut satırları paylaşımını ve Paylaşım başvuru okuma veya yazma işlemleri için kullanın. Temel bir örnek olarak, aşağıdaki kod parçacığı görev komut satırında kullanan `dir` Dosya paylaşımındaki dosyaları Listele komutu. Aynı kullanarak her iş görevi çalıştırıldığından emin olun [kullanıcı kimliğini](batch-user-accounts.md) başlangıç görevi, havuzda çalıştırmak için kullanılır. 
 
 ```csharp
 ...
@@ -116,34 +116,34 @@ task.UserIdentity = new UserIdentity(new AutoUserSpecification(
 tasks.Add(task);
 ```
 
-## <a name="mount-a-share-on-a-linux-pool"></a>Bir Linux havuzunda paylaşımını bağlama
+## <a name="mount-a-share-on-a-linux-pool"></a>Linux havuzu paylaşımında bağlama
 
-Azure dosya paylaşımları kullanarak Linux dağıtımları içinde takılı [CIFS çekirdek istemci](https://wiki.samba.org/index.php/LinuxCIFS). Aşağıdaki örnek, Ubuntu 16.04 LTS işlem düğümlerinin havuzunda bir dosya paylaşımını bağlama gösterilmektedir. Başka bir Linux dağıtım kullanırsanız, genel adımlar benzerdir, ancak dağıtım için uygun paket yöneticisini kullanın. Ayrıntılar ve ek örnekler için bkz: [Azure dosyaları'nı Linux ile kullanma](../storage/files/storage-how-to-use-files-linux.md).
+Azure dosya paylaşımlarını kullanarak Linux dağıtımları bağlanabilir [CIFS çekirdek istemci](https://wiki.samba.org/index.php/LinuxCIFS). Aşağıdaki örnekte, Ubuntu 16.04 LTS işlem düğümlerinin havuzunda bir dosya paylaşımını bağlama gösterilmektedir. Farklı bir Linux dağıtımı kullanıyorsanız genel adımlar benzerdir, ancak dağıtım için uygun paket yöneticisini kullanın. Ayrıntılar ve ek örnekler için bkz. [Linux ile Azure dosyaları kullan](../storage/files/storage-how-to-use-files-linux.md).
 
-İlk olarak, bir yönetici kullanıcı kimliği altında yüklemek `cifs-utils` paketini ve bağlama noktası oluşturun (örneğin, */mnt/MyAzureFileShare*) yerel dosya sistemi içinde. Bir bağlama noktası için bir klasör dosya sisteminde herhangi bir yerden oluşturulabilir, ancak bu altında oluşturmak için ortak bir kuraldır `/mnt` klasör. Bir bağlama noktası doğrudan oluşturmamayı özen `/mnt` (üzerinde Ubuntu) veya `/mnt/resource` (üzerindeki diğer dağıtımları).
+İlk olarak, bir yönetici kullanıcı kimliğini altında yükleyin `cifs-utils` paketini ve bağlama noktası oluştur (örneğin, */mnt/MyAzureFileShare*), yerel dosya sistemi. Bir bağlama noktası için bir klasör dosya sisteminde herhangi bir yere oluşturulabilir, ancak işbu sözleşmenin oluşturmak için ortak bir kuraldır `/mnt` klasör. Bir bağlama noktası doğrudan oluşturmamayı mutlaka `/mnt` (Ubuntu üzerinde) veya `/mnt/resource` (üzerinde diğer dağıtımları).
 
 ```
 apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileShare
 ```
 
-Daha sonra çalıştırın `mount` bu kimlik bilgilerini sağlayan dosya paylaşımını bağlamak için komutu:
+Ardından çalıştırın `mount` bu kimlik bilgilerini girerek dosya paylaşımını bağlayabilmeniz için komut:
 
 * **Kullanıcı adı**: \<storageaccountname\>, örneğin, *mystorageaccountname*
-* **Parola**: < StorageAccountKeyWhichEnds içinde == >, örneğin, *XXXXXXXXXXXXXXXXXXXXX ==*
+* **Parola**: < StorageAccountKeyWhichEnds içinde == > Örneğin, *XXXXXXXXXXXXXXXXXXXXX ==*
 
-Aşağıdaki komutu bir dosya paylaşımı bağladığı *myfileshare* depolama hesabındaki *mystorageaccountname* adresindeki */mnt/MyAzureFileShare*: 
+Aşağıdaki komutu bir dosya paylaşımı bağlar *myfileshare* depolama hesabındaki *mystorageaccountname* adresindeki */mnt/MyAzureFileShare*: 
 
 ```
 mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare
 ```
 
-Kolaylık olması için burada örnekler kimlik bilgilerini doğrudan metin olarak geçirin. Uygulamada, ortam değişkenleri, sertifikalar veya Azure anahtar kasası gibi bir çözüm kullanarak kimlik bilgilerini yönetme öneririz.
+Kolaylık olması için buradaki örnekler kimlik bilgilerini doğrudan metin geçirin. Uygulamada, ortam değişkenleri, sertifikaları veya Azure anahtar kasası gibi bir çözüm kullanarak kimlik bilgilerinin yönetimiyle öneririz.
 
-Bir Linux havuzunda tek bir başlangıç görevi bu adımların tümü birleştirebilir veya bir komut dosyasını çalıştırın. Başlangıç görevi havuzu bir yönetici kullanıcı olarak çalıştırın. Paylaşım başvuran havuzunda başka görevler çalıştırmadan önce başarıyla tamamlanması için beklenecek başlangıç göreviniz ayarlayın.
+Bir Linux havuzu üzerinde tek bir başlangıç görevinde bu adımların tümü birleştirebilir veya bir betikte çalıştırabilirsiniz. Başlangıç görevi, havuzda bir yönetici kullanıcı olarak çalıştırın. Paylaşım başvuran havuzda başka bir görev çalıştırmadan önce başarıyla tamamlanması için beklenecek başlangıç göreviniz ayarlayın.
 
-### <a name="python-example"></a>Python örneği
+### <a name="python-example"></a>Python örnek
 
-Aşağıdaki Python örnek bir başlangıç görevi ve paylaşımı bağlamak için bir Ubuntu havuzunu yapılandırmak nasıl gösterir. Bağlama noktası, dosya paylaşımı uç noktası ve depolama kimlik tanımlı sabitler olarak geçirilir. Başlangıç görevi havuzu kapsamlı yönetici otomatik kullanıcı hesabı altında çalışır.
+Aşağıdaki örnek Python görev başlatma ve paylaşımı bağlamak için bir Ubuntu havuzunu yapılandırmak nasıl gösterir. Bağlama noktası, dosya paylaşımı uç noktası ve depolama kimlik bilgileri, tanımlı sabitler geçirilir. Başlangıç görevi, havuzu kapsamlı yönetici otomatik kullanıcı hesabı altında çalışır.
 
 ```python
 pool = batch.models.PoolAddParameter(
@@ -169,7 +169,7 @@ pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(pool)
 ```
 
-Paylaşım bağlanması ve bir iş tanımlama sonra paylaşım, görev komut satırları kullanın. Örneğin, aşağıdaki temel komutunu kullanan `ls` dosya paylaşımında dosyaları listeleme.
+Paylaşımı bağlayarak ve bir iş tanımlama sonra paylaşım, görev komut satırlarında kullanın. Örneğin, aşağıdaki temel komutu kullanan `ls` Dosya paylaşımındaki dosyaları listeleme.
 
 ```python
 ...
@@ -183,6 +183,6 @@ batch_service_client.task.add(job_id, task)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Diğer Seçenekler okuyun ve toplu veri yazmak, bkz: [Batch özelliklerine genel bakış](batch-api-basics.md) ve [iş ve Görev çıkış kalıcı](batch-task-output.md).
+* Diğer seçenekleri okuyup Batch'de veri yazmak, bkz [Batch özelliğine genel bakış](batch-api-basics.md) ve [iş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md).
 
-* Ayrıca bkz. [toplu Shipyard](https://github.com/Azure/batch-shipyard) içeren araç seti [Shipyard tarif](https://github.com/Azure/batch-shipyard/tree/master/recipes) toplu kapsayıcı iş yükleri için dosya sistemlerini dağıtmak için.
+* Ayrıca bkz: [Batch Shipyard](https://github.com/Azure/batch-shipyard) içeren araç seti [Shipyard tarifleri](https://github.com/Azure/batch-shipyard/tree/master/recipes) Batch kapsayıcı iş yükleri için dosya sistemlerine dağıtılacak.

@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8cd7fc5b69fd3ef124a96f00466a0d9a8c4e2240
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d8cb0829698b13e2193850c29f98492df6c48d4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134361"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468521"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>İçin veya SSIS bağlayıcıları kullanarak Azure Blob Depolama veri taşıma
 [Azure için SQL Server Integration Services özellik paketi](https://msdn.microsoft.com/library/mt146770.aspx) Azure'a bağlanmak için Azure ve şirket içi veri kaynakları ve Azure'da depolanan işlem verileri arasında veri aktarımı bileşenleri sağlar.
@@ -42,8 +42,8 @@ Bu makalede açıklanan görevler gerçekleştirmek için bir Azure aboneliği v
 
 Kullanılacak **SSIS bağlayıcıları**, yüklemeniz gerekir:
 
-* **SQL Server 2014 veya 2016 standart (veya üstü)**: Install SQL Server Integration Services içerir.
-* **Microsoft SQL Server 2014 veya 2016 tümleştirme hizmetleri özellik paketi için Azure**: Bu indirilebilir, sırasıyla gelen [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) ve [SQL Server 2016 tümleştirmesi Hizmetleri](https://www.microsoft.com/download/details.aspx?id=49492) sayfaları.
+* **SQL Server 2014 veya 2016 standart (veya üstü)**: SQL Server Integration Services yükleme içerir.
+* **Microsoft SQL Server 2014 veya 2016 Integration Services için Azure Feature Pack**: Bu indirilebilir, sırasıyla gelen [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) ve [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) sayfaları.
 
 > [!NOTE]
 > SSIS SQL Server ile birlikte yüklenir, ancak Express sürümünde bulunmamaktadır. Hangi uygulamaların çeşitli SQL Server sürümlerinde yer hakkında daha fazla bilgi için bkz: [SQL Server sürümleri](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
@@ -52,7 +52,7 @@ Kullanılacak **SSIS bağlayıcıları**, yüklemeniz gerekir:
 
 SSIS'ndeki eğitim materyallerine için bkz: [SSIS üzerinde uygulamalı eğitim](https://www.microsoft.com/sql-server/training-certification)
 
-Yukarı süreli alma hakkında daha fazla bilgi için kullanılacak SISS basit ayıklama, dönüştürme ve yükleme (ETL) paketleri için bkz: derleme [SSIS öğretici: basit bir ETL paket oluşturma](https://msdn.microsoft.com/library/ms169917.aspx).
+Yukarı süreli alma hakkında daha fazla bilgi için kullanılacak SISS basit ayıklama, dönüştürme ve yükleme (ETL) paketleri için bkz: derleme [SSIS Öğreticisi: Basit ETL paket oluşturma](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>NYC taksi veri kümesini indirin
 Açıklanan örnek burada kullanmak genel kullanıma açık bir veri kümesi-- [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Veri kümesi hakkında 173 milyon taksi sürmeye NYC içinde 2013 yılında oluşur. İki tür veri vardır: seyahat veri ve taksi verilerini ayrıntıları. Her ay için bir dosya gibi her biri yaklaşık 2 sıkıştırılmamış GB ise tüm 24 dosyalarında sahibiz.

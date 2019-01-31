@@ -10,19 +10,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 8cc5d1a2d78179624ee1ba17482e9d1892625d6f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bc7a183220219b14cb793f8115284d38d544b0e0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104297"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453187"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Veri bilimi sanal makinesi üzerinde desteklenen diller 
 
@@ -193,7 +193,7 @@ R tüm kullanıcılar tarafından okunabilir bir genel ortamında DSVM yüklenir
 | ------------- | ------------- |
 | Desteklenen dil sürümleri | 0,6 |
 | Desteklenen DSVM sürümleri      | Linux, Windows     |
-| Nasıl, yapılandırılmış / DSVM üzerinde yüklü?  | Windows: yüklü `C:\JuliaPro-VERSION`<br /> Linux: yüklü `/opt/JuliaPro-VERSION`    |
+| Nasıl, yapılandırılmış / DSVM üzerinde yüklü?  | Windows: Yüklü `C:\JuliaPro-VERSION`<br /> Linux: Yüklü `/opt/JuliaPro-VERSION`    |
 | Örneklere bağlantılar      | Julia örnek Jupyter not defterleri dahil edilir.     |
 | DSVM ilgili araçları      | Python, R      |
 ### <a name="how-to-use--run-it"></a>Kullanma / çalıştırın nasıl?    
@@ -236,7 +236,7 @@ Julia konumu tüm kullanıcılar tarafından okunabilir ortam bir genel varsayı
 
 **C#**: Windows üzerinde kullanılabilen ve erişilebilen veya Visual Studio Community sürümü üzerinden bir `Developer Command Prompt for Visual Studio` az önce çalıştırdığınız `csc` komutu. 
 
-**Java**: OpenJDK DSVM ve yolun kümesinde hem Linux hem de Windows Edition'da kullanılabilir. Yazabilirsiniz `javac` veya `java` Windows komut istemi veya bash Kabuğu'nda Linux Java kullanma komutu. 
+**Java**: OpenJDK hem Linux hem de Windows sürümü DSVM ve yolun kümesinde kullanılabilir. Yazabilirsiniz `javac` veya `java` Windows komut istemi veya bash Kabuğu'nda Linux Java kullanma komutu. 
 
 **node.js**: node.js DSVM ve yolun kümesinde hem Linux hem de Windows Edition'da kullanılabilir. Yazabilirsiniz `node` veya `npm` Windows komut istemi veya bash Kabuğu'nda node.js erişmek için Linux komutu. Windows üzerinde Visual Studio uzantısı için Node.js araçları, node.js uygulaması geliştirmeye yönelik bir grafik IDE sağlamak için yüklenir. 
 

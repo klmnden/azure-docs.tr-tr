@@ -3,7 +3,7 @@ title: Çok sayıda görevler - Azure Batch gönderme | Microsoft Docs
 description: Verimli bir şekilde çok sayıda görevleri tek bir Azure Batch işi gönderme
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: fae5b9ee84c9352bbeb6f14b1f3a6006ce4804e8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b2daba1e20431edae5aacc8295fdc542d1e73d33
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261681"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460514"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Çok sayıda Batch işi görevlere gönderin
 

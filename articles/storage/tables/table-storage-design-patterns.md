@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: d055ea9b30732e1cc0fc4ae5471bae26adc08b35
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238905"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469201"
 ---
 # <a name="table-design-patterns"></a>Tablo tasarımı desenleri
 Bu makalede, tablo hizmeti çözümleri ile kullanım için uygun olan bazı desenleri açıklar. Ayrıca, nasıl, pratikte bazı sorunlar ve dezavantajlarına diğer tablo depolama tasarım makalelerinde açıklanan ele görürsünüz. Aşağıdaki diyagramda, farklı düzenlerinin arasındaki ilişkileri özetlenmektedir:  
@@ -201,7 +201,7 @@ Yukarıda gösterilen varlık yapısı ile soyadına göre aramasını etkinleş
 
 Birinci seçenek için bir listesini her benzersiz son adı ve her blob deposuna blob oluşturma **PartitionKey** (bölüm) ve **RowKey** (çalışan kimliği) son bu ada sahip çalışanlar için değerler. Eklediğinizde veya bir çalışan silme ilgili blobun içeriğini çalışan varlıklarla sonunda tutarlı olduğundan emin olmanız gerekir.  
 
-<u>#2. seçenek:</u> dizin varlıklar aynı bölümde oluşturun  
+<u>#2. seçenek:</u> Dizin varlıklar aynı bölümde oluşturun  
 
 İkinci seçenek için aşağıdaki verilerini depolayan dizin varlıkları kullanın:  
 
@@ -223,7 +223,7 @@ Aşağıdaki adımlar, bir departmandaki belirli bir soyadı ile tüm çalışan
 2. Çalışan EmployeeIDs alanında kimlikleri listesini ayrıştırılamıyor.  
 3. Her biri (örneğin, e-posta adreslerini) bu çalışanların hakkında ek bilgi gerekiyorsa, her birini kullanarak çalışan varlıkları almak **PartitionKey** "Sales" değerini ve **RowKey** değerlerini 2. adımda elde ettiğiniz çalışanların listesi.  
 
-<u>#3. seçenek:</u> ayrı bölüm veya tablo içinde dizin varlıkları oluşturma  
+<u>#3. seçenek:</u> Dizin varlıkları ayrı bölüm veya tablo oluşturma  
 
 Aşağıdaki veri depolayan dizin varlıklar için üçüncü bir seçenek olarak kullanın:  
 
@@ -916,7 +916,7 @@ Bu bölümün geri kalanında bazı depolama istemci Kitaplığı'nda aynı tabl
 ### <a name="retrieving-heterogeneous-entity-types"></a>Heterojen varlık türleri alınıyor
 Depolama istemci kitaplığı kullanıyorsanız, birden çok varlık türleriyle çalışmak için üç seçeneğiniz vardır.  
 
-Belirli bir ile depolanan varlık türünü biliyorsanız **RowKey** ve **PartitionKey** değerleri önceki iki örnekte gösterildiği gibi varlık aldığınızda, varlık türünü belirtebilirsiniz ardından, türündeki varlıkları alma **EmployeeEntity**: [için depolama istemci kitaplığı kullanılarak noktası Sorguyu yürüten](#executing-a-point-query-using-the-storage-client-library) ve [LINQ kullanarak birden çok varlık alma](#retrieving-multiple-entities-using-linq).  
+Belirli bir ile depolanan varlık türünü biliyorsanız **RowKey** ve **PartitionKey** değerleri önceki iki örnekte gösterildiği gibi varlık aldığınızda, varlık türünü belirtebilirsiniz ardından, türündeki varlıkları alma **EmployeeEntity**: [Depolama istemci kitaplığı kullanılarak noktası Sorguyu yürüten](#executing-a-point-query-using-the-storage-client-library) ve [LINQ kullanarak birden çok varlık alma](#retrieving-multiple-entities-using-linq).  
 
 İkinci seçenek kullanmaktır **DynamicTableEntity** türü (bir özellik paketi) yerine (Bu seçenek ayrıca artırabilir performans .NET türlerine varlık seri hale getrime ve gerek olmadığından) somut bir POCO varlık türü. Aşağıdaki C# kodu potansiyel olarak farklı türlerde birden çok varlık tablosundan alır, ancak tüm varlıklar olarak döndürür **DynamicTableEntity** örnekleri. Ardından kullanır **EntityType** özelliği her varlık türünü belirlemek için:  
 

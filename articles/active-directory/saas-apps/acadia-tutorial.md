@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a43db3eba5bec9bef0aacc51d246414d54d222bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813454"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Öğretici: Acadia ile Azure Active Directory Tümleştirme
 
@@ -71,10 +71,10 @@ Azure AD'de Acadia tümleştirmesini yapılandırmak için Acadia Galeriden yön
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD'ye tek temelinde oturum açma adlı bir test kullanıcısı [uygulama adı] ile test etme **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısı ve [uygulama adı] ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Acadia adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Acadia ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma [uygulama adı] ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Acadia ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Acadia çoklu oturum açmayı yapılandırma](#configure-acadia-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
@@ -87,7 +87,7 @@ Yapılandırma ve Azure AD çoklu oturum açma [uygulama adı] ile test etmek i�
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma ile Acadia yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
 1. İçinde [Azure portalında](https://portal.azure.com/), **Acadia** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
@@ -116,7 +116,7 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
     İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Acadia istemci Destek ekibine](https://www.systemsalliance.com/contact-us/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Meta veri dosyasında 4 ve 5. adımları değerlerini tıklayarak aktarılabilen Acadia ekibi tarafından sağlanacaktır **meta veri dosyasını karşıya yükleme** üzerinde **temel SAML yapılandırma** bölümü. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** meta veri değerlerinin doğru olduğunu doğrulamak için Azure portalında bölümü. İlgili kişi [Acadia istemci Destek ekibine](mailto:support@systemsalliance.com) sağlanan değerler yanlış ise.
 
 6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -134,7 +134,7 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
 
 ### <a name="configure-acadia-single-sign-on"></a>Acadia çoklu oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **Acadia** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** ve uygun Azure portalına kopyalanan URL'lerden [Acadia Destek ekibine](https://www.systemsalliance.com/contact-us/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **Acadia** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML**, **uygulama Federasyon meta verileri URL'sini**, ve uygun kopyalanan URL'lerden Azure portalında [Acadia Destek ekibine](mailto:support@systemsalliance.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı yapılandırın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ed5f3db3f9f8f7231d8f865f69cd11c2430054b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024323"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297498"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure'da Office 365'ten veri kopyalama 
 
@@ -42,9 +42,10 @@ Azure'da Office 365'ten veri kopyalamak için aşağıdaki önkoşul adımların
 - Office 365 Kiracı yöneticiniz kolaylaşmasına eylemleri açıklandığı gibi tamamlayın [burada](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
 - Oluşturun ve Azure Active Directory'de bir Azure AD web uygulaması yapılandırın.  Yönergeler için [bir Azure AD uygulaması oluştur](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Office 365 için bağlı hizmetini tanımlamak için kullanacağınız aşağıdaki değerleri not edin:
-    - Kiracı kimliği  Yönergeler için [Kiracı kimliği alma](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - Kiracı kimliği Yönergeler için [Kiracı kimliği alma](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
     - Uygulama kimliği ve uygulama anahtarı.  Yönergeler için [uygulama kimliği ve kimlik doğrulama anahtarını Al](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-- Azure AD web uygulaması sahibi olarak veri erişim isteği yapacak kullanıcı kimliğini ekleyin (Azure AD web uygulaması > Ayarlar > sahipleri > Ekle sahibi).
+- Azure AD web uygulaması sahibi olarak veri erişim isteği yapacak kullanıcı kimliğini ekleyin (Azure AD web uygulaması > Ayarlar > sahipleri > Ekle sahibi). 
+    - Kullanıcı kimliği, içinden verileri alma ve Konuk kullanıcı olmamalıdır Office 365 kuruluşta olması gerekir.
 
 ## <a name="approving-new-data-access-requests"></a>Onaylama yeni veri erişim istekleri
 

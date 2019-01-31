@@ -3,7 +3,7 @@ title: Windows ile Linux Vm'leri için SSH anahtarlarını kullanma | Microsoft 
 description: Oluşturmak ve azure'da Linux sanal makinesine bağlanmak için bir Windows bilgisayarda SSH anahtarlarını kullanma hakkında bilgi edinin.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: danlep
-ms.openlocfilehash: abb0ba6eace2e837ea2f74a0d919097f8801101e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407425"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298662"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure'da Windows ile SSH anahtarlarını kullanma
 
@@ -93,7 +93,7 @@ Aşağıdaki örnek nasıl kopyalayıp bir Linux VM'si oluşturduğunuzda bu ort
    ![Azure portalında bir VM oluşturduğunuzda ortak anahtarı kullanır.](./media/ssh-from-windows/use-public-key-azure-portal.png)
 
 
-## <a name="connect-to-your-vm"></a>Sanal Makinenize bağlanın
+## <a name="connect-to-your-vm"></a>Sanal makinenize bağlanma
 
 Windows, Linux VM'ye SSH bağlantısından yapmanın bir yolu, bir SSH istemcisi kullanmaktır. Windows sisteminizde yüklü olan bir SSH istemcisi varsa veya Azure Cloud Shell'deki bash hizmetinde SSH Araçları'nı kullanıyorsanız tercih edilen yöntem budur. GUI tabanlı bir araç tercih ederseniz, PuTTY ile bağlanabilirsiniz.  
 
@@ -105,6 +105,8 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 Anahtar çiftinizi oluştururken bir parola yapılandırdıysanız, oturum açma işlemi sırasında istendiğinde parolayı girin.
+
+VM tam zamanında erişim ilkesi kullanıyorsa, sanal Makineye bağlanmadan önce erişim istemeniz gerekir. Tam zamanında İlkesi hakkında daha fazla bilgi için bkz: [yalnızca kullanarak sanal makine erişimini yönetme zamanında İlkesi](../../security-center/security-center-just-in-time.md).
 
 ### <a name="connect-with-putty"></a>PuTTY ile bağlanma
 

@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: c5120cdb743e031c081f727c947752419db3a9d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0e5db2c08749a59a03e384c6048e67f7570f6750
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081118"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211449"
 ---
 # <a name="r-developers-guide-to-azure"></a>Azure için R Geliştirici Kılavuzu
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -114,7 +114,7 @@ Azure Batch hizmetinde bir R betiğini çalıştırmak için başka bir seçenek
 
 [Azure not defterleri](https://notebooks.azure.com) için Not Defterleri ile çalışmayı tercih ettiğiniz R geliştiricileri kendi kodlarını Azure'a taşımalarına için düşük maliyetli, düşük uyuşmazlıkları yöntemidir.  Herkesin geliştirin ve kendi tarayıcı kullanarak kodu çalıştırmak için ücretsiz bir hizmet olduğundan [Jupyter](https://jupyter.org/), markdown prose tarayan ve yürütülebilir kod grafik tek bir tuvale sağlayan bir açık kaynak projesi olan.
 
-4 GB bellek ve 1 GB veri kümelerinin her not defterinin işleme sınırları gibi Azure not defterleri ücretsiz hizmet katmanına küçük ölçekli projeler için uygun bir seçenektir. Ancak, işlem ve veri güç bu sınırlamaların ötesine gerekiyorsa, bir veri bilimi sanal makinesi örneğinde not defterlerini çalıştırabilirsiniz. Daha fazla bilgi için [yönetme ve Azure not defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+4 GB bellek ve 1 GB veri kümelerinin her not defterinin işleme sınırları gibi Azure not defterleri ücretsiz hizmet katmanına küçük ölçekli projeler için uygun bir seçenektir. Ancak, işlem ve veri güç bu sınırlamaların ötesine gerekiyorsa, bir veri bilimi sanal makinesi örneğinde not defterlerini çalıştırabilirsiniz. Daha fazla bilgi için [yönetme ve Azure not defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) Microsoft'un akıllı, tam olarak yönetilen bir ilişkisel bulut veritabanı hizmetidir.  SQL Server'ın gücünden altyapı kurulumu bir çaba harcamalarına gerek kalmadan kullanmanıza olanak sağlar.  Bu içerir [Machine Learning Hizmetleri](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), SQL Hizmeti daha yeni eklemeler birinde.

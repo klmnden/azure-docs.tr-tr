@@ -1,5 +1,5 @@
 ---
-Başlık: Excel titleSuffix Web hizmetinde kullan: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio web Hizmetleri, kod yazmaya gerek kalmadan doğrudan Excel'den çağırın kolaylaştırır.
+Başlık: Excel titleSuffix Web hizmetinde kullan: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio web Hizmetleri, kod yazmaya gerek kalmadan doğrudan Excel'den çağırın kolaylaştırır.
 Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/01/2018

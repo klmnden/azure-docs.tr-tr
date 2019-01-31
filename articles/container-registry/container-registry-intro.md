@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b2ea63ec13e1e0b79a87b7bfa5bae4a6cf409331
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0118c17045b86c88d8d92048787a20bd7d309c0b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253247"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298356"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure'da özel Docker kapsayıcısı kayıt defterlerine giriş
 
@@ -38,7 +38,7 @@ Uygulama görüntülerini, temel görüntüleri güncelleştirildiğinde otomati
 
 * **Kayıt Defteri** - Azure aboneliğinizde bir veya daha fazla kapsayıcı kayıt defteri oluşturun. Kayıt defterleri üç Sku'da kullanılabilir: [Temel, standart ve Premium](container-registry-skus.md), her Web kancası tümleştirmesi, Azure Active Directory ile kayıt defteri kimlik doğrulamasını desteklemek ve silme işlevi. Kapsayıcı görüntülerinizin yerel, kapalı bir ağda depolanmasının avantajlarından yararlanmak için dağıtımlarınızla aynı Azure konumunda bir kayıt defteri oluşturun. Gelişmiş çoğaltma ve kapsayıcı görüntüsü dağıtma senaryoları için Premium kayıt defterlerinin [coğrafi çoğaltma](container-registry-geo-replication.md) özelliğini kullanın. Tam kayıt defteri adı `myregistry.azurecr.io` biçimindedir.
 
-  Azure Active Directory destekli bir [hizmet sorumlusunu](../active-directory/develop/app-objects-and-service-principals.md) veya sağlanan bir yönetici hesabını kullanarak kapsayıcı kayıt defterine [erişimi denetlersiniz](container-registry-authentication.md). Bir kayıt defteriyle kimlik doğrulamak için standart `docker login` komutunu çalıştırın.
+  [Erişimini](container-registry-authentication.md) kullanarak bir Azure kimlik Azure Active Directory destekli bir kapsayıcı kayıt defterine [hizmet sorumlusu](../active-directory/develop/app-objects-and-service-principals.md), ya sağlanan yönetici hesabı. Azure komut satırı arabirimi ya da standart kullanarak kayıt defterini oturum `docker login` komutu.
 
 * **Depo** -kapsayıcı görüntüleri grubu depolayan bir veya daha fazla depo bir kayıt defteri içerir. Azure Container Kayıt Defteri, çok düzeyli depo ad alanlarını destekler. Çok düzeyli ad alanlarıyla, belirli bir uygulamayla veya uygulama koleksiyonuyla ilişkili görüntü koleksiyonlarını belirli geliştirme veya işlem ekipleri halinde gruplandırabilirsiniz. Örneğin:
 

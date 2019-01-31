@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: 6a6508393fe935b456cde815d35f2fd4447cd2d4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528131"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453408"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure depolama istemci tarafı şifreleme ile Python
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -125,12 +125,12 @@ Depolama hizmeti nesnesi (yani blockblobservice) oluşturulduktan sonra kullanı
 
 KEK başarıyla verileri şifrelemek için aşağıdaki yöntemleri uygulamanız gerekir:
 
-* wrap_key(cek): kullanıcının tercih ettiğiniz bir algoritma kullanarak belirtilen CEK (bayt) sarmalar. Sarmalanan anahtarını döndürür.
+* wrap_key(cek): Kullanıcının seçtiği bir algoritma kullanarak belirtilen CEK (bayt) sarmalar. Sarmalanan anahtarını döndürür.
 * get_key_wrap_algorithm(): Anahtarları sarmalamak için kullanılan algoritma döndürür.
-* get_kid(): anahtar dize kimliği için bu KEK döndürür.
+* get_kid(): Dize anahtar kimliği için bu KEK döndürür.
   KEK başarıyla verilerin şifresini çözmek için aşağıdaki yöntemleri uygulamanız gerekir:
-* unwrap_key (cek, algoritması): dizesi belirtilen algoritmasını kullanarak belirtilen CEK sarmalanmış halden biçiminde döndürür.
-* get_kid(): Bu KEK için bir dize anahtar kimliğini döndürür.
+* unwrap_key (cek, algoritması): Dize olarak belirtilen algoritmasını kullanarak belirtilen CEK sarmalanmış halden biçiminde döndürür.
+* get_kid(): Dize anahtar kimliği için bu KEK döndürür.
 
 En az anahtar Çözümleyici, verilen bir anahtar kimlik yukarıdaki arabirimini uygulayan karşılık gelen KEK döndüren bir yöntem uygulaması gerekir. Hizmet nesnesi key_resolver_function özelliğine atanacak yalnızca bu yöntem kullanılır.
 

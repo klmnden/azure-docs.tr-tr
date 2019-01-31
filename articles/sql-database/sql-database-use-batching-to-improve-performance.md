@@ -11,18 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 21dc28658f7f6f31bc7536df739a70238a3bcb8f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 01/25/2019
+ms.openlocfilehash: f347543bbea11329cf4bb7c03dac6ccf7f04ac77
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160817"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455397"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL veritabanı uygulama performansını artırmak için toplu işlem kullanma
+
 Önemli ölçüde toplu işlemler için Azure SQL veritabanı, uygulamalarınızı ölçeklenebilirliğini ve performansı artırır. Avantajları anlamak için bu makalenin ilk bölümünü karşılaştırma sıralı ve toplu istekleri bir SQL veritabanı için bazı örnek test sonuçlarını içerir. Bu makalenin geri kalanında teknikleri, senaryolar ve başarılı bir şekilde Azure uygulamalarınızda toplu işlem kullanma size yardımcı olacak hususlar gösterir.
 
-## <a name="why-is-batching-important-for-sql-database"></a>SQL veritabanı için önemli toplu işleme neden?
+## <a name="why-is-batching-important-for-sql-database"></a>SQL veritabanı için önemli toplu işleme neden
+
 Uzak bir hizmete çağrı toplu işleme, performans ve ölçeklenebilirliği artırmak için iyi bilinen bir stratejidir. İşlem maliyetleri tüm etkileşimleri serileştirme, ağ aktarımı ve seri durumundan çıkarma gibi uzak bir hizmetle var. sabittir. Tek bir toplu iş birçok ayrı işlemlere paketleme bu maliyetleri en aza indirir.
 
 Bu belgede, çeşitli SQL veritabanı'nı stratejileri ve senaryoları toplu işleme incelemek istiyoruz. Bu stratejiler ayrıca SQL Server kullanan şirket içi uygulamalar için önemli olmakla birlikte, SQL veritabanı için toplu işlem kullanımına vurgulama için birkaç nedeni vardır:
@@ -36,13 +38,14 @@ SQL veritabanı kullanmanın avantajları veritabanını barındıran sunucular 
 Kağıt ilk kısmı, SQL veritabanı'nı kullanan .NET uygulamaları için toplu işleme çeşitli teknikler inceler. Son iki bölüm toplu işleme yönergeleri ve senaryoları kapsar.
 
 ## <a name="batching-strategies"></a>Toplu işleme stratejileri
+
 ### <a name="note-about-timing-results-in-this-article"></a>Bu makalede zamanlama sonuçlarıyla ilgili not
+
 > [!NOTE]
 > Sonuçları Kıyaslama değildir ancak göstermeye yöneliktir **göreli performans**. Zamanlamaları, ortalama, en az 10 test çalışmalarını temel alır. Boş bir tablo ekler işlemlerdir. Bu testleri ölçülen öncesi V12 olan ve bunlar mutlaka kullanarak yeni bir V12 veritabanında karşılaşabileceğiniz aktarım hızı için karşılık gelmez [DTU hizmet katmanları](sql-database-service-tiers-dtu.md) veya [sanal çekirdek hizmet katmanları](sql-database-service-tiers-vcore.md). Toplu işlem teknik göreli avantajı benzer olmalıdır.
-> 
-> 
 
 ### <a name="transactions"></a>İşlemler
+
 Bir gözden geçirme işlemleri açıklayan tarafından toplu işleme, başlamak için ilginç görünüyor. Ancak istemci tarafı işlemleri kullanımı performansı artıran zarif bir toplu işlem sunucu tarafı etkisi yoktur. Ve yalnızca birkaç satır kod ile işlemleri sıralı işlemlerinin performansını artırmak için hızlı bir yolunu sağlarlar şekilde eklenebilir.
 
 INSERT dizisini içeren aşağıdaki C# kodu göz önünde bulundurun ve basit bir tablo üzerinde işlem güncelleştirin.
@@ -118,6 +121,7 @@ Aşağıdaki tablo bazı geçici test sonuçlarını gösterir. Testler aynı s�
 ADO.NET'te işlemleri hakkında daha fazla bilgi için bkz. [ADO.NET'te yerel işlemler](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
 ### <a name="table-valued-parameters"></a>Tablo değerli Parametreler
+
 Tablo değerli parametreleri kullanıcı tanımlı tablo türleri parametre olarak Transact-SQL deyimleri, saklı yordamları ve işlevleri destekler. Bu istemci-tarafı toplu teknik tablo değerli parametre içinde verilerinizin birden çok satır göndermenize olanak sağlar. Tablo değerli parametreleri kullanmak için öncelikle bir tablo türü tanımlar. Aşağıdaki Transact-SQL deyimini adlı bir tablo türü oluşturur **MyTableType**.
 
     CREATE TYPE MyTableType AS TABLE 
@@ -196,6 +200,7 @@ Toplu işleme gelen performans artışı hemen açıktır. Önceki sıralı test
 Tablo değerli parametreler hakkında daha fazla bilgi için bkz. [Table-Valued parametreleri](https://msdn.microsoft.com/library/bb510489.aspx).
 
 ### <a name="sql-bulk-copy"></a>SQL toplu kopyalama
+
 SQL toplu kopyalama büyük miktarlarda verinin bir hedef veritabanına eklemek için başka bir yoludur. .NET uygulamalarında kullanabileceğiniz **SqlBulkCopy** sınıfı toplu gerçekleştirmek için işlemler Ekle. **SqlBulkCopy** için komut satırı aracı, işlevde benzer **Bcp.exe**, ya da Transact-SQL deyimini **BULK INSERT**. Aşağıdaki kod örneği nasıl toplu kopyalama kaynak satırları gösterir **DataTable**, SQL Server, hedef tabloda MyTable tablo.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -233,6 +238,7 @@ Daha küçük toplu boyutlarında kullanım tablo değerli parametresi'ü geride
 ADO.NET'te toplu kopyalama hakkında daha fazla bilgi için bkz. [SQL Server'da toplu kopyalama işlemleri](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
 ### <a name="multiple-row-parameterized-insert-statements"></a>Birden çok satır parametreli INSERT deyimleri
+
 Bir küçük toplu işler için birden çok satır ekleyen büyük bir parametreli INSERT deyimini oluşturmak için alternatiftir. Aşağıdaki kod örneği, bu tekniği gösterir.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -272,12 +278,15 @@ Aşağıdaki geçici test sonuçları, bu tür bir INSERT deyimini performansın
 Bu yaklaşım, 100'den daha az satır toplu işlemler için biraz daha hızlı olabilir. Geliştirme küçük olsa da, bu teknik, belirli bir uygulama senaryonuzda iyi çalışabilir başka bir seçenektir.
 
 ### <a name="dataadapter"></a>DataAdapter
+
 **DataAdapter** sınıfı değiştirmenize olanak sağlayan bir **veri kümesi** nesnesi ve ardından değişiklikleri INSERT, UPDATE ve DELETE işlemleri olarak gönderin. Kullanıyorsanız **DataAdapter** bu şekilde, her distinct işlemi için ayrı çağrıları yapıldığını unutmayın. Performansı artırmak için kullanmak **UpdateBatchSize** özelliği için aynı anda toplu işlemlerin sayısı. Daha fazla bilgi için [toplu işlemleri kullanarak DataAdapters gerçekleştirme](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
 ### <a name="entity-framework"></a>Varlık çerçevesi
+
 Entity Framework, toplu işleme şu anda desteklemiyor. Farklı geliştiriciler Topluluğu'nda çalıştı geçersiz kılma gibi geçici çözümler göstermek **SaveChanges** yöntemi. Ancak çözümler genellikle karmaşık ve özelleştirilmiş uygulama ve veri modeli. Entity Framework codeplex projesi, şu anda bu özellik isteğinde tartışma sayfasında yok. Bu tartışmayı görüntülemek için bkz: [tasarım Toplantı Notları - 2 Ağustos 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
+
 Eksiksiz olması için toplu bir strateji olarak XML bahsedeceğiz önemli olduğunu düşünüyor. Ancak, diğer yöntemleri hiçbir avantaj ve bazı olumsuz yanları XML kullanımı vardır. Tablo değerli parametrelere benzer bir yaklaşımdır, ancak kullanıcı tanımlı bir tablo yerine bir saklı yordam için geçirilen bir dize veya XML dosyası. Saklı yordam saklı yordamı komutlar ayrıştırır.
 
 Bu yaklaşım bazı dezavantajları vardır:
@@ -289,14 +298,17 @@ Bu yaklaşım bazı dezavantajları vardır:
 Bu nedenlerle, toplu işlem sorguları için XML kullanılması önerilmez.
 
 ## <a name="batching-considerations"></a>Toplu işlem konuları
+
 Aşağıdaki bölümler, SQL veritabanı uygulamalarında toplu işleme kullanmak için daha fazla rehberlik sağlar.
 
 ### <a name="tradeoffs"></a>Ödünler
+
 Mimarinizi bağlı olarak, toplu işleme, performans ve esneklik arasında bir denge içerebilir. Örneğin, burada rolünüz beklenmedik bir şekilde arıza yaşanırsa senaryoyu düşünün. Bir satır veri kaybederseniz, daha büyük bir grup gönderilmeyen satır kaybetme etkisini daha küçük bir etkisidir. Belirtilen bir zaman penceresi veritabanına göndermeden satırlar arabellek olmadığında büyük sokması mümkündür.
 
 Bu bir tradeoff nedeniyle, toplu işlem türü değerlendirin. Batch daha agresif bir biçimde (büyük toplu işler ve uzun zaman pencereleri) daha az kritik verilerle.
 
 ### <a name="batch-size"></a>Toplu işlem boyutu
+
 Testlerimiz, genellikle daha küçük öbeklere büyük toplu işler bozucu herhangi bir avantaj sağlamaz vardı. Aslında, bu alt genellikle tek bir büyük toplu iş gönderme daha yavaş performans sonuçlandı. Örneğin, 1000 satırı eklemek istediğiniz bir senaryo düşünün. Daha küçük toplu işler bölündüğünde 1000 satırı eklemek için tablo değerli parametreleri kullanmak için ne kadar sürer, aşağıdaki tabloda gösterilmektedir.
 
 | Toplu işlem boyutu | Yinelemeler | Tablo değerli parametreleri (ms) |
@@ -318,6 +330,7 @@ Dikkate alınması gereken diğer bir etken toplam toplu iş çok büyük olursa
 Son olarak, toplu iş boyutu toplu işlem ile ilişkili riskleri taşıyan dengeleyin. Geçici hatalar veya bir rolü başarısız olursa işlemin yeniden denenmesi veya toplu işlemdeki veri kaybı sonuçları göz önünde bulundurun.
 
 ### <a name="parallel-processing"></a>Paralel işleme
+
 Ne toplu iş boyutu azaltma yaklaşımı benimsediğimiz ancak birden çok iş parçacığı işi yürütmek için kullanılır? Yeniden testlerimizin birkaç çok iş parçacıklı daha küçük toplu işler genellikle tek bir büyük toplu iş daha da kötüsü gerçekleştirdiği gösterdi. Aşağıdaki sınama, 1000 satırı bir veya daha fazla paralel toplu olarak eklemek çalışır. Bu test nasıl daha fazla eşzamanlı toplu işler gerçekten düşük performansla gösterir.
 
 | Toplu iş boyutu [yinelemeler] | İki iş parçacığı (ms) | Dört iş parçacığı (ms) | Altı iş parçacıkları (ms) |
@@ -346,14 +359,17 @@ Bazı tasarımlarında daha küçük toplu işler paralel yürütülmesi istekle
 Paralel yürütme kullanıyorsanız, en fazla çalışan iş parçacığı sayısını denetleme göz önünde bulundurun. Daha küçük bir sayı daha az çekişme ve daha hızlı bir yürütme süresi neden. Ayrıca, bu hedef veritabanı bağlantıları ve işlemleri yerleştirir ek yükü göz önünde bulundurun.
 
 ### <a name="related-performance-factors"></a>İlgili performans etmenleri
+
 Toplu işleme, veritabanı performansı normal yönergeler de etkiler. Örneğin, performans, büyük bir birincil anahtar veya birçok kümelenmemiş dizinler içeren tablolar için azaltılır.
 
 Tablo değerli parametre bir saklı yordam kullanıyorsanız, komut kullanabilirsiniz **SET NOCOUNT ON** yordamın başında. Bu deyim dönüş yordamda etkilenen satır sayısı bastırır. Ancak kullanımını testlerimizin içinde **SET NOCOUNT ON** etkiye sahip ya da performansı düşebilir. Test saklı yordamı ile tek bir basit **Ekle** tablo değerli parametre komutu. Daha karmaşık saklı yordamlar bu deyimden avantaj elde edecektir mümkündür. Ancak bu ekleme varsaymayın **SET NOCOUNT ON** depolanmış yordamınızdaki otomatik olarak performansı artırır. Etkisini anlamak için depolanmış yordamınızdaki olmadan test **SET NOCOUNT ON** deyimi.
 
 ## <a name="batching-scenarios"></a>Toplu işleme senaryoları
+
 Aşağıdaki bölümlerde, üç uygulama senaryolarında tablo değerli parametreleri kullanma açıklanmaktadır. İlk senaryo, arabelleğe alma ve yığınlama birlikte nasıl çalışabileceğini gösterir. İkinci senaryo, bir tek bir saklı yordam çağrısında ana öğe-ayrıntı işlemleri gerçekleştirerek performansını artırır. Son senaryo, bir "UPSERT" işleminde tablo değerli parametre kullanmayı gösterir.
 
 ### <a name="buffering"></a>arabelleğe alma
+
 Toplu işleme için belirgin aday olan bazı senaryolarda olsa da, geciken işlem tarafından toplu işleme avantajı sürebilir birçok senaryo vardır. Ancak, Gecikmeli işleme ayrıca veri beklenmeyen bir hata durumunda büyük bir risk taşır. Bu riskleri öğrenmek ve sonuçlara göz önünde bulundurun önemlidir.
 
 Örneğin, her kullanıcı Gezinti geçmişini izleyen bir web uygulamasını göz önünde bulundurun. Her sayfa isteğinde uygulama bir veritabanı kullanıcının sayfa görünümü kaydetmek için arama yapabilirsiniz. Ancak, kullanıcı Gezinti etkinlikleri arabelleğe alma ve sonra da bu verileri toplu işlemleri veritabanına göndererek daha yüksek performans ve ölçeklenebilirlik gerçekleştirilebilir. Geçen süre ve/veya arabellek boyutu ile veritabanı güncelleştirme tetikleyebilirsiniz. Örneğin, bir kural arabellek 1000 öğe ulaştığında veya 20 saniye sonra batch işleneceğini belirtebilirsiniz.
@@ -362,6 +378,7 @@ Aşağıdaki kod örneğinde [Reactive Extensions - Rx](https://msdn.microsoft.c
 
 Kullanıcı Gezinti ayrıntıları aşağıdaki NavHistoryData sınıfı modeller. Kullanıcı tanımlayıcısı, erişilen URL'si ve erişim zamanı gibi temel bilgileri içerir.
 
+```c#
     public class NavHistoryData
     {
         public NavHistoryData(int userId, string url, DateTime accessTime)
@@ -370,9 +387,11 @@ Kullanıcı Gezinti ayrıntıları aşağıdaki NavHistoryData sınıfı modelle
         public string URL { get; set; }
         public DateTime AccessTime { get; set; }
     }
+```
 
 Kullanıcı Gezinti verilerini veritabanına ara belleğe alma için sorumlu NavHistoryDataMonitor sınıftır. Bir yöntem yükselterek yanıt veren RecordUserNavigationEntry içerdiği bir **OnAdded** olay. Aşağıdaki kod Rx olayı temel alan gözlemlenebilir bir koleksiyon oluşturmak için kullandığı Oluşturucu mantığı gösterir. Ardından arabellek yöntemiyle gözlemlenebilir bu koleksiyona abone. Aşırı yükleme, arabellek her 20 saniyede veya 1000 girişleri olarak gönderilmesi gerektiğini belirtir.
 
+```c#
     public NavHistoryDataMonitor()
     {
         var observableData =
@@ -380,9 +399,11 @@ Kullanıcı Gezinti verilerini veritabanına ara belleğe alma için sorumlu Nav
 
         observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
     }
+```
 
 İşleyici arabelleğe alınan öğelerin tümünü bir tablo değerli türüne dönüştürür ve ardından bu toplu işler bir saklı yordam geçirir. Aşağıdaki kod NavHistoryDataEventArgs hem NavHistoryDataMonitor sınıfları için eksiksiz tanımını gösterir.
 
+```c#
     public class NavHistoryDataEventArgs : System.EventArgs
     {
         public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
@@ -439,12 +460,15 @@ Kullanıcı Gezinti verilerini veritabanına ara belleğe alma için sorumlu Nav
             }
         }
     }
+```
 
 Arabelleğe alma Bu sınıf kullanmak için uygulama bir statik NavHistoryDataMonitor nesnesi oluşturur. Bir kullanıcı bir sayfa her eriştiğinde uygulama NavHistoryDataMonitor.RecordUserNavigationEntry yöntemini çağırır. Bu girişler toplu işlemleri veritabanına gönderme halletmeniz için arabelleğe alma mantığını ilerler.
 
 ### <a name="master-detail"></a>Ana ayrıntı
+
 Tablo değerli parametreleri basit ekleme senaryoları için yararlıdır. Ancak, birden fazla tablo içeren toplu ekleme daha zor olabilir. "Ana/ayrıntı" senaryo iyi bir örnektir. Ana Tablo birincil varlık tanımlar. Bir veya daha fazla ayrıntı tabloları varlık hakkında daha fazla veri depolar. Bu senaryoda, yabancı anahtar ilişkileri benzersiz bir ana varlık ayrıntıları arasındaki ilişkiyi uygular. Basitleştirilmiş bir sürümünü PurchaseOrder tablo ve onun ilişkili OrderDetail tablosu göz önünde bulundurun. Aşağıdaki Transact-SQL ile dört sütun PurchaseOrder tablo oluşturur: OrderID, OrderDate, Müşteri Kimliği ve durumu.
 
+```sql
     CREATE TABLE [dbo].[PurchaseOrder](
     [OrderID] [int] IDENTITY(1,1) NOT NULL,
     [OrderDate] [datetime] NOT NULL,
@@ -452,9 +476,11 @@ Tablo değerli parametreleri basit ekleme senaryoları için yararlıdır. Ancak
     [Status] [nvarchar](50) NOT NULL,
      CONSTRAINT [PrimaryKey_PurchaseOrder] 
     PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
+```
 
-Her bir order bir veya daha fazla ürün satın alma işlemleri içerir. Bu bilgiler PurchaseOrderDetail tabloda yakalanır. Aşağıdaki Transact-SQL ile beş sütun PurchaseOrderDetail tablo oluşturur: OrderID, OrderDetailID ProductID, UnitPrice ve OrderQty.
+Her bir order bir veya daha fazla ürün satın alma işlemleri içerir. Bu bilgiler PurchaseOrderDetail tabloda yakalanır. Aşağıdaki Transact-SQL ile beş sütun PurchaseOrderDetail tablo oluşturur: OrderID, OrderDetailID, ProductID, UnitPrice ve OrderQty.
 
+```sql
     CREATE TABLE [dbo].[PurchaseOrderDetail](
     [OrderID] [int] NOT NULL,
     [OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
@@ -463,15 +489,19 @@ Her bir order bir veya daha fazla ürün satın alma işlemleri içerir. Bu bilg
     [OrderQty] [smallint] NULL,
      CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
     ( [OrderID] ASC, [OrderDetailID] ASC ))
+```
 
 OrderID PurchaseOrderDetail tablosundaki bir sipariş PurchaseOrder tablosundan başvurmalıdır. Yabancı anahtar aşağıdaki tanımını bu kısıtlamayı zorlar.
 
+```sql
     ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
     CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
     REFERENCES [dbo].[PurchaseOrder] ([OrderID])
+```
 
 Tablo değerli parametreleri kullanmak için her hedef tablosu için bir kullanıcı tanımlı tablo türü olması gerekir.
 
+```sql
     CREATE TYPE PurchaseOrderTableType AS TABLE 
     ( OrderID INT,
       OrderDate DATETIME,
@@ -485,9 +515,11 @@ Tablo değerli parametreleri kullanmak için her hedef tablosu için bir kullan�
       UnitPrice MONEY,
       OrderQty SMALLINT );
     GO
+```
 
 Ardından bu tür tablo kabul eden bir saklı yordam tanımlayın. Bu yordamı, bir uygulamanın yerel olarak bir dizi siparişlerini ve tek bir çağrı sırası ayrıntılarını toplu sağlar. Aşağıdaki Transact-SQL bu satınalma siparişi örneği için tam bir saklı yordam bildirimi sağlar.
 
+```sql
     CREATE PROCEDURE sp_InsertOrdersBatch (
     @orders as PurchaseOrderTableType READONLY,
     @details as PurchaseOrderDetailTableType READONLY )
@@ -528,11 +560,13 @@ Ardından bu tür tablo kabul eden bir saklı yordam tanımlayın. Bu yordamı, 
     FROM @details D
     JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
     GO
+```
 
 Bu örnekte, yerel olarak tanımlanan @IdentityLink tablo, yeni eklenen satırlar gerçek OrderID değerleri depolar. Bu sipariş tanımlayıcılarını geçici OrderID değerleri farklı @orders ve @details tablo değerli parametreleri. Bu nedenle, @IdentityLink tablo ardından OrderID değerlerinden bağlanır @orders PurchaseOrder tablosunda yeni satırlar için gerçek OrderID değerler için parametre. Bu adımdan sonra @IdentityLink tablo kolaylaştırmak yabancı anahtar kısıtlamasını karşılayan gerçek OrderID ile sipariş ayrıntılarını ekleme.
 
 Bu saklı yordamı, kod veya diğer Transact-SQL çağrıları kullanılabilir. Bu belgede bir kod örneği için tablo değerli parametre bölümüne bakın. Aşağıdaki Transact-SQL sp_InsertOrdersBatch çağırma gösterilmektedir.
 
+```sql
     declare @orders as PurchaseOrderTableType
     declare @details as PurchaseOrderDetailTableType
 
@@ -550,16 +584,19 @@ Bu saklı yordamı, kod veya diğer Transact-SQL çağrıları kullanılabilir. 
     (3, 4, $10.00, 1)
 
     exec sp_InsertOrdersBatch @orders, @details
+```
 
 Bu çözüm, her toplu iş 1'den başlar OrderID değerler kümesini kullanmak izin verir. Bu geçici OrderID değerleri batch ilişkileri tanımlamak, ancak gerçek OrderID değerler ekleme işlemi zamanında belirlenir. Önceki örnekte, tekrar tekrar aynı deyimleri çalıştırın ve veritabanında benzersiz siparişler oluşturmak. Bu nedenle, bu tekniği toplu işlem kullanırken yinelenen siparişler engeller. daha fazla kod veya veritabanı mantığı eklemeyi düşünün.
 
 Bu örnek, tablo değerli parametreleri kullanarak ana öğe-ayrıntı işlemleri gibi daha karmaşık veritabanı işlemleri gruplanabilecek gösterir.
 
 ### <a name="upsert"></a>UPSERT
+
 Başka bir toplu işleme senaryosu, aynı anda var olan satır, ekleme yeni satırları güncelleştirme içerir. Bu işlem, bazen bir "UPSERT" (güncelleştirme + INSERT) işlem olarak da adlandırılır. EKLEME ve güncelleştirme için ayrı çağrılar yapmak yerine, MERGE deyiminin bu görev için idealdir. MERGE deyiminin her iki INSERT işlemi ve güncelleştirme işlemlerinin tek bir çağrı kullanabilirsiniz.
 
 Tablo değerli parametre ile MERGE deyimi, güncelleştirmeler ve ekler gerçekleştirmek için kullanılabilir. Örneğin, şu sütunları içeren bir Basitleştirilmiş çalışan tablosuna göz önünde bulundurun: EmployeeID, FirstName, LastName, SocialSecurityNumber:
 
+```sql
     CREATE TABLE [dbo].[Employee](
     [EmployeeID] [int] IDENTITY(1,1) NOT NULL,
     [FirstName] [nvarchar](50) NOT NULL,
@@ -567,18 +604,22 @@ Tablo değerli parametre ile MERGE deyimi, güncelleştirmeler ve ekler gerçekl
     [SocialSecurityNumber] [nvarchar](50) NOT NULL,
      CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
     ([EmployeeID] ASC ))
+```
 
 Bu örnekte, SocialSecurityNumber birden çok çalışan bir birleştirme işlemini gerçekleştirmek için benzersiz olduğunu kullanabilirsiniz. İlk olarak, kullanıcı tanımlı tablo türü oluşturun:
 
+```sql
     CREATE TYPE EmployeeTableType AS TABLE 
     ( Employee_ID INT,
       FirstName NVARCHAR(50),
       LastName NVARCHAR(50),
       SocialSecurityNumber NVARCHAR(50) );
     GO
+```
 
 Ardından, bir saklı yordam oluşturma veya güncelleştirme gerçekleştirmek ve eklemek için MERGE deyiminin kullanan kod yazın. Aşağıdaki örnek, bir tablo değerli parametre MERGE deyiminin kullanır @employees, EmployeeTableType türü. İçeriğini @employees tablo burada gösterilmez.
 
+```sql
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
     AS source ([FirstName], [LastName], [SocialSecurityNumber])
@@ -590,10 +631,12 @@ Ardından, bir saklı yordam oluşturma veya güncelleştirme gerçekleştirmek 
     WHEN NOT MATCHED THEN
        INSERT ([FirstName], [LastName], [SocialSecurityNumber])
        VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
+```
 
 Belgeler ve örnekler MERGE deyiminin için daha fazla bilgi için bkz. Aynı iş bir çok-depolanan adımda gerçekleştirilebilir ancak yordam çağrısı ile ayrı ekleme ve güncelleştirme işlemleri, MERGE deyiminin daha verimlidir. Veritabanı kod MERGE deyimi, INSERT ve UPDATE için iki veritabanı çağrıları doğrudan gerektirmeden kullanan Transact-SQL çağrıları da oluşturabilirsiniz.
 
 ## <a name="recommendation-summary"></a>Öneri özeti
+
 Aşağıdaki listede, bu makalede ele alınan toplu işlem önerilerin bir özeti verilmiştir:
 
 * SQL veritabanı uygulamalarının ölçeklenebilirliğini ve performansı artırmak için arabelleğe alma ve toplu işlem'i kullanın.
@@ -614,5 +657,6 @@ Aşağıdaki listede, bu makalede ele alınan toplu işlem önerilerin bir özet
 * Boyut ve daha fazla senaryo için toplu işleme uygulamanın yolu sürede arabelleğe almayı düşünün.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu makalede nasıl veritabanı tasarımı ve kodlama tekniklerini toplu işleme için ilgili uygulama performansı ve ölçeklenebilirliği artırabilir üzerinde odaklanır. Ancak, yalnızca bir faktör olarak genel stratejinizi budur. Performans ve ölçeklenebilirliği artırmak daha fazla yolu için bkz: [tek veritabanları için Azure SQL Database performans rehberi](sql-database-performance-guidance.md) ve [elastik havuzlar için fiyat ve performans hususları](sql-database-elastic-pool-guidance.md).
 

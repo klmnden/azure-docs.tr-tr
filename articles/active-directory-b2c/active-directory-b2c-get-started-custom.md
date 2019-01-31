@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2d5cc846b6ca2eadacfcc8223e4ba3932e961ece
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173607"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298748"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C özel ilkeleri kullanmaya başlama
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[Özel ilkeler](active-directory-b2c-overview-custom.md) , Azure Active Directory (Azure AD) B2C kiracınızın davranışlarını tanımlayan yapılandırma dosyalarıdır. Bu makalede, bir e-posta adresi ve parola kullanarak yerel hesap kaydolma veya oturum açma destekleyen özel bir ilke oluşturun. Ayrıca, Facebook gibi kimlik sağlayıcılarla eklemek için ortamınızın de hazırlayın.
+[Özel ilkeler](active-directory-b2c-overview-custom.md) , Azure Active Directory (Azure AD) B2C kiracınızın davranışlarını tanımlayan yapılandırma dosyalarıdır. Bu makalede, bir e-posta adresi ve parola kullanarak yerel hesap kaydolma veya oturum açma destekleyen özel bir ilke oluşturun. Ayrıca, kimlik sağlayıcıları eklemek için ortamınızın de hazırlayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -63,17 +63,32 @@ Zaten bir [Facebook uygulama gizli anahtarı](active-directory-b2c-setup-fb-app.
 5. İçin **anahtar kullanımı**seçin **imza**.
 6. **Oluştur**’a tıklayın.
 
-## <a name="register-an-application"></a>Bir uygulamayı kaydetme
+## <a name="register-applications"></a>Uygulamaları kaydetme
 
-Uygulamaya kaydolun ve kiracınızda var olan yerel bir hesap ile oturum açmasına etkinleştirmek için Azure Active Directory (Azure AD) B2C kaydedilmiştir. Kullanıcılarınızı benzersiz e-posta adresi ve parola ile kayıtlı bir uygulamaya erişmek için kaydolun.
+Azure AD B2C, kaydolma ve kullanıcıların oturum açma için kullanılan iki yeni uygulama kaydetmenizi gerektirir: IdentityExperienceFramework (bir web uygulaması) ve temsilci atanmış izin IdentityExperienceFramework uygulamasından ile ProxyIdentityExperienceFramework (yerel uygulama). Yerel hesaplar yalnızca kiracınızda mevcut. Kullanıcılarınızı benzersiz e-posta adresi/parola bileşimi ile Kiracı kayıtlı uygulamalarınıza erişmek için kaydolun.
+
+### <a name="register-the-identityexperienceframework-application"></a>IdentityExperienceFramework uygulamayı kaydetme
 
 1. Seçin **tüm hizmetleri** Azure portalının sol üst köşedeki arayın ve seçin **uygulama kayıtları**.
 2. **Yeni uygulama kaydı**’nı seçin.
-3. İçin **adı**, girin `ProxyIdentityExperienceFramework`.
-4. İçin **uygulama türü**, seçin **yerel**.
-5. İçin **yeniden yönlendirme URI'si**, girin `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`burada `your-tenant-name` Azure AD B2C kiracınızın adıdır.
-6. **Oluştur**’a tıklayın. Oluşturulduktan sonra uygulama kimliği kopyalayın ve daha sonra kullanmak üzere kaydedin.
-7. Seçin **izinler**, seçerek onaylayın **Evet**.
+3. İçin **adı**, girin `IdentityExperienceFramework`.
+4. İçin **uygulama türü**, seçin **Web uygulaması/API'si**.
+5. İçin **oturum açma URL'si**, girin `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`burada `your-tenant-name` , Azure AD B2C Kiracı etki alanı adıdır.
+6. **Oluştur**’a tıklayın. 
+7. Oluşturulduktan sonra uygulama kimliği kopyalayın ve daha sonra kullanmak üzere kaydedin.
+
+### <a name="register-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework uygulamayı kaydetme
+
+1. Seçin **uygulama kayıtları**ve ardından **yeni uygulama kaydı**.
+2. İçin **adı**, girin `ProxyIdentityExperienceFramework`.
+3. İçin **uygulama türü**, seçin **yerel**.
+4. İçin **yeniden yönlendirme URI'si**, girin `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`burada `yourtenant` Azure AD B2C kiracınızın.
+5. **Oluştur**’a tıklayın. Oluşturulduktan sonra uygulama kimliği kopyalayın ve daha sonra kullanmak üzere kaydedin.
+6. Ayarlar sayfasında, seçin **gerekli izinler**ve ardından **Ekle**.
+7. **Bir API seçin**'i belirleyin.
+8. Arayın ve seçin **IdentityExperienceFramework**ve ardından **seçin**.
+9. Yanındaki onay kutusunu işaretleyin **erişim IdentityExperienceFramework**, tıklayın **seçin**ve ardından **Bitti**.
+10. Seçin **izinler**, seçerek onaylayın **Evet**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Başlangıç paketi indirin ve ilkeleri değiştirme
 
@@ -87,8 +102,8 @@ Uygulamaya kaydolun ve kiracınızda var olan yerel bir hesap ile oturum açmas�
 Her başlangıç paketi içerir:
 
 - Temel dosya. Birkaç temel için gereklidir.
-* Uzantı dosyası.  Çoğu yapılandırma değişikliği burada yapılan bu dosyasıdır.
-* Bağlı olan taraf dosyalar. Göreve özel dosyalar, uygulamanız tarafından çağrılır.
+- Uzantı dosyası.  Çoğu yapılandırma değişikliği burada yapılan bu dosyasıdır.
+- Bağlı olan taraf dosyalar. Göreve özel dosyalar, uygulamanız tarafından çağrılır.
 
 >[!NOTE]
 >XML Düzenleyicisi'ni doğrulama destekliyorsa, dosyaların başlangıç paketi kök dizininde bulunan TrustFrameworkPolicy_0.3.0.0.xsd XML şemasına karşı doğrulayın. XML şema doğrulaması karşıya yüklemeden önce hataları tanımlar.
@@ -103,10 +118,10 @@ Her başlangıç paketi içerir:
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Uygulama kimlikleri için özel ilke ekleme
 
-Uygulama Kimliği uzantıları dosyaya ekleyin *TrustFrameworkExtensions.xml*.
+Uygulama kimlikleri uzantıları dosyaya ekleyin *TrustFrameworkExtensions.xml*.
 
 1. Açık *TrustFrameworkExtensions.xml* öğesini bulun ve dosya `<TechnicalProfile Id="login-NonInteractive">`.
-2. Her iki değeri değiştirin `client_id` ve `resource_id` daha önce oluşturduğunuz ProxyIdentityExperienceFramework uygulamanın uygulama kimliği.
+2. Yerine `IdentityExperienceFrameworkAppId` daha önce oluşturduğunuz kimlik deneyimi çerçevesi uygulamanın uygulama kimliği. Yerine `ProxyIdentityExperienceFrameworkAppId` daha önce oluşturduğunuz Proxy kimlik deneyimi çerçevesi uygulamanın uygulama kimliği.
 3. Uzantıları dosyanızı kaydedin.
 
 ## <a name="upload-the-policies"></a>İlke karşıya yükleme

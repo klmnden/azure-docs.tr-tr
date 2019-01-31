@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: ac50078dcc60e925f1e2e27a1296b2644939baef
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153734"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296554"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure veri fabrikasında kopyalama etkinliği
 
@@ -155,7 +155,10 @@ Bu işlem hattı çalıştırmasını etkinlikler listesini görmek için tıkla
 
 ![Etkinlik çalıştırmalarını izleme](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Tıklayın "**ayrıntıları**" altında bağlantı **eylemleri** kopyalama etkinliği'nin yürütme ayrıntıları ve performans özelliklerini görmek için. Bu havuz için kaynak, aktarım hızı, karşılık gelen süre ile geçtiği ve yapılandırmaları kopyalama senaryonuz için kullanılan adımları dahil olmak üzere birim/satır/dosyaları veri kopyalanan bilgiler gösterir. Bazı senaryolarda da göreceksiniz bir "**performans ayarlama ipuçları**" bölümünde tanımlanan sorunu bildiren ve böyle kopyalama durumda kopyalama verimliliğini artırın, örnek konusunda size üstte [burada](#performance-and-tuning).
+Tıklayın "**ayrıntıları**" altında bağlantı **eylemleri** kopyalama etkinliği'nin yürütme ayrıntıları ve performans özelliklerini görmek için. Bu havuz için kaynak, aktarım hızı, karşılık gelen süre ile geçtiği ve yapılandırmaları kopyalama senaryonuz için kullanılan adımları dahil olmak üzere birim/satır/dosyaları veri kopyalanan bilgiler gösterir. 
+
+>[!TIP]
+>Bazı senaryolarda, ayrıca görürsünüz "**performans ayarlama ipuçları**" örnek ayrıntılarlatanımlananperformanssorunuolduğunusöylervenekopyalamaaktarımhızıartırmakiçindeğiştirmeksize,sayfada,izlemekopyalamaüzerinebakın[burada](#performance-and-tuning).
 
 **Örnek: Azure Data Lake Store için Amazon S3'ten kopyalama**
 ![İzleyici etkinlik çalışma ayrıntıları](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -233,10 +236,13 @@ Kopyalama etkinliği, varsayılan olarak veri kopyalama durdurur ve uyumsuz veri
 
 Bkz: [kopyalama etkinliği performansı ve ayarlama Kılavuzu](copy-activity-performance.md), Azure Data factory'deki veri taşıma (kopyalama etkinliği) performansını etkileyen önemli faktörlerin açıklar. Ayrıca, iç test sırasında gözlemlenen performans listeler ve kopyalama etkinliği performansı iyileştirmek için çeşitli yollar ele alınmaktadır.
 
-Bazı senaryolarda, bir kopyalama etkinliği, ADF'de yürüttüğünüzde da göreceksiniz bir "**performans ayarlama ipuçları**" üst kısmındaki bölümünde [kopyalama etkinliği sayfası izleme](#monitor-visually), söyleyen, tanımlanan performans sorunu ve böyle bir durumda kopyalama için kopyalama aktarım hızını artırma konusunda size yol gösterir.
+Bazı durumlarda, bir kopyalama etkinliği, ADF'de yürüttüğünüzde doğrudan görürsünüz "**performans ayarlama ipuçları**" üst kısmındaki [kopyalama etkinliği izleme sayfası](#monitor-visually) aşağıdaki örnekte gösterildiği gibi. Yalnızca belirli bir kopya çalıştırmak için tanımlanan sorunu bildiren, ancak Ayrıca, ne kopyalama aktarım hızı artırmak için değiştirmek size yol gösterir. Performans ayarı ipuçları şu anda önerileri PolyBase veri kaynağında yan depoladığınızda, Azure Cosmos DB RU veya Azure SQL DB DTU artırmak için Azure SQL veri ambarı'na veri kopyalama işlemi sırasında kullanmak ister sağlamak gereksiz aşamalı kaldırmak için kaynaklanıyor kopyalama, vb. Performans kuralları ayarlama kademeli olarak de zenginleştirilmiş.
 
-**Örnek: performans ayarlama ipuçları ile Azure SQL Veritabanına kopyalama**
-![kopyalama performans ayarlama ipuçları ile izleme](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+**Örnek: performans ayarlama ipuçları Azure SQL veritabanına kopyalama**
+
+Bu örnekte, yazma işlemleri yavaşlatır yüksek DTU kullanımı havuz Azure SQL DB ulaştığında ADF bildirimi çalışan kopyalama sırasında böylece öneri Azure SQL veritabanı katmanı ile daha fazla DTU artırmaktır. 
+
+![Performans ayarlama ipuçları ile izleme kopyalayın](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Artımlı kopyalama 
 Data Factory, artımlı olarak delta veriler kaynak veri deposundan hedef veri deposuna kopyalamak için senaryoları destekler. Bkz: [öğretici: verileri artımlı olarak kopyalama](tutorial-incremental-copy-overview.md). 

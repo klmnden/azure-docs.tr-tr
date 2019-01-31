@@ -7,21 +7,21 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 77aba022b3e4e8a41fa83e24b5694542fd2ae259
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: HT
+ms.subservice: tables
+ms.openlocfilehash: 052a462da5349b0886d6d99cd59d1a4ce816220f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526538"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462724"
 ---
-# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalda bir Azure Depolama tablosu oluşturma 
+# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Azure depolama tablosu oluşturma 
 
 Bu hızlı başlangıçta web tabanlı Azure portalda tablo ve varlıkların nasıl oluşturulacağı gösterilir. Bu hızlı başlangıçta aynı zamanda bir Azure depolama hesabının nasıl oluşturulacağı da gösterilmektedir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için ilk olarak [Azure portalında](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) bir Azure depolama hesabı oluşturun. Hesap oluşturmayla ilgili yardım için bkz. [Depolama hesabı oluşturma](../common/storage-quickstart-create-account.md).
 

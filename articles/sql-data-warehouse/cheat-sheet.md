@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ef64b9d4e4e5c7f5a628359a8512dcb61b9c941
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: cede105f0bff9a65f88e06467e4d13419d389f04
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245902"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461568"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı için kural sayfası
 Bu kural sayfası, Azure SQL Veri Ambarı çözümlerinizi oluşturmak için yardımcı ipuçları ve en iyi uygulamalar sağlar. Başlamadan önce, SQL Veri Ambarının ne olup ne olmadığını açıklayan [Azure SQL Veri Ambarı İş Yükü Düzenleri ve Anti Düzenleri](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) bölümünü okuyarak her bir adım hakkında daha ayrıntılı bilgi edinin.
@@ -50,7 +50,7 @@ Veri ambarınızda çalıştırılacak birincil işlemleri ve sorguları öncede
 
 Tablo özelliklerini bağlı olarak aşağıdaki stratejileri kullanın:
 
-| Tür | İdeal olduğu öğe...| İzlenmesi gereken şey...|
+| Type | İdeal olduğu öğe...| İzlenmesi gereken şey...|
 |:--- |:--- |:--- |
 | Çoğaltılmış | • Sıkıştırmadan (~5x sıkıştırma) sonra 2 GB’tan az depolama alanına sahip bir yıldız şemasındaki küçük boyut tabloları |• Tabloda birçok yazma işlemi olup olmadığı (örn. ekleme, upsert, silme, güncelleştirme)<br></br>• Veri Ambarı Birimleri (DWU) sağlamayı sık sık değiştirip değiştirmediğiniz<br></br>• Yalnızca 2-3 sütun kullanıp kullanmadığınız, ancak tablonuzun birçok sütun içerip içermediği<br></br>• Çoğaltılmış bir tabloyu dizinleyip dizinlemediğiniz |
 | Hepsini Bir Kez Deneme (varsayılan) | • Geçici/hazırlama tablosu<br></br> • Belirgin bir birleştirme anahtarı veya iyi aday sütunu olmaması |• Veri taşıma nedeniyle performansın düşüp düşmediği |
@@ -70,7 +70,7 @@ Tablo özelliklerini bağlı olarak aşağıdaki stratejileri kullanın:
 
 Dizinleme, tabloların hızlı şekilde okunması için faydalıdır. Gereksinimlerinize göre kullanabileceğiniz bir dizi benzersiz teknoloji vardır:
 
-| Tür | İdeal olduğu öğe... | İzlenmesi gereken şey...|
+| Type | İdeal olduğu öğe... | İzlenmesi gereken şey...|
 |:--- |:--- |:--- |
 | Yığın | • Hazırlama/geçici tablo<br></br>• Küçük aramalar içeren küçük tablolar |• Aramaların tam tabloyu tarayıp taramadığı |
 | Kümelenmiş dizin | • En fazla 100 milyon satır içeren tablolar<br></br>• Yalnızca 1-2 sütunun yoğun şekilde kullanıldığı büyük tablolar (100 milyondan fazla satır içeren) |• Çoğaltılmış bir tabloda kullanılıp kullanılmadığı<br></br>• Birden fazla birleştirme ve Gruplama Ölçütü işlemini içeren karmaşık sorgularınız olup olmadığı<br></br>• Dizinlenmiş sütunlarda güncelleştirme yapıp yapmadığınız: bu, bellek tüketir |

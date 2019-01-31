@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/30/2018
+ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242968"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456060"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>5000-7000 Serisi Storsimple'dan verileri geçirmeye seçenekleri 
 
@@ -45,6 +45,8 @@ StorSimple 5000-7000 Serisi kullanan müşteriler aşağıdaki seçenekleriniz v
 
     - **Geçirmek için Panzura özgürlük NAS** -StorSimple 5000-7000 müşterilerin kendi verilerini Azure'da korumak için Panzura özgürlük NAS geçirmek için seçebilirsiniz. Panzura özgürlük çözüm yayılan veri merkezleri, ofisleri, genel ve özel bulutların bir NAS çözümü sağlar. Çözüm, NFS, SMB ve mobil istemciler için yerel, karma ve bulut data iş akışları sağlar. Bu geçiş Panzura tarafından desteklenir ve geçiş desteği'nden isteyerek müşteriler başlayabilirsiniz [Panzura Web sitesi](https://panzura.com/storsimple-migration/).
 
+    - **Geçiş için Cohesity** -Cohesity veri Cohesity veri platformu Azure üzerinde geçerli StorSimple 5000-7000 geçirilecek olanak sağlar. Cohesity veri platformu dosyaları, yedeklemeler, nesneleri ve Vm'leri tek bir yerel bulut çözümünün birleştiren bir yazılım tanımlı web ölçeğindeki çözümüdür. Veri platformuna geçişten sonra yönetmek, koruma ve veri ve bulut uygulamaları üzerinden tek bir cam bölmeyle core'a sağlayın. En az üç düğüm olarak Cohesity ile başlayın. Daha fazla bilgi [Cohesity DataPlatform geçiş](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+
 ## <a name="migration---frequently-asked-questions"></a>Geçişi - sık sorulan sorular
 
 ### <a name="q-when-do-the-storsimple-5000-and-7000-series-devices-reach-end-of-service"></a>S. Ne zaman StorSimple 5000 ve 7000 Serisi cihazlar hizmeti sonuna ulaşmak? 
@@ -69,7 +71,7 @@ A. Hizmetlerin çalışmaya devam edebilir ancak Microsoft artık donanım ve ya
 A. Kendi senaryoya bağlı olarak, StorSimple 5000-7000 Serisi kullanıcılar aşağıdaki geçiş seçenekleri de mevcuttur. 
 
  - **8000 serisi için yükseltme**: StorSimple platformunda devam etmek istediğinizde bu seçeneği kullanın. 
- - **Azure dosya eşitleme için geçirme**: Azure yerel biçime geçiş yapmak istediğinizde bu seçeneği kullanın. Azure dosya eşitleme dosya paylaşımları Merkezi Yönetim için kullanabilirsiniz. 
+ - **Azure dosya eşitleme geçirme**: Azure yerel biçime geçiş yapmak istediğinizde bu seçeneği kullanın. Azure dosya eşitleme dosya paylaşımları Merkezi Yönetim için kullanabilirsiniz. 
 
 Burada listelenmeyen geçiş seçenekler hakkında konuşmak amacıyla Microsoft Support başvurabilirsiniz.
 

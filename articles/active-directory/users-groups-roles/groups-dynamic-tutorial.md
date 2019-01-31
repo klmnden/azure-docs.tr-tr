@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro;seo-update-jan
-ms.openlocfilehash: 3a4f2c651342f1250755b0ae6edb5c752b2946f5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: bf625b45fa47d4fa681521eb992bd2b07cc08946
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175630"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296256"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Öğretici: Grup üyelerini otomatik olarak ekleyip
 

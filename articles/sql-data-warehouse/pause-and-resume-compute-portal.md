@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Azure SQL veri ambarı'nda - Azure Portalı bilgi işlem, duraklatma ve sürdürme | Microsoft Docs"
+title: "Hızlı Başlangıç: Duraklatma ve sürdürme işlem Azure SQL veri ambarı'nda - Azure portalı | Microsoft Docs"
 description: Duraklatma işlem Azure portalında Azure SQL veri ambarı'nda maliyetlerden tasarruf etmek için kullanın. Veri ambarı kullanılmaya hazır olduğunda sürdürebilirsiniz.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a82d3cfcbc4481c970f5a31ad2de711fb1562657
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: b21c982a7f390855ccb7b9212ea92db8c26d303c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246596"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460293"
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Azure SQL veri ambarı için duraklatma ve sürdürme işlem
+# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Azure SQL veri ambarı için işlem duraklatma ve sürdürme
 Duraklatma işlem Azure portalında Azure SQL veri ambarı'nda maliyetlerden tasarruf etmek için kullanın. [İşlem devam](sql-data-warehouse-manage-compute-overview.md) veri ambarı kullanılmaya hazır olduğunuzda.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.

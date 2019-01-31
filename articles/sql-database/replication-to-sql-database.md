@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/25/2019
+ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330169"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467705"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL veritabanı tek ve havuza alınmış veritabanlarını çoğaltma
 
-SQL Server çoğaltma üzerinde tek ve havuza alınmış veritabanları için yapılandırılabilir bir [mantıksal sunucu](sql-database-logical-servers.md) Azure SQL veritabanı'nda.  
+SQL Server çoğaltma üzerinde tek ve havuza alınmış veritabanları için yapılandırılabilir bir [SQL veritabanı sunucusu](sql-database-servers.md) Azure SQL veritabanı'nda.  
 
 ## <a name="supported-configurations"></a>**Desteklenen yapılandırmalar:**
   
@@ -65,7 +65,7 @@ SQL Server çoğaltma üzerinde tek ve havuza alınmış veritabanları için ya
 
 1. Bir şirket içi SQL Server veritabanı üzerinde işlemsel çoğaltma yayın oluşturun.  
 2. Şirket içi SQL Server üzerinde kullanmak **Yeni Abonelik Sihirbazı'nı** veya Transact-SQL deyimlerini bir anında iletme aboneliğine Azure SQL veritabanı oluşturun.  
-3. Azure SQL veritabanı'nda tek ve havuza alınmış veritabanları ile ilk veri kümesi anlık görüntü aracısı tarafından oluşturulan ve dağıtılan ve Dağıtım Aracısı tarafından uygulanan bir anlık görüntüdür. Azure SQL veritabanı yönetilen örnek sayesinde, bir veritabanı yedeği abone veritabanının çekirdeğini oluşturma için de kullanabilirsiniz.
+3. Azure SQL veritabanı'nda tek ve havuza alınmış veritabanları ile ilk veri kümesi anlık görüntü aracısı tarafından oluşturulan ve dağıtılan ve Dağıtım Aracısı tarafından uygulanan bir anlık görüntüdür. Yönetilen örnek veritabanı ile bir veritabanı yedeği abone veritabanının çekirdeğini oluşturma için de kullanabilirsiniz.
 
 ### <a name="data-migration-scenario"></a>Veri geçiş senaryosu  
 
@@ -107,7 +107,7 @@ Aşağıdaki seçenekler, Azure SQL veritabanı abonelikler için desteklenmez:
 Bir yayın ve gönderme temelli bir abonelik oluşturun. Daha fazla bilgi için bkz.
   
 - [Bir yayın oluşturun](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Bir itme aboneliği oluşturmak](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) abonesi olarak Azure SQL veritabanı mantıksal sunucusu adı kullanarak (örneğin **N'azuresqldbdns.database.windows.net'**) ve hedef veritabanı (Azure SQL veritabanı adıyla Örneğin **AdventureWorks**).  
+- [Bir itme aboneliği oluşturmak](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) abonesi olarak Azure SQL veritabanı sunucu adını kullanarak (örneğin **N'azuresqldbdns.database.windows.net'**) ve hedef veritabanı olarak (Azure SQL veritabanı adı örnek **AdventureWorks**).  
 
 ## <a name="see-also"></a>Ayrıca Bkz.  
 

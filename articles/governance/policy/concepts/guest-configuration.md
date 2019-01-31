@@ -4,17 +4,17 @@ description: Konuk yapılandırma Azure İlkesi içinde bir Azure sanal makine a
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0a571084819c5dfed3f8d6891b59032ef2eecdd6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 77d99c90e65647a1f4a4efb07ff5520596fa54cf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856409"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295177"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure İlkesi'nin Konuk yapılandırma anlama
 
@@ -63,6 +63,16 @@ Aşağıdaki tabloda, desteklenen her işletim sisteminde kullanılan yerel Ara�
 |Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby ve Python Konuk Configuration uzantısı tarafından yüklenir. |
 
+### <a name="validation-frequency"></a>Doğrulama sıklığı
+
+Konuk yapılandırma istemcisi için yeni içerik 5 dakikada denetler.
+Bir konuk ataması alındıktan sonra ayarları 15 dakikalık bir aralıkta denetlenir.
+Denetim tamamlandıktan hemen sonra sonuçlar Konuk yapılandırma kaynak sağlayıcısı için gönderilir.
+Bir ilke olduğunda [değerlendirme tetikleyici](../how-to/get-compliance-data.md#evaluation-triggers) gerçekleşir, makinenin durumu, Konuk yapılandırma kaynak sağlayıcısı için yazılır.
+Bu, Azure İlkesi, Azure Resource Manager özelliklerini değerlendirmek neden olur.
+İsteğe bağlı bir ilke değerlendirmesi Konuk yapılandırma kaynak Sağlayıcısı'ndan en son değeri alır.
+Ancak, bu yapılandırma sanal makine içinde yeni bir denetim tetiklemediğini.
+
 ### <a name="supported-client-types"></a>Desteklenen istemci türleri
 
 Aşağıdaki tabloda, desteklenen işletim sistemi listesini Azure görüntülerinde gösterilmektedir:
@@ -90,7 +100,7 @@ Aşağıdaki tabloda, desteklenmeyen bir işletim sistemleri listelenmektedir:
 
 ## <a name="guest-configuration-definition-requirements"></a>Konuk yapılandırma tanımı gereksinimleri
 
-İki ilke tanımları, Konuk yapılandırma Çalıştır her denetim gerektiren bir **Deployıfnotexists** ve **AuditIfNotExists**. **Deployıfnotexists** sanal makine yapılandırma Konuk aracısı ve diğer bileşenleri ile destekleyecek şekilde hazırlamak için kullanılan [Doğrulama Araçları](#validation-tools).
+İki ilke tanımları, Konuk yapılandırma Çalıştır her denetim gerektiren bir **Deployıfnotexists** ve **denetim**. **Deployıfnotexists** sanal makine yapılandırma Konuk aracısı ve diğer bileşenleri ile destekleyecek şekilde hazırlamak için kullanılan [Doğrulama Araçları](#validation-tools).
 
 **Deployıfnotexists** ilke tanımı doğrular ve düzeltir aşağıdaki öğeleri:
 
@@ -99,14 +109,14 @@ Aşağıdaki tabloda, desteklenmeyen bir işletim sistemleri listelenmektedir:
   - En son sürümünü yükleme **Microsoft.GuestConfiguration** uzantısı
   - Yükleme [Doğrulama Araçları](#validation-tools) ve gerekirse bağımlılıkları
 
-Bir kez **Deployıfnotexists** , uyumlu olan **AuditIfNotExists** ilke tanımı, atanan yapılandırma atamasını uyumlu olup olmadığını belirlemek için yerel doğrulama araçlarını kullanır veya Uyumlu olmayan. Doğrulama Aracı sonuçları Konuk yapılandırma istemciye sağlar. İstemci, Konuk yapılandırma kaynak sağlayıcısı kullanılabilir hale getirir Konuk uzantısına sonuçları iletir.
+Bir kez **Deployıfnotexists** , uyumlu olan **denetim** ilke tanımı, atanan yapılandırma atamasını uyumlu veya uyumlu olup olmadığını belirlemek için yerel doğrulama araçlarını kullanır. Doğrulama Aracı sonuçları Konuk yapılandırma istemciye sağlar. İstemci, Konuk yapılandırma kaynak sağlayıcısı kullanılabilir hale getirir Konuk uzantısına sonuçları iletir.
 
 Azure İlkesi kullanan Konuk yapılandırma kaynak sağlayıcıları **complianceStatus** rapor uyumluluk özelliğini **Uyumluluk** düğümü. Daha fazla bilgi için [uyumluluk verilerini alma](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> Her Konuk yapılandırma tanımı için hem **Deployıfnotexists** ve **AuditIfNotExists** ilke tanımları bulunmalıdır.
+> Her Konuk yapılandırma tanımı için hem **Deployıfnotexists** ve **denetim** ilke tanımları bulunmalıdır.
 
-Tüm yerleşik ilkeleri Konuk yapılandırması için girişim atamaları tanımlarında kullanın grubuna dahil edilmiştir. Adlı yerleşik girişim *[Önizleme]: Parola güvenlik ayarları içinde Linux ve Windows sanal makineleri denetle* 18 ilkelerini içerir. Altı **Deployıfnotexists** ve **AuditIfNotExists** Windows ve Linux için üç çift çifti. Her durumda, yalnızca hedef mantıksal tanımındaki doğrular işletim sistemine göre değerlendirilir [ilke kuralı](definition-structure.md#policy-rule) tanımı.
+Tüm yerleşik ilkeleri Konuk yapılandırması için girişim atamaları tanımlarında kullanın grubuna dahil edilmiştir. Adlı yerleşik girişim *[Önizleme]: Parola güvenlik ayarları içinde Linux ve Windows sanal makineleri denetle* 18 ilkelerini içerir. Altı **Deployıfnotexists** ve **denetim** Windows ve Linux için üç çift çifti. Her durumda, yalnızca hedef mantıksal tanımındaki doğrular işletim sistemine göre değerlendirilir [ilke kuralı](definition-structure.md#policy-rule) tanımı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

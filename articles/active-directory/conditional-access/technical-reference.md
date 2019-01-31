@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: dbb8417975d051b4a13d6f94fca76fd3bf321a35
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074252"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302113"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -151,7 +151,7 @@ Bu uzantı Chrome tarayıcısına otomatik olarak dağıtmak için aşağıdaki 
 |--- | ---|
 |Yol | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 |Ad | 1 |
-|Tür | REG_SZ (String) |
+|Type | REG_SZ (String) |
 |Veriler | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarını oluşturun:
@@ -160,7 +160,7 @@ Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarın
 |--- | ---|
 |Yol | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Ad | 1 |
-|Tür | REG_SZ (String) |
+|Type | REG_SZ (String) |
 |Veriler | {"deseni": "https://device.login.microsoftonline.com","filter": {"ISSUER": {"CN =": "MS-Kuruluş-erişim"}}}|
 
 Bu tarayıcılar, cihaz kimlik doğrulaması, cihazın tanımlanması ve bir ilke karşı doğrulandı izin verme desteklemez. Tarayıcı özel modda çalışıyorsa cihaz denetimi başarısız olur. 
@@ -244,7 +244,7 @@ Bu ayar, aşağıdaki istemci uygulamaları için geçerlidir:
 
 - **Onaylı istemci uygulaması gerektir** gereksinimi:
 
-    - Yalnızca iOS ve Android için destekleyen [cihaz platformu koşul](#device-platforms-condition).
+    - Yalnızca iOS ve Android için destekleyen [cihaz platformu koşul](#device-platform-condition).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

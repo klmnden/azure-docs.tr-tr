@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d05f831aa1ae1f9b0912dce66bf7f5e15c109d49
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 00710183828892c81d3ea887e4394237288eb6bb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138577"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452524"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process yaşam döngüsü dağıtım aşaması
 
@@ -39,7 +39,7 @@ Bir üretim ya da üretim ortamına benzer son kullanıcı onay için bir işlem
 ## <a name="how-to-do-it"></a>Nasıl yapılır
 Bu aşamada ele ana görev:
 
-**Modeli hazır hale getirmek**: üretim ya da üretim ortamına benzer uygulama tüketim için model ve işlem hattı dağıtın.
+**Modeli hazır hale getirmek**: Üretim ya da üretim ortamına benzer uygulama tüketim modelini ve işlem hattı dağıtın.
 
 ### <a name="operationalize-a-model"></a>Bir modeli kullanıma hazır hale getirme
 Bir dizi iyi gerçekleştirilip modelleri oluşturduktan sonra bunları kullanmak, diğer uygulamalar için çalışır hale getirebilirsiniz. İş gereksinimlerine bağlı olarak, Öngörüler, gerçek zamanlı olarak veya toplu olarak yapılır. Modelleri dağıtmak için bunları açık bir API arabirimi ile kullanıma gerekir. Arabirim modelinin çeşitli uygulamalardan gibi kolayca kullanılabilmesini sağlar:

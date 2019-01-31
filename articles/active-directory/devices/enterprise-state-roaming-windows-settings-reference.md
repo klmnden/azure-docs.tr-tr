@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: 6698aa7e16b351190f9a5cdde62766cf5d7e1809
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096000"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300243"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 dolaşım ayarları başvurusu
 Dolaşıma açıldı veya Windows 10'da yedeklenen tüm ayarları tam bir listesi verilmiştir. 
@@ -50,15 +50,15 @@ Aşağıdaki ayar grubu, son kullanıcılar, Windows 10 cihazlarında ayarları 
 * Diğer Windows ayarları: Windows ayarları ayrıntıları bakın
 * Microsoft Edge tarayıcı ayarları: Microsoft Edge Sık Kullanılanlar okuma listesi ve diğer ayarları
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
+![Ayarlarınızı eşitleyin](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Microsoft Edge tarayıcı ayarları Grup (Sık Kullanılanlar, okuma listesi) eşitlemeyi etkinleştirilebilir veya Microsoft Edge tarayıcı ayarları menü seçeneğini aracılığıyla son kullanıcılar tarafından devre dışı.
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
+![Hesap](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
 Windows 10 sürüm 1803 veya üzeri, Internet Explorer ayar grubu için (Sık Kullanılanlar, yazdığınız URL'leri) eşitlemeyi etkinleştirilebilir veya Internet Explorer ayarlarını menü seçeneği üzerinden son kullanıcılar tarafından devre dışı. 
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
+![Ayarlar](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Windows ayarları ayrıntıları
 Aşağıdaki tabloda, ayarları Grup sütunu içindeki diğer girişler ayarlarına giderek devre dışı bırakılabilir ayarları başvurduğu > hesaplar > ayarlarınızı eşitleme > diğer Windows ayarları. 

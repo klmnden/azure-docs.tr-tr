@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: genli
-ms.openlocfilehash: e018cbf0c71a9acf76e60f38aff1aa1ba8a81516
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7f0539e7c2f7e5ae8847b35b47d3708c6c5d6a09
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229318"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296047"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP adresi: 168.63.129.16 nedir?
 
@@ -35,8 +35,7 @@ IP adresi: 168.63.129.16 Azure platformu kaynaklar için bir iletişim kanalı k
 
 Genel sanal IP adresi 168.63.129.16 tüm bölgeler ve tüm Ulusal Bulutlar kullanılır. Bu özel bir genel IP adresi değişmez. Varsayılan ağ güvenliği Grup kuralı tarafından engellenmiş olur. Tüm yerel güvenlik duvarı ilkeleri bu IP adreslerine izin verecek öneririz. Bu özel IP adresi ve kaynaklar arasındaki iletişimi güvenli çünkü yalnızca iç Azure platformu, bu IP adresinden bir ileti edinebilir. Bu adresi engellendiğinde beklenmeyen davranış çeşitli senaryoları ortaya çıkabilir.
 
-Ayrıca, 168.63.129.16 için yapılandırılmış uç noktasına traffics genel sanal IP adresi bir [yük dengeleyici durum araştırması](../load-balancer/load-balancer-custom-probe-overview.md) saldırı trafiği değerlendirilmemelidir. Sanal olmayan ağ senaryosunda, sistem durumu araştırması özel bir IP kaynağı.
-
+Ayrıca, bu trafiği için yapılandırılan uç sanal genel IP adresi 168.63.129.16 akış bekleyebileceğiniz bir [yük dengeleyici durum araştırması](../load-balancer/load-balancer-custom-probe-overview.md). Sanal olmayan ağ senaryosunda, sistem durumu araştırması özel bir IP kaynağı. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

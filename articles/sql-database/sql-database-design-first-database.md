@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: SSMS kullanarak ilk Azure SQL veritabanınızı tasarlama | Microsoft Docs'
+title: "Öğretici: SSMS kullanarak Azure SQL veritabanı'nda ilk tek veritabanınızı tasarlama | Microsoft Docs"
 description: SQL Server Management Studio ile ilk Azure SQL veritabanınızı tasarlamayı öğrenin.
 services: sql-database
 ms.service: sql-database
@@ -9,13 +9,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 9fa36b9b87a8e9591b0c863826cd2278a29ba28e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/25/2019
+ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956066"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459545"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Öğretici: SSMS kullanarak ilk Azure SQL veritabanınızı tasarlama
 
@@ -47,7 +47,7 @@ Bu öğreticiyi tamamlamak için yüklediğiniz emin olun:
 
 ## <a name="create-a-blank-database"></a>Boş veritabanı oluşturma
 
-Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-service-tiers-dtu.md) ile oluşturulur. Veritabanı içinde oluşturulan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL veritabanı mantıksal sunucusu](sql-database-features.md).
+Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-service-tiers-dtu.md) ile oluşturulur. Veritabanı içinde oluşturulan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL veritabanı sunucusu](sql-database-features.md).
 
 Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 
@@ -82,7 +82,7 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
    1. Hizmet katmanını, DTU veya sanal çekirdek sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Dtu/sanal çekirdek ve her hizmet katmanı için kullanılabilir olan depolama sayısı seçeneklerini araştırın. Varsayılan olarak, **standart** [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) seçilir, ancak seçme seçeneğiniz [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
       > [!IMPORTANT]
-      > 1 TB'den fazla depolama Premium katmanında şu anda aşağıdakiler dışındaki tüm bölgelerde: UK Kuzey Batı Orta ABD, Birleşik Krallık South2, Çin Doğu, USDoDCentral, Almanya Orta, USDoDEast, ABD Devleti Southwest, ABD Devleti Güney Orta, Almanya Kuzeydoğu, Çin Kuzey, ABD Devleti Doğu. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
+      > 1 TB'den fazla depolama Premium katmanında şu anda aşağıdakiler dışında tüm bölgelerde kullanılabilir: UK Kuzey Batı Orta ABD, Birleşik Krallık South2, Çin Doğu, USDoDCentral, Almanya Orta, USDoDEast, ABD Devleti Southwest, ABD Devleti Güney Orta, Almanya Kuzeydoğu, Çin Kuzey, ABD Devleti Doğu. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
       Hizmet katmanını, dtu'ların sayısını ve depolama miktarını seçtikten sonra **Uygula**.
 
@@ -107,13 +107,13 @@ SQL veritabanı hizmeti, sunucu düzeyinde bir güvenlik duvarı oluşturur. Gü
 
    ![sunucu adı](./media/sql-database-design-first-database/server-name.png)
 
-1. Araç çubuğunda **Sunucu güvenlik duvarını ayarla**’ya tıklayın. **Güvenlik Duvarı ayarları** SQL veritabanı sunucusu için sayfası açılır.
+1. Araç çubuğunda **Sunucu güvenlik duvarını ayarla**’ya tıklayın. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır.
 
    ![sunucu güvenlik duvarı kuralı](./media/sql-database-design-first-database/server-firewall-rule.png)
 
    1. Geçerli IP adresinizi yeni bir güvenlik duvarı kuralına eklemek için araç çubuğunda **İstemci IP’si Ekle** öğesine tıklayın. Güvenlik duvarı kuralı, 1433 numaralı bağlantı noktasını tek bir IP adresi veya bir IP adresi aralığı için açabilir.
 
-   1. **Kaydet**’e tıklayın. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
+   1. **Kaydet**’e tıklayın. SQL veritabanı sunucusu üzerindeki 1433 numaralı bağlantı noktasını açma geçerli IP adresiniz için sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
 
    1. **Tamam**’a tıklayın ve sonra **Güvenlik duvarı ayarları** sayfasını kapatın.
 
@@ -124,7 +124,7 @@ IP adresiniz, artık güvenlik duvarı üzerinden geçirebilirsiniz. Şimdi, SQL
 
 ## <a name="connect-to-the-database"></a>Veritabanı'na bağlanma
 
-Kullanım [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) Azure SQL veritabanı sunucusunda bir bağlantı kurmak için.
+[SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)’yu kullanarak Azure SQL Veritabanı sunucunuzla bağlantı kurun.
 
 1. SQL Server Management Studio’yu açın.
 

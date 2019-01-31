@@ -2,18 +2,18 @@
 title: DPM kullanan SQL Server iş yükleri için Azure Backup
 description: Azure Backup hizmetini kullanarak SQL Server veritabanlarını yedeklemeye giriş
 services: backup
-author: adigan
-manager: Nkolli
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: 232885398c996d0c744ac55b6c6967fd398eec0b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945663"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300702"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>SQL Server DPM iş yükü olarak Azure'a yedekleme
 Bu makalede, Azure Yedekleme'yi kullanarak SQL Server veritabanlarının yedeklenmesi için yapılandırma adımlarında yol gösterir.
@@ -68,7 +68,7 @@ Başlamadan önce şunlardan emin olun tüm [önkoşulları](backup-azure-dpm-in
 
     ![İlk çoğaltma yöntemi](./media/backup-azure-backup-sql/pg-manual.png)
 
-    İlk yedek kopyanın Aktarım (SQL Server veritabanı) tüm veri kaynağının (SQL Server makinesi) üretim sunucusundan DPM sunucusuna gerektirir. Bu veri büyük olabilir ve ağ üzerinden veri aktarımı için bant genişliği aşabilir. Bu nedenle, ilk yedekleme aktarmak Yöneticiler seçebilirsiniz: **el ile** (çıkarılabilir medya kullanarak) bant genişliği Tıkanıklığı önlemek veya **ağ üzerinden otomatik olarak** (belirtilen saatte).
+    İlk yedek kopyanın Aktarım (SQL Server veritabanı) tüm veri kaynağının (SQL Server makinesi) üretim sunucusundan DPM sunucusuna gerektirir. Bu veri büyük olabilir ve ağ üzerinden veri aktarımı için bant genişliği aşabilir. Bu nedenle, ilk yedekleme aktarmak Yöneticiler birini seçebilirsiniz: **El ile** (çıkarılabilir medya kullanarak) bant genişliği Tıkanıklığı önlemek veya **ağ üzerinden otomatik olarak** (belirtilen saatte).
 
     İlk Yedekleme tamamlandıktan sonra yedekleri geri kalanını ilk yedek kopyanın üzerinde artımlı yedeklemeleri olursunuz. Artımlı yedekleme küçük olma eğilimindedir ve ağ üzerinden kolayca aktarılır.
 10. Tutarlılık denetimi çalıştırmak ve istediğiniz zaman seçin **sonraki**.

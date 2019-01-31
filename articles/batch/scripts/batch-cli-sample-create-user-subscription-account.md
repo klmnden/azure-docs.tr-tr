@@ -3,7 +3,7 @@ title: Azure CLI Betiği Örneği - Batch hesabı oluşturma - kullanıcı abone
 description: Azure CLI Betiği Örneği - Kullanıcı aboneliği modunda Batch hesabı oluşturma
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: danlep
-ms.openlocfilehash: fe5dbfa368de400b4aad476c4aefbb70628d1145
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.author: lahugh
+ms.openlocfilehash: 3358c1aab5dc39e30690b242039940830f2e9ffc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852173"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470561"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI örneği: Kullanıcı aboneliği modunda Batch hesabı oluşturma
 

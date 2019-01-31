@@ -1,6 +1,6 @@
 ---
-Başlık: TitleSuffix Machine Learning Studio'da deneme yinelemelerini yönetme: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da deneme yinelemelerini yönetme konusunda. Önceki çalıştırmaları, denemelerinizi meydan okuyun, yeniden ziyaret, sonuçta onaylayın veya önceki varsayımlar daraltmak için herhangi bir zamanda gözden geçirebilirsiniz.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: TitleSuffix Machine Learning Studio'da deneme yinelemelerini yönetme: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da deneme yinelemelerini yönetme konusunda. Önceki çalıştırmaları, denemelerinizi meydan okuyun, yeniden ziyaret, sonuçta onaylayın veya önceki varsayımlar daraltmak için herhangi bir zamanda gözden geçirebilirsiniz.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

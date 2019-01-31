@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f658afa1a08a6b8779c2f1e18944eec40abdc465
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586266"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300005"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Ortak veri kümelerine test etme ve prototip oluşturma
 
@@ -44,7 +44,7 @@ Prototip ve test depolama ve Analiz Hizmetleri ve çözümleri için kullandığ
 | [Microsoft Research veri kümeleri - "Araştırma için veri bilimi"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Birden çok veri bilgisayar insan etkileşimi, ses/video, veri araştırma/bilgi alma, Jeo-uzamsal/konum, doğal dil işleme ve robotlara ilişkin/görüntü işleme kapsayan ayarlar. | Çeşitli biçimlerdeki indirme için daraltılmış veri kümesidir. |
 | [Ortak olarak genom veri](http://www.completegenomics.com/public-data/) | "Farklı bir veri kümesinin tamamını İnsan genom genetik bir araştırma geliştirmek üzere... genel kullanım için ücretsiz olarak kullanılabilir" Sağlayıcı, tam Genomiks bir özel açık bir şirkettir. | Veri kümeleri, ayıklama sonra UNIX metin biçimindedir. Analiz Araçları de mevcuttur. |
 | [Açık bilimi verileri bulut veri](https://www.opensciencedatacloud.org/) | "Açık bilimi verileri bulut depolama, paylaşma ve terabayt ve Petabayt ölçekli bilimsel veri kümeleri çözümleme için kaynaklar ile bilimsel community sunuyor."| Çeşitli biçimlerde veri kümeleridir. |
-| [Genel iklim verilerini - WorldcLIM](http://worldclim.org/) | "WorldClim genel iklim katmanları (gridded iklim verilerini) yaklaşık 1 km2 bir uzamsal çözünürlüğü kümesidir. Bu veri eşleme ve uzamsal modelleme için kullanılabilir." | Bu dosyalar, Jeo-uzamsal veriler içerir. Daha fazla bilgi için bkz. [veri biçimi](http://worldclim.org/formats1). |
+| [Genel iklim verilerini - WorldClim](http://worldclim.org/) | "WorldClim genel iklim katmanları (gridded iklim verilerini) yaklaşık 1 km2 bir uzamsal çözünürlüğü kümesidir. Bu veri eşleme ve uzamsal modelleme için kullanılabilir." | Bu dosyalar, Jeo-uzamsal veriler içerir. Daha fazla bilgi için bkz. [veri biçimi](http://worldclim.org/formats1). |
 | [İnsan society - GDELT Project ilgili veriler](http://www.gdeltproject.org/data.html) | "GDELT projedir en büyük, en kapsamlı ve yüksek çözünürlük bugüne kadar oluşturulmuş İnsan society veritabanı açın." | CSV biçiminde ham veriler dosyalarıdır. |
 | [Machine learning hizmetinden Criteo tahmin verilerini reklam tıklayın](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "En büyük hiç olmadığı kadar genel olarak yayımlanan ML veri kümesi." Daha fazla bilgi için bkz. [Criteo'nın 1 TB'ı tıklatın tahmin Dataset](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
 | [Lemur projeden ClueWeb09 metin araştırma veri kümesi](http://www.lemurproject.org/clueweb09.php/) | "ClueWeb09 veri kümesini araştırma bilgi alma ve ilgili İnsan dil teknolojileri desteklemek üzere oluşturulmuştur. Yaklaşık 1 milyar web sayfaları'nda Ocak ve Şubat 2009 toplanmış olan 10 dil oluşur." | Bkz: [veri kümesi bilgilerini](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
@@ -53,6 +53,6 @@ Prototip ve test depolama ve Analiz Hizmetleri ve çözümleri için kullandığ
 
 | Veri kaynağı | Veriler hakkında | Dosyaları hakkında |
 |---|---|---|
-| [GitHub arşiv](https://www.githubarchive.org/) | "GitHub arşiv genel GitHub çizelgesine [olayların ile] kaydetmesini, arşivlemek ve daha fazla çözümleme için kolayca erişilebilir olması için bir proje var." | JSON encloded olay arşivleri .gz (Gzip) biçiminde bir web istemcisinde indirin. |
+| [GitHub arşiv](https://www.githubarchive.org/) | "GitHub arşiv genel GitHub çizelgesine [olayların ile] kaydetmesini, arşivlemek ve daha fazla çözümleme için kolayca erişilebilir olması için bir proje var." | JSON olarak kodlanmış olay arşivleri .gz (Gzip) biçiminde bir web istemcisinde indirin. |
 | [GitHub etkinlik verisinden GHTorrent proje](http://ghtorrent.org/) | "GHTorrent [GitHub REST API aracılığıyla sunulan veri ölçeklenebilir, sorgulanabilir, çevrimdışı bir yansıtma oluşturmak için çaba projedir]. GitHub genel olay zaman çizelgesinin GHTorrent izler. Her olay için içeriği ve bunların bağımlılıklarını ayrıntısına alır." | MySQL veritabanı dökümleri CSV biçimindedir. |
 | [Yığın Taşması Veri dökümü](https://archive.org/details/stackexchange) | "[Stack Overflow dahil olmak üzere] Stack Exchange ağdaki tüm kullanıcı tarafından katkıda bulunulan içeriğin anonim bir döküm sağlıyor." | "[Stack Overflow] gibi-her sitenin aracılığıyla XML dosyasından oluşan ayrı bir arşiv daraltılmış olarak biçimlendirilmiş 7-zip bzıp2 sıkıştırın. Her site arşiv gönderileri, kullanıcılar, oy, yorumlar, PostHistory ve PostLinks içerir." |

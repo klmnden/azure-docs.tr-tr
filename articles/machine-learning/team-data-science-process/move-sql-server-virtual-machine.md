@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fbc23d53687b908245ffe25bdd418cbe64af080b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136197"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478500"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Bir Azure sanal makinesinde SQL Server’a veri taşıma
 
@@ -26,7 +26,7 @@ Machine Learning için Azure SQL veritabanı'na veri taşımak için seçenekler
 
 Aşağıdaki tabloda, verileri bir Azure sanal makinesinde SQL Server'a taşımak için seçenekler özetlenmektedir.
 
-| <b>KAYNAK</b> | <b>Hedef: Azure vm'lerde SQL Server</b> |
+| <b>KAYNAK</b> | <b>HEDEF: Azure vm'lerde SQL Server</b> |
 | --- | --- |
 | <b>Düz dosya</b> |1. <a href="#insert-tables-bcp">Komut satırı toplu kopyalama (BCP) yardımcı programı </a><br> 2. <a href="#insert-tables-bulkquery">Toplu ekleme SQL sorgusu </a><br> 3. <a href="#sql-builtin-utilities">SQL Server'da yerleşik grafik yardımcı programları</a> |
 | <b>Şirket içi SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Bir Microsoft Azure VM Sihirbazı için bir SQL Server veritabanı dağıtma</a><br> 2. <a href="#export-flat-file">Düz dosyaya </a><br> 3. <a href="#sql-migration">SQL veritabanı Geçiş Sihirbazı </a> <br> 4. <a href="#sql-backup">Yedekleme geri veritabanı ve geri yükleme </a><br> |
@@ -64,20 +64,23 @@ BCP ile SQL Server yüklü bir komut satırı yardımcı programıdır ve verile
 
 1. Hedef SQL Server veritabanında veritabanı ve tabloları oluşturduğunuzdan emin olun. Bunu yapmak nasıl bir örnek aşağıdadır `Create Database` ve `Create Table` komutları:
 
-        CREATE DATABASE <database_name>
+```sql
+CREATE DATABASE <database_name>
 
-        CREATE TABLE <tablename>
-        (
-            <columnname1> <datatype> <constraint>,
-            <columnname2> <datatype> <constraint>,
-            <columnname3> <datatype> <constraint>
-        )
+CREATE TABLE <tablename>
+(
+    <columnname1> <datatype> <constraint>,
+    <columnname2> <datatype> <constraint>,
+    <columnname3> <datatype> <constraint>
+)
+```
+
 2. Bcp, yüklü olduğu makinenin komut satırından aşağıdaki komutu gönderdikten tarafından tablo şemasını açıklayan biçim dosyası oluşturur.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 3. Bcp komut aşağıdaki gibi kullanarak veritabanına veri ekleyin. SQL Server aynı makinede yüklü varsayılarak bu komut satırından çalışması gerekir:
 
-    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
+    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
 > **BCP ekler en iyi duruma getirme** aşağıdaki makaleye başvurun ['İçin en iyi duruma getirme toplu olarak içeri aktarma yönergeleri'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) böyle ekler en iyi duruma getirme.
 >
@@ -87,46 +90,47 @@ BCP ile SQL Server yüklü bir komut satırı yardımcı programıdır ve verile
 Taşınan veriler büyükse, şeyler paralel bir PowerShell Betiği olarak aynı anda birden çok BCP komutları yürüterek düşebileceğimizi.
 
 > [!NOTE]
-> **Büyük veri alımı** büyük ve çok büyük veri kümeleri için veri yükleme iyileştirmek için birden çok dosya grupları ve bölüm tabloları kullanarak, mantıksal ve fiziksel veritabanı tabloları bölümleme. Oluşturma ve bölüm tablolara veri yükleme hakkında daha fazla bilgi için bkz. [paralel yük SQL bölüm tablolarından](parallel-load-sql-partitioned-tables.md).
+> **Büyük veri alımı** büyük ve çok büyük veri kümeleri için veri yükleme iyileştirmek için birden çok dosya grupları kullanarak, mantıksal ve fiziksel veritabanı tabloyu bölümlemek ve tablo bölümleme. Oluşturma ve bölüm tablolara veri yükleme hakkında daha fazla bilgi için bkz. [paralel yük SQL bölüm tablolarından](parallel-load-sql-partitioned-tables.md).
 >
 >
 
 Aşağıdaki örnek PowerShell Betiği bcp kullanarak paralel eklemeleri gösterir:
 
-    $NO_OF_PARALLEL_JOBS=2
+```powershell
+$NO_OF_PARALLEL_JOBS=2
 
-     Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
-     # Define what each job does
-       $ScriptBlock = {
-           param($partitionnumber)
+Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
+# Define what each job does
+$ScriptBlock = {
+    param($partitionnumber)
 
-           #Explictly using SQL username password
-           bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
+    #Explicitly using SQL username password
+    bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
 
-            #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
-            #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
-      }
-
-
-    # Background processing of all partitions
-    for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
-    {
-      Write-Debug "Submit loading partition # $i"
-      Start-Job $ScriptBlock -Arg $i      
-    }
+    #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
+    #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
+}
 
 
-    # Wait for it all to complete
-    While (Get-Job -State "Running")
-    {
-      Start-Sleep 10
-      Get-Job
-    }
+# Background processing of all partitions
+for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
+{
+    Write-Debug "Submit loading partition # $i"
+    Start-Job $ScriptBlock -Arg $i      
+}
 
-    # Getting the information back from the jobs
-    Get-Job | Receive-Job
-    Set-ExecutionPolicy Restricted #reset the execution policy
 
+# Wait for it all to complete
+While (Get-Job -State "Running")
+{
+    Start-Sleep 10
+    Get-Job
+}
+
+# Getting the information back from the jobs
+Get-Job | Receive-Job
+Set-ExecutionPolicy Restricted #reset the execution policy
+```
 
 ### <a name="insert-tables-bulkquery"></a>Toplu ekleme SQL sorgusu
 [Toplu ekleme SQL sorgusu](https://msdn.microsoft.com/library/ms188365) tabanlı satır/sütun dosyaları veritabanından veri almak için kullanılabilir (desteklenen türler ele alınmaktadır[toplu dışarı veya içeri aktarma (SQL Server) için veri hazırlama](https://msdn.microsoft.com/library/ms188609)) konu.
@@ -135,18 +139,22 @@ Toplu ekleme için bazı örnek komutlar şunlardır aşağıda gösterildiği g
 
 1. Verilerinizi analiz edin ve SQL Server veritabanı herhangi bir özel alanın tarihler gibi aynı biçimde varsayar emin olmak için içeri aktarmadan önce tüm özel seçenekleri belirleyin. (Verilerinizi yıl ay gün biçimine tarihi içeriyorsa) tarih biçimini yıl ay-günlük ayarlamak nasıl bir örnek aşağıda verilmiştir:
 
-        SET DATEFORMAT ymd;    
+```sql
+SET DATEFORMAT ymd;
+```
 2. Toplu içeri aktarma deyimlerini kullanarak verileri içeri aktarın:
 
-        BULK INSERT <tablename>
-        FROM    
-        '<datafilename>'
-        WITH
-        (
-        FirstRow=2,
-        FIELDTERMINATOR =',', --this should be column separator in your data
-        ROWTERMINATOR ='\n'   --this should be the row separator in your data
-        )
+```sql
+BULK INSERT <tablename>
+FROM
+'<datafilename>'
+WITH
+(
+    FirstRow = 2,
+    FIELDTERMINATOR = ',', --this should be column separator in your data
+    ROWTERMINATOR = '\n'   --this should be the row separator in your data
+)
+```
 
 ### <a name="sql-builtin-utilities"></a>SQL Server'da yerleşik yardımcı programları
 Azure'da bir düz dosyadan SQL Server VM veri aktarmak için SQL Server tümleştirmeler Services (SSIS) kullanabilirsiniz.

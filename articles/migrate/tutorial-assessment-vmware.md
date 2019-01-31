@@ -4,15 +4,15 @@ description: Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geç
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/11/2019
+ms.date: 01/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e922e9e7741eb3338503e02cd0ca78387e32b1f6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824108"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298730"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -30,7 +30,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- **VMware**: Geçirmeyi planladığınız VM'ler vCenter Server çalışan sürümü tarafından 5.5, 6.0 veya 6.5 ile yönetilmelidir. Buna ek olarak, toplayıcı VM’yi dağıtmak için 5.0 veya daha sonraki sürüme sahip bir ESXi konağı gerekir.
+- **VMware**: Geçirmeyi planladığınız VM'ler vCenter Server çalışan sürümü tarafından 5.5, 6.0 veya 6.5 ile yönetilmelidir. Ayrıca, 5.5 veya Toplayıcı VM'yi dağıtmak için daha yüksek bir ESXi ana çalışan sürümü gerekir.
 - **vCenter Server hesabı**: VCenter Server'a erişmek için salt okunur bir hesap gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
 - **İzinleri**: VCenter Server'da, bir dosyada içeri aktararak VM oluşturma izni gerekir. OVA biçimi.
 
@@ -102,6 +102,14 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 3. Oluşturulan karma bu ayarlara uygun olmalıdır.
 
 #### <a name="continuous-discovery"></a>Sürekli keşif
+
+  OVA sürüm 1.0.10.11
+
+  **Algoritma** | **Karma değeri**
+    --- | ---
+    MD5 | 5f6b199d8272428ccfa23543b0b5f600
+    SHA1 | daa530de6e8674a66a728885a7feb3b0a2e8ccb0
+    SHA256 | 85da50a21a7a6ca684418a87ccc1dd4f8aab30152c438a17b216ec401ebb3a21
 
   OVA sürüm 1.0.10.9
 

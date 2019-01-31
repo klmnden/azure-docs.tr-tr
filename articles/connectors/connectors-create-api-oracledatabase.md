@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230242"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295367"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle Veritabanı Bağlayıcısı ile çalışmaya başlama
 
@@ -95,27 +95,27 @@ Bu makalede, Oracle veritabanı bağlayıcının bir mantıksal uygulamada kulla
 
 ## <a name="common-errors"></a>Sık karşılaşılan hatalar
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Hata**: ağ geçidine erişilemiyor
+#### <a name="error-cannot-reach-the-gateway"></a>**Hata**: Ağ geçidine erişilemiyor
 
-**Neden**: şirket içi veri ağ geçidi buluta bağlayın mümkün değildir. 
+**Neden**: Şirket içi veri ağ geçidi buluta bağlayın mümkün değil. 
 
-**Risk azaltma**: Burada, yüklediğiniz ve internet'e bağlanabilen şirket içi makine üzerinde ağ geçidinizin çalıştığından emin olun.  Ağ geçidi, bir bilgisayar kapalı olabilir veya uyku yüklenmiyor öneririz. Ayrıca, şirket içi veri Ağ Geçidi Hizmeti (PBIEgwService) yeniden başlatabilirsiniz.
+**Risk azaltma**: Burada, yüklediğiniz ve internet'e bağlanabilen şirket içi makinede ağ geçidinizin çalıştığından emin olun.  Ağ geçidi, bir bilgisayar kapalı olabilir veya uyku yüklenmiyor öneririz. Ayrıca, şirket içi veri Ağ Geçidi Hizmeti (PBIEgwService) yeniden başlatabilirsiniz.
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Hata**: kullanılan sağlayıcı kullanım dışıdır: ' System.Data.OracleClient, Oracle istemci version 8.1.7 gerektirir veya büyük.'. Bkz: [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) resmi sağlayıcıyı yükleyin.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Hata**: Kullanılan sağlayıcı kullanım dışıdır: ' System.Data.OracleClient, Oracle istemci version 8.1.7 gerektirir veya büyük.'. Bkz: [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) resmi sağlayıcıyı yükleyin.
 
-**Neden**: Oracle istemci SDK'sı şirket içi veri ağ geçidi çalıştığı makinede yüklü değil.  
+**Neden**: Şirket içi veri ağ geçidinin çalıştırıldığı makinede Oracle istemci SDK'sı yüklü değil.  
 
-**Çözüm**: indirin ve şirket içi veri ağ geçidi ile aynı bilgisayarda Oracle istemci SDK'sını yükleyin.
+**Çözüm**: İndirin ve şirket içi veri ağ geçidi ile aynı bilgisayarda Oracle istemci SDK'sını yükleyin.
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Hata**: '[Tablename]' tablosu hiçbir anahtar sütununu tanımlamıyor
 
-**Neden**: tablonun herhangi bir birincil anahtara sahip değil.  
+**Neden**: Tabloda bir birincil anahtar yok.  
 
-**Çözüm**: Oracle veritabanı connector, birincil anahtar sütunu içeren bir tablo kullanılmasını gerektirir.
+**Çözüm**: Oracle Veritabanı Bağlayıcısı, bir birincil anahtar sütunu içeren bir tablo kullanılmasını gerektirir.
 
 #### <a name="currently-not-supported"></a>Şu anda desteklenmiyor
 
-* Görünüm ve saklı yordam 
+* Görünümler 
 * Bileşik anahtarlar içeren herhangi bir tablo
 * Tablolardaki iç içe nesne türleri
  

@@ -6,15 +6,15 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469857"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297115"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Azure Mesajlaşma hizmetleri arasında - Event Grid, Event Hubs ve Service Bus'ı seçin
 
@@ -97,9 +97,10 @@ Bazı durumlarda ise bir olay ve veri işlem hattı oluşturmak üzere hizmetler
 ![Veri akışına genel bakış](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+Aşağıdaki makalelere bakın: 
 
-* Azure mesajlaşma hizmetleri hakkında daha fazla bilgi için [Olaylar, Veri Noktaları ve İletiler - Verileriniz için doğru Azure mesajlaşma hizmetini seçme](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) başlıklı blog gönderisine bakın.
-* Event Grid’e giriş için bkz. [Event Grid hakkında](overview.md).
-* Event Grid kullanmaya başlamak için bkz. [Azure Event Grid ile özel olaylar oluşturma ve yönlendirme](custom-event-quickstart.md).
-* Event Hubs kullanmaya başlamak için bkz. [Azure portalını kullanarak bir Event Hubs ad alanı ve bir olay hub’ı oluşturma](../event-hubs/event-hubs-create.md).
-* Service Bus kullanmaya başlamak için bkz. [Azure portalını kullanarak bir Service Bus ad alanı oluşturma](../service-bus-messaging/service-bus-create-namespace-portal.md).
+- [Olayları, veri noktaları ve verileriniz için doğru Azure Mesajlaşma hizmeti seçerek iletileri -](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
+- [Depolama kuyrukları ve Service Bus kuyrukları - benzerlikler ve karşıtlıklar](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- Event Grid kullanmaya başlamak için bkz. [Azure Event Grid ile özel olaylar oluşturma ve yönlendirme](custom-event-quickstart.md).
+- Event Hubs kullanmaya başlamak için bkz. [Azure portalını kullanarak bir Event Hubs ad alanı ve bir olay hub’ı oluşturma](../event-hubs/event-hubs-create.md).
+- Service Bus kullanmaya başlamak için bkz. [Azure portalını kullanarak bir Service Bus ad alanı oluşturma](../service-bus-messaging/service-bus-create-namespace-portal.md).

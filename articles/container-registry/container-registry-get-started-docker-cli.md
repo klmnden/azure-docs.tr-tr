@@ -2,19 +2,19 @@
 title: Docker görüntüsünü özel Azure container registry'ye gönderme
 description: Docker CLI’yı kullanarak Azure’da özel bir kapsayıcı kayıt defterine Docker görüntüleri itme ve kapsayıcıdan görüntü çekme
 services: container-registry
-author: stevelas
+author: dlepow
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: stevelas
+ms.date: 01/23/2019
+ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 3cbc9f30f180913fefa79f24612e50db75f5c9cd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e4963ebae73bdd81246433fe43206139caa1661c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260591"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295789"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI’yı kullanarak özel bir Dockler kapsayıcı kayıt defterine ilk görüntünüzü itme
 
@@ -25,7 +25,7 @@ Aşağıdaki adımlarda indirdiğiniz resmi [Nginx görüntüsü](https://store.
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Azure kapsayıcısı kayıt defteri** -Azure aboneliğinizde bir kapsayıcı kayıt defteri oluşturun. Örneğin, [Azure portalında](container-registry-get-started-portal.md) veya [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Docker CLI** - yerel bilgisayarınızı bir Docker konağı olarak ayarlamak ve Docker CLI komutlarına erişmek için yükleme [Docker](https://docs.docker.com/engine/installation/).
+* **Docker CLI** -ayrıca Docker yerel olarak yüklü olması gerekir. Docker herhangi [Macos'ta] [docker-mac], Docker'ı kolayca yapılandırmanızı paketler sağlar [Windows] [docker-windows] veya [Linux] [docker-linux] sistem.
 
 ## <a name="log-in-to-a-registry"></a>Kayıt defterinde oturum açma
 
@@ -35,13 +35,13 @@ Vardır [kimliğini doğrulamak için birkaç yol](container-registry-authentica
 az acr login --name myregistry
 ```
 
-İle oturum açabilir [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/). Aşağıdaki örnekte, bir Azure Active Directory [hizmet sorumlusunun](../active-directory/develop/app-objects-and-service-principals.md) kimliği ve parolası geçirilmiştir. Örneğin, sahip olabileceğiniz [hizmet sorumlusuna atanmış](container-registry-authentication.md#service-principal) kayıt defterinize bir Otomasyon senaryosu için.
+İle oturum açabilir [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/). Örneğin, sahip olabileceğiniz [hizmet sorumlusuna atanmış](container-registry-authentication.md#service-principal) kayıt defterinize bir Otomasyon senaryosu için. Etkileşimli olarak aşağıdaki komutu çalıştırdığınızda, hizmet sorumlusu uygulama kimliği (kullanıcı adı) ve istendiğinde parolayı belirtin. Oturum açma kimlik bilgilerini yönetmek en iyi yöntemler için bkz: [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/) komut başvurusuna:
 
-```Bash
-docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+```Docker
+docker login myregistry.azurecr.io
 ```
 
-Her iki komutları döndürür `Login Succeeded` tamamlandıktan sonra. Kullanırsanız `docker login`, kullanılmasını öneren bir güvenlik uyarısı da görebilirsiniz `--password-stdin` parametresi. Bunun kullanımı bu makalenin kapsamında olmasa da bu en iyi yöntemin izlenmesi önerilir. Daha fazla bilgi için [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/) komut başvurusu.
+Her iki komutları döndürür `Login Succeeded` tamamlandıktan sonra.
 
 > [!TIP]
 > Her zaman tam kayıt defteri adını (tamamı küçük harf) belirtin kullandığınızda `docker login` ve görüntüleri kayıt defterinize gönderme için etiket zaman. Bu makaledeki örneklerde, tam adı olduğunu *myregistry.azurecr.io*.
@@ -50,7 +50,7 @@ Her iki komutları döndürür `Login Succeeded` tamamlandıktan sonra. Kullanı
 
 Önce genel Nginx görüntüsünü yerel bilgisayarınıza çekin.
 
-```Bash
+```Docker
 docker pull nginx
 ```
 
@@ -58,7 +58,7 @@ docker pull nginx
 
 Yürütme aşağıdaki [docker run](https://docs.docker.com/engine/reference/run/) yerel bir örneğini Nginx kapsayıcısını etkileşimli olarak başlatmak için komut (`-it`) bağlantı noktası 8080 üzerinde. `--rm` Bağımsız değişkeni, durdurduğunuzda kapsayıcı kaldırılması gerektiğini belirtir.
 
-```Bash
+```Docker
 docker run -it --rm -p 8080:80 nginx
 ```
 
@@ -74,7 +74,7 @@ Durdur ve kapsayıcı kaldırmak için basın `Control` + `C`.
 
 Kullanım [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) kayıt defterinizin tam yoluyla görüntünün bir diğer ad oluşturmak için. Bu örnek, kayıt defterinin kökünde dağınıklığı önlemek için `samples` ad alanını belirtir.
 
-```Bash
+```Docker
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
@@ -84,7 +84,7 @@ Ad alanları ile etiketleme hakkında daha fazla bilgi için bkz. [depo ad alanl
 
 Özel kayıt defterinize görüntü tam olarak nitelenmiş yola sahip etiketlediğinize göre bunu kayıt defterine gönderebilir [docker itme](https://docs.docker.com/engine/reference/commandline/push/):
 
-```Bash
+```Docker
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
@@ -92,7 +92,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Kullanım [docker isteği](https://docs.docker.com/engine/reference/commandline/pull/) komut görüntüyü kayıt defterinizden çekme:
 
-```Bash
+```Docker
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
@@ -100,7 +100,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/run/) kayıt defterinizden çekilen görüntü çalıştırmak için komutu:
 
-```Bash
+```Docker
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
@@ -112,7 +112,7 @@ Durdur ve kapsayıcı kaldırmak için basın `Control` + `C`.
 
 Nginx görüntüsü artık ihtiyacınız kalmadığında, yerel olarak ile silebilirsiniz [docker RMI](https://docs.docker.com/engine/reference/commandline/rmi/) komutu.
 
-```Bash
+```Docker
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
@@ -124,7 +124,7 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Temel bilgileri artık bildiğinize göre defterinizi kullanmaya başlamaya hazırsınız! Kayıt defterine kapsayıcı görüntüleri dağıtın:
+Temel bilgileri artık bildiğinize göre defterinizi kullanmaya başlamaya hazırsınız! Örneğin, kayıt defterine kapsayıcı görüntüleri dağıtın:
 
 * [Azure Kubernetes Service'i (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)

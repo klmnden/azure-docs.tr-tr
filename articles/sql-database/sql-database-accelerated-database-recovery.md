@@ -1,6 +1,6 @@
 ---
 title: Veritabanı kurtarma - Azure SQL veritabanı hızlandırılmış | Microsoft Docs
-description: Azure SQL veritabanı, tek veritabanları, elastik havuzlar ve Azure SQL veri ambarı için hızlı ve tutarlı veritabanı kurtarma anlık bir işlem geri alma ve agresif günlük kesme sağlayan yeni bir özelliği vardır.
+description: Azure SQL veritabanı tek veritabanları ve havuza alınmış veritabanlarını Azure SQL veritabanı ve Azure SQL veri veritabanları için hızlı ve tutarlı veritabanı kurtarma anlık bir işlem geri alma ve agresif günlük kesme sağlayan yeni bir özellik vardır. Ambarı.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: ''
@@ -10,17 +10,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: deaf5c9180841f8c5b2d21a820f2ab2362dc2453
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600735"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475457"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Hızlandırılmış veritabanı kurtarma (Önizleme)
 
-**Veritabanı kurtarma (ADR) hızlandırılmış** özellikle uzun olduğu durumda, veritabanı kullanılabilirlik büyük ölçüde geliştiren yeni bir SQL veritabanı altyapısı özelliği çalıştıran işlem, SQL veritabanı altyapısı kurtarma işlemini yeniden tasarlanmasını tarafından. ADR, tek veritabanları, elastik havuzlar ve Azure SQL veri ambarı şu anda kullanılabilir. ADR başlıca yararları şunlardır:
+**Veritabanı kurtarma (ADR) hızlandırılmış** özellikle uzun olduğu durumda, veritabanı kullanılabilirlik büyük ölçüde geliştiren yeni bir SQL veritabanı altyapısı özelliği çalıştıran işlem, SQL veritabanı altyapısı kurtarma işlemini yeniden tasarlanmasını tarafından. ADR, tek veritabanlarını havuza alınmış veritabanlarını Azure SQL veritabanı ve Azure SQL veri ambarı veritabanları için şu anda kullanılabilir. ADR başlıca yararları şunlardır:
 
 - **Hızlı ve tutarlı veritabanı kurtarma**
 
@@ -127,4 +127,4 @@ Müşteriler aşağıdaki türde ADR etkinleştirme dikkate almanız gerekir:
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Bu önizleme dönemi boyunca ADR etkinleştirmek için
 
-Bu özellik Önizleme dönemi boyunca, bir e-posta Gönder [ adr@microsoft.com ](mailto:adr@microsoft.com) daha fazla bilgi edinin ve hızlandırılmış veritabanı kurtarma (ADR) kullanıma deneyin. E-postada, mantıksal sunucunuzun adını (için tek veritabanları, elastik havuzlar ve Azure veri ambarı) içerir. Bu bir önizleme özelliği olduğundan, test sunucunuzun bir üretim dışı sunucusu olmalıdır.
+Bu özellik Önizleme dönemi boyunca, bir e-posta Gönder [ adr@microsoft.com ](mailto:adr@microsoft.com) daha fazla bilgi edinin ve hızlandırılmış veritabanı kurtarma (ADR) kullanıma deneyin. E-postada, SQL veritabanı sunucunuzun adını (için tek veritabanları ve SQL veritabanı'nda havuza alınan veritabanları ve Azure veri ambarı veritabanları) içerir. Bu bir önizleme özelliği olduğundan, test sunucunuzun bir üretim dışı sunucusu olmalıdır.

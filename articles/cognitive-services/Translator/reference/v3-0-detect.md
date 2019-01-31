@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 892a029c3a51aa3574d92b838a51359438a6bdb6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126131"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465002"
 ---
-# <a name="translator-text-api-30-detect"></a>Translator metin çevirisi API'si 3.0: algılayın
+# <a name="translator-text-api-30-detect"></a>Translator metin çevirisi API'si 3.0: Detect
 
 Bir metin parçası dilini tanımlar.
 
@@ -89,11 +89,11 @@ Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile 
 
   * `score`: Sonuçta güvenle gösteren bir float değeri. Sıfır ile bir puan arasındadır ve düşük puanı düşük güven gösterir.
 
-  * `isTranslationSupported`: Algılanan dilin metin çevirisi için desteklenen dilleri ise geçerlidir bir Boole değeri.
+  * `isTranslationSupported`: Algılanan dilin metin çevirisi için desteklenen dilleri ise true olan bir Boole değeri.
 
-  * `isTransliterationSupported`: Algılanan dilin alfabeye için desteklenen dilleri ise geçerlidir bir Boole değeri.
+  * `isTransliterationSupported`: Algılanan dilin alfabeye için desteklenen dilleri ise true olan bir Boole değeri.
   
-  * `alternatives`: Diğer olası diller bir dizi. Dizinin her öğesinin yukarıda listelenen aynı özelliklere sahip başka bir nesnedir: `language`, `score`, `isTranslationSupported` ve `isTransliterationSupported`.
+  * `alternatives`: Diğer olası diller dizisi. Dizinin her öğesinin yukarıda listelenen aynı özelliklere sahip başka bir nesnedir: `language`, `score`, `isTranslationSupported` ve `isTransliterationSupported`.
 
 JSON yanıtı örneği verilmiştir:
 

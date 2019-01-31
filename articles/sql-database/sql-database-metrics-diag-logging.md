@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: e44ac8dca3b27a21e1a7564bbee31c156f80e929
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.date: 01/25/2019
+ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102198"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462809"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
 Azure SQL veritabanı, elastik havuzlar, yönetilen örneği ve yönetilen örnek uygulamasındaki performans izlemeyi kolaylaştırmak için ölçümleri ve tanılama günlüklerini akışla veritabanları. Bir veritabanının kaynak kullanımını, çalışanları ve oturumları ve aşağıdaki Azure kaynakları birine bağlantı aktarmaya yapılandırabilirsiniz:
 
-- **Azure SQL Analytics**: performans raporları, uyarılar ve azaltıcı öneriler içeren, Azure veritabanları akıllı izleme alınamıyor.
+- **Azure SQL Analytics**: performans raporları, uyarılar ve azaltıcı öneriler içeren, Azure SQL veritabanı akıllı izleme alınamıyor.
 - **Azure Event Hubs**: SQL veritabanı telemetrisini özel izleme çözümleri veya yoğun işlem hatlarıyla tümleştirmek için.
 - **Azure depolama**: telemetri fiyatı çok daha düşük maliyetlerle arşivlemek için.
 

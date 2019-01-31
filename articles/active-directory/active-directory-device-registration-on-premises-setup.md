@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: abdeeacc22d2709a3107c9e9e05bd982705d7dea
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 00921fd82463a75e81e1279d436a576461e02f78
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079078"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301654"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı'nı kullanarak şirket içi koşullu erişimi ayarlama
 
@@ -109,9 +109,9 @@ Dağıtım tamamlandı, ve bazı senaryolarını deneyebilirsiniz. Hizmet ile de
 
 | Görev | Başvuru |
 | --- | --- |
-| Bazı cihazlar, Azure Active Directory cihaz kayıt hizmeti kullanarak, çalışma alanına katılma. İOS, Windows ve Android cihazlarda katılabilirsiniz. |[Cihazları Azure Active Directory cihaz kayıt hizmeti kullanarak, çalışma alanına katılma](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
+| Bazı cihazlar, Azure Active Directory cihaz kayıt hizmeti kullanarak, çalışma alanına katılma. İOS, Windows ve Android cihazlarda katılabilirsiniz. |[Cihazları Azure Active Directory cihaz kayıt hizmeti kullanarak, çalışma alanına katılma](#join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service) |
 | Görüntüleme ve etkinleştirme veya Yönetici portalını kullanarak kayıtlı cihazları devre dışı bırakın. Bu görevde Yönetici portalını kullanarak bazı kayıtlı cihazları görüntüleyin. |[Azure Active Directory cihaz kayıt hizmetine genel bakış](active-directory-device-registration-get-started.md) |
-| Windows Server Active Directory için Azure Active Directory'den, cihaz nesneleri geri yazılır doğrulayın. |[Kayıtlı cihazlar için Active Directory geri yazılır doğrulayın](#verify-registered-devices-are-written-back-to-active-directory) |
+| Windows Server Active Directory için Azure Active Directory'den, cihaz nesneleri geri yazılır doğrulayın. |[Kayıtlı cihazlar için Active Directory geri yazılır doğrulayın](#verify-that-registered-devices-are-written-back-to-active-directory) |
 | Kullanıcılar cihazlarını kaydedebilir, uygulama oluşturabileceğiniz erişim ilkeleri yalnızca kayıtlı cihazlara izin ver'de AD FS. Bu görevde, bir uygulama erişim kuralı ve bir özel erişim reddedildi iletisi oluşturun. |[Bir uygulama erişim ilkesi ve özel erişim reddedildi iletisi oluştur](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Azure Active Directory, şirket içi Active Directory ile tümleştirme

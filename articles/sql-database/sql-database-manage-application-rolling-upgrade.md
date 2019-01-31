@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/29/2019
-ms.openlocfilehash: 1aa3960e3a974703cfecec2bd28fc41f74f7df96
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 50f6f114a4d90f48218f751e1649e8694e664491
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238416"
+ms.locfileid: "55295755"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>SQL veritabanı etkin coğrafi çoğaltmayı kullanarak bulut uygulamaların yükseltmelerini yönetme
 
@@ -54,7 +54,7 @@ Hazırlık adımları tamamlandıktan sonra gerçek yükseltme için hazır bir 
 Yükseltme başarıyla tamamlandı, artık son kullanıcıların uygulamayı yükseltilmiş kopyaya geçiş yapmak hazırsınız. Üretim yuvası artık hale gelir.  Geçiş, aşağıdaki diyagramda gösterildiği gibi birkaç daha fazla adımdan oluşur.
 
 1. Üretim ve hazırlama yuvaları web uygulamasının (6) arasında bir takas işlemi etkinleştirin. Bu iki yuvası URL'lerini geçiş yapar. Artık `contoso.azurewebsites.net` V2 sürümüne web sitesi ve veritabanı (üretim ortamı) işaret etmesini sağlayacaksınız.  
-2. Hazırlama kopyasını değiştirme işleminden sonra başlarsa, V1 sürümü artık ihtiyacınız kalmadığında, hazırlama envoronment (7) yetkisini alabilirsiniz.
+2. Hazırlama kopyasını değiştirme işleminden sonra başlarsa, V1 sürümü artık ihtiyacınız kalmadığında, hazırlık ortamı (7) yetkisini alabilirsiniz.
 
 ![SQL veritabanı coğrafi çoğaltma yapılandırması. Bulutta olağanüstü durum kurtarma.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
 
@@ -111,7 +111,7 @@ Hazırlık adımları tamamlandıktan sonra yükseltme için hazırlık ortamı 
 Yükseltme başarıyla tamamlandı, artık son kullanıcıların uygulamayı V2 sürümüne geçiş yapmak hazırsınız. Aşağıdaki şemada adımlar gösterilmektedir.
 
 1. Üretim ve hazırlama yuvaları web uygulamasının birincil bölgede (13) ve yedekleme bölgede (14) arasında bir takas işlemi etkinleştirin. V2 uygulama artık yedekleme bölgede yedekli bir kopyasını üretim yuvasıyla olur.
-2. Yetkisini alabilir (15 ve 16) V1 uygulama artık ihtiyacınız kalmadığında hazırlık ortamı.  
+2. V1 uygulaması (15 ve 16) artık ihtiyacınız kalmadığında, hazırlık ortamı yetkisini alabilirsiniz.  
 
 ![SQL veritabanı coğrafi çoğaltma yapılandırması. Bulutta olağanüstü durum kurtarma.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d287f79f4161c509f96b679d4b794c2906f2e020
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028486"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477868"
 ---
 # <a name="onboarding-requirements"></a>Ekleme gereksinimleri
 
@@ -33,7 +33,7 @@ Bu liste, SAP HANA (büyük örnekler) Azure üzerinde çalıştırmak için ger
 
 **Ağ bağlantısı**
 
-- Şirket içi arasında Azure ExpressRoute: şirket içi veri merkezinizi Azure'a bağlanmak için en az 1 GB/sn bağlantı ISS'niz tarafından sipariş emin olun. 
+- Şirket içi arasında Azure ExpressRoute: Şirket içi veri merkezinizi Azure'a bağlanmak için en az 1 GB/sn bağlantı ISS'niz tarafından sipariş emin olun. HANA büyük örneği birimleri ve Azure arasında bağlantı, ExpressRoute teknolojisini kullanıyor. Bu ExpressRoute bağlantısı HANA büyük örneği birimleri ve Azure arasında HANA büyük örneği birim fiyatına dahildir. Bu nedenle, müşteri olarak değil karşılaştığınız ek maliyetler ExpressRoute bağlantınız şirket içi ile Azure arasında ötesinde.
 
 **İşletim sistemi**
 
@@ -50,7 +50,7 @@ Bu liste, SAP HANA (büyük örnekler) Azure üzerinde çalıştırmak için ger
 
 - Red Hat Abonelik Yöneticisi azure'da bir VM üzerinde dağıtılabilir. Red Hat Abonelik Yöneticisi, kayıtlı ve Red Hat sırasıyla güncelleştirildi (büyük örnekler) Azure üzerinde SAP HANA için yeteneği sağlar. (Hiçbir doğrudan internet erişimini Azure büyük örnek damgası üzerinde dağıtılan kiracıda yoktur.)
 - SAP destek sahip olmanızı gerektirir de Linux sağlayıcınız ile sözleşme. Bu gereksinim, HANA büyük örneği ya da Linux Azure üzerinde çalışmasına olgu çözüm kaldırılmaz. Bazı Linux Azure galeri görüntüleri hizmet ücretinin benzemez *değil* HANA büyük örneği çözüm teklife dahil edilen. Bunu SAP Linux dağıtımcısı gerekliliklerini destek sözleşmeleri ile ilgili sizin sorumluluğunuzdur. 
-   - SUSE Linux için destek sözleşmeleri gereksinimlerini arayın [SAP notu #1984787 - SUSE Linux Enterprise Server 12: yükleme notları](https://launchpad.support.sap.com/#/notes/1984787) ve [SAP notu #1056161 - SUSE öncelikli destek için SAP uygulamaları](https://launchpad.support.sap.com/#/notes/1056161).
+   - SUSE Linux için destek sözleşmeleri gereksinimlerini arayın [SAP notu #1984787 - SUSE Linux Enterprise Server 12: Yükleme notları](https://launchpad.support.sap.com/#/notes/1984787) ve [SAP notu #1056161 - SUSE öncelikli destek için SAP uygulamaları](https://launchpad.support.sap.com/#/notes/1056161).
    - Red Hat Linux için destek içerir ve hizmet güncelleştirmeleri işletim sistemlerini HANA büyük örneği için doğru abonelik düzeylerini olması gerekir. Red Hat, SAP çözüm için Red Hat Enterprise Linux abonelik önerir. Başvuru https://access.redhat.com/solutions/3082481. 
 
 Farklı SAP HANA sürümleriyle farklı Linux sürümleri için destek matrisi bkz [SAP notu #2235581](https://launchpad.support.sap.com/#/notes/2235581).
@@ -69,13 +69,13 @@ Başvurmak için uyumluluk matrisi HLI bellenim/DRIVER sürümleri ve işletim s
 **Uygulamalar**
 
 - Lisanslar ve yazılım yükleme bileşenleri ilgili SAP ve SAP HANA'ya bağlanan tüm SAP uygulamaları için sözleşmeler destekler.
-- Lisansları ve herhangi bir SAP olmayan uygulamalar için yazılım yükleme bileşenleri ile ilgili SAP HANA (büyük örnekler) Azure ortamlarında kullanılan ve destek sözleşmeleri ilgili.
+- Lisansları ve herhangi bir SAP olmayan uygulamalar için yazılım yükleme bileşenleri ile SAP HANA (büyük örnekler) Azure ortamlarında kullanılan ve destek sözleşmeleri ilgili.
 
 **Beceriler**
 
 - Deneyiminizi ve Azure Iaas ve bileşenlerinin bilgisine sahip.
 - Deneyiminizi ve bir SAP iş yükünü azure'a dağıtma konusunda bilgi.
-- SAP HANA yüklemesi personel sertifikalıdır.
+- SAP HANA yüklemesi kişisel sertifikalı.
 - SAP HANA geçici olarak yüksek kullanılabilirlik ve olağanüstü durum kurtarma tasarım için Mimarı becerileri SAP.
 
 **SAP**

@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6a52907fa6c0e2483479031fbb3d1ad68a121d95
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136770"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475567"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Team Data Science Process içinde tek bir katkıda bulunan görevleri
 
@@ -37,15 +37,15 @@ Bir veri bilimi proje TDSP altında çalıştırmak yönergeler için bkz: [veri
 
 Bu öğreticide, kısaltılmış depoları ve dizinler için kullanılır. Bu adlar dizinlerini ve depoları işlemleri izlemenizi kolaylaştırır. Bu gösterim (**R** Git depoları ve **D** DSVM'ye yerel dizinler için) aşağıdaki bölümlerde kullanılır:
 
-- **R2**: GroupUtilities, Grup Yöneticisi, Azure DevOps grubu sunucuda ayarlanmış bir Git deposunda.
-- **R4**: TeamUtilities, ekip lideri ayarlanmış Git deposunda.
-- **R5**: Proje, proje lideri tarafından ayarlanmış olan bir Git deposunda.
-- **D2**: yerel dizin R2'den kopyalandı.
-- **D4**: yerel dizin R4 kopyalandı.
-- **D5**: yerel dizin R5 kopyalandı.
+- **R2**: Azure DevOps grubu sunucunuzda, Grup Yöneticisi ayarlanmış Git GroupUtilities havuzda.
+- **R4**: Takımınızın sağlama Git TeamUtilities havuzda ayarlanmış.
+- **R5**: Proje deposu, proje lideri tarafından ayarlanmış olan Git üzerinde.
+- **D2**: Yerel dizin R2'den kopyalandı.
+- **D4**: Yerel dizin R4 kopyalandı.
+- **D5**: Yerel dizin R5 kopyalandı.
 
 
-## <a name="step-0-prerequisites"></a>0. adım: önkoşulları
+## <a name="step-0-prerequisites"></a>Adım-0: Önkoşullar
 
 Özetlenen, Grup Yöneticisi atanan görevlerin tamamlayarak önkoşullara uyduğunuzdan [grup yöneticisi görevleri için bir veri bilimi ekip](group-manager-tasks.md). Burada özetlemek gerekirse, aşağıdaki gereksinimleri ekip sağlama görevlerini başlamadan önce karşılanması gerekir: 
 - Grup yöneticinizin ayarladığı **GroupUtilities** depo (varsa). 

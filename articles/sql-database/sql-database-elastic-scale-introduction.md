@@ -11,21 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867095"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463030"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Azure SQL Database ile ölçek genişletme
 Out kullanarak Azure SQL veritabanlarını kolayca ölçeklendirebilirsiniz **esnek veritabanı** araçları. Bu araçlar ve özellikler, veritabanı kaynaklarını kullanmanıza olanak tanır **Azure SQL veritabanı** hizmet (SaaS) uygulamaları olarak işlem tabanlı iş yüklerinizi ve özellikle yazılım çözümleri oluşturun. Elastik veritabanı özellikleri oluşur:
 
-* [Elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md): istemci kitaplığı oluşturmak ve parçalı veritabanlarını korumak sağlayan bir özelliktir.  Bkz: [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md).
+* [Elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md): İstemci kitaplığı oluşturmak ve parçalı veritabanlarını korumak sağlayan bir özelliktir.  Bkz: [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md).
 * [Elastik veritabanı bölme-birleştirme aracını](sql-database-elastic-scale-overview-split-and-merge.md): parçalı veritabanları arasında verileri taşır. Bu aracı, verileri çok kiracılı veritabanından bir tek kiracılı veritabanı (veya tersi) taşıma için kullanışlıdır. Bkz: [elastik veritabanı bölme-Birleştirme aracı Öğreticisi](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Elastik veritabanı işleri](sql-database-elastic-jobs-overview.md) (Önizleme): işleri çok sayıda Azure SQL veritabanlarını yönetmek için kullanın. Şema değişiklikleri, kimlik yönetimi, başvuru verilerini güncelleştirme, performans verileri toplama veya işlemleriyle Kiracı (müşteri) telemetrisi toplama gibi yönetim işlemlerini kolayca gerçekleştirin.
-* [Elastik veritabanı sorgusu](sql-database-elastic-query-overview.md) (Önizleme): birden çok veritabanını kapsayan bir Transact-SQL sorgusunu çalıştırmayı sağlar. Bu, Excel, Power BI, Tableau, vb. gibi raporlama araçları bağlantısı sağlar.
+* [Elastik veritabanı işleri](sql-database-elastic-jobs-overview.md) (Önizleme): İşleri, çok sayıda Azure SQL veritabanlarını yönetmek için kullanın. Şema değişiklikleri, kimlik yönetimi, başvuru verilerini güncelleştirme, performans verileri toplama veya işlemleriyle Kiracı (müşteri) telemetrisi toplama gibi yönetim işlemlerini kolayca gerçekleştirin.
+* [Elastik veritabanı sorgusu](sql-database-elastic-query-overview.md) (Önizleme): Birden çok veritabanını kapsayan bir Transact-SQL sorgusunu çalıştırmayı sağlar. Bu, Excel, Power BI, Tableau, vb. gibi raporlama araçları bağlantısı sağlar.
 * [Elastik işlemler](sql-database-elastic-transactions-overview.md): Bu özellik, Azure SQL veritabanı'nda birkaç veritabanlarına yayılan işlemler çalıştırmanıza olanak tanır. Elastik veritabanı işlem ADO .NET kullanarak .NET uygulamaları için kullanılabilir ve tanıdık programlama deneyimi kullanarak ile tümleştirme [System.Transaction sınıfları](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 Aşağıdaki grafikte içeren bir mimari gösterilmektedir **elastik veritabanı özellikleri** veritabanları koleksiyonunu ile ilgili.
@@ -67,7 +67,7 @@ Dikey ölçeklendirme artan ya da tek bir veritabanının işlem boyutunu azalta
 ## <a name="sharding"></a>Parçalama
 *Parçalama* büyük miktarlarda veri aynı şekilde yapılandırılmış bir dizi bağımsız veritabanları arasında dağıtmak için bir tekniktir. Bulut geliştiricilerine hizmet (SAAS) teklifi olarak, son müşterilere veya işletmeler için yazılım oluşturma ile özellikle yaygın olarak kullanılır. Bu son müşterilerin, genellikle "kiracıları" olarak da adlandırılır. Parçalama, birkaç nedenden için gerekli olabilir:  
 
-* Toplam veri miktarı kısıtlamaları tek bir veritabanı içinde sığmayacak kadar büyük
+* Toplam veri miktarı tek bir veritabanının kısıtlamaları içinde sığmayacak kadar büyük
 * Tek veritabanı özelliklerine genel iş yükü işlem verimini aşıyor
 * Her Kiracı için ayrı veritabanlarına gereken şekilde kiracılar fiziksel birbirlerinden, gerektirebilir
 * Farklı bölümlerini bir veritabanı uyumluluk, performans veya jeopolitik nedeniyle farklı coğrafyalara yer açmanız gerekebilir.

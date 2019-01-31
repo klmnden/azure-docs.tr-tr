@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: d20ba372a23d2d4865bd9d6c5c004f955c896201
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199267"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299546"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>SAP Business Warehouse açık bir Azure Data Factory kullanarak hub'ı aracılığıyla veri kopyalama
 
@@ -37,14 +37,14 @@ Tüm desteklenen havuz veri deposuna SAP Business Warehouse açık hub'ı üzeri
 
 Özellikle, bu SAP Business Warehouse açık Hub bağlayıcı'yı destekler:
 
-- SAP Business Warehouse **7.30 sürüm veya üstü ile SAPK 73013INPIBASIS destek paketi yüklü**.
+- SAP Business Warehouse **sürüm 7.30 veya üzeri (yığındaki son SAP destek paketi 2015 yıl sonra yayımlanan)**.
 - Olabilen altında DSO, Infocube, MultiProvider, veri kaynağı, vb. açık Hub hedef yerel tablo aracılığıyla veri kopyalama.
 - Temel kimlik doğrulaması kullanarak veri kopyalama.
 - Uygulama sunucusuna bağlanılıyor.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu SAP Business Warehouse Bağlayıcısı'nı kullanmak için gerekir:
+SAP Business Warehouse açık Hub bu bağlayıcıyı kullanmak için gerekir:
 
 - Bir şirket içinde barındırılan tümleştirme çalışma zamanı sürümü 3.13 veya üzeri olarak ayarlayın. Bkz: [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md) makale Ayrıntılar için.
 
@@ -57,17 +57,17 @@ Bu SAP Business Warehouse Bağlayıcısı'nı kullanmak için gerekir:
     - RFC ve SAP BW için yetkilendirme. 
     - "Yürütme" etkinlik "S_SDSAUTH" yetkilendirme nesnesinin izinleri.
 
-- Craete SAP açık Hub hedef türünde **veritabanı tablosu** "Teknik anahtarı" seçeneği işaretli.  Ayrıca, gerekli olmamasına rağmen silme veri tablosundan olarak işaretlemeden bırakın için önerilir. DTP land verilere yürütün (örneğin, küp) kaynak nesneden açık hub hedef tabloya seçtiniz.
+- SAP açık Hub hedef türünde oluşturma **veritabanı tablosu** "Teknik anahtarı" seçeneği işaretli.  Ayrıca, gerekli olmamasına rağmen silme veri tablosundan olarak işaretlemeden bırakın için önerilir. DTP yararlanın (doğrudan yürütün veya var olan bir işlem zincirine tümleştirme) verileri (örneğin, küp) kaynak nesneden yerleşmesi açık hub hedef tabloya seçtiniz.
 
 ## <a name="getting-started"></a>Başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler, SAP Business Warehouse bağlayıcısına belirli Data Factory varlıkları tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler, SAP Business Warehouse açık Hub bağlayıcıya belirli Data Factory varlıkları tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
 ## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-SAP Business Warehouse (BW) bağlı hizmeti için aşağıdaki özellikleri destekler:
+SAP Business Warehouse açık bağlı Hub hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
@@ -75,6 +75,7 @@ SAP Business Warehouse (BW) bağlı hizmeti için aşağıdaki özellikleri dest
 | sunucu | SAP BW örneği yer aldığı sunucunun adı. | Evet |
 | systemNumber | SAP BW sisteminin sistem numarası.<br/>İzin verilen değer: bir dize olarak temsil edilen iki basamaklı ondalık sayı. | Evet |
 | ClientID | SAP W sisteminde istemcinin istemci kimliği.<br/>İzin verilen değer: bir dize olarak temsil edilen üç basamaklı ondalık sayı. | Evet |
+| language | SAP sisteminin kullandığı dil. | Hayır (varsayılan değer **tr**)|
 | Kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı. | Evet |
 | password | Kullanıcının parolası. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtildiği gibi bir şirket içinde barındırılan tümleştirme çalışma zamanı gereklidir [önkoşulları](#prerequisites). |Evet |
@@ -128,7 +129,7 @@ Gelen ve SAP BW Open Hub'ına veri kopyalamak için dataset öğesinin type öze
     "properties": {
         "type": "SapOpenHubTable",
         "linkedServiceName": {
-            "referenceName": "<SAP BW linked service name>",
+            "referenceName": "<SAP BW Open Hub linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -140,7 +141,7 @@ Gelen ve SAP BW Open Hub'ına veri kopyalamak için dataset öğesinin type öze
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, SAP BW kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, SAP BW Open Hub kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub kaynağı olarak
 
@@ -179,18 +180,18 @@ SAP BW Open Hub'ından veri kopyalamak için kopyalama etkinliği için kaynak t
 
 ## <a name="data-type-mapping-for-sap-bw-open-hub"></a>SAP BW Open merkezi için veri türü eşlemesi
 
-SAP BW veri kopyalama işlemi sırasında aşağıdaki eşlemeler SAP BW veri türlerinden Azure veri fabrikası geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) eşlemelerini nasıl yapar? kopyalama etkinliği kaynak şema ve veri türü için havuz hakkında bilgi edinmek için.
+SAP BW Open Hub'ından veri kopyalama işlemi sırasında aşağıdaki eşlemeler SAP BW veri türlerinden Azure veri fabrikası geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) eşlemelerini nasıl yapar? kopyalama etkinliği kaynak şema ve veri türü için havuz hakkında bilgi edinmek için.
 
 | SAP ABAP türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| C (dize) | Dize |
+| C (dize) | String |
 | Ben (tamsayı) | Int32 |
-| F (kayan nokta) | çift |
-| D (tarih) | Dize |
-| T (saat) | Dize |
-| P (BCD paketlenmiş, para birimi, Decimal, miktar) | Onluk |
-| N (Numc) | Dize |
-| (İkili ve ham) X | Dize |
+| F (kayan nokta) | Double |
+| D (tarih) | String |
+| T (saat) | String |
+| P (BCD paketlenmiş, para birimi, Decimal, miktar) | Decimal |
+| N (Numc) | String |
+| (İkili ve ham) X | String |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

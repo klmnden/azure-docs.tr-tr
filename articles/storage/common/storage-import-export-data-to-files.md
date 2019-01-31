@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.subservice: common
+ms.openlocfilehash: 1cf2276ca1995df19cc7068764a31916e4981100
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384777"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452703"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure dosyaları'na veri almak için Azure içeri/dışarı aktarma hizmetini kullanma
 
@@ -166,11 +166,11 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-4-update-the-job-with-tracking-information"></a>4. adım: İş izleme bilgilerini güncelleştir
+## <a name="step-4-update-the-job-with-tracking-information"></a>4. Adım: İş izleme bilgilerini güncelleştir
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>5. adım: Azure'a verilerin yüklendiğini doğrulama
+## <a name="step-5-verify-data-upload-to-azure"></a>5. Adım: Azure'a verilerin yüklendiğini doğrulama
 
 İş tamamlanana kadar izleyin. İş tamamlandıktan sonra verilerinizi Azure'a karşıya yüklendiğini doğrulayın. Yalnızca, karşıya yükleme başarılı olduğunu doğruladıktan sonra şirket içi verileri silin.
 

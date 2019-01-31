@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7a00f18a8ae51d5118275e904e2ca76fc167d987
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 91d645e6120040870c7c1696c7bfd8f68509cb35
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132627"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451912"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Müşteri kabulü Team Data Science Process yaşam döngüsü aşaması
 
@@ -34,13 +34,13 @@ TDSP yaşam döngüsü görsel bir temsilini şu şekildedir:
 
 
 ## <a name="goal"></a>Hedef
-**Proje teslim edilebilirleri Sonlandır**: işlem hattı, model ve bunların dağıtım bir üretim ortamında müşterinin amaçlarını karşılamak onaylayın.
+**Proje teslim edilebilirleri Sonlandır**: İşlem hattı, model ve bunların dağıtım bir üretim ortamında müşterinin amaçlarını karşılamak onaylayın.
 
 ## <a name="how-to-do-it"></a>Nasıl yapılır
 Bu aşamada ele iki ana görevi vardır:
 
-   * **Sistem doğrulama**: dağıtılan model ve işlem hattı müşterinin gereksinimlerini karşıladığını doğrulayın.
-   * **Proje el alma**: Proje kapalı sistemi üretimde çalıştırılacağı varlık teslim.
+   * **Sistem doğrulama**: İşlem hattı ve dağıtılmış bir modelinin müşterinin gereksinimlerini karşıladığını onaylayın.
+   * **Proje el alma**: Kapalı proje sistemi üretimde çalıştırılacağı varlık teslim.
 
 Müşteri, sistemin iş gereksinimlerini karşıladığından ve bu, istemci uygulama tarafından kullanım için üretim sistemi dağıtmak için kabul edilebilir doğruluk ile ilgili sorular yanıtlanmaktadır doğrulamalıdır. Tüm belgeleri sonlandırılır ve gözden geçirdi. Proje. Bu sayede işlemleri için sorumlu varlığa kapalı. Bu varlık, örneğin, bir BT veya müşteri veri bilimi takım ya da sistem üretimde çalıştırmaktan sorumludur müşterinin aracı olabilir. 
 

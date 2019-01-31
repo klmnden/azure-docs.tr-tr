@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 1f7921093bc97aa6dc776213be4dbdf9537b7fe2
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 007f7fe95be77a2b1661cd6c82118eb875401f24
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075712"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472584"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Grubun bağımlılık eşlemesini kullanarak bir grubu daraltma
 
@@ -73,6 +73,10 @@ Bir Linux makinesinde aracıyı yüklemek için:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-system-center-operations-manager"></a>Aracıyı System Center Operations Manager tarafından izlenen bir makineye yükleme
+
+Makineler için Operations Manager 2012 R2 veya üzeri izlenen MMA aracısını yüklemek için gerek yoktur. Hizmet eşlemesi, gerekli bağımlılık verileri toplamak için Operations Manager MMA'yı yararlanan bir Operations Manager ile bir tümleştirmeye sahiptir. Tümleştirme yönergeleri kullanarak etkinleştirebilirsiniz [burada](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Ancak, bu makinelerde yüklü bağımlılık Aracısı'nı gerektiğini unutmayın.
+
 ### <a name="install-the-dependency-agent"></a>Bağımlılık aracısını yükleme
 1. Bir Windows makinede bağımlılık Aracısı'nı yüklemek için kurulum dosyasına çift tıklayın ve sihirbazı izleyin.
 2. Bağımlılık Aracısı'nı bir Linux makineye yüklemek için aşağıdaki komutu kullanarak kök olarak yükleyin:
@@ -115,7 +119,7 @@ Grubun bağımlılık haritası görüntülenir, belirli bir makinenin bağıml�
 
 ## <a name="query-dependency-data-from-log-analytics"></a>Log Analytics sorgu bağımlılık verileri
 
-Hizmet eşlemesi tarafından yakalanan bağımlılık veriler, Log Analytics'te sorgulama için kullanılabilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) Log Analytics'te sorgu hizmet eşlemesi veri tabloları hakkında. 
+Hizmet eşlemesi tarafından yakalanan bağımlılık verileri Azure geçişi projenizle ilişkili Log Analytics workspare sorgulama için kullanılabilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) Log Analytics'te sorgu hizmet eşlemesi veri tabloları hakkında. 
 
 Log Analytics sorguları çalıştırmak için:
 

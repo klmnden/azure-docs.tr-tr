@@ -1,8 +1,21 @@
 ---
-Başlık: Algoritma örnekleri titleSuffix: Azure Machine Learning Studio açıklaması: Machine learning temel bilgileri anlaşılması kolay bir bakış algoritma örnekleri içerir. İndirilebilir bilgi grafiği çoğu machine learning soruları kapsar.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: garyericson ms.author: garye MS.özel: seodc18 ms.date: 12/18/2017
+title: Algoritma örnekleri
+titleSuffix: Azure Machine Learning Studio
+description: Machine learning temel bilgileri anlaşılması kolay bir bakış algoritma örnekleri içerir. İndirilebilir bilgi grafiği çoğu machine learning soruları kapsar.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodc18
+ms.date: 12/18/2017
+ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295585"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir bilgi grafiği: Makine öğrenimi algoritma örnekleri ile temelleri
 Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak için kullanılan popüler algoritmaları hakkında bilgi edinmek için bu bilgi grafiği anlaşılması kolay bakış indirin. Algoritma örnekleri hangi algoritmaları ve kullanıldıkları anlamak machine learning Acemi yardımcı olur.

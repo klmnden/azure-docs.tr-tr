@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ea409a4295cb07800e3f48ab408135071d0faea6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646482"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464832"
 ---
 # <a name="how-to-return-n-best-translations"></a>En iyi N çevirileri iade etme
 
@@ -46,11 +46,11 @@ Yöntemi, delta translator altyapısı en iyi N listesinden burada sağlanan max
 
 * Kategori: Desteklenen tek ve varsayılan olarak, "Genel" seçeneğidir.
 * ContentType: Desteklenen tek ve "text/plain" varsayılan seçenektir.
-* Durumu: performanstaki istek ve yanıt yardımcı olmak için kullanıcı durumu. Aynı içeriğini yanıta döndürülür.
+* Durum: Performanstaki istek ve yanıt yardımcı olmak için kullanıcı durumu. Aynı içeriğini yanıta döndürülür.
 * IncludeMultipleMTAlternatives: birden fazla alternatifleri MT altyapısından döndürülüp döndürülmeyeceğini belirlemek için bayrak. Varsayılan değer false'tur ve yalnızca 1 seçenek içerir.
 
 ## <a name="ratings"></a>Derecelendirme
-Derecelendirmeleri şu şekilde uygulanır: en iyi bir otomatik çeviri 5 derecesi vardır.
+Derecelendirmeleri şu şekilde uygulanır: En iyi bir otomatik çeviri, 5 derecesi vardır.
 Otomatik olarak oluşturulan (en iyi N) çeviri alternatifleri de derecesi 0 ve 100 eşleşme derecesi sahiptir.
 
 ## <a name="number-of-alternatives"></a>Alternatifleri sayısı

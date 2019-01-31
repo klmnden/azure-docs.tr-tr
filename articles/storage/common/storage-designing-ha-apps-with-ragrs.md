@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231372"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454952"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama
 
@@ -24,12 +24,12 @@ Azure depolama gibi bulut tabanlı altyapılarının ortak bir özellik uygulama
 
 Bu makalede, GRS ve RA-GRS odaklanır. GRS ile verilerinizin üç kopyasını birincil bölgelerindeki depolama hesabı ayarlarken seçtiğiniz tutulur. Üç ek kopya, ikincil bölgede Azure tarafından belirtilen zaman uyumsuz olarak saklanır. RA-GRS ikincil kopyaya okuma erişimli coğrafi olarak yedekli depolama sunar.
 
-Hangi birincil bölgede hangi ikincil bölgeler ile halindedir bilgi için bkz: [iş sürekliliği ve olağanüstü durum kurtarma (BCDR): eşleştirilmiş Azure bölgeleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Hangi birincil bölgede hangi ikincil bölgeler ile halindedir bilgi için bkz: [iş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Bu makalede, indirme ve çalıştırma sonunda eksiksiz bir örnek için bir bağlantı bulunan kod parçacıkları vardır.
 
 > [!NOTE]
-> Azure Storage artık yüksek oranda kullanılabilir uygulamalar oluşturmak için bölgesel olarak yedekli depolama (ZRS) destekler. ZRS, yedeklilik ihtiyaçlarını birçok uygulama için basit bir çözüm sunar. ZRS, donanım arızalarında ya da tek bir veri merkezi etkileyen yıkıcı felaketlere karşı koruma sağlar. Daha fazla bilgi için [bölgesel olarak yedekli depolama (ZRS): yüksek kullanılabilirliğe sahip bir Azure depolama uygulamalar](storage-redundancy-zrs.md).
+> Azure Storage artık yüksek oranda kullanılabilir uygulamalar oluşturmak için bölgesel olarak yedekli depolama (ZRS) destekler. ZRS, yedeklilik ihtiyaçlarını birçok uygulama için basit bir çözüm sunar. ZRS, donanım arızalarında ya da tek bir veri merkezi etkileyen yıkıcı felaketlere karşı koruma sağlar. Daha fazla bilgi için [bölgesel olarak yedekli depolama (ZRS): Azure depolama yüksek kullanılabilirliğe sahip uygulamalar](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS temel özellikleri
 

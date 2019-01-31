@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 6a5ee991ca21e60e6c2b14d5e3be560183eae4fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/25/2019
+ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232911"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453680"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Kiracı başına veritabanı desen ile SQL veritabanı kullanan çok kiracılı bir SaaS uygulama keşfedin ve dağıtın
 
@@ -63,9 +63,9 @@ Artık adlarınızı seçin ve not edin.
     > [!IMPORTANT]
     > Tanıtım amacıyla kasıtlı olarak güvenli olmayan bazı kimlik doğrulama ve sunucu güvenlik duvarı. Yeni bir kaynak grubu oluşturmanızı öneririz. Mevcut kaynak gruplarını, sunucuları veya havuzları kullanmayın. Bu uygulamayı, komut dosyaları veya dağıtılan tüm kaynakları üretim için kullanmayın. İlgili faturalandırmayı durdurmak için uygulamayla tamamladığınızda, bu kaynak grubunu silin.
 
-    - **Kaynak grubu**: seçin **Yeni Oluştur**ve seçtiğiniz benzersiz adı daha önce kaynak grubu için belirtin.
-    - **Konum**: aşağı açılan listeden bir konum seçin.
-    - **Kullanıcı**: daha önce seçtiğiniz kullanıcı adı değerini kullanın.
+    - **Kaynak grubu**: Seçin **Yeni Oluştur**ve seçtiğiniz benzersiz adı daha önce kaynak grubu için belirtin.
+    - **Konum**: Aşağı açılan listeden bir konum seçin.
+    - **Kullanıcı**: Daha önce seçtiğiniz kullanıcı adı değerini kullanın.
 
 1. Uygulamayı dağıtın.
 
@@ -123,13 +123,13 @@ Bir merkezi **olay hub'ı** sayfası, dağıtımınızdaki kiracılara bağlant�
 
 Wingtip uygulama kullanıyorsa [*Azure Traffic Manager* ](../traffic-manager/traffic-manager-overview.md) gelen isteklerin dağıtımını denetlemek için. Belirli bir kiracı için olayları sayfasına erişmek için URL aşağıdaki biçimdedir:
 
-- http://events.wingtip-dpt.&lt; Kullanıcı&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
     Önceki biçimi bölümlerini aşağıdaki tabloda açıklanmıştır.
 
     | URL parçası        | Açıklama       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Wingtip uygulamasının olayları bölümleri.<br /><br /> *-dpt* ayıran *Kiracı başına veritabanı* diğer uygulamalardan gelen Wingtip bilet uygulaması. Örnekler *tek başına* Kiracı başına uygulamayı (*-sa*) veya *çok kiracılı veritabanı* (*- mt*) uygulamaları. |
+    | http://events.wingtip-dpt | Wingtip uygulamasının olayları bölümleri.<br /><br /> *-dpt* ayıran *Kiracı başına veritabanı* diğer uygulamalardan gelen Wingtip bilet uygulaması. Örnekler *tek* Kiracı başına uygulamayı (*-sa*) veya *çok kiracılı veritabanı* (*- mt*) uygulamaları. |
     | .  *&lt;kullanıcı&gt;* | *af1* örnekte. |
     | .trafficmanager.net/ | Traffic Manager, temel URL. |
     | fabrikamjazzclub | Fabrikam Caz kulübü adlı bir kiracıyı tanımlar. |
@@ -248,7 +248,7 @@ Sunucuya Gözat **tenants1-dpt -&lt;kullanıcı&gt;** seçip **Pool1** havuz i
 - Etiketli ilk grafik **kaynak kullanımını**, havuz eDTU kullanımı gösterilmektedir.
 - İkinci grafik, havuzda beş en etkin veritabanları için eDTU kullanımını gösterir.
 
-İki grafik, elastik havuzların ve SQL veritabanı öngörülemeyen SaaS uygulaması iş yükleri için uygun olduğunu gösterir. Grafikleri Göster: her 40 Edtu'ya kadar geçiş yapabilen dört veritabanı olan ve henüz tüm veritabanlarına 50 eDTU havuz tarafından rahatça desteklenir. 50 eDTU havuz bile daha ağır iş yüklerini destekler. Her bir veritabanı tek veritabanı olarak sağladıysanız S2 olması gerekir (geçişlerini desteklemek için 50 DTU). Dört bağımsız S2 veritabanı havuzunun fiyatı neredeyse üç kez maliyetidir. Gerçek durumlarda, SQL veritabanı müşterilerinin 200 eDTU havuzunda 500 veritabanları kadar çalıştırın. Daha fazla bilgi için [performans izleme Öğreticisi](saas-dbpertenant-performance-monitoring.md).
+İki grafik, elastik havuzların ve SQL veritabanı öngörülemeyen SaaS uygulaması iş yükleri için uygun olduğunu gösterir. Grafikleri Göster: her 40 Edtu'ya kadar geçiş yapabilen dört veritabanı olan ve henüz tüm veritabanlarına 50 eDTU havuz tarafından rahatça desteklenir. 50 eDTU havuz bile daha ağır iş yüklerini destekler. Her bir veritabanı tek veritabanı olarak sağladıysanız S2 olması gerekir (geçişlerini desteklemek için 50 DTU). Dört tek S2 veritabanı havuzunun fiyatı neredeyse üç kez maliyetidir. Gerçek durumlarda, SQL veritabanı müşterilerinin 200 eDTU havuzunda 500 veritabanları kadar çalıştırın. Daha fazla bilgi için [performans izleme Öğreticisi](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

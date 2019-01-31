@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 01df34025c0389a4ea8bcd5eceaa29f0351df5f7
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 556ec0b55ea2e62975661eb5f668b4d3acda7c30
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329723"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466362"
 documentType: LandingData
 title: Azure SQL Veritabanı Yönetilen Örneği
 metadata:
@@ -78,7 +78,7 @@ sections:
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Yedek saklama 35 gün öncesine yapılandırma</a> -belirli bir noktaya geri yükleme. Unutmayın, kullanabilmeniz için uzun süreli yedek saklama (en fazla 10 yıl) hala etkinleştirilmedi <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">yalnızca kopya yedekleri</a> alternatif olarak.
     - html: (Önizleme) Kullanım <a href="https://aka.ms/managed-instance-failover-groups">coğrafi olarak dağıtılmış bir yük devretme grupları</a> başka bir bölgede örneğinin bir kopyasını tutmak ve verilerinizi bile bölgesel bir olağanüstü durum senaryosunda kullanılabilir olmasını sağlamak için.
     - html: (Önizleme) <a href="https://aka.ms/managed-instance-tde-byok">Kendi şifreleme anahtarlarınızı Getir</a> geçirme saydam veri şifrelemesi (TDE) zaten etkinleştirilmiş olan şirket içi veritabanlarını sırada.
-    - html: İle korumalı yönetilen örnekler <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall">yerleşik güvenlik duvarı</a>.
+    - html: İle korumalı yönetilen örnekler <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">yerleşik güvenlik duvarı</a>.
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
@@ -134,7 +134,7 @@ sections:
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Yapılandırma</a> Azure Vnet'inize yönetilen örneğe dağıtılacağı.
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Doğrulama</a> mevcut Azure Vnet'inize yönetilen örnek dağıtmak için kullanılabilir.
     - html: Örneği kullanarak bağlanmak <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure sanal makine</a> veya <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">noktadan siteye bağlantı</a>, veya <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">uygulamaları</a>.
-    - html: Veritabanınızı kullanılarak geçirilebileceğini doğrulayın <a href="https://www.microsoft.com/download/details.aspx?id=53595">veri geçiş Asisstant</a> veya <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">veritabanı deneme Yardımcısı</a>.
+    - html: Veritabanınızı kullanılarak geçirilebileceğini doğrulayın <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Yardımcısı</a> veya <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">veritabanı deneme Yardımcısı</a>.
     - html: Yönetilen örneği kullanarak veritabanlarınızı Getir <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">yerel geri yükleme</a> veya <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration hizmeti</a>.
     - html: SSIS paketlerinizi taşıma <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, SSAS tablolu modellere <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, ve SSRS raporları için <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Powerbı Premium</a>.
     - html: Uygulama <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">en iyi performans uygulamaları, depolama ve genel amaçlı hizmet katmanı için Değerlendirmeler</a>.

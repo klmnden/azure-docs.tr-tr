@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188411"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299053"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services'da desteklenen veri kaynakları
 
@@ -23,17 +23,20 @@ Azure Analysis Services ve SQL Server Analysis Services için veri kaynakları v
 
 |Veri kaynağı  |Bellek içi  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database     |   Evet      |    Evet      |
+|Azure SQL veritabanı<sup>[2](#azsqlmanaged)</sup>     |   Evet      |    Evet      |
 |Azure SQL Veri Ambarı     |   Evet      |   Evet       |
-|Azure Blob Depolama *     |   Evet       |    Hayır      |
-|Azure tablo depolama *    |   Evet       |    Hayır      |
-|Azure Cosmos DB *     |  Evet        |  Hayır        |
-|Azure Data Lake Store *     |   Evet       |    Hayır      |
-|Azure HDInsight HDFS *     |     Evet     |   Hayır       |
-|Azure HDInsight Spark *     |   Evet       |   Hayır       |
+|Azure Blob Depolama<sup>[1](#tab1400a)</sup>     |   Evet       |    Hayır      |
+|Azure tablo depolaması<sup>[1](#tab1400a)</sup>    |   Evet       |    Hayır      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Evet        |  Hayır        |
+|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   Evet       |    Hayır      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Evet     |   Hayır       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup> [3](#databricks)</sup>     |   Evet       |   Hayır       |
 ||||
 
-\* Yalnızca tablosal 1400 modelleri için.
+<a name="tab1400a">1</a> tablosal 1400 ve daha yüksek bir model.   
+<a name="azsqlmanaged">2</a> azure SQL veritabanı yönetilen örneği desteklenir. Yönetilen örnek bir özel IP adresi ile Azure sanal ağ içinde çalıştığından, bir şirket içi veri ağ geçidi gereklidir.   
+<a name="databricks">3</a> Spark Bağlayıcısı'nı kullanarak azure Databricks şu anda desteklenmiyor.
+
 
 **Sağlayıcı**   
 Bellek içi ve Azure veri kaynaklarına bağlanma DirectQuery modellerinde SQL Server için .NET Framework veri sağlayıcısı kullanın.
@@ -57,31 +60,31 @@ Bağlanan veri kaynaklarından ve Azure AS sunucusuna bir şirket içi ağ geçi
 |Veri kaynağı  |  
 |---------|---------|
 |Access veritabanı     |  
-|Active Directory *     |  
+|Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Çözümleme Platform sistemi     |  
-|Dynamics CRM *     |  
+|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel çalışma kitabı     |  
-|Exchange *     |  
-|Klasör *     |
-|IBM Informix * (Beta) |
-|JSON belgesi *     |  
-|Satırlardan ikili *     | 
+|Exchange<sup>[1](#tab1400b)</sup>     |  
+|Klasör<sup>[1](#tab1400b)</sup>     |
+|IBM Informix<sup>[1](#tab1400b) </sup> (Beta) |
+|JSON belgesini<sup>[1](#tab1400b)</sup>     |  
+|İkili satırlarından<sup>[1](#tab1400b)</sup>     | 
 |MySQL Veritabanı     | 
-|OData akışı *     |  
+|OData akışı<sup>[1](#tab1400b)</sup>     |  
 |ODBC sorgu     | 
 |OLE DB     |   
-|Postgre SQL veritabanı *    | 
-|Salesforce nesneleri * |  
-|Salesforce raporları * |
-|SAP HANA *    |  
-|SAP Business Warehouse *    |  
-|SharePoint *     |   
+|Postgre SQL veritabanı<sup>[1](#tab1400b)</sup>    | 
+|Salesforce nesneleri<sup>[1](#tab1400b)</sup> |  
+|Salesforce raporları<sup>[1](#tab1400b)</sup> |
+|SAP HANA<sup>[1](#tab1400b)</sup>    |  
+|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
+|SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase Veritabanı     |  
-|XML tablosu *    |  
+|XML tablosu<sup>[1](#tab1400b)</sup>    |  
 |||
  
-\* Yalnızca tablosal 1400 modelleri için.
+<a name="tab1400b">1</a> tablosal 1400 ve daha yüksek bir model.
 
 ## <a name="specifying-a-different-provider"></a>Farklı bir sağlayıcı belirtme
 

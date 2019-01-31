@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: e2eb580df0a90e07e79c7f080ba31e5418fc5956
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: fda1d3d626c91ba984f08b96c79ab6a2fd2ec74b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523793"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471751"
 ---
 # <a name="repairing-an-import-job"></a>Bir içeri aktarma işini onarma
 Microsoft Azure içeri/dışarı aktarma hizmeti Windows Azure Blob hizmetine dosyası ya da bir dosyanın bölümlerini kopyalamak başarısız olabilir. Hatalarının bazı nedenleri şunlardır:  
@@ -37,8 +37,8 @@ Aşağıdaki parametreler ile belirtilen **RepairImport**:
 |**/ d:**< TargetDirectories\>|**Gerekli.** İçeri aktarılan özgün dosyaları içeren bir veya daha fazla noktalı virgülle ayrılmış dizinler. İçeri aktarma sürücü ayrıca kullanılabilir ancak özgün dosya alternatif konum kullanılabilir, gerekli değildir.|  
 |**/BK:**< BitLockerKey\>|**İsteğe bağlı.** Özgün dosyalar nerede şifrelenmiş sürücünün kilidini açmak için araç istiyorsanız BitLocker anahtarı belirtmeniz gerekir.|  
 |**/sn:**< StorageAccountName\>|**Gerekli.** İçeri aktarma işi için depolama hesabı adı.|  
-|**/SK:**< StorageAccountKey\>|**Gerekli** kapsayıcı SAS belirtilmedi ve yalnızca. İçeri aktarma işi için depolama hesabı için hesap anahtarı.|  
-|**/csas:**< ContainerSas\>|**Gerekli** depolama hesap anahtarı belirtilmedi ve yalnızca. İçeri aktarma işi ile ilişkili bloblara erişmek için kapsayıcı SAS.|  
+|**/sk:**<StorageAccountKey\>|**Gerekli** kapsayıcı SAS belirtilmedi ve yalnızca. İçeri aktarma işi için depolama hesabı için hesap anahtarı.|  
+|**/csas:**<ContainerSas\>|**Gerekli** depolama hesap anahtarı belirtilmedi ve yalnızca. İçeri aktarma işi ile ilişkili bloblara erişmek için kapsayıcı SAS.|  
 |**/ CopyLogFile:**< DriveCopyLogFile\>|**Gerekli.** Sürücüyü Kopyala günlük dosyası (ya da ayrıntılı günlüğü veya hata günlüğü) yolu. Dosya Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve iş ile ilişkili blob depolamadan indirebilirsiniz. Kopyalama günlük dosyası başarısız bloblar ya da onarılması olan dosyalar hakkında bilgi içerir.|  
 |**/ PathMapFile:**< DrivePathMapFile\>|**İsteğe bağlı.** Belirsizlikler aldığınız aynı iş içinde aynı ada sahip birden çok dosyanız varsa çözümlemek için kullanılan bir metin dosyasının yolu. Aracı ilk çalıştırıldığında, bu dosya tüm belirsiz adları ile doldurabilirsiniz. Aracı'nın sonraki çalışmaları belirsizlikleri çözmek için bu dosyayı kullanın.|  
   

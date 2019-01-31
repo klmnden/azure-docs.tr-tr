@@ -1,6 +1,6 @@
 ---
 Başlık: TitleSuffix yeni başlayanlar için veri bilimi: Azure Machine Learning Studio açıklaması: Yeni başlayanlar için veri bilimi 5 sorular veri Biliminin yanıtladığı ile başlayarak 5 kısa video, temel kavramları öğretir. Azure Machine Learning hizmetinden.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 01/03/2018
 ---

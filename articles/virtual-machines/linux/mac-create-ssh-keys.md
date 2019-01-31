@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 63a7602deee402bed056937c8465fd87c8256cd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d442d09c8c8ded3aa50faf74e28c8d95ded24a5e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962858"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300209"
 ---
-# <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Hızlı adımlar: oluşturma ve azure'da Linux VM'ler için SSH ortak-özel anahtar çifti kullanma
+# <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Hızlı adımlar: Oluşturma ve azure'da Linux VM'ler için SSH ortak-özel anahtar çifti kullanma
 
-Güvenli kabuk (SSH) anahtar çiftiyle Azure’da sanal makineler (VM) oluşturabilirsiniz. Bu sayede kimlik doğrulaması için SSH anahtarlarını kullanarak oturum açmak için parolalara duyulan gereksinimi ortadan kaldırırsınız. Bu makalede hızlı bir şekilde oluşturmak ve Linux Vm'leri için SSH ortak-özel anahtar dosyası çifti kullanma gösterilmektedir. Bu adımları Azure Cloud Shell, macOS veya Linux ana bilgisayar, Linux için Windows alt sistemi ve OpenSSH destekleyen diğer araçlar ile tamamlayabilir. 
+Güvenli Kabuk (SSH) anahtar çiftiyle azure'da oturum açmak parola gereksinimini ortadan kimlik doğrulaması için SSH anahtarları kullanan sanal makineler (VM) oluşturabilirsiniz. Bu makalede hızlı bir şekilde oluşturmak ve Linux Vm'leri için SSH ortak-özel anahtar dosyası çifti kullanma gösterilmektedir. Bu adımları Azure Cloud Shell, macOS veya Linux ana bilgisayar, Linux için Windows alt sistemi ve OpenSSH destekleyen diğer araçlar ile tamamlayabilir. 
 
 > [!NOTE]
 > SSH anahtarları kullanılarak oluşturulan VM'ler, deneme yanılma saldırılarına saldırıları zorluk önemli ölçüde artıran devre dışı, parolaları ile yapılandırılmış varsayılan ' dir. 
@@ -65,7 +65,7 @@ SSH ortak anahtarı biçimiyle ilgili bilgi sahibi değilseniz, aşağıdaki ort
 cat ~/.ssh/id_rsa.pub
 ```
 
-Tipik bir ortak anahtar değeri şu şekilde görünür:
+Tipik bir ortak anahtar değeri şu örnekteki gibi görünür:
 
 ```
 ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
@@ -88,6 +88,8 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 Anahtar çiftinizi oluştururken bir parola belirtilmişse oturum açma işlemi sırasında istendiğinde bu parolayı girin. VM ~/.ssh/known_hosts dosyanıza eklenir ve Azure VM değişikliklerinizi ya da ortak anahtar kadar yeniden bağlanmak için sorulmaz veya sunucu adı ~/.ssh/known_hosts kaldırılır.
+
+VM tam zamanında erişim ilkesi kullanıyorsa, sanal Makineye bağlanmadan önce erişim istemeniz gerekir. Tam zamanında İlkesi hakkında daha fazla bilgi için bkz: [yalnızca kullanarak sanal makine erişimini yönetme zamanında İlkesi](../../security-center/security-center-just-in-time.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

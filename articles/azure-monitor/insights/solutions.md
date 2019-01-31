@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 574391fd64d0525d3d77b80bb488bea8109729af
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0103225803ca98cb9d8e27eb57f150e0660cd7ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187346"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299147"
 ---
 # <a name="management-solutions-in-azure-monitor"></a>Azure İzleyici'de yönetim çözümleri
 Yönetim çözümleri belirli bir uygulama veya hizmet işlemi ek Öngörüler sağlar, Azure hizmetlerinde yararlanın. Bu makalede, kullanarak ve bunları yükleme yönetim çözümlerini Azure'da ve ayrıntıları kısa bir genel bakış sağlar.
@@ -60,7 +60,7 @@ Kendi Özet sayfasını açmak için bir çözümün adına tıklayın. Bu sayfa
 ## <a name="install-a-management-solution"></a>Bir yönetim çözümü yükleme
 Microsoft ve ortaklarından yönetim çözümleri web'da [Azure Marketi](https://azuremarketplace.microsoft.com). Kullanılabilir çözümler arayabilir ve bunları aşağıdaki yordamı kullanarak yükleyin. Bir çözüm yüklediğinizde seçmelisiniz bir [Log Analytics çalışma alanı](../platform/manage-access.md) çözüm yükleneceği ve verilerinin nerede toplanacağını.
 
-1. Gelen [aboneliğiniz için çözümlerin listesini](#list-installed-monitoring-solutions), tıklayın **Ekle**. 
+1. Gelen [aboneliğiniz için çözümlerin listesini](#list-installed-management-solutions), tıklayın **Ekle**. 
 1. Sağındaki **yönetim çözümleri**, tıklayın **daha fazla**. 
 1. Açıklamasını okuma ve istediğiniz yönetim çözümü bulun.
 1. Tıklayın **Oluştur** yükleme işlemini başlatmak için.

@@ -2,19 +2,18 @@
 title: DPM sunucusu iş yüklerini Azure'a Yedeklemeye hazırlanma
 description: DPM verileri bir Azure kurtarma Hizmetleri kasasına yedekleme giriş.
 services: backup
-author: adigan
-manager: nkolli
-keywords: System Center Data Protection Manager, data protection manager, dpm yedekleme
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024486"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301076"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM ile azure'a iş yüklerini yedeklemek hazırlama
 
@@ -51,7 +50,7 @@ DPM bir Hyper-V sanal makinesi üzerinde | System Center 2012 SP1 veya üzeri; S
 Bir VMware VM'de DPM | System Center 2012 R2 Güncelleştirme Paketi 5 veya üzeri.
 Bileşenler | DPM sunucusunda Windows PowerShell ve .net olması Framework 4.5 yüklü.
 Desteklenen uygulamalar | [Bilgi](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) ne DPM yedekleme yapabilirsiniz.
-Desteklenen dosya türleri | Bu dosya türlerini, Azure Backup ile yedeklenebilir: (yalnızca tam yedeklemeler) şifrelenir (Artımlı yedeklemeler desteklenir) sıkıştırılır; Aralıklı (artımlı yedeklemeler desteklenir); Sıkıştırılmış ve aralıklı (seyrek olarak kabul edilir).
+Desteklenen dosya türleri | Bu dosya türlerini, Azure Backup ile yedeklenebilir: (Yalnızca tam yedeklemeler) şifrelenir (Artımlı yedeklemeler desteklenir) sıkıştırılır; Aralıklı (artımlı yedeklemeler desteklenir); Sıkıştırılmış ve aralıklı (seyrek olarak kabul edilir).
 Desteklenmeyen dosya türleri | Büyük küçük harfe duyarlı dosya sistemlerindeki sunucular; sabit bağlantılar (atlanır); yeniden ayrıştırma noktaları (atlanır); şifrelenmiş ve sıkıştırılmış (atlanır); şifrelenmiş ve aralıklı (atlanır); Sıkıştırılmış akış; akışı ayrıştıramadı.
 Yerel depolama | Yedeklemek istediğiniz her makine yedeklenmekte verilerin boyutunu % 5'en az yerel boş depolama alanı olması gerekir.  Örneğin, 100 GB veri yedekleme, en az 5 GB boş alan karalama konumu gerektirir.
 Depolama kasası | Bir Azure Backup vault'a Yedekleyebileceğiniz veri miktarı için bir sınır yoktur ancak (örneğin bir sanal makine veya veritabanı) bir veri kaynağının boyutunu 54400 GB uzun olmaması gerekir.
