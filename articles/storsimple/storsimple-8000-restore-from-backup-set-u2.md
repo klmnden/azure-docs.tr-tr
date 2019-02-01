@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 55a4b150471b87289cdd67dc8fbce92336850364
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568827"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496491"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Bir yedekleme kümesinden StorSimple birimini geri yükleme
 
@@ -71,7 +71,7 @@ Güncelleştirme 4'te çalışan yeniden doldurma işleri sorgulamak, yeniden do
 
 Yeniden doldurma cmdlet'leri hakkında daha fazla bilgi için Git [StorSimple için Windows PowerShell cmdlet başvurusu](https://technet.microsoft.com/library/dn688168.aspx).
 
-Otomatik rehdyration ile genellikle yüksek geçici okuma performansı bekleniyor. Gerçek magniutde geliştirmelerinin erişim düzeni, veri değişim sıklığı ve veri türü gibi çeşitli faktörlere bağlıdır. 
+Otomatik yeniden doldurma ile genellikle yüksek geçici okuma performansı bekleniyor. Gerçek geliştirmeler büyüklüğünü erişim düzeni, veri değişim sıklığı ve veri türü gibi çeşitli faktörlere bağlıdır. 
 
 Yeniden doldurma işi iptal etmek için PowerShell cmdlet'ini kullanabilirsiniz. Tüm gelecek geri yükler, işleri yeniden doldurma kalıcı olarak devre dışı bırakmak isterseniz [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
 

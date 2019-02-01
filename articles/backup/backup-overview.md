@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7156042243b1ba28cea712dc3722600b9fc46c42
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 298c9fabca9d1994e0b952fdf8b48b70370c3ec2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360231"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490679"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup nedir?
 
@@ -47,8 +47,8 @@ Azure Backup ve Azure Site Recovery Hizmetleri İşletmenizde bir iş süreklili
 
 Her iki hizmet tamamlayıcı ancak farklı bir işlevsellik sağlar.
 
-- **Azure Site Recovery**: Site Recovery, şirket içi makinelerin ve Azure Vm'leri için olağanüstü durum kurtarma çözümü sunar. Makineleri ikincil bir birincil konumdan çoğaltma. Olağanüstü durumla karşılaştığınızda, ou makineler ikincil konuma yük devretme ve makinelere oradan erişebilirsiniz. Her şey çalışır duruma normalde yeniden üstündeyse başarısız makineler kurtarma için bunları birincil sitede yedekleyin.
-- **Azure yedekleme**: Azure Backup hizmeti, şirket içi makinelerin ve Azure Vm'leri verileri yedekler. Veri yedeklenebilir ve dosyaları, klasörleri, makine sistem durumu ve uygulama durumunu algılayan yedekleme geri dahil ayrıntılı bir düzeyde, kurtarılır. Azure yedekleme, Site Recovery değerinden daha ayrıntılı bir düzeyde verileri işler. Örneğin, dizüstü bilgisayardaki sunu bozulduysa, sunuyu geri yüklemek için Azure Backup kullanın. Güvenli ve erişilebilir bir VM yapılandırma ve verileri tutmak istiyorsanız, Site RECOVERY'yi kullanabilirsiniz.  
+- **Azure Site Recovery**: Site Recovery, şirket içi makinelerin ve Azure Vm'leri için olağanüstü durum kurtarma çözümü sunar. Makineleri ikincil bir birincil konumdan çoğaltma. Olağanüstü durumla karşılaştığınızda, makineleri ikincil konuma yük devretme ve makinelere oradan erişebilirsiniz. Her şey çalışır duruma normalde yeniden üstündeyse başarısız birincil site kurtarılır arka makineleri.
+- **Azure yedekleme**: Azure Backup hizmeti, şirket içi makinelerin ve Azure Vm'leri verileri yedekler. Veri yedeklenebilir ve dosyaları, klasörleri, makine sistem durumu yedeklemesi ve uygulama durumunu algılayan yedekleme de dahil olmak üzere ayrıntılı bir düzeyde, kurtarılır. Azure yedekleme, Site Recovery değerinden daha ayrıntılı bir düzeyde verileri işler. Örneğin, dizüstü bilgisayardaki sunu bozulduysa, sunuyu geri yüklemek için Azure Backup kullanın. Güvenli ve erişilebilir bir VM yapılandırma ve verileri tutmak istiyorsanız, Site RECOVERY'yi kullanabilirsiniz.  
 
 BCDR gereksinimlerinizi şekil yardımcı olması için tablo noktalarını kullanın. 
 

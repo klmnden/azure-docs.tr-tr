@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156420"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486309"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft azure'da uyarılara genel bakış 
 
@@ -106,7 +106,7 @@ Bu görünümde, sayfanın üst kısmındaki açılan menüler, değerleri seçe
 
 Başka bir sayfasını açmak için uyarılar sayfasında üstüne aşağıdaki değerleri seçin.
 
-| Value | Açıklama |
+| Değer | Açıklama |
 |:---|:---|
 | Toplam uyarı sayısı | Seçilen ölçütlerle eşleşen uyarılar toplam sayısı. Bu değer ile filtre tüm uyarılar görünümünü açmak için seçin. |
 | Akıllı gruplar | Seçilen ölçütlerle eşleşen uyarılardan oluşturulan akıllı grupları toplam sayısı. Tüm uyarılar Görünümü'nde akıllı grupları listesini açmak için bu değeri seçin.

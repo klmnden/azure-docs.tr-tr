@@ -3,7 +3,7 @@ title: Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma | Mi
 description: Bu belgede ele yardımcı olacak öneriler Güvenlik Merkezi'nde sanal makinelerinizi ve bilgisayarlar ve web uygulamaları ve App Service ortamları koruma.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 411fc025f5a25e961f69f5e6f66a9f6d115689a7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181478"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487752"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler) ve bilgisayarlar, uygulamalar, ağ, SQL ve kimlik ve erişim.
@@ -42,7 +42,7 @@ Altında **işlem ve uygulamalar**, aşağıdaki sekmeleri vardır:
 - **Genel Bakış**: Güvenlik Merkezi tarafından belirlenen izleme ve öneriler.
 - **Sanal makineler ve bilgisayarlar**: Sanal makinelerinizin, bilgisayarlarınızın ve her birinin geçerli güvenlik durumunun listesi.
 - **Cloud Services**: Güvenlik Merkezi tarafından izlenen web ve çalışan rollerinizin listesi.
-- **Uygulama Hizmetleri (Önizleme)**: App service ortamları ve her birinin geçerli güvenlik durumunu listesi.
+- **Uygulama Hizmetleri**: App service ortamları ve her birinin geçerli güvenlik durumunu listesi.
 - **Kapsayıcılar (Önizleme)**: Iaas Linux makineleri ve Docker yapılandırmalarına güvenlik değerlendirmesini üzerinde barındırılan kapsayıcıları listesi.
 - **İşlem kaynakları (Önizleme)**: Service Fabric kümeleri ile Event hubs gibi işlem kaynaklarınız için önerilerin bir listesi.
 
@@ -124,12 +124,11 @@ Bu öneriyle ilgili daha kesin bir açıklama görmek için **AÇIKLAMA** sütun
 
 ![İşletim sistemi sürümünü güncelleştirme](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### <a name="app-services-preview"></a>Uygulama hizmetleri (Önizleme)
+### <a name="app-services"></a>Uygulama hizmetleri
+App Service bilgileri görüntülemek için aboneliğinize App Service etkinleştirmeniz gerekir. Bu özellik etkinleştirme hakkında yönergeler için bkz: [Azure Güvenlik Merkezi ile App Service'ı koruma](security-center-app-services.md).
+[!NOTE]
+> App Service'ı izleme önizlemede ve Güvenlik Merkezi'nin standart katmanında yalnızca kullanılabilir.
 
-> [!NOTE]
-> App Service'ı izleme önizlemede ve Güvenlik Merkezi'nin standart katmanında yalnızca kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
->
->
 
 Altında **uygulama hizmetleri**, App service ortamları listesini bulmak ve Güvenlik Merkezi değerlendirmesini temel alan durum özeti gerçekleştirilir.
 
@@ -171,19 +170,9 @@ Altında **uygulama hizmetleri**, App service ortamları listesini bulmak ve Gü
 |App Service|10|Uzaktan hata ayıklama için Web uygulaması kapalı olmaları|Artık bunu kullanmanız gerekiyorsa, Web uygulamaları için hata ayıklama devre dışı bırakın. Uzaktan hata ayıklama, gelen bağlantı noktası üzerinde bir işlev uygulaması açılmasını gerektirir.|
 |App Service|10|Uzaktan hata ayıklama işlev uygulaması için kapatılmalıdır|Artık bunu kullanmanız gerekiyorsa, işlev uygulaması için hata ayıklama devre dışı bırakın. Uzaktan hata ayıklama, gelen bağlantı noktası üzerinde bir işlev uygulaması açılmasını gerektirir.|
 |App Service|10|Web uygulaması için IP kısıtlamalarını yapılandırma|Uygulamanıza erişmek için izin verilen IP adreslerinin bir listesini tanımlar. IP kısıtlamaları kullanımı, bir web uygulaması genel saldırılara karşı korur.|
-|App Service|10|İşlev uygulaması için IP kısıtlamalarını yapılandırma| Uygulamanıza erişmek için izin verilen IP adreslerinin bir listesini tanımlar. IP kısıtlamaları kullanımını bir işlev uygulaması genel saldırılara karşı korur.|
 |App Service|10|Tüm izin verme ('* ') uygulamanıza erişmek için kaynaklar| WEBSITE_LOAD_CERTIFICATES parametre kümesi izin verme "". Parametresini ayarlayarak '' tüm sertifikalar, web uygulamaları kişisel sertifika deposuna yüklendiğini anlamına gelir. Site çalışma zamanında tüm sertifikalara erişim gerektiğini olası olmadığından bu en düşük öncelik ilkesini kötüye neden olabilir.|
-|App Service|5|Web uygulaması için Web yuvalarını devre dışı bırakılmalıdır|Web uygulamaları içinde Web yuvaları kullanımını gözden geçirin. Web yuvaları Protokolü farklı güvenlik tehdidi türlerine savunmasızdır.|
-|App Service|5|İşlev uygulaması için Web yuvalarını devre dışı bırakılmalıdır|İşlev uygulamaları içinde Web yuvaları kullanımını gözden geçirin. Web yuvaları Protokolü farklı güvenlik tehdidi türlerine savunmasızdır.|
-|App Service|5|Web uygulamanız için özel etki alanları kullanın|Özel etki alanları, bir web uygulaması kimlik avı gibi genel saldırılara ve DNS ile ilgili diğer saldırılara karşı korumak için kullanın.|
-|App Service|5|İşlev uygulaması için özel etki alanları kullanın|Özel etki alanları, bir işlev uygulaması, kimlik avı gibi genel saldırılara ve DNS ile ilgili diğer saldırılara karşı korumak için kullanın.|
 |App Service|20|CORS her kaynağın Web uygulamalarınıza erişmek izin vermemelidir|Web uygulamanızla etkileşim kurmak yalnızca gerekli etki alanı sağlar. Kaynak kaynak paylaşımı (CORS) tüm etki alanları web uygulamanıza erişmek izin vermemelisiniz.|
 |App Service|20|CORS her kaynağın işlev uygulamanıza erişmek izin vermemelidir| İşlev uygulamanızla etkileşim kurmak yalnızca gerekli etki alanı sağlar. Kaynak kaynak paylaşımı (CORS) tüm etki alanlarının işlev uygulamanıza erişmek izin vermemelisiniz.|
-|App Service|10|Kullanım en son .NET Framework Web uygulaması için desteklenir.|En son .NET Framework sürümü için en son güvenlik sınıflarını kullanın. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz.|
-|App Service|10|Web uygulaması için desteklenen en son Java sürümünü kullanın|En son Java sürümünü en son güvenlik sınıflarını kullanın. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz.|
-|App Service|10|Web uygulaması için desteklenen en son PHP sürümünü kullanın|En son PHP sürümünü en son güvenlik sınıflarını kullanın. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz.|
-|App Service|10|Web uygulaması için desteklenen en son Node.js sürümünü kullanın|En son Node.js sürümü için en son güvenlik sınıflarını kullanın. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz.|
-|App Service|10|Web uygulaması için desteklenen en son Python sürümünü kullanın|En son Python sürümünü en son güvenlik sınıflarını kullanın. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz.|
 |İşlem kaynakları (toplu)|1|Batch hesabında ölçüm uyarı kuralları yapılandırma|Batch hesabında ölçüm uyarı kuralları yapılandırın ve havuzu Silme Tamamlandı olayları ve havuz silme başlangıç olayları ölçümlerini etkinleştir|
 |İşlem kaynakları (service fabric)|10|Service fabric'te istemci kimlik doğrulaması için Azure Active Directory kullanın|İstemci kimlik doğrulaması yalnızca Azure Active Directory aracılığıyla Service Fabric'te gerçekleştirin.|
 |İşlem kaynakları (Otomasyon hesabı)|5| Otomasyon hesabının şifrelemeyi etkinleştir|Otomasyon hesabı değişken varlıkları şifrelenmesi, hassas verileri depolarken etkinleştirin.|

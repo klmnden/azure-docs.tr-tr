@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9f60775bd057f0ad114bd7d7d0d42514a83186c5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1cebd5d049475a5962a87abede449bd6d53f3ee2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186850"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492462"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect eşitleme: Varsayılan yapılandırmanın değiştirilmesine ilişkin en iyi yöntemler
 Azure AD Connect eşitlemesi için desteklenen ve desteklenmeyen değişiklikleri açıklamak için bu konunun amacı olan.
@@ -73,5 +73,5 @@ Kopyalanan bu kuralı, kapsam, birleştirme ve dönüştürme için gerekli değ
 ## <a name="next-steps"></a>Sonraki adımlar
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)

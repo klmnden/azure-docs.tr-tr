@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b0eae86a4927f716c974086411e1098f2e9a190d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718937"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498038"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight ile betik eylemi geliştirme
 
@@ -72,10 +72,10 @@ Kullanarak işletim sistemi sürümünü kontrol edebilirsiniz `lsb_release`. A�
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ...
@@ -299,10 +299,10 @@ HDInsight'ın farklı sürümlerini Ubuntu belirli sürümlerinde kullanır. Bet
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ```
@@ -323,7 +323,7 @@ Betik eylemleri, HDInsight kümeleri aşağıdaki yöntemleri kullanarak özelle
 * Azure portal
 * Azure PowerShell
 * Azure Resource Manager şablonları
-* HDInsight .NET SDK'sı.
+* The HDInsight .NET SDK.
 
 Her yöntemi kullanma hakkında daha fazla bilgi için bkz. [betik eylemi kullanmayı](hdinsight-hadoop-customize-cluster-linux.md).
 

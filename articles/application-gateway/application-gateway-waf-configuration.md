@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 11/6/2018
+ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 24cb5d7ddb1bfbb64796d871aa79109dfdfa94be
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353201"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492938"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web uygulaması güvenlik duvarı istek boyutu sınırları ve hariç tutma listeleri
 
@@ -45,7 +45,7 @@ Hariç tutma listeleri aşağıdaki öznitelikleri eklenebilir:
    * XML
    * JSON
 
-Bir tam istek üst bilgisini belirtin, tanımlama bilgisi veya sorgu dizesi özniteliği eşleşme gövde veya kısmi eşleşmeler isteğe bağlı olarak belirtebilirsiniz.
+Belirtin tam istek üst bilgisi, gövdesi, tanımlama bilgisi veya sorgu dizesi özniteliği eşleşme.  Veya kısmi eşleşmeler isteğe bağlı olarak belirtebilirsiniz. Dışlama hiçbir zaman değeri üzerinde bir üstbilgi alanı her zaman açıktır. Hariç tutma kuralları kapsamı geneldir ve tüm sayfaları ve tüm kurallar için.
 
 Desteklenen eşleşme ölçütlerini işleçler şunlardır:
 

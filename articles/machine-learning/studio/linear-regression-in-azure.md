@@ -1,7 +1,21 @@
 ---
-Başlık: Analiz için Azure Machine Learning Studio titleSuffix Excel'den Geçir: Azure Machine Learning Studio açıklaması: Doğrusal regresyon modeli Excel'de ve Azure Machine Learning Studio Services karşılaştırması: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/20/2017
+title: Analytics, Azure Machine Learning Studio'da Excel'den geçirme
+titleSuffix: Azure Machine Learning Studio
+description: Excel ve Azure Machine Learning Studio'da doğrusal regresyon modeli karşılaştırması
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/20/2017
+ms.openlocfilehash: 12c82d440613078e9f0593ddb9fb6c7fe7b8c362
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488365"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Analytics, Azure Machine Learning Studio'da Excel'den geçirme
 

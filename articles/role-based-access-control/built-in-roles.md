@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 23fab567fc2fdd5c5c8f3c5d173a5201d3322f81
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081237"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512559"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcılara, gruplara veya hizmet sorumluları için atayabileceğiniz birkaç yerleşik rol tanımlarına sahiptir. Rol atamaları, azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
@@ -149,8 +149,8 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Eylemler** |  |
 > | * | Tüm türlerin kaynak oluşturma ve yönetme |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Rolleri ve rol ataması silinemiyor |
-> | Microsoft.Authorization/*/Write | Rolleri ve rol atamalarını oluşturulamıyor |
+> | Microsoft.Authorization/*/Delete | Rolleri ve rol atamaları silin |
+> | Microsoft.Authorization/*/Write | Rolleri ve rol ataması oluştur |
 > | Microsoft.Authorization/elevateAccess/Action | Çağırana kiracı kapsamında Kullanıcı Erişim Yöneticisi erişimi verir |
 > | Microsoft.Blueprint/blueprintAssignments/write | Herhangi bir şema yapıtını oluşturun veya güncelleştirin |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Herhangi bir şema yapıtını silin |
@@ -1600,15 +1600,15 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Denetim ilkeleri düzenleyemezsiniz |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Denetim ayarları düzenleyemezsiniz |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Denetim ilkeleri Düzenle |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Denetim ayarlarını Düzenle |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Veritabanı blob Denetim kayıtlarını alma |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Bağlantı ilkeleri düzenleyemezsiniz |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Veri ilkeleri maskeleme düzenleyemezsiniz |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Bağlantı ilkeleri Düzenle |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Veri maskeleme ilkeleri Düzenle |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Güvenlik Uyarısı ilkeleri düzenleyemezsiniz |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Güvenlik ölçümlerinin düzenleyemezsiniz |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Uyarı güvenlik ilkelerini düzenleme |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Güvenlik ölçümlerinin Düzenle |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
@@ -1676,23 +1676,23 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | SQL server denetim ilkeleri düzenleyemezsiniz |
-> | Microsoft.Sql/servers/auditingSettings/* | SQL sunucusunun denetim ayarlarını düzenleyemezsiniz |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | SQL server veritabanı denetim ilkeleri düzenleyemezsiniz |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | SQL server veritabanı denetim ayarları düzenleyemezsiniz |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Denetim kayıtlarını okunamıyor |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | SQL server veritabanı bağlantı ilkeleri düzenleyemezsiniz |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | SQL server veritabanı veri ilkeleri maskeleme düzenleyemezsiniz |
+> | Microsoft.Sql/servers/auditingPolicies/* | SQL server denetim ilkeleri Düzenle |
+> | Microsoft.Sql/servers/auditingSettings/* | SQL sunucusunun denetim ayarlarını Düzenle |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | SQL server veritabanı denetim ilkeleri Düzenle |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | SQL server veritabanı denetim ayarları Düzenle |
+> | Microsoft.Sql/servers/databases/auditRecords/read | Denetim kayıtlarını okuma |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | SQL server veritabanı bağlantı ilkeleri Düzenle |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | SQL server veritabanı veri maskeleme ilkeleri Düzenle |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | SQL server veritabanı güvenlik uyarı ilkeleri düzenleyemezsiniz |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | SQL server veritabanı güvenlik ölçümlerini düzenleyemezsiniz |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | SQL server veritabanı güvenlik uyarı ilkelerini düzenleme |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | SQL server veritabanı güvenlik ölçümlerini Düzenle |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | SQL server güvenlik uyarı ilkeleri düzenleyemezsiniz |
+> | Microsoft.Sql/servers/securityAlertPolicies/* | SQL server güvenlik uyarı ilkelerini düzenleme |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Depolama Hesabı Katılımcısı

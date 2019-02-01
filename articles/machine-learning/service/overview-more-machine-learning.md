@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 1/30/2019
-ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd156a10faf396778b76687b3666887a6a60876c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451878"
+ms.locfileid: "55505708"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft'ta makine öğrenimi ürünlerini nelerdir?
 
@@ -27,7 +27,7 @@ Aşağıdaki seçenekler, machine learning Azure bulutunda için kullanılabilir
 
 | Bulut&nbsp;seçenekleri | Nedir? | Bununla neler yapabilirsiniz? |
 |-|-|-|
-| [Azure Machine Learning hizmeti](#azure-machine-learning-services) | ML için yönetilen bulut hizmeti  | Python ve CLI kullanarak Azure’da modelleri eğitme, dağıtma ve yönetme |
+| [Azure Machine Learning hizmeti](#azure-machine-learning-service) | ML için yönetilen bulut hizmeti  | Python ve CLI kullanarak Azure’da modelleri eğitme, dağıtma ve yönetme |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Sürükleme&ndash;ve&ndash;ML için görsel arabirim bırakma | Derleme, denemeler yapın ve önceden yapılandırılmış algoritmalar (Python ve R) kullanarak modelleri dağıtma|
 | [Azure Databricks](#azure-databricks) | Spark tabanlı analiz platformu | Modelleri ve veri iş akışlarını derleme ve dağıtma |
 | [Azure Bilişsel Hizmetler](#azure-cognitive-services) | Önceden derlenmiş AI ve ML modellerine sahip Azure hizmetleri | Uygulamalarınıza akıllı özellikleri kolayca ekleme |

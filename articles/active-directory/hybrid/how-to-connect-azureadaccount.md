@@ -12,16 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3ced4d7be9864f16b4fbd7a91ae916e1b4f65d18
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c542ba1c105d2fcdb74d5f8b1af1ecddade65a20
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177925"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488750"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect eşitleme: Azure AD hizmet hesabını yönetme
 Azure AD Bağlayıcısı tarafından kullanılan hizmet hesabı, ücretsiz hizmet olduğu varsayılır. Kimlik bilgilerini sıfırlamanız gerekirse, bu konu, hakkındadır. Örneğin, bir genel yönetici tarafından hata varsa, PowerShell kullanarak hizmet hesabının parolasını sıfırlayın.
@@ -52,6 +52,6 @@ AADSTS70002: Kimlik bilgileri doğrulanırken hata. AADSTS50054: Kimlik doğrula
 ## <a name="next-steps"></a>Sonraki adımlar
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 

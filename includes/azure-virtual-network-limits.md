@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597667"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513942"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -48,6 +48,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Sanal ağ başına DNS sunucusu sayısı |20 |
 | Sanal ağ başına özel IP Adresi sayısı |65536 |
 | Ağ arabirimi başına özel IP Adresleri |256 |
+| Sanal makine başına özel IP adresleri |256 |
 | Bir sanal makine veya rol örneği, bir NIC eş zamanlı TCP veya UDP akışlar |500K |
 | Ağ Arabirimleri (NIC) |65536 |
 | Ağ Güvenlik Grupları (NSG) |5000 |
@@ -68,7 +69,8 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | --- | --- | --- |
 | Genel IP adresi - dinamik |(Temel) 1000 |desteğe başvurun |
 | Genel IP adresleri - statik |200 (Temel) |desteğe başvurun |
-| Genel IP adresleri - statik |200 (standart) |desteğe başvurun |
+| Genel IP adresleri - statik |(Standard) 200 |desteğe başvurun |
+| Genel IP ön ek boyutu (Önizleme) | /28 | /28 |
 
 #### <a name="load-balancer"></a>Yük Dengeleyici sınırları
 Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resource Manager ile yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md)

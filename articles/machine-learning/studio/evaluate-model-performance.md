@@ -1,8 +1,21 @@
 ---
-Başlık: Model performansını titleSuffix değerlendirin: Azure Machine Learning Studio açıklaması: Bu makalede, Azure Machine Learning Studio'da bir model performansını değerlendirme yapmayı gösteren ve bu görev için mevcut olan ölçümler için kısa bir açıklama sağlar.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: seodec18, yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/20/2017
+title: Model performansını değerlendirme
+titleSuffix: Azure Machine Learning Studio
+description: Bu makalede, Azure Machine Learning Studio'da bir model performansını değerlendirme yapmayı gösteren ve bu görev için mevcut olan ölçümler için kısa bir açıklama sağlar.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/20/2017
+ms.openlocfilehash: b663177a07446b888bc7bf9e919bf180458d36bc
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487017"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da model performansını değerlendirme
 

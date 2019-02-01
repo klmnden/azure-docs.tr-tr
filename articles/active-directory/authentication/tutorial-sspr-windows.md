@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 01/30/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3446548a89c33e6eb8026e41fbea01ee651b2c88
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474879"
+ms.locfileid: "55488076"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -33,6 +33,7 @@ Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranı
    * [Hibrit Azure AD'ye katılmış](../device-management-hybrid-azuread-joined-devices-setup.md), bir etki alanı denetleyicisine ağ bağlantısı ile.
 * Etkinleştirmeniz Azure AD Self Servis parola sıfırlama.
 * Windows 10 cihazlarınızı bir proxy sunucusu veya güvenlik duvarı ise URL'leri eklemelisiniz `passwordreset.microsoftonline.com` ve `ajax.aspnetcdn.com` HTTPS trafiğinin (bağlantı noktası 443) izin verilen URL'ler listesine.
+* Ortamınızda denemeden önce bu sınırlamalar aşağıda inceleyin.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma
 
@@ -116,7 +117,9 @@ Uzak Masaüstü veya bir Gelişmiş VM oturumu kullanarak bu işlevi test ederke
 
 * Şu anda Uzak Masaüstü'nden parola sıfırlama desteklenmiyor.
 
-İlke Ctrl+Alt+Del gerektiriyorsa veya Kilit ekranı bildirimleri kapatılmışsa **Parolayı sıfırla** özelliği çalışmaz.
+Ctrl + Alt + Del İlkesi'nde Windows 10 sürümleri tarafından 1809 önce gerekiyorsa **parolayı Sıfırla** çalışmaz.
+
+Kilitleme ekranı bildirimleri devre dışı ise **parolayı Sıfırla** çalışmaz.
 
 Aşağıdaki ilke ayarlarını parolalarını sıfırlama olanağı müdahale bilinen
 
@@ -128,7 +131,7 @@ Aşağıdaki ilke ayarlarını parolalarını sıfırlama olanağı müdahale bi
 
 Bu özellik, dağıtılan 802.1 x ağ kimlik doğrulaması ağlarla ve "Kullanıcı oturum açma işleminden hemen önce gerçekleştir" seçeneği için çalışmaz. 802.1 x ağ kimlik doğrulaması dağıtmış olan ağlar için bu özelliği etkinleştirmek için makine kimlik doğrulaması kullanmak için önerilir.
 
-SSPR iş akışı bir Active Directory etki alanı denetleyicisi gerek kalmadan nerede tamamlayacak bir senaryo karma etki alanına katılmış senaryoları için var. Bir etki alanı denetleyicisi ile bağlantı, yeni parola ilk kez kullanmak için gereklidir.
+Karma etki alanına katılmış senaryoları için bir Active Directory etki alanı denetleyicisi gerek kalmadan SSPR iş akışı başarıyla tamamlanır. Bir Active Directory etki alanı denetleyicisi ile iletişim gibi uzaktan çalışma, mevcut olmadığında bir kullanıcı parola sıfırlama işlemi tamamlarsa, kullanıcı cihazı bir etki alanı denetleyicisiyle iletişim kurabildiğini kadar cihaza oturum açmak mümkün olmayacaktır ve önbelleğe alınmış kimlik bilgilerini güncelleştirin. **Bir etki alanı denetleyicisiyle bağlantı ilk kez yeni parolayı kullanmak için gerekli olduğunu**.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

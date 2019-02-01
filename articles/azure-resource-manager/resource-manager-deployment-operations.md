@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8fee1e29ab3a267d77e4e43beb2c42587da5314d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 6801ed86f15820473e6aaa694b0fea091586a222
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103868"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486784"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Azure Resource Manager ile dağıtım işlemlerini görüntüleme
 
@@ -26,7 +26,10 @@ Azure portalı üzerinden bir dağıtım için işlemleri görüntüleyebilirsin
 
 Denetim günlükleri, veya dağıtım işlemlerini bakarak dağıtımınızı giderebilirsiniz. Bu makalede her iki yöntem de gösterilir. Belirli dağıtım hatalarını çözme hakkında bilgi için bkz: [kaynakları Azure Resource Manager ile azure'a dağıtırken sık karşılaşılan hataları çözme](resource-manager-common-deployment-errors.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="portal"></a>Portal
+
 Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
 
 1. Dağıtımı ile ilgili kaynak grubu için son dağıtım durumu dikkat edin. Daha fazla bilgi edinmek için bu durum seçebilirsiniz.
@@ -53,28 +56,28 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
     ![olaylara bakın](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## <a name="powershell"></a>PowerShell
-1. Bir dağıtımın genel durumunu almak için kullanın **Get-AzureRmResourceGroupDeployment** komutu. 
+1. Bir dağıtımın genel durumunu almak için kullanın **Get-AzResourceGroupDeployment** komutu. 
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
   ```
 
    Ya da başarısız olan dağıtımları için sonuçları filtreleyebilirsiniz.
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
 1. Bağıntı Kimliğini almak için kullanın:
 
   ```powershell
-  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Her dağıtım, birden çok işlem içerir. Her işlem, dağıtım işleminde bir adımı temsil eder. Bir dağıtım ile sorun nedir bulmak için genellikle dağıtım işlemleri hakkındaki ayrıntıları görmek gerekir. İşlemlerle durumunu görebilirsiniz **Get-AzureRmResourceGroupDeploymentOperation**.
+1. Her dağıtım, birden çok işlem içerir. Her işlem, dağıtım işleminde bir adımı temsil eder. Bir dağıtım ile sorun nedir bulmak için genellikle dağıtım işlemleri hakkındaki ayrıntıları görmek gerekir. İşlemlerle durumunu görebilirsiniz **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
-  Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
     Her biri için aşağıdaki biçimde ile birden çok işlem döndürür:
@@ -92,7 +95,7 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
 1. Başarısız işlemler hakkında daha fazla bilgi almak için işlem özelliklerini almak **başarısız** durumu.
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
     Her biri için aşağıdaki biçimde ile başarısız olan tüm işlemler döndürür:
@@ -115,7 +118,7 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
 1. Başarısız olan belirli bir işlemi durum iletisini almak için aşağıdaki komutu kullanın:
 
   ```powershell
-  ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
   ```
 
     Döndürür:
@@ -130,9 +133,9 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
   Günlük bilgileri alın ve aşağıdaki PowerShell komutlarını kullanarak yerel olarak kaydedin:
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
   ```
 
 ## <a name="azure-cli"></a>Azure CLI

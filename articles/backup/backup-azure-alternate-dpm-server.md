@@ -2,18 +2,18 @@
 title: Bir Azure Backup Sunucusu'ndan veri kurtarma
 description: Azure Backup bu kasaya kayıtlı tüm sunuculardan bir kurtarma Hizmetleri kasasına koruma uyguladım verileri kurtarın.
 services: backup
-author: nkolli1
-manager: shreeshd
+author: kasinh
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.author: adigan
-ms.openlocfilehash: 66d78be296d0786626325df36aa133d277131b3b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: kasinh
+ms.openlocfilehash: a0960cba58817a6d340998933fe315d6fca887e4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267105"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488467"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Azure Backup Sunucusu’ndan veri kurtarma
 Azure Backup sunucusu, bir kurtarma Hizmetleri kasasına yedeklediğiniz verileri kurtarmak için kullanabilirsiniz. İşlem yapmak için bu nedenle Azure Backup sunucusu yönetim konsolunda oturum tümleşiktir ve diğer Azure Backup bileşenlerini kurtarma iş akışını benzer.

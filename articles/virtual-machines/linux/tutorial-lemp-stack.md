@@ -3,7 +3,7 @@ title: Öğretici - Azure’daki bir Linux sanal makinesinde LEMP dağıtma | Mi
 description: Bu öğreticide, Azure’daki bir Linux sanal makinesinde LEMP yığını yüklemeyi öğrenirsiniz
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: c4926760162baa5687242f4372377c64c7e24b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: 0a9d63f4064952adbfedfc3f9656370ef7c4a1cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999367"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511286"
 ---
-# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure’da bir Linux sanal makinesine bir LEMP web sunucusu yükleme
+# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure'da bir Linux sanal makinesine LEMP web sunucusu yükleme
 
 Bu makalede, Azure’daki bir Ubuntu sanal makinesine NGINX web sunucusunun, MySQL ve PHP’nin (LEMP yığını) nasıl dağıtılacağı gösterilmektedir. LEMP yığını, Azure’a da yükleyebileceğiniz popüler [LAMP yığınının](tutorial-lamp-stack.md) bir alternatifidir. LEMP sunucusunu çalışır halde görmek için, isteğe bağlı olarak bir WordPress sitesi yükleyip yapılandırabilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -46,17 +46,15 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 Ubuntu paket kaynaklarını güncelleştirmek ve NGINX, MySQL ve PHP yüklemek için aşağıdaki komutu çalıştırın. 
 
 ```bash
-sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
+sudo apt update && sudo apt install nginx && sudo apt install mysql-server php-mysql php-fpm
 ```
 
-Paketleri ve diğer bağımlılıkları yüklemeniz istenir. İstendiğinde, MySQL için bir kök parola ayarlayın ve [Enter] tuşuna basarak devam edin. Kalan istemleri izleyin. Bu işlem, MySQL ile PHP kullanmak için gereken en düşük PHP uzantılarını yükler. 
-
-![MySQL kök parolası sayfası][1]
+Paketleri ve diğer bağımlılıkları yüklemeniz istenir. Bu işlem, MySQL ile PHP kullanmak için gereken en düşük PHP uzantılarını yükler.  
 
 ## <a name="verify-installation-and-configuration"></a>Yükleme ve yapılandırmayı doğrulama
 
 
-### <a name="nginx"></a>NGINX
+### <a name="verify-nginx"></a>Verify NGINX
 
 Aşağıdaki komutla NGINX sürümünü denetleyin:
 ```bash
@@ -68,7 +66,7 @@ NGINX yüklüyken ve sanal makinenizde 80 numaralı bağlantı noktası açıkke
 ![NGINX varsayılan sayfası][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>Doğrulayın ve MySQL güvenliğini sağlama
 
 Aşağıdaki komutla MySQL sürümünü denetleyin (ana `V` parametresini not edin):
 
@@ -76,24 +74,24 @@ Aşağıdaki komutla MySQL sürümünü denetleyin (ana `V` parametresini not ed
 mysql -V
 ```
 
-MySQL yüklemesini güvenli hale getirmek için `mysql_secure_installation` betiğini çalıştırın. Yalnızca geçici bir sunucu ayarlıyorsanız bu adımı atlayabilirsiniz. 
+Bir kök parola ayarlama dahil olmak üzere, MySQL yüklemesini güvenli hale getirmek için çalıştırma `mysql_secure_installation` betiği. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-MySQL için bir kök parola girin ve ortamınız için güvenlik ayarlarını yapılandırın.
+İsteğe bağlı olarak, doğrulama parola (önerilen) eklentisi ayarlayabilirsiniz. Ardından, MySQL kök kullanıcı için bir parola ayarlamanız ve ortamınız için kalan güvenlik ayarlarını yapılandırın. "Y" (Evet) tüm soruları yanıtlamak olmasını öneririz.
 
 MySQL özelliklerini (MySQL veritabanı oluşturma, kullanıcı ekleme veya yapılandırma ayarlarını değiştirme) denemek istiyorsanız MySQL’de oturum açın. Bu öğreticiyi tamamlamak için bu adım gerekli değildir. 
 
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 İşiniz bittiğinde, `\q` yazarak mysql isteminden çıkın.
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>PHP doğrulayın
 
 Aşağıdaki komutla PHP sürümünü denetleyin:
 
@@ -109,7 +107,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-Düzenleyicide, `/etc/nginx/sites-available/default` içeriklerini aşağıdakilerle değiştirin. Ayarların açıklaması için yorumlara bakın. *yourPublicIPAddress* için sanal makinenizin genel IP adresini değiştirin ve kalan ayarları değiştirmeden bırakın. Ardından dosyayı kaydedin.
+Düzenleyicide, `/etc/nginx/sites-available/default` içeriklerini aşağıdakilerle değiştirin. Ayarların açıklaması için yorumlara bakın. Sanal makinenizin genel IP adresini değiştirin *Yourpublicıpaddress*, PHP sürümü onaylayın `fastcgi_pass`ve kalan ayarları değiştirmeden bırakın. Ardından dosyayı kaydedin.
 
 ```
 server {
@@ -129,7 +127,7 @@ server {
     # Include FastCGI configuration for NGINX
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
     }
 }
 ```
@@ -177,6 +175,5 @@ SSL sertifikalarını kullanarak güvenli web sunucularının güvenliğini nas�
 > [!div class="nextstepaction"]
 > [SSL ile web sunucusunun güvenliğini sağlama](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

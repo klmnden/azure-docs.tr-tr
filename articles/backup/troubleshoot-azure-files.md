@@ -5,15 +5,15 @@ services: backup
 ms.service: backup
 author: rayne-wiselman
 ms.author: raynew
-ms.date: 10/23/2018
+ms.date: 01/31/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 56daf1bd8d0ab7752b74463759f25441924b52d2
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 5ee0eccced5757c91fca1ba7f77750839bc017f3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064126"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492734"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Azure Dosya Paylaşımlarını yedekleme sorunlarını giderme
 Aşağıdaki tablolarda listelenen bilgilerle Azure Dosya Paylaşımları yedeklemesi kullanılırken karşılaşılan sorunları ve hataları giderebilirsiniz.

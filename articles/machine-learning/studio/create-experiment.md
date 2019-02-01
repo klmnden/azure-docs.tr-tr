@@ -1,10 +1,22 @@
 ---
-Başlık: Basit bir deneme titleSuffix: Azure Machine Learning Studio açıklaması: Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: Öğreticisi
-
-Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 03/20/2017
+title: Basit bir deneme
+titleSuffix: Azure Machine Learning Studio
+description: Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: tutorial
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: be52f5fbe6c7d282a50e53c4326478b937ea8081
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488397"
 ---
-
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Öğretici: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
 Daha önce **Azure Machine Learning Studio** kullanmadıysanız, bu öğretici sizin için hazırlanmıştır.

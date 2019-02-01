@@ -8,16 +8,16 @@ manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b75bc46c9717a3fb60cfef5a1cd70a4753db77b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f72cde01884bc5037fff7787af5ec67ec32b03b5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189774"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486878"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama
 Bu makalede, şirket içi Active Directory örneğinden bulut tabanlı bir Azure Active Directory (Azure AD) örneği, kullanıcı parolalarını eşitlemek için gereken bilgileri sağlar.
@@ -140,6 +140,6 @@ Güvenlik ve FIPS hakkında daha fazla bilgi için bkz. [Azure AD parola karma e
 Parola Karması eşitleme ile ilgili sorunlar olup [parola karması eşitleme sorunlarını giderme](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure AD Connect eşitleme: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitlemesi: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 * [Parola Karması eşitleme için ADFS geçirmek için adım adım dağıtım planı Al](https://aka.ms/authenticationDeploymentPlan)

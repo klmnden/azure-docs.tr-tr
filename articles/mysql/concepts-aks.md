@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.openlocfilehash: 624689fd6b9d8f364b0caf7e96b79b2773ce6171
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d9f2e26a2bc89329ca9038c666c0d960289e2670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538183"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485458"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>MySQL için Azure Kubernetes hizmeti ve Azure veritabanına bağlanma
 
@@ -32,6 +32,14 @@ AKS kümenizi accelerated networking olup olmadığını doğrulayabilirsiniz:
 6. Sanal makinenin Git **ağ** sekmesi.
 7. Onayla olmadığını **hızlandırılmış** 'Etkin.'
 
+Veya aşağıdaki iki komutu Azure CLI kullanarak:
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
+```
+Çıktı, AKS ağ arabirimi içeren oluşturduğu oluşturulan kaynak grubu olacaktır. "NodeResourceGroup" adını alın ve sonraki komutu kullanın. **EnableAcceleratedNetworking** true veya false olur:
+```azurecli
+az network nic list --resource-group nodeResourceGroup -o table
+```
 
 ## <a name="open-service-broker-for-azure"></a>Azure için Açık Hizmet Aracısı 
 [Azure için hizmet Aracısı'nı açın](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA), Azure hizmetlerinden doğrudan Kubernetes veya Cloud Foundry sağlama olanak sağlar. Bu bir [açık hizmet Aracısı API](https://www.openservicebrokerapi.org/) Azure için uygulama.

@@ -11,18 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: d86a1591c81c6343ec376c080945b4bf1f97638a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 064cef04ac609b0e6db5f55d9973e3974af8e0cc
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471785"
+ms.locfileid: "55494893"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Kaynak grubu ve kaynak abonelik düzeyinde oluşturun.
 
 Genellikle, Azure kaynakları Azure aboneliğinizde bir kaynak grubuna dağıtın. Ancak, aynı zamanda Azure kaynak grupları oluşturabilir ve abonelik düzeyinde Azure kaynakları oluşturma. Abonelik düzeyinde şablonlarını dağıtmak için Azure CLI ve Azure PowerShell kullanırsınız. Azure portalında dağıtım abonelik düzeyinde desteklemiyor.
 
 Bir Azure Resource Manager şablonunda bir kaynak grubu oluşturmak için tanımladığınız bir [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions.md) kaynak adı ve kaynak grubu için konum. Bir kaynak grubu oluşturun ve kaynakları bu kaynak grubunda aynı şablonu dağıtın. Abonelik düzeyinde dağıttığınız kaynakları şunlardır: [İlkeleri](../azure-policy/azure-policy-introduction.md), ve [rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-considerations"></a>Dağıtma konuları
 

@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 493dc834319d8f5842a7f9f5c4ca568742264df9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ed32cbabe5f80e131f467a87378eda8912b9a65e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180475"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496270"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect eşitleme: Varsayılan yapılandırmayı anlama
 Bu makalede, out-of-box Yapılandırması kuralları açıklanır. Bu belgeleri, kuralları ve bu kurallar yapılandırmanın nasıl etkiler. Ayrıca, Azure AD Connect eşitleme yapılandırmasını varsayılan rehberlik sağlar. Okuyucu adlı bildirim temelli sağlama, yapılandırma modeli, gerçek hayatta kullanılan örnekte nasıl çalıştığını anladığını hedeftir. Bu makalede, zaten yüklediyseniz ve Azure AD Connect eşitlemeyi Yükleme Sihirbazı'nı kullanarak yapılandırma varsayılır.
@@ -219,7 +219,7 @@ Eşitleme kuralları için öncelik gruplarında Yükleme Sihirbazı tarafından
 ### <a name="putting-it-all-together"></a>Hepsini bir araya getirme
 Artık yapılandırma farklı eşitleme kuralları ile nasıl çalıştığını anlamak için eşitleme kuralları hakkında yeterli biliyoruz. Bir kullanıcı ve meta veri deposu için katkıda öznitelikleri bakarsanız, kuralları aşağıdaki sırayla uygulanır:
 
-| Name | Açıklama |
+| Ad | Açıklama |
 |:--- |:--- |
 | İçinde ad – kullanıcı birleştirme |Bağlayıcı alanı nesne meta veri deposu ile katılmak için kural'ı tıklatın. |
 | İçinde UserAccount AD'den – etkin |Oturum açma için Azure AD için gerekli öznitelikler ve Office 365. Bu öznitelikler etkin hesabından istiyoruz. |
@@ -236,6 +236,6 @@ Artık yapılandırma farklı eşitleme kuralları ile nasıl çalıştığını
 
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 

@@ -1,27 +1,27 @@
 ---
-title: SaaS uygulamalarına erişimi yönetmek için bir grup kullanmanızı | Microsoft Docs
-description: Azure Active Directory ile tümleştirilmiş SaaS uygulamalarına erişimi atamak için Azure Active Directory Premium veya Basic grupları kullanma
+title: SaaS uygulamaları - Azure Active Directory erişimi yönetmek için bir grup kullanmanızı | Microsoft Docs
+description: Azure Active Directory ile tümleştirilmiş SaaS uygulamalarına erişimi atamak için Azure Active Directory'de grupları kullanma
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a7e4a20905b390945c22557af044cf739bc17ce8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 26a726f200ea64895a7ebf289c030089c7de5555
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197220"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506269"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>SaaS uygulamalarına erişimi yönetmek için grup kullanma
+
 Azure Active Directory (Azure AD) bir Azure AD Premium veya Azure AD temel lisansı ile birlikte kullanarak, Azure AD ile tümleştirilmiş bir SaaS uygulamasına erişim atamak için grupları kullanabilirsiniz. Örneğin, beş farklı SaaS uygulamasında kullanmak pazarlama bölümü için erişimi atamak istiyorsanız, pazarlama departmanındaki kullanıcılar içeren bir grup oluşturabilir ve ardından tarafından gerekli olan bu beş SaaS uygulamaları için bu gruba atayın Pazarlama departmanındaki. Bu şekilde üyelik pazarlama departmanı tek bir yerden yöneterek zaman kazanabilirsiniz. Pazarlama grubunun bir üyesi eklenir ve pazarlama gruptan kaldırdığınızda atamaları uygulamadan kaldırdıysanız, kullanıcılar uygulamaya sonra atanır. Bu özellik, Azure AD uygulama Galerisi içinde ekleyebilirsiniz uygulamaları yüzlerce ile kullanılabilir.
 
 > [!IMPORTANT]

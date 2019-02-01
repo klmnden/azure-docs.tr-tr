@@ -1,8 +1,20 @@
 ---
-Başlık: Model dağıtımı titleSuffix için hazırlayın: Azure Machine Learning Studio açıklaması: Machine Learning Studio'da eğitim denemesini öngörücü bir denemeye dönüştürme tarafından eğitilen modeli bir web hizmeti olarak dağıtım için hazırlamayı öğrenin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.date: 03/28/2017
+title: Model dağıtımı için hazırlama
+titleSuffix: Azure Machine Learning Studio
+description: Machine Learning Studio'da eğitim denemesini öngörücü bir denemeye dönüştürme tarafından eğitilen modeli bir web hizmeti olarak dağıtım için hazırlamayı öğrenin.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.date: 03/28/2017
+ms.openlocfilehash: fe7d3956c1a5ead55acd8605086668e20e85e1d2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496083"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Modelinizin Azure Machine Learning Studio'da dağıtımı için hazırlama
 

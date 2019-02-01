@@ -1,8 +1,21 @@
 ---
-Başlık: Şirket içi SQL Server titleSuffix: Azure Machine Learning Studio açıklaması: Bir şirket içi SQL Server veritabanındaki verileri Azure Machine Learning Studio ile Gelişmiş analiz gerçekleştirmek için kullanın.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/13/2017
+title: Şirket içi SQL Server
+titleSuffix: Azure Machine Learning Studio
+description: Bir şirket içi SQL Server veritabanındaki verileri Azure Machine Learning Studio ile Gelişmiş analiz gerçekleştirmek için kullanın.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/13/2017
+ms.openlocfilehash: 61feb1365a5007a55d18f0f4366bd5c69148e88d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511165"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Azure Machine Learning kullanarak bir şirket içi SQL Server veritabanı Studio ile analizler gerçekleştirin
 

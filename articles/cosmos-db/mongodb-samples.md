@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 1fb7ad7638f3235b915e758460bf6c483572a30d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 28ee64f70cd281a2563a855fb1fca91f229ec7bd
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54031862"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507527"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için node.js ve Azure Cosmos DB'nin API'sini kullanarak uygulama oluşturma 
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Bu örneği kullanmak için yapmanız gerekenler:
 
 1. Bir *app.js* dosyası oluşturun ve aşağıdaki kodu kopyalayıp yapıştırın.
 
-    ```nodejs
+    ```javascript
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
@@ -119,7 +119,7 @@ Bu örneği kullanmak için yapmanız gerekenler:
 
     Özgün:
 
-    ```nodejs
+    ```javascript
     MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
     var db = client.db('familiesdb');
@@ -137,7 +137,7 @@ Bu örneği kullanmak için yapmanız gerekenler:
     
     Şununla değiştirilmelidir:
 
-    ```nodejs
+    ```javascript
     MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     insertDocument(db, function() {
@@ -157,13 +157,13 @@ Bu örneği kullanmak için yapmanız gerekenler:
     > [!IMPORTANT]
     > **MongoDB Node.js 3.0 sürücüsü** için Cosmos DB parolasındaki özel karakterlerin kodlanması gerekir. '=' karakterlerini %3D olarak kodladığınızdan emin olun
     >
-    > Örnek: Parola *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv ==* için kodlar *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv 3B % 3B*
+    > Örnek: The password *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* encodes to *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
     >
     > **MongoDB Node.js 2.2 sürücüsü** için Cosmos DB parolasındaki özel karakterlerin kodlanması gerekmez.
     >
     >
    
-    ```nodejs
+    ```javascript
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      

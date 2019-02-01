@@ -1,8 +1,21 @@
 ---
-Başlık: Machine Learning Studio titleSuffix içindeki model sonuçlarını yorumlama: Azure Machine Learning Studio açıklaması: Bir algoritma kullanarak ve score model çıktıları görselleştirme için en iyi parametresinde nasıl seçeceğinizi öğrenin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 11/29/2017
+title: Machine Learning Studio'da model sonuçlarını yorumlama
+titleSuffix: Azure Machine Learning Studio
+description: Bir algoritma kullanarak ve score model çıktıları görselleştirme için en iyi parametresinde nasıl seçeceğinizi öğrenin.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 11/29/2017
+ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488552"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da model sonuçlarını yorumlama
 Bu konuda, görselleştirin ve Azure Machine Learning Studio'da tahmin sonuçlarını yorumlama açıklanmaktadır. Bir modeli eğitilir ve Öngörüler, ("modeli puanlanmış") üzerinde yapılan sonra anlamak ve yorumlamak tahmin sonuç gerekir.

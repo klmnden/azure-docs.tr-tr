@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c16a0eeb674e712ec1c3678a2e0002a8ddcfc329
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dfed8ce93a97b31380b44f0ac7057c0cff60901e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464723"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497290"
 ---
 # <a name="move-operation-support-for-resources"></a>İşlem desteği kaynakları Taşı
 
 Bu makalede, bir Azure kaynak türü taşıma işlemini destekleyip desteklemediğini listelenmektedir. Bir kaynak türü taşıma işlemi desteklemesine rağmen kaynak taşınmasını engellemek koşulları olabilir. Taşıma işlemlerini etkileyen koşullar hakkında daha fazla ayrıntı için bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](resource-group-move-resources.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="find-resource-provider-and-resource-type"></a>Kaynak sağlayıcısı ve kaynak türü bulma
 
@@ -29,7 +31,7 @@ Bir kaynak taşınıp taşınamayacağını belirlemek için kaynak türü ve ka
 PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
+Get-AzResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
 ```
 
 Azure CLI için şunu kullanın:

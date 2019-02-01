@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099909"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507833"
 ---
 # <a name="time-series-model"></a>Zaman Serisi Modeli
 
@@ -152,9 +152,11 @@ Yapılandırmanıza bağlı olarak *örnek alanları*, hiyerarşi öznitelikleri
 
 Zaman serisi örneklerdir. Çoğu durumda *DeviceID* veya *AssetID* ortamındaki varlık benzersiz tanımlayıcısıdır. Örneğiniz kendileriyle ilişkili tanımlayıcı bilgiler örnek özelliklerini çağrılır. En az örnek özelliklerini hiyerarşisi bilgileri içerir. Bunlar, üretici, operatör ya da son hizmet tarihi gibi kullanışlı, açıklayıcı verileri de içerebilir.
 
-Örnekleri tarafından tanımlanan *timeSeriesId*, *TypeID*, *HierarchyId*, ve *instanceFields*. Her örneği için tek bir eşler *türü*ve bir veya daha fazla hiyerarşi. Örnekleri, hiyerarşileri ve ek tüm özellikler devralır *instanceFields* daha fazla örnek özellik tanımı eklenebilir.
+Örnekleri tarafından tanımlanan *TypeID*, *timeSeriesId*, *adı*, *açıklama*, *hierarchyIds* , ve *instanceFields*. Her örneği için tek bir eşler *türü*ve bir veya daha fazla hiyerarşi. Örnekleri, hiyerarşileri ve ek tüm özellikler devralır *instanceFields* daha fazla örnek özellik tanımı eklenebilir.
 
 *instanceFields* örneği ve bir örneğini tanımlayan statik verilerin özellikleridir. Arama işlemleri gerçekleştirmek için dizin de desteklerken hiyerarşi veya hiyerarşi olmayan özellik değerlerini tanımlarlar.
+
+*Adı* özelliği isteğe bağlıdır ve büyük küçük harfe duyarlı. Varsa *adı* olduğundan kullanılamıyor, bu zaman serisi kimliği için varsayılan olarak kullanılır Varsa bir *adı* zaman serisi kimliği (kılavuz Gezgini'nde grafikleri aşağıda) kutusu içinde kullanılabilir olmaya devam edecektir sağlanır. 
 
 ## <a name="time-series-model-instance-json-example"></a>Zaman serisi modeli örnek JSON örneği
 
@@ -164,6 +166,7 @@ Zaman serisi örneklerdir. Çoğu durumda *DeviceID* veya *AssetID* ortamındaki
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

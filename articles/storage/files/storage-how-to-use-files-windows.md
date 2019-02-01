@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: e3b0773da49499e2eaa8c9b9f59ced4ed26276ba
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465172"
+ms.locfileid: "55509029"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Azure dosya paylaşımını Windows'da kullanma
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure dosya paylaşımları, Windows ve Windows Server’da sorunsuz bir şekilde kullanılabilir. Bu makalede Azure dosya paylaşımını Windows ve Windows Server ile kullanma konusunda dikkat edilmesi gerekenler anlatılmaktadır.
@@ -45,7 +45,7 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
 * **Depolama hesabı anahtarı**: Bir Azure dosya paylaşımını bağlayabilmeniz için birincil (veya ikincil) depolama anahtarı gerekir. SAS anahtarları şu an bağlama için desteklenmemektedir.
 
-* **Bağlantı noktası 445'in açık olduğundan emin olun**: SMB protokolü TCP bağlantı noktası 445'in açık olmasını gerektirir; bağlantı noktası 445 engellenirse bağlantıları başarısız olur. `Test-NetConnection` cmdlet'ini kullanarak 445 numaralı bağlantı noktasının güvenlik duvarınız tarafından engellenip engellenmediğini görebilirsiniz. Aşağıdaki PowerShell kodunda AzureRM PowerShell modülünü yüklediğiniz varsayılır. Daha fazla bilgi için bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps). `<your-storage-account-name>` ile `<your-resoure-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
+* **Bağlantı noktası 445'in açık olduğundan emin olun**: SMB protokolü TCP bağlantı noktası 445'in açık olmasını gerektirir; bağlantı noktası 445 engellenirse bağlantıları başarısız olur. `Test-NetConnection` cmdlet'ini kullanarak 445 numaralı bağlantı noktasının güvenlik duvarınız tarafından engellenip engellenmediğini görebilirsiniz. Aşağıdaki PowerShell kodunda AzureRM PowerShell modülünü yüklediğiniz varsayılır. Daha fazla bilgi için bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps). `<your-storage-account-name>` ile `<your-resource-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -83,7 +83,7 @@ Etkileşim kurduğunuz ve Windows Server, Linux Samba sunucusu veya NAS cihazı 
 Azure'da SMB dosya paylaşımına ihtiyaç duyan iş kolu (LOB) uygulamalarını kullanıma sunmak için sıklıkla kullanılan model, Azure dosya paylaşımını Azure VM'de ayrılmış bir Windows dosya sunucusu çalıştırmaya alternatif olarak kullanmaktır. Bir iş kolu uygulamasını, Azure dosya paylaşımını kullanacak şekilde yapılandırma sırasında dikkat edilmesi gereken önemli noktalardan biri, çoğu iş kolu uygulamasının VM'nin yönetici hesabı yerine sınırlı sistem izinlerine sahip adanmış hizmet hesabı bağlamında çalıştığıdır. Bu nedenle Azure dosya paylaşımında yönetici hesabı yerine hizmet hesabı bağlamında bağlama yaptığınızdan/kimlik bilgilerini kaydettiğinizden emin olun.
 
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Azure dosya paylaşımı kimlik bilgilerinin Windows'da kalıcı olmasını sağlama  
-[cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) yardımcı programı, depolama hesabı kimlik bilgilerinizi Windows'a kaydetmenizi sağlar. Bu da bir Azure dosya paylaşımına UNC adını kullanarak erişmeye veya Azure dosya paylaşımını bağlamaya çalıştığınızda kimlik bilgilerini belirtmek zorunda kalmayacağınız anlamına gelir. Depolama hesabınızın kimlik bilgilerini kaydetmek için aşağıdaki PowerShell komutlarını çalıştırın ve `<your-storage-account-name>` ile `<your-resoure-group-name>` yerine uygun bilgileri girin.
+[cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) yardımcı programı, depolama hesabı kimlik bilgilerinizi Windows'a kaydetmenizi sağlar. Bu da bir Azure dosya paylaşımına UNC adını kullanarak erişmeye veya Azure dosya paylaşımını bağlamaya çalıştığınızda kimlik bilgilerini belirtmek zorunda kalmayacağınız anlamına gelir. Depolama hesabınızın kimlik bilgilerini kaydetmek için aşağıdaki PowerShell komutlarını çalıştırın ve `<your-storage-account-name>` ile `<your-resource-group-name>` yerine uygun bilgileri girin.
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"

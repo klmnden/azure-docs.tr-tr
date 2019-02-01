@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 86e457cf553c84386937c35bab1ab0fd20518bed
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 3577edff19788ed9f0925876e3de737eb749b90e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369061"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490932"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure Kurumsal abonelikler (Önizleme) oluşturma erişimi verme
 
@@ -42,6 +42,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
+
 Sahip rolü kayıt hesabı kapsamda başarıyla atandığında, Azure rol ataması bilgilerle yanıt verir:
 
 ```json
@@ -63,10 +64,10 @@ Sahip rolü kayıt hesabı kapsamda başarıyla atandığında, Azure rol atamas
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Kullanım [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) kayıt hesabınıza başka bir kullanıcıya sahip erişimi vermek için.
+Kullanım [yeni AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) kayıt hesabınıza başka bir kullanıcıya sahip erişimi vermek için.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -85,7 +86,7 @@ Bir kullanıcı bir kayıt hesabınız için RBAC sahip olduktan sonra programl�
 
 Bu API aracılığıyla oluşturulan abonelikleri izlemek için [Kiracı etkinlik günlüğü API](/rest/api/monitor/tenantactivitylogs). Şu anda abonelik oluşturma izlemek için PowerShell, CLI veya Azure portalını kullanmak mümkün değildir.
 
-1. Azure AD kiracısı bir kiracı Yöneticisi olarak [erişimini yükseltme](../active-directory/role-based-access-control-tenant-admin-access.md) kapsamı üzerinde'da Denetim kullanıcıya bir okuyucu rolü atamak `/providers/microsoft.insights/eventtypes/management`.
+1. Azure AD kiracısının kiracı yöneticisi olarak, [erişimi yükseltin](../active-directory/role-based-access-control-tenant-admin-access.md) ve sonra da `/providers/microsoft.insights/eventtypes/management` kapsamı üzerinden denetleyen kullanıcıya Okuyucu rolü atayın.
 1. Denetim kullanıcı olarak çağrı [Kiracı etkinlik günlüğü API](/rest/api/monitor/tenantactivitylogs) abonelik oluşturma etkinlikleri görmek için. Örnek:
 
 ```
@@ -93,7 +94,7 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 ```
 
 > [!NOTE]
-> Rahatça komut satırından bu API'yi çağırmak için deneyin [ARMClient](https://github.com/projectkudu/ARMClient).
+> Bu API'yi komut satırından rahatça çağırmak için [ARMClient](https://github.com/projectkudu/ARMClient)'ı deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

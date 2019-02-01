@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: cd8bb2bf83d71fb874b3912e98bf3790acc9d915
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812599"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493669"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -61,7 +61,7 @@ Azure'da sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıt
 
 **S.** Bir ölçek kümesinde birden fazla uzantı kullanırken bir yürütme sırası uygulamayı zorunlu kılabilir miyim?
 
-**C.** Doğrudan olmasa da customScript uzantısı için betiğiniz başka bir uzantının tamamlanmasını bekleyebilir. Uzantı sıralama hakkında ek yönergeleri şu blog gönderisinde bulabilirsiniz: [Azure sanal makine ölçek kümelerinde Uzantı Sıralama](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**C.** Evet, Ölçek kümesi kullanabileceğiniz [uzantı sıralama](virtual-machine-scale-sets-extension-sequencing.md).
 
 **S.** Ölçek kümeleri Azure kullanılabilirlik kümeleri ile birlikte çalışır mı?
 
@@ -230,6 +230,7 @@ Bir Linux VM oluşturma sırasında SSH ortak anahtarlarını düz metin sağlay
             }
         ]
     }
+}
 ```
 
 linuxConfiguration öğe adı | Gerekli | Tür | Açıklama
@@ -392,13 +393,13 @@ Sanal makine ölçek kümelerinde uzantı sıralama hakkında bilgi edinmek içi
 - VM erişimi uzantılarını kullanarak parolayı sıfırlayın.
 
     Aşağıdaki PowerShell örneğini kullanın:
-    
+
     ```powershell
     $vmssName = "myvmss"
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-    
+
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -630,7 +631,9 @@ Belirtilen eşik için uyarıları nasıl işleneceğini bazı davranabilirsiniz
                     }
                 ]
             }
-        ],
+        ]
+    }
+}
 ```
 
 Bir Eşiğe ulaşıldığında Bu örnekte, bir uyarı için Pagerduty.com gider.

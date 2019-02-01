@@ -1,8 +1,21 @@
 ---
-Başlık: ' 3. adım: Yeni bir Machine Learning Studio'da deneme oluşturma ' titleSuffix: Azure Machine Learning Studio açıklaması: ' Adım 3 / geliştirme Tahmine dayalı çözüm Kılavuzu: Azure Machine Learning Studio'da yeni bir eğitim denemesini oluşturun.'
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: garyericson ms.author: garye MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/23/2017
+title: "3. Adım: Yeni bir Machine Learning Studio'da deneme oluşturma"
+titleSuffix: Azure Machine Learning Studio
+description: "Adım 3 / geliştirme Tahmine dayalı çözüm Kılavuzu: Azure Machine Learning Studio'da yeni bir eğitim denemesini oluşturun."
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/23/2017
+ms.openlocfilehash: aee0370b4d1ea1bffe8e6723c14e6248ebbd808a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506405"
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Kılavuz adımı 3: Yeni bir Azure Machine Learning Studio'da deneme oluşturma
 Bu kılavuz, üçüncü adımıdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)

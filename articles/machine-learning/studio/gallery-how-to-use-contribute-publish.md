@@ -1,8 +1,21 @@
 ---
-Başlık: Azure AI Gallery titleSuffix: Azure Machine Learning Studio açıklaması: Paylaşın ve analytics kaynakları ve daha fazlasını Azure AI Gallery keşfedin. Diğerlerinden öğrenmek ve topluluğa kendi katkı.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 01/11/2019
+title: Azure Yapay Zeka Galerisi
+titleSuffix: Azure Machine Learning Studio
+description: Paylaşın ve analytics kaynakları ve daha fazlasını Azure AI Gallery keşfedin. Diğerlerinden öğrenmek ve topluluğa kendi katkı.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/11/2019
+ms.openlocfilehash: b5a460f3449785721ac360ba398bc47d1945b954
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497714"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Paylaşın ve Azure AI Gallery'de kaynakları keşfedin
 

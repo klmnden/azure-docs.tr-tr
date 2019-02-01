@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 18900c4a1dbc25526a3f60c7410ad87e7dd9a9fa
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967853"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507309"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Sorun giderme: Bir Azure siteden siteye VPN bağlantısı bağlanamaz ve çalışmayı durduruyor
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Sorun giderme: Bir Azure siteden siteye VPN bağlantısı bağlanamıyor ve bu çalışmayı durduruyor
 
 Bir şirket içi ağ ve bir Azure sanal ağ arasında siteden siteye VPN bağlantısı yapılandırdıktan sonra VPN bağlantısı aniden çalışmayı durduruyor ve bağlanılamaz. Bu makalede, bu sorunu gidermenize yardımcı olmak için sorun giderme adımları sağlar. 
 

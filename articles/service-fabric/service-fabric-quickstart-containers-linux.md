@@ -12,35 +12,42 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/11/2018
+ms.date: 01/30/2019
 ms.author: twhitney,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c569a100984b77b05eac9f8b345faa05fb6848d7
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: fdb0d8e8def8429ff4c7c377df254fdfc0300637
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299241"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508853"
 ---
-# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Hızlı başlangıç: Linux kapsayıcıları Service Fabric'e dağıtma
+# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Hızlı Başlangıç: Linux kapsayıcıları Service Fabric'e dağıtma
 
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur.
 
-Bu hızlı başlangıçta Linux kapsayıcıları bir Service Fabric kümesine nasıl dağıtacağınız gösterilmektedir. Tamamladığınızda Service Fabric kümesinde çalışan Python web ön ucu ve Redis arka ucundan oluşan bir oy verme uygulamasına sahip olacaksınız. Ayrıca, bir uygulamanın yükünü devretme ve kümenizde bir uygulamayı ölçeklendirme hakkında da bilgi edineceksiniz.
+Bu hızlı başlangıçta, Azure Service Fabric kümesinde Linux kapsayıcıları dağıtma gösterilmektedir. Tamamladığınızda Service Fabric kümesinde çalışan Python web ön ucu ve Redis arka ucundan oluşan bir oy verme uygulamasına sahip olacaksınız. Ayrıca, bir uygulamanın yükünü devretme ve kümenizde bir uygulamayı ölçeklendirme hakkında da bilgi edineceksiniz.
 
 ![Oylama uygulaması web sayfası][quickstartpic]
 
-Bu hızlı başlangıçta, Service Fabric CLI komutlarını çalıştırmak için Azure Cloud Shell’de Bash ortamını kullanacaksınız. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
+## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Bu hızlı başlangıcı tamamlamak için:
 
-Cloud Shell’i ilk kez çalıştırıyorsanız `clouddrive` dosya paylaşımınızı ayarlamanız istenir. Varsayılan değerleri kabul edebilir veya var olan bir dosya paylaşımını ekleyebilirsiniz. Daha fazla bilgi için bkz. [Bir `clouddrive` dosya paylaşımı ayarlama](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share).
+1. Oluşturma bir [ücretsiz Azure hesabı](https://azure.microsoft.com/free/) bir aboneliğiniz yoksa başlamadan önce.
+
+2. [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)'yı yükleme
+
+3. Yükleme [Service Fabric SDK'sı ve CLI](service-fabric-get-started-linux.md#installation-methods)
+
+4. Yükleme [Git](https://git-scm.com/)
+
 
 ## <a name="get-the-application-package"></a>Uygulama paketini alma
 
 Kapsayıcıları Service Fabric üzerinde dağıtmak için ayrı kapsayıcıları ve uygulamayı açıklayan bildirim dosyası (uygulama tanımı) kümesine ihtiyacınız vardır.
 
-Cloud Shell’de uygulama tanımının bir kopyasını çoğaltmak için git kullanın ve sonra dizinleri kopyanızdaki `Voting` dizini ile değiştirin.
+Konsolda, uygulama tanımının bir kopyasını için git kullanın. ardından dizinleri `Voting` dizini ile.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
@@ -50,14 +57,37 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 ## <a name="create-a-service-fabric-cluster"></a>Service Fabric kümesi oluşturma
 
-Uygulamayı Azure'a dağıtmak için, uygulamayı çalıştıracak bir Service Fabric kümesine ihtiyacınız vardır. Grup kümeleri, bir Service Fabric kümesini hızlıca oluşturmanın kolay bir yolunu sunar. Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleri olup Service Fabric ekibi tarafından çalıştırılır. Uygulamaları dağıtmak ve platform hakkında bilgi edinmek için grup kümelerini kullanabilirsiniz. Küme, düğümden düğüme ve istemciden düğüme güvenlik için tek bir otomatik olarak imzalanan sertifika kullanır.
+Uygulamayı Azure'a dağıtmak için, uygulamayı çalıştıracak bir Service Fabric kümesine ihtiyacınız vardır. Aşağıdaki komutlar, Azure'da beş düğümlü bir küme oluşturur.  Komutları da otomatik olarak imzalanan bir sertifika oluşturun, bir anahtar kasasına ekler ve sertifika yerel olarak indirilir. Yeni sertifikayı dağıtır ve istemcilerin kimliğini doğrulamak için kullanılan Küme güvenliğini sağlamak için kullanılır.
 
-Oturum açın ve bir [Linux kümesine](https://aka.ms/tryservicefabric) katılın. **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. **BeniOku** bağlantısına tıklayarak, sertifikayı kullanmak için çeşitli ortamların nasıl yapılandırılacağına ilişkin sertifika parolasını ve yönergelerini bulun. Hem **Hoş Geldiniz** sayfasını hem de **BeniOku** sayfasını açık tutun. Aşağıdaki adımlarda yer alan yönergelerden bazılarını kullanacaksınız.
+```azurecli
+#!/bin/bash
+
+# Variables
+ResourceGroupName="containertestcluster" 
+ClusterName="containertestcluster" 
+Location="eastus" 
+Password="q6D7nN%6ck@6" 
+Subject="containertestcluster.eastus.cloudapp.azure.com" 
+VaultName="containertestvault" 
+VmPassword="Mypa$$word!321"
+VmUserName="sfadminuser"
+
+# Login to Azure and set the subscription
+az login
+
+az account set --subscription <mySubscriptionID>
+
+# Create resource group
+az group create --name $ResourceGroupName --location $Location 
+
+# Create secure five node Linux cluster. Creates a key vault in a resource group
+# and creates a certficate in the key vault. The certificate's subject name must match 
+# the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
+```
 
 > [!Note]
-> Saat başına sınırlı sayıda grup kümesi vardır. Bir grup kümesine kaydolmaya çalıştığınızda hata alırsanız bir süre bekleyebilir ve tekrar deneyebilirsiniz veya [Azure’da Service Fabric kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md) bölümündeki adımları izleyerek aboneliğinizde bir küme oluşturabilirsiniz.
->
->Kendi kümenizi oluşturursanız, web ön uç hizmetinin 80 numaralı bağlantı noktasında gelen trafiği dinleyecek şekilde yapılandırıldığını unutmayın. Kümenizde bu bağlantı noktasının açık olduğundan emin olun. (Grup kümesi kullanıyorsanız bu bağlantı noktası açık durumdadır.)
+> Web ön ucu hizmeti, gelen trafik için 80 numaralı bağlantı noktasını dinlemek üzere yapılandırılmıştır. Varsayılan olarak, kümenizi Vm'leri ve Azure load balancer 80 numaralı bağlantı noktasını açıktır.
 >
 
 ## <a name="configure-your-environment"></a>Ortamınızı yapılandırma
@@ -68,53 +98,33 @@ Service Fabric, bir kümeyi ve uygulamalarını yönetmek için kullanabileceği
 - Azure CLI üzerinde çalışan Service Fabric Komut Satırı Arabirimi (CLI). 
 - PowerShell komutları.
 
-Bu hızlı başlangıçta, Cloud Shell içinde Service Fabric CLI ve Service Fabric Explorer’ı kullanacaksınız. Aşağıdaki bölümlerde bu araçlarla güvenli kümenize bağlanmak için gereken sertifikanın nasıl yükleneceği gösterilmiştir.
+Bu hızlı başlangıçta, Service Fabric CLI ve Service Fabric Explorer (bir web tabanlı araç) kullanın. Service Fabric Explorer'ı kullanmak için tarayıcıda Sertifika PFX dosyasını almanız gerekir. Varsayılan olarak, hiçbir parola PFX dosyasını vardır.
 
-### <a name="configure-certificate-for-the-service-fabric-cli"></a>Sertifikayı Service Fabric CLI için yapılandırma
-
-CLI’yi Cloud Shell’de kullanmak için sertifika PFX dosyasını Cloud Shell’e yüklemeniz ve sonra onu kullanarak bir PEM dosyası oluşturmanız gerekir.
-
-1. Sertifikayı Cloud Shell’deki geçerli çalışma dizininize yüklemek için sertifika PFX dosyasını bilgisayarınızda indirildiği klasörden sürükleyip Cloud Shell penceresine bırakın.
-
-2. PFX dosyasını PEM dosyasına dönüştürmek için aşağıdaki komutu kullanın. (Grup kümeleri için, **BeniOku** sayfasındaki yönergelerden PFX dosyanıza özgü bir komutu ve parolayı kopyalayabilirsiniz.)
-
-    ```bash
-    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-    ```
-
-### <a name="configure-certificate-for-service-fabric-explorer"></a>Sertifikayı Service Fabric Explorer için yapılandırma
-
-Service Fabric Explorer’ı kullanmak için, Grup Kümesi web sitesinden indirdiğiniz sertifika PFX dosyasını sertifika deponuza (Windows veya Mac) ya da tarayıcıya (Ubuntu) aktarmanız gerekir. **BeniOku** sayfasından alabileceğiniz PFX özel anahtar parolası gerekir.
-
-Sisteminizde sertifikayı içeri aktarmak için size en rahat gelen yöntemi kullanın. Örneğin:
-
-- Windows üzerinde: PFX dosyasına çift tıklayın ve `Certificates - Current User\Personal\Certificates` dizinindeki kişisel deponuza sertifikayı yüklemek için istemleri izleyin. Alternatif olarak, **BeniOku** yönergelerinde PowerShell komutunu kullanabilirsiniz.
-- Mac üzerinde: PFX dosyasına çift tıklayın ve Anahtarlığınıza sertifikayı yüklemek için istemleri izleyin.
-- Ubuntu üzerinde: Mozilla Firefox, Ubuntu 16.04 sistemindeki varsayılan tarayıcıdır. Sertifikayı Firefox’a aktarmak için, tarayıcınızın sağ üst köşesindeki menü düğmesine ve ardından **Seçenekler**’e tıklayın. **Tercihler** sayfasında arama kutusunu kullanarak "sertifikalar" terimini arayın. **Sertifikaları Görüntüle**’ye tıklayın, **Sertifikalarınız** sekmesini seçin, **İçeri Aktar**’a tıklayın ve sertifikayı içeri aktarma istemlerini izleyin.
+Mozilla Firefox, Ubuntu 16.04 varsayılan tarayıcıda ' dir. Sertifikayı Firefox’a aktarmak için, tarayıcınızın sağ üst köşesindeki menü düğmesine ve ardından **Seçenekler**’e tıklayın. **Tercihler** sayfasında arama kutusunu kullanarak "sertifikalar" terimini arayın. **Sertifikaları Görüntüle**’ye tıklayın, **Sertifikalarınız** sekmesini seçin, **İçeri Aktar**’a tıklayın ve sertifikayı içeri aktarma istemlerini izleyin.
 
    ![Firefox’ta sertifika yükleme](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
 ## <a name="deploy-the-service-fabric-application"></a>Service Fabric uygulamasını dağıtma
 
-1. Cloud Shell’de CLI kullanarak Azure'daki Service Fabric kümesine bağlanın. Uç nokta, kümenizin yönetim uç noktasıdır. Önceki bölümde PEM dosyasını oluşturdunuz. (Grup kümeleri için, **BeniOku** sayfasındaki yönergelerden PEM dosyanıza özgü bir komutu ve yönetim uç noktasını kopyalayabilirsiniz.)
+1. CLI kullanarak azure'daki Service Fabric kümesine bağlanın. Uç nokta, kümenizin yönetim uç noktasıdır. Önceki bölümde PEM dosyasını oluşturdunuz. 
 
     ```bash
-    sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+    sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
     ```
 
-2. Yükleme betiğini kullanarak Oylama uygulaması tanımını kümeye kopyalayın, uygulama türünü kaydedin ve uygulamanın bir örneğini oluşturun.
+2. Yükleme betiğini kullanarak Oylama uygulaması tanımını kümeye kopyalayın, uygulama türünü kaydedin ve uygulamanın bir örneğini oluşturun.  PEM sertifikası dosyası aynı dizinde bulunmalıdır *install.sh* dosya.
 
     ```bash
     ./install.sh
     ```
 
-3. Bir web tarayıcısı açın ve kümenizin Service Fabric Explorer uç noktasına gidin. Uç nokta biçimi şu şekildedir: **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**; örneğin, `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. </br>(Grup kümelerinde kümenizin Service Fabric Explorer uç noktasını **Giriş** sayfasında bulabilirsiniz.)
+3. Bir web tarayıcısı açın ve kümenizin Service Fabric Explorer uç noktasına gidin. Uç nokta biçimi şu şekildedir: **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**; örneğin, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. **Uygulamalar** düğümünü genişlettiğinizde oluşturduğunuz Oylama uygulama türü ve örneği için bir giriş oluşturulduğunu göreceksiniz.
 
     ![Service Fabric Explorer][sfx]
 
-5. Çalışan kapsayıcıya bağlanmak için bir web tarayıcısı açın ve kümenizin URL'sine gidin; örneğin, `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Oy verme uygulamasını tarayıcıda görmeniz gerekir.
+5. Çalışan kapsayıcıya bağlanmak için bir web tarayıcısı açın ve kümenizin URL'sine gidin; örneğin, `http://containertestcluster.eastus.cloudapp.azure.com:80`. Oy verme uygulamasını tarayıcıda görmeniz gerekir.
 
     ![Oylama uygulaması web sayfası][quickstartpic]
 
@@ -130,8 +140,8 @@ Service Fabric, bir hata oluşması durumunda kapsayıcı örneklerinizin kümed
 
 Ön uç kapsayıcısında yük devretmek için aşağıdaki adımları uygulayın:
 
-1. Kümenizde Service Fabric Explorer'ı açın; örneğin, `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
-2. Ağaç görünümünde **fabric:/Voting/azurevotefront** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin. Ağaç görünümünde kapsayıcının üzerinde çalıştığı düğümleri gösteren düğüm adına dikkat edin; örneğin, `_nodetype_4`.
+1. Kümenizde Service Fabric Explorer'ı açın; örneğin, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`.
+2. Ağaç görünümünde **fabric:/Voting/azurevotefront** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin. Ağaç görünümünde kapsayıcının üzerinde çalıştığı düğümleri gösteren düğüm adına dikkat edin; örneğin, `_nodetype_1`.
 3. Ağaç görünümünde **Düğümler** düğümünü genişletin. Kapsayıcıyı çalıştıran düğümün yanındaki üç noktaya (...) tıklayın.
 4. İlgili düğümü yeniden başlatmak için **Yeniden Başlat**'ı seçin ve yeniden başlatma eylemini onaylayın. Yeniden başlatma durumunda kapsayıcıdan kümedeki başka bir düğüme yük devretme gerçekleştirilir.
 
@@ -143,7 +153,7 @@ Hizmet yükünü karşılamak için bir kümedeki Service Fabric hizmetleri kola
 
 Web ön uç hizmetini ölçeklendirmek için aşağıdaki adımları gerçekleştirin:
 
-1. Kümenizde Service Fabric Explorer'ı açın; örneğin, `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Kümenizde Service Fabric Explorer'ı açın; örneğin, `https://containertestcluster.eastus.cloudapp.azure.com:19080`.
 2. Ağaç görünümünde **fabric:/Voting/azurevotefront** düğümünün yanındaki üç noktaya tıklayın ve **Hizmeti Ölçeklendir**'i seçin.
 
     ![Service Fabric Explorer hizmet ölçeklendirmeyi başlatma][containersquickstartscale]
@@ -161,18 +171,27 @@ Bu basit yönetim görevi sayesinde ön uç hizmetinin kullanıcı yükünü iş
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-1. Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek için şablonda sağlanan kaldırma betiğini (uninstall.sh) kullanın. Bu betiğin örneği temizlemesi zaman alacağından betiği bu betikten hemen sonra çalıştırmamanız gerekir. Service Fabric Explorer'ı kullanarak örneğin ne zaman kaldırıldığını ve kaydı silinen uygulama türünü belirleyebilirsiniz.
+Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek için şablonda sağlanan kaldırma betiğini (uninstall.sh) kullanın. Bu betiğin örneği temizlemesi zaman alacağından betiği bu betikten hemen sonra çalıştırmamanız gerekir. Service Fabric Explorer'ı kullanarak örneğin ne zaman kaldırıldığını ve kaydı silinen uygulama türünü belirleyebilirsiniz.
 
-    ```bash
-    ./uninstall.sh
-    ```
+```bash
+./uninstall.sh
+```
 
-2. Kümenizle çalışmayı tamamladıysanız, sertifikayı sertifika deposundan kaldırabilirsiniz. Örneğin:
-   - Windows: [Sertifikalar MMC ek bileşenini](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) kullanın. Ek bileşeni eklerken **Kullanıcı hesabım**’ı seçtiğinizden emin olun. `Certificates - Current User\Personal\Certificates` sayfasına gidip sertifikayı kaldırın.
-   - Mac: Anahtarlık uygulamasını kullanın.
-   - Ubuntu: Sertifikaları görüntülemek ve sertifikayı kaldırmak için kullandığınız adımları izleyin.
+Kümeyi ve kullandığı tüm kaynakları silmenin en basit yolu, kaynak grubunun silinmesidir.
 
-3. Cloud Shell kullanmaya devam etmek istemiyorsanız, ücret yansımasını engellemek için onunla ilişkili depolama hesabını silebilirsiniz. Cloud Shell oturumunuzu kapatın. Azure portalında Cloud Shell ile ilişkili depolama hesabına ve sonra sayfanın üst kısmındaki **Sil** öğesine tıklayın ve istemlere yanıt verin.
+Azure’da oturum açın ve kümeyi kaldırmak istediğiniz abonelik kimliğini seçin. Abonelik Kimliğinizi, Azure portalında oturum açarak bulabilirsiniz. Kaynak grubu ve kullanarak tüm küme kaynaklarını silin [az group delete komutu](/cli/azure/group?view=azure-cli-latest).
+
+```azurecli
+az login
+az account set --subscription <guid>
+ResourceGroupName="containertestcluster"
+az group delete --name $ResourceGroupName
+```
+
+Kümenizle çalışmayı tamamladıysanız, sertifikayı sertifika deposundan kaldırabilirsiniz. Örneğin:
+- Windows'da: Kullanım [sertifikalar MMC ek bileşenini](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Ek bileşeni eklerken **Kullanıcı hesabım**’ı seçtiğinizden emin olun. `Certificates - Current User\Personal\Certificates` sayfasına gidip sertifikayı kaldırın.
+- Mac'te: Anahtarlık uygulamasını kullanın.
+- Ubuntu üzerinde: Sertifikaları görüntülemek ve sertifikayı kaldırmak için kullandığınız adımları izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

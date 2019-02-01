@@ -1,20 +1,20 @@
 ---
-title: Azure okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama | Microsoft Docs
+title: Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) kullanarak yüksek oranda kullanılabilir Aaplications tasarlama | Microsoft Docs
 description: Nasıl kesintilerden işlemek için esnek yüksek oranda kullanılabilir bir uygulama oluşturmak için Azure RA-GRS depolama kullanın.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454952"
+ms.locfileid: "55512253"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama
 
@@ -43,9 +43,7 @@ RA-GRS için uygulamanızı tasarlarken aşağıdaki önemli noktalara dikkat ed
 
 * Birincil veya ikincil bölgede verilerle etkileşim kurmak için depolama istemcisi Kitaplığı'nı kullanabilirsiniz. Ayrıca yönlendirebilirsiniz istekleri ikincil bölgeye otomatik olarak birincil bölgeye Okuma isteği zaman aşımına uğrarsa okuyun.
 
-* Azure ekibi, birincil bölgedeki verilerin erişilebilirlik etkileyen önemli bir sorun varsa, bir coğrafi-birincil bölgeye işaret eden DNS girişlerini bu noktada ikincil bölgeye işaret edecek şekilde değiştirilecek yük devretme tetikleyebilir.
-
-* Bir coğrafi olarak yük devretme oluşması durumunda, Azure yeni bir ikincil konum seçin ve o konuma veri çoğaltma sonra ikincil DNS girişlerini üzerine. Depolama hesabı çoğaltma tamamlanana kadar ikincil uç kullanılamaz. Daha fazla bilgi için lütfen bkz [bir Azure depolama kesinti oluşursa yapmanız gerekenler](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
+* Birincil bölge kullanılamaz duruma gelirse bir hesabı yük devretme başlatabilirsiniz. İkincil bölgeye yük devretme, birincil bölgeye işaret eden DNS girişlerini ikincil bölgeye işaret edecek şekilde değiştirilir. Yazma erişimi, GRS ve RA-GRS hesapları için yük devretme işlemi tamamlandıktan sonra geri yüklenir. Daha fazla bilgi için [olağanüstü durum kurtarma ve depolama hesabı yük devretme (Önizleme) Azure Depolama'daki](storage-disaster-recovery-guidance.md).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>RA-GRS kullanırken uygulama tasarımı noktaları hakkında
 

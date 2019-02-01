@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721861"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510706"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Öğretici: Bir Azure App Service'te .NET Core ve SQL veritabanı uygulaması oluşturma
 
@@ -366,6 +366,37 @@ Bir kez `git push` tamamlandığında, App Service uygulamanıza gidin ve yeni i
 ![Code First Migration'dan sonra Azure uygulaması](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 Mevcut yapılacak öğeleriniz görüntülenmeye devam eder. .NET Core uygulamanızı yeniden yayımladığınızda, SQL Veritabanı’nızdaki mevcut veriler kaybolmaz. Ayrıca, Entity Framework Code Migrations yalnızca veri şemasını değiştirir ve mevcut verilerinizde herhangi bir değişiklik yapmaz.
+
+## <a name="stream-diagnostic-logs"></a>Tanılama günlüklerini akışla aktarma
+
+ASP.NET Core uygulaması Azure App Service'te çalışırken, Cloud shell'e yöneltilen konsol günlüklerini alabilirsiniz. Böylece, uygulama hatalarını ayıklamanıza yardımcı olan tanılama iletilerinin aynısını alabilirsiniz.
+
+Örnek Proje zaten yönergelerine izleyen [ASP.NET Core günlüğü azure'da](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) iki yapılandırma değişikliği:
+
+- Bir başvuru içeriyor `Microsoft.Extensions.Logging.AzureAppServices` içinde *DotNetCoreSqlDb.csproj*.
+- Çağrıları `loggerFactory.AddAzureWebAppDiagnostics()` içinde *Startup.cs*.
+
+ASP.NET Core ayarlanacak [günlük düzeyi](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) için App Service'te `Information` varsayılan düzeyinden `Warning`, kullanın [ `az webapp log config` ](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) Cloud shell'de komutu.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+```
+
+> [!NOTE]
+> Projenin günlük düzeyi zaten kümesine `Information` içinde *appsettings.json*.
+> 
+
+Günlük akışını başlatmak için Cloud Shell’de [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) komutunu kullanın.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Günlük akışı başlatıldıktan sonra biraz web trafiği almak için tarayıcıda Azure uygulaması yenileyin. Artık konsol günlüklerinin terminale yöneltildiğini görebilirsiniz. Konsol günlüklerini hemen görmüyorsanız, 30 saniye içinde yeniden kontrol edin.
+
+Günlük akışını dilediğiniz zaman durdurmak için `Ctrl`+`C` yazın.
+
+ASP.NET Core günlükleri özelleştirme hakkında daha fazla bilgi için bkz. [ASP.NET Core günlüğü](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Azure uygulamanızı yönetme
 

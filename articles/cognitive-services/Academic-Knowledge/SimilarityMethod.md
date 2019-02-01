@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0e42d5e05268d4a572376f2bdf25d0ce6f8f4be7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183348"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490133"
 ---
 # <a name="similarity-method"></a>Benzerlik yöntemi
 
@@ -28,11 +28,11 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
 ## <a name="request-parameters"></a>İstek Parametreleri
-Parametre        |Veri Türü      |Gereklidir | Açıklama
+Parametre        |Veri Türü      |Gerekli | Açıklama
 ----------|----------|----------|------------
-**s1**        |Dize   |Evet  |Karşılaştırılacak dize *
-**s2**        |Dize   |Evet  |Karşılaştırılacak dize *
-<sub> * Karşılaştırılacak dizeler 1 MB en uzunluğuna sahip. </sub>
+**s1**        |String   |Evet  |Karşılaştırılacak dize *
+**s2**        |String   |Evet  |Karşılaştırılacak dize *
+<sub> * En çok 1 MB Karşılaştırılacak dizeler sahip. </sub>
 <br>
 ## <a name="response"></a>Yanıt
 Ad | Açıklama

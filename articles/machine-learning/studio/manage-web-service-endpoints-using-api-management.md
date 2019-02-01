@@ -1,8 +1,21 @@
 ---
-Başlık: API Management titleSuffix kullanarak Machine Learning Studio web hizmetleri yönetin: Azure Machine Learning Studio açıklaması: API Management kullanarak AzureML web hizmetlerini yönetmek nasıl gösteren bir kılavuz. Kullanıcı erişimi, kullanımı azaltma ve izleme Panosu tanımlayarak, REST API uç noktalarını yönetin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/03/2017
+title: API Management'ı kullanarak Machine Learning Studio web hizmetlerini yönetme
+titleSuffix: Azure Machine Learning Studio
+description: API Management kullanarak AzureML web hizmetlerini yönetmek nasıl gösteren bir kılavuz. Kullanıcı erişimi, kullanımı azaltma ve izleme Panosu tanımlayarak, REST API uç noktalarını yönetin.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 11/03/2017
+ms.openlocfilehash: 915b972774fb418a454d8a3acd2a61f25af7a6aa
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488518"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Yönetimi'ni kullanarak Azure Machine Learning Studio web hizmetlerini yönetme
 ## <a name="overview"></a>Genel Bakış

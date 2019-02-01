@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694448f6e3c788c0c9d336e75d5df579b90137df
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fb47654a3eb6ea45d2aebab956b555e720faef4c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189876"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487124"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Öğretici: Jenkins, GitHub ve Docker ile azure'da bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturma
 
@@ -160,7 +160,7 @@ Jenkins ile GitHub tümleştirmesini test etmek için çatalınızda bir değiş
 
 GitHub web kullanıcı arabirimine dönerek çatalı oluşturulan deponuzu seçip **index.js** dosyasını seçin. Kalem simgesini seçerek bu dosyayı 6. satırda şu yazacak şekilde düzenleyin:
 
-```nodejs
+```javascript
 response.end("Hello World!");
 ```
 

@@ -4,17 +4,17 @@ description: Bu makalede, program aracılığıyla oluşturma ve Azure ilkesine 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101796"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510842"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programlı olarak ilkeler oluşturma ve uyumluluk verilerini görüntüleyin
 
@@ -96,8 +96,9 @@ Kaynaklarınızın daha iyi görünürlük ilk adım, ilkeleri, kaynaklarınız 
    Değiştirin _ContosoRG_ hedeflenen kaynak grubunuzun adı.
 
    **Kapsam** parametresi `New-AzPolicyAssignment` aboneliklerini ve Yönetim gruplarını ile de çalışır. Parametresi bir tam kaynak yolu kullanır, **ResourceId** özelliği `Get-AzResourceGroup` döndürür. Desenini **kapsam** her kapsayıcı aşağıdaki gibidir.
-   Değiştirin `{rgName}`, `{subId}`, ve `{mgName}` sırasıyla adı, abonelik kimliği ve yönetim grubu adı ile kaynak grubu.
+   Değiştirin `{rName}`, `{rgName}`, `{subId}`, ve `{mgName}` kaynak adınız ile kaynak grubu adı, abonelik kimliği ve yönetim grubu adı, sırasıyla. `{rType}` ile değiştirilmesi **kaynak türü** kaynağın gibi `Microsoft.Compute/virtualMachines` bir VM için.
 
+   - Kaynak- `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Kaynak grubu- `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Aboneliği- `/subscriptions/{subId}/`
    - Yönetim grubu- `/providers/Microsoft.Management/managementGroups/{mgName}`

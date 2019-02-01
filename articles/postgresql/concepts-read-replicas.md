@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 017abd72b3aa1547844f977c3efda69e59901a6f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904021"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487958"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı çoğaltmalarını okuyun
 
@@ -20,7 +20,7 @@ ms.locfileid: "54904021"
 
 Salt okunur çoğaltma özelliği, bir PostgreSQL sunucusu (ana) için Azure veritabanı'ndan veri çoğaltmak (çoğaltmaları okuma) en fazla beş salt okunur sunuculara aynı Azure bölgesindeki sağlar. Okuma çoğaltmaları PostgreSQL altyapısının yerel çoğaltma teknolojisini kullanarak zaman uyumsuz olarak güncelleştirilir.
 
-Çoğaltmaları benzer şekillerde PostgreSQL sunucuları için Azure veritabanı normal bağımsız olarak yönetilebilir yeni sunucularıdır. Okuma her çoğaltma için sanal Çekirdeklerde sağlanan işlem ve GB cinsinden aylık sağlanan depolama için faturalandırılırsınız.
+Çoğaltmaları benzer şekillerde PostgreSQL sunucuları için Azure veritabanı normal bağımsız olarak yönetilebilir yeni sunucularıdır. Okuma amaçlı her çoğaltma için sanal çekirdek cinsinden sağlanan işlem ve GB/ay cinsinden sağlanan depolama karşılığı faturalandırılırsınız.
 
 ## <a name="when-to-use-read-replicas"></a>Salt okunur çoğaltmalar kullanıldığı durumlar
 Okuma açısından yoğun iş yükleri, ölçek ve performans geliştirilmesine yardımcı olarak okuma çoğaltması özelliğini yöneliktir. Yazma iş yüklerinin asıl yönlendirilebilir örneği için okuma iş yükleri için çoğaltmaları, yalıtılmış olabilir.
@@ -101,7 +101,7 @@ Yapabilecekleriniz [nasıl yapılır belgelerini yinelemede Durdur öğrenin](ho
 **Azure.replication_support** ana sunucuya çoğaltma için bir çoğaltma oluşturabilmeniz için önce ayarlanmalıdır. Bu parametre değiştirme etkili olması için sunucunun yeniden başlatılmasını gerektirir. Bu parametre yalnızca genel amaçlı ve bellek için iyileştirilmiş katmanlar için geçerlidir.
 
 ### <a name="stopped-replicas"></a>Durdurulan çoğaltmalar
-Bir ana ve çoğaltma arasında çoğaltmayı durdurmak seçtiğinizde, çoğaltmanın bu değişiklikleri uygulamak için yeniden başlatılır. Daha sonra bunu bir çoğaltma yeniden yapılamıyor.
+Çoğaltma Yöneticisi ve çoğaltma arasında çoğaltmayı durdurmayı seçerseniz, bu değişikliği uygulamak için yeniden başlatılır. Çoğaltmayı daha sonra bir okuma-yazma sunucusu olacaktır. Daha sonra bunu bir çoğaltma yeniden yapılamıyor.
 
 ### <a name="replicas-are-new-servers"></a>Çoğaltmaları olan yeni sunucular
 Çoğaltmalar, PostgreSQL sunucuları için yeni bir Azure veritabanı olarak oluşturulur. Mevcut sunucuları, yinelemeler yapılamaz.

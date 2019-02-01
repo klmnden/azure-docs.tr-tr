@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory'de Yönetim birimleri Yönetimi önizlemesi
+title: Yönetim birimleri Yönetimi (Önizleme) - Azure Active Directory | Microsoft Docs
 description: Daha ayrıntılı temsilci izinleri Azure Active Directory'de Yönetim birimleri kullanma
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/17/2017
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: fe3f41e95cc3aa4f22ff2cdea24388f7e9974755
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 52b71e557ade54cdefd349b8981100210833185a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181206"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508462"
 ---
-# <a name="administrative-units-management-in-azure-ad---public-preview"></a>Azure AD'de - genel Önizleme idari Birim Yönetimi
-Bu makalede yeni bir Azure Active Directory kapsayıcısı kullanıcılar ve kullanıcıların bir alt kümesine uygulanan ilkeler kümelerine üzerinden yönetimsel izinlere temsilci için kullanılabilir kaynakların Yönetim birimleri – açıklanır. Azure Active Directory'de Yönetim birimleri merkezi yöneticileri izinler için bölgesel yöneticileri temsilci veya ayrıntılı düzeyde ilke ayarlamak için etkinleştirin.
+# <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Yönetim birimleri Yönetimi Azure Active Directory'de (genel Önizleme)
+
+Bu makalede yeni bir Azure Active Directory (Azure AD) kapsayıcı kullanıcılar alt kümeleri üzerinde yönetim izinleri için temsilci seçme ve bir kullanıcı alt ilkeleri uygulamak için kullanılan kaynakların Yönetim birimleri – açıklanır. Azure Active Directory'de Yönetim birimleri merkezi yöneticileri izinler için bölgesel yöneticileri temsilci veya ayrıntılı düzeyde ilke ayarlamak için etkinleştirin.
 
 Bu bağımsız bölümlere, örneğin, birbirinden bağımsız olan birçok otonom okullar (iş, okul, mühendislik Okul vb.), yapılan büyük üniversite bir kuruluşlarıyla faydalıdır. Bu tür bölümler, erişim denetimi, kullanıcıları yönetme ve kendi bölme için özel ilkeler, kendi BT yöneticileri vardır. Bu bölümsel vermek mümkün olmasını istediğiniz merkezi yöneticileri kullanıcıları, belirli Departmanlar üzerinden yöneticileri izinleri. Daha açık belirtmek gerekirse bu örneği kullanarak, bir merkezi Yöneticisi, örneği için bir yönetim birimindeki belirli bir school (iş ve Okul) için oluşturabilir ve yalnızca iş Okul kullanıcılar ile doldurun. Daha sonra merkezi bir yönetici iş Okul BT personeli kapsamlı bir role ekleyebilirsiniz. diğer bir deyişle, BT çalışanlarının iş Okul yönetimsel izinler yalnızca iş Okul yönetim birimi verin.
 

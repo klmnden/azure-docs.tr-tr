@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 1698b89cd32fd7fd90a178ece25ee6869c1aa3e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7fa72df04b0507a915a75688b38e26ed0f21e5a5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229702"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486019"
 ---
 # <a name="what-is-traffic-manager"></a>Traffic Manager nedir?
 Azure Traffic Manager, trafiği farklı Azure bölgelerindeki hizmetlere en uygun şekilde dağıtırken yüksek kullanılabilirlik ve yanıtlama hızı sağlayan DNS tabanlı bir trafik yük dengeleyicidir.
@@ -26,9 +26,9 @@ Azure Traffic Manager, trafiği farklı Azure bölgelerindeki hizmetlere en uygu
 Traffic Manager, trafik yönlendirme yöntemine ve uç noktaların sistem durumuna bağlı olarak istemci isteklerini en uygun hizmet uç noktasına yönlendirmek için DNS hizmetini kullanır. Uç nokta, Azure içinde veya dışında barındırılan İnternet'e yönelik bir hizmettir. Traffic Manager, farklı uygulama ihtiyaçlarına ve otomatik yük devretme modellerine uyan farklı [trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md) ve [uç nokta izleme seçenekleri](traffic-manager-monitoring.md) sunar. Traffic Manager, bir Azure bölgesinin tamamının devre dışı kalması dahil olmak üzere hatalara dayanıklıdır.
 
 >[!NOTE]
-> Azure, senaryolarınız için tam olarak yönetilen yük dengeleme çözümleri sunar. Aktarım Katmanı Güvenliği (TLS) protokolü sonlandırma ("SSL yük boşaltma") veya HTTP/HTTPS isteği başına uygulama katmanı işleme özellikleri istiyorsanız [Application Gateway](../application-gateway/application-gateway-introduction.md)'i inceleyin. Bölgesel dengeleme istiyorsanız [Load Balancer](../load-balancer/load-balancer-overview.md)'ı inceleyin. Uçtan uca senaryolarınızda bu çözümleri bir arada da kullanabilirsiniz.
+> Azure, senaryolarınız için tam olarak yönetilen yük dengeleme çözümleri sunar. Aktarım Katmanı Güvenliği (TLS) protokolü sonlandırma ("SSL yük boşaltma") veya HTTP/HTTPS isteği başına uygulama katmanı işleme özellikleri istiyorsanız [Application Gateway](../application-gateway/application-gateway-introduction.md)'i inceleyin. Bölgesel Yük Dengeleme için arıyorsanız, gözden [Load Balancer](../load-balancer/load-balancer-overview.md). Uçtan uca senaryolarınızda bu çözümleri bir arada da kullanabilirsiniz.
 
-Traffic Manager aşağıdaki özellikleri içerir:
+Traffic Manager, özellikleri sunar:
 
 ## <a name="increase-application-availability"></a>Uygulama kullanılabilirliğini artırma
 
@@ -40,7 +40,7 @@ Azure, dünyanın dört bir yanında bulunan veri merkezlerinde bulut hizmeti ve
 
 ## <a name="perform-service-maintenance-without-downtime"></a>Kesinti süresi olmadan hizmet bakımı gerçekleştirme
 
-Kesinti süresi yaşamadan uygulamalarınızda planlı bakım çalışmaları yürütebilirsiniz. Traffic Manager bakım sırasında trafiği alternatif uç noktalarına yönlendirir.
+Kesinti süresi yaşamadan uygulamalarınızda planlı bakım çalışmaları yürütebilirsiniz. Bakım işlemi devam ederken, traffic Manager alternatif uç noktaları için trafiği yönlendirebilir.
 
 ## <a name="combine-hybrid-applications"></a>Hibrit uygulamaları birleştirme
 
@@ -48,7 +48,7 @@ Traffic Manager harici, Azure dışı uç noktalar için sunduğu destek sayesin
 
 ## <a name="distribute-traffic-for-complex-deployments"></a>Karmaşık dağıtımlar için trafiği dağıtma
 
-[İç içe yerleştirilmiş Traffic Manager profilleri](traffic-manager-nested-profiles.md) ile trafik yönlendirme yöntemleri birleştirilerek daha büyük ve daha karmaşık dağıtımları ölçeklendirmek için gerekli karmaşık ve esnek kurallar oluşturulabilir.
+Kullanarak [iç içe Traffic Manager profillerini](traffic-manager-nested-profiles.md), birden çok trafik yönlendirme yöntemleri, karmaşık ve esnek ölçeklendirme ihtiyaçlarını daha büyük, daha karmaşık dağıtımlar için kurallar oluşturmak için birleştirilebilir.
 
 ## <a name="pricing"></a>Fiyatlandırma
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: b702b6de5c9f33058e9b486547530d071969bd97
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 70f6f8a7837b9e87b2720a866f14983356d23691
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855399"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487685"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Kaynaklara uygulanan eylemleri denetlemek için etkinlik günlüklerini görüntüleme
 
@@ -35,7 +35,10 @@ Etkinlik günlükleri, 90 gün boyunca tutulur. Başlangıç tarihi geçmiş 90 
 
 Portal, PowerShell, Azure CLI, Insights REST API aracılığıyla etkinlik günlüklerinden bilgi almak veya [Insights .NET kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## <a name="portal"></a>Portal
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="the-azure-portal"></a>Azure portal
 
 1. Portal üzerinden etkinlik günlüklerini görüntülemek için seçin **İzleyici**.
 
@@ -71,52 +74,52 @@ Portal, PowerShell, Azure CLI, Insights REST API aracılığıyla etkinlik günl
 
 ## <a name="powershell"></a>PowerShell
 
-* Günlük girişlerini almak için çalıştırın **Get-AzureRmLog** komutu. Giriş listesine filtre uygulamak için ek parametreler sunar. Bir başlangıç ve bitiş saati belirtmezsiniz ise son yedi gün girişlerinde döndürülür.
+* Günlük girişlerini almak için çalıştırın **Get-AzLog** komutu. Giriş listesine filtre uygulamak için ek parametreler sunar. Bir başlangıç ve bitiş saati belirtmezsiniz ise son yedi gün girişlerinde döndürülür.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup
+  Get-AzLog -ResourceGroup ExampleGroup
   ```
 
     Aşağıdaki örnek, araştırma işlemleri belirtilen bir süre boyunca gerçekleştirilen etkinlik günlüğünün kullanma işlemini gösterir. Başlangıç ve bitiş tarihleri, tarih biçiminde belirtilir.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
+  Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
   ```
 
     Ya da tarih işlevler gibi son 14 gün, tarih aralığını belirtmek için kullanabilirsiniz.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+  Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
 * Da artık mevcut bir kaynak grubu için belirli bir kullanıcı tarafından gerçekleştirilen eylemler arayabilirsiniz.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+  Get-AzLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
 * Başarısız işlemler için filtre uygulayabilirsiniz.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
+  Get-AzLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
 * Bu giriş için durum iletisi bakarak bir hatada odaklanabilirsiniz.
 
   ```azurepowershell-interactive
-  ((Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
+  ((Get-AzLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
   ```
 
 * Döndürülen verileri sınırlamak için belirli değerler seçebilirsiniz.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+  Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
   ```
 
 * Belirttiğiniz başlangıç zamanı bağlı olarak, önceki komutların uzun işlemler için kaynak grubu listesini döndürebilir. İçin arama ölçütlerini sağlayarak aradıklarınızı sonuçları filtreleyebilirsiniz. Örneğin, işlem türüne göre filtre uygulayabilirsiniz.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+  Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
   ```
 
 ## <a name="azure-cli"></a>Azure CLI

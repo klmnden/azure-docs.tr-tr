@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 01/30/2019
+ms.openlocfilehash: 8db944de93313915926a6fe48a554d00327b1c94
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468912"
+ms.locfileid: "55486211"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure portalı ve başlatma yük devretme Azure SQL veritabanı için etkin coğrafi çoğaltmayı yapılandırma
 
@@ -32,7 +32,7 @@ Azure portalını kullanarak etkin coğrafi çoğaltmayı yapılandırmak için 
 * Bir Azure SQL veritabanı: Farklı bir coğrafi bölgeye çoğaltmak istediğiniz birincil veritabanı.
 
 > [!Note]
-Etkin coğrafi çoğaltma veritabanları aynı abonelikte olmalıdır.
+Azure portalını kullanarak, yalnızca birincil olarak aynı abonelik içindeki ikincil bir veritabanı oluşturabilirsiniz. İkincil veritabanı farklı bir abonelikte olması gerekir, kullanın [veritabanı REST API oluşturma](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) veya [ALTER veritabanı Transact-SQL API](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>İkincil bir veritabanı ekleyin
 

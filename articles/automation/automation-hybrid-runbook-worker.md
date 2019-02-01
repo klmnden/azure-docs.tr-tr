@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1671a068611d9f5842c2cb09f3b83b18dd483921
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820691"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512219"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Veri merkezinde veya bulutta kaynaklarında karma Runbook çalışanı kullanarak otomatik hale getirin.
 
@@ -51,13 +51,13 @@ Gözden geçirme [ağınızı planlama bilgileri](#network-planning) bir karma R
 Bir veya daha fazla karma Runbook çalışanları gruptan kaldırdığınızda veya grup gereksinimlerinize bağlı olarak kaldırabilirsiniz. Karma Runbook çalışanı şirket içi bir bilgisayardan kaldırmak için aşağıdaki adımları kullanın:
 
 1. Azure portalında, Otomasyon hesabınıza gidin.
-2. Altında **ayarları**seçin **anahtarları** ve değerlerini Not **URL** ve **birincil erişim anahtarı**. Bu bilgiler sonraki adımda ihtiyacınız var.
+2. Altında **hesap ayarları**seçin **anahtarları** ve değerlerini Not **URL** ve **birincil erişim anahtarı**. Bu bilgiler sonraki adımda ihtiyacınız var.
 
 ### <a name="windows"></a>Windows
 
 Yönetici modunda bir PowerShell oturumu açın ve aşağıdaki komutu çalıştırın. Kullanım **-Verbose** kaldırma işleminin ayrıntılı günlüğü için geçiş.
 
-```powershell
+```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
@@ -68,6 +68,8 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 ```
 
 ### <a name="linux"></a>Linux
+
+Komutunu kullanabilirsiniz `ls /var/opt/microsoft/omsagent` workspaceıd almak için karma Runbook çalışanı üzerinde. Klasörün adını çalışma alanı kimliği olduğu dizinde bir klasör yok
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -81,11 +83,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 Bir grubu kaldırmak için önce daha önce gösterilen bir yordamı kullanarak grubunun bir üyesi olan her bir bilgisayardan karma Runbook çalışanı kaldırmanız gerekir. Ardından grubunu kaldırmak için aşağıdaki adımları kullanın:
 
 1. Azure portalında Otomasyon hesabını açın.
-1. Altında **süreç otomasyonu**seçin **karma çalışan grupları**. Silmek istediğiniz grubu seçin. Bu grup için Özellikler sayfasında görünür.
+2. Altında **süreç otomasyonu**seçin **karma çalışan grupları**. Silmek istediğiniz grubu seçin. Bu grup için Özellikler sayfasında görünür.
 
    ![Özellikler sayfası](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. Seçili grubun Özellikler sayfasında, seçin **Sil**. Bu eylemi onaylamanız için soran bir ileti görüntülenir. Seçin **Evet** devam etmek istediğinizden emin değilseniz.
+3. Seçili grubun Özellikler sayfasında, seçin **Sil**. Bu eylemi onaylamanız için soran bir ileti görüntülenir. Seçin **Evet** devam etmek istediğinizden emin değilseniz.
 
    ![Onay iletisi](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 

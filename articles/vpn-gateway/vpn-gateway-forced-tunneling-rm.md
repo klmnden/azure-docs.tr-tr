@@ -1,5 +1,5 @@
 ---
-title: 'Azure siteden siteye bağlantılar için zorlamalı tünel yapılandırma: Resource Manager | Microsoft Docs'
+title: 'Zorlamalı tünel Azure siteden siteye bağlantıları için yapılandırın: Resource Manager | Microsoft Docs'
 description: Nasıl yeniden yönlendirme veya 'tüm İnternet'e bağlı trafiği şirket içi konumunuza geri force'.
 services: vpn-gateway
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 21004c29f1baf0346cd83d8483ff1862a98fc845
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308161"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506473"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager dağıtım modelini kullanarak zorlamalı tünel yapılandırma
 
 Zorlamalı tünel yeniden yönlendirme veya tüm İnternet'e bağlı trafiği, inceleme ve denetim için bir siteden siteye VPN tüneli aracılığıyla şirket içi konumunuza geri "force" sağlar. Bu, çoğu kurumsal BT için kritik güvenlik gereksinimdir ilkeleri. Olmadan tünel oluşturma, İnternet'e bağlı trafiği azure'daki sanal makinelerinize her zaman Azure ağ altyapısından doğrudan ilişkilerinden geçen inceleme veya trafiği denetlemek için izin verme seçeneği olmadan Internet'e zorlandı. Yetkisiz Internet erişimi, bilgilerin açıklanması veya diğer tür güvenlik ihlallerini olası neden olabilir.
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 Bu makalede, zorlamalı tünel Resource Manager dağıtım modeli kullanılarak oluşturulmuş sanal ağlar için nasıl yapılandıracağınız anlatılmaktadır. Zorlamalı tünel, portal üzerinden değil, PowerShell kullanarak yapılandırılabilir. Klasik makale, Klasik dağıtım modeli için zorlamalı tünel yapılandırmak istiyorsanız, aşağıdaki açılır listeden seçin:
 
@@ -52,16 +52,16 @@ Zorlamalı tünel Azure'da sanal ağ kullanıcı tanımlı yollar yapılandırı
 
 * Her sanal ağ alt ağı, yerleşik bir sistem yönlendirme tablosu vardır. Sistem yönlendirme tablosu yolların aşağıdaki üç grup vardır:
   
-  * **Yerel sanal ağ yolları:** aynı sanal ağdaki VM'ler hedef için doğrudan.
-  * **Şirket içi yolları:** için Azure VPN ağ geçidi.
-  * **Varsayılan yol:** doğrudan Internet'e. Önceki iki yol tarafından kapsandığından değil özel IP adreslerini hedefleyen paketler bırakılır.
+  * **Yerel sanal ağ yolları:** Doğrudan hedefe Vm'leri aynı sanal ağda.
+  * **Şirket içi yolları:** Azure VPN ağ geçidi için.
+  * **Varsayılan yol:** Doğrudan Internet'e. Önceki iki yol tarafından kapsandığından değil özel IP adreslerini hedefleyen paketler bırakılır.
 * Bu yordam bu alt ağlarda zorlamalı tüneli etkinleştirmek için sanal ağ alt ağı, başarılı için varsayılan bir yol ekleyin ve sonra yönlendirme tablosunu ilişkilendirme için bir yönlendirme tablosu oluşturmak için kullanıcı tanımlı yollar (UDR) kullanır.
 * Zorlamalı tünel rota tabanlı VPN ağ geçidi olan bir sanal ağ ile ilişkilendirilmiş olması gerekir. "Sanal ağa bağlı bir varsayılan site" şirket içi yerel siteleri arasında ayarlamanız gerekir. Ayrıca, şirket içi VPN cihazının 0.0.0.0/0 trafik seçicileri kullanılarak yapılandırılması gerekir. 
 * Zorlamalı tünel ExpressRoute Bu mekanizma yapılandırılmamış, ancak bunun yerine, bir varsayılan rota üzerinden ExpressRoute BGP eşliği oturumlarını reklam tarafından etkinleştirilir. Daha fazla bilgi için [ExpressRoute belgeleri](https://azure.microsoft.com/documentation/services/expressroute/).
 
 ## <a name="configuration-overview"></a>Yapılandırmasına genel bakış
 
-Aşağıdaki yordam bir kaynak grubunu ve sanal ağ oluşturmanıza yardımcı olur. Ardından, bir VPN gateway oluşturma ve zorlamalı tünel yapılandırma. Bu yordamda, sanal ağ 'MultiTier-VNet' üç alt sahip: 'Ön uç', 'Midtier' ve 'Backend' dört ile şirketler arası bağlantılar: 'DefaultSiteHQ' ve üç dalları.
+Aşağıdaki yordam bir kaynak grubunu ve sanal ağ oluşturmanıza yardımcı olur. Ardından, bir VPN gateway oluşturma ve zorlamalı tünel yapılandırma. Bu yordamda, sanal ağ 'MultiTier-VNet' üç alt sahiptir: 'Ön uç', 'Midtier' ve 'Backend' dört ile şirketler arası bağlantılar: 'DefaultSiteHQ' ve üç dalları.
 
 Yordamdaki adımları 'zorlamalı tünel DefaultSiteHQ' varsayılan site bağlantı olarak ayarlayın ve 'Midtier' yapılandırmak ve zorlamalı tünel kullanmak için 'Backend' alt ağlar.
 

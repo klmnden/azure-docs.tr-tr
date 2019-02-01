@@ -1,8 +1,21 @@
 ---
-Başlık: Veri aktarmak Machine Learning Studio titleSuffix: Azure Machine Learning Studio açıklaması: Verilerinizi çeşitli veri kaynaklarından Azure Machine Learning Studio'ya içeri aktarma. Hangi veri türlerini ve veri biçimleri desteklendiğini öğrenin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 11/29/2017
+title: Machine Learning Studio'ya veri alma
+titleSuffix: Azure Machine Learning Studio
+description: Verilerinizi çeşitli veri kaynaklarından Azure Machine Learning Studio'ya içeri aktarma. Hangi veri türlerini ve veri biçimleri desteklendiğini öğrenin.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 11/29/2017
+ms.openlocfilehash: 15e84d1246a1a4c81b6a6c6f6c28a33a210a6ae6
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487661"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Eğitim verilerinizi çeşitli veri kaynaklarından Azure Machine Learning Studio’ya alma
 

@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818519"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496980"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama Hizmeti'ne erişimi denetleme
 
@@ -34,7 +34,7 @@ Size verebilir [izinleri](#device-provisioning-service-permissions) aşağıdaki
 
 * **Paylaşılan erişim Yetkilendirme İlkeleri**. Paylaşılan erişim ilkeleri, herhangi bir birleşimini vermek [izinleri](#device-provisioning-service-permissions). İlkeleri tanımlayabilirsiniz [Azure portalında][lnk-management-portal], kullanarak programlama yoluyla veya [cihaz sağlama hizmeti REST API'lerine][lnk-resource-provider-apis]. Yeni oluşturulan bir sağlama hizmeti, aşağıdaki varsayılan ilkesi vardır:
 
-* **provisioningserviceowner**: ilke tüm izinlere sahip.
+* **provisioningserviceowner**: İlke tüm izinlere sahip.
 
 > [!NOTE]
 > Bkz: [izinleri](#device-provisioning-service-permissions) ayrıntılı bilgi için.
@@ -77,7 +77,7 @@ Beklenen değerler şunlardır:
 
 | Değer | Açıklama |
 | --- | --- |
-| {imzası} |Bir formun SHA256 HMAC imzası dizesi: `{URL-encoded-resourceURI} + "\n" + expiry`. **Önemli**: anahtar base64 kodlaması çözülmüş ve HMAC SHA256 hesaplama gerçekleştirmek için anahtar olarak kullanılan.|
+| {imzası} |Bir formun SHA256 HMAC imzası dizesi: `{URL-encoded-resourceURI} + "\n" + expiry`. **Önemli**: Anahtar base64 kodlaması çözülmüş ve HMAC SHA256 hesaplama gerçekleştirmek için anahtar olarak kullanılan.|
 | {expiry} |UTF8 dizeleri için dönem 00:00:00 UTC 1 Ocak 1970'ten beri geçen saniye sayısı. |
 | {URL olarak kodlanmış ResourceURI} | Düşük küçük kaynak URI'si için URL kodlaması durumda. IOT cihaz sağlama hizmeti (hiçbir Protokolü) ana bilgisayar adı ile başlayarak, bu belirteç ile erişilen uç noktalar (segmente) öneki URI. Örneğin, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |Bu belirteç başvurduğu paylaşılan erişim ilkesi adı. |
@@ -86,7 +86,7 @@ Beklenen değerler şunlardır:
 
 Aşağıdaki Node.js kod parçacığında çağrılan bir işlev gösterir **generateSasToken** , girişleri belirteçten hesaplar `resourceUri, signingKey, policyName, expiresInMins`. Farklı girdiler için farklı bir belirteç kullanım durumlarını nasıl sonraki bölümlerde ayrıntılı olarak açıklanmaktadır.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -157,7 +157,7 @@ Bitiş noktası kullanıma sunulan hizmet işlevleri şunlardır:
 
 ![Portalda bir cihaz sağlama hizmeti örneğinizi için paylaşılan erişim ilkesi oluşturma][img-add-shared-access-policy]
 
-```nodejs
+```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';

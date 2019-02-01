@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c42abf043c528f86db7af164c21c45b21e7bf1ac
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bf21b03463733f6613cfa515a6faf7c5ab1f33e8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196285"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498140"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -333,7 +333,7 @@ Bir geliştirme önerilen izni altında açıklandığı gibi bölümü değişt
 *   Kendi KENDİNE özgü ACE dışında belirli nesne üzerindeki tüm ACE kaldırın. Kendi KENDİNE söz konusu olduğunda, varsayılan izinleri korumak istiyoruz.
 *   Bu özel izinler atayın:
 
-Tür     | Ad                          | Access               | Şunun İçin Geçerli
+Type     | Ad                          | Access               | Şunun İçin Geçerli
 ---------|-------------------------------|----------------------|--------------|
 İzin Ver    | SİSTEM                        | Tam Denetim         | Bu nesne  |
 İzin Ver    | Kuruluş Yöneticileri             | Tam Denetim         | Bu nesne  |

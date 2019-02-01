@@ -4,17 +4,17 @@ description: Azure İlkesi değerlendirmeleri ve etkileri uyumluluğunu belirler
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7925bc8a9f7cb65d0e92c943aa0a54d48611e286
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853638"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509005"
 ---
 # <a name="getting-compliance-data"></a>Uyumluluk verilerini alma
 
@@ -45,6 +45,8 @@ Atanan ilkeleri ve girişimler değerlendirmeleri çeşitli olayları sonucu ola
 - Bir kaynak atama Resource Manager, REST, Azure CLI veya Azure PowerShell aracılığıyla bir kapsamla dağıtılır. Bu senaryoda, geçerli olay (ekleme, Denetim, reddetme, dağıtım) ve tek tek kaynak için uyumlu durumu bilgileri kullanılabilir portal ve SDK'ları yaklaşık 15 dakika sonra. Bu olay, bir değerlendirme diğer kaynakların neden olmaz.
 
 - Standart uyumluluk değerlendirme döngüsü. Her 24 saatte bir kez atamaları otomatik olarak yeniden hesaplanır. Bu yüzden zaman değerlendirme döngüsünü, önceden tanımlanmış hiçbir beklentisi tamamlayacak bir ilke veya girişim birçok kaynak zaman alabilir. İşlem tamamlandıktan sonra güncelleştirilmiş uyumluluk sonuçları portal ve SDK'ları kullanılabilir.
+
+- [Konuk yapılandırma](../concepts/guest-configuration.md) kaynak sağlayıcısı tarafından yönetilen bir kaynağın uyumluluk ayrıntıları ile güncelleştirilir.
 
 - İsteğe bağlı tarama
 

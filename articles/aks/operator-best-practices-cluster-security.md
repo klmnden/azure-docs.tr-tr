@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 0c12136fb0c866ceebf83f6352a33b7e2791ad0f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d9ce2661fbdca0a28f917e27e27a3e3f954a9999
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717220"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488399"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Küme güvenliği ve yükseltmeler Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -51,6 +51,9 @@ Azure AD tümleştirmesi ve RBAC hakkında daha fazla bilgi için bkz. [en iyi u
 En az kullanıcılar veya gruplar vermelisiniz aynı şekilde ayrıcalıkları sayısı gerekli, kapsayıcılar da eylemleri ve ihtiyaç duydukları işlemleri yalnızca sınırlı olmalıdır. Saldırı riskini en aza indirmek için uygulamaları ve ilerletilen ayrıcalıkları gerektiren veya kök erişim kapsayıcıları yapılandırmayın. Örneğin, `allowPrivilegeEscalation: false` pod katıştırır. Bunlar *güvenlik kapsamları pod* Kubernetes ve kullanıcı veya grup gibi ek izinler olarak çalıştırmak için tanımlamanıza imkan tanır yerleşiktir ya da Linux özellikleri göstermek için. Diğer en iyi yöntemleri için bkz. [kaynaklara erişimi güvenli pod][pod-security-contexts].
 
 Kapsayıcı işlemlerin daha ayrıntılı denetim için yerleşik Linux güvenlik özellikleri gibi kullanabilirsiniz *AppArmor* ve *seccomp*. Bu özellikler düğümü düzeyinde tanımlanan ve ardından bir pod bildirimi aracılığıyla uygulanır.
+
+> [!NOTE]
+> AKS veya başka bir yerde, Kubernetes ortamlarını tehlikeli çok kiracılı kullanım için tamamen güvenli değildir. Ek güvenlik özellikleri gibi *AppArmor*, *seccomp*, *Pod güvenlik ilkeleri*, veya daha fazla ayrıntılı rol tabanlı erişim denetimleri (RBAC) düğümleri için davranışları daha zor. Ancak, tehlikeli çok kiracılı iş yüklerini çalıştırırken doğru güvenlik için bir hiper yönetici yalnızca güvenip güvenmeyeceğini güvenlik düzeyidir. Kubernetes için güvenlik etki alanı, tüm küme, tek bir düğüm olur. Bu tür tehlikeli çok kiracılı iş yükleri için fiziksel olarak izole edilmiş kümeleri kullanmanız gerekir.
 
 ### <a name="app-armor"></a>Uygulama Armor
 

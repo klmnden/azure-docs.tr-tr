@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: b32fd36c5fd546f7d2138cb2b48ee2854667f948
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 58022ca4f605b4672cd9b6e22993fca8ff6dc591
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044272"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510961"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js uygulamasından Azure Tablo depolama veya Azure Cosmos DB Tablo API’sini kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -56,34 +56,34 @@ Azure Depolama veya Azure Cosmos DB’yi kullanmak için, Depolama REST hizmetle
 ### <a name="import-the-package"></a>Paketi içeri aktarma
 Uygulamanızda **server.js** dosyasının üst kısmına aşağıdaki kodu ekleyin:
 
-```nodejs
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="add-an-azure-storage-connection"></a>Azure Depolama bağlantısı ekleme
 Azure modülü, Azure Depolama hesabınıza bağlanmak için gerekli bilgiler için AZURE_STORAGE_ACCOUNT ve AZURE_STORAGE_ACCESS_KEY veya AZURE_STORAGE_CONNECTION_STRING ortam değişkenlerini okur. Bu ortam değişkenleri ayarlanmamışsa, **TableService** çağrılırken hesap bilgilerini belirtmeniz gerekir. Örneğin, aşağıdaki kod bir **TableService** nesnesi oluşturur:
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB bağlantısını ekleme
 Azure Cosmos DB bağlantısı eklemek için bir **TableService** nesnesi oluşturun ve hesap adınızı, birincil anahtarınızı ve uç noktanızı belirtin. Bu değerleri, Cosmos DB hesabınız için Azure portalındaki **Ayarlar** > **Bağlantı Dizesi** bölümünden kopyalayabilirsiniz. Örneğin:
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```  
 
 ## <a name="create-a-table"></a>Bir tablo oluşturma
 Aşağıdaki kod bir **TableService** nesnesi oluşturur ve yeni bir tablo oluşturmak için bu nesneyi kullanır. 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService();
 ```
 
 **createTableIfNotExists** çağrısı, henüz yoksa, belirtilen adla yeni bir tablo oluşturur. Aşağıdaki örnek, henüz yoksa, 'mytable' adlı yeni bir tablo oluşturur:
 
-```nodejs
+```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
   if(!error){
     // Table exists or created
@@ -96,13 +96,13 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 ### <a name="filters"></a>Filtreler
 **TableService** kullanarak gerçekleştirilen işlemlere isteğe bağlı filtreleme uygulayabilirsiniz. Filtreleme işlemleri, günlük kaydı, otomatik yeniden deneme vb. içerebilir. Filtreler, imza ile bir yöntem uygulayan nesnelerdir:
 
-```nodejs
+```javascript
 function handle (requestOptions, next)
 ```
 
 İstek seçeneklerinde önişlemi yapıldıktan sonra yöntem, aşağıdaki imza ile bir geri çağrı geçirerek **next** çağrısı yapmalıdır:
 
-```nodejs
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -110,7 +110,7 @@ Bu geri çağrıda ve **returnObject** (istekten sunucuya verilen yanıt) işlen
 
 Yeniden deneme mantığı uygulayan iki filtre (**ExponentialRetryPolicyFilter** ve **LinearRetryPolicyFilter**), Node.js için Azure SDK’sına dahil edilir. Aşağıda, **ExponentialRetryPolicyFilter** kullanan bir **TableService** nesnesi oluşturulur:
 
-```nodejs
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
@@ -125,7 +125,7 @@ Hem **PartitionKey** hem de **RowKey** dize değerleri olmalıdır. Daha fazla b
 
 Aşağıda, bir varlığın tanımlanmasına örnek verilmiştir. **dueDate**, bir **Edm.DateTime** türü olarak tanımlanır. Tür belirtme isteğe bağlıdır ve türler belirtilmezse çıkarsanır.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -141,7 +141,7 @@ var task = {
 
 Varlıklar oluşturmak için **entityGenerator** da kullanabilirsiniz. Aşağıdaki örnek, **entityGenerator** kullanılmasıyla aynı görevi oluşturur.
 
-```nodejs
+```javascript
 var entGen = azure.TableUtilities.entityGenerator;
 var task = {
   PartitionKey: entGen.String('hometasks'),
@@ -153,7 +153,7 @@ var task = {
 
 Tablonuza bir varlık eklemek için, varlık nesnesini **insertEntity** yöntemine geçirin.
 
-```nodejs
+```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
   if(!error){
     // Entity inserted
@@ -165,7 +165,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 
 Örnek yanıt:
 
-```nodejs
+```javascript
 { '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 ```
 
@@ -186,7 +186,7 @@ Mevcut bir varlığı güncelleştirmenin birçok yolu vardır:
 
 Aşağıdaki örnekte **replaceEntity** kullanılarak bir varlığın güncelleştirilmesi gösterilmektedir:
 
-```nodejs
+```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
   if(!error) {
     // Entity updated
@@ -214,7 +214,7 @@ Bazen sunucu tarafından atomik işleme sağlamak için bir toplu işte birden f
 
  Aşağıdaki örnekte, bir toplu işte iki varlığın gönderilmesi gösterilmektedir:
 
-```nodejs
+```javascript
 var task1 = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -254,7 +254,7 @@ Başarılı toplu işlemler için `result`, toplu işteki her bir işlemin bilgi
 ## <a name="retrieve-an-entity-by-key"></a>Anahtara göre bir varlık alma
 **PartitionKey** ve **RowKey** değerine dayalı belirli bir varlık döndürmek için **retrieveEntity** yöntemini kullanın.
 
-```nodejs
+```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
   if(!error){
     // result contains the entity
@@ -276,7 +276,7 @@ Bir tabloyu sorgulamak için, **TableQuery** nesnesini kullanarak aşağıdaki y
 
 Aşağıdaki örnek, bir 'hometasks' PartitionKey ile ilk beş öğeyi döndüren bir sorgu derler.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .top(5)
   .where('PartitionKey eq ?', 'hometasks');
@@ -284,7 +284,7 @@ var query = new azure.TableQuery()
 
 **select** kullanılmadığından, tüm alanlar döndürülür. Bir tabloya karşı sorguyu gerçekleştirmek için **queryEntities** kullanın. Aşağıdaki örnekte, 'mytable' içinden varlıkları döndürmek için bu sorgu kullanılır.
 
-```nodejs
+```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
   if(!error) {
     // query was successful
@@ -298,7 +298,7 @@ Başarılı olursa `result.entries`, sorguyla eşleşen varlık dizisini içerir
 Bir tabloya yapılan sorgu, bir varlıktan yalnızca birkaç alan alabilir.
 Bu, bant genişliğini azaltır ve özellikle büyük varlıklar için sorgu performansını iyileştirebilir. **select** yan tümcesini kullanın ve döndürülecek alanların adlarını geçirin. Örneğin, aşağıdaki sorgu yalnızca **description** ve **dueDate** alanlarını döndürür.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .select(['description', 'dueDate'])
   .top(5)
@@ -308,7 +308,7 @@ var query = new azure.TableQuery()
 ## <a name="delete-an-entity"></a>Bir varlığı silme
 Bölüm ve satır anahtarlarını kullanarak bir varlığı silebilirsiniz. Bu örnekte **task1** nesnesi, silinecek varlığın **RowKey** ve **PartitionKey** değerlerini içerir. Daha sonra nesne, **deleteEntity** yöntemine geçirilir.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'}
@@ -329,7 +329,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ## <a name="delete-a-table"></a>Bir tablo silme
 Aşağıdaki kod, bir depolama hesabından tabloyu siler.
 
-```nodejs
+```javascript
 tableSvc.deleteTable('mytable', function(error, response){
     if(!error){
         // Table deleted
@@ -346,7 +346,7 @@ Varlıkları sorgulama sırasında döndürülen **results** nesnesi, böyle bir
 
 Sorgulama sırasında, sorgu nesnesi örneği ile geri çağrı işlevi arasında bir `continuationToken` parametresi sağlayabilirsiniz:
 
-```nodejs
+```javascript
 var nextContinuationToken = null;
 dc.table.queryEntities(tableName,
     query,
@@ -372,7 +372,7 @@ Bulut tabanlı hizmet gibi güvenilir bir uygulama, **TableService** için **gen
 
 Aşağıdaki örnekte, SAS sahibinin tabloyu sorgulamasına ('r') olanak sağlayacak ve oluşturulduktan 100 dakika sonra geçerlilik süresi sona erecek yeni bir paylaşılan erişim ilkesi oluşturulur.
 
-```nodejs
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -394,7 +394,7 @@ SAS sahibi tabloya erişmeye çalıştığında gerekli olacağı için ana bilg
 
 Daha sonra istemci uygulaması, tabloya karşı işlemleri gerçekleştirmek için **TableServiceWithSAS** ile SAS’ı kullanır. Aşağıdaki örnek, tabloya bağlanır ve bir sorgu gerçekleştirir. Bkz: [paylaşılan erişim imzaları kullanma](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris) makalesine tableSAS biçimi. 
 
-```nodejs
+```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -415,7 +415,7 @@ Ayrıca SAS için erişim ilkesini ayarlamak istediğinizde de bir Erişim Denet
 
 Her politikayla ilişkilendirilmiş bir kimlik ile, bir erişim ilkeleri dizisi kullanılarak ACL uygulanır. Aşağıdaki örnekte, biri 'user1' için ve biri de 'user2' için olmak üzere iki ilke tanımlanmaktadır:
 
-```nodejs
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -432,7 +432,7 @@ var sharedAccessPolicy = {
 
 Aşağıdaki örnek, **hometasks** tablosu için geçerli ACL’yi alır ve sonra **setTableAcl** kullanarak yeni ilkeler ekler. Bu yaklaşım aşağıdakilere olanak sağlar:
 
-```nodejs
+```javascript
 var extend = require('extend');
 tableSvc.getTableAcl('hometasks', function(error, result, response) {
 if(!error){
@@ -448,7 +448,7 @@ if(!error){
 
 ACL ayarlandıktan sonra, bir ilke için kimliğe dayalı bir SAS oluşturabilirsiniz. Aşağıdaki örnek, 'user2' için yeni bir SAS oluşturur:
 
-```nodejs
+```javascript
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 

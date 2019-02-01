@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1bc70e5c8243c50506cea871220412a4941cbe35
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7e7e362a2536f7adf2a7d68b096ab76d73f15a61
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213119"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496236"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Node.js ile soru-cevap Oluşturucu REST API'si kullanma 
 <a name="HOLTop"></a>
@@ -57,7 +57,7 @@ Aşağıdaki kod, [Oluşturma](https://westus.dev.cognitive.microsoft.com/docs/s
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -253,7 +253,7 @@ Aşağıdaki kod, [Güncelleştirme](https://westus.dev.cognitive.microsoft.com/
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -454,7 +454,7 @@ Aşağıdaki kod, [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/ser
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -566,7 +566,7 @@ Aşağıdaki kod [Replace](https://westus.dev.cognitive.microsoft.com/docs/servi
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -699,7 +699,7 @@ Aşağıdaki kod [Download knowledge base](https://westus.dev.cognitive.microsof
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -832,7 +832,7 @@ Aşağıdaki kod **Generate answers** metodunu kullanarak belirli bir bilgi bank
 1. `kb` değerini yanıt için sorgulamak istediğiniz bilgi bankasının kimliğiyle değiştirin. Bu bilgi bankasının [Publish](#Publish) metodu kullanılarak önceden yayımlanmış olması gerektiğini unutmayın.
 1. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -961,7 +961,7 @@ Aşağıdaki kod [Get knowledge base details](https://westus.dev.cognitive.micro
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1076,7 +1076,7 @@ Aşağıdaki kod [Get knowledge bases for user](https://westus.dev.cognitive.mic
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1204,7 +1204,7 @@ Aşağıdaki kod [Delete knowledge base](https://westus.dev.cognitive.microsoft.
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1316,7 +1316,7 @@ Aşağıdaki kod [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1417,7 +1417,7 @@ Aşağıdaki kod [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1543,7 +1543,7 @@ Aşağıdaki kod [Download alterations](https://westus.dev.cognitive.microsoft.c
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1650,7 +1650,7 @@ Aşağıdaki kod [Replace alterations](https://westus.dev.cognitive.microsoft.co
 3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');

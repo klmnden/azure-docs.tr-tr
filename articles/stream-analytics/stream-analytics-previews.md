@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 70cc6210a0c047867980de67ac24701df29ce8bf
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232133"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485186"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics Önizleme özellikleri
 
@@ -45,7 +45,7 @@ Azure Stream Analytics için Visual Studio Araçları, olay hub'ı veya IOT hub 
 
 ## <a name="private-previews"></a>Özel önizleme
 
-Aşağıdaki özellikler için özel Önizleme aşamasındadır. Bu önizlemeler erişmek için Azure Stream Analytics özel Önizleme ziyaret [kaydolun](https://aka.ms/ASApreview1) sayfası.
+Aşağıdaki özellikler için özel Önizleme aşamasındadır.
 
 ### <a name="anomaly-detection"></a>Anomali Algılama
 
@@ -59,7 +59,7 @@ Geliştiriciler, Azure Stream Analytics tarafından alınan olayları seri durum
 
 Artık, sorgunuzun herhangi bir sütuna göre Blob Depolama için Azure Stream Analytics çıkış bölümlemek mümkündür.
 
-### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Azure Data Lake Store kimlik doğrulaması Azure kaynakları için yönetilen kimlikleri
+### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Azure kaynak kimlik doğrulaması yapmak için Azure Data Lake Storage yönetilen kimlikleri
 
 Şimdi, işleri programlı olarak oluşturmanıza olanak tanıyan gerçek zamanlı işlem hatlarınızı Azure kaynaklarına göre kimlik doğrulaması için Azure Data Lake depolama Gen1 yazarken yönetilen kimliklerle çalışır hale getirebilirsiniz. Daha fazla bilgi için ziyaret [Azure Stream Analytics işleri kimlik doğrulaması için Azure Data Lake depolama Gen1 çıkış Azure kaynaklarına yönetilen kullan biçimimi](stream-analytics-managed-identities-adls.md).
 
@@ -67,4 +67,4 @@ Artık, sorgunuzun herhangi bir sütuna göre Blob Depolama için Azure Stream A
 
 * [Azure Stream analytics'te sekiz yeni özellikler](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)
 
-* [Azure Stream Analytics'te sunuldu 4 yeni özellikler](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)
+* [Dört yeni özellikler Azure Stream Analytics'te kullanıma sunuldu](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)

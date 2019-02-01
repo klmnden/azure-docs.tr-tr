@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 37ee9fec8940231a01b0014b020ca3f0dffb53bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5be6f99067f1209fcd131dfc33c46995b2a537f8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467110"
+ms.locfileid: "55498310"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -23,19 +23,19 @@ Bu kılavuz, Azure geliştirme alanları kullanılırken olabilir sık karşıla
 
 ## <a name="enabling-detailed-logging"></a>Ayrıntılı günlük kaydını etkinleştirme
 
-Sorunları daha etkili bir şekilde gidermek için ayrıntılı günlükleri gözden geçirme oluşturmak için yardımcı.
+Sorunları daha etkili bir şekilde gidermek için bunu ayrıntılı günlükleri gözden geçirme oluşturmak için yardımcı olabilir.
 
-Visual Studio uzantısı için `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` ortam değişkeni 1. Visual Studio ortam değişkeni için etkili olması için yeniden emin olun. Etkinleştirildikten sonra ayrıntılı günlükler yazılır, `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` dizin.
+Visual Studio uzantısı için `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` ortam değişkeni 1. Visual Studio ortam değişkeni için etkili olması için yeniden emin olun. Etkinleştirildikten sonra ayrıntılı günlükler için yazılmıştır, `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` dizin.
 
 CLI, komut yürütme sırasında daha fazla bilgi kullanarak çıkarabilirsiniz `--verbose` geçin. Daha ayrıntılı günlükleri de göz atabilirsiniz `%TEMP%\Azure Dev Spaces`. Mac bilgisayarlarda, çalıştırarak TEMP dizininde bulunabilir `echo $TMPDIR` bir terminal penceresinden. Bir Linux bilgisayarında, TEMP dizini genellikle olan `/tmp`.
 
 ## <a name="debugging-services-with-multiple-instances"></a>Birden çok örnek ile hata ayıklama Hizmetleri
 
-Şu anda Azure geliştirme alanları tek bir örnek (pod) hata ayıklama sırasında en iyi şekilde çalışır. Azds.yaml dosya hizmetinizde çalıştıracağı pod'ların sayısını gösteren replicaCount bir ayar içeriyor. Belirli bir hizmet için birden çok podunuz çalıştırmak için uygulamanızı yapılandırma replicaCount değiştirirseniz (alfabetik olarak listelenen olduğunda) ilk pod hata ayıklayıcının. Bu pod herhangi bir nedenle dönüştürülürse, farklı bir pod için büyük olasılıkla beklenmeyen davranışlara neden olur hata ayıklayıcının.
+Şu anda, Azure geliştirme alanları çalışır, tek bir örneğini hata ayıklama sırasında en iyi veya pod. Bir ayar azds.yaml dosyayı içeren *replicaCount*, hizmetiniz için Kubernetes çalıştıran pod'ların sayısını gösterir. Belirli bir hizmet için birden çok podunuz çalıştırmak için uygulamanızı yapılandırma replicaCount değiştirirseniz, hata ayıklayıcı alfabetik olarak listelenen ilk pod'u ekler. Özgün pod geri dönüştürüldüğünde, hata ayıklayıcı için farklı bir pod muhtemelen beklenmeyen davranışlara neden olur ekler.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure geliştirme alanları denetleyicisi oluşturmak için başarısız' hatası
 
-Bir şeyler denetleyicisi oluşturulmasını yanlış gittiğinde şu hatayla karşılaşabilirsiniz. Geçici bir hatadır, geçemezsiniz denetleyicisine düzeltir.
+Bir şeyler denetleyicisi oluşturulmasını yanlış gittiğinde şu hatayla karşılaşabilirsiniz. Geçici bir hatadır, silin ve düzeltmek için denetleyici oluşturun.
 
 ### <a name="try"></a>Deneyin:
 
@@ -76,10 +76,10 @@ Visual Studio'da:
     ![Ekran Araçlar, Seçenekler iletişim kutusu](media/common/VerbositySetting.PNG)
     
 ### <a name="multi-stage-dockerfiles"></a>Çok aşamalı dockerfile'ları:
-Çok aşamalı Dockerfile'ı kullanmaya çalışırken bu hatayı görebilirsiniz. Ayrıntılı çıkış şöyle görünür:
+Aldığınız bir *hizmeti başlatılamıyor* çok aşamalı Dockerfile'ı kullanırken bir hata oluştu. Bu durumda, aşağıdaki metni ayrıntılı çıktıyı içerir:
 
 ```cmd
-$ azds up
+$ azds up -v
 Using dev space 'default' with target 'AksClusterName'
 Synchronizing files...6s
 Installing Helm chart...2s
@@ -91,10 +91,10 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-Çok aşamalı desteklemeyen Docker'ın eski bir sürümü AKS düğümleri yapılar olmasıdır. Dockerfile çok aşamalı yapılar önlemek için yeniden gerekecektir.
+AKS düğümleri Docker çok aşamalı desteklemeyen eski bir sürümünü oluşturur çünkü bu hata oluşur. Çok aşamalı yapılar önlemek için Dockerfile yeniden yazın.
 
-### <a name="re-running-a-service-after-controller-re-creation"></a>Hizmet Denetleyicisi yeniden oluşturma işleminden sonra yeniden çalıştırma
-Kaldırıldı ve ardından bu kümeyle ilişkili Azure geliştirme alanları denetleyicisi yeniden sonra hizmet yeniden çalıştırmak çalışırken bu hatayı görebilirsiniz. Ayrıntılı çıkış şöyle görünür:
+### <a name="rerunning-a-service-after-controller-re-creation"></a>Hizmet Denetleyicisi yeniden oluşturma işleminden sonra yeniden çalıştırma
+Aldığınız bir *hizmeti başlatılamıyor* kaldırılır ve ardından bu kümeyle ilişkili Azure geliştirme alanları denetleyicisi yeniden sonra hizmet yeniden çalışılırken hata oluştu. Bu durumda, aşağıdaki metni ayrıntılı çıktıyı içerir:
 
 ```cmd
 Installing Helm chart...
@@ -104,13 +104,13 @@ Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" do
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
 ```
 
-Geliştirme alanları denetleyicisini kaldırma, denetleyici tarafından önceden yüklenmiş hizmetleri kaldırmaz olmasıdır. Eski Hizmetleri yerinde olduğundan denetleyicisi yeniden oluşturma ve ardından yeni denetleyicisi kullanarak hizmetlerini çalıştırma denemesi başarısız olur.
+Bu hata, geliştirme alanları denetleyicisini kaldırma, denetleyici tarafından önceden yüklenmiş hizmetleri kaldırmaz oluşur. Eski Hizmetleri yerinde olduğundan denetleyicisi yeniden oluşturma ve ardından yeni denetleyicisi kullanarak hizmetlerini çalıştırma denemesi başarısız olur.
 
-Bunu ele almak için `kubectl delete` el ile eski Hizmetleri kümenizden kaldırın ve sonra geliştirme yeni hizmetlerin yüklenmesini için boşluk yeniden çalıştırmak için komutu.
+Bu sorunu ele almak için `kubectl delete` el ile eski Hizmetleri kümenizden kaldırın, ardından geliştirme yeni hizmetlerin yüklenmesini için boşluk yeniden çalıştırmak için komutu.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Geliştirme alanları hizmeti ile ilişkilendirilen genel bir URL için DNS adı çözümlemesi başarısız olur
 
-DNS ad çözümlemesi başarısız olduğunda, görebileceğiniz bir "Sayfası görüntülenemiyor" veya "Bu site erişilemiyor" hatası web tarayıcınızda genel URL'ye bağlanmaya geliştirme alanları hizmeti ile ilişkili olduğunda.
+Belirterek hizmetiniz için genel bir URL uç noktası yapılandırabilirsiniz `--public` geçin `azds prep` komutunu ya da seçerek `Publicly Accessible` Visual Studio onay kutusunu işaretleyin. Genel DNS adı, hizmetinizi geliştirme alanlarında çalıştırdığınızda otomatik olarak kaydedilir. Bu DNS adı kayıtlı değilse, gördüğünüz bir *sayfa görüntülenemiyor* veya *Site ulaşılamıyor* web tarayıcınızda genel URL'ye bağlanırken hata oluştu.
 
 ### <a name="try"></a>Deneyin:
 
@@ -122,7 +122,7 @@ azds list-uris
 
 Bir URL ise *bekleyen* geliştirme alanları tamamlamak için DNS kaydı için hala bekliyor anlamına gelen durumu. Bazı durumlarda, kayıt tamamlanması birkaç dakika sürer. Geliştirme alanları localhost tünel DNS kaydında beklenirken kullanabileceğiniz her hizmet için de açılır.
 
-Bir URL kalırsa *bekleyen* durum 5 dakikadan fazla, dış DNS pod'u genel bir uç nokta oluşturan ve/veya genel bir uç nokta edinme ngınx giriş denetleyicisine pod ile ilgili bir sorun olduğunu gösteriyor. Bu pod'ları silmek için aşağıdaki komutları kullanabilirsiniz. Bunlar otomatik olarak yeniden oluşturulur.
+Bir URL içinde kalırsa *bekleyen* durum 5 dakikadan fazla, genel bir uç nokta oluşturur dış DNS pod veya genel bir uç nokta edinme ngınx giriş denetleyicisine pod ile ilgili bir sorun olduğunu gösteriyor. Bu pod'ları silmek için aşağıdaki komutları kullanabilirsiniz. AKS, silinen pod'ları otomatik olarak yeniden oluşturur.
 
 ```cmd
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
@@ -166,10 +166,10 @@ Bu hata azds.exe yüklü değil veya doğru bir şekilde yapılandırıldığın
 ## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Uyarı 'Dockerfile nedeniyle desteklenmeyen dil üretilemedi'
 Azure geliştirme alanları, C# ve Node.js için yerel destek sağlar. Çalıştırdığınızda *azds hazırlığı* bu dillerden birinde yazılan kod içeren bir dizinde Azure geliştirme alanları otomatik olarak uygun bir Dockerfile sizin için oluşturur.
 
-Diğer dillerde yazılmış kod ile Azure geliştirme alanları kullanmaya devam edebilirsiniz, ancak Dockerfile çalıştırılmadan önce kendiniz oluşturmanız gerekecektir *yukarı azds* ilk kez.
+Diğer dillerde yazılmış kod ile Azure geliştirme alanları kullanmaya devam edebilirsiniz, ancak çalıştırmadan önce Dockerfile el ile oluşturmak için ihtiyacınız *yukarı azds* ilk kez.
 
 ### <a name="try"></a>Deneyin:
-Uygulamanızı Azure geliştirme alanları tarafından yerel olarak desteklenmeyen bir dilde yazılan kodunuzu çalıştıran bir kapsayıcı görüntüsünü oluşturmak için uygun bir Dockerfile sağlamak gerekir. Docker sağlayan bir [dockerfile'ları yazmak için en iyi uygulamalar listesini](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) yanı [Dockerfile başvurusunu](https://docs.docker.com/engine/reference/builder/) yardımcı olan, gereksinimlerinize uyan bir Dockerfile yazma.
+Uygulamanızı Azure geliştirme alanları yerel olarak desteklemediği bir dili ile yazılmıştır, kodunuzu çalıştıran bir kapsayıcı görüntüsünü oluşturmak için uygun bir Dockerfile'ı sağlamanız gerekir. Docker sağlayan bir [dockerfile'ları yazmak için en iyi uygulamalar listesini](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) ve [Dockerfile başvurusunu](https://docs.docker.com/engine/reference/builder/) yardımcı olan, gereksinimlerinize uyan bir Dockerfile yazma.
 
 Uygun bir Dockerfile sağlandıktan çalışır durumda geçebilirsiniz *yukarı azds* Azure geliştirme alanlarında uygulamanızı çalıştırmak için.
 
@@ -183,7 +183,7 @@ Kapsayıcı bağlantı noktası kullanılamaz. Bu sorun nedeniyle oluşabilir:
 
 ### <a name="try"></a>Deneyin:
 1. Kapsayıcı yerleşik/dağıtılan aşamasında olan 2-3 saniye bekleyin ve hizmete tekrar erişmeyi deneyin. 
-1. Bağlantı noktası yapılandırmanızı denetleyin. Belirtilen bağlantı noktası numaralarını olmalıdır **aynı** aşağıdaki tüm varlıkları içinde:
+1. Bağlantı noktası yapılandırmanızı denetleyin. Belirtilen bağlantı noktası numaralarını olmalıdır **aynı** şu varlıkları tümünde:
     * **Dockerfile:** Tarafından belirtilen `EXPOSE` yönergesi.
     * **[Helm grafiği](https://docs.helm.sh):** Tarafından belirtilen `externalPort` ve `internalPort` değerleri bir hizmet için (genellikle bulunan bir `values.yml` dosyası),
     * Örneğin, Node.js içinde uygulama kodunda açılan tüm bağlantı noktaları: `var server = app.listen(80, function () {...}`
@@ -236,7 +236,7 @@ Güncelleştirme `launch.json` altında dosya `.vscode` proje klasörünüze alt
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>'Kitaplığım' tür veya ad alanı bulunamadı
 
 ### <a name="reason"></a>Neden 
-Varsayılan olarak proje/hizmet düzeyinde derleme bağlamıdır, bu nedenle, kullanmakta olduğunuz bir kitaplık projesi bulunamadığından olmaz.
+Varsayılan olarak proje/hizmet düzeyinde derleme bağlamıdır, bu nedenle, kullandığınız bir kitaplık projesi bulunamıyor.
 
 ### <a name="try"></a>Deneyin:
 Yapmanız gerekenler:
@@ -247,7 +247,7 @@ Yapmanız gerekenler:
 Bir örneğe göz bulabilirsiniz https://github.com/sgreenmsft/buildcontextsample
 
 ## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' Yetkilendirme hatası
-Bir Azure geliştirme alanı yönettiğiniz ve bir Azure aboneliği sahibi veya katkıda bulunan erişimi olan değil çalışıyorsanız, aşağıdaki hatayı görebilirsiniz.
+Gereksinim duyduğunuz *sahibi* veya *katkıda bulunan* Azure aboneliğinizdeki Azure geliştirme alanları yönetmek için erişim. Geliştirme alanları yönetme çalıştığınız ve erişiminiz yok, bu hatayı görebilirsiniz *sahibi* veya *katkıda bulunan* ilişkili Azure aboneliğine erişim.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### <a name="reason"></a>Neden
@@ -260,6 +260,28 @@ Azure aboneliğinin sahibi veya katkıda bulunan erişimi olan el ile kaydetmek 
 az provider register --namespace Microsoft.DevSpaces
 ```
 
+## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Geliştirme alanları zaman aşımına *kapsayıcı görüntü derlemesi için bekleniyor...*  AKS sanal düğümü adımla
+
+### <a name="reason"></a>Neden
+Üzerinde çalışmak üzere yapılandırılan bir hizmeti çalıştırmak için geliştirme alanları kullanmayı denediğinizde, böyle bir [AKS sanal düğümü](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Geliştirme alanları, oluşturma veya hata ayıklama Hizmetleri sanal düğümlere şu anda desteklemiyor.
+
+Çalıştırırsanız `azds up` ile `--verbose` anahtar veya Visual Studio'da etkinleştir ayrıntılı günlük kaydı, ek ayrıntı görürsünüz:
+
+```cmd
+Installed chart in 2s
+Waiting for container image build...
+pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
+Streaming build container logs for service 'mywebapi' failed with: Timed out after 601.3037572 seconds trying to start build logs streaming operation. 10m 1s
+Container image build failed
+```
+
+Bu hizmetin pod atandığı gösterir *sanal düğümü-aci-linux*, sanal bir düğüm.
+
+### <a name="try"></a>Deneyin:
+Güncelleştirme hizmeti kaldırmak Helm grafiği *nodeSelector* ve/veya *tolerations* sanal düğüm üzerinde çalışan izin değerleri. Bu değerler, genellikle grafik içinde tanımlanan `values.yaml` dosya.
+
+Derleme/debug geliştirme alanları ile istediğiniz hizmeti bir VM düğüm üzerinde çalışıyorsa, sanal düğümü özelliği etkinleştirilmiş, bir AKS kümesi kullanmaya devam edebilirsiniz. Bu varsayılan yapılandırmadır.
+
 ## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>"Hata: hazır tiller pod bulunamadı" geliştirme alanları başlatırken
 
 ### <a name="reason"></a>Neden
@@ -271,20 +293,18 @@ Genellikle, kümenizin aracı düğümleri yeniden başlatılıyor, bu sorunu ç
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Bir geliştirme alanında çalışan diğer pod'ları ile Azure geliştirme alanları proxy etkileyebilir
 
 ### <a name="reason"></a>Neden
-AKS kümenizde bir ad alanı üzerinde geliştirme alanları etkinleştirdiğinizde, ek bir kapsayıcı olarak adlandırılan _mindaro proxy_ her biri, ad alanı içinde çalışan pod'ların yüklenir. Bu kapsayıcı geliştirme alanları takım geliştirme özellikleri için tam sayı olan pod Hizmetleri'nde çağrılarını karşılar.
-
-Ne yazık ki bu pod'ların çalışan belirli hizmetleri ile engelleyebilir. Özellikle, Azure önbelleği için Redis çalıştırma, yönetici/bağımlı iletişim bağlantısı hataları neden pod'ları ile uğratır.
+AKS kümenizde bir ad alanı üzerinde geliştirme alanları etkinleştirdiğinizde, ek bir kapsayıcı olarak adlandırılan _mindaro proxy_ her biri, ad alanı içinde çalışan pod'ların yüklenir. Bu kapsayıcı, geliştirme alanları takım geliştirme özellikleri için tam sayı olan pod hizmetlere çağrılarını yakalar; Ancak, bu pod'ların çalışan belirli hizmetleri ile engelleyebilir. Azure önbelleği için Redis çalıştırma, yönetici/bağımlı iletişim bağlantısı hataları neden pod'ları ile etkileşime bilinir.
 
 ### <a name="try"></a>Deneyin:
-Etkilenen pod(s) yapan küme içinde bir ad alanına taşıyabilirsiniz _değil_ geliştirme rest geliştirme alanları özellikli bir ad alanı içinde uygulamanızın çalışmaya devam ederken, etkin boşluk. Geliştirme alanları yüklemez _mindaro proxy_ kapsayıcı geliştirme olmayan alanları içinde etkin ad alanları.
+Etkilenen pod'ların yapan küme içinde bir ad alanına taşıyabilirsiniz _değil_ geliştirme etkin boşluk. Uygulamanızın rest geliştirme alanları özellikli bir ad alanı içinde çalıştırmaya devam edebilirsiniz. Geliştirme alanları yüklemez _mindaro proxy_ kapsayıcı geliştirme olmayan alanları içinde etkin ad alanları.
 
-## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure geliştirme alanları bir kapsayıcı oluşturmak için var olan my Dockerfile kullanmak gibi görünüyor 
+## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure geliştirme alanları bir kapsayıcı oluşturmak için var olan my Dockerfile kullanmak gibi görünüyor
 
 ### <a name="reason"></a>Neden
-Azure geliştirme alanları, belirli bir işaret edecek şekilde yapılandırılabilir _Dockerfile_ projenizdeki. Azure geliştirme alanları kullanmıyorsa görünürse _Dockerfile_ kapsayıcılarınızı derleme beklediğiniz, Azure geliştirme alanları açıkça olduğu bildirmeniz gerekebilir. 
+Azure geliştirme alanları, belirli bir işaret edecek şekilde yapılandırılabilir _Dockerfile_ projenizdeki. Azure geliştirme alanları kullanmıyorsa görünürse _Dockerfile_ kapsayıcılarınızı derleme beklediğiniz, açıkça Azure geliştirme alanları kullanmak için hangi Dockerfile bildirmeniz gerekebilir. 
 
 ### <a name="try"></a>Deneyin:
-Açık _azds.yaml_ projenizde Azure geliştirme alanları tarafından oluşturulan dosya. Kullanma `configurations->develop->build->dockerfile` kullanmak için bir Dockerfile işaret edecek şekilde yönergesi:
+Açık _azds.yaml_ , Azure geliştirme alanları projenizde oluşturulan dosya. Kullanma *yapılandırmaları -> Geliştirme derleme -> dockerfile ->* kullanmak için bir Dockerfile işaret edecek şekilde yönergesi:
 
 ```
 ...

@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b3fed190c9483c458df6144d639c6f19e01cdf0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55f208b6fda85d82456694279cf22537a423782e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178418"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495488"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect eşitleme: Yanlışlıkla silmeleri engelleme
 Bu konu, Azure AD CONNECT'te engelle (yanlışlıkla silmeleri engelleme) yanlışlıkla silmeleri özelliğini açıklar.
@@ -68,5 +68,5 @@ Ardından tüm silmeleri isterseniz, aşağıdakileri yapın:
 ## <a name="next-steps"></a>Sonraki adımlar
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)

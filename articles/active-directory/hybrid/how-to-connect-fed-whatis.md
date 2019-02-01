@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a2e835f074ac2f5d1eede9f68e77774938da6af
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28c0ddbb735de041497b6705759d03c881b7e87e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181750"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494366"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect ve federasyon
 Azure Active Directory (Azure AD) Connect sağlar ile Federasyonu yapılandırma şirket içi Active Directory Federasyon Hizmetleri (AD FS) ve Azure AD. Federasyon oturum açma ile kullanıcılar parolalarını yeniden girmek zorunda kalmadan şirket ağ üzerindeyken, Azure AD tabanlı hizmetler ile şirket içi parolalarını--ve için oturum açabilir etkinleştirebilirsiniz. AD FS ile Federasyon seçeneğini kullanarak yeni bir AD FS yüklemesini dağıtabilir veya bir Windows Server 2012 R2 grubunda var olan bir yüklemesini belirtebilirsiniz.
@@ -30,7 +30,7 @@ Bu konu Azure AD Connect'i Federasyon ile ilgili işlevler hakkında bilgi için
 ## <a name="azure-ad-connect-federation-topics"></a>Azure AD Connect: Federasyon konuları
 | Konu | Neleri kapsar ve okumak ne zaman |
 |:--- |:--- |
-| **Azure AD Connect kullanıcı oturum açma seçenekleri** | |
+| **Azure AD Connect kullanıcı oturumu açma seçenekleri** | |
 | [Kullanıcı oturum açma seçeneklerini anlama](plan-connect-user-signin.md) |Azure oturum açma kullanıcı deneyimini nasıl etkilediklerini ve çeşitli kullanıcı oturum açma seçenekleri hakkında bilgi edinin. |
 | **Azure AD Connect kullanarak AD FS'yi yükleyin** | |
 | [Önkoşullar](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Azure AD Connect aracılığıyla başarılı bir AD FS yükleme önkoşullarını bakın. |

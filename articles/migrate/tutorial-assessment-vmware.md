@@ -4,15 +4,15 @@ description: Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geç
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 61eca35bb03ba62bbc10105819e12a8c0ebb41ca
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298730"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487923"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -78,7 +78,7 @@ Azure Geçişi, toplayıcı gereci olarak bilinen bir şirket içi VM oluşturur
     > [!NOTE]
     > Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır.
 
-    **Anında keyif:** Bulma olduğunda (alır birkaç saat VM sayısına bağlı olarak), sürekli bulma gereciyle tamamlamak değerlendirmeler hemen oluşturabilirsiniz. Anında sonuç elde etmek için kullanmak istiyorsanız, Keşif yaslanıp performans veri toplama başlar bu yana değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
+    **Hızlı değerlendirmesi:** Bulma olduğunda (alır birkaç saat VM sayısına bağlı olarak), sürekli bulma gereciyle tamamlamak değerlendirmeler hemen oluşturabilirsiniz. Performans veri toplama başlar hızlı değerlendirmeleri için arıyorsanız, Keşif başlatmadan sonra değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
 
     Gereç yalnızca performans verilerini sürekli olarak toplar, şirket içi ortamda (yani, VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
 

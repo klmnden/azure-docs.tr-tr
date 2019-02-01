@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: d9a649e3b49c71a24d06656e0667765ef9cc5508
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e77b8c89954064fb143f04f0f901d1512d4fc50d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321346"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491017"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Hadoop Hive etkinliği Azure Data Factory kullanarak verileri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,11 +52,11 @@ Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'
         "defines": {
             "param1": "param1Value"
         }
-    }   
+    }
 }
 ```
 ## <a name="syntax-details"></a>Söz dizimi ayrıntıları
-| Özellik            | Açıklama                                                  | Gereklidir |
+| Özellik            | Açıklama                                                  | Gerekli |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | ad                | Etkinliğin adı                                         | Evet      |
 | açıklama         | Etkinliğin ne için kullanıldığını açıklayan metin                | Hayır       |
@@ -67,7 +67,7 @@ Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'
 | getDebugInfo        | Günlük dosyaları Azure depolama için ne zaman kopyalanır belirtir HDInsight küme tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
 | bağımsız değişkenler           | Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenleri, her görev için komut satırı bağımsız değişkenleri geçirilir. | Hayır       |
 | tanımlar             | Parametreler içinde Hive betiğine başvurmak için anahtar/değer çiftleri belirtin. | Hayır       |
-| queryTimeout        | Zaman aşımı değerini (dakika cinsinden) sorgulayın.  HDInsight küme Kurumsal güvenlik paketi etkin olduğunda uygulanabilir. | Hayır       |
+| queryTimeout        | Zaman aşımı değerini (dakika cinsinden) sorgulayın. HDInsight küme Kurumsal güvenlik paketi etkin olduğunda uygulanabilir. | Hayır       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Anlatan farklı yollarla verileri dönüştürmek aşağıdaki makalelere bakın: 
@@ -80,4 +80,3 @@ Anlatan farklı yollarla verileri dönüştürmek aşağıdaki makalelere bakın
 * [.NET özel etkinliği](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Batch yürütme etkinliği](transform-data-using-machine-learning.md)
 * [Saklı yordam etkinliği](transform-data-using-stored-procedure.md)
-

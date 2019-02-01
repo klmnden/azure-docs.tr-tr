@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb888367e3204d6750c533eb8952c80947f90c11
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382791"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486818"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager ve klasik dağıtım: Dağıtım modellerini ve kaynaklarınızın durumunu anlama
 
@@ -30,6 +30,8 @@ Bu makalede Azure Resource Manager ve klasik dağıtım modelleri hakkında bilg
 Microsoft, kaynakların dağıtımını ve yönetimini kolaylaştırmak amacıyla tüm yeni kaynaklar için Resource Manager kullanmanızı önerir. Microsoft, mümkünse var olan kaynakları Resource Manager ile yeniden dağıtmanızı önerir.
 
 Resource Manager kullanmaya yeni başladıysanız, öncelikle [Azure Resource Manager'a genel bakış](resource-group-overview.md) bölümünde tanımlanan terimleri gözden geçirmek isteyebilirsiniz.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="history-of-the-deployment-models"></a>Dağıtım modellerinin geçmişi
 Azure başlangıçta yalnızca klasik dağıtım modelini sağlamıştır. Bu modelde her kaynak bağımsız bir şekilde mevcuttu ve ilgili kaynakları gruplandırmanın bir yolu yoktu. Bunun yerine, çözümünüzü ya da uygulamanızı oluşturan kaynakları el ile izlemeniz ve eşgüdümlü bir şekilde yönetmeyi unutmamanız gerekiyordu. Bir çözümü dağıtmak için her bir kaynağı portal aracılığıyla tek tek oluşturmanız ya da tüm kaynakları doğru sırayla dağıtan bir betik oluşturmanız zorunluydu. Çözümü silmek için her bir kaynağı ayrı ayrı silmeniz gerekiyordu. İlgili kaynaklar için erişim denetimi ilkelerini kolayca uygulayamaz ve güncelleştiremezdiniz. Son olarak, kaynaklarınızı izlemenize ve faturalandırmayı yönetmenize yardımcı olacak terimlerle kaynaklara etiket uygulayamazdınız.
@@ -57,7 +59,7 @@ Sanal makineler, depolama hesapları ve sanal ağlar için kaynak klasik dağıt
 Bazı durumlarda, bir Resource Manager komutu klasik dağıtımla oluşturulmuş bir kaynağa ilişkin bilgileri alabilir veya klasik bir kaynağı başka bir kaynak grubuna taşımak gibi bir yönetim görevi gerçekleştirebilir. Ancak, bu örnekler bu türün Resource Manager işlemlerini desteklediği izlenimini vermemelidir. Örneğin, klasik dağıtım ile oluşturulmuş sanal makine içeren bir kaynak grubunuzun olduğunu varsayalım. Aşağıdaki Resource Manager PowerShell komutu çalıştırırsanız:
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+Get-AzResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 ```
 
 Şu sanal makineyi döndürür:
@@ -72,10 +74,10 @@ Location          : westus
 SubscriptionId    : {guid}
 ```
 
-Ancak, Resource Manager cmdlet’i **Get-AzureRmVM** yalnızca Resource Manager aracılığıyla dağıtılmış sanal makineleri döndürür. Aşağıdaki komut, klasik dağıtım ile oluşturulmuş sanal makineyi döndürmez.
+Ancak, Resource Manager cmdlet **Get-AzVM** yalnızca Resource Manager üzerinden dağıtılan sanal makinelerin döndürür. Aşağıdaki komut, klasik dağıtım ile oluşturulmuş sanal makineyi döndürmez.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName ExampleGroup
+Get-AzVM -ResourceGroupName ExampleGroup
 ```
 
 Yalnızca Resource Manager ile oluşturulan kaynaklar etiketleri destekler. Klasik kaynaklara etiket uygulayamazsınız.

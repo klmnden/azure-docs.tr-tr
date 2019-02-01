@@ -5,22 +5,17 @@ services: backup
 documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: backup
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/07/2017
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: eb22dc88c971e0ddc293fabd64bfd30145b2edd1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 915c5f6c8e8de1b5a7a7590ba41125cbff7b8f36
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651393"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497647"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>PowerShell ile şifrelenmiş bir Azure sanal makineyi yedekleme
 
@@ -50,7 +45,7 @@ Bu betik, dağıtımı oluşturmak için aşağıdaki komutları kullanır. Tabl
 | Komut | Notlar | 
 |---|---| 
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. | 
-| [Yeni-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | Yedeklemeleri depolamak için bir kurtarma Hizmetleri kasası oluşturur. | 
+| [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | Yedeklemeleri depolamak için bir kurtarma Hizmetleri kasası oluşturur. | 
 | [Set-AzureRmRecoveryServicesBackupProperties](/powershell/module/azurerm.recoveryservices/Set-AzureRmRecoveryServicesBackupProperties) | Kurtarma Hizmetleri kasasında depolama özellikleri kümeleri yedekleme. | 
 | [Yeni-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)| Kurtarma Hizmetleri Kasası'nda, zamanlama ilkesi kullanarak koruma İlkesi ve bekletme ilkesi oluşturur. | 
 | [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) | Key Vault üzerinde hizmet sorumlusuna şifreleme anahtarları için erişim verecek izinleri ayarlar. | 

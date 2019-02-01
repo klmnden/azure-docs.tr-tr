@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 0501ccbf2b5d9124a82cb1758e09236e8ad8455a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d42f586b066d17487a17baddeec3a551bfd65617
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197985"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493644"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Küme sertifikası parmak izini ortak ad olarak değiştirme
 İki sertifika küme sertifika geçişi veya yönetim zorlaştırır aynı parmak olabilir. Ancak, aynı ortak adı veya konu birden çok sertifika sahip olabilir.  Sertifika ortak adları kullanarak sertifika parmak izleri kullanarak dağıtılan bir kümenin geçiş sertifika yönetimi çok daha kolay hale getirir. Bu makalede, sertifika ortak adına sertifika parmak izi yerine kullanmak için çalışan bir Service Fabric kümesinin güncelleştirileceğini açıklar.
@@ -47,7 +47,7 @@ $SubscriptionId  =  "<subscription ID>"
 Login-AzureRmAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
-$KeyVaultResourceGroupName  = "mykeyvaultgropu"
+$KeyVaultResourceGroupName  = "mykeyvaultgroup"
 $VaultName = "mykeyvault"
 $certFilename = "C:\users\sfuser\myclustercert.pfx"
 $certname = "myclustercert"

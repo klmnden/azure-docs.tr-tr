@@ -6,18 +6,18 @@ documentationcenter: ''
 author: JiangChen79
 manager: felixwu
 editor: ''
-tags: top-support-issue,azure-resourece-manager,azure-service-management
+tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: d8c0afa159bb8f932c42077868d5134e6486e8c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10c5dc5614731b247b917b68307f6a2d11663461
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414329"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510485"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Oluşturma, yeniden başlatma veya azure'da Vm'leri yeniden boyutlandırma karşılaşılan ayırma hatalarını giderme
 
@@ -25,7 +25,7 @@ Sanal makine (VM) oluşturma, durduruldu (serbest bırakıldı) Vm'leri yeniden 
 
 **Hata kodu**: AllocationFailed veya ZonalAllocationFailed
 
-**Hata iletisi**: "ayırma başarısız oldu. Bu bölgede biz istenen VM boyutu için yeterli kapasite yoktur. Başarılı ayırma olasılığını artırma hakkında daha fazla okuma http://aka.ms/allocation-guidance"
+**Hata iletisi**: "Ayırma başarısız oldu. Bu bölgede biz istenen VM boyutu için yeterli kapasite yoktur. Başarılı ayırma olasılığını artırma hakkında daha fazla okuma http://aka.ms/allocation-guidance"
 
 Bu makalede, ortak bir ayırma hatalarının bazı nedenleri açıklanır ve olası çözümler önerir.
 
@@ -36,7 +36,7 @@ Dağıtım sorunlarla aşağıdaki tabloda kılavuz geçici bir çözüm olarak 
 Talebinize en iyi şekilde eşleşen bir senaryo belirleme ve sonra başarılı ayırma olasılığını artırmak için karşılık gelen önerilen geçici çözüm kullanılarak ayırma isteği yeniden deneyin. Alternatif olarak, her zaman daha sonra yeniden deneyebilir. Yeterli kaynaklar, küme, bölge veya isteğiniz uyum sağlamak için bölge boşaltılmış olmasıdır. 
 
 
-## <a name="resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>VM'yi yeniden boyutlandırma veya var olan bir kullanılabilirlik kümesine VM ekleme
+## <a name="resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Bir veya birden çok VM'yi mevcut kullanılabilirlik kümesine yeniden boyutlandırma
 
 ### <a name="cause"></a>Nedeni
 
@@ -47,11 +47,11 @@ VM'yi yeniden boyutlandırma veya mevcut bir kullanılabilirlik kümesi için bi
 VM'yi farklı bir kullanılabilirlik kümesinin parçası olabilir (aynı bölgede) kümesi farklı bir kullanılabilirlik bir VM oluşturun. Bu yeni VM, sonra aynı sanal ağa eklenebilir.
 
 Durdurun (serbest bırakın) tüm VM'lerin aynı kullanılabilirlik kümesi ve ardından her biri yeniden başlatın.
-Durdurmak için: tıklayın kaynak grupları > [kaynak grubunuzun] > kaynak > [kullanılabilirlik kümesi] > sanal makineler > [sanal makinenizi] > Durdur.
+Durdurmak için: Kaynak Gruplar > [kaynak grubunuzun] > kaynak > [kullanılabilirlik kümesi] > sanal makineler > [sanal makinenizi] > Durdur.
 Tüm VM'lerin durdurduktan sonra ilk VM seçin ve ardından Başlat'a tıklayın.
 Bu adım, yeni bir ayırma girişimi çalıştırılır ve yeni bir küme, yeterli kapasiteye sahip seçilebileceğini emin olur.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Kısmen durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma
+## <a name="restart-partially-stopped-deallocated-vms"></a>Kısmen durdurulmuş (serbest bırakılmış) VM'leri yeniden başlatma
 
 ### <a name="cause"></a>Nedeni
 
@@ -60,11 +60,11 @@ Kısmi ayırmayı kaldırma (serbest bırakıldı) bir veya daha fazla durduruld
 ### <a name="workaround"></a>Geçici çözüm
 
 Durdurun (serbest bırakın) tüm VM'lerin aynı kullanılabilirlik kümesi ve ardından her biri yeniden başlatın.
-Durdurmak için: tıklayın kaynak grupları > [kaynak grubunuzun] > kaynak > [kullanılabilirlik kümesi] > sanal makineler > [sanal makinenizi] > Durdur.
+Durdurmak için: Kaynak Gruplar > [kaynak grubunuzun] > kaynak > [kullanılabilirlik kümesi] > sanal makineler > [sanal makinenizi] > Durdur.
 Tüm VM'lerin durdurduktan sonra ilk VM seçin ve ardından Başlat'a tıklayın.
 Bu yeni bir ayırma girişimi çalıştırılır ve yeni bir küme, yeterli kapasiteye sahip seçilebileceğini emin olmanızı sağlar.
 
-## <a name="restart-fully-stopped-deallocated-vms"></a>Tam olarak durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma
+## <a name="restart-fully-stopped-deallocated-vms"></a>Tamamen durdurulmuş (serbest bırakılmış) VM'leri yeniden başlatma
 
 ### <a name="cause"></a>Nedeni
 
@@ -81,7 +81,7 @@ Ayırma isteğiniz büyükse (500'den fazla çekirdek), kılavuz aşağıdaki b�
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Eski sanal makine boyutları (Av1, Dv1, DSv1, D15v2, DS15v2, vb.) için ayırma hataları
 
-Biz, size Azure altyapı genişlettiğinizde, en son sanal makine türlerini desteklemek için tasarlanan yeni nesil donanımdan dağıtın. Bazı eski serisi VM'ler son nesil altyapımız üzerinde çalıştırmayın. Bu nedenle, müşterilerin bazen bu eski Sku'larda ayırma hatalarıyla karşılaşabilirsiniz. Bu sorunu önlemek için aşağıdaki önerileri başına eşdeğer yeni vm'lere taşıma dikkate alınması gereken eski serisi sanal makineler kullanan müşteriler şu önerilir: Bu VM'ler, en son donanım için en iyi duruma getirilir ve daha iyi yararlanmanıza olanak tanır Fiyatlandırma ve performans. 
+Biz, size Azure altyapı genişlettiğinizde, en son sanal makine türlerini desteklemek için tasarlanan yeni nesil donanımdan dağıtın. Bazı eski serisi VM'ler son nesil altyapımız üzerinde çalıştırmayın. Bu nedenle, müşterilerin bazen bu eski Sku'larda ayırma hatalarıyla karşılaşabilirsiniz. Bu sorunu önlemek için aşağıdaki önerileri başına eşdeğer yeni vm'lere taşıma dikkate alınması gereken eski serisi sanal makineler kullanan müşteriler öneririz: Bu VM'ler, daha iyi fiyat ve performans avantajlarından yararlanmanıza olanak tanıyacak ve en son donanım için iyileştirilmiştir. 
 
 |Eski VM serisi/boyutu|Önerilen yeni VM serisi/boyut|Daha fazla bilgi|
 |----------------------|----------------------------|--------------------|

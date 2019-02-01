@@ -4,20 +4,18 @@ description: Azure Danışmanı, Azure dağıtımlarınızın iyileştirilmesine
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: 747ce8dc4a4e4c8ac1e26e5b051a431176096d71
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015985"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494554"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Danışmanı giriş
 
@@ -35,10 +33,10 @@ Danışman aracılığıyla erişebileceğiniz [Azure portalında](https://aka.m
 
 Danışman Panosu, tüm Abonelikleriniz için kişiselleştirilmiş önerileri görüntüler.  Belirli bir abonelik ve kaynak türleri için öneriler görüntülemek için filtre uygulayabilirsiniz.  Öneriler, dört kategoriye ayrılır: 
 
-* **Yüksek kullanılabilirlik**: İş açısından kritik uygulamalarınızın sürekliliğini ve emin olmak. Daha fazla bilgi için [Advisor yüksek kullanılabilirlik önerisi](advisor-high-availability-recommendations.md).
-* **Güvenlik**: tehditleri ve güvenlik ihlallerini yol açabilecek güvenlik açıklarını algılamak üzere. Daha fazla bilgi için [Danışmanı önerilerini](advisor-security-recommendations.md).
-* **Performans**: uygulamalarınızın hızını artırmak için. Daha fazla bilgi için [Danışmanı performans önerilerini](advisor-performance-recommendations.md).
-* **Maliyet**: en iyi duruma getirmek ve genel Azure harcamalarınızı azaltmak için. Daha fazla bilgi için [Advisor maliyet önerileri](advisor-cost-recommendations.md).
+* **Yüksek kullanılabilirlik**: Sağlamak ve iş açısından kritik uygulamalarınızın sürekliliğini için. Daha fazla bilgi için [Advisor yüksek kullanılabilirlik önerisi](advisor-high-availability-recommendations.md).
+* **Güvenlik**: Tehditler ve güvenlik ihlallerini yol açabilecek güvenlik açıklarını belirlemek için. Daha fazla bilgi için [Danışmanı önerilerini](advisor-security-recommendations.md).
+* **Performans**: Uygulamalarınızın hızını artırmak için. Daha fazla bilgi için [Danışmanı performans önerilerini](advisor-performance-recommendations.md).
+* **Maliyet**: En iyi duruma getirmek ve genel Azure harcamalarınızı azaltmak için. Daha fazla bilgi için [Advisor maliyet önerileri](advisor-cost-recommendations.md).
 
   ![Advisor öneri türleri](./media/advisor-overview/advisor-dashboard.png)
 

@@ -1,29 +1,29 @@
 ---
-title: Azure storage'da veri kopyalama | Microsoft Docs
-description: Microsoft Azure depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik için çoğaltılır. Yerel olarak yedekli depolama (LRS), bölgesel olarak yedekli depolama (ZRS), coğrafi olarak yedekli depolama (GRS) ve okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) çoğaltma seçenekleri içerir.
+title: Azure storage'da veri yedekliği | Microsoft Docs
+description: Microsoft Azure depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik için çoğaltılır. Yedeklilik seçenekleri yerel olarak yedekli depolama (LRS), bölgesel olarak yedekli depolama (ZRS), coğrafi olarak yedekli depolama (GRS) ve okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) içerir.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455516"
+ms.locfileid: "55506796"
 ---
-# <a name="azure-storage-replication"></a>Azure Storage çoğaltma
+# <a name="azure-storage-redundancy"></a>Azure depolama yedekliliği
 
-Microsoft Azure Depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik sağlamak için her zaman çoğaltılır. Azure depolama çoğaltma, geçici donanım hataları, ağ veya bölgesel elektrik kesintileriyle, çok büyük doğal felaketlere ve benzeri arasında planlanmış ve planlanmamış olaylardan korunur verilerinizi kopyalar. Aynı bölge içinde Bölgesel veri merkezleri arasında ve bölgeler arasında bile verilerinizi aynı veri merkezinde çoğaltmayı seçebilirsiniz.
+Microsoft Azure Depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik sağlamak için her zaman çoğaltılır. Azure depolama, verilerinizi, geçici donanım hataları, ağ veya bölgesel elektrik kesintileriyle ve çok büyük doğal afetler gibi planlanan ve planlanmayan olayları, korunur kopyalar. Aynı bölge içinde Bölgesel veri merkezleri, veya bölgeler arasındaki coğrafi olarak ayrılmış verilerinizi aynı veri merkezinde çoğaltmayı seçebilirsiniz.
 
 Çoğaltma işlemi, hata durumunda bile depolama hesabınızın [Depolama için Hizmet Düzeyi Sözleşmesi'ne (SLA)](https://azure.microsoft.com/support/legal/sla/storage/) uymasını sağlar. Azure Depolama'nın dayanıklılık ve kullanılabilirlikle ilgili sağladığı garantiler hakkında bilgi edinmek için SLA'ya göz atın.
 
-## <a name="choosing-a-replication-option"></a>Bir çoğaltma seçeneği belirleyerek
+## <a name="choosing-a-redundancy-option"></a>Bir yedeklik seçeneği seçme
 
-Bir depolama hesabı oluşturduğunuzda şu çoğaltma seçeneklerinden birini seçebilirsiniz:
+Bir depolama hesabı oluşturduğunuzda, yedeklilik şunlardan birini seçebilirsiniz:
 
 * [Yerel olarak yedekli depolama (LRS)](storage-redundancy-lrs.md)
 * [Alanlar arası yedekli depolama (ZRS)](storage-redundancy-zrs.md)

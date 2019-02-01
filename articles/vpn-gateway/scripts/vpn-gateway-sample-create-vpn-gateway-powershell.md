@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/17/2018
 ms.author: alzam
-ms.openlocfilehash: 705a2089262da5e32ced8a6d0642e87d626e600c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
-ms.translationtype: HT
+ms.openlocfilehash: b42008dbef6ec820ed943213eb1ada2eb03dfff1
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343741"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508241"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>PowerShell ile VPN Gateway oluşturma
 

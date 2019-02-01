@@ -3,7 +3,7 @@ title: Öğretici - Azure’daki bir Linux sanal makinesinde LAMP dağıtma | Mi
 description: Bu öğreticide, Azure’daki bir Linux sanal makinesinde LAMP yığını yüklemeyi öğrenirsiniz
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: 5caed6fba607cb93a6168bded7531bc8bf63b9da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: 2e0befa302d9fe7b93ce8d9993ffc195dfc7a00b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970694"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511252"
 ---
-# <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure’da bir Linux sanal makinesine bir LAMP web sunucusu yükleme
+# <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure'da bir Linux sanal makinesine LAMP web sunucusu yükleme
 
 Bu makalede, Azure’daki bir Ubuntu sanal makinesine Apache web sunucusunun, MySQL ve PHP’nin (LAMP yığını) nasıl dağıtılacağı gösterilmektedir. NGINX web sunucusunu tercih ederseniz [LEMP yığını](tutorial-lemp-stack.md) öğreticisine bakın. LAMP sunucusunu çalışır halde görmek için, isteğe bağlı olarak bir WordPress sitesi yükleyip yapılandırabilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -50,15 +50,12 @@ Ubuntu paket kaynaklarını güncelleştirmek ve Apache, MySQL ve PHP yüklemek 
 sudo apt update && sudo apt install lamp-server^
 ```
 
-
-Paketleri ve diğer bağımlılıkları yüklemeniz istenir. İstendiğinde, MySQL için bir kök parola ayarlayın ve [Enter] tuşuna basarak devam edin. Kalan istemleri izleyin. Bu işlem, MySQL ile PHP kullanmak için gereken en düşük PHP uzantılarını yükler. 
-
-![MySQL kök parolası sayfası][1]
+Paketleri ve diğer bağımlılıkları yüklemeniz istenir. Bu işlem, MySQL ile PHP kullanmak için gereken en düşük PHP uzantılarını yükler.  
 
 ## <a name="verify-installation-and-configuration"></a>Yükleme ve yapılandırmayı doğrulama
 
 
-### <a name="apache"></a>Apache
+### <a name="verify-apache"></a>Apache doğrulayın
 
 Aşağıdaki komutla Apache sürümünü denetleyin:
 ```bash
@@ -70,7 +67,7 @@ Apache yüklüyken ve sanal makinenizde 80 numaralı bağlantı noktası açıkk
 ![Apache varsayılan sayfası][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>Doğrulayın ve MySQL güvenliğini sağlama
 
 Aşağıdaki komutla MySQL sürümünü denetleyin (ana `V` parametresini not edin):
 
@@ -78,23 +75,23 @@ Aşağıdaki komutla MySQL sürümünü denetleyin (ana `V` parametresini not ed
 mysql -V
 ```
 
-MySQL yüklemesini güvenli hale getirmek için `mysql_secure_installation` betiğini çalıştırın. Yalnızca geçici bir sunucu ayarlıyorsanız bu adımı atlayabilirsiniz.
+Bir kök parola ayarlama dahil olmak üzere, MySQL yüklemesini güvenli hale getirmek için çalıştırma `mysql_secure_installation` betiği. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-MySQL için bir kök parola girin ve ortamınız için güvenlik ayarlarını yapılandırın.
+İsteğe bağlı olarak, doğrulama parola (önerilen) eklentisi ayarlayabilirsiniz. Ardından, MySQL kök kullanıcı için bir parola ayarlamanız ve ortamınız için kalan güvenlik ayarlarını yapılandırın. "Y" (Evet) tüm soruları yanıtlamak olmasını öneririz.
 
 MySQL özelliklerini (MySQL veritabanı oluşturma, kullanıcı ekleme veya yapılandırma ayarlarını değiştirme) denemek istiyorsanız MySQL’de oturum açın. Bu öğreticiyi tamamlamak için bu adım gerekli değildir.
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 İşiniz bittiğinde, `\q` yazarak mysql isteminden çıkın.
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>PHP doğrulayın
 
 Aşağıdaki komutla PHP sürümünü denetleyin:
 
@@ -114,7 +111,6 @@ Artık oluşturduğunuz PHP bilgi sayfasını denetleyebilirsiniz. Bir tarayıc�
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, Azure’da bir LAMP sunucusu dağıttınız. Şunları öğrendiniz:
@@ -131,6 +127,5 @@ SSL sertifikalarını kullanarak güvenli web sunucularının güvenliğini nas�
 > [!div class="nextstepaction"]
 > [SSL ile web sunucusunun güvenliğini sağlama](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

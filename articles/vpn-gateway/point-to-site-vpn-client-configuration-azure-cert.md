@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412074"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508014"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Oluşturma ve yerel Azure sertifika doğrulaması P2S yapılandırmaları için VPN istemcisi yapılandırma dosyalarını yükleme
 

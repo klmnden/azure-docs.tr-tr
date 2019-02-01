@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 315a51f847920d4751d100f147bb5218676015c6
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471411"
+ms.locfileid: "55495675"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -370,7 +370,7 @@ Azure dosya paylaşımı depolama sınırı, hangi oluşabilir bir Azure dosya p
 
 5. Seçin **dosyaları** dosya paylaşımlarının listesini görüntülemek için.
 6. Bulut uç noktası tarafından başvurulan Azure dosya paylaşımı için satırın sonundaki üç noktaya tıklayın.
-7. Doğrulayın **kullanım** aşağıdadır **kota**. Not alternatif bir kota belirtilmediği sürece, kota eşleşecektir [parolalarınızdan Azure dosya paylaşımının boyutunu](storage-files-scale-targets.md).
+7. Doğrulayın **kullanım** aşağıdadır **kota**. Not alternatif bir kota belirtilmediği sürece, kota eşleşecektir [Azure dosya paylaşımının en büyük boyutunu](storage-files-scale-targets.md).
 
     ![Azure dosya paylaşımı özelliklerinin ekran görüntüsü.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 

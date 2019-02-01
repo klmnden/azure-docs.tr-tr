@@ -2,18 +2,18 @@
 title: Azure Backup'ın kurtarma Hizmetleri kasasına yükseltme Backup Kasası '
 description: Yükseltme Backup kasasının kurtarma Hizmetleri kasasına yedekleme Resource Manager Vm'leri, Gelişmiş güvenlik, VMware VM yedekleme ve Windows sunucuları için sistem durumu yedeklemesi gibi yeni özellikleri almak için
 services: backup
-author: trinadhk
-manager: vijayts
+author: raynew
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/10/2017
-ms.author: trinadhk
-ms.openlocfilehash: 01aacaecba8c5a4adf1dab5483a2f921df9314c0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/31/2019
+ms.author: raynew
+ms.openlocfilehash: b7671271e569802311884861265a7825404c9c75
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252539"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490355"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Yedekleme kasası kurtarma Hizmetleri kasasına yükseltildi
 Bu makalede, hangi kurtarma Hizmetleri kasası sağlar genel bir bakış sağlar, Kurtarma Hizmetleri kasası ve yükseltme sonrası adımlarını var olan yedekleme yükseltme hakkında sık sorulan sorular kasası. Kurtarma Hizmetleri kasası, yedekleme verilerinizi barındıran bir Backup kasasının Azure Resource Manager eşdeğerdir. Veriler genellikle veri ya da sanal makineleri (VM'ler), iş yükleri, sunucular ve iş istasyonları için yapılandırma bilgilerini kopyalarını olup şirket içi veya azure'de.
@@ -24,22 +24,22 @@ Kurtarma Hizmetleri kasası Azure'da yedek kopyalar, kurtarma noktaları ve yede
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Karşılaştırma kurtarma Hizmetleri kasaları ve yedekleme kasaları
 Kurtarma Hizmetleri kasaları, yedekleme kasaları Azure Service Manager modeline dayanır ancak Azure, Azure Resource Manager modelinin temel alır. Bir Backup kasasının kurtarma Hizmetleri kasasına yükselttiğinizde, yedekleme verileri sırasında ve sonrasında yükseltme işlemi değişmeden kalır. Kurtarma Hizmetleri kasaları için yedekleme kasalarını, mevcut olmayan özellikler gibi sağlayın:
 
-- **Gelişmiş Özellikler yedek verilerin korunmasına yardımcı olun**: ile kurtarma Hizmetleri kasaları, Azure Backup bulut yedeklemelerini korumak için güvenlik özellikleri sağlar. Bu güvenlik özellikleri, yedeklerinizi güvenli ve güvenli bir şekilde üretim ve yedekleme sunucuları tehlikede olsa bile bulut yedeklemelerden veri kurtarmak emin olun. [Daha fazla bilgi](backup-azure-security-feature.md)
+- **Gelişmiş Özellikler yedek verilerin korunmasına yardımcı olun**: Kurtarma Hizmetleri kasaları ile Azure yedekleme, bulut yedeklemelerini korumak için güvenlik özellikleri sunar. Bu güvenlik özellikleri, yedeklerinizi güvenli ve güvenli bir şekilde üretim ve yedekleme sunucuları tehlikede olsa bile bulut yedeklemelerden veri kurtarmak emin olun. [Daha fazla bilgi](backup-azure-security-feature.md)
 
-- **Karma BT ortamındaki Merkezi İzleme**: ile kurtarma Hizmetleri kasaları, izleyebilmeniz için yalnızca, [Azure Iaas Vm'leri](backup-azure-manage-vms.md) aynı zamanda, [şirket varlıkları](backup-azure-manage-windows-server.md#manage-backup-items) merkezi bir portaldan. [Daha fazla bilgi](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Karma BT ortamındaki Merkezi İzleme**: Kurtarma Hizmetleri kasaları ile izleyebilirsiniz yalnızca, [Azure Iaas Vm'leri](backup-azure-manage-vms.md) aynı zamanda, [şirket varlıkları](backup-azure-manage-windows-server.md#manage-backup-items) merkezi bir portaldan. [Daha fazla bilgi](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
 - **Rol tabanlı erişim denetimi (RBAC)**: RBAC, azure'da ayrıntılı erişim yönetimi denetim sağlar. [Azure, çeşitli yerleşik rol sağlar](../role-based-access-control/built-in-roles.md), ve Azure Backup sahip üç [kurtarma noktaları yönetmek için yerleşik roller](backup-rbac-rs-vault.md). Kurtarma Hizmetleri kasaları, yedekleme kısıtlayan RBAC ile uyumludur ve tanımlanan kullanıcı rollerini kümesine erişimi geri yüklemek. [Daha fazla bilgi](backup-rbac-rs-vault.md)
 
-- **Tüm yapılandırmalar Azure sanal makinelerinin korunmasına**: Resource Manager tabanlı Vm'leri Premium diskler, yönetilen diskler ve şifrelenmiş VM'ler dahil olmak üzere Kurtarma Hizmetleri kasaları şunları korur. Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltme, Resource Manager tabanlı sanal makinelere Service Manager tabanlı sanal makinelerinize yükseltme olanağı sunar. Kasa yükseltme yapılırken, Service Manager tabanlı VM kurtarma noktalarını Beklet ve yükseltilen (Resource Manager özellikli) VM'ler için korumayı yapılandırın. [Daha fazla bilgi](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **Tüm yapılandırmalar Azure sanal makinelerinin korunmasına**: Kurtarma Hizmetleri kasaları Resource Manager tabanlı Vm'leri Premium diskler, yönetilen diskler ve şifrelenmiş VM'ler gibi koruyun. Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltme, Resource Manager tabanlı sanal makinelere Service Manager tabanlı sanal makinelerinize yükseltme olanağı sunar. Kasa yükseltme yapılırken, Service Manager tabanlı VM kurtarma noktalarını Beklet ve yükseltilen (Resource Manager özellikli) VM'ler için korumayı yapılandırın. [Daha fazla bilgi](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Iaas Vm'leri için anında geri yükleme**: kullanarak bir kurtarma Hizmetleri kasaları, dosya ve klasörleri bir Iaas VM'den daha hızlı geri yükleme süreleri sağlayan tüm VM'yi geri yüklemeden geri yükleyebilirsiniz. Iaas Vm'leri için anında geri yükleme, hem Windows hem de Linux Vm'leri için kullanılabilir. [Daha fazla bilgi](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Iaas Vm'leri için anında geri yükleme**: Kurtarma Hizmetleri Kasası'nı kullanarak, dosya ve klasörleri bir Iaas VM'den daha hızlı geri yükleme süreleri sağlayan tüm VM'yi geri yüklemeden geri yükleyebilirsiniz. Iaas Vm'leri için anında geri yükleme, hem Windows hem de Linux Vm'leri için kullanılabilir. [Daha fazla bilgi](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 > [!NOTE]
 > MARS Aracısı ile 2.0.9083.0,'den önceki bir Backup kasasına kayıtlı öğeler varsa [en yeni MARS Aracısı'nı indirme]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe) kurtarma Hizmetleri kasası tüm özelliklerinin avantajlarından yararlanmak için sürüm. 
 > 
 
 ## <a name="managing-your-recovery-services-vaults"></a>Kurtarma Hizmetleri kasalarınızı yönetmek
-Aşağıdaki ekranlarda yeni bir kurtarma Hizmetleri kasası, yedekleme kasası, Azure portalında uygulamasından yükseltilen gösterir. Yükseltilen kasa "Varsayılan RecoveryServices-ResourceGroup-coğrafi" adlı bir varsayılan kaynak grubunda mevcut olacaktır. Örnek: yedekleme kasanız Batı ABD'de bulunuyorsa, varsayılan olarak varsayılan RecoveryServices ResourceGroup westus adlı RG yerleştirilir.
+Aşağıdaki ekranlarda yeni bir kurtarma Hizmetleri kasası, yedekleme kasası, Azure portalında uygulamasından yükseltilen gösterir. Yükseltilen kasa "Varsayılan RecoveryServices-ResourceGroup-coğrafi" adlı bir varsayılan kaynak grubunda mevcut olacaktır. Örnek: Yedekleme kasanızın Batı ABD'de bulunuyorsa, varsayılan olarak varsayılan RecoveryServices ResourceGroup westus adlı RG konması.
 > [!NOTE]
 > Kaynak grubu, CPS standart müşteriler için kasa yükseltmeden sonra değiştirilmez ve yükseltmeden önce olduğu gibi aynı kalır.
 
@@ -53,7 +53,7 @@ Kasa için anahtar varlıklar görüntüler kasa panosunda ilk ekran gösterilme
 ## <a name="post-upgrade-steps"></a>Yükseltme sonrası adımlar
 Kurtarma Hizmetleri kasası, yedekleme ilkesinde belirten saat dilimi bilgilerini destekler. Kasa başarıyla yükseltildikten sonra yedekleme İlkeleri Kasa ayarları menüsünden gidin ve her bir kasa içinde yapılandırılmış ilkeler için saat dilimi bilgilerini güncelleştirin. Bu ekran zaten ilkesi oluşturduğunuzda kullanıldığında yerel saat dilimi olarak belirtilen yedekleme zamanlaması saati gösterir. 
 
-## <a name="enhanced-security"></a>Geliştirilmiş güvenlik
+## <a name="enhanced-security"></a>Gelişmiş güvenlik
 Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltildiğinde bu kasa için güvenlik ayarlarını otomatik olarak etkinleştirilir. Ne zaman yedeklemeler silme gibi belirli işlemleri üzerindeki güvenlik ayarlarını olan veya bir parolayı değiştirmeniz bir [Azure multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN. Gelişmiş güvenlik hakkında daha fazla bilgi için bkz [karma yedeklemeler korumak için güvenlik özellikleri](backup-azure-security-feature.md). Gelişmiş Güvenlik etkinleştirildiğinde, veri yedekleme kurtarma noktası bilgilerini kasadan silindikten sonra 14 gün için saklanır. Müşteriler, bu güvenlik verilerinin depolanması için faturalandırılır. Güvenlik veri saklama, Azure Yedekleme aracısı, Azure Backup sunucusu ve System Center Data Protection Manager için gerçekleştirilen kurtarma noktaları için geçerlidir. 
 
 ## <a name="gather-data-on-your-vault"></a>Kasanızı üzerinde veri toplayın

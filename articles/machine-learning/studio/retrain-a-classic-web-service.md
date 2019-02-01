@@ -1,8 +1,21 @@
 ---
-Başlık: Klasik web hizmeti titleSuffix yeniden eğitme: Azure Machine Learning Studio açıklaması: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: seodec18, önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 04/19/2017
+title: Klasik web hizmetini yeniden eğitme
+titleSuffix: Azure Machine Learning Studio
+description: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 04/19/2017
+ms.openlocfilehash: 04dac55feaa6826e1b8b591df61e8ad413f24dad
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509414"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Klasik Azure Machine Learning Studio web hizmetini yeniden eğitme
 Dağıttığınız Tahmine dayalı Web Hizmeti uç noktası Puanlama varsayılandır. Varsayılan uç noktalar özgün eğitim ve puanlama denemeleri ile eşitlenmiş olarak tutulur ve bu nedenle varsayılan uç nokta için eğitilen model değiştirilemez. Web hizmetini yeniden eğitme için web hizmetine yeni bir uç noktası eklemeniz gerekir.

@@ -1,8 +1,21 @@
 ---
-Başlık: Birden çok model bir Studio deneme titleSuffix oluşturun: Azure Machine Learning Studio açıklaması: Birden çok makine öğrenimi modelleri ve web hizmeti uç noktaları aynı algoritmayı ancak farklı bir eğitim veri kümeleri oluşturmak için PowerShell kullanın.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/04/2017
+title: Studio tek bir deneyden birden çok model oluşturma
+titleSuffix: Azure Machine Learning Studio
+description: Birden çok makine öğrenimi modelleri ve web hizmeti uç noktaları aynı algoritmayı ancak farklı bir eğitim veri kümeleri oluşturmak için PowerShell kullanın.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/04/2017
+ms.openlocfilehash: 43d16c291391a3ffd94f404755e644dac0daf3a9
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492836"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Tek bir deneyden Studio modelleri ve web hizmeti uç noktaları oluşturmak için PowerShell kullanma
 

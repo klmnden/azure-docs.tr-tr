@@ -1,8 +1,21 @@
 ---
-Başlık: Çevrimiçi veri kaynakları titleSuffix Machine Learning Studio'ya veri alma: Azure Machine Learning Studio açıklaması: Bu makalede, çeşitli kaynaklardan bir Azure Machine Learning Studio'ya bu kaynaklardan veri deneme taşımak için gereken bilgileri çevrimiçi veri almak için destek açıklanır.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
+title: Machine Learning Studio'ya çevrimiçi veri kaynaklarından alınan verileri içeri aktar
+titleSuffix: Azure Machine Learning Studio
+description: Bu makalede, çeşitli kaynaklardan bir Azure Machine Learning Studio'ya bu kaynaklardan veri deneme taşımak için gereken bilgileri çevrimiçi veri almak için destek açıklanır.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 11/29/2017
+ms.openlocfilehash: 21b0cceabaf9cd7d284865e87086d695280df2bb
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486580"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Çevrimiçi veri kaynaklarından Azure Machine Learning Studio'ya veri alma
 Bu makalede, çeşitli kaynaklardan bir Azure Machine Learning Studio'ya bu kaynaklardan veri deneme taşımak için gereken bilgileri çevrimiçi veri almak için destek açıklanır.

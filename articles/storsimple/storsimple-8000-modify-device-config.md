@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 727cf523f2a505729377f36738657fc5489134a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025999"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491663"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple cihaz Yöneticisi hizmeti, StorSimple cihaz yapılandırmasını değiştirmek için kullanın
 
@@ -65,7 +65,7 @@ Bulut depolama hizmeti sağlayıcısı ile kimlik doğrulaması için Cihazını
 
  Saat diliminizi aşağı açılan listeden seçin. En fazla iki Ağ Saati Protokolü (NTP) sunucuları belirtebilirsiniz:
 
- - **Birincil NTP sunucusu** -yapılandırma gereklidir ve Cihazınızı yapılandırmak için StorSimple için Windows PowerShell kullanırken belirtilir. Windows Server varsayılan belirtebilirsiniz **time.windows.com** NTP sunucunuzla. Birincil NTP sunucusu yapılandırması Azure Portalı aracılığıyla görüntüleyebilirsiniz, ancak bunu değiştirmek için Windows PowerShell arabirimini kullanmanız gerekir. Kullanım `Set-HcsNTPClientServerAddress` cihazınızın birincil NTP sunucusunu değiştirmek için cmdlet'i. Synxtax için daha fazla bilgi için Git [kümesi HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet'i.
+ - **Birincil NTP sunucusu** -yapılandırma gereklidir ve Cihazınızı yapılandırmak için StorSimple için Windows PowerShell kullanırken belirtilir. Windows Server varsayılan belirtebilirsiniz **time.windows.com** NTP sunucunuzla. Birincil NTP sunucusu yapılandırması Azure Portalı aracılığıyla görüntüleyebilirsiniz, ancak bunu değiştirmek için Windows PowerShell arabirimini kullanmanız gerekir. Kullanım `Set-HcsNTPClientServerAddress` cihazınızın birincil NTP sunucusunu değiştirmek için cmdlet'i. Daha fazla bilgi için söz dizimi için Git [kümesi HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet'i.
 
 - **İkincil NTP sunucusu** -isteğe bağlı bir yapılandırmadır. İkincil NTP sunucusu yapılandırmak için bu portalı kullanabilirsiniz.
 
@@ -85,7 +85,7 @@ Cihazınız, bulut depolama hizmeti sağlayıcısı ile iletişim kurmayı dened
 
 Yüksek kullanılabilirlik için ilk cihaz dağıtımı sırasında hem birincil hem de ikincil DNS sunucularını yapılandırmak için gereklidir.
 
-**Birincil DNS sunucusu** -ilk ilk kurulum sırasında birincil DNS sunucusunu belirtmek için StorSimple için Windows PowerShell kullanın. Windows PowerShell arabirimi üzerinden yalnızca birincil DNS sunucusunu yeniden yapılandırabilirsiniz. Kullanım `Set-HcsDNSClientServerAddress` cihazınızın birincil DNS sunucusunu değiştirmek için. Synxtax için daha fazla bilgi için Git [kümesi HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet'i.
+**Birincil DNS sunucusu** -ilk ilk kurulum sırasında birincil DNS sunucusunu belirtmek için StorSimple için Windows PowerShell kullanın. Windows PowerShell arabirimi üzerinden yalnızca birincil DNS sunucusunu yeniden yapılandırabilirsiniz. Kullanım `Set-HcsDNSClientServerAddress` cihazınızın birincil DNS sunucusunu değiştirmek için. Daha fazla bilgi için söz dizimi için Git [kümesi HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet'i.
 
 **İkincil DNS sunucusu** - ikincil DNS sunucusunu değiştirmek için kullanın `Set-HcsDNSClientServerAddress` cihazın Windows PowerShell arabiriminde cmdlet'ini veya **ağ ayarları** Azure portalında StorSimple cihazınızın dikey penceresi.
 
@@ -95,7 +95,7 @@ Azure Portalı'nda ikincil DNS sunucusu değiştirmek için aşağıdaki adımla
 
 2. İçinde **ayarları** dikey penceresinde, Git **cihaz Ayarları > Ağ**. Bu açılır **ağ ayarları** dikey penceresi. Tıklayın **DNS ayarlarını** Döşe. İkincil DNS sunucusu IP adresini değiştirin.
 
-    ![İkincil DNS sunucusu IP adderss değiştirme](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
+    ![İkincil DNS sunucusu IP adresini değiştirme](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
 
 4. Komut çubuğundaki **Kaydet** onaylamanız istendiğinde tıklayın **Tamam**.
 

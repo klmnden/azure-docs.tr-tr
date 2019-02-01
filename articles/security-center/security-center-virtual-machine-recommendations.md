@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: b77e814f9f339dff4539a04ab8b492e9777abe0d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 32ca3fc87c91deba26e63a5938536d488e7dc5a8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537656"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488756"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Azure Güvenlik Merkezi kaynak önerilerini anlama
 
@@ -43,27 +43,27 @@ Aşağıdaki tablolar kullanılabilir işlem anlamanıza yardımcı olması içi
 | [Güvenlik açığı değerlendirmesi yüklü değil](security-center-vulnerability-assessment-recommendations.md) |Sanal makinenize bir güvenlik açığı değerlendirme çözümü yüklemenizi önerir. |
 | [Güvenlik açıklarını düzeltin](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM’nize yüklü güvenlik açığı değerlendirme çözümü tarafından algılanan sistem ve uygulama güvenlik açıklarını görmenizi sağlar. |
 
-### <a name="app-services"></a>Uygulama hizmetleri
+### Uygulama Hizmetleri <a name="app-services"></a>
 | Öneri | Açıklama |
 | --- | --- |
 | App Service yalnızca HTTPS üzerinden erişilebilir olmalıdır | App Service'in erişim HTTPS üzerinden sınırı, yalnızca, önerir. |
-| Web uygulaması için Web yuvalarını devre dışı bırakılmalıdır| Web uygulamaları içinde Web yuvaları kullanımını dikkatle gözden geçirin önerir.  Web yuvaları Protokolü farklı güvenlik tehdidi türlerine savunmasızdır. |
+| Web Uygulaması için Web Yuvaları devre dışı bırakılmalıdır| Web uygulamaları içinde Web yuvaları kullanımını dikkatle gözden geçirin önerir.  Web yuvaları Protokolü farklı güvenlik tehdidi türlerine savunmasızdır. |
 | Web uygulamanız için özel etki alanları kullanın | Bir web uygulaması kimlik avı gibi genel saldırılara ve DNS ile ilgili diğer saldırılara karşı korumak için özel etki alanları kullanmanızı önerir. |
-| Web uygulaması için IP kısıtlamalarını yapılandırma | Uygulamanıza erişmek için izin verilen IP adreslerinin bir listesi tanımladığınız önerir.  IP kısıtlamaları kullanımı, bir web uygulaması genel saldırılara karşı korur. |
+| Web Uygulaması için IP kısıtlamalarını yapılandır | Uygulamanıza erişmek için izin verilen IP adreslerinin bir listesi tanımladığınız önerir.  IP kısıtlamaları kullanımı, bir web uygulaması genel saldırılara karşı korur. |
 | Tüm izin verme ('* ') uygulamanıza erişmek için kaynaklar | WEBSITE_LOAD_CERTIFICATES parametre ayarladığınız değil önerir '*'. Parametre ayarı '*' tüm sertifikalar, web uygulamaları kişisel sertifika deposuna yüklenecektir anlamına gelir.  Site çalışma zamanında tüm sertifikalara erişim gerektiğini olası olmadığından bu en düşük öncelik ilkesini kötüye neden olabilir. |
 | CORS her kaynağın uygulamanıza erişmesine izin vermemelidir | Web uygulamanızla etkileşim kurmak yalnızca gerekli etki alanlarına izin önerir. Kaynak kaynak paylaşımı (CORS) tüm etki alanları web uygulamanıza erişmek izin vermemelisiniz. |
-| Kullanım en son .NET Framework Web uygulaması için desteklenir. | En son .NET Framework sürümü için en son güvenlik sınıflarını kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
-| Web uygulaması için desteklenen en son Java sürümünü kullanın | En son güvenlik sınıfları için en son Java sürümünü kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
-| Web uygulaması için desteklenen en son PHP sürümünü kullanın | En son güvenlik sınıfları için en son PHP sürümünü kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
+| Web Uygulaması için desteklenen en son .NET Framework sürümünü kullanın | En son .NET Framework sürümü için en son güvenlik sınıflarını kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
+| Web Uygulaması için desteklenen en son Java sürümünü kullanın | En son güvenlik sınıfları için en son Java sürümünü kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
+| Web Uygulaması için desteklenen en son PHP sürümünü kullanın | En son güvenlik sınıfları için en son PHP sürümünü kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
 | [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md) |Web uç noktaları için web uygulaması Güvenlik Duvarı (WAF) dağıtmanızı önerir. Bir WAF öneri, bir giden açık web bağlantı noktaları (80,443) ile ilişkili ağ güvenlik grubu olan tüm genel kullanıma yönelik IP için (örnek düzeyi IP veya yük dengeli IP) gösterilir.</br></br>Güvenlik Merkezi, sanal makinelerde ve App Service ortamında web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir WAF sağlamanızı önerir. App Service ortamı (ASE) olan bir [Premium](https://azure.microsoft.com/pricing/details/app-service/) hizmet planı seçeneği Azure App Service, Azure App Service uygulamalarını güvenli olarak çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar. ASE hakkında daha fazla bilgi için bkz: [App Service ortamı belgeleri](../app-service/environment/intro.md).</br></br>Var olan WAF dağıtımlarınız için bu uygulamaları ekleyerek, birden çok web uygulaması Güvenlik Merkezi'nde koruyabilirsiniz. |
 | [Uygulama korumasını sonlandırma](security-center-add-web-application-firewall.md#finalize-application-protection) |Bir WAF yapılandırmasını tamamlamak için WAF gerecine trafiği gelmesi gerekir. Bu öneriyi şu gerekli Kurulum değişiklikleri tamamlar. |
-| Web uygulaması için desteklenen en son Node.js sürümünü kullanın | En son güvenlik sınıfları için en son Node.js sürümünü kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
-| CORS her kaynağın işlev uygulamanıza erişmek izin vermemelidir | Web uygulamanızla etkileşim kurmak yalnızca gerekli etki alanlarına izin önerir. Kaynak kaynak paylaşımı (CORS) tüm etki alanlarının işlev uygulamanıza erişmek izin vermemelisiniz. |
-| İşlev uygulaması için özel etki alanları kullanın | Bir işlev uygulaması, kimlik avı gibi genel saldırılara ve DNS ile ilgili diğer saldırılara karşı korumak için özel etki alanları kullanmanızı önerir. |
+| Web Uygulaması için desteklenen en son Node.js sürümünü kullanın | En son güvenlik sınıfları için en son Node.js sürümünü kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
+| CORS, her kaynağın İşlev Uygulamanıza erişmesine izin vermemelidir  | Web uygulamanızla etkileşim kurmak yalnızca gerekli etki alanlarına izin önerir. Kaynak kaynak paylaşımı (CORS) tüm etki alanlarının işlev uygulamanıza erişmek izin vermemelisiniz. |
+| İşlev Uygulaması için özel etki alanları kullanın | Bir işlev uygulaması, kimlik avı gibi genel saldırılara ve DNS ile ilgili diğer saldırılara karşı korumak için özel etki alanları kullanmanızı önerir. |
 | İşlev Uygulaması için IP kısıtlamalarını yapılandır | Uygulamanıza erişmek için izin verilen IP adreslerinin bir listesi tanımladığınız önerir. IP kısıtlamaları kullanımını bir işlev uygulaması genel saldırılara karşı korur. |
-| İşlev uygulaması yalnızca HTTPS üzerinden erişilebilir olmalıdır | İşlev uygulamaları, erişim HTTPS üzerinden sınırı, yalnızca, önerir. |
-| Uzaktan hata ayıklama için işlev uygulaması kapatılmalıdır | Bunu kullanmak artık ihtiyacınız yoksa işlev uygulaması için hata ayıklamasını kapatma önerir. Uzaktan hata ayıklama, gelen bağlantı noktası üzerinde bir işlev uygulaması açılmasını gerektirir. |
-| İşlev uygulaması için Web yuvalarını devre dışı bırakılmalıdır | İşlev uygulamaları içinde Web yuvaları kullanımını dikkatle gözden geçirin önerir. Web yuvaları Protokolü farklı güvenlik tehdidi türlerine savunmasızdır. |
+| İşlev Uygulaması yalnızca HTTPS üzerinden erişilebilir olmalıdır | İşlev uygulamaları, erişim HTTPS üzerinden sınırı, yalnızca, önerir. |
+| İşlev Uygulaması için uzaktan hata ayıklama kapatılmalıdır | Bunu kullanmak artık ihtiyacınız yoksa işlev uygulaması için hata ayıklamasını kapatma önerir. Uzaktan hata ayıklama, gelen bağlantı noktası üzerinde bir işlev uygulaması açılmasını gerektirir. |
+| İşlev Uygulaması için Web Yuvaları devre dışı bırakılmalıdır | İşlev uygulamaları içinde Web yuvaları kullanımını dikkatle gözden geçirin önerir. Web yuvaları Protokolü farklı güvenlik tehdidi türlerine savunmasızdır. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

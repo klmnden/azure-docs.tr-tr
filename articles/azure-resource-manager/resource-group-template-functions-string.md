@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e32e972be4e355f01a760b45905404b70a1450bd
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 04a82d1ed8735954072f9549f3b2676df0935449
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300872"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489476"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Dize işlevleri için Azure Resource Manager şablonları
 
@@ -57,6 +57,8 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 
 <a id="base64" />
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="base64"></a>Base64
 `base64(inputString)`
@@ -118,8 +120,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| base64Output | Dize | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Dize | Bir iki üç |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Bir iki üç |
 | toJsonOutput | Nesne | {"bir": "a", "iki": "b"} |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
@@ -131,7 +133,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
 <a id="base64tojson" />
@@ -196,8 +198,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| base64Output | Dize | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Dize | Bir iki üç |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Bir iki üç |
 | toJsonOutput | Nesne | {"bir": "a", "iki": "b"} |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
@@ -209,7 +211,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
 <a id="base64tostring" />
@@ -274,8 +276,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| base64Output | Dize | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Dize | Bir iki üç |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Bir iki üç |
 | toJsonOutput | Nesne | {"bir": "a", "iki": "b"} |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
@@ -287,7 +289,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
 <a id="concat" />
@@ -335,7 +337,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| concatOutput | Dize | önek 5yj4yjf5mbg72 |
+| concatOutput | String | önek 5yj4yjf5mbg72 |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -346,7 +348,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
 Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) iki diziyi birleştirme işlemi gösterilmektedir.
@@ -399,7 +401,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
 <a id="contains" />
@@ -477,12 +479,12 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| stringTrue | bool | True |
-| stringFalse | bool | False |
-| objectTrue | bool | True |
-| objectFalse | bool | False |
-| arrayTrue | bool | True |
-| arrayFalse | bool | False |
+| stringTrue | Bool | True |
+| stringFalse | Bool | False |
+| objectTrue | Bool | True |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | True |
+| arrayFalse | Bool | False |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -493,7 +495,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
 <a id="datauri" />
@@ -549,8 +551,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| dataUriOutput | Dize | Veri: text / plain; charset = utf8; base64, SGVsbG8 = |
-| toStringOutput | Dize | Merhaba Dünya! |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Merhaba Dünya! |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -561,7 +563,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
 ```
 
 <a id="datauritostring" />
@@ -617,8 +619,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| dataUriOutput | Dize | Veri: text / plain; charset = utf8; base64, SGVsbG8 = |
-| toStringOutput | Dize | Merhaba Dünya! |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Merhaba Dünya! |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -629,7 +631,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
 ```
 
 <a id="empty" /> 
@@ -694,9 +696,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| arrayEmpty | bool | True |
-| objectEmpty | bool | True |
-| stringEmpty | bool | True |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -707,7 +709,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
 <a id="endswith" />
@@ -770,12 +772,12 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| startsTrue | bool | True |
-| startsCapTrue | bool | True |
-| startsFalse | bool | False |
-| endsTrue | bool | True |
-| endsCapTrue | bool | True |
-| endsFalse | bool | False |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -786,7 +788,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
 ```
 
 <a id="first" />
@@ -839,8 +841,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| arrayOutput | Dize | bir |
-| stringOutput | Dize | O |
+| arrayOutput | String | bir |
+| stringOutput | String | O |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -851,7 +853,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
 ## <a name="guid"></a>GUID
@@ -934,7 +936,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
 ```
 
 <a id="indexof" />
@@ -1008,7 +1010,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
 ```
 
 <a id="last" />
@@ -1061,8 +1063,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| arrayOutput | Dize | üç |
-| stringOutput | Dize | E |
+| arrayOutput | String | üç |
+| stringOutput | String | E |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1073,7 +1075,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
 <a id="lastindexof" />
@@ -1147,7 +1149,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
 ```
 
 <a id="length" />
@@ -1219,7 +1221,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
 <a id="padleft" />
@@ -1271,7 +1273,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| stringOutput | Dize | 0000000123 |
+| stringOutput | String | 0000000123 |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1282,7 +1284,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
 ```
 
 <a id="replace" />
@@ -1336,8 +1338,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| firstOutput | Dize | 1231231234 |
-| secodeOutput | Dize | 123-123-xxxx |
+| firstOutput | String | 1231231234 |
+| secodeOutput | String | 123-123-xxxx |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1348,7 +1350,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
 ```
 
 <a id="skip" />
@@ -1418,7 +1420,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | arrayOutput | Dizi | ["üç"] |
-| stringOutput | Dize | iki üç |
+| stringOutput | String | iki üç |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1429,7 +1431,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
 <a id="split" />
@@ -1501,7 +1503,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
 ```
 
 <a id="startswith" />
@@ -1564,12 +1566,12 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| startsTrue | bool | True |
-| startsCapTrue | bool | True |
-| startsFalse | bool | False |
-| endsTrue | bool | True |
-| endsCapTrue | bool | True |
-| endsFalse | bool | False |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1580,7 +1582,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
 ```
 
 <a id="string" />
@@ -1651,9 +1653,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| objectOutput | Dize | {"Değera": 10, "Değerb": "Örnek Text"} |
-| arrayOutput | Dize | ["a", "b", "c"] |
-| intOutput | Dize | 5 |
+| objectOutput | String | {"Değera": 10, "Değerb": "Örnek Text"} |
+| arrayOutput | String | ["a", "b", "c"] |
+| intOutput | String | 5 |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1664,7 +1666,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
 ```
 
 <a id="substring" />
@@ -1688,7 +1690,7 @@ Alt dize. Veya uzunluğu sıfır ise boş bir dize.
 
 ### <a name="remarks"></a>Açıklamalar
 
-İşlevi, alt dizeyi dizenin sonunu aşan veya uzunluğu küçük olduğunda sıfır başarısız olur. Aşağıdaki örnek, "dizin ve uzunluk parametreleri dize içindeki bir konuma başvurmalıdır. şu hatayla başarısız oluyor Dizin parametresi: '0', uzunluk parametresi: '11', dize parametresinin uzunluğu: '10'. ".
+İşlevi, alt dizeyi dizenin sonunu aşan veya uzunluğu küçük olduğunda sıfır başarısız olur. Aşağıdaki örnek, "dizin ve uzunluk parametreleri dize içindeki bir konuma başvurmalıdır. şu hatayla başarısız oluyor Dizin parametresi: '0', uzunluk parametresi: '11', dize parametresinin uzunluğu: '10'.".
 
 ```json
 "parameters": {
@@ -1727,7 +1729,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| substringOutput | Dize | iki |
+| substringOutput | String | iki |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1738,7 +1740,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
 ```
 
 <a id="take" />
@@ -1808,7 +1810,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | arrayOutput | Dizi | ["", "iki"] |
-| stringOutput | Dize | açık |
+| stringOutput | String | açık |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1819,7 +1821,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
 <a id="tolower" />
@@ -1871,8 +1873,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| toLowerOutput | Dize | Bir iki üç |
-| toUpperOutput | Dize | BİR İKİ ÜÇ |
+| toLowerOutput | String | Bir iki üç |
+| toUpperOutput | String | BİR İKİ ÜÇ |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1883,7 +1885,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
 ```
 
 <a id="toupper" />
@@ -1935,8 +1937,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| toLowerOutput | Dize | Bir iki üç |
-| toUpperOutput | Dize | BİR İKİ ÜÇ |
+| toLowerOutput | String | Bir iki üç |
+| toUpperOutput | String | BİR İKİ ÜÇ |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1947,7 +1949,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
 ```
 
 <a id="trim" />
@@ -1995,7 +1997,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| döndürülecek | Dize | Bir iki üç |
+| döndürülecek | String | Bir iki üç |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -2006,7 +2008,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
 ```
 
 <a id="uniquestring" />
@@ -2095,7 +2097,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
 ```
 
 <a id="uri" />
@@ -2159,9 +2161,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| uriOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | Dize | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -2172,7 +2174,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
 <a id="uricomponent" />
@@ -2227,9 +2229,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| uriOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | Dize | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -2240,7 +2242,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
 <a id="uricomponenttostring" />
@@ -2295,9 +2297,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| uriOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | Dize | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Dize | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -2308,7 +2310,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

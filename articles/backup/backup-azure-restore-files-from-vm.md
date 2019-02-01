@@ -1,5 +1,5 @@
 ---
-title: 'Azure yedekleme: dosya ve klasörleri bir Azure sanal makine yedeklemesinden kurtarma'
+title: 'Azure yedekleme: Dosya ve klasörleri bir Azure sanal makine yedeklemesinden kurtarma'
 description: Bir Azure sanal makinesi kurtarma noktasından dosya kurtarma
 services: backup
 author: pvrk
@@ -8,13 +8,13 @@ keywords: öğe düzeyinde kurtarma; Dosya Kurtarma Azure VM yedeklemesi; Azure 
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
-ms.author: pullabhk
-ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.author: pvrk
+ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638316"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488501"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure sanal makine yedeklemesinden dosya kurtarma
 
@@ -214,10 +214,10 @@ Sanal makinelerden dosya kurtarma sırasında sorunlarla karşılaşırsanız, e
 
 | Hata iletisi / senaryo | Olası neden | Önerilen eylem |
 | ------------------------ | -------------- | ------------------ |
-| Exe çıkış: *hedef bağlanan özel durumu* |Betik kurtarma noktasına erişmek mümkün değildir.    | Makine önceki erişim gereksinimlerini karşıladığı olup olmadığını denetleyin. |  
-| Exe çıkış: *hedef zaten bir iSCSI oturumu oturum açıldı.* | Komut dosyasını aynı makinede zaten yürütüldü ve sürücüleri eklenmiş olması gerekir | Kurtarma noktası birimleri zaten eklenmiş olması gerekir. Bunlar orijinal VM ile aynı sürücü harflerini takılamadı değil. Dosya Gezgini'nde dosyanız için kullanılabilir tüm birimleri göz atın |
-| Exe çıkış: *disklerin sınırı portal/aşıldı 12 saat çıkarıldı olduğundan, bu komut dosyası geçersiz. Portaldan yeni bir betik indirin.* |    Diskleri portalı ya da 12 saatlik sınırı aşıldı çıkarıldı | Bu belirli exe artık geçersiz ve çalıştırılamaz. Bu kurtarma noktasını zamanında dosyalara erişmek istiyorsanız, yeni bir exe için portalı ziyaret edin.|
-| Exe çalıştırıldığı makinede: yeni birimlere sonra dismount düğmeye tıkladı çıkarıldı değil | Makinede iSCSI başlatıcısı değil, hedef bağlantı yanıt/yenilenmesi ve önbellek bakımını yapma. |  ' I tıklattıktan sonra **çıkarmaya**, birkaç dakika bekleyin. Yeni birimleri çıkarıldı değil, tüm birimler göz atın. Başlatıcı bağlantı yenilemek için tüm birimleri tarama zorlar ve birim disk kullanılabilir değil bir hata iletisiyle çıkarıldı.|
-| Exe çıkış: Komut başarıyla çalışır ancak "Yeni birimlere bağlı" betik çıktı görüntülenmez |    Bu geçici bir hatadır    | Birimler zaten eklenmiş. Göz atmak için gezginini açın. Her komut dosyaları çalıştırmak için aynı makineye kullanıyorsanız, makinenin yeniden başlatılması göz önünde bulundurun ve sonraki exe çalıştırma listesinde görüntülenmelidir. |
-| Linux özel: İstenen birimleri görüntülemek karşılaştırılamıyor | Betiğin çalıştırıldığı makinenin işletim sistemini temel alınan dosya sistemi korunan sanal makinenin algılamayabilir | Kilitlenme tutarlı veya dosya tutarlı kurtarma noktası olup olmadığını denetleyin. Dosya tutarlı, başka bir komut dosyasını çalıştırmak, işletim sistemi makine, korumalı sanal makinenin dosya sistemi tanır. |
-| Windows özel: İstenen birimleri görüntülemek karşılaştırılamıyor | Diskleri eklenmiş ancak birimleri değil yapılandırılmamış | Disk yönetimi ekranında kurtarma noktası ile ilgili ek diskleri belirleyin. Bu disk, çevrimdışı olduğunda durumu diske sağ tıklayarak bunları çevrimiçi yapmayı deneyin ve 'Çevrimiçi' tıklayın|
+| Exe çıktısı: *Hedefine bağlanma özel durumu* |Betik kurtarma noktasına erişmek mümkün değildir.    | Makine önceki erişim gereksinimlerini karşıladığı olup olmadığını denetleyin. |  
+| Exe çıktısı: *Hedef zaten bir iSCSI oturumu oturum açıldı.* | Komut dosyasını aynı makinede zaten yürütüldü ve sürücüleri eklenmiş olması gerekir | Kurtarma noktası birimleri zaten eklenmiş olması gerekir. Bunlar orijinal VM ile aynı sürücü harflerini takılamadı değil. Dosya Gezgini'nde dosyanız için kullanılabilir tüm birimleri göz atın |
+| Exe çıktısı: *Bu betik, disklerin sınırı portal/aşıldı 12 saat çıkarıldı olduğundan geçersiz. Portaldan yeni bir betik indirin.* |    Diskleri portalı ya da 12 saatlik sınırı aşıldı çıkarıldı | Bu belirli exe artık geçersiz ve çalıştırılamaz. Bu kurtarma noktasını zamanında dosyalara erişmek istiyorsanız, yeni bir exe için portalı ziyaret edin.|
+| Exe olduğu makinede çalıştırın: Yeni birimleri sonra dismount düğmeye tıkladı çıkarıldı değil | Makinede iSCSI başlatıcısı değil, hedef bağlantı yanıt/yenilenmesi ve önbellek bakımını yapma. |  ' I tıklattıktan sonra **çıkarmaya**, birkaç dakika bekleyin. Yeni birimleri çıkarıldı değil, tüm birimler göz atın. Başlatıcı bağlantı yenilemek için tüm birimleri tarama zorlar ve birim disk kullanılabilir değil bir hata iletisiyle çıkarıldı.|
+| Exe çıktısı: Betiği başarıyla çalıştırdıktan ancak "Yeni birimlere bağlı" betik çıktı gösterilmez |    Bu geçici bir hatadır    | Birimler zaten eklenmiş. Göz atmak için gezginini açın. Her komut dosyaları çalıştırmak için aynı makineye kullanıyorsanız, makinenin yeniden başlatılması göz önünde bulundurun ve sonraki exe çalıştırma listesinde görüntülenmelidir. |
+| Belirli Linux: İstenen birimleri görüntülemek karşılaştırılamıyor | Betiğin çalıştırıldığı makinenin işletim sistemini temel alınan dosya sistemi korunan sanal makinenin algılamayabilir | Kilitlenme tutarlı veya dosya tutarlı kurtarma noktası olup olmadığını denetleyin. Dosya tutarlı, başka bir komut dosyasını çalıştırmak, işletim sistemi makine, korumalı sanal makinenin dosya sistemi tanır. |
+| Belirli Windows: İstenen birimleri görüntülemek karşılaştırılamıyor | Diskleri eklenmiş ancak birimleri değil yapılandırılmamış | Disk yönetimi ekranında kurtarma noktası ile ilgili ek diskleri belirleyin. Bu disk, çevrimdışı olduğunda durumu diske sağ tıklayarak bunları çevrimiçi yapmayı deneyin ve 'Çevrimiçi' tıklayın|

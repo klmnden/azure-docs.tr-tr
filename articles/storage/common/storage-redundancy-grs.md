@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 8ffd3c34628f96888145a3639ddfe4a190dffc7f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2dc409743ce94ecb73e351b839a5a2fb09eadab2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467076"
+ms.locfileid: "55512117"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -28,20 +28,18 @@ RA-GRS kullanırken akılda tutulması gereken bazı noktalar:
 * Uygulamanızın, RA-GRS kullanırken etkileşim hangi uç noktaya yönetme gerekir.
 * Zaman uyumsuz çoğaltma bir gecikme gerektirdiğinden, birincil bölgeden verilerin kurtarılamaması durumunda ikincil bölgeye henüz çoğaltılan henüz değişiklikler kaybolabilir.
 * Son eşitleme zamanı depolama hesabınızın kontrol edebilirsiniz. Son eşitleme zamanı tarih/saat GMT bir değerdir. Tüm birincil yazma işlemlerini son eşitleme zamanı önce ikincil konumda ikincil konumdan okumaya kullanılabilir olduğu anlamına gelir, başarılı bir şekilde yazılmış. Son eşitleme süresi okuma için henüz kullanılamıyor olabilir veya sonra birincil yazar. Bu değeri kullanarak sorgulayabilirsiniz [Azure portalında](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), veya bir Azure depolama istemci kitaplıkları.
-* Microsoft ikincil bölgeye yük devretme durumunda başlatır, okuduğunuz ve bu verileri yük devretmeden sonra yazma erişimi tamamlandı. Daha fazla bilgi için [olağanüstü durum kurtarma Kılavuzu](storage-disaster-recovery-guidance.md).
-* İkincil bölgeye geçiş yapma hakkında daha fazla bilgi için bkz: [bir Azure depolama kesinti oluşursa yapmanız gerekenler](storage-disaster-recovery-guidance.md).
+* Bir hesap yük devretme (Önizleme) ikincil bölgeye bir GRS veya RA-GRS hesabı'ı başlattığınızda, yük devretme tamamlandıktan sonra bu hesaba yazma erişimi geri yüklenir. Daha fazla bilgi için [olağanüstü durum kurtarma ve depolama hesabı yük devretme (Önizleme)](storage-disaster-recovery-guidance.md).
 * RA-GRS, yüksek kullanılabilirlik sağlamak için tasarlanmıştır. Ölçeklenebilirlik kılavuzu için gözden [performans denetim](storage-performance-checklist.md).
 * RA-GRS ile yüksek kullanılabilirlik için tasarlama konusunda daha fazla bilgi için bkz: [tasarlama yüksek oranda kullanılabilir RA-GRS depolama kullanan uygulamalar](storage-designing-ha-apps-with-ragrs.md).
 
 ## <a name="what-is-the-rpo-and-rto-with-grs"></a>GRS ile RTO ve RPO nedir?
-**Kurtarma noktası hedefi (RPO):** GRS ve RA-GRS depolama hizmeti zaman uyumsuz olarak coğrafi-çoğaltır birincil ikincil konumdaki verileri. Birincil bölgede bir ana bölgesel olağanüstü durumda Microsoft ikincil bölgeye yük devretme gerçekleştirir. Bir yük devretme durumda coğrafi olarak çoğaltılmış henüz yapmadıysanız son değişiklikler kaybolabilir. Kayıp olası veri dakika sayısını RPO bilinir. RPO, verilerin kurtarılabilir zaman noktası gösterir. Azure depolama, genellikle 15 dakikadan kısa bir RPO sahip, rağmen şu anda SLA üzerinde ne kadar süreyle coğrafi çoğaltma olur.
+
+**Kurtarma noktası hedefi (RPO):** GRS ve RA-GRS depolama hizmeti zaman uyumsuz olarak coğrafi-çoğaltır birincil ikincil konumdaki verileri. Birincil bölge kullanılamaz duruma gelirse, olay, bir hesap yük devretme (Önizleme)'ikincil bölgeye gerçekleştirebilirsiniz. Bir yük devretme başlatın, coğrafi olarak çoğaltılmış henüz yapmadıysanız son değişiklikler kaybolabilir. Kayıp olası veri dakika sayısını RPO bilinir. RPO, verilerin kurtarılabilir zaman noktası gösterir. Azure depolama, genellikle 15 dakikadan kısa bir RPO sahip, rağmen şu anda SLA üzerinde ne kadar süreyle coğrafi çoğaltma olur.
 
 **Kurtarma süresi hedefi (RTO):** RTO, bir yük devretme gerçekleştirin ve depolama hesabı çevrimiçine almak için ne kadar sürer, bir ölçüdür. Yük devretme gerçekleştirmek için zaman, aşağıdaki eylemleri içerir:
 
-   * Veriler birincil konuma geri yüklenebilir veya bir yük devretme gerekli olup olmadığını belirlemek için Microsoft süresi gerektirir
-   * Depolama hesabı için yük devretme ikincil konuma işaret edecek şekilde birincil DNS girişlerini değiştirerek gerçekleştirilecek saat
-
-Microsoft, verilerinizin gerçekten de koruma sorumluluğunu üstlenir. Birincil bölgedeki veriler kurtarma herhangi olasılığı varsa, Microsoft yük devretme geciktirir ve veri kurtarma üzerinde odaklanır. 
+   * Müşterinin birincil depolama hesabından ikincil bölgeye yük devretme başlatana kadar geçen süre.
+   * Azure tarafından ikincil konuma işaret edecek şekilde birincil DNS girişlerini değiştirerek yük devretme gerçekleştirmek için gereken süre.
 
 ## <a name="paired-regions"></a>Eşleştirilmiş bölgeler 
 Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. Eşleştirilmiş ikincil bölgede, birincil bölgeye göre belirlenir ve değiştirilemez. Azure tarafından desteklenen bölgeler hakkında güncel bilgiler için bkz: [iş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri](../../best-practices-availability-paired-regions.md).

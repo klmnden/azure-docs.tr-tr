@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 11eec492501f7ead639aa928fe0ddaafb2f1d1bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 400784fbc34a877b91ad0bdc2203b1992a537555
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033681"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509975"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: Gremlin API kullanarak bir Node.js uygulaması oluşturma
 
@@ -78,7 +78,7 @@ Aşağıdaki kod parçacıklarının tamamı, app.js dosyasından alınmıştır
 
 * Gremlin istemcisi oluşturulur.
 
-    ```nodejs
+    ```javascript
     const client = Gremlin.createClient(
         443, 
         config.endpoint, 
@@ -94,7 +94,7 @@ Aşağıdaki kod parçacıklarının tamamı, app.js dosyasından alınmıştır
 
 * Farklı Gremlin işlemlerini yürütmek için bir dizi işlev tanımlanır. Bu, bunlardan biridir:
 
-    ```nodejs
+    ```javascript
     function addVertex1(callback)
     {
         console.log('Running Add Vertex1'); 
@@ -108,7 +108,7 @@ Aşağıdaki kod parçacıklarının tamamı, app.js dosyasından alınmıştır
 
 * Her işlev bir Gremlin sorgu dizisi parametresi olan bir `client.execute` yöntemi yürütür. `g.V().count()` öğesinin nasıl yürütüldüğü hakkında bir örnek aşağıdadır:
 
-    ```nodejs
+    ```javascript
     console.log('Running Count'); 
     client.execute("g.V().count()", { }, (err, results) => {
         if (err) return console.error(err);
@@ -119,7 +119,7 @@ Aşağıdaki kod parçacıklarının tamamı, app.js dosyasından alınmıştır
 
 * Dosyanın sonunda, tüm yöntemler `async.waterfall()` yöntemi kullanılarak çağrılır. Bu işlem yöntemleri art arda yürütür:
 
-    ```nodejs
+    ```javascript
     try{
         async.waterfall([
             dropGraph,
@@ -158,7 +158,7 @@ Aşağıdaki kod parçacıklarının tamamı, app.js dosyasından alınmıştır
 
 Aşağıda, tamamlanan config.js dosyanızın nasıl görüneceğine ilişkin bir örnek bulabilirsiniz:
 
-```nodejs
+```javascript
 var config = {}
 
 // Note that this must not have HTTPS or the port number

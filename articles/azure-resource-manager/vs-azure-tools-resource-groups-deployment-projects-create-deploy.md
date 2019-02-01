@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6ff49b3a08977b28ae6fa0971e5c7d72af158a46
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081220"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493492"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
+
 Visual Studio ile altyapınızı ve kodlarınızı Azure’a dağıtan bir proje oluşturabilirsiniz. Örneğin, uygulamanızın web ana bilgisayarını, web sitesini ve veritabanını tanımlayabilir ve kodlarını ve altyapısını dağıtabilirsiniz. Visual Studio genelde karşılaşılan senaryoların dağıtılması için birçok farklı başlangıç şablonu sağlar. Bu makalede bir web uygulaması ve SQL Veritabanı dağıtacaksınız.  
 
 Bu makalede [Visual Studio 2017'yi Azure geliştirme özellikleri ve ASP.NET iş yükleri yüklü bir şekilde](/dotnet/azure/dotnet-tools) kullanmayı öğreneceksiniz. Visual Studio 2015 Güncelleştirme 2 ve .NET 2.9 için Microsoft Azure SDK veya Azure SDK 2.9 ile Visual Studio 2013 kullanıyorsanız, deneyiminiz büyük ölçüde aynıdır.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-azure-resource-group-project"></a>Azure Kaynak Grubu projesi oluşturma
+
 Bu bölümde, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu projesi oluşturacaksınız.
 
 1. Visual Studio’da **Dosya**, **Yeni Proje**’yi ve **C#** veya **Visual Basic**’i seçin (bu projeler yalnızca JSON ve PowerShell içeriğine sahip olduğundan hangi dili seçtiğiniz sonraki aşamaları etkilemez). Daha sonra **Bulut** ve **Azure Kaynak Grubu** projesini seçin.

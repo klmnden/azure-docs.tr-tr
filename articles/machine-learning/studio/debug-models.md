@@ -1,8 +1,21 @@
 ---
-Başlık: Hata ayıklama, model titleSuffix: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da modeli eğitme ve Score Model modülleri tarafından oluşturulan hataları ayıklamak nasıl.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2017
+title: Modelinizi hata ayıklama
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio'da modeli eğitme ve Score Model modülleri tarafından oluşturulan hataları ayıklamak nasıl.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/14/2017
+ms.openlocfilehash: a6708a1c414277cd4ee9b90851e19a94ea86c55b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491680"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da modelinizi hata ayıklama
 

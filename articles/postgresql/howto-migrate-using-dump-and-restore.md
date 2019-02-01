@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 41a5f2eab78d68bdb1f51b423955cfefa5a541b8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 366a38951363d52df3d52d3a670943dc41211c8a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538614"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494009"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Döküm ve geri yükleme kullanarak PostgreSQL veritabanınızı geçirme
 Kullanabileceğiniz [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) bir döküm dosyası bir PostgreSQL veritabanı ayıklanacak ve [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) PostgreSQL veritabanı pg_dump tarafından oluşturulan bir arşiv dosyasını geri.
@@ -69,7 +69,9 @@ Var olan PostgreSQL veritabanınızın PostgreSQL hizmeti için Azure veritaban�
 
 ### <a name="for-the-restore"></a>Geri yüklemek için
 - PostgreSQL sunucusu için geçiş yaptığınız ve ağ gecikme süresini azaltmak için o VM'den pg_restore yapmak için Azure veritabanı ile aynı bölgede bir Azure VM yedekleme dosyasını gitme öneririz. Ayrıca VM yaratılırken öneririz [accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) etkin.
+
 - Varsayılan olarak yapılması gerekir, ancak veri ekleme sonra create INDEX deyimi doğrulamak için döküm dosyasını açın. Böyle değilse, veri eklendikten sonra create INDEX deyimi taşıyın.
+
 - Anahtarlar geri yükleme -Fc ve -j *#* geri paralel hale getirmek için. *#* hedef sunucuda çekirdek sayısıdır. İle deneyebilirsiniz *#* yönelik etkisini öğrenmek için iki kez hedef sunucu çekirdek sayısı için ayarlayın. Örneğin:
 
     ```
@@ -77,6 +79,13 @@ Var olan PostgreSQL veritabanınızın PostgreSQL hizmeti için Azure veritaban�
     ```
 
 - Komut ekleyerek döküm dosyasını düzenleyebilirsiniz *synchronous_commıt ayarlayın; =* başında ve komut *synchronous_commıt ayarlayın; =* sonunda. Uygulamaları verileri değiştirmeden önce sonunda, açma değil, sonraki veri kaybına neden olabilir.
+
+- Hedefte veritabanı Azure PostgreSQL sunucusu için geri yüklemeden önce aşağıdakileri göz önünde bulundurun:
+    - Geçiş sırasında bu İstatistikler gerekmediğinden sorgu performansı, izlemeyi devre dışı. Pg_stat_statements.track pg_qs.query_capture_mode ve pgms_wait_sampling.query_capture_mode NONE olarak ayarlayarak bunu yapabilirsiniz.
+
+    - Yüksek işlem ve bellek sku, 32 sanal çekirdek bellek için iyileştirilmiş, gibi geçiş hızlandırmak için kullanın. Geri yükleme tamamlandıktan sonra tercih edilen sku'nuz aşağı kolayca ölçeklendirebilirsiniz. Daha yüksek sku, daha fazla paralellism karşılık gelen artırarak elde edebileceğiniz `-j` pg_restore komut parametresi. 
+
+    - Hedef sunucuda daha yüksek IOPS geri yükleme performansını geliştirebilirsiniz. Sunucunun depolama boyutunu artırarak daha yüksek IOPS sağlayabilirsiniz. Bu ayar, ters çevrilebilir değildir, ancak daha yüksek IOPS gerçek iş yükünüzü gelecekte yararlı olup olmadığını göz önünde bulundurun.
 
 Test ve üretim ortamında kullanmadan önce bu komutları bir sınama ortamında doğrulamak unutmayın.
 

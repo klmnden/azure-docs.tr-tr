@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 9890f68ff61d822f505c4403eb2f1f61e396fd01
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262617"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488723"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -32,7 +32,7 @@ Toplayıcı gerecini sürekli olarak Azure geçişi projesine bağlı olan ve s�
 - Bu model, performans verilerini toplamak için vCenter Server istatistik ayarları üzerinde bağımlı değildir.
 - Sürekli, dilediğiniz zaman Toplayıcı profil oluşturma durdurabilirsiniz.
 
-**Anında keyif:** Bulma tamamlandıktan sonra sürekli bulma Gereci ile (birkaç VM sayısına bağlı olarak saat sürer), değerlendirmeler hemen oluşturabilirsiniz. Anında sonuç elde etmek için kullanmak istiyorsanız, Keşif yaslanıp performans veri toplama başlar bu yana değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
+**Hızlı değerlendirmesi:** Bulma tamamlandıktan sonra sürekli bulma Gereci ile (birkaç VM sayısına bağlı olarak saat sürer), değerlendirmeler hemen oluşturabilirsiniz. Performans veri toplama başlar hızlı değerlendirmeleri için arıyorsanız, Keşif başlatmadan sonra değerlendirmede boyutlandırma ölçütü seçmelisiniz *şirket içi olarak*. Performans tabanlı değerlendirmeleri için en az bir gün sonra güvenilir boyut önerileri almak için keşif başlatılmadan için beklemeniz önerilir.
 
 Gereç yalnızca performans verilerini sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
 

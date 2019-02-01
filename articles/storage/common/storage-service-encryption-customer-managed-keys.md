@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: c749a9dedef3970002c4f0672ffcc67aeaea422a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2718c5f06bb64ccd99844e402ac69237f30c310a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457437"
+ms.locfileid: "55497800"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi
 
@@ -40,7 +40,7 @@ Müşteri tarafından yönetilen anahtarlar SSE ile kullanmak için anahtar veya
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>2. Adım: Blob ve dosya depolama için SSE etkinleştir
 
-Müşteri tarafından yönetilen anahtarlar kullanılarak SSE etkinleştirmek için yazılım silin ve yapmak değil temizlemek, iki anahtar koruma özelliklerini Azure anahtar Kasası'nda da etkinleştirilmesi gerekir. Bu ayarlar, anahtarları yanlışlıkla veya bilerek silinmiş emin olun. Anahtarların en uzun saklama süresi 90 gün, kullanıcıya kötü amaçlı aktörler ve fidye yazılımı saldırılarına karşı korumak için ayarlanır.
+Müşteri tarafından yönetilen anahtarlar kullanılarak SSE etkinleştirmek için yazılım silin ve yapmak değil temizlemek, iki anahtar koruma özelliklerini Azure anahtar Kasası'nda da etkinleştirilmesi gerekir. Bu ayarlar, yanlışlıkla veya kasıtlı olarak anahtarlar silinemiyor emin olun. Anahtarların en uzun saklama süresi 90 gün, kullanıcıya kötü amaçlı aktörler ve fidye yazılımı saldırılarına karşı korumak için ayarlanır.
 
 Program aracılığıyla müşteri tarafından yönetilen anahtarlar için SSE etkinleştirmek istiyorsanız, kullanabileceğiniz [Azure depolama kaynak sağlayıcısı REST API'si](https://docs.microsoft.com/rest/api/storagerp), [.NET için depolama kaynak sağlayıcısı istemci Kitaplığı](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), veya [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
@@ -174,7 +174,7 @@ SSE, Azure Blob Depolama, Azure dosyaları, Azure kuyruk depolama ve Azure tablo
 Bu, bir Azure Resource Manager depolama hesabı mi? Klasik depolama hesapları, müşteri tarafından yönetilen anahtarlarla desteklenmez. Müşteri tarafından yönetilen anahtarlarla SSE yalnızca Resource Manager depolama hesaplarında etkinleştirilebilir.
 
 **Geçici silme ve temizleme değil yapmak nedir? Müşteri tarafından yönetilen anahtarlarla SSE kullanmak üzere bu ayarı etkinleştirmeniz gerekiyor mu?**  
-Geçici silme ve temizleme yapmak değil müşteri tarafından yönetilen anahtarlarla SSE kullanmak için etkinleştirilmelidir. Bu ayarlar, anahtarınızı değil yanlışlıkla veya bilerek silinmiş olduğundan emin olun. Anahtarların en uzun saklama süresi 90 gün, kullanıcıların kötü amaçlı aktörler ve fidye yazılımı saldırılarına karşı korumak için ayarlanır. Bu ayar devre dışı bırakılamaz.
+Geçici silme ve temizleme yapmak değil müşteri tarafından yönetilen anahtarlarla SSE kullanmak için etkinleştirilmelidir. Bu ayarlar, anahtarınızı yanlışlıkla veya kasıtlı olarak silinmediğinden emin olun. Anahtarların en uzun saklama süresi 90 gün, kullanıcıların kötü amaçlı aktörler ve fidye yazılımı saldırılarına karşı korumak için ayarlanır. Bu ayar devre dışı bırakılamaz.
 
 **Müşteri tarafından yönetilen anahtarlarla SSE, yalnızca belirli bölgelerde izin verilir?**  
 Müşteri tarafından yönetilen anahtarlarla SSE, Azure Blob Depolama ve Azure dosyaları için tüm bölgelerde kullanılabilir.

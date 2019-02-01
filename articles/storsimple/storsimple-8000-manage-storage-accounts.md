@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: afaa4c090508ee5a2306c2be1515076e6bd4f100
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225734"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486835"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Depolama hesabı kimlik bilgilerinizi yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
 
@@ -54,7 +54,7 @@ Gerçekleştirilen depolama hesaplarına ilgili en yaygın görevler şunlardır
 
 StorSimple Cihazınızı kullanılabilir depolama hesapları üç tür vardır.
 
-* **Otomatik olarak oluşturulan depolama hesapları** – adından da anlaşılacağı gibi bu depolama hesabı türü hizmet ilk oluşturulduğunda otomatik olarak oluşturulur. Bu depolama hesabı nasıl oluşturulur hakkında daha fazla bilgi için bkz: [1. adım: yeni bir hizmet oluşturma](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) içinde [şirket içi StorSimple Cihazınızı dağıtma](storsimple-8000-deployment-walkthrough-u2.md). 
+* **Otomatik olarak oluşturulan depolama hesapları** – adından da anlaşılacağı gibi bu depolama hesabı türü hizmet ilk oluşturulduğunda otomatik olarak oluşturulur. Bu depolama hesabı nasıl oluşturulur hakkında daha fazla bilgi için bkz: [1. adım: Yeni bir hizmet oluşturma](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) içinde [şirket içi StorSimple Cihazınızı dağıtma](storsimple-8000-deployment-walkthrough-u2.md). 
 * **Hizmet aboneliği depolama hesaplarında** – bunlar aynı abonelikte, hizmet ile ilişkili Azure depolama hesaplarıdır. Hakkında nasıl bu depolama hesapları oluşturulur. daha fazla bilgi için bkz: [Azure Storage hesapları hakkında](../storage/common/storage-create-storage-account.md). 
 * **Hizmet aboneliği dışında depolama hesapları** – bunlar hizmet oluşturulmadan önce büyük olasılıkla var olmayan hizmetiniz ile ilişkili ve Azure depolama hesaplarıdır.
 
@@ -165,7 +165,7 @@ StorSimple cihaz Yöneticisi hizmeti değişikliği bildirmek için StorSimple c
       
       ![anahtarları Eşitle](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
-Anahtar başarıyla sycnhronized olduktan sonra size bildirilir.
+Anahtar başarıyla eşitlendikten sonra size bildirilir.
 
 #### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>Hizmet aboneliği dışında depolama hesaplarının anahtarlarını eşitleme
 1. Üzerinde **Hizmetleri** sayfasında **yapılandırma** sekmesi.

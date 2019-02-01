@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8c6fe9952beb8daeb9b96cf9244cccf85d9c2203
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ebc32f59539e4e4e94f7f68d5d164cf2b04cc4c2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165464"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488535"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: Bir varsayılan yapılandırmaya bir değişiklik yapın
 Bu makalenin amacı, Azure Active Directory (Azure AD) Connect eşitleme Varsayılan yapılandırmada değişiklik yapmak nasıl rehberlik etmektir. Bu, bazı yaygın senaryolar için adımları sağlar. Bu bilgiyle, kendi iş kurallarına göre kendi yapılandırmasına basit değişiklikler yapabilir olmalıdır.
@@ -401,5 +401,5 @@ Yerleşik Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin:
 
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)

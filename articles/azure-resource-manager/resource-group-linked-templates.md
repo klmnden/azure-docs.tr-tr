@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 724b1a2562e4723bd02c97cdecb0ef7dbd8ed177
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ac07b5af28dc869b6aa05c269c9225d546d651a0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139070"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490439"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlı, şablonları Azure kaynakları dağıtılırken iç içe kullanma
 
@@ -30,6 +30,8 @@ Küçük ila orta çözümleri, tek bir şablon anlamak ve sürdürmek daha kola
 Bağlı şablonlar kullanırken, dağıtım sırasında parametre değerleri alan bir ana şablon oluşturun. Ana Şablon bağlantılı tüm şablonları içerir ve gerektiğinde bu şablonlara değerleri geçirir.
 
 Bir öğretici için bkz. [Öğreticisi: bağlı bir Azure Resource Manager şablonları oluşturma](./resource-manager-tutorial-create-linked-templates.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="link-or-nest-a-template"></a>Bir şablonu içe veya bağlantı
 
@@ -408,7 +410,7 @@ $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
     $name = 'linkedTemplate' + $i;
-    $deployment = Get-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
+    $deployment = Get-AzResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
     Write-Output "deployment $($deployment.DeploymentName) returned $($deployment.Outputs.returnedIPAddress.value)"
 }
 ```
@@ -461,13 +463,13 @@ Aşağıdaki örnek, bir şablona bağlanırken bir SAS belirteci geçirilecek g
 }
 ```
 
-PowerShell'de, bir belirteç almak için kapsayıcı ve aşağıdaki komutları kullanarak şablonları dağıtabilirsiniz. Dikkat **containerSasToken** parametre şablonunda tanımlanır. Bir parametre değil **New-AzureRmResourceGroupDeployment** komutu.
+PowerShell'de, bir belirteç almak için kapsayıcı ve aşağıdaki komutları kullanarak şablonları dağıtabilirsiniz. Dikkat **containerSasToken** parametre şablonunda tanımlanır. Bir parametre değil **yeni AzResourceGroupDeployment** komutu.
 
 ```azurepowershell-interactive
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
 Azure CLI bir Bash kabuğunda için bir belirteç almak için kapsayıcı ve şablonları aşağıdaki kodla dağıtın:

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 10f8b6b2b1ab6249eff4776c8cba869d72f448c5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7592203b13f22f5c396b8e8bd2942c230a6fd4bc
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851683"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492020"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesini Sil
 
@@ -113,7 +113,7 @@ Sanal ağlar, bazen kurmak istiyor, ancak her zaman bir eşdüzey hizmet sağlam
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar 
 
 - <a name="cross-region"></a>Aynı bölgede ya da farklı bölgelerdeki sanal ağları eşleyebilirsiniz. Sanal ağlar farklı bölgelerde de denir olarak eşlemesi *genel eşleme*. 
-- Genel eşleme oluştururken, eşlenen sanal ağlarda herhangi bir bölgedeki Azure genel bulut, ancak Ulusal Azure bulutlarında bulunabilir. Yalnızca Ulusal bulutlarda aynı bölgedeki sanal ağları eşleyebilirsiniz.
+- Genel eşleme oluştururken, eşlenen sanal ağlarda tüm Azure genel bulut bölgelerine veya Çin bulut bölgeleri var ancak bölgesi değil kamu bulut. Yalnızca sanal ağı eşleme aynı bölgedeki Azure kamu bulut bölgeleri kullanabilirsiniz.
 - Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir Azure iç yük dengeleyici ön uç IP adresi ile iletişim kuramıyor. Yük Dengeleyici ve bununla iletişim kuran kaynakları bir sanal ağ aynı bölgede olması gerekir. Eşlenen sanal ağlarda aynı bölgede ancak varsa, her iki sanal ağ içindeki kaynaklarla eşlemesindeki her iki sanal ağdaki bir Azure iç yük dengeleyici ön uç IP adresi ile iletişim kurabilir.
 - Uzak ağ geçitlerini veya genel olarak eşlenmiş sanal ağlarda ağ geçidi aktarımına izin ver kullanılamaz. Uzak ağ geçitlerini kullan veya ağ geçidi aktarımına izin vermek için eşlenen sanal ağlarda aynı bölgede olması gerekir.
 - Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Farklı Aboneliklerdeki sanal ağları eşleyebilme, aynı veya farklı Azure Active Directory kiracısı ile ilişkilendirilmesi iki abonelik de olabilir. Bir AD kiracısına zaten sahip değilseniz, hızla yapabilirsiniz [oluşturmak](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Farklı Azure Active Directory kiracılarıyla ilişkili Aboneliklerdeki sanal ağları arasında eşleme için destek Portalı'nda kullanılabilir değil. CLI, PowerShell veya şablonları kullanabilirsiniz.

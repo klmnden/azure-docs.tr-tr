@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Uygulama verilerini Azure'da yüksek oranda kullanılabilir hale getirme | Microsoft Belgeleri"
+title: 'Öğretici: Blob storage - Azure depolama ile yüksek oranda kullanılabilir bir uygulama oluşturun'
 description: Okuma erişimli coğrafi olarak yedekli depolamayı kullanarak uygulama verilerinizi yüksek oranda kullanılabilir yapma
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 81cd6b073fb46b01b3b98543d8f92e2ef7b1ec1b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d2fef3a47cbcb4cfd8bce8978003eca1044d7de3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245397"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510642"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Öğretici: Azure depolama ile uygulama verilerinizi yüksek oranda kullanılabilir hale getirme
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Öğretici: Blob Depolama ile yüksek oranda kullanılabilir bir uygulama oluşturun
 
 Bu öğretici, bir dizinin birinci bölümüdür. İçinde uygulama verilerinizi azure'da yüksek oranda kullanılabilir hale getirme hakkında bilgi edinin.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager şablonu işlevleri - karşılaştırma | Microsoft Docs
-description: Değerleri karşılaştırmak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklanmaktadır.
+description: Değerleri karşılaştırmak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 364a271d84f9abfe99c7c674a6c504ce94318ac9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359718"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492870"
 ---
-# <a name="comparison-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için karşılaştırma işlevleri
+# <a name="comparison-functions-for-azure-resource-manager-templates"></a>Karşılaştırma işlevleri için Azure Resource Manager şablonları
 
-Resource Manager şablonlarınızı içinde karşılaştırmaları yapmak için çeşitli işlevleri sağlar.
+Resource Manager şablonlarınızı karşılaştırmaları yapmak için çeşitli işlevler sunar.
 
 * [eşittir](#equals)
-* [büyük](#greater)
+* [daha büyük](#greater)
 * [greaterOrEquals](#greaterorequals)
 * [daha az](#less)
 * [lessOrEquals](#lessorequals)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="equals"></a>şuna eşittir:
 `equals(arg1, arg2)`
@@ -40,16 +42,16 @@ Resource Manager şablonlarınızı içinde karşılaştırmaları yapmak için 
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |int, string, dizi veya nesne |Eşitlik için denetlemek için ilk değer. |
-| arg2 |Evet |int, string, dizi veya nesne |Eşitlik için denetlemek için ikinci değer. |
+| arg1 |Evet |int, string, dizi veya nesne |Eşitlik için denetleyin ilk değer. |
+| arg2 |Evet |int, string, dizi veya nesne |Eşitlik için denetleyin ikinci değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** değerleri, eşit Aksi takdirde **False**.
+Döndürür **True** değerler, eşit; Aksi takdirde **False**.
 
 ### <a name="remarks"></a>Açıklamalar
 
-Equals işlevi ile sık kullanılan `condition` kaynak dağıtmış olup olmadığını sınamak için öğesi.
+Equals işlevi ile sık kullanılan `condition` dağıtılan bir kaynak olup olmadığını sınamak için öğesi.
 
 ```json
 {
@@ -68,7 +70,7 @@ Equals işlevi ile sık kullanılan `condition` kaynak dağıtmış olup olmadı
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) farklı türlerdeki eşitlik için değerleri denetler. Tüm varsayılan değerler, True döndürür.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) farklı türde değerler eşitlik için denetler. Tüm varsayılan değerleri, True döndürür.
 
 ```json
 {
@@ -131,28 +133,28 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Önceki örnekte varsayılan değerlere sahip çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| checkInts | bool | True |
-| checkStrings | bool | True |
-| checkArrays | bool | True |
-| checkObjects | bool | True |
+| checkInts | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
 ```
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) kullanan [değil](resource-group-template-functions-logical.md#not) ile **eşittir**.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) kullanan [değil](resource-group-template-functions-logical.md#not) ile **eşittir**.
 
 ```json
 {
@@ -169,43 +171,43 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Önceki örnekte çıktısı şöyledir:
+Önceki örnekte çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| checkNotEquals | bool | True |
+| checkNotEquals | Bool | True |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
 ```
 
-## <a name="greater"></a>büyük
+## <a name="greater"></a>daha büyük
 `greater(arg1, arg2)`
 
-İlk değer ikinci değerden daha büyük olup olmadığını denetler.
+İlk değer ikinci değerden büyük olup olmadığını denetler.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |int veya dize |Büyük karşılaştırma ilk değeri. |
-| arg2 |Evet |int veya dize |Büyük karşılaştırma için ikinci değer. |
+| arg1 |Evet |tamsayı veya dize |Büyük karşılaştırma ilk değeri. |
+| arg2 |Evet |tamsayı veya dize |Büyük karşılaştırma için ikinci değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** ilk değer, ikinci değerden daha büyük; Aksi takdirde **False**.
+Döndürür **True** ilk değer değerinden ikinci değeri; Aksi takdirde ise **False**.
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) diğerinden daha büyük bir değer olup olmadığını denetler.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) diğerinden daha büyük bir değer olup olmadığını denetler.
 
 ```json
 {
@@ -244,23 +246,23 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Önceki örnekte varsayılan değerlere sahip çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| checkInts | bool | False |
-| checkStrings | bool | True |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
 ```
 
 ## <a name="greaterorequals"></a>greaterOrEquals
@@ -272,16 +274,16 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |int veya dize |Büyük veya eşit karşılaştırma ilk değeri. |
-| arg2 |Evet |int veya dize |Büyük veya eşit karşılaştırma için ikinci değer. |
+| arg1 |Evet |tamsayı veya dize |Karşılaştırma büyük veya eşit ilk değeri. |
+| arg2 |Evet |tamsayı veya dize |Büyük veya buna eşit karşılaştırma için ikinci değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** ilk değer, büyük veya eşit ikinci değer, aksi takdirde **False**.
+Döndürür **True** büyüktür veya eşittir ikinci değer; tersi durumda, ilk değer, **False**.
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) bir değer sıfırdan büyük veya diğer eşit olup olmadığını denetler.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) diğerine eşit veya daha büyük bir değer olup olmadığını denetler.
 
 ```json
 {
@@ -320,44 +322,44 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Önceki örnekte varsayılan değerlere sahip çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| checkInts | bool | False |
-| checkStrings | bool | True |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
 ```
 
 ## <a name="less"></a>daha az
 `less(arg1, arg2)`
 
-İlk değer olup değerinden ikinci denetler.
+İkinci değer ilk değer olup değerinden denetler.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |int veya dize |Daha az karşılaştırma için ilk değer. |
-| arg2 |Evet |int veya dize |Daha az karşılaştırma için ikinci değer. |
+| arg1 |Evet |tamsayı veya dize |Daha az karşılaştırma ilk değeri. |
+| arg2 |Evet |tamsayı veya dize |Daha az karşılaştırma için ikinci değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** ilk değer düşükse ikinci değerden; Aksi halde, **False**.
+Döndürür **True** ilk değer küçükse değerinden ikinci değeri; Aksi takdirde **False**.
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) bir değerin diğer değerden olup olmadığını denetler.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) bir değer diğerinden daha az olup olmadığını denetler.
 
 ```json
 {
@@ -396,44 +398,44 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Önceki örnekte varsayılan değerlere sahip çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| checkInts | bool | True |
-| checkStrings | bool | False |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
 ```
 
 ## <a name="lessorequals"></a>lessOrEquals
 `lessOrEquals(arg1, arg2)`
 
-İlk değer küçük veya bu ikinci değer eşit olup olmadığını denetler.
+İlk değer ya da ikinci değer eşit olup olmadığını denetler.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |int veya dize |İlk değeri küçüktür veya eşittir karşılaştırması. |
-| arg2 |Evet |int veya dize |İkinci değeri küçüktür veya eşittir karşılaştırması. |
+| arg1 |Evet |tamsayı veya dize |İlk değeri küçüktür veya eşittir karşılaştırma. |
+| arg2 |Evet |tamsayı veya dize |İkinci değer için küçüktür veya eşittir karşılaştırma. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** ilk değeri veya ikinci değer eşit; Aksi takdirde düşükse **False**.
+Döndürür **True** ilk değer daha veya ikinci değerine eşit; Aksi takdirde, daha az ise **False**.
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) bir değer değerinden küçük veya eşit diğer olup olmadığını denetler.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) bir değer küçüktür veya eşittir diğerine olup olmadığını denetler.
 
 ```json
 {
@@ -472,28 +474,28 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Önceki örnekte varsayılan değerlere sahip çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| checkInts | bool | True |
-| checkStrings | bool | False |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir Azure Resource Manager şablonu bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
+* Bir Azure Resource Manager şablonu olarak bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 * Birden fazla şablon birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
-* Belirtilen sayıda yinelemek için kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
-* Oluşturduğunuz şablon dağıtma hakkında bilgi için bkz: [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md).
+* Belirtilen sayıda yineleme için bir kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
+* Oluşturduğunuz bir şablonu dağıtmayı öğrenmek için bkz [Azure Resource Manager şablonu ile uygulama dağıtma](resource-group-template-deploy.md).
 

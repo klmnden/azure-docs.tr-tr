@@ -7,25 +7,25 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 03/05/2018
+ms.date: 01/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 193bc3a4eafcdff5d5f28d916afa4600b20c0d86
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 295f96258b2f5d6612ae7c5f86c9f360232111f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514750"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507850"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Cihazınızı IOT Hub ile buluta dosyaları karşıya yükleme
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Bu öğreticide nasıl kullanılacağını izleyen [dosya karşıya yükleme özellikleri IOT Hub'ın](iot-hub-devguide-file-upload.md) bir dosyayı karşıya yüklemek için [Azure blob depolama](../storage/index.yml). Öğretici şunların nasıl yapıldığını göstermektedir:
+Bu makalede nasıl kullanılacağını gösterir [dosya karşıya yükleme özellikleri IOT Hub'ın](iot-hub-devguide-file-upload.md) bir dosyayı karşıya yüklemek için [Azure blob depolama](../storage/index.yml). Öğretici şunların nasıl yapıldığını göstermektedir:
 
 - Bir dosya karşıya yükleme için güvenli bir şekilde bir depolama kapsayıcısı sağlar.
 - IOT hub'ınız aracılığıyla bir dosyayı karşıya yüklemek için Python istemcisini kullanın.
 
-[IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-node.md) öğretici, IOT hub'ı temel cihaz-bulut Mesajlaşma işlevlerini gösterir. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Bir CİHAZDAN upland dosyalara ihtiyacınız olduğunda, güvenlik ve güvenilirlik IOT hub'ı kullanmaya devam edebilirsiniz.
+[IOT Hub'ına telemetri gönderme](quickstart-send-telemetry-python.md) hızlı başlangıç, IOT hub'ı temel cihaz-bulut Mesajlaşma işlevlerini gösterir. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Bir CİHAZDAN upland dosyalara ihtiyacınız olduğunda, güvenlik ve güvenilirlik IOT hub'ı kullanmaya devam edebilirsiniz.
 
 > [!NOTE]
 > IOT Hub Python SDK'sı şu anda yalnızca destekler karakter tabanlı dosyaları gibi karşıya **.txt** dosyaları.
@@ -41,19 +41,8 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * [Python 2.x veya 3.x][lnk-python-download]. Kurulumunuzun gereksinimine uygun olarak 32 bit veya 64 bit yüklemeyi kullanmaya dikkat edin. Yükleme sırasında istendiğinde, platforma özgü ortam değişkeninize Python’u eklediğinizden emin olun. Python 2.x kullanıyorsanız, [Python paket yönetim sistemi *pip*’yi yüklemeniz veya yükseltmeniz][lnk-install-pip] gerekebilir.
 * Windows işletim sistemi kullanıyorsanız, Python’dan yerel DLL’lerin kullanımına olanak tanımak için [Visual C++ yeniden dağıtılabilir paketi][lnk-visual-c-redist].
-* Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
-
-## <a name="create-an-iot-hub"></a>IoT hub oluşturma
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>IOT hub için bağlantı dizesi alma
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>Yeni bir cihaz IOT hub'ı Kaydet
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
+* IOT hub, Azure hesabınızda, karşıya dosya yükleme özelliğiyle test etmek için bir cihaz kimliği. 
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -68,9 +57,14 @@ Bu bölümde, IOT hub'ına bir dosyayı karşıya yüklemek için cihaz uygulama
     pip install azure-iothub-device-client
     ```
 
+1. Bir metin düzenleyicisi kullanarak, blob depolama alanına yükleyeceği bir test dosyası oluşturun. 
+
+    > [!NOTE]
+    > IOT Hub Python SDK'sı şu anda yalnızca destekler karakter tabanlı dosyaları gibi karşıya **.txt** dosyaları.
+
 1. Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **FileUpload.py** çalışma klasöründeki dosya.
 
-1. Aşağıdaki `import` deyimlerini ve değişkenlerini başlangıcında **FileUpload.py** dosya. Değiştirin `deviceConnectionString` cihazınızın IOT hub bağlantı dizesiyle:
+1. Aşağıdaki `import` deyimlerini ve değişkenlerini başlangıcında **FileUpload.py** dosya. 
 
     ```python
     import time
@@ -83,8 +77,10 @@ Bu bölümde, IOT hub'ına bir dosyayı karşıya yüklemek için cihaz uygulama
     PROTOCOL = IoTHubTransportProvider.HTTP
 
     PATHTOFILE = "[Full path to file]"
-    FILENAME = "[File name on storage after upload]"
+    FILENAME = "[File name for storage]"
     ```
+
+1. Dosyanızda değiştirin `[Device Connection String]` cihazınızın IOT hub bağlantı dizesine sahip. Değiştirin `[Full path to file]` ile oluşturduğunuz test dosyası veya Cihazınızda karşıya yüklemek istediğiniz herhangi bir dosya yolu. Değiştirin `[File name for storage]` ile blob depolama alanına karşıya yüklendikten sonra bir dosyaya vermek istediğiniz adı. 
 
 1. İçin bir geri çağırma oluşturun **upload_blob** işlevi:
 
@@ -133,11 +129,6 @@ Bu bölümde, IOT hub'ına bir dosyayı karşıya yüklemek için cihaz uygulama
     ```
 
 1. Kaydet ve Kapat **UploadFile.py** dosya.
-
-1. Örnek metin dosyası çalışma klasörüne kopyalamak ve yeniden adlandırmak `sample.txt`.
-
-    > [!NOTE]
-    > IOT Hub Python SDK'sı şu anda yalnızca destekler karakter tabanlı dosyaları gibi karşıya **.txt** dosyaları.
 
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma

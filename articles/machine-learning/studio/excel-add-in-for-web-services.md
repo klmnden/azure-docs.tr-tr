@@ -1,8 +1,21 @@
 ---
-Başlık: Web için Excel eklentisi titleSuffix Hizmetleri: Azure Machine Learning Studio açıklaması: Azure Machine Learning Web Hizmetleri, herhangi bir kod yazmaya gerek kalmadan doğrudan Excel'de kullanma
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/01/2018
+title: Web hizmetleri için Excel Eklentisi
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Web Hizmetleri, herhangi bir kod yazmaya gerek kalmadan doğrudan Excel'de kullanma
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/01/2018
+ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486903"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio web hizmetleri için Excel Eklentisi
 Excel web hizmetleri herhangi bir kod yazmak zorunda kalmadan doğrudan çağırmak kolaylaştırır.

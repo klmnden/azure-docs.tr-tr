@@ -1,8 +1,21 @@
 ---
-Başlık: Dosya titleSuffix veri içeri aktar: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da eğitim veri dosyasına sabit sürücünüzden karşıya yüklemeyi öğrenin. Bu çalışma alanında bir veri kümesi modülü oluşturur.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
+title: Dosyasından veri içeri aktarın
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio'da eğitim veri dosyasına sabit sürücünüzden karşıya yüklemeyi öğrenin. Bu çalışma alanında bir veri kümesi modülü oluşturur.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: fe09eabe399af2d3ddc776843f39742774e6ea3c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495896"
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-azure-machine-learning-studio"></a>Azure Machine Learning Studio'ya sabit sürücünüzde bir dosyadan eğitim verilerini içeri aktarma
 

@@ -11,27 +11,27 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 01/31/2019
+ms.openlocfilehash: 80da1058f17b69d82d851bb38482afa0b31daac1
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472793"
+ms.locfileid: "55508880"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
-Azure SQL veritabanı yönetilen örneği, şirket içi SQL Server veritabanı altyapısı ile yüksek uyumluluk sağlar. SQL Server veritabanı altyapısı özelliklerin çoğu, yönetilen örneği'nde desteklenir. Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makalede özetler ve bu farklar açıklanmaktadır.
-
-- [T-SQL farklılıkları ve desteklenmeyen özellikleri](#Differences)
+Azure SQL veritabanı yönetilen örneği, şirket içi SQL Server veritabanı altyapısı ile yüksek uyumluluk sağlar. SQL Server veritabanı altyapısı özelliklerin çoğu, yönetilen örneği'nde desteklenir. Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makalede özetler ve bu farklar açıklanmaktadır. <a name="Differences"></a>
+- [Kullanılabilirlik](#availability) farklılıkları dahil olmak üzere [her zaman açık](#always-on-availability) ve [yedeklemeleri](#backup),
+- [Güvenlik](#security) farklılıkları dahil olmak üzere [denetim](#auditing), [sertifikaları](#certificates), [kimlik bilgilerini](#credentials), [şifreleme sağlayıcıları](#cryptographic-providers), [Oturumları / kullanıcılar](#logins--users), [hizmet anahtarı ve hizmet ana anahtarını](#service-key-and-service-master-key),
+- [Yapılandırma](#configuration) farklılıkları dahil olmak üzere [arabellek havuzu uzantısı](#buffer-pool-extension), [harmanlama](#collation), [Uyumluluk Düzeyleri](#compatibility-levels),[veritabanı Yansıtma](#database-mirroring), [veritabanı seçenekleri](#database-options), [SQL Server Agent](#sql-server-agent), [Tablo Seçenekleri](#tables),
+- [İşlevler](#functionalities) dahil olmak üzere [toplu ekleme/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [dağıtılmış işlemler](#distributed-transactions), [ Genişletilmiş olaylar](#extended-events), [dış kitaplıkları](#external-libraries), [Filestream ve Filetable](#filestream-and-filetable), [anlam tam metin araması](#full-text-semantic-search), [bağlı sunucuları](#linked-servers), [Polybase](#polybase), [çoğaltma](#replication), [geri](#restore-statement), [hizmet Aracısı](#service-broker), [ Saklı yordamlar, İşlevler ve tetikleyiciler](#stored-procedures-functions-triggers),
 - [Yönetilen örneği'nde farklı davranışa sahip özellikleri](#Changes)
 - [Geçici sınırlamalar ve bilinen sorunlar](#Issues)
 
-## <a name="Differences"></a> SQL Server T-SQL farklılıkları
+## <a name="availability"></a>Kullanılabilirlik
 
-Bu bölümde, T-SQL söz dizimini ve davranışı, yönetilen örneği ve şirket içi SQL Server veritabanı altyapısı yanı sıra, desteklenmeyen özellikler arasındaki temel farklar özetlenmektedir.
-
-### <a name="always-on-availability"></a>Her zaman açık kullanılabilirlik
+### <a name="always-on-availability"></a>Her zaman açık
 
 [Yüksek kullanılabilirlik](sql-database-high-availability.md) yönetilen örneğe oluşturulmuştur ve kullanıcılar tarafından kontrol edilemez. Aşağıdaki ifadeleri desteklenmez:
 
@@ -40,27 +40,6 @@ Bu bölümde, T-SQL söz dizimini ve davranışı, yönetilen örneği ve şirke
 - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
 - [BIRAKMA KULLANILABİLİRLİK GRUBU](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) yan tümcesi [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) deyimi
-
-### <a name="auditing"></a>Denetim
-
-SQL yönetilen örneği, Azure SQL veritabanı ve SQL Server şirket içi denetleme arasındaki temel farklılıklar şunlardır:
-
-- Yönetilen örneği'nde sunucu düzeyinde ve depoları SQL denetim çalışır `.xel` dosyaları Azure blob depolama hesabı.  
-- Azure SQL veritabanı'nda SQL denetim veritabanı düzeyinde çalışır.
-- İçinde şirket içi SQL Server / sanal makine, SQL denetim için sunucu düzeyinde çalışır, ancak bu dosyaları sistem/windows olay günlüklerini olayları depolar.  
-  
-XEvent denetim yönetilen örneği'nde, Azure blob depolama hedeflerini destekler. Dosya ve windows günlükleri desteklenmez.
-
-Anahtarının farklar içinde `CREATE AUDIT` denetleme için Azure blob depolama söz dizimi olan:
-
-- Yeni bir söz dizimi `TO URL` sağlanır ve Azure blob depolama kapsayıcısının URL'sini belirtmenize olanak tanıyan burada `.xel` dosyaları yerleştirilecek
-- Söz dizimi `TO FILE` yönetilen örneği, Windows dosya paylaşımları erişemediği için desteklenmiyor.
-
-Daha fazla bilgi için bkz.  
-
-- [SUNUCU DENETİMİ OLUŞTURMA](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
-- [ALTER SERVER DENETİM](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
-- [Denetim](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="backup"></a>Backup
 
@@ -85,17 +64,28 @@ Sınırlamalar:
 
 T-SQL kullanarak yedeklemeler hakkında daha fazla bilgi için bkz: [yedekleme](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
-### <a name="buffer-pool-extension"></a>Arabellek havuzu genişletme
+## <a name="security"></a>Güvenlik
 
-- [Arabellek havuzu uzantısı](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) desteklenmiyor.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` desteklenmiyor. Bkz: [ALTER SERVER Yapılandırması](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+### <a name="auditing"></a>Denetim
 
-### <a name="bulk-insert--openrowset"></a>Toplu ekleme / openrowset
+SQL yönetilen örneği, Azure SQL veritabanı ve SQL Server şirket içi denetleme arasındaki temel farklılıklar şunlardır:
 
-Dosyaları Azure blob depolama alanından içeri aktarılmalıdır şekilde yönetilen örnek, dosya paylaşımları ve Windows klasörleri erişilemiyor:
+- Yönetilen örneği'nde sunucu düzeyinde ve depoları SQL denetim çalışır `.xel` dosyaları Azure blob depolama hesabı.  
+- Azure SQL veritabanı'nda SQL denetim veritabanı düzeyinde çalışır.
+- İçinde şirket içi SQL Server / sanal makine, SQL denetim için sunucu düzeyinde çalışır, ancak bu dosyaları sistem/windows olay günlüklerini olayları depolar.  
+  
+XEvent denetim yönetilen örneği'nde, Azure blob depolama hedeflerini destekler. Dosya ve windows günlükleri desteklenmez.
 
-- `DATASOURCE` gereklidir `BULK INSERT` dosyaları Azure blob depolama alanından alınırken komutu. Bkz: [toplu ekleme](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` gereklidir `OPENROWSET` bir dosyanın içeriğini Azure blob depolama alanından okurken işlev. Bkz: [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+Anahtarının farklar içinde `CREATE AUDIT` denetleme için Azure blob depolama söz dizimi olan:
+
+- Yeni bir söz dizimi `TO URL` sağlanır ve Azure blob depolama kapsayıcısının URL'sini belirtmenize olanak tanıyan burada `.xel` dosyaları yerleştirilecek
+- Söz dizimi `TO FILE` yönetilen örneği, Windows dosya paylaşımları erişemediği için desteklenmiyor.
+
+Daha fazla bilgi için bkz.  
+
+- [SUNUCU DENETİMİ OLUŞTURMA](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
+- [ALTER SERVER DENETİM](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+- [Denetim](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="certificates"></a>Sertifikalar
 
@@ -114,22 +104,6 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="clr"></a>CLR
-
-Yönetilen Örnek, Windows klasörlerindeki dosya paylaşımlarına erişemediğinden aşağıdaki kısıtlamalar geçerli olacaktır:
-
-- Yalnızca `CREATE ASSEMBLY FROM BINARY` desteklenir. Bkz: [ikili oluşturma DERLEMESİNDEN](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
-- `CREATE ASSEMBLY FROM FILE` desteklenmiyor. Bkz: [Oluştur derleme DOSYASINDAN](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
-- `ALTER ASSEMBLY` dosyaları başvuruda bulunamaz. Bkz: [ALTER derleme](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
-### <a name="compatibility-levels"></a>Uyumluluk düzeyleri
-
-- Desteklenen uyumluluk düzeyleri şunlardır: 100, 110, 120, 130, 140  
-- 100'den düşük bir uyumluluk düzeylerinde desteklenmez.
-- Yeni veritabanları için varsayılan uyumluluk düzeyinin 140 değeri. Geri yüklenen veritabanları için uyumluluk düzeyi 100 ise ve yukarıda değişmeden kalır.
-
-Bkz: [ALTER veritabanı uyumluluk düzeyi](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
-
 ### <a name="credential"></a>Kimlik Bilgisi
 
 Azure Key Vault ve `SHARED ACCESS SIGNATURE` kimlikleri desteklenir. Windows kullanıcıları desteklenmez.
@@ -143,9 +117,48 @@ Bkz: [oluşturma kimlik bilgisi](https://docs.microsoft.com/sql/t-sql/statements
 - `CREATE CRYPTOGRAPHIC PROVIDER` desteklenmiyor. Bkz: [Oluştur şifreleme SAĞLAYICISI](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - `ALTER CRYPTOGRAPHIC PROVIDER` desteklenmiyor. Bkz: [ALTER şifreleme SAĞLAYICISI](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
 
+### <a name="logins--users"></a>Oturum açma bilgileri / kullanıcılar
+
+- Oluşturulan SQL oturum açmaları `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, ve `FROM SID` desteklenir. Bkz: [Oluştur oturum açma](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
+- Azure Active Directory (AAD) oturum açmalar oluşturulurken [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) sözdizimi veya [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) söz dizimi desteklenir (**genel Önizleme**).
+- Windows oturum açma bilgileri ile oluşturulan `CREATE LOGIN ... FROM WINDOWS` sözdizimi desteklenmiyor. Azure Active Directory oturum açma bilgileri ve kullanıcılar bu seçeneği kullanın.
+- Örneği oluşturan azure Active Directory (Azure AD) kullanıcı [Kısıtlanmamış yönetici ayrıcalıkları](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Yönetici olmayan Azure Active Directory (Azure AD) veritabanı düzeyinde kullanıcılar kullanarak oluşturulabilir `CREATE USER ... FROM EXTERNAL PROVIDER` söz dizimi. Bkz: [kullanıcı oluştur... DIŞ SAĞLAYICISINDAN](sql-database-manage-logins.md#non-administrator-users)
+
+### <a name="service-key-and-service-master-key"></a>Hizmet anahtarı ve hizmet ana anahtarı
+
+- [Ana anahtarını yedekleme](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) (SQL veritabanı hizmeti tarafından yönetilen) desteklenmiyor
+- [Ana anahtarı geri yükleme](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) (SQL veritabanı hizmeti tarafından yönetilen) desteklenmiyor
+- [Hizmet ana anahtarını yedekleme](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) (SQL veritabanı hizmeti tarafından yönetilen) desteklenmiyor
+- [Hizmet ana anahtarını geri yükleme](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) (SQL veritabanı hizmeti tarafından yönetilen) desteklenmiyor
+
+## <a name="configuration"></a>Yapılandırma
+
+### <a name="buffer-pool-extension"></a>Arabellek havuzu genişletme
+
+- [Arabellek havuzu uzantısı](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) desteklenmiyor.
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` desteklenmiyor. Bkz: [ALTER SERVER Yapılandırması](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+
 ### <a name="collation"></a>Harmanlama
 
 Varsayılan örneği harmanlaması `SQL_Latin1_General_CP1_CI_AS` ve oluşturma parametre olarak belirtilebilir. Bkz: [harmanlamaları](https://docs.microsoft.com/sql/t-sql/statements/collations).
+
+### <a name="compatibility-levels"></a>Uyumluluk düzeyleri
+
+- Desteklenen uyumluluk düzeyleri şunlardır: 100, 110, 120, 130, 140  
+- 100'den düşük bir uyumluluk düzeylerinde desteklenmez.
+- Yeni veritabanları için varsayılan uyumluluk düzeyinin 140 değeri. Geri yüklenen veritabanları için uyumluluk düzeyi 100 ise ve yukarıda değişmeden kalır.
+
+Bkz: [ALTER veritabanı uyumluluk düzeyi](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
+
+### <a name="database-mirroring"></a>Veritabanı yansıtma
+
+Veritabanı yansıtma desteklenmiyor.
+
+- `ALTER DATABASE SET PARTNER` ve `SET WITNESS` seçenekleri desteklenmez.
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` desteklenmiyor.
+
+Daha fazla bilgi için [ALTER DATABASE SET PARTNER ve SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) ve [uç nokta oluştur... DATABASE_MIRRORING için](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
 
 ### <a name="database-options"></a>Veritabanı seçenekleri
 
@@ -209,14 +222,68 @@ Değiştirme adı desteklenmiyor.
 
 Daha fazla bilgi için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="database-mirroring"></a>Veritabanı yansıtma
+### <a name="sql-server-agent"></a>SQL Server Agent
 
-Veritabanı yansıtma desteklenmiyor.
+- SQL Aracısı ayarları salt okunur. Yordam `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor.  
+- İşler
+  - T-SQL iş adımları desteklenir.
+  - Şu çoğaltma işleri desteklenir:
+    - İşlem günlüğü okuyucu.  
+    - Anlık görüntü.
+    - Dağıtıcı
+  - SSIS iş adımları desteklenir
+  - İş adımları diğer türleri şu anda, dahil olmak üzere desteklenmez:
+    - Birleştirme çoğaltması iş adımı desteklenmiyor.  
+    - Sıra okuyucusu desteklenmiyor.  
+    - Komut kabuğu henüz desteklenmiyor
+  - Yönetilen örnek (örneğin, ağ paylaşımları üzerinden robocopy) dış kaynaklara erişemez.  
+  - PowerShell henüz desteklenmiyor.
+  - Analysis Services desteklenmiyor
+- Bildirimleri kısmen desteklenir
+- E-posta bildirimi desteklenir, bir veritabanı posta profili yapılandırma gerektirir. Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile` genel önizlemeye sunuldu (geçici sınırlama).  
+  - Çağrı desteklenmiyor.  
+  - NetSend desteklenmiyor.
+  - Uyarılar değil henüz desteklenmemektedir.
+  - Ara sunucular desteklenmez.  
+- Eventlog desteklenmiyor.
 
-- `ALTER DATABASE SET PARTNER` ve `SET WITNESS` seçenekleri desteklenmez.
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` desteklenmiyor.
+Aşağıdaki özellikleri halen desteklenmemektedir ancak gelecek etkinleştirilecek:
 
-Daha fazla bilgi için [ALTER DATABASE SET PARTNER ve SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) ve [uç nokta oluştur... DATABASE_MIRRORING için](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
+- Proxy'ler
+- Boşta CPU üzerinde işlerini zamanlama
+- Aracıyı etkinleştirme/devre dışı bırakma
+- Uyarılar
+
+SQL Server Aracısı hakkında daha fazla bilgi için bkz. [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+
+### <a name="tables"></a>Tablolar
+
+Aşağıdakiler desteklenmez:
+
+- `FILESTREAM`
+- `FILETABLE`
+- `EXTERNAL TABLE`
+- `MEMORY_OPTIMIZED`  
+
+Tablo oluşturma veya değiştirme hakkında daha fazla bilgi için bkz: [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) ve [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+
+## <a name="functionalities"></a>İşlevler
+
+### <a name="bulk-insert--openrowset"></a>Toplu ekleme / openrowset
+
+Dosyaları Azure blob depolama alanından içeri aktarılmalıdır şekilde yönetilen örnek, dosya paylaşımları ve Windows klasörleri erişilemiyor:
+
+- `DATASOURCE` gereklidir `BULK INSERT` dosyaları Azure blob depolama alanından alınırken komutu. Bkz: [toplu ekleme](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` gereklidir `OPENROWSET` bir dosyanın içeriğini Azure blob depolama alanından okurken işlev. Bkz: [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+
+### <a name="clr"></a>CLR
+
+Yönetilen Örnek, Windows klasörlerindeki dosya paylaşımlarına erişemediğinden aşağıdaki kısıtlamalar geçerli olacaktır:
+
+- Yalnızca `CREATE ASSEMBLY FROM BINARY` desteklenir. Bkz: [ikili oluşturma DERLEMESİNDEN](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
+- `CREATE ASSEMBLY FROM FILE` desteklenmiyor. Bkz: [Oluştur derleme DOSYASINDAN](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
+- `ALTER ASSEMBLY` dosyaları başvuruda bulunamaz. Bkz: [ALTER derleme](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
+
 
 ### <a name="dbcc"></a>DBCC
 
@@ -274,14 +341,6 @@ Bağlı sunucuları yönetilen örneğinde hedefleri sınırlı sayıda destekle
 - `OPENROWSET` işlevi, yalnızca SQL Server örneklerinde sorgularını yürütmek için kullanılabilir (ya da şirket içi, yönetilen veya sanal makineler). Bkz: [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - `OPENDATASOURCE` işlevi, yalnızca SQL Server örneklerinde sorgularını yürütmek için kullanılabilir (ya da şirket içi, yönetilen veya sanal makineler). Yalnızca `SQLNCLI`, `SQLNCLI11`, ve `SQLOLEDB` değerler sağlayıcısı olarak desteklenir. Örneğin: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Bkz: [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
 
-### <a name="logins--users"></a>Oturum açma bilgileri / kullanıcılar
-
-- Oluşturulan SQL oturum açmaları `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, ve `FROM SID` desteklenir. Bkz: [Oluştur oturum açma](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Azure Active Directory (AAD) oturum açmalar oluşturulurken [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) sözdizimi veya [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) söz dizimi desteklenir (**genel Önizleme**).
-- Windows oturum açma bilgileri ile oluşturulan `CREATE LOGIN ... FROM WINDOWS` sözdizimi desteklenmiyor. Azure Active Directory oturum açma bilgileri ve kullanıcılar bu seçeneği kullanın.
-- Örneği oluşturan azure Active Directory (Azure AD) kullanıcı [Kısıtlanmamış yönetici ayrıcalıkları](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Yönetici olmayan Azure Active Directory (Azure AD) veritabanı düzeyinde kullanıcılar kullanarak oluşturulabilir `CREATE USER ... FROM EXTERNAL PROVIDER` söz dizimi. Bkz: [kullanıcı oluştur... DIŞ SAĞLAYICISINDAN](sql-database-manage-logins.md#non-administrator-users)
-
 ### <a name="polybase"></a>Polybase
 
 Dış tablolar HDFS veya Azure blob depolamadaki dosyalara başvuru desteklenmez. Polybase hakkında daha fazla bilgi için bkz. [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
@@ -337,13 +396,6 @@ Restore deyimleri hakkında daha fazla bilgi için bkz. [geri deyimleri](https:/
 - `CREATE ROUTE` -kullanamazsınız `CREATE ROUTE` ile `ADDRESS` dışında `LOCAL`. Bkz: [Oluştur ROTA](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` olamaz `ALTER ROUTE` ile `ADDRESS` dışında `LOCAL`. Bkz: [ALTER ROTA](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
-### <a name="service-key-and-service-master-key"></a>Hizmet anahtarı ve hizmet ana anahtarı
-
-- [Ana anahtarını yedekleme](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) (SQL veritabanı hizmeti tarafından yönetilen) desteklenmiyor
-- [Ana anahtarı geri yükleme](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) (SQL veritabanı hizmeti tarafından yönetilen) desteklenmiyor
-- [Hizmet ana anahtarını yedekleme](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) (SQL veritabanı hizmeti tarafından yönetilen) desteklenmiyor
-- [Hizmet ana anahtarını geri yükleme](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) (SQL veritabanı hizmeti tarafından yönetilen) desteklenmiyor
-
 ### <a name="stored-procedures-functions-triggers"></a>Saklı yordamlar, İşlevler, Tetikleyiciler
 
 - `NATIVE_COMPILATION` şu anda desteklenmiyor.
@@ -359,51 +411,6 @@ Restore deyimleri hakkında daha fazla bilgi için bkz. [geri deyimleri](https:/
 - `Extended stored procedures` dahil olmak üzere desteklenmediği `sp_addextendedproc`  ve `sp_dropextendedproc`. Bkz: [genişletilmiş saklı yordamlar](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, ve `sp_detach_db` desteklenmez. Bkz: [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), ve [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` desteklenmiyor. Bkz: [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
-
-### <a name="sql-server-agent"></a>SQL Server Agent
-
-- SQL Aracısı ayarları salt okunur. Yordam `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor.  
-- İşler
-  - T-SQL iş adımları desteklenir.
-  - Şu çoğaltma işleri desteklenir:
-    - İşlem günlüğü okuyucu.  
-    - Anlık görüntü.
-    - Dağıtıcı
-  - SSIS iş adımları desteklenir
-  - İş adımları diğer türleri şu anda, dahil olmak üzere desteklenmez:
-    - Birleştirme çoğaltması iş adımı desteklenmiyor.  
-    - Sıra okuyucusu desteklenmiyor.  
-    - Komut kabuğu henüz desteklenmiyor
-  - Yönetilen örnek (örneğin, ağ paylaşımları üzerinden robocopy) dış kaynaklara erişemez.  
-  - PowerShell henüz desteklenmiyor.
-  - Analysis Services desteklenmiyor
-- Bildirimleri kısmen desteklenir
-- E-posta bildirimi desteklenir, bir veritabanı posta profili yapılandırma gerektirir. Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile` genel önizlemeye sunuldu (geçici sınırlama).  
-  - Çağrı desteklenmiyor.  
-  - NetSend desteklenmiyor.
-  - Uyarılar değil henüz desteklenmemektedir.
-  - Ara sunucular desteklenmez.  
-- Eventlog desteklenmiyor.
-
-Aşağıdaki özellikleri halen desteklenmemektedir ancak gelecek etkinleştirilecek:
-
-- Proxy'ler
-- Boşta CPU üzerinde işlerini zamanlama
-- Aracıyı etkinleştirme/devre dışı bırakma
-- Uyarılar
-
-SQL Server Aracısı hakkında daha fazla bilgi için bkz. [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
-
-### <a name="tables"></a>Tablolar
-
-Aşağıdakiler desteklenmez:
-
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED`  
-
-Tablo oluşturma veya değiştirme hakkında daha fazla bilgi için bkz: [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) ve [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
 ## <a name="Changes"></a> Davranış değişiklikleri
 

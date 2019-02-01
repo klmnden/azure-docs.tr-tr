@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 6015d226bce578661816bd0f934f7818746b4c3b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301467"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507765"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Öğretici: Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme
 
@@ -184,8 +184,12 @@ Olay aboneliği, belirli bir uç noktaya gönderilmesini istediğiniz, sağlayı
     | **Olay türleri** | Oluşturulan blob | **Oluşturulan blob** dışındaki tüm türlerin işaretini kaldırın. Yalnızca `Microsoft.Storage.BlobCreated` türündeki olaylar işleve geçirilir.| 
     | **Abone türü** |  otomatik oluşturulmuş |  Web Kancası olarak önceden tanımlanmış. |
     | **Abone uç noktası** | otomatik oluşturulmuş | Sizin için oluşturulan uç nokta URL'sini kullanın. | 
-4. *İsteğe bağlı:* Gelecekte diğer amaçlar için ek kapsayıcıları aynı blob depolama alanında oluşturmak için ihtiyacınız olması durumunda, kullanabileceğiniz **konu filtreleme** özellikleri **filtreleri** daha ayrıntılı blob hedeflemek için sekmesinde işlev uygulamanızı emin olmak için olayları yalnızca BLOB eklendiğinde çağırılır **görüntüleri** kapsayıcı özellikle. 
-5. Olay aboneliği eklemek için **Oluştur**’a tıklayın. Bu tetikleyen bir olay aboneliği oluşturur `Thumbnail` işlev bir blob eklendiğinde *görüntüleri* kapsayıcı. İşlev, görüntüleri yeniden boyutlandırır ve *thumbnails* kapsayıcısına ekler.
+4. Geçiş **filtre** sekmesini tıklatın ve aşağıdaki eylemleri gerçekleştirin:     
+    1. Seçin **filtreleme etkinleştir konu** seçeneği.
+    2. İçin **konu ile başlayan**, şu değeri girin: **/blobServices/varsayılan/kapsayıcılar/resimler/blobları/**.
+
+        ![Olay aboneliği için filtre belirtin.](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
+2. Seçin **Oluştur** olay aboneliği eklemek için. Bu tetikleyen bir olay aboneliği oluşturur `Thumbnail` işlev bir blob eklendiğinde `images` kapsayıcı. İşlev görüntüleri yeniden boyutlandırır ve eklenmeye `thumbnails` kapsayıcı.
 
 Arka uç hizmetleri yapılandırıldıktan sonra, görüntü yeniden boyutlandırma işlevini örnek web uygulamasında test edin. 
 

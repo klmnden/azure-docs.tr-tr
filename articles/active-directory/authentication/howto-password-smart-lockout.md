@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 101070dab80c69ea1d24dd11fe5e067947505d19
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 8364d09aa2d068e347199d104c069047aa24d7a4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077973"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511913"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory akıllı kilitleme
 
@@ -23,7 +23,7 @@ Akıllı kilitleme, kullanıcılarınızın parolaları tahmin veya almak için 
 
 Varsayılan olarak, akıllı kilitleme oturum açma denemeleri başarısız olan 10 denemeden sonra bir dakika hesabından kilitler. Sonraki başarısız oturum açma girişimleri, ilk ve sonraki denemeler de daha uzun bir dakika sonra yeniden hesabı kilitler.
 
-Akıllı kilitleme kilidi açma sayacı reincrementing önlemek için son üç hatalı parola karmaları izler. Birisi birden çok kez aynı yanlış parola girerse, bu davranış, hesap kilitleme için neden olmaz.
+Akıllı kilitleme aynı parola kilidi açma sayacı artıyor olmasını önlemek için son üç hatalı parola karmaları izler. Birisi birden çok kez aynı yanlış parola girerse, bu davranış, hesap kilitleme için neden olmaz.
 
  > [!NOTE]
  > İzleme işlevi karma kimlik doğrulaması, şirket içinde ve bulutta olduğu sürece etkin geçişli kimlik doğrulaması ile müşteriler için kullanılabilir değil.

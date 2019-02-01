@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 384a277f3465ac97285fbb08fa299a5bed8c87c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c8d34ecb46721a8dd8dc1b1ad9f73c9f2ca2b3a2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477701"
+ms.locfileid: "55507408"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -61,7 +61,7 @@ Bağlantı noktası 445 giden iletişimi, Azure dosyaları bir veri merkezine en
 
 445 bağlantı noktası güvenlik duvarı veya ISS engelleyip engellemediğini denetlemek için kullanmak [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) aracı veya `Test-NetConnection` cmdlet'i. 
 
-Kullanılacak `Test-NetConnection` cmdlet'i, AzureRM PowerShell Modülü yüklü olması gerekir, bkz: [Azure PowerShell modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps) daha fazla bilgi için. `<your-storage-account-name>` ile `<your-resoure-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
+Kullanılacak `Test-NetConnection` cmdlet'i, AzureRM PowerShell Modülü yüklü olması gerekir, bkz: [Azure PowerShell modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps) daha fazla bilgi için. `<your-storage-account-name>` ile `<your-resource-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
 
    
     $resourceGroupName = "<your-resource-group-name>"

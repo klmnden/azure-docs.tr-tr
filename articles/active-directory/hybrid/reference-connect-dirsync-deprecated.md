@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ea3f0bccfe18f026926f6fabe37d6976ba6269a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b95fa5b5336db62bdf64ebd0dc254160d1a9282d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203734"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490609"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Windows Azure Active Directory Sync ve Azure Active Directory Sync yükseltme
 Azure AD Connect, size Azure AD ve Office 365 ile şirket içi dizininize bağlanmak için en iyi yolu sunmaktadır. Bu araçlar artık kullanım dışı ve 13 Nisan 2017'den itibaren artık desteklenmemektedir Windows Azure Active Directory Sync (DirSync) veya Azure AD eşitleme'den Azure AD Connect'e yükseltmenin tam zamanı budur.

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 45cd9188b420f9c6db3f1adaa4244b30cce0ccc6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 735bc2569436b99d3366d1ce5ff01f40ab7f587a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081900"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510468"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -86,7 +86,7 @@ Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesapla
 | Parola kullanım süresi sonu |<ul><li>Varsayılan değer: **false** gün (Bu parola süre sonu etkin olduğunu gösterir).</li><li>Değeri kullanarak bireysel kullanıcı hesapları için yapılandırılabilir `Set-MsolUser` cmdlet'i.</li></ul> |
 | Parola değişiklik geçmişi |Son parola *olamaz* kullanılabilir yeniden kullanıcı parola değiştirdiğinde. |
 | Parola geçmişini Sıfırla | Son parola *olabilir* yeniden kullanıcı Unutulan parolayı sıfırlar sağladığınızda kullanılır. |
-| Hesap kilitleme |10 başarısız oturum açma denemeden sonra yanlış parola ile kullanıcı için bir dakika kilitlidir. Daha fazla yanlış oturum açma kullanıcı kilitleme süreleri artırmaya yönelik çalışır. |
+| Hesap kilitleme |10 başarısız oturum açma denemeden sonra yanlış parola ile kullanıcı için bir dakika kilitlidir. Daha fazla yanlış oturum açma kullanıcı kilitleme süreleri artırmaya yönelik çalışır. [Akıllı kilitleme](howto-password-smart-lockout.md) aynı parola kilidi açma sayacı artıyor olmasını önlemek için son üç hatalı parola karmaları izler. Birisi birden çok kez aynı yanlış parola girerse, bu davranış, hesap kilitleme için neden olmaz. |
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Parola, Azure AD'de süre sonu ilkelerini ayarlama
 

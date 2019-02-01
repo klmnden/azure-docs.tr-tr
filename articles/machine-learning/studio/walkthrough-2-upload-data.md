@@ -1,8 +1,21 @@
 ---
-Başlık: ' 2. adım: Bir Machine Learning Studio denemesine veri yükleme ' titleSuffix: Azure Machine Learning Studio açıklaması: ' Adım 2 / geliştirme Tahmine dayalı çözüm Kılavuzu: Karşıya yükleme, Azure Machine Learning Studio'ya genel veri depolanan.'
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: garyericson ms.author: garye MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/23/2017
+title: '2. Adım: Bir Machine Learning Studio denemesine veri yükleme'
+titleSuffix: Azure Machine Learning Studio
+description: "Adım 2 / geliştirme Tahmine dayalı çözüm Kılavuzu: Karşıya yükleme, Azure Machine Learning Studio'ya genel veriler depolanır."
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/23/2017
+ms.openlocfilehash: 4b23286a5a86b8d2731a34f39755b4fd18bbd78d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507579"
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Kılavuz adımı 2: Mevcut verileri bir Azure Machine Learning Studio denemesine yükleme
 Bu kılavuz, ikinci adımıdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)

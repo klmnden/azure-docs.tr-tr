@@ -1,26 +1,21 @@
 ---
-title: Azure Danışmanı performans önerilerini | Microsoft Docs
+title: Azure Danışmanı ile Azure uygulamalarını performansını | Microsoft Docs
 description: Azure dağıtımlarınızı performansını iyileştirmek için Danışman'ı kullanın.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266754"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491595"
 ---
-# <a name="advisor-performance-recommendations"></a>Danışmanı performans önerileri
+# <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Danışmanı ile Azure uygulamalarını'nın performansını artırma
 
 Azure Danışmanı performans önerilerini, hız ve yanıt hızını iş açısından kritik uygulamalarınızın geliştirilmesine yardımcı olur. Performans önerileri Danışmandan alma **performans** Danışman Panosu sekmesi.
 
@@ -49,7 +44,7 @@ Uygulama Hizmetleri öneriler hakkında daha fazla bilgi için bkz. [Azure App S
 
 ## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Disk g/ç azalmasını engellemek için yönetilen diskleri kullanma
 
-Danışman, ölçeklenebilirlik hedefine ulaşmak bir depolama hesabına ait sanal makineleri tanımlar. Bu, g/ç azalmasını getirir. Danışman, bu sanal makinelerin performans düşüşünü önlemek için yönetilen diskleri kullanmanız önerir.
+Danışman, ölçeklenebilirlik hedefine ulaşmak bir depolama hesabına ait sanal makineleri tanımlar. Bu durum bu Vm'leri g/ç azalmasını getirir. Danışman, performans düşüşünü önlemek için yönetilen diskleri kullanmanız önerilir.
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Premium Depolama'yı kullanarak performans ve sanal makine disklerini güvenilirliğini artırın
 
@@ -63,11 +58,11 @@ Veri dengesizliği gereksiz veri hareketi veya kaynak darboğazları yükünüz 
 
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Sorgu performansını artırmak için SQL veri ambarı tablosu güncel olmayan tablo istatistikleri güncelle
 
-Advisor tanımlayan güncel olmayan tablolar [tablo istatistikleri](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) ve tablo istatistikleri oluşturmak veya güncelleştirmek önerir. Sorgu iyileştiricisi, en hızlı performans için yüksek kaliteli bir sorgu planı oluşturmak sorgu iyileştiricisi sağlayan sorgu sonucu satır sayısı ve kardinalite tahmin etmek için güncel statikler kullanır. SQL veri ambarı.
+Advisor tanımlayan güncel olmayan tablolar [tablo istatistikleri](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) ve tablo istatistikleri oluşturmak veya güncelleştirmek önerir. Sorgu iyileştiricisi, en hızlı performans için bir yüksek kaliteli sorgu planı oluşturmak sorgu iyileştiricisi sağlayan sorgu sonucu satır sayısı ve kardinalite tahmin etmek için güncel statikler kullanır. SQL veri ambarı.
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Sorgu performansını artırmak için SQL veri ambarı tabloları önbellek kullanımını iyileştirmek için ölçeği büyütün
 
-Azure Danışmanı, SQL veri ambarınızın olması durumunda yüksek önbellek yüzdesini kullanılan ve düşük isabet yüzdesi algılar. Bu, SQL veri ambarınızın performansını etkileyebilir yüksek önbellek çıkarma gösterir. İş yükünüz için yeterli önbellek kapasite ayırma sağlamak için SQL veri ambarınızın ölçeğini Advisor önerir.
+Azure Danışmanı, SQL veri ambarınızın olması durumunda yüksek önbellek yüzdesini kullanılan ve düşük isabet yüzdesi algılar. Bu durum, SQL veri ambarınızın performansını etkileyebilir yüksek önbellek çıkarma gösterir. İş yükünüz için yeterli önbellek kapasite ayırma sağlamak için SQL veri ambarınızın ölçeğini Advisor önerir.
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Sorgu performansını artırmak için çoğaltılmış tablolar için SQL veri ambarı tabloları Dönüştür
 
@@ -75,10 +70,10 @@ Danışman, çoğaltılmış tablolar olmayan ancak dönüştürmenizi avantaj e
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Depolama hesabınızı tüm en yeni Azure özellikleri almak için Azure Resource Manager'a geçiş
 
-Depolama hesabı, dağıtım modeli için Azure Resource Manager (şablon dağıtımları, ek güvenlik seçenekleri ve Azure Depolama'nın en son özelliklerin kullanımı bir GPv2 hesabına yükseltme olanağı yararlanmak için ARM) geçirin. Danışman, Klasik dağıtım modelini kullanarak herhangi bir tek başına bir depolama hesabı tanımlayacak ve ARM dağıtım modeline geçirilmesi önerir.
+Depolama hesabı dağıtım modelinizin Azure Resource şablon dağıtımları, ek güvenlik seçenekleri ve Azure Depolama'nın en son özelliklerin kullanımı bir GPv2 hesabına yükseltme olanağı yararlanmak için Manager'a (Resource Manager) geçirin. Danışman, Klasik dağıtım modelini kullanarak herhangi bir tek başına bir depolama hesabı tanımlayacak ve Resource Manager dağıtım modeline geçirilmesi önerir.
 
 > [!NOTE]
-> Klasik uyarılar Azure İzleyici'de duyurulan Haziran 2019 ' devre dışı bırakmak için yeni platform ile uyarı işlevselliği korumak için ARM için Klasik depolama hesabı yükseltmeniz kesinlikle önerilir. Daha fazla bilgi için [Klasik uyarılar devre dışı bırakılması](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+> Azure İzleyici'de klasik uyarılar Haziran 2019 ' devre dışı bırakmak için zamanlanır. Klasik depolama hesabınızı yeni platformu ile uyarı işlevselliği korumak için Resource Manager'ı kullanacak şekilde yükseltmeniz önerilir. Daha fazla bilgi için [Klasik uyarılar devre dışı bırakılması](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Nasıl Danışmanı performans önerileri
 

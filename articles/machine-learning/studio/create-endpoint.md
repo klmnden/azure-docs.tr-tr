@@ -1,8 +1,21 @@
 ---
-Başlık: Web Hizmeti uç noktaları titleSuffix oluşturuluyor: Azure Machine Learning Studio açıklaması: Web Hizmeti uç noktalarını Azure Machine Learning'de oluşturuluyor. Her Web Hizmeti uç noktasını ayrı ayrı ele, kısıtlanan yönetilen ve.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 10/04/2016
+title: Web Hizmeti uç noktaları oluşturma
+titleSuffix: Azure Machine Learning Studio
+description: Web Hizmeti uç noktalarını Azure Machine Learning'de oluşturuluyor. Her Web Hizmeti uç noktasını ayrı ayrı ele, kısıtlanan yönetilen ve.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 10/04/2016
+ms.openlocfilehash: fc3a92aaf13f13682cfc56333618436ffe3d65ef
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493380"
 ---
 # <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Dağıtılan Azure Machine Learning Studio web hizmetleri için uç nokta oluşturma
 > [!NOTE]

@@ -2,18 +2,18 @@
 title: Windows Server'ı Azure'a yedekleme için PowerShell'i kullanma
 description: Azure PowerShell kullanarak yedekleme dağıtma ve yönetme hakkında bilgi edinin
 services: backup
-author: saurabhsensharma
+author: pvrk
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
-ms.author: saurse
-ms.openlocfilehash: 154d4fbb265a6abb57bc25b4e364983ffe7e399b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: pvrk
+ms.openlocfilehash: d430f6252157c5d34aa236ef88f8490b4ad6a184
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237766"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497953"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell kullanarak Windows Server/Windows İstemcisi için Azure’a yedekleme dağıtma ve yönetme
 Bu makalede Azure Backup Windows Server veya Windows istemci ayarlama ve yedekleme ve kurtarma yönetmek için PowerShell kullanmayı gösterir.
@@ -27,7 +27,7 @@ Azure PowerShell 1.0 Ekim 2015'te yayımlanmıştır. Bu sürüm 0.9.8 başarıl
 
 Betiklerinizin 0.9.8 için yazılan kullanmak istiyorsanız ortamında 1.0 veya üzeri ortam dikkatlice güncelleştirin ve bunları üretimde beklenmeyen etkiden kullanmadan önce bir ön üretim ortamında test betikleri.
 
-[En son PowerShell sürümünü indirin](https://github.com/Azure/azure-powershell/releases) (gerekli en düşük sürüm: 1.0.0)
+[En son PowerShell sürümünü indirin](https://github.com/Azure/azure-powershell/releases) (gerekli en düşük sürümü şöyledir: 1.0.0)
 
 [!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
@@ -610,7 +610,7 @@ Aracı ikili dosyaları makineden kaldırılması dikkate alınması gereken baz
 
 Ancak, verileri Azure saklanır depolanan ve bekletme ilkesi Kurulumu göre sizin tarafınızdan korunur. Eski noktalarını otomatik olarak eski.
 
-## <a name="remote-management"></a>Uzaktan Yönetim
+## <a name="remote-management"></a>Uzaktan yönetim
 Azure Backup Aracısı, ilkeler ve veri kaynakları tüm yönetimi uzaktan PowerShell aracılığıyla yapılabilir. Bilgisayarın uzaktan yönetilmesine doğru hazırlanması gerekir.
 
 Varsayılan olarak, WinRM hizmeti el ile başlatma için yapılandırılır. Başlangıç türü ayarlanmalıdır *otomatik* ve hizmetin başlatılması. WinRM hizmetinin çalıştığını doğrulamak için durum özelliğinin değeri olmalıdır *çalıştıran*.

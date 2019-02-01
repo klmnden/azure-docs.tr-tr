@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388298"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490456"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Kullanım ayarları ve ilkeleri yapılandırma
 Bu makalede kullanıcıların laboratuvara ekleme, bunları laboratuvarla kayıtlı almak için VM ve daha fazlasını kullanabilirsiniz saat sayısını denetlemek nasıl açıklar. 
@@ -71,6 +71,9 @@ Aşağıdaki adımları kullanarak, kullanıcı başına kotaları ayarlayabilir
 5. Saat araç çubuğundaki göreceksiniz: **Kullanıcı başına kota: &lt;saat sayısı&gt;**. 
 
     ![Kullanıcı başına kotası](../media/how-to-configure-student-usage/quota-per-user.png)
+
+> [!IMPORTANT]
+> [VM'lerin çalışmasını zamanlanmış](how-to-create-schedules.md) bir kullanıcı için ayrılan kota karşı sayılmaz. Bir öğrenci Vm'lerde geçirdiği zamanlama saatleri dışında saat kota içindir. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Bir CSV dosyasını karşıya yükleyerek kullanıcı ekleme
 Kullanıcıların e-posta adreslerini içeren bir CSV dosyası karşıya yükleyerek, kullanıcılar da ekleyebilirsiniz.

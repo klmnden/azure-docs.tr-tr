@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/30/2019
 ms.author: jdial
-ms.openlocfilehash: f4af899be489dab2fc73bb33943882d4dc81576f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054767"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488103"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
@@ -61,22 +61,23 @@ Genel IP adresleri aşağıdaki SKU'lardan biriyle oluşturulur:
 SKU'ların kullanıma sunulmasından önce oluşturulan tüm genel IP adresleri Temel SKU genel IP adresleridir. SKU'ların kullanıma sunulması genel IP adresinin ait olmasını istediğiniz SKU'yu belirleme seçeneğini sunmuştur. Temel SKU adresleri:
 
 - Statik veya dinamik atama yöntemiyle atanmıştır.
+- 4-30 dakika, 4 dakikalık varsayılan zaman aşımı ve sabit giden kaynaklı akış 4 dakikalık boşta kalma zaman aşımı boş bir ayarlanabilir gelen kaynaklı akışı vardır.
 - Varsayılan olarak açıktır.  Ağ güvenlik grupları önerilir ancak gelen veya giden trafiği kısıtlamak için isteğe bağlıdır.
 - Ağ arabirimleri, VPN ağ geçitleri, uygulama ağ geçitleri ve İnternet'e yönelik yük dengeleyiciler gibi genel IP adresi atanabilecek bir Azure kaynağına atanmıştır.
-- Belirli bir bölgeye atanabilir.
-- Bölgesel olarak yedekli değildir. Kullanılabilirlik alanları hakkında daha fazla bilgi için bkz. [Kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Kullanılabilirlik alanı senaryoları desteklemez.  Kullanılabilirlik alanı senaryolar için standart SKU ortak IP'sine kullanmanız gerekir. Kullanılabilirlik alanları hakkında daha fazla bilgi için bkz. [Kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Standart Yük Dengeleyici ve Kullanılabilirlik Alanları](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 #### <a name="standard"></a>Standart
 
 Standart SKU genel IP adresleri:
 
-- Yalnızca statik ayırma yöntemiyle atanmıştır.
+- Her zaman statik ayırma yöntemini kullanın.
+- Bir Mimarın gelen kaynaklı ve giden orginated akış boşta kalma zaman aşımı 66 4 dakikalık 4 dakikalık varsayılan vardır.
 - Varsayılan olarak güvenlidir ve gelen trafiğe kapalıdır. İzin verilen trafiği bir [ağ güvenlik grubu](security-overview.md#network-security-groups) ile özellikle beyaz listeye almanız gerekir.
-- Ağ arabirimleri, genel standart yük Dengeleyiciler, uygulama ağ geçitleri veya VPN ağ geçidi atanmış. Azure standart yük dengeleyiciler hakkında daha fazla bilgi için bkz. [Azure standart yük dengeleyici](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Varsayılan ayarda bölgesel olarak yedeklidir. Belirli bir alanda oluşturulabilir ve belirli bir kullanılabilirlik alanında oluşturulma garantisi vardır. Kullanılabilirlik alanları hakkında daha fazla bilgi için bkz. [Kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Standart Yük Dengeleyici ve Kullanılabilirlik Alanları](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Ağ arabirimleri, ortak standart Load Balancer, uygulama ağ geçitleri veya VPN ağ geçitleri için atanmış. Standard Load Balancer hakkında daha fazla bilgi için bkz: [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- (Bir belirli bir kullanılabilirlik alanı'nda, Bölgesel ve kesin oluşturulabilir) bölge yedekli varsayılan ve isteğe bağlı olarak bölgesel. Kullanılabilirlik alanları hakkında daha fazla bilgi için bkz. [Kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Standart Yük Dengeleyici ve Kullanılabilirlik Alanları](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Bir [ağ güvenlik grubu](security-overview.md#network-security-groups) oluşturup ilişkilendirene ve istenen gelen trafiğe açıkça izin verene kadar standart SKU kaynağıyla erişim kurma girişimleri başarısız olur.
+> Standart SKU kaynakla gelen iletişim istekleri oluşturma ve ilişkilendirme kadar başarısız bir [ağ güvenlik grubu](security-overview.md#network-security-groups) ve istenen gelen trafiğe izin verir.
 
 ### <a name="allocation-method"></a>Ayırma yöntemi
 

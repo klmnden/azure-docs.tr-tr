@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/23/2019
-ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 1/30/2019
+ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903766"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493057"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda okunur çoğaltmalar
 
@@ -20,7 +20,7 @@ ms.locfileid: "54903766"
 
 Okuma çoğaltması özelliğini sunucularına en fazla beş salt okunur (Yineleme) aynı Azure bölgesindeki bir MySQL sunucusu (ana) için Azure veritabanı'ndan veri çoğaltmanıza olanak sağlar. Salt okunur çoğaltmalar MySQL altyapının (binlog) yerel ikili günlük dosyası konumu tabanlı çoğaltma teknolojisini kullanarak zaman uyumsuz olarak güncelleştirilir. Binlog çoğaltma hakkında daha fazla bilgi için bkz: [MySQL binlog Çoğaltmaya genel bakış](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-MySQL hizmeti için Azure veritabanı'nda oluşturulan yinelemeler normal/tek başına MySQL sunucuları aynı şekilde yönetilebilir yeni sunucularıdır. Okuma her çoğaltma için sanal Çekirdeklerde sağlanan işlem ve GB cinsinden aylık sağlanan depolama için faturalandırılırsınız. 
+MySQL hizmeti için Azure veritabanı'nda oluşturulan yinelemeler normal/tek başına MySQL sunucuları aynı şekilde yönetilebilir yeni sunucularıdır. Okuma amaçlı her çoğaltma için sanal çekirdek cinsinden sağlanan işlem ve GB/ay cinsinden sağlanan depolama karşılığı faturalandırılırsınız. 
 
 
 MySQL çoğaltma özellikler ve sorunlar hakkında daha fazla bilgi için bkz. [MySQL çoğaltma belgeleri](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
@@ -86,6 +86,7 @@ Ana sunucu üzerinde kullanıcılar, salt okunur kopyaya çoğaltılır. Yalnız
 - Bir çoğaltma bir kopyasını oluşturma desteklenmiyor.
 - Bellek içi tablolar çoğaltmalar eşitlenmemiş hale neden olabilir. Bu MySQL çoğaltma teknolojisinin sınırlamasıdır. Daha fazla bilgi [MySQL başvuru belgeleri](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) daha fazla bilgi için.
 - Ayarlama [ `innodb_file_per_table` ](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) parametresi bir ana sunucuya bir çoğaltma sunucusu oluşturma, çoğaltma eşitlenmemiş hale neden olabilir. Çoğaltma sunucusu farklı açabilmek uyumlu değildir.
+- Ana sunucu tabloların birincil anahtarlara sahip olun. Birincil anahtarlar eksikliği ana ile çoğaltmalar arasındaki çoğaltma gecikmesine neden olabilir.
 - MySQL çoğaltma sınırlamaları tam listesini gözden geçirin [MySQL belgeleri](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 

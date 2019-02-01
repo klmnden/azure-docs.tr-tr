@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6154262d7b412a0a4049c2d9456d7ae53ef01ca8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 61ca57f2fd5bb6d5e56902dddecfade406267b91
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183331"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486274"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için bir içerik yönetim gereksinimlerini belirleme
 İşletmeniz için içerik yönetimi gereksinimlerini anlamaya kararınız üzerinde kullanmak için hangi karma kimlik çözümü doğrudan etkileyebilir. Birden çok cihaz ve kullanıcıların kendi cihazlarını getirmesine yeteneğini işyerinde ile ([KCG](https://aka.ms/byodcg)), şirketin kendi verilerini korumanız gerekir ancak bu aynı zamanda kullanıcı gizliliğini korumanız gerekir. Bir kullanıcı kendi cihazını olduğunda, genellikle, bunlar da, kullandıkları uygulama göre değişen birden çok kimlik bilgilerini olabilir. Kurumsal kimlik bilgilerini kullanarak oluşturulan ilkeleri ve kişisel kimlik bilgilerini kullanarak hangi içerik oluşturuldu ayırt etmek önemlidir. Kimlik çözümünüz bulut ile etkileşimde bulunmayı sırasında son kullanıcı için sorunsuz bir deneyim sağlamak için hizmetler kendi gizliliklerini sağlamak ve veri sızıntısına karşı koruma artırın. 

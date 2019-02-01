@@ -10,12 +10,12 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301450"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487243"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -111,7 +111,7 @@ Windows bilgisayarlarda izlemeye dosyaları yapılandırmak için aşağıdaki a
 Özyineleme, dizinleri ve dosyaları ortamlarında birden çok izleme olanak tanımak için ortam değişkenlerini izleme veya dinamik basitleştirmek için joker karakterler belirtmenize olanak sağlar sürücü adları. Aşağıdaki liste, özyineleme yapılandırırken bilmeniz gereken genel bilgileri gösterir:
 
 * Joker karakter, birden çok dosyayı izlemek için gereklidir
-* Joker karakterler kullanılıyorsa, bunlar yalnızca yolun son segmentinde kullanılabilir. (C:\folder gibi\\**dosya** veya /etc/*.conf)
+* Joker karakterler kullanılıyorsa, bunlar yalnızca yolun son segmentinde kullanılabilir. (gibi `c:\folder\*file*` veya `/etc/*.conf`)
 * Bir ortam değişkeni geçersiz bir yol varsa, doğrulama başarılı olur ancak sayım yürüttüğünde yol başarısız olur.
 * Genel yolları gibi önlemek `c:\*.*` yolu ayarlarken bu geçilen çok fazla klasörlerinde neden.
 
@@ -132,9 +132,9 @@ Windows bilgisayarlarda kayıt defteri anahtarı izlemeyi yapılandırmak için 
 |Özellik  |Açıklama  |
 |---------|---------|
 |Etkin     | Ayarın uygulanmış olup olmadığını belirler.        |
-|Öğe Adı     | İzlenecek dosyanın kolay adı.        |
-|Grup     | Dosyaları mantıksal olarak gruplamak için bir grup adı.        |
-|Windows Kayıt Defteri Anahtarı   | Dosyanın denetleneceği yol. Örneğin: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Öğe Adı     | İzlenecek kayıt defteri anahtarı kolay adı.        |
+|Grup     | Kayıt defteri anahtarlarını mantıksal olarak gruplamak için bir grup adı.        |
+|Windows Kayıt Defteri Anahtarı   | Kayıt defteri anahtarı denetleneceği yol. Örneğin: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Sınırlamalar
 
@@ -278,13 +278,13 @@ Aşağıdaki örnekte, ekran görüntüsünde, dosya gösterilmektedir `C:\windo
 
 ![Ana dosya değişikliği gösteren bir grafiği](./media/automation-change-tracking/changes.png)
 
-Bu değişikliği daha fazla analiz yapmak için günlük araması tıklama ile Git **Log Analytics**. Günlük araması'nda, Hosts dosyasına bir sorgu ile içerik değişikliklerini kez arama `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Bu sorgu, bir değişiklik, tam nitelenmiş bir yol "ana bilgisayarlar" sözcüğünü içeren dosyalar için dosya içeriğini dahil edilen değişiklikler arar. Tam hâli yol bölümü değiştirerek belirli bir dosya için isteyebilir (örneğin `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+Bu değişikliği daha fazla analiz yapmak için günlük araması tıklama ile Git **Log Analytics**. Günlük araması'nda, Hosts dosyasına bir sorgu ile içerik değişikliklerini kez arama `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Bu sorgu, bir değişiklik, tam nitelenmiş bir yol "ana bilgisayarlar" sözcüğünü içeren dosyalar için dosya içeriğini dahil edilen değişiklikler arar. Tam hâli yol bölümü değiştirerek belirli bir dosya için isteyebilir (örneğin `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 Sorgu istediğiniz sonuçları döndürdükten sonra tıklayın **yeni uyarı kuralı** uyarı oluşturma sayfasını açmak için günlük arama deneyimini düğmesi. Bu deneyim için konuma yönlendirilemedi **Azure İzleyici** Azure portalında. Uyarı oluşturma deneyiminde sorgumuzu tekrar kontrol edin ve uyarı mantığının değiştirin. Bu durumda, ortamdaki tüm makinelerde algılanan bile bir değişiklik olursa tetiklenmesi için uyarıyı istersiniz.
 
 ![Hosts dosyasına izleme değişiklikleri için değişiklik sorgu gösteren görüntü](./media/automation-change-tracking/change-query.png)
 
-Koşul mantığı ayarlandıktan sonra tetiklenen uyarının yanıt eylemleri gerçekleştirmek için Eylem grupları atayın. Bu durumda, ı gönderilecek e-postalar ve oluşturulacak bir ITSM bileti yedekleme ayarladınız.  Diğer birçok kullanışlı eylemi tetiklemek gibi bir Azure işlevi, Otomasyon runbook'u, Web kancası veya mantıksal uygulama da alınabilir.
+Koşul mantığı ayarlandıktan sonra tetiklenen uyarının yanıt eylemleri gerçekleştirmek için Eylem grupları atayın. Bu durumda, ı gönderilecek e-postalar ve oluşturulacak bir ITSM bileti yedekleme ayarladınız.  Bir Azure işlevi, Otomasyon runbook'u, Web kancası veya mantıksal uygulama tetiklemek gibi birçok yararlı eylemler de alınabilir.
 
 ![Görüntüyü değişikliğin uyarı için bir eylem grubu yapılandırma](./media/automation-change-tracking/action-groups.png)
 

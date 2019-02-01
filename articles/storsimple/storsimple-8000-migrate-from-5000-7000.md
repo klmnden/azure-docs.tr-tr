@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a638487fb0a622f899095989ca5341013299e181
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234417"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495862"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>8000 serisi cihaz için StorSimple 5000-7000 serisinden veri geçirme
 
@@ -26,7 +26,7 @@ ms.locfileid: "51234417"
 > - 31 Temmuz 2019, StorSimple 5000/7000 Serisi (EOS) destek durumu sonuna ulaşacak. StorSimple 5000/7000 Serisi müşteriler belgede açıklanan alternatifleri birine geçiş öneririz.
 > - Geçişi şu anda destekli bir işlemdir. StorSimple 5000-7000 Serisi cihazınızın 8000 serisi cihazına veri geçirmeyi düşünüyorsanız, Microsoft Support geçiş zamanlamak gerekir. Microsoft Support sonra aboneliğiniz geçiş için etkinleştirir. Daha fazla bilgi için bkz. nasıl [bir destek bileti açın](storsimple-8000-contact-microsoft-support.md).
 > - Hizmet isteği dosya sonra birkaç hafta Geçiş Planı yürütmek ve gerçekten geçişi başlatmak için beklemeniz gerekebilir.
-> - Microsoft Support başvurmadan önce aws'de emin ve eksiksiz olması [geçiş önkoşulları](#migration-prerequisites) makalesinde gösterilir.
+> - Microsoft Support başvurmadan önce gözden geçirin ve tamamlamak mutlaka [geçiş önkoşulları](#migration-prerequisites) makalesinde belirtilen.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -125,7 +125,7 @@ StorSimple geçiş aracı bilgisayarınıza yüklemek için aşağıdaki adımla
 
     Aracı yapılandırma dosyasını Aç _StorSimple8000SeriesMigrationTool.exe.config_ klasöründe. Dosyanın bir parçacığı aşağıda verilmiştir.
     
-    ```
+    ```xml
         <add key="UserName" value="username@xyz.com" />
         <add key="SubscriptionName" value="YourSubscriptionName" />
         <add key="SubscriptionId" value="YourSubscriptionId" />

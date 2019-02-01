@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268283"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507544"
 ---
 # <a name="use-firewall-rules"></a>Güvenlik duvarı kurallarını kullanın
 
@@ -24,7 +24,7 @@ Hangi Azure Event hubs'ı yalnızca bilinen belirli sitelerden erişilebilir olm
 
 ## <a name="when-to-use"></a>Kullanılması gereken durumlar
 
-Event Hubs ad alanınız Kurulum istiyorsanız alması gereken gibi trafiği yalnızca belirtilen IP adreslerinden ve diğer her şeyi Reddet sonra yararlanabileceğiniz bir *güvenlik duvarı kuralı* olay hub'ı uç noktalarından engellemek için diğer IP adresleri. Örneğin, Event Hubs ile kullandığınız [Azure Express Route] [ express-route] şirket içi altyapınız ile özel bağlantılar oluşturmak için.
+Event Hubs ad alanınız Kurulum istiyorsanız alması gereken gibi trafiği yalnızca belirtilen IP adreslerinden ve diğer her şeyi Reddet sonra yararlanabileceğiniz bir *güvenlik duvarı kuralı* olay hub'ı uç noktalarından engellemek için diğer IP adresleri. Örneğin, Event Hubs ile kullanırsanız [Azure Express Route][express-route], oluşturabileceğiniz bir *güvenlik duvarı kuralı* , şirket içi altyapı IP trafiği kısıtlamak için adresleri.
 
 ## <a name="how-filter-rules-are-applied"></a>Filtre kurallarının uygulanma yöntemi
 

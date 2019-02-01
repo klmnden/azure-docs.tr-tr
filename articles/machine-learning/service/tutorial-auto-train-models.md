@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1e2746ef55f5c50ce9452b7a9d1ab060c69830db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cd14f2bdc394cb0887d318457dcf9295e216eb7b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244284"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489504"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
@@ -43,18 +43,64 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-> * [Veri hazırlama öğreticisini çalıştırma](tutorial-data-prep.md).
-> * Otomatik machine learning ortam yapılandırılmış. Örnekler [Azure not defterleri](https://notebooks.azure.com/), yerel Python ortamı veya bir veri bilimi sanal makinesi. [Otomatik makine öğrenimi yedekleme kümesi](samples-notebooks.md).
+Atlamak [geliştirme ortamınızı ayarlama](#start) not defteri adımları okuyun veya not defterini alma ve Azure not defterleri veya kendi notebook sunucusu üzerinde çalıştırmak için aşağıdaki yönergeleri kullanın. İhtiyacınız olacak not defteri çalıştırmak için:
 
-## <a name="get-the-notebook"></a>Not defterini alma
+* [Veri hazırlama öğreticisini çalıştırma](tutorial-data-prep.md).
+* Aşağıdakilerin yüklü olan bir Python 3.6 Not Defteri sunucusu:
+    * İle Python için Azure Machine Learning SDK'sı `automl` ve `notebooks` ek özellikler
+    * `matplotlib`
+* Öğretici not defteri
+* Bir machine learning çalışma alanı
+* Not Defteri ile aynı dizinde çalışma alanı için yapılandırma dosyası
 
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb) olarak sağlanır. Çalıştırma `regression-part2-automated-ml.ipynb` Not Defteri veya [Azure not defterleri](https://notebooks.azure.com/) veya kendi Jupyter Notebook sunucusu.
+Bu Önkoşullar aşağıdaki bölümlerde birinden alın.
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* Kullanım [Azure Not Defterleri](#azure)
+* Kullanım [kendi not defteri sunucusu](#server)
 
-## <a name="import-packages"></a>Paketleri içeri aktarma
+### <a name="azure"></a>Azure not defterleri kullanın: Bulutta ücretsiz Jupyter Not Defterleri
+
+Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
+
+Aşağıdaki adımları tamamladıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 2-otomatik-ml.ipynb** Not Defteri, **Başlarken** proje.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>Kendi Jupyter notebook sunucusu kullanma
+
+Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın.  Adımları tamamladıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 2-otomatik-ml.ipynb** dizüstü bilgisayar.
+
+1. Tamamlamak [Azure Machine Learning Python hızlı](quickstart-create-workspace-with-python.md) Miniconda ortam oluşturma ve bir çalışma alanı oluşturun.
+1. Yükleme `automl` ve `notebooks` ortamı kullanarak ek özellikler `pip install azureml-sdk[automl,notebooks]`.
+1. Yükleme `maplotlib` kullanarak `pip install maplotlib`.
+1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. Kopyaladığınız dizinden notebook sunucusunu başlatın.
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+* Configure your workspace
+
+### Install and import packages
+
+If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+
+```shell
+pip install azureml-sdk[automl,notebooks] matplotlib
+```
+
 Bu öğreticide gerekli olacak Python paketlerini içeri aktarın:
-
 
 ```python
 import azureml.core
@@ -66,13 +112,7 @@ import logging
 import os
 ```
 
-Kendi Python ortamınızda öğreticiyi takip ediyorsanız, gerekli paketleri yüklemek için aşağıdakileri kullanın.
-
-```shell
-pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
-```
-
-## <a name="configure-workspace"></a>Çalışma alanını yapılandırma
+### <a name="configure-workspace"></a>Çalışma alanını yapılandırma
 
 Mevcut çalışma alanından bir çalışma alanı nesnesi oluşturun. A `Workspace` Azure abonelik ve kaynak bilgilerini kabul eden bir sınıftır. Ayrıca, model çalıştırmalarınızı izlemeye yarayan bir bulut kaynağı oluşturur.
 

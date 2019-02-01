@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: magoedte
-ms.openlocfilehash: 58da86140b97c5292d390b6f91502b7f0622986a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 90cd6f640188408771b3a64a31aadf89cfefcaae
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476851"
+ms.locfileid: "55487872"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -30,11 +30,11 @@ Bu makalede hızlı bir şekilde değerlendirmek, araştırmanıza ve algılanan
 VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-onboard.md).
 
 >[!NOTE]
->15 Şubat 2019 başlangıç durumu tanılama deneyimi yeni bir sistem durumu modeli sürümüne bugün olduğunuzda, görünür olan Vm'leri sistem durumu özelliği için geçerli sistem durumu modeli Azure İzleyici'de geçiş başlayacağız. Bu güncelleştirme, sistem durumu toplaması işleme performansını geliştirir ve sistem durumu tanılama Görünümü'nde sunulan daraltılmış sistem durumu modeli içerir. 
+>Başlangıç tarihi: 11 Şubat 2019 sistem tanılama deneyimi yeni bir sistem durumu modeli sürümüne bugün olduğunuzda, görünür olan Vm'leri sistem durumu özelliği için geçerli sistem durumu modeli Azure İzleyici'de geçiş başlayacağız. Bu güncelleştirme, sistem durumu toplaması işleme performansını geliştirir ve sistem durumu tanılama Görünümü'nde sunulan daraltılmış sistem durumu modeli içerir. 
 >
 >Yeni sistem durumu modeli ile daha hızlı ve sonuç olarak, sistem durumunu daha az gecikme süresiyle istenen veya hedeflenen durumuna üst güncelleştirmeleri varlık başına üst düzey durumu ölçütlerini için alt sistem durumu ölçütlerin toplaması olacaktır. Sistem durumu ölçütleri altında hala filtreleyebilirsiniz **performans** ve **kullanılabilirlik** ya da kategori görünümünde seçmek için önceki sekme tabanlı yöntemi farklı kategorileri.
 >
->Yeni sistem durumu tanılama deneyimi hakkında daha fazla ayrıntı için lütfen sistem tanılama bakın [bölümü](#health-diagnostics) bu makaledeki. 
+>Sistem durumu tanılama deneyimi hakkında daha fazla ayrıntı için lütfen sistem tanılama bakın [bölümü](#health-diagnostics) bu makaledeki. 
 >
 >Bu güncelleştirme aşağıdaki iyileştirir: 
 >
@@ -106,14 +106,16 @@ Bir Azure VM durumunu görüntülemek için seçin **Insights (Önizleme)** sol 
 
 ![Vm'leri sistem durumuna genel bakış seçili Azure sanal makine için Azure İzleyici](./media/vminsights-health/vminsights-directvm-health.png)
 
-Üzerinde **sistem durumu** bölümünde sekmesinde **Konuk VM sistem durumu**, tablo, sanal makinenizin geçerli sistem durumunu gösterir ve VM sistem durumu uyarılarını toplam sayısı, iyi durumda olmayan bir bileşen tarafından oluşturuldu. Başvurmak [uyarı verme ve bir uyarı Yönetimi](#alerting-and-alert-management) daha fazla ayrıntı için.  
+Üzerinde **sistem durumu** bölümünde sekmesinde **Konuk VM sistem durumu**, tablo, sanal makinenizin geçerli sistem durumunu gösterir ve VM sistem durumu uyarılarını toplam sayısı, iyi durumda olmayan bir bileşen tarafından oluşturuldu. Başvurmak [uyarılar](#alerting-and-alert-management) uyarı deneyimi hakkında ayrıntılı bilgi için.  
 
-Bir VM için tanımlanan sistem durumları şunlardır: 
+Bir VM için tanımlanan sistem durumları aşağıdaki tabloda açıklanmıştır: 
 
-* **Sağlıklı** – sanal makine için herhangi bir sorun algılandı ve gerektiği gibi çalıştığını.  
-* **Kritik** – bir veya daha fazla kritik sorunlar algılandığında, beklendiği gibi normal işlevselliğini geri yüklemek için ele alınması gerekiyor. 
-* **Uyarı** -bir veya daha fazla sorun algılandığında, ilgilenilmesi gereken ya da sağlık durumu kritik duruma gelebilir.  
-* **Bilinmeyen** – hizmet durumu değişiklikleri bilinmeyen bir duruma VM ile bağlantı kurmak tamamlayamadı.  
+|Simge |Sistem durumu |Anlamı |
+|-----|-------------|------------|
+| |Sorunsuz |VM için algılanan bir sorun olmadığını gösteren tanımlanan sistem durumu koşulları içinde ve gerektiği gibi çalıştığını sistem durumunu iyi durumda. Üst döküm İzleyicisi söz konusu olduğunda, sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
+| |Kritik |Sistem durumu, bir veya daha fazla kritik sorunlar, normal işlevlerin geri yüklenmesi için ele alınması gereken göstergelerinin algılandığını belirten tanımlanan sistem durumu koşulu içinde değilse önemlidir. Üst döküm İzleyicisi söz konusu olduğunda, sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
+| |Uyarı |Sistem durumu uyarı burada gösterir tanımlanan sistem durumu koşulu, iki eşikleri arasında olup olmadığını bir *uyarı* durumu ve diğer gösteren bir *kritik* (üç sağlık durumu eşikleri için durumu yapılandırılabilir), veya ne zaman kritik olmayan bir sorun algılandığında çözümlenmedi, kritik sorunlarına neden. Söz konusu olduğunda bir üst döküm İzleyicisi, bir veya daha alt bir uyarı durumunda, ardından üst yansıtır *uyarı* durumu. İçinde bir alt varsa bir *kritik* ve başka bir alt bir *uyarı* durumu, üst toplama sistem durumu gösterilir *kritik*.|
+| |Bilinmeyen |Sistem durumu konusu bir *bilinmeyen* pek çok nedenden dolayı sistem durumu gibi hesaplanamıyor olduğunda durumu verileri, hizmeti başlatılmamış toplamak kullanabilirsiniz. Bu sistem durumu yapılandırılabilir değildir.| 
 
 Seçme **görüntüleme durumu tanılama** VM, ilişkili durumu ölçütlerini, durum değişikliklerini ve diğer önemli sorunları VM'le ilgili bileşenler izlenerek karşılaşıldı tüm bileşenlerini gösteren bir sayfa açar. Daha fazla bilgi için [sistem tanılama](#health-diagnostics). 
 
@@ -191,16 +193,7 @@ Sistem durumu tanılama sistem durumu bilgilerini şu kategorilere göre düzenl
  
 Mantıksal disk, CPU gibi belirli bir bileşen için tanımlanan tüm sistem durumu ölçütlerini vs. Ayrıca, İzleyici kategorisini eklentisini yanındaki görülebilir **durumu ölçütlerini** sütun.  
 
-Durumu ölçütlerini durumunu tanımlanan dört durumun – biri tarafından *kritik*, *uyarı*, *sağlıklı*, ve *bilinmeyen*. İlk üç eşik değerleri kullanarak izleyicilerin değiştirebileceğiniz anlamına gelir, yapılandırılabilir [iş yükü İzleyicisi API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Bilinmeyen* yapılandırılabilir ve belirli senaryolar için ayrılmış aşağıdaki tabloda açıklandığı gibi değil.  
-
-Aşağıdaki tabloda, sistem durumu Tanılama'da gösterilen sistem durumları hakkında ayrıntılı bilgi sağlar.
-
-|Simge |Sistem durumu |Anlamı |
-|-----|-------------|------------|
-| |Sorunsuz |Sistem durumu, VM için gerektiği gibi çalıştığından emin algılanan bir sorun olmadığını gösteren tanımlanan sistem durumu koşulları içinde ise iyi durumda. Üst döküm İzleyicisi söz konusu olduğunda, sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
-| |Kritik |Sistem durumu, bir veya daha fazla kritik sorunlar, normal işlevlerin geri yüklenmesi için ele alınması gereken göstergelerinin algılandığını belirten tanımlanan sistem durumu koşulu içinde değilse önemlidir. Üst döküm İzleyicisi söz konusu olduğunda, sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
-| |Uyarı |Sistem durumu uyarı burada gösterir tanımlanan sistem durumu koşulu, iki eşikleri arasında olup olmadığını bir *uyarı* durumu ve diğer gösteren bir *kritik* durumu (üç kullanıcı tarafından denetlenen durumlarıdır olası), veya ne zaman kritik olmayan bir sorun algılandığında çözümlenmedi, kritik sorunlarına neden. Söz konusu olduğunda bir üst döküm İzleyicisi, bir veya daha alt bir uyarı durumunda, ardından üst yansıtır *uyarı* durumu. İçinde bir alt varsa bir *kritik* ve başka bir alt bir *uyarı* durumu, üst toplama sistem durumu gösterilir *kritik*.|
-| |Bilinmeyen |Sistem durumu konusu bir *bilinmeyen* pek çok nedenden dolayı sistem durumu gibi hesaplanamıyor olduğunda durumu başlatılmamış vb. hizmet, veri toplamak kullanabilirsiniz. Bu kullanıcı tarafından denetlenen bir durum değildir.| 
+Durumu ölçütlerini durumunu tanımlanan dört durumun – biri tarafından *kritik*, *uyarı*, *sağlıklı*, ve *bilinmeyen*. İlk üç eşik değerleri kullanarak izleyicilerin değiştirebileceğiniz anlamına gelir, yapılandırılabilir [iş yükü İzleyicisi API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Bilinmeyen* yapılandırılabilir ve belirli senaryolar için ayrılmış değil.  
 
 Sistem durumu tanılama sayfası üç ana bölümü vardır:
 
@@ -233,7 +226,7 @@ Bir hedef genel durumunu her sistem durumu modeli içerisinde belirlenen sistem 
 Seçili durumu ölçütlerini yapılandırma bölmesinde örneğinde **Disk başına saniyede ortalama yazma**, eşiğini farklı bir sayısal değer ile yapılandırılabilir. Bu, yalnızca değişikliklerden sağlıklı uyarı anlamına gelir, bir iki durumlu İzleyici olur. Diğer sistem durumu ölçütü üç durumu, uyarı ve kritik sistem durumu durum eşiğinin değeri yapılandırabileceğiniz olabilir.  
 
 >[!NOTE]
->Bir örneği için sistem durumu ölçütlerini yapılandırma değişikliklerini uygulama, izlenen tüm örneklerine uygulanır.  Örneğin, **Fiziksel Disk -1 D:** ve değiştirme **Disk başına saniyede ortalama yazma** eşik, yalnızca bu örneği için geçerli değildir, ancak diğer tüm disk örnekleri bulunan ve üzerinde izlenen VM.
+>Bir örneği için sistem durumu ölçütlerini yapılandırma değişikliklerini uygulama, izlenen tüm örneklerine uygulanır.  Örneğin, **-1 D: Disk** ve değiştirme **Disk başına saniyede ortalama yazma** eşik, yalnızca bu örneği için geçerli değildir, ancak diğer tüm disk örnekleri bulunan ve sanal makinede izlenen.
 >
 
 ![Bir sistem durumu ölçütlerini bir birim İzleyicisi örneği yapılandırma](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
@@ -252,7 +245,7 @@ Bu bölümde durumu ölçütlerini ve üstte en son durumuna göre sıralanmış
 
 ![İzlenen örneği ve sonuçları seçme örneği](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-Yukarıdaki örnekte seçtiğinizde **Fiziksel Disk - 1 D:**, durumu ölçütlerini ağaç filtrelenmiştir **Fiziksel Disk - 1 D:**. **Durum değişikliği** sütun kullanılabilirliğine bağlı durum değişikliği gösteren **Fiziksel Disk - 1 D:**. 
+Yukarıdaki örnekte seçtiğinizde **Disk - 1 D:**, durumu ölçütlerini ağaç filtrelenmiştir **Disk - 1 D:**. **Durum değişikliği** sütun kullanılabilirliğine bağlı durum değişikliği gösteren **Disk - 1 D:**. 
 
 Güncelleştirilmiş bir durumu görmek için sistem durumu tanılama sayfası tıklayarak yenileyebilirsiniz **Yenile** bağlantı.  Önceden tanımlanmış bir yoklama aralığı temel sistem durumu ölçütü'nın sistem durumu için bir güncelleştirme varsa, bu görevi bekleme sürelerinden kurtulun sağlar ve en son sistem durumu yansıtır.  **Durumu ölçütlerini** filtre vermektir - seçili sistem durumuna bağlıdır sonuçları kapsam için *sağlıklı*, *uyarı*, *kritik*, *Bilinmeyen*, ve *tüm*.  **Son güncelleştirilen** sağ üst köşedeki zaman sistem durumu tanılama sayfası ne zaman yenilendiğini son zamanı temsil eder.  
 

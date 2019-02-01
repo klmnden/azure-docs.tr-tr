@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory'de Grup tabanlı lisanslama için kullanıcı lisansları kullanıcıları geçirme | Microsoft Docs
+title: Kullanıcıları grup tabanlı lisanslamaya - geçirme Azure Active Directory | Microsoft Docs
 description: Grup tabanlı Azure Active Directory'yi kullanarak lisanslama için tek tek kullanıcı lisanslarını geçiş yapma
 services: active-directory
 keywords: Azure AD lisanslama
@@ -11,15 +11,16 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 10/29/2018
+ms.date: 01/31/2019
 ms.author: curtand
-ms.custom: seohack1
-ms.openlocfilehash: b735d994b0a1937bd7bb3571aa1c642bca77817d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: sumitp
+ms.custom: seohack1;it-pro
+ms.openlocfilehash: ecbb0dba42787cd320ef3f6dc4d4a0b44f9eea1e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182991"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55505997"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Azure Active Directory'de lisanslama için lisanslı kullanıcılar grubuna ekleme
 

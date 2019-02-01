@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c0304e290d18e6569e3fcc2efbab8af15727b80c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298934"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508171"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT sisteminizi planlama
 
@@ -83,7 +83,7 @@ Aboneliğinizi Avere vFXT küme yanı sıra kullanılan bilgisayar ya da istemci
 
 ## <a name="back-end-data-storage"></a>Arka uç veri depolama
 
-Burada önbellekte olmadığında Avere vFXT küme verilerinizi mı saklamalıyım? Çalışma kümenizin uzun vadeli yeni bir Blob kapsayıcısında veya var olan bir bulut ya da donanım depolama sistemi depolanabileceğine olmadığını karar. 
+Burada önbellekte olmadığında Avere vFXT küme verilerinizi mı saklamalıyım? Çalışma kümenizin saklı uzun vadeli yeni bir Blob kapsayıcısında veya var olan bir bulut ya da donanım depolama sistemi olup olmayacağını karar verin. 
 
 Azure Blob Depolama arka ucu için kullanmak istiyorsanız, vFXT küme oluşturma işleminin parçası olarak yeni bir kapsayıcı oluşturmanız gerekir. Bu seçenek, oluşturur ve yeni bir kapsayıcı küme hazır olduktan hemen sonra kullanıma hazır şekilde yapılandırır. 
 
@@ -109,7 +109,7 @@ Erişim seçenekleri şunlardır:
 
 * Sanal özel ağ (VPN) - özel ağınızın bir noktadan siteye veya siteden siteye VPN'yi yapılandırın.
 
-* Azure ExpressRoute - bir özel bağlantı üzerinden ve ExpressRoute iş ortağı yapılandırın. 
+* Azure ExpressRoute - bir ExpressRoute iş ortağı aracılığıyla özel bir bağlantı yapılandırın. 
 
 Bu seçenekler hakkında daha fazla ayrıntı için okuma [internet iletişimi hakkında Azure sanal ağ belgeleri](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
 
@@ -117,7 +117,7 @@ Bu seçenekler hakkında daha fazla ayrıntı için okuma [internet iletişimi h
 
 Genel bir IP adresi küme denetleyicisinde ayarlarsanız, bu hızlı konak olarak Avere vFXT kümeden özel alt ağın dışında iletişim için kullanabilirsiniz. Ancak, denetleyici küme düğümleri değiştirmek için erişim ayrıcalıklarına sahip olduğundan, bu küçük bir güvenlik riski oluşturur.  
 
-Genel bir IP adresi ile gelişmiş güvenlik için bir ağ güvenlik grubu yalnızca bağlantı noktası üzerinden 22 gelen erişime izin vermek için kullanın.
+Genel bir IP adresi ile gelişmiş güvenlik için bir ağ güvenlik grubu yalnızca bağlantı noktası üzerinden 22 gelen erişime izin vermek için kullanın. İsteğe bağlı olarak, daha fazla sistem kilitleyerek Koruyabileceğiniz, IP kaynak adresi aralığı - erişim tuşunu diğer bir deyişle, yalnızca gelen bağlantılara makineler kümeye erişim için kullanmayı düşündüğünüz izin verin.
 
 Kümeyi oluştururken küme denetleyicisinde bir genel IP adresi oluşturma verilip verilmeyeceğini seçebilirsiniz. 
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 351231fb50b60be1163c787913ef7ab944ba01b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fab27ba36e8d1fcf7931945d23e41244afcb4337
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172179"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491782"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect eşitleme: Kullanıcıları, grupları ve kişileri anlama
 Neden birden çok Active Directory ormanı gerekir ve birçok farklı dağıtım topolojileri yoksa birkaç farklı nedeni vardır. Ortak bir hesap-kaynak dağıtımı ve GAL sync'ed ormanları birleşme ve alım sonra modelleridir. Ancak karma modeller de olsa bile saf modelleri, ortaktır. Varsayılan yapılandırma, Azure AD Connect eşitleme herhangi bir model varsaymaz ancak nasıl kullanıcı eşleşen Yükleme Kılavuzu'nda seçilen bağlı olarak, farklı davranışları gösterilebilir.

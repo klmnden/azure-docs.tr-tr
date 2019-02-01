@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 439b68edf1d50d5d5292542640793b8b526b5891
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077093"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485781"
 ---
-# <a name="tutorial-optimize-costs-from-recommendations"></a>Öğretici: önerilerden maliyetleri en iyi duruma getirme
+# <a name="tutorial-optimize-costs-from-recommendations"></a>Öğretici: Önerilerden maliyetlerini iyileştirme
 
 Azure maliyet yönetimi, maliyet iyileştirme önerileri sağlamak için Azure Danışmanı ile çalışır. Azure Danışmanı en iyi duruma getirmek ve boşta ve az kullanılan kaynakları belirleyerek verimliliğini geliştirmenize yardımcı olur. Bu öğretici size burada isteyeceğiniz az kullanılan Azure kaynakları tanımlamak ve maliyetleri azaltmak için eyleme sonra bir örneği açıklanmaktadır.
 
@@ -53,7 +53,7 @@ Azure portalında, hizmetler listesinde **Maliyet Yönetimi + Faturalama**’ya 
 
 Azure Danışmanı için 14 gün, sanal makine kullanımını izler ve ardından az kullanılan sanal makineleri tanımlar. Yedi MB, CPU kullanımı yüzde veya daha az beştir ve ağ kullanımı sanal makineleri olması veya kullanımı düşük sanal makineleri için dört daha az veya daha fazla gün olarak kabul edilir.
 
-%5 veya daha az CPU kullanımı varsayılan ayardır, ancak ayarları ayarlayabilirsiniz. Ayarını ayarlama hakkında daha fazla bilgi için bkz. [ortalama CPU kullanımı kuralı yapılandırmak](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation) makale [için kullanımı düşük sanal makine önerilerini](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation).
+%5 veya daha az CPU kullanımı varsayılan ayardır, ancak ayarları ayarlayabilirsiniz. Ayarını ayarlama hakkında daha fazla bilgi için bkz. [ortalama CPU kullanımı kuralı veya az kullanılan sanal makine önerilerini yapılandırma](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
 Bazı senaryolar tasarım gereği düşük kullanımı sonuçlanabilir olsa da, genellikle daha ucuz boyutları için sanal makinelerinizin boyutunu değiştirerek tasarruf sağlayabilirsiniz. Bir yeniden boyutlandırma eylemi seçerseniz tasarruf ettiğiniz gerçek miktarlar değişiklik gösterebilir. Bir sanal makine yeniden boyutlandırma, bir örneği atalım.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3a4b62fb16745a3b226bda6c0574812278a34456
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428735"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495012"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) kümesi yalıtımı için en iyi uygulamalar
 
@@ -43,6 +43,8 @@ Birden çok iş yükleri, takımlar veya ortamlar için mantıksal yalıtım ile
 ![Aks'deki bir Kubernetes kümesinin mantıksal yalıtım](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
 Mantıksal ayrılığı kümelerin genellikle fiziksel olarak izole edilmiş kümeleri daha yüksek bir pod yoğunluk sağlar. Kümede boş yer alan daha fazla işlem kapasitesi yoktur. Kubernetes küme ölçeklendiriciyi ile birleştirildiğinde, yukarı veya aşağı taleplerini karşılayan düğüm sayısını ölçekleyebilirsiniz. Bu en iyi uygulama yaklaşımını için otomatik ölçeklendirme, yalnızca gerekli düğüm sayısını çalıştırmanıza olanak tanır ve maliyetleri en aza indirir.
+
+AKS veya başka bir yerde, Kubernetes ortamlarını tehlikeli çok kiracılı kullanım için tamamen güvenli değildir. Ek güvenlik özellikleri gibi *Pod Güvenlik İlkesi* ve düğümleri için daha fazla ayrıntılı rol tabanlı erişim denetimleri (RBAC) daha zor açıkları yapın. Ancak, tehlikeli çok kiracılı iş yüklerini çalıştırırken doğru güvenlik için bir hiper yönetici yalnızca güvenip güvenmeyeceğini güvenlik düzeyidir. Kubernetes için güvenlik etki alanı, tüm küme, tek bir düğüm olur. Bu tür tehlikeli çok kiracılı iş yükleri için fiziksel olarak izole edilmiş kümeleri kullanmanız gerekir.
 
 ## <a name="physically-isolate-clusters"></a>Fiziksel kümeler Ayır
 

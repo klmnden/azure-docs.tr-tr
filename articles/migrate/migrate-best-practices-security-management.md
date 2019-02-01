@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f9f4d544a407a75231302b0eb53c27904585250f
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827508"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510689"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Güvenliğini sağlama ve iş yüklerini yönetmek için en iyi uygulamaları için Azure geçişi
 
@@ -400,8 +400,7 @@ Azure Vm'leri, Azure Depolama'daki sayfa blobları olarak depolanır.
 - [Bilgi edinmek için nasıl](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) blob anlık görüntüsü oluşturma.
 - [Örnek senaryo gözden](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) blob depolama yedekleme.
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) geçici silme.
-- [Gözden geçirme](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) bir Azure depolama kesinti oluşursa yapmanız gerekenler?
-
+- [Olağanüstü durum kurtarma ve Azure depolama zorlamalı yük devretme (Önizleme)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### <a name="third-party-backup"></a>Üçüncü taraf yedekleme
 

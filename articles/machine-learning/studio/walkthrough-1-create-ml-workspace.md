@@ -1,8 +1,21 @@
 ---
-Başlık: ' 1. adım: Bir çalışma alanı Oluştur ' titleSuffix: Azure Machine Learning Studio açıklaması: ' Adım 1 / geliştirme Tahmine dayalı çözüm Kılavuzu: Yeni bir Azure Machine Learning Studio çalışma alanını ayarlama hakkında bilgi edinin.'
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 03/23/2017
+title: '1. Adım: Çalışma alanı oluşturma'
+titleSuffix: Azure Machine Learning Studio
+description: 'Adım 1 / geliştirme Tahmine dayalı çözüm Kılavuzu: Yeni bir Azure Machine Learning Studio çalışma alanı kurma konusunda bilgi edinin.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 03/23/2017
+ms.openlocfilehash: c018988eb36e395372b3d927732a1acbcb5c2fa9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509521"
 ---
 # <a name="walkthrough-step-1-create-an-azure-machine-learning-studio-workspace"></a>Kılavuz adımı 1: Bir Azure Machine Learning Studio çalışma alanı oluşturma
 Bu kılavuz, ilk adımdır [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md).

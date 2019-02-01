@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 251161fbb5213c765463835e4537f1b443699670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450226"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491748"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory nedir? 
 Azure Active Directory (Azure AD), Microsoft'un bulut tabanlı kimlik ve erişim yönetimi hizmetidir. Azure AD, çalışanlarınızın oturum açın ve kaynaklara erişmesine yardımcı olur:
@@ -72,7 +72,7 @@ Azure AD daha iyi anlamak için ve kendi belgeleri, aşağıdaki koşulları gö
 |Azure AD Genel yöneticisi|Bu yönetici rolü otomatik olarak, Azure AD kiracısını oluşturan kişiye atandı. Genel Yöneticiler, tüm Azure AD için yönetim işlevlerini ve Exchange Online, SharePoint Online ve Skype gibi Azure ad Federasyonu çevrimiçi hizmetlerin gerçekleştirebilirsiniz. Birden çok genel Yöneticiler olabilir, ancak yalnızca genel Yöneticiler, kullanıcılara yönetici rolleri (başka genel Yöneticiler atama dahil olmak üzere) atayabilirsiniz.<br><br>**Not**<br>Bu yönetici rolü genel yönetici Azure Portalı'nda çağrılır, ancak adlandırılır **şirket Yöneticisi** Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell.<br><br>Çeşitli yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure Active Directory'de Yönetici rolü izinleri](../users-groups-roles/directory-assign-admin-roles.md).|
 |Microsoft hesabı (olarak da bilinen MSA)|Tüketici yönelimli Microsoft ürünlerine erişim sağlar ve bulut Hizmetleri, Outlook, OneDrive, Xbox LIVE veya Office 365 gibi kişisel hesaplar. Microsoft hesabınızı oluşturulur ve Microsoft tarafından çalıştırılan Microsoft tüketici kimlik hesap sistemi depolanır.|
 
-## <a name="what-features-work-in-azure-ad"></a>Hangi özellikleri Azure AD'de çalışıyor?
+## <a name="which-features-work-in-azure-ad"></a>Hangi özellikleri Azure AD'de çalışıyor?
 Azure AD lisansınızın seçtikten sonra kuruluşunuz için bazılarını veya tümünü aşağıdaki özelliklere erişim alırsınız:
 
 |Kategori|Açıklama|

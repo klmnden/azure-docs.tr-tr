@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: fb0a2160991b3fd51b69822f3e3167b929581e50
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 47a4b3bc1e71c9dacc53ca3ff507768d4a0f20e9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352351"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510587"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Öğretici: Bir Azure Cosmos DB SQL API hesabı yönetmek için JavaScript SDK'sını kullanarak bir Node.js web uygulaması derleme 
 
@@ -115,7 +115,7 @@ Artık Express framework kullanarak basit bir Hello World Node.js projesi oluşt
 
 3. Aşağıdaki kodu kopyalayın **taskDao.js** dosyası:
 
-   ```nodejs
+   ```javascript
    // @ts-check
    const CosmosClient = require("@azure/cosmos").CosmosClient;
    const debug = require("debug")("todo:taskDao");
@@ -195,7 +195,7 @@ Artık Express framework kullanarak basit bir Hello World Node.js projesi oluşt
 
 2. Aşağıdaki kodu **tasklist.js**'ye ekleyin. Bu kod, **tasklist.js** tarafından kullanılan CosmosClient ve async modüllerini yükler. Bu kod, daha önce tanımladığımız **TaskDao** nesnesinin bir örneği olarak geçirilmiş **TaskList** sınıfını da tanımlar:
    
-   ```nodejs
+   ```javascript
    const TaskDao = require("../models/TaskDao");
 
    class TaskList {
@@ -256,7 +256,7 @@ Artık Express framework kullanarak basit bir Hello World Node.js projesi oluşt
 
 2. **config.js** dosyasına aşağıdaki kodu ekleyin. Bu kod, uygulamamız için gereken yapılandırma ayarlarını ve değerlerini tanımlar.
    
-   ```nodejs
+   ```javascript
    const config = {};
 
    config.host = process.env.HOST || "[the endpoint URI of your Azure Cosmos DB account]";
@@ -285,7 +285,7 @@ Artık Express framework kullanarak basit bir Hello World Node.js projesi oluşt
 
 2. **app.js** dosyasına aşağıdaki kodu ekleyin. Bu kod, kullanılacak yapılandırma dosyasını tanımlar ve değerleri sonraki bölümlerde kullanacağınız değişkenlere yükler. 
    
-   ```nodejs
+   ```javascript
    const CosmosClient = require("@azure/cosmos").CosmosClient;
    const config = require("./config");
    const TaskList = require("./routes/tasklist");

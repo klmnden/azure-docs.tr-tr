@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 45dd31ecca4f09a595fbf1dae5fe61623fb2be3c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6a652b3fa834c2f29f5063f9ba72a3e3d4e75f58
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025870"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512457"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Oluşturma bir sanal ağ eşlemesi - farklı dağıtım modelleri ve abonelikler
 
@@ -71,7 +71,7 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
     - **Konum**: *Doğu ABD*
 
 14. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetB*. Tıklayın **myVnetB** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnetB** sanal ağ.
-15. İçinde **myVnetB** görüntülenen dikey **özellikleri** dikey dikey pencerenin sol tarafındaki Seçenekleri listesinden. Kopyalama **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği, aşağıdaki örneğe benzer: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
+15. İçinde **myVnetB** görüntülenen dikey **özellikleri** dikey dikey pencerenin sol tarafındaki Seçenekleri listesinden. Kopyalama **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği, aşağıdaki örneğe benzer: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
 16. MyVnetB girme, 5-9 adımlarını tamamlamak **Kullanıcıa** 8. adımda.
 17. Portalda UserB olarak dışında oturum ve UserA oturum açın.
 18. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetA*. Tıklayın **myVnetA** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnet** sanal ağ.

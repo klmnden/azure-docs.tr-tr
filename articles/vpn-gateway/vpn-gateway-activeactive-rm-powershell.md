@@ -1,5 +1,5 @@
 ---
-title: 'VPN ağ geçitleri için etkin-etkin S2S VPN bağlantıları yapılandırma: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'VPN ağ geçitleri için etkin-etkin S2S VPN bağlantıları yapılandırın: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: Bu makalede Azure Resource Manager ve PowerShell kullanarak Azure VPN Gateways ile aktif / aktif bağlantıları nasıl yapılandıracağınız açıklanmaktadır.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: 01f25df117eddaaf640a8bd2ef184fe685c5bc75
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 05c4a01f4317f311e1ba78a5bf45baa969dc8351
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259002"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507868"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Azure VPN Gateways ile aktif / aktif S2S VPN bağlantıları yapılandırma
 

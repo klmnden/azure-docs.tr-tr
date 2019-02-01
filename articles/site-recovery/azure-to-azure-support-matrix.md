@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 138c5ee54d175c4bd5f727acc3375405850f86a0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3b41f975b484083dab79f16984e84018b2e830a1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301603"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497307"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -186,7 +186,7 @@ Veri diski - standart depolama hesabı | Desteklenen |
 Veri diski - premium depolama hesabı | Desteklenen | Bir VM, premium ve standart depolama hesapları arasında yayılabilir disk varsa, aynı depolama yapılandırması hedef bölgede olduğundan emin olmak için her disk için farklı bir hedef depolama hesabı seçebilirsiniz.
 Yönetilen disk - standart | Azure Site Recovery, desteklenen Azure bölgelerinde desteklenir. |
 Yönetilen disk - premium | Azure Site Recovery, desteklenen Azure bölgelerinde desteklenir. |
-Standart SSD | Desteklenmiyor |
+Standart SSD | Desteklenen |
 Yedeklilik | LRS ve GRS desteklenir.<br/><br/> ZRS desteklenmez.
 Seyrek erişimli ve sık erişimli depolama | Desteklenmiyor | VM diskleri seyrek erişimli ve sık erişimli depolama alanı desteklenmez.
 Depolama alanları | Desteklenen |
@@ -195,8 +195,8 @@ Windows işletim sistemi için Azure Disk şifrelemesi (ADE) | VM'ler için etki
 Linux işletim sistemi için Azure Disk şifrelemesi (ADE) | Desteklenmiyor |
 Sık erişimli Ekle/Kaldır disk | Desteklenmiyor | VM veri diski ekleyip, çoğaltmayı devre dışı bırakın ve yeniden sanal Makineye yönelik çoğaltmayı etkinleştirmek gerekir.
 Diski hariç tutma | Desteklenmiyor|   Geçici disk, varsayılan olarak çıkarılır.
-Doğrudan Erişimli Depolama Alanları  | Desteklenmiyor|
-Genişleme dosya sunucusu  | Desteklenmiyor|
+Doğrudan Erişimli Depolama Alanları  | Kilitlenme tutarlı kurtarma noktaları için desteklenmiyor. Uygulama tutarlı kurtarma noktalarına desteklenmez. |
+Genişleme dosya sunucusu  | Kilitlenme tutarlı kurtarma noktaları için desteklenmiyor. Uygulama tutarlı kurtarma noktalarına desteklenmez. |
 LRS | Desteklenen |
 GRS | Desteklenen |
 RA-GRS | Desteklenen |

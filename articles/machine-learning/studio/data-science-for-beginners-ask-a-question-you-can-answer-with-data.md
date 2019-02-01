@@ -1,8 +1,21 @@
 ---
-Başlık: Bir soru veri titleSuffix neredeyse tümünü cevaplayabilir isteyin: Azure Machine Learning Studio açıklaması: Video 3 yeni başlayanlar için veri bilimi sharp veri bilimi soru formüle öğrenin. Sınıflandırma ve regresyon sorular karşılaştırması içerir.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: garyericson ms.author: garye MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 01/03/2018
+title: Veri yanıtlayabileceğiniz bir soru sor
+titleSuffix: Azure Machine Learning Studio
+description: Video 3 yeni başlayanlar için veri bilimi sharp veri bilimi soru formüle öğrenin. Sınıflandırma ve regresyon sorular karşılaştırması içerir.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/03/2018
+ms.openlocfilehash: bddb97083bd1d1538b9f60ec3c0798cf1e964b1e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498157"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Verilerle yanıtlayabileceğiniz bir soru sorun
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Seri yeni başlayanlar için veri bilimi

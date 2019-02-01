@@ -1,6 +1,6 @@
 ---
-title: StorSimple 8000 aygıtı sorun giderme için tanılama aracı | Microsoft Docs
-description: StorSimple cihaz modlarını tanımlar ve StorSimple için Windows PowerShell aygıt modunu değiştirmek için nasıl kullanılacağını açıklar.
+title: StorSimple 8000 cihaz sorunlarını gidermek için tanılama aracı | Microsoft Docs
+description: StorSimple cihaz modları ve cihaz modunu değiştirmek için StorSimple için Windows PowerShell'i kullanmayı açıklar.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,87 +14,87 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27744121"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497749"
 ---
-# <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>8000 serisi cihaz sorunlarını gidermek için StorSimple Tanılama Aracı'nı kullanın
+# <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>8000 serisi cihaz sorunlarını gidermek için StorSimple Tanılama aracını kullanma
 
 ## <a name="overview"></a>Genel Bakış
 
-StorSimple Tanılama Aracı'nı bir StorSimple cihazı için sistem, performans, ağ ve donanım bileşen durumu ile ilgili sorunlar tanılar. Tanılama Aracı'nı çeşitli senaryolarda kullanılabilir. Bu senaryolar, planlama, StorSimple cihazını dağıtma, ağ ortamını değerlendiriliyor ve işletimsel bir aygıtı performansını belirleme iş yükü içerir. Bu makalede Tanılama Aracı'nı genel bir bakış sağlar ve aracı StorSimple cihazı ile nasıl kullanılacağını açıklar.
+StorSimple Tanılama aracı, sistem, performansı, ağ ve donanım bileşeni sistem durumu için StorSimple cihaz sorunları tanılar. Tanılama aracı, çeşitli senaryolarda kullanılabilir. Bu senaryolar, planlama, bir StorSimple cihazını dağıtma, ağ ortamı değerlendiriliyor ve işletimsel bir cihaz performansını belirleme iş yükü içerir. Bu makalede tanılama aracına genel bakış sağlar ve aracı ile StorSimple cihazını nasıl kullanılabileceğini anlatmaktadır.
 
-Tanılama Aracı öncelikle StorSimple 8000 serisi şirket içi cihazlar için (8100 ve 8600) yöneliktir.
+Tanılama aracı, birincil olarak StorSimple 8000 serisi şirket içi cihazlar için (8100 ve 8600) yöneliktir.
 
 ## <a name="run-diagnostics-tool"></a>Tanılama aracını çalıştırın
 
-Bu araç, StorSimple Cihazınızı Windows PowerShell arabirimi çalıştırılabilir. Cihazınızı yerel arabiriminin erişmek için iki yol vardır:
+Bu araç, StorSimple cihazınızın Windows PowerShell arabirimi üzerinden çalıştırılabilir. Cihazınızın yerel arabirim erişmenin iki yolu vardır:
 
 * [Cihaz seri konsoluna bağlanmak için PuTTY kullanın](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [StorSimple için Windows PowerShell aracılığıyla aracı uzaktan erişim](storsimple-8000-remote-connect.md).
+* [Windows PowerShell aracılığıyla aracı için StorSimple uzaktan erişim](storsimple-8000-remote-connect.md).
 
-Bu makalede, cihaz seri konsoluna PuTTY üzerinden bağlı olduğunuzu varsayar.
+Bu makalede, cihaz seri konsoluna PuTTY üzerinden bağlanmış olduğunuz varsayılır.
 
-#### <a name="to-run-the-diagnostics-tool"></a>Tanılama Aracı'nı çalıştırmak için
+#### <a name="to-run-the-diagnostics-tool"></a>Tanılama aracını çalıştırmak için
 
-Aygıt Windows PowerShell arabirimine bağlandıktan sonra cmdlet'i çalıştırmak için aşağıdaki adımları gerçekleştirin.
-1. İçindeki adımları izleyerek cihaz seri konsoluna oturum [kullan cihaz seri konsoluna bağlanmak için PuTTY](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+Cihazın Windows PowerShell arabirimine bağlandıktan sonra Bu cmdlet'i çalıştırmak için aşağıdaki adımları gerçekleştirin.
+1. Cihaz seri konsoluna adımları izleyerek oturum [kullan cihaz seri konsoluna bağlanmak için PuTTY](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Aşağıdaki komutu yazın:
 
     `Invoke-HcsDiagnostics`
 
-    Kapsam parametresi belirtilmezse, cmdlet tüm tanılama testleri yürütür. Bu testler, sistem, donanım bileşen durumu, ağ ve performans içerir. 
+    Kapsam parametresi belirtilmezse, cmdlet tüm tanılama testleri yürütür. Bu testler, sistem, donanım bileşeni sistem durumu, ağ ve performans içerir. 
     
-    Yalnızca belirli bir testi çalıştırmak için kapsam parametresi belirtin. Örneğin, yalnızca ağ testi çalıştırmak için şunu yazın
+    Yalnızca belirli bir testi çalıştırmak için kapsam parametresi belirtin. Örneğin, yalnızca ağ testi çalıştırmak için yazın
 
     `Invoke-HcsDiagnostics -Scope Network`
 
-3. Seçin ve daha fazla çözümleme için bir metin dosyasına PuTTY penceresinden çıkış kopyalayın.
+3. Seçin ve daha fazla analiz için bir metin dosyasına PuTTY penceresinden çıktısını kopyalayın.
 
-## <a name="scenarios-to-use-the-diagnostics-tool"></a>Tanılama Aracı'nı kullanmak için senaryolar
+## <a name="scenarios-to-use-the-diagnostics-tool"></a>Tanılama aracını kullanma senaryoları
 
-Sistem ağ, performans, sistem ve donanım durumunu gidermek için tanılama aracı kullanın. Bazı olası senaryolar şunlardır:
+Sistem, ağ, performans, sistem ve donanım sistem durumu sorunlarını gidermek için Tanılama aracını kullanın. Bazı olası senaryolar şunlardır:
 
-* **Cihaz çevrimdışı** -bilgisayarınızı StorSimple 8000 serisi cihaz çevrimdışı. Ancak, Windows PowerShell arabiriminden hem denetleyicileri ve çalışıyor olduğunu görünüyor.
-    * Ağ durumu belirlemek için bu aracı kullanabilirsiniz.
+* **Cihaz çevrimdışı** -bilgisayarınızı StorSimple 8000 serisi cihaz çevrimdışı. Ancak, Windows PowerShell arabiriminden her iki denetleyici ve çalışıyor olduğunu hatırlıyorum.
+    * Ardından ağ durumu belirlemek için bu aracı kullanabilirsiniz.
          
          > [!NOTE]
-         > Bu araç, bir cihazda kayıt (veya Kurulum Sihirbazı yapılandırma) önce performans ve ağ ayarlarını değerlendirmek için kullanmayın. Geçerli bir IP cihaz için Kurulum Sihirbazı'nı ve kayıt sırasında atanır. Bu cmdlet, donanım durumunu ve sistem için kayıtlı değil, bir cihaz çalıştırabilirsiniz. Kapsam parametresi, örneğin kullanın:
+         > Bu araç, bir cihaz kayıt (veya Kurulum Sihirbazı aracılığıyla yapılandırma) önce performans ve ağ ayarlarını değerlendirmek için kullanmayın. Geçerli bir IP, cihaz için Kurulum Sihirbazı'nı ve kayıt sırasında atanır. Bu cmdlet, kayıtlı değil, bir cihaz donanımı sistem durumunu ve sistem üzerinde çalıştırabilirsiniz. Kapsam parametresi, örneğin kullanın:
          >
          > `Invoke-HcsDiagnostics -Scope Hardware`
          >
          > `Invoke-HcsDiagnostics -Scope System`
 
-* **Sürekli cihaz sorunlarını** -kalıcı göründüğü cihaz sorunları yaşamaktadır. Örneğin, kayıt başarısız oluyor. Cihaz başarıyla kayıtlı ve işletimsel biraz olduktan sonra aynı zamanda aygıt sorunları yaşıyor olabilir.
-    * Bu durumda, bir hizmet isteği Microsoft Support oturum açmadan önce ön gidermek için bu aracı kullanın. Bu aracı çalıştırın ve bu aracın çıktısının yakalama öneririz. Bu gibi durumlarda, bu çıkış sonra sorun giderme hızlandırmak için destek sağlayabilirsiniz.
+* **Sürekli cihaz sorunları** -kalıcı hale getirmek için görünen cihaz sorunları yaşıyoruz. Örneğin, kayıt başarısız oluyor. Cihaz bir süredir başarıyla kaydedilmiş ve işletimsel olduktan sonra ayrıca cihaz sorunları yaşıyor olabilir.
+    * Bu durumda, bir hizmet isteği Microsoft Support oturum önce ön gidermek için bu aracı kullanın. Bu aracı çalıştırın ve bu aracın çıktısının yakalama öneririz. Bu çıkış, ardından sorun giderme hızlandırmak için destek sağlayabilirsiniz.
     * Donanım bileşeni veya küme hataları varsa, bir destek isteği oturum açmanız gerekir.
 
-* **Düşük cihaz performans** -bilgisayarınızı StorSimple cihaz yavaş.
-    * Bu durumda, bu cmdlet için performans ayarlama kapsam parametresi ile çalıştırın. Çıktı analiz edin. Bulut okuma-yazma gecikmeleri alın. Raporlanan gecikme maksimum ulaşılabilir hedefi olarak kullanmak, iç veri işleme için bazı ek faktörü ve iş yükleri sistem üzerindeki dağıtın. Daha fazla bilgi için Git [aygıt performans sorunlarını gidermek için ağ testi kullanma](#network-test).
+* **Cihaz performansı düşük** -bilgisayarınızı StorSimple cihaz yavaş.
+    * Bu durumda, bu cmdlet için performans ayarlama, kapsam parametresiyle çalıştırın. Çıkış analiz edin. Okuma-yazma gecikmeleri bulut olursunuz. En fazla ulaşılabilir hedefi olarak raporlanan gecikme süreleriyle kullanmak, iç veri işleme için bazı ek yüküne faktörü ve iş yükleri sistem üzerindeki dağıtabilirsiniz. Daha fazla bilgi için Git [cihaz performans sorunlarını gidermek için ağ testi kullanın](#network-test).
 
 
-## <a name="diagnostics-test-and-sample-outputs"></a>Tanılama test ve örnek çıkış
+## <a name="diagnostics-test-and-sample-outputs"></a>Tanılama testi ve örnek çıktı
 
-### <a name="hardware-test"></a>Donanım sınaması
+### <a name="hardware-test"></a>Donanım test
 
-Bu test donanım bileşenleri, USM bellenim ve sisteminizde çalışan disk bellenim durumunu belirler.
+Bu test, donanım bileşenleri, USM üretici yazılımı ve disk üretici yazılımı sisteminizde çalışan durumunu belirler.
 
 * Bildirilen donanım bileşenleri testin başarısız veya sistemde olmayan bu bileşenlerdir.
-* USM bellenim ve disk bellenim sürümleri denetleyici 0, denetleyici 1 için bildirilen ve sisteminizdeki paylaşılan bileşenleri. Donanım bileşenleri tam listesi için aşağıdaki adrese gidin:
+* USM üretici yazılımı ve disk üretici yazılımı sürümlerine, denetleyici 0, denetleyici 1 için bildirilen ve sisteminizdeki paylaşılan bileşenleri. Donanım bileşenleri tam listesi için şuraya gidin:
 
-    * [Birincil muhafazada bileşenleri](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Birincil bileşenleri](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
     * [EBOD muhafazası bileşenleri](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Donanım sınaması başarısız bileşenleri bildirirse [Microsoft Support olan hizmet isteği oturum](storsimple-8000-contact-microsoft-support.md).
+> Donanım test arızalı bileşenlere bildirirse [Microsoft Support olan hizmet isteği oturum](storsimple-8000-contact-microsoft-support.md).
 
-#### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>8100 cihazda donanım testi örnek çıktısı
+#### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Örnek çıktı donanım testin bir 8100 cihazda çalıştırma
 
-Burada, StorSimple 8100 cihazınız dosyasından örnek çıktı verilmiştir. 8100 model cihaz EBOD muhafazası mevcut değil. Bu nedenle, EBOD denetleyicisi bileşenleri raporlanmaz.
+Bir StorSimple 8100 CİHAZDAN örnek çıktı aşağıda verilmiştir. 8100 model aygıt EBOD muhafazası mevcut değil. Bu nedenle, EBOD denetleyicisi bileşenleri raporlanmaz.
 
 ```
 Controller0>Invoke-HcsDiagnostics -Scope Hardware
@@ -204,19 +204,19 @@ DisksFirmware       : SmrtStor:TXA2D20400GA6XYR:KZ50
 --------------------------------------------------
 ```
 
-### <a name="system-test"></a>Sistem test
+### <a name="system-test"></a>Sistem Testi
 
-Bu test, sistem bilgisi, güncelleştirmelere, küme bilgilerini ve cihazınız için hizmet bilgileri raporlar.
+Bu test, sistem bilgisi, güncelleştirmeleri, küme bilgilerini ve cihazınız için hizmet bilgileri raporlar.
 
-* Model, cihaz seri numarasını, saat dilimi, denetleyici durumu ve sistem üzerinde çalışan ayrıntılı yazılım sürüm sistem bilgilerini içerir. Çıkış olarak bildirilen çeşitli sistem parametreleri anlamak için şu adrese gidin [sistem bilgileri yorumlama](#appendix-interpreting-system-information).
+* Model, cihaz seri numarası, saat dilimi, denetleyici durumu ve sistem üzerinde çalışan ayrıntılı yazılım sürüm sistem bilgilerini içerir. Çıktı olarak bildirilen çeşitli sistem parametreleri anlamak için Git [sistem bilgisi yorumlanırken](#appendix-interpreting-system-information).
 
-* Normal ve Bakım modu kullanılabilir olup olmadığını güncelleştirme kullanılabilirlik raporlar ve ilişkili paket adları. Varsa `RegularUpdates` ve `MaintenanceModeUpdates` olan `false`, bu güncelleştirmeleri kullanılabilir olmadığını gösterir. Cihazınız güncel olduğundan.
-* Küme bilgilerini tüm HCS küme gruplarını ve bunlarla ilgili durumlar çeşitli mantıksal bileşenler hakkında bilgiler içerir. Bu bölümdeki çevrimdışı küme grubu raporunun görürseniz [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
-* Hizmet bilgileri, cihazda çalışan tüm HCS ve CIS Hizmetleri durumları ve adlarını içerir. Bu bilgileri cihaz sorunu gidermeye Microsoft Support yardımcı olur.
+* Güncelleştirme kullanılabilirlik normal ve Bakım modu kullanılabilir olup olmadığını bildirir ve ilişkili paket adları. Varsa `RegularUpdates` ve `MaintenanceModeUpdates` olan `false`, bu güncelleştirmeleri kullanılamaz olduğunu belirtir. Cihazınız güncel.
+* Küme bilgilerini, tüm HCS küme gruplarını ve bunların ilgili durumlarını çeşitli mantıksal bileşenler hakkında bilgiler içerir. Bu bölümde, raporun bir çevrimdışı küme grubu görürseniz [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
+* Hizmet bilgileri, cihaz üzerinde çalışan tüm HCS ve CIS hizmetlerinin durumları ve adlarını içerir. Bu bilgiler Microsoft Support cihaz sorunun giderilmesine yardımcı olur.
 
-#### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Örnek çıktı sistemi test 8100 cihazda çalıştırın
+#### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Örnek çıktı sistemi testin bir 8100 cihazda çalıştırma
 
-Burada, örnek bir çıktı 8100 bir cihazda çalıştırma sistem testinin verilmiştir.
+Sistem test bir 8100 cihazında çalıştırmasının örnek çıktı aşağıda verilmiştir.
 
 ```
 Controller0>Invoke-HcsDiagnostics -Scope System
@@ -289,7 +289,7 @@ HCS Vnic Resource             Online HCS Cluster Group
 hcs_cloud_connectivity_...    Online HCS Cluster Group
 hcs_controller_replacement    Online HCS Cluster Group
 hcs_datapath_service          Online HCS Cluster Group
-hcs_management_servic         Online HCS Cluster Group
+hcs_management_service        Online HCS Cluster Group
 hcs_nvram_service             Online HCS Cluster Group
 hcs_passive_datapath          Online HCS Passive Cluster Group
 hcs_platform_service          Online HCS Cluster Group
@@ -321,22 +321,22 @@ hcs_startup                                   Stopped hcs_startup
 --------------------------------------------------
 ```
 
-### <a name="network-test"></a>Ağ sınaması
+### <a name="network-test"></a>Ağ testi
 
-Bu test ağ arabirimleri, bağlantı noktaları, DNS ve NTP sunucu bağlantısı, SSL sertifikasını, depolama hesabının kimlik bilgilerini, güncelleştirme sunucularına bağlantısı ve web proxy bağlantısı, StorSimple Cihazınızda durumunu doğrular.
+Bu test, ağ arabirimleri, bağlantı noktaları, DNS ve NTP sunucu bağlantısı, SSL sertifikası, depolama hesabı kimlik bilgileri, Update sunucularına bağlantı ve StorSimple cihazınızdaki web proxy bağlantı durumunu doğrular.
 
-#### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>Örnek çıktı ağın test yalnızca DATA0 etkinleştirildiğinde
+#### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>Yalnızca DATA0 etkinleştirildiğinde test ağının örnek çıktısı
 
-Burada, örnek bir çıktı 8100 cihazın verilmiştir. Çıktıda görebilirsiniz:
-* Yalnızca veri 0 ve 1 DATA ağ arabirimleri etkin ve yapılandırılmış.
-* Veri 2-5 Portalı'nda etkin değil.
-* DNS sunucu yapılandırması geçerli değil ve aygıt DNS sunucusuna bağlanabilir.
-* NTP sunucusu bağlantısı de uygundur.
-* 80 ve 443 numaralı bağlantı noktalarını açın. Ancak, 9354 bağlantı engellenir. Temel [sistem ağ gereksinimleri](storsimple-system-requirements.md), hizmet veri yolu iletişimi için bu bağlantı noktası açmanız gerekir.
-* SSL sertifika geçerli değil.
-* Cihaz depolama hesabına bağlanabilir: _myss8000storageacct_.
-* Güncelleştirme sunucularına bağlantısı geçerli değil.
-* Web proxy, bu aygıtta yapılandırılmamış.
+8100 model Cihazınızı, örnek çıktı aşağıda verilmiştir. Çıkışta gördüğünüz:
+* Yalnızca DATA 0 ve 1 DATA ağ arabirimleri etkinleştirilmiş ve yapılandırılmış.
+* 2-5 verileri portalda etkin değil.
+* DNS sunucusu yapılandırması geçerli değil ve cihaz, DNS sunucusu bağlanabilirsiniz.
+* NTP sunucusu bağlantısı da uygundur.
+* 80 ve 443 bağlantı noktaları açıktır. Ancak, 9354 bağlantı noktasının engellenir. Temel [sistem ağ gereksinimleri](storsimple-system-requirements.md), service bus iletişimi için bu bağlantı noktası açmanız gerekir.
+* SSL sertifikası geçerli değil.
+* Cihazın depolama hesabına bağlanabildiğini: _myss8000storageacct_.
+* Update sunucularına bağlantı geçerli değil.
+* Web Ara sunucusu, bu cihaz üzerinde yapılandırılmamış.
 
 #### <a name="sample-output-of-network-test-when-data0-and-data1-are-enabled"></a>Örnek çıktı DATA0 ve Veri1 etkin olduğunda ağ testi
 
@@ -368,31 +368,31 @@ Web proxy                               Not enabled         Web proxy is not...
 
 ### <a name="performance-test"></a>Performans testi
 
-Bu test, cihazınız için bulut okuma-yazma gecikmeleri aracılığıyla bulut performans bildirir. Bu araç, StorSimple ile elde edebilirsiniz bulut performansının taban çizgisini oluşturmak için kullanılabilir. Aracı bağlantınız için alabileceğiniz en yüksek performans (okuma-yazma gecikme için en iyi Durum senaryosu) bildirir.
+Bu test, cihazınız için bulut okuma-yazma gecikmeleri aracılığıyla bulut performans bildirir. Bu araç, StorSimple ile elde edebileceğiniz bulut performansının taban çizgisini oluşturmak için kullanılabilir. Aracı, bağlantınız için size en yüksek performans (okuma-yazma gecikme için en iyi Durum senaryosu) bildirir.
 
-En yüksek elde edilebilir performans araç raporlar gibi biz raporlanan okuma-yazma gecikme hedefleri olarak iş yüklerini dağıtırken kullanabilirsiniz.
+En fazla ulaşılabilir performans aracın bildirdiği olarak bildirilen okuma-yazma gecikme hedefleri olarak iş yüklerini dağıtırken kullanabiliriz.
 
-Test cihaza farklı bir birim türleri ile ilişkili blob boyutları benzetimini yapar. Normal katmanlı ve yerel olarak sabitlenmiş birimlerin yedekleri, 64 KB blob boyutu kullanın. Arşiv seçeneği işaretli olan katmanlı birimler 512 KB blob veri boyutu kullanın. Cihazınız varsa, katmanlı ve yerel olarak sabitlenmiş birimleri yapılandırılmış, yalnızca 64 KB blob veri boyutu çalıştırmak için karşılık gelen test.
+Test cihazdaki farklı bir birime türleriyle ilişkili blob boyutları benzetimini yapar. Normal katmanlı ve yerel olarak sabitlenmiş birimlerin yedekleri 64 KB blob boyutu kullanın. Blob veri boyutu 512 KB katmanlı birimlerin işaretli arşiv seçeneğiyle kullanın. Cihazınız varsa, katmanlı ve yerel olarak sabitlenmiş birimleri yapılandırılmış, yalnızca 64 KB blob'a veri boyutu çalıştırılan karşılık gelen test.
 
 Bu aracı kullanmak için aşağıdaki adımları gerçekleştirin:
 
-1.  İlk olarak, katmanlı birimleri ve katmanlı birimlerin bir karışımını işaretli arşivlenmiş seçeneğiyle oluşturun. Bu eylem aracı testleri 64 KB ve 512 KB için kabarcık boyutları çalıştırmasını sağlar.
+1.  İlk olarak, katmanlı birimlerin ve katmanlı birimlerin bir karışımını işaretli arşivlenmiş seçeneği ile oluşturun. Bu eylem aracı testleri 64 KB ve 512 KB için blob boyutları çalıştırmasını sağlar.
 
-2. Oluşturulan ve birimleri yapılandırdıktan sonra cmdlet'ini çalıştırın. Şunu yazın:
+2. Oluşturulan ve birimler yapılandırılmış sonra cmdlet'ini çalıştırın. Şunu yazın:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 
-3. Aracı tarafından raporlanan okuma-yazma gecikmeleri not edin. Bu test sonuçları raporlar önce birkaç dakika sürebilir.
+3. Araç tarafından bildirilen okuma-yazma gecikmeleri not edin. Bu test sonuçları raporlamadan önce çalıştırmak için birkaç dakika sürebilir.
 
-4. Bağlantı gecikmeleri tüm beklenen aralığından varsa, daha sonra aracı tarafından raporlanan gecikme maksimum ulaşılabilir hedef olarak iş yüklerini dağıtırken kullanılabilir. İç veri işleme için bazı ek faktörü.
+4. Bağlantı gecikmeleri tüm beklenen aralığın altında ise sonra araç tarafından raporlanan gecikme süreleri en fazla ulaşılabilir hedef olarak iş yüklerini dağıtırken kullanılabilir. İç veri işleme için bazı ek yüküne faktörü.
 
-    Tanılama aracı tarafından raporlanan okuma-yazma gecikmeleri yüksekse:
+    Tanılama aracı tarafından raporlanan okuma-yazma gecikme süresi yüksek ise:
 
-    1. Storage Analytics blob Hizmetleri için yapılandırma ve Azure depolama hesabı için gecikme anlamak için çıktı analiz edin. Ayrıntılı yönergeler için Git [etkinleştirme ve Storage Analytics yapılandırma](../storage/common/storage-enable-and-view-metrics.md). Bu gecikme, aynı zamanda yüksek ve StorSimple tanılama aracından alınan sayılara karşılaştırılabilir varsa, Azure storage ile bir hizmet isteği bağlanmanız gerekir.
+    1. Depolama blob Hizmetleri için yapılandırın ve Azure depolama hesabı için gecikme anlamak için çıkış analiz edin. Ayrıntılı yönergeler için Git [etkinleştirme ve depolama analizi yapılandırma](../storage/common/storage-enable-and-view-metrics.md). Ardından bu gecikme süreleri de yüksek ve StorSimple Tanılama Aracı alınan sayılara karşılaştırılabilir varsa, Azure depolama ile bir hizmet isteği bağlanmanız gerekir.
 
-    2. Depolama hesabı gecikmeleri düşükse, ağınızdaki gecikmesi sorunları araştırmak için ağ yöneticinize başvurun.
+    2. Depolama hesabı gecikme süresi düşük, ağınızda herhangi bir gecikme sorunlarını araştırmak için ağ yöneticinize başvurun.
 
-#### <a name="sample-output-of-performance-test-run-on-an-8100-device"></a>Örnek çıktı performans testi 8100 cihazda çalıştırın
+#### <a name="sample-output-of-performance-test-run-on-an-8100-device"></a>Örnek çıktı performans testinin bir 8100 cihazda çalıştırma
 
 ```
 Controller0>Invoke-HcsDiagnostics -Scope Performance
@@ -410,36 +410,36 @@ Cloud read latency: 4924 ms using credential 'myss8000storageacct', blob size '5
 Controller0>
 ```
 
-## <a name="appendix-interpreting-system-information"></a>Ek: Sistem bilgileri yorumlama
+## <a name="appendix-interpreting-system-information"></a>Ek: Sistem bilgisi yorumlanırken
 
-Burada, hangi çeşitli Windows PowerShell parametreleri için sistem bilgileri eşlemesindeki açıklayan bir tablo verilmiştir. 
+Çeşitli Windows PowerShell parametreleri sistem bilgileri eşlenecek bir tablo aşağıda verilmiştir. 
 
 | PowerShell parametresi    | Açıklama  |
 |-------------------------|------------------|
-| Örnek Kimliği             | Benzersiz bir tanımlayıcı her denetleyici yok veya bir GUID ile ilişkili.|
-| Ad                    | Azure portalı üzerinden aygıt dağıtımı sırasında yapılandırılan cihaz kolay adı. Varsayılan kolay cihaz seri numarasını adıdır. |
+| Örnek Kimliği             | Her denetleyici benzersiz bir tanımlayıcı sahip veya bu bir GUID ile ilişkili.|
+| Ad                    | Azure portalı üzerinden cihaz dağıtım sırasında yapılandırdığınız cihaz kolay adı. Varsayılan kolay adı, cihaz seri numarasını şeklindedir. |
 | Model                   | StorSimple 8000 serisi Cihazınızı modeli. Model 8100 veya 8600 olabilir.|
-| seri numarası            | Cihaz seri numarasını fabrikada atanır ve 15 karakterden uzun. Örneğin, 8600 SHX0991003G44HT gösterir:<br> 8600 – aygıt modelidir.<br>SHX – üretim sitesi olur.<br> 0991003 - belirli bir ürün var. <br> G44HT benzersiz seri numaraları oluşturmak için en son 5 rakamlı artırılır-. Bu ardışık olmayabilir.|
-| TimeZone                | Aygıt saat aygıt dağıtımı sırasında Azure Portalı'nda yapılandırılan dilimi.|
-| CurrentController       | StorSimple Cihazınızı Windows PowerShell arabirimi üzerinden bağlanan denetleyici.|
-| ActiveController        | Cihazınızda etkin olduğunda ve tüm ağ ve disk işlemleri denetleme denetleyicisi. Bu denetleyici 0 veya denetleyici 1 olabilir.  |
-| Controller0Status       | Denetleyici 0 aygıtınızda durumu. Denetleyici durum normal, kurtarma modunda veya erişilemiyor olabilir.|
-| Controller1Status       | Denetleyici 1 durumunu Cihazınızda.  Denetleyici durum normal, kurtarma modunda veya erişilemiyor olabilir.|
-| SystemMode              | StorSimple Cihazınızı genel durumu. Cihaz durumu normal, Bakım veya yetkisi alınmış (Azure Portalı'nda devre dışı karşılık gelir).|
-| FriendlySoftwareVersion | Aygıt yazılımı sürümüne karşılık gelen kolay dize. Güncelleştirme 4 ile çalışan bir sistem için kolay yazılım sürümü StorSimple 8000 serisi güncelleştirme 4.0 olacaktır.|
-| HcsSoftwareVersion      | HCS yazılım sürümü, cihazda çalışan. Örneğin, StorSimple 8000 serisi güncelleştirme 4.0 için karşılık gelen HCS yazılım 6.3.9600.17820 sürümüdür. |
+| seri numarası            | Cihaz seri numarasını bir fabrikada atanır ve 15 karakterden uzun. Örneğin, 8600 SHX0991003G44HT gösterir:<br> 8600 – cihaz modelidir.<br>Üretim sitesini SHX – var.<br> 0991003 - belirli bir ürün olan. <br> G44HT benzersiz seri numaraları oluşturmak için son 5 rakamlı artırılır-. Bu, bir sıralı küme olmayabilir.|
+| TimeZone                | Cihaz saat cihaz dağıtım sırasında Azure portalında yapılandırıldığı şekilde dilimi.|
+| CurrentController       | StorSimple cihazınızın Windows PowerShell arabirimi üzerinden bağlıyken denetleyici.|
+| ActiveController        | Cihazınızda etkin ve tüm ağ ve disk işlemleri denetleme denetleyici. Bu, denetleyici 0 veya denetleyici 1 olabilir.  |
+| Controller0Status       | Denetleyici 0 Cihazınızda durumu. Denetleyici durumu, normal, kurtarma modunda ya da erişilemez olabilir.|
+| Controller1Status       | Denetleyici 1 durumu Cihazınızda.  Denetleyici durumu, normal, kurtarma modunda ya da erişilemez olabilir.|
+| SystemMode              | StorSimple Cihazınızı genel durumu. Cihaz durumu normal, Bakım veya yetkisi alınmış (Azure portalında devre dışı karşılık gelir).|
+| FriendlySoftwareVersion | Cihaz yazılımı sürümüne karşılık gelen kolay dize. Güncelleştirme 4 ile birlikte çalışan bir sistem için StorSimple 8000 serisi güncelleştirme 4.0 kolay yazılım sürümü olacaktır.|
+| HcsSoftwareVersion      | HCS yazılım sürümü, cihaz üzerinde çalışan. Örneğin, StorSimple 8000 serisi güncelleştirme 4.0 için karşılık gelen HCS yazılım 6.3.9600.17820 sürümüdür. |
 | ApiVersion              | HCS cihazı Windows PowerShell API'si yazılım sürümü.|
-| VhdVersion              | Aygıt ile birlikte gelen Fabrika görüntüsünden yazılım sürümü. Cihazınızı fabrika varsayılan ayarlarına sıfırlamak, sonra bu yazılım sürümü çalışır.|
-| OSVersion               | Aygıtta çalışan Windows Server işletim sistemi yazılım sürümü. StorSimple cihazı kapatmak için 6.3.9600 karşılık gelen Windows Server 2012 R2 temel alır.|
-| CisAgentVersion         | StorSimple Cihazınızda çalıştıran CIS aracınızı sürümü. Bu aracı, Azure'da çalışan StorSimple Yöneticisi hizmetiyle iletişim yardımcı olur.|
-| MdsAgentVersion         | StorSimple Cihazınızda çalışan Mds aracısını karşılık gelen sürüm. Bu aracı izleme ve Tanılama Hizmeti (MDS) verileri taşır.|
-| Lsisas2Version          | StorSimple Cihazınızda LSI sürücülere karşılık gelen sürüm.|
-| Kapasite                | Cihaz bayt cinsinden toplam kapasitesini.|
-| RemoteManagementMode    | Aygıt, Windows PowerShell arabirimi uzaktan yönetilebilir olup olmadığını gösterir. |
-| FipsMode                | Amerika Birleşik Devletleri Federal Bilgi İşleme Standardı (FIPS) mod aygıtınızda etkinleştirilip etkinleştirilmediğini gösterir. FIPS 140 standardı, önemli verilerin korunması için BİZE Federal hükümeti bilgisayar sistemleri tarafından kullanım için onaylanan şifreleme algoritmalarını tanımlar. Güncelleştirme 4 veya üstünü çalıştıran cihazlar için FIPS modunda varsayılan olarak etkindir. |
+| VhdVersion              | Cihaz ile birlikte gelen bir Fabrika görüntüsünden yazılım sürümü. Cihazınızı fabrika ayarlarına sıfırlarsanız, sonra bu yazılım sürümünü çalıştırır.|
+| OSVersion               | Cihaz üzerinde çalışan Windows Server işletim sistemi yazılım sürümü. StorSimple cihazı kapatmak için 6.3.9600 karşılık gelen Windows Server 2012 R2 temel alır.|
+| CisAgentVersion         | StorSimple Cihazınızda çalışan CIS aracınızı sürümü. Bu aracı, Azure'da çalışan StorSimple Yöneticisi hizmeti ile iletişim kurmasına yardımcı olur.|
+| MdsAgentVersion         | StorSimple Cihazınızda çalışan Mds aracısının karşılık gelen sürümü. Bu aracı, izleme ve Tanılama Hizmeti (MDS) için veri taşır.|
+| Lsisas2Version          | StorSimple Cihazınızda LSI sürücülere karşılık gelen sürümü.|
+| Kapasite                | Cihaz bayt cinsinden toplam kapasitesi.|
+| RemoteManagementMode    | Cihaz, Windows PowerShell arabirimi üzerinden uzaktan yönetilebilir olup olmadığını gösterir. |
+| FipsMode                | Amerika Birleşik Devletleri Federal Bilgi İşleme Standardı (FIPS) mod'ın Cihazınızda etkin olup olmadığını gösterir. FIPS 140 standardı, hassas verilerin korunması için ABD Federal hükümeti bilgisayar sistemleri tarafından kullanım için onaylanan şifreleme algoritmalarını tanımlar. Update 4 veya sonraki sürümlerini çalıştıran cihazlar için FIPS modunda varsayılan olarak etkindir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bilgi [Invoke-HcsDiagnostics cmdlet sözdizimi](https://technet.microsoft.com/library/mt795371.aspx).
+* Bilgi [Invoke-HcsDiagnostics cmdlet'inin söz dizimi](https://technet.microsoft.com/library/mt795371.aspx).
 
-* Nasıl yapılır hakkında daha fazla bilgi [dağıtım sorunlarını giderme](storsimple-troubleshoot-deployment.md) , StorSimple Cihazınızda.
+* Kullanma hakkında daha fazla bilgi edinin [dağıtım sorunlarını giderme](storsimple-troubleshoot-deployment.md) StorSimple Cihazınızda.

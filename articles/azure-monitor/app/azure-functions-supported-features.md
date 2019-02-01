@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185828"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510332"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application ınsights'ı Azure işlevleri için desteklenen özellikler
 
@@ -32,6 +32,7 @@ Azure işlevleri tekliflerini [yerleşik tümleştirme](https://docs.microsoft.c
 | **Otomatik olarak toplama**        |                 |                   |               
 | &bull; İstekleri                     | Evet             | Evet               | 
 | &bull; Özel durumlar                   | Evet             | Evet               | 
+| &bull; Performans sayaçları         | Evet             |                   |
 | &bull; Bağımlılıkları                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Evet               | 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Evet               | 
@@ -50,6 +51,11 @@ Azure işlevleri tekliflerini [yerleşik tümleştirme](https://docs.microsoft.c
 | | | | 
 | **Yapılandırılabilir**                      |                   |                   |           
 | &bull;Tam olarak yapılandırılabilir.<br/>Bkz: [Azure işlevleri](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) yönergeler için.<br/>Bkz: [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) tüm seçenekler için.               |                   | Evet                   | 
+
+
+## <a name="performance-counters"></a>Performans Sayaçları
+
+Otomatik performans sayaçlarını toplamayı yalnızca Windows makineleri çalışır.
 
 
 ## <a name="live-metrics--secure-control-channel"></a>Canlı Ölçümler ve güvenli denetim kanalı

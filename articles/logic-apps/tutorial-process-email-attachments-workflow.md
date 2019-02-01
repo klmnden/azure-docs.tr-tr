@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7efa2f19aedfbd00ccced8b755d3b02847b31444
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121736"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508615"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Öğretici: İşleme e-postaları ve ekleri Azure Logic Apps ile otomatikleştirme
 
@@ -64,7 +64,7 @@ Gelen e-postaları ve ekleri, [Azure depolama kapsayıcısında](../storage/comm
    | **Dağıtım modeli** | Resource Manager | Kaynak dağıtımını yönetmek için [dağıtım modeli](../azure-resource-manager/resource-manager-deployment-model.md) | 
    | **Hesap türü** | Genel amaçlı | [Depolama hesabı türü](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **Konum** | Batı ABD | Depolama hesabınızla ilgili bilgilerin depolanacağı bölge | 
-   | **Çoğaltma** | Yerel olarak yedekli depolama (LRS) | Bu ayar, verilerinizin nasıl kopyalandığını, depolandığını, yönetildiğini ve eşitlendiğini belirtir. Bkz. [Çoğaltma](../storage/common/storage-introduction.md#replication). | 
+   | **Çoğaltma** | Yerel olarak yedekli depolama (LRS) | Bu ayar, verilerinizin nasıl kopyalandığını, depolandığını, yönetildiğini ve eşitlendiğini belirtir. Bkz: [yerel olarak yedekli depolama (LRS): Azure depolama için düşük maliyetli veri yedekliği](../storage/common/storage-redundancy-lrs.md). | 
    | **Performans** | Standart | Bu ayar, verileri depolamaya ilişkin medyayı ve desteklenen veri türlerini belirtir. Bkz. [Depolama hesabı türleri](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Güvenli aktarım gerekir** | Devre dışı | Bu ayar, bağlantılardan gelen istekler için gerekli güvenliği belirtir. Bkz. [Güvenli aktarım gerektir](../storage/common/storage-require-secure-transfer.md). | 
    | **Abonelik** | <*your-Azure-subscription-name*> | Azure aboneliğinizin adı | 

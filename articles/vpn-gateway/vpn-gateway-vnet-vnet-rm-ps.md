@@ -1,5 +1,5 @@
 ---
-title: 'Sanal ağlar arası bağlantı kullanarak Azure sanal ağını başka bir sanal ağa bağlama: PowerShell | Microsoft Docs'
+title: 'Bir Azure sanal ağı bir VNet-VNet bağlantısı kullanarak başka bir sanal ağa bağlama: PowerShell | Microsoft Docs'
 description: Sanal ağlar arası bağlantı ve PowerShell kullanarak sanal ağları birbirine bağlayın.
 services: vpn-gateway
 documentationcenter: na
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686968"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510564"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
@@ -68,11 +68,11 @@ Kümeler arasındaki temel fark, farklı aboneliklerde bulunan sanal ağlar içi
 
 Bu alıştırma için, yapılandırmaları birleştirebilir veya yalnızca birlikte çalışmak istediğiniz yapılandırmayı seçebilirsiniz. Tüm yapılandırmalar VNet-VNet bağlantı türünü kullanır. Ağ trafiği, birbirine doğrudan bağlı sanal ağlar arasında akar. Bu alıştırmada TestVNet4 trafiği TestVNet5’e yönlendirilmez.
 
-* [Aynı abonelikte bulunan sanal ağlar:](#samesub) Bu yapılandırmanın adımları TestVNet1 ve TestVNet4’ü kullanır.
+* [Aynı abonelikte bulunan sanal ağlar](#samesub): Bu yapılandırmanın adımları TestVNet1 ve TestVNet4'ü kullanır.
 
   ![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [Farklı abonelikte bulunan sanal ağlar:](#difsub) Bu yapılandırmanın adımları TestVNet1 ve TestVNet5’i kullanır.
+* [Farklı Aboneliklerde bulunan sanal ağlar](#difsub): Bu yapılandırmanın adımları TestVNet1 ve testvnet5'i kullanın.
 
   ![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -90,33 +90,33 @@ Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla
 
 **Değerler TestVNet1 için:**
 
-* VNet Name: TestVNet1
-* Resource Group: TestRG1
-* Location: East US
+* VNET Adı: TestVNet1
+* Kaynak Grubu: TestRG1
+* Konum: Doğu ABD
 * TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
-* FrontEnd: 10.11.0.0/24
-* BackEnd: 10.12.0.0/24
+* Ön uç: 10.11.0.0/24
+* Arka uç: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
 * GatewayName: VNet1GW
-* Public IP: VNet1GWIP
+* Genel IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5 (Farklı aboneliklerde bulunan sanal ağlar için)
+* Connection(1to5): VNet1toVNet5 (farklı Aboneliklerde bulunan sanal ağlar için)
 * ConnectionType: VNet2VNet
 
 **Değerler TestVNet4 için:**
 
-* VNet Name: TestVNet4
+* VNET Adı: TestVNet4
 * TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
-* FrontEnd: 10.41.0.0/24
-* BackEnd: 10.42.0.0/24
+* Ön uç: 10.41.0.0/24
+* Arka uç: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
-* Resource Group: TestRG4
-* Location: West US
+* Kaynak Grubu: TestRG4
+* Konum: Batı ABD
 * GatewayName: VNet4GW
-* Public IP: VNet4GWIP
+* Genel IP: VNet4GWIP
 * VPNType: RouteBased
-* Connection: VNet4toVNet1
+* Bağlantı: VNet4toVNet1
 * ConnectionType: VNet2VNet
 
 
@@ -303,17 +303,17 @@ Yeni sanal ağ olan TestVNet5’in IP adresi alanının kendi Sanal Ağ aralıkl
 
 **Değerler TestVNet5 için:**
 
-* VNet Name: TestVNet5
-* Resource Group: TestRG5
-* Location: Japan East
+* VNET Adı: TestVNet5
+* Kaynak Grubu: TestRG5
+* Konum: Japonya Doğu
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
-* FrontEnd: 10.51.0.0/24
-* BackEnd: 10.52.0.0/24
+* Ön uç: 10.51.0.0/24
+* Arka uç: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
 * GatewayName: VNet5GW
-* Public IP: VNet5GWIP
+* Genel IP: VNet5GWIP
 * VPNType: RouteBased
-* Connection: VNet5toVNet1
+* Bağlantı: VNet5toVNet1
 * ConnectionType: VNet2VNet
 
 ### <a name="step-7---create-and-configure-testvnet5"></a>7. Adım - TestVNet5'i oluşturma ve yapılandırma

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884954"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509924"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure kaynakları için etiketi desteği
 Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etiketleri](resource-group-using-tags.md).
@@ -666,6 +666,7 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | logDefinitions | Hayır | 
 | logprofiles | Hayır | 
 | günlükler | Hayır | 
+| metricAlerts | Evet |
 | migrateToNewPricingModel | Hayır | 
 | myWorkbooks | Hayır | 
 | sorgu | Hayır | 
@@ -1108,7 +1109,7 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | managedInstances | Evet |
-| managedInstances/veritabanları | Evet |
+| managedInstances/veritabanları | Evet (aşağıdaki nota bakın) |
 | veritabanları/managedInstances/backupShortTermRetentionPolicies | Hayır |
 | veritabanları/managedInstances/şemaları/sütunlar/tablolar/sensitivityLabels | Hayır |
 | veritabanları/managedInstances/vulnerabilityAssessments | Hayır |
@@ -1120,12 +1121,16 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | sunucu | Evet | 
 | sunucuları/yöneticileri | Hayır | 
 | sunucuları/communicationLinks | Hayır | 
-| sunucuları/veritabanları | Evet | 
+| sunucuları/veritabanları | Evet (aşağıdaki nota bakın) | 
 | sunucuları/encryptionProtector | Hayır | 
 | sunucuları/anahtarları | Hayır | 
 | sunucuları/restorableDroppedDatabases | Hayır | 
 | sunucuları/serviceobjectives | Hayır | 
 | sunucuları/tdeCertificates | Hayır | 
+
+> [!NOTE]
+> Asıl veritabanı etiketleri desteklemez, ancak etiketleri diğer veritabanlarını destekler.
+
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Kaynak türü | Etiketleri destekler |
@@ -1163,8 +1168,11 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| streamingjobs | Evet | 
+| streamingjobs | Evet (aşağıdaki nota bakın) | 
 | streamingjobs/diagnosticSettings | Hayır | 
+
+> [!NOTE]
+> Streamingjobs çalışırken bir etiket ekleyemezsiniz. Bir etiket eklemek için kaynak durdurun.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 | Kaynak türü | Etiketleri destekler |

@@ -1,8 +1,21 @@
 ---
-Başlık: Machine Learning Studio'da model titleSuffix yeniden eğitme: Azure Machine Learning Studio açıklaması: Modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için Web hizmetini güncelleştirmek hakkında bilgi edinin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
+title: Bir Machine Learning Studio modeli yeniden eğitme
+titleSuffix: Azure Machine Learning Studio
+description: Modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için Web hizmetini güncelleştirmek hakkında bilgi edinin.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509584"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Bir Azure Machine Learning Studio modeli yeniden eğitme
 Azure Machine Learning, machine learning modellerini, operasyonel hale getirme sürecinin bir parçası olarak, modelinizi eğitilmiş ve kaydedilir. Ardından, bir Tahmine dayalı Web hizmeti oluşturmak için kullanabilirsiniz. Web hizmeti web siteleri, panolar ve mobil uygulamalarda tüketilebilir. 

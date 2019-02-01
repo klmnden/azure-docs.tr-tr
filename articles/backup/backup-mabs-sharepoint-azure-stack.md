@@ -2,18 +2,18 @@
 title: Azure Stack üzerinde bir SharePoint grubunu yedekleme
 description: Azure Backup sunucusu yedekleme ve Azure Stack'te SharePoint verilerinizi geri yüklemek için kullanın. Bu makalede, Azure'da istenen veri depolanabilir böylece, bir SharePoint grubunu yapılandırmak için bilgi sağlar. Korumalı SharePoint verileri diskten ya da azure'dan geri yükleyebilirsiniz.
 services: backup
-author: pvrk
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
-ms.openlocfilehash: acb675d750eb54bdbdde8873f6994255a07eb229
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.author: adigan
+ms.openlocfilehash: 84b3808e56ad318165eeec973a622c2e8747c633
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605921"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488355"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Azure Stack üzerinde bir SharePoint grubunu yedekleme
 Bir SharePoint grubunu Azure Stack üzerinde Microsoft Azure'a çok diğer veri kaynaklarını yedekleme aynı şekilde, Microsoft Azure Backup sunucusu (MABS) kullanarak yedekleyebilirsiniz. Azure Backup, yedekleme zamanlaması günlük oluşturmak için esneklik sağlar, haftalık, aylık veya yıllık yedekleme işaret ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekleri sunar. Ayrıca, Hızlı Kurtarma süresi hedeflerini (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun süreli saklama için azure'a kopyaları depolamak için yeteneği sağlar.
@@ -222,11 +222,11 @@ Aşağıdaki örnekte, *SharePoint kurtarma öğesi* yanlışlıkla silinmişse 
 5. Bu noktada izleyin [kurtarma adımları bu makalenin önceki bölümlerinde](#restore-a-sharepoint-item-from-disk-using-dpm) diskten bir SharePoint içerik veritabanını kurtarmak için.
 
 ## <a name="faqs"></a>SSS
-Özgün konuma bir SharePoint öğesi, SharePoint, SQL AlwaysOn (disk koruması) kullanılarak yapılandırılmışsa, Kurtarma miyim?<br>
+S: SharePoint, SQL AlwaysOn (disk koruması) kullanılarak yapılandırılmışsa, bir SharePoint öğesi için özgün konuma kurtarma gerçekleştirebilir miyim?<br>
 C: Evet, öğe özgün SharePoint sitesine kurtarılabilir.
 
-Bir SharePoint veritabanını özgün konumuna, SharePoint, SQL Alwayson'u kullanarak yapılandırılmışsa kurtarma miyim?<br>
-Y: SharePoint veritabanlarını SQL AlwaysOn yapılandırıldığından, bunlar kullanılabilirlik grubu kaldırılmadığı sürece değiştirilemez. Sonuç olarak, MABS bir veritabanını özgün konumuna geri yükleyemezsiniz. Bir SQL Server veritabanını başka bir SQL Server örneğine kurtarabilirsiniz.
+S: SharePoint, SQL Alwayson'u kullanarak yapılandırılmışsa, bir SharePoint veritabanını özgün konumuna kurtarma gerçekleştirebilir miyim?<br>
+C: SharePoint veritabanlarını SQL AlwaysOn yapılandırıldığından, bunlar kullanılabilirlik grubu kaldırılmadığı sürece değiştirilemez. Sonuç olarak, MABS bir veritabanını özgün konumuna geri yükleyemezsiniz. Bir SQL Server veritabanını başka bir SQL Server örneğine kurtarabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

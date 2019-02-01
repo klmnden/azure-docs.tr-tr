@@ -1,6 +1,6 @@
 ---
-title: SAS belirteci ve PowerShell ile Azure şablonu dağıtma | Microsoft Docs
-description: SAS belirteci ile korunan bir şablondan kaynakları Azure'a dağıtmak için Azure Resource Manager ve Azure PowerShell kullanın.
+title: Azure şablonu SAS belirteci ve PowerShell ile dağıtma | Microsoft Docs
+description: SAS belirteci ile korumalı bir şablondan, kaynakları Azure'a dağıtmak için Azure Resource Manager ve Azure PowerShell kullanın.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,33 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: f138cceb88cb9a43efdd3f11b24203378a288286
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0935952011bf4cbcae9bf2e9ac218a9fc3be47ad
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602988"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497664"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>SAS belirteci ve Azure PowerShell ile özel Resource Manager şablonu dağıtma
 
-Şablonunuzu bir depolama hesabında bulunduğunda, şablona erişimi kısıtlayabilir ve dağıtım sırasında bir paylaşılan erişim imzası (SAS) belirteci sağlayın. Bu konu Azure PowerShell'i Resource Manager şablonları ile dağıtımı sırasında bir SAS belirteci sağlamak için nasıl kullanılacağını açıklar. 
+Şablonunuzu bir depolama hesabında bulunduğunda, şablona erişimini kısıtlamak ve dağıtım sırasında bir paylaşılan erişim imzası (SAS) belirteci sağlayın. Bu konu, Azure PowerShell Resource Manager şablonları ile dağıtım sırasında bir SAS belirteci sağlamak için nasıl kullanılacağını açıklar. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="add-private-template-to-storage-account"></a>Özel şablon için depolama hesabı ekleme
 
-Bir depolama hesabı ve bunları bir SAS belirteci ile dağıtım sırasında bağlantı şablonlarınızı ekleyebilirsiniz.
+Bir depolama hesabı ve bir SAS belirteci ile dağıtımı sırasında bunları bağlantısını şablonlarınızı ekleyebilirsiniz.
 
 > [!IMPORTANT]
-> Aşağıdaki adımları izleyerek, şablonu içeren blob yalnızca hesap sahibi erişilebilir. Blob için bir SAS belirteci oluşturduğunuzda, ancak blob bu URI ile bir kişiye erişilebilir. Başka bir kullanıcı URI kesişirse kullanıcı şablonu erişebilir. Bir SAS belirteci kullanarak şablonlarınızı erişimi sınırlayan, iyi bir yoludur ancak parolalar gibi hassas verileri doğrudan şablonunda içermemelidir.
+> Aşağıdaki adımları izleyerek şablonu içeren blob yalnızca hesap sahibi erişimine açıktır. Ancak, blob için SAS belirteci oluşturduğunuzda, blob bu URI'ye sahip herkes tarafından erişilebilir olur. URI başka bir kullanıcı durdurur, kullanıcının şablon erişebilir. Bir SAS belirteci kullanarak şablonlarınızı erişimi sınırlayan, iyi bir yoludur, ancak parola gibi hassas verileri doğrudan şablonda içermemelidir.
 > 
 > 
 
-Aşağıdaki örnek, bir özel depolama hesabı kapsayıcısının ayarlar ve bir şablon yükler:
+Aşağıdaki örnek, bir özel depolama hesabı kapsayıcısı ayarlamak ayarlar ve bir şablonu yükler:
    
 ```powershell
 # create a storage account for templates
-New-AzureRmResourceGroup -Name ManageGroup -Location "South Central US"
-New-AzureRmStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+New-AzResourceGroup -Name ManageGroup -Location "South Central US"
+New-AzStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # create a container and upload template
 New-AzureStorageContainer -Name templates -Permission Off
@@ -48,24 +50,24 @@ Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.js
 ```
 
 ## <a name="provide-sas-token-during-deployment"></a>Dağıtım sırasında SAS belirteci sağlayın
-Özel bir şablon bir depolama hesabında dağıtmak için bir SAS belirteci oluştur ve şablon için URI dahil edin. Dağıtım tamamlamak için yeterli zamana olanak sona erme saati ayarlayın.
+Bir depolama hesabındaki özel bir şablonu dağıtmak için bir SAS belirteci oluşturur ve URI şablonu için dahil edin. Dağıtımı tamamlamak için yeterli zamana izin vermek için sona erme tarihini ayarlayın.
    
 ```powershell
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # get the URI with the SAS token
 $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
   -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 # provide URI with SAS token during deployment
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
 ```
 
 Bir SAS belirteci ile bağlı şablonları kullanma örneği için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Şablon dağıtımı için giriş için bkz [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy.md).
-* Bir şablon dağıtan bir tam örnek betik için bkz: [dağıtmak Resource Manager şablonu komut dosyası](resource-manager-samples-powershell-deploy.md)
+* Şablon dağıtımı için bir giriş için bkz [kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](resource-group-template-deploy.md).
+* Bir şablon dağıtan bir tam örnek betik için bkz. [dağıtma Resource Manager şablon betiği](resource-manager-samples-powershell-deploy.md)
 * Şablonda parametreleri tanımlamak için bkz: [şablonları yazma](resource-group-authoring-templates.md#parameters).

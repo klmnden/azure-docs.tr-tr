@@ -3,7 +3,7 @@ title: Kritik iş katmanı - Azure SQL veritabanı hizmeti | Microsoft Docs
 description: Azure SQL veritabanı iş açısından kritik katmanı hakkında bilgi edinin
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: aecbc9415fc7fe93b5df355c97a1a51a74f01e97
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ca907e145067043b41dd6000248d44ecc1e3434f
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883537"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510451"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Kritik iş katmanı - Azure SQL veritabanı
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103902"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498259"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Aboneliklere erişmek için Kaynak Yöneticisi'ni kullanın kimlik doğrulama API'si
-## <a name="introduction"></a>Giriş
+
 Bir müşterinin Azure kaynaklarını yöneten bir uygulama oluşturmak için gereken bir yazılım geliştiricisi olarak, bu makalede, Azure Resource Manager API'leri ile kimlik doğrulaması ve diğer Aboneliklerdeki kaynaklara erişmek için işlemini göstermektedir.
 
 Uygulamanızı çeşitli şekillerde Resource Manager API'leri erişebilirsiniz:
@@ -32,7 +32,10 @@ Uygulamanızı çeşitli şekillerde Resource Manager API'leri erişebilirsiniz:
 
 Bu makalede, bu iki yetkilendirme yöntemi kullanan bir uygulama oluşturmak için adım adım yönergeler sağlar. Bu REST API veya C# ile her adımı gerçekleştirmek nasıl gösterir. Eksiksiz bir ASP.NET MVC uygulaması kullanılabilir [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="what-the-web-app-does"></a>Web uygulaması yapar
+
 Web uygulaması:
 
 1. Bir Azure kullanıcısı oturum açtığında.
@@ -74,7 +77,7 @@ Uygulamanız başka bir aboneliğe eriştiğinden, çok kiracılı bir uygulama 
 Aşağıdaki örnek, Azure PowerShell kullanarak uygulamayı kaydetmek gösterilmektedir. Bu komutun çalışması Azure PowerShell'in en son sürümünü (Ağustos 2016) olması gerekir.
 
 ```azurepowershell-interactive
-$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
 AD uygulaması oturum açmak için uygulama kimliği ve parolası gerekir. Önceki komuttan döndürülen uygulama kimliği görmek için bu seçeneği kullanın:
@@ -303,7 +306,7 @@ Yaygın olarak kullanılan yerleşik roller tanımlayıcıların şunlardır:
 
 | Rol | GUID |
 | --- | --- |
-| Okuyucu |acdd72a7-3385-48EF-bd42-f606fba81ae7 |
+| Okuyucu |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | Katılımcı |b24988ac-6180-42a0-ab88-20f7382dd24c |
 | Sanal Makine Katılımcısı |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Sanal ağ Katılımcısı |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
@@ -334,8 +337,8 @@ Uygulama için RBAC rolü atamak için bir örnek istek:
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |Abonelik kimliği |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |uygulama hizmet sorumlusu nesne kimliği |
-| acdd72a7-3385-48EF-bd42-f606fba81ae7 |Okuyucu rolü kimliği |
-| 4f87261d-2816-465D-8311-70a27558df4c |Yeni rol ataması için oluşturulan yeni bir GUID |
+| acdd72a7-3385-48ef-bd42-f606fba81ae7 |Okuyucu rolü kimliği |
+| 4f87261d-2816-465d-8311-70a27558df4c |Yeni rol ataması için oluşturulan yeni bir GUID |
 
 Yanıt aşağıdaki biçimdedir:
 

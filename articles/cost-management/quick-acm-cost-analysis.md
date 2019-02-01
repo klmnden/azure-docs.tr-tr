@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/07/2019
+ms.date: 01/31/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5f15a7d7a49724fda56cecd36e92cb40ced59b81
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077666"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510502"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Hızlı Başlangıç: Maliyet Analizi ile maliyetleri analiz
 
@@ -47,7 +47,7 @@ Maliyet analizi tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pric
 
 ## <a name="review-costs-in-cost-analysis"></a>Maliyet analizinde maliyetleri gözden geçirme
 
-Maliyet analiziyle maliyetlerinizi gözden geçirmek için Azure portalda **Maliyet Yönetimi + Fatura** &gt; **Maliyet Yönetimi** &gt; **Kapsam değiştir**’e gidip bir kapsam seçin ve ardından **Seç**’e tıklayın.
+Azure portalında, maliyet analizi ile maliyetlerinizi gözden geçirmek için gidin **maliyet Yönetimi + faturalandırma** &gt; **maliyet analizi**. Seçin **kapsamı: _ScopeName_** bir kapsam seçin ve ardından **seçin**.
 
 Veri birleştirmesi sağlamak ve maliyet bilgilerine erişimi denetlemek için seçtiğiniz kapsam Maliyet Yönetimi’nin tamamında kullanılır. Kapsamları kullandığınızda, birden çok kapsam seçemezsiniz. Bunun yerine, başkalarının kadar geri alma ve daha sonra filtre istediğinize aşağı daha büyük bir kapsam seçin. Bu, bazı kişiler, alt kapsamlar aktarma hedefi bir üst kapsama erişimi olmaması nedeniyle anlamak önemlidir.
 
@@ -94,7 +94,8 @@ Burada, geçen ayın görünümü için Azure hizmet maliyetlerinin bir görün�
 
 ![Örnek Azure hizmet maliyetlerini geçen aya ait gösteren gruplandırılmış günlük birikmiş görünümü](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Özet grafiklerin filtreleri ve seçilen zaman aralığı için genel maliyetleri, daha geniş bir resmini vermek için ana grafiğin Göster farklı gruplandırmaları altında. Bir özellik ya da herhangi bir boyuta göre toplanmış maliyetleri görüntülemek üzere etiketi seçin. Toplam görünüm için veri kümesini genişleterek ekranın altında olan **veri** çekmecesi veya seçerek **Dışarı Aktar > CSV indirme** ekranın üst kısmındaki. Kaynak grupları için veri çekmecesi örneği aşağıda verilmiştir.
+Özet grafiklerin filtreleri ve seçilen zaman aralığı için genel maliyetleri, daha geniş bir resmini vermek için ana grafiğin Göster farklı gruplandırmaları altında. Bir özellik ya da herhangi bir boyuta göre toplanmış maliyetleri görüntülemek üzere etiketi seçin.
+
 
 ![Kaynak grubu adları gösteren geçerli görünüm için tam veri](./media/quick-acm-cost-analysis/full-data-set.png)
 
@@ -103,6 +104,10 @@ Burada, geçen ayın görünümü için Azure hizmet maliyetlerinin bir görün�
 Maliyetler belirli bir özniteliğe göre gruplanırken maliyet açısından ilk on katkıda bulunan en yüksekten en düşüğe doğru gösterilir. Ondan fazla grubu olması halinde en çok dokuz maliyet katkıda bulunanları gösterilmektedir. Ayrıca gösterildiği gibidir bir **başkalarının** tüm geri kalan grupların birlikte kapsayan bir grup. Etiketlere göre gruplandırma olduğunda da görebilirsiniz bir **Untagged** uygulanan etiket anahtarı yoksa maliyetleri için Grup. **Etiketlenmemiş** etiketlenmemiş maliyetleri etiketli maliyetlerinden daha fazla olduğunda bile her zaman en son olur. On veya daha fazla etiket değeri varsa, etiketlenmemiş maliyetleri parçası olacak **başkalarının**.
 
 *Klasik* (Azure Hizmet Yönetimi veya ASM) sanal makineler, ağ ve depolama kaynaklarını ayrıntılı fatura veri paylaşım yok. Olarak birleştirilmiş **Klasik Hizmetleri** maliyetleri gruplandırırken.
+
+Herhangi bir görünüm için tam veri kümesini görüntüleyebilirsiniz. Seçtiğiniz seçimleri veya uyguladığınız filtreler sunulan verileri etkiler. Veri kümesini görmek için tıklayın **grafik türü** listeleyin ve ardından **tablo** görünümü.
+
+![Geçerli görünümde bir tablo için verileri görüntüleme](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
 
 ## <a name="download-cost-analysis-data"></a>Maliyet analizi verilerini indirme

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9695c3d40ee85cf1a46e078776c88ad2f61ed839
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d4aee884e91c52be48c8a44f185f188b0c93ab5
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465420"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511148"
 ---
 # <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir .NET Core ve SQL veritabanı uygulaması oluşturma
 
@@ -359,6 +359,35 @@ Bir kez `git push` tamamlandığında, Azure uygulamanıza gidin ve yeni işlevl
 ![Code First Migration'dan sonra Azure uygulaması](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 Mevcut yapılacak öğeleriniz görüntülenmeye devam eder. .NET Core uygulamanızı yeniden yayımladığınızda, SQL Veritabanı’nızdaki mevcut veriler kaybolmaz. Ayrıca, Entity Framework Code Migrations yalnızca veri şemasını değiştirir ve mevcut verilerinizde herhangi bir değişiklik yapmaz.
+
+## <a name="stream-diagnostic-logs"></a>Tanılama günlüklerini akışla aktarma
+
+Örnek Proje zaten yönergelerine izleyen [ASP.NET Core günlüğü azure'da](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) iki yapılandırma değişikliği:
+
+- Bir başvuru içeriyor `Microsoft.Extensions.Logging.AzureAppServices` içinde *DotNetCoreSqlDb.csproj*.
+- Çağrıları `loggerFactory.AddAzureWebAppDiagnostics()` içinde *Startup.cs*.
+
+> [!NOTE]
+> Projenin günlük düzeyini ayarlamak `Information` içinde *appsettings.json*.
+> 
+
+Linux üzerinde App Service'te uygulamaları varsayılan bir Docker görüntüsü kapsayıcının içinde çalıştırılır. Kapsayıcı içinde oluşturulan yönlendirilen konsol günlüklerini erişebilirsiniz. Günlükleri almak için önce çalıştırarak kapsayıcı günlük özelliğini açar [ `az webapp log config` ](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) Cloud shell'de komutu.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
+```
+
+Kapsayıcı günlüğe kaydetme etkinleştirildikten sonra günlük akışı çalıştırarak izleyin [ `az webapp log tail` ](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) Cloud shell'de komutu.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Günlük akışı başlatıldıktan sonra biraz web trafiği almak için tarayıcıda Azure uygulaması yenileyin. Artık konsol günlüklerinin terminale yöneltildiğini görebilirsiniz. Konsol günlüklerini hemen görmüyorsanız, 30 saniye içinde yeniden kontrol edin.
+
+Günlük akışını dilediğiniz zaman durdurmak için `Ctrl`+`C` yazın.
+
+ASP.NET Core günlükleri özelleştirme hakkında daha fazla bilgi için bkz. [ASP.NET Core günlüğü](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Azure uygulamanızı yönetme
 

@@ -1,5 +1,5 @@
 ---
-title: 'Klasik sanal ağlar Azure Resource Manager sanal ağlarına bağlama: Portal | Microsoft Docs'
+title: 'Klasik sanal ağlar, Azure Resource Manager sanal ağlarına bağlama: Portal | Microsoft Docs'
 description: Klasik sanal ağları Resource Manager VPN ağ geçidi ve portalını kullanarak sanal ağlara bağlanmak için adımları
 services: vpn-gateway
 author: cherylmc
@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405013"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508343"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Portalı kullanarak farklı dağıtım modellerindeki sanal ağları bağlama
 
@@ -46,12 +46,12 @@ Adres alanı 10.0.0.0/24 = <br>
 Alt ağ adı Subnet-1 = <br>
 Alt ağ adres aralığı 10.0.0.0/27 = <br>
 Abonelik kullanmak istediğiniz aboneliği = <br>
-Kaynak grubu ClassicRG = <br>
+Resource Group = ClassicRG <br>
 Konum Batı ABD = <br>
 GatewaySubnet 10.0.0.32/28 = <br>
 Yerel site RMVNetLocal = <br>
 
-**Resource Manager sanal ağı**
+**Resource Manager VNet**
 
 VNet adı RMVNet = <br>
 Adres alanı 192.168.0.0/16 = <br>
@@ -63,7 +63,7 @@ GatewaySubnet 192.168.0.0/26 = <br>
 Sanal ağ geçidi adı RMGateway = <br>
 Ağ geçidi türü VPN = <br>
 VPN türü = rota tabanlı <br>
-SKU VpnGw1 = <br>
+SKU = VpnGw1 <br>
 Konumu Doğu ABD = <br>
 Sanal ağ RMVNet = <br> (Bu sanal ağ VPN ağ geçidine ilişkilendirmek) İlk IP yapılandırması rmgwpip = <br> (ağ geçidi genel IP adresi) Yerel ağ geçidi ClassicVNetLocal = <br>
 Bağlantı adı RMtoClassic =
@@ -162,7 +162,7 @@ Bir sanal ağ geçidi oluşturmadan önce ilk olarak ağ geçidi alt ağını ol
 * Sanal ağ geçidi adı RMGateway = <br>
 * Ağ geçidi türü VPN = <br>
 * VPN türü = rota tabanlı <br>
-* SKU VpnGw1 = <br>
+* SKU = VpnGw1 <br>
 * Konumu Doğu ABD = <br>
 * Sanal ağ RMVNet = <br>
 * İlk IP yapılandırması rmgwpip = <br>
@@ -171,7 +171,7 @@ Bir sanal ağ geçidi oluşturmadan önce ilk olarak ağ geçidi alt ağını ol
 
 ### <a name="createlng"></a>4. Yerel ağ geçidi oluşturma
 
-**Örnek değerler:** yerel ağ geçidi ClassicVNetLocal =
+**Örnek değerler:** Yerel ağ geçidi ClassicVNetLocal =
 
 | Sanal Ağ | Adres Alanı | Bölge | Yerel ağ alanına bağlanır. |Ağ geçidi genel IP adresi|
 |:--- |:--- |:--- |:--- |:--- |
@@ -261,7 +261,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Ağ yapılandırma dosyası değerlerini görüntüleme
 
-Azure portalında sanal ağ oluşturduğunuzda, Azure kullanan tam adı Azure Portalı'nda görünür değil. Örneğin, Azure portalında 'ClassicVNet' adlandırılacak şekilde görünen bir VNet ağ yapılandırma dosyasında bir çok uzun bir ad olabilir. Ad şuna benzer: 'Grup ClassicRG ClassicVNet'. Bu adımda, ağ yapılandırma dosyasını indirin ve değerleri görüntüleyin.
+Azure portalında sanal ağ oluşturduğunuzda, Azure kullanan tam adı Azure Portalı'nda görünür değil. Örneğin, Azure portalında 'ClassicVNet' adlandırılacak şekilde görünen bir VNet ağ yapılandırma dosyasında bir çok uzun bir ad olabilir. Ad şunun gibi görünür: 'Grup ClassicRG ClassicVNet'. Bu adımda, ağ yapılandırma dosyasını indirin ve değerleri görüntüleyin.
 
 Bilgisayarınızda bir dizin oluşturun ve sonra ağ yapılandırma dosyasını dizine aktarın. Bu örnekte, ağ yapılandırma dosyası C:\AzureNet dizinine aktarılır.
 

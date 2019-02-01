@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0befcdd1a0708358d2ba034c7ec61a626a543be8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fe128e37103fc913b97f8ac8b9f0395ad74c4198
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183756"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496986"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect ve Azure AD Connect Health yükleme yol haritası
 
@@ -55,7 +55,7 @@ Azure AD Connect'i [Microsoft İndirme Merkezi](https://go.microsoft.com/fwlink/
 |Desteklenen topolojiler | [Azure AD Connect için topolojiler](plan-connect-topologies.md)|
 |Tasarım kavramları | [Azure AD Connect tasarım kavramları](plan-connect-design-concepts.md)|
 |Yükleme için kullanılan hesaplar | [Azure AD Connect kimlik bilgileri ve izinleri hakkında daha fazla bilgi](reference-connect-accounts-permissions.md)|
-|İşletimsel planlama | [Azure AD Connect eşitleme: İşletimsel görevler ve önemli noktalar](how-to-connect-sync-operations.md)|
+|İşletimsel planlama | [Azure AD Connect eşitlemesi: İşletimsel görevler ve önemli noktalar](how-to-connect-sync-operations.md)|
 |Kullanıcı oturumu açma seçenekleri | [Azure AD Connect kullanıcı oturumu açma seçenekleri](plan-connect-user-signin.md)|
 
 ## <a name="configure-sync-features"></a>Eşitleme özelliklerini yapılandırma
@@ -76,12 +76,12 @@ Azure AD Connect, isteğe bağlı olarak açabileceğiniz veya varsayılan olara
 ### <a name="next-steps-to-configure-sync-features"></a>Eşitleme özelliklerini yapılandırmak için sonraki adımlar
 |Konu |Bağlantı|  
 | --- | --- |
-|Filtrelemeyi yapılandırma | [Azure AD Connect eşitleme: Filtrelemeyi Yapılandırma](how-to-connect-sync-configure-filtering.md)|
+|Filtrelemeyi yapılandırma | [Azure AD Connect eşitlemesi: Filtrelemeyi Yapılandırma](how-to-connect-sync-configure-filtering.md)|
 |Parola karması eşitleme | [Parola karması eşitleme](how-to-connect-password-hash-synchronization.md)|
 |Doğrudan Kimlik Doğrulama | [Doğrudan kimlik doğrulama](how-to-connect-pta.md)
 |Parola geri yazma | [Parola yönetimine başlarken](../authentication/quickstart-sspr.md)|
 |Cihaz geri yazma | [Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](how-to-connect-device-writeback.md)|
-|Yanlışlıkla silmeleri engelleme | [Azure AD Connect eşitleme: Yanlışlıkla silmeleri engelleme](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
+|Yanlışlıkla silmeleri engelleme | [Azure AD Connect eşitlemesi: Yanlışlıkla silmeleri engelleme](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |Otomatik yükseltme | [Azure AD Connect: Otomatik yükseltme](how-to-connect-install-automatic-upgrade.md)|
 
 ## <a name="customize-azure-ad-connect-sync"></a>Azure AD Connect Eşitleme'yi özelleştirme
@@ -97,9 +97,9 @@ Eşitlemedeki yapılandırma modeli, [bildirim temelli hazırlama](concept-azure
 |Konu |Bağlantı|  
 | --- | --- |
 |Tüm Azure AD Connect Eşitleme makaleleri | [Azure AD Connect eşitleme](how-to-connect-sync-whatis.md)|
-|Teknik kavramlar | [Azure AD Connect eşitleme: Teknik kavramlar](how-to-connect-sync-technical-concepts.md)|
-|Varsayılan yapılandırmayı anlama | [Azure AD Connect eşitleme: Varsayılan yapılandırmayı anlama](concept-azure-ad-connect-sync-default-configuration.md)|
-|Kullanıcıları ve kişileri anlama | [Azure AD Connect eşitleme: Kullanıcıları ve kişileri anlama](concept-azure-ad-connect-sync-user-and-contacts.md)|
+|Teknik kavramlar | [Azure AD Connect eşitlemesi: Teknik kavramlar](how-to-connect-sync-technical-concepts.md)|
+|Varsayılan yapılandırmayı anlama | [Azure AD Connect eşitlemesi: Varsayılan yapılandırmayı anlama](concept-azure-ad-connect-sync-default-configuration.md)|
+|Kullanıcıları ve kişileri anlama | [Azure AD Connect eşitlemesi: Kullanıcıları ve kişileri anlama](concept-azure-ad-connect-sync-user-and-contacts.md)|
 |Bildirim temelli hazırlama | [Azure AD Connect eşitleme: Bildirim temelli sağlama ifadelerini anlama](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
 |Varsayılan yapılandırmayı değiştirme | [Varsayılan yapılandırmanın değiştirilmesine ilişkin önerilen yöntemler](how-to-connect-sync-best-practices-changing-default-configuration.md)|
 

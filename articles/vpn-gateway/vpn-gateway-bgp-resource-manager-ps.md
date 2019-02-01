@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN ağ geçitleri üzerinde BGP yapılandırma: Resource Manager: PowerShell | Microsoft Docs'
+title: 'Azure VPN ağ geçitlerinde BGP yapılandırın: Kaynak Yöneticisi: PowerShell | Microsoft Docs'
 description: Bu makalede Azure Resource Manager ve PowerShell kullanarak Azure VPN Gateways ile BGP nasıl yapılandıracağınız açıklanmaktadır.
 services: vpn-gateway
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632594"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508411"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>PowerShell kullanarak Azure VPN Gateways üzerinde BGP yapılandırma
 Bu makalede şirket içi siteden siteye (S2S) VPN bağlantısı ve Resource Manager dağıtım modeli ve PowerShell kullanarak VNet-VNet bağlantısı BGP'yi etkinleştirmek için adımlarında size kılavuzluk eder.
@@ -174,7 +174,7 @@ Devam etmeden önce 1. Abonelik’e hala bağlı olduğunuzdan emin olun.
 
 #### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Site5 için yerel ağ geçidi oluşturma
 
-Yerel ağ geçidi oluşturmadan önce oluşturulduktan değil, kaynak grubu oluşturmak emin olun. Yerel ağ geçidi için iki ek parametreler dikkat edin: Asn ve BgpPeerAddress.
+Yerel ağ geçidi oluşturmadan önce oluşturulduktan değil, kaynak grubu oluşturmak emin olun. Yerel ağ geçidi için iki ek parametreler dikkat edin: ASN ve BgpPeerAddress.
 
 ```powershell
 New-AzureRmResourceGroup -Name $RG5 -Location $Location5

@@ -6,25 +6,25 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/24/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63dc7148904089a31ff95764898a8dac72c37049
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421345"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507344"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Değişiklik izleme ve stok sorunlarını giderme
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Senaryo: Azure portalında değişim izleme kayıtlarının gösteren değil
+### <a name="records-not-showing-windows"></a>Senaryo: Windows makineleri için değişim izleme kayıtlarının gösteren değil
 
 #### <a name="issue"></a>Sorun
 
-Herhangi bir envanter veya değişiklik izleme sonuç eklenen değişiklik izleme için olan makineler için görmüyorum.
+Herhangi bir envanter veya değişiklik izleme sonuç eklenen değişiklik izleme için Windows makineleri için görmüyorum.
 
 #### <a name="cause"></a>Nedeni
 
@@ -38,12 +38,13 @@ Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 #### <a name="resolution"></a>Çözüm
 
 1. Doğrulama **Microsoft Monitoring Agent** (HealthService.exe), makinede çalışıyor.
-2. Ziyaret [ağ planlaması](../automation-hybrid-runbook-worker.md#network-planning) hakkında adresler ve bağlantı noktaları çalışması değişiklik izleme için izin verilmesi gereken öğrenin.
-3. Aşağıdaki değişiklik izleme ve stok yönetim paketlerinin yerel olarak mevcut olduğunu doğrulayın:
+1. Denetleme **Olay Görüntüleyicisi'ni** Word'ün meydana gelen olayları arayın ve makine `changetracking` bunlara.
+1. Ziyaret [ağ planlaması](../automation-hybrid-runbook-worker.md#network-planning) hakkında adresler ve bağlantı noktaları çalışması değişiklik izleme için izin verilmesi gereken öğrenin.
+1. Aşağıdaki değişiklik izleme ve stok yönetim paketlerinin yerel olarak mevcut olduğunu doğrulayın:
     * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
     * Microsoft.IntelligencePacks.InventoryChangeTracking.*
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
-4. Klonlanmış bir görüntü sysprep görüntüsü kullanarak ve olaydan sonra Microsoft Monitoring Agent aracıyı yükleyin.
+1. Klonlanmış bir görüntü sysprep görüntüsü kullanarak ve olaydan sonra Microsoft Monitoring Agent aracıyı yükleyin.
 
 Desteğe başvurun ve bu çözümleri sorununuzu yoksa, aracıda tanılama toplamak için aşağıdaki komutları çalıştırabilirsiniz.
 

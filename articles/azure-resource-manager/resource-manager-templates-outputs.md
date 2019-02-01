@@ -13,15 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9a46d813f2e50831240303ba47380da39e2cb6af
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 29181b19498b6735651869b6499c4a1cda5a4c3a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725822"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488863"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarında çıkış bölümü
+
 Çıkış bölümünde dağıtımdan döndürülen değerlerini belirtin. Örneğin, dağıtılmış bir kaynağa erişmek için URI döndürebilir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="define-and-use-output-values"></a>Tanımlama ve çıkış değerlerini kullanma
 
@@ -39,7 +42,7 @@ Aşağıdaki örnek, kaynak kimliği için bir genel IP adresi döndürülecek g
 Dağıtımdan sonra değeri betiğiyle alabilirsiniz. PowerShell için şunu kullanın:
 
 ```powershell
-(Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
 ```
 
 Azure CLI için şunu kullanın:

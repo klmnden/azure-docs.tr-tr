@@ -1,6 +1,6 @@
 ---
-title: Azure AD'de cihazların yaşam döngüsünü yönetme | Microsoft Docs
-description: Cihaz yönetiminin ortamınızdaki kaynaklara erişim sağlayan cihazlar üzerinde denetim sahibi olmanıza nasıl yardımcı olabileceğini öğrenin.
+title: Azure AD'de eski cihazları yönetme | Microsoft Docs
+description: Kaybolan, çalınan, bozuk cihazlar veya işletim sistemi durumlardı nedeniyle eski cihazları ortamınızda genellikle sahip olursunuz. Eski cihazları veritabanınızdan Azure Active Directory'de (Azure AD) kayıtlı cihazların kaldırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 20bfa4cf02c86922836a70f8885f910814eafb22
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092191"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493329"
 ---
-# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Nasıl Yapılır: Azure AD'de eski cihazları yönetme
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Nasıl Yapılır: Azure AD'de eski cihazları yönetme
 
 İdeal koşullarda, kayıtlı cihazların yaşam döngüsünün tamamlanması için, bu cihazlara artık gerek kalmadığında kayıtlarının silinmesi gerekir. Bununla birlikte, örneğin kayıp, çalınmış, bozulmuş cihazlardan veya işletim sistemi yeniden yüklemelerinden dolayı ortamınızda eski cihazlar bulunur. BT yöneticisi olarak, büyük olasılıkla eski cihazları kaldırmak için bir yönteminiz olmasını istersiniz; böylelikle kaynaklarınızın gerçekten yönetilmesi gereken cihazların yönetimine odaklanmasını sağlayabilirsiniz.
 

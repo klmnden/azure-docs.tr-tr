@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a2b38e5d627341b3684ee55d13ee06881fbae55
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2f850c25250c59a5fd62964d53b6b9d37ff4cf49
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728372"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491408"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, kaynaklar bölümü
 
 Kaynaklar bölümünde, dağıtılan veya güncelleştirilen kaynakları tanımlayın. Bu bölümde, doğru değerleri sağlamak üzere dağıtıyorsanız türlerini anlamanız gerekir çünkü karmaşık alabilirsiniz.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="available-properties"></a>Kullanılabilir özellikler
 
@@ -189,7 +191,7 @@ Adı, ancak adlarını isteyebileceğiniz bazı kaynak türleri, benzersiz olmas
 Aşağıdaki örnek PowerShell konumlarını almak için kullanır. `Microsoft.Web\sites` kaynak türü:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 Aşağıdaki örnek, konumlarını almak için Azure CLI'yı kullanır. `Microsoft.Web\sites` kaynak türü:

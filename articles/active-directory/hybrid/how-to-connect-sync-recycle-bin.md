@@ -12,16 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/17/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: be6c5ccea6bf923b408319baf4bc1743978169c7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8580d1c938908d5dd5c962d42d4edb2673ae4f5f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203819"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494383"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect eşitleme: AD geri dönüşüm kutusunu etkinleştirme
 Şirket içi Active, Azure AD'ye eşitlenen dizinlerinize için AD Geri Dönüşüm Kutusu özelliği etkinleştirmeniz önerilir. 
@@ -43,6 +43,6 @@ Bu özellik, Azure AD kullanıcı nesnelerinin aşağıdakileri yaparak geri yü
 ## <a name="next-steps"></a>Sonraki adımlar
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)

@@ -1,8 +1,21 @@
 ---
-Başlık: Örnek veri kümeleri titleSuffix kullanın: Azure Machine Learning Studio açıklaması: Machine Learning Studio'da bulunan örnek modellerde kullanılan veri kümelerine açıklamaları. Bu örnek veri kümeleri için denemelerinizi kullanabilirsiniz.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 01/19/2018
+title: Örnek veri kümelerini kullanma
+titleSuffix: Azure Machine Learning Studio
+description: Machine Learning Studio'da bulunan örnek modellerde kullanılan veri kümelerine açıklamaları. Bu örnek veri kümeleri için denemelerinizi kullanabilirsiniz.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/19/2018
+ms.openlocfilehash: de809ef1455e4c8c4c2284c2139e962f1829770b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510179"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets

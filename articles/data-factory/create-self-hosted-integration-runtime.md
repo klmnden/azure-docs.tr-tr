@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331818"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493601"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -141,6 +141,9 @@ Kullanılabilir bellek ve CPU iyi kullanılmaz, ancak / eşzamanlı iş yürütm
 - Konu alternatif adı (SAN) sertifikaları yalnızca son SAN öğeyi kullanılacak ve diğer tüm geçerli sınırlamalar nedeniyle yoksayılacak çünkü önerilmemektedir. Örneğin, bir SAN sertifika ayarlanmış SAN'lar vardır **node1.domain.contoso.com** ve **node2.domain.contoso.com**, bu sertifika yalnızca FQDN değeri olan bir makinede kullanabilirsiniz  **node2.domain.contoso.com**.
 - Sertifikayı SSL sertifikaları için Windows Server 2012 R2 tarafından desteklenen herhangi bir anahtar boyutu destekler.
 - CNG anahtarları kullanan sertifikaları desteklenmez.  
+
+> [!NOTE]
+> Bu sertifika, bağlantı noktaları için kullanılan şirket içinde barındırılan IR düğümde şifrelemek için kullanılan **düğümden düğüme iletişim** (için durum eşitleme) ve while **cmdlet'i için bağlı hizmet kimlik bilgisi PowerShell kullanarak ayarı**gelen yerel ağ içinde. Özel ağ ortamınızı güvenli değilse veya kendi özel ağınızı de içindeki düğümler arasında iletişimi güvenli hale getirmek istiyorsanız, bu sertifika kullanmanızı öneririz. Veri taşıma diğer veri depoları şirket içinde barındırılan IR gelen geçiş her zaman şifreli bir kanal, bu sertifika ayarlanıp bağımsız olarak kullanarak gerçekleşir. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Şirket içinde barındırılan tümleştirme çalışma zamanının birden çok veri fabrikaları ile paylaşma
 

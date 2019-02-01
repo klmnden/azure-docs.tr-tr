@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7951044f850d93659ca458d3bcc46376e7e6b34a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2720d239c31a0cbfab215c7e297627c9f0d8c781
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077370"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510247"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -171,6 +171,8 @@ Bir CSV dosyası olarak bir yönetici ardından Azure portalında oturum açın 
 CSV dosyasının boyutuna bağlı olarak, bu işlem birkaç dakika sürebilir. Tıklayın **Yenile** geçerli durumunu almak için düğme. Dosyayı herhangi bir hata varsa, hataları çözmek size listeleyen bir CSV dosyasını indirmek için seçeneğine sahip olursunuz.
 
 Hataları giderdikten sonra yönetici ardından her anahtar tıklayarak etkinleştirebilirsiniz **etkinleştirme** etkinleştirilmesi için belirteç ve girmek için OTP belirtecinde güncel olarak görüntülenen.
+
+Kullanıcılar, en fazla 5 OATH donanım belirteçleri veya kimlik doğrulayıcı uygulamalar herhangi bir zamanda kullanılmak üzere yapılandırılmış Microsoft Authenticator uygulaması gibi bir birleşimi olabilir.
 
 ## <a name="mobile-phone"></a>Cep telefonu
 

@@ -2,18 +2,18 @@
 title: Azure Backup - DPM iş yüklerini yedeklemek için PowerShell kullanma
 description: Data Protection Manager (PowerShell kullanarak DPM için) Azure Backup'ı yönetme ve dağıtma hakkında bilgi edinin
 services: backup
-author: NKolli1
-manager: shreeshd
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: d8241385cde61647222f85c29f45bdaabd621610
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ef9d61e880d3252eae2d8ef924ff39a5d2f6acf
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242934"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497919"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell kullanarak Data Protection Manager (DPM) sunucuları için Azure’a yedekleme dağıtma ve yönetme
 Bu makalede, bir DPM sunucusundaki Azure Backup kurulumu için PowerShell kullanın ve yedekleme ve kurtarma yönetmek için nasıl gösterir.
@@ -318,7 +318,7 @@ Bir veri kaynağı bir yedekleme ilk kez, DPM ihtiyaçları için ilk çoğaltma
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>DPM çoğaltma ve kurtarma noktası birimi boyutunu değiştirme
-DPM çoğaltma biriminde ve gölge kopya birimi kullanılarak boyutunu da değiştirebilirsiniz [kümesi DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) aşağıdaki örnekte olduğu gibi cmdlet: Get-DatasourceDiskAllocation - Datasource $DS Set-DatasourceDiskAllocation - Veri kaynağı $DS - Protectiongroup'u $MPG-el ile - ReplicaArea (2 gb) - ShadowCopyArea (2 gb)
+DPM çoğaltma biriminde ve gölge kopya birimi kullanılarak boyutunu da değiştirebilirsiniz [kümesi DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) aşağıdaki örnekte olduğu gibi cmdlet: Get-DatasourceDiskAllocation - Datasource $DS Set-DatasourceDiskAllocation - Datasource $DS - Protectiongroup'u $MPG-el ile - ReplicaArea (2 gb) - ShadowCopyArea (2 gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Koruma grubuna değişiklikler işleniyor
 Son olarak, değişiklikleri DPM yeni koruma grubu yapılandırması başına yedekleme yapmadan önce kaydedilmiş olması gerekir. Bunu kullanarak gerçekleştirilebilir [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) cmdlet'i.

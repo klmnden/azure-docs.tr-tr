@@ -1,8 +1,21 @@
 ---
-Başlık: Azure Batch hizmeti için Machine Learning Studio işleri titleSuffix: Azure Machine Learning Studio açıklaması: Machine Learning işler için Azure Batch hizmetlerine genel bakış. Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: seodec18, önceki başlık =' ayrılmış kapasitesini toplu yürütme hizmeti işlerin - Azure Machine Learning Studio | Microsoft Docs' ms.date: 04/19/2017
+title: Machine Learning Studio işleri için Azure Batch hizmeti
+titleSuffix: Azure Machine Learning Studio
+description: Machine Learning işler için Azure Batch hizmetlerine genel bakış. Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.date: 04/19/2017
+ms.openlocfilehash: 923ce9b5840ec8d99234b9a3b869005ff59848e3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494627"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Machine Learning Studio işleri için Azure Batch hizmeti
 

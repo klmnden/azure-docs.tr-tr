@@ -4,16 +4,16 @@ description: Bu makalede Azure dosya paylaşımlarınızı yedekleme ve geri yü
 services: backup
 author: rayne-wiselman
 ms.author: raynew
-ms.date: 3/23/2018
+ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 4343e8f1c456d35ccee169f3d7d62f152d8274d8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ac9a748742bda6b1e7a321a427090662542f1032
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465352"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486920"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure dosya paylaşımlarını yedekleme
 Bu makalede, Azure portalını kullanarak [Azure dosya paylaşımlarını](../storage/files/storage-files-introduction.md) yedekleme ve geri yükleme işlemlerinin nasıl yapılacağı açıklanmaktadır.

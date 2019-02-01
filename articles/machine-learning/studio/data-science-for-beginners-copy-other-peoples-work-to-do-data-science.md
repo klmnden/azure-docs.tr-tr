@@ -1,8 +1,21 @@
 ---
-Başlık: Başkalarının veri bilimi örnekler titleSuffix kopyalayın: Azure Machine Learning Studio açıklaması: ' Ticari sır veri bilimi: Diğer iş sizin için gerçekleştirmesini istemeniz alın. Machine learning örnekleri Azure yapay ZEKA galerideki alın.'
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 01/05/2018
+title: Başkalarının veri bilimi örneği kopyalayın
+titleSuffix: Azure Machine Learning Studio
+description: 'Veri bilimi, ticari sır: Diğer iş sizin için gerçekleştirmesini istemeniz alın. Machine learning örnekleri, Azure yapay ZEKA Galeriden alın.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 01/05/2018
+ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493006"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Seri yeni başlayanlar için veri bilimi

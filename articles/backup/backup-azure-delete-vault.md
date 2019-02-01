@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/6/2018
+ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d7617ce96181a0708dfa4731c07d581e332bdff4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873113"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492292"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 
-Bu makalede, tüm öğeleri bir kurtarma Hizmetleri kasasından kaldırın ve ardından silin açıklanmaktadır. Bir sunucuya kaydedilir ve yedekleme verilerini tutar bir kurtarma Hizmetleri kasası silinemiyor. Bir kasayı silmeyi deneyin ancak kullanamazsanız, yedekleme verilerini almak için kasa yine de yapılandırılır.
+Bu makalede, tüm öğeleri bir kurtarma Hizmetleri kasasından kaldırın ve ardından silin açıklar. Bir sunucuya kaydedilir ve yedekleme verilerini tutar bir kurtarma Hizmetleri kasası silinemiyor. Bir kasayı silmeyi deneyin ancak kullanamazsanız, yedekleme verilerini almak için kasa yine de yapılandırılır.
 
 Bölümüne bakın, bir kasayı silme hakkında bilgi edinmek için [Azure portalından bir kasayı silme](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Kurtarma Hizmetleri Kasası'nda hiçbir veriyi saklamak ve kasayı silmek isteyip istemediğiniz, bölümüne bakın. [zorla tarafından kasayı silin](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Kasada nedir emin değilseniz ve kasayı silebilirsiniz emin olmanız gerekir, bölümüne bakın. [Kaldır kasa bağımlılıkları ve delete kasası](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 

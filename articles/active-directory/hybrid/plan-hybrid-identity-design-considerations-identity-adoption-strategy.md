@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d58f789461b761431bd86dce60b2cd059ca8df53
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1c4ee3cb4ed8c710f1d1e7a429c9e1de40b1890b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164341"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491511"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Karma kimlik benimseme stratejinizi tanımlayın
 Bu görevde, karma kimlik çözümü içinde bahsedilen iş gereksinimlerini karşılamak için karma kimlik benimseme stratejinizi tanımlayın:

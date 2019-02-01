@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f03fc201c1bce3187fdbd25c1de3567170478d30
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167096"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488462"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect eşitleme: Office 365 kaynaklar için tercih edilen veri konumu yapılandırın
 Bu konunun amacı, öznitelik tercih edilen veri konumu için Azure Active Directory (Azure AD) Connect eşitleme yapılandırma konusunda rehberlik sağlamaktır. Birisi çoklu coğrafi özellikleri Office 365'te kullandığında, kullanıcının Office 365 verilerine coğrafi konumunu belirlemek için bu öznitelik kullanın. (Koşulları *bölge* ve *coğrafi* birbirinin yerine kullanılır.)
@@ -261,5 +261,5 @@ Eşitleme altyapısı yapılandırma modeli hakkında daha fazla bilgi edinin:
 
 Genel bakış konuları:
 
-* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitlemesi: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)

@@ -1,30 +1,29 @@
 ---
-title: Azure Active Directory'de grupları yönetme için PowerShell örnekleri | Microsoft Docs
+title: Grupları - Azure Active Directory yönetmek için PowerShell örnekleri | Microsoft Docs
 description: Bu sayfa, Azure Active Directory'de grupları yönetmenize yardımcı olmak için PowerShell örnekleri sağlar.
 keywords: Azure AD, Azure Active Directory PowerShell, grupları, Grup Yönetimi
 services: active-directory
-documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9cb496ad1ad679fd3a4e6f55f15f658f084e308a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 99facedec04eeb2f1626d502b89f3e8c60d07424
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176344"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512049"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Grup Yönetimi için Azure Active Directory sürüm 2 cmdlet'leri
+
 > [!div class="op_single_selector"]
-> * [Azure portal](../fundamentals/active-directory-groups-create-azure-portal.md)
+> * [Azure portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 > * [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
@@ -267,5 +266,5 @@ Bir grup, uç noktaları mailNickname veya e-posta adresi grubunun bir parçası
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla Azure Active Directory PowerShell belgeleri bulabilirsiniz [Azure Active Directory cmdlet'leri](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-* [Azure Active Directory grupları ile kaynaklara erişimi yönetme](../fundamentals/active-directory-manage-groups.md)
-* [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../hybrid/whatis-hybrid-identity.md)
+* [Azure Active Directory grupları ile kaynaklara erişimi yönetme](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

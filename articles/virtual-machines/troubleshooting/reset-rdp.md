@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 99b915f14aaa7d306d1bceb5bd4f6bb23abdb929
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 77eb372bbe3647e03919aae21087d3270c22148a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245384"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506567"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Uzak Masaüstü Hizmetleri veya bir Windows VM'de yönetici parolasını sıfırlama
-Bir Windows sanal makinesi (VM) bağlanamıyorsanız, yerel Yönetici parolanızı sıfırlayın ya da (Windows etki alanı denetleyicilerinde desteklenmez) Uzak Masaüstü Hizmetleri yapılandırmasını sıfırlayın. Parola sıfırlama için Azure PowerShell'de Azure portal'ı veya VM erişimi uzantısı kullanın. VM'ye açtıktan sonra yerel yönetici için parolayı sıfırlayın.  
-PowerShell kullanıyorsanız, bilgisayarınızda yüklü olduğundan emin olun [en son PowerShell modülünün yüklü ve yapılandırılmış](/powershell/azure/overview) ve Azure aboneliğinizde oturum açtınız. Ayrıca [Klasik dağıtım modeliyle oluşturulan sanal makineler için bu adımları uygulamadan](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
+Bir Windows sanal makinesi (VM) bağlanamıyorsanız, yerel Yönetici parolanızı sıfırlayın ya da (Windows etki alanı denetleyicilerinde desteklenmez) Uzak Masaüstü Hizmetleri yapılandırmasını sıfırlayın. Parolayı sıfırlamak için Azure portalı veya Azure PowerShell'deki VM Erişimi uzantısını kullanın. VM'de oturum açtıktan sonra yerel yönetici parolasını sıfırlayın.  
+PowerShell kullanıyorsanız, bilgisayarınızda yüklü olduğundan emin olun [en son PowerShell modülünün yüklü ve yapılandırılmış](/powershell/azure/overview) ve Azure aboneliğinizde oturum açtınız. Ayrıca [klasik dağıtım modeliyle oluşturulmuş olan VM'lerde bu adımları da gerçekleştirebilirsiniz](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
 
 Uzak Masaüstü Hizmetleri ve kimlik bilgileri aşağıdaki yollarla sıfırlayabilir:
 
@@ -79,7 +79,7 @@ Uzak Masaüstü Hizmetleri ve kimlik bilgileri aşağıdaki yollarla sıfırlaya
 1. İle sanal makinenize uzaktan erişimi sıfırlama [kümesi AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet'i. Aşağıdaki örnekte adlı erişim uzantısı sıfırlar `myVMAccess` adlı VM'de `myVM` içinde `myResourceGroup` kaynak grubu:
 
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
+    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
     ```
 
     > [!TIP]

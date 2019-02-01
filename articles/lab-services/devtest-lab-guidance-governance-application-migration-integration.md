@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4bab3413b3e3cfcf1972b6cf721120d95851f7cd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978624"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498208"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs altyapı - uygulama geçiş ve tümleştirme İdaresi
 Geliştirme/test Laboratuvar ortamınız oluşturulduktan sonra aşağıdaki sorular hakkında düşünmek gerekir:
@@ -58,14 +58,14 @@ Ancak, ek bir faktörü unutmayın yazılım değişiklikleri sıklığıdır. �
 DevTest Labs ortamına özel kuruluş görüntülerim getirmek için bir kolayca yinelenebilir işlemini nasıl ayarlayabilirim?
 
 ### <a name="answer"></a>Yanıt
-Bkz: [Immage Fabrika deseni bu videoyu](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Bu senaryo Gelişmiş bir senaryodur ve sağlanan örnek betikler yalnızca betiklerdir. Herhangi bir değişikliğe ihtiyaç olup, yönetmek ve ortamınızda kullanılan komut dosyaları korumak gerekir.
+Bkz: [bu video görüntü Fabrika desenini](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Bu senaryo Gelişmiş bir senaryodur ve sağlanan örnek betikler yalnızca betiklerdir. Herhangi bir değişikliğe ihtiyaç olup, yönetmek ve ortamınızda kullanılan komut dosyaları korumak gerekir.
 
 Azure işlem hatlarında özel resim bir işlem hattı oluşturmak için DevTest Labs'i kullanarak:
 
-- [Giriş: Sanal makineleri dakikalar içinde Azure DevTest labs'deki bir görüntü fabrikası ayarlayarak hazırlanın](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
+- [Giriş: Azure DevTest labs'deki bir görüntü fabrikası ayarlayarak sanal makineye dakikalar içinde hazır olun](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
 - [Fabrika – bölüm 2 görüntü! Sanal makineler oluşturmak için Azure işlem hatları ve Fabrika Laboratuvar Kurulumu](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
-- [Görüntü Factory – bölüm 3: Kaydet özel görüntüler ve birden çok Labs kullanarak dağıtma](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
-- [Video: Azure DevTest Labs ile özel görüntü Factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
+- [Görüntü Factory – bölüm 3: Özel görüntüleri kaydetmek ve dağıtmak için birden çok Laboratuvarları](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
+- [Video: Azure DevTest Labs ile özel görüntü üretici](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>Ağ Yapılandırması'kurmak için desenler
 
@@ -103,7 +103,7 @@ Aksi takdirde, DevTest Labs her ortamın kendi sanal ağı olabilir. Ancak, bulu
 Bir siteden siteye VPN veya Express Route kullandığınız makinelerinizi genel internet üzerinden erişilebilir, iç ağ aracılığıyla ve erişilemez olacak şekilde özel IP'ler kullanmayı düşünün.
 
 > [!NOTE]
-> Laboratuvar sahibi yanlışlıkla hiç kimse, VM'ler için genel IP adresleri oluşturduğundan emin olmak için bu alt ağ ilkesi değiştirebilirsiniz. Abonelik sahibi, genel IP'ler oluşturulmasını önleyen bir abonelik İlkesi oluşturmanız gerekir.
+> Laboratuvar sahibi yanlışlıkla, VM'ler için genel IP adresleri hiç oluşturmasını sağlamak için bu alt ağ ilkesi değiştirebilirsiniz. Abonelik sahibi, genel IP'ler oluşturulmasını önleyen bir abonelik İlkesi oluşturmanız gerekir.
 
 Paylaşılan genel IP'ler kullanırken bir laboratuvarındaki sanal makinelerde bir genel IP adresi paylaşın. Bu yaklaşım, belirli bir aboneliği için genel IP adresleri barındırabileceğiniz ihlal önlemek gerektiğinde yararlı olabilir.
 

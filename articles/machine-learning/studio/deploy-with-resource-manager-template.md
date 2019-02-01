@@ -1,9 +1,22 @@
 ---
-Başlık: Studio çalışma alanına Azure Resource Manager titleSuffix ile dağıtın: Azure Machine Learning Studio açıklaması: Azure Machine Learning kullanarak Azure Resource Manager şablonu Hizmetleri için bir çalışma alanı dağıtma: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
+title: Studio çalışma alanına Azure Resource Manager ile dağıtma
+titleSuffix: Azure Machine Learning Studio
+description: Azure Resource Manager şablonu kullanarak Azure Machine Learning için bir çalışma alanı dağıtma
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/05/2018
+ms.openlocfilehash: c7f75b2553ada469f4963531fc33f6e5105084b1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487805"
 ---
-
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Machine Learning Studio çalışma alanına Azure Resource Manager kullanarak dağıtma
 
 Kullanarak bir Azure Resource Manager dağıtım şablonu, ölçeklenebilir bir şekilde vererek, zaman tasarrufu sağlar, birbirine bağlı bileşenleri ile bir doğrulama dağıtmak ve yeniden deneme mekanizması. Azure Machine Learning çalışma alanları ayarlamak için örneğin, önce bir Azure depolama hesabı yapılandırın ve ardından çalışma alanınızı dağıtmanız gerekir. Çalışma alanları yüzlerce için el ile bunu hayal edin. Daha kolay bir alternatif bir Azure Machine Learning çalışma alanı ve tüm bağımlılıklarını dağıtmak için bir Azure Resource Manager şablonu kullanmaktır. Bu makalede bu işlemi adım adım alır. Harika bir genel bakış, Azure Resource Manager için bkz: [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md).

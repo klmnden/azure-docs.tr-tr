@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde uygulama hizmetleri ile koruma | Microsoft Do
 description: Bu makalede, Azure Güvenlik Merkezi'nde, uygulama hizmetleri korumaya başlamanıza yardımcı olur.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/9/2018
-ms.author: rkarlin
-ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: bf3ceb0d5f12783957e127b3596ab07b7531ad5a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343879"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491952"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>App Service Azure Güvenlik Merkezi ile koruma
 Bu makalede izleme ve App Service üzerinde çalışan uygulamalarınızı korumak için Azure Güvenlik Merkezi'ni kullanmanıza yardımcı olur.
@@ -65,6 +65,7 @@ Bu makalede, Azure Güvenlik Merkezi'nde izleme işlevlerini nasıl kullanacağ�
 
 * [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md): Azure Güvenlik Merkezi'nde güvenlik ayarlarını yapılandırmayı öğrenin.
 * [Yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md): Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
+* [Uygulama Hizmetleri](security-center-virtual-machine-protection.md#app-services):  Bir listesini, App service ortamları ile sistem durumu özetlerini görüntüleyin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md): İş ortağı çözümlerinizin sistem durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruları bulun.
 * [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/): Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.

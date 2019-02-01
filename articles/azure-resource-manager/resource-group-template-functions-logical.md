@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8850ef68c665efcf9e66315af20b7d1e8492fc5f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164796"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493771"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için mantıksal işlevler
 
@@ -30,6 +30,8 @@ Resource Manager şablonlarınızı karşılaştırmaları yapmak için çeşitl
 * [Eğer](#if)
 * [değil](#not)
 * [veya](#or)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="and"></a>ve
 `and(arg1, arg2)`
@@ -77,9 +79,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| andExampleOutput | bool | False |
-| orExampleOutput | bool | True |
-| notExampleOutput | bool | False |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -90,7 +92,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="bool"></a>bool
@@ -141,10 +143,10 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| trueString | bool | True |
-| falseString | bool | False |
-| trueInt | bool | True |
-| falseInt | bool | False |
+| trueString | Bool | True |
+| falseString | Bool | False |
+| trueInt | Bool | True |
+| falseInt | Bool | False |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -155,10 +157,10 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
-## <a name="if"></a>Eğer
+## <a name="if"></a>if
 `if(condition, trueValue, falseValue)`
 
 Bağlı değeri döndürür, bir koşul true veya false.
@@ -252,8 +254,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| yesOutput | Dize | evet |
-| noOutput | Dize | hayır |
+| yesOutput | String | evet |
+| noOutput | String | hayır |
 | objectOutput | Nesne | {"test": "value1"} |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
@@ -265,7 +267,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
 ```
 
 ## <a name="not"></a>değil
@@ -313,9 +315,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| andExampleOutput | bool | False |
-| orExampleOutput | bool | True |
-| notExampleOutput | bool | False |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -326,7 +328,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) kullanan **değil** ile [eşittir](resource-group-template-functions-comparison.md#equals).
@@ -349,7 +351,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| checkNotEquals | bool | True |
+| checkNotEquals | Bool | True |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -360,7 +362,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
 ## <a name="or"></a>or
@@ -409,9 +411,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| andExampleOutput | bool | False |
-| orExampleOutput | bool | True |
-| notExampleOutput | bool | False |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -422,7 +424,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

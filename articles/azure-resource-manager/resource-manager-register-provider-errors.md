@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184551"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497426"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Kaynak Sağlayıcısı kaydı için hataları çözümleyin
 
 Bu makalede aboneliğinizde daha önce kullanmadığınız bir kaynak sağlayıcısı kullanırken karşılaşabileceğiniz hatalar açıklanır.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>Belirti
 
@@ -53,28 +55,28 @@ Hata iletisi desteklenen konumları ve API sürümleri için öneriler vermeniz 
 
 ## <a name="solution-1---powershell"></a>Çözüm 1 - PowerShell
 
-PowerShell için şunu kullanın **Get-AzureRmResourceProvider** , kayıt durumunu görmek için.
+PowerShell için şunu kullanın **Get-AzResourceProvider** , kayıt durumunu görmek için.
 
 ```powershell
-Get-AzureRmResourceProvider -ListAvailable
+Get-AzResourceProvider -ListAvailable
 ```
 
-Bir sağlayıcıyı kaydetmek için kullanın **Register-AzureRmResourceProvider** ve kaydetmek istediğiniz kaynak sağlayıcısının adını sağlayın.
+Bir sağlayıcıyı kaydetmek için kullanın **Register-AzResourceProvider** ve kaydetmek istediğiniz kaynak sağlayıcısının adını sağlayın.
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
 ```
 
 Belirli bir kaynak türü için desteklenen konumlar almak için kullanın:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 Belirli bir kaynak türü için desteklenen API sürümlerini almak için kullanın:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 ## <a name="solution-2---azure-cli"></a>Çözüm 2 - Azure CLI

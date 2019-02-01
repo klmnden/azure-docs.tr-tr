@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: e1618ded270cddca13145195522d7b42a00d6585
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e6dbfe225b6957406b7143d5db4a28cb50f13e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841463"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480300"
 ---
 Aşağıdaki tabloda farklı hizmet katmanları (S1, S2, S3, F1) ile ilişkili sınırlar listelenmektedir. Bir katmandaki her bir *birimin* maliyeti hakkında bilgi için bkz. [IoT Hub Fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -57,7 +57,7 @@ Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelen
 
 
 > [!NOTE]
-> Şu anda en fazla cihazları tek bir IOT hub'ına bağlanabilir 500.000 sayısıdır. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Şu anda, cihazları tek bir IOT hub'ına bağlanabilir sayısı 1.000.000 ' dir. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 Aşağıdaki kotalar aşıldığında IoT Hub hizmeti istekleri kısıtlar:
 

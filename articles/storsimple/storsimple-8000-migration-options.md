@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e3412e31ae976efc8164076b30ad61360a030db4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456060"
+ms.locfileid: "55511947"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>5000-7000 Serisi Storsimple'dan verileri geçirmeye seçenekleri 
 
@@ -29,23 +29,31 @@ StorSimple 5000-7000 Serisi ulaşmasını [destek sonu](https://support.microsof
 
 ## <a name="migration-options"></a>Geçiş seçenekleri
 
-StorSimple 5000-7000 Serisi kullanan müşteriler aşağıdaki seçenekleriniz vardır:
+StorSimple'ı kullanan müşteriler, Azure veya üçüncü taraf seçenekleri 5000-7000 Serisi sahip.
 
-- **Azure seçenekleri**:
+### <a name="azure-options"></a>Azure seçenekleri
 
-    - **StorSimple 8000 serisi için yükseltme** : yükseltme için StorSimple 8000 serisi ve bu nedenle StorSimple platformunda devam edin.  Bu yükseltme yolunu bir 8000 serisi, 5000-7000 Serisi cihazlar yerine müşterilerinize gerektirir. Veriler, 5000-7000 Serisi CİHAZDAN geçiş aracını kullanarak geçirilir. Taşıma başarıyla tamamlandıktan sonra StorSimple 8000 serisi cihazlar katman verileri Azure Blob Depolama'ya devam eder. 
+#### <a name="upgrade-to-storsimple-8000-series"></a>StorSimple 8000 serisi için yükseltme
 
-    StorSimple 8000 serisi kullanarak verileri geçirme hakkında daha fazla bilgi için Git [veri Storsimple'dan 5000-7000 Serisi için 8000 serisi cihaz geçirme](storsimple-8000-migrate-from-5000-7000.md).
+StorSimple 8000 serisi yükseltin ve bu nedenle StorSimple platformunda devam edin.  Bu yükseltme yolunu bir 8000 serisi, 5000-7000 Serisi cihazlar yerine müşterilerinize gerektirir. Veriler, 5000-7000 Serisi CİHAZDAN geçiş aracını kullanarak geçirilir. Taşıma başarıyla tamamlandıktan sonra StorSimple 8000 serisi cihazlar katman verileri Azure Blob Depolama'ya devam eder. 
 
-    - **Azure dosya eşitleme için geçirme** – bu yeni müşteriler kendi kuruluşunuzun dosya paylaşımlarını Azure dosyaları depolamak geçiş seçeneği sağlar. Bu dosya paylaşımlarını Azure dosya eşitleme (AFS) kullanarak şirket içi erişim için ardından toplanmıştır. Windows Server ana bilgisayarında AFS dağıtılabilir. Gerçek veri geçişinin ardından konak olarak gerçekleştirilir kopyalama veya Taşıma Aracı'nı kullanma.
+StorSimple 8000 serisi kullanarak verileri geçirme hakkında daha fazla bilgi için Git [veri Storsimple'dan 5000-7000 Serisi için 8000 serisi cihaz geçirme](storsimple-8000-migrate-from-5000-7000.md).
 
-    Verileri geçirmek için Azure dosya eşitleme hakkında daha fazla bilgi için Git [veri Storsimple'dan 5000-7000 Serisi için Azure dosya eşitleme taşıma](https://aka.ms/StorSimpleMigrationAFS).
+#### <a name="migrate-to-azure-file-sync"></a>Azure dosya eşitleme geçirme
 
-- **Üçüncü taraf seçenekleri**:
+Bu yepyeni bir geçiş seçeneği, müşterilerin kendi kuruluşunuzun dosya paylaşımlarını Azure dosyaları depolamak sağlar. Bu dosya paylaşımlarını Azure dosya eşitleme (AFS) kullanarak şirket içi erişim için ardından toplanmıştır. Windows Server ana bilgisayarında AFS dağıtılabilir. Gerçek veri geçişinin ardından konak olarak gerçekleştirilir kopyalama veya Taşıma Aracı'nı kullanma.
 
-    - **Geçirmek için Panzura özgürlük NAS** -StorSimple 5000-7000 müşterilerin kendi verilerini Azure'da korumak için Panzura özgürlük NAS geçirmek için seçebilirsiniz. Panzura özgürlük çözüm yayılan veri merkezleri, ofisleri, genel ve özel bulutların bir NAS çözümü sağlar. Çözüm, NFS, SMB ve mobil istemciler için yerel, karma ve bulut data iş akışları sağlar. Bu geçiş Panzura tarafından desteklenir ve geçiş desteği'nden isteyerek müşteriler başlayabilirsiniz [Panzura Web sitesi](https://panzura.com/storsimple-migration/).
+Verileri geçirmek için Azure dosya eşitleme hakkında daha fazla bilgi için Git [veri Storsimple'dan 5000-7000 Serisi için Azure dosya eşitleme taşıma](https://aka.ms/StorSimpleMigrationAFS).
 
-    - **Geçiş için Cohesity** -Cohesity veri Cohesity veri platformu Azure üzerinde geçerli StorSimple 5000-7000 geçirilecek olanak sağlar. Cohesity veri platformu dosyaları, yedeklemeler, nesneleri ve Vm'leri tek bir yerel bulut çözümünün birleştiren bir yazılım tanımlı web ölçeğindeki çözümüdür. Veri platformuna geçişten sonra yönetmek, koruma ve veri ve bulut uygulamaları üzerinden tek bir cam bölmeyle core'a sağlayın. En az üç düğüm olarak Cohesity ile başlayın. Daha fazla bilgi [Cohesity DataPlatform geçiş](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+### <a name="third-party-options"></a>Üçüncü taraf seçenekleri
+
+#### <a name="migrate-to-panzura-freedom-nas"></a>Panzura özgürlüğü NAS geçirme
+
+StorSimple 5000-7000 müşterilerin kendi verilerini Azure'da korumak için Panzura özgürlük NAS geçirmek seçebilirsiniz. Panzura özgürlük çözüm yayılan veri merkezleri, ofisleri, genel ve özel bulutların bir NAS çözümü sağlar. Çözüm, NFS, SMB ve mobil istemciler için yerel, karma ve bulut data iş akışları sağlar. Bu geçiş Panzura tarafından desteklenir ve geçiş desteği'nden isteyerek müşteriler başlayabilirsiniz [Panzura Web sitesi](https://panzura.com/storsimple-migration/).
+
+#### <a name="migrate-to-cohesity"></a>İçin Cohesity geçirme
+
+Cohesity, veri, geçerli StorSimple 5000-7000 Cohesity veri platformuna azure'da geçirmenize olanak sağlar. Cohesity veri platformu dosyaları, yedeklemeler, nesneleri ve Vm'leri tek bir yerel bulut çözümünün birleştiren bir yazılım tanımlı web ölçeğindeki çözümüdür. Veri platformuna geçişten sonra yönetmek, koruma ve veri ve bulut uygulamaları üzerinden tek bir cam bölmeyle core'a sağlayın. En az üç düğüm olarak Cohesity ile başlayın. Daha fazla bilgi [Cohesity DataPlatform geçiş](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
 ## <a name="migration---frequently-asked-questions"></a>Geçişi - sık sorulan sorular
 

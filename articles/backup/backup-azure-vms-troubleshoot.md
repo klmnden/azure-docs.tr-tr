@@ -2,18 +2,18 @@
 title: Azure sanal makineleri yedekleme hatalarında sorun giderme
 description: Backup ve Azure sanal makinelerini geri yükleme sorunlarını giderme
 services: backup
-author: trinadhk
-manager: shreeshd
+author: srinathv
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
-ms.author: trinadhk
-ms.openlocfilehash: b3bfd7b2f2526dca0079a4411092ed21ee101bcd
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.author: srinathv
+ms.openlocfilehash: 06157251c073f75d04370debe14dd436202da1d3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912740"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487724"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında karşılaşılan hataları giderebilirsiniz:

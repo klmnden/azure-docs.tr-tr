@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: dde618de12bf23e754d2516f3b8ef27b3df5bc4e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381663"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495692"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -387,7 +387,7 @@ Bağımlılık Aracısı yüklendi, ancak hizmet eşlemesi çözüm sunucunuzda 
 
 * Sunucu gönderen günlük ve performans verilerini Log Analytics'e mi? Günlük araması gidin ve bilgisayarınız için aşağıdaki sorguyu çalıştırın: 
 
-    Kullanım | Burada bilgisayar "appsvr admdemo" == | SUM(Quantity), veri türü tarafından any(QuantityUnit) özetleme
+    Kullanım | Burada bilgisayar == "bilgisayar-adı" | SUM(Quantity), veri türü tarafından any(QuantityUnit) özetleme
 
 Sonuçlar arasında olaylar çeşitli mı aldınız? Verilerin güncel mi? Bu durumda, Log Analytics aracısını düzgün çalışmasını ve Log Analytics ile iletişim kurulurken. Aksi takdirde, sunucudaki aracı denetleyin: [Windows sorun giderme için log Analytics aracısını](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) veya [Linux sorun giderme için Log Analytics aracısını](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 

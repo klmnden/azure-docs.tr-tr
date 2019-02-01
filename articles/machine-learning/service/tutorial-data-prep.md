@@ -11,12 +11,12 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c199a403e65bd084428fd45e8dc67cca214f5f9f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 994b1eb3f0a39d56d02ff9ed034d7e348a00b86d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251291"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491850"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
@@ -33,26 +33,63 @@ Bu öğreticide şunları yaptınız:
 > * Yeni özellikler oluşturmak için akıllı dönüşümler'ı kullanarak verileri dönüştürme.
 > * Veri akışı nesnenizin nda bir regresyon modeli kaydedin.
 
-Python'da verilerinizi kullanarak hazırlayabilirsiniz [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk).
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="get-the-notebook"></a>Not defterini alma
+Atlamak [geliştirme ortamınızı ayarlama](#start) not defteri adımları okuyun veya not defterini alma ve Azure not defterleri veya kendi notebook sunucusu üzerinde çalıştırmak için aşağıdaki yönergeleri kullanın. İhtiyacınız olacak not defteri çalıştırmak için:
 
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb) olarak sağlanır. Çalıştırma **regresyon-bölüm 1-verileri-prep.ipynb** Not Defteri veya [Azure not defterleri](https://notebooks.azure.com/) veya kendi Jupyter notebook sunucusu.
+* Aşağıdakilerin yüklü olan bir Python 3.6 Not Defteri sunucusu:
+    * Azure Machine Learning Python için veri hazırlığı SDK'sı
+* Öğretici not defteri
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+Bu Önkoşullar aşağıdaki bölümlerde birinden alın.
 
-## <a name="import-packages"></a>Paketleri içeri aktarma
+* Kullanım [Azure Not Defterleri](#azure)
+* Kullanım [kendi not defteri sunucusu](#server)
 
-SDK'sı içeri aktararak başlayın.
+### <a name="azure"></a>Azure not defterleri kullanın: Bulutta ücretsiz Jupyter Not Defterleri
 
-```python
-import azureml.dataprep as dprep
-```
+Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learning veri hazırlığı SDK](https://aka.ms/data-prep-sdk) zaten yüklü olan ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
 
-Kendi Python ortamınızda öğreticiyi takip ediyorsanız, gerekli paketleri yüklemek için aşağıdakileri kullanın.
+Aşağıdaki adımları tamamladıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 1-verileri-prep.ipynb** Not Defteri, **Başlarken** proje.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>Kendi Jupyter notebook sunucusu kullanma
+
+Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın.  Adımları tamamladıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 1-verileri-prep.ipynb** dizüstü bilgisayar.
+
+1. Tamamlamak [Azure Machine Learning Python hızlı](quickstart-create-workspace-with-python.md) Miniconda ortamı oluşturmak için.  Atlayabilirsiniz **çalışma alanı oluşturma** istediğiniz, ancak bunun için ihtiyacınız olacak bölümünde [2. bölüm](tutorial-auto-train-models.md) Bu öğretici serisinin.
+1. Veri hazırlığı SDK'yı kullanarak ortamınıza yükleyin `pip install azureml-dataprep`.
+1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. Kopyaladığınız dizinden notebook sunucusunu başlatın.
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+
+### Install and import packages
+
+Use the following to install necessary packages if you don't already have them.
 
 ```shell
 pip install azureml-dataprep
+```
+
+SDK'sını alın.
+
+```python
+import azureml.dataprep as dprep
 ```
 
 ## <a name="load-data"></a>Veri yükleme

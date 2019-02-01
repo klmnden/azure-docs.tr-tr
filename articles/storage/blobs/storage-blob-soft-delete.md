@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: e78b1f94338f177601b1e93fcc7974a228be062b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240004"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506134"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure depolama BLOB'ları için geçici silme
 Azure Storage şimdi blob nesneler için geçici silme sunar, böylece, yanlışlıkla değişiklik veya bir uygulama veya başka bir depolama hesabı kullanıcı tarafından silinmiş verilerinizi daha kolay geri yükleyebilirsiniz.
@@ -322,4 +322,4 @@ Kullanmakta olduğunuz API sürümünden bağımsız olarak geçici silme yararl
 * [BLOB hizmeti REST API'si](/rest/api/storageservices/blob-service-rest-api)
 * [Azure depolama çoğaltma](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Bir Azure depolama kesinti oluşursa yapmanız gerekenler](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Olağanüstü durum kurtarma ve depolama hesabı yük devretme (Önizleme) Azure Depolama'daki](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

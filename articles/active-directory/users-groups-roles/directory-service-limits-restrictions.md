@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory hizmet sınırları ve kısıtlamaları
+title: Hizmet sınırlamaları ve kısıtlamaları - Azure Active Directory | Microsoft Docs
 description: Kullanım kısıtlamaları ve Azure Active Directory Hizmeti için diğer hizmet sınırlamaları
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 06/28/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
-ms.openlocfilehash: 4dd7f5044733f0eeb6bcf4cb59eb9785ae22d38f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6a984c641608d5fd84a2fc6a88e30fd7f457ce9c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172077"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506099"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Azure AD hizmet sınırlamaları ve kısıtlamaları
 Bu makale, kullanım kısıtlamaları ve Azure Active Directory (Azure AD) hizmeti için diğer hizmet sınırlamaları içerir. Microsoft Azure hizmet sınırlamaları için tam kümesini arıyorsanız bkz [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../../azure-subscription-service-limits.md).

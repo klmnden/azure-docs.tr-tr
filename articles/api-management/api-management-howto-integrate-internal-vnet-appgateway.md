@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: da195f414da032b5274a9dc1a184b66094f245f2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444624"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493491"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API yönetimi bir iç sanal ağ'ı Application Gateway ile tümleştirme
 
@@ -59,13 +59,13 @@ Bu makalede, iç ve dış müşteriler için tek bir API Management hizmet ve he
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>API yönetimi ve uygulama ağ geçidi arasında bir tümleştirme oluşturmak için gereken nedir?
 
-* **Arka uç sunucu havuzu:** iç sanal IP adresi API Management hizmetinin budur.
-* **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar, havuzdaki tüm sunuculara uygulanır.
-* **Ön uç bağlantı noktası:** bu uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bu trafiğe arka uç sunuculardan birine yönlendirilir.
-* **Dinleyici:** Dinleyicide bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerler büyük/küçük harfe duyarlıdır) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa) vardır.
-* **Kural:** kural, bir arka uç sunucu havuzuna bir dinleyici bağlar.
-* **Özel durum araştırması:** Application Gateway, varsayılan olarak, IP adresi tabanlı araştırmaları BackendAddressPool hangi sunucular etkin olmadığını öğrenmek için kullanır. API Management hizmeti yalnızca doğru ana bilgisayar üstbilgisi isteklerini yanıtlar, bu nedenle varsayılan araştırmaları başarısız. Özel durum araştırması, uygulama ağ geçidi canlı bir hizmettir ve istekleri iletmek belirlemek amacıyla tanımlanması gerekir.
-* **Özel etki alanı sertifikaları:** API Management'ı internet'ten erişmek için bir CNAME eşlemesi, ana bilgisayar adı ön uç DNS adını uygulama ağ geçidi oluşturmanız gerekir. Bu API Yönetimi'ne iletilen bir Application Gateway için gönderilen bir sertifika ve ana bilgisayar üst bilgisi bir APIM geçerli olarak tanıyabilmesi sağlar. Bu örnekte, iki sertifika - Geliştirici portalını ve arka uç için kullanacağız.  
+* **Arka uç sunucu havuzu:** İç sanal IP adresi API Management hizmetinin budur.
+* **Arka uç sunucu havuzu ayarları:** Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar, havuzdaki tüm sunuculara uygulanır.
+* **Ön uç bağlantı noktası:** Bu uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bu trafiğe arka uç sunuculardan birine yönlendirilir.
+* **Dinleyici:** Dinleyicinin sahip bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerler büyük küçük harfe duyarlı) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa).
+* **Kural:** Kural, bir arka uç sunucu havuzuna bir dinleyici bağlar.
+* **Özel durum araştırması:** Uygulama ağ geçidi, varsayılan olarak, hangi sunucuları BackendAddressPool etkin olmadığını öğrenmek için IP adresi tabanlı araştırmaları kullanır. API Management hizmeti yalnızca doğru ana bilgisayar üstbilgisi isteklerini yanıtlar, bu nedenle varsayılan araştırmaları başarısız. Özel durum araştırması, uygulama ağ geçidi canlı bir hizmettir ve istekleri iletmek belirlemek amacıyla tanımlanması gerekir.
+* **Özel etki alanı sertifikaları:** API Management'ı internet'ten erişmek için kendi ana bilgisayar adı ön uç DNS adını uygulama ağ geçidi için bir CNAME eşlemesi oluşturmanız gerekir. Bu API Yönetimi'ne iletilen bir Application Gateway için gönderilen bir sertifika ve ana bilgisayar üst bilgisi bir APIM geçerli olarak tanıyabilmesi sağlar. Bu örnekte, iki sertifika - Geliştirici portalını ve arka uç için kullanacağız.  
 
 ## <a name="overview-steps"> </a> API yönetimi ve uygulama ağ geçidi tümleştirmek için gereken adımlar
 
@@ -82,7 +82,7 @@ Bu makalede, iç ve dış müşteriler için tek bir API Management hizmet ve he
 Bu kılavuzda biz de açığa çıkarır **Geliştirici Portalı** uygulama ağ geçidi üzerinden dış kitlelere. Geliştirici portalının dinleyicisi, araştırma, ayarları ve kuralları oluşturmak için ek adımlar gerektirir. Tüm ayrıntıları, ilgili adımları sağlanır.
 
 > [!WARNING]
-> Uygulama ağ geçidi üzerinden erişilen Geliştirici portalının açıklanan Kurulum'da, AAD ve üçüncü taraf kimlik doğrulama ile ilgili sorunlar yaşayabilirsiniz.
+> Azure AD veya kimlik doğrulaması'üçüncü taraf kullanıyorsanız, lütfen etkinleştirme [tanımlama bilgilerine dayalı oturum benzeşimi](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) özelliği'Application Gateway'de.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager için kaynak grubu oluşturun
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cdcb7dbe726582e525b401bfa765ccc423928610
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454411"
+ms.locfileid: "55510145"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 
@@ -81,7 +81,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | BasePath | **[Gerekli]**<br/>Bu parametrenin değeri, içeri aktarılacak verilerin bulunduğu kaynak temsil eder. Aracı, bu yolu altında bulunan tüm veriler yinelemeli olarak kopyalama olur.<br><br/>**İzin verilen değerler**: Bu, yerel bilgisayardaki geçerli bir yol veya geçerli bir paylaşım yolu olmalıdır ve kullanıcı tarafından erişilebilir olması gerekir. Dizin yolu mutlak bir yol (göreli bir yol değil) olmalıdır. Yol ile bitiyorsa "\\", başka bir dizin olmadan biten bir yolunu temsil ettiği"\\" bir dosyayı temsil eder.<br/>Hiçbir regex, bu alana izin verilir. Yol boşluklar içeriyorsa, yerleştirecek "".<br><br/>**Örnek**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **[Gerekli]**<br/> Windows Azure depolama hesabınızdaki hedef sanal dizin yolu. Sanal dizin zaten mevcut veya olabilir. Yoksa, içeri/dışarı aktarma hizmeti oluşturur.<br/><br/>Hedef sanal dizinler veya BLOB'ları belirtilirken geçerli kapsayıcı adları kullandığınızdan emin olun. Kapsayıcı adları küçük harf olması gerektiğini unutmayın. Kapsayıcı adlandırma kuralları için bkz: [adlandırma ve başvuran kapsayıcıları, Blobları ve meta verileri](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Yalnızca bir kök belirtilen, kaynak dizin yapısı hedef blob kapsayıcısında çoğaltılır. Farklı bir dizin yapısı bir kaynakta, birden çok csv eşleme satırlarını isteniyorsa<br/><br/>Bir kapsayıcı veya bir müzik/70s gibi blob öneki belirtebilirsiniz /. Hedef dizin kapsayıcı adını, ardından eğik çizgi ile başlamalıdır. "/" ve isteğe bağlı olarak ile biten bir sanal blob dizin içerebilir "/".<br/><br/>Hedef kapsayıcı kök kapsayıcı olduğunda $root olarak eğik çizgi dahil kök kapsayıcı açıkça belirtmeniz gerekir /. Hedef dizin kök kapsayıcı olduğunda kök kapsayıcıdaki blobları içeremez beri "/" adlarında, ve kaynak dizinde tüm alt dizinler kopyalanmaz.<br/><br/>**Örnek**<br/>Hedef blob yolu ise https://mystorageaccount.blob.core.windows.net/video, bu alanın değeri video /  |
 | BlobType | **[İsteğe bağlı]**  blok &#124; sayfası<br/>Şu anda içeri/dışarı aktarma hizmeti, BLOB'ları 2 tür destekler. Sayfa blobları ve blok BlobsBy varsayılan tüm dosyaları blok Blobları olarak içeri aktarılacak. Ve \*.vhd ve \*sayfası BlobsThere blok blobu ve sayfa blob boyutu izin verilen üst sınırı olarak .vhdx içeri aktarılacak. Bkz: [depolama ölçeklenebilirlik hedefleri](storage-scalability-targets.md) daha fazla bilgi için.  |
-| Değerlendirme | **[İsteğe bağlı]**  Yeniden Adlandır &#124; Hayır üzerine &#124; üzerine yaz <br/> Bu alan kopyalama davranışı sırasında içeri aktarma yani belirtir. ne zaman veri depolama hesabına diskten karşıya yükleniyor. Kullanılabilir seçenekler şunlardır: yeniden adlandırma&#124;üzerine yazılsın mı&#124;Hayır üzerine yazın. "Hiçbir şey, belirtilen yeniden adlandırmak için" varsayılan olarak. <br/><br/>**Yeniden adlandırma**: Aynı ada sahip bir nesne varsa, hedef olarak bir kopyasını oluşturur.<br/>Üzerine yaz: dosyanın daha yeni bir dosya ile üzerine yazar. Son değiştirilme WINS içeren dosya.<br/>**Hayır üzerine**: Dosya zaten varsa yazılırken atlamalar var.|
+| Değerlendirme | **[İsteğe bağlı]**  Yeniden Adlandır &#124; Hayır üzerine &#124; üzerine yaz <br/> Bu alan kopyalama davranışı sırasında içeri aktarma yani belirtir. ne zaman veri depolama hesabına diskten karşıya yükleniyor. Kullanılabilir seçenekler şunlardır: yeniden adlandırma&#124;üzerine&#124;Hayır üzerine yazın. "Hiçbir şey, belirtilen yeniden adlandırmak için" varsayılan olarak. <br/><br/>**Yeniden adlandırma**: Aynı ada sahip bir nesne varsa, hedef olarak bir kopyasını oluşturur.<br/>Üzerine yaz: dosyanın daha yeni bir dosya ile üzerine yazar. Son değiştirilme WINS içeren dosya.<br/>**Hayır üzerine**: Dosya zaten varsa yazılırken atlamalar var.|
 | MetadataFile | **[İsteğe bağlı]** <br/>Bu alan için değer bir nesne meta verilerini korumak ya da özel bir meta veri sağlamak gerekiyorsa, sağlanabilir meta veri dosyasıdır. Hedef BLOB'ları için meta veri dosyasının yolu. Bkz: [içeri/dışarı aktarma hizmeti meta veriler ve özellikler dosyası biçimi](../storage-import-export-file-format-metadata-and-properties.md) daha fazla bilgi için |
 | PropertiesFile | **[İsteğe bağlı]** <br/>Hedef BLOB'ları için özellik dosyası yolu. Bkz: [içeri/dışarı aktarma hizmeti meta veriler ve özellikler dosyası biçimi](../storage-import-export-file-format-metadata-and-properties.md) daha fazla bilgi için. |
 
@@ -319,7 +319,7 @@ Ancak, aynı kopya oturumu farklı depolama hesaplarına veri almak için kullan
 
 Kopyalama oturum adı olduğunda aynı günlük dosyası aracı birden fazla çalıştırma sonucunda (/ logdir) ve depolama hesabı anahtarı (/ sk) aynı olması beklenir.
 
-SessionID harfler, 0 oluşabilir ~ 9 understore (\_), tire (-) ya da karma (#), ve uzunluğu 3 olmalıdır yaklaşık 30.
+SessionID harfler, 0 oluşabilir ~ 9, alt çizgi (\_), tire (-) ya da karma (#), ve uzunluğu 3 olmalıdır yaklaşık 30.
 
 Örneğin oturum-1 veya oturumu #1 veya oturumu\_1
 
@@ -388,7 +388,7 @@ Veri diskleri arasında dağıtıldığı olsa da, depolama hesabına yükledini
 
 #### <a name="how-many-of-the-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>Kaç tane giriş diskleri kopyalama devam ederken, etkin GÇ paralel olarak gerekir?
 
-Aracı verileri girdi dosyalarının boyutuna göre giriş diskler arasında dağıtır. Bu, paralel etkin disk sayısı, giriş veri yapısı üzerinde tamamen delends belirtti. Giriş veri kümesinde tek tek dosyaların boyutuna bağlı olarak, bir veya daha fazla disk, paralel olarak etkin GÇ'de gösterebilir. Daha fazla ayrıntı için bir sonraki soruya bakın.
+Aracı verileri girdi dosyalarının boyutuna göre giriş diskler arasında dağıtır. Bu, paralel etkin disk sayısı, giriş veri yapısı üzerinde tamamen bağlıdır belirtti. Giriş veri kümesinde tek tek dosyaların boyutuna bağlı olarak, bir veya daha fazla disk, paralel olarak etkin GÇ'de gösterebilir. Daha fazla ayrıntı için bir sonraki soruya bakın.
 
 #### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>Nasıl araç dosyaları dağıtmak ve bu da disklerde?
 

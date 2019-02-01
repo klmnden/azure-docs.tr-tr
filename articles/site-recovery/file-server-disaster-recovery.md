@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c6db0b9dda9f383ddc062c41bae0be0b56f7e69d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794099"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508377"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak bir dosya sunucusunu koruma 
 
@@ -94,7 +94,7 @@ Azure Dosyaları geleneksel şirket içi dosya sunucularını veya NAS cihazlar�
 
 Aşağıdaki adımlar, Dosya Eşitleme özelliğinin kullanımıyla ilgili özet bilgiler sunmaktadır:
 
-1. [Azure'da bir depolama hesabı oluşturun](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Depolama hesaplarınız için okuma erişimli coğrafi olarak yedekli depolama seçeneğini kullanırsanız olağanüstü durum gerçekleştiğinde ikincil bölgedeki verilerinize okuma erişimine sahip olursunuz. Daha fazla bilgi için bkz. [Azure dosya paylaşımı olağanüstü durum kurtarma stratejileri](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Azure'da bir depolama hesabı oluşturun](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Depolama hesaplarınız için okuma erişimli coğrafi olarak yedekli depolama seçeneğini kullanırsanız olağanüstü durum gerçekleştiğinde ikincil bölgedeki verilerinize okuma erişimine sahip olursunuz. Daha fazla bilgi için [olağanüstü durum kurtarma ve zorlamalı yük devretme (Önizleme) Azure depolama](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Dosya paylaşımı oluşturun](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. Azure dosya sunucunuzda [Dosya Eşitleme'yi başlatın](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide).
 4. Eşitleme grubu oluşturun. Bir eşitleme grubu içindeki uç noktalar, birbiriyle eşitlenmiş durumda tutulur. Eşitleme grubu, bir Azure dosya paylaşımını temsil eden bir bulut uç noktası içermelidir. Eşitleme grubu ayrıca bir Windows sunucusu üzerindeki yolu temsil eden bir sunucu uç noktası içermelidir.
@@ -143,7 +143,7 @@ Dosya Eşitleme'yi Site Recovery ile tümleştirmek için:
 
 Dosya Eşitleme'yi kullanmak için şu adımları izleyin:
 
-1. [Azure'da bir depolama hesabı oluşturun](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Depolama hesaplarınız için okuma erişimli coğrafi olarak yedekli depolama seçeneğini kullanırsanız (önerilir) olağanüstü durum gerçekleştiğinde ikincil bölgedeki verilerinize okuma erişimine sahip olursunuz. Daha fazla bilgi için bkz. [Azure dosya paylaşımı olağanüstü durum kurtarma stratejileri](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Azure'da bir depolama hesabı oluşturun](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Depolama hesaplarınız için okuma erişimli coğrafi olarak yedekli depolama seçeneğini kullanırsanız (önerilir) olağanüstü durum gerçekleştiğinde ikincil bölgedeki verilerinize okuma erişimine sahip olursunuz. Daha fazla bilgi için [olağanüstü durum kurtarma ve zorlamalı yük devretme (Önizleme) Azure depolama](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)...
 2. [Dosya paylaşımı oluşturun](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Dosya Eşitleme'yi](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) şirket içi dosya sunucunuza dağıtın.
 4. Eşitleme grubu oluşturun. Bir eşitleme grubu içindeki uç noktalar, birbiriyle eşitlenmiş durumda tutulur. Eşitleme grubu, bir Azure dosya paylaşımını temsil eden bir bulut uç noktası içermelidir. Eşitleme grubu ayrıca şirket içi Windows sunucusu üzerindeki yolu temsil eden bir sunucu uç noktası içermelidir.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9f83a0cf97acfd0bed990cc832ac08eb23c29ef1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5a88e1fc5395a1b935371ae9d1eb24528a87b853
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434467"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512374"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Karma Runbook çalışanları sorunlarını giderme
 
@@ -87,8 +87,17 @@ Linux karma Runbook çalışanı çalışan kaydetme, runbook işlerini alabilir
 
 ### <a name="oms-agent-not-running"></a>Senaryo: Linux için OMS Aracısı çalışmıyor
 
+#### <a name="issue"></a>Sorun
 
-Linux için OMS Aracısı çalışmıyorsa Linux karma Runbook çalışanı Azure Otomasyonu ile iletişim kurmasını önler. Aracı, aşağıdaki komutu girerek çalıştığını doğrulamak: `ps -ef | grep python`. Python işlemlerle aşağıdakine benzer bir çıktı görmeniz gerekir **nxautomation** kullanıcı hesabı. Güncelleştirme yönetimi veya Azure Otomasyon çözümleri olmayan etkinleştirilirse, aşağıdaki işlemler hiçbiri çalışıyor.
+Linux için OMS Aracısı çalışmıyor.
+
+#### <a name="cause"></a>Nedeni
+
+Linux için OMS Aracısı çalışmıyorsa Linux karma Runbook çalışanı Azure Otomasyonu ile iletişim kurmasını önler. Aracı çeşitli nedenlerden dolayı çalışmıyor olabilir.
+
+#### <a name="resolution"></a>Çözüm
+
+ Aracı, aşağıdaki komutu girerek çalıştığını doğrulamak: `ps -ef | grep python`. Python işlemlerle aşağıdakine benzer bir çıktı görmeniz gerekir **nxautomation** kullanıcı hesabı. Güncelleştirme yönetimi veya Azure Otomasyon çözümleri olmayan etkinleştirilirse, aşağıdaki işlemler hiçbiri çalışıyor.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

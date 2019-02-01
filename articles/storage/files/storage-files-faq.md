@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: b3329f591d8478499b8270eb8a211d311465b020
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 273039ec271d5d81329ab475ffd2eda82dca7b58
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457029"
+ms.locfileid: "55511013"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -104,7 +104,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 
 * <a id="afs-storage-redundancy"></a>
 **Coğrafi olarak yedekli depolama için Azure dosya eşitleme destekleniyor mu?**  
-    Evet, Azure dosyaları, hem yerel olarak yedekli depolama (LRS) hem de coğrafi olarak yedekli depolama (GRS) destekler. Eşleştirilmiş bölgelerin arasında bir GRS yük devretme oluşması durumunda yalnızca verilerin yedek olarak yeni bölge kalmamızı öneririz. Azure dosya eşitleme, yeni birincil bölge ile eşitlemeyi otomatik olarak başlamaz. 
+    Evet, Azure dosyaları, hem yerel olarak yedekli depolama (LRS) hem de coğrafi olarak yedekli depolama (GRS) destekler. GRS için yapılandırılmış bir hesaptan eşleştirilmiş bölgelerin arasında bir depolama hesabı yük devretme'ı başlattığınızda, Microsoft, yeni bölge yalnızca verilerin yedek olarak davran önerir. Azure dosya eşitleme, yeni birincil bölge ile eşitlemeyi otomatik olarak başlamaz. 
 
 * <a id="sizeondisk-versus-size"></a>
 **Neden olmayan *disk boyutu* özelliği için bir dosya eşleşmesi *boyutu* Azure dosya eşitleme kullandıktan sonra özellik?**  
@@ -116,7 +116,6 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 
 * <a id="afs-recall-file"></a>**Kullanmak istediğiniz bir dosya katmanlı. Yerel olarak kullanabilmek için diskten dosyasına nasıl geri çağırma?**  
  Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#afs-recall-file).
-
 
 * <a id="afs-force-tiering"></a>
 **Bir dosya veya dizin katmanlanmış nasıl zorlarım?**  
@@ -149,7 +148,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Neden katmanlı dosyaları dışında sunucu uç noktası ad var mı?**  
-    Azure dosya eşitleme Aracısı sürüm 3 önce Azure dosya eşitleme taşıma katmanlı dosyaların sunucu uç noktasını dışında fakat sunucu uç noktası ile aynı birimde engellendi. Kopyalama işlemlerini olmayan katmanlı dosya taşır ve için katmanlı taşır diğer birimleri etkilenmez. Bu davranışın nedeni instanenous yeniden adlandırma işlemlerinden aynı birim üzerindeki işlemler (yaklaşık) olan taşıdığınız dosya Gezgini ve diğer Windows API'ları olan örtük varsayımına oluştu. Bu hamle dosya Gezgini yapar veya diğer taşıma yöntemleri ile (örneğin, komut satırından veya PowerShell) Azure dosya eşitleme bulut verileri geri çekme sırasında yanıt vermeyen görünür anlamına gelir. İle başlayarak [Azure dosya eşitleme Aracısı sürüm 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure dosya eşitleme katmanlı bir dosya sunucu uç noktasını dışında taşımanıza olanak sağlayacaktır. Biz, katmanlı sunucu uç noktasını dışında bir katmanlı dosya olarak mevcut dosyaya izin verme ve ardından dosya arka planda geri çağırma tarafından daha önce bahsedilen olumsuz etkileri kaçının. Başka bir deyişle, aynı birim instaneous olan ve dosyayı diske taşıma tamamlandıktan sonra geri çağırma iş yaptığımız taşır. 
+    Azure dosya eşitleme Aracısı sürüm 3 önce Azure dosya eşitleme taşıma katmanlı dosyaların sunucu uç noktasını dışında fakat sunucu uç noktası ile aynı birimde engellendi. Kopyalama işlemlerini olmayan katmanlı dosya taşır ve için katmanlı taşır diğer birimleri etkilenmez. Dosya Gezgini ve diğer Windows API'leri aynı birimde taşıma işlemlerini (yaklaşık) anlıktır sahip örtük varsayımına yeniden adlandırma işlemleri davranışı için neden oldu. Bu hamle dosya Gezgini yapar veya diğer taşıma yöntemleri ile (örneğin, komut satırından veya PowerShell) Azure dosya eşitleme bulut verileri geri çekme sırasında yanıt vermeyen görünür anlamına gelir. İle başlayarak [Azure dosya eşitleme Aracısı sürüm 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure dosya eşitleme katmanlı bir dosya sunucu uç noktasını dışında taşımanıza olanak sağlayacaktır. Biz, katmanlı sunucu uç noktasını dışında bir katmanlı dosya olarak mevcut dosyaya izin verme ve ardından dosya arka planda geri çağırma tarafından daha önce bahsedilen olumsuz etkileri kaçının. Başka bir deyişle, aynı birim anlık ve dosyayı diske taşıma tamamlandıktan sonra geri çağırma iş yaptığımız taşır. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **My server (eşitleme, bulut katmanlama, vb.) Azure dosya eşitleme ile ilgili bir sorun yaşıyorum. Kaldırın ve paylaşabilirim my server uç noktası yeniden?**  
@@ -202,7 +201,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 * <a id="ad-vm-subscription"></a>
 **Farklı bir abonelikte bir VM'den Azure AD kimlik bilgileriyle Azure dosyaları erişebilirim?**
 
-    Dosya Paylaşımı dağıtıldığı abonelik eklendiği VM'nin etki alanına katılmış olduğundan ve aynı Azure AD kimlik bilgilerini kullanarak Azure dosyaları erişebiliyorsa Azure AD Domain Services azure'daki olarak aynı Azure AD kiracısı ile ilişkili ise. Sınırlama yok abonelikte uygulanan ancak ilişkili Azure AD Kiracı.    
+    Dosya Paylaşımı dağıtıldığı abonelik eklendiği VM'nin etki alanına katılmış olduğundan ve aynı Azure AD kimlik bilgilerini kullanarak Azure dosyaları erişebiliyorsa Azure AD Domain Services dağıtımla aynı Azure AD kiracısı ile ilişkili ise. Sınırlama yok abonelikte uygulanan ancak ilişkili Azure AD Kiracı.    
     
 * <a id="ad-support-subscription"></a>
 **Azure AD kimlik doğrulaması SMB üzerinden Azure dosyaları için dosya paylaşımı ile ilişkili olduğu birincil kiracıdan farklı bir Azure AD kiracınız ile etkinleştirebilirim?**

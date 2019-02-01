@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e29b94f270b295725400103f288f3d3bd0c2a2eb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 7f031bf6fed57857f38d989fb72f99dd93f04de5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381201"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489232"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Uygulama ve kümelerin Azure Kubernetes Service (AKS) için güvenlik kavramları
 
@@ -28,7 +28,7 @@ Bu makalede aks'deki uygulamalarınızı güvenli bir temel kavramlar tanıtıl�
 
 ## <a name="master-security"></a>Güvenlik Yöneticisi
 
-AKS, Kubernetes ana bileşenleri Microsoft sağlanan yönetilen hizmet bir parçasıdır. API sunucusu, Zamanlayıcı vb. sağlamak için kendi tek kiracılı, adanmış Kubernetes Yöneticisi her bir AKS kümesi vardır. Bu ana yönetilen ve Microsoft tarafından yönetilen
+AKS, Kubernetes ana bileşenleri Microsoft tarafından sağlanan bir yönetilen hizmet bir parçasıdır. API sunucusu, Zamanlayıcı vb. sağlamak için kendi tek kiracılı, adanmış Kubernetes Yöneticisi her bir AKS kümesi vardır. Bu ana yönetilen ve Microsoft tarafından yönetilen
 
 Varsayılan olarak Kubernetes API sunucusuna bir genel IP adresini kullanır ve ile tam etki alanı adı (FQDN). Kubernetes rol tabanlı erişim denetimlerine ve Azure Active Directory kullanarak API sunucusu için erişimi denetleyebilirsiniz. Daha fazla bilgi için [AKS ile Azure AD tümleştirme][aks-aad].
 
@@ -41,6 +41,8 @@ Azure platformunun işletim sistemi güvenlik yamaları düğümlerine gecelik t
 Düğümleri atanan genel IP adresi ile bir özel sanal ağ alt ağa dağıtılır. Yönetim ve sorun giderme amacıyla SSH, varsayılan olarak etkindir. Bu SSH erişimini, yalnızca iç IP adresi kullanılarak erişilebilir. Azure ağ güvenlik grubu kuralları, daha fazla AKS düğümleri için IP aralığına erişimi kısıtlamak için kullanılabilir. Varsayılan ağ güvenlik grubu SSH kuralı silme ve düğümler üzerinde SSH hizmeti devre dışı bırakma Azure platformundaki bakım görevleri gerçekleştirmesini engeller.
 
 Depolama alanı sağlamak için düğümleri Azure yönetilen diskler kullanın. Çoğu VM düğümü boyutları için yüksek performanslı SSD'ler ile desteklenir. Premium diskler şunlardır. Yönetilen diskler üzerinde depolanan verileri otomatik olarak Azure platformu içerisindeki şifrelenir. Yedekliliği artırmak için Azure veri merkezi içinde de güvenli bir şekilde bu diskler çoğaltılır.
+
+Kubernetes ortamlarda AKS veya başka bir yerde, şu anda tehlikeli çok kiracılı kullanım için tamamen güvenli değildir. Ek güvenlik özellikleri gibi *Pod güvenlik ilkeleri* veya daha fazla ayrıntılı rol tabanlı erişim denetimleri (RBAC) düğümleri için saldırılara daha zor hale. Ancak, tehlikeli çok kiracılı iş yüklerini çalıştırırken doğru güvenlik için bir hiper yönetici yalnızca güvenip güvenmeyeceğini güvenlik düzeyidir. Kubernetes için güvenlik etki alanı, tüm küme, tek bir düğüm olur. Bu tür tehlikeli çok kiracılı iş yükleri için fiziksel olarak izole edilmiş kümeleri kullanmanız gerekir. İş yüklerini yalıtmak için yollar hakkında daha fazla bilgi için bkz. [AKS kümesi yalıtımı için en iyi yöntemler][cluster-isolation],
 
 ## <a name="cluster-upgrades"></a>Küme yükseltme
 
@@ -96,3 +98,4 @@ AKS kümelerinizi güvenliğini kullanmaya başlamak için bkz. [AKS kümesini y
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[cluster-isolation]: operator-best-practices-cluster-isolation.md

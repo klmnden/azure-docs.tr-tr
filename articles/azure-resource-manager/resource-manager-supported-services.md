@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: fafc16bdf00f947d4ba8ffe56d7cf2ae3e0bc489
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 109c740ee92e82b6d18879da6839ce6341353cba
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344952"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495522"
 ---
 # <a name="resource-providers-and-types"></a>Kaynak sağlayıcıları ve türleri
 
@@ -34,12 +34,14 @@ Kaynakları dağıtılırken sık kaynak sağlayıcıları ve türleri hakkında
 
 Portal, PowerShell veya Azure CLI aracılığıyla aşağıdaki adımları gerçekleştirebilirsiniz.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="powershell"></a>PowerShell
 
 Azure aboneliğiniz için kayıt durumu, tüm kaynak sağlayıcılarını görmek için bu seçeneği kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 Hangi için benzer sonuçlar getirir:
@@ -57,7 +59,7 @@ Microsoft.CognitiveServices      Registered
 Bir kaynak sağlayıcısı kaydediliyor, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bir kaynak sağlayıcısını kaydetmek için gerçekleştirmek için izne sahip `/register/action` işlem kaynak sağlayıcısı. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Hangi için benzer sonuçlar getirir:
@@ -74,7 +76,7 @@ Aboneliğinizde kaynak türleri, kaynak sağlayıcısından hala varsa, bir kayn
 Belirli kaynak sağlayıcısı bilgileri görmek için bu seçeneği kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Hangi için benzer sonuçlar getirir:
@@ -91,7 +93,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 Bir kaynak sağlayıcısı için kaynak türlerini görmek için bu seçeneği kullanın:
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
+(Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
 Döndürür:
@@ -108,7 +110,7 @@ API sürümü, bir kaynak sağlayıcısı tarafından sunulan REST API işlemler
 Bir kaynak türü için kullanılabilir API sürümlerini almak için kullanın:
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
 Döndürür:
@@ -126,7 +128,7 @@ Kaynak Yöneticisi, tüm bölgelerde desteklenir, ancak dağıttığınız kayna
 Bir kaynak türü için desteklenen konumlar almak için kullanın.
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
 Döndürür:

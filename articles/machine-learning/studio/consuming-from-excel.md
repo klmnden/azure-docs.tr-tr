@@ -1,8 +1,21 @@
 ---
-Başlık: Excel titleSuffix Web hizmetinde kullan: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio web Hizmetleri, kod yazmaya gerek kalmadan doğrudan Excel'den çağırın kolaylaştırır.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/01/2018
+title: Excel Web hizmetini kullanma
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio web Hizmetleri, kod yazmaya gerek kalmadan doğrudan Excel'den çağırın kolaylaştırır.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/01/2018
+ms.openlocfilehash: 95206d0e3cb7bdb619524237ca1e466414c5acf5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492896"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Bir Azure Machine Learning Studio Web hizmetini Excel'den kullanma
 

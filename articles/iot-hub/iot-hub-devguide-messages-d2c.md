@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 8424fa721d87467de70b4365578d196b3145b4b0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: cabfe4381f7f941f2a5e049eed73be546902f6ae
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024282"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485356"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Farklı uç noktalar için CİHAZDAN buluta iletileri göndermek için ileti yönlendirme kullanın
 
@@ -21,13 +21,13 @@ ms.locfileid: "50024282"
 
 İleti yönlendirme, otomatik, ölçeklenebilir ve güvenilir bir şekilde bulut Hizmetleri için cihazlarınızdan alınan iletileri göndermesini sağlar. İleti yönlendirme için kullanılabilir: 
 
-* **Cihazın telemetri iletileri ve bunun yanı sıra olayları gönderme** yani, cihaz yaşam döngüsü olayları ve değişiklik olayları uç yerleşik ve özel uç noktalar için cihaz ikizi. Hakkında bilgi edinin [yönlendirme uç noktaları](#routing-endpoints).
+* **Cihazın telemetri iletilerini yanı sıra olayları gönderme** yani, cihaz yaşam döngüsü olayları ve değişiklik olayları uç yerleşik ve özel uç noktalar için cihaz ikizi. Hakkında bilgi edinin [yönlendirme uç noktaları](#routing-endpoints).
 
 * **Çeşitli uç noktalar ile yönlendirme önce verileri filtreleme** zengin sorguların uygulayarak. İleti yönlendirme sorgu ileti özellikleri ve ileti gövdesi hem de cihaz ikizi etiketleri ve cihaz ikizi özelliklerini sağlar. Kullanma hakkında daha fazla bilgi edinin [sorguları içinde ileti yönlendirme](iot-hub-devguide-routing-query-syntax.md).
 
 IOT Hub ileti yönlendirme çalışmak için bu hizmet uç noktaları yazma erişimi olmalıdır. Azure portalı üzerinden uç noktalarınızı yapılandırırsanız sizin için gerekli izinleri eklenir. Hizmetlerinizi, beklenen aktarım hızıyla destekleyecek şekilde yapılandırdığınızdan emin olun. IOT çözümünüzü ilk kez yapılandırırken, ek uç noktalar izleyin ve gerçek yükleme için gerekli ayarlamaları yapmak gerekebilir.
 
-IOT hub'ı tanımlayan bir [ortak biçimi](iot-hub-devguide-messages-construct.md) için tüm cihaz-bulut Mesajlaşma için interoperatbility protokolleri. IOT Hub iletisi için bu endpoint bir ileti aynı uç noktaya işaret eden yolların eşleşirse, yalnızca bir kez sunar. Bu nedenle, Service Bus kuyruğuna veya konusuna üzerinde yinelenenleri kaldırmayı yapılandırma gerekmez. Bölümlenmiş kuyruklar bölüm benzeşim mesaj sıralama garanti eder. Bilgi edinmek için bu öğreticiyi kullanmak için nasıl [ileti yönlendirmeyi yapılandırma](tutorial-routing.md).
+IOT hub'ı tanımlayan bir [ortak biçimi](iot-hub-devguide-messages-construct.md) CİHAZDAN buluta tüm protokoller üzerinde birlikte çalışabilirlik için Mesajlaşma için. IOT Hub iletisi için bu endpoint bir ileti aynı uç noktaya işaret eden yolların eşleşirse, yalnızca bir kez sunar. Bu nedenle, Service Bus kuyruğuna veya konusuna üzerinde yinelenenleri kaldırmayı yapılandırma gerekmez. Bölümlenmiş kuyruklar bölüm benzeşim mesaj sıralama garanti eder. Bilgi edinmek için bu öğreticiyi kullanmak için nasıl [ileti yönlendirmeyi yapılandırma](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Yönlendirme uç noktaları
 

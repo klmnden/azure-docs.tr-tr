@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 93f0d31f5daa13d0598367e2a4ddab67ff3dbc66
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3f97e9696a5138d9102037103a45c86988a7506c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279739"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489284"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Sistem sağlığı hizmeti verileri güncel uyarı değil
 
@@ -40,7 +40,7 @@ ms.locfileid: "51279739"
 | Veri öğeleri | Sorun giderme adımları |
 | --- | --- | 
 | PerfCounter | - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [Giden trafik için SSL incelemesi filtrelenmiş ya da devre dışı](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE Artırılmış Güvenlik etkinse, belirlenen Web sitelerine izin ver](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
-| AadSyncService-SynchronizationRules <br /> AadSyncService-bağlayıcılar <br /> AadSyncService-GlobalConfigurations <br /> AadSyncService-RunProfileResults <br /> AadSyncService-ServiceConfigurations <br /> AadSyncService ServiceStatus | -Giden bağlantı IP adreslerine göre başvurduğu [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
+| AadSyncService-SynchronizationRules <br /> AadSyncService-bağlayıcılar <br /> AadSyncService-GlobalConfigurations <br /> AadSyncService-RunProfileResults <br /> AadSyncService-ServiceConfigurations <br /> AadSyncService-ServiceStatus | -Giden bağlantı IP adreslerine göre başvurduğu [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
 
 ### <a name="connect-health-for-adfs"></a>AD FS için connect Health
 
@@ -49,7 +49,7 @@ ms.locfileid: "51279739"
 | Veri öğeleri | Sorun giderme adımları |
 | --- | --- | 
 | PerfCounter, TestResult | - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [Giden trafik için SSL incelemesi filtrelenmiş ya da devre dışı](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE Artırılmış Güvenlik etkinse, belirlenen Web sitelerine izin ver](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
-|  ADFS UsageMetrics | IP adreslerini temel alan giden bağlantı başvurduğu [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) | 
+|  Adfs-UsageMetrics | IP adreslerini temel alan giden bağlantı başvurduğu [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) | 
 
 ### <a name="connect-health-for-adds"></a>EKLER için connect Health
 

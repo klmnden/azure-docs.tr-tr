@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.openlocfilehash: f688c0e277f807ff27731c103ca407807052c9d3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199757"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508326"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Yerel Azure sertifika doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma: PowerShell
 
@@ -50,7 +50,7 @@ Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MS
 * **VPN istemcisi adres havuzu: 172.16.201.0/24**<br>Sanal ağa, bu Noktadan Siteye bağlantıyı kullanarak bağlanan VPN istemcileri, VPN istemci adresi havuzundan bir IP adresi alır.
 * **Abonelik:** Birden fazla aboneliğiniz varsa doğru olanı kullandığınızı doğrulayın.
 * **Kaynak grubu: TestRG**
-* **Konum: Doğu ABD**
+* **Konum: East US**
 * **DNS sunucusu: IP adresi** ad çözümlemesi için kullanmak istediğiniz DNS sunucusunun. (isteğe bağlı)
 * **Ağ geçidi adı: Vnet1GW**
 * **Genel IP adı: VNet1GWPIP**

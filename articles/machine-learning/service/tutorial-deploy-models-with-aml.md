@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 01/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 887be89060a6d02eea74cd127cfbc93e48c0b3ff
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 167cc390fb9cc28f4249d168e452825b37902723
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240871"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510434"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Öğretici: Azure Container ınstances'da bir görüntü sınıflandırma model dağıtma
 
@@ -33,23 +33,18 @@ Bir web hizmeti olarak modeli dağıtacağız hazırsınız artık [Azure Contai
 > * Model Container Instances'a dağıtacaksınız.
 > * Dağıtılan modeli test edin.
 
-Container Instances üretim dağıtımları için ideal değildir, ancak test ve iş akışını anlamak için idealdir. Ölçeklenebilir üretim dağıtımları için Azure Kubernetes hizmeti kullanmayı düşünün. Daha fazla bilgi için [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md).
-
-## <a name="get-the-notebook"></a>Not defterini alma
-
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb) olarak sağlanır. Çalıştırma *öğreticiler/img-sınıflandırma-bölüm 2-deploy.ipynb* Not Defteri veya [Azure not defterleri](https://notebooks.azure.com/) veya kendi Jupyter notebook sunucusu.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+Container Instances, test ve iş akışını anlamak için harika bir çözümdür. Ölçeklenebilir üretim dağıtımları için Azure Kubernetes hizmeti kullanmayı düşünün. Daha fazla bilgi için [nasıl dağıtılacağı ve nerede](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Bu makalede kod, Azure Machine Learning SDK sürümü 1.0.2 ile test edilmiştir.
+> Bu makalede kod, Azure Machine Learning SDK sürüm zamanlarını 1.0.8 ile test edilmiştir.
 
 ## <a name="prerequisites"></a>Önkoşullar
+Atlamak [geliştirme ortamını](#start) not defteri adımlarını okumak için.  
 
-Aşağıdaki not defterinde modeli eğitimi yapın: [Öğretici (Kısım 1): Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md).  
+Not Defteri çalıştırmak için ilk modeli eğitimi tamamlayın [öğretici (Kısım 1): Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md).   Ardından çalıştırın **öğreticiler/img-sınıflandırma-bölüm 2-deploy.ipynb** aynı notebook sunucusu kullanarak not defteri.
 
 
-## <a name="set-up-the-environment"></a>Ortamı ayarlama
+## <a name="start"></a>Ortamı ayarlama
 
 Başlangıç olarak test ortamını ayarlayın.
 
@@ -78,13 +73,16 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```python
 from azureml.core import Workspace
 from azureml.core.model import Model
-
+import os 
 ws = Workspace.from_config()
 model=Model(ws, 'sklearn_mnist')
-model.download(target_dir = '.')
-import os 
+
+model.download(target_dir=os.getcwd(), exist_ok=True)
+
 # verify the downloaded model file
-os.stat('./sklearn_mnist_model.pkl')
+file_path = os.path.join(os.getcwd(), "sklearn_mnist_model.pkl")
+
+os.stat(file_path)
 ```
 
 ## <a name="test-the-model-locally"></a>Modeli yerel olarak test etme
@@ -102,10 +100,8 @@ Test verileri yük **. /data/** eğitim öğretici sırasında oluşturulan dizi
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
-
 X_test = load_data('./data/test-images.gz', False) / 255.0
 y_test = load_data('./data/test-labels.gz', True).reshape(-1)
-
 ```
 
 ### <a name="predict-test-data"></a>Test verilerini tahmin etme
@@ -214,7 +210,8 @@ def run(raw_data):
     data = np.array(json.loads(raw_data)['data'])
     # make prediction
     y_hat = model.predict(data)
-    return json.dumps(y_hat.tolist())
+    # you can return any data type as long as it is JSON-serializable
+    return y_hat.tolist()
 ```
 
 <a name="make-myenv"></a>
@@ -314,10 +311,10 @@ n = 30
 sample_indices = np.random.permutation(X_test.shape[0])[0:n]
 
 test_samples = json.dumps({"data": X_test[sample_indices].tolist()})
-test_samples = bytes(test_samples, encoding = 'utf8')
+test_samples = bytes(test_samples, encoding='utf8')
 
 # predict using the deployed model
-result = json.loads(service.run(input_data=test_samples))
+result = service.run(input_data=test_samples)
 
 # compare actual value vs. the predicted values:
 i = 0
@@ -347,7 +344,6 @@ Ayrıca, web hizmeti test etmek için ham bir HTTP isteği gönderebilirsiniz:
 
 ```python
 import requests
-import json
 
 # send a random row from the test set to score
 random_index = np.random.randint(0, len(X_test)-1)
@@ -380,6 +376,8 @@ service.delete()
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-+ Tüm hakkında bilgi edinin [Azure Machine Learning hizmeti için dağıtım seçenekleri](how-to-deploy-and-where.md). Azure Container Instances, Azure Kubernetes hizmeti, FPGA ve Azure IOT Edge seçenekleri içerir.
-
-+ Azure Machine Learning hizmeti için otomatik seçim nasıl görebilir ve modeliniz için en iyi algoritmayı ayarlayın. Bu da bu modelin sizin için oluşturur. Denemenin [otomatik algoritması seçimi](tutorial-auto-train-models.md) öğretici. 
++ Tüm hakkında bilgi edinin [Azure Machine Learning hizmeti için dağıtım seçenekleri](how-to-deploy-and-where.md).
++ Bilgi edinmek için nasıl [istemcileri web hizmeti oluşturma](how-to-consume-web-service.md).
++  [Büyük miktarlarda veri tahminlerde](how-to-run-batch-predictions.md) zaman uyumsuz olarak.
++ Azure Machine Learning Modellerinizi izleme [Application Insights](how-to-enable-app-insights.md).
++ Denemenin [otomatik algoritması seçimi](tutorial-auto-train-models.md) öğretici. 

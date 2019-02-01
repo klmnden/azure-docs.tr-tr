@@ -13,14 +13,15 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136898"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493578"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager istekleri azaltma
+
 Her Azure aboneliği ve Kiracı için Resource Manager kadar saat başına istek 12.000 okuma ve yazma istekleri saatte 1.200 sağlar. Bu limitler istekleri yapabilen sorumlu kimliği ve abonelik kimliği için kapsamlı veya Kiracı kimliği. İsteklerinizi birden fazla asıl kimliği geliyorsa, abonelik veya Kiracı genelinde sınırınızı 12.000 ve saatte 1.200 büyüktür.
 
 İstekleri aboneliğiniz veya kiracınız için uygulanır. Abonelik isteği olanları aboneliğinizi geçirme involve kimliği, aboneliğinizdeki kaynak gruplarını almak gibi adı verilir. Kiracı isteklerini, geçerli Azure konumlarının alma gibi abonelik Kimliğinizi dahil değildir.
@@ -30,6 +31,8 @@ Bu limitler her bir Azure Resource Manager örneğine uygulayın. Her Azure böl
 Bu limitler ulaşırsa, uygulama veya betik, istek kısıtlama gerekir. Bu makalede, sahip olduğunuz sınırına ulaşmadan önce kalan istekler belirleme ve sınırına geldiğinde nasıl gösterir.
 
 Sınıra ulaştığınızda, HTTP durum kodu alma **429 çok fazla istek**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Kalan istekler
 Yanıt üst bilgilerini inceleyerek, kalan istek sayısını belirleyebilirsiniz. Her isteğin kalan okuma ve yazma isteklerinin sayısı değerlerini içerir. Aşağıdaki tabloda, bu değerler için inceleyebilirsiniz yanıt üstbilgilerini açıklanmaktadır:
@@ -66,7 +69,7 @@ Tam bir PowerShell örnek için bkz: [bir abonelik için Resource Manager sını
 Hata ayıklama için kalan istekler görmek istiyorsanız, sağlayabilir **-hata ayıklama** parametresi, **PowerShell** cmdlet'i.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 Şu yanıt değeri de dahil olmak üzere birçok değer döndürür:
@@ -85,7 +88,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 Yazma sınırları almak için bir yazma işlemi kullanın: 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Aşağıdaki değerleri dahil olmak üzere birçok değer döndürür:
