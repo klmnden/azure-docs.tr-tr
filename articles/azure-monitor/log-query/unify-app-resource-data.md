@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e0f305d8200a6b78eb138d5a3c6d9cd99a095dbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265218"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486530"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Birden çok Azure İzleyici Application Insights kaynaklarını birleştirin 
 Bu makalede, sorgu ve farklı Azure aboneliklerinde Application Insights Bağlayıcısı kullanımdan bir ardılı olarak olduklarında bile tüm Application Insights uygulama günlük verilerini tek bir yerde görüntüleyin açıklar.  
@@ -51,7 +51,20 @@ app('Contoso-app5').requests
 >
 >Ayrıştırma işleci Bu örnekte, isteğe bağlı, uygulama adı SourceApp özelliğinden ayıklar. 
 
-Kaynaklar arası sorgu applicationsScoping işlevi kullanmak artık hazırsınız. İşlev diğer adı, tanımlanan tüm uygulamalardan istekleri birleşimini döndürür. Sorgu daha sonra başarısız olan istekleri için filtreler ve uygulama tarafından eğilimleri görselleştirir. ![Çapraz-sorgu sonuçlarını örneği](media/unify-app-resource-data/app-insights-query-results.png)
+Kaynaklar arası sorgu applicationsScoping işlevi kullanmak artık hazırsınız:  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+İşlev diğer adı, tanımlanan tüm uygulamalardan istekleri birleşimini döndürür. Sorgu daha sonra başarısız olan istekleri için filtreler ve uygulama tarafından eğilimleri görselleştirir.
+
+![Çapraz-sorgu sonuçlarını örneği](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Application Insights kaynaklarını ve çalışma alanı veri sorgulama 
 Bağlayıcı ve Application Insights veri saklama (90 gün) tarafından kırpılmış bir zaman aralığı boyunca sorguları gerçekleştirmek için ihtiyaç durdurduğunuzda, gerçekleştirmeniz gereken [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md) çalışma ve Application Insights bir ara dönem için kaynaklar. Yukarıda belirtilen yeni Application Insights veri saklama başına uygulama verilerinize biriktirir kadar budur. Application Insights ve çalışma alanı şemalarda farklı olduğundan sorgu bazı işlemeleri gerektirir. Daha sonra şema farklılıkları vurgulama bu bölümdeki tabloya bakın. 

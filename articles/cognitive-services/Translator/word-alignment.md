@@ -1,21 +1,22 @@
 ---
-title: Word hizalama bilgileri - Translator metin çevirisi API'si
+title: Word hizalama - Translator metin çevirisi API'si
 titlesuffix: Azure Cognitive Services
 description: Translator metin çevirisi API'si Word hizalama bilgiler alır.
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 12/06/2018
 ms.author: v-jansko
-ms.openlocfilehash: 15b2d96cdf1794ae0f72c087ef95055da7c0964e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.custom: seodec18
+ms.openlocfilehash: 0a373a61a26411c204cedccec8fbf0beac73e02e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646380"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461840"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Word hizalama bilgi alma
 

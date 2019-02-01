@@ -1,8 +1,21 @@
 ---
-Başlık: Bir Machine Learning Studio web hizmeti titleSuffix dağıtın: Azure Machine Learning Studio açıklaması: Bir eğitim denemesini öngörücü bir denemeye dönüştürme, dağıtım için hazırlamak ve ardından bir Azure Machine Learning Studio web hizmeti olarak dağıtma nasıl.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 01/06/2017
+title: Bir Machine Learning Studio web hizmeti dağıtma
+titleSuffix: Azure Machine Learning Studio
+description: Bir eğitim denemesini öngörücü bir denemeye dönüştürme, dağıtım için hazırlamak ve ardından bir Azure Machine Learning Studio web hizmeti olarak dağıtma nasıl.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 01/06/2017
+ms.openlocfilehash: 89a54d99aa47af273e5955c2103ec696a985737e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493754"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini dağıtma
 Azure Machine Learning, derleme, test etme ve Tahmine dayalı analiz çözümlerini dağıtmak sağlar.

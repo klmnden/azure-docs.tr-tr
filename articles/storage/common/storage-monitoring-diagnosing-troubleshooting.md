@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474012"
+ms.locfileid: "55490279"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage izleme, tanılama ve sorun giderme
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -637,7 +637,7 @@ Aşağıdaki tabloda, iki istemci işlemleri için sunucu tarafı günlüğünde
 İstemci uygulama, silme/yeniden oluşturun desenine sık olarak, yeni kapsayıcılar oluşturduğunda benzersiz kapsayıcı adları kullanmanız gerekir.
 
 ### <a name="metrics-show-low-percent-success"></a>Düşük PercentSuccess ölçümleri göster veya Analiz günlük girişlerini ClientOtherErrors işlem durumundaki işlemlerini sahip
-**PercentSuccess** ölçüm başarılı oldu, HTTP durum koduna göre işlemleri yüzdesini yakalar. Durum kodları ile 2XX işlemleri sayısı aralıklarında 3XX, 4XX ve 5XX durum kodları ile işlemleri, başarısız ve daha düşük olarak değerlendirilir ancak olarak başarılı **PercentSucess** ölçüm değeri. Sunucu tarafı depolama günlük dosyalarında bir işlem durumuyla bu işlemleri kaydedilir **ClientOtherErrors**.
+**PercentSuccess** ölçüm başarılı oldu, HTTP durum koduna göre işlemleri yüzdesini yakalar. Durum kodları ile 2XX işlemleri sayısı aralıklarında 3XX, 4XX ve 5XX durum kodları ile işlemleri, başarısız ve daha düşük olarak değerlendirilir ancak olarak başarılı **PercentSuccess** ölçüm değeri. Sunucu tarafı depolama günlük dosyalarında bir işlem durumuyla bu işlemleri kaydedilir **ClientOtherErrors**.
 
 Bu işlemler başarıyla tamamladınız ve kullanılabilirlik gibi diğer ölçümleri etkilemez unutulmaması önemlidir. Başarısız HTTP durum kodlarına yol açabilir ancak başarıyla yürütme işlemlerinin bazı örnekleri şunlardır:
 

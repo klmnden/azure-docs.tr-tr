@@ -20,7 +20,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54022300"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>SAP Business Warehouse Azure Data Factory kullanarak verileri kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Geçerli sürüm](connector-sap-business-warehouse.md)
 
@@ -171,20 +171,20 @@ SAP BW veri kopyalama işlemi sırasında aşağıdaki eşlemeler SAP BW veri t�
 | CLNT | String |
 | CURR | Decimal |
 | CUKY | String |
-| DEC | Decimal |
+| ARA | Decimal |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | String |
+| DİL | String |
 | LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
-| RAW | Byte[] |
+| HAM | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | String |
-| UNIT | String |
+| DİZE | String |
+| BİRİM | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |

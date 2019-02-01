@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e47334a20072f4b9f4d1401b5dd1f848fa99df5a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251988"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497324"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -32,6 +32,8 @@ Bir kaynak taşıma yalnızca bu yeni bir kaynak grubuna taşınır. Taşıma i�
 > * Ücretsiz deneme sürümü yükseltmek için bkz: [ücretsiz deneme sürümü ya da Microsoft Imagine Azure aboneliğinizi Kullandıkça Öde aboneliğine yükseltme](..//billing/billing-upgrade-azure-subscription.md).
 > * Bir Kullandıkça Öde hesabına değiştirmek için bkz [Azure Kullandıkça Öde aboneliğinizi değiştirmek için farklı bir teklif](../billing/billing-how-to-switch-azure-offer.md).
 > * Abonelik dönüştüremezse [bir Azure destek isteği oluşturma](../azure-supportability/how-to-create-azure-support-request.md). Seçin **abonelik yönetimi** sorun türü için.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="when-to-call-azure-support"></a>Azure destek çağrısı yapıldığında
 

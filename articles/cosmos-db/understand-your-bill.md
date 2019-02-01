@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5df11eb4e1b759d66200c09cabc8752532d0873c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5c3da9a69204d7229ddcbbf39ec389684258e389
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042164"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470697"
 ---
-# <a name="understanding-your-azure-cosmos-db-bill"></a>Azure Cosmos DB faturanızı anlama
+# <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB faturanızı anlama
 
 Bir tam olarak yönetilen bir bulutta çalışan veritabanı hizmeti olarak Azure Cosmos DB ile yalnızca sağlanan aktarım hızı için ücretlendirme faturalandırma basitleştirir ve depolama miktarı. Ek lisans ücretleri, donanım, yardımcı programı maliyetlerini veya şirket içi karşılaştırılan tesis maliyetlerini veya Iaas tarafından barındırılan alternatifleri yoktur. Veritabanı hizmeti, çoklu bölge özellikleri Azure Cosmos DB'nin düşünürken, mevcut şirket içi veya Iaas çözümleri kıyasla önemli ölçüde azaltılmasını sağlar.
 
@@ -97,7 +97,7 @@ Batı ABD bölgesinde bir Azure Cosmos kapsayıcımız varsayalım. Kapsayıcı 
 |**Öğesi** |**Kullanım (aylık)** |**Oranı** |**Aylık maliyet** |
 |---------|---------|---------|-------|
 |Batı ABD’deki kapsayıcı için aktarım hızı faturası      | 10 K RU/sn * 24 * 30    |saat başına 100 RU/sn başına $0.008   |$576|
-|3 ek bölge (Doğu ABD, Kuzey Avrupa ve Doğu Asya) için aktarım hızı faturası       | 3 * 10K RU/sn * 24 * 30    |saat başına 100 RU/sn başına $0.008  |$1728|
+|3 ek bölge (Doğu ABD, Kuzey Avrupa ve Doğu Asya) için aktarım hızı faturası       | 3 * 10K RU/sn * 24 * 30    |saat başına 100 RU/sn başına $0.008  |$1,728|
 |Batı ABD’deki kapsayıcı için depolama faturası      | 250 GB    |0,25 DOLAR/GB  |$62.50|
 |3 ek bölge (Doğu ABD, Kuzey Avrupa ve Doğu Asya) için depolama faturası      | 3 * 250 GB    |0,25 DOLAR/GB  |$187.50|
 |**Toplam**     |     |  |**$2,554**|
@@ -180,18 +180,18 @@ Görsel olarak toplam sağlanan aktarım hızı 720 saatliğine ay sırasında y
 
 |**saat**  |**RU/sn** |**Öğesi** |**Kullanım (saatlik)** |**Maliyet** |
 |---------|---------|---------|-------|-------|
-|[0-100] |D1:10K <br/>D2:30K <br/>C1:20K |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |960 $  |
+|[0-100] |D1:10K <br/>D2:30K <br/>C1:20K |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
 | | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
 |[101-200] |D1:50K <br/>D2:70K <br/>C1:-- |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$1920  |
 | | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$5,760  |
-|[201-300]  |D1:50K <br/>D2:70K <br/>C1:20K |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>' C1: 20 bin RU/sn/100 * $0,016 * 100 saat $320 = |$2,240 '  |
+|[201-300]  |D1:50K <br/>D2:70K <br/>C1:20K |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>' C1: 20 bin RU/sn/100 * $0,016 * 100 saat $320 = |$2,240`  |
 | | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$6,720 |
-|301-400 |D1:10K <br/>D2:80K <br/>C1:-- |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$ 1. 440   |
+|[301-400] |D1:10K <br/>D2:80K <br/>C1:-- |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$1,440   |
 | | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
 |[401-500] |D1:10K <br>D2:10K <br>C1:20K |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`D2: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$640  |
 | | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |$1,280  |
-|501-700 |D1:20K <br>D2:100K <br>C1:-- |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$3,840  |
-| | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7.680  |
+|[501-700] |D1:20K <br>D2:100K <br>C1:-- |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$3,840  |
+| | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7,680  |
 |[701-720] |D1:20K <br/>D2:50K <br/>C1:-- |(Tüm bölgeler yazılabilir) Batı ABD'deki kapsayıcı için aktarım hızı faturası  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
 | | |Aktarım hızı faturası 2 ek bölgeler için: Doğu ABD, Kuzey Avrupa (tüm bölgeler yazılabilir)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Toplam aylık maliyet**  | |**$38,688**   |
@@ -203,9 +203,9 @@ Faturanız ayın son önce proaktif olarak tahmin etmek istediğiniz başka bir 
 |**Depolama maliyeti** | |
 |----|----|
 |Ortalama kayıt boyutu (KB) |1 |
-|Kayıt sayısı  |100.000.000  |
+|Kayıt sayısı  |100,000,000  |
 |Toplam depolama alanı (GB)  |100 |
-|GB başına aylık maliyet  |0,25 dolar  |
+|GB başına aylık maliyet  |$0.25  |
 |Depolama için beklenen aylık maliyet   |$25.00  |
 
 <br>
@@ -236,7 +236,7 @@ Toplam faturanız (olmadan ayrılmış Kapasite) (varsayılıyor 30 gün veya sa
 
 |**Bölge**| **100 RU/sn başına saatlik fiyat**|**Birimleri (RU/sn)**|**Faturalandırılan miktar (saat)**| **Faturalandırılan miktar (aylık)**|
 |----|----|----|----|----|
-|Doğu ABD|$0.008 |50 BİN|4 ABD Doları|$2,880 |
+|Doğu ABD|$0.008 |50 BİN|$4|$2,880 |
 |Japonya Doğu|$0.009 |50 BİN| $4.50 |$3,240 |
 |Toplam|||$8.50|$6,120 |
 
@@ -250,11 +250,11 @@ Etkili bir şekilde önceden satın aldıklarınızı 8 saatte 100 K RU/sn'ye 6.
 
 |**Bölge**| **100 RU/sn başına saatlik fiyat**|**Birimleri (RU/sn)**| **Faturalandırılan miktar (saat)**| **Faturalandırılan miktar (aylık)**|
 |----|----|----|----|----|
-|Doğu ABD|$0.008 |50 BİN|4 ABD Doları|$2,880 |
+|Doğu ABD|$0.008 |50 BİN|$4|$2,880 |
 |Japonya Doğu|$0.009 |50 BİN| $4.50 |$3,240 |
-|||Kullandıkça öde|$8.50|6120 $|
-|Satın Alınan Ayrılmış Kapasite|$0.0064 (% 20 indirim) |100 RU/sn veya önceden satın alınan $8 kapasitesi |-8 ABD Doları|-$5,760 |
-|Net Fatura|||0,50 ABD Doları |$360 |
+|||Kullandıkça öde|$8.50|$6120|
+|Satın Alınan Ayrılmış Kapasite|$0.0064 (% 20 indirim) |100 RU/sn veya önceden satın alınan $8 kapasitesi |-$8|-$5,760 |
+|Net Fatura|||$0.50 |$360 |
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
