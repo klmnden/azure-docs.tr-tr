@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: f4f35156f9b2b356e3e47695725351562af9796f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55501207"
+documentType: LandingData
+title: Azure Advisor Belgeleri
+metadata:
+  title: Azure Danışmanı Belgeleri | Microsoft Docs
+  description: 
+  services: advisor
+  author: rboucher
+  layout: LandingPage
+  ms.service: advisor
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  ms.date: 02/01/2019
+  ms.author: robb
+abstract:
+  description: Azure Advisor, Azure dağıtımlarınızı iyileştirecek en iyi uygulamaları izlemenize yardımcı olacak bir kişiye özel bulut danışmanıdır. Kaynak yapılandırmanızı ve kullanım telemetrinizi çözümler. Ardından kaynaklarınızın performansını, güvenliğini ve yüksek oranda kullanılabilirliğini geliştirmenize yardımcı olacak çözümler önerir ve genel Azure harcamalarınızı azaltacak fırsatlar arar.
+sections:
+- title: 
+  items:
+  - type: paragraph
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/advisor.svg
+      text: Azure Advisor hakkında bilgi edinin
+      href: /azure/advisor/advisor-overview
+    - image:
+        src: media/index/get-started.svg
+      text: Azure Advisor’ı kullanmaya başlama
+      href: /azure/advisor/advisor-get-started
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/advisor/">REST API başvurusu</a></p>
+    - title: Komut Satırı
+      html: <p><a href="https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest">Ortak Dil Arabirimi (CLI)</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0">Azure PowerShell</a></p>

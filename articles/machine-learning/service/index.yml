@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8b591cacd1c468f46dcdb5809cdc6ff0adf09ccb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9c337f147eaebc376c7953e7f585b5b9f6a10f94
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247689"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471693"
 documentType: LandingData
 title: Azure Machine Learning Hizmeti Belgeleri
 metadata:
-  title: Belgeler - Azure Machine Learning Hizmeti – Öğreticiler, API başvurusu | Microsoft Docs
-  description: Uygulamalara ve web sitelerine akıllı algoritmalar eklemeyi öğrenin. Scikit-learn, Tensorflow, Pytorch veya diğer Python tabanlı çerçeveleri kullanarak makine öğrenmesi modelinizi derleyin ve yerel ortamda veya bulutta eğitin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
+  title: Azure Machine Learning Service Belgeleri – Öğreticiler, API başvurusu | Microsoft Docs
+  description: Azure Machine Learning hizmeti, makine öğrenmesi modellerini geliştirmek, eğitmek, test etmek, dağıtmak, yönetmek ve izlemek için kullanabileceğiniz bulut tabanlı bir ortam sağlar. Azure Machine Learning hizmeti Scikit-learn, Tensorflow, Pytorch veya diğer Python tabanlı herhangi bir çerçeve gibi açık kaynak teknolojilerini tümüyle destekler. Hızlı başlangıçlarımız ve öğreticilerimizden yararlanarak, Azure Machine Learning hizmetini makine öğrenimi iş akışlarınızda nasıl kullanacağınızı öğrenin.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -17,22 +17,17 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 12/04/2018
+  ms.date: 1/30/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Uygulamalara ve web sitelerine akıllı algoritmalar eklemeyi öğrenin. Scikit-learn, Tensorflow, Pytorch veya diğer Python tabanlı çerçeveleri kullanarak makine öğrenmesi modelinizi derleyin ve yerel ortamda veya bulutta eğitin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
+  description: Azure Machine Learning hizmeti, makine öğrenmesi modellerini geliştirmek, eğitmek, test etmek, dağıtmak, yönetmek ve izlemek için kullanabileceğiniz bulut tabanlı bir ortam sağlar. Bu hizmet Scikit-learn, Tensorflow, Pytorch veya diğer Python tabanlı herhangi bir çerçeve gibi açık kaynak teknolojilerini tümüyle destekler. Hızlı başlangıçlarımız ve öğreticilerimizden yararlanarak, bu hizmeti makine öğrenimi iş akışlarınızda nasıl kullanacağınızı öğrenin.
 sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'Hızlı başlangıcı kullanarak Azure Machine Learning hizmetine yönelik çalışma alanını ve kaynakları ayarlamayı öğrenin:'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="quickstart-get-started">Azure portalını</a> kullanmaya başlama.
-    - html: <a href="quickstart-create-workspace-with-python">Python’ı</a> kullanmaya başlama.
+    text: Başlangıç olarak <a href="quickstart-get-started">Azure portalında</a> veya <a href="quickstart-create-workspace-with-python">Python'da</a> hizmet çalışma alanını ve kaynakları oluşturun.
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
@@ -40,18 +35,20 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Görüntü sınıflandırma modellerini eğitme ve dağıtma</a> (<b>iki parçalı seri</b>).
-    - html: Regresyon modellerini eğitmek ve ayarlamak için <a href="tutorial-data-prep">veri hazırlama ve otomatik makine öğrenmesini kullanma</a> (<b>iki parçalı seri</b>).<br>&nbsp;
+    - html: Görüntü sınıflandırma modellerini <a href="tutorial-train-models-with-aml">eğitme</a> ve <a href="tutorial-deploy-models-with-aml">dağıtma</a> (<b>iki parçalı seri</b>).<br>&nbsp;
+    - html: Regresyon modellerini eğitmek ve ayarlamak için <a href="tutorial-data-prep">veri hazırlama</a> ve <a href="tutorial-auto-train-models">otomatik makine öğrenmesini kullanma</a> (<b>iki parçalı seri</b>).
+- title: Örnekler
+  items:
   - type: paragraph
-    text: '<b>Örnekler</b>: GitHub üzerindeki bu <a href="https://aka.ms/aml-notebooks">Jupyter not defterleri</a> ile hizmeti keşfedin.'
+    text: Github'da hizmeti keşfetmenize yardımcı olması için <a href="samples-notebooks">Jupyter not defterlerini</a> bulun.
 - title: Başvuru
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://aka.ms/data-prep-sdk">Azure Machine Learning Veri Hazırlama SDK'sı</a>
-    - html: <a href="https://aka.ms/aml-sdk">Python için Azure Machine Learning SDK'sı (ana SDK)</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">Azure Machine Learning İzleme SDK’sı</a>
+    - html: <a href="https://aka.ms/aml-sdk">Ana SDK (Python)</a>
+    - html: <a href="https://aka.ms/data-prep-sdk">Veri Hazırlığı SDK'sı (Python)</a>
+    - html: <a href="https://aka.ms/aml-monitoring-sdk">İzleme SDK'sı (Python)</a>
 - title: Diğer Azure Machine Learning teknolojileri
   items:
   - type: list

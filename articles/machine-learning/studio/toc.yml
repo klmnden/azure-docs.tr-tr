@@ -15,8 +15,6 @@ items:
   - name: Sık sorulan sorular
     displayName: FAQ
     href: faq.md
-  - name: Yenilikler
-    href: whats-new.md
   expanded: true
 - name: Öğreticiler
   items:
@@ -41,8 +39,6 @@ items:
     - name: 6 - Web hizmetine erişme
       displayName: consume
       href: walkthrough-6-access-web-service.md
-  - name: R kullanmaya başlama
-    href: r-quickstart.md
 - name: Örnekler
   items:
   - name: Kullanılabilir veri kümeleri
@@ -120,6 +116,8 @@ items:
         href: debug-models.md
     - name: R ve Python’u kullanma
       items:
+      - name: R kullanmaya başlama
+        href: r-quickstart.md
       - name: R betiklerini yürütme
         href: extend-your-experiment-with-r.md
       - name: Özel R modülleri yazma
@@ -208,21 +206,25 @@ items:
     href: /rest/api/machinelearning
 - name: Kaynaklar
   items:
-  - name: Azure Yol Haritası
+  - name: Hizmet güncelleştirmeleri
+    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
+  - name: Destek alın
+    href: support-aml-studio.md
+  - name: Azure yol haritası
     href: https://azure.microsoft.com/roadmap/
+  - name: Bölgesel kullanılabilirlik
+    href: https://azure.microsoft.com/regions/services/
   - name: Fiyatlandırma
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: R geliştirici kılavuzu
     href: ../r-developers-guide.md
-  - name: Net# ile Özel Sinir Ağları
+  - name: Özel sinir ağları (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: Destek alın
-    href: support-aml-studio.md
   - name: ML ürünlerimizi karşılaştırın
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 12fa71315c1cb43570505d2428804f4a5348a266
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 27cd57a52b80006482f50f96120e8eaf8a8cb00e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156097"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512202"

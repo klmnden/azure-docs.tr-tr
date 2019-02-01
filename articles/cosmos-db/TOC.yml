@@ -76,11 +76,11 @@ items:
     items:
     - name: Genel Bakış
       href: distribute-data-globally.md
-    - name: Tutarlılık Düzeyleri
+    - name: Tutarlılık düzeyleri
       href: consistency-levels.md
     - name: Doğru tutarlılık düzeyini seçme
       href: consistency-levels-choosing.md
-    - name: Tutarlılık düzeyleri ve Cosmos DB API’leri
+    - name: Tutarlılık düzeyleri ve Azure Cosmos DB API’leri
       href: consistency-levels-across-apis.md
     - name: Tutarlılık, kullanılabilirlik ve performans dengeleri
       href: consistency-levels-tradeoffs.md
@@ -98,7 +98,7 @@ items:
     items:
     - name: Genel Bakış
       href: partitioning-overview.md
-    - name: Mantıksal bölümler
+    - name: Bölümleme ve yatay ölçeklendirme
       href: partition-data.md
     - name: Yapay bölüm anahtarı oluşturma
       href: synthetic-partition-keys.md
@@ -112,7 +112,7 @@ items:
     href: account-overview.md
   - name: Kapsayıcılar ve öğeler
     items:
-    - name: Veritabanları, kapsayıcılar ve öğeler ile çalışma
+    - name: Veritabanları, kapsayıcılar ve öğelerle çalışma
       href: databases-containers-items.md
     - name: SQL dil başvurusu
       href: sql-api-query-reference.md
@@ -122,7 +122,7 @@ items:
       items:
       - name: Genel Bakış
         href: index-overview.md
-      - name: Dizin oluşturma ilkesi
+      - name: Dizin ilkesi
         href: index-policy.md
       - name: Dizin türleri
         href: index-types.md
@@ -136,17 +136,17 @@ items:
         href: read-change-feed.md
       - name: Değişiklik akışı işlemcisi
         href: change-feed-processor.md
-      - name: Azure İşlevleri ile değişiklik akışı
+      - name: Azure İşlevleri'ni tetikleme
         href: change-feed-functions.md
     - name: Yaşam süresi
       href: time-to-live.md
     - name: Benzersiz anahtar kısıtlamaları
       href: unique-keys.md
-    - name: İşlemler ve iyimser eşzamanlılık
+    - name: İşlemler ve iyimser eşzamanlılık denetimi
       href: database-transactions-optimistic-concurrency.md
   - name: Sunucu tarafı programlama
     items:
-    - name: Saklı yordamlar, tetikleyiciler ve UDF’ler
+    - name: Saklı yordamlar, tetikleyiciler ve UDF'ler
       href: stored-procedures-triggers-udfs.md
     - name: JavaScript sorgu API’si
       href: javascript-query-api.md
@@ -168,9 +168,9 @@ items:
       href: optimize-cost-reads-writes.md
     - name: Birden çok bölgenin maliyetini iyileştirme
       href: optimize-cost-regions.md
-    - name: Geliştirme/test iş yüklerinizi iyileştirme
+    - name: Geliştirme/test maliyetini iyileştirme
       href: optimize-dev-test.md
-    - name: Ayrılmış kapasite ile en iyi duruma getirme
+    - name: Ayrılmış kapasiteyle maliyeti iyileştirme
       href: cosmos-db-reserved-capacity.md
   - name: Güvenlik
     items:
@@ -180,13 +180,13 @@ items:
       href: database-encryption-at-rest.md
     - name: Veri erişiminin güvenliğini sağlama
       href: secure-access-to-data.md
-    - name: IP Güvenlik Duvarı
+    - name: IP güvenlik duvarı
       href: firewall-support.md
     - name: Sanal ağlardan erişme
       href: vnet-service-endpoint.md
   - name: Kurumsal kullanıma hazır olma
     items:
-    - name: Çevrimiçi yedekleme ve geri yükleme
+    - name: Çevrimiçi yedekleme ve isteğe bağlı geri yükleme
       href: online-backup-and-restore.md
     - name: Uyumluluk
       href: compliance.md
@@ -254,14 +254,6 @@ items:
       items:
       - name: Sorgu performansını ayarlama
         href: sql-api-query-metrics.md
-      - name: Sunucu tarafı programlama
-        items:
-        - name: Saklı yordamlar, tetikleyiciler ve UDF’ler yazma
-          href: how-to-write-stored-procedures-triggers-udfs.md
-        - name: JavaScript sorgu API’si ile saklı yordamlar ve tetikleyiciler yazma
-          href: how-to-write-javascript-query-api.md
-        - name: Saklı yordamları, tetikleyicileri ve UDF’leri kullanma
-          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Veri türleri
         items:
         - name: DateTime
@@ -337,7 +329,7 @@ items:
         - name: Node.js ve React uygulaması
           href: tutorial-develop-mongodb-react.md
       - name: 2 - Verileri geçirme
-        href: mongodb-migrate.md
+        href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - Verileri sorgulama
         href: tutorial-query-mongodb.md
       - name: 4 - Verileri global olarak dağıtma
@@ -467,19 +459,19 @@ items:
   expanded: true
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Veritabanı hesabını yönetme
+  - name: Azure Cosmos hesabını yönetme
     href: how-to-manage-database-account.md
   - name: Genel dağıtım
     items:
-    - name: Tutarlılığı yönetme
+    - name: Tutarlılık düzeylerini yönetme
       href: how-to-manage-consistency.md
-    - name: Çakışmaları yönetme
+    - name: Çakışma çözme ilkelerini yapılandırma
       href: how-to-manage-conflicts.md
   - name: Sağlanan aktarım hızı
     items:
-    - name: Kapsayıcı aktarım hızı sağlama
+    - name: Kapsayıcıda aktarım hızı sağlama
       href: how-to-provision-container-throughput.md
-    - name: Veritabanı aktarım hızı sağlama
+    - name: Veritabanında aktarım hızı sağlama
       href: how-to-provision-database-throughput.md
   - name: Kapsayıcılarla ve öğelerle çalışma
     items:
@@ -489,10 +481,22 @@ items:
       href: how-to-query-container.md
     - name: Yaşam süresini yapılandırma
       href: how-to-time-to-live.md
+    - name: Azure Depolama Gezgini'ni kullanarak verilerle çalışma
+      href: storage-explorer.md
+    - name: Azure Cosmos gezginini kullanarak verilerle çalışma
+      href: data-explorer.md
     - name: Dizinleme
       items:
-      - name: Dizin oluşturmayı yapılandırma
+      - name: Dizinlemeyi yönetme
         href: how-to-manage-indexing-policy.md
+  - name: Sunucu tarafı programlama
+    items:
+    - name: Saklı yordamlar, tetikleyiciler ve UDF’ler yazma
+      href: how-to-write-stored-procedures-triggers-udfs.md
+    - name: JavaScript sorgu API’si ile saklı yordamlar ve tetikleyiciler yazma
+      href: how-to-write-javascript-query-api.md
+    - name: Saklı yordamları, tetikleyicileri ve UDF’leri kullanma
+      href: how-to-use-stored-procedures-triggers-udfs.md
   - name: Güvenlik
     items:
     - name: IP güvenlik duvarını yapılandırma
@@ -501,22 +505,18 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Başlangıç Noktaları Arası Kaynak Paylaşımı'nı (CORS) yapılandırma
       href: how-to-configure-cross-origin-resource-sharing.md
-    - name: Key Vault ile güvenli hale getirme
+    - name: Key Vault kullanarak Azure Cosmos anahtarlarının güvenliğini sağlama
       href: access-secrets-from-keyvault.md
   - name: Kurumsal kullanıma hazır olma
     items:
     - name: Verileri bir yedeklemeden geri yükleme
       href: how-to-backup-and-restore.md
-  - name: Yönetme
+  - name: Azure Cosmos DB kaynaklarını yönetme
     items:
     - name: PowerShell kullanarak yönetme
       href: manage-account-with-powershell.md
     - name: Azure CLI kullanarak yönetme
       href: manage-with-cli.md
-    - name: Depolama Gezgini’nin kullanımını yönetme
-      href: storage-explorer.md
-    - name: Veri gezginini kullanarak yönetme
-      href: data-explorer.md
   - name: Günlüğe kaydetme
     items:
     - name: Tanılama günlüğüne kaydetme
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: Sosyal medya uygulamaları
       href: social-media-apps.md
-ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2fdf08837bc239ba10da85fad7b81c819b9f26fc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094487"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511930"

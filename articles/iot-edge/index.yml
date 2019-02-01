@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 39ff5ba2ae6a9d4cf48499d4e73974e531a492a3
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 82ba644f844c59b59f449e137c64b767d5dffbff
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564876"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464033"
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
@@ -15,7 +15,7 @@ metadata:
   ms.service: iot-edge
   services: iot-edge
   ms.topic: landing-page
-  ms.date: 06/21/2018
+  ms.date: 01/30/2019
   ms.author: kgremban
 abstract:
   description: Azure IoT Edge, IoT Hub temelinde geliştirilen bir Nesnelerin İnterneti (IoT) hizmetidir. Bu hizmet, verileri bulut yerine cihazlarda, diğer bir deyişle "en uçta" analiz etmek isteyen müşterilere yöneliktir. İş yükünüzün belirli bölümlerini uca taşıyarak cihazlarınızın iletileri buluta gönderme süresini azaltabilir ve durum değişikliklerine daha hızlı yanıt vermesini sağlayabilirsiniz.
@@ -47,15 +47,17 @@ sections:
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: IoT Edge’i yükleyip yapılandırma, modülleri dağıtma ve Stream Analytics gibi Azure hizmetlerini uçta kullanma hakkında bilgi edinin.
+    text: IoT Edge’i yükleyip yapılandırma, modülleri dağıtma ve Stream Analytics ile Özel Görüntü İşleme gibi Azure hizmetlerini uçta kullanma hakkında bilgi edinin.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/iot-edge/tutorial-deploy-function">Azure İşlevleri ile iletileri filtreleme</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Azure Stream Analytics modülüyle ortalamaları bulma</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Azure Machine Learning modülüyle verileri puanlama</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Özel Görüntü İşleme hizmetiyle modül olarak görüntüleri sınıflandırma</a>
     - html: <a href="/azure/iot-edge/tutorial-csharp-module">Verileri C# modülüyle filtreleme</a>
     - html: <a href="/azure/iot-edge/tutorial-python-module">Verileri Python modülüyle filtreleme</a>
     - html: <a href="/azure/iot-edge/tutorial-node-module">Verileri Node.js modülüyle filtreleme</a>
+    - html: <a href="/azure/iot-edge/tutorial-java-module">Verileri Java modülüyle filtreleme</a>
     - html: <a href="/azure/iot-edge/tutorial-c-module">Verileri C modülüyle filtreleme</a>
     - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">SQL Server ile uçta veri depolama</a>
