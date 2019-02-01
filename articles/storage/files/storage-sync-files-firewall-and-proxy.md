@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 6c8a0a0db419546a49670b1f34e58ead7cebeaa1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c0a1d2bf1d7a103ad473cadb1528bd9b9a4c90de
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459511"
+ms.locfileid: "55488025"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
@@ -111,7 +111,7 @@ Varsa &ast;. one.microsoft.com çok geniş, Azure dosya eşitleme hizmeti yalnı
 
 | Bölge | Birincil uç nokta URL'si | Eşleştirilmiş bölge | Bulma URL'si |
 |--------|---------------------------------------|--------|---------------------------------------|
-| Avustralya Doğu | https://kailani-aue.one.microsoft.com | Avustralya Souteast | https://kailani-aue.one.microsoft.com |
+| Avustralya Doğu | https://kailani-aue.one.microsoft.com | Avustralya Güneydoğu | https://kailani-aue.one.microsoft.com |
 | Avustralya Güneydoğu | https://kailani-aus.one.microsoft.com | Avustralya Doğu | https://tm-kailani-aus.one.microsoft.com |
 | Orta Kanada | https://kailani-cac.one.microsoft.com | Doğu Kanada | https://tm-kailani-cac.one.microsoft.com |
 | Doğu Kanada | https://kailani-cae.one.microsoft.com | Orta Kanada | https://tm-kailani.cae.one.microsoft.com |

@@ -1,6 +1,6 @@
 ---
 title: Azure IOT Hub ileti yönlendirme sorgu | Microsoft Docs
-description: Geliştirici Kılavuzu - Azure IOT Hub ileti yönlendirme için sorgu synxtax.
+description: Geliştirici Kılavuzu - Azure IOT Hub ileti yönlendirme sorgusu söz dizimi.
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: da95bd3832ee647c371c7beabb55b974dcb97740
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496576"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IOT Hub ileti yönlendirme sorgusu söz dizimi
 
@@ -25,7 +25,7 @@ ms.locfileid: "48018545"
 
 ## <a name="message-routing-query-based-on-message-properties"></a>İleti yönlendirme sorgu ileti özelliklerine bağlı 
 
-IOT hub'ı tanımlayan bir [ortak biçimi](iot-hub-devguide-messages-construct.md) için tüm cihaz-bulut Mesajlaşma için interoperatbility protokolleri. IOT Hub ileti iletinin aşağıdaki JSON gösterimine varsayar. Sistem özellikleri tüm kullanıcılar için eklenir ve iletisinin içeriği tanımlayın. Kullanıcılar, iletiyi seçerek uygulama özellikleri ekleyebilirsiniz. IOT Hub CİHAZDAN buluta ileti büyük/küçük harfe olmadığından benzersiz özellik adlarını kullanmanızı öneririz. Aynı ada sahip birden çok özellikleri vardır, örneğin, IOT hub'ı yalnızca özelliklerinden gönderir.  
+IOT hub'ı tanımlayan bir [ortak biçimi](iot-hub-devguide-messages-construct.md) CİHAZDAN buluta tüm protokoller üzerinde birlikte çalışabilirlik için Mesajlaşma için. IOT Hub ileti iletinin aşağıdaki JSON gösterimine varsayar. Sistem özellikleri tüm kullanıcılar için eklenir ve iletisinin içeriği tanımlayın. Kullanıcılar, iletiyi seçerek uygulama özellikleri ekleyebilirsiniz. IOT Hub CİHAZDAN buluta ileti büyük/küçük harfe olmadığından benzersiz özellik adlarını kullanmanızı öneririz. Aynı ada sahip birden çok özellikleri vardır, örneğin, IOT hub'ı yalnızca özelliklerinden gönderir.  
 
 ```json
 { 

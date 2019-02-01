@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 074184d1465236fadebb5afa229a5b7f8689bbc9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b1098622ad96ccdcd1941466c6e32255b4415820
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251665"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508020"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
@@ -103,6 +103,9 @@ output_data1 = PipelineData(
 ## <a name="set-up-compute-target"></a>İşlem Hedefi ' ayarlayın
 
 Azure Machine Learning içinde terimi __işlem__ (veya __hedef işlem__) makineleri ya da machine learning işlem hattı, hesaplama adımları kümeleri anlamına gelir.   Bkz: [model eğitim hedefleri işlem](how-to-set-up-training-targets.md) işlem hedefleri ve nasıl oluşturup bunları çalışma alanınıza eklemek tam bir listesi için.  İşlem hedefi ekleme ve oluşturma işlemi modeli veya bir işlem hattı adım çalıştırılıyor bağımsız olarak aynıdır. Oluşturma ve işlem hedef ekleme sonra kullanın `ComputeTarget` nesnesine, [işlem hattı adım](#steps).
+
+> [!IMPORTANT]
+> İşlem hedefleri üzerinde yönetim işlemlerini gerçekleştirme desteklenmiyor gelen içinde uzak işler. Machine learning işlem hatlarını uzak iş olarak gönderilen olduğundan, işlem hattı içindeki işlem hedeflerden yönetim işlemlerini kullanmayın.
 
 Oluşturma ve işlem hedeflerine yönelik ekleme örnekleri aşağıda verilmiştir:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3b929c3f85bab4319fe2fef1b5c0575f0d1d972a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014979"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511685"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Bir sanal ağ eşleme - oluşturma-Resource Manager, farklı abonelikler
 
@@ -72,7 +72,7 @@ Aşağıdaki adımlar, her abonelik için farklı hesaplar kullanma. İki abonel
     - **Konum**: *Doğu ABD*
 
 13. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetB*. Seçin **myVnetB** arama sonuçlarında görüntülendiğinde.
-14. Altında **myVnetB**seçin **özellikleri** seçenekleri sol taraftaki dikey listesinden. Kopyalama **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği, aşağıdaki örneğe benzer: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. Altında **myVnetB**seçin **özellikleri** seçenekleri sol taraftaki dikey listesinden. Kopyalama **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği, aşağıdaki örneğe benzer: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
 15. Seçin **erişim denetimi (IAM)** altında **myVnetB**ve ardından myVnetB, girmek için 5-10 adımları tamamlayın **Kullanıcıa** 8. adımda.
 16. Portalda UserB olarak dışında oturum ve UserA oturum açın.
 17. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetA*. Seçin **myVnetA** arama sonuçlarında görüntülendiğinde.

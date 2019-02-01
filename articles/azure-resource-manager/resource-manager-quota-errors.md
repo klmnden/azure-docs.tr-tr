@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf9f914aeaee25cda8fd426454cb39a1afa0b4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260235"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488621"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Kaynak kotaları hataları çözün
 
 Bu makalede, kaynakları dağıtırken karşılaşabileceğiniz kotasını hataları açıklanır.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>Belirti
 
@@ -76,10 +78,10 @@ Döndürür:
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell için şunu kullanın **Get-AzureRmVMUsage** sanal makine kotaları bulmak için komutu.
+PowerShell için şunu kullanın **Get-AzVMUsage** sanal makine kotaları bulmak için komutu.
 
 ```powershell
-Get-AzureRmVMUsage -Location "South Central US"
+Get-AzVMUsage -Location "South Central US"
 ```
 
 Döndürür:

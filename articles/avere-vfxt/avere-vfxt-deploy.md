@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: da329b5c50fe7c39d9773743b40c2f990e298963
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f6d847e9042341f47a06fde0f9aa4a70f2549a07
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296384"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512168"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT kümesini dağıtma
 
@@ -39,11 +39,11 @@ Küme dağıtım adımları ve planlama hakkında daha fazla bilgi için okuma [
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Azure için Avere vFXT oluşturma
 
-Azure portalında oluşturma şablonu Avere için arama ve "Azure dağıtımı için Avere vFXT" seçerek erişebilirsiniz. <!-- xxx update if that name changes xxx --> 
+Oluşturma şablonu Azure portalında erişim için Avere arama ve seçme "Avere vFXT ARM dağıtım". 
 
-<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
+!["Yeni > Market > her şey" ekmek Azure portalıyla gösteren tarayıcı penceresinde kalbimdeki. İçinde her şey sayfa, arama alanına "avere" terimi ve ikinci sonuç yok "Avere vFXT ARM dağıtım" vurgulamak için kırmızı renkle.](media/avere-vfxt-template-choose.png)
 
-Tıklayın **Oluştur** başlamak için. 
+Sayfadaki Avere vFXT ARM dağıtım ayrıntıları okuduktan sonra tıklayın **Oluştur** başlamak için. 
 
 ![Dağıtım şablonu gösteren'ın ilk sayfasında ile Azure Market](media/avere-vfxt-deploy-first.png)
 
@@ -123,9 +123,11 @@ Dağıtım şablonu ikinci sayfasında, küme boyutu, düğüm türü, önbellek
 
 * **Alt ağ** - var olan sanal ağınızdan bir alt ağ seçin veya yeni bir tane oluşturun. 
 
-* **BLOB Depolama kullanma** -yeni bir Azure Blob kapsayıcısı oluşturmak ve bunu yeni Avere vFXT küme için arka uç depolama olarak yapılandırmak gerekip gerekmediğini seçin. Yeni bir kapsayıcı oluşturmak isterseniz, bu kapsayıcı için depolama hesabı belirtmeniz gerekir. Yeni bir blob kapsayıcı oluşturmamayı seçerseniz, Küme oluşturulduktan sonra depolama ekleme gerekir (okuma [depolamayı yapılandırma](avere-vfxt-add-storage.md) yönergeleri için). Bu alan kümesine **false** yeni bir kapsayıcı oluşturmak istemiyorsanız.
+* **BLOB Depolama kullanma** -seçin **true** yeni bir Azure Blob kapsayıcısı oluşturmak ve bunu yeni Avere vFXT küme için arka uç depolama olarak yapılandırmak için. Bu seçenek ayrıca küme ile aynı kaynak grubunda yeni bir depolama hesabı oluşturur. 
 
-* **Depolama hesabı** : yeni bir Azure Blob kapsayıcısı oluşturma girin, depolama hesabı adı. Depolama hesabı, yerel olarak yedekli depolama ve sık erişim katmanı ile yapılandırılmış bir standart genel amaçlı V2 hesabı olmalıdır. [Depolamayı yapılandırma](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer) makale depolama hesabı gereksinimleri hakkında daha fazla ayrıntı sahiptir.
+  Bu alan kümesine **false** yeni bir kapsayıcı oluşturmak istemiyorsanız. Bu durumda, ekleme ve Küme oluşturulduktan sonra depolama yapılandırmanız gerekir. Okuma [depolamayı yapılandırma](avere-vfxt-add-storage.md) yönergeler için. 
+
+* **Depolama hesabı** : yeni bir Azure Blob kapsayıcısı oluşturma girin, yeni depolama hesabı için bir ad. 
 
 ## <a name="validation-and-purchase"></a>Doğrulama ve satın alma
 
@@ -161,7 +163,7 @@ Bu bilgileri bulmak için bu yordamı izleyin:
 
 ## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Depolama uç noktası (Azure Blob kullanıyorsanız) oluşturma
 
-Arka uç veri depolama için Azure Blob Depolama kullanıyorsanız, sanal ağınızda bulunan bir depolama hizmet uç noktası oluşturmanız gerekir. Bu [hizmet uç noktası](../virtual-network/virtual-network-service-endpoints-overview.md) Azure Blob trafik internet üzerinden yönlendirmek yerine yerel tutar getirin.
+Arka uç veri depolama için Azure Blob Depolama kullanıyorsanız, sanal ağınızda bulunan bir depolama hizmet uç noktası oluşturmanız gerekir. Bu [hizmet uç noktası](../virtual-network/virtual-network-service-endpoints-overview.md) Azure Blob trafiği sanal ağ dışında yönlendirme yerine yerel tutar getirin.
 
 1. Portalda, **sanal ağlar** soldaki.
 1. Sanal ağ denetleyiciniz için seçin. 

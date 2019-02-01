@@ -13,17 +13,17 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 135189c576c67212dac6afc1388a6ef9fb045346
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255566"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512389"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Öğretici: Yeoman'ı kullanarak kapsayıcıları Service Fabric uygulaması olarak paketleme ve dağıtma
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Öğretici: Kapsayıcıları paketleme ve Yeoman kullanarak Service Fabric uygulaması dağıtma
 
 Bu öğretici, bir dizinin ikinci bölümüdür. Bu öğreticide, bir şablon oluşturma aracı (Yeoman) kullanılarak bir Service Fabric uygulaması tanımı oluşturulmaktadır. Daha sonra bu uygulama Service Fabric’e kapsayıcı dağıtmak için kullanılabilir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -35,7 +35,7 @@ Bu öğretici, bir dizinin ikinci bölümüdür. Bu öğreticide, bir şablon ol
 > * Uygulamayı dağıtma ve çalıştırma
 > * Uygulamayı temizleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bu öğretici serisinin [1. Bölümünde](service-fabric-tutorial-create-container-images.md) oluşturulup Azure Container Registry’ye gönderilen kapsayıcı görüntüleri kullanılır.
 * Linux geliştirme ortamı [ayarlanmıştır](service-fabric-tutorial-create-container-images.md).
@@ -227,28 +227,53 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 ## <a name="create-a-service-fabric-cluster"></a>Service Fabric kümesi oluşturma
 
-Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi oluşturun.
+Uygulamayı Azure'a dağıtmak için, uygulamayı çalıştıracak bir Service Fabric kümesine ihtiyacınız vardır. Aşağıdaki komutlar, Azure'da beş düğümlü bir küme oluşturur.  Komutları da otomatik olarak imzalanan bir sertifika oluşturun, bir anahtar kasasına ekler ve sertifika yerel olarak bir PEM dosyası olarak indirilir. Yeni sertifikayı dağıtır ve istemcilerin kimliğini doğrulamak için kullanılan Küme güvenliğini sağlamak için kullanılır.
 
-Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Service Fabric ekibi tarafından çalıştırılan bu kümelere herkes uygulama dağıtarak platform hakkında bilgi alabilir. Bir Grup Kümesine erişmek için [yönergeleri takip edin](https://aka.ms/tryservicefabric).
+```azurecli
+#!/bin/bash
 
-Güvenli toplu kümede yönetimi işlemleri gerçekleştirmek için Service Fabric Explorer, CLI veya Powershell’i kullanabilirsiniz. Service Fabric Explorer’ı kullanmak için, PFX dosyasını Toplu Küme Web sitesinden indirmeniz ve sertifikayı sertifika deponuza (Windows veya Mac) veya tarayıcının kendisine (Ubuntu) aktarmanız gerekir. Toplu kümeden gelen otomatik olarak imzalanan sertifikaların parolası yoktur.
+# Variables
+ResourceGroupName="containertestcluster" 
+ClusterName="containertestcluster" 
+Location="eastus" 
+Password="q6D7nN%6ck@6" 
+Subject="containertestcluster.eastus.cloudapp.azure.com" 
+VaultName="containertestvault" 
+VmPassword="Mypa$$word!321"
+VmUserName="sfadminuser"
 
-Powershell veya CLI ile yönetim işlemleri gerçekleştirmek için PFX (Powershell) veya PEM (CLI) gerekir. PFX dosyasını PEM dosyasına dönüştürmek için lütfen aşağıdaki komutu çalıştırın:
+# Login to Azure and set the subscription
+az login
 
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+az account set --subscription <mySubscriptionID>
+
+# Create resource group
+az group create --name $ResourceGroupName --location $Location 
+
+# Create secure five node Linux cluster. Creates a key vault in a resource group
+# and creates a certficate in the key vault. The certificate's subject name must match 
+# the domain that you use to access the Service Fabric cluster.  
+# The certificate is downloaded locally as a PEM file.
+az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
+--certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
-Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da Service Fabric kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+> [!Note]
+> Web ön ucu hizmeti, gelen trafik için 80 numaralı bağlantı noktasını dinlemek üzere yapılandırılmıştır. Varsayılan olarak, kümenizi Vm'leri ve Azure load balancer 80 numaralı bağlantı noktasını açıktır.
+>
+
+Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da bir Service Fabric kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Uygulamayı oluşturup kümeye dağıtma
 
 Uygulamayı, Service Fabric CLI’yi kullanarak Azure kümesine dağıtabilirsiniz. Service Fabric CLI makinenizde yüklü değilse [buradaki](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) yönergeleri uygulayarak yükleyin.
 
-Azure’daki Service Fabric kümesine bağlanın. Örnek uç noktayı kendi uç noktanız ile değiştirin. Uç nokta, aşağıdaki gibi tam bir URL olmalıdır.
+Azure’daki Service Fabric kümesine bağlanın. Örnek uç noktayı kendi uç noktanız ile değiştirin. Uç nokta, aşağıdaki gibi tam bir URL olmalıdır.  PEM dosyasını daha önce oluşturulan otomatik olarak imzalanan bir sertifikadır.
 
 ```bash
-sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
 ```
 
 **TestContainer** dizininde sağlanan yükleme betiğini kullanarak uygulama paketini kümenin görüntü deposuna kopyalayın, uygulama türünü kaydedin ve uygulamanın bir örneğini oluşturun.
@@ -257,11 +282,11 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 ./install.sh
 ```
 
-Bir tarayıcı açın ve http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer adresinde Service Fabric Explorer’a gidin. Uygulamalar düğümünü genişletin ve uygulamanızın türü için bir giriş ve örnek için başka bir giriş olduğuna dikkat edin.
+Bir tarayıcı açın ve http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer adresinde Service Fabric Explorer’a gidin. Uygulamalar düğümünü genişletin ve uygulamanızın türü için bir giriş ve örnek için başka bir giriş olduğuna dikkat edin.
 
 ![Service Fabric Explorer][sfx]
 
-Çalışan uygulamaya bağlanmak için bir web tarayıcısı açın ve kümenin URL’sine gidin. Örnek: http://lin0823ryf2he.cloudapp.azure.com:80. Web kullanıcı arabiriminde Voting (Oylama) uygulamasını görmeniz gerekir.
+Çalışan uygulamaya bağlanmak için bir web tarayıcısı açın ve kümenin URL’sine gidin. Örnek: http://containertestcluster.eastus.cloudapp.azure.com:80. Web kullanıcı arabiriminde Voting (Oylama) uygulamasını görmeniz gerekir.
 
 ![votingapp][votingapp]
 

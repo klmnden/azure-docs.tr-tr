@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 3c1896dc756675b838b97d978cec40b4650760fe
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9164c335eb85676a419c1cb805b2217ea73c40fe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298978"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497834"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Birleştirilmiş uyarılar ve Azure İzleyici'de izleme Klasik uyarı ve izleme değiştirir.
 
@@ -63,7 +63,7 @@ Azure İzleyici'de, Haziran 2019 sonunda:
 - Uyarı kuralları geçişi yeni uyarılar platformu izleme kapsamı önceki gibi sağlar ancak yeni yüklerini bildirimi ateşlenir. Tüm e-posta adresi, klasik bir uyarı kuralı ile ilişkili Web kancası uç noktası veya mantıksal uygulama bağlantısı geçişi olduğunda İleri taşınır, ancak doğru şekilde çalışmayabilir uyarı yükü yeni platformu farklı olarak
 
 > [!IMPORTANT]
-> Microsoft Azure İzleyici olur, otomatik olarak yeni platformu açın, Klasik uyarı kuralları yakında geçirmek aracı sağlar. Çalıştırıp onu zorla yine de mevcut, Temmuz 2019 başlayan tüm Klasik uyarı kuralları tarafından. Müşteriler kullanan klasik bir uyarı kuralı yükü yeni yükü işlemek için uyarlanmış Otomasyon sağlamak gerekir [birleşik ölçümleri ve Uyarıları Application ınsights'ta](#unified-metrics-and-alerts-in-application-insights) veya [birleşik ölçümleri ve diğer Azure uyarıları Kaynakları](#unified-metrics-and-alerts-for-other-azure-resources), Klasik uyarı kuralları geçiş sonrası. 
+> Microsoft Azure İzleyici otomatik olarak yeni platformu açın, Klasik uyarı kuralları yakında konusunda müşterileri için araçlar sağlar. Çalıştırıp onu zorla yine de mevcut, Temmuz 2019 başlayan tüm Klasik uyarı kuralları tarafından. Müşteriler kullanan klasik bir uyarı kuralı yükü yeni yükü işlemek için uyarlanmış Otomasyon sağlamak gerekir [birleşik ölçümleri ve Uyarıları Application ınsights'ta](#unified-metrics-and-alerts-in-application-insights) veya [birleşik ölçümleri ve diğer Azure uyarıları Kaynakları](#unified-metrics-and-alerts-for-other-azure-resources), Klasik uyarı kuralları geçiş sonrası. 
 
 Araçlar, uyarılardan gönüllü geçirmenizi yakında sağlayacağız [uyarılar (Klasik) bölümünde](../../azure-monitor/platform/alerts-classic.overview.md) yeni Azure uyarıları için Azure portal'ın. Uyarılar (Klasik), yeni Azure İzleyicisi geçişi yapılandırılan tüm kurallar ücretsiz kalır ve ücret alınmaz. Geçirilen Klasik uyarı kuralları için e-posta, Web kancası veya mantıksal uygulama bildirimleri gönderme herhangi bir ücrete da size aittir değil. Ancak, daha yeni bir bildirim ya da eylem türleri (örneğin, SMS, sesli arama, ITSM tümleştirmesi, vb.) kullanımı için geçirilen veya yeni bir uyarı eklenip ücrete tabi olacaktır. Daha fazla bilgi için [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/pricing/details/monitor/).
 

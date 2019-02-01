@@ -2,23 +2,20 @@
 title: Azure Stack üzerinde Azure Backup Sunucusu'nu Yükle | Microsoft Docs
 description: Dosya korumak veya Azure Stack'te iş yüklerini yedeklemek için Azure Backup sunucusu kullanma.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: Azure backup sunucusu; iş yüklerini korumak; iş yüklerini yedekleme
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 6/5/2018
+ms.topic: conceptual
+ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 31052276f06c5afdf78bf094637b7f60be4acbec
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262736"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497936"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack üzerinde Azure Backup Sunucusu'nu yükleme
 
@@ -326,11 +323,11 @@ Azure bağlantı ve Azure aboneliğinin durumu öğrendikten sonra sunulan yedek
 
 | Bağlantı durumu | Azure Aboneliği | Azure'a yedekleme | Diske yedekleme | Azure'dan geri yükleme | Diskten geri yükleme |
 | --- | --- | --- | --- | --- | --- |
-| Bağlı |Etkin |İzin Verilen |İzin Verilen |İzin Verilen |İzin Verilen |
-| Bağlı |Süresi Doldu |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
-| Bağlı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
+| Bağlanıldı |Etkin |İzin Verilen |İzin Verilen |İzin Verilen |İzin Verilen |
+| Bağlanıldı |Süresi dolmuş |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
+| Bağlanıldı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 | Kayıp bağlantı > 15 gün |Etkin |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
-| Kayıp bağlantı > 15 gün |Süresi Doldu |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
+| Kayıp bağlantı > 15 gün |Süresi dolmuş |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
 | Kayıp bağlantı > 15 gün |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Bağlantı kaybından kurtarma

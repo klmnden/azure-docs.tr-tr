@@ -3,7 +3,7 @@ title: Azure SQL Veritabanı Bağlanma ve Sorgulama hızlı başlangıçları | 
 description: Azure SQL veritabanına nasıl bağlanacağınızı ve bu veritabanını nasıl sorgulayacağınızı gösteren Azure SQL Veritabanı hızlı başlangıçları.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,14 +12,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: 613b4cf2b08269259a4608a6960b815777cd0ae9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: be698c9b1030bcabad50d3b56da2e3c7f0509a9e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608043"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509465"
 ---
-# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Hızlı Başlangıçlar: Azure SQL veritabanına bağlanma ve sorgulama
+# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Hızlı Başlangıçlar: Azure SQL veritabanı bağlanma ve sorgulama
 
 Aşağıdaki tabloda, Azure SQL veritabanına nasıl bağlanılacağını ve Azure SQL veritabanının nasıl sorgulanacağını gösteren Azure örneklerinin bağlantıları yer almaktadır. Ayrıca Taşıma Düzeyi Güvenliği için bazı öneriler sunar.
 

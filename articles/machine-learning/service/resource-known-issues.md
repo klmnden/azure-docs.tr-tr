@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c327d973170a4556471663c3bea9dcae9b5794fb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 706d8986eb25d2d67e3099ae5b0bfc6e55f94ad3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238620"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507377"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
 
@@ -26,7 +26,8 @@ Bu makalede, bulma ve hataları düzeltin veya Azure Machine Learning hizmeti ku
 
 **Hata iletisi: 'PyYAML' kaldırılamıyor**
 
-Azure Machine için Python SDK'sı öğrenme: PyYAML bir distutils yüklü projesidir. Bu nedenle, biz durumunda kısmi bir kaldırma için hangi dosyaların ait doğru bir şekilde belirlenemiyor. Bu hatayı yoksayma sırasında SDK'sı yüklemeye devam etmek için kullanın:
+Azure Machine için Python SDK'sı öğrenme: PyYAML bir distutils yüklü projesidir. Bu nedenle, biz kısmi kaldırma ise hangi dosyaların kendisine ait doğru bir şekilde belirlenemiyor. Bu hatayı yoksayma sırasında SDK'sı yüklemeye devam etmek için kullanın:
+
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
@@ -41,7 +42,7 @@ Web hizmeti dağıtılırken hata oluşturma görüntüsü. Geçici çözüm ola
 
 ## <a name="deployment-failure"></a>Dağıtım hatası
 
-Gözlemlerseniz, ' DaskOnBatch:context_managers. DaskOnBatch', 'setup.py']' ile sonlandırılan < Signals.SIGKILL: 9 >-Lütfen dağıtımınızdaki olanları daha yüksek belleğe sahip olmak için kullanılan sanal makineler için SKU değiştirin.
+Gözlemlerseniz, `'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, daha fazla belleğe sahip bir dağıtımda kullanılan VM'ler için SKU değişimi.
 
 ## <a name="fpgas"></a>FPGA'lar
 İstenen ve FPGA kotası için onaylanmış kadar FPGA modellerde dağıtmayı mümkün olmayacaktır. Erişim istemek için kota istek formunu doldurun: https://aka.ms/aml-real-time-ai
@@ -50,7 +51,7 @@ Gözlemlerseniz, ' DaskOnBatch:context_managers. DaskOnBatch', 'setup.py']' ile 
 
 Databricks ve Azure Machine Learning sorunları.
 
-1. AML SDK yükleme hatası Databricks üzerinde daha fazla paketleri yüklendiğinde.
+1. Daha fazla paketleri yüklendiğinde Databricks üzerinde bir Azure Machine Learning SDK yükleme hataları.
 
    Gibi bazı paketler `psutil`, çakışmaları neden olabilir. Yükleme hataları önlemek için paketleri dondurma LIB sürümüyle yükleyin. Bu sorun, Databricks ve Azure Machine Learning hizmeti SDK'sı - değil ilgili, diğer kitaplıklar ile çok karşılaşacağınız. Örnek:
    ```python
@@ -58,9 +59,9 @@ Databricks ve Azure Machine Learning sorunları.
    ```
    Alternatif olarak, yükleme sorunlarını Python kitaplıklar ile yan yana tutmak, init komut dosyalarını kullanabilirsiniz. Bu yaklaşım, resmi olarak desteklenen bir yaklaşım değildir. Başvurabilirsiniz [bu belge](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-2. Machine Learning otomatik Databricks üzerinde kullanırken bir çalışmayı iptal edip yeni bir deneme çalıştırma başlatmak istiyorsanız lütfen Azure Databricks kümenizi yeniden başlatın.
+2. Machine Learning otomatik Databricks üzerinde bir çalışmayı iptal edip yeni bir deneme çalıştırma başlatmak istiyorsanız kullanırken, Azure Databricks kümenizi yeniden başlatın.
 
-3. Varsa otomatik ml ayarlar > 10 yinelemeden Lütfen False olarak ayarlanmış show_output çalıştırmanız gönderirken.
+3. 10'dan fazla yineleme varsa, otomatik ml ayarlarında belirlenen `show_output` için `False` çalıştırmayı ne zaman gönderdiğiniz.
 
 
 ## <a name="azure-portal"></a>Azure portal
@@ -73,6 +74,20 @@ Günlük dosyaları burada Canlı aşağıda verilmiştir:
 ## <a name="resource-quotas"></a>Kaynak kotaları
 
 Hakkında bilgi edinin [kaynak kotaları](how-to-manage-quotas.md) Azure Machine Learning'i kullanmaya çalışırken hatalarla karşılaşabilirsiniz.
+
+## <a name="authentication-errors"></a>Kimlik Doğrulama hataları
+
+Uzak bir işten işlem hedefi bir yönetim işlemi gerçekleştirirseniz, aşağıdaki hatalardan birini alırsınız:
+
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
+```
+
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
+```
+
+Örneğin, oluşturma veya uzaktan yürütme için gönderilen bir ML ardışık işlem hedefi iliştirilmeye çalışırsanız hata alırsınız.
 
 ## <a name="get-more-support"></a>Daha fazla destek alın
 

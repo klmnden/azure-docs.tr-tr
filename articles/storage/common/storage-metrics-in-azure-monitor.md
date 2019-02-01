@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 248624cc31fab0138eb8a45b5479cc8d2da6ef53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7a645669d273e0ca0017e28ef539c2143151d25
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467654"
+ms.locfileid: "55509716"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -401,6 +401,10 @@ Azure İzleyicisi'nde ölçümler için boyut şu Azure Storage'ı destekler.
 Eski ölçümler, yönetilen Azure İzleyici ölçümleri ile paralel kullanılabilir. Azure depolama ölçümleri eski hizmette sonlandırılana kadar destek aynı kalmasını sağlar.
 
 ## <a name="faq"></a>SSS
+
+**Yeni ölçümler, Klasik depolama hesabı destekliyor mu?**
+
+Hayır, Azure İzleyici yalnızca destek Azure Resource Manager depolama hesaplarında yeni ölçümler. Depolama hesaplarında ölçümleri kullanmak istiyorsanız, Azure Resource Manager depolama hesaplarına geçirmek gerekir. Bkz: [Azure Resource Manager'a geçiş](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 **Yönetilen diskler veya yönetilmeyen diskler için Azure depolama ölçümleri destekliyor mu?**
 
