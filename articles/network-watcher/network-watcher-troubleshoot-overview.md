@@ -75,10 +75,10 @@ Aşağıdaki tablolar kullanılabilir olan farklı hata türleri (yukarıdaki li
 | ConnectionIsMarkedDisconnected | Bağlantı "bağlantısız" olarak işaretlendi |Hayır|
 | ConnectionNotConfiguredOnGateway | Temel alınan hizmete yapılandırılmış bağlantı yok. | Evet |
 | ConnectionMarkedStandby | Temel alınan hizmete yedek olarak işaretlenir.| Evet|
-| Kimlik Doğrulaması | Önceden paylaşılan anahtar uyumsuzluğu | Evet|
+| Authentication | Önceden paylaşılan anahtar uyumsuzluğu | Evet|
 | PeerReachability | Eş Ağ Geçidi erişilebilir değil. | Evet|
 | IkePolicyMismatch | Eş Ağ geçidi, Azure tarafından desteklenen IKE ilkeleri vardır. | Evet|
-| WfpParse hata | WFP günlük ayrıştırılırken bir hata oluştu. |Evet|
+| WfpParse Error | WFP günlük ayrıştırılırken bir hata oluştu. |Evet|
 
 ## <a name="supported-gateway-types"></a>Desteklenen ağ geçidi türleri
 
