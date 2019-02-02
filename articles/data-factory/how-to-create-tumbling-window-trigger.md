@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: 6efccdb3034bb25e60904c858f346ff9a5695fc0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e5910d08cf7ea5e1da094a0313513123d7c7813c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019733"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567046"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Bir atlayan pencere üzerinde bir işlem hattı çalıştırmalarını tetiği oluşturma
 Bu makalede, oluşturmak, başlatmak ve bir atlayan pencere tetikleyicisi izlemek için adımları sağlar. Tetikleyiciler ve desteklenen türler hakkında genel bilgi için bkz. [işlem hattı yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
@@ -33,7 +33,7 @@ Azure portalında bir atlayan pencere tetikleyicisi oluşturmak için seçin **T
 ## <a name="tumbling-window-trigger-type-properties"></a>Atlayan pencere tetikleyicisi türü özellikleri
 Bir atlayan pencere aşağıdaki tetikleyici türü özellikleri vardır:
 
-```  
+```
 {
     "name": "MyTriggerName",
     "properties": {
@@ -47,39 +47,38 @@ Bir atlayan pencere aşağıdaki tetikleyici türü özellikleri vardır:
             "delay": "<<timespan – optional>>",
             “maxConcurrency”: <<int>> (required, max allowed: 50),
             "retryPolicy": {
-                "count":  <<int - optional, default: 0>>,
+                "count": <<int - optional, default: 0>>,
                 “intervalInSeconds”: <<int>>,
             }
         },
-        "pipeline":
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "MyPipelineName"
+        "pipeline": {
+            "pipelineReference": {
+                "type": "PipelineReference",
+                "referenceName": "MyPipelineName"
+            },
+            "parameters": {
+                "parameter1": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 },
-                "parameters": {
-                    "parameter1": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "parameter2": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "parameter3": "https://mydemo.azurewebsites.net/api/demoapi"
-                }
+                "parameter2": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
+                },
+                "parameter3": "https://mydemo.azurewebsites.net/api/demoapi"
             }
-      }    
+        }
+    }
 }
-```  
+```
 
 Aşağıdaki tabloda, ilgili yinelenmesi ve zamanlanmasıyla atlayan pencere tetikleyicisi olan ana JSON öğeleri üst düzey bir genel bakış sağlar:
 
-| JSON öğesi | Açıklama | Tür | İzin verilen değerler | Gereklidir |
+| JSON öğesi | Açıklama | Type | İzin verilen değerler | Gerekli |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Tetikleyici türü. Sabit değer "TumblingWindowTrigger." türüdür | Dize | "TumblingWindowTrigger" | Evet |
-| **runtimeState** | Çalışma zamanı tetikleyicisinin geçerli durumu.<br/>**Not**: Bu öğe \<salt okunur >. | Dize | "Started" "Stopped" "Disabled" | Evet |
-| **frequency** | Tetikleyicinin yineleneceği sıklık birimi (dakika veya saat) temsil eden bir dize. Varsa **startTime** tarih değerleri daha ayrıntılı **sıklığı** değeri **startTime** tarih, zaman penceresi sınırları hesaplanır değerlendirilir. Örneğin, varsa **sıklığı** değerdir, saatlik ve **startTime** değerdir 2017-09-01T10:10:10Z, ilk penceredir (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Dize | "minute", "hour"  | Evet |
+| **type** | Tetikleyici türü. Sabit değer "TumblingWindowTrigger." türüdür | String | "TumblingWindowTrigger" | Evet |
+| **runtimeState** | Çalışma zamanı tetikleyicisinin geçerli durumu.<br/>**Not**: Bu öğe \<salt okunur >. | String | "Started" "Stopped" "Disabled" | Evet |
+| **frequency** | Tetikleyicinin yineleneceği sıklık birimi (dakika veya saat) temsil eden bir dize. Varsa **startTime** tarih değerleri daha ayrıntılı **sıklığı** değeri **startTime** tarih, zaman penceresi sınırları hesaplanır değerlendirilir. Örneğin, varsa **sıklığı** değerdir, saatlik ve **startTime** değerdir 2017-09-01T10:10:10Z, ilk penceredir (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute", "hour"  | Evet |
 | **interval** | Tetikleyicinin çalışma sıklığını belirten **frequency** değerinin aralığını gösteren bir pozitif tamsayı. Örneğin, varsa **aralığı** 3'tür ve **sıklığı** "hour" olup tetikleyici 3 saatte bir yinelenir. | Tamsayı | Pozitif bir tamsayı. | Evet |
 | **startTime**| Geçmişte olabilen ilk örneğin. İlk tetikleyici aralığı (**startTime**, **startTime** + **aralığı**). | DateTime | Bir tarih saat değeri. | Evet |
 | **endTime**| Geçmişte olabilen son a geçişi. | DateTime | Bir tarih saat değeri. | Evet |
@@ -92,32 +91,31 @@ Aşağıdaki tabloda, ilgili yinelenmesi ve zamanlanmasıyla atlayan pencere tet
 
 Kullanabileceğiniz **WindowStart** ve **WindowEnd** atlayan pencere tetikleyicisi sistem değişkenlerinin, **işlem hattı** tanımı (diğer bir deyişle, bir sorgunun parçası için). Sistem değişkenleri parametre olarak, işlem hattınızda geçirmek **tetikleyici** tanımı. Aşağıdaki örnek bu değişkenleri parametreler gösterilmektedir:
 
-```  
+```
 {
     "name": "MyTriggerName",
     "properties": {
         "type": "TumblingWindowTrigger",
             ...
-        "pipeline":
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "MyPipelineName"
+        "pipeline": {
+            "pipelineReference": {
+                "type": "PipelineReference",
+                "referenceName": "MyPipelineName"
+            },
+            "parameters": {
+                "MyWindowStart": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 },
-                "parameters": {
-                    "MyWindowStart": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "MyWindowEnd": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    }
+                "MyWindowEnd": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 }
             }
-      }    
+        }
+    }
 }
-```  
+```
 
 Kullanılacak **WindowStart** ve **WindowEnd** sistem değişken değerleri işlem hattı tanımındaki "MyWindowStart" ve "MyWindowEnd" parametreleri uygun şekilde kullanın.
 
@@ -135,10 +133,10 @@ Bu bölüm oluşturmak için başlatın ve bir tetikleyici izlemek için Azure P
 
 1. Adlı bir JSON dosyası oluşturun **MyTrigger.json** C:\ADFv2QuickStartPSH\ klasöründe aşağıdaki içeriğe sahip:
 
-   > [!IMPORTANT]
-   > JSON dosyasını kaydetmeden önce ayarlayın **startTime** geçerli UTC saati için öğesi. Değerini **endTime** geçerli UTC saatine son bir saat için öğesi.
+    > [!IMPORTANT]
+    > JSON dosyasını kaydetmeden önce ayarlayın **startTime** geçerli UTC saati için öğesi. Değerini **endTime** geçerli UTC saatine son bir saat için öğesi.
 
-    ```json   
+    ```json
     {
       "name": "PerfTWTrigger",
       "properties": {
@@ -167,7 +165,7 @@ Bu bölüm oluşturmak için başlatın ve bir tetikleyici izlemek için Azure P
         "runtimeState": "Started"
       }
     }
-    ```  
+    ```
 
 2. Bir tetikleyici kullanarak oluşturma **Set-AzureRmDataFactoryV2Trigger** cmdlet:
 

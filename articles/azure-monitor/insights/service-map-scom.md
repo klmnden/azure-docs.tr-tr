@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 19e842fc3674536972327c3bc6d31641560e38db
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187220"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659193"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager ile hizmet eşlemesi tümleştirme
-  > [!NOTE]
-  > Bu özellik genel önizleme aşamasındadır.
-  > 
-  
+
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi, kritik hizmetleri sunan birbirine sistemleri düşünme yolu sunucularınızın görüntülemenize olanak sağlar. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi yanı sıra bir aracının yüklenmesi gereken herhangi bir yapılandırma arasında sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir. Daha fazla bilgi için [hizmet eşleme belgeleri]( service-map.md).
 
 Hizmet eşlemesi ile System Center Operations Manager arasındaki bu tümleştirme sayesinde, hizmet eşlemesi dinamik bağımlılık maps'a temel alan bir Operations Manager dağıtılmış uygulama diyagramları otomatik olarak oluşturabilirsiniz.
@@ -43,7 +40,7 @@ Microsoft.SystemCenter.ServiceMap Yönetim Paketi grubu (Microsoft.SystemCenter.
 * Microsoft System Center hizmet eşlemesi
 
 ## <a name="configure-the-service-map-integration"></a>Hizmet eşlemesi tümleştirmesini yapılandırma
-Yeni bir düğüm, hizmet eşlemesi Yönetim paketini yükledikten sonra **hizmet eşlemesi**, altında görüntülenen **Operations Management Suite** içinde **Yönetim** bölmesi. 
+Yeni bir düğüm, hizmet eşlemesi Yönetim paketini yükledikten sonra **hizmet eşlemesi**, altında görüntülenen **Operations Management Suite** içinde **Yönetim** bölmesi.
 
 >[!NOTE]
 >[Operations Management Suite, hizmetler koleksiyonu](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) şimdi parçası olan Log Analytics dahil, [Azure İzleyici](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
@@ -63,11 +60,11 @@ Hizmet eşlemesi tümleştirmesini yapılandırmak için aşağıdakileri yapın
     ![Operations Manager yapılandırma çalışma alanı](media/service-map-scom/scom-config-workspace.png)
 
 4. İçinde **makine grubu seçimi** penceresinde Operations Manager'a eşitlemek istediğiniz hangi hizmet eşlemesi makine gruplarını seçin. Tıklayın **makine gruplarını Ekle/Kaldır**, grupları listesinden seçim **kullanılabilir makine grupları**, tıklatıp **Ekle**.  Grupları seçme işiniz bittiğinde, tıklayın **Tamam** tamamlanması.
-    
+
     ![Operations Manager yapılandırma makine grupları](media/service-map-scom/scom-config-machine-groups.png)
-    
+
 5. İçinde **sunucu seçimi** penceresinde, yapılandırdığınız hizmet eşleme sunucuları grubu ile Operations Manager ve hizmet eşlemesi arasında eşitlemek istediğiniz sunucuları. Tıklayın **sunucuları ekleme/kaldırma**.   
-    
+
     Tümleştirme bir dağıtılmış uygulama diyagramını bir sunucu için oluşturmak sunucu olması gerekir:
 
     * Operations Manager tarafından yönetilen
@@ -91,7 +88,7 @@ Log Analytics çalışma alanı bağlandıktan sonra hizmet eşlemesi, yeni bir 
 ![Operations Manager izleme bölmesinde](media/service-map-scom/scom-monitoring.png)
 
 Hizmet eşlemesi klasörü dört düğümünüz vardır:
-* **Etkin uyarılar**: Operations Manager ve hizmet eşlemesi arasındaki iletişimi tüm etkin uyarıları listeler.  Bu uyarıları Not, Log Analytics için Operations Manager eşitlendiğinden uyarır. 
+* **Etkin uyarılar**: Operations Manager ve hizmet eşlemesi arasındaki iletişimi tüm etkin uyarıları listeler.  Bu uyarıları Not, Log Analytics için Operations Manager eşitlendiğinden uyarır.
 
 * **Sunucuları**: Yapılandırılan izlenen sunucular listeler için hizmet eşlemesi eşitleme.
 
@@ -120,9 +117,9 @@ Bir kural _Microsoft.SystemCenter.ServiceMapImport.Rule_, düzenli aralıklarla 
 
 ![Operations Manager geçersiz kılan özellikler penceresi](media/service-map-scom/scom-overrides.png)
 
-* **Etkin**: Etkinleştirmek veya Otomatik Güncelleştirmeler devre dışı bırakın. 
+* **Etkin**: Etkinleştirmek veya Otomatik Güncelleştirmeler devre dışı bırakın.
 * **IntervalMinutes**: Güncelleştirmeler arasındaki süre sıfırlayın. Varsayılan aralığı bir saattir. Sunucu haritalar daha sık eşitleme istiyorsanız, değeri değiştirebilirsiniz.
-* **TimeoutSeconds**: İstek zaman aşımına uğramadan önce sürenin uzunluğunu sıfırlayın. 
+* **TimeoutSeconds**: İstek zaman aşımına uğramadan önce sürenin uzunluğunu sıfırlayın.
 * **TimeWindowMinutes**: Zaman penceresi için veri sorgulama sıfırlandı. Varsayılan 60 dakikalık bir penceredir. Hizmet eşlemesi tarafından izin verilen en yüksek değer 60 dakikadır.
 
 ## <a name="known-issues-and-limitations"></a>Bilinen sorunlar ve sınırlamalar

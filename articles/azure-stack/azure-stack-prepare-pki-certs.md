@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247213"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656728"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI sertifikaları dağıtımı veya döndürme kullanım için hazırlama
+
 Sertifika dosyalarını [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) içeri ve dışarı Azure yığını'nın sertifika gereksinimleri eşleşen özelliklere sahip.
 
-
 ## <a name="prepare-certificates-for-deployment"></a>Sertifikaları dağıtımı için hazırlama
+
 Hazırlama ve yeni bir Azure Stack ortamınıza dağıtmak için veya mevcut Azure Stack ortamına gizli anahtarları döndürme için kullanılacak olan Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki adımları kullanın: 
 
 ### <a name="import-the-certificate"></a>Sertifika içeri aktarma
@@ -83,7 +84,9 @@ Sertifika Yöneticisi MMC konsolu açın ve yerel makine sertifika deposuna bağ
     
     ![Sertifika Dışarı Aktarma Sihirbazı ile seçili Seçenekler](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. Seçin **parola** ve sertifikalar için bir parola belirtin. Dağıtım parametresi olarak kullanıldığından, bu parolayı unutmayın. **İleri**’yi seçin.
+1. Seçin **parola** ve sertifikalar için bir parola belirtin. Şu parola karmaşıklık gereksinimini karşılayan bir parola oluşturun. En az sekiz karakter uzunluğu. Parola en az üç birini içeriyor: büyük harf, küçük harf, sayı 0-9, özel karakterler büyük veya küçük harf alfabetik karakterle. Bu parolayı not edin. Dağıtım parametresi olarak kullanır.
+
+1. **İleri**’yi seçin.
 
 1. Bir dosya adı ve dışarı aktarmak pfx dosyası için konum seçin. **İleri**’yi seçin.
 

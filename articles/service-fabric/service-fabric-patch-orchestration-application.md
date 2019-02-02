@@ -3,7 +3,7 @@ title: Azure Service Fabric düzeltme eki düzenleme uygulaması | Microsoft Doc
 description: Bir Service Fabric kümesinde işletim sistemi düzeltme eki uygulama otomatik hale getirmek için uygulama.
 services: service-fabric
 documentationcenter: .net
-author: novino
+author: khandelwalbrijeshiitr
 manager: timlt
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
-ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 2/01/2019
+ms.author: brkhande
+ms.openlocfilehash: 646a64435ba02877d2588b8debbb3920a32a5cf1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155315"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563091"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -413,3 +413,6 @@ Bir yönetici, müdahale ve uygulama veya küme neden Windows güncelleştirmesi
 - Regresyon, Windows Server 2012 R2 ya da otomatik güncelleştirmeler devre dışı bırakma hatası nedeniyle daha düşük POA 1.3.0 nerede çalışmaz düzeltiliyor. 
 - Hata nerede InstallWindowsOSOnlyUpdates yapılandırma her zaman True olarak çekilir düzeltiliyor.
 - InstallWindowsOSOnlyUpdates varsayılan değerini False olarak değiştiriliyor.
+
+### <a name="version-132"></a>Sürüm 1.3.2
+- Geçerli düğüm adı alt kümesi olan bir ada sahip düğüm olasılığına düzeltme eki uygulama yaşam döngüsü bir düğümde parametreden bir sorunu giderme. Bu düğümleri, kendi olası düzeltme eki uygulama eksik veya yeniden başlatma beklemede. 

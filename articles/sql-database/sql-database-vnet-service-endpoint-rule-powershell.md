@@ -11,15 +11,15 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: b841f985c758cb1e354d3c3537c532a253e81d92
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 10/23/2018
+ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945935"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566304"
 ---
-# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: SQL için sanal hizmet uç noktası ve sanal ağ kuralı oluşturma
+# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  SQL sanal hizmet uç noktası ve sanal ağ kuralı oluşturma
 
 Hem Azure [SQL veritabanı](sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) sanal hizmet uç noktalarını destekler.
 
@@ -31,7 +31,7 @@ Bu makale sağlar ve aşağıdaki işlemleri yapar bir PowerShell Betiği açık
 1. Microsoft Azure oluşturur *sanal hizmet uç noktası* alt ağınız üzerinde.
 2. Uç nokta oluşturmak için Azure SQL veritabanı sunucunuzun güvenlik duvarını ekler bir *sanal ağ kuralı*.
 
-Bir kural oluşturmak için motivasyonlardan açıklanmıştır: [Azure SQL veritabanı için sanal hizmet uç noktaları][sql-db-vnet-service-endpoint-rule-overview-735r].
+Bir kural oluşturmak için motivasyonlardan açıklanmıştır: [Azure SQL veritabanı için hizmet uç noktaları sanal][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
 > Değerlendirme veya sanal hizmet uç noktası eklemek için tek ihtiyacınız olan, *tür adı* alt ağınız için SQL veritabanı için daha önceden atlayabilirsiniz [PowerShell Betiği doğrudan](#a-verify-subnet-is-endpoint-ps-100).
@@ -42,11 +42,11 @@ Bu makalede vurgular **New-AzureRmSqlServerVirtualNetworkRule** alt uç nokta er
 
 Aşağıdaki listede, diğer bir dizi gösterilir *ana* çağrınız hazırlamak için çalıştırılması gereken cmdlet'leri **New-AzureRmSqlServerVirtualNetworkRule**. Bu makalede, bu çağrıları ortaya [betik 3 "sanal ağ kuralı"](#a-script-30):
 
-1. [Yeni-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): bir alt ağ nesnesini oluşturur.
-2. [Yeni-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): sanal ağınızın alt veren oluşturur.
-3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): sanal hizmet uç noktası, alt ağına atar.
-4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): sanal ağınıza yapılan güncelleştirmeler sürdürür.
-5. [AzureRmSqlServerVirtualNetworkRule yeni](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): bir uç nokta, alt ağ olduktan sonra alt ağınızı bir sanal ağ kuralı Azure SQL veritabanı sunucunuzun ACL ekler.
+1. [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): Bir alt ağ nesnesini oluşturur.
+2. [Yeni-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): Sanal ağınızın alt veren oluşturur.
+3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): Sanal hizmet uç noktası, alt ağına atar.
+4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): Sanal ağınıza yapılan güncelleştirmeleri kalıcıdır.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): Bir uç nokta, alt ağ olduktan sonra alt ağınızın bir sanal ağ kuralı Azure SQL veritabanı sunucunuzun ACL ekler.
    - Bu cmdlet parametresi sunar **- IgnoreMissingVNetServiceEndpoint**, başlangıç, Azure RM PowerShell modülü 5.1.1 sürümü.
 
 ## <a name="prerequisites-for-running-powershell"></a>PowerShell çalıştırma önkoşulları
@@ -63,7 +63,7 @@ Bizim tanıtım PowerShell Betiği, daha küçük betikleri dizisine ayrılmış
 
 <a name="a-script-10" />
 
-### <a name="script-1-variables"></a>Komut dosyası 1: değişkenleri
+### <a name="script-1-variables"></a>1. kod: Değişkenler
 
 İlk bu PowerShell Betiği, değerleri değişkenlere atar. Sonraki komut, şu değişkenlerde bağlıdır.
 
@@ -112,7 +112,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 <a name="a-script-20" />
 
-### <a name="script-2-prerequisites"></a>Komut dosyası 2: Önkoşullar
+### <a name="script-2-prerequisites"></a>2. kod: Önkoşullar
 
 Bu betik, uç nokta eylem olduğu sonraki komut için hazırlar. Bu betik, aşağıdaki oluşturur zaten mevcut ancak yalnızca öğeler listelenir. Bu öğe zaten var olduğundan emin olması durumunda, betik 2 atlayabilirsiniz:
 
@@ -203,7 +203,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 <a name="a-script-30" />
 
-## <a name="script-3-create-an-endpoint-and-a-rule"></a>Betik 3: bir uç nokta ve kuralı oluşturma
+## <a name="script-3-create-an-endpoint-and-a-rule"></a>3. betik: Bir uç nokta ve kuralı oluşturma
 
 Bu betik, bir alt ağ ile sanal ağ oluşturur. Sonra da betik atar **Microsoft.Sql** alt ağınız için uç nokta türü. Son olarak betik alt ağınızın bir kuralın böylece SQL veritabanı sunucunuza erişim denetim listesine (ACL) ekler.
 
@@ -289,12 +289,12 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 <a name="a-script-40" />
 
-## <a name="script-4-clean-up"></a>Betik 4: Temizleme
+## <a name="script-4-clean-up"></a>4. betik: Temizleme
 
 Bu son kod, önceki betikler gösterimi için oluşturulan kaynakları siler. Ancak, betik aşağıdaki silmeden önce sizden onay ister:
 
 - Azure SQL veritabanı sunucusu
-- Azure kaynak grubu
+- Azure Kaynak Grubu
 
 Betik 4 1 betik tamamlandıktan sonra istediğiniz zaman çalıştırabilirsiniz.
 

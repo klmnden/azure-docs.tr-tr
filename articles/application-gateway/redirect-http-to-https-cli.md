@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: bcb2291059a6d6da2065f6f0987d173fd6509a31
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5a7edf22be769b9f00d83d6b620691e2329925a5
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852380"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659822"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI kullanarak HTTPS yeniden yönlendirmesi için HTTP ile application gateway oluşturma
 
@@ -64,7 +64,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 
-[az network vnet create](/cli/azure/network/vnet#az-net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
+[az network vnet create](/cli/azure/network/vnet) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/network/public-ip) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
 
 ```azurecli-interactive
 az network vnet create \
@@ -86,7 +86,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-*myAppGateway* adlı uygulama ağ geçidini oluşturmak için [az network application-gateway create](/cli/azure/network/application-gateway#az-network_application_gateway_create) komutunu kullanabilirsiniz. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. 
+*myAppGateway* adlı uygulama ağ geçidini oluşturmak için [az network application-gateway create](/cli/azure/network/application-gatewaywork_application_gateway_create) komutunu kullanabilirsiniz. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. 
 
 Uygulama ağ geçidi, *myAGSubnet*’e ve daha önce oluşturduğunuz *myAGPublicIPAddress*’e atanır. Bu örnekte olluşturduğunuz sertifika ve uygulama ağ geçidini oluşturduğunuz zamanki parolasını ilişkilendiirirsiniz. 
 
@@ -121,7 +121,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>HTTP bağlantı noktası Ekle
 
-Kullanabileceğiniz [az ağ application-gateway frontend-port oluşturma](/cli/azure/network/application-gateway/frontend-port#az-network_application_gateway_frontend_port_create) HTTP bağlantı noktası uygulama ağ geçidine eklemek için.
+Kullanabileceğiniz [az ağ application-gateway frontend-port oluşturma](/cli/azure/network/application-gateway/frontend-portwork_application_gateway_frontend_port_create) HTTP bağlantı noktası uygulama ağ geçidine eklemek için.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -133,7 +133,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-the-http-listener"></a>HTTP dinleyicisi Ekle
 
-Kullanabileceğiniz [az ağ application-gateway http-listener oluşturma](/cli/azure/network/application-gateway/http-listener#az-network_application_gateway_http_listener_create) adlı dinleyiciyi eklemek için *myListener* application gateway'e.
+Kullanabileceğiniz [az ağ application-gateway http-listener oluşturma](/cli/azure/network/application-gateway/http-listenerwork_application_gateway_http_listener_create) adlı dinleyiciyi eklemek için *myListener* application gateway'e.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Yeniden yönlendirme yapılandırması Ekle
 
-HTTP, HTTPS yeniden yönlendirmesi yapılandırma kullanarak uygulama ağ geçidi eklemek [az ağ uygulama ağ geçidini yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create).
+HTTP, HTTPS yeniden yönlendirmesi yapılandırma kullanarak uygulama ağ geçidi eklemek [az ağ uygulama ağ geçidini yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -161,7 +161,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>Yönlendirme kuralı Ekle
 
-Adlı yönlendirme kuralı Ekle *bağlanma2* uygulama ağ geçidi kullanarak yönlendirme yapılandırması ile [az ağ uygulama ağ geçidi kuralı oluşturma](/cli/azure/network/application-gateway/rule#az-network_application_gateway_rule_create).
+Adlı yönlendirme kuralı Ekle *bağlanma2* uygulama ağ geçidi kullanarak yönlendirme yapılandırması ile [az ağ uygulama ağ geçidi kuralı oluşturma](/cli/azure/network/application-gateway/rulework_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

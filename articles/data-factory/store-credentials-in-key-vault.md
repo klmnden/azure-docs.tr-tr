@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2017
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016657"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661250"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure anahtar Kasası'nda kimlik bilgisi Store
 
@@ -27,9 +27,6 @@ Veri depoları ve işlemler, kimlik bilgilerini depolamak bir [Azure anahtar kas
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu özellik üzerinde veri fabrikası hizmet kimliği kullanır. Gelen nasıl çalıştığını öğrenin [veri fabrikası hizmet kimliği](data-factory-service-identity.md) ve ilişkili bir veri fabrikanıza olduğundan emin olun.
-
->[!TIP]
->Azure anahtar Kasası'nda bir gizli dizi oluşturduğunuzda **tüm ADF bağlı hizmeti gizli bir özelliğin değerini (örneğin bağlantı dizesi/parola/hizmet sorumlusu anahtarı/vb. için) ister put**. Örneğin, Azure depolama için bağlı hizmet, put `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` AKV gizli sonra ADF; Dynamics bağlı hizmet için başvuru "connectionString" alanında put `myPassword` AKV gizli olarak "password" alanı ADF'dan sonra başvuru. Desteklenen özellik ayrıntıları her bağlayıcı/işlem makalesine başvurun.
 
 ## <a name="steps"></a>Adımlar
 
@@ -47,7 +44,7 @@ Azure Key Vault bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AzureKeyVault**. | Evet |
-| BaseUrl | Azure Key Vault URL'si belirtin. | Evet |
+| baseUrl | Azure Key Vault URL'si belirtin. | Evet |
 
 **Kullanıcı Arabirimi geliştirme kullanarak:**
 

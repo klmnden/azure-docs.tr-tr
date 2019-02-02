@@ -11,15 +11,16 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: da876152b55ee626025b6192a5004648a29545dc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604193"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562003"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>(Önizleme) ölçeği genişletilen bulut veritabanlarında raporlama
+
 Bir tek bağlantı noktası kullanarak birden çok Azure SQL veritabanından raporlar oluşturabilirsiniz bir [esnek sorgu](sql-database-elastic-query-overview.md). (Ayrıca "olarak parçalı" bilinen) yatay olarak bu veritabanlarını bölümlenmesi gerekir.
 
 Mevcut bir veritabanı varsa, bkz: [ölçeği genişletilmiş veritabanları için mevcut veritabanlarını geçirme](sql-database-elastic-convert-to-use-elastic-tools.md).
@@ -27,6 +28,7 @@ Mevcut bir veritabanı varsa, bkz: [ölçeği genişletilmiş veritabanları iç
 Sorgu için gerekli olan SQL nesneleri anlamak için bkz: [sorgu yatay olarak bölünmüş veritabanlarında](sql-database-elastic-query-horizontal-partitioning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 İndirme ve çalıştırma [esnek veritabanı araçları örnek ile kullanmaya](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Parça eşleme Yöneticisi örnek uygulaması kullanarak oluşturma

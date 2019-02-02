@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 565b4c66c98d62fdcbd23f6446f522b810db1430
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 9a48127b6a3093c616f08171dd87f9c3e9b45cc9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999465"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664101"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -38,6 +38,9 @@ Kuyruk depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](https://www.nu
 Kuyruk depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet paketi sürüm 3.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub deposu.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="encoding"></a>Encoding
+İşlevleri beklediğiniz bir *base64* kodlamalı dize. Ayarlamaları kodlama türü için (veri olarak hazırlamak için bir *base64* kodlamalı dize) arama hizmetinde uygulanması gerekir.
 
 ## <a name="trigger"></a>Tetikleyici
 

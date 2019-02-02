@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 68c87b0fd892d5972e8c6b225c7c7bce3b3704db
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 45ff4ff79a443e49a7d01a41a249db9e4d0a070b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449971"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560813"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java'dan Notification Hubs'ı kullanma
 
@@ -39,7 +39,7 @@ SDK'sı şu anda destekler:
 * Normal gönderir
 * Zamanlanmış gönderir
 * Java NIO aracılığıyla zaman uyumsuz işlemler
-* Desteklenen platformlar: APNS (iOS), GCM (Android), WNS (Windows Store uygulamaları), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android Google Hizmetleri olmadan)
+* Desteklenen platformlar: APNS (iOS), FCM (Android), WNS (Windows Store uygulamaları), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android Google Hizmetleri olmadan)
 
 ## <a name="sdk-usage"></a>SDK kullanımı
 
@@ -120,7 +120,7 @@ Derlemek için:
     hub.createRegistration(reg);
     ```
 
-Benzer şekilde, Android (GCM), Windows Phone (MPNS) ve Kindle Fire (ADM) için kayıtları oluşturabilirsiniz.
+Benzer şekilde kayıtları Android'e (FCM), Windows Phone (MPNS) ve Kindle Fire (ADM) oluşturabilirsiniz.
 
 **Şablon kayıtları oluşturun:**
 
@@ -318,7 +318,7 @@ Bildirim nesnesi bir gövde sadece üst bilgilerini, bazı yardımcı program y�
 
     ```java
     String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
-    Notification n = Notification.createGcmNotification(message);
+    Notification n = Notification.createFcmNotification(message);
     hub.sendNotification(n);
     ```
 

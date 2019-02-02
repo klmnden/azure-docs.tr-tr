@@ -1,5 +1,5 @@
 ---
-title: 'Her zaman şifreli: Azure SQL veritabanı - Windows sertifika deposu | Microsoft Docs'
+title: 'Her zaman şifreli: Windows sertifika deposu - Azure SQL veritabanı | Microsoft Docs'
 description: Bu makalede SQL Server Management Studio (SSMS) her zaman şifreli sihirbazını kullanarak hassas verileri bir SQL veritabanında veritabanı şifreleme güvenliğinin nasıl sağlanacağını gösterir. Ayrıca, Windows sertifika depolama alanında, şifreleme anahtarlarını depolamak nasıl gösterir.
 keywords: Always Encrypted verileri, sql şifrelemesi, veritabanı şifreleme, hassas verileri şifreleyin
 services: sql-database
@@ -12,15 +12,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 13e87ef0150924380c18c66c0362974ef599d4bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: de8bb0adf45a7cdaf9cc0d9a451af203e01e87da
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231728"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564892"
 ---
-# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Her zaman şifreli: hassas verilerin korunmasına ve şifreleme anahtarlarını Windows sertifika deposuna
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Her zaman şifreli: Hassas verilerin korunmasına ve şifreleme anahtarlarını Windows sertifika deposuna kaydedin
 
 Bu makalede, hassas verileri bir SQL veritabanında veritabanı şifrelemesi kullanarak güvenli hale getirme işlemini göstermektedir [her zaman şifreli sihirbazını](https://msdn.microsoft.com/library/mt459280.aspx) içinde [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Ayrıca, Windows sertifika depolama alanında, şifreleme anahtarlarını depolamak nasıl gösterir.
 
@@ -98,7 +98,7 @@ SSMS kolayca ayarlayarak CMK CEK ve şifrelenmiş sütunlar için Always Encrypt
    
     ![Sütun şifreleme](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-Her zaman şifreli sihirbazını aşağıdaki bölümleri içerir: **sütun seçimi**, **ana anahtarı yapılandırma** (CMK) **doğrulama**, ve **özeti** .
+Her zaman şifreli sihirbazını aşağıdaki bölümleri içerir: **Sütun seçimini**, **ana anahtarı yapılandırma** (CMK) **doğrulama**, ve **özeti**.
 
 ### <a name="column-selection"></a>Sütun Seçimi
 Tıklayın **sonraki** üzerinde **giriş** sayfasını açmak için **sütun seçimi** sayfası. Bu sayfada, şifrelemek istediğiniz sütunları seçersiniz [şifreleme türünü ve hangi sütun şifreleme anahtarı (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) kullanılacak.

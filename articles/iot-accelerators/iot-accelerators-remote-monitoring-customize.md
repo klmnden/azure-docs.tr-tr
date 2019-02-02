@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dc2b38f8e8065b8d8763365bf0cbad56ae00cd4b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462208"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565437"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm Hızlandırıcısını özelleştirme
 
@@ -84,7 +84,7 @@ Uzaktan izleme çözümünde her sayfa, bir dizi denetimi olarak adlandırılır
 * Haritası ve telemetriyi panellerin konumlarını değiştirme.
 * Harita ve analiz paneller göreli genişliğini değiştirin.
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -156,7 +156,7 @@ Uzaktan izleme çözümünde her sayfa, bir dizi denetimi olarak adlandırılır
 
 De aynı paneli birkaç örnek veya çeşitli sürümleri varsa ekleyebilirsiniz, [yinelenen ve bir paneli özelleştirme](#duplicate-and-customize-an-existing-control). Aşağıdaki örnek iki örnek telemetri panel Ekle gösterilmektedir. Bu değişiklikleri yapmak için Düzenle `src/components/pages/dashboard/dashboard.js` dosyası:
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -247,19 +247,19 @@ Aşağıdaki adımlar, var olan bir panel yinelenen, değiştirin ve ardından d
 
 1. İçinde **alertsPanel.js** dosyası **cust_alerts** klasöründe olması için sınıfın adını Düzenle **CustAlertsPanel**:
 
-    ```nodejs
+    ```javascript
     export class CustAlertsPanel extends Component {
     ```
 
 1. Aşağıdaki satırı ekleyin `src/components/pages/dashboard/panels/index.js` dosyası:
 
-    ```nodejs
+    ```javascript
     export * from './cust_alerts';
     ```
 
 1. Değiştirin `alertsPanel` ile `CustAlertsPanel` içinde `src/components/pages/dashboard/dashboard.js` dosyası:
 
-    ```nodejs
+    ```javascript
     import {
       OverviewPanel,
       CustAlertsPanel,
@@ -287,7 +287,7 @@ Artık özgün yerine **uyarılar** adlı bir kopya paneliyle **CustAlerts**. Bu
 
 1. Sütun tanımları, aşağıdaki kod parçacığında gösterildiği gibi değiştirin:
 
-    ```nodejs
+    ```javascript
     this.columnDefs = [
       rulesColumnDefs.severity,
       {
@@ -312,7 +312,7 @@ Dosyaları `src/components/pages/dashboard/panels/telemtry` klasör üzerinde te
 
 1. İçinde `src/services/telemetryService.js` dosya, çağrılan işlev bulun **getTelemetryByDeviceIdP15M**. Bu işlev bir kopyasını alın ve kopyalama gibi değiştirin:
 
-    ```nodejs
+    ```javascript
     static getTelemetryByDeviceIdP5M(devices = []) {
       return TelemetryService.getTelemetryByMessages({
         from: 'NOW-PT5M',
@@ -325,7 +325,7 @@ Dosyaları `src/components/pages/dashboard/panels/telemtry` klasör üzerinde te
 
 1. Telemetri grafik doldurmak için bu yeni işlevi kullanmak için açık `src/components/pages/dashboard/dashboard.js` dosya. Telemetri akışına başlatır satırını bulun ve şu şekilde değiştirin:
 
-    ```node.js
+    ```javascript
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
@@ -339,7 +339,7 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
 
 1. `src/components/pages/dashboard/dashboard.js` dosyasını açın. Değiştirme **ilk durum** eklenecek nesne bir **warningAlertsChange** özelliğini aşağıdaki gibi:
 
-    ```nodejs
+    ```javascript
     const initialState = {
       ...
 
@@ -359,7 +359,7 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
 
 1. Değiştirme **currentAlertsStats** eklenecek nesnenin **totalWarningCount** bir özellik olarak:
 
-    ```nodejs
+    ```javascript
     return {
       openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
@@ -371,7 +371,7 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
 
 1. Yeni KPI hesaplayın. Hesaplama için kritik uyarı sayısını bulur. Yinelenen kodu ve kopyalama gibi değiştirin:
 
-    ```nodejs
+    ```javascript
     // ================== Warning Alerts Count - START
     const currentWarningAlerts = currentAlertsStats.totalWarningCount;
     const previousWarningAlerts = previousAlerts.reduce(
@@ -384,7 +384,7 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
 
 1. Yeni dahil **warningAlertsChange** KPI stream'de KPI:
 
-    ```nodejs
+    ```javascript
     return ({
       analyticsIsPending: false,
       analyticsVersion: this.state.analyticsVersion + 1,
@@ -402,7 +402,7 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
 
 1. Yeni dahil **warningAlertsChange** KPI kullanıcı arabirimini oluşturmak için kullanılan durum veri:
 
-    ```nodejs
+    ```javascript
     const {
       ...
 
@@ -421,7 +421,7 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
 
 1. KPI'ler panele geçirilen verileri güncelleştirin:
 
-    ```node.js
+    ```javascript
     <AnalyticsPanel
       timeSeriesExplorerUrl={timeSeriesParamUrl}
       topAlerts={topAlertsWithName}
@@ -439,13 +439,13 @@ Yapılan değişiklikler artık bitirdikten `src/components/pages/dashboard/dash
 
 1. Yeni KPI değeri şu şekilde almak için kod aşağıdaki satırı değiştirin:
 
-    ```nodejs
+    ```javascript
     const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
 1. Yeni KPI değeri şu şekilde görüntülenecek biçimlendirme değiştirin:
 
-    ```nodejs
+    ```javascript
     <div className="analytics-cell">
       <div className="analytics-header">{t('dashboard.panels.analytics.criticalAlerts')}</div>
       <div className="critical-alerts">

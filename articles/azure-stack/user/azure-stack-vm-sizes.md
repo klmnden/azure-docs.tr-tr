@@ -14,12 +14,12 @@ ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6f3b4632674217133f4af4c95143d2df51ecde6a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ffcb6d6d7955a2b276850d6db9d08a2cc5c16adb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247468"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565029"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack'te desteklenen sanal makine boyutları
 
@@ -152,7 +152,7 @@ Belleği en iyi duruma getirilmiş VM boyutları, ilişkisel veritabanı sunucul
 ### <a name="mo-d"></a>D serisi
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
 |------------------|---|----|----|--------|------|------------|---------|
-|**Standard_F1s**  |2  |14  |100 |500     |6000  |8/8x500   |2 |
+|**İşler için standart_d11**  |2  |14  |100 |500     |6000  |8/8x500   |2 |
 |**İşler için standart_d12**  |4  |28  |200 |500     |12000 |16/16x500 |4 |
 |**Standard_D13**  |8  |56  |400 |500     |24000 |32/32x500 |8 |
 |**İşler için standart_d14**  |16 |112 |800 |500     |48000 |64 / 64 x 500 |8 |
@@ -177,10 +177,10 @@ Belleği en iyi duruma getirilmiş VM boyutları, ilişkisel veritabanı sunucul
 ### <a name="mo-dsv2"></a>DSv2 serisi
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |8 / 8 x 2300    |2 |
-|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |16 / 16 x 2300  |4 |
-|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |32 / 32 x 2300  |8 |
-|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |64 / 64 x 2300  |8 |
+|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4 / 4 x 2300    |2 |
+|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8 / 8 x 2300    |4 |
+|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16 / 16 x 2300  |8 |
+|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32 / 32 x 2300  |8 |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

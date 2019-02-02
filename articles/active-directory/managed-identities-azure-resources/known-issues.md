@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
-ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cbe6d04dfcf9174b15cde71f7becbb371eaee4b2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189468"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662491"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>SSS ve Azure kaynakları için yönetilen kimliklerle bilinen sorunlar
 
@@ -154,8 +154,8 @@ Geçici bir çözüm olarak abonelik taşındıktan sonra sistem tarafından ata
 
 ## <a name="known-issues-with-user-assigned-managed-identities"></a>Kullanıcı tarafından atanan yönetilen kimlikleri ile ilgili bilinen sorunlar
 
-- Kullanıcı tarafından atanan bir yönetilen kimlik adında özel karakterler (örneğin, alt çizgi) ile oluşturma, desteklenmiyor.
-- Kullanıcı tarafından atanan kimlik adları 24 karakterle sınırlıdır. Ad 24 karakterden daha uzunsa kimliği (yani sanal makine.) bir kaynağa atanmış başarısız olur
+- Kullanıcı tarafından atanan kimlik adları en fazla 128 karakter ve en az 3 karakter ile sınırlıdır. Adı 128 karakterden daha uzunsa kimliği (yani sanal makine.) bir kaynağa atanmış başarısız olur
+- Kullanıcı tarafından atanan kimlik adları şu karakterleri içerebilir: a-z, A - Z,-, \_, 0-9. Bu karakter kümesinde (yani, yıldız işareti) adı dışında karakterler içeren bir kullanıcı tarafından atanan bir yönetilen kimlik oluşturma, desteklenmiyor.
 - Desteklenen sınırı (Ocak 2019'da kullanımdan kaldırma planlanan) yönetilen kimlik sanal makine uzantısı'nı kullanarak, kullanıcı tarafından atanan 32 yönetilen kimlikleri olur. Yönetilen kimlik sanal makine uzantısı, desteklenen sınırı 512'dır.  
 - Kullanıcı tarafından atanan bir yönetilen kimlik farklı kaynak grubuna taşımak kesmek kimlik neden olur. Sonuç olarak, bu kimliğin isteği belirteçleri mümkün olmayacaktır. 
 - Abonelik başka bir dizine aktarmak, mevcut bir kullanıcı tarafından atanan yönetilen kimlikleri çalışmamasına neden olur. 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 9e06e53f83dd05d53b76a2a07e465133f052dba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157712"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664038"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 Kullanıcılar uygulamalara, Azure Active Directory'de (Azure AD) oturum çoklu oturum açma (SSO) güvenlik ve kolaylık ekler. Bu makalede tek oturum açma yöntemleri açıklar ve uygulamalarınızı yapılandırırken en uygun SSO yöntemi seçmenize yardımcı olur.
@@ -49,9 +49,7 @@ Aşağıdaki tabloda, tek oturum açma yöntemleri özetler ve daha fazla ayrın
 | [Üst bilgi tabanlı](#header-based-sso) | yalnızca şirket içi | Uygulama için kimlik doğrulama üst bilgileri kullandığında üst bilgi tabanlı çoklu oturum açma kullanın. Üst bilgi tabanlı çoklu oturum açma Azure AD için PingAccess gerektirir. Uygulama Ara sunucusu kullanıcının kimliğini doğrulamak için Azure AD kullanır ve ardından bağlayıcı hizmetini üzerinden geçen trafik geçirir.  | 
 
 ## <a name="openid-connect-and-oauth"></a>Openıd Connect ve OAuth
-Openıd Connect ve OAuth ile enterprise uygulamanın Azure AD'ye ekleme işlemini basitleştiren bir çoklu oturum açma deneyimi sağlar. Uygulama Yöneticisi, çoklu oturum açmayı yapılandırmak gerekmez. Bunun yerine, Azure AD uygulaması ekler, yönetici [kullanıcı onayı veren](configure-user-consent.md). 
-
-[SDK'ları](../develop/reference-v2-libraries.md) Openıd Connect ve OAuth benimsemek kolay ve uygulamanızı MS Graph kullanıma hazır olacaktır. 
+Yeni uygulamaları geliştirirken en iyi çoklu oturum açma deneyimini uygulamanız için birden çok cihaz platformları arasında elde etmek için Openıd Connect ve OAuth gibi modern protokolleri kullanın. Kullanıcıları veya yöneticileri için OAuth sağlayan [onay verme](configure-user-consent.md) ister korumalı kaynaklar için [MS Graph](/graph/overview). Kolay benimsemek için sağladığımız [SDK'ları](../develop/reference-v2-libraries.md) uygulamanız için ve ayrıca, uygulamanızı kullanıma hazır [MS Graph](/graph/overview).
 
 Daha fazla bilgi için bkz.
 

@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 494826701431ee397b468c6ddfcef664c015861d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412057"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661489"
 ---
 # <a name="custom-roles-in-azure"></a>Azure'da özel roller
 
@@ -32,36 +32,36 @@ Aşağıdaki özel bir rol JSON biçiminde gösterilen gibi göründüğünü g�
 
 ```json
 {
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
+  "Name": "Virtual Machine Operator",
+  "Id": "88888888-8888-8888-8888-888888888888",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
   ],
-  "NotActions":  [
+  "NotActions": [
 
-                 ],
-  "DataActions":  [
+  ],
+  "DataActions": [
 
-                  ],
-  "NotDataActions":  [
+  ],
+  "NotDataActions": [
 
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
+  ],
+  "AssignableScopes": [
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
+    "/subscriptions/{subscriptionId3}"
+  ]
 }
 ```
 
@@ -90,12 +90,12 @@ Aşağıdaki özel bir rol JSON biçiminde gösterilen gibi göründüğünü g�
 
 Özel bir rol, aşağıdaki özelliklere sahiptir.
 
-| Özellik | Gereklidir | Tür | Açıklama |
+| Özellik | Gerekli | Tür | Açıklama |
 | --- | --- | --- | --- |
-| `Name` | Evet | Dize | Özel rol görünen adı. Rol tanımı bir abonelik düzeyinde kaynak olsa da, bir rol tanımı aynı Azure AD dizini paylaşan birden çok abonelik içinde kullanılabilir. Bu görünen ad, Azure AD dizini kapsamında benzersiz olması gerekir. Harf, sayı, boşluk ve özel karakterler içerebilir. En fazla karakter sayısı 128'dir. |
-| `Id` | Evet | Dize | Özel rol benzersiz kimliği. Yeni bir rol oluşturduğunuzda, Azure PowerShell ve Azure CLI için bu kimliği otomatik olarak oluşturulur. |
-| `IsCustom` | Evet | Dize | Bu özel bir rol olup olmadığını gösterir. Kümesine `true` özel roller için. |
-| `Description` | Evet | Dize | Özel rol tanımı. Harf, sayı, boşluk ve özel karakterler içerebilir. En fazla karakter sayısı 1024'tür. |
+| `Name` | Evet | String | Özel rol görünen adı. Rol tanımı bir abonelik düzeyinde kaynak olsa da, bir rol tanımı aynı Azure AD dizini paylaşan birden çok abonelik içinde kullanılabilir. Bu görünen ad, Azure AD dizini kapsamında benzersiz olması gerekir. Harf, sayı, boşluk ve özel karakterler içerebilir. En fazla karakter sayısı 128'dir. |
+| `Id` | Evet | String | Özel rol benzersiz kimliği. Yeni bir rol oluşturduğunuzda, Azure PowerShell ve Azure CLI için bu kimliği otomatik olarak oluşturulur. |
+| `IsCustom` | Evet | String | Bu özel bir rol olup olmadığını gösterir. Kümesine `true` özel roller için. |
+| `Description` | Evet | String | Özel rol tanımı. Harf, sayı, boşluk ve özel karakterler içerebilir. En fazla karakter sayısı 1024'tür. |
 | `Actions` | Evet | String[] | Rol gerçekleştirilmesine izin veren yönetim işlemleri belirten bir dize dizisi. Daha fazla bilgi için [eylemleri](role-definitions.md#actions). |
 | `NotActions` | Hayır | String[] | Hariç tutulan yönetim işlemleri belirten bir dize dizisi izin verilen gelen `Actions`. Daha fazla bilgi için [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Hayır | String[] | Bu nesnenin içinde verilerinizin gerçekleştirilecek rolü sağlar veri işlemleri belirten bir dize dizisi. Daha fazla bilgi için [DataActions (Önizleme)](role-definitions.md#dataactions-preview). |

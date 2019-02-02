@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: ecde1c19a56a7f99284fe738a19eac07322c2dae
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f347c9ca3d56bedcc838d72ca15793bd13ee19ad
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826182"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563941"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -57,7 +57,7 @@ Size verebilir [izinleri](#iot-hub-permissions) aşağıdaki yollarla:
 > [!NOTE]
 > Bkz: [izinleri](#iot-hub-permissions) ayrıntılı bilgi için.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Azure IOT hub'ı paylaşılan erişim ilkeleri ve kimlik kayıt defteri güvenlik kimlik bilgilerini karşı bir belirteci doğrulayarak uç noktalarına erişimi verir.
 
@@ -146,7 +146,7 @@ Beklenen değerler şunlardır:
 
 Aşağıdaki Node.js kod parçacığında çağrılan bir işlev gösterir **generateSasToken** , girişleri belirteçten hesaplar `resourceUri, signingKey, policyName, expiresInMins`. Farklı girdiler için farklı bir belirteç kullanım durumlarını nasıl sonraki bölümlerde ayrıntılı olarak açıklanmaktadır.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -260,7 +260,7 @@ Bir cihaz kimliğin simetrik anahtar birleştirilerek bir belirteç oluşturmak 
 
 Önceki bir Node.js işlevini kullanarak bir örnek şöyle olacaktır:
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var deviceKey ="...";
 
@@ -294,7 +294,7 @@ Paylaşılan erişim ilkesi, potansiyel herhangi bir CİHAZDAN bağlanmak için 
 
 Önceki bir Node.js işlevini kullanarak bir örnek şöyle olacaktır:
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var policyName = 'device';
 var policyKey = '...';
@@ -328,7 +328,7 @@ Bitiş noktası kullanıma sunulan hizmet işlevleri şunlardır:
 * İlke adı: `registryRead`,
 * herhangi bir sona erme saati.
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices";
 var policyName = 'registryRead';
 var policyKey = '...';

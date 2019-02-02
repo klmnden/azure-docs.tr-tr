@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 43badaada3de352ec7bafeb422965a047261a1e4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753974"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656843"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Market ve Appsource'ta yayımlama Kılavuzu
 
 Market yayımlama Kılavuzu, yeni yardımcı olmak için tasarlanmıştır ve mevcut yayımcıların vitrinler olarak kullanmayı öğrenmek [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Microsoft AppSource](https://appsource.microsoft.com) iş ortaklığı işletmelerini büyütme için Microsoft uygulamaları ve hizmetleri listeleme tarafından.
 
 >[!Note]
->Market Burada, Azure Market ve AppSource için ifade eder.  Bkz: [bir Market, iki vitrinin](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace) daha fazla bilgi için.
+>Market Burada, Azure Market ve AppSource için ifade eder.  Bkz: [bir Market, iki vitrinin](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) daha fazla bilgi için.
 
 Bu kılavuzda aşağıdaki konular ele alınmaktadır: 
 *   Market nedir ve nasıl çalışır? 

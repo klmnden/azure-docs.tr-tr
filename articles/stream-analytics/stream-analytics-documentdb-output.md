@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4be3de8de4332e8ffb0e88e612a3041829ccd606
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267139"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658581"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB için Azure Stream Analytics çıkışı  
 Stream Analytics hedefleyebilir [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) yapılandırılmamış JSON verileri üzerinde veri arşivleme ve düşük gecikme süreli sorgular için JSON çıkışında, etkinleştirme. Bu belge, bu yapılandırmayı uygulamak için bazı en iyi uygulamaları kapsar.
@@ -29,7 +29,7 @@ Kişiler için Cosmos DB ile bilginiz, göz atın [Azure Cosmos DB'nin öğrenme
 Stream Analytics, Azure Cosmos DB çıktı sonuçları Cosmos DB koleksiyonlarınız JSON çıktısını işleme akışınız yazılmasını etkinleştirir. Stream Analytics, bunun yerine, ön maliyet oluşturmanızı gerektiren koleksiyonları veritabanınızdaki oluşturmaz. Cosmos DB koleksiyonları fatura maliyetlerini sizin tarafınızdan denetlenir ve böylece performans, tutarlılık ve koleksiyonlarınız kullanarak doğrudan kapasitesini ayarlama budur [Cosmos DB API'leri](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 > [!Note]
-> 0.0.0.0 izin verilen IP listesi için Azure Cosmos DB Güvenlik Duvarı'nı eklemeniz gerekir.
+> Azure Cosmos DB güvenlik duvarını 0.0.0.0 izin verilen IP listesine eklemeniz gerekir.
 
 Cosmos DB koleksiyonu seçeneklerden bazıları aşağıda açıklanmıştır.
 
@@ -49,7 +49,7 @@ Gelen JSON belgesini alan otomatik olarak Cosmos DB belge kimliği sütunu olara
 Kaydetmek istiyorsanız <i>tüm</i> yinelenen bir Kimliğe sahip olanlar da dahil olmak üzere Belge Kimliği alanı sorgunuzda (AS anahtar sözcüğü ile) yeniden adlandırın ve Kimliği alanı oluşturun veya başka bir sütunun değeri ile Kimliğini değiştirin Cosmos DB sağlar (AS anahtar sözcüğü kullanılarak veya 'Belge Kimliği' ayarı kullanarak).
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB'de bölümleme verileri
-Azure Cosmos DB [sınırsız](../cosmos-db/partition-data.md) bölümler, iş yüküne göre ölçeklenen, verilerinizi otomatik Azure Cosmos DB bölümleme için önerilen yaklaşım. Sınırsız kapsayıcılar için yazarken, Stream Analytics sayıda paralel yazıcılar önceki bir sorgu adımına veya bölümleme düzeni giriş kullanır.
+Azure Cosmos DB [sınırsız](../cosmos-db/partition-data.md) bölümler, iş yüküne göre ölçeklenen, verilerinizi otomatik Azure Cosmos DB bölümleme için önerilen yaklaşım kapsayıcı görevi görür. Sınırsız kapsayıcıların için yazma, Stream Analytics gibi çok sayıda paralel yazıcılar önceki sorgu veya girdisi'nden olay adımına bölümleme düzeni kullanır.
 > [!Note]
 > Şu anda Azure Stream Analytics yalnızca sınırsız koleksiyonu en üst düzeyde bölüm anahtarları ile destekler. Örneğin, `/region` desteklenir. İç içe bölüm anahtarları (örneğin `/region/name`) desteklenmez. 
 

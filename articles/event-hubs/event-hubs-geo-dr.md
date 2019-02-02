@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091355"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562217"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - coğrafi olağanüstü durum kurtarma 
 
@@ -41,13 +41,13 @@ Olağanüstü Durum Kurtarma özelliği meta verileri olağanüstü durum kurtar
 
 Bu makalede aşağıdaki terimler kullanılır:
 
--  *Diğer ad*: ayarladığınız bir olağanüstü durum kurtarma Yapılandırması adı. Diğer ad, tek bir kararlı tam etki alanı adı (FQDN) bağlantı dizesi sağlar. Uygulamaları, bir ad alanına bağlanmak için bu diğer ad bağlantı dizesi kullanır. 
+-  *Diğer ad*: Ayarladığınız bir olağanüstü durum kurtarma Yapılandırması adı. Diğer ad, tek bir kararlı tam etki alanı adı (FQDN) bağlantı dizesi sağlar. Uygulamaları, bir ad alanına bağlanmak için bu diğer ad bağlantı dizesi kullanır. 
 
--  *Birincil/ikincil ad alanı*: karşılık gelen diğer ad alanları. Birincil ad "etkin" ve iletileri (Bu, mevcut veya yeni bir ad olabilir) alır. İkincil ad alanı, "pasif" ve iletileri almaz. Her ikisi arasındaki bir meta veri eşitlenmiş olarak olduğundan her ikisi de sorunsuz bir şekilde uygulama kodu veya bağlantı dizesi değişiklik yapmadan iletileri kabul edebilir. Etkin ad alanı iletileri aldığından emin olmak için diğer adı kullanmanız gerekir. 
+-  *Birincil/ikincil ad alanı*: Diğer adı için karşılık gelen ad alanları. Birincil ad "etkin" ve iletileri (Bu, mevcut veya yeni bir ad olabilir) alır. İkincil ad alanı, "pasif" ve iletileri almaz. Her ikisi arasındaki bir meta veri eşitlenmiş olarak olduğundan her ikisi de sorunsuz bir şekilde uygulama kodu veya bağlantı dizesi değişiklik yapmadan iletileri kabul edebilir. Etkin ad alanı iletileri aldığından emin olmak için diğer adı kullanmanız gerekir. 
 
--  *Meta veri*: event hubs ve tüketici grupları; ve hizmetin ad alanıyla ilişkili özellikleri gibi varlıklar. Varlıklar ve ayarları otomatik olarak çoğaltılır unutmayın. İletileri ve olayları çoğaltılmaz. 
+-  *meta veri*: Event hubs ve tüketici grupları gibi varlıkları; ve hizmetin ad alanıyla ilişkili özellikleri. Varlıklar ve ayarları otomatik olarak çoğaltılır unutmayın. İletileri ve olayları çoğaltılmaz. 
 
--  *Yük devretme*: ikincil ad alanı etkinleştirme işlemi.
+-  *Yük devretme*: İkincil ad alanı etkinleştiriliyor işlemi.
 
 ## <a name="setup-and-failover-flow"></a>Kurulum ve yük devretme akışı
 
@@ -102,12 +102,12 @@ Bu sürümle birlikte göz önünde tutmak için aşağıdaki konuları göz ön
 
 4. Varlık eşitleme dakika başına yaklaşık 50-100 varlık biraz zaman alabilir.
 
-## <a name="availability-zones-preview"></a>Kullanılabilirlik alanları (Önizleme)
+## <a name="availability-zones"></a>Kullanılabilirlik Alanları 
 
-Event Hubs standart SKU ayrıca destekler [kullanılabilirlik](../availability-zones/az-overview.md), sağlayan bir Azure bölgesi içinde hatadan yalıtılmış konumlardır. 
+Event Hubs standart SKU'nun destekler [kullanılabilirlik](../availability-zones/az-overview.md), sağlayan bir Azure bölgesi içinde hatadan yalıtılmış konumlardır. 
 
 > [!NOTE]
-> Kullanılabilirlik alanları Önizleme yalnızca desteklenen **Orta ABD**, **Doğu ABD 2**, ve **Fransa orta** bölgeleri.
+> Kullanılabilirlik alanları desteği için standart Azure Event Hubs yalnızca kullanılabilir [Azure bölgeleri](../availability-zones/az-overview.md#regions-that-support-availability-zones) kullanılabilirlik nerede bulunduğunu.
 
 Kullanılabilirlik alanları, yeni ad alanları üzerinde yalnızca, Azure portalını kullanarak etkinleştirebilirsiniz. Olay hub'ları, var olan ad alanlarının geçişini desteklemez. Bölge artıklığı ad alanınızı etkinleştirildikten sonra devre dışı bırakılamıyor.
 

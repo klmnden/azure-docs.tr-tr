@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229260"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567851"
 ---
 # <a name="how-traffic-manager-works"></a>Traffic Manager nasıl çalışır?
 
@@ -47,7 +47,7 @@ Bu yapılandırma elde etmek için aşağıdaki adımları tamamlayın:
 ![Traffic Manager DNS yapılandırması][1]
 
 > [!NOTE]
-> Gösterim etki alanı ile Azure Traffic Manager kullanırken, Traffic Manager etki alanı adınızı gösterim etki alanı adınızı işaret edecek bir CNAME kullanmanız gerekir. DNS standartları 'apex' (veya kök) bir etki alanına bir CNAME oluşturmanızı izin vermez. Bu nedenle, 'contoso.com' ('naked' etki alanı olarak da adlandırılır) için bir CNAME oluşturamazsınız. Yalnızca 'contoso.com' gibi 'www.contoso.com' altındaki bir etki alanı için CNAME oluşturabilirsiniz. Bu sınırlamaya geçici bir çözüm için "www.contoso.com" gibi bir alternatif adı "contoso.com" için doğrudan isteklere basit bir HTTP yeniden yönlendirme kullanmanızı öneririz.
+> Gösterim etki alanı ile Azure Traffic Manager kullanırken, Traffic Manager etki alanı adınızı gösterim etki alanı adınızı işaret edecek bir CNAME kullanmanız gerekir. DNS standartları 'apex' (veya kök) bir etki alanına bir CNAME oluşturmanızı izin vermez. Bu nedenle, 'contoso.com' ('naked' etki alanı olarak da adlandırılır) için bir CNAME oluşturamazsınız. Yalnızca 'contoso.com' gibi 'www.contoso.com' altındaki bir etki alanı için CNAME oluşturabilirsiniz. Bu sınırlamaya geçici bir çözüm için şirket DNS etki alanınızı barındırmaya öneririz [Azure DNS](../dns/dns-overview.md) ve kullanarak [diğer ad kayıtlarını](../dns/tutorial-alias-tm.md) traffic manager profilinize yönlendirin. Alternatif olarak, "contoso.com" için "www.contoso.com" gibi bir diğer ad doğrudan istekleri için basit bir HTTP yeniden yönlendirme kullanabilirsiniz.
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Traffic Manager'ı kullanarak istemcilerin nasıl bağlanacağını
 

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: v-jysur
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 9ff66b386a6293c11ad67ec90e165b927ad6669b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d37245d7eed39ee9d219578db9e0a50d758ba9a2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870563"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660876"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup sunucusu için sürüm notları
 Bu makalede, Microsoft Azure Backup sunucusu (MABS) V3 için bilinen sorunlar ve geçici çözümler sağlar.
 
 ##  <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Yedekleme ve kurtarma başarısız kümelenmiş iş yükleri için
 
-**Açıklama:** veritabanı kullanılabilirlik grubundaki (DAG) Hyper-V kümesine, SQL kümesi (SQL Always On) veya Exchange gibi kümelenmiş veri kaynakları için başarısız MABS V2 MABS V3 yükselttikten sonra yedekleme/geri yükleme.
+**Açıklama:** Yedekleme/geri yükleme veritabanı kullanılabilirlik grubundaki (DAG) Hyper-V kümesine, SQL kümesi (SQL Always On) veya Exchange gibi kümelenmiş veri kaynakları için MABS V2 MABS V3 yükseltildikten sonra başarısız oldu.
 
 **Geçici çözüm:** Bunu önlemek için SQL Server Management Studio (SSMS) açın) ve DPM DB'yi üzerinde aşağıdaki SQL betiğini çalıştırın:
 
@@ -64,7 +64,7 @@ Bu makalede, Microsoft Azure Backup sunucusu (MABS) V3 için bilinen sorunlar ve
 4.  [Yükleme](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017#ssms-installation-tips-and-issues-ssms-1791) SQL Server Management Studio'yu (SSMS).
 5.  Parametreleri açıklandığı gibi kullanarak raporlama yapılandırma [SQL 2017 ile SSRS yapılandırma](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6.  [Yükleme](backup-azure-microsoft-azure-backup.md) MABS V3.
-7. [Geri yükleme](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SSMS ve çalışma DPM eşitleme aracı açıklanan şekilde kullanarak SQL [burada](https://docs.microsoft.com/it-it/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
+7. [Geri yükleme](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SSMS ve çalışma DPM eşitleme aracı açıklanan şekilde kullanarak SQL [burada](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
 8.  Aşağıdaki komutu kullanarak dbo.tbl_DLS_GlobalSetting tablo 'DataBaseVersion' özelliğinde güncelleştirin:
 
         UPDATE dbo.tbl_DLS_GlobalSetting

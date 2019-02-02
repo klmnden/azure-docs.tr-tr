@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f6aee3c42c7c01d226732245b47dfb87e07a5ce4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dd254f0640e17bdc055171dde69b04103f389354
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464468"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659839"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Açık bağlantı noktaları ve Azure CLI ile Linux VM uç noktaları
 
@@ -74,7 +74,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Alternatif olarak, bir sanal ağ alt ağı ile bir ağ güvenlik grubunuzu ilişkilendirebilirsiniz [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) yerine yalnızca tek bir VM'de ağ arabirimi. Aşağıdaki örnekte adlı var olan bir alt ağ ilişkilendirir *mySubnet* içinde *myVnet* adlı ağ güvenlik grubu ile sanal ağ *Vm2*:
+Alternatif olarak, bir sanal ağ alt ağı ile bir ağ güvenlik grubunuzu ilişkilendirebilirsiniz [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet) yerine yalnızca tek bir VM'de ağ arabirimi. Aşağıdaki örnekte adlı var olan bir alt ağ ilişkilendirir *mySubnet* içinde *myVnet* adlı ağ güvenlik grubu ile sanal ağ *Vm2*:
 
 ```azurecli
 az network vnet subnet update \

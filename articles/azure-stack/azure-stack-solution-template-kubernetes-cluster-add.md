@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7e293018f2dc248fae8de8bd9e82943606f4ead
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9d2d7297ea5978687ef6dc791d5a333016060da7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239511"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659941"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes için Azure Stack Marketini Ekle
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!note]  
-> Azure Stack'te Kubernetes önizlemeye sunuldu.
+> Azure Stack'te Kubernetes önizlemeye sunuldu. Azure Stack bağlantısı kesilmiş senaryo preview tarafından şu anda desteklenmiyor.
 
 Kullanıcılarınız için bir Market öğesi Kubernetes sunabilir. Kullanıcılarınızın ardından, Kubernetes içinde tek ve eşgüdümlü bir işlemle dağıtabilir.
 
@@ -69,7 +69,7 @@ Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD
 
     - Şu bilgilere ihtiyacınız vardır:
 
-       | Value | Açıklama |
+       | Değer | Açıklama |
        | ---   | ---         |
        | Parola | Sertifika parolası. |
        | Yerel sertifika yolu | Sertifika yolu ve dosya adı. Örneğin, `path\certfilename.pfx` |
@@ -109,7 +109,7 @@ Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD
 
     - Şu bilgilere ihtiyacınız vardır:
 
-       | Value | Açıklama                     |
+       | Değer | Açıklama                     |
        | ---   | ---                             |
        | ERCS IP | ASDK normalde ayrıcalıklı uç noktadır `AzS-ERCS01`. |
        | Uygulama adı | Uygulama hizmet sorumlusu için basit bir ad. |

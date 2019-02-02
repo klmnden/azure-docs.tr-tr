@@ -4,17 +4,17 @@ description: Yapıt oluşturmak, tanımlamak ve dağıtmak için Azure Blueprint
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315307"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566321"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Tanımlama ve portalda bir Azure şema Ata
 
@@ -42,10 +42,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
    ![Şema oluşturma](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Şema için 'MyBlueprint' (harfler ve rakamlar -- en fazla 48 karakter içerebilir, boşluk veya özel karakter içeremez) gibi bir **Şema Adı** belirtin, ancak **Şema Açıklaması**’nı şimdilik boş bırakın.  **Tanım Konumu** kutusunda sağ taraftaki üç noktaya tıklayın, şemayı kaydetmek istediğiniz [yönetim grubu](../management-groups/overview.md)’nu seçin ve **Seç**’e tıklayın.
-
-   > [!NOTE]
-   > Şema tanımları yalnızca yönetim gruplarına kaydedilebilir. İlk yönetim grubunuzu oluşturmak için [bu adımları](../management-groups/create.md) izleyin.
+1. Şema için 'MyBlueprint' (harfler ve rakamlar -- en fazla 48 karakter içerebilir, boşluk veya özel karakter içeremez) gibi bir **Şema Adı** belirtin, ancak **Şema Açıklaması**’nı şimdilik boş bırakın.  İçinde **tanım konumunu** kutusunda, sağ tıklayın, seçin [yönetim grubu](../management-groups/overview.md) veya şema kaydedin ve tıklayın istediğiniz abonelik **seçin**.
 
 1. Bilgilerin doğru olduğunu doğrulayın ( **Blueprint adı** ve **tanım konumunu** alanlar daha sonra değiştirilemez) tıklayıp **sonraki: Yapıtları** sayfanın alt kısmındaki veya **Yapıtları** sayfanın üst kısmındaki sekme.
 
@@ -154,7 +151,7 @@ Yayımladığınızda şema bir aboneliğe atanmaya hazır hale gelir.
 
 ## <a name="assign-a-blueprint"></a>Şema atama
 
-Şema yayımlandıktan sonra bir aboneliğe atanabilir. Oluşturduğunuz şemayı yönetim grubu hiyerarşinizdeki aboneliklerden birine atayın.
+Şema yayımlandıktan sonra bir aboneliğe atanabilir. Oluşturduğunuz şemayı yönetim grubu hiyerarşinizdeki aboneliklerden birine atayın. Blueprint bir abonelik için kaydedilmiş durumda ise, yalnızca bu aboneliğe atanabilir.
 
 1. Soldaki sayfadan **Şema Tanımları**’nı seçin.
 

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/20/2018
+ms.openlocfilehash: d9e1eee9ab45e9f3a74f296e555c8f91802f36ab
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723901"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563193"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL Data Sync ile ilgili sorunları giderme
 
@@ -60,14 +60,14 @@ Aşağıdaki koşullardan herhangi biri işleme durumunda takılması bir eşitl
 
 - **Neden**. İstemci Aracısı çevrimdışı.
 
-- **Çözüm**. İstemci Aracısı çevrimiçi olduğundan emin olun ve işlemi yeniden deneyin.
+- **Çözüm**. İstemci aracısının çevrimiçi olduğundan emin olun ve işlemi yeniden deneyin.
 
-- **Neden**. İstemci aracısı yüklü olmayan veya eksik olabilir.
+- **Neden**. İstemci aracısı yüklü değil veya eksik.
 
-- **Çözüm**. İstemci aracısı yüklü olmayan veya eksik aksi ise:
+- **Çözüm**. İstemci aracısı yüklü değilse veya eksikse:
 
-    1. Dosya varsa SQL Data Sync yükleme klasöründen aracı XML dosyasını kaldırın.
-    1. (Bunu aynı veya farklı bir bilgisayar olabilir) bir şirket içi bilgisayara aracıyı yükleyin. Ardından, portalda çevrimdışı olarak gösteren aracı için oluşturulan aracı anahtarı gönderin.
+    1. Aracı XML dosyası mevcutsa, dosyayı SQL Data Sync yükleme klasöründen kaldırın.
+    1. Aracıyı bir şirket içi bilgisayara yükleyin (aynı bilgisayar veya farklı bir bilgisayar olabilir). Ardından, portalda çevrimdışı olarak gösterilen aracı için oluşturulan aracı anahtarını gönderin.
 
 - **Neden**. SQL Data Sync hizmeti durduruldu.
 
@@ -148,15 +148,15 @@ Veri eşitleme, döngüsel başvurular işlemiyor. Kaçınma emin olun.
 
 Eşitleme grubunu silme denemesi başarısız olur. Aşağıdaki senaryolardan herhangi bir eşitleme grubunu silmek için hatasına neden olabilir:
 
-- **Neden**. Çevrimdışı istemci aracısıdır.
+- **Neden**. İstemci aracısı çevrimdışı.
 
 - **Çözüm**. İstemci Aracısı çevrimiçi olduğundan emin olun ve işlemi yeniden deneyin.
 
-- **Neden**. İstemci aracısı yüklü olmayan veya eksik olabilir.
+- **Neden**. İstemci aracısı yüklü değil veya eksik.
 
-- **Çözüm**. İstemci aracısı yüklü olmayan veya eksik aksi ise:  
-    a. Dosya varsa SQL Data Sync yükleme klasöründen aracı XML dosyasını kaldırın.  
-    b. (Bunu aynı veya farklı bir bilgisayar olabilir) bir şirket içi bilgisayara aracıyı yükleyin. Ardından, portalda çevrimdışı olarak gösteren aracı için oluşturulan aracı anahtarı gönderin.
+- **Çözüm**. İstemci aracısı yüklü değilse veya eksikse:  
+    a. Aracı XML dosyası mevcutsa, dosyayı SQL Data Sync yükleme klasöründen kaldırın.  
+    b. Aracıyı bir şirket içi bilgisayara yükleyin (aynı bilgisayar veya farklı bir bilgisayar olabilir). Ardından, portalda çevrimdışı olarak gösterilen aracı için oluşturulan aracı anahtarını gönderin.
 
 - **Neden**. Bir veritabanının çevrimdışı olduğundan.
 
@@ -231,8 +231,8 @@ Kaldırma veya ilişkili SQL Data Sync istemci Aracısı durduruluyor üç dakik
   1. İlişkili eşitleme aracıları çevrimiçi durumdayken eşitleme grubu Kaldır (önerilir).
   1. Aracı çevrimdışı, ancak yüklenir, şirket içi bilgisayarda çevrimiçi duruma getirin. Olarak görünmesi için aracı durumunu bekleyin **çevrimiçi** SQL Data Sync portalında. Ardından, eşitleme grubunu kaldırın.
   1. Kaldırılıp kaldırılmadığını çünkü aracı çevrimdışıysa:  
-    a.  Dosya varsa SQL Data Sync yükleme klasöründen aracı XML dosyasını kaldırın.  
-    b.  (Bunu aynı veya farklı bir bilgisayar olabilir) bir şirket içi bilgisayara aracıyı yükleyin. Ardından, portalda çevrimdışı olarak gösteren aracı için oluşturulan aracı anahtarı gönderin.  
+    a.  Aracı XML dosyası mevcutsa, dosyayı SQL Data Sync yükleme klasöründen kaldırın.  
+    b.  Aracıyı bir şirket içi bilgisayara yükleyin (aynı bilgisayar veya farklı bir bilgisayar olabilir). Ardından, portalda çevrimdışı olarak gösterilen aracı için oluşturulan aracı anahtarını gönderin.  
     c. Eşitleme grubu silmeyi deneyin.
 
 ### <a name="setup-restore"></a> Kayıp veya bozuk bir veritabanı geri yükleyebilirim ne olur?

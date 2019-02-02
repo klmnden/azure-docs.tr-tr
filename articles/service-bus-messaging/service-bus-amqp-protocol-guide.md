@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: cf06be778fb1bd251b55adcc503db63a2adf3f8b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197934"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658275"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs
 
@@ -134,7 +134,7 @@ Bir API düzeyinde "Al" çağrı dönüştürecektir bir *akış* performative S
 
 Bir iletinin kilidini serbest aktarımı terminal durumlarından birine kapatıldığında *kabul*, *reddedilen*, veya *yayımlanan*. Terminal durumuna olduğunda Service Bus'tan ileti silinir *kabul*. Service Bus kalır ve aktarım diğer durumlardan ulaştığında sonraki alıcıya teslim edilir. Yinelenen redleri veya sürümler nedeniyle varlık için izin verilen en yüksek teslimat sayısı ulaştığında Service Bus iletiyi otomatik olarak varlığın teslim edilemeyen iletiler kuyruğuna taşır.
 
-Service Bus API'lerine doğrudan böyle bir seçenek bugün açığa çıkarmayın olsa da, alt düzey AMQP protokolünü istemci bağlantı kredi modeli, bir "anında iletme-style" modeli tarafından iade alma her istek için bir birim veren "çekme-style" etkileşimi etkinleştirmek için kullanabilirsiniz çok sayıda kesme KREDİLERİ bağlamak ve başka hiçbir etkileşimi olmadan kullanılabilir oldukça iletileri alırsınız. Anında iletme aracılığıyla desteklenir [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) veya [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) özelliği ayarları. Sıfır olmayan olduklarında AMQP istemci bağlantı kredi olarak kullanır.
+Service Bus API'lerine doğrudan böyle bir seçenek bugün açığa çıkarmayın olsa da, alt düzey AMQP protokolünü istemci bağlantı kredi modeli, bir "anında iletme-style" modeli tarafından iade alma her istek için bir birim veren "çekme-style" etkileşimi etkinleştirmek için kullanabilirsiniz çok sayıda kesme KREDİLERİ bağlamak ve başka hiçbir etkileşimi olmadan kullanılabilir oldukça iletileri alırsınız. Anında iletme aracılığıyla desteklenir [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) veya [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) özelliği ayarları. Sıfır olmayan olduklarında AMQP istemci bağlantı kredi olarak kullanır.
 
 Bu bağlamda ileti, ileti kablo eklenmez varlıktan alındığında varlık içinde ileti üzerindeki kilit sona erme saati başladığını anlamak önemlidir. İstemci bağlantı kredi göndererek iletileri almak için hazır olma durumu gösteren olduğunda, bu nedenle iletileri ağda etkin bir şekilde çekme ve onları işlemeye hazır beklenmektedir. Aksi takdirde iletisi bile teslim edilmeden önce ileti kilidi sona ermiştir. Bağlantı-kredi akış kontrolü kullanarak doğrudan alıcısına gönderilen kullanılabilir iletiler için hemen hazır olma durumu yansıtmalıdır.
 
@@ -214,7 +214,7 @@ AMQP için 's tanımlar için uygulaması gereken herhangi bir özellik eşlenme
 | --- | --- | --- |
 | dayanıklı |- |- |
 | öncelik |- |- |
-| ttl |Bu iletinin yaşam süresi |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| ttl |Bu iletinin yaşam süresi |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | ilk alıcı |- |- |
 | Teslimat sayısı |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -222,17 +222,17 @@ AMQP için 's tanımlar için uygulaması gereken herhangi bir özellik eşlenme
 
 | Alan Adı | Kullanım | API adı |
 | --- | --- | --- |
-| ileti kimliği |Bu ileti için uygulama tanımlı, serbest biçimli tanımlayıcı. Yinelenen algılama için kullanılır. |[MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| ileti kimliği |Bu ileti için uygulama tanımlı, serbest biçimli tanımlayıcı. Yinelenen algılama için kullanılır. |[MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Kullanıcı Kimliği |Service Bus tarafından yorumlanır değil, uygulama tanımlı kullanıcı tanımlayıcısı. |Service Bus API'sini aracılığıyla erişilebilir değil. |
-| - |Service Bus tarafından yorumlanır değil, hedef uygulama tanımlı tanımlayıcısı. |[Alıcı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| konu |Service Bus tarafından yorumlanır değil, uygulama tarafından tanımlanan ileti amaçlı tanımlayıcısı. |[Etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| Yanıtla |Uygulama tanımlı yanıt yolu göstergesi, Service Bus tarafından yorumlanır değil. |[replyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| - |Service Bus tarafından yorumlanır değil, hedef uygulama tanımlı tanımlayıcısı. |[Alıcı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| konu |Service Bus tarafından yorumlanır değil, uygulama tarafından tanımlanan ileti amaçlı tanımlayıcısı. |[Etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| Yanıtla |Uygulama tanımlı yanıt yolu göstergesi, Service Bus tarafından yorumlanır değil. |[replyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Bağıntı Kimliği |Service Bus tarafından yorumlanır değil, uygulama tanımlı bağıntı tanımlayıcısı. |[Bağıntı Kimliği](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | içerik türü |İçerik türü, Service Bus tarafından yorumlanır değil gövdesi için uygulama tanımlı göstergesi. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | İçerik kodlama |Service Bus tarafından yorumlanır değil gövdesi için göstergesi içerik kodlamasını uygulama tanımlı. |Service Bus API'sini aracılığıyla erişilebilir değil. |
-| süre sonu mutlak |Hangi mutlak anında iletinin geçerlilik süresinin bildirir. Giriş (üstbilgisi TTL gözlemlenen değerdir), göz ardı çıktıyı yetkili. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| süre sonu mutlak |Hangi mutlak anında iletinin geçerlilik süresinin bildirir. Giriş (üstbilgisi TTL gözlemlenen değerdir), göz ardı çıktıyı yetkili. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | oluşturma zamanı |Bildirir, aynı zamanda iletinin oluşturulduğu. Service Bus tarafından kullanılmıyor |Service Bus API'sini aracılığıyla erişilebilir değil. |
-| Grup Kimliği |Uygulama tanımlı ilgili bir dizi ileti için tanımlayıcı. Service Bus oturumları için kullanılır. |[oturum kimliği](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| Grup Kimliği |Uygulama tanımlı ilgili bir dizi ileti için tanımlayıcı. Service Bus oturumları için kullanılır. |[oturum kimliği](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Grup Sırası |İletinin bir oturumu içinde göreli sıra numarası tanımlayan sayacı. Service Bus tarafından yok sayılır. |Service Bus API'sini aracılığıyla erişilebilir değil. |
 | yanıt için Grup Kimliği |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 

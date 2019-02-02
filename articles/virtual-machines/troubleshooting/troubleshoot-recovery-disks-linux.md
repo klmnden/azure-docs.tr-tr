@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: e6d6c47726b21a241b379366bd1fde6c6b90e223
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9e3177b9df41a1612435dddadafd5c7e291e0e35
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462021"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663596"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>İşletim sistemi diskini bir kurtarma VM'si Azure CLI ile ekleyerek bir Linux VM sorunlarını giderme
 Linux sanal makinenize (VM), önyükleme veya disk bir hatasıyla karşılaşırsa, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Geçersiz bir giriş, yaygın olarak karşılaşılan örneklerden olacaktır `/etc/fstab` engelleyen sanal makine başarıyla önyükleme airdrop. Bu makalede, sanal sabit diskinizi başka bir Linux tüm hataları düzeltin ve ardından orijinal VM'yi yeniden oluşturmak için sanal Makineye bağlanmak için Azure CLI kullanma işlemi açıklanmaktadır. 
@@ -43,7 +43,7 @@ Aşağıdaki örneklerde, parametre adları kendi değerlerinizle değiştirin. 
 ## <a name="determine-boot-issues"></a>Önyükleme sorunlarını belirleme
 Neden sanal makinenizin doğru ön yükleyebileceğini değil belirlemek için seri çıktıyı inceleyin. Yaygın olarak karşılaşılan örneklerden geçersiz bir giriştir `/etc/fstab`, ya da temel alınan sanal silinmiş veya taşınmış disk.
 
-İle önyükleme günlüklerini alma [az vm önyükleme tanılaması get-boot-log](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log). Aşağıdaki örnekte adlı VM'den seri çıktısını alır `myVM` adlı kaynak grubunda `myResourceGroup`:
+İle önyükleme günlüklerini alma [az vm önyükleme tanılaması get-boot-log](/cli/azure/vm/boot-diagnostics). Aşağıdaki örnekte adlı VM'den seri çıktısını alır `myVM` adlı kaynak grubunda `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM

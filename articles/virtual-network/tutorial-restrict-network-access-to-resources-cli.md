@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 80ca9df064239e9c7beb9d45acfabe963c532e4a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87fcfd98065bcf1f0fea3a06029853f69d67842d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150557"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663817"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI kullanarak sanal ağ hizmet uç noktaları ile PaaS kaynaklarına ağ erişimini kısıtlama
 
@@ -43,7 +43,7 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Bir sanal ağ oluşturmadan önce sanal ağ ve bu makalede oluşturulan tüm kaynakları için bir kaynak grubu oluşturmanız gerekir. [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Bir sanal ağ oluşturmadan önce sanal ağ ve bu makalede oluşturulan tüm kaynakları için bir kaynak grubu oluşturmanız gerekir. [az group create](/cli/azure/group) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive
 az group create \
@@ -322,7 +322,7 @@ Erişim reddedilir ve aldığınız bir `mount error(13): Permission denied` hat
 
 İçin SSH oturumundan çıkın *myVmPublic* VM.
 
-Depolama hesabınızda paylaşımlarını görüntülemek, bilgisayarınızdan denemek [az storage share liste](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Değiştirin `<account-name>` ve `<account-key>` depolama hesabı adı ve anahtarı ile [depolama hesabı oluşturma](#create-a-storage-account):
+Depolama hesabınızda paylaşımlarını görüntülemek, bilgisayarınızdan denemek [az storage share liste](/cli/azure/storage/share?view=azure-cli-latest). Değiştirin `<account-name>` ve `<account-key>` depolama hesabı adı ve anahtarı ile [depolama hesabı oluşturma](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \

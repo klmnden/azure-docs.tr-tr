@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: aa6ba07168e86b2163324c62f8bb32ca330551f3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55501385"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564009"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Sıralı sanal makine ölçek kümesinde uzantı sağlama ayarlar
 Azure sanal makine uzantıları, dağıtım sonrası yapılandırma ve yönetim, izleme, güvenlik ve daha fazlası gibi özellikler sunar. Üretim dağıtımları genellikle istenen sonuçları elde etmek için bir sanal makine örnekleri için yapılandırılmış birden fazla uzantı birleşimini kullanın.
@@ -29,7 +29,7 @@ Bir sanal makinede birden fazla uzantı kullanırken, aynı işletim sistemi kay
 
 Bu makalede, sanal makine ölçek kümesi VM örnekleri için yapılandırılması için uzantıları nasıl sıra ayrıntıları.
 
-## <a name="pre-requisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, alışık olduğunuz varsayılır:
 -   Azure sanal makine [uzantıları](../virtual-machines/extensions/overview.md)
 -   [Değiştirme](virtual-machine-scale-sets-upgrade-scale-set.md) sanal makine ölçek kümeleri

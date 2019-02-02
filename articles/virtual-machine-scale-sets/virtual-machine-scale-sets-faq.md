@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: cd8bb2bf83d71fb874b3912e98bf3790acc9d915
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 85b05e50dd989ef8db737df0a43f29b20aefb596
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493669"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657765"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -176,7 +176,7 @@ az sf cluster create -h
 
 Lütfen azure'daki en son desteklenen API sertifika işlemleri için keyvaults belgelerini inceleyin.
 
-Otomatik olarak imzalanan sertifikaları, sertifika yetkilisi tarafından sağlanan dağıtılmış güven için kullanılamaz ve konak Kurumsal üretim çözümleri için hedeflenen tüm Service Fabric kümesi için kullanılmamalıdır; Ek Service Fabric güvenliği yönergelerini gözden geçirmeniz [Azure Service Fabric en iyi güvenlik uygulamaları](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) ve [Service Fabric kümesi güvenlik senaryoları](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Otomatik olarak imzalanan sertifikaları, sertifika yetkilisi tarafından sağlanan dağıtılmış güven için kullanılamaz ve konak Kurumsal üretim çözümleri için hedeflenen tüm Service Fabric kümesi için kullanılmamalıdır; Ek Service Fabric güvenliği yönergelerini gözden geçirmeniz [Azure Service Fabric en iyi güvenlik uygulamaları](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) ve [Service Fabric kümesi güvenlik senaryoları](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Ben, Linux sanal makine ölçek kümesi bir Resource Manager şablonundan SSH kimlik doğrulaması için kullanılacak SSH anahtar çifti belirtebilir miyim?
 

@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
-ms.date: 04/02/2018
-ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/16/2018
+ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352220"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567392"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Parçalı bir çok kiracılı uygulamasını dağıtma ve keşfetme
 
@@ -137,7 +137,7 @@ Bir merkezi **olay hub'ı** Web sayfası, belirli dağıtım içindeki kiracıla
 
 Gelen isteklerin dağıtımını denetlemek için Wingtip uygulama kullanan [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Her Kiracı için olayları sayfası, URL'de Kiracı adını içerir. Her URL, ayrıca, belirli bir kullanıcı değerini içerir. Her URL, aşağıdaki adımları kullanarak, gösterilen biçimi ilişkiden:
 
-- http://events.wingtip-mt.&lt; Kullanıcı&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Etkinlikler uygulaması, Kiracı adını URL'den ayrıştırır. Kiracı adı *fabrikamjazzclub* önceki örnek URL.
 2. Uygulamayı kullanarak bir kataloğa erişim sağlayacak anahtar oluşturmak üzere Kiracı adından sonra karma [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md).

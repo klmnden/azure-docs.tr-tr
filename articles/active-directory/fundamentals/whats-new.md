@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: 0847096674d446940ed3fed3390457e3d2e894bf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3b2bb76ff8fe8f9ac146dab2a721450bc0562fa6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248461"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662083"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -38,6 +38,16 @@ Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret. 
 
 ---
 ## <a name="january-2019"></a>Ocak 2019
+
+### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Bir kerelik geçiş kodu kimlik doğrulaması (genel Önizleme) kullanarak active Directory B2B işbirliği
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** B2B  
+**Ürün özelliği:** B2B/B2C
+
+Azure AD gibi başka bir yolla, bir Microsoft hesabı (MSA) veya Google Federasyon kimlik doğrulaması yapılamayan B2B Konuk kullanıcılar için bir kerelik geçiş kodu kimlik doğrulaması (OTP) tanıttık. Bu yeni kimlik doğrulama yöntemi, kullanıcıların yeni bir Microsoft hesabı oluşturmanız gerekmez, Konuk anlamına gelir. Bunun yerine, bir davet kuponumu kullanmakta veya paylaşılan bir kaynağa erişme, Konuk kullanıcı bir e-posta adresine gönderilecek geçici bir kod isteyebilir. Bu geçici bir kod kullanarak Konuk kullanıcı oturum açmak devam edebilirsiniz.
+
+Daha fazla bilgi için [e-posta bir kerelik geçiş kodu kimlik doğrulama (Önizleme)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) ve blog [Azure AD'ye yapar paylaşım ve işbirliği sorunsuz herhangi bir kullanıcı herhangi bir hesap için](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-makes-sharing-and-collaboration-seamless-for-any-user/ba-p/325949).
 
 ### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Yeni Azure AD uygulama ara sunucusu tanımlama bilgisi ayarları
 

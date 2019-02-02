@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: ec520e7d06f6c5a560af56e6616eeed8481520fe
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 75853d0fa35d1cb5fe593ad92a88d054d2ed77f6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180374"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662312"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI'de eksiksiz bir Linux sanal makinesi oluşturma
 Bir sanal makine (VM) Azure'da hızlıca oluşturmak için gerekli tüm destekleyici kaynakları oluşturmak için varsayılan değerleri kullanan tek bir Azure CLI komutunu kullanabilirsiniz. Bir sanal ağ, genel IP adresi ve ağ güvenlik grubu kuralları gibi kaynakları otomatik olarak oluşturulur. Daha fazla denetim üretim ortamınızda kullanmak, önceden bu kaynakları oluşturmak ve Vm'lerinizi bunlara ekleyin. Bu makalede, VM ve destekleyici kaynakların tek tek her biri oluşturma hakkında size yol gösterir.
@@ -51,7 +51,7 @@ Varsayılan olarak, Azure CLI komutlarının çıkışı JSON (JavaScript nesne 
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Sanal ağ ve alt ağ oluşturma
-Azure'da ve bir alt ağ içinde bir sanal ağ oluşturma sonraki Vm'lerinizi oluşturabilirsiniz. Kullanım [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az_network_vnet_create) adlı bir sanal ağ oluşturmak için *myVnet* ile *192.168.0.0/16* adres ön eki. Ayrıca adlı bir alt ağ Ekle *mySubnet* adres ön eki ile *192.168.1.0/24*:
+Azure'da ve bir alt ağ içinde bir sanal ağ oluşturma sonraki Vm'lerinizi oluşturabilirsiniz. Kullanım [az ağ sanal ağ oluşturma](/cli/azure/network/vnet) adlı bir sanal ağ oluşturmak için *myVnet* ile *192.168.0.0/16* adres ön eki. Ayrıca adlı bir alt ağ Ekle *mySubnet* adres ön eki ile *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \

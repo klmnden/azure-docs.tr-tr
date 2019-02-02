@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 1/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: ef7b4377da541068cef7cdd2de5a98d33c3b80ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 88ffa70f7ac21a2c28af994f1e2ed3b6939f6ad9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199228"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567426"
 ---
 # <a name="azure-marketplace-participation-policies"></a>Azure Marketi katılım ilkeleri
 
@@ -35,7 +35,7 @@ Bu Microsoft Azure Marketi Katılım İlkeleri, Microsoft Azure Marketi'ndeki t�
 
 1. Yayımcılar Azure Marketi tarafından desteklenen bir satış yapan ülkede bulunmalıdır. Azure Marketi şu anda aşağıdaki satış yapan ülkeleri desteklemektedir:  Afganistan, Arnavutluk, Cezayir, Angola, Antigua ve Barbuda, Arjantin, Ermenistan, Avustralya, Avusturya, Azerbaycan, Bahreyn, Bangladeş, Belarus, Belçika, Benin, Bolivya, Bosna-Hersek, Botsvana, Brezilya, Bulgaristan, Burkina Faso, Burundi, Kamboçya, Kamerun, Kanada, Orta Afrika Cumhuriyeti, Çad, Şili, Kolombiya, Komorlar, Kongo (KDC), Kongo Cumhuriyeti, Kosta Rika, Fildişi Sahili (Côte d’Ivoire), Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominika, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Eritre, Estonya, Etiyopya, Fiji Adaları, Finlandiya, Fransa, Gürcistan, Almanya, Gana, Yunanistan, Guatemala, Gine, Haiti, Honduras, Hong Kong ÖİB, Macaristan, İzlanda, Hindistan, Endonezya, Irak, İrlanda, İsrail, İtalya, Jamaika, Japonya, Ürdün, Kazakistan, Kenya, Kore (Güney), Kuveyt, Laos, Letonya, Lübnan, Liberya, Liechtenstein, Litvanya, Lüksemburg, Madagaskar, Malavi, Malezya, Mali, Malta, Mauritius, Meksika, Monako, Moğolistan, Karadağ, Fas, Mozambik, Nepal, Hollanda, Yeni Zelanda, Nikaragua, Nijer, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Katar, Romanya, Rusya, Ruanda, Suudi Arabistan, Senegal, Sırbistan, Sierra Leone, Singapur, Slovakya, Slovenya, Somali, Güney Afrika, İspanya, Sri Lanka, İsveç, İsviçre, Tacikistan, Tanzanya, Tayland, Timor-Leste, Togo, Tonga, Trinidad ve Tobago, Tunus, Türkiye, Türkmenistan, Uganda, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Özbekistan, Venezuela, Vietnam, Zambiya, Zimbabve.
 
-1. Her teklif için, yayımcıların teklifi Azure Marketi tarafından desteklenen en az bir satış yapılan ülkede geçerli hale getirmesi gerekir. Azure Marketi şu anda aşağıdaki satış yapılan ülkeleri desteklemektedir:  Cezayir, Arjantin, Avustralya, Avusturya, Bahreyn, Belarus, Belçika, Brezilya, Bulgaristan, Kanada, Şili, Kolombiya, Kosta Rika, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Estonya, Finlandiya, Fransa, Almanya, Yunanistan, Guatemala, Hong Kong, Macaristan, İzlanda, Hindistan, Endonezya, İrlanda, İsrail, İtalya, Japonya, Ürdün, Kazakistan, Kenya, Kuveyt, Letonya, Liechtenstein, Litvanya, Lüksemburg, Makedonya, Malezya, Malta, Meksika, Karadağ, Fas, Hollanda, Yeni Zelanda, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Porto Riko, Katar, Romanya, Rusya, Suudi Arabistan, Sırbistan, Singapur, Slovakya, Slovenya, Güney Afrika, Güney Kore, İspanya, Sri Lanka, İsveç, İsviçre, Tayvan, Tayland, Trinidad ve Tobago, Tunus, Türkiye, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Venezuela. 
+1. Her teklif için, yayımcıların teklifi Azure Marketi tarafından desteklenen en az bir satış yapılan ülkede geçerli hale getirmesi gerekir. Azure Marketi şu anda aşağıdaki satış yapılan ülkeleri desteklemektedir: Cezayir, Arjantin, Avustralya, Avusturya, Bahreyn, Belarus, Belçika, Brezilya, Bulgaristan, Kanada, Şili, Kolombiya, Kosta Rika, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Dominik Cumhuriyeti, Ekvador, Mısır, El Salvador, Estonya, Finlandiya, Fransa, Almanya, Yunanistan, Guatemala, Hong Kong, Macaristan, İzlanda, Hindistan, Endonezya, İrlanda, İsrail, İtalya, Japonya, Ürdün, Kazakistan, Kenya, Kuveyt, Letonya, Liechtenstein, Litvanya, Lüksemburg, Makedonya, Malezya, Malta, Meksika, Karadağ, Fas, Hollanda, Yeni Zelanda, Nijerya, Norveç, Umman, Pakistan, Panama, Paraguay, Peru, Filipinler, Polonya, Portekiz, Porto Riko, Katar, Romanya, Rusya, Suudi Arabistan, Sırbistan, Singapur, Slovakya, Slovenya, Güney Afrika, Güney Kore, İspanya, Sri Lanka, İsveç, İsviçre, Tayvan, Tayland, Trinidad ve Tobago, Tunus, Türkiye, Ukrayna, Birleşik Arap Emirlikleri, Birleşik Krallık, Amerika Birleşik Devletleri, Uruguay, Venezuela.
 
 1. Yayımcılar iyi finansal durumda olmalıdır.
 
@@ -47,7 +47,7 @@ Bu Microsoft Azure Marketi Katılım İlkeleri, Microsoft Azure Marketi'ndeki t�
 
 1. Yayımcılar tekliflerinin Azure Marketi'nde Genel Web kullanılabilirliğini ve sayfaları hakkında teklif köprüler eklemelidir [ https://azuremarketplace.microsoft.com/marketplace/ ](https://azuremarketplace.microsoft.com/marketplace/).
 
-1. Yayımcılar her teklifi bu belgenin bölüm 4'de açıklanan kategoriler dahil olmak üzere Microsoft tarafından sağlanan bir veya daha fazla sınıflandırma taksonomisine göre sınıflandırın gerekir. Microsoft yayımcının seçtiği sınıflandırmanın yanlış olarak değerlendirir, herhangi bir teklifi yeniden sınıflandırma hakkını saklı tutar.
+1. Yayımcılar her teklifi de açıklanan kategoriler dahil olmak üzere Microsoft tarafından sağlanan bir veya daha fazla sınıflandırma taksonomisine göre sınıflandırmalıdır **teklif sınıflandırması tanımları** bu belgenin bölüm. Microsoft yayımcının seçtiği sınıflandırmanın yanlış olarak değerlendirir, herhangi bir teklifi yeniden sınıflandırma hakkını saklı tutar.
 
 1. Bir yayımcının teklifi Microsoft Azure sertifikası ve öncelikli olarak Microsoft Azure üzerinde çalışmaz, yayımcının teklifi Market'te yayımlama ücretsiz 90 gün içinde Ücretli sürümünü veya KLG sürümünü teklifi olmanız gerekir.
 
@@ -122,7 +122,7 @@ Yayımcılar, bir hizmet teklifi Market'te yayımladıktan sonra en az iki (2) �
     * Teklif sürekli olarak çok sayıda destek biletlerini alıyor; veya
     * Yayımcı, Microsoft Market Yayımcı Anlaşması, Market Yayımlama Kılavuzu veya bu belgedeki hüküm ve koşulları yerine getiremiyor.
 
-1. Çeşitli nedenlerden dolayı teklifinizi Market’ten kaldırmaya karar verebilirsiniz. Teklif Kaldırma işlemi yeni müşterilerin teklifinizi artık satın alamamasını veya dağıtamamasını sağlar, ancak mevcut müşterileri etkilemez. Teklif Sonlandırma, sizinle mevcut müşterileriniz arasındaki hizmet ve/veya lisans sözleşmesini iptal etme işlemidir. Teklif kaldırma ve sonlandırmayla ilgili yönergeler ve ilkeler Microsoft Market Yayımcı Anlaşması’na (bkz. Bölüm 7) tabidir. Bir destek bileti oluşturarak kaldırma veya sonlandırma isteğinde bulunabilirsiniz.
+1. Çeşitli nedenlerden dolayı teklifinizi Market’ten kaldırmaya karar verebilirsiniz. Teklif Kaldırma işlemi yeni müşterilerin teklifinizi artık satın alamamasını veya dağıtamamasını sağlar, ancak mevcut müşterileri etkilemez. Teklif Sonlandırma, sizinle mevcut müşterileriniz arasındaki hizmet ve/veya lisans sözleşmesini iptal etme işlemidir. Yönergeler ve teklif kaldırma ve sonlandırmayla ilgili ilkeler Microsoft Market yayımcı anlaşması tarafından yönetilir ("Ödeme koşulları" bölümüne bakın). Bir destek bileti oluşturarak kaldırma veya sonlandırma isteğinde bulunabilirsiniz.
 
 ## <a name="payment-terms"></a>Ödeme koşulları
 
@@ -138,19 +138,35 @@ Microsoft, yayımcıların Microsoft Market Yayımcı Anlaşması Ek B hüküm v
 
 ## <a name="taxes"></a>Vergiler
 
-1. **Microsoft havale ülkeleri.**
+1. **Son Müşteri satış vergi sorumluluğunu.**
 
-    1. Şu ülkeler Microsoft havale ülkeleri, Microsoft Market yayımcı anlaşması'nda tanımlandığı şekilde şunlardır: Avrupa Birliği, Kanada, Hindistan, İrlanda, Liechtenstein, Monako, Yeni Zelanda, Norveç, Porto Riko, Güney Kore, İsviçre, Amerika Birleşik Devletleri. Avustralya, Suudi Arabistan, Tayvan ve Birleşik Arap Emirlikleri yalnızca Web Direct satışları için Microsoft Remittance ülkeleridir.
+    1. Genel olarak, her biri için son Müşteri satış vergi Microsoft'un ve yayımcının sorumlulukları bağlı ülke ve teklifler satılacağı satın alma senaryo.
 
-    1. Microsoft, İrlanda’da tüm İrlandalı müşterilerden İrlanda KDV alır (İrlandalı müşteri geçerli bir KDV 56B sertifikasının ayrıntılarını sağlamadığı sürece). Microsoft, geçerli bir KDV numarası sağlandığında Avrupa Birliği ve Norveç’teki (İrlanda dışında) iş müşterileri için KDV’yi sıfır olarak uygular. Geçerli bir KDV numarası sağlanmazsa, müşterinin ülkesinde/yargılama alanında geçerli ücret üzerinden VAT alınır.
+    1. Belirli ülkelerde (**Microsoft yönetilen ülkeler**) Microsoft, müşterilerin iş durumunu vergi kayıt numaraları elde ederek doğrulama içerebilir son müşteri vergilendirme yönetme sorumluluğunu varsayar veya Muafiyet sertifikaları, müşteriler ve hesaplama, toplama ve/veya vergi havaleleri ile daha derin yönetilen ilişkileri.  İş ortakları satış yapılan burada durumlarda, Microsoft tüm iş ortakları, işletmeler ve uygun şekilde kendi vergi yükümlülükler discharging varsayar.  Ek bilgiler bulunabilir [SSS](https://automaticbillingspec.blob.core.windows.net/spec/FAQ%20for%20ISV%20Azure%20Marketplace%20Updates%20March%202019.pdf).
 
-    1. Microsoft İsviçre veya Liechtenstein tüm müşterilerine İsviçre KDV'si uygular.
+    1. Microsoft yönetilen ülkeleri olmayan tüm ülkeler için (**ISV yönetilen ülkeleri**), yayımcılar onaylayın ve yayımcılar belirlemek ve kayıt gibi son müşteri vergilendirme yönetmek için tek sorumluluğu olduğunu kabul ediyorum Vergi hesaplama, koleksiyon ve havale, ISV yönetilen ülkelerde kullanılabilir hale getirmek için bu tür yayımcıları seçin tüm teklifleri için müşterilere Vergi faturası sağlamak ve müşterilerin iş durumunu doğrulama  Yayımcılar, yönetilen bir ISV ülkede herhangi bir satış göre Microsoft şu anda sağlamak mümkün olmayabilir, kabul etme.
 
-1. **ISV havale ülkeleri.**
+    1. Son müşterilere teklifler doğrudan Microsoft'tan veya Microsoft iş ortaklarının Kime yayımcı, ürün lisansları satın alabilirsiniz.  Ayrıca, birçok farklı lisanslama programları vardır.  Bazı durumlarda, Microsoft yönetilen ülkeler ISV yönetilen ülkeleri geçme veya tam tersi olabilir (bölümüne **Microsoft yönetilen ülkeler**aşağıdaki). Müşteri Satınalma senaryoları ile ilgili daha fazla bilgi bulunabilir [Azure Market SSS](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide).
 
-    1. 1. bölümünde (3) Microsoft havale ülkeleri olmayan bu ilkenin tanımlanan tüm satış yapılan ülkeler ISV havale ülkeleri içerir. Ayrıca, Avustralya, Suudi Arabistan, Tayvan ve Birleşik Arap Emirlikleri sales Kurumsal kanal üzerinden ISV havale satışları olarak işlenir. Ancak, Tayvan yayımcıları bakımından, Microsoft bu tür bir Tayvan yayımcılar toplama ve geçerli vergileri havaleleri doğrulayın.
+1. **Microsoft, ülkede yönetilen.**
 
-    1. Yayımcılar tekliflerinin bir ISV havale ülkesinde kullanılabilir olmasını seçerseniz, bu tür yayımcılar böyle bir ISV havale ülkesindeki vergi yükümlülüğünü belirlemek için varsa olur.  Microsoft şu anda yayımcılar müşterilere Vergi faturası sağlamak için gereken işlem ayrıntılarını sağlamak mümkün olmayabilir olduğunu onaylamanız gerekir.
+    1. Şu ülkeler Microsoft yönetilen tüm müşteri satınalma senaryolar aracılığıyla satış ülkesidir: Ermenistan, Belarus, Avrupa Birliği, Kanada, Hindistan, İrlanda, Liechtenstein, Monako, Yeni Zelanda, Norveç, Porto Riko, Rusya, Suudi Arabistan, Sırbistan, Güney Kore, İsviçre, Tayvan, Türkiye, Birleşik Arap Emirlikleri ve Amerika Birleşik Devletleri. 
+
+    1. Avustralya, Kurumsal Anlaşma Müşteri satın alma senaryosu dışında tüm müşteri satınalma senaryolar aracılığıyla satışları için Microsoft yönetilen ülke olur.
+
+    1. Microsoft publisher için bir kolaylık olarak son müşteri vergilendirme yönetir ve ülke ve son müşteri vergilendirme yönetme stratejileri belirlemek için en sık karşılaşılan senaryolardan kabul.
+
+    1. Microsoft, Microsoft'un Eylemler tamamen Microsoft yönetilen ülkede yayımcılar yükümlülüklerin yerine getirecek garanti vermemektedir.  Tüm Microsoft yönetilen ülke için Microsoft, yayımcıların Microsoft Managed vergi havale yeterince yayımcıların uyumluluk gereksinimlerini karşılar olup olmadığını belirlemek için kendi vergi Danışmanlarıyla iş kesinlikle önerir.  Bu tüm Microsoft yönetilen, yayımcıların ürünlerini satmak ülkeler için özellikle önemlidir.  Örneğin, bir yayımcı olarak oluşturulan ve teklifler Suudi Arabistan, satış vergi yönetmek için Microsoft Web bağlı olan yayımcının uyumluluk sorumlulukları karşılamak yeterli olmayabilir olduğunu belirleyebilir.
+
+1. **Ülkeler ISV yönetilen.**
+
+    1. ISV yönetilen ülkeleri içeren Avustralya, senaryo ve tüm ülkelerde bulunan bölümünde başvurulmayan tüm sales Kurumsal Sözleşme müşterisi aracılığıyla satın alma için **Microsoft yönetilen ülkeler**.
+
+1. **Özel durumlar.**
+
+    1. *Brezilya*.  Tüm Müşteri aracılığıyla satış Brezilya'da için CSP dışında senaryoları satın almak, yönetilen bir Microsoft ülke Brezilya olduğunu ve Microsoft, yayımcıların aracı yerine bir satıcı olarak davranır.  Brezilya CSP müşteri üzerinden satış için senaryo, Microsoft görür yayımcıların aracısı ve Brezilya varlıktan sattığı Microsoft vergi uyumlu varsayılır Brezilya CSP'ler için satın alın. 
+
+    1. *Meksika*.  Kurumsal Anlaşma Müşteri satın alma senaryosu aracılığıyla satış Meksika'da Meksika olan yönetilen bir Microsoft ülke ve Microsoft, yayımcıların aracı yerine bir satıcı olarak davranır.  Tüm Müşteri Satınalma senaryolar dışında Kurumsal Anlaşma aracılığıyla satış Meksika'da için Meksika yönetilen bir ISV ülke ve Microsoft yayımcıların aracı görev yapar.
 
 ## <a name="security-events"></a>Güvenlik olayları
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e3e60a7ee435cb23bd6a7f78d409691c94d6c49e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153275"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562445"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de yaş geçidi etkinleştir
 
@@ -103,7 +103,7 @@ Kiracınızı kullanmak yaş geçidi kadar ayarlanmış sonra daha sonra bu öze
 1. Etkin yaş geçidi olan kullanıcı akışı oluşturun.
 2. Kullanıcı akışını oluşturduktan sonra seçin **özellikleri** menüsünde.
 3. İçinde **yaş geçidi** bölümünden **etkin**.
-4. Ardından nasıl reşit olmayanların tanımlayan kullanıcıları yönetmek istediğinize karar verin. İçin **kaydolma veya oturum açma**, seçtiğiniz `Allow minors to access your application` veya `Block minors from accessing your application`. Reşit olmayanların engelleme seçili ise, seçtiğiniz `Send a JSON bcak to the application` veya `Show an error message`. 
+4. Ardından nasıl reşit olmayanların tanımlayan kullanıcıları yönetmek istediğinize karar verin. İçin **kaydolma veya oturum açma**, seçtiğiniz `Allow minors to access your application` veya `Block minors from accessing your application`. Reşit olmayanların engelleme seçili ise, seçtiğiniz `Send a JSON back to the application` veya `Show an error message`. 
 
 
 

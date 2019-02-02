@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: b51cf5611bf00c133378a7d90d1693e50b27f7b0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491588"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564145"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Azure sanal makine yedeklemelerini yönetme
 
@@ -137,10 +137,12 @@ Bir sanal makinenin bir isteğe bağlı yedekleme tetiklemek için:
 ## <a name="stop-protecting-virtual-machines"></a>sanal makine korumasını durdurma
 Bir sanal makine korumasını durdurmayı seçerseniz, Kurtarma noktalarını tutmak isteyip istemediğiniz sorulur. Sanal makineleri korumayı durdurmanın iki yolu vardır:
 
-* Gelecek tarihli tüm yedekleme işlerini durdurma ve tüm kurtarma noktalarını silin veya
+* Gelecek tarihli tüm yedekleme işlerini durdurma ve tüm kurtarma noktalarını silme, veya
 * Gelecek tarihli tüm yedekleme işlerini durdurma ama kurtarma noktalarını bırakma
 
 Kurtarma noktalarını depolama alanında bırakmanın bir maliyeti yoktur. Ancak, Kurtarma noktalarını bırakmanın avantajı, daha sonra sanal makine geri yükleyebilmenizdir. Kurtarma noktalarını bırakmanın maliyeti hakkında bilgi için [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/backup/). Tüm kurtarma noktalarını silmeyi seçerseniz, sanal makineyi geri yükleyemezsiniz.
+
+Veri yedekleme ile korumak durdurmanız her kurtarma noktası bekletme ilkesi uyarınca dolacak ancak açıkça yedekleme verilerini sil kadar Azure yedekleme her zaman bir son kurtarma noktası tutar. Benzer şekilde yedeklemeyi Durdur yapmadan bir veri kaynağını silerseniz, yeni yedeklemeler başarısız olmaya başlar ve eski kurtarma noktaları, bir yedeklemeyi Durdur ile gerçekleştirdiğiniz kadar her zaman son kurtarma noktası korunur ancak bir bekletme ilkesi uyarınca dolacak verileri silin.
 
 Bir sanal makine için korumayı durdurmak için:
 

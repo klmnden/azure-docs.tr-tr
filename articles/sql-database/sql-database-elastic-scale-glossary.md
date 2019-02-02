@@ -11,34 +11,35 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 75da9fd6dbd6218e46925eb2fc6cbec4969d5925
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867809"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561442"
 ---
 # <a name="elastic-database-tools-glossary"></a>Esnek veritabanı araçları sözlüğü
+
 Aşağıdaki terimler için tanımlanan [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md), Azure SQL veritabanı'nın bir özelliği. Yönetmek için kullanılan araçları [parça eşlemeleri](sql-database-elastic-scale-shard-map-management.md)ve [istemci Kitaplığı](sql-database-elastic-database-client-library.md), [bölme-birleştirme aracını](sql-database-elastic-scale-overview-split-and-merge.md), [elastik havuzlar](sql-database-elastic-pool.md)ve [sorguları](sql-database-elastic-query-overview.md). 
 
 Bu terimler kullanılır [esnek veritabanı araçlarını kullanarak bir parça ekleme](sql-database-elastic-scale-add-a-shard.md) ve [parça eşleme sorunlarını düzeltme RecoveryManager sınıfı kullanarak](sql-database-elastic-database-recovery-manager.md).
 
 ![Esnek ölçek koşulları][1]
 
-**Veritabanı**: bir Azure SQL veritabanı. 
+**Veritabanı**: Bir Azure SQL veritabanı. 
 
-**Verilere bağımlı yönlendirme**: belirli bir parçalama anahtarı verilen bir parçaya bağlanmak bir uygulama sağlayan işlevselliği. Bkz: [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md). Karşılaştırılacak  **[çok parçalı sorgu](sql-database-elastic-scale-multishard-querying.md)**.
+**Verilere bağımlı yönlendirme**: Bir uygulamanın belirli bir parçalama anahtarı verilen bir parçaya bağlanma sağlayan işlevselliği. Bkz: [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md). Karşılaştırılacak  **[çok parçalı sorgu](sql-database-elastic-scale-multishard-querying.md)**.
 
-**Genel parça eşleme**: parçalama anahtarları ve içinde ilgili, parçalar arasında eşleme bir **parça kümesi**. Genel parça eşleme depolanan **parça eşleme Yöneticisi**. Karşılaştırılacak **yerel parça eşlemesi**.
+**Genel parça eşleme**: Parçalama anahtarları ve içinde ilgili, parçalar arasında eşleme bir **parça kümesi**. Genel parça eşleme depolanan **parça eşleme Yöneticisi**. Karşılaştırılacak **yerel parça eşlemesi**.
 
-**Liste parça eşlemesi**: bir parça eşlemesi içinde hangi parçalama anahtarları ayrı olarak eşleştirilir. Karşılaştırılacak **aralık parça eşlemesi**.   
+**Liste parça eşlemesi**: Bir parça eşlemesi içinde hangi parçalama anahtarları ayrı ayrı eşlenir. Karşılaştırılacak **aralık parça eşlemesi**.   
 
-**Yerel parça eşlemesi**: bir parça üzerinde depolanan, yerel parça eşlemesi için parça üzerinde bulunan parçacıklara eşlemeleri içerir.
+**Yerel parça eşlemesi**: Bir parça üzerinde depolanan, parça üzerinde bulunan parçacıklara eşlemeler yerel parça eşlemesini içerir.
 
-**Çok parçalı sorgu**: birden çok parça; sorgu oluşturabilme olanağı sonuç kümeleri (diğer adıyla "yaygın sorgu") UNION ALL semantiği kullanarak döndürülür. Karşılaştırılacak **verilere bağımlı yönlendirme**.
+**Çok parçalı sorgu**: Birden çok parça yönelik bir sorgu oluşturabilme olanağı; sonuç kümeleri (diğer adıyla "yaygın sorgu") tüm birleşim anlamsallarını kullanarak döndürülür. Karşılaştırılacak **verilere bağımlı yönlendirme**.
 
-**Çok kiracılı** ve **tek kiracılı**: Bu tek kiracılı veritabanı ile çok kiracılı veritabanı gösterir:
+**Çok kiracılı** ve **tek kiracılı**: Bu, tek kiracılı veritabanı ile çok kiracılı veritabanı gösterir:
 
 ![Tek ve birden çok Kiracı veritabanları](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
 
@@ -46,42 +47,42 @@ Bu terimler kullanılır [esnek veritabanı araçlarını kullanarak bir parça 
 
 ![Tek ve birden çok Kiracı veritabanları](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
-**Aralık parça eşlemesi**: bir parça eşlemesi bitişik değerleri üzerinde birden çok aralık parça Dağıtım stratejisi dayanır. 
+**Aralık parça eşlemesi**: Bir parça eşlemesi parça Dağıtım stratejisi birden çok bitişik değer aralıklarına üzerinde temel alır. 
 
-**Başvuru tabloları**: tabloları, parçalı değildir ancak parçalar arasında çoğaltılır. Örneğin, posta kodları başvuru tablosunda depolanabilir. 
+**Başvuru tabloları**: Parçalı değildir ancak parçalar arasında çoğaltılan tablolar. Örneğin, posta kodları başvuru tablosunda depolanabilir. 
 
-**Parça**: parçalı bir veri kümesinden veri depolayan bir Azure SQL veritabanı. 
+**Parça**: Parçalı bir veri kümesinden veri depolayan bir Azure SQL veritabanı. 
 
-**Parça esnekliği**: her ikisi de gerçekleştirme becerisi **yatay ölçeklendirme** ve **dikey ölçeklendirme**.
+**Parça esnekliği**: Her ikisi de gerçekleştirme becerisi **yatay ölçeklendirme** ve **dikey ölçeklendirme**.
 
-**Parçalı tablo**: tabloları, parçalı, yani, verisini parçalama anahtar değerlerine göre parçalar arasında dağıtılır. 
+**Parçalı tablo**: Tablolar, yani parçalı,, verisini parçalama anahtar değerlerine göre parçalar arasında dağıtılır. 
 
-**Parçalama anahtarı**: bir sütun değeri verileri parçalar arasında nasıl dağıtıldığını belirler. Değer türü aşağıdakilerden biri olabilir: **int**, **bigint**, **varbinary**, veya **uniqueidentifier**. 
+**Parçalama anahtarı**: Verileri parçalar arasında nasıl dağıtıldığını belirler sütun değeri. Değer türü aşağıdakilerden biri olabilir: **int**, **bigint**, **varbinary**, veya **uniqueidentifier**. 
 
-**Parça kümesi**: aynı parça eşlemesine parça eşleme Yöneticisi'nde öznitelikli parçalar koleksiyonu.  
+**Parça kümesi**: Parça eşleme Yöneticisi'nde aynı parça eşlemesine öznitelikli parçalar koleksiyonu.  
 
-**Parçacık**: tüm bir parçalama anahtarı bir parça üzerinde tek bir değer ile ilişkili veriler. Parçacık en küçük olası veri taşıma parçalı tablo yeniden dağıtırken birimidir. 
+**Parçacık**: Tüm verileri bir parçalama anahtarı bir parça üzerinde tek bir değer ile ilişkili. Parçacık en küçük olası veri taşıma parçalı tablo yeniden dağıtırken birimidir. 
 
-**Parça eşlemesi**: belirlenen parçalama anahtarları ve bunların ilgili parçalar arasında eşleme.
+**Parça eşlemesi**: Parçalama anahtarları ve bunların ilgili parçalar arasındaki eşlemeler kümesidir.
 
-**Parça eşleme Yöneticisi**: parça harita(lar), parça konumlarını ve bir veya daha fazla parça kümeleri eşlemelerini içeren bir Yönetim nesnesi ve veri deposu.
+**Parça eşleme Yöneticisi**: Parça harita(lar), parça konumlarını ve bir veya daha fazla parça kümeleri eşlemelerini içeren bir Yönetim nesnesi ve veri deposu.
 
 ![Eşlemeler][2]
 
-## <a name="verbs"></a>Fiiller
-**Yatay ölçeklendirme**: (veya) ölçeklendirme eylemi ekleyerek veya bir parça eşlemesine parçalar aşağıda gösterildiği gibi kaldırarak parçalar koleksiyonu.
+## <a name="verbs"></a>Verbs
+**Yatay ölçeklendirme**: (Veya) ölçeklendirme eylemi ekleyerek veya bir parça eşlemesine parçalar aşağıda gösterildiği gibi kaldırarak parçalar koleksiyonu.
 
 ![Yatay ve dikey ölçeklendirme][3]
 
-**Birleştirme**: taşıma parçacıklara iki parçadan bir parçaya ve parça eşlemesi uygun şekilde güncelleştirme işlemi.
+**Birleştirme**: Parçacıklara iki parçadan bir parçaya taşıma ve parça eşlemesi uygun şekilde güncelleştirme işlemi.
 
-**Parçacık taşıma**: tek parçacık farklı bir parçaya taşıma işlemi. 
+**Parçacık taşıma**: Tek parçacık farklı bir parçaya taşıma işlemi. 
 
-**Parça**: yapısal verileri parçalama anahtarını temel alan birden çok veritabanı genelinde aynı yatay olarak bölümleme işlemi.
+**Parça**: Aynı şekilde yapılandırılmış verileri arasında birden çok veritabanı parçalama anahtarına göre yatay olarak bölümleme işlemi.
 
-**Bölünmüş**: bazı parçacıklara (genellikle yeni) başka bir parçaya bir parçadan veri taşıma işlemi. Bir parçalama anahtarı bölünmüş noktası olarak kullanıcı tarafından sağlanır.
+**Bölünmüş**: Bazı parçacıklara (genellikle yeni) başka bir parçaya bir parçadan veri taşıma işlemi. Bir parçalama anahtarı bölünmüş noktası olarak kullanıcı tarafından sağlanır.
 
-**Dikey ölçeklendirme**: ölçeği artırılabilen (veya azaltılabilen) işlemi tek bir parçanın işlem boyutu. Örneğin, bir parça (Bu, daha fazla bilgi işlem kaynaklarına sonuçları) Premium standart değiştiriliyor. 
+**Dikey ölçeklendirme**: Ölçeği artırılabilen (veya azaltılabilen) işlemi tek bir parçanın işlem boyutu. Örneğin, bir parça (Bu, daha fazla bilgi işlem kaynaklarına sonuçları) Premium standart değiştiriliyor. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7dffa1480be73f1dbf5e99d11fd8d33eb2ab9038
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196421"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562213"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Özel bir ilke kullanarak kaynak sahibi parola kimlik bilgilerini flow'da Azure Active Directory B2C'yi yapılandırma
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C'de bir OAuth standart kimlik doğrulama akışı kaynak sahibi parola kimlik bilgilerini (ROPC) akışı olur. Bu akışta bir uygulama olarak da bilinen bağlı olan taraf belirteçleri için geçerli kimlik bilgilerini değiştirir. Kimlik bilgileri, bir kullanıcı kimliği ve parolası içerir. Döndürülen kimlik belirteci, erişim belirteci ve yenileme belirteci belirteçleridir. 
+Azure Active Directory (Azure AD) B2C'de bir OAuth standart kimlik doğrulama akışı kaynak sahibi parola kimlik bilgilerini (ROPC) akışı olur. Bu akışta bir uygulama olarak da bilinen bağlı olan taraf belirteçleri için geçerli kimlik bilgilerini değiştirir. Kimlik bilgileri, bir kullanıcı kimliği ve parolası içerir. Döndürülen kimlik belirteci, erişim belirteci ve yenileme belirteci belirteçleridir.
 
 Aşağıdaki seçenekler ROPC akışında desteklenir:
 
 - **Yerel istemci** -kimlik doğrulaması sırasında kullanıcı etkileşimi kod, kullanıcı tarafı cihazda çalıştığında gerçekleşir.
 - **Genel istemci akışı** -yalnızca bir uygulama tarafından toplanan kimlik bilgileri kullanıcı API çağrısı gönderilir. Uygulamanın kimlik bilgilerini gönderilmez.
-- **Yeni Talep ekleyin** -kimlik belirteci içeriği, yeni bir talep eklemek için değiştirilebilir. 
+- **Yeni Talep ekleyin** -kimlik belirteci içeriği, yeni bir talep eklemek için değiştirilebilir.
 
 Aşağıdaki akışlara ait desteklenmez:
 
@@ -43,7 +43,7 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri Azure Active Directory B
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
-3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**. 
+3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
 4. Seçin **uygulamaları**ve ardından **Ekle**.
 5. Uygulama için bir ad girmeniz *ROPC_Auth_app*.
 6. Seçin **Hayır** için **Web uygulaması/Web API'sini**ve ardından **Evet** için **yerel istemci**.
@@ -193,7 +193,7 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri Azure Active Directory B
           </Metadata>
         </TechnicalProfile>
       </TechnicalProfiles>
-    </ClaimsProvider>    
+    </ClaimsProvider>
     ```
 
 6. Ekleme bir **UserJourneys** öğesi ve onun alt öğeleri için **TrustFrameworkPolicy** öğesi:
@@ -201,7 +201,7 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri Azure Active Directory B
     ```XML
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
-        <OrchestrationSteps>
+      <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="ResourceOwnerFlow" TechnicalProfileReferenceId="ResourceOwnerPasswordCredentials-OAUTH2" />
@@ -267,7 +267,7 @@ API çağrısında oluşturmak için sık kullanılan API geliştirme uygulaman�
 - Değiştirin `your-tenant-name` Azure AD B2C kiracınızın adı.
 - Değiştirin `B2C_1A_ROPC_Auth` kaynak sahibi parola kimlik bilgilerini ilkenizin tam ada sahip.
 
-| Anahtar | Value |
+| Anahtar | Değer |
 | --- | ----- |
 | kullanıcı adı | `user-account` |
 | password | `password1` |
@@ -278,7 +278,7 @@ API çağrısında oluşturmak için sık kullanılan API geliştirme uygulaman�
 
 - Değiştirin `user-account` kiracınızdaki bir kullanıcı hesabı adı ile.
 - Değiştirin `password1` kullanıcı hesabının parolası ile.
-- Değiştirin `application-id` uygulama kimliği ile *ROPC_Auth_app* kayıt. 
+- Değiştirin `application-id` uygulama kimliği ile *ROPC_Auth_app* kayıt.
 - *Offline_access* bir yenileme belirteci almak istiyorsanız isteğe bağlıdır.
 
 Fiili POST isteği aşağıdaki örnekteki gibi görünür:
@@ -291,17 +291,16 @@ Content-Type: application/x-www-form-urlencoded
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
-
 Çevrimdışı erişim ile başarılı bir yanıt aşağıdaki örnekteki gibi görünür:
 
 ```JSON
-{ 
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...", 
-    "token_type": "Bearer", 
-    "expires_in": "3600", 
-    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...", 
-    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..." 
-} 
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
+    "token_type": "Bearer",
+    "expires_in": "3600",
+    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..."
+}
 ```
 
 ## <a name="redeem-a-refresh-token"></a>Bir yenileme belirteci kullanma
@@ -313,7 +312,7 @@ Aşağıda gösterilene benzer bir POST çağrısına oluşturun. Bilgileri aşa
 - Değiştirin `your-tenant-name` Azure AD B2C kiracınızın adı.
 - Değiştirin `B2C_1A_ROPC_Auth` kaynak sahibi parola kimlik bilgilerini ilkenizin tam ada sahip.
 
-| Anahtar | Value |
+| Anahtar | Değer |
 | --- | ----- |
 | grant_type değeri | refresh_token |
 | response_type | id_token |
@@ -322,7 +321,7 @@ Aşağıda gösterilene benzer bir POST çağrısına oluşturun. Bilgileri aşa
 | refresh_token | `refresh-token` |
 
 - Değiştirin `application-id` uygulama kimliği ile *ROPC_Auth_app* kayıt.
-- Değiştirin `refresh-token` ile **refresh_token** önceki yanıtta gönderildi. 
+- Değiştirin `refresh-token` ile **refresh_token** önceki yanıtta gönderildi.
 
 Başarılı bir yanıt aşağıdaki örnekteki gibi görünür:
 
@@ -350,5 +349,3 @@ Azure AD B2C genel istemci kaynak sahibi parola kimlik bilgileri için OAuth 2.0
 
 - Bu senaryoda tam bir örneğini görmek [Azure Active Directory B2C özel ilke başlangıç paketi](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
 - Azure Active Directory B2C'de kullanılan belirteçleri hakkında daha fazla bilgi [belirteç başvurusu](active-directory-b2c-reference-tokens.md).
-
-

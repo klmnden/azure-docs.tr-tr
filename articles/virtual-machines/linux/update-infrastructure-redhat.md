@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 7ab8b66d516368bf866aa9d2a202ccd261394b93
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4505dcf5d9407a609bcf97c56835ff186607127d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243156"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563752"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure'da isteğe bağlı Red Hat Enterprise Linux VM'ler için Red Hat güncelleştirme altyapısı
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gibi Red Hat barındırılan depo içeriğini yansıtmak için özel depolar ile Azure özgü içerik oluşturmak ve son kullanıcı VM'ler için kullanılabilir hale getirmek amacıyla bulut sağlayıcıları sağlar.
@@ -109,7 +109,7 @@ Yeni Azure RHUI sunuculara dağıtılan [Azure Traffic Manager](https://azure.mi
 sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
 ```
 
-Alternatif olarak, çalışan `sudo yum update` ayrıca diğer depoları için görürsünüz "süresi dolmuş SSL sertifikası" hataları rağmen istemci sertifika paketini güncelleştirir. Güncelleştirmenin başka RHUI depolar normal bağlantısı geri yüklenmelidir, olanağına olacak `sudo yum update` başarıyla.
+Alternatif olarak, çalışan `sudo yum update` başka depolar için görürsünüz "süresi dolmuş SSL sertifikası" hataları rağmen (sürümüne bağlı olarak, RHEL), istemci sertifika paketini de güncelleştirebilirsiniz. Bu güncelleştirme başarılı olursa, çalıştırılacak mümkün olmayacak şekilde diğer RHUI depolarda normal bağlantısı, geri yüklenmelidir `sudo yum update` başarıyla.
 
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Azure RHUI için bağlantı sorunlarını giderme

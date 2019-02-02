@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 534d1785336c68a771722f0f464eae278551ffc0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913586"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660247"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Ve MQTT protokolünü kullanarak IOT hub ile iletişim
 
@@ -60,17 +60,17 @@ Bunun yapılması, aşağıdaki öğeleri denetlemek emin olun:
 * AMQP MQTT bağlantıyı sonlandırır birçok koşulları için hataları döndürür. Sonuç olarak, özel durum işleme mantığı, bazı değişiklikler gerektirebilir.
 * MQTT desteği içermez *Reddet* alındığında operations [bulut-cihaz iletilerini][lnk-messaging]. Arka uç uygulamanızın cihaz uygulamasından bir yanıt almanız gerekiyorsa, kullanmayı [doğrudan yöntemler][lnk-methods].
 
-## <a name="using-the-mqtt-protocol-directly"></a>Ve MQTT protokolünü kullanarak doğrudan
+## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Ve MQTT protokolünü kullanarak doğrudan (bir cihaz)
 
 Bir cihaz, cihaz SDK'ları kullanamıyorsanız, bağlantı noktası 8883 ve MQTT protokolünü kullanarak genel cihaz uç noktalarına yine de bağlanabilir. İçinde **CONNECT** paket cihaz, aşağıdaki değerleri kullanmalıdır:
 
 * İçin **ClientID** alan, kullanın **DeviceID**.
 
-* İçin **kullanıcıadı** alan, kullanın `{iothubhostname}/{device_id}/api-version=2018-06-30`burada `{iothubhostname}` IOT hub'ın tam CNAME.
+* İçin **kullanıcıadı** alan, kullanın `{iothubhostname}/{device_id}/?api-version=2018-06-30`burada `{iothubhostname}` IOT hub'ın tam CNAME.
 
     Örneğin, IOT hub'ınızın adını ise **contoso.azure-devices.net** ve cihazınızın adına **MyDevice01**, tam **kullanıcı adı** alanı içermelidir:
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
+    `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
 * İçin **parola** alan, bir SAS belirteci kullanabilir. SAS belirteci biçimi HTTPS ve AMQP protokolleri aynıdır:
 
@@ -108,6 +108,16 @@ Device Explorer için:
 MQTT için bağlanın ve paketleri kesmek, IOT Hub üzerinde bir olayın sorunlarını **izleme işlemleri** kanal. Bu olay, bağlantı sorunlarını gidermenize yardımcı olabilecek ek bilgiler vardır.
 
 Cihaz uygulamasını belirtebilirsiniz bir **olacak** içinde ileti **CONNECT** paket. Cihaz uygulamasını kullanmanız gerekir `devices/{device_id}/messages/events/` veya `devices/{device_id}/messages/events/{property_bag}` olarak **olacak** tanımlamak için konu adı **olacak** iletileri bir telemetri iletisi olarak iletilir. Bu durumda, ağ bağlantısı kapalı ise, ancak bir **Bağlantıyı Kes** paket CİHAZDAN daha önce alınmadı, sonra IOT hub'a gönderir **olacak** ileti sağlanan **BAĞLAN** paket telemetri kanalı. Telemetri kanal ya da varsayılan olabilir **olayları** uç nokta veya yönlendirme IOT Hub tarafından tanımlanan özel bir uç nokta. İletinin **iothub-MessageType** özellik değeriyle **olacak** atanmış.
+
+## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Ve MQTT protokolünü kullanarak doğrudan (bir modül olarak)
+
+Bir modül kimliği kullanarak MQTT IOT hub'a bağlanan cihaza benzer (açıklanan [yukarıda](#using-the-mqtt-protocol-directly-as-a-device)) ancak aşağıdakileri kullanmanız gerekir:
+* İstemci kimliği ayarlayın `{device_id}/{module_id}`.
+* Kullanıcı adı ve parola ile kimlik doğrulaması ayarlarsanız kullanıcı `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` ve parolanızı modülü kimliğiyle ilişkili bir SAS belirteci kullanabilir.
+* Kullanım `devices/{device_id}/modules/{module_id}/messages/events/` yayımlama telemetrisi için konu olarak.
+* Kullanım `devices/{device_id}/modules/{module_id}/messages/events/` WILL konu olarak.
+* İkiz GET ve düzeltme eki konuları, modülleri ve cihazlar için aynıdır.
+* İkiz durum konu, modülleri ve cihazlar için aynıdır.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL yapılandırması
 

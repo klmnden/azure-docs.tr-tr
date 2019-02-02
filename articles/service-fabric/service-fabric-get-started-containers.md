@@ -4,7 +4,7 @@ description: Azure Service Fabric üzerinde ilk Windows kapsayıcı uygulamanız
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: timlt
+manager: jpconnock
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 01/25/2019
 ms.author: twhitney
-ms.openlocfilehash: 38979d80e25e0430082b7819d506b653c35697e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e1024fadf6a68307e42b57ee3c383977b7b4fb9b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172962"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562530"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
+
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygulamayı çalıştırmak için uygulamanızda herhangi bir değişiklik yapılması gerekmez. Bu makalede, Python [Flask](http://flask.pocoo.org/) web uygulaması içeren bir Docker görüntüsü oluşturma ve bunu Service Fabric kümesine dağıtma işlemlerinde size yol gösterilir. Ayrıca, kapsayıcıya alınmış uygulamanızı [Azure Container Registry](/azure/container-registry/) aracılığıyla paylaşırsınız. Bu makale Docker hakkında temel bir anlayışınızın olduğunu varsayar. [Docker’a Genel Bakış](https://docs.docker.com/engine/understanding-docker/) makalesini okuyarak Docker hakkında bilgi edinebilirsiniz.
+Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygulamayı çalıştırmak için uygulamanızda herhangi bir değişiklik yapılması gerekmez. Bu makalede, bir Python içeren bir Docker görüntüsü oluşturma işlemini gösterir. [Flask](http://flask.pocoo.org/) web uygulama ve yerel makinenizde çalışan bir Service Fabric kümesine dağıtma. Ayrıca, kapsayıcıya alınmış uygulamanızı [Azure Container Registry](/azure/container-registry/) aracılığıyla paylaşırsınız. Bu makale Docker hakkında temel bir anlayışınızın olduğunu varsayar. [Docker’a Genel Bakış](https://docs.docker.com/engine/understanding-docker/) makalesini okuyarak Docker hakkında bilgi edinebilirsiniz.
 
 > [!NOTE]
 > Bu makale, bir Windows geliştirme ortamı için geçerlidir.  Service Fabric küme çalışma zamanını ve Docker çalışma zamanı aynı işletim sistemi çalıştırmalıdır.  Bir Linux kümesinde Windows kapsayıcıları çalıştıramazsınız.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 * Şunları çalıştıran bir geliştirme bilgisayarı:
   * Visual Studio 2015 veya Visual Studio 2017.
   * [Service Fabric SDK’sı ve araçları](service-fabric-get-started.md).
@@ -41,10 +43,10 @@ Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygula
 
   Bu makalede, küme düğümleri üzerinde çalışan kapsayıcılar ile Windows Server sürümünü (derleme) geliştirme makinenizde eşleşmelidir. Geliştirme makinenizde docker görüntüsünü derleyin ve konak işletim sistemi ve kapsayıcı işletim sistemi sürümleri arasında uyumluluk kısıtlamalarını olduğu için BT üzerinde dağıtılan budur. Daha fazla bilgi için [Windows Server kapsayıcı işletim sistemi ve ana bilgisayar işletim sistemi uyumluluğu](#windows-server-container-os-and-host-os-compatibility). 
   
-  Windows Server kapsayıcıları kümeniz için ihtiyacınız olan sürümünü belirlemek için çalıştırın `ver` geliştirme makinenizde bir Windows komut isteminden komutu:
+Windows Server kapsayıcıları kümeniz için ihtiyacınız olan sürümünü belirlemek için çalıştırın `ver` geliştirme makinenizde bir Windows komut isteminden komutu:
 
-  * Sürüm içeriyorsa *x.x.14323.x*, ardından *kapsayıcılar ile Windows Server 2016 Datacenter* işletim sistemi için zaman [küme oluşturma](service-fabric-cluster-creation-via-portal.md). Ayrıca [Service Fabric'i ücretsiz deneyin](https://aka.ms/tryservicefabric) grup kümesi ile.
-  * Sürüm içeriyorsa *x.x.16299.x*, ardından *WindowsServerSemiAnnual Datacenter-Core-1709-ile-kapsayıcıları* işletim sistemi için zaman [Kümeoluşturma](service-fabric-cluster-creation-via-portal.md). Ancak bir grup kümesine kullanamazsınız.
+* Sürüm içeriyorsa *x.x.14323.x*, ardından *kapsayıcılar ile Windows Server 2016 Datacenter* işletim sistemi için zaman [küme oluşturma](service-fabric-cluster-creation-via-portal.md).
+  * Sürüm içeriyorsa *x.x.16299.x*, ardından *WindowsServerSemiAnnual Datacenter-Core-1709-ile-kapsayıcıları* işletim sistemi için zaman [Kümeoluşturma](service-fabric-cluster-creation-via-portal.md).
 
 * Azure Container Registry’deki bir kayıt defteri - Azure aboneliğinizde [Kapsayıcı kayıt defteri oluşturun](../container-registry/container-registry-get-started-portal.md).
 
@@ -57,6 +59,7 @@ Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygula
 > 
 
 ## <a name="define-the-docker-container"></a>Docker kapsayıcısını tanımlama
+
 Docker Hub’ında bulunan [Python görüntüsünü](https://hub.docker.com/_/python/) temel alan bir görüntü oluşturun.
 
 Bir Dockerfile içinde Docker kapsayıcınızı belirtin. Dockerfile, kapsayıcınızın içindeki ortamı ayarlama, çalıştırmak istediğiniz uygulamayı yükleme ve bağlantı noktalarını eşleme yönergelerinden oluşur. Dockerfile, görüntüyü oluşturan `docker build` komutunun girdisidir.
@@ -166,6 +169,7 @@ docker rm my-web-site
 
 <a id="Push-Containers"></a>
 ## <a name="push-the-image-to-the-container-registry"></a>Görüntüyü kapsayıcı kayıt defterine gönderme
+
 Kapsayıcının geliştirme makinenizde çalıştığını doğruladıktan sonra, görüntüyü Azure Container Registry içindeki kayıt defterinize gönderin.
 
 Kapsayıcı kayıt defterinizde [kayıt defteri kimlik bilgileriniz](../container-registry/container-registry-authentication.md) ile oturum açmak için ``docker login`` komutunu çalıştırın.
@@ -257,6 +261,7 @@ Kapsayıcıyla iletişim kurmak için kullanılan konak bağlantı noktasını y
 > Bir hizmet için ek PortBindings ek PortBinding öğelerle ilgili özellik değerlerini bildirerek eklenebilir.
 
 ## <a name="configure-container-registry-authentication"></a>Kapsayıcı kayıt defteri kimlik doğrulamasını yapılandırma
+
 ApplicationManifest.xml dosyasının `ContainerHostPolicies` öğesine bir `RepositoryCredentials` öğesi ekleyerek kapsayıcı kayıt defteri kimlik doğrulamasını yapılandırın. Hizmetin depodan kapsayıcı görüntüsünü indirmesini sağlayan myregistry.azurecr.io kapsayıcı kayıt defterine hesap ve parola ekleyin.
 
 ```xml
@@ -448,7 +453,8 @@ Uygulama hazır olduğunda ```Ready``` durumu: ![Hazır][2]
 Bir tarayıcıyı açın ve http://containercluster.westus2.cloudapp.azure.com:8081 dizinine gidin. "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
 
 ## <a name="clean-up"></a>Temizleme
-Küme çalışırken size ücret yansımaya devam edebilir, bu nedenle [kümenizi silmeyi](service-fabric-cluster-delete.md) düşünün. [Taraf kümeleri](https://try.servicefabric.azure.com/) birkaç saat sonra otomatik olarak silinir.
+
+Küme çalışırken size ücret yansımaya devam edebilir, bu nedenle [kümenizi silmeyi](service-fabric-cluster-delete.md) düşünün.
 
 Görüntüyü kapsayıcı kayıt defterine gönderdikten sonra, yerel görüntüyü geliştirme bilgisayarınızdan silebilirsiniz:
 

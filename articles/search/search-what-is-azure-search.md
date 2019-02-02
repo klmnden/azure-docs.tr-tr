@@ -1,20 +1,20 @@
 ---
 title: Azure Search Hizmeti - Azure Search nedir
-description: Azure Search, tam olarak yönetilen bir barındırılan bulut arama hizmetidir. Özellik açıklamaları, geliştirme iş akışı, Azure Search arama ürünlerin karşılaştırması ve kullanmaya nasıl başlayacağınızı gözden geçirin.
+description: Azure arama, Microsoft gelen tam olarak yönetilen bir barındırılan bulut arama hizmetidir. Özellik açıklamaları, geliştirme iş akışı, diğer Microsoft arama ürünleri için Azure Search karşılaştırması ve kullanmaya nasıl başlayacağınızı gözden geçirin.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/09/2018
+ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 884a726dbc7d7f2812f4de2228ca5adaf9b223ea
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 36d65e1ffab79c8f0866d60f4a133798d25e9dea
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630410"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562802"
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
 Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki özel, heterojen içeriğe yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür. Sorgu yürütme işlemi, kullanıcı tarafından tanımlanan bir dizine göre gerçekleştirilir.
@@ -64,7 +64,7 @@ Bir dizin tanımladıktan sonra içeriği karşıya yüklemeye hazır olursunuz.
 
 Güncelleştirilmiş belgeleri dizine göndermek için kullanılan SDK veya REST API’leri aracılığıyla itme modeli sağlanır. JSON biçimini kullanarak hemen hemen her veri kümesinden verileri itebilirsiniz. Verileri yüklemeye ilişkin kılavuz için bkz. [Belgeler ekleme, güncelleştirme veya silme](/rest/api/searchservice/addupdate-or-delete-documents) veya [.NET SDK’sını kullanma](search-howto-dotnet-sdk.md).
 
-### <a name="step-4-search"></a>4. adım: Arama
+### <a name="step-4-search"></a>4. Adım: Arama
 Bir dizin doldurulduktan sonra, REST API’si veya .NET SDK’sı ile basit HTTP isteklerini kullanarak hizmet uç noktanıza [arama sorguları düzenleyebilirsiniz](/rest/api/searchservice/Search-Documents).
 
 ## <a name="how-it-compares"></a>Karşılaştırma

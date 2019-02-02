@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/12/2018
-ms.openlocfilehash: b5916b781c636752ada6898cfa0c03bc02891501
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/20/2018
+ms.openlocfilehash: 78d85239e1e82c290b210d33d3ca7000d6a05a1f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715027"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567919"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Verileri Azure SQL Data Sync için eşitleme Aracısı
 
@@ -26,7 +26,7 @@ Yükleme ve Azure SQL Data Sync için veri eşitleme Aracısı yapılandırarak 
 > [!IMPORTANT]
 > Azure SQL Data Sync mu **değil** şu anda Azure SQL veritabanı yönetilen örneği destekler.
 
-## <a name="download-and-install"></a>İndirme ve yükleme
+## <a name="download-and-install"></a>İndir ve yükle
 
 Veri Eşitleme aracısını indirmek için Git [SQL Azure veri eşitleme Aracısı](https://www.microsoft.com/download/details.aspx?id=27693).
 

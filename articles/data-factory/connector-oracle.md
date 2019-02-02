@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 64f348880bf8872c61a1d1c90930c25ce9551bbf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016923"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658038"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri gelen ve Oracle'a kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Geçerli sürüm](connector-oracle.md)
 
@@ -58,7 +58,7 @@ Aşağıdaki özellikler Oracle bağlı hizmeti için desteklenir.
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır **Oracle**. | Evet |
-| bağlantı dizesi | Oracle veritabanına bağlanmak için gereken bilgileri belirtir. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md).<br><br>**Bağlantı türü desteklenen**: Kullanabileceğiniz **Oracle SID** veya **Oracle hizmet adı** veritabanınızı tanımlamak için:<br>-SID'ı kullanıyorsanız: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Hizmet adı kullanıyorsanız: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Evet |
+| bağlantı dizesi | Oracle veritabanına bağlanmak için gereken bilgileri belirtir. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Parola Azure anahtar kasası ve çekme koyabilirsiniz `password` yapılandırma bağlantı dizesini dışında. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. <br><br>**Bağlantı türü desteklenen**: Kullanabileceğiniz **Oracle SID** veya **Oracle hizmet adı** veritabanınızı tanımlamak için:<br>-SID'ı kullanıyorsanız: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Hizmet adı kullanıyorsanız: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Evet |
 | connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 >[!TIP]
@@ -126,6 +126,34 @@ Aşağıdaki özellikler Oracle bağlı hizmeti için desteklenir.
 }
 ```
 
+**Örnek: parola Azure Key Vault'ta depolama**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Oracle veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
@@ -251,27 +279,27 @@ Oracle için veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarla
 
 | Oracle veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| BDOSYA |Bayt] |
-| BLOB |Bayt]<br/>(yalnızca Oracle 10 g desteklenir ve üzeri) |
-| CHAR |Dize |
-| CLOB |Dize |
+| BDOSYA |Byte[] |
+| BLOB |Byte[]<br/>(yalnızca Oracle 10 g desteklenir ve üzeri) |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | KAYAN NOKTA |Ondalık, dize (olursa hassasiyet > 28) |
-| TAMSAYI |Ondalık, dize (olursa hassasiyet > 28) |
-| UZUN |Dize |
-| LONG RAW |Bayt] |
-| NCHAR |Dize |
-| NCLOB |Dize |
+| INTEGER |Ondalık, dize (olursa hassasiyet > 28) |
+| UZUN |String |
+| LONG RAW |Byte[] |
+| NCHAR |String |
+| NCLOB |String |
 | SAYI |Ondalık, dize (olursa hassasiyet > 28) |
-| NVARCHAR2 |Dize |
-| HAM |Bayt] |
-| SATIR KİMLİĞİ |Dize |
+| NVARCHAR2 |String |
+| HAM |Byte[] |
+| SATIR KİMLİĞİ |String |
 | ZAMAN DAMGASI |DateTime |
-| YEREL SAAT DİLİMİ İLE ZAMAN DAMGASI |Dize |
-| SAAT DİLİMİ İLE ZAMAN DAMGASI |Dize |
+| YEREL SAAT DİLİMİ İLE ZAMAN DAMGASI |String |
+| SAAT DİLİMİ İLE ZAMAN DAMGASI |String |
 | İŞARETSİZ TAMSAYI |Sayı |
-| VARCHAR2 |Dize |
-| XML |Dize |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Veri türleri ARALIĞI Yıl Bitiş ayı ve günü bitiş ARALIĞI ikinci desteklenmiyor.

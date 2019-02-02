@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c9759b8900f0579ccd56d001d50d65aedce2b445
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1480032b7ff018081d9dc25038bf336740810079
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716047"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657590"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Öğretici: Kapsayıcılar için Web App uygulamasında çok kapsayıcılı (önizleme) uygulama oluşturma
 
@@ -37,6 +37,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Sorun giderme hataları
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="preview-feature-limitations"></a>Önizleme özelliği sınırlamaları
+Çok kapsayıcılı Önizleme aşamasında olan, aşağıdaki App Service platformu özellikleri desteklenmez. Çok kapsayıcılı Web uygulaması önce genel kullanılabilirlik (GA) için bu özellikleri etkinleştirmek isteriz:
+* Kimlik Doğrulama / Yetkilendirme
+* Yönetilen kimlikler
 
 ## <a name="prerequisites"></a>Önkoşullar
 

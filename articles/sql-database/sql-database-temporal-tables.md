@@ -11,18 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/21/2018
-ms.openlocfilehash: ce489bae3a59da47ad6f3677ef493618d01fd6b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 09/25/2018
+ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196659"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567137"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama
+
 Zamana bağlı tablolarda, Azure SQL veritabanı izleme ve özel kodlama için gerek kalmadan verilerinizdeki değişiklikleri tam geçmişini analiz etmenize olanak tanıyan yeni bir programlama özelliğidir. Zamana bağlı tablolarda yalnızca belirli bir dönem içinde depolanan bilgiler yorumlanabilir böylece zaman bağlamına yakından ilgili verileri geçerli olarak tutun. Zamana bağlı tablolarda, bu özellik etkili zaman tabanlı analiz ve veri evrimi alınırken ınsights'tan sağlar.
 
 ## <a name="temporal-scenario"></a>Zamana bağlı senaryosu
+
 Bu makalede, bir uygulama senaryosunda zamana bağlı tabloları kullanmaya adımları gösterir. Kullanıcı etkinliği analytics ile genişletmek istediğiniz mevcut bir Web sitesini veya sıfırdan geliştirilen yeni bir Web sitesi üzerinde kullanıcı etkinliğini izlemek istediğinizi varsayalım. Bu basit örnekte, bir süre boyunca ziyaret edilen web sayfa sayısını yakalanır ve Azure SQL veritabanı'nda barındırılan Web sitesi veritabanı'nda izlenmesi gereken bir göstergesi olduğunu varsayıyoruz. Web sitesi yeniden tasarlayın ve ziyaretçiler için daha iyi bir deneyim sağlamak için girişler, kullanıcı etkinliğinin geçmişe dönük analiz amacı almaktır.
 
 Bu senaryo için veritabanı modeli oldukça basittir: kullanıcı etkinliği ölçüm, tek tamsayılardır alana ile temsil edilir **PageVisited**ve kullanıcı profilindeki temel bilgilerle birlikte yakalanır. Ayrıca, zaman tabanlı analiz için her satırın belirli bir kullanıcı belirli bir süre içinde ziyaret edilen sayfa sayısını temsil ettiği bir dizi satır her kullanıcı için tutacak.

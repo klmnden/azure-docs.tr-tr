@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 2847cf4abdfdea7eb38bd965cb54a223f014fb68
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1f6962f0313b6b0ca187512185c990606789da6e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176922"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661964"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Öğretici: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme
 
@@ -181,7 +181,7 @@ Ortamınızı hazırladığınız ve yüklü bir bağlayıcı göre şirket içi
     | **Arka uç uygulama zaman aşımı** | Bu değer kümesine **uzun** uygulamanız kimlik doğrulaması ve bağlanmak yavaş ise. |
     | **Yalnızca HTTP tanımlama bilgisi kullan** | Bu değer kümesine **Evet** tanımlama bilgileri uygulama proxy'si için HTTP yanıt üst bilgisinde HTTPOnly bayrağını ekleyin. Uzak Masaüstü Hizmetleri'ni kullanarak ayarlarsanız bu değer **Hayır**.|
     | **Güvenli bir tanımlama bilgisi kullan**| Bu değer kümesine **Evet** şifrelenmiş bir HTTPS isteği gibi güvenli bir kanal üzerinden tanımlama bilgileri iletmek için.
-    | **Kalıcı bir tanımlama bilgisi kullan**| Bu değeri tutun **Hayır**. Bu ayar, yalnızca tanımlama bilgilerini işlemler arasında paylaşamaz uygulamalar için kullanılmalıdır. Tanımlama bilgisi ayarları hakkında daha fazla bilgi için bkz: [Azure Active Directory'de şirket içi uygulamalara erişmek için tanımlama bilgisi ayarları](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
+    | **Kalıcı bir tanımlama bilgisi kullan**| Bu değeri tutun **Hayır**. Bu ayar, yalnızca tanımlama bilgilerini işlemler arasında paylaşamaz uygulamalar için kullanılmalıdır. Tanımlama bilgisi ayarları hakkında daha fazla bilgi için bkz: [Azure Active Directory'de şirket içi uygulamalara erişmek için tanımlama bilgisi ayarları](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
     | **Üst bilgilerinde URL'leri Çevir** | Bu değer olarak tutmak **Evet** özgün ana bilgisayar üst bilgisi'kimlik doğrulama isteği, uygulamanızın gerektirdiği durumlar haricinde. |
     | **Uygulama gövdesi URL'leri Çevir** | Bu değer olarak tutmak **Hayır** sürece diğer şirket içi uygulamalara yönelik sabit kodlanmış HTML bağlantıları ve özel etki alanları kullanmayın. Daha fazla bilgi için [çeviri uygulama ara sunucusu ile bağlantı](application-proxy-configure-hard-coded-link-translation.md).<br><br>Bu değer kümesine **Evet** bu Microsoft Cloud App Security (MCAS) ile uygulama izlemeyi planlıyorsanız. Daha fazla bilgi için [erişim, Microsoft Cloud App Security ve Azure Active Directory ile gerçek zamanlı uygulama izlemeyi yapılandırma](application-proxy-integrate-with-microsoft-cloud-application-security.md) |
    

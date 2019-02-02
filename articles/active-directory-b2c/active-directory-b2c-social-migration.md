@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f4abacb42cfd5efe22d29b58b36eca0a7a1f5ba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161332"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662899"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Kullanıcıları sosyal kimlikleriyle geçirme
 Kimlik sağlayıcınız Azure AD B2C'ye geçirmek planlama yaparken, sosyal medya kimliklerinden kullanıcıları geçirme gerekebilir. Bu makalede, aşağıdakiler gibi mevcut sosyal kimlikleri hesapları geçirme açıklanmaktadır: Azure AD B2C'ye Facebook ve LinkedIn, Microsoft ve Google hesapları. Bu geçiş daha az yaygın olan ancak bu makale Federasyon kimlikleri için de geçerlidir.
@@ -46,7 +46,7 @@ Bu makalede, bir kullanıcı geçiş makalesini devamıdır ve sosyal kimlik ge�
 * Kimlik sağlayıcısına bağlı olarak **sosyal kullanıcı kimliği** uygulama ya da geliştirme hesap başına belirli bir kullanıcı için benzersiz bir değerdir. Sosyal sağlayıcılar tarafından daha önce atanan aynı uygulama kimliği ile Azure AD B2C ilkesi yapılandırın. Veya başka bir uygulama geliştirme hesabın aynısını içinde.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Kullanıcıları geçirme için Graph API'sini kullanın
-Azure AD B2C kullanıcı hesabı aracılığıyla oluşturma [Graph API'si](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Graph API ile iletişim kurmak için öncelikle bir hizmet hesabı yönetici ayrıcalıklarına sahip olması gerekir. Azure AD'de bir uygulama ve kimlik doğrulaması Azure AD'ye kaydedin. Uygulama kimlik bilgileridir. uygulama kimliği ve uygulama gizli anahtarı. Uygulama, kendisini, Graph API'sini çağırmak için bir kullanıcı değil, olarak görür. Adım 1'ndaki yönergeleri izleyin [kullanıcı geçişi](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) makalesi.
+Azure AD B2C kullanıcı hesabı aracılığıyla oluşturma [Graph API'si](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Graph API ile iletişim kurmak için öncelikle bir hizmet hesabı yönetici ayrıcalıklarına sahip olması gerekir. Azure AD'de bir uygulama ve kimlik doğrulaması Azure AD'ye kaydedin. Uygulama kimlik bilgileridir. uygulama kimliği ve uygulama gizli anahtarı. Uygulama, kendisini, Graph API'sini çağırmak için bir kullanıcı değil, olarak görür. Adım 1'ndaki yönergeleri izleyin [kullanıcı geçişi](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) makalesi.
 
 ## <a name="required-properties"></a>Gerekli özellikler
 Aşağıdaki listede, bir kullanıcı oluşturduğunuzda, gerekli olan özellikleri gösterir.

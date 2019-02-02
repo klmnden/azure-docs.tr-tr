@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 0cf301b98e5fa530b234dbd5953746241c0021ee
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244248"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661709"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Ölçümler ile ilgili uyarılar için Azure veritabanı MariaDB için ayarlamak için Azure portalını kullanma
 
@@ -27,7 +27,7 @@ Bir uyarı tetiklendiğinde aşağıdaki işlemleri yapmak için yapılandırabi
 Yapılandırın ve uyarı kuralları kullanma hakkında bilgi edinin:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure İzleyici REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
+* [Azure İzleyici REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Bir ölçüme göre uyarı kuralı oluşturma
 1. İçinde [Azure portalında](https://portal.azure.com/), izlemek istediğiniz MariaDB için Azure veritabanı'nı seçin.

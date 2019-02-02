@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eefa639ca5f13d23c3b2048436d739a01bd0dfa
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 4947977fbed2b4fe4bd47adcc4de6516090573ad
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975630"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661318"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Azure haritalar için eşleme denetimleri ekleme
 
-Bu makalede bir eşlemesi için eşleme denetimleri ekleme gösterilmektedir. Ayrıca tüm denetimleri ile bir harita oluşturmak nasıl öğrenin ve [stil seçiciyi](https://docs.microsoft.com/azure/azure-maps/choose-map-style#adding-the-style-picker).
+Bu makalede bir eşlemesi için eşleme denetimleri ekleme gösterilmektedir. Ayrıca tüm denetimleri ile bir harita oluşturmak nasıl öğrenin ve [stil seçiciyi](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
 
 ## <a name="add-zoom-control"></a>Yakınlaştırma denetimi ekleme
 
@@ -26,7 +26,7 @@ Bu makalede bir eşlemesi için eşleme denetimleri ekleme gösterilmektedir. Ay
 
 İlk kod bloğu abonelik anahtarını ayarlar ve stili önceden ayarlamadan bir harita oluşturur. Bkz: [bir harita oluşturmak](./map-create.md) bir harita oluşturmak yönergeler.
 
-Yakınlaştırma denetimi içine ve dışına harita yakınlaştırma olanağı ekler. İkinci kod bloğu atlas kullanarak bir yakınlaştırma denetimi oluşturur [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi. Yakınlaştırma denetimi içinde haritasıdır **olay dinleyicisi** yükler harita tamamen yüklendikten sonra emin olmak için.
+Yakınlaştırma denetimi içine ve dışına harita yakınlaştırma olanağı ekler. İkinci kod bloğu atlas kullanarak bir yakınlaştırma denetimi oluşturur [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) yöntemi. Yakınlaştırma denetimi içinde haritasıdır **olay dinleyicisi** yükler harita tamamen yüklendikten sonra emin olmak için.
 
 ## <a name="add-pitch-control"></a>Aralık denetimi ekleme
 
@@ -35,7 +35,7 @@ Yakınlaştırma denetimi içine ve dışına harita yakınlaştırma olanağı 
 
 İlk kod bloğu abonelik anahtarını ayarlar ve stili önceden ayarlamadan bir harita oluşturur. Bkz: [bir harita oluşturmak](./map-create.md) bir harita oluşturmak yönergeler.
 
-Aralık denetimi eşleme aralığını değiştirme özelliği ekler. İkinci kod bloğunu atlas kullanarak bir aralık denetimi oluşturur [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi. Aralık denetimi içinde haritasıdır **olay dinleyicisi** yükler harita tamamen yüklendikten sonra emin olmak için.
+Aralık denetimi eşleme aralığını değiştirme özelliği ekler. İkinci kod bloğunu atlas kullanarak bir aralık denetimi oluşturur [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) yöntemi. Aralık denetimi içinde haritasıdır **olay dinleyicisi** yükler harita tamamen yüklendikten sonra emin olmak için.
 
 ## <a name="add-compass-control"></a>Pusula denetim ekleme
 
@@ -44,7 +44,7 @@ Aralık denetimi eşleme aralığını değiştirme özelliği ekler. İkinci ko
 
 İlk kod bloğu abonelik anahtarını ayarlar ve stili önceden ayarlamadan bir harita oluşturur. Bkz: [bir harita oluşturmak](./map-create.md) bir harita oluşturmak yönergeler.
 
-İkinci kod bloğunu atlas kullanarak Compass denetim nesnesi oluşturur [Compass denetim](/javascript/api/azure-maps-control/atlas.controls.compasscontrol). Ayrıca haritanın kullanarak haritaya pusula denetimi ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi. Compass denetimi içinde haritasıdır **olay dinleyicisi** yükler harita tamamen yüklendikten sonra emin olmak için.
+İkinci kod bloğunu atlas kullanarak Compass denetim nesnesi oluşturur [Compass denetim](/javascript/api/azure-maps-control/atlas.controls.compasscontrol). Ayrıca haritanın kullanarak haritaya pusula denetimi ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) yöntemi. Compass denetimi içinde haritasıdır **olay dinleyicisi** yükler harita tamamen yüklendikten sonra emin olmak için.
 
 ## <a name="a-map-with-all-controls"></a>Tüm denetimleri ile bir eşleme
 
@@ -53,13 +53,13 @@ Aralık denetimi eşleme aralığını değiştirme özelliği ekler. İkinci ko
 
 İlk kod bloğu abonelik anahtarını ayarlar ve stili önceden ayarlamadan bir harita oluşturur. Bkz: [bir harita oluşturmak](./map-create.md) bir harita oluşturmak yönergeler.
 
-İkinci kod bloğu atlas kullanarak Compass denetim nesnesi oluşturur [CompassControl](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi.
+İkinci kod bloğu atlas kullanarak Compass denetim nesnesi oluşturur [CompassControl](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) yöntemi.
 
-Üçüncü kod bloğunu atlas kullanarak bir yakınlaştırma denetimi oluşturur [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi.
+Üçüncü kod bloğunu atlas kullanarak bir yakınlaştırma denetimi oluşturur [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) yöntemi.
 
-Dördüncü kod bloğu atlas kullanarak bir aralık denetimi oluşturur [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi.
+Dördüncü kod bloğu atlas kullanarak bir aralık denetimi oluşturur [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) yöntemi.
 
-Son kod bloğunu atlas kullanarak bir stil Seçici nesnesi oluşturur. [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi. Harita içinde eklenen tüm denetim nesneleri **olay dinleyicisi** harita tamamen yüklendikten sonra Yük emin olmak için.
+Son kod bloğunu atlas kullanarak bir stil Seçici nesnesi oluşturur. [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) ve haritanın kullanarak haritaya ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) yöntemi. Harita içinde eklenen tüm denetim nesneleri **olay dinleyicisi** harita tamamen yüklendikten sonra Yük emin olmak için.
 
 Betikteki denetim nesnelerin sırasını harita üzerinde görünme sırasını belirler. Harita üzerinde denetimlerin sırasını değiştirmek için komut dosyasında kendi sırasını değiştirebilirsiniz.
 

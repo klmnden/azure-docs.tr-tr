@@ -4,17 +4,17 @@ description: Azure İlkesi tanım uyumluluk nasıl yönetildiği ve bildirilen b
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: cf30d5dd8648a2b1da3f4a40399376182bf342c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912518"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562309"
 ---
 # <a name="understand-policy-effects"></a>İlke etkilerini anlama
 
@@ -50,7 +50,7 @@ Append oluşturma veya güncelleştirme sırasında istenen kaynak için ek alan
 
 ### <a name="append-evaluation"></a>Değerlendirme Ekle
 
-Ekleme isteği, oluşturma veya bir kaynağın güncelleştirilmesi sırasında bir kaynak sağlayıcısı tarafından işlenen önce değerlendirilir. Append kaynağa alanları ekler, **varsa** ilke kuralının koşul karşılanıyorsa. Append etkili bir değer özgün istek farklı bir değerle geçersiz kılarsınız, reddetme etkisi davranır ve isteği reddeder.
+Ekleme isteği, oluşturma veya bir kaynağın güncelleştirilmesi sırasında bir kaynak sağlayıcısı tarafından işlenen önce değerlendirilir. Append kaynağa alanları ekler, **varsa** ilke kuralının koşul karşılanıyorsa. Append etkili bir değer özgün istek farklı bir değerle geçersiz kılarsınız, reddetme etkisi davranır ve isteği reddeder. Yeni bir değer var olan bir diziye eklenecek kullanın **[\*]** diğer sürümü.
 
 Append efekt kullanarak bir ilke tanımı bir değerlendirme döngüsü bir parçası olarak çalıştırdığınızda, zaten mevcut olan kaynakları değişiklik yapmaz. Bunun yerine, bunu karşılayan herhangi bir kaynağa işaretler **varsa** uyumsuz olarak koşul.
 
@@ -89,7 +89,8 @@ Bir ekleme yalnızca etkisi bir **ayrıntıları** gerekli olan bir dizi. Olarak
 }
 ```
 
-Örnek 3: Tek **alan/değer** kullanarak pair bir [diğer](definition-structure.md#aliases) dizisiyle **değeri** bir depolama hesabında IP kurallarını ayarlamak için.
+Örnek 3: Tek **alan/değer** olmayan bir kullanarak pair **[\*]**
+[diğer](definition-structure.md#aliases) bir diziye sahip **değer** IP kurallarını ayarlamak için bir Depolama hesabı. Zaman olmayan **[\*]** diğer bir dizi olan etkisi ekler **değer** tüm dizi. Dizi zaten varsa, reddetme olayı çakışma gerçekleşir.
 
 ```json
 "then": {
@@ -100,6 +101,21 @@ Bir ekleme yalnızca etkisi bir **ayrıntıları** gerekli olan bir dizi. Olarak
             "action": "Allow",
             "value": "134.5.0.0/21"
         }]
+    }]
+}
+```
+
+Örnek 4: Tek **alan/değer** kullanarak pair bir **[\*]** [diğer](definition-structure.md#aliases) dizisiyle **değeri** bir depolama hesabında IP kurallarını ayarlamak için. Kullanarak **[\*]** diğer etkisi ekler **değer** potansiyel olarak önceden var olan bir dizi. Dizi olmayan henüz mevcut oluşturulur.
+
+```json
+"then": {
+    "effect": "append",
+    "details": [{
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "value": {
+            "value": "40.40.40.40",
+            "action": "Allow"
+        }
     }]
 }
 ```
@@ -259,7 +275,7 @@ Bir değerlendirme döngüsü sırasında kaynaklarla eşleşen ilke tanımları
   - Bu özellik, rol tabanlı erişim denetimine rol kimliği erişilebilir tarafından eşleşen bir dize dizisi içermesi gerekir. Daha fazla bilgi için [düzeltme - ilke tanımı yapılandırma](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (isteğe bağlı)
   - İzin verilen değerler _abonelik_ ve _ResourceGroup_.
-  - Gerçekleştirilmesi gereken dağıtım türünü ayarlar. _Abonelik_ gösteren bir [abonelik düzeyinde dağıtım](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ bir kaynak grubuna bir dağıtım gösterir.
+  - Tetiklenmesi için dağıtım türünü ayarlar. _Abonelik_ gösteren bir [abonelik düzeyinde dağıtım](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ bir kaynak grubuna bir dağıtım gösterir.
   - A _konumu_ özelliği içinde belirtilmelidir _dağıtım_ abonelik düzeyi dağıtımları kullanırken.
   - Varsayılan değer _ResourceGroup_.
 - **Dağıtım** [gerekli]

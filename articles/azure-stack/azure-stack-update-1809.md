@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 81501c79f00c2c0f8ef81532f3b8e7f61fc9eba0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c4dcf34ff113c4f1a6d7dcacbe598c453dbd63c3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250623"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658241"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -50,7 +50,7 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
 
 - Artık [kayıt kaynak taşıma](azure-stack-registration.md#move-a-registration-resource) yeniden kaydetmek zorunda kalmadan, kaynak grupları arasında Azure üzerinde. Eski ve yeni abonelikler için aynı CSP iş ortağı kimliğini eşlenen sürece bulut çözüm sağlayıcıları (CSP'ler) ayrıca kayıt kaynağı abonelikler arasında taşıyabilirsiniz Bu, var olan müşteri Kiracı eşlemeleri etkilemez. 
 
-- Ağ arabirimi başına birden çok IP adresi atamak için destek eklendi.  Daha fazla ayrıntı için bkz: [birden çok IP adresi için PowerShell kullanarak sanal makinelere Atayabilmenizi](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
+- Ağ arabirimi başına birden çok IP adresi atamak için destek eklendi.  Daha fazla ayrıntı için bkz: [birden çok IP adresi için PowerShell kullanarak sanal makinelere Atayabilmenizi](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Düzeltilen sorunlar
 

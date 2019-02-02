@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fe98caa2a78722d621c43f1ef708e24add0efb56
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228806"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664123"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Gelişmiş tehdit algılama
 
@@ -29,7 +29,7 @@ Azure, bir çeşit uygulama dağıtımlarınıza ilişkin gereksinimleri karşı
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Kimlik Koruması
 
-[Azure AD kimlik koruması](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) olduğu bir [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition özelliği, kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını ve risk olayları hakkında genel bir bakış sağlar. Kimlik koruması aracılığıyla kullanılabilen mevcut Azure AD anomali algılama özellikleri kullanan [Azure AD anormal Etkinlik raporlarını](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports)ve gerçek zamanlı anormal durumları algılayabilirsiniz yeni risk olayı türlerini tanıtır.
+[Azure AD kimlik koruması](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) olduğu bir [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition özelliği, kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını ve risk olayları hakkında genel bir bakış sağlar. Kimlik koruması aracılığıyla kullanılabilen mevcut Azure AD anomali algılama özellikleri kullanan [Azure AD anormal Etkinlik raporlarını](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports)ve gerçek zamanlı anormal durumları algılayabilirsiniz yeni risk olayı türlerini tanıtır.
 
 ![Azure AD kimlik koruması diyagramı](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 

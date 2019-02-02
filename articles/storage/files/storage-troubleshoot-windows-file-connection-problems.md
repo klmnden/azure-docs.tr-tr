@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c8d34ecb46721a8dd8dc1b1ad9f73c9f2ca2b3a2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507408"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564451"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -265,11 +265,11 @@ Bu sorunu çözmek için ayarlama **DirectoryCacheEntrySizeMax** istemci makine 
 
 ### <a name="cause"></a>Nedeni
 
-Hata AadDsTenantNotFound olur, çalıştığınızda [Azure dosyaları için Azure Active Directory (AAD) kimlik doğrulamasını etkinleştirme](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) bir depolama hesabı üzerinde nereye [AAD etki alanı Service(AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) AAD'de oluşturulmaz. ilişkili abonelik kiracısıdır.  
+Hata AadDsTenantNotFound olur, çalıştığınızda [Azure dosyaları için Azure Active Directory (AAD) kimlik doğrulamasını etkinleştirme](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) bir depolama hesabı üzerinde nereye [AAD etki alanı Service(AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) AAD'de oluşturulmaz. ilişkili abonelik kiracısıdır.  
 
 ### <a name="solution"></a>Çözüm
 
-AAD DS AAD kiracısı için Dağıtılmış depolama hesabınızın abonelik etkinleştirin. Yönetilen bir etki alanı oluşturmak için AAD Kiracı yönetici ayrıcalıkları gerekir. Azure AD Kiracı yöneticisi değilseniz, yöneticisine başvurun ve adım adım yönergeleri [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
+AAD DS AAD kiracısı için Dağıtılmış depolama hesabınızın abonelik etkinleştirin. Yönetilen bir etki alanı oluşturmak için AAD Kiracı yönetici ayrıcalıkları gerekir. Azure AD Kiracı yöneticisi değilseniz, yöneticisine başvurun ve adım adım yönergeleri [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun.
 Hala yardıma ihtiyacınız varsa [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi alınamıyor.

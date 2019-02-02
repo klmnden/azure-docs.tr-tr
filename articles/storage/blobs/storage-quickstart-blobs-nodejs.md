@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 420b48101671c06ee1d820cd183ea0e5c2788635
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 4400bdf9a88c492a08c7eeafb074af89dee8abb1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410580"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661777"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Karşıya yükleme, indirme ve Node.js SDK'sı v2 kullanarak blobları Listele
 
@@ -128,7 +128,7 @@ Grupların boyutu [ListContainersOptions](/javascript/api/azure-storage/azuresto
 
 ### <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-*createContainer* işlevi, [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) öğesini çağırır ve blob için uygun erişim düzeyini ayarlar.
+*createContainer* işlevi, [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) öğesini çağırır ve blob için uygun erişim düzeyini ayarlar.
 
 ```javascript
 const createContainer = async (containerName) => {
@@ -144,7 +144,7 @@ const createContainer = async (containerName) => {
 };
 ```
 
-**createContainerIfNotExists** için ikinci parametre (*options*), [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) için bir değer kabul eder. *publicAccessLevel* için *blob* değeri, belirli blob verilerinin genel kullanıma sunulduğunu belirtir. Bu ayar, kapsayıcının içeriklerini listeleme yeteneği sağlayan *kapsayıcı* düzeyinde erişimin tersidir.
+**createContainerIfNotExists** için ikinci parametre (*options*), [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) için bir değer kabul eder. *publicAccessLevel* için *blob* değeri, belirli blob verilerinin genel kullanıma sunulduğunu belirtir. Bu ayar, kapsayıcının içeriklerini listeleme yeteneği sağlayan *kapsayıcı* düzeyinde erişimin tersidir.
 
 **createContainerIfNotExists** kullanılması, kapsayıcı önceden mevcut olduğunda uygulamanın hata döndürmeden *createContainer* komutunu birçok defa çalıştırmasına olanak sağlar. Üretim ortamında, uygulama genelinde aynı kapsayıcı kullanıldığında çoğu zaman **createContainerIfNotExists** komutunu yalnızca bir defa çağırırsınız. Bu durumlarda, önceden portal veya Azure CLI aracılığıyla kapsayıcı oluşturabilirsiniz.
 

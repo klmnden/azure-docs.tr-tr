@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 52c89804c87348843bb7a4006ab38e4d417740ba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adca66b46fad1220b49af327797cc4f91d216091
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025445"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564672"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir FTP sunucusundan veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Bu makalede, bir FTP sunucusundan verileri taşımak için Azure Data Factory ko
 Bir FTP sunucusundan tüm desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Data Factory şu anda yalnızca veri taşımayı bir FTP sunucusundan diğer veri depolarına destekler, ancak FTP sunucusuna verilerini diğer verilerden taşıma değil depolar. Hem şirket içi destekler ve FTP sunucuları bulut.
 
 > [!NOTE]
-> Hedefine başarıyla kopyalandıktan sonra kopyalama etkinliği kaynak dosya silinmez. Başarılı kopyalamadan sonra kaynak dosyasını silmeniz gerekirse, dosyayı silmek için özel bir etkinlik oluşturma ve işlem hattı etkinliğini kullanın. 
+> Hedefine başarıyla kopyalandıktan sonra kopyalama etkinliği kaynak dosya silinmez. Başarılı kopyalamadan sonra kaynak dosyasını silmeniz gerekirse, dosyayı silmek için özel bir etkinlik oluşturma ve işlem hattı etkinliğini kullanın.
 
 ## <a name="enable-connectivity"></a>Bağlantı etkinleştir
 Veri geçiş yapıyorsanız, bir **şirket içi** FTP sunucusuna bir bulut veri depolayın (örneğin, Azure Blob depolamaya) yükleyin ve veri yönetimi ağ geçidi kullanın. Veri Yönetimi ağ geçidi, şirket içi makinenizde yüklü bir istemci aracısıdır ve bir şirket içi kaynağa bağlanmak bulut hizmetleri sağlar. Ayrıntılar için bkz [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md). Ayar adım adım yönergeler ağ geçidi ayarlama ve kullanma, bkz [Bulut ve şirket içi konumlar arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md). Sunucunun Azure altyapısının üzerinde bir hizmet (Iaas) sanal makine (VM) olsa bile bir FTP sunucusuna bağlanmak için ağ geçidi kullanın.
@@ -63,7 +63,7 @@ Aşağıdaki bölümler, Data Factory varlıklarını belirli FTP tanımlamak i�
 ## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 Aşağıdaki tabloda, bir FTP bağlantılı hizmete özgü JSON öğeleri açıklar.
 
-| Özellik | Açıklama | Gereklidir | Varsayılan |
+| Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
 | type |Bu işlem için Ftp_sunucusu ayarlayın. |Evet |&nbsp; |
 | konak |Adını veya FTP sunucusunun IP adresini belirtin. |Evet |&nbsp; |
@@ -86,7 +86,7 @@ Aşağıdaki tabloda, bir FTP bağlantılı hizmete özgü JSON öğeleri açık
     "name": "FTPLinkedService",
     "properties": {
         "type": "FtpServer",
-        "typeProperties": {        
+        "typeProperties": {
             "authenticationType": "Anonymous",
               "host": "myftpserver.com"
         }
@@ -99,7 +99,7 @@ Aşağıdaki tabloda, bir FTP bağlantılı hizmete özgü JSON öğeleri açık
 ```JSON
 {
     "name": "FTPLinkedService",
-      "properties": {
+    "properties": {
     "type": "FtpServer",
         "typeProperties": {
             "host": "myftpserver.com",
@@ -107,7 +107,7 @@ Aşağıdaki tabloda, bir FTP bağlantılı hizmete özgü JSON öğeleri açık
             "username": "Admin",
             "password": "123456"
         }
-      }
+    }
 }
 ```
 
@@ -120,7 +120,7 @@ Aşağıdaki tabloda, bir FTP bağlantılı hizmete özgü JSON öğeleri açık
         "type": "FtpServer",
         "typeProperties": {
             "host": "myftpserver.com",
-            "authenticationType": "Basic",    
+            "authenticationType": "Basic",
             "username": "Admin",
             "password": "123456",
             "port": "21",
@@ -144,7 +144,7 @@ Aşağıdaki tabloda, bir FTP bağlantılı hizmete özgü JSON öğeleri açık
             "encryptedCredential": "xxxxxxxxxxxxxxxxx",
             "gatewayName": "mygateway"
         }
-      }
+    }
 }
 ```
 
@@ -153,15 +153,15 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 
 **TypeProperties** bölümünde her veri kümesi türü için farklıdır. Veri kümesi türüne özgü bilgiler sağlar. **TypeProperties** türü için bir veri kümesi bölümünü **FileShare** aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | folderPath |Alt klasörünün yolu. Çıkış karakterini kullanma ' \ ' dizesinde özel karakterler için. Bkz: [örnek bağlantılı hizmet ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekler.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasör yolları tabanlı slice başlama üzerinde olması ve bitiş tarih saatleri. |Evet |
-| fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>Zaman **fileName** belirtilmemiş bir çıktı veri kümesi için oluşturulan dosya adı şu biçimde: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt) |Hayır |
+| fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>Zaman **fileName** belirtilmemiş bir çıktı veri kümesi için oluşturulan dosya adı şu biçimde: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
 | fileFilter |Bir alt dosya seçmek için kullanılacak bir filtre belirtin **folderPath**, tüm dosyalar yerine.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** girdi FileShare veri kümesi için geçerlidir. Bu özellik, Hadoop dağıtılmış dosya sistemi (HDFS ile) desteklenmiyor. |Hayır |
 | partitionedBy |Dinamik belirtmek için kullanılan **folderPath** ve **fileName** zaman serisi verilerinin. Örneğin, belirtebileceğiniz bir **folderPath** veri her saat için parametreli. |Hayır |
 | biçim | Şu biçim türlerini destekler: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi ](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Dosyaları (ikili kopya) depoları arasında dosya tabanlı oldukları gibi kopyalamak istiyorsanız, hem girdi ve çıktı veri kümesi tanımları biçimi bölümüne atlayın. |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**, ve desteklenen düzeyleri **Optimal** ve **hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
-| useBinaryTransfer |İkili aktarım modunu kullanıp kullanmayacağınızı belirtin. Değerler (Bu, varsayılan değer) ikili mod için true ve false ASCII için. Bu özellik, yalnızca ilişkili bağlantılı hizmet türü türü olduğunda kullanılabilir: Ftp_sunucusu. |Hayır |
+| useBinaryTransfer |İkili aktarım modunu kullanıp kullanmayacağınızı belirtin. Değerler (Bu, varsayılan değer) ikili mod için true ve false ASCII için. Bu özellik, yalnızca ilişkili bağlantılı hizmet türü türü olduğunda kullanılabilir: FtpServer. |Hayır |
 
 > [!NOTE]
 > **fileName** ve **fileFilter** aynı anda kullanılamaz.
@@ -188,7 +188,7 @@ Bu örnekte, {dilim} değişkeninin değeri Data Factory sistem SliceStart, beli
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
@@ -204,12 +204,12 @@ Bulunan özelliklerin **typeProperties** etkinlik bölümünü Öte yandan, her 
 
 Kopya etkinlikteki kaynak türünde olduğunda **FileSystemSource**, aşağıdaki özellikler kullanılabilir **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | özyinelemeli |Alt klasörleri veya yalnızca belirtilen klasöre veri yinelemeli olarak okunur olup olmadığını belirtir. |TRUE, False (varsayılan) |Hayır |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON örneği: Azure Blob için FTP sunucusundan veri kopyalama
-Bu örnek, bir FTP sunucusundan Azure Blob depolama alanına veri kopyalama işlemi gösterilmektedir. Ancak, verileri doğrudan belirtilen havuzlarını hiçbirini kopyalanabilir [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats), veri fabrikasında kopyalama etkinliği kullanarak.  
+Bu örnek, bir FTP sunucusundan Azure Blob depolama alanına veri kopyalama işlemi gösterilmektedir. Ancak, verileri doğrudan belirtilen havuzlarını hiçbirini kopyalanabilir [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats), veri fabrikasında kopyalama etkinliği kullanarak.
 
 Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
@@ -235,14 +235,14 @@ Bkz: [FTP bağlı hizmet](#linked-service-properties) bölüm için farklı tür
 {
     "name": "FTPLinkedService",
     "properties": {
-    "type": "FtpServer",
-    "typeProperties": {
-        "host": "myftpserver.com",           
-        "authenticationType": "Basic",
-        "username": "Admin",
-        "password": "123456"
+        "type": "FtpServer",
+        "typeProperties": {
+            "host": "myftpserver.com",
+            "authenticationType": "Basic",
+            "username": "Admin",
+            "password": "123456"
+        }
     }
-  }
 }
 ```
 ### <a name="azure-storage-linked-service"></a>Azure Storage bağlı hizmeti

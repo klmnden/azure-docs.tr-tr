@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 73073d5240f29906ade5f9b92cf81fec2f99a3d4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473213"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661981"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure depolama ölçümlerini ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi kullanarak uçtan uca sorun giderme
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -98,10 +98,10 @@ Yapılandırmak için günlüğe kaydetme ve depolama için ölçümleri kullana
 
 Azure PowerShell ile çalışmaya başlamak için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
-1. Kullanım [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet'i PowerShell penceresine Azure kullanıcı hesabınızı eklemek için:
+1. Kullanım [Ekle AzAccount](/powershell/module/az.account/add-azaccount) cmdlet'i PowerShell penceresine Azure kullanıcı hesabınızı eklemek için:
    
     ```powershell
-    Add-AzureAccount
+    Add-AzAccount
     ```
 
 2. İçinde **Microsoft Azure'da oturum aç** penceresinde e-posta adresi ve hesabınızla ilişkili parolayı yazın. Azure, kimlik bilgilerini doğrulayıp kaydeder ve pencereyi kapatır.
@@ -110,7 +110,7 @@ Azure PowerShell ile çalışmaya başlamak için bkz. [Azure PowerShell'i yükl
     ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
 4. Blob hizmeti için depolama günlük kaydını etkinleştir:

@@ -1,20 +1,18 @@
 ---
-ms.assetid: ''
 title: Azure Key Vault - CLI ile geçici silmeyi kullanma
 description: Geçici silmeyi CLI kod parçalarını ile büyük/küçük harf örnekleri kullan
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/15/2018
+ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: af2d480e84ca69c0ecd795e38371375e6a71542b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363648"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663953"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault geçici silmeyi CLI ile kullanma
 
@@ -72,7 +70,7 @@ Key vault geçici silmeyi etkin olduğunu doğrulamak için çalıştırın *Gö
 az keyvault show --name ContosoVault
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Geçici silme ile korumalı bir anahtar kasası silme
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>Anahtar kasası korumalı geçici silme siliniyor
 
 Geçici silme etkinleştirilip etkinleştirilmediği bağlı olarak davranış, bir anahtar kasası değişiklikleri Sil komutu.
 
@@ -89,7 +87,7 @@ Geçici silme ile etkin:
 
 - Silinen bir anahtar kasası kaynak grubundan kaldırıldı ve oluşturulduğu yere konumla ilişkili ayrılmış bir ad alanı yerleştirilir. 
 - Silinen nesneleri gibi kendi içeren anahtar kasası silinmiş durumda olduğu sürece anahtarları, gizli diziler ve sertifikalar, erişilemez. 
-- Silinen bir anahtar kasası için DNS adı ayrılmış, aynı ada sahip yeni bir anahtar kasası oluşturulmasını engelliyor.  
+- Silinen bir anahtar kasası için DNS adı ayrılmış, aynı ada sahip yeni bir anahtar kasası oluşturulmasını engelliyor.  
 
 Aşağıdaki komutu kullanarak, aboneliğinizle ilişkili silindi durumu anahtar kasalarını görüntüleyebilirsiniz:
 
@@ -110,9 +108,9 @@ az keyvault recover --location westus --resource-group ContosoRG --name ContosoV
 
 Bir anahtar kasası kurtarıldığında, anahtar kasasının özgün kaynak kimliği ile yeni bir kaynak oluşturulur Özgün kaynak grubunu kaldırılırsa, aynı ada sahip kurtarma denemeden önce oluşturulmalıdır.
 
-## <a name="key-vault-objects-and-soft-delete"></a>Key Vault nesneleri ve geçici silme
+## <a name="deleting-and-purging-key-vault-objects"></a>Anahtar kasası nesne temizleme ve silme
 
-'ContosoFirstKey' anahtar için geçici silme ile ' ContosoVault etkin' adlı bir anahtar kasasının içinde burada nasıl anahtara silmeniz.
+Aşağıdaki komut 'ContosoFirstKey' anahtarında geçici silme etkin olan'ContosoVault ' adlı bir anahtar kasası siler:
 
 ```azurecli
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
@@ -192,17 +190,22 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
   az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
   ```
 
-## <a name="purging-and-key-vaults"></a>Temizleme ve anahtar kasaları
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Anahtar kasası korumalı geçici silme temizleme
 
-### <a name="key-vault-objects"></a>Anahtar kasası nesneleri
+> [!IMPORTANT]
+> Bir anahtar kasası veya bağımlı nesnelerinin birinin temizleme, yani kurtarılabilir olmayacaktır kalıcı olarak silinir!
 
-Silme işlemi geri alınamaz bir anahtar, parola veya sertifika, temizleme neden olur ve kurtarılabilir olmayacaktır. Anahtar Kasası'nda tüm nesneleri olarak silinen nesnenin içerdiği anahtar kasasına ancak değişmeden kalır. 
+Temizleme işlev, bir anahtar kasası nesne ya da daha önce geçici olarak silinen tüm bir key vault, kalıcı olarak silmek için kullanılır. Önceki bölümde gösterildiği gibi geçici silme özelliği etkin, anahtar kasasında depolanan nesnelere birden çok durumlarında gidebilir:
 
-### <a name="key-vaults-as-containers"></a>Kapsayıcıları olarak anahtar kasaları
-Bir anahtar kasası temizlenir, tüm içeriği kalıcı olarak, anahtarlara, parolalara ve sertifikalara dahil olmak üzere silinir. Bir anahtar kasası temizlemek için kullanmak `az keyvault purge` komutu. Aboneliğinizin silinen anahtar kasalarının komutunu kullanarak konumu bulabilirsiniz `az keyvault list-deleted`.
+- **Etkin**: silmeden önce.
+- **Geçici olarak silinen**: hesabınız silindikten sonra listelenir ve kurtarılan etkin duruma geri mümkün.
+- **Kalıcı olarak silinmiş**: sonra temizleme kurtarılması mümkün değildir.
 
->[!IMPORTANT]
->Bir anahtar kasası temizleme, yani kurtarılabilir olmayacaktır kalıcı olarak silinir!
+Aynı anahtar kasası için geçerlidir. Geçici silinen anahtar kasasını ve içeriğini kalıcı olarak silmek için anahtar kasası temizlemelidir.
+
+### <a name="purging-a-key-vault"></a>Bir anahtar kasası temizleme
+
+Bir anahtar kasası temizlenir, tüm içeriği kalıcı olarak, anahtarlara, parolalara ve sertifikalara dahil olmak üzere silinir. Geçici silinen anahtar kasasını Temizle kullanın `az keyvault purge` komutu. Aboneliğinizin silinen anahtar kasalarının komutunu kullanarak konumu bulabilirsiniz `az keyvault list-deleted`.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault

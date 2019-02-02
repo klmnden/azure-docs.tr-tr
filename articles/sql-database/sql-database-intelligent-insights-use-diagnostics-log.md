@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/04/2018
-ms.openlocfilehash: 1464b2685e0ae084de3679e8a8fea36a3cf19c4b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/19/2018
+ms.openlocfilehash: a2b4f85ac9c62c93e06f73090b6b144ff79319d1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599153"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561884"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent ınsights'ı Azure SQL veritabanı performans tanılama günlüğünü kullanma
 
@@ -100,7 +100,7 @@ Etki (etkisi özelliği için bir veritabanı olan sorunu algılanan davranış 
 
 ### <a name="impacted-queries"></a>Etkilenen sorgular
 
-Akıllı Öngörüler günlüğü sonraki bölümü tarafından algılanan performans sorunlarını etkilenmiştir belirli sorguları hakkında bilgi sağlar. Bu bilgiler impact_s özelliğinde katıştırılmış nesneleri dizisi olarak açıktır. Varlıklar ve ölçümleri etki özelliğinin oluşur. Varlıkların belirli bir sorgu bakın (tür: Sorgu). Benzersiz sorgu karma değeri (değer) özelliği altında açıklanır. Ayrıca, her duyurulmuş sorguların bir ölçüm ve bir değer tarafından algılanan performans sorunu olduğunu izler.
+Akıllı Öngörüler günlüğü sonraki bölümü tarafından algılanan performans sorunlarını etkilenmiştir belirli sorguları hakkında bilgi sağlar. Bu bilgiler impact_s özelliğinde katıştırılmış nesneleri dizisi olarak açıktır. Varlıklar ve ölçümleri etki özelliğinin oluşur. Varlıkların belirli bir sorgu bakın (tür: Query). Benzersiz sorgu karma değeri (değer) özelliği altında açıklanır. Ayrıca, her duyurulmuş sorguların bir ölçüm ve bir değer tarafından algılanan performans sorunu olduğunu izler.
 
 Aşağıdaki günlük örnekte artan bir yürütme süresi olan karma 0x9102EXZ4 sorguyla algılandı (ölçüm: DurationIncreaseSeconds). Bu belirli bir sorgu yürütmek için artık 110 saniye sürdü 110 saniye değerini gösterir. Birden çok sorgu algılanabilir olduğundan, bu belirli günlük bölümünde birden çok sorgu girişi içerebilir.
 

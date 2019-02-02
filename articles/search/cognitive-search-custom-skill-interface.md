@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 01/29/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: deb72bcc41e20057b6e7b214c6a8c93655894a12
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: fe575a79fe2f47729e7c7fe039989b2c08af1282
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628281"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657833"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Bilişsel arama işlem hattı için özel bir yetenek ekleme
 
@@ -27,7 +27,14 @@ A [bilişsel arama dizini oluşturma ardışık düzeni](cognitive-search-concep
 
 ## <a name="web-api-custom-skill-interface"></a>Web API özel bir yetenek arabirimi
 
-Webapı beceri özel uç noktalar, 5 dakikalık penceresi içinde yanıt döndürmesi gerekir. Dizinleme işlem hattına uyumludur ve bu pencerede bir yanıt alınmazsa, dizin oluşturma zaman aşımı hatasına neden olur."
+Özel Webapı beceri uç noktaları tarafından 30 ve ikinci bir pencere içinde yanıt döndürmeyin, varsayılan zaman aşımı. Dizinleme işlem hattına uyumludur ve bu pencerede bir yanıt alınmazsa, dizin oluşturma zaman aşımı hatasına neden olur.  Zaman aşımı parametresi ayarlanarak en fazla 90 saniye olarak zaman aşımı yapılandırmak mümkündür:
+
+```json
+        "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "description": "This skill has a 90 second timeout",
+        "uri": "https://[your custom skill uri goes here]",
+        "timeout": "PT90S",
+```
 
 Şu anda, özel bir yetenek ile etkileşim kurmak için yalnızca bir Web API arabirimi üzerinden mekanizmadır. Web API'si, bu bölümde açıklanan gereksinimleri ihtiyaçlarını karşılaması gerekir.
 

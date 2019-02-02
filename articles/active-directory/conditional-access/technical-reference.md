@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9677f6e7f78f241c863fdd9cc88fcfb7298d9164
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302113"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563754"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -177,24 +177,27 @@ Koşullu erişim ilkenizi seçtiğiniz **mobil uygulamalar ve masaüstü istemci
 Bu ayar, aşağıdaki mobil uygulamalar ve masaüstü istemciler yapılan erişim denemesi üzerinde bir etkisi yoktur: 
 
 
-|İstemci uygulamaları|Hedef hizmeti|Platform|
-|---|---|---|
-|Azure RemoteApp|Azure RemoteApp hizmeti|Windows 10, Windows 8.1, Windows 7, iOS, Android ve Mac OS X|
-|Dynamics CRM uygulaması|Dynamics CRM|Windows 10, Windows 8.1, iOS ve Android|
-|Takvim/posta/kişiler uygulaması, Outlook 2016'ın, Outlook 2013 |Office 365 Exchange Online|Windows 10|
-|Uygulamalar için MFA ve konum ilkesi. Cihaz tabanlı ilkeler desteklenmez. |Herhangi bir uygulamalarım uygulama hizmeti|Android ve iOS|
-|Microsoft Teams Hizmetleri - bu, Microsoft Teams ve tüm istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS |
-|Office 2016 uygulamaları, Office 2013, OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016 uygulamaları, Evrensel Office uygulamaları, Office 2013, OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan|Office 365 SharePoint Online|Windows 10|
-|MacOS (Word, Excel, PowerPoint ve OneNote yalnızca) için Office 2016. OneDrive for Business desteği gelecek için planlanan|Office 365 SharePoint Online|Mac OS X|
-|Office mobil uygulamaları|Office 365 SharePoint Online|Android, iOS|
-|Office Yammer uygulaması|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016'ın (macOS için Office)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016'ın, Outlook 2013, Skype Kurumsal|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Outlook mobil uygulaması|Office 365 Exchange Online|Android, iOS|
-|Power BI uygulaması|Power BI hizmeti|Windows 10, Windows 8.1, Windows 7, Android ve iOS|
-|Skype Kurumsal|Office 365 Exchange Online|Android, IOS |
-|Azure DevOps uygulama|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
+| İstemci uygulamaları| Hedef hizmeti| Platform |
+| --- | --- | --- |
+| Azure RemoteApp| Azure RemoteApp hizmeti| Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS|
+| Dynamics CRM uygulaması| Dynamics CRM| Windows 10, Windows 8.1, iOS ve Android|
+| Takvim/posta/kişiler uygulaması, Outlook 2016'ın (modern kimlik doğrulaması ile) Outlook 2013| Office 365 Exchange Online| Windows 10|
+| Uygulamalar için MFA ve konum ilkesi. Cihaz tabanlı ilkeler desteklenmez.| Herhangi bir uygulamalarım uygulama hizmeti| Android ve iOS|
+| Microsoft Teams Hizmetleri - bu, Microsoft Teams ve tüm istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS|
+| Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Office 2016 uygulamaları, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan| Office 365 SharePoint Online| Windows 10|
+| Office 2016 (Word, Excel, PowerPoint, OneNote). OneDrive for Business desteği gelecek için planlanan| Office 365 SharePoint Online| macOS|
+| Office 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Office mobil uygulamaları| Office 365 SharePoint Online| Android, iOS|
+| Office Yammer uygulaması| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Outlook 2016'ın (macOS için Office)| Office 365 Exchange Online| macOS|
+| Outlook 2016, Outlook 2013 (modern kimlik doğrulaması ile) Skype Kurumsal'a (ile modern kimlik doğrulaması)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Outlook mobil uygulaması| Office 365 Exchange Online| Android, iOS|
+| Power BI uygulaması| Power BI hizmeti| Windows 10, Windows 8.1, Windows 7, Android ve iOS|
+| Skype Kurumsal| Office 365 Exchange Online| Android, IOS|
+| Visual Studio Team Services ile uygulama| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS ve Android|
+
 
 
 ## <a name="support-for-legacy-authentication"></a>Eski kimlik doğrulaması için destek
@@ -214,27 +217,33 @@ Koşullu erişim ilkenizi erişim onaylı istemci uygulama tarafından yapılmas
 Bu ayar, aşağıdaki istemci uygulamaları için geçerlidir:
 
 
-- Microsoft Intune Managed Browser
-- Microsoft PowerBI
-- Microsoft Invoicing
-- Microsoft Launcher
+
 - Microsoft Azure Information Protection
+- Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft Invoicing
 - Microsoft Kaizala 
+- Microsoft Launcher
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft PowerApps
+- Microsoft PowerBI
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype Kurumsal
 - Microsoft StaffHub
+- Microsoft Stream
 - Microsoft Teams
+- Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
-- Microsoft To-Do
-- Microsoft Stream
-- Microsoft Edge
+- Microsoft Yammer
+
+
 
 
 

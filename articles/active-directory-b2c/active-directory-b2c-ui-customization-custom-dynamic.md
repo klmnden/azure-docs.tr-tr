@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7e0064495cfb3d82c349a23d914195c5f211dc19
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7c17b873daf3cf77760f934b6c8a591f232b0c7b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187088"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658207"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkeler kullanarak dinamik içerik ile kullanıcı arabirimini yapılandırma
 
@@ -155,7 +155,7 @@ Bulun `<img>` öğesini içeren `ID` değer *background_background_image*ve ard�
     **App Service Oluştur** penceresi açılır. İçinde ASP.NET web uygulamasını Azure'da çalıştırmak için tüm gerekli Azure kaynaklarını oluşturmaya başlayabilirsiniz.
 
     > [!NOTE]
-    > Yayımlama hakkında daha fazla bilgi için bkz. [Azure'da bir ASP.NET web uygulaması oluşturma](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Yayımlama hakkında daha fazla bilgi için bkz. [Azure'da bir ASP.NET web uygulaması oluşturma](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. İçinde **Web uygulaması adı** benzersiz bir uygulama adı yazın (geçerli karakterler: a-z, A-Z, 0-9 ve tire (-). Web uygulamasının URL'si `http://<app_name>.azurewebsites.NET` şeklindedir; burada `<app_name>`, web uygulamanızın adıdır. Otomatik oluşturulmuş benzersiz adı kabul edebilirsiniz.
 

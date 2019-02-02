@@ -4,45 +4,43 @@ description: Azure’daki kaynakların dağıtımı, yönetimi ve erişim deneti
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/14/2019
+ms.date: 02/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: c447efba4fe6a3e3b969ea228a60e1ba8dd39f9d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 647a1c7f62b48438d209e3ffacd075414f2439f1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320880"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562785"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
-Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da üçüncü taraf hizmetler gibi birçok bileşenden meydana gelir. Bu bileşenleri ayrı varlıklar olarak göremeyebilirsiniz, bunun yerine bunları tek bir varlığın ilgili ve bağımlı bölümleri göreceksiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. Azure Resource Manager, çözümünüzdeki kaynaklar ile gruplar halinde çalışmanıza olanak sağlar. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar. 
 
-## <a name="consistent-management-layer"></a>Tutarlı yönetim katmanı
-Resource Manager'ı Azure portalından görevleri gerçekleştirmek için bir tutarlı yönetim katmanı sunar ve Azure Portalı'nda kullanılabilir olan tüm özellikleri, ayrıca Azure PowerShell, Azure CLI, Azure REST API'leri ve istemci SDK'ları kullanılabilir. İlk olarak API'lerle başlatılan işlevler 180 gün içinde portalda kullanıma sunulacaktır.
+Azure Resource Manager Azure için dağıtım ve yönetim hizmetidir. Bu, oluşturmak, güncelleştirmek ve Azure aboneliğinizdeki kaynakları silmek sağlayan bir tutarlı yönetim katmanı sağlar. Güvenli ve dağıtımdan sonra kaynaklarınızı düzenlemek için denetleme ve etiketleme özellikleri kendi erişim denetimini kullanabilirsiniz.
 
-Sizin için en uygun olan araçları ve API'leri kullanın. Tümü aynı özelliklere sahiptir ve aynı sonuçları sunar.
+Portal, PowerShell, Azure CLI, REST API veya istemci SDK'ları aracılığıyla eylemleri, Azure Resource Manager API'si isteği işler. Aynı API aracılığıyla işlenen tüm istekleri dolayı tutarlı sonuçlar ve farklı araçlar özelliklerini görebilirsiniz.
 
-Aşağıdaki görüntüde tüm araçların aynı Azure Resource Manager API’si ile nasıl etkileşimde bulunduğu gösterilmektedir. API, istekleri kimlik doğrulamasından geçiren ve yetkilendiren Resource Manager hizmetine iletir. Resource Manager da bu istekleri ilgili kaynak sağlayıcılarına yönlendirir.
+Aşağıdaki görüntüde nasıl tüm araçları, Azure Resource Manager API ile etkileşim kurar. API, istekleri kimlik doğrulamasından geçiren ve yetkilendiren Resource Manager hizmetine iletir. Kaynak Yöneticisi'ni, sonra istekleri uygun hizmete yönlendirir.
 
 ![Resource Manager istek modeli](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="terminology"></a>Terminoloji
+
 Azure Resource Manager’ı kullanmaya yeni başladıysanız bilmiyor olabileceğiniz bazı terimler vardır.
 
-* **kaynak** - Azure ile kullanılabilen yönetilebilir bir öğe. Sanal makine, depolama hesabı, web uygulaması, veritabanı ve sanal ağ bazı yaygın kaynaklardandır, ancak çok daha fazlası mevcuttur.
-* **kaynak grubu** - Bir Azure çözümü için ilgili kaynakları bir arada tutan bir kapsayıcıdır. Kaynak grubu yalnızca bir grup olarak yönetmek istediğiniz kaynakları içerir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz. Bkz. [Kaynak grupları](#resource-groups).
-* **kaynak sağlayıcısı** - Resource Manager aracılığıyla dağıtabileceğiniz ve yönetebileceğiniz kaynakları sağlayan bir hizmet. Her kaynak sağlayıcısı dağıtılan kaynaklarla çalışmaya yönelik işlemler sunar. Sanal makine kaynağı sağlayan Microsoft.Compute, depolama hesabı kaynağı sağlayan Microsoft.Storage ve web uygulamalarıyla ilgili kaynakları sağlayan Microsoft.Web bazı yaygın kaynak sağlayıcılarındandır. Bkz. [Kaynak sağlayıcıları](#resource-providers).
-* **Resource Manager şablonu** - Bir kaynak grubuna dağıtılacak bir veya daha fazla kaynağı tanımlayan JavaScript Nesne Gösterimi (JSON) dosyası. Ayrıca dağıtılan kaynaklar arasındaki bağımlılıkları tanımlar. Şablon, kaynakları tutarlı ve sürekli olarak dağıtmak için kullanılabilir. Bkz. [Şablon dağıtımı](#template-deployment).
+* **kaynak** - Azure ile kullanılabilen yönetilebilir bir öğe. Sanal makineler, depolama hesapları, web uygulamaları, veritabanları ve sanal ağlar kaynakları örnekleridir.
+* **kaynak grubu** - Bir Azure çözümü için ilgili kaynakları bir arada tutan bir kapsayıcıdır. Kaynak grubu yalnızca bir grup olarak yönetmek istediğiniz kaynakları içerir. Kaynak grupları kuruluşunuz için en uygun kılan bağlı kaynakları ayırmak nasıl karar sizin. Bkz. [Kaynak grupları](#resource-groups).
+* **Kaynak sağlayıcısı** -Azure kaynakları sağlayan bir hizmettir. Örneğin, ortak bir kaynak sağlayıcısı olan **Microsoft.Compute**, sanal makine kaynağı sağlar. **Microsoft.Storage** başka bir ortak kaynak sağlayıcısıdır. Bkz. [Kaynak sağlayıcıları](#resource-providers).
+* **Resource Manager şablonu** -bir kaynak grubuna veya aboneliğe dağıtmak için bir veya daha fazla kaynağı tanımlayan bir JavaScript nesne gösterimi (JSON) dosyası. Şablon, kaynakları tutarlı ve sürekli olarak dağıtmak için kullanılabilir. Bkz. [Şablon dağıtımı](#template-deployment).
 * **bildirim temelli söz dizimi** - Oluşturmaya yönelik programlama komutları dizisini yazmak zorunda kalmadan "Oluşturmak istediğiniz şeyi" belirtmenize imkan tanıyan söz dizimi. Resource Manager şablonu, bildirim temelli söz diziminin bir örneğidir. Dosya içinde Azure’a dağıtılacak altyapının özelliklerini tanımlarsınız. 
 
 ## <a name="the-benefits-of-using-resource-manager"></a>Resource Manager’ı kullanmanın avantajları
+
 Resource Manager çeşitli avantajlar sunar:
 
 * Çözümünüzdeki tüm kaynakları ayrı ayrı ele almak yerine bunları grup halinde dağıtabilir, yönetebilir ve izleyebilirsiniz.
@@ -56,43 +54,45 @@ Resource Manager çeşitli avantajlar sunar:
 ## <a name="guidance"></a>Rehber
 Çözümleriniz üzerinde çalışırken aşağıdaki önerilerden yararlanarak Resource Manager’dan tam anlamıyla yararlanabilirsiniz.
 
-1. Altyapınızı kesinlik temelli komutlar yerine Resource Manager şablonlarındaki bildirim temelli söz dizimini kullanarak tanımlayabilir ve dağıtabilirsiniz.
-2. Şablondaki tüm dağıtım ve yapılandırma adımlarını tanımlayın. Çözümünüzü ayarlarken el ile yapılan hiçbir adım olmaması gerekir.
-3. Kaynaklarınızı yönetirken, örneğin bir uygulamayı veya makineyi başlatırken ya da durdururken, kesinlik temelli komutlar çalıştırın.
-4. Kaynak grubundaki aynı yaşam döngüsüne sahip kaynakları düzenleyin. Diğer tüm düzenleyici kaynaklar için etiketler kullanın.
+* Altyapınızı kesinlik temelli komutlar yerine Resource Manager şablonlarındaki bildirim temelli söz dizimini kullanarak tanımlayabilir ve dağıtabilirsiniz.
+* Şablondaki tüm dağıtım ve yapılandırma adımlarını tanımlayın. Çözümünüzü ayarlarken el ile yapılan hiçbir adım olmaması gerekir.
+* Kaynaklarınızı yönetirken, örneğin bir uygulamayı veya makineyi başlatırken ya da durdururken, kesinlik temelli komutlar çalıştırın.
+* Kaynak grubundaki aynı yaşam döngüsüne sahip kaynakları düzenleyin. Diğer tüm düzenleyici kaynaklar için etiketler kullanın.
 
 Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
 
-Global Azure, Azure bağımsız bulutları ve Azure Stack genelinde kullanabileceğiniz Resource Manager şablonları oluşturma konusundaki öneriler için bkz. [Bulut tutarlılığı için Azure Resource Manager şablonları geliştirme](templates-cloud-consistency.md).
-
-[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
+Resource Manager şablonları oluşturmaya ilişkin öneriler için bkz. [Azure Resource Manager şablonu iyi](template-best-practices.md).
 
 ## <a name="resource-groups"></a>Kaynak grupları
 Kaynak gruplarınızı tanımlarken göz önüne almanız gereken bazı önemli faktörler bulunur:
 
-1. Grubunuzdaki tüm kaynaklar aynı yaşam döngüsünü paylaşmalıdır. Bunları birlikte dağıtır, güncelleştirir ve silersiniz. Veritabanı sunucusu gibi bir kaynağın farklı bir dağıtım döngüsünde bulunması gerekiyorsa, bu kaynak farklı bir kaynak grubuna konulmalıdır.
-2. Her kaynak yalnızca bir kaynak grubunda yer alabilir.
-3. Bir kaynak grubuna dilediğiniz zaman kaynak ekleyebilir veya kaldırabilirsiniz.
-4. Bir kaynağı, bir kaynak grubundan bir diğerine taşıyabilirsiniz. Daha fazla bilgi için bkz. [Kaynakları yeni kaynak grubuna veya aboneliğe taşıma](resource-group-move-resources.md).
-5. Bir kaynak grubu farklı bölgelerde bulunan kaynakları içerebilir.
-6. Bir kaynak grubu, yönetim eylemleri için erişim denetimini incelemek üzere kullanılabilir.
-7. Bir kaynak diğer kaynak gruplarındaki kaynaklarla etkileşim kurabilir. İki kaynak ilişkili olmasına karşın aynı yaşam döngüsünü paylaşmadığında (örneğin, bir veritabanına bağlanan web uygulamaları) bu etkileşim yaygın olarak görülür.
+* Grubunuzdaki tüm kaynaklar aynı yaşam döngüsünü paylaşmalıdır. Bunları birlikte dağıtır, güncelleştirir ve silersiniz. Veritabanı sunucusu gibi bir kaynağın farklı bir dağıtım döngüsünde bulunması gerekiyorsa, bu kaynak farklı bir kaynak grubuna konulmalıdır.
+* Her kaynak yalnızca bir kaynak grubunda yer alabilir.
+* Bir kaynak grubuna dilediğiniz zaman kaynak ekleyebilir veya kaldırabilirsiniz.
+* Bir kaynağı, bir kaynak grubundan bir diğerine taşıyabilirsiniz. Daha fazla bilgi için bkz. [Kaynakları yeni kaynak grubuna veya aboneliğe taşıma](resource-group-move-resources.md).
+* Bir kaynak grubu farklı bölgelerde bulunan kaynakları içerebilir.
+* Bir kaynak grubu, yönetim eylemleri için erişim denetimini incelemek üzere kullanılabilir.
+* Bir kaynak diğer kaynak gruplarındaki kaynaklarla etkileşim kurabilir. İki kaynak ilişkili olmasına karşın aynı yaşam döngüsünü paylaşmadığında (örneğin, bir veritabanına bağlanan web uygulamaları) bu etkileşim yaygın olarak görülür.
 
 Bir kaynak grubu oluştururken bu kaynak grubu için bir konum belirtmeniz gerekir. "Bir kaynak grubu için neden konum gerekli olsun? Ayrıca kaynaklar kaynak grubundan farklı konumlarda olabiliyorsa kaynak grubu konumu neden önemli olsun?" diye soruyor olabilirsiniz Kaynak grubu, kaynaklarla ilgili meta verileri depolar. Bu nedenle, kaynak grubu için bir konum belirttiğinizde meta verilerin nereye depolanacağını belirtirsiniz. Uyumluluk nedeniyle verilerinizin belirli bir bölgeye depolandığından emin olmanız gerekebilir.
 
 ## <a name="resource-providers"></a>Kaynak sağlayıcıları
-Her kaynak sağlayıcısı bir Azure hizmetiyle çalışmaya yönelik bir dizi kaynak ve işlem sunar. Örneğin, anahtarları ve parolaları saklamak isterseniz **Microsoft.KeyVault** kaynak sağlayıcısı ile çalışırsınız. Bu kaynak sağlayıcısı, anahtar kasasını oluşturmak için **vaults** adlı bir kaynak türü sağlar. 
 
-Kaynak türü adı şu biçimdedir: **{kaynak-sağlayıcısı}/{kaynak-türü}**. Örneğin, anahtar kasası türü şu şekildedir: **Microsoft.KeyVault/vaults**.
+Her kaynak sağlayıcısı, bir dizi kaynak ve bu kaynaklarla çalışmak için işlem sunar. Örneğin, anahtarları ve parolaları saklamak isterseniz **Microsoft.KeyVault** kaynak sağlayıcısı ile çalışırsınız. Bu kaynak sağlayıcısı, anahtar kasasını oluşturmak için **vaults** adlı bir kaynak türü sağlar.
+
+Kaynak türü adı şu biçimdedir: **{kaynak-sağlayıcısı}/{kaynak-türü}**. Kaynak türü için bir anahtar kasası **Microsoft.KeyVault/vaults**.
 
 Kaynaklarınızı dağıtmaya başlamadan önce kullanılabilir kaynak sağlayıcılarını anlamanız gerekir. Kaynak sağlayıcılarının ve kaynakların adlarını bilmeniz, Azure’a dağıtmak istediğiniz kaynakları tanımlamanıza yardımcı olur. Ayrıca her bir kaynak türü için geçerli konumları ve API sürümlerini bilmeniz gerekir. Daha fazla bilgi için bkz. [Kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md).
 
+Kaynak sağlayıcıları tarafından sunulan tüm işlemler için bkz: [Azure REST API'leri](/rest/api/azure/).
+
 ## <a name="template-deployment"></a>Şablon dağıtımı
-Resource Manager’ı kullanarak Azure çözümünüzün altyapısını ve yapılandırmasını tanımlayan bir şablon (JSON biçiminde) oluşturabilirsiniz. Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. Portaldan bir çözüm oluşturduğunuzda çözüm otomatik olarak bir dağıtım şablonu içerir. Bir şablonla başlayacağınız ve bu şablonu size özel ihtiyaçlara göre özelleştirebileceğiniz için yeni bir şablon oluşturmanız gerekmez. Bir örnek için bkz. [hızlı başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md). Ayrıca kaynak grubunun mevcut durumunu dışarı aktararak veya belirli bir dağıtım için kullanılan şablonu görüntüleyerek mevcut kaynak grubu için bir şablon elde edebilirsiniz. [Dışarı aktarılan şablonu](resource-manager-export-template.md) görüntülemek şablon söz dizimi hakkında bilgi edinmek için yararlı bir yoldur.
 
-Biçimi şablon ve nasıl oluşturulacağı hakkında bilgi edinmek için [hızlı başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md). Kaynak türleri için JSON söz dizimini görüntülemek üzere bkz. [Azure Resource Manager şablonlarında kaynak tanımlama](/azure/templates/).
+Resource Manager’ı kullanarak Azure çözümünüzün altyapısını ve yapılandırmasını tanımlayan bir şablon (JSON biçiminde) oluşturabilirsiniz. Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. 
 
-Resource Manager, şablonu diğer istekler gibi işler ([Tutarlı yönetim katmanı](#consistent-management-layer) görüntüsüne bakın). Şablonu ayrıştırarak söz dizimini ilgili kaynak sağlayıcıları için REST API işlemlerine dönüştürür. Örneğin, Resource Manager aşağıdaki kaynak tanımına sahip bir şablonu aldığında:
+Biçimi şablon ve nasıl oluşturulacağı hakkında bilgi edinmek için [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](resource-group-authoring-templates.md). Kaynak türleri için JSON söz dizimini görüntülemek üzere bkz. [Azure Resource Manager şablonlarında kaynak tanımlama](/azure/templates/).
+
+Resource Manager şablonu diğer istekler gibi işler. Şablonu ayrıştırarak söz dizimini ilgili kaynak sağlayıcıları için REST API işlemlerine dönüştürür. Örneğin, Resource Manager aşağıdaki kaynak tanımına sahip bir şablonu aldığında:
 
 ```json
 "resources": [
@@ -144,13 +144,15 @@ Katmanlarınızın farklı yaşam döngülerine sahip olacağını düşünüyor
 
 Azure Resource Manager kaynakların doğru sırada oluşturulmasını sağlamak için bağımlılıkları analiz eder. Bir kaynak başka bir kaynaktaki değere bağımlıysa (diskler için depolama hesabına ihtiyaç duyan bir sanal makine gibi) bir bağımlılık ayarlayın. Daha fazla bilgi için bkz. [Azure Resource Manager’da bağımlılıkları tanımlama](resource-group-define-dependencies.md).
 
-Ayrıca, şablonu altyapıda yapılan güncelleştirmeler için kullanabilirsiniz. Örneğin, çözümünüze bir kaynak ekleyebilir ve zaten dağıtılmış kaynaklar için yapılandırma kuralları ekleyebilirsiniz. Şablon zaten var olan bir kaynak için bir kaynak oluşturulmasını belirtiyorsa, Azure Resource Manager yeni bir varlık oluşturmak yerine bir güncelleştirme gerçekleştirir. Azure Resource Manager varlığı yeni oluşturulacak kaynak ile aynı duruma gelecek şekilde güncelleştirir.  
+Ayrıca, şablonu altyapıda yapılan güncelleştirmeler için kullanabilirsiniz. Örneğin, çözümünüze bir kaynak ekleyebilir ve zaten dağıtılmış kaynaklar için yapılandırma kuralları ekleyebilirsiniz. Şablon zaten var olan bir kaynak tanımlıyorsa, Resource Manager yeni bir tane oluşturmak yerine var olan kaynak güncelleştirir.  
 
 Resource Manager, kurulumun içermediği belirli bir yazılımı yükleme gibi ek işlemlere ihtiyaç duymanız halinde size uzantılar sunar. Zaten DSC, Chef veya Puppet gibi bir yapılandırma yönetim hizmeti kullanıyorsanız, uzantıları kullanarak bu hizmetle çalışmaya devam edebilirsiniz. Sanal makine uzantıları hakkında daha fazla bilgi için bkz. [Sanal makine uzantıları ve özellikleri hakkında](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
+Portaldan bir çözüm oluşturduğunuzda çözüm otomatik olarak bir dağıtım şablonu içerir. Bir şablonla başlayacağınız ve bu şablonu size özel ihtiyaçlara göre özelleştirebileceğiniz için yeni bir şablon oluşturmanız gerekmez. Bir örnek için bkz. [hızlı başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md). Ayrıca kaynak grubunun mevcut durumunu dışarı aktararak veya belirli bir dağıtım için kullanılan şablonu görüntüleyerek mevcut kaynak grubu için bir şablon elde edebilirsiniz. [Dışarı aktarılan şablonu](resource-manager-export-template.md) görüntülemek şablon söz dizimi hakkında bilgi edinmek için yararlı bir yoldur.
+
 Son olarak, uygulamanızın kaynak kodunun bir parçası haline gelir. Bunu kaynak kod deponuza dahil edebilir ve uygulamanız geliştikçe buna göre güncelleştirebilirsiniz. Visual Studio üzerinden şablonu düzenleyebilirsiniz.
 
-Şablonunuzu tanımladıktan sonra kaynakları Azure'a dağıtmak için hazır olursunuz. Kaynakları dağıtma komutları için bkz.:
+Şablonunuzu tanımladıktan sonra kaynakları Azure'a dağıtmak için hazır olursunuz. Kaynakları dağıtmak için bkz:
 
 * [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](resource-group-template-deploy.md)
 * [Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](resource-group-template-deploy-cli.md)
@@ -163,92 +165,7 @@ Karmaşık bir hizmeti Azure’a dağıtırken, hizmetinizi birden çok bölgeye
 
 Dağıtım Yöneticisi şu anda özel önizleme aşamasındadır.
 
-## <a name="tags"></a>Etiketler
-Resource Manager, kaynakları yönetme ve fatura gereksinimlerine göre kategorize etmenize olanak tanıyan bir etiketleme özelliği sunar. Karmaşık bir kaynak grubu ve kaynak koleksiyonunuz olduğunda ve bu varlıkları sizin için anlamlı bir şekilde görselleştirmeniz gerektiğinde etiketleri kullanabilirsiniz. Örneğin, kuruluşunuzda benzer görevleri üstlenen veya aynı departmana ait olan kaynakları etiketleyebilirsiniz. Kuruluşunuzdaki kullanıcılar etiketleri kullanmadan birden fazla kaynak oluşturduğunda, bunları daha sonra tanımlamak ve yönetmek zor olabilir. Örneğin, belirli bir projenin tüm kaynaklarını silmek isteyebilirsiniz. Kaynaklar proje için etiketlenmemişse bunları el ile bulmanız gerekir. Etiketleme, aboneliğinizden doğan gereksiz maliyetleri azaltmanın önemli bir yoludur. 
-
-Kaynakların bir etiketi paylaşması için aynı kaynak grubunda bulunmaları gerekmez. Kuruluşunuzdaki tüm kullanıcıların yanlışlıkla birbirinden kısmen farklı etiketler (örneğin “departman” yerine “depart.”) kullanmak yerine genel etiketler kullanmasını sağlamak için kendi etiket sınıflandırmanızı oluşturabilirsiniz.
-
-Aşağıdaki örnekte sanal makineye uygulanan bir etiket gösterilmektedir.
-
-```json
-"resources": [    
-  {
-    "type": "Microsoft.Compute/virtualMachines",
-    "apiVersion": "2015-06-15",
-    "name": "SimpleWindowsVM",
-    "location": "[resourceGroup().location]",
-    "tags": {
-        "costCenter": "Finance"
-    },
-    ...
-  }
-]
-```
-
-Aboneliğinize ait [kullanım raporu](../billing/billing-understand-your-bill.md), maliyetleri etiketlere göre ayırmanızı sağlayan etiket adları ve değerler içerir. Etiketler hakkında daha fazla bilgi için bkz. [Etiketleri kullanarak Azure kaynaklarınızı düzenleme](resource-group-using-tags.md).
-
-## <a name="access-control"></a>Erişim denetimi
-Resource Manager, belirli eylemlere kuruluşunuzda kimlerin erişebildiğini denetlemenize olanak tanır. Rol tabanlı erişim denetimini (RBAC) doğrudan yönetim platformu ile tümleştirir ve bu erişim denetimini kaynak grubunuzdaki tüm hizmetlere uygular. 
-
-Rol tabanlı erişim denetimi ile çalışırken anlamanız gereken iki ana kavram vardır:
-
-* Rol tanımları: Bir izin kümesini açıklar ve birden fazla atama için kullanılabilir.
-* Rol atamaları: Belirli bir kapsam (abonelik, kaynak grubu veya kaynak) için bir tanımı bir kimlikle (kullanıcı veya grup) ilişkilendirir. Atama, alt kapsamlar tarafından devralınır.
-
-Kullanıcıları önceden tanımlanmış platforma ve kaynağa özgü rollere ekleyebilirsiniz. Örneğin, kullanıcıların kaynakları görüntülemesine izin veren, ancak değiştirmesine izin vermeyen Okuyucu adlı önceden tanımlanmış rolden yararlanabilirsiniz. Kuruluşunuzda Okuyucu rolüne bu tür bir erişimin gerektiği kullanıcılar ekler ve bu rolü aboneliğe, kaynak grubuna ya da kaynağa uygularsınız.
-
-Azure aşağıdaki dört platform rolünü sağlar:
-
-1. Sahip - erişim dahil her şeyi yönetebilir
-2. Katılımcı - erişim dışında her şeyi yönetebilir
-3. Okuyucu - her şeyi görüntüleyebilir, ancak değişiklik yapamaz
-4. Kullanıcı Erişimi Yöneticisi - Azure kaynaklarına kullanıcı erişimini yönetebilir
-
-Azure ayrıca kaynağa özgü birkaç rol sağlar. Yaygın olanlarından bazıları şunlardır:
-
-1. Sanal Makine Katılımcısı - sanal makineleri yönetebilir, ancak sanal makinelere erişim veremez ve bunların bağlı olduğu sanal ağı ya da depolama hesabını yönetemez
-2. Ağ Katılımcısı - tüm ağ kaynaklarını yönetebilir, ancak bunlara erişimi veremez
-3. Depolama Hesabı Katılımcısı - Depolama hesaplarını yönetebilir, ancak bunlara erişimi veremez
-4. SQL Server Katılımcısı - SQL sunucularını ve veritabanlarını yönetebilir, ancak güvenlikle ilgili ilkelerini yönetemez
-5. Web Sitesi Katılımcısı - Web sitelerini yönetebilir, ancak bağlı oldukları web planlarını yönetemez
-
-Rolleri ve izin verilen eylemlerin tam listesi için bkz: [RBAC: Yerleşik roller](../role-based-access-control/built-in-roles.md). Rol tabanlı erişim denetimi hakkında daha fazla bilgi için bkz. [Azure Rol Tabanlı Erişim Denetimi](../role-based-access-control/role-assignments-portal.md). 
-
-Bazı durumlarda, kaynaklara erişen bir kod ya da komut dosyası çalıştırmak istersiniz, ancak bunu bir kullanıcının kimlik bilgileri altında çalıştırmayı istemezsiniz. Bunun yerine, uygulama için hizmet sorumlusu adlı bir kimlik oluşturmak ve hizmet sorumlusu için uygun rolü atamak istersiniz. Resource Manager, uygulama için kimlik bilgileri oluşturmanızı ve uygulamanın kimliğini programlı olarak doğrulamanızı sağlar. Hizmet sorumluları oluşturma hakkında bilgi için aşağıdaki konulardan birine bakın:
-
-* [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure CLI kullanma](resource-group-authenticate-service-principal-cli.md)
-* [Kaynaklara erişebilen bir Azure Active Directory uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](../active-directory/develop/howto-create-service-principal-portal.md)
-
-Kullanıcıların kritik kaynakları silmesini ve değiştirmesini önlemek için bunları açıkça kilitleyebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager ile kaynakları kilitleme](resource-group-lock-resources.md).
-
-## <a name="customized-policies"></a>Özelleştirilmiş ilkeler
-Resource Manager kaynaklarınızı yönetmek üzere özelleştirilmiş ilkeler oluşturmanıza olanak tanır Oluşturduğunuz ilke türleri çeşitli senaryolar içerebilir. Kaynaklar üzerinde bir adlandırma kuralı uygulayabilir, hangi kaynak türlerinin ve örneklerinin dağıtılabileceğini sınırlayabilir veya hangi bölgelerin bir kaynak türünü barındırabileceğini sınırlayabilirsiniz. Faturaları bölümlere göre düzenlemek için kaynaklar üzerinde bir etiket değeri olmasını isteyebilirsiniz. Aboneliğinizin maliyetlerini düşürmeye ve tutarlılık sağlanmasına yardımcı olmak üzere ilkeler oluşturabilirsiniz. 
-
-Oluşturabileceğiniz birçok ilke türü daha vardır. Daha fazla bilgi için bkz. [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md).
-
-## <a name="sdks"></a>SDK’lar
-Azure SDK'ları birden çok dil ve platform için kullanılabilir. Bu dil uygulamalarının her biri ekosistem paket yöneticisi ve GitHub üzerinden kullanılabilir.
-
-Açık Kaynak SDK depoları aşağıda verilmiştir.
-
-* [.NET için Azure SDK](https://github.com/Azure/azure-sdk-for-net)
-* [Java için Azure Yönetim Kitaplıkları](https://github.com/Azure/azure-sdk-for-java)
-* [Node.js için Azure SDK](https://github.com/Azure/azure-sdk-for-node)
-* [PHP için Azure SDK](https://github.com/Azure/azure-sdk-for-php)
-* [Python için Azure SDK](https://github.com/Azure/azure-sdk-for-python)
-* [Ruby için Azure SDK](https://github.com/Azure/azure-sdk-for-ruby)
-
-Kaynaklarınızla bu dili kullanma hakkında daha fazla bilgi için bkz:
-
-* [.NET geliştiricileri için Azure](/dotnet/azure/?view=azure-dotnet)
-* [Java geliştiricileri için Azure](/java/azure/)
-* [Node.js geliştiricileri için Azure](/nodejs/azure/)
-* [Python geliştiricileri için Azure](/python/azure/)
-
-> [!NOTE]
-> SDK gerekli işlevleri sağlamıyorsa doğrudan [Azure REST API'sine](https://docs.microsoft.com/rest/api/resources/) de çağrı yapabilirsiniz.
-
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

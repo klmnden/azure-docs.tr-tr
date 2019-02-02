@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: 9647522f4b3990d065f292f05934b8d19c691454
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865531"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565250"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Ölçeği genişletilen bulut veritabanlarını yönetme
 
@@ -81,8 +81,8 @@ Azure SQL veritabanlarından oluşan özel gruplar belirleyip işin çalıştır
 2. Daha fazla işlevsellik zamanlamaları ekleme ve/veya sonuç kümelerini bir araya getirmek üzere veritabanı özel tanımlı koleksiyonlar, örneğin oluşturma, erişim için PowerShell API'lerini kullanın. Basit yükleme ve yürütme karşı sınırlı iş oluşturma/izlemek için portalı kullanma bir **elastik havuz**.
 3. İş yürütme için şifrelenmiş kimlik bilgileri oluşturun ve [grubundaki her veritabanı kullanıcı (veya rol) eklemek](sql-database-security-overview.md).
 4. Bir kez etkili gruptaki her bir veritabanında çalıştırın T-SQL betiği oluşturun.
-5. Azure portalını kullanarak işleri oluşturmak için aşağıdaki adımları izleyin: [oluşturma ve elastik veritabanı işleri yönetme](sql-database-elastic-jobs-create-and-manage.md).
-6. Veya PowerShell betikleri kullanın: [oluşturma ve yönetme (Önizleme) PowerShell kullanarak SQL veritabanı elastik veritabanı işleri](sql-database-elastic-jobs-powershell.md).
+5. Azure portalını kullanarak işleri oluşturmak için aşağıdaki adımları izleyin: [Elastik veritabanı işleri oluşturmaya ve yönetmeye](sql-database-elastic-jobs-create-and-manage.md).
+6. Veya PowerShell betikleri kullanın: [PowerShell (Önizleme) kullanarak SQL veritabanı elastik veritabanı işleri oluşturmak ve yönetmek](sql-database-elastic-jobs-powershell.md).
 
 ## <a name="idempotent-scripts"></a>Bir kez etkili betikler
 
@@ -116,7 +116,7 @@ Parça kümesi grupları kullanılarak oluşturulur [esnek veritabanı araçlar�
 
 Aşağıdaki bileşenler yönetim işlemleri geçici yürütülmesini sağlayan bir Azure bulut hizmeti oluşturmak için birlikte çalışır. Bileşenler yüklenir ve aboneliğinizdeki kurulumu sırasında otomatik olarak yapılandırılır. Otomatik olarak oluşturulan aynı ada sahip oldukları tüm gibi hizmetleri tanımlayabilirsiniz. Ad benzersiz olduğu ve "21 rastgele oluşturulmuş karakterlerinin izlediği önek edj" oluşur.
 
-- Azure bulut hizmeti
+- Azure Cloud Service
 
   Elastik veritabanı işleri (Önizleme) yürütülmesi gereken görevleri gerçekleştirmek için bir müşteri barındırılan Azure bulut hizmeti olarak sunulur. Portaldan hizmetin dağıtılmış ve barındırılan Microsoft Azure aboneliğiniz. Varsayılan hizmeti çalıştığında en yüksek kullanılabilirlik için iki çalışan rolleri ile dağıtılabilir. Her bir çalışan rolü (ElasticDatabaseJobWorker) varsayılan boyutu A0 örneği üzerinde çalışır. Fiyatlandırma için bkz [bulut Hizmetleri fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/).
 
@@ -137,8 +137,8 @@ Aşağıdaki bileşenler yönetim işlemleri geçici yürütülmesini sağlayan 
 1. Azure SQL veritabanı atanmış bir **denetimi veritabanı** tüm meta verileri ve Durum verilerini depolar.
 2. Denetim veritabanı tarafından erişilen **iş hizmeti** başlatın ve işleri yürütmek için izleyebilirsiniz.
 3. İki farklı roller denetimi veritabanıyla iletişim kurar:
-   - Denetleyici: İstenen iş ve yeniden denemeleri başarısız olan işler, yeni iş görevleri oluşturarak yerine getirilmesi gereken görevler hangi işlerin gerektiren belirler.
-   - İş görevi yürütmede: İş görevleri gerçekleştirir.
+   - Denetleyici: Yeni iş görevleri oluşturarak yeniden denemeleri başarısız olan işler ve istenen iş gerçekleştirilecek görevler hangi işlerin gerektiren belirler.
+   - İş görevi yürütmede: İş görevleri yürütür.
 
 ### <a name="job-task-types"></a>Proje Görev türleri
 

@@ -1,5 +1,5 @@
 ---
-title: Bulutta .NET Core ve VS Code kullanarak Kubernetes geliştirme ortamı oluşturma | Microsoft Docs
+title: .NET Core ve VS Code kullanarak bulutta Kubernetes geliştirme alanı oluşturma | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -10,14 +10,14 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: b51bf83d2e44239ebd6bc17e25efaa2fe94250f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f053f2f70b266a53684f72ceb9d997a718c66444
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467144"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663919"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-net-core"></a>.NET Core ile Azure Dev Spaces'da Çalışmaya Başlama
+# <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Azure geliştirme alanları .NET Core ile çalışmaya başlama
 
 Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -245,4 +245,4 @@ Tarayıcıda web uygulamasını yenileyin ve Hakkında sayfasına gidin. Özel i
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Ekip geliştirmesi hakkında bilgi edinme](team-development-netcore.md)
+> [Birden çok hizmet geliştirme hakkında bilgi edinin](multi-service-netcore.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 529758a7b9fe4c8b669ade72273335389020fb65
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5054fdc08c7a0a1b3833ed95784f6018ac5c697e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451212"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659261"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Uzantıları Yükleme Linux vm'lerinde kısıtlamak için Azure İlkesi'ni kullanın
 
@@ -115,7 +115,7 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>İlke atama
 
-Bu örnekte kullanarak bir kaynak grubu İlkesi atar [az ilke ataması oluşturma](/cli/azure/policy/assignment#az_policy_assignment_create). Herhangi bir VM oluşturduğunuz **myResourceGroup** kaynak grubu Linux için Linux VM erişimi ya da özel betik uzantıları yükleme mümkün olmayacak. İlkeyi atadığınız önce kaynak grubunun mevcut olması gerekir.
+Bu örnekte kullanarak bir kaynak grubu İlkesi atar [az ilke ataması oluşturma](/cli/azure/policy/assignment). Herhangi bir VM oluşturduğunuz **myResourceGroup** kaynak grubu Linux için Linux VM erişimi ya da özel betik uzantıları yükleme mümkün olmayacak. İlkeyi atadığınız önce kaynak grubunun mevcut olması gerekir.
 
 Kullanma [az hesabı listesi](/cli/azure/account?view=azure-cli-latest#az_account_list) yerine bir örnek kullanmak için abonelik Kimliğinizi almak için.
 

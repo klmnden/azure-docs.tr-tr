@@ -4,17 +4,17 @@ description: Azure Blueprints, Azure ortamınızda yapıt oluşturmak, tanımlam
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246254"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563380"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints nedir?
 
@@ -56,17 +56,14 @@ Bir ilke birçok biri olarak dahil edilebilir _yapıtları_ bir şema tanımı. 
 
 |Kaynak  | Hiyerarşi seçenekleri| Açıklama  |
 |---------|---------|---------|
-|Kaynak Grupları     | Abonelik | Şema içindeki diğer yapıtlar tarafından kullanılacak yeni bir kaynak grubu oluşturur.  Bu yer tutucu kaynak grupları, kaynakları tam olarak istediğiniz yapıda düzenlemenizi sağlar ve dahil olan ilke ve rol ataması yapıtlarına ek olarak Azure Resource Manager şablonları için kapsam sınırlayıcı olarak görev yapar.         |
-|Azure Resource Manager şablonu      | Abonelik, Kaynak Grubu | Şablonlar, karmaşık ortamlar oluşturmak için kullanılır. Örnek ortamlar: SharePoint grubu, Azure Otomasyonu Durum Yapılandırması veya Log Analytics çalışma alanı. |
-|İlke Ataması     | Abonelik, Kaynak Grubu | Bir ilkenin veya girişimin, şemanın atanmış olduğu aboneliğe atanmasını sağlar. İlke veya girişimin şema kapsamında olması gerekir (şema yönetim grubunda veya altında). İlke veya girişimde parametre varsa bu parametreler şema oluşturma veya şema ataması sırasında atanır.       |
-|Rol Ataması   | Abonelik, Kaynak Grubu | Kaynaklarınıza her zaman doğru kişilerin doğru şekilde erişmesini sağlamak için var olan bir kullanıcıyı veya grubu yerleşik role ekleyin. Rol atamaları aboneliğin tamamı için tanımlanabilir veya şemada bulunan belirli bir kaynak grubuna yerleştirilebilir. |
+|Kaynak Grupları | Abonelik | Şema içindeki diğer yapıtlar tarafından kullanılacak yeni bir kaynak grubu oluşturur.  Bu yer tutucu kaynak grupları, kaynakları tam olarak istediğiniz yapıda düzenlemenizi sağlar ve dahil olan ilke ve rol ataması yapıtlarına ek olarak Azure Resource Manager şablonları için kapsam sınırlayıcı olarak görev yapar. |
+|Azure Resource Manager şablonu | Abonelik, Kaynak Grubu | Şablonlar, karmaşık ortamlar oluşturmak için kullanılır. Örnek ortamlar: SharePoint grubu, Azure Otomasyonu Durum Yapılandırması veya Log Analytics çalışma alanı. |
+|İlke Ataması | Abonelik, Kaynak Grubu | Bir ilkenin veya girişimin, şemanın atanmış olduğu aboneliğe atanmasını sağlar. İlke veya girişim şema tanımı konumu kapsamında olması gerekir. İlke veya girişimde parametre varsa bu parametreler şema oluşturma veya şema ataması sırasında atanır. |
+|Rol Ataması | Abonelik, Kaynak Grubu | Kaynaklarınıza her zaman doğru kişilerin doğru şekilde erişmesini sağlamak için var olan bir kullanıcıyı veya grubu yerleşik role ekleyin. Rol atamaları aboneliğin tamamı için tanımlanabilir veya şemada bulunan belirli bir kaynak grubuna yerleştirilebilir. |
 
-### <a name="blueprints-and-management-groups"></a>Şemalar ve yönetim grupları
+### <a name="blueprint-definition-locations"></a>Şema tanımı konumları
 
-Şema tanımı oluştururken şemanın kaydedileceği yeri de tanımlarsınız. Şemalar şu an için yalnızca **Katkıda bulunan** erişimine sahip olduğunuz bir [yönetim grubuna](../management-groups/overview.md) kaydedilebilir. Kaydedilen şema ilgili yönetim grubunun tüm alt öğelerine (abonelik) atanabilir.
-
-> [!IMPORTANT]
-> Herhangi bir yönetim grubuna erişiminiz yoksa veya yönetim grubu yapılandırılmamışsa şema tanımlarının listesi yüklendiğinde herhangi bir giriş gösterilmez ve **Kapsam**'a tıkladığınızda yönetim gruplarını alma uyarısının görüntülendiği bir pencere açılır. Bu sorunu çözmek için uygun erişime sahip olduğunuz bir aboneliğin [yönetim grubunun](../management-groups/overview.md) bir parçası olduğundan emin olun.
+Şema tanımı oluştururken şemanın kaydedileceği yeri de tanımlarsınız. Blueprint kaydedilebilir bir [yönetim grubu](../management-groups/overview.md) veya sahip olduğunuz abonelik **katkıda bulunan** erişim. Konum, bir yönetim grubu ise, şema o yönetim grubunun tüm alt aboneliğe atamak kullanılabilir.
 
 ### <a name="blueprint-parameters"></a>Şema parametreleri
 
@@ -101,7 +98,7 @@ Bir şemanın **Yayımlanmış** tüm **Sürümleri** var olan bir aboneliğe at
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> Şema tanımları yönetim grubunda oluşturulduğundan şema tanımı izinlerinin yönetim grubu kapsamında verilmesi veya yönetim grubu kapsamında devralınması gerekir.
+> Şema tanımı izinleri verilir veya miras kaydedildiği yeri yönetim grubuna veya aboneliğe kapsamının üzerinde.
 
 Bir şemayı atamak veya atamasını kaldırmak için hesabınız şu izinlere sahip olmalıdır:
 

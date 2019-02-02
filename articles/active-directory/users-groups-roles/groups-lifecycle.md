@@ -14,12 +14,12 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 98ed7ce3eb58aa870a3cb06864631cd108410195
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 12b23b8a062859da111a067b2655425a611b6c20
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508751"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658258"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 grupları için süre sonu ilkesi yapılandırma
 
@@ -53,15 +53,16 @@ Silinen bir grubu geri yüklemek için izinler hakkında daha fazla bilgi için 
   
   ![Sona erme dikey penceresi](./media/groups-lifecycle/expiration-settings.png)
 
-4. Üzerinde **sona erme** dikey penceresinde şunları yapabilirsiniz:
+3. Üzerinde **sona erme** dikey penceresinde şunları yapabilirsiniz:
 
   * Grup ömrü gün olarak ayarlayın. Bir hazır değer ya da özel bir değer (31 gün veya daha fazla olmalıdır) seçebilirsiniz. 
   * Bir grup sahibi olduğunda burada yenileme ve süre sonu bildirimleri gönderilmesi gereken bir e-posta adresi belirtin. 
   * Office 365 grupları sona seçin. Süre sonu için etkinleştirebilirsiniz **tüm** Office 365 grupları seçebilirsiniz yalnızca etkinleştirmek **seçili** veya Office 365 grupları seçin **hiçbiri**  tüm grupları için sona erme devre dışı bırakmak için.
   * Seçerek işiniz bittiğinde, ayarlarınızı kaydetmek **Kaydet**.
 
+## <a name="email-notifications"></a>E-posta bildirimleri
 
-Bunun gibi e-posta bildirimleri 30 gün, 15 gün ve 1 gün grubun sona erme tarihinden önce Office 365 grup sahiplerine gönderilir.
+Bunun gibi e-posta bildirimleri 30 gün, 15 gün ve 1 gün grubun sona erme tarihinden önce Office 365 grup sahiplerine gönderilir. E-posta dili grupları sahibinin tercih edilen dil veya Kiracı dil tarafından belirlenir. Grup sahibi tercih edilen bir dil tanımlanmış veya aynı tercih edilen dili birden fazla sahibe sahip, dil kullanılır. Diğer tüm durumlarda için Kiracı dili kullanılır.
 
 ![Sona erme e-posta bildirimi](./media/groups-lifecycle/expiration-notification.png)
 

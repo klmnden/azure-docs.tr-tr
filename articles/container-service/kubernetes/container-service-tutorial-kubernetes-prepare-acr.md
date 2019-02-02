@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c3e5e7c4fb46b3f68013ac857dcad2e5434a978d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d0107e09bf8706ba7d4c813814103ca109262d8d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998304"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657408"
 ---
 # <a name="deprecated-deploy-and-use-azure-container-registry"></a>(KULLANIM DIŞI) Azure Container Registry'yi dağıtma ve kullanma
 
 > [!TIP]
-> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [öğretici: Azure Container Registry'yi dağıtma ve kullanma](../../aks/tutorial-kubernetes-prepare-acr.md).
+> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [Öğreticisi: Azure Container Registry'yi dağıtma ve kullanma](../../aks/tutorial-kubernetes-prepare-acr.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -74,7 +74,7 @@ Mevcut görüntülerin listesini görüntülemek için [docker images](https://d
 docker images
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -103,7 +103,7 @@ Etiketledikten sonra, işlemi doğrulamak için [docker images](https://docs.doc
 docker images
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
@@ -133,7 +133,7 @@ Azure Container Registry’nize gönderilen görüntülerin listesini döndürme
 az acr repository list --name <acrName> --output table
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 Result
@@ -141,13 +141,13 @@ Result
 azure-vote-front
 ```
 
-Sonra, belirli bir görüntünün etiketlerini görmek için [az acr repository show-tags](/cli/azure/acr/repository#show-tags) komutunu kullanın.
+Sonra, belirli bir görüntünün etiketlerini görmek için [az acr repository show-tags](/cli/azure/acr/repository) komutunu kullanın.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 Result

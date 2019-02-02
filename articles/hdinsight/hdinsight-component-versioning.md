@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 3a8b3a22eb4bdaed0142f8afc6f92128be32eca3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4b9c57785b9b3176def495af6bc5956d70fa5c35
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971129"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657918"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
@@ -76,9 +76,9 @@ Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yönteml
 
 | HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure Portal kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 <br> (Önizleme) |HDP 3.0 |16.0.4 ubuntu LTS |24 Eylül 2018 | | |Evet |Evet |
-| HDInsight 3.6 |HDP 2.6 |16.0.4 ubuntu LTS |4 Nisan 2017 | | |Evet |Evet |
-| HDInsight 3.5 <br> (Spark) * |HDP 2.6 |16.0.4 ubuntu LTS |30 Eylül 2016 |13 Mart 2019 |13 Mart 2019 |Evet |Evet |
+| HDInsight 4.0 <br> (Önizleme) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 Eylül 2018 | | |Evet |Evet |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 Nisan 2017 | | |Evet |Evet |
+| HDInsight 3.5 <br> (Spark) * |HDP 2.6 |Ubuntu 16.0.4 LTS |30 Eylül 2016 |13 Mart 2019 |13 Mart 2019 |Evet |Evet |
 
 *&ast; Spark küme türleri için yalnızca HDInsight 3.5 desteği genişletildi*
 
@@ -92,10 +92,10 @@ Aşağıdaki tabloda, HDInsight sürümleri listelenmiştir **değil** Azure Por
 
 | HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure Portal kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 <br> (Spark olmayan) |HDP 2.5 |16.0.4 ubuntu LTS |30 Eylül 2016 |5 Eylül 2017 |28 Haziran 2018 |Evet |Hayır |
-| HDInsight 3.4 |HDP 2.4 |14.0.4 ubuntu LTS |29 Mart 2016 |29 Aralık 2016 |9 Ocak 2018 |Evet |Hayır |
+| HDInsight 3.5 <br> (Spark olmayan) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 Eylül 2016 |5 Eylül 2017 |28 Haziran 2018 |Evet |Hayır |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 Mart 2016 |29 Aralık 2016 |9 Ocak 2018 |Evet |Hayır |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2018 |Evet |Hayır |
-| HDInsight 3.3 |HDP 2.3 |14.0.4 ubuntu LTS |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2017 |Evet |Hayır |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2017 |Evet |Hayır |
 | HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS veya Windows Server 2012 R2 |18 Şubat 2015 |1 Mart 2016 |1 Nisan 2017 |Evet |Hayır |
 | HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 Haziran 2014'e |18 Mayıs 2015 |30 Haziran 2016 |Evet |Hayır |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 Şubat 2014 |17 Eylül 2014'ten |30 Haziran 2015 |Evet |Hayır |
@@ -162,7 +162,7 @@ Windows üzerinde HDInsight kullanımdan kaldırıldıktan sonra yeni bir HDInsi
 ### <a name="which-versions-of-hdinsight-on-windows-are-affected"></a>Windows üzerinde HDInsight'ın hangi sürümleri etkilenir?
 Azure HDInsight sürüm 3.3 HDInsight için Windows son sürümüdür. Windows üzerinde HDInsight kullanımdan önce tüm HDInsight Windows kümeleri sürüm 3.3 veya önceki sürüm 3.5 veya sonraki sürümler Linux'ta HDInsight geçirilmelidir. Linux üzerinde HDInsight kümelerinizi geçirme, yeni kümeler oluşturun veya var olan kümeleri yeniden boyutlandırma yeteneği korumak sağlar. 
 
-### <a name="what-do-i-need-to-do"></a>Yapmak ne gerekiyor?
+### <a name="what-do-i-need-to-do"></a>Ne yapmam gerekiyor?
 HDInsight Windows kümeleri, 31 Temmuz 2018'den önce desteklenen bir HDInsight Linux kümeye geçirme. Daha fazla bilgi [HDInsight dokumentu migrace](hdinsight-migrate-from-windows-to-linux.md). Azure HDInsight sürümleri hakkında daha fazla ayrıntı için bkz: listesini [desteklenen sürümleri](hdinsight-component-versioning.md#supported-hdinsight-versions). 
 
 ### <a name="where-do-i-find-the-cluster-os-type"></a>Küme işletim sistemi türü nerede bulabilirim?
@@ -228,16 +228,46 @@ Aşağıdaki tablolar, HDInsight kümeleri için varsayılan sanal makine (VM) b
 
 * Brezilya Güney ve Japonya Batı dışındaki tüm desteklenen bölgeler:
 
-  | Küme türü | Hadoop | HBase | Interactive Query | Storm | Spark  | ML Server |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | HEAD: varsayılan VM boyutu |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
-  | HEAD: Önerilen VM boyutları |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |A4 v2<br/> A8 v2<br/> A2m v2 |D12 v2<br/> D13 v2<br/> D14 v2 |D12 v2<br/> D13 v2<br/> D14 v2 |
-  | Çalışan: varsayılan VM boyutu |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
-  | Çalışan: Önerilen VM boyutları |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |D3 v2<br/> D4 v2<br/> D12 v2 |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |
-  | ZooKeeper: varsayılan VM boyutu | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
-  | ZooKeeper: Önerilen VM boyutları | |A4 v2<br/> A8 v2<br/> A2m v2 | | A2 v2<br/> A4 v2<br/> A8 v2 | | |
-  | Edge: varsayılan VM boyutu | | | | | |D4 v2 |
-  | Sınırı: Önerilen VM boyut | | | | | |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |
+<html><body><table width="100%">
+<tr align="left"><th>Küme türü</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interactive Query</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server&nbsp;</th><th>Kafka&nbsp;</th></tr>
+
+<tr><td>HEAD: varsayılan VM boyutu</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="4" valign="top">HEAD: Önerilen VM boyutları</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>A4 v2</td><td>D12 v2</td><td>D12 v2</td><td>A2M v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>A8 v2</td><td>D13 v2</td><td>D13 v2</td><td>D3 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>A2m v2</td><td>D14 v2</td><td>D14 v2</td><td>D4 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E32 v3</td><td>E4 v3</td><td>E4 v3</td><td>E4 v3</td><td>D12 v2</td></tr>
+
+<tr><td>Çalışan: varsayılan VM boyutu</td><td>D4 v2</td><td>D4 v2</td><td>D14 v2</td><td>D3 v2</td><td>D13 v2</td><td>D4 v2</td><td>Aracı başına 2 S30 disklerle D12v2 4</td></tr>
+
+<tr><td rowspan="8" valign="top">Çalışan: Önerilen VM boyutları</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>D3 v2</td><td>D4 v2</td><td>D4 v2</td><td>D13 v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td><td>DS12 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td><td>DS13 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td><td>E4 v3</td></tr>
+<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td><td>ES4 v3</td></tr>
+<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td><td>E8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td><td>ES8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td><td></td></tr>
+
+<tr><td>ZooKeeper: varsayılan VM boyutu</td><td></td><td>A4 v2</td><td>A4 v2</td><td>A4 v2</td><td></td><td>A2 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="3" valign="top">ZooKeeper: Önerilen VM boyutları</td><td></td><td>A4 v2</td><td></td><td>A2 v2</td><td></td><td></td><td>A2M v2</td></tr>
+<tr><td></td><td>A8 v2</td><td></td><td>A4 v2</td><td></td><td></td><td>D3 v2</td></tr>
+<tr><td></td><td>A2m v2</td><td></td><td>A8 v2</td><td></td><td></td><td>E8 v3</td></tr>
+
+<tr align="left"><td>Edge: varsayılan VM boyutu</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+
+<tr><td rowspan="8" valign="top">Sınırı: Önerilen VM boyut</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D12 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D13 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D14 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E16 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E20 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E32 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E64 v3</td><td></td></tr>
+
+</table></body></html>
+
 * Brezilya Güney ve yalnızca Japonya Batı (v2 boyutları):
 
   | Küme türü | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: 2582f7eff052968c4a08eefd0027f9785451a564
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465716"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562819"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL veritabanı yönetilen örneği, sanal ağlarla ve neredeyse % 100 uyumluluk kullanın
 
@@ -75,7 +75,7 @@ Yönetilen örnek temel özelliklerini, aşağıdaki tabloda gösterilmiştir:
 Sanal çekirdek modeli içinde donanım Nesilleri arasında seçim yapabilirsiniz.
 
 - **Gen 4** mantıksal CPU'lar Intel E5-2673 v3 dayalı (Haswell) 2,4 GHz işlemcileri, ekli SSD fiziksel çekirdek olarak çekirdek ve bilgi işlem boyutlarına arasındaki 8 ila 24 sanal çekirdek başına 7 GB RAM.
-- **5 gen** mantıksal CPU'lar Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemcileri, hızlı eNVM SSD, mantıksal çekirdek, hiper iş parçacıklıdır ve boyutları 8 ila 80 çekirdeğine işlem.
+- **5 gen** mantıksal CPU'lar Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemcileri, hızlı NVMe SSD, mantıksal çekirdek, hiper iş parçacıklıdır ve boyutları 8 ila 80 çekirdeğine işlem.
 
 İçinde donanım Nesilleri arasındaki fark hakkında daha fazla bilgi [yönetilen örnek kaynak sınırları](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -158,7 +158,7 @@ AAD oturum açma bilgileri oluşturmak için yeni bir söz dizimi sunulmuştur (
 
 Yönetilen örnek veritabanı kullanıcısı ve diğer Microsoft hizmetleriyle kimliklerini merkezi olarak yönetmenize imkan sağlar [Azure Active Directory Tümleştirmesi](sql-database-aad-authentication.md). Bu özellik, izin yönetimini kolaylaştırırken güvenliği artırır. Azure Active Directory, veri ve uygulama güvenliğini artırmak için [çok faktörlü kimlik doğrulamasını](sql-database-ssms-mfa-authentication-configure.md) (MFA) ve çoklu oturum açma işlemini destekler.
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 Yönetilen örnek nasıl kullanıcıların kimliklerini veritabanına bağlanırken kanıtlamak için kimlik doğrulaması belirtir. SQL Veritabanı iki kimlik doğrulaması türünü destekler:  
 

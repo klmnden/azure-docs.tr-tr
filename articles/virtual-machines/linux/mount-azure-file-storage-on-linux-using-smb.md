@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: ee56f77ef6ed3c759573a5a96d854c54f297b2ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77b7e6aef4d0d38fa3ea9f9b9a740ffc25aff7f9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462367"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660026"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure dosya depolama bağlama SMB kullanarak Linux vm'lerinde
 
@@ -58,7 +58,7 @@ STORAGEACCT=$(az storage account create \
 
 Bir depolama hesabı oluşturduğunuzda, hizmet kesintilerini Döndürülmüş hesabı anahtarları çiftlerinde oluşturulur. Çiftin ikinci anahtarı geçiş yaptığınızda, yeni bir anahtar çifti oluşturun. Bu nedenle her zaman en az bir kullanılmayan depolama hesabı anahtarı geçmek hazır olması, yeni depolama hesabı anahtarlarını her zaman çiftler halinde oluşturulur.
 
-Kullanarak depolama hesabı anahtarlarını görüntülemek [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#list). Bu örnekte anahtar 1 değerini depolar **depolama anahtarı** değişkeni.
+Kullanarak depolama hesabı anahtarlarını görüntülemek [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys). Bu örnekte anahtar 1 değerini depolar **depolama anahtarı** değişkeni.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: dbff728c888e9e2f83d9a82ca9819bf9dd0b89e9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 252337c0d2bc162d418d20ca4641673d1564daa6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267976"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660435"
 ---
-# <a name="tutorial-improve-your-regulatory-compliance"></a>Öğretici: Yasal uyumluluğunuzu artırın
+# <a name="tutorial-improve-your-regulatory-compliance"></a>Öğretici: Mevzuat uyumluluğunuzu artırma
 ---
 
 Azure Güvenlik Merkezi yasal uyumluluk gereksinimlerini işlemi kolaylaştırmaya yasal uyumluluk Panoyu kullanarak yardımcı olur. Panoda, Güvenlik Merkezi, uyumluluk duruşunuzu Azure ortamınızın devamlı değerlendirmelerle hakkında Öngörüler sağlar. Güvenlik Merkezi tarafından gerçekleştirilen değerlendirmeleri risk faktörleri karma bulut ortamınızda en iyi güvenlik uygulamaları uygun olarak analiz edin. Bu değerlendirmeler uyumluluk denetimleri için desteklenen standartları kümesinden eşlenir. Yasal uyumluluk panosunda, ortamınızda belirli bir standart veya düzenleme bağlamı tüm değerlendirmeler durumunu açık bir görünümünü sahip. Öneriler hareket ve ortamınızda risk faktörleri azaltmak gibi geliştirmek, uyumluluk duruşunu görebilirsiniz.
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide ele alınan özelliklerin üzerinden adımlamak için Güvenlik Merkezi'nin standart fiyatlandırma katmanında olmalıdır. Ücretsiz olarak Güvenlik Merkezi standart deneyebilirsiniz.
-Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/). [Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](https://docs.microsoft.com/en-us/azure/security-center/security-center-get-started) başlıklı hızlı başlangıçta Standart katmanına nasıl yükseltebileceğiniz adım adım açıklanmıştır.
+Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/). [Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](https://docs.microsoft.com/azure/security-center/security-center-get-started) başlıklı hızlı başlangıçta Standart katmanına nasıl yükseltebileceğiniz adım adım açıklanmıştır.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Yasal, uyumluluk değerlendirme
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 6d84c83efa194543ed10aaed82362021b7053476
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576213"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566246"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini planlama
 Azure Resource Manager çok sayıda harika özellikleri sunarken, geçiş yolculuğunuza emin sorunsuz şeyler yapmak için planlamak için önemlidir. Harcadığınız zamanı planlama, sorunları geçiş etkinliklerini yürütülürken karşılaşmayacağınızdan emin olursunuz.
@@ -88,7 +88,7 @@ Başarılı müşteriler burada yukarıdaki soruları ele alınan, belgelenen ka
 
 Birçok büyük geçişlerin bulunan sorunları yoktu. Bu kapsamlı bir liste değildir ve başvurmanız gerekir [desteklenmeyen özellikleri ve yapılandırmalar](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) daha fazla ayrıntı için.  Olabilir veya bu teknik sorunlarla karşılaşabilirsiniz değildir ancak bunu yaparsanız geçişi denemeden önce bunları çözme daha sorunsuz bir deneyim sağlayacaktır.
 
-- **Doğrulama/hazırlama/iptal prova yapmak** -bu belki de klasik Azure Resource Manager için geçiş başarı sağlamak için en önemli adımdır. Geçiş API'si üç ana adım vardır: doğrulama, hazırlama ve tamamlama. Doğrulama Klasik ortamınızın durumunu okuma ve tüm sorunların bir sonuç döndürür. Ancak, bazı sorunlar, Azure Resource Manager yığınında olabileceğinden, doğrulama her şeyi yakalayamaz. Geçiş işlemi sonraki adımda, bu sorunların kullanıma hazırlama yardımcı olur. Hazırlama meta verilerin Klasikten Azure Resource Manager'a taşıma ancak taşıma işlemi, yürütme ve değil kaldırın veya Klasik tarafında herhangi bir ayarı değiştirmek. Geçiş için hazırlama ve ardından iptal ediliyor prova içerir (**değil yürüten**) geçiş hazırlama. Doğrulama/hazırlama/iptal prova hedefidir tüm meta veriler Azure Resource Manager yığınında görmek için onu inceleyin (*programlama yoluyla veya Portal*), her şeyin doğru şekilde geçirir olduğunu doğrulayın ve teknik ile çalışma sorun.  Kapalı kalma süresi için uygun şekilde planlamak için aynı zamanda size bir fikir geçiş süresi sunar.  Bir doğrulama/hazırlama/iptal kullanıcı kapalı kalma süresi neden olmaz; Bu nedenle, uygulama kullanımını kesintiye neden olmayan gereklidir.
+- **Doğrulama/hazırlama/iptal prova yapmak** -bu belki de klasik Azure Resource Manager için geçiş başarı sağlamak için en önemli adımdır. Geçiş API'si üç ana adım vardır: Doğrulama, hazırlama ve tamamlama. Doğrulama Klasik ortamınızın durumunu okuma ve tüm sorunların bir sonuç döndürür. Ancak, bazı sorunlar, Azure Resource Manager yığınında olabileceğinden, doğrulama her şeyi yakalayamaz. Geçiş işlemi sonraki adımda, bu sorunların kullanıma hazırlama yardımcı olur. Hazırlama meta verilerin Klasikten Azure Resource Manager'a taşıma ancak taşıma işlemi, yürütme ve değil kaldırın veya Klasik tarafında herhangi bir ayarı değiştirmek. Geçiş için hazırlama ve ardından iptal ediliyor prova içerir (**değil yürüten**) geçiş hazırlama. Doğrulama/hazırlama/iptal prova hedefidir tüm meta veriler Azure Resource Manager yığınında görmek için onu inceleyin (*programlama yoluyla veya Portal*), her şeyin doğru şekilde geçirir olduğunu doğrulayın ve teknik ile çalışma sorun.  Kapalı kalma süresi için uygun şekilde planlamak için aynı zamanda size bir fikir geçiş süresi sunar.  Bir doğrulama/hazırlama/iptal kullanıcı kapalı kalma süresi neden olmaz; Bu nedenle, uygulama kullanımını kesintiye neden olmayan gereklidir.
   - Aşağıdaki öğeler prova önce çözülmesi gerekir, ancak bunlar kaçırdıysanız prova test hazırlık adımları da güvenli bir şekilde temizler. Kurumsal geçiş sırasında biz geçiş hazırlığı emin olmak için güvenli ve her bir yolu olarak prova buldunuz.
   - Ne zaman hazırlama çalışıyor, Denetim düzlemi (Azure yönetim işlemleri) kilitlenmiş olabilir tüm sanal ağ için bu nedenle herhangi bir değişiklik için VM meta veri doğrulama/hazırlama/durdurma sırasında sağlanabilir.  Ancak Aksi takdirde herhangi bir uygulama işlevi (RD, VM kullanımı, vb.) etkilenmez.  Kullanıcılar sanal makinelerin prova yürütülmekte olan bilmez.
 
@@ -201,7 +201,7 @@ Göz önünde bulundurulması gerekenler:
 
 Artık Azure Resource Manager'da etkinleştirmek istediğiniz hangi Hizmetleri amaca yönelik olabilir.  Birçok müşteri için Azure ortamlarını cazip aşağıda:
 
-- [Rol tabanlı erişim denetimi](../../azure-resource-manager/resource-group-overview.md#access-control).
+- [Rol tabanlı erişim denetimi](../../role-based-access-control/overview.md).
 - [Daha kolay ve daha denetimli dağıtımı için Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md).
 - [Etkinlik denetimi](../../azure-resource-manager/resource-group-audit.md)

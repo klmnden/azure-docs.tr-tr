@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 08e144022c79182a63fd99dbce48a5e505aba3f2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c1bc4265c44f007e794b873d732a06d1e30f324f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478007"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661947"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>SQL veri ambarı ile diğer Hizmetleri Tümleştirme
 Çekirdek işlevselliğini ek olarak, SQL veri ambarı birçok diğer Azure Hizmetleri ile tümleştirme olanağı sağlar. Bu hizmetlerden bazıları şunlardır:
@@ -41,7 +41,7 @@ Azure Data Factory, kullanıcılara karmaşık ayıklama oluşturun ve işlem ha
 * **Saklı yordamları**: SQL veri ambarı saklı yordamlar yürütülemedi düzenleyin.
 * **Kopyalama**: SQL Data Warehouse'a veri taşımak için ADF kullanın. Bu işlem, perde ADF'nin standart veri taşıma mekanizması veya PolyBase kullanabilirsiniz. 
 
-Daha fazla bilgi için [Azure Data Factory ile tümleştir](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
+Daha fazla bilgi için [Azure Data Factory ile tümleştir](https://docs.microsoft.com/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 Azure Machine Learning çok sayıda Tahmine dayalı araçlarını kullanarak karmaşık modeller oluşturmanızı sağlayan tam olarak yönetilen bir analiz hizmetidir. SQL veri ambarı, şu işlevleri kullanarak hem kaynak hem de bu modeller için hedef olarak desteklenir:

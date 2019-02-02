@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 12ff4fef5e04819e967a39fe65845b89790e22d6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b3afbeb5a3fa2cda6ec5eaabe368163a370352d1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234464"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568201"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Cihazınızı IOT Hub ile buluta dosyaları karşıya yükleme
 
@@ -69,7 +69,7 @@ Bu bölümde, IOT hub'ına bir dosyayı karşıya yüklemek için cihaz uygulama
 
 1. Aşağıdaki ```require``` deyimlerini **SimulatedDevice.js** dosyasının başlangıcına ekleyin:
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var fs = require('fs');
@@ -79,7 +79,7 @@ Bu bölümde, IOT hub'ına bir dosyayı karşıya yüklemek için cihaz uygulama
 
 1. Bir ```deviceconnectionstring``` değişkeni ekleyin ve bir **İstemci** örneği oluşturmak için bunu kullanın.  Değiştirin ```{deviceconnectionstring}``` oluşturduğunuz cihaz adıyla _IOT Hub oluşturma_ bölümü:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{deviceconnectionstring}';
     var filename = 'myimage.png';
     ```
@@ -89,14 +89,14 @@ Bu bölümde, IOT hub'ına bir dosyayı karşıya yüklemek için cihaz uygulama
 
 1. İstemci bağlanmak için aşağıdaki kodu ekleyin:
 
-    ```nodejs
+    ```javascript
     var client = clientFromConnectionString(connectionString);
     console.log('Client connected');
     ```
 
 1. Bir geri çağırma oluşturun ve kullanın **uploadToBlob** dosyayı karşıya yüklemek için işlevi.
 
-    ```nodejs
+    ```javascript
     fs.stat(filename, function (err, stats) {
         const rr = fs.createReadStream(filename);
     
@@ -136,7 +136,7 @@ Kullanabileceğiniz **iothubowner** bu bölümünü tamamlamak için IOT Hub'ın
 
 1. Aşağıdaki ```require``` başlangıcında deyimleri **FileUploadNotification.js** dosyası:
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var Client = require('azure-iothub').Client;
@@ -144,7 +144,7 @@ Kullanabileceğiniz **iothubowner** bu bölümünü tamamlamak için IOT Hub'ın
 
 1. Bir ```iothubconnectionstring``` değişkeni ekleyin ve bir **İstemci** örneği oluşturmak için bunu kullanın.  Değiştirin ```{iothubconnectionstring}``` oluşturduğunuz IOT hub bağlantı dizesiyle _IOT Hub oluşturma_ bölümü:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     ```
 
@@ -153,13 +153,13 @@ Kullanabileceğiniz **iothubowner** bu bölümünü tamamlamak için IOT Hub'ın
 
 1. İstemci bağlanmak için aşağıdaki kodu ekleyin:
 
-    ```nodejs
+    ```javascript
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
 1. İstemci açmak ve kullanmak **getFileNotificationReceiver** durum güncelleştirmeleri almak için işlev.
 
-    ```nodejs
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);

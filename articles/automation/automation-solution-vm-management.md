@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5cacd2d0e4308e15b562169f72efb0f98ce45289
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476405"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658395"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -136,7 +136,7 @@ Dağıtılmış bir iş yükü destekleyen birden çok VM'de iki veya daha fazla
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Başlatma ve durdurma eylemi VM listesi tarafından hedef
 
-1. Ekleme bir **sequencestart** ve **sequencestop** için eklemeyi planladığınız VM'ler için bir pozitif tamsayı değeri olan etiketi **VMList** değişkeni. 
+1. Ekleme bir **sequencestart** ve **sequencestop** için eklemeyi planladığınız VM'ler için bir pozitif tamsayı değeri olan etiketi **VMList** parametresi.
 1. Çalıştırma **SequencedStartStop_Parent** kümesine eylem parametresi ile runbook **Başlat**, virgülle ayrılmış bir liste VM ekleme *VMList* parametresi ve ardından WHATIF parametresi **True**. Değişikliklerinizi önizleyin.
 1. Yapılandırma **External_ExcludeVMNames** Vm'leri (VM1, VM2 ve VM3) virgülle ayrılmış listesiyle birlikte parametresi.
 1. Bu senaryo değil dikkate almaz **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupnames** değişkenleri. Bu senaryo için kendi Otomasyonu zamanlaması oluşturmanız gerekir. Ayrıntılar için bkz [Azure Otomasyonu'nda runbook zamanlama](../automation/automation-schedules.md).
@@ -285,8 +285,8 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişki
 
 |Sorgu | Açıklama|
 |----------|----------|
-|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | ```search Category == "JobLogs" | Burada (RunbookName_s "ScheduledStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==)  | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
-|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | ```search Category == "JobLogs" | Burada (RunbookName_s "SequencedStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==) | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
+|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>Çözümü görüntüleme
 
@@ -319,13 +319,29 @@ Sanal makineleri çözümü kapatır, gönderilen örnek e-posta verilmiştir.
 
 ![Otomasyon güncelleştirme yönetimi çözümü sayfası](media/automation-solution-vm-management/email.png)
 
+## <a name="add-exclude-vms"></a>Vm'leri ekleme/çıkarma
+
+Çözüm, çözüm tarafından hedeflenen veya özellikle makineler çözümünden çıkarmak için Vm'leri ekleme olanağı sağlar.
+
+### <a name="add-a-vm"></a>Bir VM ekleme
+
+Çalıştığında bir VM başlatma/durdurma çözümde yer alan emin olmak için kullanabileceğiniz birkaç seçenek vardır.
+
+* Her üst [runbook'ları](#runbooks) çözüm sahip bir **VMList** parametresi. Çözüm çalıştığında durumunuzu ve bu VM'ler için uygun üst runbook zamanlama dahil edilecek zaman, bu parametre için VM adlarının virgülle ayrılmış listesini geçirebilirsiniz.
+
+* Birden çok VM seçmek üzere ayarlamak **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupNames** başlatmak veya durdurmak istediğiniz Vm'leri içeren kaynak grubu adları ile. De bu değeri ayarlayabilirsiniz `*`, Abonelikteki tüm kaynak gruplarını çalıştırmanızı çözüm sağlamak için.
+
+### <a name="exclude-a-vm"></a>Bir VM Dışla
+
+Bir VM çözümünden çıkarmak için ona ekleyebilirsiniz **External_ExcludeVMNames** değişkeni. Bu değişken Başlat/Durdur çözümü dışlanacak belirli sanal makineler bir virgülle ayrılmış listesidir.
+
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Başlatma ve kapatma zamanlamalarını değiştirme
 
-Bu çözümde başlatma ve kapatma zamanlamalarını yönetme izleyen aynı adımları açıklandığı şekilde [Azure Otomasyonu'nda runbook zamanlama](automation-schedules.md).
+Bu çözümde başlatma ve kapatma zamanlamalarını yönetme izleyen aynı adımları açıklandığı şekilde [Azure Otomasyonu'nda runbook zamanlama](automation-schedules.md). Var. başlatmak ve durdurmak için zamanlama ayrı olması gerekir.
 
-Yalnızca belirli bir süre sonunda sanal makineleri durdurmak için çözümü yapılandırma desteklenir. Bunu yapmanız için gerekenler:
+Yalnızca belirli bir süre sonunda sanal makineleri durdurmak için çözümü yapılandırma desteklenir. Bu senaryoda, az önce oluşturduğunuz bir **Durdur** zamanlama ve karşılık gelen **Başlat** zamanlanmış. Bunu yapmanız için gerekenler:
 
-1. İçinde kapatılacak şekilde sanal makineler için kaynak gruplarını eklediğinizden emin olun **External_Start_ResourceGroupNames** değişkeni.
+1. İçinde kapatılacak şekilde sanal makineler için kaynak gruplarını eklediğinizden emin olun **External_Stop_ResourceGroupNames** değişkeni.
 2. Kendi zamanlamada Vm'lerini kapatmak istediğiniz zamanı oluşturun.
 3. Gidin **ScheduledStartStop_Parent** runbook tıklatıp **zamanlama**. Bu, önceki adımda oluşturduğunuz zamanlamayı seçmenize olanak sağlar.
 4. Seçin **parametreler ve çalıştırma ayarları** ve "Durdur" için eylem parametresini ayarlayın.

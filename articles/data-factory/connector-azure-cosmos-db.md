@@ -10,14 +10,14 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 6dd7707c489bbbad7a97a0ec0a76e7c631bd1465
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: b969743c13e541c491b56066061464f40a6d2d9e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359264"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657120"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB'den (SQL API'si) ya da veri kopyalama
 
@@ -28,7 +28,7 @@ ms.locfileid: "54359264"
 Bu makalede, kopyalama etkinliği Azure Data Factory'de gelen ve Azure Cosmos DB (SQL API) veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Makaleyi yapılar [Azure veri fabrikasında kopyalama etkinliği](copy-activity-overview.md), kopyalama etkinliği genel bir bakış sunar.
 
 >[!NOTE]
->Bu bağlayıcı yalnızca destek veri gönderip buralardan veri Cosmos DB SQL API kopyalayın. MongoDB için başvurmak [Azure Cosmos DB'nin MongoDB API'si için bağlayıcı](connector-azure-cosmos-db-mongodb-api.md). Diğer API türleri artık desteklenmez.
+>Bu bağlayıcı yalnızca destek veri gönderip buralardan veri Cosmos DB SQL API kopyalayın. MongoDB API'si için başvurmak [Azure Cosmos DB'nin MongoDB API'si için bağlayıcı](connector-azure-cosmos-db-mongodb-api.md). Diğer API türleri artık desteklenmez.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -58,7 +58,7 @@ Azure Cosmos DB (SQL API) bağlı hizmeti için aşağıdaki özellikleri destek
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** özelliği ayarlanmalıdır **CosmosDb**. | Evet |
-| bağlantı dizesi |Azure Cosmos DB veritabanına bağlanmak için gereken bilgileri belirtin.<br /><br />**Not**: Aşağıdaki örneklerde gösterildiği gibi bağlantı dizesinde veritabanı bilgileri belirtmeniz gerekir. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için türü. Ayrıca [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet |
+| bağlantı dizesi |Azure Cosmos DB veritabanına bağlanmak için gereken bilgileri belirtin.<br />**Not**: Aşağıdaki örneklerde gösterildiği gibi bağlantı dizesinde veritabanı bilgileri belirtmeniz gerekir. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Hesap anahtarı Azure Key Vault ve çekme koyabilirsiniz `accountKey` yapılandırma bağlantı dizesini dışında. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. |Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağda yer alıyorsa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Bu özellik belirtilmezse, varsayılan Azure tümleştirme çalışma zamanı kullanılır. |Hayır |
 
 **Örnek**
@@ -72,6 +72,35 @@ Azure Cosmos DB (SQL API) bağlı hizmeti için aşağıdaki özellikleri destek
             "connectionString": {
                 "type": "SecureString",
                 "value": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Örnek: hesap anahtarı Azure Key Vault'ta depolama**
+
+```json
+{
+    "name": "CosmosDbSQLAPILinkedService",
+    "properties": {
+        "type": "CosmosDb",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "AccountEndpoint=<EndpointUrl>;Database=<Database>"
+            },
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {

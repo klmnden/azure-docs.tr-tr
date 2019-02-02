@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 14eb92141a9d27d9f8978abb6d5c9a738c821ead
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 8de155eb0c53a07c88d996e2545be9da3159653f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866313"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565590"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Dapper ile esnek veritabanı istemci kitaplığı kullanma
 Bu belge uygulamalar üzerinde Dapper kullanır ancak ayrıca Kucak isteyen geliştiricilere yöneliktir [esnek veritabanı araçları](sql-database-elastic-scale-introduction.md) kendi veri katmanı genişletmek için bu uygulama parçalama uygulamalar oluşturmak için.  Bu belge Dapper tabanlı uygulamalar, elastik veritabanı araçları ile tümleştirme gereken değişiklikler gösterilmektedir. Elastik veritabanı parça yönetimi ve Dapper ile verilere bağımlı yönlendirme buradaki kazanmasının olur. 
@@ -49,9 +49,9 @@ Dapper için bağlantılar oluşturmak için geleneksel biçimini kullanmak yeri
 ### <a name="requirements-for-dapper-integration"></a>Dapper tümleştirme gereksinimleri
 Elastik veritabanı istemci kitaplığı ve Dapper API'leri ile çalışırken, aşağıdaki özellikleri korumak istediğiniz:
 
-* **Ölçeği genişletme**: veritabanlarını kapasite gereksinimlerini karşılamak için gerektiği şekilde parçalı uygulama uygulamanın veri katmanından ekleyip istiyoruz. 
-* **Tutarlılık**: parçalama kullanarak uygulama ölçeklendirilir, verilere bağımlı yönlendirme gerçekleştirmek gerekir. Bunu yapmak için kitaplık verilere bağımlı yönlendirme yeteneklerini kullanılacak istiyoruz. Özellikle, doğrulama saklamak istediğiniz ve parça eşleme Yöneticisi Bozulması veya yanlış sorgu sonuçları önlemek için aracılı bağlantılar tarafından sağlanan tutarlılığını garanti eder. Bu, belirli bir parçacık bağlantı reddedildi veya (örneğin) bir parçacık ayırma/birleştirme API'lerini kullanarak farklı bir parçaya şu anda taşınırsa durduruldu sağlar.
-* **Nesne eşleme**: Dapper uygulama sınıfları ve temel alınan veritabanı yapılarını arasında çeviri yapmak için sağladığı eşlemeleri kolaylık elde tutmak istiyoruz. 
+* **Ölçeği genişletme**: Veritabanları kapasite gereksinimlerini karşılamak için gerektiği şekilde parçalı uygulama uygulamanın veri katmanından ekleyip istiyoruz. 
+* **Tutarlılık**: Parçalama kullanarak uygulama ölçeklendirilir, verilere bağımlı yönlendirme gerçekleştirmek gerekir. Bunu yapmak için kitaplık verilere bağımlı yönlendirme yeteneklerini kullanılacak istiyoruz. Özellikle, doğrulama saklamak istediğiniz ve parça eşleme Yöneticisi Bozulması veya yanlış sorgu sonuçları önlemek için aracılı bağlantılar tarafından sağlanan tutarlılığını garanti eder. Bu, belirli bir parçacık bağlantı reddedildi veya (örneğin) bir parçacık ayırma/birleştirme API'lerini kullanarak farklı bir parçaya şu anda taşınırsa durduruldu sağlar.
+* **Eşleme nesnesi**: Dapper uygulama sınıfları ve temel alınan veritabanı yapılarını arasında çeviri yapmak için sağladığı eşlemeleri kolaylık elde tutmak istiyoruz. 
 
 Aşağıdaki bölümde dayalı uygulamalar için bu gereksinimleri yönelik yönergeler sağlanmaktadır **Dapper** ve **DapperExtensions**.
 
@@ -137,7 +137,7 @@ Ve sorgu için kod örneği aşağıdadır:
     }
 
 ### <a name="handling-transient-faults"></a>Geçici hataların işlenmesi
-Microsoft Patterns ve uygulamalar ekibi yayımlanan [geçici hata işleme uygulama bloğu](https://msdn.microsoft.com/library/hh680934.aspx) uygulama geliştiricilerin bulutta çalışırken karşılaşılan yaygın geçici hata koşulları azaltılmasına yardımcı olmak için. Daha fazla bilgi için [Perseverance, tüm Triumphs gizli: geçici hata işleme uygulama bloğu kullanarak](https://msdn.microsoft.com/library/dn440719.aspx).
+Microsoft Patterns ve uygulamalar ekibi yayımlanan [geçici hata işleme uygulama bloğu](https://msdn.microsoft.com/library/hh680934.aspx) uygulama geliştiricilerin bulutta çalışırken karşılaşılan yaygın geçici hata koşulları azaltılmasına yardımcı olmak için. Daha fazla bilgi için [Perseverance, tüm Triumphs gizli anahtarı: Geçici hata işleme uygulama bloğu kullanarak](https://msdn.microsoft.com/library/dn440719.aspx).
 
 Geçici hata kitaplığı, geçici hataların karşı korumak için kod örneği kullanır. 
 

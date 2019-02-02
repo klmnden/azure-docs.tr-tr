@@ -4,17 +4,17 @@ description: Her aşamanın ayrıntılarını ve bir şema geçtiği yaşam dön
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309815"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563720"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Bir Azure blueprint'in yaşam döngüsünü anlama
 
@@ -33,8 +33,7 @@ Bir şema ve aşamalar tam olarak anlamak için standart bir yaşam döngüsü d
 
 ## <a name="creating-and-editing-a-blueprint"></a>Oluşturma ve bir şema düzenleme
 
-Bir şema oluştururken, yapılara bir yönetim grubuna kaydetme ve benzersiz bir ad ve benzersiz bir sürüm sağlanan ekleyin. Blueprint artık bulunduğu bir **taslak** modu ve henüz atanamaz.
-İçinde çalışırken **taslak** modu da devam edebilirsiniz güncelleştirilen ve değiştirildi.
+Bir şema oluşturma eklediğinizde, yapılara bir yönetim grubuna veya aboneliğe kaydedin ve benzersiz bir ad ve benzersiz bir sürümü sağlanmaktadır. Blueprint artık bulunduğu bir **taslak** modu ve henüz atanamaz. İçinde çalışırken **taslak** modu da devam edebilirsiniz güncelleştirilen ve değiştirildi.
 
 A hiçbir zaman blueprint'te yayımlanan **taslak** modu üzerinde farklı bir simge görüntüler **şema tanımları** olan olanları sayfadan **yayımlanan**. **En son sürümü** olarak da görüntülenip **taslak** hiçbir zaman yayımlanan bu planlar için.
 

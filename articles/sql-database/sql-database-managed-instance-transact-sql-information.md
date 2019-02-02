@@ -12,16 +12,20 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 01/31/2019
-ms.openlocfilehash: 80da1058f17b69d82d851bb38482afa0b31daac1
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 3fa0977a8239a3d0db1aea99d39a2079945b724a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508880"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567732"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
-Azure SQL veritabanı yönetilen örneği, şirket içi SQL Server veritabanı altyapısı ile yüksek uyumluluk sağlar. SQL Server veritabanı altyapısı özelliklerin çoğu, yönetilen örneği'nde desteklenir. Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makalede özetler ve bu farklar açıklanmaktadır. <a name="Differences"></a>
+Azure SQL veritabanı yönetilen örneği, şirket içi SQL Server veritabanı altyapısı ile yüksek uyumluluk sağlar. SQL Server veritabanı altyapısı özelliklerin çoğu, yönetilen örneği'nde desteklenir.
+
+![Geçiş](./media/sql-database-managed-instance/migration.png)
+
+Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makalede özetler ve bu farklar açıklanmaktadır. <a name="Differences"></a>
 - [Kullanılabilirlik](#availability) farklılıkları dahil olmak üzere [her zaman açık](#always-on-availability) ve [yedeklemeleri](#backup),
 - [Güvenlik](#security) farklılıkları dahil olmak üzere [denetim](#auditing), [sertifikaları](#certificates), [kimlik bilgilerini](#credentials), [şifreleme sağlayıcıları](#cryptographic-providers), [Oturumları / kullanıcılar](#logins--users), [hizmet anahtarı ve hizmet ana anahtarını](#service-key-and-service-master-key),
 - [Yapılandırma](#configuration) farklılıkları dahil olmak üzere [arabellek havuzu uzantısı](#buffer-pool-extension), [harmanlama](#collation), [Uyumluluk Düzeyleri](#compatibility-levels),[veritabanı Yansıtma](#database-mirroring), [veritabanı seçenekleri](#database-options), [SQL Server Agent](#sql-server-agent), [Tablo Seçenekleri](#tables),

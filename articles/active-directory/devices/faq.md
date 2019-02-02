@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cc0521f1f27ddfc1fc44b9f24212393d11177d70
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296194"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660978"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
 **S: Ben kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum? Ya da cihaz sahibinin katılmış cihazların hibrit Azure Active Directory (Azure AD) için yok olarak neden işaretlenmiş?**
 
 **Y:** Hibrit Azure AD'ye katılmış olan Windows 10 cihazları görünmüyor altında **kullanıcı cihazları**.
-Kullanım **tüm cihazlar** Azure portalında görünümü. Bir PowerShell de kullanabilirsiniz [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
+Kullanım **tüm cihazlar** Azure portalında görünümü. Bir PowerShell de kullanabilirsiniz [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
 
 Yalnızca aşağıdaki cihazlar altında listelenen **kullanıcı cihazları**:
 
@@ -176,7 +176,7 @@ Bu davranış, söz konusu cihaza açan diğer bir kullanıcı için geçerli de
 
 **S: Neden görüyorum *hata... bir hata oluştu!* Azure AD'ye denediğimde iletişim katılın Bilgisayarımda?**
 
-**Y:** Intune ile Azure Active Directory kayıt ayarladığınızda bu hata oluşur. Azure AD'ye katılmasını sağlamaya çalışan kullanıcının doğru Intune lisansı atanmış olduğundan emin olun. Daha fazla bilgi için [Windows cihazları için kaydı ayarlama](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment).  
+**Y:** Intune ile Azure Active Directory kayıt ayarladığınızda bu hata oluşur. Azure AD'ye katılmasını sağlamaya çalışan kullanıcının doğru Intune lisansı atanmış olduğundan emin olun. Daha fazla bilgi için [Windows cihazları için kaydı ayarlama](https://docs.microsoft.com/intune/windows-enroll).  
 
 ---
 

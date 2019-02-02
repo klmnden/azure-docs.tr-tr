@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 135496e17ae884db580922aa31f6824b2e7fd934
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855993"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563890"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell sınırlamaları
 
@@ -77,7 +77,7 @@ PowerShell cmdlet'lerini kullanarak, kullanıcılar Azure sürücüsü altındak
 
 ### <a name="gui-applications-are-not-supported"></a>GUI uygulamaları desteklenmez.
 
-Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırıyorsa `Connect-AzureAD` veya `Connect-AzureRmAccount`, bir gördüğü hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırıyorsa `Connect-AzureAD`, `Connect-AzureRmAccount`, veya `Connect-AzAccount` bir gördüğü hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-crashes-psreadline"></a>Sekme tamamlama PSReadline kilitleniyor
 

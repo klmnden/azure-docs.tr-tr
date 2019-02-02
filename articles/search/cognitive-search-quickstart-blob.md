@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015281"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564570"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Bilişsel arama yetenekleri ve örnek verileri kullanarak işlem hattı oluşturma
 
@@ -147,21 +147,25 @@ Sihirbaz, genellikle varsayılan bir dizin çıkarabilir. Bu adımda oluşturula
 
 Bu hızlı başlangıç, makul varsayılanlar ayarlanması konusunda iyi bir iş çıkarır: 
 
-+ Varsayılan ad *azureblob dizin*.
++ Varsayılan ad *azureblob dizin* veri kaynağı türüne göre. 
+
++ Varsayılan alanlar, özgün kaynak veri alanına dayalı (`content`), çıktı alanlarını artı (`people`, `organizations`, ve `locations`) tarafından bilişsel işlem hattı oluşturdunuz. Varsayılan veri türleri, meta verileri ve veri örnekleme algılanır.
+
 + Varsayılan anahtar *metadata_storage_path* (Bu alan, benzersiz değerler içeren).
-+ Varsayılan veri türleri ve öznitelikleri, tam metin arama senaryoları için geçerlidir.
 
-Temizleme göz önünde bulundurun **alınabilir** gelen `content` alan. Bloblar, bu alan binlerce satır çalıştırabilirsiniz. Bu içerik ağır dosyaları Word belgeleri veya PowerPoint Desteleri gibi JSON olarak bir arama sonuçları listesinde görüntülemek üzere olacaktır ne kadar zor hayal edebilirsiniz. 
-
-Bir beceri kümesi tanımlanmadığından, sihirbaz, özgün kaynak veri alanı yanı sıra bilişsel işlem hattı tarafından oluşturulan çıkış alanları istediğinizi varsayar. Bu nedenle portal, `content`, `people`, `organizations` ve `locations` için dizin alanları ekler. Sihirbaz otomatik olarak etkinleştirdiğini unutmayın **alınabilir** ve **aranabilir** bu alanlar için. **Aranabilir** bir alan aranabilir gösterir. **Alınabilir** bunu döndürülmesi sonuçlarında anlamına gelir. 
++ Varsayılan öznitelikler **alınabilir** ve **aranabilir** bu alanlar için. **Aranabilir** bir alan aranabilir gösterir. **Alınabilir** bunu döndürülmesi sonuçlarında anlamına gelir. Sihirbaz, bunun nedeni, bir beceri kümesi oluşturulan alınabilir ve aranabilir olması için bu alanları istediğinizi varsayar.
 
   ![Dizin alanları](media/cognitive-search-quickstart-blob/index-fields.png)
+
+Soru işareti ve üst çizgi olduğuna dikkat **alınabilir** tarafından özniteliği `content` alan. Metin ağırlıklı blob belgeler için `content` alan dosyasının potansiyel olarak binlerce satır çalışan toplu içerir. Dosya içeriği için istemci kodu geçirilecek gerekiyorsa emin **alınabilir** seçili kalır. Aksi takdirde, bu öznitelik üzerinde temizlemeniz `content` , ayıklanan öğelerini (`people`, `organizations`, ve `locations`) amacınız için yeterlidir.
+
+Bir alan olarak işaretleme **alınabilir** alan gelmez *gerekir* arama sonuçlarında mevcut olması. Kullanarak arama sonuçlarını bileşim tam olarak denetleyebilirsiniz **$select** sorgu parametresi için hangi alanların dahil edileceğini belirtin. Metin ağırlıklı alanları için `content`, **$select** parametresi, çözümünüz için yönetilebilir arama sonuçları, istemci kodu sağlarken, uygulamanızın İnsan kullanıcılara sağlayan tüm bilgilere erişim için gerekli aracılığıyla **alınabilir** özniteliği.
   
 Bir sonraki sayfasına devam edin.
 
   ![Sonraki sayfaya dizin oluşturucu oluşturma](media/cognitive-search-quickstart-blob/next-button-create-indexer.png)
 
-### <a name="step-4-configure-the-indexer"></a>4. adım: Dizin oluşturucuyu yapılandırma
+### <a name="step-4-configure-the-indexer"></a>4. Adım: Dizin oluşturucuyu yapılandırma
 
 Dizin oluşturucu, dizin oluşturma işlemini destekleyen, yüksek düzeyli bir kaynaktır. Bu veri kaynağı adı, hedef dizin ve yürütme sıklığı belirtir. **Verileri içeri aktar** sihirbazının nihai sonucunda her zaman art arda çalıştırabileceğiniz bir dizin oluşturucu elde edilir.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 3e9042251a4818af88aab7dcb5bc32ea9fedb66c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 93ba31112210ad8374edfbee8e568c13109a5403
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946689"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658166"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>İki sanal ağı eşleme betiği örneği
 
@@ -50,7 +50,7 @@ Bu betik, bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturmak 
 | Komut | Notlar |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Bir Azure sanal ağı ve alt ağ oluşturur. |
+| [az network vnet create](/cli/azure/network/vnet) | Bir Azure sanal ağı ve alt ağ oluşturur. |
 | [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create) | İki sanal ağ arasında eşleme oluşturur.  |
 | [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 

@@ -10,22 +10,22 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 17d8eff39eabb2f7b4968bf74d2482b980fe8060
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bde73e9ee87ab9165c1d2dd720377d2f9c8771cb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116628"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565964"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
-İçinde [Azure portalı](https://portal.azure.com) web uygulamaları, mobil arka uçlar ve API apps için uygulama performans izleme özelliğini ayarlayabilirsiniz [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
+İçinde [Azure portalında](https://portal.azure.com) web uygulamaları, mobil arka uçlar ve API apps için uygulama performans izleme özelliğini ayarlayabilirsiniz [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
 
 ## <a name="run-time-or-build-time"></a>Çalışma zamanı veya derleme zamanı
 Uygulamanız için şu iki yoldan biriyle izleme yapılandırabilirsiniz:
 
-* **Çalışma zamanı** -izleme uzantısı app service'inizin zaten yayındayken bir performans seçebilirsiniz. Uygulamanızı yeniden derlemeniz ya da yüklemeniz gerekmez. Yanıt süreleri, başarı oranları, özel durumlar ve bağımlılıklar gibi değişkenleri izleyen standart bir paket kümesine sahip olursunuz. 
+* **Çalışma zamanı** -izleme uzantısı app service'inizin zaten yayındayken bir performans seçebilirsiniz. Yeniden oluşturmanız veya uygulamanızı yeniden yüklemeniz gerekmez. Yanıt süreleri, başarı oranları, özel durumlar ve bağımlılıklar gibi değişkenleri izleyen standart bir paket kümesine sahip olursunuz. 
 * **Derleme zamanı**: Geliştirme sırasında uygulamanıza bir paket yükleyebilirsiniz. Bu seçenek daha kullanışlıdır. Aynı standart paketlere ek olarak telemetriyi özelleştirmek için kod yazabilir ya da kendi telemetrinizi gönderebilirsiniz. Uygulama etki alanınızın semantiğine göre belirli etkinlikleri günlüğe kaydedebilir veya olayların kaydını tutabilirsiniz. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Application Insights ile çalışma zamanında izleme
@@ -42,14 +42,27 @@ Azure'da zaten bir app service çalıştırıyorsanız, zaten bazı izleme alır
 
     ![Web uygulamanızı izleme](./media/azure-web-apps/create-resource.png)
 
-2. Hangi kaynağı kullanacağını belirlemesinde belirttikten sonra her platformun uygulamanız için veri toplamak için application ınsights'ı nasıl istediğinizi seçebilirsiniz.
+2. Hangi kaynağı kullanacağını belirlemesinde belirttikten sonra her platformun uygulamanız için veri toplamak için application ınsights'ı nasıl istediğinizi seçebilirsiniz. (ASP.NET uygulamasını izleme üzerinde varsayılan olarak koleksiyon iki farklı düzeylerine sahip.)
 
-    ![Platform başına seçenekleri belirleyin](./media/azure-web-apps/choose-options.png)
+    ![Platform başına seçenekleri belirleyin](./media/azure-web-apps/choose-options-new.png)
+
+    * .NET **temel koleksiyonu** düzeyini temel Tek Örnekli APM özellikleri sunar.
+    
+    * .NET **koleksiyon önerilen** düzeyi:
+        * CPU, bellek ve g/ç kullanım eğilimlerini ekler.
+        * Mikro hizmetler, istek/bağımlılık sınırlarında ilişkilendirir.
+        * Kullanım eğilimlerini toplar ve işlemler için kullanılabilirlik sonuçlarından bağıntı sağlar.
+        * Ana bilgisayar işlemi tarafından işlenmemiş özel durumlar toplar.
+        * Örnekleme kullanıldığında yük altında APM ölçümleri doğruluğu artırır.
+    
+    .NET core sunar **koleksiyon önerilen** veya .NET Core 2.0 ve 2.1 için devre dışı bırakıldı.
 
 3. **App service'inizin izleme** Application Insights yüklendikten sonra.
 
-   Sayfa görüntülemesi ve kullanıcı telemetrisi için **istemci tarafı izlemeyi etkinleştirin**.
+   **İstemci-tarafı izlemeyi etkinleştir** sayfa görüntülemesi ve kullanıcı telemetrisi için.
 
+    (Bu ile .NET Core uygulamaları için varsayılan olarak etkin **koleksiyon önerilen**uygulama ayarı 'APPINSIGHTS_JAVASCRIPT_ENABLED' bulunup bulunmadığını bakılmaksızın. İstemci tarafı izleme devre dışı bırakmak için destek ayrıntılı kullanıcı Arabirimi tabanlı .NET Core için şu anda kullanılabilir değil.)
+    
    * Ayarlar > Uygulama Ayarları'nı seçin.
    * Uygulama Ayarları'nın altında yeni bir anahtar değer çifti ekleyin:
 
@@ -57,6 +70,7 @@ Azure'da zaten bir app service çalıştırıyorsanız, zaten bazı izleme alır
 
     Değer:`true`
    * Ayarları **Kaydedin** ve uygulamanızı **Yeniden başlatın**.
+
 4. Seçerek uygulama izleme verilerini keşfedin **ayarları** > **Application Insights** > **içinde daha fazla Application Insights görüntülemek**.
 
 İsterseniz, daha sonra uygulamayı Application Insights ile derleyebilirsiniz.
@@ -78,23 +92,19 @@ Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı teleme
 
     Bu işlemin iki etkisi olur:
 
-   1. Azure’da telemetrinin depolanacağı, analiz edileceği ve görüntüleneceği bir Application Insights kaynağı oluşturulur.
+   1. Telemetri burada depolanır, analiz ve görüntülenen Azure'da Application Insights kaynağı oluşturur.
    2. Application Insights NuGet paketi kodunuza eklenir (henüz eklenmediyse) ve kodunuz Azure kaynağına telemetri gönderilecek şekilde yapılandırılır.
 2. Uygulamayı geliştirme makinenizde çalıştırarak (F5) **telemetriyi test edin**.
 3. Normal yöntemle **uygulamayı Azure’da yayımlayın**. 
 
 *Farklı bir Application Insights kaynağına nasıl geçiş yapabilirim?*
 
-* Visual Studio’da projeye sağ tıklayıp **Application Insights’ı Yapılandır**’ı seçin ve istediğiniz kaynağı seçin. Yeni kaynak oluşturma seçeneğini görürsünüz. Yeniden derleyin ve dağıtın.
+* Visual Studio'da projeye sağ tıklayın, seçin **Application ınsights'ı Yapılandır**ve istediğiniz kaynağı seçin. Yeni kaynak oluşturma seçeneğini görürsünüz. Yeniden derleyin ve dağıtın.
 
 ## <a name="more-telemetry"></a>Daha fazla telemetri
 
 * [Web sayfası yükleme verileri](../../azure-monitor/app/javascript.md)
 * [Özel telemetri](../../azure-monitor/app/api-custom-events-metrics.md)
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -102,10 +112,19 @@ Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı teleme
 
 JavaScript uygulama hizmetleri aracılığıyla etkinleştirme html yanıtları kesiliyor neden olabilir.
 
-- Geçici Çözüm 1: APPINSIGHTS_JAVASCRIPT_ENABLED uygulama ayarını false olarak ayarlayın ya da tamamen kaldırın ve yeniden başlatın
-- Geçici Çözüm 2: kod aracılığıyla SDK'sını ekleyin ve uzantısını kaldırın (Bu yapılandırma ile olmaz Profiler ve anlık görüntü hata ayıklayıcısı)
+* Geçici Çözüm 1: APPINSIGHTS_JAVASCRIPT_ENABLED uygulama ayarını false olarak ayarlayın ya da tamamen kaldırın ve yeniden başlatın
+* Geçici Çözüm 2: kod aracılığıyla SDK'sını ekleyin ve uzantısını kaldırın (Bu yapılandırma ile olmaz Profiler ve anlık görüntü hata ayıklayıcısı)
 
 Bu sorunu takip ettiğimiz [burada](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
+
+.NET Core için aşağıdakiler şu anda, **desteklenmiyor**:
+
+* Kendi başına dağıtım.
+* .NET Framework'ü hedefleyen uygulamalar.
+* .NET core 2.2 uygulamalar.
+
+> [!NOTE]
+> .NET core 2.0 ve .NET Core 2.1 desteklenir. .NET Core 2.2 Destek eklendiğinde, bu makale güncelleştirilecektir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Canlı uygulamanızda profil oluşturucuyu çalıştırın](../../azure-monitor/app/profiler.md).

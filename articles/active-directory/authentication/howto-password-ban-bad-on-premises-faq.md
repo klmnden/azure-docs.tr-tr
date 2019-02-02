@@ -1,21 +1,21 @@
 ---
-title: Şirket içinde Azure AD parola koruması ile ilgili SSS
-description: Şirket içinde Azure AD parola koruması ile ilgili SSS
+title: Şirket içi Azure AD parola koruması ile ilgili SSS
+description: Şirket içi Azure AD parola koruması ile ilgili SSS
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: f690625fda07bdbff671567f0292cc8e1cabeda1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 62bda3a1c9cb9d53578c2d471b9e63d1f0873234
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078704"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663307"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Önizleme: Azure AD parola koruması hakkında sık sorulan sorular şirket içinde
 
@@ -28,7 +28,7 @@ ms.locfileid: "55078704"
 
 **S: Ne zaman Azure AD parola koruması genel kullanılabilirlik (GA) ulaşır?**
 
-Henüz bir GA tarih duyurduk değil.
+Genel kullanım için S1 CY2019 (Mart 2019 sonu önce) planlanmaktadır. Geri bildirim özelliğini - bugüne yayımlamış herkese teşekkür ederiz, değer veriyoruz!
 
 **S: Şirket içi Azure AD parola koruması genel olmayan bulutlarda desteklenir mi?**
 
@@ -62,6 +62,6 @@ Hayır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yanıtını burada bulamadığınız bir şirket içi Azure AD parola koruması sorunuz varsa, bir geri bildirim öğesi altında - teşekkür gönderin!
+Burada bulamadığınız bir şirket içi Azure AD parola koruması sorunuz varsa, bir geri bildirim öğesi altında - teşekkür gönderin!
 
 [Azure AD parola korumasını dağıtma](howto-password-ban-bad-on-premises-deploy.md)

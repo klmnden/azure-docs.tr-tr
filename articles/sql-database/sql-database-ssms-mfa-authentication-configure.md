@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 06/13/2018
-ms.openlocfilehash: 1761c7040becf0bfe63caf12d8f5ea7b15e9b88b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/25/2018
+ms.openlocfilehash: 98d48659225d89f476ca1e3cc437245bc9e9f753
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162942"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564825"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio ve Azure AD için çok faktörlü kimlik doğrulamasını yapılandırma
 
@@ -52,19 +52,19 @@ Aşağıdaki adımlarda, en son SSMS kullanarak SQL veritabanı veya SQL veri am
    >  
    
 6. İki MFA Kurulum iletişim kutusu görünebilir. Bu bir defalık işlem ayarı MFA yönetici bağlıdır ve bu nedenle isteğe bağlı olabilir. MFA etkin bir etki alanı için bu adımı bazen önceden tanımlanmış olabilir (örneğin, etki alanı, kullanıcıların bir akıllı kart ve PIN gerektirir).  
-   ![3mfa-Kurulum][3]  
+   ![3mfa-setup][3]  
 7. İkinci olası bir kez iletişim kutusunda, kimlik doğrulama yöntemi ayrıntılarını seçmenizi sağlar. Olası seçeneklerin yöneticiniz tarafından yapılandırılır.  
-   ![4mfa doğrula 1][4]  
+   ![4mfa-verify-1][4]  
 8. Azure Active Directory onaylayan bilgileri size gönderir. Doğrulama kodunu aldığınızda buraya girin **doğrulama kodunu girin** ve'ı tıklatın **oturum**.  
-   ![5mfa doğrula 2][5]  
+   ![5mfa-verify-2][5]  
 
 Doğrulama tamamlandığında, normal olarak geçerli kimlik bilgilerini ve Güvenlik Duvarı erişimi pek fazla SSMS bağlanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Evrensel kimlik doğrulaması ile Azure SQL veritabanı çok faktörlü kimlik doğrulaması genel bakış için bkz. [SQL veritabanı ve SQL veri ambarı'nı (MFA için SSMS desteği)](sql-database-ssms-mfa-authentication.md).  
-- Diğerleri, veritabanına erişim izni vermek: [SQL veritabanı kimlik doğrulaması ve yetkilendirme: erişim verme](sql-database-manage-logins.md)  
-- Diğer güvenlik duvarı üzerinden bağlanabilir olduğundan emin olun: [Azure portalını kullanarak Azure SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı yapılandırma](sql-database-configure-firewall-settings.md)  
+- Diğerleri, veritabanınıza erişimi verin: [SQL veritabanı kimlik doğrulaması ve yetkilendirme: Erişim verme](sql-database-manage-logins.md)  
+- Diğer güvenlik duvarı üzerinden bağlanabildiğinden emin olun: [Azure portalını kullanarak Azure SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı yapılandırma](sql-database-configure-firewall-settings.md)  
 - Kullanırken **Active Directory - Evrensel MFA ile** kimlik doğrulaması, ADAL izleme ve sonraki sürümlerinde kullanılabilir olan [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Varsayılan olarak, ADAL izlemeyi kullanarak devre dışı bırakabilirsiniz **Araçları**, **seçenekleri** menüsü altında **Azure Hizmetleri**, **Azure bulut**,  **ADAL çıkış penceresi izleme düzeyini**etkinleştirme çizgidir **çıkış** içinde **görünümü** menüsü. İzlemeler çıktı penceresinde seçerken kullanılabilir **Azure Active Directory seçeneği**.   
 
 

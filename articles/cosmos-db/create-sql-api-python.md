@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: b9ea87b3a56c4759a0d96b7d01e33087c64ccd91
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 631642f487986e3315c1988f8b591f6e6b43d760
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037568"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561397"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Python ve Azure portalı ile bir SQL API'si uygulaması derleme
 
@@ -75,7 +75,27 @@ Bu hızlı başlangıçta Azure portalı kullanarak bir Azure Cosmos DB [SQL API
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git
     ```  
-    
+
+## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
+
+Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
+
+1. [Azure portalında](https://portal.azure.com/), Azure Cosmos DB hesabınızın sol gezinti menüsünden **Anahtarlar**'a tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak **URI** ve **Primary Key** değerlerini kopyalayıp sonraki adımda bunları `CosmosGetStarted.py` dosyasına yapıştırın.
+
+    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-sql-api-dotnet/keys.png)
+
+2. C:\git-samples\azure-cosmos-db-python-getting-started klasöründeki `CosmosGetStarted.py` dosyasını Visual Studio Code'da açın.
+
+3. **URI** değerinizi (kopyalama düğmesini kullanarak) portaldan kopyalayın ve ``CosmosGetStarted.py`` dosyasına **endpoint** anahtarının değeri olarak yapıştırın. 
+
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
+
+4. Ardından portaldan **PRIMARY KEY** değerinizi kopyalayın ve ``CosmosGetStarted.py`` dosyasında **config.PRIMARYKEY** değeri yapın. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
+
+    `'PRIMARYKEY': 'FILLME',`
+
+5. ``CosmosGetStarted.py`` dosyasını kaydedin.
+
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
 Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz. 
@@ -84,7 +104,7 @@ Python SDK'sının eski sürümünü kullandıysanız "koleksiyon" ve "belge" te
 
 Aşağıdaki kod parçacıklarının tümü `CosmosGetStarted.py` dosyasından alınmıştır.
 
-* CosmosClient başlatılır.
+* CosmosClient başlatılır. "Bitiş" ve "ana anahtarı" değerleri açıklanan şekilde güncelleştirdiğinizden emin olun [bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümü. 
 
     ```python
     # Initialize the Cosmos client
@@ -146,27 +166,7 @@ Aşağıdaki kod parçacıklarının tümü `CosmosGetStarted.py` dosyasından a
     for item in iter(result_iterable):
         print(item['message'])
     ```
-
-## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
-
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
-
-1. [Azure portalında](https://portal.azure.com/), Azure Cosmos DB hesabınızın sol gezinti menüsünden **Anahtarlar**'a tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak **URI** ve **Primary Key** değerlerini kopyalayıp sonraki adımda bunları `CosmosGetStarted.py` dosyasına yapıştırın.
-
-    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-sql-api-dotnet/keys.png)
-
-2. C:\git-samples\azure-cosmos-db-python-getting-started klasöründeki `CosmosGetStarted.py` dosyasını Visual Studio Code'da açın.
-
-3. **URI** değerinizi (kopyalama düğmesini kullanarak) portaldan kopyalayın ve ``CosmosGetStarted.py`` dosyasına **endpoint** anahtarının değeri olarak yapıştırın. 
-
-    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
-
-4. Ardından portaldan **PRIMARY KEY** değerinizi kopyalayın ve ``CosmosGetStarted.py`` dosyasında **config.PRIMARYKEY** değeri yapın. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
-
-    `'PRIMARYKEY': 'FILLME',`
-
-5. ``CosmosGetStarted.py`` dosyasını kaydedin.
-    
+   
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
 1. Visual Studio Code’da, **Görünüm**>**Komut Paleti**’ni seçin. 

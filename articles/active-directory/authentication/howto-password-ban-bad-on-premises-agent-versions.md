@@ -1,21 +1,21 @@
 ---
-title: Şirket içinde Azure AD parola koruması Aracı sürüm yayınlama geçmişi
+title: Şirket içi Azure AD parola koruması Aracı sürüm yayınlama geçmişi
 description: Belgeler sürüm ve davranışı değişiklik geçmişi
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: ccfe62e0002e3420303130840f1a0d393efb3420
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bcf5176728b520cae5d31750384f316efe244b7e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078772"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663630"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Önizleme:  Azure AD parola koruması Aracı sürüm geçmişi
 
@@ -23,6 +23,44 @@ ms.locfileid: "55078772"
 | --- |
 | Azure AD parola koruması, Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12650"></a>1.2.65.0
+
+Yayın Tarihi: 2/1/2019
+
+Değişiklikler:
+
+* DC aracı ve proxy hizmeti sunucu Çekirdeğinde artık desteklenmektedir. Önce değiştirilmemiştir Mininimum işletim sistemi gereksinimleri şunlardır: Windows Server 2012 DC aracılar ve proxy'leri için Windows Server 2012 R2.
+* Register-AzureADPasswordProtectionProxy ve kayıt AzureADPasswordProtectionForest cmdlet'leri artık cihaz kod tabanlı Azure kimlik doğrulama modlarını destekler.
+* Get-AzureADPasswordProtectionDCAgent cmdlet karıştırılmış ve/veya geçersiz hizmet bağlantı noktaları göz ardı eder. Bu, burada etki alanı denetleyicileri bazen birden çok kez çıkışında gösterilmesini hatayı düzeltir.
+* Get-AzureADPasswordProtectionSummaryReport cmdlet karıştırılmış ve/veya geçersiz hizmet bağlantı noktaları göz ardı eder. Bu, burada etki alanı denetleyicileri bazen birden çok kez çıkışında gösterilmesini hatayı düzeltir.
+* Proxy powershell modülünü % ProgramFiles%\WindowsPowerShell\Modules artık kaydedilmiştir. Makinenin PSModulePath ortam değişkeni artık değiştirildi.
+* Bir orman veya etki alanında kayıtlı proxy'ler bulunuyor yardımcı olmak için yeni cmdlet Get-AzureADPasswordProtectionProxy eklendi.
+* DC Aracısı'nı, parola ilkeleri ve diğer dosyaları çoğaltmak için sysvol paylaşımı içinde yeni bir klasör kullanır.
+
+   Eski klasör konumu:
+
+   `\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
+
+   Yeni klasör konumu:
+
+   `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
+
+   (Bu değişiklik "hatalı pozitif sonuç GPO artık" uyarılarından kaçınmak için yapılmıştır.)
+
+   > [!NOTE]
+   > Eski klasör ve yeni klasör arasında herhangi bir geçiş veya verilerin paylaşımını gerçekleştirilir. Eski DC Aracı sürümleri, bu sürümü veya sonraki bir sürüme yükseltildiğinde kadar eski konumu kullanmak üzere devam eder. Daha sonra eski sysvol klasörünü el ile silinebilir veya sürüm 1.2.65.0 tüm DC aracılar çalıştırıldıktan sonra.
+
+* DC aracı ve proxy hizmeti, artık algılayın ve bunların ilgili hizmet bağlantı noktaları karıştırılmış bir kopyasını silebilirsiniz.
+* Her bir DC aracı, düzenli aralıklarla karıştırılmış ve eski hizmet bağlantı noktaları hem DC aracı ve proxy hizmet bağlantı noktaları için kendi etki alanındaki siler. Her iki DC aracı ve proxy hizmet bağlantı noktaları, sinyal zaman damgası yedi günden daha eskiyse eski olarak kabul edilir.
+* DC aracı şimdi, gerektiğinde orman sertifika yenilenir.
+* Proxy Hizmeti proxy sertifikası artık gerektiği şekilde yenilenir.
+* Parola doğrulama algoritması güncelleştirmeleri: Genel yasaklı parola listesi ve (yapılandırılmışsa) müşteriye özgü yasaklı parola listesi önce parola doğrulamaları birleştirilir. Verilen parola artık reddedildi (başarısız veya yalnızca denetim) belirteçleri genel ve müşteriye özgü listesinden içeriyorsa. Olay günlüğü belgeler, bu yansıtacak şekilde güncelleştirildi; Lütfen [İzleyici Azure AD parola koruması](howto-password-ban-bad-on-premises-monitor.md).
+* Performans ve sağlamlık düzeltmeleri
+* Gelişmiş günlük kaydı
+
+> [!WARNING]
+> Süre sınırlı işlevsellik: 1 Eylül 2019 tarihinde parola doğrulama isteği işleme (1.2.65.0) bu sürümde DC aracı hizmetini durdurur.  DC Aracısı hizmetlerinin önceki sürümlerinde (aşağıdaki listeye bakın), 1 Temmuz 2019'den itibaren işlemi durdurur. DC Aracı hizmeti tüm sürümlerde 10021 olayları, bu son tarihleri önde gelen iki ay içinde yönetici olay günlüğüne kayıt. Tüm zaman sınırı kısıtlamalar kaldırılır GA sürümünde gelecek. Proxy Aracısı hizmeti herhangi bir sürümle süre sınırlı değildir, ancak sonraki tüm hata düzeltmeleri ve diğer iyileştirmeleri yararlanmak için en son sürüme hala yükseltilmelidir.
 
 ## <a name="12250"></a>1.2.25.0
 
@@ -39,6 +77,7 @@ Düzeltmeleri:
 Değişiklikler:
 
 * Gereken en düşük işletim sistemi düzeyinde Proxy Hizmeti için artık Windows Server 2012 R2. DC Aracı hizmeti için en düşük gerekli işletim sistemi düzeyi Windows Server 2012 kalır.
+* Proxy Hizmeti artık .NET sürüm 4.6.2 gerektirir.
 * Parola doğrulama algoritması bir Genişletilmiş karakter normalleştirme tablosunu kullanır. Bu, önceki sürümlerde kabul edildi reddediliyor parolalarda neden olabilir.
 
 ## <a name="12100"></a>1.2.10.0
@@ -73,4 +112,4 @@ Yayın Tarihi: 6/15/2018
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure AD parola korumasını dağıtma](howto-password-ban-bad-on-premises-deploy.md)
+[Azure AD parola koruması dağıtma](howto-password-ban-bad-on-premises-deploy.md)

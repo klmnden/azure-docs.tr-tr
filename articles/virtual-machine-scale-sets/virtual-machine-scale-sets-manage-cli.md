@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: dd75e21f94d342f521effb10f4557529fa3c2052
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e8a41c3bb1401552e7f1a56ec4cdbbce52354075
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888609"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658938"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Sanal makine ölçek kümesi Azure CLI ile yönetme
 Sanal makine ölçek kümesinin yaşam döngüsü boyunca bir veya daha fazla yönetim görevi çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevlerini otomatikleştiren betikler oluşturmak isteyebilirsiniz. Bu makalede bu görevleri gerçekleştirmenize olanak tanıyan ortak Azure CLI komutlarının bazıları ayrıntılı olarak açıklanmaktadır.
@@ -79,7 +79,7 @@ az vmss show \
     --output table
 ```
 
-Ardından [az vmss scale](/cli/azure/vmss#az_vmss_scale) ile ölçek kümesindeki sanal makinelerin sayısını elle artırabilir veya azaltabilirsiniz. Aşağıdaki örnek ölçek kümenizdeki VM'lerin sayısını ayarlar *5*:
+Ardından [az vmss scale](/cli/azure/vmss) ile ölçek kümesindeki sanal makinelerin sayısını elle artırabilir veya azaltabilirsiniz. Aşağıdaki örnek ölçek kümenizdeki VM'lerin sayısını ayarlar *5*:
 
 ```azurecli
 az vmss scale \

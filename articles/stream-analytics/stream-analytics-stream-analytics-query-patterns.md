@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: ffcf81ee8637c2ce01b3a7822d179609bd9dbfaa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2aba399a45a4118dcc80e188b2d03b62b7fcbfac
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794541"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663511"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler için sık kullanılan Stream Analytics kullanım desenlerini sorgulama
 
@@ -388,7 +388,7 @@ GROUP BY
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Toyota |DEF 987 |2015-01-01T00:00:03.0000000Z |
-| Honda |GHI 345 |2015-01-01T00:00:04.0000000Z |
+| Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
 **Çıkış**:
 
@@ -687,7 +687,7 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**Açıklama**: [COUNT (DISTINCT saati)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) bir zaman penceresi içinde Time sütununda benzersiz değerlerin sayısını döndürür. Çıkış bu adımın ardından çoğaltmaları atarak cihaz başına ortalama işlem için de kullanabilirsiniz.
+**Açıklama**: [COUNT (DISTINCT saati)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) bir zaman penceresi içinde Time sütununda benzersiz değerlerin sayısını döndürür. Çıkış bu adımın ardından çoğaltmaları atarak cihaz başına ortalama işlem için de kullanabilirsiniz.
 
 ## <a name="get-help"></a>Yardım alın
 Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).

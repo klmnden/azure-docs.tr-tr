@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 5c5320a541e189043fc27f5c4bcd29afd5d7c70f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 70c9fec818147b76feb306cc47ba2e72cd865fe8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994153"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659619"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(KULLANIM DIŞI) Linux kapsayıcıları için Kubernetes kümesi dağıtma
 
@@ -47,7 +47,7 @@ Aşağıdaki örnek *westeurope* konumunda *myResourceGroup* adlı bir kaynak gr
 az group create --name myResourceGroup --location westeurope
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -78,9 +78,9 @@ Birkaç dakika sonra komut tamamlanır ve küme hakkında json tarafından biçi
 
 Bir Kubernetes kümesini yönetmek için Kubernetes komut satırı istemcisi [kubectl](https://kubernetes.io/docs/user-guide/kubectl/)’i kullanın. 
 
-Azure CloudShell kullanıyorsanız kubectl zaten yüklüdür. Yerel olarak yüklemek istiyorsanız [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) komutunu kullanabilirsiniz.
+Azure CloudShell kullanıyorsanız kubectl zaten yüklüdür. Yerel olarak yüklemek istiyorsanız [az acs kubernetes install-cli](/cli/azure/acs/kubernetes) komutunu kullanabilirsiniz.
 
-kubectl’i Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) komutunu çalıştırın. Bu adım kimlik bilgilerini indirir ve Kubernetes CLI’yi bunları kullanacak şekilde yapılandırır.
+kubectl’i Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) komutunu çalıştırın. Bu adım kimlik bilgilerini indirir ve Kubernetes CLI’yi bunları kullanacak şekilde yapılandırır.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
@@ -92,7 +92,7 @@ Kümenize bağlantıyı doğrulamak için [kubectl get](https://kubernetes.io/do
 kubectl get nodes
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 NAME                    STATUS                     AGE       VERSION
@@ -175,7 +175,7 @@ Uygulamayı çalıştırmak için [kubectl create](https://kubernetes.io/docs/re
 kubectl create -f azure-vote.yml
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 deployment "azure-vote-back" created

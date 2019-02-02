@@ -1,6 +1,6 @@
 ---
 title: Koşullu erişim ile eski kimlik doğrulaması için Azure Active Directory (Azure AD) nasıl | Microsoft Docs
-description: Azure Active Directory (Azure AD) koşullu erişim ilkesi yapılandırmak nasıl erişim denemesi güvenilmeyen ağlardaki öğrenin.
+description: Azure AD koşullu erişim kullanarak eski bir kimlik doğrulama engelleyerek, güvenlik duruşunu öğrenin.
 services: active-directory
 keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5ff4861c288b82d6ce90d85c38ef3f92eb299ea4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076852"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562989"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Nasıl yapılır: Azure ad koşullu erişim bloğu eski kimlik doğrulaması   
 
 Kullanıcılarınıza bulut uygulamalarınız için kolay erişim sunmak için Azure Active Directory (Azure AD) kimlik doğrulama protokolleri eski bir kimlik doğrulama dahil olmak üzere çok çeşitli destekler. Ancak, eski protokolleri, çok faktörlü kimlik doğrulaması (MFA) desteklemez. Mfa'yı birçok ortamlarda adresi kimlik hırsızlığı için ortak bir gereksinimdir. 
+
 
 Ortamınızı kiracınızın korumasını geliştirmek için blok eski bir kimlik doğrulama için hazır ise, koşullu erişim ile bu hedefe gerçekleştirebilirsiniz. Bu makalede, söz konusu bloğu eski kimlik doğrulamasını kiracınız için koşullu erişim ilkelerini nasıl yapılandırabilirsiniz açıklanmaktadır.
 
@@ -119,8 +120,7 @@ Bu ilkenin yürürlüğe 24 saate kadar sürebilir.
 
 Diğer istemciler koşulu için tüm kullanılabilir verme denetimleri seçebilirsiniz; Bununla birlikte, son kullanıcı deneyiminin her zaman - aynıdır erişimi engellenir.
 
-Diğer istemciler koşul yanındaki diğer tüm koşullar yapılandırabilirsiniz.
-Örneğin, yalnızca mobil cihazlar için eski bir kimlik doğrulama engellemek istiyorsanız, ayarlama **cihaz platformlarını** seçerek koşul:
+Diğer istemciler koşulunu kullanarak eski bir kimlik doğrulama engellerseniz, cihaz platformu ve konum koşulu da ayarlayabilirsiniz. Örneğin, yalnızca mobil cihazlar için eski bir kimlik doğrulama engellemek istiyorsanız, ayarlama **cihaz platformlarını** seçerek koşul:
 
 - Android
 

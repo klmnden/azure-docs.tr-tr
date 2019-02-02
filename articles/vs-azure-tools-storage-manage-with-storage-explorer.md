@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: cdfb1e11a2eb468e390546d69617ff4cadd17a7e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422737"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658885"
 ---
 # <a name="get-started-with-storage-explorer"></a>Depolama Gezgini ile çalışmaya başlama
 
@@ -63,7 +63,7 @@ Azure Depolama Gezgini diğer dağıtımlarında çalışabilir fakat yalnızca 
 
 Linux üzerinde Azure Depolama Gezgini'ni çalıştırmak için aşağıdaki bağımlılıkları/kitaplıkları sahip olmalısınız:
 
-* [.NET core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * libsecret (Not: libsecret 1.so.0 makinenizde kullanılabilir olmalıdır. Yüklü libsecret farklı bir sürümü varsa, kendi .so dosyası libsecret-1.so.0 yumuşak bağlama deneyebilirsiniz)
 * libgconf-2-4
 * Güncel GCC
@@ -85,11 +85,11 @@ Depolama Gezgini depolama hesaplarına bağlamak için birçok yol sağlar. Örn
 Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 
 * [Bir Azure aboneliğine bağlanma](#connect-to-an-azure-subscription): Azure aboneliğinize ait depolama kaynaklarını yönetin.
-* [Yerel geliştirme deposu ile çalışma](#work-with-local-development-storage): Azure Depolama Öykünücüsü kullanarak yerel depolamayı yönetin.
-* [Dış depolama birimine ekleme](#attach-or-detach-an-external-storage-account): Depolama hesabının adını, anahtarını ve uç noktalarını kullanarak başka bir Azure aboneliğine ait olan veya ulusal Azure bulutlarında bulunan depolama kaynaklarını yönetin.
-* [SAS kullanarak depolama hesabı ekleme](#attach-storage-account-using-sas): Paylaşılan erişim imzası (SAS) kullanarak başka bir Azure aboneliğine ait olan depolama kaynaklarını yönetin.
+* [Yerel geliştirme deposu ile çalışma](#work-with-local-development-storage): Azure Storage öykünücüsü kullanarak yerel depolamayı yönetin.
+* [Dış depolama birimine ekleme](#attach-or-detach-an-external-storage-account): Başka bir Azure aboneliğine ait olan veya Ulusal Azure bulutlarında bulunan depolama hesabının adını, anahtarını ve uç noktaları kullanarak olan depolama kaynaklarını yönetin.
+* [SAS kullanarak depolama hesabı ekleme](): Paylaşılan erişim imzası (SAS) kullanarak başka bir Azure aboneliğine ait depolama kaynaklarını yönetin.
 * [SAS kullanarak hizmet ekleme](#attach-service-using-sas): SAS kullanarak başka bir Azure aboneliğine ait belirli bir depolama hizmetini (blob kapsayıcısı, kuyruk veya tablo) yönetin.
-* [Bir bağlantı dizesi kullanarak bir Azure Cosmos DB hesabına bağlanma](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): bir bağlantı dizesi kullanarak yönetme Cosmos DB hesabı.
+* [Bir bağlantı dizesi kullanarak bir Azure Cosmos DB hesabına bağlanma](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Cosmos DB hesabı, bir bağlantı dizesi kullanarak yönetin.
 
 ## <a name="connect-to-an-azure-subscription"></a>Bir Azure aboneliğine Bağlanma
 
@@ -100,7 +100,7 @@ Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 
 1. Depolama Gezgini'nde seçin **hesaplarını yönetme** gitmek için **hesabı yönetim panelinde**.
 
-    ![Hesapları yönetme][1]
+    ![Hesapları Yönet][1]
 
 2. Sol bölmede, artık için açtığınız tüm Azure hesaplarınıza görüntüler. Başka bir hesaba bağlanmak için **Hesap Ekle**
 

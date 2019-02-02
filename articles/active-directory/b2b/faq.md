@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 36efb943855d36d1f830ba08554eabd0a8a88f50
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3ed781b7d3388015de93a81fb745764a8ad95baa
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169340"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663199"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği hakkında SSS
 
@@ -69,11 +69,11 @@ Konuk kullanıcı erişimini engellemek için [Azure portalında](https://portal
 Evet. Çok faktörlü kimlik doğrulaması ve tüketici e-posta hesapları hem de Azure AD B2B işbirliği için desteklenir.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Azure AD B2B işbirliği kullanıcılar için parola sıfırlamayı destekliyorsunuz?
-Azure AD kiracınıza kullanıcı için giriş dizini, yapabilecekleriniz [kullanıcının parolasını sıfırlama](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal#how-to-reset-the-password-for-a-user) Azure portalından. Ancak, doğrudan başka bir Azure AD directory ya da dış kimlik sağlayıcısı tarafından yönetilen bir hesapla oturum açtığında bir konuk kullanıcının parolasını sıfırlayamazsınız. Yalnızca Konuk kullanıcı veya yönetici kullanıcının giriş dizini olarak parolayı sıfırlayabilirsiniz. Parola sıfırlama nasıl çalışır Konuk kullanıcılar için bazı örnekler şunlardır:
+Azure AD kiracınıza kullanıcı için giriş dizini, yapabilecekleriniz [kullanıcının parolasını sıfırlama](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) Azure portalından. Ancak, doğrudan başka bir Azure AD directory ya da dış kimlik sağlayıcısı tarafından yönetilen bir hesapla oturum açtığında bir konuk kullanıcının parolasını sıfırlayamazsınız. Yalnızca Konuk kullanıcı veya yönetici kullanıcının giriş dizini olarak parolayı sıfırlayabilirsiniz. Parola sıfırlama nasıl çalışır Konuk kullanıcılar için bazı örnekler şunlardır:
  
 * Bir Microsoft hesabıyla oturum konuk kullanıcılar (örneğin guestuser@live.com) Microsoft hesabını Self Servis parola sıfırlama (SSPR) kullanarak kendi parolalarını sıfırlayabilir. Bkz: [Microsoft hesabı parolanızı sıfırlama](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Google hesabı ile veya başka bir dış kimlik sağlayıcısı oturum konuk kullanıcılar, kimlik sağlayıcısının SSPR yöntemi kullanarak kendi parolalarını sıfırlayabilir. Örneğin, bir Konuk kullanıcı Google hesabıyla guestuser@gmail.com yönergelerini takip ederek kendi parolalarını sıfırlayabilir [değişiklik ya da parola sıfırlama](https://support.google.com/accounts/answer/41078).
-* (Ayrı, yönetilmeyen bir Azure kiracısı olduğu anlamına gelir), bir tam zamanında (JIT) veya "viral" Kiracı kimliği kiracısı yalnızca Konuk kullanıcı parolalarını sıfırlayabilir. Bazen bir kuruluş olacak [viral Kiracı yönetimini devralmasına](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) çalışanlar Hizmetleri için kaydolmak için iş e-posta adreslerini kullandığınızda oluşturulur. Kuruluş viral Kiracı gerçekleştirdikten sonra yalnızca söz konusu kuruluştaki bir yönetici kullanıcının parolasını sıfırlama veya SSPR'yi etkinleştir. Gerekirse, davet eden kuruluştan olarak, dizininizdeki Konuk kullanıcı hesabını kaldırmanız ve daveti yeniden gönder.
+* (Ayrı, yönetilmeyen bir Azure kiracısı olduğu anlamına gelir), bir tam zamanında (JIT) veya "viral" Kiracı kimliği kiracısı yalnızca Konuk kullanıcı parolalarını sıfırlayabilir. Bazen bir kuruluş olacak [viral Kiracı yönetimini devralmasına](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) çalışanlar Hizmetleri için kaydolmak için iş e-posta adreslerini kullandığınızda oluşturulur. Kuruluş viral Kiracı gerçekleştirdikten sonra yalnızca söz konusu kuruluştaki bir yönetici kullanıcının parolasını sıfırlama veya SSPR'yi etkinleştir. Gerekirse, davet eden kuruluştan olarak, dizininizdeki Konuk kullanıcı hesabını kaldırmanız ve daveti yeniden gönder.
 * Azure AD kiracınıza Konuk kullanıcının ana dizini ise, kullanıcının parolasını sıfırlayabilirsiniz. Örneğin, bir kullanıcı oluşturmuş olabilir veya bir kullanıcı şirket içi Active Directory'nizden eşitlenen ve kendi UserType Konuk ayarlayın. Bu kullanıcı, dizininizde bağlantılı olduğundan, Azure portalından parolasını sıfırlayabilirsiniz.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365, Azure AD B2B işbirliği için çevrimiçi destek sağlar mı?

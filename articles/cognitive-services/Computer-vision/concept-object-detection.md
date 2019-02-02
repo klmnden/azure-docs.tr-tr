@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3468f9341e0a8406733877a05798e427dd454fff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 93ce86a438fca47100a34da2524515b46bcad574
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167572"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567171"
 ---
 # <a name="object-detection"></a>Nesne algılama
 
@@ -87,6 +87,15 @@ Görüntü işleme örnek görüntüde nesneleri tespit edilirken döndürür a�
 }
 ```
 
-## <a name="next-steps"></a>Sonraki adımlar
+## <a name="limitations"></a>Sınırlamalar
 
-Kavramları hakkında bilgi edinin [görüntüleri kategorilendirme](concept-categorizing-images.md) ve [görüntüleri açıklayan](concept-describing-images.md).
+Önlemek veya hatalı negatif (eksik nesneler) ve sınırlı ayrıntı etkilerini azaltmak için nesne algılama özelliği sınırlamaları unutmayın.
+* (Daha azını %5 görüntünün) çok küçük olmaları durumunda nesneler genellikle algılanmaz.
+* Nesneler genellikle algılanmayan birbirine çok yakın yerleştirilmişse (örneğin kalıplar yığını).
+* Nesneleri markaya göre ayırt edilen değil veya ürün adları (örneğin bir mağaza raf sodas farklı türde). Bir görüntüden kullanarak marka bilgilerini ancak alabilirsiniz [marka algılama](concept-brand-detection.md) özelliği.
+
+## <a name="use-the-api"></a>API kullanın
+Nesne algılama özelliği parçasıdır [analiz görüntü](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Bu API'nin yerel SDK veya REST çağrılarını aracılığıyla çağırabilirsiniz. Yalnızca tam JSON yanıt aldığınızda içeriğini dizesi ayrıştırılamıyor. `"objects"` bölümü.
+
+* [Hızlı Başlangıç: (.NET SDK) bir resmi çözümleme](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Hızlı Başlangıç: Bir resmi (REST API'si) çözümleme](./quickstarts/csharp-analyze.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7505715641462f4a07d999ea419632bd91e925fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 28b73a70ef9ffd4e73117d599448434823747eca
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438924"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567409"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Oluşturma, değiştirme veya bir ağ güvenlik grubunu sil
 
@@ -66,7 +66,7 @@ Portalın üst kısmındaki arama kutusuna girin *ağ güvenlik grupları*. Zama
 2. Ağ güvenlik grubu ayrıntılarını görüntülemek istediğiniz listeyi seçin. Altında **ayarları** görüntüleyebileceğiniz **gelen güvenlik kuralları** ve **giden güvenlik kuralları**, **ağ arabirimleri** ve  **Alt ağlar** ilişkili ağ güvenlik grubu. Ayrıca etkinleştirir veya devre dışı bırakmak **tanılama günlükleri** ve Görünüm **geçerli güvenlik kuralları**. Daha fazla bilgi için bkz. [tanılama günlükleri](virtual-network-nsg-manage-log.md) ve [geçerli güvenlik kuralları görüntüleyebiliriz](diagnose-network-traffic-filter-problem.md).
 3. Listelenen yaygın Azure ayarları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
     *   [Etkinlik Günlüğü](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [Erişim denetimi (IAM)](../role-based-access-control/overview.md)
     *   [Etiketler](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Otomasyon betiği](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)

@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 1ac7b5f41c0c941db08a63c516febabaf9f07b3e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491391"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565981"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uygulama durumunu uzantısı ile sanal makine ölçek kümeleri
 Uygulamanızın sistem durumu izleme, yönetme ve yükseltme dağıtımınız için önemli bir sinyaldir. Azure sanal makine ölçek kümeleri için destek sağlar [toplu yükseltmeler](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) dahil olmak üzere [otomatik işletim sistemi görüntüsü yükseltme](virtual-machine-scale-sets-automatic-upgrade.md), dağıtımınızı yükseltmek için tek tek örneklerini sistem durumu izlemeye güvenin .
 
 Bu makalede, sanal makine ölçek kümeleri üzerinde dağıtılan uygulamalarınızı durumunu izlemek için uygulama durumunu uzantıyı nasıl kullanabileceğiniz açıklanır.
 
-## <a name="pre-requisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, aşina olduğunuzu varsayar:
 -   Azure sanal makine [uzantıları](../virtual-machines/extensions/overview.md)
 -   [Değiştirme](virtual-machine-scale-sets-upgrade-scale-set.md) sanal makine ölçek kümeleri

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 141caeb180fd0f5663c0fd51aadb0a397665c6d3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dac7e458339e24e0bb6663f4ff0d5e98bc814aad
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168626"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658649"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Parola çoklu oturum açma Azure AD galeri uygulaması için yapılandırma
 
-Bir uygulamadan eklediğinizde [Azure AD uygulama Galerisi](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery), bu uygulamaya oturum açmak için kullanıcılarınızın istediğiniz seçeneğiniz vardır. Bu seçim seçerek herhangi bir anda yapılandırabilirsiniz **çoklu oturum açma** Gezinti öğesi üzerinde bir kurumsal uygulamada [Azure portalı](https://portal.azure.com/).
+Bir uygulamadan eklediğinizde [Azure AD uygulama Galerisi](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), bu uygulamaya oturum açmak için kullanıcılarınızın istediğiniz seçeneğiniz vardır. Bu seçim seçerek herhangi bir anda yapılandırabilirsiniz **çoklu oturum açma** Gezinti öğesi üzerinde bir kurumsal uygulamada [Azure portalı](https://portal.azure.com/).
 
 Çoklu oturum açma yöntemleri kullanabileceğiniz biri [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) seçeneği. Bu Azure AD ile uygulamaları tümleştirme, hızlı bir şekilde kullanmaya başlamak için harika bir yoludur ve sağlar:
 
@@ -41,7 +41,7 @@ Bir uygulamadan eklediğinizde [Azure AD uygulama Galerisi](https://docs.microso
 
 -   İzin bir **yönetici** belirtmek için paylaşılan kullanıcı adı veya parola güncelleştirme kimlik bilgilerini kullanarak bir kişi grubu tarafından kullanılan özellik ne zaman [uygulamaya grup atama](#assign-an-application-to-a-group-directly)
 
-Aşağıdaki bölümde, nasıl olanak sağlayabileceğiniz açıklanmaktadır [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) zaten bir uygulamaya [Azure AD uygulama Galerisi](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+Aşağıdaki bölümde, nasıl olanak sağlayabileceğiniz açıklanmaktadır [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) zaten bir uygulamaya [Azure AD uygulama Galerisi](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="overview-of-steps-required"></a>Gerekli adımlara genel bakış
 Bir uygulama için gereken Azure AD Galerisi yapılandırmak için:

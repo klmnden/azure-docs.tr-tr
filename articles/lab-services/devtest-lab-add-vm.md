@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 05e68e13ab5aa526362e71413c105340ad07426f
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: e88f3c53479b9cb599474d627d28174516eb672c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082087"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664106"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara VM ekleme
 Zaten varsa [ilk VM'nizi oluşturulan](devtest-lab-create-first-vm.md), büyük olasılıkla bunu önceden yüklü yaptığınız [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Şimdi, laboratuvarınız için sonraki VM'ler eklemek istiyorsanız, ayrıca seçebileceğiniz bir *temel* ya da diğer bir deyişle bir [özel görüntü](devtest-lab-create-template.md) veya [formül](devtest-lab-manage-formulas.md). Bu öğreticide, Azure portalını kullanarak bir VM için DevTest labs'deki bir laboratuvara ekleme yoluyla açıklanmaktadır.
@@ -41,6 +41,8 @@ Bu makalede ayrıca laboratuvarınızda bir VM yapıtları yönetme işlemini g�
     2. Girin bir **kullanıcı adı** sanal makinede yönetici ayrıcalıkları verildi. **Kullanıcı adı** makine otomatik olarak oluşturulan benzersiz bir ad ile önceden doldurulmuş için. Adı, kullanıcı adı, e-posta adresinizi içinde karşılık gelir. Bu özellik, yeni bir makine her oluşturduğunuzda, kullanıcı adına karar size zaman kazandırır. Yeniden istediğiniz bu otomatik olarak doldurulan alan bir kullanıcı adı, tercih ettiğiniz ile geçersiz kılabilirsiniz. Kullanıcı adı için otomatik olarak doldurulan değeri geçersiz kılmak için bir değer girin. **kullanıcı adı** metin kutusu. Bu kullanıcıya verilir **yönetici** sanal makinede ayrıcalıkları.
     3. Laboratuar ortamında ilk sanal makine oluşturuyorsanız, girin bir **parola** kullanıcı. Azure key vault'ta lab ile ilişkili varsayılan parola olarak bu parolayı seçilecek **varsayılan Parolayı Kaydet**. Varsayılan parola adlı anahtar Kasası'nda kaydedilir: **VmPassword**. Laboratuvarda, sonraki Vm'leri oluşturmaya çalıştığınızda **VmPassword** otomatik olarak seçilir **parola**. Geçersiz kılma değeri için temizleyin **kaydedilmiş bir gizli diziyi kullanın** onay kutusunu işaretleyin ve bir parola girin. 
 
+        ![Bir temel seçin](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+
         Ayrıca gizli anahtar Kasası'nda ilk kaydedin ve laboratuar ortamında bir VM oluşturulurken kullanın. Daha fazla bilgi için [bir anahtar kasasındaki gizli dizileri Store](devtest-lab-store-secrets-in-key-vault.md). Anahtar Kasası'nda depolanan parola kullanmak için **kaydedilmiş bir gizli diziyi kullanın**ve, gizli dizisini (parola) karşılık gelen bir anahtar değeri belirtin.
     4. İçinde **daha fazla seçenek** bölümünden **değiştirme boyutu**. İşlemci çekirdeği ve RAM boyutu oluşturmak için sanal sabit sürücü boyutu belirtin önceden tanımlanmış öğelerden birini seçin.
     5. Seçin **ekleme veya kaldırma Yapıtları**. Seçin ve temel görüntüye eklemek istediğiniz yapıtları yapılandırın.
@@ -52,9 +54,13 @@ Bu makalede ayrıca laboratuvarınızda bir VM yapıtları yönetme işlemini g�
     4. Otomatik olarak VM'yi silmek için belirtin **sona erme tarihi ve saati**. 
     5. VM bir laboratuvar kullanıcı tarafından talep edilebilir hale getirmek için seçin **Evet** için **bu makineyi talep edilebilir hale** seçeneği. 
     6. Sayısını **VM örneklerini** Laboratuvar kullanıcılarınız için kullanılabilir hale getirmek istediğiniz. 
-3. Seçin **Oluştur** belirtilen VM'yi laboratuvara ekleme için.
+
+        ![Bir temel seçin](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
+1. Seçin **Oluştur** belirtilen VM'yi laboratuvara ekleme için.
 
    Laboratuvar sayfanın durumunu VM oluşturma - ilk olarak görüntüler **oluşturma**, ardından olarak **çalıştıran** VM başlatıldıktan sonra.
+
+    ![Sanal makine oluşturma durumu](./media/tutorial-create-custom-lab/vm-creation-status.png)
 
 ## <a name="add-an-existing-artifact-to-a-vm"></a>Var olan bir yapıyı bir VM'ye ekleme
 Bir VM oluştururken, mevcut yapıt ekleyebilirsiniz. Her laboratuar oluşturduğunuz ve kendi Yapıt deposuna eklendi yapıtları yanı sıra ortak DevTest Labs Yapıt deposu yapıları içerir.

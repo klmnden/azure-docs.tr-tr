@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 98a4d0ace2113c3936e13d357d0d8b641982d7c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099741"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567953"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics giriş olarak Stream veri
 
@@ -26,7 +26,7 @@ Stream Analytics, Azure veri akışları ile birinci sınıf tümleştirme giri�
 Bu giriş kaynakları, Stream Analytics işinizi aynı Azure aboneliğinde veya farklı bir abonelik Canlı çalıştırabilirsiniz.
 
 ### <a name="compression"></a>Sıkıştırma
-Stream Analytics, tüm veri akışı giriş kaynaklarında sıkıştırma destekler. Şu anda desteklenen başvuru türleridir: hiçbiri, GZip ve Deflate sıkıştırma. Sıkıştırma desteğine başvuru verileri için kullanılabilir değil. Giriş biçimi, sıkıştırılmış Avro veri olması durumunda saydam bir şekilde ele alınır. Avro serileştirme ile sıkıştırma türünü belirtmeniz gerekmez. 
+Stream Analytics, tüm veri akışı giriş kaynaklarında sıkıştırma destekler. Şu anda desteklenen başvuru türleri şunlardır: Yok, GZip ve Deflate sıkıştırma. Sıkıştırma desteğine başvuru verileri için kullanılabilir değil. Giriş biçimi, sıkıştırılmış Avro veri olması durumunda saydam bir şekilde ele alınır. Avro serileştirme ile sıkıştırma türünü belirtmeniz gerekmez. 
 
 ## <a name="create-edit-or-test-inputs"></a>Oluşturma, düzenleme veya test girişleri
 Kullanabileceğiniz [Azure portalı](https://portal.azure.com) için [yeni girdileri Oluştur](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) görüntüleyebilir veya var olan akış işinizin girişler düzenleyin. Ayrıca, giriş bağlantılarını test edebilirsiniz ve [test sorguları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) örnek verilerden. Bir sorgu yazdığınızda, giriş FROM yan tümcesi içinde listelenir. Kullanılabilir girişler listesini alabilirsiniz **sorgu** portalında sayfası. Birden çok giriş kullanmak istiyorsanız, aşağıdakileri yapabilirsiniz `JOIN` bunları veya birden çok yazma `SELECT` sorgular.
@@ -75,7 +75,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> Olay hub'ı, IOT hub'ı yollar için bir uç nokta kullanırken, IOT hub'ı kullanarak medadata erişebilir [GetMetadataPropertyValue işlevi](https://msdn.microsoft.com/library/azure/mt793845.aspx).
+> Olay hub'ı, IOT hub'ı yollar için bir uç nokta kullanırken, IOT hub'ı kullanarak meta verileri erişebilir [GetMetadataPropertyValue işlevi](https://msdn.microsoft.com/library/azure/mt793845.aspx).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>IOT hub'ı Stream verileri

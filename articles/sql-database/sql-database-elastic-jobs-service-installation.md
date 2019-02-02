@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: cc322f44760ddf0a7cd28751c895a7c4938dbbc0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867249"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565488"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Yükleme esnek veritabanı işlerine genel bakış
 
@@ -32,7 +32,7 @@ Zaten yüklediyseniz **elastik veritabanı işleri** mevcut bir Portal üzerinde
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure aboneliği. Ücretsiz deneme için bkz: [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. En son sürümünü kullanarak yüklemeniz [Web Platformu yükleyicisi](https://go.microsoft.com/fwlink/p/?linkid=320376). Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
-* [NuGet komut satırı yardımcı programı](https://nuget.org/nuget.exe) elastik veritabanı işleri paketini yüklemek için kullanılır. Daha fazla bilgi için http://docs.nuget.org/docs/start-here/installing-nuget.
+* [NuGet komut satırı yardımcı programı](https://nuget.org/nuget.exe) elastik veritabanı işleri paketini yüklemek için kullanılır. Daha fazla bilgi için bkz. http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>İndirme ve elastik veritabanı işleri PowerShell paketi içeri aktarma
 1. Microsoft Azure PowerShell komut penceresini başlatın ve NuGet komut satırı yardımcı programı (nuget.exe) karşıdan yüklediğiniz dizine gidin.
@@ -51,7 +51,7 @@ Zaten yüklediyseniz **elastik veritabanı işleri** mevcut bir Portal üzerinde
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>PowerShell kullanarak elastik veritabanı işleri bileşenlerini yükleme
-1. Microsoft Azure PowerShell komut penceresini başlatın ve \tools Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x klasörü altında alt dizinine gidin: cd \tools yazın
+1. Microsoft Azure PowerShell komut penceresini başlatın ve \tools Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x klasörü altında alt dizinine gidin: CD \tools yazın
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: c202379f236bcd2fea05ad9d135096bc724898e7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8be3156aaeb9651b97999b7b06fec8034e902c36
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956430"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663902"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI ile bir kullanılabilirlik alanında Linux sanal makinesi oluşturma
 
@@ -62,7 +62,7 @@ virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun.  
+[az group create](/cli/azure/group) komutuyla bir kaynak grubu oluşturun.  
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir sanal makineden önce bir kaynak grubu oluşturulmalıdır. Bu örnekte, adlı bir kaynak grubu *Eastus* oluşturulur *eastus2* bölge. Doğu ABD 2, kullanılabilirlik alanlarını destekleyen Azure bölgelerinden biridir.
 

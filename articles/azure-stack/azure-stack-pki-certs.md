@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244258"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660128"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -49,7 +49,7 @@ Aşağıdaki listede, Azure Stack dağıtmak için gerekli sertifika gereksiniml
 - Sertifika pfx dosyaları "Sunucu kimlik doğrulaması (1.3.6.1.5.5.7.3.1)" ve "İstemci kimlik doğrulaması (1.3.6.1.5.5.7.3.2)" değerlerini "Gelişmiş anahtar kullanımı" alanında olması gerekir.
 - Sertifikanın "verilen:" alanı aynı olmamalıdır, "tarafından verilen:" alanı.
 - Dağıtım sırasında tüm sertifika pfx dosyalarını parola aynı olmalıdır
-- Karmaşık bir parola sertifika pfx parolası vardır.
+- Karmaşık bir parola sertifika pfx parolası vardır. Şu parola karmaşıklık gereksinimini karşılayan bir parola oluşturun. En az sekiz karakter uzunluğu. Parola en az üç birini içeriyor: büyük harf, küçük harf, sayı 0-9, özel karakterler büyük veya küçük harf alfabetik karakterle. Bu parolayı not edin. Dağıtım parametresi olarak kullanır.
 - Konu adları ve konu alternatif adı uzantısı (x509v3_config) eşleşen konu diğer adları emin olun. Konu alternatif adı alanı ek konak adları (Web siteleri, IP adresleri, yaygın olarak kullanılan adları) tek bir SSL sertifikası tarafından korunacak belirtmenize olanak sağlar.
 
 > [!NOTE]  

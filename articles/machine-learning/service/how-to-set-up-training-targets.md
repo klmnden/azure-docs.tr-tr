@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 75caad2c183ba2d3c5442a3620705c6af8070755
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250716"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659601"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
@@ -159,7 +159,7 @@ Bir Docker kapsayıcısı, zaten var olan bir Python ortamını veya sistem tara
 
 Azure veri bilimi sanal makinesi (DSVM), bu senaryo için tercih ettiğiniz Azure VM olarak kullanın. Bu, önceden yapılandırılmış bir veri bilimi ve yapay ZEKA geliştirme ortamında Azure vm'dir. VM, araç ve çerçeve tam yaşam döngüsü makine öğrenimi geliştirme için seçkin bir seçenek sunar. Azure Machine Learning ile DSVM'sini kullanma hakkında daha fazla bilgi için bkz. [geliştirme ortamını yapılandırma](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **Oluşturma**: Modelinizi eğitmek için kullanmadan önce bir DSVM oluşturma. Bu kaynak oluşturmak için bkz [Linux (Ubuntu) için veri bilimi sanal makinesi sağlama](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Oluşturma**: Modelinizi eğitmek için kullanmadan önce bir DSVM oluşturma. Bu kaynak oluşturmak için bkz [Linux (Ubuntu) için veri bilimi sanal makinesi sağlama](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > Azure Machine Learning yalnızca Ubuntu çalıştıran sanal makineleri destekler. Bir VM oluşturmak veya mevcut bir VM'yi seçin, Ubuntu kullanan bir VM seçmeniz gerekir.
@@ -384,5 +384,5 @@ Bu not defterlerini eğitim çeşitli işlem hedefleri olan örnekler için bkz:
 
 * [Öğretici: Bir model eğitip](tutorial-train-models-with-aml.md) bir modeli eğitmek için yönetilen işlem hedefi kullanır.
 * Eğitilen bir modelin aldıktan sonra bilgi [nasıl ve nerede modelleri dağıtma](how-to-deploy-and-where.md).
-* Görünüm [RunConfiguration sınıfı](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK başvurusu.
+* Görünüm [RunConfiguration sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK başvurusu.
 * [Azure Machine Learning hizmeti ile Azure sanal ağları kullanın.](how-to-enable-virtual-network.md)

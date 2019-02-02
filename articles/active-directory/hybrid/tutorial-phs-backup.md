@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fb35f72d45cbdf1690329b0bf146fce4d47d0bd6
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5219241de9b18008032a3eb78c6aab25a2713370
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490116"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660417"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Öğretici:  PHS, Azure AD Connect, AD FS için yedek olarak ayarlama
 
@@ -43,7 +43,7 @@ Biz, Federasyon, kullanarak bir Azure AD Connect ortama sahip olduğunuza göre 
 10. İşte bu kadar!  Gerçekleştirilir.  Parola Karması eşitleme artık ortaya çıkar ve AD FS kullanılamaz duruma gelirse, yedekleme olarak kullanılabilir.
 
 ## <a name="switch-to-password-hash-synchronization"></a>Parola Karması eşitleme için geçiş
-Şimdi, gerekirse, parola karma eşitlemesini geçebilir nasıl göstereceğiz.  Şunları yapın:
+Şimdi, parola karma eşitlemesini geçebilir nasıl göstereceğiz. Başlamadan önce hangi koşullar altında geçiş yapmak göz önünde bulundurun. Anahtarı, ağ kesintisi, ikincil bir AD FS sorun veya kullanıcılarınızın bir alt etkileyen bir sorun gibi geçici nedeniyle yapmayın. Sorun giderme çok uzun sürer çünkü geçiş yapmak karar verirseniz, aşağıdakileri yapın:
 
 1. Masaüstü üzerinde oluşturulan Azure AD Connect simgesini çift tıklatın
 2.  **Yapılandır**'a tıklayın.

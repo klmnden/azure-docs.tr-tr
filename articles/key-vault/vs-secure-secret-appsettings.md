@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 8f3cdf366830549c3ebb9c5680ecf36d1053d1d9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: df6330827a4fb8bb8e80af89855c3ea104584295
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075303"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662315"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarlarını Kaydet
 
@@ -32,7 +32,7 @@ Geliştirme işlemi güvenli olduğundan emin olmak için uygulama gizli ayarlar
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET ve .NET core uygulamaları
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Kaynak denetim klasörü dışında kullanıcı gizli dizi deposu gizli dizi ayarlarını kaydedin
-Hızlı bir prototip yapıyor veya internet erişimi yoksa, kullanıcı gizli dizi deposu için kaynak denetim klasörü dışında gizli ayarlarınızı taşıma ile başlayın. Kullanıcı gizli dizi deposu, gizli dizileri kaynak denetimine iade edilmez için kullanıcı profil oluşturucu klasörü altında kaydedilen bir dosyadır. Aşağıdaki diyagramda gösterilmiştir nasıl [kullanıcı gizliliği](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) çalışır.
+Hızlı bir prototip yapıyor veya internet erişimi yoksa, kullanıcı gizli dizi deposu için kaynak denetim klasörü dışında gizli ayarlarınızı taşıma ile başlayın. Kullanıcı gizli dizi deposu, gizli dizileri kaynak denetimine iade edilmez için kullanıcı profil oluşturucu klasörü altında kaydedilen bir dosyadır. Aşağıdaki diyagramda gösterilmiştir nasıl [kullanıcı gizliliği](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) çalışır.
 
 ![Kullanıcı gizliliği gizli dizi ayarlarını kaynak denetimi dışında tutar.](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249277"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566049"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple üzerinde barındırılan dosya paylaşımları için Azure Site Recovery kullanarak otomatik olağanüstü durum kurtarma çözümü
 ## <a name="overview"></a>Genel Bakış
@@ -133,7 +133,7 @@ Böylece yük devretme sonrasında VM ağlarının doğru DR ağa bağlı dosya 
 
 VM'yi seçebileceğiniz **çoğaltılan öğeler** aşağıdaki çizimde gösterildiği gibi ağ ayarlarını yapılandırmak için sekmesinde.
 
-![İşlem ve ağ](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
+![İşlem ve Ağ](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
 
 ## <a name="create-a-recovery-plan"></a>Kurtarma planı oluşturma
 Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bir kurtarma planı oluşturabilirsiniz. Bir kesinti oluşursa, dosya paylaşımları yalnızca tek bir tıklama ile birkaç dakika içinde kutusunu görüntüleyebilirsiniz. Bu Otomasyon etkinleştirmek için bir Azure Otomasyonu hesabı gerekir.
@@ -167,17 +167,17 @@ Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bi
    
 1. Otomasyon hesabı'nda tıklatın **değişkenleri** &gt; **değişken Ekle** ve aşağıdaki değişkenleri ekleyin. Bu varlıklar şifrelemeyi seçebilirsiniz. Bu kurtarma planı belirli değişkenlerdir. Kurtarma planı, değişkenlerinizi TestPlan StorSimRegKey, TestPlan-AzureSubscriptionName olması ve benzeri sonraki adımda oluşturacağınız TestPlan, adıdır.
 
-   - **BaseUrl**: Azure bulutu için Azure Resource Manager URL'si. Kullanarak başlayın **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet'i.
-   - *RecoveryPlanName* **- ResourceGroupName**: StorSimple kaynak için Azure Resource Manager grubu.
-   - *RecoveryPlanName* **- ManagerName**: StorSimple cihazı olan StorSimple kaynak.
-   - *RecoveryPlanName* **- DeviceName**: devredilecek olan StorSimple cihaz.
-   - *RecoveryPlanName* **- DeviceIpAddress**: aygıtın IP adresi (Bu bulunabilir **cihazları** sekmesini StorSimple cihaz Yöneticisi bölümünde &gt; **ayarları** &gt; **Ağ** &gt; **DNS ayarlarını** grup).
-   - *RecoveryPlanName* **- VolumeContainers**: virgülle ayrılmış bir dize üzerinde; örneğin başarısız için gereken cihazdaki birim kapsayıcıların: volcon1, volcon2, volcon3.
-   - *RecoveryPlanName* **- TargetDeviceName**: StorSimple Cloud Appliance üzerinde kapsayıcılardır devredilecek.
-   - *RecoveryPlanName* **- TargetDeviceIpAddress**: hedef cihazın IP adresi (Bu bulunabilir **sanal makine** bölümü &gt; **ayarları** Grup &gt; **ağ** sekmesi).
-   - *RecoveryPlanName* **- StorageAccountName**: (Bu VM üzerinde başarısız üzerinde çalıştırılacak olan) betik depolanacağı depolama hesabı adı. Bu betik geçici olarak depolamak için bazı alana sahip herhangi bir depolama hesabı olabilir.
-   - *RecoveryPlanName* **- StorageAccountKey**: Yukarıdaki depolama hesabı için erişim anahtarı.
-   - *RecoveryPlanName* **- VMGUIDS**: bir sanal makine koruma sırasında Azure Site Recovery her VM üzerinde VM başarısız ayrıntılarını sağlayan benzersiz bir kimliği atar. VMGUID elde etmek için seçin **kurtarma Hizmetleri** sekmesine **korumalı öğesi** &gt; **koruma grupları** &gt;  **Makineleri** &gt; **özellikleri**. Birden fazla VM varsa, GUID'leri virgülle ayrılmış bir dize olarak ekleyin.
+   - **BaseUrl**: Azure bulut Kaynak Yöneticisi URL'si. Kullanarak başlayın **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet'i.
+   - * RecoveryPlanName ***- ResourceGroupName**: Resource Manager Grup StorSimple kaynak vardır.
+   - * RecoveryPlanName ***- ManagerName**: StorSimple cihazı olan StorSimple kaynağıdır.
+   - * RecoveryPlanName ***- DeviceName**: Devredilecek olan StorSimple cihaz.
+   - * RecoveryPlanName ***- DeviceIpAddress**: Cihazın IP adresi (Bu bulunabilir **cihazları** sekmesini StorSimple cihaz Yöneticisi bölümünde &gt; **ayarları** &gt; **ağ** &gt; **DNS ayarlarını** grup).
+   - * RecoveryPlanName ***- VolumeContainers**: Virgülle ayrılmış bir dize birim kapsayıcılarının yük devretmesi için gereken cihaz üzerinde mevcut; Örneğin: volcon1, volcon2, volcon3.
+   - * RecoveryPlanName ***- TargetDeviceName**: Üzerinde başarısız olan kapsayıcılar StorSimple Cloud Appliance.
+   - *RecoveryPlanName***-TargetDeviceIpAddress**: Hedef cihazın IP adresi (Bu bulunabilir **sanal makine** bölümü &gt; **ayarları** grubu &gt; **ağ** sekmesi).
+   - * RecoveryPlanName ***- StorageAccountName**: (Bu VM üzerinde başarısız üzerinde çalıştırılacak olan) betik depolanacağı depolama hesabı adı. Bu betik geçici olarak depolamak için bazı alana sahip herhangi bir depolama hesabı olabilir.
+   - * RecoveryPlanName ***- StorageAccountKey**: Yukarıdaki depolama hesabı için erişim anahtarı.
+   - * RecoveryPlanName ***- VMGUIDS**: Bir VM koruma sırasında Azure Site Recovery VM üzerinde başarısız ayrıntılarını sağlayan benzersiz bir kimliği her VM atar. VMGUID elde etmek için seçin **kurtarma Hizmetleri** sekmesine **korumalı öğesi** &gt; **koruma grupları** &gt;  **Makineleri** &gt; **özellikleri**. Birden fazla VM varsa, GUID'leri virgülle ayrılmış bir dize olarak ekleyin.
 
     Kurtarma planı fileServerpredayRP, adıdır, örneğin, ardından, **değişkenleri**, **bağlantıları** ve **sertifikaları** sekmesi, ekledikten sonra aşağıdaki gibi görünmelidir Tüm varlıklar için.
 
@@ -208,7 +208,7 @@ Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bi
       
    1. StorSimple 8000 serisi cihaz yönetimi için bir Azure Otomasyonu Runbook modülünü oluşturun. Kullanım aşağıdaki komutları bir Otomasyon modül zip dosyası oluşturmak için.
          
-      ```
+      ```powershell
             # set path variables
             $downloadDir = "C:\scripts\StorSimpleSDKTools"
             $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
@@ -259,14 +259,14 @@ Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bi
       - Bağlama birimleri sonra devretme runbook  
       - Kaldırma-özel-betik-uzantısı runbook  
         
-   - Aynı yukarıdaki 4 betikleri sonra el ile gerçekleştirilen bir eylem ekleme **Grup 1: sonraki adımlar** bölümü. Bu eylem, her şeyin düzgün çalıştığını doğrulayabilirsiniz noktasıdır. Bu eylem yalnızca yük devretme testi bir parçası olarak eklenmesi gerekir (Bu nedenle yalnızca seçilen **yük devretme testi** onay kutusu).
+   - Aynı yukarıdaki 4 betikleri sonra el ile gerçekleştirilen bir eylem ekleme **Grup 1: Sonraki adımlar** bölümü. Bu eylem, her şeyin düzgün çalıştığını doğrulayabilirsiniz noktasıdır. Bu eylem yalnızca yük devretme testi bir parçası olarak eklenmesi gerekir (Bu nedenle yalnızca seçilen **yük devretme testi** onay kutusu).
     
    - El ile gerçekleştirilen eylem sonra Ekle **Temizleme** diğer runbook'lar için kullandığınız yordamın aynısını kullanarak betik. **Kaydet** kurtarma planı.
     
    > [!NOTE]
    > El ile gerçekleştirilen eylem tamamlandıktan sonra hedef cihazda kopyalanan StorSimple birimlerini temizleme kapsamında silinecek olduğundan bir yük devretme testi çalıştırırken, her şeye el ile gerçekleştirilen eylem adım doğrulamanız gerekir.
        
-      ![Recoery planı](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
+      ![Kurtarma planı](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
 
 ## <a name="perform-a-test-failover"></a>Yük devretme testi gerçekleştirme
 Başvurmak [Active Directory DR çözümü](../site-recovery/site-recovery-active-directory.md) konular için belirli Active Directory için yük devretme testi sırasında yardımcı kılavuz. Şirket içi Kurulumu test yük devretme gerçekleştiğinde tüm dağıtılmış bir dosya değil. Azure'da StorSimple Cloud Appliance için şirket içi sanal Makineye bağlı StorSimple birimlerini klonlanır. Azure'da bir VM test amacıyla sağlanmıştır ve kopyalanan birimler sanal Makineye eklenir.
@@ -341,18 +341,18 @@ Kapasite planlama en az iki önemli işlemden oluşur:
    - Bir yük devretme sonrasında birimleri görmek mümkün değilse, Vm'lere gidin, Disk Yönetimi'ni açın, diskleri yeniden tarayın ve ardından bunları çevrimiçi duruma getirmeden.
    - Bazı durumlarda, DR sitesi sürücü harflerini harf şirket içi farklı olabilir. Bu meydana gelirse, yük devretme işlemi tamamlandıktan sonra sorun el ile düzeltmeniz gerekir.
    - Yük devretme işi zaman aşımı: StorSimple betik zaman aşımı birim kapsayıcıları için yük devretme betiği (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse olur.
-   - Yedekleme işi zaman aşımı: StorSimple betik zaman aşımına birimlerin yedeğini betik (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse.
+   - Yedekleme işi zaman aşımı: Birimlerin yedeğini betik (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse StorSimple betik zaman aşımına uğradı.
    
    > [!IMPORTANT]
    > Yedekleme Azure portalından el ile çalıştırın ve ardından kurtarma planını yeniden çalıştırın.
    
-   - Kopyalama işi zaman aşımı: StorSimple betik zaman aşımına hacimlerdeki kopyalama komut dosyası (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse.
-   - Zaman eşitleme hatası: StorSimple yedekleme portalda başarılı olsa bile, yedeklemeler başarısız belirten kullanıma hataları komut dosyaları. Bunun olası bir nedeni, StorSimple gereç saat saat dilimindeki geçerli saati ile eşitlenmemiş olabilir olabilir.
+   - Kopyalama işi zaman aşımı: Birimleri kopyalama komut dosyası (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse StorSimple betik zaman aşımına uğradı.
+   - Zaman eşitleme hatası: StorSimple yedekleme portalda başarılı olsa bile, yedeklemeler başarısız belirten kullanıma hataları komutlar. Bunun olası bir nedeni, StorSimple gereç saat saat dilimindeki geçerli saati ile eşitlenmemiş olabilir olabilir.
    
    > [!IMPORTANT]
    > Gereç saat saat dilimindeki geçerli saati ile eşitleyin.
    
-   - Gereç yük devretme hatası: StorSimple betik varsa bir gereç yük devretme kurtarma planı çalışırken başarısız olabilir.
+   - Gereç yük devretme hatası: Varsa bir gereç yük devretme kurtarma planı çalışırken StorSimple betiği başarısız olabilir.
    
    > [!IMPORTANT]
    > Kurtarma planı, gereç yük devretme işlemi tamamlandıktan sonra yeniden çalıştırın.

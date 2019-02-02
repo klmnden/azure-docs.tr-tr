@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 614d8fac4130b3331cf5326800aaf5a2a3c58513
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474007"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658055"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Azure CLI kullanarak blobları Listele
 
@@ -105,7 +105,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu Hızlı Başlangıç öğreticisinde oluşturduğunuz depolama hesabı dahil, kaynak grubunuzdaki hiçbir kaynağa artık ihtiyacınız yoksa [az group delete](/cli/azure/group#az_group_delete) komutuyla kaynak grubunu silin.
+Bu Hızlı Başlangıç öğreticisinde oluşturduğunuz depolama hesabı dahil, kaynak grubunuzdaki hiçbir kaynağa artık ihtiyacınız yoksa [az group delete](/cli/azure/group) komutuyla kaynak grubunu silin.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

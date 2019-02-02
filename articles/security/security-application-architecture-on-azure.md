@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 4945978fdc27a298daf4de0604b894c53ba51dbe
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 78746324c240e0a1bfab81ca1e45f231909328c0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321440"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661199"
 ---
 # <a name="application-architecture-on-azure"></a>Azure’da uygulama mimarisi
 Güvenliğini sağlamaya yardımcı olmak için bulut tabanlı çözümlerinizi Microsoft azure'da güçlü bir mimari temel önemlidir. Mimarları, tasarımcılar ve uygulayıcılar sağlam bir uygulama ve Hizmetleri mimarisi bilgilerden yararlanın. Bu temel bilgi, bulut tabanlı çözümler tüm bileşenlerini anlayın ve güvenlik tasarımı ve uygulaması tüm yönlerini tümleştirmeyi kolaylaştırmak yardımcı olur.
@@ -42,10 +42,10 @@ Y: her şema içerir
 [Visio ve video eğitimi sembolleri görüntüleme](https://aka.ms/CnESymbolsVideo) ardından [bulut indirin ve kuruluş sembol ayarlayın](https://aka.ms/CnESymbols) Azure, Windows Server, SQL Server ve daha fazla açıklayın teknik malzemeleri oluşturmasına yardımcı olmak için. Mimari diyagramlar, eğitim malzemeleri, sunular, veri, infografikleri, teknik incelemeler ve hatta üçüncü taraf books sembolleri Microsoft ürünlerini kullanan diğer kişilere kitap eğitir kullanabilirsiniz. Ancak, bunlar için kullanıcı arabirimleri kullanımda değildir.
 
 ## <a name="3d-blueprint-visio-template"></a>Hazırlanan 3B kavramsal tasarımı Visio şablonu
-3B sürümleri [Microsoft mimari şemaları](https://aka.ms/azblueprints) Microsoft olmayan bir araçta başlangıçta oluşturulmuş. Yeni bir Visio 2013 (ve üzeri) şablonu 5 Ağustos 2015'te bir parçası olarak gönderilen bir [EDX.ORG üzerinde dağıtılmış Microsoft Architecture sertifika kurs](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
+3B sürümleri [Microsoft mimari şemaları](https://aka.ms/azblueprints) Microsoft olmayan bir araçta başlangıçta oluşturulmuş. Yeni bir Visio 2013 (ve üzeri) şablonu 5 Ağustos 2015'te bir parçası olarak gönderilen bir [EDX.ORG üzerinde dağıtılmış Microsoft Architecture sertifika kurs](https://docs.microsoft.com/azure/architecture/).
 
 Şablon da kursu dışında kullanılabilir.
 
 * [Eğitim videosunu görüntüleyin](https://aka.ms/3dBlueprintTemplateVideo) neler yapabileceğini bilmesi ilk
 * İndirme [Microsoft 3B kavramsal tasarımı Visio şablonu](https://aka.ms/3DBlueprintTemplate)
-* İndirme [Bulut ve kurumsal semboller](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) ile 3B şablonu kullanmak için
+* İndirme [Bulut ve kurumsal semboller](https://docs.microsoft.com/azure/architecture/) ile 3B şablonu kullanmak için

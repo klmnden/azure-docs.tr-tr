@@ -8,69 +8,70 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9a8e0a5df9383d8e3d7159aa916b0e4fbfeea948
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: be10489d731b9e01d148ce1ac7892cb6de956662
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384079"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659329"
 ---
-# <a name="configure-expressroute-global-reach-using-azure-cli-preview"></a>Azure CLI (Önizleme) kullanarak ExpressRoute küresel erişim yapılandırma
-Bu makalede Azure CLI kullanarak ExpressRoute Global erişim yapılandırmanıza yardımcı olur. Daha fazla bilgi için [ExpressRouteRoute Global erişim](expressroute-global-reach.md).
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli-preview"></a>ExpressRoute genel ulaşmak için Azure CLI (Önizleme) kullanarak yapılandırma
+
+Bu makalede Azure CLI kullanarak Azure ExpressRoute Global erişim yapılandırmanıza yardımcı olur. Daha fazla bilgi için bkz. [ExpressRoute Global Reach](expressroute-global-reach.md).
  
 ## <a name="before-you-begin"></a>Başlamadan önce
+
 > [!IMPORTANT]
 > Bu genel önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılmamalıdır. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir veya tüm Azure konumlarında mevcut olmayabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
 
+Yapılandırmaya başlamadan önce aşağıdaki gereksinimleri tamamlayın:
 
-Yapılandırmaya başlamadan önce aşağıdaki gereksinimleri denetlemek gerekir.
-
-* Azure CLI'nin en son sürümünü yükleyin. Bkz: [Azure CLI yükleme](/cli/azure/install-azure-cli) ve [Azure CLI ile çalışmaya başlama](/cli/azure/get-started-with-azure-cli).
+* Azure CLI'ın en son sürümünü yükleyin. Bkz. [Azure CLI yükleme](/cli/azure/install-azure-cli) ve [Azure CLI kullanmaya başlama](/cli/azure/get-started-with-azure-cli).
 * ExpressRoute bağlantı hattı sağlama anlamak [iş akışları](expressroute-workflows.md).
-* ExpressRoute devreleri sağlanan durumda olduğundan emin olun.
+* ExpressRoute bağlantı hatları sağlanan durumunda olduğundan emin olun.
 * Azure özel eşdüzey hizmet sağlama, ExpressRoute bağlantı hatları üzerinde yapılandırıldığından emin olun.  
 
-### <a name="log-into-your-azure-account"></a>Azure hesabınızda oturum açın
-Yapılandırmayı başlatmak için Azure hesabınızda oturum açmalısınız. Komut, varsayılan tarayıcınızı açın ve Azure hesabınızda oturum açma kimlik bilgileri iste.  
+### <a name="sign-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
+
+Yapılandırmayı başlatmak için Azure hesabınızda oturum açın. Aşağıdaki komut, varsayılan tarayıcınızı açar ve Azure hesabınız için oturum açma kimlik bilgileri ister:  
 
 ```azurecli
 az login
 ```
 
-Birden çok Azure aboneliğiniz varsa, hesabın aboneliklerini denetleyin.
+Birden çok Azure aboneliğiniz varsa, hesabın aboneliklerini denetleyin:
 
 ```azurecli
 az account list
 ```
 
-Kullanmak istediğiniz aboneliği belirtin.
+Kullanmak istediğiniz aboneliği belirtin:
 
 ```azurecli
 az account set --subscription <your subscription ID>
 ```
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Yapılandırma için ExpressRoute devreleri tanımlayın
-ExpressRoute Global erişim herhangi iki ExpressRoute bağlantı hatları arasında eşleme farklı konumlarda oluşturuldukları ve desteklenen ülkede bulunan sürece etkinleştirebilirsiniz. Her iki bağlantı hatları, aboneliğin sahibi, aşağıdaki bölümlerde yapılandırması çalıştırmak için her iki bağlantı hattı seçebilirsiniz. İki bağlantı hatlarının farklı Azure aboneliklerinde ise bir Azure aboneliğinden yetki vermeniz gerekir ve diğer Azure aboneliğinde yapılandırma komutu çalıştırdığınızda, yetkilendirme anahtar geçirin.
+
+Desteklenen ülkeler yerleşime ve eşleme farklı konumlarda oluşturulan sürece her iki ExpressRoute devreniz arasında ExpressRoute Global erişim etkinleştirebilirsiniz. Her iki bağlantı hatları, aboneliğin sahibi, yapılandırması, bu makalenin sonraki bölümlerinde açıklandığı gibi çalıştırmak için her iki bağlantı hattı seçebilirsiniz. İki bağlantı hatlarının farklı Azure aboneliklerinde ise yetkilendirme bir Azure aboneliğine sahip olmanız gerekir ve diğer Azure aboneliğinde yapılandırma komutu çalıştırdığınızda yetkilendirme anahtarıyla geçmesi gerekir.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Şirket içi ağlarınızı arasındaki bağlantıyı etkinleştir
 
-Bağlantıyı etkinleştirmek için komutu çalıştırırken, aşağıdaki değerleri göz önünde bulundurun:
+Bağlantısını etkinleştirmek için komutu çalıştırırken, parametre değerleri için aşağıdaki gereksinimleri dikkate alın:
 
-* *Eş devre* tam kaynak kimliği olmalıdır Örneğin: 
+* *Eş devre* tam kaynak kimliği olmalıdır Örneğin:
 
-  ```
-  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
-  ```
-* *-AddressPrefix* bir/29 IPv4 olmalıdır alt ağ, örneğin "10.0.0.0/29". IP adreslerini bu alt ağda iki ExpressRoute bağlantı hatları arasında bağlantı kurmak için kullanacağız. Adresleri bu alt ağda Azure Vnet'ler veya şirket içi ağlarınızı kullanmamanız gerekir.
+  > / subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 
-İki ExpressRoute bağlantı hatları bağlanmak için aşağıdaki CLI çalıştırın. Aşağıdaki örnek komut kullanın:
+* *Adres ön eki* bir "/ 29" IPv4 alt ağı (örneğin, "10.0.0.0/29") olmalıdır. IP adreslerini bu alt ağda iki ExpressRoute bağlantı hatları arasında bağlantı kurmak için kullanırız. Adresleri bu alt ağda Azure sanal ağlarınıza veya şirket içi ağlarınızı kullanmamanız gerekir.
+
+İki ExpressRoute bağlantı hatları bağlanmak için aşağıdaki CLI komutunu çalıştırın:
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
 
-CLI çıktıyı aşağıdaki örnekteki gibi görünür:
+CLI çıktıyı şöyle görünür:
 
 ```azurecli
 {
@@ -94,67 +95,67 @@ CLI çıktıyı aşağıdaki örnekteki gibi görünür:
 }
 ```
 
-Yukarıdaki işlem tamamlandığında, şirket içi ağlarınız ile iki ExpressRoute bağlantı hatları her iki tarafında arasında bağlantı olmalıdır.
+Bu işlem tamamlandığında, şirket içi ağlarınız ile iki ExpressRoute bağlantı hatları her iki tarafında arasında bağlantı gerekir.
 
-### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>Farklı Azure aboneliklerinde ExpressRoute işlem hatları
+## <a name="enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions"></a>ExpressRoute bağlantı hatlarını farklı Azure abonelikleri arasında bağlantıyı etkinleştirmek
 
-İki bağlantı hatlarının aynı Azure aboneliğinde emin değilseniz, yetkilendirme gerekir. Aşağıdaki yapılandırmasında, yetkilendirme, bağlantı hattı 2 abonelikte oluşturulur ve yetkilendirme anahtarını 1 işlem hattına geçirilen.
+İki bağlantı hatlarının aynı Azure aboneliğinde mevcut değilse yetki vermeniz gerekir. Aşağıdaki yapılandırmasında, yetkilendirme devre 2 aboneliği oluşturmak ve 1 bağlantı hattı için yetkilendirme anahtarı geçirirsiniz.
 
-Bir yetkilendirme anahtar oluşturun. 
-```azurecli
-az network express-route auth create --circuit-name <Circuit2Name> -g <Circuit2ResourceGroupName> -n <AuthorizationName>
-```
+1. Yetkilendirme anahtarı oluşturun:
 
-CLI çıktı aşağıdaki gibi görünür.
+   ```azurecli
+   az network express-route auth create --circuit-name <Circuit2Name> -g <Circuit2ResourceGroupName> -n <AuthorizationName>
+   ```
 
-```azurecli
-{
-  "authorizationKey": "<authorizationKey>",
-  "authorizationUseStatus": "Available",
-  "etag": "W/\"cfd15a2f-43a1-4361-9403-6a0be00746ed\"",
-  "id": "/subscriptions/<SubscriptionID>/resourceGroups/<Circuit2ResourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<Circuit2Name>/authorizations/<AuthorizationName>",
-  "name": "<AuthorizationName>",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "<Circuit2ResourceGroupName>",
-  "type": "Microsoft.Network/expressRouteCircuits/authorizations"
-}
-```
+   CLI çıktıyı şöyle görünür:
 
-Bağlantı hattı 2 kaynak kimliği hem de yetkilendirme anahtarını not edin.
+   ```azurecli
+   {
+     "authorizationKey": "<authorizationKey>",
+     "authorizationUseStatus": "Available",
+     "etag": "W/\"cfd15a2f-43a1-4361-9403-6a0be00746ed\"",
+     "id": "/subscriptions/<SubscriptionID>/resourceGroups/<Circuit2ResourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<Circuit2Name>/authorizations/<AuthorizationName>",
+     "name": "<AuthorizationName>",
+     "provisioningState": "Succeeded",
+     "resourceGroup": "<Circuit2ResourceGroupName>",
+     "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+   }
+   ```
 
-1 bağlantı hattı karşı aşağıdaki komutu çalıştırın. Bağlantı hattı 2 kaynak kimliği ve yetkilendirme anahtarını geçirin 
-```azurecli
-az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29> --authorization-key <authorizationKey>
-```
+1. Hem kaynak kimliği hem de 2 bağlantı hattı için yetkilendirme anahtarını not edin.
 
-Yukarıdaki işlem tamamlandığında, şirket içi ağlarınız ile iki ExpressRoute bağlantı hatları her iki tarafında arasında bağlantı olmalıdır.
+1. Bağlantı hattı 1, 2 devre kaynak kimliği ve yetkilendirme anahtarını geçirerek aşağıdaki komutu çalıştırın:
+
+   ```azurecli
+   az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29> --authorization-key <authorizationKey>
+   ```
+
+Bu işlem tamamlandığında, şirket içi ağlarınız ile iki ExpressRoute bağlantı hatları her iki tarafında arasında bağlantı gerekir.
 
 ## <a name="get-and-verify-the-configuration"></a>Alma ve yapılandırmayı doğrulama
 
-Burada yapılandırma yapıldı, yani devre 1 yukarıdaki örnekte devredeki yapılandırmasını doğrulamak için aşağıdaki komutu kullanın.
+Yapılandırma (yukarıdaki örnekte 1 bağlantı hattı) yapıldığı devredeki yapılandırmasını doğrulamak için aşağıdaki komutu kullanın:
 
 ```azurecli
 az network express-route show -n <CircuitName> -g <ResourceGroupName>
 ```
 
-CLI'daki çıkış göreceksiniz *CircuitConnectionStatus*. Bu size olup iki bağlantı hatlarının arasındaki bağlantıyı, veya değil, "bağlı" kurulur bildirir "Bağlantısı kesildi". 
+CLI Çıkışta gördüğünüz *CircuitConnectionStatus*. Bu, iki bağlantı hatlarının arasındaki bağlantıyı mi olduğunu bildirir ("bağlandı") kurulamadı veya oluşturulan değil ("bağlantı kesildi"). 
 
 ## <a name="disable-connectivity-between-your-on-premises-networks"></a>Şirket içi ağlarınız arasında bağlantı devre dışı bırak
 
-Devre dışı bırakmak için burada yapılandırma yapıldı, yani devre 1 yukarıdaki örnekte karşı bağlantı hattını komutları çalıştırın.
+Bağlantı devre dışı bırakmak için yapılandırma (önceki örnekte bulunan 1 bağlantı hattı) yapıldığı karşı bağlantı hattının aşağıdaki komutu çalıştırın.
 
 ```azurecli
 az network express-route peering connection delete -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName>
 ```
 
-Durumu doğrulamak için Göster CLI çalıştırabilirsiniz. 
+Kullanım ```show``` durumunu doğrulamak için komutu.
 
-Yukarıdaki işlem tamamlandıktan sonra ExpressRoute bağlantı hatları aracılığıyla şirket içi ağınız arasında bağlantı artık yoktur. 
-
+Bu işlem tamamlandıktan sonra ExpressRoute bağlantı hatları aracılığıyla, şirket içi ağlar arasında bağlantı artık gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [ExpressRoute Global erişim hakkında daha fazla bilgi edinin](expressroute-global-reach.md)
 * [ExpressRoute bağlantısını doğrulama](expressroute-troubleshooting-expressroute-overview.md)
-* [ExpressRoute bağlantı hattı için Azure sanal ağı bağlama](expressroute-howto-linkvnet-arm.md)
-
-
+* [ExpressRoute bağlantı hattına bir sanal ağa bağlantı](expressroute-howto-linkvnet-arm.md)

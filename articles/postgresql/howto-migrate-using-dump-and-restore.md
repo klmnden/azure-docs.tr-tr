@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 366a38951363d52df3d52d3a670943dc41211c8a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494009"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564213"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Döküm ve geri yükleme kullanarak PostgreSQL veritabanınızı geçirme
 Kullanabileceğiniz [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) bir döküm dosyası bir PostgreSQL veritabanı ayıklanacak ve [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) PostgreSQL veritabanı pg_dump tarafından oluşturulan bir arşiv dosyasını geri.
@@ -83,7 +83,7 @@ Var olan PostgreSQL veritabanınızın PostgreSQL hizmeti için Azure veritaban�
 - Hedefte veritabanı Azure PostgreSQL sunucusu için geri yüklemeden önce aşağıdakileri göz önünde bulundurun:
     - Geçiş sırasında bu İstatistikler gerekmediğinden sorgu performansı, izlemeyi devre dışı. Pg_stat_statements.track pg_qs.query_capture_mode ve pgms_wait_sampling.query_capture_mode NONE olarak ayarlayarak bunu yapabilirsiniz.
 
-    - Yüksek işlem ve bellek sku, 32 sanal çekirdek bellek için iyileştirilmiş, gibi geçiş hızlandırmak için kullanın. Geri yükleme tamamlandıktan sonra tercih edilen sku'nuz aşağı kolayca ölçeklendirebilirsiniz. Daha yüksek sku, daha fazla paralellism karşılık gelen artırarak elde edebileceğiniz `-j` pg_restore komut parametresi. 
+    - Yüksek işlem ve gibi 32 sanal çekirdek bellek için iyileştirilmiş, yüksek bellek sku geçişi hızlandırmak için kullanın. Geri yükleme tamamlandıktan sonra tercih edilen sku'nuz aşağı kolayca ölçeklendirebilirsiniz. Daha yüksek sku, daha fazla paralellik karşılık gelen artırarak elde edebileceğiniz `-j` pg_restore komut parametresi. 
 
     - Hedef sunucuda daha yüksek IOPS geri yükleme performansını geliştirebilirsiniz. Sunucunun depolama boyutunu artırarak daha yüksek IOPS sağlayabilirsiniz. Bu ayar, ters çevrilebilir değildir, ancak daha yüksek IOPS gerçek iş yükünüzü gelecekte yararlı olup olmadığını göz önünde bulundurun.
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 1761dafd04a4b8d27a16af4a5e1b0034b90c51a0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382916"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656881"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid güvenliğini ve kimlik doğrulaması 
 
@@ -29,7 +29,7 @@ Web kancaları olayları Azure Event Grid'den almak için birçok yöntemlerinde
 
 Web kancalarını destekleyen birçok diğer hizmetleri gibi Event Grid, olayları için bu endpoint göndermeye başlamadan sahipliğini Web kancası uç noktanızın kanıtlamak gerektirir. Bu gereksinim, uç noktanızı olaylarla taşmasını gelen kötü niyetli bir kullanıcı önler. Aşağıda listelenen üç Azure hizmetlerinden herhangi birinin kullandığınızda, Azure altyapısının bu doğrulama otomatik olarak işler:
 
-* Azure Logic Apps ile [Event Grid Bağlayıcısı](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Azure Logic Apps ile [Event Grid Bağlayıcısı](https://docs.microsoft.com/connectors/azureeventgrid/)
 * Azure Otomasyonu ile [Web kancası](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 * Azure işlevleri ile [olay Kılavuzu tetikleyicisi](../azure-functions/functions-bindings-event-grid.md)
 

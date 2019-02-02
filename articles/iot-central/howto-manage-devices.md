@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004893"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658123"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızdaki cihazları yönetme
 
@@ -23,6 +23,8 @@ Bu makalede, Azure IOT Central uygulamanızdaki cihazları yönetmek için bir i
 - Cihazlarınızı güncel envanterini korur.
 - Cihaz meta verilerinizi güncel cihaz özelliklerinde depolanan değerleri değiştirerek tutun.
 - Belirli bir CİHAZDAN bir ayar güncelleştirerek cihazlarınızı davranışını denetleyen **ayarları** sayfası.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="view-your-devices"></a>Cihazlarınızı görüntüleme
 
@@ -116,7 +118,7 @@ Uygulamanızdan dışarı aktarma cihazları toplu olarak:
 
     [![Dışarı aktarma başarılı](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. Dışarı aktarılan CSV dosyasını aşağıdaki sütunları bilgilere sahip olacağı: **cihaz kimliği, cihaz adı, cihaz Priamry/ikincil anahtarları ve birincil/ikincil sertifika thumbrpints**
+1. Dışarı aktarılan CSV dosyasını aşağıdaki sütunları bilgileri olacaktır: **Cihaz kimliği, cihaz adı, cihaz Priamry/ikincil anahtarları ve birincil/ikincil sertifika thumbrpints**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

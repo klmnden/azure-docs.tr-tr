@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 13a762e9262bacc6c4d87b8be56eb286491ba75f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: e7a9659a7796777cabb6dc73a41e3a361fd1733c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197700"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567980"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Cihazınızı Uzaktan izleme çözüm hızlandırıcısına (Node.js) bağlama
 
@@ -40,7 +40,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. İçinde **remote_monitoring.js** dosyasında, aşağıdaki ekleyin `require` ifadeleri:
 
-    ```nodejs
+    ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
@@ -49,13 +49,13 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. `require` deyimlerinden sonra aşağıdaki değişken bildirimlerini ekleyin. Yer tutucu değerini değiştirin `{device connection string}` cihaz için belirtilen değer ile'Uzaktan izleme çözümünde sağlanan:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{device connection string}';
     ```
 
 1. Bazı temel telemetri verileri tanımlamak için aşağıdaki değişkenleri ekleyin:
 
-    ```nodejs
+    ```javascript
     var temperature = 50;
     var temperatureUnit = 'F';
     var humidity = 50;
@@ -66,7 +66,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. Bazı özellik değerlerini tanımlamak için aşağıdaki değişkenleri ekleyin:
 
-    ```nodejs
+    ```javascript
     var schema = "real-chiller;v1";
     var deviceType = "RealChiller";
     var deviceFirmware = "1.0.0";
@@ -79,7 +79,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. Çözüme göndermek için bildirilen özellikleri tanımlamak için aşağıdaki değişkeni ekleyin. Bu özellikler Web kullanıcı Arabiriminde görüntülemek için meta verileri içerir:
 
-    ```nodejs
+    ```javascript
     var reportedProperties = {
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
@@ -97,7 +97,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. İşlem sonuçlarını yazdırmak için aşağıdaki yardımcı işlevi ekleyin:
 
-    ```nodejs
+    ```javascript
     function printErrorFor(op) {
         return function printError(err) {
             if (err) console.log(op + ' error: ' + err.toString());
@@ -107,7 +107,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. Telemetri değerleri rastgele seçmek için kullanılacak aşağıdaki yardımcı işlevi ekleyin:
 
-    ```nodejs
+    ```javascript
     function generateRandomIncrement() {
         return ((Math.random() * 2) - 1);
     }
@@ -115,7 +115,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. Çözümden doğrudan yöntem çağrıları işlemek için aşağıdaki genel işlevi ekleyin. İşlev çağrıldı, ancak bu örnekte, cihazın herhangi bir şekilde değiştirmez doğrudan yöntem hakkında bilgi görüntüler. Çözüm, cihazlarda işlem yapmak için doğrudan yöntemleri kullanır:
 
-    ```nodejs
+    ```javascript
     function onDirectMethod(request, response) {
       // Implement logic asynchronously here.
       console.log('Simulated ' + request.methodName);
@@ -130,7 +130,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. İşlemek için aşağıdaki işlevi ekleyin **FirmwareUpdate** doğrudan çözümünden yöntem çağrıları. İşlev doğrudan yöntem yükteki geçirilen parametreler doğrular ve bir üretici yazılımı güncelleştirme simülasyonu zaman uyumsuz olarak çalışır:
 
-    ```nodejs
+    ```javascript
     function onFirmwareUpdate(request, response) {
       // Get the requested firmware version from the JSON request body
       var firmwareVersion = request.payload.Firmware;
@@ -159,7 +159,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. İlerlemeyi çözüme geri raporlar bir uzun süre çalışan üretici yazılımı güncelleştirme akış benzetimini yapmak için aşağıdaki işlevi ekleyin:
 
-    ```nodejs
+    ```javascript
     // Simulated firmwareUpdate flow
     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
       console.log('Simulating firmware update flow...');
@@ -237,7 +237,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. Çözüme telemetri verileri göndermek için aşağıdaki kodu ekleyin. İstemci uygulaması, iletinin ileti şeması tanımlamak için özellikleri ekler:
 
-    ```nodejs
+    ```javascript
     function sendTelemetry(data, schema) {
       if (deviceOnline) {
         var d = new Date();
@@ -256,7 +256,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
 
 1. Bir istemci örneği oluşturmak için aşağıdaki kodu ekleyin:
 
-    ```nodejs
+    ```javascript
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
@@ -268,7 +268,7 @@ Emin [Node.js](https://nodejs.org/) sürüm 4.0.0 veya üzeri geliştirme makine
     * Doğrudan yöntemler için işleyiciler kaydedin. Örnek, üretici yazılımı güncelleştirme doğrudan yöntemi için ayrı bir işleyici kullanır.
     * Telemetri göndermeye başlaması.
 
-    ```nodejs
+    ```javascript
     client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);

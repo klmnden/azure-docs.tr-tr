@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: aaeec216e2a89cfd230208d0c674e15153224b5a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 02b70909e701dbeffaec0aa6bdc39e449bdfad08
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157508"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660366"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Bir Linux sanal makine Azure'da birden çok ağ arabirimi kartları oluşturma
 
@@ -37,7 +37,7 @@ Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiş
 az group create --name myResourceGroup --location eastus
 ```
 
-Sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az_network_vnet_create). Aşağıdaki örnekte adlı bir sanal ağ oluşturur *myVnet* ve adlı alt ağ *mySubnetFrontEnd*:
+Sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet). Aşağıdaki örnekte adlı bir sanal ağ oluşturur *myVnet* ve adlı alt ağ *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -87,7 +87,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>VM oluşturma ve NIC ekleme
 NIC'ler belirtin, VM'yi oluştururken oluşturduğunuz `--nics`. Ayrıca, VM boyutu seçerken dikkatli gerekir. Bir VM'ye ekleyebilirsiniz NIC toplam sayısı sınırı yoktur. Daha fazla bilgi edinin [Linux VM boyutları](sizes.md).
 
-[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek *myVM* adlı bir VM oluşturur:
+[az vm create](/cli/azure/vm) ile bir VM oluşturun. Aşağıdaki örnek *myVM* adlı bir VM oluşturur:
 
 ```azurecli
 az vm create \

@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 070a6ee4bc712b2dbec598cdb9be5c324895c033
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: f65463b534988e0a721a1a5f816183f8dd8ebcaf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154990"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657663"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Öğretici: Azure IoT Central operatör görünümünü özelleştirme
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Öğretici: Azure IOT Central işlecin görünümünü özelleştirme
 
 Bu öğreticide, bir oluşturucu olarak uygulamanızın operatör görünümünü nasıl özelleştireceğiniz gösterilmektedir. Oluşturucu olarak uygulamada bir değişiklik yaptığınızda, Microsoft Azure IoT Central uygulamasında operatör görünümünün önizlemesini görebilirsiniz.
 
@@ -31,7 +31,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Varsayılan giriş sayfanızı yapılandırma
 > * Bir operatör olarak varsayılan giriş sayfasının önizlemesini görme
 
-## <a name="prerequisites"></a>Ön koşullar
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce, önceki iki öğreticiyi tamamlamanız gerekir:
 
@@ -64,7 +66,7 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
 
     | Ayar     | Değer |
     | ----------- | ----- |
-    | Adı        | En fazla sıcaklık |
+    | Ad        | En fazla sıcaklık |
     | Ölçüm | sıcaklık |
     | Toplama | Maksimum |
     | Zaman aralığı  | Geçen 1 hafta |

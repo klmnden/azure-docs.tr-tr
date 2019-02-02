@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c242d8dd64dc58b0c20b6fb15747f201f85cc482
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 8a54ab9e45838a81a2ea4e2e425114e19a65ba76
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320948"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563856"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
 
@@ -105,7 +105,7 @@ Azure rol tabanlı erişim denetimi (RBAC) İlkesi kullanan sanal Makineye oturu
 > [!NOTE]
 > VM'ye SSH üzerinden oturum açmasına izin vermek için ya da atamanız gerekir *Sanal Makine Yöneticisi oturum açma* veya *sanal makine kullanıcı oturum açma* rol. Bir Azure kullanıcısı ile *sahibi* veya *katkıda bulunan* bir VM için atanan rollerin otomatik olarak sanal Makineye SSH üzerinden oturum açmak için ayrıcalıkları yoktur.
 
-Aşağıdaki örnekte [az rol ataması oluşturma](/cli/azure/role/assignment#az-role-assignment-create) atamak *Sanal Makine Yöneticisi oturum açma* geçerli Azure kullanıcınız için VM rolü. Azure hesabınızı etkin kullanıcı adı ile elde edilen [az hesabı Göster](/cli/azure/account#az-account-show)ve *kapsam* ile bir önceki adımda oluşturulan VM'ye ayarlanır [az vm show](/cli/azure/vm#az-vm-show). Kapsam, bir kaynak grubu veya abonelik düzeyinde atanabilir ve normal RBAC devralma izinler uygulayabilirsiniz. Daha fazla bilgi için [rol tabanlı erişim denetimleri](../../azure-resource-manager/resource-group-overview.md#access-control)
+Aşağıdaki örnekte [az rol ataması oluşturma](/cli/azure/role/assignment#az-role-assignment-create) atamak *Sanal Makine Yöneticisi oturum açma* geçerli Azure kullanıcınız için VM rolü. Azure hesabınızı etkin kullanıcı adı ile elde edilen [az hesabı Göster](/cli/azure/account#az-account-show)ve *kapsam* ile bir önceki adımda oluşturulan VM'ye ayarlanır [az vm show](/cli/azure/vm#az-vm-show). Kapsam, bir kaynak grubu veya abonelik düzeyinde atanabilir ve normal RBAC devralma izinler uygulayabilirsiniz. Daha fazla bilgi için [rol tabanlı erişim denetimleri](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)

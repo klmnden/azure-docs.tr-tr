@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b6cc65d10fc8924686d01c02177a9cb76f7a9571
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158834"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660927"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'i kullanarak bir HDInsight kümesi ile Kurumsal Güvenlik Paketi yapılandırma
 
@@ -28,7 +28,7 @@ Bu makalede, Azure Active Directory etki alanı Hizmetleri (Azure AD DS) kullana
 ## <a name="enable-azure-ad-ds"></a>Azure'ı etkinleştirme AD DS
 
 > [!NOTE]  
-> Kiracı yöneticileri yalnızca Azure AD DS'yi etkinleştirme için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Storage (ADLS) olup olmadığını Gen1 ya da 2. nesil, devre dışı bırakmanız multi-Factor Authentication (MFA) yalnızca temel Kerberose kimlik doğrulamaları kullanarak kümeye erişmek için gereken kullanıcılar. Kullanabileceğiniz [güvenilen IP'ler](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) veya [koşullu erişim](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) belirli kullanıcılar için mfa'yı devre dışı bırakmak için yalnızca zaman HDInsight küme sanal ağ IP aralığı eriştikleri. Koşullu kullanıyorsanız erişim lütfen emin olun, AD hizmet uç noktasında HDInsight VNET üzerinde etkin.
+> Kiracı yöneticileri yalnızca Azure AD DS'yi etkinleştirme için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Storage (ADLS) olup olmadığını Gen1 ya da 2. nesil, devre dışı bırakmanız multi-Factor Authentication (MFA) yalnızca temel Kerberose kimlik doğrulamaları kullanarak kümeye erişmek için gereken kullanıcılar. Kullanabileceğiniz [güvenilen IP'ler](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) veya [koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) belirli kullanıcılar için mfa'yı devre dışı bırakmak için yalnızca zaman HDInsight küme sanal ağ IP aralığı eriştikleri. Koşullu kullanıyorsanız erişim lütfen emin olun, AD hizmet uç noktasında HDInsight VNET üzerinde etkin.
 >
 >Küme depolama alanı Azure Blob Storage (WASB) ise, mfa'yı devre dışı bırakmayın.
 
@@ -87,7 +87,7 @@ Sanal ağlar eşlendikten sonra HDInsight VNET özel bir DNS sunucusu kullanın 
 
 ![Eşlenen sanal ağ için özel DNS sunucuları yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-Ağ güvenlik grupları (NSG) kuralları, HDInsight alt ağda kullanıyorsanız, izin vermeniz gerekir [IP'ler gerekli](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) hem gelen hem de giden trafiği için. 
+Ağ güvenlik grupları (NSG) kuralları, HDInsight alt ağda kullanıyorsanız, izin vermeniz gerekir [IP'ler gerekli](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) hem gelen hem de giden trafiği için. 
 
 **Sınanacak** ağınızın doğru şekilde ayarlanıp ayarlanmadığını windows VM HDInsight VNET/alt ağına katılın ve etki alanı adı (çözmek için bir IP) ping ve ardından çalıştırın **Ldp.exe'yi** Azure AD DS etki alanını erişmek için. Ardından **bu windows VM onaylamak için etki alanına** istemci ve sunucu tüm gerekli RPC çağrıları başarılı. Ayrıca **nslookup** (örneğin, dış Hive meta veri deposu veya Ranger DB) kullanıyor olabileceğiniz herhangi bir dış DB veya depolama hesabınız için ağ erişimi onaylamak için.
 Emin olmanız gerekir tüm [gerekli bağlantı noktaları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) AAD DS bir NSG tarafından sağlanıyorsa AAD DS alt ağ güvenlik grubu kurallarını güvenilir listededir. Bu windows etki alanına katılma VM başarılı olur sonraki adıma geçin ve ESP kümeleri oluşturma.

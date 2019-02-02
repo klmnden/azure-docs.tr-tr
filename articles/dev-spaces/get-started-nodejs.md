@@ -10,14 +10,14 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: 91c4bc76a7753c7d51310fbe9b807f0969ca900c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 942d9a7b4160189d14ecdd85b21b2537d1a2a8d3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467297"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656371"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Node.js ile Azure Dev Spaces'da Çalışmaya Başlama
+# <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Node.js ile Azure geliştirme alanlarında çalışmaya başlama
 
 Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -101,7 +101,7 @@ Bu bölümde bir Node.js web uygulaması oluşturacak ve Kubernetes’teki bir k
 ### <a name="create-a-nodejs-web-app"></a>Node.js Web Uygulaması oluşturma
 GitHub deposunu yerel ortamınıza indirmek için https://github.com/Azure/dev-spaces konumuna gidip **Kopyala veya İndir**’i seçerek GitHub’dan kodu indirin. Bu kılavuzun kodu `samples/nodejs/getting-started/webfrontend` içindedir.
 
-## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Docker ve Kubernetes geliştirme için kod hazırlama
+## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Docker ve Kubernetes geliştirme için Code hazırlayın
 Şimdiye kadar, yerel olarak çalıştırılabilen temel bir web uygulamanız vardı. Şimdi uygulamanın kapsayıcısını tanımlayan varlıklar oluşturup Kubernetes’de nasıl dağıtılacağını belirleyerek uygulamayı kapsayıcılı hale getireceksiniz. Bu görev Azure Dev Spaces ile kolayca gerçekleştirilebilir: 
 
 1. VS Code’u başlatın ve `webfrontend` klasörünü açın. (Hata ayıklama varlıkları eklemek veya projeyi geri yüklemek için tüm varsayılan istemleri yoksayabilirsiniz.)
@@ -278,5 +278,5 @@ Bu yapılandırmada, kapsayıcı *nodemon* başlatacak şekilde yapılandırılm
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Ekip geliştirmesi hakkında bilgi edinme](team-development-nodejs.md)
+> [Birden çok hizmet geliştirme hakkında bilgi edinin](multi-service-nodejs.md)
 

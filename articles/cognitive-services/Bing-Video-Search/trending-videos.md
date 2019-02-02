@@ -1,27 +1,31 @@
 ---
-title: Popüler videolar - Bing Video arama Web'de arayın
+title: Bing Video arama API'si kullanarak popüler videolar için Web'de arama
 titlesuffix: Azure Cognitive Services
-description: Bing Video arama API'si Web'de popüler videolar için arama için nasıl kullanılacağını gösterir.
+description: Bing Video arama API'si, Web'de popüler videolar için arama yapmak için kullanmayı öğrenin.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 71dd888199e9e630835c4916d35f6308431bab62
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55f29a31a9574c7c32e6708565e961950520593f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203564"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566117"
 ---
-# <a name="get-trending-videos"></a>Popüler videoları alma  
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Bing Video arama API'si ile popüler videolar Al 
 
-Günümüzün popüler videolar almak için aşağıdaki GET isteği gönder:  
+Bing Video arama API'si, web üzerinde ve farklı kategorilerdeki günümüzün popüler videoları bulmanıza olanak sağlar. 
+
+## <a name="get-request"></a>ALMA isteği
+
+Bing Video arama API'si günümüzün popüler videolar almak için aşağıdaki GET isteği gönder:  
   
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -30,6 +34,8 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```
+
+## <a name="market-support"></a>Pazar desteği
 
 Popüler videolar aşağıdaki pazarlar destekler.  
  
@@ -47,10 +53,11 @@ Popüler videolar aşağıdaki pazarlar destekler.
 -   tr-ZA (İngilizce, Güney Afrika)  
 -   zh-CN (Çince, Çin)
 
-  
-Aşağıdaki örnek, popüler videolar içeren bir yanıt gösterir.  
+## <a name="example-json-response"></a>Örnek JSON yanıtı  
 
-```  
+Aşağıdaki örnek, kategori ve alt kategori tarafından listelenen popüler videolar içeren bir API yanıtı gösterir. Yanıt, ayrıca en popüler popüler videolar ve bir veya daha fazla kategorilerden gelebilir, başlık videoları içerir.  
+
+```json
 {  
     "_type" : "TrendingVideos",  
     "bannerTiles" : [
@@ -112,8 +119,9 @@ Aşağıdaki örnek, popüler videolar içeren bir yanıt gösterir.
     ]  
 }  
   
-```  
-Yanıt, kategori ve alt kategori tarafından videoların bir listesini içerir. Örneğin, müzik, videolar kategorisi kategori listesi yer alan ve alt kategorilerinin üst biriydi kullanıcı deneyiminizi bir müzik videoları üst kategori oluşturabilirsiniz. Ardından kullanabileceğinizi `thumbnailUrl`, `displayText`, ve `webSearchUrl` her kategorisi (örneğin, üst müzik videoları) altında tıklanabilir bir kutucuğu oluşturmak için alanları. Kullanıcı kutucuğa tıkladığında, burada video oynatılır Bing'in video tarayıcıya yönlendirilirsiniz.
+```
 
-Yanıt, ayrıca en popüler popüler videolar olan başlığı videoları içerir. Başlık videoları, bir veya daha fazla kategori gelebilir.  
-  
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+[Video Öngörüler elde edin](video-insights.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 315a51f847920d4751d100f147bb5218676015c6
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c1ac1a0fccc2ac9a428a04a1b15030c489968a3f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495675"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563703"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -251,8 +251,8 @@ Bu hataları görmek için şunu çalıştırın **FileSyncErrorsReport.ps1** Po
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Dosya veya dizin adı geçersiz. | Dosya veya dizin söz konusu yeniden adlandırın. Bkz: [desteklenmeyen karakterler işleme](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) daha fazla bilgi için. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. Azure dosya eşitleme, günde bir kez açık tanıtıcıları içeren dosyaları eşitleyin sunucudaki geçici bir VSS anlık görüntüsü oluşturur. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Bir dosya değişti, ancak değişiklik henüz eşitlemeden algılanmadı. Bu değişiklik algılandıktan sonra eşitleme kurtarır. | Eylem gerekmiyor. |
-| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Azure dosya paylaşımı sınırına ulaştığından dosya eşitlenemez. | Bu sorunu çözmek için bkz: [Azure dosya paylaşımı depolama sınırına](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) sorun giderme kılavuzu bölümüne. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Bu hata, dosya (NTFS EFS gibi) desteklenmeyen bir çözüm tarafından şifrelenmiş veya dosyanın durumu bir silme işlemi oluşabilir. | Tarafından desteklenmeyen bir çözüm dosya şifrelenmişse, dosyanın şifresini çözmek ve desteklenen şifreleme çözümü kullanın. Destek çözümleri listesi için bkz. [şifreleme çözümleri](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) Planlama Kılavuzu'nda bölümü. Dosya durumu bekleyen bir silme ise, tüm açık dosya tanıtıcıları kapatıldıktan sonra dosya silinir. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Azure dosya paylaşımı sınırına ulaştığından dosya eşitlenemez. | Bu sorunu çözmek için bkz: [Azure dosya paylaşımı depolama sınırına](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) sorun giderme kılavuzu bölümüne. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Bu hata, dosya (NTFS EFS gibi) desteklenmeyen bir çözüm tarafından şifrelenmiş veya dosyanın durumu bir silme işlemi oluşabilir. | Tarafından desteklenmeyen bir çözüm dosya şifrelenmişse, dosyanın şifresini çözmek ve desteklenen şifreleme çözümü kullanın. Destek çözümleri listesi için bkz. [şifreleme çözümleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) Planlama Kılavuzu'nda bölümü. Dosya durumu bekleyen bir silme ise, tüm açık dosya tanıtıcıları kapatıldıktan sonra dosya silinir. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Eşitleme sırasında bir dosya değiştirildiğinden yeniden eşitlenmesi gerekiyor. | Eylem gerekmiyor. |
 

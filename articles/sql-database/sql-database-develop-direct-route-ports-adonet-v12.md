@@ -11,15 +11,16 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260032"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560898"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 için 1433 dışındaki bağlantı noktaları
+
 Bu konuda, ADO.NET 4.5 veya sonraki bir sürümünü kullanan istemciler için Azure SQL veritabanı bağlantı davranışları açıklanmaktadır. 
 
 > [!IMPORTANT]
@@ -27,12 +28,15 @@ Bu konuda, ADO.NET 4.5 veya sonraki bir sürümünü kullanan istemciler için A
 >
 
 ## <a name="outside-vs-inside"></a>Dış ve iç karşılaştırması
+
 Azure SQL veritabanı bağlantıları için önce istemci programınızın çalışıp çalışmayacağını isteriz gerekir *dışında* veya *içinde* Azure bulut sınırları. Alt bölümlerde iki yaygın senaryo açıklanmaktadır.
 
-#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Dış:* istemcisi, masaüstü bilgisayarınızda çalıştırır
+#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Dışında:* İstemcisi, masaüstü bilgisayarınızda çalıştırır.
+
 1433 numaralı bağlantı noktası, SQL veritabanı istemci uygulamanızı barındıran, masaüstü bilgisayarınızda açık olması gereken tek bağlantı noktasıdır.
 
-#### <a name="inside-client-runs-on-azure"></a>*İç:* istemci, Azure üzerinde çalışır
+#### <a name="inside-client-runs-on-azure"></a>*İçinde:* İstemci, Azure üzerinde çalışır.
+
 İstemciniz bir Azure bulut sınırları içinde çalıştığında, dediğimiz kullandığı bir *doğrudan rota* SQL veritabanı sunucusu ile etkileşim. Daha fazla bağlantı kurulduktan sonra veritabanı ve istemci arasındaki etkileşimler Azure SQL veritabanı ağ geçidi gerektirir.
 
 Sırası aşağıdaki gibidir:
@@ -76,6 +80,6 @@ Bu bölümde, ürün sürümleri başvuran adlar açıklar. Ayrıca, bazı eşle
 * [TDS Protokolü sürüm listesi](http://www.freetds.org/userguide/tdshistory.htm)
 * [SQL veritabanı geliştirmeye genel bakış](sql-database-develop-overview.md)
 * [Azure SQL veritabanı güvenlik duvarı](sql-database-firewall-configure.md)
-* [Nasıl yapılır: SQL veritabanı'nda Güvenlik Duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md)
+* [Nasıl yapılır: SQL Veritabanı’nda güvenlik duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md)
 
 

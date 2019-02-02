@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/23/2019
-ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d87cd174e3fca7ce2088ad270a74b08de4ac7cb5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817844"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566170"
 ---
 # <a name="registration-management"></a>Kayıt yönetimi
 
@@ -33,7 +33,7 @@ Bildirim hub'ı ile cihaz kaydı kullanılarak gerçekleştirilir bir **kayıt**
 
 ### <a name="registrations"></a>Kayıtlar
 
-Bir kayıt Platform bildirim sistemi (PNS) tanıtıcı bir cihaz için etiketleri ve büyük olasılıkla bir şablon ile ilişkilendirir. PNS tanıtıcısının Channelurı, cihaz belirteci veya GCM kayıt kimliği olabilir. Etiketler, cihaz tanıtıcılarını doğru kümesine bildirimleri yönlendirmek için kullanılır. Daha fazla bilgi için [Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md). Şablonları kayıt başına dönüştürme uygulamak için kullanılır. Daha fazla bilgi için bkz. [Şablonlar](notification-hubs-templates-cross-platform-push-messages.md).
+Bir kayıt Platform bildirim sistemi (PNS) tanıtıcı bir cihaz için etiketleri ve büyük olasılıkla bir şablon ile ilişkilendirir. PNS tanıtıcısının Channelurı, cihaz belirtecini ve FCM kayıt kimliği olabilir. Etiketler, cihaz tanıtıcılarını doğru kümesine bildirimleri yönlendirmek için kullanılır. Daha fazla bilgi için [Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md). Şablonları kayıt başına dönüştürme uygulamak için kullanılır. Daha fazla bilgi için bkz. [Şablonlar](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
 > Azure Notification Hubs kayıt başına 60 etiket en fazla destekler.
@@ -295,8 +295,8 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
         case "apns":
             installation.Platform = NotificationPlatform.Apns;
             break;
-        case "gcm":
-            installation.Platform = NotificationPlatform.Gcm;
+        case "fcm":
+            installation.Platform = NotificationPlatform.Fcm;
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c197ead3a7b0f61b9dd5f1e3ea0bd197c23a2778
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180781"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568184"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -97,7 +97,7 @@ A **TechnicalProfiles** Talep sağlayıcı tarafından desteklenen teknik profil
 | OutputClaimsTransformations | 0:1 | Talep sağlayıcısından gelen talepleri alındıktan sonra yürütülmesi gereken talep dönüştürmeleri önceden tanımlı başvuru listesi. |
 | ValidationTechnicalProfiles | 0: n | Doğrulama amacıyla teknik profili kullanan diğer teknik profiline başvuru listesi. Daha fazla bilgi için [doğrulama teknik profili](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Konu adı gelen talepleri ayrı olarak burada belirtilen belirteçleri konu adına üretimini denetler. Örneğin, OAuth veya SAML.  |
-| IncludeClaimsFromTechnicalProfile | 0:1 | Tüm bu teknik profile eklenecek giriş ve çıkış talep istediğiniz bir teknik profili tanımlayıcısı. Başvurulan teknik profili aynı ilke dosyasında tanımlanmış olması gerekir. | 
+| IncludeClaimsFromTechnicalProfile | 0:1 | Tüm bu teknik profile eklenecek giriş ve çıkış talep istediğiniz bir teknik profili tanımlayıcısı. Başvurulan teknik profili aynı ilke dosyasında tanımlanmış olması gerekir. |
 | IncludeTechnicalProfile |0:1 | Bu teknik profile eklenecek tüm verileri istediğiniz bir teknik profili tanımlayıcısı. Başvurulan teknik profili, aynı ilke dosyasında mevcut olmalıdır. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Oturum yönetimi için kullanılacak farklı bir teknik profili. |
 |EnabledForUserJourneys| 0:1 |Teknik profili bir kullanıcı yolculuğunda yürütülürse denetler.  |
@@ -168,7 +168,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 | ------- | ----------- | ----------- |
 | Inputclaim | 1:n | Beklenen bir giriş talep türü. |
 
-#### <a name="inputclaim"></a>Inputclaim 
+#### <a name="inputclaim"></a>Inputclaim
 
 **Inputclaim** öğesi aşağıdaki öznitelikler içerir:
 
@@ -186,7 +186,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | Kalıcı hale getirmek için talep türü. |
 
-#### <a name="persistedclaim"></a>PersistedClaim 
+#### <a name="persistedclaim"></a>PersistedClaim
 
 **PersistedClaim** öğesi aşağıdaki öznitelikler içerir:
 
@@ -204,7 +204,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 | ------- | ----------- | ----------- |
 | outputClaim | 1:n | Beklenen bir çıkış talep türü. |
 
-#### <a name="outputclaim"></a>outputClaim 
+#### <a name="outputclaim"></a>outputClaim
 
 **OutputClaim** öğesi aşağıdaki öznitelikler içerir:
 
@@ -275,9 +275,9 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 **ClaimsProviderSelections** bir kullanıcı yolculuğunun talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar. İle **EnabledForUserJourneys** kullanıcıya hangi Talep sağlayıcı kullanılabilir filtrelemenize, öğe. **EnabledForUserJourneys** öğesi aşağıdaki değerlerden birini içerir:
 
 - **Her zaman**, teknik profil yürütün.
-- **Hiçbir zaman**, teknik profil atlayın. 
-- **OnClaimsExistence** teknik profilde belirtilen belirli talep, yalnızca mevcut olduğunda yürütün. 
-- **OnItemExistenceInStringCollectionClaim**, yalnızca bir öğe bir dize koleksiyonu talebi zaman var. yürütün. 
+- **Hiçbir zaman**, teknik profil atlayın.
+- **OnClaimsExistence** teknik profilde belirtilen belirli talep, yalnızca mevcut olduğunda yürütün.
+- **OnItemExistenceInStringCollectionClaim**, yalnızca bir öğe bir dize koleksiyonu talebi zaman var. yürütün.
 - **OnItemAbsenceInStringCollectionClaim** yalnızca, bir öğe bir dize koleksiyonu talebi yok yürütün.
 
 Kullanarak **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** veya **OnItemAbsenceInStringCollectionClaim**, aşağıdaki vermenizi gerektirir meta veri: **ClaimTypeOnWhichToEnable** uyumluluğunun değerlendirilebilmesi için bir talebin türü belirtiyor. **ClaimValueOnWhichToEnable** Karşılaştırılacak değer belirtir.
@@ -289,22 +289,10 @@ Aşağıdaki teknik profili, yalnızca yürütülen **identityProviders** dize k
   <DisplayName>Unlink Facebook</DisplayName>
 ...
     <Metadata>
-        <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
-        <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
-    </Metadata>        
+      <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
+      <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
+    </Metadata>
 ...
   <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
-</TechnicalProfile>  
+</TechnicalProfile>
 ```
-
-
-
-
-
-
-
-
-
-
-
-

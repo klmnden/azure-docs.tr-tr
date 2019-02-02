@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 20894a74bf0cc3911272385721da74871df95ade
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913248"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662916"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
 
@@ -224,7 +224,7 @@ Bu örnekte, aşağıdaki kodu kullanarak betik eylemi eklenir:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Azure PowerShell üzerinden küme oluşturma sırasında bir betik eylemi kullanın
 
-Bu bölümde, kullandığınız [Ekle AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet'ini küme özelleştirme betikleri çağırma. Başlamadan önce yükleme ve Azure PowerShell yapılandırma emin olun. HDInsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [genel bakış, Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Bu bölümde, kullandığınız [Ekle AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet'ini küme özelleştirme betikleri çağırma. Başlamadan önce yükleme ve Azure PowerShell yapılandırma emin olun. HDInsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [genel bakış, Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 Aşağıdaki betik, PowerShell kullanarak bir küme oluştururken bir betik eylemi uygulanacak gösterilmektedir:
 
@@ -276,7 +276,7 @@ Git [Azure portalında](https://portal.azure.com):
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Betik eylemi çalıştıran bir kümeye Azure Powershell'den uygulayın.
 
-Başlamadan önce yükleme ve Azure PowerShell yapılandırma emin olun. HDInsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [genel bakış, Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Başlamadan önce yükleme ve Azure PowerShell yapılandırma emin olun. HDInsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [genel bakış, Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 Aşağıdaki örnek bir betik eylemi çalıştıran bir kümeye uygulama işlemini gösterir:
 

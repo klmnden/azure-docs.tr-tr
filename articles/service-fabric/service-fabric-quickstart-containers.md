@@ -4,7 +4,7 @@ description: Bu hızlı başlangıçta, Azure Service Fabric üzerinde ilk Windo
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: timlt
+manager: jpconnock
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 01/31/2019
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 2855d28a3d5414413ca1657a7bef9c060f6d4424
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 085f3fd8ee3fe22333c260fb4de18a8c06c9c55c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300345"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568575"
 ---
-# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Hızlı başlangıç: Windows kapsayıcıları Service Fabric'e dağıtma
+# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Hızlı Başlangıç: Windows kapsayıcıları Service Fabric'e dağıtma
 
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur.
 
@@ -63,11 +63,12 @@ Hizmeti "MyContainerService" olarak adlandırın ve **Tamam**’a tıklayın.
 ![Yeni hizmet iletişim kutusu][new-service]
 
 ## <a name="specify-the-os-build-for-your-container-image"></a>Kapsayıcı görüntünüz için OS derlemesini belirtme
+
 Windows Server'ın belirli bir sürümüyle derlenen kapsayıcılar, Windows Server'ın farklı sürümünü çalıştıran bir konakta çalışmayabilir. Örneğin, Windows Server sürüm 1709 kullanarak derlenen kapsayıcılar Windows Server 2016 çalıştıran konaklarda çalışmaz. Daha fazla bilgi için bkz. [Windows Server kapsayıcı işletim sistemi ve ana bilgisayar işletim sistemi uyumluluğu](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
 
 Service Fabric çalışma zamanının sürüm 6.1 veya daha yeni bir sürümüyle, kapsayıcı başına birden çok işletim sistemi görüntüsü belirtebilir ve her birini dağıtılacağı işletim sisteminin derleme sürümüyle etiketleyebilirsiniz. Bu, uygulamanızın Windows işletim sisteminin farklı sürümlerini çalıştıran konaklar arasında çalıştırılabilmesine yardımcı olur. Daha fazla bilgi edinmek için bkz. [İşletim sistemi derlemesine özgü kapsayıcı görüntüleri belirtme](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
-Microsoft, Windows Server'ın farklı sürümleri üzerinde oluşturulmuş IIS sürümleri için farklı görüntüler yayımlar. Service Fabric'in, uygulamanızın dağıtıldığı küme düğümlerinde çalıştırılan Windows Server sürümüyle uyumlu bir kapsayıcı dağıttığından emin olmak için, *ApplicationManifest.xml* dosyasına aşağıdaki satırları ekleyin. WIndows Server 2016 için derleme sürümü 14393, Windows Server 1709 sürümü için derleme sürümü 16299’dur. 
+Microsoft, Windows Server'ın farklı sürümleri üzerinde oluşturulmuş IIS sürümleri için farklı görüntüler yayımlar. Service Fabric'in, uygulamanızın dağıtıldığı küme düğümlerinde çalıştırılan Windows Server sürümüyle uyumlu bir kapsayıcı dağıttığından emin olmak için, *ApplicationManifest.xml* dosyasına aşağıdaki satırları ekleyin. WIndows Server 2016 için derleme sürümü 14393, Windows Server 1709 sürümü için derleme sürümü 16299’dur.
 
 ```xml
     <ContainerHostPolicies CodePackageRef="Code"> 
@@ -80,34 +81,57 @@ Microsoft, Windows Server'ın farklı sürümleri üzerinde oluşturulmuş IIS s
     </ContainerHostPolicies> 
 ```
 
-Hizmet bildirimi, `microsoft/iis:nanoserver` nano sunucusu için tek bir görüntü belirtmeye devam eder. 
+Hizmet bildirimi, `microsoft/iis:nanoserver` nano sunucusu için tek bir görüntü belirtmeye devam eder.
+
+Ayrıca *ApplicationManifest.xml* dosya, değişiklik **PasswordEncrypted** için **false**. Hesabı ve parolası boş bir parola şifreleme, bir derleme hatasına neden olur çünkü biz şifreleme'yi etkinleştirmek için Docker Hub'ında ortak kapsayıcı görüntüsü için boştur.
+
+```xml
+<RepositoryCredentials AccountName="" Password="" PasswordEncrypted="false" />
+```
 
 ## <a name="create-a-cluster"></a>Küme oluşturma
 
-Uygulamayı Azure’daki bir kümeye dağıtmak için bir grup kümesine katılabilirsiniz. Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir.  Küme, düğümden düğüme ve istemciden düğüme güvenlik için tek bir otomatik olarak imzalanan sertifika kullanır. Grup kümeleri, kapsayıcıları destekler. Kendi kümenizi ayarlamaya ve kullanmaya karar verirseniz küme, kapsayıcıları destekleyen bir SKU’da (örn. Kapsayıcılar’ı içeren Windows Server 2016 Datacenter) çalışıyor olmalıdır.
+Aşağıdaki örnek betik bir X.509 sertifikasıyla sağlanan beş düğümlü bir Service Fabric kümesi oluşturur. Bu komut otomatik olarak imzalanan bir sertifika oluşturur ve bunu yeni bir anahtar kasasına yükler. Sertifika aynı zamanda bir yerel dizine de kopyalanır. Bu komut dosyasını kullanarak küme oluşturma hakkında daha fazla bilgi [bir Service Fabric kümesi oluşturma](/scripts/service-fabric-powershell-create-secure-cluster-cert).
 
-Oturum açın ve [bir Windows kümesine katılın](https://aka.ms/tryservicefabric). **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. **Güvenli Grup kümesine bağlanma** bağlantısına tıklayın ve sertifika parolasını kopyalayın. Aşağıdaki adımlarda sertifika, sertifika parolası ve **Bağlantı uç noktası** değeri kullanılır.
+Gerekli olursa, bulunan yönergeleri kullanarak Azure PowerShell'i yükleme [Azure PowerShell kılavuzunda](/powershell/azure/overview).
 
-![PFX ve bağlantı uç noktası](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+Çalıştırma PowerShell'de aşağıdaki betiği çalıştırmadan önce `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
 
-> [!Note]
-> Saat başına sınırlı sayıda Grup kümesi vardır. Bir Grup kümesine kaydolmaya çalıştığınızda hata alırsanız bir süre bekleyebilir ve tekrar deneyebilirsiniz veya [.NET uygulaması dağıtma](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) öğreticisindeki adımları izleyerek Azure aboneliğinizde bir Service Fabric kümesi oluşturabilir ve bu kümede uygulamayı dağıtabilirsiniz. Visual Studio aracılığıyla oluşturulan küme, kapsayıcıları destekler. Kümenizde uygulamayı dağıtıp doğruladıktan sonra, bu hızlı başlangıçtaki [Örnek Service Fabric uygulama ve hizmet bildirimlerini tamamlama](#complete-example-service-fabric-application-and-service-manifests) kısmına atlayabilirsiniz.
->
+Açık ve Pano için aşağıdaki betiği kopyalayın **Windows PowerShell ISE**.  İçeriği boş Untitled1.ps1 penceresine yapıştırın. Betikteki değişkenlerin değerleri sağlayın: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`vb.  Belirttiğiniz için dizin `certfolder` betiği çalıştırmadan önce mevcut olması gerekir.
 
-Bir Windows bilgisayarda PFX’i *CurrentUser\My* sertifika deposuna yükleyin.
+[!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
+
+Değişkenleri değerlerinizi sağladıktan sonra basın **F5** betiği çalıştırmak için.
+
+Komut dosyasını çalıştırır ve Küme oluşturulduktan sonra bulma `ClusterEndpoint` çıktı. Örneğin:
+
+```PowerShell
+...
+ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
+```
+
+### <a name="install-the-certificate-for-the-cluster"></a>Küme için sertifika yükleme
+
+PFX'e yüklenir artık *CurrentUser\My* sertifika deposu. PFX dosyasını kullanarak belirttiğiniz dizindeki olacaktır `certfolder` PowerShell komut dosyası yukarıdaki ortam değişkeninde.
+
+Bu dizine değiştirin ve ardından yer PFX dosyasının adını değiştirerek aşağıdaki PowerShell komutu çalıştırın, `certfolder` dizin ve belirttiğiniz parolayı `certpwd` değişkeni. Bu örnekte, geçerli dizin tarafından belirtilen dizin ayarlanır `certfolder` PowerShell betik değişken. Buradan `Import-PfxCertificate` komutu çalıştırın:
 
 ```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)
+```
 
+Komut, parmak izini döndürür:
 
+```powershell
+  ...
   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
 
 Thumbprint                                Subject
 ----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+0AC30A2FA770BEF566226CFCF75A6515D73FC686  CN=mysfcluster.SouthCentralUS.cloudapp.azure.com
 ```
 
-Sonraki adım için parmak izini unutmayın.
+Sonraki adım için parmak izi değerini unutmayın.
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Visual Studio kullanarak uygulamayı Azure’a dağıtma
 
@@ -115,15 +139,23 @@ Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıt
 
 Çözüm Gezgini'nde **MyFirstContainer**’a sağ tıklayın ve **Yayımla**’yı seçin. Yayımla iletişim kutusu görüntülenir.
 
-Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın. Örneğin, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. **Gelişmiş Bağlantı Parametrelerine** tıklayıp bağlantı parametresi bilgilerini doğrulayın.  *FindValue* ve *ServerCertThumbprint* değerleri önceki adımda yüklenen sertifikanın parmak iziyle eşleşmelidir.
+Aşağıdaki içeriği kopyalayın **CN =** çalıştırdığınızda PowerShell penceresinde `Import-PfxCertificate` yukarıda komutunu ve bağlantı noktası Ekle `19000` ona. Örneğin, `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. İçine kopyalayın **bağlantı uç noktası** alan. Gelecekteki bir adımda ihtiyacınız olacağı için bu değer unutmayın.
+
+**Gelişmiş Bağlantı Parametrelerine** tıklayıp bağlantı parametresi bilgilerini doğrulayın.  *FindValue* ve *ServerCertThumbprint* değerleri çalıştırdığınızda yüklenen sertifikanın parmak izini eşleşmelidir `Import-PfxCertificate` önceki adımda.
 
 ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-containers/publish-app.png)
 
 **Yayımla**’ta tıklayın.
 
-Kümedeki her uygulamanın benzersiz bir adı olmalıdır.  Bununla birlikte grup kümeleri ortak, paylaşılan bir ortamdır ve mevcut uygulamalardan biriyle çakışma olabilir.  Ad çakışması varsa, Visual Studio projesini yeniden adlandırın ve bir kez daha dağıtın.
+Kümedeki her uygulamanın benzersiz bir adı olmalıdır. Ad çakışması varsa, Visual Studio projesini yeniden adlandırın ve bir kez daha dağıtın.
 
-Bir tarayıcıyı açıp Grup kümesi sayfasında belirtilen **Bağlantı uç noktasına** gidin. İsteğe bağlı olarak, URL’nin başına düzen tanımlayıcısını (`http://`) ve sonuna bağlantı noktasını (`:80`) ekleyebilirsiniz. Örneğin, http://zwin7fh14scd.westus.cloudapp.azure.com:80. IIS varsayılan web sayfasını görmeniz gerekir: ![IIS varsayılan web sayfası][iis-default]
+Bir tarayıcı açın ve içine yerleştirdiğiniz adresine gidin **bağlantı uç noktası** önceki adımda alan. İsteğe bağlı olarak, URL’nin başına düzen tanımlayıcısını (`http://`) ve sonuna bağlantı noktasını (`:80`) ekleyebilirsiniz. Örneğin, http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+
+ IIS varsayılan web sayfasını görmeniz gerekir: ![IIS varsayılan web sayfası][iis-default]
+
+## <a name="clean-up"></a>Temizleme
+
+Küme çalışırken ücreti alınmaya devam edilir. Göz önünde bulundurun [kümenizi silmeyi](service-fabric-cluster-delete.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

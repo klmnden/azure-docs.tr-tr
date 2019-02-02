@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/15/2018
-ms.openlocfilehash: cd7c4014752fb5fa014fd8b5204206cd4efbfdce
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 230c5a50efe762b8f27e6a0a84c36c74403b8ecc
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818532"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663885"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Visual Studio Code için Azure HDInsight araçları kullanma
 
@@ -31,6 +31,7 @@ Bu makaledeki adımları tamamlamak için aşağıdakiler gereklidir:
 - Bir HDInsight kümesi. Bir küme oluşturmak için bkz: [HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono, yalnızca Linux ve macOS için gereklidir.
+- VSCode [Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ## <a name="install-the-hdinsight-tools"></a>HDInsight Araçları'nı yükleme
    
@@ -331,7 +332,7 @@ Bir dosya da gönderebilir, bildirim .vscode klasörü çalışma klasörü otom
     | ad | açıklama | type | 
     | :- | :- | :- | 
     | id | Oturum kimliği | int | 
-    | appId | Bu oturumun uygulama kimliği |  Dize |
+    | appId | Bu oturumun uygulama kimliği |  String |
     | appInfo | Ayrıntılı uygulama bilgileri | Harita anahtarı val = |
     | Günlük | Günlük satırları | dize listesi |
     | durum |   Toplu işlem durumu | dize |

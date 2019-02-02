@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: be1e7ab953c55581645a9702fc4759cb603e7ecc
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: c0ec8b98ff711f8e5746d6d4731266ed4b09cc8f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54357870"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658853"
 ---
 # <a name="using-chef-with-azure"></a>Azure ile Chef kullanma
 [Chef](http://www.chef.io) azure'da sanal makine altyapısı koduna dönüştüren bir güçlü Otomasyon platformudur. Chef nasıl altyapı yapılandırılmış, dağıtılan ve boyutu ne olursa olsun, ağ üzerinden yönetilen otomatikleştirir.
@@ -21,7 +21,7 @@ ms.locfileid: "54357870"
 Bu makalede, Azure altyapı yönetmek için Chef kullanmanın avantajları anlatılmaktadır.
 
 ## <a name="chef-extension-on-azure"></a>Azure üzerinde Chef uzantısı
-Chef ile bir arka plan hizmeti olarak çalışan istemci ile bir sanal makine sağlama [Chef uzantısı](https://docs.microsoft.com/en-us/azure/chef/chef-extension-portal) Azure Portalı'nda. Sağlanan sonra bu sanal makineler Chef sunucusu tarafından yönetilmeye hazırdır.
+Chef ile bir arka plan hizmeti olarak çalışan istemci ile bir sanal makine sağlama [Chef uzantısı](https://docs.microsoft.com/azure/chef/chef-extension-portal) Azure Portalı'nda. Sağlanan sonra bu sanal makineler Chef sunucusu tarafından yönetilmeye hazırdır.
 
 ## <a name="chef-cloud-shell"></a>Chef Cloud Shell
 Azure Cloud shell'de doğrudan iş istasyonu kullanmak Chef! Tüm Chef yardımcı programları ve Inspec doğru Cloud Shell'den çalıştırın. Chef komutları kullanabilir:

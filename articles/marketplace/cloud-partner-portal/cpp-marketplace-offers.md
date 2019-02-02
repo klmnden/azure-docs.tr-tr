@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 0d6879c6b9be06af4bb289761cc8f26b7e56d18e
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355851"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658717"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure ve AppSource Market teklifleri
 
@@ -47,6 +47,7 @@ Tarafından desteklenen geçerli teklif türleri aşağıdaki tabloda [bulut iş
 | [Dynamics 365 müşteri katılımı için](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Bu müşteri genişleten bir paketi, satış, hizmet, proje hizmeti ve alan hizmet modülleri aracılığıyla kaynak yönetimi (CRM) sistemi.  |
 | [Finans ve operasyon için Dynamics 365](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Bu Kurumsal Kaynak planlama (ERP) hizmeti bu Gelişmiş destekler Finans, işlemler, üretim ve tedarik zinciri yönetimi genişleten bir paket. |
 | [IOT Edge Modülü](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Bir IOT Edge cihazında çalıştırılır ve Docker ile uyumlu kapsayıcısı.  Bu, özel kod, diğer Azure Hizmetleri ve 3. taraf hizmetleri kullanan küçük hesaplama modüller içerir. |
+| [Power BI uygulaması](./power-bi/cpp-power-bi-offer.md) | AppSource | Veri akışlarını raporlar ve panolar ortak veri depolama biriminde bulunan verilere bağlanmak için kullandığı bir paket. |
 | [SaaS uygulama](./saas-app/cpp-saas-offer.md) | Azure | Hangi kullanıcıların Azure Active Directory'den yararlanır özelleştirilmiş bir arabirim oturum açın bir yayımcı tarafından yönetilen bir hizmet olarak yazılım abonelikte çözümüdür. |
 | [Sanal makine](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Çözüm, müşterinin hizmet aboneliği dağıtılan tek bir sanal makine içinde yer alır.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |

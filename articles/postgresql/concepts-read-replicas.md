@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 017abd72b3aa1547844f977c3efda69e59901a6f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/01/2019
+ms.openlocfilehash: 270231b2ad7d94789595cfa4e681cf6c2b0f0541
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487958"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657884"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı çoğaltmalarını okuyun
 
@@ -21,6 +21,8 @@ ms.locfileid: "55487958"
 Salt okunur çoğaltma özelliği, bir PostgreSQL sunucusu (ana) için Azure veritabanı'ndan veri çoğaltmak (çoğaltmaları okuma) en fazla beş salt okunur sunuculara aynı Azure bölgesindeki sağlar. Okuma çoğaltmaları PostgreSQL altyapısının yerel çoğaltma teknolojisini kullanarak zaman uyumsuz olarak güncelleştirilir.
 
 Çoğaltmaları benzer şekillerde PostgreSQL sunucuları için Azure veritabanı normal bağımsız olarak yönetilebilir yeni sunucularıdır. Okuma amaçlı her çoğaltma için sanal çekirdek cinsinden sağlanan işlem ve GB/ay cinsinden sağlanan depolama karşılığı faturalandırılırsınız.
+
+Ziyaret [oluşturma ve yinelemeleri yönetme hakkında bilgi edinmek için nasıl yapılır sayfa](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-read-replicas"></a>Salt okunur çoğaltmalar kullanıldığı durumlar
 Okuma açısından yoğun iş yükleri, ölçek ve performans geliştirilmesine yardımcı olarak okuma çoğaltması özelliğini yöneliktir. Yazma iş yüklerinin asıl yönlendirilebilir örneği için okuma iş yükleri için çoğaltmaları, yalıtılmış olabilir.
@@ -56,7 +58,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ve isteminde kullanıcı hesabının parolasını girin.
 
 ## <a name="monitoring-replication"></a>Yineleme izleme
-Var. bir **yinelemeler boyunca en fazla gecikme** ölçümü Azure İzleyici'de kullanılabilir. Bu ölçüm yalnızca ana sunucu üzerinde kullanılabilir. Ölçüm ana çoğu İzolasyonu çoğaltma arasındaki gecikme süresini gösterir. 
+Var. bir **yinelemeler boyunca en fazla gecikme** ölçümü Azure İzleyici'de kullanılabilir. Bu ölçüm yalnızca ana sunucu üzerinde kullanılabilir. Ölçüm lag ana en İzolasyonu çoğaltma arasındaki bayt cinsinden gösterir. 
 
 Ayrıca, bildirimde bir **çoğaltma gecikmesi** ölçüm Azure İzleyici'de. Bu ölçüm yalnızca çoğaltmalar için kullanılabilir. 
 

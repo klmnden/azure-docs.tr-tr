@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 74b104ac399f00e08ed10ded5cd62a9c32c15d4a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224250"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566814"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>SQL Server veritabanlarını Azure'a yedekleme
 
@@ -721,6 +721,8 @@ SQL Server veritabanı için korumayı durdurduğunuzda, Azure Backup kurtarma n
 * Gelecek tarihli tüm yedekleme işlerini durdurma ama kurtarma noktalarını bırakın.
 
 Yedeklemeyi Durdur seçeneğini belirlerseniz verileri tut ile kurtarma noktaları yedekleme İlkesi uyarınca silinecektir. SQL korunan örnek ücreti yanı sıra, tüm kurtarma noktalarını temizlenir kadar tüketilen depolama fiyatlandırması uygulanır. SQL Azure Backup fiyatlandırması hakkında daha fazla bilgi için bkz. [Azure Backup fiyatlandırma sayfasını](https://azure.microsoft.com/pricing/details/backup/).
+
+Veri yedekleme ile korumak durdurmanız her kurtarma noktası bekletme ilkesi uyarınca dolacak ancak açıkça yedekleme verilerini sil kadar Azure yedekleme her zaman bir son kurtarma noktası tutar. Benzer şekilde yedeklemeyi Durdur yapmadan bir veri kaynağını silerseniz, yeni yedeklemeler başarısız olmaya başlar ve eski kurtarma noktaları, bir yedeklemeyi Durdur ile gerçekleştirdiğiniz kadar her zaman son kurtarma noktası korunur ancak bir bekletme ilkesi uyarınca dolacak verileri silin.
 
 Bir veritabanı için korumayı durdurmak için:
 

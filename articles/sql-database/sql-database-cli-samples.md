@@ -11,15 +11,25 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2ed9d38d2ed5ea554fc74ec1558a94e9d93bdcb8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/03/2019
+ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512066"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560830"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure SQL Veritabanı için Azure CLI örnekleri
+
+Azure SQL veritabanı kullanarak yapılandırılabilir <a href="/cli/azure">Azure CLI</a>.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.0 veya sonraki bir sürümünü kullanmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme]( /cli/azure/install-azure-cli). 
+
+## <a name="single-database--elastic-pools"></a>Tek veritabanı ve elastik havuzlar
 
 Aşağıdaki tablo, Azure SQL Veritabanı için Azure CLI betik örneklerinin bağlantılarını içerir.
 
@@ -31,5 +41,19 @@ Aşağıdaki tablo, Azure SQL Veritabanı için Azure CLI betik örneklerinin ba
 |**Tek bir veritabanını ve elastik havuzu ölçekleme**||
 | [Tek bir veritabanını ölçekleme](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bu CLI betiği örneği, veritabanının boyut bilgilerini sorguladıktan sonra tek bir Azure SQL veritabanı örneğini farklı bir işlem boyutuna ölçeklendirir. |
 | [Elastik havuzu ölçekleme](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bu CLI betik örneği, SQL elastik havuzunu farklı bir işlem boyutuna ölçekler.  |
-| [Yönetilen Örnek oluşturma ve yönetme](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) | Bu CLI betikleri, Azure CLI kullanarak Yönetilen Örnek oluşturmayı ve yönetmeyi göstermektedir |
 |||
+
+Daha fazla bilgi edinin [tek veritabanı Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).
+
+## <a name="managed-instance"></a>Yönetilen Örnek
+
+Aşağıdaki tabloda, Azure SQL veritabanı - yönetilen örnek için Azure CLI betik örneklerinin bağlantılarını içerir.
+
+| |  |
+|---|---|
+| [Yönetilen Örnek oluşturma](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | Bu CLI betiği, bir yönetilen örneğin nasıl oluşturulacağını gösterir. |
+| [Yönetilen örnek güncelleştirme](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | Bu CLI betik, yönetilen bir örneği gösterilmektedir. |
+| [Bir veritabanını başka bir yönetilen örneğine taşıyabilirsiniz](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Bu CLI betiği, bir örnekten bir veritabanının bir yedeğini geri yükleme gösterir. |
+|||
+
+Daha fazla bilgi edinin [yönetilen örnek Azure CLI API](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) ve bulma [ek örnekler](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

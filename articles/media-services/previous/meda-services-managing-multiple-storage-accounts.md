@@ -1,27 +1,28 @@
 ---
-title: Birden çok depolama hesabında Hizmetleri varlıklar Media yönetme | Microsoft Docs
-description: Bu makalede birden çok depolama hesabı arasında medya Hizmetleri varlıkları yönetme hakkında rehberlik verin.
+title: Media Services varlıklarını birden çok depolama hesabında yönetme | Microsoft Docs
+description: Bu makaleler arasında birden çok depolama hesapları Media Services varlıklar yönetme hakkında rehberlik verin.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 01/31/2018
 ms.author: juliako
-ms.openlocfilehash: 8c67ce4fd9597c66e795269972d2048ddd5a60c1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d43adf7009fcd668299f018b6308765bb115b237
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886348"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565913"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Varlıklar birden çok depolama hesabında Hizmetleri ortamlarını yönetme
-Microsoft Azure Media Services 2.2 ile başlayarak, tek bir Media Services hesabına birden çok depolama hesapları ekleyebilirsiniz. Bir Media Services hesabına birden çok depolama hesabı ekleme olanağı aşağıdaki avantajları sağlar:
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Birden çok depolama hesabı arasında Media Services varlıklarını yönetme
+
+Tek bir Media Services hesabına birden çok depolama hesapları ekleyebilirsiniz. Bir Media Services hesabına birden çok depolama hesabı ekleme olanağı aşağıdaki avantajları sağlar:
 
 * Varlıklarınızı birden çok depolama hesabı arasında yük dengelemeyi.
 * (Şu anda tek bir depolama hesabında en fazla bir sınır 500 TB olduğu gibi) içerik işleme büyük miktarlarda ölçeklendirme medya Hizmetleri. 
@@ -29,12 +30,13 @@ Microsoft Azure Media Services 2.2 ile başlayarak, tek bir Media Services hesab
 Bu makalede, birden fazla depolama hesabı kullanarak bir Media Services hesabı eklemek gösterilmiştir [Azure Resource Manager API'leri](/rest/api/media/operations/azure-media-services-rest-api-reference) ve [Powershell](/powershell/module/azurerm.media). Ayrıca, farklı depolama hesapları Media Services SDK'sını kullanarak bir varlık oluştururken belirtmek nasıl gösterir. 
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
+
 Birden çok depolama hesapları Media Services hesabınızı eklerken aşağıdaki maddeler geçerlidir:
 
-* Bir Media Services hesabına bağlı tüm depolama hesapları Media Services hesabıyla aynı veri merkezinde olması gerekir.
-* Şu anda bir depolama hesabı için belirtilen Media Services hesabına bağlandıktan sonra ayrılamıyor.
+* Media Services hesabı ve tüm ilişkili depolama hesapları aynı Azure aboneliğinde olması gerekir. Media Services hesabıyla aynı konumda depolama hesaplarını kullanmak için önerilir.
+* Bir depolama hesabı için belirtilen Media Services hesabına bağlandıktan sonra ayrılamıyor.
 * Birincil depolama, Media Services hesabı oluşturma süre boyunca belirtilen bir hesaptır. Şu anda, varsayılan depolama hesabı değişemez. 
-* Şu anda AMS hesabına bir seyrek erişimli depolama hesabı eklemek istiyorsanız, depolama hesabının Blob türü ve birincil olmayan için ayarlamanız gerekir.
+* Seyrek erişimli depolama hesabı AMS hesabına eklemek istiyorsanız, depolama hesabının Blob türü ve birincil olmayan için ayarlamanız gerekir.
 
 Diğer önemli noktalar:
 

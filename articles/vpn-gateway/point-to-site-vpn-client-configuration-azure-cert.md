@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0a9c5b5f0fd47f2fcf0c9df02789abae5f07f023
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508014"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564995"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Oluşturma ve yerel Azure sertifika doğrulaması P2S yapılandırmaları için VPN istemcisi yapılandırma dosyalarını yükleme
 
@@ -79,7 +79,7 @@ Sertifika kimlik doğrulaması için yerel Windows VPN istemcisini yapılandırm
 
 Yerel VPN istemcisini Mac üzerinde sertifika kimlik doğrulaması için yapılandırmak için aşağıdaki adımları kullanın. Azure'a bağlanan her Mac üzerinde aşağıdaki adımları tamamlamanız gerekir:
 
-1. İçeri aktarma **VpnServerRoot** Mac'iniz için kök sertifika Bu dosya üzerinde Mac'inize kopyalayarak ve çift yapılabilir.  
+1. İçeri aktarma **VpnServerRoot** Mac'iniz için kök sertifika Bu dosya üzerinde Mac'inize kopyalayarak ve çift yapılabilir.
 Tıklayın **Ekle** içeri aktarmak için.
 
   ![Sertifika Ekle](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
@@ -113,10 +113,13 @@ Tıklayın **Ekle** içeri aktarmak için.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
 
-### <a name="extract-the-key-and-certificate"></a>Anahtarı ve sertifikayı ayıklayın
+### <a name="1-generate-the-key-and-certificate"></a>1: Anahtar ve sertifika oluştur
 
 StrongSwan için istemci sertifikası (.pfx dosyası) anahtarı ve sertifikayı ayıklayın ve bunları tek tek .pem dosyasına kaydetmek gerekir.
-Aşağıdaki adımları izleyin:
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
+
+### <a name="2-extract-the-key"></a>2: Anahtarını ayıklayın
 
 1. OpenSSL yükleyip [OpenSSL](https://www.openssl.org/source/).
 2. Bir komut satırı penceresi açın ve yüklediğiniz OpenSSL, örneğin dizinine ' c:\OpenSLL-Win64\bin\'.
@@ -125,13 +128,13 @@ Aşağıdaki adımları izleyin:
   ```
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
   ```
-4.  Artık ortak sertifikayı ayıklayın ve yeni bir dosyaya kaydetmek için aşağıdaki komutu çalıştırın:
-
+4.  Ortak sertifikayı ayıklayın ve yeni bir dosyaya kaydetmek için aşağıdaki komutu çalıştırın:
+ 
   ```
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
   ```
 
-### <a name="install"></a>Yükleme ve yapılandırma
+### <a name="install"></a>3: Yükleme ve yapılandırma
 
 Aşağıdaki yönergeler, ubuntu'da 17.0.4 strongSwan 5.5.1 aracılığıyla oluşturuldu. Ubuntu 16.0.10 strongSwan GUI desteklemez. Ubuntu 16.0.10 kullanmak istiyorsanız, kullanması gerekir [komut satırı](#linuxinstallcli). Aşağıdaki örnekler, Linux ve strongSwan sürümünüze bağlı olarak gördüğü ekranlar eşleşmeyebilir.
 
@@ -160,14 +163,13 @@ Aşağıdaki yönergeler, ubuntu'da 17.0.4 strongSwan 5.5.1 aracılığıyla olu
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 
-### <a name="install-strongswan"></a>StrongSwan yükleyin
+### <a name="1-generate-the-key-and-certificate"></a>1: Anahtar ve sertifika oluştur
 
 Aşağıdaki CLI komutları kullanın veya strongSwan adımlarda [GUI](#install) strongSwan yüklemek için.
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-### <a name="install-and-configure"></a>Yükleme ve yapılandırma
+### <a name="2-install-and-configure"></a>2: Yükleme ve yapılandırma
 
 1. Bir VPNClient paketi, Azure Portalı'ndan indirin.
 2. Dosyayı ayıklayın.

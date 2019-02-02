@@ -11,33 +11,38 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: de758d38626107f28211f79a4772c3e887085776
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599844"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563227"
 ---
 # <a name="split-merge-security-configuration"></a>Ayırma-birleştirme güvenliği yapılandırma
+
 Ayırma/birleştirme hizmetini kullanmak için doğru güvenlik yapılandırmanız gerekir. Hizmet, Microsoft Azure SQL veritabanı'nın esnek ölçeklendirme özelliği bir parçasıdır. Daha fazla bilgi için [esnek ölçek bölme ve birleştirme Service Öğreticisi](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## <a name="configuring-certificates"></a>Sertifikaları yapılandırma
+
 Sertifikalar iki şekilde yapılandırılır. 
 
 1. [SSL sertifikası yapılandırma](#to-configure-the-ssl-certificate)
 2. [İstemci sertifikaları yapılandırma](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Sertifika edinme
+
 Ortak sertifika yetkilileri (CA) ya da sertifika elde edilebilir [Windows sertifika hizmeti](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Bu sertifikaları almak için tercih edilen yöntemlerdir.
 
 Bu seçenek kullanılabilir değilse, oluşturabileceğiniz **otomatik olarak imzalanan sertifikalar**.
 
 ## <a name="tools-to-generate-certificates"></a>Sertifikalarını oluşturmak için Araçlar
+
 * [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Araçları çalıştırmak için
+
 * Bir geliştirici komut isteminden Visual Studios için bkz: [Visual Studio komut istemi](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     Yüklü değilse, şuraya gidin:
@@ -46,9 +51,11 @@ Bu seçenek kullanılabilir değilse, oluşturabileceğiniz **otomatik olarak im
 * WDK gelen alma [Windows 8.1: Yükleme setleri ve araçları](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>SSL sertifikası yapılandırma
+
 Bir SSL sertifikası, iletişimi şifrelemek ve sunucu kimlik doğrulaması için gereklidir. Aşağıdaki üç senaryo en uygun seçin ve tüm adımları yürütün:
 
 ### <a name="create-a-new-self-signed-certificate"></a>Yeni bir otomatik olarak imzalanan sertifika oluştur
+
 1. [Otomatik olarak imzalanan bir sertifika oluşturun](#create-a-self-signed-certificate)
 2. [İçin otomatik olarak imzalanan SSL Sertifika PFX dosyasını oluşturma](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [Bulut hizmeti için SSL sertifikasını karşıya yükle](#upload-ssl-certificate-to-cloud-service)

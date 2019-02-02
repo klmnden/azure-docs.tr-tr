@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 882a43a75fa720b13d931740818e5ee6e893bcab
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: c1a279f85ef4e959869e0a3faa86b9ca7d3e05f7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753345"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657680"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Öğretici: Azure Depolama ile buluta görüntü verileri yükleme
 
@@ -48,7 +48,7 @@ CLI'yi yerel olarak yükleyip kullanmayı için Bu öğretici, Azure CLI 2.0.4 s
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma 
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.  
+[az group create](/cli/azure/group) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.  
 
 Aşağıdaki örnek `myResourceGroup` adlı bir kaynak grubu oluşturur.
 
@@ -75,7 +75,7 @@ az storage account create --name <blob_storage_account> \
 
 Uygulama, Blob depolama hesabında iki kapsayıcı kullanır. Kapsayıcılar klasörlere benzer ve blobları depolamak. *Images* kapsayıcısı, uygulamanın tam çözünürlüklü görüntüleri yüklediği yerdir. Serinin sonraki bölümlerinde bir Azure işlev uygulaması, yeniden boyutlandırılan küçük resimleri *thumbnails* kapsayıcısına yükler.
 
-[az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) komutunu kullanarak depolama hesabı anahtarını alın. Ardından, iki kapsayıcı içeren oluşturmak için bu anahtarı kullanırsınız [az depolama kapsayıcısı oluşturma](/cli/azure/storage/container#az_storage_container_create) komutu.  
+[az storage account keys list](/cli/azure/storage/account/keys) komutunu kullanarak depolama hesabı anahtarını alın. Ardından, iki kapsayıcı içeren oluşturmak için bu anahtarı kullanırsınız [az depolama kapsayıcısı oluşturma](/cli/azure/storage/container#az_storage_container_create) komutu.  
 
 Bu örnekte `<blob_storage_account>`, oluşturduğunuz Blob depolama hesabının adıdır. *Görüntüleri* kapsayıcının genel erişim ayarı `off`. *Küçük resimleri* kapsayıcının genel erişim ayarı `container`. `container` Genel erişim ayarı küçük resimleri görüntülemek için web sayfasını ziyaret eden kullanıcılara izin verir.
 

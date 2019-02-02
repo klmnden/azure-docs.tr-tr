@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 01/30/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f4caf0cde7225e2c93723f412c53259a5f5646a4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102043"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663290"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Nasıl yapılır: Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
@@ -45,7 +45,7 @@ ms.locfileid: "55102043"
 
 - Parola SSO için uygulamanız beklendiği gibi çoklu oturum açma işleri için parola kasası oluşturma yapılabilir, böylece form kimlik doğrulaması desteklediğinden emin olun.
 
-- Otomatik kullanıcı hazırlama istekler için uygulama yukarıda açıklanan Federasyon protokolünü kullanarak etkin tek oturum açma özelliği ile galeride listelenmelidir. SSO ve kullanıcı henüz listeleniyorsa birlikte portalda, sağlama için talep edebilir.
+- Otomatik kullanıcı hazırlama istekler için uygulamanın SAML 2.0/WS-Federasyon kullanan çoklu oturum açma özelliği etkin galeride listelenmelidir. SSO ve kullanıcı henüz listeleniyorsa birlikte portalda, sağlama için talep edebilir.
 
 ## <a name="submit-the-request-in-the-portal"></a>Portalı'nda isteme
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 1efe5a12da665901cdf1d09d45c36a1e3272c367
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 40e0c8c91c44e67c2c409d2efb1e917fdbe0bf33
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948681"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562105"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini planlama
 Azure Resource Manager çok sayıda harika özellik sunarken, geçiş yolculuğunuza emin sorunsuz şeyler yapmak için planlamak için önemlidir. Harcadığınız zamanı planlama, sorunları geçiş etkinliklerini yürütülürken karşılaşmayacağınızdan emin olursunuz. 
@@ -88,14 +88,14 @@ Başarılı müşteriler burada yukarıdaki soruları ele alınan, belgelenen ka
 
 Birçok büyük geçişlerin bulunan sorunları yoktu. Bu kapsamlı bir liste değildir ve başvurmanız gerekir [desteklenmeyen özellikleri ve yapılandırmalar](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations) daha fazla ayrıntı için. Olabilir veya bu teknik sorunlarla karşılaşabilirsiniz değildir ancak bunu yaparsanız geçişi denemeden önce bunları çözme daha sorunsuz bir deneyim sağlayacaktır.
 
-- **Doğrulama/hazırlama/iptal prova yapmak** -bu belki de klasik Azure Resource Manager için geçiş başarı sağlamak için en önemli adımdır. Geçiş API'si üç ana adım vardır: doğrulama, hazırlama ve tamamlama. Doğrulama Klasik ortamınızın durumunu okuma ve tüm sorunların bir sonuç döndürür. Ancak, bazı sorunlar, Azure Resource Manager yığınında olabileceğinden, doğrulama her şeyi yakalayamaz. Geçiş işlemi sonraki adımda, bu sorunların kullanıma hazırlama yardımcı olur. Hazırlama meta verilerin Klasikten Azure Resource Manager'a taşıma ancak taşıma işlemi, yürütme ve değil kaldırın veya Klasik tarafında herhangi bir ayarı değiştirmek. Geçiş için hazırlama ve ardından iptal ediliyor prova içerir (**değil yürüten**) geçiş hazırlama. Doğrulama/hazırlama/iptal prova hedefidir tüm meta veriler Azure Resource Manager yığınında görmek için onu inceleyin (*programlama yoluyla veya Portal*), her şeyin doğru şekilde geçirir olduğunu doğrulayın ve teknik ile çalışma sorun.  Kapalı kalma süresi için uygun şekilde planlamak için aynı zamanda size bir fikir geçiş süresi sunar.  Bir doğrulama/hazırlama/iptal kullanıcı kapalı kalma süresi neden olmaz; Bu nedenle, uygulama kullanımını kesintiye neden olmayan gereklidir.
+- **Doğrulama/hazırlama/iptal prova yapmak** -bu belki de klasik Azure Resource Manager için geçiş başarı sağlamak için en önemli adımdır. Geçiş API'si üç ana adım vardır: Doğrulama, hazırlama ve tamamlama. Doğrulama Klasik ortamınızın durumunu okuma ve tüm sorunların bir sonuç döndürür. Ancak, bazı sorunlar, Azure Resource Manager yığınında olabileceğinden, doğrulama her şeyi yakalayamaz. Geçiş işlemi sonraki adımda, bu sorunların kullanıma hazırlama yardımcı olur. Hazırlama meta verilerin Klasikten Azure Resource Manager'a taşıma ancak taşıma işlemi, yürütme ve değil kaldırın veya Klasik tarafında herhangi bir ayarı değiştirmek. Geçiş için hazırlama ve ardından iptal ediliyor prova içerir (**değil yürüten**) geçiş hazırlama. Doğrulama/hazırlama/iptal prova hedefidir tüm meta veriler Azure Resource Manager yığınında görmek için onu inceleyin (*programlama yoluyla veya Portal*), her şeyin doğru şekilde geçirir olduğunu doğrulayın ve teknik ile çalışma sorun.  Kapalı kalma süresi için uygun şekilde planlamak için aynı zamanda size bir fikir geçiş süresi sunar.  Bir doğrulama/hazırlama/iptal kullanıcı kapalı kalma süresi neden olmaz; Bu nedenle, uygulama kullanımını kesintiye neden olmayan gereklidir.
   - Aşağıdaki öğeler prova önce çözülmesi gerekir, ancak bunlar kaçırdıysanız prova test hazırlık adımları da güvenli bir şekilde temizler. Kurumsal geçiş sırasında biz geçiş hazırlığı emin olmak için güvenli ve her bir yolu olarak prova buldunuz.
   - Ne zaman hazırlama çalışıyor, Denetim düzlemi (Azure yönetim işlemleri) kilitlenmiş olabilir tüm sanal ağ için bu nedenle herhangi bir değişiklik için VM meta veri doğrulama/hazırlama/durdurma sırasında sağlanabilir.  Ancak Aksi takdirde herhangi bir uygulama işlevi (RD, VM kullanımı, vb.) etkilenmez.  Kullanıcılar sanal makinelerin prova yürütülmekte olan bilmez.
 
 - **Express route bağlantı hatları ve VPN**. Şu anda kapalı kalma süresi olmadan Express Route ağ geçidi yetkilendirme bağlantıları olan geçirilemez. Geçici çözüm için bkz. [geçirme ExpressRoute devrelerini ve ilişkili sanal ağları Klasikten Resource Manager dağıtım modeline](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
 - **VM uzantıları** -sanal makine uzantıları, büyük olasılıkla bir büyük bariyerler geçirme çalışan VM'ler. Düzeltme VM uzantılarının, 1-2 gün çalınıyor alın, böylece buna göre planlayın.  Çalışan bir Azure Aracısı geri çalışan VM uzantı durumu raporlamak için gereklidir. Durum hatalı olarak çalışan bir VM için geliyorsa, bu geçiş durdurulur. Aracı geçişi etkinleştirmek için çalışma sırada olması gerekmez, ancak VM uzantıları varsa, sonra hem bir çalışan aracısı ve giden internet bağlantısı (DNS ile) ileri taşımak geçiş için gereklidir.
-  - Bgınfo v1 dışındaki tüm VM uzantıları geçiş sırasında bir DNS sunucusu bağlantısı kaybolsa bile. \* önce her geçiş hazırlamadan önce VM ve daha sonra yeniden ilave VM'ye geçişten sonra Azure Resource Manager kaldırılması gerekir.  **Çalıştıran VM'ler için budur.**  VM serbest bırakıldığında durdurulursa, kaldırılacak VM uzantıları gerekmez. **Not:** izleme edecek Azure tanılama ve Güvenlik Merkezi gibi birçok uzantı kendilerini yeniden geçişten sonra bu nedenle bunları kaldırma bir sorun değildir.
+  - Bgınfo v1 dışındaki tüm VM uzantıları geçiş sırasında bir DNS sunucusu bağlantısı kaybolsa bile. \* önce her geçiş hazırlamadan önce VM ve daha sonra yeniden ilave VM'ye geçişten sonra Azure Resource Manager kaldırılması gerekir.  **Çalıştıran VM'ler için budur.**  VM serbest bırakıldığında durdurulursa, kaldırılacak VM uzantıları gerekmez. **Not:** İzleme edecek Azure tanılama ve Güvenlik Merkezi gibi birçok uzantı kendilerini yeniden geçişten sonra bu nedenle bunları kaldırma bir sorun değildir.
   - Ayrıca, ağ güvenlik grupları olmadığından emin olun giden internet erişimi sınırlandırma. Bu, bazı ağ güvenlik gruplarının yapılandırmasıyla oluşabilir. Giden internet erişimi (ve DNS), VM uzantıları, Azure Resource Manager'a geçirilmesi için gereklidir. 
   - Bgınfo uzantısını iki sürümü vardır: v1 ve v2.  Azure portal veya PowerShell kullanarak VM oluşturulmuş olsa bile, VM olasılıkla üzerinde v1 uzantısı vardır. Bu uzantı kaldırılacak gerekmez ve (geçiş) atlanacak geçiş API'si tarafından. Klasik VM'yi yeni Azure portalı ile oluşturulmuş olsa bile, ancak büyük olasılıkla JSON tabanlı olması için Azure Resource Manager geçirilebilecek Bgınfo v2 sürümünü sağlanan aracının çalıştığını ve giden internet erişimi (ve DNS). 
   - **Düzeltme seçeneği 1**. Sanal makinelerinizin erişim, bir çalışma DNS hizmeti ve Azure aracıları Vm'lerde çalışan, tüm VM uzantıları hazırlama önce geçişin bir parçası olarak kaldırın giden internet olmaz biliyorsanız, VM uzantılarını geçişten sonra yeniden yükleyin. 
@@ -192,7 +192,7 @@ Göz önünde bulundurulması gerekenler:
 
 Artık Azure Resource Manager'da etkinleştirmek istediğiniz hangi Hizmetleri amaca yönelik olabilir.  Birçok müşteri için Azure ortamlarını cazip aşağıda:
 
-- [Rol tabanlı erişim denetimi](../../azure-resource-manager/resource-group-overview.md#access-control).
+- [Rol tabanlı erişim denetimi](../../role-based-access-control/overview.md).
 - [Daha kolay ve daha denetimli dağıtımı için Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md).
 - [Etkinlik denetimi](../../azure-resource-manager/resource-group-audit.md)

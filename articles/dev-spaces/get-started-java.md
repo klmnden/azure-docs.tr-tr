@@ -1,5 +1,5 @@
 ---
-title: Bulutta Java ve VS Code kullanarak Kubernetes geliştirme ortamı oluşturma | Microsoft Docs
+title: Java ve VS Code kullanarak bulutta Kubernetes geliştirme alanı oluşturma | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,14 +11,14 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: mmontwil
-ms.openlocfilehash: 9dc219078377d8b8da5d1700fb2a93133649d924
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d1840a451fc9354b32950283b335455d67ccbf43
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475786"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657255"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-java"></a>Java ile Azure Dev Spaces'da Çalışmaya Başlama
+# <a name="get-started-on-azure-dev-spaces-with-java"></a>Java ile Azure geliştirme alanlarında çalışmaya başlama
 
 Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -226,4 +226,4 @@ Tarayıcıda web uygulamasını yenileyin. Özel iletinizin kullanıcı arabirim
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Ekip geliştirmesi hakkında bilgi edinme](team-development-java.md)
+> [Birden çok hizmet geliştirme hakkında bilgi edinin](multi-service-java.md)

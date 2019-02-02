@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189617"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562071"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI ile Azure Container ınstances'da bir kapsayıcı uygulaması çalıştırma
 
@@ -39,7 +39,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-Artık bir kaynak grubuna sahip olduğunuza göre Azure'da kapsayıcı çalıştırabilirsiniz. Azure CLI ile kapsayıcı örneği oluşturmak için [az container create][az-container-create] komutunda bir kaynak grubu adı, kapsayıcı örneği adı ve Docker kapsayıcı görüntüsü belirtin. Açılacak bir veya daha fazla bağlantı noktası, DNS ad etiketi ya da ikisini birden belirterek kapsayıcılarınızı internete açabilirsiniz. Bu hızlı başlangıçta, Node.js ile yazılan küçük bir web uygulamasını barındıran ve DNS ad etiketine sahip olan bir kapsayıcıyı dağıtacaksınız.
+Artık bir kaynak grubuna sahip olduğunuza göre Azure'da kapsayıcı çalıştırabilirsiniz. Azure CLI ile kapsayıcı örneği oluşturmak için [az container create][az-container-create] komutunda bir kaynak grubu adı, kapsayıcı örneği adı ve Docker kapsayıcı görüntüsü belirtin. Bu hızlı başlangıçta, kullandığınız `microsoft/aci-helloworld` görüntü genel Docker Hub kayıt defterinden. Bu görüntü, statik bir HTML sayfası görevi görür node.js'de yazılmış küçük bir web uygulamasını paketler.
+
+Açılacak bir veya daha fazla bağlantı noktası, DNS ad etiketi ya da ikisini birden belirterek kapsayıcılarınızı internete açabilirsiniz. Bu hızlı başlangıçta, web uygulaması genel olarak erişilebilir olması bir DNS ad etiketi içeren bir kapsayıcıya dağıtın.
 
 Bir kapsayıcı örneği başlatmak için aşağıdaki komutu yürütün. `--dns-name-label` değeri, örneği oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. "DNS ad etiketi kullanılamıyor" hata iletisiyle karşılaşırsanız farklı bir DNS ad etiketi deneyin.
 
@@ -92,7 +94,7 @@ listening on port 80
 
 Günlükleri görüntülemeye ek olarak, yerel standart çıkış ve standart hata akışlarınızı kapsayıcınınkine ekleyebilirsiniz.
 
-İlk olarak [az container attach][az-container-attach] komutunu yürüterek yerel konsolunuzu kapsayıcının çıkış akışlarına ekleyin:
+Öncelikle şunu yürütün [az kapsayıcı ekleme] [ az-container-attach] kapsayıcının çıkış akışlarına kapsayıcıya yerel Konsolunuzu eklenecek komut:
 
 ```azurecli-interactive
 az container attach --resource-group myResourceGroup -n mycontainer
@@ -145,7 +147,7 @@ Bu hızlı başlangıçta, genel bir Docker Hub kayıt defterindeki bir görünt
 > [!div class="nextstepaction"]
 > [Azure Container Instances öğreticisi](./container-instances-tutorial-prepare-app.md)
 
-Kapsayıcıları Azure’da bir düzenleme sistemi içinde çalıştırma seçenekleri için, [Service Fabric][service-fabric] veya [Azure Kubernetes Hizmeti (AKS)][container-service] hızlı başlangıçlarına bakın.
+Kapsayıcıları Azure üzerinde bir düzenleme sistemi içinde çalıştırma seçenekleri denemek için bkz: [Azure Kubernetes Service (AKS)] [ container-service] hızlı başlangıçları.
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -166,4 +168,3 @@ Kapsayıcıları Azure’da bir düzenleme sistemi içinde çalıştırma seçen
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

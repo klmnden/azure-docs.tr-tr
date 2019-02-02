@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: b46539758d88fe7a0e27799b5da581255fa5f075
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229341"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657034"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances ile yönetilen kimliklerini kullanma
 
@@ -134,7 +134,7 @@ az container show --resource-group myResourceGroup --name mycontainer
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Anahtar Kasası'na kullanıcı tarafından atanan kimlikle erişimi verme
 
-Aşağıdaki komutu çalıştırın [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) Key Vault'a erişim ilkesi ayarlamak için komutu. Aşağıdaki örnekte, gizli dizileri anahtar Kasasından almak kullanıcı tarafından atanan kimlik sağlar:
+Aşağıdaki komutu çalıştırın [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) Key Vault'a erişim ilkesi ayarlamak için komutu. Aşağıdaki örnekte, gizli dizileri anahtar Kasasından almak kullanıcı tarafından atanan kimlik sağlar:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -216,7 +216,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Kapsayıcı grubu erişimi vermek için Key Vault
 
-Aşağıdaki komutu çalıştırın [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) Key Vault'a erişim ilkesi ayarlamak için komutu. Aşağıdaki örnekte, gizli dizileri anahtar Kasasından almak sistem tarafından yönetilen kimlik sağlar:
+Aşağıdaki komutu çalıştırın [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) Key Vault'a erişim ilkesi ayarlamak için komutu. Aşağıdaki örnekte, gizli dizileri anahtar Kasasından almak sistem tarafından yönetilen kimlik sağlar:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get

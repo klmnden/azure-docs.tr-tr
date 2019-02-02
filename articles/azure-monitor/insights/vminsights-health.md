@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2019
+ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 90cd6f640188408771b3a64a31aadf89cfefcaae
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487872"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563346"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -142,13 +142,6 @@ Burada hızlı, proaktif olarak VM izleme durumu ölçütlerini tarafından alg�
 **İşletim sistemine göre VM Dağıtım** listede Windows sürümünü veya sürümlerini birlikte Linux dağıtımı tarafından listelenen VM'ler gösterilmektedir. Her işletim sistemi kategorisinde, Vm'leri başka ayrılmıştır VM Durumu'na göre. 
 
 ![VM Insights sanal makine dağıtım perspektifi](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
-
-Bir VM için tanımlanan sistem durumları şunlardır: 
-
-* **Sağlıklı** – sanal makine için herhangi bir sorun algılandı ve gerektiği gibi çalıştığını.  
-* **Kritik** – bir veya daha fazla kritik sorunlar algılandığında, beklendiği gibi normal işlevselliğini geri yüklemek için ele alınması gerekiyor. 
-* **Uyarı** -bir veya daha fazla sorun algılandığında, ilgilenilmesi gereken ya da sağlık durumu kritik duruma gelebilir.  
-* **Bilinmeyen** – hizmet durumu değişiklikleri bilinmeyen bir duruma VM ile bağlantı kurmak tamamlayamadı.  
 
 Herhangi bir sütun öğe üzerinde - tıklayabilirsiniz **VM sayısı**, **kritik**, **uyarı**, **sağlıklı** veya **bilinmeyen** için Detaya **sanal makineler** sayfa seçilen sütunun eşleşen filtrelenmiş sonuç listesini görürsünüz. Örneğin, çalışan tüm sanal makineler gözden geçirmek istiyorsanız **Red Hat Enterprise Linux sürüm 7.5**, tıklayarak **VM sayısı** değeri, işletim sistemi ve şu sayfaya eşleşen sanal makineler listesi açılır Bu filtre ve şu anda bilinen sistem durumu.  
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723153"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663580"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service ve Azure işlevleri'ni (Önizleme) için Key Vault başvuruları kullanın
 
@@ -37,7 +37,7 @@ Anahtar Kasasından gizli anahtarları okumak için oluşturulan bir kasası var
    > [!NOTE] 
    > Key Vault şu anda yalnızca destek sistem tarafından atanan yönetilen kimlikleri başvuruyor. Kullanıcı tarafından atanan kimlikleri kullanılamaz.
 
-1. Oluşturma bir [erişim ilkesi anahtar Kasası'nda](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) daha önce oluşturduğunuz uygulama kimliği için. Bu ilke "Get" gizli izni etkinleştirin.
+1. Oluşturma bir [erişim ilkesi anahtar Kasası'nda](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) daha önce oluşturduğunuz uygulama kimliği için. Bu ilke "Get" gizli izni etkinleştirin. "Uygulama yetkili" yapılandırmayın veya `appliationId` ayarları, bu olarak yönetilen bir kimlik ile uyumlu değil.
 
 ## <a name="reference-syntax"></a>Başvuru söz dizimi
 
@@ -46,8 +46,8 @@ Key Vault başvurusunu biçimindedir `@Microsoft.KeyVault({referenceString})`bur
 > [!div class="mx-tdBreakAll"]
 > | Başvuru dizesi                                                            | Açıklama                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri =_secretUri_                                                       | **SecretUri** veri düzlemi tam URI gibi bir sürümünü, örneğin, anahtar Kasası'nda gizli dizi olmalıdır https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName =_vaultName_; SecretName =_secretName_; SecretVersion =_secretVersion_ | **VaultName** anahtar kasası kaynağınızın adını gerekir. **SecretName** hedef gizli dizi adı olmalıdır. **SecretVersion** kullanmak için gizli dizi sürümü olmalıdır. |
+> | SecretUri=_secretUri_                                                       | **SecretUri** veri düzlemi tam URI gibi bir sürümünü, örneğin, anahtar Kasası'nda gizli dizi olmalıdır https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** anahtar kasası kaynağınızın adını gerekir. **SecretName** hedef gizli dizi adı olmalıdır. **SecretVersion** kullanmak için gizli dizi sürümü olmalıdır. |
 
 > [!NOTE] 
 > Geçerli Önizleme sürümleri gerekli değildir. Gizli dizileri döndürürken güncelleştirme sürümü, uygulama yapılandırmasında gerekecektir.

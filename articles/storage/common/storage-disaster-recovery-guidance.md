@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b203acefb962d5b3a782ba0ce1e667b6f18b7951
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: bc79379d1b893beffc085e79b7643fcb6e1dc26f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508938"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657323"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Olağanüstü durum kurtarma ve depolama hesabı yük devretme (Önizleme) Azure Depolama'daki
 
@@ -104,7 +104,7 @@ Depolama hesabı için coğrafi yedeklilik yapılandırılır sonra yeni ikincil
 
 Büyük veri kaybını önlemek için değerini kontrol edin **son eşitleme zamanı** ilk duruma döndürmeden önce özelliği. Karşılaştırma verileri son kez son eşitleme zamanı beklenen veri kaybı değerlendirmek için yeni birincil veritabanına yazıldı. 
 
-## <a name="initiate-an-account-failover"></a>Bir hesap yük devretme başlatma
+## <a name="initiate-an-account-failover"></a>Hesap yük devretmesi başlatma
 
 Azure portalı, PowerShell, Azure CLI veya Azure depolama kaynak sağlayıcısı API'si bir hesabı yük başlatabilirsiniz. Bir yük devretme başlatma konusunda daha fazla bilgi için bkz. [hesabı yük devretme (Önizleme) başlatın](storage-initiate-account-failover.md).
 
@@ -152,6 +152,7 @@ Yönetilmeyen diskleri sayfa blobları Azure Depolama'da depolanır. Azure'da bi
 4. Bekle **son eşitleme zamanı** güncelleştirdi ve VM sildiğiniz saatten sonra. Bu adım önemlidir, çünkü yük devretme gerçekleştiğinde ikincil uç tamamen VHD dosyaları ile değil güncelleştirildiyse, ardından sanal Makineyi yeni bir birincil bölgede düzgün çalışmayabilir.
 5. Hesap yük devretmeyi başlatın.
 6. Hesap yük devretme işlemi tamamlandıktan ve yeni birincil bölgeden ikincil bölgeye haline gelmiştir kadar bekleyin.
+6. Yeni bir birincil bölgede bir depolama hesabı oluşturma ve yönetilmeyen diskinizle kopyalayın.
 7. Yeni bir birincil bölgede bir VM oluşturun ve VHD'leri yeniden bağlayın.
 8. Yeni VM'yi başlatın.
 

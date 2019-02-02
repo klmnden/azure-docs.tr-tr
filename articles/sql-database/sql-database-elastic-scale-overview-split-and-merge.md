@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 0f5dc5cc7d981eb162ba101671b1e967ddf4bfff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 1d350cae379c5ec790413775138225b60b9c5e32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868472"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564944"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Ölçeği genişletilen bulut veritabanları arasında veri taşıma
 
@@ -212,7 +212,7 @@ Ayırma-birleştirme hizmeti sağlar **RequestStatus** tamamlanan ve Süren iste
 
 ### <a name="azure-diagnostics"></a>Azure Tanılama
 
-Ayırma-birleştirme hizmetini izleme ve tanılama için Azure SDK 2.5 üzerinde temel Azure Tanılama'yı kullanır. Burada açıklandığı gibi tanılama yapılandırması denetimi: [Azure bulut Hizmetleri ve sanal Makineler'de tanılamayı etkinleştirme](../cloud-services/cloud-services-dotnet-diagnostics.md). İndirme paketini iki tanılama yapılandırması - bir web rolü ve çalışan rolü için bir tane içerir. Bu, performans sayaçları, IIS günlükleri, Windows olay günlükleri ve ayırma-birleştirme uygulama olay günlüklerini açmak için tanımları içerir.
+Ayırma-birleştirme hizmetini izleme ve tanılama için Azure SDK 2.5 üzerinde temel Azure Tanılama'yı kullanır. Burada açıklandığı gibi Tanılama yapılandırmasını denetler: [Azure bulut Hizmetleri ve sanal Makineler'de tanılamayı etkinleştirme](../cloud-services/cloud-services-dotnet-diagnostics.md). İndirme paketini iki tanılama yapılandırması - bir web rolü ve çalışan rolü için bir tane içerir. Bu, performans sayaçları, IIS günlükleri, Windows olay günlükleri ve ayırma-birleştirme uygulama olay günlüklerini açmak için tanımları içerir.
 
 ## <a name="deploy-diagnostics"></a>Tanılama dağıtma
 

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863542"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567018"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Elastik veritabanı işleriyle çalışmaya başlama
 
@@ -258,21 +258,21 @@ Elastik veritabanı işleri destekler işler başlatılırken uygulanabilen öze
 
 Şu anda yürütme ilkelerini tanımlamak için izin ver:
 
-* Adı: Yürütme İlkesi tanımlayıcısı.
-* İşi zaman aşımı: bir iş, elastik veritabanı işleri tarafından iptal edilmeden önce toplam süresi.
-* İlk yeniden deneme aralığı: ilk yeniden denemeden önce beklenecek aralık.
-* En fazla yeniden deneme aralığı: kullanılacak uç yeniden deneme aralıkları.
-* Yeniden deneme aralığı geri alma katsayısı: Katsayısı sonraki yeniden deneme aralığını hesaplamak için kullanılır.  Aşağıdaki formülü kullanılır: (ilk yeniden deneme aralığı) * Math.pow ((aralık geri alma katsayısı) (yeniden deneme sayısı) - 2).
-* En fazla denemesi: Yeniden deneme sayısı içinde bir işi gerçekleştirmek çalışır.
+* Ad: Yürütme ilkesi için tanımlayıcı.
+* İşi zaman aşımı: Elastik veritabanı işleri tarafından bir işi iptal edilmeden önce toplam süresi.
+* İlk yeniden deneme aralığı: İlk yeniden denemeden önce beklenecek aralık.
+* En fazla yeniden deneme aralığı: Kullanılacak yeniden deneme aralıklarını sınır.
+* Yeniden deneme aralığı geri alma katsayısı: Katsayısı, sonraki yeniden deneme aralığını hesaplamak için kullanılır.  Aşağıdaki formülü kullanılır: (İlk yeniden deneme aralığı) * Math.pow ((aralık geri alma katsayısı) (yeniden deneme sayısı) - 2).
+* En fazla denemesi: İçinde bir işi gerçekleştirmek en fazla yeniden deneme sayısı çalışır.
 
 Varsayılan yürütme ilkesi aşağıdaki değerleri kullanır:
 
-* Adı: Varsayılan yürütme İlkesi
+* Ad: Varsayılan yürütme İlkesi
 * İşi zaman aşımı: 1 hafta
-* İlk yeniden deneme aralığı: 100 milisaniye
+* İlk yeniden deneme aralığı:  100 milisaniye
 * En fazla yeniden deneme aralığı: 30 dakika
 * Yeniden deneme aralığı katsayısı: 2
-* En fazla denemesi: 2.147.483.647
+* En fazla denemesi: 2,147,483,647
 
 İstenen yürütme ilkesi oluşturun:
 
@@ -307,8 +307,8 @@ Elastik veritabanı işleri işleri iptal isteklerini destekler.  Elastik verita
 
 Elastik veritabanı işleri iptal gerçekleştirebilirsiniz iki farklı yolu vardır:
 
-1. Şu anda yürütme iptal ediliyor görevleri: bir görevi şu anda çalışırken iptal algılanırsa, bir iptal şu anda yürütülen görev görünümü içinde denenir.  Örneğin: iptal çalışırken şu anda gerçekleştirilmekte olan uzun süre çalışan bir sorgu varsa, sorgusunu iptal etme girişimi yoktur.
-2. İptal etme görev yeniden deneme: yürütme için bir görev başlatılmadan önce iptal denetimi iş parçacığı tarafından algılanırsa, denetimi iş parçacığı görevi başlatma önler ve istek iptal edildi olarak bildirir.
+1. Yürütülmekte olan görevleri iptal ediliyor: Görev şu anda çalışırken iptal algılanırsa, bir iptal şu anda yürütülen görev görünümü içinde denenir.  Örneğin: İptal durumunda çalışırken şu anda gerçekleştirilmekte olan uzun süre çalışan bir sorgu varsa, sorgusunu iptal etme girişimi yoktur.
+2. Görev iptal yeniden deneme sayısı: Yürütme için bir görev başlatılmadan önce iptal denetimi iş parçacığı tarafından algılanırsa, denetimi iş parçacığı görevi başlatma önler ve istek iptal edildi olarak bildirir.
 
 Üst iş için bir işi iptal istenirse, iptal isteğini üst işin ve tüm alt işlerini için uygulanır.
 

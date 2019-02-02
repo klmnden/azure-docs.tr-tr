@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 12/23/2018
 ms.author: zhshang
-ms.openlocfilehash: 45ceebef85254ff030d237f1af13f0750aaafeba
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 6b3ddf7d8069e689231b9dcb6f0f074e84052511
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811884"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663273"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR hizmeti hakkında SSS
 
@@ -20,7 +20,7 @@ ms.locfileid: "53811884"
 Evet.
 Genel kullanılabilirlik yaptığımız duyurudan için bkz: [Azure SignalR hizmeti artık genel kullanıma sunulan](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/). 
 
-[ASP.NET Core SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction) tam olarak desteklenir.
+[ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) tam olarak desteklenir.
 
 ASP.NET SignalR için destek, hala *genel Önizleme*. İşte bir [kod örneği](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
 
@@ -37,7 +37,7 @@ Uygulama sunucuları varsa, bu hata iletisi, uygulama sunucusu yok SignalR hizme
 Olası nedenler şunlardır:
 - Hiçbir uygulama sunucusu SignalR hizmeti ile bağlandı. Olası bağlantı hataları için uygulama sunucusu günlüklerini kontrol edin. Bu durumda birden fazla uygulama sunucuları ile yüksek oranda kullanılabilirlik ayarında nadir olarak rastlanıyor.
 - SignalR hizmet örnekleri ile bağlantı sorunları var. Bu sorunu geçici olduğu ve otomatik olarak kurtarılacak.
-Bir saatten için ederse [github'da bir sorun açın](https://github.com/Azure/azure-signalr/issues/new) veya [Azure'da bir destek isteği oluşturma](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request).
+Bir saatten için ederse [github'da bir sorun açın](https://github.com/Azure/azure-signalr/issues/new) veya [Azure'da bir destek isteği oluşturma](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>Birden çok uygulama sunucuları olduğunda, tüm sunucular veya bunlardan yalnızca birini istemci iletileri gönderilir?
 
@@ -67,4 +67,4 @@ Hayır.
 
 Azure SignalR hizmeti varsayılan olarak ASP.NET Core Signalr'yi destekleyen tüm üç aktarımları sağlar. Yapılandırılabilir değildir. SignalR hizmet bağlantıları ve tüm istemci bağlantılar için aktarmaları işler.
 
-İstemci tarafı taşımalar belgelendiği gibi yapılandırabilirsiniz [burada](https://docs.microsoft.com/en-us/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).
+İstemci tarafı taşımalar belgelendiği gibi yapılandırabilirsiniz [burada](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).

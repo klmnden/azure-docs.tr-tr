@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 9837316cab503e6ade623e91a41176e6f4bfc84a
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/08/2018
+ms.openlocfilehash: 1f26fb101c9940a51ffb4fb7e1b48a51b943599a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867687"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663749"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Evrensel kimlik doğrulaması ile SQL veritabanı ve SQL veri ambarı'nı (MFA için SSMS desteği)
 Azure SQL veritabanı ve Azure SQL veri ambarı SQL Server Management Studio (SSMS) kullanarak bağlantılar Destek *Active Directory Evrensel kimlik doğrulaması*. 
-**En son SSMS'yi indirin** - istemci bilgisayarında, SSMS, en son sürümünü indirin [indirme SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Tüm özellikler için bu makalede, en az Temmuz 2017, sürüm 17,2 kullanın.  En son bağlantı iletişim kutusunda, aşağıdaki gibi görünür: ![1mfa Evrensel bağlanma](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "kullanıcı adı kutusuna tamamlar.")  
+**En son SSMS'yi indirin** - istemci bilgisayarında, SSMS, en son sürümünü indirin [indirme SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Tüm özellikler için bu makalede, en az Temmuz 2017, sürüm 17,2 kullanın.  En son bağlantı iletişim kutusu şu şekilde görünür: ![1mfa Evrensel bağlanma](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "kullanıcı adı kutusuna tamamlar.")  
 
 ## <a name="the-five-authentication-options"></a>Beş kimlik doğrulama seçenekleri  
 - Active Directory Evrensel kimlik doğrulamasını destekleyen iki etkileşimli olmayan kimlik doğrulama yöntemlerini (`Active Directory - Password` kimlik doğrulaması ve `Active Directory - Integrated` kimlik doğrulaması). Etkileşimli olmayan `Active Directory - Password` ve `Active Directory - Integrated` birçok farklı uygulamalarda (ADO.NET, JDBC, ODBC, vb.) kimlik doğrulama yöntemleri kullanılabilir. Bu iki yöntem hiçbir zaman açılır iletişim kutularında neden.
@@ -52,8 +52,8 @@ Desteklenen konuk kullanıcıları Azure AD B2B senaryoları için azure AD kull
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Yapılandırma adımları için bkz. [SQL Server Management Studio için Azure SQL veritabanını Yapılandır multi-Factor authentication](sql-database-ssms-mfa-authentication-configure.md).
-- Diğerleri, veritabanına erişim izni vermek: [SQL veritabanı kimlik doğrulaması ve yetkilendirme: erişim verme](sql-database-manage-logins.md)  
-- Diğer güvenlik duvarı üzerinden bağlanabilir olduğundan emin olun: [Azure portalını kullanarak Azure SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı yapılandırma](sql-database-configure-firewall-settings.md)  
+- Diğerleri, veritabanınıza erişimi verin: [SQL veritabanı kimlik doğrulaması ve yetkilendirme: Erişim verme](sql-database-manage-logins.md)  
+- Diğer güvenlik duvarı üzerinden bağlanabildiğinden emin olun: [Azure portalını kullanarak Azure SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı yapılandırma](sql-database-configure-firewall-settings.md)  
 - [SQL Veritabanı veya SQL Veri Ambarı ile Azure Active Directory kimlik doğrulamasını yapılandırma ve yönetme](sql-database-aad-authentication-configure.md)  
 - [Microsoft SQL Server veri katmanı uygulaması çerçevesi (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  

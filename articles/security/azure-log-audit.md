@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 93370b927f825752b8ce2b5e9d4ca94b3a4e0536
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306259"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664191"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlük kaydı ve denetim
 
@@ -194,7 +194,7 @@ Depolama analizi, aşağıdaki türde kimliği doğrulanmış ve anonim istekler
 
 Günlüğe kaydetme ve Azure'da izleme ağ kapsamlı ve iki geniş kategoriye kapsar:
 
-* [Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Senaryo tabanlı ağ izleme Ağ İzleyicisi özellikleri ile sağlanır. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
+* [Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Senaryo tabanlı ağ izleme Ağ İzleyicisi özellikleri ile sağlanır. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
 
 * [Kaynak İzleme](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Kaynak düzeyi izleme dört özellikleri, tanılama günlükleri, ölçümler, sorun giderme ve kaynak durumu oluşur. Bu özelliklerin tümü ağ kaynak düzeyinde oluşturulur.
 
@@ -336,7 +336,7 @@ Bağlı kaynaklar, bilgisayarları ve Log Analytics tarafından toplanan veriler
 |Bilişsel Hizmetler|    Microsoft.CognitiveServices/<br>accounts|       Tanılama|||
 |Azure Data Lake Analytics| Microsoft.DataLakeAnalytics/<br>accounts|   Tanılama|||
 |Azure Data Lake Store| Microsoft.DataLakeStore/<br>accounts|   Tanılama|||
-|Azure olay hub'ı ad alanı| Microsoft.EventHub/<br>Ad alanları|  Tanılama|    Tanılama||
+|Azure olay hub'ı ad alanı| Microsoft.EventHub/<br>ad alanları|  Tanılama|    Tanılama||
 |Azure IoT Hub| Microsoft.Devices/<br>IotHubs||     Tanılama||
 |Azure Key Vault|   Microsoft.KeyVault/<br>kasaları|  Tanılama  || [Anahtar Kasası Analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Azure Load Balancer|   Microsoft.Network/<br>Sonraki|    Tanılama|||
@@ -345,7 +345,7 @@ Bağlı kaynaklar, bilgisayarları ve Log Analytics tarafından toplanan veriler
 |Ağ Güvenlik Grupları|   Microsoft.Network/<br>networksecuritygroups|Tanılama||   [Azure ağ güvenlik grubu analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Kurtarma kasaları|   Microsoft.RecoveryServices/<br>kasaları|||[Azure kurtarma Hizmetleri analizi (Önizleme)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Hizmet ara|   Microsoft.Search/<br>searchServices|    Tanılama|    Tanılama||
-|Service Bus ad alanı| Microsoft.ServiceBus/<br>Ad alanları|    Tanılama|Tanılama|    [Service Bus analizi (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Service Bus ad alanı| Microsoft.ServiceBus/<br>ad alanları|    Tanılama|Tanılama|    [Service Bus analizi (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Depolama||    [Service Fabric analizi (Önizleme)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>sunucuları /<br>veritabanları||       Tanılama||
 ||Microsoft.Sql/<br>sunucuları /<br>elasticPools||||

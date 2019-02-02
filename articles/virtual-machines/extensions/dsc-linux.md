@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 34b70b1a6a77a20a034a7822d9c4961c36cdd51c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889000"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663970"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux (Microsoft.OSTCExtensions.DSCForLinux) için DSC uzantısı
 
@@ -40,17 +40,12 @@ DSCForLinux uzantısı yayımlandı ve Microsoft tarafından desteklenmiyor. Uza
 
 ### <a name="operating-system"></a>İşletim sistemi
 
-Tüm Linux DSC uzantı destekler [uzantısı desteklenen işletim sistemlerine](https://azurewiki.cloudapp.netVMAgentExtension/extensionSupportedOSs) hariç:
+Tüm Linux DSC uzantı destekler [Azure'da desteklenen Linux dağıtımı](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros) hariç:
 
 | Dağıtım | Sürüm |
 |---|---|
-| CentOS Linux | 6.5 ve üzeri |
-| Ubuntu| 12.04 LTS, 14.04 LTS, 16.04 LTS  |
-| RHEL| 6.5 ve üzeri  |
-| openSUSE| 13.1 ve üzeri  |
-| SUSE Linux Enterprise Server| 11 SP3 ve üzeri  |
-
-  
+| Debian | Tüm sürümler |
+| Ubuntu| 18.04 |
  
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301263"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564961"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -55,7 +55,7 @@ C: Yeni filtreleri uygulamasının bir önizlemesini görmek için sol kaydırma
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>S. Neden bir hata alıyorum: "Kaynak Sağlayıcısı 'Bu sorgu etkinleştirmek için Microsoft.Insights' Bu abonelik için günlüklere sonrası ayrıntılara VM'den Kaydet"? 
 
-C: Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir, ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bu, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Daha fazla bilgi için bkz. [Kaynak sağlayıcıları ve türleri](../../azure-resource-manager/resource-manager-supported-services.md#portal).
+C: Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir, ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Bu, aboneliğinizin kaynak sağlayıcısı ile çalışacak şekilde yapılandırır. Kayıt için kapsam her zaman aboneliktir. Daha fazla bilgi için bkz. [Kaynak sağlayıcıları ve türleri](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>S. Ben neden günlükleri bir VM sayfasından erişirken erişim hata iletisi alıyorum? 
 

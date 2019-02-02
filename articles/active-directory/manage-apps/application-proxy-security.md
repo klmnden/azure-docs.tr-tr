@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0937ad12ad74209e84ee1316a090af8a6469a044
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f74dc441016a0064aca388ce4881eeae9e7bc6d0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151626"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657867"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Uygulamaları Azure AD uygulama proxy'si ile uzaktan erişim için güvenlik konuları
 
@@ -48,7 +48,7 @@ Ağ bağlantıları kurulan önce daha zengin ilke denetimleri uygulayın.
 
 İle [koşullu erişim](../conditional-access/overview.md), trafiğin hangi arka uç uygulamalarınızı erişmesine izin verilip kısıtlamalar tanımlayabilirsiniz. Oturum açma kimlik doğrulaması ve kullanıcı riski profili gücünü konuma göre kısıtlayan ilkeler oluşturabilirsiniz.
 
-Koşullu erişim, bir güvenlik katmanı, kullanıcı kimlik doğrulamalarına eklenmesinden çok faktörlü kimlik doğrulaması ilkeleri yapılandırmak için de kullanabilirsiniz. Ayrıca, uygulamalarınızı ayrıca Microsoft Cloud App Security'ye üzerinden gerçek zamanlı izleme ve denetim sağlamak için Azure AD koşullu erişim aracılığıyla yönlendirilebilir [erişim](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) ve [oturumu](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) ilkeleri
+Koşullu erişim, bir güvenlik katmanı, kullanıcı kimlik doğrulamalarına eklenmesinden çok faktörlü kimlik doğrulaması ilkeleri yapılandırmak için de kullanabilirsiniz. Ayrıca, uygulamalarınızı ayrıca Microsoft Cloud App Security'ye üzerinden gerçek zamanlı izleme ve denetim sağlamak için Azure AD koşullu erişim aracılığıyla yönlendirilebilir [erişim](https://docs.microsoft.com/cloud-app-security/access-policy-aad) ve [oturumu](https://docs.microsoft.com/cloud-app-security/session-policy-aad) ilkeleri
 
 ### <a name="traffic-termination"></a>Trafik sonlandırma
 

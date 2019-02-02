@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103175"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563516"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT cihazlarından veri işlemek için Azure Stream Analytics'i kullanmaya başlama
 Bu öğreticide, Nesnelerin İnterneti (IoT) cihazlarından veri toplamak üzere akış işleme mantığı oluşturmayı öğreneceksiniz. Çözümünüzü hızlı ve ekonomik bir şekilde nasıl oluşturacağınızı göstermek için gerçek hayattaki bir Nesnelerin İnterneti (IoT) kullanım örneğinden yararlanacağız.
@@ -103,7 +103,7 @@ Büyük/küçük harfe duyarlı sorgular bir dize değerini karşılaştırır. 
 Şimdi sonuçların yalnızca 245 satır içerdiğini ve ortalama sıcaklığın 100 dereceden fazla olduğu algılayıcı adlarını listelediğini göreceksiniz. Bu sorguda olay akışı, 30 saniyelik bir **Atlayan Pencere** üzerinden algılayıcı adı olan **dspl**'ye göre gruplanır. Zamana bağlı sorgular, zamanın nasıl ilerleyeceğini belirtmelidir. **TIMESTAMP BY** yan tümcesini kullanarak, zamanları zamana bağlı tüm hesaplamalarla ilişkilendirmek için **OUTPUTTIME** sütununu belirttik. Ayrıntılı bilgi için [Zaman Yönetimi](https://msdn.microsoft.com/library/azure/mt582045.aspx) ve [Pencereleme işlevleri](https://msdn.microsoft.com/library/azure/dn835019.aspx) hakkındaki MSDN makalelerini okuyun.
 
 ### <a name="query-detect-absence-of-events"></a>Sorgu: Var olmayan olayları algılama
-Eksik giriş olaylarını bulmak için nasıl sorgu yazabiliriz? Bir algılayıcının veri gönderip sonraki beş saniye boyunca hiç olay göndermediği son zamanı bulalım. Sorgu AbsenseOfEvent.txt dosyasındadır.
+Eksik giriş olaylarını bulmak için nasıl sorgu yazabiliriz? Bir algılayıcının veri gönderip sonraki beş saniye boyunca hiç olay göndermediği son zamanı bulalım. Sorgu AbsenceOfEvent.txt dosyasıdır.
 
 ![Var olmayan olayları algılama](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

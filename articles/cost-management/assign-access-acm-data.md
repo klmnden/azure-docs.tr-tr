@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a64a1e35811b8bcdf721425580fe66641cb8ebe2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052147"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661012"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Maliyet Yönetimi verilerine erişim atama
 
@@ -43,6 +43,10 @@ Maliyet verilerini görüntülemek için bir kullanıcı en az bir veya daha faz
 Aşağıdaki diyagramda, rolleri ile maliyet Yönetimi kapsamları ve EA portal ayarları arasındaki ilişkiyi gösterir.
 
 ![Rolleri ile maliyet Yönetimi kapsamları ve EA portal ayarları ilişkiyi gösteren diyagram](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+
+Zaman **DA ücretleri görüntüle** devre dışı EA Portalı'nda belirten bir ileti görürsünüz *maliyetleri, kuruluşunuz için devre dışı* denediğinizde Departmanlar ve hesapları için maliyetleri görüntülemek üzere.
+
+Benzer şekilde, **AO ücretleri görüntüle** devre dışı bırakıldı EA Portalı'nda belirten bir ileti görürsünüz *maliyetleri, kuruluşunuz için devre dışı* kayıt hesapları, Yönetim grupları maliyetleri görüntülemeye çalıştığınızda Abonelikler ve kaynak grupları.
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>EA portal maliyetlerini erişimi etkinleştirme
 

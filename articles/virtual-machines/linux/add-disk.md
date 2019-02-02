@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: aa38fe3da118515b20d9b743a9a22b54e338051a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fcd8f4f8408c7c51265802fde057146e6cdbb090
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463721"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657629"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
 Bu makalede verilerinizi - koruyabilmeniz için bile, sanal Makinenizin Bakım veya yeniden boyutlandırma nedeniyle daralıp kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir. 
@@ -29,7 +29,7 @@ Bu makalede verilerinizi - koruyabilmeniz için bile, sanal Makinenizin Bakım v
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Bir VM'ye yeni bir disk ekleme
 
-Yeni, boş veri diski sanal Makinenize eklemek istediğiniz kullanırsanız [az vm disk ekleme](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) komutunu `--new` parametresi. Sanal makinenize bir kullanılabilirlik alanı, disk VM ile aynı bölgedeki otomatik olarak oluşturulur. Daha fazla bilgi için [kullanılabilirlik alanlarına genel bakış](../../availability-zones/az-overview.md). Aşağıdaki örnekte adlı bir disk oluşturur *myDataDisk* yani 50 Gb boyutunda:
+Yeni, boş veri diski sanal Makinenize eklemek istediğiniz kullanırsanız [az vm disk ekleme](/cli/azure/vm/disk?view=azure-cli-latest) komutunu `--new` parametresi. Sanal makinenize bir kullanılabilirlik alanı, disk VM ile aynı bölgedeki otomatik olarak oluşturulur. Daha fazla bilgi için [kullanılabilirlik alanlarına genel bakış](../../availability-zones/az-overview.md). Aşağıdaki örnekte adlı bir disk oluşturur *myDataDisk* yani 50 Gb boyutunda:
 
 ```azurecli
 az vm disk attach \
@@ -42,7 +42,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Var olan bir diski ekleme 
 
-Var olan bir diski için disk Kimliğini bulun ve Kimliğine geçirmek [az vm disk ekleme](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) komutu. Adlı bir disk için aşağıdaki örnek sorgularda *myDataDisk* içinde *myResourceGroup*, ardından adlı VM'ye ekler *myVM*:
+Var olan bir diski için disk Kimliğini bulun ve Kimliğine geçirmek [az vm disk ekleme](/cli/azure/vm/disk?view=azure-cli-latest) komutu. Adlı bir disk için aşağıdaki örnek sorgularda *myDataDisk* içinde *myResourceGroup*, ardından adlı VM'ye ekler *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)

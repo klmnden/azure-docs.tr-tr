@@ -1,21 +1,18 @@
 ---
-ms.assetid: ''
 title: Azure Key Vault - PowerShell ile geçici silmeyi kullanma
 description: Kullanım büyük/küçük kod parçalarını PowerShell ile geçici silme örnekleri
-services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 02/01/2018
 ms.author: bryanla
-ms.openlocfilehash: 99f81e14ca631eccee154a5658bf717cbe07b3da
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: c979d6eccd5c185d89252302b40fdd674e3c5916
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364379"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657510"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Key Vault geçici silmeyi PowerShell ile kullanma
 
@@ -80,7 +77,7 @@ Key vault geçici silmeyi etkin olduğunu doğrulamak için çalıştırın *Gö
 Get-AzureRmKeyVault -VaultName "ContosoVault"
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Geçici silme ile korumalı bir anahtar kasası silme
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>Anahtar kasası korumalı geçici silme siliniyor
 
 Geçici silme etkinleştirilip etkinleştirilmediği bağlı olarak davranış, bir anahtar kasası değişiklikleri Sil komutu.
 
@@ -97,7 +94,7 @@ Geçici silme ile etkin:
 
 - Silinen bir anahtar kasası kaynak grubundan kaldırıldı ve oluşturulduğu yere konumla ilişkili ayrılmış bir ad alanı yerleştirilir. 
 - Silinen nesneleri gibi kendi içeren anahtar kasası silinmiş durumda olduğu sürece anahtarları, gizli diziler ve sertifikalar, erişilemez. 
-- Silinen bir anahtar kasası için DNS adı ayrılmış, aynı ada sahip yeni bir anahtar kasası oluşturulmasını engelliyor.  
+- Silinen bir anahtar kasası için DNS adı ayrılmış, aynı ada sahip yeni bir anahtar kasası oluşturulmasını engelliyor.  
 
 Aşağıdaki komutu kullanarak, aboneliğinizle ilişkili silindi durumu anahtar kasalarını görüntüleyebilirsiniz:
 
@@ -119,7 +116,7 @@ Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG
 
 Bir anahtar kasası kurtarıldığında, anahtar kasasının özgün kaynak kimliği ile yeni bir kaynak oluşturulur Özgün kaynak grubunu kaldırılırsa, aynı ada sahip kurtarma denemeden önce oluşturulmalıdır.
 
-## <a name="key-vault-objects-and-soft-delete"></a>Key Vault nesneleri ve geçici silme
+## <a name="deleting-and-purging-key-vault-objects"></a>Anahtar kasası nesne temizleme ve silme
 
 Aşağıdaki komut 'ContosoFirstKey' anahtarında geçici silme etkin olan'ContosoVault ' adlı bir anahtar kasası siler:
 
@@ -201,17 +198,22 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
-## <a name="purging-and-key-vaults"></a>Temizleme ve anahtar kasaları
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Anahtar kasası korumalı geçici silme temizleme
 
-### <a name="key-vault-objects"></a>Anahtar kasası nesneleri
+> [!IMPORTANT]
+> Bir anahtar kasası veya bağımlı nesnelerinin birinin temizleme, yani kurtarılabilir olmayacaktır kalıcı olarak silinir!
 
-Silme işlemi geri alınamaz bir anahtar, parola veya sertifika, temizleme neden olur ve kurtarılabilir olmayacaktır. Anahtar Kasası'nda tüm nesneleri olarak silinen nesnenin içerdiği anahtar kasasına ancak değişmeden kalır. 
+Temizleme işlev, bir anahtar kasası nesne ya da daha önce geçici olarak silinen tüm bir key vault, kalıcı olarak silmek için kullanılır. Önceki bölümde gösterildiği gibi geçici silme özelliği etkin, anahtar kasasında depolanan nesnelere birden çok durumlarında gidebilir:
 
-### <a name="key-vaults-as-containers"></a>Kapsayıcıları olarak anahtar kasaları
-Bir anahtar kasası temizlenir, tüm içeriği kalıcı olarak, anahtarlara, parolalara ve sertifikalara dahil olmak üzere silinir. Bir anahtar kasası temizlemek için kullanmak `Remove-AzureRmKeyVault` seçeneği ile komut `-InRemovedState` ve Silinen key vault ile konumunu belirterek `-Location location` bağımsız değişken. Komutunu kullanarak silinen bir kasa konumunu bulabilirsiniz `Get-AzureRmKeyVault -InRemovedState`.
+- **Etkin**: silmeden önce.
+- **Geçici olarak silinen**: hesabınız silindikten sonra listelenir ve kurtarılan etkin duruma geri mümkün.
+- **Kalıcı olarak silinmiş**: sonra temizleme kurtarılması mümkün değildir.
 
->[!IMPORTANT]
->Bir anahtar kasası temizleme, yani kurtarılabilir olmayacaktır kalıcı olarak silinir!
+Aynı anahtar kasası için geçerlidir. Geçici silinen anahtar kasasını ve içeriğini kalıcı olarak silmek için anahtar kasası temizlemelidir.
+
+### <a name="purging-a-key-vault"></a>Bir anahtar kasası temizleme
+
+Bir anahtar kasası temizlenir, tüm içeriği kalıcı olarak, anahtarlara, parolalara ve sertifikalara dahil olmak üzere silinir. Geçici silinen anahtar kasasını Temizle kullanın `Remove-AzureRmKeyVault` seçeneği ile komut `-InRemovedState` ve Silinen key vault ile konumunu belirterek `-Location location` bağımsız değişken. Komutunu kullanarak silinen bir kasa konumunu bulabilirsiniz `Get-AzureRmKeyVault -InRemovedState`.
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus

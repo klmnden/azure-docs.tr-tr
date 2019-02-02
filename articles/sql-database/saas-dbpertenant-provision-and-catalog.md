@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 1f2539ed7ea407e2a1931ab2eb5951e61e4c7b03
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056276"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565229"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Yeni kiracılar sağlama ve bunları kataloğa kaydetme hakkında bilgi edinin
 
@@ -34,7 +34,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
 * Wingtip bilet SaaS Kiracı başına veritabanı uygulama dağıtılır. Beş dakikadan kısa bir süre içinde dağıtmak için bkz. [Dağıt ve Wingtip bilet SaaS Kiracı başına veritabanı uygulamayı keşfetme](saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell’in yüklendiğinden. Daha fazla bilgi için [Azure PowerShell'i kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell’in yüklendiğinden. Daha fazla bilgi için bkz. [Azure PowerShell kullanmaya başlayın](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>SaaS katalog düzenine giriş
 
@@ -155,9 +155,9 @@ Betik, ek kiracı grubu dağıtır. Bunu kullanan bir [Azure Resource Manager ş
 
 Bu öğreticide yer almayan diğer sağlama düzenleri:
 
-**Veritabanlarını önceden hazırlama**: ek maliyet bir elastik havuzdaki veritabanları eklemeyen olgu önceden sağlama düzeni yararlanan. Faturalandırma, elastik havuz için veritabanları ' dir. Boştaki veritabanlarının hiçbir kaynak kullanır. Bir havuz ve gerektiğinde ayırarak veritabanlarını önceden sağlamak tarafından kiracılar eklemek için zaman azaltabilirsiniz. Önceden sağlanan veritabanı sayısı, öngörülen sağlama hızı için uygun bir arabellek tutmak için gereken şekilde ayarlanabilir.
+**Veritabanlarını önceden hazırlama**: Önceden sağlama düzeni ek maliyet bir elastik havuzdaki veritabanları eklemeyen olgu yararlanan. Faturalandırma, elastik havuz için veritabanları ' dir. Boştaki veritabanlarının hiçbir kaynak kullanır. Bir havuz ve gerektiğinde ayırarak veritabanlarını önceden sağlamak tarafından kiracılar eklemek için zaman azaltabilirsiniz. Önceden sağlanan veritabanı sayısı, öngörülen sağlama hızı için uygun bir arabellek tutmak için gereken şekilde ayarlanabilir.
 
-**Otomatik sağlama**: otomatik sağlama düzeni sağlama hizmeti sunucuları, havuzları ve veritabanlarını gerektiğinde otomatik olarak hazırlar. İsterseniz, elastik havuzlardaki veritabanlarını önceden hazırlama içerebilir. Veritabanları kullanımdan kaldırıldı ve silinirse, elastik havuzlardaki boşluklar sağlama hizmeti tarafından doldurulabilir. Böyle bir hizmet basit ya da birden fazla coğrafyada sağlama ve olağanüstü durum kurtarma için coğrafi çoğaltmayı ayarlama işleme gibi karmaşık olabilir. 
+**Otomatik sağlama**: Otomatik sağlama düzeni sağlama hizmeti sunucuları, havuzları ve veritabanlarını gerektiğinde otomatik olarak sağlar. İsterseniz, elastik havuzlardaki veritabanlarını önceden hazırlama içerebilir. Veritabanları kullanımdan kaldırıldı ve silinirse, elastik havuzlardaki boşluklar sağlama hizmeti tarafından doldurulabilir. Böyle bir hizmet basit ya da birden fazla coğrafyada sağlama ve olağanüstü durum kurtarma için coğrafi çoğaltmayı ayarlama işleme gibi karmaşık olabilir. 
 
 Otomatik sağlama düzeni ile bir istemci uygulaması veya betik sağlama hizmeti tarafından işlenecek bir sağlama isteği kuyruğa gönderir. Ardından, işlemin tamamlandığını belirlemek üzere hizmeti yoklar. Önceden sağlama kullanılırsa, istekler hızlı bir şekilde ele alınır. Arka planda bir yedek veritabanının hizmet sağlar.
 

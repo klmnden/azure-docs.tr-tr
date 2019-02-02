@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 707ee508b0615ab873b60b45eb1d9f0294313367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d815bae2478d8853c63cd773cbfeaf5d3e90458c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464578"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659772"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage ile Azure CLI kullanma
 
@@ -38,7 +38,7 @@ Bu kılavuzda, Azure Depolama'nın temel kavramlarını anladığınızı varsay
 Bölümünde açıklanan yönergeleri takip ederek Azure CLI'yı yükleme ve indirme [Azure CLI'yı yükleme](/cli/azure/install-az-cli2).
 
 > [!TIP]
-> Yüklemeyle ilgili bir sorun varsa, kullanıma [yükleme sorunlarını giderme](/cli/azure/install-az-cli2#installation-troubleshooting) makalenin bölümüne ve [yükleme sorunlarını giderme](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) github'da Kılavuzu.
+> Yüklemeyle ilgili bir sorun varsa, kullanıma [yükleme sorunlarını giderme](/cli/azure/install-az-cli2) makalenin bölümüne ve [yükleme sorunlarını giderme](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) github'da Kılavuzu.
 >
 
 ## <a name="working-with-the-cli"></a>CLI ile çalışma

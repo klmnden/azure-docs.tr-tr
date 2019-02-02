@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 93b1b0c8288fb408e4af6aba2eb2267ce650208c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247128"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658343"
 ---
 # <a name="marketplace-faqs"></a>Market SSS
 
@@ -358,7 +358,7 @@ Türlerini listeleyen Transact yayımlama yayımcılar: VM, Azure uygulamaları,
 
 **Müşteri adayları ve neden benim için önemli bir yayımcı olarak Market nedir?**
 
-Müşteri adayları, ürünleri Market dağıtan müşterilerdir. Ürününüzü üzerinde listelenip listelenmediğini [Azure Marketi](https://azuremarketplace.microsoft.com) veya [AppSource](https://appsource.microsoft.com), ürününüzü ile ilgilenen müşterilerin müşteri adayları indirimlerden faydalanabilirler.  Müşteri adayı hedef teklifinizi ayarlayabilirsiniz. Daha fazla bilgi için bkz. [bulut Market yayımcısı haline](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher).
+Müşteri adayları, ürünleri Market dağıtan müşterilerdir. Ürününüzü üzerinde listelenip listelenmediğini [Azure Marketi](https://azuremarketplace.microsoft.com) veya [AppSource](https://appsource.microsoft.com), ürününüzü ile ilgilenen müşterilerin müşteri adayları indirimlerden faydalanabilirler.  Müşteri adayı hedef teklifinizi ayarlayabilirsiniz. Daha fazla bilgi için bkz. [bulut Market yayımcısı haline](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Benim müşteri adayı hedef ayarlama konusunda Yardım nereden alabilirim?**
 

@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e37bc5f46a1a56357e3dff9d1f67de7dcc2537b0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055314"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562904"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Parçalı bir çok kiracılı Azure SQL veritabanı kullanan bir SaaS uygulamasında yeni kiracılar sağlama ve kataloğa kaydetme
 
@@ -28,7 +28,7 @@ Bu makalede, iki ana bölümden oluşur:
 - [Kavramsal tartışma](#goto_2_conceptual) sağlama ve Katalog yeni kiracılar.
 
 - [Öğretici](#goto_1_tutorial) sağlama ve Katalog gerçekleştirir PowerShell komut dosyası kodu vurgulanır.
-    - Öğreticide, çok kiracılı parçalı veritabanlarını düzene göre uyarlanmış Wingtip bilet SaaS uygulaması kullanılır.
+  - Öğreticide, çok kiracılı parçalı veritabanlarını düzene göre uyarlanmış Wingtip bilet SaaS uygulaması kullanılır.
 
 <a name="goto_2_conceptual"/>
 
@@ -143,11 +143,11 @@ Bu bölümde, PowerShell betikleri tarafından gerçekleştirilen sağlama için
 
 Adım adım sağlama iş akışının temel öğeleri şunlardır:
 
-- **Yeni Kiracı anahtarını hesaplayın**: Kiracı adından Kiracı anahtarı oluşturmaya yönelik bir karma işlevi kullanılır.
-- **Kiracı anahtarının zaten mevcut olup olmadığını denetleyin**: Katalog, anahtarı zaten kaydedilmedi emin olmak için denetlenir.
+- **Yeni Kiracı anahtarını hesaplayın**: Kiracı adından kiracı anahtarı oluşturmak için bir karma işlevi kullanılır.
+- **Kiracı anahtarının zaten mevcut olup olmadığını denetleyin**: Katalog, anahtarı zaten kaydedilmemiş emin olmak için denetlenir.
 - **Varsayılan Kiracı veritabanındaki Kiracı başlatmak**: Kiracı veritabanı, yeni Kiracı bilgileri ekleyecek şekilde güncelleştirilir.  
-- **Kiracı kataloğa kaydetme**: kataloğa yeni Kiracı anahtarına ve mevcut tenants1 veritabanı arasındaki eşleme eklenir. 
-- **Kiracının adını bir katalog uzantısı tablosuna ekleme**: Katalog kiracılar tablosunda mekan adı eklenir.  Bu ayrıca, ek uygulamaya özgü verileri desteklemek için Katalog veritabanı nasıl Genişletilebilir gösterir.
+- **Kiracı kataloğa kaydetme**: Yeni bir kiracı anahtarı ve mevcut tenants1 veritabanı arasındaki eşlemeyi Kataloğu'na eklenir. 
+- **Kiracının adını bir katalog uzantısı tablosuna ekleme**: Mekan adı Kataloğu kiracılar tablosuna eklenir.  Bu ayrıca, ek uygulamaya özgü verileri desteklemek için Katalog veritabanı nasıl Genişletilebilir gösterir.
 - **Yeni Kiracı için açık olayları sayfası**: *Bushwillow Blues* olayları sayfası tarayıcıda açılır.
 
    ![etkinlikler](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
@@ -161,7 +161,7 @@ Wingtip uygulama yeni Kiracı sağlama paylaşılan bir veritabanı içinde nas�
    - **$VenueType** = **blues**, önceden tanımlanmış mekan türlerinden biri: blues, klasik müzik, dans, jazz, judo, motosiklet yarışı, çok amaçlı, opera, Rock müzik, futbol (küçük, boşluksuz).
    - **$DemoScenario** = **1**, paylaşılan bir veritabanı içinde bir kiracı ile diğer kiracılar sağlama.
 
-2. İmlecinizi her yerde satırı 38, yazan satıra koyarak, bir kesme noktası ekleyin: *New-Tenant '* ve tuşuna **F9**.
+2. İmlecinizi her yerde satırı 38, yazan satıra koyarak, bir kesme noktası ekleyin: *Yeni Kiracı '* ve tuşuna **F9**.
 
    ![kesme noktası](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -181,13 +181,13 @@ PowerShell betikleri hata ayıklama hakkında daha fazla bilgi için bkz. [çal�
 
 Betik izleme sırasında adım adım iş akışının temel öğeleri şunlardır:
 
-- **Yeni Kiracı anahtarını hesaplayın**: Kiracı adından Kiracı anahtarı oluşturmaya yönelik bir karma işlevi kullanılır.
-- **Kiracı anahtarının zaten mevcut olup olmadığını denetleyin**: Katalog, anahtarı zaten kaydedilmedi emin olmak için denetlenir.
-- **Yeni bir kiracı veritabanı oluşturmak**: veritabanı kopyalayarak oluşturulur *basetenantdb* Resource Manager şablonu kullanarak veritabanı.  Yeni veritabanı adını, kiracının adı temel alır.
-- **Veritabanı kataloğuna eklediğiniz**: yeni bir kiracı veritabanı kataloğunda bir parça olarak kaydedilir.
+- **Yeni Kiracı anahtarını hesaplayın**: Kiracı adından kiracı anahtarı oluşturmak için bir karma işlevi kullanılır.
+- **Kiracı anahtarının zaten mevcut olup olmadığını denetleyin**: Katalog, anahtarı zaten kaydedilmemiş emin olmak için denetlenir.
+- **Yeni bir kiracı veritabanı oluşturmak**: Veritabanı kopyalayarak oluşturulur *basetenantdb* Resource Manager şablonu kullanarak veritabanı.  Yeni veritabanı adını, kiracının adı temel alır.
+- **Veritabanı kataloğuna eklediğiniz**: Yeni Kiracı veritabanı, bir parça kataloğunda olarak kaydedilir.
 - **Varsayılan Kiracı veritabanındaki Kiracı başlatmak**: Kiracı veritabanı, yeni Kiracı bilgileri ekleyecek şekilde güncelleştirilir.  
-- **Kiracı kataloğa kaydetme**: yeni bir kiracı anahtarı arasındaki eşlemeyi ve *sequoiasoccer* veritabanı Kataloğu'na eklenir.
-- **Kiracı adı kataloğa eklediğiniz**: mekan adı Kataloğu kiracılar uzantısı tablosuna eklenir.
+- **Kiracı kataloğa kaydetme**: Yeni Kiracı anahtarına arasındaki eşlemeyi ve *sequoiasoccer* veritabanı Kataloğu'na eklenir.
+- **Kiracı adı kataloğa eklediğiniz**: Mekan adı Kataloğu kiracılar uzantısı tablosuna eklenir.
 - **Yeni Kiracı için açık olayları sayfası**: *Sequoia futbol* olayları sayfası tarayıcıda açılır.
 
    ![etkinlikler](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)

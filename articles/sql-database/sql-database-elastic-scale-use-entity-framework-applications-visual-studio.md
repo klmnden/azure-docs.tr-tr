@@ -11,18 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 71f024c81983fcb9c3e99bdf633a5bde306452b8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/04/2019
+ms.openlocfilehash: 3f0d0b5be2f0c8fc64e02165ff3e2ecacb7e0c04
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051246"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567000"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Entity Framework ile esnek veritabanı istemci kitaplığı
+
 Bu belge, Entity Framework uygulamada tümleştirmek için gereken değişiklikleri gösterir. [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md). Buradaki odak noktası olan [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md) ve [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) Entity Framework ile **Code First** yaklaşım. [İlk - yeni veritabanı kod](https://msdn.microsoft.com/data/jj193542.aspx) öğretici EF için bu belge boyunca çalışan bir örnek olarak hizmet verir. Bu belge eşlik eden örnek kod, Visual Studio kod örneklerindeki örnekleri kümesi esnek veritabanı araçlarını bir parçası olur.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Yükleme ve örnek kodu çalıştırma
+
 Bu makalede kodu indirmek için:
 
 * Visual Studio 2012 veya üzeri gereklidir. 
@@ -40,7 +42,8 @@ Bu makalede kodu indirmek için:
 Bu veritabanları oluşturduktan sonra yer tutucu doldurun **Program.cs** Azure SQL veritabanı sunucu adınız, veritabanı adları ve veritabanlarına bağlanmak için kimlik bilgilerinizi. Visual Studio çözümü oluşturun. Visual Studio gerekli NuGet paketlerini elastik veritabanı istemci kitaplığı, Entity Framework ve geçici hata işleme yapı işleminin bir parçası olarak indirir. NuGet paketlerini geri yüklemek için çözümünüzün etkinleştirildiğinden emin olun. Visual Studio Çözüm Gezgini'nde çözüme sağ tıklayarak, bu ayarı etkinleştirebilirsiniz. 
 
 ## <a name="entity-framework-workflows"></a>Entity Framework iş akışları
-Entity Framework geliştiriciler aşağıdaki dört iş akışları uygulamalar oluşturmak ve uygulama nesneleri kalıcılığını sağlamak için birini kullanır: 
+
+Entity Framework geliştiriciler aşağıdaki dört iş akışları uygulamalar oluşturmak ve uygulama nesneleri kalıcılığını sağlamak için birini kullanır:
 
 * **Kod (yeni veritabanı) ilk**: EF Geliştirici uygulama kodunda modeli oluşturur ve ardından EF veritabanında ondan oluşturur. 
 * **Kod (var olan veritabanı) ilk**: Geliştirici EF modeli uygulama kodunu varolan bir veritabanından oluşturmak olanak tanır.
@@ -50,6 +53,7 @@ Entity Framework geliştiriciler aşağıdaki dört iş akışları uygulamalar 
 Veritabanı bağlantıları ve veritabanı şeması bir uygulama için şeffaf bir şekilde yönetmek için DbContext sınıfı bu yaklaşımların dayanır. Bağlantı oluşturma, veritabanı önyükleme ve şema oluşturma denetime farklı düzeylerde farklı oluşturucularda DbContext temel sınıf sağlar. Zorlukları öncelikli olarak sağlanan verilere bağımlı Yönlendirme Arabirimleri bağlantı yönetimi özellikleriyle EF tarafından sağlanan veritabanı bağlantı yönetimi kesişip gerçeği elastik veritabanı istemci kitaplığı tarafından durumlardan kaynaklanır. 
 
 ## <a name="elastic-database-tools-assumptions"></a>Esnek veritabanı araçları varsayımlar
+
 Terim tanımları için bkz: [esnek veritabanı araçları sözlüğü](sql-database-elastic-scale-glossary.md).
 
 Elastik veritabanı istemci kitaplığı ile uygulama verilerinizi parçacıklara adlı bölümlerini tanımlar. Parçacıklara bir parçalama anahtarı tarafından tanımlanır ve belirli veritabanlarına eşlenir. Bir uygulama gereken sayıda veritabanını ve yeterli kapasite veya geçerli iş gereksinimlerini verilen performans sağlamak üzere parçacıklara dağıtmak olabilirsiniz. Parçalama anahtarı değerleri veritabanlarına eşleme, elastik veritabanı istemci API'leri tarafından sağlanan bir parça eşlemesi tarafından depolanır. Bu özellik adında **parça eşleme Yönetimi**, veya kısaca SMM. Parça eşlemesi, ayrıca bir parçalama anahtarı taşıma istekler için veritabanı bağlantı aracısı olarak işlev görür. Bu özellik olarak da bilinen **verilere bağımlı yönlendirme**. 
@@ -57,6 +61,7 @@ Elastik veritabanı istemci kitaplığı ile uygulama verilerinizi parçacıklar
 Parça eşleme Yöneticisi kullanıcıları tutarsız görünümleri eşzamanlı parçacık yönetimi işlemleri (örneğin, verileri bir parçadan veri diğerine yeniden konumlandırma) oluşmasını gerektiğinde oluşabilecek parçacık verilerini korur. Bunu yapmak için parça eşlemesi veritabanı bağlantıları bir uygulama için İstemci Kitaplığı Aracısı tarafından yönetiliyor. Bu bağlantı için oluşturulan parçacık parça yönetim işlemlerini etkileyebilir, veritabanı bağlantısı otomatik olarak sonlandırmak parça Haritası işlevini sağlar. Bu yaklaşım bazı veritabanı varlığını denetlemek için var olan bir bilgisayardan yeni bağlantıları oluşturma gibi EF'ın işlevselliğini tümleştirmek gerekir. Genel olarak, bizim gözlem standart DbContext oluşturucular için güvenilir bir şekilde EF için güvenli bir şekilde kopyalanabilir kapalı veritabanı bağlantıları yalnızca iş çalıştığını olmuştur. Elastik veritabanı tasarım ilkesini bunun yerine yalnızca açık bağlantılar aracı sağlamaktır. Bir istemci kitaplığı tarafından için EF DbContext vermekten önce aracılı bağlantı kapatma bu sorunu çözebilir düşünebilirsiniz. Ancak, bağlantı kapatma ve yeniden açmak için EF üzerinde bağlı olan bir kitaplık tarafından gerçekleştirilen doğrulama ve tutarlılık denetimleri sağlamlığın gerisinde kalır. EF, geçişler işlevleri, ancak temel alınan veritabanı şemasını uygulamaya saydam bir şekilde yönetmek için bu bağlantıları kullanır. İdeal olarak, korur ve tüm bu özellikler hem elastik veritabanı istemci kitaplığı, hem de EF aynı uygulamada birleştirin. Aşağıdaki bölümde, bu özellikleri ve gereksinimleri bölümünde daha ayrıntılı açıklanır. 
 
 ## <a name="requirements"></a>Gereksinimler
+
 Elastik veritabanı istemci kitaplığı ve Entity Framework API'ları ile çalışırken, aşağıdaki özellikleri korumak istediğiniz: 
 
 * **Ölçek genişletme**: Veritabanları kapasite gereksinimlerini karşılamak için gerektiği şekilde parçalı uygulama uygulamanın veri katmanından ekleyip için. Bu, oluşturma ve silme veritabanlarının ve veritabanları ve parçacıklarda, eşlemeleri yönetmek için elastik veritabanı parça eşleme Yöneticisi API'leri kullanarak bir denetime anlamına gelir. 
@@ -67,6 +72,7 @@ Elastik veritabanı istemci kitaplığı ve Entity Framework API'ları ile çal�
 Aşağıdaki yönergeler, esnek veritabanı araçlarını kullanma Code First uygulamalar için bu gereksinimleri karşılamak nasıl bildirir. 
 
 ## <a name="data-dependent-routing-using-ef-dbcontext"></a>Verilere bağımlı yönlendirme EF DbContext kullanma
+
 Entity Framework veritabanı bağlantılarıyla genellikle alt sınıflarından birini yönetilen **DbContext**. Bu alt sınıflarından türetilen oluşturma **DbContext**. Burada tanımlarsınız, **DbSets** uygulamanız için CLR nesnelerin veritabanı tarafından desteklenen koleksiyonları uygulayın. Verilere bağımlı yönlendirme bağlamında, diğer EF kodu ilk uygulama senaryoları için mutlaka tutmayın birkaç faydalı özellikler belirleyebilirsiniz: 
 
 * Veritabanı zaten var ve esnek veritabanı parça eşlemesinde kaydedildi. 
@@ -113,6 +119,7 @@ Aşağıdaki kod örneği, bu yaklaşımı gösterir. (Ayrıca bu kodu eşlik ed
         }    
 
 ## <a name="main-points"></a>Ana noktaları
+
 * Yeni bir oluşturucu DbContext alt varsayılan oluşturucuyu değiştirir. 
 * Yeni oluşturucuyu, elastik veritabanı istemci kitaplığı verilere bağımlı yönlendirme için gerekli olan bir bağımsız değişken bulunur:
   
@@ -151,6 +158,7 @@ Varsayılan Oluşturucu, kodunuzda yerine, DbContext öğesinin alt sınıfı i�
 Yeni oluşturucuyu değeri tarafından tanımlanan parçacık verileri tutan parça bağlantı açar **tenantid1**. Kodda **kullanarak** blok erişimi değişmeden kalır **olan DB** EF için parça kullanarak bloglar için **tenantid1**. Kullanarak kod engellemek için gibi tüm veritabanı işlemleri artık bir parçaya kapsamındaki bu semantiğini değiştirir. burada **tenantid1** tutulur. Örneği için bir LINQ sorgusu blogları üzerinden **olan DB** yalnızca geçerli parça üzerinde depolanan blogları, ancak diğer parçalara üzerinde depolanan olanları döndürür.  
 
 #### <a name="transient-faults-handling"></a>Geçici hataları işleme
+
 Microsoft Patterns ve uygulamalar ekibi yayımlanan [geçici hata işleme uygulama bloğu](https://msdn.microsoft.com/library/dn440719.aspx). Kitaplığı ile esnek ölçek istemcisi kitaplığını EF ile birlikte kullanılır. Ancak, geçici bir özel durumla noktadır. Burada, geçici bir hata sonra herhangi bir yeni bağlantı denemesi, tweaked oluşturucu kullanılarak oluşturulur ve böylece yeni oluşturucuyu kullanıldığını sağlayabilirsiniz döndürdüğünden emin olun. Aksi takdirde doğru parça bağlantı garanti edilmez ve parça eşlemesine değişiklikler oldukça bağlantının korunacağı süreyi hiçbir Güvenceleri vardır. 
 
 Aşağıdaki kod örneği nasıl bir SQL yeniden deneme ilkesi yeni geçici olarak kullanılabileceğini gösterir **DbContext** alt sınıf oluşturucuları: 
@@ -174,19 +182,21 @@ Aşağıdaki kod örneği nasıl bir SQL yeniden deneme ilkesi yeni geçici olar
 Burada geçici özel durumlar bize kapsam içinde olması denetleme ihtiyacı yerleşik kullanımını da ışığının **SqlAzureExecutionStrategy** EF ile birlikte gelir. **SqlAzureExecutionStrategy** ancak bir bağlantıyı yeniden kullanma **OpenConnectionForKey** ve bu nedenle bir parçası olarak gerçekleştirilen tüm doğrulama atlama **OpenConnectionForKey**çağırın. Bunun yerine, kod örneği, yerleşik kullanır **DefaultExecutionStrategy** EF ile de sunulur. Başlangıcı yerine sonundan **SqlAzureExecutionStrategy**, düzgün şekilde geçici hata işleme yeniden deneme ilkesi ile birlikte çalışır. Yürütme ilkesini ayarlama **ElasticScaleDbConfiguration** sınıfı. Unutmayın, biz kullanmamaya karar **DefaultSqlExecutionStrategy** kullanılması öneriliyor beri **SqlAzureExecutionStrategy** geçici özel durumlar oluşursa - hangi neden yanlış davranışa açıklandığı gibi. EF ve farklı yeniden deneme ilkeleri hakkında daha fazla bilgi için bkz. [bağlantı dayanıklılığı EF içinde](https://msdn.microsoft.com/data/dn456835.aspx).     
 
 #### <a name="constructor-rewrites"></a>Oluşturucu taşıyabilmenizi sağlar
+
 Yukarıdaki kod örnekleri, Entity Framework ile verilere bağımlı yönlendirme kullanmak için uygulamanız için gereken varsayılan oluşturucu yeniden yazar göstermektedir. Aşağıdaki tabloda, bu yaklaşım diğer oluşturucular genelleştirir. 
 
 | Geçerli Oluşturucusu | Veriler için yeniden Oluşturucusu | Temel oluşturucu | Notlar |
 | --- | --- | --- | --- |
-| MyContext() |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, Boole) |Verilere bağımlı yönlendirme anahtarı ve parça eşlemesi bir işlev bağlantısı gerekir. Bunun yerine Bağlantı Aracısı için aralık parça eşlemesi kullanma ve EF intranetlerinden otomatik bağlantı oluşturması gerekir. |
-| MyContext(string) |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, Boole) |Bağlantı, parça eşlemesi ve verilere bağımlı yönlendirme anahtarı için kullanılan bir işlevdir. Bir sabit veritabanı adı veya bağlantı dizesi olarak çalışmıyor parça eşlemesi tarafından intranetlerinden doğrulama. |
-| MyContext(DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, Boole) |Bağlantı verilen parça Haritası ve parçalama anahtarı için sağlanan modeli kullanılarak oluşturulmuş. Derlenmiş modeli için temel c'tor aktarılır. |
-| MyContext (DbConnection, Boole) |ElasticScaleContext (ShardMap, TKey, Boole) |DbContext (DbConnection, Boole) |Parça eşleme ve anahtar çıkarılan bağlantı gerekir. (Bu girişi zaten parça eşlemesi ve anahtarı kullanarak olduğu sürece) bir giriş olarak sağlanamaz. Boolean aktarılır. |
-| MyContext (dize, DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, Boole) |Parça eşleme ve anahtar çıkarılan bağlantı gerekir. (Giriş parça eşlemesi ve anahtarı kullanarak olduğu sürece) bir giriş olarak sağlanamaz. Derlenmiş modeline aktarılır. |
-| MyContext (ObjectContext, Boole) |ElasticScaleContext (ShardMap TKey, ObjectContext, Boole) |DbContext (ObjectContext, Boole) |Girdi olarak geçirilen objectcontext'te herhangi bir bağlantı için esnek ölçeklendirme tarafından yönetilen bir bağlantı yeniden yönlendirilmiş olduğundan emin olmak yeni Oluşturucu gerekir. Bu belgenin kapsamı dışındadır ObjectContexts hakkında ayrıntılı bilgi var. |
-| MyContext (DbConnection, DbCompiledModel, Boole) |ElasticScaleContext (ShardMap TKey, DbCompiledModel, Boole) |DbContext (DbConnection, DbCompiledModel, Boole); |Parça eşleme ve anahtar çıkarılan bağlantı gerekir. (Bu girişi zaten parça eşlemesi ve anahtarı kullanarak olduğu sürece) bağlantı girdi olarak sağlanamaz. Model ve Boolean temel sınıf oluşturucuya geçirilir. |
+| MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, Boole) |Verilere bağımlı yönlendirme anahtarı ve parça eşlemesi bir işlev bağlantısı gerekir. Bunun yerine Bağlantı Aracısı için aralık parça eşlemesi kullanma ve EF intranetlerinden otomatik bağlantı oluşturması gerekir. |
+| MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, Boole) |Bağlantı, parça eşlemesi ve verilere bağımlı yönlendirme anahtarı için kullanılan bir işlevdir. Bir sabit veritabanı adı veya bağlantı dizesi olarak çalışmıyor parça eşlemesi tarafından intranetlerinden doğrulama. |
+| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |Bağlantı verilen parça Haritası ve parçalama anahtarı için sağlanan modeli kullanılarak oluşturulmuş. Derlenmiş modeli için temel c'tor aktarılır. |
+| MyContext (DbConnection, Boole) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext (DbConnection, Boole) |Parça eşleme ve anahtar çıkarılan bağlantı gerekir. (Bu girişi zaten parça eşlemesi ve anahtarı kullanarak olduğu sürece) bir giriş olarak sağlanamaz. Boolean aktarılır. |
+| MyContext (dize, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |Parça eşleme ve anahtar çıkarılan bağlantı gerekir. (Giriş parça eşlemesi ve anahtarı kullanarak olduğu sürece) bir giriş olarak sağlanamaz. Derlenmiş modeline aktarılır. |
+| MyContext (ObjectContext, Boole) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext, Boole) |Girdi olarak geçirilen objectcontext'te herhangi bir bağlantı için esnek ölçeklendirme tarafından yönetilen bir bağlantı yeniden yönlendirilmiş olduğundan emin olmak yeni Oluşturucu gerekir. Bu belgenin kapsamı dışındadır ObjectContexts hakkında ayrıntılı bilgi var. |
+| MyContext (DbConnection, DbCompiledModel, Boole) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, Boole); |Parça eşleme ve anahtar çıkarılan bağlantı gerekir. (Bu girişi zaten parça eşlemesi ve anahtarı kullanarak olduğu sürece) bağlantı girdi olarak sağlanamaz. Model ve Boolean temel sınıf oluşturucuya geçirilir. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>EF geçişleri üzerinden parça şema dağıtımı
+
 Otomatik şema yönetimi, Entity Framework tarafından sağlanan bir kolaylığıdır. Esnek veritabanı araçlarını kullanarak uygulamalar bağlamında veritabanlarını parçalı uygulamaya eklendiğinde otomatik olarak yeni oluşturulan parçalara şema sağlamak için bu özelliği korumak ister. EF kullanan parçalı uygulamalar için veri katmanında kapasitesini artırmak için birincil olarak kullanıldığı durumdur. Şema Yönetimi için EF'ın özellikleri güvenmek EF üzerinde oluşturulmuş parçalı bir uygulama ile veritabanı yönetim çaba azaltır. 
 
 EF geçişleri üzerinden şema dağıtımı en iyi şekilde çalışır **açılmamış bağlantıları**. Elastik veritabanı istemci API'si tarafından sağlanan açılan bağlantı dayanan verilere bağımlı yönlendirme senaryosu aksine budur. Başka bir farktır tutarlılık gereksinimi: Eş zamanlı parça eşlemesi işleme karşı korumak tüm verilere bağımlı yönlendirme bağlantıları için tutarlılık sağlamak için daha fazla tercih parça eşlemesinde kayıtlı değil henüz ve henüz sahip yeni bir veritabanına ilk şemasını dağıtım ile bir sorun değildir parçacıklara tutmak için ayrılmış. Bu nedenle verilere bağımlı yönlendirme bu senaryo için normal veritabanı bağlantıları güvenebilirsiniz.  
@@ -248,6 +258,7 @@ Bu örnek, bir yöntemi gösterir **RegisterNewShard** , parça parça eşlemesi
 Bir temel sınıftan devralınan Oluşturucusu sürümünü kullanmış olabilirsiniz. Ancak EF için varsayılan Başlatıcı bağlanırken kullanıldığından emin olmak kodu gerekiyor. Bu nedenle kısa sapma içine bağlantı dizesiyle temel sınıf oluşturucusunu çağırma önce statik yöntem. Parçalar kaydını farklı uygulama etki alanı veya EF Başlatıcı ayarlarını çakışmasını emin olmak için işlemini çalışması gerektiğini unutmayın. 
 
 ## <a name="limitations"></a>Sınırlamalar
+
 Bu belgede özetlenen yaklaşımları birkaç sınırlama dahildir: 
 
 * EF kullanan uygulamalar **LocalDb** ilk normal bir SQL Server veritabanı için elastik veritabanı istemci kitaplığı kullanmadan önce geçirmeniz gerekiyor. Parçalama üzerinden bir uygulama ile esnek ölçek genişletme mümkün değil **LocalDb**. Geliştirme hala kullanabileceğinizi unutmayın **LocalDb**. 
@@ -255,6 +266,7 @@ Bu belgede özetlenen yaklaşımları birkaç sınırlama dahildir:
 * Bir istek alındığında, tüm veritabanı işlemesi yer alan, tek bir parçanın içinde istek tarafından sağlanan parçalama anahtarı tarafından tanımlandığı gibi varsayılır. Ancak, bu varsayımı her zaman true tutmaz. Örneğin, ne zaman, bir parçalama anahtarı kullanılabilir hale getirmek mümkün değildir. Bunu ele almak için istemci kitaplığı sağlar **MultiShardQuery** birden çok parça sorgulama için bir bağlantı Özet uygulayan sınıf. Kullanmayı öğrenme **MultiShardQuery** EF ile birlikte bu belgenin kapsamı dışında olan
 
 ## <a name="conclusion"></a>Sonuç
+
 Bu belgede özetlenen adımları oluşturucular Düzenleyicisi tarafından verilere bağımlı yönlendirme için EF uygulamaların elastik veritabanı istemci Kitaplığı'nın özellik kullanmaya **DbContext** EF uygulamada kullanılan alt sınıflar. Bu sınırlar için bu yerlerin gerekli değişiklikler burada **DbContext** sınıflar zaten mevcut. Ayrıca, EF uygulamaları otomatik şema dağıtımından kaydı ile gerekli EF geçişleri parça eşlemesindeki eşlemeleri ve yeni parçalara çağırma adımları birleştirerek yararlanmak devam edebilir. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

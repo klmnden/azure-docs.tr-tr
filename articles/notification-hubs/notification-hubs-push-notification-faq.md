@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888167"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563992"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs ile anında iletme bildirimleri: Sık sorulan sorular
 
@@ -80,7 +80,7 @@ Sunucu SDK'ları, .NET, Java, Node.js, PHP ve Python için kullanılabilir. Fark
 
 ### <a name="which-client-platforms-do-you-support"></a>Hangi istemci platformlarını destekliyorsunuz?
 
-Anında iletme bildirimleri için desteklenen [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Evrensel](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android Çin (Baidu) aracılığıyla](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) ve [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome uygulamaları](notification-hubs-chrome-push-notifications-get-started.md)ve [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Daha fazla bilgi için Git [Notification hubs'ı kullanmaya başlama öğreticileri] sayfası.
+Anında iletme bildirimleri için desteklenen [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Evrensel](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android Çin (Baidu) aracılığıyla](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) ve Android, [Chrome uygulamaları](notification-hubs-chrome-push-notifications-get-started.md), ve [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Daha fazla bilgi için Git [Notification hubs'ı kullanmaya başlama öğreticileri] sayfası.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>SMS mesajı, e-posta veya web bildirimleri destekliyorsunuz?
 
@@ -144,7 +144,7 @@ Ad alanları, dağıtım gruplandırma için kullanılabilir. Aynı uygulamanın
 
 #### <a name="geo-distribution"></a>Coğrafi dağıtım
 
-Coğrafi dağıtım her zaman anında iletme bildirimi senaryolarda kritik değildir. Cihazlara anında iletme bildirimleri teslim çeşitli PNSes (örneğin, APNS veya GCM), eşit olarak dağıtılmış değildir.
+Coğrafi dağıtım her zaman anında iletme bildirimi senaryolarda kritik değildir. Cihazlara anında iletme bildirimleri teslim çeşitli PNSes (örneğin, APNS veya FCM), eşit olarak dağıtılmış değildir.
 
 Genel olarak kullanılan bir uygulamanız varsa, dünyanın dört bir yanındaki farklı Azure bölgelerindeki bildirim hub'ları hizmetini kullanarak farklı ad alanlarına hub'ları oluşturabilirsiniz.
 
@@ -207,7 +207,7 @@ Azure Notification hubs'ı, bırakılan bildirimler özellikle en yaygın senary
 Azure Notification hubs'ı etkinleştirir telemetri verileri görüntüleme [Azure portal]. Ölçüm ayrıntıları bulunur [bildirim hub'ları ölçümleri] sayfası.
 
 > [!NOTE]
-> Başarılı bildirimler yalnızca dış PNS (örneğin, APNS için Apple) veya GCM için Google için anında iletme bildirimleri teslim edilmediği anlamına gelir. Bildirimleri hedef cihazlara teslim PNS sorumluluğundadır. Genellikle PNS teslim ölçümleri üçüncü taraflara kullanıma sunmuyor.  
+> Başarılı bildirimler yalnızca dış PNS (örneğin, APNS için Apple) veya Google için FCM için anında iletme bildirimleri teslim edilmediği anlamına gelir. Bildirimleri hedef cihazlara teslim PNS sorumluluğundadır. Genellikle PNS teslim ölçümleri üçüncü taraflara kullanıma sunmuyor.  
 
 Program aracılığıyla (standart katmanda) telemetri verileri dışarı aktarma olanağı da sunuyoruz. Ayrıntılar için bkz [bildirim hub'ları ölçüm örneği].
 

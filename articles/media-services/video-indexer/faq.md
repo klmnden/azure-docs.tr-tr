@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402056"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567290"
 ---
 # <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -102,6 +102,10 @@ Genel olarak gizlilik ayarına sahip, video veya ses içeriğini, video veya ses
 
 Başına [Azure çevrimiçi hizmet koşulları](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST) içeriğinizi tamamen size ait ve Microsoft içerik meta verileri ve Video Indexer içeriğinizi OST ve Microsoft göre ayıklar ınsights yalnızca erişir Gizlilik bildirimi.
 
+### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>Geliştiriyorum özel modelleri Video Indexer Hesabımda diğer hesapları için kullanılabilir?
+
+ Hayır, hesabınızda oluşturduğunuz özel modelleri, başka bir hesap için kullanılamaz. Video Indexer şu anda sayesinde özel derleme [markaları](customize-brands-model-overview.md), [dil](customize-language-model-overview.md), ve [kişi](customize-person-model-overview.md) hesabınızdaki modelleri. Bu modeller yalnızca modelleri oluşturduğunuz hesabı kullanılabilir.
+  
 ### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>Video Indexer: Video Indexer burada kullanmakta olduğum Azure bölgesi içinde tutulan tarafından içeriği dizine?
 
 Evet, içerik ve kendi ınsights birden fazla Azure bölgesini kullanan Azure aboneliğinizde bir el ile yapılandırma olmadığı sürece, Azure bölgesi içinde tutulur. 

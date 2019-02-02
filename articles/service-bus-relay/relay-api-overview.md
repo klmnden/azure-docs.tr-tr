@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c7aec700a1077bc1a1b56afb5d8d07f47f4c6e8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700381"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663103"
 ---
 # <a name="available-relay-apis"></a>Kullanılabilir geçiş API'leri
 
@@ -29,7 +29,7 @@ Aşağıdaki tabloda, şu anda kullanılabilir geçişi çalışma zamanı istem
 
 [Ek bilgi](#additional-information) bölümü her çalışma zamanı kitaplığının durumu hakkında daha fazla bilgi içerir.
 
-| Dil/Platform | Kullanılabilir özellik | İstemci paketi | Havuz |
+| Dil/Platform | Kullanılabilir özellik | İstemci paketi | Depo |
 | --- | --- | --- | --- |
 | .NET Standard | Karma Bağlantılar | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | WCF Geçişi | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | Yok |
@@ -39,7 +39,7 @@ Aşağıdaki tabloda, şu anda kullanılabilir geçişi çalışma zamanı istem
 
 #### <a name="net"></a>.NET
 
-Birden fazla çalışma zamanı .NET ekosisteminin sahipse, bu nedenle geçiş için birden çok .NET kitaplıkları vardır. .NET Standard kitaplığı, yalnızca .NET Framework kitaplığı bir .NET Framework ortamında çalıştırılabilir sırasında .NET Core veya .NET Framework kullanılarak çalıştırılabilir. .NET Framework hakkında daha fazla bilgi için bkz. [framework sürümlerini](/dotnet/articles/standard/frameworks#framework-versions).
+Birden fazla çalışma zamanı .NET ekosisteminin sahipse, bu nedenle geçiş için birden çok .NET kitaplıkları vardır. .NET Standard kitaplığı, yalnızca .NET Framework kitaplığı bir .NET Framework ortamında çalıştırılabilir sırasında .NET Core veya .NET Framework kullanılarak çalıştırılabilir. .NET Framework hakkında daha fazla bilgi için bkz. [framework sürümlerini](/dotnet/articles/standard/frameworks).
 
 .NET Framework kitaplığı yalnızca WCF programlama modelini destekler ve WCF dayalı özel bir ikili protokolü kullanır `net.tcp` taşıma. Bu protokol ve kitaplık korunduğu için geriye doğru mevcut uygulamalarla uyumluluk.
 

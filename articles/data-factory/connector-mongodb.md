@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0d6fe79d23f3d3d0679445f5120a3ec17ddd67
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ca6040bb74839f30a2f1b13297f6037f05240c67
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013783"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562231"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory kullanarak MongoDB verilerini kopyalama
 
@@ -88,7 +88,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir olan özellikler
 
 ```json
 {
-     "name":  "MongoDbDataset",
+    "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbV2Collection",
         "linkedServiceName": {
@@ -116,7 +116,7 @@ Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 | filtre | Sorgu işleçlerini kullanma seçimi filtresini belirtir. Bir koleksiyondaki tüm belgeleri döndürmek için bu parametreyi atlarsanız veya boş bir belge geçirin ({}). | Hayır |
 | cursorMethods.project | Belgelerde yansıtma için döndürülecek alanları belirtir. Tüm alanları eşleşen belgeleri döndürmek için bu parametreyi atlayın. | Hayır |
 | cursorMethods.sort | Sorgu eşleşen belgelerin döndüren sırasını belirtir. Başvurmak [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Hayır |
-| cursorMethods.limit | Sunucu belgeleri maksimum sayısını belirtir. Başvurmak [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Hayır | 
+| cursorMethods.limit | Sunucu belgeleri maksimum sayısını belirtir. Başvurmak [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Hayır |
 | cursorMethods.skip | Atlamak için belgeler ve sonuçları döndürmek MongoDB başladığı belirtir. Başvurmak [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Hayır |
 | batchSize | Her toplu iş yanıt MongoDB örneğine döndürmek için belge sayısını belirtir. Çoğu durumda, toplu iş boyutu değiştirme kullanıcı veya uygulamanın etkilemez. Cosmos DB sınırları her toplu işin aşamaz belgelerin boyutunun batchSize sayının toplamı olan boyutu, 40MB, bu değer kadar Azalt Belge boyutunuz büyük olması. | Hayır<br/>(varsayılan değer **100**) |
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 61bc9da45ac420e5683be1ea3ad253eae9c0ba5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158950"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657748"
 ---
 # <a name="set-up-a-device-template"></a>Cihaz şablonu ayarlama
 
@@ -39,6 +39,8 @@ Bu cihaz şablondan operatörün oluşturabilir ve gerçek fanı adlarla gibi ba
 
 > [!NOTE]
 > Oluşturucular ve yöneticiler oluşturabilir, düzenleme ve cihaz şablonları silin. Herhangi bir kullanıcı aygıtları üzerinde oluşturabilirsiniz **Device Explorer** mevcut cihaz şablonları sayfasından.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="create-a-device-template"></a>Bir cihaz şablonu oluşturma
 
@@ -84,11 +86,11 @@ Seçtikten sonra **Bitti**, **sıcaklık** ölçüm ölçümleri listesinde gör
 ### <a name="create-an-event-measurement"></a>Bir olay ölçü oluşturma
 Yeni bir olay ölçüm eklemek için seçin **şablonu Düzen**ve ardından **+ yeni ölçüm** düğmesi. Seçin **olay** ölçüm yazın ve ayrıntılarını girin **olay oluşturma** formu.
 
-Sağlamak **görünen ad**, **alan adı**, ve **önem derecesi** olayla ilgili ayrıntıları. Önem derecesi kullanılabilir üç düzeyi arasından seçim yapabilirsiniz: **hata**, **uyarı**, ve **bilgi**.  
+Sağlamak **görünen ad**, **alan adı**, ve **önem derecesi** olayla ilgili ayrıntıları. Önem derecesi kullanılabilir üç düzeyi arasından seçim yapabilirsiniz: **Hata**, **uyarı**, ve **bilgi**.  
 
 Örneğin, yeni bir ekleyebilirsiniz **Fan Motor hata** olay.
 
-| Görünen Ad        | Alan Adı    |  Varsayılan önem derecesi | 
+| Görünen Ad        | Alan Adı    |  Varsayılan Önem Derecesi | 
 | --------------------| ------------- |-----------|
 | Fan Motoru Hatası     | fanmotorerror |  Hata    | 
 
@@ -134,11 +136,11 @@ Ayarları bir cihaz denetler. Uygulamanızın cihaza girişleri operatörleri ta
 
 Ayarları üç durumdan birinde olabilir. Cihaz bu durumu bildirir.
 
-- **Eşitlenen**: cihaz ayarı değerini yansıtmak üzere değiştirildi.
+- **Eşitlenen**: Cihaz ayar değeri yansıtacak şekilde değişti.
 
-- **Bekleyen**: cihaz ayarı değeri şu anda değişiyor.
+- **Bekleyen**: Cihaz ayar değeri şu anda değişiyor.
 
-- **Hata**: cihazı bir hata döndürdü.
+- **Hata**: Cihazı bir hata döndürdü.
 
 Seçerek yeni bir fanı hızı ayarı gibi ekleyebilirsiniz **şablonu Düzen** ve yeni girerek **numarası** ayarı:
 
@@ -165,7 +167,7 @@ Cihaz konumu ve seri numarası gibi cihaz ile ilişkili cihaz meta verilerini ö
 
 Örneğin, cihaz konumu yeni bir ekleyebilirsiniz **metin** seçerek özelliği (bir uygulama) **şablonu Düzen** girerek yeni özelliği:
 
-| Görünen Ad  | Alan Adı | Öndeki boşlukları Kırp  | Sondaki boşlukları Kırp  | Büyük/küçük harfe duyarlılık| Min. Uzunluk | En Büyük Uzunluk |
+| Görünen Ad  | Alan Adı | Öndeki Boşlukları Kırp  | Sondaki Boşlukları Kırp  | Büyük/küçük harfe duyarlılık| Min. Uzunluk | En Büyük Uzunluk |
 | --------------| -----------|---------| ---------|---- |----|----|
 | Konum      | LOC        | Kapalı     |  Kapalı     | Karma  | 0 | 100|
 
@@ -234,9 +236,9 @@ Komutlar, bir cihazı uzaktan yönetmek için kullanılır. Bunlar, işleçler, 
 
 Bir komutu bir ayardan farklı mı? 
 
-* **Ayar**: bir cihaz için uygulamak istediğiniz bir yapılandırma bir ayardır ve siz değiştirene kadar bu yapılandırma kalıcı hale getirmek için cihaz istiyor. Örneğin, Dondurucu Sıcaklığın ayarlamak istediğiniz ve Dondurucu bile yeniden başlatıldığında, ayarlamak istediğiniz. 
+* **Ayar**: Bir cihaz için uygulamak istediğiniz bir yapılandırma bir ayardır ve onu değiştirene kadar bu yapılandırma kalıcı hale getirmek için cihaz istiyorsunuz. Örneğin, Dondurucu Sıcaklığın ayarlamak istediğiniz ve Dondurucu bile yeniden başlatıldığında, ayarlamak istediğiniz. 
 
-* **Komut**: anında bir komutu cihazda uzaktan IOT Central ' çalıştırma için komutları kullanın. Bir cihazı bağlı değilse, komut zaman aşımına uğrar ve başarısız olur. Örneğin, bir cihazı yeniden başlatmak istiyor.  
+* **Komut**: Anında bir komutu cihazda uzaktan IOT Central ' çalıştırma için komutları kullanın. Bir cihazı bağlı değilse, komut zaman aşımına uğrar ve başarısız olur. Örneğin, bir cihazı yeniden başlatmak istiyor.  
 
 
 Örneğin, yeni bir ekleyebilirsiniz **Yankı** komutunu seçerek **şablon düzenleme**, ardından **+ yeni komut**ve yeni komutu girerek:

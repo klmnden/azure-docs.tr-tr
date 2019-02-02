@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5361b93d24c66ef6ccb2f117e6e3a68de4c5f459
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e0d5e466da8804e89ffecd38dd2db6e37a3cb334
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195628"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663647"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect eşitleme: Neden userCertificate özniteliğinin yol açtığı LargeObject hatalarını işleme
 
@@ -33,7 +33,7 @@ Diğer AD öznitelikleri tarafından LargeObject hataya neden olabilir. Bu gerç
 
 Kiracınızdaki LargeObject hataları olan nesnelerin listesini almak için aşağıdaki yöntemlerden birini kullanın:
 
- * Kiracınız için Azure AD Connect Health Eşitleme etkinse başvurabilirsiniz [eşitleme hata raporu](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview) sağlanan.
+ * Kiracınız için Azure AD Connect Health Eşitleme etkinse başvurabilirsiniz [eşitleme hata raporu](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync) sağlanan.
  
  * Her bir eşitleme döngüsü sonunda gönderilen bildirim e-posta için dizin eşitleme hatalarına LargeObject hataları nesnelerin listesi vardır. 
  * [Eşitleme Hizmeti Yöneticisi işlem sekmesi](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) son dışarı aktarma işlemi Azure AD için tıklarsanız LargeObject hataları olan nesnelerin listesini görüntüler.
@@ -89,7 +89,7 @@ Etkin ve kullanıcı nesnelerinin userCertificate özniteliğinin Azure AD'ye d�
 
 2. Arama filtreleri, aşağıdaki değerleri yapılandırın:
 
-    | Öznitelik | Value |
+    | Öznitelik | Değer |
     | --- | --- |
     | Yön |**Giden** |
     | MV nesne türü |**Kişi** |
@@ -104,7 +104,7 @@ Etkin ve kullanıcı nesnelerinin userCertificate özniteliğinin Azure AD'ye d�
 7. Düzenleme ekranında seçin **Scoping filtre** sekmesi.
 8. Kapsam belirleme filtresi yapılandırmayı unutmayın. OOB eşitleme kuralı kullanıyorsanız, tam olarak olması gerektiğini **iki yan tümceyi içeren bir kapsam belirleme filtre grubu**de dahil olmak üzere:
 
-    | Öznitelik | İşleç | Value |
+    | Öznitelik | İşleç | Değer |
     | --- | --- | --- |
     | sourceObjectType | EŞİTTİR | Kullanıcı |
     | cloudMastered | EŞİT DEĞİLDİR | True |
@@ -114,9 +114,9 @@ Yeni eşitleme kuralı aynı olmalıdır **kapsam belirleme filtresi** ve **daha
 1. Eşitleme kuralları Düzenleyicisi'nde **Yeni Kural Ekle** düğmesi.
 2. Altında **açıklaması sekmesi**, aşağıdaki yapılandırmayı sağlayın:
 
-    | Öznitelik | Value | Ayrıntılar |
+    | Öznitelik | Değer | Ayrıntılar |
     | --- | --- | --- |
-    | Name | *Bir ad sağlayın* | Örneğin, *"Out – AAD için özel geçersiz kılmayı için userCertificate"* |
+    | Ad | *Bir ad sağlayın* | Örneğin, *"Out – AAD için özel geçersiz kılmayı için userCertificate"* |
     | Açıklama | *Bir açıklama sağlayın* | Örneğin, *"UserCertificate özniteliğinin yol açtığı 15'ten fazla değer yoksa NULL verin."* |
     | Bağlı sistem | *Azure AD Bağlayıcısı'nı seçin* |
     | Bağlı sistem nesnesi türü | **Kullanıcı** | |
@@ -128,7 +128,7 @@ Yeni eşitleme kuralı aynı olmalıdır **kapsam belirleme filtresi** ve **daha
 4. Skip **birleştirme kuralları** sekmesi.
 5. Git **dönüşümleri** yapılandırmayı kullanarak yeni bir dönüştürme eklemek için sekmesinde:
 
-    | Öznitelik | Value |
+    | Öznitelik | Değer |
     | --- | --- |
     | Akış türü |**İfade** |
     | Hedef Öznitelik |**userCertificate** |

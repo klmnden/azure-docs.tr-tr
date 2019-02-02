@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 3fb9f98e94191c019b78c5666d2ff5336cc895eb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fdbae70718ad62f96dda85e2d9574c7ec2d5ef23
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021875"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561102"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Bir olaya yanıt olarak bir işlem hattı çalıştırmalarını tetiği oluşturma
 
@@ -30,7 +30,7 @@ Olay denetimli mimari (EDA) üretim, algılama, tüketim ve olaylara tepki içer
 
 
 > [!NOTE]
-> Bu makalede açıklanan tümleştirme bağımlı [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Event Grid kaynak sağlayıcısı ile aboneliğinize kayıtlı olduğundan emin olun. Daha fazla bilgi için bkz. [kaynak sağlayıcıları ve türleri](../azure-resource-manager/resource-manager-supported-services.md#portal).
+> Bu makalede açıklanan tümleştirme bağımlı [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Event Grid kaynak sağlayıcısı ile aboneliğinize kayıtlı olduğundan emin olun. Daha fazla bilgi için bkz. [kaynak sağlayıcıları ve türleri](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>Data Factory Kullanıcı Arabirimi (UI)
 
@@ -69,10 +69,10 @@ Aşağıdaki tabloda, olay tabanlı Tetikleyicileri için ilgili şema öğeleri
 
 | **JSON öğesi** | **Açıklama** | **Tür** | **İzin verilen değerler** | **Gerekli** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **Kapsam** | Depolama hesabı Azure Resource Manager kaynak kimliği. | Dize | Azure Resource Manager kimliği | Evet |
+| **Kapsam** | Depolama hesabı Azure Resource Manager kaynak kimliği. | String | Azure Resource Manager kimliği | Evet |
 | **Olayları** | Bu tetikleyici ateşlenmesine neden olayların türü. | Dizi    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Evet, bu değerlerden herhangi bir birleşimi. |
-| **blobPathBeginsWith** | Blob yolu tetikleyiciyi harekete geçirmek sağlanan deseni ile başlamalıdır. Örneğin, `/records/blobs/december/` bloblar için yalnızca tetikleyici `december` klasörü altında `records` kapsayıcı. | Dize   | | Bu özelliklerden en az biri için bir değer sağlamanız gereken: `blobPathBeginsWith` veya `blobPathEndsWith`. |
-| **blobPathEndsWith** | Blob yolu tetikleyiciyi harekete geçirmek sağlanan deseni ile bitmelidir. Örneğin, `december/boxes.csv` adlı bloblar için yalnızca tetikleyici `boxes` içinde bir `december` klasör. | Dize   | | Bu özelliklerden en az biri için bir değer sağlamanız gereken: `blobPathBeginsWith` veya `blobPathEndsWith`. |
+| **blobPathBeginsWith** | Blob yolu tetikleyiciyi harekete geçirmek sağlanan deseni ile başlamalıdır. Örneğin, `/records/blobs/december/` bloblar için yalnızca tetikleyici `december` klasörü altında `records` kapsayıcı. | String   | | Bu özelliklerden en az biri için bir değer sağlamanız gereken: `blobPathBeginsWith` veya `blobPathEndsWith`. |
+| **blobPathEndsWith** | Blob yolu tetikleyiciyi harekete geçirmek sağlanan deseni ile bitmelidir. Örneğin, `december/boxes.csv` adlı bloblar için yalnızca tetikleyici `boxes` içinde bir `december` klasör. | String   | | Bu özelliklerden en az biri için bir değer sağlamanız gereken: `blobPathBeginsWith` veya `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Olay tabanlı Tetikleyicileri örnekleri
 

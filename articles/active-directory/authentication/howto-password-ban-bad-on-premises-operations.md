@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 8d7002a014fc6cfab1888a6bc97c0f864de1d99d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a77a6dd8b408fd8151cb12b7d0269b8890ef929b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080880"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662423"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>Önizleme: Azure AD parola koruması işletimsel yordamları
 
@@ -51,7 +51,7 @@ Denetim modu yazılım "what IF" modda çalıştırmak için bir yol olarak tasa
 
 Zorlama modu son yapılandırma tasarlanmıştır. Yukarıdaki denetim modunda olduğu gibi her DC Aracısı gelen parolaları etkin ilkesine göre değerlendirir. Zorlama modu etkin ancak bir parola ilkesine göre güvenli olarak kabul edilir reddedilir.
 
-Bir parola zorla modunda Azure AD parola koruması aracı DC tarafından reddedildiğinde bir son kullanıcı tarafından görülen görünür etkisini bunların parolalarını geleneksel şirket içi parola karmaşıklık zorlama tarafından reddedildi, gördükleri için aynıdır. Örneğin, bir kullanıcı Windows logon\change parola ekranında aşağıdaki geleneksel hata iletisini görebilirsiniz:
+Bir parola zorla modunda Azure AD parola koruması DC aracısı tarafından reddedildiğinde bir son kullanıcı tarafından görülen görünür etkisini bunların parolalarını geleneksel şirket içi parola karmaşıklık zorlama tarafından reddedildi, gördükleri için aynıdır. Örneğin, bir kullanıcı Windows logon\change parola ekranında aşağıdaki geleneksel hata iletisini görebilirsiniz:
 
 `Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.`
 
@@ -61,49 +61,8 @@ Etkilenen son kullanıcılar, güvenli parolalar daha seçebilir ve yeni gereksi
 
 ## <a name="enable-mode"></a>Modunu etkinleştir
 
-Bu ayar varsayılan (Evet) etkin durumda normalde bırakılmalıdır. Bu ayar devre dışı (Hayır) yapılandırma neden olacak tüm dağıtılan Azure AD parola burada tüm parolalar kabul edildiği olarak gerçekleştirilmeye moduna gitmek DC koruma aracıları-olan ve hiçbir doğrulama etkinliklerini (örneğin, denetim olayları bile vermemektedir yürütülen olacaktır yayılan).
-
-## <a name="usage-reporting"></a>Kullanım raporlama
-
-`Get-AzureADPasswordProtectionSummaryReport` Cmdlet'i, etkinliğin Özet görünümünü oluşturmak için kullanılabilir. Bu cmdlet'in bir örnek çıktısı aşağıdaki gibidir:
-
-```PowerShell
-Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
-DomainController                : bplrootdc2
-PasswordChangesValidated        : 6677
-PasswordSetsValidated           : 9
-PasswordChangesRejected         : 10868
-PasswordSetsRejected            : 34
-PasswordChangeAuditOnlyFailures : 213
-PasswordSetAuditOnlyFailures    : 3
-PasswordChangeErrors            : 0
-PasswordSetErrors               : 1
-```
-
-Cmdlet'in raporlama kapsamı kullanarak etkilenebilir orman, - etki alanı veya – DomainController parametre. Bir parametre belirtmeden gelir – orman.
-
-> [!NOTE]
-> Bu cmdlet her etki alanı denetleyicisi için bir PowerShell oturumu açarak çalışır. Başarılı olması için her etki alanı denetleyicisinde PowerShell uzak oturum desteği etkinleştirilmeli ve istemci yeterli ayrıcalıklara sahip olmalıdır. PowerShell uzak oturum gereksinimleri hakkında daha fazla bilgi için 'Get-Help about_Remote_Troubleshooting' bir PowerShell penceresinde çalıştırın.
-
-> [!NOTE]
-> Bu cmdlet her DC aracı hizmetinin yönetici olay günlüğünü uzaktan sorgulayarak çalışır. Olay günlükleri, olaylar çok sayıda içeriyorsa, cmdlet tamamlanması uzun zaman alabilir. Ayrıca, toplu ağ sorguları büyük veri kümeleri, etki alanı denetleyicisi performansını etkileyebilir. Bu nedenle, bu cmdlet üretim ortamlarında dikkatli kullanılmalıdır.
-
-## <a name="dc-agent-discovery"></a>DC Aracısı bulma
-
-`Get-AzureADPasswordProtectionDCAgent` Cmdlet'i, bir etki alanı veya orman çalışan çeşitli DC aracılarla ilgili temel bilgileri görüntülemek için kullanılabilir. Bu bilgiler, çalışan DC aracı hizmetleri tarafından kayıtlı serviceConnectionPoint nesnelerden alınır. Bu cmdlet'in bir örnek çıktısı aşağıdaki gibidir:
-
-```PowerShell
-Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 2/16/2018 8:35:01 AM
-```
-
-Çeşitli özellikleri, her DC Aracısı yaklaşık bir saatlik aralıklarla güncelleştirilir. Yine de Active Directory çoğaltma gecikmesine verilerdir.
-
-Cmdlet'in sorgu kapsamı kullanarak etkilenebilir orman veya – etki alanı parametreleri.
+Bu ayar varsayılan (Evet) etkin durumda normalde bırakılmalıdır. Burada tüm parolalar kabul edildiği olarak gerçekleştirilmeye moduna gitmek tüm dağıtılan Azure AD parola koruması DC aracıları (Hayır) devre dışı. Bu ayarın yapılandırılması neden olacak-olan ve hiçbir doğrulama etkinliklerini (örneğin, denetim olayları bile vermemektedir yürütülen olacaktır yayılan).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure AD parola koruması için izleme ve sorun giderme](howto-password-ban-bad-on-premises-troubleshoot.md)
+[Azure AD parola koruması için izleme](howto-password-ban-bad-on-premises-monitor.md)

@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/17/2018
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0d622f6f03f9d132f3c57910d8a60c5731ad7c94
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425795"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657425"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde runbook'ları çalıştırma
 
 Bir karma Runbook çalışanı üzerinde çalışan runbook'ları ile Azure Otomasyonu'nda çalışan runbook'ları ve yapısı içinde bir fark yoktur. Kullandığınız her runbook'ları büyük olasılıkla önemli ölçüde farklılık gösterir. Bu fark, yerel bilgisayarda veya yerel ortamda, dağıtıldığı kaynaklara karşı kaynak genellikle bir karma Runbook çalışanı hedefleyen bir runbook'ları yönetme olmasıdır. Azure Otomasyonu runbook'ları genellikle Azure bulutunda kaynakları yönetin.
 
-Bir karma Runbook çalışanı üzerinde çalıştırmak için runbook'ları geliştirdiğinizde, düzenleyin ve karma çalışanı barındıran makine içine bir runbook'ları sınamanızı gerekir. Konak makinenin tüm PowerShell modülleri ve ağ erişimi ve yerel kaynaklara erişimi yönetmesine gerek vardır. Karma çalışanı makine üzerinde bir runbook'un test sonra sonra bu karma çalışanı çalıştırılmak için uygun olduğu bir Azure Otomasyonu ortama yükleyebilirsiniz. Bilmek önemlidir Windows ya da özel bir kullanıcı hesabı için yerel sistem hesabı altında çalıştıran işlerin **nxautomation** Linux üzerinde. Bu davranış, runbook'ları için bir karma Runbook çalışanı yazarken farklar ortaya çıkarabilir. Runbook'larınızı yazarken bu değişikliklerin gözden geçirilmesi gerekir.
+Bir karma Runbook çalışanı üzerinde çalıştırmak için runbook'ları geliştirdiğinizde, düzenleyin ve karma çalışanı barındıran makine içine bir runbook'ları sınamanızı gerekir. Konak makinenin tüm PowerShell modülleri ve ağ erişimi ve yerel kaynaklara erişimi yönetmesine gerek vardır. Karma çalışanı makinede bir runbook test sonra sonra bu karma çalışanı çalıştırılmak için uygun olduğu bir Azure Otomasyonu ortama yükleyebilirsiniz. Bilmek önemlidir Windows ya da özel bir kullanıcı hesabı için yerel sistem hesabı altında çalıştıran işlerin **nxautomation** Linux üzerinde. Bu davranış, runbook'ları için bir karma Runbook çalışanı yazarken farklar ortaya çıkarabilir. Runbook'larınızı yazarken bu değişikliklerin gözden geçirilmesi gerekir.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Karma Runbook çalışanı üzerinde runbook başlatma
 
@@ -106,7 +106,7 @@ Get-AzureRmVm | Select Name
 
 Kaynakları azure'da dağıtmak için otomatik yapı işleminizin bir parçası olarak, şirket içi sistemlere dağıtım sıranızda bir görev veya adımları kümesini desteklemek için erişimi gerektirebilir. Azure farklı çalıştır hesabını kullanarak kimlik doğrulamasını desteklemek için farklı çalıştır hesabı sertifikası yüklemeniz gerekir.
 
-Aşağıdaki PowerShell runbook **dışarı aktarma RunAsCertificateToHybridWorker**, Azure Otomasyonu hesabınızdan Çalıştır sertifikası dışarı aktarır ve indirir ve karma yerel makine sertifika deposuna içeri aktarır hesabın aynısını bağlı alt. Bu adım tamamlandıktan sonra çalışan farklı çalıştır hesabı kullanarak Azure'a başarıyla kimlik doğrular.
+Aşağıdaki PowerShell runbook **dışarı aktarma RunAsCertificateToHybridWorker**, Azure Otomasyonu hesabınızdan Çalıştır sertifikası dışarı aktarır ve indirir ve karma yerel makine sertifika deposuna içeri aktarır çalışan hesabın aynısını bağlıdır. Bu adım tamamlandıktan sonra çalışan farklı çalıştır hesabı kullanarak Azure'a başarıyla kimlik doğrular.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -181,20 +181,22 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 > [!IMPORTANT]
 > **Add-AzureRmAccount** için bir diğer ad sunulmuştur **Connect-AzureRMAccount**. Ne zaman kitaplığınızı arama öğe görmüyorsanız, **Connect-AzureRMAccount**, kullanabileceğiniz **Add-AzureRmAccount**, veya Otomasyon hesabınızda modüllerinizi güncelleştirebilirsiniz.
 
-Kaydet *dışarı aktarma RunAsCertificateToHybridWorker* runbook ile bilgisayarınızda bir `.ps1` uzantısı. Otomasyon hesabınızda içeri aktarılması ve değişkenin değerini değiştirerek bu runbook'u düzenlemek `$Password` kendi parolanızı ile. Yayımlayın ve ardından runbook'u çalıştırın. Hedef karma çalışanı grubu çalıştırın ve farklı çalıştır hesabıyla runbook kimlik doğrulaması. İş akışı sertifikasını yerel makine deposuna içeri girişimi raporları ve birden fazla satır ile izler. Bu davranış, kaç Otomasyon hesapları aboneliğinizdeki tanımlama ve kimlik doğrulaması başarılı olursa bağlıdır.
+Kaydet *dışarı aktarma RunAsCertificateToHybridWorker* runbook ile bilgisayarınızda bir `.ps1` uzantısı. Otomasyon hesabınızda içeri aktarılması ve değişkenin değerini değiştirerek bu runbook'u düzenlemek `$Password` kendi parolanızı ile. Yayımlayın ve ardından runbook'u çalıştırın. Çalıştıran ve farklı çalıştır hesabıyla runbook kimlik doğrulaması karma çalışanı grubu hedefi. İş akışı sertifikasını yerel makine deposuna içeri girişimi raporları ve birden fazla satır ile izler. Bu davranış, kaç Otomasyon hesapları aboneliğinizdeki tanımlama ve kimlik doğrulaması başarılı olursa bağlıdır.
 
 ## <a name="job-behavior"></a>İş davranışı
 
-İşleri biraz farklı karma Runbook çalışanları üzerinde Azure sanal çalıştırdıklarında oldukları daha işlenir. Önemli bir fark karma Runbook çalışanları şirket iş süresi sınırı yoktur. Runbook'ları, Azure'da çalıştırdığınız sanal 3 saat nedeniyle sınırlı [adil paylaşımı](automation-runbook-execution.md#fair-share). Uzun süre çalışan runbook için olası yeniden başlatma için dayanıklı olduğundan emin olmanız gerekir. Örneğin makine barındıran karma çalışan ile yeniden başlatır. Karma çalışanı ana makinenin yeniden başlatılırsa, daha sonra çalışan bir runbook işi baştan ya da PowerShell iş akışı runbook'ları için en son kontrol noktasından yeniden başlatır. 3 katından daha sonra bir runbook işi yeniden başlatılır ve ardından askıya alındı.
+İşleri biraz farklı karma Runbook çalışanları üzerinde Azure sanal çalıştırdıklarında oldukları daha işlenir. Önemli bir fark karma Runbook çalışanları şirket iş süresi sınırı yoktur. Runbook'ları, Azure'da çalıştırdığınız sanal 3 saat nedeniyle sınırlı [adil paylaşımı](automation-runbook-execution.md#fair-share). Bir uzun süre çalışan runbook için olası yeniden başlatma için dayanıklı olduğundan emin olmanız gerekir. Örneğin makine barındıran karma çalışan ile yeniden başlatır. Karma çalışanı ana makinenin yeniden başlatılırsa, daha sonra çalışan bir runbook işi baştan ya da PowerShell iş akışı runbook'ları için en son kontrol noktasından yeniden başlatır. 3 katından daha sonra bir runbook işi yeniden başlatılır ve ardından askıya alındı.
 
 ## <a name="run-only-signed-runbooks"></a>Yalnızca imzalı runbook'ları çalıştırma
 
-Karma Runbook çalışanları, bazı yapılandırma ile yalnızca imzalı runbook'ları çalıştırmak için yapılandırılabilir. Aşağıdaki bölümde, imzalı runbook'ları çalıştırmak için karma Runbook çalışanları yapma ve runbook'larınızı oturum açma açıklanmaktadır.
+Karma Runbook çalışanları, bazı yapılandırma ile yalnızca imzalı runbook'ları çalıştırmak için yapılandırılabilir. Aşağıdaki bölümde, imzalı çalıştırmak için karma Runbook çalışanları ayarlama işlemi açıklanmaktadır [Windows karma Runbook çalışanı](#windows-hybrid-runbook-worker) ve [Linux karma Runbook çalışanı](#linux-hybrid-runbook-worker)
 
 > [!NOTE]
 > Yalnızca imzalı runbook'ları çalıştırmak için bir karma Runbook çalışanı yapılandırdıktan sonra runbook'ları olan **değil** edilmiş imzalı çalışan üzerinde yürütülmesi başarısız.
 
-### <a name="create-signing-certificate"></a>İmzalama sertifikası oluşturma
+### <a name="windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı
+
+#### <a name="create-signing-certificate"></a>İmzalama sertifikası oluşturma
 
 Aşağıdaki örnek runbook'ları imzalamak için kullanılabilecek kendinden imzalı bir sertifika oluşturur. Örnek, bir sertifika oluşturur ve bunu aktarır. Sertifika, karma Runbook çalışanlarını daha sonra içeri aktarılır. Parmak izi, bu değer daha sonra sertifikayı başvurmak için kullanılan da döndürülür.
 
@@ -220,7 +222,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 $SigningCert.Thumbprint
 ```
 
-### <a name="configure-the-hybrid-runbook-workers"></a>Karma Runbook çalışanlarını yapılandırma
+#### <a name="configure-the-hybrid-runbook-workers"></a>Karma Runbook çalışanlarını yapılandırma
 
 Bir gruptaki her bir karma Runbook çalışanı için oluşturulan sertifikayı kopyalamanız. Sertifikayı içeri aktarmak ve imza doğrulaması runbook'ları kullanmak için karma çalışanı yapılandırmak için aşağıdaki betiği çalıştırın.
 
@@ -236,7 +238,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
 ```
 
-### <a name="sign-your-runbooks-using-the-certificate"></a>Runbook'ları sertifikayı kullanarak oturum açın
+#### <a name="sign-your-runbooks-using-the-certificate"></a>Runbook'ları sertifikayı kullanarak oturum açın
 
 Karma Runbook çalışanları kullanacak şekilde yapılandırılmış runbook'ları yalnızca imzalanmış, karma Runbook çalışanı üzerinde kullanılacak olan runbook'ları oturum açmanız gerekir. Aşağıdaki örnek PowerShell runbook'larınızı imzalamak için kullanın.
 
@@ -246,6 +248,64 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
 Runbook imzalandığında Otomasyon hesabınızda içeri aktarıldı ve gerekir imza bloğunu ile yayımlanan. Runbook'ları orchestrator'a öğrenmek için bkz. [bir runbook'u dosyadan Azure Automation'a içeri](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
+### <a name="linux-hybrid-runbook-worker"></a>Linux karma Runbook çalışanı
+
+Bir Linux karma Runbook çalışanında runbook'ları imzalamak için sahip olması, karma Runbook çalışanı gerekir [GPG](https://gnupg.org/index.html) makinede çalıştırılabilir mevcut.
+
+#### <a name="create-a-gpg-keyring-and-keypair"></a>GPG kimlik ve anahtar çifti oluşturma
+
+Bir anahtar çifti karma Runbook çalışanı hesabı kullanmanız gerekir ve kimlik Anahtarlığı oluşturmak için `nxautomation`.
+
+Kullanım `sudo` olarak oturum açmak için `nxautomation` hesabı.
+
+```bash
+sudo su – nxautomation
+```
+
+Bir kez kullanarak `nxautomation` hesap, gpg anahtar çifti oluşturun.
+
+```bash
+sudo gpg --generate-key
+```
+
+GPG anahtar çifti oluşturma adımlarında size yol gösterecektir. Makine oluşturulması gereken anahtarı için bir ad, bir e-posta adresi, sona erme saati, parola ve yeterince bekle sağlamaları gerekir.
+
+Sudo ile GPG dizini oluşturulmuş olduğundan, sahibi için nxautomation değiştirmeniz gerekir. 
+
+Sahibini değiştirmek için aşağıdaki komutu çalıştırın.
+
+```bash
+sudo chown -R nxautomation ~/.gnupg
+```
+
+#### <a name="make-the-keyring-available-the-hybrid-runbook-worker"></a>Karma Runbook çalışanı kimlik Anahtarlığı kullanılabilir yap
+
+Kimlik Anahtarlığı oluşturulduktan sonra karma Runbook çalışanı için kullanılabilir hale getirmek gerekir. Ayarları dosyasında değişiklik `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` bölümünde aşağıdaki örnek eklemek için `[worker-optional]`
+
+```bash
+gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+```
+
+#### <a name="verify-signature-validation-is-on"></a>İmza doğrulaması üzerinde olduğundan emin olun
+
+İmza doğrulaması makinede devre dışı bırakılırsa, açmak gerekir. İmza doğrulamasını etkinleştirmek için aşağıdaki komutu çalıştırın. Değiştirme `<LogAnalyticsworkspaceId>` çalışma kimliği ile
+
+```bash
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
+```
+
+#### <a name="sign-a-runbook"></a>Bir runbook oturum
+
+İmza doğrulaması yapılandırıldıktan sonra bir runbook imzalamak için aşağıdaki komutu kullanabilirsiniz:
+
+```bash
+gpg –clear-sign <runbook name>
+```
+
+İmzalı runbook adı olacaktır `<runbook name>.asc`.
+
+İmzalı runbook, Azure otomasyonu için şimdi karşıya yüklenebilir ve normal bir runbook gibi yürütülebilir.
 
 ## <a name="troubleshoot"></a>Sorun giderme
 

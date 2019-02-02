@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1a4a5bada779edfe2766338584c05d4fcf3e3ca4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001473"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660356"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure İşlevleri'ni kullanarak sunucusuz bir API oluşturma
 
@@ -53,7 +53,7 @@ HTTP ile tetiklenen işleviniz varsayılan olarak tüm HTTP yöntemlerini kabul 
 
 1. **Kaydet**’e tıklayın.
 
-HTTP işlevlerini özelleştirme hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP bağlamaları](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+HTTP işlevlerini özelleştirme hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP bağlamaları](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
 ### <a name="test-your-api"></a>API’nizi test etme
 

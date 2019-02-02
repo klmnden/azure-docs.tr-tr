@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 764b5defd2fb647fd52e1e93441b68ffe492d0c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a525bdf422c61526e092c84ac9916dad6b68dd1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181274"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656388"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B işbirliği sorunlarını giderme
 
@@ -79,7 +79,7 @@ Bu senaryo sizin için önemli ise, API davet e-postamıza gösterme ve tercih e
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Just-ın-time veya "viral" Kiracı ile Konuk kullanıcı parolalarını sıfırlama alamıyor
 
-(Ayrı, yönetilmeyen bir Azure kiracısı olduğu anlamına gelir), just-in-time (JIT) veya viral Kiracı kimliği kiracısı ise, Konuk kullanıcı parolalarını sıfırlayabilir. Bazen bir kuruluş olacak [viral Kiracı yönetimini devralmasına](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) çalışanlar Hizmetleri için kaydolmak için iş e-posta adreslerini kullandığınızda oluşturulur. Kuruluş viral Kiracı gerçekleştirdikten sonra yalnızca söz konusu kuruluştaki bir yönetici kullanıcının parolasını sıfırlama veya SSPR'yi etkinleştir. Gerekirse, davet eden kuruluştan olarak, dizininizdeki Konuk kullanıcı hesabını kaldırmanız ve daveti yeniden gönder.
+(Ayrı, yönetilmeyen bir Azure kiracısı olduğu anlamına gelir), just-in-time (JIT) veya viral Kiracı kimliği kiracısı ise, Konuk kullanıcı parolalarını sıfırlayabilir. Bazen bir kuruluş olacak [viral Kiracı yönetimini devralmasına](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) çalışanlar Hizmetleri için kaydolmak için iş e-posta adreslerini kullandığınızda oluşturulur. Kuruluş viral Kiracı gerçekleştirdikten sonra yalnızca söz konusu kuruluştaki bir yönetici kullanıcının parolasını sıfırlama veya SSPR'yi etkinleştir. Gerekirse, davet eden kuruluştan olarak, dizininizdeki Konuk kullanıcı hesabını kaldırmanız ve daveti yeniden gönder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 72f85761db08652f0dff7f36fbcb2ef90654e078
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334406"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568541"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Sorun giderme & sınırlamaları Azure Cloud Shell
 
@@ -29,57 +29,57 @@ Azure Cloud shell'de sorunları gidermek için bilinen çözümleri şunlardır:
 
 ### <a name="early-timeouts-in-firefox"></a>FireFox erken zaman aşımları
 
-- **Ayrıntılar**: Cloud Shell, giriş/çıkış tarayıcınıza geçirmek için açık bir websocket kullanır. FireFox beklenenden önce Cloud Shell'de erken zaman aşımları neden websocket kapatabilirsiniz hazır ilkeleri vardır.
-- **Çözüm**: açık FireFox gidin "hakkında: yapılandırma" URL kutusuna. "Network.websocket.timeout.ping.request" için arama yapın ve değeri 0 ile 10'a değiştirin.
+- **Ayrıntılar**: Cloud Shell'i tarayıcınıza giriş/çıkış geçirmek için açık bir websocket kullanır. FireFox beklenenden önce Cloud Shell'de erken zaman aşımları neden websocket kapatabilirsiniz hazır ilkeleri vardır.
+- **Çözüm**: FireFox açın ve gidin "hakkında: yapılandırma" URL kutusuna. "Network.websocket.timeout.ping.request" için arama yapın ve değeri 0 ile 10'a değiştirin.
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Cloud Shell kilitli bir ağda devre dışı ortam
 
-- **Ayrıntılar**: Yöneticiler kullanıcıları için Cloud Shell erişimi devre dışı bırakmak istediğiniz. Cloud shell'e erişim için yararlanan `ux.console.azure.com` etki alanı durdurma portal.azure.com, shell.azure.com, Visual Studio Code Azure hesabı uzantısı ve docs.microsoft.com dahil olmak üzere Cloud Shell'inizin giriş noktaları için herhangi bir erişim engellenebilir.
-- **Çözüm**: erişimi kısıtlamak `ux.console.azure.com` ortamınızdaki ağ ayarları aracılığıyla. Cloud Shell simgesi portal.azure.com içinde var olmaya devam edecek, ancak başarıyla hizmetine bağlanamaz.
+- **Ayrıntılar**: Yöneticileri, kullanıcıları için Cloud Shell erişimi devre dışı bırakmak isteyebilir. Cloud shell'e erişim için yararlanan `ux.console.azure.com` etki alanı durdurma portal.azure.com, shell.azure.com, Visual Studio Code Azure hesabı uzantısı ve docs.microsoft.com dahil olmak üzere Cloud Shell'inizin giriş noktaları için herhangi bir erişim engellenebilir.
+- **Çözüm**: Erişimi kısıtlamak `ux.console.azure.com` ortamınızdaki ağ ayarları aracılığıyla. Cloud Shell simgesi portal.azure.com içinde var olmaya devam edecek, ancak başarıyla hizmetine bağlanamaz.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Depolama iletişim - hata: 403 RequestDisallowedByPolicy
 
 - **Ayrıntılar**: Cloud Shell aracılığıyla bir depolama hesabı oluştururken, yöneticiniz tarafından yerleştirilen bir Azure ilkesi nedeniyle başarısız olur Hata iletisi içerir: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Çözüm**: kaldırın veya depolama oluşturma reddetme Azure İlkesi güncelleştirmek için Azure yöneticinize başvurun.
+- **Çözüm**: Kaldırın veya depolama oluşturma reddetme Azure İlkesi güncelleştirmek için Azure yöneticinize başvurun.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Depolama iletişim - hata: 400 DisallowedOperation
 
 - **Ayrıntılar**: Azure Active Directory aboneliğinin kullanırken, depolama oluşturulamıyor.
-- **Çözüm**: depolama kaynakları oluşturma yeteneğine sahip bir Azure aboneliği kullanın. Azure AD abonelikleri Azure kaynaklarını oluşturmak mümkün değildir.
+- **Çözüm**: Depolama kaynaklarını istemcilerinizle Azure aboneliği kullanın. Azure AD abonelikleri Azure kaynaklarını oluşturmak mümkün değildir.
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Çıkış - terminal hata: terminal bağlanılamadı: websocket bağlantısı kurulamadı. Tuşuna `Enter` bağlanmayı.
-- **Ayrıntılar**: Cloud Shell Cloud Shell altyapı websocket bağlantısı olanağı gerektirir.
-- **Çözüm**: gönderme https isteklerini ve yanıtlarını websocket konumundaki etki alanları için etkinleştirmek için ağ ayarlarını yapılandırdığınız denetleyin *. console.azure.com.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal çıktısını - hata: Terminal bağlanılamadı: websocket bağlantısı kurulamadı. Tuşuna `Enter` bağlanmayı.
+- **Ayrıntılar**: Cloud Shell'i Cloud Shell altyapı websocket bağlantısı gerektirir.
+- **Çözüm**: Ağ ayarlarınızı gönderen https isteklerini ve yanıtlarını websocket konumundaki etki alanları için etkinleştirilecek şekilde yapılandırdığınız denetleyin *. console.azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>TLS 1.2 kullanarak desteklemek için Cloud Shell bağlantınızı ayarlayın
- - **Ayrıntılar**: TLS sürümünü bağlantınız için Cloud shell'e tanımlamak için belirli ayarlara ayarlamanız gerekir.
- - **Çözüm**: tarayıcınızın güvenlik ayarlarına gidin ve "TLS 1.2 kullan" yanındaki onay kutusunu seçin.
+ - **Ayrıntılar**: TLS sürümü bağlantınız için Cloud shell'e tanımlamak için belirli ayarlara ayarlamanız gerekir.
+ - **Çözüm**: Tarayıcınızın güvenlik ayarlarına gidin ve "TLS 1.2 kullan" yanındaki onay kutusunu seçin.
 
 ## <a name="bash-troubleshooting"></a>Bash sorunlarını giderme
 
 ### <a name="cannot-run-the-docker-daemon"></a>Docker Daemon programını çalıştıramaz
 
-- **Ayrıntılar**: Cloud Shell, kabuk ortamını barındırmak için bir kapsayıcı kullanır; sonuç olarak arka plan programı çalıştırma izni.
-- **Çözüm**: yazılımınız [docker-machine](https://docs.docker.com/machine/overview/), uzak Docker ana bilgisayarından docker kapsayıcıları yönetmek için varsayılan olarak yüklü.
+- **Ayrıntılar**: Cloud Shell, kabuk ortamını barındırmak için bir kapsayıcı kullanır; sonuç olarak arka plan programı çalıştıran izin verilmiyor.
+- **Çözüm**: Yazılımınız [docker-machine](https://docs.docker.com/machine/overview/), uzak Docker ana bilgisayarından docker kapsayıcıları yönetmek için varsayılan olarak yüklü.
 
 ## <a name="powershell-troubleshooting"></a>PowerShell sorunlarını giderme
 
 ### <a name="gui-applications-are-not-supported"></a>GUI uygulamaları desteklenmez.
 
-- **Ayrıntılar**: bir kullanıcı bir GUI uygulama başlarsa, istemi sonuç döndürmez. Örneğin, bir iki faktörlü kimlik doğrulaması etkin olan bir özel GitHub deposunu kopyaladığınızda, bir iletişim kutusu iki faktörlü kimlik doğrulamasını tamamlamak için görüntülenir.
-- **Çözüm**: kapatın ve yeniden Kabuğu'nu açın.
+- **Ayrıntılar**: Bir kullanıcı bir GUI uygulama başlatıldığında, istemi döndürmez. Örneğin, bir iki faktörlü kimlik doğrulaması etkin olan bir özel GitHub deposunu kopyaladığınızda, bir iletişim kutusu iki faktörlü kimlik doğrulamasını tamamlamak için görüntülenir.
+- **Çözüm**: Kabuğu kapatıp yeniden açın.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Azure sanal makinelerini uzaktan yönetimi sorunlarını giderme
 > [!NOTE]
 > Azure Vm'leri bir genel IP adresi'e yönelik olmalıdır.
 
-- **Ayrıntılar**: WinRM için varsayılan Windows Güvenlik Duvarı ayarları nedeniyle kullanıcı şu hatayı görebilirsiniz: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Çözüm**: çalıştırma `Enable-AzureRmVMPSRemoting` tüm yönlerini hedef makinede PowerShell uzaktan iletişimini etkinleştirmek için.
+- **Ayrıntılar**: WinRM için varsayılan Windows Güvenlik Duvarı ayarları nedeniyle kullanıcı aşağıdaki hatayı görebilirsiniz: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Çözüm**:  Çalıştırma `Enable-AzureRmVMPSRemoting` tüm yönlerini hedef makinede PowerShell uzaktan iletişimini etkinleştirmek için.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` Azure sürücüsü sonucunda güncelleştirmez.
 
-- **Ayrıntılar**: kullanıcı deneyimini sonuçlarını iyileştirmek için varsayılan olarak `dir` Azure sürücüde önbelleğe alınır.
-- **Çözüm**: oluşturmak, güncelleştirmek veya bir Azure kaynağı kaldırmak sonra çalıştırın `dir -force` Azure sürücüsü sonuçları güncelleştirilecek.
+- **Ayrıntılar**: Varsayılan olarak kullanıcı deneyimini sonuçlarını iyileştirmek için `dir` Azure sürücüde önbelleğe alınır.
+- **Çözüm**: Oluşturmak, güncelleştirmek veya bir Azure kaynağı kaldırmak sonra çalıştırın `dir -force` Azure sürücüsü sonuçları güncelleştirilecek.
 
 ## <a name="general-limitations"></a>Genel sınırlamalar
 
@@ -143,7 +143,7 @@ PowerShell cmdlet'lerini kullanarak, kullanıcılar Azure sürücüsü altındak
 
 ### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>GUI açılır pencereleri oluşturma komutları desteklenmiyor
 
-Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırıyorsa `Connect-AzureAD` veya `Connect-AzureRmAccount`, bir gördüğü hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırıyorsa `Connect-AzureAD`, `Connect-AzureRmAccount`, veya `Connect-AzAccount`, bir gördüğü hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Sekme tamamlama PSReadline durum oluşturabilir
 

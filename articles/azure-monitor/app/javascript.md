@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 952dd97a06718d0c29f9c6f5abc79da592e6f3ae
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117819"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661522"
 ---
 # <a name="application-insights-for-web-pages"></a>Web sayfaları için Application Insights
 Web sayfanızın veya uygulamanızın performansı ve kullanımı hakkında bilgi edinin. Sayfa betiğinize [Application Insights](../../azure-monitor/app/app-insights-overview.md)’ı ekleyerek, sayfa yüklemelerinin ve AJAX çağrılarının zamanlamalarının yanı sıra, tarayıcı özel durumları ile AJAX hatalarının sayılarını ve ayrıntılarını, ayrıca kullanıcı ve oturum sayılarını elde edebilirsiniz. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında uyarı ayarlayabilirsiniz. Ayrıca JavaScript kodunuza izleme çağrıları ekleyerek web sayfası uygulamanızın farklı özelliklerinin nasıl kullanıldığını izleyebilirsiniz.
@@ -206,7 +206,7 @@ Daha fazla ayrıntı için herhangi bir olayı seçin. Daha da fazla ayrıntı g
 > 
 > 
 
-Ayrıca sayfa görünümlerini aramak için güçlü [Log Analytics dilinden](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) de yararlanabilirsiniz.
+Ayrıca sayfa görünümlerini aramak için güçlü [Log Analytics dilinden](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour) de yararlanabilirsiniz.
 
 ### <a name="page-view-properties"></a>Sayfa görünümü özellikleri
 * **Sayfa görünümü süresi** 

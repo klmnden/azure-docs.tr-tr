@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
-ms.openlocfilehash: 7cd599ff75827ca8b0c6f7683cae01210a8fc8ab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 34f6a03fc091fb4d86739af9d56993943ce44956
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183416"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662117"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikler nedir?
 
@@ -102,6 +102,9 @@ Aşağıdaki diyagramda yönetilen hizmet kimliklerinin Azure sanal makineleriyl
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikleri nasıl kullanabilirim?
 
 Yönetilen kimlikleri farklı Azure kaynaklarına erişme amacıyla kullanmayı öğrenmek için aşağıdaki öğreticileri deneyin.
+
+> [!NOTE]
+> Kullanıma [Microsoft Azure kaynakları için yönetilen kimlikleri uygulama](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing) dahil olmak üzere yönetilen kimlikleri hakkında daha fazla bilgi ayrıntılı video izlenecek yollar desteklenen çeşitli senaryolar için kursu.
 
 Yönetilen kimlikleri Windows VM ile kullanmayı öğrenin:
 

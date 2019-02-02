@@ -11,18 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: f1aa037afd0fa1cbe37add24a354e4dc62c13b9a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 12/12/2018
+ms.openlocfilehash: 6ebef74cee6f919fe6b8cf666db06e0ab22cec73
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310139"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566933"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C ve C++ kullanarak SQL veritabanına bağlanma
+
 Bu gönderinin C ve C++ geliştiricileri için Azure SQL DB bağlanmaya yöneliktir. En iyi ilgi yakalayan bölüme atlayabilirsiniz şekilde bölümlere ayrılmıştır.
 
 ## <a name="prerequisites-for-the-cc-tutorial"></a>C/C++ öğreticisi için Önkoşullar
+
 Aşağıdaki öğelere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [Ücretsiz Azure Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
@@ -67,7 +69,7 @@ Veritabanı bağlantı dizesini bir parçası olarak veritabanınız için doğr
 
 Derlemek için uygulamayı başlatın. Doğrulama başarılı bir bağlantı aşağıdaki pencere görmeniz gerekir. Hatta gibi bazı temel SQL komutlarını çalıştırabilirsiniz **tablosu oluşturma** , veritabanı bağlantısını doğrulamak için:
 
-![SQL komutları](./media/sql-database-develop-cplusplus-simple/sqlcommands.png)
+![SQL Komutları](./media/sql-database-develop-cplusplus-simple/sqlcommands.png)
 
 Alternatif olarak, komut satırı bağımsız değişkenlerini sağlandığında, başlatılan Sihirbazı'nı kullanarak bir DSN dosyası oluşturabilirsiniz. Bu seçenek de deneyin öneririz. Otomasyon ve kimlik doğrulama ayarlarınızı korumak için bu DSN dosyası kullanabilirsiniz:
 
