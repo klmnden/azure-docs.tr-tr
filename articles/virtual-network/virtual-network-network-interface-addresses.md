@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 64aa936dc1dbb1d2a700a31253cf7a3caee6b66f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4fae4486e6cf47892ba2133885ec864969f66001
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436783"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663613"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
@@ -52,7 +52,7 @@ Kadar ekleyebilirsiniz [özel](#private) ve [genel](#public) [IPv4](#ipv4) adres
     |Ayar|Gerekli mi?|Ayrıntılar|
     |---|---|---|
     |Ad|Evet|Ağ arabirimi için benzersiz olmalıdır|
-    |Tür|Evet|Varolan bir ağ arabirimi IP yapılandırması ekleme ve her ağ arabirimine sahip olmalıdır bir [birincil](#primary) IP yapılandırması, tek seçeneğiniz olduğunu **ikincil**.|
+    |Type|Evet|Varolan bir ağ arabirimi IP yapılandırması ekleme ve her ağ arabirimine sahip olmalıdır bir [birincil](#primary) IP yapılandırması, tek seçeneğiniz olduğunu **ikincil**.|
     |Özel IP adresi ataması yöntemi|Evet|[**Dinamik**](#dynamic): Azure ağ arabirimi dağıtıldığı alt ağ adres aralığı için bir sonraki kullanılabilir adresi atar. [**Statik**](#static): Ağ arabiriminin dağıtıldığı alt ağ adres aralığı için kullanılmayan bir adresi atayın.|
     |Genel IP adresi|Hayır|**Devre dışı:** Genel IP adresine kaynak IP yapılandırması için şu anda ilişkilidir. **Etkin:** Var olan bir IPv4 genel IP adresi seçin veya yeni bir tane oluşturun. Genel IP adresi oluşturma konusunda bilgi edinmek için [genel IP adresleri](virtual-network-public-ip-address.md#create-a-public-ip-address) makalesi.|
 6. İkincil özel IP adresleri yönergeleri izleyerek sanal makine işletim sistemini el ile eklemeniz [birden çok IP adresi sanal makine işletim sistemlerine atayın](virtual-network-multiple-ip-addresses-portal.md#os-config) makalesi. Bkz: [özel](#private) el ile bir sanal makine işletim sistemine IP adresleri eklemeden önce özel konular için IP adresi. Herhangi bir genel IP adresleri, sanal makine işletim sistemine eklemeyin.
@@ -61,7 +61,7 @@ Kadar ekleyebilirsiniz [özel](#private) ve [genel](#public) [IPv4](#ipv4) adres
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
+|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>IP adresi ayarlarını değiştir
@@ -82,7 +82,7 @@ Gerektiğinde bir IPv4 adresi atama yöntemini değiştirmek için statik IPv4 a
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>IP adreslerini kaldırın
@@ -98,7 +98,7 @@ Kaldırabilirsiniz [özel](#private) ve [genel](#public) bir ağ arabirimi IP ad
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC IP yapılandırmasını Sil](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
+|CLI|[az ağ NIC IP yapılandırmasını Sil](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP yapılandırmaları
@@ -144,7 +144,7 @@ Bir ağ arabirimi sanal makinenin işletim sistemi içinde IP adresini el ile ay
 4. Sanal makineyi başlatın.
 5. [El ile yapılandırmanız](virtual-network-multiple-ip-addresses-portal.md#os-config) işletim sistemi (ve ayrıca Windows içinde birincil IP adresi) Azure içinde ayarlanmış eşleştirmek için ikincil IP adresinden.
 
-Önceki adımlar, Azure içindeki ve içinde bir sanal makinenin işletim sistemi, ağ arabirimine atanmış özel IP adresini izleyerek aynı kalır. Hangi sanal makinelerin, bir işletim sistemi içinde IP adreslerini el ile ayarlamanız, aboneliğiniz kapsamındaki izlemek için bir Azure eklemeyi göz önünde bulundurun [etiketi](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) sanal makineleri için. Kullanabileceğinize "IP adresi ataması: Statik", örneğin. Bu şekilde, işletim sistemi içinde IP adresini el ile ayarlamanız aboneliğinizde bulunan sanal makineleri kolayca bulabilirsiniz.
+Önceki adımlar, Azure içindeki ve içinde bir sanal makinenin işletim sistemi, ağ arabirimine atanmış özel IP adresini izleyerek aynı kalır. Hangi sanal makinelerin, bir işletim sistemi içinde IP adreslerini el ile ayarlamanız, aboneliğiniz kapsamındaki izlemek için bir Azure eklemeyi göz önünde bulundurun [etiketi](../azure-resource-manager/resource-group-using-tags.md) sanal makineleri için. Kullanabileceğinize "IP adresi ataması: Statik", örneğin. Bu şekilde, işletim sistemi içinde IP adresini el ile ayarlamanız aboneliğinizde bulunan sanal makineleri kolayca bulabilirsiniz.
 
 Bir sanal makine aynı ya da bağlı sanal ağlar içinde diğer kaynaklarla iletişim kurmak etkinleştirmeye ek olarak, özel bir IP adresi de Internet'e giden iletişim kurmak bir sanal makine sağlar. Giden bağlantılar, Azure tarafından beklenmeyen bir genel IP adresine çevrilen kaynak ağ adresi gerçekleştirilir. Azure giden Internet bağlantısı hakkında daha fazla bilgi edinmek için [Azure giden Internet bağlantısı](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. Gelen bir sanal makinenin özel IP adresi için Internet'ten iletişim kuramıyor. Giden bağlantılar tahmin edilebilir bir genel IP adresi gerekiyorsa, genel bir IP adresi kaynağı bir ağ arabirimine ilişkilendirin.
 

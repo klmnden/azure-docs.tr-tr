@@ -2,22 +2,21 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/11/2018
+ms.date: 01/31/2019
 ms.topic: include
-ms.openlocfilehash: 4a0dce1db8a5a60d2077d8c6427ec07b9d6e8bf1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 92ca93e89dd2b0ab5e77e635ab63054719fbd7b1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995795"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55668458"
 ---
 > [!NOTE]
 >
-> Bu makalede, yeni Azure PowerShell Az modülünden komutlarını kullanmak için kısa bir süre önce güncelleştirildi. Bu modül olduğundan yeni PowerShell modülü için Azure PowerShell sürümleriyle uyumlu 5.x ve 6. AzureRM Kritik hata düzeltmesi güncelleştirmeleri almaya devam eder, ancak yeni özellikler yalnızca Az modül olacaktır.
+> Bu makalede, yeni Azure PowerShell Az modülünden komutlarını kullanmak için kısa bir süre önce güncelleştirildi. 
 >
-> * AzureRM modülü için desteğin devam etmesi ve Az modül hakkında daha fazla bilgi edinmek için bkz. [Karşınızda yeni Azure PowerShell Az modül](/powershell/azure/new-azureps-module-az).
-> * Az modül zaten otomatik olarak etkin AzureRM uyum, Cloud Shell'de kullanılabilir.
->   Az modülünü yükleme ile ilgili yönergeler için bkz: [Azure PowerShell yükleme](/powershell/azure/install-az-ps).
-> * AzureRM uyumluluk komutları etkinleştirmek için çalıştıracağınız `Enable-AzureRmAlias` yüklemeden sonra.
+> * Az modül hakkında daha fazla bilgi için bkz: [Karşınızda yeni Azure PowerShell Az modül](/powershell/azure/new-azureps-module-az).
+> * Az modülünü yükleme ile ilgili yönergeler için bkz: [Azure PowerShell yükleme](/powershell/azure/install-az-ps). Az zaten Cloud Shell'de kullanılabilir.
+> * AzureRM uyumluluk sağlamak için çalıştırma `Enable-AzureRMAlias` yüklemeden sonra.
 >   Uyumluluk hakkında daha fazla bilgi için bkz. [Azure PowerShell AzureRM'ten Az geçiş](/powershell/azure/migrate-from-azurerm-to-az).
 
