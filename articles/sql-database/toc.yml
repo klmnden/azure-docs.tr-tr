@@ -11,7 +11,7 @@ items:
   items:
   - name: Tek veritabanı hızlı başlangıç kılavuzu
     href: sql-database-quickstart-guide.md
-  - name: Yönetilen Örnek hızlı başlangıç kılavuzu
+  - name: Yönetilen örnek hızlı başlangıç kılavuzu
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Oluştur
     items:
@@ -21,11 +21,11 @@ items:
       href: sql-database-managed-instance-get-started.md
   - name: Yapılandırma
     items:
-    - name: SQL Veritabanı sunucusu güvenlik duvarı kuralları
+    - name: Veritabanı sunucusu güvenlik duvarı kuralları
       href: sql-database-get-started-portal-firewall.md
-    - name: Yönetilen Örneğe yönelik istemci VM bağlantısı
+    - name: Yönetilen örneğe yönelik istemci VM bağlantısı
       href: sql-database-managed-instance-configure-vm.md
-    - name: Yönetilen Örneğe yönelik noktadan siteye bağlantı
+    - name: Yönetilen örneğe yönelik noktadan siteye bağlantı
       href: sql-database-managed-instance-configure-p2s.md
   - name: Veri yükleme
     items:
@@ -83,7 +83,7 @@ items:
     items:
     - name: Tek veritabanı güvenliği
       href: sql-database-security-tutorial.md
-    - name: Azure AD oturum açma bilgileri ile Yönetilen Örnek güvenliği
+    - name: Azure AD oturum açma bilgileri ile yönetilen örnek güvenliği
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Coğrafi olarak dağıtılmış bir veritabanı uygulama
     href: sql-database-implement-geo-distributed-database.md
@@ -127,12 +127,20 @@ items:
     items:
     - name: Tek veritabanına genel bakış
       href: sql-database-single-index.yml
-    - name: SQL Veritabanı sunucuları
+    - name: Tek veritabanı özellikleri
+      href: sql-database-single-database.md
+    - name: Yönetim API'si başvurusu
+      href: sql-database-single-databases-manage.md
+    - name: T-SQL farklılıkları
+      href: sql-database-transact-sql-information.md
+    - name: Veritabanı sunucuları ve kaynakları
       items:
       - name: Veritabanı sunucusuna genel bakış
         href: sql-database-servers.md
       - name: Veritabanı sunucusu kaynak sınırları
         href: sql-database-resource-limits-database-server.md
+      - name: Bağlantı mimarisi
+        href: sql-database-connectivity-architecture.md
     - name: Tek veritabanı kaynakları
       items:
       - name: Sanal çekirdek tabanlı kaynak sınırları
@@ -141,12 +149,6 @@ items:
         href: sql-database-dtu-resource-limits-single-databases.md
       - name: Kaynakları ölçeklendirme
         href: sql-database-single-database-scale.md
-    - name: Sunucuları ve veritabanlarını oluşturma ve yönetme
-      href: sql-database-single-databases-manage.md
-    - name: Bağlantı mimarisi
-      href: sql-database-connectivity-architecture.md
-    - name: T-SQL farklılıkları
-      href: sql-database-transact-sql-information.md
   - name: Esnek havuzlar
     items:
     - name: Esnek havuzlar
@@ -223,7 +225,7 @@ items:
         href: sql-vulnerability-assessment.md
       - name: Tehdit algılama
         href: sql-database-threat-detection-overview.md
-    - name: Güvenlik duvarı kuralları
+    - name: Veritabanı sunucusu IP güvenlik duvarı kuralları
       items:
       - name: Oluşturma ve yönetme
         href: sql-database-firewall-configure.md
@@ -241,9 +243,9 @@ items:
       href: sql-database-aad-authentication.md
     - name: Denetim
       items:
-      - name: Denetim - Sunucular, havuzlar ve veritabanları
+      - name: Denetim - Tek veritabanları ve elastik havuzlar
         href: sql-database-auditing.md
-      - name: Denetim - Yönetilen Örnek
+      - name: Denetim - Yönetilen örnek
         href: sql-database-managed-instance-auditing.md
       - name: Tablo denetleme (kullanım dışı)
         href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
@@ -429,11 +431,11 @@ items:
       href: sql-database-managed-instance-migrate.md
     - name: TDE sertifikasını Yönetilen örneğe geçirme
       href: sql-database-managed-instance-migrate-tde-certificate.md
-    - name: Yönetilen Örnek alt ağının boyutunu belirleme
+    - name: Yönetilen örnek alt ağının boyutunu belirleme
       href: sql-database-managed-instance-determine-size-vnet-subnet.md
-    - name: Yönetilen Örnek için yeni VNet ve alt ağ oluşturma
+    - name: Yönetilen örnek için yeni VNet ve alt ağ oluşturma
       href: sql-database-managed-instance-create-vnet-subnet.md
-    - name: Yönetilen Örnek için mevcut VNet’i ve alt ağı yapılandırma
+    - name: Yönetilen örnek için mevcut VNet’i ve alt ağı yapılandırma
       href: sql-database-managed-instance-configure-vnet-subnet.md
     - name: Özel API'yi yapılandırma
       href: sql-database-managed-instance-custom-dns.md
@@ -662,6 +664,8 @@ items:
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Kaynaklar
   items:
+  - name: Terimler sözlüğü
+    href: sql-database-glossary-terms.md
   - name: Microsoft Learn ile becerilerinizi geliştirin
     href: /learn/browse/?products=azure-sql-database
   - name: Azure Yol Haritası
@@ -700,9 +704,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastik işin yüklemesini kaldırma (kullanım dışı)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 0c34894ea3a09a4cd630938a045e0ab78681c10f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7530d0926cca2b89e532407d32e394e0b3018a60
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471037"
+ms.locfileid: "55512423"
