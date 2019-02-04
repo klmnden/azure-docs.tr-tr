@@ -1,0 +1,149 @@
+items:
+- name: Azure IoT Temel Konuları
+  href: /azure/iot-fundamentals
+- name: Azure IoT Central Belgeleri (Yeni kullanıcı arabirimi tasarımı)
+  href: ../iot-central/index.yml?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+- name: Genel Bakış
+  items:
+  - name: Azure IoT Central nedir?
+    href: ../iot-central/overview-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: IoT Çözümü seçenekleri
+    href: ../iot-central/overview-iot-options.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Kullanıcı arabirimi turu
+    href: ../iot-central/overview-iot-central-tour-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+- name: Hızlı Başlangıçlar
+  items:
+  - name: Yeni uygulama oluşturma
+    href: ../iot-central/quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  expanded: true
+- name: Öğreticiler
+  items:
+  - name: 1 - Yeni bir cihaz türü belirleme
+    href: ../iot-central/tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: 2 - Kuralları yapılandırma
+    href: ../iot-central/tutorial-configure-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: 3 - İşlecin görünümünü özelleştirme
+    href: ../iot-central/tutorial-customize-operator-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: 4 - Cihazlarınızı izleme
+    href: ../iot-central/tutorial-monitor-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: 5 - Cihaz ekleme
+    href: ../iot-central/tutorial-add-device.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+- name: Kavramlar
+  items:
+  - name: Mimari
+    href: ../iot-central/concepts-architecture.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Bağlantı
+    href: ../iot-central/concepts-connectivity.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Cihazları bağlama
+    items:
+    - name: Node.js (genel) uygulamasını hazırlama ve bağlama
+      href: ../iot-central/howto-connect-nodejs.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: MXChip IoT DevKit’i hazırlama ve bağlama
+      href: ../iot-central/howto-connect-devkit.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Raspberry Pi'yi (Python) hazırlama ve bağlama
+      href: ../iot-central/howto-connect-raspberry-pi-python.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Raspberry Pi'yi (C#) hazırlama ve bağlama
+      href: ../iot-central/howto-connect-raspberry-pi-csharp.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Windows IoT Core cihazını hazırlama ve bağlama
+      href: ../iot-central/howto-connect-windowsiotcore.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Komut satırını kullanarak cihaz bağlantısını izleme
+      href: ../iot-central/howto-use-iotc-explorer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Cihazları yönetme
+    items:
+    - name: Cihaz şablonu ayarlama
+      href: ../iot-central/howto-set-up-template-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Cihazlarınızı yönetme
+      href: ../iot-central/howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: İş çalıştırma
+      href: ../iot-central/howto-run-a-job.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Cihaz kümelerini kullanma
+      href: ../iot-central/howto-use-device-sets.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Cihaz şablonu için sürüm oluşturma
+      href: ../iot-central/howto-version-devicetemplate.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: İzleme ve analiz
+    items:
+    - name: Telemetri kuralı oluşturma
+      href: ../iot-central/howto-create-telemetry-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Olay kuralı oluşturma
+      href: ../iot-central/howto-create-event-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Cihaz verilerinizi analiz etme
+      href: ../iot-central/howto-create-analytics.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Eylemler ve genişletilebilirlik
+    items:
+    - name: Kurallar üzerinde web kancası eylemleri oluşturma
+      href: ../iot-central/howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Microsoft Flow'da iş akışları oluşturma
+      href: ../iot-central/howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Azure Logic Apps'te iş akışı oluşturma
+      href: ../iot-central/howto-build-azure-logic-apps.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Azure İşlevleri'ni tetikleme
+      href: ../iot-central/howto-trigger-azure-functions.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Verilerinizi dışa aktarma
+      href: ../iot-central/howto-export-data.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      items:
+      - name: Event Hubs ve Service Bus'a aktarma
+        href: ../iot-central/howto-export-data-event-hubs-service-bus.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      - name: Blob Depolama'ya aktarma
+        href: ../iot-central/howto-export-data-blob-storage.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Power BI’da verilerinizi görselleştirme
+      href: ../iot-central/howto-connect-powerbi.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Diğer IoT bulutlarına bağlanma
+      href: ../iot-central/howto-build-iotc-device-bridge.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Yönetim
+    items:
+    - name: Uygulamanızı yönetme
+      href: ../iot-central/howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Görüntüleri hazırlama ve karşıya yükleme
+      href: ../iot-central/howto-prepare-images.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: IoT Central'ı Azure Yönetim Portalı'ndan yönetme
+      href: ../iot-central/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Azure PowerShell’den IoT Central’ı yönetme
+      href: ../iot-central/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: CSP olarak uygulama oluşturma ve yönetme
+      href: ../iot-central/howto-create-and-manage-applications-as-CSP.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    - name: Giriş sayfasını yapılandırma
+      href: ../iot-central/howto-configure-homepage.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Kişiselleştirme
+    items:
+    - name: Tercihlerinizi yönetme
+      href: ../iot-central/howto-manage-preferences.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+- name: İlgili
+  items:
+  - name: Çözümler
+    items:
+    - name: IoT çözüm hızlandırıcıları
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: /microsoft-iot-central
+  - name: Platform hizmetleri
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Cihazı Sağlama Hizmeti
+      href: /azure/iot-dps
+    - name: Konum Tabanlı Hizmetler
+      href: /azure/location-based-services
+    - name: Hizmet SDK'ları
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT Cihaz SDK'ları
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+- name: Kaynaklar
+  items:
+  - name: Müşteri verisi istekleri
+    href: ../iot-central/iot-central-customer-data-requests.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+  - name: Desteklenen tarayıcılar
+    href: ../iot-central/iot-central-supported-browsers.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+ms.openlocfilehash: ff26be9c367f80009fb1eda1632fcbda38f6a9ea
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664463"

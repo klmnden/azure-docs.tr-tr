@@ -1,48 +1,45 @@
 items:
-- name: Bing Video Arama Belgeleri
+- name: Bing Video Arama API'si Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Bing Video Arama nedir?
-    href: search-the-web.md
+  - name: Bing Video Arama API'si nedir?
+    href: overview.md
   - name: Bing Arama API'lerini karşılaştırma
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
+  expanded: true
 - name: REST API Hızlı Başlangıçları
   items:
-  - name: başlarken
-    href: quick-start.md
-  - name: C#
-    href: csharp.md
-  - name: Java
-    href: java.md
-  - name: Node.js
-    href: nodejs.md
-  - name: PHP
-    href: php.md
-  - name: Python
-    href: python.md
-  - name: Ruby
-    href: ruby.md
+  - name: REST API
+    items:
+    - name: C# kullanma
+      href: quickstarts/csharp.md
+    - name: Java'yı kullanma
+      href: quickstarts/java.md
+    - name: Node.js'yi kullanma
+      href: quickstarts/nodejs.md
+    - name: PHP'yi kullanma
+      href: quickstarts/php.md
+    - name: Python’u kullanma
+      href: quickstarts/python.md
+    - name: Ruby'yi kullanma
+      href: quickstarts/ruby.md
+  - name: SDK
+    items:
+    - name: C# kullanma
+      href: quickstarts/sdk-csharp-quickstart.md
+    - name: Node.js'yi kullanma
+      href: quickstarts/sdk-node-quickstart.md
+    - name: Python’u kullanma
+      href: quickstarts/sdk-python-quickstart.md
+    - name: Java'yı kullanma
+      href: quickstarts/sdk-java-quickstart.md
   expanded: true
-- name: SDK Hızlı başlangıçları
-  items:
-  - name: SDK örneklerine genel bakış
-    href: sdk.md
-  - name: Video Arama SDK’sı C# hızlı başlangıcı
-    href: video-search-sdk-quickstart.md
-  - name: Video Arama SDK’sı Node hızlı başlangıcı
-    href: video-search-sdk-node-quickstart.md
-  - name: Video Arama SDK’sı Python hızlı başlangıcı
-    href: video-sdk-python-quickstart.md
-  - name: Video Arama SDK’sı Java hızlı başlangıcı
-    href: video-sdk-java-quickstart.md
 - name: Öğreticiler
   items:
-  - name: Tek sayfalı web uygulaması
+  - name: Tek sayfalı web uygulaması oluşturma
     href: tutorial-bing-video-search-single-page-app.md
-  - name: Tek sayfalı web uygulaması (kaynak kodu)
-    href: tutorial-bing-video-search-single-page-app-source.md
 - name: Örnekler
   items:
   - name: Kod örnekleri
@@ -59,6 +56,12 @@ items:
     href: resize-and-crop-thumbnails.md
   - name: v5’ten v7’ye yükseltme
     href: bing-video-upgrade-guide-v5-to-v7.md
+- name: Kavramlar
+  items:
+  - name: Web'den video alma
+    href: concepts/get-videos.md
+  - name: Arama isteği gönderme
+    href: concepts/sending-requests.md
 - name: Başvuru
   items:
   - name: Bing Video Arama API’si v7
@@ -98,13 +101,11 @@ items:
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
   - name: Deneyin!
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
-  - name: Bing Video Arama uç noktaları
-    href: video-search-endpoints.md
   - name: Bing Video Arama API'si Analizleri
     href: bing-video-stats.md
-ms.openlocfilehash: e8f0e84b405232ff7145f0a8fed4ab42d03a4c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9192f6aaa94d2aff310e8d12a66ac8ab75f772e2
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509730"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568044"

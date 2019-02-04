@@ -67,7 +67,7 @@
 
 ### [Teklifleri yönetme](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Teklif oluşturma](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [Teklif yayımlama](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [Teklif durumunu görüntüleme](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Teklifi güncelleştirme](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Teklifi silme](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
@@ -140,6 +140,17 @@
 #### [IoT Edge modülü teknik varlıklarını oluşturma](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 #### [IoT Edge modülü teklifi yayınlama](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 #### [Mevcut teklifi güncelleştirme](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
+
+### [Power BI Uygulaması teklifi](./cloud-partner-portal/power-bi/cpp-power-bi-offer.md)
+#### [Önkoşullar](./cloud-partner-portal/power-bi/cpp-prerequisites.md)
+#### [Power BI Uygulaması teklifi oluşturma](./cloud-partner-portal/power-bi/cpp-create-offer.md)
+##### [Teklif Ayarları sekmesi](./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md)
+##### [Teknik Bilgiler sekmesi](./cloud-partner-portal/power-bi/cpp-technical-info-tab.md)
+##### [Vitrin Ayrıntıları sekmesi](./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md)
+##### [Kişiler sekmesi](./cloud-partner-portal/power-bi/cpp-contacts-tab.md)
+#### [Power BI Uygulaması teknik varlıkları oluşturma](./cloud-partner-portal/power-bi/cpp-create-technical-assets.md)
+#### [Power BI Uygulaması teklifi yayınlama](./cloud-partner-portal/power-bi/cpp-publish-offer.md)
+#### [Mevcut teklifi güncelleştirme](./cloud-partner-portal/power-bi/cpp-update-existing-offer.md)
 
 ### [SaaS uygulama teklifi](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 #### [Önkoşullar](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
