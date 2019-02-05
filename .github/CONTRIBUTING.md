@@ -1,36 +1,28 @@
----
-ms.openlocfilehash: 55adc512447160b409af0002a72ec2473409d796
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54489259"
----
-# <a name="contributing-to-microsoft-azure-documentation"></a>Microsoft Azure belgelerine katkıda bulunan
+# Contributing to Microsoft Azure Documentation
 
-Microsoft Azure belgelerine katkıda bulunmak üzere zaman ayırdığınız için teşekkür ederiz.
+Thank you for taking the time to contribute to the Microsoft Azure documentation.
 
-Bu kılavuz katkı etrafında bazı genel konular ele alınmaktadır ve çıkış başvurduğu bizim [katkıda bulunanlar Kılavuzu](https://docs.microsoft.com/contribute) açıklamalar varsa ayrıntılı için.
+This guide covers some general topics around contribution and refers out to our [contributors guide](https://docs.microsoft.com/contribute) for more detailed explanations where relevant.
 
-## <a name="code-of-conduct"></a>Kullanım Kuralları
+## Code of Conduct
 
-Bu proje [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Açık Kaynak Kullanım Kuralları) belgesinde listelenen kurallara uygundur.
-Daha fazla bilgi için [kullanım kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/), veya başvurun [ opencode@microsoft.com ](mailto:opencode@microsoft.com) herhangi bir ek sorularınız ya da yorumlarınız ile.
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/), or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-## <a name="how-can-i-contribute"></a>Nasıl katkıda bulunduğum?
+## How can I contribute?
 
-Hangi birini bulmak için aşağıdaki bölümlerde sizin için doğru gözden geçirme belgelerine katkıda bulunma yolları çeşitli vardır.
+There are a variety of ways to contribute to the documentation, review the sections below to find out which one is right for you.
 
-### <a name="reporting-bugs-and-suggesting-enhancements"></a>Hata raporlama ve geliştirmeleri önerme
+### Reporting Bugs and Suggesting Enhancements
 
-Lütfen geri bildirim aracı, hataları ve öneriler göndermek için herhangi bir makale sonunda kullanın.
+Please use the Feedback tool at the bottom of any article to submit bugs and suggestions.
 
-![Geri bildirim aracı](media/feedback-tool.png)
+![Feedback Tool](media/feedback-tool.png)
 
-### <a name="editing-in-github"></a>Github'da düzenleme
+### Editing in GitHub
 
-İçin yönergeleri [hızlı düzenlemeler için varolan belgeleri](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents) bizim katkıda bulunan Kılavuzu'nda.
+Follow the guidance for [Quick edits to existing documents](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents) in our contributors guide.
 
-### <a name="pull-request"></a>Çekme İsteği
+### Pull Request
 
-İçin yönergeleri gözden geçirmeniz [çekme istekleri](https://docs.microsoft.com/contribute/how-to-write-workflows-major#pull-request-processing) bizim katkıda bulunan Kılavuzu'nda.
+Review the guidance for [Pull Requests](https://docs.microsoft.com/contribute/how-to-write-workflows-major#pull-request-processing) in our contributors guide.
