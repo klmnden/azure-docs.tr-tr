@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: ff70b1f8eda7bd48f0fba25aa66db42c15acab54
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252141"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729957"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure stack'teki güncelleştirmelerini uygulayın
 
@@ -37,6 +37,9 @@ Azure Stack için bir Microsoft veya OEM güncelleştirme paketi kullanılabilir
 - Karşılık gelen `<PackageName>.bin` dosyaları. Bu dosyalar ilişkili olduğu yükü için sıkıştırma sağlar *PackageName*.exe dosyası.
 
 - A `Metadata.xml` dosya. Bu dosya, güncelleştirme, örneğin Yayımcı adı, önkoşul, boyutu ve Destek yol URL'si hakkında gerekli bilgileri içerir.
+
+> [!IMPORTANT]  
+> Azure Stack 1901 güncelleştirme paketi uyguladıktan sonra Azure Stack güncelleştirme pacakges paketleme biçimini .exe, .bin(s) ve bir .zip(s) .xml biçiminde ve .xml biçiminde taşınır. Damgalar bağlı azure Stack operatörleri etkilenmiş olmaz. Aşağıda açıklanan sürecin aynısını kullanarak bağlı azure Stack operatörleri yalnızca .xml ve .zip dosyasını/dosyalarını aktarın.
 
 ## <a name="import-and-install-updates"></a>İçeri aktarmak ve güncelleştirmeleri yükleme
 

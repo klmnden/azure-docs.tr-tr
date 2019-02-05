@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 295b03a8d61a7f83605a3badcafc7a4d6b59fdbd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 61dd4930d7c34b30a4cedb34a4d815aa553d001e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497358"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697698"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve REST API ile Log analytics'teki uyarı kurallarını yönet
 Log Analytics uyarı REST API oluşturma ve Log analytics'teki uyarılar yönetmenize olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
@@ -219,7 +219,7 @@ Log Analytics uyarı eşiği karşılanmadığından veya aşıldığından her 
 
 Log Analytics uyarı kuralı kullanarak belirtilen özelliği Gizle *azaltma* değeri ve gizleme dönem kullanarak *Dakika Cinsiden Süre* değeri.
 
-Aşağıdaki örnek yanıt için bir eylem ile yalnızca bir eşik, önem derecesi ve özelliğini Gizle
+Aşağıdaki örnek yanıt için yalnızca bir eşik, önem derecesi, eylem ve özelliğini Gizle
 
     "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
     "properties": {
@@ -248,7 +248,7 @@ Put yöntemi, bir zamanlama için bir önem derecesi eylem değiştirmek için v
 #### <a name="action-groups"></a>Eylem Grupları
 Azure'daki tüm uyarılar eylemlerini işleyen varsayılan bir mekanizma olarak eylem grubu kullanın. Eylem grubu ile bir kez eylemleri belirtin ve birden çok uyarı - eylem grubuna Azure genelinde ilişkilendirin. Tekrar tekrar aynı eylemleri tekrar tekrar bildirme gerek kalmadan. Eylem grupları, birden fazla eylem - e-posta, SMS, sesli arama, ITSM bağlantısı, Otomasyon Runbook'u, Web kancası URI ve benzeri destekler. 
 
-Kimin uyarılarını - Azure'a genişletilmiş kullanıcının için bir zamanlama artık bir uyarı oluşturabilmek için eşik yanı sıra, geçirilen eylem grubu ayrıntıları olması gerekir. E-posta ayrıntıları, Web kancası URL'leri, Runbook Otomasyon ayrıntıları ve diğer eylemler olması gereken bir eylem grubu ilk önce bir uyarı; oluşturma tarafta tanımlanan bir izin oluşturabilir [Azure İzleyici'eylem grubundan](../../azure-monitor/platform/action-groups.md) portalı veya [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+Uyarılarını - Azure'a genişletilmiş kullanıcılar için bir zamanlama artık bir uyarı oluşturabilmek için eşik yanı sıra, geçirilen eylem grubu ayrıntıları olması gerekir. E-posta ayrıntıları, Web kancası URL'leri, Runbook Otomasyon ayrıntıları ve diğer eylemler olması gereken bir eylem grubu ilk önce bir uyarı; oluşturma tarafta tanımlanan bir izin oluşturabilir [Azure İzleyici'eylem grubundan](../../azure-monitor/platform/action-groups.md) portalı veya [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Bir uyarı eylem grubu ilişkisini eklemek için uyarı tanımında eylem grubu benzersiz Azure Resource Manager Kimliğini belirtin. Bir örnek resimde, aşağıda verilmiştir:
 

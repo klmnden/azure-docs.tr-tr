@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: cac585b36c3b5969a18c941215b623443850cd4c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: HT
+ms.openlocfilehash: 27b48e1d6aabf9cde7152bfb0dbf3e58bc619107
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301737"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696787"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Öğretici: RBAC ve PowerShell kullanarak bir kullanıcıya erişim izni verme
+# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Öğretici: RBAC ve Azure PowerShell kullanarak bir kullanıcı için erişim izni ver
 
 [Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu öğreticide bir kullanıcıya bir abonelik içindeki her şeyi görüntüleme ve bir kaynak grubundaki her şeyi yönetme izni vermek için Azure PowerShell'i kullanacaksınız.
 
@@ -33,7 +33,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -79,10 +81,10 @@ Rol atamak için kullanıcı, grup veya hizmet sorumlu gerekir. Kullanıcınız 
 
 Kaynak grubu kapsamında rol atamasını göstermek için bir kaynak grubu kullanmanız gerekir.
 
-1. [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) komutunu kullanarak bölge konumlarının listesini alın.
+1. Kullanarak bölge konumların bir listesini alın [Get-AzLocation](/powershell/module/az.resources/get-azlocation) komutu.
 
    ```azurepowershell
-   Get-AzureRmLocation | select Location
+   Get-AzLocation | select Location
    ```
 
 1. Size yakın bir konum seçip bir değişkene atayın.
@@ -91,10 +93,10 @@ Kaynak grubu kapsamında rol atamasını göstermek için bir kaynak grubu kulla
    $location = "westus"
    ```
 
-1. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanarak yeni bir kaynak grubu oluşturun.
+1. Kullanarak yeni bir kaynak grubu oluşturma [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu.
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
+   New-AzResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
    ```
 
    ```Example
@@ -107,12 +109,12 @@ Kaynak grubu kapsamında rol atamasını göstermek için bir kaynak grubu kulla
 
 ## <a name="grant-access"></a>Erişim verme
 
-Kullanıcıya erişim izni vermek için [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) komutunu kullanarak bir rol atamanız gerekir. Güvenlik sorumlusunu, rol tanımını ve kapsamı belirtmeniz gerekir.
+Kullanıcı erişimi vermek için kullandığınız [yeni AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) rol atamak için komutu. Güvenlik sorumlusunu, rol tanımını ve kapsamı belirtmeniz gerekir.
 
-1. [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) komutunu kullanarak aboneliğinizin kimliğini alın.
+1. Kullanarak Kimliğini alın [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) komutu.
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     ```Example
@@ -131,7 +133,7 @@ Kullanıcıya erişim izni vermek için [New-AzureRmRoleAssignment](/powershell/
 1. [Okuyucu](built-in-roles.md#reader) rolünü abonelik kapsamında kullanıcıya atayın.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    New-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -151,7 +153,7 @@ Kullanıcıya erişim izni vermek için [New-AzureRmRoleAssignment](/powershell/
 1. [Katılımcı](built-in-roles.md#contributor) rolünü kaynak grubu kapsamında kullanıcıya atayın.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    New-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -170,10 +172,10 @@ Kullanıcıya erişim izni vermek için [New-AzureRmRoleAssignment](/powershell/
 
 ## <a name="list-access"></a>Erişimi listeleme
 
-1. Abonelik erişimini doğrulamak için [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) komutunu kullanarak rol atamalarını listeleyin.
+1. Abonelik için erişimi doğrulamak için [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) rol atamalarını listelemek için komutu.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -SignInName rbacuser@example.com -Scope $subScope
+    Get-AzRoleAssignment -SignInName rbacuser@example.com -Scope $subScope
     ```
 
     ```Example
@@ -190,10 +192,10 @@ Kullanıcıya erişim izni vermek için [New-AzureRmRoleAssignment](/powershell/
 
     Çıktıda Okuyucu rolünün abonelik kapsamında RBAC Tutorial User kullanıcısına atanmış olduğunu görebilirsiniz.
 
-1. Kaynak grubu erişimini doğrulamak için [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) komutunu kullanarak rol atamalarını listeleyin.
+1. Kaynak grubu için erişimi doğrulamak için [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) rol atamalarını listelemek için komutu.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -SignInName rbacuser@example.com -ResourceGroupName "rbac-tutorial-resource-group"
+    Get-AzRoleAssignment -SignInName rbacuser@example.com -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -232,12 +234,12 @@ Kullanıcıya erişim izni vermek için [New-AzureRmRoleAssignment](/powershell/
 
 ## <a name="remove-access"></a>Erişimi kaldırma
 
-Kullanıcılar, gruplar ve uygulamaların erişimini kaldırmak için [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) komutunu kullanarak rol atamasını kaldırın.
+Kullanıcılara, gruplara ve uygulamalara erişimi kaldırmak için [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) bir rol ataması kaldırılamadı.
 
 1. Kullanıcının kaynak grubu kapsamındaki Katılımcı rol atamasını kaldırmak için aşağıdaki komutu kullanın.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    Remove-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -245,7 +247,7 @@ Kullanıcılar, gruplar ve uygulamaların erişimini kaldırmak için [Remove-Az
 1. Kullanıcının abonelik kapsamındaki Okuyucu rol atamasını kaldırmak için aşağıdaki komutu kullanın.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    Remove-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -254,10 +256,10 @@ Kullanıcılar, gruplar ve uygulamaların erişimini kaldırmak için [Remove-Az
 
 Bu öğretici ile oluşturulan kaynakları temizlemek için kaynak grubunu ve kullanıcıyı silebilirsiniz.
 
-1. Kaynak grubunu silmek için [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanın.
+1. Kaynak grubu silme [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) komutu.
 
     ```azurepowershell
-    Remove-AzureRmResourceGroup -Name "rbac-tutorial-resource-group"
+    Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"
     ```
 
     ```Example

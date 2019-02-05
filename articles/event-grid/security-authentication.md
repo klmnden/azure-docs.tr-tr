@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 1761dafd04a4b8d27a16af4a5e1b0034b90c51a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ec34b9c5f78b4d0ea59382f616fab88e0e1dedc9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656881"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730943"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid güvenliğini ve kimlik doğrulaması 
 
@@ -50,7 +50,7 @@ HTTP tetikleyicisi tabanlı Azure işlevi gibi başka türde bir uç noktasını
 * Olay gövdesinde diğer Event Grid olaylarına aynı şemaya sahip.
 * Olayın eventType özelliği `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * Olayın veri özelliği içeren bir `validationCode` özelliği ile rastgele oluşturulmuş bir dize. Örneğin, "validationCode: acb13...".
-* API sürümü 2018-05-01-preview kullanıyorsanız, olay verileri de içeren bir `validationUrl` abonelik el ile doğrulamak için bir URL ile özelliği.
+* Olay verileri de içeren bir `validationUrl` abonelik el ile doğrulamak için bir URL ile özelliği.
 * Dizi doğrulama olay içeriyor. Doğrulama kodu geri echo sonra gelen diğer olayları ayrı bir istek gönderilir.
 * EventGrid veri düzlemi SDK'ları abonelik doğrulama olay verileri ve abonelik doğrulama yanıt karşılık gelen sınıfları içerir.
 

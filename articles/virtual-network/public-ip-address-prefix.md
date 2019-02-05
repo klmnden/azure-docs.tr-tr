@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 5bbe0709f89ca198b0571526291f700c99e9e59f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966835"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700749"
 ---
 # <a name="public-ip-address-prefix"></a>Genel IP adresi ön eki
 
@@ -31,7 +31,7 @@ Genel IP adresleri, her bir Azure bölgesinde adresi havuzundan atanır. Yapabil
 Genel bir IP adresi ön eki bir Azure bölgesi ve abonelikte bir ad belirterek oluşturun ve ön ek dahil etmek istediğiniz kaç adresi. 28 genel bir IP adresi ön eki oluşturursanız, örneğin, Azure 16 adresleri, aralıkları birinden sizin için ayırır. Aralığın oluşturana kadar Azure atar aralığı bilmiyorsanız, ancak bitişik adresleridir. Genel IP adresi ön eklerini bir ücreti vardır. Ayrıntılar için bkz [genel IP adresi fiyatlandırması](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 > [!IMPORTANT]
-> Genel IP öneki sınırlı sayıda bölgedeki bir genel Önizleme aşamasındadır. Yapabilecekleriniz [önizlemede olmasını geldiğini öğrenin](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel IP ön eki şu anda kullanılabilir: Batı Orta ABD, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Güneydoğu Asya. Bölgelerin güncelleştirilmiş bir listesi için lütfen [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network).
+> Genel IP öneki sınırlı sayıda bölgedeki bir genel Önizleme aşamasındadır. Yapabilecekleriniz [önizlemede olmasını geldiğini öğrenin](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel IP önek, şu anda kullanılabilir: Batı Orta ABD, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Güneydoğu Asya. Bölgelerin güncelleştirilmiş bir listesi için lütfen [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Neden bir genel IP adresi ön eki oluşturulsun mu?
 
@@ -51,9 +51,9 @@ Aşağıdaki kaynaklar için bir statik genel IP adresi bir önekten ilişkilend
 
 |Kaynak|Senaryo|Adımlar|
 |---|---|---|
-|Virtual Machines| Bir Güvenlik Duvarı'nda IP'ler beyaz listeye ekleme söz konusu olduğunda ilişkilendirerek bir ön ek ortak Ip'lerden için sanal makinelerinizi azure'da yönetim yükünü azaltır. Yalnızca tek bir güvenlik duvarı kuralı ile tüm bir önek beyaz liste kullanabilirsiniz. Azure'da sanal makinelerle ölçeklendirirken, aynı ön maliyet, zaman ve yönetim yükünü kaydetme IP'ler ilişkilendirebilirsiniz.| Sanal makinenize bir önekten IP'ler ilişkilendirilecek: 1. [Bir önek oluşturun.](manage-public-ip-address-prefix.md) 2. [Bir IP önekten oluşturun.](manage-public-ip-address-prefix.md) 3. [IP ve sanal makinenizin ağ arabirimine ilişkilendirin.](virtual-network-network-interface-addresses.md#add-ip-addresses)
-| Yük Dengeleyiciler | İlişkilendirerek bir ön ek ortak Ip'lerden için ön uç IP yapılandırması veya yük dengeleyici giden kuralı, Azure genel IP adresi alanı basitleştirme sağlar. Bir genel IP ön eke göre tanımlanan bitişik IP adresleri aralığı kaynaklandığı için giden bağlantılar temizlik tarafından senaryonuz basitleştirebilir. | Load balancer'ınız için bir önekten IP'ler ilişkilendirilecek: 1. [Bir önek oluşturun.](manage-public-ip-address-prefix.md) 2. [Bir IP önekten oluşturun.](manage-public-ip-address-prefix.md) 3. Yük Dengeleyici oluştururken seçin veya 2. adımda yük dengeleyici ön uç IP olarak oluşturulan IP güncelleştirin. |
-| Azure Güvenlik Duvarı | Giden SNAT için bir önek bir ortak IP kullanabilirsiniz. Bu sanal ağ trafiğini giden çevrilir anlamına gelir [Azure Güvenlik Duvarı](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genel IP. Bu IP önceden belirlenmiş bir önekten geldiğinden, azure'da genel IP kaplama alanınızı nasıl görüneceğini önceden bilmesi çok daha kolaydır. | 1. [Bir önek oluşturun.](manage-public-ip-address-prefix.md) 2. [Bir IP önekten oluşturun.](manage-public-ip-address-prefix.md) 3. Olduğunda, [Azure Güvenlik Duvarı'nı dağıtma](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), ön ekini, previosuly ayrılan IP seçtiğinizden emin olun.|
+|Virtual Machines| Bir Güvenlik Duvarı'nda IP'ler beyaz listeye ekleme söz konusu olduğunda ilişkilendirerek bir ön ek ortak Ip'lerden için sanal makinelerinizi azure'da yönetim yükünü azaltır. Yalnızca tek bir güvenlik duvarı kuralı ile tüm bir önek beyaz liste kullanabilirsiniz. Azure'da sanal makinelerle ölçeklendirirken, aynı ön maliyet, zaman ve yönetim yükünü kaydetme IP'ler ilişkilendirebilirsiniz.| IP'leri, sanal makinenize bir önekten ilişkilendirmek için: 1. [Bir önek oluşturun.](manage-public-ip-address-prefix.md) 2. [Bir IP önekten oluşturun.](manage-public-ip-address-prefix.md) 3. [IP ve sanal makinenizin ağ arabirimine ilişkilendirin.](virtual-network-network-interface-addresses.md#add-ip-addresses)
+| Yük Dengeleyiciler | İlişkilendirerek bir ön ek ortak Ip'lerden için ön uç IP yapılandırması veya yük dengeleyici giden kuralı, Azure genel IP adresi alanı basitleştirme sağlar. Bir genel IP ön eke göre tanımlanan bitişik IP adresleri aralığı kaynaklandığı için giden bağlantılar temizlik tarafından senaryonuz basitleştirebilir. | IP'ler için Load balancer'ınız bir önekten ilişkilendirmek için: 1. [Bir önek oluşturun.](manage-public-ip-address-prefix.md) 2. [Bir IP önekten oluşturun.](manage-public-ip-address-prefix.md) 3. Yük Dengeleyici oluştururken seçin veya 2. adımda yük dengeleyici ön uç IP olarak oluşturulan IP güncelleştirin. |
+| Azure Güvenlik Duvarı | Giden SNAT için bir önek bir ortak IP kullanabilirsiniz. Bu sanal ağ trafiğini giden çevrilir anlamına gelir [Azure Güvenlik Duvarı](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genel IP. Bu IP önceden belirlenmiş bir önekten geldiğinden, azure'da genel IP kaplama alanınızı nasıl görüneceğini önceden bilmesi çok daha kolaydır. | 1. [Bir önek oluşturun.](manage-public-ip-address-prefix.md) 2. [Bir IP önekten oluşturun.](manage-public-ip-address-prefix.md) 3. Olduğunda, [Azure Güvenlik Duvarı'nı dağıtma](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), önceden ayrılmış IP önekten seçtiğinizden emin olun.|
 
 ## <a name="constraints"></a>Kısıtlamalar
 

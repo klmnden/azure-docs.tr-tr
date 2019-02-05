@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 2ebba9a66e55cf82f42773276e36a952264eeee2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656320"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700205"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Yapılandırma ve Azure CLI kullanarak sunucu günlüklerine erişme
 Komut satırı arabirimi (Azure CLI) kullanarak PostgreSQL sunucusu hata günlüklerini indirebilirsiniz. Ancak, işlem günlükleri erişimi desteklenmiyor. 
@@ -31,7 +31,7 @@ Sorgu ve hata günlükleri erişmek için sunucu yapılandırabilirsiniz. Hata g
 Daha fazla bilgi için [sunucu yapılandırma parametrelerini özelleştirme](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>PostgreSQL sunucusu için Azure veritabanı için liste günlükleri
-Sunucunuz için kullanılabilir günlük dosyaları için Çalıştır [az postgres server-logs listesi](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) komutu.
+Sunucunuz için kullanılabilir günlük dosyaları için Çalıştır [az postgres server-logs listesi](/cli/azure/postgres/server-logs) komutu.
 
 Sunucu için günlük dosyalarını listeleyebilirsiniz **demosunucum.postgres.Database.Azure.com** kaynak grubu altında **myresourcegroup**. Ardından adlı bir metin dosyasına günlük dosyalarının listesi doğrudan **günlük\_dosyaları\_list.txt**.
 ```azurecli-interactive

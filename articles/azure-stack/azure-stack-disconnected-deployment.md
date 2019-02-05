@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 5447bcb0dc37cb3c923c4e6bbff4d69d987b6df6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244377"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691176"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure bağlantısı kesilmiş dağıtım planlama kararları için Azure Stack tümleşik sistemleri
 Karar verdim sonra [Azure Stack, hibrit bulut ortamına nasıl tümleştirilecek](azure-stack-connection-models.md), Azure Stack dağıtım kararlarınızı sonra sonlandır.
@@ -47,7 +47,7 @@ Azure Stack, bazı özellikler ve İşlevler engelli veya bağlantı kesik modda
 |Docker komutlarını çalıştırmak için Docker uzantısı ile VM dağıtımı|Engelli – Docker İnternet'e en son sürümünü kontrol eder ve bu denetimi başarısız olur.|
 |Azure Stack portalı belgeleri bağlantıları|Yok – geri bildirim vermek, Yardım, hızlı başlangıç, bir Internet URL çalışmaz kullanan vb. gibi bağlantılar.|
 |Uyarı düzeltme/çevrimiçi düzeltme Kılavuzu başvuran azaltma|Yok – Internet URL çalışmaz kullanan herhangi bir uyarı düzeltme bağlar.|
-|Market – yeteneği seçin ve doğrudan Azure Marketi'nden galeri paketleri ekleyin|Engelli – Azure Stack'i bağlantısız bir modda (olmadan, herhangi bir Internet bağlantısı) dağıttığınızda, Azure Stack portalını kullanarak Market öğelerini indirme olamaz. Ancak, kullanabileceğiniz [Market dağıtım aracı](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) internet bağlantısı olan bir makineye Market öğelerini indirme ve sonra da bunları Azure Stack ortamınıza aktarın.|
+|Market – yeteneği seçin ve doğrudan Azure Marketi'nden galeri paketleri ekleyin|Engelli – Azure Stack'i bağlantısız bir modda (olmadan, herhangi bir Internet bağlantısı) dağıttığınızda, Azure Stack portalını kullanarak Market öğelerini indirme olamaz. Ancak, kullanabileceğiniz [Market dağıtım aracı](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) internet bağlantısı olan bir makineye Market öğelerini indirme ve sonra da bunları Azure Stack ortamınıza aktarın.|
 |Azure Stack dağıtımı yönetmek için Azure Active Directory Federasyon hesaplarını kullanma|Kullanılamıyor-bu özellik Azure bağlantısı gerektirir. Bunun yerine yerel bir Active Directory örneği ile AD FS kullanılması gerekir.|
 |Uygulama Hizmetleri|Engelli - Web uygulamaları için güncelleştirilmiş içerik Internet erişimi gerektirebilir.|
 |Komut Satırı Arabirimi (CLI)|CLI, engelli – kimlik doğrulaması ve hizmet sorumluları, sağlama açısından işlevselliği azalttı.|

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f4da0f992914037f5c95050324af5762e90a2ca4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015296"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696841"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Oluşturma, değiştirme veya genel bir IP adresi ön eki Sil
 
@@ -60,13 +60,13 @@ Genel IP adresi ön eklerini bir ücreti vardır. Ayrıntılar için bkz [fiyatl
 |Aracı|Komut|
 |---|---|
 |CLI|[az ağ public-ip ön eki oluşturma](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
-|PowerShell|[Yeni AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
+|PowerShell|[New-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Bir önekten statik genel IP adresi oluşturma
 Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir. Bunu yapmak için aşağıdaki adımları izleyin.
 
 1. Metni içeren kutuya *kaynak Ara* Azure portalının üst kısmında, yazın *genel IP adresi ön eki*. Zaman **genel IP adresi ön eklerini** arama sonuçlarında görünmesini, onu seçin.
-2. Ortak Ip'lerden oluşturmak istediğiniz prefx seçin.
+2. Ortak Ip'lerden oluşturmak istediğiniz ön eki seçin.
 3. Arama sonuçlarında görüntülendiğinde seçin ve tıklayın **+ IP adresi Ekle** genel bakış bölümünde. Durumunda bu görmüyorsanız, Önizleme için doğru bağlantı kullandığınızdan emin olun: https://aka.ms/publicipprefixportal
 4. Girin veya seçin, aşağıdaki ayarları için değerleri **genel IP adresi oluşturma**. Bir önek, standart SKU, IPv4 ve statik olduğundan, yalnızca aşağıdaki bilgileri vermeniz gerekir:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 492e7cf466dd8019efe8617b67e9fa6b14f5b3c1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8457334e00f7c8dfbaee75a12d6bb71b760e60d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661672"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697009"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -385,7 +385,7 @@ Bağımlılık Aracısı yüklendi, ancak hizmet eşlemesi çözüm sunucunuzda 
 **Windows**: "Microsoft Dependency agent" adlı hizmet için Ara<br>
 **Linux**: "Microsoft-bağımlılık-agent." çalışan işlemini arayın
 
-* Bulunduğunuz [ücretsiz fiyatlandırma katmanı, Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Ücretsiz planı için en fazla beş benzersiz hizmet eşlemesi sunucularının sağlar. Önceki beş artık veri gönderen bile hizmet eşlemesinde, sonraki tüm sunucuları görünmez.
+* Bulunduğunuz [ücretsiz fiyatlandırma katmanı, Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Ücretsiz planı için en fazla beş benzersiz hizmet eşlemesi sunucularının sağlar. Önceki beş artık veri gönderen bile hizmet eşlemesinde, sonraki tüm sunucuları görünmez.
 
 * Sunucu gönderen günlük ve performans verilerini Log Analytics'e mi? Günlük araması gidin ve bilgisayarınız için aşağıdaki sorguyu çalıştırın: 
 

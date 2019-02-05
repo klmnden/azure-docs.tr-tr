@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826624"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694491"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso geçişi: Bir Azure VM ve SQL veritabanı yönetilen örneği üzerinde bir şirket içi uygulama yeniden barındırma
 
@@ -173,7 +173,7 @@ Azure SQL veritabanı yönetilen örneği ayarlamak için aşağıdaki gereksini
 - Alt ağı, bir kullanıcı tanımlı yönlendirme (UDR) yol tablosu olması gerekir. Yalnızca rota atanmış olmalıdır 0.0.0.0/0 sonraki atlama internet. 
 - Özel DNS isteğe bağlı: Azure sanal ağda özel DNS belirtilirse, Azure'nın yinelemeli Çözümleyicileri IP adresi (örneğin, 168.63.129.16) listeye eklenmelidir. Bilgi edinmek için nasıl [bir yönetilen örnek için özel DNS yapılandırma](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 - Alt ağ ile ilişkili bir hizmet uç noktası (depolama veya SQL) olması gerekmez. Hizmet uç noktaları sanal ağda devre dışı bırakılması gerekir.
-- Alt ağı, en az 16 IP adresleri olması gerekir. Bilgi edinmek için nasıl [yönetilen örnek alt boyut](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances).
+- Alt ağı, en az 16 IP adresleri olması gerekir. Bilgi edinmek için nasıl [yönetilen örnek alt boyut](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - Contoso'nun karma ortamda özel DNS ayarlarını gereklidir. Contoso birini veya daha fazlasını şirketin Azure DNS sunucuları için DNS ayarlarını yapılandırır. Daha fazla bilgi edinin [DNS özelleştirme](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 ### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Yönetilen örnek için bir sanal ağ ayarlama
@@ -207,7 +207,7 @@ Contoso yöneticileri sanal ağı aşağıdaki gibi ayarlayın:
 *Daha fazla yardıma mı ihtiyacınız var?*
 
 - Genel Bakış [SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance).
-- Bilgi edinmek için nasıl [SQL veritabanı yönetilen örneği için bir sanal ağ oluşturma](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances).
+- Bilgi edinmek için nasıl [SQL veritabanı yönetilen örneği için bir sanal ağ oluşturma](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - Bilgi edinmek için nasıl [eşleme ayarlama](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 - Bilgi edinmek için nasıl [Azure Active Directory DNS ayarlarını güncelleştirme](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
@@ -609,7 +609,7 @@ Contoso güvenlik ekibi, Azure VM ve SQL veritabanı yönetilen örneği, bir uy
 
      ![Yönetilen örnek güvenlik - tehdit algılama](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
-VM'ler için önerilen güvenlik uygulamaları hakkında daha fazla bilgi edinmek için [Azure Iaas iş yükleri için en iyi güvenlik uygulamaları](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+VM'ler için önerilen güvenlik uygulamaları hakkında daha fazla bilgi edinmek için [Azure Iaas iş yükleri için en iyi güvenlik uygulamaları](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms).
 
 ### <a name="bcdr"></a>BCDR
 

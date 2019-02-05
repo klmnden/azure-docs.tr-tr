@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0d915592053c256d3640d0f0de7bb94bf109f2c8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510162"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700171"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS kimlik doğrulaması için VPN istemcisi yapılandırma dosyalarını yükleme ve oluşturma
 
@@ -98,10 +98,10 @@ Sertifika kimlik doğrulaması için yerel Windows VPN istemcisini yapılandırm
 
 2. Bulun **mobileconfig** Mac'te dosyası
 
-   ![Mobilconfig dosyasının konumu](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
+   ![Mobileconfig dosyasının konumu](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. İsteğe bağlı adım - özel bir DNS belirtmek istiyorsanız aşağıdaki satırları ekleyin **mobileconfig** dosyası:
-```
+```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -262,15 +262,15 @@ Farklı kimlik doğrulama türü (örneğin, OTP) kullanın veya farklı kimlik 
 
 1. Kullanım `Get-AzureRmVpnClientConfiguration` EapMSChapv2 VPN istemci yapılandırması oluşturmak için cmdlet'i. Yönergeler için [Bu bölümde](#ccradius) makalenin.
 
-2. VpnClientConfiguration.zip dosyanın sıkıştırmasını açın ve Ara **GenenericDevice** klasör. 64-bit ve 32 bit mimarileri için Windows Yükleyici içeren klasörlere göz ardı edin.
+2. VpnClientConfiguration.zip dosyanın sıkıştırmasını açın ve Ara **GenericDevice** klasör. 64-bit ve 32 bit mimarileri için Windows Yükleyici içeren klasörlere göz ardı edin.
  
-3. **GenenericDevice** klasörde adlı bir XML dosyası **VpnSettings**. Bu dosya, gerekli tüm bilgileri içerir:
+3. **GenericDevice** klasörde adlı bir XML dosyası **VpnSettings**. Bu dosya, gerekli tüm bilgileri içerir:
 
    * **VpnServer**: Azure VPN ağ geçidi FQDN'si. Bu, istemcinin bağlandığı adresidir.
    * **VpnType**: Bağlanmak için kullandığınız tünel türü.
    * **Yollar**: Azure sanal ağı için bağlı olan tek trafik P2S tüneli üzerinden gönderilmesi profilinizde yapılandırmak zorunda yollar.
    
-   **GenenericDevice** klasör adı verilen bir .cer dosyasına da içerir **VpnServerRoot**. Bu dosyayı, P2S bağlantısı Kurulum sırasında Azure VPN ağ geçidini doğrulamak için gerekli kök sertifika içerir. Azure sanal ağına bağlanan tüm cihazlarda, sertifikayı yükleyin.
+   **GenericDevice** klasör adı verilen bir .cer dosyasına da içerir **VpnServerRoot**. Bu dosyayı, P2S bağlantısı Kurulum sırasında Azure VPN ağ geçidini doğrulamak için gerekli kök sertifika içerir. Azure sanal ağına bağlanan tüm cihazlarda, sertifikayı yükleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

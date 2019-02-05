@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226948"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55735966"
 ---
 Kaynak gruplarını kullanarak Azure kaynakları ve iş yükleri dağıtmak amacıyla Azure CLI’yı Resource Manager komutları ve şablonlarıyla kullanabilmeniz için önce Azure’lu bir hesaba sahip olmanız gerekir. Hesabınız yoksa [buradan ücretsiz Azure denemesi](https://azure.microsoft.com/pricing/free-trial/) edinebilirsiniz.
 
@@ -44,7 +44,7 @@ Bu makalede, Klasik Azure CLI ile yönetme ve Azure aboneliğinizdeki kaynaklar�
 | VM silme |`azure vm delete [options] <resource_group> <name>` |
 | VM yakalama |`azure vm capture [options] <resource_group> <name>` |
 | Kullanıcı görüntüsünden VM oluşturma |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Özelleştirilmiş diskten VM oluşturma |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Özelleştirilmiş diskten VM oluşturma |`azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | Bir VM’ye veri diski ekleme |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | Bir VM’den veri diski kaldırma |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | Bir VM’ye genel bir uzantı ekleme |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |

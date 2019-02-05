@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 84a2ef60c9f6aa4270c3fc4f83327070b298b8b2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267394"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697196"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso geçişi: Bir şirket içi uygulama Azure sanal makineleri ve SQL Server AlwaysOn Kullanılabilirlik grubu üzerinde yeniden barındırma
 
@@ -698,7 +698,7 @@ Contoso güvenlik ekibi, Azure Vm'leri WEBVM, SQLAOG1 ve SQLAOG2 güvenlik sorun
 - Takım, Azure Disk şifreleme ve anahtar Kasası'nı kullanarak diskteki verilerin güvenliğini sağlama değerlendirir.
 - Takım saydam veri şifrelemesi (TDE) değerlendirmek ve yeni SQL AOG üzerinde çalıştırılan SmartHotel360 veritabanındaki etkinleştirmeniz gerekir. [Daha fazla bilgi edinin](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
 
-[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) VM'ler için önerilen güvenlik uygulamaları hakkında.
+[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) VM'ler için önerilen güvenlik uygulamaları hakkında.
 
 
 ## <a name="bcdr"></a>BCDR

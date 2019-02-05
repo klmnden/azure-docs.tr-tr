@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 9dcec525adf7676b23c6dec14dff07c6d419c085
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3a9d3364f9e55611c94797b71b058128ce7c6696
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884651"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697944"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Seri konsol SysRq ve NMI çağrıları için kullanın.
 
@@ -63,7 +63,7 @@ SysRq Yönetici Kılavuzu yukarıdaki:
 |``h``  |   Yardım görüntülenir (burada listelenenden herhangi bir tuşa Yardım, ayrıca görüntülenir ancak ``h`` :-) kolay
 |``i``  |    İnit dışındaki tüm işlemler bir SIGKILL gönderin.
 |``j``  |    Zorla "Yalnızca çözme," - dosya sistemleri tarafından FIFREEZE IOCTL dondurulmuş.
-|``k``  |    Güvenli erişim anahtarı (SAK) tüm programları mevcut sanal Konsolu durur. Not: aşağıda önemli açıklamaları SAK bölümünde inceleyin.
+|``k``  |    Güvenli erişim anahtarı (SAK) tüm programları mevcut sanal Konsolu durur. NOT: SAK bölümünde aşağıdaki önemli yorumlara bakın.
 |``l``  |    Bir yığının için tüm etkin CPU gösterir.
 |``m``  |    Konsolu için geçerli bellek bilgileri döküm.
 |``n``  |    RT görevleri mümkün kullanışlı hale getirmek için kullanılır
@@ -112,7 +112,7 @@ Seri konsol, aşağıda gösterilen komut çubuğunda klavye simgesini kullanara
 1. Yeniden başlatmadan veya çalıştırarak sysctl güncelleştiriliyor <br>
     `sysctl -p`
 
-Dahil olmak üzere Linux Çekirdek yapılandırmaları hakkında daha fazla bilgi için `unknown_nmi_panic`, `panic_on_io_nmi`, ve `panic_on_unrecovered_nmi`, bkz: [belgeleri için/proc/sys/çekirdek / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). NMI ve kilitlenme bilgi dökümü bir NMI aldığında oluşturmak için adımları Linux yapılandırmak için ilgili dağıtım özel belgeler için aşağıdaki bağlantılara bakın:
+Dahil olmak üzere Linux Çekirdek yapılandırmaları hakkında daha fazla bilgi için `unknown_nmi_panic`, `panic_on_io_nmi`, ve `panic_on_unrecovered_nmi`, bkz: [/ Proc/sys/çekirdek/belgelerine *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). NMI ve kilitlenme bilgi dökümü bir NMI aldığında oluşturmak için adımları Linux yapılandırmak için ilgili dağıtım özel belgeler için aşağıdaki bağlantılara bakın:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Çekirdek kilitlenme dökümü](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

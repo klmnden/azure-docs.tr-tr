@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5e080614d4f0001a0bf1b44dd402f37db2463e03
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206133"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696906"
 ---
 # <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>RBAC ve Azure Resource Manager şablonlarını kullanarak erişimini yönetme
 
@@ -92,16 +92,18 @@ Aşağıdaki örnek bir okuyucunun şablonu dağıttıktan sonra bir kullanıcı
 
 ## <a name="deploy-template-using-azure-powershell"></a>Azure PowerShell kullanarak şablonu dağıtma
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 Azure PowerShell kullanarak önceki şablonu dağıtmak için aşağıdaki adımları izleyin.
 
 1. RBAC rg.json adlı yeni bir dosya oluşturun ve önceki şablonu kopyalayın.
 
 1. [Azure PowerShell](/powershell/azure/authenticate-azureps) oturumu açın.
 
-1. Bir kullanıcı, Grup veya uygulamanın benzersiz kimliğini alın. Örneğin, kullanabileceğiniz [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) Azure AD kullanıcılarının listelemek için komutu.
+1. Bir kullanıcı, Grup veya uygulamanın benzersiz kimliğini alın. Örneğin, kullanabileceğiniz [Get-AzADUser](/powershell/module/az.resources/get-azaduser) Azure AD kullanıcılarının listelemek için komutu.
 
     ```azurepowershell
-    Get-AzureRmADUser
+    Get-AzADUser
     ```
 
 1. Rol ataması için kullanılacak bir benzersiz tanımlayıcısını oluşturmak için bir GUID aracını kullanın. Tanımlayıcı şu biçimdedir: `11111111-1111-1111-1111-111111111111`
@@ -109,21 +111,21 @@ Azure PowerShell kullanarak önceki şablonu dağıtmak için aşağıdaki adım
 1. Bir örnek kaynak grubu oluşturun.
 
     ```azurepowershell
-    New-AzureRmResourceGroup -Name ExampleGroup -Location "Central US"
+    New-AzResourceGroup -Name ExampleGroup -Location "Central US"
     ```
 
-1. Kullanım [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) dağıtımı başlatmak için komutu.
+1. Kullanım [yeni AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) dağıtımı başlatmak için komutu.
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     ```
 
     Gerekli parametreleri belirtmeniz istenir. Çıktının bir örneği gösterilmektedir.
 
     ```Output
-    PS /home/user> New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     
-    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+    cmdlet New-AzResourceGroupDeployment at command pipeline position 1
     Supply values for the following parameters:
     (Type !? for Help.)
     principalId: 22222222-2222-2222-2222-222222222222
@@ -251,4 +253,4 @@ Azure PowerShell kullanarak önceki şablonu dağıtmak için aşağıdaki adım
 
 - [Oluşturma ve İlk Azure Resource Manager şablonunuzu dağıtma](../azure-resource-manager/resource-manager-create-first-template.md)
 - [Azure Resource Manager şablonları, söz dizimi ve yapısı anlama](../azure-resource-manager/resource-group-authoring-templates.md)
-- [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/resources/templates/?term=rbac)

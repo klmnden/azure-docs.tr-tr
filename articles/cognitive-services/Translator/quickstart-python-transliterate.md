@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 0997b12ed7bc86134d0f2cc875a98ee554c667d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dd875fe19bdf9d02fc7217b66c8fd442abef2d42
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461245"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700273"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Hızlı Başlangıç: Python kullanarak metin alfabeye için Translator Text API kullanın
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Şu anda Translator Metin Çevirisi için bir uç nokta kullanılabilir ve `base_url` olarak ayarlanmıştır. `path`, `transliterate` rotasını ayarlar ve API sürüm 3’ü kullanmak istediğimizi belirler.
+Translator metin çevirisi genel uç noktası olarak ayarlandığından `base_url`. `path`, `transliterate` rotasını ayarlar ve API sürüm 3’ü kullanmak istediğimizi belirler.
 
 `params`, giriş diline en olarak giriş ve çıkış betiklerini ayarlamak için kullanılır. Bu örnekte Japonca metni Latin alfabesine dönüştürüyoruz.
 

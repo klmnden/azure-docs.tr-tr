@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85e250f3dee3dbfc9e09524d5f3977a143ee8bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5bd631bf31ba4e6a840c3e4e818062d322da0158
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213268"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727935"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sı ile çalışmaya başlama
 
@@ -47,7 +47,7 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
 ## <a name="set-up-the-development-kit"></a>Geliştirme Seti ' ayarlayın
 
-1. Geliştirme Seti bir Bilgisayara bağlanın veya mini bir USB kablosu kullanarak bağdaştırıcısı güç. Kit bağlıysa, yeşil power göstergesi üst Pano yanar.
+1. Geliştirme Seti bir Bilgisayara bağlanın veya yüksek kalitede mikro USB kablosu kullanarak bağdaştırıcısı güç. Yeşil power göstergesi üst panonun altında görüntülenir.
 
 1. Geliştirme Seti, ikinci bir mini USB kablosu kullanarak bir bilgisayara bağlanın.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a778723093b226ee0e681c2a95ce4db597a310e5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199246"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695381"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Azure - API'leri ile SaaS satış
 
@@ -176,21 +176,21 @@ GÖNDERİSİNİ eyleme çözmek bir kalıcı kaynak kimliği için bir belirteç
 
 *Yanıt gövdesi*
 
- ``` json       
-    { 
-        “id”: “”, 
-        “subscriptionName”: “”,
-        “offerId”:””, 
-         “planId”:””
-    }     
+``` json
+{
+    "id": "",
+    "subscriptionName": "",
+    "offerId": "",
+    "planId": "",
+}
 ```
 
 | **Parametre adı** | **Veri türü** | **Açıklama**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | Dize        | SaaS aboneliğin kimliği.          |
-| subscriptionName| Dize| SaaS hizmetine abone sırasında azure'da kullanıcı tarafından ayarlanan SaaS abonelik adı.|
-| OfferId            | Dize        | Teklif kullanıcıya abone kimliği. |
-| Planıd             | Dize        | Bir kullanıcı abone kimliği planlayın.  |
+| id                 | String        | SaaS aboneliğin kimliği.          |
+| subscriptionName| String| SaaS hizmetine abone sırasında azure'da kullanıcı tarafından ayarlanan SaaS abonelik adı.|
+| OfferId            | String        | Teklif kullanıcıya abone kimliği. |
+| Planıd             | String        | Bir kullanıcı abone kimliği planlayın.  |
 |  |  |  |
 
 
@@ -246,9 +246,9 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 *Gövde*
 
 ``` json
-  { 
-      “planId”:””
-   }      
+{
+    "lanId": "",
+}
 ```
 
 | **Öğe adı** | **Veri türü** | **Açıklama**                      |
@@ -307,15 +307,13 @@ Değişiklik uç noktası şu anda abone planlarına dönüştürmek için yeni 
 | Yetkilendirme           | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  |
 
-
 *Gövde*
 
-``` json
-                { 
-                    “planId”:””
-                } 
+```json
+{
+    "planId": ""
+}
 ```
-
 
 |  **Öğe adı** |  **Veri türü**  | **Açıklama**                              |
 |  ---------------- | -------------   | --------------------------------------       |
@@ -370,7 +368,6 @@ Abone uç noktası silme eylemini belirtilen kimliğe sahip bir aboneliği silme
 | x-ms-bağıntı kimliği | Hayır           | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu değer, tüm istemci işlemi olayları sunucu tarafında olaylarla ilişkilendirmek için kullanılabilir. Bu sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  |
- 
 
 *Yanıt kodları*
 
@@ -413,7 +410,6 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
-
 *Üst Bilgiler*
 
 | **Üstbilgi anahtarı**     | **Gerekli** | **Açıklama**                                                                                                                                                                                                                  |
@@ -422,25 +418,24 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 | x-ms-bağıntı kimliği | Hayır           | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu değer, tüm istemci işlemi olayları sunucu tarafında olaylarla ilişkilendirmek için kullanılabilir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  | 
-  
 
 *Yanıt gövdesi*
 
-``` json
-  { 
-      “id”: “”, 
-      “status”:””, 
-       “resourceLocation”:””, 
-      “created”:””, 
-      “lastModified”:”” 
-  } 
+```json
+{
+    "id": "",
+    "status": "",
+    "resourceLocation": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Parametre adı** | **Veri türü** | **Açıklama**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | Dize        | İşlemin kimliği.                                                                      |
+| id                 | String        | İşlemin kimliği.                                                                      |
 | durum             | Sabit listesi          | İşlem durumu aşağıdakilerden biri: `In Progress`, `Succeeded`, veya `Failed`.          |
-| resourceLocation   | Dize        | Oluşturulan veya değiştirilen aboneliğinize bağlayın. Bu, istemci güncelleştirilen durumu post işlemi almak için yardımcı olur. Bu değer için ayarlanmadı `Unsubscribe` operations. |
+| resourceLocation   | String        | Oluşturulan veya değiştirilen aboneliğinize bağlayın. Bu, istemci güncelleştirilen durumu post işlemi almak için yardımcı olur. Bu değer için ayarlanmadı `Unsubscribe` operations. |
 | oluşturuldu            | DateTime      | İşlem oluşturma zamanı UTC diliminde saat.                                                           |
 | Son değiştirme       | DateTime      | Son güncelleştirme işlemi UTC diliminde saat.                                                      |
 |  |  |  |
@@ -494,23 +489,23 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 
 *Yanıt gövdesi*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “” 
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Dize        | Azure abonelik kaynak kimliği, SaaS.    |
-| OfferId                | Dize        | Teklif kullanıcıya abone kimliği.         |
-| Planıd                 | Dize        | Bir kullanıcı abone kimliği planlayın.          |
-| saasSubscriptionName   | Dize        | SaaS abonelik adı.                |
+| id                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
+| OfferId                | String        | Teklif kullanıcıya abone kimliği.         |
+| Planıd                 | String        | Bir kullanıcı abone kimliği planlayın.          |
+| saasSubscriptionName   | String        | SaaS abonelik adı.                |
 | saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
 | oluşturuldu                | DateTime      | Abonelik oluşturma UTC zaman damgası değeri. |
 | Son değiştirme           | DateTime      | Abonelik UTC zaman damgası değeri değiştirildi. |
@@ -539,7 +534,6 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 | eTag               | Evet          | İşlem durumunu almak için bir kaynak bağlayın.                                                        |
 |  |  |  |
 
-
 ### <a name="get-subscriptions"></a>Abonelikleri Al
 
 Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri almak açmasına olanak sağlar.
@@ -564,27 +558,26 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
 |  |  |  |
 
-
 *Yanıt gövdesi*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “”
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Dize        | Azure abonelik kaynak kimliği, SaaS.    |
-| OfferId                | Dize        | Teklif kullanıcıya abone kimliği.         |
-| Planıd                 | Dize        | Bir kullanıcı abone kimliği planlayın.          |
-| saasSubscriptionName   | Dize        | SaaS abonelik adı.                |
+| id                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
+| OfferId                | String        | Teklif kullanıcıya abone kimliği.         |
+| Planıd                 | String        | Bir kullanıcı abone kimliği planlayın.          |
+| saasSubscriptionName   | String        | SaaS abonelik adı.                |
 | saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
 | oluşturuldu                | DateTime      | Abonelik oluşturma UTC zaman damgası değeri. |
 | Son değiştirme           | DateTime      | Abonelik UTC zaman damgası değeri değiştirildi. |
@@ -616,7 +609,6 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 
 Bir SaaS Web kancası değişiklikleri SaaS hizmeti için proaktif olarak bildirmek için kullanılır. Bu GÖNDERİ API kimliği doğrulanmamış olması beklenir ve Microsoft hizmeti tarafından çağrılır. SaaS hizmeti doğrulamak ve Web kancası bildirim eylemi gerçekleştirmeden önce onları yetkilendirmek için API işlemleri çağırmak için bekleniyor. 
 
-
 *Gövde*
 
 ``` json
@@ -634,12 +626,12 @@ Bir SaaS Web kancası değişiklikleri SaaS hizmeti için proaktif olarak bildir
 
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | Dize       | Tetiklenen işlem benzersiz kimliği.                |
-| activityId   | Dize        | Hizmet isteği izlemek için benzersiz bir dize değeri. Bu, tüm Mutabakatları için kullanılır.               |
-| subscriptionId                     | Dize        | Azure abonelik kaynak kimliği, SaaS.    |
-| OfferId                | Dize        | Teklif kullanıcıya abone kimliği. Yalnızca "Güncelleştir" eylemi ile sağlanır.        |
-| publisherId                | Dize        | Yayımcı kimliği SaaS teklifi         |
-| Planıd                 | Dize        | Bir kullanıcı abone kimliği planlayın. Yalnızca "Güncelleştir" eylemi ile sağlanır.          |
-| action                 | Dize        | Bu bildirim tetikleme eylem. Olası değerler - etkinleştirme, silme, askıda kalma, eski duruma getirme, güncelleştirme          |
-| Zaman damgası                 | Dize        | Bu bildirim tetiklendiğinde UTC zaman damgası değeri.          |
+| id  | String       | Tetiklenen işlem benzersiz kimliği.                |
+| activityId   | String        | Hizmet isteği izlemek için benzersiz bir dize değeri. Bu, tüm Mutabakatları için kullanılır.               |
+| subscriptionId                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
+| OfferId                | String        | Teklif kullanıcıya abone kimliği. Yalnızca "Güncelleştir" eylemi ile sağlanır.        |
+| publisherId                | String        | Yayımcı kimliği SaaS teklifi         |
+| Planıd                 | String        | Bir kullanıcı abone kimliği planlayın. Yalnızca "Güncelleştir" eylemi ile sağlanır.          |
+| action                 | String        | Bu bildirim tetikleme eylem. Olası değerler - etkinleştirme, silme, askıda kalma, eski duruma getirme, güncelleştirme          |
+| Zaman damgası                 | String        | Bu bildirim tetiklendiğinde UTC zaman damgası değeri.          |
 |  |  |  |

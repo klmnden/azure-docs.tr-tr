@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 78e3f6a5f4a55fd4bf1925672205eb490e7c6b24
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317118"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695715"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Azure haritalar harita stil seçin
 
@@ -33,7 +33,7 @@ Yukarıdaki kod bloğu abonelik anahtarını ayarlar ve ayarlamak için grayscal
 
 Yukarıdaki kod bloğu abonelik anahtarını ayarlar ve stili önceden ayarlamadan bir harita oluşturur. Bkz: [bir harita oluşturmak](./map-create.md) bir harita oluşturmak yönergeler.
 
-İkinci kod bloğu haritanın kullanan [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) harita stili için uydu ayarlamak için yöntemi.
+İkinci kod bloğu haritanın kullanan [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) harita stili için uydu ayarlamak için yöntemi.
 
 ## <a name="add-the-style-picker"></a>Stil seçiciyi Ekle
 
@@ -44,7 +44,7 @@ Yukarıdaki kod ilk kod bloğunda abonelik anahtarını ayarlar ve bir harita ne
 
 İkinci kod bloğu atlas kullanarak bir stil seçicisini yapıları [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) Oluşturucusu.
 
-Stil seçimi eşlemesi için stil seçiciyi sağlar. Üçüncü kod bloğu stil seçiciyi kullanarak haritanın harita ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi. Stil seçiciyi içinde haritasıdır **olay dinleyicisi** harita tamamen yüklendikten sonra yüklendikten emin olmak için.
+Stil seçimi eşlemesi için stil seçiciyi sağlar. Üçüncü kod bloğu stil seçiciyi kullanarak haritanın harita ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) yöntemi. Stil seçiciyi içinde haritasıdır **olay dinleyicisi** harita tamamen yüklendikten sonra yüklendikten emin olmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

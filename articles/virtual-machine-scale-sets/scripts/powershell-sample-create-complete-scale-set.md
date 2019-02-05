@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a0800a434fdfef0002993fdae797af982391321f
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 20bf851cc9b2965a355286699e1ef255887d7650
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883288"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697097"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>PowerShell ile eksiksiz bir sanal makine ölçek kümesi oluşturma
-Bu betik, Windows Server 2016 çalıştıran bir sanal makine ölçek kümesi oluşturur. [built-in resource creation options avaiable here in New-AzureRmVmss](powershell-sample-create-simple-scale-set.md) komutunu kullanmak yerine, tek tek kaynaklar yapılandırılır ve oluşturulur. Betiği çalıştırdıktan sonra sanal makine örneklerine RDP üzerinden erişebilirsiniz.
+Bu betik, Windows Server 2016 çalıştıran bir sanal makine ölçek kümesi oluşturur. Kaynakların yapılandırılan ve oluşturulan, kullanmak yerine [yerleşik kaynak oluşturma seçenekleri kullanılabilir burada New-AzureRmVmss](powershell-sample-create-simple-scale-set.md). Betiği çalıştırdıktan sonra sanal makine örneklerine RDP üzerinden erişebilirsiniz.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

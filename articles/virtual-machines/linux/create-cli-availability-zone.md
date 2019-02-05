@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 8be3156aaeb9651b97999b7b06fec8034e902c36
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ee714cd87676c519c1bbfca2c08b62287299114e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663902"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700630"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI ile bir kullanılabilirlik alanında Linux sanal makinesi oluşturma
 
@@ -29,13 +29,13 @@ Azure kullanılabilirlik alanında Linux VM oluşturmak için Azure CLI aracıl�
 
 Kullanılabilirlik alanı kullanmak için, [desteklenen bir Azure bölgesinde](../../availability-zones/az-overview.md#regions-that-support-availability-zones) sanal makinenizi oluşturun.
 
-En son yüklediğinizden emin olun [Azure CLI](/cli/azure/install-az-cli2) ile bir Azure hesabında oturum açtığınızdan [az login](/cli/azure/reference-index#az_login).
+En son yüklediğinizden emin olun [Azure CLI](/cli/azure/install-az-cli2) ile bir Azure hesabında oturum açtığınızdan [az login](/cli/azure/reference-index).
 
 
 ## <a name="check-vm-sku-availability"></a>VM SKU kullanılabilirliğini denetleme
 VM boyutları veya SKU'ların kullanılabilirliği, bölge ve alanlara göre farklılık gösterebilir. Kullanılabilirlik Alanları kullanımını planlamanıza yardımcı olmak üzere, kullanılabilir VM SKU'larını Azure bölgesine ve alana göre listeleyebilirsiniz. Bu özellik, uygun bir VM boyutu seçmenizi ve alanlar arasında istenen dayanıklılığı elde etmenizi sağlar. Farklı VM türleri ve boyutları hakkında daha fazla bilgi için bkz. [VM Boyutlarına genel bakış](sizes.md).
 
-Kullanılabilir VM SKU'larına görüntüleyebileceğiniz [az vm listesi-skus](/cli/azure/vm#az_vm_list_skus) komutu. Aşağıdaki örnekte kullanılabilir VM SKU'ları *eastus2* bölgesinde içinde listelenmiştir:
+Kullanılabilir VM SKU'larına görüntüleyebileceğiniz [az vm listesi-skus](/cli/azure/vm) komutu. Aşağıdaki örnekte kullanılabilir VM SKU'ları *eastus2* bölgesinde içinde listelenmiştir:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
@@ -74,7 +74,7 @@ Kaynak grubu oluştururken veya değiştirirken Bu makale boyunca görülebilir 
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-[az vm create](/cli/azure/vm#az_vm_create) komutuyla bir sanal makine oluşturun. 
+[az vm create](/cli/azure/vm) komutuyla bir sanal makine oluşturun. 
 
 Bir sanal makine oluştururken, işletim sistemi görüntüsü, disk boyutlandırma ve yönetici kimlik bilgileri gibi çeşitli seçenekler bulunur. Bu örnekte, Ubuntu Server çalıştıran *myVM* adlı bir sanal makine oluşturulmuştur. Sanal makine kullanılabilirlik alanında oluşturulur *1*. Varsayılan olarak, VM oluşturulduktan *Standard_DS1_v2* boyutu.
 
@@ -102,7 +102,7 @@ VM’nin oluşturulması birkaç dakika sürebilir. VM oluşturulduktan sonra, A
 
 VM için yönetilen disk, sanal Makineyi bir kullanılabilirlik alanında dağıtıldığında, aynı kullanılabilirlik alanında oluşturulur. Varsayılan olarak, bir genel IP adresi de bu bölgede oluşturulur. Aşağıdaki örnekler, bu kaynaklar hakkında bilgi alın.
 
-Yönetilen disk sanal makinenin kullanılabilirlik alanında olduğunu doğrulamak için [az vm show](/cli/azure/vm#az_vm_show) disk kimliğini döndürmek için komutu. Bu örnekte disk kimliği sonraki adımlardan birinde kullanılan bir değişkende depolanır. 
+Yönetilen disk sanal makinenin kullanılabilirlik alanında olduğunu doğrulamak için [az vm show](/cli/azure/vm) disk kimliğini döndürmek için komutu. Bu örnekte disk kimliği sonraki adımlardan birinde kullanılan bir değişkende depolanır. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
@@ -149,7 +149,7 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
 }
 ```
 
-Kullanım [az vm-IP-adreslerini](/cli/azure/vm#az_vm_list_ip_addresses) genel IP adresi kaynağı adını döndürmek için komutu *myVM*. Bu örnekte, bir sonraki adımda kullanılan bir değişken adı depolanır.
+Kullanım [az vm-IP-adreslerini](/cli/azure/vm) genel IP adresi kaynağı adını döndürmek için komutu *myVM*. Bu örnekte, bir sonraki adımda kullanılan bir değişken adı depolanır.
 
 ```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)

@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 1/31/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9cf926dc31f449398f756320aa2cb343ff47144
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: bfd90b3a8fc72bbb261f05e445ce543228d9fb83
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511131"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728171"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Windows Iaas Vm'leri için Azure Disk şifrelemesini etkinleştirme
 
@@ -73,10 +73,10 @@ Kullanım [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comp
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
      ```
     
-- **Disk şifreleme devre dışı bırakın:** Şifreleme devre dışı bırakmak için [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet'i. Hem işletim sistemi ve veri diskleri şifrelediğinizde Windows VM'de disk şifrelemeyi devre dışı bırakma, beklendiği gibi çalışmaz. Bunun yerine tüm diskleri şifreleme devre dışı bırakın.
+- **Disk şifreleme devre dışı bırakın:** Şifreleme devre dışı bırakmak için [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet'i. Hem işletim sistemi ve veri diskleri şifrelediğinizde Windows VM'de disk şifrelemeyi devre dışı bırakma, beklendiği gibi çalışmaz. Tüm diskler için PowerShell - VolumeType "All" parametresini kullanarak şifreleme devre dışı bırakın, aksi durumda devre dışı bırakma komutu başarısız olur.
 
      ```azurepowershell-interactive
-     Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
+      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' -VolumeType "all"
      ```
 
 ### <a name="bkmk_RunningWinVMCLI"></a>Var olan veya Azure CLI ile sanal makine çalıştırma şifrelemeyi etkinleştir
@@ -103,10 +103,10 @@ Kullanım [az vm şifrelemeyi etkinleştirme](/cli/azure/vm/encryption#az-vm-enc
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
      ```
 
-- **Şifreleme devre dışı bırakın:** Şifreleme devre dışı bırakmak için [az vm şifreleme devre dışı](/cli/azure/vm/encryption#az-vm-encryption-disable) komutu. Hem işletim sistemi ve veri diskleri şifrelediğinizde Windows VM'de disk şifrelemeyi devre dışı bırakma, beklendiği gibi çalışmaz. Bunun yerine tüm diskleri şifreleme devre dışı bırakın.
+- **Şifreleme devre dışı bırakın:** Şifreleme devre dışı bırakmak için [az vm şifreleme devre dışı](/cli/azure/vm/encryption#az-vm-encryption-disable) komutu. Hem işletim sistemi ve veri diskleri şifrelediğinizde Windows VM'de disk şifrelemeyi devre dışı bırakma, beklendiği gibi çalışmaz. Tüm diskler kullanarak şifreleme devre dışı birim-türü "All" parametresi için CLI, aksi durumda devre dışı bırakma komutu başarısız olur.
 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
+     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type "ALL"
      ```
  
  > [!NOTE]
@@ -338,7 +338,7 @@ Yapabilecekleriniz [Windows PowerShell kullanarak bir VM için yeni bir disk ekl
 
 
 ## <a name="disable-encryption"></a>Şifrelemeyi devre dışı bırakma
-Azure PowerShell, Azure CLI kullanarak şifreleme devre dışı bırakabilir veya bir Resource Manager şablonu ile. Hem işletim sistemi ve veri diskleri şifrelediğinizde Windows VM'de disk şifrelemeyi devre dışı bırakma, beklendiği gibi çalışmaz. Bunun yerine tüm diskleri şifreleme devre dışı bırakın.
+Azure PowerShell, Azure CLI kullanarak şifreleme devre dışı bırakabilir veya bir Resource Manager şablonu ile. Hem işletim sistemi ve veri diskleri şifrelediğinizde Windows VM'de disk şifrelemeyi devre dışı bırakma, beklendiği gibi çalışmaz. Şifreleme kullanarak tüm disklerde - VolumeType "All" parametresi devre dışı bırakma komutu başarısız olur "All" için CLI, aksi takdirde PowerShell veya birim türü için--devre dışı. 
 
 - **Azure PowerShell ile disk şifrelemesini devre dışı bırakın:** Şifreleme devre dışı bırakmak için [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet'i. 
      ```azurepowershell-interactive

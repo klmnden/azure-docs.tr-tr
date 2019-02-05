@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: d4b706a088769530e3994d8813b28f99d5a56df5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 25ec82c923ebe322194d868159332ef145727999
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411977"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693015"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Azure'da OpenShift dağıtmak için genel Önkoşullar
 
@@ -53,14 +53,14 @@ Bu kılavuz Önkoşullar ile ilişkili yapıtları oluşturmayı açıklar.
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
-Azure aboneliğinizde oturum açın [az login](/cli/azure/reference-index#az_login) komut ve izleyin ekrandaki yönergeleri izleyin veya tıklatın **deneyin** Cloud Shell kullanmak için.
+Azure aboneliğinizde oturum açın [az login](/cli/azure/reference-index) komut ve izleyin ekrandaki yönergeleri izleyin veya tıklatın **deneyin** Cloud Shell kullanmak için.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Anahtar Kasası'nı barındıracak bir adanmış kaynak grubu kullanmak için önerilir. Bu grubun içine OpenShift küme kaynakları dağıtmak bir kaynak grubundan ayrıdır.
+[az group create](/cli/azure/group) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Anahtar Kasası'nı barındıracak bir adanmış kaynak grubu kullanmak için önerilir. Bu grubun içine OpenShift küme kaynakları dağıtmak bir kaynak grubundan ayrıdır.
 
 Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *keyvaultrg* içinde *eastus* konumu:
 
@@ -69,7 +69,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Bir anahtar kasası oluşturma
-Kümeyle için SSH anahtarları depolamak için key vault oluşturma [az keyvault oluşturma](/cli/azure/keyvault#az_keyvault_create) komutu. Anahtar kasası adı genel olarak benzersiz olmalıdır.
+Kümeyle için SSH anahtarları depolamak için key vault oluşturma [az keyvault oluşturma](/cli/azure/keyvault) komutu. Anahtar kasası adı genel olarak benzersiz olmalıdır.
 
 Aşağıdaki örnekte adlı bir anahtar kasası oluşturulmaktadır *keyvault* içinde *keyvaultrg* kaynak grubu:
 

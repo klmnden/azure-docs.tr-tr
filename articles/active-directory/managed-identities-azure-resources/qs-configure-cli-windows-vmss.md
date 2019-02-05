@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: priyamo
-ms.openlocfilehash: 03e22ae9aaa3ab967b55443ccbd933c265510227
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 42b0ab15f43d301629b9fbb3208ba24eae8c227e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180118"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694610"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Azure CLI kullanarak sanal makine ölçek kümesi üzerinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -113,7 +113,7 @@ Artık yönetilen kimlik sistem tarafından atanan gereken bir sanal makineye sa
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Azure kaynaklarını VM uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan) için yönetilen kimlikleri kaldırmak için [az vmss kimliğini kaldırma](/cli/azure/vmss/identity/#az-vmss-remove-identity) bir VMSS yönetilen kimliği sistem tarafından atanan kaldırmak için komutu:
+Azure kaynaklarını VM uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan) için yönetilen kimlikleri kaldırmak için [az vmss kimliğini kaldırma](/cli/azure/vmss/identity/) bir VMSS yönetilen kimliği sistem tarafından atanan kaldırmak için komutu:
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -190,7 +190,7 @@ Yanıt, aşağıdakine benzer şekilde oluşturulmuş kullanıcı tarafından at
    }
    ```
 
-2. Kullanıcı tarafından atanan bir yönetilen kimlik kullanarak VMSS atama [az vmss kimliği atamak](/cli/azure/vmss/identity#az-vm-assign-identity). `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY>` Kullanıcı tarafından atanan kimliğin kaynağı `name` önceki adımda oluşturulan özelliği:
+2. Kullanıcı tarafından atanan bir yönetilen kimlik kullanarak VMSS atama [az vmss kimliği atamak](/cli/azure/vmss/identity). `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY>` Kullanıcı tarafından atanan kimliğin kaynağı `name` önceki adımda oluşturulan özelliği:
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>

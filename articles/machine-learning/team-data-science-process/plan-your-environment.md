@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0cf9ffddffe7f97008e69c9c4fb7945faeb779da
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8af2398246fac4c8cb1d097e22147bbf695e43a6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469609"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728939"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Senaryoları tanımlama ve gelişmiş analiz verileri işlemeyi planlama
 Hangi kaynakların bir ortamı ayarlama, Gelişmiş analiz bir veri kümesi üzerinde işlem yapmak için ayarlarken içerecek şekilde planlamanız gerekir? Bu makalede bir dizi soru sormak ilgili Yardım için önerdiği görevler ve kaynaklarla ilgili senaryonuzu tanımlama. Tahmine dayalı analiz için üst düzey adımları sırasını açıklandığı [Team Data Science işlem (TDSP) nedir?](overview.md). Bu adımların her biri, özel senaryonuzla ilgili görevler için özel kaynakları gerektirir. Senaryonuzu tanımlama için anahtar soruları veri lojistiğini, özellikleri, veri kümeleri ve araçları ve dilleri analiz yapmak için tercih ettiğiniz kalitesini ilgilendiriyor.
@@ -71,7 +71,7 @@ Bu sorular depolama planlama ve her biri çeşitli veri türleri için uygun ola
 
 Örneğin, Azure Machine Learning Studio'da ortamı uygulayın:
 
-* Veri biçimleri ve Azure Machine Learning Studio tarafından desteklenen türleri listesi için bkz. [veri biçimlerini ve desteklenen veri türleri](../studio/import-data.md#data-formats-and-data-types-supported) bölümü.
+* Veri biçimleri ve Azure Machine Learning Studio tarafından desteklenen türleri listesi için bkz. [veri biçimlerini ve desteklenen veri türleri](../studio/import-data.md#supported-data-formats-and-data-types) bölümü.
 
 
 Analytics işleminde kullanılan diğer Azure Hizmetleri sınırlamaları hakkında daha fazla bilgi için bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../../azure-subscription-service-limits.md).

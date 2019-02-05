@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4087cd93b7342958717a20a08832daba1123417f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d6a82414974c00d5fa2a7cfe5c1dd00ceaeb3bfa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330747"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729481"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında bir Linux SQL Server sanal makinesi sağlama
 
@@ -129,7 +129,7 @@ Windows üzerinde çalıştırıyorsanız ve bir BASH kabuğunda yoksa PuTTY gib
 
 1. Seçin **açık** ve kullanıcı adınızı ve parolanızı girin.
 
-Linux VM'lerinize bağlanma hakkında daha fazla bilgi için bkz. [Portal kullanarak Azure’da bir Linux VM oluşturma](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm).
+Linux VM'lerinize bağlanma hakkında daha fazla bilgi için bkz. [Portal kullanarak Azure’da bir Linux VM oluşturma](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
 
 > [!Note]
 > Kayıt defterinde önbelleğe alınmamış sunucunun ana makine anahtarı hakkında bir PuTTY güvenlik uyarısı görürseniz, aşağıdaki seçeneklerden birini seçin. Bu konak güveniyorsanız seçin **Evet** anahtar PuTTy'nın önbelleğine eklemek ve bağlanmaya devam etmek için. Yalnızca bir kez bağlanmaya ilişkin gerçekleştirmek istiyorsanız, eklemeden önbellek anahtarı seçin **Hayır**. Bu konak güvenmiyorsanız seçin **iptal** bağlantı bırakmaya karar.

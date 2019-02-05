@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288722"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694015"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Nesnelerin interneti (IOT) teknolojilerini ve çözümlerini: PaaS ve SaaS
 
@@ -58,7 +58,7 @@ Daha az cihaz modelleri, daha tahmin edilebilir senaryoları ve sınırlı IoT/I
 
 ### <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Azure IoT çözüm hızlandırıcıları ve Azure IoT Central’ı karşılaştırma
 
-Tipik bir [IoT çözüm mimarisini](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture) uygulamak için Azure IoT her biri farklı müşteri gereksinimlerine uygun olan birkaç seçenek ([Azure IoT çözüm hızlandırıcıları](/azure/iot-suite) ve [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)) sunar.
+Tipik bir [IoT çözüm mimarisini](/azure/iot-fundamentals/iot-introduction) uygulamak için Azure IoT her biri farklı müşteri gereksinimlerine uygun olan birkaç seçenek ([Azure IoT çözüm hızlandırıcıları](/azure/iot-suite) ve [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)) sunar.
 
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), hem Azure IoT Central hem de Azure IoT çözüm hızlandırıcılarının kullandığı temel Azure PaaS çözümüdür. IoT Hub, milyonlarca IoT cihazı ile bir bulut çözümü arasında güvenilir ve güvenli çift yönlü iletişimler sağlar. IoT Hub aşağıdaki gibi IoT uygulama sorunlarını gidermenize yardımcı olur:
 

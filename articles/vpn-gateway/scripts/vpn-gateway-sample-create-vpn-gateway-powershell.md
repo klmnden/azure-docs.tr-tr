@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell betiği örneği - VPN Ağ Geçidi oluşturma | Microsoft Docs
+title: Azure PowerShell betik örneği - bir VPN ağ geçidi oluşturma | Microsoft Docs
 description: Powershell kullanarak bir VPN Gateway oluşturun.
 services: vpn-gateway
 documentationcenter: vpn-gateway
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/17/2018
 ms.author: alzam
-ms.openlocfilehash: b42008dbef6ec820ed943213eb1ada2eb03dfff1
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c1b5a164f477887c68a8988f3ea4ca1dc20306eb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508241"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700528"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>PowerShell ile VPN Gateway oluşturma
 

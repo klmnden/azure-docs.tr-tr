@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973137"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694277"
 ---
 # <a name="azure-storage-security-overview"></a>Azure depolama güvenliğine genel bakış
 
@@ -47,7 +47,7 @@ Daha fazla bilgi edinin:
 
 ## <a name="delegated-access-to-storage-objects"></a>Depolama nesneleri temsilci erişimi
 
-Paylaşılan erişim imzası, depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. SAS, belirli bir süre için ve belirli bir izin kümesi ile bir istemci, depolama hesabınızdaki nesnelere sınırlı verebilirsiniz anlamına gelir. Hesap erişim anahtarlarınızı paylaşmak zorunda kalmadan bu sınırlı izinler verebilirsiniz. 
+Paylaşılan erişim imzası, depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. SAS, belirli bir süre için ve belirli bir izin kümesi ile bir istemci, depolama hesabınızdaki nesnelere sınırlı verebilirsiniz anlamına gelir. Hesap erişim anahtarlarınızı paylaşmak zorunda kalmadan bu sınırlı izinler verebilirsiniz.
 
 SAS depolama kaynak kimliği doğrulanmış erişim için gerekli tüm bilgileri sorgu parametrelerini kapsayan bir URI'dir. SAS ile depolama kaynaklarına erişmek için istemcinin yalnızca uygun oluşturucuyu veya yöntem SAS sağlaması gerekir.
 
@@ -73,7 +73,7 @@ Aktarım sırasında şifreleme ağlar üzerinden iletilirken, veri koruma, bir 
 
 Birçok kuruluşta [bekleyen verileri şifreleme](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) veri gizlilik, uyumluluk ve veri egemenliği doğru zorunlu bir adımdır. Üç Azure özellikleri, bekleyen verileri şifrelenmesi sağlar:
 
-* [Depolama hizmeti şifrelemesi](../storage/common/storage-security-guide.md#encryption-at-rest) depolama hizmeti otomatik olarak verileri Azure depolama alanına yazarken şifrelemeniz istemenizi sağlar.
+* [Depolama hizmeti şifrelemesi](../storage/common/storage-security-guide.md#encryption-at-rest) her zaman etkindir ve depolama hizmeti verileri Azure depolama alanına yazarken otomatik olarak şifreler.
 * [İstemci tarafı şifreleme](../storage/common/storage-security-guide.md#client-side-encryption) bekleyen şifreleme özelliği de sağlar.
 * [Azure Disk şifrelemesi](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) kullanan bir Iaas sanal makinesine veri diski ve işletim sistemi diskleri şifrelemenizi sağlar.
 
@@ -108,15 +108,15 @@ Data Box Edge ve Data Box Gateway, verilerin siteniz ile Azure arasında yöneti
 
 Daha fazla bilgi edinin:
 
-* [Azure Data Box '](https://azure.microsoft.com/services/storage/databox/)
-* [Azure veri kutusu Edge](../databox-online/data-box-edge-overview.md)
+* [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
+* [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
 * [Azure veri kutusu ağ geçidi](..//databox-online/data-box-gateway-overview.md)
 
 ## <a name="advanced-threat-protection"></a>Gelişmiş Tehdit Koruması
 
-Azure depolama, ek bir erişim veya depolama hesabınıza yararlanma olağan dışı ve zararlı olabilecek girişimleri algılar güvenlik zekası katmanı için Gelişmiş tehdit koruması sağlar. Şüpheli okuma için Gelişmiş tehdit koruması izleyiciler Azure depolama, tanılama günlüklerini yazma veya silme istekleri Blob Depolama. 
+Azure depolama, ek bir erişim veya depolama hesabınıza yararlanma olağan dışı ve zararlı olabilecek girişimleri algılar güvenlik zekası katmanı için Gelişmiş tehdit koruması sağlar. Şüpheli okuma için Gelişmiş tehdit koruması izleyiciler Azure depolama, tanılama günlüklerini yazma veya silme istekleri Blob Depolama.
 
-Gelişmiş tehdit koruması uyarıları görüntülenebilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/). Azure Güvenlik Merkezi şüpheli etkinliği ayrıntıları algılandı ve olası tehdit düzeltilmesi için Eylemler önerir sağlar. 
+Gelişmiş tehdit koruması uyarıları görüntülenebilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/). Azure Güvenlik Merkezi şüpheli etkinliği ayrıntıları algılandı ve olası tehdit düzeltilmesi için Eylemler önerir sağlar.
 
 Daha fazla bilgi edinin:
 

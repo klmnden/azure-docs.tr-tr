@@ -5,13 +5,13 @@ author: jasonwhowell
 ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 70577f32debc526aaccbd79b62dd35e82119e3f9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: 3f541357d3d45ada694a821b3a3b1474185b6b00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548401"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691363"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda yüksek kullanılabilirlik kavramları
 MySQL hizmeti için Azure veritabanı, garantili yüksek düzeyde kullanılabilirlik sağlar. Finansal destekli bir hizmet düzeyi sözleşmesi (SLA), genel kullanım sonrasında % 99,99 değerindedir. Neredeyse hiçbir uygulama kesinti işbu hizmeti kullanırken.
@@ -32,5 +32,5 @@ MySQL için Azure veritabanı yukarı veya aşağı ölçeklendirildiğinde HA m
 Ölçeklendirme işlemi sırasında veritabanı bağlantıları için bir kesinti oluşur. İstemci uygulamalarını kesilir ve açık kaydedilmemiş işlemleri iptal edilir. İstemci uygulama, bağlantı yeniden dener veya yeni bir bağlantı kurar sonra yeni boyutlu örnek bağlantı ağ geçidi yönlendirir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Hizmetine genel bakış için bkz. [MySQL genel bakış için Azure veritabanı](overview.md)
-- Yeniden deneme mantığı üzerinde bir genel bakış için bkz [geçici bağlantı hatalarının için MySQL için Azure veritabanı işleme](concepts-connectivity.md)
+- Hakkında bilgi edinin [geçici bağlantı hataları işleme](concepts-connectivity.md)
+- Bilgi nasıl [verilerinizi okuma yinelemelerle çoğaltın](howto-read-replicas-portal.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dc87079083b8f07ad18f5f871bff64de8d492ebd
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285655"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701191"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>Cihaz modeli şemasını bölümleri
 
@@ -105,7 +105,7 @@ Benzetim hizmeti çalıştığında **Soğutucu 01 state.js** cihaz durumunu gü
 }
 ```
 
-Çözüm başladığında, bu sorgular bir listesini oluşturmak için tüm sanal cihazların `Type` Arabiriminde kullanılacak değerler. Çözüm `Latitiude` ve `Longitude` cihazın konumunu Pano haritaya eklemek için özellikler.
+Çözüm başladığında, bu sorgular bir listesini oluşturmak için tüm sanal cihazların `Type` Arabiriminde kullanılacak değerler. Çözüm `Latitude` ve `Longitude` cihazın konumunu Pano haritaya eklemek için özellikler.
 
 ## <a name="telemetry"></a>Telemetri
 
@@ -144,7 +144,7 @@ Aşağıdaki örnek 10 saniyede bir JSON telemetri iletisi gönderen `floor`, `v
 * Metin
 * Boole
 * Tamsayı
-* çift
+* Double
 * DateTime
 
 Farklı aralıklarla telemetri iletilerini göndermek için birden fazla telemetri türleri için ekleme `Telemetry` dizisi. Aşağıdaki örnek, her 10 sıcaklık ve nem veri gönderir saniye ve ışık dakikada durumu:

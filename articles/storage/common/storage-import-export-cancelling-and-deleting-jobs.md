@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 0aa1a84da874e0b0f3ed8b865eab0490f1498c1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6eb56413319208feef1b4ab51296fe12a1e0bcf2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451232"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700137"
 ---
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>İptal etme ve Azure içeri/dışarı aktarma işleri siliniyor
 
- Önce bir iş iptal olduğunu istemek için `Packaging` durum, çağrı [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) işlemi ve kümesi `CancelRequested` öğesine `true`. Bir en iyi çaba ilkesine göre işi iptal edildi. Sürücüleri veri aktarma aşamasında, veri iptal istendi sonra aktarılan devam edebilir.
+ Önce bir iş iptal olduğunu istemek için `Packaging` durum, çağrı [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs) işlemi ve kümesi `CancelRequested` öğesine `true`. Bir en iyi çaba ilkesine göre işi iptal edildi. Sürücüleri veri aktarma aşamasında, veri iptal istendi sonra aktarılan devam edebilir.
 
  İptal edilen bir iş taşınır `Completed` belirtin ve 90 gün boyunca hangi noktada silinmiş tutulur.
 
- Bir işi silmek için çağrı [silme işi](/rest/api/storageimportexport/jobs#Jobs_Delete) iş sevk edildi önce işlemi (diğer bir deyişle, iş içinde çalışırken `Creating` durumu). İçinde olduğunda bir iş de silebilirsiniz `Completed` durumu. Bir proje silindikten sonra kendi bilgilerini ve durumunu artık REST API'si veya Azure portalı erişilebilir.
+ Bir işi silmek için çağrı [silme işi](/rest/api/storageimportexport/jobs) iş sevk edildi önce işlemi (diğer bir deyişle, iş içinde çalışırken `Creating` durumu). İçinde olduğunda bir iş de silebilirsiniz `Completed` durumu. Bir proje silindikten sonra kendi bilgilerini ve durumunu artık REST API'si veya Azure portalı erişilebilir.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

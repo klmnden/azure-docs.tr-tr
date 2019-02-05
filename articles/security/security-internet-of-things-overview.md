@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 41e422d0808cafb45b182c5f0a6bb7176a35516f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 345a7994f5a117b7aff320edf7b7c79d9b30a2f9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35758629"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695262"
 ---
 # <a name="internet-of-things-security-overview"></a>Nesnelerin interneti güvenliğine genel bakış
 Azure internet interneti (IOT) Hizmetleri çok çeşitli özellikler sunar. Bu kurumsal sınıf hizmetler şunları yapmanızı sağlar:
@@ -45,7 +45,7 @@ Bu makalede, aşağıdaki konular ele alınmaktadır:
 
 * [Bir tehdit modeli ile güvenlik başlar](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
 * [IOT güvenliği](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
-* [Azure IOT başvuru Mimarisi Modelleme tehdit](/azure/iot-fundamentals/iot-security-architecture#threat-modeling-the-azure-iot-reference-architecture)
+* [Azure IOT başvuru Mimarisi Modelleme tehdit](/azure/iot-fundamentals/iot-security-architecture)
 
 ## <a name="security-from-the-ground-up"></a>Baştan sona güvenlik
 IOT işletmelere dünya çapındaki benzersiz güvenlik, gizlilik ve uyumluluk sorunları doğurur. Burada bu sorunları nasıl uygulandığını ve yazılım etrafında çalışmalarınızı geleneksel siber teknoloji, IOT siber ve fiziksel ortamdan yakınsama ne olur ilgilidir. IOT çözümleri koruma sağlayarak, bu cihazlar Bulut ve işlem ve depolama sırasında buluta güvenli veri koruma arasında güvenli bağlantı cihazların güvenli sağlama gerektirir. Bu işlevselliğin karşı çalışıyor, ancak, kaynak kısıtlı cihazları, dağıtımları coğrafi dağılımı ve birçok cihaz bir çözüm içinde uygulanır.

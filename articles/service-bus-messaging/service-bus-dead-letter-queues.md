@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: aaeebb200197ba6ef15fbcfe02f262a3840197b5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856137"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733323"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus edilemeyen genel bakış
 
@@ -60,13 +60,13 @@ Bu davranışı devre dışı bırakılamaz, ancak ayarlayabileceğiniz [MaxDeli
 
 ## <a name="exceeding-timetolive"></a>TimeToLive aşan
 
-Zaman [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) veya [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) özelliği **true** (varsayılan değer **false**), tüm süresi dolan iletileri DLQ için taşınır belirtme `TTLExpiredException` neden kodu.
+Zaman [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) veya [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) özelliği **true** (varsayılan değer **false**), tüm süresi dolan iletileri DLQ için taşınır belirtme `TTLExpiredException` neden kodu.
 
 Süresi dolan iletileri olduğunu yalnızca temizlenir ve en az bir etkin alıcı ana kuyruk veya abonelikten çekme olduğunda DLQ için taşınabilir unutmayın; Bu davranış tasarım gereğidir.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Abonelik kurallar işlenirken hatalar
 
-Zaman [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) özelliği için bir abonelik etkin olduğunda, bir aboneliğin SQL filtresi kuralı çalışırken oluşabilecek hatalar DLQ kaydedilir soruna neden olan sorunları var.
+Zaman [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) özelliği için bir abonelik etkin olduğunda, bir aboneliğin SQL filtresi kuralı çalışırken oluşabilecek hatalar DLQ kaydedilir soruna neden olan sorunları var.
 
 ## <a name="application-level-dead-lettering"></a>Uygulama düzeyi ulaşmayan
 
@@ -84,7 +84,7 @@ Bu eski lettered iletileri almak için kullanarak bir alıcı oluşturabilirsini
 
 ## <a name="example"></a>Örnek
 
-Aşağıdaki kod parçacığı, ileti alıcısı oluşturur. Ana kuyruğa alma döngüde kod iletiyi alır [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), anında kullanılabilir herhangi bir ileti döndürür ya da hiçbir sonuç ile Aracısı sorar. Kod bir ileti alırsa, bu hemen, hangi artışlarla vazgeçer `DeliveryCount`. Sistem için DLQ ileti geçtiğinde, ana sıranın boş olduğundan ve döngüden çıkılıp, olarak [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) döndürür **null**.
+Aşağıdaki kod parçacığı, ileti alıcısı oluşturur. Ana kuyruğa alma döngüde kod iletiyi alır [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), anında kullanılabilir herhangi bir ileti döndürür ya da hiçbir sonuç ile Aracısı sorar. Kod bir ileti alırsa, bu hemen, hangi artışlarla vazgeçer `DeliveryCount`. Sistem için DLQ ileti geçtiğinde, ana sıranın boş olduğundan ve döngüden çıkılıp, olarak [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) döndürür **null**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

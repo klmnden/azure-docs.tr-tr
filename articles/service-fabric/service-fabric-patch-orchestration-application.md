@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 646a64435ba02877d2588b8debbb3920a32a5cf1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563091"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732320"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -131,7 +131,7 @@ Onarım Yöneticisi hizmetini etkinleştirmek için:
     ],
     ```
 
-3. Küme bildiriminizi güncelleştirilmiş küme bildiriminde kullanarak bu değişikliklerle güncelleştirmek [yeni küme oluşturma](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) veya [küme yapılandırmasını yükseltme](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Güncelleştirilmiş küme bildirimi ile küme çalışmaya başladıktan sonra çağrılır, kümede çalışan onarım Yöneticisi sistem hizmeti artık görebilirsiniz `fabric:/System/RepairManagerService`altında Service Fabric explorer bölümünde sistem hizmetleri.
+3. Küme bildiriminizi güncelleştirilmiş küme bildiriminde kullanarak bu değişikliklerle güncelleştirmek [yeni küme oluşturma](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) veya [küme yapılandırmasını yükseltme](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Güncelleştirilmiş küme bildirimi ile küme çalışmaya başladıktan sonra çağrılır, kümede çalışan onarım Yöneticisi sistem hizmeti artık görebilirsiniz `fabric:/System/RepairManagerService`altında Service Fabric explorer bölümünde sistem hizmetleri.
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Tüm düğümlerde otomatik Windows güncelleştirme devre dışı bırak
 

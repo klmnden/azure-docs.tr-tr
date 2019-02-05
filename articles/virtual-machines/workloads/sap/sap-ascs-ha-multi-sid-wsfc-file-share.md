@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 4d7caec3fc1b8bf74098a7b0a211ec2ada8280a3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189642"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732915"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -199,7 +199,7 @@ ms.locfileid: "43189642"
 > ![Windows][Logo_Windows] Windows
 >
 
-Eylül 2016'da, Microsoft yönetebileceğiniz birden çok sanal IP adresi kullanarak bir özelliği yayımlanan bir [Azure iç yük dengeleyici][load-balancer-multivip-overview]. Bu işlev Azure dış yük dengeleyicide zaten var.
+Birden çok sanal IP adresi kullanarak yönetebileceğiniz bir [Azure iç yük dengeleyici][load-balancer-multivip-overview]. 
 
 SAP dağıtımınızı varsa, Windows Küme yapılandırması için SAP Central Services'in (ASCS/SCS) örnekleri oluşturmak için iç yük dengeleyici kullanabilirsiniz.
 
@@ -213,16 +213,18 @@ Bu makalede tek bir ASCS/SCS yüklemesinden bir SAP çoklu SID yapılandırması
 >
 >SAP ASCS/SCS örneği bir WSFC kümesinde en fazla sayısını özel ön uç IP'ler için her bir Azure iç Yük Dengeleyiciyi maksimum sayısına eşittir.
 >
+> Bu belgede sunulan yapılandırması için kullanılacak henüz desteklenmiyor [Azure kullanılabilirlik alanları](https://docs.microsoft.com/azure/availability-zones/az-overview)
+> 
 
-Yük Dengeleyici sınırları hakkında daha fazla bilgi için bkz: "Yük Dengeleyici başına özel ön uç IP" bölümünde [ağ Limitleri: Azure Resource Manager][networking-limits-azure-resource-manager].
+Yük Dengeleyici sınırları hakkında daha fazla bilgi için bkz: "Yük Dengeleyici başına özel ön uç IP" bölümünde [ağ Limitleri: Azure Resource Manager][networking-limits-azure-resource-manager]. Ayrıca kullanmayı [Azure standart Load Balancer SKU'su](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) yerine Azure load balancer'ın temel SKU.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Kullanarak bir SAP ASCS/SCS örneği için kullanılacak bir WSFC kümesi zaten yapılandırmış olmanız **dosya paylaşımı**Bu diyagramda gösterildiği gibi.
 
-![Şekil 1: Bir SAP ASCS/SCS örneği ile iki kümelerinde dağıtılan SOFS][sap-ha-guide-figure-8007]
+![Şekil 1: Bir SAP ASCS/SCS örneği ve iki kümelerinde dağıtılan SOFS][sap-ha-guide-figure-8007]
 
-_**Şekil 1:** bir SAP ASCS/SCS örneği ve iki kümelerinde dağıtılan SOFS_
+_**Şekil 1:** Bir SAP ASCS/SCS örneği ve iki kümelerinde dağıtılan SOFS_
 
 > [!IMPORTANT]
 > Kurulum, aşağıdaki koşulları karşılaması gerekir:
@@ -235,9 +237,9 @@ _**Şekil 1:** bir SAP ASCS/SCS örneği ve iki kümelerinde dağıtılan SOFS_
 
 Aşağıda gösterildiği gibi aynı WSFC kümesinde birden çok SAP Gelişmiş iş uygulaması programlama (ascs) gelir veya SAP Java (SCS) kümelenmiş örneklerini yüklemek için hedef verilmiştir: 
 
-![Şekil 2: SAP çoklu SID iki küme yapılandırmasında][sap-ha-guide-figure-8008]
+![Şekil 2: SAP çoklu SID yapılandırmada iki küme][sap-ha-guide-figure-8008]
 
-_**Şekil 2:** iki kümede SAP çoklu SID yapılandırma_
+_**Şekil 2:** SAP çoklu SID yapılandırmada iki küme_
 
 Ek bir yüklenmesini **SAP \<SID2 >** sistemidir bir yükleme için aynı <SID> sistem. Dosya Paylaşımı SOFS kümesi yanı sıra ASCS/SCS kümede iki ek hazırlık adımı gereklidir.
 
@@ -263,7 +265,7 @@ Var olan yeniden \<SAPGlobalHost > ve ilk SAP Volume1 <SID1> sistem.
 
 ![Şekil 3: Çoklu SID SOFS SAP genel ana bilgisayar adı ile aynıdır][sap-ha-guide-figure-8014]
 
-_**Şekil 3:** çoklu SID SOFS SAP genel ana bilgisayar adıyla aynı olduğu_
+_**Şekil 3:** Çoklu SID SOFS SAP genel ana bilgisayar adı ile aynıdır_
 
 > [!IMPORTANT]
 >İkinci **SAP \<SID2 >** sistem, aynı Volume1 ve aynı  **\<SAPGlobalHost >** ağ adı kullanılır.
@@ -329,7 +331,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ![Şekil 4: Çoklu SID SOFS SAP genel ana bilgisayar adı 2 ile aynıdır][sap-ha-guide-figure-8015]
 
-_**Şekil 4:** çoklu SID SOFS SAP genel ana bilgisayar adı 2 ile aynı olduğu_
+_**Şekil 4:** Çoklu SID SOFS SAP genel ana bilgisayar adı 2 ile aynıdır_
 
 İkinci SOFS rolüyle oluşturmak için \<SAPGlobalHost2 >, bu PowerShell betiğini çalıştırın:
 
@@ -347,7 +349,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_
 
 ![Şekil 5: Çoklu SID SOFS SAP genel ana bilgisayar adı 2 ile aynıdır][sap-ha-guide-figure-8016]
 
-_**Şekil 5:** ikinci birim2 yük devretme kümesi Yöneticisi'nde_
+_**Şekil 5:** İkinci birim2 yük devretme kümesi Yöneticisi'nde_
 
 SAP genel bir klasör oluşturmak için ikinci \<SID2 >, dosya güvenliği ayarlayın.
 
@@ -396,29 +398,29 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 Sağ **saoglobal2** SOFS küme grubu ve ardından **dosya paylaşımı Ekle**.
 
-![Şekil 6: "Dosya paylaşımı Ekle" Sihirbazını Başlat][sap-ha-guide-figure-8017]
+![Şekil 6: "Dosya paylaşımı Ekle" sihirbazını başlatın][sap-ha-guide-figure-8017]
 
-_**Şekil 6:** Başlat "Dosya paylaşımı Ekle" sihirbazını_
+_**Şekil 6:** "Dosya paylaşımı Ekle" sihirbazını başlatın_
 
 <br>
-![Şekil 7: "Select SMB paylaşımı – hızlı"][sap-ha-guide-figure-8018]
+![Şekil 7: "SMB paylaşımı – hızlı seçin"][sap-ha-guide-figure-8018]
 
 _**Şekil 7:** "SMB paylaşımı – hızlı" seçin_
 
 <br>
-![Şekil 8: "sapglobalhost2" seçin ve üzerinde birim2 yolunu belirtin][sap-ha-guide-figure-8019]
+![Şekil 8: "Sapglobalhost2" seçin ve üzerinde birim2 yolunu belirtin][sap-ha-guide-figure-8019]
 
-_**Şekil 8:** seçin "sapglobalhost2" ve üzerinde birim2 yolunu belirtin_
-
-<br>
-![Şekil 9: "sapmnt" Dosya Paylaşımı adı ayarlayın][sap-ha-guide-figure-8020]
-
-_**Şekil 9:** "sapmnt" dosya paylaşım adını ayarla_
+_**Şekil 8:** "Sapglobalhost2" seçin ve üzerinde birim2 yolunu belirtin_
 
 <br>
-![Şekil 10: tüm ayarları devre dışı bırak][sap-ha-guide-figure-8021]
+![Şekil 9: "Sapmnt" Dosya Paylaşımı adı ayarlayın][sap-ha-guide-figure-8020]
 
-_**Şekil 10:** tüm ayarları devre dışı bırak_
+_**Şekil 9:** "Sapmnt" Dosya Paylaşımı adı ayarlayın_
+
+<br>
+![Şekil 10: Tüm ayarları devre dışı bırak][sap-ha-guide-figure-8021]
+
+_**Şekil 10:** Tüm ayarları devre dışı bırak_
 
 <br>
 Ata *tam denetim* dosyalara ve sapmnt izinleri paylaşması için:
@@ -427,17 +429,17 @@ Ata *tam denetim* dosyalara ve sapmnt izinleri paylaşması için:
 
 ![Şekil 11: Kullanıcı Grup ve bilgisayar hesaplarına tam denetim izinleri atama][sap-ha-guide-figure-8022]
 
-_**Şekil 11:** atama "kullanıcı grubu ve bilgisayar hesaplarına tam denetimini"_
+_**Şekil 11:** Kullanıcı grubu ve bilgisayar hesapları için "Tam Denetim" atama_
 
 <br>
-![Şekil 12: "Oluştur" seçeneğini belirleyin.][sap-ha-guide-figure-8023]
+![Şekil 12: "Oluştur" seçeneğini belirleyin][sap-ha-guide-figure-8023]
 
-_**Şekil 12:** seçin "Oluştur"_
+_**Şekil 12:** "Oluştur" seçeneğini belirleyin_
 
 <br>
 ![Şekil 13: İkinci sapmnt sapglobal2 ana bilgisayara bağlı ve birim2 oluşturulur][sap-ha-guide-figure-8024]
 
-_**Şekil 13:** ikinci sapmnt sapglobal2 ana bilgisayara bağlı ve birim2 oluşturuldu_
+_**Şekil 13:** İkinci sapmnt sapglobal2 ana bilgisayara bağlı ve birim2 oluşturulur_
 
 <br>
 ## <a name="install-sap-netweaver-multi-sid"></a>SAP NetWeaver çoklu SID yükleyin
@@ -451,7 +453,7 @@ DBMS ve SAP uygulama sunucuları daha önce açıklandığı gibi yükleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Paylaşılan disk ile yük devretme kümesinde ASCS/SCS örneği yükleme][sap-official-ha-file-share-document]: bir HA dosya paylaşımı için resmi SAP yönergeleri
+* [Paylaşılan disk ile yük devretme kümesinde ASCS/SCS örneği yükleme][sap-official-ha-file-share-document]: Bir HA dosyası için resmi SAP yönergeleri paylaşın
 
 * [Windows Server 2016'da depolama alanları doğrudan][s2d-in-win-2016]
 

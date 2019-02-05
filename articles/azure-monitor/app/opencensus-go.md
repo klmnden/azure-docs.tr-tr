@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 935119f2efe40ee22d2d11005fa79b12c712b7c2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104582"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694134"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Toplama dağıtılmış izlemelerinden Git (Önizleme)
 
@@ -24,7 +24,7 @@ Go uygulamaları ile tümleştirme yoluyla izlemeyi destekleyen dağıtılmış 
 
 - Bir Azure Aboneliğine sahip olmanız gerekir.
 - Git yüklenmesi, bu makalede 1.11 sürümü kullanan [Git indirme](https://golang.org/dl/).
-- Yüklemek için yönergeleri izleyin [yerel iletici bir Windows hizmeti olarak](./opencensus-local-forwarder.md#windows-service).
+- Yüklemek için yönergeleri izleyin [yerel iletici bir Windows hizmeti olarak](./opencensus-local-forwarder.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -57,7 +57,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
    ![İzleme anahtarı ekran görüntüsü](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. Düzenleme, `LocalForwarder.config` dosya ve izleme anahtarınızı ekleyin. İçindeki yönergeleri izlediyseniz [önkoşul](./opencensus-local-forwarder.md#windows-service) dosyası şu konumdadır `C:\LF-WindowsServiceHost`
+2. Düzenleme, `LocalForwarder.config` dosya ve izleme anahtarınızı ekleyin. İçindeki yönergeleri izlediyseniz [önkoşul](./opencensus-local-forwarder.md) dosyası şu konumdadır `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -186,7 +186,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 3. Basit bir go uygulaması çalıştıran bir kez gidin `http://localhost:50030`. Her yenileme tarayıcı "yerel ileticisi tarafından devralındığında karşılık gelen bir aralık veri eşlik metin hello world" oluşturur.
 
-4. Onaylamak için **yerel ileticisi** izlemeleri denetimi çekme `LocalForwarder.config` dosya. Adımları izlediyseniz [önkoşul](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), içinde almayacaktır `C:\LF-WindowsServiceHost`.
+4. Onaylamak için **yerel ileticisi** izlemeleri denetimi çekme `LocalForwarder.config` dosya. Adımları izlediyseniz [önkoşul](https://docs.microsoft.com/azure/application-insights/local-forwarder), içinde almayacaktır `C:\LF-WindowsServiceHost`.
 
     Günlük dosyasının içinde görüntü bir verici burada ekledik, ikinci komut çalıştırılmadan önce gördüğünüz gibi `OpenCensus input BatchesReceived` 0. Güncelleştirilmiş betiği çalıştıran başladıktan sonra `BatchesReceived` girdiğimiz değerlerinin sayısı artan eşit:
     

@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 48dfa3180f040af3e8298d418cf71c537477ba5a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3a868eb98121ff2e2a30657e301afba7b8618361
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956968"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728489"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API Management, Event Hubs ve Runscope ile Apı'lerinizi izleme
 [API Management hizmeti](api-management-key-concepts.md) HTTP API'nize gönderilen HTTP isteklerinin işlenmesini geliştirmek için çok sayıda özellik sağlar. Ancak istek ve yanıtların varlığını geçici olabilir. İstek yapıldığında ve arka uç API'niz için API Management hizmeti aracılığıyla akar. API isteği işler ve API tüketiciye yanıt geriye doğru akar. API Management hizmeti görüntülemek için API'ler ile ilgili bazı önemli istatistikleri Azure portal panosunda ancak ötesine ayrıntılarını kaldırılmıştır, tutar.
 
-API Management hizmetinde günlük eventhub İlkesi kullanarak istek ve yanıt olarak herhangi bir ayrıntıyı gönderebilirsiniz bir [Azure olay hub'ı](../event-hubs/event-hubs-what-is-event-hubs.md). Çeşitli nedenlerle Apı'leriniz için gönderilen HTTP iletileri olayları oluşturmak isteyebilirsiniz neden vardır. Denetim izi'ni güncelleştirmeleri, kullanım analizi, özel durum uyarı ve üçüncü taraf entegrasyonlara buna örnek verilebilir.   
+API Management hizmetinde günlük eventhub İlkesi kullanarak istek ve yanıt olarak herhangi bir ayrıntıyı gönderebilirsiniz bir [Azure olay hub'ı](../event-hubs/event-hubs-what-is-event-hubs.md). Çeşitli nedenlerle Apı'leriniz için gönderilen HTTP iletileri olayları oluşturmak isteyebilirsiniz neden vardır. Denetim izi'ni güncelleştirmeleri, kullanım analizi, özel durum uyarı ve üçüncü taraf entegrasyonlara buna örnek verilebilir.
 
 Bu makalede, tüm HTTP istek ve yanıt iletisi yakalama, olay Hub'ına gönderir ve sonra bu iletiyi HTTP günlüğe kaydetme ve izleme hizmetleri sağlayan bir üçüncü taraf hizmetine geçiş gösterilmektedir.
 
@@ -36,14 +36,14 @@ Günlük kaydı altyapısı ile tümleştirmek için Azure API Management hizmet
 ## <a name="why-send-to-an-azure-event-hub"></a>Neden Azure olay Hub'ına gönderilsin mi?
 Bu sorun, neden Azure Event Hubs için özel bir ilke oluşturmak makul mi? Burada isteklerim oturum isteyebilirsiniz birçok farklı yer vardır. Neden yalnızca istekleri doğrudan son hedefe gönderilsin mi?  Bir seçenektir. Ancak, bir API management hizmeti günlük kaydı istekleri yaparken, günlük iletilerini API performansı nasıl etkiler dikkate alınması gereken gereklidir. Yük aşamalı bir artış sistem bileşenleri kullanılabilir örneklerini artırarak veya coğrafi çoğaltma yararlanarak işlenebilir. Ancak, kısa ani trafik günlüğü altyapı isteklerine yük altındayken yavaş başlatırsanız Gecikmeli isteklerine neden olabilir.
 
-Azure Event Hubs, çoğu API işlemi sayısı, HTTP istekleri daha olayların çok daha yüksek bir sayı ile ilgilenen kapasite ile giriş muazzam miktarlarda veri için tasarlanmıştır. Olay hub'ı, bir API Yönetimi hizmetiniz ve depolar ve iletileri işleyen altyapınız arasında karmaşık arabellek olarak görev yapar. Bu API performansınızı nedeniyle günlük altyapısı görmeyecektir sağlar.  
+Azure Event Hubs, çoğu API işlemi sayısı, HTTP istekleri daha olayların çok daha yüksek bir sayı ile ilgilenen kapasite ile giriş muazzam miktarlarda veri için tasarlanmıştır. Olay hub'ı, bir API Yönetimi hizmetiniz ve depolar ve iletileri işleyen altyapınız arasında karmaşık arabellek olarak görev yapar. Bu API performansınızı nedeniyle günlük altyapısı görmeyecektir sağlar.
 
-Olay Hub'ına veri üzere geçtikten sonra kalıcı hale getirilir ve işlem sırasında olay hub'ı Tüketiciler için bekler. Olay hub'ı nasıl işleneceğini ilgilenmez, yalnızca ileti başarıyla teslim emin olma hakkında önemser.     
+Olay Hub'ına veri üzere geçtikten sonra kalıcı hale getirilir ve işlem sırasında olay hub'ı Tüketiciler için bekler. Olay hub'ı nasıl işleneceğini ilgilenmez, yalnızca ileti başarıyla teslim emin olma hakkında önemser.
 
 Event Hubs olay akışı için birden fazla tüketici grupları için özelliğine sahiptir. Bu, farklı sistemleri tarafından işlenmesi olayları sağlar. Bu, yalnızca bir olay oluşturulması gereken şekilde ek gecikmelere API Management hizmetinde API isteğinin işlenmesi koyarak olmadan birçok tümleştirme senaryolarına destek sağlar.
 
 ## <a name="a-policy-to-send-applicationhttp-messages"></a>Uygulama/http ileti göndermek için bir ilke
-Bir olay hub'ı olay verilerinde basit bir dize olarak kabul eder. Bu dizenin içeriği en fazla olursunuz. Bir HTTP isteği paketini ve Event Hubs'a gönderme için biçim dizesine istek veya yanıtı bilgilerle ihtiyacımız var. Bu gibi durumlarda bir varolan biçimi ise yeniden kullanabilir ve ardından biz kendi kod ayrıştırmayı yazılacak olmayabilir. Başlangıçta miyim kullanarak kabul [HAR](http://www.softwareishard.com/blog/har-12-spec/) HTTP istekleri ve yanıtları göndermek için. Ancak, bu biçim, bir dizi HTTP isteklerini JSON tabanlı bir biçimde depolamak için optimize edilmiştir. Bu gereksiz karmaşıklık, kablo üzerinden HTTP ileti geçirme senaryosu için eklenen zorunlu öğeleri bir dizi içeriyor.  
+Bir olay hub'ı olay verilerinde basit bir dize olarak kabul eder. Bu dizenin içeriği en fazla olursunuz. Bir HTTP isteği paketini ve Event Hubs'a gönderme için biçim dizesine istek veya yanıtı bilgilerle ihtiyacımız var. Bu gibi durumlarda bir varolan biçimi ise yeniden kullanabilir ve ardından biz kendi kod ayrıştırmayı yazılacak olmayabilir. Başlangıçta miyim kullanarak kabul [HAR](http://www.softwareishard.com/blog/har-12-spec/) HTTP istekleri ve yanıtları göndermek için. Ancak, bu biçim, bir dizi HTTP isteklerini JSON tabanlı bir biçimde depolamak için optimize edilmiştir. Bu gereksiz karmaşıklık, kablo üzerinden HTTP ileti geçirme senaryosu için eklenen zorunlu öğeleri bir dizi içeriyor.
 
 Alternatif bir seçenek kullanılmasıydır `application/http` medya türü HTTP Belirtimi'nde açıklanan [RFC 7230](https://tools.ietf.org/html/rfc7230). Bu ortam türünü gerçekten kablo üzerinden HTTP iletileri göndermek için kullanılan tam aynı biçimi kullanır, ancak tüm ileti başka bir HTTP istek gövdesinde put olabilir. Bu örnekte, yalnızca gövdesi bizim iletisi olarak Event Hubs'a göndermek için kullanılacak kullanacağız. Rahat, var olan bir ayrıştırıcı yoktur [Microsoft ASP.NET Web API 2.2 istemci](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) Bu biçim ayrıştırabilir ve yerel dönüştürmek kitaplıkları `HttpRequestMessage` ve `HttpResponseMessage` nesneleri.
 
@@ -76,16 +76,16 @@ Bu ileti oluşturabilmek için C# temel avantajlarından yararlanmak ihtiyacım�
 ```
 
 ### <a name="policy-declaration"></a>İlke bildirimi
-Var. Bu ilke ifadesi hakkında bahseden değer birkaç özel nokta. Günlük eventhub ilkesinin, API Management hizmetinde oluşturulan bir Günlükçü adına başvuran Günlükçü-id adlı bir öznitelik vardır. API Management hizmetinde bir olay hub'ı Günlükçü kurma ayrıntılarını belgede bulunabilir [olayları Azure Event Hubs, Azure API Yönetimi'nde oturum nasıl](api-management-howto-log-event-hubs.md). İkinci öznitelik iletide depolamak için bölüm Event Hubs yönlendiren isteğe bağlı bir parametredir. Event Hubs bölümleri ölçeklenebilirlik etkinleştirmek ve en az iki gerektiren için kullanır. İletilerin sıralı teslim yalnızca bir bölüm içinde garanti edilir. Biz olay Hub'ında ileti yerleştirmek için hangi bölümünün isteyin değil, yükü dağıtmak için hepsini bir kez deneme algoritması kullanır. Ancak, bazı sıralamaya işlenecek bizim iletileri neden olabilir.  
+Var. Bu ilke ifadesi hakkında bahseden değer birkaç özel nokta. Günlük eventhub ilkesinin, API Management hizmetinde oluşturulan bir Günlükçü adına başvuran Günlükçü-id adlı bir öznitelik vardır. API Management hizmetinde bir olay hub'ı Günlükçü kurma ayrıntılarını belgede bulunabilir [olayları Azure Event Hubs, Azure API Yönetimi'nde oturum nasıl](api-management-howto-log-event-hubs.md). İkinci öznitelik iletide depolamak için bölüm Event Hubs yönlendiren isteğe bağlı bir parametredir. Event Hubs bölümleri ölçeklenebilirlik etkinleştirmek ve en az iki gerektiren için kullanır. İletilerin sıralı teslim yalnızca bir bölüm içinde garanti edilir. Biz olay Hub'ında ileti yerleştirmek için hangi bölümünün isteyin değil, yükü dağıtmak için hepsini bir kez deneme algoritması kullanır. Ancak, bazı sıralamaya işlenecek bizim iletileri neden olabilir.
 
 ### <a name="partitions"></a>Bölümler
 Bizim ileti tüketiciler sırayla teslim edilir ve bölüm yükü dağıtım özellikten faydalanmak sağlamak için HTTP isteği iletilerini bir bölüm ve HTTP yanıt iletilerini ikinci bir bölüme göndermek seçtim. Tüm istekleri sırayla tüketilir ve tüm yanıtları sırayla tüketilir ediyoruz ve bu bir bile yük dağıtımı sağlar. Yanıt karşılık gelen bir istekten önce kullanılması mümkündür, ancak sahip olduğumuz gibi bir sorun olmadığından ilişkilendirmek için farklı bir mekanizma isteklerini yanıtlar ve istekleri her zaman önce yanıtları geldiğini biliyoruz.
 
 ### <a name="http-payloads"></a>HTTP yükler
-Yapı sonra `requestLine`, biz istek gövdesi kesilmiş olmadığını denetleyin. İstek gövdesi için yalnızca 1024 kesilir. Tek bir olay hub'ına ileti 256 KB ile sınırlı ancak bu, artırılacak biçimde HTTP ileti tek bir iletiye sığmayacak yok edecek gövdeleri emin olma olasılığı yüksektir. Günlüğe kaydetme ve analiz yaparken yalnızca HTTP isteği çizgi ve üst bilgi önemli miktarda türetilebilir. Ayrıca, çok sayıda API istek yalnızca dönüş küçük gövdeleri ve bu nedenle büyük gövdeleri kesiliyor tarafından bilgi değer kaybı aktarımı, işleme ve depolama maliyetlerini tüm gövde içeriği tutmak azalma kıyasla oldukça az. Gövdesinin işlenmesi hakkında son bir not olduğunu geçirilecek ihtiyacımız `true` AS<string>() yönteminin biz gövde içeriğini okuma ancak nedeni de arka uç API gövdesini okumak için istiyordu. Geçirerek bu yöntem için true, biz ikinci kez okuyabilmesini arabelleğe alınan gövdesi neden. Bu, daha büyük dosyaları karşıya yükleme veya uzun yoklama kullanan bir API'niz varsa bilmeniz önemlidir. Bu durumda, gövdesi hiç okuma önlemek en iyi olacaktır.   
+Yapı sonra `requestLine`, biz istek gövdesi kesilmiş olmadığını denetleyin. İstek gövdesi için yalnızca 1024 kesilir. Tek bir olay hub'ına ileti 256 KB ile sınırlı ancak bu, artırılacak biçimde HTTP ileti tek bir iletiye sığmayacak yok edecek gövdeleri emin olma olasılığı yüksektir. Günlüğe kaydetme ve analiz yaparken yalnızca HTTP isteği çizgi ve üst bilgi önemli miktarda türetilebilir. Ayrıca, çok sayıda API istek yalnızca dönüş küçük gövdeleri ve bu nedenle büyük gövdeleri kesiliyor tarafından bilgi değer kaybı aktarımı, işleme ve depolama maliyetlerini tüm gövde içeriği tutmak azalma kıyasla oldukça az. Gövdesinin işlenmesi hakkında son bir not olduğunu geçirilecek ihtiyacımız `true` için `As<string>()` yöntemi çünkü biz gövde içeriğini okuma ancak olsa da arka uç API gövdesini okumak için istiyordu. Geçirerek bu yöntem için true, biz ikinci kez okuyabilmesini arabelleğe alınan gövdesi neden. Bu, daha büyük dosyaları karşıya yükleme veya uzun yoklama kullanan bir API'niz varsa bilmeniz önemlidir. Bu durumda, gövdesi hiç okuma önlemek en iyi olacaktır.
 
 ### <a name="http-headers"></a>HTTP üstbilgileri
-HTTP üstbilgileri üzerinden basit bir anahtar/değer çifti biçimi iletisi biçiminde içine aktarılabilir. Gereksiz yere kimlik bilgilerini sızdırılmasını önlemek için belirli güvenlik duyarlı alanları, Şerit seçtik. API anahtarları ve diğer kimlik bilgileri analiz amacıyla kullanılacak düşüktür. Kullanıcı ve kullanıyordur belirli ürün analizlerini istediğimiz sonra aldığımız `context` nesne ve bu iletiye ekleyin.     
+HTTP üstbilgileri üzerinden basit bir anahtar/değer çifti biçimi iletisi biçiminde içine aktarılabilir. Gereksiz yere kimlik bilgilerini sızdırılmasını önlemek için belirli güvenlik duyarlı alanları, Şerit seçtik. API anahtarları ve diğer kimlik bilgileri analiz amacıyla kullanılacak düşüktür. Kullanıcı ve kullanıyordur belirli ürün analizlerini istediğimiz sonra aldığımız `context` nesne ve bu iletiye ekleyin.
 
 ### <a name="message-metadata"></a>İleti meta verileri
 Olay hub'ına gönderilecek iletinin tamamını oluştururken, ilk satırı değil gerçekten parçası `application/http` ileti. İlk satır, iletinin bir istek veya yanıt iletisi ve yanıtlarını ilişkilendirmek için kullanılan kimliği, istekleri bir ileti olup oluşan ek meta verilerdir. İleti kimliği, şuna benzer başka bir ilke kullanılarak oluşturulur:
@@ -156,13 +156,13 @@ HTTP yanıt iletisi göndermek için ilke isteği benzer ve bu nedenle tam bir i
 </policies>
 ```
 
-`set-variable` İlkesi tarafından erişilebilir olan bir değer oluşturur `log-to-eventhub` ilkesinde `<inbound>` bölümü ve `<outbound>` bölümü.  
+`set-variable` İlkesi tarafından erişilebilir olan bir değer oluşturur `log-to-eventhub` ilkesinde `<inbound>` bölümü ve `<outbound>` bölümü.
 
 ## <a name="receiving-events-from-event-hubs"></a>Event Hubs'a ait alma olaylarını
-Olayları Azure Event Hub'ından alınan kullanarak [AMQP protokolünü](https://www.amqp.org/). Microsoft Service Bus ekibine istemci kitaplıklarını kullanan olaylar kolaylaştırmak kullanılabilir yapıldı. Desteklenen iki farklı yaklaşım, bir okunuyor bir *doğrudan tüketici* ve diğer kullanarak `EventProcessorHost` sınıfı. Bu iki yaklaşımı örnekler bulunabilir [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md). Kısa farklar sürümüdür, `Direct Consumer` tam denetim verir ve `EventProcessorHost` , ancak bu olayları işleminin nasıl hakkında bazı varsayımlarda bulunur tesisat işinin bir kısmını desteklemez.  
+Olayları Azure Event Hub'ından alınan kullanarak [AMQP protokolünü](https://www.amqp.org/). Microsoft Service Bus ekibine istemci kitaplıklarını kullanan olaylar kolaylaştırmak kullanılabilir yapıldı. Desteklenen iki farklı yaklaşım, bir okunuyor bir *doğrudan tüketici* ve diğer kullanarak `EventProcessorHost` sınıfı. Bu iki yaklaşımı örnekler bulunabilir [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md). Kısa farklar sürümüdür, `Direct Consumer` tam denetim verir ve `EventProcessorHost` , ancak bu olayları işleminin nasıl hakkında bazı varsayımlarda bulunur tesisat işinin bir kısmını desteklemez.
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-Bu örnekte, kullandığımız `EventProcessorHost` kolaylık sağlamak için ancak bunu olabilir bu belirli senaryo yok en iyi seçim. `EventProcessorHost` iş parçacığı oluşturma sorunları belirli olay işlemcisi sınıfı içinde hakkında endişelenmek zorunda olmadığınız emin olmak zor işi yapar. Ancak, senaryomuzdaki ise biz yalnızca ileti başka bir biçime dönüştürme ve zaman uyumsuz bir yöntem kullanarak başka bir hizmete boyunca iletmeden. Paylaşılan durum ve bu nedenle iş parçacığı oluşturma sorunları, risk güncelleştirme gerek yoktur. Çoğu senaryo için `EventProcessorHost` kesinlikle kolay seçenek olduğunu ve büyük olasılıkla en iyi seçenektir.     
+Bu örnekte, kullandığımız `EventProcessorHost` kolaylık sağlamak için ancak bunu olabilir bu belirli senaryo yok en iyi seçim. `EventProcessorHost` iş parçacığı oluşturma sorunları belirli olay işlemcisi sınıfı içinde hakkında endişelenmek zorunda olmadığınız emin olmak zor işi yapar. Ancak, senaryomuzdaki ise biz yalnızca ileti başka bir biçime dönüştürme ve zaman uyumsuz bir yöntem kullanarak başka bir hizmete boyunca iletmeden. Paylaşılan durum ve bu nedenle iş parçacığı oluşturma sorunları, risk güncelleştirme gerek yoktur. Çoğu senaryo için `EventProcessorHost` kesinlikle kolay seçenek olduğunu ve büyük olasılıkla en iyi seçenektir.
 
 ### <a name="ieventprocessor"></a>Ieventprocessor
 Kullanırken yönetim kavramı `EventProcessorHost` uygulaması oluşturmaktır `IEventProcessor` yöntemi içeren arabirimi `ProcessEventAsync`. Bu yöntem özünü aşağıda gösterilmiştir:
@@ -171,20 +171,20 @@ Kullanırken yönetim kavramı `EventProcessorHost` uygulaması oluşturmaktır 
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
-   foreach (EventData eventData in messages)
-   {
-       _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
+    foreach (EventData eventData in messages)
+    {
+        _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
 
-       try
-       {
-           var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
-           await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
-       }
-       catch (Exception ex)
-       {
-           _Logger.LogError(ex.Message);
-       }
-   }
+        try
+        {
+            var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
+            await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
+        }
+        catch (Exception ex)
+        {
+            _Logger.LogError(ex.Message);
+        }
+    }
     ... checkpointing code snipped ...
 }
 ```
@@ -197,10 +197,10 @@ EventData nesnelerin bir listesini, yönteme geçirilir ve biz bu liste üzerind
 ```csharp
 public class HttpMessage
 {
-   public Guid MessageId { get; set; }
-   public bool IsRequest { get; set; }
-   public HttpRequestMessage HttpRequestMessage { get; set; }
-   public HttpResponseMessage HttpResponseMessage { get; set; }
+    public Guid MessageId { get; set; }
+    public bool IsRequest { get; set; }
+    public HttpRequestMessage HttpRequestMessage { get; set; }
+    public HttpResponseMessage HttpResponseMessage { get; set; }
 
 ... parsing code snipped ...
 
@@ -220,43 +220,43 @@ Bu örnek için ı olacağını için üzerinden HTTP isteği göndermek ilginç
 ```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
-   private HttpClient _HttpClient;
-   private ILogger _Logger;
-   private string _BucketKey;
-   public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
-   {
-       _HttpClient = httpClient;
-       var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
-       _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
-       _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
-       _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
-       _Logger = logger;
-   }
+    private HttpClient _HttpClient;
+    private ILogger _Logger;
+    private string _BucketKey;
+    public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
+    {
+        _HttpClient = httpClient;
+        var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
+        _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
+        _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
+        _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
+        _Logger = logger;
+    }
 
-   public async Task ProcessHttpMessage(HttpMessage message)
-   {
-       var runscopeMessage = new RunscopeMessage()
-       {
-           UniqueIdentifier = message.MessageId
-       };
+    public async Task ProcessHttpMessage(HttpMessage message)
+    {
+        var runscopeMessage = new RunscopeMessage()
+        {
+            UniqueIdentifier = message.MessageId
+        };
 
-       if (message.IsRequest)
-       {
-           _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
-           runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
-       }
-       else
-       {
-           _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
-           runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
-       }
+        if (message.IsRequest)
+        {
+            _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
+            runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
+        }
+        else
+        {
+            _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
+            runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
+        }
 
-       var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
-       messagesLink.BucketKey = _BucketKey;
-       messagesLink.RunscopeMessage = runscopeMessage;
-       var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-       _Logger.LogDebug("Request sent to Runscope");
-   }
+        var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
+        messagesLink.BucketKey = _BucketKey;
+        messagesLink.RunscopeMessage = runscopeMessage;
+        var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
+        _Logger.LogDebug("Request sent to Runscope");
+    }
 }
 ```
 

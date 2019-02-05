@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2beb5aa7218df25a1af87411d9481d30b259c353
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6fca764c191c801cbca86c573339b397e61ead07
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256738"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700239"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 
@@ -290,7 +290,7 @@ Log Analytics yönetim çözümü eklemek için aşağıdaki adımları izleyin:
 
 ### <a name="offers-and-pricing-tiers"></a>Teklifleri ve fiyatlandırma katmanları
 
-Teklifleri ve fiyatlandırma katmanları yönetimi çözümleri için gördüğünüz [burada](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Teklifleri ve fiyatlandırma katmanları yönetimi çözümleri için gördüğünüz [burada](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
 
 ### <a name="customizing-views"></a>Görünümlerini özelleştirme
 
@@ -442,7 +442,7 @@ Burada *zaman* istatistikleri raporlanır kendisi için saatlik sınırın başl
 * [Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Azure CDN ek portal aracılığıyla temel analiz](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
 * [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST API'si](https://docs.microsoft.com/rest/api/loganalytics)
+* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

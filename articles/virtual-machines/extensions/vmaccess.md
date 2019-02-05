@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413847"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731317"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Yönetici kullanıcılar, SSH ve onay yönetmek veya VMAccess uzantısı ile Azure CLI kullanarak Linux vm'lerinde diskler onarın
 ## <a name="overview"></a>Genel Bakış
@@ -110,7 +110,7 @@ az vm user delete \
 ```
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>JSON dosyaları ve VMAccess uzantısını kullanma
-Aşağıdaki örnekler, ham JSON dosyalarını kullanın. Kullanım [az vm uzantısı kümesi](/cli/azure/vm/extension#az_vm_extension_set) JSON dosyalarınızı ardından çağırmak için. Bu JSON dosyaları Azure şablonlarını da çağrılabilir. 
+Aşağıdaki örnekler, ham JSON dosyalarını kullanın. Kullanım [az vm uzantısı kümesi](/cli/azure/vm/extension) JSON dosyalarınızı ardından çağırmak için. Bu JSON dosyaları Azure şablonlarını da çağrılabilir. 
 
 ### <a name="reset-user-access"></a>Kullanıcı erişimi sıfırlama
 Linux sanal makinenizde kök dizinine erişim kaybettiyseniz, bir kullanıcının SSH anahtarını veya parolasını güncelleştirmek için VMAccess betik başlatabilirsiniz.

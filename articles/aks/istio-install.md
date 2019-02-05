@@ -1,18 +1,18 @@
 ---
 title: Azure Kubernetes Service'i (AKS) Istio yükleyin
-description: ISE Istio bir hizmet oluşturmak için Kafes bir Azure Kubernetes Service (AKS) kümesi içinde ve yükleme hakkında bilgi edinin
+description: Bir Azure Kubernetes Service (AKS) kümesi içinde bir hizmet kafes oluşturmak için Istio yükleyip kullanmayı öğrenin
 services: container-service
 author: paulbouwer
 ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: ecabb139b79494e8a62687a5634d9865d578c5c6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f34d8c547738921374eaf5edcfcec4911423d9dc
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104495"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699220"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Yükleme ve Istio Azure Kubernetes Service (AKS) kullanma
 
@@ -98,7 +98,7 @@ Komut satırı tamamlanmasını Istio isterseniz `istioctl` istemci ikili, ardı
 
 ```bash
 # Generate the bash completion file and source it in your current shell
-istioctl collateral --bash -o ~/completions
+mkdir -p ~/completions && istioctl collateral --bash -o ~/completions
 source ~/completions/istioctl.bash
 
 # Source the bash completion file in your .bashrc so that the command-line completions
@@ -122,7 +122,7 @@ Komut satırı tamamlanmasını Istio isterseniz `istioctl` istemci ikili, ardı
 
 ```bash
 # Generate the bash completion file and source it in your current shell
-istioctl collateral --bash -o ~/completions
+mkdir -p ~/completions && istioctl collateral --bash -o ~/completions
 source ~/completions/istioctl.bash
 
 # Source the bash completion file in your .bashrc so that the command-line completions

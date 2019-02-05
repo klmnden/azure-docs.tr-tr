@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c5d4b9e63f96f5bd96060edc3c4e4ea56f35d798
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0789f113a68d98ff0d70fd3e9b3c8528122c2fc2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666382"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729177"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central-new-ui-design"></a>Öğretici: Kurallar ve Eylemler için Cihazınızı Azure IOT Central (yeni kullanıcı Arabirimi tasarımı) yapılandırma
 
@@ -104,7 +104,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Eşik tabanlı bir kural tanımladığınıza göre önerilen sonraki adım olarak [işlecin görünümlerini özelleştirme](tutorial-customize-operator-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 Azure IoT Central’daki farklı kural türleri ve kural tanımının nasıl parametre haline getirileceği hakkında daha fazla bilgi için bkz.:
-* [Bir telemetri kuralı oluşturun ve bildirimleri ayarlayın](howto-create-telemetry-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
-* [Bir olay kuralı oluşturun ve bildirimleri ayarlayın](howto-create-event-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+* [Bir telemetri kuralı oluşturun ve bildirimleri ayarlayın](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+* [Bir olay kuralı oluşturun ve bildirimleri ayarlayın](howto-create-event-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 <!-- Next tutorials in the sequence -->

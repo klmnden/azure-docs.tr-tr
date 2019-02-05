@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: e7cf7518a20f1901e3347350f090c9a8588a7a7c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422924"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699695"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Azure'da bir web rolünde Twilio kullanarak telefon görüşmesi yapma
 Bu kılavuz, Azure'da barındırılan bir web sayfasından çağrı yapmak için Twilio kullanma gösterilmektedir. Aşağıdaki ekran görüntüsünde gösterildiği gibi sonuç uygulamayı verilen sayının ve ileti ile arama yapmak için kullanıcıya sorar.
@@ -34,7 +34,7 @@ Bu konudaki kodu kullanmak için aşağıdakileri yapmanız gerekir:
 
 Temel oluşturma konusunda bilgi sahibi olmanız gerekir [Azure Web rolünde][azure_webroles_get_started].
 
-## <a name="howtocreateform"></a>Nasıl yapılır: arama yapmak için web formu oluşturma
+## <a name="howtocreateform"></a>Nasıl Yapılır: Arama yapmak için web formu oluşturma
 <a id="use_nuget"></a>Twilio kitaplıkları web rolü projenize eklemek için:
 
 1. Çözümünüzü Visual Studio'da açın.
@@ -70,7 +70,7 @@ Aşağıdaki kod, arama yapmak için kullanıcı verilerini almak için bir web 
 </asp:Content>
 ```
 
-## <a id="howtocreatecode"></a>Nasıl yapılır: çağrı yapmak için kod oluşturun
+## <a id="howtocreatecode"></a>Nasıl Yapılır: Çağrı yapmak için kod oluşturun
 Kullanıcı formu tamamladığında çağrılır, aşağıdaki kod, çağrı ileti oluşturur ve çağrı oluşturur. Bu örnekte, form üzerinde düğmesinin tıklatıldığında olay işleyicisi kod çalıştırılır. (Kullanım Twilio hesabınız ve kimlik doğrulama belirteci atanmış yer tutucu değerlerini yerine `accountSID` ve `authToken` aşağıdaki kodda.)
 
 ```csharp
@@ -96,7 +96,7 @@ namespace WebRole1
 
         protected void callpage_Click(object sender, EventArgs e)
         {
-            // Call porcessing happens here.
+            // Call processing happens here.
 
             // Use your account SID and authentication token instead of
             // the placeholders shown here.

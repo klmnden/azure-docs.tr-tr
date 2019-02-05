@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6362b243bff91233c3cd08f26904866dd7be9ebd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9610256ac68b6c1be12ca22220e317752c068b85
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248886"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730842"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure'da dağıtma Windows sanal makine sorunlarını giderme
 
@@ -87,7 +87,7 @@ Aylık kredinizi etkinleştirmek için bu bkz [makale](https://azure.microsoft.c
 
 ## <a name="how-to-add-enterprise-devtest-to-my-enterprise-agreement-ea-to-get-access-to-window-client-images"></a>Kurumsal geliştirme ve Test için kendi Kurumsal Sözleşme (penceresi istemci görüntülerine erişim elde etmek için EA) ekleme?
 
-Bir kurumsal yönetici tarafından Bunu yapmak için izni verilen hesap sahipleri, Kurumsal geliştirme ve Test teklifine dayalı abonelik oluşturma olanağı sınırlıdır. Hesap sahibi Azure hesap Portalı aracılığıyla abonelik oluşturur ve sonra etkin Visual Studio aboneleri ortak Yöneticiler olarak eklemesi gerekir. Yönetme ve geliştirme ve test işlemlerinin gerektirdiği kaynakların böylece. Daha fazla bilgi için [Kurumsal geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
+Yalnızca, Kurumsal Yönetici tarafından Kurumsal Geliştirme ve Test teklifi kapsamında abonelik oluşturma izni verilen Hesap Sahipleri bu işlemi yapabilir. Hesap sahibi Azure hesap Portalı aracılığıyla abonelik oluşturur ve sonra etkin Visual Studio aboneleri ortak Yöneticiler olarak eklemesi gerekir. Yönetme ve geliştirme ve test işlemlerinin gerektirdiği kaynakların böylece. Daha fazla bilgi için [Kurumsal geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ## <a name="my-drivers-are-missing-for-my-windows-n-series-vm"></a>My sürücüleri Windows N serisi sanal Makinem için eksik
 
@@ -124,7 +124,7 @@ Kullanılabilirlik kümesinin kümesinde desteklenen bir boyut seçin. Bir kulla
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Bir kullanılabilirlik kümesine mevcut bir Klasik VM'yi ekleyebilir miyim?
 
-Evet. Var olan bir Klasik VM'yi bir yeni veya mevcut kullanılabilirlik kümesine ekleyebilirsiniz. Daha fazla bilgi için [mevcut bir sanal makine bir kullanılabilirlik kümesine ekleme](../windows/classic/configure-availability-classic.md#addmachine).
+Evet. Var olan bir Klasik VM'yi bir yeni veya mevcut kullanılabilirlik kümesine ekleyebilirsiniz. Daha fazla bilgi için [mevcut bir sanal makine bir kullanılabilirlik kümesine ekleme](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

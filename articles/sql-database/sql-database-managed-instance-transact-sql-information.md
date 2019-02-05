@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları | Microsoft Docs
-description: Bu makalede Azure SQL veritabanı yönetilen örneği SQL Server arasındaki T-SQL farklılıkları açıklar.
+description: Bu makalede SQL Server arasındaki bir Azure SQL veritabanı yönetilen örneğinde T-SQL farklılıkları açıklar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 01/31/2019
-ms.openlocfilehash: 3fa0977a8239a3d0db1aea99d39a2079945b724a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/04/2019
+ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567732"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734615"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Yönetilen örnek T-SQL farklılıkları, SQL Server'dan Azure SQL veritabanı
 
-Azure SQL veritabanı yönetilen örneği, şirket içi SQL Server veritabanı altyapısı ile yüksek uyumluluk sağlar. SQL Server veritabanı altyapısı özelliklerin çoğu, yönetilen örneği'nde desteklenir.
+Yönetilen örnek dağıtım seçeneği, şirket içi SQL Server veritabanı altyapısı ile yüksek uyumluluk sağlar. SQL Server veritabanı altyapısı özellikleri çoğunu bir yönetilen örneğinde desteklenmiyor.
 
 ![Geçiş](./media/sql-database-managed-instance/migration.png)
 
@@ -30,7 +30,7 @@ Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makal
 - [Güvenlik](#security) farklılıkları dahil olmak üzere [denetim](#auditing), [sertifikaları](#certificates), [kimlik bilgilerini](#credentials), [şifreleme sağlayıcıları](#cryptographic-providers), [Oturumları / kullanıcılar](#logins--users), [hizmet anahtarı ve hizmet ana anahtarını](#service-key-and-service-master-key),
 - [Yapılandırma](#configuration) farklılıkları dahil olmak üzere [arabellek havuzu uzantısı](#buffer-pool-extension), [harmanlama](#collation), [Uyumluluk Düzeyleri](#compatibility-levels),[veritabanı Yansıtma](#database-mirroring), [veritabanı seçenekleri](#database-options), [SQL Server Agent](#sql-server-agent), [Tablo Seçenekleri](#tables),
 - [İşlevler](#functionalities) dahil olmak üzere [toplu ekleme/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [dağıtılmış işlemler](#distributed-transactions), [ Genişletilmiş olaylar](#extended-events), [dış kitaplıkları](#external-libraries), [Filestream ve Filetable](#filestream-and-filetable), [anlam tam metin araması](#full-text-semantic-search), [bağlı sunucuları](#linked-servers), [Polybase](#polybase), [çoğaltma](#replication), [geri](#restore-statement), [hizmet Aracısı](#service-broker), [ Saklı yordamlar, İşlevler ve tetikleyiciler](#stored-procedures-functions-triggers),
-- [Yönetilen örneği'nde farklı davranışa sahip özellikleri](#Changes)
+- [Farklı bir davranış, yönetilen örneğiniz özellikleri](#Changes)
 - [Geçici sınırlamalar ve bilinen sorunlar](#Issues)
 
 ## <a name="availability"></a>Kullanılabilirlik
@@ -47,9 +47,9 @@ Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makal
 
 ### <a name="backup"></a>Backup
 
-Yönetilen örnek, otomatik yedeklemeler sahiptir ve kullanıcıların tam veritabanı oluşturmasına olanak tanır `COPY_ONLY` yedekler. Fark, günlük ve dosya anlık görüntüsü yedekleri desteklenmez.
+Otomatik yedeklemeler ve kullanıcıların tam bir veritabanı oluşturmak için yönetilen örneğe sahip `COPY_ONLY` yedekler. Fark, günlük ve dosya anlık görüntüsü yedekleri desteklenmez.
 
-- Yönetilen örnek, bir Azure Blob Depolama hesabına yalnızca bir veritabanını yedekleyebilirsiniz:
+- Yönetilen örnek sayesinde, bir Azure Blob Depolama hesabına yalnızca bir örnek veritabanını yedekleyebilirsiniz:
   - Yalnızca `BACKUP TO URL` desteklenir
   - `FILE`, `TAPE`, ve yedekleme cihazları desteklenmez  
 - Çoğu genel `WITH` seçenek desteklenmez
@@ -60,7 +60,7 @@ Yönetilen örnek, otomatik yedeklemeler sahiptir ve kullanıcıların tam verit
 
 Sınırlamalar:  
 
-- Yönetilen örnek veritabanları için yeterli olan bir yedekleme 32 adede kadar diziler için bir veritabanını yedekleyebilirsiniz yedekleme sıkıştırma kullanılırsa, en fazla 4 TB.
+- Yönetilen örnek sayesinde, veritabanları için yeterli olan bir yedekleme 32 adede kadar diziler için bir örnek veritabanını yedekleyebilirsiniz yedekleme sıkıştırma kullanılırsa, en fazla 4 TB.
 - En yüksek yedek stripe boyutu 195 GB (en yüksek blob boyutu) ' dir. Tek tek stripe boyutunu küçültmek ve bu sınırın içinde kalmanızı için yedekleme komutta şeritler sayısını artırın.
 
 > [!TIP]
@@ -72,18 +72,18 @@ T-SQL kullanarak yedeklemeler hakkında daha fazla bilgi için bkz: [yedekleme](
 
 ### <a name="auditing"></a>Denetim
 
-SQL yönetilen örneği, Azure SQL veritabanı ve SQL Server şirket içi denetleme arasındaki temel farklılıklar şunlardır:
+Azure SQL veritabanı ve SQL Server'da veritabanlarını veritabanlarında denetimi arasındaki temel farklılıklar şunlardır:
 
-- Yönetilen örneği'nde sunucu düzeyinde ve depoları SQL denetim çalışır `.xel` dosyaları Azure blob depolama hesabı.  
-- Azure SQL veritabanı'nda SQL denetim veritabanı düzeyinde çalışır.
-- İçinde şirket içi SQL Server / sanal makine, SQL denetim için sunucu düzeyinde çalışır, ancak bu dosyaları sistem/windows olay günlüklerini olayları depolar.  
+- Azure SQL veritabanı yönetilen örnek dağıtım seçeneği ile works sunucu düzeyinde ve depoları denetim `.xel` günlük dosyalarını Azure blob depolama hesabı.
+- Tek veritabanı ve elastik havuz dağıtım seçeneklerinde Azure SQL veritabanı'nda çalışır ve veritabanı düzeyinde denetim.
+- Şirket içi SQL Server / sanal makineler, sunucuda denetim works düzey, ancak dosyaları sistem/windows olay günlüklerini olayları depolar.
   
-XEvent denetim yönetilen örneği'nde, Azure blob depolama hedeflerini destekler. Dosya ve windows günlükleri desteklenmez.
+XEvent yönetilen örneğinde denetimi, Azure blob depolama hedeflerini destekler. Dosya ve windows günlükleri desteklenmez.
 
 Anahtarının farklar içinde `CREATE AUDIT` denetleme için Azure blob depolama söz dizimi olan:
 
 - Yeni bir söz dizimi `TO URL` sağlanır ve Azure blob depolama kapsayıcısının URL'sini belirtmenize olanak tanıyan burada `.xel` dosyaları yerleştirilecek
-- Söz dizimi `TO FILE` yönetilen örneği, Windows dosya paylaşımları erişemediği için desteklenmiyor.
+- Söz dizimi `TO FILE` yönetilen örnek, Windows dosya paylaşımları erişemediği için desteklenmiyor.
 
 Daha fazla bilgi için bkz.  
 
@@ -93,7 +93,7 @@ Daha fazla bilgi için bkz.
 
 ### <a name="certificates"></a>Sertifikalar
 
-Yönetilen Örnek, Windows klasörlerindeki dosya paylaşımlarına erişemediğinden aşağıdaki kısıtlamalar geçerli olacaktır:
+Aşağıdaki kısıtlamalar uygulamak için bir yönetilen örnek, dosya paylaşımları ve Windows klasörleri erişilemiyor:
 
 - `CREATE FROM`/`BACKUP TO` dosya için sertifikalar desteklenmiyor
 - `CREATE`/`BACKUP` gelen sertifika `FILE` / `ASSEMBLY` desteklenmiyor. Özel anahtar dosyaları kullanılamaz.  
@@ -191,7 +191,7 @@ Daha fazla bilgi için [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/st
 
 Bazı dosya özelliklerini ayarlamak veya değiştirilemez:
 
-- Dosya yolu belirtilemez `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL deyimi. Kaldırma `FILENAME` yönetilen örnek için otomatik olarak komut dosyaları yerleştirir.  
+- Dosya yolu belirtilemez `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL deyimi. Kaldırma `FILENAME` komut dosyası için bir yönetilen örnek dosyalarını otomatik olarak yerleştirir.  
 - Dosya adı değiştirilemiyor kullanarak `ALTER DATABASE` deyimi.
 
 Aşağıdaki seçenekler, varsayılan olarak ayarlanır ve değiştirilemez:
@@ -228,7 +228,7 @@ Daha fazla bilgi için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/sta
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
-- SQL Aracısı ayarları salt okunur. Yordam `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor.  
+- SQL Aracısı ayarları salt okunur. Yordam `sp_set_agent_properties` yönetilen durumlarda desteklenmez.  
 - İşler
   - T-SQL iş adımları desteklenir.
   - Şu çoğaltma işleri desteklenir:
@@ -282,7 +282,7 @@ Dosyaları Azure blob depolama alanından içeri aktarılmalıdır şekilde yön
 
 ### <a name="clr"></a>CLR
 
-Yönetilen Örnek, Windows klasörlerindeki dosya paylaşımlarına erişemediğinden aşağıdaki kısıtlamalar geçerli olacaktır:
+Aşağıdaki kısıtlamalar uygulamak için bir yönetilen örnek, dosya paylaşımları ve Windows klasörleri erişilemiyor:
 
 - Yalnızca `CREATE ASSEMBLY FROM BINARY` desteklenir. Bkz: [ikili oluşturma DERLEMESİNDEN](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` desteklenmiyor. Bkz: [Oluştur derleme DOSYASINDAN](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
@@ -291,7 +291,7 @@ Yönetilen Örnek, Windows klasörlerindeki dosya paylaşımlarına erişemediğ
 
 ### <a name="dbcc"></a>DBCC
 
-SQL Server'da etkin belgelenmemiş DBCC deyimleri, yönetilen örneği'nde desteklenmez.
+SQL Server'da etkin belgelenmemiş DBCC deyimleri yönetilen durumlarda desteklenmez.
 
 - `Trace Flags` desteklenmez. Bkz: [izleme bayrakları](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - `DBCC TRACEOFF` desteklenmiyor. Bkz: [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
@@ -299,7 +299,7 @@ SQL Server'da etkin belgelenmemiş DBCC deyimleri, yönetilen örneği'nde deste
 
 ### <a name="distributed-transactions"></a>Dağıtılmış işlemler
 
-Hiçbiri MSDTC ya da [elastik işlemler](sql-database-elastic-transactions-overview.md) şu anda yönetilen örneği'nde desteklenir.
+Hiçbiri MSDTC ya da [elastik işlemler](sql-database-elastic-transactions-overview.md) yönetilen örnekleri şu anda desteklenmiyor.
 
 ### <a name="extended-events"></a>Genişletilmiş Olaylar
 
@@ -333,7 +333,7 @@ Daha fazla bilgi için [FILESTREAM](https://docs.microsoft.com/sql/relational-da
 
 ### <a name="linked-servers"></a>Bağlı sunucular
 
-Bağlı sunucuları yönetilen örneğinde hedefleri sınırlı sayıda destekler:
+Yönetilen örneğe bağlı sunucular hedefleri sınırlı sayıda destekler:
 
 - Desteklenen hedefleri: SQL Server ve SQL veritabanı
 - Hedefleri desteklenmez: dosya, Analysis Services ve diğer RDBMS.
@@ -351,7 +351,7 @@ Dış tablolar HDFS veya Azure blob depolamadaki dosyalara başvuru desteklenmez
 
 ### <a name="replication"></a>Çoğaltma
 
-Çoğaltma, yönetilen örnek'te genel önizlemesi için kullanılabilir. Çoğaltma hakkında daha fazla bilgi için bkz. [SQL Server çoğaltma](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Çoğaltma yönetilen örnekleri için genel Önizleme aşamasındadır. Çoğaltma hakkında daha fazla bilgi için bkz. [SQL Server çoğaltma](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### <a name="restore-statement"></a>GERİ bildirimi
 
@@ -420,11 +420,11 @@ Restore deyimleri hakkında daha fazla bilgi için bkz. [geri deyimleri](https:/
 
 Aşağıdaki değişkenler, İşlevler ve görünümleri farklı sonuçlar döndürebilir:
 
-- `SERVERPROPERTY('EngineEdition')` döndürür 8 değeri. Bu özellik, yönetilen örneğe benzersiz olarak tanımlar. Bkz: [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` SQL Server yönetilen örneğe uygulamak için örnek olarak bu kavramı var olduğundan, NULL döndürür. Bkz: [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('EngineEdition')` döndürür 8 değeri. Bu özellik, bir yönetilen örnek benzersiz olarak tanımlar. Bkz: [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` SQL Server bir yönetilen örneğe uygulamak için örnek olarak bu kavramı var olduğundan, NULL döndürür. Bkz: [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` döndürür tam DNS 'bağlanılabilirlik' adı, örneğin, yönetilen my instance.wcus17662feb9ce98.database.windows.net. Bkz: [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` -DNS 'bağlanılabilirlik' adı gibi tam döndürür `myinstance.domain.database.windows.net` Özellikleri 'name' ve 'data_source'. Bkz: [SYS. SUNUCULARI](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME` SQL Server yönetilen örneğe uygulamak için hizmet olarak kavramı var olduğundan, NULL döndürür. Bkz: [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `@@SERVICENAME` SQL Server bir yönetilen örneğe uygulamak için hizmet olarak kavramı var olduğundan, NULL döndürür. Bkz: [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` desteklenir. AAD oturum açma sys.syslogins içinde değilse NULL döndürür. Bkz: [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` desteklenmiyor. (Geçici bilinen sorun) veri yanlış döndürür. Bkz: [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
 - `GETDATE()` ve diğer yerleşik tarih/saat işlevleri her zaman UTC saat diliminde saati döndürür. Bkz: [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
@@ -437,14 +437,14 @@ Aşağıdaki değişkenler, İşlevler ve görünümleri farklı sonuçlar dönd
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Küçük veritabanı dosyalarıyla aşan depolama alanı
 
-Her yönetilen örneği 35 TB depolama alanı Azure Premium Disk alanı için ayrılmış olan ve her veritabanını ayrı bir fiziksel diskte yerleştirilir. Disk boyutları 128 GB, 256 GB, 512 GB, 1 TB veya 4 TB olabilir. Diskte kullanılmayan alan değil ücretlendirilir, ancak Azure Premium Disk boyutları toplam 35 TB aşamaz. Bazı durumlarda, yönetilen örneğe 8 TB toplam gerekmeyen 35 TB Azure sınırlama nedeniyle iç parçalanma depolama boyutu aşabilir.
+Her yönetilen örnek 35 TB depolama alanı Azure Premium Disk alanı için ayrılmış olan ve her veritabanını ayrı bir fiziksel diskte yerleştirilir. Disk boyutları 128 GB, 256 GB, 512 GB, 1 TB veya 4 TB olabilir. Diskte kullanılmayan alan değil ücretlendirilir, ancak Azure Premium Disk boyutları toplam 35 TB aşamaz. Bazı durumlarda, toplam 8 TB gerekmeyen bir yönetilen örnek 35 TB Azure sınırlama nedeniyle iç parçalanma depolama boyutu aşabilir.
 
 Örneğin, bir yönetilen örnek bir olabilir bir 4 TB diskine yerleştirilen boyutu ve ayrı 128 GB diskler üzerinde yerleştirilen 248 dosyaları (her 1 GB boyutunda) 1,2 TB dosya. Bu örnekte:
 
 - Toplam ayrılmış disk depolama boyutudur 4 x 1 TB + 248 x 128 GB = 35 TB.
 - örneğindeki veritabanları için ayrılan toplam alan olan 1.2 x 1 TB + 248 x 1 GB = 1,4 TB.
 
-Bunu, belirli bir dağıtım dosyalarının nedeniyle belirli durumda altında göstermektedir, yönetilen örneğe beklediğiniz değil bağlı Azure Premium Disk için rezerve 35 TB ulaşmak.
+Bunu, belirli bir dağıtım dosyalarının nedeniyle belirli durumda altında göstermektedir, yönetilen örnek için beklediğiniz değil bağlı Azure Premium Disk için rezerve 35 TB ulaşmak.
 
 Bu örnekte, var olan veritabanlarını çalışmaya devam eder ve yeni dosyaları eklenmedi sürece herhangi bir sorun büyüyebilir. Ancak yeni veritabanlarını değil oluşturulabilir veya tüm veritabanlarının toplam boyutu örneği boyutu sınırına ulaştığında değil olsa bile yeni disk sürücüsü için yeterli alan olmadığından geri. Döndürülen hata durumda açık değildir.
 
@@ -455,7 +455,7 @@ Bu örnekte, var olan veritabanlarını çalışmaya devam eder ve yeni dosyalar
 
 ### <a name="tooling"></a>Araç kullanımı
 
-SQL Server Management Studio (SSMS) ve SQL Server veri Araçları (SSDT) yönetilen örneği erişirken bazı sorunlar olabilir.
+SQL Server Management Studio (SSMS) ve SQL Server veri Araçları (SSDT) yönetilen örnek erişirken bazı sorunlar olabilir.
 
 - Azure AD oturum açma bilgileri ve kullanıcılar kullanarak (**genel Önizleme**) SSDT ile şu anda desteklenmiyor.
 - Azure AD oturum açma bilgileri ve kullanıcılar için komut dosyası (**genel Önizleme**) SSMS'de desteklenmez.
@@ -474,9 +474,9 @@ Yönetilen örnek'te mevcut hata günlüklerini kaybolacağından ve bunların b
 
 ### <a name="error-logs-are-verbose"></a>Ayrıntılı hata günlükleri
 
-Yönetilen örnek hata günlüklerinde ayrıntılı bilgileri yerleştirir ve çoğu için uygun değildir. Hata günlüklerinde bilgi miktarını gelecekte de düşürülmesini.
+Yönetilen örnek hata günlükleri ayrıntılı bilgiler yerleştirir ve çoğu için uygun değildir. Hata günlüklerinde bilgi miktarını gelecekte de düşürülmesini.
 
-**Geçici çözüm**: Özel yordam, filtre genişletme ilgili olmayan bazı girişler Hata günlüklerini okumak için kullanın. Ayrıntılar için bkz [Azure SQL DB yönetilen örneği – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Geçici çözüm**: Özel yordam, filtre genişletme ilgili olmayan bazı girişler Hata günlüklerini okumak için kullanın. Ayrıntılar için bkz [yönetilen örnek – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>İşlem kapsamı aynı örneği içinde iki veritabanlarında desteklenmiyor
 
@@ -523,6 +523,6 @@ Kod yürütemez `BACKUP DATABASE ... WITH COPY_ONLY` bir veritabanında saydam v
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Yönetilen örneği hakkında daha fazla ayrıntı için bkz: [yönetilen örnek nedir?](sql-database-managed-instance.md)
+- Yönetilen örnekleri hakkında daha fazla ayrıntı için bkz: [yönetilen örnek nedir?](sql-database-managed-instance.md)
 - Bir özellik için ve karşılaştırma listesini görmek [SQL ortak özellikleri](sql-database-features.md).
-- Yeni bir yönetilen örneğin nasıl oluşturulacağını gösteren Hızlı Başlangıç için bkz: [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
+- Yeni bir yönetilen örneğin nasıl oluşturulacağını gösteren Hızlı Başlangıç için bkz: [yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).

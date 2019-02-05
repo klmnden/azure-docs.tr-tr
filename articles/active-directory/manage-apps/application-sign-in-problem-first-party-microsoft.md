@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6cd926536242563d3114a30adce1568a1f7424e0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4d75ab2328cbc18142742c3111ef1f5e7d8eb8f2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171805"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731487"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Bir Microsoft uygulamasında oturum açma sorunları
 
@@ -122,7 +122,7 @@ Bir kullanıcı hesabının mevcut olup olmadığını denetlemek için şu adı
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -140,7 +140,7 @@ Bir kullanıcı hesabı durumunu denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -160,7 +160,7 @@ Bir kullanıcının parolasını sıfırlamak için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -180,7 +180,7 @@ Self Servis parola sıfırlamayı etkinleştirmek için aşağıdaki dağıtım 
 
 -   [Azure Active Directory parolalarını sıfırlamalarına olanak tanıma](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
--   [Kullanıcılara sıfırlama veya Active Directory şirket içi parolalarını değiştirme olanağı](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [Kullanıcılara sıfırlama veya Active Directory şirket içi parolalarını değiştirme olanağı](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Bir kullanıcının çok faktörlü kimlik doğrulaması durumunu denetleyin
 
@@ -192,7 +192,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulaması durumunu denetlemek iç
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -216,7 +216,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulaması durumunu denetlemek iç
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -238,7 +238,7 @@ Bir kullanıcının grup üyeliklerini denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -256,7 +256,7 @@ Bir kullanıcının lisans atanmış denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -274,7 +274,7 @@ Bir kullanıcıya bir lisans atamak için bu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -314,7 +314,7 @@ Bir grubun üyeliğini denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm grupları**.
 
@@ -332,7 +332,7 @@ Dinamik grubun Üyelik ölçütleri denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm grupları**.
 
@@ -352,7 +352,7 @@ Lisans atanmış Grup denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm grupları**.
 
@@ -370,7 +370,7 @@ Bir grubun atanmış lisansları yeniden işle için bu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm grupları**.
 
@@ -395,7 +395,7 @@ Bir gruba lisans atamak için bu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm grupları**.
 

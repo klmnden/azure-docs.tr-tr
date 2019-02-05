@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166488"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736202"
 ---
 <!--author=SharS last changed: 06/22/2016-->
 
@@ -81,7 +81,7 @@ ms.locfileid: "50166488"
 15. Azure kamu Portalı'na dönün ve aşağıdaki adımları tamamlayın:
     
     1. StorSimple Cihaz Yöneticisi hizmetinize gidin.
-    2. **Cihazlar**’a tıklayın. Cihazlar listesinden ddeploying olduğunu tanımlamaktır. Cihaz başarıyla hizmete durumunu arayarak bağlandığını doğrulayın. Cihazın durumu **Çevrimiçi** olmalıdır.
+    2. **Cihazlar**’a tıklayın. Cihazlar listesinden dağıttığınız tanımlamaktır. Cihaz başarıyla hizmete durumunu arayarak bağlandığını doğrulayın. Cihazın durumu **Çevrimiçi** olmalıdır.
             
         Cihazın durumu **Çevrimdışı** olduğu durumda, birkaç dakikada cihazın çevrimiçi olması bekleyin.
        

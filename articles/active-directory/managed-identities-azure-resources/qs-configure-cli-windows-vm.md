@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
-ms.openlocfilehash: a2e42b165596d26672ee22813e53d02ca0e3a7e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4c17128f07475b6aeaef9ae15a13bc4863d7e663
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195673"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699899"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Azure CLI kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -82,7 +82,7 @@ Yönetilen kimlik sistem tarafından atanan bir VM'de etkinleştirmek için hesa
    az login
    ```
 
-2. Kullanım [az vm kimliği atamak](/cli/azure/vm/identity/#az-vm-identity-assign) ile `identity assign` komutu etkinleştirmek var olan bir sanal makineye sistem tarafından atanan kimliği:
+2. Kullanım [az vm kimliği atamak](/cli/azure/vm/identity/) ile `identity assign` komutu etkinleştirmek var olan bir sanal makineye sistem tarafından atanan kimliği:
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -107,7 +107,7 @@ Artık sistem tarafından atanan kimlik gereken bir sanal makineye sahip ve kull
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Yönetilen kimlik (Ocak 2019'da kullanımdan kaldırma planlanan), Azure kaynaklarını VM uzantısı için kaldırmak için kullanıcı `-n ManagedIdentityExtensionForWindows` veya `-n ManagedIdentityExtensionForLinux` anahtarı (sanal makine türünü bağlı olarak) [az vm uzantısı silme](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+Yönetilen kimlik (Ocak 2019'da kullanımdan kaldırma planlanan), Azure kaynaklarını VM uzantısı için kaldırmak için kullanıcı `-n ManagedIdentityExtensionForWindows` veya `-n ManagedIdentityExtensionForLinux` anahtarı (sanal makine türünü bağlı olarak) [az vm uzantısı silme](https://docs.microsoft.com/cli/azure/vm/):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -186,7 +186,7 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
    }
    ```
 
-2. Kullanıcı tarafından atanan kimlik kullanarak VM atama [az vm kimliği atamak](/cli/azure/vm#az-vm-identity-assign). `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY NAME>` Kullanıcı tarafından atanan yönetilen kimliğin kaynağı `name` önceki adımda oluşturulan özelliği:
+2. Kullanıcı tarafından atanan kimlik kullanarak VM atama [az vm kimliği atamak](/cli/azure/vm). `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY NAME>` Kullanıcı tarafından atanan yönetilen kimliğin kaynağı `name` önceki adımda oluşturulan özelliği:
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064653"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727917"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry'den Azure Container Instances'a dağıtma
 
@@ -29,7 +29,7 @@ ms.locfileid: "54064653"
 
 Herhangi bir üretim senaryosunda kullanarak bir Azure kapsayıcı kayıt defterine erişim sağlanmalıdır [hizmet sorumluları](../container-registry/container-registry-auth-service-principal.md). Hizmet sorumluları izin vermenizi [rol tabanlı erişim denetimi](../container-registry/container-registry-roles.md) kapsayıcı görüntülerinizi için. Örneğin, bir hizmet sorumlusunu bir kayıt defterine yalnızca çekme erişimiyle yapılandırabilirsiniz.
 
-Bu bölümde, bir Azure anahtar kasası ve hizmet sorumlusu oluşturma ve hizmet sorumlusunun kimlik bilgileri Kasası'nda depolayın.
+Aşağıdaki bölümde, bir Azure anahtar kasası ve hizmet sorumlusu oluşturun ve hizmet sorumlusunun kimlik bilgileri Kasası'nda depolayın. 
 
 ### <a name="create-key-vault"></a>Anahtar kasası oluşturma
 
@@ -134,9 +134,11 @@ Resource Manager şablonu Azure Key Vault gizli dizileri başvurma hakkında dah
 
 ## <a name="deploy-with-azure-portal"></a>Azure portal ile dağıtma
 
-Kapsayıcı görüntülerini Azure Container Registry'de sahipseniz, Azure portalını kullanarak Azure Container Instances bir kapsayıcı kolayca oluşturabilirsiniz.
+Bir Azure container registry'den kapsayıcı görüntüleri sahipseniz, Azure portalını kullanarak Azure Container Instances bir kapsayıcı kolayca oluşturabilirsiniz. Bir kapsayıcı kayıt defterinden bir kapsayıcı örneği dağıtmak için portal'ı kullanırken, kayıt defterindeki etkinleştirmelisiniz [yönetici hesabı](../container-registry/container-registry-authentication.md#admin-account). Yönetici hesabı, test etmek için çoğunlukla kayıt defterine erişmek tek bir kullanıcı için tasarlanmıştır. 
 
 1. Azure portalında kapsayıcı kayıt defterinize gidin.
+
+1. Yönetici hesabı etkin olduğunu doğrulamak için şunu seçin **erişim anahtarları**, altında **yönetici kullanıcı** seçin **etkinleştirme**.
 
 1. Seçin **depoları**, seçin, dağıtmak istediğiniz depoya sağ kapsayıcı görüntüsünü dağıtmak ve istediğiniz etiketi **örneği Çalıştır**.
 

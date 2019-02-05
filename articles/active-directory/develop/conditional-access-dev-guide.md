@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c5df6d1b3480a93a0667aaec0bcf0e171d4a0fe6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b84d7a6f266ffae062d861c53a229225403e07c5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101762"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728002"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim için Geliştirici Kılavuzu
 
@@ -77,7 +77,7 @@ Geliştiriciler bu Yarışması'na katılın ve Azure AD'ye yeni bir istek üzer
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-Azure AD koşullu erişim, eklenen bir özelliktir [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition). Lisanslama gereksinimleri hakkında daha fazla bilgi [lisanssız kullanım raporu](../active-directory-conditional-access-unlicensed-usage-report.md). Geliştiriciler birleştirme [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), Azure AD Premium içeren Enterprise Mobility Suite için ücretsiz bir abonelik içerir.
+Azure AD koşullu erişim, eklenen bir özelliktir [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Lisanslama gereksinimleri hakkında daha fazla bilgi [lisanssız kullanım raporu](../active-directory-conditional-access-unlicensed-usage-report.md). Geliştiriciler birleştirme [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), Azure AD Premium içeren Enterprise Mobility Suite için ücretsiz bir abonelik içerir.
 
 ### <a name="considerations-for-specific-scenarios"></a>Belirli senaryolar için dikkat edilmesi gerekenler
 

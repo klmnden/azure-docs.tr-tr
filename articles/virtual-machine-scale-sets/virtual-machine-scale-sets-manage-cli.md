@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: e8a41c3bb1401552e7f1a56ec4cdbbce52354075
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b49182ebdcc93c4a51a55f27c3e0bf7a45307b7f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658938"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728903"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Sanal makine ölçek kümesi Azure CLI ile yönetme
 Sanal makine ölçek kümesinin yaşam döngüsü boyunca bir veya daha fazla yönetim görevi çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevlerini otomatikleştiren betikler oluşturmak isteyebilirsiniz. Bu makalede bu görevleri gerçekleştirmenize olanak tanıyan ortak Azure CLI komutlarının bazıları ayrıntılı olarak açıklanmaktadır.
@@ -29,7 +29,7 @@ Bu yönetim görevleri tamamlamak için en son Azure CLI'yı gerekir. Bilgi içi
 
 
 ## <a name="view-information-about-a-scale-set"></a>Bir ölçek kümesi hakkındaki bilgileri görüntüleme
-Bir ölçek kümesi hakkında genel bilgileri görüntülemek için kullanın [az vmss show](/cli/azure/vmss#az_vmss_show). Aşağıdaki örnekte adlı ölçek kümesi hakkında bilgi alır *myScaleSet* içinde *myResourceGroup* kaynak grubu. Şu şekilde kendi adlarınızı girin:
+Bir ölçek kümesi hakkında genel bilgileri görüntülemek için kullanın [az vmss show](/cli/azure/vmss). Aşağıdaki örnekte adlı ölçek kümesi hakkında bilgi alır *myScaleSet* içinde *myResourceGroup* kaynak grubu. Şu şekilde kendi adlarınızı girin:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -57,7 +57,7 @@ az vmss get-instance-view \
 
 
 ## <a name="list-connection-information-for-vms"></a>VM'ler için bağlantı bilgilerini listeleme
-Bir ölçek kümesindeki, SSH veya RDP için bir atanan genel IP adresi ve bağlantı noktası numarası Vm'lerine bağlanmak için. Varsayılan olarak, her VM için uzaktan bağlantı trafiğini ileten Azure load balancer için ağ adresi çevirisi (NAT) kuralları eklenir. Bir ölçek kümesindeki sanal makine örneklerine bağlanacak bağlantı noktalarını ve adresi listelemek için kullanın [az vmss list-instance-bağlantı-info](/cli/azure/vmss#list-instance-connection-info). Aşağıdaki örnekte adlı ölçek kümesi VM örnekleri için bağlantı bilgilerini listeler *myScaleSet* ve *myResourceGroup* kaynak grubu. Bu adları için kendi değerlerinizi sağlayın:
+Bir ölçek kümesindeki, SSH veya RDP için bir atanan genel IP adresi ve bağlantı noktası numarası Vm'lerine bağlanmak için. Varsayılan olarak, her VM için uzaktan bağlantı trafiğini ileten Azure load balancer için ağ adresi çevirisi (NAT) kuralları eklenir. Bir ölçek kümesindeki sanal makine örneklerine bağlanacak bağlantı noktalarını ve adresi listelemek için kullanın [az vmss list-instance-bağlantı-info](/cli/azure/vmss). Aşağıdaki örnekte adlı ölçek kümesi VM örnekleri için bağlantı bilgilerini listeler *myScaleSet* ve *myResourceGroup* kaynak grubu. Bu adları için kendi değerlerinizi sağlayın:
 
 ```azurecli
 az vmss list-instance-connection-info \
@@ -69,7 +69,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ölçek kümesinin kapasitesini değiştirme
 Yukarıdaki komutların ölçek kümenizi ve sanal makine örnekleri hakkında bilgi gösterdi. Artırabilir veya ölçek kümesindeki örneklerin sayısını azaltmak için kapasiteyi değiştirebilirsiniz. Ölçek kümesi oluşturur veya gerekli VM sayısını kaldırır ve ardından uygulama trafiği almak için sanal makineleri yapılandırır.
 
-Ölçek kümesinde şu anda yer alan örneklerin sayısını görmek için [az vmss show](/cli/azure/vmss#az_vmss_show) komutunu kullanarak *sku.capacity* üzerinde bir sorgu çalıştırın:
+Ölçek kümesinde şu anda yer alan örneklerin sayısını görmek için [az vmss show](/cli/azure/vmss) komutunu kullanarak *sku.capacity* üzerinde bir sorgu çalıştırın:
 
 ```azurecli
 az vmss show \
@@ -100,7 +100,7 @@ Aşağıdaki örnek örneği durdurur *0* adlı ölçek kümesi içinde *myScale
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Durdurulmuş sanal makineler, ayrılmış şekilde kalır ve işlem ücretleri uygulanmaya devam eder. Bunun yerine serbest bırakılması Vm'leri istediğiniz ve yalnızca depolama ücreti, kullanmanız [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). Birden çok VM ayırması için her örnek kimliği boşlukla ayırın. Aşağıdaki örnek durdurur ve örnek kaldırır *0* adlı ölçek kümesi içinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Kendi değerlerinizi aşağıdaki gibi sağlayın:
+Durdurulmuş sanal makineler, ayrılmış şekilde kalır ve işlem ücretleri uygulanmaya devam eder. Bunun yerine serbest bırakılması Vm'leri istediğiniz ve yalnızca depolama ücreti, kullanmanız [az vmss deallocate](/cli/azure/vmss). Birden çok VM ayırması için her örnek kimliği boşlukla ayırın. Aşağıdaki örnek durdurur ve örnek kaldırır *0* adlı ölçek kümesi içinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Kendi değerlerinizi aşağıdaki gibi sağlayın:
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -118,7 +118,7 @@ az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Bir ölçek kümesindeki Vm'leri yeniden başlatma
-Bir ölçek kümesindeki bir veya daha fazla sanal makine yeniden başlatmak için kullanmak [az vmss yeniden](/cli/azure/vmss#az_vmss_restart). `--instance-ids` parametresi, yeniden başlatılacak bir veya daha fazla sanal makine belirtmenize olanak sağlar. Örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makineler yeniden başlatılır. Birden çok VM'yi yeniden başlatmak için her örnek kimliği boşlukla ayırın.
+Bir ölçek kümesindeki bir veya daha fazla sanal makine yeniden başlatmak için kullanmak [az vmss yeniden](/cli/azure/vmss). `--instance-ids` parametresi, yeniden başlatılacak bir veya daha fazla sanal makine belirtmenize olanak sağlar. Örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makineler yeniden başlatılır. Birden çok VM'yi yeniden başlatmak için her örnek kimliği boşlukla ayırın.
 
 Aşağıdaki örnek örneğini yeniden başlatır *0* adlı ölçek kümesi içinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Kendi değerlerinizi aşağıdaki gibi sağlayın:
 
@@ -128,7 +128,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>VM ölçek kümesinden Kaldır
-Bir ölçek kümesindeki bir veya daha fazla sanal makine kaldırmak için [az vmss delete-instances](/cli/azure/vmss#delete-instances). `--instance-ids` Parametresi, kaldırmak için bir veya daha fazla sanal makine belirtmenize olanak sağlar. Belirtirseniz * kimliği, Ölçek kümesindeki tüm sanal makineler için örneği kaldırılır. Birden çok VM kaldırmak için her örnek kimliği boşlukla ayırın.
+Bir ölçek kümesindeki bir veya daha fazla sanal makine kaldırmak için [az vmss delete-instances](/cli/azure/vmss). `--instance-ids` Parametresi, kaldırmak için bir veya daha fazla sanal makine belirtmenize olanak sağlar. Belirtirseniz * kimliği, Ölçek kümesindeki tüm sanal makineler için örneği kaldırılır. Birden çok VM kaldırmak için her örnek kimliği boşlukla ayırın.
 
 Aşağıdaki örnek, örnek kaldırır *0* adlı ölçek kümesi içinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Kendi değerlerinizi aşağıdaki gibi sağlayın:
 

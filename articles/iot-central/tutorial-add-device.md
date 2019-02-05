@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c3b8f4f8188a6a28cca8b77f169a00657b11dfc5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 695050a46df4b208205ce394cc79db891803cfa4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154820"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731538"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanıza gerçek bir cihaz ekleme
 
@@ -34,7 +34,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * İstemci kodunun uygulamaya nasıl eşlendiğini anlama
 > * Gerçek cihaz için istemci kodu yapılandırma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce, oluşturucunun Azure IoT Central uygulamasını oluşturmak için en az ilk oluşturucu öğreticisini tamamlaması gerekir:
 
@@ -109,9 +109,11 @@ Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırla
 
    [Buradan komut satırı aracı hakkında](https://www.npmjs.com/package/dps-keygen) daha fazla bilgi edinebilirsiniz.
 
-1. dps_cstr aracını [GitHub](https://github.com/Azure/dps-keygen/tree/master/bin)'dan indirin ve ayıklayın (Windows).
+1. İndirip sıkıştırmasını açın (Windows) [GitHub] (dps_cstr aracından https://github.com/Azure/dps-keygen/archive/master.zip
 
-    Platformunuzla eşleşen sürümü seçtiğinizden emin olun. Örneğin Windows için dps_cstr.exe ve dll dosyalarının klasörünüzde bulunması gerekir. 
+)
+
+    Make sure you choose the one that matches your platform. For example, on Windows the dps_cstr.exe and the dll files should be now available in your folder. 
 
 1. Uygulamanızdaki bir cihaz örneğinin bağlantı dizesi, IoT Central tarafından sağlanan cihaz bilgilerine göre oluşturulur.
 

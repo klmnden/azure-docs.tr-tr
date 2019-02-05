@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: bee9d2f823fe46d81550ea5090222f491562d636
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970823"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700120"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Şirket içi VMware sunucularını Azure’a olağanüstü durum kurtarmaya hazırlama
 
@@ -107,11 +107,11 @@ Yük devretmeden sonra SSH kullanarak Linux VM’lerine bağlanmak için aşağ�
 
 
 ## <a name="failback-requirements"></a>Yeniden çalışma gereksinimleri
-Şirket içi durumunuza geri dönmeyi planlıyorsanız, belirli [önkoşulların karşılandığından](vmware-azure-reprotect.md##before-you-begin) da emin olmanız gerekir. Ancak bu önkoşullar VM’lerinizde **olağanüstü durum kurtarmayı etkinleştirmeye başlamak için gerekli değildir** ve Azure’a yük devretme sonrasında da yapılabilir.
+Yeniden şirket içi için başarısız planlıyorsanız, ayrıca emin olmak ihtiyacınız olan belirli [önkoşulların karşılandığından](vmware-azure-reprotect.md##before-you-begin). Ancak bu önkoşullar VM’lerinizde **olağanüstü durum kurtarmayı etkinleştirmeye başlamak için gerekli değildir** ve Azure’a yük devretme sonrasında da yapılabilir.
 
 ## <a name="useful-links"></a>Yararlı bağlantılar
 
-Birden çok VM'yi çoğaltıyorsanız, başlamadan önce kapasiteyi ve dağıtımı planlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-deployment-planner.md).
+Birden çok VM'yi çoğaltıyorsanız, başlamadan önce bir kapasite ve dağıtım planlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-deployment-planner.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

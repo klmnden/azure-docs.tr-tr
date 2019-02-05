@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 554d837d9fa70c2af581f9b582001c7f32d442e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232351"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734564"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Ağ Performansı İzleyicisi çözümü ile ilgili SSS
 
@@ -134,7 +134,7 @@ NPM birinde barındırılan bir çalışma alanından dünyanın herhangi bir b�
 NPM izlemek için kullanabileceğiniz Bağlantı Hizmetleri dünyanın herhangi bir bölümünde birinde barındırılan bir çalışma alanından [desteklenen bölgeler](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>NPM ExpressRoute İzleyicisi için hangi bölgeler desteklenir?
-NPM, dilediğiniz Azure bölgesinde bulunan, ExpressRoute devreleri izleyebilirsiniz. Birinde barındırılan bir Log Analytics çalışma alanı gerektirecektir npm için yerleşik, [desteklenen bölgeler](/azure/expressroute/how-to-npm#regions)
+NPM, dilediğiniz Azure bölgesinde bulunan, ExpressRoute devreleri izleyebilirsiniz. Birinde barındırılan bir Log Analytics çalışma alanı gerektirecektir npm için yerleşik, [desteklenen bölgeler](/azure/expressroute/how-to-npm)
 
 ## <a name="troubleshoot"></a>Sorun giderme
 

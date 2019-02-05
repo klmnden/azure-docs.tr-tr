@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: eba703e454e02e5b83efae2de01003a2efc1f764
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493261"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694066"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -329,7 +329,7 @@ Varsayılan olarak sanal ağlara ayrılmış olan Azure hizmeti kaynaklarına ş
 Bir sanal ağ içindeki veya birden çok sanal ağda birden fazla alt ağdaki Azure hizmetlerinin güvenliğini sağlamak için hizmet uç noktaları her alt ağ tarafında ayrı ayrı etkinleştirebilir ve oluşturarak tüm alt ağların Azure hizmet kaynaklarını güvenli hale getirme Azure Hizmet tarafı uygun VNet ACL'ler.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Nasıl Azure Hizmetleri için sanal ağdan giden trafiği filtrelemek ve hizmet uç noktaları kullanmaya devam?
-Sanal ağdan bir Azure hizmetine giden trafiği incelemek veya filtrelemek istiyorsanız, sanal ağda ağ sanal Gereci dağıtabilirsiniz. Ardından, ağ sanal gerecinin dağıtılmış ve güvenli Azure hizmet kaynağını yalnızca bu alt ağ ile sanal ağ ACL'leri olduğu alt ağ hizmet uç noktaları uygulayabilirsiniz. Bu senaryo Azure hizmet erişimini ağ sanal Gereci filtresi kullanarak yalnızca belirli Azure kaynaklarına sanal ağınızdan kısıtlamak istiyorsanız yararlı olabilir. Daha fazla bilgi için bkz. [Ağ sanal gereçleri ile çıkış](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Sanal ağdan bir Azure hizmetine giden trafiği incelemek veya filtrelemek istiyorsanız, sanal ağda ağ sanal Gereci dağıtabilirsiniz. Ardından, ağ sanal gerecinin dağıtılmış ve güvenli Azure hizmet kaynağını yalnızca bu alt ağ ile sanal ağ ACL'leri olduğu alt ağ hizmet uç noktaları uygulayabilirsiniz. Bu senaryo Azure hizmet erişimini ağ sanal Gereci filtresi kullanarak yalnızca belirli Azure kaynaklarına sanal ağınızdan kısıtlamak istiyorsanız yararlı olabilir. Daha fazla bilgi için bkz. [Ağ sanal gereçleri ile çıkış](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>VNet dışından gelen etkin sanal ağ erişim denetimi listesi (ACL) sahip bir Azure hizmeti hesabına eriştiğinde ne olur?
 HTTP 403 veya HTTP 404 hatası döndürülür.

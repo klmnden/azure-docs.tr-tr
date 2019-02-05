@@ -1,21 +1,21 @@
 ---
-title: Azure ve şirket içi ortamlara ExpressRoute bağlantıları oluşturmak için Azure Sanal WAN kullanma | Microsoft Docs
-description: Bu öğreticide Azure ve şirket içi ortamlar için ExpressRoute bağlantıları oluşturma amacıyla Azure Sanal WAN’ı nasıl kullanacağınızı öğrenirsiniz.
+title: Azure ve şirket içi ortamlar için ExpressRoute bağlantıları oluşturmak için Azure sanal WAN'ı kullanma | Microsoft Docs
+description: Bu öğreticide, Azure sanal WAN Azure ve şirket içi ortamlar için ExpressRoute bağlantıları oluşturmak için kullanmayı öğrenin.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: c02020ba8d49b123cf8914214d52ac40896a3c20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
+ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248189"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692902"
 ---
-# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Öğretici: Azure Sanal WAN kullanarak ExpressRoute ilişkisi oluşturma (önizleme)
+# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Öğretici: Azure sanal WAN (Önizleme) kullanarak ExpressRoute ilişkilendirme oluşturma
 
 Bu öğreticide Sanal WAN kullanarak Azure'daki kaynaklarınıza bir ExpressRoute bağlantı hattı ve ilişkisi kullanarak bağlanmayı öğreneceksiniz. Sanal WAN hakkında daha fazla bilgi için bkz. [Sanal WAN'a Genel Bakış](virtual-wan-about.md)
 
@@ -45,7 +45,7 @@ Sanal WAN yapılandırabilmeniz için önce aboneliğinizi Önizleme'ye kaydetme
 
 **Önizlemede Dikkat Edilmesi Gerekenler:**
 
-* Bölge Kullanılabilirliği: Orta Batı ABD
+* Bölge kullanılabilirliği: Batı Orta ABD
 * ExpressRoute bağlantı hattı [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported) özelliğini destekleyen bir ülkede etkinleştirilmelidir
 
 ## <a name="vnet"></a>1. Sanal ağ oluşturma
@@ -70,12 +70,12 @@ Bir tarayıcıdan [Azure portala (önizleme)](https://aka.ms/azurevirtualwanprev
 
 1. vWAN’ınızı seçin ve **Sanal WAN Mimarisi** altında **ExpressRoute Bağlantı Hatları**’nı seçin
 2. ExpressRoute bağlantı hattı, vWAN’ınız ile aynı abonelikte bulunuyorsa aboneliklerinizden **ExpressRoute bağlantı hattı seç** seçeneğine tıklayın 
-3. Aşağı açılan menüyü kullanarak hub ile ilişkilendirmek istediğiniz ExpressRoute hizmetini seçin.
-4. ExpressRoute bağlantı hattı aynı abonelikte değilse veya size bir [yetkilendirme anahtarı ve eş kimliği](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) sağlandıysa **yetkilendirme anahtarı kullanan bir bağlantı hattı bul** seçeneğini belirleyin
+3. Aşağı açılır kullanarak hub'a ilişkilendirmek istiyorsanız, ExpressRoute'ı seçin.
+4. ExpressRoute bağlantı hattı, aynı abonelikte değilse veya size sağlanan [yetkilendirme anahtar ve Eş Kimliği](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)seçin **yetkilendirme anahtarını kullanırken bir devreyi Bul**
 5. Şu ayrıntıları girin:
 * **Yetkilendirme anahtarı** - Yukarıda açıklandığı gibi bağlantı hattı sahibinden tarafından oluşturulur
 * **Eş bağlantı hattı URI’si** - Bağlantı hattının sahibi tarafından oluşturulan ve hattın benzersiz tanımlayıcısı olan bağlantı hattı URI’si
-* **Yönlendirme ağırlığı** - [Yönlendirme ağırlığı](../expressroute/expressroute-optimize-routing.md), farklı eşleme konumlarındaki birden fazla bağlantı hattı aynı hub’a bağlı olduğunda belirli yolları tercih etmenize olanak sağlar
+* **Yönlendirme ağırlığı** - [yönlendirme ağırlığı](../expressroute/expressroute-optimize-routing.md) eşleme farklı konumlardaki birden çok bağlantı hattına aynı hub'ına bağlandığında, belirli yollarını tercih etmesini sağlar
 6. **Bağlantı hattı bul**’a tıklayın ve bulmanız halinde bağlantı hattını seçin
 7. Açılır listeden 1 veya daha fazla hub seçerek **Kaydet**’e tıklayın
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bb8ab22db18bbe170a20d253e601eb78855aafa7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 88a1405a55432b6f5932f2675260540a8aea46aa
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102745"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697709"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Nasıl yapılır: Azure AD katılımınızı uygulamayı planlama
 
@@ -126,6 +126,8 @@ Azure AD'ye katılım:
 - Yalnızca Windows 10 cihazları için geçerlidir. 
 
 - Windows veya diğer işletim sistemlerinin önceki sürümleri için geçerli değildir. Windows 7/8.1 cihazınız varsa, Azure AD'ye katılım'ı dağıtmak için Windows 10'a yükseltmeniz gerekir.
+
+- TPM'ye sahip cihazlar FIPS modunda desteklenmiyor.
  
 **Öneri:** Güncelleştirilmiş özelliklerden yararlanmak için her zaman en son Windows 10 sürüm kullanın.
 

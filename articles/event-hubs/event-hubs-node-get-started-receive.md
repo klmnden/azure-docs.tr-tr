@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d13f97ff7ec25fd638b92dc1c057afcaeecc2bf9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6986a5c40b51300b631f3fdce6c3a88b43fb5b11
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434078"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730892"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Node.js kullanarak Azure Event Hubs'tan gelen olayları alma
 
@@ -49,7 +49,7 @@ Eventprocessorhost'u kullanmak için bir Azure depolama hesabı olmalıdır. Dur
 ## <a name="install-the-eventprocessorhost"></a>EventProcessorHost yükleyin
 Event Hubs modülü için EventProcessorHost yükleyin. 
 
-```nodejs
+```shell
 npm install @azure/event-processor-host
 ```
 
@@ -61,20 +61,20 @@ Kopyalanmış SDK, Node.js kullanarak bir olay hub'ından olay alma işlemini g�
 3. Olay hub'ı bağlantı dizesi, olay hub'ı adı ve depolama uç noktası yapılandırın. Olay hub'ından için bağlantı dizesini kopyalayabilirsiniz **bağlantı dizesi-birincil** anahtar altında **RootManageSharedAccessKey** olay hub'ı sayfasında Azure Portalı'nda. Ayrıntılı adımlar için bkz. [bağlantı dizesi alma](event-hubs-create.md#create-an-event-hubs-namespace).
 4. Azure CLI gidin **İşlemci** klasör yolu. Düğüm paketleri yükleyin ve aşağıdaki komutları çalıştırarak projeyi derleyin:
 
-    ```nodejs
+    ```shell
     npm i
     npm run build
     ```
 5. Olaylar, olay işlemcisi konağı ile aşağıdaki komutu çalıştırarak alırsınız:
 
-    ```nodejs
+    ```shell
     node dist/examples/singleEph.js
     ```
 
 ## <a name="review-the-sample-code"></a>Örnek kodu gözden geçirin 
 Node.js kullanarak bir olay hub'ından olaylarını almak için örnek kod aşağıda verilmiştir. El ile sampleEph.js dosyası oluşturun ve olay hub'ına olayları almak için çalıştırın. 
 
-  ```nodejs
+  ```javascript
   const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
   const path = process.env.EVENTHUB_NAME;
@@ -127,7 +127,7 @@ Node.js kullanarak bir olay hub'ından olaylarını almak için örnek kod aşa�
 
 Betiği çalıştırmadan önce ortam değişkenlerini ayarlamak unutmayın. Bu komut satırında aşağıdaki örnekte gösterilen şekilde yapılandırabilir veya kullanın [dotenv paket](https://www.npmjs.com/package/dotenv#dotenv). 
 
-```
+```shell
 // For windows
 set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
 set EVENTHUB_NAME="<your-event-hub-name>"

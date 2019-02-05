@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454853"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697841"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure içeri/dışarı aktarma hizmeti günlük dosyası biçimi
 Microsoft Azure içeri/dışarı aktarma hizmeti içeri aktarma işi veya dışarı aktarma işi bir parçası olarak bir sürücüde bir eylem gerçekleştirdiğinde, günlükleri blok blobları, işi ile ilişkili depolama hesabına yazılır.  
@@ -22,7 +22,7 @@ Microsoft Azure içeri/dışarı aktarma hizmeti içeri aktarma işi veya dışa
   
 -   Hata günlüğü, her zaman bir hata olması durumunda oluşturulur.  
   
--   Ayrıntılı günlük varsayılan olarak etkin değildir, ancak ayarlayarak etkinleştirilebilir `EnableVerboseLog` özelliği bir [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) veya [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) işlemi.  
+-   Ayrıntılı günlük varsayılan olarak etkin değildir, ancak ayarlayarak etkinleştirilebilir `EnableVerboseLog` özelliği bir [Put işlemini](/rest/api/storageimportexport/jobs) veya [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs) işlemi.  
   
 ## <a name="log-file-location"></a>Günlük dosyası konumu  
 Blok blobları kapsayıcı veya sanal dizin tarafından belirtilen günlüklere yazılır `ImportExportStatesPath` üzerinde ayarlanan ayarı bir `Put Job` işlemi. Günlüklere yazılır konumu nasıl kimlik doğrulaması için belirtilen değer ile birlikte bir iş için belirtilen üzerinde bağlıdır `ImportExportStatesPath`. İş için kimlik doğrulaması, bir depolama hesabı anahtarı veya SAS (paylaşılan erişim imzası) bir kapsayıcı aracılığıyla belirtilebilir.  
@@ -38,7 +38,7 @@ Aşağıdaki tabloda, olası seçeneklerin gösterilmiştir:
 |Kapsayıcı SAS|Varsayılan değer|Adlı bir sanal dizin `waimportexport`, varsayılan adı, SAS içinde belirtilen kapsayıcısı altında.<br /><br /> Örneğin, SAS için belirtilen iş ise `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, günlük konumu şu şekilde olacaktır `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |Kapsayıcı SAS|Kullanıcı tarafından belirtilen değeri|SAS içinde belirtilen kapsayıcısı altında kullanıcı tarafından adlandırılan bir sanal dizin.<br /><br /> Örneğin, SAS için belirtilen iş ise `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, ve belirtilen sanal dizin adlı `mylogblobs`, günlük konumu şu şekilde olacaktır `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Çağırarak ayrıntılı günlükleri ve hata URL'sini alabilirsiniz [alma işi](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Günlükleri, sürücünün işleme tamamlandıktan sonra kullanılabilir.  
+Çağırarak ayrıntılı günlükleri ve hata URL'sini alabilirsiniz [alma işi](/rest/api/storageimportexport/jobs) işlemi. Günlükleri, sürücünün işleme tamamlandıktan sonra kullanılabilir.  
   
 ## <a name="log-file-format"></a>Günlük dosyası biçimi  
 Her iki günlük için'biçim aynıdır: XML açıklamaları sabit sürücü ve müşterinin hesap arasında BLOB kopyalanırken oluşan olaylar içeren bir blob.  

@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/02/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 11/02/2018
-ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/04/2019
+ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239239"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697491"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Azure Stack'te bir Ethereum blok zinciri ağ dağıtma
 
@@ -25,7 +25,7 @@ Ethereum çözüm şablonu, daha kolay ve hızlı dağıtma ve Azure ve Ethereum
 
 Birkaç kullanıcı girişleri ve Azure Stack Kiracı Portalı aracılığıyla tek tıklamayla dağıtım ile üyelerin kendi ağ kaplama alanını sağlayabilirsiniz. Her üyenin ağ kaplama alanını yük dengeli işlem düğümlerinin bir dizi oluşur. sahip olan bir uygulama ya da kullanıcı işlemleri, bir dizi kayıt işlemleri için araştırma düğümü ve bir ağ sanal Gereci (NVA) göndermek için etkileşim kurabilirsiniz. Nva'ların tam olarak yapılandırılmış birden çok üye blockchain ağ oluşturmak için bir sonraki bağlantı adım bağlanır.
 
-Bu, ayarlamak için:
+Ayarlamak için:
 
 - Dağıtım mimarisi seçin
 - Tek başına, consortium öncü ya da consortium üye ağ dağıtma
@@ -157,7 +157,7 @@ Dağıtım tamamlandıktan sonra dağıtım için özeti gözden geçirebilirsin
 
 ![Üye dağıtım özeti](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-Resimde gösterildiği gibi üyenin düğüm durumu: **çalışmıyor**. Üye lider arasında bağlantı kurulmasa olmasıdır. Üye ve öncü arasındaki bağlantıyı iki yönlü bir bağlantıdır. Üye dağıttığınızda şablonu otomatik olarak bağlantı üyesi için öncü oluşturur. Bağlantı öncüsü üye oluşturmak için sonraki adıma gidin.
+Resimde gösterildiği gibi üyenin düğüm durumu: **çalışmıyor**. Bu durum, üye ve öncü arasındaki bağlantı kurulmasa olmasıdır. Üye ve öncü arasındaki bağlantıyı iki yönlü bir bağlantıdır. Üye dağıttığınızda şablonu otomatik olarak bağlantı üyesi için öncü oluşturur. Bağlantı öncüsü üye oluşturmak için sonraki adıma gidin.
 
 ### <a name="connect-member-and-leader"></a>Üye ve öncü bağlanma
 

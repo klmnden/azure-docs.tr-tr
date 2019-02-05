@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 061987105eac976e40a003a8108921ed0008630d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71a5ca62dc5d21e30a4944f8be57a77040f4f204
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169170"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733697"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP temel kimlik doğrulaması kullanarak, RESTful Hizmetleri güvenli hale getirme
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-İçinde bir [ilişkili Azure AD B2C makale](active-directory-b2c-custom-rest-api-netfw.md), Azure Active Directory (Azure AD B2C) kullanıcı yolculuklarından kimlik doğrulaması olmadan B2C ile tümleşen bir RESTful hizmeti (web API'si) oluşturun. 
+İçinde bir [ilişkili Azure AD B2C makale](active-directory-b2c-custom-rest-api-netfw.md), Azure Active Directory (Azure AD B2C) kullanıcı yolculuklarından kimlik doğrulaması olmadan B2C ile tümleşen bir RESTful hizmeti (web API'si) oluşturun.
 
-Doğrulanmış kullanıcıların yalnızca, B2C'yi de dahil olmak üzere erişim API'nizi bu makalede, HTTP temel kimlik doğrulaması RESTful hizmetinize ekleyin. HTTP temel kimlik doğrulaması ile özel ilkeniz (uygulama kimliği ve uygulama gizli anahtarı) kullanıcı kimlik bilgilerini ayarlayın. 
+Doğrulanmış kullanıcıların yalnızca, B2C'yi de dahil olmak üzere erişim API'nizi bu makalede, HTTP temel kimlik doğrulaması RESTful hizmetinize ekleyin. HTTP temel kimlik doğrulaması ile özel ilkeniz (uygulama kimliği ve uygulama gizli anahtarı) kullanıcı kimlik bilgilerini ayarlayın.
 
 Daha fazla bilgi için [ASP.NET web API'de temel kimlik doğrulaması](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
@@ -33,7 +33,7 @@ Bölümündeki adımları tamamlamanız [tümleştirme REST API, Azure AD B2C ku
 ## <a name="step-1-add-authentication-support"></a>1. Adım: Kimlik doğrulama desteği ekleme
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Adım 1.1: Uygulama ayarları, projenin web.config dosyasına ekleyin.
-1. Daha önce oluşturduğunuz Visual Studio projesini açın. 
+1. Daha önce oluşturduğunuz Visual Studio projesini açın.
 
 2. Aşağıdaki uygulama ayarları altında web.config dosyasına ekleyerek `appSettings` öğesi:
 
@@ -205,7 +205,7 @@ Adlı bir OWIN başlangıç sınıfı ekleyin `Startup.cs` API. Bunu yapmak içi
         {
             public void Configuration(IAppBuilder app)
             {
-                    app.Use<ClientAuthMiddleware>();
+                app.Use<ClientAuthMiddleware>();
             }
         }
     }
@@ -220,7 +220,7 @@ Controllers\IdentityController.cs açın ve eklemek `[Authorize]` ve denetleyici
 Çözüm Gezgini'nde projenize yayımlamak için sağ **Contoso.AADB2C.API** proje ve ardından **Yayımla**.
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>3. Adım: Azure AD B2C için RESTful Hizmetleri uygulama kimliği ve uygulama gizli anahtarı Ekle
-RESTful hizmetiniz istemci kimliği (kullanıcı adı) ve gizli dizi tarafından korunduktan sonra kimlik bilgilerinin Azure AD B2C kiracınızda depolamanız gerekir. RESTful hizmetlerinizi çağırdığında, özel ilkeniz kimlik bilgilerini sağlar. 
+RESTful hizmetiniz istemci kimliği (kullanıcı adı) ve gizli dizi tarafından korunduktan sonra kimlik bilgilerinin Azure AD B2C kiracınızda depolamanız gerekir. RESTful hizmetlerinizi çağırdığında, özel ilkeniz kimlik bilgilerini sağlar.
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>Adım 3.1: Bir RESTful Hizmetleri istemci Kimliğini ekleyin
 1. Azure AD B2C kiracınızı seçin **B2C ayarlarını** > **kimlik deneyimi çerçevesi**.
@@ -275,7 +275,7 @@ RESTful hizmetiniz istemci kimliği (kullanıcı adı) ve gizli dizi tarafından
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. Kapatma sonrasında hemen `<Metadata>` öğesi, aşağıdaki XML parçacığını ekleyin: 
+5. Kapatma sonrasında hemen `<Metadata>` öğesi, aşağıdaki XML parçacığını ekleyin:
 
     ```xml
     <CryptographicKeys>

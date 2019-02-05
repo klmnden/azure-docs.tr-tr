@@ -8,18 +8,18 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117427"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729532"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Cihaz bağlantısı ve telemetri sorunları
 
 Tüm IOT çözümlerinin temel cihazlardan ve sensörlerden tarafından gönderilen telemetri verilerini oluşturur. Bu farklı kaynakları temsil eder ve bir konuma bağlamında yönetmek nasıl baş IOT uygulama geliştirmede edilir. Azure dijital İkizlerini cihazlardan ve sensörlerden olan bir uzamsal zeka grafik uniting tarafından IOT çözümleri geliştirme sürecini basitleştirir.
 
-Başlamak için bir Azure IOT hub'ı kaynak uzamsal graf kökünde oluşturun. IOT hub'ı kaynak ileti göndermek için kök alanı tüm cihazların sağlar. IOT hub'ı oluşturulduktan sonra dijital İkizlerini örneği içinde sensörlerden cihazları kaydedin. Cihazlar bir dijital İkizlerini hizmete veri gönderebilir [Azure IOT cihaz SDK'sını](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
+Başlamak için bir Azure IOT hub'ı kaynak uzamsal graf kökünde oluşturun. IOT hub'ı kaynak ileti göndermek için kök alanı tüm cihazların sağlar. IOT hub'ı oluşturulduktan sonra dijital İkizlerini örneği içinde sensörlerden cihazları kaydedin. Cihazlar bir dijital İkizlerini hizmete veri gönderebilir [Azure IOT cihaz SDK'sını](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
 Yerleşik cihazlarını getirmesine hakkında adım adım kılavuz için bkz. [dijital İkizlerini yapılandırmak ve dağıtmak için öğreticiyi](tutorial-facilities-setup.md). Bir bakışta adımlar şunlardır:
 
@@ -67,7 +67,7 @@ Cihazınızın ileti biçimi ve yükü çözümünüzün gereksinimlerine uyacak
 
  Yükü içeriğini bir **ileti** rastgele verilerin boyutu 256 KB'a kadar. Özellikleri için beklenen birkaç gereksinim vardır [ `Message.Properties` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) türü. Tablo, sistem tarafından desteklenen gerekli ve isteğe bağlı özellikleri gösterir.
 
-| Özellik adı | Değer | Gereklidir | Açıklama |
+| Özellik adı | Değer | Gerekli | Açıklama |
 |---|---|---|---|
 | **DigitalTwins Telemetri** | 1.0 | Evet | Bir ileti sistemi tanımlayan bir sabit değer. |
 | **DigitalTwins SensorHardwareId** | `string(72)` | Evet | Benzersiz bir tanımlayıcı gönderen algılayıcı **ileti**. Bu değer, bir nesnenin eşleşmelidir **HardwareId** sistemin işlemek özellik. Örneğin, `00FF0643BE88-CO2`. |

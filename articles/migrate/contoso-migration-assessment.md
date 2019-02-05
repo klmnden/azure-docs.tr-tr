@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: daf75987a49d2ce90a436fdfcff1a85d2fc0ca21
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300413"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697458"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso geçişi: Şirket içi iş yüklerini, Azure’a geçişe yönelik olarak değerlendirme
 
@@ -125,7 +125,7 @@ Contoso ve diğer kullanıcıların değerlendirmesi için aşağıdaki önkoşu
 - Biri, SQL Server veritabanı çalıştıran en az iki şirket içi VMware sanal makinesi.
 - Her sanal makinede Azure geçişi aracılarını yüklemek için izinler.
 - Sanal makinelerin doğrudan İnternet bağlantısı olmalıdır.  
-    - İnternet erişimini kısıtlayabilirsiniz [gerekli URL'ler](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - İnternet erişimini kısıtlayabilirsiniz [gerekli URL'ler](https://docs.microsoft.com/azure/migrate/concepts-collector).  
     - İnternet bağlantısı, Azure Vm'lerinizi yoksa [Log Analytics Gateway](../azure-monitor/platform/gateway.md) bunlar üzerinde yüklü olmalıdır ve aracı trafiğini üzerinden yönlendirilir.
 - Veritabanı değerlendirmesi için SQL Server örneğini çalıştıran sanal makinenin FQDN’si.
 - Windows SQL Server sanal makinesinde çalışan güvenlik duvarının TCP bağlantı noktası 1433'ü (varsayılan) noktasında harici bağlantılara izin vermelidir. Bu kurulum bağlanmak Data Migration Yardımcısı sağlar.

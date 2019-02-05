@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: f2fe9efd7d75c95d6cd13cb65e196723c9953716
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658836"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729328"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service Linux SSS hakkında
 
@@ -132,7 +132,7 @@ Tam kayıt defteri URL'si sağlamak da dahil olmak üzere `http://` veya `https:
 
 **Ben, kendi depolama getirebilir miyim?**
 
-Şu anda kendi depolama getirme desteklemiyoruz.
+Evet, [kendi depolamanı Getir](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) Önizleme aşamasındadır.
 
 **My özel kapsayıcının dosya sistemi veya çalışan işlemlerden SCM sitesine neden öğesine göz atamıyor?**
 

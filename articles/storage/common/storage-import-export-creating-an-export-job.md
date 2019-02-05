@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 935af10c2ebcdc5273671ed058fdf72099059da3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 33234c03a3e691a95e61f825a0351cf481431294
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475628"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731403"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için dışarı aktarma işi oluşturma
 Microsoft Azure içeri/dışarı aktarma hizmeti REST API kullanarak dışarı aktarma işi oluşturma, aşağıdaki adımları içerir:
@@ -45,21 +45,21 @@ Microsoft Azure içeri/dışarı aktarma hizmeti REST API kullanarak dışarı a
 
 -   Tüm BLOB'ları ve anlık görüntü depolama hesabındaki dışarı aktarabilirsiniz.
 
- Dışarı aktarılacak bloblar belirtme hakkında daha fazla bilgi için bkz. [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi.
+ Dışarı aktarılacak bloblar belirtme hakkında daha fazla bilgi için bkz. [Put işlemini](/rest/api/storageimportexport/jobs) işlemi.
 
 ## <a name="obtaining-your-shipping-location"></a>Sevkiyat konumunuz edinme
 Bir dağıtımı konum adı ve adresi çağırarak elde etmeniz dışarı aktarma işi oluşturmadan önce [alma konumu](https://portal.azure.com) veya [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) işlemi. `List Locations` konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve sabit sürücülerinizi bu adrese gönderin. Ayrıca `Get Location` doğrudan belirli bir konumun teslimat adresini edinme işlemi.
 
 Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 
--   Konumun depolama hesabınızın adını belirleyin. Bu değeri altında bulunabilir **konumu** depolama hesabının ile sekmesindeki **Pano** Azure portal ya da hizmet yönetimi API işlemi'ni kullanarak için sorgulanan [depolama hesabı edinin Özellikleri](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Konumun depolama hesabınızın adını belirleyin. Bu değeri altında bulunabilir **konumu** depolama hesabının ile sekmesindeki **Pano** Azure portal ya da hizmet yönetimi API işlemi'ni kullanarak için sorgulanan [depolama hesabı edinin Özellikleri](/rest/api/storagerp/storageaccounts).
 
 -   Bu depolama hesabı çağırarak işlemek için uygun olan konumu almak `Get Location` işlemi.
 
 -   Varsa `AlternateLocations` özelliği konumun Konum içerir ve bu konumu kullanmak uygundur. Aksi takdirde, çağrı `Get Location` alternatif konumlar biriyle yeniden işlemi. Özgün konuma geçici olarak bakım için kapalı olabilir.
 
 ## <a name="creating-the-export-job"></a>Dışarı aktarma işi oluşturma
- Dışarı aktarma işi oluşturmak için arama [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Aşağıdaki bilgileri sağlamanız gerekir:
+ Dışarı aktarma işi oluşturmak için arama [Put işlemini](/rest/api/storageimportexport/jobs) işlemi. Aşağıdaki bilgileri sağlamanız gerekir:
 
 -   İş için bir ad.
 
@@ -82,10 +82,10 @@ Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 >  Sürücülerinizi paketiniz için bir izleme numarası sağlayacak bir desteklenen taşıyıcı hizmeti aracılığıyla göndermeniz gerekir.
 
 ## <a name="updating-the-export-job-with-your-package-information"></a>Paket bilgileriyle dışarı aktarma işi güncelleştiriliyor
- İzleme numaranızı sonra çağrı [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) taşıyıcı adı ve numarası iş için izleme işlemi için güncelleştirildi. İsteğe bağlı olarak, sürücüleri, dönüş adresi ve gönderim tarihi de sayısını belirtebilirsiniz.
+ İzleme numaranızı sonra çağrı [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs) taşıyıcı adı ve numarası iş için izleme işlemi için güncelleştirildi. İsteğe bağlı olarak, sürücüleri, dönüş adresi ve gönderim tarihi de sayısını belirtebilirsiniz.
 
 ## <a name="receiving-the-package"></a>Paketi alma
- Sürücüler, dışarı aktarma işi işlendikten sonra şifrelenmiş verilerinizle döndürülür. Çağırarak her sürücüleri için BitLocker anahtarı alabilirsiniz [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) işlemi. Ardından anahtar kullanılarak sürücünün kilidini açabilirsiniz. Her sürücüde sürücü bildirim dosyası, her dosya için özgün blob adresini yanı sıra, sürücü dosyaları listesini içerir.
+ Sürücüler, dışarı aktarma işi işlendikten sonra şifrelenmiş verilerinizle döndürülür. Çağırarak her sürücüleri için BitLocker anahtarı alabilirsiniz [alma işi](/rest/api/storageimportexport/jobs) işlemi. Ardından anahtar kullanılarak sürücünün kilidini açabilirsiniz. Her sürücüde sürücü bildirim dosyası, her dosya için özgün blob adresini yanı sıra, sürücü dosyaları listesini içerir.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

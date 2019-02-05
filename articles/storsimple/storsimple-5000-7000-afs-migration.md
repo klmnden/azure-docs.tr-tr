@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: aad5b2d2e451f33a3f4f365fa0702eef5d698e4e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729172"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730178"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Azure dosya eşitleme için StorSimple 5000-7000 serisinden veri geçirme
 
@@ -56,8 +56,8 @@ Burada, eski 5000 veya 7000 Serisi Cihazınızı için Azure dosya eşitleme ge�
 - StorSimple birimleri konakta bağlanır ve dosya paylaşımları içeren.
 - Ana bilgisayar, yerel olarak önbelleğe alınan verileri tutmak için yeterli yerel depolama alanına sahiptir.
 - Azure dosya eşitleme dağıtmak için kullanacağınız Azure aboneliği düzeyinde erişim sahibi. Sahibi veya yönetici düzeyi izinler yoksa eşitleme grubunuz için bir bulut uç noktası oluştururken sorunlarla karşılaşabilirsiniz.
-- Erişim bir [genel amaçlı v2 depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-account-overview) ile eşitlemek için istediğiniz bir Azure dosya paylaşımı. Daha fazla bilgi için [depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
- - Nasıl yapılır [bir Azure dosya paylaşımı oluşturma](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
+- Erişim bir [genel amaçlı v2 depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-account-overview) ile eşitlemek için istediğiniz bir Azure dosya paylaşımı. Daha fazla bilgi için bkz. [Depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+ - Nasıl yapılır [bir Azure dosya paylaşımı oluşturma](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Geçiş işlemi
 
@@ -87,7 +87,7 @@ Azure dosya eşitleme paylaşımına StorSimple birimlerde yapılandırılmış 
     Bu adımı atlayın ve farklı bir Windows Server ana bilgisayar kullanıyorsanız, sonraki adıma gidin. AFS aynı Windows dosya sunucusu kullanıyorsanız, artık birkaç dakika kapalı kalma süresi yaşar. 
     - **Kapalı kalma süresi başlar** -oluşturduğunuz sunucu uç noktasını silme *1F adım*. 
     - Verilerin ileri giderek bulunmasını istediğiniz yol ile yeni bir sunucu uç noktası oluşturun.
-    - Sunucu uç noktası (Bu işlem birkaç dakika sürebilir) sağlıklı gösterir. sonra bu yeni konumda veri görürsünüz. Artık bu yeni konumdaki dosyaları sunmak için Windows Server konağınızda yapılandırabilirsiniz.\ -  **Kapalı kalma süresi sona erer**.
+    - Sunucu uç noktası (Bu işlem birkaç dakika sürebilir) sağlıklı gösterir. sonra bu yeni konumda veri görürsünüz. Artık bu yeni konumdaki dosyaları sunmak için Windows Server konağınızda yapılandırabilirsiniz. -  **Kapalı kalma süresi sona erer**.
 5.  Ardından Azure dosya eşitleme için başka bir Windows dosya sunucusu kullanıyorsanız, herhangi bir kesintiyle karşılaşmayacaksınız. 
     - Başka bir sunucu uç noktası yoluyla StorSimple cihazı yerine bir önbellek olarak kullanmaya hazırsınız yerel depolama ekleyin. 
     - Yeni Sunucu dosyalarında birkaç dakika içinde görmeye olacaktır. Herhangi bir zamanda StorSimple Cihazınızı bu yeni konuma konaktaki geçiş yapmak ücretsizdir.

@@ -10,20 +10,20 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8402d0228e062aed60adee1c4622ade31771584d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210956"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700290"
 ---
 # <a name="quickstart-query-for-facts"></a>Hızlı Başlangıç: Sorgu olgular
 
 Tarih veya tanımlanabilir bilgi gibi bir olgu sorgusunda yanıt `facts` öğelerini içerebilir. Olgu yanıtları, web belgelerindeki paragraflardan alınan ilgili sorguları içerir.  Bu sorgular her zaman web sayfası döndürür ve [olgular](fact-queries.md) ve/veya [varlıklar](entity-queries.md) sorguya bağlı olarak değişir.
 
-Sevgililer+2016 veya ramazan+başlangıcı gibi sorgular, tarihle ilgili sorgular olarak kabul edilir. Bing, sorgunun tarihle ilgili olduğunu belirlediğinde yanıtta bir `facts` öğesi bulunur. 
+Sevgililer+2016 veya ramazan+başlangıcı gibi sorgular, tarihle ilgili sorgular olarak kabul edilir. Bing, sorgunun tarihle ilgili olduğunu belirlediğinde yanıtta bir `facts` öğesi bulunur.
 
-Aşağıdaki örnekte tarihle ilgili bir `facts` yanıtı gösterilmiştir. 
+Aşağıdaki örnekte tarihle ilgili bir `facts` yanıtı gösterilmiştir.
 
 **Sorgu:**
 ```
@@ -34,28 +34,29 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 **Yanıt:** `subjectName` Alan olgu görüntülerken bir etiket olarak kullanabileceğiniz kullanıcının sorgu görüntü sürümünü içerir. Sorgu dizesi Sevgililer+2016 şeklindeyse Bing bunu Sevgililer Günü 2016 şeklinde değiştirebilir. Açıklama alanı olguyu içerir.
 
 ```
-{   
-    "_type" : "SearchResponse",   
-    "queryContext" : {   
-        "originalQuery" : "valentines 2016" 
-    },   
-    "facts" : {   
-        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Facts",   
-        "value" : [{   
-            "description" : "Valentine's Day was on Sunday, February 14, 2016.",   
-            "subjectName" : "Valentine's Day 2016"   
-        }]   
-    },   
-    "rankingResponse" : {   
-        "mainline" : {   
-            "items" : [{   
-                "answerType" : "Facts",   
-                "value" : {   
-                    "id" : "https:\/\/www.bingapis.com\/api\/v7\/knowledge\/#Facts"                   }   
-            }]   
-        }   
-    }   
-}   
+{
+    "_type" : "SearchResponse",
+    "queryContext" : {
+        "originalQuery" : "valentines 2016"
+    },
+    "facts" : {
+        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Facts",
+        "value" : [{
+            "description" : "Valentine's Day was on Sunday, February 14, 2016.",
+            "subjectName" : "Valentine's Day 2016"
+        }]
+    },
+    "rankingResponse" : {
+        "mainline" : {
+            "items" : [{
+                "answerType" : "Facts",
+                "value" : {
+                    "id" : "https:\/\/www.bingapis.com\/api\/v7\/knowledge\/#Facts"
+                }
+            }]
+        }
+    }
+}
 
 ```
 
@@ -118,7 +119,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 Bazı durumlarda olgular `_type: StructuredValue/TabularData` olarak döndürülebilir. Aşağıdaki sorgu çay ve kahve hakkındaki karşılaştırma bilgilerini içeren tablo verilerini alır.
 
 ```
-https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
+https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us
 
 ```
 `facts` sonuçlarında aşağıdaki satırlar ve hücreler bulunur:

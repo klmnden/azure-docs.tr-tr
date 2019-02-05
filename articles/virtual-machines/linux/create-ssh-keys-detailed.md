@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7167e31261ce029a6a0a6fe070232d1086942162
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3784dd701b3ac44971e134f1b160fcfe2de2d9b3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297710"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731810"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Ayrıntılı adımlar: Azure'da bir Linux sanal makinesi için kimlik doğrulaması için SSH anahtarları oluşturma ve yönetme 
 Güvenli Kabuk (SSH) anahtar çiftiyle ihtiyacını ortadan oturum açmak parola kimlik doğrulaması için SSH anahtarlarının kullanımını varsayılan olarak Azure üzerinde bir Linux sanal makinesi oluşturabilirsiniz. Şablonları Azure portalı ile Azure CLI'yı Resource Manager Vm'leri oluşturulan veya diğer araçları SSH anahtar kimlik doğrulaması için SSH bağlantısı kurar dağıtımın bir parçası olarak SSH ortak anahtarınızı içerebilir. 
@@ -130,11 +130,11 @@ Bu *kesin* Özel anahtarınıza bir parola eklemeniz önerilir. Anahtarı dosyas
 
 ## <a name="generate-keys-automatically-during-deployment"></a>Anahtarları dağıtımı sırasında otomatik olarak oluştur
 
-Kullanırsanız [Azure CLI](/cli/azure) VM'nizi oluşturmak için isteğe bağlı olarak SSH ortak ve özel anahtar dosyaları çalıştırarak oluşturabilirsiniz [az vm oluşturma](/cli/azure/vm#az_vm_create) komutunu `--generate-ssh-keys` seçeneği. Anahtarları ~/.ssh dizininde depolanır. Bu konumda zaten varsa bu komut seçeneği anahtarları üzerine yazmaz olduğunu unutmayın.
+Kullanırsanız [Azure CLI](/cli/azure) VM'nizi oluşturmak için isteğe bağlı olarak SSH ortak ve özel anahtar dosyaları çalıştırarak oluşturabilirsiniz [az vm oluşturma](/cli/azure/vm) komutunu `--generate-ssh-keys` seçeneği. Anahtarları ~/.ssh dizininde depolanır. Bu konumda zaten varsa bu komut seçeneği anahtarları üzerine yazmaz olduğunu unutmayın.
 
 ## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>Bir VM dağıtılırken SSH ortak anahtarı sağlayın
 
-Kimlik doğrulaması için SSH anahtarları kullanan bir Linux VM oluşturmak için SSH ortak anahtarınızı CLI, Azure portalını kullanarak VM'yi oluştururken sağlamanız Resource Manager şablonları ya da diğer yöntemleri. Portalı kullanarak, ortak anahtarı girin. Kullanırsanız [Azure CLI](/cli/azure) mevcut bir ortak anahtar ile VM oluşturma için değer ya da bu ortak anahtarın konumunu çalıştırarak belirtin [az vm oluşturma](/cli/azure/vm#az_vm_create) komutunu `--ssh-key-value` seçeneği. 
+Kimlik doğrulaması için SSH anahtarları kullanan bir Linux VM oluşturmak için SSH ortak anahtarınızı CLI, Azure portalını kullanarak VM'yi oluştururken sağlamanız Resource Manager şablonları ya da diğer yöntemleri. Portalı kullanarak, ortak anahtarı girin. Kullanırsanız [Azure CLI](/cli/azure) mevcut bir ortak anahtar ile VM oluşturma için değer ya da bu ortak anahtarın konumunu çalıştırarak belirtin [az vm oluşturma](/cli/azure/vm) komutunu `--ssh-key-value` seçeneği. 
 
 SSH ortak anahtarı biçimiyle ilgili bilgi sahibi değilseniz, çalıştırarak ortak anahtarınızı görebilirsiniz `cat` şu şekilde değiştirerek `~/.ssh/id_rsa.pub` kendi ortak anahtar dosyası konumunuz ile:
 

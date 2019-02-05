@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b80ee059459d4c1f4d90d14ee62dcead57596571
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886246"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697163"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Kullanılabilirlik alanları kullanan bir sanal makine ölçek kümesi oluşturma
 
@@ -81,7 +81,7 @@ Bir kullanılabilirlik alanı kullanan bir ölçek kümesi oluşturma işlemi ay
 
 Bir kullanılabilirlik alanı kullanan bir ölçek kümesi oluşturma işlemi ayrıntılı olarak aynıdır [makale Başlarken](quick-create-cli.md). Kullanılabilirlik alanları kullanmak için desteklenen bir Azure bölgesinde ölçek kümenizi oluşturmanız gerekir.
 
-Ekleme `--zones` parametresi [az vmss oluşturma](/cli/azure/vmss#az_vmss_create) kullanmak için hangi bölgeyi belirtin ve komutu (bölge gibi *1*, *2*, veya *3*). Aşağıdaki örnekte adlı bir tek bölgeli ölçek kümesi oluşturur *myScaleSet* bölgesinde *1*:
+Ekleme `--zones` parametresi [az vmss oluşturma](/cli/azure/vmss) kullanmak için hangi bölgeyi belirtin ve komutu (bölge gibi *1*, *2*, veya *3*). Aşağıdaki örnekte adlı bir tek bölgeli ölçek kümesi oluşturur *myScaleSet* bölgesinde *1*:
 
 ```azurecli
 az vmss create \

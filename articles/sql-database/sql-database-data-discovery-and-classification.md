@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466601"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731861"
 ---
-# <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı veri bulma ve sınıflandırma
+# <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL veritabanı veri bulma & sınıflandırma
 
 Veri bulma & sınıflandırma (şu anda önizlemede), Azure SQL veritabanı için gelişmiş özellikler sunar **keşfetme**, **sınıflandırma**, **etiketleme**  &  **koruma** veritabanlarınızı hassas verileri.
 Bulma ve sınıflandırma en hassas verileriniz (iş, Finans, sağlık hizmeti, kişisel verileri (PII) ve benzeri) rol içinde kuruluş bilgilerini koruma stature oynatabilirsiniz. Altyapı olarak hizmet eder:
@@ -28,14 +28,14 @@ Bulma ve sınıflandırma en hassas verileriniz (iş, Finans, sağlık hizmeti, 
 - (Denetim) izleme gibi çeşitli güvenlik senaryoları ve anormal hassas verilere erişimi üzerinde uyarı.
 - Erişimi denetleme ve son derece hassas veri içeren veritabanlarını güvenliğini artırma.
 
-Veri bulma & sınıflandırma parçası olan [SQL gelişmiş veri güvenliği](sql-advanced-threat-protection.md) (REKLAM) sunumunun Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Veri bulma & sınıflandırma erişilen ve merkezi SQL REKLAM portalı üzerinden yönetilebilir.
+Veri bulma & sınıflandırma parçası olan [gelişmiş veri güvenliği](sql-database-advanced-data-security.md) (REKLAM) sunumunun Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Veri bulma & sınıflandırma erişilen ve merkezi SQL REKLAM portalı üzerinden yönetilebilir.
 
 > [!NOTE]
 > Bu belge, Azure SQL veritabanı'na yalnızca ilişkilendirir. SQL Server (şirket içi) için bkz: [SQL veri bulma ve sınıflandırma](https://go.microsoft.com/fwlink/?linkid=866999).
 
-## <a id="subheading-1"></a>Veri bulma ve sınıflandırma nedir
+## <a id="subheading-1"></a>Veri bulma & sınıflandırma nedir
 
-Veri bulma & sınıflandırma yalnızca veritabanı verileri korumaya yönelik yeni bir SQL bilgi koruması paradigma oluşturan bir dizi Gelişmiş Hizmetleri ve yeni SQL işlevleri sunar:
+Veri bulma & sınıflandırma birtakım gelişmiş hizmetler ve yalnızca veritabanı verileri korumaya yönelik yeni bir SQL bilgi koruması paradigma oluşturan yeni SQL işlevleri sunar:
 
 - **Bulma ve öneriler**
 
@@ -147,11 +147,11 @@ Sınıflandırmaları programlı olarak yönetmek için REST API de kullanabilir
 
 ## <a id="subheading-5"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [SQL gelişmiş veri güvenliği](sql-advanced-threat-protection.md).
+- Daha fazla bilgi edinin [gelişmiş veri güvenliği](sql-database-advanced-data-security.md).
 - Yapılandırmayı göz önünde bulundurun [Azure SQL veritabanı denetimi](sql-database-auditing.md) izleme ve, sınıflandırılmış hassas verilere erişimi denetleme.
 
 <!--Anchors-->
-[SQL Data Discovery & Classification overview]: #subheading-1
+[SQL data discovery & classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
 [Automated/Programmatic classification]: #subheading-4

@@ -1,6 +1,6 @@
 ---
 title: Azure sanal makine uzantıları ve özellikleri | Microsoft Docs
-description: Hangi Azure VM uzantıları anre Azure sanal makineler ile kullanmayı öğrenin
+description: Azure VM uzantıları nedir ve bunları Azure sanal makineler ile nasıl kullanacağınızı öğrenin
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 38f885cc230df6e0edb1e5b5254faf0cd519847a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 1d092f03013d98106138f35734d960567121a5bf
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451452"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692796"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure sanal makine uzantıları ve özellikleri
 Azure sanal makine (VM) uzantıları Azure Vm'leri üzerinde dağıtım sonrası yapılandırma ve otomasyon görevleri sunan küçük uygulamalar, mevcut görüntülerinizi kullanın ve ardından onları, dağıtımlarınızın bir parçası olarak özel faaliyet alma özelleştirin görüntü oluşturuluyor.

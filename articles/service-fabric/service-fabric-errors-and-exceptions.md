@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/20/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9e29f05c71f9dfe0bcd79135deb30d713fb3abb0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d96da4cc53299d978f8f69acb6a92d957c4f693e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477111"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697577"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Sık karşılaşılan özel durumlar ve FabricClient API'leri ile çalışırken hataları
 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) API'leri bir Service Fabric uygulama, hizmet veya küme yönetim görevlerini gerçekleştirmek küme ve uygulama yöneticileri etkinleştirin. Örneğin, uygulama dağıtımı, yükseltme ve kaldırma, bir küme sistem durumu denetimi ya da bir hizmeti sınama. FabricClient API'leri, uygulama geliştiriciler ve küme yöneticileri Service Fabric kümesi ve uygulamaları yönetmek için Araçlar geliştirmeniz için kullanabilirsiniz.
@@ -28,13 +28,13 @@ Farklı türlerde FabricClient kullanarak gerçekleştirilen işlemler vardır. 
 
 | Özel durum | Zaman oluşturulur |
 | --- |:--- |
-| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception#System_Fabric_FabricObjectClosedException) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) nesnedir kapalı durumda. Elden [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) kullanıyorsanız ve yeni bir nesne [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) nesne. |
-| [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception#System_TimeoutException) |İşlem zaman aşımına uğradı. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) işlemi MaxOperationTimeout tamamlanması uzun sürerse döndürülür. |
-| [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception#System_UnauthorizedAccessException) |İşlem için erişim denetimi başarısız oldu. E_ACCESSDENIED döndürülür. |
-| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException) |İşlem gerçekleştirilirken bir çalışma zamanı hatası oluştu. FabricClient yöntemlerden herhangi birini potansiyel olarak oluşturabilecek [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException), [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException_ErrorCode) özelliği, özel durum tam nedenini gösterir. Hata kodları tanımlanmış [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) sabit listesi. |
-| [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception#System_Fabric_FabricTransientException) |İşlem, bir tür bir geçici hata durumu nedeniyle başarısız oldu. Örneğin, bir çekirdeği geçici olarak erişilebilir olmadığı için işlem başarısız olabilir. Geçici özel durumlar denenebilecek başarısız işlemler karşılık gelir. |
+| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) nesnedir kapalı durumda. Elden [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) kullanıyorsanız ve yeni bir nesne [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) nesne. |
+| [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception) |İşlem zaman aşımına uğradı. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) işlemi MaxOperationTimeout tamamlanması uzun sürerse döndürülür. |
+| [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception) |İşlem için erişim denetimi başarısız oldu. E_ACCESSDENIED döndürülür. |
+| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |İşlem gerçekleştirilirken bir çalışma zamanı hatası oluştu. FabricClient yöntemlerden herhangi birini potansiyel olarak oluşturabilecek [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception), [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception_ErrorCode) özelliği, özel durum tam nedenini gösterir. Hata kodları tanımlanmış [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) sabit listesi. |
+| [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception) |İşlem, bir tür bir geçici hata durumu nedeniyle başarısız oldu. Örneğin, bir çekirdeği geçici olarak erişilebilir olmadığı için işlem başarısız olabilir. Geçici özel durumlar denenebilecek başarısız işlemler karşılık gelir. |
 
-Bazı ortak [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) içinde döndürülen hatalar bir [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException):
+Bazı ortak [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) içinde döndürülen hatalar bir [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception):
 
 | Hata | Koşul |
 | --- |:--- |

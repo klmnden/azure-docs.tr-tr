@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 1f2e136810194ad044255f9d129b5c03549221b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128669"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732932"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Oluşturmak, düzenlemek veya JSON için mantıksal uygulama tanımları Azure Logic apps'te genişletin.
 
@@ -24,11 +24,12 @@ Kurumsal tümleştirme çözümleri ile oluşturduğunuzda, otomatik iş akışl
 Mantıksal uygulama tanımları json'da çalışmak için Azure portalında veya Visual Studio çalışırken kod görünüm düzenleyicisini açmak veya tanımını istediğiniz herhangi bir düzenleyiciye kopyalayın. Logic apps kullanmaya yeni başladıysanız gözden [ilk mantıksal uygulamanızı oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Mantıksal uygulama tanımları parametre ve birden çok tetikleyici tanımlama gibi bazı Azure Logic Apps özellikleri, yalnızca JSON biçiminde, Logic Apps Tasarımcısı kullanılabilir. Bu nedenle bu görevler için kod görünümü veya başka bir düzenleyicide çalışmalıdır.
+> Mantıksal uygulama tanımları parametre ve birden çok tetikleyici tanımlama gibi bazı Azure Logic Apps özellikleri, yalnızca JSON biçiminde, Logic Apps Tasarımcısı kullanılabilir.
+> Bu nedenle bu görevler için kod görünümü veya başka bir düzenleyicide çalışmalıdır.
 
 ## <a name="edit-json---azure-portal"></a>JSON - Azure Portalı'nı Düzenle
 
-1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>’da oturum açın.
+1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a> oturum açın.
 
 2. Sol menüden **tüm hizmetleri**. Arama kutusuna "logic apps" bulun ve ardından sonuçları, mantıksal uygulamanızı seçin.
 
@@ -58,7 +59,7 @@ Visual Studio'da oluşturulan ve dağıtılan veya doğrudan Azure portalından 
 
 ## <a name="parameters"></a>Parametreler
 
-Parametreler, mantıksal uygulamanızın tamamında değerleri yeniden kullanmanıza olanak tanır ve sık sık değişebilir değerler değiştirmek için uygundur. Örneğin, birden çok yerde kullanmak istediğiniz bir e-posta adresi varsa, bu e-posta adresi bir parametre olarak tanımlamanız gerekir. 
+Parametreler, mantıksal uygulamanızın tamamında değerleri yeniden kullanmanıza olanak tanır ve sık sık değişebilir değerler değiştirmek için uygundur. Örneğin, birden çok yerde kullanmak istediğiniz bir e-posta adresi varsa, bu e-posta adresi bir parametre olarak tanımlamanız gerekir.
 
 Parametreleri de faydalı farklı ortamlarda parametrelerini geçersiz kıl gerektiğinde daha fazla bilgi edinin [dağıtım parametrelerini](#deployment-parameters) ve [Azure Logic Apps belgeleri için REST API](https://docs.microsoft.com/rest/api/logic).
 
@@ -70,13 +71,13 @@ Parametreleri de faydalı farklı ortamlarda parametrelerini geçersiz kıl gere
 1. Kod Görünümü'nde bulun `parameters : {}` nesne ve ekleme bir `currentFeedUrl` nesnesi:
 
    ``` json
-     "currentFeedUrl" : {
+   "currentFeedUrl" : {
       "type" : "string",
-            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
    }
    ```
 
-2. İçinde `When_a_feed-item_is_published` eylemi bulma `queries` bölümünde ve sorgu değeriyle değiştirin `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
+2. İçinde `When_a_feed-item_is_published` eylemi bulma `queries` bölümünde ve sorgu değeriyle değiştirin `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
 
    **Önce**
    ``` json
@@ -84,7 +85,7 @@ Parametreleri de faydalı farklı ortamlarda parametrelerini geçersiz kıl gere
       "queries": {
           "feedUrl": "https://s.ch9.ms/Feeds/RSS"
        }
-   },   
+   },
    ```
 
    **Sonra**
@@ -93,13 +94,13 @@ Parametreleri de faydalı farklı ortamlarda parametrelerini geçersiz kıl gere
       "queries": {
           "feedUrl": "#@{parameters('currentFeedUrl')}"
        }
-   },   
+   },
    ```
 
    İki veya daha fazla dizeleri birleştirmek için de kullanabilirsiniz `concat` işlevi. 
    Örneğin, `"@concat('#',parameters('currentFeedUrl'))"` önceki örnekteki gibi aynı şekilde çalışır.
 
-3.  İşiniz bittiğinde **Kaydet**’i seçin. 
+3.  İşiniz bittiğinde **Kaydet**’i seçin.
 
 Web sitesinin RSS akışı farklı bir URL aracılığıyla geçirerek değiştirebilirsiniz artık `currentFeedURL` nesne.
 
@@ -107,9 +108,9 @@ Web sitesinin RSS akışı farklı bir URL aracılığıyla geçirerek değişti
 
 ## <a name="deployment-parameters-for-different-environments"></a>Farklı ortamlar için dağıtım parametreleri
 
-Genellikle, geliştirme, hazırlama ve üretim ortamlarında dağıtım yaşam döngülerine sahip. Örneğin, aynı mantıksal uygulama tanımını tüm bu ortamlarda ancak farklı veritabanlarındaki kullanın. Benzer şekilde, aynı tanımın farklı bölgeler arasında yüksek kullanılabilirlik için kullanın. ancak istediğiniz her mantıksal uygulama örneği bölgenin veritabanı kullanmak isteyebilirsiniz. 
+Genellikle, geliştirme, hazırlama ve üretim ortamlarında dağıtım yaşam döngülerine sahip. Örneğin, aynı mantıksal uygulama tanımını tüm bu ortamlarda ancak farklı veritabanlarındaki kullanın. Benzer şekilde, aynı tanımın farklı bölgeler arasında yüksek kullanılabilirlik için kullanın. ancak istediğiniz her mantıksal uygulama örneği bölgenin veritabanı kullanmak isteyebilirsiniz.
 
-> [!NOTE] 
+> [!NOTE]
 > Bu senaryo parametrelerinin fotoğrafını çekmenizi farklı *çalışma zamanı* burada kullanmanız gerektiğini `trigger()` işlevini.
 
 Bir temel tanımı aşağıda verilmiştir:
@@ -157,13 +158,13 @@ Fiili olarak `PUT` logic apps için istek parametresi sağlayabilirsiniz `uri`. 
     },
     "location": "westus"
 }
-``` 
+```
 
 Daha fazla bilgi için bkz. [Azure Logic Apps belgeleri için REST API](https://docs.microsoft.com/rest/api/logic/).
 
 ## <a name="process-strings-with-functions"></a>İşlem işlevleri ile dizeler
 
-Logic Apps dizelerle çeşitli işlevleri vardır. Örneğin, bir şirket adı, bir sıra başka bir sisteme geçirmek istediğiniz varsayalım. Ancak, karakter kodlaması için uygun işleme hakkında emin değilseniz. Bu dizesine base64 kodlaması gerçekleştirebilir ancak kaçış karakterleri URL'ye önlemek için birkaç karakter yerine değiştirebilirsiniz. İlk beş karakteri değil kullanıldığından ayrıca yalnızca bir alt dizesi için şirket adı gerekir. 
+Logic Apps dizelerle çeşitli işlevleri vardır. Örneğin, bir şirket adı, bir sıra başka bir sisteme geçirmek istediğiniz varsayalım. Ancak, karakter kodlaması için uygun işleme hakkında emin değilseniz. Bu dizesine base64 kodlaması gerçekleştirebilir ancak kaçış karakterleri URL'ye önlemek için birkaç karakter yerine değiştirebilirsiniz. İlk beş karakteri değil kullanıldığından ayrıca yalnızca bir alt dizesi için şirket adı gerekir.
 
 ``` json
 {
@@ -200,7 +201,7 @@ Logic Apps dizelerle çeşitli işlevleri vardır. Örneğin, bir şirket adı, 
 
 Bu adımlar, bu örnek için dış içeriden çalışma Bu dize, nasıl işlediğini açıklar:
 
-``` 
+```
 "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
@@ -218,7 +219,7 @@ Bu adımlar, bu örnek için dış içeriden çalışma Bu dize, nasıl işledi�
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Liste öğeleri için özellik değerlerini eşleştirmek ve haritalar parametreleri olarak kullanma
 
-Farklı sonuçlar elde etmek için bir özelliğinin değerini alarak, bir sonuç için her bir özellik değeri ile eşleşen bir harita oluşturun ve ardından eşleştiren bir parametre olarak kullanın. 
+Farklı sonuçlar elde etmek için bir özelliğinin değerini alarak, bir sonuç için her bir özellik değeri ile eşleşen bir harita oluşturun ve ardından eşleştiren bir parametre olarak kullanın.
 
 Örneğin, bu iş akışı parametreleri ve belirli bir URL'ye sahip kategoriler eşleşen bir harita olarak bazı kategorileri tanımlar. İlk olarak, iş akışı makalelerin listesini alır. Daha sonra iş akışı, her bir makaleyi kategorisi eşleşen URL'sini bulmak için eşlemesini kullanır.
 
@@ -302,13 +303,13 @@ Yerel olarak desteklemeyen bir veri kaynağından veri almanın *Tetikleyicileri
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. Gelen `order` eylemi, extract `startTime`. 
+1. Gelen `order` eylemi, extract `startTime`.
 2. Geçerli saati ile alma `utcNow()`.
 3. Bir saniye çıkarın:
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
 
-   Diğer zaman birimleri gibi kullanabileceğiniz `minutes` veya `hours`. 
+   Diğer zaman birimleri gibi kullanabileceğiniz `minutes` veya `hours`.
 
 3. Şimdi, bu iki değerden karşılaştırabilirsiniz. 
 
@@ -365,7 +366,6 @@ Tarihleri biçimlendirmek için dize biçimlendiricileri kullanabilirsiniz. Örn
   "outputs": {}
 }
 ```
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

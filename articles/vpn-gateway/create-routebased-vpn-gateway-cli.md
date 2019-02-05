@@ -1,5 +1,5 @@
 ---
-title: 'Rota tabanlı Azure VPN gateway oluşturma: CLI | Microsoft Docs'
+title: 'Rota temelli bir Azure VPN gateway oluşturun: CLI | Microsoft Docs'
 description: CLI kullanarak bir VPN ağ geçidi oluşturmak nasıl hızlı bir şekilde öğrenin
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: b8ca2d74012418dbd8ca9e878f133a250ebb5991
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f5f62a6bfa1baa205e0496dd901f1f1eef660079
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465109"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698199"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>CLI kullanarak rota temelli VPN ağ geçidi oluşturma
 
@@ -26,7 +26,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Kullanarak bir kaynak grubu oluşturmanız [az grubu oluşturma](/cli/azure/group#az_group_create) komutu. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+Kullanarak bir kaynak grubu oluşturmanız [az grubu oluşturma](/cli/azure/group) komutu. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
 
 ```azurecli-interactive 
@@ -35,7 +35,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>Sanal ağ oluşturma
 
-Kullanarak bir sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az_network_vnet_create) komutu. Aşağıdaki örnekte adlı bir sanal ağ oluşturur **VNet1** içinde **EastUS** konumu:
+Kullanarak bir sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet) komutu. Aşağıdaki örnekte adlı bir sanal ağ oluşturur **VNet1** içinde **EastUS** konumu:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -56,7 +56,7 @@ az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
   -g TestRG1 \
-  --address-prefix 10.1.255.0/27 
+  --address-prefix 10.1.255.0/27 
 ```
 
 ## <a name="PublicIP"></a>Genel bir IP adresi isteme
@@ -67,12 +67,12 @@ Bir VPN ağ geçidi, dinamik olarak ayrılan bir genel IP adresi olmalıdır. Sa
 az network public-ip create \
   -n VNet1GWIP \
   -g TestRG1 \
-  --allocation-method Dynamic 
+  --allocation-method Dynamic 
 ```
 
 ## <a name="CreateGateway"></a>VPN ağ geçidi oluşturma
 
-[az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create) komutunu kullanarak VPN ağ geçidini oluşturun.
+[az network vnet-gateway create](/cli/azure/group) komutunu kullanarak VPN ağ geçidini oluşturun.
 
 Bu komutu kullanarak çalıştırırsanız `--no-wait` parametresi, tüm geri bildirim veya çıktı görmezsiniz. `--no-wait` Parametresi, ağ geçidinin arka planda oluşturulmasına olanak sağlar. VPN ağ geçidini hemen oluşturduğunuz anlamına gelmez.
 
@@ -172,7 +172,7 @@ az network public-ip show \
 ```
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Oluşturduğunuz kaynaklara artık ihtiyacınız olduğunda kullanın [az grubu Sil](/cli/azure/group#az_group_delete) kaynak grubu silinemedi. Böylece, kaynak grubu ve içerdiği tüm kaynaklar silinir.
+Oluşturduğunuz kaynaklara artık ihtiyacınız olduğunda kullanın [az grubu Sil](/cli/azure/group) kaynak grubu silinemedi. Böylece, kaynak grubu ve içerdiği tüm kaynaklar silinir.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes

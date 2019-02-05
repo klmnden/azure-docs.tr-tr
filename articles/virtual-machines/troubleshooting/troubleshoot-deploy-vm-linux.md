@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 45e15fa5b17f75dcc6cfdc7305861d38804f1266
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 56df020b7948ff41ee7710fca19d05924e118c81
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748145"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729719"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Azure'da dağıtma Linux sanal makine sorunlarını giderme
 
@@ -93,7 +93,7 @@ Linux listesini bulabilirsiniz [Azure-Endorsed dağıtımları](../linux/endorse
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Bir kullanılabilirlik kümesine mevcut bir Klasik VM'yi ekleyebilir miyim?
 
-Evet. Var olan bir Klasik VM'yi bir yeni veya mevcut kullanılabilirlik kümesine ekleyebilirsiniz. Daha fazla bilgi için [mevcut bir sanal makine bir kullanılabilirlik kümesine ekleme](../windows/classic/configure-availability-classic.md#addmachine).
+Evet. Var olan bir Klasik VM'yi bir yeni veya mevcut kullanılabilirlik kümesine ekleyebilirsiniz. Daha fazla bilgi için [mevcut bir sanal makine bir kullanılabilirlik kümesine ekleme](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 800c6d3441e75f428f58fe76ea653f04353064bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470884"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699729"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Translate
 
@@ -54,7 +54,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   </tr>
   <tr>
     <td>category</td>
-    <td>*İsteğe bağlı parametre*.<br/>Çeviri kategorisi (etki alanı) belirten bir dize. Bu parametre ile oluşturulan, özelleştirilmiş bir sistemden çevirileri almak için kullanılan [özel Translator](../customization.md). Varsayılan değer: `general`.</td>
+    <td>*İsteğe bağlı parametre*.<br/>Çeviri kategorisi (etki alanı) belirten bir dize. Bu parametre ile oluşturulan, özelleştirilmiş bir sistemden çevirileri almak için kullanılan [özel Translator](../customization.md). Kategori Kimliği özel Translator projenizden dağıtılan özelleştirilmiş sisteminizi kullanabilmek için bu parametreyi ekleyin. Varsayılan değer: `general`.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
@@ -126,7 +126,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
 
 Aşağıdaki sınırlamalar geçerlidir:
 
-* Dizi en fazla 25 öğeleri olabilir.
+* Dizi en fazla 100 öğeleri olabilir.
 * İstekte bulunan tüm metin alanları dahil olmak üzere 5000 karakterden uzun olamaz.
 
 ## <a name="response-body"></a>Yanıt gövdesi
@@ -224,6 +224,8 @@ Bir isteği döndüren olası HTTP durum kodları şunlardır:
     <td>Sunucu geçici olarak kullanılamıyor. İsteği yeniden deneyin. Sorun devam ederse, raporu ile: tarih ve saat hatanın yanıt üst bilgisinden istek tanımlayıcısı `X-RequestId`ve istemci tanımlayıcısı istek üst bilgisinden `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+Bir hata oluşursa, isteği ayrıca JSON hata yanıtı döndürür. 3 haneli HTTP durum kodu için 3 basamaklı bir sayı daha da ardından 6 basamaklı bir sayı birleştirme kategorilere ayırma hatası hata kodudur. Genel hata kodları bulunabilir [v3 Translator Text API başvuru sayfası](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Örnekler
 

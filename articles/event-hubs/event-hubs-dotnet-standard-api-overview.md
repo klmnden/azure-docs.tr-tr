@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: b09f39f45936a7c43dbc1ef109780315d62c768f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450464"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728428"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET standart API'sine genel bakış
 
@@ -35,7 +35,7 @@ Bir [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) nesne
 var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
-Program aracılığıyla bağlantı dizesini düzenlemek için kullanabileceğiniz [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) sınıfı ve bağlantı dizesini bir parametre olarak geçirmek [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
+Program aracılığıyla bağlantı dizesini düzenlemek için kullanabileceğiniz [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) sınıfı ve bağlantı dizesini bir parametre olarak geçirmek [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient).
 
 ```csharp
 var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
@@ -65,7 +65,7 @@ Event Hubs'dan olay almak için önerilen yöntem kullanarak [Event Processor Ho
 
 #### <a name="create-a-receiver"></a>Alıcı oluşturma
 
-Alıcılar belirli bölümlere, bu nedenle tüm olayları bir event hub'ında almak için bağlıdır, birden çok örnek oluşturma gerekir. ' % S'bölüm kimlikleri kodlamak yerine bölüm bilgileri programlı olarak almak için iyi bir uygulamadır. Bunu yapmak için kullanabileceğiniz [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) yöntemi.
+Alıcılar belirli bölümlere, bu nedenle tüm olayları bir event hub'ında almak için bağlıdır, birden çok örnek oluşturma gerekir. ' % S'bölüm kimlikleri kodlamak yerine bölüm bilgileri programlı olarak almak için iyi bir uygulamadır. Bunu yapmak için kullanabileceğiniz [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) yöntemi.
 
 ```csharp
 // Create a list to keep track of the receivers

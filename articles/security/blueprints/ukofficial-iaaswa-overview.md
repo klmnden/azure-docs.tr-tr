@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239933"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699151"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure güvenlik ve uyumluluk planı - UK-OFFICIAL için üç katmanlı Iaas Web uygulaması
 
@@ -186,7 +186,7 @@ Bu sanal ağ ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal maki
 
 [Azure sanal makineler üzerinde Windows Server Active Directory dağıtma ilkeleri](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Active Directory Tümleştirmesi**: Ayrılmış bir AD DS mimarisi için alternatif olarak, müşteriler kullanmak isteyebileceğiniz [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) tümleştirme veya [Azure Active Directory'ye katılmış bir şirket içi ormana](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
+**Active Directory Tümleştirmesi**: Ayrılmış bir AD DS mimarisi için alternatif olarak, müşteriler kullanmak isteyebileceğiniz [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) tümleştirme veya [Azure Active Directory'ye katılmış bir şirket içi ormana](https://docs.microsoft.com/azure/guidance/guidance-ra-identity).
 
 ### <a name="security"></a>Güvenlik
 

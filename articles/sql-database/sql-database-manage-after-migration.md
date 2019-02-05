@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: a7b091fa02c7ab6eb56826ebc7487d7ca0691610
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/04/2019
+ms.openlocfilehash: 79a7aad8cd747c3fdadcd0f7eec12d861f31fcc0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510893"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730518"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -132,9 +132,9 @@ Bağlantı noktası 1433'tür. SQL veritabanı, bu bağlantı noktası üzerinde
 
 SQL veritabanı ile veritabanı olaylarını izlemek için ON denetimini kapatabilirsiniz. [SQL veritabanı denetimi](sql-database-auditing.md) veritabanı olaylarını kaydeder ve Azure depolama hesabınızdaki bir denetim günlük dosyasına yazar. Denetim, olası güvenlik ve ilke ihlallerini bir anlayış kazanmak istiyorsanız mevzuatla uyumluluk vb. özellikle yararlı olur. Tanımlamak ve belirli denetim gerekir ve önceden yapılandırılmış raporları ve veritabanınızda gerçekleşen olaylar hakkında genel bakışını almak için bir Pano alabilirsiniz temel düşündüğünüz olayların kategorilerini yapılandırmanıza olanak sağlar. Bu denetim veritabanı düzeyinde veya sunucu düzeyinde ilkeler uygulayabilirsiniz. Sunucu/veritabanı için denetim üzerinde açma konusunda kılavuz bakın: [SQL veritabanı'nı etkinleştirme denetimi](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Tehdit Algılama
+#### <a name="threat-detection"></a>Tehdit algılama
 
-İle [tehdit algılama](sql-database-threat-detection.md), kolayca denetleyerek bulunan güvenlik veya ilke ihlallerini alacak sunma olanağı elde edin. Bir güvenlik sisteminizde olası tehditleri veya ihlallerine yönelik uzman olmanız gerekmez. Tehdit algılama, SQL ekleme algılama gibi bazı yerleşik özellikleri de vardır. SQL ekleme, değiştirme veya veri ve genel bir veritabanı uygulaması saldırmak oldukça yaygın bir yolu tehlikeye girişimi. SQL veritabanı tehdit algılama, birden fazla anormal veritabanı erişim modellerinin (örneğin, olağan dışı bir konumdan veya alışkın olmadığınız bir asıl erişimi) yanı sıra olası güvenlik açıklarına ve SQL ekleme saldırıları algılamak algoritmalar çalıştırılır. Veritabanında bir tehdit algılanırsa, güvenlik sorumlularını ya da diğer atanan Yöneticiler bir e-posta bildirimi alırsınız. Her uyarı hakkında daha fazla araştırmak ve tehdidi azaltmak öneriler ve şüpheli etkinlik ayrıntılarını sağlar. Tehdit algılamayı etkinleştirme konusunda bilgi için bkz: [SQL veritabanı tehdit algılamayı etkinleştirme](sql-database-security-tutorial.md#enable-security-features).
+İle [tehdit algılama](sql-database-threat-detection.md), kolayca denetleyerek bulunan güvenlik veya ilke ihlallerini alacak sunma olanağı elde edin. Bir güvenlik sisteminizde olası tehditleri veya ihlallerine yönelik uzman olmanız gerekmez. Tehdit algılama, SQL ekleme algılama gibi bazı yerleşik özellikleri de vardır. SQL ekleme, değiştirme veya veri ve genel bir veritabanı uygulaması saldırmak oldukça yaygın bir yolu tehlikeye girişimi. Tehdit algılama, birden fazla anormal veritabanı erişim modellerinin (örneğin, olağan dışı bir konumdan veya alışkın olmadığınız bir asıl erişimi) yanı sıra olası güvenlik açıklarına ve SQL ekleme saldırıları algılamak algoritmalar çalıştırılır. Veritabanında bir tehdit algılanırsa, güvenlik sorumlularını ya da diğer atanan Yöneticiler bir e-posta bildirimi alırsınız. Her uyarı hakkında daha fazla araştırmak ve tehdidi azaltmak öneriler ve şüpheli etkinlik ayrıntılarını sağlar. Tehdit algılamayı etkinleştirme konusunda bilgi için bkz: [Tehdit algılamayı etkinleştirme](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Nasıl verilerimi Genel SQL veritabanı'nda koruyabilirim
 
@@ -220,7 +220,7 @@ Sorgu performansı öngörüleri sayesinde, uygulamalarınızı çalışmaya dev
 
 ### <a name="security-optimization"></a>Güvenlik en iyi duruma getirme
 
-SQL veritabanı, verilerinizi ve tehdit algılama tanımlama ve olası bir iş parçacığı veritabanına oluşturabileceği şüpheli veritabanı etkinlikleri araştırma güvenliğini sağlamanıza yardımcı olması için eyleme dönüştürülebilir güvenlik önerileri sağlar. [SQL güvenlik açığı değerlendirmesi](sql-vulnerability-assessment.md) tarama ve veritabanlarınızı uygun ölçekte güvenlik durumunu izleme ve güvenlik risklerini tanımlayın ve tanımladığınız güvenlik çizgisinden kayma olanak tanıyan bir hizmet raporlama bir veritabanıdır. Her bir taramadan sonra eyleme dönüştürülebilir adımlar ve düzeltme betikleri özelleştirilmiş bir listesini, uyumluluk gereksinimlerini karşılamanıza yardımcı olmak için kullanılan bir değerlendirme raporu yanı sıra sağlanır.
+SQL veritabanı, tanımlama ve olası bir iş parçacığı veritabanına oluşturabileceği şüpheli veritabanı etkinlikleri araştırma için verileri ve tehdit algılama güvenli hale getirmenize yardımcı olmak için eyleme dönüştürülebilir güvenlik önerileri sağlar. [Güvenlik Açığı değerlendirmesi](sql-vulnerability-assessment.md) tarama ve veritabanlarınızı uygun ölçekte güvenlik durumunu izleme ve güvenlik risklerini tanımlayın ve tanımladığınız güvenlik çizgisinden kayma olanak tanıyan bir hizmet raporlama bir veritabanıdır. Her bir taramadan sonra eyleme dönüştürülebilir adımlar ve düzeltme betikleri özelleştirilmiş bir listesini, uyumluluk gereksinimlerini karşılamanıza yardımcı olmak için kullanılan bir değerlendirme raporu yanı sıra sağlanır.
 
 Azure Güvenlik Merkezi ile güvenlik önerileri Pano genelinde tanımlamak ve bunları tek bir tıklamayla uygulayabilirsiniz.
 

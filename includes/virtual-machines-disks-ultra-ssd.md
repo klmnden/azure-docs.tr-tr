@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285733"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736258"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra yüksek SSD (Önizleme) yönetilen diskler için Azure sanal makine iş yükleri
 
@@ -21,11 +21,11 @@ Azure Ultra SSD (Önizleme), Azure Iaas Vm'leri için yüksek performans, yükse
 
 ## <a name="ultra-ssd-features"></a>Ultra yüksek SSD özellikleri
 
-**Yönetilen diskler**: Ultra SSD bulunan ve yalnızca yönetilen diskler. Ultra yüksek SSD'ler, bir yönetilmeyen Disk veya sayfa blobu olarak dağıtılamıyor. Bir yönetilen diski oluştururken, disk sku UltraSSD_LRS yazın ve IOPS disk boyutunu belirtmek ve ihtiyacınız olan aktarım hızı ve Azure oluşturur ve diski oluşturup yönetebilmesi belirtin.  
+**Yönetilen diskler**: Ultra yüksek SSD'ler, yalnızca yönetilen diskler kullanılabilir. Ultra yüksek SSD'ler, bir yönetilmeyen Disk veya sayfa blobu olarak dağıtılamıyor. Bir yönetilen diski oluştururken, disk sku UltraSSD_LRS yazın ve IOPS disk boyutunu belirtmek ve ihtiyacınız olan aktarım hızı ve Azure oluşturur ve diski oluşturup yönetebilmesi belirtin.  
 
-**Sanal makineler**: Ultra SSD'ler, tüm etkin Premium SSD Azure sanal makine SKU'ları ile çalışmak üzere tasarlanmıştır; ancak, şu anda Önizleme aşamasında olduğu gibi sanal makinelerin ES/DS v3 boyutlandırılır.
+**Sanal makineler**: Ultra yüksek SSD'ler, etkin Azure sanal makine SKU'ları tüm Premium SSD ile çalışacak şekilde tasarlanmıştır; Ancak, şu anda Önizleme aşamasında olduğu gibi sanal makinelerin ES/DS v3 boyutlandırılır.
 
-**Dinamik performans Yapılandırması**: Ultra SSD sanal makinelerinizi yeniden başlatmaya gerek kalmadan diskin iş yükü gereksinimlerinize yanı sıra performans (IOPS ve aktarım hızı) dinamik olarak değiştirmenize olanak tanır.
+**Dinamik performans Yapılandırması**: Ultra yüksek SSD sanal makinelerinizi yeniden başlatmaya gerek kalmadan diskin iş yükü gereksinimlerinize yanı sıra performans (IOPS ve aktarım hızı) dinamik olarak değiştirmenize izin verir.
 
 ## <a name="scalability-and-performance-targets"></a>Ölçeklenebilirlik ve performans hedefleri
 
@@ -33,9 +33,9 @@ Ultra yüksek bir SSD sağladığınızda, kapasite ve performans diskin bağım
 
 Ultra yüksek SSD, bazı temel işlevler şunlardır:
 
-- Disk kapasitesi: Ultra SSD, bir dizi farklı disk boyutları 64 Tib'a kadar 4 GiB sunuyor.
-- Disk IOPS: Ultra SSD 300 IOPS/GiB, 160 K IOPS disk başına en fazla IOPS sınırları destekler. Sağladığınız IOPS elde etmek için seçili Disk IOPS VM IOPS değerinden küçük olmasını sağlayın. Minimum IOPS 100 IOPS disktir.
-- Disk aktarım hızı: en çok 2000 MB disk başına IOPS, sağlanan her Ultra SSD'ler ile tek bir disk aktarım hızı sınırı 256 KiB/sn aranır (burada MB/sn = 10 ^ 6 bayt / saniye). Minimum disk aktarım hızı 1 MiB ' dir.
+- Disk kapasitesi: Ultra yüksek SSD 4 GiB 64 Tib'a kadar bir dizi farklı disk boyutları sunar.
+- Disk IOPS: Ultra yüksek SSD 300 IOPS/GiB, 160 K IOPS disk başına en fazla IOPS sınırları destekler. Sağladığınız IOPS elde etmek için seçili Disk IOPS VM IOPS değerinden küçük olmasını sağlayın. Minimum IOPS 100 IOPS disktir.
+- Disk aktarım hızı: Her 2000 MB disk başına en fazla IOPS sağlanması için Ultra yüksek SSD'ler ile tek bir disk aktarım hızı sınırı 256 KiB/sn olan (burada MB/sn = 10 ^ 6 bayt / saniye). Minimum disk aktarım hızı 1 MiB ' dir.
 
 Aşağıdaki tabloda farklı disk boyutları için farklı yapılandırmalar özetlenmiştir:  
 
@@ -47,7 +47,7 @@ Aşağıdaki tabloda farklı disk boyutları için farklı yapılandırmalar öz
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
 |32     |9,600         |2,000         |
-|64     |19.200         |2,000         |
+|64     |19,200         |2,000         |
 |128     |38,400         |2,000         |
 |256     |76,800         |2,000         |
 |512     |80,000         |2,000         |
@@ -64,7 +64,7 @@ Ultra yüksek SSD kullanırken aşağıdaki fatura değerlendirmeleri uygulanaca
 
 ### <a name="managed-disk-size"></a>Yönetilen disk boyutu
 
-Yönetilen diskler üzerinde faturalandırılır, size choosed provisionning yeni bir Azure sanal makine çalışırken VM boyutları. Azure sağlanan boyutu (yukarı yuvarlayarak) en yakın disk boyutu teklifiyle eşleştirir. Sağlanan disk boyutları Ayrıntılar için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Her disk için bir desteklenen sağlanan disk boyutu ve buna göre faturalandırılır eşler saatlik olarak. Örneğin, bir 200 GiB Ultra SSD Disk sağlanır ve 20 saat sonra silindi, 256 GiB disk boyutu teklifine eşler ve 256 GiB için 20 saat için faturalandırılırsınız. Bu faturalandırma gerçekten diske yazılan veri hacmi bağımsız olarak işlem saati tüketimine temel alınmıştır.
+Yönetilen diskler, yeni bir Azure sanal makine sağlanırken seçtiğiniz VM boyutlarına faturalandırılır. Azure sağlanan boyutu (yukarı yuvarlayarak) en yakın disk boyutu teklifiyle eşleştirir. Sağlanan disk boyutları Ayrıntılar için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Her disk için bir desteklenen sağlanan disk boyutu ve buna göre faturalandırılır eşler saatlik olarak. Örneğin, bir 200 GiB Ultra SSD Disk sağlanır ve 20 saat sonra silindi, 256 GiB disk boyutu teklifine eşler ve 256 GiB için 20 saat için faturalandırılırsınız. Bu faturalandırma gerçekten diske yazılan veri hacmi bağımsız olarak işlem saati tüketimine temel alınmıştır.
 
 ### <a name="managed-disk-provisioned-iops"></a>Yönetilen diskin sağlanan IOPS
 
@@ -74,7 +74,7 @@ IOPS, uygulamanızın gönderdiği istekleri dizi için saniye başına disk say
 
 Uygulamanızı bayt/saniye cinsinden ölçülen diskleri belirli bir aralıktaki gönderdiği veri miktarını aktarım hızıdır. Uygulamanızın büyük giriş/çıkış işlemi gerçekleştiriliyorsa, yüksek aktarım hızı gerektirir.  
 
-Aşağıdaki formülde gösterilen şekilde aktarım hızı ve IOPS arasında bir ilişki olduğunu: x g/ç boyutu, IOPS aktarım hızı =
+Aktarım hızı ve IOPS aşağıdaki formülde gösterilen şekilde arasında bir ilişki yoktur:  GÇ boyutu x IOPS aktarım hızı =
 
 Bu nedenle, uygulamanızın ihtiyaç duyduğu en iyi aktarım hızı ve IOPS değerlerini belirlemek önemlidir. Bir en iyi duruma getirmek çalışırken, diğeri de etkilenir. Aktarım hızı 16 KiB g/ç boyutuna karşılık gelen ile başlayan ve daha fazla aktarım hızı gerekirse ayarlama öneririz.
 

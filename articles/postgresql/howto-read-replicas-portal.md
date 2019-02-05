@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 37150f67e29dae0357c978cfaea9abeebeef428c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902670"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691414"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>Azure portalında çoğaltmalar oluşturmak ve yönetmek nasıl okuyun
 
@@ -141,7 +141,7 @@ Alternatif olarak, çoğaltma penceresinden silebilirsiniz.
 
 ## <a name="monitor-a-replica"></a>Bir yineleme izleme
 ### <a name="max-lag-across-replicas"></a>Yinelemeler boyunca en fazla gecikme
-**Yinelemeler boyunca en fazla gecikme** ölçüm ana en İzolasyonu çoğaltma arasındaki gecikme süresini gösterir. 
+**Yinelemeler boyunca en fazla gecikme** ölçüm bayt ana en İzolasyonu çoğaltma arasındaki gecikme gösterir. 
 
 1.  Azure portalında **ana** PostgreSQL sunucusu için Azure veritabanı.
 

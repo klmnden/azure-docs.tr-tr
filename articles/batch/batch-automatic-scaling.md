@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459851"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730026"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch havuzundaki işlem düğümlerini ölçekleme için bir otomatik ölçeklendirme formülü oluşturma
 
@@ -551,7 +551,7 @@ Batch .NET içindeki [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/
 * [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
 * [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-REST API [havuz hakkında bilgi alma](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) istek çalıştırın en son otomatik ölçeklendirme içeren havuzu hakkındaki bilgileri döndürür [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool#bk_autrun) özelliği.
+REST API [havuz hakkında bilgi alma](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) istek çalıştırın en son otomatik ölçeklendirme içeren havuzu hakkındaki bilgileri döndürür [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) özelliği.
 
 Aşağıdaki C# kod parçacığı, havuzda çalışan son otomatik ölçeklendirme hakkında bilgi yazdırmak için Batch .NET kitaplığını kullanır. _myPool_:
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8a0c474ab610d89bd702613bc778ad29523a4192
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461211"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732728"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Öğretici: Bir tek başına veya havuza alınmış veritabanının güvenliğini sağlama
 
@@ -231,7 +231,7 @@ Güvenli bir bağlantı dizesi kopyalamak için:
 
 ## <a name="enable-security-features"></a>Güvenlik özelliklerini etkinleştirme
 
-Azure SQL veritabanı, Azure portalını kullanarak erişilen güvenlik özellikleri sağlar. Bu özellikler yalnızca veritabanı üzerinde kullanılabilir olduğu hem veritabanı hem de veri maskeleme dışında bir sunucu için kullanılabilir. Daha fazla bilgi için bkz. [gelişmiş veri güvenliği](sql-advanced-threat-protection.md), [denetim](sql-database-auditing.md), [dinamik veri maskeleme](sql-database-dynamic-data-masking-get-started.md), ve [saydam veri şifrelemesi](transparent-data-encryption-azure-sql.md).
+Azure SQL veritabanı, Azure portalını kullanarak erişilen güvenlik özellikleri sağlar. Bu özellikler yalnızca veritabanı üzerinde kullanılabilir olduğu hem veritabanı hem de veri maskeleme dışında bir sunucu için kullanılabilir. Daha fazla bilgi için bkz. [gelişmiş veri güvenliği](sql-database-advanced-data-security.md), [denetim](sql-database-auditing.md), [dinamik veri maskeleme](sql-database-dynamic-data-masking-get-started.md), ve [saydam veri şifrelemesi](transparent-data-encryption-azure-sql.md).
 
 ### <a name="advanced-data-security"></a>Gelişmiş veri güvenliği
 

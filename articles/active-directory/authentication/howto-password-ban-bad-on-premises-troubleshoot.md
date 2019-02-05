@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: a1d06919ae0a76647fafeb9c8499476e533bfebf
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7474027368949d5ad2202881ac68096fac2b8bd2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656405"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693913"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Önizleme: Azure AD parola koruması sorunlarını giderme
 
@@ -26,8 +26,6 @@ ms.locfileid: "55656405"
 
 Azure AD parola koruması dağıtıldıktan sonra sorun giderme gerekebilir. Bu makalede bazı genel sorun giderme adımlarını anlamanıza yardımcı olması için ayrıntıya gider.
 
-## 
-
 ## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>Zayıf parolalarda beklendiği gibi reddedilir değil
 
 Bu, birkaç olası nedeni olabilir:
@@ -35,12 +33,16 @@ Bu, birkaç olası nedeni olabilir:
 1. DC aracılar henüz bir ilkesini yükleyip yüklemediğinizi değil. 30001 olayları DC aracı yönetici olay günlüğünde bu belirtisidir.
 
     Bu sorunun olası nedenleri şunlardır:
+
     1. Orman henüz kayıtlı değil
     2. Proxy henüz kayıtlı değil
     3. Ağ bağlantısı sorunları (onay HTTP Proxy gereksinimlerini) Azure ile iletişim kurmasını Proxy hizmeti engelliyor
 
-2. Parola ilkesini zorunlu kıl modunda denetim için hala ayarlanmış durumda. Yalnızca bu durumda, Azure AD parola koruması portalı kullanarak zorla için yeniden yapılandırın.
-3. Parola doğrulama algoritması beklendiği gibi çalışıyor olabilir.  Lütfen [de parolaları nasıl değerlendirilir](concept-password-ban-bad.md#how-are-passwords-evaluated).
+2. Parola ilkesini zorunlu kıl modunda denetim için hala ayarlanmış durumda. Bu durumda, Azure AD parola koruması portalı kullanarak zorla için yeniden yapılandırın. Lütfen [etkinleştirme parola koruması](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+3. Parola ilkesini devre dışı bırakıldı. Bu durumda, etkin olarak Azure AD parola koruması portalını kullanarak yeniden yapılandırın. Lütfen [etkinleştirme parola koruması](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+4. Parola doğrulama algoritması beklendiği gibi çalışıyor olabilir. Lütfen [de parolaları nasıl değerlendirilir](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Dizin Hizmetleri Onarım Modu'nda
 
@@ -50,7 +52,7 @@ Etki alanı denetleyicisi Dizin Hizmetleri Onarım Modu'nda önyüklenir, DC Ara
 
 Burada, DC Aracı hizmeti sorunlara neden olan bir durum meydana gelirse, DC aracı hizmetini hemen kapatılması. DC aracı parola filtresi DLL'sinin hala çalışan olmayan hizmeti çağırmak çalışır ve uyarı olayları (10012, 10013) günlüğe kaydeder, ancak bu süre boyunca tüm gelen parolaları kabul edilir. DC Aracı hizmeti daha sonra da aracılığıyla Windows Hizmet Denetimi Yöneticisi "Disabled" başlatma türüyle gerektiği şekilde yapılandırılmış olabilir.
 
-Hayır, Azure AD parola koruması portalında etkinleştir modu ayarlamak için başka bir düzeltme ölçü olacaktır. Güncelleştirilmiş ilke İndirildikten sonra her DC aracıları service burada tüm parolalar kabul edildiği olarak gerçekleştirilmeye moduna geçer-olduğu. Daha fazla bilgi için [zorunlu kıl modunda](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+Hayır, Azure AD parola koruması portalında etkinleştir modu ayarlamak için başka bir düzeltme ölçü olacaktır. Güncelleştirilmiş ilke İndirildikten sonra her DC Aracısı burada tüm parolalar kabul edildiği olarak gerçekleştirilmeye moduna geçer-olduğu. Daha fazla bilgi için [zorunlu kıl modunda](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
 
 ## <a name="domain-controller-demotion"></a>Etki alanı denetleyicisinin indirgemesi
 

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 85ee6505adafab9587f3583cd4c7182efcc43c11
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 01187a4dbcd8333f95cf20b5956b7b81559a19a8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853740"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730661"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Kapsayıcıları, kapsayıcı adı ön ekine göre silme
 
@@ -49,10 +49,10 @@ Bu betik, kapsayıcıları, kapsayıcı adı ön ekine göre silmek için aşağ
 | Komut | Notlar |
 |---|---|
 | [az group create](/cli/azure/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Belirtilen kaynak grubunda bir Azure Depolama hesabı oluşturur. |
-| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Azure Blob depolama alanında bir kapsayıcı oluşturur. |
+| [az storage account create](/cli/azure/storage/account) | Belirtilen kaynak grubunda bir Azure Depolama hesabı oluşturur. |
+| [az storage container create](/cli/azure/storage/container) | Azure Blob depolama alanında bir kapsayıcı oluşturur. |
 | [az storage container list](/cli/azure/storage/container) | Bir Azure Depolama hesabındaki kapsayıcıları listeler. |
-| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Bir Azure Depolama hesabındaki kapsayıcıları siler. |
+| [az storage container delete](/cli/azure/storage/container) | Bir Azure Depolama hesabındaki kapsayıcıları siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

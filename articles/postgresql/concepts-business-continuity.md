@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559051"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698274"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda iş sürekliliğine genel bakış
 
@@ -49,6 +49,6 @@ Diğer seçenek, coğrafi olarak yedekli yedeklemeler kullanarak sunucuya geri y
 > Sunucu yedekleme coğrafi olarak yedekli depolama ile sağladıysanız coğrafi geri yükleme yalnızca mümkündür. Mevcut bir sunucu için coğrafi olarak yedekli yedeklemeleri yerel olarak yedekli geçiş yapmak istiyorsanız, mevcut sunucunuzun pg_dump kullanarak bir döküm almak ve coğrafi olarak yedekli yedeklemelerde yapılandırılmış yeni oluşturulan geri gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Otomatik yedeklemeler hakkında daha fazla bilgi için bkz: [PostgreSQL için Azure veritabanı yedekleme](concepts-backup.md). 
-- Azure portalını kullanarak bir noktaya geri yüklemek için bkz: [veritabanını Azure portalını kullanarak bir noktaya geri yükleme](howto-restore-server-portal.md).
-- Azure CLI kullanarak bir noktaya geri yüklemek için bkz: [veritabanı CLI kullanarak bir noktaya geri yükleme](howto-restore-server-cli.md).
+- Daha fazla bilgi edinin [otomatik PostgreSQL için Azure veritabanı'nda yedeklemeler](concepts-backup.md). 
+- Kullanarak geri yüklemeyi öğreneceksiniz [Azure portalında](howto-restore-server-portal.md) veya [Azure CLI'yı](howto-restore-server-cli.md).
+- Hakkında bilgi edinin [PostgreSQL için Azure veritabanı'nda çoğaltmaları okuma](concepts-read-replicas.md).

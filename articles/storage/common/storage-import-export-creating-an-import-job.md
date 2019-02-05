@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: efe7b6722a9cfa24ea86130a13a0599115e89821
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451674"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729413"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir içeri aktarma işi oluşturma
 
@@ -61,14 +61,14 @@ Bir dağıtımı konum adı ve adresi çağırarak elde etmeniz içeri aktarma i
 
  Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 
--   Konumun depolama hesabınızın adını belirleyin. Bu değeri altında bulunabilir **konumu** depolama hesabının ile sekmesindeki **Pano** Azure portal ya da hizmet yönetimi API işlemi'ni kullanarak için sorgulanan [depolama hesabı edinin Özellikleri](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Konumun depolama hesabınızın adını belirleyin. Bu değeri altında bulunabilir **konumu** depolama hesabının ile sekmesindeki **Pano** Azure portal ya da hizmet yönetimi API işlemi'ni kullanarak için sorgulanan [depolama hesabı edinin Özellikleri](/rest/api/storagerp/storageaccounts).
 
 -   Bu depolama hesabı çağırarak işlemek kullanılabilir olan konumu almak `Get Location` işlemi.
 
 -   Varsa `AlternateLocations` özelliği konumun Konum içerir ve bu konumu kullanmak uygundur. Aksi takdirde, çağrı `Get Location` alternatif konumlar biriyle yeniden işlemi. Özgün konuma geçici olarak bakım için kapalı olabilir.
 
 ## <a name="creating-the-import-job"></a>İçeri aktarma işi oluşturma
-İçeri aktarma işi oluşturmak için arama [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Aşağıdaki bilgileri sağlamanız gerekir:
+İçeri aktarma işi oluşturmak için arama [Put işlemini](/rest/api/storageimportexport/jobs) işlemi. Aşağıdaki bilgileri sağlamanız gerekir:
 
 -   İş için bir ad.
 

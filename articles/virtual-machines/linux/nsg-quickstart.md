@@ -14,25 +14,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: dd254f0640e17bdc055171dde69b04103f389354
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a12952c73863d10c4fffd013ab594a83ab1b6433
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659839"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729473"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Açık bağlantı noktaları ve Azure CLI ile Linux VM uç noktaları
 
 Bağlantı noktası açma veya bir alt ağ veya VM ağ arabirimi bir ağ filtresi oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturma. Trafiği alan kaynağına bağlı bir ağ güvenlik grubu gelen ve giden trafiği denetlemek, bu filtreler yerleştirin. Yaygın olarak karşılaşılan örneklerden web trafiği 80 numaralı bağlantı noktasında kullanalım. Bu makalede, Azure CLI ile bir VM için bağlantı noktası açma işlemini göstermektedir. 
 
 
-Bir ağ güvenlik grubu ve en son ihtiyacınız olan kuralların oluşturulacağını [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+Bir ağ güvenlik grubu ve en son ihtiyacınız olan kuralların oluşturulacağını [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *Vm2*, ve *myVnet*.
 
 
 ## <a name="quickly-open-a-port-for-a-vm"></a>Hızlı bir şekilde bir VM için bir bağlantı noktası açma
-Hızlı bir şekilde geliştirme/test senaryosunda bir VM için bir bağlantı noktası açmanız gerekiyorsa, kullanabileceğiniz [az vm open-port](/cli/azure/vm#az_vm_open_port) komutu. Bu komut, bir ağ güvenlik grubu oluşturur, bir kural ekler ve bir VM veya alt ağ için geçerlidir. Aşağıdaki örnekte, bağlantı noktasını açmadığı *80* adlı VM'de *myVM* adlı kaynak grubunda *myResourceGroup*.
+Hızlı bir şekilde geliştirme/test senaryosunda bir VM için bir bağlantı noktası açmanız gerekiyorsa, kullanabileceğiniz [az vm open-port](/cli/azure/vm) komutu. Bu komut, bir ağ güvenlik grubu oluşturur, bir kural ekler ve bir VM veya alt ağ için geçerlidir. Aşağıdaki örnekte, bağlantı noktasını açmadığı *80* adlı VM'de *myVM* adlı kaynak grubunda *myResourceGroup*.
 
 ```azure-cli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
@@ -51,7 +51,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Bir kural eklemek [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) , Web sunucusu HTTP trafiğine izin ver (veya SSH erişimi veya veritabanı bağlantısı gibi kendi senaryonuza ayarlamak için). Aşağıdaki örnekte adlı bir kural oluşturur *myNetworkSecurityGroupRule* 80 numaralı bağlantı noktasındaki TCP trafiğine izin verecek şekilde:
+Bir kural eklemek [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule) , Web sunucusu HTTP trafiğine izin ver (veya SSH erişimi veya veritabanı bağlantısı gibi kendi senaryonuza ayarlamak için). Aşağıdaki örnekte adlı bir kural oluşturur *myNetworkSecurityGroupRule* 80 numaralı bağlantı noktasındaki TCP trafiğine izin verecek şekilde:
 
 ```azurecli
 az network nsg rule create \
@@ -65,7 +65,7 @@ az network nsg rule create \
 
 
 ## <a name="apply-network-security-group-to-vm"></a>Ağ güvenlik grubu VM'lere uygulanır.
-Ağ güvenlik grubu, sanal makinenizin ağ arabirimine (NIC) ile ilişkilendirmek [az ağ NIC güncelleştirme](/cli/azure/network/nic#az_network_nic_update). Aşağıdaki örnekte adlı mevcut bir NIC'yi ilişkilendirir *Mynıc* adlı ağ güvenlik grubu ile *Vm2*:
+Ağ güvenlik grubu, sanal makinenizin ağ arabirimine (NIC) ile ilişkilendirmek [az ağ NIC güncelleştirme](/cli/azure/network/nic). Aşağıdaki örnekte adlı mevcut bir NIC'yi ilişkilendirir *Mynıc* adlı ağ güvenlik grubu ile *Vm2*:
 
 ```azurecli
 az network nic update \

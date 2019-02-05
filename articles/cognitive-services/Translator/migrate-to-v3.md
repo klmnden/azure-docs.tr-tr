@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7f5dfd9488e6017acfdf66cdb7d4cee3aedd1ab3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227786"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699933"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 V3 geçiş
 
@@ -109,7 +109,7 @@ Genel
 
 Microsoft Translator V3 sinirsel makine çevirisi, varsayılan olarak kullanır. Bu nedenle, Microsoft Translator hub'ı ile kullanılamaz. Translator hub'ı yalnızca istatistiksel makine çevirisi eski destekler. Özelleştirme sinirsel çeviri için özel Translator'ı kullanarak kullanıma sunuldu. [Sinirsel makine çevirisi özelleştirme hakkında daha fazla bilgi edinin](custom-translator/overview.md)
 
-Sinirsel çeviri V3 metin tanıma API'si ile standart kategorileri (SMT, konuşma tanıma, metin, generalnn) kullanımını desteklemiyor.
+Sinirsel çeviri V3 metin tanıma API'si ile standart kategorileri (SMT, konuşma, teknoloji, generalnn) kullanımını desteklemiyor.
 
 | |Uç Nokta|    GDPR işlemci uyumluluğu|  Translator hub'ı kullanın| Özel Translator (Önizleme) kullanma|
 |:-----|:-----|:-----|:-----|:-----|

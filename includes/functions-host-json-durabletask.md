@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 92eb13165326f44432f09322ea97f3cee5ccec2b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a3af711503445000d9613feb2eec7967442fe538
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251252"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736017"
 ---
 İçin yapılandırma ayarlarını [dayanıklı işlevler](../articles/azure-functions/durable-functions-overview.md).
 
@@ -43,7 +43,7 @@ Görev hub adları bir harf ile başlamalı ve yalnızca harf ve sayı oluşur. 
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|Alternatif [görev hub](../articles/azure-functions/durable-functions-task-hubs.md) adları, birden çok dayanıklı işlevler uygulamaları birbirinden ayırmak için kullanılabilir olsa bile aynı depolama arka ucu kullanarak theyre.|
+|HubName|DurableFunctionsHub|Alternatif [görev hub](../articles/azure-functions/durable-functions-task-hubs.md) adları kullanılabilir birden çok dayanıklı işlevler uygulamaları birbirinden ayırmak için aynı depolama arka ucu kullanmıyor olsanız bile.|
 |ControlQueueBatchSize|32|Aynı anda Denetim sıradan çıkarmak için ileti sayısı.|
 |PartitionCount |4|Denetim sıranın bölüm sayısı. 1 ile 16 arasında pozitif bir tamsayı olabilir.|
 |ControlQueueVisibilityTimeout |5 dakika|Sıradan çıkarılan denetim iletileri görünebilirlik zaman aşımı.|

@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712067"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701021"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Gelişmiş zamanlamalar ve yinelenme için Azure zamanlayıcı işleri oluşturma
 
@@ -24,13 +24,13 @@ ms.locfileid: "51712067"
 
 İçinde bir [Azure Scheduler](../scheduler/scheduler-intro.md) zamanlama iş Zamanlayıcı hizmeti, işi çalışır, nasıl ve ne zaman belirleyen çekirdek. Zamanlayıcı ile bir iş için birden çok kez ve yinelenen zamanlama ayarlayabilirsiniz. Tek seferlik zamanlama belirli bir zamanda yalnızca bir kez çalıştırın ve temel olarak yalnızca bir kez çalışan zamanlamaları. Yinelenen zamanlamalar, belirtilen bir sıklıkta üzerinde çalıştırın. Bu esneklik ile Zamanlayıcı çeşitli iş senaryoları için aşağıdaki gibi kullanabilirsiniz:
 
-* **Düzenli aralıklarla veri temizleme**: üç aydan eski tüm tweetleri siler günlük bir iş oluşturun.
+* **Düzenli aralıklarla veri temizleme**: Üç aydan eski tüm tweetleri siler günlük bir iş oluşturun.
 
-* **Arşiv veri**: bildirim geçmişi yedekleme hizmeti için fatura, aylık bir iş oluşturun.
+* **Arşiv veri**: Bildirim geçmişi yedekleme hizmeti için fatura, aylık bir iş oluşturun.
 
-* **Dış veri isteği**: 15 dakikada bir çalışır ve yeni bir hava durumu raporu NOAA çeken bir işi oluşturun.
+* **Dış veri isteği**: 15 dakikada bir çalışır ve yeni bir hava durumu raporu NOAA çeken bir iş oluşturun.
 
-* **Görüntü işleme**: yoğun olmayan saatlerinde çalışır ve bulut bilgi işlem gün boyunca karşıya yüklenen görüntüleri sıkıştırma için kullandığı bir haftanın günü işi oluşturun.
+* **Görüntü işleme**: Yoğun olmayan saatlerinde çalışır ve bulut bilgi işlem gün boyunca karşıya yüklenen görüntüleri sıkıştırma için kullandığı bir haftanın günü işi oluşturun.
 
 Bu makalede örnek iş Zamanlayıcısı'nı kullanarak oluşturabilir ve [Azure Scheduler REST API](/rest/api/scheduler)ve her zamanlama için JavaScript nesne gösterimi (JSON) tanımı içerir. 
 
@@ -53,9 +53,9 @@ Bu makalede daha sonra bu senaryolar daha ayrıntılı açıklanır.
 
 İle temel bir zamanlama oluşturmak için [Azure Scheduler REST API](/rest/api/scheduler), şu adımları izleyin:
 
-1. Kullanarak bir kaynak sağlayıcısı ile Azure aboneliğinizi kaydetme [işlemi - Resource Manager REST API'si kaydetme](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). Azure Zamanlayıcı hizmeti sağlayıcı adı **Microsoft.Scheduler**. 
+1. Kullanarak bir kaynak sağlayıcısı ile Azure aboneliğinizi kaydetme [işlemi - Resource Manager REST API'si kaydetme](https://docs.microsoft.com/rest/api/resources/providers). Azure Zamanlayıcı hizmeti sağlayıcı adı **Microsoft.Scheduler**. 
 
-1. Kullanarak bir iş koleksiyonu oluşturma [iş koleksiyonları için Create veya Update işleminde](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) Scheduler REST API. 
+1. Kullanarak bir iş koleksiyonu oluşturma [iş koleksiyonları için Create veya Update işleminde](https://docs.microsoft.com/rest/api/scheduler/jobcollections) Scheduler REST API. 
 
 1. Kullanarak bir işi oluşturma [işleri için Create veya Update işleminde](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
@@ -167,7 +167,7 @@ Aşağıdaki tabloda schedule öğeleri ayrıntılı bir şekilde açıklanmış
 | **monthlyOccurrences** |İşi ayın hangi günlerinde çalışacağını belirler. Yalnızca aylık bir sıklık ile belirtilebilir. |Bir dizi **monthlyOccurrences** nesneler:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **gün** işin çalıştığı haftanın günüdür. Örneğin, *{Pazar}* ayın her Pazar günüdür. Gereklidir.<br /><br />**oluşum** gün ay boyunca tekrarı. Örneğin, *{Pazar -1}* ayın son Pazar günüdür. İsteğe bağlı. |
 | **monthDays** |İşin çalıştığı ayın günü. Yalnızca aylık bir sıklık ile belirtilebilir. |Aşağıdaki değerlerin dizisi:<br />- <= -1 ve >= -31 koşullarına uyan herhangi bir değer<br />- >= 1 ve <= 31 koşullarına uyan herhangi bir değer|
 
-## <a name="examples-recurrence-schedules"></a>Örnekler: Yineleme zamanlamaları
+## <a name="examples-recurrence-schedules"></a>Örnekler: Yinelenme zamanlaması
 
 Aşağıdaki örnekler, çeşitli yineleme zamanlaması gösterir. Örnekler schedule nesnesine ve alt öğelerine odaklanın.
 

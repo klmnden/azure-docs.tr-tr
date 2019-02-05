@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823360"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694508"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso geçişi: Şirket içi bir uygulamayı Azure VM’lerde yeniden barındırma
 
@@ -460,7 +460,7 @@ Contoso güvenlik ekibi, güvenlik sorunları belirlemek için Azure Vm'leri inc
 - Erişimi denetlemek için takım VM'ler için ağ güvenlik grupları (Nsg'ler) gözden geçirir. Nsg'ler, yalnızca uygulamaya izin trafik, ulaşabileceği emin olmak için kullanılır.
 - Takım, ayrıca Azure Disk şifreleme ve anahtar Kasası'nı kullanarak diskteki verilerin güvenliğini sağlama göz önünde bulundurun.
 
-[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) VM'ler için önerilen güvenlik uygulamaları hakkında.
+[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) VM'ler için önerilen güvenlik uygulamaları hakkında.
 
 ## <a name="bcdr"></a>BCDR
 

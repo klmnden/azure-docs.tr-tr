@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854125"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728321"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Geçişleri .NET ile Azure geçişi WCF kullanma
 Bu makalede, Azure geçişi hizmetini kullanmayı açıklar. Bu örnekler, C# dilinde yazılmıştır ve Service Bus derlemesinde bulundurulan uzantıları içeren Windows Communication Foundation (WCF) API'sini kullanır. Azure geçişi hakkında daha fazla bilgi için bkz: [Azure geçişine genel bakış](relay-what-is-it.md).
@@ -116,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-Verilen örnekte, aynı sözleşme uygulamasında bulunan iki uç nokta oluşturursunuz. Yerel biridir ve bir Azure geçişi üzerinden gösterilmiyor. Arasındaki temel farklılıklar bağlamalar işlevleridir. [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) için yerel ve [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) geçiş uç noktası ve adresi. Yerel uç nokta, farklı bir bağlantı noktası içeren yerel ağ adresine sahiptir. Dizenin oluşan bir uç nokta adresi geçiş uç noktaya sahip `sb`, ad alanı adınızı ve "solver" yolu Bu URI sonuçları `sb://[serviceNamespace].servicebus.windows.net/solver`, hizmet uç noktası tam bir dış DNS adı ile bir Service Bus (geçiş) TCP uç noktası olarak tanımlayan. **Hizmet** uygulamasının `Main` işlevinde yer tutucuları kaldırıp kodları yerleştirirseniz işlevsel bir hizmet elde edersiniz. Özel olarak geçişi üzerinde dinlenecek hizmetinizi istiyorsanız yerel uç nokta bildirimini kaldırın.
+Verilen örnekte, aynı sözleşme uygulamasında bulunan iki uç nokta oluşturursunuz. Yerel biridir ve bir Azure geçişi üzerinden gösterilmiyor. Arasındaki temel farklılıklar bağlamalar işlevleridir. [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) için yerel ve [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) geçiş uç noktası ve adresi. Yerel uç nokta, farklı bir bağlantı noktası içeren yerel ağ adresine sahiptir. Dizenin oluşan bir uç nokta adresi geçiş uç noktaya sahip `sb`, ad alanı adınızı ve "solver" yolu Bu URI sonuçları `sb://[serviceNamespace].servicebus.windows.net/solver`, hizmet uç noktası tam bir dış DNS adı ile bir Service Bus (geçiş) TCP uç noktası olarak tanımlayan. **Hizmet** uygulamasının `Main` işlevinde yer tutucuları kaldırıp kodları yerleştirirseniz işlevsel bir hizmet elde edersiniz. Özel olarak geçişi üzerinde dinlenecek hizmetinizi istiyorsanız yerel uç nokta bildirimini kaldırın.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>App.config dosyasında bir hizmet ana bilgisayarı yapılandırma
 App.config dosyasını kullanarak da ana bilgisayarı yapılandırabilirsiniz. Bu durumda kullanılan hizmet barındırma kodu bir sonraki örnekte gösterilir.
@@ -161,7 +161,7 @@ Bu değişiklikleri yaptıktan sonra, uygulama önceden olduğu gibi ancak biri 
 
 ### <a name="create-the-client"></a>İstemci oluşturma
 #### <a name="configure-a-client-programmatically"></a>Programlama ile istemci yapılandırma
-Hizmeti kullanmak için [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) nesnesini kullanan bir WCF istemcisi oluşturabilirsiniz. Service Bus, SAS kullanılarak uygulanan belirteç tabanlı bir güvenlik modeli kullanır. [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) sınıfı, bazı iyi bilinen belirteç sağlayıcılarını döndüren, fabrikada yerleştirilen yöntemleri içeren bir güvenlik belirteci sağlayıcısı sunar. Aşağıdaki örnek, uygun SAS belirtecini edinmeyi ele alırken [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) yöntemini kullanır. Ad ve anahtar, önceki bölümde açıklanan şekilde portaldan alınanlardır.
+Hizmeti kullanmak için [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) nesnesini kullanan bir WCF istemcisi oluşturabilirsiniz. Service Bus, SAS kullanılarak uygulanan belirteç tabanlı bir güvenlik modeli kullanır. [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) sınıfı, bazı iyi bilinen belirteç sağlayıcılarını döndüren, fabrikada yerleştirilen yöntemleri içeren bir güvenlik belirteci sağlayıcısı sunar. Aşağıdaki örnek, uygun SAS belirtecini edinmeyi ele alırken [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) yöntemini kullanır. Ad ve anahtar, önceki bölümde açıklanan şekilde portaldan alınanlardır.
 
 İlk olarak, `IProblemSolver` sözleşmesi koduna hizmetten başvurun veya bu kodu hizmetten alarak istemci projenize kopyalayın.
 

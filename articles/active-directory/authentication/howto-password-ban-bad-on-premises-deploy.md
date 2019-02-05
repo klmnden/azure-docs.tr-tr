@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 105ed999fc7122fb1c99e2c380b26a8c4d8d9f62
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 824bedf782d6d227f2fa3adcf52492bb5a3eb478
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659533"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696872"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Önizleme: Azure AD parola koruması dağıtma
 
@@ -40,7 +40,7 @@ Gelen özellik için makul bir süre denetim modunda çalıştırıldıktan sonr
 
 ## <a name="deployment-requirements"></a>Dağıtım gereksinimleri
 
-* Azure AD parola koruması DC aracısı yüklü olduğu tüm etki alanı denetleyicileri Windows Server 2012 veya sonraki sürümünü çalıştırmalıdır.
+* Azure AD parola koruması DC aracısı hizmetinin yüklü olduğu tüm etki alanı denetleyicileri Windows Server 2012 veya sonraki sürümünü çalıştırmalıdır.
 * Azure AD parola koruması Proxy Hizmeti yükleneceği tüm makineler, Windows Server 2012 R2 çalıştırmalıdır veya üzeri.
 * Etki alanı denetleyicileri de dahil olmak üzere Azure AD parola koruması bileşenlerinin yüklendiği tüm makinelerde yüklü olan evrensel C çalışma zamanı olması gerekir.
 Bu tercihen Windows Update aracılığıyla makine tam olarak düzeltme eki uygulama tarafından gerçekleştirilir. Aksi takdirde uygun işletim sistemine özgü güncelleştirme paketi olabilir yüklü - [Windows Evrensel C çalışma zamanı güncelleştirmesi](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
@@ -168,17 +168,17 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
 
       Yukarıdaki örneklerde, şu anda oturum açmış kullanıcı aynı zamanda kök etki alanı için Active Directory etki alanı yönetici ise yalnızca başarılı olur. Durum bu değilse, diğer etki alanı kimlik bilgileri - ForestCredential parametresi aracılığıyla sağlayabilir.
 
-      > [!NOTE]
-      > Birden fazla ara sunucuyu ortamınızda yüklü değilse, ormanı kaydetmek için kullandığı proxy sunucusunu olduğu önemli değildir.
+   > [!NOTE]
+   > Birden fazla ara sunucuyu ortamınızda yüklü değilse, ormanı kaydetmek için kullandığı proxy sunucusunu olduğu önemli değildir.
 
-      > [!TIP]
-      > İlk kez cmdlet'ini yürütme tamamlanmadan önce bu cmdlet için belirli bir Azure kiracısı çalıştırdığınızda önemli bir gecikme (birçok saniye) olabilir. Bir hata bildirdi sürece bu gecikme açılan kutuyla düşünülmemelidir.
+   > [!TIP]
+   > İlk kez cmdlet'ini yürütme tamamlanmadan önce bu cmdlet için belirli bir Azure kiracısı çalıştırdığınızda önemli bir gecikme (birçok saniye) olabilir. Bir hata bildirdi sürece bu gecikme açılan kutuyla düşünülmemelidir.
 
-      > [!NOTE]
-      > Active Directory ormanı kayıt, tek seferlik bir adım ormanın yaşam süresi olması beklenir. Ormanda çalıştıran etki alanı denetleyicisi aracıları, gerekli herhangi bir maintainenance ve sonraki sürümlerde bu noktadan itibaren otomatik olarak gerçekleştirir. Bu işlem, ek çağrıları gibi belirli bir orman için başarılı `Register-AzureADPasswordProtectionForest` başarılı olması devam eder ancak gereksizdir.
+   > [!NOTE]
+   > Active Directory ormanı kayıt, tek seferlik bir adım ormanın yaşam süresi olması beklenir. Ormanda çalıştıran etki alanı denetleyicisi aracıları, gerekli herhangi bir maintainenance ve sonraki sürümlerde bu noktadan itibaren otomatik olarak gerçekleştirir. Bu işlem, ek çağrıları gibi belirli bir orman için başarılı `Register-AzureADPasswordProtectionForest` başarılı olması devam eder ancak gereksizdir.
 
-      > [!NOTE]
-      > Sırayla `Register-AzureADPasswordProtectionForest` en az bir Windows Server 2012 veya üzeri etki alanı başarılı olması için denetleyici proxy sunucunun etki alanında bulunmalıdır. Ancak bu adımı öncesinde herhangi bir etki alanı denetleyicilerinde DC Aracısı yazılımının yüklenmesi gereksinimi yoktur.
+   > [!NOTE]
+   > Sırayla `Register-AzureADPasswordProtectionForest` en az bir Windows Server 2012 veya üzeri etki alanı başarılı olması için denetleyici proxy sunucunun etki alanında bulunmalıdır. Ancak bu adımı öncesinde herhangi bir etki alanı denetleyicilerinde DC Aracısı yazılımının yüklenmesi gereksinimi yoktur.
 
 6. Bir HTTP proxy üzerinden iletişim kurmak için Azure AD parola koruması Proxy hizmetini yapılandırma
 

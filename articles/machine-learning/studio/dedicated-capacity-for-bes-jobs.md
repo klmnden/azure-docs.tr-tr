@@ -10,18 +10,21 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 923ce9b5840ec8d99234b9a3b869005ff59848e3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494627"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697509"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Machine Learning Studio işleri için Azure Batch hizmeti
 
 Machine Learning Batch havuzu işleme, Azure Machine Learning Batch yürütme hizmeti için müşteri tarafından yönetilen ölçek sağlar. Machine learning eşzamanlı iş sayısını sınırlayan bir çok kiracılı ortamında, gerçekleşir için Klasik toplu işleme gönderebilir ve ilk-giren ilk çıkar temelinde işi kuyruğa alındı. Bu bir belirsizlik, doğru bir şekilde iş ne zaman çalışacağını tahmin edemezsiniz, anlamına gelir.
 
 Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar. Havuz boyutunu denetlemek ve hangi havuzuna iş gönderilir. BES iş işleme tahmin edilebilir performans ve gönderdiğiniz işleme yükünü karşılık gelen kaynak havuzları oluşturma olanağı sağlayarak kendi işlem alanı çalıştırır.
+
+> [!NOTE]
+> Yeni bir kaynak yöneticisi olmalıdır. havuz oluşturmak için Machine Learning web hizmeti tabanlı. Oluşturulduktan sonra herhangi bir BES web hizmeti, her iki yeni Resource Manager tabanlı ve klasik, havuzda çalıştırabilirsiniz.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Batch havuzundaki işlem kullanma
 
@@ -36,7 +39,7 @@ Hesabınızı oluşturduktan sonra Batch havuzu havuzu yönetim işlemlerini ger
 
 ![Batch havuzu hizmet mimarisi.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-CSS size sağlanan havuzu hizmet URL'si havuzu oluşturma işlemi çağırarak, havuzları oluşturun. Bir havuz oluşturduğunuzda, VM'ler ve swagger.json, yeni bir kaynak yöneticisi URL'si sayısı Machine Learning web hizmeti tabanlı belirtin. Bu web hizmetini, fatura ilişki kurmak için sağlanır. Batch havuzu hizmet swagger.json havuzu bir fatura planı ile ilişkilendirmek için kullanır. Bir BES web hizmeti, her iki yeni Resource Manager tabanlı çalıştırın ve klasik, havuzda seçin.
+CSS size sağlanan havuzu hizmet URL'si havuzu oluşturma işlemi çağırarak, havuzları oluşturun. Bir havuz oluşturduğunuzda, VM'ler ve swagger.json, yeni bir kaynak yöneticisi URL'si sayısı Machine Learning web hizmeti tabanlı belirtin. Bu web hizmetini, fatura ilişki kurmak için sağlanır. Batch havuzu hizmet swagger.json havuzu bir fatura planı ile ilişkilendirmek için kullanır. Bir BES web hizmeti, her iki yeni Resource Manager tabanlı ve klasik, havuzda çalıştırabilirsiniz.
 
 Herhangi bir yeni Resource Manager tabanlı web hizmeti kullanır, ancak işlerin faturalandırması ücretlendirilir, hizmetle ilişkili faturalandırma planı karşı unutmayın. Bir web hizmeti ve Batch havuzu işleri çalıştırmak için özellikle yeni faturalandırma planı oluşturmak isteyebilirsiniz.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 99498646a65865add35ec4a86cb7a25b42dd5523
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162200"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692451"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C özel ilkelerinde talep Çözümleyicileri hakkında
 
@@ -136,7 +136,7 @@ Talep Çözümleyicileri kullanarak, oturum açma adı veya doğrudan oturum aç
 
 ### <a name="dynamic-ui-customization"></a>Dinamik kullanıcı arabirimini özelleştirme
 
-ABD'de hizmet veren AD B2C, böylece sayfa içeriği dinamik olarak oluşturulabilen HTML içerik tanımı uç noktalar için sorgu dizesi parametreleri geçirmek sağlar. Örneğin, web veya mobil uygulama geçirdiğiniz bir özel parametre temel Azure AD B2C kaydolma veya oturum açma sayfasında arka plan görüntüsü değiştirebilirsiniz. Daha fazla bilgi için [dinamik olarak Azure Active Directory B2C'de özel ilkeler kullanarak kullanıcı Arabirimi yapılandırma](active-directory-b2c-ui-customization-custom-dynamic.md). Dil parametresini temel alan, HTML sayfası da yerelleştirebilirsiniz veya istemci kimliği temel alınarak içeriği değiştirebilirsiniz.
+Azure AD B2C, böylece sayfa içeriği dinamik olarak oluşturulabilen HTML içerik tanımı uç noktalar için sorgu dizesi parametreleri geçirmek sağlar. Örneğin, web veya mobil uygulama geçirdiğiniz bir özel parametre temel Azure AD B2C kaydolma veya oturum açma sayfasında arka plan görüntüsü değiştirebilirsiniz. Daha fazla bilgi için [dinamik olarak Azure Active Directory B2C'de özel ilkeler kullanarak kullanıcı Arabirimi yapılandırma](active-directory-b2c-ui-customization-custom-dynamic.md). Dil parametresini temel alan, HTML sayfası da yerelleştirebilirsiniz veya istemci kimliği temel alınarak içeriği değiştirebilirsiniz.
 
 Aşağıdaki örnek sorgu dizesinde adlı bir parametre geçirir **campaignId** değeriyle `hawaii`, **dil** kodunu `en-US`, ve **uygulama** İstemci Kimliğini temsil eden:
 

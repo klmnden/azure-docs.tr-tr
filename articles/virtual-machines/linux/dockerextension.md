@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: f30305374b1fcaabfb36533195a098073d33b6c3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1bc250ac70e48a548d393c3bc6025868948dc022
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197611"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699168"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Docker VM uzantısını kullanarak Azure'da Docker ortamı oluşturma
 
@@ -39,15 +39,15 @@ Docker makinesi ve Azure Container Services kullanma dahil olmak üzere farklı 
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Azure Docker VM uzantısı ile bir şablonu dağıtma
-Yüklemek ve Docker konağı yapılandırmak için Azure Docker VM uzantısını kullanan bir Ubuntu VM oluşturmak için var olan bir Hızlı Başlangıç şablonu kullanalım. Şablon buradan görüntüleyebilirsiniz: [Docker ile bir Ubuntu VM basit dağıtımını](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). En son ihtiyacınız [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+Yüklemek ve Docker konağı yapılandırmak için Azure Docker VM uzantısını kullanan bir Ubuntu VM oluşturmak için var olan bir Hızlı Başlangıç şablonu kullanalım. Şablon buradan görüntüleyebilirsiniz: [Docker ile bir Ubuntu VM basit dağıtımını](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). En son ihtiyacınız [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index).
 
-Öncelikle [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+Öncelikle [az group create](/cli/azure/group) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Ardından, ile VM dağıtma [az grubu dağıtım oluşturma](/cli/azure/group/deployment#az_group_deployment_create) Azure Docker VM uzantısını içeren [github'da bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). İstendiğinde, kendi benzersiz değerleri sağlayın *newStorageAccountName*, *adminUsername*, *adminPassword*, ve *dnsNameForPublicIP*:
+Ardından, ile VM dağıtma [az grubu dağıtım oluşturma](/cli/azure/group/deployment) Azure Docker VM uzantısını içeren [github'da bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). İstendiğinde, kendi benzersiz değerleri sağlayın *newStorageAccountName*, *adminUsername*, *adminPassword*, ve *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \

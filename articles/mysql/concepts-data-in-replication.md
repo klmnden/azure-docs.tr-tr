@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/31/2018
-ms.openlocfilehash: ca748dff67be2a37ca61f34602f207265cc77aaa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: f91a6da9a305c6620e4e01ab7aa3c554374cb5d7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544235"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691531"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>MySQL için Azure veritabanı'na veri çoğaltma
 
-Veri çoğaltma, verileri bir MySQL sunucusu şirket içi sanal makineleri veya diğer bulut sağlayıcılarının MySQL hizmeti için Azure veritabanı'nda barındırılan veritabanı Hizmetleri çalıştıran eşitlemenize olanak tanır. Veri çoğaltma (binlog) ikili günlük dosyası konumu tabanlı çoğaltma Mysql'e yerel temel alır. Binlog çoğaltma hakkında daha fazla bilgi için bkz: [MySQL binlog Çoğaltmaya genel bakış](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+Veri çoğaltma hizmeti MySQL için Azure veritabanı'na harici bir MySQL sunucusu verilerden eşitlemenizi sağlar. Dış sunucunun şirket içi, sanal makineleri veya diğer bulut sağlayıcıları tarafından barındırılan bir veritabanı hizmeti olabilir. Veri çoğaltma (binlog) ikili günlük dosyası konumu tabanlı çoğaltma Mysql'e yerel temel alır. Binlog çoğaltma hakkında daha fazla bilgi için bkz: [MySQL binlog Çoğaltmaya genel bakış](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
 ## <a name="when-to-use-data-in-replication"></a>Veri çoğaltma kullanma zamanı
 Veri çoğaltma kullanarak dikkate alınması gereken ana senaryolar şunlardır:
@@ -26,7 +26,7 @@ Veri çoğaltma kullanarak dikkate alınması gereken ana senaryolar şunlardır
 ## <a name="limitations-and-considerations"></a>Sınırlamalar ve önemli noktalar
 
 ### <a name="data-not-replicated"></a>Yinelenen verileri
-[ *Mysql sistem veritabanı* ](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) ana sunucuya çoğaltılmaz. Hesapları ve izinleri ana sunucu üzerinde değişiklikler çoğaltılmaz. Ana sunucuya bir hesap oluşturun ve bu hesap çoğaltma sunucusuna erişmesi gereken el ile aynı hesabı çoğaltma sunucu tarafında oluşturun. Hangi tablolar sistem veritabanında bulunan anlamak için bkz [MySQL el ile](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+[ *Mysql sistem veritabanı* ](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) ana sunucuya çoğaltılamaz. Hesapları ve izinleri ana sunucu üzerinde değişiklikler çoğaltılmadığından. El ile çoğaltma sunucusuna erişmek bu hesabı ana sunucuya bir hesap oluşturun ve gerekiyorsa çoğaltma sunucu tarafında aynı hesabı oluşturun. Hangi tablolar sistem veritabanında bulunan anlamak için bkz [MySQL el ile](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
 
 ### <a name="requirements"></a>Gereksinimler
 - Ana sunucu sürümü en az olmalıdır MySQL 5.6 sürümü. 
@@ -36,8 +36,9 @@ Veri çoğaltma kullanarak dikkate alınması gereken ana senaryolar şunlardır
 - Kullanıcı, ikili günlük tutmayı yapılandırma ve ana sunucuda yeni kullanıcılar oluşturmak için izinleri olmalıdır.
 
 ### <a name="other"></a>Diğer
-- Veri çoğaltma yalnızca genel amaçlı desteklenir ve fiyatlandırma katmanları bellek için iyileştirilmiş olan
+- Veri çoğaltma, yalnızca genel amaçlı desteklenir ve fiyatlandırma katmanları bellek için iyileştirilmiş ' dir.
 - Genel işlem tanımlayıcıları (GTID) desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bilgi edinmek için nasıl [verileri, çoğaltmayı ayarlama](howto-data-in-replication.md)
+- Hakkında bilgi edinin [ile azure'da çoğaltma çoğaltmaları okuyun](concepts-read-replicas.md)

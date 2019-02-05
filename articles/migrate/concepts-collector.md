@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 9890f68ff61d822f505c4403eb2f1f61e396fd01
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7a17bed165a5a8ff15a122a1376d1a3a5e17d45f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488723"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700936"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -103,8 +103,6 @@ Toplayıcı sağlamak için Azure geçişi hizmetini internet üzerinden bağlan
     7. Sertifika beklendiği gibi alınır ve internet bağlantısı Önkoşul denetimi works olarak beklenen denetleyin.
 
 
-
-
 ### <a name="urls-for-connectivity"></a>Bağlantı için URL'leri
 
 Bağlantı denetimi URL'lerin bir listesini bağlanarak doğrulanır.
@@ -150,6 +148,79 @@ Toplayıcı, aşağıdaki diyagramda ve tabloda özetlendiği gibi iletişim kur
 Azure Geçişi hizmeti | TCP 443 | Toplayıcı SSL 443 üzerinden Azure geçişi hizmeti ile iletişim kurar.
 vCenter Server | TCP 443 | Toplayıcı, vCenter Server ile iletişim kurabildiğini olmalıdır.<br/><br/> Varsayılan olarak 443 üzerinden vcenter bağlanır.<br/><br/> VCenter sunucusu farklı bir bağlantı noktasında dinliyorsa, bağlantı noktası Toplayıcı üzerinde giden bağlantı noktası olarak kullanılabilir olması gerekir.
 RDP | TCP 3389 |
+
+## <a name="collected-metadata"></a>Toplanan meta verileri
+
+Toplayıcı gerecini her VM için aşağıdaki yapılandırma meta verileri bulur. Sanal makineler için yapılandırma verilerini bulma başlattıktan sonra bir saat kullanılabilir.
+
+- VM görünen adı (temel, vCenter sunucusu)
+- Sanal makinenin envanteri yolu (konak/klasörü vCenter Server)
+- IP adresi
+- MAC adresi
+- İşletim sistemi
+- Çekirdek, disk, NIC sayısı
+- Bellek boyutu, Disk boyutları
+- VM, disk ve ağ performans sayaçları.
+
+### <a name="performance-counters"></a>Performans sayaçları
+
+ Toplayıcı gerecini 20 saniyelik bir aralıkta ESXi konağından her VM için aşağıdaki performans sayaçlarını toplar. Bu sayaçlardan vCenter sayaçları ve terminolojiyi ortalama diyor olsa da, 20 saniye örnekleri gerçek zamanlı sayaçları. VM'ler için performans verilerini iki saat sonra keşif devreye girdi portalda kullanılabilir hale gelmeden başlatır. İçin en az doğru doğru boyutlandırma önerilerini almak için Değerlendirmeler performans tabanlı oluşturmadan önce bir gün beklemeniz önerilir. Anında sonuç elde etmek için arıyorsanız, boyutlandırma ölçütü ile değerlendirmeler oluşturabilirsiniz *şirket içi olarak* hangi değil dikkate alınır doğru boyutlandırma için performans verileri.
+
+**Counter** |  **Etki değerlendirmesi**
+--- | ---
+cpu.usage.average | Önerilen VM boyutu ve maliyet  
+mem.Usage.average | Önerilen VM boyutu ve maliyet  
+virtualDisk.read.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.write.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.numberReadAveraged.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.numberWriteAveraged.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+NET.Received.average | VM boyutunu hesaplar                          
+NET.transmitted.average | VM boyutunu hesaplar     
+
+Azure geçişi tarafından toplanan VMware sayaçların tam listesi aşağıda verilmiştir:
+
+**Kategori** |  **Meta verileri** | **vCenter datapoint**
+--- | --- | ---
+Makine ayrıntıları | VM Kimliği | VM. Config.InstanceUuid
+Makine ayrıntıları | VM adı | VM. Config.Name
+Makine ayrıntıları | vCenter sunucusu kimliği | VMwareClient.InstanceUuid
+Makine ayrıntıları |  VM açıklaması |  VM. Summary.Config.Annotation
+Makine ayrıntıları | Lisans ürün adı | VM. Client.ServiceContent.About.LicenseProductName
+Makine ayrıntıları | İşletim sistemi türü | VM. Summary.Config.GuestFullName
+Makine ayrıntıları | İşletim sistemi sürümü | VM. Summary.Config.GuestFullName
+Makine ayrıntıları | Önyükleme türü | VM. Config.Firmware
+Makine ayrıntıları | Çekirdek sayısı | vm.Config.Hardware.NumCPU
+Makine ayrıntıları | Megabayt belleği | VM. Config.Hardware.MemoryMB
+Makine ayrıntıları | Disk sayısı | VM. Config.Hardware.Device.ToList(). FindAll(x => x is VirtualDisk).count
+Makine ayrıntıları | Disk boyutu listesi | VM. Config.Hardware.Device.ToList(). FindAll (x = > x VirtualDisk)
+Makine ayrıntıları | Ağ bağdaştırıcılarının listesi | VM. Config.Hardware.Device.ToList(). FindAll (x = > x VirtualEthernetCard)
+Makine ayrıntıları | CPU kullanımı | cpu.usage.average
+Makine ayrıntıları | Bellek kullanımı | mem.Usage.average
+Disk ayrıntıları (başına disk) | Disk anahtar değeri | disk. Anahtarı
+Disk ayrıntıları (başına disk) | Disk birim sayısı | disk.UnitNumber
+Disk ayrıntıları (başına disk) | Disk denetleyici anahtar değeri | disk. ControllerKey.Value
+Disk ayrıntıları (başına disk) | Sağlanan gigabayt | virtualDisk.DeviceInfo.Summary
+Disk ayrıntıları (başına disk) | Disk adı | Bu değeri, disk kullanarak oluşturulur. UnitNumber, disk. Anahtar ve disk. ControllerKey.Value
+Disk ayrıntıları (başına disk) | Saniye başına okuma işlemleri sayısı | virtualDisk.numberReadAveraged.average
+Disk ayrıntıları (başına disk) | Saniye başına yazma işlemlerinin sayısı | virtualDisk.numberWriteAveraged.average
+Disk ayrıntıları (başına disk) | Saniye başına megabayt okuma aktarım hızı | virtualDisk.read.average
+Disk ayrıntıları (başına disk) | Saniye başına megabayt hızının yazma | virtualDisk.write.average
+Ağ bağdaştırıcısı ayrıntıları (NIC) başına | Ağ bağdaştırıcısı adı | NIC Anahtarı
+Ağ bağdaştırıcısı ayrıntıları (NIC) başına | MAC adresi | ((VirtualEthernetCard)nic).MacAddress
+Ağ bağdaştırıcısı ayrıntıları (NIC) başına | IPv4 Adresleri | vm.Guest.Net
+Ağ bağdaştırıcısı ayrıntıları (NIC) başına | IPv6 Adresleri | vm.Guest.Net
+Ağ bağdaştırıcısı ayrıntıları (NIC) başına | Saniye başına megabayt okuma aktarım hızı | NET.Received.average
+Ağ bağdaştırıcısı ayrıntıları (NIC) başına | Saniye başına megabayt hızının yazma | NET.transmitted.average
+Envanteri yolu ayrıntıları | Ad | kapsayıcı. GetType(). Adı
+Envanteri yolu ayrıntıları | Alt nesne türü | kapsayıcı. ChildType
+Envanteri yolu ayrıntıları | Başvuru ayrıntıları | kapsayıcı. MoRef
+Envanteri yolu ayrıntıları | Tam envanteri yolu | kapsayıcı. İle tam yol adı
+Envanteri yolu ayrıntıları | Üst ayrıntıları | Container.Parent
+Envanteri yolu ayrıntıları | Her VM için klasör ayrıntıları | ((Klasör) kapsayıcısı). ChildEntity.Type
+Envanteri yolu ayrıntıları | Her bir sanal makine klasör için veri merkezi ayrıntıları | ((Veri merkezi) kapsayıcısı). VmFolder
+Envanteri yolu ayrıntıları | Her bir ana klasör için veri merkezi ayrıntıları | ((Veri merkezi) kapsayıcısı). HostFolder
+Envanteri yolu ayrıntıları | Her konak için küme ayrıntıları | ((ClusterComputeResource) kapsayıcısı). Ana bilgisayarı)
+Envanteri yolu ayrıntıları | Her VM için ana bilgisayar ayrıntıları | ((HostSystem) kapsayıcısı). VM
 
 
 ## <a name="securing-the-collector-appliance"></a>Toplayıcı gerecini güvenliğini sağlama
@@ -200,34 +271,6 @@ Gereç ayarlandıktan sonra bulma çalıştırabilirsiniz. Nasıl çalıştığ�
 - VM'ler bulunduktan ve meta verileri ve performans verilerini Azure'a gönderilir. Bu Eylemler, bir toplama işi bir parçasıdır.
     - Toplayıcı gerecini bulmalar arasında belirli bir makine için kalıcı olan belirli bir Toplayıcı kimliği verilir.
     - Çalışan bir toplama işi belirli bir oturum kimliği verilir. Kimlik her toplama işine değiştirir ve sorun giderme için kullanılabilir.
-
-### <a name="collected-metadata"></a>Toplanan meta verileri
-
-Toplayıcı gerecini her VM için aşağıdaki yapılandırma meta verileri bulur. Sanal makineler için yapılandırma verilerini bulma başlattıktan sonra bir saat kullanılabilir.
-
-- VM görünen adı (temel, vCenter sunucusu)
-- Sanal makinenin envanteri yolu (konak/klasörü vCenter Server)
-- IP adresi
-- MAC adresi
-- İşletim sistemi
-- Çekirdek, disk, NIC sayısı
-- Bellek boyutu, Disk boyutları
-- VM, disk ve ağ performans sayaçları.
-
-#### <a name="performance-counters"></a>Performans sayaçları
-
- Toplayıcı gerecini 20 saniyelik bir aralıkta ESXi konağından her VM için aşağıdaki performans sayaçlarını toplar. Bu sayaçlardan vCenter sayaçları ve terminolojiyi ortalama diyor olsa da, 20 saniye örnekleri gerçek zamanlı sayaçları. VM'ler için performans verilerini iki saat sonra keşif devreye girdi portalda kullanılabilir hale gelmeden başlatır. İçin en az doğru doğru boyutlandırma önerilerini almak için Değerlendirmeler performans tabanlı oluşturmadan önce bir gün beklemeniz önerilir. Anında sonuç elde etmek için arıyorsanız, boyutlandırma ölçütü ile değerlendirmeler oluşturabilirsiniz *şirket içi olarak* hangi değil dikkate alınır doğru boyutlandırma için performans verileri.
-
-**Counter** |  **Etki değerlendirmesi**
---- | ---
-cpu.usage.average | Önerilen VM boyutu ve maliyet  
-mem.Usage.average | Önerilen VM boyutu ve maliyet  
-virtualDisk.read.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
-virtualDisk.write.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
-virtualDisk.numberReadAveraged.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
-virtualDisk.numberWriteAveraged.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
-NET.Received.average | VM boyutunu hesaplar                          
-NET.transmitted.average | VM boyutunu hesaplar     
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

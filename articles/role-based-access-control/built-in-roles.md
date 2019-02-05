@@ -15,17 +15,17 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 23fab567fc2fdd5c5c8f3c5d173a5201d3322f81
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512559"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699275"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcılara, gruplara veya hizmet sorumluları için atayabileceğiniz birkaç yerleşik rol tanımlarına sahiptir. Rol atamaları, azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
 
-Yerleşik roller her zaman artmaktadır. Son rol tanımları almak için kullanın [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) veya [az role definition listesini](/cli/azure/role/definition#az-role-definition-list).
+Yerleşik roller her zaman artmaktadır. Son rol tanımları almak için kullanın [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) veya [az role definition listesini](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Yerleşik rol tanımları
 Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol adı listesini görmek için tıklayın `Actions`, `NotActions`, `DataActions`, ve `NotDataActions` her rol için.

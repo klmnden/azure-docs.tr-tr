@@ -9,12 +9,12 @@ ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474991"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728057"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Hızlı Başlangıç: Azure CLI ve Event Grid ile özel olayları Azure Kuyruk depolamaya yönlendirme
 
@@ -24,9 +24,12 @@ Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Azure Kuyruk depol
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="install-preview-feature"></a>Önizleme özelliğini yükle
+Azure portalında Cloud Shell kullanmak yerine, yerel makinenizde Azure CLI veya Azure PowerShell kullanıyorsanız, Azure CLI ve Azure PowerShell'ın şu sürümleri olduğundan emin olun. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- Azure CLI Sürüm 2.0.56 veya büyük. Azure CLI'ın en son sürümü yükleme hakkında yönergeler için bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). 
+- Azure PowerShell sürüm 1.1.0 veya büyük. Windows makinenizde Azure PowerShell'in en son sürümünde indirme [Azure indirmeleri - komut satırı araçları](https://azure.microsoft.com/downloads/). 
+
+Bu makalede, Azure CLI kullanmak için komutlar sağlar. 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -47,10 +50,6 @@ az group create --name gridResourceGroup --location westus2
 Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir uç nokta sağlar. Aşağıdaki örnekte özel konu, kaynak grubunuzda oluşturulur. `<topic_name>` değerini özel konunuz için benzersiz bir adla değiştirin. Bir DNS girişi ile temsil edildiğinden Event Grid konusunun adı benzersiz olmalıdır.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

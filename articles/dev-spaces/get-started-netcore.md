@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: f053f2f70b266a53684f72ceb9d997a718c66444
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663919"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700715"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Azure geliştirme alanları .NET Core ile çalışmaya başlama
 
@@ -99,13 +99,7 @@ Kubernetes hata ayıklaması gibi zengin özellikler VS Code kullanarak .NET Cor
 Bu bölümde bir ASP.NET Core web uygulaması oluşturacak ve Kubernetes’teki bir kapsayıcı içinde çalıştıracaksınız.
 
 ### <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core web uygulaması oluşturma
-[.NET Core](https://www.microsoft.com/net) yüklüyse, `webfrontend` adlı bir klasörde hızlıca bir ASP.NET Core Web Uygulaması oluşturabilirsiniz.
-    
-```cmd
-dotnet new mvc --name webfrontend
-```
-
-Veya GitHub deposunu yerel ortamınıza indirmek için https://github.com/Azure/dev-spaces konumuna gidip **Kopyala veya İndir**’i seçerek **GitHub’dan kodu indirin**. Bu kılavuzun kodu `samples/dotnetcore/getting-started/webfrontend` içindedir.
+Kopyala veya indir [Azure geliştirme alanları örnek uygulama](https://github.com/Azure/dev-spaces). Bu makalede kodda kullanan *samples/dotnetcore/alma-çalışmaya/webfrontend* dizin.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Docker ve Kubernetes geliştirme için kod hazırlama
 Şimdiye kadar, yerel olarak çalıştırılabilen temel bir web uygulamanız vardı. Şimdi uygulamanın kapsayıcısını tanımlayan varlıklar oluşturup Kubernetes’de nasıl dağıtılacağını belirleyerek uygulamayı kapsayıcılı hale getireceksiniz. Bu görev Azure Dev Spaces ile kolayca gerçekleştirilebilir: 

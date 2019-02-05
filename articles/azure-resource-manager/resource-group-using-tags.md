@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: d7f84e188324bcdb9fb1a26d701805978f1fd625
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489402"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734445"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Azure kaynaklarınızı düzenlemek için etiketleri kullanma
 
@@ -29,11 +29,15 @@ Etiketler kaynaklara uygulamak için kullanıcının bu kaynak türü için yazm
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="policies"></a>İlkeler
+
+Kullanabileceğiniz [Azure İlkesi](../governance/policy/overview.md) etiketleme kuralları ve düzenlemeleri zorlamak için. Bir ilke oluşturarak, kuruluşunuz için beklenen etiketler ile uyumlu olmayan aboneliğinize dağıtılan kaynakların durumundan kaçının. Etiketleri el ile uygulanması veya uyumlu olmayan kaynaklar için arama yerine, gerekli etiketleri dağıtım sırasında otomatik olarak uygulanan bir ilke oluşturabilirsiniz. Aşağıdaki bölümde, örnek ilkelerini etiketleri gösterir.
+
+[!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
 
-Bu makaledeki örnekler Azure PowerShell’in 6.0 veya üzeri bir sürümünü gerektirir. 6.0 veya sonraki sürüme sahip değilseniz [sürümünüzü güncelleştirin](/powershell/azure/install-az-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bir *kaynak grubunun* mevcut etiketlerini görmek şunu kullanın:
 
@@ -275,5 +279,4 @@ REST API işlemleri için bkz: [Azure faturalandırma REST API Başvurusu](/rest
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Tüm kaynak türleri etiketleri destekler. Bir kaynak türü için bir etiket uygulamak, belirlemek için bkz: [etiket Azure kaynakları için destek](tag-support.md).
-* Özelleştirilmiş ilkeler kullanarak, aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke, tüm kaynakların belirli bir etiket için bir değer olmasını gerektirebilir. Daha fazla bilgi için [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md)
 * Portalı kullanarak bir giriş için bkz. [Azure kaynaklarınızı yönetmek için Azure portalını kullanarak](resource-group-portal.md).  

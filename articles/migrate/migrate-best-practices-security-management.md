@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: f9f4d544a407a75231302b0eb53c27904585250f
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510689"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700086"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Güvenliğini sağlama ve iş yüklerini yönetmek için en iyi uygulamaları için Azure geçişi
 
@@ -516,7 +516,7 @@ Bölgesel kesintiler ve olağanüstü durumlara hataları karşı dayanıklılı
 - [Okuma](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) olağanüstü durum kurtarma için Azure SQL veritabanları 101.
 - [Genel bakışın](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) etkin coğrafi çoğaltma ve yük devretme grupları.
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) olağanüstü durum kurtarma tasarımı.
-- [En iyi uygulamaları alma](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) yük devretme grupları için.
+- [En iyi uygulamaları alma](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) yük devretme grupları için.
 - [En iyi uygulamaları alma](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) güvenlik coğrafi geri yükleme ya da yük devretme için.
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) bölge artıklığı
 - [Bilgi edinmek için nasıl](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) SQL veritabanı için bir olağanüstü durum kurtarma tatbikatı gerçekleştirme.

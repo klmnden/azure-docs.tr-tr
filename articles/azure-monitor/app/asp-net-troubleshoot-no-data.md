@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118771"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700919"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -185,6 +185,52 @@ Devre dışı bırakabilirsiniz, ancak bu önerilmemektedir. Örnekleme, ilgili 
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Azure Cloud Services’da çalıştırma üzerine “yöntem bulunamadı” özel durumu
 .NET 4.6 için mi oluşturdunuz? 4.6 sürümü Azure Cloud Services rollerinde otomatik olarak desteklenmez. Uygulamanızı çalıştırmadan önce [her role 4.6 sürümünü yükleyin](../../cloud-services/cloud-services-dotnet-install-dotnet.md).
+
+## <a name="troubleshooting-logs"></a>Sorun giderme günlükleri
+
+Altyapınız için sorun giderme günlükleri tutmak için bu yönergeleri izleyin.
+
+### <a name="net-framework"></a>.NET framework
+
+1. Yükleme [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) NuGet paketi. Yüklemeniz gereken sürüm yüklü geçerli sürümü ile eşleşmelidir `Microsoft.ApplicationInsighs`
+
+2. Şunlar için applicationınsights.config dosyasını değiştirin:
+
+   ```xml
+   <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+        <Severity>Verbose</Severity>
+        <LogFileName>mylog.txt</LogFileName>
+        <LogFilePath>C:\\SDKLOGS</LogFilePath>
+      </Add>
+   </TelemetryModules>
+   ```
+   Uygulamanız için yapılandırılan konuma yazma izinlerine sahip olmalıdır
+ 
+ 3. Bu yeni ayarları SDK'sı tarafından alınır, böylece işlemini yeniden başlatın.
+ 
+ 4. İşiniz bittiğinde bu değişiklikleri geri al.
+  
+### <a name="net-core"></a>.Net Core
+
+1. Yükleme [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) NuGet paketi. Yüklemeniz gereken sürüm yüklü geçerli sürümü ile eşleşmelidir `Microsoft.ApplicationInsighs`
+
+2. Değiştirme `ConfigureServices` yönteminde, `Startup.cs` sınıfı.:
+
+    ```csharp
+    services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
+    services.ConfigureTelemetryModule<FileDiagnosticsTelemetryModule>( (module, options) => {
+        module.LogFilePath = "C:\\SDKLOGS";
+        module.LogFileName = "mylog.txt";
+        module.Severity = "Verbose";
+    } );
+    ```
+   Uygulamanız için yapılandırılan konuma yazma izinlerine sahip olmalıdır
+ 
+ 3. Bu yeni ayarları SDK'sı tarafından alınır, böylece işlemini yeniden başlatın.
+ 
+ 4. İşiniz bittiğinde bu değişiklikleri geri al.
+  
 
 ## <a name="still-not-working"></a>Yine de çalışmıyor...
 * [Uygulama anlayışları Forumu](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

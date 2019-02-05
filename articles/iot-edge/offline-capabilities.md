@@ -4,17 +4,17 @@ description: IOT Edge cihazları ve modülleri uzun süre için internet bağlan
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/20/2018
+ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4c4713bade487ba46f1abdc6d0a76db3e81e38b1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7bf672715b45233807ab848c78aeb1bed2d352e9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096953"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699355"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IOT Edge cihazları, modülleri ve alt cihazlar (Önizleme) genişletilmiş çevrimdışı özelliklerini anlama
 
@@ -25,7 +25,7 @@ Azure IOT Edge, IOT Edge cihazlarınıza genişletilmiş çevrimdışı işlemle
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Edge hub'ı, IOT Edge cihazı çevrimdışı moduna girer, üç rollerinde alır. İlk olarak, cihaz yeniden kadar bunları kaydeder ve Yukarı Akış çıkacak herhangi bir iletiyi depolar. İkinci olarak, bunlar çalışmaya devam edebilmesi için modüller ve alt cihazların kimliğini doğrulamak için IOT Hub adına hareket eder. Üçüncü olarak, IOT hub'ı aracılığıyla normalde çıkacak alt cihazlar arasındaki iletişimi sağlar. 
+IOT Edge cihazı çevrimdışı moduna girer, IOT Edge hub'ı üç rollerine götürür. İlk olarak, cihaz yeniden kadar bunları kaydeder ve Yukarı Akış çıkacak herhangi bir iletiyi depolar. İkinci olarak, bunlar çalışmaya devam edebilmesi için modüller ve alt cihazların kimliğini doğrulamak için IOT Hub adına hareket eder. Üçüncü olarak, IOT hub'ı aracılığıyla normalde çıkacak alt cihazlar arasındaki iletişimi sağlar. 
 
 Aşağıdaki örnek, bir IOT Edge senaryo çevrimdışı modda nasıl çalıştığı gösterilmektedir:
 
@@ -39,7 +39,7 @@ Aşağıdaki örnek, bir IOT Edge senaryo çevrimdışı modda nasıl çalışt�
 
 3. **Çevrimdışı olur.**
 
-   IOT Edge cihaz, dağıtılan modülleri ve tüm alt öğeleri IOT cihazları IOT Hub'ından bağlı değilken süresiz olarak çalışabilir. Modüller ve alt cihazları başlatma ve yeniden başlatma sırasında Edge hub'ı ile kimlik doğrulaması yaparak çevrimdışı. IOT Hub'ına Yukarı Akış ilişkili telemetri yerel olarak depolanır. İletişim alt IOT cihazları veya modülleri arasında doğrudan yöntemler veya iletileri korunur. 
+   IOT Edge cihaz, dağıtılan modülleri ve tüm alt öğeleri IOT cihazları IOT Hub'ından bağlı değilken süresiz olarak çalışabilir. Modüller ve alt cihazları başlatma ve yeniden başlatma sırasında IOT Edge hub'ı ile kimlik doğrulaması yaparak çevrimdışı. IOT Hub'ına Yukarı Akış ilişkili telemetri yerel olarak depolanır. İletişim alt IOT cihazları veya modülleri arasında doğrudan yöntemler veya iletileri korunur. 
 
 4. **Bağlayın ve IOT Hub ile yeniden eşitleyin.**
 
@@ -55,7 +55,7 @@ IOT Edge olmayan cihazlar yalnızca alt cihazlar olarak eklenebilir.
 
 IOT Edge cihazları ve atanan alt cihazlarını çalışabilmesi ilk, tek seferlik eşitleme sonrasında süresiz olarak çevrimdışı. Ancak, depolama iletilerin süresi (TTL) ayarı ve iletileri depolamak için kullanılabilir disk alanı bağlıdır. 
 
-## <a name="set-up-an-edge-device"></a>Bir Edge cihazı ayarlama
+## <a name="set-up-an-iot-edge-device"></a>Bir IOT Edge cihazı ayarlama
 
 Bir IOT Edge cihazı alt IOT cihazları, genişletilmiş çevrimdışı yeteneklerini genişletmek Azure portalında üst-alt ilişkileri bildirmeniz gerekir.
 
@@ -71,7 +71,7 @@ Alt aygıtları aynı IOT Hub'ına kayıtlı herhangi bir kenar-olmayan cihaz ol
 
 Sağlamlığını artırmak için ortamınızda kullanılan DNS sunucusu adresleri belirtmeniz önerilir. Örneğin, Linux üzerinde güncelleştirme **/etc/docker/daemon.json** (dosya oluşturmanız gerekebilir) eklemek için:
 
-```
+```json
 {
     "dns": [“1.1.1.1”]
 }
@@ -82,13 +82,13 @@ Yerel bir DNS sunucusu kullanıyorsanız, her 1.1.1.1 de yerel DNS sunucusunun I
 
 ## <a name="optional-offline-settings"></a>İsteğe bağlı bir çevrimdışı ayarları
 
-Daha sonra oluşturulan, tüm iletileri toplamak istediğiniz kadar süreyle çevrimdışı dönemler için cihazlarınızı bekliyorsanız tüm iletileri depolayabileceğiniz Edge hub'ı yapılandırın. İki değişiklikleri Edge hub'ına ileti için uzun süreli depolama olanağı yapabilirsiniz vardır. İlk ayarı yaşam süresini artırın ve ardından ileti depolama için ek disk alanı ekleyin. 
+Cihazlarınızı çevrimdışı uzun dönemlerde oluşturan tüm iletileri toplanacak bekliyorsanız, böylece tüm iletileri depolayabilirsiniz IOT Edge hub'ı yapılandırın. İki değişiklikleri IOT Edge hub'ına ileti için uzun süreli depolama olanağı yapabilirsiniz vardır. İlk olarak, ayar yaşam süresini artırın. Ardından, ileti depolama için ek disk alanı ekleyin. 
 
 ### <a name="time-to-live"></a>Yaşam süresi
 
 Ayar yaşam süresi dolmadan önce teslim edilecek bir ileti bekleyebileceği süreyi (saniye cinsinden) ' dir. 7200 saniye (iki saat) varsayılandır. 
 
-Bu ayar, modül ikizi içinde depolanan Edge hub'ın istenen bir özelliktir. İçinde Azure Portalı'nda yapılandırabilirsiniz **Gelişmiş Edge çalışma zamanı ayarları Yapılandır** bölümünde veya doğrudan dağıtım bildirimi. 
+Bu ayar, modül ikizi içinde depolanan IOT Edge hub'ın istenen bir özelliktir. İçinde Azure Portalı'nda yapılandırabilirsiniz **Gelişmiş Edge çalışma zamanı ayarları Yapılandır** bölümünde veya doğrudan dağıtım bildirimi. 
 
 ```json
 "$edgeHub": {
@@ -104,16 +104,25 @@ Bu ayar, modül ikizi içinde depolanan Edge hub'ın istenen bir özelliktir. İ
 
 ### <a name="additional-offline-storage"></a>Çevrimdışı ek depolama alanı
 
-Varsayılan olarak, iletiler Edge hub'ın kapsayıcı dosya sistemi içinde saklanır. Bu depolama miktarını çevrimdışı gereksinimleriniz için yeterli değilse, IOT Edge cihazı yerel depolamada ayırabilirsiniz. Bir depolama kapsayıcısındaki işaret Edge hub'ı için bir ortam değişkenini oluşturmak için ihtiyacınız. Ardından, bu depolama klasörü konak makinedeki bir klasöre bağlamak için oluşturma seçenekleri kullanın. 
+İletileri, IOT Edge hub'ın kapsayıcı dosya sistemi varsayılan olarak depolanır. Bu depolama miktarını çevrimdışı gereksinimleriniz için yeterli değilse, IOT Edge cihazı yerel depolamada ayırabilirsiniz. Bir depolama kapsayıcısındaki işaret IOT Edge hub'ı için bir ortam değişkenini oluşturun. Ardından, bu depolama klasörü konak makinedeki bir klasöre bağlamak için oluşturma seçenekleri kullanın. 
 
-Azure portalında ortam değişkenlerini ve Edge hub'ı modülü oluşturma seçeneklerini yapılandırabilirsiniz **Gelişmiş Edge çalışma zamanı ayarları Yapılandır** bölümü. Veya doğrudan dağıtım bildiriminde yapılandırabilirsiniz. 
+Azure portalında ortam değişkenlerini ve IOT Edge hub'ı modülü oluşturma seçeneklerini yapılandırabilirsiniz **Gelişmiş Edge çalışma zamanı ayarları Yapılandır** bölümü. Veya doğrudan dağıtım bildiriminde yapılandırabilirsiniz. 
 
 ```json
 "edgeHub": {
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": {
+            "HostConfig": {
+                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
+                "PortBindings": {
+                    "8883/tcp": [{"HostPort":"8883"}],
+                    "443/tcp": [{"HostPort":"443"}],
+                    "5671/tcp": [{"HostPort":"5671"}]
+                }
+            }
+        }
     },
     "env": {
         "storageFolder": {
@@ -125,7 +134,11 @@ Azure portalında ortam değişkenlerini ve Edge hub'ı modülü oluşturma seç
 }
 ```
 
-Değiştirin `<HostStoragePath>` ve `<ModuleStoragePath>` konak ve modül depolama ile yolu; hem konak hem modülü depolama yolu mutlak bir yol olmalıdır.  Örneğin, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` anlamına gelir konak yolu `/etc/iotedge/storage` kapsayıcı yoluna eşlenmiş `/iotedge/storage/`.  Ayrıca createOptions hakkında daha fazla ayrıntı bulabilirsiniz [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Değiştirin `<HostStoragePath>` ve `<ModuleStoragePath>` konak ve modül depolama ile yolu; hem konak hem modülü depolama yolu mutlak bir yol olmalıdır. Oluşturma seçeneklerinde konak ve modül depolama yollarını birbirine bağlayın. Ardından, modül depolama yolunu işaret eden bir ortam değişkeni oluşturun.  
+
+Örneğin, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` dizin anlamına gelir **/etc/iotedge/storage** konağınız üzerinde sistem dizine eşlenmiş **/iotedge/depolama/** kapsayıcısı üzerinde. Veya Windows sistemleri için başka bir örnek `"Binds":["C:\\temp:C:\\contemp]"` dizin anlamına gelir **C:\\temp** konağınız üzerinde sistem dizine eşlenmiş **C:\\contemp** kapsayıcısı üzerinde. 
+
+Oluşturma seçenekleri hakkında daha fazla ayrıntı bulabilirsiniz [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

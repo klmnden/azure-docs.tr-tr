@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 0d5b345936f6c931f4210e6dc50f94544a52f571
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678449"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700579"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure'da ağ sanal Gereci sorunları
 
@@ -40,7 +40,7 @@ Bir veya VPN bağlantı sorunlarını ve hataları üçüncü kullanırken, ağ 
 - Udr'ler NVA gelen trafiği doğrudan sanal ağ alt ağları üzerinde
 - Yönlendirme tabloları ve kuralların NVA'dan (örneğin, NIC1 NIC2 için)
 - NVA NIC'leri alma ve ağ trafiğini göndermek doğrulamak için izleme
-- Standart SKU ve genel IP'ler kullanırken NVA'ya yönelik yönlendirilecek bir NSG oluşturulur ve açık bir kural trafiğe izin verecek şekilde koyulmalıdır.
+- Standart SKU ve genel IP'ler için NVA yönlendirilecek bir NSG oluşturulur ve açık bir kural trafiğe izin veren olmalıdır kullanırken.
 
 ## <a name="basic-troubleshooting-steps"></a>Temel sorun giderme adımları
 
@@ -78,7 +78,7 @@ PowerShell kullanma
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
 
-**Standart SKU Pubilc IP kullanırken denetlemek için NSG** standart SKU ve genel IP'ler kullanırken olmalıdır nva'nın trafiğe izin vermek için bir NSG oluşturulur ve açık bir kural.
+**Standart SKU genel IP kullanırken denetlemek için NSG** standart SKU ve genel IP'ler nva'nın trafiğe izin vermek için bir NSG oluşturulur ve açık bir kural olmalıdır.
 
 **Trafiği NVA yönlendirilebilir olup olmadığını denetleyin**
 

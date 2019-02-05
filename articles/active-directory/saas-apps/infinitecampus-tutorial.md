@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 303d794e558a5e85b4dd2bca3d9bbb4c2a1ff5dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 694999048d2f1df92e6b8631953f124c4009d46c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151813"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733969"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Öğretici: Sonsuz kampüs ile Azure Active Directory Tümleştirme
 
@@ -111,7 +111,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
 
     ![Çoklu oturum açmayı yapılandırın](common/editconfigure.png)
 
-5. Üzerinde **temel SAML yapılandırma** varsa, bölüm **hizmet sağlayıcısı meta veri dosyası** (adıma atlayın **11.c**), aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **temel SAML yapılandırma** varsa, bölüm bir **hizmet sağlayıcısı meta veri dosyası**tam 4.a 4.d aracılığıyla adımları ve 11.c adımı atlayın. Bir hizmet sağlayıcısı meta veri dosyası yoksa, 5. adıma atlayın.
 
     a. Tıklayın **meta veri dosyasını karşıya yükleme**.
 
@@ -127,10 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
 
     d. İçinde **oturum açma URL'si** metin kutusuna bir URL (etki alanı barındırma modeliyle göre değişir) aşağıdaki düzeni kullanarak: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    > [!NOTE]
-    > Size **hizmet sağlayıcısı meta veri dosyası** sonsuz kampüs SSO Servis Sağlayıcı Yapılandırması sayfasında öğreticinin ilerleyen bölümlerinde açıklanmıştır. Yeni bir hizmet sağlayıcısı SAML yapılandırmasıyla sonsuz kampüs başlatıyorsanız atlamak **11. adım** dışarı aktarma hizmeti sağlayıcısı meta veri dosyasının tamamlanması.
-
-6. Öğeniz yoksa **hizmet sağlayıcısı meta veri dosyası**, (etki alanı barındırma modeliyle değişir unutmayın) aşağıdaki adımları gerçekleştirin:
+5. Yoksa **hizmet sağlayıcısı meta veri dosyası**, (etki alanı barındırma modeliyle değişir unutmayın) aşağıdaki adımları gerçekleştirin:
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 

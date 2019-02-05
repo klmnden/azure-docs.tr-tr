@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: e10784957365df62e64c306c97ea17fb6a5e7c49
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d5ff6b05df74cd73fb374bbd7cf27b8fc7d69493
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55202935"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697994"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory'de uygulama eklerken uygulama türünü seçme
 Uygulamaları Azure Active Directory (Azure AD) ekleyebilirsiniz dört türleri hakkında daha fazla bilgi edinin. Azure Active Directory'de uygulama eklerken dört uygulama türünü birini seçmeniz istenir. 
@@ -42,7 +42,7 @@ Aşağıdaki özellikleri Azure AD'de herhangi bir önceki dört uygulama türü
 
 -   **Hızlı Başlangıç** – izleyerek bir uygulama ile hızlı bir şekilde başlayın [basit dağıtım adımları](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
--   **Genel Özellikler Yönetim** – almak bir [doğrudan deeplink](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users) bir uygulamaya [markalamayı özelleştirme](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) bir uygulamanın veya [uygulamayı devre dışı](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) tüm kullanıcılar için.
+-   **Genel Özellikler Yönetim** – almak bir [doğrudan deeplink](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) bir uygulamaya [markalamayı özelleştirme](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) bir uygulamanın veya [uygulamayı devre dışı](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) tüm kullanıcılar için.
 
 -   **Kullanıcı ve Grup Yönetimi** – [atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) veya [Kaldır](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) kullanıcıları ve grupları bir uygulamaya erişiminiz grupları ve isteğe bağlı olarak bu kullanıcıları belirli uygulama rolleri Ata
 
@@ -134,7 +134,7 @@ Bir uygulamanın ayarlanacak **çoklu oturum açma** modu, aşağıdaki yönerge
 -   **Otomatik sağlama** – seçin [otomatik](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) **sağlama modunu** API tabanlı otomatik sağlama ve/veya bu uygulamaya yönelik kullanıcı hesapları, sağlamayı etkinleştirmek istiyorsanız 
 
    >[!NOTE]
-   >Bu seçenek, yalnızca içinde uygulamalar için kullanılabilir **öne çıkan** kategorisi [Azure AD uygulama Galerisi](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery).
+   >Bu seçenek, yalnızca içinde uygulamalar için kullanılabilir **öne çıkan** kategorisi [Azure AD uygulama Galerisi](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
    >
    >
 

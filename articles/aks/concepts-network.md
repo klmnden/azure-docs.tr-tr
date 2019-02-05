@@ -1,18 +1,18 @@
 ---
 title: Kavramlar - ağ Azure Kubernetes hizmeti (AKS)
-description: Azure Kubernetes hizmeti (temel ve Gelişmiş Ağ, giriş denetleyicileri, yük Dengeleyiciler ve statik IP adresleri de dahil olmak üzere AKS), ağ oluşturma hakkında bilgi edinin.
+description: Azure Kubernetes Service (kubernetes ve Azure CNI ağ, giriş denetleyicileri, yük Dengeleyiciler ve statik IP adresleri de dahil olmak üzere AKS), ağ oluşturma hakkında bilgi edinin.
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 62ba98f221041d5bbf9bb095a02d052218eb0fd0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: d71360d830ab7b90a8d91e6d17c7a3698d8fca5c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381277"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692588"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ağ kavramları
 
@@ -61,37 +61,32 @@ Her ikisi de *iç* ve *dış* yük Dengeleyiciler oluşturulabilir. İç yük De
 
 AKS, aşağıdaki iki ağ modelleri birini kullanan bir küme dağıtabilirsiniz:
 
-- *Temel* ağ - ağ kaynaklarının oluşturulup yapılandırılması AKS kümesi dağıtılır.
-- *Gelişmiş* ağ - AKS kümesini mevcut sanal ağ kaynakları ve yapılandırmaların bağlı.
+- *Kubernetes* ağ - ağ kaynaklarının genellikle oluşturulup yapılandırılması AKS kümesi dağıtılır.
+- *Azure kapsayıcı ağ arabirimi (CNI)* ağ - AKS kümesini mevcut sanal ağ kaynakları ve yapılandırmaların bağlı.
 
-### <a name="basic-networking"></a>Temel ağ
+### <a name="kubenet-basic-networking"></a>Kubernetes (Temel) ağ
 
-*Temel* olan AKS kümesi oluşturma için varsayılan yapılandırma seçeneği ağ. Azure platformu küme ve pod'ların ağ yapılandırmasını yönetir. Temel ağ, sanal özel ağ yapılandırması gerektirmez dağıtımlar için uygundur. Temel ağ ile alt ağ adları gibi ağ yapılandırması veya AKS kümeye atanan IP adresi aralıklarını tanımlayamazsınız.
+*Kubernetes* olan AKS kümesi oluşturma için varsayılan yapılandırma seçeneği ağ. İle *kubernetes*, düğümler, Azure sanal ağ alt ağından bir IP adresi alın. Pod'ların, düğümler Azure sanal ağ alt ağına mantıksal olarak farklı adres alanından bir IP adresi alır. Ağ adresi çevirisi (NAT), ardından pod'ları Azure sanal ağındaki kaynaklara erişebilmesi için yapılandırılır. Trafiği kaynak IP adresini, NAT düğümün birincil IP başvuracağını ' dir.
 
-Temel ağ kullanılmak üzere yapılandırılmış bir AKS kümesindeki düğümlere [kubernetes] [ kubenet] Kubernetes eklentisi.
+Düğümleri kullanma [kubernetes] [ kubenet] Kubernetes eklentisi. Azure platformu oluşturun ve sanal ağları yapılandırmanız veya varolan bir sanal ağ alt ağı, AKS kümesi dağıtmayı tercih izin verebilirsiniz. Yeniden yalnızca AKS kümesi dışında diğer kaynaklarla iletişim için NAT yönlendirilebilir bir IP adresi ve pod'ları alma düğümleri kullanın. Bu yaklaşım ağ alanınıza kullanmak pod'ları ayırmanız gerekir IP adresi sayısını önemli ölçüde azaltır.
 
-Temel ağ aşağıdaki özellikleri sağlar:
+Daha fazla bilgi için [kubernetes AKS kümesi için ağ yapılandırma][aks-configure-kubenet-networking].
 
-- Bir Kubernetes hizmeti, Azure Load Balancer harici veya dahili olarak kullanıma sunar.
-- Pod'ları genel Internet üzerindeki kaynaklara erişebilir.
+### <a name="azure-cni-advanced-networking"></a>Azure CNI (Gelişmiş) ağ
 
-### <a name="advanced-networking"></a>Gelişmiş Ağ
+Azure CNI her pod alt ağdan bir IP adresi alır ve doğrudan erişilebilir. Bu IP adresleri, ağ alanı benzersiz olmalıdır ve önceden hazırlıklı olmak gerekir. Her düğümü destekliyorsa pod'ların sayısı için bir yapılandırma parametresi vardır. Düğüm başına IP adreslerinin sayısı, bu düğüm için önden ayrılmıştır. Bu yaklaşım, daha fazla planlama gerektirir ve genellikle IP adresi tükenmesi veya uygulama arttıkça daha büyük bir alt ağ kümelerini yeniden gereksinimini doğurur.
 
-*Gelişmiş* ağ yapılandırdığınız bir Azure sanal ağında podlarınız yerleştirir. Bu sanal ağa otomatik bağlantı diğer Azure kaynaklarını ve zengin bir özellik kümesi ile tümleştirme sağlar. Gelişmiş Ağ gerektiren belirli bir sanal ağ yapılandırmaları gibi bir var olan bir alt ağ ve bağlantı kullanmak için dağıtımlar için uygundur. Gelişmiş ağ ile bu alt ağ adları ve IP adresi aralıklarını tanımlayabilirsiniz.
-
-Gelişmiş Ağ kullanılmak üzere yapılandırılmış bir AKS kümesindeki düğümlere [Azure kapsayıcı ağ arabirimi (CNI)] [ cni-networking] Kubernetes eklentisi.
+Düğümleri kullanma [Azure kapsayıcı ağ arabirimi (CNI)] [ cni-networking] Kubernetes eklentisi.
 
 ![Her tek bir Azure sanal ağa bağlanma köprüleri ile iki düğümü gösteren diyagram][advanced-networking-diagram]
 
-Gelişmiş ağ üzerinden temel ağ aşağıdaki özellikleri sağlar:
+Azure CNI kubernetes ağ üzerinden aşağıdaki özellikleri sağlar:
 
-- Mevcut bir Azure sanal ağına, AKS kümesi dağıtmayı veya bir yeni sanal ağ ve alt kümenizin oluşturun.
 - Kümedeki her bir pod sanal ağdaki bir IP adresi atanır. Pod'ları, kümedeki diğer pod'ları ve diğer düğümleri sanal ağ ile doğrudan iletişim kurabilir.
-- Bir pod ExpressRoute ve siteden siteye (S2S) üzerinden şirket içi ağa VPN bağlantıları dahil eşlenen sanal ağ, diğer hizmetlere bağlanabilir. Pod'ları, ayrıca şirket içinden erişilebilir.
 - Bir alt ağdaki hizmet uç noktaları etkinleştirilmiş pod güvenli bir şekilde Azure depolama ve SQL DB gibi Azure hizmetlerine bağlanabilirsiniz.
 - Kullanıcı tanımlı yollar (UDR) bir ağ sanal Gereci pod'ların trafiği yönlendirmek için oluşturabilirsiniz.
 
-Daha fazla bilgi için [ağ bir AKS kümesi için Gelişmiş Yapılandırma][aks-configure-advanced-networking].
+Daha fazla bilgi için [yapılandırın, bir AKS kümesi için Azure CNI][aks-configure-advanced-networking].
 
 ## <a name="ingress-controllers"></a>Giriş denetleyicileri
 
@@ -113,7 +108,7 @@ Varsayılan olarak ağ güvenlik grubu kuralları gibi SSH trafiği için mevcut
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ağ AKS ile çalışmaya başlama bkz [oluşturma bir AKS kümesi için Gelişmiş Ağ ve][aks-configure-advanced-networking].
+Ağ AKS ile çalışmaya başlama, oluşturun ve kendi IP adresi aralıkları kullanarak bir AKS kümesi yapılandırma [kubernetes] [ aks-configure-kubenet-networking] veya [Azure CNI] [ aks-configure-advanced-networking].
 
 Çekirdek Kubernetes hakkında daha fazla bilgi ve AKS kavramlar için aşağıdaki makalelere bakın:
 
@@ -137,7 +132,8 @@ Ağ AKS ile çalışmaya başlama bkz [oluşturma bir AKS kümesi için Gelişmi
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
 [aks-ingress-tls]: ingress.md
-[aks-configure-advanced-networking]: configure-advanced-networking.md
+[aks-configure-kubenet-networking]: configure-kubenet.md
+[aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

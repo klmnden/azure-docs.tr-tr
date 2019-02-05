@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849371"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733935"
 ---
 # <a name="messages-payloads-and-serialization"></a>İletiler, yükler ve serileştirme
 
@@ -28,7 +28,7 @@ Microsoft Azure Service Bus iletileri işler. İleti yükü açıklayan ve Servi
  
 Service Bus, hiçbir zaman herhangi bir hizmet tarafı formunda ve iki özellik kümeleri işleyen bir ikili yük bölümün bir Service Bus ileti oluşur. *Aracı özellikleri* sistem tarafından önceden tanımlanmıştır. Bu önceden tanımlanmış özellikler ya da aracı içinde ileti düzeyi işlevselliği denetleyen veya bunlar ortak ve standartlaştırılmış bir meta veri öğelerini eşleyebilirsiniz. *Kullanıcı özelliklerini* tanımlanan ve uygulama tarafından ayarlanıp anahtar-değer çiftlerinden oluşan bir koleksiyondur.
  
-Önceden tanımlanmış aracı özellikleri aşağıdaki tabloda listelenmiştir. Adlar, tüm resmi istemci API'leri ile kullanılır ve ayrıca [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) JSON nesnesi HTTP protokolü eşlemesi.
+Önceden tanımlanmış aracı özellikleri aşağıdaki tabloda listelenmiştir. Adlar, tüm resmi istemci API'leri ile kullanılır ve ayrıca [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) JSON nesnesi HTTP protokolü eşlemesi.
  
 AMQP protokol düzeyinde kullanılan eşdeğer adları ayraç içinde listelenmiştir. 
 

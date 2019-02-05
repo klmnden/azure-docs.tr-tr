@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 885f4da5ec9b360605a3e46ee8be8d338a638ede
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102678"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696192"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Python'dan (Önizleme) dağıtılmış izlemeleri toplamak
 
@@ -24,7 +24,7 @@ Application Insights artık Python uygulamaları ile tümleştirme yoluyla izlem
 
 - Bir Azure Aboneliğine sahip olmanız gerekir.
 - Bu makalede, Python yüklenmesi [Python 3.7.0](https://www.python.org/downloads/), ancak önceki sürümleri ile küçük düzeltme çalışma olasılığı yüksektir.
-- Yüklemek için yönergeleri izleyin [bir Windows hizmeti olarak yerel ileticisi](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service)
+- Yüklemek için yönergeleri izleyin [bir Windows hizmeti olarak yerel ileticisi](./../../azure-monitor/app/opencensus-local-forwarder.md)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -57,7 +57,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
    ![İzleme anahtarı ekran görüntüsü](./media/opencensus-python/0003-instrumentation-key.png)
 
-2. Düzenleme, `LocalForwarder.config` dosya ve izleme anahtarınızı ekleyin. İçindeki yönergeleri izlediyseniz [önkoşul](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service) dosyası şu konumdadır `C:\LF-WindowsServiceHost`
+2. Düzenleme, `LocalForwarder.config` dosya ve izleme anahtarınızı ekleyin. İçindeki yönergeleri izlediyseniz [önkoşul](./../../azure-monitor/app/opencensus-local-forwarder.md) dosyası şu konumdadır `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -158,7 +158,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 6. Artık yukarıda Python betiğini çalıştırdığınızda, yine de değerleri girin istenir, ancak yalnızca değeri yazdırılır Kabuğu'nda şimdi.
 
-7. Onaylamak için **yerel ileticisi** izlemeleri denetimi çekme `LocalForwarder.config` dosya. Adımları izlediyseniz [önkoşul](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), içinde almayacaktır `C:\LF-WindowsServiceHost`.
+7. Onaylamak için **yerel ileticisi** izlemeleri denetimi çekme `LocalForwarder.config` dosya. Adımları izlediyseniz [önkoşul](https://docs.microsoft.com/azure/application-insights/local-forwarder), içinde almayacaktır `C:\LF-WindowsServiceHost`.
 
     Günlük dosyasının içinde görüntü bir verici burada ekledik, ikinci komut çalıştırılmadan önce gördüğünüz gibi `OpenCensus input BatchesReceived` 0. Güncelleştirilmiş betiği çalıştıran başladıktan sonra `BatchesReceived` girdiğimiz değerlerinin sayısı artan eşit:
     

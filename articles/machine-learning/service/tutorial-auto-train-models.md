@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: cd14f2bdc394cb0887d318457dcf9295e216eb7b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 419e2cd8444d391c15c55c60c1cf7e086470b848
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489504"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730987"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
@@ -34,7 +34,6 @@ Bu öğreticide, aşağıdaki görevleri öğrenin:
 > * Autotrain bir regresyon modeli.
 > * Modeli yerel olarak özel parametrelerle çalıştırın.
 > * Sonuçları inceleyin.
-> * En iyi modeli kaydedin.
 
 Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
@@ -783,7 +782,6 @@ for run in children:
     metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
-import pandas as pd
 rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
@@ -1217,6 +1215,5 @@ Makine öğrenimi öğreticisinde bu otomatik, aşağıdaki görevleri yapar:
 > * Bir çalışma alanı ve hazırlanmış veri bir deneme için yapılandırılmış.
 > * Bir otomatik gerileme modelini kullanarak yerel olarak özel parametrelerle eğitim.
 > * Keşfedilen ve gözden geçirilmiş eğitim sonuçları.
-> * En iyi modeli kayıtlı.
 
 [Modelinizi](tutorial-deploy-models-with-aml.md) Azure Machine Learning ile.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 6011defcea54a26aa25877aeace6a1a8a629fdf6
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 93534cf80a007dbb848a515ec4ec165c67e3b456
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567528"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730705"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimini Sil
 
@@ -68,7 +68,7 @@ Portal bir ağ arabirimi oluşturulurken ağ arabiriminin uygulama güvenlik gru
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
+|CLI|[az network nic create](/cli/azure/network/nic)|
 |PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Görünümü ağ arabirimi ayarları
@@ -93,7 +93,7 @@ Bir ağ arabirimi için bir IPv6 adresi atanmışsa, PowerShell çıkış adresi
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC listesi](/cli/azure/network/nic#az_network_nic_list) abonelikte; ağ arabirimlerini görüntülemek için [az ağ nic show](/cli/azure/network/nic#az_network_nic_show) bir ağ arabirimi ayarlarını görüntülemek için|
+|CLI|[az ağ NIC listesi](/cli/azure/network/nic) abonelikte; ağ arabirimlerini görüntülemek için [az ağ nic show](/cli/azure/network/nic) bir ağ arabirimi ayarlarını görüntülemek için|
 |PowerShell|[Get-Azurermnetworkınterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) abonelik veya Görünüm ayarlarında bir ağ arabirimi için ağ arabirimlerini görüntülemek için|
 
 ## <a name="change-dns-servers"></a>DNS sunucularını değiştirme
@@ -153,7 +153,7 @@ Alt ağ, ancak bir ağ arabirimine atanan sanal ağda değil değiştirebilirsin
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Uygulama güvenlik grupları'ndan kaldırın veya ekleyin

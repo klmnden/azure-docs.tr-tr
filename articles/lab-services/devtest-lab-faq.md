@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 23066339ffcb0b8b3c7885ad24c6c3d136629ab2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262038"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700065"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Azure DevTest Labs hakkında en yaygın soruların yanıtlarını alın.
@@ -58,14 +58,14 @@ DevTest Labs ücretsiz bir hizmettir. Laboratuvarları oluşturma ve ilkeleri, �
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Farklı güvenlik düzeylerine DevTest Labs nedir?
 Güvenlik erişimi göre belirlenir [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/built-in-roles.md). Erişimi nasıl çalıştığını öğrenmek için bu izin, bir rolü olan ve bir kapsam arasındaki farkları öğrenmek için RBAC tarafından tanımlandığı şekilde yardımcı olur.
 
-* **İzni**: belirli bir eylem için tanımlanmış bir erişim izindir. Örneğin, bir izin, tüm sanal makineler için okuma erişimi olabilir.
-* **Rol**: gruplandırılmış ve bir kullanıcıya atanmış izinler kümesini rolüdür. Örneğin, bir abonelik sahibi rolüne sahip bir kullanıcı bir Abonelikteki tüm kaynaklara erişebilir.
-* **Kapsam**: kapsam içinde bir Azure kaynak hiyerarşisini düzeyidir. Örneğin, bir kapsam bir kaynak grubu, tek bir laboratuvar veya tüm abonelik olabilir.
+* **İzni**: Bir izin, belirli bir eylem için tanımlanmış bir erişimdir. Örneğin, bir izin, tüm sanal makineler için okuma erişimi olabilir.
+* **Rol**: Bir rol, gruplandırılmış ve bir kullanıcıya atanmış izinler kümesidir. Örneğin, bir abonelik sahibi rolüne sahip bir kullanıcı bir Abonelikteki tüm kaynaklara erişebilir.
+* **Kapsam**: Bir kapsam, bir Azure kaynak hiyerarşi içinde düzeyidir. Örneğin, bir kapsam bir kaynak grubu, tek bir laboratuvar veya tüm abonelik olabilir.
 
 DevTest Labs kapsamında, kullanıcı izinlerini tanımlamak rolleri iki tür vardır:
 
-* **Laboratuvar sahibi**: Laboratuvar sahibi laboratuar ortamında tüm kaynaklara erişebilir. Laboratuvar sahibi ilkeleri değiştirebilir, okuma ve yazma için herhangi bir VM, sanal ağı değiştirin ve benzeri.
-* **Laboratuvar kullanıcı**: Laboratuvar kullanıcı Vm'leri, ilkeleri ve sanal ağlar gibi tüm Laboratuvar kaynaklarını görüntüleyebilir. Ancak, bir laboratuvar kullanıcı ilkeleri veya diğer kullanıcılar tarafından oluşturulmuş tüm Vm'leri değiştiremez. 
+* **Laboratuvar sahibi**: Laboratuvar sahibi Laboratuvardaki tüm kaynaklara erişebilir. Laboratuvar sahibi ilkeleri değiştirebilir, okuma ve yazma için herhangi bir VM, sanal ağı değiştirin ve benzeri.
+* **Laboratuvar kullanıcı**: Bir laboratuvar kullanıcı Vm'leri, ilkeleri ve sanal ağlar gibi tüm Laboratuvar kaynaklarını görüntüleyebilir. Ancak, bir laboratuvar kullanıcı ilkeleri veya diğer kullanıcılar tarafından oluşturulmuş tüm Vm'leri değiştiremez. 
 
 Ayrıca, DevTest Labs'de özel roller oluşturabilirsiniz. DevTest Labs'de özel roller oluşturma konusunda bilgi almak için bkz: [belirli Laboratuvar ilkeleri için kullanıcı izinleri verin](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -227,7 +227,7 @@ Sanal ağ adı nokta içeren bir olasılıktır. Bu durumda, dönemleri kaldıra
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Ben bir VM'den PowerShell sağladığınızda neden "üst kaynağı bulunamadı" hatası alıyorum?
 Bir kaynak başka bir kaynak için bir üst, alt kaynak oluşturmadan önce üst kaynak mevcut olması gerekir. Üst kaynak mevcut değilse, gördüğünüz bir **ParentResourceNotFound** ileti. Üst kaynak üzerinde bir bağımlılık belirtmezseniz, alt kaynak önce üst dağıtılmış olabilir.
 
-Sanal makineleri bir laboratuar ortamında bir kaynak grubu altında alt kaynaklardır. PowerShell kullanarak Vm'leri dağıtmak için Resource Manager şablonları kullandığınızda, PowerShell Betiği belirtilen kaynak grubu adı Laboratuvar tamamlandığında, kaynak grubu adı olmalıdır. Daha fazla bilgi için [yaygın Azure dağıtım hatalarını giderme](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Sanal makineleri bir laboratuar ortamında bir kaynak grubu altında alt kaynaklardır. PowerShell kullanarak Vm'leri dağıtmak için Resource Manager şablonları kullandığınızda, PowerShell Betiği belirtilen kaynak grubu adı Laboratuvar tamamlandığında, kaynak grubu adı olmalıdır. Daha fazla bilgi için [yaygın Azure dağıtım hatalarını giderme](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Bir VM dağıtımı başarısız olursa daha fazla hata bilgilerini nerede bulabilirim?
 Sanal makine dağıtım hataları, etkinlik günlüklerinde yakalanır. Laboratuvar VM etkinlik günlükleri altında bulabilirsiniz **denetim günlükleri** veya **sanal makine tanılama** Laboratuvar VM dikey penceresinde kaynak menüsündeki (VM'den seçtikten sonra dikey penceresi görünür **My sanal makineleri** listesi).

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c0a5e8695b712ca95952ea839fa829dab2c48824
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188882"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700103"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure'da sanal makineler için cloud-init desteği
 Bu makale için mevcut destek açıklar [cloud-init](https://cloudinit.readthedocs.io) bir sanal makine (VM) ya da sanal makineyi yapılandırmak için ölçek kümeleri (VMSS zaman azure'da sağlama sırasında). Kaynakları Azure tarafından sağlanan sonra ilk önyüklemede bu cloud-init betikleri çalıştırın.  
@@ -54,7 +54,7 @@ VM'lerin WALA yapılandırmaları zaman sağlama maksimum VM içinde çalışaca
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Sanal makine etkin bir cloud-init dağıtma
 Dağıtım sırasında bir cloud-init etkinleştirilmiş dağıtım başvuru olarak, cloud-init etkinleştirilmiş sanal makine dağıtımına kadar kolaydır.  Linux dağıtım maintainers etkinleştirin ve kullanıcıların temel Azure yayımlanan görüntülere cloud-init tümleştirmek seçmeniz gerekir. Dağıtmak istediğiniz görüntüyü cloud-init etkinleştirilmiş olduğunu doğruladıktan sonra görüntüyü dağıtmak için Azure CLI'yı kullanabilirsiniz. 
 
-Bu görüntü dağıtımı ilk adımı, bir kaynak grubu oluşturmaktır [az grubu oluşturma](/cli/azure/group#az_group_create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+Bu görüntü dağıtımı ilk adımı, bir kaynak grubu oluşturmaktır [az grubu oluşturma](/cli/azure/group) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
 Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
@@ -71,7 +71,7 @@ packages:
 ```
 Basın `ctrl-X` dosya çıkmak için şunu yazın `y` tuşuna basın ve dosyayı kaydetmek için `enter` çıkış dosya adını doğrulamak için.
 
-Bir VM oluşturmak için son adımdır [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. 
+Bir VM oluşturmak için son adımdır [az vm oluşturma](/cli/azure/vm) komutu. 
 
 Aşağıdaki örnekte adlı bir VM oluşturur *centos74* ve bunlar zaten varsayılan anahtar konumunda yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  `--custom-data` parametresini kullanarak cloud-init yapılandırma dosyanızı geçirin. Dosyayı mevcut çalışma dizininizin dışına kaydettiyseniz *cloud-init.txt* yapılandırmasının tam yolunu belirtin. Aşağıdaki örnekte adlı bir VM oluşturur *centos74*:
 

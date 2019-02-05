@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413235"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730348"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure'da Linux sanal makine görüntüleri oluşturmak için Packer kullanma
 Azure'daki her sanal makine (VM) Linux dağıtımına ve işletim sistemi sürümünü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure marketi, en yaygın dağıtım ve uygulama ortamları için birinci ve üçüncü taraf çok sayıda görüntü sağlar veya uygulamanızın ihtiyaçlarına yönelik kendi özel görüntülerinizi oluşturabilir. Bu makalede, açık kaynak aracı kullanma ayrıntılı [Packer](https://www.packer.io/) tanımlama ve azure'da özel görüntü oluşturma.
@@ -29,7 +29,7 @@ Azure'daki her sanal makine (VM) Linux dağıtımına ve işletim sistemi sürü
 ## <a name="create-azure-resource-group"></a>Azure kaynak grubu oluşturun
 Kaynak VM oluştururken derleme işlemi sırasında geçici Azure kaynaklarını Packer oluşturur. Bir görüntü olarak kullanmak için kaynak VM yakalamak için bir kaynak grubu tanımlamanız gerekir. Packer yapı işleminin çıktısı, bu kaynak grubunda depolanır.
 
-[az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+[az group create](/cli/azure/group) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -39,7 +39,7 @@ az group create -n myResourceGroup -l eastus
 ## <a name="create-azure-credentials"></a>Azure kimlik bilgilerini oluşturma
 Packer ile Azure hizmet sorumlusu kullanarak kimliğini doğrular. Bir Azure hizmet sorumlusu, uygulamaları, hizmetleri ve Packer gibi Otomasyon araçları ile kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve hizmet sorumlusu Azure'da gerçekleştirebilirsiniz ne gibi işlemler için izinler tanımlayın.
 
-Bir hizmet sorumlusu oluşturma [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) ve Packer gereken kimlik bilgilerini çıktı:
+Bir hizmet sorumlusu oluşturma [az ad sp create-for-rbac](/cli/azure/ad/sp) ve Packer gereken kimlik bilgilerini çıktı:
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -55,7 +55,7 @@ Yukarıdaki komutlarda bir örnek çıktı aşağıdaki gibidir:
 }
 ```
 
-Azure'da kimlik doğrulamak için Azure abonelik Kimliğinizi elde etmeniz [az hesabı show](/cli/azure/account#az_account_show):
+Azure'da kimlik doğrulamak için Azure abonelik Kimliğinizi elde etmeniz [az hesabı show](/cli/azure/account):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -216,7 +216,7 @@ Farklı kaynak grubuna ya da, Packer görüntü bölgesinden Vm'leri oluşturmak
 
 VM'nin oluşturulması birkaç dakika sürer. VM oluşturulduktan sonra Not `publicIpAddress` Azure CLI tarafından görüntülenen. Bu adres, bir web tarayıcısı üzerinden NGINX siteye erişmek için kullanılır.
 
-Web trafiğinin VM’nize erişmesine izin vermek için, [az vm open-port](/cli/azure/vm#open-port) komutuyla İnternet’te 80 numaralı bağlantı noktasını açın:
+Web trafiğinin VM’nize erişmesine izin vermek için, [az vm open-port](/cli/azure/vm) komutuyla İnternet’te 80 numaralı bağlantı noktasını açın:
 
 ```azurecli
 az vm open-port \

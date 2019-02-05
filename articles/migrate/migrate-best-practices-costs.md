@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995057"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700647"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Maliyet ve boyutlandırma iş yükleri için en iyi uygulamaları için Azure geçişi
 
@@ -154,7 +154,7 @@ Tümleşik bir Microsoft şirket içi/Azure ürün Portföyü rekabetçi ve mali
 
 - [Bir göz atın](https://azure.microsoft.com/pricing/hybrid-benefit/) hibrit avantajı Tasarruf hesaplayıcısı.
 - [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/hybrid-benefit/) Windows Server için hibrit Avantajı hakkında.
-- [Gözden geçirme](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu.
+- [Gözden geçirme](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu.
 
 
 ## <a name="best-practice-use-reserved-vm-instances"></a>En iyi yöntem: Ayrılmış VM örnekleri kullanın
@@ -174,7 +174,7 @@ Azure ayrılmış VM örnekleri kullanarak, bir ön ödeme veya üç yıllık s�
 **Daha fazla bilgi edinin:**
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) Azure ayırmalar.
 - [Okuma](https://azure.microsoft.com/pricing/reserved-vm-instances/#faq) ayrılmış örnekleri hakkında SSS.
-- [Fiyatlandırma Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) SQL Server Azure Vm'leri için.
+- [Fiyatlandırma Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) SQL Server Azure Vm'leri için.
 
 
 ## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>En iyi yöntem: Abonelikler arasında toplama bulut Harcamaları

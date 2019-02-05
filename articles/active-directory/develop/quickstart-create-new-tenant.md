@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 02/05/2019
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 3e4cd8859f376fa4fbb9069b145d893483c3fc14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0ffde84a39ef2955f14af66a05195e35109d41bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101269"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692146"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Hızlı Başlangıç: Geliştirme ortamı kurma
 
@@ -64,8 +64,11 @@ Hesabınızla ilişkilendirilmiş bir kiracınız yoksa, hesap adınızın altı
 Henüz bir Azure AD kiracınız yoksa veya geliştirme için yeni kiracı oluşturmak istiyorsanız, [dizin oluşturma deneyimi](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) yönergelerini izleyin. Yeni kiracı oluşturmak için aşağıdaki bilgileri sağlamanız gerekecektir:
 
 - **Kuruluş adı**
-- **İlk etki alanı** - Bu, *.onmicrosoft.com'un bir parçası olacaktır. Etki alanını daha sonra özelleştirebilirsiniz. 
+- **İlk etki alanı** - Bu, *.onmicrosoft.com'un bir parçası olacaktır. Etki alanını daha sonra özelleştirebilirsiniz.
 - **Ülke veya bölge**
+
+> [!NOTE]
+> Kiracınızın adlandırırken alfasayısal karakterler kullanın. Özel karakterlere izin verilmez. Adı 256 karakterden uzun olmamalıdır.
 
 ## <a name="social-and-local-accounts"></a>Sosyal ve yerel hesaplar
 

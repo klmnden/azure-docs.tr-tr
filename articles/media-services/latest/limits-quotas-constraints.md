@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 5c0fbf396faa0e07ecca4ae16c775a39404c6fc9
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 1bada751ffac45b36faad6e978567233901adc7d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376525"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700324"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Kotalar ve kısıtlamalar Azure Media Services v3
 
@@ -33,14 +33,14 @@ Bu makalede, kotalar ve kısıtlamalar Azure Media Services v3 açıklanır.
 | Media Services hesabı başına iş | 500.000 <sup>(2)</sup> (sabit)|
 | Dönüşümler listeleme|Sayfa başına 1000 dönüşümlerle yanıt sayfalandırma|
 | İşleri listeleme|Sayfa başına 500 işleriyle yanıt sayfalandırma|
-| Media Services hesabı başına LiveEvents |5|
+| Media Services hesabı başına Canlı etkinlikler |5|
 | Tek bir abonelikte Media Services hesapları | 25 (sabit) |
-| Çalışır durumdaki Livestream başına LiveOutputs |3|
+| Çalışır durumdaki Livestream başına Canlı çıkışları |3|
 | Depolama hesapları | 100<sup>(4)</sup> (sabit) |
 | Media Services hesabı başına çalışır durumda akış uç noktaları|2|
-| StreamingPolicies | 100 <sup>(3)</sup> |
+| Akış İlkeleri | 100 <sup>(3)</sup> |
 | Media Services hesabı başına dönüşümler | 100 (sabit)|
-| Tek seferde bir varlıkla ilişkilendirilen benzersiz StreamingLocators | 100<sup>(5)</sup> (sabit) |
+| Tek seferde bir varlıkla ilişkilendirilen benzersiz akış bulucuları | 100<sup>(5)</sup> (sabit) |
 
 <sup>1</sup> tek bir blob şu anda en çok 5 TB Azure Blob Depolama için desteklenen en büyük boyutu. Ancak, Azure Media Services'ın hizmet tarafından kullanılan VM boyutlarına göre ek sınırlar geçerlidir. Kaynak dosyanız 260 GB'den daha büyük ise, işinizi büyük olasılıkla başarısız olur. 260 GB sınırından daha büyük olan 4 K içerik varsa, adresinden bize başvurun amshelp@microsoft.com senaryonuz desteklemek potansiyel risk azaltma işlemleri için.
 
@@ -48,11 +48,11 @@ Bu makalede, kotalar ve kısıtlamalar Azure Media Services v3 açıklanır.
 
 Toplam kayıt sayısı üst kota sınırının altında olsa bile, hesabınızdaki 90 günden eski olan tüm iş kayıtları otomatik olarak silinir. 
 
-<sup>3</sup> özel kullanırken [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), medya hizmeti hesabınız için sınırlı sayıda tür ilkeleri tasarlayın ve aynı şifreleme seçenekleri ve iletişim kuralları için StreamingLocators yeniden kullanabilmesi gerekir gerekli. Her StreamingLocator için yeni bir StreamingPolicy oluşturmamanız gerekir.
+<sup>3</sup> özel kullanırken [akış ilke](https://docs.microsoft.com/rest/api/media/streamingpolicies), medya hizmeti hesabınız için sınırlı sayıda tür ilkeleri tasarlayın ve aynı şifreleme seçenekleri ve iletişim kuralları için StreamingLocators yeniden kullanabilmesi gerekir gerekli. Yeni bir akış ilke her akış Bulucu için oluşturduğunuz değil.
 
 <sup>4</sup> depolama hesapları aynı Azure aboneliğine ait olmalıdır.
 
-<sup>5</sup> StreamingLocators kullanıcı başına erişim denetimini yönetmek için tasarlanmamıştır. Ayrı kullanıcılara farklı erişim hakları vermek için Digital Rights Management (DRM) çözümlerini kullanın.
+<sup>5</sup> akış Bulucular kullanıcı başına erişim denetimini yönetmek için tasarlanmamıştır. Ayrı kullanıcılara farklı erişim hakları vermek için Digital Rights Management (DRM) çözümlerini kullanın.
 
 ## <a name="support-ticket"></a>Destek bileti
 

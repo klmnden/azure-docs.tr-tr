@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2c89780722e1f3038f99ab0a4c85cd2d2ecbe624
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079265"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699494"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -108,7 +108,7 @@ Aracı tabanlı bulma, gereç tabanlı bulma ile birlikte kullanılabilecek bir 
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Analiz edilen ESXi ana bilgisayar ortamının üzerinde bir performans etkisi olması?
 
-Durumunda, [zaman bulma yaklaşımlardan](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods)performans verilerini toplamak için vCenter sunucusundaki istatistik düzeyini 3 olarak ayarlamanız gerekir. Bu düzeyini ayarlamak vCenter Server veritabanında depolanan veriler, sorun giderme işlemlerinin büyük bir miktar toplayın. Bu nedenle vcenter Server'da bazı performans sorunlarına neden olabilir. ESXi ana bilgisayarındaki göz ardı edilebilir etkisi olacaktır.
+Durumunda, [zaman bulma yaklaşımlardan](https://docs.microsoft.com/azure/migrate/concepts-collector)performans verilerini toplamak için vCenter sunucusundaki istatistik düzeyini 3 olarak ayarlamanız gerekir. Bu düzeyini ayarlamak vCenter Server veritabanında depolanan veriler, sorun giderme işlemlerinin büyük bir miktar toplayın. Bu nedenle vcenter Server'da bazı performans sorunlarına neden olabilir. ESXi ana bilgisayarındaki göz ardı edilebilir etkisi olacaktır.
 
 (Önizleme aşamasında olan) performans verilerinin sürekli profil oluşturma ekledik. Sürekli profil oluşturma ile artık yoktur vCenter Server istatistik düzeyini performans tabanlı bir değerlendirme çalıştırmak için değiştirmeniz gerekmez. Toplayıcı gerecini artık sanal makinelerin performans verileri şirket içi makinelerin profil. VCenter Server yanı sıra ESXi konakları bu neredeyse sıfır performans etkisi yoktur.
 

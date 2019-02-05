@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cc0521f1f27ddfc1fc44b9f24212393d11177d70
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c923023cec03e36b1795619bc9da09aee8def629
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660978"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700402"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
@@ -221,6 +221,12 @@ Hibrit Azure AD'ye katılma Azure AD'ye kayıtlı durumu daha önceliklidir. Bu 
 **S: Neden kullanıcılarımın UPN değiştirdikten sonra sorunları Windows 10 hibrit Azure AD'ye katılmış cihazlarda gerekiyor?**
 
 **Y:** Şu anda UPN değişiklikler ile hibrit Azure AD'ye katılmış cihazları tam olarak desteklenmemektedir. Kullanıcıların cihazda oturum açın ve kullanıcıların şirket içi uygulamalara karşın, bir UPN değiştirdikten sonra Azure AD ile kimlik doğrulaması başarısız olur. Sonuç olarak, kullanıcılar SSO ve kullanıcıların cihazlarında koşullu erişim verir. Şu anda, cihaz ("dsregcmd /leave" yükseltilmiş ayrıcalıklarla çalıştır) Azure AD'den ayrılma gerekir ve yeniden katılabilir (otomatik olarak gerçekleşir) sorunu gidermek için. Şu anda bu sorunu gidermeye çalışıyoruz. Ancak, kullanıcıların oturum Windows iş için Hello imzalama bu sorunla karşılaşmaya değil. 
+
+---
+
+**S: Windows 10 hibrit Azure AD'ye katılmış cihazları görebilmesi için bulut kaynaklarına erişim elde etmek için etki alanı denetleyicisi gerektiriyor mu?**
+
+**Y:** Hayır. Onra Windows 10 hibrit Azure AD'ye katılımı tamamlandıktan ve kullanıcı en az bir kez oturum açtıktan, cihaz görebilmesi için bulut kaynaklarına erişmek için etki alanı denetleyicisi gerektirmez. Windows 10 alabilirsiniz çoklu oturum açma Azure AD uygulamalarına her yerden bir parola değiştirildiğinde dışında bir internet bağlantısı ile. Bir parola kurumsal ağ dışından (örneğin, Azure AD SSPR kullanarak) olarak değiştirilirse, kullanıcının, cihaza yeni parola ile oturum açabilir gelmeden önce görebilmesi için etki alanı denetleyicisi olması gerekir. Aksi takdirde, yalnızca Azure AD tarafından geçersiz kılındı ve çoklu oturum açma üzerinde engeller, eski bir parola ile oturum açabilirsiniz. Bununla birlikte, Windows Hello iş için kullanırken bu sorun oluşmaz. Bir parolayı değiştirdikten sonra bunlar görebilmesi için kendi etki alanı denetleyicisi olmasa bile tek almak için oturum açın. Windows iş için Hello devam eden kullanıcıların Azure AD uygulamaları için oturum. 
 
 ---
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4d9a6b8bf2b6a9a50ee315d5150c15a18f37462d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974718"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696066"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure genel bulutta yalıtım
 ##  <a name="introduction"></a>Giriş
@@ -134,9 +134,9 @@ Yalıtılmış bir boyut yararlanarak tek, belirli sunucu örneğinde çalışan
 * Standard_E64i_v3
 * İşler için standart_m128ms
 * Standard_GS5
-* İşler için standart_g5
+* Standard_G5
 * Standard_DS15_v2
-* İşler için standart_d15_v2
+* Standard_D15_v2
 
 Her bir yalıtılmış boyutu kullanılabilir hakkında daha fazla bilgi [burada](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
@@ -344,7 +344,7 @@ Azure dağıtım, birden çok ağ yalıtımı katmanı vardır. Aşağıdaki diy
 
 **Trafik yalıtımı:** A [sanal ağ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure platformunda trafik yalıtımı sınırıdır. Her iki sanal ağ aynı müşteri tarafından oluşturulmamış olsa bile sanal makineleri (VM'ler) bir sanal ağdaki farklı bir sanal ağ içindeki VM'ler için doğrudan iletişim kuramaz. Yalıtım müşteri Vm'leri sağlar önemli bir özelliktir ve bir sanal ağ içindeki özel iletişimin kalır.
 
-[Alt ağ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) yalıtımı ile sanal ağ IP aralığı tabanlı bir ek katmanı sunar. Sanal ağdaki IP adresleri, bir sanal ağı organizasyon ve güvenlik için birden çok alt ağa bölebilirsiniz. Bir sanal ağ içindeki alt ağlara (aynı veya farklı) dağıtılan VM'ler ve PaaS rolü örnekleri, ek bir yapılandırma gerektirmeden birbirleriyle iletişim kurabilir. Ayrıca [ağ güvenlik grubu (Nsg)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) veya bir VM örneğine erişim denetim listesindeki NSG (ACL) yapılandırılmış kurallarına göre ağ trafiği reddetmek için. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur.
+[Alt ağ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) yalıtımı ile sanal ağ IP aralığı tabanlı bir ek katmanı sunar. Sanal ağdaki IP adresleri, bir sanal ağı organizasyon ve güvenlik için birden çok alt ağa bölebilirsiniz. Bir sanal ağ içindeki alt ağlara (aynı veya farklı) dağıtılan VM'ler ve PaaS rolü örnekleri, ek bir yapılandırma gerektirmeden birbirleriyle iletişim kurabilir. Ayrıca [ağ güvenlik grubu (Nsg)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) veya bir VM örneğine erişim denetim listesindeki NSG (ACL) yapılandırılmış kurallarına göre ağ trafiği reddetmek için. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

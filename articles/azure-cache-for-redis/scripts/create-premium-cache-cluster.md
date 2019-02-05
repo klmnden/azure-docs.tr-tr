@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: abd69e27cf95a882ae7c299cbe19e2c30c35a918
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7ecae6711950ac180d8126060e9bc5a8e71e71d6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096834"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696107"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Premium Azure önbelleği için Redis Kümeleme ile oluşturma
 
@@ -40,8 +40,8 @@ Bu betik bir kaynak grubu oluşturmak için aşağıdaki komutları kullanır ve
 
 | Komut | Notlar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az redis oluşturma](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Azure önbelleği için Redis örneği oluşturun. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az redis oluşturma](https://docs.microsoft.com/cli/azure/redis) | Azure önbelleği için Redis örneği oluşturun. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

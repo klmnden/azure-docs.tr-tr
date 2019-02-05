@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 52e1a7bf3e8f8770e4ba4f931c4d7427a7362f2f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2ed9d9fd020bb14db7e1d171a32c25239d7ee802
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226437"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735958"
 ---
 Microsoft Azure bulut hizmeti sorunları tanılama, sorunlar ortaya çıktığında sanal makineler hizmetin günlük dosyalarını toplama gerektirir. AzureLogCollector uzantısı isteğe bağlı bir veya daha fazla bulut hizmeti Vm'lerden (web rolleri ve çalışan rolleri için) tek seferlik günlüklerin toplanmasını gerçekleştirin ve tüm hizmetlerde oturum uzaktan olmadan bir Azure depolama hesabına – toplanan dosyaları aktarmak için kullanabileceğiniz Sanal makinelerin.
 
@@ -31,9 +31,9 @@ Toplanacak dosyaları türlerine bağımlı koleksiyonun iki mod vardır.
 
 Her iki koleksiyon modda aşağıdaki yapıya koleksiyonunu kullanarak ek veri koleksiyon klasörleri belirtilebilir:
 
-* **Ad**: toplanan dosyalarla zip dosyası içinde bir alt klasör adı olarak kullanılacak koleksiyonun adı.
-* **Konum**: sanal makinede toplanacak dosyaları yerleştirildiği klasör yolu.
-* **SearchPattern**: toplanacak dosya adlarını deseni. Varsayılan değer "\*"
+* **Ad**: Toplanan dosyaları zip dosyası içinde bir alt klasör adı olarak kullanılacak koleksiyonun adı.
+* **Konum**: Sanal makinede toplanacak dosyalarının bulunduğu klasörü yolu.
+* **SearchPattern**: Toplanacak dosya adlarını deseni. Varsayılan değer "\*"
 * **Özyinelemeli**: Belirtilen konum altında bulunan yinelemeli olarak toplanacak dosyaları olması durumunda.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -174,13 +174,13 @@ param (
 )
 ```
 
-* **ServiceName**:, bulut hizmeti adı.
-* **Rolleri**: "WebRole1" veya "WorkerRole1" gibi bir rollerinin bir listesi.
-* **Örnekleri**: rol örneği--virgülle ayırarak adları listesini bir joker karakter dizesi kullanın ("*") tüm rol örnekleri için.
+* **ServiceName**: Bulut hizmeti adı.
+* **rolleri**: "WebRole1" veya "WorkerRole1" gibi rollerinin listesi.
+* **Örnekleri**: Rol örneği--virgülle ayırarak adları listesini bir joker karakter dizesi kullanın ("*") tüm rol örnekleri için.
 * **Yuva**: Yuva adı. "Üretim" veya "Hazırlama".
 * **Modu**: Koleksiyon modu. "Tam" veya "GA".
-* **StorageAccountName**: toplanan verileri depolamak için ad, Azure depolama hesabı.
-* **StorageAccountKey**: ad, Azure depolama hesabı anahtarı.
+* **StorageAccountName**: Toplanan verileri depolamak için Azure depolama hesabı adı.
+* **StorageAccountKey**: Azure depolama hesabı anahtarı adı.
 * **AdditionalDataLocationList**: Aşağıdaki yapı listesi:
 
   ```powershell
@@ -256,11 +256,11 @@ param (
 )
 ```
 
-* **ServiceName**:, bulut hizmeti adı.
-* **VMName**: VM'nin adıdır.
+* **ServiceName**: Bulut hizmeti adı.
+* **VMName**: VM adı.
 * **Modu**: Koleksiyon modu. "Tam" veya "GA".
-* **StorageAccountName**: toplanan verileri depolamak için ad, Azure depolama hesabı.
-* **StorageAccountKey**: ad, Azure depolama hesabı anahtarı.
+* **StorageAccountName**: Toplanan verileri depolamak için Azure depolama hesabı adı.
+* **StorageAccountKey**: Azure depolama hesabı anahtarı adı.
 * **AdditionalDataLocationList**: Aşağıdaki yapı listesi:
 
   ```
@@ -374,7 +374,7 @@ else
 }
 
 #
-#This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+#This is an optional step: generate a sasUri to the container so it can be shared with other people if needed.
 #
 $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
 $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
@@ -449,7 +449,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 53945559be01b6e9f5778f5df096f7fcbb24a03f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 6ab0a7b6204da4eca6c2b844228cf39e51cde220
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214496"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700256"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Linux sanal makinesi oluşturma
 
@@ -76,9 +76,9 @@ Bu makale, hızlandırılmış ağ ile Azure CLI kullanarak bir sanal makine olu
 
 ### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Son yükleme [Azure CLI](/cli/azure/install-azure-cli) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *Mynıc*, ve *myVm*.
+Son yükleme [Azure CLI](/cli/azure/install-azure-cli) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *Mynıc*, ve *myVm*.
 
-[az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myResourceGroup* içinde *centralus* konumu:
+[az group create](/cli/azure/group) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myResourceGroup* içinde *centralus* konumu:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -86,7 +86,7 @@ az group create --name myResourceGroup --location centralus
 
 Listelenen desteklenen bir Linux bölge seçin [Linux hızlandırılmış ağ özelliğini](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) komutu ile bir sanal ağ oluşturun. Aşağıdaki örnekte adlı bir sanal ağ oluşturur *myVnet* bir alt ağ ile:
+[az network vnet create](/cli/azure/network/vnet) komutu ile bir sanal ağ oluşturun. Aşağıdaki örnekte adlı bir sanal ağ oluşturur *myVnet* bir alt ağ ile:
 
 ```azurecli
 az network vnet create \
@@ -98,7 +98,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
-Bir ağ güvenlik grubu oluşturun [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create). Aşağıdaki örnek *myNetworkSecurityGroup* adında bir ağ güvenlik grubu oluşturur:
+Bir ağ güvenlik grubu oluşturun [az ağ nsg oluşturma](/cli/azure/network/nsg). Aşağıdaki örnek *myNetworkSecurityGroup* adında bir ağ güvenlik grubu oluşturur:
 
 ```azurecli
 az network nsg create \
@@ -106,7 +106,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Ağ güvenlik grubu, biri de Internet'ten gelen tüm erişimi devre dışı bırakır, birkaç varsayılan kurallar içerir. SSH ile sanal makine erişmesine izin vermek için bağlantı noktası açma [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
+Ağ güvenlik grubu, biri de Internet'ten gelen tüm erişimi devre dışı bırakır, birkaç varsayılan kurallar içerir. SSH ile sanal makine erişmesine izin vermek için bağlantı noktası açma [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule):
 
 ```azurecli
 az network nsg rule create \
@@ -125,7 +125,7 @@ az network nsg rule create \
 
 ### <a name="create-a-network-interface-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir ağ arabirimi oluşturma
 
-[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) komutu ile bir genel IP adresi oluşturun. Internet'ten sanal makineye erişmek için ancak bu makaledeki adımları tamamlayabilmeniz için planlamıyorsanız bir genel IP adresi gerekli değilse, gerekli değildir.
+[az network public-ip create](/cli/azure/network/public-ip) komutu ile bir genel IP adresi oluşturun. Internet'ten sanal makineye erişmek için ancak bu makaledeki adımları tamamlayabilmeniz için planlamıyorsanız bir genel IP adresi gerekli değilse, gerekli değildir.
 
 ```azurecli
 az network public-ip create \
@@ -133,7 +133,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Bir ağ arabirimi ile oluşturma [az ağ NIC oluşturup](/cli/azure/network/nic#az_network_nic_create) , hızlandırılmış ağ bağlantısı etkin. Aşağıdaki örnekte adlı bir ağ arabirimi oluşturur *Mynıc* içinde *mySubnet* alt *myVnet* sanal ağ ile ilişkilendirir  *Vm2* ağ arabirimi için ağ güvenlik grubu:
+Bir ağ arabirimi ile oluşturma [az ağ NIC oluşturup](/cli/azure/network/nic) , hızlandırılmış ağ bağlantısı etkin. Aşağıdaki örnekte adlı bir ağ arabirimi oluşturur *Mynıc* içinde *mySubnet* alt *myVnet* sanal ağ ile ilişkilendirir  *Vm2* ağ arabirimi için ağ güvenlik grubu:
 
 ```azurecli
 az network nic create \
@@ -149,7 +149,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>VM oluşturma ve NIC ekleme
 NIC belirtin, VM'yi oluştururken oluşturduğunuz `--nics`. Bir boyut seçip listelenen dağıtım [Linux hızlandırılmış ağ özelliğini](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnekte adlı bir VM oluşturur *myVM* UbuntuLTS görüntüsünü ve hızlandırılmış ağ iletişimi destekleyen bir boyutu ile (*Standard_DS4_v2*):
+[az vm create](/cli/azure/vm) ile bir VM oluşturun. Aşağıdaki örnekte adlı bir VM oluşturur *myVM* UbuntuLTS görüntüsünü ve hızlandırılmış ağ iletişimi destekleyen bir boyutu ile (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \

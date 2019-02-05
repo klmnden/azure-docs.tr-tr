@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 2902fe53e7f3ffb86dc727ebcdc2200ba02ac203
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048458"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736235"
 ---
-Paylaşılan resim galerileri, görüntü tanımları ve yansıma sürümü herhangi bir işlemi gerçekleştirirken sorun yaşarsanız, başarısız olan komutu hata ayıklama modunda yeniden çalıştırın. Hata ayıklama modu etkin olduğu geçirerek **-hata ayıklama** CLI ile anahtar ve **-hata ayıklama** geçiş PowerShell ile. Hataları gidermek için bu belgede, hata bulunan sonra izleyin.
+Paylaşılan görüntü galerileri, görüntü tanımları ve görüntü sürümleri ile ilgili işlem yaparken sorunlarla karşılaşıyorsanız başarısız olan komutları hata ayıklama modunda yeniden çalıştırın. Hata ayıklama modu etkin olduğu geçirerek **-hata ayıklama** CLI ile anahtar ve **-hata ayıklama** geçiş PowerShell ile. Hataları gidermek için bu belgede, hata bulunan sonra izleyin.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Paylaşılan görüntü Galerisi oluşturulamadı
@@ -67,7 +67,7 @@ Kaynak yönetilen bir görüntü sağlama durumu olduğundan emin olun **başar�
 İstenen kaynak bölgede desteklenip desteklenmediğini görmek için aşağıdaki tabloyu kullanın:
 <br>
 
-| Galeride veya "kaynak bölge" oluşturun   | Rersion için ya da "hedef bölgede" çoğaltın |
+| Galeride veya "kaynak bölge" oluşturun   | Sürümüne veya "hedef bölgede" çoğaltma |
 |----------------------------------------|-------------------------------------------|
 | Batı Orta ABD                        | Tüm Azure genel bulut bölgeleri            |
 | Orta Güney ABD                       |                                           |
