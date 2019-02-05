@@ -13,18 +13,18 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fa17b2bb440f574f63349c5bb51573725aa45876
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ede3d6eb35935e3fec32e8fd4bb71d6c698486
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191551"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697121"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
 Bu makalede, her bir Azure Resource Manager kaynak sağlayıcısı için kullanılabilir işlemleri listele. Bu işlem kullanılabilir [özel roller](custom-roles.md) ayrıntılı [rol tabanlı erişim denetimi (RBAC)](overview.md) azure'daki kaynaklara. İşlem dizeleri aşağıdaki biçime sahiptir: `{Company}.{ProviderName}/{resourceType}/{action}`
 
-Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak için kullanın [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) veya [az sağlayıcı işlemi listesi](/cli/azure/provider/operation#az-provider-operation-list).
+Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak için kullanın [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) veya [az sağlayıcı işlemi listesi](/cli/azure/provider/operation#az-provider-operation-list).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

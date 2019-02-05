@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 02b70909e701dbeffaec0aa6bdc39e449bdfad08
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660366"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732847"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Bir Linux sanal makine Azure'da birden çok ağ arabirimi kartları oluşturma
 
@@ -27,7 +27,7 @@ ms.locfileid: "55660366"
 Bu makalede, Azure CLI ile birden çok NIC ile VM oluşturma işlemi açıklanmaktadır.
 
 ## <a name="create-supporting-resources"></a>Destekleyici kaynakları oluşturma
-Son yükleme [Azure CLI](/cli/azure/install-az-cli2) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login).
+Son yükleme [Azure CLI](/cli/azure/install-az-cli2) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *mystorageaccount*, ve *myVM*.
 
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 10.0.1.0/24
 ```
 
-Arka uca trafik için bir alt ağ oluşturma [az ağ sanal ağ alt ağı oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Aşağıdaki örnekte adlı bir alt ağ oluşturulmaktadır *mySubnetBackEnd*:
+Arka uca trafik için bir alt ağ oluşturma [az ağ sanal ağ alt ağı oluşturma](/cli/azure/network/vnet/subnet). Aşağıdaki örnekte adlı bir alt ağ oluşturulmaktadır *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -116,14 +116,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Mevcut bir VM'ye bir NIC eklemek için öncelikle ile VM'yi serbest bırakın [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Aşağıdaki örnekte adlı VM serbest bırakılır *myVM*:
+Mevcut bir VM'ye bir NIC eklemek için öncelikle ile VM'yi serbest bırakın [az vm deallocate](/cli/azure/vm). Aşağıdaki örnekte adlı VM serbest bırakılır *myVM*:
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-NIC ile ekleme [az vm nic ekleme](/cli/azure/vm/nic#az_vm_nic_add). Aşağıdaki örnek ekler *myNic3* için *myVM*:
+NIC ile ekleme [az vm nic ekleme](/cli/azure/vm/nic). Aşağıdaki örnek ekler *myNic3* için *myVM*:
 
 ```azurecli
 az vm nic add \
@@ -141,13 +141,13 @@ az vm start --resource-group myResourceGroup --name myVM
 İçindeki adımları tamamlayarak konuk işletim sistemi için yönlendirme tablolarını ekleyin [birden çok NIC için konuk işletim sistemi yapılandırma](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Bir NIC bir VM'den kaldırın.
-Mevcut VM'den bir NIC kaldırmak için öncelikle ile VM'yi serbest bırakın [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Aşağıdaki örnekte adlı VM serbest bırakılır *myVM*:
+Mevcut VM'den bir NIC kaldırmak için öncelikle ile VM'yi serbest bırakın [az vm deallocate](/cli/azure/vm). Aşağıdaki örnekte adlı VM serbest bırakılır *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-NIC ile kaldırma [az vm nic Kaldır](/cli/azure/vm/nic#az_vm_nic_remove). Aşağıdaki örnek kaldırır *myNic3* gelen *myVM*:
+NIC ile kaldırma [az vm nic Kaldır](/cli/azure/vm/nic). Aşağıdaki örnek kaldırır *myNic3* gelen *myVM*:
 
 ```azurecli
 az vm nic remove \

@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: ee338e2011a7b86a069bd42a028d65b23a123037
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427106"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693033"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Php'den SendGrid e-posta hizmetini kullanma
 
@@ -46,7 +46,7 @@ Daha fazla bilgi için [ https://sendgrid.com ] [ https://sendgrid.com].
 
 SendGrid kullanarak bir Azure PHP uygulaması içinde gerektiren özel yapılandırma veya kodlama. SendGrid bir hizmet olduğundan, bir şirket içi uygulamasından mümkün olduğunca bunun bir bulut uygulamasında tam olarak aynı şekilde erişilebilir.
 
-## <a name="how-to-send-an-email"></a>Nasıl yapılır: bir e-posta Gönder
+## <a name="how-to-send-an-email"></a>Nasıl yapılır: E-posta Gönder
 
 E-posta SMTP veya SendGrid tarafından sağlanan Web API'sini kullanarak gönderebilirsiniz.
 
@@ -161,7 +161,7 @@ PHP'ın kullanma [curl işlevi] [ curl function] Web API'si SendGrid kullanarak 
 
 Bu gerçek anlamda bir RESTful API'si çoğu çağrılarındaki her ikisini de almak ve sonrası fiilleri birbirlerinin yerine kullanılabilir olmasa da SendGrid Web API'sini bir REST API'si için çok benzer.
 
-## <a name="how-to-add-an-attachment"></a>Nasıl yapılır: bir ek ekleyin
+## <a name="how-to-add-an-attachment"></a>Nasıl yapılır: Bir ek ekleyin
 
 ### <a name="smtp-api"></a>SMTP API
 
@@ -296,7 +296,7 @@ Web API'si kullanarak ek gönderme, Web API'si kullanarak bir e-posta göndermey
  print_r($response);
 ```
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Nasıl yapılır: alt bilgiler, izleme ve analiz etkinleştirmek için filtreleri kullanın
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Nasıl yapılır: Altbilgi, izleme ve analiz etkinleştirmek için filtreleri kullanın
 
 SendGrid kullanarak ek e-posta işlevselliği sağlar *filtreleri*. Bu izleme'ye tıklayın, Google analytics, izleme aboneliği ve benzeri etkinleştirme gibi belirli işlevleri etkinleştirmek için bir e-posta iletisi eklenebilir ayarlarıdır.
 
@@ -349,7 +349,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  // support@yourcompany.com, info@yourcompany.com
  $from = 'someone@example.com';
 
- // If you do not specify a sender list above, you can specifiy the user here. If
+ // If you do not specify a sender list above, you can specify the user here. If
  // a sender list IS specified above, this email address becomes irrelevant.
  $to = 'john@contoso.com';
 

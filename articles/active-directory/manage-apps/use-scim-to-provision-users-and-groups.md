@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 140391b02dab8ce6b47d5350d6d40a9673b29e11
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161775"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732592"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -120,7 +120,7 @@ Bu işlemi kolaylaştırmak için [kod örnekleri](https://github.com/Azure/Azur
 ### <a name="getting-started"></a>Başlarken
 Azure ad sağlama isteklerini kabul edebilen bir SCIM uç noktası uygulamak için en kolay yolu, derleme ve dağıtma sağlanan kullanıcılar bir virgülle ayrılmış değer (CSV) dosyasına çıkarır kodu örneği sağlamaktır.
 
-**Bir örnek SCIM uç noktası oluşturmak için:**
+#### <a name="to-create-a-sample-scim-endpoint"></a>Bir örnek SCIM uç noktası oluşturma
 
 1. Kod örnek paketini [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Paketin sıkıştırmasını açın ve Windows makinenizde C:\AzureAD-BYOA-Provisioning-Samples\ gibi bir konuma yerleştirin.
@@ -142,7 +142,7 @@ Azure ad sağlama isteklerini kabul edebilen bir SCIM uç noktası uygulamak iç
 8. Windows altında **Windows Ayarları > Ağ ve Internet ayarları**seçin **Windows Güvenlik Duvarı > Gelişmiş ayarlar**, oluşturup bir **gelen kuralı** , 9000 numaralı bağlantı noktasına gelen erişim sağlar.
 9. Windows makine bir yönlendiricinin arkasında ise, yönlendirici, bağlantı noktası İnternet'e 9000 ve bağlantı noktası 9000 Windows makinesinde arasında ağ erişim dönüşümü gerçekleştirmek için yapılandırılması gerekir. Bu yapılandırma, bulutta Bu uç noktaya erişebilmesi Azure AD için gereklidir.
 
-**Azure AD'de örnek SCIM uç nokta kaydetmek için:**
+#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Örnek SCIM uç nokta Azure AD'ye kaydetme
 
 1. Oturum [Azure portalında](https://portal.azure.com). 
 2. Gözat **Azure Active Directory > Kurumsal uygulamalar**seçip **yeni uygulama > tüm > galeri dışı uygulama**.

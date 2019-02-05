@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanı yönetilen örneği'ne genel bakış | Microsoft Docs
-description: Bu konu Azure SQL veritabanı yönetilen örneği ve nasıl çalıştığını ve nasıl bir tek veya havuza alınmış veritabanının Azure SQL veritabanı'nda farklı olduğunu açıklar.
+title: Azure SQL veritabanı gelişmiş veri güvenliğine genel bakış | Microsoft Docs
+description: Bu konu Azure SQL veritabanı gelişmiş veri güvenliği ve nasıl çalıştığını ve nasıl bir tek veya havuza alınmış veritabanının Azure SQL veritabanı'nda farklı olduğunu açıklar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,37 +11,37 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/01/2019
-ms.openlocfilehash: 2582f7eff052968c4a08eefd0027f9785451a564
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/04/2019
+ms.openlocfilehash: c070858354bb8bf5628a17e24e6830f133414d32
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562819"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734411"
 ---
-# <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL veritabanı yönetilen örneği, sanal ağlarla ve neredeyse % 100 uyumluluk kullanın
+# <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Gelişmiş veri güvenliği, sanal ağlarla ve neredeyse % 100 uyumluluk SQL veritabanını kullan
 
-Azure SQL veritabanı yönetilen örneği, Azure SQL veritabanı neredeyse % 100 uyumluluk en son SQL Server ile şirket içi (Enterprise Edition) veritabanı altyapısı sağlayarak, yerel sağlama, yeni bir dağıtım modeli olduğundan [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md) ortak güvenlik endişelerini ortadan uygulama ve [iş modeli](https://azure.microsoft.com/pricing/details/sql-database/) şirket içi SQL Server müşterileri için yeterli. Yönetilen örnek lift- and -shift kendi şirket içi uygulamaları bulutta çok az değişiklikle uygulama ve veritabanı mevcut SQL Server müşterileri sağlar. Aynı anda yönetilen örneği, tüm PaaS özellikleri korur (otomatik düzeltme eki uygulama ve sürüm güncelleştirmeleri [otomatik yedeklemeler](sql-database-automated-backups.md), [yüksek kullanılabilirlik](sql-database-high-availability.md) ), yönetim yükünü önemli ölçüde azaltan ve toplam sahip olma maliyeti.
+Yönetilen örnek neredeyse % 100 uyumluluk en son SQL Server ile şirket içi (Enterprise Edition) veritabanı altyapısı sağlayarak, yerel sağlayan Azure SQL veritabanı, yeni bir dağıtım seçeneği olan [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md) Ortak Güvenlik endişelerini ortadan uygulama ve [iş modeli](https://azure.microsoft.com/pricing/details/sql-database/) şirket içi SQL Server müşterileri için yeterli. Yönetilen örnek dağıtımda, lift- and -shift kendi şirket içi uygulamaları bulutta çok az değişiklikle uygulama ve veritabanı mevcut SQL Server müşterileri sağlar. Aynı zamanda, yönetilen örnek dağıtım seçeneği tüm PaaS özellikleri korur (otomatik düzeltme eki uygulama ve sürüm güncelleştirmeleri [otomatik yedeklemeler](sql-database-automated-backups.md), [yüksek kullanılabilirlik](sql-database-high-availability.md) ), bu önemli ölçüde Yönetim yükünü ve toplam sahip olma maliyeti azaltır.
 
 > [!IMPORTANT]
-> Yönetilen örneği şu anda bölgelerin listesi için bkz. [desteklenen bölgeler](sql-database-managed-instance-resource-limits.md#supported-regions).
+> Yönetilen örnek dağıtım seçeneği olduğu şu anda kullanılabilir bölgelerin listesi için bkz. [desteklenen bölgeler](sql-database-managed-instance-resource-limits.md#supported-regions).
 
 Aşağıdaki diyagramda, yönetilen örnek temel özellikleri özetlenmektedir:
 
 ![anahtar özellikleri](./media/sql-database-managed-instance/key-features.png)
 
-ISV tam olarak yönetilen PaaS bulut ortamında, ortama mümkün olduğunca az geçiş çaba olarak sağlanan ya da Azure SQL veritabanı yönetilen örneği, şirket içi veya şirket içinde oluşturulmuş, Iaas, çok sayıda uygulamaları geçirmek isteyen müşteriler için tasarlanmıştır. Tam otomatik kullanarak [veri geçiş hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) Azure'da müşteriler kaldırma ve kendi şirket içi SQL Server şirket içi SQL Server ve tam bir yalıtım olanağı ile uyumluluk sağlayan yönetilen örneğe kaydırma yerel sanal ağ ile müşteri örneği destekler.  Yazılım Güvencesi içeren mevcut lisanslarını kullanarak bir SQL veritabanı yönetilen örneği üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/).  SQL veritabanı yönetilen örneği, yüksek güvenlik ve zengin programlama yüzeyini gerektiren SQL Server örnekleri için bulutta en iyi geçiş hedef ' dir.
+ISV tam olarak yönetilen PaaS bulut ortamında, ortama mümkün olduğunca az geçiş çaba olarak sağlanan ya da yönetilen örnek dağıtımda, şirket içi veya şirket içinde oluşturulmuş, Iaas, çok sayıda uygulamaları geçirmek isteyen müşteriler için tasarlanmıştır. Tam otomatik kullanarak [veri geçiş hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) Azure'da müşteriler kaldırma ve kendi şirket içi SQL Server şirket içi SQL Server ve tam bir yalıtım olanağı ile uyumluluk sağlayan bir yönetilen örnek için kaydırma yerel sanal ağ ile müşteri örneği destekler.  Yazılım Güvencesi içeren mevcut lisanslarını kullanarak bir yönetilen örnek üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/).  En iyi geçiş hedef yüksek güvenlik ve zengin programlama yüzeyini gerektiren SQL Server örnekleri için bulutta bir yönetilen örneğidir.
 
-Genel kullanılabilirlik tarafından hazırlanmış yayın planı aracılığıyla en son şirket içi SQL Server sürümü ile % 100 yüzey alanını uyumluluk yakın sunmak için yönetilen örneği amaçlar.
+Yönetilen örnek dağıtım seçeneği aıms yakın hazırlanmış yayın planı aracılığıyla en son şirket içi SQL Server sürümü ile yüzey alanı % 100 uyumluluk sunar.
 
-Azure SQL veritabanı tek veritabanı, havuza alınmış veritabanını, yönetilen örnek ve sanal makinede barındırılan SQL Server arasında karar vermek için bkz: [Azure bulutunda SQL Server'ın doğru sürümü seçmek nasıl](sql-database-paas-vs-sql-server-iaas.md).
+Azure SQL veritabanı dağıtım seçenekleri arasında karar: tek veritabanı, havuza veritabanı yönetilen örneği ve SQL Server sanal makine, barındırılan bakın [Azure'da SQL Server'ın doğru sürümü seçmek nasıl](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Temel özellikleri
 
-Azure SQL veritabanı yönetilen örneği, hem Azure SQL veritabanı ve SQL Server veritabanı altyapısı kullanılabilir olan en iyi özelliklerini bir araya getirir.
+Tarafından yönetilen örnek hem Azure SQL veritabanı ve SQL Server veritabanı altyapısı kullanılabilir olan en iyi özelliklerini bir araya getirir.
 
 > [!IMPORTANT]
-> Bir yönetilen örnek tüm özellikler çevrimiçi işlemleri, otomatik plan düzeltme ve diğer kurumsal performans geliştirmeleri dahil olmak üzere SQL Server'ın en son sürümü ile çalışır. Özelliklerin karşılaştırması açıklanan [özellik karşılaştırması: SQL Server yerine Azure SQL veritabanı](sql-database-features.md).
+> Yönetilen örnek tüm özellikler çevrimiçi işlemleri, otomatik plan düzeltme ve diğer kurumsal performans geliştirmeleri dahil olmak üzere SQL Server'ın en son sürümü ile çalışır. Özelliklerin karşılaştırması açıklanan [özellik karşılaştırması: SQL Server yerine Azure SQL veritabanı](sql-database-features.md).
 
 | **PaaS avantajları** | **İş sürekliliği** |
 | --- | --- |
@@ -49,7 +49,7 @@ Azure SQL veritabanı yönetilen örneği, hem Azure SQL veritabanı ve SQL Serv
 |**Güvenlik ve uyumluluk** | **Yönetim**|
 |Yalıtılmış ortamı ([VNet tümleştirmesi](sql-database-managed-instance-connectivity-architecture.md)çoklu kiracı hizmeti, ayrılmış hesaplama ve depolama) <br>[Saydam veri şifrelemesi (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD kimlik doğrulaması](sql-database-aad-authentication.md), çoklu oturum açma desteği <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD oturum açma bilgileri</a> (**genel Önizleme**) <br>Azure SQL veritabanı olarak aynı uyumluluk standartlarına uyar <br>[SQL denetimi](sql-database-managed-instance-auditing.md) <br>[Tehdit algılama](sql-database-managed-instance-threat-detection.md) |Hizmet sağlama ve ölçeklendirme otomatikleştirmek için Azure Resource Manager API'si <br>Sağlama ve ölçeklendirme el ile hizmeti için Azure portal işlevi <br>Veri geçiş hizmeti
 
-Yönetilen örnek temel özelliklerini, aşağıdaki tabloda gösterilmiştir:
+Yönetilen örnek temel özellikleri aşağıdaki tabloda gösterilmiştir:
 
 |Özellik | Açıklama|
 |---|---|
@@ -70,7 +70,7 @@ Yönetilen örnek temel özelliklerini, aşağıdaki tabloda gösterilmiştir:
 
 ## <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli
 
-[Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) yönetilen örneği'nde size esneklik, Denetim, saydamlık ve şirket içi iş yükü gereksinimlerini buluta çevirmek için basit bir yol sağlar. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerinize göre değiştirmenizi sağlar. VCore modeli de ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/).
+[Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) yönetilen örnekler sunar, esneklik, denetimi, saydamlık ve çevirmek için basit bir yol iş yükü gereksinimlerini buluta şirket. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerinize göre değiştirmenizi sağlar. VCore modeli de ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Sanal çekirdek modeli içinde donanım Nesilleri arasında seçim yapabilirsiniz.
 
@@ -96,7 +96,7 @@ Aşağıdaki listede, genel amaçlı hizmet katmanının önemli bir özelliği 
 - Yüksek performanslı Azure Premium depolama (8 TB)
 - Yerleşik [yüksek kullanılabilirlik](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) güvenilir Azure Premium depolama tabanlı ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
-Daha fazla bilgi için [depolama katmanı genel amaçlı katmanında](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) ve [en iyi performans uygulamaları, depolama ve Azure SQL DB yönetilen örneği (genel amaçlı) değerlendirmeleri](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Daha fazla bilgi için [depolama katmanı genel amaçlı katmanında](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) ve [depolama performansı en iyi yöntemler ve dikkat edilecek noktalar için yönetilen örnek (genel amaçlı)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
 Hizmet katmanlarında arasındaki fark hakkında daha fazla bilgi [yönetilen örnek kaynak sınırları](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
@@ -116,9 +116,9 @@ Hizmet katmanlarında arasındaki fark hakkında daha fazla bilgi [yönetilen ö
 
 ## <a name="advanced-security-and-compliance"></a>Gelişmiş koruma ve uyumluluk
 
-Azure SQL veritabanı yönetilen örneği, Azure Bulut ve SQL Server veritabanı altyapısı tarafından sağlanan gelişmiş güvenlik özellikleri birleştirir.
+Yönetilen örnek dağıtım seçeneği, Azure Bulut ve SQL Server veritabanı altyapısı tarafından sağlanan gelişmiş güvenlik özellikleri birleştirir.
 
-### <a name="managed-instance-security-isolation-in-azure-cloud"></a>Örnek güvenlik yalıtımı Azure bulutunda yönetilen
+### <a name="managed-instance-security-isolation"></a>Yönetilen örnek güvenlik yalıtımı
 
 Yönetilen örnek, diğer kiracıların Azure bulutunda ek güvenlik yalıtımı sağlar. Güvenlik yalıtımı içerir:
 
@@ -130,37 +130,37 @@ Aşağıdaki diyagramda, uygulamalarınız için çeşitli bağlantı seçenekle
 
 ![yüksek kullanılabilirlik](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
-VNet tümleştirmesi ve alt ağ düzeyinde ilke zorlaması ağ hakkında daha fazla bilgi edinmek için bkz. [Azure SQL veritabanı yönetilen örneği için sanal ağ mimarisini](sql-database-managed-instance-connectivity-architecture.md) ve [uygulamanızı Azure SQL veritabanına bağlanma Yönetilen örnek](sql-database-managed-instance-connect-app.md).
+VNet tümleştirmesi ve alt ağ düzeyinde ilke zorlaması ağ hakkında daha fazla bilgi edinmek için bkz. [VNet mimarisi yönetilen örnekleri için](sql-database-managed-instance-connectivity-architecture.md) ve [uygulamanızın yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md).
 
 > [!IMPORTANT]
-> Güvenlik gereksinimlerinize göre izin, ek avantajlar getirecek şekilde her yerde aynı alt ağdaki birden çok yönetilen örnek yerleştirin. Aynı alt ağdaki collocating örnekleri, önemli ölçüde ağ altyapı Bakımı kolaylaştırabilir ve uzun süre sağlama bir alt ağdaki ilk dağıtımı yönetilen örnek maliyeti ile ilişkili olduğundan, zaman, sağlama örneği azaltın.
+> Güvenlik gereksinimlerinize göre izin, ek avantajlar getirecek şekilde her yerde aynı alt ağdaki birden çok yönetilen örnek yerleştirin. Aynı alt ağdaki collocating örnekleri, önemli ölçüde ağ altyapı Bakımı kolaylaştırabilir ve uzun süre sağlama bir alt ağdaki ilk yönetilen örnek dağıtma maliyeti ile ilişkili olduğundan, zaman, sağlama örneği azaltın.
 
 ### <a name="azure-sql-database-security-features"></a>Azure SQL veritabanı güvenlik özellikleri
 
 Azure SQL veritabanı, verilerinizi korumak için kullanılan gelişmiş güvenlik özellikleri sunmaktadır.
 
 - [Yönetilen örnek denetim](sql-database-managed-instance-auditing.md) veritabanı olaylarını izler ve Azure depolama hesabınızdaki yerleştirilen bir denetim günlük dosyasına yazar. Denetim mevzuatla uyumluluk, veritabanı etkinliğini anlama ve tutarsızlıklar ve işletme sorunlarını veya şüpheli güvenlik ihlallerini anomalileri kavramanıza yardımcı olabilir.
-- Veri şifreleme Hareket halindeki - yönetilen örnek, Aktarım Katmanı Güvenliği kullanarak Hareket halindeki veriler için şifreleme sağlayarak verilerinizin güvenliğini sağlar. Aktarım Katmanı Güvenliği yanı sıra SQL veritabanı yönetilen örneği uçuş, bekleme sırasında ve sorgu ile işleme sırasında hassas verileri koruma sunar. [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted, kritik öneme sahip verilerin çalınması gibi güvenlik ihlallerine karşı sektörde benzersiz koruma sağlayan bir özelliktir. Örneğin, Always Encrypted ile kredi kartı numaraları veritabanında her zaman, hatta işleme, yetkili personel veya bu veriyi işlemek için gereken uygulamalar tarafından kullanımı dahil izin vererek sorgu sırasında şifrelenmiş olarak depolanır.
-- [Tehdit algılama](sql-database-managed-instance-threat-detection.md) tamamlar [yönetilen örneği denetim](sql-database-managed-instance-auditing.md) ek bir güvenlik katmanı sağlayarak erişmek veya yararlanmak sıra dışı ve zararlı algılar hizmette yerleşik zeka çalışır veritabanları. Şüpheli etkinlikler, potansiyel açıklar, hakkında uyarı almanız ve anormal veritabanı erişim modellerinin yanı sıra SQL ekleme saldırıları. Tehdit algılama uyarıları görüntülenebilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) şüpheli etkinlik ayrıntılarını sağlayın ve eylemi araştırmak ve tehdidi azaltmak için önerilir.  
+- -Hareket halinde veri şifrelemesi, yönetilen örnek Aktarım Katmanı Güvenliği kullanarak Hareket halindeki veriler için şifreleme sağlayarak verilerinizi korur. Aktarım Katmanı Güvenliği ek olarak, yönetilen örnek dağıtım seçeneği uçuş, bekleme sırasında ve sorgu ile işleme sırasında hassas verileri koruma sunar. [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted, kritik öneme sahip verilerin çalınması gibi güvenlik ihlallerine karşı sektörde benzersiz koruma sağlayan bir özelliktir. Örneğin, Always Encrypted ile kredi kartı numaraları veritabanında her zaman, hatta işleme, yetkili personel veya bu veriyi işlemek için gereken uygulamalar tarafından kullanımı dahil izin vererek sorgu sırasında şifrelenmiş olarak depolanır.
+- [Tehdit algılama](sql-database-managed-instance-threat-detection.md) tamamlar [denetim](sql-database-managed-instance-auditing.md) ek bir güvenlik katmanı sağlayarak erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı algılar hizmette yerleşik zeka çalışır. Şüpheli etkinlikler, potansiyel açıklar, hakkında uyarı almanız ve anormal veritabanı erişim modellerinin yanı sıra SQL ekleme saldırıları. Tehdit algılama uyarıları görüntülenebilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) şüpheli etkinlik ayrıntılarını sağlayın ve eylemi araştırmak ve tehdidi azaltmak için önerilir.  
 - [Dinamik veri maskeleme](/sql/relational-databases/security/dynamic-data-masking) hassas verilerin görünürlüğünü ayrıcalık sahibi ayrıcalıklı olmayan kullanıcılara gizleyerek sınırlar. Dinamik veri maskeleme, hassas verileri uygulama katmanı üzerinde en az etki ile ortaya çıkarmak için ne kadarının atamak sağlayarak hassas verilere yetkisiz erişimi önlemeye yardımcı olur. Bu özellik, hassas verileri belirlenen veritabanı alanlarına yapılan sorgunun sonuç kümesinde gizleyen ancak veritabanındaki verileri değiştirmeyen ilke tabanlı bir güvenlik özelliğidir.
 - [Satır düzeyi güvenlik](/sql/relational-databases/security/row-level-security) denetleme bir veritabanı tablosundaki satırlara erişimi etkinleştirir, sorguyu yürüten kullanıcının özelliklerine temel (gibi Grup üyeliği veya yürütme bağlamı olarak). Satır düzeyi güvenlik (RLS), uygulamanızın güvenlik tasarımını ve kodlama aşamasını kolaylaştırır. RLS, veri satırı erişiminde kısıtlama uygulamanızı sağlar. Örneğin, çalışanlar departmanı veya ilgili veriler yalnızca bir veri erişimi kısıtlamak için uygun olan veri satırları eriştiğinden emin olun.
-- [Saydam veri şifrelemesi (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) bekleyen verileri şifreleme olarak bilinen Azure SQL veritabanı yönetilen örneği'nın veri dosyaları şifreler. TDE, gerçek zamanlı g/ç şifreleme ve şifre çözme veri ve günlük dosyalarının gerçekleştirir. Şifreleme, Kurtarma sırasında kullanılabilirlik veritabanı önyükleme kaydında depolanan bir veritabanı şifreleme anahtarı (DEK) kullanır. Tüm veritabanlarınızın yönetilen örneğinde saydam veri şifrelemesi ile koruyabilirsiniz. TDE SQL Server'ın birçok uyumluluk standardı tarafından depolama medyalarını hırsızlığına karşı korumak için gerekli olan bekleyen şifreleme teknolojisidir.
+- [Saydam veri şifrelemesi (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) yönetilen örnek veri dosyalarını, bekleyen verileri şifreleme olarak bilinen şifreler. TDE, gerçek zamanlı g/ç şifreleme ve şifre çözme veri ve günlük dosyalarının gerçekleştirir. Şifreleme, Kurtarma sırasında kullanılabilirlik veritabanı önyükleme kaydında depolanan bir veritabanı şifreleme anahtarı (DEK) kullanır. Saydam veri şifrelemesi ile yönetilen bir örnekteki tüm veritabanlarınızın koruyabilirsiniz. TDE SQL Server'ın birçok uyumluluk standardı tarafından depolama medyalarını hırsızlığına karşı korumak için gerekli olan bekleyen şifreleme teknolojisidir.
 
-Geçiş şifrelenmiş bir veritabanının SQL yönetilen örneği için Azure veritabanı geçiş hizmeti (DMS) veya yerel bir geri yükleme aracılığıyla desteklenir. Yerel bir geri yükleme kullanarak bir şifrelenmiş veritabanına geçirmeyi planlıyorsanız, SQL Server şirket içi veya SQL Server VM mevcut TDE sertifikanın yönetilen örneğe geçiş gerekli bir adımdır. Geçiş seçenekleri hakkında daha fazla bilgi için bkz. [Azure SQL veritabanı yönetilen örneği SQL Server örneği geçiş](sql-database-managed-instance-migrate.md).
+Azure veritabanı geçiş hizmeti (DMS) veya yerel bir geri yükleme ile şifrelenmiş bir veritabanı yönetilen örneğine geçişi desteklenir. Yerel bir geri yükleme kullanarak bir şifrelenmiş veritabanına geçirmeyi planlıyorsanız, mevcut TDE sertifikanın SQL Server şirket içi veya SQL Server bir sanal makinede bir yönetilen örneğe geçiş gerekli bir adımdır. Geçiş seçenekleri hakkında daha fazla bilgi için bkz. [yönetilen örnek için SQL Server örneği geçiş](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory Tümleştirmesi
 
-Azure SQL veritabanı yönetilen örneği, geleneksel SQL server veritabanı altyapısı oturumları ve Azure Active Directory (AAD) ile tümleşik oturum açma bilgileri destekler. AAD oturum açma bilgileri (**genel Önizleme**) şirket içi Azure bulut sürümü, şirket içi ortamınızda kullandığınız veritabanı oturumlardır. AAD oturum açma bilgileri olarak doğru örneği kapsamlı ilkeleri, aynı yönetilen örneğe içinde platformlar arası sorguları da dahil olmak üzere, herhangi bir örnek düzeyi işlem gerçekleştirebilecek kullanıcıları ve grupları Azure Active Directory kiracınızdan belirtmenize imkan tanır.
+Yönetilen örnek dağıtım seçeneği, geleneksel SQL server veritabanı altyapısı oturumları ve Azure Active Directory (AAD) ile tümleşik oturum açma bilgileri destekler. AAD oturum açma bilgileri (**genel Önizleme**) şirket içi Azure bulut sürümü, şirket içi ortamınızda kullandığınız veritabanı oturumlardır. AAD oturum açma bilgileri kullanıcıları belirtmenize imkan tanır ve grupları Azure Active Directory'den Kiracı true olarak örneği kapsamlı ilkeleri, içinde aynı yönetilen örnek veritabanları arası sorgular da dahil olmak üzere, herhangi bir örnek düzeyi işlemi gerçekleştirebilir.
 
 AAD oturum açma bilgileri oluşturmak için yeni bir söz dizimi sunulmuştur (**genel Önizleme**), **gelen dış sağlayıcı**. Söz dizimi hakkında daha fazla bilgi için bkz. <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>ve gözden geçirme [yönetilen Örneğiniz için bir Azure Active Directory Yöneticisi sağlama](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) makalesi.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory tümleştirmesi ve çok faktörlü kimlik doğrulaması
 
-Yönetilen örnek veritabanı kullanıcısı ve diğer Microsoft hizmetleriyle kimliklerini merkezi olarak yönetmenize imkan sağlar [Azure Active Directory Tümleştirmesi](sql-database-aad-authentication.md). Bu özellik, izin yönetimini kolaylaştırırken güvenliği artırır. Azure Active Directory, veri ve uygulama güvenliğini artırmak için [çok faktörlü kimlik doğrulamasını](sql-database-ssms-mfa-authentication-configure.md) (MFA) ve çoklu oturum açma işlemini destekler.
+Yönetilen örnek dağıtım seçeneği, veritabanı kullanıcısı ve diğer Microsoft hizmetleriyle kimliklerini merkezi olarak yönetmenizi sağlar [Azure Active Directory Tümleştirmesi](sql-database-aad-authentication.md). Bu özellik, izin yönetimini kolaylaştırırken güvenliği artırır. Azure Active Directory, veri ve uygulama güvenliğini artırmak için [çok faktörlü kimlik doğrulamasını](sql-database-ssms-mfa-authentication-configure.md) (MFA) ve çoklu oturum açma işlemini destekler.
 
 ### <a name="authentication"></a>Authentication
 
-Yönetilen örnek nasıl kullanıcıların kimliklerini veritabanına bağlanırken kanıtlamak için kimlik doğrulaması belirtir. SQL Veritabanı iki kimlik doğrulaması türünü destekler:  
+Yönetilen örnek kimlik doğrulama nasıl kullanıcıların kimliklerini veritabanına bağlanırken kanıtlamak için ifade eder. SQL Veritabanı iki kimlik doğrulaması türünü destekler:  
 
 - **SQL kimlik doğrulaması**:
 
@@ -175,67 +175,67 @@ Yetkilendirme hangi kullanıcının bir Azure SQL veritabanında yapabilir ve ku
 
 ## <a name="database-migration"></a>Veritabanı geçişi
 
-Örnek hedefleri kullanıcı senaryoları yığın veritabanı geçişi ile şirket içi veya Iaas veritabanı uygulamaları yönetilen. Örnek destekler, çeşitli veritabanı geçiş seçenekleri yönetilen:
+Yönetilen örnek dağıtım seçeneği hedefleri kullanıcı senaryoları yığın veritabanı geçişi, şirket içi veya Iaas ile uygulamaları veritabanı. Yönetilen örnek, çeşitli veritabanı geçiş seçeneklerini destekler:
 
 ### <a name="back-up-and-restore"></a>Yedekleme ve geri yükleme  
 
-Azure blob depolama için yedeklemeleri SQL geçiş yaklaşımı yararlanır. Azure depolama blobu'nda depolanan yedeklemeler doğrudan geri yükleyebilirsiniz yönetilen örneğe kullanarak [T-SQL RESTORE komutunu](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+Azure blob depolama için yedeklemeleri SQL geçiş yaklaşımı yararlanır. Azure depolama blobu'nda depolanan yedeklemeler doğrudan geri yükleyebilirsiniz kullanarak bir yönetilen örnek [T-SQL RESTORE komutunu](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
-- Wide World Importers - standart veritabanı yedek dosyasını geri yükleme işlemini gösteren Hızlı Başlangıç için bkz. [yönetilen örneğe yedek dosyayı geri](sql-database-managed-instance-get-started-restore.md). Bu hızlı başlangıçta, Azure Web günlüğü depolama ve güvenli bir paylaşılan erişim imzası (SAS) anahtarı kullanarak bir yedekleme dosyası karşıya yüklemeniz gösterilmektedir.
+- Wide World Importers - standart veritabanı yedek dosyasını geri yükleme işlemini gösteren Hızlı Başlangıç için bkz. [bir yedekleme dosyası yönetilen örneğine geri](sql-database-managed-instance-get-started-restore.md). Bu hızlı başlangıçta, Azure Web günlüğü depolama ve güvenli bir paylaşılan erişim imzası (SAS) anahtarı kullanarak bir yedekleme dosyası karşıya yüklemeniz gösterilmektedir.
 - URL'den geri yükleme hakkında daha fazla bilgi için bkz. [yerel geri URL'den](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Bir yönetilen örnek yedeklerden yalnızca başka bir yönetilen örneğe geri yüklenebilir. Bunlar, şirket içi SQL Server veya bir tek veritabanı elastik havuz için geri yüklenemez.
+> Yönetilen örnek yedeklerden yalnızca başka yönetilen örneğine geri yüklenebilir. Bunlar, şirket içi SQL Server veya bir tek veritabanı elastik havuz için geri yüklenemez.
 
 ### <a name="data-migration-service"></a>Veri geçiş hizmeti
 
-Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure Data platformlarına sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir. Bu hizmet, Azure SQL veritabanı (tek veritabanı, elastik havuzlar ve yönetilen örnek) ve Azure VM'de SQL Server mevcut üçüncü taraf ve SQL Server veritabanlarını taşımak için gereken görevleri kolaylaştırır. Bkz: [DMS kullanarak yönetilen örneği'ne şirket içi veritabanınızı geçirme](https://aka.ms/migratetoMIusingDMS).
+Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure Data platformlarına sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir. Bu hizmet, Azure SQL veritabanı (tek veritabanları, elastik havuza alınmış veritabanları ve yönetilen örneğinde örnek veritabanları) ve Azure VM'de SQL Server mevcut üçüncü taraf ve SQL Server veritabanlarını taşımak için gereken görevleri kolaylaştırır. Bkz: [şirket içi veritabanınızı DMS kullanarak yönetilen örneğe geçirme](https://aka.ms/migratetoMIusingDMS).
 
 ## <a name="sql-features-supported"></a>Desteklenen SQL özellikleri
 
-Hizmet genel kullanıma kadar aşamalı olarak kullanıma sunulacak olan şirket içi SQL Server ile % 100 yüzey alanını uyumluluk yakın sunmak için örnek aıms yönetilen. Bir özellik için ve karşılaştırma listesini görmek [SQL veritabanı özellik karşılaştırması](sql-database-features.md)ve yerine SQL Server yönetilen örneğinde T-SQL farklılıkları listesi için bkz. [SQLServer'danyönetilenörnekT-SQLfarklılıkları](sql-database-managed-instance-transact-sql-information.md).
+Hizmet genel kullanıma kadar aşamalı olarak kullanıma sunulacak olan şirket içi SQL Server ile % 100 yüzey alanını uyumluluk yakın sunmak için yönetilen örnek dağıtım seçeneği amaçlar. Bir özellik için ve karşılaştırma listesini görmek [SQL veritabanı özellik karşılaştırması](sql-database-features.md)ve yerine SQL Server yönetilen örneğinde T-SQL farklılıkları listesi için bkz. [SQLServer'danyönetilenörnekT-SQLfarklılıkları](sql-database-managed-instance-transact-sql-information.md).
 
-Örnek destekleyen geriye dönük uyumluluk için SQL 2008 veritabanı yönetilir. SQL 2005 veritabanı sunucularından doğrudan geçiş desteklenir, uyumluluk düzeyi geçirilen SQL 2005 veritabanları için SQL 2008'e güncelleştirilmiştir.
+Yönetilen örnek dağıtım seçeneği, SQL 2008 veritabanı için geriye dönük uyumluluk destekler. SQL 2005 veritabanı sunucularından doğrudan geçiş desteklenir, uyumluluk düzeyi geçirilen SQL 2005 veritabanları için SQL 2008'e güncelleştirilmiştir.
   
-Aşağıdaki diyagramda, yönetilen örnek'te yüzey alanını uyumluluğu özetlenmektedir:  
+Aşağıdaki diyagramda, yönetilen örneğinde yüzey alanını uyumluluk özetlenmektedir:  
 
 ![Geçiş](./media/sql-database-managed-instance/migration.png)
 
-### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Şirket içi SQL Server yönetilen örneği arasındaki temel farklılıklar
+### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Yönetilen örneğinde ve şirket içi SQL Server arasındaki temel farklılıklar
 
-Yönetilen örnek avantajları engeller her zaman yukarı-başından bu yana bulutta, şirket içi SQL Server'daki bazı özellikleri ya da olabilir anlamına gelir eski, devre dışı bırakılan veya seçeneğiniz vardır. Araçları tam olarak kontrol edebilirim bir ortamda hizmeti çalışmıyor veya belirli bir özellik biraz farklı bir şekilde çalıştığını düzenlemeniz gerekirse, özel durumlar vardır:
+Yönetilen örnek dağıtım seçeneği avantajları engeller her zaman yukarı-başından bu yana bulutta, şirket içi SQL Server'daki bazı özellikleri ya da olabilir anlamına gelir eski, devre dışı bırakılan veya seçeneğiniz vardır. Araçları tam olarak kontrol edebilirim bir ortamda hizmeti çalışmıyor veya belirli bir özellik biraz farklı bir şekilde çalıştığını düzenlemeniz gerekirse, özel durumlar vardır:
 
 - Yüksek kullanılabilirlik yerleşiktir ve benzer şekilde teknolojisini kullanarak, önceden yapılandırılmış [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Otomatik yedeklemeler ve noktaya geri yükleme noktası. Müşteri başlatabilir `copy-only` ile otomatik yedekleme zinciri müdahale etmez yedekler.
 - Yönetilen örnek, tüm ilgili senaryolar farklı desteklenen zorunda tam fiziksel yolunu belirtmeye izin vermiyor: Geri yükleme DB WITH MOVE desteklemez, fiziksel yollar, Azure BLOB'ları ile çalışır BULK INSERT DB oluşturma izin vermeyen yalnızca, vb.
-- Örnek destekleyen yönetilen [Azure AD kimlik doğrulaması](sql-database-aad-authentication.md) bulut alternatif Windows kimlik doğrulaması olarak.
+- Yönetilen örnek destekler [Azure AD kimlik doğrulaması](sql-database-aad-authentication.md) bulut alternatif Windows kimlik doğrulaması olarak.
 - Yönetilen örnek XTP dosyası grubu ve bellek içi OLTP nesnelerini içeren veritabanları için dosyaları otomatik olarak yönetir
-- Yönetilen örneği SQL Server Integration Services (SSIS) destekler ve SSIS kataloğunu (SSISDB) SSIS paketlerini depolar barındırabilirsiniz, ancak bunlar üzerinde bir yönetilen Azure-SSIS Integration Runtime (IR) Azure Data Factory (ADF) yürütülür, bkz: [oluştur Azure-SSIS IR ADF içinde](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). SQL veritabanı yönetilen örneği, SSIS özellikleri karşılaştırmak için bkz [karşılaştırma Azure SQL veritabanı tek veritabanlarını elastik havuzları ve yönetilen örneği](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
+- Yönetilen örneği SQL Server Integration Services (SSIS) destekler ve SSIS kataloğunu (SSISDB) SSIS paketlerini depolar barındırabilirsiniz, ancak bunlar üzerinde bir yönetilen Azure-SSIS Integration Runtime (IR) Azure Data Factory (ADF) yürütülür, bkz: [oluştur Azure-SSIS IR ADF içinde](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). SQL veritabanı'nda SSIS özellikleri karşılaştırmak için bkz [karşılaştırma Azure SQL veritabanı tek veritabanlarını elastik havuzları ve yönetilen örnek](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Yönetilen örnek yönetim özellikleri
 
-Örnek etkinleştirme Sistem Yöneticisi, iş için en önemli şeylere odaklanmak için yönetilen. Birçok sistem yönetici/DBA etkinlikleri gerekli değildir veya bunların basittir. Örneğin, işletim sistemi / RDBMS yükleme ve düzeltme eki uygulama, dinamik boyutlandırma ve yapılandırması, yedekleme, örnek [veritabanı çoğaltması](replication-with-sql-database-managed-instance.md) (sistem veritabanları dahil olmak üzere), yüksek kullanılabilirlik yapılandırması ve yapılandırma sistem durumu ve [performansı izleme](../azure-monitor/insights/azure-sql.md) veri akışları.
+Yönetilen örnek dağıtım seçeneği Sistem Yöneticisi, SQL veritabanı hizmetini sizin için gerçekleştirir veya bu görevleri büyük ölçüde basitleştirir, yönetim görevlerini temel daha az süre beklemesini sağlar. Örneğin, [işletim sistemi / RDBMS yükleme ve düzeltme eki uygulama](sql-database-high-availability.md), [dinamik örneği yeniden boyutlandırma ve yapılandırma](sql-database-single-database-scale.md), [yedeklemeleri](sql-database-automated-backups.md), [veritabanı çoğaltması](replication-with-sql-database-managed-instance.md)(sistem veritabanları dahil olmak üzere), [yüksek kullanılabilirlik Yapılandırması](sql-database-high-availability.md)ve yapılandırma sistem durumu ve [performansı izleme](../azure-monitor/insights/azure-sql.md) veri akışları.
 
 > [!IMPORTANT]
 > Desteklenen, kısmen desteklenen ve desteklenmeyen özelliklerin bir listesi için bkz. [SQL veritabanı özellikleri](sql-database-features.md). SQL Server yerine yönetilen örneğinde T-SQL farklılıkları listesi için bkz [SQL Server'dan yönetilen örnek T-SQL farklılıkları](sql-database-managed-instance-transact-sql-information.md)
 
-### <a name="how-to-programmatically-identify-a-managed-instance"></a>Program aracılığıyla yönetilen örneğe belirleme
+### <a name="how-to-programmatically-identify-a-managed-instance"></a>Yönetilen örnek program aracılığıyla tanımlama
 
-Aşağıdaki tabloda, yönetilen örnek sayesinde, uygulamanızın çalıştığını algılamak için kullanmak ve önemli özelliklerini almak Transact SQL erişilebilir çeşitli özellikleri gösterir.
+Aşağıdaki tabloda uygulamanız ile yönetilen örnek çalışıp çalışmadığını belirlemek için kullanabilir ve önemli özelliklerini almak Transact SQL erişilebilir çeşitli özellikleri gösterir.
 
 |Özellik|Değer|Açıklama|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 2018-03-07 12.0.2000.8 Telif Hakkı (C) 2018 Microsoft Corporation.|Bu değer, SQL veritabanı olduğu gibi aynı olur.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Bu değer, SQL veritabanı olduğu gibi aynı olur.|
-|`SERVERPROPERTY('EngineEdition')`|8|Bu değer, yönetilen örneğe benzersiz olarak tanımlar.|
+|`SERVERPROPERTY('EngineEdition')`|8|Bu değer, bir yönetilen örnek benzersiz şekilde tanımlar.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Tam örnek DNS adı şu biçimde:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, burada `<instanceName>` müşteri tarafından sağlanan ad sırada `<dnsPrefix>` Genel DNS adı benzersizliği garanti etme adı otomatik olarak oluşturulan parçasıdır ("wcus17662feb9ce98", örneğin)|Örnek: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - İlk yönetilen örneğinizi oluşturma konusunda bilgi almak için bkz: [Hızlı Başlangıç Kılavuzu](sql-database-managed-instance-get-started.md).
 - Bir özellik için ve karşılaştırma listesini görmek [SQL ortak özellikleri](sql-database-features.md).
-- Sanal ağ yapılandırması hakkında daha fazla bilgi için bkz. [Yönetilen Örnek Sanal Ağ Yapılandırması](sql-database-managed-instance-connectivity-architecture.md).
-- Yönetilen bir örneğini oluşturur ve bir veritabanı yedekleme dosyasından geri yükleyen bir hızlı başlangıç için bkz: [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
-- Azure Veritabanı Geçiş Hizmeti’ni (DMS) geçiş için kullanmaya ilişkin bir öğretici için bkz. [DMS kullanarak Yönetilen Örnek geçişi](../dms/tutorial-sql-server-to-managed-instance.md).
+- Sanal ağ yapılandırması hakkında daha fazla bilgi için bkz. [yönetilen örnek sanal ağ yapılandırması](sql-database-managed-instance-connectivity-architecture.md).
+- Yönetilen örnek oluşturup bir veritabanı yedekleme dosyasından geri yükleyen bir hızlı başlangıç için bkz: [yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
+- Geçiş için Azure veritabanı geçiş hizmeti (DMS) kullanan bir öğretici için bkz [yönetilen örnek geçişi DMS kullanarak](../dms/tutorial-sql-server-to-managed-instance.md).
 - Gelişmiş sorun giderme yerleşik zekaya sahip yönetilen örnek veritabanı performansını izleme için bkz: [kullanarak Azure SQL Analytics İzleyici Azure SQL veritabanı](../azure-monitor/insights/azure-sql.md)
 - Fiyatlandırma bilgileri için bkz: [SQL veritabanı yönetilen örneği fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/managed/).

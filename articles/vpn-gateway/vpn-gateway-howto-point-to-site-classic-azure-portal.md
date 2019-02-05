@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6aedfa3f0ef65fdb1b663db8637b648e685e31be
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 0482dfd5b7b09d5e66fb830caae654be3242a916
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321486"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694112"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Sertifika kimlik doğrulaması (Klasik) kullanarak noktadan siteye bağlantı yapılandırma
 
@@ -290,7 +290,7 @@ Güncelleştirme tamamlandıktan sonra sertifika artık bağlanmak için kullan�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). 
+- Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/). 
 
 - Ağ ve Linux sanal makineleri hakkında daha fazla bilgi için bkz: [Azure ve Linux VM ağına genel bakış](../virtual-machines/linux/network-overview.md).
 
