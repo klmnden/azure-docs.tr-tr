@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: bb22a2545466c72f7dac68f80668b8b530832c21
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094727"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728631"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP uç noktasına olayları alma
 
@@ -51,8 +51,6 @@ Azure işlevinizde (Azure işlevleri portalındaki doğru çoğu bölmesinde) "D
 ## <a name="endpoint-validation"></a>Uç nokta doğrulaması
 
 Yapmak isteyeceğiniz ilk şey gerçekleştirilir `Microsoft.EventGrid.SubscriptionValidationEvent` olayları. Her zaman biri bir olaya abone olur, Event Grid doğrulama olayı ile uç noktasına gönderir. bir `validationCode` veri yükünde. Bu geri için yanıt gövdesindeki echo için uç nokta gereklidir [uç noktası, geçerli ve size ait olduğunu kanıtlamak](security-authentication.md#webhook-event-delivery). Kullanıyorsanız, bir [olay Kılavuzu tetikleyicisi](../azure-functions/functions-bindings-event-grid.md) bir Web kancası ile tetiklenen işlev yerine, uç nokta doğrulaması sizin yerinize gerçekleştirilir. Bir üçüncü taraf API hizmetini kullanıyorsanız (gibi [Zapier](https://zapier.com) veya [IFTTT](https://ifttt.com/)), programlama yoluyla bir doğrulama kodu echo mümkün olmayabilir. Bu hizmetler için abonelik gönderilen abonelik doğrulama olayı doğrulama URL'yi kullanarak el ile doğrulayabilirsiniz. Bu URL'yi kopyalayın `validationUrl` özelliği ve gönderme bir GET isteği, bir REST istemcisi ya da web tarayıcınız aracılığıyla.
-
-El ile doğrulama Önizleme aşamasındadır. Bunu kullanmak istiyorsanız [Azure CLI](/cli/azure/install-azure-cli)’si için [Event Grid uzantısını](/cli/azure/azure-cli-extensions-list) yüklemeniz gerekir. `az extension add --name eventgrid` ile yükleyebilirsiniz. REST API kullanıyorsanız, kullandığınızdan emin olun `api-version=2018-05-01-preview`.
 
 C# ' ta, `DeserializeEventGridEvents()` işlevi, Event Grid olayları seri durumdan çıkarır. Olay verileri StorageBlobCreatedEventData gibi uygun bir türle içine çıkarır. Kullanım `Microsoft.Azure.EventGrid.EventTypes` desteklenen olay türleri ve adları almak için sınıf.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 10717ccbfa05f204e60eb6d8cde5a83e9714b197
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 34dc6fbd1cca30f86b3fa825932983a01c4c8250
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562615"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730195"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Oluşturma, değiştirme veya bir sanal ağı silme
 
@@ -94,7 +94,7 @@ Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki göre
 
 **Komutları**
 
-- Azure CLI: [az ağ vnet show](/cli/azure/network/vnet#az_network_vnet_show)
+- Azure CLI: [az ağ vnet show](/cli/azure/network/vnet)
 - PowerShell: [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)
 
 ## <a name="add-or-remove-an-address-range"></a>Bir adres aralığı Ekle Kaldır
@@ -162,7 +162,7 @@ Yalnızca ona bağlı hiçbir kaynaklar varsa, bir sanal ağ silebilirsiniz. San
 
 **Komutları**
 
-- Azure CLI: [azure ağı vnet Sil](/cli/azure/network/vnet#az_network_vnet_delete)
+- Azure CLI: [azure ağı vnet Sil](/cli/azure/network/vnet)
 - PowerShell: [Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork)
 
 ## <a name="permissions"></a>İzinler

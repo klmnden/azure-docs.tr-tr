@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 9fc6bd6e7196d442f46e364a9d5816c5056f34f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f0f4d160b9e9d5e556813115aa39c60ea8f4edb2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184385"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733340"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri dışı bir uygulama için yapılandırma
 
@@ -23,7 +23,7 @@ Azure AD uygulama Galerisi içinde bulunan seçenekler ek olarak, ekleme seçene
 
 Galeri dışı bir uygulama ekledikten sonra bu uygulamanın kullandığı seçerek çoklu oturum açma yöntemi daha sonra yapılandırabilirsiniz **çoklu oturum açma** Gezinti öğesi üzerinde bir kurumsal uygulamada [Azureportalı](https://portal.azure.com/).
 
-Çoklu oturum açma yöntemleri kullanabileceğiniz biri [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) seçeneği. İle **galeri dışı bir uygulama eklemek** deneyimi, bir HTML tabanlı bir kullanıcı adı işleyen herhangi bir uygulama tümleştirilebilir ve önceden tümleştirilmiş uygulamalar kümemizdeki içinde olsa bile alan, parolayı girin.
+Çoklu oturum açma yöntemleri kullanabileceğiniz biri [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) seçeneği. İle **galeri dışı bir uygulama eklemek** deneyimi, bir HTML tabanlı bir kullanıcı adı işleyen herhangi bir uygulama tümleştirilebilir ve önceden tümleştirilmiş uygulamalar kümemizdeki içinde olsa bile alan, parolayı girin.
 
 Bu işlemin çalıştığı kullanıcı adı ve parola giriş alanlarını otomatik olarak algıla, bunları güvenli bir şekilde depolamak için belirli uygulama örneğinizi olanak sağlayan erişim paneli uzantısı'nın bir parçası olan teknolojiyi değiştirilene bir sayfa yoludur. Bir kullanıcı bu uygulamayı uygulama erişim panelinde gittiğinde ardından güvenli bir şekilde kullanıcı adları ve parolalar için bu alanları yeniden yürütün.
 
@@ -47,7 +47,7 @@ Bu uygulama herhangi bir türden Azure AD'ye hızlı bir şekilde tümleştirmek
 
 -   İzin bir **yönetici** belirtmek için paylaşılan kullanıcı adı veya parola güncelleştirme kimlik bilgilerini kullanarak bir kişi grubu tarafından kullanılan özellik ne zaman [uygulamaya grup atama](#assign-an-application-to-a-group-directly)
 
-Aşağıdaki bölümde, nasıl olanak sağlayabileceğiniz açıklanmaktadır [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) kullanarak eklediğiniz herhangi bir uygulama için **galeri dışı bir uygulama eklemek** karşılaşırsınız.
+Aşağıdaki bölümde, nasıl olanak sağlayabileceğiniz açıklanmaktadır [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) kullanarak eklediğiniz herhangi bir uygulama için **galeri dışı bir uygulama eklemek** karşılaşırsınız.
 
 ## <a name="overview-of-steps-required"></a>Gerekli adımlara genel bakış
 

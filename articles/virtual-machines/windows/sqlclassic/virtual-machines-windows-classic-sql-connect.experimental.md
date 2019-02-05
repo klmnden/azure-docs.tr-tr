@@ -16,12 +16,12 @@ ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 558606b6993aff2053dfbbf6adfd864cd827bbb1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 51694ca085e131150217ffb3fbac9830980108cb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328989"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733527"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure’daki bir SQL Server Sanal Makinesi’ne Bağlanma (Klasik Dağıtım)
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ SQL Server'ın bir sanal makine üzerinde çalışan bir istemcinin bağlandığ
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Aynı bulut hizmetinde SQL Server'a bağlanma
-Birden çok sanal makine aynı bulut hizmetinde oluşturulabilir. Bu sanal makineler senaryo anlamak için bkz: [sanal makineleri bir sanal ağ veya Bulut hizmeti ile bağlama](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Bu senaryoda, aynı bulut hizmetinde başka bir sanal makinede çalışan SQL Server'a bağlanmak bir istemci bir sanal makine üzerinde çalışır.
+Birden çok sanal makine aynı bulut hizmetinde oluşturulabilir. Bu sanal makineler senaryo anlamak için bkz: [sanal makineleri bir sanal ağ veya Bulut hizmeti ile bağlama](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service). Bu senaryoda, aynı bulut hizmetinde başka bir sanal makinede çalışan SQL Server'a bağlanmak bir istemci bir sanal makine üzerinde çalışır.
 
 Bu senaryoda, sanal Makineyi kullanarak bağlantı kurabilir **adı** (Ayrıca olarak gösterilen **bilgisayar adı** veya **ana bilgisayar adı** Portalı'nda). Bu VM için oluşturma sırasında sağladığınız addır. Örneğin, SQL VM'nizi adlı **mysqlvm**, aynı bulut hizmetindeki bir istemci VM bağlanmak için şu bağlantı dizesini kullanabilirsiniz:
 
@@ -64,7 +64,7 @@ SQL Server veritabanı altyapısına Internet'ten bağlanmak istiyorsanız, gele
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Bu bağlantı dizesini bağlantı istemciler için internet üzerinden sağlar, ancak bu herkes SQL Server'ınıza bağlanmak göstermez. Dışında doğru kullanıcı adını ve parolayı istemciler vardır. Ek güvenlik için iyi bilinen bağlantı noktası 1433 genel sanal makine uç noktası için kullanmayın. Ve mümkün olduğunda, bir ACL'yi eklemeyi göz önünde bulundurun yalnızca istemcilere trafiği kısıtlamak için uç noktasında izin verir. ACL'leri kullanarak uç noktaları ile ilgili yönergeler için bkz: [bir uç nokta ACL'sini Yönet](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Bu bağlantı dizesini bağlantı istemciler için internet üzerinden sağlar, ancak bu herkes SQL Server'ınıza bağlanmak göstermez. Dışında doğru kullanıcı adını ve parolayı istemciler vardır. Ek güvenlik için iyi bilinen bağlantı noktası 1433 genel sanal makine uç noktası için kullanmayın. Ve mümkün olduğunda, bir ACL'yi eklemeyi göz önünde bulundurun yalnızca istemcilere trafiği kısıtlamak için uç noktasında izin verir. ACL'leri kullanarak uç noktaları ile ilgili yönergeler için bkz: [bir uç nokta ACL'sini Yönet](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
 > SQL Server ile iletişim kurmak için bu yöntemi kullandığınızda, normal tabi olan Azure veri merkezinden tüm giden veri [üzerinde giden veri aktarımları fiyatlandırma](https://azure.microsoft.com/pricing/details/data-transfers/).

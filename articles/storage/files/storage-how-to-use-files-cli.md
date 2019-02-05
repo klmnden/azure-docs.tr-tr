@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 82d1a83dfd96dd6d4c2b37567c745998a6f0cbdb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ddd97ea73ce476e72c0c94a756c749e5527799ae
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473519"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730790"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Hızlı Başlangıç: Oluşturma ve Azure CLI kullanarak Azure dosya paylaşımlarını yönetme
 Bu kılavuzda, Azure CLI kullanarak [Azure dosya paylaşımları](storage-files-introduction.md) ile çalışmanın temel kuralları gösterilmektedir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
@@ -34,7 +34,7 @@ az login
 ```
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Henüz bir Azure kaynak grubunuz yoksa, [az group create](/cli/azure/group#create) komutunu kullanarak bir tane oluşturabilirsiniz. 
+Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Henüz bir Azure kaynak grubunuz yoksa, [az group create](/cli/azure/group) komutunu kullanarak bir tane oluşturabilirsiniz. 
 
 Aşağıdaki örnek *EastUS* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 Depolama hesabı, Azure dosya paylaşımlarını veya bloblar veya sorgular gibi diğer depolama kaynaklarını dağıtabileceğiniz, paylaşılan bir depolama havuzudur. Bir depolama hesabında sınırsız sayıda dosya paylaşımı olabilir. Bir paylaşım, depolama hesabının kapasite limitlerine kadar sınırsız sayıda dosyayı depolayabilir.
 
-Aşağıdaki örnekte, [az storage account create](/cli/azure/storage/account#create) komutu kullanılarak *mystorageaccount\<random number\>* adlı bir depolama hesabı oluşturulur ve bu depolama hesabının adı `$STORAGEACCT` değişkenine yerleştirilir. Depolama hesabı adları benzersiz olmalıdır. `$RANDOM` kullanıldığında depolama hesabı adına bir sayı eklenerek benzer hale getirilir. 
+Aşağıdaki örnekte, [az storage account create](/cli/azure/storage/account) komutu kullanılarak *mystorageaccount\<random number\>* adlı bir depolama hesabı oluşturulur ve bu depolama hesabının adı `$STORAGEACCT` değişkenine yerleştirilir. Depolama hesabı adları benzersiz olmalıdır. `$RANDOM` kullanıldığında depolama hesabı adına bir sayı eklenerek benzer hale getirilir. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -67,7 +67,7 @@ STORAGEKEY=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
-Artık ilk Azure dosya paylaşımınızı oluşturabilirsiniz. Dosya paylaşımlarını oluşturmak için [az storage share create](/cli/azure/storage/share#create) komutunu kullanın. Bu örnekte *myshare* adlı bir Azure dosya paylaşımı oluşturulur: 
+Artık ilk Azure dosya paylaşımınızı oluşturabilirsiniz. Dosya paylaşımlarını oluşturmak için [az storage share create](/cli/azure/storage/share) komutunu kullanın. Bu örnekte *myshare* adlı bir Azure dosya paylaşımı oluşturulur: 
 
 ```azurecli-interactive
 az storage share create \
@@ -98,7 +98,7 @@ Kullanabilmeyi umdukları mevcut uygulama ve araçlarını kullanmalarına izin 
 Aşağıdaki örnekler Azure dosya paylaşımınıza dosya REST protokolü ile yönetmek için Azure CLI'yı kullanmayı gösterir. 
 
 ### <a name="create-a-directory"></a>Dizin oluşturma
-Azure dosya paylaşımınızın kökünde *myDirectory* adlı yeni bir dizin oluşturmak için [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) komutunu kullanın:
+Azure dosya paylaşımınızın kökünde *myDirectory* adlı yeni bir dizin oluşturmak için [`az storage directory create`](/cli/azure/storage/directory) komutunu kullanın:
 
 ```azurecli-interactive
 az storage directory create \
@@ -109,7 +109,7 @@ az storage directory create \
 ```
 
 ### <a name="upload-a-file"></a>Dosyayı karşıya yükleme
-[`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload) komutunu kullanarak bir dosyayı karşıya yükleme işlemini göstermek için öncelikle Cloud Shell karalama sürücüsünde karşıya yüklenecek bir dosya oluşturun. Aşağıdaki örnekte dosyayı oluşturup karşıya yüklersiniz:
+[`az storage file upload`](/cli/azure/storage/file) komutunu kullanarak bir dosyayı karşıya yükleme işlemini göstermek için öncelikle Cloud Shell karalama sürücüsünde karşıya yüklenecek bir dosya oluşturun. Aşağıdaki örnekte dosyayı oluşturup karşıya yüklersiniz:
 
 ```azurecli-interactive
 date > ~/clouddrive/SampleUpload.txt
@@ -261,7 +261,7 @@ az storage share delete \
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İşiniz bittiğinde, [`az group delete`](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu ve tüm ilgili kaynakları kaldırabilirsiniz: 
+İşiniz bittiğinde, [`az group delete`](/cli/azure/group) komutunu kullanarak kaynak grubunu ve tüm ilgili kaynakları kaldırabilirsiniz: 
 
 ```azurecli-interactive 
 az group delete --name "myResourceGroup"

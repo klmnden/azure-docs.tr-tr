@@ -4,17 +4,17 @@ description: Standartları zorunlu tutmak, yönetmeliklere uygunluğu ve denetim
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845631"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730280"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Uyumluluğu zorunlu tutmak için ilkeleri oluşturma ve yönetme
 
@@ -322,7 +322,7 @@ Yerleşik ilkeler de dahil olmak üzere tüm kullanılabilir ilke tanımlarını
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Girişim tanımı oluşturma ve atama
 
-Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir hedefe ulaşabilirsiniz. Bu kaynakların girişim tanımını oluşturan ilke tanımlarına uyumlu tanımı kalın kapsamında doğrulamak için girişim tanımı oluşturun. Girişim tanımları hakkında daha fazla bilgi için bkz. [Azure İlkesine genel bakış](../overview.md).
+Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir hedefe ulaşabilirsiniz. Dahil edilen ilkelere uyum için atama kapsamındaki kaynakların girişim değerlendirir. Girişim tanımları hakkında daha fazla bilgi için bkz. [Azure İlkesine genel bakış](../overview.md).
 
 ### <a name="create-an-initiative-definition"></a>Girişim tanımı oluşturma
 

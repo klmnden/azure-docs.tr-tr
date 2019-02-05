@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: f341c7e4a56aacb35ee16cbae00115196325b46a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c98e59cd0e547381d6b173b3a4b91c3a3e27b3a8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855831"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731130"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinesinde Oracle Data Guard'ı uygulayan 
 
@@ -70,7 +70,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-Kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. 
+Kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm) komutu. 
 
 Aşağıdaki örnekte adlı iki sanal makine oluşturulmaktadır `myVM1` ve `myVM2`. Bunlar varsayılan anahtar konumunda zaten yoksa, ayrıca SSH anahtarlarını oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
 

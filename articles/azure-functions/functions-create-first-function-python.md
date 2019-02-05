@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 631fc4e613311df9386084408ead625f6d018151
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2c14cdf963d1d6c792e6101d8a2179a560dcf096
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911899"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731266"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>(Önizleme) Azure'da ilk Python uygulamanızı oluşturma
 
@@ -179,7 +179,7 @@ Artık bir işlev uygulaması ve Azure'da yayımlamak için gerekli diğer kayna
 
 ## <a name="create-a-linux-function-app-in-azure"></a>Azure'da bir Linux işlev uygulaması oluşturma
 
-İşlev uygulaması, işlev kodunuzu yürütmeye yönelik bir ortam sağlar. Bu sayede daha kolay yönetilmesi, dağıtım ve kaynakların paylaşımı için bir mantıksal birim olarak gruplandırmanıza işlevleri. Oluşturma bir **Python işlev uygulamasını Linux üzerinde çalışan** kullanarak [az functionapp oluşturma](/cli/azure/functionapp#az_functionapp_create) komutu.
+İşlev uygulaması, işlev kodunuzu yürütmeye yönelik bir ortam sağlar. Bu sayede daha kolay yönetilmesi, dağıtım ve kaynakların paylaşımı için bir mantıksal birim olarak gruplandırmanıza işlevleri. Oluşturma bir **Python işlev uygulamasını Linux üzerinde çalışan** kullanarak [az functionapp oluşturma](/cli/azure/functionapp) komutu.
 
 Bir yerine benzersiz işlev uygulamanızın adını kullanarak aşağıdaki komutu çalıştırarak `<app_name>` yer tutucu ve depolama hesabı adı için `<storage_name>`. `<app_name>` aynı zamanda işlev uygulamasının varsayılan DNS etki alanıdır. Bu ad Azure'daki tüm uygulamalar arasında benzersiz olmalıdır.
 

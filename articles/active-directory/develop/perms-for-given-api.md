@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 473cc855e2667f0e87d79b99786c879c17dc6363
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3eb5b0d84186eb06af6f99695fee9419f25a91db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101167"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730960"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Belirli bir API için izinleri seçme 
 
 ## <a name="recommended-documents"></a>Önerilen belgeler
 
 - İstemci uygulamalarını kullanma hakkında daha fazla bilgi [yetkilendirilen ve uygulama izin isteklerini](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) kaynaklara erişmek için.
-- Nasıl yapılır ilgili adım adım yönergelere bakın [bir istemci uygulama izni isteklerini Yapılandır](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#configuring-a-client-application-to-access-web-apis)
+- Nasıl yapılır ilgili adım adım yönergelere bakın [bir istemci uygulama izni isteklerini Yapılandır](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 - Nasıl kaynak uygulamaları kullanıma daha fazla ayrıntı için bilgi [kapsamları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) ve [uygulama rolleri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) temsilci olarak bildirim istemci uygulamaları ve sırasıyla azure'da uygulama izinleri Portalı. 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kaanan
-ms.openlocfilehash: 36de5ec6f7384663106bfb88ee9f236cced6930a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0662b66d44533a888d491810ba45efac9a397aa1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997956"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700851"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Bir DOKUNUN Azure CLI kullanarak sanal ağ ile çalışma
 
@@ -79,7 +79,7 @@ Okuma [önkoşulları](virtual-network-tap-overview.md#prerequisites) bir sanal 
    - Azure iç yük dengeleyici ön uç IP yapılandırması sonraki adımlardan birinde kullanılan bir değişkenin içine alın. DOKUNUN trafiği toplayacak uç noktası kimliğidir. Aşağıdaki örnek Kimliğini alır. *frontendipconfig1* adlı bir yük dengeleyici için ön uç IP yapılandırması *myInternalLoadBalancer*, adlı bir kaynak grubu içinde  *myResourceGroup*:
 
       ```azurecli-interactive
-      FrondendIpConfigId=$(az network lb fronend-ip show \
+      FrontendIpConfigId=$(az network lb frontend-ip show \
       --name frontendipconfig1 \
       --lb-name myInternalLoadBalancer \
       --resource-group myResourceGroup \

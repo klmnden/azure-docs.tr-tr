@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: ade53ba29d165b3b33ef25dabda25c4e60022608
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4346b347994f49774584caf31a96ff2f81fdc0e1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133266"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701225"
 ---
 **Yapılandırma/işlem sunucusu gereksinimleri**
 
@@ -32,17 +32,28 @@ Boş disk alanı (bekletme diski) | 600 GB
 İşletim sistemi yerel ayarı | İngilizce (en-us)
 Windows Server rolleri | Bu rolleri etkinleştirmeyin: <br> - Active Directory Domain Services <br>- İnternet Bilgi Hizmetleri <br> - Hyper-V 
 Grup İlkeleri | Bu grup ilkeleri etkinleştirme: <br> -Komut istemine erişimi engelleyin. <br> -Kayıt defteri düzenleme araçlarına erişimi engelleyin. <br> -Mantıksal dosya ekleri için güven. <br> -Betik yürütmeyi açma. <br> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | -Önceden var olan varsayılan Web sitesi <br> -Önceden var olan Web sitesi/443 numaralı bağlantı noktasını dinlemeye uygulama <br>-Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı 
+IIS | -Önceden mevcut olan varsayılan Web sitesi <br> -Önceden var olan Web sitesi/443 numaralı bağlantı noktasını dinlemeye uygulama <br>-Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı 
 | 
 **AĞ AYARLARI** | 
 IP adresi türü | Statik 
-İnternet erişimi | Sunucusunun şu URL'lere erişimi olmalıdır (doğrudan veya proxy aracılığıyla): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> -https:\//management.azure.com <br> -*. Services.VisualStudio.com adresine <br> - time.nist.gov <br> - time.windows.com <br> OVF ayrıca aşağıdaki URL'lere erişim gerekir: <br> -https:\//login.microsoftonline.com <br> -https:\//secure.aadcdn.microsoftonline-p.com <br> -https:\//login.live.com  <br> -https:\//auth.gfx.ms <br> -https:\//graph.windows.net <br> -https:\//login.windows.net <br> -https:\//www.live.com <br> -https:\//www.microsoft.com <br> -https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı) 
 NIC türü | VMXNET3 (yapılandırma sunucusu VMware VM ise)
- | 
+ |
+**Internet erişimi** (sunucunun aşağıdaki URL'lere - doğrudan veya proxy üzerinden erişmesi):|
+\*.backup.windowsazure.com | Çoğaltılmış veri aktarımı ve düzenlemesi için kullanılır
+\*.store.core.windows.net | Çoğaltılmış veri aktarımı ve düzenlemesi için kullanılır
+\*.blob.core.windows.net | Çoğaltılan verileri depolayan depolama hesabına erişmek için kullanılan
+\*.hypervrecoverymanager.windowsazure.com | Çoğaltma yönetimi işlemleri ve düzenleme için kullanılır
+https:\//management.azure.com | Çoğaltma yönetimi işlemleri ve düzenleme için kullanılır 
+*.services.visualstudio.com | (İsteğe bağlı) telemetri amaçlar için kullanılır
+time.nist.gov | Sistem ile genel saat arasındaki saat eşitlemesini denetlemek için kullanılır.
+time.windows.com | Sistem ile genel saat arasındaki saat eşitlemesini denetlemek için kullanılır.
+- https:\//login.microsoftonline.com <br> -https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> -https:\//graph.windows.net <br> -https:\//login.windows.net <br> - https:\//www.live.com <br> -https:\//www.microsoft.com | OVF ayarlamak bu URL'lere erişimi olmalıdır. Erişim denetimi ve kimlik yönetimi için Azure Active Directory tarafından kullanılır
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL indirmeyi tamamlamak için
+|
 **YÜKLENECEK YAZILIM** | 
 VMware vSphere Powerclı | [Powerclı 6.0 sürümünün](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) yapılandırma sunucusunu bir VMware sanal makine üzerinde çalışıyorsa yüklü olması gerekir.
-MYSQL | MySQL yüklü olması gerekir. El ile yükleyebilirsiniz veya Site Recovery yükleyebilirsiniz.
+MYSQL | MySQL yüklü olması gerekir. El ile yükleyebilirsiniz veya Site Recovery yükleyebilirsiniz. (Bakın [ayarlarını yapılandırma](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) daha fazla bilgi için)
 
 **Yapılandırma/işlem sunucusu boyutlandırma gereksinimleri**
 

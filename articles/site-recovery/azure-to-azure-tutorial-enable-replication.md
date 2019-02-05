@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0e73c0f94e0aa240349aec45b4a146ba5eb37dab
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103528"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700783"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
 
@@ -170,7 +170,7 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
     - **Uygulamayla tutarlı anlık görüntü sıklığı**: Varsayılan olarak, Site Recovery, 4 saatte bir uygulamayla tutarlı anlık görüntüsünü alır. 1 ile 12 saat arasında bir değer yapılandırabilirsiniz. Uygulamayla tutarlı anlık görüntü, VM’nin içindeki uygulama verilerinin belirli bir noktadaki anlık görüntüsüdür. Birim Gölge Kopyası Hizmeti (VSS), anlık görüntü alınırken VM’deki uygulamanın tutarlı bir durumda olmasını sağlar.
     - **Çoğaltma grubu**: Uygulamanız VM'ler arasında çoklu VM tutarlılığı gerekiyorsa, bu sanal makineler için çoğaltma grubu oluşturabilirsiniz. Seçilen VM’ler varsayılan olarak hiçbir çoğaltma grubunun parçası değildir.
 
-5. İçinde **Özelleştir**seçin **Evet** Vm'leri yeni veya mevcut çoğaltma grubuna eklemek istiyorsanız, çoklu VM tutarlılığı için. Vm'leri yapmak için bir çoğaltma grubunun parçası. Daha sonra, **Tamam**'a tıklayın.
+5. İçinde **Özelleştir**seçin **Evet** Vm'leri yeni veya mevcut çoğaltma grubuna eklemek istiyorsanız, çoklu VM tutarlılığı için. Daha sonra, **Tamam**'a tıklayın.
 
     - Bir çoğaltma grubundaki tüm makineler, yük devredildiğinde paylaşılan kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarına sahip olur. Çoklu VM tutarlılığını etkinleştirmek etkileyebilir iş yükü performansı (CPU kullanımı yoğun olduğu gibi) ve yalnızca makineler aynı iş yükünü çalıştıran ve birden fazla makine arasında tutarlılık ihtiyacınız varsa kullanılmalıdır.
     - Çoğaltma grubunda en fazla 16 sanal makineler, sahip olmayı seçebilirsiniz.

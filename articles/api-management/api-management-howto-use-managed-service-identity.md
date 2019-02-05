@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: b7208943a27bcd184100ae426721a2fe8f6e1c72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970493"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730756"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure API Yönetimi'nde Azure yönetilen hizmet kimliğini kullanma
 
@@ -38,7 +38,7 @@ Portalda bir yönetilen hizmet kimliği ayarlamak için önce normal olarak API 
 
 ### <a name="using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanma
 
-Kaynak tanımı'nda aşağıdaki özellikler dahil olmak üzere API Management örneği bir kimlikle oluşturabilirsiniz: 
+Kaynak tanımı'nda aşağıdaki özellikler dahil olmak üzere API Management örneği bir kimlikle oluşturabilirsiniz:
 
 ```json
 "identity" : {
@@ -46,7 +46,7 @@ Kaynak tanımı'nda aşağıdaki özellikler dahil olmak üzere API Management �
 }
 ```
 
-Bu, oluşturmak ve API Management örneğinizin kimlik yönetmek için Azure bildirir. 
+Bu, oluşturmak ve API Management örneğinizin kimlik yönetmek için Azure bildirir.
 
 Örneğin, tam Azure Resource Manager şablonu aşağıdakine benzeyebilir:
 
@@ -70,8 +70,8 @@ Bu, oluşturmak ve API Management örneğinizin kimlik yönetmek için Azure bil
                 "publisherEmail": "admin@contoso.com",
                 "publisherName": "Contoso"
             },
-            "identity": { 
-                "type": "systemAssigned" 
+            "identity": {
+                "type": "systemAssigned"
             }
         }
     ]
@@ -81,14 +81,14 @@ Bu, oluşturmak ve API Management örneğinizin kimlik yönetmek için Azure bil
 
 > [!NOTE]
 > Şu anda, yönetilen hizmet kimliği sertifikaları Azure Key Vault'tan API Management için özel etki alanı adlarını almak için kullanılabilir. Daha fazla senaryo aktarılması yakında desteklenecek.
-> 
+>
 >
 
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Azure Key Vault'tan bir sertifika alın
 
 #### <a name="prerequisites"></a>Önkoşullar
-1. Pfx sertifikası içeren Key Vault Azure aboneliğine ve API Management hizmeti ile aynı kaynak grubunda olması gerekir. Bu, Azure Resource Manager şablonunun bir gereksinimdir. 
+1. Pfx sertifikası içeren Key Vault Azure aboneliğine ve API Management hizmeti ile aynı kaynak grubunda olması gerekir. Bu, Azure Resource Manager şablonunun bir gereksinimdir.
 2. İçerik türünü gizli dizi olmalıdır *application/x-pkcs12*. Sertifikayı karşıya yüklemek için aşağıdaki betiği kullanabilirsiniz:
 
 ```powershell
@@ -106,7 +106,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 ```
 
 > [!Important]
-> Sertifika nesnesi sürümünü sağlanmazsa, anahtar Kasası'na yüklendikten sonra API Management sertifika daha yeni sürümünü otomatik olarak edinin. 
+> Sertifika nesnesi sürümünü sağlanmazsa, anahtar Kasası'na yüklendikten sonra API Management sertifika daha yeni sürümünü otomatik olarak edinin.
 
 Aşağıdaki örnek, aşağıdaki adımları içeren bir Azure Resource Manager şablonu gösterir:
 
@@ -180,7 +180,6 @@ Aşağıdaki örnek, aşağıdaki adımları içeren bir Azure Resource Manager 
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
         "tags": {
-            
         },
         "sku": {
             "name": "[parameters('sku')]",
@@ -197,10 +196,10 @@ Aşağıdaki örnek, aşağıdaki adımları içeren bir Azure Resource Manager 
     {
         "type": "Microsoft.KeyVault/vaults/accessPolicies",
         "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2015-06-01",        
-      "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
+        "apiVersion": "2015-06-01",
+        "dependsOn": [
+            "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+        ],
         "properties": {
             "accessPolicies": [{
                 "tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
@@ -211,28 +210,28 @@ Aşağıdaki örnek, aşağıdaki adımları içeren bir Azure Resource Manager 
             }]
         }
     },
-    { 
-      "apiVersion": "2017-05-10", 
-      "name": "apimWithKeyVault", 
-      "type": "Microsoft.Resources/deployments",
-      "dependsOn": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "apimWithKeyVault",
+        "type": "Microsoft.Resources/deployments",
+        "dependsOn": [
         "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
-      "properties": { 
-        "mode": "incremental", 
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
-          "contentVersion": "1.0.0.0"
-        }, 
-        "parameters": {
-            "publisherEmail": { "value": "[parameters('publisherEmail')]"},
-            "publisherName": { "value": "[parameters('publisherName')]"},
-            "sku": { "value": "[parameters('sku')]"},
-            "skuCount": { "value": "[parameters('skuCount')]"},
-            "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
-            "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+        ],
+        "properties": {
+            "mode": "incremental",
+            "templateLink": {
+                "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "publisherEmail": { "value": "[parameters('publisherEmail')]"},
+                "publisherName": { "value": "[parameters('publisherName')]"},
+                "sku": { "value": "[parameters('sku')]"},
+                "skuCount": { "value": "[parameters('skuCount')]"},
+                "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
+                "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+            }
         }
-      } 
     }]
 }
 ```
@@ -243,4 +242,3 @@ Azure yönetilen hizmet kimliği hakkında daha fazla bilgi edinin:
 
 * [Azure kaynakları için Yönetilen hizmet kimliği](../active-directory/msi-overview.md)
 * [Azure Resource Manager şablonları](https://github.com/Azure/azure-quickstart-templates)
-

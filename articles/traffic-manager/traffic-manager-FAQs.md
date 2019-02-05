@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: a6a8fee942edf4cec98a6d2f46eb2f63b7595c09
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200056"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696816"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager'ın sık sorulan sorular (SSS)
 
@@ -285,7 +285,7 @@ Evet. 'Hazırlama yuvası' bulut hizmeti, dış uç noktalar olarak Traffic Mana
 
 ### <a name="does-traffic-manager-support-ipv6-endpoints"></a>Traffic Manager, IPv6 uç noktaları destekliyor mu?
 
-Traffic Manager ad sunucularına IPv6 addressible şu anda sağlamaz. Ancak, Traffic Manager Uç noktalara IPv6 IPv6 istemciler tarafından hala kullanılabilir. Bir istemci doğrudan Traffic Manager DNS istekleri yapmaz. Bunun yerine, istemci bir özyinelemeli DNS hizmeti kullanır. Bir yalnızca IPv6 istemci IPv6 üzerinden özyinelemeli DNS hizmeti istekleri gönderir. Ardından özyinelemeli hizmet IPv4 kullanarak Traffic Manager ad sunucularıyla ile bağlantı kurabiliyor olması.
+Traffic Manager, şu anda IPv6 adresleme ad sunucularını sağlamaz. Ancak, Traffic Manager Uç noktalara IPv6 IPv6 istemciler tarafından hala kullanılabilir. Bir istemci doğrudan Traffic Manager DNS istekleri yapmaz. Bunun yerine, istemci bir özyinelemeli DNS hizmeti kullanır. Bir yalnızca IPv6 istemci IPv6 üzerinden özyinelemeli DNS hizmeti istekleri gönderir. Ardından özyinelemeli hizmet IPv4 kullanarak Traffic Manager ad sunucularıyla ile bağlantı kurabiliyor olması.
 
 Traffic Manager uç noktasının IP adresini ve DNS adı ile yanıt verir. Bir IPv6 uç nokta desteklemek için iki seçenek vardır. Uç nokta Traffic Manager'ın sistem durumu denetimi, uç nokta ve sorgu yanıtına bir CNAME kaydı olarak türüne olur ve ilişkili bir AAAA kaydı olan bir DNS adı olarak ekleyebilirsiniz. IPv6 adresi ve Traffic Manager kullanarak bir AAAA türü kayıt sorgu yanıtında döndürür doğrudan bu uç nokta da ekleyebilirsiniz. 
 

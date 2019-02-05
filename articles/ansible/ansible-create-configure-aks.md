@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: c4f78d8bb43b26814dc3a4b94109dfd8719cb48f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: df1efc1506fbbe51ba5afb03f147c51a57d9bbdb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54258841"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727067"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Ansible'ı kullanarak Azure'da Azure Kubernetes Service kümeleri oluşturma ve yapılandırma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Ansible'ı kullanarak Azure Kubernetes Service (AKS) örneğinizi yönetebilirsiniz. Bu makalede Ansible'ı kullanarak Azure Kubernetes Service kümesi oluşturma ve yapılandırma adımları gösterilmektedir.
@@ -25,13 +25,13 @@ Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.6 gerekir. 
+> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.6 gerekir.
 
 ## <a name="create-a-managed-aks-cluster"></a>Yönetilen AKS kümesi oluşturma
 Bu bölümdeki kod, bir kaynak grubu ve kaynak grubunda bulunan bir AKS kümesi oluşturmak için örnek Ansible playbook sunar.
 
 > [!Tip]
-> İçin `your_ssh_key` yer tutucusu, tek satırlı biçimde (tırnak işaretleri olmadan) "ssh-rsa" ile başlayan - RSA ortak anahtarınızı girin. 
+> İçin `your_ssh_key` yer tutucusu, tek satırlı biçimde (tırnak işaretleri olmadan) "ssh-rsa" ile başlayan - RSA ortak anahtarınızı girin.
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -71,8 +71,8 @@ Bu bölümdeki kod, bir kaynak grubu ve kaynak grubunda bulunan bir AKS kümesi 
   ```
 
 Aşağıdaki maddeler yukarıdaki Ansible playbook kodunun açıklanmasına yardımcı olur:
-- **tasks** içindeki ilk bölüm, **eastus** konumunda **myResourceGroup** adlı bir kaynak grubu oluşturur. 
-- **tasks** bölümündeki ikinci bölüm, **myResourceGroup** kaynak grubunun içinde **myAKSCluster** adlı bir AKS kümesi tanımlar. 
+- **tasks** içindeki ilk bölüm, **eastus** konumunda **myResourceGroup** adlı bir kaynak grubu oluşturur.
+- **tasks** bölümündeki ikinci bölüm, **myResourceGroup** kaynak grubunun içinde **myAKSCluster** adlı bir AKS kümesi tanımlar.
 
 Ansible ile AKS kümesi oluşturmak için önceki örnek playbook'u `azure_create_aks.yml` olarak kaydedin ve playbook'u şu komutla çalıştırın:
 
@@ -100,10 +100,10 @@ Ansible ile AKS kümesi oluşturmak için önceki örnek playbook'u `azure_creat
 
 ## <a name="scale-aks-nodes"></a>AKS düğümlerini ölçeklendirme
 
-Önceki bölümde yer alan örnek playbook, iki düğüm tanımlar. Kümenizde daha az veya daha fazla kapsayıcı iş yüküne ihtiyacınız varsa düğüm sayısını kolayca ayarlayabilirsiniz. Bu bölümdeki örnek playbook, düğüm sayısını ikiden üçe çıkarır. Düğüm sayısını değiştirmek için **agent_pool_profiles** bloğundaki **count** değerini değiştirmeniz gerekir. 
+Önceki bölümde yer alan örnek playbook, iki düğüm tanımlar. Kümenizde daha az veya daha fazla kapsayıcı iş yüküne ihtiyacınız varsa düğüm sayısını kolayca ayarlayabilirsiniz. Bu bölümdeki örnek playbook, düğüm sayısını ikiden üçe çıkarır. Düğüm sayısını değiştirmek için **agent_pool_profiles** bloğundaki **count** değerini değiştirmeniz gerekir.
 
 > [!Tip]
-> İçin `your_ssh_key` yer tutucusu, tek satırlı biçimde (tırnak işaretleri olmadan) "ssh-rsa" ile başlayan - RSA ortak anahtarınızı girin. 
+> İçin `your_ssh_key` yer tutucusu, tek satırlı biçimde (tırnak işaretleri olmadan) "ssh-rsa" ile başlayan - RSA ortak anahtarınızı girin.
 
 ```yaml
 - name: Scale AKS cluster
@@ -120,10 +120,10 @@ Ansible ile AKS kümesi oluşturmak için önceki örnek playbook'u `azure_creat
   tasks:
   - name: Scaling an existed AKS cluster
     azure_rm_aks:
-        name: "{{ aks_name }}"    
+        name: "{{ aks_name }}"
         location: "{{ location }}"
-        resource_group: "{{ resource_group }}" 
-        dns_prefix: "{{ aks_name }}" 
+        resource_group: "{{ resource_group }}"
+        dns_prefix: "{{ aks_name }}"
         linux_profile:
           admin_username: "{{ username }}"
           ssh_key: "{{ ssh_key }}"
@@ -168,7 +168,7 @@ Aşağıdaki örnek Ansible playbook bölümü, AKS kümesinin nasıl silineceğ
       resource_group: myResourceGroup
       aks_name: myAKSCluster
     tasks:
-    - name: 
+    - name:
       azure_rm_aks:
         name: "{{ aks_name }}"
         resource_group: "{{ resource_group }}"
@@ -193,7 +193,7 @@ TASK [azure_rm_aks] ************************************************************
 PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0
   ```
-  
+
 ## <a name="next-steps"></a>Sonraki adımlar
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Öğretici: Azure Kubernetes Service (AKS) uygulama ölçeklendirme](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL veritabanı yönetilen örneği Azure AD oturum açma bilgilerinin kullanılması güvenlik | Microsoft Docs
+title: Azure SQL veritabanı yönetilen örneği güvenliği Azure AD oturum açma bilgilerinin kullanılması | Microsoft Docs
 description: Teknikleri ve güvenli bir Azure SQL veritabanı yönetilen örneği için özellikleri hakkında bilgi edinin ve Azure AD oturum açma kullanın
 services: sql-database
 ms.service: sql-database
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: f96b2853b887836a94091dcba0ceaf6f8dd43d12
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/04/2019
+ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229479"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732779"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Öğretici: Azure AD oturum açma bilgileri kullanarak Azure SQL veritabanı örneği güvenlik yönetilen
 
-Azure SQL veritabanı yönetilen örneği, en son SQL Server (Enterprise Edition) veritabanı altyapısı olan şirket neredeyse tüm güvenlik özellikleri sağlar:
+Yönetilen örnek, en son SQL Server (Enterprise Edition) veritabanı altyapısı olan şirket neredeyse tüm güvenlik özellikleri sağlar:
 
 - Yalıtılmış bir ortamda erişimi sınırlandırma
 - Kimlik (Azure AD, SQL kimlik doğrulaması) gerektiren kimlik doğrulama mekanizmaları kullanma
@@ -29,7 +29,7 @@ Azure SQL veritabanı yönetilen örneği, en son SQL Server (Enterprise Edition
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> - Yönetilen örnek için bir Azure Active Directory (AD) oturum açma oluşturma
+> - Bir Azure Active Directory (AD) oturum açma işlemi için bir yönetilen örnek oluşturma
 > - Yönetilen örnek Azure AD oturum açma izinleri verme
 > - Azure AD kullanıcıları Azure AD oturum açma bilgilerinden oluştur
 > - Azure AD kullanıcılarını ve yönetilen bir veritabanı güvenlik izinleri Ata
@@ -38,7 +38,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > - Tehdit koruması, Denetim, veri maskeleme ve şifreleme gibi güvenlik özellikleri hakkında bilgi edinin
 
 > [!NOTE]
-> SQL veritabanı yönetilen örneği için Azure AD oturum açma zamanı **genel Önizleme**.
+> Yönetilen örnek için Azure AD oturum açma zamanı **genel Önizleme**.
 
 Daha fazla bilgi için bkz. [Azure SQL veritabanı yönetilen örneği'ne genel bakış](sql-database-managed-instance-index.yml) ve [özellikleri](sql-database-managed-instance.md) makaleler.
 
@@ -48,30 +48,30 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulların karşılandığın
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - Bir Azure SQL veritabanı yönetilen örneği
-    - Bu makaleyi izleyin: [Hızlı Başlangıç: Bir Azure SQL veritabanı yönetilen örneği oluşturma](sql-database-managed-instance-get-started.md)
-- Azure SQL veritabanı yönetilen örneğine erişmek kullanabilir ve [yönetilen örneği için bir Azure AD Yöneticisi sağlanan](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Daha fazla bilgi için bkz:
-    - [Uygulamanızı Azure SQL Veritabanı Yönetilen Örneği'ne bağlayın](sql-database-managed-instance-connect-app.md) 
-    - [Azure SQL Veritabanı Yönetilen Örneği Bağlantı Mimarisi](sql-database-managed-instance-connectivity-architecture.md)
+  - Bu makaleyi izleyin: [Hızlı Başlangıç: Bir Azure SQL veritabanı yönetilen örneği oluşturma](sql-database-managed-instance-get-started.md)
+- Yönetilen Örneğinize erişmek kullanabilir ve [yönetilen örnek için bir Azure AD Yöneticisi sağlanan](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Daha fazla bilgi için bkz:
+    - [Yönetilen örnek uygulamanızı bağlayın](sql-database-managed-instance-connect-app.md) 
+    - [Yönetilen örnek bağlantı mimarisi](sql-database-managed-instance-connectivity-architecture.md)
     - [Yapılandırma ve Azure Active Directory kimlik doğrulaması SQL ile yönetme](sql-database-aad-authentication-configure.md)
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Yönetilen Örneğinize erişimi sınırlandırma
 
-Yönetilen örnekleri yalnızca özel bir IP adresi erişilebilir. Yönetilen örnek Ağ dışından yönetilen örneğe bağlanmak kullanılabilir olan hiçbir hizmet uç noktaları vardır. Bir bağlantı kurulmadan önce çok bir yalıtılmış SQL Server şirket içi ortamda gibi uygulamalara veya kullanıcılara yönetilen örnek ağa (VNet) erişim gerekir. Daha fazla bilgi için şu makaleye bakın [uygulamanızı Azure SQL veritabanı yönetilen örneği bağlamak](sql-database-managed-instance-connect-app.md).
+Yönetilen örnekleri yalnızca özel bir IP adresi erişilebilir. Yönetilen örnek Ağ dışından bir yönetilen örneğine bağlanmak kullanılabilir olan hiçbir hizmet uç noktaları vardır. Bir bağlantı kurulmadan önce çok bir yalıtılmış SQL Server şirket içi ortamda gibi uygulamalara veya kullanıcılara yönetilen örnek ağa (VNet) erişim gerekir. Daha fazla bilgi için şu makaleye bakın [uygulamanızın yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
-> Yönetilen örnekler yalnızca kendi sanal ağ içinde erişilebildiğinden [SQL veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md) geçerli değildir. Yönetilen örneğe sahip kendi [yerleşik güvenlik duvarı](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Yönetilen örnekleri yalnızca kendi sanal ağ içinde erişilebildiğinden [SQL veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md) geçerli değildir. Yönetilen örnek sahip kendi [yerleşik güvenlik duvarı](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
-## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>Bir Azure AD oturum açma bir SSMS kullanarak yönetilen örneği için oluşturma
+## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>SSMS kullanarak bir yönetilen örnek için bir Azure AD oturum açma bilgilerini oluşturma
 
 İlk Azure AD oturum açma standart SQL Server hesabı tarafından (azure dışı AD) oluşturulmalıdır bir `sysadmin`. Örnekleri, yönetilen Örneğinize bağlanmak için aşağıdaki makalelere bakın:
 
-- [Hızlı Başlangıç: Azure VM, Azure SQL veritabanı yönetilen örneğine bağlanmak için yapılandırın](sql-database-managed-instance-configure-vm.md)
-- [Hızlı Başlangıç: Noktadan siteye bağlantı, şirket içinden Azure SQL veritabanı yönetilen örneği için yapılandırma](sql-database-managed-instance-configure-p2s.md)
+- [Hızlı Başlangıç: Yönetilen bir örneğine bağlanmak için Azure sanal makinesi yapılandırma](sql-database-managed-instance-configure-vm.md)
+- [Hızlı Başlangıç: Noktadan siteye bağlantı için bir yönetilen örnek şirket içinden yapılandırın.](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> Yönetilen örneği ' kurmak için kullanılan Azure AD Yöneticisi, bir Azure AD oturum açma işlemi içinde yönetilen örneği oluşturmak için kullanılamaz. Bir SQL Server hesabı kullanarak ilk Azure AD oturum açma oluşturmalısınız bir `sysadmin`. Azure AD oturum açma bilgileri büyüyecek haline sonra kaldırılacak geçici bir sınırlama budur. Oturumu oluşturmak için bir Azure AD yönetici hesabı kullanmayı denerseniz aşağıdaki hatayı görürsünüz: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> Yönetilen örnek'kurmak için kullanılan Azure AD Yöneticisi, bir Azure AD oturum açma işlemi içinde yönetilen örnek oluşturmak için kullanılamaz. Bir SQL Server hesabı kullanarak ilk Azure AD oturum açma oluşturmalısınız bir `sysadmin`. Azure AD oturum açma bilgileri büyüyecek haline sonra kaldırılacak geçici bir sınırlama budur. Oturumu oluşturmak için bir Azure AD yönetici hesabı kullanmayı denerseniz aşağıdaki hatayı görürsünüz: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
-1. Olan standart bir SQL Server hesabı (azure dışı AD) kullanarak yönetilen örneğe ', oturum bir `sysadmin`kullanarak [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Yönetilen Örneğinize olan standart bir SQL Server hesabı (azure dışı AD) kullanarak oturum bir `sysadmin`kullanarak [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. İçinde **Nesne Gezgini**, sunucuya sağ tıklayın ve seçin **yeni sorgu**.
 
@@ -107,7 +107,7 @@ Yönetilen örnekleri yalnızca özel bir IP adresi erişilebilir. Yönetilen ö
 
 Daha fazla bilgi için [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
-## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Yönetilen örnek oturumlarının izin vermek için izinleri veriliyor
+## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Yönetilen örnek oturum açma bilgileri oluşturulmasına izin vermek için izinleri veriliyor
 
 Diğer Azure AD oturum açma bilgileri oluşturmak için SQL Server rollerini veya izinleri sorumlusuna (SQL veya Azure AD) verilmelidir.
 
@@ -124,7 +124,7 @@ Diğer Azure AD oturum açma bilgileri oluşturmak için SQL Server rollerini ve
 
 Oturum açma eklemek için `sysadmin` sunucu rolü:
 
-1. Yeniden oturum yönetilen örneğe, veya var olan bağlantısı olan SQL Sorumluyla bir `sysadmin`.
+1. Yeniden oturum yönetilen örneğine veya SQL sorumlusu ile var olan bağlantıyı kullanın bir `sysadmin`.
 
 1. İçinde **Nesne Gezgini**, sunucuya sağ tıklayın ve seçin **yeni sorgu**.
 
@@ -146,7 +146,7 @@ Oturum açma eklemek için `sysadmin` sunucu rolü:
 
 Azure AD oturum açma oluşturulduğundan ve sağlanan sonra `sysadmin` ayrıcalıkları, oturum açma kullanarak ek oturumlar oluşturabilirsiniz **gelen dış sağlayıcı** yan tümcesiyle **CREATE LOGIN**.
 
-1. Yönetilen örnek sunucusu SQL Server Management Studio kullanarak Azure AD oturum açma bilgileriyle bağlanın. Yönetilen örnek sunucunuzun adını girin. Ssms'de kimlik doğrulaması için bir Azure AD hesabıyla oturum açarken seçmek için üç seçenek vardır:
+1. SQL Server Management Studio kullanarak Azure AD oturum açma ile yönetilen örneğine bağlanın. Yönetilen örnek ana bilgisayar adınızı girin. Ssms'de kimlik doğrulaması için bir Azure AD hesabıyla oturum açarken seçmek için üç seçenek vardır:
 
     - Active Directory - MFA desteğiyle Evrensel
     - Active Directory - Parola
@@ -172,7 +172,7 @@ Azure AD oturum açma oluşturulduğundan ve sağlanan sonra `sysadmin` ayrıcal
 
     Bu örnek, Azure AD kullanıcı için bir oturum oluşturur bob@aadsqlmi.net, olan etki alanı aadsqlmi.net ile Azure AD aadsqlmi.onmicrosoft.com Federasyon.
 
-    Aşağıdaki T-SQL komutunu yürütün. Federasyon Azure AD hesapları olan şirket içi Windows oturum açma bilgileri ve kullanıcılar için yönetilen örneği değişiklik.
+    Aşağıdaki T-SQL komutunu yürütün. Federasyon Azure AD hesapları olan şirket içi Windows oturum açma bilgileri ve kullanıcılar için yönetilen örnek değiştirmeler.
 
     ```sql
     USE master
@@ -181,7 +181,7 @@ Azure AD oturum açma oluşturulduğundan ve sağlanan sonra `sysadmin` ayrıcal
     GO
     ```
 
-1. Yönetilen örneği kullanarak bir veritabanı oluşturun [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) söz dizimi. Bu veritabanı, kullanıcı oturum açma bilgileri, sonraki bölümde test etmek için kullanılır.
+1. Bir veritabanı kullanarak yönetilen örnek oluşturma [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) söz dizimi. Bu veritabanı, kullanıcı oturum açma bilgileri, sonraki bölümde test etmek için kullanılır.
     1. İçinde **Nesne Gezgini**, sunucuya sağ tıklayın ve seçin **yeni sorgu**.
     1. Sorgu penceresinde, adlı bir veritabanı oluşturmak için aşağıdaki sözdizimini kullanın. **MyMITestDB**.
 
@@ -203,7 +203,7 @@ Azure AD oturum açma oluşturulduğundan ve sağlanan sonra `sysadmin` ayrıcal
     GO
     ```
 
-1. Bir test olarak yönetilen örneği yeni oluşturulan oturum açma veya Grup ile oturum açın. Yeni bir bağlantı yönetilen örneği'ni açın ve yeni oturum açma kimlik doğrulaması yapılırken kullanın.
+1. Yönetilen örnek yeni oluşturulan oturum açma veya Grup ile bir test olarak oturum açın. Yönetilen örnek için yeni bir bağlantı açmak ve yeni oturum açma kimlik doğrulaması yapılırken kullanın.
 1. İçinde **Nesne Gezgini**, sunucuya sağ tıklayın ve seçin **yeni sorgu** yeni bağlantı için.
 1. Yeni oluşturulan sunucu izinlerini denetlemek aşağıdaki komutu yürüterek Azure AD oturum açma:
 
@@ -213,13 +213,13 @@ Azure AD oturum açma oluşturulduğundan ve sağlanan sonra `sysadmin` ayrıcal
     ```
 
 > [!NOTE]
-> Azure AD Konuk kullanıcılar için yönetilen örneği oturum açma bilgileri, yalnızca bir Azure AD grubunun bir parçası eklendiğinde desteklenir. Bir Azure AD Konuk kullanıcı başka bir Azure AD için yönetilen örneğe ait Azure AD'ye davet hesaptır. Örneğin, joe@contoso.com (Azure AD hesabı) veya steve@outlook.com (MSA hesabı), Azure AD aadsqlmi bir gruba eklenebilir. Kullanıcıları grubuna eklendikten sonra yönetilen örneği'nde bir oturum açma oluşturulabilir **ana** grubu kullanmak için veritabanı **CREATE LOGIN** söz dizimi. Bu grubun üyeleri olan konuk kullanıcılar yönetilen kendi geçerli oturumları kullanarak sunucuya bağlanabilirsiniz (örneğin, joe@contoso.com veya steve@outlook.com).
+> Azure AD Konuk kullanıcılar için yönetilen örnek oturum açma bilgileri, yalnızca bir Azure AD grubunun bir parçası eklendiğinde desteklenir. Bir Azure AD Konuk kullanıcı yönetilen örnek için başka bir Azure AD'den ait Azure AD'ye davet hesaptır. Örneğin, joe@contoso.com (Azure AD hesabı) veya steve@outlook.com (MSA hesabı), Azure AD aadsqlmi bir gruba eklenebilir. Bir oturum açma kullanıcıları grubuna eklendikten sonra yönetilen örneğinde oluşturulabilir **ana** grubu kullanmak için veritabanı **CREATE LOGIN** söz dizimi. Bu grubun üyeleri olan konuk kullanıcılar, kendi geçerli oturumları kullanarak yönetilen örneğe bağlanabilir (örneğin, joe@contoso.com veya steve@outlook.com).
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>Azure AD oturum açma işlemi Azure AD kullanıcısı oluşturun ve izinleri verme
 
-SQL Server şirket içi ile yaptığı gibi ayrı ayrı veritabanlarına yetkilendirme çok aynı şekilde yönetilen örneği'nde çalışır. Bir kullanıcı bir veritabanında var olan bir oturum oluşturuldu ve bu veritabanı için izinleri ile sağlanan veya bir veritabanı rolüne eklenir.
+SQL Server şirket içi ile yaptığı gibi yetkilendirme ayrı veritabanlarına yönetilen örneğinde çok aynı şekilde çalışır. Bir kullanıcı bir veritabanında var olan bir oturum oluşturuldu ve bu veritabanı için izinleri ile sağlanan veya bir veritabanı rolüne eklenir.
 
-Biz adlı bir veritabanı oluşturduğunuza göre **MyMITestDB**, ve yalnızca varsayılan izinleri olan bir oturum açma, sonraki adım bir kullanıcı, oturum açma işlemi oluşturmaktır. Şu anda yönetilen örnek için oturum açma bağlanabilir ve tüm veritabanlarına bakın, ancak veritabanlarıyla etkileşim kuramaz. Varsayılan izinleri olan Azure AD hesabıyla oturum açın ve yeni oluşturulan veritabanına genişletmeye çalışırsanız, aşağıdaki hatayı görürsünüz:
+Biz adlı bir veritabanı oluşturduğunuza göre **MyMITestDB**, ve yalnızca varsayılan izinleri olan bir oturum açma, sonraki adım bir kullanıcı, oturum açma işlemi oluşturmaktır. Şu anda oturum açma yönetilen bağlanabilir örneğini ve tüm veritabanlarına bakın, ancak veritabanlarıyla etkileşim kuramaz. Varsayılan izinleri olan Azure AD hesabıyla oturum açın ve yeni oluşturulan veritabanına genişletmeye çalışırsanız, aşağıdaki hatayı görürsünüz:
 
 ![SSMS-db-not-accessible.png](media/sql-database-managed-instance-security-tutorial/ssms-db-not-accessible.png)
 
@@ -227,7 +227,7 @@ Veritabanı izinleri vererek daha fazla bilgi için bkz: [veritabanı altyapıs�
 
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Bir Azure AD kullanıcısı oluşturun ve örnek tablo oluşturma
 
-1. Yönetilen örneği kullanarak günlük bir `sysadmin` SQL Server Management Studio'yu kullanarak hesap.
+1. Yönetilen örnek kullanarak günlük bir `sysadmin` SQL Server Management Studio'yu kullanarak hesap.
 1. İçinde **Nesne Gezgini**, sunucuya sağ tıklayın ve seçin **yeni sorgu**.
 1. Sorgu penceresinde, bir Azure AD oturum açma işlemi Azure AD kullanıcı oluşturmak için aşağıdaki sözdizimini kullanın:
 
@@ -292,7 +292,7 @@ Veritabanı izinleri vererek daha fazla bilgi için bkz: [veritabanı altyapıs�
 
 Kullanıcı veritabanındaki verileri görmek sağladığımız [veritabanı düzeyinde roller](/sql/relational-databases/security/authentication-access/database-level-roles) kullanıcı.
 
-1. Yönetilen örneği kullanarak günlük bir `sysadmin` SQL Server Management Studio'yu kullanarak hesap.
+1. Yönetilen örnek kullanarak günlük bir `sysadmin` SQL Server Management Studio'yu kullanarak hesap.
 
 1. İçinde **Nesne Gezgini**, sunucuya sağ tıklayın ve seçin **yeni sorgu**.
 
@@ -344,7 +344,7 @@ Yönetilen örnek, Azure AD sunucu düzeyi asıl hesaplar (oturum açma bilgiler
 
 ### <a name="test-impersonation"></a>Test kimliğe bürünme
 
-1. Yönetilen örneği kullanarak günlük bir `sysadmin` SQL Server Management Studio'yu kullanarak hesap.
+1. Yönetilen örnek kullanarak günlük bir `sysadmin` SQL Server Management Studio'yu kullanarak hesap.
 
 1. İçinde **Nesne Gezgini**, sunucuya sağ tıklayın ve seçin **yeni sorgu**.
 
@@ -381,11 +381,11 @@ Yönetilen örnek, Azure AD sunucu düzeyi asıl hesaplar (oturum açma bilgiler
 > - EXECUTE AS USER
 > - EXECUTE AS LOGIN
 
-## <a name="using-cross-database-queries-in-managed-instances"></a>Veritabanları arası sorgular yönetilen örnekleri'nde kullanma
+## <a name="using-cross-database-queries-in-managed-instances"></a>Veritabanları arası sorgular kullanarak yönetilen örnekler
 
 Veritabanları arası sorgular, Azure AD oturum açma bilgileri ile Azure AD hesapları için desteklenir. Azure AD grubu ile platformlar arası sorgu testi için biz başka bir veritabanı ve tablo oluşturmanız gerekir. Bir zaten varsa, başka bir veritabanı ve tablo oluşturma atlayabilirsiniz.
 
-1. Yönetilen örneği kullanarak günlük bir `sysadmin` SQL Server Management Studio'yu kullanarak hesap.
+1. Yönetilen örnek kullanarak günlük bir `sysadmin` SQL Server Management Studio'yu kullanarak hesap.
 1. İçinde **Nesne Gezgini**, sunucuya sağ tıklayın ve seçin **yeni sorgu**.
 1. Sorgu penceresinde, adlı bir veritabanı oluşturmak için aşağıdaki komutu kullanın. **MyMITestDB2** ve adlı tablo **TestTable2**:
 
@@ -414,7 +414,7 @@ Veritabanları arası sorgular, Azure AD oturum açma bilgileri ile Azure AD hes
     GO
     ```
 
-1. Azure AD grubunun bir üyesi olarak SQL Server Management Studio kullanarak yönetilen örneğe oturum _mygroup_. Yeni bir sorgu penceresi açın ve veritabanları arası SELECT deyimini yürütün:
+1. Yönetilen örnek SQL Server Management Studio kullanarak Azure AD grubunun bir üyesi olarak oturum _mygroup_. Yeni bir sorgu penceresi açın ve veritabanları arası SELECT deyimini yürütün:
 
     ```sql
     USE MyMITestDB
@@ -439,7 +439,7 @@ Veritabanları arası sorgular, Azure AD oturum açma bilgileri ile Azure AD hes
 
 ### <a name="enable-security-features"></a>Güvenlik özelliklerini etkinleştirme
 
-Şu [yönetilen örneği özellikleri güvenlik özellikleri](sql-database-managed-instance.md#azure-sql-database-security-features) kapsamlı bir liste için bir makale birkaç yolla yapılandırarak veritabanınızın güvenliğini sağlama. Aşağıdaki güvenlik özellikleri ele alınmıştır:
+Şu [yönetilen örnek özellikleri güvenlik özellikleri](sql-database-managed-instance.md#azure-sql-database-security-features) kapsamlı bir liste için bir makale birkaç yolla yapılandırarak veritabanınızın güvenliğini sağlama. Aşağıdaki güvenlik özellikleri ele alınmıştır:
 
 - [Yönetilen örnek denetleme](sql-database-managed-instance-auditing.md) 
 - [Her zaman şifreli](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
@@ -450,7 +450,7 @@ Veritabanları arası sorgular, Azure AD oturum açma bilgileri ile Azure AD hes
 
 ### <a name="managed-instance-capabilities"></a>Yönetilen örnek özellikleri
 
-Bir Azure SQL veritabanı yönetilen örneği'nın özellikleri eksiksiz bir genel bakış için bkz:
+Yönetilen örnek özellikleri eksiksiz bir genel bakış için bkz:
 
 > [!div class="nextstepaction"]
 > [Yönetilen örnek özellikleri](sql-database-managed-instance.md)

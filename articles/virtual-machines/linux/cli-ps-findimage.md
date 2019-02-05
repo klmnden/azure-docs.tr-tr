@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5076c662390c9a28682930e8c5f06cfc79f7134b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 443020bd6ca024cb5a04b2a8be5b7cbe7122efac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169702"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734148"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI ile Azure Marketi'nde, Linux VM görüntüleri bulma
 
@@ -35,7 +35,7 @@ En son yüklü olduğundan emin olun [Azure CLI](/cli/azure/install-azure-cli) v
 
 ## <a name="list-popular-images"></a>Popüler görüntüleri listeleme
 
-Çalıştırma [az vm görüntüsü listesi](/cli/azure/vm/image#az_vm_image_list) olmadan komut `--all` seçeneği, popüler VM görüntüleri Azure Market'te bir listesini görmek için. Örneğin, önbellekteki popüler görüntülerin listesini tablo biçiminde görüntülemek için aşağıdaki komutu çalıştırın:
+Çalıştırma [az vm görüntüsü listesi](/cli/azure/vm/image) olmadan komut `--all` seçeneği, popüler VM görüntüleri Azure Market'te bir listesini görmek için. Örneğin, önbellekteki popüler görüntülerin listesini tablo biçiminde görüntülemek için aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az vm image list --output table
@@ -152,7 +152,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201901221        
 
 ## <a name="navigate-the-images"></a>Görüntüleri gidin
  
-Bir konumda bir görüntü bulmak için başka bir yol [az vm görüntüsü listesi-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm görüntüsü listesi-offers](/cli/azure/vm/image), ve [az vm görüntüsü listesi-skus](/cli/azure/vm/image#az_vm_image_list_skus) komutları dizisi. Bu komutları ile bu değerleri belirler:
+Bir konumda bir görüntü bulmak için başka bir yol [az vm görüntüsü listesi-publishers](/cli/azure/vm/image), [az vm görüntüsü listesi-offers](/cli/azure/vm/image), ve [az vm görüntüsü listesi-skus](/cli/azure/vm/image) komutları dizisi. Bu komutları ile bu değerleri belirler:
 
 1. Görüntü yayımcılarını listeleyin.
 2. Belirli bir yayımcı varsa yayımcının tekliflerini listeleyin.
@@ -278,7 +278,7 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-Artık tam olarak URN değeri not yararlanarak kullanmak istediğiniz görüntüyü seçebilirsiniz. Bu değer ile `--image` ile bir VM oluşturduğunuzda, parametre [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. "Son" URN sürüm numarasını isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman görüntüsünün son sürümünü sürümüdür. 
+Artık tam olarak URN değeri not yararlanarak kullanmak istediğiniz görüntüyü seçebilirsiniz. Bu değer ile `--image` ile bir VM oluşturduğunuzda, parametre [az vm oluşturma](/cli/azure/vm) komutu. "Son" URN sürüm numarasını isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman görüntüsünün son sürümünü sürümüdür. 
 
 Resource Manager şablonu ile bir VM dağıtırsanız, görüntü parametrelerini içinde tek tek ayarlayın `imageReference` özellikleri. Bkz. [şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines).
 
@@ -337,7 +337,7 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 
 ### <a name="accept-the-terms"></a>Koşulları kabul et
 
-Lisans koşullarını kabul edin ve görüntülemek için kullanın [az vm görüntüsü kabul koşulları](/cli/azure/vm/image?#az_vm_image_accept_terms) komutu. Koşulları kabul ettiğinde, aboneliğinizde programlamalı dağıtım etkinleştirin. Görüntü için abonelik başına bir kez kabul etmek yeterlidir. Örneğin:
+Lisans koşullarını kabul edin ve görüntülemek için kullanın [az vm görüntüsü kabul koşulları](/cli/azure/vm/image?) komutu. Koşulları kabul ettiğinde, aboneliğinizde programlamalı dağıtım etkinleştirin. Görüntü için abonelik başına bir kez kabul etmek yeterlidir. Örneğin:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

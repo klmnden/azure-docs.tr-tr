@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 61cfc458ed965fd4f1446ff8cfb5e9a6e244f246
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332396"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731725"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler'de SQL Server için Güvenlikle İlgili Dikkat Edilmesi Gerekenler
 
@@ -54,7 +54,7 @@ Portalındaki seçili seçenekler gelen güvenlik kuralları VM'ye ait kullanın
 
 Ağ trafiği kısıtlamak için NSG kurallarının yanı sıra, sanal makinede Windows Güvenlik Duvarı'nı kullanabilirsiniz.
 
-Uç noktaları ile klasik dağıtım modelini kullanıyorsanız, bunları kullanmıyorsanız sanal makinedeki tüm uç noktaları kaldırın. ACL'leri kullanarak uç noktaları ile ilgili yönergeler için bkz: [bir uç nokta ACL'sini Yönet](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint). Bu Kaynak Yöneticisi'ni kullanan VM'ler için gerekli değildir.
+Uç noktaları ile klasik dağıtım modelini kullanıyorsanız, bunları kullanmıyorsanız sanal makinedeki tüm uç noktaları kaldırın. ACL'leri kullanarak uç noktaları ile ilgili yönergeler için bkz: [bir uç nokta ACL'sini Yönet](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Bu Kaynak Yöneticisi'ni kullanan VM'ler için gerekli değildir.
 
 Son olarak, şifrelenmiş bağlantılar, Azure sanal makinesinde SQL Server veritabanı altyapısı örneği için etkinleştirmeyi düşünün. SQL server örneği, imzalanmış bir sertifikayla yapılandırın. Daha fazla bilgi için [etkinleştirme şifrelenmiş veritabanı altyapısı bağlantılarını](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) ve [bağlantı dizesi söz dizimi](https://msdn.microsoft.com/library/ms254500.aspx).
 

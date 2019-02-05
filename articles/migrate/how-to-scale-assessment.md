@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6b74c81f44ee747cdd80a1106b669d89c8c7fbc3
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297149"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733646"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -22,7 +22,7 @@ Azure geçişi, proje başına 1500 makineyi sınırı vardır, bu makalede kull
 - **VMware**: Geçirmeyi planladığınız sanal makineleri, vCenter Server sürüm 5.5, 6.0, 6.5 veya 6.7 tarafından yönetilmelidir. Ayrıca, 5.5 veya sonraki Toplayıcı VM'yi dağıtmak için bir ESXi ana çalışan sürümü gerekir.
 - **vCenter hesabı**: VCenter Server'a erişmek için salt okunur bir hesap gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
 - **İzinleri**: VCenter Server'da, bir dosyayı OVA biçiminde içeri aktararak VM oluşturma izni gerekir.
-- **İstatistik ayarları**: Bu gereksinim yalnızca geçerlidir [tek seferlik modeli](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) kullanım dışı şimdi. Dağıtımı başlatmadan önce tek seferlik modeli için vCenter Server için istatistik ayarları düzeyini 3 ayarlanması gerekir. İstatistik düzeyini 3 olarak her gün, haftanın günü ve ay toplama aralıkları için ayarlamanız sağlamaktır. Düzeyi üç toplama aralıkları için 3'ten daha düşük olan, değerlendirme çalışır, ancak depolama ve ağ için performans verileri toplanmaz. Boyut önerileri, CPU ve bellek için performans verilerini ve disk ve ağ bağdaştırıcıları için yapılandırma verilerini ardından hesaplanır.
+- **İstatistik ayarları**: Bu gereksinim yalnızca geçerlidir [tek seferlik modeli](https://docs.microsoft.com/azure/migrate/concepts-collector) kullanım dışı şimdi. Dağıtımı başlatmadan önce tek seferlik modeli için vCenter Server için istatistik ayarları düzeyini 3 ayarlanması gerekir. İstatistik düzeyini 3 olarak her gün, haftanın günü ve ay toplama aralıkları için ayarlamanız sağlamaktır. Düzeyi üç toplama aralıkları için 3'ten daha düşük olan, değerlendirme çalışır, ancak depolama ve ağ için performans verileri toplanmaz. Boyut önerileri, CPU ve bellek için performans verilerini ve disk ve ağ bağdaştırıcıları için yapılandırma verilerini ardından hesaplanır.
 
 > [!NOTE]
 > Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır.

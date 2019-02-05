@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 904cd593022006bc16908664fb7d7d0e3f6f24b0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c869d129d901a5c8dee7ed09b907805980e5c573
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455227"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727203"
 documentType: LandingData
 title: Azure SQL veritabanı - Gelişmiş Güvenlik
 metadata:
@@ -91,9 +91,9 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Tehdit koruması <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">yönetilen örnekler</a> ve <a href="/azure/sql-database/sql-database-threat-detection">veritabanları</a> erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar.
-    - html: İçin denetimi <a href="/azure/sql-database/sql-database-managed-instance-auditing">yönetilen örnekler</a> ve <a href="/azure/sql-database/sql-database-auditing">veritabanları</a> veritabanı olaylarını izler ve bir denetim günlüğüne, Azure depolama hesabı, OMS çalışma alanına veya olay hub'ları yazar.
+    - html: Tehdit koruması <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">yönetilen örnekleri</a> ve <a href="/azure/sql-database/sql-database-threat-detection">veritabanları</a> erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar.
+    - html: İçin denetimi <a href="/azure/sql-database/sql-database-managed-instance-auditing">yönetilen örnekleri</a> ve <a href="/azure/sql-database/sql-database-auditing">veritabanları</a> veritabanı olaylarını izler ve bir denetim günlüğüne, Azure depolama hesabı, OMS çalışma alanına veya olay hub'ları yazar.
     - html: <a href="/azure/sql-database/sql-database-firewall-configure">Veritabanı sunucusu güvenlik duvarı kuralları</a> tek veritabanları etkinleştirmeniz, hangi IP adresleri denetlemek için veritabanınıza erişebilirsiniz.
-    - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet tümleştirmesi</a> yönetilen örneği'nde, kendi özel adres alanında veritabanlarını yerleştirilmesine olanak sağlar.
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet tümleştirmesi</a> içinde yönetilen örnek veritabanları kendi özel adres alanında yerleştirmenizi sağlar.
     - html: <a href="/azure/sql-database/sql-database-always-encrypted">Her zaman şifreli</a> istemci ve sunucu arasında taşıma sırasında sunucu üzerinde bekleyen hassas verileri koruyan ve veri kullanımda olsa da, hassas verileri hiçbir zaman içinde bir veritabanı sistemi düz metin olarak göründüğünü sağlama.
     - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">Dinamik veri maskeleme</a> önlemeye yardımcı olur yetkisiz erişim için hassas verileri uygulama katmanı üzerinde en az etki ile ortaya çıkarmak için hassas verilerin ne kadar müşterilerin etkinleştirerek.

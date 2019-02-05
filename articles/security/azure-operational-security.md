@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aafa1acdf6cca58ea0cfbc968f73ce13eb65bf91
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256230"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700511"
 ---
 # <a name="azure-operational-security"></a>Azure çalışma güvenliği
 ## <a name="introduction"></a>Giriş
@@ -135,31 +135,31 @@ Güvenlik Merkezi, verilerinizin güvenlik durumunu değerlendirmek, güvenlik �
 
 - Azure Güvenlik Merkezi, güvenlik durumunuzu görüntüleme, güvenlik açıklarını tanımlayıp çözümler önerme ve etkin tehditleri saptama amacıyla aşağıdaki kaynaklarda bulunan verileri analiz eder:
 
--   Azure Hizmetleri: Dağıttığınız Azure hizmetlerinin yapılandırmasına ilişkin bilgileri, ilgili hizmetin kaynak sağlayıcısıyla iletişim kurarak kullanır.
+-   Azure Hizmetleri: Azure hizmetlerinin yapılandırmasına ilişkin ilgili hizmetin kaynak sağlayıcısıyla iletişim kurarak dağıttığınız bilgileri kullanır.
 
-- Ağ Trafiği: Microsoft’un altyapısından kaynak/hedef IP/bağlantı noktası, paket boyutu ve ağ protokolü gibi örneği alınmış ağ trafiği meta verilerini kullanır.
+- Ağ trafiği: Microsoft'un altyapısından kaynak/hedef IP/bağlantı noktası gibi ağ trafiği meta verilerini, paket boyutu ve ağ protokolü kullanan örnek.
 
--   İş Ortağı Çözümleri: Güvenlik duvarları ve kötü amaçlı yazılımdan koruma çözümleri gibi tümleşik iş ortağı çözümlerinden güvenlik uyarılarını kullanır.
+-   İş ortağı çözümleri: Güvenlik duvarları ve kötü amaçlı yazılımdan koruma çözümleri gibi tümleşik iş ortağı çözümlerinden güvenlik uyarılarını kullanır.
 
--   Sanal Makineleriniz: Sanal makinelerinizdeki yapılandırma bilgilerini ve Windows olay ve denetim günlükleri, IIS günlükleri, syslog iletileri ve kilitlenme dökümü dosyaları gibi güvenlik olaylarına ilişkin bilgileri kullanır.
+-   Sanal makineleriniz: Yapılandırma bilgilerini ve Windows olay ve Denetim günlükleri, IIS günlükleri, syslog iletileri ve sanal makinelerinizdeki kilitlenme dökümü dosyaları gibi güvenlik olaylarına ilişkin bilgileri kullanır.
 
 ### <a name="data-protection"></a>Veri koruma
 
 Müşterilerin tehditleri önlemesine, algılamasına ve yanıt vermesine yardımcı olmak amacıyla Azure Güvenlik Merkezi, güvenlikle ilgili veriler, meta veriler, olay günlükleri, kilitlenme dökümü dosyaları ve diğer verileri toplar ve işler. Microsoft kodlamadan hizmet çalıştırma konularına kadar her alanda uyumluluk ve güvenlik yönergelerine kesin olarak bağlı kalmaktadır.
 
--   **Veri ayırma**: Veriler hizmet boyunca her bir bileşende mantıksal olarak ayrı tutulur. Tüm veriler kuruluşa göre etiketlenir. Bu etiketleme, veri yaşam döngüsü boyunca devam eder ve her bir hizmet katmanında uygulanır.
+-   **Veriler arasında ayrım yapma**: Veriler hizmet boyunca her bir bileşende mantıksal olarak ayrı tutulur. Tüm veriler kuruluşa göre etiketlenir. Bu etiketleme, veri yaşam döngüsü boyunca devam eder ve her bir hizmet katmanında uygulanır.
 
--   **Veri erişimi**: güvenlik önerileri sağlamak ve olası güvenlik tehditlerini araştırmak üzere Microsoft personeli erişebileceği toplanan bilgiler veya Analiz edilen kilitlenme döküm dosyaları da dahil olmak üzere Azure Hizmetleri tarafından işlem oluşturma olayları, VM diski Anlık görüntüler ve yapılar, yanlışlıkla müşteri verilerini ya da sanal makinelerinizdeki kişisel verileri içerebilir. Türetmeyeceğini [Microsoft çevrimiçi hizmet koşulları ve gizlilik bildirimini](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), Microsoft olmayan hangi durum müşteri verilerini veya reklam ya da benzeri ticari amaçlarla bundan bilgi.
+-   **Veri erişimi**: Güvenlik önerileri sağlamak ve olası güvenlik tehditlerini araştırmak üzere Microsoft personeli erişebileceği toplanan bilgiler veya göre Azure Hizmetleri, analiz kilitlenme dökümü dosyaları gibi oluşturma olayları, VM diski anlık görüntüleri ve yapıtları, işlem, yanlışlıkla müşteri verilerini ya da sanal makinelerinizdeki kişisel verileri içerebilir. Türetmeyeceğini [Microsoft çevrimiçi hizmet koşulları ve gizlilik bildirimini](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), Microsoft olmayan hangi durum müşteri verilerini veya reklam ya da benzeri ticari amaçlarla bundan bilgi.
 
--   **Veri kullanımı**: Microsoft önleme ve algılama özelliklerimizi geliştirmek amacıyla birden fazla kiracıda görülen modelleri ve tehdit bilgilerini kullanır; bunu [Gizlilik Bildirimi](https://www.microsoft.com/en-us/privacystatement/OnlineServices/) belgemizde açıklanan gizlilik taahhütlerine uygun şekilde yaparız.
+-   **Veri kullanımı**: Microsoft desenleri ve birden fazla kiracıda görülen tehdit önleme ve algılama özelliklerimizi geliştirmek için kullanır; Bunu açıklanan gizlilik taahhütlerine uygun şekilde yaptığımız bizim [gizlilik bildirimi](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
 ### <a name="data-location"></a>Veri konumu
 
 Azure Güvenlik Merkezi, kilitlenme döküm dosyalarının kısa ömürlü kopyalarını toplar ve açıktan yararlanma girişimlerinin ve başarılı uzlaşmaların kanıtı olarak analiz eder. Azure Güvenlik Merkezi bu analizi çalışma alanıyla aynı coğrafi bölgede gerçekleştirir ve analiz tamamlandığında kısa ömürlü kopyaları siler. Makine yapıları VM ile aynı bölgede merkezi olarak depolanır.
 
--   **Depolama hesaplarınızı**: sanal makinelerin çalıştığı her bölge için bir depolama hesabı belirtilir. Bunun yapılması verileri, verilerin toplandığı sanal makine ile aynı bölgede depolamanızı sağlar.
+-   **Depolama hesaplarınızı**: Sanal makinelerinin çalıştığı her bölge için bir depolama hesabı belirtilir. Bunun yapılması verileri, verilerin toplandığı sanal makine ile aynı bölgede depolamanızı sağlar.
 
--   **Azure Güvenlik Merkezi Depolama**: İş ortağı uyarıları, öneriler ve güvenlik durumu gibi güvenlik uyarıları hakkında bilgiler, şu anda Birleşik Devletler’de bulunan merkezde depolanmaktadır. Bu bilgiler size güvenlik uyarısı, öneri veya sistem durumu sağlamak üzere gerektiğinde sanal makinelerinizden toplanan ilgili yapılandırma bilgilerini ve güvenlik olaylarını içerebilir.
+-   **Azure Güvenlik Merkezi deposunda**: İş ortağı uyarıları, öneriler ve güvenlik sistem durumu gibi güvenlik uyarıları hakkında bilgi merkezi, şu anda Amerika Birleşik Devletleri'nde depolanır. Bu bilgiler size güvenlik uyarısı, öneri veya sistem durumu sağlamak üzere gerektiğinde sanal makinelerinizden toplanan ilgili yapılandırma bilgilerini ve güvenlik olaylarını içerebilir.
 
 
 ## <a name="azure-monitor"></a>Azure İzleyici
@@ -218,7 +218,7 @@ Azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını sağla
 
 Ağ güvenlik denetimi, ağ güvenlik açıklarını algılama ve BT güvenlik ve Mevzuat idare modeli ile uyumluluk sağlamak için önemlidir. Güvenlik grubu görünümü ile yapılandırılan ağ güvenlik grubu ve güvenlik kuralları ve geçerli güvenlik kuralları alabilirsiniz. Uygulanan kuralları listesiyle açık olduğundan ve ağ güvenlik açığı değerlendirme bağlantı noktaları belirleyebilirsiniz.
 
-[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) koşulları içinde azure'a veya azure'dan ağ düzeyinde izlemenizi ve tanılamanızı sağlayan bölgesel bir hizmettir. Ağ Tanılama ve görselleştirme araçları Ağ İzleyicisi ile kullanılabilen anlamanıza, tanılamanıza ve ağınıza azure'da Öngörüler elde etmeye yardımcı olur. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
+[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) koşulları içinde azure'a veya azure'dan ağ düzeyinde izlemenizi ve tanılamanızı sağlayan bölgesel bir hizmettir. Ağ Tanılama ve görselleştirme araçları Ağ İzleyicisi ile kullanılabilen anlamanıza, tanılamanıza ve ağınıza azure'da Öngörüler elde etmeye yardımcı olur. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
 
 ![Azure Ağ İzleyicisi](./media/azure-operational-security/azure-operational-security-fig8.png)
 

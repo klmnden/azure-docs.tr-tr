@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 875240b779f05c1b13f71bf2133b9abfaa209239
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223366"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733476"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Bilişsel hizmetler konuşma cihaz SDK'sı Al
 
@@ -46,7 +46,7 @@ Subject: You're invited to the Microsoft organization
 
 Kayıt sırasında sağladığınız e-posta adresiyle Azure AD'ye katılmak için aşağıdaki adımları tamamlayın. Bu işlem için konuşma cihaz SDK'sı erişiminizi [yükleme sitesine](https://shares.datatransfer.microsoft.com/).
 
-1. Aldığınız e-posta iletisinde seçin **Başlarken**. Kuruluşunuz zaten bir Office 365 müşterisi ise, oturum açmanız istenir ve İleri 8. adımına atlayabilirsiniz.
+1. Aldığınız e-posta iletisinde seçin **Başlarken**. Kuruluşunuz zaten bir Office 365 müşterisi ise, oturum açmanız istenir ve İleri 7. adıma atlayabilirsiniz.
 
 2. Açılır tarayıcı penceresinde seçin **sonraki**.
 

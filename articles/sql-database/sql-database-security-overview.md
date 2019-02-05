@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462027"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728411"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -40,14 +40,14 @@ IP güvenlik duvarı kurallarını her isteğin kaynak IP adresine göre veritab
 [Sanal ağ kuralları](sql-database-vnet-service-endpoint-rule-overview.md) yalnızca bir sanal ağ içinde seçilen alt ağlar gönderildiği iletişimi kabul etmek Azure SQL veritabanı'nı etkinleştirin.
 
 > [!NOTE]
-> Güvenlik duvarı kuralları ile erişimi denetleme mu *değil* uygulamak **Azure SQL veritabanı yönetilen örneği**. Ağ yapılandırması hakkında daha fazla bilgi için bkz gerekli [yönetilen örneği'ne bağlanma](sql-database-managed-instance-connect-app.md)
+> Güvenlik duvarı kuralları ile erişimi denetleme mu *değil* uygulamak **yönetilen örnek**. Ağ yapılandırması hakkında daha fazla bilgi için bkz gerekli [bir yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md)
 
 ## <a name="access-management"></a>Erişim Yönetimi
 
 > [!IMPORTANT]
 > Veritabanları ve Azure içinde veritabanı sunucularını yönetme, portal kullanıcı hesabınızın rol atamaları tarafından denetlenir. Bu makalede hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 Kimlik doğrulaması, kullanıcı kanıtlama işlemini kim iddia şeklindedir. Azure SQL veritabanı iki kimlik doğrulaması türünü destekler:
 
@@ -64,7 +64,7 @@ Kimlik doğrulaması, kullanıcı kanıtlama işlemini kim iddia şeklindedir. A
     Ek Azure AD kimlik doğrulama seçenekleri kullanılabilir [Active Directory Evrensel kimlik doğrulaması için SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) bağlantılar dahil olmak üzere [multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) ve [ Koşullu erişim](sql-database-conditional-access.md).
 
 > [!IMPORTANT]
-> Veritabanları ve Azure içinde sunucularını yönetme, portal kullanıcı hesabınızın rol atamaları tarafından denetlenir. Bu makalede hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi](../role-based-access-control/overview.md). Güvenlik duvarı kuralları ile erişimi denetleme mu *değil* uygulamak **Azure SQL veritabanı yönetilen örneği**. Üzerinde lütfen şu makaleye bakın [yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md) gereken ağ yapılandırması hakkında daha fazla bilgi.
+> Veritabanları ve Azure içinde sunucularını yönetme, portal kullanıcı hesabınızın rol atamaları tarafından denetlenir. Bu makalede hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi](../role-based-access-control/overview.md). Güvenlik duvarı kuralları ile erişimi denetleme mu *değil* uygulamak **yönetilen örnek**. Üzerinde lütfen şu makaleye bakın [bir yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md) gereken ağ yapılandırması hakkında daha fazla bilgi.
 
 Yetkilendirme, bir Azure SQL veritabanındaki bir kullanıcıya atanan izinleri belirtir ve kullanıcı yapmak için verileceğini belirler. İzinleri, kullanıcı hesapları eklenerek denetlenir [veritabanı rolleri](/sql/relational-databases/security/authentication-access/database-level-roles) veritabanı düzeyi izinler veya belirli kullanıcı verme tanımlayan [nesne düzeyi izinleri](/sql/relational-databases/security/permissions-database-engine). Daha fazla bilgi için [oturumlar ve kullanıcılar](sql-database-manage-logins.md)
 
@@ -86,11 +86,11 @@ SQL veritabanı denetim ve tehdit algılama özellikleri sağlayarak müşteri v
 
 ### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>Log Analytics ve olay hub'ları SQL denetimi
 
-SQL veritabanı denetimi veritabanı etkinliklerini izler ve veritabanı olaylarını bir denetim kaydı tarafından güvenlik standartlarıyla uyumluluğu korumak için yardımcı bir müşteriye ait Azure depolama hesabında oturum. Denetim, kullanıcıların devam eden veritabanı etkinliklerini izleme yanı sıra analiz ve olası tehditleri veya kötüye kullanım ve güvenlik ihlallerini tespit edildiğinde alınan önlemlerin belirlemek için geçmiş etkinlikleri araştırın sağlar. Daha fazla bilgi için bkz: ile çalışmaya başlama [SQL Database Auditing](sql-database-auditing.md).  
+SQL veritabanı denetimi veritabanı etkinliklerini izler ve veritabanı olaylarını bir denetim kaydı tarafından güvenlik standartlarıyla uyumluluğu sürdürmesine yardımcı olur, müşteriye ait Azure depolama hesabında oturum. Denetim, kullanıcıların devam eden veritabanı etkinliklerini izleme yanı sıra analiz ve olası tehditleri veya kötüye kullanım ve güvenlik ihlallerini tespit edildiğinde alınan önlemlerin belirlemek için geçmiş etkinlikleri araştırın sağlar. Daha fazla bilgi için bkz: ile çalışmaya başlama [SQL Database Auditing](sql-database-auditing.md).  
 
-### <a name="sql-threat-detection"></a>SQL tehdit algılama
+### <a name="threat-detection"></a>Tehdit algılama
 
-Tehdit algılama, olağan dışı davranış için denetim günlüklerini analiz tarafından denetim ve potansiyel olarak zararlı geliştirir, erişim veya veritabanı açıklarından yararlanmaya dener. Uyarılar, şüpheli etkinlikler veya SQL ekleme saldırıları, olası veri habersiz kalabilir ve parola deneme yanılma saldırıları gibi anormal erişim desenleri için oluşturulur. Tehdit algılama uyarıları, gelen görüntülendiğinde [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/)burada kuşkulu etkinliklerin Ayrıntılar verilmiştir ve öneriler için daha fazla araştırma tehdidi azaltmak için Eylemler ile birlikte verilir. Tehdit algılama, sunucu/15 ABD Doları/ay maliyeti. İlk 60 gün boyunca ücretsizdir. Daha fazla bilgi için bkz. [SQL Veritabanı Tehdit Algılamayı kullanmaya başlayın](sql-database-threat-detection.md).
+Tehdit algılama, olağan dışı davranış için denetim günlüklerini analiz tarafından denetim ve potansiyel olarak zararlı geliştirir, erişim veya veritabanı açıklarından yararlanmaya dener. Uyarılar, şüpheli etkinlikler veya SQL ekleme saldırıları, olası veri habersiz kalabilir ve parola deneme yanılma saldırıları gibi anormal erişim desenleri için oluşturulur. Tehdit algılama uyarıları, gelen görüntülendiğinde [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/)burada kuşkulu etkinliklerin Ayrıntılar verilmiştir ve öneriler için daha fazla araştırma tehdidi azaltmak için Eylemler ile birlikte verilir. Tehdit algılama, sunucu/15 ABD Doları/ay maliyeti. İlk 60 gün boyunca ücretsizdir. Daha fazla bilgi için [SQL veritabanı tehdit algılamayı kullanmaya başlama](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -137,11 +137,11 @@ SQL veritabanı dinamik veri maskeleme, hassas verilerin görünürlüğünü ay
 
 ## <a name="security-management"></a>Güvenlik yönetimi
 
-### <a name="sql-vulnerability-assessment"></a>SQL Güvenlik Açığı Değerlendirmesi
+### <a name="vulnerability-assessment"></a>Güvenlik açığı değerlendirmesi
 
-[SQL güvenlik açığı değerlendirmesi](sql-vulnerability-assessment.md) bir kolayca bulmak, izlemek ve proaktif olarak genel veritabanı güvenliği artırmak amacıyla olası veritabanı güvenlik açıklarını düzeltin yardımcı hizmetini yapılandırmak. Güvenlik Açığı değerlendirmesi (VA) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir SQL gelişmiş veri güvenliği (REKLAM) sunan bir parçasıdır. Güvenlik Açığı değerlendirmesi, erişilebilir ve merkezi SQL REKLAM portalı üzerinden yönetilebilir.
+[Güvenlik Açığı değerlendirmesi](sql-vulnerability-assessment.md) bir kolayca bulmak, izlemek ve proaktif olarak genel veritabanı güvenliği artırmak amacıyla olası veritabanı güvenlik açıklarını düzeltin yardımcı hizmetini yapılandırmak. Güvenlik Açığı değerlendirmesi (VA) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir gelişmiş veri güvenliği (REKLAM) sunan bir parçasıdır. Güvenlik Açığı değerlendirmesi, erişilebilir ve merkezi SQL REKLAM portalı üzerinden yönetilebilir.
 
-### <a name="data-discovery--classification"></a>Veri bulma & sınıflandırma
+### <a name="data-discovery--classification"></a>Veri bulma ve sınıflandırma
 
 Veri bulma & sınıflandırma (şu anda önizlemede), Azure SQL veritabanı'na bulma, Sınıflandırma, etiketleme ve veritabanlarınızı hassas verileri korumak için gelişmiş özellikler sunar. Rol, bulma ve Sınıflandırma, büyük/küçük harfe duyarlı verilerinizi (iş/finansal, sağlık hizmetleri, kişisel verileri, vb.), kurumsal bilgi koruma stature oynatabilirsiniz. Altyapı olarak hizmet eder:
 
@@ -149,7 +149,7 @@ Veri bulma & sınıflandırma (şu anda önizlemede), Azure SQL veritabanı'na b
 - Erişimi denetleme ve güvenlik, sağlamlaştırma son derece hassas verileri içeren veritabanı.
 - Veri gizliliği standartlarını ve yasal uyumluluk gereksinimlerini karşılamak yardımcı olur.
 
-Daha fazla bilgi için [SQL DB veri bulma & sınıflandırma ile çalışmaya başlama](sql-database-data-discovery-and-classification.md).
+Daha fazla bilgi için [veri bulma & sınıflandırma ile çalışmaya başlama](sql-database-data-discovery-and-classification.md).
 
 ### <a name="compliance"></a>Uyumluluk
 

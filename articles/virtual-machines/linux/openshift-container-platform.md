@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 21eebb6c27a83b939f321d38026da7d4c39b7071
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 82dd448bb408e7c4bb3576feee17aef66ee6d01d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085895"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730722"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Azure'da OpenShift kapsayıcı platformu dağıtma
 
@@ -264,15 +264,15 @@ OpenShift kapsayıcı platformu Azure'a dağıtmak için en basit yolu kullanmak
 
 En basit seçenek budur ancak özelleştirme özellikleri sınırlıdır. Market teklifi, aşağıdaki yapılandırma seçeneklerini içerir:
 
-- **Ana düğümler**: örnek türü üç (3) ana düğümleri ile yapılandırılabilir.
-- **Infra düğümleri**: üç (3) altyapısı düğümleri ile yapılandırılabilir örnek türü.
-- **Düğümleri**: düğüm sayısını (2 ile 9 arasında) yapılandırılabilir örnek türü yanı sıra.
-- **Disk türü**: yönetilen diskler kullanılır.
-- **Ağ**: yeni veya var olan ağ yanı sıra özel CIDR aralığı için destek.
+- **Ana düğümler**: Yapılandırılabilir örneği ile ana düğümler üç (3) yazın.
+- **Kızılötesi düğümleri**: Üç (3) altyapısı düğümleri yapılandırılabilir örneği ile yazın.
+- **Düğümleri**: Düğüm sayısı (2 ile 9 arasında) yapılandırılabilir örnek türü yanı sıra.
+- **Disk türü**: Yönetilen diskler kullanılır.
+- **Ağ**: Yeni veya var olan ağ yanı sıra özel CIDR aralığı desteği.
 - **CNS**: CNS etkinleştirilebilir.
-- **Ölçümleri**: ölçümler etkinleştirilebilir.
-- **Günlüğe kaydetme**: günlüğe kaydetme etkinleştirilebilir.
-- **Azure bulut sağlayıcısı**: etkin hale getirilebilir.
+- **Ölçümleri**: Ölçümleri etkinleştirilebilir.
+- **Günlüğe kaydetme**: Günlüğe kaydetme etkinleştirilebilir.
+- **Azure bulut sağlayıcısı**: Etkinleştirilebilir.
 
 ## <a name="connect-to-the-openshift-cluster"></a>OpenShift kümeye bağlanma
 
@@ -284,7 +284,7 @@ $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kullanım [az grubu Sil](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, OpenShift küme kaldırmak için ve artık gerekmediğinde tüm ilgili kaynakları.
+Kullanım [az grubu Sil](/cli/azure/group) komutunu kullanarak kaynak grubunu, OpenShift küme kaldırmak için ve artık gerekmediğinde tüm ilgili kaynakları.
 
 ```azurecli 
 az group delete --name openshiftrg

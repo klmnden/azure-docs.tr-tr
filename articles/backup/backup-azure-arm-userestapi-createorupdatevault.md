@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7d1a4e6b1093344d1217e8577a56f34cd3c1f52c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289704"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734343"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>REST API kullanarak Azure kurtarma Hizmetleri kasası oluşturma
 
@@ -29,7 +29,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>İstek oluştur
 
-Oluşturulacak *PUT* isteği `{subscription-id}` parametresi gereklidir. Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Tanımladığınız bir `{resourceGroupName}` ve `{vaultName}` kaynaklarınız için birlikte `api-version` parametresi. Bu makalede `api-version=2016-06-01`.
+Oluşturulacak *PUT* isteği `{subscription-id}` parametresi gereklidir. Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Tanımladığınız bir `{resourceGroupName}` ve `{vaultName}` kaynaklarınız için birlikte `api-version` parametresi. Bu makalede `api-version=2016-06-01`.
 
 Aşağıdaki üst bilgiler gereklidir:
 
@@ -46,8 +46,8 @@ Aşağıdaki ortak tanımları, istek gövdesi oluşturmak için kullanılır:
 
 |Ad  |Gerekli  |Tür  |Açıklama  |
 |---------|---------|---------|---------|
-|eTag     |         |   Dize      |  İsteğe bağlı bir eTag       |
-|location     |  true       |Dize         |   Kaynak konumu      |
+|eTag     |         |   String      |  İsteğe bağlı bir eTag       |
+|location     |  true       |String         |   Kaynak konumu      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Kasa Özellikleri       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Her Azure kaynağı için benzersiz sistem tanımlayıcıyı belirtir     |
 |etiketler     |         | Nesne        |     Kaynak etiketleri    |

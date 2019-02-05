@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446968"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733068"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Şablonları kullanarak Azure API Management Geliştirici portalını özelleştirme
 
@@ -45,15 +45,15 @@ Geliştirici portal şablonları erişmek için soldaki özelleştirme menüsün
 
 ![Geliştirici portal şablonları][api-management-templates-menu]
 
-Bir şablon tıkladığınızda, şablon tarafından özelleştirilebilir Geliştirici portal sayfasına yönlendirilirsiniz. Bu örnekte, **ürün listesi** şablonu görüntülenir. **Ürün listesi** şablon kırmızı dikdörtgenin tarafından gösterilen ekran alanı denetler. 
+Bir şablon tıkladığınızda, şablon tarafından özelleştirilebilir Geliştirici portal sayfasına yönlendirilirsiniz. Bu örnekte, **ürün listesi** şablonu görüntülenir. **Ürün listesi** şablon kırmızı dikdörtgenin tarafından gösterilen ekran alanı denetler.
 
 ![Ürünleri liste şablonu][api-management-developer-portal-templates-overview]
 
-Bazı şablonlar ister **kullanıcı profili** şablonları, farklı bölümleri aynı sayfayı özelleştirme. 
+Bazı şablonlar ister **kullanıcı profili** şablonları, farklı bölümleri aynı sayfayı özelleştirme.
 
 ![Kullanıcı profili şablonları][api-management-user-profile-templates]
 
-Her geliştirici portal şablonu için düzenleyici sayfasının en altında görüntülenen iki bölümden oluşur. Sol taraftaki şablon düzenleme bölmesi ve şablon için veri modeli sağ tarafı görüntüler. 
+Her geliştirici portal şablonu için düzenleyici sayfasının en altında görüntülenen iki bölümden oluşur. Sol taraftaki şablon düzenleme bölmesi ve şablon için veri modeli sağ tarafı görüntüler.
 
 Şablon bölmesinde düzenleme görünümünü ve davranışını Geliştirici portalında karşılık gelen sayfanın denetimleri biçimlendirmeyi içerir. Şablondaki biçimlendirme kullanan [DotLiquid](http://dotliquidmarkup.org/) söz dizimi. DotLiquid için popüler bir düzenleyici [tasarımcılarına yönelik DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Düzenleme sırasında şablonuna yapılan değişiklikleri gerçek zamanlı olarak görüntülenir tarayıcıda ancak dek müşterileriniz için görünür değildir [Kaydet](#to-save-a-template) ve [yayımlama](#to-publish-a-template) şablonu.
 
@@ -118,7 +118,7 @@ Her geliştirici portal şablonu için düzenleyici sayfasının en altında gö
         <li>
             <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
             {{product.description}}
-        </li>    
+        </li>
     {% endfor %}
     </ul>
     <paging-control></paging-control>
@@ -209,10 +209,3 @@ Geliştirici portal şablonları, dize kaynakları, simgeler ve sayfa denetimler
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
-
-
-
-
-
-
-

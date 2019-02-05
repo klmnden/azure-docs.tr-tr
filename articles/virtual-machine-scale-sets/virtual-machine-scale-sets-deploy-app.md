@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 2448d941db7f27a87fbb5e2267847165f84ede3d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881707"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733153"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Sanal makine ölçek kümelerinde uygulamanızı dağıtma
 Bir ölçek kümesindeki sanal makine (VM) örneklerinde uygulamaları çalıştırmak için önce uygulama bileşenlerini ve gerekli dosyaları yüklemeniz gerekir. Bu makalede örnek bir ölçek kümesi veya otomatik olarak var olan VM örneklerinde yükleme betikleri çalıştırma için özel bir VM görüntüsü oluşturmak için yollar sağlar. Ayrıca bir ölçek kümesi üzerinde uygulama veya işletim sistemi güncelleştirmelerini yönetmeyi öğrenin.
@@ -97,7 +97,7 @@ Cloud-init, dağıtımlar arasında da çalışır. Örneğin, bir paket yüklem
 
 Daha fazla bilgi için bir örnek de dahil olmak üzere *cloud-init.txt* bkz [Azure Vm'leri özelleştirmek için cloud-init kullanma](../virtual-machines/linux/using-cloud-init.md).
 
-Bir ölçek kümesi oluşturma ve cloud-init dosyası kullanmak için ekleme `--custom-data` parametresi [az vmss oluşturma](/cli/azure/vmss#az_vmss_create) komut ve cloud-init dosyası adını belirtin. Aşağıdaki örnekte adlı bir ölçek kümesi oluşturur *myScaleSet* içinde *myResourceGroup* ve adlı bir dosya ile sanal makine örnekleri yapılandırır *cloud-init.txt*. Şu şekilde kendi adlarınızı girin:
+Bir ölçek kümesi oluşturma ve cloud-init dosyası kullanmak için ekleme `--custom-data` parametresi [az vmss oluşturma](/cli/azure/vmss) komut ve cloud-init dosyası adını belirtin. Aşağıdaki örnekte adlı bir ölçek kümesi oluşturur *myScaleSet* içinde *myResourceGroup* ve adlı bir dosya ile sanal makine örnekleri yapılandırır *cloud-init.txt*. Şu şekilde kendi adlarınızı girin:
 
 ```azurecli
 az vmss create \

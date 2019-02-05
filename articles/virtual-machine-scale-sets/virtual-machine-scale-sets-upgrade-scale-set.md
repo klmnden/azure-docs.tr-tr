@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: ce031b5c0dba96ab1a51532ad771eebeafb5d599
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c0c9554a6c8868a8aeb90947dbbb0e251e42733f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413269"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733238"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesini değiştirme
 Uygulamalarınızın yaşam döngüsü boyunca, değiştirmek veya sanal makine ölçek kümenizi güncelleştirirseniz gerekebilir. Bu güncelleştirmeler, Ölçek kümesi yapılandırmasını güncelleştirme veya uygulama yapılandırmasını değiştirmek nasıl içerebilir. Bu makale, mevcut bir ölçek REST API'leri, Azure PowerShell veya Azure CLI ile kümesini değiştirmek açıklamaktadır.
@@ -42,7 +42,7 @@ Bir ölçek kümesi "yakalayan bir ölçek kümesi modeline" sahip *istenen* öl
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Azure CLI ile [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Azure CLI ile [az vmss show](/cli/azure/vmss):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -140,7 +140,7 @@ Benzer şekilde nasıl bir model görünümü bir ölçek kümesi vardır, Ölç
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI ile [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Azure CLI ile [az vmss show](/cli/azure/vmss):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -259,7 +259,7 @@ Küresel ölçek kümesi özelliği güncelleştirmek için ölçek kümesi mode
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- Azure CLI ile [az vmss update](/cli/azure/vmss#az_vmss_update):
+- Azure CLI ile [az vmss update](/cli/azure/vmss):
     - Bir özelliği değiştirmek için:
 
         ```azurecli
@@ -306,7 +306,7 @@ Var olan sanal makineleri güncelleştirmek için var olan her VM'nin "el ile y�
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI ile [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
+- Azure CLI ile [az vmss update-instances](/cli/azure/vmss)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -331,7 +331,7 @@ Yükseltme İlkesi izlemez değişikliği küresel ölçek özellikleri ayarlama
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI ile [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
+- Azure CLI ile [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -392,7 +392,7 @@ Ubuntu LTS, 16.04 eski bir sürümünü çalıştıran bir ölçek kümesi olabi
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- Azure CLI ile [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+- Azure CLI ile [az vmss update](/cli/azure/vmss):
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -409,7 +409,7 @@ Alternatif olarak, Ölçek kümenizi kullanan resmi değiştirmek isteyebilirsin
         -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
-- Azure CLI ile [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+- Azure CLI ile [az vmss update](/cli/azure/vmss):
 
     ```azurecli
     az vmss update \
@@ -428,7 +428,7 @@ Bir ölçek kümesi Azure Load Balancer ile sahip olduğunuz ve Azure Applicatio
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss
     $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
     
-    # Create a local PowerShell object for the new desired IP configuration, which includes the referencerence to the application gateway
+    # Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
     $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
     
     # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration

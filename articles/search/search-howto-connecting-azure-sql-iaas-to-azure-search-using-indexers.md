@@ -6,20 +6,23 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2efc0b76c8556894119ed3f6dd216234414cf313
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312043"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732371"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Bir Azure sanal makinesinde SQL Server için Azure Search dizin oluşturucu arasında bağlantı yapılandırma
 Belirtilen [Azure Search dizin oluşturucuları kullanarak Azure SQL veritabanına bağlanma](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), dizin oluşturucular karşı oluşturma **Azure vm'lerde SQL Server** (veya **SQL Azure Vm'leri** kısaca) desteklenir Azure Search tarafından ancak ilk halletmeniz için birkaç güvenlikle ilgili Önkoşullar vardır. 
 
-**Görev süresi:** Yaklaşık 30 dakika, zaten bir sertifika sanal makinede yüklü.
+Bir VM'de SQL Server için Azure Search bağlantılarını ortak bir internet bağlantısı olduğundan. Tüm güvenlik önlemlerini normalde bu bağlantılar için izlemeniz gerekir burada da geçerli olur:
+
++ Bir sertifikadan bir [sertifika yetkilisi sağlayıcısının](https://en.wikipedia.org/wiki/Certificate_authority#Providers) Azure VM'nin tam etki alanı adı.
++ VM üzerinde sertifikayı yükleyin ve ardından etkinleştirin ve sanal makinede bu makaledeki yönergeleri kullanarak şifrelenmiş bağlantılar yapılandırın.
 
 ## <a name="enable-encrypted-connections"></a>Şifrelenmiş bağlantılarını etkinleştirme
 Azure arama, tüm dizin oluşturucu istekleri için ortak bir internet bağlantısı üzerinden şifrelenmiş bir kanal gerektirir. Bu bölümde, bunun çalışmasını sağlamak için adımları listelenir.

@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 04c59cac8cd55acad0504337c57767c938835021
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b42c32936d6973468ace58572ee61eaad66053c2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884903"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733187"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI ile sanal makine ölçek kümesi oluşturma
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki sanal makine sayısını el ile ölçeklendirebilir veya CPU, bellek talebi ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Azure Load Balancer daha sonra ölçek kümesindeki sanal makine örneklerine trafiği dağıtır. Bu hızlı başlangıçta, Azure CLI ile bir sanal makine ölçek kümesi oluşturur ve örnek uygulama dağıtırsınız.
@@ -40,7 +40,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 az group create --name myResourceGroup --location eastus
 ```
 
-Bu adımda [az vmss create](/cli/azure/vmss#az_vmss_create) ile bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek, değişiklikler uygulandıkça otomatik güncelleştirilecek şekilde ayarlanan *myScaleSet* adlı bir ölçek kümesi oluşturur ve *~/.ssh/id_rsa* içinde yoksa SSH anahtarları oluşturur. Sanal makine örneklerinde oturum açmanız gerekirse bu SSH anahtarları kullanılır. Mevcut bir SSH anahtarı kümesini kullanmak için, `--ssh-key-value` parametresini kullanın ve anahtarlarınızın konumunu belirtin.
+Bu adımda [az vmss create](/cli/azure/vmss) ile bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek, değişiklikler uygulandıkça otomatik güncelleştirilecek şekilde ayarlanan *myScaleSet* adlı bir ölçek kümesi oluşturur ve *~/.ssh/id_rsa* içinde yoksa SSH anahtarları oluşturur. Sanal makine örneklerinde oturum açmanız gerekirse bu SSH anahtarları kullanılır. Mevcut bir SSH anahtarı kümesini kullanmak için, `--ssh-key-value` parametresini kullanın ve anahtarlarınızın konumunu belirtin.
 
 ```azurecli-interactive
 az vmss create \
@@ -58,7 +58,7 @@ Tüm ölçek kümesi kaynaklarının ve VM'lerin oluşturulup yapılandırılmas
 ## <a name="deploy-sample-application"></a>Örnek uygulama dağıtma
 Ölçek kümenizi test etmek için temel web uygulaması yükleyin. Sanal makine örneklerine uygulama yükleyen bir betik indirip çalıştırmak için Azure Özel Betik Uzantısı kullanılır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya diğer yapılandırma/yönetim görevleri için kullanışlıdır. Daha fazla bilgi için bkz. [Özel Betik Uzantısı'na genel bakış](../virtual-machines/linux/extensions-customscript.md).
 
-Temel bir NGINX web sunucusu yüklemek için Özel Betik Uzantısı kullanın. [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) ile NGINX yükleyen Özel Betik Uzantısı'nı aşağıdaki şekilde uygulayın:
+Temel bir NGINX web sunucusu yüklemek için Özel Betik Uzantısı kullanın. [az vmss extension set](/cli/azure/vmss/extension) ile NGINX yükleyen Özel Betik Uzantısı'nı aşağıdaki şekilde uygulayın:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -72,7 +72,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>Uygulamaya giden trafiğe izin verme
-Ölçek kümesi oluşturulduğunda otomatik olarak bir Azure yük dengeleyici dağıtılmıştır. Yük dengeleyici, ölçek kümesindeki sanal makine örneklerine trafiği dağıtır. Trafiğin örnek web uygulamasına ulaşmasına izin vermek için [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) ile bir yük dengeleyici kuralı oluşturun. Aşağıdaki örnek *myLoadBalancerRuleWeb* adlı bir kural oluşturur:
+Ölçek kümesi oluşturulduğunda otomatik olarak bir Azure yük dengeleyici dağıtılmıştır. Yük dengeleyici, ölçek kümesindeki sanal makine örneklerine trafiği dağıtır. Trafiğin örnek web uygulamasına ulaşmasına izin vermek için [az network lb rule create](/cli/azure/network/lb/rule) ile bir yük dengeleyici kuralı oluşturun. Aşağıdaki örnek *myLoadBalancerRuleWeb* adlı bir kural oluşturur:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ Yük dengeleyicinin genel IP adresini bir web tarayıcısına girin. Aşağıdak
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Artık gerekli değilse, aşağıdaki gibi [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, ölçek kümesini tüm ilgili kaynakları kaldırabilirsiniz. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
+Artık gerekli değilse, aşağıdaki gibi [az group delete](/cli/azure/group) komutunu kullanarak kaynak grubunu, ölçek kümesini tüm ilgili kaynakları kaldırabilirsiniz. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

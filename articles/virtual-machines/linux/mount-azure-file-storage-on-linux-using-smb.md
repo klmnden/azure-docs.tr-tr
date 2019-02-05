@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: 77b7e6aef4d0d38fa3ea9f9b9a740ffc25aff7f9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0aa291c3334af35ec90648cfbcbb7de7015deb99
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660026"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731453"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure dosya depolama bağlama SMB kullanarak Linux vm'lerinde
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Kullanarak, oluşturduğunuz kaynak grubunda yeni bir depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#create). Bu örnek adlı bir depolama hesabı oluşturur *mySTORAGEACCT<random number>*  ve bu depolama hesabının adını değişkenine yerleştirilir **STORAGEACCT**. Depolama hesabı adları kullanarak benzersiz olmalıdır `$RANDOM` benzersiz olacak şekilde sonuna bir sayı ekler.
+Kullanarak, oluşturduğunuz kaynak grubunda yeni bir depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account). Bu örnek adlı bir depolama hesabı oluşturur *mySTORAGEACCT<random number>*  ve bu depolama hesabının adını değişkenine yerleştirilir **STORAGEACCT**. Depolama hesabı adları kullanarak benzersiz olmalıdır `$RANDOM` benzersiz olacak şekilde sonuna bir sayı ekler.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -69,7 +69,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>Dosya paylaşımı oluşturma
 
-Dosya depolama paylaşımı kullanarak oluşturduğunuz [az depolama alanı paylaşımı oluşturma](/cli/azure/storage/share#create). 
+Dosya depolama paylaşımı kullanarak oluşturduğunuz [az depolama alanı paylaşımı oluşturma](/cli/azure/storage/share). 
 
 Paylaşım adları tüm küçük harf, rakam ve tek kısa çizgilerden olması gerekir, ancak bir tire ile başlayamaz. Dosya paylaşımlarının ve dosyaların adlandırılması hakkında tüm ayrıntılara ulaşmak için bkz. [Paylaşımları, Dizinleri, Dosyaları ve Meta Verileri Adlandırma ve Bunlara Başvuruda Bulunma](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)
 

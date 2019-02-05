@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: cbd58c0873a4a46d175c6d7cbdf2d004da304c06
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247247"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731556"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar
 
@@ -23,7 +23,7 @@ Bu makale, Azure Data Lake depolama Gen2 geçici ilişkin sınırlamalar ve bili
 
 BLOB Depolama API'leri ve Azure Data Lake Gen2 API'lerini birbirleri ile birlikte çalışabilir değil.
 
-Tüm hesabınıza yüklediğiniz içerik çalışmak için aynı aracı kullanmanız gerekiyorsa, bu API'leri birbirleri ile birlikte çalışabilen duruma kadar Blob Depolama hesabınızda hiyerarşik ad alanları etkinleştirmeyin. Hiyerarşik ad alanı olmayan bir depolama hesabı kullanarak erişim denetimi listeleri ardından dizin ve dosya sistemi gibi Data Lake depolama Gen2 belirli özelliklere erişiminiz yoksa anlamına gelir.
+BLOB API'leri birlikte çalışabilen duruma kadar özel araçlar, uygulamaları veya Blob API'leri kullanan betikler vardır ve bunları tüm hesabınıza yüklediğiniz içerik çalışmak için kullanmak istiyorsanız, daha sonra Blob Depolama hesabınızda hiyerarşik ad alanları etkinleştirme Azure Data Lake Gen2 API'leri ile. Hiyerarşik ad alanı olmayan bir depolama hesabı kullanarak erişim denetimi listeleri ardından dizin ve dosya sistemi gibi Data Lake depolama Gen2 belirli özelliklere erişiminiz yoksa anlamına gelir.
 
 ## <a name="blob-storage-apis"></a>BLOB Depolama API'leri
 
@@ -79,16 +79,14 @@ Dahil tüm sürüm oluşturma özellikleri [anlık görüntüleri](https://docs.
 
 ## <a name="object-level-storage-tiers"></a>Nesne düzeyinde depolama katmanları
 
-Nesne düzeyinde depolama katmanları (sık erişimli, soğuk ve Arşiv) Azure Data Lake depolama Gen 2 hesapları için henüz kullanılamıyor, ancak etkin hiyerarşik boşluk olmayan depolama hesapları için kullanılabilir.
+Nesne düzeyinde depolama katmanları (sık erişimli, soğuk ve Arşiv) Azure Data Lake depolama Gen 2 hesapları için henüz kullanılamıyor, ancak hiyerarşik ad alanları etkin olmayan depolama hesapları için kullanılabilir.
 
 ## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Azure Blob Depolama yaşam döngüsü yönetimi (Önizleme) İlkeleri
 
 Azure Blob Depolama yaşam döngüsü yönetimi (Önizleme) ilkeleri, Azure Data Lake depolama Gen2 hesapları için henüz kullanılamamaktadır.
 
-Bu ilkeler, hiyerarşik alanları etkin olmayan depolama hesapları için kullanılabilir.
+Bu ilkeler, hiyerarşik ad alanları etkin olmayan depolama hesapları için kullanılabilir.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 
 Tanılama günlükleri, Azure Data Lake depolama Gen2 hesaplarında kullanılamaz.
-
-Tanılama günlükleri istemek için Azure desteğine başvurun. Bunları, hesabınızın adını ve günlükleri duyduğunuz süre sağlar.

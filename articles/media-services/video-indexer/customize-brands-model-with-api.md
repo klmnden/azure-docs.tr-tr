@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: anzaman
-ms.openlocfilehash: f970f535f83bc3b3c2a850ec126a7afff2af739f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6c6f2890cf9bd3c8cb412b3fa2f28d8ea3b6f72
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827593"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734326"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Video Indexer API markaları modeliyle özelleştirme
 
@@ -26,17 +26,17 @@ Video Indexer API'ları oluşturun, kullanın ve bu konuda açıklandığı gibi
 
 ## <a name="create-a-brand"></a>Bir marka oluşturma
 
-Bu, yeni bir özel marka oluşturur ve belirtilen hesabın özel markaları model ekler. 
+Bu, yeni bir özel marka oluşturur ve belirtilen hesabın özel markaları model ekler.
 
 ### <a name="request-url"></a>İstek URL'si
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
 
-### <a name="request-parameters"></a>İstek parametreleri 
+### <a name="request-parameters"></a>İstek parametreleri
 
 |**Ad**|**Tür**|**Gerekli**|**Açıklama**|
 |---|---|---|---|
@@ -95,7 +95,7 @@ Belirtilen hesabın özel markaları model bir marka kaldırır. Belirtilen hesa
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
 
 ### <a name="request-parameters"></a>İstek parametreleri
@@ -117,17 +117,17 @@ Marka başarıyla silindiğinde döndürülen içerik yok.
 
 ## <a name="get-a-specific-brand"></a>Belirli bir marka Al
 
-Bu bir marka özel markaları modelinde marka kimliği kullanarak belirtilen hesabın ayrıntılarını aramanıza olanak sağlar. 
+Bu bir marka özel markaları modelinde marka kimliği kullanarak belirtilen hesabın ayrıntılarını aramanıza olanak sağlar.
 
 ### <a name="request-url"></a>İstek URL'si
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
 
-### <a name="request-parameters"></a>İstek parametreleri 
+### <a name="request-parameters"></a>İstek parametreleri
 
 |**Ad**|**Tür**|**Gerekli**|**Açıklama**|
 |---|---|---|---|
@@ -167,14 +167,14 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="update-a-specific-brand"></a>Güncelleştirme belirli bir marka
 
-Bu bir marka özel markaları modelinde marka kimliğini kullanarak belirtilen hesabın ayrıntılarını aramanıza olanak tanır 
+Bu bir marka özel markaları modelinde marka kimliğini kullanarak belirtilen hesabın ayrıntılarını aramanıza olanak tanır
 
 ### <a name="request-url"></a>İstek URL'si
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
 
 ### <a name="request-parameters"></a>İstek parametreleri
@@ -237,7 +237,7 @@ Yanıt aşağıdaki örnek biçimi güncelleştirilmiş marka güncelleştirilmi
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
 
 ### <a name="request-parameters"></a>İstek parametreleri
@@ -270,7 +270,7 @@ Tüm markalar hesabınızdaki ve her biri aşağıdaki örnekte biçimi aşağı
         "description": "This is an example",
         "tags": ["Tag1", "Tag2"]
     },
-        {
+    {
         "ReferenceUrl": null,
         "id": 97975,
         "name": "Example2",
@@ -297,7 +297,7 @@ Bu, belirtilen hesapta markaları modeli ayarlarını döndürür. Algılama Bin
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
 
 ### <a name="request-parameters"></a>İstek parametreleri
@@ -330,14 +330,14 @@ Yanıt aşağıdaki örnek biçimi aşağıdaki Bing markaları etkinleştirilip
 
 Bu belirtilen hesapta markaları modeli ayarlarını güncelleştirir. Algılama Bing markaları veritabanından veya etkin olup olmadığını markaları modeli ayarlarını temsil eder. Bing markaları etkinleştirilmezse, Video Indexer yalnızca belirtilen hesabın özel markaları modelinden markaları algılar.
 
-### <a name="request-url"></a>İstek URL'si: 
+### <a name="request-url"></a>İstek URL'si:
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
 ```
- 
+
 [Gerekli Parametreler bakın ve test Video Indexer Geliştirici portalını kullanarak](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
 
-### <a name="request-parameters"></a>İstek parametreleri 
+### <a name="request-parameters"></a>İstek parametreleri
 
 |**Ad**|**Tür**|**Gerekli**|**Açıklama**|
 |---|---|---|---|

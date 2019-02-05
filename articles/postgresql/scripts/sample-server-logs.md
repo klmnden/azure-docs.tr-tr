@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: eb6f1624a3fefbad829600d2280d4eaeedd188bc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 107c844051ab396fe467a1a629883746b2903125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179984"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731827"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Azure CLI kullanarak bir PostgreSQL için Azure Veritabanı sunucusunun yavaş sorgu günlüklerini etkinleştirme ve indirme
 Bu örnek CLI betiği, tek bir PostgreSQL için Azure Veritabanı sunucusunun yavaş sorgu günlüklerini etkinleştirir ve indirir.
@@ -35,13 +35,13 @@ Bu betik, aşağıdaki tabloda ana hatları verilen komutları kullanır:
 
 | **Komut** | **Notlar** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az postgres server create](/cli/azure/postgres/server#az_msql_server_create) | Veritabanlarını barındıran bir PostgreSQL sunucusu oluşturur. |
+| [az group create](/cli/azure/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az postgres server create](/cli/azure/postgres/server) | Veritabanlarını barındıran bir PostgreSQL sunucusu oluşturur. |
 | [az postgres server configuration list](/cli/azure/postgres/server/configuration) | Bir sunucu için yapılandırma değerlerini listeleyin. |
-| [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Bir sunucunun yapılandırmasını güncelleştirin. |
-| [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) | Bir sunucunun günlük dosyalarını listeleyin. |
-| [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | Günlük dosyalarını indirin. |
-| [az group delete](/cli/azure/group#az_group_delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [az postgres server configuration set](/cli/azure/postgres/server/configuration) | Bir sunucunun yapılandırmasını güncelleştirin. |
+| [az postgres server-logs list](/cli/azure/postgres/server-logs) | Bir sunucunun günlük dosyalarını listeleyin. |
+| [az postgres server-logs download](/cli/azure/postgres/server-logs) | Günlük dosyalarını indirin. |
+| [az group delete](/cli/azure/group) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Azure CLI hakkında daha fazla bilgi edinin: [Azure CLI belgeleri](/cli/azure).

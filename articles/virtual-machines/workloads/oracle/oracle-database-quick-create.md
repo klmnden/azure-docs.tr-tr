@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f6e5dab5059086efc1e00c78b85296ff2b7a48c
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 490ac613adac968cc323c2d8351b59aece181b68
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139165"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734394"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Bir Azure sanal Makinesinde Oracle veritabanı oluşturma
 
@@ -34,7 +34,7 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+[az group create](/cli/azure/group) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
 Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-Bir sanal makine (VM) oluşturmak için kullanın [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. 
+Bir sanal makine (VM) oluşturmak için kullanın [az vm oluşturma](/cli/azure/vm) komutu. 
 
 Aşağıdaki örnekte `myVM` adlı bir VM oluşturulur. Bunlar varsayılan anahtar konumunda zaten yoksa, ayrıca SSH anahtarlarını oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
 
@@ -271,7 +271,7 @@ Oracle veritabanı varsayılan olarak, VM yeniden başlatıldığında otomatik 
 
 Son görev bazı dış uç noktalar yapılandırmaktır. Ayarlamak için VM koruyan Azure ağ güvenlik grubu çıkmadan SSH oturumunuzda VM (SSH dışında yeniden başlatmadan önceki adımda, devreye girdi). 
 
-1.  Oracle veritabanı uzaktan erişmek için kullandığınız uç noktası'nı açmak için ağ güvenlik grubu kural oluştururken [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) gibi: 
+1.  Oracle veritabanı uzaktan erişmek için kullandığınız uç noktası'nı açmak için ağ güvenlik grubu kural oluştururken [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule) gibi: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -283,7 +283,7 @@ Son görev bazı dış uç noktalar yapılandırmaktır. Ayarlamak için VM koru
         --destination-port-range 1521
     ```
 
-2.  Oracle EM Express uzaktan erişmek için kullandığınız uç noktası'nı açmak için ağ güvenlik grubu kural oluştururken [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) gibi:
+2.  Oracle EM Express uzaktan erişmek için kullandığınız uç noktası'nı açmak için ağ güvenlik grubu kural oluştururken [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule) gibi:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -295,7 +295,7 @@ Son görev bazı dış uç noktalar yapılandırmaktır. Ayarlamak için VM koru
         --destination-port-range 5502
     ```
 
-3. Gerekirse, tekrar ile sanal makinenizin genel IP adresini elde [az ağ public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) gibi:
+3. Gerekirse, tekrar ile sanal makinenizin genel IP adresini elde [az ağ public-ip show](/cli/azure/network/public-ip) gibi:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -317,7 +317,7 @@ Kullanarak oturum **SYS** hesap ve kontrol **SYSDBA'ın olarak** onay kutusu. Pa
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Azure'da ilk Oracle veritabanı keşfetmeye tamamladıktan ve VM artık gerekli olmadığında, kullanabilirsiniz sonra [az grubu Sil](/cli/azure/group#az_group_delete) komutunu kaynak grubunu, VM'yi ve tüm ilgili kaynakları.
+Azure'da ilk Oracle veritabanı keşfetmeye tamamladıktan ve VM artık gerekli olmadığında, kullanabilirsiniz sonra [az grubu Sil](/cli/azure/group) komutunu kaynak grubunu, VM'yi ve tüm ilgili kaynakları.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

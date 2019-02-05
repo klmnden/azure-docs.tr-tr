@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: c451377d6274c50f22e3b1d4cd32fb0f3edd9d9e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d2d3f36c9b4ee0557f9e060bec762877a94ea637
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220409"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734190"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Bir Linux VM başka bir abonelik veya kaynak grubuna taşıma
 Bu makalede, bir Linux sanal makinesini (VM), kaynak grubu veya abonelik arasında taşıma konusunda size yol gösterir. VM'yi abonelikler arasında taşıma kişisel bir abonelikte bir VM oluşturduysanız, kullanışlı ve şirketinizin aboneliği taşımak şimdi istiyorsunuz.
@@ -35,7 +35,7 @@ Bu makalede, bir Linux sanal makinesini (VM), kaynak grubu veya abonelik arasın
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Bir VM'yi taşıma için Azure CLI kullanma
 
 
-Azure CLI kullanarak sanal makinenize taşımadan önce kaynak ve hedef abonelikler aynı kiracıda kayıtlı emin olmanız gerekir. Her iki aboneliğin aynı Kiracı Kimliğine sahip denetlemek için kullanmak [az hesabı show](/cli/azure/account#az_account_show).
+Azure CLI kullanarak sanal makinenize taşımadan önce kaynak ve hedef abonelikler aynı kiracıda kayıtlı emin olmanız gerekir. Her iki aboneliğin aynı Kiracı Kimliğine sahip denetlemek için kullanmak [az hesabı show](/cli/azure/account).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -43,13 +43,13 @@ az account show --subscription myDestinationSubscription --query tenantId
 ```
 Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, başvurmalıdır [Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) kaynakları yeni bir kiracıya taşımak için.
 
-Bir sanal makine başarıyla taşımak için VM'yi ve tüm destekleyici kaynakları taşımak gerekir. Kullanım [az kaynak listesi](/cli/azure/resource#az_resource_list) tüm kaynaklar bir kaynak grubu ve kimliklerini listelemek için komutu. Bu komutun çıktısı, kopyalayın ve daha sonra komutlarına kimlikleri yapıştırın, bir dosyaya kanal oluşturarak için yardımcı olur.
+Bir sanal makine başarıyla taşımak için VM'yi ve tüm destekleyici kaynakları taşımak gerekir. Kullanım [az kaynak listesi](/cli/azure/resource) tüm kaynaklar bir kaynak grubu ve kimliklerini listelemek için komutu. Bu komutun çıktısı, kopyalayın ve daha sonra komutlarına kimlikleri yapıştırın, bir dosyaya kanal oluşturarak için yardımcı olur.
 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-Bir sanal makine ve kaynaklarının başka bir kaynak grubuna taşımak için kullanın [az kaynak taşıma](/cli/azure/resource#az_resource_move). Aşağıdaki örnek, bir sanal Makineyi ve gerektirdiği en yaygın kaynakları taşımak gösterilmektedir. Kullanım **-kimlikleri** parametre ve bir virgülle ayrılmış listesi (boşluksuz) taşımak için kaynaklar için kimlikleri geçirin.
+Bir sanal makine ve kaynaklarının başka bir kaynak grubuna taşımak için kullanın [az kaynak taşıma](/cli/azure/resource). Aşağıdaki örnek, bir sanal Makineyi ve gerektirdiği en yaygın kaynakları taşımak gösterilmektedir. Kullanım **-kimlikleri** parametre ve bir virgülle ayrılmış listesi (boşluksuz) taşımak için kaynaklar için kimlikleri geçirin.
 
 ```azurecli-interactive
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM

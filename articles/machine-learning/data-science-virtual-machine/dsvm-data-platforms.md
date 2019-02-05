@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 744c8d6488b9b0688126d305426f90647a89d4be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478092"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733442"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Veri bilimi sanal makinesi üzerinde desteklenen veri platformları
 
@@ -105,5 +105,5 @@ Hadoop durdurabilirsiniz çalıştırarak değil gerektiğinde Hizmetleri ilgili
 |Linux   | /dsvm/Tools/Spark-X.X.X-bin-hadoopX.X|
 
 
-Verileri Azure Blob veya Azure Data Lake storage (ADLS) ve Microsoft'un makine öğrenimi MMLSpark kitaplığı kullanarak erişmek için kitaplıkları $SPARK_HOME/jar dosyaları dışındaki içinde önceden yüklenen. Bu jar dosyaları dışındaki, Spark başlatıldığında otomatik olarak yüklenir. Varsayılan olarak, yerel diskte Spark verileri kullanır. Azure blob veya ADLS depolanan verilere erişmek için DSVM üzerinde bir Spark örneği için sırayla oluşturmak ve yapılandırmak gereken `core-site.xml` $SPARK_HOME/conf/core-site.xml.template içinde bulunan şablon temel dosya (olduğu Blob ve ADLS yer tutucuları yapılandırmaları) Azure blob ve Azure Data Lake depolama için uygun kimlik bilgileri. ADLS hizmeti kimlik bilgileri oluşturma adımları ayrıntılı bulduğunuz [burada](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Core-site.xml dosyasında Azure blob veya ADLS kimlik bilgileri girildikten sonra bu kaynakları wasb URI öneki ile depolanan veriler başvurabilir: / / ya da adl: / /. 
+Verileri Azure Blob veya Azure Data Lake storage (ADLS) ve Microsoft'un makine öğrenimi MMLSpark kitaplığı kullanarak erişmek için kitaplıkları $SPARK_HOME/jar dosyaları dışındaki içinde önceden yüklenen. Bu jar dosyaları dışındaki, Spark başlatıldığında otomatik olarak yüklenir. Varsayılan olarak, yerel diskte Spark verileri kullanır. Azure blob veya ADLS depolanan verilere erişmek için DSVM üzerinde bir Spark örneği için sırayla oluşturmak ve yapılandırmak gereken `core-site.xml` $SPARK_HOME/conf/core-site.xml.template içinde bulunan şablon temel dosya (olduğu Blob ve ADLS yer tutucuları yapılandırmaları) Azure blob ve Azure Data Lake depolama için uygun kimlik bilgileri. ADLS hizmeti kimlik bilgileri oluşturma adımları ayrıntılı bulduğunuz [burada](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Core-site.xml dosyasında Azure blob veya ADLS kimlik bilgileri girildikten sonra bu kaynakları wasb URI öneki ile depolanan veriler başvurabilir: / / ya da adl: / /. 
 

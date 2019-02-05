@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 0b3b3cd1c9c0410c4cc0ffda8887b40123c1ac7a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718538"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700987"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: UK resmi iş yükleri için barındırma PaaS Web uygulaması
 
@@ -73,7 +73,7 @@ Aşağıdaki bölümde dağıtım ve uygulama öğeleri ayrıntılı olarak aç�
 
 #### <a name="identity-and-authentication"></a>Kimlik ve kimlik doğrulaması
 
-Bu plan, kaynaklara erişimi dizin ve Kimlik Yönetimi Hizmetleri aracılığıyla korunmasını sağlar. Bu mimari tam olarak kullanmayı sağlar [kimlik güvenlik çevresi olarak](https://docs.microsoft.com/azure/security/security-paas-deployments#identity-as-the-primary-security-perimeter). 
+Bu plan, kaynaklara erişimi dizin ve Kimlik Yönetimi Hizmetleri aracılığıyla korunmasını sağlar. Bu mimari tam olarak kullanmayı sağlar [kimlik güvenlik çevresi olarak](https://docs.microsoft.com/azure/security/security-paas-deployments). 
 
 Aşağıdaki teknolojileri kimlik yönetimi özellikleri Azure ortamında sağlar:
 

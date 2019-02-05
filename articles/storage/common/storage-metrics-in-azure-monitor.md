@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: f7a645669d273e0ca0017e28ef539c2143151d25
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 4b71c5818ee6eade526134ab1b2508ed55f0c400
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509716"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699950"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -391,8 +391,8 @@ Azure İzleyicisi'nde ölçümler için boyut şu Azure Storage'ı destekler.
 | BlobType | Yalnızca Blob ölçümler için blob türü. Desteklenen değerler şunlardır: **BlockBlob** ve **PageBlob**. Ekleme Blob BlockBlob içinde bulunur. |
 | ResponseType | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>ServerOtherError: Diğer tüm sunucu tarafı hatalarını açıklanan olanlar hariç </li> <li> ServerBusyError: Bir HTTP 503 durum kodunu döndürdü, kimliği doğrulanmış istek. </li> <li> ServerTimeoutError: Bir HTTP 500 durum kodunu döndürdü kimliği doğrulanmış istek zaman aşımına uğradı. Zaman aşımı nedeniyle bir sunucu hatası oluştu. </li> <li> AuthorizationError: Yetkisiz erişim veri ya da bir Yetkilendirme hatası nedeniyle başarısız oldu, kimliği doğrulanmış istek. </li> <li> NetworkError: Kimliği doğrulanmış ağ hataları nedeniyle başarısız olan istek. Bir istemci zamanından önce bir bağlantı zaman aşımı süresi dolmadan önce kapandığında en yaygın olarak gerçekleşir. </li> <li>    ClientThrottlingError: İstemci tarafı azaltma hata oluştu. </li> <li> ClientTimeoutError: Bir HTTP 500 durum kodunu döndürdü kimliği doğrulanmış istek zaman aşımına uğradı. İstemcinin ağ zaman aşımı veya istek zaman aşımı depolama hizmetinin beklenenden daha düşük bir değere ayarlanırsa, beklenen bir zaman aşımı var. Aksi takdirde, bir ServerTimeoutError bildirilir. </li> <li> ClientOtherError: Diğer tüm istemci tarafı hataları açıklanan olanlar hariç. </li> <li> Başarılı: Başarılı istek|
 | GeoType | Birincil veya ikincil kümeden işlem. Kullanılabilir değerler, birincil ve ikincil içerir. Okuma erişimli coğrafi olarak yedekli Storage(RA-GRS) nesneleri ikincil kiracıdan okurken uygulanır. |
-| ApiName | İşlem adı. Örneğin: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Tüm işlem adları için bkz [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
-| Kimlik Doğrulaması | İşlemlerde kullanılan kimlik doğrulaması türü. Kullanılabilir değerler şunlardır: <br/> <li>AccountKey: İşlem, depolama hesabı anahtarı ile kimlik doğrulaması yapılır.</li> <li>SAS: İşlem, paylaşılan erişim imzaları ile kimlik doğrulaması yapılır.</li> <li>OAuth: İşlem, OAuth erişim belirteçleri ile doğrulanır.</li> <li>Anonim: İşlem anonim olarak istenir. Bu denetim öncesi isteği içermez.</li> <li>AnonymousPreflight: Denetim öncesi isteği bir işlemdir.</li> |
+| ApiName | İşlem adı. Örneğin: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Tüm işlem adları için bkz [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| Authentication | İşlemlerde kullanılan kimlik doğrulaması türü. Kullanılabilir değerler şunlardır: <br/> <li>AccountKey: İşlem, depolama hesabı anahtarı ile kimlik doğrulaması yapılır.</li> <li>SAS: İşlem, paylaşılan erişim imzaları ile kimlik doğrulaması yapılır.</li> <li>OAuth: İşlem, OAuth erişim belirteçleri ile doğrulanır.</li> <li>Anonim: İşlem anonim olarak istenir. Bu denetim öncesi isteği içermez.</li> <li>AnonymousPreflight: Denetim öncesi isteği bir işlemdir.</li> |
 
 Ölçümleri destekleyen boyutları için karşılık gelen bir ölçüm değerleri görmek için boyut değerini belirtmeniz gerekir. Örneğin bakarsanız **işlemleri** değeri başarılı yanıtlar için filtre uygulamak gereken **ResponseType** ile Boyut **başarı**. Veya bakarsanız **BLOB sayısı** değeri filtrelemek ihtiyacınız blok blobu için **BlobType** ile Boyut **BlockBlob**.
 

@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 9d0f814428a4d7bc57b4f0a01ff5adc658af1d91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466994"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730909"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana, Azure hizmetlerinizi izleyin
 Artık Azure Hizmetleri ve uygulamaları izleyebilirsiniz [Grafana](https://grafana.com/) kullanarak [Azure İzleyicisi veri kaynağı eklentisi](https://grafana.com/plugins/grafana-azure-monitor-datasource). Eklenti çeşitli günlükleri ve ölçümler de dahil olmak üzere Azure İzleyici tarafından toplanan uygulama performansı verileri toplar. Grafana Panonuzda daha sonra bu verileri görüntüleyebilirsiniz.
@@ -66,7 +66,7 @@ Başarıyla oturum açtıktan sonra Azure İzleyici'veri kaynağı eklentisi zat
 
 3. Hizmet sorumlusu oluşturma - Azure İzleyici API'lerine bağlanın ve verileri toplamak için bir Azure Active Directory Hizmet sorumlusu Grafana kullanır. Oluşturun veya mevcut bir hizmet sorumlusu kullanarak Azure kaynaklarınıza erişimi yönetmek için kullanın.
     * Bkz: [bu yönergeleri](../../azure-resource-manager/resource-group-create-service-principal-portal.md) bir hizmet sorumlusu oluşturmak için. Kopyalayın ve Kiracı kimliği (dizin kimliği), istemci kimliği (uygulama kimliği) ve istemci gizli anahtarı (uygulama anahtar değeri) kaydedin.
-    * Bkz: [uygulamayı role atama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) aboneliğe ilişkin Azure Active Directory uygulaması okuyucu rolüne atamak için kaynak grubu veya kaynağa izlemek istediğiniz. 
+    * Bkz: [uygulamayı role atama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) aboneliğe ilişkin Azure Active Directory uygulaması okuyucu rolüne atamak için kaynak grubu veya kaynağa izlemek istediğiniz. 
     Günlük analizi API'si gerektirir [Log Analytics okuyucusu rolü](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), okuyucu rol izinleri içerir ve bu gruba ekler.
 
 4. Kullanmak istediğiniz API bağlantı ayrıntılarını sağlayın. Tümünü veya bazılarını bağlanabilirsiniz. 

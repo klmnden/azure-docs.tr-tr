@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 746d0f51a876f24afc731486412eca0277b76d22
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659805"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732099"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI kullanarak sanal makinelerin yük dengelemesi için iç yük dengeleyici oluşturma
 
@@ -128,7 +128,7 @@ Bu örnekte, yük dengeleyici için arka uç sunucular olarak kullanılacak iki 
 
 ### <a name="create-an-availability-set"></a>Kullanılabilirlik kümesi oluşturma
 
-[az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create) komutunu kullanarak kullanılabilirlik kümesi oluşturun
+[az vm availabilityset create](/cli/azure/network/nic) komutunu kullanarak kullanılabilirlik kümesi oluşturun
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -215,7 +215,7 @@ Yük dengeleyiciyi test etmek için, *myVMTest* adlı bir sanal makine oluşturu
 
 Yük dengeleyiciyi test etmek için önce yük dengeleyicinin özel IP adresini almanız gerekir. Ardından, myVMTest adlı sanal makinede oturum açın ve web tarayıcısının adres çubuğuna özel IP adresini yazın.
 
-Yük dengeleyicinin özel IP adresini almak için [az network lb show](/cli/azure/network/public-ip##az-network-lb-show) komutunu kullanın. Özel IP adresini kopyalayıp *myVMTest* adlı sanal makinenizin web tarayıcısında adres çubuğuna yapıştırın.
+Yük dengeleyicinin özel IP adresini almak için [az network lb show](/cli/azure/network/public-ip) komutunu kullanın. Özel IP adresini kopyalayıp *myVMTest* adlı sanal makinenizin web tarayıcısında adres çubuğuna yapıştırın.
 
 ```azurecli-interactive
   az network lb show \
