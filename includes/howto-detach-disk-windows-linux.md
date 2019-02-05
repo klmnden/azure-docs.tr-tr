@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331569"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735525"
 ---
 Sanal makineye bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayca ayırabilirsiniz. Ayırdığınız disk sanal makineden kaldırılır ancak Azure depolama hesabından silinmez.
 

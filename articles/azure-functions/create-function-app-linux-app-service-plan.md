@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: d9800ff3fc82636c5cae12167738667ec84326ee
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ec7b71c7da19ecefc14696c029e63a074b498ec8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52857043"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696762"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan-preview"></a>Bir işlev uygulaması, Linux üzerinde Azure App Service planında (Önizleme) oluşturma
 
@@ -84,7 +84,7 @@ az functionapp create --resource-group myResourceGroup --plan myAppServicePlan \
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bu makalede, Azure'da barındırılan Linux işlev uygulaması oluşturma işlemini gösterir. Artık [işlev projesi dağıtma](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) bu işlev uygulaması. Azure işlevleri çekirdek araçları için kullanabileceğiniz [işlevler projesi oluşturma](functions-run-local.md#create-a-local-functions-project) yerel bilgisayarınızdaki ve yeni Linux işlev uygulamanızı dağıtın.  
+Bu makalede, Azure'da barındırılan Linux işlev uygulaması oluşturma işlemini gösterir. Artık [işlev projesi dağıtma](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) bu işlev uygulaması. Azure işlevleri çekirdek araçları için kullanabileceğiniz [işlevler projesi oluşturma](functions-run-local.md) yerel bilgisayarınızdaki ve yeni Linux işlev uygulamanızı dağıtın.  
 
 > [!div class="nextstepaction"] 
 > [Azure İşlevleri’ni yerel olarak kodlama ve test etme](functions-run-local.md)

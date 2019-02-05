@@ -4,17 +4,17 @@ description: Kaynak ilke tanımı hangi etkili olması için zaman ilkelerin hi�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296673"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698301"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -46,7 +46,8 @@ Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı yönelik öğ
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -87,8 +88,7 @@ Parametreleri, ilke tanımlarının sayısını azaltarak ilke yönetiminizi bas
 Parametreler, ilkeleri oluştururken aynı şekilde çalışır. İlke tanımında parametreler ekleyerek, farklı değerler kullanarak farklı senaryolar için bu ilkeyi yeniden kullanabilirsiniz.
 
 > [!NOTE]
-> Yalnızca parametre tanımı için bir ilke veya girişim tanımı ilke veya girişim ilk oluşturma sırasında yapılandırılabilir. Parametre tanımı daha sonra değiştirilemez.
-> Bu, ilke veya girişim mevcut atamaları dolaylı olarak geçersiz yapılmasını önler.
+> Parametreler, var olan ve atanmış tanımına eklenebilir. Yeni bir parametre içermelidir **defaultValue** özelliği. Bu, ilke veya girişim mevcut atamaları dolaylı olarak geçersiz yapılmasını önler.
 
 Örneğin, kaynakların dağıtıldığı konumları sınırlamak için bir ilke tanımlayabilirsiniz.
 İlkenizi oluşturduğunuzda aşağıdaki parametreleri bildirmeniz:
@@ -101,7 +101,8 @@ Parametreler, ilkeleri oluştururken aynı şekilde çalışır. İlke tanımın
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2"
     }
 }
 ```

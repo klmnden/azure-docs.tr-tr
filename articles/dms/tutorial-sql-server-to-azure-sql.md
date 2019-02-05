@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: 80f2a05c5a770043a8ff1da088be2ad4acb16768
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 02/04/2019
+ms.openlocfilehash: 6fce0bcf705fe5071092ef3d5103559b4540ff8b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716455"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691548"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Öğretici: DMS kullanarak SQL Server'ı çevrimdışı Azure SQL Veritabanına geçirme
 Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneğindeki veritabanlarını [Azure SQL Veritabanına](https://docs.microsoft.com/azure/sql-database/) geçirebilirsiniz. Bu öğreticide şirket içi SQL Server 2016 (veya üzeri) örneğine geri yüklemiş olan **Adventureworks2012** veritabanını Azure Veritabanı Geçiş Hizmeti'ni kullanarak bir Azure SQL Veritabanına geçireceksiniz.
@@ -41,6 +41,10 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 - [SQL Server 2016 veya üzerini](https://www.microsoft.com/sql-server/sql-server-downloads) (herhangi bir sürüm) indirip yükleyin.
 - [Sunucu Ağ Protokolünü Etkinleştirme veya Devre Dışı Bırakma](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure) makalesindeki yönergeleri izleyerek SQL Server Express yüklemesi sırasında varsayılan olarak devre dışı bırakılan TCP/IP protokolünü etkinleştirin.
 - [Azure portalda Azure SQL veritabanı oluşturma](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) makalesindeki adımları izleyerek bir Azure SQL Veritabanı örneği oluşturun.
+ 
+    > [!NOTE]
+    > SQL Server Integration Services (SSIS) kullanın ve Katalog veritabanı, SSIS projelerini/paketlerini (SSISDB) için SQL Server'dan Azure SQL veritabanı'na geçirmek istiyorsanız hedef SSISDB oluşturulur ve otomatik olarak sizin adınıza yönetilir olduğunda, SSIS Azure Data Factory (ADF) sağlayın. SSIS paketlerini geçirme hakkında daha fazla bilgi için bkz [geçirme SQL Server Integration Services paketlerini azure'a](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages). 
+  
 - [Data Migration Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595) 3.3 veya üzeri sürümünü indirip yükleyin.
 - Azure Resource Manager dağıtım modelini kullanarak Azure Veritabanı Geçiş Hizmeti için [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) kullanarak şirket içi kaynak sunucularınıza siteden siteye bağlantı sağlayan bir sanal ağ oluşturun.
 - Azure Sanal Ağı (VNET) Ağ Güvenlik Grubu kurallarının 443, 53, 9354, 445, 12000 numaralı iletişim bağlantı noktalarını engellemediğinden emin olun. Azure VNET NSG trafiğini filtreleme hakkında ayrıntılı bilgi için [Ağ güvenlik grupları ile ağ trafiğini filtreleme](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) makalesine bakın.
@@ -67,6 +71,9 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 4.  **Kaynak seçin** ekranının **Sunucuya bağlan** iletişim kutusunda SQL Server bağlantı bilgilerini girin ve **Bağlan**'ı seçin.
 5.  **Kaynak ekle** iletişim kutusunda **AdventureWorks2012**'yi, **Ekle**'yi ve ardından **Değerlendirmeyi Başlat**'ı seçin.
 
+    > [!NOTE]
+    > SSIS kullanırsanız, DMA SSISDB kaynağının değerlendirmesi şu anda desteklemiyor. Ancak, SSIS projelerini/paketlerini değerlendirilen/hedef Azure SQL veritabanı tarafından barındırılan SSISDB imzalanmasını olarak doğrulanması. SSIS paketlerini geçirme hakkında daha fazla bilgi için bkz [geçirme SQL Server Integration Services paketlerini azure'a](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+
     Değerlendirme tamamlandığında aşağıdaki grafiğe benzer sonuçlar görüntülenir:
 
     ![Veri geçişi değerlendirmesi](media/tutorial-sql-server-to-azure-sql/dma-assessments.png)
@@ -83,6 +90,9 @@ Değerlendirmeyi istediğiniz gibi tamamladıktan ve seçilen veritabanının Az
 
 > [!NOTE]
 > Data Migration Yardımcısı'nda bir geçiş projesi oluşturmadan önce önkoşullarda belirtilen şekilde bir Azure SQL veritabanı sağladığınızdan emin olun. Bu öğreticide Azure SQL Veritabanı’nın adının **AdventureWorksAzure** olduğu kabul edilmiştir, ancak istediğiniz adı kullanabilirsiniz.
+
+> [!IMPORTANT]
+> SSIS kullanırsanız, DMA şu anda kaynak SSISDB geçişini desteklemez, ancak, listelenen hedef Azure SQL veritabanı tarafından barındırılan SSISDB SSIS projelerini/paketlerini yeniden dağıtın. SSIS paketlerini geçirme hakkında daha fazla bilgi için bkz [geçirme SQL Server Integration Services paketlerini azure'a](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
 **AdventureWorks2012** şemasını Azure SQL Veritabanına geçirmek için aşağıdaki adımları gerçekleştirin:
 
@@ -190,6 +200,9 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
     > Otomatik olarak imzalanan sertifika kullanarak şifrelenmiş SSL bağlantıları yüksek güvenlik sağlamaz. Ortadaki adam saldırılarına maruz kalabilirler. Üretim ortamında veya internete bağlı sunucularda otomatik olarak imzalanan sertifika ile SSL kullanımına güvenmemeniz gerekir.
 
    ![Kaynak Ayrıntıları](media/tutorial-sql-server-to-azure-sql/dms-source-details2.png)
+
+    > [!IMPORTANT]
+    > SSIS kullanırsanız, DMS kaynak SSISDB geçişi şu anda desteklememektedir ancak, listelenen hedef Azure SQL veritabanı tarafından barındırılan SSISDB SSIS projelerini/paketlerini yeniden dağıtın. SSIS paketlerini geçirme hakkında daha fazla bilgi için bkz [geçirme SQL Server Integration Services paketlerini azure'a](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
 ## <a name="specify-target-details"></a>Hedef ayrıntılarını belirtme
 1. **Kaydet**'i seçin ve **Geçiş hedef ayrıntıları** ekranında Data Migration Yardımcısı kullanılarak **AdventureWorks2012** şemasının dağıtıldığı önceden sağlanmış Azure SQL Veritabanı olan hedef Azure SQL Veritabanı sunucusunun bağlantı ayrıntılarını girin.

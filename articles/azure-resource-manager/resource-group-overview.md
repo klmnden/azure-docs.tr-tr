@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 647a1c7f62b48438d209e3ffacd075414f2439f1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: fbfbb4e452032073d92e7c2b93f78669da0ceaf5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562785"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691566"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 
@@ -37,7 +37,7 @@ Azure Resource Manager’ı kullanmaya yeni başladıysanız bilmiyor olabilece�
 * **kaynak grubu** - Bir Azure çözümü için ilgili kaynakları bir arada tutan bir kapsayıcıdır. Kaynak grubu yalnızca bir grup olarak yönetmek istediğiniz kaynakları içerir. Kaynak grupları kuruluşunuz için en uygun kılan bağlı kaynakları ayırmak nasıl karar sizin. Bkz. [Kaynak grupları](#resource-groups).
 * **Kaynak sağlayıcısı** -Azure kaynakları sağlayan bir hizmettir. Örneğin, ortak bir kaynak sağlayıcısı olan **Microsoft.Compute**, sanal makine kaynağı sağlar. **Microsoft.Storage** başka bir ortak kaynak sağlayıcısıdır. Bkz. [Kaynak sağlayıcıları](#resource-providers).
 * **Resource Manager şablonu** -bir kaynak grubuna veya aboneliğe dağıtmak için bir veya daha fazla kaynağı tanımlayan bir JavaScript nesne gösterimi (JSON) dosyası. Şablon, kaynakları tutarlı ve sürekli olarak dağıtmak için kullanılabilir. Bkz. [Şablon dağıtımı](#template-deployment).
-* **bildirim temelli söz dizimi** - Oluşturmaya yönelik programlama komutları dizisini yazmak zorunda kalmadan "Oluşturmak istediğiniz şeyi" belirtmenize imkan tanıyan söz dizimi. Resource Manager şablonu, bildirim temelli söz diziminin bir örneğidir. Dosya içinde Azure’a dağıtılacak altyapının özelliklerini tanımlarsınız. 
+* **bildirim temelli söz dizimi** - Oluşturmaya yönelik programlama komutları dizisini yazmak zorunda kalmadan "Oluşturmak istediğiniz şeyi" belirtmenize imkan tanıyan söz dizimi. Resource Manager şablonu, bildirim temelli söz diziminin bir örneğidir. Dosya içinde Azure’a dağıtılacak altyapının özelliklerini tanımlarsınız.
 
 ## <a name="the-benefits-of-using-resource-manager"></a>Resource Manager’ı kullanmanın avantajları
 
@@ -49,7 +49,7 @@ Resource Manager çeşitli avantajlar sunar:
 * Doğru sırayla dağıtılmalarını sağlamak için kaynaklarınız arasındaki bağımlılıkları tanımlayabilirsiniz.
 * Rol Tabanlı Erişim Denetimi (RBAC) yönetim platformuyla doğrudan tümleşik olduğu için kaynak grubunuzdaki tüm hizmetlere erişim denetimi uygulayabilirsiniz.
 * Aboneliğinizdeki tüm kaynakları mantıksal olarak düzenlemek için kaynaklarınıza etiketler ekleyebilirsiniz.
-* Aynı etiketi paylaşan bir kaynak grubunun maliyetlerini görüntüleyerek kuruluşunuzun faturalarına açıklık getirebilirsiniz.  
+* Aynı etiketi paylaşan bir kaynak grubunun maliyetlerini görüntüleyerek kuruluşunuzun faturalarına açıklık getirebilirsiniz.
 
 ## <a name="guidance"></a>Rehber
 Çözümleriniz üzerinde çalışırken aşağıdaki önerilerden yararlanarak Resource Manager’dan tam anlamıyla yararlanabilirsiniz.
@@ -88,7 +88,7 @@ Kaynak sağlayıcıları tarafından sunulan tüm işlemler için bkz: [Azure RE
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Resource Manager’ı kullanarak Azure çözümünüzün altyapısını ve yapılandırmasını tanımlayan bir şablon (JSON biçiminde) oluşturabilirsiniz. Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. 
+Resource Manager’ı kullanarak Azure çözümünüzün altyapısını ve yapılandırmasını tanımlayan bir şablon (JSON biçiminde) oluşturabilirsiniz. Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz.
 
 Biçimi şablon ve nasıl oluşturulacağı hakkında bilgi edinmek için [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](resource-group-authoring-templates.md). Kaynak türleri için JSON söz dizimini görüntülemek üzere bkz. [Azure Resource Manager şablonlarında kaynak tanımlama](/azure/templates/).
 
@@ -123,7 +123,7 @@ REQUEST BODY
   }
   "sku": {
     "name": "Standard_LRS"
-  },   
+  },
   "kind": "Storage"
 }
 ```
@@ -144,9 +144,9 @@ Katmanlarınızın farklı yaşam döngülerine sahip olacağını düşünüyor
 
 Azure Resource Manager kaynakların doğru sırada oluşturulmasını sağlamak için bağımlılıkları analiz eder. Bir kaynak başka bir kaynaktaki değere bağımlıysa (diskler için depolama hesabına ihtiyaç duyan bir sanal makine gibi) bir bağımlılık ayarlayın. Daha fazla bilgi için bkz. [Azure Resource Manager’da bağımlılıkları tanımlama](resource-group-define-dependencies.md).
 
-Ayrıca, şablonu altyapıda yapılan güncelleştirmeler için kullanabilirsiniz. Örneğin, çözümünüze bir kaynak ekleyebilir ve zaten dağıtılmış kaynaklar için yapılandırma kuralları ekleyebilirsiniz. Şablon zaten var olan bir kaynak tanımlıyorsa, Resource Manager yeni bir tane oluşturmak yerine var olan kaynak güncelleştirir.  
+Ayrıca, şablonu altyapıda yapılan güncelleştirmeler için kullanabilirsiniz. Örneğin, çözümünüze bir kaynak ekleyebilir ve zaten dağıtılmış kaynaklar için yapılandırma kuralları ekleyebilirsiniz. Şablon zaten var olan bir kaynak tanımlıyorsa, Resource Manager yeni bir tane oluşturmak yerine var olan kaynak güncelleştirir.
 
-Resource Manager, kurulumun içermediği belirli bir yazılımı yükleme gibi ek işlemlere ihtiyaç duymanız halinde size uzantılar sunar. Zaten DSC, Chef veya Puppet gibi bir yapılandırma yönetim hizmeti kullanıyorsanız, uzantıları kullanarak bu hizmetle çalışmaya devam edebilirsiniz. Sanal makine uzantıları hakkında daha fazla bilgi için bkz. [Sanal makine uzantıları ve özellikleri hakkında](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Resource Manager, kurulumun içermediği belirli bir yazılımı yükleme gibi ek işlemlere ihtiyaç duymanız halinde size uzantılar sunar. Zaten DSC, Chef veya Puppet gibi bir yapılandırma yönetim hizmeti kullanıyorsanız, uzantıları kullanarak bu hizmetle çalışmaya devam edebilirsiniz. Sanal makine uzantıları hakkında daha fazla bilgi için bkz. [Sanal makine uzantıları ve özellikleri hakkında](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Portaldan bir çözüm oluşturduğunuzda çözüm otomatik olarak bir dağıtım şablonu içerir. Bir şablonla başlayacağınız ve bu şablonu size özel ihtiyaçlara göre özelleştirebileceğiniz için yeni bir şablon oluşturmanız gerekmez. Bir örnek için bkz. [hızlı başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md). Ayrıca kaynak grubunun mevcut durumunu dışarı aktararak veya belirli bir dağıtım için kullanılan şablonu görüntüleyerek mevcut kaynak grubu için bir şablon elde edebilirsiniz. [Dışarı aktarılan şablonu](resource-manager-export-template.md) görüntülemek şablon söz dizimi hakkında bilgi edinmek için yararlı bir yoldur.
 

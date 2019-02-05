@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: 6cc689471247af3782e7e733be463cfc3e21afe5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e0474d496c6308f8ec86ea50920ef7cd69271d35
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478442"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692622"
 ---
 # <a name="create-a-vm-with-iis-using-dsc"></a>DSC kullanarak IIS ile VM oluşturma
 
@@ -49,11 +49,11 @@ Bu betik, bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturmak 
 
 | Komut | Notlar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Sanal makine oluşturur ve ağ kartına, sanal ağa, alt ağa ve NSG’ye bağlar. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini belirtir.  |
-| [az vm extension set](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Özel Betik Uzantısını sanal makineye ekleyerek IIS yüklemeye yönelik bir betiği çağırır. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Sanal makine oluşturur ve ağ kartına, sanal ağa, alt ağa ve NSG’ye bağlar. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini belirtir.  |
+| [az vm extension set](https://docs.microsoft.com/cli/azure/vm) | Özel Betik Uzantısını sanal makineye ekleyerek IIS yüklemeye yönelik bir betiği çağırır. |
 | [az vm open-port](https://docs.microsoft.com/cli/azure/vm) | Gelen trafiğe izin veren bir ağ güvenlik grubu kuralı oluşturur. Bu örnekte, 80 numaralı bağlantı noktası HTTP trafiğine açılır. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

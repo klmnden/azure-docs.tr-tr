@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 923c2aae6d426e736e34c06fc84025ca98fe4f48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 40852b9457e703334350402489feb68ac92832a0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199639"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693796"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager uç nokta izleme
 
@@ -69,7 +69,7 @@ Uç nokta izleme durumu uç nokta durumunu gösteren bir Traffic Manager tarafı
 
 | Profil durumu | Uç Nokta durumu | Uç nokta izleme durumu | Notlar |
 | --- | --- | --- | --- |
-| Devre dışı |Etkin |Devre dışı |Profili devre dışı bırakıldı. Uç nokta durumu etkindir; ancak, profil durumu (devre dışı) önceliklidir. Devre dışı profillerindeki uç noktalar izlenmeyen. DNS sorgu için bir NXDOMAIN yanıt kodu döndürülür. |
+| Devre dışı |Etkin |Etkin Değil |Profili devre dışı bırakıldı. Uç nokta durumu etkindir; ancak, profil durumu (devre dışı) önceliklidir. Devre dışı profillerindeki uç noktalar izlenmeyen. DNS sorgu için bir NXDOMAIN yanıt kodu döndürülür. |
 | &lt;Tüm&gt; |Devre dışı |Devre dışı |Uç noktayı devre dışı bırakıldı. Devre dışı uç noktalar izlenmeyen. Uç nokta DNS yanıtlarını bulunmaz, bu nedenle, trafiği almaz. |
 | Etkin |Etkin |Çevrimiçi |Uç nokta izlenir ve iyi durumda. Bu DNS yanıtları bulunur ve trafik alabilir. |
 | Etkin |Etkin |Düşürüldü |Uç nokta izleme sistem durumu denetimi başarısız oluyor. Uç nokta DNS yanıtlarını dahil değildir ve trafiği almaz. <br>Bu konuda bir özel tüm uç noktalar düşürülmüş ise bu durumda tümünün sorgu yanıtta döndürülmesi kabul edilir olduğunu).</br>|
@@ -91,7 +91,7 @@ Profil İzleyicisi durumu, yapılandırılan profili durumu ve tüm uç noktalar
 | Etkin |En az bir uç nokta durumu düzeyi düşürüldü. |Düşürüldü |Hangi uç noktaları ilgili daha fazla dikkat etmeniz gereken belirlemek için tek bir uç nokta durum değerleri gözden geçirin. |
 | Etkin |En az bir uç nokta durumu çevrimiçi olarak. Uç nokta Degraded durumuna sahip. |Çevrimiçi |Hizmet trafiği kabul ediyor. Başka bir eylem gerekli değildir. |
 | Etkin |En az bir uç nokta CheckingEndpoint durumudur. Hiçbir Exchange Online veya Degraded durumu noktalarıdır. |CheckingEndpoints |Bu geçiş durumu, oluşturulan veya etkinleştirilen, bir profil olduğunda gerçekleşir. Uç nokta sistem ilk kez olup olmadığı denetleniyor. |
-| Etkin |Devre dışı veya durdurulmuş profildeki tüm uç noktaların durumları olan ya da tanımlanmış uç nokta profile sahip. |Devre dışı |Uç nokta etkin olan ancak profil hala etkin. |
+| Etkin |Devre dışı veya durdurulmuş profildeki tüm uç noktaların durumları olan ya da tanımlanmış uç nokta profile sahip. |Etkin Değil |Uç nokta etkin olan ancak profil hala etkin. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Uç nokta yük devretme ve kurtarma
 
@@ -135,7 +135,7 @@ Bir uç nokta Degraded durumuna sahip olduğunda, DNS sorgularına yanıt artık
 * **Ağırlıklı**. Tüm kullanılabilir uç nokta rastgele atanan ağırlıkları ve diğer kullanılabilir uç noktalar ağırlıkları göre seçilir.
 * **Performans**. Son kullanıcıya en yakın uç nokta döndürülür. Uç noktanın kullanılamıyorsa, Traffic Manager trafik sonraki en yakın Azure bölgesinde uç noktalarına taşır. Performans trafiği yönlendirme için alternatif bir yük devretme planları kullanarak yapılandırabilirsiniz [iç içe Traffic Manager profillerini](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Coğrafi**. Sorgu isteği temel alarak coğrafi konumu hizmet eşlenmiş uç IP'ler döndürülür. Uç noktanın kullanılamıyorsa, yalnızca bir profilinde bir uç nokta için bir coğrafi konumda eşlenebilir olduğundan başka bir uç nokta yük devretme için seçilir değil (daha fazla ayrıntı bulunan [SSS](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Coğrafi yönlendirme kullanırken en iyi uygulama, müşterilerinin profil uç noktaları olarak birden fazla uç nokta ile iç içe Traffic Manager profillerini kullanmasını öneririz.
-* **Birden çok değerli** IPv4/IPv6 adresleriyle eşlenen birden fazla uç noktaları döndürülür. Bu profil için bir sorgu alındığında, sağlıklı uç noktalar göre döndürülen **en fazla kayıt sayısı yanıt** belirttiğiniz değeri. İki uç nokta, yanıtları varsayılan sayısıdır.
+* **Birden çok değerli** IPv4/IPv6 adresleriyle eşlenen birden fazla uç nokta döndürülür. Bu profil için bir sorgu alındığında, sağlıklı uç noktalar göre döndürülen **en fazla kayıt sayısı yanıt** belirttiğiniz değeri. İki uç nokta, yanıtları varsayılan sayısıdır.
 * **Alt ağ** bir IP adresi aralıklarını kümesine eşlenmiş uç nokta döndürülür. Bu IP adresinden bir istek alındığında, bu IP adresi için eşlenmiş bir uç nokta döndürdü. 
 
 Daha fazla bilgi için [Traffic Manager trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md).

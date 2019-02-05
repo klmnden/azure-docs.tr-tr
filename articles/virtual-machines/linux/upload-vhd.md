@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bbbcc1b3b505aae4bcc6869359ca27a8cd3fd1be
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 47227b1f9ceb4ba9e35180aa0cb171d1edd5bb9a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638130"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696855"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Azure CLI ile bir özel diskten Linux VM oluşturma
 
@@ -73,7 +73,7 @@ Azure, çeşitli Linux dağıtımları destekler (bkz [desteklenen dağıtımı]
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Başkalarının: Dağıtımlarla](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Diğerleri: Desteklenmeyen Dağıtımlar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Ayrıca bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) Azure için Linux görüntüleri hazırlama hakkında daha fazla genel ipuçları için.
 
@@ -82,7 +82,7 @@ Ayrıca bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-in
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>Seçenek 1: bir VHD'yi karşıya yükleme
+## <a name="option-1-upload-a-vhd"></a>1. seçenek: VHD’yi karşıya yükleme
 
 Sahip olduğunuz bir yerel makinede çalışıyor veya başka bir buluttan dışarı aktardığınız özelleştirilmiş bir VHD'yi karşıya yükleyebilirsiniz. Yeni bir Azure VM oluşturmak için bir VHD kullanmak için bir depolama hesabına VHD yükleyebilirsiniz ve bir VHD'den yönetilen disk oluşturma gerekecektir. Daha fazla bilgi için bkz. [Azure Yönetilen Disklere Genel Bakış](../windows/managed-disks-overview.md).
 
@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Özel disk ve VM içeren bir depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#az-storageaccount-create). Aşağıdaki örnekte adlı bir depolama hesabı oluşturur *mystorageaccount* daha önce oluşturduğunuz kaynak grubunda:
+Özel disk ve VM içeren bir depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account). Aşağıdaki örnekte adlı bir depolama hesabı oluşturur *mystorageaccount* daha önce oluşturduğunuz kaynak grubunda:
 
 ```azurecli
 az storage account create \
@@ -172,7 +172,7 @@ az disk create \
     --name myManagedDisk \
   --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
-## <a name="option-2-copy-an-existing-vm"></a>Seçenek 2: var olan bir VM'yi kopyalama
+## <a name="option-2-copy-an-existing-vm"></a>2. seçenek: Mevcut bir VM'yi kopyalama
 
 Ayrıca Azure'da özel bir VM oluşturun ve ardından işletim sistemi diski kopyalayın ve başka bir kopya oluşturmak için yeni bir VM ekleyin. Bu ama isterseniz var olan bir Azure VM, birden çok yeni VM'ler için model olarak kullanmak, oluşturmak, test etmek için iyi bir *görüntü* yerine. Mevcut bir Azure VM'den görüntü oluşturma hakkında daha fazla bilgi için bkz. [CLI kullanarak Azure VM'deki özel görüntüsünü oluşturma](tutorial-custom-images.md).
 

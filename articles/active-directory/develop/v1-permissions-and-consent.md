@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 887134f7d790e5ed7e878a94caa9ef2fb9356ae3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 28d1387e5c1efd85ab0b944f7cffc4fe215eb73f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102164"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734496"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>İzinler ve onay Azure Active Directory v1.0 uç noktasını
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD), hem OAuth hem de OpenID Connect (OIDC) akış
 
 Azure AD iki tür izin tanımlar:
 
-* **Temsilci izinleri** - Oturum açmış kullanıcının olduğu uygulamalar tarafından kullanılır. Bu uygulamalar için, kullanıcı veya yönetici uygulamanın istediği onayları verir ve uygulamaya API çağrıları yaparken oturum açmış kullanıcı adına işlem yapması için temsilci izni verilir. API bağlı olarak, kullanıcı API'sine doğrudan onay mümkün olmayabilir ve bunun yerine misiniz ["yönetici onayı" sağlamak yönetici gerektiren](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Temsilci izinleri** - Oturum açmış kullanıcının olduğu uygulamalar tarafından kullanılır. Bu uygulamalar için, kullanıcı veya yönetici uygulamanın istediği onayları verir ve uygulamaya API çağrıları yaparken oturum açmış kullanıcı adına işlem yapması için temsilci izni verilir. API bağlı olarak, kullanıcı API'sine doğrudan onay mümkün olmayabilir ve bunun yerine misiniz ["yönetici onayı" sağlamak yönetici gerektiren](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 * **Uygulama izinleri** - Oturum açmış kullanıcı olmadan çalıştırılan uygulamalar tarafından kullanılır; örneğin, arka plan hizmetleri veya daemon programları olarak çalıştırılan uygulamalar böyledir. Uygulama izinleri yalnızca [yönetici tarafından verilebilir](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) çünkü normalde bunlar güçlü izinlerdir ve kullanıcı sınırlarının ötesindeki verilere veya aslında yöneticilerin kullanımıyla kısıtlanmış olabilecek verilere erişim izin verebilir.
 
 Etkili izinler, uygulamanızın API istekleri yaparken sahip olacağı izinlerdir. 

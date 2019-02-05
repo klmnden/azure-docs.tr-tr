@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226518"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735847"
 ---
 Yardımcı bir kullanılabilirlik kümesi, kesinti sırasında sanal makineleriniz gibi tutmak bakım sırasında. Bir kullanılabilirlik kümesinde iki veya daha çok benzer şekilde yapılandırılmış sanal makinelere yerleştirerek uygulamalar veya sanal makinenizi çalıştıran hizmet kullanılabilirliğini sürdürmek için gereken yedeklilik oluşturur. Bu işlemin nasıl çalıştığı hakkında daha fazla ayrıntı için bkz [sanal makinelerin kullanılabilirliğini yönetme][Manage the availability of virtual machines].
 
@@ -17,15 +17,15 @@ Uygulamanızı her zaman etkili bir şekilde kullanılabilir ve çalışır duru
 
 Klasik sanal makineler, iki seçenekten birini kullanarak bir kullanılabilirlik kümesi içine ekleyebilirsiniz:
 
-* [Seçenek 1: bir sanal makine ve bir kullanılabilirlik kümesi aynı anda oluşturma][Option 1: Create a virtual machine and an availability set at the same time]. Ardından, bu sanal makineler oluştururken yeni sanal makineler kümeye ekleyin.
-* [2. seçenek: mevcut bir sanal makineyi bir kullanılabilirlik kümesine ekleme][Option 2: Add an existing virtual machine to an availability set].
+* [1. seçenek: Bir sanal makine ve bir kullanılabilirlik kümesi aynı anda oluşturma][Option 1: Create a virtual machine and an availability set at the same time]. Ardından, bu sanal makineler oluştururken yeni sanal makineler kümeye ekleyin.
+* [2. seçenek: Mevcut bir sanal makine bir kullanılabilirlik kümesine ekleme][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
 > Klasik modeldeki sanal makinelerin aynı kullanılabilirlik kümesine yerleştirmek istediğiniz aynı bulut hizmetine ait olmalıdır.
 > 
 > 
 
-## <a id="createset"> </a>Seçenek 1: bir sanal makine ve bir kullanılabilirlik kümesi aynı anda oluşturma
+## <a id="createset"> </a>1. seçenek: Bir sanal makine ve bir kullanılabilirlik kümesi aynı anda oluşturma
 Bunu yapmak için Azure portal veya Azure PowerShell komutlarını kullanabilirsiniz.
 
 Azure portalını kullanmak için:
@@ -46,7 +46,7 @@ Azure portalını kullanmak için:
 
 Bir Azure sanal makinesi oluşturun ve yeni veya mevcut bir kullanılabilirlik kümesine eklemek için Azure PowerShell komutlarını kullanmak için bkz: [oluşturma ve önceden yapılandırma Windows tabanlı sanal makineler için Azure PowerShell'i kullanma](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>2. seçenek: mevcut bir sanal makineyi bir kullanılabilirlik kümesine ekleme
+## <a id="addmachine"> </a>2. seçenek: Bir kullanılabilirlik kümesine mevcut bir sanal makine ekleyin
 Azure portalında mevcut Klasik sanal makineleri için mevcut bir kullanılabilirlik kümesi veya bunlar için yeni bir tane oluşturun ekleyebilirsiniz. (Aynı kullanılabilirlik kümesindeki sanal makinelerin aynı bulut hizmetine ait olmalıdır aklınızda tutun.) Adımlar neredeyse aynıdır. Azure PowerShell ile sanal makineyi var olan bir kullanılabilirlik kümesine ekleyebilirsiniz.
 
 1. Zaten yapmadıysanız, oturum [Azure portalında](https://portal.azure.com).

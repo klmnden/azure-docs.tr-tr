@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2bb0d4161dfd88022321fce2aa50e6ae90cc60b4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170717"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693947"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Öğretici: Azure CLI ile sanal makine ölçek kümesini otomatik olarak ölçeklendirme
 
@@ -62,7 +62,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Otomatik ölçeklendirme profilini tanımlama
 
-Bir ölçek kümesinde otomatik ölçeklendirmeyi etkinleştirmek için ilk olarak bir otomatik ölçeklendirme profili tanımlamanız gerekir. Bu profil varsayılan, en düşük ve en yüksek ölçek kümesi kapasitesini tanımlar. Bu limitler, sürekli VM örnekleri oluşturmayarak maliyeti kontrol etmenize ve bir ölçeklendirme olayında kalan en düşük örnek sayısı ile kabul edilebilir performansı dengelemenize olanak tanır. [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create) komutu ile bir otomatik ölçeklendirme profili oluşturun. Aşağıdaki örnekte, varsayılan ve en düşük sanal makine örneği kapasitesi *2* ve en yüksek kapasite de *10* olarak ayarlanır:
+Bir ölçek kümesinde otomatik ölçeklendirmeyi etkinleştirmek için ilk olarak bir otomatik ölçeklendirme profili tanımlamanız gerekir. Bu profil varsayılan, en düşük ve en yüksek ölçek kümesi kapasitesini tanımlar. Bu sınırlar değil, sürekli olarak VM örnekleri oluşturarak maliyet denetlemek ve en az bir ölçeğini olayında kalan örnek sayısı kabul edilebilir performans Bakiye belirlemenizi sağlar. [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create) komutu ile bir otomatik ölçeklendirme profili oluşturun. Aşağıdaki örnekte, varsayılan ve en düşük sanal makine örneği kapasitesi *2* ve en yüksek kapasite de *10* olarak ayarlanır:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -141,7 +141,7 @@ Zaman **stres** çıkış benzer gösterir *stres: bilgi: [2688] dispatching hog
 
 **stress** yardımcı programının CPU yükü oluşturduğunu onaylamak için, **top** yardımcı programını kullanarak etkin sistem yükünü inceleyin:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 

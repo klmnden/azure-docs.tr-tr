@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554546"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692960"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda iş sürekliliğine genel bakış
 
@@ -50,6 +50,6 @@ Diğer seçenek, coğrafi olarak yedekli yedeklemeler kullanarak sunucuya geri y
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Otomatik yedeklemeler hakkında daha fazla bilgi için bkz: [MySQL için Azure veritabanı yedekleme](concepts-backup.md).
-- Azure portalını kullanarak bir noktaya geri yüklemek için bkz: [veritabanını Azure portalını kullanarak bir noktaya geri yükleme](howto-restore-server-portal.md).
-- Azure CLI kullanarak bir noktaya geri yüklemek için bkz: [veritabanı CLI kullanarak bir noktaya geri yükleme](howto-restore-server-cli.md).
+- Daha fazla bilgi edinin [otomatik MySQL için Azure veritabanı'nda yedeklemeler](concepts-backup.md).
+- Kullanarak geri yüklemeyi öğreneceksiniz [Azure portalında](howto-restore-server-portal.md) veya [Azure CLI'yı](howto-restore-server-cli.md).
+- Hakkında bilgi edinin [MySQL için Azure veritabanı'nda çoğaltmaları okuma](concepts-read-replicas.md).

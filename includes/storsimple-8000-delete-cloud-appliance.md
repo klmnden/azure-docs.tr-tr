@@ -4,18 +4,18 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8de46fee4f93fffa669dc96ec5bb84e36842a055
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: ac708eb2ac79a74b8f4e09a7306a42665b3aca94
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166027"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736081"
 ---
 #### <a name="to-delete-a-cloud-appliance"></a>Bir bulut gerecini silmek için
 
 1. Azure Portal’da oturum açın.
 2. Yalnızca veri içermeyen, devre dışı bırakılmış cihazları silebilirsiniz. Önce cihazınızdaki verileri silin; birim kapsayıcılarındaki [verileri başka bir cihaza da devredebilirsiniz](../articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md). Verileri sildikten sonra cihazınızı devre dışı bırakmaya hazır olursunuz.
-3. StorSimple Cihaz Yöneticisi hizmeti sayfanızda **Cihazlar**’a tıklayın ve cihazı seçin. **Devre Dışı Bırak**’a sağ tıklayın ve seçin.
+3. StorSimple cihaz Yöneticisi hizmet sayfasında tıklatın **cihazları** ve ardından cihazı seçin. **Devre Dışı Bırak**’a sağ tıklayın ve seçin.
 4. Cihaz devre dışı bırakıldıktan sonra cihaza sağ tıklayın ve **Sil**’i seçin.
 
     ![Devre dışı bırakılmış cihazı seçin ve sil’e tıklayın](./media/storsimple-8000-delete-cloud-appliance/delete-cloud-appliance1.png)

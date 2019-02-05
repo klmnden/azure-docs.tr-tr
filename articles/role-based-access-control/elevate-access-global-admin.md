@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d6778e1749493a04a73d0ac210c1557b89343d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437479"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695589"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Tüm Azure aboneliklerini ve Yönetim gruplarını yönetmek için erişimini yükseltme
 
@@ -83,12 +83,14 @@ Kök kapsamda yapmanız gereken değişiklikleri yaptıktan sonra bu yükseltilm
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ### <a name="list-role-assignment-at-the-root-scope-"></a>Liste Rol Ataması (/) kök kapsamda
 
-Kök kapsamda bir kullanıcı için kullanıcı erişimi yöneticisi rol ataması listelemek için (`/`), kullanın [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) komutu.
+Kök kapsamda bir kullanıcı için kullanıcı erişimi yöneticisi rol ataması listelemek için (`/`), kullanın [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) komutu.
 
 ```azurepowershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
   -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
@@ -111,10 +113,10 @@ Kök kapsamda bir kullanıcı için bir kullanıcı erişimi yöneticisi rolü a
 1. Yükseltilmiş erişimi kaldırmak bir kullanıcı olarak oturum açın. Bu erişim veya başka bir genel yönetici kök kapsamda yükseltilmiş erişim ile yükseltmek için kullanılan aynı kullanıcı olabilir.
 
 
-1. Kullanım [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) kullanıcı erişimi yöneticisi rol atamasını kaldırmak için komutu.
+1. Kullanım [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) kullanıcı erişimi yöneticisi rol atamasını kaldırmak için komutu.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+    Remove-AzRoleAssignment -SignInName <username@example.com> `
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 

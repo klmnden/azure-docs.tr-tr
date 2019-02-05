@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 1ae352a0292e75eb9a5bf07e3ddca79ca687dea2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 417772b2e955b1a3664dd495f292a76ab2819165
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687393"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734530"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>İşletim sistemi ve sanal makine ölçek kümesi Azure CLI (Önizleme) ile bağlı veri diskleri şifreleme
 
@@ -42,13 +42,13 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici, Azure 
 
 ## <a name="register-for-disk-encryption-preview"></a>Disk şifreleme Önizleme için kaydolun
 
-Önizleme sanal makine ölçek kümeleri için Azure disk şifrelemesi, kendi aboneliğinize kaydetmeniz gerektirir [az özelliği kayıt](/cli/azure/feature#az_feature_register). Yalnızca ilk kez disk şifreleme önizleme özelliğini kullandığınızda aşağıdaki adımları gerekir:
+Önizleme sanal makine ölçek kümeleri için Azure disk şifrelemesi, kendi aboneliğinize kaydetmeniz gerektirir [az özelliği kayıt](/cli/azure/feature). Yalnızca ilk kez disk şifreleme önizleme özelliğini kullandığınızda aşağıdaki adımları gerekir:
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Bu, kayıt isteği yaymak için 10 dakikaya kadar sürebilir. Kayıt durumunu denetleyebilirsiniz [az özelliği show](/cli/azure/feature#az_feature_show). Zaman `State` raporları *kayıtlı*, yeniden kaydetmeniz *Microsoft.Compute* sağlayıcısıyla [az provider register](/cli/azure/provider#az_provider_register):
+Bu, kayıt isteği yaymak için 10 dakikaya kadar sürebilir. Kayıt durumunu denetleyebilirsiniz [az özelliği show](/cli/azure/feature). Zaman `State` raporları *kayıtlı*, yeniden kaydetmeniz *Microsoft.Compute* sağlayıcısıyla [az provider register](/cli/azure/provider):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -56,13 +56,13 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="create-a-scale-set"></a>Ölçek kümesi oluşturma
 
-Ölçek kümesi oluşturabilmek için [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+Ölçek kümesi oluşturabilmek için [az group create](/cli/azure/group) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Bu adımda [az vmss create](/cli/azure/vmss#az_vmss_create) ile bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek, değişiklikler uygulandıkça otomatik güncelleştirilecek şekilde ayarlanan *myScaleSet* adlı bir ölçek kümesi oluşturur ve *~/.ssh/id_rsa* içinde yoksa SSH anahtarları oluşturur. Her sanal makine örneği ve Azure için 32Gb veri diskine bağlı [özel betik uzantısı](../virtual-machines/linux/extensions-customscript.md) ile veri diskleri hazırlamak için kullanılan [az vmss uzantı kümesi](/cli/azure/vmss/extension#az_vmss_extension_set):
+Bu adımda [az vmss create](/cli/azure/vmss) ile bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek, değişiklikler uygulandıkça otomatik güncelleştirilecek şekilde ayarlanan *myScaleSet* adlı bir ölçek kümesi oluşturur ve *~/.ssh/id_rsa* içinde yoksa SSH anahtarları oluşturur. Her sanal makine örneği ve Azure için 32Gb veri diskine bağlı [özel betik uzantısı](../virtual-machines/linux/extensions-customscript.md) ile veri diskleri hazırlamak için kullanılan [az vmss uzantı kümesi](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk

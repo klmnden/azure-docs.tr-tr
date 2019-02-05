@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: db0aa1781c3e35b68a59082cf7a1760f7e9a34b4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 33f21786b1af4d169d184487a030b7e4ea321327
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239579"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694542"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>CLI ile Anlık görüntüden sanal makine oluşturma
 
@@ -49,9 +49,9 @@ Bu betik bir yönetilen disk, sanal makine ve tüm ilgili kaynakları oluşturma
 
 | Komut | Notlar |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Anlık görüntü adı ve kaynak grubu adını kullanarak anlık görüntüyü alır. Yönetilen bir disk oluşturmak için döndürülen nesnenin kimlik özelliği kullanılır.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Anlık görüntü kimliği, disk adı, depolama türü ve boyutu kullanarak anlık görüntüden yönetilen diskler oluşturur  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Yönetilen bir işletim sistemi diskini kullanarak VM oluşturur |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Anlık görüntü adı ve kaynak grubu adını kullanarak anlık görüntüyü alır. Yönetilen bir disk oluşturmak için döndürülen nesnenin kimlik özelliği kullanılır.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Anlık görüntü kimliği, disk adı, depolama türü ve boyutu kullanarak anlık görüntüden yönetilen diskler oluşturur  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Yönetilen bir işletim sistemi diskini kullanarak VM oluşturur |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

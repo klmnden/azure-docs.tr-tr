@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 494826701431ee397b468c6ddfcef664c015861d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661489"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697145"
 ---
 # <a name="custom-roles-in-azure"></a>Azure'da özel roller
 
@@ -48,15 +48,9 @@ Aşağıdaki özel bir rol JSON biçiminde gösterilen gibi göründüğünü g�
     "Microsoft.Insights/diagnosticSettings/*",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-
-  ],
-  "DataActions": [
-
-  ],
-  "NotDataActions": [
-
-  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
   "AssignableScopes": [
     "/subscriptions/{subscriptionId1}",
     "/subscriptions/{subscriptionId2}",
@@ -73,12 +67,12 @@ Aşağıdaki özel bir rol JSON biçiminde gösterilen gibi göründüğünü g�
 
 1. İhtiyaç duyduğunuz izinleri belirleyin
 
-    Özel bir rol oluşturduğunuzda, kaynak izinlerinizi tanımlamak kullanılabilen sağlayıcısı işlemleri bilmeniz gerekir. İşlemlerin listesini görüntülemek için kullanabileceğiniz [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) veya [az sağlayıcı işlemi listesi](/cli/azure/provider/operation#az-provider-operation-list) komutları.
+    Özel bir rol oluşturduğunuzda, kaynak izinlerinizi tanımlamak kullanılabilen sağlayıcısı işlemleri bilmeniz gerekir. İşlemlerin listesini görüntülemek için kullanabileceğiniz [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) veya [az sağlayıcı işlemi listesi](/cli/azure/provider/operation#az-provider-operation-list) komutları.
     Özel rolünüz için izinleri belirlemek için işlemleri ekleyin. `Actions` veya `NotActions` özelliklerini [rol tanımı](role-definitions.md). Veri işlemleri varsa, bu ekleme `DataActions` veya `NotDataActions` özellikleri.
 
 2. Özel rol oluşturma
 
-    Özel rol oluşturmak için Azure PowerShell veya Azure CLI'yı kullanabilirsiniz. Genellikle, mevcut bir yerleşik rolü ile başlayın ve sonra gereksinimleriniz için değiştirin. Kullanmanız [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) veya [az rol tanımını oluşturma](/cli/azure/role/definition#az-role-definition-create) özel rolü oluşturmak için komutları. Özel bir rol oluşturmak için olmalıdır `Microsoft.Authorization/roleDefinitions/write` tüm izin `AssignableScopes`, gibi [sahibi](built-in-roles.md#owner) veya [kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator).
+    Özel rol oluşturmak için Azure PowerShell veya Azure CLI'yı kullanabilirsiniz. Genellikle, mevcut bir yerleşik rolü ile başlayın ve sonra gereksinimleriniz için değiştirin. Kullanmanız [yeni AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) veya [az rol tanımını oluşturma](/cli/azure/role/definition#az-role-definition-create) özel rolü oluşturmak için komutları. Özel bir rol oluşturmak için olmalıdır `Microsoft.Authorization/roleDefinitions/write` tüm izin `AssignableScopes`, gibi [sahibi](built-in-roles.md#owner) veya [kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator).
 
 3. Özel rol testi
 

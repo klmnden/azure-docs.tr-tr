@@ -10,16 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7d6b942ea8b2bf61bee472811648e5089f280354
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 77dda85c920fda90b8379445a79569413b2dd463
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102423"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691514"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
+
 Bu makalede, Azure Resource Manager şablon yapısını açıklar. Bu, bir şablon ve bu bölümlerdeki kullanılabilir olan özellikleri farklı bölümlerini sayısını gösterir. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur. Şablon oluşturmanın adım adım öğretici için bkz: [ilk Azure Resource Manager şablonunuzu oluşturma](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Şablon biçimi
@@ -40,7 +41,7 @@ En basit yapısına bir şablon aşağıdaki öğelere sahiptir:
 
 | Öğe adı | Gerekli | Açıklama |
 |:--- |:--- |:--- |
-| $schema |Evet |Şablon dil sürümünü tanımlayan JSON şema dosyasının konumu.<br><br> Kaynak grubu dağıtımları için kullanmak `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`.<br><br>Abonelik dağıtımları için kullanın `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |Evet |Şablon dil sürümünü tanımlayan JSON şema dosyasının konumu.<br><br> Kaynak grubu dağıtımı için kullanın: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Abonelik dağıtımları için kullanın: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Evet |Şablon (örneğin, 1.0.0.0) sürümü. Bu öğe için herhangi bir değer sağlayabilirsiniz. Şablonunuzda önemli değişiklikleri belgelemek için bu değeri kullanın. Şablon kullanarak kaynakları dağıtırken, bu değer, en uygun şablonu kullanıldığından emin emin olmak için kullanılabilir. |
 | parametreler |Hayır |Kaynak bir dağıtımı özelleştirmek için dağıtım çalıştırıldığında, sağlanan değerler. |
 | Değişkenleri |Hayır |Şablonda, JSON parçaları olarak şablon dili ifadeleri basitleştirmek için kullanılan değerleri. |
@@ -161,6 +162,7 @@ Her öğesinin özellikleri ayarlayabilirsiniz. Aşağıdaki örnek, bir şablon
 Bu makalede daha ayrıntılı şablon bölümlerini açıklar.
 
 ## <a name="syntax"></a>Sözdizimi
+
 Temel söz dizimi şablonu JSON ' dir. Ancak, ifadeler ve İşlevler, şablonda kullanılabilir JSON değerlerinin genişletin.  İfadeleri JSON dize değişmez değerleri içinde ayarlanmış ilk yazılır ve son karakter olan ayraçlar: `[` ve `]`sırasıyla. Şablon dağıtıldığında ifade değeri değerlendirilir. Dize sabit değeri olarak yazılmış olsa da ifade değerlendirme sonucu gibi bir dizi ya da tamsayı, gerçek ifade bağlı olarak farklı bir JSON türünde olabilir.  Bir sabit dize köşeli ayraç ile başlatmak için `[`, ancak değil bir ifade olarak yorumlanır olması, dizesiyle başlatmak için ek bir köşeli ayraç Ekle `[[`.
 
 Genellikle, ifadeleri işlevleri ile dağıtım yapılandırma işlemleri gerçekleştirmek için kullanırsınız. JavaScript'te, işlev çağrıları olarak biçimlendirilmiş gibi yalnızca `functionName(arg1,arg2,arg3)`. Özellikler, nokta ve [dizin] işleçleri kullanarak başvuru.
@@ -176,6 +178,7 @@ Aşağıdaki örnek, bir değer oluştururken çeşitli işlevler kullanma işle
 Şablon işlevlerinin tam listesi için bkz. [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parametreler
+
 Şablon parametreleri bölümünde kaynakları dağıtırken giriş değerleri belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uygun değerleri sağlayarak bir dağıtımı özelleştirmek etkinleştirin. Şablonunuzdaki parametrelerle sağlamanıza gerek yoktur, ancak parametre olmadan, şablonunuzu her zaman aynı adları, konumları ve özellikleri ile aynı kaynakları dağıtmak için kullanacağınız.
 
 Aşağıdaki örnek, bir basit parametre tanımı gösterilmektedir:
@@ -194,6 +197,7 @@ Aşağıdaki örnek, bir basit parametre tanımı gösterilmektedir:
 Parametreleri tanımlama hakkında daha fazla bilgi için bkz: [parametreleri bölümünde Azure Resource Manager şablonları](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Değişkenler
+
 Değişkenler bölümünde kullanılabilir değerler, şablonun tamamında oluşturun. Değişkenleri tanımlamanız gerekmez, ancak bunlar karmaşık ifadeleri azaltarak genellikle şablonunuzu basitleştirin.
 
 Aşağıdaki örnek, basit bir değişken tanımı gösterilmektedir:
@@ -293,6 +297,80 @@ Koşullu olarak dahil edin veya bir kaynak dağıtım sırasında hariç tutmak 
 ```
 
 Daha fazla bilgi için [çıktısını alır, Azure Resource Manager şablonları bölümünü](resource-manager-templates-outputs.md).
+
+## <a name="comments"></a>Yorumlar
+
+Açıklama şablonunuza eklemek için birkaç seçeneğiniz vardır.
+
+İçin **parametreleri**, ekleme bir `metadata` nesnesi ile bir `description` özelliği.
+
+```json
+"parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "User name for the Virtual Machine."
+      }
+    },
+```
+
+Şablonu portal aracılığıyla dağıtım yaparken, metnin bir açıklama sağlayın, otomatik olarak bir ipucu olarak bu parametre için kullanılır.
+
+![Parametre ipucunu göster](./media/resource-group-authoring-templates/show-parameter-tip.png)
+
+İçin **kaynakları**, ekleme bir `comments` öğesi.
+
+```json
+"resources": [
+    {
+      "comments": "Storage account used to store VM disks",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "apiVersion": "2018-07-01",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[variables('storageAccountType')]"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+```
+
+Ekleyebileceğiniz bir `metadata` şablonunuzda neredeyse her yerden nesne. Kaynak Yöneticisi nesnesi yok sayar, ancak JSON düzenleyiciniz özelliği geçerli değil uyar. Gerek duyduğunuz özellikleri nesnesi tanımlayın.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
+
+İçin **çıkarır**, çıkış değeri için bir meta veri nesnesi ekleyin.
+
+```json
+"outputs": {
+    "hostname": {
+      "type": "string",
+      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
+      "metadata": {
+        "comments": "Return the fully qualified domain name"
+      }
+    },
+```
+
+Kullanıcı tanımlı işlevler için bir meta veri nesnesi ekleyemezsiniz.
+
+Genel yorumlar için kullanabileceğiniz `//` ancak bu sözdizimi Azure CLI ile şablon dağıtımı sırasında bir hataya neden olur.
+
+```json
+"variables": {
+    // Create unique name for the storage account
+    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+},
+```
 
 ## <a name="template-limits"></a>Şablon sınırları
 

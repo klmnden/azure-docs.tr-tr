@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 139f6283c2b59aee53afa3f0dd52e06e2b0eff4c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912042"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695228"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimlere
 
@@ -34,7 +34,7 @@ Filtreleri gibi şeyler müşterilerinize izin veren sunucu tarafı kurallar şu
 - Yalnızca belirtilen yorumlama ve/veya içeriği ("işleme filtreleme") çalmak için kullanılan cihaz tarafından desteklenen belirtilen dil parçaları sunun. 
 - ("Ayarlama sunu pencere") player DVR penceresinde sınırlı bir süre sağlamak amacıyla sunu penceresi DVR ayarlayın.
 
-Bu konu başlığı altında açıklanır [kavramları](#concepts) ve [gösterir filtreler tanımları](#definitions). Ardından ilgili ayrıntıları verir [yaygın senaryoları](#common-scenarios). Makalenin sonunda, filtreleri program aracılığıyla nasıl oluşturulacağını gösteren bağlantıları bulabilirsiniz.  
+Bu konu başlığı altında açıklanır [kavramları](#concepts) ve [gösterir filtreler tanımları](#definitions). Ardından, yaygın senaryolar hakkında ayrıntılar sağlar. Makalenin sonunda, filtreleri program aracılığıyla nasıl oluşturulacağını gösteren bağlantıları bulabilirsiniz.  
 
 ## <a name="concepts"></a>Kavramlar
 

@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9c2f094104172407992371b6738dd2fdf101a506
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 29313c3b3dc7b140b566cb4d7a52406fc45fe0f0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985123"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695545"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Azure’da güvenli bir Service Fabric Linux kümesi oluşturma
 
@@ -47,7 +47,7 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) | Yeni bir Service Fabric kümesi oluşturur.  |
+| [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest) | Yeni bir Service Fabric kümesi oluşturur.  |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

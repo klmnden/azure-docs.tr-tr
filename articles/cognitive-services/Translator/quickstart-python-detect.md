@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 23f1aa8e6356c9a0d3ce7e680ae1b0ca7d0b1bc3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 70b73fec4a6955bc1fcc91cb3895b07fd667ebca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213812"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692776"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Python kullanarak metin dili algılamak için kullanın
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Şu anda Translator Metin Çevirisi için bir uç nokta kullanılabilir ve `base_url` olarak ayarlanmıştır. `path`, `detect` rotasını ayarlar ve API sürüm 3’ü kullanmak istediğimizi belirler.
+Translator metin çevirisi genel uç noktası olarak ayarlandığından `base_url`. `path`, `detect` rotasını ayarlar ve API sürüm 3’ü kullanmak istediğimizi belirler.
 
 >[!NOTE]
 > Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Algılama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).

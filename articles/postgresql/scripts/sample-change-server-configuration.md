@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 077c3f863ace2ec8b41bc749b613fa1e5bdc094c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6b5a855c8db5cb87f313e14c42396ae70b407e61
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659483"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692214"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Azure CLI kullanarak bir PostgreSQL için Azure Veritabanı sunucusunun yapılandırmalarını listeleme ve güncelleştirme
 Bu örnek CLI betiği, PostgreSQL için Azure Veritabanı sunucusuna ait tüm kullanılabilir yapılandırma parametrelerini izin verilen değerleriyle birlikte listeler ve *log_retention_days* öğesini varsayılandan farklı bir değere ayarlar.
@@ -35,12 +35,12 @@ Bu betik, aşağıdaki tabloda ana hatları verilen komutları kullanır:
 
 | **Komut** | **Notlar** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Veritabanlarını barındıran bir PostgreSQL sunucusu oluşturur. |
-| [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | Bir PostgreSQL için Azure Veritabanı sunucusunun yapılandırmalarını listeleyin. |
+| [az group create](/cli/azure/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az postgres server create](/cli/azure/postgres/server) | Veritabanlarını barındıran bir PostgreSQL sunucusu oluşturur. |
+| [az postgres server configuration list](/cli/azure/postgres/server/configuration) | Bir PostgreSQL için Azure Veritabanı sunucusunun yapılandırmalarını listeleyin. |
 | [az postgres server configuration set](/cli/azure/postgres/server/configuration) | Bir PostgreSQL için Azure Veritabanı sunucusunun yapılandırmalarını güncelleştirin. |
-| [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show) | Bir PostgreSQL için Azure Veritabanı sunucusunun yapılandırmasını gösterin. |
-| [az group delete](/cli/azure/group#az_group_delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [az postgres server configuration show](/cli/azure/postgres/server/configuration) | Bir PostgreSQL için Azure Veritabanı sunucusunun yapılandırmasını gösterin. |
+| [az group delete](/cli/azure/group) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Azure CLI hakkında daha fazla bilgi edinin: [Azure CLI belgeleri](/cli/azure).

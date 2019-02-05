@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226702"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735728"
 ---
 ## <a name="multi-and-single-instance-vms"></a>Birden çok ve tek örnekli VM'ler
 Azure sayısına kritik Vm'lerini planlı bakım nedeniyle kapalı kalma süresi--geçmeleri olduğunda bunlar zamanlayabilirsiniz çalışan pek çok müşteriniz yaklaşık 15 dakika--bu bakım sırasında gerçekleşir. Kullanılabilirlik kümeleri, sağlanan VM'ler planlanmış bakım aldığınızda denetlemenize yardımcı olmak için kullanabilirsiniz.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 319803a8b6c07de6efafa80789248c60a9cdad06
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3ec3d152864ab8caf9f0c68966b6d4f8fd9e64dd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241450"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695245"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Yönetilen bir diski işletim sistemi diski olarak ekleyerek sanal makine oluşturma
 
@@ -52,8 +52,8 @@ Bu betik yönetilen disk özelliklerini almak, yeni bir VM’ye yönetilen bir d
 
 | Komut | Notlar |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Disk adı ve kaynak grubu adını kullanarak yönetilen disk özelliklerini alır. Yeni bir VM’ye yönetilen disk eklemek için kimlik özelliği kullanılır |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Yönetilen bir işletim sistemi diskini kullanarak VM oluşturur |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk) | Disk adı ve kaynak grubu adını kullanarak yönetilen disk özelliklerini alır. Yeni bir VM’ye yönetilen disk eklemek için kimlik özelliği kullanılır |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Yönetilen bir işletim sistemi diskini kullanarak VM oluşturur |
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).

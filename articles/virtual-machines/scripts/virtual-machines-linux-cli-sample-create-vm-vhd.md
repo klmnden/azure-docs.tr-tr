@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 6963a7d8541897940316d0fdfbea06f265884249
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 18bfdaaf75230cf91ea8f786188b9de9f7a6a5be
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478323"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696756"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Bir sanal sabit disk ile VM oluşturma
 
@@ -53,16 +53,16 @@ Bu betik bir kaynak grubu, sanal makine, kullanılabilirlik kümesi, yük dengel
 
 | Komut | Notlar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Depolama hesaplarını listeler |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Depolama hesabı adının geçerli olduğunu ve önceden var olmadığını doğrular |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account) | Depolama hesaplarını listeler |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account) | Depolama hesabı adının geçerli olduğunu ve önceden var olmadığını doğrular |
 | [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys) | Depolama hesaplarının anahtarlarını listeler |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Blobun mevcut olup olmadığını denetler |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Depolama hesabında bir kapsayıcı oluşturur. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | VHD’yi karşıya yükleyerek kapsayıcıda bir blob oluşturur. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | VM adının kullanımda olup olmadığını denetlemek için `--query` ile birlikte kullanılır. | 
+| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob) | Blobun mevcut olup olmadığını denetler |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container) | Depolama hesabında bir kapsayıcı oluşturur. |
+| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob) | VHD’yi karşıya yükleyerek kapsayıcıda bir blob oluşturur. |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm) | VM adının kullanımda olup olmadığını denetlemek için `--query` ile birlikte kullanılır. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Sanal makineleri oluşturur. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Oluşturulan VM’nin IP adresini alır. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm-ip-addresses) | Oluşturulan VM’nin IP adresini alır. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

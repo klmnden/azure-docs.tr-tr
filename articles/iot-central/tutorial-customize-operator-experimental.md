@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 8636ac26ebf008ef0eb15713f0736650aa00af81
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ba91bafbdb53269ef622feeceda7dc48359716de
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666406"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734700"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Öğretici: Azure IOT Central işlecin görünümü (yeni kullanıcı Arabirimi tasarımı) özelleştirme
 
@@ -159,5 +159,5 @@ Bu öğreticide, uygulamanın operatör görünümünü özelleştirme hakkında
 
 Uygulamanın operatör görünümünü özelleştirmeyi öğrendiğinize göre, önerilen sonraki adımlar şunlardır:
 
-* [Cihazlarınızı izleme (operatör olarak)](tutorial-monitor-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-* [Uygulamanıza yeni cihaz ekleme (operatör ve cihaz geliştiricisi olarak)](tutorial-add-device.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Cihazlarınızı izleme (operatör olarak)](tutorial-monitor-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Uygulamanıza yeni cihaz ekleme (operatör ve cihaz geliştiricisi olarak)](tutorial-add-device-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

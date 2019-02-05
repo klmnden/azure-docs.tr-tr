@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 891ab7ce0218e3532b8e503bc9b06da04a13d2c4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d3d88c29025c1a7a40a6248d3be841a33d1b6761
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074556"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694372"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -85,7 +85,7 @@ Aşağıdaki etkinlik türlerini görünür **Self Servis parola yönetimi** den
 * [Parolayı Sıfırla (yönetici tarafından)](#activity-type-reset-password-by-admin): Yönetici parola sıfırlama Azure portalından bir kullanıcı adına gerçekleştirilen gösterir.
 * [Parola sıfırlama (Self Servis)](#activity-type-reset-password-self-service): Kullanıcı başarıyla parolalarını sıfırlama gösterir [Azure AD parola sıfırlama portalı](https://passwordreset.microsoftonline.com).
 * [Self Servis parola sıfırlama akış etkinliği ilerleme durumu](#activity-type-self-serve-password-reset-flow-activity-progress): Sıfırlama işleminin parola parçası olarak kimlik doğrulama kapısı geçirerek belirli bir parola sıfırlama gibi bir kullanıcı geçer her belirli bir adıma gösterir.
-* [(Self Servis) kullanıcı hesabının kilidi](#activity-type-unlock-user-account-self-service): Kullanıcı başarıyla Active Directory hesabı parolalarını sıfırlamadan kilidi olduğunu gösteren [Azure AD parola sıfırlama portalı](https://passwordreset.microsoftonline.com) sıfırlamadan kilidini açma hesabının Active Directory özelliğini kullanarak.
+* [(Self Servis) kullanıcı hesabının kilidi](#activity-type-unlock-a-user-account-self-service)): Kullanıcı başarıyla Active Directory hesabı parolalarını sıfırlamadan kilidi olduğunu gösteren [Azure AD parola sıfırlama portalı](https://passwordreset.microsoftonline.com) sıfırlamadan kilidini açma hesabının Active Directory özelliğini kullanarak.
 * [Kullanıcı Self Servis parola sıfırlama için kayıtlı](#activity-type-user-registered-for-self-service-password-reset): Kullanıcı şu anda belirtilen kiracıyı parola sıfırlama ilkesine uygun olarak kullanıcının parolasını sıfırlamak için gerekli tüm bilgileri kaydettiğini gösterir.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Etkinlik türü: Self servis parola sıfırlaması engellendi
@@ -109,7 +109,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik durumları**:
   * _Başarı_: Bir kullanıcının parolasını başarıyla değiştirildi gösterir.
   * _Hata_: Bir kullanıcının parolasını değiştirmek başarısız olduğunu gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori.
-* **Etkinlik durumu hata nedeni**: 
+* **Etkinlik durumu hata nedeni**:
   * _FuzzyPolicyViolationInvalidPassword_: Seçilen kullanıcı olmadığından Microsoft yasaklanmış parola algılama özellikleri çok ortak veya özellikle zayıf olması için otomatik olarak yasaklanmış bir parola.
 
 ### <a name="activity-type-reset-password-by-admin"></a>Etkinlik türü: Parola sıfırlama (yönetici tarafından)
@@ -133,7 +133,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik durumları**:
   * _Başarı_: Kullanıcı başarıyla kendi parolalarını sıfırlama gösterir.
   * _Hata_: Bir kullanıcı kendi parolasını sıfırlamak başarısız olduğunu gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori.
-* **Etkinlik durumu hata nedeni**: 
+* **Etkinlik durumu hata nedeni**:
   * _FuzzyPolicyViolationInvalidPassword_: Yönetici olmadığından Microsoft yasaklanmış parola algılama özellikleri çok ortak veya özellikle zayıf olması için otomatik olarak yasaklanmış bir parola seçilir.
 
 ### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Etkinlik türü: Kendi kendine hizmet parola sıfırlama akış etkinliği ilerleme durumu
@@ -146,7 +146,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik durumları**:
   * _Başarı_: Kullanıcı parola sıfırlama işlem akışında belirli bir adım başarıyla tamamlandığını gösterir.
   * _Hata_: Parola belirli bir adım başarısız akış sıfırlama gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori.
-* **Etkinlik durumu nedeniyle**:   İçin aşağıdaki tabloya bakın [tüm izin verilen sıfırlama etkinlik durumu nedeniyle](#allowed-values-for-details-column).
+* **Etkinlik durumu nedeniyle**:   İçin aşağıdaki tabloya bakın [tüm izin verilen sıfırlama etkinlik durumu nedeniyle](#description-of-the-report-columns-in-the-azure-portal).
 
 ### <a name="activity-type-unlock-a-user-account-self-service"></a>Etkinlik türü: (Self Servis) bir kullanıcı hesabının kilidini açma
 
@@ -168,10 +168,10 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 * **Etkinlik hedef**: Parola sıfırlama için kaydolan kullanıcı. Kullanıcı, bir son kullanıcı veya yönetici olabilir.
 * **Etkinlik durumları izin**:
   * _Başarı_: Kullanıcı başarıyla parola sıfırlamaya uygun olarak geçerli ilke kayıtlı olduğunu belirtir. 
-  * _Hata_: Kullanıcı parola sıfırlama için kaydolmasını başarısız olduğunu gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori. 
+  * _Hata_: Kullanıcı parola sıfırlama için kaydolmasını başarısız olduğunu gösterir. Satır görmek için seçebileceğiniz **etkinlik durum nedeni** hatanın neden oluştuğunun hakkında daha fazla bilgi için kategori.
 
      >[!NOTE]
-     >Hata, bir kullanıcı kendi parolanızı sıfırlayamıyoruz anlamına gelmez. Bu, kayıt işlemini tamamlamadı anlamına gelir. Bu telefon numarası doğruladıkları değil olsa da, doğrulanmış değil bir telefon numarası gibi doğru olduğundan, hesapta doğrulanmamış verileri varsa, bunlar bu kullanıcının parolasını sıfırlamak için kullanmaya devam edebilirsiniz. Daha fazla bilgi için [bir kullanıcı kayıt olurkenki ne olur?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).
+     >Hata, bir kullanıcı kendi parolanızı sıfırlayamıyoruz anlamına gelmez. Bu, kayıt işlemini tamamlamadı anlamına gelir. Bu telefon numarası doğruladıkları değil olsa da, doğrulanmış değil bir telefon numarası gibi doğru olduğundan, hesapta doğrulanmamış verileri varsa, bunlar bu kullanıcının parolasını sıfırlamak için kullanmaya devam edebilirsiniz.
      >
 
 ## <a name="next-steps"></a>Sonraki adımlar

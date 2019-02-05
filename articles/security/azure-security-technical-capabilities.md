@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: fea499ea275dc65de1232840c24b5d62e3e6182d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820249"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698045"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 
@@ -454,7 +454,7 @@ Ağ güvenlik denetimi, ağ güvenlik açıklarını algılama ve BT güvenlik v
 
 ### <a name="network-watcher"></a>Ağ izleyicisi
 
-[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) koşulları içinde azure'a veya azure'dan ağ düzeyinde izlemenizi ve tanılamanızı sağlayan bölgesel bir hizmettir. Ağ Tanılama ve görselleştirme araçları Ağ İzleyicisi ile kullanılabilen anlamanıza, tanılamanıza ve ağınıza azure'da Öngörüler elde etmeye yardımcı olur. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
+[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) koşulları içinde azure'a veya azure'dan ağ düzeyinde izlemenizi ve tanılamanızı sağlayan bölgesel bir hizmettir. Ağ Tanılama ve görselleştirme araçları Ağ İzleyicisi ile kullanılabilen anlamanıza, tanılamanıza ve ağınıza azure'da Öngörüler elde etmeye yardımcı olur. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
 
 ### <a name="storage-analytics"></a>Depolama analizi
 

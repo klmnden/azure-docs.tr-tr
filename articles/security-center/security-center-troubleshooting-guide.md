@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0c2bef66e0570db37a2264e72fe46e619ef7db75
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 688d8ec76f7a4682a02a168a888463bfc98879d3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565454"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692690"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Güvenlik Merkezi Sorun Giderme Kılavuzu
 Bu kılavuz, kuruluşları Azure Güvenlik Merkezi'ni kullanmayı planlayan ve Güvenlik Merkezi ile ilgili sorunları gidermeye ihtiyaç duyan bilgi teknolojisi (BT) uzmanları, bilgi güvenlik analizi uzmanları ve bulut yöneticileri içindir.
@@ -84,7 +84,7 @@ Microsoft Monitoring Agent’ı bilgisayarınıza yüklerken farklı sonuçlar �
 ## Monitoring Agent ağ gereksinimleriyle ilgili sorunları giderme <a name="mon-network-req"></a>
 Aracıların Güvenlik Merkezi’ne bağlanması ve kaydolması için, bağlantı noktası numaraları ve etki alanı URL’leri dahil olmak üzere ağ kaynaklarına erişebilmesi gerekir.
 
-- Proxy sunucuları için, aracı ayarlarında uygun proxy sunucusu kaynaklarının yapılandırıldığından emin olmanız gerekir. [Proxy ayarlarını değiştirme](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings) hakkında daha fazla bilgi için bu makaleyi okuyun.
+- Proxy sunucuları için, aracı ayarlarında uygun proxy sunucusu kaynaklarının yapılandırıldığından emin olmanız gerekir. [Proxy ayarlarını değiştirme](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) hakkında daha fazla bilgi için bu makaleyi okuyun.
 - İnternete erişimi kısıtlayan güvenlik duvarları için, güvenlik duvarınızı Log Analytics erişimine izin verecek şekilde yapılandırmanız gerekir. Aracı ayarlarında bir işlem yapılması gerekmez.
 
 Aşağıdaki tabloda iletişim için gereken kaynaklar gösterilmektedir.

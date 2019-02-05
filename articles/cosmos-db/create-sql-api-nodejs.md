@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 9f730b1981eed5efff091d2666339ec7d94102e4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0f0434fbeb5e0ce825589950a366b09143a1bcba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509091"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691431"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: Azure Cosmos DB SQL API verileri yönetmek için JavaScript SDK'sını kullanarak bir Node.js uygulaması derleme
 
@@ -81,7 +81,7 @@ Bu hızlı başlangıç belgesinde Azure portalını kullanarak bir Azure Cosmos
 
 Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz. 
 
-JavaScript SDK'sının eski sürümlerini kullandıysanız 'koleksiyon' ve 'belge' terimlerine aşina olabilirsiniz. Azure Cosmos DB [birden fazla API modelini](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities) desteklediğinden JavaScript SDK'sının 2.0 ve üzeri sürümlerinde kapsayıcının içeriğini tanımlamak için koleksiyon, grafik veya tablo olabilen 'kapsayıcı' ile 'öğe' terimleri kullanılmaktadır.
+JavaScript SDK'sının eski sürümlerini kullandıysanız 'koleksiyon' ve 'belge' terimlerine aşina olabilirsiniz. Azure Cosmos DB [birden fazla API modelini](https://docs.microsoft.com/azure/cosmos-db/introduction) desteklediğinden JavaScript SDK'sının 2.0 ve üzeri sürümlerinde kapsayıcının içeriğini tanımlamak için koleksiyon, grafik veya tablo olabilen 'kapsayıcı' ile 'öğe' terimleri kullanılmaktadır.
 
 Aşağıdaki kod parçacıklarının tamamı, **app.js** dosyasından alınmıştır.
 

@@ -7,19 +7,19 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: cb3af5dc8368dc7e598bd0b05653b8ae921a5097
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 68da63bcad3c670c5e8bda62dda656e29c41f899
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452318"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692961"
 ---
 # <a name="rewrite-http-headers-in-an-existing-application-gateway"></a>HTTP üstbilgileri mevcut bir Application Gateway'de yeniden yazma
 
 Azure PowerShell yapılandırmak için kullanabileceğiniz [HTTP istek ve yanıt üst bilgileri yeniden yazma kuralları](rewrite-http-headers.md) mevcut [otomatik ölçeklendirme ve bölgesel olarak yedekli application gateway SKU'su](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
-> [!IMPORTANT] 
-> Otomatik ölçeklendirme yapan ve alanlar arası yedekli uygulama ağ geçidi SKU'su şu anda genel önizleme aşamasındadır. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> [!IMPORTANT]
+> Otomatik ölçeklendirme yapan ve alanlar arası yedekli uygulama ağ geçidi SKU'su şu anda genel önizleme aşamasındadır. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -48,15 +48,15 @@ Http üstbilgileri yeniden yazma için gereken yeni nesneler yapılandırın:
 
 - **RequestHeaderConfiguration**: Bu nesne yeniden yazmak için istediğinize isteği üst bilgi alanları ve özgün üstbilgileri için yazılması gereken yeni değeri belirtmek için kullanılır.
 - **ResponseHeaderConfiguration**: Bu nesne yeniden yazmak için istediğinize yanıt üstbilgi alanlarını ve özgün üstbilgileri için yazılması gereken yeni değeri belirtmek için kullanılır.
-- **ActionSet**: Bu nesne, yukarıda belirtilen istek ve yanıt üstbilgileri yapılandırmalarını içerir. 
-- **RewriteRule**: Bu nesnenin tüm içeren *actionSets* yukarıda belirtilen. 
+- **ActionSet**: Bu nesne, yukarıda belirtilen istek ve yanıt üstbilgileri yapılandırmalarını içerir.
+- **RewriteRule**: Bu nesnenin tüm içeren *actionSets* yukarıda belirtilen.
 - **RewriteRuleSet**-tüm bu nesneyi içeren *rewriteRules* ve bir istek yönlendirme kuralı - temel veya yol tabanlı eklenmesi gerekir.
 
 ```azurepowershell
 $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -HeaderValue "max-age=31536000"
-$actionSet = New-AzApplicationGatewayRewriteRuleActionSet -RequestHeaderConfiguration $requestHeaderConfiguration -ResponseHeaderConfiguration $responseHeaderConfiguration    
-$rewriteRule = New-AzApplicationGatewayRewriteRule -Name rewriteRule1 -ActionSet $actionSet    
+$actionSet = New-AzApplicationGatewayRewriteRuleActionSet -RequestHeaderConfiguration $requestHeaderConfiguration -ResponseHeaderConfiguration $responseHeaderConfiguration
+$rewriteRule = New-AzApplicationGatewayRewriteRule -Name rewriteRule1 -ActionSet $actionSet
 $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name rewriteRuleSet1 -RewriteRule $rewriteRule
 ```
 
@@ -84,10 +84,10 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ```azurepowershell
 $appgw = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
-Remove-AzApplicationGatewayRewriteRuleSet -Name "rewriteRuleSet1" -ApplicationGateway $appgw 
+Remove-AzApplicationGatewayRewriteRuleSet -Name "rewriteRuleSet1" -ApplicationGateway $appgw
 $requestroutingrule= Get-AzApplicationGatewayRequestRoutingRule -Name "rule1" -ApplicationGateway $appgw
 $requestroutingrule.RewriteRuleSet= $null
-set-AzApplicationGateway -ApplicationGateway $appgw 
+set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

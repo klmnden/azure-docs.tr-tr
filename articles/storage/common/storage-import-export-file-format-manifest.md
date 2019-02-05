@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 831286f1c98a2fc3d26277f4006283c3de64f900
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463251"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692485"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure içeri/dışarı aktarma hizmet bildirimi dosyası biçimi
 Sürücü bildirim dosyası, Azure Blob Depolama'daki blobları ve dosyaları bir içeri veya dışarı aktarma işi kapsayan sürücüde arasındaki eşlemeyi açıklar. Bildirim dosyası, bir içeri aktarma işlemi için sürücü hazırlama işleminin bir parçası olarak oluşturulur ve Azure veri merkezine bir sürücü gönderilmeden önce bir sürücüde depolanır. Bir dışarı aktarma işlemi sırasında bildirim oluşturulur ve bu sürücüde Azure içeri/dışarı aktarma hizmeti tarafından depolanan.  
@@ -97,7 +97,7 @@ Aşağıdaki tabloda, veri öğeleri ve öznitelikleri sürücü bildirim XML bi
 |`Drive`|İç içe geçmiş XML öğesi|Her sürücü için bildirimi içerir.|  
 |`DriveId`|String|Sürücünün sürücü benzersiz tanımlayıcısı. Sürücü tanımlayıcısını sürücüsü için seri numarasını sorgulanarak bulunur. Sürücü seri numarası genellikle sürücünün de dış yazdırılır. `DriveID` Öğesi önce görünmelidir `BlobList` bildirimi dosyasındaki öğesi.|  
 |`StorageAccountKey`|String|İçeri aktarma ve yalnızca iş için gereken `ContainerSas` belirtilmedi. Azure depolama hesabı için hesap anahtarı işle ilişkili.<br /><br /> Bu öğe bildirimden dışarı aktarma işlemi için atlandı.|  
-|`ContainerSas`|String|İçeri aktarma ve yalnızca iş için gereken `StorageAccountKey` belirtilmedi. İşle ilişkili bloblara erişmek için kapsayıcı SAS. Bkz: [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) biçimi için. Bu öğe bildirimden dışarı aktarma işlemi için atlandı.|  
+|`ContainerSas`|String|İçeri aktarma ve yalnızca iş için gereken `StorageAccountKey` belirtilmedi. İşle ilişkili bloblara erişmek için kapsayıcı SAS. Bkz: [Put işlemini](/rest/api/storageimportexport/jobs) biçimi için. Bu öğe bildirimden dışarı aktarma işlemi için atlandı.|  
 |`ClientCreator`|String|XML dosyasını oluşturulan istemci belirtir. Bu değer içeri/dışarı aktarma hizmeti tarafından yorumlanmaz.|  
 |`BlobList`|İç içe geçmiş XML öğesi|İçeri aktarma parçası veya dışarı aktarma işi BLOB listesini içerir. Her blob bir blob listesindeki aynı meta veriler ve Özellikler paylaşır.|  
 |`BlobList/MetadataPath`|String|İsteğe bağlı. BLOB'ları içeri aktarma işlemi için blob listesinde ayarlanır varsayılan meta veriler içeren diskteki dosyasının göreli yolunu belirtir. Bu meta veriler isteğe bağlı olarak bir blob tarafından blob temelinde geçersiz kılınabilir.<br /><br /> Bu öğe bildirimden dışarı aktarma işlemi için atlandı.|  

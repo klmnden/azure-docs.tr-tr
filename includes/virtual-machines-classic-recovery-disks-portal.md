@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 5490bdd3934b438a683ce4271fbec20b3d13735d
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226717"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735511"
 ---
 Azure’daki sanal makineniz (VM) bir önyükleme veya disk bir hatasıyla karşılaşırsa, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Başarısız olan bir uygulama güncelleştirmesinin, VM’yi önyükleme işleminin başarılı bir şekilde tamamlanmasını engellemesi yaygın bir örnektir. Bu makalede hatalarını düzeltmek ve orijinal VM'yi yeniden oluşturmak amacıyla sanal sabit diskinizi başka bir VM'ye bağlanmak için Azure Portal’ı nasıl kullanacağınız açıklanmıştır.
 

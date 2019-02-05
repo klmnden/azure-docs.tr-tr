@@ -1,5 +1,5 @@
 ---
-title: 'Şirket içi ağınızı bir Azure sanal ağına bağlama: Siteden Siteye VPN (klasik): Portal | Microsoft Docs'
+title: 'Şirket içi ağınızı bir Azure sanal ağına bağlama: Siteden siteye VPN (Klasik): Portal | Microsoft Docs'
 description: Şirket içi ağınız ile klasik Azure sanal ağı arasında genel İnternet üzerinden bir IPSec bağlantısı oluşturun.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e9736adfce83fc449b68a7448441ecee481ad2a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477905"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695613"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure portalını (klasik) kullanarak Siteden Siteye bağlantı oluşturma
 
@@ -29,7 +29,7 @@ ms.locfileid: "38477905"
 Bu makalede, Azure portalını kullanarak şirket içi ağınızdan VNet’e Siteden Siteye VPN ağ geçidi bağlantısı oluşturma işlemi gösterilir. Bu makaledeki adımlar klasik dağıtım modeli için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure portal (klasik)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -54,17 +54,17 @@ Yapılandırmaya başlamadan önce aşağıdaki ölçütleri karşıladığını
 
 Bu makaledeki örneklerde aşağıdaki değerler kullanılır. Bu değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bunlara bakabilirsiniz.
 
-* **VNet Name:** TestVNet1
+* **VNet adı:** TestVNet1
 * **Adres Alanı:** 
   * 10.11.0.0/16
   * 10.12.0.0/16 (bu alıştırma için isteğe bağlı)
 * **Alt ağlar:**
-  * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (bu alıştırma için isteğe bağlı)
+  * Ön uç: 10.11.0.0/24
+  * Arka uç: 10.12.0.0/24 (Bu alıştırma için isteğe bağlı)
 * **GatewaySubnet:** 10.11.255.0/27
-* **Kaynak Grubu:** TestRG1
+* **Kaynak grubu:** TestRG1
 * **Konum:** Doğu ABD
-* **DNS Sunucusu:** 10.11.0.3 (bu alıştırma için isteğe bağlı)
+* **DNS sunucusu:** 10.11.0.3 (Bu alıştırma için isteğe bağlı)
 * **Yerel site adı:** Site2
 * **İstemci adres alanı:** Şirket içi sitenizde yer alan adres alanı.
 
@@ -127,9 +127,9 @@ Yerel site genellikle şirket içi konumunuzu ifade eder. Bağlantı oluşturaca
   ![Ağ geçidi ayarlarını yapılandırmak için tıklayın](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Click to configure gateway settings")
 3. **Yeni VPN Bağlantısı** sayfasında **Siteden siteye** öğesini seçin.
 4. **Yerel site - Gerekli ayarları yapılandırın**’a tıklayarak **Yerel site** sayfasını açın. Ayarları yapılandırın ve ardından **Tamam**’a tıklayarak ayarları kaydedin.
-  - **Ad:** Tanımlamanızı kolaylaştırmak için yerel sitenize ait bir ad oluşturun.
-  - **VPN ağ geçidi IP adresi:** Şirket içi ağınızdaki VPN cihazının genel IP adresidir. VPN cihazı, IPv4 genel IP adresi gerektirir. Bağlanmak istediğiniz VPN cihazı için geçerli bir genel IP adresi belirtin. NAT’nin ardında olamaz ve Azure tarafından erişilebilir olması gerekir. VPN cihazınızın IP adresini bilmiyorsanız her zaman bir yer tutucu değeri girebilir (geçerli bir genel IP adresi biçiminde olduğu sürece) ve daha sonra değiştirebilirsiniz.
-  - **İstemci Adres alanı:** Bu ağ geçidi aracılığıyla yerel şirket içi ağınıza yönlendirilmesini istediğiniz IP adres aralıklarını listeleyin. Birden fazla adres alanı aralığı ekleyebilirsiniz. Burada belirttiğiniz aralıkların, sanal ağınızın bağlandığı diğer ağlarla ve sanal ağın kendi adres aralıklarıyla çakışmadığından emin olun.
+  - **Adı:** Tanımlamanızı kolaylaştırmak, yerel site için bir ad oluşturun.
+  - **VPN ağ geçidi IP adresi:** Bu şirket içi ağınızdaki VPN cihazının genel IP adresidir. VPN cihazı, IPv4 genel IP adresi gerektirir. Bağlanmak istediğiniz VPN cihazı için geçerli bir genel IP adresi belirtin. NAT’nin ardında olamaz ve Azure tarafından erişilebilir olması gerekir. VPN cihazınızın IP adresini bilmiyorsanız her zaman bir yer tutucu değeri girebilir (geçerli bir genel IP adresi biçiminde olduğu sürece) ve daha sonra değiştirebilirsiniz.
+  - **İstemci adres alanı:** Bu ağ geçidi aracılığıyla yerel şirket içi ağınıza yönlendirilmesini istediğiniz IP adres aralıklarını listeleyin. Birden fazla adres alanı aralığı ekleyebilirsiniz. Burada belirttiğiniz aralıkların, sanal ağınızın bağlandığı diğer ağlarla ve sanal ağın kendi adres aralıklarıyla çakışmadığından emin olun.
 
   ![Yerel site](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configure local site")
 
@@ -208,7 +208,7 @@ PowerShell ve klasik dağıtım modeli ile çalışırken, portaldaki kaynaklar�
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
   ```
-Bağlantı oluşturulduğunda, sonuç şu şekildedir: **Durum: Başarılı**.
+Bağlantı oluşturulduğunda sonuç olacaktır: **Durum: Başarılı**.
 
 ## <a name="verify"></a>9. Bağlantınızı doğrulama
 
@@ -226,5 +226,5 @@ Bir ağ geçidi SKU'sunu değiştirme adımları için bkz. [Ağ geçidi SKU'sun
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/).
 * Zorlamalı Tünel Oluşturma hakkında bilgi için bkz. [Zorlamalı Tünel Oluşturma Hakkında](vpn-gateway-about-forced-tunneling.md).

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 2a97c55c7caa7b0b2c4aa10b01abd2714b8ace7a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a74b3ba4fe9f12ce9d205b3865435edfb99566a8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458542"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693709"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator metin çevirisi API'si 3.0: BreakSentence
 
@@ -165,6 +165,8 @@ Bir isteği döndüren olası HTTP durum kodları şunlardır:
     <td>Sunucu geçici olarak kullanılamıyor. İsteği yeniden deneyin. Sorun devam ederse, raporu ile: tarih ve saat hatanın yanıt üst bilgisinden istek tanımlayıcısı `X-RequestId`ve istemci tanımlayıcısı istek üst bilgisinden `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+Bir hata oluşursa, isteği ayrıca JSON hata yanıtı döndürür. 3 haneli HTTP durum kodu için 3 basamaklı bir sayı daha da ardından 6 basamaklı bir sayı birleştirme kategorilere ayırma hatası hata kodudur. Genel hata kodları bulunabilir [v3 Translator Text API başvuru sayfası](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Örnekler
 

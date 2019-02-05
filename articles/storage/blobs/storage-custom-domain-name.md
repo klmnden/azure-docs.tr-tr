@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bbbb7f96ebf14781e2f461f5ffbb3e1172595928
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241296"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694593"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure depolama hesabınız için bir özel etki alanı adı yapılandırma
 
@@ -154,7 +154,7 @@ Blob Depolama uç noktanız için özel bir etki alanı kaydını silmek için a
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Özel etki alanı kaydını kaldırmak için kullanın [az depolama hesabını güncelleştirme](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI komutunu ve ardından boş bir dize belirtin (`""`) için `--custom-domain` bağımsız değişken değeri.
+Özel etki alanı kaydını kaldırmak için kullanın [az depolama hesabını güncelleştirme](https://docs.microsoft.com/cli/azure/storage/account) CLI komutunu ve ardından boş bir dize belirtin (`""`) için `--custom-domain` bağımsız değişken değeri.
 
 * Komut biçimi:
 

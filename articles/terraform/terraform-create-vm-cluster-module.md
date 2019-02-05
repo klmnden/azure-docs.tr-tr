@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: efeae877161b2632112938d63b6f6e31cce96ac5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d5a820da94254fe0da416d9219f7582d3a4241cb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077207"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696175"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Modül Kayıt Defterini kullanarak Terraform ile VM kümesi oluşturma
 
@@ -31,7 +31,7 @@ Terraform hakkında daha fazla bilgi için [Terraform belgelerini](https://www.t
 ## <a name="set-up-authentication-with-azure"></a>Azure ile kimlik doğrulamasını ayarlama
 
 > [!TIP]
-> [Terraform ortam değişkenlerini kullanıyorsanız](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) veya bu [Azure Cloud Shell](/azure/cloud-shell/overview) öğreticisini çalıştırdıysanız bu adımı atlayın.
+> [Terraform ortam değişkenlerini kullanıyorsanız](/azure/virtual-machines/linux/terraform-install-configure) veya bu [Azure Cloud Shell](/azure/cloud-shell/overview) öğreticisini çalıştırdıysanız bu adımı atlayın.
 
  Azure hizmet sorumlusu oluşturmak için [Terraform'u yükleyin ve Azure erişimini yapılandırın](/azure/virtual-machines/linux/terraform-install-configure) sayfasını inceleyin. Aşağıdaki kodla boş bir dizinde yeni bir `azureProviderAndCreds.tf` dosyası oluşturmak için bu hizmet sorumlusunu kullanın:
 

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: ee695798dc8a2a19d5cd3d94cbf43e0b58065f84
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f6c2c8c49f34c707c7b0fb4d525337fbfa169a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556688"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692434"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Time Series Insights ortamınızı ölçeklendirme
 
@@ -47,7 +47,7 @@ Kapasiteleri doğrusal olarak, ölçeği, böylece bir S1 SKU kapasitesi 2 ile a
 ## <a name="change-the-capacity-of-your-environment"></a>Ortamınızın kapasitesini değiştirme
 1. Azure portalında bulun ve zaman serisi görüşleri ortamınızı seçin. 
 
-2. Zaman serisi Insighs ortamınız için menüde **yapılandırma**.
+2. Zaman serisi görüşleri ortamınız için menüde **yapılandırma**.
 
    ![Configure.PNG](media/scale-your-environment/configure.png)
 

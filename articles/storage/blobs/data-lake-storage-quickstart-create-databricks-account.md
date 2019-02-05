@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: cbd17ef81f5bcdf1c5c2f14f11388fd4f23e5da6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239936"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694176"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Hızlı Başlangıç: Azure Databricks kullanarak Azure Data Lake depolama Gen2 verileri çözümleme
 
@@ -29,15 +29,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 <a id="config"/>
 
-## <a name="set-aside-storage-account-configuration"></a>Depolama hesabı yapılandırmasını not alın
-
-Depolama hesabınızın ve bir dosya sistemi uç noktası URI'si adı gerekir.
+## <a name="get-the-name-of-your-storage-account"></a>Depolama hesabınızın adını alın
 
 Azure portalında depolama hesabınızın adını almak için seçtiğiniz **tüm hizmetleri** ve filtre terimini *depolama*. Ardından, **depolama hesapları** ve depolama hesabınızı bulun.
 
-Dosya sistemi uç noktası URI'si almak için seçtiğiniz **özellikleri**, Özellikler bölmesinde değerini bulun **birincil ADLS dosya sistemi uç noktası** alan.
-
-Hem bu değerleri bir metin dosyasına yapıştırın. Bunları yakında gerekir.
+Bu ad, bir metin dosyasına yapıştırın. Yakında gerekir.
 
 <a id="service-principal"/>
 
@@ -45,9 +41,7 @@ Hem bu değerleri bir metin dosyasına yapıştırın. Bunları yakında gerekir
 
 Bu konudaki yönergeleri izleyerek bir hizmet sorumlusu oluşturun: [Nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Bu makaledeki adımları gerçekleştirmek gibi gerekir ve belirli birkaç şey var.
-
-:heavy_check_mark: Adımları gerçekleştirirken [bir Azure Active Directory uygulaması oluşturma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) bölümü makalenin ayarladığınızdan emin olun **oturum açma URL'si** alanını **Oluştur** iletişim kutusu uç nokta URI'si, az önce toplanan.
+Birkaç, bu makaledeki adımları gerçekleştirmek olarak gerçekleştirmeniz yeterli belirli bir şey yoktur.
 
 :heavy_check_mark: Adımları gerçekleştirirken [uygulamanızı bir role atama](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümü makalenin uygulamanıza atanacak emin **Blob Depolama katkıda bulunan rolü**.
 
@@ -136,7 +130,7 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturacak
     > [!NOTE]
     > Data Lake Gen2 uç noktası doğrudan erişir OAuth kullanarak bu kod bloğu, ancak Databricks çalışma alanı, Data Lake depolama Gen2 hesabınıza bağlanmak için farklı yöntemleri vardır. Örneğin, OAuth kullanarak dosya sistemini bağlamalarına veya paylaşılan anahtar ile doğrudan bir erişim kullanın. <br>Bu yaklaşımların örneklerini görmek için bkz: [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makale Azure Databricks Web sitesinde.
 
-5. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` adımları tamamlandığında topladığınız değerleri bu kod bloğu içinde yer tutucu değerlerini [bir kenara depolama hesabı Yapılandırma](#config) ve [hizmet sorumlusu oluşturma](#service-principal) bu makalenin bölümler.  Ayarlama `file-system-name` örneğin adı için yer tutucu değerini istediğiniz dosya sistemi sağlar.
+5. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` adımları tamamlandığında topladığınız değerleri bu kod bloğu içinde yer tutucu değerlerini [depolama hesabınızın adını alın ](#config) ve [hizmet sorumlusu oluşturma](#service-principal) bu makalenin bölümler.  Ayarlama `file-system-name` örneğin adı için yer tutucu değerini istediğiniz dosya sistemi sağlar.
 
 6. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 

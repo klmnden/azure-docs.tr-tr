@@ -8,16 +8,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6e8142e391dd02e78be42e1f16ae2626b74c41c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498390"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734479"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure İşlevleri çalışma zamanı sürümleri nasıl hedeflenir?
 
-Bir işlev uygulaması, Azure İşlevleri çalışma zamanının belirli bir sürümünde çalışır. İki ana sürümü vardır: [1.x ve 2.x](functions-versions.md). İşlev uygulamaları, varsayılan olarak çalışma zamanının 2.x sürümünde oluşturulur. Bu makalede, Azure'daki bir işlev uygulamasının seçtiğiniz sürüm üzerinde çalıştırılacak şekilde nasıl yapılandırılacağı açıklanmaktadır. Yerel bir geliştirme ortamını belirli bir sürüm için yapılandırma hakkında bilgi için bkz.[Code and test Azure Functions locally (Azure İşlevleri'ni yerel olarak kodlama ve test etme)](functions-run-local.md).
+Bir işlev uygulaması, Azure İşlevleri çalışma zamanının belirli bir sürümünde çalışır. İki ana sürümü vardır: [1.x ve 2.x'i](functions-versions.md). İşlev uygulamaları, varsayılan olarak çalışma zamanının 2.x sürümünde oluşturulur. Bu makalede, Azure'daki bir işlev uygulamasının seçtiğiniz sürüm üzerinde çalıştırılacak şekilde nasıl yapılandırılacağı açıklanmaktadır. Yerel bir geliştirme ortamını belirli bir sürüm için yapılandırma hakkında bilgi için bkz.[Code and test Azure Functions locally (Azure İşlevleri'ni yerel olarak kodlama ve test etme)](functions-run-local.md).
 
 > [!NOTE]
 > Bir veya daha fazla işleve sahip bir işlev uygulaması için çalışma zamanı sürümünü değiştiremezsiniz. Çalışma zamanı sürümünü değiştirmek için Azure portal'ı kullanmanız gerekir.
@@ -49,7 +49,7 @@ Tarafından kullanılan çalışma zamanı sürümünü değiştirebilirsiniz i�
 >[!NOTE]
 >Çalışma zamanı sürümü diğer ayarları etkileyebileceğinden sürümü portalda değiştirmeniz gerekir. Çalışma zamanı sürümlerini değiştirdiğinizde portal, Node.js sürümü ve çalışma zamanı yığını gibi diğer gerekli güncelleştirmeleri de otomatik olarak yapar.  
 
-Azure CLI'sini kullanarak [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) komutuyla geçerli çalışma zamanı sürümünü görüntüleyebilirsiniz.
+Azure CLI'sini kullanarak [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) komutuyla geçerli çalışma zamanı sürümünü görüntüleyebilirsiniz.
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
@@ -83,7 +83,7 @@ Kolayca anlaşılması için kesilmiş olan aşağıdaki çıktıda `FUNCTIONS_E
 ]
 ```
 
-`FUNCTIONS_EXTENSION_VERSION` işlev uygulaması ayarını [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) komutu ile güncelleştirebilirsiniz.
+`FUNCTIONS_EXTENSION_VERSION` işlev uygulaması ayarını [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) komutu ile güncelleştirebilirsiniz.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

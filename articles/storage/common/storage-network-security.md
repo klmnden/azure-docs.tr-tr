@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c6b4ed787fa9e8881990801bdee77550a1a0bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473638"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699185"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 
@@ -241,7 +241,7 @@ Her Depolama hesabı ile birleştirilebilir, 100'e kadar IP ağ kurallarını de
 
 Depolama hesabınıza bir IP ağ kuralı ile şirket içi ağlarınızı erişim vermek için internet'e yönelik ağınız tarafından kullanılan IP adreslerini tanımlamanız gerekir. Yardım için ağ yöneticinize başvurun.
 
-Kullanabileceğiniz [ExpressRoute](/azure/expressroute/expressroute-introduction) ağınızı bir Azure ağına bağlanmak için. Burada, her bağlantı hattı iki genel IP adresi ile yapılandırılır. Microsoft Edge bulunabilir ve kullanma [Azure genel eşdüzey hizmet sağlama](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) Azure depolama gibi Microsoft Services'a bağlanmak için. Azure depolama ile iletişime izin vermek için genel IP adresleri, bağlantı hatları için IP ağ kuralları oluşturun. ExpressRoute bağlantı hattı'nın genel IP adreslerinizi bulmak için [ExpressRoute ile bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) Azure portal aracılığıyla.
+Kullanabileceğiniz [ExpressRoute](/azure/expressroute/expressroute-introduction) ağınızı bir Azure ağına bağlanmak için. Burada, her bağlantı hattı iki genel IP adresi ile yapılandırılır. Microsoft Edge bulunabilir ve kullanma [Azure genel eşdüzey hizmet sağlama](/azure/expressroute/expressroute-circuit-peerings) Azure depolama gibi Microsoft Services'a bağlanmak için. Azure depolama ile iletişime izin vermek için genel IP adresleri, bağlantı hatları için IP ağ kuralları oluşturun. ExpressRoute bağlantı hattı'nın genel IP adreslerinizi bulmak için [ExpressRoute ile bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) Azure portal aracılığıyla.
 
 ### <a name="managing-ip-network-rules"></a>IP ağ kurallarını yönetme
 
@@ -355,7 +355,7 @@ Etkinleştirirseniz **izin güvenilen Microsoft Hizmetleri...**  özel durum, a�
 |Azure Event Grid|Microsoft.EventGrid|BLOB Depolama olayı yayımlamayı etkinleştirme ve depolama kuyrukları yayımlamak Event Grid sağlar. Hakkında bilgi edinin [blob depolama olayları](/azure/event-grid/event-sources) ve [sıralara yayımlama](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs yakalama ile verileri arşivleme. [Daha fazla bilgi edinin](/azure/event-hubs/event-hubs-capture-overview).|
 |Azure Ağı|Microsoft.Networking|Store ve ağ trafik günlüklerini analiz edin. [Daha fazla bilgi edinin](/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure İzleyici|Microsoft.Insights|İzleme verilerinin bir güvenli depolama hesabına yazma sağlayan [daha fazla bilgi edinin](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure İzleyici|Microsoft.Insights|İzleme verilerinin bir güvenli depolama hesabına yazma sağlayan [daha fazla bilgi edinin](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure SQL Veri Ambarı|Microsoft.Sql|İçeri aktarma sağlar ve PolyBase kullanarak senaryolar dışarı aktarın. [Daha fazla bilgi edinin](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Depolama analizi veri erişimi

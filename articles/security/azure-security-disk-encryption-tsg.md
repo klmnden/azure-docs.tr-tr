@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: faea1cc7c45393c10a240de2c92757ff8f2ac5c3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468402"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694122"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk şifrelemesi sorun giderme kılavuzu
 
@@ -87,7 +87,8 @@ Bağlantı bir güvenlik duvarı, proxy gereksinim veya ağ güvenlik grubu (NSG
 Uygulanan ağ güvenlik grubu ayarlarını belgelenmiş ağ yapılandırmasını karşılamak uç nokta hala izin vermelidir [önkoşulları](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) disk şifrelemesi için.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Bir güvenlik duvarının arkasındaki Azure Key Vault
-Şifreleme etkinleştirildiğinde ile [Azure AD kimlik](azure-security-disk-encryption-prerequisites-aad.md), hedef sanal Makineyi Azure AD kimlik doğrulama uç noktaları ve bunun yanı sıra anahtar kasası uç noktalar için erişim verilmesi gerekir.  Bu işlem hakkında daha fazla bilgi için bir güvenlik duvarının korumasında anahtar kasasına erişme konusunda yönergeler için lütfen bakın, [Azure anahtar kasası](../key-vault/key-vault-access-behind-firewall.md) takım tutar. 
+
+Şifreleme etkinleştirildiğinde ile [Azure AD kimlik](azure-security-disk-encryption-prerequisites-aad.md), hedef sanal Makineyi hem Azure Active Directory uç noktalarına hem de anahtar kasası uç noktaları bağlanmaya izin vermelidir. Geçerli Azure Active Directory kimlik doğrulama uç noktaları 56 ve 59, bölümlerde tutulan [Office 365 URL'leri ve IP adresi aralıkları](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) belgeleri. Key Vault yönergeler, ilgili belgelerde verilmiştir [bir güvenlik duvarının arkasındaki Azure anahtar kasası](../key-vault/key-vault-access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti 
 VM erişebilir olmalıdır [Azure örnek meta veri hizmetine](../virtual-machines/windows/instance-metadata-service.md) iyi bilinen yönlendirilemeyen bir IP adresi kullanan uç noktası (`169.254.169.254`), erişilebilir yalnızca VM içinden.

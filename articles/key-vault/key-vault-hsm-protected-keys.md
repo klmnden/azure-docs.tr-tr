@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: a53e37cf2ac99dcd755f71e9a2a236f27832fbd7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079213"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693893"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarlar
 
@@ -154,21 +154,21 @@ CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 - - -
 [**Azure kamu:**](https://azure.microsoft.com/features/gov/)
 
-Anahtar kasası BYOK araç USGovCloud.zip
+KeyVault-BYOK-Tools-USGovCloud.zip
 
 F8DB2FC914A7360650922391D9AA79FF030FD3048B5795EC83ADC59DB018621A
 
 - - -
 **ABD DOD:**
 
-Anahtar kasası BYOK araç USGovernmentDoD.zip
+KeyVault-BYOK-Tools-USGovernmentDoD.zip
 
 A79DD8C6DFFF1B00B91D1812280207A205442B3DDF861B79B8B991BB55C35263
 
 - - -
 **Kanada:**
 
-Anahtar kasası BYOK araç Canada.zip
+KeyVault-BYOK-Tools-Canada.zip
 
 61BE1A1F80AC79912A42DEBBCC42CF87C88C2CE249E271934630885799717C7B
 
@@ -182,7 +182,7 @@ Anahtar kasası BYOK araç Germany.zip
 - - -
 **Hindistan:**
 
-Anahtar kasası BYOK araç India.zip
+KeyVault-BYOK-Tools-India.zip
 
 49EDCEB3091CF1DF7B156D5B495A4ADE1CFBA77641134F61B0E0940121C436C8
 
@@ -260,6 +260,9 @@ Bir komut istemi başlatın ve Thales yeni dünya programını çalıştırın.
    ```
 
 Bu programın oluşturduğu bir **güvenlik Dünyası** % NFAST_KMDATA%\local\world, C:\ProgramData\nCipher\Key Management Data\local klasörüne karşılık gelen dosya. Çekirdek için farklı değerler kullanabilirsiniz, ancak örneğimizde her biri için biri üç boş kart ve PIN girmeniz istenir. Ardından, herhangi iki kart güvenlik dünyasına tam erişim verin. Bu kartların haline **yönetici kart Seti** yeni güvenlik Dünyası için.
+
+> [!NOTE]
+> Yeni şifre paketi DLf3072s256mRijndael HSM'NİZDE destekliyorsa, değiştirebilirsiniz--şifre paketi DLf1024s160mRijndael şifre paketi ile--= DLf3072s256mRijndael =
 
 Ardından şunları yapın:
 

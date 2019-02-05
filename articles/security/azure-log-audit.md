@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 93370b927f825752b8ce2b5e9d4ca94b3a4e0536
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664191"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697936"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlük kaydı ve denetim
 
@@ -196,7 +196,7 @@ Günlüğe kaydetme ve Azure'da izleme ağ kapsamlı ve iki geniş kategoriye ka
 
 * [Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Senaryo tabanlı ağ izleme Ağ İzleyicisi özellikleri ile sağlanır. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
 
-* [Kaynak İzleme](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Kaynak düzeyi izleme dört özellikleri, tanılama günlükleri, ölçümler, sorun giderme ve kaynak durumu oluşur. Bu özelliklerin tümü ağ kaynak düzeyinde oluşturulur.
+* [Kaynak İzleme](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Kaynak düzeyi izleme dört özellikleri, tanılama günlükleri, ölçümler, sorun giderme ve kaynak durumu oluşur. Bu özelliklerin tümü ağ kaynak düzeyinde oluşturulur.
 
 ![Azure ağ günlükleri](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -238,7 +238,7 @@ Yukarıda açıklanan günlük özelliklere ek olarak Ağ İzleyicisi şu anda a
 
 * [Sanal ağ geçidi ve bağlantı sorunlarını giderme](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Sanal ağ ağ geçitleriniz ve bağlantılarınızı gidermenize yardımcı olur.
 
-* [Ağ aboneliği sınırı](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Ağ kaynak kullanımı sınırlarını karşı görüntülemenizi sağlar.
+* [Ağ aboneliği sınırı](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Ağ kaynak kullanımı sınırlarını karşı görüntülemenizi sağlar.
 
 ### <a name="application-insights"></a>Application Insights
 

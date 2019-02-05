@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 5280936cdec25f7b5fc4b77c989b31c7a01f7bd6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 2a1c78a4cec595b672604c90e103ae3b9e40273f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958644"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693692"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Büyük sanal makine ölçek kümeleri ile çalışma
 Artık, 1000 adede kadar VM kapasiteli Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/) oluşturabilirsiniz. Bu belgede _büyük bir sanal makine ölçek kümesi_, 100’den fazla VM'yi ölçeklendirme kapasitesine sahip bir ölçek kümesi olarak tanımlanır. Bu özellik bir ölçek kümesi özelliği ile ayarlanır (_singlePlacementGroup=False_). 
@@ -61,7 +61,7 @@ Belirtmemeniz durumunda, _vmss create_ komutu bazı yapılandırma değerlerini 
 az vmss create --help
 ```
 
-Bir Azure Resource Manager şablonu oluşturarak büyük bir ölçek kümesi oluşturuyorsanız, şablonun Azure Yönetilen Diskleri temel alan bir ölçek kümesi oluşturduğundan emin olun. _Microsoft.Compute/virtualMAchineScaleSets_ kaynağının _özellikler_ bölümünde _singlePlacementGroup_ özelliğini _false_ olarak ayarlayabilirsiniz. Aşağıdaki JSON parçası, 1.000 VM kapasite ve _"singlePlacementGroup" : false_ ayarına sahip bir ölçek kümesi şablonunun başlangıcını gösterir:
+Bir Azure Resource Manager şablonu oluşturarak büyük bir ölçek kümesi oluşturuyorsanız, şablonun Azure Yönetilen Diskleri temel alan bir ölçek kümesi oluşturduğundan emin olun. Ayarlayabileceğiniz _singlePlacementGroup_ özelliğini _false_ içinde _özellikleri_ bölümünü _Microsoft.Compute/virtualMachineScaleSets_ kaynak. Aşağıdaki JSON parçası, 1.000 VM kapasite ve _"singlePlacementGroup" : false_ ayarına sahip bir ölçek kümesi şablonunun başlangıcını gösterir:
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",

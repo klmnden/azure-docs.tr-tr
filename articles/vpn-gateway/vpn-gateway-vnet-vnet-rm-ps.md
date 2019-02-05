@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 6624c28d686a584017d703889e57ef1a7126b16d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510564"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695535"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
@@ -476,5 +476,5 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Virtual Machines belgeleri](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Virtual Machines belgeleri](https://docs.microsoft.com/azure/).
 * BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.

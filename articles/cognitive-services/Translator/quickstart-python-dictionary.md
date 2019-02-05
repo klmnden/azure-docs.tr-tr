@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/21/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 8dcde1231d5e2d73b868411cb22b8420843197be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4ca07416c615984b4eb6c7799ff17d9fbe43fa3b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458280"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691479"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Hızlı Başlangıç: Python kullanarak iki dilli sözlük ile sözcük arayın
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Şu anda Translator Metin Çevirisi için bir uç nokta kullanılabilir ve `base_url` olarak ayarlanmıştır. `path`, `dictionary/lookup` rotasını ayarlar ve API sürüm 3’ü kullanmak istediğimizi belirler.
+Translator metin çevirisi genel uç noktası olarak ayarlandığından `base_url`. `path`, `dictionary/lookup` rotasını ayarlar ve API sürüm 3’ü kullanmak istediğimizi belirler.
 
 `params` kaynak ve çıkış dillerini ayarlamak için kullanılır. Bu örnekte İngilizce ve İspanyolca dillerini temsil eden `en` ve `es` değerlerini kullanıyoruz.
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 06ce83695181968e54592a09b93ce084b55294bf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7327468722f4f3b0fc7048bc8afcdb757df50bc7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888867"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695671"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI ile sanal makine ölçek kümesi oluşturma
 Bu betik, Ubuntu işletim sistemi ve yük dengeleyici içeren ilgili ağ kaynakları ile bir Azure sanal makine ölçek kümesi oluşturur. Betiği çalıştırdıktan sonra sanal makine örneklerine SSH üzerinden erişebilirsiniz.
@@ -47,7 +47,7 @@ Bu betik, bir kaynak grubu, sanal makine ölçek kümesi ve tüm ilgili kaynakla
 |---|---|
 | [az group create](/cli/azure/ad/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az vmss create](/cli/azure/vmss) | Sanal makine ölçek kümesi oluşturur ve bunu sanal ağa, alt ağa ve ağ güvenlik grubuna bağlar. Birden çok sanal makine örneklerine trafiği dağıtmak için bir yük dengeleyici de oluşturulur. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini de belirtir.  |
-| [az group delete](/cli/azure/ad/group#delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [az group delete](/cli/azure/ad/group) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure/overview).

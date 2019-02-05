@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 310963d5593dde0540c95920214a14a4195c346a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242340"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734666"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Otomatik makine öğrenimi denemelerini yapılandırın
 
@@ -174,7 +174,7 @@ Daha sonra modeli eğitimi burada belirleyin. Bir otomatik machine learning eği
 
 Bkz: [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) örneğin Not Defterleri ile yerel ve uzak hedef işlem.
 
-<a name='configure-experiment'/>
+<a name='configure-experiment'></a>
 
 ## <a name="configure-your-experiment-settings"></a>Deneme ayarlarınızı yapılandırın
 
@@ -207,36 +207,48 @@ Bazı örnekler:
         n_cross_validations=5)
     ```
 
-Bu tabloda parametre ayarlarını denemenizi ve varsayılan değerleri için kullanılabilir.
+Vardır üç farklı `task` uygulamak için algoritmalar listesini belirleyen parametre değerleri.  Kullanım `whitelist` veya `blacklist` ek yinelemeler dahil etmek veya hariç tutmak için kullanılabilir algoritmalar ile değiştirmek için parametreleri.
+* Sınıflandırma
+    * LogisticRegression
+    * SGD
+    * MultinomialNaiveBayes
+    * BernoulliNaiveBayes
+    * SVM
+    * LinearSVM
+    * KNN
+    * DecisionTree
+    * RandomForest
+    * ExtremeRandomTrees
+    * LightGBM
+    * GradientBoosting
+    * TensorFlowDNN
+    * TensorFlowLinearClassifier
+* Regresyon
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
+* Tahmin etme
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
 
-Özellik |  Açıklama | Varsayılan Değer
---|--|--
-`task`  |Machine learning sorun türünü belirtin. İzin verilen değerler: <li>Sınıflandırma</li><li>Regresyon</li><li>Tahmin etme</li>    | None |
-`primary_metric` |Modelinizi oluşturmak en iyi duruma getirmek istediğiniz ölçümü. Örneğin, doğruluk primary_metric belirtirseniz, en yüksek doğruluğa sahip modeli bulmak için makine öğrenimi görünüyor otomatik. Yalnızca deneme başına bir primary_metric belirtebilirsiniz. İzin verilen değerler: <br/>**Sınıflandırma**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regresyon**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score  </li> | Sınıflandırma: doğruluğu <br/>Regresyon için: spearman_correlation <br/> |
-`experiment_exit_score` |   Hedef değer, primary_metric için ayarlayabilirsiniz. Bir model primary_metric hedef karşılayan bulunduğunda otomatik makine öğrenimi yineleme durdurur ve deneme sona erer. Bu değer (varsayılan) ayarlanmazsa, otomatik makine öğrenimi denemesi yinelemelerde belirtilen yineleme sayısını çalışmaya devam eder. Bir çift değer alır. Hedef hiçbir zaman ulaşırsa, yinelemeler içinde belirtilen yineleme sayısını ulaşana kadar otomatik makine öğrenimi devam eder.| None
-`iterations` |En yüksek yineleme sayısı. Her yineleme, bir işlem hattı, sonuçları bir eğitim işini eşittir. İşlem hattı, verileri ön işleme ve modeli ' dir. 250 veya daha yüksek kaliteli modeli almak için kullanın    | 100
-`max_concurrent_iterations`|    En fazla paralel olarak çalıştırmak için yineleme sayısı. Bu ayar, yalnızca uzak işlem için çalışır.|   1
-`max_cores_per_iteration`   | Kaç tane çekirdeğim işlem hedef tek bir işlem hattını eğitmek için kullanılan gösterir. Birden çok çekirdek algoritması yararlanabilir, bu çok çekirdekli makine performansını artırır. Tüm çekirdekler üzerinde bir makineyi kullanmak için-1 ayarlayabilirsiniz.|  1
-`iteration_timeout_minutes` |   Belirli bir yinelemeye geçen süreyi (dakika) miktarını sınırlar. Bir yineleme belirtilen miktarı aşarsa, bu yineleme iptal. Aksi durumda ayarlama, yineleme işlemi tamamlanana kadar çalışmaya devam edecektir. |   None
-`n_cross_validations`   |Çapraz doğrulama bölmelerinin sayısı| None
-`validation_size`   |Tüm eğitim örnek bir yüzdesi olarak ayarlanmış doğrulama boyutu.|  None
-`preprocess` | True/False <br/>Giriş ön işleme gerçekleştirmek için doğru etkinleştirir deneyin. Aşağıdaki ön işleme'nın bir alt kümesidir<li>Eksik verileri: Eksik veri sayısal ortalama, çoğu geçişi ile birlikte metin ile imputes </li><li>Kategorik değerlere: Veri türü sayısal ve benzersiz değerlerin sayısını küçüktür yüzde 5 ', bir seyrek kodlama içine dönüştürür ise </li><li>Tam liste denetimi vb. [GitHub deposu](https://aka.ms/aml-notebooks)</li><br/>Not: veri seyrek ise kullanamazsınız önişle = true |  False |
-`enable_cache`  | True/False <br/>Doğru etkinleştirir için ön işleme ayarını tamamladıktan ve yeniden tüm yinelemelerin aynı önceden işlenmiş verileri. | True |
-`blacklist_models`  | Otomatik makine öğrenimi denemesi çalışır birçok farklı algoritma vardır. Bazı algoritmalar deneme hariç tutmak için yapılandırın. Algoritmalarından kümeniz için iyi çalışmaz farkında olması durumunda yararlıdır. Algoritmalar hariç kaydettiğinizde kaynaklar ve eğitim süresini hesaplayabilirsiniz.<br/>Sınıflandırma için izin verilen değerler<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Regresyon için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tahmin için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   None
-`whitelist_models`  | Otomatik makine öğrenimi denemesi çalışır birçok farklı algoritma vardır. Deneme için bazı algoritmalar içerecek şekilde yapılandırın. Algoritmalarından kümeniz için iyi iş farkında olması durumunda yararlıdır. <br/>Sınıflandırma için izin verilen değerler<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Regresyon için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tahmin için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  None
-`verbosity` |En ayrıntılı ve kritik olan olan bilgileri günlüğe kaydetme düzeyini denetler en az. Ayrıntı düzeyi, python günlük paketinde tanımlanan aynı değerleri alır. İzin verilen değerler şunlardır:<br/><li>logging.INFO</li><li>günlüğe kaydetme. UYARI</li><li>günlüğe kaydetme. HATA</li><li>günlüğe kaydetme. KRİTİK</li>  | logging.INFO</li>
-`X` | Tüm özellikleri ile eğitme |  None
-`y` |   Veri ile eğitmek için etiket. Sınıflandırma için tamsayı dizisi olmalıdır.|  None
-`X_valid`|_İsteğe bağlı_ ile doğrulamak için tüm özellikleri. Belirtilmezse, X eğitimi arasında bölünmüş ve doğrulama |   None
-`y_valid`   |_İsteğe bağlı_ ile doğrulamak için verileri etiket. Belirtilmezse, y eğitimi arasında bölünmüş ve doğrulama    | None
-`sample_weight` |   _İsteğe bağlı_ her örnek için bir ağırlık değeri. Veri noktaları için farklı ağırlıkları atamak istediğiniz zaman kullanın |   None
-`sample_weight_valid`   |   _İsteğe bağlı_ her doğrulama örneği için bir ağırlık değeri. Belirtilmezse, sample_weight eğitimi arasında bölünmüş ve doğrulama   | None
-`run_configuration` |   RunConfiguration nesnesi.  Uzaktan çalıştırmalar için kullanılır. |None
-`data_script`  |    Get_data yöntemi içeren dosyanın yolu.  Uzaktan çalıştırmalar için gereklidir.   |None
-`model_explainability` | _İsteğe bağlı_ True/False <br/>  Her yineleme için özellik önem gerçekleştirmek için doğru etkinleştirir deneyin. Deneme tamamlandıktan sonra özellik önem isteğe bağlı olarak bu yineleme etkinleştirmek için belirli bir yinelemeye explain_model() yöntemi de kullanabilirsiniz. | False
-`enable_ensembling`|Tüm yinelemeler tamamladıktan sonra ensembling yineleme etkinleştirmek için bayrak.| True
-`ensemble_iterations`|Son topluluğu parçası olarak bir ekrana sığdırılmış işlem hattı Seçtiğimiz yineleme sayısı.| 15
-`experiment_timeout_minutes`| Sınırlayan çalıştırmak tüm denemeler sürebilir süreyi (dakika) | None
+Bkz: [AutoMLConfig sınıfı](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) parametrelerin tam bir listesi için.  
 
 ## <a name="data-pre-processing-and-featurization"></a>Veri ön işleme ve özellik kazandırma sayesinde
 

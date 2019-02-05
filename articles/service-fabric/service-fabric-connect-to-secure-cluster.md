@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
 ms.author: ryanwi
-ms.openlocfilehash: 55564de4a3c5ff2d3ba3ddc5e68fa3d1b2d51e71
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d4760995d6bcc75bcfb974e4be6d202581828a7e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296401"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694127"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Güvenli bir kümeye bağlanma
 
@@ -174,7 +174,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası ile güvenli bir kümeye bağlanma
 
-Kümedeki düğümler geçerli sertifikaların ortak adı olması gerekir veya SAN DNS adı görünür [RemoteCommonNames özelliği](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) ayarlamak [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Bu işlem aşağıdaki istemci ve küme düğümleri arasında karşılıklı kimlik doğrulaması sağlar.
+Kümedeki düğümler geçerli sertifikaların ortak adı olması gerekir veya SAN DNS adı görünür [RemoteCommonNames özelliği](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) ayarlamak [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Bu işlem aşağıdaki istemci ve küme düğümleri arasında karşılıklı kimlik doğrulaması sağlar.
 
 ```csharp
 using System.Fabric;

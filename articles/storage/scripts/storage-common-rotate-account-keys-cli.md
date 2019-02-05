@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 160509a5a82b71b281d57d97e103bb4190605b7c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: HT
+ms.openlocfilehash: ac58886225221677aa003833167ff58cd578255d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847820"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693930"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Bir depolama hesabı oluşturma ve hesap erişim anahtarlarını döndürme
 
@@ -48,10 +48,10 @@ Bu komut, depolama hesabını oluşturmak ve erişim anahtarlarını alıp dönd
 
 | Komut | Notlar |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Belirtilen kaynak grubunda bir Azure Depolama hesabı oluşturur. |
-| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Belirtilen hesap için depolama hesabı erişim anahtarlarını görüntüler. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Birincil veya ikincil depolama hesabı erişim anahtarını yeniden oluşturur. |
+| [az group create](/cli/azure/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az storage account create](/cli/azure/storage/account) | Belirtilen kaynak grubunda bir Azure Depolama hesabı oluşturur. |
+| [az storage account keys list](/cli/azure/storage/account/keys) | Belirtilen hesap için depolama hesabı erişim anahtarlarını görüntüler. |
+| [az storage account keys renew](/cli/azure/storage/account/keys) | Birincil veya ikincil depolama hesabı erişim anahtarını yeniden oluşturur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

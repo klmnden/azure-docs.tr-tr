@@ -8,62 +8,59 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 01/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 963e34ae9327b7b124d47f4223de8d6ab2082fbf
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0b4e2d3e7c75e6d25c7d519d4179a635a7833b6b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437019"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695330"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Azure HDInsight, Apache Hadoop Excel'i Microsoft Hive ODBC sürücüsü ile bağlama
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Microsoft'un büyük veri çözümü Azure HDInsight tarafından dağıtılan bir Apache Hadoop kümelerini Microsoft Business Intelligence (BI) bileşenleriyle tümleşir. Bu tümleştirme özelliği Excel'i Microsoft Hive açık veritabanı bağlantısı (ODBC) sürücüsü kullanarak HDInsight Hadoop kümesinde Hive veri ambarının bağlama örneğidir.
+Microsoft'un büyük veri çözümü Azure HDInsight içinde dağıtılan bir Apache Hadoop kümelerini Microsoft Business Intelligence (BI) bileşenleriyle tümleşir. Bu tümleştirme özelliği Excel'i Microsoft Hive açık veritabanı bağlantısı (ODBC) sürücüsü kullanarak HDInsight Hadoop kümesinde Hive veri ambarının bağlama örneğidir.
 
 Bir HDInsight kümesi ve Excel için Microsoft Power Query eklentisini kullanarak Excel'den diğer (HDInsight olmayan) Hadoop kümeleri gibi diğer veri kaynakları ile ilişkili verileri bağlanmak mümkündür. Yükleme ve Power Query kullanarak daha fazla bilgi için bkz: [Power Query ile HDInsight Excel'e bağlanma][hdinsight-power-query].
 
 
-
-**Önkoşullar**:
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makaleye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
-* **Bir HDInsight kümesi**. Oluşturmak için bkz: [Azure HDInsight ile çalışmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
-* **Bir iş istasyonu** Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 tek başına veya Office 2010 Professional Plus ile.
+* Bir HDInsight Hadoop kümesi. Oluşturmak için bkz: [Azure HDInsight ile çalışmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
+* Office 2010 Professional Plus veya sonraki bir iş istasyonu veya Excel 2010 veya üzeri.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC sürücüsünü yükleme
-Microsoft Hive ODBC sürücüsünü yükleyip [İndirme Merkezi][hive-odbc-driver-download].
-
-Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 ve Windows Server 2012, 32 bit veya 64 bit sürümlerinde bu sürücüye yüklenebilir. Sürücü, Azure HDInsight için bağlantı sağlar. ODBC sürücüsü kullandığınız uygulama sürümüyle eşleşen sürümünü yüklemeniz. Bu öğreticide, sürücü Office Excel'den kullanılır.
+İndirme ve yükleme [Microsoft Hive ODBC sürücüsünü] [ hive-odbc-driver-download] burada kullanacağınız ODBC sürücüsü uygulama sürümüyle eşleşen sürümü.  Bu öğreticide, sürücü Office Excel için kullanılır.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Apache Hive ODBC veri kaynağı oluşturma
 Aşağıdaki adımlar bir Hive ODBC veri kaynağı oluşturma işlemini gösterir.
 
-1. Windows 8 veya Windows 10, başlangıç ekranını açmak için Windows tuşuna basın ve ardından yazın **veri kaynakları**.
-2. Tıklayın **ODBC veri kaynakları (32-bit) ayarlamanız** veya **ODBC veri kaynakları (64-bit) ayarlamanız** , Office sürümüne bağlı olarak. Windows 7 kullanıyorsanız seçin **ODBC veri kaynakları (32 bit)** veya **ODBC veri kaynakları (64-bit)** gelen **Yönetimsel Araçlar**. Göreceksiniz **ODBC Veri Kaynağı Yöneticisi** iletişim.
+1. Windows ' Başlat'a gidin > Windows Yönetim Araçları > ODBC veri kaynakları (32-bit)/(64-bit).  Bu açılır **ODBC Veri Kaynağı Yöneticisi** penceresi.
    
     ![Veri Kaynağı Yöneticisi OBDC](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "ODBC Veri Kaynağı Yöneticisi kullanan bir DSN'ye yapılandırın")
 
-3. Kullanıcı DNS'den tıklayın **Ekle** açmak için **yeni veri kaynağı oluştur** Sihirbazı.
-4. Seçin **Microsoft Hive ODBC sürücüsünü**ve ardından **son**. Göreceksiniz **Microsoft Hive ODBC sürücüsü DNS Kurulumu** iletişim.
-5. Aşağıdaki değerleri yazın veya seçin:
+2. Gelen **Kullanıcı DSN** sekmesinde **Ekle** açmak için **yeni veri kaynağı oluştur** penceresi.
+
+3. Seçin **Microsoft Hive ODBC sürücüsünü**ve ardından **son** açmak için **Microsoft Hive ODBC sürücüsü DSN Kurulum** penceresi.
+
+4. Aşağıdaki değerleri yazın veya seçin:
    
    | Özellik | Açıklama |
    | --- | --- |
    |  Data Source Name |Veri kaynağınız için bir ad verin |
-   |  Host |&lt;HDInsightKümesiAdı>.azurehdinsight.net yazın. Örnek: HDIKumesi.azurehdinsight.net |
+   |  Konaklarında |Girin &lt;Hdınsightkümesiadı&gt;. azurehdinsight.net. Örnek: HDIKumesi.azurehdinsight.net |
    |  Bağlantı noktası |<strong>443</strong> yazın. (Önceden 563 olan bu bağlantı noktası 443 olarak değiştirilmiştir.) |
-   |  Database |<strong>Default</strong>’u kullanın. |
+   |  Database |Kullanım <strong>varsayılan</strong>. |
    |  Mechanism |<strong>Azure HDInsight Service</strong>’i seçin |
    |  User Name |HDInsight küme HTTP kullanıcısı kullanıcı adı girin. Varsayılan kullanıcı adı <strong>admin</strong> şeklindedir. |
    |  Parola |HDInsight küme kullanıcı parolasını girin. |
+
    
-    </table>
-   
-    Bazı önemli parametre tıkladığınızda dikkat etmeniz **Gelişmiş Seçenekler**:
+5. İsteğe bağlı: Seçin **Gelişmiş Seçenekler...**  
    
    | Parametre | Açıklama |
    | --- | --- |
@@ -73,23 +70,30 @@ Aşağıdaki adımlar bir Hive ODBC veri kaynağı oluşturma işlemini gösteri
 
     ![Gelişmiş Seçenekleri](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "DSN Gelişmiş yapılandırma seçenekleri")
 
-1. Tıklayın **Test** veri kaynağı test etmek için. Veri kaynağının doğru şekilde yapılandırıldığında, bu gösterir *TESTLERİ başarıyla tamamlandı!*.
-2. Tıklayın **Tamam** Test iletişim kutusunu kapatmak için. Yeni veri kaynağı üzerinde listelenen **ODBC Veri Kaynağı Yöneticisi**.
-3. Tıklayın **Tamam** sihirbazdan çıkmak için.
+5. Seçin **Test** veri kaynağı test etmek için. Veri kaynağının doğru şekilde yapılandırıldığında, test sonuçlarını gösterir **başarılı!**.  
+
+6. Seçin **Tamam** Test penceresini kapatın.  
+
+7. Seçin **Tamam** kapatmak için **Microsoft Hive ODBC sürücüsü DSN Kurulum** penceresi.  
+
+8. Seçin **Tamam** kapatmak için **ODBC Veri Kaynağı Yöneticisi** penceresi.  
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>HDInsight’tan Excel’e veri aktarma
 Aşağıdaki adımlar, önceki bölümde oluşturduğunuz ODBC veri kaynağı kullanarak bir Excel çalışma kitabına Hive tablosundaki verileri almak için biçimini tanımlar.
 
 1. Excel’de yeni veya mevcut bir çalışma kitabını açın.
-2. Gelen **veri** sekmesinde **Veri Al**, tıklayın **diğer kaynaklardan**ve ardından **gelen ODBC** başlatmak için **veri Bağlantı Sihirbazı**.
+
+2. Gelen **veri** sekmesinde, gitmek **Veri Al** > **diğer kaynaklardan** > **gelen ODBC** başlatmak için **Gelen ODBC** penceresi.
    
     ![Veri Bağlantı sihirbazını açın](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "veri bağlantı sihirbazını açın")
-4. Son bölümde oluşturduğunuz veri kaynağı adı seçin ve ardından **Tamam**.
-5. (Varsayılan ad Yöneticisi) Hadoop kullanıcı adını ve parolasını girin ve ardından **Connect**.
-6. Gezgin üzerinde genişletin **HIVE**, genişletme **varsayılan**, tıklayın **hivesampletable**ve ardından **yük**. Verilerin Excel’e aktarılması birkaç saniye sürer.
+
+3. Aşağı açılan listeden, son bölümde oluşturduğunuz veri kaynağı adı seçin ve ardından **Tamam**.
+
+4. (Varsayılan ad Yöneticisi) Hadoop kullanıcı adını ve parolasını girin ve ardından **Connect** açmak için **Gezgin** penceresi.
+
+5. Gelen **Gezgin**, gitmek **HIVE** > **varsayılan** > **hivesampletable**ve ardından seçin **Yük**. Verilerin Excel'e aktarılması birkaç dakika sürer.
 
     ![HDInsight Hive ODBC Gezgin](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight.hive.odbc.navigator.png "veri bağlantı sihirbazını açın")
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Microsoft Hive ODBC sürücüsü Excel'e HDInsight hizmetten veri almak için nasıl kullanılacağını öğrendiniz. Benzer şekilde, SQL veritabanı'na HDInsight hizmetinden veri alabilirsiniz. Bir HDInsight hizmetinde Veril mümkündür. Daha fazla bilgi için bkz:

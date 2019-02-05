@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: c4dcf34ff113c4f1a6d7dcacbe598c453dbd63c3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658241"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694389"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -135,7 +135,7 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-- En son Azure Stack düzeltmeyi 1809 uygulamadan önce 1808 için yükleyin. Daha fazla bilgi için [KB 4481066 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.9.117](https://support.microsoft.com/help/4481066/). Microsoft, en son düzeltme hub önerir, ancak 1809 yüklemek için gereken minimum 1.1808.5.110 sürümüdür.
+- En son Azure Stack düzeltmeyi 1809 uygulamadan önce 1808 için yükleyin. Daha fazla bilgi için [KB 4481066 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.9.117](https://support.microsoft.com/help/4481066/). Microsoft, kullanılabilir en son düzeltme önerir, ancak 1809 yüklemek için gereken en düşük sürümü 1.1808.5.110 ' dir.
 
   > [!TIP]  
   > Aşağıdaki abone olmak *RRS* veya *Atom* Azure Stack düzeltmelerle birlikte kalmasını sağlamak için akışları:
