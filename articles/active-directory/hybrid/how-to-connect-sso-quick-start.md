@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5eb8f291b0f27518203c45e8c30c3994780e30ef
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 1fadf186176c8bc82aaefe9a908f25f9c8a7e35a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487141"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755477"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı başlangıç
 
@@ -164,14 +164,6 @@ Kullanıcıların Intranet bölge ayarlarını değiştirmek için iki yolu vard
     ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso16.png)
  
     ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. Gözat **Kullanıcı Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >   **Internet Explorer** > **Internet Denetim Masası** > **güvenlik sayfası** > **Intranet bölgesine**. Ardından **izin vermek için durum çubuğu komut dosyası aracılığıyla güncelleştirmeleri**.
-
-    ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. İlke ayarını etkinleştirin ve ardından **Tamam**.
-
-    ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="browser-considerations"></a>Tarayıcı konuları
 

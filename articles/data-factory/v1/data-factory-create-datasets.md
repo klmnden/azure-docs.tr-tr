@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25e47ecc9d9915ab618bc45f2e95f12bae68c7f0
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 690c2769e129d5661e7d66cb3f9f968643c0dbdb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332617"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747019"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data factory'deki veri kümelerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Bir veri kümesinde Data Factory JSON biçiminde şu şekilde tanımlanır:
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
+        "external": "<boolean flag to indicate external data. only for input datasets>",
         "linkedServiceName": "<Name of the linked service that refers to a data store.>",
         "structure": [
             {
@@ -79,7 +79,7 @@ Bir veri kümesinde Data Factory JSON biçiminde şu şekilde tanımlanır:
 
 Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 
-| Özellik | Açıklama | Gereklidir | Varsayılan |
+| Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
 | ad |Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](data-factory-naming-rules.md) adlandırma kuralları. |Evet |NA |
 | type |Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türü](#Type). |Evet |NA |
@@ -191,7 +191,7 @@ structure:
 
 Her sütunda yapısı aşağıdaki özellikleri içerir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | ad |Sütunun adı. |Evet |
 | type |Sütunun veri türü.  |Hayır |
@@ -233,7 +233,7 @@ Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesinin saatlik oluş
 
 Aşağıdaki tabloda kullanılabilirlik bölümünde kullanabileceğiniz özellikleri açıklanmaktadır:
 
-| Özellik | Açıklama | Gereklidir | Varsayılan |
+| Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
 | frequency |Veri kümesi dilim üretim yönelik zaman birimini belirtir.<br/><br/><b>Sıklık desteklenen</b>: Dakika, saat, gün, hafta, ay |Evet |NA |
 | interval |Sıklığı çarpanı belirtir.<br/><br/>"X sıklık aralığı" ne sıklıkta dilim üretilir belirler. Örneğin, veri kümesinin saatlik olarak dilimlenmiş gerekiyorsa, ayarladığınız <b>sıklığı</b> için <b>saat</b>, ve <b>aralığı</b> için <b>1</b>.<br/><br/>Belirttiğiniz gerçekleştiriyorsanız **sıklığı** olarak **dakika**, aralığı en az 15'e ayarlamanız gerekir. |Evet |NA |
@@ -280,7 +280,7 @@ Aşağıdaki veri kümesi aylık ve 8: 00'da, her ayın 3 üretilir (`3.08:00:00
 **İlke** veri kümesi tanımı bölümünde ölçütleri veya veri kümesinin dilimlerini karşılamalıdır koşulu tanımlar.
 
 ### <a name="validation-policies"></a>Doğrulama ilkeleri
-| İlke adı | Açıklama | Uygulanan | Gereklidir | Varsayılan |
+| İlke adı | Açıklama | Uygulanan | Gerekli | Varsayılan |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Doğrulama verilerde **Azure Blob Depolama** (megabayt cinsinden) en küçük boyut gereksinimlerini karşılıyor. |Azure Blob depolama |Hayır |NA |
 | minimumRows |Doğrulama verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az sayıda satır içerir. |<ul><li>Azure SQL veritabanı</li><li>Azure tablosu</li></ul> |Hayır |NA |
@@ -316,7 +316,7 @@ Dış veri kümeleri, çalışan bir veri fabrikasındaki işlem hattı tarafın
 
 Bir veri kümesi Data Factory tarafından üretilen sürece bu olarak işaretlenmelidir **dış**. Etkinlik veya işlem hattı zincirleme kullanılmadığı sürece bu ayar genellikle, işlem hattındaki ilk etkinlik girişleri için geçerlidir.
 
-| Ad | Açıklama | Gereklidir | Varsayılan değer |
+| Ad | Açıklama | Gerekli | Varsayılan değer |
 | --- | --- | --- | --- |
 | dataDelay |Belirtilen dilim için dış veri kullanılabilirliğini kontrolü gecikme süresini. Örneğin, bu ayarı kullanarak bir saatlik onay erteleyebilirsiniz.<br/><br/>Ayar, yalnızca zamandan için geçerlidir. Örneğin, 13: 00'te şu anda ise ve bu değer 10 dakikadır doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar geçmiş dilimler etkilemez unutmayın. İle dilimler **dilim bitiş zamanı** + **dataDelay** < **artık** herhangi bir gecikme olmadan işlenir.<br/><br/>23:59 büyüktür saatleri saat kullanarak belirtilmelidir `day.hours:minutes:seconds` biçimi. Örneğin, 24 saat belirtmek için 24:00:00 kullanmayın. Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat, 1:04:00:00 belirtin. |Hayır |0 |
 | Retryınterval |Bir hata ile sonraki denemesi arasındaki bekleme süresi. Bu ayar, mevcut bir süre için geçerlidir. Önceki başarısız çalışırsanız, sonraki try sonradır **Retryınterval** süresi. <br/><br/>1:00 PM şu anda ise, ilk denemede başlamadan. İlk doğrulama denetimini tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 + 1 dakika (süre) + 1 dakika (yeniden deneme aralığı) 13: 02'te =. <br/><br/>Geçmiş dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |

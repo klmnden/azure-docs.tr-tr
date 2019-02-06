@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 395ff654bcacf1a4f70a9032492deb2a9d5202f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454768"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756759"
 ---
 # <a name="repairing-an-export-job"></a>Bir dışarı aktarma işini onarma
 Dışarı aktarma işi tamamlandıktan sonra Microsoft Azure içeri/dışarı aktarma aracı şirket içine çalıştırabilirsiniz:  
@@ -81,7 +81,7 @@ Kopyalama günlük dosyası, Windows Azure içeri/dışarı aktarma hizmeti bir 
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Sürücü içeriğini doğrulamak için RepairExport kullanma  
 Azure içeri/dışarı aktarma ile de kullanabileceğiniz **RepairExport** sürücüsündeki içeriği doğrulamak için seçeneği doğru. Bildirim dosyası her dışarı aktarma sürücüde sürücü içeriğini için MD5s içerir.  
   
-Azure içeri/dışarı aktarma hizmeti Ayrıca bildirim dosyalarını bir depolama hesabına dışarı aktarma işlemi sırasında kaydedebilirsiniz. Bildirim dosyalarının konumunu aracılığıyla kullanılabilir [alma işi](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işi tamamlandığında işlemi. Bkz: [içeri/dışarı aktarma hizmet bildirimi dosyası biçimi](storage-import-export-file-format-metadata-and-properties.md) sürücü bildirim dosyasının biçimi hakkında daha fazla bilgi için.  
+Azure içeri/dışarı aktarma hizmeti Ayrıca bildirim dosyalarını bir depolama hesabına dışarı aktarma işlemi sırasında kaydedebilirsiniz. Bildirim dosyalarının konumunu aracılığıyla kullanılabilir [alma işi](/rest/api/storageimportexport/jobs) işi tamamlandığında işlemi. Bkz: [içeri/dışarı aktarma hizmet bildirimi dosyası biçimi](storage-import-export-file-format-metadata-and-properties.md) sürücü bildirim dosyasının biçimi hakkında daha fazla bilgi için.  
   
 Aşağıdaki örnek, Azure içeri/dışarı aktarma aracı ile çalıştırmak gösterilmektedir **/ManifestFile** ve **/CopyLogFile** parametreleri:  
   

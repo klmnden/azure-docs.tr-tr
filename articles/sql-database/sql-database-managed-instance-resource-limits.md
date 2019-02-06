@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 228de2b7c47115373b26dcaa24b44e90baf76143
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/05/2019
+ms.openlocfilehash: be6e2cbea7dd23cbe6932f0110ac1c8b630a17c2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662611"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753206"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
@@ -50,17 +50,19 @@ Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 
 | **Özellik** | **Genel amaçlı** | **İş açısından kritik** |
 | --- | --- | --- |
 | Sanal çekirdek sayısı\* | 4. nesil: 8, 16, 24<br/>5. nesil: 8, 16, 24, 32, 40, 64, 80 | 4. nesil: 8, 16, 24, 32 <br/> 5. nesil: 8, 16, 24, 32, 40, 64, 80 |
-| Bellek | 4. nesil: 56GB - 156GB<br/>5. nesil: 44GB - 440GB<br/>\*Orantılı sanal çekirdek sayısı | 4. nesil: 56GB - 156GB <br/> 5. nesil: 41GB - 408GB<br/>\*Orantılı sanal çekirdek sayısı |
+| Bellek | 4. nesil: 56 GB - 168 GB<br/>5. nesil: 40.8 GB - 408 GB<br/>\*Orantılı sanal çekirdek sayısı | 4. nesil: 56 GB - 168 GB <br/> 5. nesil: 40.8 GB - 408 GB<br/>\*Orantılı sanal çekirdek sayısı |
 | En büyük depolama boyutu | 8 TB | 4. nesil: 1 TB <br/> 5. nesil: <br/>-1 TB 8, 16 sanal çekirdek<br/>-24 sanal çekirdek 2 TB<br/>-32, 40, 64 4 TB 80 sanal çekirdekler |
 | Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
 | En fazla örnek başına veritabanı sayısı | 100 | 100 |
 | Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Veritabanı başına 32.767 dosyaları |
-| Veri/günlük IOPS (yaklaşık) | dosya başına 500-7500<br/>\*[Dosya boyutuna bağlıdır] (https://docs.microsoft.com/azure/virtual-machines ce günlük aktarım hızı | Örnek başına 22MB/sn | Sanal çekirdek başına 3MB/sn<br/>En fazla 48MB/sn |
-| Veri aktarım hızı (yaklaşık) | 100-250 MB/s dosya başına<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Sanal çekirdek başına 24-48MB/sn |
+| Veri/günlük IOPS (yaklaşık) | 500 - 7.500 dosya başına<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines)| 11 K - 110 K (1,375 sanal çekirdek başına) |
+|Günlük aktarım hızı | Örnek başına 22 MB/sn | Sanal çekirdek başına 3 MB/sn<br/>En fazla 48 MB/sn |
+| Veri aktarım hızı (yaklaşık) | 100 - dosya başına 250 MB/sn<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/sn başına sanal çekirdek |
 | GÇ gecikmesi (yaklaşık) | 5-10 ms | 1-2 ms |
-| En fazla tempDB boyutu | 192 1920 GB (24 GB sanal çekirdek başına) | Maksimum örnek depolama boyutuyla sınırlı hiçbir kısıtlama- |
+| En fazla tempDB boyutu | 192 - 1,920 GB (24 GB sanal çekirdek başına) | Maksimum örnek depolama boyutuyla sınırlı hiçbir kısıtlama- |
 
 **Notları**:
+
 - Kullanıcı ve sistem veritabanları hem verileri hem de günlük dosyası boyutu en fazla depolama boyutu sınırı ile karşılaştırıldığında örnek depolama boyutu bulunmaktadır. Kullanım <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> toplam alanı veritabanı tarafından kullanılan belirlemek için sistem görünümü. Hata günlüklerini kalıcı değildir ve boyutu dahil değildir. Yedekleme depolama boyutu dahil edilmez.
 - Ayrıca aktarım hızı ve IOPS açıkça yönetilen örneği ile sınırlı değildir sayfa boyutuna bağlıdır.
 

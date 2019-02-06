@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 2c1b46f1c1726a473fe15e490f3000f3c5235a77
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5995c896f02720d82862895795e1e8d43f6bb226
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477514"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756478"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Bir Linux VM'ye veri diski için portalı kullanma 
 Bu makalede Azure portalı üzerinden bir Linux sanal makinesi için yeni ve var olan diskleri ekleme gösterilmektedir. Ayrıca [Azure portalında bir Windows sanal makinesine veri diski](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -102,10 +102,10 @@ Burada, *sdc* istiyoruz disktir.
 ### <a name="partition-a-new-disk"></a>Yeni bir disk bölümü
 Verileri içeren varolan bir diski kullanıyorsanız, disk takılamadı için atlayın. Yeni bir disk bağlıyorsanız, disk bölümleme gerekir.
 
-Kullanım `fdisk` disk bölümleme için bölüm 1 üzerinde birincil disk kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `fdisk` üzerinde işlem */dev/sdc*:
+İle diski bölümlendirin `parted`, disk boyutu 2 tebibytes (TiB) ise ya da daha büyük MBR veya GPT bölümleme kullanabilirsiniz 2TiB altında ise GPT bölümleme, kullanmanız gerekir. Birincil disk 1 bölüme kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `parted` üzerinde işlem */dev/sdc*:
 
 ```bash
-sudo fdisk /dev/sdc
+sudo parted /dev/sdc
 ```
 
 Kullanım `n` yeni bir bölüm eklemek için komutu. Bu örnekte, biz de tercih `p` için birincil bölüm ve varsayılan değerleri kabul edin. Çıktı aşağıdaki örneğe benzer olacaktır:

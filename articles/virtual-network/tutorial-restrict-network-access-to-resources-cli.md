@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 87fcfd98065bcf1f0fea3a06029853f69d67842d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663817"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751506"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI kullanarak sanal ağ hizmet uç noktaları ile PaaS kaynaklarına ağ erişimini kısıtlama
 
@@ -51,7 +51,7 @@ az group create \
   --location eastus
 ```
 
-Bir alt ağ ile sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az_network_vnet_create).
+Bir alt ağ ile sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Hizmet uç noktasını girin 
 
-Hizmet uç noktaları destekleyen hizmetler için hizmet uç noktaları etkinleştirebilirsiniz. Hizmet uç noktası etkin hizmetler kullanılabilir bir Azure konumu görünümünde [az network vnet liste-endpoint-services](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). Aşağıdaki örnek, hizmet uç noktası etkin kullanılabilir hizmetlerin listesini döndürür *eastus* bölge. Diğer Azure Hizmetleri etkin hizmet bitiş noktası oldukça döndürülen hizmetlerin listesi zamanla büyüyecektir.
+Hizmet uç noktaları destekleyen hizmetler için hizmet uç noktaları etkinleştirebilirsiniz. Hizmet uç noktası etkin hizmetler kullanılabilir bir Azure konumu görünümünde [az network vnet liste-endpoint-services](/cli/azure/network/vnet). Aşağıdaki örnek, hizmet uç noktası etkin kullanılabilir hizmetlerin listesini döndürür *eastus* bölge. Diğer Azure Hizmetleri etkin hizmet bitiş noktası oldukça döndürülen hizmetlerin listesi zamanla büyüyecektir.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -103,7 +103,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Güvenlik kuralları ile oluşturma [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Aşağıdaki kural, Azure depolama hizmetine atanmış genel IP adreslerine giden erişim sağlar: 
+Güvenlik kuralları ile oluşturma [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule). Aşağıdaki kural, Azure depolama hizmetine atanmış genel IP adreslerine giden erişim sağlar: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -168,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-Depolama hesabı oluşturulduktan sonra depolama hesabı için bağlantı dizesi sahip bir değişken içine alma [az depolama hesabı bağlantı-dizesini-Göster](/cli/azure/storage/account#az_storage_account_show_connection_string). Bağlantı dizesini, daha sonraki bir adımda bir dosya paylaşımı oluşturmak için kullanılır.
+Depolama hesabı oluşturulduktan sonra depolama hesabı için bağlantı dizesi sahip bir değişken içine alma [az depolama hesabı bağlantı-dizesini-Göster](/cli/azure/storage/account). Bağlantı dizesini, daha sonraki bir adımda bir dosya paylaşımı oluşturmak için kullanılır.
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -223,7 +223,7 @@ Bir depolama hesabına ağ erişimini test etmek için her alt ağa bir VM dağ�
 
 ### <a name="create-the-first-virtual-machine"></a>İlk sanal makineyi oluşturma
 
-Bir VM oluşturma *genel* alt ağ ile [az vm oluşturma](/cli/azure/vm#az_vm_create). SSH anahtarları, varsayılan anahtar konumunda zaten mevcut değilse komut bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
+Bir VM oluşturma *genel* alt ağ ile [az vm oluşturma](/cli/azure/vm). SSH anahtarları, varsayılan anahtar konumunda zaten mevcut değilse komut bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
 
 ```azurecli-interactive
 az vm create \

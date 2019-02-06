@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/14/2019
+ms.date: 02/05/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c58c31a0d6238720d643d5b1508a7ec04749887b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 31bf120b590ad8de3263e2d3a553f1d5fcfcd7f9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352130"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756895"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -76,11 +76,13 @@ Bkz: [içerik anahtarı ilkesi - .NET edinme](get-content-key-policy-dotnet-howt
 
 ## <a name="how-can-i-get-started-with-v3"></a>v3’ü kullanmaya nasıl başlayabilirim?
 
-Geliştirici olarak, özel medya iş akışlarını kolayca oluşturmak, yönetmek ve korumak için REST API ile etkileşim kurmanıza olanak sağlayan Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) veya istemci kitaplıklarını kullanabilirsiniz.  
+Bir geliştirici olarak, Media Services kullanabileceğiniz [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) veya kolayca oluşturmak için REST API ile etkileşimde bulunmanızı sağlayan istemci kütüphaneleri, yönetmek ve özel medya iş akışları korumak. API temel Media Services v3 [Openapı belirtimi](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) (eski adıyla bir swagger dosyası da bilinir).
 
-Media Services, tercih ettiğiniz dil/teknolojiye yönelik SDK’lar oluşturmak için kullanabileceğiniz [Swagger dosyaları](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) sağlar.  
+[Azure Media Services Gezgini](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE), Media Services hakkında bilgi edinmek istiyorsanız Windows müşteriler için kullanılabilir bir araçtır. AMSE olduğu bir Winforms /C# karşıya yükleyin, indirin, kodlama, VOD akışı ve Media Services ile içerik Canlı uygulama. Media Services, herhangi bir kod yazmadan test etmek istediğiniz istemciler için AMSE aracıdır. AMSE arka plan kod, Media Services ile geliştirme ve üretim kalitesinde kod görmek istediğiniz ihtiyaç duyan istemciler için tasarlanmıştır.
 
-Microsoft aşağıdaki istemci kitaplıklarını oluşturur ve destekler: 
+AMSE açık kaynak bir proje, destek, topluluk tarafından sağlanır (sorunları rapor https://github.com/Azure/Azure-Media-Services-Explorer/issues). Bu proje [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Açık Kaynak Kullanım Kuralları) belgesinde listelenen kurallara uygundur. Daha fazla bilgi için [kullanım kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) veya başvurun opencode@microsoft.com herhangi bir ek sorularınız ya da yorumlarınız ile.
+ 
+Azure Media Services, aşağıdaki istemci kitaplıklardan destekler: 
 
 |API başvuruları|SDK'lar/Araçlar|Örnekler|
 |---|---|---|---|

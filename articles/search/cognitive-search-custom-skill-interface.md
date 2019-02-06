@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: fe575a79fe2f47729e7c7fe039989b2c08af1282
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e4fe511228f6e80a17af8325ee74ae0927a760bd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657833"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754736"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Bilişsel arama işlem hattı için özel bir yetenek ekleme
 
-A [bilişsel arama dizini oluşturma ardışık düzeni](cognitive-search-concept-intro.md) gelen Azure Search'te birleştirilebilecek [önceden tanımlanmış beceriler](cognitive-search-predefined-skills.md) , kişisel işlem hattının oluşturduğunuzda ve özel becerileri yanı sıra. Bu makalede, bilişsel arama hattında eklenmesine izin veren bir arabirimi kullanıma sunan özel bir yetenek oluşturmayı öğrenin. 
+A [bilişsel arama dizini oluşturma ardışık düzeni](cognitive-search-concept-intro.md) gelen Azure Search'te birleştirilebilecek [önceden tanımlanmış beceriler](cognitive-search-predefined-skills.md) yanı [özel becerileri](cognitive-search-custom-skill-web-api.md) kişisel olarak oluşturduğunuz ve ekleyin işlem hattı. Bu makalede, bilişsel arama hattında eklenmesine izin veren bir arabirimi kullanıma sunan özel bir yetenek oluşturmayı öğrenin. 
 
 Özel bir yetenek oluşturma dönüşümleri içeriğinize benzersiz eklemek için bir yol sağlar. Özel bir yetenek bağımsız olarak, ihtiyaç duyduğunuz her zenginleştirme adım uygulayarak yürütür. Örneğin, alana özgü özel varlıklar tanımlayan, işletme ve Finans sözleşmeleri ve belgeleri ayırt etmek için özel sınıflandırma modellerini Derleme veya ses dosyalarıyla ilgili içerik için daha ayrıntılı ulaşmak için bir konuşma tanıma becerisi ekleyin. Adım adım bir örnek için bkz: [örnek: özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md).
 

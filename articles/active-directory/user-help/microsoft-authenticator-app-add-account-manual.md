@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 2c07e6a007d8bc5ea283727f5e58a1c8583177f1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2a5bd935f9c4ab388388ab3d9264f92a6112689e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478109"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753342"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Hesap için uygulamayı el ile Ekle
-Kameranız QR kodunu yakalamak üzere yapamıyorsa, hesap bilgilerinizi iki adımlı doğrulama için Microsoft Authenticator uygulamasını el ile ekleyebilirsiniz. Bu, iş veya Okul hesapları ve Microsoft olmayan kişisel hesapları için çalışır.
+Kameranız QR kodunu yakalamak üzere yapamıyorsa, hesap bilgilerinizi iki adımlı doğrulama için Microsoft Authenticator uygulamasını el ile ekleyebilirsiniz. Bu, iş veya Okul hesapları ve Microsoft olmayan hesapların çalışır.
 
 Hesaplarınız için sağlanan kodları, büyük küçük harfe duyarlı değildir ve Microsoft Authenticator uygulamasına eklendiğinde alanı gerekli değildir.
 

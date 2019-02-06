@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 6b2302e69c9412170b55df4bfd8c1df5a9f75ef3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479295"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754655"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'teki (AKS) uygulama taleplerini karşılamak üzere küme otomatik olarak ölçeklendirme
 
@@ -63,6 +63,9 @@ Küme otomatik ölçeklendiricinin ölçek olayları ve kaynak eşikleri arasın
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>AKS kümesi oluşturma ve küme ölçeklendiriciyi etkinleştir
 
 Bir AKS kümesi oluşturmak ihtiyacınız varsa [az aks oluşturma] [ az-aks-create] komutu. Belirtin bir *--kubernetes sürümü* , karşıladığını veya önceki özetlendiği gibi gerekli en düşük sürüm numarası [başlamadan önce](#before-you-begin) bölümü. Etkinleştirmek ve küme ölçeklendiriciyi yapılandırmak için kullanın *--enable-kümesi-otomatik ölçeklendiricinin* parametresi ve bir düğüm belirtin *--min-count* ve *--sayısı üst sınırı*.
+
+> [!IMPORTANT]
+> Küme otomatik ölçeklendiricinin Kubernetes bileşendir. AKS kümesi bir sanal makine ölçek kümesi düğümleri kullansa da, yoksa el ile etkinleştirmeniz veya Azure portalında veya Azure CLI kullanarak ölçek kümesi ölçeklendirme ayarlarını düzenleyin. Kubernetes küme ölçeklendiriciyi gerekli ölçek ayarları yönetmenize olanak tanır. Daha fazla bilgi için [AKS kaynakları MC_ kaynak grubunda değişiklik yapabilirsiniz?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)
 
 Aşağıdaki örnek sanal makine ölçek kümesi ve etkin küme ölçeklendiriciyi ile bir AKS kümesi oluşturur ve en az *1* ve en fazla *3* düğümleri:
 

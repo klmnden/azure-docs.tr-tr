@@ -10,18 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336909"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753479"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri), görev hub'ları
 
 A *görev hub* içinde [dayanıklı işlevler](durable-functions-overview.md) düzenlemeleri için kullanılan Azure Storage kaynakları için mantıksal bir kapsayıcıdır. Aynı görev hub'ına ait oldukları zaman orchestrator ve etkinlik işlevleri yalnızca birbiriyle etkileşim kurabilir.
 
-Her işlev uygulaması ayrı görev hub sahiptir. Depolama hesabı, birden fazla işlev uygulamasına bir depolama hesabı paylaşıyorsa, birden çok görev merkezleri içerir. Aşağıdaki diyagram, paylaşılan ve ayrılmış depolama hesaplarında işlev uygulaması başına tek bir görev hub gösterir.
+Birden fazla işlev uygulaması, bir depolama hesabı, her işlev uygulaması paylaşıp paylaşmadığını *gerekir* ayrı görev hub adı ile yapılandırılabilir. Bir depolama hesabı, birden çok görev hub'ları içerebilir. Aşağıdaki diyagram, paylaşılan ve ayrılmış depolama hesaplarında işlev uygulaması başına tek bir görev hub gösterir.
 
 ![Gösteren diyagram, paylaşılan ve ayrılmış depolama hesapları.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
@@ -46,7 +46,7 @@ Görev merkezleri içinde bildirilen bir ad tarafından tanımlanır *host.json*
 ```json
 {
   "durableTask": {
-    "HubName": "MyTaskHub"
+    "hubName": "MyTaskHub"
   }
 }
 ```
@@ -58,7 +58,7 @@ Görev merkezleri içinde bildirilen bir ad tarafından tanımlanır *host.json*
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "MyTaskHub"
+      "hubName": "MyTaskHub"
     }
   }
 }
@@ -71,7 +71,7 @@ Görev merkezleri yapılandırılabilir uygulama ayarlarını kullanarak aşağ�
 ```json
 {
   "durableTask": {
-    "HubName": "%MyTaskHub%"
+    "hubName": "%MyTaskHub%"
   }
 }
 ```
@@ -83,7 +83,7 @@ Görev merkezleri yapılandırılabilir uygulama ayarlarını kullanarak aşağ�
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "%MyTaskHub%"
+      "hubName": "%MyTaskHub%"
     }
   }
 }
@@ -134,7 +134,7 @@ Ve JavaScript için gerekli yapılandırma aşağıda verilmiştir. Görev hub �
 Görev hub adları bir harf ile başlamalı ve yalnızca harf ve sayı oluşur. Belirtilmezse, varsayılan addır **DurableFunctionsHub**.
 
 > [!NOTE]
-> Paylaşılan depolama hesabında birden fazla görev merkezleri olduğunda ne bir görev hub birbirinden ayırır adıdır. Paylaşılan depolama hesabı paylaşımı birden fazla işlev uygulaması varsa, her görev hub için farklı adlar yapılandırmak zorunda *host.json* dosyaları.
+> Paylaşılan depolama hesabında birden fazla görev merkezleri olduğunda ne bir görev hub birbirinden ayırır adıdır. Paylaşılan depolama hesabı paylaşımı birden fazla işlev uygulaması varsa, her görev hub için farklı adlar açıkça yapılandırmalısınız *host.json* dosyaları. Aksi takdirde birden fazla işlev uygulaması birbiriyle tanımsız davranışlara neden iletiler için rekabete girer.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

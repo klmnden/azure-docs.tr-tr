@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 8a0c474ab610d89bd702613bc778ad29523a4192
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732728"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752526"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Öğretici: Bir tek başına veya havuza alınmış veritabanının güvenliğini sağlama
 
@@ -45,7 +45,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulların karşılandığın
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Bir Azure SQL server ve veritabanı
-  - Oluşturabilir [Azure portalında](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), veya [PowerShell](sql-database-powershell-samples.md)
+  - Oluşturabilir [Azure portalında](sql-database-single-database-get-started.md), [CLI](sql-database-cli-samples.md), veya [PowerShell](sql-database-powershell-samples.md)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -64,7 +64,7 @@ Ayarlama **Azure hizmetlerine erişime izin ver** için **OFF** için en güvenl
 
 ### <a name="set-up-sql-database-server-firewall-rules"></a>SQL veritabanı sunucusu güvenlik duvarı kurallarını ayarlayın
 
-Sunucu düzeyinde güvenlik duvarı kuralları, aynı SQL veritabanı sunucu içindeki tüm veritabanlarına uygulayın.
+Sunucu düzeyinde IP güvenlik duvarı kuralları, aynı SQL veritabanı sunucu içindeki tüm veritabanlarına uygulayın.
 
 Sunucu düzeyinde güvenlik duvarı kurallarını ayarlamak için:
 

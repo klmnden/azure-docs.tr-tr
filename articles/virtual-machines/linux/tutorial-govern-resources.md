@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 040f073cc410911ea88112b3206623e90cece0ca
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464264"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756182"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Öğretici: Azure CLI ile Linux sanal makine yönetimi hakkında bilgi edinin
 
@@ -57,7 +57,7 @@ Sanal makine çözümlerini yönetmek için yaygın olarak gereken erişimi sağ
 
 Kullanıcılara rolleri tek tek atamak yerine, benzer eylemlerde bulunması gereken kullanıcılar için bir Azure Active Directory grubu kullanmak genellikle daha kolaydır. Ardından, bu grubu uygun role atayabilirsiniz. Bu makalede sanal makineyi yönetmek için var olan bir grubu kullanın veya portalı kullanarak [bir Azure Active Directory grubu oluşturun](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Yeni grup oluşturduktan veya var olan bir grup belirledikten sonra [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) komutunu kullanarak yeni Azure Active Directory grubunu kaynak grubu için Sanal Makine Katılımcısı rolüne atayabilirsiniz.
+Yeni grup oluşturduktan veya var olan bir grup belirledikten sonra [az role assignment create](/cli/azure/role/assignment) komutunu kullanarak yeni Azure Active Directory grubunu kaynak grubu için Sanal Makine Katılımcısı rolüne atayabilirsiniz.
 
 ```azurecli-interactive
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -71,7 +71,7 @@ Genellikle, kullanıcıların dağıtılmış kaynakları yönetmek için atand�
 
 ## <a name="azure-policy"></a>Azure İlkesi
 
-[Azure İlkesi](../../azure-policy/azure-policy-introduction.md) abonelikteki tüm kaynakların şirket standartlarına uyduğundan emin olmanıza yardımcı olur. Aboneliğinizde zaten birkaç ilke tanımı mevcuttur. Kullanılabilir ilke tanımlarını görmek için [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) komutunu kullanın:
+[Azure İlkesi](../../azure-policy/azure-policy-introduction.md) abonelikteki tüm kaynakların şirket standartlarına uyduğundan emin olmanıza yardımcı olur. Aboneliğinizde zaten birkaç ilke tanımı mevcuttur. Kullanılabilir ilke tanımlarını görmek için [az policy definition list](/cli/azure/policy/definition) komutunu kullanın:
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -83,7 +83,7 @@ Mevcut ilke tanımlarını göreceksiniz. İlke türü **Yerleşik** veya **Öze
 * Sanal makineler için SKU'ları sınırlama.
 * Yönetilen diskler kullanmayan sanal makineleri denetleme.
 
-Aşağıdaki örnekte, görünen ada göre üç ilke tanımı alırsınız. Bu tanımları kaynak grubuna atamak için [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) komutunu kullanın. Bazı ilkeler için, izin verilen değerleri belirtmek üzere parametre değerleri sağlayın.
+Aşağıdaki örnekte, görünen ada göre üç ilke tanımı alırsınız. Bu tanımları kaynak grubuna atamak için [az policy assignment create](/cli/azure/policy/assignment) komutunu kullanın. Bazı ilkeler için, izin verilen değerleri belirtmek üzere parametre değerleri sağlayın.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -145,7 +145,7 @@ Dağıtımınız tamamlandıktan sonra çözüme daha fazla yönetim ayarı uygu
 
 Yönetim kilitlerini oluşturmak veya silmek için `Microsoft.Authorization/locks/*` eylemlerine erişiminiz olması gerekmektedir. Yerleşik rollerden yalnızca **Sahip** ve **Kullanııcı Erişiimi Yöneticisi** bu eylemleri kullanabilir.
 
-Sanal makineyi ve ağ güvenlik grubunu kilitlemek için [az lock create](/cli/azure/lock#az_lock_create) komutunu kullanın:
+Sanal makineyi ve ağ güvenlik grubunu kilitlemek için [az lock create](/cli/azure/lock) komutunu kullanın:
 
 ```azurecli-interactive
 # Add CanNotDelete lock to the VM
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kilit kaldırılana kadar kilitli ağ güvenlik grubu silinemez. Kilidi kaldırmak için kilitlerin kimliklerini alın ve bunları [az lock delete](/cli/azure/lock#az_lock_delete) komutuna ekleyin:
+Kilit kaldırılana kadar kilitli ağ güvenlik grubu silinemez. Kilidi kaldırmak için kilitlerin kimliklerini alın ve bunları [az lock delete](/cli/azure/lock) komutuna ekleyin:
 
 ```azurecli-interactive
 vmlock=$(az lock show --name LockVM \
@@ -220,7 +220,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-Artık gerekli değilse, [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz. SSH oturumundan sanal makinenize çıkış yapın, ardından kaynakları aşağıda belirtildiği gibi silin:
+Artık gerekli değilse, [az group delete](/cli/azure/group) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz. SSH oturumundan sanal makinenize çıkış yapın, ardından kaynakları aşağıda belirtildiği gibi silin:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 04c89742ac09d1581b978e3612539acb7eab2195
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511063"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756657"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL veritabanı sunucuları ve bunların yönetimi
 
@@ -78,7 +78,7 @@ Varolan bir veritabanını yönetmek için gidin **SQL veritabanları** sayfası
 > [!IMPORTANT]
 > Bir veritabanı için performans özelliklerini yapılandırmak için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> Bir Azure portalı Hızlı Başlangıç için bkz: [Azure portalında bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md).
+> Bir Azure portalı Hızlı Başlangıç için bkz: [Azure portalında bir Azure SQL veritabanı oluşturma](sql-database-single-database-get-started.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Azure SQL sunucularını, veritabanlarını ve güvenlik duvarları PowerShell kullanarak yönetme
 
@@ -102,7 +102,7 @@ Azure SQL server, veritabanları ve Azure PowerShell ile güvenlik duvarları ol
 | New-AzureRmSqlServerVirtualNetworkRule | Oluşturur bir [ *sanal ağ kuralı*](sql-database-vnet-service-endpoint-rule-overview.md)bağlı olarak bir sanal ağ hizmet uç noktası olan bir alt ağ. |
 
 > [!TIP]
-> PowerShell için hızlı başlangıç için bkz: [PowerShell kullanarak Azure SQL tek veritabanı oluşturma](sql-database-get-started-portal.md). PowerShell örnek komut dosyaları için bkz: [tek bir Azure SQL veritabanı oluşturun ve bir güvenlik duvarı kuralı yapılandırmak için PowerShell kullanma](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek bir Azure SQL veritabanını PowerShell kullanarak tek](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> PowerShell için hızlı başlangıç için bkz: [PowerShell kullanarak Azure SQL tek veritabanı oluşturma](sql-database-single-database-get-started.md). PowerShell örnek komut dosyaları için bkz: [tek bir Azure SQL veritabanı oluşturun ve bir güvenlik duvarı kuralı yapılandırmak için PowerShell kullanma](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek bir Azure SQL veritabanını PowerShell kullanarak tek](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Azure SQL sunucularını, veritabanlarını ve güvenlik duvarlarını Azure CLI kullanarak yönetme

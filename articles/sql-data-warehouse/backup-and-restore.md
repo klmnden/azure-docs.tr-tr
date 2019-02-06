@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462350"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747501"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
 Yedekleme ve geri yükleme şeklini Azure SQL veri ambarı'nda öğrenin. Kullanım verileri kurtarma anlık görüntüleri ambar veya birincil bölge içinde önceki bir geri yükleme noktası veri Ambarınızı kopyalayın. Farklı bir coğrafi bölgeye geri yüklemek için coğrafi olarak yedekli yedeklemeleri kullanım veri ambarı. 
@@ -62,7 +62,7 @@ Veri ambarı düşürdüğünüzde, SQL veri ambarı son anlık görüntüsünü
 > Mantıksal bir SQL server örneği silerseniz, örneği ait tüm veritabanlarını da silinir ve kurtarılamaz. Silinen bir sunucuya geri yükleyemezsiniz.
 >
 
-## <a name="geo-backups"></a>Coğrafi yedekleme
+## <a name="geo-backups-and-disaster-recovery"></a>Coğrafi yedekleme ve olağanüstü durum kurtarma
 SQL veri ambarı coğrafi yedekleme için günde bir kez gerçekleştiren bir [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md). Bir coğrafi geri yükleme için RPO 24 saattir. Coğrafi yedekleme, SQL veri ambarı desteklendiği Bölgesi'nde bir sunucuya geri yükleyebilirsiniz. Coğrafi yedekleme, geri yükleme noktalarını, birincil bölgedeki erişemiyor durumunda veri ambarını geri yükleme sağlar.
 
 Coğrafi yedekleme varsayılan olarak etkindir. Veri ambarınız Gen1 ise yapabilecekleriniz [çıkma](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) istiyorsanız. Veri koruma garanti yerleşik olarak 2. nesil için coğrafi-yedeklemelerden kapatılamaz.

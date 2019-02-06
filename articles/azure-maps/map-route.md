@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 8c337ba1770b9b618567e7a3ee5fdbadba63181b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 183194d172b9ac11d4f1c5cb1324f7a09f4a157b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231861"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756317"
 ---
 # <a name="show-directions-from-a-to-b"></a>A'dan B'ye yönleri gösterme
 
@@ -41,7 +41,7 @@ Başlangıç ve bitiş kodu altıncı bloğu oluşturur [noktaları](https://doc
 
 Yedinci kod bloğunu kullanarak haritanın harita sınırları ayarlar [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) özelliği.
 
-Son blok kod parçası olan Azure haritalar yönlendirme hizmeti, sorgular, [hizmeti Modülü](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). [GetRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) yöntemi, başlangıç ve bitiş noktaları arasındaki bir yolu almak için kullanılır. GeoJSON biçiminde kullanarak yanıt ayrıştırılır [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) yöntemi. Ardından harita üzerinde bir yol olarak yanıta işler. Haritayı bir satır ekleme hakkında daha fazla bilgi için bkz. [harita üzerinde bir satır ekleyin](./map-add-shape.md#addALine).
+Son blok kod parçası olan Azure haritalar yönlendirme hizmeti, sorgular, [hizmeti Modülü](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). [GetRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) yöntemi, başlangıç ve bitiş noktaları arasındaki bir yolu almak için kullanılır. GeoJSON biçiminde kullanarak yanıt ayrıştırılır [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) yöntemi. Ardından harita üzerinde bir yol olarak yanıta işler. Haritayı bir satır ekleme hakkında daha fazla bilgi için bkz. [harita üzerinde bir satır ekleyin](./map-add-shape.md#addALine).
 
 Rota sorgu, veri kaynağı, simge ve çizgi katmanları ve kamera sınırları oluşturulur ve haritanın içinde ayarlamak [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) harita tamamen yüklendikten sonra sonuçları görüntülendiğinden emin olmak için.
 
@@ -54,7 +54,7 @@ Rota sorgu, veri kaynağı, simge ve çizgi katmanları ve kamera sınırları o
 
 İkinci kod bloğunu oluşturur ve ekler bir [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) eşleme nesnesi.
 
-Üçüncü kod bloğu, yolun başlangıç ve hedef noktaları oluşturur ve bunları veri kaynağına ekler. Gördüğünüz [haritada pin ekleme](map-add-pin.md) kullanma hakkında yönergeler için [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
+Üçüncü kod bloğu, yolun başlangıç ve hedef noktaları oluşturur ve bunları veri kaynağına ekler. Gördüğünüz [haritada pin ekleme](map-add-pin.md) kullanma hakkında yönergeler için [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
 
  A [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) işler satır içinde sarmalanmış nesneleri [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) haritada satırları olarak. Dördüncü kod bloğunu oluşturur ve bir çizgi katmanı haritaya ekler. Bir satır katmanında özelliklerini görmek [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 

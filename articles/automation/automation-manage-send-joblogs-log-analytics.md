@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/12/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 34a695daa077e882e911d3fb59f8a30e39c3a9d2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432974"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756640"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumunu ve iş akışları Automation'ı Log Analytics'e iletme
 
@@ -64,11 +64,12 @@ Bulmanız gerekiyorsa *adı* Otomasyon hesabınızda Azure portalında Otomasyon
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-Bu betiği çalıştırdıktan sonra Log Analytics kayıtları yeni JobLogs veya JobStreams yazılmakta olan 10 dakika içinde görürsünüz.
+Bu betiği çalıştırdıktan sonra bu kayıtları yeni JobLogs veya yazılan JobStreams Log analytics'te başlamadan önce bir saat sürebilir.
 
 Günlükleri görmek için Log Analytics günlük araması ' aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Yapılandırmayı doğrulama
+
 Otomasyon hesabınızı, Log Analytics çalışma alanına günlükleri gönderme onaylamak için tanılama doğru Otomasyon hesabında aşağıdaki PowerShell kullanılarak yapılandırılıp yapılandırılmadığını denetleyin:
 
 ```powershell-interactive
@@ -76,14 +77,16 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 Çıktıda emin olun:
-+ Altında *günlükleri*, değeri *etkin* olduğu *True*.
-+ Değerini *Workspaceıd* Log Analytics çalışma alanınızın ResourceId için ayarlanır.
+
+* Altında *günlükleri*, değeri *etkin* olduğu *True*.
+* Değerini *Workspaceıd* Log Analytics çalışma alanınızın ResourceId için ayarlanır.
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
 
 Azure Otomasyonu tanılamadan Log Analytics'te iki tür kayıt oluşturur ve olarak etiketlenir **AzureDiagnostics**. Aşağıdaki sorgularda Log analytics'e yükseltilen sorgu dili kullanın. Eski sorgu dili ve yeni Azure Log Analytics sorgu diline arasında sık kullanılan sorguları hakkında bilgi için ziyaret [yeni Azure Log Analytics sorgu dilini hızlı başvuru sayfası için eski](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### <a name="job-logs"></a>İş günlükleri
+
 | Özellik | Açıklama |
 | --- | --- |
 | TimeGenerated |Runbook işinin yürütüldüğü tarih ve saat. |
@@ -128,6 +131,7 @@ Azure Otomasyonu tanılamadan Log Analytics'te iki tür kayıt oluşturur ve ola
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Otomasyon görüntüleme Log Analytics'te günlüğe kaydeder
+
 Şimdi, Otomasyon iş günlüklerini Log Analytics'e gönderme başlatıldı, bu günlükleri Log Analytics içinde ile neler yapabileceğinize göz atın.
 
 Günlükleri görmek için aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
@@ -141,7 +145,7 @@ Bir uyarı kuralı oluşturmak için bir günlük araması uyarı çağırması 
 2. Aşağıdaki arama sorgu alanına yazarak Uyarınız için günlük arama sorgusu oluşturun: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  Kullanarak RunbookName göre gruplandırma yapabilirsiniz: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Günlüklerini birden fazla Otomasyon hesabını veya aboneliğini çalışma alanınıza ayarlarsanız, uyarılarınızı aboneliği ve Automation hesabı göre gruplandırabilirsiniz. Otomasyon hesabı adı, kaynak alanına JobLogs arama bulunabilir.
-1. Açmak için **oluşturma kuralı** ekranında **+ yeni uyarı kuralı** sayfanın üstünde. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. [günlük uyarıları Azure'da](../azure-monitor/platform/alerts-unified-log.md).
+3. Açmak için **oluşturma kuralı** ekranında **+ yeni uyarı kuralı** sayfanın üstünde. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. [günlük uyarıları Azure'da](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Hatalarla tamamlanan tüm işleri bulun
 Hatalarında uyarı ek olarak, bir runbook işi Sonlandırıcı olmayan bir hata olduğunda bulabilirsiniz. Bu gibi durumlarda, bir hata akışı PowerShell üretir, ancak Sonlandırıcı olmayan hatalara, işi askıya alma veya başarısız olmasına neden olmaz.    

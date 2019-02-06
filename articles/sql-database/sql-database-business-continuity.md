@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473434"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755178"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -107,7 +107,7 @@ Aşağıdaki bölümlerde veritabanı yedeklerini veya etkin coğrafi çoğaltma
 
 Kullandığınız iş sürekliliği özelliğinden bağımsız olarak aşağıdaki adımları uygulamanız gerekir:
 
-- Sunucu düzeyi güvenlik duvarı kuralları, giriş bilgileri ve ana veritabanı düzeyi izinler dahil olmak üzere hedef sunucuyu belirlemek ve hazırlamak
+- Tanımlamak ve sunucu düzeyinde IP güvenlik duvarı kuralları, oturum açma bilgileri ve ana veritabanı düzeyi izinler dahil olmak üzere hedef sunucuyu hazırlayın.
 - İstemcilerin ve istemci uygulamalarının yeni sunucuya nasıl yönlendirileceğini belirlemek
 - Denetim ayarları ve uyarılar gibi diğer bağımlılık belgelerini oluşturmak
 
@@ -132,7 +132,7 @@ Otomatik yedeklemelerini coğrafi olarak yedekli depolama (varsayılan olarak et
 Bu iki kurtarma sisteminden herhangi biriyle gerçekleştirilen kurtarma işleminden sonra kullanıcılarınızın ve uygulamalarınızın çalışmaya devam etmesi için aşağıdaki ek görevleri gerçekleştirmeniz gerekir:
 
 - İstemcilerin ve istemci uygulamalarının yeni sunucuya ve geri yüklenen veritabanına nasıl yönlendirileceğini belirleme
-- Kullanıcılarınızın bağlantı kurabilmesi için gerekli sunucu düzeyi güvenlik duvarı kurallarının mevcut olduğunu doğrulama ([veritabanı düzeyi güvenlik duvarı](sql-database-firewall-configure.md#creating-and-managing-firewall-rules) da kullanabilirsiniz)
+- Uygun sunucu düzeyi IP güvenlik duvarı kurallarını kullanın veya bağlanmak kullanıcılar için yerinde olmasını [veritabanı düzeyinde güvenlik duvarları](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) uygun kuralları etkinleştirmek için.
 - Uygun giriş bilgilerinin ve ana veritabanı düzeyi izinlerin mevcut olduğunu doğrulama ([kapsanan kullanıcıları](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) da kullanabilirsiniz)
 - Denetimi uygun şekilde yapılandırma
 - Uyarıları uygun şekilde yapılandırma
