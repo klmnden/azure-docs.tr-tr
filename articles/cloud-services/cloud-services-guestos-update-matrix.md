@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/25/2019
+ms.date: 2/5/2019
 ms.author: raiye
-ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075474"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751523"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetleri için sürümleri sağlar. Bu bilgiler bir konuk işletim sistemi devre dışı bırakılmasına sıranız yükseltme yolunuza planlamanıza yardımcı olur. Kullanılacak rollerinizi yapılandırırsanız *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -43,6 +43,9 @@ Konuk işletim sisteminizi güncelleştirin konusunda emin değilseniz? Denetlem
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
 
+###### <a name="february-5-2019"></a>**5 Şubat 2019**
+Ocak konuk işletim sistemi kullanıma sundu.
+
 ###### <a name="january-24-2019"></a>**24 Ocak 2019**
 Aile 6 konuk işletim sistemi (Windows Server 2019) kullanıma sundu.
 
@@ -64,9 +67,6 @@ Ağustos konuk işletim sistemi kullanıma sundu.
 ###### <a name="august-3-2018"></a>**3 Ağustos 2018**
 Temmuz konuk işletim sistemi kullanıma sundu.
 
-###### <a name="july-3-2018"></a>**3 Temmuz 2018**
-Haziran konuk işletim sistemi kullanıma sundu.
-
 ## <a name="releases"></a>Yayınlar
 
 ## <a name="family-6-releases"></a>Aile 6 yayınlar
@@ -80,8 +80,9 @@ Haziran konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-6.3_201901-01 |5 Şubat 2019 |POST 6.5 |
 | WA-GUEST-OS-6.2_201812-01 |24 Ocak 2019 |POST 6.4 |
-| WA-GUEST-OS-6.1_201811-01 |24 Ocak 2019 |POST 6.3 |
+|~~WA-GUEST-OS-6.1_201811-01~~ |24 Ocak 2019 |5 Şubat 2019 |
 
 ## <a name="family-5-releases"></a>Ailesi 5 yayınlar
 **Windows Server 2016**
@@ -94,13 +95,13 @@ Haziran konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-5.27_201901-01 |5 Şubat 2019 |POST 5.29 |
 | WA-GUEST-OS-5.26_201812-01 |7 Ocak 2019 |POST 5,28 |
-| WA-GUEST-OS-5.25_201811-01 |14 Aralık 2018'e |POST 5.27 |
+|~~WA-GUEST-OS-5.25_201811-01~~ |14 Aralık 2018'e |5 Şubat 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 Kasım 2018 |7 Ocak 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 Ekim 2018 |14 Aralık 2018'e |
 |~~WA-GUEST-OS-5.22_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
-|~~WA-GUEST-OS-5.20_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 
 ## <a name="family-4-releases"></a>Ailesi 4 yayınlar
 **Windows Server 2012 R2**
@@ -109,13 +110,13 @@ Haziran konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-4.62_201901-01 |5 Şubat 2019 |POST 4.64 |
 | WA-GUEST-OS-4.61_201812-01 |7 Ocak 2019 |POST 4.63 |
-| WA-GUEST-OS-4.60_201811-01 |14 Aralık 2018'e |POST 4.62 |
+|~~WA-GUEST-OS-4.60_201811-01~~ |14 Aralık 2018'e |5 Şubat 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 Kasım 2018 |7 Ocak 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 Ekim 2018 |14 Aralık 2018'e |
 |~~WA-GUEST-OS-4.57_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
-|~~WA-GUEST-OS-4.55_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 
 ## <a name="family-3-releases"></a>Aile 3 yayınlar
 **Windows Server 2012**
@@ -124,13 +125,13 @@ Haziran konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-3.69_201901-01 |5 Şubat 2019 |POST 3.71 |
 | WA-GUEST-OS-3.68_201812-01 |7 Ocak 2019 |POST 3.70 |
-| WA-GUEST-OS-3.67_201811-01 |14 Aralık 2018'e |POST 3,69 |
+|~~WA-GUEST-OS-3.67_201811-01~~ |14 Aralık 2018'e |5 Şubat 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 Kasım 2018 |7 Ocak 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 Ekim 2018 |14 Aralık 2018'e |
 |~~WA-GUEST-OS-3.64_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
-|~~WA-GUEST-OS-3.62_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 
 ## <a name="family-2-releases"></a>Ailesi 2 yayınlar
 **Windows Server 2008 R2 SP1**
@@ -139,10 +140,11 @@ Haziran konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-2.82_201901-01 |5 Şubat 2019 |POST 2.84 |
 | WA-GUEST-OS-2.81_201812-01 |7 Ocak 2019 |POST 2,83 |
-| WA-GUEST-OS-2.80_201811-01 |14 Aralık 2018'e |POST 2.82 |
+|~~WA-GUEST-OS-2.80_201811-01~~ |14 Aralık 2018'e |5 Şubat 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 Kasım 2018 |7 Ocak 2019 |
-|~~WA-GUEST-OS-2.78_201809-01~~|12 Ekim 2018 |14 Aralık 2018'e |
+|~~WA-GUEST-OS-2.78_201809-01~~ |12 Ekim 2018 |14 Aralık 2018'e |
 |~~WA-GUEST-OS-2.77_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |

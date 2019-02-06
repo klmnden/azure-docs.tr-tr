@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 085f3fd8ee3fe22333c260fb4de18a8c06c9c55c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 816f12ca5837fa99b4e945c965f9cbad406c63bb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568575"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749806"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Hızlı Başlangıç: Windows kapsayıcıları Service Fabric'e dağıtma
 
@@ -91,7 +91,7 @@ Ayrıca *ApplicationManifest.xml* dosya, değişiklik **PasswordEncrypted** içi
 
 ## <a name="create-a-cluster"></a>Küme oluşturma
 
-Aşağıdaki örnek betik bir X.509 sertifikasıyla sağlanan beş düğümlü bir Service Fabric kümesi oluşturur. Bu komut otomatik olarak imzalanan bir sertifika oluşturur ve bunu yeni bir anahtar kasasına yükler. Sertifika aynı zamanda bir yerel dizine de kopyalanır. Bu komut dosyasını kullanarak küme oluşturma hakkında daha fazla bilgi [bir Service Fabric kümesi oluşturma](/scripts/service-fabric-powershell-create-secure-cluster-cert).
+Aşağıdaki örnek betik bir X.509 sertifikasıyla sağlanan beş düğümlü bir Service Fabric kümesi oluşturur. Bu komut otomatik olarak imzalanan bir sertifika oluşturur ve bunu yeni bir anahtar kasasına yükler. Sertifika aynı zamanda bir yerel dizine de kopyalanır. Bu komut dosyasını kullanarak küme oluşturma hakkında daha fazla bilgi [bir Service Fabric kümesi oluşturma](scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
 Gerekli olursa, bulunan yönergeleri kullanarak Azure PowerShell'i yükleme [Azure PowerShell kılavuzunda](/powershell/azure/overview).
 

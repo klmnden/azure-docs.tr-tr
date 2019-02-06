@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: c070858354bb8bf5628a17e24e6830f133414d32
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734411"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751557"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Gelişmiş veri güvenliği, sanal ağlarla ve neredeyse % 100 uyumluluk SQL veritabanını kullan
 
@@ -74,8 +74,8 @@ Yönetilen örnek temel özellikleri aşağıdaki tabloda gösterilmiştir:
 
 Sanal çekirdek modeli içinde donanım Nesilleri arasında seçim yapabilirsiniz.
 
-- **Gen 4** mantıksal CPU'lar Intel E5-2673 v3 dayalı (Haswell) 2,4 GHz işlemcileri, ekli SSD fiziksel çekirdek olarak çekirdek ve bilgi işlem boyutlarına arasındaki 8 ila 24 sanal çekirdek başına 7 GB RAM.
-- **5 gen** mantıksal CPU'lar Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemcileri, hızlı NVMe SSD, mantıksal çekirdek, hiper iş parçacıklıdır ve boyutları 8 ila 80 çekirdeğine işlem.
+- **4. nesil** mantıksal CPU'lar Intel E5-2673 v3 dayalı (Haswell) 2,4 GHz işlemcileri, ekli SSD fiziksel çekirdek olarak çekirdek ve bilgi işlem boyutlarına arasındaki 8 ila 24 sanal çekirdek başına 7 GB RAM.
+- **5. nesil** mantıksal CPU'lar Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemcileri, hızlı NVMe SSD, mantıksal çekirdek, hiper iş parçacıklıdır ve boyutları 8 ila 80 çekirdeğine işlem.
 
 İçinde donanım Nesilleri arasındaki fark hakkında daha fazla bilgi [yönetilen örnek kaynak sınırları](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 

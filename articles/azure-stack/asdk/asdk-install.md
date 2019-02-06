@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 20c96d1e25e0aef86d09c37ed919e61ec6058c6d
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249914"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747450"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Azure Stack geliştirme Seti'ni (ASDK) yükleyin
 Sonra [ASDK ana bilgisayar hazırlama](asdk-prepare-host.md), bu makalede aşağıdaki adımları kullanarak CloudBuilder.vhdx görüntüye ASDK dağıtılabilir.
@@ -59,7 +59,7 @@ Bu makaledeki adımlarda, indirme ve çalıştırma tarafından sağlanan bir gr
     - Geçerli bir türü **zaman sunucu IP'si** adresi. Başka bir gerekli alan Geliştirme Seti tarafından kullanılacak saat sunucusu belirler. Bu parametre, geçerli saat sunucusu IP adresi olarak sağlanmalıdır. Sunucu adları desteklenmez.
 
       > [!TIP]
-      > Bir saat sunucusu IP adresini bulmak için ziyaret [pool.ntp.org](http://pool.ntp.org) veya time.windows.com ping işlemi. 
+      > Bir saat sunucusu IP adresini bulmak için ziyaret [ntppool.org](https://www.ntppool.org/) veya time.windows.com ping işlemi. 
 
     - **İsteğe bağlı olarak**, aşağıdaki değerleri ayarlayın:
         - **VLAN KİMLİĞİ**: VLAN kimliğini ayarlar Bu seçeneği yalnızca AzS-BGPNAT01 ve konak fiziksel ağ (ve İnternet'e) erişmek için VLAN Kimliğini yapılandırması gereken durumlarda kullanın. 
