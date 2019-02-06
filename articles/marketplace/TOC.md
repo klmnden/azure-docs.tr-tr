@@ -1,7 +1,7 @@
 # [Azure Market ve AppSource belgeleri](index.md)
+## [Azure Market ve AppSource yol haritası](./marketplace-roadmap.md)
 
 ## [Azure Market ve AppSource genel bakışı ve avantajları](./marketplace-publishers-guide.md)  
-
 ### [Markette yayımcı olma](./become-publisher.md)  
 #### [Microsoft hesabı oluşturma](./guidelines.md)
 #### [Geliştirme Merkezi'ne Kaydolma](./register-dev-center.md) 

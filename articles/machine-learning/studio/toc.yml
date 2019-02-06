@@ -76,15 +76,9 @@ items:
       href: deploy-with-resource-manager-template.md
   - name: Eğitim verilerini içeri aktarma
     items:
-    - name: Genel Bakış
+    - name: Veri içeri aktarma
       href: import-data.md
-    - name: Yerel bir dosyadan
-      href: import-data-from-local-file.md
-    - name: Çevrimiçi kaynaklardan
-      href: import-data-from-online-sources.md
-    - name: Denemeden
-      href: import-data-from-an-experiment.md
-    - name: Şirket içi SQL kullanma
+    - name: Şirket içi SQL’deki verileri kullanma
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: Oluşturma ve eğitme modelleri
@@ -222,9 +216,9 @@ items:
     href: azure-ml-netsharp-reference-guide.md
   - name: ML ürünlerimizi karşılaştırın
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 5a6d1f3492186831f5dd83f002c7c22a86de34d7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 400e6a2e98b8d29018b135204eaefa7ae3a7d965
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662999"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731436"

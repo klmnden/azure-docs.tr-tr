@@ -136,7 +136,11 @@ items:
   - name: Ağ yapılandırması
     items:
     - name: Sanal ağ oluşturma veya mevcut bir sanal ağı kullanma
-      href: configure-advanced-networking.md
+      items:
+      - name: Kubenet kullanma
+        href: configure-kubenet.md
+      - name: Azure-CNI kullanma
+        href: configure-azure-cni.md
     - name: İç yük dengeleyici oluşturma
       href: internal-lb.md
     - name: Statik IP adreslerini kullanma
@@ -312,9 +316,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: SSS
     href: faq.md
-ms.openlocfilehash: 52956dd55cbb78b074a7898d5415dc204975893b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ea35745cdab3cc5a0c1521c03b32c4038fa9fff5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656490"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692570"

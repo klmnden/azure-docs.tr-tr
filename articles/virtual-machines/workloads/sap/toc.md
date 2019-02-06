@@ -74,6 +74,7 @@
 ### Yüksek Kullanılabilirlik Mimarisi
 #### [HA Mimarisi ve Senaryolar](sap-high-availability-architecture-scenarios.md)
 #### [Yüksek Kullanılabilirlik Mimarisi ve Senaryolar](sap-higher-availability-architecture-scenarios.md)
+#### [Azure Kullanılabilirlik Alanları ile SAP iş yükü yapılandırmaları](sap-ha-availability-zones.md)
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows’da Yüksek Kullanılabilirlik](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows’da Yüksek Kullanılabilirlik](sap-high-availability-guide-wsfc-file-share.md)
 #### [(A)SCS Örneği için SUSE Linux’ta Yüksek Kullanılabilirlik](high-availability-guide-suse.md)
