@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65c685936fabab65698a077f22c2dfde17469055
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3cb868da60d56728e5d0c450ab362d6f381b90ea
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436425"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756572"
 ---
-# <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü için Oracle Azure sanal makineleri DBMS dağıtım
+# <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü Azure sanal makineleri DBMS dağıtım
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -309,21 +309,22 @@ ms.locfileid: "54436425"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-Genel destek, Oracle veritabanları yararlanarak SAP uygulama belirli bir senaryoyu de desteklenir. Ayrıntılar, bu belgede adlandırılır. Bu belge, Oracle Database, Azure Iaas SAP iş yükü için dağıtırken göz önünde bulundurulacak birkaç farklı alanlara kapsar. Bu belge için bir önkoşul belge okuma [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) diğer yönergelerinde yanı sıra [AzureBelgeleri'ndeSAPişyükü](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Bu belge, Oracle Database, Azure Iaas SAP iş yükü için dağıtırken göz önünde bulundurulacak birkaç farklı alanlara kapsar. Bu belge okumadan önce okumanızı öneririz [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md). Ayrıca diğer yönergelerinde okumanızı öneririz [SAP iş yükü Azure Belgeleri'nde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
-Oracle ve SAP Oracle Azure sanal Makineler'de çalışan SAP Not bulunabilir desteklenmeyen karşılık gelen işletim sistemi sürümleri [2039619].
+Oracle ve SAP notuna göz atın, azure'da Oracle üzerinde SAP çalıştırmak için desteklenen karşılık gelen işletim sistemi sürümleri hakkında bilgi bulabilirsiniz [2039619].
 
-SAP Business Suite üzerinde Oracle çalıştırmayla ilgili genel bilgiler bulunabilir <https://www.sap.com/community/topic/oracle.html> Oracle yazılımlarını Microsoft Azure üzerinde çalıştırmak için Oracle tarafından desteklenmektedir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla ayrıntı için denetleyin: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
+SAP Business Suite üzerinde Oracle çalıştırmayla ilgili genel bilgiler bulunabilir [Oracle üzerinde SAP](https://www.sap.com/community/topic/oracle.html).
+Oracle yazılımlarını Microsoft Azure üzerinde çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla bilgi için kontrol [Oracle ve Microsoft Azure SSS](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
-SAP notları için Oracle, SAP ve Azure listesi ilgili ister:
+## <a name="sap-notes-relevant-for-oracle-sap-and-azure"></a>Oracle, SAP ve Azure için ilgili SAP notları 
 
-Aşağıdaki SAP notları bu belgede ele alınan alanıyla ilgili Azure üzerinde SAP ilgilidir:
+Azure'da SAP aşağıdaki SAP notları ilgilidir.
 
 | Not numarası | Unvan |
 | --- | --- |
 | [1928533] |Azure'da SAP uygulamaları: Desteklenen Ürünler ve Azure VM türleri |
 | [2015553] |Microsoft Azure üzerinde SAP: Destek önkoşulları |
-| [1999351] |SAP için Gelişmiş Azure izleme sorunlarını giderme |
+| [1999351] |Gelişmiş Azure için SAP izleme sorunlarını giderme |
 | [2178632] |Microsoft Azure üzerinde SAP için ölçümleri izleme anahtarı |
 | [2191498] |Azure ile Linux üzerinde SAP: Gelişmiş izleme |
 | [2039619] |Oracle veritabanı'nı kullanarak Microsoft Azure üzerinde SAP uygulamaları: Desteklenen ürünleri ve sürümleri |
@@ -333,34 +334,46 @@ Aşağıdaki SAP notları bu belgede ele alınan alanıyla ilgili Azure üzerind
 | [2171857] |Oracle Database 12c - Linux üzerinde dosya sistemi desteği |
 | [1114181] |Oracle veritabanı 11g - Linux üzerinde dosya sistemi desteği |
 
-Tam yapılandırmaları ve işlevleri Oracle ve Azure üzerinde SAP tarafından desteklenen SAP Not belgelenmiştir [#2039619](https://launchpad.support.sap.com/#/notes/2039619)
+Oracle ve Azure üzerinde SAP tarafından desteklenen tam yapılandırmaları ve işlevleri SAP Not belgelenen [#2039619](https://launchpad.support.sap.com/#/notes/2039619).
 
-Windows ve Oracle Linux, Oracle ve Azure üzerinde SAP tarafından desteklenen tek işletim sistemleri olan. Yaygın olarak kullanılan SLES ve RHEL Linux dağıtımları, azure'da Oracle bileşenlerini dağıtmak için desteklenmez. Oracle bileşenleri karşı Oracle DBMS bağlanmak için SAP uygulamaları tarafından kullanılan Oracle veritabanı istemcisi içerir. Özel durumlar, SAP notu göre [#2039619](https://launchpad.support.sap.com/#/notes/2039619) , Oracle veritabanı istemci kullanmıyorsanız SAP bileşenleri şunlardır. Bu tür SAP SAP'nin tek başına kuyruğa ileti sunucusu, kuyruğa çoğaltma hizmetlerini, WebDispatcher ve SAP ağ geçidine bileşenlerdir.  Oracle Linux'ta Oracle DBMS ve SAP uygulama örneklerini çalıştıran rağmen SAP Central Services'in SLES veya RHEL çalıştırılacak ve Pacemaker tabanlı bir küme ile koruyun. Yüksek kullanılabilirlik çerçeve pacemaker Oracle Linux üzerinde desteklenmez.
+Windows ve Oracle Linux, Oracle ve Azure üzerinde SAP tarafından desteklenen işletim sistemleri yalnızca şunlardır. Yaygın olarak kullanılan SLES ve RHEL Linux dağıtımları, azure'da Oracle bileşenlerini dağıtmak için desteklenmez. Oracle DBMS karşı bağlanmak için SAP uygulamaları tarafından kullanılan Oracle Database istemci Oracle bileşenleri içerir. 
 
-## <a name="specifics-to-oracle-database-on-windows"></a>Windows üzerinde Oracle veritabanı özellikleri
+Özel durumlar, SAP notu göre [#2039619](https://launchpad.support.sap.com/#/notes/2039619), Oracle Database istemci kullanmayın SAP bileşenlerdir. Bu tür SAP SAP'nin tek başına kuyruğa ileti sunucusu, kuyruğa çoğaltma hizmetlerini, WebDispatcher ve SAP ağ geçidine bileşenlerdir.  
+
+Oracle Linux'ta Oracle DBMS ve SAP uygulama örnekleri çalıştırıyorsanız olsa bile, SAP Central Services'in SLES veya RHEL çalıştırın ve Pacemaker tabanlı bir küme ile koruyun. Yüksek kullanılabilirlik çerçeve pacemaker Oracle Linux üzerinde desteklenmez.
+
+## <a name="specifics-for-oracle-database-on-windows"></a>Windows üzerinde Oracle veritabanı özellikleri
+
 ### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-windows"></a>Azure Windows Vm'lerinde SAP yüklemelerini için Oracle yapılandırma yönergeleri
 
-SAP yükleme el ile belge içinde Oracle ilgili tüm dosyaları değil yüklenmesi veya sistem sürücüsü için sanal makinenin işletim sistemi disk (c: sürücüsünde) içinde bulunur. Farklı boyutlardaki sanal makinelerin farklı sayıda eklenmiş diskleri destekler. Daha küçük sanal makine türü daha az sayıda eklenmiş disk izin verir. Küçük tür VM'ler durumlarında, Oracle ev aşaması, "saptrace", "saparch", "sapbackup", "sapcheck", "sapreorg" işletim sistemi diski olarak yükleme/bulma öneririz. Oracle DBMS bileşenleri bu parçaları g/ç ve g/ç yoğun olmayan aktarım hızı. Bu nedenle, işletim sistemi disk g/ç gereksinimleri başa çıkabilir. Varsayılan işletim sistemi disk boyutu 127 GB ' dir. Kullanılabilir boş alan yeterli değilse, diski olabilir [yeniden boyutlandırılmış](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk) 2048 GB. Oracle database ve Yinele dosyalarını ayrı veri disklerinde depolanan gerek oturum açın. Oracle geçici tablo alanı olan bir özel durum yoktur. D: Geçicidosyalar oluşturulabilir / (persistend olmayan sürücü). Kalıcı olmayan D:\ sürücüsüne de daha iyi g/ç gecikme süresi ve aktarım hızı (hariç, A serisi VM'ler) sunar. Uygun geçicidosyalar alanı belirlemek için var olan sistemler geçicidosyalar boyutları kontrol edebilirsiniz.
+SAP yükleme el ile uygun şekilde, Oracle ile ilgili dosyaları olmamalıdır yüklenemez veya sistem sürücüsü bir sanal makinenin işletim sistemi disk (c: sürücüsü) bulunur. Çeşitli boyutlardaki sanal makinelerin çeşitli sayılarda bağlı diskleri destekler. Bağlı diskleri daha az sayıda küçük sanal makine türlerini destekler. 
+
+En küçük Vm'lerden varsa, yükleme/Oracle giriş, aşama, "saptrace", "saparch", "sapbackup", "sapcheck" veya "sapreorg" işletim sistemi diskine bulma öneririz. Oracle DBMS bileşenleri bu parçaları g/ç ve g/ç yoğun olmayan aktarım hızı. Başka bir deyişle, işletim sistemi disk g/ç gereksinimleri işleyebilir. Varsayılan işletim sistemi disk boyutu 127 GB ' dir. 
+
+Kullanılabilir yeterli boş alan yoksa, disk olabilir [yeniden boyutlandırılmış](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk) 2048 GB. Oracle Database ve Yinele dosyalarını ayrı veri disklerinde depolanan gerek oturum açın. Oracle geçici tablo alanı için bir özel durum yoktur. D: Geçicidosyalar oluşturulabilir / (kalıcı olmayan sürücü). Kalıcı olmayan D:\ sürücüsüne de daha iyi g/ç gecikme süresi ve aktarım hızı (hariç, A serisi VM'ler) sunar. 
+
+Doğru geçicidosyalar alan miktarını belirlemek için mevcut sistemlerde geçicidosyalar boyutunu kontrol edebilirsiniz.
 
 ### <a name="storage-configuration"></a>Depolama yapılandırması
-Yalnızca tek örnek Oracle NTFS olarak biçimlendirilmiş disklerle desteklenir. Tüm veritabanı dosyaları (önerilen) yönetilen diskler veya VHD'ler NTFS dosya sisteminde depolanmış olması gerekir. Bu diskler Azure VM'sine bağlanmış ve Azure sayfa BLOB depolama alanına dayalı (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) veya [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Tek Örnekli Oracle NTFS kullanılarak biçimlendirilmiş diskler yalnızca desteklenir. Tüm veritabanı dosyaları (önerilen) yönetilen diskler veya VHD'ler NTFS dosya sisteminde depolanmış olması gerekir. Bu diskler Azure VM'sine bağlanmış ve dayalı [Azure sayfa blob'u depolama](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) veya [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
-Kullanılacak önemle tavsiye edilir [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Ayrıca kullanarak önerilir [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) Oracle veritabanı dağıtımlarınız için
+Kullanmanızı öneririz [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Güçlü bir şekilde kullanmanızı öneririz [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) Oracle veritabanı dağıtımlarınız için.
 
-Her türlü ağ sürücülerine veya Azure Dosya Hizmetleri gibi uzak paylaşımları:
+Oracle veritabanı dosyaları için ağ sürücülerine veya Azure Dosya Hizmetleri gibi uzak paylaşımlar desteklenmez. Daha fazla bilgi için bkz.
 
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
+- [Microsoft Azure Dosya Hizmeti’ne Giriş](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
-olan **değil** Oracle veritabanı dosyaları için desteklenen!
+- [Microsoft Azure Dosyaları ile kalıcı bağlantılar](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-Diskleri kullanarak Azure sayfa BLOB depolama alanına dayalı olarak ya da yönetilen diskler, deyimleri yapılan [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) de Oracle Database dağıtımlar için geçerlidir.
 
-Açıklandığı gibi [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md), mevcut Azure disklerin IOPS işleme kotalar. Tam kotalar VM türüne bağlı olarak kullanılır. Kotalarını ile VM türlerinin bir listesini bulunabilir [burada (Windows)][virtual-machines-sizes-windows].
+Azure sayfa blob depolama alanına dayalı diskler veya yönetilen diskler, ifadeler kullanıyorsanız [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) dağıtımları için Oracle veritabanı ile de geçerlidir.
 
-Desteklenen Azure VM türleri tanımlamak için SAP notuna bakın [1928533].
+Azure diskleri IOPS verimliliğini kotalar mevcut. Bu kavramı açıklanan [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md). Tam kotalar, kullandığınız sanal makine türüne bağlıdır. Kotalarını ile VM türlerinin bir listesi şu yolda bulunabilir: [boyutları için Windows azure'da sanal makineler][virtual-machines-sizes-windows].
 
-En düşük yapılandırma:
+Desteklenen Azure VM türleri tanımlamak için'lu SAP notuna bakın [1928533].
+
+En düşük yapılandırmayı aşağıdaki gibidir: 
+
 | Bileşen | Disk | Önbelleğe alma | Depolama havuzu |
 | --- | ---| --- | --- |
 | \oracle\<SID > \origlogaA & mirrlogB | Premium | None | Gerekli değil |
@@ -372,7 +385,8 @@ En düşük yapılandırma:
 
 Çevrimiçi Yinele günlükleri barındırmak için disklerin seçimi tarafından IOPS gereksinimleri dikkate alınmalıdır. Tüm sapdata1... depolamak olası bir tek bağlı disk üzerindeki boyutu, IOPS ve aktarım hızı gereksinimlerini yerine getirdiğinizden sürece n (açabilmek). 
 
-Performans yapılandırması:
+Performans yapılandırması aşağıdaki gibidir:
+
 | Bileşen | Disk | Önbelleğe alma | Depolama havuzu |
 | --- | ---| --- | --- |
 | \oracle\<SID > \origlogaA | Premium | None | Kullanılabilir  |
@@ -384,68 +398,69 @@ Performans yapılandırması:
 | \oracle\<SID > \oraarch* | Premium | None | Gerekli değil |
 | Oracle giriş, saptrace... | İşletim sistemi diski | Gerekli değil |
 
-*(n+1) - sistem TEMP ve geri alma açabilmek barındırma. Sistem ve geri alma açabilmek g/ç desenini uygulama verilerini barındıran diğer açabilmek farklı. Önbelleğe alma sistemi ve geri alma açabilmek performansını en iyi seçenektir.
-* oraarch - depolama havuzu performans görünümünden gerekli değildir. Daha fazla alan elde etme için kullanılabilir
+* (n + 1): Sistem TEMP ve geri alma açabilmek barındırma. Sistem ve geri alma açabilmek g/ç desenini uygulama verilerini barındıran diğer açabilmek farklı. Önbelleğe alma sistemi ve geri alma açabilmek performansını en iyi seçenektir.
 
-Daha yüksek IOPS gerekiyorsa, bir büyük mantıksal cihaz üzerinde birden fazla bağlı disk oluşturmak için pencere depolama havuzları (yalnızca Windows Server 2012'de kullanılabilir ve üzeri) kullanmak için önerilir. Bu yaklaşım, disk alanını yönetmek için yönetim yükünü basitleştirir ve el ile oluşturulmuş birden çok diskte dosyaları dağıtmak için gereken çabayı önler.
+* oraarch: depolama havuzu bir performans açısından bakıldığında gerekli değildir. Daha fazla alan elde etme için kullanılabilir.
+
+Daha fazla IOPS gerekiyorsa, bir büyük mantıksal cihaz üzerinde birden fazla bağlı disk oluşturmak için Windows depolama havuzları (yalnızca Windows Server 2012'de kullanılabilir ve üzeri) kullanmanızı öneririz. Bu yaklaşım, disk alanını yönetmek için ek yükü yönetimini basitleştirir ve el ile oluşturulmuş birden çok diskte dosyaları dağıtma çaba önlemenize yardımcı olur.
 
 
 #### <a name="write-accelerator"></a>Yazma Hızlandırıcı
-Azure M serisi VM'ler için Azure Premium depolama performansı için Azure yazma Hızlandırıcı kullanırken karşılaştırıldığında unsurlar çevrimiçi Yinele günlüklerine yazma gecikme süresi azaltılabilir. Azure yazma Hızlandırıcı çevrimiçi Yinele günlük dosyaları için kullanılan Azure Premium depolama tabanlı diskler (VHD'ler) için etkinleştirin. Ayrıntılar belgede okunabilir [yazma hızlandırıcı](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+Azure M serisi VM'ler için Azure Premium Depolama'ya karşılaştırıldığında etkenlerden çevrimiçi Yinele günlüklerine yazma gecikme süresi azaltılabilir. Azure yazma Hızlandırıcı çevrimiçi Yinele günlük dosyaları için kullanılan Azure Premium depolama tabanlı diskler (VHD'ler) için etkinleştirin. Daha fazla bilgi için [yazma hızlandırıcı](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
-### <a name="backup--restore"></a>Yedekleme / Geri Yükleme
-Yedekleme/geri yükleme işlevi, SAP BR için * üzerinde standart Windows Server işletim sistemleri olarak Oracle için Araçlar aynı şekilde desteklenir. Oracle kurtarma Yöneticisi'ni (RMAN) diske yedeklemeler için desteklenir ve diskten geri yükler.
+### <a name="backuprestore"></a>Yedekleme/geri yükleme
+Yedekleme/geri yükleme işlevi, SAP BR için * Oracle için Araçlar, standart Windows Server işletim sistemlerinde olduğu gibi aynı şekilde desteklenir. Oracle kurtarma Yöneticisi'ni (RMAN) diske yedeklemeler için desteklenir ve diskten geri yükler.
 
-Azure Backup hizmeti, bir uygulamayla tutarlı bir VM yedekleme yürütmek için de kullanabilirsiniz. Makaleyi [azure'da VM yedekleme altyapınızı planlama](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction), Azure Backup hizmeti, uygulama ile tutarlı bir yedekleri yürütmek için Windows VSS işlevlerini kullandığını açıklar. Azure'da SAP tarafından desteklenen DBMS Oracle yayınları yedeklemeler için VSS işlevselliğinden olanağına sahip olursunuz. Ayrıntılar için Oracle belgelerinde okunabilir [temel kavramları, veritabanı yedekleme ve kurtarma VSS'e](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
+Azure Backup uygulamayla tutarlı olan bir sanal makine yedekleme çalıştırmak için kullanabilirsiniz. Makaleyi [azure'da VM yedekleme altyapınızı planlama](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) nasıl Azure Backup Windows VSS işlevselliğini uygulamayla tutarlı yedeklemeler yapılmasını yürütmek için kullandığı açıklanmaktadır. Azure'da SAP tarafından desteklenen DBMS Oracle yayınları yedeklemeler için VSS işlevselliğini yararlanabilirsiniz. Daha fazla bilgi için Oracle belgelerine bakın [veritabanını yedekleme ve kurtarma VSS ile temel kavramlarını](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
 
 
-### <a name="high-availability"></a>Yüksek Kullanılabilirlik
-Oracle Data Guard, yüksek kullanılabilirlik ve olağanüstü durum kurtarma amacıyla desteklenir. Veri koruma, otomatik yük devretme elde etmek için hızlı başlangıç yük devretme (FSFA) kullanılmalıdır. Gözlemci (FSFA), yük devretme işlemi tetikler. FSFA kullanmadan yalnızca el ile yük devretme yapılandırmasını mümkündür.
+### <a name="high-availability"></a>Yüksek kullanılabilirlik
+Oracle Data Guard, yüksek kullanılabilirlik ve olağanüstü durum kurtarma amacıyla desteklenir. Veri koruma, hızlı başlangıç yük devretme (FSFA) kullanmak için gerekenler, otomatik yük devretme elde etmek için. Gözlemci (FSFA) yük devretmeyi tetikler. FSFA kullanmıyorsanız, yalnızca bir el ile yük devretme yapılandırması kullanabilirsiniz.
 
-Azure'da Oracle veritabanları için olağanüstü durum kurtarma özelliklerini makalesinde sunulur [Azure ortamınızda bir Oracle Database 12c veritabanı için olağanüstü durum kurtarma](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
+Azure'da Oracle veritabanları için olağanüstü durum kurtarma hakkında daha fazla bilgi için bkz: [Azure ortamınızda bir Oracle Database 12c veritabanı için olağanüstü durum kurtarma](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
-### <a name="accelerated-networking"></a>Hızlandırılmış Ağ
-Windows üzerinde Oracle dağıtımları için belgesinde açıklandığı gibi Azure hızlandırılmış ağ işlevlerini kullanmak için önerilir [Azure hızlandırılmış ağ](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Ayrıca yapılan önerileri göz önünde bulundurun [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md). 
-
+### <a name="accelerated-networking"></a>Hızlandırılmış ağ iletişimi
+Windows üzerinde Oracle dağıtımları için hızlandırılmış ağ içinde açıklandığı şekilde öneririz [Azure hızlandırılmış ağ özelliğini](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Ayrıca, yapılan önerileri göz önünde bulundurun [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md). 
 ### <a name="other"></a>Diğer
-Azure kullanılabilirlik kümeleri veya SAP izleme gibi diğer tüm genel alanlar belgesinde açıklandığı gibi uygulamak [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) Oracle veritabanı ile VM dağıtımları iyi.
+[SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) dağıtımları VM'lerin Azure kullanılabilirlik kümeleri ve SAP izleme dahil olmak üzere, Oracle veritabanı ile ilgili diğer önemli kavramlar açıklanmaktadır.
 
-## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Oracle Linux'ta Oracle veritabanı özellikleri
-Oracle yazılımları, Microsoft azure'da Oracle Linux konuk işletim sistemi çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla ayrıntı için denetleyin: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
+## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Oracle Linux'ta Oracle veritabanı özellikleri
+Oracle yazılımları, Microsoft azure'da Oracle Linux konuk işletim sistemi çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla bilgi için bkz: [Azure'da ve Oracle SSS](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
-Genel destek, Oracle veritabanları yararlanarak SAP uygulama belirli bir senaryoyu de desteklenir. Ayrıntılar, belgenin bu bölümünde ele alınmıştır.
+Oracle veritabanları yararlanarak SAP uygulama belirli bir senaryoyu de desteklenir. Ayrıntılar, belgenin sonraki bölümünde ele alınmıştır.
 
 ### <a name="oracle-version-support"></a>Oracle sürüm desteği
-Oracle ve SAP Oracle Azure sanal Makineler'de çalışan SAP Not bulunabilir desteklenmeyen karşılık gelen işletim sistemi sürümleri [2039619].
+Oracle hakkında ve karşılık gelen işletim sistemi sürümleri desteklenir üzerinde Oracle Azure sanal Makineler'de SAP çalıştırmak için daha fazla bilgi için ' lu SAP notuna bakın [2039619].
 
-SAP Business Suite üzerinde Oracle çalıştırmayla ilgili genel bilgiler bulunabilir <https://www.sap.com/community/topic/oracle.html>
+SAP Business Suite üzerinde Oracle çalıştırmayla ilgili genel bilgiler bulunabilir [SAP, Oracle topluluk sayfasında](https://www.sap.com/community/topic/oracle.html).
 
 ### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux"></a>Oracle Linux'ta Azure vm'lerinde SAP yüklemeleri için yapılandırma yönergeleri
 
-SAP yükleme kılavuzlarını uygun, Oracle ile ilgili dosyaları değil yüklenmesi veya sistem sürücüsü için sanal makinenin önyükleme diski olarak bulunur. Farklı boyutlardaki sanal makinelerin farklı sayıda eklenmiş diskleri destekler. Daha küçük sanal makine türü daha az sayıda eklenmiş disk izin verir. Bu durumda, yükleme ve bulun öneririz Oracle giriş, aşaması, saptrace, saparch, sapbackup, sapcheck, sapreorg önyükleme diski için. Oracle DBMS bileşenleri bu parçaları g/ç ve g/ç yoğun olmayan aktarım hızı. Bu nedenle, işletim sistemi disk g/ç gereksinimleri başa çıkabilir. Varsayılan işletim sistemi diski 30 GB boyutudur. Azure Portal/PowerShell/CLI kullanarak önyükleme diski genişletebilirsiniz. Önyükleme diski genişlettikten sonra ek bir bölüm için Oracle ikili dosyaları ekleyebilirsiniz.
+SAP yükleme kılavuzlarını uygun olarak Oracle ilgili dosyalar olmamalıdır yüklenemez veya sistem sürücüleri için bir sanal makinenin önyükleme diski olarak bulunur. Çeşitli boyutlardaki sanal makinelerin çeşitli sayılarda bağlı diskleri destekler. Bağlı diskleri daha az sayıda küçük sanal makine türlerini destekler. 
+
+Bu durumda, bulma yükleme/Oracle giriş, aşama, saptrace, saparch, sapbackup, sapcheck veya önyükleme diski için sapreorg öneririz. Oracle DBMS bileşenleri bu parçaları g/ç ve g/ç yoğun olmayan aktarım hızı. Başka bir deyişle, işletim sistemi disk g/ç gereksinimleri işleyebilir. 30 GB işletim sistemi diskinin varsayılan boyutudur. Azure portal, PowerShell veya CLI kullanarak önyükleme diski genişletebilirsiniz. Önyükleme diski genişletilmiş sonra ek bir bölüm için Oracle ikili dosyaları ekleyebilirsiniz.
 
 
 ### <a name="storage-configuration"></a>Depolama yapılandırması
 
-Dosya sistemleri, ext4 xfs veya Oracle ASM, azure'da Oracle veritabanı dosyaları için desteklenir. Tüm veritabanı dosyaları, VHD'leri veya yönetilen diskleri temel alan bu dosya sistemlerine depolanmalıdır. Bu diskler Azure VM'sine bağlanmış ve Azure sayfa BLOB depolama alanına dayalı (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) veya [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Dosya sistemleri ext4, xfs veya Oracle ASM, azure'da Oracle veritabanı dosyaları için desteklenir. Tüm veritabanı dosyaları, VHD'leri veya yönetilen diskleri temel alan bu dosya sistemlerine depolanmalıdır. Bu diskler Azure VM'sine bağlanmış ve dayalı [Azure sayfa blob'u depolama](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) veya [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
 Oracle Linux UEK çekirdekleri için en az sürüm 4 UEK desteklemek için gereken [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
 
-Kullanılacak önemle tavsiye edilir [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Ayrıca kullanarak önerilir [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) Oracle veritabanı dağıtımlarınız için.
+Kullanmanızı öneririz [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Güçlü bir şekilde kullanmanızı öneririz [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) Oracle veritabanı dağıtımlarınız için.
 
-Her türlü ağ sürücülerine veya Azure Dosya Hizmetleri gibi uzak paylaşımları:
+Oracle veritabanı dosyaları için ağ sürücülerine veya Azure Dosya Hizmetleri gibi uzak paylaşımlar desteklenmez. Daha fazla bilgi için, aşağıdakilere bakın: 
 
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
+- [Microsoft Azure Dosya Hizmeti’ne Giriş](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
-olan **değil** Oracle veritabanı dosyaları için desteklenen!
+- [Microsoft Azure Dosyaları ile kalıcı bağlantılar](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-Azure sayfa BLOB Depolama veya yönetilen diskleri temel diskleri kullanarak deyimleri yapılan [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) de Oracle Database dağıtımlar için geçerlidir.
+Azure sayfa blob depolama veya yönetilen diskleri temel diskleri kullanıyorsanız, deyimleri yapılan [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) dağıtımları için Oracle veritabanı ile de geçerli.
 
-Belgesinde açıklandığı gibi [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md), mevcut Azure disklerin IOPS işleme kotalar. Tam kotalar VM türüne bağlı olarak kullanılır. Kotalarını ile VM türlerinin bir listesini bulunabilir [burada (Linux)][virtual-machines-sizes-linux].
+ Azure diskleri IOPS verimliliğini kotalar mevcut. Bu kavramı açıklanan [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md). Tam kotalar kullanılan VM türüne bağlıdır. Kotalarını ile VM türleri listesi için bkz. [azure'da Linux sanal makine boyutları][virtual-machines-sizes-linux].
 
-Desteklenen Azure VM türleri tanımlamak için SAP notuna bakın [1928533]
+Desteklenen Azure VM türleri tanımlamak için'lu SAP notuna bakın [1928533].
 
 En düşük yapılandırma:
 | Bileşen | Disk | Önbelleğe alma | Çıkarma * |
@@ -458,7 +473,7 @@ En düşük yapılandırma:
 
 * Şeridi oluşturma: LVM'yi stripe veya MDADM RADI0 kullanma
 
-Oracle'nın çevrimiçi Yinele günlükleri barındırmak için disk seçimi tarafından IOPS gereksinimleri dikkate alınmalıdır. Tüm sapdata1... depolamak olası bir tek diskte takılı birim, IOPS ve aktarım hızı gereksinimlerini yerine getirdiğinizden sürece n (açabilmek). 
+Oracle'nın çevrimiçi Yinele günlükleri barındırmak için disk seçimi tarafından IOPS gereksinimleri dikkate alınmalıdır. Tüm sapdata1... depolamak mümkündür (açabilmek) tek bir diskte takılı birim, IOPS ve aktarım hızı gereksinimlerini yerine getirdiğinizden sürece n. 
 
 Performans yapılandırması:
 | Bileşen | Disk | Önbelleğe alma | Çıkarma * |
@@ -472,36 +487,41 @@ Performans yapılandırması:
 | /Oracle/<SID>/oraarch* | Premium | None | Gerekli değil |
 | Oracle giriş, saptrace... | İşletim sistemi diski | Gerekli değil |
 
-* Şeridi oluşturma: LVM'yi stripe veya RADI0 *(n+1) kullanarak - sistem TEMP ve geri alma açabilmek barındırma MDADM. Sistem ve geri alma açabilmek he g/ç deseni uygulama verilerini barındıran diğer açabilmek farklı. Önbelleğe alma sistemi ve geri alma açabilmek performansını en iyi seçenektir.
-* oraarch - depolama havuzu performans görünümünden gerekli değildir. Daha fazla alan elde etme için kullanılabilir.
+* Şeridi oluşturma: LVM'yi stripe veya MDADM RADI0 kullanma
+
+* (n + 1): Sistem TEMP ve geri alma açabilmek barındırma: Sistem ve geri alma açabilmek g/ç desenini uygulama verilerini barındıran diğer açabilmek farklı. Önbelleğe alma sistemi ve geri alma açabilmek performansını en iyi seçenektir.
+
+* oraarch: depolama havuzu bir performans açısından bakıldığında gerekli değildir.
 
 
-Daha fazla IOPS gerekiyorsa, birden çok bağlı diskler üzerinde büyük bir mantıksal birim oluşturmak için LVM (mantıksal birim Yöneticisi) veya MDADM kullanmak için önerilir. Ayrıca bkz [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) yönergeleri ve işaretçileri LVM veya MDADM nasıl ilgili. Bu yaklaşım, disk alanını yönetmek için yönetim yükünü basitleştirir ve el ile oluşturulmuş birden çok diskte dosyaları dağıtmak için gereken çabayı önler.
+Daha fazla IOPS gerekiyorsa, birden çok bağlı diskler üzerinde büyük bir mantıksal birim oluşturmak için LVM (mantıksal birim Yöneticisi) veya MDADM kullanmanızı öneririz. Daha fazla bilgi için [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) yönergeleri ve işaretçileri LVM veya MDADM nasıl ilgili. Bu yaklaşım, disk alanını yönetme yönetim yükünü basitleştirir ve el ile oluşturulmuş birden çok diskte dosyaları dağıtma çaba önlemenize yardımcı olur.
 
 
-#### <a name="write-accelerator"></a>Hızlandırıcı yazma:
-Azure M serisi VM'ler için Azure Premium depolama performansı için Azure yazma Hızlandırıcı kullanırken karşılaştırıldığında unsurlar çevrimiçi Yinele günlüklerine yazma gecikme süresi azaltılabilir. Azure yazma Hızlandırıcı çevrimiçi Yinele günlük dosyaları için kullanılan Azure Premium depolama tabanlı diskler (VHD'ler) için etkinleştirin. Ayrıntılar belgede okunabilir [yazma hızlandırıcı](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+#### <a name="write-accelerator"></a>Yazma Hızlandırıcı
+Azure yazma Hızlandırıcı, kullandığınızda Azure M serisi VM'ler için Azure Premium depolama performansı için karşılaştırıldığında etkenlerden çevrimiçi Yinele günlüklerine yazma gecikme süresi azaltılabilir. Azure yazma Hızlandırıcı çevrimiçi Yinele günlük dosyaları için kullanılan Azure Premium depolama tabanlı diskler (VHD'ler) için etkinleştirin. Daha fazla bilgi için [yazma hızlandırıcı](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
-### <a name="backup--restore"></a>Yedekleme / Geri Yükleme
-Yedekleme/geri yükleme işlevi, SAP BR için * Oracle için Araçlar, çıplak ve Hyper-V gibi aynı şekilde desteklenir. Oracle kurtarma Yöneticisi'ni (RMAN) diske yedeklemeler için desteklenir ve diskten geri yükler.
+### <a name="backuprestore"></a>Yedekleme/geri yükleme
+Yedekleme/geri yükleme işlevi, SAP BR için * Oracle için Araçlar, çıplak ve Hyper-V üzerinde olduğu gibi aynı şekilde desteklenir. Oracle kurtarma Yöneticisi'ni (RMAN) diske yedeklemeler için desteklenir ve diskten geri yükler.
 
-Yedekleme ve kurtarma Oracle veritabanları için Azure Backup ve kurtarma hizmetleri nasıl kullanabileceğiniz hakkında ayrıntılı bilgi makalesinde bulunabilir [yedekleme ve bir Azure Linux sanal makinesinde Oracle Database 12 c veritabanı kurtarma](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery)
+Yedekleme için Azure yedekleme ve kurtarma Hizmetleri'ni kullanın ve Oracle veritabanlarının kurtarılmasını bkz nasıl hakkında daha fazla bilgi için [yedekleme ve bir Azure Linux sanal makinesinde Oracle Database 12 c veritabanı kurtarma](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery).
 
-### <a name="high-availability"></a>Yüksek Kullanılabilirlik
-Oracle Data Guard, yüksek kullanılabilirlik ve olağanüstü durum kurtarma amacıyla desteklenir. Veri koruma, otomatik yük devretme elde etmek için hızlı başlangıç yük devretme (FSFA) kullanılmalıdır. Gözlemci işlevselliğini (FSFA), yük devretme işlemi tetikler. FSFA kullanmadan yalnızca el ile yük devretme yapılandırmasını mümkündür.  Bilgi makalesinde bulunabilir [bir Azure Linux sanal makinesinde uygulama Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
+### <a name="high-availability"></a>Yüksek kullanılabilirlik
+Oracle Data Guard, yüksek kullanılabilirlik ve olağanüstü durum kurtarma amacıyla desteklenir. Veri koruma, otomatik yük devretme elde etmek için hızlı başlangıç yük devretme (FSFA) kullanmanız gerekir. Gözlemci (FSFA) işlevselliği, yük devretmeyi tetikler. FSFA kullanmıyorsanız, yalnızca bir el ile yük devretme yapılandırması kullanabilirsiniz. Daha fazla bilgi için [bir Azure Linux sanal makinesinde uygulama Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
 
 
 Azure'da Oracle veritabanları için olağanüstü durum kurtarma özelliklerini makalesinde sunulur [Azure ortamınızda bir Oracle Database 12c veritabanı için olağanüstü durum kurtarma](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
-### <a name="accelerated-networking"></a>Hızlandırılmış Ağ
-Destek Azure hızlandırılmış ağ Oracle Linux'ta Oracle Linux 7 güncelleştirme 5 (Oracle Linux 7.5) sağlanır. En son Oracle Linux 7.5 sürüme yükseltemiyorsanız olabilir geçici bir çözüm yerine Oracle UEK çekirdek RedHat uyumlu çekirdek (RHCK) kullanarak. Oracle Linux içinde RHEL çekirdek kullanarak SAP notu göre desteklenen [#1565179](https://launchpad.support.sap.com/#/notes/1565179). Azure hızlandırılmış ağ için en düşük RHCKL çekirdek sürüm 3.10.0-862.13.1.el7 olması gerekir. Oracle Linux'ta UEK çekirdek ile birlikte kullanmak için [Azure hızlandırılmış ağ](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), Oracle UEK 5 çekirdek sürümünü kullanmanız gerekir.
+### <a name="accelerated-networking"></a>Hızlandırılmış ağ iletişimi
+Destek Azure hızlandırılmış ağ Oracle Linux'ta Oracle Linux 7 güncelleştirme 5 (Oracle Linux 7.5) sağlanır. En son Oracle Linux 7.5 sürüme yükseltemiyorsanız olabilir geçici bir çözüm yerine Oracle UEK çekirdek RedHat uyumlu çekirdek (RHCK) kullanarak. 
 
-Vm'leri Azure Marketi'nde dayalı olmayan görüntüden değil dağıtıyorsanız, yürüterek VM kopyalanacak ek yapılandırma dosyalarını gerekir: 
-<pre><code># Copy settings from github to correct place in VM
+Oracle Linux içinde RHEL çekirdek kullanarak SAP notu göre desteklenen [#1565179](https://launchpad.support.sap.com/#/notes/1565179). Azure hızlandırılmış ağ için en düşük RHCKL çekirdek sürüm 3.10.0-862.13.1.el7 olması gerekir. Oracle Linux'ta UEK çekirdek ile birlikte kullanıyorsanız [Azure hızlandırılmış ağ](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), Oracle UEK 5 çekirdek sürümünü kullanmanız gerekir.
+
+Azure Marketi'nde dayalı olmayan bir görüntüden VM dağıtıyorsanız, aşağıdaki kodu çalıştırarak VM'ye ek yapılandırma dosyalarını kopyalamanız gerekir: 
+<pre><code># Copy settings from GitHub to the correct place in the VM
 sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.githubusercontent.com/LIS/lis-next/master/hv-rhel7.x/hv/tools/68-azure-sriov-nm-unmanaged.rules 
 </code></pre>
 
 
 ### <a name="other"></a>Diğer
-Azure kullanılabilirlik kümeleri veya SAP izleme gibi diğer tüm genel alanlar da Oracle veritabanı ile VM'lerin dağıtımlar için bu belgenin ilk üç bölümde açıklandığı gibi uygulayın.
+[SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) dağıtımları VM'lerin Azure kullanılabilirlik kümeleri ve SAP izleme dahil olmak üzere, Oracle veritabanı ile ilgili diğer önemli kavramlar açıklanmaktadır.

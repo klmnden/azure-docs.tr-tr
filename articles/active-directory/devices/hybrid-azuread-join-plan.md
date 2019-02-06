@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4c5742f8133b5915b7c838888f9887482ac5627e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695364"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746430"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Nasıl Yapılır: Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -111,7 +111,7 @@ Kuruluşunuz, kimliği doğrulanmış bir giden bağlantı proxy'si aracılığ�
 
 Hibrit Azure AD'ye katılma, Azure AD ile şirket içi etki alanına katılmış cihazlarınızı otomatik olarak kaydedilecek bir işlemdir. Otomatik olarak kaydetmek için tüm cihazlar burada istemediğiniz durumlar vardır. Bu sizin için doğru olup olmadığını [cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl](hybrid-azuread-join-control.md).
 
-Windows 10 etki alanına katılmış ise zaten cihazlardır [kayıtlı Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) kiracınız için hibrit Azure AD'ye katılma etkinleştirmeden önce bu duruma kaldırmayı düşünmelisiniz. Bir cihazın ve ikisi de, Azure AD'ye katılım hibrit Azure AD'ye kayıtlı olması çift durumu desteklenmiyor. Windows 10 1809 yayından çift bu durumu önlemek için aşağıdaki değişiklikler yapılmıştır: 
+Windows 10 etki alanına katılmış ise zaten cihazlardır [kayıtlı Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) kiracınız için hibrit Azure AD'ye katılma etkinleştirmeden önce bu duruma kaldırılması önerilir. Windows 10 1809 yayından çift bu durumu önlemek için aşağıdaki değişiklikler yapılmıştır: 
  - Hibrit Azure AD'ye katılmış cihaz olduktan sonra herhangi bir mevcut Azure AD kayıtlı durumu otomatik olarak kaldırılması. 
  - Etki alanına katılmış cihaz Azure AD'ye bu kayıt defteri anahtarı - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" ekleyerek kayıtlı olmasını engelleyebilir = DWORD: 00000001
 
@@ -148,17 +148,17 @@ Ortamınızı etki alanları yönettiği, hibrit Azure AD'ye katılım'ı destek
  Azure AD Connect gerekli sürümünü yüklemek sizin için bir seçenek değilse, bkz. [el ile cihaz kaydını yapılandırmak nasıl](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Hibrit Azure AD'ye katılma alternatif bir oturum açma kimliği desteği
+## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Şirket içi AD UPN'sini desteği hibrit Azure AD'ye katılma
 
-Windows 10 hibrit Azure AD'ye katılım için sınırlı destek sağlar [alternatif oturum açma kimliklerini](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) alternatif oturum açma kimliği türüne göre [kimlik doğrulama yöntemi](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), etki alanı türü ve Windows 10 sürümü. Alternatif oturum açma kimliklerini ortamınızda bulunabilir iki tür vardır:
+Bazı durumlarda, şirket içi AD UPN, Azure AD UPN farklı olabilir. Bu gibi durumlarda, Windows 10 hibrit Azure AD'ye katılma sınırlı destek için şirket içi AD UPN göre sağlar [kimlik doğrulama yöntemi](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), etki alanı türü ve Windows 10 sürümü. Ortamınızda bulunabilir AD UPN şirket içi iki tür vardır:
 
- - Yönlendirilebilir alternatif bir oturum açma kimliği: Bir etki alanı kayıt şirketi ile kayıtlı geçerli bir doğrulanmış etki alanı, yönlendirilebilir alternatif bir oturum açma kimliği vardır. Birincil etki alanı contoso.com ise contoso.org ve contoso.co.uk Contoso tarafından sahip olunan geçerli etki alanları gibi cihazlar ve [Azure AD'de doğrulanmış](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - UPN yönlendirilebilir: UPN yönlendirilebilir bir etki alanı kayıt şirketi ile kayıtlı bir geçerli doğrulanmış etki sahiptir. Örneğin, Azure AD'de birincil etki alanı contoso.com ise şirket içi birincil etki alanı contoso.org olan Contoso tarafından sahip olunan bir AD ve [Azure AD'de doğrulanmış](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - Yönlendirilebilir olmayan alternatif bir oturum açma kimliği: Yönlendirilemeyen alternatif bir oturum açma kimliği doğrulanmış bir etki alanı yok. Yalnızca kuruluşunuzun özel ağına içinde geçerlidir. Örneğin, birincil etki alanı contoso.com ise contoso.local Internet doğrulanabilir bir etki alanı değil ancak Contoso'nun ağ içinde kullanılır.
+ - Yönlendirilemeyen UPN: Yönlendirilemeyen bir UPN doğrulanmış bir etki alanı yok. Yalnızca kuruluşunuzun özel ağına içinde geçerlidir. Azure AD'de birincil etki alanı contoso.com ise, örneğin, contoso.local birincil etki alanında ise şirket içi AD ancak internet'in doğrulanabilir bir etki alanı değil ve kullanıcının yalnızca Contoso içinde kullanılan ağ.
  
-Aşağıdaki tabloda Ayrıntılar bunlardan biri için destek Windows 10 hibrit Azure AD'ye katılma alternatif bir oturum açma kimlikleri sağlar
+Aşağıdaki tabloda Ayrıntılar desteği bu şirket için AD UPN, Windows 10 hibrit Azure AD'ye katılma sağlar
 
-|Alternatif oturum açma kimliği türü|Etki alanı türü|Windows 10 sürümü|Açıklama|
+|Tür şirket içi AD UPN|Etki alanı türü|Windows 10 sürümü|Açıklama|
 |-----|-----|-----|-----|
 |Yönlendirilebilir|Federasyon |1703 sürümünden|Genel kullanıma sunuldu|
 |Yönlendirilebilir|Yönetilen|1709 sürümü|Şu anda özel Önizleme aşamasındadır. Azure AD SSPR desteklenmiyor |

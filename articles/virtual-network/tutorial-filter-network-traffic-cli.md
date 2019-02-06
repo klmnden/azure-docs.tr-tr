@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 6a79c75f96c351a470a7ab4f788f79b0e1b6a8a6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 630eddc8494b32d93035913bcb2b55f00153b1be
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656301"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755518"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Azure CLI kullanarak bir ağ güvenlik grubu ile ağ trafiğini filtreleme
 
@@ -46,7 +46,7 @@ Bir ağ güvenlik grubu, güvenlik kuralları içerir. Güvenlik kuralları, bir
 
 ### <a name="create-application-security-groups"></a>Uygulama güvenlik grupları oluşturma
 
-Önce bu makalede oluşturulan tüm kaynakları için bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnekte *eastus* konumunda bir kaynak grubu oluşturulmaktadır: 
+Önce bu makalede oluşturulan tüm kaynakları için bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group). Aşağıdaki örnekte *eastus* konumunda bir kaynak grubu oluşturulmaktadır: 
 
 ```azurecli-interactive
 az group create \
@@ -54,7 +54,7 @@ az group create \
   --location eastus
 ```
 
-Bir uygulama güvenlik grubu oluşturun [az ağ asg oluşturma](/cli/azure/network/asg#az_network_asg_create). Uygulama güvenlik grubu, benzer bağlantı noktası filtreleme gereksinimlerine sahip sunucuları gruplandırmanızı sağlar. Aşağıdaki örnek iki uygulama güvenlik grubu oluşturur.
+Bir uygulama güvenlik grubu oluşturun [az ağ asg oluşturma](/cli/azure/network/asg). Uygulama güvenlik grubu, benzer bağlantı noktası filtreleme gereksinimlerine sahip sunucuları gruplandırmanızı sağlar. Aşağıdaki örnek iki uygulama güvenlik grubu oluşturur.
 
 ```azurecli-interactive
 az network asg create \
@@ -81,7 +81,7 @@ az network nsg create \
 
 ### <a name="create-security-rules"></a>Güvenlik kuralları oluşturma
 
-Bir güvenlik kuralı oluşturun [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Aşağıdaki örnek, internetten gelen trafiğin 80 ve 443 numaralı bağlantı noktaları üzerinden *myWebServers* uygulama güvenlik grubuna gitmesine izin veren bir kural oluşturur:
+Bir güvenlik kuralı oluşturun [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule). Aşağıdaki örnek, internetten gelen trafiğin 80 ve 443 numaralı bağlantı noktaları üzerinden *myWebServers* uygulama güvenlik grubuna gitmesine izin veren bir kural oluşturur:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -119,7 +119,7 @@ Bu makalede, SSH (bağlantı noktası 22) için İnternet'e kullanıma sunulan *
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) komutu ile bir sanal ağ oluşturun. Aşağıdaki örnek *myVirtualNetwork* adlı bir sanal ağ oluşturur:
+[az network vnet create](/cli/azure/network/vnet) komutu ile bir sanal ağ oluşturun. Aşağıdaki örnek *myVirtualNetwork* adlı bir sanal ağ oluşturur:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -143,7 +143,7 @@ az network vnet subnet create \
 
 Daha sonraki bir adımda trafik filtrelemesini doğrulayabilmek için sanal ağda iki VM oluşturun. 
 
-[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek, web sunucusu olarak görev yapacak bir VM oluşturur. `--asgs myAsgWebServers` Seçenek neden üyesi sanal makine için oluşturduğu ağ arabirimi için Azure'da *Myvmweb* uygulama güvenlik grubu.
+[az vm create](/cli/azure/vm) ile bir VM oluşturun. Aşağıdaki örnek, web sunucusu olarak görev yapacak bir VM oluşturur. `--asgs myAsgWebServers` Seçenek neden üyesi sanal makine için oluşturduğu ağ arabirimi için Azure'da *Myvmweb* uygulama güvenlik grubu.
 
 `--nsg ""` Seçeneği, Azure, Azure VM oluştururken oluşturduğu ağ arabirimi için bir varsayılan ağ güvenlik grubu oluşturmasını önlemek için belirtilir. Bu makalede kolaylaştırmak için bir parola kullanılır. Anahtarlar genellikle üretim dağıtımında kullanılır. Anahtarları kullanıyorsanız, SSH aracı iletmeyi kalan adımları yapılandırmanız da gerekir. Daha fazla bilgi için SSH istemcinizin belgelerine bakın. Değiştirin `<replace-with-your-password>` seçtiğiniz parolayla aşağıdaki komutta.
 
@@ -234,7 +234,7 @@ Oturumunu kapatıp *myVmMgmt* VM. Erişebildiğinizi onaylamak için *myVmWeb* g
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse [az grubu Sil](/cli/azure/group#az_group_delete) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için.
+Artık gerekli değilse [az grubu Sil](/cli/azure/group) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

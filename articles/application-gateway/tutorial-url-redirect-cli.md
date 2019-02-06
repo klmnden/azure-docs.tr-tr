@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9fbca3617ba94b09ff9f760422e3eefeb8d11974
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: dae6b14fcf06571d660f745912ffa19784134806
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656711"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750162"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak URL yolu tabanlı yeniden yönlendirme ile bir uygulama ağ geçidi oluşturma
 
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-backend-pools-and-ports"></a>Arka uç havuzları ve bağlantı noktaları ekleme
 
-[az network application-gateway address-pool create](/cli/azure/network/application-gatewaywork_application_gateway_address-pool_create) kullanarak *imagesBackendPool* ve *videoBackendPool* adlı arka uç adres havuzlarını uygulama ağ geçidinize ekleyebilirsiniz. [az network application-gateway frontend-port create](/cli/azure/network/application-gatewaywork_application_gateway_frontend_port_create) kullanarak havuzlara ön uç bağlantı noktalarını eklersiniz. 
+[az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool) kullanarak *imagesBackendPool* ve *videoBackendPool* adlı arka uç adres havuzlarını uygulama ağ geçidinize ekleyebilirsiniz. [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port) kullanarak havuzlara ön uç bağlantı noktalarını eklersiniz. 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -136,7 +136,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-listeners"></a>Dinleyiciler ekleme
 
-[az network application-gateway http-listener create](/cli/azure/network/application-gatewaywork_application_gateway_http_listener_create) kullanarak trafiği yönlendirmek için gereken *backendListener* ve *redirectedListener* adlı arka uç dinleyicilerini ekleyin.
+[az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener) kullanarak trafiği yönlendirmek için gereken *backendListener* ve *redirectedListener* adlı arka uç dinleyicilerini ekleyin.
 
 
 ```azurecli-interactive
@@ -157,7 +157,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>Varsayılan URL yolu eşlemesi ekleme
 
-URL yol eşlemeleri belirli URL'lerin belirli arka uç havuzlarına yönlendirilmesini sağlar. [az network application-gateway url-path-map create](/cli/azure/network/application-gatewaywork_application_gateway_url_path_map_create) ve [az network application-gateway url-path-map rule create](/cli/azure/network/application-gatewaywork_application_gateway_url_path_map_rule_create) kullanarak *imagePathRule* ve *videoPathRule* adlı URL yol eşlemelerini oluşturabilirsiniz.
+URL yol eşlemeleri belirli URL'lerin belirli arka uç havuzlarına yönlendirilmesini sağlar. [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) ve [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule) kullanarak *imagePathRule* ve *videoPathRule* adlı URL yol eşlemelerini oluşturabilirsiniz.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -182,7 +182,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-redirection-configuration"></a>Yeniden yönlendirme yapılandırması ekleme
 
-[az network application-gateway redirect-config create](/cli/azure/network/application-gateway) kullanarak dinleyici için yeniden yönlendirmeyi yapılandırabilirsiniz.
+[az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config) kullanarak dinleyici için yeniden yönlendirmeyi yapılandırabilirsiniz.
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -209,7 +209,7 @@ az network application-gateway url-path-map create \
 
 ### <a name="add-routing-rules"></a>Yönlendirme kuralları ekleme
 
-Yönlendirme kuralları, URL yolu eşlemelerini oluşturduğunuz dinleyicilerle ilişkilendirir. [az network application-gateway rule create](/cli/azure/network/application-gatewaywork_application_gateway_rule_create) kullanarak *defaultRule* ve *redirectedRule* adlı kuralları ekleyebilirsiniz.
+Yönlendirme kuralları, URL yolu eşlemelerini oluşturduğunuz dinleyicilerle ilişkilendirir. [az network application-gateway rule create](/cli/azure/network/application-gateway/rule) kullanarak *defaultRule* ve *redirectedRule* adlı kuralları ekleyebilirsiniz.
 
 ```azurecli-interactive
 az network application-gateway rule create \

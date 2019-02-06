@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5459ba31d30a86efbe40239f9531298c10cf9d98
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 6f2d4c9a7871e0917b33407605abe1389eb4420e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413609"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753614"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>VM işletim sistemi diski ile ilgili sorun giderme
 
@@ -41,11 +41,11 @@ Bu betik, bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturmak 
 
 | Komut | Notlar |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | Sanal makinelerin listesini döndürür. Bu örnekte sanal makine işletim sistemi diskini döndürmek için sorgu seçeneği kullanılır. Bu değer daha sonra 'uri' değişken adına eklenir. |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | Bir sanal makineyi siler. |
+| [az vm show](https://docs.microsoft.com/cli/azure/vm) | Sanal makinelerin listesini döndürür. Bu örnekte sanal makine işletim sistemi diskini döndürmek için sorgu seçeneği kullanılır. Bu değer daha sonra 'uri' değişken adına eklenir. |
+| [az vm delete](https://docs.microsoft.com/cli/azure/vm) | Bir sanal makineyi siler. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Bir sanal makine oluşturur.  |
 | [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | Bir diski sanal makineye ekler. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | Bir sanal makinenin IP adreslerini döndürür. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | Bir sanal makinenin IP adreslerini döndürür. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

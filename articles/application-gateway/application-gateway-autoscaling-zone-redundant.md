@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/31/2019
+ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: d680634231b90e5d1cc036f43b96e05d66899e34
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487056"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743659"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi (genel Önizleme)
 
@@ -34,7 +34,7 @@ Uygulama ağ geçidi ve Web uygulaması Güvenlik Duvarı (WAF) artık performan
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 
-SKU otomatik ölçeklendirme aşağıdaki bölgelerde kullanılabilir: eastus2, westus2, westeurope, southeastasia, centralus, francecentral, eastus, japaneast, northeurope, southcentralus, ukwest, northcentralus, westus, eastus, centralus, japanwest.
+Otomatik ölçeklendirme SKU aşağıdaki bölgelerde kullanılabilir: Kuzey Orta ABD, Güney Orta ABD, Batı ABD, Batı ABD 2, Doğu ABD, Doğu ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa, Güneydoğu Asya, Fransa Orta, Birleşik Krallık Batı, Japonya Doğu, Japonya Batı.
 
 ## <a name="pricing"></a>Fiyatlandırma
 

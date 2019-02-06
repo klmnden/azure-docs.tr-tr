@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c2cc0c0ffaae11bd7bf5113c942cdb98397201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551560"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752781"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure veri kutusu Blob Depolama alanı gereksinimleri
 
@@ -30,7 +30,7 @@ Veri kutusu Blob depolamaya bağlanma ve daha sonra geri gerektiği şekilde ba�
 |    Bekleyen veriler için şifreleme hizmeti                  |    256 bit AES şifrelemesi                             |    256 bit AES şifrelemesi |
 |    Depolama hesabı türü                                 |    Genel amaçlı ve Azure blob depolama hesapları    |    Yalnızca genel amaçlı v1|
 |    Blob adı                                            |    1024 karakter (2.048 bayt)                     |    880 karakterleri (1,760 bayt)|
-|    Blok blobu en büyük boyutu                              |    4,75 TB (100 MB X 50.000 blok)                   |    Azure Data Box v 1.7 ve sonraki sürümler için 4,75 TB (100 MB x 50.000 blok).|
+|    Blok blobu en büyük boyutu                              |    4,75 TB (100 MB X 50.000 blok)                   |    Azure Data Box v 1.8 ve sonraki sürümler için 4,75 TB (100 MB x 50.000 blok).|
 |    Sayfa blob en büyük boyutu                               |    8 TB                                               |    1 TB                   |
 |    Sayfa blob sayfa boyutu                                  |    512 bayt                                          |    4 KB                   |
 
@@ -38,8 +38,10 @@ Veri kutusu Blob depolamaya bağlanma ve daha sonra geri gerektiği şekilde ba�
 
 Veri kutusu Blob Depolama ile Azure depolama hizmeti API'ın şu sürümleri desteklenir:
 
-Genel Önizleme sürümü (Azure Data Box 1.7 ve sonraki sürümler)
+Genel Önizleme sürümü (Azure Data Box 1.8 ve üzeri)
 
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
@@ -56,15 +58,13 @@ Genel Önizleme sürümü (Azure Data Box 1.7 ve sonraki sürümler)
 |    C++                 |    2.4.0 3.1.0 için                          |    Nuget paketi:   https://www.nuget.org/packages/wastorage.v140/   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Bağlantı dizesi kurulumu         |
 |    PHP                 |    0.15.0 1.0.0 için                         |    GitHub sürüm:   https://github.com/Azure/azure-storage-php/releases   <br>Oluşturucusu yükleyin (aşağıdaki ayrıntılara bakın)                                                                                                   |    Bağlantı dizesi kurulumu         |
 |    Python              |    0.30.0 1.0.0 için                         |    GitHub sürüm:   https://github.com/Azure/azure-storage-python/releases                                                                                                                                              |    Hizmet örneği bildirimi    |
-|    Ruby                |    0.12.1 1.0.1 için                         |    RubyGems paketi:<br>Ortak:   https://rubygems.org/gems/azure-storage-common/   <br>BLOB: https://rubygems.org/gems/azure-storage-blob/      <br>GitHub sürüm:   https://github.com/Azure/azure-storage-ruby/releases    |                                   |
+|    Ruby                |    0.12.1 1.0.1 için                         |    RubyGems paketi:<br>Common:   https://rubygems.org/gems/azure-storage-common/   <br>Blob: https://rubygems.org/gems/azure-storage-blob/      <br>GitHub sürüm:   https://github.com/Azure/azure-storage-ruby/releases    |                                   |
 
 ## <a name="supported-azure-client-libraries"></a>Azure istemci kitaplıkları desteklenir
 
-Veri kutusu Blob Depolama için belirli istemci kitaplıkları ve belirli bir uç nokta son ek gereksinimler vardır.
+Veri kutusu Blob Depolama için belirli istemci kitaplıkları ve belirli bir uç nokta son ek gereksinimler vardır. Veri kutusu Blob Depolama uç noktaları, en son sürümü Azure Blob Depolama REST API'si ile tam eşlik izniniz yok, bkz: [desteklenen Azure Data Box'a 1.8 ve üzeri sürümleri](#supported-api-versions). İçin depolama istemci kitaplıkları, REST API ile uyumlu sürümü farkında olmanız gerekir.
 
-Desteklenen REST API'si veri kutusu Blob Depolama için 2017-04-17 2016-05-31, 2015-12-11, 2015-07-08 ve Azure Data Box sürüm 1.7 ve sonraki sürümler için 2015-04-05 sürümleridir. Veri kutusu Blob Depolama uç noktaları, en son sürümü Azure Blob Depolama REST API'si ile tam eşlik yoktur. İçin depolama istemci kitaplıkları, REST API ile uyumlu sürümü farkında olmanız gerekir.
-
-### <a name="azure-data-box-17-onwards"></a>Azure Data Box 1.7 ve sonraki sürümler
+### <a name="azure-data-box-18-onwards"></a>Azure Data Box 1.8 ve sonraki sürümler
 
 | İstemci kitaplığı     |Veri kutusu Blob Depolama desteklenen sürüm     | Bağlantı   |     Uç nokta belirtimi      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
@@ -72,9 +72,9 @@ Desteklenen REST API'si veri kutusu Blob Depolama için 2017-04-17 2016-05-31, 2
 |    Java                |    6.1.0                                           |    Maven paketi:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Bağlantı dizesi kurulumu         |
 |    Node.js             |    2.7.0                                           |    NPM bağlantısı:   https://www.npmjs.com/package/azure-storage   (Çalıştırın: npm yükleme azure-storage@2.7.0)   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    Hizmet örneği bildirimi    |
 |    C++                 |    3.1.0                                           |    Nuget paketi:   https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>GitHub sürüm:   https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    Bağlantı dizesi kurulumu         |
-|    PHP                 |    1.0.0                                           |    GitHub sürüm:<br>Ortak: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>(Daha fazla bilgi edinmek için aşağıdaki ayrıntıları görmek için.), oluşturucu yükleme                                                                                                             |    Bağlantı dizesi kurulumu         |
-|    Python              |    1.0.0                                           |    GitHub sürüm:<br>Ortak:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>BLOB:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob                                                                                                                                                                          |    Hizmet örneği bildirimi    |
-|    Ruby                |    1.0.1                                           |    RubyGems paketi:<br>Ortak:   https://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>BLOB: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>GitHub sürüm:<br>Ortak: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>BLOB: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    Bağlantı dizesi kurulumu         |
+|    PHP                 |    1.0.0                                           |    GitHub sürüm:<br>Ortak: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>(Daha fazla bilgi edinmek için aşağıdaki ayrıntıları görmek için.), oluşturucu yükleme                                                                                                             |    Bağlantı dizesi kurulumu         |
+|    Python              |    1.0.0                                           |    GitHub sürüm:<br>Common:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob                                                                                                                                                                          |    Hizmet örneği bildirimi    |
+|    Ruby                |    1.0.1                                           |    RubyGems paketi:<br>Common:   https://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>GitHub sürüm:<br>Ortak: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    Bağlantı dizesi kurulumu         |
 
 
 

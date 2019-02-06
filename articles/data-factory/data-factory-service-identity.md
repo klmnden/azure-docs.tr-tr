@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f5f441dd63f8d6a7f5bd1cfdf0452d025816e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b0cb72b8a9c1710b2b22d987c2818a490a2ea553
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017693"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753368"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure veri fabrikası hizmet kimliği
 
@@ -192,4 +192,4 @@ Ne zaman ve nasıl veri fabrikası hizmet kimliği kullanmak aşağıdaki konula
 - [Azure anahtar Kasası'nda kimlik bilgisi Store](store-credentials-in-key-vault.md)
 - [Azure Data Lake Store yönetilen kimliklerle Azure kaynaklarında kimlik doğrulaması için / için veri kopyalama](connector-azure-data-lake-store.md)
 
-Bkz: [Azure kaynaklarına genel bakış için yönetilen kimlikleri](~/articles/active-directory/msi-overview.md) hangi veri fabrikası hizmet kimliği Azure kaynakları için yönetilen kimlikleri hakkında daha fazla arka plan için temel aldığı. 
+Bkz: [Azure kaynaklarına genel bakış için yönetilen kimlikleri](/azure/active-directory/managed-identities-azure-resources/overview) hangi veri fabrikası hizmet kimliği Azure kaynakları için yönetilen kimlikleri hakkında daha fazla arka plan için temel aldığı. 

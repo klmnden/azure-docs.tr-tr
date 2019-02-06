@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 223b32d3947ca0f663565a90b15e9c24e5ddeb96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883220"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754226"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure'da bir Linux sanal makinesi üzerinde MongoDB, Express, AngularJS ve Node.js (MEAN) yığını oluşturun
 
@@ -42,7 +42,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 
 ## <a name="create-a-linux-vm"></a>Linux VM oluşturma
 
-[az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun ve [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) komutuyla bir Linux sanal makinesi oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+[az group create](https://docs.microsoft.com/cli/azure/group) komutuyla bir kaynak grubu oluşturun ve [az vm create](https://docs.microsoft.com/cli/azure/vm) komutuyla bir Linux sanal makinesi oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
 Aşağıdaki örnekte Azure CLI kullanılarak *eastus* konumunda *myResourceGroupMEAN* adlı bir kaynak grubu oluşturulur. Varsayılan anahtar konumunda henüz yoksa SSH anahtarları ile *myVM* adlı bir sanal makine oluşturulur. Belirli bir anahtar kümesini kullanmak için --ssh-key-value seçeneğini kullanın.
 

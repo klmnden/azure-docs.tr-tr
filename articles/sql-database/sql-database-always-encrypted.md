@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviwer: ''
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: de8bb0adf45a7cdaf9cc0d9a451af203e01e87da
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a54fa92e248cb75be315327f7389e62904c7c777
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564892"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754889"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Her zaman şifreli: Hassas verilerin korunmasına ve şifreleme anahtarlarını Windows sertifika deposuna kaydedin
 
@@ -47,7 +47,7 @@ Bu öğreticide, şunları yapmanız gerekir:
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Tıklayın **kaynak Oluştur** > **veri + depolama** > **SQL veritabanı**.
-3. Oluşturma bir **boş** adlı veritabanı **Clinic** yeni veya var olan bir sunucu üzerinde. Azure portalında veritabanı oluşturma hakkında ayrıntılı yönergeler için bkz: [ilk Azure SQL veritabanınızı](sql-database-get-started-portal.md).
+3. Oluşturma bir **boş** adlı veritabanı **Clinic** yeni veya var olan bir sunucu üzerinde. Azure portalında veritabanı oluşturma hakkında ayrıntılı yönergeler için bkz: [ilk Azure SQL veritabanınızı](sql-database-single-database-get-started.md).
    
     ![Boş veritabanı oluşturma](./media/sql-database-always-encrypted/create-database.png)
 

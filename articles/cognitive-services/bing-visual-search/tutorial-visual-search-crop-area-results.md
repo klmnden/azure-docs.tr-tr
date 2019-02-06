@@ -9,12 +9,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 2ec4810b6ac01eca17186f4b8d2e8c2959292b8d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66012e22b4e3e512751711ea399b8add006fb717
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187904"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756402"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Öğretici: Bing görsel arama için SDK ile görüntü kırpmaC#
 
@@ -113,4 +113,4 @@ Gerçek görüntü URL’lerini almak için, bir `ActionType` türünü `ImageMo
 > [!div class="nextstepaction"]
 > [Tek sayfa uygulaması oluşturma](tutorial-bing-visual-search-single-page-app.md)
 
-[Görsel Arama yanıtı](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Görsel Arama yanıtı](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

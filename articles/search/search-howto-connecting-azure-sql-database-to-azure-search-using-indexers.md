@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633036"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752901"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Bağlanmak ve Azure SQL veritabanı kullanarak Azure Search dizin oluşturucularında içerik dizini
 
@@ -209,6 +209,9 @@ Bu ilkeyi kullanmak, oluşturmak veya bu gibi veri kaynağını güncelleştirme
     }
 
 Silinmiş satırları zaman tümleşik SQL değişiklik izleme ilkesi, kullanarak ayrı veri silme algılama İlkesi belirlemezseniz - Bu ilkeyi tanımlamak için yerleşik destek sunmaktadır. Ancak, silmeleri algılanan "automagically" olarak arama dizininize belge anahtarını SQL tablosundaki birincil anahtar ile aynı olmalıdır. 
+
+> [!NOTE]  
+> Kullanırken [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) çok sayıda satırı SQL tablosundan kaldırmak için dizin oluşturucu olması gerekir [sıfırlama](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) değişiklik izleme satır silme seçmek için durumu sıfırlanır.
 
 <a name="HighWaterMarkPolicy"></a>
 

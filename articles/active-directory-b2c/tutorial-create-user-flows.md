@@ -1,5 +1,5 @@
 ---
-title: Öğretici - Azure Active Directory B2C'de kullanıcı akışları oluşturma | Microsoft Docs
+title: Öğretici - Azure Active Directory B2C - kullanıcı akışları oluşturma | Microsoft Docs
 description: Azure portalını kullanarak Azure Active Directory B2C, uygulamalar için kullanıcı akışları oluşturmayı öğrenin.
 services: active-directory-b2c
 author: davidmu1
@@ -7,14 +7,14 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845614"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750299"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C'de kullanıcı akışları oluşturma
 
@@ -39,29 +39,30 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Kullanıcı, kaydolma ve oturum açma akışını tek bir yapılandırma ile hem kaydolma ve oturum açma deneyimlerini işler. Uygulamanızın kullanıcılarının, bağlama bağlı olarak doğru yolunu gerektiriyordu.
 
-1. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
 
     ![Abonelik dizinine geçin](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
-3. Sol menüde **kullanıcı akışları**ve ardından **yeni kullanıcı akışı**.
+3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
+4. Sol menüde **kullanıcı akışları**ve ardından **yeni kullanıcı akışı**.
 
     ![Yeni kullanıcı akışı seçin](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. Seçin **kaydolma ve oturum açma** önerilen sekmesinde kullanıcı akışı.
+5. Seçin **kaydolma ve oturum açma** önerilen sekmesinde kullanıcı akışı.
 
     ![Kaydolma ve oturum açma kullanıcı akışı seçin](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. Girin bir **adı** kullanıcı akışı için. Örneğin, *signupsignin1*.
-6. İçin **kimlik sağlayıcıları**seçin **e-posta kaydolma**.
+6. Girin bir **adı** kullanıcı akışı için. Örneğin, *signupsignin1*.
+7. İçin **kimlik sağlayıcıları**seçin **e-posta kaydolma**.
 
     ![Flow özelliklerini ayarlama](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. İçin **kullanıcı öznitelikleri ve talepler**, talepleri ve toplamak ve kayıt sırasında kullanıcıdan göndermek istediğiniz öznitelikleri seçin. Örneğin, **daha fazla Göster**ve ardından **ülke/bölge**, **görünen ad**, ve **posta kodu**. **Tamam** düğmesine tıklayın.
+8. İçin **kullanıcı öznitelikleri ve talepler**, talepleri ve toplamak ve kayıt sırasında kullanıcıdan göndermek istediğiniz öznitelikleri seçin. Örneğin, **daha fazla Göster**ve ardından **ülke/bölge**, **görünen ad**, ve **posta kodu**. **Tamam** düğmesine tıklayın.
 
     ![Öznitelikleri ve talepler seçin](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. Tıklayın **Oluştur** kullanıcı akışı eklemek için. Bir önek *B2C_1* adına otomatik olarak eklenir.
+9. Tıklayın **Oluştur** kullanıcı akışı eklemek için. Bir önek *B2C_1* adına otomatik olarak eklenir.
 
 ### <a name="test-the-user-flow"></a>Kullanıcı akışı test edin
 
@@ -123,4 +124,4 @@ Bu makalede, öğrendiğiniz nasıl yapılır:
 > * Parola sıfırlama kullanıcı akışı oluştur
 
 > [!div class="nextstepaction"]
-> [Uygulamalarınızı Azure Active Directory B2C, kullanıcı arabirimini özelleştirme](tutorial-customize-ui.md)
+> [Kimlik sağlayıcıları Azure Active Directory B2C uygulamalarınızın ekleyin](tutorial-add-identity-providers.md)

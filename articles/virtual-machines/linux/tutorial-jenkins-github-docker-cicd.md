@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fb47654a3eb6ea45d2aebab956b555e720faef4c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487124"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751132"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Öğretici: Jenkins, GitHub ve Docker ile azure'da bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturma
 
@@ -69,7 +69,7 @@ runcmd:
   - service jenkins restart
 ```
 
-VM oluşturabilmek için önce [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte, *eastus* konumunda *myResourceGroupJenkins* adlı bir kaynak grubu oluşturulur:
+VM oluşturabilmek için önce [az group create](/cli/azure/group) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte, *eastus* konumunda *myResourceGroupJenkins* adlı bir kaynak grubu oluşturulur:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
@@ -88,7 +88,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Sanal makinenin oluşturulup yapılandırılması birkaç dakika sürer.
 
-VM’nize web trafiğinin ulaşmasına izin vermek için [az vm open-port](/cli/azure/vm#az_vm_open_port) komutunu kullanarak Jenkins trafiği için *8080* bağlantı noktasını, Node.js uygulaması için örnek uygulama çalıştırmaya yönelik *1337* bağlantı noktasını açın:
+VM’nize web trafiğinin ulaşmasına izin vermek için [az vm open-port](/cli/azure/vm) komutunu kullanarak Jenkins trafiği için *8080* bağlantı noktasını, Node.js uygulaması için örnek uygulama çalıştırmaya yönelik *1337* bağlantı noktasını açın:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001

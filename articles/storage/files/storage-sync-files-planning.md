@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 246b7ae21ceca80c2d1af74330691e527c73cf51
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452745"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751421"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -251,7 +251,10 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 Azure dosya eşitleme depolama eşitleme hizmeti ile aynı bölgede olan bir Azure dosya paylaşımı ile eşitlemeyi destekler.
 
 ### <a name="azure-disaster-recovery"></a>Azure olağanüstü durum kurtarma
-Bir Azure bölgesi kaybına karşı korumak için Azure dosya eşitleme ile entegre olur [coğrafi olarak yedekli depolama yedekliliği](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) seçeneği. GRS depolama çoğaltmasını birincil bölgedeki normal şekilde etkileşime, depolama ve depolama arasında zaman uyumsuz engelle eşleştirilmiş ikincil bölge'de faydalanır. Geçici veya kalıcı olarak çevrimdışı yapılacak Azure bölgesini neden olan bir olağanüstü durumda, depolama eşleştirilmiş bölgeye Microsoft başarısız olur. 
+Bir Azure bölgesi kaybına karşı korumak için Azure dosya eşitleme ile entegre olur [coğrafi olarak yedekli depolama yedekliliği](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) seçeneği. GRS depolama çoğaltmasını birincil bölgedeki normal şekilde etkileşime, depolama ve depolama arasında zaman uyumsuz engelle eşleştirilmiş ikincil bölge'de faydalanır. Geçici veya kalıcı olarak çevrimdışı yapılacak Azure bölgesini neden olağanüstü bir durumda, Microsoft tarafından eşleştirilen bölgeye yük devretme depolama. 
+
+> [!Warning]  
+> Azure dosya paylaşımınızı GRS depolama hesabındaki bir bulut uç noktası olarak kullanıyorsanız, depolama hesabı yük devretme başlatma olmamalıdır. Bunun yapılması ayrıca çalışma ve Mayıs durdurmak için neden Eşitleme beklenmeyen veri kaybı durumunda yeni katmanlı dosyalar neden olur. Bir Azure bölgesi kaybı söz konusu olduğunda, Microsoft Azure dosya eşitleme ile uyumlu bir şekilde depolama hesabı yük devretmeyi tetikler.
 
 Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretme tümleştirmeyi desteklemek için tüm Azure dosya eşitleme bölgeler depolaması tarafından kullanılan ikincil bölgeye eşleşen bir ikincil bölge ile'eşlenirler. Bu çiftler aşağıdaki gibidir:
 

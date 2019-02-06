@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: f5ec31cf0f88b9bfdff2e4fa877d56a2689054ae
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 233b77de4a034b5e87aeea2152a3fb6a71aeb8e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097954"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755400"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD uygulama onay anlama deneyimleri
 
@@ -83,5 +83,5 @@ Bir kullanıcı ortak onay senaryolarda görebilirsiniz onay deneyimleri şunlar
     1. Yönetici olmayan kullanıcılar, yukarıda gösterilen 2 II olarak aynı ekran görürsünüz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Adım adım bir bakış elde [Azure AD'ye onay çerçevesine onayı nasıl uyguladığını](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
+- Adım adım bir bakış elde [Azure AD'ye onay çerçevesine onayı nasıl uyguladığını](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Daha fazla ayrıntı için bilgi [çok kiracılı uygulama onay çerçevesine nasıl kullanabileceğinizi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) "kullanıcı" ve "Yönetici" onayı, daha fazla destek uygulamak için çok katmanlı uygulama desenleri Gelişmiş.

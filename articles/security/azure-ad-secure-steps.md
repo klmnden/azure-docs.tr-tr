@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567959"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750333"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Kimlik altyapınızın güvenliğini sağlamak için beş adım
 
@@ -78,6 +78,9 @@ Doğrudan kimlik doğrulama veya Federasyon ile kuruluşunuzun karma kimlik çö
 
 Hakkında daha fazla bilgi [parola karma eşitlemesi](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) çalışır.
 
+> [!NOTE]
+> Parola Karması eşitlemeyi etkinleştirin ve Azure AD Etki Alanı Hizmetleri'ni kullanarak, Kerberos (AES 256) karmaları ve isteğe bağlı olarak NTLM (RC4, hiçbir güvenlik değeri) karmaları da şifrelenecek ve Azure AD'ye eşitlenen. 
+
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>AD FS extranet kilitleme akıllı uygulama
 
 Kuruluşlar, doğrudan Azure AD'ye kimlik doğrulaması için uygulamaları yapılandırma yararlanabilir [Azure AD'ye akıllı kilitleme](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Windows Server 2012 R2 ' AD FS kullanıyorsanız AD FS'yi uygulamaya [extranet kilitlenme koruması](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Windows Server 2016'da AD FS kullanıyorsanız, uygulama [akıllı extranet kilitleme](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS akıllı kilitleme karşı deneme yanılma korur Extranet saldırıları, kullanıcılar Active Directory'de kilitlenmelerini engelleyen sırasında hangi hedef AD FS.
@@ -90,13 +93,13 @@ Kullanarak [Windows Hello](https://docs.microsoft.com/windows/security/identity-
 
 Parola güvenlik ihlali kapsamlılığıyla göz önünde bulundurulduğunda, kuruluşunuzdaki saldırı yüzeyini en aza önemlidir. Erişim girdisi sınırlama, eski ve daha az güvenli protokolleri kullanımı ortadan işaret ve daha önemli denetimin kaynaklarına yönetim erişimi uygulama saldırı yüzey alanını azaltmaya yardımcı olabilir.
 
-### <a name="block-legacy-authentication"></a>Blok eski kimlik doğrulaması
+### <a name="block-legacy-authentication"></a>Eski kimlik doğrulamasını engelleme
 
 Azure AD kimlik doğrulaması ve şirket verilerine erişmek için kendi eski yöntemleri kullanarak uygulamaları kuruluşlar için başka bir risk yol açar. POP3, IMAP4 veya SMTP istemciler eski kimlik doğrulaması kullanan uygulamalar örnekleridir. Eski bir kimlik doğrulama uygulamaları, kullanıcı adına kimlik doğrulaması ve Azure AD güvenlik değerlendirmeleri Gelişmiş yapmak öğesinden engelleyebilirsiniz. Alternatif, modern kimlik doğrulaması çok faktörlü kimlik doğrulama ve koşullu erişim desteklediğinden, bir güvenlik riski düşürür. Aşağıdaki üç eylem önerilir:
 
 1. Blok [AD FS kullanıyorsanız eski bir kimlik doğrulama](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Kurulum [SharePoint Online ve Exchange Online modern kimlik doğrulaması kullanacak şekilde](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
-3. Kullanım [eski bir kimlik doğrulama engellemek için koşullu erişim ilkeleri](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication).
+3. Kullanım [eski bir kimlik doğrulama engellemek için koşullu erişim ilkeleri](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blok geçersiz kimlik doğrulama giriş noktaları
 

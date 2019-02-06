@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7cb2e4214e868bdf9f585d6b0f4468a6c8375191
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459249"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754028"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Denetleme ve SQL veritabanı ve SQL veri ambarı veritabanına erişim izni verme
 
@@ -49,13 +49,13 @@ Ayrıca, Azure Active Directory’deki bir adet kişi veya güvenlik grubu hesab
 - Bu hesaplar kullanıcı veritabanlarına `dbo` kullanıcısı olarak girer ve kullanıcı veritabanlarında tüm izinlere sahip olur. (Kullanıcı veritabanının sahibi de veritabanına `dbo` kullanıcısı olarak girer.) 
 - Girmeyin `master` olarak veritabanı `dbo` kullanıcı ve izinleri ana sınırlı. 
 - Olan **değil** standart SQL Server'ın üyeleri `sysadmin` sabit sunucu rolü, SQL veritabanı'nda kullanılabilir değil.  
-- Oluşturabilir, alter ve veritabanlarını, oturum açma bilgileri, kullanıcılar, ana ve sunucu düzeyinde güvenlik duvarı kurallarında bırakın.
+- Oluşturabilir, alter ve veritabanlarını, oturum açma bilgileri, kullanıcılar, ana ve sunucu düzeyinde IP güvenlik duvarı kurallarında bırakın.
 - Ekleyebilir ve üyeleri kaldırabilir `dbmanager` ve `loginmanager` rolleri.
 - Görüntüleyebilirsiniz `sys.sql_logins` sistem tablosu.
 
 ### <a name="configuring-the-firewall"></a>Güvenlik duvarını yapılandırma
 
-Sunucu düzeyinde güvenlik duvarı tek bir IP adresi veya aralığı için yapılandırıldığında **SQL sunucu yöneticisi** ve **Azure Active Directory yöneticisi**, ana veritabanına ve tüm kullanıcı veritabanlarına bağlanabilir. İlk sunucu düzeyi güvenlik duvarı [Azure portalı](sql-database-get-started-portal.md) üzerinden [PowerShell](sql-database-powershell-samples.md) veya [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx) kullanılarak yapılandırılabilir. Bağlantı kurulduktan sonra [Transact-SQL](sql-database-configure-firewall-settings.md) kullanarak ek sunucu düzeyi güvenlik duvarı kuralları yapılandırılabilir.
+Sunucu düzeyinde güvenlik duvarı tek bir IP adresi veya aralığı için yapılandırıldığında **SQL sunucu yöneticisi** ve **Azure Active Directory yöneticisi**, ana veritabanına ve tüm kullanıcı veritabanlarına bağlanabilir. İlk sunucu düzeyi güvenlik duvarı [Azure portalı](sql-database-single-database-get-started.md) üzerinden [PowerShell](sql-database-powershell-samples.md) veya [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx) kullanılarak yapılandırılabilir. Bağlantı kurulduktan sonra ek sunucu düzeyi IP güvenlik duvarı kurallarını da kullanarak yapılandırılabilir [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Yönetici erişim yolu
 
@@ -67,7 +67,7 @@ Yöneticiler, sunucu düzeyi güvenlik duvarındaki açık bağlantı noktaları
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>SQL Server Management Studio kullanarak bir veritabanına bağlanma
 
-Sunucu, veritabanı, sunucu düzeyi güvenlik duvarı kuralları oluşturma ve SQL Server Management Studio kullanarak bir veritabanını sorgulama adımları için bkz. [Azure portalını ve SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucuları, veritabanları ve güvenlik duvarı kurallarını oluşturmaya başlayın](sql-database-get-started-portal.md).
+Bir sunucu, veritabanı, sunucu düzeyinde IP güvenlik duvarı kuralları oluşturma ve bir veritabanını sorgulamak için SQL Server Management Studio'yu kullanarak bir kılavuz için bkz. [Azure SQL veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kuralları, Azure portalını kullanmaya başlama ve SQL Server Management Studio](sql-database-single-database-get-started.md).
 
 > [!IMPORTANT]
 > Microsoft Azure ve SQL Veritabanı güncelleştirmeleriyle aynı sürümde olmak için her zaman en güncel Management Studio sürümünü kullanmanız önerilir. [SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188784"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747467"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute İzleyicisi
 
@@ -118,23 +118,12 @@ Bildirim kodları görmek ve bunlar üzerinde uyarılar ayarlayın **LogAnalytic
 
 | Bildirim kodu (günlük) | Açıklama |
 | --- | --- |
-| 5101 | Microsoft Edge alt gösterir yüksek gecikme süresi |
-| 5102 | Microsoft Edge alt paketi bırakılıyor | 
-| 5103 oluşturun | ExpressRoute ağ geçidi sağlam değil | 
-| 5201 | Hizmet sağlayıcısının bağlantısı yüksek gecikme süresi yaşanıyor |
-| 5202 | Paketler hedeflenen ExpressRoute devresinden akmıyor |
-| 5301 | Müşteri uç yönlendiricisinde yüksek gecikme süresi yaşanıyor | 
-| 5302 | Gecikme süresi, müşterinin ortamındaki cihaz/bağlantı nedeniyle neden olur. Sorun ExpressRoute bağlantı hattı içinde devresinde değil | 
 | 5501 | ExpressRoute devresinin ikincil bağlantısı üzerinden geçiş yapılamıyor |
 | 5502 | ExpressRoute devresinin birincil bağlantısı üzerinden geçiş yapılamıyor |
 | 5503 | Çalışma alanına bağlı abonelik için devre bulunmadı | 
-| 5506 | Kullanımı en yüksek kapasiteye ulaştı | 
-| 5507 | Kullanım azaldı |
 | 5508 | Yolu için herhangi bir devreden üzerinden trafiği geçirerek olup olmadığını belirlemek kullanabilirsiniz |
 | 5510 | Trafik hedeflenen devreden geçmiyor | 
 | 5511 | Trafik, hedeflenen sanal ağ üzerinden geçmiyor | 
-| 5512 | Trafiğin hedeflenen devre üzerinden geçmediği belirlenemiyor |
-
 
 **Bağlantı hattı çalışmıyor.** Şirket içi kaynaklar ve Azure sanal ağları arasında bağlantı kaybedilirse hemen sonra Ağ Performansı İzleyicisi size bildirir. Bu bildirim yardımcı olan kullanıcı Yardım istekleri almak ve kapalı kalma süresinin azaltılmasına önce proaktif harekete.
 

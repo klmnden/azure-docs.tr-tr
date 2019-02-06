@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017108"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751931"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Güvenilir bir Internet bağlantıları Kılavuzu
 
@@ -40,16 +40,16 @@ Girişim, güvenlik ilkeleri, Kılavuzlar ve şirket içi altyapı varsayar çer
 
 Azure hizmetlerine bağlanmak için üç ana seçeneğiniz vardır:
 
-- Doğrudan internet bağlantısı: doğrudan açık internet bağlantısı üzerinden Azure hizmetlerine bağlanın. Orta ve bağlantı büyük/küçük harf ortaktır. Uygulama ve aktarım düzeyinde şifreleme sonrasında gizlilik emin olmak için yararlandı. Bant genişliği, bir sitenin internet bağlantısı ile sınırlıdır. Dayanıklılık sağlamak için birden fazla etkin sağlayıcısını kullanın.
+- Doğrudan internet bağlantısı: Azure hizmetlerini açık internet bağlantısı aracılığıyla doğrudan bağlanın. Orta ve bağlantı büyük/küçük harf ortaktır. Uygulama ve aktarım düzeyinde şifreleme sonrasında gizlilik emin olmak için yararlandı. Bant genişliği, bir sitenin internet bağlantısı ile sınırlıdır. Dayanıklılık sağlamak için birden fazla etkin sağlayıcısını kullanın.
 - Sanal özel ağ (VPN): Azure sanal ağınız için özel olarak bir VPN ağ geçidi kullanarak bağlanın.
 Bir sitenin standart internet bağlantısı geçirir, ancak gizlilik emin olmak için bir tünel bağlantısı şifreli olduğundan ortak ortamdır. VPN cihazları ve seçilen yapılandırmasına bağlı olarak, bant genişliği sınırlıdır. Azure noktadan siteye bağlantılar için 100 MB/sn genellikle sınırlıdır ve siteden siteye bağlantılar için 1,25 Gbps sınırlıdır.
-- Azure ExpressRoute: ExpressRoute Microsoft hizmetlerine doğrudan bir bağlantıdır. Bağlantı bir yalıtılmış fiber kanal aracılığıyla olduğundan, genel veya özel kullanılan yapılandırmasına bağlı olarak bağlantı olabilir. Bant, genellikle en fazla 10 GB/sn sınırlıdır.
+- Azure ExpressRoute: ExpressRoute, Microsoft hizmetlerine doğrudan bir bağlantıdır. Bağlantı bir yalıtılmış fiber kanal aracılığıyla olduğundan, genel veya özel kullanılan yapılandırmasına bağlı olarak bağlantı olabilir. Bant, genellikle en fazla 10 GB/sn sınırlıdır.
 
 TIC ek H (bulut konuları), departman, anlarında Security'nin belirtildiği gibi gereksinimlerinize birkaç şekilde "Güvenilen Internet bağlantılarını (TIC) başvuru mimarisi belgesini, sürüm 2.0." Bu makalede, DHS TIC yönergeler verilir **TIC 2.0**.
 
 Bağlantıyı etkinleştirmek için **departman veya Ajansın (D/A)** Azure veya Office 365, D/A TIC aracılığıyla trafiği yönlendirme olmadan D/A şifrelenmiş bir tünel veya Bulut hizmeti sağlayıcısı (CSP) için ayrılmış bir bağlantı kullanmanız gerekir. CSP Hizmetleri D/bulut varlıklarını bağlantısını genel İnternet'e doğrudan Ajans personelin erişimi için sunulan değil emin olabilirsiniz.
 
-Office 365 TIC 2.0 ek H ile uyumlu ya da ExpressRoute ile kullanarak [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) etkin veya TLS 1.2 kullanarak tüm trafiği şifreleyen internet bağlantısı. D/ağ D/A son kullanıcılara kendi Ajans ağ ve Internet üzerinden ONA altyapısı aracılığıyla bağlanabilirsiniz. Office 365 tüm uzak İnternet'e erişimi engellenir ve yolları Aracısı üzerinden. D/A etkin bir ExpressRoute bağlantısı üzerinden Microsoft Peering (genel eşdüzey hizmet sağlama türü) ile Office 365'e bağlantı kurabilir.  
+Office 365 TIC 2.0 ek H ile uyumlu ya da ExpressRoute ile kullanarak [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) etkin veya TLS 1.2 kullanarak tüm trafiği şifreleyen internet bağlantısı. D/ağ D/A son kullanıcılara kendi Ajans ağ ve Internet üzerinden ONA altyapısı aracılığıyla bağlanabilirsiniz. Office 365 tüm uzak İnternet'e erişimi engellenir ve yolları Aracısı üzerinden. D/A etkin bir ExpressRoute bağlantısı üzerinden Microsoft Peering (genel eşdüzey hizmet sağlama türü) ile Office 365'e bağlantı kurabilir.  
 
 Yalnızca Azure için internet erişimi sınırlayan hizmetleriyle birlikte kullanıldıktan olduğunda ikinci seçeneği (VPN) ve üçüncü bir seçenek (ExpressRoute) bu gereksinimleri karşılayabilirsiniz.
 
@@ -63,10 +63,10 @@ Ana gereksinimini ONA başvuru mimarisi ile uyumluluk sağlamak amacıyla sanal 
 
 Azure Iaas TIC uyumluluk iki büyük adım ayrılmıştır:
 
-- 1. adım: yapılandırma.
-- 2. adım: denetim.
+- 1. Adım: Yapılandırma.
+- 2. Adım: Denetim.
 
-### <a name="azure-iaas-tic-compliance-configuration"></a>Azure Iaas TIC uyumluluk: yapılandırma
+### <a name="azure-iaas-tic-compliance-configuration"></a>Azure Iaas TIC uyumluluk: Yapılandırma
 
 Azure ile uyumlu TIC mimarisi yapılandırmak için ilk uygulamanızı sanal ağınıza doğrudan internet erişimini engellemek ve ardından internet trafiğini şirket içi ağ üzerinden zorlayan gerekir.
 
@@ -85,7 +85,7 @@ Azure, sistem yollarını otomatik olarak oluşturur ve bir sanal ağ içindeki 
 
 ![TIC zorla tünel](media/tic-diagram-c.png)
 
-Sanal ağının dışına çıktıklarında tüm trafiği, tüm trafiği D/A TIC erişir emin olmak için şirket içi bağlantısı yönlendirmek gerekir. Kullanıcı tanımlı yollar oluşturarak veya şirket içi ağ geçidiniz ile bir Azure VPN gateway arasında Border Gateway Protocol (BGP) rotaları değişimi özel rotalar oluşturun. Kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz. [sanal ağ trafiği yönlendirme: kullanıcı tanımlı yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). BGP hakkında daha fazla bilgi için bkz: [sanal ağ trafiği yönlendirme: sınır ağ geçidi Protokolü](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
+Sanal ağının dışına çıktıklarında tüm trafiği, tüm trafiği D/A TIC erişir emin olmak için şirket içi bağlantısı yönlendirmek gerekir. Kullanıcı tanımlı yollar oluşturarak veya şirket içi ağ geçidiniz ile bir Azure VPN gateway arasında Border Gateway Protocol (BGP) rotaları değişimi özel rotalar oluşturun. Kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz. [sanal ağ trafiği yönlendirme: Kullanıcı tanımlı yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). BGP hakkında daha fazla bilgi için bkz: [sanal ağ trafiği yönlendirme: Sınır Ağ Geçidi Protokolü](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
 
 #### <a name="add-user-defined-routes"></a>Kullanıcı tanımlı yollar ekleme
 
@@ -124,8 +124,8 @@ Azure depolama gibi Azure PaaS hizmetlerine, İnternet'ten erişilebilen bir URL
 
 Azure PaaS hizmetlerinin sanal ağ ile tümleştirildiğinde, bu sanal ağdan erişilebilen özel bir hizmettir. Özel 0.0.0.0/0 kullanıcı tanımlı yollar veya BGP üzerinden yönlendirmeyi uygulayabilirsiniz. Tüm İnternet'e bağlı trafiği TIC geçiş için şirket yönlendiren özel yönlendirme sağlar. Azure Hizmetleri, aşağıdaki desenleri kullanarak sanal ağlara tümleştirme:
 
-- **Adanmış bir hizmet örneği dağıtmak**: PaaS hizmetlerinin giderek artan sayıda sanal ağa bağlı uç noktaları ile ayrılmış örnek olarak dağıtılabilir. PowerApps için App Service ortamı, bir sanal ağa kısıtlı ağ uç noktası izin vermek için "Yalıtılmış" modunda dağıtabilirsiniz. App Service ortamı, ardından Azure Web Apps, Azure API Management ve Azure işlevleri gibi birçok Azure PaaS hizmetlerine barındırabilirsiniz.
-- **Sanal ağ hizmet uç noktalarını kullanacak**: PaaS hizmetlerinin giderek artan sayıda genel adresi yerine bir sanal ağ özel IP kullanıcılar uç byok'ye geçme seçeneğiniz izin.
+- **Adanmış bir hizmet örneği dağıtmak**: Sayısı giderek artan PaaS Hizmetleri, sanal ağa bağlı uç noktaları ile ayrılmış örnek olarak dağıtılabilir. PowerApps için App Service ortamı, bir sanal ağa kısıtlı ağ uç noktası izin vermek için "Yalıtılmış" modunda dağıtabilirsiniz. App Service ortamı, ardından Azure Web Apps, Azure API Management ve Azure işlevleri gibi birçok Azure PaaS hizmetlerine barındırabilirsiniz.
+- **Sanal ağ hizmet uç noktalarını kullanacak**: Sayısı giderek artan PaaS Hizmetleri, bir sanal ağ özel IP genel adresi yerine kendi uç nokta byok'ye geçme seçeneğiniz izin verin.
 
 Ayrılmış örneğe ayrılmış bir sanal ağa dağıtımını ya da hizmet uç noktaları, Mayıs 2018'den itibaren kullanımını destekleyen hizmetleri aşağıdaki tablolarda listelenmiştir.
 
@@ -157,7 +157,7 @@ Ayrılmış örneğe ayrılmış bir sanal ağa dağıtımını ya da hizmet uç
 |Azure Active Directory                | GA               |
 |Azure Batch                           | GA               |
 |App Service Ortamı               | GA               |
-|Redis için Azure Cache                     | GA               |
+|Redis için Azure Önbelleği                     | GA               |
 |Azure HDInsight                       | GA               |
 |Sanal makine ölçek kümesi             | GA               |
 |Azure Cloud Services                  | GA               |
@@ -165,7 +165,7 @@ Ayrılmış örneğe ayrılmış bir sanal ağa dağıtımını ya da hizmet uç
 
 ### <a name="virtual-network-integration-details"></a>Sanal ağ tümleştirmesi ayrıntıları
 
-Aşağıdaki diyagramda PaaS hizmetlerine erişim için genel ağ akışı gösterilmektedir. Erişim, sanal ağ ekleme hem sanal ağ hizmet tüneli gösterilir. Ağ hizmeti ağ geçitleri, sanal ağlar ve hizmet etiketleri hakkında daha fazla bilgi için bkz: [ağ ve uygulama güvenlik grupları: hizmet etiketleri](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Aşağıdaki diyagramda PaaS hizmetlerine erişim için genel ağ akışı gösterilmektedir. Erişim, sanal ağ ekleme hem sanal ağ hizmet tüneli gösterilir. Ağ hizmeti ağ geçitleri, sanal ağlar ve hizmet etiketleri hakkında daha fazla bilgi için bkz: [ağ ve uygulama güvenlik grupları: Hizmet etiketleri](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ![TIC PaaS bağlantı seçenekleri](media/tic-diagram-e.png)
 
@@ -178,13 +178,13 @@ Aşağıdaki diyagramda PaaS hizmetlerine erişim için genel ağ akışı göst
    - Doğrudan sanal ağa dağıtılır.
    - Seçmeli olarak izin verilen, ilgili Azure hizmeti kılavuzdan temel.
 
-#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Seçenek A: bir hizmeti (sanal ağ ekleme) ayrılmış bir örneğini Dağıt
+#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Seçenek A: Bir hizmeti (sanal ağ ekleme) ayrılmış bir örneğini dağıtma
 
 Sanal ağ ekleme müşterilerin belirli bir Azure hizmetinin, HDInsight gibi kendi sanal ağına ayrılmış örnekleri seçmeli olarak dağıtmasına olanak sağlar. Hizmet örnekleri, bir müşterinin sanal ağ içinde ayrılmış bir alt ağa dağıtılır. Sanal ağ ekleme dışında Internet yönlendirilebilir adresleri üzerinden hizmeti kaynaklarına erişimi sağlar. Şirket içi örneklerini, ExpressRoute veya siteden siteye VPN aracılığıyla ortak Internet adres alanı için bir güvenlik duvarını açmak yerine, sanal ağ adres alanı, hizmet örneklerinin doğrudan erişmek için kullanın. Bir uç nokta için ayrılmış bir örnek eklendiğinde, aynı stratejiler Iaas TIC uyumluluk olduğu gibi kullanabilirsiniz. Varsayılan yönlendirme Internet bağlantılı trafiğin şirket içi için bağlı bir sanal ağ geçidine yönlendirilir sağlar. Daha fazla belirli alt ağ için Nsg aracılığıyla gelen ve giden erişimi denetleyebilirsiniz.
 
 ![Sanal ağ ekleme genel bakış](media/tic-diagram-f.png)
 
-#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Seçenek B: kullanım sanal ağ hizmet uç noktaları (hizmet tüneli)
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Seçenek B: Sanal ağ hizmet uç noktaları (hizmet tüneli) kullanın
 
 Azure çok kiracılı hizmetler artan sayıda sunan "hizmet uç noktaları." Hizmet uç noktaları, Azure sanal ağlarına tümleştirmek için alternatif bir yöntemdir. Sanal ağ hizmet uç noktaları, sanal ağ IP adres alanınızı ve hizmetine sanal ağınızın kimliğini doğrudan bağlantı üzerinden genişletin. Bir Azure hizmetine sanal ağ arasında trafik her zaman Azure omurga ağında kalır. 
 
@@ -245,7 +245,7 @@ Ağ İzleyicisi tarafından izlenen bölgelerdeki ağlar, sonraki atlama testler
 
 Microsoft Azure, Office 365 ve Dynamics 365 olarak yazılmış ve tanımlanmış Mayıs 2018 TIC 2.0 ek H rehberlik ile uyum sağlanmasına yardımcı erişimi kolayca yapılandırabilirsiniz. Microsoft, TIC Kılavuzu değişebilir olduğunu algılar. Yeni bir kılavuz yayınlandığında Kılavuzu zamanında karşılamak müşterilere yardımcı olmak Microsoft çalışmaları.
 
-## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Ek: Ortak iş yükleri güvenilir Internet bağlantıları desenleri
+## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Ek: Ortak iş yükleri için güvenilir Internet bağlantıları desenleri
 
 | Kategori | İş yükü | IaaS | PaaS ayrılmış / sanal ağ ekleme  | Hizmet uç noktaları  |
 |---------|---------|---------|---------|--------|
@@ -263,7 +263,7 @@ Microsoft Azure, Office 365 ve Dynamics 365 olarak yazılmış ve tanımlanmış
 | Database | PostgreSQL için Azure Veritabanı | | | Evet |
 | Database | Azure SQL Veri Ambarı | | | Evet |
 | Database | Azure Cosmos DB | | | Evet |
-| Database | Redis için Azure Cache | | Evet | |
+| Database | Redis için Azure Önbelleği | | Evet | |
 | Depolama | Azure Blob depolama | Evet | | |
 | Depolama | Azure Dosyaları | Evet | | |
 | Depolama | Azure kuyruk depolama | Evet | | |

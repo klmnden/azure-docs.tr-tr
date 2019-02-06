@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 257e9f72f21d523dfa2390814b786d1963dd671c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904013"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743642"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Rezervasyonlar Azure kaynaklarını yönetme
 
@@ -36,11 +36,11 @@ Rezervasyon kapsamı güncelleştirilemedi:
 2. Seçin **tüm hizmetleri** > **ayırmaları**.
 3. Ayırma seçin.
 4. **Ayarlar** > **Yapılandırma**'yı seçin.
-5. Kapsamını değiştirin. 
+5. Kapsamını değiştirin.
 
 Gelen tek bir kapsam için paylaşılan değiştirirseniz, yalnızca sahibi olduğu abonelikleri seçebilirsiniz. Yalnızca abonelikleri ayırma olarak fatura aynı bağlam içinde seçilebilir.
 
-Kapsamı yalnızca Kullandıkça Öde teklifi MS-AZR - 0003 P, MS-AZR - 0017 P Kurumsal teklif veya CSP aboneliği türleri için geçerlidir. Kurumsal anlaşmalar için geliştirme ve test abonelikleri ayırma indirim almak uygun değildir.
+Kapsamı yalnızca Kullandıkça Öde teklifine MS-AZR - 0017 P veya MS-AZR - 0148 P MS-AZR - 0003 P veya MS-AZR - 0023 P, Kurumsal teklif veya CSP aboneliği türleri için geçerlidir.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Ekleme veya ayırma yönetebilen kullanıcılar değiştirme
 

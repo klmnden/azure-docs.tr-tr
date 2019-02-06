@@ -1,31 +1,33 @@
 ---
-title: "Hızlı Başlangıç: Bing varlık arama API'si, PHP"
+title: "Hızlı Başlangıç: PHP kullanarak Bing varlık arama REST API'si için bir arama isteği gönder"
 titlesuffix: Azure Cognitive Services
-description: Bing Varlık Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
+description: Bu hızlı başlangıçta, PHP kullanarak Bing varlık arama REST API'si için bir istek göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 5915346deeea76da8b37ddfbb618fed8392fe725
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8d963c0de272b29ab592536802ad23387a9b8dad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195503"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753444"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-php"></a>Hızlı başlangıç: PHP ile Bing Varlık Arama API'si
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Hızlı Başlangıç: PHP kullanarak Bing varlık arama REST API'si için bir arama isteği gönder
 
-Bu makalede nasıl kullanılacağını gösterir [Bing varlık arama](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) PHP ile API.
+Bu hızlı başlangıçta, Bing varlık arama API'si, ilk çağrı yapmak ve JSON yanıtı görüntülemek için kullanın. Bu basit bir PHP uygulaması, API için bir haber arama sorgu gönderir ve yanıt görüntüler. 
+
+Bu uygulama, PHP'de yazılmış olsa da çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kodu çalıştırmak için [PHP 5.6.x](http://php.net/downloads.php) sürümüne ihtiyacınız vardır.
+* [PHP 5.6.x](http://php.net/downloads.php) veya üzeri
 
-**Bing Varlık Arama API'sine** sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.   Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="search-entities"></a>Varlık arama
 
@@ -145,11 +147,10 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 }
 ```
 
-[Başa dön](#HOLTop)
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing Varlık Arama öğreticisi](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing Varlık Arama'ya genel bakış](../search-the-web.md )
-> [API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Tek sayfa uygulaması oluşturma](../tutorial-bing-entities-search-single-page-app.md)
+
+* [Bing varlık arama API'si nedir?](../overview.md )
+* [Bing varlık arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

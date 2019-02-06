@@ -3,7 +3,7 @@ title: Azure kullanılabilirlik alanları ile SAP iş yükü yapılandırmaları
 description: Yüksek kullanılabilirlik mimarisi ve senaryolar için Azure kullanılabilirlik alanları kullanarak SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2019
-ms.author: msjuergent
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56c1ffd314a9a8e9440832b9fd92a51cdaf9f228
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 409a304296d3fdff897a203177e2c150162755c6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735658"
+ms.locfileid: "55746226"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure kullanılabilirlik alanları ile SAP iş yükü yapılandırmaları
 
@@ -74,7 +74,7 @@ Kullanılabilirlik alanları nasıl yararlanabilir karar vermek için size bir a
 ### <a name="network-latency-between-zones-and-within-zone"></a>Bölge içinde ve bölgeler arasındaki ağ gecikme süresi
 Farklı bölgeler arasında bir gecikme ne olduğunu öğrenmek için gerekir:
 
-- DBMS Örneğinizde üç tüm bölgeler için kullanmak istediğiniz VM SKU dağıtın. Emin olun, [Azure hızlandırılmış ağ](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) Bu ölçüm gerçekleştirirken etkin
+- DBMS Örneğinizde üç tüm bölgeler için kullanmak istediğiniz VM SKU dağıtın. Emin olun [Azure hızlandırılmış ağ](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) Bu ölçüm gerçekleştirirken etkin
 - En düşük ağ gecikme süresi ile iki bölgeleri buldukça, üç kullanılabilirlik alanları genelinde uygulama katmanı VM olarak kullanmak istediğiniz VM SKU'ların başka bir üç VM dağıtın. Ağ gecikme süresi iki 'DBMS VM' karşı iki farklı 'DBMS' bölgeleri tercih ettiğiniz ölçün. 
 - Ölçmek için bir araç olarak kullanmak **niping**. SAP destek notları açıklandığı çalışan SAP aracından [#500235](https://launchpad.support.sap.com/#/notes/500235) ve [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Komutları için gecikme süresi ölçümlerini belgelenen SAP odaklanır. Kullanarak **ping** beri önerilen aracı değil **ping** Azure çalışmaz hızlandırılmış ağ kod yolları.
 

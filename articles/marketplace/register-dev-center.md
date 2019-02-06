@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66daa71ffbe97e9f5374eedd7f51e5afe02f0b94
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179846"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755535"
 ---
 # <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne kaydolun  
 Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımcı olmak için yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumu açın.  
@@ -78,7 +78,7 @@ Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımc�
     | Faturalandırma modeli | Sonraki adımlar |  
     |:--- |:--- |  
     | Ücretsiz | Bulut iş ortağı Portalı'na gidin.<ul> <li>Azure Marketi'nde içerik yayımlamak için sayfasında bulunan bulut iş ortağı portalını ziyaret edin [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
-    | Ticari (transact) | Hesap bilgilerinizi güncelleştirin.<ul> <li>Hesap bilgileri ekleme hakkında daha fazla bilgi için ziyaret [Ekle banka ve vergi bilgilerini](#how-to-add-bank-and-tax-information) bölümü.</li> </ul> |  
+    | Ticari (transact) | Hesap bilgilerinizi güncelleştirin.<ul> <li>Hesap bilgileri ekleme hakkında daha fazla bilgi için ziyaret [Ekle banka ve vergi bilgilerini](#add-bank-information) bölümü.</li> </ul> |  
 
     *   Bir saatlik faturalandırma modeli ile bir VM teklifi ticari bir teklif örneğidir.  
 
@@ -146,7 +146,7 @@ Banka ve vergi bilgilerini liste türünü transact kullanarak tüm ticari tekli
 > Liste türü Transact içinde yayımlama yayımcısı: VM, Azure uygulamaları: Çözüm şablonları ve yönetilen uygulamalar.  
 
 *   **Neden Geliştirme Merkezi hesabı gerekir mi?**
-> Geliştirme Merkezi hesabı bir için liste türünü Transact publisher'ın sizin adınıza müşteri faturalandırmak Microsoft etkinleştirmek için gereklidir. Kayıt sağlar: yasal doğrulamak Microsoft Geliştirme Merkezi hesabı vergi ve bankacılık bilgilerini şirketinizin. Bilgi için daha fazla tıklayın [burada.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
+> Geliştirme Merkezi hesabı bir için liste türünü Transact publisher'ın sizin adınıza müşteri faturalandırmak Microsoft etkinleştirmek için gereklidir. Kayıt sağlar: yasal doğrulamak Microsoft Geliştirme Merkezi hesabı vergi ve bankacılık bilgilerini şirketinizin. Bilgi için daha fazla tıklayın [burada.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
 *   **Geliştirme Merkezi kayıt ile nasıl başlayabilirim?**
 > Çoğaltma önlemek için şirketinizin zaten kayıtlı bir Geliştirme Merkezi hesabı olmadığını doğrulayın. Geliştirici hesabınızla ilişkilendirmek istediğiniz bir Microsoft hesabıyla oturum açmanız gerekir. Bir Microsoft hesabınız yoksa, yeni bir hesap oluşturabilirsiniz [burada.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (örnek: contoso_marketplace@live.com) oturum açın ve kaydetmek için Git https://dev.windows.com/en-us/registration?accountProgram=Azure
@@ -184,7 +184,7 @@ Banka ve vergi bilgilerini liste türünü transact kullanarak tüm ticari tekli
 > Bir geçici şirket adı atayın, desteğe başvurun [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) ve bunları iş kayıt belgelerinizi sağlayın.
 
 *   **Vergi ve ödeme bilgilerimi nasıl ekleyebilirim?**
-> Yayımlamak mümkün olmayacaktır vergi ve banka bilgilerinde Geliştirici Merkezi hesabınızda tamamlamadan teklifler transact.  Hesap bilgileri ekleme hakkında daha fazla bilgi için ziyaret [Ekle banka ve vergi bilgilerini.](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
+> Yayımlamak mümkün olmayacaktır vergi ve banka bilgilerinde Geliştirici Merkezi hesabınızda tamamlamadan teklifler transact.  Hesap bilgileri ekleme hakkında daha fazla bilgi için ziyaret [Ekle banka ve vergi bilgilerini.](https://docs.microsoft.com/azure/marketplace/register-dev-center)
 
 *   **Dev Center Microsoft oturum açma hesabı değiştirebilirim?**
 > Hayır. Sahip hesabı, bir geliştirme merkezi oluşturulduktan sonra değiştirilemez. İstenen Microsoft hesabı ile yeni bir Geliştirme Merkezi hesabı ile baştan başlatmak gerekir.

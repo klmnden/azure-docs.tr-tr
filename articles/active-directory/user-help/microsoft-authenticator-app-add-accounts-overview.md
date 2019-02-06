@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
-ms.openlocfilehash: 42cc101f76d106c82dd418d9207ba44f15d96b79
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: abae7e3a8be87f51fe49f61305d54158e98ca5b0
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476290"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750894"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulamasına hesapları ekleme hakkında genel bakış
 
@@ -24,6 +24,9 @@ ms.locfileid: "55476290"
 >Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
 
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
+
+>[!Important]
+>Microsoft Authenticator uygulamasını iki aşamalı doğrulama kullanan tüm uygulamalarda ve zamana bağlı bir kerelik parola (TOTP) standartlarını destekleyen herhangi bir hesabı ile çalışır.
 
 Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 
@@ -44,7 +47,7 @@ Her gün kullandığınız birçok hesap için iki aşamalı doğrulamayı etkin
 |------|------------|
 |[İş veya Okul hesabınızı ekleyin](microsoft-authenticator-app-add-work-account.md)|İki aşamalı doğrulama için Microsoft Authenticator uygulaması için iş veya Okul hesabınızı eklemek açıklar.|
 |[Kişisel Microsoft hesabınızı ekleyin](microsoft-authenticator-app-add-personal-account.md)|Microsoft Kişisel hesaplarınız için iki aşamalı doğrulama ve telefonla oturum açma (diğer adıyla parolasız oturum açma) eklemeyi açıklar.|
-|[Kişisel Microsoft dışı hesabınızı ekleyin](microsoft-authenticator-app-add-non-microsoft-account.md)|Microsoft olmayan kişisel hesaplarınız için iki aşamalı doğrulama eklemeyi açıklar.|
+|[Microsoft olmayan hesabınızı ekleyin](microsoft-authenticator-app-add-non-microsoft-account.md)|İki aşamalı doğrulama için Microsoft olmayan hesapların eklemeyi açıklar.|
 |[El ile hesabınızı ekleyin](microsoft-authenticator-app-add-account-manual.md)|Kameranız QR kodunu yakalarsanız el ile hesabınızı Microsoft Authenticator uygulamasına nasıl ekleneceğini açıklar.|
 
 

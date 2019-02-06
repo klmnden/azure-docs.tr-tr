@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 2c981d33c8108386e0287d4c2a800f065c9dc431
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452864"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754609"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Üzerinde veri bilimi sanal makinesi ortak bir kimlik ayarlayın
 
@@ -31,7 +31,7 @@ Active Directory, popüler kimlik sağlayıcısı ve Azure üzerinde bir hizmet 
 
 Kimliklerini yönetmek için Active Directory zaten varsa, ortak bir kimlik sağlayıcısı olarak kullanabilirsiniz. Active Directory yoksa, adlı bir hizmet aracılığıyla yönetilen bir Active Directory örneğini Azure üzerinde çalıştırabilirsiniz [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS). 
 
-Belgelerine [Azure AD'ye](https://docs.microsoft.com/azure/active-directory/) sağlayan ayrıntılı [yönetim yönergeleri](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity), varsa şirket içi dizininizi Azure AD'ye bağlanma dahil olmak üzere. 
+Belgelerine [Azure AD'ye](https://docs.microsoft.com/azure/active-directory/) sağlayan ayrıntılı [yönetim yönergeleri](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), varsa şirket içi dizininizi Azure AD'ye bağlanma dahil olmak üzere. 
 
 Bu makalede Azure AD DS kullanarak azure'da tam olarak yönetilen bir Active Directory etki alanı hizmeti ayarlamak için gereken adımlar açıklanmaktadır. Ardından, ortak bir kullanıcı hesabı ve kimlik bilgilerini kullanarak Dsvm'leri (ve diğer Azure kaynakları) oluşan bir havuz erişmelerini sağlamak için yönetilen Active Directory etki alanında, Dsvm'leri katılmasını sağlayabilirsiniz. 
 

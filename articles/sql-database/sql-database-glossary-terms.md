@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/31/2019
-ms.openlocfilehash: da0f26b8a9a986230381669063f5d9c767a996a3
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/05/2019
+ms.openlocfilehash: 0ae6dea86019b84e8d086a595995f8bd5b2a55ed
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513585"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753308"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL veritabanı terimler sözlüğü
 
@@ -36,9 +36,9 @@ Veritabanı nesneleri|Azure SQL veritabanı|Azure SQL veritabanı'nda herhangi b
 ||Temel veritabanı|Bir veritabanı içinde oluşturulan veya DTU tabanlı satın alma modeli temel hizmet katmanına taşınan|
 ||Standart veritabanı|Bir veritabanı içinde oluşturulan veya DTU tabanlı satın alma modeli, standart hizmet katmanına taşınan|
 ||Premium veritabanı|Bir veritabanı içinde oluşturulan veya premium Hizmet katmanını, DTU tabanlı satın alma modeli taşındı|
-||Genel amaçlı veritabanı|Bir veritabanı içinde oluşturulan veya DTU tabanlı satın alma modeli genel amaçlı hizmet katmanına taşınan|
-||Hiper ölçekli veritabanı|Bir veritabanı içinde oluşturulan veya DTU tabanlı satın alma modeli hiper ölçekli hizmet katmanına taşınan|
-||İş kritik veritabanı|Bir veritabanı içinde oluşturulan veya DTU tabanlı satın alma modeli iş kritik hizmet katmanına taşınan|
+||Genel amaçlı veritabanı|Bir veritabanı içinde oluşturulan veya genel amaçlı sanal çekirdek tabanlı satın alma modeli hizmet katmanına taşınan|
+||Hiper ölçekli veritabanı|Bir veritabanı içinde oluşturulan veya sanal çekirdek tabanlı satın alma modeli hiper ölçekli hizmet katmanına taşınan|
+||İş kritik veritabanı|Bir veritabanı içinde oluşturulan veya sanal çekirdek tabanlı satın alma modeli iş kritik hizmet katmanına taşınan|
 |[Satın alma modelleri ve kaynakları](sql-database-service-tiers.md)|DTU tabanlı satın alma modeli|[DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)|
 ||Sanal çekirdek tabanlı satın alma modeli|[Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md)|
 ||Sanal Çekirdek|Konuk işletim sistemi hiper yönetici tarafından sağlanan bir çekirdek.|
@@ -46,7 +46,7 @@ Veritabanı nesneleri|Azure SQL veritabanı|Azure SQL veritabanı'nda herhangi b
 ||İşlem boyutu|Tek veritabanı, esnek havuz veya yönetilen örneği bir hizmet katmanında işlem kaynakları miktarı|
 ||Depolama alanı miktarı|Tek veritabanı, esnek havuz veya yönetilen örnek için kullanılabilir depolama miktarını|
 ||İşlem oluşturma|Bir hizmet katmanında işlemcisi oluşturma|
-|Veritabanı sunucusu güvenlik duvarı kuralları|IP güvenlik duvarı kuralları|[IP güvenlik duvarı kuralları](sql-database-firewall-configure.md)|
+|Veritabanı sunucusu IP güvenlik duvarı kuralları|IP güvenlik duvarı kuralları|[IP güvenlik duvarı kuralları](sql-database-firewall-configure.md)|
+||Sunucu düzeyinde IP güvenlik duvarı kuralları|[Sunucu düzeyinde IP güvenlik duvarı kuralları](sql-database-firewall-configure.md#overview)|
+|| Veritabanı düzeyinde IP güvenlik duvarı kuralları|[Veritabanı düzeyinde IP güvenlik duvarı kuralları](sql-database-firewall-configure.md#overview)|
 ||Sanal ağ uç noktaları ve kurallar|[Sanal ağ uç noktaları ve kurallar](sql-database-vnet-service-endpoint-rule-overview.md)|
-||Sunucu düzeyinde güvenlik duvarı kuralları|[Veritabanı sunucu düzeyinde güvenlik duvarı kuralları](sql-database-firewall-configure.md#server-level-firewall-rule-versus-a-database-level-firewall-rule)|
-|| Veritabanı düzeyinde güvenlik duvarı kuralları|[Veritabanı sunucu düzeyinde güvenlik duvarı kuralları](sql-database-firewall-configure.md#server-level-firewall-rule-versus-a-database-level-firewall-rule)|

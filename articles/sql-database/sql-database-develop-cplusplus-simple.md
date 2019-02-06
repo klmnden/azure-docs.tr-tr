@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 6ebef74cee6f919fe6b8cf666db06e0ab22cec73
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566933"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755161"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C ve C++ kullanarak SQL veritabanına bağlanma
 
@@ -40,7 +40,7 @@ Azure, şu anda SQL server iş yüklerini barındırmak için iki seçenek vard�
 Azure SQL DB'ye bağlanmanın farklı değildir ve şu anda veritabanlarına bağlanmak için iki yolu vardır: ODBC (açık veritabanı bağlantısı) ve OLE DB (nesne bağlama ve katıştırma veritabanı). Son yıllarda Microsoft birlikte hizalanır [yerel ilişkisel veri erişimi için ODBC](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC görece basit ve ayrıca hızlıdır OLE DB ' dir. Burada yalnızca uyarı ODBC eski C stili API kullanmasıdır.
 
 ## <a id="Create"></a>1. adım:  Azure SQL veritabanınızı oluşturma
-Bkz: [Başlarken sayfası](sql-database-get-started-portal.md) örnek veritabanını oluşturma hakkında bilgi edinmek için.  Alternatif olarak, bu izleyebilirsiniz [kısa iki dakikalık video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) Azure portalını kullanarak bir Azure SQL veritabanı oluşturmak için.
+Bkz: [Başlarken sayfası](sql-database-single-database-get-started.md) örnek veritabanını oluşturma hakkında bilgi edinmek için.  Alternatif olarak, bu izleyebilirsiniz [kısa iki dakikalık video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) Azure portalını kullanarak bir Azure SQL veritabanı oluşturmak için.
 
 ## <a id="ConnectionString"></a>2. adım:  Bağlantı dizesini alma
 Azure SQL veritabanınızı sağlandıktan sonra bağlantı bilgilerini belirlemek ve istemci IP Güvenlik Duvarı erişim eklemek için aşağıdaki adımları gerçekleştirmek gerekir.

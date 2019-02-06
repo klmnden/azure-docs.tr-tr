@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f979922b2abd2ce1a707a8b91656bbe64119938
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38dec49083e84d105f4eed9cbc149bbc025c5e40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157270"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755722"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Öğretici: Azure CLI ile sanal makine ölçek kümeleri, uygulamaları yükleme
 Bir ölçek kümesindeki sanal makine (VM) örneklerinde uygulamaları çalıştırmak için önce uygulama bileşenlerini ve gerekli dosyaları yüklemeniz gerekir. Önceki bir öğreticide, sanal makine örneklerinizi dağıtmak için nasıl özel sanal makine görüntüsü oluşturulacağını ve kullanılacağını öğrendiniz. Bu özel görüntüde, el ile uygulama yüklemeleri ve yapılandırmaları yer alıyordu. Her sanal makine örneği dağıtıldıktan sonra bir ölçek kümesine uygulamaların yüklenmesini otomatikleştirebilir veya önceden ölçek kümesinde çalıştırılan bir uygulamayı güncelleştirebilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -82,7 +82,7 @@ Tüm ölçek kümesi kaynaklarının ve VM'lerin oluşturulup yapılandırılmas
 
 
 ## <a name="apply-the-custom-script-extension"></a>Özel Betik Uzantısı’nı uygulama
-[az vmss extension set](/cli/azure/vmss/extension#set) komutunu kullanarak ölçek kümenizdeki sanal makine örneklerine Özel Betik Uzantısı yapılandırmasını uygulayın. Aşağıdaki örnek, *myResourceGroup* adlı kaynak grubundaki *myScaleSet* sanal makine örneklerine *customConfig.json* yapılandırmasını uygular:
+[az vmss extension set](/cli/azure/vmss/extension) komutunu kullanarak ölçek kümenizdeki sanal makine örneklerine Özel Betik Uzantısı yapılandırmasını uygulayın. Aşağıdaki örnek, *myResourceGroup* adlı kaynak grubundaki *myScaleSet* sanal makine örneklerine *customConfig.json* yapılandırmasını uygular:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -112,7 +112,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Web sunucunuzu çalışır halde görmek için [az network public-ip show](/cli/azure/network/public-ip#show) ile yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek ölçek kümesinin bir parçası olarak oluşturulan *myScaleSetLBPublicIP* için IP adresini alır:
+Web sunucunuzu çalışır halde görmek için [az network public-ip show](/cli/azure/network/public-ip) ile yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek ölçek kümesinin bir parçası olarak oluşturulan *myScaleSetLBPublicIP* için IP adresini alır:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Geçerli kabuğunuzda *customConfigv2.json* adlı bir dosya oluşturup aşağıd
 }
 ```
 
-[az vmss extension set](/cli/azure/vmss/extension#set) komutunu kullanarak ölçek kümenizdeki sanal makine örneklerine Özel Betik Uzantısı yapılandırmasını tekrar uygulayın. Uygulamanın güncelleştirilmiş sürümünü uygulamak için *customConfigv2.json* kullanılır:
+[az vmss extension set](/cli/azure/vmss/extension) komutunu kullanarak ölçek kümenizdeki sanal makine örneklerine Özel Betik Uzantısı yapılandırmasını tekrar uygulayın. Uygulamanın güncelleştirilmiş sürümünü uygulamak için *customConfigv2.json* kullanılır:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -159,7 +159,7 @@ az vmss extension set \
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Ölçek kümenizi ve ek kaynaklarınızı kaldırmak için [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu ve bu kaynak grubunun tüm kaynaklarını silin. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
+Ölçek kümenizi ve ek kaynaklarınızı kaldırmak için [az group delete](/cli/azure/group) komutunu kullanarak kaynak grubunu ve bu kaynak grubunun tüm kaynaklarını silin. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

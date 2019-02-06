@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 9b66a7a176862fce687b7cc0b1ff3c14bda118d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243898"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745410"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure stack'teki Git ile API Sürüm profillerini kullanma
 
@@ -68,7 +68,7 @@ Azure Stack'te Go kod örneği çalıştırmak için aşağıdaki adımları izl
 
    > [!NOTE]  
    > **ResourceManagerUrl** olan Azure Stack geliştirme Seti'ni (ASDK): `https://management.local.azurestack.external/`  
-   > **ResourceManagerUrl** tümleşik sisteminde: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+   > **ResourceManagerUrl** tümleşik sisteminde: `https://management.<region>.<fqdn>/`  
    > Gerekli meta verilerini almak için: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
    Örnek JSON dosyası:
@@ -126,7 +126,7 @@ Azure Stack'te Go kod örneği çalıştırmak için aşağıdaki adımları izl
 
 Go SDK profilini kullanarak Azure Stack üzerinde bir sanal ağ oluşturma tam bir örnek için bkz [örnek](#example).
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Alınacak **yetkilendirici** Go SDK kullanarak Azure Active Directory özelliğini yükleyin **Git AutoRest** modüller. Bu modüller zaten "Go SDK" yüklemeye yüklenmiş olması gerekir; Aksi takdirde, yükleme [GitHub kimlik doğrulaması paketinden](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 

@@ -12,12 +12,12 @@ ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 216a2e31074f7afe944611de12fe2d45d9d236cf
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f740e6b16426f34adf391af37d365e0d6d672dfe
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413762"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755110"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması
 
@@ -232,4 +232,4 @@ Aşağıdaki seçenekler desteklenir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Daha fazla bilgi edinin [kimliklerini Azure kaynakları için yönetilen](/azure/active-directory/managed-identities-azure-resources/).
-- Daha fazla bilgi edinin [Azure AD kimlik doğrulama senaryoları](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application).
+- Daha fazla bilgi edinin [Azure AD kimlik doğrulama senaryoları](/azure/active-directory/develop/active-directory-authentication-scenarios).

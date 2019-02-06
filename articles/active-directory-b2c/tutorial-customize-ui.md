@@ -1,5 +1,5 @@
 ---
-title: Öğretici - Azure Active Directory B2C uygulamalarınızın, kullanıcı arabirimini özelleştirme | Microsoft Docs
+title: Öğretici - özelleştirebilir kullanıcı deneyimleri - Azure Active Directory B2C | Microsoft Docs
 description: Azure portalını kullanarak uygulamalarınızı Azure Active Directory B2C, kullanıcı arabirimini özelleştirmeyi öğrenin.
 services: B2C
 author: davidmu1
@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1c95772eeb6057b4ff7b12a79897fda73e1e017c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f3bc1789d0b521b0d91ca42ebe472fed0225d87b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156673"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752390"
 ---
-# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Öğretici: Uygulamalarınızı Azure Active Directory B2C, kullanıcı arabirimini özelleştirme
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanıcı deneyimleri arabirimini özelleştirme
 
 Daha yaygın kullanıcı deneyimleri için gibi kaydolma, oturum açma ve profil düzenleme, kullanabileceğiniz [kullanıcı akışları](active-directory-b2c-reference-policies.md) Azure Active Directory (Azure AD) B2C'de. Bu öğreticide bilgiler edinin yardımcı olur nasıl [kullanıcı arabirimini (UI) özelleştirmek](customize-ui-overview.md) kendi HTML ve CSS dosyaları kullanarak bu deneyimleri.
 
@@ -25,14 +25,14 @@ Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * UI özelleştirme dosyaları oluşturma
-> * Dosyaları kullanan bir kaydolma ve oturum açma kullanıcı Akış oluşturma
+> * Güncelleştirme dosyaları kullanmak için kullanıcı akışı
 > * Özelleştirilmiş UI testi
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Henüz kendi oluşturmadıysanız [Azure AD B2C Kiracısı](tutorial-create-tenant.md), şimdi oluşturun. Önceki bir öğreticide oluşturduysanız, mevcut bir kiracınız kullanabilirsiniz.
+[Kullanıcı akışı Oluştur](tutorial-create-user-flows.md) etkinleştirme kullanıcıların kaydolmak ve uygulamanız için oturum açın.
 
 ## <a name="create-customization-files"></a>Özelleştirme dosyaları oluşturma
 
@@ -42,17 +42,15 @@ Bir Azure depolama hesabı ve kapsayıcı oluşturur ve ardından kapsayıcıda 
 
 Bu öğretici için birçok yolla dosyalarınızı depolayabilirsiniz olsa da, onları depolamak [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md).
 
-1. Azure aboneliğinizi içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve aboneliğinizi içeren dizini seçin. Bu dizin, Azure B2C kiracınızın içerdiğinden hesaptan farklıdır.
-
-    ![Abonelik dizinine geçin](./media/tutorial-customize-ui/switch-directories.png)
-
-2. Tüm hizmetleri Azure portalının sol üst köşedeki seçin, arayın ve seçin **depolama hesapları**. 
-3. **Add (Ekle)** seçeneğini belirleyin.
-4. Altında **kaynak grubu**seçin **Yeni Oluştur**yeni kaynak grubu için bir ad girin ve ardından **Tamam**.
-5. Depolama hesabı için bir ad girin. Seçtiğiniz ad Azure’da benzersiz olmalı, uzunluğu 3 ile 24 karakter arasında olmalı ve yalnızca sayı ile küçük harf içermelidir.
-6. Depolama hesabının konumu seçin veya varsayılan konumu kabul edin. 
-7. Diğer tüm varsayılan değerleri kabul edin, seçin **gözden geçir + Oluştur**ve ardından **Oluştur**.
-8. Depolama hesabı oluşturulduktan sonra seçin **kaynağa Git**.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Azure aboneliğinizi içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve aboneliğinizi içeren dizini seçin. Bu dizin, Azure B2C kiracınızın içerdiğinden hesaptan farklıdır.
+3. Tüm hizmetleri Azure portalının sol üst köşedeki seçin, arayın ve seçin **depolama hesapları**. 
+4. **Add (Ekle)** seçeneğini belirleyin.
+5. Altında **kaynak grubu**seçin **Yeni Oluştur**yeni kaynak grubu için bir ad girin ve ardından **Tamam**.
+6. Depolama hesabı için bir ad girin. Seçtiğiniz ad Azure’da benzersiz olmalı, uzunluğu 3 ile 24 karakter arasında olmalı ve yalnızca sayı ile küçük harf içermelidir.
+7. Depolama hesabının konumu seçin veya varsayılan konumu kabul edin. 
+8. Diğer tüm varsayılan değerleri kabul edin, seçin **gözden geçir + Oluştur**ve ardından **Oluştur**.
+9. Depolama hesabı oluşturulduktan sonra seçin **kaynağa Git**.
 
 ### <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
@@ -137,42 +135,17 @@ Bu öğreticide, Azure AD B2C bunlara erişebilmesi için depolama hesabında ol
 4. Daha sonra öğreticide kullanmak üzere karşıya yüklediğiniz dosyanın URL'sini kopyalayın.
 5. İçin 3 ve 4 adımı yineleyin *style.css* dosya.
 
-## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Kaydolma ve oturum açma kullanıcı akışı oluştur
+## <a name="update-the-user-flow"></a>Kullanıcı akışı güncelleştir
 
-Bu öğreticideki adımları tamamlamak için Azure AD B2C'de bir test kullanıcı uygulama ve kaydolma veya oturum açma akışını oluşturmaya gerekir. Profil düzenleme gibi diğer kullanıcı deneyimleri için Bu öğreticide açıklanan ilkeler uygulayabilirsiniz.
-
-### <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C'yi uygulama oluşturma
-
-Azure AD B2C ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinden gerçekleşir. Aşağıdaki adımlar, döndürülen yetkilendirme belirteci yeniden yönlendiren bir uygulama oluşturur [ https://jwt.ms ](https://jwt.ms).
-
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
-3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
-4. Seçin **uygulamaları**ve ardından **Ekle**.
-5. Uygulama için bir ad girin, örneğin *testapp1*.
-6. İçin **Web uygulaması / Web API'sini**seçin `Yes`yazıp enter `https://jwt.ms` için **yanıt URL'si**.
-7. **Oluştur**’a tıklayın.
-
-### <a name="create-the-user-flow"></a>Kullanıcı akışı oluştur
-
-Özelleştirme dosyaları test etmek için daha önce oluşturduğunuz uygulamayı kullanan bir yerleşik kaydolma veya oturum açma kullanıcı Akış oluşturun.
-
-1. Azure AD B2C kiracınızı seçin **kullanıcı akışları**ve ardından **yeni kullanıcı akışı**.
-2. Üzerinde **önerilen** sekmesinde **oturum yukarı ve oturum açma**.
-3. Kullanıcı akışı için bir ad girin. Örneğin, *signup_signin*. Önek *B2C_1* adına kullanıcı Akış oluşturulduğunda otomatik olarak eklenir.
-4. Altında **kimlik sağlayıcıları**seçin **kayıt e-posta**.
-5. Altında **kullanıcı öznitelikleri ve talepler**, tıklayın **daha fazla Göster**.
-6. İçinde **toplama özniteliği** sütun, müşteriden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **ülke/bölge**, **görünen ad**, ve **posta kodu**.
-7. İçinde **dönüş talep** sütun, başarılı bir kaydolma veya oturum açma deneyiminden sonra uygulamanıza geri gönderilen yetkilendirme belirteçlerinde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu**, **Kullanıcı yeni** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin.
-8. **Tamam** düğmesine tıklayın.
-9. **Oluştur**’a tıklayın.
-10. Altında **Özelleştir**seçin **sayfa düzenleri**. Seçin **birleşik kaydolma veya oturum açma sayfası**ve ardından **Evet** için **özel sayfa içeriği kullan**.
-11. İçinde **özel sayfa URI'si**, için URL girin *özel ui.html* daha önce kaydettiğiniz dosya.
-12. Sayfanın üst kısmında tıklayın **Kaydet**.
+1. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
+2. Seçin **kullanıcı akışları (ilke)** ve ardından *B2C_1_signupsignin1* kullanıcı akışı.
+3. Seçin **sayfa düzenleri**ve ardından altındaki **birleşik kaydolma veya oturum açma sayfası**, tıklayın **Evet** için **özel sayfa içeriği kullan**.
+4. İçinde **özel sayfa URI'si**, URI'sini girin *özel ui.html* daha önce kaydettiğiniz dosya.
+5. Sayfanın üst kısmında seçin **Kaydet**.
 
 ## <a name="test-the-user-flow"></a>Kullanıcı akışı test edin
 
-1. Azure AD B2C kiracınızı seçin **kullanıcı akışları** ve oluşturduğunuz kullanıcı akışı seçin. Örneğin, *B2C_1_signup_signin*.
+1. Azure AD B2C kiracınızı seçin **kullanıcı akışları** seçip *B2C_1_signupsignin1* kullanıcı akışı.
 2. Sayfanın üst kısmında tıklayın **kullanıcı akışı çalıştırma**.
 3. Tıklayın **kullanıcı akışı çalıştırma** düğmesi.
 
@@ -188,7 +161,7 @@ Bu makalede, öğrendiğiniz nasıl yapılır:
 
 > [!div class="checklist"]
 > * UI özelleştirme dosyaları oluşturma
-> * Dosyaları kullanan bir kaydolma ve oturum açma kullanıcı Akış oluşturma
+> * Güncelleştirme dosyaları kullanmak için kullanıcı akışı
 > * Özelleştirilmiş UI testi
 
 > [!div class="nextstepaction"]

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 441821ae422fb4cbddbca5b4c30d68484ce6bc1f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55632acf516198b5ad0b6430480836dcc62fd5a5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186986"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755399"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Uygulamalar listemde beklenmedik bir uygulama
 
@@ -63,15 +63,15 @@ Kiracınızdaki tüm uygulamaları görmek için kullanmanız gerekir **filtre**
 
 4.  Eklediğinizde, yeni bir uygulama kaydı kullanarak özel olarak geliştirilmiş uygulama oluşturarak [uygulama kayıt defteri](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 
-5.  Eklediğinizde, yeni bir uygulama kaydı kullanarak özel olarak geliştirilmiş uygulama oluşturarak [V2.0 uygulama kayıt portalı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)
+5.  Eklediğinizde, yeni bir uygulama kaydı kullanarak özel olarak geliştirilmiş uygulama oluşturarak [V2.0 uygulama kayıt portalı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 
 6.  Bir uygulama eklediğinizde Visual Studio'nun kullanarak geliştirirken [ASP.net kimlik doğrulama yöntemleri](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) veya [bağlı hizmetler](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
 7.  Kullanarak bir hizmet sorumlusu nesnesi oluşturduğunuzda [Azure AD PowerShell Modülü](/powershell/azure/install-adv2?view=azureadps-2.0)
 
-8.  Olduğunda, [uygulamaya onay](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) veri kiracınızda kullanmak için yönetici olarak
+8.  Olduğunda, [uygulamaya onay](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) veri kiracınızda kullanmak için yönetici olarak
 
-9.  Olduğunda bir [kullanıcı uygulamaya onay](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) veri kiracınızda kullanmak için
+9.  Olduğunda bir [kullanıcı uygulamaya onay](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) veri kiracınızda kullanmak için
 
 10. Kiracınızda verileri depolayan belirli hizmetleri etkinleştirdiğinizde. Bir parola sıfırlama İlkesi parolanızı depolamak için bir hizmet sorumlusu olarak Modellenen sıfırlama, güvenli bir örnektir.
 
@@ -107,7 +107,7 @@ Bir uygulama için tüm kullanıcı oturum açma işlemleri devre dışı bırak
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Herhangi bir uygulama için tüm gelecek kullanıcı onayı işlemleri devre dışı bırakmak istiyorum
 
-Tüm dizininizin engellemek için son kullanıcıların herhangi bir uygulama konusunda çekince kullanıcı onayı devre dışı bırakılıyor. Yöneticiler, yine de kullanıcının behalves üzerinde onay verebilir. Uygulama onay hakkında daha fazla bilgi edinin ve neden olabilir veya onay verme istemeyebilir okumak için [anlama kullanıcı ve yönetici onayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Tüm dizininizin engellemek için son kullanıcıların herhangi bir uygulama konusunda çekince kullanıcı onayı devre dışı bırakılıyor. Yöneticiler, yine de kullanıcının behalves üzerinde onay verebilir. Uygulama onay hakkında daha fazla bilgi edinin ve neden olabilir veya onay verme istemeyebilir okumak için [anlama kullanıcı ve yönetici onayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 İçin **tüm dizininizdeki tüm gelecek kullanıcı onayı işlemleri devre dışı**, şu adımları izleyin:
 
@@ -117,7 +117,7 @@ Tüm dizininizin engellemek için son kullanıcıların herhangi bir uygulama ko
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  Tıklayın **kullanıcı ayarları**.
 

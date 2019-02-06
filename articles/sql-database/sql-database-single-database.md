@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: f1a580b5c51ec589ef9a52b07d62e091ae712964
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/04/2019
+ms.openlocfilehash: a2500988b174e49870f4da7087b3fa4c81f3c77a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513529"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754991"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek bir veritabanı nedir
 
-Tek bir veritabanı kendi kaynakları kümesi ile Azure SQL veritabanı'nda bir tek başına veritabanı ve SQL veritabanı sunucusu yönetilir. Tek bir veritabanı ile her veritabanı birbirine ve taşınabilir, her biri kendi hizmet katmanı içinde yalıtılmış [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) ve bir kesin boyutu işlem.
+Tek veritabanı dağıtım seçeneği tek başına veritabanı kendi kaynak kümesi ile Azure SQL veritabanı'nda oluşturur ve SQL veritabanı sunucusu yönetilir. Tek bir veritabanı ile her veritabanı birbirine ve taşınabilir, her biri kendi hizmet katmanı içinde yalıtılmış [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) ve bir kesin boyutu işlem.
 
 > [!IMPORTANT]
 > Tek veritabanı, Azure SQL veritabanı için üç dağıtım seçenekleri biridir. Diğer iki olan [elastik havuzlar](sql-database-elastic-pool.md) ve [yönetilen örnek](sql-database-managed-instance.md).
@@ -57,6 +57,6 @@ SQL veritabanı sağlayan bir dizi [yerleşik güvenlik ve Uyumluluk](sql-databa
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- İle hızlı bir şekilde tek bir veritabanı ile çalışmaya başlamak için Başlat [veritabanı hızlı başlangıç guide.md tek](sql-database-quickstart-guide.md).
+- İle hızlı bir şekilde tek bir veritabanı ile çalışmaya başlamak için Başlat [veritabanı hızlı başlangıç guide.md tek](sql-database-single-database-quickstart-guide.md).
 - Bir SQL Server veritabanını Azure'a geçirme hakkında bilgi edinmek için [Azure SQL veritabanına geçirme](sql-database-cloud-migrate.md).
 - Desteklenen özellikler hakkında bilgi edinmek için bkz. [Özellikler](sql-database-features.md).

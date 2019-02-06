@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663423"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752305"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack, Kubernetes dağıtımı sorunlarını giderme
 
@@ -53,7 +53,7 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
 
 2. VM dağıtımı oluşturmak ve özel betik uzantısı.
     -  Market Linux görüntüsü kullanarak Linux VM dağıtımı oluşturma **Ubuntu Server 16.04 LTS**.
-    -  İndirme ve çalıştırma müşteri betik uzantısını marketten. Komut dosyası **Linux 2.0 için özel betik**.
+    -  İndirin ve özel betik uzantısı marketten çalıştırın. Komut dosyası **Linux 2.0 için özel betik**.
     -  DVM özel betiği çalıştırın. Betik aşağıdaki görevleri gerçekleştirir:
         1. Galeri uç noktası Azure Resource Manager meta veri uç noktasından alır.
         2. Active directory kaynak kimliği Azure Resource Manager meta veri uç noktasından alır.
@@ -61,7 +61,7 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
         4. ACS altyapısı için Kubernetes kümesi dağıtır ve Azure Stack bulut profiline kaydeder `/etc/kubernetes/azurestackcloud.json`.
 3. Ana VM'ler oluşturun.
 
-4. İndirin ve müşteri betik uzantıları çalıştırın.
+4. İndirin ve özel betik Uzantıları'nı çalıştırın.
 
 5. Ana betiği çalıştırın.
 
@@ -75,7 +75,7 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
         3. Scheduler hizmetini başlatır.
 6. Aracı VM'ler oluşturun.
 
-7. İndirme ve çalıştırma müşteri betik uzantısını.
+7. İndirin ve özel betik uzantısı'nı çalıştırın.
 
 7. Aracı betiği çalıştırın. Aracısı özel betik aşağıdaki görevleri gerçekleştirir:
     - Etcd yükler

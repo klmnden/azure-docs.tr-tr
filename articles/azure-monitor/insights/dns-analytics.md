@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 29b76620494fbb325f8c43bf90a07c9df0faff56
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 21b44b1c739818206fdba9d10250a2976f1d90db
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266342"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746872"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS analizi Önizleme çözümü, DNS altyapısıyla ilgili Öngörüler toplayın
 
@@ -105,7 +105,7 @@ Bu bölümde, tüm Pano açıklanmaktadır işlevleri ve bunların nasıl kullan
 
 ![DNS güvenlik dikey penceresi](./media/dns-analytics/dns-security-blade.png)
 
-Bir istemci IP listesinde tıkladığınızda, günlük araması açılır ve ilgili sorgu arama ayrıntılarını gösterir. Aşağıdaki örnekte, DNS analizi iletişimi ile yapıldığını algılamıştır bir [Ircbot](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=Win32/IRCbot):
+Bir istemci IP listesinde tıkladığınızda, günlük araması açılır ve ilgili sorgu arama ayrıntılarını gösterir. Aşağıdaki örnekte, DNS analizi iletişimi ile yapıldığını algılamıştır bir [Ircbot](https://www.microsoft.com/wdsi/threats/threat-search?query=Win32/IRCbot):
 
 ![Ircbot gösteren günlük arama sonuçları](./media/dns-analytics/ircbot.png)
 

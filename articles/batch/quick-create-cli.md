@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10f84a758bdb2e01793aee06cba59a29b5639775
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: df56fd00d5a5ff2f9e9000b39939d0f33b3737d5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470969"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752356"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI ile ilk Batch işinizi çalıştırma
 
@@ -139,7 +139,7 @@ Komut çıktısı birçok ayrıntıyı içerir, ancak görev komut satırlarınd
 
 ## <a name="view-task-output"></a>Görev çıkışını görüntüleme
 
-İşlem düğümünde görev tarafından oluşturulan dosyaları listelemek için [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list) komutunu kullanın. Aşağıdaki komut, *mytask1* tarafından oluşturulan dosyaları listeler: 
+İşlem düğümünde görev tarafından oluşturulan dosyaları listelemek için [az batch task file list](/cli/azure/batch/task) komutunu kullanın. Aşağıdaki komut, *mytask1* tarafından oluşturulan dosyaları listeler: 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -160,7 +160,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-Çıktı dosyalarından birini yerel bir dizine indirmek [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download) komutunu kullanın. Bu örnekte, görev çıktısı `stdout.txt` durumundadır. 
+Çıktı dosyalarından birini yerel bir dizine indirmek [az batch task file download](/cli/azure/batch/task) komutunu kullanın. Bu örnekte, görev çıktısı `stdout.txt` durumundadır. 
 
 ```azurecli-interactive
 az batch task file download \

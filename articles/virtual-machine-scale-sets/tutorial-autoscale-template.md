@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2965040a3e83def6b452b1449a0acb0c9c5a00ee
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692881"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749202"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Öğretici: Sanal makine ölçek kümesi Azure şablonu ile otomatik olarak ölçeklendirme
 Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz sanal makine örneği sayısını tanımlarsınız. Uygulamanızın talebi değiştikçe, sanal makine örneklerinin sayısını otomatik olarak artırabilir veya azaltabilirsiniz. Otomatik ölçeklendirme özelliği, uygulamanızın yaşam döngüsü boyunca uygulama performansındaki değişikliklere veya müşteri taleplerine ayak uydurmanıza olanak tanır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -144,13 +144,13 @@ Aşağıdaki örnek, ortalama CPU yükü 5 dakikadan uzun bir süre boyunca %30�
 ## <a name="create-an-autoscaling-scale-set"></a>Otomatik ölçeklendirme ölçek kümesi oluşturma
 Şimdi örnek bir şablon kullanarak bir ölçek kümesi oluşturalım ve otomatik ölçeklendirme kuralları uygulayalım. [Tüm şablonu gözden geçirebilir](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json) veya [şablonun *Microsoft.insights/autoscalesettings* kaynak sağlayıcı bölümüne](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) bakabilirsiniz.
 
-Öncelikle [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+Öncelikle [az group create](/cli/azure/group) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Şimdi [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) komutunu kullanarak bir sanal makine ölçek kümesi oluşturun. İstendiğinde, her bir sanal makine örneği için kimlik bilgileri olarak kullanılan kendi kullanıcı adınızı (örn. *azureuser*) ve parolanızı sağlayın.
+Şimdi [az group deployment create](/cli/azure/group/deployment) komutunu kullanarak bir sanal makine ölçek kümesi oluşturun. İstendiğinde, her bir sanal makine örneği için kimlik bilgileri olarak kullanılan kendi kullanıcı adınızı (örn. *azureuser*) ve parolanızı sağlayın.
 
 ```azurecli-interactive
 az group deployment create \
@@ -264,7 +264,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Ölçek kümenizi ve ek kaynaklarınızı kaldırmak için [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu ve bu kaynak grubunun tüm kaynaklarını silin:
+Ölçek kümenizi ve ek kaynaklarınızı kaldırmak için [az group delete](/cli/azure/group) komutunu kullanarak kaynak grubunu ve bu kaynak grubunun tüm kaynaklarını silin:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: c9f83368a540003e8bcc35282c664ec23e4ff068
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 99938f8b64339556c0ee4b9caa9124c609159af6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226511"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747290"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Hızlı Başlangıç: Node.js için Speech SDK'sı ile Konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, Konuşmayı metne dönüştürme özelliği Bilişsel hizmetler konuşma SDK'sı JavaScript bağlantısını kullanarak bir Node.js projesi oluşturulacağını öğreneceksiniz.
-Microsoft Web tabanlı uygulaması [Bilişsel hizmetler konuşma SDK'sı](https://aka.ms/csspeech/npmpackage).
+Bu makalede, Konuşmayı metne dönüştürme özelliği Speech SDK'sı Azure Bilişsel hizmetler için JavaScript bağlantısını kullanarak bir Node.js projesi oluşturma işlemini gösterir.
+Uygulama dayanır [Speech SDK'sı için JavaScript](https://aka.ms/csspeech/npmpackage).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -31,48 +31,48 @@ Microsoft Web tabanlı uygulaması [Bilişsel hizmetler konuşma SDK'sı](https:
 
 ## <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
-Yeni bir klasör oluşturun ve bir proje başlatın.
+Yeni bir klasör oluşturun ve projeyi başlatın:
 
 ```sh
 npm init -f
 ```
 
-Bu varsayılan değerleri olan package.json dosyaları init olur. Daha sonra bu dosyayı düzenlemek büyük olasılıkla isteyeceksiniz.
+Bu komut başlatır **package.json** varsayılan değerlerle dosyaları. Daha sonra bu dosyayı düzenlemek isteyebilirsiniz.
 
 ## <a name="install-the-speech-sdk"></a>Konuşma SDK'sını yükleme
 
-Speech SDK'sı için Node.js projenize ekleyin.
+Speech SDK'sı için Node.js projenize ekleyin:
 
 ```
 npm install microsoft-cognitiveservices-speech-sdk
 ```
 
-Bu indirmeleri ve npmjs Speech SDK'sı ve gerekli Önkoşullar en son sürümünü yükler. SDK'sı yüklenecektir `node_modules` projeniz klasörü içinde dizin.
+Bu komut indirir ve Speech SDK'sı ve tüm gerekli önkoşulları en son sürümünü yükler **npmjs**. SDK'sını yükler `node_modules` projeniz klasörü içinde dizin.
 
 ## <a name="use-the-speech-sdk"></a>SDK'sı Konuşmayı kullanın
 
-Klasörde `index.js` adlı yeni bir dosya oluşturun ve bu dosyayı bir metin düzenleyiciyle açın.
+Adlı klasörde yeni bir dosya oluşturmak `index.js`ve bu dosyayı bir metin düzenleyiciyle açın.
 
 > [!NOTE]
-> Node.js'de Speech SDK'sı mikrofon ya da dosya veri türünü desteklemediğini unutmayın. Her ikisi de yalnızca tarayıcılarda desteklenir. Bunun yerine, Stream arabirimi üzerinden konuşma SDK kullanın `AudioInputStream.createPushStream()` veya `AudioInputStream.createPullStream()`.
+> Node.js ile Speech SDK'sı mikrofon desteklemiyor veya **dosya** veri türü. Her ikisi de yalnızca tarayıcılarda desteklenir. Bunun yerine, **Stream** arabirimi üzerinden konuşma SDK `AudioInputStream.createPushStream()` veya `AudioInputStream.createPullStream()`.
 
-Bu örnekte, kullanacağız `PushAudioInputStream` arabirimi.
+Bu örnekte `PushAudioInputStream` arabirimi.
 
-Aşağıdaki JavaScript kodunu ekleyin:
+Bu JavaScript kodunu ekleyin:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 
-Uygulamayı başlatmak için uyum `YourSubscriptionKey`, `YourServiceRegion`, ve `YourAudioFile.wav` yapılandırmanıza. Ardından, aşağıdaki komutu çağırarak yürütebilirsiniz:
+Uygulamayı açmak için uyum `YourSubscriptionKey`, `YourServiceRegion`, ve `YourAudioFile.wav` yapılandırmanıza. Ardından çalıştırın, bu komut çağırarak:
 
 ```sh
 node index.js
 ```
 
-Bu, sağlanan dosya adı kullanılarak bir tanıma tetikleyin ve konsol çıktısı sunmak.
+Sağlanan dosya adını kullanarak bir tanıma tetikler. Ve konsol çıktısı sunar.
 
-Çalışan bir örnek çıktısı şöyledir `index.js` abonelik anahtarı güncelleştiriliyor ve dosyası kullanılarak sonra `whatstheweatherlike.wav`.
+Programını çalıştırdığınızda, bu örnek çıkış alınır `index.js` abonelik anahtarını güncelleştirin ve bu dosyayı kullanın sonra `whatstheweatherlike.wav`:
 
 ```json
 SpeechRecognitionResult {
@@ -94,35 +94,35 @@ SpeechRecognitionResult {
 
 ## <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Yükleme ve Speech SDK'sı, Visual Studio Code ile kullanma
 
-Visual Studio Code'dan örnek de çalıştırabilirsiniz. Yükleme, açın ve Hızlı Başlangıç'ı çalıştırmak için aşağıdaki adımları izleyin:
+Visual Studio Code'dan örnek de çalıştırabilirsiniz. Hızlı başlangıcı çalıştırın yüklemek ve açmak için aşağıdaki adımları izleyin:
 
-1. Visual Studio Code başlatın ve "Üzerinde klasör Aç"'a tıklayın, ardından Hızlı klasöre gidin
+1. Visual Studio Code'u başlatın. Seçin **Klasör Aç**. Ardından Hızlı Başlangıç klasörüne göz atın.
 
-   ![Klasör Aç ekran görüntüsü](media/sdk/qs-js-node-01-open_project.png)
+   ![Klasörü aç](media/sdk/qs-js-node-01-open_project.png)
 
-1. Visual Studio Code'da bir terminal açın
+1. Visual Studio Code'da bir terminal açın.
 
-   ![Terminal penceresinin ekran görüntüsü](media/sdk/qs-js-node-02_open_terminal.png)
+   ![Terminal penceresi](media/sdk/qs-js-node-02_open_terminal.png)
 
-1. Npm bağımlılıkları yüklemek için çalıştırın
+1. Çalıştırma `npm` bağımlılıklarını yükleyin.
 
-   ![Npm yükleme ekran görüntüsü](media/sdk/qs-js-node-03-npm_install.png)
+   ![npm yükleme](media/sdk/qs-js-node-03-npm_install.png)
 
-1. Açmak artık `index.js`bir kesme noktası ayarlayın
+1. Açmaya hazırsınız artık `index.js`bir kesme noktası ayarlayın.
 
-   ![16 satırında bir kesme noktası ile index.js ekran görüntüsü](media/sdk/qs-js-node-04-setup_breakpoint.png)
+   ![16 satırında bir kesme noktası ile index.js](media/sdk/qs-js-node-04-setup_breakpoint.png)
 
-1. Hata ayıklamayı başlatmak için F5'e basın veya hata ayıklama/Start Debugging menüden seçim yapın
+1. Hata ayıklamayı başlatmak için F5'i seçin veya seçebilirsiniz **hata ayıklama/Start Debugging** menüsünde.
 
-   ![Hata ayıklama menüsünün ekran görüntüsü](media/sdk/qs-js-node-05-start_debugging.png)
+   ![Hata ayıklama menüsüne](media/sdk/qs-js-node-05-start_debugging.png)
 
-1. Bir kesme noktası isabet edildiğinde, çağrı yığını ve değişkenleri inceleyebilirsiniz
+1. Bir kesme noktası isabet edildiğinde, çağrı yığını ve değişkenleri inceleyebilirsiniz.
 
-   ![Hata ayıklayıcı ekran görüntüsü](media/sdk/qs-js-node-06-hit_breakpoint.png)
+   ![Hata Ayıklayıcısı](media/sdk/qs-js-node-06-hit_breakpoint.png)
 
-1. Herhangi bir çıkış hata ayıklama konsol penceresinde gösterilir.
+1. Herhangi bir çıkış, hata ayıklama konsol penceresinde gösterir.
 
-   ![Hata ayıklama Konsolu ekran görüntüsü](media/sdk/qs-js-node-07-debug_output.png)
+   ![Konsol hata ayıklama](media/sdk/qs-js-node-07-debug_output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

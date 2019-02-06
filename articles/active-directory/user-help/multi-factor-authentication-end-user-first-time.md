@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d53221a8bed6995231385cae21a8994fce132a30
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6a5a2fee11d785c7513b6c1d1e66bd8b80d80292
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175919"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749721"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Hesabım için iki aşamalı doğrulama ayarlayın
 İki aşamalı doğrulama, kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır. Bu makalede okuyorsanız, büyük olasılıkla bir e-posta iş veya Okul yöneticinizin multi-Factor Authentication hakkında aldığınız. Veya belki de oturum açmaya ve ek güvenlik doğrulama ayarlayın isteyen bir ileti alındı. Bu durum söz konusuysa **otomatik kayıt işlemini tamamlayıncaya kadar oturum açamazsınız**.
@@ -41,12 +41,12 @@ Oturum açtığınızda böyle bir ekran görmüyorsanız bölümündeki yönerg
 
 | İletişim yöntemi | Açıklama |
 | --- | --- |
-| [Mobil uygulama](#use-a-mobile-app-as-the-contact-method) |- **Doğrulama bildirimleri Al.** Bu seçenek, akıllı telefonundaki veya tabletindeki authenticator uygulamasına bir bildirim iter. Bildirimi görüntülemeniz ve işlem meşru ise seçin **doğrulaması** uygulama. İş yeriniz veya okulunuz, kimliğinizi doğrulamak için önce bir PIN girmesini gerektirebilir.<br>- **Doğrulama kodu kullanın.** Bu modda, kimlik doğrulayıcı uygulamasını güncelleştiren her 30 saniyede bir doğrulama kodu oluşturur. Oturum açma arabirimine en geçerli doğrulama kodunu girin.<br>Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilir. |
+| [Mobil uygulama](#use-a-mobile-app-as-the-contact-method) |- **Doğrulama bildirimleri Al.** Bu seçenek, akıllı telefonundaki veya tabletindeki authenticator uygulamasına bir bildirim iter. Bildirimi görüntülemeniz ve işlem meşru ise seçin **doğrulaması** uygulama. İş yeriniz veya okulunuz, kimliğinizi doğrulamak için önce bir PIN girmesini gerektirebilir.<br>- **Doğrulama kodu kullanın.** Bu modda, kimlik doğrulayıcı uygulamasını güncelleştiren her 30 saniyede bir doğrulama kodu oluşturur. Oturum açma arabirimine en geçerli doğrulama kodunu girin.<br>Microsoft Authenticator uygulamasını kullanılabilir [Android](https://go.microsoft.com/fwlink/?linkid=866594) ve [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|
 | [Cep telefonu çağrı veya kısa mesaj](#use-your-mobile-phone-as-the-contact-method) |- **Telefon araması** otomatik bir sesli çağrıyla belirttiğiniz telefon numarasına yerleştirir. Aramayı yanıtlamalı ve telefon tuş kimliğini doğrulamak için # tuşuna basın.<br>- **SMS mesajı** bir doğrulama kodu içeren bir kısa mesaj sona erer. Metin satırında, aşağıdaki mesaj Yanıtla veya oturum açma arabirimine sağlanan doğrulama kodunu girin. |
 | [Ofis telefonu çağrısı](#use-your-office-phone-as-the-contact-method) |Otomatik bir sesli çağrıyla belirttiğiniz telefon numarasına yerleştirir. Aramayı yanıtlamalı ve telefon tuş kimliğini doğrulamak için # tuşuna basar. |
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>İletişim yönteminiz olarak mobil uygulama kullan
-Bu yöntemi kullanarak, telefon veya tablette bir doğrulayıcı uygulaması yüklemeniz gerekir. Bu makaledeki adımları için kullanılabilir olan Microsoft Authenticator uygulamasını dayalı [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
+Bu yöntemi kullanarak, telefon veya tablette bir doğrulayıcı uygulaması yüklemeniz gerekir. Bu makaledeki adımları için kullanılabilir olan Microsoft Authenticator uygulamasını dayalı [Android](https://go.microsoft.com/fwlink/?Linkid=825072) ve [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
 
 >[!NOTE]
 >Microsoft Authenticator uygulamasını kullanmak zorunda değilsiniz. Başka bir kimlik doğrulayıcı uygulamasını kullanıyorsanız, bunu kullanmaya devam edebilirsiniz.

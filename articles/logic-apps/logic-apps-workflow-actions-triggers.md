@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 2b60d4aed1b16db433439e69f9d6813f36f2faac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 4fc30deb68039130850f87cb70dbb606be463600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732558"
+ms.locfileid: "55747399"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic apps'te iş akışı tanımlama dili tetikleyicisi ve eylem türleri başvurusu
 
@@ -147,7 +147,7 @@ Bu tetikleyiciyi denetler veya *yoklamalar* kullanarak bir uç nokta [Microsoft 
 | <*Sorgu parametreleri*> | JSON nesnesi | Tüm sorgu parametreleri API'si ile içerecek şekilde çağırın. Örneğin, `"queries": { "api-version": "2018-01-01" }` nesnesi ekler `?api-version=2018-01-01` çağrı. |
 | <*max-runs*> | Tamsayı | Varsayılan olarak, mantıksal uygulama iş akışı örnekleri aynı anda veya paralel kadar çalıştırmak [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Yeni bir ayarlayarak bu sınırı değiştirmek için <*sayısı*> değeri için bkz: [değişiklik tetikleyici eşzamanlılık](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Tamsayı | Mantıksal uygulamanız zaten maksimum örnek sayısını çalışırken değiştirebileceğiniz dayalı `runtimeConfiguration.concurrency.runs` özelliği, tüm yeni çalıştırmaları isimlerine bu kuyruğa [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varsayılan sınırı değiştirmek için bkz [değişiklik bekleme çalıştırmaları sınırlamak](#change-waiting-runs). |
-| <*splitOn-expression*> | String | Dizi döndüren tetikleyicileri, bu ifade oluşturmak ve her dizi öğesi için bir iş akışı örneği çalıştırmak yerine, bir "for each" döngüsü kullanın kullanılması için bir dizi başvuruyor. <p>Örneğin, bu ifade, tetikleyici gövde içeriği içinde döndürülen dizideki bir öğeyi temsil eder: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | Dizi döndüren tetikleyicileri, bu ifade oluşturmak ve her dizi öğesi için bir iş akışı örneği çalıştırmak yerine, "Foreach" döngüsünü kullanın kullanılması için bir dizi başvuruyor. Kullanırken `SplitOn` özelliği, hizmet ve tetikleyici döndürebilir olan sınıra kadar eş zamanlı örnekleri edinin. <p>Örneğin, bu ifade, tetikleyici gövde içeriği içinde döndürülen dizideki bir öğeyi temsil eder: `@triggerbody()?['value']` |
 | <*işlem seçeneği*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). |
 ||||
 
@@ -237,7 +237,7 @@ Bu tetikleyiciyi kullanarak bir abonelik isteği bir uç noktaya gönderen bir [
 | <*Sorgu parametreleri*> | JSON nesnesi | API çağrısı ile içerecek şekilde tüm sorgu parametreleri <p>Örneğin, `"queries": { "api-version": "2018-01-01" }` nesnesi ekler `?api-version=2018-01-01` çağrı. |
 | <*max-runs*> | Tamsayı | Varsayılan olarak, mantıksal uygulama iş akışı örnekleri aynı anda veya paralel kadar çalıştırmak [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Yeni bir ayarlayarak bu sınırı değiştirmek için <*sayısı*> değeri için bkz: [değişiklik tetikleyici eşzamanlılık](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Tamsayı | Mantıksal uygulamanız zaten maksimum örnek sayısını çalışırken değiştirebileceğiniz dayalı `runtimeConfiguration.concurrency.runs` özelliği, tüm yeni çalıştırmaları isimlerine bu kuyruğa [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varsayılan sınırı değiştirmek için bkz [değişiklik bekleme çalıştırmaları sınırlamak](#change-waiting-runs). |
-| <*splitOn-expression*> | String | Dizi döndüren tetikleyicileri, bu ifade oluşturmak ve her dizi öğesi için bir iş akışı örneği çalıştırmak yerine, bir "for each" döngüsü kullanın kullanılması için bir dizi başvuruyor. <p>Örneğin, bu ifade, tetikleyici gövde içeriği içinde döndürülen dizideki bir öğeyi temsil eder: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | Dizi döndüren tetikleyicileri, bu ifade oluşturmak ve her dizi öğesi için bir iş akışı örneği çalıştırmak yerine, "Foreach" döngüsünü kullanın kullanılması için bir dizi başvuruyor. Kullanırken `SplitOn` özelliği, hizmet ve tetikleyici döndürebilir olan sınıra kadar eş zamanlı örnekleri edinin. <p>Örneğin, bu ifade, tetikleyici gövde içeriği içinde döndürülen dizideki bir öğeyi temsil eder: `@triggerbody()?['value']` |
 | <*işlem seçeneği*> | String | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). |
 ||||
 
@@ -682,8 +682,9 @@ Varsayılan olarak, bir tetikleyici yalnızca aldıktan sonra bir "200 Tamam" ya
 
 ## <a name="trigger-multiple-runs"></a>Birden çok çalıştırma tetikleyin
 
-Bazen tetikleyicinize işlemek mantıksal uygulamanız için bir dizi döndürürse, bir "for each" döngüsü dizideki tüm öğeler işlemek için çok uzun sürebilir. Bunun yerine kullanabileceğiniz **SplitOn** tetikleyicinize özelliğinde *debatch* dizi. Ayırma, dizi öğeleri böler ve her dizi öğesi için'ı çalıştıran yeni bir mantıksal uygulama örneği başlatır. Bu yaklaşım, örneğin, yoklama aralıklarında birden çok yeni öğe döndürebilir bir uç noktaya yoklama istediğinizde yararlıdır.
-Dizi sayısı bu öğeler için **SplitOn** işlem tek bir mantıksal uygulama çalıştırmasında, bkz: [limitler ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Bazen tetikleyicinize işlemek mantıksal uygulamanız için bir dizi döndürürse, bir "for each" döngüsü dizideki tüm öğeler işlemek için çok uzun sürebilir. Bunun yerine kullanabileceğiniz **SplitOn** tetikleyicinize özelliğinde *debatch* dizi. Ayırma, dizi öğeleri böler ve her dizi öğesi için'ı çalıştıran yeni bir mantıksal uygulama örneği başlatır. Bu yaklaşım, örneğin, yoklama aralıklarında birden çok yeni öğe döndürebilir bir uç noktaya yoklama istediğinizde yararlıdır. 
+
+Kullanırken `SplitOn` özelliği, hizmet ve tetikleyici döndürebilir olan sınıra kadar eş zamanlı örnekleri edinin. Dizi sayısı bu öğeler için **SplitOn** işlem tek bir mantıksal uygulama çalıştırmasında, bkz: [limitler ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
 > Kullanamazsınız **SplitOn** düzendeki zaman uyumlu yanıt. Kullanan herhangi bir iş akışı **SplitOn** ve yanıt içeren eylemin zaman uyumsuz olarak çalışır ve hemen gönderir bir `202 ACCEPTED` yanıt.
@@ -1425,9 +1426,9 @@ Diğer Eylemler aksine **yanıt** eylem özel kısıtlamaları vardır:
 
   Ancak, iç içe geçmiş iş akışı olarak başka bir mantıksal uygulama iş akışınızı çağırırsa, üst iş akışı iç içe geçmiş iş akışı tamamlanmadan önce ne kadar süre geçtikten ne olursa olsun iç içe geçmiş iş akışı tamamlanana kadar bekler.
 
-* İş akışınızı kullandığında **yanıt** eylem ve zaman uyumlu yanıt düzeni, iş akışı da kullanamaz **splitOn** birden fazla çalıştırma, komut oluşturduğundan tetikleyici tanımında komutu. PUT yöntemini kullanıldığında ve true ise bu durumda denetleyin, "hatalı istek" yanıt verin.
+* İş akışınızı kullandığında **yanıt** eylem ve zaman uyumlu yanıt düzeni, iş akışı da kullanamaz **SplitOn** özelliği tetikleyici tanımında birden fazla çalıştırma, komut oluşturduğundan. PUT yöntemini kullanıldığında ve true ise bu durumda denetleyin, "hatalı istek" yanıt verin.
 
-  Aksi takdirde, iş akışınızı kullanıyorsa **splitOn** komut ve **yanıt** eylem iş akışı zaman uyumsuz olarak çalışır ve hemen bir "202 kabul edildi" yanıtı döndürür.
+  Aksi takdirde, iş akışınızı kullanıyorsa **SplitOn** özelliği ve **yanıt** eylem iş akışı zaman uyumsuz olarak çalışır ve hemen bir "202 kabul edildi" yanıtı döndürür.
 
 * İş akışının yürütme ulaştığında **yanıt** eylem, ancak gelen isteği zaten aldığı bir yanıt **yanıt** eylem çakışması nedeniyle "Başarısız" işaretlenmiş. Ve sonuç olarak, mantıksal uygulama çalıştırması "Başarısız" durumu ile de işaretlenir.
 

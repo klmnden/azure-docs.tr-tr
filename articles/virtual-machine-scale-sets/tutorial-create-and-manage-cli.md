@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179489"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751030"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Öğretici: Oluşturma ve sanal makine ölçek kümesi Azure CLI ile yönetme
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Sanal makine ölçek kümesinin yaşam döngüsü boyunca bir veya daha fazla yönetim görevi çalıştırmanız gerekebilir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -41,7 +41,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Sanal makine ölçek kümesinden önce kaynak grubu oluşturulmalıdır. [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Bu örnekte, *eastus* bölgesinde *myResourceGroup* adlı bir kaynak grubu oluşturulur. 
+Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Sanal makine ölçek kümesinden önce kaynak grubu oluşturulmalıdır. [az group create](/cli/azure/group) komutuyla bir kaynak grubu oluşturun. Bu örnekte, *eastus* bölgesinde *myResourceGroup* adlı bir kaynak grubu oluşturulur. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +66,7 @@ Tüm ölçek kümesi kaynaklarının ve sanal makine örneklerinin oluşturulup 
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>Bir ölçek kümesindeki sanal makine örneklerini görüntüleme
-Bir ölçek kümesindeki sanal makine örneklerinin listesini görüntülemek için [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) komutunu şu şekilde kullanın:
+Bir ölçek kümesindeki sanal makine örneklerinin listesini görüntülemek için [az vmss list-instances](/cli/azure/vmss) komutunu şu şekilde kullanın:
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -85,7 +85,7 @@ Aşağıdaki örnek çıktı, ölçek kümesindeki iki sanal makine örneğini g
 ```
 
 
-Çıktıdaki ilk sütunda bir *InstanceId* gösterilmektedir. Belirli bir sanal makine örneği hakkında ek bilgi görüntülemek için [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view) komutuna `--instance-id` parametresini ekleyin. Aşağıdaki örnekte, *1* sanal makine örneğiyle ilgili bilgiler görüntülenmektedir:
+Çıktıdaki ilk sütunda bir *InstanceId* gösterilmektedir. Belirli bir sanal makine örneği hakkında ek bilgi görüntülemek için [az vmss get-instance-view](/cli/azure/vmss) komutuna `--instance-id` parametresini ekleyin. Aşağıdaki örnekte, *1* sanal makine örneğiyle ilgili bilgiler görüntülenmektedir:
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -129,7 +129,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>Sanal makine örneği görüntülerini anlama
-Öğreticinin başında bir ölçek kümesi oluşturduğunuzda, sanal makine örnekleri için *UbuntuLTS* öğesinin `--image` öğesi belirtildi. Azure marketi, sanal makine örnekleri oluşturmak için kullanılabilecek çok sayıda görüntü içerir. Yaygın olarak kullanılan görüntülerin bir listesini görmek için, [az vm image list](/cli/azure/vm/image#az_vm_image_list) komutunu kullanın.
+Öğreticinin başında bir ölçek kümesi oluşturduğunuzda, sanal makine örnekleri için *UbuntuLTS* öğesinin `--image` öğesi belirtildi. Azure marketi, sanal makine örnekleri oluşturmak için kullanılabilecek çok sayıda görüntü içerir. Yaygın olarak kullanılan görüntülerin bir listesini görmek için, [az vm image list](/cli/azure/vm/image) komutunu kullanın.
 
 ```azurecli-interactive
 az vm image list --output table
@@ -192,7 +192,7 @@ Sanal makine örneğinin boyutu veya *SKU*, sanal makine örneği tarafından ku
 ### <a name="vm-instance-sizes"></a>Sanal makine örneği boyutları
 Aşağıdaki tabloda genel sanal makine boyutları, kullanım durumlarına göre kategorilere ayrılmıştır.
 
-| Tür                     | Ortak boyutlar           |    Açıklama       |
+| Type                     | Ortak boyutlar           |    Açıklama       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Genel amaçlı](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Dengeli CPU/bellek. Küçük ve orta ölçekli uygulama ve veri çözümlerini geliştirmek/test etmek için idealdir.  |
 | [İşlem için iyileştirilmiş](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | Yüksek CPU/bellek. Orta düzey trafiğe sahip uygulamalar, ağ gereçleri ve toplu işlemler için idealdir.        |
@@ -243,7 +243,7 @@ az vmss create \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ölçek kümesinin kapasitesini değiştirme
 Öğreticinin başında bir ölçek kümesi oluşturduğunuzda varsayılan olarak iki sanal makine örneği dağıtılmıştı. Bir ölçek kümesiyle oluşturulan örnek sayısını değiştirmek için [az vmss create](/cli/azure/vmss) ile `--instance-count` parametresini belirtebilirsiniz. Mevcut ölçek kümenizdeki sanal makine örneği sayısını artırmak veya azaltmak için kapasiteyi el ile değiştirebilirsiniz. Ölçek kümesi, gerektiği sayıda sanal makine örneği oluşturur veya kaldırır ve sonra trafiği dağıtmak için yük dengeleyiciyi yapılandırır.
 
-Ölçek kümesindeki sanal makine örneği sayısını elle artırmak veya azaltmak için [az vmss scale](/cli/azure/vmss#az_vmss_scale) komutunu kullanın. Aşağıdaki örnek, ölçek kümenizdeki sanal makine sayısını *3* olarak ayarlar:
+Ölçek kümesindeki sanal makine örneği sayısını elle artırmak veya azaltmak için [az vmss scale](/cli/azure/vmss) komutunu kullanın. Aşağıdaki örnek, ölçek kümenizdeki sanal makine sayısını *3* olarak ayarlar:
 
 ```azurecli-interactive
 az vmss scale \
@@ -252,7 +252,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-Ölçek kümenizin kapasitesinin güncelleştirilmesi birkaç dakika sürer. Ölçek kümesinde şu anda yer alan örneklerin sayısını görmek için [az vmss show](/cli/azure/vmss#az_vmss_show) komutunu kullanın ve *sku.capacity* üzerinde bir sorgu çalıştırın:
+Ölçek kümenizin kapasitesinin güncelleştirilmesi birkaç dakika sürer. Ölçek kümesinde şu anda yer alan örneklerin sayısını görmek için [az vmss show](/cli/azure/vmss) komutunu kullanın ve *sku.capacity* üzerinde bir sorgu çalıştırın:
 
 ```azurecli-interactive
 az vmss show \
@@ -267,27 +267,27 @@ az vmss show \
 Artık bir ölçek kümesi oluşturabilir, bağlantı bilgilerini listeleyebilir ve sanal makine örneklerine bağlanabilirsiniz. Sanal makine örnekleriniz için farklı bir OS görüntüsünü nasıl kullanabileceğinizi veya örnek sayısını nasıl el ile ölçeklendirebileceğinizi öğrendiniz. Günlük yönetim işlemleriniz kapsamında, ölçek kümenizdeki sanal makine örneklerini durdurmanız, başlatmanız veya yeniden başlatmanız gerekebilir.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Bir ölçek kümesindeki sanal makine örneklerini durdurma ve serbest bırakma
-Bir ölçek kümesindeki bir veya daha fazla sanal makine örneğini durdurmak için [az vmss stop](/cli/azure/vmss#az_vmss_stop) komutunu kullanın. `--instance-ids` parametresi, durdurulacak bir veya daha fazla sanal makine örneğini belirtmenize olanak sağlar. Bir örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makine örnekleri durdurulur. Aşağıdaki örnek, *1* örneğini durdurur:
+Bir ölçek kümesindeki bir veya daha fazla sanal makine örneğini durdurmak için [az vmss stop](/cli/azure/vmss) komutunu kullanın. `--instance-ids` parametresi, durdurulacak bir veya daha fazla sanal makine örneğini belirtmenize olanak sağlar. Bir örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makine örnekleri durdurulur. Aşağıdaki örnek, *1* örneğini durdurur:
 
 ```azurecli-interactive
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-Durdurulan sanal makine örnekleri ayrılmış şekilde kalır ve işlem ücretleri uygulanmaya devam eder. Bunun yerine, sanal makine örneklerinin serbest bırakılmasını ve yalnızca depolama ücreti uygulanmasını istiyorsanız [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate) komutunu kullanın. Aşağıdaki örnek, *1* örneğini durdurur ve serbest bırakır:
+Durdurulan sanal makine örnekleri ayrılmış şekilde kalır ve işlem ücretleri uygulanmaya devam eder. Bunun yerine, sanal makine örneklerinin serbest bırakılmasını ve yalnızca depolama ücreti uygulanmasını istiyorsanız [az vmss deallocate](/cli/azure/vmss) komutunu kullanın. Aşağıdaki örnek, *1* örneğini durdurur ve serbest bırakır:
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>Bir ölçek kümesindeki sanal makine örneklerini başlatma
-Bir ölçek kümesindeki bir veya daha fazla sanal makine örneğini başlatmak için [az vmss start](/cli/azure/vmss#az_vmss_start) komutunu kullanın. `--instance-ids` parametresi, başlatılacak bir veya daha fazla sanal makine örneğini belirtmenize olanak sağlar. Bir örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makine örnekleri başlatılır. Aşağıdaki örnek, *1* örneğini başlatır:
+Bir ölçek kümesindeki bir veya daha fazla sanal makine örneğini başlatmak için [az vmss start](/cli/azure/vmss) komutunu kullanın. `--instance-ids` parametresi, başlatılacak bir veya daha fazla sanal makine örneğini belirtmenize olanak sağlar. Bir örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makine örnekleri başlatılır. Aşağıdaki örnek, *1* örneğini başlatır:
 
 ```azurecli-interactive
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>Bir ölçek kümesindeki sanal makine örneklerini yeniden başlatma
-Bir ölçek kümesindeki bir veya daha fazla sanal makine örneğini yeniden başlatmak için [az vmss restart](/cli/azure/vmss#az_vm_restart) komutunu kullanın. `--instance-ids` parametresi, yeniden başlatılacak bir veya daha fazla sanal makine örneğini belirtmenize olanak sağlar. Bir örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makine örnekleri yeniden başlatılır. Aşağıdaki örnek, *1* örneğini yeniden başlatır:
+Bir ölçek kümesindeki bir veya daha fazla sanal makine örneğini yeniden başlatmak için [az vmss restart](/cli/azure/vmss) komutunu kullanın. `--instance-ids` parametresi, yeniden başlatılacak bir veya daha fazla sanal makine örneğini belirtmenize olanak sağlar. Bir örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makine örnekleri yeniden başlatılır. Aşağıdaki örnek, *1* örneğini yeniden başlatır:
 
 ```azurecli-interactive
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 1

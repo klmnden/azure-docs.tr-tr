@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2d184cc849eb3da60bbf0c387655da9fdf878853
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091615"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749223"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Birden fazla Azure CDN uç noktası ile Azure Traffic Manager arasında devretmeyi ayarlayın
 
@@ -42,7 +42,7 @@ Azure CDN profili ve uç noktaları iki veya daha fazla farklı sağlayıcılar�
 ## <a name="set-up-azure-traffic-manager"></a>Azure Traffic Manager'ı ayarlama
 Bir Azure Traffic Manager profili oluşturun ve CDN uç noktalarınızı arasında yük dengelemeyi ayarlama. 
 
-1. İçindeki adımları izleyerek bir Azure Traffic Manager profili oluşturma [Traffic Manager profili oluşturma](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#create-a-traffic-manager-profile-1). 
+1. İçindeki adımları izleyerek bir Azure Traffic Manager profili oluşturma [Traffic Manager profili oluşturma](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile). 
 
     İçin **yönlendirme yöntemi**seçin **öncelik**.
 

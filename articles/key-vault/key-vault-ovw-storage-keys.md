@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 0392d84efa3a82a6323d6d09db792df7d6c42256
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b6dc0a63340fee03b34f4c5b6eca8ff011d6b178
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210684"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744188"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure anahtar kasası yönetilen depolama hesabı - CLI
 
@@ -52,8 +52,9 @@ ms.locfileid: "55210684"
 1. Depolama hesabının kaynak Kimliğini almak için aşağıdaki komutu çalıştırın, bir depolama hesabı oluşturulduktan sonra yönetmek istediğiniz
 
     ```
-    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
+    az storage account show -n storageaccountname 
     ```
+    Kopya Kimliği alanı dışında yukarıdaki komutunun sonucu
     
 2. Uygulama kimliği, Azure anahtar Kasası'nın hizmet sorumlusu alma 
 
@@ -74,13 +75,16 @@ ms.locfileid: "55210684"
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     Kullanıcı depolama hesabı oluşturmadıysanız ve depolama hesabı için izinlere sahip değil durumunda, aşağıdaki adımları, anahtar Kasası'nda tüm depolama izinleri yönetebilirsiniz emin olmak hesabınız için izinleri ayarlayın.
+    
  > [!NOTE] 
-    Kullanıcının depolama hesabı için izinler yok durumda biz ilk kullanıcının nesne kimliği alın
+ > Kullanıcının depolama hesabı için izinler yok durumda biz ilk kullanıcının nesne kimliği alın
+
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+    
     ```
     
 ## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>SAS belirteçleri kullanarak depolama hesabınızın erişim
@@ -91,9 +95,9 @@ Bu bölümde getirilirken tarafından depolama hesabınızda işlemleri nasıl y
 
 > [!NOTE] 
   İçinde okumak için Key Vault kimlik doğrulaması için izleyebileceğiniz 3 yol vardır [temel kavramlar](key-vault-whatis.md#basic-concepts)
-- Yönetilen hizmet kimliği (kesinlikle önerilir) kullanma
-- Hizmet sorumlusu ve sertifika kullanma 
-- Hizmet sorumlusu ve parola (önerilmez) kullanma
+> - Yönetilen hizmet kimliği (kesinlikle önerilir) kullanma
+> - Hizmet sorumlusu ve sertifika kullanma 
+> - Hizmet sorumlusu ve parola (önerilmez) kullanma
 
 ```cs
 // Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials

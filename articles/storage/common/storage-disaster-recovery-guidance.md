@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bc79379d1b893beffc085e79b7643fcb6e1dc26f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657323"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753597"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Olağanüstü durum kurtarma ve depolama hesabı yük devretme (Önizleme) Azure Depolama'daki
 
@@ -158,15 +158,11 @@ Yönetilmeyen diskleri sayfa blobları Azure Depolama'da depolanır. Azure'da bi
 
 VM kapatıldığında geçici bir diskte depolanan tüm veriler kaybolur aklınızda bulundurun.
 
-#### <a name="azure-file-sync"></a>Azure Dosya Eşitleme
-
-Azure dosya eşitleme hesabı yük devretmeyi destekler. Bununla birlikte, yük devretme işlemi tamamlandıktan sonra tüm Azure dosya eşitleme ayarlarını yeniden yapılandırmanız gerekir.
-
 ### <a name="unsupported-features-or-services"></a>Desteklenmeyen özellikleri veya hizmetleri
-
 Aşağıdaki özellikler veya hizmetleri Önizleme sürümü için hesap yük devretme için desteklenmez:
 
-- Azure Data Lake depolama Gen2 hiyerarşik dosya paylaşımları üzerinden devredilemez.
+- Azure dosya eşitleme, depolama hesabı yük devretme işlemini desteklemiyor. Azure dosya eşitleme bulut uç olarak kullanılan Azure dosya paylaşımları içeren depolama hesaplarının yük devretmesi değil. Bunun yapılması ayrıca çalışma ve Mayıs durdurmak için neden Eşitleme beklenmeyen veri kaybı durumunda yeni katmanlı dosyalar neden olur.  
+- Azure Data Lake depolama Gen2 hiyerarşik ad alanı'nı kullanarak depolama hesaplarında yük devredilemez.
 - Arşivlenen bloblarını içeren depolama hesabı üzerinden devredilemez. Yük devretme planlamadığınız ayrı bir depolama hesabı arşivlenmiş blob'larda korur.
 - Premium blok bloblarını içeren depolama hesabı üzerinden devredilemez. Coğrafi yedeklilik premium blok blobları destekleyen depolama hesapları şu anda desteklemez.
 

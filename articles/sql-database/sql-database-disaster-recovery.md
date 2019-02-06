@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 61957b89bd5ec9a42d6fd03c7009187d71e448f4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474794"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749045"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Geri yükleme için ikincil bir Azure SQL veritabanı veya yük devretme
 
@@ -38,7 +38,7 @@ Azure SQL veritabanını kesintiden kurtarma için aşağıdaki özellikleri sun
 Yük devretme grupları veya coğrafi olarak yedekli yedeklemeler kullanarak başka bir veri bölgesine Kurtarma ile başarı için bir sunucu hazırlamanız gerekir. başka bir veri merkezinde kesinti yeni birincil sunucu için gereken belgelenen iyi tanımlanmış adımlara sahip olarak ortaya ve sorunsuz bir kurtarma için test. Hazırlama adımları şunlardır:
 
 - SQL veritabanı sunucusu yeni birincil sunucu, başka bir bölgede belirleyin. Coğrafi geri yükleme için bu genellikle bir sunucu olan [eşleştirilmiş bölge](../best-practices-availability-paired-regions.md) veritabanınızın bulunduğu bölge için. Bu, coğrafi geri yükleme işlemleri sırasında ek trafik maliyetini ortadan kaldırır.
-- Tanımlamak ve isteğe bağlı olarak tanımlayın, üzerinde kullanıcıların yeni birincil veritabanına erişmek için gerekli sunucu düzeyinde güvenlik duvarı kuralları.
+- Tanımlamak ve isteğe bağlı olarak tanımlayın, üzerinde kullanıcıların yeni birincil veritabanına erişmek için gerekli sunucu düzeyi IP güvenlik duvarı kuralları.
 - Bağlantı dizeleri değiştirme veya DNS girişlerini değiştirerek gibi yeni birincil sunucu, kullanıcılara yönlendirmek için nasıl yükleyeceksiniz belirleyin.
 - Belirleyin ve oluşturma isteğe bağlı olarak oturumların asıl veritabanında yeni birincil sunucuda mevcut olması gerekir ve bu oturum açma bilgileri varsa ana veritabanında uygun izinlere sahip olduğunuzdan emin olun. Daha fazla bilgi için [olağanüstü durum kurtarma sonrasında SQL veritabanı güvenliği](sql-database-geo-replication-security-config.md)
 - Yeni birincil veritabanına eşlemek için güncelleştirilmesi gereken uyarı kuralları tanımlar.

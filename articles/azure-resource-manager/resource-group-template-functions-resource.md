@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b4eaa6080f3ff238ffeb26e442c5d694c38c0c1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 61225a63b1f26012325ea97ac9f812e06a0dbc33
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496346"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756691"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için kaynak işlevleri
 
@@ -140,7 +140,7 @@ Olası listesini * kullanımları aşağıdaki tabloda gösterilmektedir.
 
 Hangi kaynak türlerinin bir listesini işlemi olduğunu belirlemek için aşağıdaki seçenekleriniz vardır:
 
-* Görünüm [REST API işlemleri](/rest/api/) bir kaynak sağlayıcısı ve liste işlemleri arayın. Örneğin, depolama hesaplarının [Listkeys'i işlemi](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Görünüm [REST API işlemleri](/rest/api/) bir kaynak sağlayıcısı ve liste işlemleri arayın. Örneğin, depolama hesaplarının [Listkeys'i işlemi](/rest/api/storagerp/storageaccounts).
 * Kullanım [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) PowerShell cmdlet'i. Aşağıdaki örnek, depolama hesapları için tüm listeleme işlemleri alır:
 
   ```powershell

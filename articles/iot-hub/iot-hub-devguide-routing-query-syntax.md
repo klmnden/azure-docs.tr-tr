@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: da95bd3832ee647c371c7beabb55b974dcb97740
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496576"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744854"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IOT Hub ileti yönlendirme sorgusu söz dizimi
 
@@ -55,7 +55,7 @@ Sistem özellikleri içeriği ve iletilerin kaynak tanımlamanıza yardımcı ol
 | -------- | ---- | ----------- |
 | contentType | dize | Kullanıcının, iletinin içerik türünü belirtir. Sorgu ileti gövdesinde izin vermek için bu değer, uygulama/JSON ayarlanmalıdır. |
 | contentEncoding | dize | Kullanıcı iletisi kodlama türünü belirtir. İzin verilen değerler şunlardır: UTF-8, UTF-16, UTF-32 contentType application/JSON değerine ayarlanırsa. |
-| ConnectionDeviceId | dize | Bu değer, IOT Hub tarafından ayarlanır ve iletileri kaynağını tanımlar. Bu, cihazın telemetri iletilerini, cihaz ikizi değişiklik bildirimleri veya cihaz yaşam döngüsü olaylarını olabilir. Bu sorgu çalıştırılamıyor. |
+| ıothub bağlantı cihaz kimliği | dize | Bu değer, IOT Hub tarafından ayarlanır ve cihaz Kimliğini tanımlar. Sorgulamak için aşağıdaki komutu kullanın `$connectionDeviceId`. |
 | iothub-enqueuedtime | dize | Bu değer, IOT Hub tarafından ayarlanır ve gerçek enqueuing iletinin UTC saatini gösterir. Sorgulamak için aşağıdaki komutu kullanın `enqueuedTime`. |
 
 Bölümünde anlatıldığı gibi [IOT Hub iletilerini](iot-hub-devguide-messages-construct.md), bir iletiye ek sistem özellikleri vardır. Ek olarak **contentType**, **contentEncoding**, ve **enqueuedTime**, **connectionDeviceId** ve  **connectionModuleId** da sorgulanabilir.

@@ -1,6 +1,6 @@
 ---
-title: Azure ayırmaları Windows yazılım maliyetleri | Microsoft Docs
-description: Hangi Windows yazılım ölçümleri Azure ayrılmış VM örneği maliyetleri dahil değildir öğrenin.
+title: Azure için ayırmaları yazılım maliyetleri | Microsoft Docs
+description: Azure ayrılmış VM örneği maliyetlerini hangi yazılım ölçümleri bulunmayan öğrenin.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 63b1e850cbcea089a6a115f53ea1ef579a16886f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902678"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744989"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile bulunmayan Windows yazılım maliyetleri
+# <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile bulunmayan yazılım maliyetleri
 
-Bir Azure hibrit kullanım teklifi, ayrılmış sanal makine örneklerine sahip değilseniz, aşağıdaki bölümde listelenen Windows yazılım ölçümleri için ücretlendirilir.
+Bir Azure hibrit kullanım teklifi, ayrılmış sanal makine örneklerine sahip değilseniz, aşağıdaki bölümlerde listelenen yazılım ölçümleri için ücretlendirilirsiniz.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows yazılım ölçümleri rezervasyon maliyeti dahil değildir
 
@@ -50,6 +50,22 @@ Bir Azure hibrit kullanım teklifi, ayrılmış sanal makine örneklerine sahip 
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Ayırma-Windows Svr (256 çekirdek) | B serisi tüm |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Ayırma-Windows Svr (96 çekirdek) | B serisi tüm |
 
+## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>Bulut Hizmetleri yazılım ölçümleri rezervasyon maliyeti dahil değildir
+
+| Ölçüm kimliği | Kullanım dosyasındaki MeterName |
+| ------- | ------------------------|
+|ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Cloud Services 1 vCPU lisans|
+|e0434559-19ee-4132-9c46-05ad4044f3f7|Cloud Services 2 vCPU lisans|
+|6ecc834e-39b3-48b3-8d10-cc5626bacb66|Cloud Services 4 vCPU lisans|
+|13103090-ca72-4825-ab12-7f16c4931d95|Cloud Services 8 vCPU lisans|
+|ecd2bb6e-45a5-49aa-a58b-3947ba21c364|Bulut Hizmetleri 16 vCPU lisans|
+|de2c7f1d-06dc-4b16-bc8b-c2ec5f4c8aee|Bulut Hizmetleri 20 vCPU lisans|
+|ca1af837-4B35-47f5-8d14-b1988149c4ca|Bulut Hizmetleri 32 vCPU lisans|
+|dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Cloud Services 64 vCPU lisans|
+|7a803026-244c-4659-834c-11e6b2d6b76f|Bulut Hizmetleri 80 vCPU lisans|
+
+## <a name="rates-for-azure-meters"></a>Azure ölçümleri ücretleri
+
 Bu ölçümlerin her birinin maliyeti Azure RateCard API aracılığıyla elde edebilirsiniz. Bir azure ölçüm için ücretler alma hakkında daha fazla bilgi için bkz [almak için kullanılan bir Azure aboneliğinde kaynakları fiyat ve meta veri bilgileri](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -65,6 +81,3 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-
-

@@ -1,6 +1,6 @@
 ---
 title: Azure geçişi Media Services v3 v2 | Microsoft Docs
-description: Bu makalede, Azure Media Services v3 sürümünde yapılan değişiklikleri açıklar ve iki sürümü arasındaki farklar gösterilmektedir.
+description: Bu makalede, Azure Media Services v3 sürümünde yapılan değişiklikleri açıklar ve iki sürümü arasındaki farklar gösterilmektedir. Makalede, Media Services v2'den v3 taşımak için geçiş kılavuzunu de sağlanır.
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/24/2019
+ms.date: 02/04/2019
 ms.author: juliako
-ms.openlocfilehash: ec40de04f46d0be8f40c2223346f17d288eb580c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b05c174bf96e78efd66f2c673e46ab43700c09f9
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104074"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744183"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 

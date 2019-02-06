@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553354"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757506"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Depolama: Yüksek Performans Tasarımı
 
@@ -118,12 +118,12 @@ PerfMon sayaçları işlemci, bellek ve her mantıksal disk ve sunucunuzun fizik
 
 | Sayaç | Açıklama | PerfMon | iostat |
 | --- | --- | --- | --- |
-| **IOPS veya saniye başına işlem** |Saniye başına depolama diskini verilen g/ç isteklerinin sayısı. |Disk Okuma/sn <br> Disk Yazma/sn |tps <br> r/sn <br> w/sn |
-| **Disk okuma ve yazma işlemleri** |% Okuma ve yazma disk üzerinde gerçekleştirilen işlemler. |% Disk okuma süresi <br> Disk yazma süresi % |r/sn <br> w/sn |
-| **Aktarım hızı** |Saniye başına yazılan veya okunan veri miktarı. |Disk Okuma Bayt/sn <br> Disk Yazma Bayt/sn |kB_read/sn <br> kB_wrtn/sn |
+| **IOPS veya saniye başına işlem** |Saniye başına depolama diskini verilen g/ç isteklerinin sayısı. |Disk Okuma/sn <br> Disk Yazma/sn |tps <br> r/s <br> w/s |
+| **Disk okuma ve yazma işlemleri** |% Okuma ve yazma disk üzerinde gerçekleştirilen işlemler. |% Disk okuma süresi <br> Disk yazma süresi % |r/s <br> w/s |
+| **Aktarım hızı** |Saniye başına yazılan veya okunan veri miktarı. |Disk Okuma Bayt/sn <br> Disk Yazma Bayt/sn |kB_read/s <br> kB_wrtn/s |
 | **Gecikme süresi** |Bir disk g/ç isteği toplam süre. |Ortalama Disk sn/Okuma <br> Ortalama disk sn/yazma |await <br> svctm |
-| **G/ç boyutu** |G/ç boyutu, depolama disklerini sorunları ister. |Ortalama Disk bayt/okuma <br> Ortalama Disk Bayt/yazma |avgrq sz |
-| **Sıra Derinliği** |Bekleyen g/ç sayıda okuyamaz ya da depolama diske yazılan üzere bekleyen istekleri. |Geçerli Disk Sırası Uzunluğu |avgqu sz |
+| **G/ç boyutu** |G/ç boyutu, depolama disklerini sorunları ister. |Ortalama Disk bayt/okuma <br> Ortalama Disk Bayt/yazma |avgrq-sz |
+| **Sıra Derinliği** |Bekleyen g/ç sayıda okuyamaz ya da depolama diske yazılan üzere bekleyen istekleri. |Geçerli Disk Sırası Uzunluğu |avgqu-sz |
 | **Maks. Bellek** |Uygulamayı sorunsuz bir şekilde çalıştırmak için gerekli bellek miktarını |% Kullanılan kaydedilmiş bayt |Vmstat'ı kullanın |
 | **Maks. CPU** |Uygulama düzgün çalışması için gerekli CPU tutar |% İşlemci zamanı |% kullanımı |
 
@@ -198,8 +198,8 @@ Yüksek ölçek VM'ler, farklı boyutlarda farklı sayıda CPU çekirdekleri, be
 
 | VM boyutu | CPU çekirdekleri | Bellek | VM disk boyutları | En çok, Veri diskleri | Önbellek boyutu | IOPS | Bant genişliği önbelleği GÇ sınırları |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |İŞLETİM SİSTEMİ 1023 GB = <br> Yerel SSD 224 GB = |32 |576 GB |50.000 IOPS <br> Saniye başına 512 MB |4000 IOPS ve saniyede 33 MB |
-| Standard_GS5 |32 |448 GB |İŞLETİM SİSTEMİ 1023 GB = <br> Yerel SSD 896 GB = |64 |4224 GB |ÜST SINIR: 80.000 IOPS <br> Saniyede 2.000 MB |5.000 IOPS ve saniyede 50 MB |
+| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Yerel SSD 224 GB = |32 |576 GB |50.000 IOPS <br> Saniye başına 512 MB |4000 IOPS ve saniyede 33 MB |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Yerel SSD 896 GB = |64 |4224 GB |ÜST SINIR: 80.000 IOPS <br> Saniyede 2.000 MB |5.000 IOPS ve saniyede 50 MB |
 
 Tüm kullanılabilir Azure VM boyutlarını tam bir listesini görüntülemek için başvurmak [Windows VM boyutları](../articles/virtual-machines/windows/sizes.md) veya [Linux VM boyutları](../articles/virtual-machines/linux/sizes.md). Karşılayan ve istenen uygulama performans gereksinimlerinizi ölçeklendirme bir VM boyutu seçin. Buna ek olarak, VM boyutları seçerken önemli noktalar aşağıdaki dikkate alın.
 
@@ -235,7 +235,7 @@ Azure Premium depolama, sekiz GA disk boyutları ve şu anda Önizleme aşaması
 
 | Premium disk türü  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Disk boyutu           | 32 GiB | 64 GiB | 128 GiB| 256 giB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 giB (16 tib'a kadar)    | 32.767 giB (32 GiB)    |
+| Disk boyutu           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 giB (16 tib'a kadar)    | 32.767 giB (32 GiB)    |
 | Disk başına IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15.000              | 20.000              |
 | Disk başına aktarım hızı | Saniye başına 25 MiB  | Saniye başına 50 MiB  | Saniye başına 100 MiB |Saniye başına 125 MiB | Saniye başına 150 MiB | Saniye başına 200 MiB | Saniye başına 250 MiB | Saniye başına 250 MiB | Saniye başına 480 MiB | Saniye başına 750 MiB | Saniye başına 750 MiB |
 
@@ -464,7 +464,7 @@ Yazma işlemleri kullanımını dört çalışan iş parçacıkları ve dört ç
 *Maksimum yazma IOPS*  
 Maksimum yazma IOPS almak için aşağıdaki özelliklerle iş dosyasını oluşturun. "Fiowrite.ini" olarak adlandırın.
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -504,7 +504,7 @@ Test çalışırken, sayısını, VM IOPS yazma ve Premium diskleri teslim görm
 *En yüksek okuma IOPS*  
 Proje dosyası, maksimum okuma IOPS almak için aşağıdaki özelliklerle oluşturun. "Fioread.ini" olarak adlandırın.
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -544,7 +544,7 @@ Test çalışırken, VM okuma IOPS sayısı ve Premium diskleri teslim görmek m
 *En yüksek okuma ve yazma IOPS*  
 Şunlarla birlikte proje dosyasını oluşturmak en fazla almak için özellikleri birleştirilmiş okuma ve yazma IOPS. "Fioreadwrite.ini" olarak adlandırın.
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -605,7 +605,7 @@ Okuma ve yazma aktarım hızı üst sınırı almak için birleştirilmiş, daha
 
 Azure Premium depolama hakkında daha fazla bilgi edinin:
 
-* [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md)  
+* [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../articles/virtual-machines/windows/premium-storage.md)  
 
 SQL Server kullanıcıları için SQL Server için en iyi performans uygulamaları makalelerini okuyun:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d5633648ee94c4db20f095619871ac5cd9cec7da
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825195"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Amazon Web Services (AWS)
 
@@ -442,6 +442,12 @@ Bu bölümün amacı, Britta Simon Amazon Web Services'te (AWS) adlı bir kullan
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli Amazon Web Services (AWS) kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Amazon Web Services (AWS) için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="known-issues"></a>Bilinen sorunlar
+
+ * İçinde **sağlama** bölümünde **eşlemeleri** alt bölümünün "Yükleniyor..." iletisini göster ve hiçbir zaman öznitelik eşlemelerini görüntülemez. Şu anda desteklenen tek sağlama iş akışı, Azure AD Kullanıcı/Grup ataması sırasında seçimi için AWS rollerden içe ' dir. Öznitelik eşlemeleri için bu önceden tanımlanmış ve yapılandırılamaz.
+ 
+ * **Sağlama** bölüm yalnızca destekleyen bir dizi kimlik bilgisi bir AWS Kiracı için aynı anda girme. İçeri aktarılan tüm rolleri Azure AD appRoles özelliğine yazılır [servicePrincipal nesnesi](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) için AWS Kiracı. Azure AD'ye (servicePrincipals tarafından gösterilen) birden çok AWS kiracılar sağlama, ancak olduğu bilinen bir sorunu otomatik olarak tüm içeri aktarılan rolleri için kullanılan birden fazla AWS servicePrincipals yazılacak boyutlandırılmamışsa ile Galeriden eklenebilir Çoklu oturum açma için kullanılan tek servicePrincipal içine sağlama. Geçici bir çözüm olarak [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) her AWS servicePrincipal alınan appRoles ayıklanacak sağlama yapılandırıldığı kullanılabilir. Bu rol dizeler sonradan çoklu oturum açma yapılandırıldığı AWS servicePrincipal eklenebilir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

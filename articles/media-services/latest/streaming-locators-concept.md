@@ -9,102 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742755"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743489"
 ---
 # <a name="streaming-locators"></a>Akış Bulucuları
 
-Kayıttan yürütme için kullanabileceğiniz bir URL ile istemcilerinize kodlanmış video veya ses dosyası sağlamanız gerekir, oluşturmanız gerekir. bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators) ve akış URL'leri oluşturun. Daha fazla bilgi için [dosya Stream](stream-files-dotnet-quickstart.md).
+Video çıkış yapmak için varlık kayıttan yürütme için istemciler tarafından kullanılabilir, sahip olduğunuz oluşturmak bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators) ve daha sonra akış URL'lerini oluşturabilirsiniz. .NET örnek için bkz: [bir akış Bulucu alma](stream-files-tutorial-with-api.md#get-a-streaming-locator).
 
-## <a name="streaminglocator-definition"></a>StreamingLocator tanımı
+Oluşturma işlemi bir **akış Bulucu** yayımlama denir. Varsayılan olarak, **akış Bulucu** API çağrılarını hemen sonra geçerli olduğunu ve isteğe bağlı bir başlangıç ve bitiş zamanlarını yapılandırmadığınız sürece silinene kadar sürer. 
 
-Aşağıdaki tabloda StreamingLocator'ın özelliklerini gösterir ve bunların tanımlarının sağlar.
+Oluştururken bir **akış Bulucu**, belirtmenize gerek [varlık](https://docs.microsoft.com/rest/api/media/assets) adı ve [akış ilke](https://docs.microsoft.com/rest/api/media/streamingpolicies) adı. Özel bir ilke oluşturulur veya önceden tanımlanmış akış ilkelerden birini ya da kullanabilirsiniz. Şu anda kullanılabilen önceden tanımlanmış ilkeleri şunlardır: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' ve 'Predefined_MultiDrmStreaming'. Özel bir kullanırken İlkesi, akış gibi ilkelerin sınırlı sayıda medya hizmeti hesabınız için tasarlamanıza ve aynı seçenek ve protokolleri gerektiğinde bunları yeniden için akış Bulucular. 
 
-|Ad|Açıklama|
-|---|---|
-|id |Kaynak için tam kaynak kimliği.|
-|ad|Kaynak adı.|
-|properties.alternativeMediaId|Bu akış Bulucusu alternatif ortam kimliği.|
-|properties.assetName|Varlık adı|
-|properties.contentKeys|Bu akış Bulucu tarafından kullanılan ContentKeys.|
-|Properties.Created|Akış Bulucusu oluşturma zamanı.|
-|properties.defaultContentKeyPolicyName|Bu akış Bulucu tarafından kullanılan ContentKeyPolicy varsayılan adı.|
-|properties.endTime|Akış Bulucu bitiş saati.|
-|properties.startTime|Akış Bulucu başlangıç zamanı.|
-|properties.streamingLocatorId|Akış Bulucu StreamingLocatorId.|
-|properties.streamingPolicyName |Bu akış Bulucu tarafından kullanılan akış ilke adı. Akış oluşturduğunuz ilke adı belirtin veya önceden tanımlanmış akış ilkelerden birini kullanabilirsiniz. Önceden tanımlanmış akış kullanılabilir ilkeleri şunlardır: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' ve 'Predefined_MultiDrmStreaming'|
-|type|Kaynak türü.|
+Şifreleme seçeneklerini akışınızı belirtmek istiyorsanız, oluşturma [içerik anahtarı ilke](https://docs.microsoft.com/rest/api/media/contentkeypolicies) aracılığıyla anahtar teslim bileşen Media Services'ın istemcileri sonlandırmak için içerik anahtarını nasıl teslim edildiğini yapılandırır. İle bir akış Bulucu ilişkilendirmek **içerik anahtarı ilke** ve içerik anahtarı. Media Services otomatik anahtar sağlayabilirsiniz. Aşağıdaki .NET örnek nasıl bir belirteç kısıtlaması Media Services v3 ile AES şifreleme yapılacağı gösterilmektedir: [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). **İçerik anahtarı ilkeleri** olan güncelleştirilebilir bir anahtar döndürme yapmanız gerekiyorsa ilke güncelleştirmek isteyebilirsiniz. Bu, güncelleştirme ve güncelleştirilmiş ilke çekme anahtar teslim önbellekleri 15 dakika kadar sürebilir. Yeni bir içerik anahtarı ilkesi için her bir akış Bulucu oluşturmamayı önerilir. Mevcut ilkeleri aynı seçeneklere gerektiğinde yeniden denemelisiniz.
 
-Tam tanımı için bkz [akış bulucuları](https://docs.microsoft.com/rest/api/media/streaminglocators).
+> [!IMPORTANT]
+> * Özelliklerini **akış bulucuları** DateTime türü her zaman UTC biçiminde olan.
+> * Medya hizmeti hesabınız için sınırlı sayıda ilkeleri tasarlayın ve aynı seçeneklere gerektiğinde bunları yeniden için akış Bulucular gerekir. 
 
 ## <a name="filtering-ordering-paging"></a>Filtreleme, sıralama, sayfalama
 
-Media Services, aşağıdaki OData sorgu seçenekleri için akış Bulucuyu destekler: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-İşleç açıklaması:
-
-* EQ eşit =
-* Ne = eşit değil
-* Ge = büyüktür veya eşittir
-* Le = küçüktür veya eşittir
-* Gt = büyüktür
-* Lt = kısa
-
-### <a name="filteringordering"></a>Filtreleme ve sıralama
-
-Aşağıdaki tabloda bu seçeneklerin StreamingLocator özelliklerine nasıl uygulanabilir gösterilmektedir: 
-
-|Ad|Filtre|Sipariş verme|
-|---|---|---|
-|id |||
-|ad|Eq, ne, ge, le, gt, lt|Artan veya azalan|
-|properties.alternativeMediaId  |||
-|properties.assetName   |||
-|properties.contentKeys |||
-|Properties.Created |Eq, ne, ge, le, gt, lt|Artan veya azalan|
-|properties.defaultContentKeyPolicyName |||
-|properties.endTime |Eq, ne, ge, le, gt, lt|Artan veya azalan|
-|properties.startTime   |||
-|properties.streamingLocatorId  |||
-|properties.streamingPolicyName |||
-|type   |||
-
-### <a name="pagination"></a>Sayfalandırma
-
-Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 10'dur.
-
-> [!TIP]
-> Koleksiyon listeleme ve belirli bir sayfa bağımlı olmadan her zaman sonraki bağlantısını kullanmanız gerekir.
-
-Sorgu yanıtına fazla öğe içeriyorsa, hizmet döndürür bir "\@odata.nextLink" sonraki sonuç sayfasını alınacağı özellik. Bu kullanılabilir sonuç kümesinin tamamı aracılığıyla sayfası. Sayfa boyutunu yapılandıramazsınız. 
-
-StreamingLocators oluşturduysanız veya çalışırken disk belleği koleksiyonu sildi (Bu değişiklikleri indirilmedi koleksiyonu içinde parçasıysa.) değişiklikler döndürülen sonuçlarda yansıtılır 
-
-Aşağıdaki C# örneği, hesaptaki tüm StreamingLocators aracılığıyla listeleme gösterilmiştir.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-Diğer örnekler için bkz [akış bulucuları - liste](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+Bkz: [filtreleme, sıralama, Media Services varlıklarının sayfalandırma](entities-overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)
+* [Öğretici: Karşıya yükleme, kodlama ve .NET kullanarak video akışı](stream-files-tutorial-with-api.md)
+* [DRM dinamik şifreleme ve lisans teslimat hizmeti kullanın](protect-with-drm.md)

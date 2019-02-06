@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 12c71086509b0c7017b8326c46ed4a31270ef261
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657391"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751914"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -172,7 +172,7 @@ Bu sorun, VMware powerclı'yı yükleme ile ilgili bir sorun nedeniyle oluşabil
 
 Vcenter Server "Servername.com:9443" hatası nedeniyle bağlanılamıyor: Hiçbir uç noktası konumunda dinleme https://Servername.com:9443/sdk iletiyi kabul.
 
-Toplayıcı gerecini'nın en son sürümünü, aksi halde, yükseltme gerecine denetleyin [en son sürümü](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+Toplayıcı gerecini'nın en son sürümünü, aksi halde, yükseltme gerecine denetleyin [en son sürümü](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 Sorunu hala en son sürümde olursa, Toplayıcı makinesi belirtilen bağlantı noktası yanlış ya da belirtilen vCenter Server adını çözümleyemiyor nedeni olabilir. Bağlantı noktası belirtilmezse, varsayılan olarak, Toplayıcı bağlantı noktası numarası 443 bağlanmak çalışacaktır.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ed084520e092802ffa2a42e8a0c664ec09c4cbb7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093249"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745971"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search'te kaynak tüketimi ve sorgu etkinliğini İzle
 
@@ -65,7 +65,7 @@ Aşağıdaki tabloda, günlükleri depolamak ve geniş kapsamlı hizmet işlemle
 | [Blob depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Günlüğe kaydedilen olayları sorgu ölçümleri temel bir aşağıdaki şemalar. Olayları günlüğe bir Blob kapsayıcısına ve JSON dosyalarında depolanan. Dosya içeriğini görüntülemek için JSON düzenleyicisini kullanın.|
 | [Olay Hub’ı](https://docs.microsoft.com/azure/event-hubs/) | Günlüğe kaydedilen olayları ve bu makalede anlatıldığı şemaları dayalı sorgu ölçümleri. Bu, çok büyük günlükleri için bir alternatif veri toplama hizmeti olarak seçin. |
 
-Ürününü, yaşam süresi Azure aboneliğinize ücretsiz olarak deneyebilirsiniz böylece hem Log Analytics hem de Blob Depolama ücretsiz paylaşılan hizmet olarak kullanılabilir. Application Insights, uygulama veri boyutu altında belirli sınırları olduğu sürece kaydolun ve ücretsiz (bkz [fiyatlandırma sayfası](https://azure.microsoft.com/ricing/details/monitor/) Ayrıntılar için).
+Ürününü, yaşam süresi Azure aboneliğinize ücretsiz olarak deneyebilirsiniz böylece hem Log Analytics hem de Blob Depolama ücretsiz paylaşılan hizmet olarak kullanılabilir. Application Insights, uygulama veri boyutu altında belirli sınırları olduğu sürece kaydolun ve ücretsiz (bkz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/monitor/) Ayrıntılar için).
 
 Sonraki bölümde, etkinleştirme ve toplamak ve Azure arama işlemleri tarafından oluşturulan günlük verilerine erişmek için Azure Blob Depolama kullanma adımlarında size kılavuzluk eder.
 

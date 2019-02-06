@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163067"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751166"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Öğretici: Diskler oluşturma ve sanal makine ölçek kümesi Azure CLI ile kullanma
 Sanal makine ölçek kümeleri, sanal makine örneğinin işletim sistemini, uygulamalarını ve verilerini depolamak için diskleri kullanır. Bir ölçek kümesi oluştururken ve yönetirken, beklenen iş yüküne uygun disk boyutu ve yapılandırmasını seçmek önemlidir. Bu öğretici, sanal makine disklerinin oluşturulmasını ve yönetilmesini kapsar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -95,13 +95,13 @@ Yukarıdaki tabloda, disk başına maksimum IOPS tanımlanmış olsa da birden �
 Bir ölçek kümesi oluştururken veya mevcut bir ölçek kümesi ile diskler oluşturabilir ve ekleyebilirsiniz.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Ölçek kümesi oluşturulurken diskler ekleme
-Öncelikle, [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Bu örnekte, *eastus* bölgesinde *myResourceGroup* adlı bir kaynak grubu oluşturulur.
+Öncelikle, [az group create](/cli/azure/group) komutuyla bir kaynak grubu oluşturun. Bu örnekte, *eastus* bölgesinde *myResourceGroup* adlı bir kaynak grubu oluşturulur.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-[az vmss create](/cli/azure/vmss#az_vmss_create) komutuyla bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek, *myScaleSet* adlı bir ölçek kümesini ve yoksa SSH anahtarlarını oluşturur. `--data-disk-sizes-gb` parametresiyle iki disk oluşturulur. İlk diskin boyutu *64* GB, ikinci diskin boyutuysa *128* GB’tır:
+[az vmss create](/cli/azure/vmss) komutuyla bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek, *myScaleSet* adlı bir ölçek kümesini ve yoksa SSH anahtarlarını oluşturur. `--data-disk-sizes-gb` parametresiyle iki disk oluşturulur. İlk diskin boyutu *64* GB, ikinci diskin boyutuysa *128* GB’tır:
 
 ```azurecli-interactive
 az vmss create \
@@ -117,7 +117,7 @@ az vmss create \
 Tüm ölçek kümesi kaynaklarının ve sanal makine örneklerinin oluşturulup yapılandırılması birkaç dakika sürer.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Mevcut ölçek kümesine bir disk ekleme
-Mevcut bir ölçek kümesine de diskler ekleyebilirsiniz. [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach) komutunu kullanarak başka bir disk eklemek için önceki adımda oluşturulan ölçek kümesini kullanın. Aşağıdaki örnekte ek bir *128* GB disk eklenmektedir:
+Mevcut bir ölçek kümesine de diskler ekleyebilirsiniz. [az vmss disk attach](/cli/azure/vmss/disk) komutunu kullanarak başka bir disk eklemek için önceki adımda oluşturulan ölçek kümesini kullanın. Aşağıdaki örnekte ek bir *128* GB disk eklenmektedir:
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -144,7 +144,7 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-Disklerin düzgün şekilde hazırlandığını onaylamak için, sanal makine örneklerinden birinde SSH oturumu açın. [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) komutuyla ölçek kümeniz için bağlantı bilgilerini listeleyin:
+Disklerin düzgün şekilde hazırlandığını onaylamak için, sanal makine örneklerinden birinde SSH oturumu açın. [az vmss list-instance-connection-info](/cli/azure/vmss) komutuyla ölçek kümeniz için bağlantı bilgilerini listeleyin:
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -225,7 +225,7 @@ exit
 
 
 ## <a name="list-attached-disks"></a>Eklenen diskleri listeleme
-Bir ölçek kümesine eklenen disklerle ilgili bilgileri görüntülemek için [az vmss show](/cli/azure/vmss#az_vmss_show) komutunu kullanın ve *virtualMachineProfile.storageProfile.dataDisks* üzerinde sorgulama yapın:
+Bir ölçek kümesine eklenen disklerle ilgili bilgileri görüntülemek için [az vmss show](/cli/azure/vmss) komutunu kullanın ve *virtualMachineProfile.storageProfile.dataDisks* üzerinde sorgulama yapın:
 
 ```azurecli-interactive
 az vmss show \
@@ -279,7 +279,7 @@ Disk boyutu, depolama katmanı ve LUN (Mantıksal Birim Numarası) ile ilgili bi
 
 
 ## <a name="detach-a-disk"></a>Disk ayırma
-Belirli bir disk artık gerekli olmadığında o diski ölçek kümesinden ayırabilirsiniz. Disk, ölçek kümesindeki tüm sanal makine örneklerinden kaldırılır. Ölçek kümesinden bir diski ayırmak için [az vmss disk detach](/cli/azure/vmss/disk) komutunu kullanın ve diskin LUN’unu belirtin. Önceki bölümde [az vmss show](/cli/azure/vmss#az_vmss_show) komutundan elde edilen çıktıda LUN’lar gösterilir. Aşağıdaki örnek, ölçek kümesinden LUN *2*’yi ayırır:
+Belirli bir disk artık gerekli olmadığında o diski ölçek kümesinden ayırabilirsiniz. Disk, ölçek kümesindeki tüm sanal makine örneklerinden kaldırılır. Ölçek kümesinden bir diski ayırmak için [az vmss disk detach](/cli/azure/vmss/disk) komutunu kullanın ve diskin LUN’unu belirtin. Önceki bölümde [az vmss show](/cli/azure/vmss) komutundan elde edilen çıktıda LUN’lar gösterilir. Aşağıdaki örnek, ölçek kümesinden LUN *2*’yi ayırır:
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -290,7 +290,7 @@ az vmss disk detach \
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Ölçek kümenizi ve disklerinizi kaldırmak için [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu ve bu kaynak grubunun tüm kaynaklarını silin. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
+Ölçek kümenizi ve disklerinizi kaldırmak için [az group delete](/cli/azure/group) komutunu kullanarak kaynak grubunu ve bu kaynak grubunun tüm kaynaklarını silin. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

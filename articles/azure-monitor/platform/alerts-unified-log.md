@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e568f2adb3ff9310ed92ed19c9543f249cca7658
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098706"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745726"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
 Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
@@ -74,8 +74,10 @@ Uyarı her 5 dakikada bir, sonuç kodu 500 olduğu kayıtlar için aramak için 
 
 ### <a name="metric-measurement-alert-rules"></a>Ölçüm ölçüsü uyarı kuralları
 
-- **Ölçüm ölçüsü** uyarı kuralları belirtilen eşiği aşarsa bir değere sahip sorgudaki her nesne için bir uyarı oluştur.  Aşağıdaki farklı fark sahip oldukları **sonuç sayısı** uyarı kuralları.
+**Ölçüm ölçüsü** uyarı kuralları belirtilen eşiği aşarsa bir değere sahip sorgudaki her nesne için bir uyarı oluştur.  Aşağıdaki farklı fark sahip oldukları **sonuç sayısı** uyarı kuralları.
+
 - **Toplama işlevi**: Gerçekleştirilen hesaplama ve büyük olasılıkla bir sayısal belirler toplanacak alan.  Örneğin, **Count() işlevi** sorguda kayıt sayısını döndürür **avg(CounterValue)** aralığında Ort alanın ortalamasını döndürür. Adlı/adlı sorgu toplama işlevi olması gerekir: AggregatedValue ve sayısal bir değer sağlayın. 
+
 - **Alan grubu**: Bu alan her bir örneği için bir toplu değer içeren bir kayıt oluşturulur ve her biri için bir uyarı oluşturulabilir.  Örneğin, her bilgisayar için bir uyarı oluşturmak istediyseniz, kullanacağınız **bilgisayar tarafından**. Var olması durumunda uyarı sorgusu üzerinde belirtilmiş birden çok grup alanı, kullanıcı kullanarak sıralamak için kullanılacak alanı sonuçlarını belirtebilirsiniz **üzerinde toplama** (metricColumn) parametresi
 
     > [!NOTE]

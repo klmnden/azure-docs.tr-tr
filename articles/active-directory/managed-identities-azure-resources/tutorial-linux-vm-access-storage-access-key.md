@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
-ms.openlocfilehash: 7617b19fe4f59b582b878d5dfe365810963ff51e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b27553e16225a7bc0d9ca74c7ec013a231d64e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158103"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755484"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Öğretici: Azure depolama erişim anahtarı erişmek için bir Linux VM sistem tarafından atanan yönetilen kimliği kullanma
 
@@ -198,4 +198,4 @@ Yanıt:
 Bu öğreticide, erişim anahtarı kullanarak Azure Depolama'ya erişmek için Linux VM sistem tarafından atanan yönetilen kimlik kullanmayı öğrendiniz.  Azure Depolama erişim anahtarları hakkında daha fazla bilgi için bkz:
 
 > [!div class="nextstepaction"]
->[Depolama erişim anahtarlarınızı yönetme](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Depolama erişim anahtarlarınızı yönetme](/azure/storage/common/storage-create-storage-account)

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: c0304e290d18e6569e3fcc2efbab8af15727b80c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508171"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744665"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT sisteminizi planlama
 
@@ -37,6 +37,9 @@ Avere vFXT sistemin ağ altyapısı planlama yaparken aşağıdaki yönergeleri 
 * İstemci işlem sistemlerinizi vFXT küme yakın bulun. Arka uç depolama daha uzak olabilir.  
 
 * Kolaylık olması için aynı sanal ağdaki (vnet) ve aynı kaynak grubunda vFXT küme ve küme denetleyicisi VM'SİNİN bulun. Ayrıca aynı depolama hesabını kullanmanız gerekir. (Küme denetleyicisi kümeyi oluşturur ve komut satırı küme yönetimi için de kullanılabilir.)  
+
+  > [!NOTE] 
+  > Küme oluşturma şablonu, yeni bir kaynak grubu ve küme için yeni bir depolama hesabı oluşturabilirsiniz. Mevcut bir kaynak grubunu belirtebilirsiniz, ancak boş olmalıdır.
 
 * Küme IP adresi çakışmaları istemcilerle veya işlem kaynakları için kendi alt ağda bulunması gerekir. 
 

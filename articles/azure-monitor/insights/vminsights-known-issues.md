@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 038c6afe94ccfea707eea3b4032a2e45f69e5102
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187083"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745682"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile ilgili bilinen sorunlar
 
@@ -27,6 +27,7 @@ Bu makalede, bir çözümde bir sistem durumu, uygulama bileşenleri bulma ve Az
 ## <a name="health"></a>Durum 
 Aşağıda sistem durumu özelliğinin geçerli sürümle bilinen sorunlar verilmiştir:
 
+- VM özelliği panel Windows Server 2019 işletim sistemi Windows Server 2016 görüntüler. Bu, gelecek sürümlerden birinde düzeltilecektir.
 - Bir Azure VM kaldırılması veya silinmesi durumunda süre için VM liste görünümünde görüntülenir. Ayrıca, kaldırıldı veya silinmiş bir VM'nin durumunu'ı tıklatarak açılır **sistem tanılama** görüntüleyin ve sonra bir yükleme döngüsü başlatır. Silinen sanal Makinenin adını seçerek, bir VM silinip silinmediğini belirten ileti ile bir bölme açılır.
 - Portalı veya iş yükü İzleyicisi API bunları hemen güncelleştirebilir olsa bile bir eşiği güncelleştirme gibi yapılandırma değişiklikleri, 30 dakika kadar yararlanın. 
 - Sistem durumu tanılama güncelleştirmeleri diğer görünümlerle daha hızlı karşılaşırsınız. Bunlar arasında geçiş yaptığınızda bilgileri gecikebilir. 

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 38f0d9cc6f507aa7d521aba0ff737f7bbaf2b211
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2a719fcbe2180e366060fba11bf64ad9770aa672
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468130"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756130"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
@@ -39,7 +39,7 @@ Buradan tüm bir toplu işlemde herhangi bir birleşimini kaydetmek ve aşağıd
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Elastik havuzlara ve havuza alınmış veritabanlarını yönetme
 
-SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan veritabanları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps). Oluşturma ve elastik havuzlar için SQL veritabanı sunucularını yönetmek için bkz: [oluşturma ve SQL veritabanı sunucularını yönetme](sql-database-servers.md). Oluşturma ve güvenlik duvarı kurallarını yönetmek için bkz: [oluşturma ve PowerShell kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan veritabanları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps). Oluşturma ve elastik havuzlar için SQL veritabanı sunucularını yönetmek için bkz: [oluşturma ve SQL veritabanı sunucularını yönetme](sql-database-servers.md). Oluşturma ve güvenlik duvarı kurallarını yönetmek için bkz: [oluşturma ve PowerShell kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > PowerShell örnek komut dosyaları için bkz: [elastik havuzlar oluşturma ve PowerShell kullanarak bir havuz dışına ve havuzlar arasında veritabanlarını taşıma](scripts/sql-database-move-database-between-pools-powershell.md) ve [PowerShell kullanarak izleme veAzureSQLveritabanındabirSQLelastikhavuzunuölçeklendirme](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -79,7 +79,7 @@ Oluşturma ve SQL veritabanı elastik havuzları yönetme [Azure CLI](/cli/azure
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Havuza alınmış veritabanlarını yönetme
 
-Oluşturma ve veritabanlarını taşıma mevcut elastik havuzlar için ya da Transact-SQL ile SQL veritabanı elastik havuz hakkında bilgi döndürmek için aşağıdaki T-SQL komutlarını kullanın. Azure portalını kullanarak şu komutları verebilirsiniz [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), veya bir Azure SQL Database sunucusuna bağlanma ve Transact-SQL geçirmek başka bir programı komutları. Oluşturma ve T-SQL'yi kullanarak güvenlik duvarı kurallarını yönetmek için bkz: [Transact-SQL kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-firewall-rules-using-transact-sql).
+Oluşturma ve veritabanlarını taşıma mevcut elastik havuzlar için ya da Transact-SQL ile SQL veritabanı elastik havuz hakkında bilgi döndürmek için aşağıdaki T-SQL komutlarını kullanın. Azure portalını kullanarak şu komutları verebilirsiniz [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), veya bir Azure SQL Database sunucusuna bağlanma ve Transact-SQL geçirmek başka bir programı komutları. Oluşturma ve T-SQL'yi kullanarak güvenlik duvarı kurallarını yönetmek için bkz: [Transact-SQL kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-transact-sql).
 
 > [!IMPORTANT]
 > Oluşturma, güncelleştirme veya Transact-SQL kullanarak bir Azure SQL Database esnek havuzunu silme olamaz. Ekleyebilir veya veritabanlarını bir elastik havuzdan kaldırın ve mevcut elastik havuzlar hakkında bilgi döndürmek için Dmv'leri kullanın.

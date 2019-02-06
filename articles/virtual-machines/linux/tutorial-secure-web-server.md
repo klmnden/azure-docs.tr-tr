@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f751f225d2dc6c81b623542cdb3c1f7f92e05862
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 79b694b877e7e26c5b9c71fb5cfbde3703ef3cb6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656949"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750928"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Öğretici: Key Vault'ta depolanan bir SSL sertifikalarını kullanarak azure'da bir Linux sanal makinesi bir web sunucusunda güvenli hale getirme
 Web sunucularının güvenliğini sağlamak için, web trafiğini şifrelemek üzere Güvenli Yuva Katmanı (SSL) sertifikası kullanılabilir. SSL sertifikaları Azure Key Vault’ta depolanabilir ve sertifikaların Azure’daki Linux sanal makinelerine (VM’ler) güvenli bir şekilde dağıtılabilmesini sağlar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -44,13 +44,13 @@ Oluşturulan sertifikaları içeren özel bir VM görüntüsü kullanmak yerine,
 
 
 ## <a name="create-an-azure-key-vault"></a>Azure Key Vault oluşturma
-Key Vault ve sertifikalarını oluşturabilmek için [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroupSecureWeb* adlı bir kaynak grubu oluşturur:
+Key Vault ve sertifikalarını oluşturabilmek için [az group create](/cli/azure/group) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroupSecureWeb* adlı bir kaynak grubu oluşturur:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Ardından, [az keyvault create](/cli/azure/keyvault#az_keyvault_create) ile bir Key Vault oluşturun ve bu anahtarın VM dağıtırken kullanılmasını etkinleştirin. Her Key Vault için benzersiz bir ad gerekir ve tüm harfler küçük olmalıdır. Aşağıdaki örnekte yer alan *<mykeyvault>* değerini, kendi benzersiz Key Vault adınızla değiştirin:
+Ardından, [az keyvault create](/cli/azure/keyvault) ile bir Key Vault oluşturun ve bu anahtarın VM dağıtırken kullanılmasını etkinleştirin. Her Key Vault için benzersiz bir ad gerekir ve tüm harfler küçük olmalıdır. Aşağıdaki örnekte yer alan *<mykeyvault>* değerini, kendi benzersiz Key Vault adınızla değiştirin:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -61,7 +61,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Sertifika oluşturma ve sertifikayı Key Vault’ta depolama
-Üretim sırasında kullanım için, [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) komutunu kullanarak güvenilen bir sağlayıcı tarafından imzalanan geçerli bir sertifikayı içeri aktarmalısınız. Bu öğreticide, aşağıdaki örnekte varsayılan sertifika ilkesini kullanan [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) ile nasıl otomatik olarak imzalanan sertifika oluşturabileceğiniz gösterilmektedir:
+Üretim sırasında kullanım için, [az keyvault certificate import](/cli/azure/keyvault/certificate) komutunu kullanarak güvenilen bir sağlayıcı tarafından imzalanan geçerli bir sertifikayı içeri aktarmalısınız. Bu öğreticide, aşağıdaki örnekte varsayılan sertifika ilkesini kullanan [az keyvault certificate create](/cli/azure/keyvault/certificate) ile nasıl otomatik olarak imzalanan sertifika oluşturabileceğiniz gösterilmektedir:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -111,7 +111,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>Güvenli VM oluşturma
-Şimdi [az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Bu sertifika verileri, `--secrets` parametresiyle Key Vault’tan eklenir. cloud-init yapılandırmasını `--custom-data` parametresiyle geçirirsiniz:
+Şimdi [az vm create](/cli/azure/vm) ile bir VM oluşturun. Bu sertifika verileri, `--secrets` parametresiyle Key Vault’tan eklenir. cloud-init yapılandırmasını `--custom-data` parametresiyle geçirirsiniz:
 
 ```azurecli-interactive 
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 VM’nin oluşturulması, paketlerin yüklenmesi ve uygulamanın başlatılması birkaç dakika sürebilir. VM oluşturulduktan sonra, Azure CLI tarafından görüntülenen `publicIpAddress` değerini not edin. Bu adres, web tarayıcısında sitenize erişmek için kullanılır.
 
-Güvenli web trafiğinin VM’nize erişmesine izin vermek için, [az vm open-port](/cli/azure/vm#az_vm_open_port) komutuyla internette 443 numaralı bağlantı noktasını açın:
+Güvenli web trafiğinin VM’nize erişmesine izin vermek için, [az vm open-port](/cli/azure/vm) komutuyla internette 443 numaralı bağlantı noktasını açın:
 
 ```azurecli-interactive 
 az vm open-port \

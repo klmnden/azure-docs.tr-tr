@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247757"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751404"
 ---
 # <a name="reacting-to-blob-storage-events"></a>BLOB Depolama olaylarına tepki verme
 
@@ -90,7 +90,7 @@ BlobCreated olayın bir örnek aşağıda verilmiştir:
 Daha fazla bilgi için [Blob Depolama olayları şema](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Olayları filtreleme
-BLOB olay abonelikleri olayın türüne ve kapsayıcı adı ve blob adı, oluşturulduğu veya silindiği nesne tarafından göre filtrelenebilir.  Filtre uygulanabilir olay abonelikleri ya da sırasında [oluşturma](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) olay aboneliğinin veya [sonraki bir zamanda](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update). Konu filtreleri temel Event Grid çalışma "ile başlayan" ve "böylece abone ile eşleşen bir konu ile olayları teslim ile eşleşir, ends". 
+BLOB olay abonelikleri olayın türüne ve kapsayıcı adı ve blob adı, oluşturulduğu veya silindiği nesne tarafından göre filtrelenebilir.  Filtre uygulanabilir olay abonelikleri ya da sırasında [oluşturma](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) olay aboneliğinin veya [sonraki bir zamanda](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Konu filtreleri temel Event Grid çalışma "ile başlayan" ve "böylece abone ile eşleşen bir konu ile olayları teslim ile eşleşir, ends". 
 
 Blob Depolama olaylarını konusu biçimini kullanır:
 

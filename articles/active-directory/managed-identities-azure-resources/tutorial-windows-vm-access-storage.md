@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
 ms.author: priyamo
-ms.openlocfilehash: c19c5031c27ac37aee3707911268965912c20994
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e266ebca40ac9a3c1d6c1a77e30fed717f4b1b51
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158205"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753468"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Öğretici: Azure depolama erişim anahtarı erişmek için bir Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
@@ -173,5 +173,5 @@ Name              : testblob
 Bu öğreticide, erişim anahtarı kullanarak Azure Depolama'ya erişmek için sistem tarafından atanan yönetilen kimlik oluşturmayı öğrendiniz.  Azure Depolama erişim anahtarları hakkında daha fazla bilgi için bkz:
 
 > [!div class="nextstepaction"]
->[Depolama erişim anahtarlarınızı yönetme](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Depolama erişim anahtarlarınızı yönetme](/azure/storage/common/storage-create-storage-account)
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8f1556f67948ec2474d713385c291efe3353c723
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663018"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755212"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Öğretici: Oluşturma ve Azure CLI ile sanal makine ölçek kümeleri için özel görüntü kullanma
 Ölçek kümesi oluşturduğunuzda, sanal makine örnekleri dağıtılırken kullanılacak bir görüntü belirtirsiniz. Sanal makine örnekleri dağıtıldıktan sonraki görev sayısını azaltmak için özel bir sanal makine görüntüsünü kullanabilirsiniz. Bu özel sanal makine görüntüsü, gerekli uygulama yüklemelerini veya yapılandırmalarını içerir. Ölçek kümesinde oluşturulan tüm sanal makine örnekleri, özel sanal makine görüntüsünü kullanır ve uygulama trafiğinizi sunmaya hazır olur. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -44,7 +44,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 >[!NOTE]
 > Bu öğreticide, genelleştirilmiş bir sanal makine görüntüsü oluşturma ve kullanma işlemi gösterilmektedir. Özelleştirilmiş bir sanal makine görüntüsünden ölçek kümesi oluşturulması desteklenmez.
 
-İlk olarak, [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun ve sonra [az vm create](/cli/azure/vm) ile bir sanal makine oluşturun. Bu sanal makine daha sonra özel bir sanal makine görüntüsü için kaynak olarak kullanılır. Aşağıdaki örnek, *myResourceGroup* adlı kaynak grubunda *myVM* adlı bir sanal makine oluşturur:
+İlk olarak, [az group create](/cli/azure/group) ile bir kaynak grubu oluşturun ve sonra [az vm create](/cli/azure/vm) ile bir sanal makine oluşturun. Bu sanal makine daha sonra özel bir sanal makine görüntüsü için kaynak olarak kullanılır. Aşağıdaki örnek, *myResourceGroup* adlı kaynak grubunda *myVM* adlı bir sanal makine oluşturur:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -87,7 +87,7 @@ exit
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Kaynak sanal makineden özel bir sanal makine görüntüsü oluşturma
 Kaynak sanal makine şimdi Nginx web sunucusunun yüklenmesiyle birlikte özelleştirilir. Şimdi ölçek kümesi ile kullanılacak özel sanal makine görüntüsü oluşturalım.
 
-Bir görüntü oluşturmak için VM’nin serbest bırakılması gerekir. [az vm deallocate](/cli//azure/vm) komutunu kullanarak sanal makineyi serbest bırakın. Daha sonra, Azure platformunun sanal makinenin özel bir görüntüyle kullanılmaya hazır olduğunu bilmesi için [az vm generalize](/cli//azure/vm#az_vm_generalize) komutunu kullanarak sanal makinenin durumunu genelleştirilmiş olarak ayarlayın. Yalnızca genelleştirilmiş bir sanal makineden görüntü oluşturabilirsiniz:
+Bir görüntü oluşturmak için VM’nin serbest bırakılması gerekir. [az vm deallocate](/cli//azure/vm) komutunu kullanarak sanal makineyi serbest bırakın. Daha sonra, Azure platformunun sanal makinenin özel bir görüntüyle kullanılmaya hazır olduğunu bilmesi için [az vm generalize](/cli//azure/vm) komutunu kullanarak sanal makinenin durumunu genelleştirilmiş olarak ayarlayın. Yalnızca genelleştirilmiş bir sanal makineden görüntü oluşturabilirsiniz:
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -122,7 +122,7 @@ Tüm ölçek kümesi kaynaklarının ve VM'lerin oluşturulup yapılandırılmas
 
 
 ## <a name="test-your-scale-set"></a>Ölçek kümenizi test etme
-Trafiğin ölçek kümenize ulaşmasına izin vermek ve web sunucusunun düzgün çalıştığını doğrulamak için [az network lb rule create](/cli/azure/network/lb/rule#create) komutunu kullanarak bir yük dengeleyici kuralı oluşturun. Aşağıdaki örnek, *80* numaralı *TCP* bağlantı noktasında trafiğe izin veren, *myLoadBalancerRuleWeb* adlı bir kural oluşturur:
+Trafiğin ölçek kümenize ulaşmasına izin vermek ve web sunucusunun düzgün çalıştığını doğrulamak için [az network lb rule create](/cli/azure/network/lb/rule) komutunu kullanarak bir yük dengeleyici kuralı oluşturun. Aşağıdaki örnek, *80* numaralı *TCP* bağlantı noktasında trafiğe izin veren, *myLoadBalancerRuleWeb* adlı bir kural oluşturur:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Ölçek kümenizi çalışır halde görmek için [az network public-ip show](/cli/azure/network/public-ip#show) komutunu kullanarak yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek, ölçek kümesinin bir parçası olarak oluşturulan *myScaleSetLBPublicIP* için IP adresini alır:
+Ölçek kümenizi çalışır halde görmek için [az network public-ip show](/cli/azure/network/public-ip) komutunu kullanarak yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek, ölçek kümesinin bir parçası olarak oluşturulan *myScaleSetLBPublicIP* için IP adresini alır:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -152,7 +152,7 @@ Genel IP adresini bir web tarayıcınıza yazın. Aşağıdaki örnekte gösteri
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Ölçek kümenizi ve ek kaynaklarınızı kaldırmak için [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu ve bu kaynak grubunun tüm kaynaklarını silin. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
+Ölçek kümenizi ve ek kaynaklarınızı kaldırmak için [az group delete](/cli/azure/group) komutunu kullanarak kaynak grubunu ve bu kaynak grubunun tüm kaynaklarını silin. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

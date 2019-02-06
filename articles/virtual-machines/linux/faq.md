@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: ffc724c52fdab01bfbf2846ff06a35f38a57c8eb
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 8d421adfae335a976485ed463a69484a74be5b44
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42057726"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753938"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux sanal makineleri hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Linux sanal makineleri hakkında bazı yaygın sorular ele alınmıştır. Bu konuda Windows sürümü için bkz: [Windows sanal makineleri hakkında sık sorulan soruya](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -31,7 +31,7 @@ Tüm aboneler bir Azure sanal makinesinde sunucu yazılımı çalıştırabilir.
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Bir sanal makineyle birlikte ne kadar depolama alanı kullanabilirim?
 Her veri diski 4 TB'a kadar (4.095 GB) olabilir. Kullanabileceğiniz veri diski sayısı, sanal makinenin boyutuna bağlıdır. Ayrıntılar için bkz. [Virtual Machines boyutları](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Azure yönetilen diskler önerilen disk depolama kullanmak için Azure sanal makineler ile veri kalıcı depolama için tekliflerdir. Her bir Sanal Makine ile birden fazla Yönetilen Disk kullanabilirsiniz. Yönetilen Diskler iki tür dayanıklı depolama seçeneği sunar: Premium ve Standart Yönetilen Diskler. Fiyatlandırma bilgileri için bkz: [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
+Azure yönetilen diskler önerilen disk depolama kullanmak için Azure sanal makineler ile veri kalıcı depolama için tekliflerdir. Her bir Sanal Makine ile birden fazla Yönetilen Disk kullanabilirsiniz. Yönetilen diskler teklif iki tür dayanıklı depolama seçeneği Premium ve standart yönetilen diskler. Fiyatlandırma bilgileri için bkz: [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Azure depolama hesapları, aynı zamanda işletim sistemi diski ve varsa veri diskleri için depolama sağlayabilir. Her disk bir sayfa blobu olarak depolanan bir .vhd dosyasıdır. Fiyatlandırma ayrıntıları için bkz. [Depolama Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -53,10 +53,10 @@ Kanada Orta ve Kanada Doğu, iki yeni bölgede otomatik olarak mevcut bir Azure 
 Evet, bu artık mümkündür. VM'nin ilk durdurulup serbest gerekir. Ardından ekleyebilir veya bir NIC (son NIC VM üzerinde olmadığı sürece) kaldırın. 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Herhangi bir bilgisayar adı gereksinimleri var mı?
-Evet. Bilgisayar adı en fazla 64 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve kısıtlamalar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kaynaklarınızı adlandırma etrafında daha fazla bilgi için.
+Evet. Bilgisayar adı en fazla 64 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve kısıtlamalar](/azure/architecture/best-practices/naming-conventions) kaynaklarınızı adlandırma etrafında daha fazla bilgi için.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Herhangi bir kaynak grubu adı gereksinimleri vardır?
-Evet. Kaynak grubu adı en fazla 90 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve kısıtlamalar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kaynak grupları hakkında daha fazla bilgi için.
+Evet. Kaynak grubu adı en fazla 90 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve kısıtlamalar](/azure/architecture/best-practices/naming-conventions) kaynak grupları hakkında daha fazla bilgi için.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Bir VM oluştururken, kullanıcı adı gereksinimleri nelerdir?
 
@@ -81,7 +81,7 @@ Aşağıdaki kullanıcı adlarını izin verilmez:
         <td style="text-align:center">yedekleme </td><td style="text-align:center"> console </td><td style="text-align:center"> David </td><td style="text-align:center"> Konuk</td>
     </tr>
     <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> sahip </td><td style="text-align:center"> Kök </td><td style="text-align:center"> sunucu</td>
+        <td style="text-align:center">John </td><td style="text-align:center"> sahip </td><td style="text-align:center"> kök </td><td style="text-align:center"> sunucu</td>
     </tr>
     <tr>
         <td style="text-align:center">SQL </td><td style="text-align:center"> destek </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>

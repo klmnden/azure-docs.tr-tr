@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c1ac1a0fccc2ac9a428a04a1b15030c489968a3f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563703"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752101"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -538,7 +538,7 @@ Değişiklikleri Azure dosya paylaşımında doğrudan ve değişiklik algılama
 | **Hata dizesi** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Düzeltme gerekli** | Evet |
 
-Durumlarda olduğu dosya eşitleme hatalarını çok sayıda, Eşitleme oturumları başarısız olmaya başlar. Bu durum için sorun giderme için bkz: [dosya/dizin eşitleme hatalarını giderme](#troubleshooting-per-file-directory-sync-errors).
+Durumlarda olduğu dosya eşitleme hatalarını çok sayıda, Eşitleme oturumları başarısız olmaya başlar. Bu durum için sorun giderme için bkz: [dosya/dizin eşitleme hatalarını giderme]().
 
 > [!NOTE]
 > Azure dosya eşitleme, günde bir kez açık tanıtıcıları içeren dosyaları eşitleyin sunucudaki geçici bir VSS anlık görüntüsü oluşturur.
@@ -847,11 +847,11 @@ Dosyaları çağrılmaya başarısız olursa:
 > Çağırmak bir dosya başarısız olursa, bir olay kimliği 9006 saatte bir Telemetri olay günlüğüne kaydedilir (hata kodu bir olay günlüğe kaydedilir). Bir sorunu tanılamak için ek bilgi gerekiyorsa işlemsel ve tanılama günlüklerinin kullanılmalıdır.
 
 <a id="files-unexpectedly-recalled"></a>**Beklenmedik bir şekilde bir sunucuya geri dosyaları sorunlarını giderme**  
-Bunlar Atla çevrimdışı özniteliğe dikkat edip ilgili dosyaların içeriğini okumayı atlamadıkları sürece virüsten koruma, yedekleme ve çok sayıda dosya okuma diğer uygulamalar istenmeyen geri çekme neden. Bu seçeneği destekleyen ürünler için çevrimdışı dosyaları atlamak, virüsten koruma taramaları veya yedekleme işleri gibi işlemler sırasında istenmeyen geri çekme olaylarından kaçınılmasına yardımcı olabilir.
+Bunlar Atla çevrimdışı özniteliğe dikkat edip ilgili dosyaların içeriğini okumayı atlamadıkları sürece virüsten koruma, yedekleme ve çok sayıda dosya okuma diğer uygulamalar istenmeyen geri çekme neden. Bu seçeneği destekleyen ürünler için çevrimdışı dosyaları atlamak, virüsten koruma taramaları veya yedekleme işleri gibi işlemler sırasında istenmeyen yeniden çağırma olaylarından kaçınılmasına yardımcı olabilir.
 
 Çözümlerinin çevrimdışı dosyaları okumayı atlayacak şekilde yapılandırılması konusunda bilgi almak için yazılım satıcınızla iletişime geçin.
 
-İstenmeyen geri çekme de zaman dosya Gezgini'nde dosyaları tarama gibi diğer senaryolarda oluşabilir. Dosya Gezgini'nde bulut katmanlı dosyalara sahip bir klasörün açılması, istenmeyen geri çekme işlemlerine neden olabilir. Bu durumun gerçekleşme olasılığı, sunucuda virüsten koruma çözümünün etkinleştirilmiş olması halinde daha yüksektir.
+İstenmeyen geri çekme de zaman dosya Gezgini'nde dosyaları tarama gibi diğer senaryolarda oluşabilir. Dosya Gezgini'nde bulut katmanlı dosyalara sahip bir klasörün açılması, istenmeyen yeniden çağırma işlemlerine neden olabilir. Bu durumun gerçekleşme olasılığı, sunucuda virüsten koruma çözümünün etkinleştirilmiş olması halinde daha yüksektir.
 
 > [!NOTE]
 >Olay Kimliği 9059 Telemetri olay günlüğünde ınsights'taki hangi uygulamaların geri çekme neden olduğunu belirlemek için kullanın. Bu olay, uygulama geri çekme dağıtım için sunucu uç noktası sağlar ve saatte bir günlüğe kaydedilir.

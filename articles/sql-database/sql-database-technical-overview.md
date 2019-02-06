@@ -13,22 +13,25 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 2711e2ade0e6a7d385f8a3a2adae336e96fbccf3
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f4b72a95c64467ce287d2cb762222d17334aad57
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729855"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755434"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti
 
-SQL Veritabanı, Microsoft Azure'da yer alan ve ilişkisel veri, JSON, uzamsal ve XML gibi yapıları destekleyen çok amaçlı ilişkisel veritabanı yönetilen hizmetidir. SQL Veritabanı, iki farklı satın alma modeli [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) ve [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) arasında dinamik olarak ölçeklenebilir performans sunar. SQL Veritabanı ayrıca çok büyük ölçekli analitik analiz ve raporlama için [columnstore dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) ve raporlama ve çok büyük ölçekli işlemler için [bellek içi OLTP](sql-database-in-memory.md) gibi seçenekler sunar. Microsoft, SQL kod tabanıyla ilgili tüm düzeltme ve güncelleştirme işlerini sorunsuz olarak yaparak altyapı yönetimini tamamen soyutlar.
+SQL Veritabanı, Microsoft Azure'da yer alan ve ilişkisel veri, JSON, uzamsal ve XML gibi yapıları destekleyen çok amaçlı ilişkisel veritabanı yönetilen hizmetidir. SQL veritabanı iki farklı satın alma modeli içinde dinamik olarak Ölçeklenebilir performans sunar: sanal çekirdek tabanlı satın alma modeli ve DTU tabanlı satın alma modeli. SQL Veritabanı ayrıca çok büyük ölçekli analitik analiz ve raporlama için [columnstore dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) ve raporlama ve çok büyük ölçekli işlemler için [bellek içi OLTP](sql-database-in-memory.md) gibi seçenekler sunar. Microsoft, SQL kod tabanıyla ilgili tüm düzeltme ve güncelleştirme işlerini sorunsuz olarak yaparak altyapı yönetimini tamamen soyutlar.
+
+> [!NOTE]
+> Bir Azure SQL veritabanı'nda terimler sözlüğü için bkz: [SQL veritabanı terimler sözlüğü](sql-database-glossary-terms.md)
 
 Azure SQL Veritabanı, bir Azure SQL veritabanı için aşağıdaki dağıtım seçeneklerini sunar:
 
-- Tek veritabanı olarak SQL veritabanı sunucusu yönetilen kaynaklar kendi kümesiyle
-- Havuza alınmış bir veritabanı olarak bir [elastik havuz](sql-database-elastic-pool.md) paylaşılan bir kaynak kümesi ile yönetilen SQL veritabanı sunucusu
-- Bir koleksiyon olarak bilinen veritabanlarının bir parçası olarak bir [yönetilen örnek](sql-database-managed-instance.md) sistem ve kullanıcı veritabanlarını ve bir kaynak kümesini paylaşımı içerir
+- Olarak bir [tek veritabanı](sql-database-single-database.md) kendi kaynak kümesi ile yönetilen bir SQL veritabanı sunucusu. Tek bir veritabanı benzer bir [içerdiği veritabanları](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) SQL Server'da.
+- Bir [elastik havuz](sql-database-elastic-pool.md), kaynak SQL veritabanı sunucusu yönetilen paylaşılan bir grup veritabanı koleksiyonu. Tek veritabanları, içine ve elastik havuz dışına taşınabilir.
+- [Yönetilen örnek](sql-database-managed-instance.md), paylaşılan bir kaynak kümesi ile sistem ve kullanıcı veritabanlarını koleksiyonu. Yönetilen örnek örneğine benzer [Microsoft SQL Server veritabanı altyapısı](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation).
 
 Aşağıdaki şekilde bu dağıtım seçenekleri gösterilmektedir:
 
@@ -45,30 +48,29 @@ SQL Veritabanı, [Microsoft SQL Server veritabanı altyapısı](https://docs.mic
   SQL Server ürün ekibi üyeleri blog SQL veritabanı haberleri ve özellikleri hakkında burada bir yer.
 
 > [!IMPORTANT]
-> SQL Veritabanı ile SQL Server arasındaki özellik farklarını anlamak için bkz. [SQL özellikleri](sql-database-features.md).
+> Farklı Azure SQL veritabanı dağıtım seçenekleri arasındaki farklar yanı sıra, SQL veritabanı ve SQL Server arasındaki özellik farklarını anlamak için bkz [SQL özellikleri](sql-database-features.md).
 
 SQL veritabanı ile birden çok kaynak türleri, hizmet katmanları ve bilgi işlem boyutlarına hiç kapalı kalma süresi, yerleşik zeka iyileştirmesi, global ölçeklenebilirlik ve kullanılabilirlik ve Gelişmiş Güvenlik ile dinamik ölçeklenebilirlik sunan, tahmin edilebilir performans sunar. seçenekleri — neredeyse sıfır yönetim gereksinimiyle. Bu özellikler sayesinde değerli zamanınızı ve kaynaklarınızı sanal makine ve altyapı yönetimi yerine hızlı uygulama geliştirmeye ve piyasaya sunma sürenizi kısaltmaya ayırabilirsiniz. SQL Veritabanı şu anda dünyanın farklı yerlerindeki toplam 38 veri merkezini kullanmaktadır ve düzenli aralıklarla eklenen yeni veri merkezleri, veritabanınızı bulunduğunuz konuma yakın bir veri merkezinde çalıştırmanızı sağlar.
 
 ## <a name="scalable-performance-and-pools"></a>Ölçeklenebilir performans ve havuzlar
 
-SQL veritabanı ile her veritabanı birbirine ve taşınabilir, her biri kendi hizmet katmanı içinde yalıtılmış [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) ve bir kesin boyutu işlem. SQL veritabanı farklı ihtiyaçlara uygun farklı bilgi işlem boyutlarına sağlar ve için veritabanlarının havuza eklenebilmesini kaynaklarının kullanımını en üst düzeye çıkarmak ve paradan tasarruf sağlar.
+- Tek veritabanları ile birbirine ve taşınabilir, her işlem, bellek ve depolama kaynakları kendi garanti edilen miktarda ile her veritabanı yalıtılır. SQL veritabanı için farklı gereksinimleri - farklı bilgi işlem, bellek ve depolama kaynakları ve yeteneği dinamik olarak sağlar [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) yukarı ve aşağı. [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) (Önizleme) 100 TB için ölçeklendirme ile hızlı yedekleme ve geri yükleme tek bir veritabanı sağlar.
+- Elastik havuzlar sayesinde yeni veritabanları oluşturabilir veya tek veritabanları kaynaklarının kullanımını en üst düzeye çıkarmak ve para - ve yeteneği dinamik olarak kaydetmek için bir kaynak havuzunun dışına taşıma [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md) yukarı ve aşağı.
+- Yönetilen örneği ile her yönetilen örnek garanti edilen kaynaklarla diğer örneklerden yalıtılır. Kaynaklar - ve yeteneği bir dizi örnek veritabanları bir yönetilen örnek içinde dinamik olarak paylaşma [yönetilen örnek kaynaklarının ölçeğini](sql-database-managed-instance-resource-limits.md) yukarı ve aşağı.
 
-- İle [yönetilen örnekleri](sql-database-managed-instance.md), her örnek, garanti edilen kaynaklarla diğer örneklerden yalıtılır. Daha fazla bilgi için [SQL veritabanı yönetilen örneği](sql-database-managed-instance.md).
-- İle [hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) (Önizleme) satın alma modeli vcore değeri, 100 TB için hızlı yedekleme ile ölçeklendirin ve geri yükleme.
-
-### <a name="adjust-performance-and-scale-without-downtime"></a>Kesinti olmadan performansı ayarlama ve ölçeklendirme
-
-SQL Veritabanı bir [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) sunar.
-
-- DTU tabanlı satın alma modeli, işlem, bellek ve hafif ve ağır veritabanı iş yüklerini desteklemek için üç hizmet katmanı g/ç kaynakları karışımını sunar: Temel, Standart ve Premium. İşlem boyutları her katman içinde ek depolama kaynakları ekleyebileceğiniz, bu kaynakları farklı bir karışımını sağlar.
-- Sanal çekirdek tabanlı satın alma modeli, sanal çekirdek sayısını, bellek miktarını ve depolama alanı miktarını ve hızını seçmenize olanak sağlar.
-
-Düşük bir maliyetle genel amaçlı hizmet katmanındaki aylık küçük, tek bir veritabanı üzerinde ilk uygulamanızı oluşturun ve ardından Hizmet katmanını elle veya programlama yoluyla herhangi bir zamanda iş kritik hizmet katmanına çözümünüzün gereksinimlerini karşılayacak şekilde değiştirebilirsiniz. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
-
-> [!IMPORTANT]
-> [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) şu anda genel Önizleme aşamasındadır. Tüm üretim iş yüklerini hiper ölçekli veritabanlarında henüz çalıştıran önerilmemektedir. Diğer hizmet katmanları için bir hiper ölçekli veritabanı güncelleştirilemiyor. Test amacıyla geçerli veritabanınızın bir kopyasını alın ve kopyasını hiper ölçekli hizmet katmanına güncelleştirmek öneririz.
+Düşük bir maliyetle genel amaçlı hizmet katmanındaki aylık küçük, tek bir veritabanı üzerinde ilk uygulamanızı oluşturun ve ardından Hizmet katmanını elle veya programlama yoluyla herhangi bir zamanda, çözümünüzün gereksinimlerini karşılamak için iş kritik hizmet katmanına değiştirebilirsiniz. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
 
 Dinamik ölçeklenebilirlik, otomatik ölçeklendirmeden farklıdır. Bir hizmet ölçütlere dayalı olarak otomatik şekilde ölçeklendirildiğinde otomatik ölçeklendirme oluşurken, dinamik ölçeklenebilirlik ise kesinti süresi olmadan el ile ölçeklendirmeye olanak sağlar. Tek bir veritabanı destekler: el ile dinamik ölçeklenebilirlik, ancak otomatik ölçeklendirme değil. Daha *otomatik* bir deneyim için, veritabanlarının tek tek veritabanı gereksinimlerine göre bir havuzdaki kaynakları paylaşmasına olanak sağlayan elastik havuzları kullanın. Ancak, tek bir veritabanı için ölçeklenebilirlik otomatikleştirilmesine yardımcı olur betik vardır. Bir örnek için bkz. [PowerShell kullanarak tek bir veritabanının ölçeğini yarayan](scripts/sql-database-monitor-and-scale-database-powershell.md).
+
+### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Modelleri, hizmet katmanları, bilgi işlem boyutlarına ve depolama alanı miktarları satın alma
+
+SQL veritabanı iki satın alma modeli sunar:
+
+- [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) işlem, bellek, hafif ve ağır veritabanı iş yüklerini desteklemek için üç hizmet katmanı g/ç kaynakları karışımını sunar. İşlem boyutları her katman içinde ek depolama kaynakları ekleyebileceğiniz, bu kaynakları farklı bir karışımını sağlar.
+- [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) sanal çekirdek miktarı veya bellek ve miktarını sayısını ve depolama hızını seçmenize olanak sağlar.
+
+  > [!IMPORTANT]
+  > [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) şu anda genel Önizleme aşamasındadır. Tüm üretim iş yüklerini hiper ölçekli veritabanlarında henüz çalıştıran önerilmemektedir. Diğer hizmet katmanları için bir hiper ölçekli veritabanı güncelleştirilemiyor. Test amacıyla geçerli veritabanınızın bir kopyasını alın ve kopyasını hiper ölçekli hizmet katmanına güncelleştirmek öneririz.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Kaynak kullanımını en verimli hale getirmek için elastik havuzlar
 
@@ -85,13 +87,11 @@ Betikler, elastik havuzların izlenmesine ve ölçeklendirilmesine yardımcı ol
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>Tek veritabanlarını havuza alınmış veritabanlarıyla karıştırma
 
-İster tek veritabanlarını isterseniz elastik havuzları seçin, tercihlerinizi dilediğiniz zaman değiştirebilirsiniz. Tek veritabanlarını elastik havuzlarla ve tek veritabanları ve elastik havuzların hizmet katmanlarını hızla ve kolayca değiştirmek kendi durumunuza uyarlamak için. Azure'un benzersiz gücü ve erişim özellikleri sayesinde benzersiz uygulama tasarımı ihtiyaçlarınızı karşılamak, maliyet ve kaynak verimliliği sağlamak ve yeni iş fırsatlarını yakalamak amacıyla diğer Azure hizmetlerini SQL Veritabanı ile birleştirebilir ve eşleştirebilirsiniz.
+Tek veritabanlarını elastik havuzlarla ve tek veritabanları ve elastik havuzların hizmet katmanlarını hızla ve kolayca değiştirmek kendi durumunuza uyarlamak için. Azure'un benzersiz gücü ve erişim özellikleri sayesinde benzersiz uygulama tasarımı ihtiyaçlarınızı karşılamak, maliyet ve kaynak verimliliği sağlamak ve yeni iş fırsatlarını yakalamak amacıyla diğer Azure hizmetlerini SQL Veritabanı ile birleştirebilir ve eşleştirebilirsiniz.
 
 ### <a name="extensive-monitoring-and-alerting-capabilities"></a>Kapsamlı izleme ve uyarı özellikleri
 
-Peki tek veritabanlarıyla ve elastik havuzların performanslarını nasıl karşılaştırabilirsiniz? Performansı yükseltmeye veya düşürmeye karar vereceğiniz doğru zamanı nasıl belirlersiniz? Performans değerlendirmeleriyle birlikte [yerleşik performans izleme](sql-database-performance.md) ve [uyarı](sql-database-insights-alerts-portal.md) araçlarını kullanırsınız. Bu araçları kullanarak geçerli veya projeye özgü performans ihtiyaçlarınıza göre ölçek büyütme veya küçültme işlemlerinin etkisini hızlı bir şekilde değerlendirebilirsiniz. Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) Ayrıntılar için.
-
-SQL Veritabanı ayrıca izlemeyi kolaylaştırmak için [ölçümler ve tanılama günlükleri oluşturabilir](sql-database-metrics-diag-logging.md). SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
+Performans değerlendirmeleriyle birlikte [yerleşik performans izleme](sql-database-performance.md) ve [uyarı](sql-database-insights-alerts-portal.md) araçlarını kullanırsınız. Bu araçları kullanarak geçerli veya projeye özgü performans ihtiyaçlarınıza göre ölçek büyütme veya küçültme işlemlerinin etkisini hızlı bir şekilde değerlendirebilirsiniz. SQL Veritabanı ayrıca izlemeyi kolaylaştırmak için [ölçümler ve tanılama günlükleri oluşturabilir](sql-database-metrics-diag-logging.md). SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
 
 - **Azure depolama**: Maliyetlerle çok sayıda küçük için telemetri arşivleme için
 - **Azure olay hub'ı**: SQL veritabanı telemetrisini özel izleme çözümünüz veya yoğun işlem hatlarıyla tümleştirmek için
@@ -101,23 +101,24 @@ SQL Veritabanı ayrıca izlemeyi kolaylaştırmak için [ölçümler ve tanılam
 
 ## <a name="availability-capabilities"></a>Kullanılabilirlik özellikleri
 
-Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi [(SLA)](https://azure.microsoft.com/support/legal/sla/), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. Azure platformu tüm Azure SQL Veritabanlarını tam kapsamlı olarak yönetir ve veri kaybı yaşanmayacağı ve yüksek oranda veri kullanılabilirliği garantisi verir. Azure düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, arka plandaki potansiyel donanım, yazılım veya ağ arızaları, hata giderme, yük devretme, veritabanı yükseltmesi ve diğer bakım görevlerini otomatik olarak gerçekleştirir. Standart kullanılabilirlik düzeyine ulaşmak için işlem ve depolama katmanları ayrılır. Premium kullanılabilirliği, işlem ve depolama performansı için tek bir düğümde tümleştirme ve ardından perde Always On kullanılabilirlik grupları için benzer teknoloji uygulayarak elde edilir. Azure SQL veritabanı yüksek kullanılabilirlik özellikleri tam bir irdelemesi için bkz: [SQL veritabanı kullanılabilirlik](sql-database-high-availability.md). SQL Veritabanı ayrıca aşağıdakiler dahil olmak üzere yerleşik [iş sürekliliği ve global ölçeklenebilirlik](sql-database-business-continuity.md) özelliklerine sahiptir:
+Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi [(SLA)](https://azure.microsoft.com/support/legal/sla/), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. Azure platformu, tam olarak her veritabanı yöneten ve hiçbir veri kaybı ve yüksek miktarda veri kullanılabilirliği garanti eder. Azure düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, arka plandaki potansiyel donanım, yazılım veya ağ arızaları, hata giderme, yük devretme, veritabanı yükseltmesi ve diğer bakım görevlerini otomatik olarak gerçekleştirir. Standart kullanılabilirlik düzeyine ulaşmak için işlem ve depolama katmanları ayrılır. Premium kullanılabilirliği, işlem ve depolama performansı için tek bir düğümde tümleştirme ve ardından perde Always On kullanılabilirlik grupları için benzer teknoloji uygulayarak elde edilir. Azure SQL veritabanı yüksek kullanılabilirlik özellikleri tam bir irdelemesi için bkz: [SQL veritabanı kullanılabilirlik](sql-database-high-availability.md). SQL Veritabanı ayrıca aşağıdakiler dahil olmak üzere yerleşik [iş sürekliliği ve global ölçeklenebilirlik](sql-database-business-continuity.md) özelliklerine sahiptir:
 
 - **[Otomatik yedeklemeler](sql-database-automated-backups.md)**:
 
-  SQL veritabanı, tam, değişiklik yedeklemelerinin ve işlem günlüğü yedeklemeleri otomatik olarak gerçekleştirir.
+  SQL veritabanı, tam, değişiklik yedeklemelerinin ve işlem günlüğü yedeklemeleri Azure SQL veritabanı, herhangi bir noktasına geri yükleme sağlamak için otomatik olarak gerçekleştirir. Tek veritabanları ve havuza alınmış veritabanları için uzun süreli yedek saklama için Azure depolama için tam veritabanı yedeklemelerini depolamak için SQL veritabanı'nı yapılandırabilirsiniz. Yönetilen örnek için uzun süreli yedek saklama için yalnızca kopya yedekleri de gerçekleştirebilirsiniz.
+
 - **[Zaman içinde nokta geri yüklemeler](sql-database-recovery-using-backups.md)**:
 
-  SQL veritabanı otomatik yedek elde tutma dönemi içinde zaman içinde bir noktaya geri destekler.
+  Tüm SQL veritabanı dağıtım seçeneklerine zaman herhangi bir Azure SQL veritabanı otomatik yedek elde tutma dönemi içinde bir noktaya geri destekler.
 - **[Etkin coğrafi çoğaltma](sql-database-active-geo-replication.md)**:
 
-  SQL veritabanı aynı ya da Global olarak dağıtılmış Azure veri merkezlerinde en fazla dört okunabilir ikincil veritabanı yapılandırmanızı sağlar.  Örneğin, yüksek hacimli eşzamanlı salt okunur işlemlere sahip bir katalog veritabanı kullanan bir SaaS uygulamanız varsa, etkin coğrafi çoğaltmayı kullanarak global okuma ölçeğini etkinleştirebilir ve birincil veritabanı üzerindeki okuma iş yükü kaynaklı performans sorunlarını ortadan kaldırabilirsiniz.
+  Tek veritabanı ve havuza alınmış veritabanları, en fazla dört okunabilir ikincil veritabanı yapılandırmanızı aynı ya da Global olarak dağıtılmış Azure veri merkezlerinden sağlar.  Örneğin, yüksek hacimli eşzamanlı salt okunur işlemlere sahip bir katalog veritabanı kullanan bir SaaS uygulamanız varsa, etkin coğrafi çoğaltmayı kullanarak global okuma ölçeğini etkinleştirebilir ve birincil veritabanı üzerindeki okuma iş yükü kaynaklı performans sorunlarını ortadan kaldırabilirsiniz. Yönetilen örnek için otomatik yük devretme grupları kullanın.
 - **[Otomatik Yük devretme grupları](sql-database-auto-failover-group.md)**:
 
-  SQL veritabanı, yüksek kullanılabilirliği etkinleştirme ve Yük Dengeleme saydam coğrafi çoğaltma ve yük devretme veritabanları ve elastik havuzların büyük kümeleri dahil olmak üzere global ölçekte olanak tanır. Yük devretme grupları ve etkin coğrafi çoğaltma asgari düzeyde yönetimle global olarak dağıtılmış SaaS uygulamalarının oluşturulmasını sağlar ve tüm karmaşık izleme, yönlendirme ve yük devretme düzenlemesini SQL Veritabanı'na bırakır.
+  Tüm SQL veritabanı dağıtım seçeneklerine yüksek kullanılabilirliği etkinleştirme ve Yük Dengeleme saydam coğrafi çoğaltma ve yük devretme veritabanları, elastik havuzlar ve yönetilen örnekleri büyük kümeleri dahil olmak üzere global ölçekte, yük devretme grupları kullanmanıza olanak sağlar. Yük devretme grupları, en az yönetim yükü tüm karmaşık izleme, Yönlendirme ve yük devretme düzenlemesini SQL veritabanı'na bırakarak ile Global olarak dağıtılmış SaaS uygulamalarının oluşturulmasını sağlar.
 - **[Bölgesel olarak yedekli veritabanları](sql-database-high-availability.md)**:
 
-  SQL veritabanı, sağlama Premium veya iş açısından kritik veritabanlarını isterseniz elastik havuzları birden çok kullanılabilirlik alanında sağlar. Bu veritabanları ve elastik havuzlar yüksek kullanılabilirlik için birden fazla yedekli çoğaltma içerdiğinden, bu çoğaltmaların birden fazla kullanılabilirlik alanına yerleştirilmesi, veri merkezi ölçek hatalarından veri kaybı olmadan otomatik olarak kurtarma becerisi de dahil olmak üzere daha yüksek esneklik sağlar.  
+  SQL veritabanı birden çok kullanılabilirlik alanında premium sağlama veya iş kritik veritabanları ya da elastik havuzlar sağlar. Bu veritabanları ve elastik havuzlar yüksek kullanılabilirlik için birden fazla yedekli çoğaltma içerdiğinden, bu çoğaltmaların birden fazla kullanılabilirlik alanına yerleştirilmesi, veri merkezi ölçek hatalarından veri kaybı olmadan otomatik olarak kurtarma becerisi de dahil olmak üzere daha yüksek esneklik sağlar.
 
 ## <a name="built-in-intelligence"></a>Yerleşik zeka
 
@@ -208,7 +209,7 @@ SQL Veritabanı MacOS, Linux ve Windows üzerinde Python, Java, Node.js, PHP, Ru
 - Tek veritabanı ve elastik havuz maliyet karşılaştırmaları ve hesaplayıcıları için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).
 - Başlamanıza yardımcı olacak şu hızlı başlangıçlara bakın:
 
-  - [Azure portalda SQL veritabanı oluşturma](sql-database-get-started-portal.md)  
+  - [Azure portalda SQL veritabanı oluşturma](sql-database-single-database-get-started.md)  
   - [Azure CLI ile SQL veritabanı oluşturma](sql-database-get-started-cli.md)
   - [PowerShell ile SQL veritabanı oluşturma](sql-database-get-started-powershell.md)
 

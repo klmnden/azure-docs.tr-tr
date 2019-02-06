@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2efc0b76c8556894119ed3f6dd216234414cf313
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732371"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751387"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Bir Azure sanal makinesinde SQL Server için Azure Search dizin oluşturucu arasında bağlantı yapılandırma
 Belirtilen [Azure Search dizin oluşturucuları kullanarak Azure SQL veritabanına bağlanma](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), dizin oluşturucular karşı oluşturma **Azure vm'lerde SQL Server** (veya **SQL Azure Vm'leri** kısaca) desteklenir Azure Search tarafından ancak ilk halletmeniz için birkaç güvenlikle ilgili Önkoşullar vardır. 
 
 Bir VM'de SQL Server için Azure Search bağlantılarını ortak bir internet bağlantısı olduğundan. Tüm güvenlik önlemlerini normalde bu bağlantılar için izlemeniz gerekir burada da geçerli olur:
 
-+ Bir sertifikadan bir [sertifika yetkilisi sağlayıcısının](https://en.wikipedia.org/wiki/Certificate_authority#Providers) Azure VM'nin tam etki alanı adı.
++ Bir sertifikadan bir [sertifika yetkilisi sağlayıcısının](https://en.wikipedia.org/wiki/Certificate_authority#Providers) Azure VM'de SQL Server örneğinin tam etki alanı adı.
 + VM üzerinde sertifikayı yükleyin ve ardından etkinleştirin ve sanal makinede bu makaledeki yönergeleri kullanarak şifrelenmiş bağlantılar yapılandırın.
 
 ## <a name="enable-encrypted-connections"></a>Şifrelenmiş bağlantılarını etkinleştirme
@@ -29,8 +29,9 @@ Azure arama, tüm dizin oluşturucu istekleri için ortak bir internet bağlant�
 
 1. Konu adı tam etki alanı adıdır (FQDN) Azure VM'nin doğrulamak için sertifika özelliklerini denetleyin. Özelliklerini görüntülemek için CertUtils gibi bir araç veya Sertifikalar ek bileşenini kullanabilirsiniz. VM hizmet dikey penceresinin Essentials bölümünden de FQDN alabilirsiniz **genel IP adresi/DNS ad etiketi** alanına [Azure portalında](https://portal.azure.com/).
    
-   * Yeni kullanılarak oluşturulan VM'ler için **Resource Manager** şablonu, FQDN olarak biçimlendirildiğinde `<your-VM-name>.<region>.cloudapp.azure.com`. 
-   * Olarak oluşturulmuş eski Vm'leri için bir **Klasik** VM, FQDN olarak biçimlendirildiğinde `<your-cloud-service-name.cloudapp.net>`. 
+   * Yeni kullanılarak oluşturulan VM'ler için **Resource Manager** şablonu, FQDN olarak biçimlendirildiğinde `<your-VM-name>.<region>.cloudapp.azure.com`
+   * Olarak oluşturulmuş eski Vm'leri için bir **Klasik** VM, FQDN olarak biçimlendirildiğinde `<your-cloud-service-name.cloudapp.net>`.
+
 2. SQL Server'ın Kayıt Defteri Düzenleyicisi'ni (regedit) kullanarak sertifikayı kullanacak şekilde yapılandırın. 
    
     SQL Server Configuration Manager bu görev için sık sık kullanılsa da, bu senaryo için kullanamazsınız. Azure VM'de FQDN'sini (etki alanı yerel bilgisayarda veya katılmış ağ etki alanı tanımladığı) VM tarafından belirlenen şekilde bir FQDN eşleşmediği için içeri aktarılan sertifikayı bulmaz. Adları eşleşmediğinde regedit sertifikasını belirtmek için kullanın.
@@ -41,9 +42,11 @@ Azure arama, tüm dizin oluşturucu istekleri için ortak bir internet bağlant�
    * Değerini **sertifika** anahtarını **parmak izi** VM'ye aktardığınız SSL sertifikası.
      
      Parmak izi, diğerlerine biraz daha iyi almak için birkaç yolu vardır. Buradan kopyalarsanız **sertifikaları** ek bileşeninde MMC, büyük olasılıkla görünmez önde gelen bir karakter oluşturan çeker [Bu destek makalesinde açıklandığı şekilde](https://support.microsoft.com/kb/2023869/), bağlantı denediklerinde hatayla sonuçlanır . Birkaç geçici çözüm bu sorunu düzeltmek için mevcut. Üzerinden geri alın ve sonra da ilk karakteri regedit anahtar değer alanında önde gelen karakter kaldırmak için parmak izi yeniden yazmak için en kolay yoldur. Alternatif olarak, parmak izini kopyalayın için farklı bir aracı kullanabilirsiniz.
+
 3. Hizmet hesabı için izinler verir. 
    
     SQL Server hizmet hesabı SSL sertifikasının özel anahtarı üzerinde uygun izin verilir emin olun. Bu adım kolayca gözden kaçabilir, SQL Server başlatılmaz. Kullanabileceğiniz **sertifikaları** ek bileşenini veya **CertUtils** bu görev için.
+    
 4. SQL Server hizmetini yeniden başlatın.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>VM'de SQL Server bağlantısı yapılandırma

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228211"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756674"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Azure'a çoğaltma ve yük devretme için Hyper-V sorunlarını giderme
 
@@ -115,7 +115,7 @@ Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerini
         - Sayaç: "Yazma Bayt / sn"</br>
         - Bu veri değişim hızı artırmak veya VM veya uygulamalarına ne kadar meşgul olduğunu bağlı olarak yüksek bir düzeyde kalır.
         - Ortalama kaynak disk veri değişim sıklığı, 2 MB/sn'lik Site Recovery için standart depolama için ' dir. [Daha fazla bilgi](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Buna ek olarak şunları yapabilirsiniz [depolama ölçeklenebilirlik hedefleri doğrulayın](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
+    - Buna ek olarak şunları yapabilirsiniz [depolama ölçeklenebilirlik hedefleri doğrulayın](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
 8. Çalıştırma [dağıtım Planlayıcısı](hyper-v-deployment-planner-run.md).
 9. Önerileri gözden [ağ](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) ve [depolama](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

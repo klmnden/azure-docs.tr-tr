@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81ab41518fea81b577738d30970d83f6d6d6f2bc
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884002"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750401"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Öğretici: Azure şablonu ile sanal makine ölçek kümeleri, uygulamaları yükleme
 Bir ölçek kümesindeki sanal makine (VM) örneklerinde uygulamaları çalıştırmak için önce uygulama bileşenlerini ve gerekli dosyaları yüklemeniz gerekir. Önceki bir öğreticide, sanal makine örneklerinizi dağıtmak için nasıl özel sanal makine görüntüsü oluşturulacağını ve kullanılacağını öğrendiniz. Bu özel görüntüde, el ile uygulama yüklemeleri ve yapılandırmaları yer alıyordu. Her sanal makine örneği dağıtıldıktan sonra bir ölçek kümesine uygulamaların yüklenmesini otomatikleştirebilir veya önceden ölçek kümesinde çalıştırılan bir uygulamayı güncelleştirebilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -77,13 +77,13 @@ Bir ölçek kümesini ve Özel Betik Uzantısı’nı dağıtan Azure şablonunu
 
 
 ## <a name="create-a-scale-set"></a>Ölçek kümesi oluşturma
-Şimdi bir ölçek kümesi oluşturmak ve Özel Betik Uzantısı’nı uygulamak için örnek şablonu kullanalım. Öncelikle [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+Şimdi bir ölçek kümesi oluşturmak ve Özel Betik Uzantısı’nı uygulamak için örnek şablonu kullanalım. Öncelikle [az group create](/cli/azure/group) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Şimdi [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) komutunu kullanarak bir sanal makine ölçek kümesi oluşturun. İstendiğinde, her bir sanal makine örneği için kimlik bilgileri olarak kullanılan kendi kullanıcı adınızı ve parolanızı sağlayın:
+Şimdi [az group deployment create](/cli/azure/group/deployment) komutunu kullanarak bir sanal makine ölçek kümesi oluşturun. İstendiğinde, her bir sanal makine örneği için kimlik bilgileri olarak kullanılan kendi kullanıcı adınızı ve parolanızı sağlayın:
 
 ```azurecli-interactive
 az group deployment create \
@@ -97,7 +97,7 @@ Tüm ölçek kümesi kaynaklarının ve VM'lerin oluşturulup yapılandırılmas
 
 
 ## <a name="test-your-scale-set"></a>Ölçek kümenizi test etme
-Web sunucunuzu çalışır halde görmek için [az network public-ip show](/cli/azure/network/public-ip#show) ile yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek, ölçek kümesinin bir parçası olarak oluşturulan *myScaleSetPublicIP* için IP adresini alır:
+Web sunucunuzu çalışır halde görmek için [az network public-ip show](/cli/azure/network/public-ip) ile yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek, ölçek kümesinin bir parçası olarak oluşturulan *myScaleSetPublicIP* için IP adresini alır:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Bir ölçek kümesinin yaşam döngüsü boyunca, uygulamanızın güncelleştir
 }
 ```
 
-[az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) komutunu kullanarak ölçek kümenizdeki sanal makine örneklerine Özel Betik Uzantısı yapılandırmasını tekrar uygulayın. Uygulamanın güncelleştirilmiş sürümünü uygulamak için bu *azuredeployv2.json* şablonu kullanılır. Uygulamada, önceki bölümde gösterildiği gibi güncelleştirilmiş yükleme betiğine başvurmak için mevcut *azuredeploy.json* şablonunu düzenleyin. İstendiğinde, ölçek kümesini ilk oluşturduğunuzda kullanıldığı haliyle aynı kullanıcı adı ve parola bilgilerini girin:
+[az group deployment create](/cli/azure/group/deployment) komutunu kullanarak ölçek kümenizdeki sanal makine örneklerine Özel Betik Uzantısı yapılandırmasını tekrar uygulayın. Uygulamanın güncelleştirilmiş sürümünü uygulamak için bu *azuredeployv2.json* şablonu kullanılır. Uygulamada, önceki bölümde gösterildiği gibi güncelleştirilmiş yükleme betiğine başvurmak için mevcut *azuredeploy.json* şablonunu düzenleyin. İstendiğinde, ölçek kümesini ilk oluşturduğunuzda kullanıldığı haliyle aynı kullanıcı adı ve parola bilgilerini girin:
 
 ```azurecli-interactive
 az group deployment create \
@@ -155,7 +155,7 @@ az group deployment create \
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Ölçek kümenizi ve ek kaynaklarınızı kaldırmak için [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu ve bu kaynak grubunun tüm kaynaklarını silin. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
+Ölçek kümenizi ve ek kaynaklarınızı kaldırmak için [az group delete](/cli/azure/group) komutunu kullanarak kaynak grubunu ve bu kaynak grubunun tüm kaynaklarını silin. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 5458c7e74728952df89380a3649c6ed60eb6ea9a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705288"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749772"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Haritalar’ı kullanarak farklı seyahat modları için yolları bulma
 
@@ -248,7 +248,7 @@ Bu bölümde, bir hedef için belirtilen başlangıç noktasından ulaşım arac
         datasource.add(routeLine, 0);
     });
     ```
-    Yukarıdaki kod parçacığı, [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) yöntemi aracılığıyla Azure Haritalar yönlendirme hizmetini sorgular ve sonra [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) kullanarak yanıtı GeoJSON biçiminde ayrıştırır. Daha sonra döndürülen yola yönelik koordinat dizisi oluşturur ve bu diziyi haritanın veri kaynağına ekler. Ayrıca veri kaynağındaki diğer çizgilerden önce oluşturulmasını sağlamak için bir 0 dizini de ekler. Bunun nedeni, tır rotası hesaplama işlemlerinin araba rotası hesaplama işlemlerinden genellikle daha yavaş gerçekleştirilmesi ve tır rotasının araba rotasından sonra veri kaynağına eklenmesi durumunda üstünde işlenecek olmasıdır. Tır rotası çizgisine mavi renkli bir vuruş rengi ve 9 piksellik vuruş genişliği olmak üzere iki özellik eklenir. 
+    Yukarıdaki kod parçacığı, [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) yöntemi aracılığıyla Azure Haritalar yönlendirme hizmetini sorgular ve sonra [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) kullanarak yanıtı GeoJSON biçiminde ayrıştırır. Daha sonra döndürülen yola yönelik koordinat dizisi oluşturur ve bu diziyi haritanın veri kaynağına ekler. Ayrıca veri kaynağındaki diğer çizgilerden önce oluşturulmasını sağlamak için bir 0 dizini de ekler. Bunun nedeni, tır rotası hesaplama işlemlerinin araba rotası hesaplama işlemlerinden genellikle daha yavaş gerçekleştirilmesi ve tır rotasının araba rotasından sonra veri kaynağına eklenmesi durumunda üstünde işlenecek olmasıdır. Tır rotası çizgisine mavi renkli bir vuruş rengi ve 9 piksellik vuruş genişliği olmak üzere iki özellik eklenir. 
 
 4. Bir arabanın yolunu istemek ve sonuçları göstermek için aşağıdaki JavaScript kodunu ekleyin:
 
@@ -267,7 +267,7 @@ Bu bölümde, bir hedef için belirtilen başlangıç noktasından ulaşım arac
         datasource.add(routeLine);
     });
     ```
-    Bu kod parçacığı kamyon rota sorgusunu bir araba için kullanır. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) yöntemi aracılığıyla Azure Haritalar yönlendirme hizmetini sorgular ve sonra [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) kullanarak yanıtı GeoJSON biçiminde ayrıştırır. Daha sonra döndürülen yola yönelik koordinat dizisi oluşturur ve bu diziyi veri kaynağına ekler. Araba rotası çizgisine mor renkli bir vuruş rengi ve 5 piksellik vuruş genişliği olmak üzere iki özellik eklenir. 
+    Bu kod parçacığı kamyon rota sorgusunu bir araba için kullanır. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) yöntemi aracılığıyla Azure Haritalar yönlendirme hizmetini sorgular ve sonra [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) kullanarak yanıtı GeoJSON biçiminde ayrıştırır. Daha sonra döndürülen yola yönelik koordinat dizisi oluşturur ve bu diziyi veri kaynağına ekler. Araba rotası çizgisine mor renkli bir vuruş rengi ve 5 piksellik vuruş genişliği olmak üzere iki özellik eklenir. 
 
 5. **MapTruckRoute.html** dosyasını kaydedin ve tarayıcınızı yenileyerek sonucu gözlemleyin. Haritalar API’leriyle başarılı bir şekilde bağlantı kurulması için aşağıdakine benzer bir harita görürsünüz.
 

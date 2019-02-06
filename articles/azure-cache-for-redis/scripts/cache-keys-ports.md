@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: f9a963ec81b78cfcc6ded7d8f35f4066f931e53e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fd69c3182f026996618fea5e26466e8434ea36f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847325"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754464"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Ana bilgisayar adı, bağlantı noktalarını ve anahtarları, Azure önbelleği için Redis için Al
 
@@ -40,7 +40,7 @@ Bu betik, ana bilgisayar adı, anahtarlar ve bağlantı noktaları, bir Azure ö
 | Komut | Notlar |
 |---|---|
 | [az redis show](https://docs.microsoft.com/cli/azure/redis) | Bir Azure önbelleği için Redis örneğinin ayrıntılarını alın. |
-| [az redis anahtarları-Listele](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Bir Azure önbelleği için Redis örneği için erişim anahtarlarını alır. |
+| [az redis anahtarları-Listele](https://docs.microsoft.com/cli/azure/redis) | Bir Azure önbelleği için Redis örneği için erişim anahtarlarını alır. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

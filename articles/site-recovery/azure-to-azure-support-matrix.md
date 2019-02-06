@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 3b41f975b484083dab79f16984e84018b2e830a1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 752be8270f3eb0bcc018cfcb7f87f30f5afbc60a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497307"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753104"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -58,9 +58,9 @@ Almanya | Almanya Orta, Almanya Kuzeydoğu
 >[!NOTE]
 >
 > - İçin **Brezilya Güney** bölgeye çoğaltmak ve aşağıdakilerden birini yük devretme: Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD bölgeleri. Site Recovery, Brezilya Güney, burada Vm'leri korunabilir gelen bir kaynak bölgesi olarak kullanılmak üzere yalnızca etkinleştirilmiş olduğu unutulmamalıdır. Bunu **bir hedef DR bölgesindeki kullanılamaz** Orta Güney ABD gibi Azure bölgelerinden birini için. Bunun nedeni gecikme süresi, Brezilya Güney dışındaki tüm diğer Amerika'nın bölgeyi seçmek için önerilen nedeniyle coğrafi uzaklıktan gözlemledik.
-> 
+>
 > - Eğer **bir bölge görmek karşılaştırılamıyor** istediğiniz **bir kasa oluşturmak için** sonra aboneliğiniz, bu bölgede kaynakları oluşturmak için erişimi olduğundan emin olun. Örneğin: Fransa Güney bölgesinde kasası oluşturmak mümkün değilse, aboneliğinizin Fransa Güney bölgesine erişimi yok. Lütfen "diğer genel sorular" konu sorun türü "abonelik yönetimi" altında dosya destek bileti ve sorun türü "XXX beyaz liste aboneliğinde Azure bölgesi"
-> 
+>
 > - Kullanıyorsanız **bir bölge görmek karşılaştırılamıyor** coğrafi bir küme içindeki **çoğaltmayı etkinleştirme sırasında** sonra aboneliğiniz, bu bölgede sanal makine oluşturmak için erişimi olduğundan emin olun. Örneğin: Sanal makineler Fransa Orta için Fransa Güney korumaya çalışıyorsanız ve görmüyorsanız Fransa Güney bölgesi altındaki aşağı açılır liste sonra aboneliğiniz bu bölgedeki VM dağıtmak için erişime sahip değil. Lütfen "diğer genel sorular" konu sorun türü "abonelik yönetimi" altında dosya destek bileti ve sorun türü "XXX beyaz liste aboneliğinde Azure bölgesi"
 > - Yukarıda belirtilen coğrafi kümeleri arasında bölgeleri seçemezsiniz.
 
@@ -123,7 +123,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 **Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-Debian 7 | 9.18,9.19,9.20,9.21 | 3.2.0-4-AMD64 3.2.0-6-amd64 için 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.19,9.20,9.21,9.22 | 3.2.0-4-AMD64 3.2.0-6-amd64 için 3.16.0-0.bpo.4-amd64 |
 |||
 Debian 8 | 9.20, 9.21 | 3.16.0-4-AMD64 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo.8-amd64 için için |
 Debian 8 | 9.19 | 3.16.0-4-AMD64 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo.7-amd64 için için |
@@ -133,10 +133,10 @@ Debian 8 | 9.18 | 3.16.0-4-AMD64 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo
 
 **Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.22 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.72-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.21 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.72-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.20 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.69-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.19 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.93-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.80-default için</br></br>SP3 4.4.73-5-default 4.4.140-94.42-default için |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.18 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.93-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.80-default için</br></br>SP3 4.4.73-5-default 4.4.138-94.39-default için |
 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Çoğaltılan makineler - Linux dosya sistemi/Konuk depolama

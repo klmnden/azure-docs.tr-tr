@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 494665e530104cd4711e8112f3a999e68c3485b8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912791"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746396"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -85,13 +85,13 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
-| Tetikleyici eşzamanlılık | Eşzamanlılık sınırladığınızda 50 | Bir tetikleyici için eşzamanlılık denetimi açtığınızda, varsayılan sınır 25'tir. Aynı anda ya da paralel mantıksal uygulama örneği sayısı bu sınırı açıklar. <p><p>Varsayılan sınır 1 ile 50 arasında bir değer aralığında değiştirmek için bkz: [değişiklik tetikleyicinin Eş zamanlılık limitini](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) veya [tetikleme örnekleri sırayla](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| En fazla bekleme çalıştırmalar | Eşzamanlılık sınırladığınızda 100 | Bir tetikleyici için eşzamanlılık denetimi açtığınızda, varsayılan sınır 10'dur. Mantıksal uygulamanızı zaten en fazla eşzamanlı örneği çalışırken çalıştırmak için bekleyebileceği mantıksal uygulama örneği sayısı bu sınırı açıklar. <p><p>Varsayılan sınırı 0 ile 100 arasında bir değer aralığında değiştirmek için bkz: [değişiklik bekleme çalıştırmaları sınırlamak](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Foreach dizi öğeleri | 100.000 | Bu sınır en fazla bir "for each" döngüsü işleyebilen dizi öğe sayısını açıklar. <p><p>Daha büyük dizileri filtrelemek için kullanabileceğiniz [sorgu eylemi](../connectors/connectors-native-query.md). | 
-| Foreach eşzamanlılık | Eşzamanlılık sınırladığınızda 50 | Bu döngü için eşzamanlılık denetimi açtığınızda, varsayılan sınırı 20'dir. "For each" en fazla sayısı bu sınırı açıklar aynı anda ya da paralel yineleme döngüsü. <p><p>Varsayılan sınır 1 ile 50 arasında bir değer aralığında değiştirmek için bkz [değiştirme "for each" eşzamanlılık sınırı](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) veya ["for each" çalıştırın sırayla döngü](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
-| SplitOn öğeleri | 100.000 | | 
-| Yinelemelere kadar | 5.000 | | 
-|||| 
+| Tetikleyici eşzamanlılık | * Sınırsız zaman eşzamanlılık denetimi kapalı <p><p>* eşzamanlılık denetimi denetimde etkinleştirdikten sonra geri alınamaz açık olduğunda 25 varsayılan bir sınırdır. Varsayılan değer 1 ile 50 arasında bir değer aralığında değiştirebilirsiniz. | En fazla paralel veya aynı anda çalıştırabileceğiniz mantıksal uygulama örneği sayısı bu sınırı açıklar. <p><p>Varsayılan sınır 1 ile 50 arasında bir değer aralığında değiştirmek için bkz: [değişiklik tetikleyicinin Eş zamanlılık limitini](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) veya [tetikleme örnekleri sırayla](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| En fazla bekleme çalıştırmalar | Eşzamanlılık denetimi etkinleştirildiğinde, en düşük bekletme çalıştırmaları 10 artı sayıda eşzamanlı çalışmanın (tetikleyici eşzamanlılık) sayısıdır. En fazla sayıyı 100 aralığında değiştirebilirsiniz. | Mantıksal uygulamanızı zaten en fazla eşzamanlı örneği çalışırken çalıştırmak için bekleyebileceği mantıksal uygulama örneği en yüksek sayısı bu sınırı açıklar. <p><p>Varsayılan sınırı değiştirmek için bkz [değişiklik bekleme çalıştırmaları sınırlamak](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach dizi öğeleri | 100.000 | Bu sınır en çok bir "for each" döngüsü işleyebilir dizi öğeleri açıklar. <p><p>Daha büyük dizileri filtrelemek için kullanabileceğiniz [sorgu eylemi](../connectors/connectors-native-query.md). | 
+| Foreach eşzamanlılık | eşzamanlılık denetimi devre dışı bırakıldığında varsayılan sınırı 20'dir. Varsayılan değer 1 ile 50 arasında bir değer aralığında değiştirebilirsiniz. | "For each" en yüksek sayısı bu sınırı olan aynı anda ya da paralel yineleme döngüsü. <p><p>Varsayılan sınır 1 ile 50 arasında bir değer aralığında değiştirmek için bkz [değiştirme "for each" eşzamanlılık sınırı](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) veya ["for each" çalıştırın sırayla döngü](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| SplitOn öğeleri | 100.000 | Bir dizi döndürür tetikleyicilerinde 'SplitOn' özelliği kullanan bir ifade belirtebilirsiniz, [ayırır veya dizi öğeleri birden çok iş akışı örneği içinde debatches](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) kullanmak yerine işleme için bir "Foreach" döngü. Bu ifade, dizi oluşturmak ve her dizi öğesi için bir iş akışı örneği çalıştırmak için kullanılacak başvuruyor. |
+| Yinelemelere kadar | 5.000 | |
+||||
 
 <a name="throughput-limits"></a>
 

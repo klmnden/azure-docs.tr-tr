@@ -16,16 +16,15 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: fcd8f4f8408c7c51265802fde057146e6cdbb090
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657629"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754311"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
-Bu makalede verilerinizi - koruyabilmeniz için bile, sanal Makinenizin Bakım veya yeniden boyutlandırma nedeniyle daralıp kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir. 
-
+Bu makalede verilerinizi - koruyabilmeniz için bile, sanal Makinenizin Bakım veya yeniden boyutlandırma nedeniyle daralıp kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir.
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Bir VM'ye yeni bir disk ekleme
 
@@ -40,7 +39,7 @@ az vm disk attach \
    --size-gb 50
 ```
 
-## <a name="attach-an-existing-disk"></a>Var olan bir diski ekleme 
+## <a name="attach-an-existing-disk"></a>Var olan bir diski ekleme
 
 Var olan bir diski için disk Kimliğini bulun ve Kimliğine geçirmek [az vm disk ekleme](/cli/azure/vm/disk?view=azure-cli-latest) komutu. Adlı bir disk için aşağıdaki örnek sorgularda *myDataDisk* içinde *myResourceGroup*, ardından adlı VM'ye ekler *myVM*:
 
@@ -50,9 +49,9 @@ diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
-
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Yeni disk bağlanacak Linux VM'ye bağlanma
-İçin bölüm, biçimlendirmek ve Linux VM'nize, VM'ye SSH kullanabilmesi için yeni diski bağlayın. Daha fazla bilgi için bkz. [Azure’da Linux ile SSH kullanma](mac-create-ssh-keys.md). Aşağıdaki örnek, Genel DNS girişi ile bir VM bağlandığı *mypublicdns.westus.cloudapp.azure.com* kullanıcı *azureuser*: 
+
+İçin bölüm, biçimlendirmek ve Linux VM'nize, VM'ye SSH kullanabilmesi için yeni diski bağlayın. Daha fazla bilgi için bkz. [Azure’da Linux ile SSH kullanma](mac-create-ssh-keys.md). Aşağıdaki örnek, Genel DNS girişi ile bir VM bağlandığı *mypublicdns.westus.cloudapp.azure.com* kullanıcı *azureuser*:
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -74,10 +73,10 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Burada, *sdc* istiyoruz disktir. İle diski bölümlendirin `fdisk`birincil disk 1 bölüme kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `fdisk` üzerinde işlem */dev/sdc*:
+Burada, *sdc* istiyoruz disktir. İle diski bölümlendirin `parted`, disk boyutu 2 tebibytes (TiB) ise ya da daha büyük MBR veya GPT bölümleme kullanabilirsiniz 2TiB altında ise GPT bölümleme, kullanmanız gerekir. Birincil disk 1 bölüme kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `parted` üzerinde işlem */dev/sdc*:
 
 ```bash
-sudo fdisk /dev/sdc
+sudo parted /dev/sdc
 ```
 
 Kullanım `n` yeni bir bölüm eklemek için komutu. Bu örnekte, biz de tercih `p` için birincil bölüm ve varsayılan değerleri kabul edin. Çıktı aşağıdaki örneğe benzer olacaktır:
@@ -228,9 +227,10 @@ TRIM etkinleştirmek için iki şekilde destek Linux VM'nize vardır. Her zamank
     ```
 
 ## <a name="troubleshooting"></a>Sorun giderme
+
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * Linux sanal makinenizin doğru şekilde yapılandırıldığından emin olmak için gözden [Linux makine performansınızı en iyi duruma getirme](optimization.md) öneriler.
 * Ek diskler eklenerek, depolama kapasitesi ve [RAID yapılandırma](configure-raid.md) ek performans için.
-

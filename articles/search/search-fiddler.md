@@ -1,5 +1,5 @@
 ---
-title: Fiddler veya Postman web HTTP test araçları - Azure Search REST API'lerini keşfetme
+title: Postman veya fiddler'ı web HTTP test araçları - Azure Search REST API'lerini keşfetme
 description: Azure Search için HTTP istekleri ve REST API çağrıları oluşturmak için Fiddler veya Postman kullanma.
 author: HeidiSteen
 manager: cgronlun
@@ -10,16 +10,16 @@ ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5946ff5e75e7c3fedf42c23200f61e821c0d9d61
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 06e2667b59b27039ad3c62379f654dd693999f99
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631405"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756084"
 ---
-# <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Fiddler veya Postman kullanarak Azure Search REST API'lerini keşfetme
+# <a name="explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Postman veya fiddler'ı kullanarak Azure Search REST API'lerini keşfetme
 
-[Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice)'lerini keşfetmenin en kolay yöntemlerinden biri Fiddler veya Postman kullanarak HTTP isteklerini düzenlemek ve yanıtları incelemektir. Doğru araçlar ve bu yönergelerden yararlanarak herhangi bir kod yazmadan önce istek gönderebilir ve yanıtları görüntüleyebilirsiniz.
+Keşfetmek için en kolay yollarından biri [Azure Search REST API'sine](https://docs.microsoft.com/rest/api/searchservice) HTTP isteklerini oluşturmak ve yanıtları için Postman veya fiddler'ı kullanıyor. Doğru araçlar ve bu yönergelerden yararlanarak herhangi bir kod yazmadan önce istek gönderebilir ve yanıtları görüntüleyebilirsiniz.
 
 > [!div class="checklist"]
 > * Web API'si test aracı indirme

@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e988a3c86302b875f8393264279e4a65c45ba1eb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: fa37a83799ec50c7a8a87a0ac8a3232035a49234
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041246"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755671"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: Hassas verilerin korunmasına ve şifreleme anahtarları Azure Key Vault'ta depolama
 
@@ -81,7 +81,7 @@ Aşağıdaki betiği çalıştırarak, bir anahtar kasası hızlıca oluşturabi
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Git **kaynak Oluştur** > **veritabanları** > **SQL veritabanı**.
-3. Oluşturma bir **boş** adlı veritabanı **Clinic** yeni veya var olan bir sunucu üzerinde. Azure portalında bir veritabanı oluşturma hakkında ayrıntılı yönergeler için bkz. [ilk Azure SQL veritabanınızı](sql-database-get-started-portal.md).
+3. Oluşturma bir **boş** adlı veritabanı **Clinic** yeni veya var olan bir sunucu üzerinde. Azure portalında bir veritabanı oluşturma hakkında ayrıntılı yönergeler için bkz. [ilk Azure SQL veritabanınızı](sql-database-single-database-get-started.md).
    
     ![Boş veritabanı oluşturma](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 

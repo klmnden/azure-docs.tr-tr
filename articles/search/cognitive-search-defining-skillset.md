@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320804"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751982"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Bir zenginleştirme işlem hattı, bir beceri kümesi oluşturma
 
@@ -142,11 +142,11 @@ Sonraki parçada becerilerine becerileri dizisidir. Her beceri zenginleştirme, 
 
 ## <a name="add-predefined-skills"></a>Önceden tanımlanmış beceriler kazanın
 
-Önceden tanımlanmış olan ilk beceri göz atalım [adlandırılmış varlık tanıma beceri](cognitive-search-skill-named-entity-recognition.md):
+Önceden tanımlanmış olan ilk beceri göz atalım [varlık tanıma beceri](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -155,7 +155,8 @@ Sonraki parçada becerilerine becerileri dizisidir. Her beceri zenginleştirme, 
           "name": "text",
           "source": "/document/content"
         }
-      ],      "outputs": [
+      ],
+      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -228,7 +229,7 @@ Bazı durumlarda, bir dizideki her öğe ayrı olarak başvurmak için çağır�
     }
 ```
 
-Bu tanımı zenginleştirme işleminin bir parçası bir web API'si çağıran özel bir yetenektir. Bu yetenek, adlandırılmış varlık tanıma tarafından tanımlanan her kuruluş için bir web API'si, kuruluş açıklamasını bulmak için çağırır. Düzenlenmesi ne zaman web API'sini çağırın ve alınan bilgi akışını nasıl zenginleştirme motoru tarafından dahili olarak işlenir. Ancak, bu özel API'yi çağırmak için gerekli başlatma (örneğin, URI, httpHeaders ve beklenen girişleri) JSON biçiminde sağlanmalıdır. Zenginleştirme işlem hattı için özel web API'si oluşturma yönergeleri için bkz [özel arabirim tanımlama](cognitive-search-custom-skill-interface.md).
+Bu tanımı bir [özel bir yetenek](cognitive-search-custom-skill-web-api.md) zenginleştirme işleminin bir parçası bir web API'sini çağırır. Bu yetenek, adlandırılmış varlık tanıma tarafından tanımlanan her kuruluş için bir web API'si, kuruluş açıklamasını bulmak için çağırır. Düzenlenmesi ne zaman web API'sini çağırın ve alınan bilgi akışını nasıl zenginleştirme motoru tarafından dahili olarak işlenir. Ancak, bu özel API'yi çağırmak için gerekli başlatma (örneğin, URI, httpHeaders ve beklenen girişleri) JSON biçiminde sağlanmalıdır. Zenginleştirme işlem hattı için özel web API'si oluşturma yönergeleri için bkz [özel arabirim tanımlama](cognitive-search-custom-skill-interface.md).
 
 "Bağlam" alanı ayarlandığına dikkat edin ```"/document/organizations/*"``` yıldız işaretiyle zenginleştirme adım anlamı çağrılır *her* kuruluş altında ```"/document/organizations"```. 
 

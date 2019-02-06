@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fd614a632945dbcc89c530df54b8416809029d1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9cf64f98e0a06fc063340f39326fdc1c12645db8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194037"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756453"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -105,8 +105,8 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanteri, performan
   - Docker birden çok konak düzenleme için:
     - Bir Red Hat OpenShift ortamınız varsa, gözden [Red Hat OpenShift için bir Log Analytics Aracısını Yapılandırma](#configure-an-oms-agent-for-red-hat-openshift).
     - Azure Container Service kullanan bir Kubernetes kümesi varsa:
-       - Gözden geçirme [Kubernetes için bir Log Analytics Linux Aracısı'nı yapılandırma](#configure-an-oms-linux-agent-for-kubernetes).
-       - Gözden geçirme [Kubernetes için bir Log Analytics Windows aracı yapılandırma](#configure-an-oms-windows-agent-for-kubernetes).
+       - Gözden geçirme [Kubernetes için bir Log Analytics Linux Aracısı'nı yapılandırma](#configure-a-log-analytics-linux-agent-for-kubernetes).
+       - Gözden geçirme [Kubernetes için bir Log Analytics Windows aracı yapılandırma](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Gözden geçirme [kullanmak Linux Kubernetes Log Analytics aracısını dağıtmak için Helm](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Bir Azure Container Service DC/OS kümeniz varsa, daha fazla bilgi [Log Analytics ile bir Azure Container Service DC/OS kümesini izleme](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Bir Docker Swarm modu ortamı varsa, daha fazla bilgi [Docker Swarm için bir Log Analytics Aracısını Yapılandırma](#configure-an-oms-agent-for-docker-swarm).

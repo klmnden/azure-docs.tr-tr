@@ -1,28 +1,76 @@
 ---
-title: Azure Stream Analytics için yol desenleri DateTime blob çıkış (Önizleme)
-description: Bu makalede, blob depolama çıktısını Azure Stream Analytics işleri için özel DateTime yolu desenleri özelliğini açıklar.
+title: Azure Stream Analytics özel blob bölümleme (Önizleme) çıktı
+description: Bu makalede, özel bir tarih/saat yol desenleri ve blob depolama çıktısını Azure Stream Analytics işleri için özel alan veya öznitelikleri özellikleri açıklar.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 23f632ea2ca66f973192fdc01cd84c4d0be3a668
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090800"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746532"
 ---
-# <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Azure Stream Analytics için özel bir tarih/saat yol desenleri blob depolama çıkışı (Önizleme)
+# <a name="azure-stream-analytics-custom-blob-output-partitioning-preview"></a>Azure Stream Analytics özel blob bölümleme (Önizleme) çıktı
 
-Azure Stream Analytics, blob depolama çıkış dosya yolunda özel tarih ve saat biçim tanımlayıcılarının destekler. Özel DateTime yol desenleri, Azure Stream Analytics, Azure HDInsight ve Azure Databricks için aşağı yönde işleme e veri göndermek üzere olanağı sağlayabilir, Hive akışı kuralları ile eşleşen bir çıktı biçimi belirtmenizi sağlar. Özel DateTime yol desenleri, kullanarak kolayca uygulanır `datetime` , biçim belirteci ile birlikte çıkış BLOB yolu ön eki alanındaki anahtar sözcük. Örneğin, `{datetime:yyyy}`.
+Azure Stream Analytics, özel alanlar veya öznitelikler ve özel bir tarih/saat yol desenleri bölümleme özel blob çıktı destekler. 
+
+## <a name="custom-field-or-attributes"></a>Özel alan veya öznitelikleri
+
+Özel alan veya giriş öznitelikleri aşağı yönde veri işleme ve iş akışları hakkında daha fazla denetime çıkış sağlayarak raporlama geliştirin.
+
+### <a name="partition-key-options"></a>Bölüm anahtarı seçenekleri
+
+Bölüm anahtarı veya giriş verileri bölümlemek için kullanılan sütun adı, alfasayısal karakterler ile tire, alt çizgi ve boşluk içerebilir. Diğer adları ile birlikte kullanılmadığı sürece bir bölüm anahtarı olarak iç içe geçmiş alanları kullanmak mümkün değildir.
+
+### <a name="example"></a>Örnek
+
+Bir işin burada alınan verileri bir sütun içeren bir dış video oyun hizmetine bağlı Canlı kullanıcı oturumlarını gelen giriş verilerinin sürüyor varsayalım **client_id** oturumları tanımlamak için. Verileri bölümlemek için **client_id**, bölüm belirteci eklemek için Blob yol deseni alanını ayarlayın **{client_id}** bir proje oluştururken blob çıkış özellikleri. Verileri farklı olarak **client_id** değerlerini flow Stream Analytics işi, çıktı verilerini tek bir ayrı klasörlere kaydedilir **client_id** klasörü başına değer.
+
+![İstemci kimliği ile yol deseni](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
+
+Benzer şekilde, burada her algılayıcı b sensör verilerini'algılayıcıları milyonlarca olan iş girişi varsa bir **sensor_id**, yol deseni olacaktır **{sensor_id}** her sensör verilerini farklı klasörlere bölümlemek için.  
+
+
+REST API, bir JSON çıkışı bölümünü kullanarak bu istek için kullanılan dosya aşağıdaki gibi görünebilir:  
+
+![REST API çıkış](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
+
+Çalışan, iş başlatıldıktan sonra *istemcileri* kapsayıcı Ara aşağıdaki gibi:  
+
+![İstemciler kapsayıcı](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
+
+Her bir klasör, burada her blob bir veya daha fazla kayıt içeren birden çok BLOB içerebilir. Yukarıdaki örnekte, bir klasörde aşağıdaki içeriğe sahip "06000000" etiketli bir blobun vardır:
+
+![BLOB içeriği](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
+
+Her kayıtta blob sahip olduğuna dikkat edin. bir **client_id** klasörü eşleşen sütun adı çıkış yolunu çıktısında bölümlemek için kullanılan sütun olduğundan **client_id**.
+
+### <a name="limitations"></a>Sınırlamalar
+
+1. Yol deseni blob çıkış özelliğinde yalnızca bir özel bölüm anahtarı izin verilir. Aşağıdaki yol desenleri tümü geçerlidir:
+
+   * cluster1 / {tarih} / {aFieldInMyData}  
+   * cluster1 / {time} / {aFieldInMyData}  
+   * cluster1 / {aFieldInMyData}  
+   * cluster1 / {tarih} / {time} / {aFieldInMyData}  
+
+2. Bölüm anahtarları büyük/küçük harfe duyarlı olduğundan bölüm anahtarları "John" ve "john" gibi eşdeğerdir. Ayrıca, ifadeleri, bölüm anahtarı olarak kullanılamaz. Örneğin, **{columnA + columnB}** çalışmıyor.  
+
+3. Bir giriş akışı, kayıtları bir bölüm anahtarı kardinaliteyle altında 8000 içeriyorsa, kayıtları için mevcut blobları eklenir ve yalnızca gerekli olduğunda, yeni BLOB'lar oluşturun. Kardinalite üzerinden ise BLOB mevcut bir garanti yoktur 8000 yazılacağı ve tercihe bağlı sayıda kayıtlar için aynı bölüm anahtarı ile yeni BLOB'ları oluşturulmaz.  
+
+## <a name="custom-datetime-path-patterns"></a>Özel DateTime yol desenleri
+
+Özel DateTime yol desenleri, Azure Stream Analytics, Azure HDInsight ve Azure Databricks için aşağı yönde işleme e veri göndermek üzere olanağı sağlayabilir, Hive akışı kuralları ile eşleşen bir çıktı biçimi belirtmenizi sağlar. Özel DateTime yol desenleri, kullanarak kolayca uygulanır `datetime` , biçim belirteci ile birlikte çıkış BLOB yolu ön eki alanındaki anahtar sözcük. Örneğin, `{datetime:yyyy}`.
 
 Bu bağlantı için kullanmak [Azure portalı](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) özel DateTime yol desenleri için blob depolama Çıktı Önizleme sağlayan bir özellik bayrağını değiştirilecek. Bu özellik, ana Portalı'nda kısa süre içinde etkinleştirilecektir.
 
-## <a name="supported-tokens"></a>Desteklenen belirteçler
+### <a name="supported-tokens"></a>Desteklenen belirteçler
 
 Aşağıdaki biçim belirticisi belirteçler, tek başına veya birlikte özel DateTime biçim elde etmek için kullanılabilir:
 
@@ -42,7 +90,7 @@ Aşağıdaki biçim belirticisi belirteçler, tek başına veya birlikte özel D
 
 ![Stream Analytics eski tarih/saat biçimleri](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
 
-## <a name="extensibility-and-restrictions"></a>Genişletilebilirlik ve kısıtlamaları
+### <a name="extensibility-and-restrictions"></a>Genişletilebilirlik ve kısıtlamaları
 
 Çok belirteçleri kullanabilirsiniz `{datetime:<specifier>}`yolu ön eki karakter sınırı ulaşana kadar yol deseni istediğiniz gibi. Tarih ve saat Açılır kutudan tarafından zaten listelenmiş birleşimleri ötesinde tek bir belirteç içindeki Biçim belirticileri birleştirilemez. 
 
@@ -54,7 +102,7 @@ Bir yol bölümü için `logs/MM/dd`:
 
 Yol ön eki aynı biçim tanımlayıcısı birden çok kez kullanabilirsiniz. Belirteci her yinelenmesi gerekir.
 
-## <a name="hive-streaming-conventions"></a>Hive akış kuralları
+### <a name="hive-streaming-conventions"></a>Hive akış kuralları
 
 Blob depolama için özel yol desenleri ile Etiketlenecek klasörleri bekliyor Hive akış kuralı ile kullanılabilir `column=` klasörü adı.
 

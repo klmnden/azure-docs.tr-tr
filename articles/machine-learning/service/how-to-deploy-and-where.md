@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e8b318626947c1d1147e43ca6c183ae724080a59
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a32cb694a18f8fff937f647804659efb71be415e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251614"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745733"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -511,3 +511,5 @@ Daha fazla bilgi için başvuru belgeleri için bkz. [WebService.delete()](https
 * [Üretimde modelleri için veri toplama](how-to-enable-data-collection.md)
 * [Azure Machine Learning hizmeti SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Azure Machine Learning hizmeti ile Azure sanal ağları kullanın.](how-to-enable-virtual-network.md)
+* [Öneri sistemleri oluşturma için en iyi yöntemler](https://github.com/Microsoft/Recommenders)
+* [Azure üzerinde gerçek zamanlı bir öneri API'si oluşturun](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

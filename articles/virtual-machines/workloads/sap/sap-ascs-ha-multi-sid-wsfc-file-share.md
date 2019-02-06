@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d7caec3fc1b8bf74098a7b0a211ec2ada8280a3
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732915"
+ms.locfileid: "55745027"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -216,7 +216,7 @@ Bu makalede tek bir ASCS/SCS yüklemesinden bir SAP çoklu SID yapılandırması
 > Bu belgede sunulan yapılandırması için kullanılacak henüz desteklenmiyor [Azure kullanılabilirlik alanları](https://docs.microsoft.com/azure/availability-zones/az-overview)
 > 
 
-Yük Dengeleyici sınırları hakkında daha fazla bilgi için bkz: "Yük Dengeleyici başına özel ön uç IP" bölümünde [ağ Limitleri: Azure Resource Manager][networking-limits-azure-resource-manager]. Ayrıca kullanmayı [Azure standart Load Balancer SKU'su](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) yerine Azure load balancer'ın temel SKU.
+Yük Dengeleyici sınırları hakkında daha fazla bilgi için bkz: "Yük Dengeleyici başına özel ön uç IP" bölümünde [ağ Limitleri: Azure Resource Manager][networking-limits-azure-resource-manager]. Ayrıca kullanmayı [Azure standart Load Balancer SKU'su](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) yerine Azure'un temel SKU yük dengeleyici.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

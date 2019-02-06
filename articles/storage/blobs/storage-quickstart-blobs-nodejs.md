@@ -1,23 +1,26 @@
 ---
-title: Node.js SDK'sı v2 kullanarak Azure depolamada blob oluşturma
+title: Node.js v2 için istemci kitaplığını kullanarak Azure Depolama'daki bir blob oluşturma
 description: Nesne (Blob) depolamada depolama hesabı ve kapsayıcı oluşturun. Ardından Azure Depolama'ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek için Node.js v2 için Azure depolama istemcisi kitaplığını kullanın.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: tamram
-ms.openlocfilehash: 6af1a7c1cf140ba8ff4710c0cc90559e3df55135
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 182315c705360d254c3bf342cd9c64ffafa0c021
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734173"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750083"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Karşıya yükleme, indirme ve Node.js SDK'sı v2 kullanarak blobları Listele
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Karşıya yükleme, indirme ve Node.js v2 için istemci kitaplığını kullanarak blobları Listele
 
-Bu nasıl yapılır kılavuzunda, Azure Blob Depolama kapsayıcıları yönetin ve karşıya yükleme, indirme ve blobları listeleme için Node.js kullanma konusunda bilgi edinin.
+Bu nasıl yapılır kılavuzunda, karşıya yükleme, indirme ve Azure Blob Depolama ile blobları listeleme Node.js v2 için istemci kitaplığını kullanmayı öğrenin.
+
+> [!TIP]
+> Node.js için Azure depolama istemci Kitaplığı'nın en son sürümü v10 ' dir. Microsoft, mümkün olduğunda istemci Kitaplığı'nın en son sürümünü kullanmanızı önerir. V10 kullanmaya başlamak için bkz: [hızlı başlangıç: Yükleme, indirme, liste ve JavaScript v10 için Azure depolama istemci kitaplığı kullanarak blobları silme (Önizleme)](storage-quickstart-blobs-nodejs-v10.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -96,7 +99,7 @@ Modüllerin amacı aşağıdaki gibidir:
 
 *.env* adlı dosya geçerli yürütme bağlamına
 - *path*, blob depolamaya yüklenecek dosyanın mutlak dosya yolunu belirlemek için gereklidir
-- *azure-storage*, Node.js için [Azure Depolama SDK’sı](https://docs.microsoft.com/javascript/api/azure-storage) modülüdür
+- *Azure depolama* olduğu [Azure depolama istemci Kitaplığı](https://docs.microsoft.com/javascript/api/azure-storage) Node.js için Modülü
 
 Daha sonra, **blobService** değişkeni Azure Blob hizmetinin yeni bir örneği olarak başlatılır.
 
@@ -358,4 +361,4 @@ Blob depolama ile Node.js geliştirmeye yönelik şu ek kaynaklara bakın:
 Bu makalede, yerel bir disk ve Node.js kullanarak Azure Blob Depolama arasında bir dosya karşıya yükleme gösterilmektedir. Blob depolamayla çalışma hakkında daha fazla bilgi edinmek için, GitHub deposuyla devam edin.
 
 > [!div class="nextstepaction"]
-> [JavaScript deposu için Azure Depolama SDK’sı](https://github.com/Azure/azure-storage-node)
+> [Microsoft Azure depolama SDK'sı için Node.js ve JavaScript için tarayıcılar](https://github.com/Azure/azure-storage-node)

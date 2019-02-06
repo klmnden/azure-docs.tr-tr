@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: d0da7e19934123534bf063deecb5bff584dbc317
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9dc1246f8035dbe35ecc35f91f47aeb6caaa9ab8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699292"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750270"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Hesaplarınız için Microsoft Authenticator uygulamasını kullanarak oturum açın
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
@@ -35,7 +35,7 @@ Microsoft Authenticator uygulamasını kullanabilmeniz için önce şunları yap
 
  1. İndirin ve Microsoft Authenticator uygulamasını yükleyin. Bunu henüz yapmadıysanız bkz [uygulamayı yükleyip](microsoft-authenticator-app-how-to.md).
 
- 2. İş/okul, kişisel ve üçüncü taraf hesaplarınız için Microsoft Authenticator uygulamasını ekleyin. Ayrıntılı adımlar için bkz [iş veya Okul hesabınızı eklemek](microsoft-authenticator-app-add-work-account.md), [kişisel hesaplarınız ekleme](microsoft-authenticator-app-add-personal-account.md), ve [ekleyin, kişisel Microsoft olmayan hesapların](microsoft-authenticator-app-add-non-microsoft-account.md).
+ 2. İş/okul, kişisel ve üçüncü taraf hesaplarınız için Microsoft Authenticator uygulamasını ekleyin. Ayrıntılı adımlar için bkz [iş veya Okul hesabınızı eklemek](microsoft-authenticator-app-add-work-account.md), [kişisel hesaplarınız ekleme](microsoft-authenticator-app-add-personal-account.md), ve [ekleyin, Microsoft olmayan hesapların](microsoft-authenticator-app-add-non-microsoft-account.md).
 
 ## <a name="turn-on-and-use-phone-sign-in-for-your-work-or-school-account"></a>Açma ve telefonla oturum açma için iş veya Okul hesabınızı kullanın.
 Telefonla oturum açma iki aşamalı doğrulama türüdür. Yine de bildiğiniz bir şeyi ve çok şey var, ancak oturum açma sağlar, hesap parolasını atlamak ve tüm kimlik doğrulamanızı mobil Cihazınızda gerçekleştirir telefon sağlayarak kimliğinizi doğrulamanız gerekir.
@@ -113,7 +113,6 @@ Standart iki Faktörlü doğrulama yöntemi açtıktan yapıyorsanız ve ilişki
 |**Nasıl bu özelliği kullanmayı bırakmak ve parolamı kullanmaya geri dönün?**|Kişisel hesapları için seçin **bir parolasını kullanmanız** oturum açma sırasında bağlantı. En son seçiminiz, yeniden oturum açtığınızda varsayılan olarak sunulan ve anımsanacak. Şimdiye kadar telefonla oturum açma, select kullanmaya geri dönmek istiyorsanız **uygulama kullanmanız** oturum açma sırasında bağlantı.<br><br>İş veya Okul hesapları için ek güvenlik doğrulama sayfasına gerekir (gibi https://aka.ms/MFASetup) ve Microsoft Authenticator uygulamasını kaldırın.|
 |**Telefonla oturum açma için birden fazla iş veya Okul hesabı neden kullanamıyorum?**| Tek bir iş veya Okul hesabı için bir telefon kayıtlı olması gerekir. Telefonla oturum açma için farklı bir iş veya Okul hesabı etkinleştirmek istiyorsanız, eski bir cihaz üzerinden ilk kaydını silmeniz gerekir **ayarları** sayfası.|
 |**Telefonumu kullanarak bilgisayarınıza oturum?**| Bilgisayarınızı için Windows Hello Windows 10'da kullanarak imzalama öneririz. Windows Hello, oturum açmak için yüz tanıma, parmak izi veya PIN kullanmanızı sağlar.|
-|**Telefonla oturum açma bilgilerimi Windows Phone ile kullanabilir miyim?**| Hayır. Bu özellik, Microsoft Authenticator uygulamasını Windows Phone şirket tarafından desteklenmiyor.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Uygulama hakkında daha fazla genel sorularınız varsa bkz [Microsoft Authenticator ile ilgili SSS](microsoft-authenticator-app-faq.md)

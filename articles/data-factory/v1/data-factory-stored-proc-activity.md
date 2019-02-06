@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 3f13cb2626394d16a127b172bb69c4ab88121cdb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5604767b49e6234bba5c16179bebe717938170cf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352538"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753274"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server saklı yordam etkinliği
 > [!div class="op_single_selector" title1="Transformation Activities"]
-> * [Hive etkinliği](data-factory-hive-activity.md) 
+> * [Hive etkinliği](data-factory-hive-activity.md)
 > * [Pig etkinliği](data-factory-pig-activity.md)
 > * [MapReduce etkinliği](data-factory-map-reduce.md)
 > * [Hadoop akış etkinliğinde](data-factory-hadoop-streaming-activity.md)
@@ -39,19 +39,18 @@ ms.locfileid: "54352538"
 ## <a name="overview"></a>Genel Bakış
 Data Factory'de veri dönüştürme etkinlikleri kullanma [işlem hattı](data-factory-create-pipelines.md) dönüştürmek ve Öngörüler ve öngörüleri ham verileri işlemek için. Saklı yordam etkinliği, Data Factory destekler dönüştürme etkinlikleri biridir. Bu makalede yapılar [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve Data Factory desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
 
-Saklı yordam etkinliği, kuruluşunuzda veya bir Azure sanal makine'de (VM) aşağıdaki veri depolarını birinde bir saklı yordam çağırmak için kullanabilirsiniz: 
+Saklı yordam etkinliği, kuruluşunuzda veya bir Azure sanal makine'de (VM) aşağıdaki veri depolarını birinde bir saklı yordam çağırmak için kullanabilirsiniz:
 
 - Azure SQL Database
 - Azure SQL Veri Ambarı
-- SQL Server veritabanı.  SQL Server kullanıyorsanız, veri yönetimi ağ geçidi veritabanını barındıran aynı makinede veya veritabanına erişimi olan ayrı bir makineye yükleyin. Veri Yönetimi ağ geçidi, veri bağlayan bir bileşeni, güvenli ve yönetilen bir şekilde şirket içi/açık bulut Hizmetleri ile Azure VM kaynakları ' dir. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) makale Ayrıntılar için.
+- SQL Server veritabanı. SQL Server kullanıyorsanız, veri yönetimi ağ geçidi veritabanını barındıran aynı makinede veya veritabanına erişimi olan ayrı bir makineye yükleyin. Veri Yönetimi ağ geçidi, veri bağlayan bir bileşeni, güvenli ve yönetilen bir şekilde şirket içi/açık bulut Hizmetleri ile Azure VM kaynakları ' dir. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) makale Ayrıntılar için.
 
 > [!IMPORTANT]
-> Azure SQL veritabanı ya da SQL Server veri kopyalama yapılırken, yapılandırabileceğiniz **SqlSink** kullanarak bir saklı yordam çağırmak için kopyalama etkinliğindeki **sqlWriterStoredProcedureName** özelliği. Daha fazla bilgi için [kopyalama etkinliğini saklı yordam çağırma](data-factory-invoke-stored-procedure-from-copy-activity.md). Bağlayıcı makaleler özelliği hakkında daha fazla ayrıntı için bkz: [Azure SQL veritabanı](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). Kopyalama etkinliği'ni kullanarak bir Azure SQL veri ambarı'na veri kopyalama sırasında bir saklı yordam çağırma desteklenmiyor. Ancak, SQL veri ambarı'nda bir saklı yordam çağırmak için saklı yordam etkinliği kullanabilirsiniz. 
->  
-> Azure SQL veritabanı veya SQL Server veya Azure SQL veri ambarı veri kopyalama yapılırken, yapılandırabileceğiniz **SqlSource** kullanarak kaynak veritabanından verileri okumak için bir saklı yordam çağırmak için kopyalama etkinliğindeki  **sqlReaderStoredProcedureName** özelliği. Daha fazla bilgi için aşağıdaki Bağlayıcısı makalelere bakın: [Azure SQL veritabanı](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL veri ambarı](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
+> Azure SQL veritabanı ya da SQL Server veri kopyalama yapılırken, yapılandırabileceğiniz **SqlSink** kullanarak bir saklı yordam çağırmak için kopyalama etkinliğindeki **sqlWriterStoredProcedureName** özelliği. Daha fazla bilgi için [kopyalama etkinliğini saklı yordam çağırma](data-factory-invoke-stored-procedure-from-copy-activity.md). Bağlayıcı makaleler özelliği hakkında daha fazla ayrıntı için bkz: [Azure SQL veritabanı](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). Kopyalama etkinliği'ni kullanarak bir Azure SQL veri ambarı'na veri kopyalama sırasında bir saklı yordam çağırma desteklenmiyor. Ancak, SQL veri ambarı'nda bir saklı yordam çağırmak için saklı yordam etkinliği kullanabilirsiniz.
+>
+> Azure SQL veritabanı veya SQL Server veya Azure SQL veri ambarı veri kopyalama yapılırken, yapılandırabileceğiniz **SqlSource** kullanarak kaynak veritabanından verileri okumak için bir saklı yordam çağırmak için kopyalama etkinliğindeki  **sqlReaderStoredProcedureName** özelliği. Daha fazla bilgi için aşağıdaki Bağlayıcısı makalelere bakın: [Azure SQL veritabanı](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL veri ambarı](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
-
-Aşağıdaki kılavuzda bir Azure SQL veritabanında bir saklı yordam çağırmak için bir işlem hattı, saklı yordam etkinliği kullanır. 
+Aşağıdaki kılavuzda bir Azure SQL veritabanında bir saklı yordam çağırmak için bir işlem hattı, saklı yordam etkinliği kullanır.
 
 ## <a name="walkthrough"></a>Kılavuz
 ### <a name="sample-table-and-stored-procedure"></a>Örnek tablo ve saklı yordam
@@ -92,14 +91,14 @@ Aşağıdaki kılavuzda bir Azure SQL veritabanında bir saklı yordam çağırm
 1. [Azure portalı](https://portal.azure.com/)’nda oturum açın.
 2. Tıklayın **yeni** sol menüsünde **zeka + analiz**, tıklatıp **Data Factory**.
 
-    ![Yeni veri fabrikası](media/data-factory-stored-proc-activity/new-data-factory.png)    
+    ![Yeni veri fabrikası](media/data-factory-stored-proc-activity/new-data-factory.png)
 3. İçinde **yeni veri fabrikası** dikey penceresinde girin **SProcDF** adı. Azure Data Factory adları **genel olarak benzersiz**. Veri fabrikasının adı Factory başarılı oluşturmayı etkinleştirmek üzere sizin adınızla önek gerekir.
 
-   ![Yeni veri fabrikası](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
+   ![Yeni veri fabrikası](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
 4. **Azure aboneliğinizi** seçin.
 5. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
    1. Tıklayın **Yeni Oluştur** ve kaynak grubu için bir ad girin.
-   2. Tıklayın **var olanı kullan** ve mevcut bir kaynak grubunu seçin.  
+   2. Tıklayın **var olanı kullan** ve mevcut bir kaynak grubunu seçin.
 6. Data factory için **konum** seçin.
 7. Seçin **panoya Sabitle** data factory, oturum açtığında Panoda görebilirsiniz.
 8. **Yeni data factory** dikey penceresinde **Oluştur**’a tıklayın.
@@ -127,7 +126,7 @@ Veri fabrikasını oluşturduktan sonra bir Azure SQL oluşturma sampletable tab
     ![bağlı hizmet bulunduğu ağaç görünümü](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### <a name="create-an-output-dataset"></a>Çıktı veri kümesi oluşturma
-Saklı yordam herhangi bir veri oluşturmaz olsa bile bir çıktı veri kümesi için bir saklı yordam etkinliği belirtmeniz gerekir. Etkinlik (ne sıklıkta etkinliği - saatte bir çalışacak, günlük, vb.) zamanlamasını sürücüleri çıktı veri kümesi olduğundan olmasıdır. Çıktı veri kümesi kullanmalısınız bir **bağlı hizmet** Azure SQL veritabanı veya bir Azure SQL veri ambarı veya SQL Server veritabanı saklı yordamı çalıştırmak için istediğiniz başvuruyor. Çıktı veri kümesi için saklı yordam sonucu başka bir etkinlik tarafından işleme sonraki geçirmek için bir yol olarak hizmet verebilen ([zincirleme etkinlikleri](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) işlem hattındaki. Ancak, Data Factory otomatik olarak bir saklı yordam çıktısı bu veri kümesine yazmaz. Bu çıktı veri kümesini işaret eden bir SQL tablosunu yazan saklı yordam aynıdır. Bazı durumlarda, çıktı veri kümesi olabilir bir **işlevsiz bir veri kümesi** (gerçekten saklı yordamın çıkış bulundurmayan tabloya işaret eden bir veri kümesi). İşlevsiz bu veri kümesi yalnızca saklı yordam etkinliği çalıştırmak için zamanlamayı belirtmek için kullanılır. 
+Saklı yordam herhangi bir veri oluşturmaz olsa bile bir çıktı veri kümesi için bir saklı yordam etkinliği belirtmeniz gerekir. Etkinlik (ne sıklıkta etkinliği - saatte bir çalışacak, günlük, vb.) zamanlamasını sürücüleri çıktı veri kümesi olduğundan olmasıdır. Çıktı veri kümesi kullanmalısınız bir **bağlı hizmet** Azure SQL veritabanı veya bir Azure SQL veri ambarı veya SQL Server veritabanı saklı yordamı çalıştırmak için istediğiniz başvuruyor. Çıktı veri kümesi için saklı yordam sonucu başka bir etkinlik tarafından işleme sonraki geçirmek için bir yol olarak hizmet verebilen ([zincirleme etkinlikleri](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) işlem hattındaki. Ancak, Data Factory otomatik olarak bir saklı yordam çıktısı bu veri kümesine yazmaz. Bu çıktı veri kümesini işaret eden bir SQL tablosunu yazan saklı yordam aynıdır. Bazı durumlarda, çıktı veri kümesi olabilir bir **işlevsiz bir veri kümesi** (gerçekten saklı yordamın çıkış bulundurmayan tabloya işaret eden bir veri kümesi). İşlevsiz bu veri kümesi yalnızca saklı yordam etkinliği çalıştırmak için zamanlamayı belirtmek için kullanılır.
 
 1. Düğmeyi görmüyorsanız araç çubuğunda **... Daha fazla** araç çubuğunda **yeni veri kümesi**, tıklatıp **Azure SQL**. **Yeni veri kümesi** seçin ve komut çubuğunda **Azure SQL**.
 
@@ -135,7 +134,7 @@ Saklı yordam herhangi bir veri oluşturmaz olsa bile bir çıktı veri kümesi 
 2. JSON Düzenleyicisi için aşağıdaki JSON betiği kopyala/yapıştır.
 
     ```JSON
-    {                
+    {
         "name": "sprocsampleout",
         "properties": {
             "type": "AzureSqlTable",
@@ -155,16 +154,16 @@ Saklı yordam herhangi bir veri oluşturmaz olsa bile bir çıktı veri kümesi 
     ![Bağlı hizmetlerin bulunduğu ağaç görünümü](media/data-factory-stored-proc-activity/tree-view-2.png)
 
 ### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>SqlServerStoredProcedure etkinliği ile işlem hattı oluşturma
-Şimdi github'dan bir saklı yordam etkinliği ile işlem hattı oluşturma. 
+Şimdi github'dan bir saklı yordam etkinliği ile işlem hattı oluşturma.
 
-Aşağıdaki özelliklere dikkat edin: 
+Aşağıdaki özelliklere dikkat edin:
 
-- **Türü** özelliği **SqlServerStoredProcedure**. 
+- **Türü** özelliği **SqlServerStoredProcedure**.
 - **StoredProcedureName** türü özellikler ayarlanır **usp_sample** (saklı yordamın adı).
 - **StoredProcedureParameters** bölümü adlı bir parametre içeren **DateTime**. Adı ve büyük/küçük harf saklı yordam tanımında parametre adı ve parametre JSON içinde büyük küçük harfleri eşleşmesi gerekir. Bir parametre için null geçmesi, söz dizimini kullanın: `"param1": null` (tamamı küçük harflerle).
- 
+
 1. Düğmeyi görmüyorsanız araç çubuğunda **... Daha fazla** tıklayın ve komut çubuğunda **yeni işlem hattı**.
-2. Aşağıdaki JSON kod parçacığında kopyala/yapıştır:   
+2. Aşağıdaki JSON kod parçacığında kopyala/yapıştır:
 
     ```JSON
     {
@@ -191,13 +190,13 @@ Aşağıdaki özelliklere dikkat edin:
                     "name": "SprocActivitySample"
                 }
             ],
-             "start": "2017-04-02T00:00:00Z",
-             "end": "2017-04-02T05:00:00Z",
+            "start": "2017-04-02T00:00:00Z",
+            "end": "2017-04-02T05:00:00Z",
             "isPaused": false
         }
     }
     ```
-3. İşlem hattını dağıtmak için **Dağıt** araç.  
+3. İşlem hattını dağıtmak için **Dağıt** araç.
 
 ### <a name="monitor-the-pipeline"></a>İşlem hattını izleme
 1. Data Factory Düzenleyici dikey penceresini kapatmak ve Data Factory dikey penceresine dönmek için **X** işaretine, sonra da **Diyagram**’a tıklayın.
@@ -213,22 +212,20 @@ Aşağıdaki özelliklere dikkat edin:
 
    ![Çıktı verileri](./media/data-factory-stored-proc-activity/output.png)
 
-   Bkz: [işlem hattını izleme](data-factory-monitor-manage-pipelines.md) Azure Data Factory işlem hatlarını izleme hakkında ayrıntılı bilgi için.  
-
+   Bkz: [işlem hattını izleme](data-factory-monitor-manage-pipelines.md) Azure Data Factory işlem hatlarını izleme hakkında ayrıntılı bilgi için.
 
 ## <a name="specify-an-input-dataset"></a>Girdi veri kümesi belirtin
 İzlenecek yolda, saklı yordam etkinliği herhangi bir giriş veri kümesi yok. Girdi veri kümesi belirtirseniz, saklı yordam etkinliği giriş veri kümesinin bir dilimi (Ready durumunda) kullanılabilir hale gelene kadar çalışmaz. Veri kümesi (yani aynı işlem hattının başka bir etkinliği tarafından üretilen değil) bir dış veri kümesi ya da bir Yukarı Akış etkinliği (Bu çalıştırmalarını önce etkinliği) tarafından üretilen bir iç veri kümesi olabilir. Saklı yordam etkinliği için birden fazla giriş veri kümesi belirtebilirsiniz. Bunu yaparsanız, saklı yordam etkinliği yalnızca tüm giriş veri kümesinin dilimlerini (Ready durumunda) kullanılabilir olduğunda çalışır. Giriş veri kümesi saklı yordam, bir parametre olarak kullanılamıyor. Yalnızca, saklı yordam etkinliği başlamadan önce bağımlılık denetlemek için kullanılır.
 
 ## <a name="chaining-with-other-activities"></a>Diğer etkinliklerle zincirleme
-Yukarı Akış etkinlik çıkışı, bu etkinlik bir Yukarı Akış etkinliği zincirleyebilir, yani istiyorsanız, bu etkinliğin bir giriş olarak belirtin. Bunu yaptığınızda, saklı yordam etkinliği Yukarı Akış etkinlik tamamlandıktan ve Yukarı Akış etkinliğinin çıkış veri kümesi (hazır durumda) kullanılabilir kadar çalışmaz. Çıkış veri kümeleri, birden çok Yukarı Akış etkinliği saklı yordam etkinliğin giriş veri kümeleri belirtebilirsiniz. Bunu yaptığınızda, saklı yordam etkinliği yalnızca tüm giriş veri kümesinin dilimlerini kullanılabilir olduğunda çalışır.  
+Yukarı Akış etkinlik çıkışı, bu etkinlik bir Yukarı Akış etkinliği zincirleyebilir, yani istiyorsanız, bu etkinliğin bir giriş olarak belirtin. Bunu yaptığınızda, saklı yordam etkinliği Yukarı Akış etkinlik tamamlandıktan ve Yukarı Akış etkinliğinin çıkış veri kümesi (hazır durumda) kullanılabilir kadar çalışmaz. Çıkış veri kümeleri, birden çok Yukarı Akış etkinliği saklı yordam etkinliğin giriş veri kümeleri belirtebilirsiniz. Bunu yaptığınızda, saklı yordam etkinliği yalnızca tüm giriş veri kümesinin dilimlerini kullanılabilir olduğunda çalışır.
 
-Aşağıdaki örnekte, kopyalama etkinliğinin çıkışıdır: OutputDataset saklı yordam etkinliği bir giriştir. Bu nedenle, saklı yordam etkinliği kopyalama etkinliği tamamlar ve OutputDataset dilimi (Ready durumunda) kullanılabilir kadar çalışmaz. Birden fazla giriş veri kümesi belirtirseniz, saklı yordam etkinliği (Ready durumunda) tüm giriş veri kümesinin dilimlerini kullanılabilir olana kadar çalışmaz. Giriş veri kümeleri, doğrudan saklı yordam etkinliği için parametre olarak kullanılamaz. 
+Aşağıdaki örnekte, kopyalama etkinliğinin çıkışıdır: OutputDataset saklı yordam etkinliği bir giriştir. Bu nedenle, saklı yordam etkinliği kopyalama etkinliği tamamlar ve OutputDataset dilimi (Ready durumunda) kullanılabilir kadar çalışmaz. Birden fazla giriş veri kümesi belirtirseniz, saklı yordam etkinliği (Ready durumunda) tüm giriş veri kümesinin dilimlerini kullanılabilir olana kadar çalışmaz. Giriş veri kümeleri, doğrudan saklı yordam etkinliği için parametre olarak kullanılamaz.
 
 Zincirleme etkinlikleri ile ilgili daha fazla bilgi için bkz: [bir işlem hattında birden çok etkinlik](data-factory-create-pipelines.md#multiple-activities-in-a-pipeline)
 
 ```json
 {
-
     "name": "ADFTutorialPipeline",
     "properties": {
         "description": "Copy data from a blob to blob",
@@ -268,7 +265,6 @@ Zincirleme etkinlikleri ile ilgili daha fazla bilgi için bkz: [bir işlem hatt�
                 },
                 "name": "RunStoredProcedure"
             }
-
         ],
         "start": "2017-04-12T00:00:00Z",
         "end": "2017-04-13T00:00:00Z",
@@ -281,8 +277,8 @@ Benzer şekilde, depolama yordam etkinliği ile ilişkilendirilecek **aşağı a
 
 > [!IMPORTANT]
 > Azure SQL veritabanı ya da SQL Server veri kopyalama yapılırken, yapılandırabileceğiniz **SqlSink** kullanarak bir saklı yordam çağırmak için kopyalama etkinliğindeki **sqlWriterStoredProcedureName** özelliği. Daha fazla bilgi için [kopyalama etkinliğini saklı yordam çağırma](data-factory-invoke-stored-procedure-from-copy-activity.md). Özelliği hakkında daha fazla ayrıntı için aşağıdaki Bağlayıcısı makalelere bakın: [Azure SQL veritabanı](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties).
->  
-> Azure SQL veritabanı veya SQL Server veya Azure SQL veri ambarı veri kopyalama yapılırken, yapılandırabileceğiniz **SqlSource** kullanarak kaynak veritabanından verileri okumak için bir saklı yordam çağırmak için kopyalama etkinliğindeki  **sqlReaderStoredProcedureName** özelliği. Daha fazla bilgi için aşağıdaki Bağlayıcısı makalelere bakın: [Azure SQL veritabanı](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL veri ambarı](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
+> 
+> Azure SQL veritabanı veya SQL Server veya Azure SQL veri ambarı veri kopyalama yapılırken, yapılandırabileceğiniz **SqlSource** kullanarak kaynak veritabanından verileri okumak için bir saklı yordam çağırmak için kopyalama etkinliğindeki  **sqlReaderStoredProcedureName** özelliği. Daha fazla bilgi için aşağıdaki Bağlayıcısı makalelere bakın: [Azure SQL veritabanı](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL veri ambarı](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
 ## <a name="json-format"></a>JSON biçimi
 Bir saklı yordam etkinliğine tanımlamak için JSON biçimi şu şekildedir:
@@ -292,12 +288,12 @@ Bir saklı yordam etkinliğine tanımlamak için JSON biçimi şu şekildedir:
     "name": "SQLSPROCActivity",
     "description": "description",
     "type": "SqlServerStoredProcedure",
-    "inputs":  [ { "name": "inputtable"  } ],
-    "outputs":  [ { "name": "outputtable" } ],
+    "inputs": [ { "name": "inputtable" } ],
+    "outputs": [ { "name": "outputtable" } ],
     "typeProperties":
     {
         "storedProcedureName": "<name of the stored procedure>",
-        "storedProcedureParameters":  
+        "storedProcedureParameters":
         {
             "param1": "param1Value"
             …
@@ -308,7 +304,7 @@ Bir saklı yordam etkinliğine tanımlamak için JSON biçimi şu şekildedir:
 
 Aşağıdaki tabloda, bu JSON özellikleri açıklanmaktadır:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | ad | Etkinliğin adı |Evet |
 | açıklama |Etkinliğin ne için kullanıldığını açıklayan metin |Hayır |

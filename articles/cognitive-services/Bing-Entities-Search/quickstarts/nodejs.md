@@ -1,94 +1,114 @@
 ---
-title: "Hızlı Başlangıç: Bing varlık arama API'si, Node.js"
+title: "Hızlı Başlangıç: Node.js kullanarak Bing varlık arama REST API'si için bir arama isteği gönder"
 titlesuffix: Azure Cognitive Services
-description: Bing Varlık Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
+description: Bing varlık arama REST API'si kullanarak bir istek göndermek için bu hızlı başlangıçta kullanmak C#ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 18476b8fa272ea235526693a9e2bab577298244d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 37e00c6cdc5340607a4aabc446d87e1a8575c552
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174474"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755144"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-nodejs"></a>Hızlı başlangıç: Node.js ile Bing Varlık Arama API'si
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak Bing varlık arama REST API'si için bir arama isteği gönder
 
-Bu makalede nasıl kullanılacağını gösterir [Bing varlık arama](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) Node.JS ile API.
+Bu hızlı başlangıçta, Bing varlık arama API'si, ilk çağrı yapmak ve JSON yanıtı görüntülemek için kullanın. Bu basit bir JavaScript uygulama API için bir haber arama sorgu gönderir ve yanıtını görüntüler. Bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js)’da mevcuttur.
+
+Bu uygulamanın, JavaScript'te yazılmış olsa da çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kodu çalıştırmak için [Node.js 6](https://nodejs.org/en/download/) gerekir.
+* [Node.js](https://nodejs.org/en/download/)’in en son sürümü.
 
-**Bing Varlık Arama API'sine** sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* [JavaScript isteği kitaplığı](https://github.com/request/request)
 
-## <a name="search-entities"></a>Varlık arama
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin.
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
 
-1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+1. Sık kullandığınız IDE’de veya düzenleyicide yeni bir JavaScript dosyası oluşturun ve katılık ve https gereksinimlerini ayarlayın.
 
-```nodejs
-'use strict';
+    ```javaScript
+    'use strict';
+    let https = require ('https');
+    ```
 
-let https = require ('https');
+2. API uç noktası, abonelik anahtarı ve arama sorgusu için değişkenler oluşturun.
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    ```javascript
+    let subscriptionKey = 'ENTER YOUR KEY HERE';
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/entities';
+    
+    let mkt = 'en-US';
+    let q = 'italian restaurant near me';
+    ```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
+3. Adlı bir dizeye pazara çıkma sürelerini ve sorgu parametrelerinizin ekleme `query`. URL unutmayın-sorgunuzu ile kodlama `encodeURI()`.
+    ```javascript 
+    let query = '?mkt=' + mkt + '&q=' + encodeURI(q);
+    ```
 
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/entities';
+## <a name="handle-and-parse-the-response"></a>Yanıtı işleme ve ayrıştırma
 
-let mkt = 'en-US';
-let q = 'italian restaurant near me';
+1. adlı bir fonksiyon tanımlayın `response_handler` HTTP çağrısı, alan `response`, parametre olarak. Bu işlevin içinde aşağıdaki adımları gerçekleştirin:
 
-let params = '?mkt=' + mkt + '&q=' + encodeURI(q);
+    1. JSON yanıtının gövdesini içerecek bir değişken tanımlayın.  
+        ```javascript
+        let response_handler = function (response) {
+            let body = '';
+        };
+        ```
 
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let body_ = JSON.parse (body);
-        let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+    2. **Veri** işareti çağrıldığında yanıtın gövdesini depolama
+        ```javascript
+        response.on('data', function (d) {
+            body += d;
+        });
+        ```
 
-let Search = function () {
-    let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+    3. Olduğunda bir **son** bayrak işareti, JSON Ayrıştır ve yazdırabilirsiniz.
 
-    let req = https.request (request_params, response_handler);
-    req.end ();
-}
+        ```javascript
+        response.on ('end', function () {
+        let json = JSON.stringify(JSON.parse(body), null, '  ');
+        console.log (json);
+        });
+        ```
 
-Search ();
-```
+## <a name="send-a-request"></a>İstek gönderme
 
-**Yanıt**
+1. Çağrılan bir işlev oluşturma `Search` arama isteği göndermek için. İçinde aşağıdaki adımları gerçekleştirin.
+
+    1. İstek parametrelerinizi içeren bir JSON nesnesi oluşturun: kullanın `Get` yöntemi ve konak ve yol bilgilerinizi ekleyin. Abonelik anahtarınızı ekleme `Ocp-Apim-Subscription-Key` başlığı. 
+    2. Kullanım `https.request()` daha önce oluşturduğunuz yanıt işleyicisi ve arama parametrelerinizi isteği göndermek için.
+    
+    ```javascript
+    let Search = function () {
+        let request_params = {
+            method : 'GET',
+            hostname : host,
+            path : path + query,
+            headers : {
+                'Ocp-Apim-Subscription-Key' : subscriptionKey,
+            }
+        };
+    
+        let req = https.request (request_params, response_handler);
+        req.end ();
+    }
+    ```
+
+2. Çağrı `Search()` işlevi.
+
+## <a name="example-json-response"></a>Örnek JSON yanıtı
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -153,11 +173,10 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 }
 ```
 
-[Başa dön](#HOLTop)
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing Varlık Arama öğreticisi](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing Varlık Arama'ya genel bakış](../search-the-web.md )
-> [API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Tek sayfa uygulaması oluşturma](../tutorial-bing-entities-search-single-page-app.md)
+
+* [Bing varlık arama API'si nedir?](../overview.md )
+* [Bing varlık arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

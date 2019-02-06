@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 66c6a565fff81e1c0e39075502a6a7d3d8ffa7a6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1fce6292ffd7307ff0a294c6fa25412962acd1cc
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162302"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752849"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Öğretici: Azure CLI ile yüksek oranda kullanılabilir bir uygulama oluşturmak için azure'da Linux sanal makineleri Yük Dengelemesi
 
@@ -60,7 +60,7 @@ az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Genel IP adresi oluşturma
-Uygulamanıza İnternet’ten erişmek için yük dengeleyicinin genel IP adresi gereklidir. [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) komutu ile bir genel IP adresi oluşturun. Aşağıdaki örnek, *myResourceGroupLoadBalancer* kaynak grubunda *myPublicIP* adlı bir genel IP adresi oluşturur:
+Uygulamanıza İnternet’ten erişmek için yük dengeleyicinin genel IP adresi gereklidir. [az network public-ip create](/cli/azure/network/public-ip) komutu ile bir genel IP adresi oluşturun. Aşağıdaki örnek, *myResourceGroupLoadBalancer* kaynak grubunda *myPublicIP* adlı bir genel IP adresi oluşturur:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -69,7 +69,7 @@ az network public-ip create \
 ```
 
 ### <a name="create-a-load-balancer"></a>Yük dengeleyici oluşturma
-[az network lb create](/cli/azure/network/lb#az_network_lb_create) komutu ile bir yük dengeleyici oluşturun. Aşağıdaki örnek, *myLoadBalancer* adlı bir yük dengeleyici oluşturur ve *myPublicIP* adresini ön uç IP yapılandırmasına atar:
+[az network lb create](/cli/azure/network/lb) komutu ile bir yük dengeleyici oluşturun. Aşağıdaki örnek, *myLoadBalancer* adlı bir yük dengeleyici oluşturur ve *myPublicIP* adresini ön uç IP yapılandırmasına atar:
 
 ```azurecli-interactive 
 az network lb create \
@@ -85,7 +85,7 @@ Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum 
 
 Aşağıdaki örnek bir TCP araştırması oluşturur. Ayrıca daha ayrıntılı sistem durumu denetimleri için özel HTTP araştırmaları oluşturabilirsiniz. Özel bir HTTP araştırması kullandığınızda *healthcheck.js* gibi bir sistem durumu denetimi sayfası oluşturmanız gerekir. Konağı dönüşüm içinde tutmak üzere araştırmanın yük dengeleyici için bir **HTTP 200 OK** yanıtı döndürmesi gerekir.
 
-TCP durum araştırması oluşturmak için [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create) komutunu kullanın. Aşağıdaki örnek *myHealthProbe* adında bir durum araştırması oluşturur:
+TCP durum araştırması oluşturmak için [az network lb probe create](/cli/azure/network/lb/probe) komutunu kullanın. Aşağıdaki örnek *myHealthProbe* adında bir durum araştırması oluşturur:
 
 ```azurecli-interactive 
 az network lb probe create \
@@ -99,7 +99,7 @@ az network lb probe create \
 ### <a name="create-a-load-balancer-rule"></a>Yük dengeleyici kuralı oluşturma
 Trafiğin VM’lere dağıtımını tanımlamak için bir yük dengeleyici kuralı kullanılır. Gerekli kaynak ve hedef bağlantı noktalarının yanı sıra gelen trafik için ön uç IP yapılandırması ve trafiği almak için arka uç IP havuzu tanımlamanız gerekir. Yalnızca durumu iyi olan VM’lerin trafik almasını sağlamak için kullanılacak durum araştırmasını da tanımlamanız gerekir.
 
-[az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) komutuyla bir yük dengeleyici kuralı oluşturun. Aşağıdaki örnek, *myHealthProbe* sağlık araştırmasını kullanan ve trafiği *80* numaralı bağlantı noktasında dengeleyen *myLoadBalancerRule* adında bir kural oluşturur:
+[az network lb rule create](/cli/azure/network/lb/rule) komutuyla bir yük dengeleyici kuralı oluşturun. Aşağıdaki örnek, *myHealthProbe* sağlık araştırmasını kullanan ve trafiği *80* numaralı bağlantı noktasında dengeleyen *myLoadBalancerRule* adında bir kural oluşturur:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -119,7 +119,7 @@ az network lb rule create \
 VM’leri dağıtmadan ve dengeleyicinizi sınamadan önce yardımcı sanal ağ kaynaklarını oluşturun. Sanal ağlar hakkında daha fazla bilgi edinmek için [Azure Sanal Ağlarını Yönetme](tutorial-virtual-network.md) öğreticisine gözatın.
 
 ### <a name="create-network-resources"></a>Ağ kaynakları oluşturma
-[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) komutu ile bir sanal ağ oluşturun. Aşağıdaki örnek *mySubnet* alt ağına sahip *myVnet* adında bir sanal ağ oluşturur:
+[az network vnet create](/cli/azure/network/vnet) komutu ile bir sanal ağ oluşturun. Aşağıdaki örnek *mySubnet* alt ağına sahip *myVnet* adında bir sanal ağ oluşturur:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -128,7 +128,7 @@ az network vnet create \
     --subnet-name mySubnet
 ```
 
-Bir ağ güvenlik grubu eklemek için [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) komutunu kullanın. Aşağıdaki örnek *myNetworkSecurityGroup* adında bir ağ güvenlik grubu oluşturur:
+Bir ağ güvenlik grubu eklemek için [az network nsg create](/cli/azure/network/nsg) komutunu kullanın. Aşağıdaki örnek *myNetworkSecurityGroup* adında bir ağ güvenlik grubu oluşturur:
 
 ```azurecli-interactive 
 az network nsg create \
@@ -136,7 +136,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-[az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) komutu ile bir ağ güvenlik grubu kuralı oluşturun. Aşağıdaki örnek *myNetworkSecurityGroupRule* adında bir ağ güvenlik grubu kuralı oluşturur:
+[az network nsg rule create](/cli/azure/network/nsg/rule) komutu ile bir ağ güvenlik grubu kuralı oluşturun. Aşağıdaki örnek *myNetworkSecurityGroupRule* adında bir ağ güvenlik grubu kuralı oluşturur:
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -218,7 +218,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 Uygulamanızın yüksek oranda kullanılabilir olmasını sağlamak için VM’lerinizi bir kullanılabilirlik kümesine yerleştirin. Kullanılabilirlik kümeleri hakkında daha fazla bilgi edinmek için [Yüksek oranda kullanılabilir sanal makineler oluşturma](tutorial-availability-sets.md) başlıklı önceki öğreticiye göz atın.
 
-[az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create) komutunu kullanarak bir kullanılabilirlik kümesi oluşturun. Aşağıdaki örnek *myAvailabilitySet* adında bir kullanılabilirlik kümesi oluşturur:
+[az vm availability-set create](/cli/azure/vm/availability-set) komutunu kullanarak bir kullanılabilirlik kümesi oluşturun. Aşağıdaki örnek *myAvailabilitySet* adında bir kullanılabilirlik kümesi oluşturur:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -247,7 +247,7 @@ Azure CLI sizi isteme geri döndürdükten sonra çalışmaya devam eden arka pl
 
 
 ## <a name="test-load-balancer"></a>Yük dengeleyiciyi sınama
-[az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) komutuyla yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek, daha önce oluşturulan *myPublicIP* için IP adresini alır:
+[az network public-ip show](/cli/azure/network/public-ip) komutuyla yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek, daha önce oluşturulan *myPublicIP* için IP adresini alır:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -268,7 +268,7 @@ Yük dengeleyicinin trafiği, uygulamanızı çalıştıran üç VM’ye dağıt
 Uygulamanızı çalıştıran VM’lerde işletim sistemi güncelleştirmelerini yükleme gibi bakım işlemleri gerçekleştirmeniz gerekebilir. Uygulamanıza gelen trafiği fazla trafiği yönetmek için ek VM’lere ihtiyaç duyabilirsiniz. Bu bölümde VM’yi yük dengeleyiciden nasıl kaldırabileceğiniz veya ekleyebileceğiniz gösterilmektedir.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>VM’yi yük dengeleyiciden kaldırma
-VM’yi arka uç adres havuzundan [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_remove) komutu ile kaldırabilirsiniz. Aşağıdaki örnek **myVM2** için sanal NIC’yi *myLoadBalancer*’dan kaldırır:
+VM’yi arka uç adres havuzundan [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool) komutu ile kaldırabilirsiniz. Aşağıdaki örnek **myVM2** için sanal NIC’yi *myLoadBalancer*’dan kaldırır:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool remove \
@@ -281,7 +281,7 @@ az network nic ip-config address-pool remove \
 
 Yük dengeleyicinin trafiği, uygulamanızı çalıştıran kalan iki VM’ye dağıtma işlemini görmek için web tarayıcınızı yenilemeye zorlayabilirsiniz. Artık işletim sistemi güncelleştirmelerini yükleme veya VM’yi yeniden başlatma gibi bakım işlemlerini VM üzerinde gerçekleştirebilirsiniz.
 
-Yük dengeleyiciye bağlı sanal NIC’lere sahip VM’lerin listesini görüntülemek için [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) komutunu kullanın. Sanal NIC’nin kimliğini şu şekilde sorgulayın ve filtre uygulayın:
+Yük dengeleyiciye bağlı sanal NIC’lere sahip VM’lerin listesini görüntülemek için [az network lb address-pool show](/cli/azure/network/lb/address-pool) komutunu kullanın. Sanal NIC’nin kimliğini şu şekilde sorgulayın ve filtre uygulayın:
 
 ```azurecli-interactive
 az network lb address-pool show \
@@ -300,7 +300,7 @@ az network lb address-pool show \
 ```
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>Yük dengeleyiciye VM ekleme
-VM bakımını gerçekleştirdikten sonra veya kapasiteyi genişletmeniz gerekiyorsa arka uç adres havuzuna [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add) komutu ile bir VM ekleyebilirsiniz. Aşağıdaki örnek **myVM2** için sanal NIC’yi *myLoadBalancer*’a ekler:
+VM bakımını gerçekleştirdikten sonra veya kapasiteyi genişletmeniz gerekiyorsa arka uç adres havuzuna [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool) komutu ile bir VM ekleyebilirsiniz. Aşağıdaki örnek **myVM2** için sanal NIC’yi *myLoadBalancer*’a ekler:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool add \
@@ -311,7 +311,7 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-Sanal NIC’nin arka uç adres havuzuna bağlı olduğundan emin olmak için önceki adımdaki [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) komutunu tekrar kullanın.
+Sanal NIC’nin arka uç adres havuzuna bağlı olduğundan emin olmak için önceki adımdaki [az network lb address-pool show](/cli/azure/network/lb/address-pool) komutunu tekrar kullanın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

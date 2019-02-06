@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 6015d226bce578661816bd0f934f7818746b4c3b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507765"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756878"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Öğretici: Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme
 
@@ -105,7 +105,7 @@ Aşağıdaki komutta kendi benzersiz işlev uygulamanızın adını `<function_a
 
 ## <a name="configure-the-function-app"></a>İşlev uygulamasını yapılandırma
 
-İşlevin Blob depolama hesabına bağlanması için bağlantı dizesi gerekir. Aşağıdaki adımda Azure'a dağıttığınız işlev kodu, myblobstorage_STORAGE uygulama ayarında bağlantı dizesini arar ve myContainerName uygulama ayarında da küçük resim görüntüsü kapsayıcı adını arar. [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) komutu ile bağlantı dizesini alın. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) komutuyla uygulama ayarlarını belirleyin.
+İşlevin Blob depolama hesabına bağlanması için bağlantı dizesi gerekir. Aşağıdaki adımda Azure'a dağıttığınız işlev kodu, myblobstorage_STORAGE uygulama ayarında bağlantı dizesini arar ve myContainerName uygulama ayarında da küçük resim görüntüsü kapsayıcı adını arar. [az storage account show-connection-string](/cli/azure/storage/account) komutu ile bağlantı dizesini alın. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) komutuyla uygulama ayarlarını belirleyin.
 
 Aşağıdaki CLI komutlarında `<blob_storage_account>`, önceki öğreticide oluşturduğunuz Blob depolama hesabının adıdır.
 
@@ -128,7 +128,7 @@ Bu işlev uygulamasına bir işlev kodu projesi dağıtabilirsiniz.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-Örnek C# (.csx) yeniden boyutlandırma betiği [GitHub](https://github.com/Azure-Samples/function-image-upload-resize) üzerinde mevcuttur. [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) komutunu kullanarak bu İşlevler kod projesini işlev uygulamasına dağıtın. 
+Örnek C# (.csx) yeniden boyutlandırma betiği [GitHub](https://github.com/Azure-Samples/function-image-upload-resize) üzerinde mevcuttur. [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) komutunu kullanarak bu İşlevler kod projesini işlev uygulamasına dağıtın. 
 
 Aşağıdaki komutta `<function_app>`, daha önce oluşturduğunuz işlev uygulamasının adıdır.
 
@@ -137,7 +137,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-Örnek Node.js yeniden boyutlandırma işlevi [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node) üzerinde mevcuttur. [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) komutunu kullanarak bu İşlevler kod projesini işlev uygulamasına dağıtın.
+Örnek Node.js yeniden boyutlandırma işlevi [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node) üzerinde mevcuttur. [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) komutunu kullanarak bu İşlevler kod projesini işlev uygulamasına dağıtın.
 
 Aşağıdaki komutta `<function_app>`, daha önce oluşturduğunuz işlev uygulamasının adıdır.
 

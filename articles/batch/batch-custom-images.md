@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: lahugh
-ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840376"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752135"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Sanal makine havuzu oluşturmak için özel görüntü kullanma 
 
@@ -69,7 +69,7 @@ Anlık görüntü, bir VHD, tam ve salt okunur bir kopyasıdır. Bir sanal makin
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>Bir veya daha fazla anlık görüntülerden görüntü oluşturma
 
-Anlık görüntüden yönetilen bir görüntü oluşturmak için Azure komut satırı gibi araçları kullanın [az görüntü oluşturma](/cli/azure/image#az_image_create) komutu. Bir işletim sistemi disk anlık görüntü ve isteğe bağlı olarak bir veya daha fazla veri diski anlık görüntüleri belirterek bir görüntü oluşturabilirsiniz.
+Anlık görüntüden yönetilen bir görüntü oluşturmak için Azure komut satırı gibi araçları kullanın [az görüntü oluşturma](/cli/azure/image) komutu. Bir işletim sistemi disk anlık görüntü ve isteğe bağlı olarak bir veya daha fazla veri diski anlık görüntüleri belirterek bir görüntü oluşturabilirsiniz.
 
 ## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Portalda özel görüntüden havuz oluşturma
 

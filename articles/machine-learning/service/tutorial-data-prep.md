@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
-ms.date: 12/04/2018
+ms.date: 02/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 994b1eb3f0a39d56d02ff9ed034d7e348a00b86d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7be1bf8c003315fc4dbed449283f7c92850edced
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491850"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752050"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
@@ -96,8 +96,8 @@ import azureml.dataprep as dprep
 
 İki farklı NYC taksi veri kümesi, veri akışı nesneleri indirin. Veri kümeleri biraz farklı alanlara sahiptir. `auto_read_file()` Yöntemi giriş dosya türü otomatik olarak tanır.
 
-
 ```python
+from IPython.display import display
 dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
 green_path = "/".join([dataset_root, "green-small/*"])

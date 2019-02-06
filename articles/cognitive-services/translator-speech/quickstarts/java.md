@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1fb6eeb30b8ba348ce90916955bd8ffbb2cbb7c5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d0e9545a6bc8ec56bc5ae9c9532d80822bfe3505
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459185"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753138"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Hızlı Başlangıç: Translator konuşma tanıma API'si ile Java 
 <a name="HOLTop"></a>
@@ -39,7 +39,7 @@ Aşağıdaki dosyaları gerekli olacaktır.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (veya sonrası)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (veya sonrası)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-Aşağıdaki koddan derlediğiniz yürütülebilir dosya ile aynı klasörün içinde "speak.wav" adlı bir .wav dosyanız olmalıdır. Bu .wav dosyası standart PCM, 16 bit, 16 kHz, mono biçiminde olmalıdır. Bu tür bir .wav dosyasını [Metin Okuma API'sinden](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech) edinebilirsiniz.
+Aşağıdaki koddan derlediğiniz yürütülebilir dosya ile aynı klasörün içinde "speak.wav" adlı bir .wav dosyanız olmalıdır. Bu .wav dosyası standart PCM, 16 bit, 16 kHz, mono biçiminde olmalıdır. Bu tür bir .wav dosyasını [Metin Okuma API'sinden](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) edinebilirsiniz.
 
 **Microsoft Translator Konuşma Çevirisi API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzdan](https://portal.azure.com/#create/Microsoft.CognitiveServices) ücretli bir abonelik anahtarına ihtiyacınız olacak.
 

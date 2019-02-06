@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d58751bc9379d6d9a5a492bee35e349c36087c7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5ad77b0c88c71860db939feecac5a1aecfc4ca40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497902"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756298"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
 PowerShell modülü adlı [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) cmdlet'leri Azure AD'niz için doğru Active Directory izinlerini yapılandırmanıza yardımcı olması için bir koleksiyon içerir (Ağustos 2018'de yayımlanan) 1.1.880.0 yapı ile kullanılmaya başlandı Dağıtım bağlanın. 
 
 ## <a name="overview"></a>Genel Bakış 
-Aşağıdaki PowerShell cmdlet'lerini, Azure AD'yi etkinleştirmeye yönelik anlatabilirsiniz her bir özellik AD DS bağlayıcı hesabının Kurulum Active Directory izinleri için kullanılabilir. Ormanınıza bağlanmak için bir özel etki alanı hesabı kullanarak Azure AD Connect'i yüklemek istediğiniz her sorunları önlemek için Active Directory izinlerini önceden hazırlamanız. Bu ADSyncConfig modülü, Azure AD Connect dağıtıldıktan sonra izinlerini yapılandırmak için de kullanılabilir.
+Aşağıdaki PowerShell cmdlet'lerini, Azure AD Connect'e bağlanan etkinleştirmek için seçtiğiniz her bir özellik için AD DS bağlayıcı hesabının, Kurulum Active Directory izinlerini kullanılabilir. Ormanınıza bağlanmak için bir özel etki alanı hesabı kullanarak Azure AD Connect'i yüklemek istediğiniz her sorunları önlemek için Active Directory izinlerini önceden hazırlamanız. Bu ADSyncConfig modülü, Azure AD Connect dağıtıldıktan sonra izinlerini yapılandırmak için de kullanılabilir.
 
 ![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 

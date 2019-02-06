@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: a1f5946e3dcfd00631ed09b5e9211d0b207fba33
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38c6fec7ff98e7d5c46661741ff036edb791673
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250427"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756385"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Hızlı Başlangıç: Azure CLI ile web uç noktası için Depolama olaylarını yönlendirme
 
@@ -39,7 +39,7 @@ Cloud Shell kullanmıyorsanız önce `az login` kullanarak oturum açmanız gere
 
 Event Grid konuları Azure kaynaklarıdır ve bir Azure kaynak grubuna yerleştirilmelidir. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal koleksiyondur.
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. 
+[az group create](/cli/azure/group) komutuyla bir kaynak grubu oluşturun. 
 
 Aşağıdaki örnek *westcentralus* konumunda `<resource_group_name>` adlı bir kaynak grubu oluşturur.  `<resource_group_name>` değerini kaynak grubunuz için benzersiz bir adla değiştirin.
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 8a78abd7f3eea1493ef3f6e8cf3053720ba47478
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cb4b063d17555084f4065d7d7df931b96b95d9a4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695449"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751489"
 ---
-# <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme  
+# <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme
 
 ## <a name="overview"></a>Genel Bakış
 Bu makalede, Azure portalı içinden uyarıları arabirimini kullanarak günlük uyarıları ayarlama işlemini göstermektedir. Bir uyarı kuralı tanımı üç bölümlerinde verilmiştir:
@@ -33,43 +33,45 @@ Terim **günlük uyarıları** dayalı özel sorgu olduğu sinyal uyarılarını
 Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kullanarak adım adım kılavuzdur.
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Azure portal ile günlük uyarı kuralı oluşturma
-1. İçinde [portalı](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarılar**.  
+1. İçinde [portalı](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarılar**.
+
     ![İzleme](media/alerts-log/AlertsPreviewMenu.png)
 
 1. Seçin **yeni uyarı kuralı** Azure'da yeni bir uyarı oluşturmak için.
+
     ![Uyarı Ekle](media/alerts-log/AlertsPreviewOption.png)
 
 1. Uyarı oluşturma bölümünde, üç bölümden oluşan ile gösterilir: *Uyarı koşulunu tanımlama*, *uyarı ayrıntılarını tanımlama*, ve *tanımla eylem grubu*.
 
     ![Kural oluşturma](media/alerts-log/AlertsPreviewAdd.png)
 
-1.  Kullanarak uyarı koşulunu tanımlama **seçin kaynak** bağlantı ve hedef bir kaynak seçerek belirtme. Seçeneğini belirleyerek Filtre _abonelik_, _kaynak türü_ve gerekli _kaynak_. 
+1. Kullanarak uyarı koşulunu tanımlama **seçin kaynak** bağlantı ve hedef bir kaynak seçerek belirtme. Seçeneğini belirleyerek Filtre _abonelik_, _kaynak türü_ve gerekli _kaynak_.
 
     >[!NOTE]
 
     > Günlük oluşturmak için uyarı - doğrulama **günlük** devam etmeden önce sinyali seçili kaynak için kullanılabilir.
     ![Kaynak seçin](media/alerts-log/Alert-SelectResourceLog.png)
 
- 
 1. *Günlük uyarıları*: Olun **kaynak türü** gibi bir analytics kaynak *Log Analytics* veya *Application Insights* ve sinyal türü olarak **günlük**, sonra bir kez uygun **kaynak** olduğundan seçilen, tıklayın *Bitti*. Ardından **Ölçüt Ekle** sinyal sinyal listeden ve kaynak için kullanılabilir seçenekler listesini görüntüleyin düğmesine **özel günlük araması** seçilen gibi hizmetini izleme günlüğü için seçenek *günlük Analytics* veya *Application Insights*.
 
    ![Kaynak - özel bir günlük araması'nı seçin](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [log analytics'te günlük arama özelliğini kullanarak](../../azure-monitor/log-query/log-query-overview.md) veya [application ınsights'ta paylaşılan sorgu Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [log analytics'te günlük arama özelliğini kullanarak](../../azure-monitor/log-query/log-query-overview.md) veya [application ınsights'ta paylaşılan sorgu Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
-1.  *Günlük uyarıları*: İçinde bu onay kutusu seçildiğinde, uyarı için sorgu belirtilebilir **arama sorgusu** sorgu söz dizimi yanlışsa alanda hata kırmızı renkte görüntülenir; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş veri son altı saat zaman penceresinden geçen hafta için ince seçeneğiyle bir grafik olarak gösterilir.
+1. *Günlük uyarıları*: İçinde bu onay kutusu seçildiğinde, uyarı için sorgu belirtilebilir **arama sorgusu** sorgu söz dizimi yanlışsa alanda hata kırmızı renkte görüntülenir; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş veri son altı saat zaman penceresinden geçen hafta için ince seçeneğiyle bir grafik olarak gösterilir.
 
     ![Uyarı kuralını yapılandırın](media/alerts-log/AlertsPreviewAlertLog.png)
 
     > [!NOTE]
     
     > Geçmiş verileri görselleştirme, sorgu sonuçları saati ayrıntıları varsa yalnızca gösterilebilir. Özetlenmiş veriler veya belirli bir sütun değerleri -, sorgu sonuçları aynı tekil bir çizim gösterilir.
-    >  Ölçüm ölçüsü türü Application Insights'ı kullanarak günlük uyarıları için veya [yeni API'ye yönelik geçiş](alerts-log-api-switch.md), kullanarak verileri gruplandırmak için hangi belirli bir değişken belirtebilirsiniz **bulunan** ; gösterilen şekilde seçeneği Aşağıda:    
-    ![toplama seçeneği](media/alerts-log/aggregate-on.png)
+    > Ölçüm ölçüsü türü Application Insights'ı kullanarak günlük uyarıları için veya [yeni API'ye yönelik geçiş](alerts-log-api-switch.md), kullanarak verileri gruplandırmak için hangi belirli bir değişken belirtebilirsiniz **bulunan** ; gösterilen şekilde seçeneği Aşağıda:
+    >
+    > ![toplama seçeneği](media/alerts-log/aggregate-on.png)
 
-1.  *Günlük uyarıları*: Bir yerde görselleştirme ile **Alert Logic** koşulu, toplama ve son olarak eşiği gösterilen seçeneklerden seçilebilir. Son olarak mantığında belirtin belirtilen koşulun değerlendirme süresi kullanarak **süresi** seçeneği. Uyarı seçerek ne sıklıkta çalıştırılacağını birlikte **sıklığı**. **Günlük uyarıları** temel alabilir:
+1. *Günlük uyarıları*: Bir yerde görselleştirme ile **Alert Logic** koşulu, toplama ve son olarak eşiği gösterilen seçeneklerden seçilebilir. Son olarak mantığında belirtin belirtilen koşulun değerlendirme süresi kullanarak **süresi** seçeneği. Uyarı seçerek ne sıklıkta çalıştırılacağını birlikte **sıklığı**. **Günlük uyarıları** temel alabilir:
     - [Kayıt sayısı](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): Sorgu tarafından döndürülen kayıt sayısını büyüktür veya belirtilen değerden daha az ise bir uyarı oluşturulur.
     - [Ölçüm ölçüsü](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): Her değilse bir uyarı oluşturulur *toplam değer* sonuçlarda sağlanan eşik değerini aşıyor ve bu *göre gruplandırılmış* değer seçildi. Seçili zaman aralığındaki eşiğini kaç kez uyarısının ihlallerini sayısıdır. Sonuç kümesi veya ihlallerini ardışık örnekler içinde gerçekleşmelidir gerektirecek şekilde ardışık ihlaller genelinde toplam ihlal sayısı için herhangi bir birleşimini ihlallerini belirtebilirsiniz.
 
@@ -111,12 +113,11 @@ Kullanıcılar ayrıca kendi analytics sorgunuzda kesin [Azure portalında günl
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Azure portalında günlük uyarıları yönetme & Görüntüle
 
-1. İçinde [portalı](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarılar**.  
+1. İçinde [portalı](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarılar**.
 
 1. **Uyarılar Panosu** görüntülenen - gibi tüm Azure Uyarıları'nı (günlük uyarılar dahil) bir tekil panosunda görüntülenir; her örneği, günlük uyarı kuralı ne zaman dahil tetiklendi. Daha fazla bilgi için bkz. [uyarı Yönetimi](https://aka.ms/managealertinstances).
     > [!NOTE]
-    > Günlük uyarı kuralı oluşturan kullanıcılar tarafından sağlanan özel sorgu tabanlı mantığı ve bu nedenle çözümlenmiş duruma olmadan. Günlük uyarı kuralında belirtilen koşullar karşılandığında her zaman, nedeniyle harekete geçirilir. 
-
+    > Günlük uyarı kuralı oluşturan kullanıcılar tarafından sağlanan özel sorgu tabanlı mantığı ve bu nedenle çözümlenmiş duruma olmadan. Günlük uyarı kuralında belirtilen koşullar karşılandığında her zaman, nedeniyle harekete geçirilir.
 
 1. Seçin **yönetme kuralları** oluşturulan uyarı kurallarının tümünü burada listelenen kural Yönetim bölümüne - gitmek için üst taraftaki çubukta, düğmesine; devre dışı bırakıldı uyarıları da dahil olmak üzere.
     ![ Uyarı kurallarını yönet](media/alerts-log/manage-alert-rules.png)
@@ -136,77 +137,76 @@ Bir yapıdır aşağıdaki [zamanlanmış sorgu kuralı oluşturma](https://docs
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0", 
-    "parameters": {      
-    },   
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
     "variables": {
-    "alertLocation": "southcentralus",
-    "alertName": "samplelogalert",
-    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-    "alertDescription": "Sample log search alert",
-    "alertStatus": "true",
-    "alertSource":{
-        "Query":"requests",
-        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-        "Type":"ResultCount"
-         },
-     "alertSchedule":{
-         "Frequency": 15,
-         "Time": 60
-         },
-     "alertActions":{
-         "SeverityLevel": "4"
-         },
-      "alertTrigger":{
-        "Operator":"GreaterThan",
-        "Threshold":"1"
-         },
-       "actionGrp":{
-        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
-        "Subject": "Customized Email Header",
-        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
-         }
-  },
-  "resources":[ {
-    "name":"[variables('alertName')]",
-    "type":"Microsoft.Insights/scheduledQueryRules",
-    "apiVersion": "2018-04-16",
-    "location": "[variables('alertLocation')]",
-    "tags":{"[variables('alertTag')]": "Resource"},
-    "properties":{
-       "description": "[variables('alertDescription')]",
-       "enabled": "[variables('alertStatus')]",
-       "source": {
-           "query": "[variables('alertSource').Query]",
-           "dataSourceId": "[variables('alertSource').SourceId]",
-           "queryType":"[variables('alertSource').Type]"
-       },
-      "schedule":{
-           "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
-       },
-      "action":{
-           "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-           "severity":"[variables('alertActions').SeverityLevel]",
-           "aznsAction":{
-               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
-               "emailSubject":"[variables('actionGrp').Subject]",
-               "customWebhookPayload":"[variables('actionGrp').Webhook]"
-           },
-       "trigger":{
-               "thresholdOperator":"[variables('alertTrigger').Operator]",
-               "threshold":"[variables('alertTrigger').Threshold]"
-           }
-       }
-     }
-   }
- ]
+        "alertLocation": "southcentralus",
+        "alertName": "samplelogalert",
+        "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "alertDescription": "Sample log search alert",
+        "alertStatus": "true",
+        "alertSource":{
+            "Query":"requests",
+            "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+            "Type":"ResultCount"
+        },
+        "alertSchedule":{
+            "Frequency": 15,
+            "Time": 60
+        },
+        "alertActions":{
+            "SeverityLevel": "4"
+        },
+        "alertTrigger":{
+            "Operator":"GreaterThan",
+            "Threshold":"1"
+        },
+        "actionGrp":{
+            "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+            "Subject": "Customized Email Header",
+            "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        }
+    },
+    "resources":[ {
+        "name":"[variables('alertName')]",
+        "type":"Microsoft.Insights/scheduledQueryRules",
+        "apiVersion": "2018-04-16",
+        "location": "[variables('alertLocation')]",
+        "tags":{"[variables('alertTag')]": "Resource"},
+        "properties":{
+            "description": "[variables('alertDescription')]",
+            "enabled": "[variables('alertStatus')]",
+            "source": {
+                "query": "[variables('alertSource').Query]",
+                "dataSourceId": "[variables('alertSource').SourceId]",
+                "queryType":"[variables('alertSource').Type]"
+            },
+            "schedule":{
+                "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
+                "timeWindowInMinutes": "[variables('alertSchedule').Time]"
+            },
+            "action":{
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                "severity":"[variables('alertActions').SeverityLevel]",
+                "aznsAction":{
+                    "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+                    "emailSubject":"[variables('actionGrp').Subject]",
+                    "customWebhookPayload":"[variables('actionGrp').Webhook]"
+                },
+                "trigger":{
+                    "thresholdOperator":"[variables('alertTrigger').Operator]",
+                    "threshold":"[variables('alertTrigger').Threshold]"
+                }
+            }
+        }
+    } ]
 }
 
 ```
 
 > [!IMPORTANT]
-> Hedef kaynak için gizli-bağlantı etiketi alanıyla kullanımını zorunlu [zamanlanmış sorgu kuralları ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu. 
+> Hedef kaynak için gizli-bağlantı etiketi alanıyla kullanımını zorunlu [zamanlanmış sorgu kuralları ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu.
 
 Yukarıdaki örnek json (örneğin) sampleScheduledQueryRule.json amacıyla bu kılavuzda olarak kaydedilebilir ve kullanılarak dağıtılabilir [Azure portalında Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -219,88 +219,87 @@ Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](http
 
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0", 
-    "parameters": {      
-    },   
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
     "variables": {
-    "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
-    "alertName": "sample log alert",
-    "alertDescr": "Sample log search alert",
-    "alertStatus": "true",
-    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
-    "alertSource":{
-        "Query":"union workspace("servicews").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
-        "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews", 
-        "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
-        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
-        "Type":"ResultCount"
-         },
-     "alertSchedule":{
-         "Frequency": 15,
-         "Time": 60
-         },
-     "alertActions":{
-         "SeverityLevel": "4",
-         "SuppressTimeinMin": 20
-         },
-      "alertTrigger":{
-        "Operator":"GreaterThan",
-        "Threshold":"1"
-         },
-      "metricMeasurement": {
-          "thresholdOperator": "Equal",
-          "threshold": "1",
-          "metricTriggerType": "Consecutive",
-          "metricColumn": "Classification"
-      },
-       "actionGrp":{
-        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
-        "Subject": "Customized Email Header",
-        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
+        "alertName": "sample log alert",
+        "alertDescr": "Sample log search alert",
+        "alertStatus": "true",
+        "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
+        "alertSource":{
+            "Query":"union workspace(\"servicews\").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
+            "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
+            "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
+            "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
+            "Type":"ResultCount"
+        },
+        "alertSchedule":{
+            "Frequency": 15,
+            "Time": 60
+        },
+        "alertActions":{
+            "SeverityLevel": "4",
+            "SuppressTimeinMin": 20
+        },
+        "alertTrigger":{
+            "Operator":"GreaterThan",
+            "Threshold":"1"
+        },
+        "metricMeasurement": {
+            "thresholdOperator": "Equal",
+            "threshold": "1",
+            "metricTriggerType": "Consecutive",
+            "metricColumn": "Classification"
+        },
+        "actionGrp":{
+            "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
+            "Subject": "Customized Email Header",
+            "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
         }
-  },
-  "resources":[ {
-    "name":"[variables('alertName')]",
-    "type":"Microsoft.Insights/scheduledQueryRules",
-    "apiVersion": "2018-04-16",
-    "location": "[variables('alertLocation')]",
-    "tags":{"[variables('alertTag')]": "Resource"},
-    "properties":{
-       "description": "[variables('alertDescr')]",
-       "enabled": "[variables('alertStatus')]",
-       "source": {
-           "query": "[variables('alertSource').Query]",
-           "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
-           "dataSourceId": "[variables('alertSource').SourceId]",
-           "queryType":"[variables('alertSource').Type]"
-       },
-      "schedule":{
-           "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-           "timeWindowInMinutes": "[variables('alertSchedule').Time]"
-       },
-      "action":{
-           "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-           "severity":"[variables('alertActions').SeverityLevel]",
-           "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
-           "aznsAction":{
-               "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
-               "emailSubject":"[variables('actionGrp').Subject]",
-               "customWebhookPayload":"[variables('actionGrp').Webhook]"
-           },
-       "trigger":{
-               "thresholdOperator":"[variables('alertTrigger').Operator]",
-               "threshold":"[variables('alertTrigger').Threshold]",
-               "metricTrigger":{
-                   "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
-                   "threshold": "[variables('metricMeasurement').threshold]",
-                   "metricColumn": "[variables('metricMeasurement').metricColumn]",
-                   "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
-               }
-           }
-       }
-     }
-   }
- ]
+    },
+    "resources":[ {
+        "name":"[variables('alertName')]",
+        "type":"Microsoft.Insights/scheduledQueryRules",
+        "apiVersion": "2018-04-16",
+        "location": "[variables('alertLocation')]",
+        "tags":{"[variables('alertTag')]": "Resource"},
+        "properties":{
+            "description": "[variables('alertDescr')]",
+            "enabled": "[variables('alertStatus')]",
+            "source": {
+                "query": "[variables('alertSource').Query]",
+                "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
+                "dataSourceId": "[variables('alertSource').SourceId]",
+                "queryType":"[variables('alertSource').Type]"
+            },
+            "schedule":{
+                "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
+                "timeWindowInMinutes": "[variables('alertSchedule').Time]"
+            },
+            "action":{
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                "severity":"[variables('alertActions').SeverityLevel]",
+                "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
+                "aznsAction":{
+                    "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
+                    "emailSubject":"[variables('actionGrp').Subject]",
+                    "customWebhookPayload":"[variables('actionGrp').Webhook]"
+                },
+                "trigger":{
+                    "thresholdOperator":"[variables('alertTrigger').Operator]",
+                    "threshold":"[variables('alertTrigger').Threshold]",
+                    "metricTrigger":{
+                        "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
+                        "threshold": "[variables('metricMeasurement').threshold]",
+                        "metricColumn": "[variables('metricMeasurement').metricColumn]",
+                        "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
+                    }
+                }
+            }
+        }
+    } ]
 }
 
 ```
@@ -330,12 +329,10 @@ az group deployment create --resource-group contosoRG --template-file sampleSche
 ```
 
 Başarılı bir işlem 201 durum yeni uyarı kuralı oluşturma döndürülecek veya mevcut bir uyarı kuralı değiştirilmişse, 200 döndürülür.
-  
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Hakkında bilgi edinin [oturum uyarılar Azure uyarıları](../../azure-monitor/platform/alerts-unified-log.md)
 * Anlamak [günlük uyarıları için Web kancası eylemleri](../../azure-monitor/platform/alerts-log-webhook.md)
 * Daha fazla bilgi edinin [Application Insights](../../azure-monitor/app/analytics.md)
-* Daha fazla bilgi edinin [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
-
-
+* Daha fazla bilgi edinin [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

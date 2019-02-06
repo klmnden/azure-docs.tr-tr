@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f537ccfd18685cd5aa8ee06910fc80ac3d2056c9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306344"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750418"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Öğretici: Python API'sini kullanarak Azure Batch ile paralel iş yükü çalıştırma
 
@@ -170,7 +170,7 @@ Düğüm sayısı ve VM boyutu, tanımlı sabitler kullanılarak ayarlanır. Bat
 
 Fiziksel düğüm özelliklerine ek olarak, bu havuz yapılandırması bir [StartTask](/python/api/azure.batch.models.starttask) nesnesi içerir. StartTask, her düğümü havuza katıldığında ve her yeniden başlatıldığında yürütecektir. Bu örnekte StartTask, ffmpeg paketini ve bağımlılıkları düğümlere yüklemek için Bash kabuk komutları çalıştırır.
 
-[Pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) yöntemi, havuzu Batch hizmetine gönderir.
+[Pool.add](/python/api/azure.batch.operations.pooloperations) yöntemi, havuzu Batch hizmetine gönderir.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -200,7 +200,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Bir iş oluşturma
 
-Bir Batch işi, üzerinde görevlerin çalıştırılacağı bir havuz ve iş için öncelik ile zamanlama gibi isteğe bağlı ayarları belirtir. Örnek, `create_job` çağrısıyla bir iş oluşturur. Bu tanımlı işlev, havuzunuzda bir iş oluşturmak üzere [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) sınıfını kullanır. [Job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) yöntemi, havuzu Batch hizmetine gönderir. Başlangıçta iş hiçbir görev içermez.
+Bir Batch işi, üzerinde görevlerin çalıştırılacağı bir havuz ve iş için öncelik ile zamanlama gibi isteğe bağlı ayarları belirtir. Örnek, `create_job` çağrısıyla bir iş oluşturur. Bu tanımlı işlev, havuzunuzda bir iş oluşturmak üzere [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) sınıfını kullanır. [Job.add](/python/api/azure.batch.operations.joboperations) yöntemi, havuzu Batch hizmetine gönderir. Başlangıçta iş hiçbir görev içermez.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -216,7 +216,7 @@ Uygulama, `add_tasks` çağrısıyla iş içinde görevler oluşturur. Bu tanım
 
 Örnek, komut satırını çalıştırdıktan sonra MP3 dosyası için bir [OutputFile](/python/api/azure.batch.models.outputfile) nesnesi oluşturur. Her bir görevin çıkış dosyaları (bu örnekte bir tane), görevin `output_files` özelliği kullanılarak bağlı depolama hesabındaki bir kapsayıcıya yüklenir.
 
-Sonra uygulama, [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) yöntemi ile görevleri işe ekler ve işlem düğümleri üzerinde çalışmak üzere kuyruğa alır. 
+Sonra uygulama, [task.add_collection](/python/api/azure.batch.operations.taskoperations) yöntemi ile görevleri işe ekler ve işlem düğümleri üzerinde çalışmak üzere kuyruğa alır. 
 
 ```python
 tasks = list()

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: cdfb1e11a2eb468e390546d69617ff4cadd17a7e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658885"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756827"
 ---
 # <a name="get-started-with-storage-explorer"></a>Depolama Gezgini ile çalışmaya başlama
 
@@ -87,8 +87,8 @@ Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 * [Bir Azure aboneliğine bağlanma](#connect-to-an-azure-subscription): Azure aboneliğinize ait depolama kaynaklarını yönetin.
 * [Yerel geliştirme deposu ile çalışma](#work-with-local-development-storage): Azure Storage öykünücüsü kullanarak yerel depolamayı yönetin.
 * [Dış depolama birimine ekleme](#attach-or-detach-an-external-storage-account): Başka bir Azure aboneliğine ait olan veya Ulusal Azure bulutlarında bulunan depolama hesabının adını, anahtarını ve uç noktaları kullanarak olan depolama kaynaklarını yönetin.
-* [SAS kullanarak depolama hesabı ekleme](): Paylaşılan erişim imzası (SAS) kullanarak başka bir Azure aboneliğine ait depolama kaynaklarını yönetin.
-* [SAS kullanarak hizmet ekleme](#attach-service-using-sas): SAS kullanarak başka bir Azure aboneliğine ait belirli bir depolama hizmetini (blob kapsayıcısı, kuyruk veya tablo) yönetin.
+* [SAS kullanarak depolama hesabı ekleme](#attach-a-storage-account-by-using-a-shared-access-signature-sas): Paylaşılan erişim imzası (SAS) kullanarak başka bir Azure aboneliğine ait depolama kaynaklarını yönetin.
+* [SAS kullanarak hizmet ekleme](#attach-a-service-by-using-a-shared-access-signature-sas): SAS kullanarak başka bir Azure aboneliğine ait belirli bir depolama hizmetini (blob kapsayıcısı, kuyruk veya tablo) yönetin.
 * [Bir bağlantı dizesi kullanarak bir Azure Cosmos DB hesabına bağlanma](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Cosmos DB hesabı, bir bağlantı dizesi kullanarak yönetin.
 
 ## <a name="connect-to-an-azure-subscription"></a>Bir Azure aboneliğine Bağlanma
@@ -295,7 +295,7 @@ Seçeneklerinin yanı sıra Azure aboneliği aracılığıyla Azure Cosmos DB he
 
     ![bağlantı dizesiyle Azure Cosmos DB'ye bağlanma][21]
 
-2. Azure Cosmos DB API seçin, yapıştırma, **bağlantı dizesi**ve ardından **Tamam** Azure Cosmos DB hesabına bağlanın. Bağlantı dizesini alma hakkında daha fazla bilgi için bkz. [Bağlantı dizelerini edinme](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Azure Cosmos DB API seçin, yapıştırma, **bağlantı dizesi**ve ardından **Tamam** Azure Cosmos DB hesabına bağlanın. Bağlantı dizesini alma hakkında daha fazla bilgi için bkz. [Bağlantı dizelerini edinme](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![bağlantı dizesi][22]
 

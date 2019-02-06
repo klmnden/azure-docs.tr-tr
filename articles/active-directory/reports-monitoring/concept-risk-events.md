@@ -15,12 +15,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a1ca5125162460b95c0ffcadb1551173d06b5838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1117ffa94a30a55b7b2a7477bf2770d21dcb5441
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163594"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746515"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory risk olayları
 
@@ -164,7 +164,7 @@ Bu risk olayı IP adresleri, kullanıcı cihazları tanımlar. Tek bir IP adresi
 
 Kullanıcıyla iletişime geçin ve kullanıcının tüm cihazlarına tarama öneririz. Ayrıca bir kullanıcının kişisel cihaz bulaşmış veya başkasının kullanıcı olarak aynı IP adresini bir virüs bulaşmış CİHAZDAN kullanıyordu mümkündür. Etkilenen cihazlar genellikle tarafından virüsten koruma yazılımının henüz belirlenmedi ve aygıtın bulaşmış haline yaşamış olabileceğiniz herhangi bir hatalı kullanıcı alışkanlıkları da gösterebilir kötü amaçlı yazılım tarafından etkilenen.
 
-Adresi kötü amaçlı yazılımdan Etkilenme hakkında daha fazla bilgi için bkz. [kötü amaçlı yazılımdan koruma Merkezi](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
+Adresi kötü amaçlı yazılımdan Etkilenme hakkında daha fazla bilgi için bkz. [kötü amaçlı yazılımdan koruma Merkezi](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/).
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Şüpheli etkinlik gösteren IP adreslerinden gerçekleştirilen oturum açma işlemleri
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ddd97ea73ce476e72c0c94a756c749e5527799ae
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730790"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750979"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Hızlı Başlangıç: Oluşturma ve Azure CLI kullanarak Azure dosya paylaşımlarını yönetme
 Bu kılavuzda, Azure CLI kullanarak [Azure dosya paylaşımları](storage-files-introduction.md) ile çalışmanın temel kuralları gösterilmektedir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
@@ -57,7 +57,7 @@ STORAGEACCT=$(az storage account create \
 ```
 
 ### <a name="get-the-storage-account-key"></a>Depolama hesabı anahtarını alma
-Depolama hesabı anahtarları, depolama hesabındaki kaynaklara erişimi denetler. Bu anahtarlar, depolama hesabını oluşturduğunuzda otomatik olarak oluşturulur. [az storage account keys list](/cli/azure/storage/account/keys#list) komutunu kullanarak depolama hesabınızın depolama hesabı anahtarlarını alabilirsiniz: 
+Depolama hesabı anahtarları, depolama hesabındaki kaynaklara erişimi denetler. Bu anahtarlar, depolama hesabını oluşturduğunuzda otomatik olarak oluşturulur. [az storage account keys list](/cli/azure/storage/account/keys) komutunu kullanarak depolama hesabınızın depolama hesabı anahtarlarını alabilirsiniz: 
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -124,7 +124,7 @@ az storage file upload \
 
 Azure CLI'yi yerel olarak çalıştırıyorsanız, `~/clouddrive` değerini makinenizde var olan bir yolla değiştirin.
 
-Dosyayı karşıya yükledikten sonra, [`az storage file list`](/cli/azure/storage/file#az_storage_file_list) komutunu kullanarak dosyanın Azure dosya paylaşımınıza yüklendiğinden emin olabilirsiniz:
+Dosyayı karşıya yükledikten sonra, [`az storage file list`](/cli/azure/storage/file) komutunu kullanarak dosyanın Azure dosya paylaşımınıza yüklendiğinden emin olabilirsiniz:
 
 ```azurecli-interactive
 az storage file list \
@@ -136,7 +136,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>Dosya indirme
-Cloud Shell karalama sürücünüze yüklediğiniz dosyanın bir kopyasını indirmek için [`az storage file download`](/cli/azure/storage/file#az_storage_file_download) komutunu kullanabilirsiniz:
+Cloud Shell karalama sürücünüze yüklediğiniz dosyanın bir kopyasını indirmek için [`az storage file download`](/cli/azure/storage/file) komutunu kullanabilirsiniz:
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -191,7 +191,7 @@ Azure dosya paylaşımıyla yerine getirebileceğiniz bir diğer yararlı görev
 
 - Linux sistemleri için [Mantıksal Birim Yöneticisi (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) anlık görüntüleri
 - macOS için [Apple Dosya Sistemi (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) anlık görüntüleri
-- NTFS ve ReFS gibi Windows dosya sistemleri için [Birim Gölge Kopyası Hizmeti (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal). [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) komutunu kullanarak bir paylaşım anlık görüntüsü oluşturabilirsiniz:
+- NTFS ve ReFS gibi Windows dosya sistemleri için [Birim Gölge Kopyası Hizmeti (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal). [`az storage share snapshot`](/cli/azure/storage/share) komutunu kullanarak bir paylaşım anlık görüntüsü oluşturabilirsiniz:
 
 ```azurecli-interactive
 SNAPSHOT=$(az storage share snapshot \
@@ -250,7 +250,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Paylaşım anlık görüntüsünü silme
-[`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete) komutunu kullanarak bir paylaşım anlık görüntüsünü silebilirsiniz. `--snapshot` parametresine `$SNAPSHOT` başvurusunu içeren değişkeni kullanın:
+[`az storage share delete`](/cli/azure/storage/share) komutunu kullanarak bir paylaşım anlık görüntüsünü silebilirsiniz. `--snapshot` parametresine `$SNAPSHOT` başvurusunu içeren değişkeni kullanın:
 
 ```azurecli-interactive
 az storage share delete \

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188621"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747519"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -90,7 +90,7 @@ ILB ASE oluşturmak için:
 
 8. **Tamam**’ı ve ardından **Oluştur**’u seçin.
 
-    ! [ASE oluşturma] [1]
+    ![ASE oluşturma][1]
 
 **Sanal Ağ** dikey penceresinde bir **Sanal Ağ Yapılandırması** seçeneği bulunur. Bu seçeneği kullanarak Dış VIP veya İç VIP seçebilirsiniz. Varsayılan seçenek **Dış**’tır. **Dış**’ı seçerseniz ASE’niz İnternet'ten erişilebilen bir VIP kullanır. **İç**’i seçerseniz ASE’niz sanal ağınızın içindeki bir IP adresinde bulunan ILB ile yapılandırılır.
 
@@ -119,7 +119,7 @@ ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturm
 
 1. **Oluştur**’u seçin. Uygulamanızın Panonuzda görünmesini istiyorsanız belirleyin **panoya Sabitle** onay kutusu.
 
-    ! [App Service planı oluşturma] [2]
+    ![App Service planı oluşturma][2]
 
     **Uygulama Adı** altında, etki alanı adı ASE’nizin etki alanını yansıtacak şekilde güncelleştirilir.
 
@@ -129,7 +129,7 @@ Bir ILB ASE, ILB olmayan ASE’den biraz farklıdır. Daha önce belirtildiği g
 
 ASE’yi oluşturduktan sonra etki alanı adında belirttiğiniz etki alanı gösterilir. Yeni bir öğe görünür **ayarı** adlı menüsü **ILB sertifikası**. ASE, ILB ASE etki alanını belirtmeyen bir sertifika ile oluşturulur. ASE’yi bu sertifika ile kullanırsanız, tarayıcınız sertifikanın geçersiz olduğunu söyler. Bu sertifika HTTPS’yi test etmeyi kolaylaştırır, ancak ILB ASE etki alanınıza bağlı kendi sertifikanızı karşıya yüklemeniz gerekir. Bu adım, sertifikanızın otomatik olarak imzalanmış veya bir sertifika yetkilisinden alınmış olmasına bakılmaksızın gereklidir.
 
-! [ILB ASE etki alanı adı] [3]
+![ILB ASE etki alanı adı][3]
 
 ILB ASE’nizin geçerli bir SSL sertifikası olmalıdır. İç sertifika yetkililerini kullanın, harici bir verenden sertifika satın alın ya da otomatik olarak imzalanan bir sertifika kullanın. SSL sertifikasının kaynağından bağımsız olarak, aşağıdaki sertifika özniteliklerinin doğru şekilde yapılandırılması gerekir:
 
@@ -150,7 +150,7 @@ Otomatik olarak imzalanan bir sertifika oluşturmak isterseniz, burada PowerShel
 
 Bu PowerShell komutlarının oluşturduğu sertifika, tarayıcınızın güven zincirinde olmayan bir sertifika yetkilisi tarafından oluşturulduğu için tarayıcılar tarafından işaretlenir. Tarayıcınızın güvendiği bir sertifika almak için, sertifikayı tarayıcınızın güven zincirindeki ticari sertifika yetkilisinden edinin. 
 
-! [ILB sertifikası Ayarla] [4]
+![ILB sertifikası ayarlama][4]
 
 Kendi sertifikalarınızı yüklemek ve erişimi test etmek için:
 
@@ -180,7 +180,7 @@ Kendi sertifikalarınızı yüklemek ve erişimi test etmek için:
 
     ILB’nizin IP adresi, **IP adresleri** altında listelenir. Bu listede ayrıca dış VIP tarafından ve gelen yönetim trafiği için kullanılan IP adresleri bulunur.
 
-    ! [ILB IP adresi] [5]
+    ![ILB IP adresi][5]
 
 ## <a name="web-jobs-functions-and-the-ilb-ase"></a>Web işleri, İşlevler ve ILB ASE ##
 
@@ -223,8 +223,13 @@ ILB ASE’nizi bir WAF cihazıyla yapılandırma hakkında daha fazla bilgi içi
 
 * ASE’leri kullanmaya başlamak için bkz. [App Service ortamlarına giriş][Intro].
  
+
 <!--Image references-->
-[1]: [2]./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png: [3]./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png:. / Media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-Certificate.PNG [4]: [5./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png ]:./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
+[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
+[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
+[3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png
+[4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png
+[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md

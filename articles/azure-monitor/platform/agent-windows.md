@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d4204d4937b8eca2dcb3f656659f185f30c8bddf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352827"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755054"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure Log Analytics hizmetine bağlayın
 
-İzleme ve sanal makine ya da yerel veri merkezinizde veya diğer bulut ortamında Log Analytics ile fiziksel bilgisayarları yönetmek için Microsoft Monitoring Agent (MMA) dağıtma ve bir veya daha fazla Log Analytics çalışma alanına raporlama yapacak yapılandırma gerekir.  Aracı, karma Runbook çalışanı rolü için Azure Otomasyonu da destekler.  
+İzleyin ve sanal makine ya da yerel veri merkezinizde veya diğer bulut ortamında Log Analytics ile fiziksel bilgisayarları yönetmek için (Microsoft Monitoring Agent (MMA) olarak da bilinir) Log Analytics aracısını dağıtmayı ve şekilde yapılandırmanız gerekir bir veya daha fazla Log Analytics çalışma alanına raporlama. Aracı, karma Runbook çalışanı rolü için Azure Otomasyonu da destekler.  
 
 İzlenen bir Windows bilgisayarda, aracıyı Microsoft Monitoring Agent hizmeti olarak listelenir. Microsoft Monitoring Agent hizmeti, günlük dosyaları ve Windows olay günlüğü, performans verilerini ve diğer telemetriyi olayları toplar. Aracının rapor Log Analytics hizmetiyle iletişim kuramadı olsa bile, aracı çalışmaya devam eder ve toplanan verileri izlenen bilgisayarın diskinde sıralar. Bağlantı geri geldiğinde, Microsoft Monitoring Agent hizmeti toplanan verileri hizmetine gönderir.
 
@@ -36,7 +36,7 @@ Aracı, aşağıdaki yöntemlerden birini kullanarak yüklenebilir. Çoğu yükl
 Desteklenen yapılandırmayı anlamak için [desteklenen Windows işletim sistemlerini](log-analytics-agent.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-agent.md#network-firewall-requirements) inceleyin.
 
 ## <a name="obtain-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarını alma
-Windows için Microsoft Monitoring Agent'ı yüklemeden önce, Log Analytics çalışma alanınızın kimliği ve anahtarına ihtiyacınız olacak.  Bu bilgiler, her bir yükleme yöntemi, aracıyı düzgün bir şekilde yapılandırıp başarıyla Log Analytics'te Azure ticari ve ABD kamu Bulutu ile iletişim kurabildiğinden olun kurulumu sırasında gereklidir.  
+Windows için Log Analytics aracısını yüklemeden önce çalışma alanı kimliği ve anahtarına ihtiyacınız olacak Log Analytics çalışma alanınız için.  Bu bilgiler, her bir yükleme yöntemi, aracıyı düzgün bir şekilde yapılandırıp başarıyla Log Analytics'te Azure ticari ve ABD kamu Bulutu ile iletişim kurabildiğinden olun kurulumu sırasında gereklidir.  
 
 1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 2. Log Analytics çalışma alanlarınızın listesinde aracının yapılandırılmasında üzerinde rapor istediğiniz çalışma alanını seçin.
@@ -64,7 +64,7 @@ Kullanımını yapılandırmak için [TLS 1.2](https://docs.microsoft.com/window
 5. Ayarların etkili olması sistemi yeniden başlatın. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>Kurulum sihirbazını kullanarak aracı yükleme
-Aşağıdaki adımlar, yükleme ve bilgisayarınızda Microsoft Monitoring Agent için Kurulum Sihirbazı'nı kullanarak Azure'da ve Azure kamu bulutunda Log Analytics'in aracısını yapılandırın. Ayrıca raporlayacağı bir System Center Operations Manager yönetim grubu için yapılandırma hakkında bilgi edinmek isterseniz [Operations Manager aracısını Aracı Kurulum sihirbazıyla dağıtma](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+Aşağıdaki adımlar, yükleme ve bilgisayarınızda Aracısı Kurulum Sihirbazı'nı kullanarak Azure'da ve Azure kamu bulutunda Log Analytics'in aracısını yapılandırın. Ayrıca raporlayacağı bir System Center Operations Manager yönetim grubu için yapılandırma hakkında bilgi edinmek isterseniz [Operations Manager aracısını Aracı Kurulum sihirbazıyla dağıtma](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. Log Analytics çalışma alanınızda gelen **Windows sunucuları** çıkıldığında daha önce uygun seçmek için sayfayı **Windows Agent'ı indir** İşlemci mimarisi bağlı olarak indirmek için sürümü Windows işletim sistemi.   
 2. Aracıyı bilgisayarınıza yüklemek için Kurulum'u çalıştırın.
@@ -87,7 +87,7 @@ Aracı için indirilen dosyayı kendi içinde yükleme paketidir.  Destekleyici 
 >[!NOTE]
 >Bir aracıyı yükseltmek istiyorsanız, Log Analytics betik API'si kullanmanız gerekir. Konusuna [yönetme ve Windows ve Linux için Log Analytics aracısını korumak](agent-manage.md) daha fazla bilgi için.
 
-Aşağıdaki tabloda, Automation DSC kullanılarak dağıtıldığında dahil olmak üzere aracı için kurulum tarafından desteklenen belirli Log Analytics parametreleri vurgulanmaktadır.
+Aşağıdaki tabloda, Automation DSC kullanılarak dağıtıldığında dahil olmak üzere aracı için kurulum tarafından desteklenen belirli parametreleri vurgulanmaktadır.
 
 |MMA özgü seçenekleri                   |Notlar         |
 |---------------------------------------|--------------|

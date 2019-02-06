@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 52a93fdd3105b091f688c297fe1e78e55ce0c96e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a5479cb54e15c0e740d800c8ee248a67e5ec5fc
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730315"
+ms.locfileid: "55746770"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI kullanarak HTTPS yeniden yönlendirmesi için HTTP ile application gateway oluşturma
 
@@ -86,7 +86,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-*myAppGateway* adlı uygulama ağ geçidini oluşturmak için [az network application-gateway create](/cli/azure/network/application-gatewaywork_application_gateway_create) komutunu kullanabilirsiniz. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. 
+*myAppGateway* adlı uygulama ağ geçidini oluşturmak için [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) komutunu kullanabilirsiniz. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. 
 
 Uygulama ağ geçidi, *myAGSubnet*’e ve daha önce oluşturduğunuz *myAGPublicIPAddress*’e atanır. Bu örnekte olluşturduğunuz sertifika ve uygulama ağ geçidini oluşturduğunuz zamanki parolasını ilişkilendiirirsiniz. 
 
@@ -121,7 +121,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>HTTP bağlantı noktası Ekle
 
-Kullanabileceğiniz [az ağ application-gateway frontend-port oluşturma](/cli/azure/network/application-gateway/frontend-portwork_application_gateway_frontend_port_create) HTTP bağlantı noktası uygulama ağ geçidine eklemek için.
+Kullanabileceğiniz [az ağ application-gateway frontend-port oluşturma](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) HTTP bağlantı noktası uygulama ağ geçidine eklemek için.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -133,7 +133,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-the-http-listener"></a>HTTP dinleyicisi Ekle
 
-Kullanabileceğiniz [az ağ application-gateway http-listener oluşturma](/cli/azure/network/application-gateway/http-listenerwork_application_gateway_http_listener_create) adlı dinleyiciyi eklemek için *myListener* application gateway'e.
+Kullanabileceğiniz [az ağ application-gateway http-listener oluşturma](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) adlı dinleyiciyi eklemek için *myListener* application gateway'e.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Yeniden yönlendirme yapılandırması Ekle
 
-HTTP, HTTPS yeniden yönlendirmesi yapılandırma kullanarak uygulama ağ geçidi eklemek [az ağ uygulama ağ geçidini yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create).
+HTTP, HTTPS yeniden yönlendirmesi yapılandırma kullanarak uygulama ağ geçidi eklemek [az ağ uygulama ağ geçidini yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -161,7 +161,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>Yönlendirme kuralı Ekle
 
-Adlı yönlendirme kuralı Ekle *bağlanma2* uygulama ağ geçidi kullanarak yönlendirme yapılandırması ile [az ağ uygulama ağ geçidi kuralı oluşturma](/cli/azure/network/application-gateway/rulework_application_gateway_rule_create).
+Adlı yönlendirme kuralı Ekle *bağlanma2* uygulama ağ geçidi kullanarak yönlendirme yapılandırması ile [az ağ uygulama ağ geçidi kuralı oluşturma](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

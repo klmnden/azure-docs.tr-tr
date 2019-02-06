@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6a7f7943e9d567a953c0e21697dfe4fdedd6e8f0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159358"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744798"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk limitleri
 
@@ -66,8 +66,8 @@ Azure nesnelerin yazılabilir boyutları aşağıda verilmiştir. Yüklenen tüm
 
 | Azure nesne türü | Varsayılan limit                                             |
 |-------------------|-----------------------------------------------------------|
-| Blok Blobu        | ~ 8 TB                                                 |
-| Sayfa Blobu         | 1 TB <br> (Sayfa blobu biçiminde yüklenen her dosya, 512 bayt hizalı (tamsayı katı) olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var.) |
+| Blok Blobu        | ~ 4,75 TiB                                                 |
+| Sayfa Blobu         | 8 TiB <br> (Sayfa blobu biçiminde yüklenen her dosya, 512 bayt hizalı (tamsayı katı) olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var.) |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Azure blok blobu ve sayfa blob'u adlandırma kuralları

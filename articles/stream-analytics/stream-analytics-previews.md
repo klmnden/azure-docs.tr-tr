@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 70cc6210a0c047867980de67ac24701df29ce8bf
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/05/2019
+ms.openlocfilehash: 29997b2ff7d3834a91389790256cd0d075ce1ece
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485186"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744917"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics Önizleme özellikleri
 
@@ -23,13 +23,21 @@ Bu makalede, Azure Stream Analytics için şu anda önizlemede tüm özellikler 
 
 Aşağıdaki özellikler, genel Önizleme aşamasındadır. Bu özelliklerin bugün yararlanabilirsiniz, ancak bunları üretim ortamında kullanmayın.
 
+### <a name="sql-database-reference-data"></a>SQL veritabanı başvuru verileri
+
+Azure Stream Analytics, Azure SQL veritabanı kaynağı başvuru verileri için giriş olarak destekler. SQL veritabanı, Stream Analytics işiniz için Visual Studio ve Azure portalında Stream Analytics araçları ile başvuru veri kullanabilirsiniz. Daha fazla bilgi için ziyaret [kullanımı başvuru verilerini bir SQL veritabanı için Azure Stream Analytics işi](sql-reference-data.md).
+
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning ile tümleştirme
 
 Machine Learning (ML) işlevleri olan Stream Analytics işlerini ölçeklendirme yapabilir. ML işlevleri, Stream Analytics işinde nasıl kullanabileceğiniz hakkında daha fazla bilgi edinmek için [Stream Analytics işinizi Azure Machine Learning işlevleriyle ölçeklendirme](stream-analytics-scale-with-machine-learning-functions.md). Gerçek dünya senaryosuyla kullanıma [Azure Stream Analytics ve Azure Machine Learning kullanarak yaklaşım analizi gerçekleştirme](stream-analytics-machine-learning-integration-tutorial.md).
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>Blob çıktı özel zamanına göre bölümleme
 
-Azure Stream Analytics, Blob depolama alanına özel zaman özniteliklerine dayalı çıkış sağlayabilir. Daha fazla bilgi için ziyaret [özel DateTime yol desenleri Azure Stream Analytics için blob depolama çıkışı](stream-analytics-custom-path-patterns-blob-storage-output.md).
+Azure Stream Analytics, blob depolama alanına özel zaman özniteliklerine dayalı çıkış sağlayabilir. Daha fazla bilgi için ziyaret [Azure Stream Analytics özel blob çıkış bölümleme](stream-analytics-custom-path-patterns-blob-storage-output.md).
+
+### <a name="blob-output-partitioning-by-field-or-attribute"></a>Blob çıkış alan ya da öznitelik bölümleme
+
+Azure Stream Analytics, blob depolama alanına özel alanlar veya özniteliklere göre çıkış sağlayabilir. Daha fazla bilgi için ziyaret [Azure Stream Analytics özel blob çıkış bölümleme](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### <a name="javascript-user-defined-aggregate"></a>JavaScript kullanıcı tanımlı toplam
 
@@ -55,13 +63,13 @@ Azure Stream Analytics yeni makine öğrenimi modelleri için destek tanıtır *
 
 Geliştiriciler, Azure Stream Analytics tarafından alınan olayları seri durumdan çıkarmak için C# dilinde özel deserializers artık uygulayabilirsiniz. Parquet, Protobuf, XML veya herhangi bir ikili biçimi seri durumdan çıkarılabiliyorsa biçimleri örnekleridir.
 
-### <a name="blob-output-partitioning-by-custom-attribute"></a>Blob çıktı özel özniteliği tarafından bölümleme
-
-Artık, sorgunuzun herhangi bir sütuna göre Blob Depolama için Azure Stream Analytics çıkış bölümlemek mümkündür.
-
 ### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Azure kaynak kimlik doğrulaması yapmak için Azure Data Lake Storage yönetilen kimlikleri
 
 Şimdi, işleri programlı olarak oluşturmanıza olanak tanıyan gerçek zamanlı işlem hatlarınızı Azure kaynaklarına göre kimlik doğrulaması için Azure Data Lake depolama Gen1 yazarken yönetilen kimliklerle çalışır hale getirebilirsiniz. Daha fazla bilgi için ziyaret [Azure Stream Analytics işleri kimlik doğrulaması için Azure Data Lake depolama Gen1 çıkış Azure kaynaklarına yönetilen kullan biçimimi](stream-analytics-managed-identities-adls.md).
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code için Azure Stream Analytics
+
+Azure Stream Analytics işleri, Visual Studio Code'da yazılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

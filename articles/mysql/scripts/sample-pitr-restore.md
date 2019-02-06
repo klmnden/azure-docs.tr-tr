@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 6ad90c2d13ebeaa077dc6264f84a4ebd8a340a8c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38825f7815713678946e86252d4c8a1bee0abbc6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159096"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752696"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI kullanarak MySQL için Azure Veritabanı sunucusunu geri yükleme
 Bu örnek CLI betiği, tek bir MySQL için Azure Veritabanı sunucusunu zaman içinde önceki bir noktaya geri yükler.
@@ -37,7 +37,7 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 |---|---|
 | [az group create](/cli/azure/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az mysql server create](/cli/azure/mysql/server) | Veritabanlarını barındıran bir MySQL sunucusu oluşturur. |
-| [az mysql server restore](/cli/azure/mysql/server#restore) | Bir sunucuyu yedekten geri yükler. |
+| [az mysql server restore](/cli/azure/mysql/server) | Bir sunucuyu yedekten geri yükler. |
 | [az group delete](/cli/azure/group) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

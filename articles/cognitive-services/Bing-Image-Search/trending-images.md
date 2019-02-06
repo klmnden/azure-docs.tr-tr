@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 7d79e81f8670492d025727ed76d7d529dbd4719d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 177a9cbf9235bb3d2deb0d5f8e4e31a0e1472b48
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188329"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756487"
 ---
 # <a name="get-trending-images-from-the-web"></a>Popüler resimler Web'den Al
 
@@ -90,7 +90,7 @@ Yanıt içeren bir [TrendingImages](https://docs.microsoft.com/rest/api/cognitiv
 
 Her kutucuk, görüntü ve ilgili görüntüleri almak için seçenekleri içerir. İlgili görüntüleri almak için sorguyu kullanabilirsiniz `text` çağrılacak [resim arama API'si](./search-the-web.md) ve ilgili kendiniz görüntüler. Veya URL'de kullandığınız `webSearchUrl` ilgili görüntüleri içeren Bing'in görüntüleri arama sonuçları sayfası, kullanıcıya yapılacak.
 
-İlgili görüntüleri almak için resim arama API'si çağrısı verilirse [kimliği](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) sorgu parametresi kimlik `id` alan. Kimliğini belirterek yanıt görüntünün (yanıt ilk görüntüde olduğu) ve ilgili resimlerini içeren sağlar. Ayrıca, [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) sorgu parametresi metinde `query` nesnenin `text` alan.
+İlgili görüntüleri almak için resim arama API'si çağrısı verilirse [kimliği](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) sorgu parametresi kimlik `id` alan. Kimliğini belirterek yanıt görüntünün (yanıt ilk görüntüde olduğu) ve ilgili resimlerini içeren sağlar. Ayrıca, [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) sorgu parametresi metinde `query` nesnenin `text` alan.
 
 Aşağıdaki örnek, ilgili Bay Smith görüntülerde önceki popüler resimler API yanıt almak için resim kimliği kullanmayı gösterir.
 

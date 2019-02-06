@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0869786b2aa6c604ee59deb0f5a5fbc27b9ce3bf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104244"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751574"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -64,7 +64,7 @@ Bu sorunu çözmek için VM kaynak grubu üzerindeki kilidi kaldırın ve temizl
 **Hata kodu**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Hata iletisi**: Yedekleme, şifrelenmiş VM'lerin anahtar kasasına yedekleme için yeterli izinlere sahip değil. <br>
 
-Yedekleme işleminin şifrelenmiş VM'ler üzerinde başarılı olması için bu anahtar kasasına erişmek için izinleri olmalıdır. Bu yapılabilir kullanarak [Azure portalında](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) aracılığıyla veya [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+Yedekleme işleminin şifrelenmiş VM'ler üzerinde başarılı olması için bu anahtar kasasına erişmek için izinleri olmalıdır. Bu yapılabilir kullanarak [Azure portalında](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) aracılığıyla veya [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - anlık görüntü işlemi, sanal makinede ağ bağlantısı olmaması nedeniyle başarısız oldu
 
@@ -121,7 +121,7 @@ Kasanız için anında geri yükleme yükseltilmez olduğundan disk boyutu 1023 
 
 Devam eden var olan bir yedekleme işi olduğundan son yedekleme işi başarısız oldu. Geçerli iş tamamlanana kadar yeni bir yedekleme işi başlatamazsınız. Devam eden yedekleme işlemi tetikleyen veya başka bir yedekleme işlemleri zamanlama önce tamamlanan emin olun. Yedekleme işlerinin durumunu denetlemek için gerçekleştirmek aşağıdaki adımları:
 
-1. Azure portalında oturum açın, sırayla **tüm hizmetleri**. Kurtarma Hizmetleri yazın ve tıklayın **kurtarma Hizmetleri kasaları**. Kurtarma hizmetleri kasalarının listesi görünür.
+1. Azure portalında oturum açın ve **Tüm hizmetler**'e tıklayın. Kurtarma Hizmetleri yazın ve **Kurtarma Hizmetleri kasaları**’na tıklayın. Kurtarma hizmetleri kasalarının listesi görünür.
 2. Kurtarma Hizmetleri kasalarının listesinden, yedeklemenin yapılandırıldığı bir kasa seçin.
 3. Kasa Panosu menüsünde tıklatın **yedekleme işleri** tüm yedekleme işleri görüntüler.
 

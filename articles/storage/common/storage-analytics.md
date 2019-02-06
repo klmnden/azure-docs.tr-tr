@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 9cd4845bcf107941f969255eb223567d4341ea41
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 1b27bbaa3d8e570c8431708934edee564e994487
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508513"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745665"
 ---
 # <a name="storage-analytics"></a>Depolama Analizi
 
@@ -43,7 +43,7 @@ Aşağıdaki türde kimliği doğrulanmış istekler kaydedilir:
 * Başarılı ve başarısız istekleri dahil olmak üzere paylaşılan erişim imzası (SAS), kullanarak istek sayısı.
 * Analiz verilerini istekleri.
 
-Depolama analizi kendisini günlük oluşturma veya silme gibi tarafından yapılan istekleri günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir listesi belgelenen [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) ve [depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format.md) konuları.
+Depolama analizi kendisini günlük oluşturma veya silme gibi tarafından yapılan istekleri günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir listesi belgelenen [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) ve [depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format) konuları.
 
 ### <a name="logging-anonymous-requests"></a>Anonim istekler günlüğe kaydetme
 Aşağıdaki türde anonim istekler kaydedilir:
@@ -53,7 +53,7 @@ Aşağıdaki türde anonim istekler kaydedilir:
 * İstemci ve sunucu için zaman aşımı hataları.
 * Hata ile başarısız olan GET istekleri 304 (değiştirilmedi) kodu.
 
-Diğer tüm başarısız anonim istekler günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir listesi belgelenen [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) ve [depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format.md) konuları.
+Diğer tüm başarısız anonim istekler günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir listesi belgelenen [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) ve [depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format) konuları.
 
 ### <a name="how-logs-are-stored"></a>Günlükler nasıl depolanır
 Tüm günlükler, depolama analizi için bir depolama hesabı etkinleştirildiğinde bu otomatik olarak oluşturulur ve $logs adlı bir kapsayıcı içinde blok blobları olarak depolanır. $Logs kapsayıcı örneğin depolama hesabının blob ad alanı bulunur: `http://<accountname>.blob.core.windows.net/$logs`. Depolama analizi etkinleştirildikten sonra bu kapsayıcı içeriğini silinebilir silinemiyor.
@@ -139,7 +139,7 @@ Kapasite verileri günlük olarak bir depolama hesabının Blob hizmeti için ka
 * **ContainerCount**: Depolama hesabının Blob hizmetindeki blob kapsayıcı sayısı.
 * **ObjectCount**: İşlenmiş ve kaydedilmemiş blok veya sayfa blobları depolama hesabının Blob hizmetindeki sayısı.
 
-Kapasite ölçümleri hakkında daha fazla bilgi için bkz: [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).
+Kapasite ölçümleri hakkında daha fazla bilgi için bkz: [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema).
 
 ### <a name="how-metrics-are-stored"></a>Ölçümleri nasıl depolanır
 Tüm ölçüm verileri Depolama hizmetlerinin her biri için bu hizmet için ayrılmış üç tablo depolanır: işlem bilgileri için bir tablo, dakikalık işlem bilgi almak için bir tabloya ve kapasite bilgileri için başka bir tablo. Kullanım verileri depolama kapasitesi bilgileri oluşur ve işlem ve dakika işlem bilgilerini istek ve yanıt verilerini oluşur. Saat ölçümleri dakika ölçümlerini ve bir depolama hesabının Blob hizmeti için kapasite, aşağıdaki tabloda açıklandığı gibi adlı tablolarda erişilebilir.
@@ -171,7 +171,7 @@ Veri bekletme ilkesi yapılandırdıysanız, depolama analizi, eski günlük ve 
 ### <a name="understanding-billable-requests"></a>Faturalandırılabilir isteklerin anlama
 Bir hesabın depolama hizmetine yapılan her isteği Faturalanabilir ya da Faturalanamayan değil. Depolama analizi yapılan bir hizmete istek nasıl işlendiğini belirten bir durum iletisi de dahil olmak üzere, tek tek her isteği günlüğe kaydeder. Benzer şekilde, Storage Analytics ölçümleri hem hizmet hem de hizmet yüzdeleri ve belirli durum iletilerinin sayısı dahil olmak üzere, API işlemleri için depolar. Birlikte, bu özellikler, Faturalanabilir isteklerinizi çözümleme, uygulamanız üzerinde geliştirmeler yapmak ve hizmetlerinizi istekleri ile ilgili sorunları tanılamanıza yardımcı olabilir. Faturalama hakkında daha fazla bilgi için bkz. [anlama Azure depolama Faturalaması - bant genişliği, işlemler ve kapasite](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-Depolama analizi verilere baktığımızda, tablolardaki kullanabileceğiniz [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) hangi istekleri Faturalanabilir belirlemek için. Ardından, günlükleri ve ölçüm verileri belirli bir istek için ücret olmadığını görmek için durum iletilerine karşılaştırabilirsiniz. Depolama hizmeti veya tek tek API işlemi için kullanılabilirlik araştırmak için önceki konu başlığında tabloları da kullanabilirsiniz.
+Depolama analizi verilere baktığımızda, tablolardaki kullanabileceğiniz [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) hangi istekleri Faturalanabilir belirlemek için. Ardından, günlükleri ve ölçüm verileri belirli bir istek için ücret olmadığını görmek için durum iletilerine karşılaştırabilirsiniz. Depolama hizmeti veya tek tek API işlemi için kullanılabilirlik araştırmak için önceki konu başlığında tabloları da kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Portal'da depolama hesabı izleme](storage-monitor-storage-account.md)

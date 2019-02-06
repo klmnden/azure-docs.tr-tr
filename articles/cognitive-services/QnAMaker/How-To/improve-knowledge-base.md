@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7f519729f3ad94324b847ca6b15b254ea7c6abbb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 639b665926f54387dfdc6e837c15c8d6d28df925
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463744"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755773"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Bilgi bankasını geliştirmek için etkin öğrenmeyi kullanma
 
@@ -58,7 +58,7 @@ Algoritma yakınlık belirlemek için basit bir hesaplama değil. Önceki örnek
 
 Varsayılan olarak etkin olarak öğrenmeye kapalıdır. Önerilen bu soruları görmek için açık. 
 
-1. Üzerinde öğrenme etkin etkinleştirmek için Git, **hizmet ayarları** sağ üst köşedeki soru-cevap Oluşturucu Portalı'nda.  
+1. Üzerinde öğrenme etkin açmak için tıklayın, **adı**Git [ **hizmet ayarları** ](https://www.qnamaker.ai/UserSettings) sağ üst köşedeki soru-cevap Oluşturucu Portalı'nda.  
 
     ![Hizmet Ayarları sayfasında, etkin öğrenim'de geçiş](../media/improve-knowledge-base/Endpoint-Keys.png)
 

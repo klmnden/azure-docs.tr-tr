@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 614d8fac4130b3331cf5326800aaf5a2a3c58513
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 1819d1dba777d97590c0b02a89cde3b46af78fff
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658055"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749244"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Azure CLI kullanarak blobları Listele
 
@@ -46,7 +46,7 @@ Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekle
 İlk olarak blob yüklemek için bir dosya oluşturun.
 Azure Cloud Shell kullanıyorsanız dosya oluşturmak için aşağıdaki adımları uygulayın: `vi helloworld` dosya açıldığında **ekle**'ye basın, "Hello world" yazın ve **Esc**'ye basıp `:x` girin ve **Enter**'a basın.
 
-Bu örnekte, son adımda [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) komutuyla oluşturduğunuz kapsayıcıya bir blob yükleyeceksiniz.
+Bu örnekte, son adımda [az storage blob upload](/cli/azure/storage/blob) komutuyla oluşturduğunuz kapsayıcıya bir blob yükleyeceksiniz.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -66,11 +66,11 @@ az storage blob upload \
 
 Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, aksi takdirde üzerine yazılacaktır. Devam etmeden önce istediğiniz sayıda dosyayı karşıya yükleyin.
 
-Aynı anda birden fazla dosya yüklemek için [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) komutunu kullanabilirsiniz.
+Aynı anda birden fazla dosya yüklemek için [az storage blob upload-batch](/cli/azure/storage/blob) komutunu kullanabilirsiniz.
 
 ## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-[az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) komutuyla kapsayıcıdaki blobları listeleyin.
+[az storage blob list](/cli/azure/storage/blob) komutuyla kapsayıcıdaki blobları listeleyin.
 
 ```azurecli-interactive
 az storage blob list \
@@ -80,7 +80,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Blob indirme
 
-Önceden karşıya yüklediğiniz bir blobu indirmek için [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) komutunu kullanın.
+Önceden karşıya yüklediğiniz bir blobu indirmek için [az storage blob download](/cli/azure/storage/blob) komutunu kullanın.
 
 ```azurecli-interactive
 az storage blob download \

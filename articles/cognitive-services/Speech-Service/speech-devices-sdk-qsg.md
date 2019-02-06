@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5bd631bf31ba4e6a840c3e4e818062d322da0158
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a9a1446db66e528cfac98222d4bd258efc660c84
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727935"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750384"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sı ile çalışmaya başlama
 
@@ -46,12 +46,14 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
     Yapabilecekleriniz [basit LUIS modeline oluşturma](https://docs.microsoft.com/azure/cognitive-services/luis/) veya LUIS modeline LUIS example.json örneği kullanın. LUIS modeline kullanılabilir örnek [konuşma cihazları SDK indirme sitesi](https://shares.datatransfer.microsoft.com/). Modelinizin JSON dosyasını karşıya yüklemek için [LUIS portalı](https://www.luis.ai/home)seçin **alma yeni uygulama**ve ardından JSON dosyasını seçin.
 
 ## <a name="set-up-the-development-kit"></a>Geliştirme Seti ' ayarlayın
-
-1. Geliştirme Seti bir Bilgisayara bağlanın veya yüksek kalitede mikro USB kablosu kullanarak bağdaştırıcısı güç. Yeşil power göstergesi üst panonun altında görüntülenir.
-
-1. Geliştirme Seti, ikinci bir mini USB kablosu kullanarak bir bilgisayara bağlanın.
+    
+1. Geliştirme Seti iki mikro USB bağlayıcı vardır. Sol bağlayıcının Geliştirme Seti desteklemek için ve güç aşağıdaki resimde vurgulanmıştır. Bunu kontrol edecek ve işaretlenmiş sağ görüntüde hata ayıklayın.
 
     ![dev Seti bağlanma](media/speech-devices-sdk/qsg-1.png)
+       
+1. Bir bilgisayar için güç bağlantı bağlanın veya bağdaştırıcısı güç mikro USB kablosu kullanarak Geliştirme Seti güçlendirin. Yeşil power göstergesi üst panonun altında görüntülenir.
+
+1. Denetim Geliştirme Seti bağlanın hata ayıklama bağlantı bir bilgisayara ikinci bir mikro USB kablosu kullanarak. Güvenli iletişimler sağlamak için yüksek kaliteli kablo kullanmak için gereklidir.
 
 1. Uygulamanızı Geliştirme Seti için döngüsel ya da doğrusal yapılandırma yönlendirmek.
 
@@ -75,6 +77,8 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
     > [!NOTE]
     > Android hata ayıklama köprüsü bu komutları kullanmak `adb.exe`, Android Studio yüklemesinin bir parçası olduğu. Bu araç C:\Users bulunur\[kullanıcı adı] \AppData\Local\Android\Sdk\platform araçları. Bu dizin çağırmak daha kullanışlı hale getirmek için yola ekleyebilirsiniz `adb`. Aksi takdirde, yüklemenizin adb.exe çağıran her komut için tam yolunu belirtmeniz gerekir `adb`.
+    >
+    > Bir hata görürseniz `no devices/emulators found` sonra USB kablosu bağlı ve yüksek kaliteli kablo kontrol edin. Kullanabileceğiniz `adb devices` cihazların bir listesini döndürür gibi geliştirme setine bilgisayarınızı geçebildiğinden emin denetlemek için.
 
     > [!TIP]
     > Bilgisayarınızın mikrofon ve Geliştirme Seti'nın mikrofonlar ile çalıştığından emin olmak Konuşmacı sessiz. Böylece, yanlışlıkla ses bilgisayardan cihazla tetiklemez.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6af6eb0dd6473b9fe947f7cc4939da4e0cbc77cb
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c4fcdcb8b20fdfb6f2314fc277ded4fdc52c2b99
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718546"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751439"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Öğretici: Yönetilen kimlik kullanarak App Service'ten Azure SQL veritabanı bağlantısını güvenli hale getirme
 
@@ -77,7 +77,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Kimliğe veritabanı erişimi verme
 
-Ardından, Cloud Shell’de [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) komutunu kullanarak uygulamanızın yönetilen kimliğe veritabanı erişimi verin. Aşağıdaki komutta *\<server_name>* ve <principalid_from_last_step> değerlerini değiştirin. *\<admin_user>* için bir yönetici adı yazın.
+Ardından, Cloud Shell’de [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) komutunu kullanarak uygulamanızın yönetilen kimliğe veritabanı erişimi verin. Aşağıdaki komutta *\<server_name>* ve <principalid_from_last_step> değerlerini değiştirin. *\<admin_user>* için bir yönetici adı yazın.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>

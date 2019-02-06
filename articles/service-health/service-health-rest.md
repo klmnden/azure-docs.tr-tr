@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: routlaw
-ms.openlocfilehash: bbbaa4c44a7c0d6da189f0c49d73adfa6142cdee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6e4bd5977eb1761a065d5583675e6fd405b4610a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095800"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750367"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>REST API kullanarak kaynak durumu alma 
 
@@ -44,7 +44,7 @@ Aşağıdaki üst bilgiler gereklidir:
 
 | Ad | Açıklama |
 | :--- | :---------- |
-| subscriptionId | Bir Azure aboneliği tanımlayan abonelik kimliği. Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | Bir Azure aboneliği tanımlayan abonelik kimliği. Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | API sürümü | İstek için kullanılacak API sürümü.<br /><br /> Api sürümü bu belgede ele alınmaktadır `2015-04-01`, yukarıdaki URL'deki yer.  |
 | $filter | Döndürülen sonuç kümesini azaltmak için filtre seçeneği. Bu parametre için izin verilen desenler kullanılabilir [başvurusu için etkinlik günlüklerini işlemi](/rest/api/monitor/activitylogs/list#uri-parameters). Gösterilen örnek 2018-05-16 ve 2018-06-20 arasında bir zaman aralığındaki tüm olayları yakalar. |
 | &nbsp; | &nbsp; |

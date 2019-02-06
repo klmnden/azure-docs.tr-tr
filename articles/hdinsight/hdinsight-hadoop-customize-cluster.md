@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad59decab7233c74e13468b0cf0b11fdb5485d07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e11ef458fad11f04ce159d5e79c4152d2bd7e4c6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722371"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746807"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Windows tabanlı HDInsight kümelerini betik eylemi kullanarak özelleştirme
 **Betik eylemi** çağırmak için kullanılan [özel betikler](hdinsight-hadoop-script-actions.md) bir kümede ek yazılım yüklemek için küme oluşturma işlemi sırasında.
@@ -80,8 +80,9 @@ HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için birk
 ## <a name="call-scripts-using-azure-powershell"></a>Azure PowerShell kullanarak komut dosyalarını çağırma
 Bu aşağıdaki PowerShell Betiği, Windows tabanlı HDInsight kümesi üzerinde Spark'ı yüklemek gösterilmektedir.  
 
+    ```powershell
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -158,7 +159,7 @@ Bu aşağıdaki PowerShell Betiği, Windows tabanlı HDInsight kümesi üzerinde
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-
+    ```
 
 Diğer yazılım yüklemek için betik komut dosyasında değiştirilecek gerekir:
 
@@ -171,12 +172,14 @@ Aşağıdaki örnek, Windows tabanlı HDInsight kümesi üzerinde Apache Spark'�
 
 1. Visual Studio'da C# konsol uygulaması oluşturun.
 2. Nuget Paket Yöneticisi konsolundan aşağıdaki komutu çalıştırın.
-
+    ```powershell
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
+    ```
 3. Aşağıdaki using deyimlerini Program.cs dosyasında:
 
+    ```csharp
         using System;
         using System.Security;
         using Microsoft.Azure;
@@ -186,8 +189,10 @@ Aşağıdaki örnek, Windows tabanlı HDInsight kümesi üzerinde Apache Spark'�
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
+    ```
 4. Aşağıdakilerle sınıftaki kod yerleştirin:
 
+    ```csharp
         private static HDInsightManagementClient _hdiManagementClient;
 
         // Replace with your AAD tenant ID if necessary
@@ -276,6 +281,8 @@ Aşağıdaki örnek, Windows tabanlı HDInsight kümesi üzerinde Apache Spark'�
             // Register the HDInsight provider
             var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
+    ```
+
 5. Uygulamayı çalıştırmak için **F5**'e basın.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>HDInsight kümelerinde kullanılan açık kaynaklı yazılım desteği

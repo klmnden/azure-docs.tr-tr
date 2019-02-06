@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/26/2018
-ms.openlocfilehash: c6e518f644e8fc43db58ef481312f44b2071a0dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 250f03809a182e541fb58f73469f46d2b281b69f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194313"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756062"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Node.js kullanarak Azure SQL veritabanı sorgulama
 
@@ -41,7 +41,7 @@ Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından em
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
-> Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için bir güvenlik duvarı kuralınız olmalıdır. Farklı bir bilgisayarda olduğunuz veya farklı bir genel IP adresine sahip yoksa, oluşturun bir [Azure portalını kullanarak sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md).
+> Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için bir güvenlik duvarı kuralınız olmalıdır. Farklı bir bilgisayarda olduğunuz veya farklı bir genel IP adresine sahip yoksa, oluşturun bir [Azure portalını kullanarak sunucu düzeyinde güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md).
 
 ## <a name="create-the-project"></a>Proje oluşturma
 

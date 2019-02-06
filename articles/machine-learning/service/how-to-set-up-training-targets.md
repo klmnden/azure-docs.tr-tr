@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75caad2c183ba2d3c5442a3620705c6af8070755
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659601"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756538"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
@@ -38,18 +38,14 @@ Bu makalede, model yönetimi için çeşitli bilgisayar hedefine kullanmayı ö�
 Azure Machine Learning hizmeti farklı işlem hedef arasında değişen desteğe sahiptir. Az miktarda veriniz üzerinde dev/deneme ile tipik model geliştirme yaşam döngüsü başlatır. Bu aşamada, yerel bir ortamı kullanmanızı öneririz. Örneğin, yerel bilgisayarınıza veya bulut tabanlı bir VM. Büyük veri kümeleri üzerinde eğitim ölçeğini veya dağıtılmış eğitimi yapmak gibi bir Farklı Çalıştır gönderdiğiniz her zaman bu daralttığında tek veya çok node küme oluşturmak için Azure Machine Learning işlem kullanmanızı öneririz. Çeşitli senaryolarda olarak değişiklik gösterebilir destek aşağıda ayrıntılarıyla olsa da, kendi işlem kaynağı ekleyebilirsiniz:
 
 
-|Eğitim için hedef işlem| GPU hızlandırma | Otomatik<br/> Hiper parametre ayarı | Otomatik</br> makine öğrenimi | Kolay bir işlem hattı|
+|Eğitim için hedef işlem| GPU hızlandırma | Otomatik<br/> Hiper parametre ayarı | Otomatik</br> makine öğrenimi | Azure Machine Learning işlem hatlarını |
 |----|:----:|:----:|:----:|:----:|
 |[Yerel bilgisayar](#local)| Belki de | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning işlem](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Uzak VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
-|[Azure Data Lake Analytics'i](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
+|[Azure Data Lake Analytics'i](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-
-<a id="pipeline-only"></a>__*__ Azure Databricks ve Azure Data Lake Analytics __yalnızca__ bir işlem hattında kullanılabilir. 
-
->İşlem hedeflerine yönelik bu makalede gösterilen şekilde machine learning işlem hatları oluşturun, ancak burada listelenen yöntemler yerine işlem hattını adımlarda bu hesaplar'ı kullanın.  Ayrıca, yalnızca bazı işlem hattı adımlar bu makalede açıklanan çalıştırma yapılandırma kullanın.  Bir işlem hattı, işlem hedefleri kullanma hakkında daha fazla bilgi için bkz. [oluşturma ve makine öğrenimi işlem hattı çalıştırma](how-to-create-your-first-pipeline.md).
 
 ## <a name="whats-a-run-configuration"></a>Bir çalıştırma yapılandırma nedir?
 

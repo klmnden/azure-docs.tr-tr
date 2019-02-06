@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
-ms.openlocfilehash: 3f0d0b5be2f0c8fc64e02165ff3e2ecacb7e0c04
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567000"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755943"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Entity Framework ile esnek veritabanı istemci kitaplığı
 
@@ -87,36 +87,38 @@ Tümleştirme **DbContexts** ölçek genişletme için verilere bağımlı yönl
 
 Aşağıdaki kod örneği, bu yaklaşımı gösterir. (Ayrıca bu kodu eşlik eden Visual Studio projesinde '.)
 
-    public class ElasticScaleContext<T> : DbContext
+```csharp
+public class ElasticScaleContext<T> : DbContext
+{
+public DbSet<Blog> Blogs { get; set; }
+...
+
+    // C'tor for data-dependent routing. This call opens a validated connection 
+    // routed to the proper shard by the shard map manager. 
+    // Note that the base class c'tor call fails for an open connection
+    // if migrations need to be done and SQL credentials are used. This is the reason for the 
+    // separation of c'tors into the data-dependent routing case (this c'tor) and the internal c'tor for new shards.
+    public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
+        : base(CreateDDRConnection(shardMap, shardingKey, connectionStr), 
+        true /* contextOwnsConnection */)
     {
-    public DbSet<Blog> Blogs { get; set; }
-    …
+    }
 
-        // C'tor for data-dependent routing. This call opens a validated connection 
-        // routed to the proper shard by the shard map manager. 
-        // Note that the base class c'tor call fails for an open connection
-        // if migrations need to be done and SQL credentials are used. This is the reason for the 
-        // separation of c'tors into the data-dependent routing case (this c'tor) and the internal c'tor for new shards.
-        public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
-            : base(CreateDDRConnection(shardMap, shardingKey, connectionStr), 
-            true /* contextOwnsConnection */)
-        {
-        }
+    // Only static methods are allowed in calls into base class c'tors.
+    private static DbConnection CreateDDRConnection(
+    ShardMap shardMap, 
+    T shardingKey, 
+    string connectionStr)
+    {
+        // No initialization
+        Database.SetInitializer<ElasticScaleContext<T>>(null);
 
-        // Only static methods are allowed in calls into base class c'tors.
-        private static DbConnection CreateDDRConnection(
-        ShardMap shardMap, 
-        T shardingKey, 
-        string connectionStr)
-        {
-            // No initialization
-            Database.SetInitializer<ElasticScaleContext<T>>(null);
-
-            // Ask shard map to broker a validated connection for the given key
-            SqlConnection conn = shardMap.OpenConnectionForKey<T>
-                                (shardingKey, connectionStr, ConnectionOptions.Validate);
-            return conn;
-        }    
+        // Ask shard map to broker a validated connection for the given key
+        SqlConnection conn = shardMap.OpenConnectionForKey<T>
+                            (shardingKey, connectionStr, ConnectionOptions.Validate);
+        return conn;
+    }
+```
 
 ## <a name="main-points"></a>Ana noktaları
 
@@ -134,26 +136,28 @@ Aşağıdaki kod örneği, bu yaklaşımı gösterir. (Ayrıca bu kodu eşlik ed
 
 Varsayılan Oluşturucu, kodunuzda yerine, DbContext öğesinin alt sınıfı için yeni bir oluşturucu kullanın. Örnek aşağıda verilmiştir: 
 
-    // Create and save a new blog.
+```csharp
+// Create and save a new blog.
 
-    Console.Write("Enter a name for a new blog: "); 
-    var name = Console.ReadLine(); 
+Console.Write("Enter a name for a new blog: "); 
+var name = Console.ReadLine(); 
 
-    using (var db = new ElasticScaleContext<int>( 
-                            sharding.ShardMap,  
-                            tenantId1,  
-                            connStrBldr.ConnectionString)) 
-    { 
-        var blog = new Blog { Name = name }; 
-        db.Blogs.Add(blog); 
-        db.SaveChanges(); 
+using (var db = new ElasticScaleContext<int>( 
+                        sharding.ShardMap,  
+                        tenantId1,  
+                        connStrBldr.ConnectionString)) 
+{ 
+    var blog = new Blog { Name = name }; 
+    db.Blogs.Add(blog); 
+    db.SaveChanges(); 
 
-        // Display all Blogs for tenant 1 
-        var query = from b in db.Blogs 
-                    orderby b.Name 
-                    select b; 
-     … 
-    }
+    // Display all Blogs for tenant 1 
+    var query = from b in db.Blogs 
+                orderby b.Name 
+                select b; 
+    … 
+}
+```
 
 Yeni oluşturucuyu değeri tarafından tanımlanan parçacık verileri tutan parça bağlantı açar **tenantid1**. Kodda **kullanarak** blok erişimi değişmeden kalır **olan DB** EF için parça kullanarak bloglar için **tenantid1**. Kullanarak kod engellemek için gibi tüm veritabanı işlemleri artık bir parçaya kapsamındaki bu semantiğini değiştirir. burada **tenantid1** tutulur. Örneği için bir LINQ sorgusu blogları üzerinden **olan DB** yalnızca geçerli parça üzerinde depolanan blogları, ancak diğer parçalara üzerinde depolanan olanları döndürür.  
 
@@ -163,19 +167,21 @@ Microsoft Patterns ve uygulamalar ekibi yayımlanan [geçici hata işleme uygula
 
 Aşağıdaki kod örneği nasıl bir SQL yeniden deneme ilkesi yeni geçici olarak kullanılabileceğini gösterir **DbContext** alt sınıf oluşturucuları: 
 
-    SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
-    { 
-        using (var db = new ElasticScaleContext<int>( 
-                                sharding.ShardMap,  
-                                tenantId1,  
-                                connStrBldr.ConnectionString)) 
-            { 
-                    var blog = new Blog { Name = name }; 
-                    db.Blogs.Add(blog); 
-                    db.SaveChanges(); 
-            … 
-            } 
-        }); 
+```csharp
+SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
+{ 
+    using (var db = new ElasticScaleContext<int>( 
+                            sharding.ShardMap,  
+                            tenantId1,  
+                            connStrBldr.ConnectionString)) 
+        { 
+                var blog = new Blog { Name = name }; 
+                db.Blogs.Add(blog); 
+                db.SaveChanges(); 
+        … 
+        } 
+    }); 
+```
 
 **SqlDatabaseUtils.SqlRetryPolicy** Yukarıdaki kod olarak tanımlanan bir **SqlDatabaseTransientErrorDetectionStrategy** 10 ve 5 saniye ile bir yeniden deneme sayısı, yeniden denemeler arasındaki süre bekleyin. Bu yaklaşım EF ve kullanıcı tarafından başlatılan işlemler için yönergeler benzer (bkz [sınırlamalar (EF6 sonrası) yeniden deneme yürütme stratejileri ile](https://msdn.microsoft.com/data/dn307226). Her iki durumda uygulama programı geçici özel durum döndüren kapsamı denetimleri gerektirir: esnek veritabanı istemci kitaplığı kullanan işlem yeniden veya uygun Oluşturucusu bağlamdan (görüldüğü gibi) yeniden oluşturun.
 
@@ -209,51 +215,54 @@ Bu, bir yaklaşım burada şema dağıtımı EF geçişleri üzerinden yeni bir 
 
 Bu önkoşulları yerine getirilince, bir normal oluşturabilirsiniz açılmamış **SqlConnection** için şema dağıtımı için EF geçişleri hız kazandırın. Aşağıdaki kod örneği, bu yaklaşımı gösterir. 
 
-        // Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
-        // and kick off EF intialization of the database to deploy schema 
+```csharp
+// Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
+// and kick off EF initialization of the database to deploy schema 
 
-        public void RegisterNewShard(string server, string database, string connStr, int key) 
-        { 
+public void RegisterNewShard(string server, string database, string connStr, int key) 
+{ 
 
-            Shard shard = this.ShardMap.CreateShard(new ShardLocation(server, database)); 
+    Shard shard = this.ShardMap.CreateShard(new ShardLocation(server, database)); 
 
-            SqlConnectionStringBuilder connStrBldr = new SqlConnectionStringBuilder(connStr); 
-            connStrBldr.DataSource = server; 
-            connStrBldr.InitialCatalog = database; 
+    SqlConnectionStringBuilder connStrBldr = new SqlConnectionStringBuilder(connStr); 
+    connStrBldr.DataSource = server; 
+    connStrBldr.InitialCatalog = database; 
 
-            // Go into a DbContext to trigger migrations and schema deployment for the new shard. 
-            // This requires an un-opened connection. 
-            using (var db = new ElasticScaleContext<int>(connStrBldr.ConnectionString)) 
-            { 
-                // Run a query to engage EF migrations 
-                (from b in db.Blogs 
-                    select b).Count(); 
-            } 
+    // Go into a DbContext to trigger migrations and schema deployment for the new shard. 
+    // This requires an un-opened connection. 
+    using (var db = new ElasticScaleContext<int>(connStrBldr.ConnectionString)) 
+    { 
+        // Run a query to engage EF migrations 
+        (from b in db.Blogs 
+            select b).Count(); 
+    } 
 
-            // Register the mapping of the tenant to the shard in the shard map. 
-            // After this step, data-dependent routing on the shard map can be used 
+    // Register the mapping of the tenant to the shard in the shard map. 
+    // After this step, data-dependent routing on the shard map can be used 
 
-            this.ShardMap.CreatePointMapping(key, shard); 
-        } 
-
+    this.ShardMap.CreatePointMapping(key, shard); 
+} 
+```
 
 Bu örnek, bir yöntemi gösterir **RegisterNewShard** , parça parça eşlemesinde kaydeder, şema EF geçişleri aracılığıyla dağıtır ve parça için bir parçalama anahtarı bir eşleme depolar. Bir oluşturucu üzerinde dayanır **DbContext** alt (**ElasticScaleContext** örnekteki), bir SQL bağlantı dizesi girdi olarak alır. Bu oluşturucu aşağıdaki örnekte gösterildiği gibi rahatça, koddur: 
 
-        // C'tor to deploy schema and migrations to a new shard 
-        protected internal ElasticScaleContext(string connectionString) 
-            : base(SetInitializerForConnection(connectionString)) 
-        { 
-        } 
+```csharp
+// C'tor to deploy schema and migrations to a new shard 
+protected internal ElasticScaleContext(string connectionString) 
+    : base(SetInitializerForConnection(connectionString)) 
+{ 
+} 
 
-        // Only static methods are allowed in calls into base class c'tors 
-        private static string SetInitializerForConnection(string connectionString) 
-        { 
-            // You want existence checks so that the schema can get deployed 
-            Database.SetInitializer<ElasticScaleContext<T>>( 
-        new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
+// Only static methods are allowed in calls into base class c'tors 
+private static string SetInitializerForConnection(string connectionString) 
+{ 
+    // You want existence checks so that the schema can get deployed 
+    Database.SetInitializer<ElasticScaleContext<T>>( 
+new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
 
-            return connectionString; 
-        } 
+    return connectionString; 
+} 
+```
 
 Bir temel sınıftan devralınan Oluşturucusu sürümünü kullanmış olabilirsiniz. Ancak EF için varsayılan Başlatıcı bağlanırken kullanıldığından emin olmak kodu gerekiyor. Bu nedenle kısa sapma içine bağlantı dizesiyle temel sınıf oluşturucusunu çağırma önce statik yöntem. Parçalar kaydını farklı uygulama etki alanı veya EF Başlatıcı ayarlarını çakışmasını emin olmak için işlemini çalışması gerektiğini unutmayın. 
 

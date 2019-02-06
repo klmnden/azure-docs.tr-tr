@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: b2f8a299dfc52bcc1f2eaa17e658b841d27bf62c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54154938"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747331"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box Disk sistem gereksinimleri
 
@@ -49,6 +49,10 @@ Linux istemcisi için aşağıdaki gerekli yazılımı Data Box Disk araç takı
 
 - dislocker
 - OpenSSL
+
+## <a name="supported-connection"></a>Desteklenen bağlantı
+
+İstemci bilgisayar verilerini içeren bir USB 3.0 veya üzeri bir bağlantı noktası olmalıdır. Diskleri bu istemci tarafından sağlanan kablosu kullanarak bağlanın. 
 
 ## <a name="supported-storage-accounts"></a>Desteklenen depolama hesapları
 

@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 79a7aad8cd747c3fdadcd0f7eec12d861f31fcc0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730518"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751948"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -108,7 +108,7 @@ Elinizin altında uygulamanız için en iyi bağlantı kuruluş elde etmek için
 
 Bir güvenlik duvarı erişimi sunucunuza bir dış varlık SQL veritabanı sunucunuza yalnızca belirli varlıklara erişimi vererek engeller. Varsayılan olarak, tüm bağlantılar ve SQL veritabanı sunucu içindeki veritabanlarına, diğer Azure hizmetlerinden gelen bağlantılar dışında izin verilmez. Bir güvenlik duvarı kuralı, bu bilgisayarın IP adresini güvenlik duvarı üzerinden izin vererek onayladığınız yalnızca varlıklara (örneğin, bir geliştirici makine), sunucunuza erişim açabilirsiniz. Ayrıca, SQL veritabanı sunucusuna erişmesine izin vermek istediğiniz IP aralığı belirtmenize olanak sağlar. Örneğin, geliştirici Makine IP adresleri kuruluşunuzdaki tek seferde Güvenlik Duvarı ayarları sayfasındaki bir aralığı belirterek eklenebilir.
 
-Sunucu düzeyinde veya veritabanı düzeyinde güvenlik duvarı kuralları oluşturabilirsiniz. Sunucu düzeyinde güvenlik duvarı kuralları ya da Azure portal veya ile SSMS kullanarak oluşturulabilir. Bir sunucu ve veritabanı düzeyinde güvenlik duvarı kuralı ayarlama hakkında daha fazla bilgi için bkz: [SQL veritabanı'nda güvenlik duvarı kuralları oluşturma](sql-database-security-tutorial.md#create-firewall-rules).
+Sunucu düzeyinde veya veritabanı düzeyinde güvenlik duvarı kuralları oluşturabilirsiniz. Sunucu düzeyi IP güvenlik duvarı kuralları ya da Azure portal veya ile SSMS kullanarak oluşturulabilir. Bir sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralı ayarlama hakkında daha fazla bilgi için bkz: [SQL veritabanı'nda IP güvenlik duvarı kuralları oluşturma](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Hizmet uç noktaları
 

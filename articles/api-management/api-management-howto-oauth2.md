@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967938"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746736"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>OAuth 2.0 kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme nasıl
 
@@ -51,9 +51,9 @@ Bu kılavuz, OAuth 2.0 yetkilendirme için geliştirici hesapları kullanmak iç
 
     ![OAuth 2.0 yeni sunucu](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. Sonraki bölümde form içeren **yetkilendirme kodu verme türleri**, **yetkilendirme uç noktası URL'si**, ve **yetkilendirme istek yöntemi** ayarları.
+4. Sonraki bölümde form içeren **yetkilendirme verme türleri**, **yetkilendirme uç noktası URL'si**, ve **yetkilendirme istek yöntemi** ayarları.
 
-    Belirtin **yetkilendirme kodu verme türleri** denetleyerek istenen türleri. **Yetkilendirme kodu** varsayılan olarak belirtilir.
+    Belirtin **yetkilendirme verme türleri** denetleyerek istenen türleri. **Yetkilendirme kodu** varsayılan olarak belirtilir.
 
     Girin **yetkilendirme uç noktası URL'si**. Azure Active Directory için bu URL'yi aşağıdaki URL'ye benzer olacaktır burada `<client_id>` uygulamanız OAuth 2.0 sunucusuna tanıtan istemci kimliği ile değiştirilir.
 
@@ -75,7 +75,7 @@ Bu kılavuz, OAuth 2.0 yetkilendirme için geliştirici hesapları kullanmak iç
 
     ![OAuth 2.0 yeni sunucu](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Varsa **yetkilendirme kodu verme türleri** ayarlanır **kaynak sahibi parolası**, **kaynak sahibi parola kimlik bilgileri** bölümü, bu kimlik bilgilerinin; belirtmek için kullanılır Aksi takdirde boş bırakabilirsiniz.
+    Varsa **yetkilendirme verme türleri** ayarlanır **kaynak sahibi parolası**, **kaynak sahibi parola kimlik bilgileri** bölümü, bu kimlik bilgilerini belirtmek için kullanılır; Aksi takdirde boş bırakabilirsiniz.
 
     Form tamamlandığında tıklayın **Oluştur** API Management OAuth 2.0 yetkilendirme sunucusu yapılandırmasını kaydetmek için. Sunucu yapılandırmasını kaydettikten sonra sonraki bölümde gösterildiği gibi bu yapılandırmayı kullanmak için API'ler yapılandırabilirsiniz.
 

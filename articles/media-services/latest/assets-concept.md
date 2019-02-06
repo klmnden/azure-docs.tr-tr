@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/01/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8507d51f0d4d49d89fc24b38ed73df7488261daa
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969584"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746005"
 ---
 # <a name="assets"></a>Varlıklar
 
@@ -27,25 +27,8 @@ Bir varlık, bir blob kapsayıcısını eşlendi [Azure depolama hesabı](storag
 
 **Arşiv** kodlama iş çıktısı bir çıkış blob kapsayıcısında koyulmuş ve depolama katmanı yalnızca zaten kodlanmış çok büyük kaynak dosyaları için önerilir. Bir varlık ve akış veya içeriğinizi çözümlemek için kullanım ile ilişkilendirmek istediğiniz çıkış kapsayıcıdaki blobları bulunması gereken bir **etkin** veya **seyrek erişimli** depolama katmanı.
 
-## <a name="asset-definition"></a>Varlık tanımı
-
-Aşağıdaki tabloda, varlık özelliklerini gösterir ve bunların tanımlarının verir.
-
-|Ad|Açıklama|
-|---|---|
-|id|Kaynak için tam kaynak kimliği.|
-|ad|Kaynak adı.|
-|properties.alternateId |Varlık alternatif kimliği.|
-|properties.assetId |Varlık Kimliği|
-|Properties.Container |Varlık blob kapsayıcısının adı.|
-|Properties.Created |Varlık oluşturma tarihi.<br/> DateTime her zaman UTC biçimindedir.|
-|Properties.Description|Varlık açıklaması.|
-|properties.lastModified |En son değiştirildiği tarih varlığı. <br/> DateTime her zaman UTC biçimindedir.|
-|properties.storageAccountName |Depolama hesabı adı.|
-|properties.storageEncryptionFormat |Varlık şifeleme biçimi. Bir None veya MediaStorageEncryption.|
-|type|Kaynak türü.|
-
-Tam tanımı için bkz: [varlıklar](https://docs.microsoft.com/rest/api/media/assets).
+> [!NOTE]
+> Datetime türündeki varlığın özellikleri her zaman UTC biçimindedir.
 
 ## <a name="upload-digital-files-into-assets"></a>Dijital dosyalar varlıklarına karşıya yükleme
 
@@ -104,113 +87,7 @@ Tam bir örnek için bkz: [yerel bir dosyadan iş girdisi oluşturma](job-input-
 
 ## <a name="filtering-ordering-paging"></a>Filtreleme, sıralama, sayfalama
 
-Media Services için varlıklar aşağıdaki OData sorgu seçeneklerini destekler: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-İşleç açıklaması:
-
-* EQ eşit =
-* Ne = eşit değil
-* Ge = büyüktür veya eşittir
-* Le = küçüktür veya eşittir
-* Gt = büyüktür
-* Lt = kısa
-
-### <a name="filteringordering"></a>Filtreleme ve sıralama
-
-Aşağıdaki tabloda bu seçeneklerin varlık özelliklerine nasıl uygulanabilir gösterilmektedir: 
-
-|Ad|Filtre|Sipariş verme|
-|---|---|---|
-|id|||
-|ad|Desteklediği Özel Uygulamalar: Eq, Gt, Lt|Desteklediği Özel Uygulamalar: Artan veya azalan|
-|properties.alternateId |Desteklediği Özel Uygulamalar: EQ||
-|properties.assetId |Desteklediği Özel Uygulamalar: EQ||
-|Properties.Container |||
-|Properties.Created|Desteklediği Özel Uygulamalar: Eq, Gt, Lt| Desteklediği Özel Uygulamalar: Artan veya azalan|
-|Properties.Description |||
-|properties.lastModified |||
-|properties.storageAccountName |||
-|properties.storageEncryptionFormat | ||
-|type|||
-
-Aşağıdaki C# örneği, oluşturulan tarih filtreleri:
-
-```csharp
-var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```
-
-### <a name="pagination"></a>Sayfalandırma
-
-Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 1000'dir.
-
-> [!TIP]
-> Koleksiyon listeleme ve belirli bir sayfa bağımlı olmadan her zaman sonraki bağlantısını kullanmanız gerekir.
-
-Sorgu yanıtına fazla öğe içeriyorsa, hizmet döndürür bir "\@odata.nextLink" sonraki sonuç sayfasını alınacağı özellik. Bu kullanılabilir sonuç kümesinin tamamı aracılığıyla sayfası. Sayfa boyutunu yapılandıramazsınız. 
-
-Varlıklar oluşturduysanız veya çalışırken disk belleği koleksiyonu aracılığıyla silindi (Bu değişiklikleri indirilmedi koleksiyonun parçası değilse) döndürülen sonuçlarda değişiklikler yansıtılır. 
-
-#### <a name="c-example"></a>C# örneği
-
-Aşağıdaki C# örneği, hesaptaki tüm varlıkları aracılığıyla listeleme gösterilmiştir.
-
-```csharp
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-#### <a name="rest-example"></a>REST örneği
-
-$Skiptoken kullanıldığı aşağıdaki örneği göz önünde bulundurun. Değiştirdiğiniz emin *amstestaccount* hesap adınız ve küme *api sürümü* en son sürüme değeri.
-
-Varlıklar listesi bu gibi istenmişse:
-
-```
-GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
-x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
-Content-Type: application/json; charset=utf-8
-```
-
-Bir yanıt şuna benzer ulaşırsınız:
-
-```
-HTTP/1.1 200 OK
- 
-{
-"value":[
-{
-"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-},
-// lots more assets
-{
-"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-}
-],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
-}
-```
-
-Ardından, bir get isteği göndererek sonraki sayfaya istek:
-
-```
-https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
-```
-
-Daha fazla diğer örnekler için bkz [varlıklar - liste](https://docs.microsoft.com/rest/api/media/assets/list)
+Bkz: [filtreleme, sıralama, Media Services varlıklarının sayfalandırma](entities-overview.md).
 
 ## <a name="storage-side-encryption"></a>Depolama tarafında şifreleme
 
@@ -228,6 +105,6 @@ Bekleyen veri varlıklarınızı korumanın varlıklar tarafından depolama tara
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)
-
-[Medya arasındaki farklar Hizmetleri v2 ve v3](migrate-from-v2-to-v3.md)
+* [Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)
+* [Bir bulut DVR kullanma](live-event-cloud-dvr.md)
+* [Medya arasındaki farklar Hizmetleri v2 ve v3](migrate-from-v2-to-v3.md)

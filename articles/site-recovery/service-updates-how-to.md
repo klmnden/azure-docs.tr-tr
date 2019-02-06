@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/8/2019
+ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3e5f84a6f05e451b1eafa98c373f9d838421016e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a497784a665c62d23a017b71acf709120e34c369
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229332"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746974"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery hizmeti güncelleştirmeleri
 Bir kuruluş olarak plansız kesintiler ve verilerinizin güvenliğini korumak için nasıl gideceğinizi ve Planlı çalışan uygulamaları/iş yüklerini out şekil yapmanız gerekir. Azure Site Recovery, Vm'leri ve fiziksel sunucuları bir site dışı kalırsa kullanılabilir çalışan uygulamalarınızı tutarak, BCDR stratejinize katkıda bulunur. Site Recovery, VM ve fiziksel sunucularda çalışan iş yüklerini çoğaltarak birincil sitenin kullanılamaz hale gelmesi durumunda bunların ikincil bir konumda kullanılabilir kalmasını sağlar. Birincil site yeniden çalışmaya başladığında birincil sitede iş yüklerini kurtarır.
@@ -97,10 +97,13 @@ El ile güncelleştirmeleri yönetmek seçtiğiniz durumda aşağıdaki adımlar
 
 ## <a name="between-an-on-premises-vmware-or-physical-site-to-azure"></a>Arasında bir şirket içi VMware veya fiziksel sitesinden azure'a
 
-1. Güncelleştirme ilk şirket içi yönetim sunucunuza yükleyin. Bu işlem sunucu rolleri ve yapılandırma sunucusu olan sunucusudur. 
-2. Genişleme işlem sunucusu varsa, bunları sonraki güncelleştirme.
-3. Azure portalına gidin ve ardından Git **korunan öğeler** > **çoğaltılan öğeler** sayfası.
-Bu sayfada bir VM'yi seçin. Seçin **Windows Update Aracısı** her VM için sayfanın en altında görünen düğme. Bu, tüm korunan vm'lerde Mobility Hizmeti Aracısı güncelleştirir.
+Güncelleştirmeler ile devam etmeden önce bkz [Site Recovery destek bildirimiyle](#support-statement-for-azure-site-recovery) yükseltme yolu anlamak için.
+
+1. Yukarıda verilen geçerli sürümü ve Destek Ekstrenizi bağlı olarak, ilk şirket içi yönetim sunucunuza verilen yönergeleri izleyerek güncelleştirmeyi [burada](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). Bu yapılandırma sunucusu ve işlem sunucusu olan sunucusudur.
+2. Genişleme işlem sunucuları, bunları aşağıdaki kuralları tarafından verilen sonraki güncelleştirme varsa [burada](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+3. Ardından, korunan her öğenin mobility aracısını güncelleştirmek için Azure portalına gidin ve ardından Git **korunan öğeler** > **çoğaltılan öğeler** sayfası. Bu sayfada bir VM'yi seçin. Seçin **Windows Update Aracısı** her VM için sayfanın en altında görünen düğme. Bu, tüm korunan vm'lerde Mobility Hizmeti Aracısı güncelleştirir.
+
+### <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>Mobility Aracısı yükselttikten sonra kaynak makineyi yeniden başlatın.
 
 Yeniden başlatma, Mobility Aracısı her bir yükseltmeden sonra tüm son değişiklikleri kaynak makinede yüklü olduğundan emin olmak için önerilir. Ancak **zorunlu**. Son yeniden başlatma sırasında aracı sürümü geçerli sürümü arasındaki fark, 4'ten büyükse, yeniden başlatma zorunludur. Ayrıntılı açıklaması için aşağıdaki tabloya bakın.
 
@@ -111,14 +114,12 @@ Yeniden başlatma, Mobility Aracısı her bir yükseltmeden sonra tüm son deği
 | 9.16 | 9.20 | Zorunlu değil
  | 9.16 | 9.21 | Evet, 9.20 için yükseltmeniz ve ardından yeniden sürümleri arasındaki fark olarak 9.21 için yükseltmeden önce (burada son yeniden başlatma işleminin gerçekleştirildiği 9.16 ve hedef sürümü 9.21) olan > 4,
 
-
-
 ## <a name="links-to-currently-supported-update-rollups"></a>Şu anda desteklenen güncelleştirme paketlerini bağlantılar
-
 
 |Güncelleştirme paketi  |Sağlayıcı  |Birleşik Kurulum| OVF  |MARS|
 |---------|---------|---------|---------|--------|
-|[Güncelleştirme paketi 32](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
+|[Güncelleştirme paketi 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
+|[Güncelleştirme paketi 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Güncelleştirme Paketi 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Güncelleştirme paketi 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[Güncelleştirme paketi 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0

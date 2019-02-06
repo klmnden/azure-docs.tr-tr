@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300195"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745563"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT kümesini yönetme
 
@@ -202,7 +202,7 @@ Küme düğümleri silmeye ek olarak, bu bileşenlerin kaldırılması göz ön�
 
 ### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Azure Portal'dan bir küme kaynak grubunu silme
 
-Küme için özel bir kaynak grubu oluşturduysanız, küme için tüm ilgili kaynakları kaynak grubu yok edilirken yok edebilir. 
+Özellikle küme barındırmak için bir kaynak grubu oluşturduysanız, küme için tüm ilgili kaynakları kaynak grubu yok edilirken yok edebilir. 
 
 > [!Caution] 
 > Hiçbir değer grubunda yer alıyor olması durumunda, yalnızca kaynak grubu yok. Örneğin, kaynak grubu içinde herhangi bir depolama kapsayıcılardan gerekli tüm verileri taşıdık emin olun.  

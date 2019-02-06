@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c398e615e943caad40040ff1b87713304fd9f015
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246543"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746719"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 güncelleştirme
 
@@ -153,6 +153,9 @@ Bu güncelleştirme, aşağıdaki yeni özellikleri ve Azure Stack için gelişt
 
 <!-- 3190553 - IS ASDK -->
 - Bir altyapı rol örneği kullanılamıyor veya ölçek birimi düğümü çevrimdışı gösteren gürültülü uyarıları oluşturan bir sorun düzeltildi.
+
+<!-- 2724961 - IS ASDK -->
+- Fiexed bir sorun, VM genel bakış sayfasında sanal makine ölçüm grafiği doğru bir şekilde gösteremez. 
 
 ## <a name="changes"></a>Değişiklikler
 
@@ -297,11 +300,6 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 <!-- 1662991 IS ASDK --> 
 - Linux VM tanılama Azure Stack'te desteklenmiyor. VM tanılaması etkin bir Linux sanal makinesi dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz, ayrıca dağıtım başarısız olur.  
-
-<!-- 2724961- IS ASDK --> 
-- Kaydettiğinizde **Microsoft.Insight** kaynak sağlayıcısındaki bir abonelik ayarları ve bir Windows VM konuk işletim sistemi etkin Tanılama ile oluşturma, VM genel bakış sayfasında CPU yüzdesi grafiğin Göster ölçüm verilerini yapar.
-
-   Sanal makine için CPU yüzdesi grafik gibi ölçüm verileri bulmak için Git **ölçümleri** penceresi ve desteklenen tüm Windows VM show Konuk ölçümleri.
 
 <!-- 3507629 - IS, ASDK --> 
 - Yönetilen diskler oluşturur iki yeni [kota türleri işlem](azure-stack-quota-types.md#compute-quota-types) sağlanabilir yönetilen diskler hizmetin maksimum kapasitesi sınırlamak için. Varsayılan olarak, 2048 GiB her yönetilen diskler kota türü için ayrılır. Ancak, aşağıdaki sorunlarla karşılaşabilirsiniz:

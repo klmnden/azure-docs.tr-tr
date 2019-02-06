@@ -11,16 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e4ea964600c03ce3f3b5b276ed02d12f573814bf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353048"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756504"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Bilgisayarları Log Analytics ağ geçidini kullanarak Internet erişimi olmadan bağlayın
+
+>[!NOTE]
+>Azure İzleyici sürekli geçiş Microsoft Operations Management Suite (OMS) gelen bir parçası olarak, OMS ağ geçidi için Log Analytics ağ geçidi olarak adlandırılır. 
+>
+
 Bu belge, Azure Otomasyonu ile iletişim yapılandırılacağını açıklar ve bağlı olduğunda doğrudan Log Analytics ağ geçidi kullanarak Log Analytics'e veya Operations Manager'ın izlenen bilgisayarların Internet erişimi yoktur.  HTTP HTTP CONNECT komutunu kullanarak tüneli destekleyen bir HTTP iletim proxy'si olan Log Analytics ağ geçidi, veri toplamak ve Log Analytics ve Azure Otomasyonu ile kendi adınıza gönderin.  
 
 Log Analytics gateway destekler:
@@ -146,7 +151,7 @@ Gereksinimler ve Log Analytics aracısını Windows bilgisayarları doğrudan Lo
 
 Ağ Geçidi sunucusunda aracıyı yükledikten sonra çalışma alanına veya çalışma alanları aracıları ağ geçidine Konuşmayı bildirmek için yapılandırabilirsiniz. Log Analytics Windows Aracısı ağ geçidinde yüklü değilse, olay 300 yazılan **OMS ağ geçidi günlüğüne** olay günlüğünü aracı belirten yüklü olması gerekir. Aracı yüklü ancak üzerinden iletişim kuran aracıları aynı çalışma alanına rapor için yapılandırılmamış, olay 105 ağ geçidi aracıda t için Konuşmayı aracıları aynı çalışma alanına rapor için yapılandırılması gerekir belirten aynı olay günlüğüne yazılır He ağ geçidi.
 
-Yapılandırmayı tamamladıktan sonra yeniden başlatmanız **OMS ağ geçidi** değişikliklerin etkili olması hizmet. Aksi takdirde, ağ geçidi Log Analytics ve rapor olay kimliği 105 ile iletişim kurmaya çalışan aracıları reddeder **OMS ağ geçidi günlüğüne** olay günlüğü. Eklediğinizde veya aracı yapılandırması Ağ Geçidi sunucusunda bir çalışma alanı kaldırmak için de geçerlidir.   
+Yapılandırmayı tamamladıktan sonra yeniden başlatmanız **OMS ağ geçidi** değişikliklerin etkili olması hizmet. Aksi takdirde, ağ geçidi Log Analytics ve rapor olayı kimliği 105 ile iletişim kurmaya çalışan aracıları reddeder **OMS ağ geçidi günlüğüne** olay günlüğü. Eklediğinizde veya aracı yapılandırması Ağ Geçidi sunucusunda bir çalışma alanı kaldırmak için de geçerlidir.   
 
 Otomasyon karma Runbook çalışanı için ilgili daha fazla bilgi için bkz: [karma Runbook çalışanı dağıtma](../../automation/automation-hybrid-runbook-worker.md).
 

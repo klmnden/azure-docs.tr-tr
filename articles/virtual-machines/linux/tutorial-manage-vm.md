@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466865"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749151"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Öğretici: Azure CLI ile Linux VM’leri Oluşturma ve Yönetme
 
@@ -40,7 +40,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. 
+[az group create](https://docs.microsoft.com/cli/azure/group) komutuyla bir kaynak grubu oluşturun. 
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir sanal makineden önce bir kaynak grubu oluşturulmalıdır. Bu örnekte, *eastus* bölgesinde *myResourceGroupVM* adlı bir kaynak grubu oluşturulur. 
 
@@ -52,7 +52,7 @@ Kaynak grubu, bu öğretici boyunca görülebileceği gibi bir VM oluşturulurke
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-[az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) komutuyla bir sanal makine oluşturun. 
+[az vm create](https://docs.microsoft.com/cli/azure/vm) komutuyla bir sanal makine oluşturun. 
 
 Bir sanal makine oluştururken, işletim sistemi görüntüsü, disk boyutlandırma ve yönetici kimlik bilgileri gibi çeşitli seçenekler bulunur. Aşağıdaki örnekte *myVM* adlı Ubuntu Server çalıştıran bir VM oluşturulur. VM’de *azureuser* adlı bir kullanıcı hesabı ve varsayılan anahtar konumunda (*~/.ssh*) mevcut değilse SSH anahtarları oluşturulur:
 
@@ -98,7 +98,7 @@ exit
 
 Azure market, VM oluşturmak için kullanılabilecek çok sayıda görüntü içerir. Önceki adımlarda, bir Ubuntu görüntüsünü kullanarak bir sanal makine oluşturduk. Bu adımda, markette bir CentOS görüntüsü aramak ve ikinci bir sanal makineyi dağıtmak üzere kullanmak için Azure CLI’si kullanılır. 
 
-Yaygın olarak kullanılan görüntülerin bir listesini görmek için, [az vm image list](/cli/azure/vm/image#az_vm_image_list) komutunu kullanın.
+Yaygın olarak kullanılan görüntülerin bir listesini görmek için, [az vm image list](/cli/azure/vm/image) komutunu kullanın.
 
 ```azurecli-interactive 
 az vm image list --output table
@@ -155,7 +155,7 @@ Bir sanal makinenin boyutu sanal makine tarafından kullanılabilen CPU, GPU ve 
 
 Aşağıdaki tabloda boyutlar kullanım durumlarına göre kategorilere ayrılmaktadır.  
 
-| Tür                     | Boyutlar           |    Açıklama       |
+| Type                     | Boyutlar           |    Açıklama       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Genel amaçlı](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Dengeli CPU/bellek. Küçük ve orta ölçekli uygulama ve veri çözümlerini geliştirmek/test etmek için idealdir.  |
 | [İşlem için iyileştirilmiş](sizes-compute.md)   | Fs, F             | Yüksek CPU/bellek. Orta düzey trafiğe sahip uygulamalar, ağ gereçleri ve toplu işlemler için idealdir.        |
@@ -167,7 +167,7 @@ Aşağıdaki tabloda boyutlar kullanım durumlarına göre kategorilere ayrılma
 
 ### <a name="find-available-vm-sizes"></a>Kullanılabilir VM boyutlarını bulma
 
-Belirli bir bölgede kullanılabilen VM boyutlarının listesini görmek için, [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) komutunu kullanın. 
+Belirli bir bölgede kullanılabilen VM boyutlarının listesini görmek için, [az vm list-sizes](/cli/azure/vm) komutunu kullanın. 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -198,7 +198,7 @@ Kısmi çıkış:
 
 ### <a name="create-vm-with-specific-size"></a>Belirli bir boyutta VM oluşturma
 
-Önceki VM oluşturma örneğinde, bir boyut sağlanmamış ve varsayılan boyut kullanılmıştı. [az vm create](/cli/azure/vm#az_vm_create) komutu ve `--size` bağımsız değişkenini kullanarak, oluşturma sırasında VM boyutu seçilebilir. 
+Önceki VM oluşturma örneğinde, bir boyut sağlanmamış ve varsayılan boyut kullanılmıştı. [az vm create](/cli/azure/vm) komutu ve `--size` bağımsız değişkenini kullanarak, oluşturma sırasında VM boyutu seçilebilir. 
 
 ```azurecli-interactive 
 az vm create \
@@ -217,12 +217,12 @@ VM dağıtıldıktan sonra, kaynak ayırmayı artırmak veya azaltmak için yeni
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Bir VM’yi yeniden boyutlandırmadan önce, istenen boyutun Azure kümesinde kullanılabilir olup olmadığını denetleyin. [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) komutu boyut listesini döndürür. 
+Bir VM’yi yeniden boyutlandırmadan önce, istenen boyutun Azure kümesinde kullanılabilir olup olmadığını denetleyin. [az vm list-vm-resize-options](/cli/azure/vm) komutu boyut listesini döndürür. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-İstenen boyut kullanılabilirse, VM açık durumdayken yeniden boyutlandırılabilir ancak işlem sırasında yeniden başlatılır. Yeniden boyutlandırmayı gerçekleştirmek için [az vm resize]( /cli/azure/vm#az_vm_resize) komutunu kullanın.
+İstenen boyut kullanılabilirse, VM açık durumdayken yeniden boyutlandırılabilir ancak işlem sırasında yeniden başlatılır. Yeniden boyutlandırmayı gerçekleştirmek için [az vm resize]( /cli/azure/vm) komutunu kullanın.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
@@ -264,7 +264,7 @@ Bir Azure VM’si birçok güç durumuna sahip olabilir. Bu durum VM’nin hiper
 
 ### <a name="find-the-power-state"></a>Güç durumunu bulma
 
-Belirli bir VM’nin durumunu almak için, [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) komutunu kullanın. Sanal makine ve kaynak grubu için geçerli bir ad belirttiğinizden emin olun. 
+Belirli bir VM’nin durumunu almak için, [az vm get-instance-view](/cli/azure/vm) komutunu kullanın. Sanal makine ve kaynak grubu için geçerli bir ad belirttiğinizden emin olun. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

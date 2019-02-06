@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9a96edbc70eeda8acee792a71d84b4a2c6c4fef8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828188"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745393"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 
@@ -33,7 +33,7 @@ Media Services şu anda aşağıdaki yerleşik Çözümleyicisi hazır destekler
 
 |**Önceden tanımlı ayar adı**|**Senaryo**|**Ayrıntılar**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlı bir dizi hazır geçerlidir. Şu anda hazır içerik tek bir ses kaydı ile işlenmesini destekler. Ses yükü için dil giriş 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz. Desteklenen bir dil olan İngilizce ('en-US' ve 'en-GB'), İspanyolca ('es-ES ' ve 'es-MX'), Fransızca ("fr-FR"), İtalyanca ('it-IT'), Japonca ('ja-JP'), Portekizce ('pt-BR'), Çince ('zh-CN'), Almanca ('de-DE'), Arapça ('ar-ÖRN'), Rusça ('ru-RU'), Hintçe ('Merhaba-IN' ) ve Kore dili ('ko-KR').<br/><br/> Dil değilse veya belirtilen için null değerler, otomatik dil algılama ayarlarsanız işe. Otomatik dil algılama özelliği, şu anda İngilizce, Çince, Fransızca, Almanca, İtalyanca, Japonca, İspanyolca, Rusça ve Portekizce destekler. Otomatik dil algılama özelliğini açıkça ölçek Konuşmayla sesli kayıtlar ile en iyi çalışır. Dil bulmak otomatik dil algılama başarısız olursa, döküm İngilizce'ye döner.|
+|**AudioAnalyzerPreset**|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlanmış bir dizi hazır geçerlidir. Şu anda hazır işleme içerikle tek bir dilde konuşma içeren tek bir ses kaydı destekler. Ses yükü için dil giriş 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz. Desteklenen bir dil olan İngilizce ('en-US' ve 'en-GB'), İspanyolca ('es-ES ' ve 'es-MX'), Fransızca ("fr-FR"), İtalyanca ('it-IT'), Japonca ('ja-JP'), Portekizce ('pt-BR'), Çince ('zh-CN'), Almanca ('de-DE'), Arapça ('ar-ÖRN'), Rusça ('ru-RU'), Hintçe ('Merhaba-IN' ) ve Kore dili ('ko-KR').<br/><br/> Dil değilse veya belirtilen için null değerler, otomatik dil algılama ayarlarsanız algılanan ilk dili seçin ve ile seçilen dile dosyayı süresi boyunca işlem. Otomatik dil algılama özelliği, şu anda İngilizce, Çince, Fransızca, Almanca, İtalyanca, Japonca, İspanyolca, Rusça ve Portekizce destekler. Şu anda ilk dil algılandıktan sonra diller arasında dinamik geçiş desteklemiyor. Otomatik dil algılama özelliğini açıkça anlaşılabilir Konuşmayla sesli kayıtlar ile en iyi çalışır. Dil bulmak otomatik dil algılama başarısız olursa, döküm İngilizce'ye döner.|
 |**VideoAnalyzerPreset**|Ses ve video analiz etme|Ses hem video öngörüleri (zengin meta veriler) ayıklar ve çıkaran bir JSON biçim dosyası. Yalnızca ses video dosyası işlenirken içgörü isteyip istemediğinizi belirtebilirsiniz. Daha fazla bilgi için [Çözümle video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

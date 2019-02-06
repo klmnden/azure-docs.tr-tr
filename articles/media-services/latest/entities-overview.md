@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services varlıkları genel bakış - Azure | Microsoft Docs
-description: Bu makalede, Azure Media Services varlıkları genel bir bakış sağlar.
+title: Filtreleme, sıralama, sayfalama Azure Media Services varlıklarının - Azure | Microsoft Docs
+description: Bu makalede, filtreleme, sıralama, sayfalama Azure Media Services varlıklarının açıklanmaktadır.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,27 +12,301 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3f3322245983508e374d081e5d7905f67344ad7a
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 4c6e3281bd2b37b60c8d165c6c3152e970a5ce32
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912655"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745105"
 ---
-# <a name="azure-media-services-entities-overview"></a>Azure Media Services varlıkları genel bakış
+# <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services varlıkların filtreleme, sıralama, sayfalama
 
-Bu makalede, her varlık, Media Services iş akışlarında nasıl kullanıldığı hakkında daha fazla bilgi için makaleler için Azure Media Services varlıkları ve noktaları kısa bir genel bakış verilmektedir. 
+## <a name="overview"></a>Genel Bakış
 
-| Konu | Açıklama |
-|---|---|
-| [Hesap filtreleri ve varlık filtreleri](filters-dynamic-manifest-overview.md)|İçeriğinizi müşterilere (Canlı etkinlik veya isteğe bağlı Video akışı) sunarken istemcinizi varsayılan varlığın bildirim dosyasında tanımlanan değerinden daha fazla esneklik gerekebilir. Azure Media Services, tanımlamanıza imkan tanır [hesap filtreleri](https://docs.microsoft.com/rest/api/media/accountfilters) ve [varlık filtreleri](https://docs.microsoft.com/rest/api/media/assetfilters). Ardından, **dinamik bildirimlerini** önceden tanımlanmış filtrelere göre. |
-| [Varlıklar](assets-concept.md)|Bir [varlık](https://docs.microsoft.com/rest/api/media/assets) varlık, dijital dosyalar (video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları dahil) ve bu dosyalar hakkındaki meta veriler içerir. Dijital dosyalar bir varlığa karşıya yüklendikten sonra medya kodlama, akış, içerik iş akışları çözümleme Hizmetleri'nde kullanılabilir.|
-| [İçerik anahtar ilkeleri](content-key-policy-concept.md)|Media Services, depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdaki güvenliğini sağlamak için kullanabilirsiniz. Media Services sayesinde, Gelişmiş Şifreleme Standardı (AES-128) veya üç ana dijital hak yönetimi (DRM) sistemlerinden ile dinamik olarak şifrelenmiş canlı ve isteğe bağlı içerik teslim edebilirsiniz: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere.|
-| [Canlı etkinlikler ve canlı çıkışları](live-events-outputs-concept.md)|Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağıtmanıza olanak sağlar. Media Services v3 sürümünde, canlı akış olayları yapılandırmak için hakkında bilgi edinmek gereken [Canlı olayları](https://docs.microsoft.com/rest/api/media/liveevents) ve [Canlı çıkışları](https://docs.microsoft.com/rest/api/media/liveoutputs).|
-| [Akış uç noktaları](streaming-endpoint-concept.md)|A [akış uç noktalarını](https://docs.microsoft.com/rest/api/media/streamingendpoints) varlık içeriği doğrudan bir istemci Yürütücü uygulamasına veya daha fazla dağıtım bir içerik teslim ağı'için (CDN) teslim eden bir akış hizmetini temsil eder. Bir akış uç noktası hizmetinden giden akış canlı akış ve isteğe bağlı varlığı Media Services hesabınızda olabilir. Bir Media Services hesabı oluşturduğunuzda bir **varsayılan** akış uç noktası, durdurulmuş durumda sizin için oluşturulur. Nelze odstranit **varsayılan** akış uç noktası. Ek akış uç noktaları hesap altında oluşturulabilir. Video akışını başlatmak için videonuzun akışını yapmak istediğiniz akış uç başlatmanız gerekir. |
-| [Akış bulucuları](streaming-locators-concept.md)|Kayıttan yürütme için kullanabileceğiniz bir URL ile istemcilerinize kodlanmış video veya ses dosyası sağlamanız gerekir, oluşturmanız gerekir. bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators) ve akış URL'leri oluşturun.|
-| [Akış ilkeleri](streaming-policy-concept.md)| [İlkeleri akış](https://docs.microsoft.com/rest/api/media/streamingpolicies) , akış protokolleri ve şifreleme seçeneklerini, StreamingLocators tanımlamanıza olanak sağlar. Özel akış oluşturduğunuz ilke adını belirtebilir veya önceden tanımlanmış akış Media Services tarafından sunulan ilkelerden birini kullanın. <br/><br/>Özel bir akış ilke kullanırken, medya hizmeti hesabınız için sınırlı sayıda tür ilkeleri tasarlayın ve protokolleri ve aynı şifreleme seçenekleri gerektiğinde bunları yeniden için akış Bulucular gerekir. Yeni bir akış ilke her akış Bulucu için oluşturduğunuz değil.|
-| [Dönüşümler ve işler](transforms-jobs-concept.md)|Kullanım [dönüştüren](https://docs.microsoft.com/rest/api/media/transforms) kodlama veya videoları analiz için ortak görevler yapılandırmak için. Her **dönüştürme** bir tarif veya bir iş akışı, video veya ses dosyalarını işlemek için görevler açıklanmaktadır.<br/><br/>A [iş](https://docs.microsoft.com/rest/api/media/jobs) uygulamak için Azure Media Services için fiili istek **dönüştürme** belirli bir giriş video veya ses içeriği için. **İş** konumun video giriş ve çıkış konumunu gibi bilgileri belirtir. Giriş video kullanarak konumu belirtebilirsiniz: HTTPS URL'leri, SAS URL'lerini veya bir varlık.|
+Media Services Media Services v3 varlıklar için aşağıdaki OData sorgu seçeneklerini destekler: 
+
+* $filter 
+* $orderby 
+* $top 
+* $skiptoken 
+
+İşleç açıklaması:
+
+* EQ eşit =
+* Ne = eşit değil
+* Ge = büyüktür veya eşittir
+* Le = küçüktür veya eşittir
+* Gt = büyüktür
+* Lt = kısa
+
+Datetime türü bir varlık özellikleri her zaman UTC biçimindedir.
+
+## <a name="page-results"></a>Sonuçlar sayfası
+
+Sorgu yanıtına fazla öğe içeriyorsa, hizmet döndürür bir "\@odata.nextLink" sonraki sonuç sayfasını alınacağı özellik. Bu kullanılabilir sonuç kümesinin tamamı aracılığıyla sayfası. Sayfa boyutunu yapılandıramazsınız. Sayfa boyutunu varlık türüne göre değişir. ayrı ayrı bölümlerde ayrıntıları için lütfen okuyun.
+
+Varlıkları oluşturduysanız veya çalışırken disk belleği koleksiyonu aracılığıyla silindi (Bu değişiklikleri indirilmedi koleksiyonun parçası değilse) döndürülen sonuçlarda değişiklikler yansıtılır. 
+
+> [!TIP]
+> Koleksiyon listeleme ve belirli bir sayfa bağımlı olmadan her zaman sonraki bağlantısını kullanmanız gerekir.
+
+## <a name="assets"></a>Varlıklar
+
+### <a name="filteringordering"></a>Filtreleme ve sıralama
+
+Aşağıdaki tablo nasıl filtreleme ve sıralama seçenekleri uygulanabilir gösterir [varlık](https://docs.microsoft.com/rest/api/media/assets) özellikleri: 
+
+|Ad|Filtre|Sipariş verme|
+|---|---|---|
+|id|||
+|ad|eq, gt, lt| Artan veya azalan|
+|properties.alternateId |EQ||
+|properties.assetId |EQ||
+|Properties.Container |||
+|Properties.Created| eq, gt, lt| Artan veya azalan|
+|Properties.Description |||
+|properties.lastModified |||
+|properties.storageAccountName |||
+|properties.storageEncryptionFormat | ||
+|type|||
+
+Aşağıdaki C# örneği, oluşturulan tarih filtreleri:
+
+```csharp
+var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
+```
+
+### <a name="pagination"></a>Sayfalandırma 
+
+Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 1000'dir.
+
+#### <a name="c-example"></a>C# örneği
+
+Aşağıdaki C# örneği, hesaptaki tüm varlıkları aracılığıyla listeleme gösterilmiştir.
+
+```csharp
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+#### <a name="rest-example"></a>REST örneği
+
+$Skiptoken kullanıldığı aşağıdaki örneği göz önünde bulundurun. Değiştirdiğiniz emin *amstestaccount* hesap adınız ve küme *api sürümü* en son sürüme değeri.
+
+Varlıklar listesi bu gibi istenmişse:
+
+```
+GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
+x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
+Content-Type: application/json; charset=utf-8
+```
+
+Bir yanıt şuna benzer ulaşırsınız:
+
+```
+HTTP/1.1 200 OK
+ 
+{
+"value":[
+{
+"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+},
+// lots more assets
+{
+"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+}
+],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
+}
+```
+
+Ardından, bir get isteği göndererek sonraki sayfaya istek:
+
+```
+https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
+```
+
+Daha fazla diğer örnekler için bkz [varlıklar - liste](https://docs.microsoft.com/rest/api/media/assets/list)
+
+## <a name="content-key-policies"></a>İçerik Anahtar İlkeleri
+
+### <a name="filteringordering"></a>Filtreleme ve sıralama
+
+Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [içerik anahtar ilkeleri](https://docs.microsoft.com/rest/api/media/contentkeypolicies) özellikleri: 
+
+|Ad|Filtre|Sipariş verme|
+|---|---|---|
+|id|||
+|ad|Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|Properties.Created |Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|Properties.Description |Eq, ne, ge, le, gt, lt||
+|properties.lastModified|Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|Properties.Options |||
+|properties.policyId|Eq, ne||
+|type|||
+
+### <a name="pagination"></a>Sayfalandırma
+
+Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 10'dur.
+
+Aşağıdaki C# örnek gösterir tüm numaralandırma **içerik anahtar ilkeleri** hesabı.
+
+```csharp
+var firstPage = await MediaServicesArmClient.ContentKeyPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.ContentKeyPolicies.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+Diğer örnekler için bkz [içerik anahtar ilkeleri - liste](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+
+## <a name="jobs"></a>İşler
+
+### <a name="filteringordering"></a>Filtreleme ve sıralama
+
+Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [işleri](https://docs.microsoft.com/rest/api/media/jobs) özellikleri: 
+
+| Ad    | Filtre                        | Sipariş verme |
+|---------|-------------------------------|-------|
+| ad                    | EQ            | Artan veya azalan|
+| Properties.State        | Eq, ne        |                         |
+| Properties.Created      | gt, lt, le ge| Artan veya azalan|
+| properties.lastModified | gt, lt, le ge | Artan veya azalan| 
+
+
+### <a name="pagination"></a>Sayfalandırma
+
+Sayfalandırma işleri, Media Services v3 sürümünde desteklenir.
+
+Aşağıdaki C# örnek hesabında, işlere numaralandırma gösterir.
+
+```csharp            
+List<string> jobsToDelete = new List<string>();
+var pageOfJobs = client.Jobs.List(config.ResourceGroup, config.AccountName, "Encode");
+
+bool exit;
+do
+{
+    foreach (Job j in pageOfJobs)
+    {
+        jobsToDelete.Add(j.Name);
+    }
+
+    if (pageOfJobs.NextPageLink != null)
+    {
+        pageOfJobs = client.Jobs.ListNext(pageOfJobs.NextPageLink);
+        exit = false;
+    }
+    else
+    {
+        exit = true;
+    }
+}
+while (!exit);
+
+```
+
+Diğer örnekler için bkz [işler - liste](https://docs.microsoft.com/rest/api/media/jobs/list)
+
+## <a name="streaming-locators"></a>Akış Bulucuları
+
+### <a name="filteringordering"></a>Filtreleme ve sıralama
+
+Aşağıdaki tabloda bu seçeneklerin StreamingLocator özelliklerine nasıl uygulanabilir gösterilmektedir: 
+
+|Ad|Filtre|Sipariş verme|
+|---|---|---|
+|id |||
+|ad|Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|properties.alternativeMediaId  |||
+|properties.assetName   |||
+|properties.contentKeys |||
+|Properties.Created |Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|properties.defaultContentKeyPolicyName |||
+|properties.endTime |Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|properties.startTime   |||
+|properties.streamingLocatorId  |||
+|properties.streamingPolicyName |||
+|type   |||
+
+### <a name="pagination"></a>Sayfalandırma
+
+Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 10'dur.
+
+Aşağıdaki C# örneği, hesaptaki tüm StreamingLocators aracılığıyla listeleme gösterilmiştir.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+Diğer örnekler için bkz [akış bulucuları - liste](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+
+## <a name="streaming-policies"></a>Akış İlkeleri
+
+### <a name="filteringordering"></a>Filtreleme ve sıralama
+
+Aşağıdaki tabloda bu seçeneklerin StreamingPolicy özelliklerine nasıl uygulanabilir gösterilmektedir: 
+
+|Ad|Filtre|Sipariş verme|
+|---|---|---|
+|id|||
+|ad|Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|properties.commonEncryptionCbcs|||
+|properties.commonEncryptionCenc|||
+|Properties.Created |Eq, ne, ge, le, gt, lt|Artan veya azalan|
+|properties.defaultContentKeyPolicyName |||
+|properties.envelopeEncryption|||
+|properties.noEncryption|||
+|type|||
+
+### <a name="pagination"></a>Sayfalandırma
+
+Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 10'dur.
+
+Aşağıdaki C# örneği, hesaptaki tüm StreamingPolicies aracılığıyla listeleme gösterilmiştir.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+Diğer örnekler için bkz [akış ilkeleri - liste](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+
+
+## <a name="transform"></a>Dönüşüm
+
+### <a name="filteringordering"></a>Filtreleme ve sıralama
+
+Aşağıdaki tabloda bu seçeneklerin nasıl uygulanabilir gösterilmektedir [dönüştüren](https://docs.microsoft.com/rest/api/media/transforms) özellikleri: 
+
+| Ad    | Filtre                        | Sipariş verme |
+|---------|-------------------------------|-------|
+| ad                    | EQ            | Artan veya azalan|
+| Properties.Created      | gt, lt, le ge| Artan veya azalan|
+| properties.lastModified | gt, lt, le ge | Artan veya azalan|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

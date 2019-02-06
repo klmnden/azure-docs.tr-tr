@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 0281186be4fae71c56b65327e0c67da3f252a33c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 614f8a3e3738e1c99f5a089410814765d278d3fe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239528"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743856"
 ---
 # <a name="validate-azure-registration"></a>Azure kaydı doğrula
  
@@ -67,6 +67,8 @@ Aşağıdaki önkoşulların karşılanması gerekir:
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
+> [!NOTE]
+  > Paylaşılan hizmetler veya IUR aboneliklerini kullanırken bir CSP, bu ilgili AAD'den bir kullanıcının kimlik bilgilerini sağlamanız gerekir. Genellikle bu şuna benzeyecektir `subscriptionowner@iurcontoso.onmicrosoft.com`. Bu kullanıcı olması uygun kimlik bilgileri, yukarıda açıklanan şekilde olmalıdır.
 
 3. PowerShell isteminden ayarlamak için aşağıdaki komutu çalıştırın `$subscriptionID` olarak kullanacağınız bir Azure aboneliği. Değiştirin `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` kendi abonelik kimliği:
    ```powershell

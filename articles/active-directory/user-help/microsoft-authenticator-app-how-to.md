@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 0616118274c3698c8f49e02f80dbfb5e2e818074
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4e83909c23dd5a1dd0768b099e2787d2306480f2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168180"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754362"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulamasını indirip
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
@@ -38,10 +38,7 @@ Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 
 - **Apple iOS.** App Store için yeni Apple iOS Cihazınızda Git [Microsoft Authenticator uygulamasını indirip](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
-- **Windows Phone.** İçin Microsoft Store, Windows Phone üzerinde Git [Microsoft Authenticator uygulamasını indirip](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fp%2Fmicrosoft-authenticator%2F9nblgggzmcj6).
-
-    >[!Note]
-    >Windows telefonlarda telefon oturum açma işlemini kullanamazsınız. Standart doğrulama işlemi açıklandığı gibi kullanmalısınız [iki aşamalı doğrulama ayarlayın](multi-factor-authentication-end-user-first-time.md) makalesi.
+    >[Önemli] Siz değil şu anda mobil Cihazınızda gibiyseniz, yine de Microsoft Authenticator uygulamasını kendiniz indirme bağlantı göndererek alabileceğiniz [Microsoft Authenticator sayfasına](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

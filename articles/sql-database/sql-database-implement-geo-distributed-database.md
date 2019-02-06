@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/10/2019
-ms.openlocfilehash: 086e1957c68c5864997c9df9213a0c82cbf4c852
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560762"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750350"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Öğretici: Coğrafi olarak dağıtılmış bir veritabanı uygulama
 
@@ -36,7 +36,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki öğeler yüklediğiniz emin olun:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - Bir Azure SQL veritabanı. Bir kullanım oluşturmak için
-  - [Portal](sql-database-get-started-portal.md)
+  - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -48,7 +48,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki öğeler yüklediğiniz emin olun:
 > [!IMPORTANT]
 > Bu öğreticideki adımları gerçekleştirdiğiniz bilgisayarın genel IP adresini kullanmak için güvenlik duvarı kurallarını ayarladığınızdan emin olun. Veritabanı düzeyinde güvenlik duvarı kuralları ikincil sunucuya otomatik olarak çoğaltır.
 >
-> Bilgi için [veritabanı düzeyinde güvenlik duvarı kuralı oluşturma](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) veya belirlemek için IP adresini bilgisayarınız için sunucu düzeyinde güvenlik duvarı kuralı için kullanılan bakın [sunucu düzeyinde güvenlik duvarı oluşturma](sql-database-get-started-portal-firewall.md).  
+> Bilgi için [veritabanı düzeyinde güvenlik duvarı kuralı oluşturma](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) veya belirlemek için IP adresini bilgisayarınız için sunucu düzeyinde güvenlik duvarı kuralı için kullanılan bakın [sunucu düzeyinde güvenlik duvarı oluşturma](sql-database-server-level-firewall-rule.md).  
 
 ## <a name="create-a-failover-group"></a>Bir yük devretme grubu oluşturma
 

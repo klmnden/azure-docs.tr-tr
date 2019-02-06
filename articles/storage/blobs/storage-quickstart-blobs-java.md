@@ -1,23 +1,26 @@
 ---
-title: Java depolama SDK'sı v7 sürümünü kullanarak Azure depolamada blob oluşturma | Microsoft Docs
+title: Java v7 için istemci kitaplığını kullanarak Azure Depolama'daki bir blob oluşturma | Microsoft Docs
 description: Nesne (Blob) depolamada depolama hesabı ve kapsayıcı oluşturun. Ardından Azure Depolama'ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek için Java v7 için Azure depolama istemci kitaplığı kullanın.
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 18ba3d70951cd59f59b566c8bfff2403a32e4874
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730468"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753223"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Karşıya yükleme, indirme ve Java SDK'sı v7 sürümünü kullanarak blobları Listele
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Karşıya yükleme, indirme ve Java v7 için istemci kitaplığını kullanarak blobları Listele
 
-Bu nasıl yapılır kılavuzunda Java yüklemek, indirmek ve Azure Blob depolamadaki bir kapsayıcıda blok bloblarını listelemek için nasıl kullanılacağını öğrenin.
+Bu nasıl yapılır kılavuzunda Java v7 karşıya yükleme, indirme ve Azure Blob depolamadaki bir kapsayıcıda blok bloblarını listesi için istemci kitaplığını kullanmayı öğrenin.
+
+> [!TIP]
+> Java için Azure depolama istemci Kitaplığı'nın en son sürümü v10 ' dir. Microsoft, mümkün olduğunda istemci Kitaplığı'nın en son sürümünü kullanmanızı önerir. V10 kullanmaya başlamak için bkz: [hızlı başlangıç: Karşıya yükleme, indirme ve Java için depolama SDK'sı V10 kullanarak blobları listeleme](storage-quickstart-blobs-java-v10.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -206,8 +209,6 @@ sourceFile.deleteOnExit();
 Bu makalede, dosyaları yerel bir disk ve Java kullanarak Azure Blob Depolama arasında aktarmayı öğrendiniz. Java ile çalışma hakkında daha fazla bilgi edinmek için GitHub kaynak kod depomuza devam edin.
 
 > [!div class="nextstepaction"]
-> [Java için Azure Depolama SDK'sı](https://github.com/azure/azure-storage-java) 
-> [API Başvurusu](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-> [Java için Kod Örnekleri](../common/storage-samples-java.md)
-
-* Depolama Gezgini ve Bloblar hakkında daha fazla bilgi için bkz. [Azure Blob depolama kaynaklarını Depolama Gezgini'yle yönetme](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> [Microsoft Azure depolama SDK'sı için Java v10](https://github.com/azure/azure-storage-java) 
+> [Java API Başvurusu](https://docs.microsoft.com/java/azure/)
+> [kodu için Java örnekleri](../common/storage-samples-java.md)

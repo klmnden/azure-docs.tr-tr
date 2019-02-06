@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: orspod
-ms.openlocfilehash: f492878ffcb888560d2aed269608950927cebd43
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8f2a7a953ce2964645c281d9454a73b0cf1a8ff6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55570045"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747197"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama
 
@@ -50,7 +50,7 @@ Azure Veri Gezgini bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** özelliği ayarlanmalıdır **AzureDataExplorer** | Evet |
-| endpoint | Uç nokta URL'si biçiminde Azure Veri Gezgini kümenin `https://<clusterName>.kusto.windows.net`. | Evet |
+| endpoint | Uç nokta URL'si biçiminde Azure Veri Gezgini kümenin `https://<clusterName>.<regionName>.kusto.windows.net `. | Evet |
 | veritabanı | Veritabanının adı. | Evet |
 | kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, Azure portalının sağ üst köşedeki fareyle gelerek alın. | Evet |
 | servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet |
@@ -64,7 +64,7 @@ Azure Veri Gezgini bağlı hizmeti için aşağıdaki özellikleri destekler:
     "properties": {
         "type": "AzureDataExplorer",
         "typeProperties": {
-            "endpoint": "https://<clusterName>.kusto.windows.net",
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
             "database": "<database name>",
             "tenant": "<tenant name/id e.g. microsoft.onmicrosoft.com>",
             "servicePrincipalId": "<service principal id>",
@@ -119,8 +119,8 @@ Azure veri Gezgini'nde verileri kopyalamak için ayarlanmış **türü** için k
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği kaynağı özelliği ayarlanmalıdır: **AzureDataExplorerSource** | Evet |
-| sorgu | Verileri okumak için özel KQL sorgu kullanın. | Evet |
-| queryTimeout | Sorgu isteği önceki bekleme süresi zaman aşımına belirtin. Varsayılan değer: 10 dakikalık (00: 10:00); izin verilen en yüksek değer olan 1 saat (01: 00:00). | Hayır |
+| sorgu | Verilen istek salt okunur bir [KQL biçimi](/azure/kusto/query/). Özel KQL sorgu referans olarak kullanın. | Evet |
+| queryTimeout | Sorgu isteği önceki bekleme süresi zaman aşımına uğradı. Varsayılan değer: 10 dakikalık (00: 10:00); izin verilen en yüksek değer olan 1 saat (01: 00:00). | Hayır |
 
 **Örnek:**
 
@@ -162,7 +162,7 @@ Verileri Azure veri Gezgini'ne kopyalamak için kopyalama etkinliği Havuz tür�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği havuz özelliği ayarlanmalıdır: **AzureDataExplorerSink** | Evet |
-| ingestionMappingName | Adını [csv eşleme](/azure/kusto/management/mappings#csv-mapping) tablosunda. Kaynaktan Azure verileri araştırmak için sütunları eşlemek için de kopyalama etkinliği kullanabilirsiniz [sütun eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
+| ingestionMappingName | Önceden oluşturulmuş adını [csv eşleme](/azure/kusto/management/mappings#csv-mapping) Kusto tablosunda. Kaynaktan Azure verileri araştırmak için sütunları eşlemek için de kopyalama etkinliği kullanabilirsiniz [sütun eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
 
 **Örnek:**
 

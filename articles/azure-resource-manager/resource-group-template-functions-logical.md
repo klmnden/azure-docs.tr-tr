@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8850ef68c665efcf9e66315af20b7d1e8492fc5f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 109bd1c987c86721c6064fc0294913c85fa3a901
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493771"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745580"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için mantıksal işlevler
 
@@ -34,9 +34,9 @@ Resource Manager şablonlarınızı karşılaştırmaları yapmak için çeşitl
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="and"></a>ve
-`and(arg1, arg2)`
+`and(arg1, arg2, ...)`
 
-Her iki parametre değerlerini true olup olmadığını denetler.
+Tüm parametre değerlerini true olup olmadığını denetler.
 
 ### <a name="parameters"></a>Parametreler
 
@@ -44,10 +44,11 @@ Her iki parametre değerlerini true olup olmadığını denetler.
 |:--- |:--- |:--- |:--- |
 | arg1 |Evet |boole |Denetlenecek ilk değer olup olmadığını geçerlidir. |
 | arg2 |Evet |boole |Kontrol edilecek ikinci değerle olmadığını geçerlidir. |
+| Ek bağımsız değişkenler |Hayır |boole |Denetlemek için ek bağımsız değişkenler olmadığını doğrudur. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** her iki değer ise true; Aksi takdirde **False**.
+Döndürür **True** tüm değerleri ise true; Aksi takdirde **False**.
 
 ### <a name="examples"></a>Örnekler
 
@@ -366,9 +367,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="or"></a>or
-`or(arg1, arg2)`
+`or(arg1, arg2, ...)`
 
-Her iki parametre değeri true olup olmadığını denetler.
+Herhangi bir parametre değer true olup olmadığını denetler.
 
 ### <a name="parameters"></a>Parametreler
 
@@ -376,10 +377,11 @@ Her iki parametre değeri true olup olmadığını denetler.
 |:--- |:--- |:--- |:--- |
 | arg1 |Evet |boole |Denetlenecek ilk değer olup olmadığını geçerlidir. |
 | arg2 |Evet |boole |Kontrol edilecek ikinci değerle olmadığını geçerlidir. |
+| Ek bağımsız değişkenler |Hayır |boole |Denetlemek için ek bağımsız değişkenler olmadığını doğrudur. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** ya da bir değerse true; Aksi takdirde **False**.
+Döndürür **True** herhangi bir değeri varsa true; Aksi takdirde **False**.
 
 ### <a name="examples"></a>Örnekler
 

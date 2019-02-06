@@ -9,101 +9,40 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f12632b20d516c81e21a50cfdda7e40d4163afc1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d9e86c45d535862e0c3d02b3f331bc40ebb7f6c7
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742227"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745130"
 ---
 # <a name="content-key-policies"></a>İçerik Anahtar İlkeleri
 
-Azure Media Services, depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdaki güvenliğini sağlamak için kullanabilirsiniz. Media Services sayesinde, Gelişmiş Şifreleme Standardı (AES-128) veya üç ana dijital hak yönetimi (DRM) sistemlerinden ile dinamik olarak şifrelenmiş canlı ve isteğe bağlı içerik teslim edebilirsiniz: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere.
+Media Services sayesinde, Gelişmiş Şifreleme Standardı (AES-128) veya üç ana dijital hak yönetimi (DRM) sistemlerinden ile dinamik olarak şifrelenmiş canlı ve isteğe bağlı içerik teslim edebilirsiniz: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere.
 
-Azure Media Services v3 içinde bir [içerik anahtarı ilke](https://docs.microsoft.com/rest/api/media/contentkeypolicies) istemcileri Media Services anahtar teslim bileşen aracılığıyla sonlandırmak için içerik anahtarını nasıl teslim edildiğini belirtmenize olanak sağlar. Daha fazla bilgi için [içerik korumaya genel bakış](content-protection-overview.md).
+Akışınız şifreleme seçeneklerini belirtmek için oluşturmanız gerekir [içerik anahtarı ilke](https://docs.microsoft.com/rest/api/media/contentkeypolicies) ilişkilendirin, **akış Bulucu**. **İçerik anahtarı ilke** aracılığıyla anahtar teslim bileşen Media Services'ın istemcileri sonlandırmak için içerik anahtarını nasıl teslim edildiğini yapılandırır. Media Services, içerik anahtarı otomatik sağlayabilirsiniz. Genellikle, uzun süreli bir anahtar ve Get ile ilkeleri bulunup bulunmadığını denetleyin. Anahtarı almak için parolaları veya kimlik bilgilerini almak için aşağıdaki örneğe bakın ayrı bir eylem yöntemini çağırmak gerekir.
 
-Aynı ContentKeyPolicy tüm varlıklarınızı yeniden olduğunu önerilir. Anahtar döndürme yapmak istiyorsanız sonra ya da yeni bir ContentKeyPolicyOption belirteç kısıtlamasına sahip mevcut ContentKeyPolicy yeni anahtarlarla ekleyebileceğiniz şekilde ContentKeyPolicies güncelleştirilebilir. Ya da birincil doğrulama anahtarı ve diğer doğrulama anahtarları mevcut ilke ve seçenek listesini güncelleştirebilirsiniz. Bu, güncelleştirme ve güncelleştirilmiş ilke çekme anahtar teslim önbellekleri 15 dakika kadar sürebilir.
+**İçerik anahtarı ilkeleri** güncelleştirilebilir. Örneğin, bir anahtar döndürme yapmanız gerekiyorsa ilkesini güncelleştirme isteyebilirsiniz. Birincil doğrulama anahtarı ve diğer doğrulama anahtarları mevcut ilkedeki listesini güncelleştirebilirsiniz. Bu, güncelleştirme ve güncelleştirilmiş ilke çekme anahtar teslim önbellekleri 15 dakika kadar sürebilir. 
 
-## <a name="contentkeypolicy-definition"></a>ContentKeyPolicy tanımı
+> [!IMPORTANT]
+> * Özelliklerini **içerik anahtar ilkeleri** DateTime türü her zaman UTC biçiminde olan.
+> * Medya hizmeti hesabınız için sınırlı sayıda ilkeleri tasarım ve aynı seçeneklere gerektiğinde, akış Bulucuyu için yeniden kullanabilirsiniz. 
 
-Aşağıdaki tabloda ContentKeyPolicy'nın özelliklerini gösterir ve bunların tanımlarının sağlar.
+## <a name="example"></a>Örnek
 
-|Ad|Açıklama|
-|---|---|
-|id|Kaynak için tam kaynak kimliği.|
-|ad|Kaynak adı.|
-|Properties.Created |İlke oluşturma tarihi|
-|Properties.Description |İlke için bir açıklama.|
-|properties.lastModified|İlkeyi son değiştirilme tarihi|
-|Properties.Options |Anahtar ilkesi seçenekleri.|
-|properties.policyId|Eski bir ilke kimliği|
-|type|Kaynak türü.|
+Anahtarı almak için kullanın **GetPolicyPropertiesWithSecretsAsync**aşağıdaki örnekte gösterildiği gibi.
 
-Tam tanımı için bkz [içerik anahtar ilkeleri](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 
 ## <a name="filtering-ordering-paging"></a>Filtreleme, sıralama, sayfalama
 
-Media Services için ContentKeyPolicies aşağıdaki OData sorgu seçeneklerini destekler: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-İşleç açıklaması:
-
-* EQ eşit =
-* Ne = eşit değil
-* Ge = büyüktür veya eşittir
-* Le = küçüktür veya eşittir
-* Gt = büyüktür
-* Lt = kısa
-
-### <a name="filteringordering"></a>Filtreleme ve sıralama
-
-Aşağıdaki tabloda bu seçeneklerin ContentKeyPolicies özelliklerine nasıl uygulanabilir gösterilmektedir: 
-
-|Ad|Filtre|Sipariş verme|
-|---|---|---|
-|id|||
-|ad|Eq, ne, ge, le, gt, lt|Artan veya azalan|
-|Properties.Created |Eq, ne, ge, le, gt, lt|Artan veya azalan|
-|Properties.Description |Eq, ne, ge, le, gt, lt||
-|properties.lastModified|Eq, ne, ge, le, gt, lt|Artan veya azalan|
-|Properties.Options |||
-|properties.policyId|Eq, ne||
-|type|||
-
-### <a name="pagination"></a>Sayfalandırma
-
-Sayfalandırma her dört etkin sıralama düzenleri desteklenir. Şu anda, sayfa boyutu 10'dur.
-
-> [!TIP]
-> Koleksiyon listeleme ve belirli bir sayfa bağımlı olmadan her zaman sonraki bağlantısını kullanmanız gerekir.
-
-Sorgu yanıtına fazla öğe içeriyorsa, hizmet döndürür bir "\@odata.nextLink" sonraki sonuç sayfasını alınacağı özellik. Bu kullanılabilir sonuç kümesinin tamamı aracılığıyla sayfası. Sayfa boyutunu yapılandıramazsınız. 
-
-ContentKeyPolicies oluşturduysanız veya çalışırken disk belleği koleksiyonu sildi (Bu değişiklikleri indirilmedi koleksiyonu içinde parçasıysa.) değişiklikler döndürülen sonuçlarda yansıtılır 
-
-Aşağıdaki C# örneği, hesaptaki tüm ContentKeyPolicies aracılığıyla listeleme gösterilmiştir.
-
-```csharp
-var firstPage = await MediaServicesArmClient.ContentKeyPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.ContentKeyPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-Diğer örnekler için bkz [içerik anahtar ilkeleri - liste](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+Bkz: [filtreleme, sıralama, Media Services varlıklarının sayfalandırma](entities-overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[AES-128 dinamik şifreleme ve anahtar teslim hizmetini kullanma](protect-with-aes128.md)
-
-[DRM dinamik şifreleme ve lisans teslimat hizmeti kullanın](protect-with-drm.md)
+* [AES-128 dinamik şifreleme ve anahtar teslim hizmetini kullanma](protect-with-aes128.md)
+* [DRM dinamik şifreleme ve lisans teslimat hizmeti kullanın](protect-with-drm.md)
+* [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)

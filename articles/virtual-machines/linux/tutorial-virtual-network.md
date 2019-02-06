@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 664dc101232ed092b76e2642ec94c6e7aa5e7a88
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e90880aeaae17c80d6714f917f2ea849c953711f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660574"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755417"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Öğretici: Oluşturma ve Azure CLI ile Linux sanal makineleri için Azure sanal ağları yönetme
 
@@ -60,7 +60,7 @@ Azure sanal ağları, sanal makineler ile İnternet ve Azure SQL veritabanı gib
 
 Bu öğreticide iki alt ağa sahip tek bir sanal ağ oluşturulur. Web uygulamasını barındırmak için bir ön uç alt ağı ve veritabanı sunucusunu barındırmak için bir arka uç alt ağı.
 
-Sanal ağ oluşturabilmek için önce [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte eastus konumunda *myRGNetwork* adlı bir kaynak grubu oluşturulmaktadır.
+Sanal ağ oluşturabilmek için önce [az group create](/cli/azure/group) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte eastus konumunda *myRGNetwork* adlı bir kaynak grubu oluşturulmaktadır.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -81,7 +81,7 @@ az network vnet create \
 
 ### <a name="create-subnet"></a>Alt ağ oluşturma
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) komutu kullanılarak sanal ağa yeni bir alt ağ eklenir. Bu örnekte alt ağ, *myBackendSubnet* olarak adlandırılmaktadır ve *10.0.2.0/24* adres öneki belirtilmiştir. Bu alt ağ tüm arka uç hizmetleriyle kullanılır.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet) komutu kullanılarak sanal ağa yeni bir alt ağ eklenir. Bu örnekte alt ağ, *myBackendSubnet* olarak adlandırılmaktadır ve *10.0.2.0/24* adres öneki belirtilmiştir. Bu alt ağ tüm arka uç hizmetleriyle kullanılır.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -103,11 +103,11 @@ Ayırma yöntemi statik olarak ayarlanabilir; bu yöntem, VM serbest bırakılsa
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-[az vm create](/cli/azure/vm#az_vm_create) komutu ile bir VM oluşturulduğunda varsayılan genel IP adresi ayırma yöntemi dinamiktir. [az vm create](/cli/azure/vm#az_vm_create) komutu kullanılarak bir sanal makine oluştururken statik genel IP adresi atamak için `--public-ip-address-allocation static` bağımsız değişkenini ekleyin. Bu işlem bu öğreticide gösterilmemektedir, ancak sonraki bölümde dinamik olarak ayrılan bir IP adresi statik olarak ayrılmış bir adrese dönüştürülecek. 
+[az vm create](/cli/azure/vm) komutu ile bir VM oluşturulduğunda varsayılan genel IP adresi ayırma yöntemi dinamiktir. [az vm create](/cli/azure/vm) komutu kullanılarak bir sanal makine oluştururken statik genel IP adresi atamak için `--public-ip-address-allocation static` bağımsız değişkenini ekleyin. Bu işlem bu öğreticide gösterilmemektedir, ancak sonraki bölümde dinamik olarak ayrılan bir IP adresi statik olarak ayrılmış bir adrese dönüştürülecek. 
 
 ### <a name="change-allocation-method"></a>Ayırma yöntemini değiştirme
 
-IP adresi ayırma yöntemi [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) komutu kullanılarak değiştirilebilir. Bu örnekte, ön uç VM’nin IP adresi ayırma yöntemi statik olarak değiştirilmektedir.
+IP adresi ayırma yöntemi [az network public-ip update](/cli/azure/network/public-ip) komutu kullanılarak değiştirilebilir. Bu örnekte, ön uç VM’nin IP adresi ayırma yöntemi statik olarak değiştirilmektedir.
 
 Öncelikle VM’yi serbest bırakın.
 
@@ -115,7 +115,7 @@ IP adresi ayırma yöntemi [az network public-ip update](/cli/azure/network/publ
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-Ayırma yöntemini güncelleştirmek için [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) komutunu kullanın. Bu durumda `--allocation-method`, *static* olarak ayarlanır.
+Ayırma yöntemini güncelleştirmek için [az network public-ip update](/cli/azure/network/public-ip) komutunu kullanın. Bu durumda `--allocation-method`, *static* olarak ayarlanır.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
@@ -133,7 +133,7 @@ az vm start --resource-group myRGNetwork --name myFrontendVM --no-wait
 
 ## <a name="create-a-front-end-vm"></a>Ön uç VM’si oluşturma
 
-[az vm create](/cli/azure/vm#az_vm_create) komutunu kullanarak *myPublicIPAddress* adresini kullanan *myFrontendVM* adlı bir VM oluşturun.
+[az vm create](/cli/azure/vm) komutunu kullanarak *myPublicIPAddress* adresini kullanan *myFrontendVM* adlı bir VM oluşturun.
 
 ```azurecli-interactive 
 az vm create \
@@ -165,7 +165,7 @@ NSG’ler için varsayılan kurallar şunlardır:
 
 ### <a name="create-network-security-groups"></a>Ağ güvenlik grupları oluşturma
 
-Ağ güvenlik grubu, [az vm create](/cli/azure/vm#az_vm_create) komutu kullanılarak VM ile aynı anda oluşturulabilir. Bu işlem yapıldığında NSG, VM ağ arabirimi ile ilişkilendirilir ve herhangi bir kaynaktan *22* numaralı bağlantı noktası üzerinden gelen trafiğe izin veren NSG kuralı otomatik olarak oluşturulur. Bu öğreticinin önceki bölümlerinde ön uç NSG’si ön uç VM’si ile otomatik oluşturulmuştu. Ayrıca 22 numaralı bağlantı noktası için bir NSG kuralı otomatik olarak oluşturulmuştu. 
+Ağ güvenlik grubu, [az vm create](/cli/azure/vm) komutu kullanılarak VM ile aynı anda oluşturulabilir. Bu işlem yapıldığında NSG, VM ağ arabirimi ile ilişkilendirilir ve herhangi bir kaynaktan *22* numaralı bağlantı noktası üzerinden gelen trafiğe izin veren NSG kuralı otomatik olarak oluşturulur. Bu öğreticinin önceki bölümlerinde ön uç NSG’si ön uç VM’si ile otomatik oluşturulmuştu. Ayrıca 22 numaralı bağlantı noktası için bir NSG kuralı otomatik olarak oluşturulmuştu. 
 
 Bazı durumlarda, örneğin varsayılan SSH kurallarının oluşturulmaması gerektiğinde veya NSG’nin bir alt ağa eklenmesi gerektiğinde NSG’yi önceden oluşturmak yararlı olabilir. 
 
@@ -191,7 +191,7 @@ az network vnet subnet update \
 
 Ön uç VM’si oluşturulduğunda 22 numaralı bağlantı noktasından gelen trafiğe izin veren bir NSG kuralı oluşturulur. Bu kural, VM ile SSH bağlantısı kurulmasına izin verir. Bu örnekte aynı zamanda *80* numaralı bağlantı noktasındaki trafiğe de izin verilmelidir. Bu yapılandırma VM’den web uygulamasına erişilmesine izin verir.
 
-*80* numaralı bağlantı noktası için bir kural oluşturmak üzere [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) komutunu kullanın.
+*80* numaralı bağlantı noktası için bir kural oluşturmak üzere [az network nsg rule create](/cli/azure/network/nsg/rule) komutunu kullanın.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -218,7 +218,7 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG -
 
 Ağ güvenlik grubu kuralları VM’ler arasında da uygulanabilir. Bu örnekte ön uç VM’sinin arka uç VM’siyle *22* ve *3306* numaralı bağlantı noktalarından iletişim kurması gerekiyor. Bu yapılandırma, ön uç VM’sinden SSH bağlantısı kurulmasına ve ön uçtaki bir uygulamanın arka uç MySQL veritabanı ile iletişim kurmasına izin verir. Diğer trafiğin tümünün ön uç ve arka uç sanal makineleri arasında engellenmesi gerekir.
 
-22 numaralı bağlantı noktası için bir kural oluşturmak üzere [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) komutunu kullanın. `--source-address-prefix` bağımsız değişkenin *10.0.1.0/24* değerini belirttiğini görebilirsiniz. Bu yapılandırma NSG’de yalnızca ön uç alt ağından gelen trafiğe izin verilmesini sağlar.
+22 numaralı bağlantı noktası için bir kural oluşturmak üzere [az network nsg rule create](/cli/azure/network/nsg/rule) komutunu kullanın. `--source-address-prefix` bağımsız değişkenin *10.0.1.0/24* değerini belirttiğini görebilirsiniz. Bu yapılandırma NSG’de yalnızca ön uç alt ağından gelen trafiğe izin verilmesini sağlar.
 
 ```azurecli-interactive 
 az network nsg rule create \

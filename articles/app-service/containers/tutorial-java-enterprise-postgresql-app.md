@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a6e6dfb70182d8b4924a184dcebd1d06695911a5
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539735"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747025"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Öğretici: Azure'da bir Java EE ve Postgres web uygulaması oluşturma
 
-Bu öğreticide, Azure App Service'te bir Java Enterprise Edition (EE) web uygulaması oluşturma ve Postgres veritabanına bağlanmak nasıl gösterilmektedir. İşlemi tamamladığınızda, olacaktır bir [WildFly](https://www.wildfly.org/about/) veri depolarken uygulama [Postgres için Azure veritabanı](https://azure.microsoft.com/services/postgresql/) Azure üzerinde çalışan [Linux için App Service](app-service-linux-intro.md).
+Bu öğreticide, Azure App Service'te bir Java Enterprise Edition (EE) web uygulaması oluşturma ve Postgres veritabanına bağlanmak nasıl gösterilmektedir. İşlemi tamamladığınızda, olacaktır bir [WildFly](https://www.wildfly.org/about/) veri depolarken uygulama [Postgres için Azure veritabanı](https://azure.microsoft.com/services/postgresql/) Azure üzerinde çalışan [Linux üzerinde App Service'te](app-service-linux-intro.md).
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
@@ -50,40 +50,24 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### <a name="update-the-maven-pom"></a>Maven POM güncelleştir
 
-Maven POM istenilen adı ve kaynak grubu, App Service ile güncelleştirin. Bu değerleri aşağı ayrıntılı olarak Azure eklentisi içine eklenen _pom.xml_ dosya. App Service planı veya örnek önceden oluşturmanız gerekmez. Maven plugin, zaten yoksa, App Service ve kaynak grubu oluşturur.
+Maven Azure eklentisi, istenen adı ve kaynak grubu, App Service ile güncelleştirin. App Service planı veya örnek önceden oluşturmanız gerekmez. Maven plugin, zaten yoksa, App Service ve kaynak grubu oluşturur. 
 
-Aşağı kaydırarak `<plugins>` bölümünü _pom.xml_ Azure eklentisi incelemek için. Bölümünü `<plugin>` yapılandırmasında _pom.xml_ için azure-webapp-maven-eklentisi aşağıdaki yapılandırmayı içermelidir:
+Aşağı kaydırarak `<plugins>` bölümünü _pom.xml_, değişiklik yapmak için 200 satır. 
 
 ```xml
-      <!--*************************************************-->
-      <!-- Deploy to WildFly in App Service Linux           -->
-      <!--*************************************************-->
- 
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.0</version>
-        <configuration>
- 
-          <!-- Web App information -->
-          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
-          <appName>${WEBAPP_NAME}</appName>
-          <region>${REGION}</region>
- 
-          <!-- Java Runtime Stack for Web App on Linux-->
-          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
- 
-        </configuration>
-      </plugin>
+<!-- Azure App Service Maven plugin for deployment -->
+<plugin>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-webapp-maven-plugin</artifactId>
+  <version>${version.maven.azure.plugin}</version>
+  <configuration>
+    <appName>YOUR_APP_NAME</appName>
+    <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup>
+    <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+  ...
+</plugin>  
 ```
-
-Yer tutucuları, istenen kaynak adlarınızla değiştirin:
-```xml
-<azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
-<azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
-```
-
+Değiştirin `YOUR_APP_NAME` ve `YOUR_RESOURCE_GROUP` App Service ve kaynak grubunuzun adlarına sahip.
 
 ## <a name="build-and-deploy-the-application"></a>Uygulama derleme ve dağıtma
 
@@ -139,12 +123,27 @@ Portal ve arama Postgres veritabanı göz atın. Yedekleme dikey penceresinde ol
 
 ### <a name="add-postgres-credentials-to-the-pom"></a>İçin POM Postgres kimlik bilgilerini ekleyin
 
-İçinde _pom.xml_ yer tutucu değerlerini Postgres sunucu adı, yönetici oturum açma adı ve parola ile değiştirin. Uygulamayı yeniden dağıtırken bu değerleri, App Service örneğinde ortam değişkenleri olarak eklenecek.
+İçinde _pom.xml_, büyük harflerle yazılan ifadeler yer tutucu değerlerini Postgres sunucu adı, yönetici oturum açma adı ve parola ile değiştirin. Bu alanlar Azure Maven Plugin içinde olur. (Değiştirdiğinizden emin olun `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`, ve `YOUR_PG_PASSWORD` içinde `<value>` ... etiketleri içinde değil `<name>` etiketleri!)
 
 ```xml
-<azure.plugin.postgres-server-name>SERVER_NAME</azure.plugin.postgres-server-name>
-<azure.plugin.postgres-username>USERNAME@FIRST_PART_OF_SERVER_NAME</azure.plugin.postgres-username>
-<azure.plugin.postgres-password>PASSWORD</azure.plugin.postgres-password>
+<plugin>
+      ...
+      <appSettings>
+      <property>
+        <name>POSTGRES_CONNECTIONURL</name>
+        <value>jdbc:postgresql://YOUR_SERVER_NAME:5432/postgres?ssl=true</value>
+      </property>
+      <property>
+        <name>POSTGRES_USERNAME</name>
+        <value>YOUR_PG_USERNAME</value>
+      </property>
+      <property>
+        <name>POSTGRES_PASSWORD</name>
+        <value>YOUR_PG_PASSWORD</value>
+      </property>
+    </appSettings>
+  </configuration>
+</plugin>
 ```
 
 ### <a name="update-the-java-transaction-api"></a>Java API işlem güncelleştir
@@ -161,9 +160,9 @@ Ardından, böylece daha önce kullandığımız bellek içi H2 veritabanı yeri
 
 Yeniden yapılandırılan uygulamamız dağıtmadan önce biz WildFly uygulama sunucusu Postgres modülü ve bağımlılıkları ile güncelleştirmeniz gerekir. Sunucuyu yapılandırmak için şu dört dosyalarında gerekir `wildfly_config/` dizini:
 
-- **postgresql 42.2.5.jar**: Bu JAR Dosyası Postgres için JDBC sürücüsü içindir. Daha fazla bilgi için [resmi Web sitesi](https://jdbc.postgresql.org/index.html).
+- **postgresql-42.2.5.jar**: Bu JAR Dosyası Postgres için JDBC sürücüsü içindir. Daha fazla bilgi için [resmi Web sitesi](https://jdbc.postgresql.org/index.html).
 - **postgres module.xml**: Bu XML dosyası (org.postgres) Postgres modül için bir ad bildirir. Ayrıca, kullanılacak modülü için gerekli olan bağımlılıklar ve kaynakları belirtir.
-- **jboss_cli_commands.CL**: Bu dosya, JBoss CLI tarafından yürütülecek yapılandırma komutları içerir. Komutlar Postgres modülü WildFly uygulama sunucusuna ekleyin, kimlik bilgilerini sağlayın, JNDI adı bildirmek, vb. zaman aşımı eşiği. JBoss CLI ile alışkın değilseniz bkz [resmi belgelerine](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **jboss_cli_commands.cl**: Bu dosya, JBoss CLI tarafından yürütülecek yapılandırma komutları içerir. Komutlar Postgres modülü WildFly uygulama sunucusuna ekleyin, kimlik bilgilerini sağlayın, JNDI adı bildirmek, vb. zaman aşımı eşiği. JBoss CLI ile alışkın değilseniz bkz [resmi belgelerine](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
 - **startup_script.sh**: Son olarak, App Service örneği başlatıldığında bu kabuk betiği yürütülür. Komut dosyası, yalnızca tek bir işlevi gerçekleştirir: komutlar akışkan `jboss_cli_commands.cli` JBoss CLI için.
 
 Bu dosyaların içeriğini özellikle okuma önerisi _jboss_cli_commands.cli_.

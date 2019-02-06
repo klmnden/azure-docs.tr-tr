@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi
-ms.openlocfilehash: a6beba81bf76549010bbf586cfbd0f018ee0a0dd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 853ca60ac10272062a1eb61c5f8763e4d9e120f7
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166620"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55748225"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure Multi-Factor Authentication benim için ne anlam ifade ediyor?
 BT ekibinizden veya patronunuzdan hesabınıza ek bir güvenlik doğrulaması eklendiğine dair bir e-posta aldınız.  Bu ne anlama geliyor?
@@ -44,4 +44,4 @@ Başlamak için aşağıdaki konulardan birini seçin.
 | [Oturum açma deneyimi](multi-factor-authentication-end-user-signin.md) |Telefon veya uygulama gibi farklı yöntemleri seçtiğinizde oturum açma sırasında nelerle karşılaşabileceğinizi gösterir. |
 | [Ayarlarınızı değiştirme](multi-factor-authentication-end-user-manage-settings.md) |Telefon numarası veya tercih edilen kayıt yöntemi gibi ayarları nasıl değiştirebileceğinizi gösterir. |
 | [Uygulama parolaları konusunda yardım](multi-factor-authentication-end-user-app-passwords.md) |Uygulama parolası oluşturma veya kullanma hakkında bilgi edinin. |
-| [Mobil uygulamayı kullanma](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilir. |
+| [Mobil uygulamayı kullanma](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator uygulamasını kullanılabilir [Android](https://go.microsoft.com/fwlink/?linkid=866594) ve [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|

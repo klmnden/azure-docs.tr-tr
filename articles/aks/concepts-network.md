@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: d71360d830ab7b90a8d91e6d17c7a3698d8fca5c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 624e49cb0b211139a70d0262fbb8500deef8bf5b
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692588"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744867"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ağ kavramları
 
@@ -68,7 +68,7 @@ AKS, aşağıdaki iki ağ modelleri birini kullanan bir küme dağıtabilirsiniz
 
 *Kubernetes* olan AKS kümesi oluşturma için varsayılan yapılandırma seçeneği ağ. İle *kubernetes*, düğümler, Azure sanal ağ alt ağından bir IP adresi alın. Pod'ların, düğümler Azure sanal ağ alt ağına mantıksal olarak farklı adres alanından bir IP adresi alır. Ağ adresi çevirisi (NAT), ardından pod'ları Azure sanal ağındaki kaynaklara erişebilmesi için yapılandırılır. Trafiği kaynak IP adresini, NAT düğümün birincil IP başvuracağını ' dir.
 
-Düğümleri kullanma [kubernetes] [ kubenet] Kubernetes eklentisi. Azure platformu oluşturun ve sanal ağları yapılandırmanız veya varolan bir sanal ağ alt ağı, AKS kümesi dağıtmayı tercih izin verebilirsiniz. Yeniden yalnızca AKS kümesi dışında diğer kaynaklarla iletişim için NAT yönlendirilebilir bir IP adresi ve pod'ları alma düğümleri kullanın. Bu yaklaşım ağ alanınıza kullanmak pod'ları ayırmanız gerekir IP adresi sayısını önemli ölçüde azaltır.
+Düğümleri kullanma [kubernetes] [ kubenet] Kubernetes eklentisi. Azure platformu oluşturun ve sanal ağları yapılandırmanız veya varolan bir sanal ağ alt ağı, AKS kümesi dağıtmayı tercih izin verebilirsiniz. Yeniden yönlendirilebilir bir IP adresi ve pod'ları alma yalnızca NAT AKS kümesi dışında diğer kaynaklarla iletişim kurmak için kullanın. Bu yaklaşım ağ alanınıza kullanmak pod'ları ayırmanız gerekir IP adresi sayısını önemli ölçüde azaltır.
 
 Daha fazla bilgi için [kubernetes AKS kümesi için ağ yapılandırma][aks-configure-kubenet-networking].
 

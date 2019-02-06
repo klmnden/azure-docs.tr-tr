@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 1/15/2019
+ms.date: 2/4/2019
 ms.author: moderakh
-ms.openlocfilehash: 760a54a09dd612cef93de0de1e8ac2fd59b04b26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 15bab6af4054085d00ec5c2edb7afb993a620b55
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329387"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756266"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -50,6 +50,13 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-Beta-1
+* Doğrudan desteği eklendi.
+* Java.util.Collection sipariş java.util.List yerine kabul etmek önemli kabul API'leri değiştirildi.
+  Artık ConnectionPolicy#getPreferredLocations() JsonSerialization ve PartitionKey(.) listesini kabul eder.
+* Ağ geçidi modunda belge sorgu için oturumu düzeltildi.
+* Yükseltme bağımlılıkları (netty 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79), RxJava 1.3.8).
 
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
 * Çok büyük sorgu yanıtları işleme giderir.
@@ -130,6 +137,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.4.0-Beta-1](#2.4.0-beta-1) |4 Şubat 2019|--- |
 | [2.3.1](#2.3.1) |15 Ocak 2019|--- |
 | [2.3.0](#2.3.0) |29 Kasım 2018|--- |
 | [2.2.2](#2.2.2) |8 Kasım 2018|--- |

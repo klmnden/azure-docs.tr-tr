@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6f49eb0359db6184b5ecd146d7328a64611a9f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e6da35eeb98d4017baae6aa2c8e19fa3f9d5ac1b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245577"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752577"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code için Azure Machine Learning'i kullanmaya başlayın
 
@@ -23,7 +23,7 @@ Bu makalede, nasıl yükleneceğini öğreneceksiniz **Visual Studio Code için 
 
 Azure Machine Learning uzantısı, veri, eğitin ve test makine öğrenimi modellerini yerel ve uzak işlem hedeflerde hazırlama, bu modelleri dağıtma ve özel Ölçümler ve deneyler izlemek için Azure Machine Learning hizmeti kullanmak için Visual Studio code'da kullanın.
 
-## <a name="prerequisite"></a>Önkoşul
+## <a name="prerequisites"></a>Önkoşullar
 
 
 + Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
@@ -60,19 +60,17 @@ Azure Machine Learning ile çalışmak için Python IDE'ye VS Code etkinleştirm
 > [!Tip] 
 > Kullanıma [Intellicode uzantısı VS Code (Önizleme) için](https://go.microsoft.com/fwlink/?linkid=2006060). Intellicode geçerli kod bağlama göre en uygun Otomatik Tamamlama çıkarımını yapma gibi IntelliSense Python için bir dizi yapay ZEKA destekli özelliği sağlar.
 
-## <a name="install-the-sdk"></a>SDK yükle
+## <a name="azure-ml-sdk-installation"></a>Azure ML SDK'sını yükleme
 
 1. Python 3.5 veya üzeri yüklü ve VS Code tarafından tanınan olduğundan emin olun. Şimdi yüklemek, VS Code'u yeniden başlatın ve bölümündeki yönergeleri kullanarak bir Python yorumlayıcısı seçin https://code.visualstudio.com/docs/python/python-tutorial.
-
-1. VS Code'da komut paletini açın **Ctrl + Shift + P**.
-
-1. Türü 'Azure ML pip bulmak için SDK'sını Yükle' için SDK yükleme komutu. Azure Machine Learning ile çalışmak için Visual Studio Code önkoşullarına sahiptir yerel ve özel bir Python ortamı oluşturulur.
-
-   ![Python için Azure Machine Learning SDK'sını yükleyin](./media/vscode-tools-for-ai/install-sdk.png)
 
 1. Tümleşik terminal penceresinde, kullanılacak Python yorumlayıcısı belirtin ya da ziyaret **Enter** , varsayılan Python yorumlayıcısı kullanılacak.
 
    ![Yorumlayıcı seçin](./media/vscode-tools-for-ai/python.png)
+
+1. Penceresinin sağ alt köşesinde Azure ML SDK'sını otomatik olarak yüklü olduğunu belirten bir bildirim görüntülenir.    Azure Machine Learning ile çalışmak için Visual Studio Code önkoşullarına sahiptir yerel ve özel bir Python ortamı oluşturulur.
+
+   ![Python için Azure Machine Learning SDK'sını yükleyin](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Azure Machine Learning kullanmaya başlayın
 

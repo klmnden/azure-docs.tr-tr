@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 587303e8be4155b1b01228ad4606829ad8921560
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f336f6fdb5cde638fe62d1410a9f993492be21ed
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436595"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747569"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 
@@ -184,7 +184,6 @@ ms.locfileid: "54436595"
 [planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058
 [planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77
 [planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
 [planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a
 [planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358
@@ -339,35 +338,31 @@ Belgede aşağıdaki terimleri kullanırız:
 * Iaas: Hizmet olarak altyapı
 * PaaS: Hizmet olarak Platform
 * SaaS: Bir hizmet olarak yazılım
-* SAP bileşeni: tek bir SAP uygulamayı ECC, BW, çözüm Yöneticisi veya EP'deki gibi  SAP bileşenleri geleneksel ABAP veya Java teknolojileri ya da bir olmayan-NetWeaver tabanlı uygulama iş nesneleri gibi temel alabilir.
+* SAP bileşeni: tek bir SAP uygulamayı ECC, BW, çözüm Yöneticisi veya S/4HANA gibi.  SAP bileşenleri geleneksel ABAP veya Java teknolojileri ya da bir olmayan-NetWeaver tabanlı uygulama iş nesneleri gibi temel alabilir.
 * SAP ortamı: bir veya daha fazla SAP bileşenleri geliştirme, QAS, eğitim, DR veya üretim gibi bir iş işlevi gerçekleştirmek için mantıksal olarak gruplandırılır.
 * SAP ortamı: Bu terim, bir müşterinin tamamı SAP varlıkları başvurduğu BT yatay. SAP ortamı, tüm üretim ve üretim dışı ortamlar içerir.
 * SAP sistemi: DBMS katmanı ve uygulama katmanı, örneğin, bir SAP ERP geliştirme sisteminin, SAP BW test sistemi, SAP CRM üretim sistemine vb. birleşimi. Azure dağıtımında, bu iki katmanı şirket içi ile Azure arasında bölmek için desteklenmiyor. Şirket içi anlamına gelir bir SAP sistemiyle ya da dağıtılmış veya Azure'da dağıtılır. Ancak, Azure veya şirket içine bir SAP ortamının farklı sistemleri dağıtabilirsiniz. Örneğin, SAP CRM geliştirme dağıtma ve Azure ancak SAP CRM üretim sistemi şirket içi sistemleri test edin.
-* Yalnızca bulutta yer alan dağıtım: Bir dağıtım olduğu Azure aboneliğini bir siteden siteye veya ExpressRoute bağlantısı şirket içi ağ altyapısına üzerinden bağlı değil. Azure ortak belgeler, bu tür dağıtımlar "Salt bulut" dağıtımları açıklanmıştır. Bu yöntem ile dağıtılan sanal makinelerin İnternet'e ve genel bir IP adresi ve/veya Azure vm'lerine atanmış bir genel DNS adı aracılığıyla erişilir. Microsoft Windows, şirket içi Active Directory (AD) için ve DNS Azure'da bu tür dağıtımlar için genişletilmiş değil. Bu nedenle sanal makineleri şirket içi Active Directory'nin parçası değildir. Aynı durum, örneğin, OpenLDAP + kullanarak Kerberos Linux uygulamaları için geçerlidir.
+* Şirket içi veya karma: Siteden siteye, çok siteli veya ExpressRoute bağlantısı şirket içi datacenter(s) ve Azure arasında olan bir Azure aboneliğine VM'ler dağıtıldığı bir senaryo açıklanır. Yaygın olarak kullanılan Azure belgeleri, bu tür dağıtımlar da açıklandığı gibi şirketler arası veya karma olarak senaryoları. Bağlantı için şirket içi etki alanları, şirket içi Active Directory/OpenLDAP ve şirket içi DNS Azure'a genişletmek için nedenidir. Şirket içi yatay aboneliğin Azure varlıkları için genişletilir. Bu uzantı, sanal makineleri şirket içi etki alanının parçası olabilir. Şirket içi etki alanının etki alanı kullanıcıları sunucularına erişebilir ve Hizmetleri (gibi hizmetleri DBMS) bu sanal makineler üzerinde çalıştırabilir. Dağıtılan VM'lerin şirket içi ve Azure dağıtılan VM'ler arasında iletişimi ve ad çözümlemesini mümkündür. Azure'a SAP varlıklar dağıtma en yaygın ve neredeyse özel durum budur. Daha fazla bilgi için [bu] [ vpn-gateway-cross-premises-options] makale ve [bu][vpn-gateway-site-to-site-create].
 
 > [!NOTE]
-> Bu belgedeki yalnızca bulutta yer alan dağıtım tam SAP ortamlarını yalnızca Active Directory uzantısı olmadan azure'da çalışır durumda olduğu tanımlanan / OpenLDAP veya şirket içinden genel Buluta ad çözümlemesi. Yalnızca bulut yapılandırmaları, üretim SAP sistemlerini veya burada barındırılan Azure ve şirket içinde bulunan kaynaklar üzerinde SAP sistemlerini arasında kullanılacak SAP STMS veya diğer şirket içi kaynaklara gerek yapılandırmaları için desteklenmez.
+> Şirket içi veya karma dağıtımlar SAP sistemlerinin SAP sistemlerini çalıştıran Azure sanal makineler, şirket içi etki alanının üyesi olduğu, üretim SAP sistemlerini için desteklenir. Şirket içi veya karma yapılandırmalar bölümleri dağıtmak için desteklenen veya SAP ortamlarını Azure'a tamamlayın. Bile tam SAP ortamı Azure'da çalışan şirket içi etki alanı ve REKLAM/OpenLDAP parçası olan bu VM'nin bulunması gerekir. 
 >
 >
 
-* Şirket içi: Siteden siteye, çok siteli veya ExpressRoute bağlantısı şirket içi datacenter(s) ve Azure arasında olan bir Azure aboneliğine VM'ler dağıtıldığı bir senaryo açıklanır. Azure ortak belgeler, bu tür dağıtımlar şirketler arası senaryoları açıklanmıştır. Bağlantı için şirket içi etki alanları, şirket içi Active Directory/OpenLDAP ve şirket içi DNS Azure'a genişletmek için nedenidir. Şirket içi yatay aboneliğin Azure varlıkları için genişletilir. Bu uzantı, sanal makineleri şirket içi etki alanının parçası olabilir. Şirket içi etki alanının etki alanı kullanıcıları sunucularına erişebilir ve Hizmetleri (gibi hizmetleri DBMS) bu sanal makineler üzerinde çalıştırabilir. Dağıtılan VM'lerin şirket içi ve Azure dağıtılan VM'ler arasında iletişimi ve ad çözümlemesini mümkündür. Azure'a SAP varlıklar dağıtma en yaygın ve neredeyse özel durum budur. Daha fazla bilgi için [bu] [ vpn-gateway-cross-premises-options] makale ve [bu][vpn-gateway-site-to-site-create].
 
-> [!NOTE]
-> Şirket içi dağıtımlarını SAP sistemlerini SAP sistemlerini çalıştıran Azure sanal makineleri şirket içi etki alanının üyesi olduğu, üretim SAP sistemlerini için desteklenir. Şirketler arası yapılandırmalar bölümleri dağıtmak için desteklenen veya SAP ortamlarını Azure'a tamamlayın. Bile tam SAP ortamı Azure'da çalışan şirket içi etki alanı ve REKLAM/OpenLDAP parçası olan bu VM'nin bulunması gerekir. Hibrit BT senaryolarını hakkında konuştuk belgelerinin önceki sürümleri, burada terimi *karma* bir şirket içi ile Azure arasında şirketler arası bağlantı olduğunu aslında kökü belirtilmemiş. Ayrıca, Azure sanal makineleri şirket içi Active Directory'nin parçası olması, / OpenLDAP.
->
->
-
-Bazı Microsoft belge içi ve dışı karışık senaryo özellikle DBMS yüksek kullanılabilirlik yapılandırmaları için biraz farklı açıklar. SAP ile ilgili belgeler söz konusu olduğunda, içi ve dışı karışık senaryo yalnızca bir site siteye veya özel (ExpressRoute) bağlantısı ve SAP ortamı şirket içi ile Azure arasında dağıtılmış olgu bulunması boils.  
 
 ### <a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Kaynakları
-Aşağıdaki ek kılavuzlar, konu, Azure üzerinde SAP dağıtımları için kullanılabilir:
+Azure Belgeleri'nde SAP iş yükü giriş noktası bulunamadı [burada](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Bu giriş noktası ile başlangıç konuları kapsayan çok sayıda makaleler bulun:
 
-* [Azure sanal makineleri planlama ve uygulama için (Bu belgede) SAP NetWeaver][planning-guide]
-* [Azure sanal makineler dağıtım için SAP NetWeaver][deployment-guide]
-* [Azure sanal makineleri DBMS dağıtım için SAP NetWeaver][dbms-guide]
+- SAP NetWeaver ve iş bir on Azure
+- Azure'da çeşitli DBMS sistemleri için SAP DBMS kılavuzları
+- Azure'da SAP iş yükleri için yüksek kullanılabilirlik ve olağanüstü durum kurtarma
+- Azure'da SAP HANA çalıştırmaya yönelik özel yönergeler
+- SAP HANA DBMS Azure HANA büyük örnekleri için belirli Kılavuzu 
+
 
 > [!IMPORTANT]
-> Olası başvuran SAP yükleme kılavuzuna yerde kullanılır (başvuru InstGuide-01, bkz: <http://service.sap.com/instguides>). Önkoşullar ve yükleme işlemi söz konusu olduğunda, bu belgede yalnızca belirli görevler için Microsoft Azure sanal Makineler'de SAP NetWeaver sistemlerinden kapsar gibi SAP NetWeaver yükleme kılavuzlarını her zaman dikkatlice okunmalıdır.
+> Olası başvuran SAP yükleme kılavuzlarını veya diğer SAP belgeler için bir bağlantı yerde kullanılır (başvuru InstGuide-01, bkz: <http://service.sap.com/instguides>). Önkoşullar, yükleme işlemi veya SAP belgeler ve Kılavuzlar her zaman kimler dikkatli bir şekilde belirli SAP işlevleri ayrıntılarını söz konusu olduğunda, Microsoft belgeleri yalnızca kapsar belirli görevler için SAP yazılım yüklü ve içinde çalıştırılan bir Microsoft Azure sanal makinesi.
 >
 >
 
@@ -431,22 +426,7 @@ Kullanılabilirlik gereksinimlerini değerlendirmek son bir adımdır. Bu durum 
 
 Başarıyla bir SAP sistemiyle azure'a dağıtmak için şirket içi sistemleri işletim sistemi, veritabanı, SAP ve SAP uygulamaları için Azure SAP destek matrisi görünmelidir içindeki kaynakların Azure altyapısını sağlayabilir ve hangi çalışabilir Kullanılabilirlik SLA'ları Microsoft Azure teklifleri. Bu sistemlerin tanımlandığı gibi aşağıdaki iki dağıtım senaryoları biri üzerinde karar vermeniz gerekir.
 
-### <a name="1625df66-4cc6-4d60-9202-de8a0b77f803"></a>Yalnızca bulut - şirket içi müşteri ağı bağımlılığı olmaksızın azure'a sanal makine dağıtımları
-![SAP demo veya eğitim senaryosu, Azure'da dağıtılan tek VM][planning-guide-figure-100]
 
-Bu senaryo, SAP ve SAP olmayan yazılımların tüm bileşenleri tek bir VM içinde yüklendiği eğitimleri veya tanıtım sistemleri için tipik bir durumdur. Bu dağıtım senaryosunda, üretim SAP sistemlerini desteklenmiyor. Genel olarak, bu senaryo aşağıdaki gereksinimleri karşılar:
-
-* VM'ler, ortak bir ağ üzerinden erişilebilir. Tanıtımlar veya eğitimleri içerik veya müşterinin sahip olan şirketin şirket içi ağa VM içinde çalışan uygulamalar için doğrudan bir ağ bağlantısı gerekli değildir.
-* Tanıtım senaryo ve eğitimleri temsil eden birden çok VM olması durumunda, ağ iletişimi ve ad çözümleme sanal makineler arasında çalışması gerekir. Ancak VM kümesi arasındaki iletişimleri birkaç sanal makine kümeleri yan yana girişim dağıtılabilir böylece yalıtılmış olması gerekir.  
-* Azure'da barındırılan sanal makineler için uzak oturum açması için son kullanıcı için Internet bağlantısı gereklidir. Bağlı olarak bir konuk işletim sistemi, Terminal Hizmetleri/RDS veya VNC/ssh tanıtımları gerçekleştirmek veya eğitim görevlerini yerine getirmek için sanal Makineye erişmek için kullanılır. SAP gibi 3200, 3300 & 3600 can bağlantı noktaları, aynı zamanda ortaya SAP uygulama örneğinin tüm Internet bağlantılı masaüstünden erişilebilir.
-* SAP tanımlamaktır (ve yalnızca son kullanıcı erişimi için genel internet bağlantısı gerektirir ve azure'daki diğer sanal makineler için bir bağlantı gerektirmez, azure'da bir tek başına senaryo VM(s)) gösterir.
-* SAPGUI ve tarayıcı yüklenir ve doğrudan sanal makinede çalıştırılır.
-* Bir sanal makinenin özgün durumuna hızlı bir sıfırlama ve tekrar bu özgün durumuna'nın yeni dağıtım gerekli değildir.
-* Tanıtım ve eğitim senaryolarını söz konusu olduğunda, gerçekleştirilir birden çok VM, bir Active Directory / OpenLDAP ve/veya DNS hizmeti, her VM kümesi için gereklidir.
-
-![Sanal makinenin bir demo veya eğitim senaryosu Azure bulut Hizmeti'nde temsil eden, Grup][planning-guide-figure-200]
-
-Kümelerin her VM kümesi her VM adları aynı olduğu paralel olarak dağıtılması gerekiyor göz önünde tutmak önemlidir.
 
 ### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Şirket içi - dağıtımı tek veya birden çok SAP VM şirket içi ağa tam olarak tümleştirilmiş gereksiniminin azure'a
 ![VPN siteden siteye bağlantı (şirket içi)][planning-guide-figure-300]
@@ -648,9 +628,9 @@ Microsoft Azure ile SAP yazılım hayata geçirmek için istediğimiz tüm senar
 
 Buradan daha fazla bilgi bulabilirsiniz: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
-Azure'daki adı ve IP çözümü yapılandırmak için birçok farklı olasılık vardır. Bu belgede, Azure DNS (kendi bir DNS hizmeti tanımlama aksine) kullanarak varsayılan salt bulut senaryoları dayanır. Kendi DNS sunucunuzu ayarlamak yerine kullanılabilecek yeni bir Azure DNS hizmeti de mevcuttur. Daha fazla bilgi bulunabilir [bu makalede] [ virtual-networks-manage-dns-in-vnet] ve [bu sayfayı](https://azure.microsoft.com/services/dns/).
+Azure'daki adı ve IP çözümü yapılandırmak için birçok farklı olasılık vardır. Kendi DNS sunucunuzu ayarlamak yerine kullanılabilecek bir Azure DNS hizmeti de mevcuttur. Daha fazla bilgi bulunabilir [bu makalede] [ virtual-networks-manage-dns-in-vnet] ve [bu sayfayı](https://azure.microsoft.com/services/dns/).
 
-Şirket içi senaryolar için biz olgu üzerinde FQDN'yi, şirket içi AD/OpenLDAP/DNS genişletilmişse VPN veya özel bağlantı Azure'a. Belirli senaryolar aşağıda belirtildiği gibi Azure üzerinde yüklü bir AD/OpenLDAP çoğaltma gerekli olabilir.
+Şirket içi veya hibrit senaryoları, biz bağlı olan olgu üzerinde şirket içi AD/OpenLDAP/DNS genişletilmişse VPN veya özel bağlantı Azure'a. Belirli senaryolar aşağıda belirtildiği gibi Azure üzerinde yüklü bir AD/OpenLDAP çoğaltma gerekli olabilir.
 
 Ağ iletişimi olduğundan ve ad çözümlemesi için bir SAP sistemiyle veritabanı dağıtım sürecinin hayati bir parçası olduğundan, bu kavram daha ayrıntılı olarak ele alınan [DBMS Dağıtım Kılavuzu][dbms-guide].
 
@@ -892,8 +872,6 @@ Kendi Azure VM Disk hazırlanırken gereksinimleri şunlardır:
 * Sabit bir VHD biçiminde olması gerekir. Dinamik VHD veya VHDx biçiminde VHD'lerin Azure'da henüz desteklenmiyor. Dinamik VHD PowerShell commandlet'lerini VHD'yi veya CLI karşıya yüklediğinizde statik Vhd'lere dönüştürülür.
 * Bir sabit VHD biçiminde de VM gerek Azure'da yeniden bağlanmalıdır ve sanal Makineye bağlı VHD. Okuma [bu makalede (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) ve [bu makalede (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) veri disklerinin boyutu sınırları. Dinamik VHD PowerShell commandlet'lerini VHD'yi veya CLI karşıya yüklediğinizde statik Vhd'lere dönüştürülür.
 * Microsoft desteği veya hangi hizmetlerin ve uygulamaların VM dağıtılana kadar çalıştırmak için bağlam olarak atanabilir ve daha uygun kullanıcı tarafından kullanılan yönetici ayrıcalıklarıyla başka bir yerel hesabı kullanılabilir ekleyin.
-* Yalnızca bulutta yer alan dağıtım senaryosu kullanarak kullanım durumu için (bölüm bakın [salt bulut - şirket içi müşteri ağı bağımlılığı olmaksızın azure'a sanal makine dağıtımları] [ planning-guide-2.1] bu belgenin) içinde Azure Disk Azure'da dağıtıldığında bu dağıtım yöntemi ile birlikte, etki alanı hesapları çalışmayabilir. Bu, özellikle DBMS veya SAP uygulamaları gibi hizmetlerini çalıştırmak için kullanılan hesaplar için geçerlidir. Bu nedenle böyle etki alanı hesapları VM yerel hesaplar ile değiştirin ve sanal makine içindeki şirket içi etki alanı hesapları silmek gerekir. Şirket içi etki alanı kullanıcıları, sanal makine görüntüsünü tutarak bir sorun değildir VM içi ve dışı senaryoda bölümde açıklandığı gibi dağıtıldığında [şirket içi - dağıtımı tek veya birden çok SAP VM tam olarak olma gereksinimiyle azure'a Şirket içi ağa tümleşik] [ planning-guide-2.2] bu belgedeki.
-* Yalnızca bulutta yer alan senaryolarda dağıtılacak yerinde sistem ve bu sanal makineler çalıştıran beklenen zaman etki alanı hesapları DBMS oturum açma bilgileri veya kullanıcılar olarak kullanıldıysa, etki alanı kullanıcıları silinmesi gerekir. Yerel yöneticiye ek olarak başka bir VM yerel kullanıcı eklendiğini oturum açma/kullanıcı olarak yöneticiler olarak DBMS içine emin olmanız gerekir.
 * Bu belirli bir dağıtım senaryosu için gerekebilecek diğer yerel hesapları ekleyin.
 
 - - -
@@ -920,9 +898,6 @@ Kendi Azure VM görüntünüzü hazırlarken gereksinimleri şunlardır:
 * İlk olarak işletim sistemini içeren VHD yalnızca bir en büyük boyutu 127 GB olabilir. Bu sınırlama, Mart 2015 sonunda ortadan. Artık başka bir Azure depolama VHD de barındırılan olarak işletim sistemini içeren VHD boyutu 1 TB'ye kadar olabilir.
 * Sabit bir VHD biçiminde olması gerekir. Dinamik VHD veya VHDx biçiminde VHD'lerin Azure'da henüz desteklenmiyor. Dinamik VHD PowerShell commandlet'lerini VHD'yi veya CLI karşıya yüklediğinizde statik Vhd'lere dönüştürülür.
 * Bir sabit VHD biçiminde de VM gerek Azure'da yeniden bağlanmalıdır ve sanal Makineye bağlı VHD. Lütfen okuma [bu makalede (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) ve [bu makalede (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) veri disklerinin boyutu sınırları için. Dinamik VHD PowerShell commandlet'lerini VHD'yi veya CLI karşıya yüklediğinizde statik Vhd'lere dönüştürülür.
-* Tüm etki alanı kullanıcıları kullanıcılar VM'deki bir salt bulut senaryosunda yok olarak kayıtlı olduğundan (bölüm bakın [salt bulut - şirket içi müşteri ağı bağımlılığı olmaksızın azure'a sanal makine dağıtımları] [ planning-guide-2.1] bu belgenin), böyle bir etki alanı hesapları görüntüyü Azure'da dağıtıldığında çalışmayabilir kullanarak hizmetleri. Bu, özellikle DBMS veya SAP uygulamaları gibi hizmetlerini çalıştırmak için kullanılan hesaplar için geçerlidir. Bu nedenle böyle etki alanı hesapları VM yerel hesaplar ile değiştirin ve sanal makine içindeki şirket içi etki alanı hesapları silmek gerekir. Şirket içi etki alanı kullanıcıları, sanal makine görüntüsünü tutma olabilir bir sorun VM içi ve dışı senaryoda bölümde açıklandığı gibi dağıtıldığında [şirket içi - dağıtımı tek veya birden çok SAP VM olma gereksinimiyle azure'a Şirket içi ağa tamamen tümleşik] [ planning-guide-2.2] bu belgedeki.
-* Microsoft desteği sorunu araştırmaları ya da hangi hizmetlerin ve uygulamaların VM dağıtılana kadar çalıştırmak için bağlam olarak atanabilir ve daha uygun bir kullanıcı tarafından kullanılan yönetici ayrıcalıklarıyla başka bir yerel hesabı kullanılabilir ekleyin.
-* Yalnızca bulut dağıtımlarına ve burada etki alanı hesapları DBMS oturumları ya da kullanıcıları şirket sistem çalıştırırken kullanılan, etki alanı kullanıcıları silinmesi gerekir. Yerel yöneticiye ek olarak başka bir VM yerel kullanıcı eklendiğini DBMS yönetici olarak oturum açma/kullanıcısı olarak emin olmanız gerekir.
 * Bu belirli bir dağıtım senaryosu için gerekebilecek diğer yerel hesapları ekleyin.
 * Görüntü yüklemesini SAP NetWeaver ve ana bilgisayar adının Azure dağıtım noktasında orijinal adı yeniden adlandırma içeriyorsa, SAP yazılım sağlama Manager DVD en son sürümlerine şablonuna eklenecek önerilir, olasıdır. Bu, kolayca uyum değiştirilen konak adı ve/veya yeni bir kopyasını başlatıldıktan hemen sonra dağıtılan sanal makine görüntüsünü SAP sisteminde SID'si değiştirmek için sağlanan SAP yeniden adlandırma işlevselliği kullanmanıza olanak sağlayacaktır.
 
@@ -1336,7 +1311,7 @@ Son dağıtım ve özellikle SAP, genişletilmiş izleme, dağıtım bakımında
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Azure sanal makineler içinde çalışan SAP sistemlerini erişme
 
-Yalnızca bulut senaryoları için SAP GUI kullanarak genel internet bu SAP sistemlerine bağlanmak isteyebilirsiniz. Bu durumlarda, aşağıdaki yordamları uygulanması gerekir.
+SAP GUI kullanarak genel internet bu SAP sistemlere bağlanmak için istediğiniz senaryolar için aşağıdaki yordamları uygulanması gerekir.
 
 Belgede daha sonra diğer ana senaryo bir siteden siteye bağlantı (VPN tüneli) veya Azure ExpressRoute bağlantısı şirket içi sistemler ve Azure sistemleri arasında şirket içi dağıtımlarda, SAP sistemlerini bağlanma ele alınacaktır.
 
@@ -1349,7 +1324,7 @@ Azure Resource Manager ile önceki Klasik modelde varsayılan uç nokta artık g
 
 Klasik modeli ve ARM mimarisi farkı açıklandığı bkz [bu makalede][virtual-machines-azure-resource-manager-architecture].
 
-#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-for-cloud-only-scenario"></a>Yalnızca bulut senaryosu için SAP sistemine ve SAP GUI bağlantı yapılandırma
+#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>İnternet üzerinden SAP sistemine ve SAP GUI bağlantı yapılandırma
 
 Lütfen bu konunun ayrıntılarını açıklayan bu makaleye bakın: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
@@ -1392,13 +1367,12 @@ SAP GUI herhangi biri çalışıyor, ancak ilk SAP ileti sunucusu işlemi (bağl
 
 açıklandığı gibi [SAP ileti sunucusu için güvenlik ayarları ](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
 
-## <a name="96a77628-a05e-475d-9df3-fb82217e8f14"></a>SAP örnekleri yalnızca bulutta yer alan dağıtım kavramları
 
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Tek tanıtım/senaryo eğitim NetWeaver SAP VM
 
 ![Tek başına VM SAP tanıtım sistemler ile aynı VM adlarını çalıştırmak, Azure bulut Hizmetleri'nde yalıtılmış][planning-guide-figure-1700]
 
-Bu senaryoda (bölüm bakın [yalnızca bulutta yer alan] [ planning-guide-2.1] bu belgenin) tam bir eğitim/tanıtım senaryo bulunduğu bir tipik eğitim/tanıtım sistem senaryosu tek bir VM'de uyguluyor. Dağıtım VM görüntüsü şablonları yapılır varsayıyoruz. Ayrıca bu tanıtım/eğitimleri, birden çok VM ile aynı ada sahip Vm'leri dağıtılması gerek varsayıyoruz.
+Bu senaryoda, biz tek bir VM'de tam bir eğitim/tanıtım senaryo bulunduğu bir tipik eğitim/tanıtım sistem senaryosu uyguluyor. Dağıtım VM görüntüsü şablonları yapılır varsayıyoruz. Ayrıca bu tanıtım/eğitimleri, birden çok VM ile aynı ada sahip Vm'leri dağıtılması gerek varsayıyoruz. Tüm eğitim sistemleri, şirket içi varlıklarınız için bağlantınız ve karma bir dağıtım için bir karşıtı olduğu.
 
 Bölüm bazı bölümlerinde açıklandığı gibi bir VM görüntüsü oluşturdunuz varsayılır [Azure için SAP ile Vm'leri hazırlama] [ planning-guide-5.2] bu belgedeki.
 
@@ -1445,7 +1419,7 @@ $pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName
 $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* Sanal makine oluşturur. Yalnızca bulut senaryosu için her VM, aynı ada sahip olacaktır. Bu sanal makineler SAP NetWeaver örneklerde SAP SID'si aynı de olacaktır. Azure kaynak grubunda VM adının benzersiz olması gerekir, ancak farklı Azure kaynak grubunda aynı ada sahip VM'ler çalıştırabilirsiniz. Windows veya Linux için ' root' varsayılan 'Administrator' hesabının geçerli değildir. Bu nedenle, yeni bir yönetici kullanıcı adı ile birlikte bir parola gerekiyor. Ayrıca VM'nin boyutunu tanımlanması gerekir.
+* Sanal makine oluşturur. Bu senaryoda, her VM, aynı ada sahip olacaktır. Bu sanal makineler SAP NetWeaver örneklerde SAP SID'si aynı de olacaktır. Azure kaynak grubunda VM adının benzersiz olması gerekir, ancak farklı Azure kaynak grubunda aynı ada sahip VM'ler çalıştırabilirsiniz. Windows veya Linux için ' root' varsayılan 'Administrator' hesabının geçerli değildir. Bu nedenle, yeni bir yönetici kullanıcı adı ile birlikte bir parola gerekiyor. Ayrıca VM'nin boyutunu tanımlanması gerekir.
 
 ```powershell
 #####
@@ -1560,7 +1534,7 @@ az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --loca
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
-* Sanal makine oluşturur. Yalnızca bulut senaryosu için her VM, aynı ada sahip olacaktır. Bu sanal makineler SAP NetWeaver örneklerde SAP SID'si aynı de olacaktır. Azure kaynak grubunda VM adının benzersiz olması gerekir, ancak farklı Azure kaynak grubunda aynı ada sahip VM'ler çalıştırabilirsiniz. Windows veya Linux için ' root' varsayılan 'Administrator' hesabının geçerli değildir. Bu nedenle, yeni bir yönetici kullanıcı adı ile birlikte bir parola gerekiyor. Ayrıca VM'nin boyutunu tanımlanması gerekir.
+* Sanal makine oluşturur. Bu senaryoda, her VM, aynı ada sahip olacaktır. Bu sanal makineler SAP NetWeaver örneklerde SAP SID'si aynı de olacaktır. Azure kaynak grubunda VM adının benzersiz olması gerekir, ancak farklı Azure kaynak grubunda aynı ada sahip VM'ler çalıştırabilirsiniz. Windows veya Linux için ' root' varsayılan 'Administrator' hesabının geçerli değildir. Bu nedenle, yeni bir yönetici kullanıcı adı ile birlikte bir parola gerekiyor. Ayrıca VM'nin boyutunu tanımlanması gerekir.
 
 ```
 #####
@@ -1614,7 +1588,7 @@ Github'da azure hızlı başlangıç şablonları havuz üzerinde örnek şablon
 
 ### <a name="implement-a-set-of-vms-that-communicate-within-azure"></a>Azure içinde iletişim kuran VM'ler bir dizi uygulama
 
-Eğitim ve tanıtım için tipik bir senaryo, bu yalnızca bulutta yer alan bir senaryodur nerede tanıtım/eğitim temsil eden yazılım amacıyla senaryo birden çok VM'ye yayılır. Farklı bileşenlerin farklı Vm'lere yüklü birbirleriyle iletişim kurması gerekir. Yeniden, bu senaryoda, iletişimi hiçbir şirket içi ağ veya içi ve dışı karışık senaryo gereklidir.
+Eğitim ve tanıtım için tipik bir senaryo Bu karma olmayan senaryodur nerede tanıtım/eğitim temsil eden yazılım amacıyla senaryo birden çok VM'ye yayılır. Farklı bileşenlerin farklı Vm'lere yüklü birbirleriyle iletişim kurması gerekir. Yeniden, bu senaryoda, iletişimi hiçbir şirket içi ağ veya içi ve dışı karışık senaryo gereklidir.
 
 Bu senaryo bir bölümde açıklanan yükleme uzantısıdır [SAP tanıtım/senaryo eğitim NetWeaver ile tek bir VM] [ planning-guide-7.1] bu belgenin. Bu durumda daha fazla sanal makine mevcut bir kaynak grubuna eklenecektir. Aşağıdaki örnekte, bir SAP ASCS/SCS VM'nin, DBMS ve SAP uygulama sunucusu örneği VM çalıştıran bir VM eğitim yatay oluşur.
 
@@ -1643,11 +1617,11 @@ Azure sanal ağları ve bunları tanımlama hakkında daha fazla ayrıntı bulun
 
 Bir SAP ortamının çalıştırma ve çıplak yüksek kaliteli DBMS sunucuları için uygulama katmanları için şirket içinde sanallaştırılmış ortamlar arasında dağıtımı bölmek istiyorsanız ve daha küçük 2 katmanlı SAP sistemlerini ve Azure Iaas yapılandırılmış. Bir SAP ortamının içinde SAP sistemlerini birbirleri ile ve şirket, kendi dağıtım biçiminin bağımsız olarak dağıtılan çok sayıda diğer yazılım bileşenleri ile iletişim kurmak gereken temel varsayılır. Ayrıca bulunmamalıdır SAP GUI veya diğer arabirimleri ile bağlanma son kullanıcı dağıtım formunda sunulan fark. Site-için-site/çok siteler bağlantı veya özel bağlantılar gibi Azure ExpressRoute aracılığıyla Azure sistemlere genişletilmiş DNS hizmetleri ve şirket içi Active Directory/OpenLDAP sahibiz, bu koşullar yalnızca karşılanabilir.
 
-Azure'da SAP uygulama ayrıntıları hakkında daha fazla arka plan alabilmek için bölüm okunacak öneriyoruz [SAP örnekler kavramları, Cloud-Only dağıtımını] [ planning-guide-7] bu belgenin bazı açıklanır ' ın temelleri yapıları Azure'dan ve nasıl bunları azure'da SAP uygulamaları ile kullanılmalıdır.
+
 
 ### <a name="scenario-of-an-sap-landscape"></a>Bir SAP ortamının senaryo
 
-İçi ve dışı karışık senaryo, kabaca grafikleri aşağıdaki gibi tanımlanabilir:
+Şirket içi veya karma senaryo kabaca tanımlanabilen gibi grafik:
 
 ![Şirket içi ve Azure varlıkları arasında siteden siteye bağlantı][planning-guide-figure-2100]
 
@@ -1851,7 +1825,7 @@ SAP örnekleri bir SAProuter bağlanmak için bağlantı girişimi SAProuter diz
 
 ![İfşa edilen SAP portalı][planning-guide-figure-2700]
 
-Sanal makine konağına siteden siteye VPN tüneli veya ExpressRoute aracılığıyla şirket ağına bağlı olduğu sürece bir özel dağıtım bazı müşteriler tarafından SAP Enterprise Portal'da İnternet'e doğrudan erişimini senaryodur. Böyle bir senaryo için belirli bağlantı noktalarını açık ve güvenlik duvarı veya ağ güvenlik grubu tarafından engellenmediğinden emin olmanız gerekir. Aynı mekanizması, şirket içi bir salt bulut senaryosunda SAP Java örneğine bağlanmak istediğinizde uygulanması gerekecektir.
+Sanal makine konağına siteden siteye VPN tüneli veya ExpressRoute aracılığıyla şirket ağına bağlı olduğu sürece bir özel dağıtım bazı müşteriler tarafından SAP Enterprise Portal'da İnternet'e doğrudan erişimini senaryodur. Böyle bir senaryo için belirli bağlantı noktalarını açık ve güvenlik duvarı veya ağ güvenlik grubu tarafından engellenmediğinden emin olmanız gerekir. 
 
 İlk URI http (s) portalıdır:`<Portalserver`>: nerede bağlantı noktası biçimlendirilmiş 50000 tarafından artı (Systemnumber?? 5XX00/irj 100). Varsayılan portal URI, SAP sistemi 00 `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Daha fazla bilgi için göz sahip <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 

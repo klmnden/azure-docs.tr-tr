@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı uygulama performansını artırmak için toplu işlem kullanma
-description: Konu kanıt toplu işlem, veritabanı işlemleri sağlar. büyük ölçüde imroves hız ve ölçeklenebilirlik Azure SQL veritabanı uygulamalarınızın. Bu toplu işleme teknikleri herhangi bir SQL Server veritabanı için geçerli olsa da Azure üzerinde makalenin odak gelir.
+description: Konu, veritabanı işlemleri büyük ölçüde toplu işleme hız ve uygulamalarınızı Azure SQL veritabanı'nın ölçeklenebilirliğini artırır, kanıt sağlar. Bu toplu işleme teknikleri herhangi bir SQL Server veritabanı için geçerli olsa da Azure üzerinde makalenin odak gelir.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f347543bbea11329cf4bb7c03dac6ccf7f04ac77
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455397"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751642"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL veritabanı uygulama performansını artırmak için toplu işlem kullanma
 
@@ -50,42 +50,47 @@ Bir gözden geçirme işlemleri açıklayan tarafından toplu işleme, başlamak
 
 INSERT dizisini içeren aşağıdaki C# kodu göz önünde bulundurun ve basit bir tablo üzerinde işlem güncelleştirin.
 
-    List<string> dbOperations = new List<string>();
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 1");
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 2");
-    dbOperations.Add("update MyTable set mytext = 'updated text' where id = 3");
-    dbOperations.Add("insert MyTable values ('new value',1)");
-    dbOperations.Add("insert MyTable values ('new value',2)");
-    dbOperations.Add("insert MyTable values ('new value',3)");
-
+```csharp
+List<string> dbOperations = new List<string>();
+dbOperations.Add("update MyTable set mytext = 'updated text' where id = 1");
+dbOperations.Add("update MyTable set mytext = 'updated text' where id = 2");
+dbOperations.Add("update MyTable set mytext = 'updated text' where id = 3");
+dbOperations.Add("insert MyTable values ('new value',1)");
+dbOperations.Add("insert MyTable values ('new value',2)");
+dbOperations.Add("insert MyTable values ('new value',3)");
+```
 Aşağıdaki ADO.NET kod, sırayla şu işlemleri gerçekleştirir.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        conn.Open();
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    conn.Open();
 
-        foreach(string commandString in dbOperations)
-        {
-            SqlCommand cmd = new SqlCommand(commandString, conn);
-            cmd.ExecuteNonQuery();                   
-        }
+    foreach(string commandString in dbOperations)
+    {
+        SqlCommand cmd = new SqlCommand(commandString, conn);
+        cmd.ExecuteNonQuery();
     }
+}
+```
 
 Bu kod iyileştirmek için en iyi yolu, bazı formun istemci-tarafı bu çağrılar toplu işlem uygulamaktır. Ancak, bir işlemde yalnızca çağrı sarmalama tarafından bu kod performansını artırmak için basit bir yolu yoktur. Aşağıda, bir işlem kullandığı aynı kodu verilmiştir.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    conn.Open();
+    SqlTransaction transaction = conn.BeginTransaction();
+
+    foreach (string commandString in dbOperations)
     {
-        conn.Open();
-        SqlTransaction transaction = conn.BeginTransaction();
-
-        foreach (string commandString in dbOperations)
-        {
-            SqlCommand cmd = new SqlCommand(commandString, conn, transaction);
-            cmd.ExecuteNonQuery();
-        }
-
-        transaction.Commit();
+        SqlCommand cmd = new SqlCommand(commandString, conn, transaction);
+        cmd.ExecuteNonQuery();
     }
+
+    transaction.Commit();
+}
+```
 
 İşlem, aslında Bu örneklerin her ikisi içinde kullanılıyor. İlk örnekte, her bir çağrıyı örtük bir işlemdir. İkinci örnekte, açık bir işlem tüm çağrıları sarar. Belgelerine başına [yazma Tamamlanan işlem günlüğü](https://msdn.microsoft.com/library/ms186259.aspx), günlük kayıtları hareketi tamamlar olduğunda diske Temizlenen. İşlem, kadar bu nedenle bir işlemde çağrılar dahil ederek, işlem günlüğüne yazma gecikmeye yol açabilir. Aslında, sunucunun işlem günlüğüne yazma işlemleri için toplu işleme tanımış olursunuz.
 
@@ -124,59 +129,66 @@ ADO.NET'te işlemleri hakkında daha fazla bilgi için bkz. [ADO.NET'te yerel i�
 
 Tablo değerli parametreleri kullanıcı tanımlı tablo türleri parametre olarak Transact-SQL deyimleri, saklı yordamları ve işlevleri destekler. Bu istemci-tarafı toplu teknik tablo değerli parametre içinde verilerinizin birden çok satır göndermenize olanak sağlar. Tablo değerli parametreleri kullanmak için öncelikle bir tablo türü tanımlar. Aşağıdaki Transact-SQL deyimini adlı bir tablo türü oluşturur **MyTableType**.
 
+```sql
     CREATE TYPE MyTableType AS TABLE 
     ( mytext TEXT,
       num INT );
-
+```
 
 Kod içinde oluşturduğunuz bir **DataTable** tablo türüne türlerini ve tam olarak aynı ada sahip. Bunu geçirmek **DataTable** metin sorgusu veya saklı yordam parametre çağırın. Aşağıdaki örnek, bu teknik gösterir:
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    connection.Open();
+
+    DataTable table = new DataTable();
+    // Add columns and rows. The following is a simple example.
+    table.Columns.Add("mytext", typeof(string));
+    table.Columns.Add("num", typeof(int));
+    for (var i = 0; i < 10; i++)
     {
-        connection.Open();
-
-        DataTable table = new DataTable();
-        // Add columns and rows. The following is a simple example.
-        table.Columns.Add("mytext", typeof(string));
-        table.Columns.Add("num", typeof(int));    
-        for (var i = 0; i < 10; i++)
-        {
-            table.Rows.Add(DateTime.Now.ToString(), DateTime.Now.Millisecond);
-        }
-
-        SqlCommand cmd = new SqlCommand(
-            "INSERT INTO MyTable(mytext, num) SELECT mytext, num FROM @TestTvp",
-            connection);
-
-        cmd.Parameters.Add(
-            new SqlParameter()
-            {
-                ParameterName = "@TestTvp",
-                SqlDbType = SqlDbType.Structured,
-                TypeName = "MyTableType",
-                Value = table,
-            });
-
-        cmd.ExecuteNonQuery();
+        table.Rows.Add(DateTime.Now.ToString(), DateTime.Now.Millisecond);
     }
+
+    SqlCommand cmd = new SqlCommand(
+        "INSERT INTO MyTable(mytext, num) SELECT mytext, num FROM @TestTvp",
+        connection);
+
+    cmd.Parameters.Add(
+        new SqlParameter()
+        {
+            ParameterName = "@TestTvp",
+            SqlDbType = SqlDbType.Structured,
+            TypeName = "MyTableType",
+            Value = table,
+        });
+
+    cmd.ExecuteNonQuery();
+}
+```
 
 Önceki örnekte, **SqlCommand** nesnesi bir tablo değerli parametresi, satırları ekler **@TestTvp**. Önceden oluşturulmuş **DataTable** nesnesinin ile bu parametreye atandığı **SqlCommand.Parameters.Add** yöntemi. Tek bir çağrıdaki ekler önemli ölçüde toplu işleme sıralı ekler performansını artırır.
 
 Önceki örneği daha da geliştirmek için metin tabanlı bir komut yerine bir saklı yordamı kullanın. Aşağıdaki Transact-SQL komutunu isteyen bir saklı yordamı oluşturur **SimpleTestTableType** tablo değerli parametre.
 
-    CREATE PROCEDURE [dbo].[sp_InsertRows] 
-    @TestTvp as MyTableType READONLY
-    AS
-    BEGIN
-    INSERT INTO MyTable(mytext, num) 
-    SELECT mytext, num FROM @TestTvp
-    END
-    GO
+```sql
+CREATE PROCEDURE [dbo].[sp_InsertRows] 
+@TestTvp as MyTableType READONLY
+AS
+BEGIN
+INSERT INTO MyTable(mytext, num) 
+SELECT mytext, num FROM @TestTvp
+END
+GO
+```
 
 Ardından değiştirme **SqlCommand** önceki kod örneğinde aşağıdaki bildirim nesnesi.
 
-    SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
-    cmd.CommandType = CommandType.StoredProcedure;
+```csharp
+SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
+cmd.CommandType = CommandType.StoredProcedure;
+```
 
 Çoğu durumda, diğer toplu işleme teknikleri daha eşit veya daha iyi performans tablo değerli parametrelere sahip. Diğer seçenekleri daha esnek olduğundan tablo değerli parametre genellikle tercih,. Örneğin, SQL toplu kopyalama gibi başka teknikler yalnızca yeni satırların eklenmesini izin verir. Ancak tablo değerli parametre mantığını saklı yordamda güncelleştirmelerinin hangi satırların belirlemek için kullanabileceğiniz ve hangi ekler. Tablo türünü de belirtilen satırın eklenen, güncelleştirilen veya silinen olup olmadığını gösteren bir "İşlem" sütun içerecek şekilde değiştirilebilir.
 
@@ -203,18 +215,20 @@ Tablo değerli parametreler hakkında daha fazla bilgi için bkz. [Table-Valued 
 
 SQL toplu kopyalama büyük miktarlarda verinin bir hedef veritabanına eklemek için başka bir yoludur. .NET uygulamalarında kullanabileceğiniz **SqlBulkCopy** sınıfı toplu gerçekleştirmek için işlemler Ekle. **SqlBulkCopy** için komut satırı aracı, işlevde benzer **Bcp.exe**, ya da Transact-SQL deyimini **BULK INSERT**. Aşağıdaki kod örneği nasıl toplu kopyalama kaynak satırları gösterir **DataTable**, SQL Server, hedef tabloda MyTable tablo.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-    {
-        connection.Open();
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    connection.Open();
 
-        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
-        {
-            bulkCopy.DestinationTableName = "MyTable";
-            bulkCopy.ColumnMappings.Add("mytext", "mytext");
-            bulkCopy.ColumnMappings.Add("num", "num");
-            bulkCopy.WriteToServer(table);
-        }
+    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+    {
+        bulkCopy.DestinationTableName = "MyTable";
+        bulkCopy.ColumnMappings.Add("mytext", "mytext");
+        bulkCopy.ColumnMappings.Add("num", "num");
+        bulkCopy.WriteToServer(table);
     }
+}
+```
 
 Toplu kopyalama tablo değerli parametreleri tercih edilen olduğu bazı durumlar vardır. Tablo değerli parametre toplu ekleme işlemleri makaledeki karşı karşılaştırma tablosuna bakın [Table-Valued parametreleri](https://msdn.microsoft.com/library/bb510489.aspx).
 
@@ -241,24 +255,25 @@ ADO.NET'te toplu kopyalama hakkında daha fazla bilgi için bkz. [SQL Server'da 
 
 Bir küçük toplu işler için birden çok satır ekleyen büyük bir parametreli INSERT deyimini oluşturmak için alternatiftir. Aşağıdaki kod örneği, bu tekniği gösterir.
 
-    using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+```csharp
+using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
+{
+    connection.Open();
+
+    string insertCommand = "INSERT INTO [MyTable] ( mytext, num ) " +
+        "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
+
+    SqlCommand cmd = new SqlCommand(insertCommand, connection);
+
+    for (int i = 1; i <= 10; i += 2)
     {
-        connection.Open();
-
-        string insertCommand = "INSERT INTO [MyTable] ( mytext, num ) " +
-            "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
-
-        SqlCommand cmd = new SqlCommand(insertCommand, connection);
-
-        for (int i = 1; i <= 10; i += 2)
-        {
-            cmd.Parameters.Add(new SqlParameter("@p" + i.ToString(), "test"));
-            cmd.Parameters.Add(new SqlParameter("@p" + (i+1).ToString(), i));
-        }
-
-        cmd.ExecuteNonQuery();
+        cmd.Parameters.Add(new SqlParameter("@p" + i.ToString(), "test"));
+        cmd.Parameters.Add(new SqlParameter("@p" + (i+1).ToString(), i));
     }
 
+    cmd.ExecuteNonQuery();
+}
+```
 
 Bu örnek, temel kavramı göstermeye yöneliktir. Daha gerçekçi bir senaryo, sorgu dizesi ve komut parametreleri aynı anda oluşturmak için gerekli varlıkları döngü. Bunu bu şekilde işlenebilecek satırların toplam sayısını sınırlar için toplam 2100 sorgu parametreleri için sınırlı olursunuz.
 
@@ -378,88 +393,92 @@ Aşağıdaki kod örneğinde [Reactive Extensions - Rx](https://msdn.microsoft.c
 
 Kullanıcı Gezinti ayrıntıları aşağıdaki NavHistoryData sınıfı modeller. Kullanıcı tanımlayıcısı, erişilen URL'si ve erişim zamanı gibi temel bilgileri içerir.
 
-```c#
-    public class NavHistoryData
-    {
-        public NavHistoryData(int userId, string url, DateTime accessTime)
-        { UserId = userId; URL = url; AccessTime = accessTime; }
-        public int UserId { get; set; }
-        public string URL { get; set; }
-        public DateTime AccessTime { get; set; }
-    }
+```csharp
+public class NavHistoryData
+{
+    public NavHistoryData(int userId, string url, DateTime accessTime)
+    { UserId = userId; URL = url; AccessTime = accessTime; }
+    public int UserId { get; set; }
+    public string URL { get; set; }
+    public DateTime AccessTime { get; set; }
+}
 ```
 
 Kullanıcı Gezinti verilerini veritabanına ara belleğe alma için sorumlu NavHistoryDataMonitor sınıftır. Bir yöntem yükselterek yanıt veren RecordUserNavigationEntry içerdiği bir **OnAdded** olay. Aşağıdaki kod Rx olayı temel alan gözlemlenebilir bir koleksiyon oluşturmak için kullandığı Oluşturucu mantığı gösterir. Ardından arabellek yöntemiyle gözlemlenebilir bu koleksiyona abone. Aşırı yükleme, arabellek her 20 saniyede veya 1000 girişleri olarak gönderilmesi gerektiğini belirtir.
 
-```c#
+```csharp
+public NavHistoryDataMonitor()
+{
+    var observableData =
+        Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
+
+    observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);
+}
+```
+
+İşleyici arabelleğe alınan öğelerin tümünü bir tablo değerli türüne dönüştürür ve ardından bu toplu işler bir saklı yordam geçirir. Aşağıdaki kod NavHistoryDataEventArgs hem NavHistoryDataMonitor sınıfları için eksiksiz tanımını gösterir.
+
+```csharp
+public class NavHistoryDataEventArgs : System.EventArgs
+{
+    public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
+    public NavHistoryData Data { get; set; }
+}
+
+public class NavHistoryDataMonitor
+{
+    public event EventHandler<NavHistoryDataEventArgs> OnAdded;
+
     public NavHistoryDataMonitor()
     {
         var observableData =
             Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
 
-        observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
+        observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);
     }
 ```
 
 İşleyici arabelleğe alınan öğelerin tümünü bir tablo değerli türüne dönüştürür ve ardından bu toplu işler bir saklı yordam geçirir. Aşağıdaki kod NavHistoryDataEventArgs hem NavHistoryDataMonitor sınıfları için eksiksiz tanımını gösterir.
 
-```c#
+```csharp
     public class NavHistoryDataEventArgs : System.EventArgs
     {
-        public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
-        public NavHistoryData Data { get; set; }
+        if (OnAdded != null)
+            OnAdded(this, new NavHistoryDataEventArgs(data));
     }
 
-    public class NavHistoryDataMonitor
+    protected void Handler(IList<EventPattern<NavHistoryDataEventArgs>> items)
     {
-        public event EventHandler<NavHistoryDataEventArgs> OnAdded;
-
-        public NavHistoryDataMonitor()
+        DataTable navHistoryBatch = new DataTable("NavigationHistoryBatch");
+        navHistoryBatch.Columns.Add("UserId", typeof(int));
+        navHistoryBatch.Columns.Add("URL", typeof(string));
+        navHistoryBatch.Columns.Add("AccessTime", typeof(DateTime));
+        foreach (EventPattern<NavHistoryDataEventArgs> item in items)
         {
-            var observableData =
-                Observable.FromEventPattern<NavHistoryDataEventArgs>(this, "OnAdded");
-
-            observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
+            NavHistoryData data = item.EventArgs.Data;
+            navHistoryBatch.Rows.Add(data.UserId, data.URL, data.AccessTime);
         }
 
-        public void RecordUserNavigationEntry(NavHistoryData data)
-        {    
-            if (OnAdded != null)
-                OnAdded(this, new NavHistoryDataEventArgs(data));
-        }
-
-        protected void Handler(IList<EventPattern<NavHistoryDataEventArgs>> items)
+        using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
         {
-            DataTable navHistoryBatch = new DataTable("NavigationHistoryBatch");
-            navHistoryBatch.Columns.Add("UserId", typeof(int));
-            navHistoryBatch.Columns.Add("URL", typeof(string));
-            navHistoryBatch.Columns.Add("AccessTime", typeof(DateTime));
-            foreach (EventPattern<NavHistoryDataEventArgs> item in items)
-            {
-                NavHistoryData data = item.EventArgs.Data;
-                navHistoryBatch.Rows.Add(data.UserId, data.URL, data.AccessTime);
-            }
+            connection.Open();
 
-            using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
-            {
-                connection.Open();
+            SqlCommand cmd = new SqlCommand("sp_RecordUserNavigation", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand("sp_RecordUserNavigation", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(
+                new SqlParameter()
+                {
+                    ParameterName = "@NavHistoryBatch",
+                    SqlDbType = SqlDbType.Structured,
+                    TypeName = "NavigationHistoryTableType",
+                    Value = navHistoryBatch,
+                });
 
-                cmd.Parameters.Add(
-                    new SqlParameter()
-                    {
-                        ParameterName = "@NavHistoryBatch",
-                        SqlDbType = SqlDbType.Structured,
-                        TypeName = "NavigationHistoryTableType",
-                        Value = navHistoryBatch,
-                    });
-
-                cmd.ExecuteNonQuery();
-            }
+            cmd.ExecuteNonQuery();
         }
     }
+}
 ```
 
 Arabelleğe alma Bu sınıf kullanmak için uygulama bir statik NavHistoryDataMonitor nesnesi oluşturur. Bir kullanıcı bir sayfa her eriştiğinde uygulama NavHistoryDataMonitor.RecordUserNavigationEntry yöntemini çağırır. Bu girişler toplu işlemleri veritabanına gönderme halletmeniz için arabelleğe alma mantığını ilerler.
@@ -469,97 +488,97 @@ Arabelleğe alma Bu sınıf kullanmak için uygulama bir statik NavHistoryDataMo
 Tablo değerli parametreleri basit ekleme senaryoları için yararlıdır. Ancak, birden fazla tablo içeren toplu ekleme daha zor olabilir. "Ana/ayrıntı" senaryo iyi bir örnektir. Ana Tablo birincil varlık tanımlar. Bir veya daha fazla ayrıntı tabloları varlık hakkında daha fazla veri depolar. Bu senaryoda, yabancı anahtar ilişkileri benzersiz bir ana varlık ayrıntıları arasındaki ilişkiyi uygular. Basitleştirilmiş bir sürümünü PurchaseOrder tablo ve onun ilişkili OrderDetail tablosu göz önünde bulundurun. Aşağıdaki Transact-SQL ile dört sütun PurchaseOrder tablo oluşturur: OrderID, OrderDate, Müşteri Kimliği ve durumu.
 
 ```sql
-    CREATE TABLE [dbo].[PurchaseOrder](
-    [OrderID] [int] IDENTITY(1,1) NOT NULL,
-    [OrderDate] [datetime] NOT NULL,
-    [CustomerID] [int] NOT NULL,
-    [Status] [nvarchar](50) NOT NULL,
-     CONSTRAINT [PrimaryKey_PurchaseOrder] 
-    PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
+CREATE TABLE [dbo].[PurchaseOrder](
+[OrderID] [int] IDENTITY(1,1) NOT NULL,
+[OrderDate] [datetime] NOT NULL,
+[CustomerID] [int] NOT NULL,
+[Status] [nvarchar](50) NOT NULL,
+CONSTRAINT [PrimaryKey_PurchaseOrder] 
+PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 ```
 
 Her bir order bir veya daha fazla ürün satın alma işlemleri içerir. Bu bilgiler PurchaseOrderDetail tabloda yakalanır. Aşağıdaki Transact-SQL ile beş sütun PurchaseOrderDetail tablo oluşturur: OrderID, OrderDetailID, ProductID, UnitPrice ve OrderQty.
 
 ```sql
-    CREATE TABLE [dbo].[PurchaseOrderDetail](
-    [OrderID] [int] NOT NULL,
-    [OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
-    [ProductID] [int] NOT NULL,
-    [UnitPrice] [money] NULL,
-    [OrderQty] [smallint] NULL,
-     CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
-    ( [OrderID] ASC, [OrderDetailID] ASC ))
+CREATE TABLE [dbo].[PurchaseOrderDetail](
+[OrderID] [int] NOT NULL,
+[OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
+[ProductID] [int] NOT NULL,
+[UnitPrice] [money] NULL,
+[OrderQty] [smallint] NULL,
+CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
+( [OrderID] ASC, [OrderDetailID] ASC ))
 ```
 
 OrderID PurchaseOrderDetail tablosundaki bir sipariş PurchaseOrder tablosundan başvurmalıdır. Yabancı anahtar aşağıdaki tanımını bu kısıtlamayı zorlar.
 
 ```sql
-    ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
-    CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
-    REFERENCES [dbo].[PurchaseOrder] ([OrderID])
+ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
+CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[PurchaseOrder] ([OrderID])
 ```
 
 Tablo değerli parametreleri kullanmak için her hedef tablosu için bir kullanıcı tanımlı tablo türü olması gerekir.
 
 ```sql
-    CREATE TYPE PurchaseOrderTableType AS TABLE 
-    ( OrderID INT,
-      OrderDate DATETIME,
-      CustomerID INT,
-      Status NVARCHAR(50) );
-    GO
+CREATE TYPE PurchaseOrderTableType AS TABLE 
+( OrderID INT,
+    OrderDate DATETIME,
+    CustomerID INT,
+    Status NVARCHAR(50) );
+GO
 
-    CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
-    ( OrderID INT,
-      ProductID INT,
-      UnitPrice MONEY,
-      OrderQty SMALLINT );
-    GO
+CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
+( OrderID INT,
+    ProductID INT,
+    UnitPrice MONEY,
+    OrderQty SMALLINT );
+GO
 ```
 
 Ardından bu tür tablo kabul eden bir saklı yordam tanımlayın. Bu yordamı, bir uygulamanın yerel olarak bir dizi siparişlerini ve tek bir çağrı sırası ayrıntılarını toplu sağlar. Aşağıdaki Transact-SQL bu satınalma siparişi örneği için tam bir saklı yordam bildirimi sağlar.
 
 ```sql
-    CREATE PROCEDURE sp_InsertOrdersBatch (
-    @orders as PurchaseOrderTableType READONLY,
-    @details as PurchaseOrderDetailTableType READONLY )
-    AS
-    SET NOCOUNT ON;
+CREATE PROCEDURE sp_InsertOrdersBatch (
+@orders as PurchaseOrderTableType READONLY,
+@details as PurchaseOrderDetailTableType READONLY )
+AS
+SET NOCOUNT ON;
 
-    -- Table that connects the order identifiers in the @orders
-    -- table with the actual order identifiers in the PurchaseOrder table
-    DECLARE @IdentityLink AS TABLE ( 
-    SubmittedKey int, 
-    ActualKey int, 
-    RowNumber int identity(1,1)
-    );
+-- Table that connects the order identifiers in the @orders
+-- table with the actual order identifiers in the PurchaseOrder table
+DECLARE @IdentityLink AS TABLE ( 
+SubmittedKey int, 
+ActualKey int, 
+RowNumber int identity(1,1)
+);
 
-          -- Add new orders to the PurchaseOrder table, storing the actual
-    -- order identifiers in the @IdentityLink table   
-    INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
-    OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
-    SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
+-- Add new orders to the PurchaseOrder table, storing the actual
+-- order identifiers in the @IdentityLink table   
+INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
+OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
+SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
 
-    -- Match the passed-in order identifiers with the actual identifiers
-    -- and complete the @IdentityLink table for use with inserting the details
-    WITH OrderedRows As (
-    SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
-    FROM @orders
-    )
-    UPDATE @IdentityLink SET SubmittedKey = M.OrderID
-    FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
+-- Match the passed-in order identifiers with the actual identifiers
+-- and complete the @IdentityLink table for use with inserting the details
+WITH OrderedRows As (
+SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
+FROM @orders
+)
+UPDATE @IdentityLink SET SubmittedKey = M.OrderID
+FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
 
-    -- Insert the order details into the PurchaseOrderDetail table, 
-          -- using the actual order identifiers of the master table, PurchaseOrder
-    INSERT INTO PurchaseOrderDetail (
-    [OrderID],
-    [ProductID],
-    [UnitPrice],
-    [OrderQty] )
-    SELECT L.ActualKey, D.ProductID, D.UnitPrice, D.OrderQty
-    FROM @details D
-    JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
-    GO
+-- Insert the order details into the PurchaseOrderDetail table, 
+-- using the actual order identifiers of the master table, PurchaseOrder
+INSERT INTO PurchaseOrderDetail (
+[OrderID],
+[ProductID],
+[UnitPrice],
+[OrderQty] )
+SELECT L.ActualKey, D.ProductID, D.UnitPrice, D.OrderQty
+FROM @details D
+JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
+GO
 ```
 
 Bu örnekte, yerel olarak tanımlanan @IdentityLink tablo, yeni eklenen satırlar gerçek OrderID değerleri depolar. Bu sipariş tanımlayıcılarını geçici OrderID değerleri farklı @orders ve @details tablo değerli parametreleri. Bu nedenle, @IdentityLink tablo ardından OrderID değerlerinden bağlanır @orders PurchaseOrder tablosunda yeni satırlar için gerçek OrderID değerler için parametre. Bu adımdan sonra @IdentityLink tablo kolaylaştırmak yabancı anahtar kısıtlamasını karşılayan gerçek OrderID ile sipariş ayrıntılarını ekleme.
@@ -567,23 +586,23 @@ Bu örnekte, yerel olarak tanımlanan @IdentityLink tablo, yeni eklenen satırla
 Bu saklı yordamı, kod veya diğer Transact-SQL çağrıları kullanılabilir. Bu belgede bir kod örneği için tablo değerli parametre bölümüne bakın. Aşağıdaki Transact-SQL sp_InsertOrdersBatch çağırma gösterilmektedir.
 
 ```sql
-    declare @orders as PurchaseOrderTableType
-    declare @details as PurchaseOrderDetailTableType
+declare @orders as PurchaseOrderTableType
+declare @details as PurchaseOrderDetailTableType
 
-    INSERT @orders 
-    ([OrderID], [OrderDate], [CustomerID], [Status])
-    VALUES(1, '1/1/2013', 1125, 'Complete'),
-    (2, '1/13/2013', 348, 'Processing'),
-    (3, '1/12/2013', 2504, 'Shipped')
+INSERT @orders 
+([OrderID], [OrderDate], [CustomerID], [Status])
+VALUES(1, '1/1/2013', 1125, 'Complete'),
+(2, '1/13/2013', 348, 'Processing'),
+(3, '1/12/2013', 2504, 'Shipped')
 
-    INSERT @details
-    ([OrderID], [ProductID], [UnitPrice], [OrderQty])
-    VALUES(1, 10, $11.50, 1),
-    (1, 12, $1.58, 1),
-    (2, 23, $2.57, 2),
-    (3, 4, $10.00, 1)
+INSERT @details
+([OrderID], [ProductID], [UnitPrice], [OrderQty])
+VALUES(1, 10, $11.50, 1),
+(1, 12, $1.58, 1),
+(2, 23, $2.57, 2),
+(3, 4, $10.00, 1)
 
-    exec sp_InsertOrdersBatch @orders, @details
+exec sp_InsertOrdersBatch @orders, @details
 ```
 
 Bu çözüm, her toplu iş 1'den başlar OrderID değerler kümesini kullanmak izin verir. Bu geçici OrderID değerleri batch ilişkileri tanımlamak, ancak gerçek OrderID değerler ekleme işlemi zamanında belirlenir. Önceki örnekte, tekrar tekrar aynı deyimleri çalıştırın ve veritabanında benzersiz siparişler oluşturmak. Bu nedenle, bu tekniği toplu işlem kullanırken yinelenen siparişler engeller. daha fazla kod veya veritabanı mantığı eklemeyi düşünün.
@@ -597,40 +616,40 @@ Başka bir toplu işleme senaryosu, aynı anda var olan satır, ekleme yeni sat�
 Tablo değerli parametre ile MERGE deyimi, güncelleştirmeler ve ekler gerçekleştirmek için kullanılabilir. Örneğin, şu sütunları içeren bir Basitleştirilmiş çalışan tablosuna göz önünde bulundurun: EmployeeID, FirstName, LastName, SocialSecurityNumber:
 
 ```sql
-    CREATE TABLE [dbo].[Employee](
-    [EmployeeID] [int] IDENTITY(1,1) NOT NULL,
-    [FirstName] [nvarchar](50) NOT NULL,
-    [LastName] [nvarchar](50) NOT NULL,
-    [SocialSecurityNumber] [nvarchar](50) NOT NULL,
-     CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
-    ([EmployeeID] ASC ))
+CREATE TABLE [dbo].[Employee](
+[EmployeeID] [int] IDENTITY(1,1) NOT NULL,
+[FirstName] [nvarchar](50) NOT NULL,
+[LastName] [nvarchar](50) NOT NULL,
+[SocialSecurityNumber] [nvarchar](50) NOT NULL,
+CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
+([EmployeeID] ASC ))
 ```
 
 Bu örnekte, SocialSecurityNumber birden çok çalışan bir birleştirme işlemini gerçekleştirmek için benzersiz olduğunu kullanabilirsiniz. İlk olarak, kullanıcı tanımlı tablo türü oluşturun:
 
 ```sql
-    CREATE TYPE EmployeeTableType AS TABLE 
-    ( Employee_ID INT,
-      FirstName NVARCHAR(50),
-      LastName NVARCHAR(50),
-      SocialSecurityNumber NVARCHAR(50) );
-    GO
+CREATE TYPE EmployeeTableType AS TABLE 
+( Employee_ID INT,
+    FirstName NVARCHAR(50),
+    LastName NVARCHAR(50),
+    SocialSecurityNumber NVARCHAR(50) );
+GO
 ```
 
 Ardından, bir saklı yordam oluşturma veya güncelleştirme gerçekleştirmek ve eklemek için MERGE deyiminin kullanan kod yazın. Aşağıdaki örnek, bir tablo değerli parametre MERGE deyiminin kullanır @employees, EmployeeTableType türü. İçeriğini @employees tablo burada gösterilmez.
 
 ```sql
-    MERGE Employee AS target
-    USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
-    AS source ([FirstName], [LastName], [SocialSecurityNumber])
-    ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
-    WHEN MATCHED THEN 
-    UPDATE SET
-    target.FirstName = source.FirstName, 
-    target.LastName = source.LastName
-    WHEN NOT MATCHED THEN
-       INSERT ([FirstName], [LastName], [SocialSecurityNumber])
-       VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
+MERGE Employee AS target
+USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
+AS source ([FirstName], [LastName], [SocialSecurityNumber])
+ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
+WHEN MATCHED THEN 
+UPDATE SET
+target.FirstName = source.FirstName, 
+target.LastName = source.LastName
+WHEN NOT MATCHED THEN
+    INSERT ([FirstName], [LastName], [SocialSecurityNumber])
+    VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
 ```
 
 Belgeler ve örnekler MERGE deyiminin için daha fazla bilgi için bkz. Aynı iş bir çok-depolanan adımda gerçekleştirilebilir ancak yordam çağrısı ile ayrı ekleme ve güncelleştirme işlemleri, MERGE deyiminin daha verimlidir. Veritabanı kod MERGE deyimi, INSERT ve UPDATE için iki veritabanı çağrıları doğrudan gerektirmeden kullanan Transact-SQL çağrıları da oluşturabilirsiniz.

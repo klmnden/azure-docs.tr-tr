@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2019
+ms.date: 02/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 77dda85c920fda90b8379445a79569413b2dd463
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691514"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745598"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
 
@@ -318,22 +318,30 @@ Açıklama şablonunuza eklemek için birkaç seçeneğiniz vardır.
 
 ![Parametre ipucunu göster](./media/resource-group-authoring-templates/show-parameter-tip.png)
 
-İçin **kaynakları**, ekleme bir `comments` öğesi.
+İçin **kaynakları**, ekleme bir `comments` öğesi veya bir meta veri nesnesi. Aşağıdaki örnek, bir açıklama öğesi hem bir meta veri nesnesi gösterir.
 
 ```json
 "resources": [
-    {
-      "comments": "Storage account used to store VM disks",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2018-07-01",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[variables('storageAccountType')]"
-      },
-      "kind": "Storage",
-      "properties": {}
+  {
+    "comments": "Storage account used to store VM disks",
+    "apiVersion": "2018-07-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "location": "[parameters('location')]",
+    "metadata": {
+      "comments": "These tags are needed for policy compliance."
     },
+    "tags": {
+      "Dept": "[parameters('deptName')]",
+      "Environment": "[parameters('environment')]"
+    },
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {}
+  }
+]
 ```
 
 Ekleyebileceğiniz bir `metadata` şablonunuzda neredeyse her yerden nesne. Kaynak Yöneticisi nesnesi yok sayar, ancak JSON düzenleyiciniz özelliği geçerli değil uyar. Gerek duyduğunuz özellikleri nesnesi tanımlayın.
@@ -363,14 +371,27 @@ Ekleyebileceğiniz bir `metadata` şablonunuzda neredeyse her yerden nesne. Kayn
 
 Kullanıcı tanımlı işlevler için bir meta veri nesnesi ekleyemezsiniz.
 
-Genel yorumlar için kullanabileceğiniz `//` ancak bu sözdizimi Azure CLI ile şablon dağıtımı sırasında bir hataya neden olur.
+Satır içi yorumlar için kullanabileceğiniz `//` ancak bu sözdizimi ile tüm araçları çalışmıyor. Azure CLI ile satır içi açıklamalara şablonu dağıtmak için kullanamazsınız. Ve satır içi açıklamalara şablonlarıyla çalışmak için portal şablonu Düzenleyicisi'ni kullanamazsınız. Bu stil yorum eklerseniz, destek satır içi JSON açıklamalar kullandığınız araçları emin olun.
 
 ```json
-"variables": {
-    // Create unique name for the storage account
-    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-},
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[parameters('location')]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  "dependsOn": [ // storage account and network interface must be deployed first
+      "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+      "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
 ```
+
+VS Code'da JSON yorumlarla dil modunu ayarlayabilirsiniz. Satır içi açıklamalara artık geçersiz olarak işaretlenmiş. Modu değiştirmek için:
+
+1. Açık dil modu seçimi (Ctrl + K M)
+
+1. Seçin **açıklamaları olan JSON**.
+
+   ![Dil modu Seç](./media/resource-group-authoring-templates/select-json-comments.png)
 
 ## <a name="template-limits"></a>Şablon sınırları
 
@@ -393,4 +414,4 @@ Genel yorumlar için kullanabileceğiniz `//` ancak bu sözdizimi Azure CLI ile 
 * Kullanabileceğiniz gelen içinde şablon işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
 * Dağıtım sırasında çeşitli şablonlar birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
 * Şablonları oluşturma hakkında daha fazla öneri için bkz. [Azure Resource Manager şablonu iyi](template-best-practices.md).
-* Global Azure, Azure bağımsız bulutları ve Azure Stack genelinde kullanabileceğiniz Resource Manager şablonları oluşturma konusundaki öneriler için bkz. [Bulut tutarlılığı için Azure Resource Manager şablonları geliştirme](templates-cloud-consistency.md).
+* Tüm Azure ortamlarını ve Azure Stack'te kullanan Resource Manager şablonları oluşturmaya ilişkin öneriler için bkz. [bulut tutarlılık için geliştirme Azure Resource Manager şablonları](templates-cloud-consistency.md).

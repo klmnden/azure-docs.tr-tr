@@ -1,6 +1,6 @@
 ---
-title: Microsoft Authenticator uygulamasına - Azure Active Directory, kişisel Microsoft olmayan hesapların ekleyin | Microsoft Docs
-description: Kişisel Microsoft olmayan hesapların gibi Google, Facebook veya GitHub için iki aşamalı doğrulama için Microsoft Authenticator uygulamasını ekleme.
+title: Microsoft Authenticator uygulamasına - Azure Active Directory, Microsoft olmayan hesapların ekleyin | Microsoft Docs
+description: Microsoft olmayan hesapların gibi Google, Facebook veya GitHub için iki aşamalı doğrulama için Microsoft Authenticator uygulamasını ekleme.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: db59d3d2795b8cfa3fc7682f4486d968f39ab6ab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0103aa7fb9142f38e0f34cd70fbdb198137bc2a0
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459154"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753835"
 ---
-# <a name="add-your-personal-non-microsoft-accounts"></a>Kişisel Microsoft dışı hesaplarınızı Ekle
-Kişisel Microsoft olmayan hesapların gibi Google, Facebook veya GitHub için iki aşamalı doğrulama için Microsoft Authenticator uygulaması ekleyin.
+# <a name="add-your-non-microsoft-accounts"></a>Microsoft olmayan hesapların Ekle
+Microsoft olmayan hesapların gibi Google, Facebook veya GitHub için iki aşamalı doğrulama için Microsoft Authenticator uygulaması ekleyin. Microsoft Authenticator uygulamasını iki aşamalı doğrulama kullanan tüm uygulamalarda ve zamana bağlı bir kerelik parola (TOTP) standartlarını destekleyen herhangi bir hesabı ile çalışır.
 
 >[!Important]
 >Hesabınızı ekleyebilmeniz için önce indirin ve Microsoft Authenticator uygulamasını yüklemeniz gerekir. Henüz yapmadıysanız adımları [uygulamayı yükleyip](microsoft-authenticator-app-how-to.md) makalesi.
@@ -29,7 +29,7 @@ Genel olarak, tüm kişisel hesaplarınız için aşağıdakileri yapmalısını
 
 1. Hesabınızda oturum açın ve ardından, cihaz veya bilgisayarınıza kullanarak iki aşamalı doğrulamayı açmak.
 
-2. Hesabı, Microsoft Authenticator uygulamasına ekleyin.
+2. Hesabı, Microsoft Authenticator uygulamasına ekleyin. Bu işlemin bir parçası olarak bir QR kodu tarama istenebilir.
 
 Facebook, Google, GitHub ve Amazon hesaplarınız için işlemi burada sağlayarak, ancak bu işlem Instagram, Netflix veya Adobe gibi diğer tüm uygulamalar için aynıdır.
 

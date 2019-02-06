@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 4fd9f76223adba20028288b46037586f8f54fd1a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686390"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746923"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak sanal makineleri oluşturma 
 
@@ -47,7 +47,7 @@ Bu makalenin geri kalanında Microsoft.DevTestLab/labs/virtualmachines kullanan 
 [Azure Resource Manager şablonları oluşturmaya yönelik en iyi uygulamalar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) birçok yönergeler ve öneriler, Azure Resource Manager şablonları oluşturmanıza yardımcı olması için, güvenilir ve kullanımı kolay sunar.
 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Görüntüleme ve bir sanal makinenin Resource Manager şablonu kaydetme
-1. Bölümündeki adımları [bir laboratuar ortamında ilk VM'nizi oluşturun](devtest-lab-create-first-vm.md) bir sanal makine oluşturmaya başlayın.
+1. Bölümündeki adımları [bir laboratuar ortamında ilk VM'nizi oluşturun](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) bir sanal makine oluşturmaya başlayın.
 1. Sanal makineniz için gerekli bilgileri girin ve bu VM için istediğiniz herhangi bir yapıt ekleyin.
 1. Yapılandırma ayarları penceresinin en altında seçin **görünümü ARM şablonu**.
 

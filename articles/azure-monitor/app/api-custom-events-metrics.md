@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: bbe29f112d752be432c0f922b1cd07b8afe2d45e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: d0e549f0da5eb30dd11992518789d76c0892bca3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232490"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747484"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
@@ -55,7 +55,7 @@ Application Insights SDK'sı hakkında başvuru henüz yoksa:
   * [Her bir Web sayfasındaki JavaScript](../../azure-monitor/app/javascript.md) 
 * Cihazınıza veya web sunucusu kodunuza şunu ekleyin:
 
-    *C# İÇİN:* `using Microsoft.ApplicationInsights;`
+    *C#:* `using Microsoft.ApplicationInsights;`
 
     *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
@@ -1002,7 +1002,7 @@ SDK'sından gönderilmeden önce telemetrinizi işlemek için kod yazabilirsiniz
 
 [Özellikler ekleme](../../azure-monitor/app/api-filtering-sampling.md#add-properties) uygulayarak telemetriye `ITelemetryInitializer`. Örneğin, diğer özelliklerden sürüm numaraları veya hesaplanan değerler ekleyebilirsiniz.
 
-[Filtreleme](../../azure-monitor/app/api-filtering-sampling.md#filtering) değiştirebilir veya telemetri SDK'sından uygulayarak gönderilmeden önce iptal `ITelemetryProcesor`. Ne gönderildiğinde veya iptal denetimi ancak ölçümlerinizi üzerindeki etkisini hesabı gerekir. Öğeler atılsın nasıl bağlı olarak, ilgili öğeleri arasında gezinme olanağı kaybedebilirsiniz.
+[Filtreleme](../../azure-monitor/app/api-filtering-sampling.md#filtering) değiştirebilir veya telemetri SDK'sından uygulayarak gönderilmeden önce iptal `ITelemetryProcessor`. Ne gönderildiğinde veya iptal denetimi ancak ölçümlerinizi üzerindeki etkisini hesabı gerekir. Öğeler atılsın nasıl bağlı olarak, ilgili öğeleri arasında gezinme olanağı kaybedebilirsiniz.
 
 [Örnekleme](../../azure-monitor/app/api-filtering-sampling.md) portala uygulamanızdan gönderilen veri hacmini azaltmak için paketlenmiş bir çözümdür. Bunu görüntülenen ölçümlerin etkilemeden yapar. Ve bunu özel durumlar, istekler ve sayfa görüntülemeleri gibi ilgili öğeleri arasında giderek sorunları tanılama yeteneğinizi etkilemeden yapar.
 

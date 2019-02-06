@@ -12,14 +12,14 @@ ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
 ms.date: 11/30/2018
-ms.openlocfilehash: fc5398b4ffb0b9310b6ab13561830d8d3db7a611
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: fb45d5fe549966dbf1635ee23447f90080bbb627
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725752"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751302"
 ---
-# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Hızlı başlangıç: Azure SQL Veritabanı'nda Machine Learning Services'i (R ile) kullanma (önizleme)
+# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Hızlı Başlangıç: Machine Learning Hizmetleri (R ile) Azure SQL veritabanı (Önizleme) kullanma
 
 Bu makalede Machine Learning Services (R ile) genel önizleme sürümünü Azure SQL Veritabanı'nda kullanma adımları gösterilmektedir. Bir SQL veritabanı ile R arasında veri alışverişi yapmanın temel adımları anlatılmaktadır. Ayrıca bir SQL veritabanında makine öğrenmesi modeli oluşturmak, eğitmek ve kullanmak için [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) saklı yordamında doğru oluşturulmuş R kodu sarmalama süreçleri açıklanmaktadır.
 
@@ -47,7 +47,7 @@ SQL Veritabanı bağlantısı yapabilen ve T-SQL sorgusu veya saklı yordam çal
 
 [Paket ekleme](#add-package) alıştırması için yerel bilgisayarınıza ayrıca [R](https://www.r-project.org/) ve [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) uygulamalarını da yüklemeniz gerekecektir.
 
-Bu hızlı başlangıç ayrıca sunucu düzeyinde bir güvenlik duvarı kuralı yapılandırması gerektirir. Bunun nasıl yapılacağını gösteren bir hızlı başlangıç için bkz: [Sunucu düzeyinde güvenlik duvarı kuralı oluşturma](sql-database-get-started-portal-firewall.md).
+Bu hızlı başlangıç ayrıca sunucu düzeyinde bir güvenlik duvarı kuralı yapılandırması gerektirir. Bunun nasıl yapılacağını gösteren bir hızlı başlangıç için bkz: [Sunucu düzeyinde güvenlik duvarı kuralı oluşturma](sql-database-server-level-firewall-rule.md).
 
 ## <a name="different-from-sql-server"></a>SQL Server’dan farkı
 
@@ -293,7 +293,7 @@ R kullanarak model eğitebilir ve bu modeli SQL veritabanınızda bir tablo olar
     - Modelin eğitilmesi için kullanılacak giriş verilerini sağlayın.
 
     > [!TIP]
-    > Doğrusal modeller konusunda hafızanızı tazelemeniz gerekiyorsa rxLinMod kullanarak model uydurma sürecini anlatan şu öğreticiyi incelemeniz önerilir: [Doğrusal Modelleri Uydurma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+    > Bir Doğrusal Model tazelemek gerekiyorsa, bu öğreticide rxLinMod kullanarak bir model sığdırma işlemi açıklanır öneririz: [Doğrusal modelleri sığdırma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
     Modeli oluşturmak için formülü R kodunuzda tanımlar ve verileri giriş parametresi olarak geçirirsiniz.
 
@@ -533,6 +533,6 @@ SQL veritabanınızda yüklü olmayan bir paketi kullanmanız gerekiyorsa [sqlml
 Machine Learning Services hakkında daha fazla bilgi için aşağıdaki SQL Server Machine Learning Services makalelerini inceleyin. Bu makaleler SQL Server'a yönelik olsa da içindeki bilgilerin çoğu Azure SQL Veritabanı'nda Machine Learning Services (R ile) için de geçerlidir.
 
 - [SQL Server Machine Learning Hizmetleri](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Öğretici: SQL Server'da R kullanarak veritabanı içi analizi öğrenme](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [Öğretici: SQL Server'da R kullanarak veritabanında analizini öğrenin](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
 - [R ve SQL Server için uçtan uca veri bilimi kılavuzu](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Öğretici: SQL Server verileriyle RevoScaleR R işlevlerini kullanma](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Öğretici: SQL Server verileri ile RevoScaleR R işlevlerini kullanma](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

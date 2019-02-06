@@ -12,188 +12,156 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 01/25/2019
 manager: craigg
-ms.openlocfilehash: 7a05c6b4fac031482d77827a817ef56920a0c314
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: def50aecbcf9186af9d0b9c781c3141ad2dcee59
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464560"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753682"
 ---
-# <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Azure SQL veritabanı'na bağlanmak için ActiveDirectoryInteractive modunu kullan
+# <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Active Directory MFA ile Azure SQL Database'e bağlanma
 
-Bu makalede, Microsoft Azure SQL veritabanına bağlanan bir çalıştırılabilir C# kod örneği sağlar. C# programı Azure AD'ye multi-Factor authentication (MFA) destekler kimlik doğrulaması, etkileşimli modunu kullanır. Örneğin, bir bağlantı denemesi cep telefonunuza gönderilen bir doğrulama kodu ekleyebilirsiniz.
+Bu makalede sağlayan bir C# program olan Microsoft Azure SQL veritabanınıza bağlanır. Program destekleyen etkileşimli mod kimlik doğrulaması kullanan [Azure Active Directory (AD) çok faktörlü kimlik doğrulaması (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 SQL araçları için MFA desteği hakkında daha fazla bilgi için bkz. [Azure Active Directory desteği SQL Server veri Araçları (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
-## <a name="sqlauthenticationmethod-activedirectoryinteractive-enum-value"></a>SqlAuthenticationMethod. ActiveDirectoryInteractive sabit listesi değeri
+## <a name="multi-factor-authentication-for-azure-sql-database"></a>Azure SQL veritabanı için çok faktörlü kimlik doğrulaması
 
-.NET Framework sürüm 4.7.2, enum başlangıç [ **SqlAuthenticationMethod** ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) yeni bir değere sahip **. ActiveDirectoryInteractive**. İstemci C# programı tarafından kullanıldığında, bu sabit listesi değeri, Azure SQL veritabanında kimlik doğrulaması için mfa'yı destekleyen Azure AD'ye etkileşimli modu kullanın yönlendirir. Ardından, programı çalıştıran kullanıcının aşağıdaki iletişim kutuları görür:
+.NET Framework sürüm 4.7.2, enum başlangıç [ `SqlAuthenticationMethod` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) - yeni bir değere sahip `ActiveDirectoryInteractive`. Bir istemci C# programı, sabit listesi değeri yönlendirir sistemin bir Azure SQL veritabanı'na bağlanmak için mfa'yı destekleyen Azure AD'ye etkileşimli modu kullanın. Programı çalıştıran kullanıcının aşağıdaki iletişim kutusu görür:
 
-1. Bir Azure AD kullanıcı adını görüntüleyen ve, Azure AD kullanıcısının parolası soran bir iletişim kutusu.
-    - Parola gerekiyorsa, bu iletişim kutusu görüntülenmez. Kullanıcının etki alanını Azure AD ile birleştirildiyse parola gereklidir.
+1. Bir Azure AD kullanıcı adını görüntüler ve kullanıcının parolası soran bir iletişim kutusu.
 
-    MFA kullanıcı Azure AD'de ayarladığı ilke tarafından uygulanan, aşağıdaki iletişim kutularının yanındaki görüntülenir.
+   Kullanıcının etki alanını Azure AD ile birleştirildiyse parola gerektiğinde bu iletişim kutusunda görünmez.
 
-2. Yalnızca kullanıcı MFA senaryo düştüğünü ilk kez sistem ek bir iletişim kutusu görüntüler. İletişim kutusunun metin iletileri gönderilecek bir cep telefonu numarası için sorar. Her ileti sağlar *doğrulama kodu* , kullanıcının sonraki iletişim kutusuna girmeniz gerekir.
+   Ardından Azure AD İlkesi, kullanıcı MFA uygular, sonraki iki iletişim kutusu görüntülenir.
 
-3. Sistem cep telefonuna gönderilen MFA doğrulama kodu ister başka bir iletişim kutusu.
+2. İlk kez bir kullanıcı mfa'yı giden sistem metin ileti göndermek bir cep telefonu numarası için soran bir iletişim kutusu görüntüler. Her ileti sağlar *doğrulama kodu* , kullanıcının sonraki iletişim kutusunda girmeniz gerekir.
+
+3. Sistem cep telefonuna gönderilen bir MFA doğrulama kodu için soran bir iletişim kutusu.
 
 Azure AD MFA gerektirecek şekilde yapılandırma hakkında daha fazla bilgi için bkz: [bulutta Azure multi Factor Authentication kullanmaya başlama](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
 Bu iletişim kutularının ekran görüntüleri için bkz. [SQL Server Management Studio ve Azure AD için çok faktörlü kimlik doğrulamasını yapılandırma](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!TIP]
-> .NET Framework API'ları tüm türleri için genel arama sayfamıza kullanışlı bizim için şu bağlantıdaki kullanılabilir **.NET API Browser** aracı:
+> .NET Framework API'ları ile arayabilirsiniz bizim **.NET API Browser** aracı sayfası:
 >
 > [https://docs.microsoft.com/dotnet/api/](https://docs.microsoft.com/dotnet/api/)
 >
-> Tür adı isteğe bağlı eklenmiş ekleyerek **? terimi =** parametresi, arama sayfası bizim için hazırdır bizim sonucu vardır:
+> Ayrıca doğrudan isteğe bağlı arama yapabilirsiniz **? terimi =&lt;arama değeri&gt;**  parametresi:
 >
 > [https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)
 
-## <a name="preparations-for-c-by-using-the-azure-portal"></a>Azure portalını kullanarak C# ' ta, hazırlıkları
+## <a name="configure-your-c-application-in-the-azure-portal"></a>Yapılandırma, C# Azure portalında uygulama
 
-Sahip olduğunuz varsayılır bir [Azure SQL veritabanı sunucusu oluşturan](sql-database-get-started-portal.md) ve kullanılabilir.
+Başlamadan önce olmalıdır bir [Azure SQL veritabanı sunucusu](sql-database-get-started-portal.md) oluşturulan ve kullanılabilir.
 
-### <a name="a-create-an-app-registration"></a>A. Bir uygulama kaydı oluşturma
+### <a name="register-your-app-and-set-permissions"></a>Uygulamanızı kaydetmenizi ve izinleri ayarlama
 
-Azure AD kimlik doğrulamasını kullanmak için C# istemci programınız bir GUID olarak sağlamalısınız bir *ClientID* çalıştığında programınız bağlanın. Bir uygulama kaydı tamamlama oluşturur ve Azure portalında GUİD'ini görüntüler olarak etiketlenmiş **uygulama kimliği**. Gezinti adımlar aşağıdaki gibidir:
 
-1. Azure portalında &gt; **Azure Active Directory** &gt; **uygulama kaydı**
+Azure AD kimlik doğrulamasını kullanmak için C# programı olan bir AD uygulaması kaydedilecek. Bir uygulamayı kaydetme için bir AD yöneticisi olmanız gerekir veya bir kullanıcı AD atanan *uygulama geliştiricisi* rol. Rol atama hakkında daha fazla bilgi için bkz. [yönetici ve yönetici olmayan rollerin Azure Active Directory ile kullanıcılara atama.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
-    ![Uygulama kaydı](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
+ Bir uygulama kaydı tamamlama oluşturur ve görüntüler bir **uygulama kimliği**. Bağlanmak için bu kimliği eklemek, programınızı sahiptir.
 
-2. **Uygulama kimliği** değer oluşturulur ve görüntülenir.
 
-    ![Görüntülenen uygulama kimliği](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
+Kaydolun ve uygulamanız için gerekli izinleri ayarlamak için:
 
-3. **Kayıtlı uygulama** &gt; **ayarları** &gt; **gerekli izinler** &gt; **Ekle**
+1. Azure portalı > **Azure Active Directory** > **uygulama kayıtları** > **yeni uygulama kaydı**
+
+    ![Uygulama kaydı](media/active-directory-interactive-connect-azure-sql-db/image1.png)
+
+    Uygulama kaydı oluşturulduktan sonra **uygulama kimliği** değer oluşturulur ve görüntülenir.
+
+    ![Görüntülenen uygulama kimliği](media/active-directory-interactive-connect-azure-sql-db/image2.png)
+
+2. **Kayıtlı uygulama** > **ayarları** > **gerekli izinler** > **Ekle**
 
     ![Kayıtlı uygulama için izin ayarları](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-4. **Gerekli izinler** &gt; **API erişimi Ekle** &gt; **bir API seçin** &gt; **Azure SQL veritabanı**
+3. **Gerekli izinler** > **Ekle** > **bir API seçin** > **Azure SQL veritabanı**
 
     ![Azure SQL veritabanı için erişim API'ye işlem ekleme](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-5. **API erişimi** &gt; **izinleri seçin** &gt; **temsilci izinleri**
+4. **API erişimi** > **izinleri seçin** > **temsilci izinleri**
 
     ![Azure SQL veritabanı için API'sine temsilci izinleri](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
-
-### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. Azure AD Yöneticisi, SQL veritabanı sunucusuna Ayarla
-
-Her bir tek Azure SQL veritabanı ve elastik havuz, kendi Azure AD, SQL veritabanı sunucusu vardır. C# senaryomuz için Azure SQL Sunucunuz için bir Azure AD Yöneticisi ayarlamanız gerekir.
-
-1. **SQL Server** &gt; **Active Directory Yöneticisi** &gt; **yönetici Ayarla**
-
-    - Ekran görüntülerinde de Azure SQL veritabanı için Azure AD yöneticileri ve kullanıcılar hakkında daha fazla bilgi için bkz. [yapılandırma ve SQL veritabanı ile Azure Active Directory kimlik doğrulamasını yönetmek](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server), alt bölümdeki **Azure sağlama Azure SQL veritabanı sunucunuzun Active Directory Yöneticisi**.
+### <a name="set-an-azure-ad-admin-for-your-sql-database-server"></a>SQL veritabanı sunucunuz için bir Azure AD Yöneticisi ayarlama
 
 
-### <a name="c-prepare-an-azure-ad-user-to-connect-to-a-specific-database"></a>C. Belirli bir veritabanına bağlanmak için bir Azure AD Kullanıcı hazırlama
+İçin C# çalışması için bir Azure SQL Sunucu Yöneticisi, Azure SQL Sunucunuz için bir Azure AD yönetici ataması gerekiyor. 
 
-Azure SQL veritabanı sunucunuza özgü Azure AD'de belirli bir veritabanına erişimi olması bir kullanıcı ekleyebilirsiniz.
+ * **SQL Server** > **Active Directory Yöneticisi** > **yönetici Ayarla**
+
+Ekran görüntülerinde de Azure SQL veritabanı için Azure AD yöneticileri ve kullanıcılar hakkında daha fazla bilgi için bkz. [yapılandırma ve SQL veritabanı ile Azure Active Directory kimlik doğrulamasını yönetmek](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server), alt bölümdeki **Azure sağlama Azure SQL veritabanı sunucunuzun Active Directory Yöneticisi**.
+
+### <a name="add-a-non-admin-user-to-a-specific-database-optional"></a>Belirli bir veritabanı (isteğe bağlı) yönetici olmayan kullanıcı ekleme
+
+SQL veritabanı sunucusu için bir Azure AD Yöneticisi çalıştırabilirsiniz C# örnek program. Veritabanında olmaları durumunda bir Azure AD kullanıcısının program çalışabilir. Azure AD SQL yönetici veya veritabanında zaten varsa ve bir Azure AD kullanıcı `ALTER ANY USER` izni veritabanında bir kullanıcı ekleyebilirsiniz.
+
+Bir kullanıcı SQL veritabanıyla ekleyebilir [ `Create User` ](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) komutu. Örneğin, `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 Daha fazla bilgi için [kullanımı Azure SQL veritabanı, yönetilen örneği veya SQL veri ambarı ile kimlik doğrulaması için Active Directory kimlik](sql-database-aad-authentication.md).
 
+## <a name="new-authentication-enum-value"></a>Yeni kimlik doğrulama sabit listesi değeri
 
-### <a name="d-add-a-non-admin-user-to-azure-ad"></a>D. Yönetici olmayan bir kullanıcı Azure AD'ye ekleme
+C# Örnek dayanır [ `System.Data.SqlClient` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) ad alanı. Çok faktörlü kimlik doğrulaması için özel ilgi sabit olan `SqlAuthenticationMethod`, aşağıdaki değerleri vardır:
 
-SQL veritabanı sunucusu, Azure AD Yöneticisi, SQL veritabanı sunucunuza bağlanmak için kullanılabilir. Ancak, Azure AD'ye yönetici olmayan bir kullanıcı eklemek için daha genel durumu gösterir. Yönetici olmayan kullanıcı bağlanmak için kullanıldığında, Azure AD tarafından uygulanan MFA bu kullanıcı, MFA dizisi çağrılır.
+- `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
+   Bu değer, MFA uygulamak için bir Azure AD kullanıcı adını kullanın. Bu değer mevcut makalenin odak noktası olur. Bu, etkileşimli bir deneyim MFA kullanıcı bu tutabildiğini, kullanıcı parolasını ve ardından MFA doğrulama için iletişim kutularını görüntüleme üretir. Bu değer, .NET Framework sürümü 4.7.2 ile başlayarak kullanılabilir.
 
+- `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
 
+  Bu değer bir *Federasyon* hesabı. Birleştirilmiş bir hesap için kullanıcı adı, Windows etki alanına adı verilir. Bu kimlik doğrulama yöntemi, mfa'yı desteklemez.
 
-## <a name="azure-active-directory-authentication-library-adal"></a>Azure Active Directory kimlik doğrulama kitaplığı (ADAL)
+- `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
-Ad alanı üzerinde C# programı kullanır **Microsoft.IdentityModel.Clients.activedirectory**. Bu ad alanı için aynı adı taşıyan derlemesine sınıflardır.
+  Bir Azure AD kullanıcı adı ve parola gerektiren kimlik doğrulaması için bu değeri kullanın. Azure SQL veritabanı kimlik doğrulaması yapar. Bu yöntem, mfa'yı desteklemez.
 
-- NuGet, derleme ADAL'ı indirip kullanın.
-    - [https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)
+## <a name="set-c-parameter-values-from-the-azure-portal"></a>Ayarlama C# Azure portalından parametre değerleri
 
-- C# programının bir derleme desteklemek için derlemesine bir başvuru ekleyin.
+İçin C# başarıyla çalışması için statik alanlar için uygun değerleri atamanız gerekir. Burada gösterilen örnek değerlerle alanlardır. Ayrıca gösterilen gerekli değerlerin nereden edinebileceğiniz Azure portal konumları şunlardır:
 
-
-
-
-## <a name="sqlauthenticationmethod-enum"></a>SqlAuthenticationMethod sabit listesi
-
-C# örneği dayanan bir ad alanları olan **System.Data.SqlClient**. Sabit özel ilgi çekecektir **SqlAuthenticationMethod**. Bu numaralandırma aşağıdaki değerlere sahip:
-
-- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp;  Çok faktörlü kimlik doğrulaması MFA elde etmek için bir Azure AD kullanıcı adı kullanın.
-    - Bu değer mevcut makalenin odak noktası olur. Bu, etkileşimli bir deneyim MFA kullanıcı bu tutabildiğini, kullanıcı parolasını ve ardından MFA doğrulama için iletişim kutularını görüntüleme üretir.
-    - Bu değer, .NET Framework sürümü 4.7.2 ile başlayarak kullanılabilir.
-
-- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp;  Bu iş için bir *Federasyon* hesabı. Birleştirilmiş bir hesap için kullanıcı adı, Windows etki alanına adı verilir. Bu yöntem, mfa'yı desteklemez.
-
-- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp;  Bu, bir Azure AD kullanıcısı ve kullanıcının parolasını gerektiren kimlik doğrulaması için kullanın. Azure SQL veritabanı kimlik doğrulaması gerçekleştirir. Bu yöntem, mfa'yı desteklemez.
-
-
-
-
-## <a name="prepare-c-parameter-values-from-the-azure-portal"></a>C# parametre değerlerini Azure portalından hazırlama
-
-C# programı başarılı çalıştırma için aşağıdaki statik alanlar için uygun değerleri atamanız gerekir. Bu statik alanlar programa parametreleri gibi davranır. Alanları pretend değerlerle burada gösterilir. Ayrıca gösterilen, uygun değerlerin nereden edinebileceğiniz Azure portaldan konumlarda bulunur:
-
-
-| Statik alan adı | Değer anlatabilirsiniz | Azure portalında nerede |
+| Statik alan adı | Örnek değer | Azure portalında nerede |
 | :---------------- | :------------ | :-------------------- |
-| Az_SQLDB_svrName | "my-favorite-sqldb-svr.database.windows.net" | **SQL sunucuları** &gt; **ada göre filtrele** |
-| AzureAD_UserID | "user9@abc.onmicrosoft.com" | **Azure Active Directory** &gt; **kullanıcı** &gt; **yeni Konuk kullanıcı** |
-| Initial_DatabaseName | "ana" | **SQL sunucuları** &gt; **SQL veritabanları** |
-| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** &gt; **uygulama kayıtları**<br /> &nbsp; &nbsp; &gt; **Ada göre Ara** &gt; **uygulama kimliği** |
-| RedirectUri | Yeni bir Urı'ya ("https://bing.com/") | **Azure Active Directory** &gt; **uygulama kayıtları**<br /> &nbsp; &nbsp; &gt; **Ada göre Ara** &gt; *[Your-App-regis zaman]* &gt;<br /> &nbsp; &nbsp; **Ayarları** &gt; **RedirectURIs**<br /><br />Bu makale için geçerli bir değer, RedirectUri için uygundur. Değer örneğimizde gerçekten kullanılmaz. |
+| Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL sunucuları** > **ada göre filtrele** |
+| AzureAD_UserID | "auser@abc.onmicrosoft.com" | **Azure Active Directory** > **kullanıcı** > **yeni Konuk kullanıcı** |
+| Initial_DatabaseName | "Veritabanım" | **SQL sunucuları** > **SQL veritabanları** |
+| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **uygulama kayıtları** > **adına göre Ara** > **uygulama kimliği** |
+| RedirectUri | Yeni bir Urı'ya ("https://mywebserver.com/") | **Azure Active Directory** > **uygulama kayıtları** > **adına göre Ara** > *[Your-App-regis zaman]*  >  **Ayarları** > **RedirectURIs**<br /><br />Bu makale için geçerli bir değer burada kullanılan değil, RedirectUri için uygundur. |
 | &nbsp; | &nbsp; | &nbsp; |
 
+## <a name="verify-with-sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS) ile doğrulama
 
-Belirli senaryonuza bağlı olarak, önceki tabloda tüm parametre değerlerini gerekmeyebilir.
+Çalıştırmadan önce C# programı, Kurulum ve yapılandırmaları SSMS'de doğru olduğunu kontrol etmek için iyi bir fikir olduğunu. Tüm C# program hatalarına ardından daraltıldığı kaynak kodu.
 
+### <a name="verify-sql-database-firewall-ip-addresses"></a>SQL veritabanı güvenlik duvarı IP adresleri doğrulayın
 
+Aynı bilgisayardan çalıştırın planladığınız aynı binada, SSMS çalıştıran C# program. Bu test için tüm **kimlik doğrulaması** moddur Tamam. Veritabanı sunucusu Güvenlik Duvarı'nın IP adresiniz kabul etmiyor herhangi bir göstergesi var olup olmadığını görmek [Azure SQL veritabanı sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları](sql-database-firewall-configure.md) Yardım.
 
+### <a name="verify-azure-active-directory-mfa"></a>Azure Active Directory MFA doğrulayın
 
-## <a name="run-ssms-to-verify"></a>Doğrulamak için SSMS çalıştırın
-
-C# programı çalıştırmadan önce SQL Server Management Studio (SSMS) çalıştırmak yararlıdır. Çalıştırma SSMS, çeşitli yapılandırmalarda doğru olduğunu doğrular. Ardından C# programının herhangi bir hata, yalnızca kaynak koduna daraltır olabilir.
-
-
-#### <a name="verify-sql-database-firewall-ip-addresses"></a>SQL veritabanı güvenlik duvarı IP adresleri doğrulayın
-
-Aynı bilgisayara aynı binada, C# programı daha sonra çalışacağını SSMS çalıştırın. Hangisi kullanabileceğiniz **kimlik doğrulaması** düşündüğünüz modu, kolay. Veritabanı sunucusu güvenlik duvarı IP adresiniz kabul etmeyen herhangi bir göstergesi varsa, size, gösterildiği gibi düzeltebilirsiniz [Azure SQL veritabanı sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları](sql-database-firewall-configure.md).
-
-
-#### <a name="verify-multi-factor-authentication-mfa-for-azure-ad"></a>Azure AD için multi-Factor authentication (MFA) doğrulayın.
-
-SSMS yeniden çalıştırmak bu sefer ile **kimlik doğrulaması** kümesine **Active Directory - MFA desteğiyle Evrensel**. Bu seçenek için SSMS 17,5 veya sonraki bir sürümü olmalıdır.
+SSMS yeniden çalıştırmak bu sefer ile **kimlik doğrulaması** kümesine **Active Directory - MFA desteğiyle Evrensel**. Bu seçenek, SSMS 17,5 veya sonraki bir sürümü gerektirir.
 
 Daha fazla bilgi için [SSMS ve Azure AD için çok faktörlü kimlik doğrulamasını yapılandırma](sql-database-ssms-mfa-authentication-configure.md).
 
-
-
+> [!NOTE]
+> Konuk kullanıcı veritabanında ise, de - veritabanı için AD etki alanı adı sağlamanız gerekir **seçenekleri** > **AD etki alanı adı veya Kiracı kimliği**. Etki alanı adı Azure Portalı'nda bulmak için seçin **Azure Active Directory** > **özel etki alanı adları**. İçinde C# örnek program, sağlayarak bir etki alanı adı gerekli değildir.
 
 ## <a name="c-code-example"></a>C# kod örneği
 
-Bu C# örneği derlemek için adlı DLL derlemesine bir başvuru eklemelisiniz **Microsoft.IdentityModel.Clients.activedirectory**.
+Örnek C# program dayanır [ *Microsoft.IdentityModel.Clients.activedirectory* ](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL derleme.
 
+Visual Studio'da bu paket yüklemek için seçin **proje** > **NuGet paketlerini Yönet**. Arama ve yükleme **Microsoft.IdentityModel.Clients.activedirectory**.
 
-#### <a name="reference-documentation"></a>Başvuru belgeleri
-
-- **System.Data.SqlClient** ad alanı:
-    - Arama:&nbsp; [https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient)
-    - Doğrudan:&nbsp; [System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
-
-- **Microsoft.IdentityModel.Clients.activedirectory** ad alanı:
-    - Arama:&nbsp; [https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory)
-    - Doğrudan:&nbsp; Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
-
-
-#### <a name="c-source-code-in-two-parts"></a>C# kaynak kodu, iki parça
-
-&nbsp;
+### <a name="c-source-code"></a>C# kaynak kodu
 
 ```csharp
 
-using System;    // C# ,  part 1 of 2.
+using System;
 
-// Add a reference to assembly:  Microsoft.IdentityModel.Clients.ActiveDirectory.DLL
+// Reference to AD authentication assembly
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 using DA = System.Data;
@@ -207,12 +175,12 @@ namespace ADInteractive5
     class Program
     {
         // ASSIGN YOUR VALUES TO THESE STATIC FIELDS !!
-        static public string Az_SQLDB_svrName = "<YOUR VALUE HERE>";
-        static public string AzureAD_UserID = "<YOUR VALUE HERE>";
-        static public string Initial_DatabaseName = "master";
+        static public string Az_SQLDB_svrName = "<Your SQL DB server>";
+        static public string AzureAD_UserID = "<Your User ID>";
+        static public string Initial_DatabaseName = "<Your Database>";
         // Some scenarios do not need values for the following two fields:
-        static public readonly string ClientApplicationID = "<YOUR VALUE HERE>";
-        static public readonly Uri RedirectUri = new Uri("<YOUR VALUE HERE>");
+        static public readonly string ClientApplicationID = "<Your App ID>";
+        static public readonly Uri RedirectUri = new Uri("<Your URI>");
 
         public static void Main(string[] args)
         {
@@ -280,20 +248,6 @@ namespace ADInteractive5
             }
         }
     } // EOClass Program .
-
-```
-
-&nbsp;
-
-#### <a name="second-half-of-the-c-program"></a>C# programı ikinci yarısında
-
-Görsel görüntüleme için daha iyi, C# programı iki kod blokları şeklinde ayrılır. Programı çalıştırmak için iki kod blokları birlikte yapıştırın.
-
-&nbsp;
-
-```csharp
-
-    // C# ,  part 2 of 2 ,  to concatenate below part 1.
 
     /// <summary>
     /// SqlAuthenticationProvider - Is a public class that defines 3 different Azure AD
@@ -385,10 +339,7 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 >>
 ```
 
-&nbsp;
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Get-AzureRmSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator)
+- [SQL Server için Azure AD Yöneticisi hakkında bilgi edinin](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator)
 

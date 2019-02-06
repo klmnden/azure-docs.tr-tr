@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733506"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749033"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Depolama hesabı anahtarı yerine SAS kullanarak Microsoft Genomiks’e iş akışını gönderme 
 
@@ -32,12 +32,12 @@ Microsoft Genomiks hizmetine gönderilen her iş akışında, her bir giriş dos
 
 Giriş dosyaları için SAS şu özelliklere sahip olmalıdır:
 1.  Kapsam (hesap, kapsayıcı, blob): blob
-2.  Süre sonu: şu andan itibaren 48 saat
+2.  Süre sonu: andan itibaren 48 saat
 3.  İzinler: okuma
 
 Çıkış kapsayıcısı için SAS şu özelliklere sahip olmalıdır:
 1.  Kapsam (hesap, kapsayıcı, blob): kapsayıcı
-2.  Süre sonu: şu andan itibaren 48 saat
+2.  Süre sonu: andan itibaren 48 saat
 3.  İzinler: okuma, yazma, silme
 
 
@@ -49,14 +49,14 @@ Bir SAS belirteci, Azure Depolama Gezini kullanılarak veya program aracılığ�
 
 [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/), Azure Depolama'da depoladığınız kaynakları yönetmeye yönelik bir araçtır.  Azure Depolama Gezgini’ni kullanma hakkında daha fazla bilgiyi [burada](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) bulabilirsiniz.
 
-Giriş dosyaları için SAS kapsamı belirli giriş dosyası (blob) olarak belirlenmelidir. Bir SAS belirteci oluşturmak için [bu yönergeleri](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures) izleyin. SAS oluşturduktan sonra, ekranda sorgu dizesini içeren tam URL'nin yanı sıra sorgu dizesinin kendisi sağlanır ve bu değerler kopyalanabilir.
+Giriş dosyaları için SAS kapsamı belirli giriş dosyası (blob) olarak belirlenmelidir. Bir SAS belirteci oluşturmak için [bu yönergeleri](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer) izleyin. SAS oluşturduktan sonra, ekranda sorgu dizesini içeren tam URL'nin yanı sıra sorgu dizesinin kendisi sağlanır ve bu değerler kopyalanabilir.
 
  ![Genomiks SAS Depolama Gezgini](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomiks SAS Depolama Gezgini")
 
 
-### <a name="set-up-create-a-sas-programattically"></a>Ayarlayın: Program aracılığıyla SAS oluşturma
+### <a name="set-up-create-a-sas-programattically"></a>Ayarlayın: SAS oluşturma
 
-Azure Depolama SDK'sı kullanarak bir SAS oluşturmak için [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) ve [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage#work-with-shared-access-signatures) dahil birkaç dilde mevcut olan belgelere bakın. 
+Azure Depolama SDK'sı kullanarak bir SAS oluşturmak için [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) ve [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage) dahil birkaç dilde mevcut olan belgelere bakın. 
 
 SDK olmadan bir SAS oluşturmak için SAS sorgu dizesi, SAS kimlik doğrulaması yapmak için gereken tüm bilgiler dahil olmak üzere doğrudan oluşturulabilir. Bu [yönergeler](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) SAS sorgu dizesinin bileşenleri ve nasıl oluşturulacağına ilişkin ayrıntıları verir. Bu [yönergelerde](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples) açıklandığı gibi, blob/kapsayıcı kimlik doğrulama bilgileri ile bir HMAC oluşturularak gerekli SAS imzası oluşturulur.
 

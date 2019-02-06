@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8f87cb68aeea8b953b9883e92fd5080569c6cdd0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bf840dc00f36ee19f2e76ead6e61ae2377b97167
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203700"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749127"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>İçerik zenginleştirme (Azure Search) için önceden tanımlanmış beceriler
 
@@ -28,7 +28,7 @@ Bu makalede, Azure Search ile sağlanan bilişsel beceriler hakkında bilgi edin
 
 ## <a name="predefined-skills"></a>Önceden tanımlanmış beceriler
 
-Birkaç becerileri ne bunlar kullanma veya üretmek esnektir. Genel olarak, çoğu becerilerinizi kendi eğitim verilerini kullanarak modeli eğitme olamaz yani önceden eğitilmiş modeller üzerinde temel alır. Özel bir yetenek oluşturma hakkında yönergeler için bkz. [özel arabirim tanımlama](cognitive-search-custom-skill-interface.md) ve [örnek: özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md). Aşağıdaki tabloda, sıralar ve Microsoft tarafından sağlanan yetenekleri açıklanır. 
+Birkaç becerileri ne bunlar kullanma veya üretmek esnektir. Genel olarak, çoğu becerilerinizi kendi eğitim verilerini kullanarak modeli eğitme olamaz yani önceden eğitilmiş modeller üzerinde temel alır. Aşağıdaki tabloda, sıralar ve Microsoft tarafından sağlanan yetenekleri açıklanır. 
 
 | Nitelik | Açıklama |
 |-------|-------------|
@@ -41,6 +41,10 @@ Birkaç becerileri ne bunlar kullanma veya üretmek esnektir. Genel olarak, ço�
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Bu yetenek, görüntü içeriğini tanımlamak ve bir metin açıklama oluşturmak için bir görüntü algılama algoritması kullanır. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optik karakter tanıma. |
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Haritalar çıkışı bir karmaşık türü (tam ad, çok satırlı adresi ya da son adı ve bir kişisel kimlik için kullanılabilecek bir çok parçalı veri türü.) |
+| [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Özel bir Web API'de HTTP çağrısı yaparak bilişsel arama işlem hattının genişletilebilirlik sağlar. |
+
+
+Oluşturma yönergeleri için bir [özel bir yetenek](cognitive-search-custom-skill-web-api.md), bkz: [özel arabirim tanımlama](cognitive-search-custom-skill-interface.md) ve [örnek: özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
