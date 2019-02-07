@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: 35f05df39a37b64c9619ef31455944207de13246
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 89d18ebd2f52467a19a76940044fea3ae254970a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216090"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770172"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS uygulamanızı ifade listesi özellikleri
 
@@ -25,26 +25,57 @@ Machine learning'de bir *özellik* bir ayırt edici nitelik veya sisteminizin g�
 Bir dil modeli, ipuçlarını, etiket veya sınıflandırmak istediğiniz giriş anlamayı hakkında sağlamaya özellikleri ekleyin. Özellikleri, hedefleri ve varlıkları hem LUIS yardımcı olur, ancak özellikleri, hedefleri ve varlıkları kendilerini değildir. Bunun yerine, özellikler, ilgili koşulları örnekleri sağlayabilir.  
 
 ## <a name="what-is-a-phrase-list-feature"></a>Bir ifade listesi özelliği nedir?
-Bir ifade listesi, aynı sınıfa ait benzer şekilde (örneğin, şehirler ya da ürün adlarını) işlenmesi gereken değerleri (sözcük ve tümcecikleri) bir grup içerir. LUIS bunları biri hakkında ne öğrenir otomatik olarak başkaları için de uygulanır. Bu liste kapalı değil [varlık listesinde](luis-concept-entity-types.md#types-of-entities) (tam metin eşleşmesini) eşleşen bir kelimelerin.
+Bir ifade listesi sözcük ve tümcecikleri uygulamanız için önemli olan bir listesidir konuşma başka bir deyişle daha şekilde. Bir ifade listesi uygulama etki alanının sözlüğü LUIS için ek bir sinyal sözcükleri hakkında olarak ekler. LUIS bunları biri hakkında ne öğrenir otomatik olarak başkaları için de uygulanır. Bu liste kapalı değil [varlık listesinde](luis-concept-entity-types.md#types-of-entities) tam metnin eşleşir.
 
-Bir ifade listesi uygulama etki alanının sözlüğü LUIS için ikinci bir sinyal sözcükleri ilgili olarak ekler.
+İfade listeleri, herhangi bir önemli sözlük sözcük ve tümcecikleri için dallanma çeşitli kullanan utterance örnekler eklemeniz gereken şekilde ayırmayla yardımcı yapın.
 
 ## <a name="phrase-lists-help-all-models"></a>Tüm modelleri tümcecik listeler yardımcı
 
-İfade listeleri bir belirli bir amaç veya varlığa bağlı değildir, ancak tüm modellere bir boost eklenir. Amacı hedefi olan algılama ve varlık sınıflandırma artırmaktır.
+İfade listeleri bir belirli bir amaç veya varlığa bağlı değildir, ancak tüm hedefleri ve varlıklar için önemli bir boost eklenir. Amacı hedefi olan algılama ve varlık sınıflandırma artırmaktır.
 
 ## <a name="how-to-use-phrase-lists"></a>İfade listeleri kullanma
-İnsan Kaynakları uygulamasının [varlığın öğretici](luis-quickstart-primary-and-secondary-data.md), uygulamanın kullandığı bir **iş** Programcı roofer ve dış gibi iş türleri ifade listesi. Şu değerlerden biri olarak makine öğrenilen bir varlık olarak etiketlerseniz LUIS diğer öğrenir. 
 
-Değiştirilebilir veya değiştirilebilir olmayan bir ifade listesi olabilir. Bir *birbirinin yerine* tümcecik listedir eş anlamlılar için değerler ve *değiştirilebilir olmayan* tümcecik listesi, uygulamanın belirli sözlük liste olarak tasarlanmıştır. Uygulama sözlüğü ifade listesi büyüdükçe, bazı terimler sahip birçok form (eş anlamlılar) bulabilirsiniz. Bunlar değiştirilebilir başka bir ifade listesine ayırmak. 
+Uygulamanızı sözcük ve tümcecikleri gibi uygulama için önemli olan sahip olduğunda bir ifade listesi oluşturun:
+
+* sektör terimleri
+* argo kullanımlar
+* kısaltmalar
+* şirkete özgü dili
+* başka bir dilden ancak uygulamanızda sık kullanılan dil
+* anahtar sözcük ve tümcecikleri, örnek konuşma
+
+Birkaç sözcük ve tümcecikleri girdikten sonra kullanın **önerilir** ilgili değerleri bulmak için özellik. İlişkili değerleri, ifade listesi değerlerinizi eklemeden önce gözden geçirin.
 
 |Liste türü|Amaç|
 |--|--|
 |Değiştirilebilir|Eş Anlamlılar veya sözcük başka bir sözcüğe listesinde değiştirildiğinde aynı amacı ve varlık ayıklama sahip.|
 |Olmayan değiştirilebilir|Uygulama sözlük, uygulamanıza, genellikle daha başka bir dilde sözcükler için daha fazla belirli.|
 
-İfade yalnızca varlık algılama ile ilgili Yardım listeler ancak aynı zamanda hedefi sınıflandırma değiştirilebilir olmayan burada İngilizce dilinde bilinmemesi sözlük sözcükleri dışında ekleme gibi mantıklıdır.
+### <a name="interchangeable-lists"></a>Birbirinin yerine listeler
 
+Bir *birbirinin yerine* tümcecik listedir eş anlamlılar için değerler. Örneğin, isterseniz tüm gövdeleri su bulundu ve örnek konuşma gibi sahip: 
+
+* Great Lakes yakın şehirler nelerdir? 
+* Hangi yol Lake Havasu çalışır?
+* Burada nil başlayıp bitmeyen? 
+
+Her utterance hedefi hem varlıkları su gövdesinin bağımsız olarak belirlenmesi: 
+
+* [BodyOfWater yakın] şehirler nelerdir?
+* Hangi yol [bodyOfWater] çalışır?
+* Burada [bodyOfWater] başlayıp bitmeyen? 
+
+Sözcük ve tümcecikleri su gövdesi için eşanlamlı ve konuşma içinde birbirinin yerine kullanılabilir olduğundan kullanın **Interchangeable** tümcecik listede ayarlama. 
+
+### <a name="non-interchangeable-lists"></a>Olmayan değiştirilebilir listeler
+
+Değiştirilebilir olmayan bir ifade listesini algılamaya ve LUIS artırıyor bir sinyaldir. Sözcük ve tümcecikleri daha önemli olan, ifade listesi, başka bir deyişle gösterir. Bu, her iki belirleme amacı ve varlık algılamayla yardımcı olur. Örneğin, bir konu etki alanı gibi genel (anlamı kültürler arasında ancak hala tek bir dilde) seyahat olduğunu varsayalım. Sözcükleri ve uygulamaya önemlidir, ancak eşanlamlı olmayan tümcecikler vardır. 
+
+Başka bir örnek için değiştirilebilir olmayan bir ifade listesini için nadir, özel ve yabancı kelimeler kullanın. LUIS yabancı kelimeler (dışında uygulamanın kültür) yanı sıra, nadir ve özel sözcük tanıyamadı olabilir. Nadir bir sözcükler kümesini LUIS tanımayı öğrenin bir sınıf oluşturur, ancak eş anlamlılar olmayan değiştirilebilir olmayan ayarını gösterir veya birbirleri ile değiştirilebilir.
+
+Değil her olası bir sözcük veya tümcecik bir ifade listesine ekleyin, birkaç sözcük ve tümcecikleri bir anda eklemek daha sonra yeniden eğitme ve yayımlama. 
+
+İfade listesi zamanla büyüdükçe, bazı terimler sahip birçok form (eş anlamlılar) bulabilirsiniz. Bunlar değiştirilebilir başka bir ifade listesine ayırmak. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
@@ -55,14 +86,6 @@ Birbirinin yerine ifade listeleri LUIS uygulamanızın performansını ayarlamak
 Bir ifade listesi LUIS sıkı eşleştirme işlemi yapmak veya her zaman deyim listesindeki tüm koşulları tamamen aynı etiket için bir yönerge değil. Bu, yalnızca bir ipucu verir. Örneğin, "Patti" ve "Selma" adların olup olmadığını belirten bir ifade listesi olabilir, ancak LUIS kullanmaya devam edebilirsiniz bağlamsal bilgiler farklı bir şey anlamına olduğunu bilmek "2 için bir ayırma sırasında Patti'nın Diner Akşam olun" ve "bana sürüş bulma yönlendirmeler Selma, Gürcistan". 
 
 Bir ifade listesine eklenmesi, daha fazla örnek konuşma eklemeye yönelik bir amacı bir alternatiftir. 
-
-## <a name="an-interchangeable-phrase-list"></a>Birbirinin yerine ifade listesi
-Sözcükleri veya aşamaları listesini bir sınıf veya grup oluşturduğunda birbirinin yerine bir ifade listesini kullanın. Örnek bir ay "Ocak", "Şubat", "Mart"; listesidir. veya, adları "John", "Gamze", "Ferdi" ister.  İfade listesinden farklı bir sözcük kullanıldıysa utterance aynı hedefi veya varlık etiketlenmesi, bu listeleri birbirinin yerine kullanılabilir. Örneğin, "Takvim Ocak ayında aynı Göster" "Şubat Takvimi Göster", ardından sözcükleri birbirinin yerine bir listede olması gerektiği gibi hedefi. 
-
-## <a name="a-non-interchangeable-phrase-list"></a>Değiştirilebilir olmayan bir ifade listesi
-Değiştirilebilir olmayan bir ifade listesini eşanlamlı olmayan sözcükler veya etki alanınızda gruplandırılabilir ifadeler kullanın. 
-
-Bir örnek olarak, değiştirilebilir olmayan bir ifade listesini için nadir, özel ve yabancı kelimeler kullanın. LUIS yabancı kelimeler (dışında uygulamanın kültür) yanı sıra, nadir ve özel sözcük tanıyamadı olabilir. Nadir bir sözcükler kümesini LUIS tanımayı öğrenin bir sınıf oluşturur, ancak eş anlamlılar olmayan değiştirilebilir olmayan ayarını gösterir veya birbirleri ile değiştirilebilir.
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Ne zaman tümceciğini kullanın varlıklar listesi listeler
 Bir ifade listesi hem liste varlıklar arasında tüm hedefleri konuşma etkileyebilir, ancak her bunu farklı bir şekilde yapar. Hedefi tahmin puanı etkilemek için bir ifade listesini kullanın. Bir liste varlığı, bir tam metin eşleşmesi için varlık ayıklama etkilemek için kullanın. 

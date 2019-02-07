@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e0f305d8200a6b78eb138d5a3c6d9cd99a095dbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486530"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766021"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Birden çok Azure İzleyici Application Insights kaynaklarını birleştirin 
-Bu makalede, sorgu ve farklı Azure aboneliklerinde Application Insights Bağlayıcısı kullanımdan bir ardılı olarak olduklarında bile tüm Application Insights uygulama günlük verilerini tek bir yerde görüntüleyin açıklar.  
+Bu makalede, sorgu ve farklı Azure aboneliklerinde Application Insights Bağlayıcısı kullanımdan bir ardılı olarak olduklarında bile tüm Application Insights uygulama günlük verilerini tek bir yerde görüntüleyin açıklar. 100 olarak kaynakları tek bir sorgu ekleyebilirsiniz, Application Insights kaynakları sayısı sınırlıdır.  
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Önerilen yaklaşım, birden fazla Application Insights kaynaklarını sorgulama 
 Bir sorguda birden fazla Application Insights kaynakları listeleme hantal ve sürdürülmesi zor olabilir. Bunun yerine, sorgu mantığının kapsamı uygulamalardan ayırmak için işlev yararlanabilirsiniz.  

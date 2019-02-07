@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 5982fcee41dd8c99aaa781a8ff3cd55ff2489929
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/06/2019
+ms.openlocfilehash: 3ee952f10cebe374767e0db4a592695eeb1b4417
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511310"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810074"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL hiper ölçekli veritabanları hakkında SSS
 
@@ -222,7 +222,7 @@ Evet. Azure SQL veritabanı özelliklerden bazıları hiper ölçekli ancak bunl
 
 Evet. BACPAC, işlem çoğaltma, mantıksal veri yükleme dahil olmak üzere hiper ölçekli için geçirmek için mevcut olan tüm geçiş teknolojileri kullanabilirsiniz. Ayrıca bkz: [Azure veritabanı geçiş hizmeti](../dms/dms-overview.md).
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Bir şirket içi geçiş sırasında my şehir merkezinde nedir veya sanal makine hiper ölçekli ortama ve nasıl miyim en aza indirmek,
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Bir şirket içi geçiş sırasında my kapalı kalma süresi nedir veya sanal makine hiper ölçekli ortama ve nasıl miyim en aza indirmek,
 
 Azure SQL veritabanı'nda tek bir veritabanı için veritabanlarınızı geçiş sırasında kapalı kalma süresi kapalı kalma süresi ile aynıdır. Kullanabileceğiniz [işlemsel çoğaltma](replication-to-sql-database.md#data-migration-scenario
 ) boyutu birkaç TB'a kadar veritabanları için kapalı kalma süresiyle geçiş en aza indirmek için. Çok büyük bir veritabanı için (10'dan fazla TB), ADF, Spark veya diğer veri taşıma teknolojilerini kullanarak veri geçirmeyi düşünebilirsiniz.

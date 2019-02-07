@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: afbf2bc32aa737eb5f6dde41035b206d6e260252
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117086"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813778"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Gezinti ve panolar Application Insights portalında
 Sonra [projenize Application ınsights'ı ayarlama](../../azure-monitor/app/app-insights-overview.md), uygulamanızın performansı ve kullanımıyla ilgili telemetri verilerini projenizin Application Insights kaynağını görünür [Azure portalında](https://portal.azure.com).
@@ -62,7 +62,7 @@ Grafik, grafiğin zaman aralığı üzerinde olduğu bir sıklık ile otomatik o
 * Zaman aralığı 24 saat yukarıda: (Zaman aralığı) / 60.
 
 ### <a name="pin-any-query-in-analytics"></a>Herhangi bir sorgu Analytics'te sabitleme
-Ayrıca [Analytics sabitleme](../../azure-monitor/log-query/get-started-portal.md) için grafik bir [paylaşılan](#share-dashboards-with-your-team) Pano. Bu standart ölçümlerin yanı sıra herhangi bir rastgele sorgunun grafikler eklemenize olanak sağlar. 
+Ayrıca [Analytics sabitleme](../../azure-monitor/log-query/get-started-portal.md) paylaşılan panoya grafik. Bu standart ölçümlerin yanı sıra herhangi bir rastgele sorgunun grafikler eklemenize olanak sağlar. 
 
 Sonuçlar, her saat otomatik olarak yeniden hesaplanır. Hemen yeniden hesaplamak için grafikte Yenile simgesine tıklayın. (Tarayıcı Yenile hesaplamaz.)
 

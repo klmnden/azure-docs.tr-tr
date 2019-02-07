@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 331a8d07004a8915d27b28ca0fba940b1aa3ab72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bcbb3d5d25fdc3de71045cedfd4634e47b3947bf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164818"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Öğretici: Katılım Yönetim Hizmetleri ile Azure Active Directory Tümleştirme
 
@@ -86,7 +86,7 @@ Yapılandırma ve Azure AD çoklu oturum açma katılım Yönetim Hizmetleri ile
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Bir katılımcı Yönetim Hizmetleri test kullanıcısı oluşturma](#create-an-attendance-management-service-test-user)**  - bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı katılımcı yönetim hizmetleri sağlamak için.
+1. **Bir katılımcı Yönetim Hizmetleri test kullanıcısı oluşturma** - bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı katılımcı yönetim hizmetleri sağlamak için.
 1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 

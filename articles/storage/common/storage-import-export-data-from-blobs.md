@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0480a8d4079a39c8e365dde893a9a1af2d7341aa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453119"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769292"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Blob depolama alanından verileri dışarı aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede Azure içeri/dışarı aktarma hizmeti büyük miktarda veriyi Azure Blob depolama alanından güvenli bir şekilde dışarı aktarmak için nasıl kullanılacağını adım adım yönergeler sağlar. Hizmet, Azure veri merkezine boş sürücüleri gönderin gerektirir. Hizmet veri sürücüleri için depolama hesabınızdan verir ve ardından sürücüleri geri gelir.
@@ -145,7 +145,7 @@ Bu *isteğe bağlı* adım yardımcı dışarı aktarma işi için gerekli sür�
     |**/sn:**|Gereklidir. Dışarı aktarma işi için depolama hesabı adı.|  
     |**/SK:**|Yalnızca bir kapsayıcı SAS belirtilmemişse gereklidir. Dışarı aktarma işi için depolama hesabı için hesap anahtarı.|  
     |**/csas:**|Yalnızca bir depolama hesabı anahtarı belirtilmemişse gereklidir. Dışarı aktarma işi verilecek blobları listeleme kapsayıcısı SAS.|  
-    |**/ ExportBlobListFile:**|Gereklidir. XML yolu içeren blob yollarının listesini dosya veya yol önekleri dışarı aktarılacak bloblar için blob. Kullanılan dosya biçimi `BlobListBlobPath` öğesinde [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) içeri/dışarı aktarma hizmeti REST API işlemi.|  
+    |**/ ExportBlobListFile:**|Gereklidir. XML yolu içeren blob yollarının listesini dosya veya yol önekleri dışarı aktarılacak bloblar için blob. Kullanılan dosya biçimi `BlobListBlobPath` öğesinde [Put işlemini](/rest/api/storageimportexport/jobs) içeri/dışarı aktarma hizmeti REST API işlemi.|  
     |**/ DriveSize:**|Gereklidir. Bir dışarı aktarma işi için kullanılacak sürücüleri boyutunu *örn*, 500 GB, 1,5 TB.|  
 
     Bkz: bir [PreviewExport komut örneği](#example-of-previewexport-command).

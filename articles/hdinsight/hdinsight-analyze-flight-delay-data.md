@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 311e2ee65b2c24eb1c288a2161bf371732aea452
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632900"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817674"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Apache Hive, HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme
 [Apache Hive](https://hive.apache.org/) çalıştırmanın sağlar [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) işleri SQL benzeri bir betik dilini aracılığıyla adlı *[HiveQL] [ hadoop-hiveql]*, hangi uygulanabilir özetleme, sorgulamaya ve analiz etmeye büyük hacimli verileri doğru.
@@ -240,7 +240,7 @@ Bir HDInsight kümesi oluşturmayı ve Hive işlerini çalıştırma hakkında d
 Veri dosyasını karşıya yükleme ve [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) komut dosyaları (bkz [ek B](#appendix-b)) bazı planlama yapmak gerekir. Veri dosyaları ve bir HDInsight kümesi oluşturmayı ve Hive işi önce HiveQL dosyasını depolamak için kullanılan uygulamadır. İki seçeneğiniz vardır:
 
 * **Varsayılan dosya sistemi olarak HDInsight küme tarafından kullanılacak olan aynı Azure depolama hesabını kullanın.** HDInsight küme depolama hesabı erişim anahtarı bulunacağından, ek değişiklik gerekmez.
-* **HDInsight kümesi varsayılan dosya sisteminden farklı bir Azure depolama hesabını kullanırsınız.** Bu durumda, Windows PowerShell komut dosyası bulundu oluşturma bölümünü değiştirmeniz gerekir [oluşturma HDInsight kümesi ve çalışma Apache Hive/Sqoop işleri](#runjob) ek bir depolama hesabı depolama hesabı bağlamak için. Yönergeler için [Apache Hadoop kümeleri oluşturma HDInsight][hdinsight-provision]. HDInsight kümesi, ardından depolama hesabı için erişim anahtarı bilir.
+* **HDInsight kümesi varsayılan dosya sisteminden farklı bir Azure depolama hesabını kullanırsınız.** Bu durumda, Windows PowerShell komut dosyası oluşturma HDInsight kümesinde bulunan ve ek bir depolama hesabı depolama hesabı bağlamak için Apache Hive/Sqoop işlerinizi oluşturma bölümünü değiştirmeniz gerekir. Yönergeler için [Apache Hadoop kümeleri oluşturma HDInsight][hdinsight-provision]. HDInsight kümesi, ardından depolama hesabı için erişim anahtarı bilir.
 
 > [!NOTE]  
 > Blob Depolama yolu veri dosyası için HiveQL betik dosyasında kodlanmış zordur. Uygun şekilde güncelleştirmeniz gerekir.
@@ -272,7 +272,7 @@ Veri dosyasını karşıya yükleme ve [HiveQL](https://cwiki.apache.org/conflue
     <tr><td>$blobContainerName</td><td>Verileri karşıya yüklemek istediğiniz yeri Blob kapsayıcısı.</td></tr>
     </table>
     
-2. Azure PowerShell ISE'yi açın.
+2. Open Azure PowerShell ISE.
 3. Aşağıdaki komut dosyası, betik bölmesine yapıştırın:
 
     ```powershell
@@ -381,7 +381,7 @@ HiveQL komutların tam listesi için bkz. [Apache Hive veri tanımlama dili][had
     <tr><td>$blobContainerName</td><td>Blob kapsayıcısı için HiveQL betiğini karşıya yüklemek istediğiniz yeri.</td></tr>
     </table>
     
-2. Azure PowerShell ISE'yi açın.  
+2. Open Azure PowerShell ISE.  
 
 3. Kopyalayın ve aşağıdaki betiği betik bölmesine yapıştırın:  
 
@@ -573,7 +573,7 @@ HiveQL komutların tam listesi için bkz. [Apache Hive veri tanımlama dili][had
     <tr><td>$sqlDatabaseName</td><td>Sqoop işin AvgDelays tablo oluşturmak için kullanılan SQL veritabanı. Boş bırakılırsa HDISqoop adlı bir veritabanı oluşturur. AvgDelays Sqoop iş çıktısı için tablo adıdır. </td></tr>
     </table>
     
-2. Azure PowerShell ISE'yi açın.
+2. Open Azure PowerShell ISE.
 
 3. Kopyalayın ve aşağıdaki betiği betik bölmesine yapıştırın:  
 

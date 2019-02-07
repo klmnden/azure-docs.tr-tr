@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 328471292ea6cbe07e96cc18af7f9c524407de3d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317211"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809479"
 ---
 # <a name="high-availability-ports-overview"></a>Yüksek kullanılabilirlik bağlantı noktaları genel bakış
 
@@ -100,7 +100,7 @@ Yapılandırabileceğiniz *bir* tek iç standart yük dengeleyici HA bağlantı 
 
 - HA bağlantı noktaları özelliği IPv6 için kullanılamıyor.
 
-- Akış Simetri (öncelikle için NVA senaryoları) desteklenir arka ucu örneği ve bir tek NIC (ve tek bir IP yapılandırması ile) gösterildiği gibi yalnızca kullanıldığı zaman [diyagram](#diagram) yukarıdaki ve kullanarak HA bağlantı noktaları Yük Dengeleme kuralları. Diğer bir senaryoda sağlanmadı. Bu, iki veya daha fazla yük dengeleyici kaynakları ve bunların ilgili kuralları bağımsız kararlar ve hiçbir zaman Eşgüdümlü anlamına gelir. Açıklamasına bakın ve için diyagram [ağ sanal Gereçleri](#nva). Birden çok NIC kullanma veya bir genel ve iç yük dengeleyici arasındaki NVA sandwiching akış Simetri kullanılamıyor.  Giriş akışı aynı NVA gelmesi yanıtları izin vermek için gerecin IP NAT'ing kaynak tarafından bu sorunu çözmek mümkün olabilir.  Ancak, tek bir NIC'ye ve başvuru mimarisini kullanarak öneririz [diyagram](#diagram) yukarıda.
+- Yukarıdaki ve kullanarak diyagramda gösterildiği gibi kullanıldığında yüksek kullanılabilirlik bağlantı noktaları Yük Dengeleme kuralları yalnızca akış Simetri (öncelikle için NVA senaryoları) arka uç örneği ve bir tek NIC (ve tek bir IP yapılandırması ile) desteklenir. Diğer bir senaryoda sağlanmadı. Bu, iki veya daha fazla yük dengeleyici kaynakları ve bunların ilgili kuralları bağımsız kararlar ve hiçbir zaman Eşgüdümlü anlamına gelir. Açıklamasına bakın ve için diyagram [ağ sanal Gereçleri](#nva). Birden çok NIC kullanma veya bir genel ve iç yük dengeleyici arasındaki NVA sandwiching akış Simetri kullanılamıyor.  Giriş akışı aynı NVA gelmesi yanıtları izin vermek için gerecin IP NAT'ing kaynak tarafından bu sorunu çözmek mümkün olabilir.  Ancak, tek bir NIC'ye ve yukarıdaki Diyagramda gösterilen başvuru mimarisini kullanarak öneririz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

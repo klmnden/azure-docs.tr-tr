@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1ce937f5c9a378494e66867b6f919ee10eef2bf8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 652591fc4539e6f19c0606c1502609a823327f2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259487"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811027"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application ınsights ölçüm grafikleri ek açıklamalar
 
-Ek açıklamalar [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md) grafikleri, yeni bir derleme veya diğer önemli olay dağıtıldığı gösterir. Bunlar, değişikliklerinizi uygulamanızın performansını herhangi bir etkisi sahip olup olmadığını görmek kolaylaştırır. Tarafından otomatik olarak oluşturulabilir [Azure DevOps Hizmetleri derleme sistemi](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Bayrak olarak istediğiniz herhangi bir olay için ek açıklamaları da oluşturabilirsiniz [Powershell'den oluşturarak](#create-annotations-from-powershell).
+Ek açıklamalar [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md) grafikleri, yeni bir derleme veya diğer önemli olay dağıtıldığı gösterir. Bunlar, değişikliklerinizi uygulamanızın performansını herhangi bir etkisi sahip olup olmadığını görmek kolaylaştırır. Tarafından otomatik olarak oluşturulabilir [Azure DevOps Hizmetleri derleme sistemi](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Powershell'den oluşturarak gibi herhangi bir olay bayrağı için ek açıklamaları da oluşturabilirsiniz.
 
 > [!NOTE]
 > Bu makalede kullanım dışı yansıtır **Klasik ölçüm deneyimi**. Ek açıklamalara sahip Klasik deneyim ve şu anda kullanılabilir yalnızca  **[çalışma kitapları](../../azure-monitor/app/usage-workbooks.md)**. Geçerli hakkında daha fazla bilgi için ölçümler deneyimi, size başvurabilirsiniz [bu makalede](../../azure-monitor/platform/metrics-charts.md).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0482dfd5b7b09d5e66fb830caae654be3242a916
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c133ba5a95e0476c6d992e53776b384fdc8c97ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694112"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809814"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Sertifika kimlik doğrulaması (Klasik) kullanarak noktadan siteye bağlantı yapılandırma
 
@@ -249,7 +249,7 @@ Azure’da güvenilen kök sertifikayı ekleyebilir veya kaldırabilirsiniz. Bir
 
 ### <a name="to-add-a-trusted-root-certificate"></a>Güvenilen kök sertifika ekleme
 
-Azure'a en fazla 20 güvenilen kök sertifika .cer dosyası ekleyebilirsiniz. Yönergeler için [kök sertifika .cer dosyasını yükleme](#upload-the-root-certificate-.cer-file).
+Azure'a en fazla 20 güvenilen kök sertifika .cer dosyası ekleyebilirsiniz. Kök sertifika .cer dosyasını karşıya yükleme yönergeleri için bkz.
 
 ### <a name="to-remove-a-trusted-root-certificate"></a>Güvenilen kök sertifikayı kaldırmak için
 

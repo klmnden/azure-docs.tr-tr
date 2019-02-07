@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: e36e718d35f652c139958388491642e98469ecaf
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c9a9b6f0127bba4efda6e691a2b7126935d81c0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548859"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817708"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Yedekleme ve MariaDB için Azure veritabanı'nda geri yükleme
 
@@ -52,7 +52,7 @@ Geri yükleme iki tür vardır:
 Tahmini kurtarma süresi, veritabanı boyutu, işlem günlüğü boyutu, ağ bant genişliğini ve aynı anda aynı bölgede kurtarılan veri tabanı toplam sayısı dahil olmak üzere birçok faktöre bağlıdır. Kurtarma zamanı, genellikle daha az 12 saati geçmez.
 
 > [!IMPORTANT]
-> Silinen sunucuları **olamaz** geri yüklenemiyor. Sunucu silerseniz sunucusuna ait tüm veritabanlarını da silinir ve kurtarılamaz.
+> Silinen sunucuları **olamaz** geri yüklenemiyor. Sunucu silerseniz sunucusuna ait tüm veritabanlarını da silinir ve kurtarılamaz. Sunucu kaynaklarını korumak için dağıtım sonrasında, yanlışlıkla silme veya beklenmeyen değişiklikleri, yöneticiler yararlanabilir [yönetim kilitleri](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
 

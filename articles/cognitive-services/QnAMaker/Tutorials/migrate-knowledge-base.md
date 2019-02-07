@@ -1,77 +1,64 @@
 ---
-title: Önizleme bilgi bankalarından - soru-cevap Oluşturucu geçirme
+title: Bilgi bankaları - soru-cevap Oluşturucu geçirme
 titleSuffix: Azure Cognitive Services
-description: Soru-cevap Oluşturucu ücretsiz önizleme ile oluşturulan bilgi bankaları için soru-cevap Oluşturucu büyüyecek geçirilmesi gerekir Soru-cevap Oluşturucu Önizleme Ocak 2019 ' kullanımdan kaldırılacaktır.
+description: Soru-cevap Oluşturucu ile oluşturulan yeni Bilgi Bankası bir Bilgi Bankası taşıyın.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/06/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 08373449b2e61da503ab785eda7d6df80d6d1c16
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 73f355a6e8c9373a5c31dd7cfebd4455aa324302
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227939"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809752"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>İçeri dışarı aktarma kullanarak Bilgi Bankası geçirme
-Soru-cevap Oluşturucu 7 Mayıs 2018'den genel kullanılabilirliğini duyurduk \\\build\ konferans. Soru-cevap Oluşturucu GA, Azure'u temel alan yeni bir mimariye sahiptir. Soru-cevap Oluşturucu ücretsiz önizleme ile oluşturulan bilgi bankaları için soru-cevap Oluşturucu büyüyecek geçirilmesi gerekir Soru-cevap Oluşturucu Önizleme Ocak 2019 ' kullanımdan kaldırılacaktır. Soru-cevap Oluşturucu GA değişiklikler hakkında daha fazla bilgi için bkz: soru-cevap Oluşturucu GA duyurusundan [blog gönderisi](https://aka.ms/qnamakerga-blog).
 
-Soru-cevap Oluşturucu artık sahip bir [fiyatlandırma modeli](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
+Bilgi Bankası geçiş, bir Bilgi Bankası dışarı aktarma ve ardından başka bir içeri aktarma gerektirir. 
 
-Önkoşullar
-> [!div class="checklist"]
-> * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-> * Yeni bir kurulum [soru-cevap Oluşturucu hizmeti](../How-To/set-up-qnamaker-service-azure.md)
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="migrate-a-knowledge-base-from-qna-maker-preview-portal"></a>Bilgi Bankası soru-cevap Oluşturucu Önizleme portalından geçirme
-1. Gidin [soru-cevap Oluşturucu Önizleme portalı](https://aka.ms/qnamaker-old-portal
-) tıklayın **Hizmetlerim**.
-2. Düzenleme simgesine tıklayarak geçirmek istediğiniz Bilgi Bankası'nı seçin.
+* Oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce.
+* Yeni bir [soru-cevap Oluşturucu hizmeti](../How-To/set-up-qnamaker-service-azure.md)
 
-    ![Bilgi Bankası Düzenle](../media/qnamaker-how-to-migrate-kb/preview-editkb.png)
+## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Bilgi Bankası soru-cevap Oluşturucu ' geçiş
+1. Oturum [soru-cevap Oluşturucu portalı](https://qnamaker.ai).
+1. Geçirmek istediğiniz Bilgi Bankası'nı seçin.
 
-3. Tıklayarak **indirme Bilgi Bankası** , Bilgi Bankası - içeriğini içeren bir .tsv dosyasını indirmek için yanıtları, meta verileri, soru ve veri kaynağı adları, ayıklandıkları öğesinden.
+1. Üzerinde **ayarları** sayfasında **dışarı aktarma, Bilgi Bankası** , Bilgi Bankası - içeriğini içeren bir .tsv dosyasını indirmek için yanıtları, meta verileri, soru ve veri kaynağı adları, oldukları gelen Ayıklanan.
 
-    ![Bilgi Bankası'nı indirin](../media/qnamaker-how-to-migrate-kb/preview-download.png)
-
-4. İçine oturum [soru-cevap Oluşturucu portalı](https://qnamaker.ai) tıklayın ve azure kimlik bilgileri ile **Bilgi Bankası oluşturma**.
-    
-5. Soru-cevap Oluşturucu hizmetini zaten oluşturmadıysanız seçin **soru-cevap hizmeti oluşturma**. Aksi takdirde, 2. adım açılan menülerde soru-cevap Oluşturucu hizmetini seçin. Bilgi Bankası barındıracak soru-cevap Oluşturucu hizmeti seçin.
-
-    ![Soru-cevap hizmetini ayarlama](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
-
-6. Boş bir Bilgi Bankası oluşturma 
+1. Seçin **Bilgi Bankası oluşturma** üstteki menüden sonra boş bir Bilgi Bankası oluşturun. 
 
     ![Kümesi veri kaynakları](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
     - Hizmetinize vermek bir **adı.** Yinelenen adları desteklenir ve özel karakterler de desteklenir.
-    - Önizleme bankanızı verilerini kullanmak istediğiniz dosyalar veya URL'ler karşıya yüklemeyi atlayın. Şimdilik, boş bir Bilgi Bankası oluşturacaksınız.
 
-7. **Oluştur**’u seçin.
+1. **Oluştur**’u seçin.
 
     ![KB oluşturma](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-8. Bu yeni Bilgi Bankası'açın **ayarları** sekmesini ve tıklayarak **alma Bilgi Bankası**. Bu soruları, yanıtlar ve meta verileri içe aktarır ve kendisinden ayıklandıkları veri kaynağı adlarını korur.
+1. Bu yeni Bilgi Bankası'açın **ayarları** sekmenize **alma Bilgi Bankası**. Bu soruları, yanıtlar ve meta verileri içe aktarır ve kendisinden ayıklandıkları veri kaynağı adlarını korur.
 
    ![Bilgi Bankası içeri aktarma](../media/qnamaker-how-to-migrate-kb/Import.png)
 
-9. **Test** Test Masası'nı kullanarak yeni Bilgi Bankası. Bilgi edinmek için nasıl [bilgi bankanızı test](../How-To/test-knowledge-base.md).
-10. **Yayımlama** Bilgi Bankası. Bilgi edinmek için nasıl [, Bilgi Bankası yayımlama](../How-To/publish-knowledge-base.md).
-11. Uygulama veya bot kodunuzda aşağıdaki uç noktayı kullanın. Burada gördüğünüz nasıl [soru-cevap Robotu oluşturun](../Tutorials/create-qna-bot.md).
+1. **Test** Test Masası'nı kullanarak yeni Bilgi Bankası. Bilgi edinmek için nasıl [bilgi bankanızı test](../How-To/test-knowledge-base.md).
+1. **Yayımlama** Bilgi Bankası. Bilgi edinmek için nasıl [, Bilgi Bankası yayımlama](../How-To/publish-knowledge-base.md).
+1. Uç nokta uygulaması veya bot kodunuzda kullanın. Burada gördüğünüz nasıl [soru-cevap Robotu oluşturun](../Tutorials/create-qna-bot.md).
 
     ![Soru-cevap Oluşturucu değerleri](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
-Bu noktada, tüm Bilgi Bankası içerikleri - soruları yanıtlar ve kaynak dosyaları ve URL'leri adlarını yanı sıra meta veri yeni Bilgi Bankası'na aktarılır. 
+    Bu noktada, tüm Bilgi Bankası içerikleri - soruları yanıtlar ve kaynak dosyaları ve URL'leri adlarını yanı sıra meta veri yeni Bilgi Bankası'na aktarılır. 
 
-## <a name="chatlogs-and-alterations"></a>Chatlogs ve değişiklikleri
-Değişiklikleri (eş anlamlılar) otomatik olarak içeri aktarılmaz. Kullanım [V2 API'leri](https://aka.ms/qnamaker-v2-apis) değişiklikleri Önizleme yığından dışarı aktarmak için ve [V4 API'leri](https://aka.ms/qnamaker-v4-apis) yeni yığına değiştirilecek.
+## <a name="chat-logs-and-alterations"></a>Sohbet günlükleri ve değişiklikleri
+Değişiklikleri (eş anlamlılar) otomatik olarak içeri aktarılmaz. Kullanım [V2 API](https://aka.ms/qnamaker-v2-apis) eski bilgilerden değişiklikleri aktarmak ve [V4 API'leri](https://aka.ms/qnamaker-v4-apis) değişiklikleri yeni Bilgi Bankası'ndaki taşımak için.
 
-Yeni yığın chatlogs depolamak için Application Insights kullandığından, chatlogs geçirmek için hiçbir yolu yoktur. Ancak chatlogs dan indirebileceğiniz [Önizleme portalı](https://aka.ms/qnamaker-old-portal).
+Sohbet günlükleri, yeni Bilgi Bankası sohbet günlükleri depolamak için Application Insights kullandığından geçirmek için hiçbir yolu yoktur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

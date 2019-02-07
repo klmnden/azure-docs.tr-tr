@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: e91b4e881c0f39304e3042d556f111db2089f7de
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c9b4a27ff1b5467eb752e8cfc09f697ca1a966ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334491"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820394"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR görevleri başvurusu: YAML
 
@@ -83,10 +83,10 @@ az configure --defaults acr=myregistry
 
 Görev özellikleri genellikle üst kısmında görünür bir `acr-task.yaml` dosyasını bulun ve tam görevin yürütülmesini geçerli olan genel özellikler. Bu genel özelliklerin bazıları içinde tek bir adımı kılınabilir.
 
-| Özellik | Tür | İsteğe bağlı | Açıklama | Desteklenen bir geçersiz kılma | Varsayılan değer |
+| Özellik | Type | İsteğe bağlı | Açıklama | Desteklenen bir geçersiz kılma | Varsayılan değer |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | dize | Hayır | Sürümü `acr-task.yaml` ACR görevleri hizmeti tarafından ayrıştırılan gibi dosya. Geriye dönük uyumluluğu korumak ACR görevleri içindedir, ancak bu değer, ACR içinde tanımlı bir sürüm uyumluluğu korumak için görevleri sağlar. | Hayır | None |
-| `stepTimeout` | int (saniye) | Evet | Bir adım çalıştırabilirsiniz saniye sayısı. Bu özellik bir adım adım ayarlayarak kılınabilir [zaman aşımı](#timeout) özelliği. | Evet | 600 (10 dakika) |
+| `stepTimeout` | int (saniye) | Evet | Bir adım çalıştırabilirsiniz saniye sayısı. Bu özellik bir adımda adımının zaman aşımı özelliği ayarlanarak geçersiz kılınabilir. | Evet | 600 (10 dakika) |
 | `totalTimeout` | int (saniye) | Evet | Bir görev çalışabilir saniye sayısı. "run" yürütme ve tüm adımları başarılı veya başarısız olmadığını görevde içerir. Ayrıca dahil yazdırma görev algılanan görüntü bağımlılıkları ve görev yürütme durumu gibi çıkış. | Hayır | 3600 (1 saat) |
 
 ## <a name="task-step-types"></a>Görev Adım türü
@@ -315,7 +315,7 @@ Standart kullanarak `docker run` görüntü başvurusu kuralı `cmd` herhangi bi
 
 Her adım türü kendi türü için uygun çeşitli özelliklerini destekler. Aşağıdaki tabloda tüm kullanılabilir adım özelliklerini tanımlar. Adım türü tüm özellikleri desteklemez. Her bir adım türü için bu özelliklerin kullanılabildiğini görmek için bkz: [cmd](#cmd), [derleme](#build), ve [anında iletme](#push) adım türü başvurusu bölümler.
 
-| Özellik | Tür | İsteğe bağlı | Açıklama |
+| Özellik | Type | İsteğe bağlı | Açıklama |
 | -------- | ---- | -------- | ----------- |
 | `detach` | bool | Evet | Olup kapsayıcı çalıştırırken ayrılmış. |
 | `entryPoint` | dize | Evet | Geçersiz kılmalar `[ENTRYPOINT]` bir adım kapsayıcısı. |
@@ -328,7 +328,7 @@ Her adım türü kendi türü için uygun çeşitli özelliklerini destekler. A�
 | [`when`](#example-when) | [dize, dize,...] | Evet | Görev içindeki bir veya daha fazla diğer adımlar bir adım bağımlılık yapılandırır. |
 | `workingDirectory` | dize | Evet | Bir adım için çalışma dizinini ayarlar. Varsayılan olarak, ACR görevleri bir kök dizin çalışma dizininde olarak oluşturur. Derleme birkaç adım vardır, ancak, önceki adımlarda yapıtları sonraki adımlara aynı çalışma dizini belirterek paylaşabilir. |
 
-### <a name="examples-task-step-properties"></a>Örnekler: Görev adım özellikleri
+### <a name="examples-task-step-properties"></a>Örnekler: Görev Adım özellikleri
 
 #### <a name="example-id"></a>Örnek: kimliği
 

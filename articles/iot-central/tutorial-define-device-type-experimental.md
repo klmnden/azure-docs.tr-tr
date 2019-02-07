@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 02f09363e9f9a014ceaf63f375c4e417f8c09232
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 2506137e03e8677827bb1e2a3914ee10ae24f368
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666410"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810125"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Öğretici: Azure IOT Central, uygulamanızda (yeni kullanıcı Arabirimi tasarımı) yeni bir cihaz türünü tanımlayın
 
@@ -47,7 +47,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için bir Azure IoT Central uygulamanızın olması gerekir. [Azure IoT Central uygulamasını oluşturma](quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) hızlı başlangıcını tamamladıysanız, hızla başlangıçta oluşturduğunuz uygulamayı yeniden kullanabilirsiniz. Aksi takdirde, aşağıdaki adımları tamamlayarak boş bir Azure IoT Central uygulaması oluşturun:
+Bu öğreticiyi tamamlamak için bir Azure IoT Central uygulamanızın olması gerekir. [Azure IoT Central uygulamasını oluşturma](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) hızlı başlangıcını tamamladıysanız, hızla başlangıçta oluşturduğunuz uygulamayı yeniden kullanabilirsiniz. Aksi takdirde, aşağıdaki adımları tamamlayarak boş bir Azure IoT Central uygulaması oluşturun:
 
 1. Azure IoT Central [Uygulama Yöneticisi](https://aka.ms/iotcentral) sayfasına gidin.
 
@@ -63,7 +63,7 @@ Bu öğreticiyi tamamlamak için bir Azure IoT Central uygulamanızın olması g
     
     * **Deneme**’yi seçin. Deneme uygulaması oluşturmak için Azure aboneliği gerekmez.
     
-       Dizinler ve abonelikler hakkında daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+       Dizinler ve abonelikler hakkında daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
     
     * **Özel Uygulama**'yı seçin.
     
@@ -73,7 +73,7 @@ Bu öğreticiyi tamamlamak için bir Azure IoT Central uygulamanızın olması g
 
     ![Azure IoT Central Uygulama Oluştur sayfası](./media/tutorial-define-device-type-experimental/iotcentralcreate.png)
 
-    Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+    Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## <a name="create-a-new-custom-device-template"></a>Yeni özel cihaz şablonu oluşturma
 
@@ -236,7 +236,7 @@ Ayarlar, özellikler ve komutlar, cihaz şablonunda tanımlanan ve tek tek her c
 
     * Cihazın uygulamanıza özellik değerlerini göndermesini sağlamak için _cihaz özelliklerini_ kullanırsınız. Bu özellikler yalnızca cihaz tarafından değiştirilebilir. Operatör açısından cihaz özellikleri salt okunurdur. Bu bağlantılı klima senaryosunda üretici yazılımı sürümü ve cihaz seri numarası, cihaz tarafından bildirilen cihaz özellikleridir.
     
-    Daha fazla bilgi için [özellikleri](howto-set-up-template.md#properties) cihaz şablon ayarlama ile ilgili nasıl yapılır Kılavuzu'nda.
+    Daha fazla bilgi için [özellikleri](howto-set-up-template-experimental.md#properties) cihaz şablon ayarlama ile ilgili nasıl yapılır Kılavuzu'nda.
 
 * Uygulamanız üzerinden cihazınızı uzaktan yönetmek için _komutlar_ kullanırsınız. Cihazlarınızı denetlemek için komutları doğrudan buluttan çalıştırabilirsiniz. Örneğin bir operatör, cihazı yeniden başlatmak için yeniden başlat gibi bir komut çalıştırabilir.
 

@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 8e63b9854d9491ed2cbb2107c93237526a7f1ba8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745410"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766950"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure stack'teki Git ile API Sürüm profillerini kullanma
 
@@ -86,7 +86,7 @@ Azure Stack'te Go kod örneği çalıştırmak için aşağıdaki adımları izl
 
 3. Yoksa, bir abonelik oluşturur ve daha sonra kullanılmak üzere abonelik Kimliğini kaydedin. Abonelik oluşturma hakkında daha fazla bilgi için bkz: [Azure Stack'te teklifleri abonelikleri oluşturma](../azure-stack-subscribe-plan-provision-vm.md).
 
-4. Bir hizmet sorumlusu oluşturma **abonelik** kapsamı ve **sahibi** rol. Hizmet sorumlusu kimliği ve parolasını kaydedin. Azure Stack için hizmet sorumlusu oluşturma hakkında daha fazla bilgi için bkz: [hizmet sorumlusu oluşturma](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad). Azure Stack ortamınıza şimdi ayarlayın.
+4. Bir hizmet sorumlusu oluşturma **abonelik** kapsamı ve **sahibi** rol. Hizmet sorumlusu kimliği ve parolasını kaydedin. Azure Stack için hizmet sorumlusu oluşturma hakkında daha fazla bilgi için bkz: [hizmet sorumlusu oluşturma](azure-stack-create-service-principals.md). Azure Stack ortamınıza şimdi ayarlayın.
 
 5. Bir hizmeti modülü kodunuzda Go SDK profilinden içeri aktarın. Azure Stack profilinin geçerli sürümü **2017-03-09**. Örneğin, ağ modülünü içeri aktarmak için **2017-03-09** profil türü, aşağıdaki kodu kullanın:
 

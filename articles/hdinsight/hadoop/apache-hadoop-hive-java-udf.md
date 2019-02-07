@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: a58c61287cfc7828fe0dc15beda9d54f02a694c3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435081"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814155"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Bir Java kullanma UDF ile Apache Hive HDInsight
 
@@ -36,7 +36,7 @@ Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) 
 * Bir metin düzenleyicisi veya Java IDE
 
     > [!IMPORTANT]
-    > Bir Windows istemcisi üzerinde Python dosyaları oluşturursanız, bir satır sonu olarak LF kullanan bir düzenleyici kullanmanız gerekir. Düzenleyici LF veya CRLF kullanıp emin değilseniz bkz [sorun giderme](#troubleshooting) kaldırmayı CR karakteri adımlar bölümüne.
+    > Bir Windows istemcisi üzerinde Python dosyaları oluşturursanız, bir satır sonu olarak LF kullanan bir düzenleyici kullanmanız gerekir. Düzenleyici LF veya CRLF kullanıp emin değilseniz kaldırmayı CR karakteri üzerinde adımlar için sorun giderme bölümüne bakın.
 
 ## <a name="create-an-example-java-udf"></a>Örnek Java UDF oluşturma 
 

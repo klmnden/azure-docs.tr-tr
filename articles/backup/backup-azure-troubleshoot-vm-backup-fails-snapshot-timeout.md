@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 0869786b2aa6c604ee59deb0f5a5fbc27b9ce3bf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751574"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820445"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -97,7 +97,7 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 **2. neden: [Sanal Makineye yüklenen Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **3. neden: [Anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntünün alınması](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **4. neden: [Backup uzantısı, güncelleştirmek veya yüklemek başarısız](#the-backup-extension-fails-to-update-or-load)**  
-**5. neden: [Yedekleme hizmeti, bir kaynak grubu kilidi nedeniyle eski geri yükleme noktalarını silmek için izne sahip değil](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**5. neden: Yedekleme hizmeti, bir kaynak grubu kilidi nedeniyle eski geri yükleme noktalarını silmek için izne sahip değil** <br>
 **6. neden: [VM internet erişimi yok](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - şu anda Azure Backup 1023 GB'den büyük disk boyutlarını desteklemez

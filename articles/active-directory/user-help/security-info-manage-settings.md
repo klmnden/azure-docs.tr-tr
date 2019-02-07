@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 36d1b4ef9501c94fe385c37f31ee7e8c9f57106e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 80a78d12570e3da1371d2fc1cbb0270eb81fc6ce
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197237"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766852"
 ---
 # <a name="manage-your-security-info-preview"></a>Güvenlik bilgilerinizi (Önizleme) yönetme
 
@@ -81,7 +81,7 @@ Bu makalede, iki aşamalı doğrulama ile ilgili sorunlar da dahil olmak üzere 
 |Ben telefonumu kaybolur veya çalınırsa|Ne yazık ki, telefonunuzu veya çalınmasını kaybı oluşabilir. Bu durumda, kuruluşunuzun BT ekibiniz, uygulama parolalarını sıfırlayabilir ve tüm güvenilen cihazları listenizden cihazları temizleyin anımsanacak bilmek istiyorum önemle tavsiye edilir. İçindeki adımları izleyerek kendi güvenilen cihazları unutur [kayıp veya riskli olabilecek bir cihaz için güvenlik bilgilerinizi yönetmek](#manage-your-security-info-for-a-lost-or-potentially-compromised-device) bölümü.|
 |Yeni bir telefon numarası aldım|Bu sorunu çözmek için iki yolu vardır. Telefon numarası, e-posta gibi gerektirmeyen bir alternatif kimlik doğrulama yöntemi kullanarak oturum açın veya bu bir seçenek değilse, kuruluşunuzun başvurabilirsiniz BT personeli kullanıcının ve bunları ayarlarınızı temizleyin. Güvenlik bilgilerinize ek yöntemleri eklemek için adımları izleyebilirsiniz [bilgilerinizi değiştirmek](#change-your-info) bölümü.|
 |Varsayılan yöntemimi yanlış|Varsayılan yönteminizi güvenlik seçeneklerinizi güncelleştirebilirsiniz. Belirli Ayrıntılar için giderek [bilgilerinizi değiştirmek](#change-your-info) bölümü.|
-|Bir metin almıyorum veya mobil aygıtımda çağırın|Başarıyla metinleri veya telefon çağrıları mobil cihazınıza geçmişte aldığınız, bu sorunu telefon sağlayıcısı, hesabı değil, olasılıkla olur. İyi hücre sinyal sahip olduğunuzu ve kısa mesaj ve telefon çağrılarını almak mümkün emin olun. Çağrı veya kısa mesaj arkadaşı sorabilir, bir test olarak.<br><br>Metin ve telefon iletileri başarıyla alabilir, ancak yine de bildirim edinmiş yapmadıysanız, farklı bir yöntemle deneyebilirsiniz. İçindeki adımları izleyerek güvenlik bilgilerinizi ek yöntemler ekleyebilirsiniz [bilgilerinizi değiştirmek](#change-your-info) bölümü. Eklemek için başka bir yöntem yoksa, şirketinizin Destek birimine ve böylece bir sonraki oturum açışınızda, yöntemleri ayarlayabilirsiniz ayarlarınızı temizlemek için isteyin.<br><br>Hatalı hücre alımı nedeniyle genellikle sorunlarla karşılaşırsanız, mobil Cihazınızda Microsoft Authenticator uygulamasını kullanmanızı öneririz. Uygulama oturum açmak için kullandığınız rastgele güvenlik kodları oluşturabilirsiniz ve bu kodları herhangi bir hücreyi sinyali veya internet bağlantısı gerekmez. Microsoft Authenticator uygulaması hakkında daha fazla bilgi için bkz. [Microsoft Authenticator uygulaması ile çalışmaya başlama](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) makalesi.|
+|Bir metin almıyorum veya mobil aygıtımda çağırın|Başarıyla metinleri veya telefon çağrıları mobil cihazınıza geçmişte aldığınız, bu sorunu telefon sağlayıcısı, hesabı değil, olasılıkla olur. İyi hücre sinyal sahip olduğunuzu ve kısa mesaj ve telefon çağrılarını almak mümkün emin olun. Çağrı veya kısa mesaj arkadaşı sorabilir, bir test olarak.<br><br>Metin ve telefon iletileri başarıyla alabilir, ancak yine de bildirim edinmiş yapmadıysanız, farklı bir yöntemle deneyebilirsiniz. İçindeki adımları izleyerek güvenlik bilgilerinizi ek yöntemler ekleyebilirsiniz [bilgilerinizi değiştirmek](#change-your-info) bölümü. Eklemek için başka bir yöntem yoksa, şirketinizin Destek birimine ve böylece bir sonraki oturum açışınızda, yöntemleri ayarlayabilirsiniz ayarlarınızı temizlemek için isteyin.<br><br>Hatalı hücre alımı nedeniyle genellikle sorunlarla karşılaşırsanız, mobil Cihazınızda Microsoft Authenticator uygulamasını kullanmanızı öneririz. Uygulama oturum açmak için kullandığınız rastgele güvenlik kodları oluşturabilirsiniz ve bu kodları herhangi bir hücreyi sinyali veya internet bağlantısı gerekmez. Microsoft Authenticator uygulaması hakkında daha fazla bilgi için bkz. [Microsoft Authenticator uygulaması ile çalışmaya başlama](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/user-help-auth-app-download-install) makalesi.|
 |Bu tabloda seçeneklerin hiçbiri, sorunu çözüldü|Bu sorun giderme adımlarını denemenize rağmen sorunlarla karşılaşırsanız çalışmakta olan Şirketinizin Destek birimine, size yardımcı olması gerekir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar

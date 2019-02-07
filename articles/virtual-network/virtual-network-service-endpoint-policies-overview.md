@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051320"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812353"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Sanal ağ hizmet uç noktası ilkeleri (Önizleme)
 
@@ -154,7 +154,7 @@ Hizmet uç noktası ilkelerinde hiçbir merkezi günlük sağlanmaz. Hizmet tan�
 ### <a name="troubleshooting-scenarios"></a>Sorun giderme senaryoları
 - Uç nokta ilkelerinde listelenmeyen depolama hesaplarına erişim izni verildi
   - Ağ güvenlik grupları diğer bölgelerde İnternet veya Azure Depolama hesaplarına erişim izni verebilir.
-  - Ağ güvenlik grupları tüm giden İnternet trafiğini reddedecek ve yalnızca belirli Azure Depolama bölgelerine yönelik trafiğe izin verecek şekilde yapılandırılmalıdır. Ayrıntılar için bkz. [Ağ güvenlik grupları](#network-security-groups).
+  - Ağ güvenlik grupları tüm giden İnternet trafiğini reddedecek ve yalnızca belirli Azure Depolama bölgelerine yönelik trafiğe izin verecek şekilde yapılandırılmalıdır. Ağ güvenlik grupları Ayrıntılar için bkz.
 - Uç nokta ilkelerinde listelenen hesaplar için erişim reddedildi
   - Ağ güvenlik grupları veya güvenlik duvarı filtrelemesi erişimi engelliyor olabilir
   - İlkenin kaldırılması/yeniden uygulanması bağlantı kaybına yol açıyorsa:

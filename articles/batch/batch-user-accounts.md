@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542841"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813917"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Kullanıcı hesaplarını görevleri Batch'de çalıştırma
 
@@ -66,7 +66,7 @@ Kullanıcı hesabının ayrıcalık düzeyi, bir görev yükseltilmiş erişim i
 
 Varsayılan olarak, görevler yükseltilmiş erişim olmadan ve görev kapsamlı bir standart kullanıcı olarak otomatik kullanıcı hesabı altında Batch hizmetinde çalışır. Batch hizmeti, otomatik kullanıcı belirtimi için görev kapsam yapılandırıldığında, yalnızca bu görev için bir otomatik kullanıcı hesabı oluşturur.
 
-Görev kapsama havuzu kapsam alternatiftir. Bir görev için otomatik kullanıcı belirtimi için havuz kapsam yapılandırıldığında, görev, havuzdaki herhangi bir görev için kullanılabilir olan bir otomatik kullanıcı hesabı altında çalışır. Başlıklı bölüme havuzu kapsamı hakkında daha fazla bilgi için bkz. [havuzu kapsamlı otomatik kullanıcı olarak bir görevi çalıştırmayı](#run-a-task-as-the-autouser-with-pool-scope).   
+Görev kapsama havuzu kapsam alternatiftir. Bir görev için otomatik kullanıcı belirtimi için havuz kapsam yapılandırıldığında, görev, havuzdaki herhangi bir görev için kullanılabilir olan bir otomatik kullanıcı hesabı altında çalışır. Havuz kapsamı hakkında daha fazla bilgi için otomatik kullanıcı havuzu kapsamlı olarak bir görevi çalıştırma başlıklı bölüme bakın.   
 
 Varsayılan kapsam, Windows ve Linux düğümlerinde farklıdır:
 

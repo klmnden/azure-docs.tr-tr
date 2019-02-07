@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.openlocfilehash: 705d23a93b25c513d413f2115c47d52ff6ef2bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9fa711c86e3ef7f05e87504905ec642808d8f601
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229503"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770291"
 ---
 # <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Azure'da CentOS for Ansible çözüm şablonu dağıtma
 Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şekilde yapılandırılmış Araçları Paketi ile birlikte bir CentOS sanal makinede Ansible örneği yapılandırmak için tasarlanmıştır. Araçlar şunları içerir:
@@ -53,7 +53,7 @@ Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şek
 1. İçinde **ek ayarlar** sekmesinde, gerekli bilgileri girin:
 
     - **Boyutu** -Azure portal varsayılan olarak standart boyutu. Kendi senaryonuza karşılar farklı bir boyut belirlemek için farklı boyutlarının listesini görüntülemek için oku seçin.
-    - **VM disk boyutu** -seçin **SSD** (Premium Solid-State sürücü) veya **HDD** (Sabit Disk sürücüsü). Tanıtım amaçlı olarak **SSD** performans avantajlarından için seçilir. Disk depolama türlerinin her biri hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+    - **VM disk türü** -seçin **SSD** (Premium Solid-State sürücü) veya **HDD** (Sabit Disk sürücüsü). Tanıtım amaçlı olarak **SSD** performans avantajlarından için seçilir. Disk depolama türlerinin her biri hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
         - [VM’ler için yüksek performanslı Premium Depolama ve yönetilen diskler](/azure/virtual-machines/windows/premium-storage)
         - [Standart SSD yönetilen diskler için Azure sanal makine iş yükleri](/azure/virtual-machines/windows/disks-standard-ssd)
     - **Genel IP adresi** -sanal makine dışında sanal makine ile iletişim kurmak istiyorsanız bu ayarı belirtin. Varsayılan ada sahip yeni bir ortak IP adresi olan `ansible-pip`. Farklı bir IP adresi belirtmek için bu IP adresi atamasının adı ve SKU gibi öznitelikleri - oku seçip belirtin. 

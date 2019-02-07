@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015143"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816739"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory kopyalama etkinliği'ni kullanarak DB2 verileri taşıma
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](data-factory-onprem-db2-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-db2.md)
 
@@ -72,14 +72,14 @@ API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için 
 2. Kopyalama işleminin girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun. 
 3. Bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği ile işlem hattı oluşturma. 
 
-Data Factory bağlı için JSON tanımları, kopyalama Sihirbazı'nı kullandığınızda, hizmetler, veri kümeleri ve işlem hattı varlıkları otomatik olarak sizin için oluşturulur. Araç veya API'lerden (dışında .NET API'si) kullandığınızda, Data Factory varlıkları JSON biçimini kullanarak tanımlayın. [JSON örneği: Veri kopyalama DB2'den Azure Blob depolama alanına](#json-example-copy-data-from-db2-to-azure-blob) bir şirket içi DB2 veri deposundan veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları gösterir.
+Data Factory bağlı için JSON tanımları, kopyalama Sihirbazı'nı kullandığınızda, hizmetler, veri kümeleri ve işlem hattı varlıkları otomatik olarak sizin için oluşturulur. Araç veya API'lerden (dışında .NET API'si) kullandığınızda, Data Factory varlıkları JSON biçimini kullanarak tanımlayın. JSON örneği: DB2 kopyalama verileri Azure Blob Depolama, şirket içi DB2 veri deposundan veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları gösterir.
 
 Aşağıdaki bölümler belirli bir DB2 veri deposuna Data Factory varlıkları tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar.
 
 ## <a name="db2-linked-service-properties"></a>DB2 bağlı hizmeti özellikleri
 Aşağıdaki tabloda bir DB2 bağlı hizmeti için özel JSON özellikleri listeler.
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | **type** |Bu özellik ayarlanmalıdır **OnPremisesDb2**. |Evet |
 | **Sunucu** |DB2 sunucunun adı. |Evet |
@@ -95,7 +95,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikler list
 
 **TypeProperties** bölümünde her veri kümesi türü için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. **TypeProperties** türü için bir veri kümesi bölümünü **RelationalTable**, özelliği var. Bu DB2 veri kümesi içerir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | **TableName** |Bağlı hizmetini ifade eder DB2 veritabanı tablosunun adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** türünde bir kopyalama etkinliği özelliği **RelationalSource** belirtilir) |
 
@@ -104,7 +104,7 @@ Bölümleri ve kopyalama etkinlikleri tanımlamak için kullanılabilir özellik
 
 Kopyalama etkinliği kaynak türü olduğunda için **RelationalSource** (DB2 içeren), aşağıdaki özellikler kullanılabilir **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | **Sorgu** |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin, `"query": "select * from "MySchema"."MyTable""` |Hayır (varsa **tableName** özellik kümesinin belirtilen) |
 
@@ -311,43 +311,43 @@ Kopyalama etkinliği verileri DB2 türünden bir .NET türe dönüştürdüğün
 | Tamsayı |Int16 |
 | Tamsayı |Int32 |
 | BigInt |Int64 |
-| Real |Tek |
-| çift |çift |
-| Kayan |çift |
-| Ondalık |Onluk |
-| DecimalFloat |Onluk |
-| Sayısal |Onluk |
+| Real |Single |
+| Double |Double |
+| Kayan |Double |
+| Ondalık |Decimal |
+| DecimalFloat |Decimal |
+| Sayısal |Decimal |
 | Tarih |DateTime |
-| Zaman |Zaman aralığı |
+| Zaman |TimeSpan |
 | Zaman damgası |DateTime |
-| Xml |Bayt] |
-| Char |Dize |
-| VarChar |Dize |
-| LongVarChar |Dize |
-| DB2DynArray |Dize |
-| İkili |Bayt] |
-| VarBinary |Bayt] |
-| LONGVARBINARY |Bayt] |
-| Grafiği |Dize |
-| VarGraphic |Dize |
-| LongVarGraphic |Dize |
-| CLOB |Dize |
-| Blob |Bayt] |
-| DbClob |Dize |
+| Xml |Byte[] |
+| Char |String |
+| VarChar |String |
+| LongVarChar |String |
+| DB2DynArray |String |
+| İkili |Byte[] |
+| VarBinary |Byte[] |
+| LONGVARBINARY |Byte[] |
+| Grafiği |String |
+| VarGraphic |String |
+| LongVarGraphic |String |
+| Clob |String |
+| Blob |Byte[] |
+| DbClob |String |
 | Tamsayı |Int16 |
 | Tamsayı |Int32 |
 | BigInt |Int64 |
-| Real |Tek |
-| çift |çift |
-| Kayan |çift |
-| Ondalık |Onluk |
-| DecimalFloat |Onluk |
-| Sayısal |Onluk |
+| Real |Single |
+| Double |Double |
+| Kayan |Double |
+| Ondalık |Decimal |
+| DecimalFloat |Decimal |
+| Sayısal |Decimal |
 | Tarih |DateTime |
-| Zaman |Zaman aralığı |
+| Zaman |TimeSpan |
 | Zaman damgası |DateTime |
-| Xml |Bayt] |
-| Char |Dize |
+| Xml |Byte[] |
+| Char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi
 Kaynak veri kümesindeki sütunları havuz veri kümesi sütunlara eşlemeyle ilgili bilgi edinmek için bkz: [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).

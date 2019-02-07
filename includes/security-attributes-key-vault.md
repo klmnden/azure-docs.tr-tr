@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 01/31/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ac0072b10489deb1b18ea737301ab698dce9f89
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: aba09012bf2e9d2741f598280add8b599a6f6d1a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513508"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55807250"
 ---
 ## <a name="preventative"></a>Preventative
 
@@ -48,7 +48,7 @@ ms.locfileid: "55513508"
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
-| Günlüğe kaydetme ve denetim Denetim/yönetimini planlama| Evet | Log Analytics'i kullanma. |
+| Denetim/Yönetim düzlemi günlüğe kaydetme ve Denetim| Evet | Log Analytics'i kullanma. |
 | Veri günlük kaydı ve denetim düzlemi| Evet | Log Analytics'i kullanma. |
 
 ## <a name="access-controls"></a>Erişim denetimleri

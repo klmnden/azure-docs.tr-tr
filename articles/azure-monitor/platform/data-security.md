@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 7152582a73dbaf07eca4aae066c9ac3ab82c3135
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e520c5dc2ae086305692c4bec1e1786d335c97e5
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319061"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766002"
 ---
 # <a name="log-analytics-data-security"></a>Oturum Analytics veri güvenliği
 Bu belge özelliği hakkında bilgiler tamamlamak için Azure İzleyici, Log Analytics, özel bilgiler sağlamak için tasarlanmıştır [Azure Güven Merkezi](../../security/security-microsoft-trust-center.md).  
@@ -52,7 +52,6 @@ Otomatik olarak algılamak ve olduklarında kullanılabilir, bu yeni daha güven
 | Windows 8.0 10 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | Windows Server 2012-2016 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 ve Windows Server 2008 R2 SP1 | , Varsayılan olarak etkin değildir ancak desteklenir. | Bkz: [Aktarım Katmanı Güvenliği (TLS) kayıt defteri ayarları](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) nasıl etkinleştirileceği hakkında daha fazla ayrıntı için.  |
-| Windows Server 2008 SP2 | TLS 1.2 desteği güncelleştirilmesi gerekiyor. | Bkz: [TLS 1.2 desteği eklemek için güncelleştirme](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) Windows Server 2008 SP2. |
 
 ## <a name="data-segregation"></a>veriler arasında ayrım yapma
 Log Analytics hizmeti tarafından alınan ve verilerinizi sonra veriler hizmet boyunca her bir bileşende mantıksal olarak ayrı tutulur. Tüm veriler çalışma alanı etiketlendiğini. Bu etiketleme, veri yaşam döngüsü boyunca devam eder ve her bir hizmet katmanında uygulanır. Verilerinizi, seçtiğiniz bölgede depolama kümesi adanmış bir veritabanında depolanır.

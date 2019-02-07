@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/05/2019
-ms.openlocfilehash: be6e2cbea7dd23cbe6932f0110ac1c8b630a17c2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 799f47b291b3943dcb4d6b31bc8df732c28990cd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753206"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816603"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
@@ -41,7 +41,7 @@ Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 
 | Bellek | Sanal çekirdek başına 7 GB | Sanal çekirdek başına 5.1 GB |
 | Bellek içi OLTP bellek | Sanal çekirdek başına 3 GB | Sanal çekirdek 2,6 GB |
 | Maks. depolama alanı (genel amaçlı) |  8 TB | 1 TB |
-| En fazla depolama alanı (iş açısından kritik) | 8 TB | 1 TB, 2 TB veya 4 TB çekirdek sayısına bağlı olarak |
+| En fazla depolama alanı (iş açısından kritik) | 1 TB | 1 TB, 2 TB veya 4 TB çekirdek sayısına bağlı olarak |
 
 ### <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 

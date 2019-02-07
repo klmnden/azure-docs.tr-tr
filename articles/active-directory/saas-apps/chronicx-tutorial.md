@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 982a639fe7a57c2db484acc6b272e5314637d1c4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b033cae63668c1b2af968d5c5b9df4e7b42dc35
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167674"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812931"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Öğretici: ChronicX® ile Azure Active Directory Tümleştirme
 
@@ -86,7 +86,7 @@ Yapılandırma ve Azure AD çoklu oturum açma ChronicX® ile test etmek için a
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[ChronicX® test kullanıcısı oluşturma](#create-a-chronicx®-test-user)**  - kullanıcı Azure AD gösterimini bağlı ChronicX® Britta simon'un bir karşılığı vardır.
+1. **ChronicX® test kullanıcısı oluşturma** - kullanıcı Azure AD gösterimini bağlı ChronicX® Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 

@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 05e77821ffe913a8c6669d58a3145635d230ff2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fd434ed8d5b625a1a0ed1ff195da0f864a4024b0
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847006"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769454"
 ---
 # <a name="manage-process-servers"></a>İşlem sunucularını yönetme
 
@@ -45,7 +45,7 @@ Bu makalede, bu ek işlem sunucularının için tipik yönetim görevleri özetl
 
 5. Kullanabilir **Yük Dengeleme** veya **anahtar** gereksinime göre aşağıda açıklandığı gibi seçenekleri.
 
-### <a name="load-balance"></a>Yük Dengeleme
+### <a name="load-balance"></a>Yükü dengele
 
 Bu seçeneği aracılığıyla bir veya daha fazla sanal makine seçebilirsiniz ve bunları başka bir işlem sunucusuna aktarabilirsiniz.
 
@@ -125,5 +125,5 @@ Virüsten koruma yazılımının bir tek başına işlem sunucusu veya ana hedef
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site kurtarma
-- İşlem sunucusu yükleme dizininde, örnek: C:\Program Files (x86) \Microsoft Azure Site Recovery
+- İşlem sunucusu yükleme dizininde, örneğin: C:\Program dosyaları (x86) \Microsoft Azure Site kurtarma
 

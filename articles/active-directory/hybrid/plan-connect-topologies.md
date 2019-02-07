@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 15ecd594dea9251b64cdfcba3bf620bc101504ec
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 988e72a20fdd80e41ce8fc1ef568d90d4283a848
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486104"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813509"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
 Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme anahtar tümleştirme çözümü olarak kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makale, desteklenen ve desteklenmeyen yapılandırmalar içerir.
@@ -63,7 +63,7 @@ Birden çok orman, tüm ormanlardaki olduğunda tek bir tarafından erişilebili
 
 Azure AD Connect Yükleme Sihirbazı'nı birden fazla ormanda temsil kullanıcılar birleştirmek için çeşitli seçenekler sunar. Bir kullanıcı, Azure AD'de yalnızca bir kez temsil edilir hedeftir. Özel bir yükleme yolu Yükleme Sihirbazı'nda yapılandırabileceğiniz bazı yaygın topoloji vardır. Üzerinde **kullanıcılarınız eşsiz şekilde tanımlanıyor** sayfasında, topolojinizi temsil eden ilgili seçeneği seçin. Birleştirme yalnızca kullanıcılar için yapılandırılır. Varsayılan yapılandırmada yinelenen grupları birleştirilmiş değil.
 
-Ortak topolojiler hakkında bölümlerde açıklanmıştır [ayrı topolojiler](#multiple-forests-separate-topologies), [tam mesh](#multiple-forests-full-mesh-with-optional-galsync), ve [hesap-kaynak topolojisi](#multiple-forests-account-resource-forest).
+Ortak topolojiler, ayrı topolojiler hakkında bölümlerde açıklanmıştır [tam mesh](#multiple-forests-full-mesh-with-optional-galsync), ve [hesap-kaynak topolojisi](#multiple-forests-account-resource-forest).
 
 Varsayılan yapılandırma, Azure AD Connect eşitleme varsayılır:
 

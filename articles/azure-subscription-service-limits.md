@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 00930fd99fd4c0078623aa11f3e2cd5b1c549034
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409182"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812676"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -54,7 +54,7 @@ Aşağıdaki sınırlar yeni bir tablo, Azure Resource Manager kullanırken fark
 * [Azure Haritalar](#azure-maps-limits)
 * [Azure İzleyici](#monitor-limits)
 * [Azure İlkesi](#azure-policy-limits)
-* [Redis için Azure Önbelleği](#azure-redis-cache-limits)
+* Redis için Azure Önbelleği
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Hizmetleri](#biztalk-services-limits)

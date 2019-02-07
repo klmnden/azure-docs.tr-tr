@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 238999448f719ca8c95d8c170a9f2e6b6d7bc851
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 934acf44fe2c36e9f7c2f2d2fdb3b191806d0014
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814129"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Öğretici: Slack ile Azure Active Directory Tümleştirme
 
@@ -106,12 +106,12 @@ Azure AD çoklu oturum açma Slack ile yapılandırmak için aşağıdaki adıml
 
     ![Çoklu oturum açma bilgileri Slack etki alanı ve URL'ler](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<companyname>.slack.com`.
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<companyname>.slack.com`
 
-    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusunda, değeri üzerinde oturum URL'si ile güncelleştirin. Bu, çalışma alanı etki alanıdır. Örneğin: `https://contoso.slack.com`.
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL yazın: `https://slack.com`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [Slack istemci Destek ekibine](https://slack.com/help/contact) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Oturum açma URL değeri, gerçek değil. Değeri, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Slack istemci Destek ekibine](https://slack.com/help/contact) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 5. Slack uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 

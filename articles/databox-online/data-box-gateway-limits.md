@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: acf455bff739666712917008dc8090c6a95c6dc4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388417"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815661"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure veri kutusu ağ geçidi sınırları (Önizleme)
 
@@ -26,7 +26,7 @@ Limitler, dağıtmanıza ve Microsoft Azure veri kutusu ağ geçidi çözümün�
 
 ## <a name="data-box-gateway-service-limits"></a>Veri kutusu Gateway hizmet limitleri
 
-- Bu sürümde, hizmet yalnızca ABD, AB ve Asya Pasifik belirli bölgelerde kullanılabilir durumdadır. Daha fazla bilgi için [bölge kullanılabilirliği](#data-box-gateway-overview#region-availability)’ne gidin. Depolama hesabı bölgeye cihazın dağıtıldığı fiziksel olarak yakın olmalıdır (hizmet coğrafi bölgesinden farklı olabilir).
+- Bu sürümde, hizmet yalnızca ABD, AB ve Asya Pasifik belirli bölgelerde kullanılabilir durumdadır. Daha fazla bilgi için bölge kullanılabilirliği gidin. Depolama hesabı bölgeye cihazın dağıtıldığı fiziksel olarak yakın olmalıdır (hizmet coğrafi bölgesinden farklı olabilir).
 - Farklı bir abonelik veya kaynak grubu için bir veri kutusu ağ geçidi kaynağı taşıma desteklenmiyor. Daha fazla ayrıntı için [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="data-box-gateway-device-limits"></a>Veri kutusu ağ geçidi cihaz sınırları

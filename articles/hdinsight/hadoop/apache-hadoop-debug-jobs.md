@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438821"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822689"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop günlüklerini analiz etme
 
@@ -99,7 +99,7 @@ Artık, filtreleme ve sıralama gerektiği için Excel kullanabilirsiniz. Sorun 
     Filtreleri oluşturma hakkında daha fazla bilgi için bkz. [oluşturun, Tablo Tasarımcısı için filtre dizelerinde](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 ## <a name="logs-written-to-azure-blob-storage"></a>Azure Blob depolama alanına yazılan günlükleri
-[Azure tabloları yazılan günlükler](#log-written-to-azure-tables) bir düzeyde bir HDInsight kümesi ile neler Öngörüler sağlar. Görev düzeyinde günlükleri, ayrıntılara yararlı olabilir ancak, bu tablolar sağlamaz daha da ortaya çıkan sorunlar. Bu sonraki ayrıntı düzeyini sağlamak için Blob Depolama hesabınıza templeton da gönderilen herhangi bir iş için görev günlüklerini yazma izni HDInsight kümeleri yapılandırılır. Pratikte, bu Microsoft Azure PowerShell cmdlet'lerini veya .NET iş gönderme API'leri, RDP/komut satırı erişim kümesine gönderilen işler kullanılarak gönderilen bir iş anlamına gelir. 
+Azure tabloları yazılan günlükler bir düzey bir HDInsight kümesi ile neler Öngörüler sağlar. Görev düzeyinde günlükleri, ayrıntılara yararlı olabilir ancak, bu tablolar sağlamaz daha da ortaya çıkan sorunlar. Bu sonraki ayrıntı düzeyini sağlamak için Blob Depolama hesabınıza templeton da gönderilen herhangi bir iş için görev günlüklerini yazma izni HDInsight kümeleri yapılandırılır. Pratikte, bu Microsoft Azure PowerShell cmdlet'lerini veya .NET iş gönderme API'leri, RDP/komut satırı erişim kümesine gönderilen işler kullanılarak gönderilen bir iş anlamına gelir. 
 
 Günlükleri görüntülemek için bkz: [erişim Apache Hadoop YARN uygulama günlüklerine üzerinde Linux tabanlı HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 

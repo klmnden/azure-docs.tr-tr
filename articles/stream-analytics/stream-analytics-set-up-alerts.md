@@ -7,14 +7,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d32a201da5befbc8b68148f0b051e283ec289
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412404"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769510"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyarıları ayarlama
 
@@ -46,17 +46,17 @@ Aşağıdaki örnek, işinizi başarısız durumda girdiğinde için uyarıları
 
    ![Azure akış analizi işi için uyarı ayarlama](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. **Kaynak**, **koşul**, ve **Eylem grupları** her bir giriş olmalıdır.
+7. **Kaynak**, **koşul**, ve **Eylem grupları** her bir giriş olmalıdır. Uyarıların tetikleneceği sırada tanımlanan koşullar karşılanması gerektiğini unutmayın. Örneğin, son 15 dakika boyunca, her 5 dakikada bir ölçüm 's ortalama değerini ölçebilirsiniz.
 
    ![Stream Analytics uyarı kuralı oluşturma](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    Ekleme bir **uyarı kuralı adı**, **açıklama**ve **kaynak grubu** için **uyarı ayrıntıları** tıklatıp **uyarı oluştur Kural** Stream Analytics işiniz için kural oluşturma.
 
    ![Stream Analytics uyarı kuralı oluşturma](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
-
+   
 ## <a name="scenarios-to-monitor"></a>İzleme senaryoları
 
-Stream Analytics işinizin performansını izlemek için aşağıdaki uyarıları önerilir. Bu ölçümler son 5 dakika boyunca dakika başı değerlendirilmelidir. İşinizi performans sorunları nedeniyle düşerse, akış birim sayısını artırmayı deneyin ve daha uygun hale sorgunun paralelleştirme kullanabilirsiniz.
+Stream Analytics işinizin performansını izlemek için aşağıdaki uyarıları önerilir. Bu ölçümler son 5 dakika boyunca dakika başı değerlendirilmelidir.
 
 |Ölçüm|Koşul|Zaman Toplama|Eşik|Düzeltme eylemleri|
 |-|-|-|-|-|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378763"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820802"
 ---
 # <a name="plan-virtual-networks"></a>Sanal ağları planlama
 
@@ -53,7 +53,7 @@ Azure genel ağında sanal, yalıtılmış bir kısmı bir sanal ağdır. Her bi
 - Ayrı sanal ağları yalıtmak için Kurumsal gereksinimlere mevcut [abonelikleri](#subscriptions) veya [bölgeleri](#regions)?
 - A [ağ arabirimi](virtual-network-network-interface.md) diğer kaynaklarla iletişim kurmak bir VM sağlar. Her bir ağ arabirimine atanmış bir veya daha fazla özel IP adresi vardır. Kaç ağ arabirimleri ve [özel IP adresleri](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) sanal ağ içinde ihtiyaç duyuyorsunuz? Vardır [sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) ağ arabirimleri ve sanal ağ içinde sahip olduğunuz özel IP adresleri sayısı.
 - Şirket içi ağ ve sanal ağ başka bir sanal ağa bağlanmak istiyor musunuz? Bazı sanal ağları birbirine veya şirket içi ağlarda, ancak diğerlerini bağlamak tercih edebilirsiniz. Daha fazla bilgi için [bağlantı](#connectivity). Her başka bir sanal ağa bağlanan sanal ağ ya da şirket içi ağı, benzersiz adres alanı olmalıdır. Bir sanal ağın kendi adres alanına atanan bir veya daha fazla genel veya özel adres aralıklarını sahiptir. Bir adres aralığı, Sınıfsız internet etki alanına yönlendirme (CIDR) biçiminde 10.0.0.0/16 gibi belirtilir. Daha fazla bilgi edinin [adres aralıkları](manage-virtual-network.md#add-or-remove-an-address-range) sanal ağlar için.
-- Farklı sanal ağlarda bulunan kaynaklar için herhangi bir kuruluş yönetim gereksinimleri var mı? Bu nedenle, basitleştirmek için ayrı sanal ağa kaynakları ayırabilir, [izin atama](#permissions) farklı atanacak veya kuruluşunuzdaki kişilere [ilkeleri](#policies) farklı sanal ağlar.
+- Farklı sanal ağlarda bulunan kaynaklar için herhangi bir kuruluş yönetim gereksinimleri var mı? Bu nedenle, kaynakları basitleştirmek için ayrı sanal ağa ayırabilir, [izin atama](#permissions) kişilerin kuruluşunuzdaki veya farklı ağlarda farklı ilkeleri atamak için.
 - Bazı Azure hizmet kaynaklarını bir sanal ağa dağıttığınızda, bunlar kendi sanal ağ oluşturur. Bir Azure hizmeti, kendi sanal ağ oluşturur olup olmadığını belirlemek için her bilgi [bir sanal ağa dağıtılan Azure hizmeti](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
 
 ### <a name="subnets"></a>Alt ağlar
@@ -107,13 +107,13 @@ Bir sanal ağ içindeki kaynaklarla Azure'nın eşlenmiş sanal ağdaki kaynakla
 
 ## <a name="permissions"></a>İzinler
 
-Azure kullanan [rol tabanlı erişim denetimi](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) kaynaklara. İzinleri atanmış bir [kapsam](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) aşağıdaki hiyerarşideki: Abonelik, yönetim grubu, kaynak grubu ve tek başına bir kaynak. Hiyerarşi hakkında daha fazla bilgi için bkz: [kaynaklarınızı düzenleme](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure sanal ağları ve tüm ilgili yeteneklerini eşdüzey hizmet sağlama, ağ güvenlik grupları, hizmet uç noktaları ve rota tabloları gibi çalışmak için kuruluş üyelerinin yerleşik olarak atayabilirsiniz [sahibi](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Katkıda bulunan](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), veya [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve ardından Ata rol için uygun kapsam. Sanal ağ özelliklerinin bir alt kümesi için belirli izinleri atamak istiyorsanız, oluşturun bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve için gereken belirli izinleri atama [sanal ağlar](manage-virtual-network.md#permissions), [ alt ağları ve hizmet uç noktaları](virtual-network-manage-subnet.md#permissions), [ağ arabirimleri](virtual-network-network-interface.md#permissions), [eşlemesi](virtual-network-manage-peering.md#permissions), [ağ ve uygulama güvenlik grupları](manage-network-security-group.md#permissions), veya [rota tabloları](manage-route-table.md#permissions) rolü.
+Azure kullanan [rol tabanlı erişim denetimi](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) kaynaklara. İzinleri atanmış bir [kapsam](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) aşağıdaki hiyerarşi içinde: Abonelik, yönetim grubu, kaynak grubu ve tek başına bir kaynak. Hiyerarşi hakkında daha fazla bilgi için bkz: [kaynaklarınızı düzenleme](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure sanal ağları ve tüm ilgili yeteneklerini eşdüzey hizmet sağlama, ağ güvenlik grupları, hizmet uç noktaları ve rota tabloları gibi çalışmak için kuruluş üyelerinin yerleşik olarak atayabilirsiniz [sahibi](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Katkıda bulunan](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), veya [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve ardından Ata rol için uygun kapsam. Sanal ağ özelliklerinin bir alt kümesi için belirli izinleri atamak istiyorsanız, oluşturun bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve için gereken belirli izinleri atama [sanal ağlar](manage-virtual-network.md#permissions), [ alt ağları ve hizmet uç noktaları](virtual-network-manage-subnet.md#permissions), [ağ arabirimleri](virtual-network-network-interface.md#permissions), [eşlemesi](virtual-network-manage-peering.md#permissions), [ağ ve uygulama güvenlik grupları](manage-network-security-group.md#permissions), veya [rota tabloları](manage-route-table.md#permissions) rolü.
 
 ## <a name="policy"></a>İlke
 
 Azure ilkesi oluşturmak, atamak ve ilke tanımları yönetmenize olanak sağlar. Kaynakları kuruluş standartlarınız ve hizmet düzeyi sözleşmeleri ile uyumlu kalmasını sağlar ilke tanımları, kaynaklarınız üzerinden farklı kuralları uygular. Azure İlkesi, sahip olduğunuz ilke tanımlarıyla uyumlu olmayan kaynaklar için tarama kaynaklarınızın bir değerlendirmesini çalışır. Örneğin, tanımlamak ve yalnızca belirli bir kaynak grubu veya bölgedeki sanal ağları oluşturulmasına izin veren bir ilke uygulayın. Başka bir ilke, her alt ağ ile ilişkili ağ güvenlik grubu olduğunu gerektirebilir. İlkeler, ardından kaynakların oluşturulup güncelleştirildiği sırada değerlendirilir.
 
-İlkeleri, aşağıdaki hiyerarşiye uygulanır: Abonelik, yönetim grubu ve kaynak grubu. Daha fazla bilgi edinin [Azure İlkesi](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya bazı sanal ağı dağıtmak [ilke şablonu](policy-samples.md) örnekleri.
+İlkeler aşağıdaki hiyerarşiye uygulanır: Abonelik, yönetim grubu ve kaynak grubu. Daha fazla bilgi edinin [Azure İlkesi](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya bazı sanal ağı dağıtmak [ilke şablonu](policy-samples.md) örnekleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

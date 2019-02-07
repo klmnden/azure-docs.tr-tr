@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241653"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816112"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Dış izleme çözümü, Azure Stack ile tümleştirin
 
@@ -38,6 +38,9 @@ Her Azure Stack çözüm donanım yaşam döngüsü konak ile birlikte gelir. Bu
 Aşağıdaki diyagramda bir Azure Stack tümleşik sistemi, donanım yaşam döngüsü konak, dış izleme çözümünü ve bir dış bilet oluşturma/veri toplama sistem arasındaki trafik akışını gösterir.
 
 ![Azure Stack, izleme ve bilet oluşturma çözümü arasındaki trafiği gösteren diyagram.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+
+> [!NOTE]
+> Fiziksel sunucuları ve ağ cihazları ile doğrudan dış Monitoring Integration değil izin ve erişim denetim listeleri tarafından (ACL'ler) etkin bir şekilde engellendi. 
 
 Bu makalede, Azure Stack, System Center Operations Manager ve Nagios gibi dış izleme çözümleriyle tümleştirmek açıklanmaktadır. Ayrıca uyarılarla PowerShell kullanarak veya REST API çağrıları üzerinden programlı bir şekilde çalışmanın nasıl içerir.
 

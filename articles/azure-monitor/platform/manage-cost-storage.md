@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 290f0426befa322b20882682bf4555f80af016d1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660400"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821482"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Log Analytics için kullanımı ve maliyetleri yönetme
 
@@ -128,7 +128,7 @@ Ne zaman OperationStatus uyarı bir veri toplamayı durdurur. Veri toplama başl
 |Neden koleksiyonu durdurur| Çözüm| 
 |-----------------------|---------|
 |Eski ücretsiz fiyatlandırma katmanı günlük sınırına ulaşıldı |Koleksiyon otomatik olarak yeniden başlatmak için sonraki güne kadar bekleyin veya Ücretli fiyatlandırma katmanı olarak değiştirme.|
-|Günlük üst sınır çalışma alanınızın ulaşıldı|Koleksiyon için otomatik olarak yeniden başlatılmasını bekleyin ya da açıklanan günlük veri birimi sınırı artırmak [en fazla günlük veri hacmi yönetme](#manage-the-maximum-daily-volume). Günlük sınır sıfırlama saati gösterir açıktır **veri hacmi Yönetimi** sayfası. |
+|Günlük üst sınır çalışma alanınızın ulaşıldı|Koleksiyon için otomatik olarak yeniden başlatılmasını bekleyin veya günlük veri birimi sınırı açıklanan artış maksimum günlük veri hacmi yönetin. Günlük sınır sıfırlama saati gösterir açıktır **veri hacmi Yönetimi** sayfası. |
 |Azure aboneliği askıya alınma durumuna nedeniyle oluşturulur.<br> Ücretsiz deneme sürümü sona erdi<br> Azure pass süresi doldu<br> Aylık harcama sınırına (örneğin bir MSDN veya Visual Studio abonelik üzerinde)|Ücretli aboneliğe dönüştürme<br> Sınırı kaldırın veya sınır sıfırlar kadar bekleyin|
 
 Veri toplamayı durdurur bozulma olduğunda bilgilendirilmeniz için açıklanan adımları kullanın. *oluşturma günlük veri üst sınırında* veri toplamayı durdurur bildirilmesini sağlamak için uyarı ve adımları kullanma bölümünde açıklanan adımları izleyin ekleme kuralları yapılandırmanız bir e-posta Uyarı eylemleri Web kancasını veya runbook eylemini bir uyarı kuralı. 

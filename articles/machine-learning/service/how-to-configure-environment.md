@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 02d0afd18ad966baf8954ae5add180c970fe302e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b322ca0c3a19f0a832fe50b6cfbaaad287205d5e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247417"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812914"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -27,7 +27,7 @@ Yalnızca geliştirme ortamınız için Python 3, Conda (için yalıtılmış or
 
 Bu makalede aşağıdaki ortamları ve Araçlar üzerinde odaklanır:
 
-* [Azure not defterleri](#aznotebooks): Azure bulutunda barındırılan Jupyter Notebook hizmeti. Azure Machine Learning SDK'sı zaten yüklü olduğu için bunu kullanmaya başlamak için en kolay yoludur.
+* Azure not defterleri: Azure bulutunda barındırılan Jupyter Notebook hizmeti. Azure Machine Learning SDK'sı zaten yüklü olduğu için bunu kullanmaya başlamak için en kolay yoludur.
 
 * [Veri bilimi sanal makinesi (DSVM)](#dsvm): Veri bilimi iş için tasarlanmış olan ve yalnızca sanal makine örnekleri CPU veya GPU tabanlı örnekler için dağıtılabilir Azure bulutta önceden yapılandırılmış bir geliştirme veya deneme ortamı. Python 3, Conda, Jupyter not defterleri ve Azure Machine Learning SDK'sı zaten yüklü. Sanal makine, öğrenme ve makine öğrenimi çözümleri geliştirmek için çerçeveleri, Araçlar ve düzenleyicileri derin öğrenme popüler makine ile birlikte gelir. Machine learning Azure platformunda için en eksiksiz geliştirme ortamı olabilir.
 

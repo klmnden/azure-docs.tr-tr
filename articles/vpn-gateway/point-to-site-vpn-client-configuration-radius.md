@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0d915592053c256d3640d0f0de7bb94bf109f2c8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8fc2c487a374a34cd9a7642a45fd59c04061b398
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700171"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817827"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS kimlik doğrulaması için VPN istemcisi yapılandırma dosyalarını yükleme ve oluşturma
 
@@ -260,7 +260,7 @@ Sertifika kimlik doğrulaması için bir Mac bilgisayarda yerel VPN istemcisini 
 
 Farklı kimlik doğrulama türü (örneğin, OTP) kullanın veya farklı kimlik doğrulama protokolü (örneğin, PEAP-MSCHAPv2 EAP-MSCHAPv2 yerine) kullanmak için kendi VPN istemci yapılandırma profili oluşturmanız gerekir. Profili oluşturmak için sanal ağ geçidinin IP adresi, tünel türü ve bölünmüş tünel yolları gibi bilgiler gerekir. Aşağıdaki adımları kullanarak bu bilgi edinebilirsiniz:
 
-1. Kullanım `Get-AzureRmVpnClientConfiguration` EapMSChapv2 VPN istemci yapılandırması oluşturmak için cmdlet'i. Yönergeler için [Bu bölümde](#ccradius) makalenin.
+1. Kullanım `Get-AzureRmVpnClientConfiguration` EapMSChapv2 VPN istemci yapılandırması oluşturmak için cmdlet'i. Yönergeler için makalenin bu bölümüne bakın.
 
 2. VpnClientConfiguration.zip dosyanın sıkıştırmasını açın ve Ara **GenericDevice** klasör. 64-bit ve 32 bit mimarileri için Windows Yükleyici içeren klasörlere göz ardı edin.
  

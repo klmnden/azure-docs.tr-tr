@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: e7cb8b2d699418b4d70d60f19a3a60ce0c7b8d38
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 566523b1ca461d6a8a0ffaf8830481e5dc3ce26f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888677"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770376"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>Hızlı Başlangıç: IOT Hub cihaz üzerinde SSH/RDP kullanarak akışları C# proxy uygulamaları (Önizleme)
 
@@ -36,9 +36,9 @@ Bu örnek cihaz ve hizmet yerel proxy programlarında SSH istemcisi SSH arka pla
 
 2. Cihaz yerel proxy akış başlatma el sıkışma işlemi tamamlandıktan ve IOT Hub'ın hizmet tarafına akış uç noktası aracılığıyla uçtan uca bir akış tüneli oluşturur.
 
-3. Cihazda 22 numaralı bağlantı noktasında dinleme SSH arka plan programı (SSHD) cihaz yerel proxy bağlandığında (Bu bağlantı noktası açıklandığı şekilde yapılandırılabilir, [aşağıda](#run-the-device-side-application)).
+3. Cihazda 22 numaralı bağlantı noktasında dinleme SSH arka plan programı (SSHD) cihaz yerel proxy bağlandığında (Bu bağlantı noktası açıklandığı şekilde yapılandırılabilir, [aşağıda](#run-the-device-local-proxy)).
 
-4. Kullanıcıdan yeni SSH bağlantıları için bekler, bu durumda 2222 numaralı bağlantı noktasına atanan bir bağlantı noktasında dinleme tarafından hizmet yerel proxy (Bu da açıklandığı gibi yapılandırılabilirdir [aşağıda](#run-the-service-side-application)). Kullanıcı SSH istemcisi bağlandığında, SSH istemcisi ve sunucusu programlar arasında değiş tokuş uygulama trafiği tüneli etkinleştirir.
+4. Kullanıcıdan yeni SSH bağlantıları için bekler, bu durumda 2222 numaralı bağlantı noktasına atanan bir bağlantı noktasında dinleme tarafından hizmet yerel proxy (Bu da açıklandığı gibi yapılandırılabilirdir [aşağıda](#run-the-service-local-proxy)). Kullanıcı SSH istemcisi bağlandığında, SSH istemcisi ve sunucusu programlar arasında değiş tokuş uygulama trafiği tüneli etkinleştirir.
 
 > [!NOTE]
 > Akış üzerinden gönderilen SSH trafiği doğrudan hizmet ve cihaz arasında gönderilen yerine IOT Hub'ın akış uç noktası aracılığıyla tünel. Bu sağlar [yararlar](./iot-hub-device-streams-overview.md#benefits).
@@ -110,32 +110,6 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>Bir cihazın cihaz akışları yoluyla SSH
 
-### <a name="run-the-service-side-proxy"></a>Hizmet tarafı proxy çalıştırma
-
-Gidin `device-streams-proxy/service` sıkıştırması proje klasörünüzde. Aşağıdaki bilgiler yararlı gerekir:
-
-| Parametre adı | Parametre değeri |
-|----------------|-----------------|
-| `iotHubConnectionString` | IOT Hub'ınıza hizmet bağlantı dizesi. |
-| `deviceId` | Daha önce oluşturduğunuz cihaz tanımlayıcısı. |
-| `localPortNumber` | SSH istemciniz burada bağlanacak bir yerel bağlantı noktası. 2222 numaralı bağlantı noktasına bu kullanıyoruz, ancak bu diğer rastgele sayılar için değiştirebilir. |
-
-Derleyin ve kodun aşağıdaki gibi çalıştırın:
-
-```
-cd ./iot-hub/Quickstarts/device-streams-proxy/service/
-
-# Build the application
-dotnet build
-
-# Run the application
-# In Linux/MacOS
-dotnet run $serviceConnectionString MyDevice 2222
-
-# In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
-```
-
 ### <a name="run-the-device-local-proxy"></a>Cihaz yerel ara sunucu çalıştırın
 
 Gidin `device-streams-proxy/device` sıkıştırması proje klasörünüzde. Aşağıdaki bilgiler yararlı gerekir:
@@ -162,31 +136,7 @@ dotnet run $deviceConnectionString localhost 22
 dotnet run %deviceConnectionString% localhost 22
 ```
 
-Artık SSH istemcisi programınız kullanın ve yerel hizmet proxy'si (yerine SSH arka plan programı doğrudan) 2222 numaralı bağlantı noktasında bağlanın. 
-
-```
-ssh <username>@localhost -p 2222
-```
-
-Bu noktada kimlik bilgilerinizi girmeniz için SSH oturum açma istemi ile sunulur.
-
-Konsol (hizmet yerel proxy 2222 numaralı bağlantı noktasında dinler) hizmeti tarafında çıktısı:
-
-![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "hizmeti-yerel proxy çıkış")
-
-Konsol çıktısı SSH arka plan programı bağlanan cihazın yerel proxy'de `IP_address:22`:
-
-![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/device-console-output.png "cihaz yerel proxy çıkış")
-
-Konsol çıktısı SSH istemcisi programının (SSH istemcisi iletişim kuran SSH arka plan programı için burada hizmeti-yerel proxy üzerinde dinleme bağlantı noktası 22 bağlanarak):
-
-![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH istemcisi program çıktısı")
-
-## <a name="rdp-to-a-device-via-device-streams"></a>Bir cihazın cihaz akışları yoluyla RDP
-
-Kurulum için RDP SSH (yukarıda açıklanmıştır) için benzer. Temel olarak bunun yerine RDP hedef IP ve bağlantı noktası 3389'u kullanın ve RDP istemcisi (yerine, SSH istemcisi) kullanmak ihtiyacımız var.
-
-### <a name="run-the-service-side-application"></a>Hizmet tarafı uygulamayı çalıştırın
+### <a name="run-the-service-local-proxy"></a>Hizmet yerel ara sunucu çalıştırın
 
 Gidin `device-streams-proxy/service` sıkıştırması proje klasörünüzde. Aşağıdaki bilgiler yararlı gerekir:
 
@@ -212,7 +162,34 @@ dotnet run $serviceConnectionString MyDevice 2222
 dotnet run %serviceConnectionString% MyDevice 2222
 ```
 
-### <a name="run-the-device-side-application"></a>Aygıt tarafı uygulamayı çalıştırın
+### <a name="run-ssh-client"></a>SSH istemcisi çalıştırın
+
+Artık SSH istemcisi programınız kullanın ve yerel hizmet proxy'si (yerine SSH arka plan programı doğrudan) 2222 numaralı bağlantı noktasında bağlanın. 
+
+```
+ssh <username>@localhost -p 2222
+```
+
+Bu noktada kimlik bilgilerinizi girmeniz için SSH oturum açma istemi ile sunulur.
+
+Konsol (hizmet yerel proxy 2222 numaralı bağlantı noktasında dinler) hizmeti tarafında çıktısı:
+
+![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "hizmeti-yerel proxy çıkış")
+
+Konsol çıktısı SSH arka plan programı bağlanan cihazın yerel proxy'de `IP_address:22`:
+
+![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/device-console-output.png "cihaz yerel proxy çıkış")
+
+Konsol çıktısı SSH istemcisi programının (SSH istemcisi iletişim kuran SSH arka plan programı için burada hizmeti-yerel proxy üzerinde dinleme bağlantı noktası 22 bağlanarak):
+
+![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH istemcisi program çıktısı")
+
+
+## <a name="rdp-to-a-device-via-device-streams"></a>Bir cihazın cihaz akışları yoluyla RDP
+
+Kurulum için RDP SSH (yukarıda açıklanmıştır) için benzer. Temel olarak bunun yerine RDP hedef IP ve bağlantı noktası 3389'u kullanın ve RDP istemcisi (yerine, SSH istemcisi) kullanmak ihtiyacımız var.
+
+### <a name="run-the-device-local-proxy-rdp"></a>Cihaz yerel proxy (RDP) çalıştırın
 
 Gidin `device-streams-proxy/device` sıkıştırması proje klasörünüzde. Aşağıdaki bilgiler yararlı gerekir:
 
@@ -234,6 +211,34 @@ dotnet run $DeviceConnectionString localhost 3389
 # In Windows
 dotnet run %DeviceConnectionString% localhost 3389
 ```
+
+### <a name="run-the-service-local-proxy-rdp"></a>Hizmet yerel proxy (RDP) çalıştırın
+
+Gidin `device-streams-proxy/service` sıkıştırması proje klasörünüzde. Aşağıdaki bilgiler yararlı gerekir:
+
+| Parametre adı | Parametre değeri |
+|----------------|-----------------|
+| `iotHubConnectionString` | IOT Hub'ınıza hizmet bağlantı dizesi. |
+| `deviceId` | Daha önce oluşturduğunuz cihaz tanımlayıcısı. |
+| `localPortNumber` | SSH istemciniz burada bağlanacak bir yerel bağlantı noktası. 2222 numaralı bağlantı noktasına bu kullanıyoruz, ancak bu diğer rastgele sayılar için değiştirebilir. |
+
+Derleyin ve kodun aşağıdaki gibi çalıştırın:
+
+```
+cd ./iot-hub/Quickstarts/device-streams-proxy/service/
+
+# Build the application
+dotnet build
+
+# Run the application
+# In Linux/MacOS
+dotnet run $serviceConnectionString MyDevice 2222
+
+# In Windows
+dotnet run %serviceConnectionString% MyDevice 2222
+```
+
+### <a name="run-rdp-client"></a>RDP istemcisi çalıştırın
 
 Şimdi RDP istemci programınız kullanın ve hizmet yerel proxy (daha önce seçtiğiniz rasgele kullanılabilir bağlantı noktası olduğu) 2222 numaralı bağlantı noktasına bağlanın.
 

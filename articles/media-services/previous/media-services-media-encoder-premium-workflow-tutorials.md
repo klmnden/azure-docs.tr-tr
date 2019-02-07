@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f0290a5f04a396c1d66e2dd1873eb313dcb3f66d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811984"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818405"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Gelişmiş Media Encoder Premium iş akışı öğreticileri
 ## <a name="overview"></a>Genel Bakış
@@ -44,12 +44,12 @@ Aşağıdaki konular ele alınmaktadır:
   * [Ayrı bir ses izi ekleme](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
   * ["ISM" SMIL dosyası ekleniyor](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [MP4 - Gelişmiş şema multibitrate MXF kodlama](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-  * [Geliştirmek için iş akışı genel bakış](#workflow-overview-to-enhance)
+  * Geliştirmek için iş akışı genel bakış
   * [Dosya adlandırma kuralları](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
   * [İş akışı kök üzerine yayımlama bileşeni özellikleri](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [Çıktı dosyası adları yayımlanan özellik değerlerine dayanan oluşturulmasını](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
 * [Küçük resimleri için multibitrate MP4 çıktısına ekleme](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-  * [Küçük resimleri eklemek için iş akışı genel bakış](#workflow-overview-to-add-thumbnails-to)
+  * Küçük resimleri eklemek için iş akışı genel bakış
   * [JPG kodlama ekleme](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [Renk alanı dönüştürme uğraşmanızı](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [Küçük yazma](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)

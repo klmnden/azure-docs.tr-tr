@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: b41f01254e081b6ac3a9b8265bd459cf00af1838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: edc3bedaa005bb52ddbf46d9f70ddc16bf8790e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198002"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Öğretici: Learning Seat LMS ile Azure Active Directory Tümleştirme
 
@@ -89,7 +89,7 @@ Yapılandırma ve Azure AD çoklu oturum açma Learning Seat LMS ile test etmek 
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Learning Seat LMS test kullanıcısı oluşturma](#creating-a-learnconnect-test-user)**  - kullanıcı Azure AD gösterimini bağlı Learning Seat LMS Britta simon'un bir karşılığı vardır.
+1. **Learning Seat LMS test kullanıcısı oluşturma** - kullanıcı Azure AD gösterimini bağlı Learning Seat LMS Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 

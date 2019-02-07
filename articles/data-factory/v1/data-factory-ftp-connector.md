@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: adca66b46fad1220b49af327797cc4f91d216091
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 20f1d8ca67a38a9dc262845d87b77e2bc3fc9fb7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564672"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810601"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir FTP sunucusundan veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -155,7 +155,7 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Alt klasörünün yolu. Çıkış karakterini kullanma ' \ ' dizesinde özel karakterler için. Bkz: [örnek bağlantılı hizmet ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekler.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasör yolları tabanlı slice başlama üzerinde olması ve bitiş tarih saatleri. |Evet |
+| folderPath |Alt klasörünün yolu. Çıkış karakterini kullanma ' \ ' dizesinde özel karakterler için. Bağlı örnek hizmet ve veri kümesi tanımları örnekler için bkz.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasör yolları tabanlı slice başlama üzerinde olması ve bitiş tarih saatleri. |Evet |
 | fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>Zaman **fileName** belirtilmemiş bir çıktı veri kümesi için oluşturulan dosya adı şu biçimde: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
 | fileFilter |Bir alt dosya seçmek için kullanılacak bir filtre belirtin **folderPath**, tüm dosyalar yerine.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** girdi FileShare veri kümesi için geçerlidir. Bu özellik, Hadoop dağıtılmış dosya sistemi (HDFS ile) desteklenmiyor. |Hayır |
 | partitionedBy |Dinamik belirtmek için kullanılan **folderPath** ve **fileName** zaman serisi verilerinin. Örneğin, belirtebileceğiniz bir **folderPath** veri her saat için parametreli. |Hayır |

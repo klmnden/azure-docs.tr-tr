@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: e63db9dd5dcd48e19c75608c39c4c0b62db24527
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 89984335d40d7f58d39e77736c06a9ff137d7a51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221207"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811266"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan kaynaklar için ad çözümlemesi
 
@@ -40,7 +40,7 @@ Kullandığınız ad çözümlemesi türünü nasıl kaynaklarınızı birbirler
 | Farklı sanal ağlardaki sanal makineleri veya rol örneğini farklı bulut hizmetleri arasında ad çözümlemesine. |[Azure DNS özel bölgeleri](../dns/private-dns-overview.md) veya, müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasında sorguları iletme. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
 | Ad çözümlemesi bir Azure App Service'in (Web uygulaması, işlev veya Bot) rol örneklerini veya Vm'leri aynı sanal ağdaki sanal ağ tümleştirmesi kullanarak. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasında sorguları iletme. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
 | App Service Web Apps aynı sanal ağdaki ad çözünürlüğünü vm'lere. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasında sorguları iletme. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
-| Ad çözünürlüğünü App Service Web Apps bir sanal ağdaki VM'ler için farklı bir sanal ağ içinde. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasında sorguları iletme. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server-for-web-apps). |Yalnızca FQDN |
+| Ad çözünürlüğünü App Service Web Apps bir sanal ağdaki VM'ler için farklı bir sanal ağ içinde. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasında sorguları iletme. Kendi DNS sunucunuzu kullanarak ad çözümleme konusuna bakın. |Yalnızca FQDN |
 | Sanal makineleri veya rol örneklerini azure'da şirket içi bilgisayar ve hizmet adlarının çözümlenmesini. |DNS sunucuları (şirket içi etki alanı denetleyicisi, yerel salt okunur etki alanı denetleyicisi veya DNS ikincil bölge aktarımlarını, örneğin kullanarak eşitlenen) müşteri tarafından yönetilen. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
 | Şirket içi bilgisayarlardan Azure konak adı çözümlemesi. |Bir müşteri tarafından yönetilen DNS proxy sunucusu karşılık gelen sanal ağ içinde sorguları, proxy sunucusu sorguları çözümlemesi için Azure'a iletir. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
 | İç IP'ler için ters DNS. |[Kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-that-uses-your-own-dns-server). |Uygulanamaz |

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 6701443807a2709edf08a2b979cd59bebacb7b5d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 36d169a4220cb1baacdaee072ed01101ef2e9437
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790186"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815192"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell kullanarak HDInsight Apache Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -162,7 +162,7 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 Ayrıca verme ve erişimi iptal ediliyor portalı üzerinden yapılabilir. Bkz: [Azure portalını kullanarak HDInsight yönetmek][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>HTTP kullanıcısı kimlik bilgilerini güncelleştirme
-Yordamın aynısını olan [vermek/iptal etmek HTTP erişim](#grant/revoke-access). Kümenin HTTP erişim verilmişse, öncelikle iptal gerekir.  ' İ tıklatın ve ardından yeni HTTP kullanıcı kimlik bilgileriyle erişim verin.
+Aynı Grant/revoke HTTP erişim yordam var. Kümenin HTTP erişim verilmişse, öncelikle iptal gerekir.  ' İ tıklatın ve ardından yeni HTTP kullanıcı kimlik bilgileriyle erişim verin.
 
 ## <a name="find-the-default-storage-account"></a>Varsayılan depolama hesabı bulunamadı
 Aşağıdaki PowerShell Betiği, varsayılan depolama hesabı adını ve ilgili bilgi almak gösterilmektedir:

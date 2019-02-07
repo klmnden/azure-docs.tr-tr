@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480963"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811214"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple sanal dizisi giriş
 
@@ -98,7 +98,7 @@ StorSimple sanal dizisi, özellikle aşağıdaki iş akışları için uygundur:
 ### <a name="cloud-based-storage-management"></a>Bulut tabanlı depolama yönetimi
 Azure portalında çalışan StorSimple cihaz Yöneticisi hizmeti birden fazla konumda birden fazla cihazda depolanan verileri yönetmek için kullanabilirsiniz. Bu dağıtılmış dal senaryolarda özellikle yararlıdır. Ayrı örneklerini sanal diziler ve fiziksel StorSimple cihazları yönetmek için StorSimple cihaz Yöneticisi hizmeti oluşturmanız gerektiğini unutmayın. Ayrıca sanal diziyi yeni Azure portalında Klasik Azure portalı yerine artık kullandığına dikkat edin.
 
-![bulut tabanlı depolama yönetimi](./media/storsimple-ova-overview/cloud-based-storage-management.png)
+![Bulut tabanlı depolama yönetimi](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Konumdan bağımsız yedekleme
 Sanal dizi, bulut anlık görüntüleri bir birimi veya paylaşım konumdan bağımsız, zaman içinde nokta kopyasını sağlayın. Bulut anlık görüntüleri, varsayılan olarak etkinleştirilir ve devre dışı bırakılamaz. Tüm birim ve paylaşımların aynı anda tek bir günlük yedekleme İlkesi aracılığıyla yedekleme ve gerektiğinde ek geçici yedeklemeler alabilir.
@@ -169,7 +169,7 @@ Sanal diziyi ve diğer bileşenlere ek olarak StorSimple çözümü önemli veri
 
 * [Otomatik depolama katmanlamayı](#automatic-storage-tiering) 
 * [Yerel olarak sabitlenmiş paylaşımları ve birimler](#locally-pinned-shares-and-volumes)
-* [Yinelenenleri kaldırma ve sıkıştırma verileri için katmanlı veya buluta yedeklenen](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* Yinelenenleri kaldırma ve sıkıştırma verileri için katmanlı veya buluta yedeklenen 
 * [Zamanlanmış ve isteğe bağlı yedeklemeler](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>Otomatik depolama katmanlamayı

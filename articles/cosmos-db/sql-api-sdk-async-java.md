@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/4/2019
 ms.author: moderakh
-ms.openlocfilehash: 15bab6af4054085d00ec5c2edb7afb993a620b55
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 31683159f96dd87fe4e7ceea050d5e1d213decba
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756266"
+ms.locfileid: "55770359"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -32,22 +32,15 @@ ms.locfileid: "55756266"
 
 SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL API Java SDK'sından farklıdır [Netty Kitaplığı](https://netty.io/). Önceden varolan [SQL API Java SDK'sı](sql-api-sdk-java.md) zaman uyumsuz işlemleri desteklemez. 
 
-<table>
-
-<tr><td>**SDK'sını indirme**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
-
-<tr><td>**API belgeleri**</td><td>[Java API başvuru belgeleri](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable)</td></tr>
-
-<tr><td>**SDK'sı için katkıda bulunan**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
-
-<tr><td>**Kullanmaya başlama**</td><td>[Async Java SDK'sı ile çalışmaya başlama](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
-
-<tr><td>**Kod örneği**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
-
-<tr><td>**Performans ipuçları**</td><td>[GitHub Benioku](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
-
-<tr><td>**En düşük desteklenen çalışma zamanı**</td><td>[JDK 8](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+| **SDK'sını indirme** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
+|**API belgeleri** |[Java API başvuru belgeleri](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable) | 
+|**SDK'sı için katkıda bulunan** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
+|**Kullanmaya başlama** | [Async Java SDK'sı ile çalışmaya başlama](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
+|**Kod örneği** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
+| **Performans ipuçları**| [GitHub Benioku](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
+| **En düşük desteklenen çalışma zamanı**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Sürüm notları
 

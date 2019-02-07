@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2be11f97882a7c6353b214886ce6c5a3a66add89
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 81e9ad5affda7b5e246bd7eb3406a40fd7f24dbb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339119"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814036"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -176,7 +176,7 @@ Güvenlik Merkezi seçili fiyatlandırma katmanını temel alan çalışma alan�
 Microsoft Monitoring Agent el ile kaldırabilirsiniz. Güvenlik Merkezi önerilerini ve Uyarıları sınırlar bu önerilmez.
 
 > [!NOTE]
-> Veri toplama etkinleştirilirse Güvenlik Merkezi kaldırdıktan sonra aracıyı yeniden yükler.  El ile aracı kaldırmadan önce veri toplamayı devre dışı bırakmak gerekir. Bkz: [nasıl ı Durdur otomatik aracı yükleme ve çalışma alanı oluşturma?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?) veri toplamayı devre dışı bırakma hakkında yönergeler için.
+> Veri toplama etkinleştirilirse Güvenlik Merkezi kaldırdıktan sonra aracıyı yeniden yükler.  El ile aracı kaldırmadan önce veri toplamayı devre dışı bırakmak gerekir. Ben otomatik aracı yükleme ve çalışma alanı oluşturma nasıl vermeyi görüyor musunuz? Veri toplamayı devre dışı bırakma ile ilgili yönergeler için.
 >
 >
 

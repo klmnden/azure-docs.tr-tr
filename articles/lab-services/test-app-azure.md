@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437801"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814913"
 ---
 # <a name="test-your-app-in-azure"></a>Uygulamanızı Azure’da test edin 
 Bu makalede adımları uygulamanızı test etmek için Azure DevTest Labs'i kullanarak sağlar. İlk olarak, bir laboratuvar içindeki bir dosya paylaşımı ayarlama ve yerel geliştirme makineniz ve bir laboratuvar içindeki bir VM üzerinde bir sürücü olarak bağlayın. Ardından, böylece laboratuvara VM'de uygulamayı çalıştırabilir, dosya paylaşımına uygulamanızı dağıtmak için Visual Studio 2017'yi kullanın.  
@@ -57,7 +57,7 @@ Bu makalede adımları uygulamanızı test etmek için Azure DevTest Labs'i kull
     ![Laboratuvar sanal makinesi seçin](media/test-app-in-azure/select-lab-vm.png)
 2. Seçin **Connect** VM'ye bağlanmak için araç çubuğunda. 
 3. [Azure PowerShell'i yükleme](https://azure.microsoft.com/downloads/) kullanarak **Windows yükleme** bağlantısını **komut satırı araçları** bölümü. Azure PowerShell'i yüklemenin diğer yolları için bkz. [bu makalede](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
-4. Yönergeleri [dosya paylaşımını bağlama](#mount-the-file-share) bölümü. 
+4. Dosya Paylaşımı bölümüne bağlama'ndaki yönergeleri izleyin. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Uygulamanızı Visual Studio'dan yayımlama
 Bu bölümde, uygulamanızı Visual Studio'dan test VM'si bulut yayımlayın.

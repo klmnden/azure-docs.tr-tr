@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
-ms.openlocfilehash: 563c073e781e2a2bee88b4ecdcdc82541c21ec4f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092407"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813050"
 ---
 # <a name="how-caching-works"></a>Önbelleğe alma nasıl işler?
 
@@ -35,10 +35,10 @@ Sık sık değişen veya bireysel bir kullanıcı için benzersiz olan dinamik k
 
 Önbelleğe alma, kaynak sunucu ve son kullanıcı arasında birden fazla düzeyde oluşabilir:
 
-- Web sunucusu: paylaşılan önbellek (birden çok kullanıcı için) kullanır.
-- İçerik teslim ağı: paylaşılan önbellek (birden çok kullanıcı için) kullanır.
-- Internet servis sağlayıcınıza (ISS): paylaşılan önbellek (birden çok kullanıcı için) kullanır.
-- Web tarayıcısı: özel bir önbellek (bir kullanıcı için) kullanır.
+- Web sunucusu: Paylaşılan önbellek (birden çok kullanıcı için) kullanır.
+- İçerik teslim ağı: Paylaşılan önbellek (birden çok kullanıcı için) kullanır.
+- Internet servis sağlayıcınıza (ISS): Paylaşılan önbellek (birden çok kullanıcı için) kullanır.
+- Web tarayıcı: Özel bir önbellek (bir kullanıcı için) kullanır.
 
 Her önbellek genellikle kendi kaynak yeniliği yönetir ve bir dosya eski olduğunda doğrulama gerçekleştirir. Bu davranışı HTTP belirtimine, önbelleğe alma tanımlanır [RFC 7234](https://tools.ietf.org/html/rfc7234).
 
@@ -76,9 +76,9 @@ Azure CDN önbelleğe alma süresi ve önbellek paylaşımı tanımlamak aşağ�
 - CDN POP istemciden bir HTTP yanıtına kullanıldığında:
      - **Verizon'dan Azure CDN standart/Premium** ve **Azure CDN standart Microsoft gelen** tüm destek `Cache-Control` yönergeleri.
      - **Azure CDN standart Akamai** yalnızca şunları desteklemektedir `Cache-Control` yönergeleri; tüm diğer göz ardı edilir:
-         - `max-age`: Önbellek içeriği için belirtilen saniye sayısı depolayabilirsiniz. Örneğin, `Cache-Control: max-age=5`. Bu yönerge, içeriği yeni olarak kabul edilir en uzun süreyi belirtir.
+         - `max-age`: Bir önbellek içeriği için belirtilen saniye sayısı depolayabilirsiniz. Örneğin, `Cache-Control: max-age=5`. Bu yönerge, içeriği yeni olarak kabul edilir en uzun süreyi belirtir.
          - `no-cache`: İçeriği önbelleğe ancak içeriği önbellekten önce teslim etme her zaman doğrulayın. Eşdeğer `Cache-Control: max-age=0`.
-         - `no-store`: Hiçbir zaman önbellek içeriği. Daha önce depolanmışsa içeriği kaldırın.
+         - `no-store`: Hiçbir zaman içeriği önbelleğe alın. Daha önce depolanmışsa içeriği kaldırın.
 
 **Süre sonu:**
 - HTTP 1.0 sunulan eski başlığı; için geriye dönük uyumluluk desteklenmiyor.
@@ -116,7 +116,7 @@ Tüm kaynaklar önbelleğe alınabilir. Aşağıdaki tablo, hangi kaynakların, 
 |-------------------|-----------------------------------|------------------------|------------------------------|
 | HTTP durum kodları | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
 | HTTP yöntemleri      | GET, HEAD                         | GET                    | GET                          |
-| Dosya boyutu sınırları  | 300 GB                            | 300 GB                 | -Genel web teslimatı iyileştirmesi: 1,8 GB<br />-Medya akışı iyileştirmeleri: 1,8 GB<br />-Büyük dosya iyileştirmesi: 150 GB |
+| Dosya boyutu sınırları  | 300 GB                            | 300 GB                 | -Genel web teslimatı iyileştirmesi: 1,8 GB<br />-Medya akış iyileştirmeleri: 1,8 GB<br />-Büyük dosya iyileştirmesi: 150 GB |
 
 İçin **Azure CDN standart Microsoft gelen** bir kaynak üzerinde çalışmak için önbelleğe alma, kaynak sunucu, tüm HEAD desteklemesi gerekir ve GET HTTP isteklerini ve içerik-uzunluk değerleri varlığın tüm baş ve GET HTTP yanıtları için aynı olması gerekir. HEAD isteği, kaynak sunucu HEAD isteği desteklemesi gerekir ve bir GET isteği almış sanki aynı üst bilgilere ile yanıt vermelidir.
 
@@ -129,9 +129,9 @@ Aşağıdaki tabloda, önbelleğe alma davranışını Azure CDN ürünü ve ken
 | **Kaynak Uy**       | Evet    | Evet   | Hayır   | Evet    | Hayır   | Evet   | Evet    |
 | **CDN önbelleğe alma süresi** | 2 gün |7 gün | None | 7 gün | None | 1 gün | 1 yıl |
 
-**Kaynak dikkate**: uymanız belirtir [önbellek yönergesi üstbilgileri desteklenen](#http-cache-directive-headers) kaynak sunucusundan gelen HTTP yanıtında varsa.
+**Kaynak dikkate**: Kaynak sunucusundan gelen HTTP yanıtında varsa desteklenen önbellek yönergesi üstbilgileri uymanız belirtir.
 
-**CDN önbelleğe alma süresi**: Azure CDN'de bir kaynağın önbelleğe alınmış süre miktarını belirtir. Ancak, **dikkate kaynak** Evet ve kaynak sunucusundan gelen HTTP yanıt önbellek yönergesi üst bilgisi içeren `Expires` veya `Cache-Control: max-age`, Azure CDN, bunun yerine üstbilgisi tarafından belirtilen süre değeri kullanır. 
+**CDN önbelleğe alma süresi**: Azure CDN'de bir kaynak olarak önbelleğe süreyi belirtir. Ancak, **dikkate kaynak** Evet ve kaynak sunucusundan gelen HTTP yanıt önbellek yönergesi üst bilgisi içeren `Expires` veya `Cache-Control: max-age`, Azure CDN, bunun yerine üstbilgisi tarafından belirtilen süre değeri kullanır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

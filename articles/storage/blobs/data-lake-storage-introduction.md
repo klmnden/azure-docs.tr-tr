@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake depolama Gen2 Önizleme giriş
-description: Azure Data Lake depolama Gen2 Önizlemesi'ne genel bakış sağlar
+title: Azure Data Lake depolama Gen2'ye Giriş
+description: Azure Data Lake depolama Gen2'ye genel bakış sağlar
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 17b6d0ecf56ec07d3a46949b6ae3b63a6c4b94d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 018171d4b2253c2cf7942f9f10424a9c695438b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250121"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809445"
 ---
-# <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake depolama Gen2 Önizleme giriş
+# <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye Giriş
 
-Azure Data Lake depolama Gen2 önizlemesi üzerinde oluşturulmuş, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](storage-blobs-introduction.md). Data Lake depolama Gen2 bizim iki var olan depolama hizmetleri, Azure Blob Depolama ve Azure Data Lake depolama Gen1 yeteneklerini yakınsamaya sonucudur. Öğesinden özellikleri [Azure Data Lake depolama Gen1](https://docs.microsoft.com/azure/data-lake-store/index)gibi dosya sistemi sematiğini, dizin ve dosya düzeyinde güvenlik ve ölçek ile düşük maliyetli, katmanlı depolama, yüksek kullanılabilirlik/olağanüstü durum kurtarma özelliklerini birleştirilir[Azure Blob Depolama](storage-blobs-introduction.md).
+Azure Data Lake depolama Gen2 üzerinde oluşturulmuş, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](storage-blobs-introduction.md). Data Lake depolama Gen2 bizim iki var olan depolama hizmetleri, Azure Blob Depolama ve Azure Data Lake depolama Gen1 yeteneklerini yakınsamaya sonucudur. Öğesinden özellikleri [Azure Data Lake depolama Gen1](https://docs.microsoft.com/azure/data-lake-store/index)gibi dosya sistemi sematiğini, dizin ve dosya düzeyinde güvenlik ve ölçek ile düşük maliyetli, katmanlı depolama, yüksek kullanılabilirlik/olağanüstü durum kurtarma özelliklerini birleştirilir[Azure Blob Depolama](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Kurumsal büyük veri analizi için tasarlanmış
 

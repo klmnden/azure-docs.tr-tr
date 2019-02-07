@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 49e9a057e52d46fd18e13c43d0f6024201499685
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493397"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821691"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Depolama Performansı ve Ölçeklenebilirlik Onay Listesi
 ## <a name="overview"></a>Genel Bakış
@@ -92,7 +92,7 @@ Azure Depolama hizmetlerinin her biri, Kapasite (GB), işlem hızı ve bant geni
 * [Saniye başına kuyruk iletileri](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>Tüm hizmetler için bant genişliği ölçeklenebilirlik hedefine
-Makalenin yazıldığı sırada, bant genişliği hedefleri coğrafi olarak yedekli depolama (GRS) hesabı için ABD'de 10 Gigabit / saniye (Gbps) (depolama hesabına gönderilen veriler) giriş ve çıkış (depolama hesabından gönderilen veriler) için 20 GB/sn içindir. Bir yerel olarak yedekli depolama (LRS) hesabı için sınırları daha yüksek – 20 GB/sn giriş ve çıkış için 30 GB/sn.  Uluslararası bant genişliği sınırlarını daha düşük olabilir ve bulunabilir bizim [ölçeklenebilirlik hedefleri sayfa](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Depolama yedekliliği seçenekleri hakkında daha fazla bilgi için bkz: bağlantıları [faydalı kaynaklar](#sub1useful) aşağıda.  
+Makalenin yazıldığı sırada, bant genişliği hedefleri coğrafi olarak yedekli depolama (GRS) hesabı için ABD'de 10 Gigabit / saniye (Gbps) (depolama hesabına gönderilen veriler) giriş ve çıkış (depolama hesabından gönderilen veriler) için 20 GB/sn içindir. Bir yerel olarak yedekli depolama (LRS) hesabı için sınırları daha yüksek – 20 GB/sn giriş ve çıkış için 30 GB/sn.  Uluslararası bant genişliği sınırlarını daha düşük olabilir ve bulunabilir bizim [ölçeklenebilirlik hedefleri sayfa](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Depolama yedekliliği seçenekleri hakkında daha fazla bilgi için faydalı kaynaklar aşağıdaki bağlantılara bakın.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>Ölçeklenebilirlik hedefine bölümüyle iletişime geçerken yapmanız gerekenler
 Depolama hesabı içinde bir belirli aboneliğe/bölge birleşimi olabilir sınırına yaklaşılıyor, uygulama ve depolama hesapları kullanımını değerlendirin ve Bu koşullardan herhangi biri geçerli olup olmadığına belirleyin.

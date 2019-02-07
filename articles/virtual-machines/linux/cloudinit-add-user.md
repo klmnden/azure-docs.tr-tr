@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 905d701437b1b580c019c800d13b18f725580fdd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51de92eb64e9879b769baf7e574ee1dca9355040
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972955"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767018"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Azure'da bir Linux sanal makinesi için bir kullanıcı eklemek için cloud-init kullanma
 Bu makalede nasıl kullanılacağını gösterir [cloud-init](https://cloudinit.readthedocs.io) bir sanal makine (VM) veya sanal makinede bir kullanıcı eklemek için ölçek kümeleri (VMSS zaman azure'da sağlama sırasında). Kaynakları Azure tarafından sağlanan sonra ilk önyüklemede bu cloud-init betiği çalıştırır. Cloud-init yerel olarak desteklenen Linux dağıtımları ve Azure ile işleyişi hakkında daha fazla bilgi için bkz. [cloud-init genel bakış](using-cloud-init.md).
@@ -43,13 +43,13 @@ users:
 > [!NOTE] 
 > #Cloud-config dosyası içerir `- default` parametresi dahil. Bu kullanıcı için sağlama sırasında oluşturulan mevcut yönetici kullanıcı sonuna ekler. Bir kullanıcı olmaksızın oluşturursanız `- default` parametre - Azure platformu tarafından oluşturulan otomatik oluşturulan yönetici kullanıcı olacak üzerine. 
 
-Bu görüntü dağıtmadan önce bir kaynak grubu oluşturmak için ihtiyacınız [az grubu oluşturma](/cli/azure/group#az_group_create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Bu görüntü dağıtmadan önce bir kaynak grubu oluşturmak için ihtiyacınız [az grubu oluşturma](/cli/azure/group) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Şimdi bir VM oluşturun [az vm oluşturma](/cli/azure/vm#az_vm_create) ve cloud-init dosyası ile `--custom-data cloud_init_add_user.txt` gibi:
+Şimdi bir VM oluşturun [az vm oluşturma](/cli/azure/vm) ve cloud-init dosyası ile `--custom-data cloud_init_add_user.txt` gibi:
 
 ```azurecli-interactive 
 az vm create \

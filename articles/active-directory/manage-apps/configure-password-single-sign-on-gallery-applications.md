@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 02c25490ba19521715b48dc7ec92861078332a48
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731793"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815413"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Parola çoklu oturum açma Azure AD galeri uygulaması için yapılandırma
 
@@ -50,7 +50,7 @@ Bir uygulama için gereken Azure AD Galerisi yapılandırmak için:
 
 -   [Parola çoklu oturum açma için uygulamayı yapılandırma](#configure-the-application-for-password-single-sign-on)
 
--   [Bir kullanıcının veya grubun uygulamaya atama](#assign-the-application-to-a-user-or-a-group)
+-   Bir kullanıcının veya grubun uygulamaya atama
 
     -   [Bir uygulamaya doğrudan bir kullanıcı atama](#assign-a-user-to-an-application-directly)
 

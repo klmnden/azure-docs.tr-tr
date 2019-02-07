@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e4552157cab846356c57a135d4e273f5a545bce9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
-ms.translationtype: HT
+ms.openlocfilehash: 619f77b6b50a005b4b5cc688bdbf32d1ce3dce26
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667226"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810823"
 ---
-# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Öğretici: Service Fabric üzerinde Java web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti olan uygulama oluşturma
+# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Öğretici: Service Fabric üzerinde uygulama ile bir Java web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti oluşturun
 
 Bu öğretici, bir dizinin birinci bölümüdür. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir Java web ön ucuna sahip Oylama uygulaması sağlanır. Bu öğretici serisi, çalışır durumda bir Mac OSX veya Linux geliştirici makineniz olmasını gerektirir. Oylama uygulamasını el ile oluşturmak istemiyorsanız, [tamamlanmış uygulamanın kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-java-quickstart) ve [Oylama örnek uygulamasında izlenecek yol](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application) bölümüne atlayabilirsiniz.
 
@@ -44,7 +44,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-java-elk.md)
 > * [CI/CD ayarlama](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 HTTP iletişim dinleyicisi, HTTP sunucusunu ayarlayan bir denetleyici olarak hareket eder ve oylama eylemlerini tanımlayan API’leri gösterir. *VotingWeb/src/statelessservice* klasöründe *statelessservice* paketine sağ tıklayın, ardından **Yeni->Dosya**'ya tıklayın.  Dosyaya *HttpCommunicationListener.java* adını verin ve **Son**’a tıklayın.
 
-Dosyanın içeriğini aşağıdakilerle değiştirin, sonra değişikliklerinizi kaydedin.  Daha sonra, [HttpCommunicationListener.java dosyasını güncelleştirme](#updatelistener_anchor) bölümünde bu dosya, arka uç hizmetinden oylama verilerini işleyecek, okuyacak ve yazacak şekilde değiştirilir.  Şimdilik dinleyici yalnızca Oylama uygulaması için statik HTML'i döndürür.
+Dosyanın içeriğini aşağıdakilerle değiştirin, sonra değişikliklerinizi kaydedin.  Daha sonra güncelleştirme HttpCommunicationListener.java dosyası, oluşturma, okuma ve arka uç hizmetinden oylama verilerini yazmak için bu dosyayı değiştirilir.  Şimdilik dinleyici yalnızca Oylama uygulaması için statik HTML'i döndürür.
 
 ```java
 // ------------------------------------------------------------
@@ -891,7 +891,7 @@ Bu noktada uygulama, yerel Service Fabric kümesinde dağıtılmaya hazırdır.
 
 2. Yerel Service Fabric kümenizi çalıştırın. Bu adım, geliştirme ortamınıza (Mac veya Linux) bağlıdır.
 
-    Mac kullanıyorsanız, aşağıdaki komutla yerel kümeyi çalıştırın: **-v** parametresine gönderilen komutu, kendi çalışma alanınızın yoluyla değiştirin.
+    Mac kullanıyorsanız, aşağıdaki komutla yerel kümeyi çalıştırın: Yöntemlere geçirilen komutunun yerini **- v** kendi çalışma alanınızın yoluyla parametresi.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox

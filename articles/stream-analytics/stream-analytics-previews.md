@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 29997b2ff7d3834a91389790256cd0d075ce1ece
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744917"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768572"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics Önizleme özellikleri
 
@@ -30,14 +30,6 @@ Azure Stream Analytics, Azure SQL veritabanı kaynağı başvuru verileri için 
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning ile tümleştirme
 
 Machine Learning (ML) işlevleri olan Stream Analytics işlerini ölçeklendirme yapabilir. ML işlevleri, Stream Analytics işinde nasıl kullanabileceğiniz hakkında daha fazla bilgi edinmek için [Stream Analytics işinizi Azure Machine Learning işlevleriyle ölçeklendirme](stream-analytics-scale-with-machine-learning-functions.md). Gerçek dünya senaryosuyla kullanıma [Azure Stream Analytics ve Azure Machine Learning kullanarak yaklaşım analizi gerçekleştirme](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="blob-output-partitioning-by-custom-time"></a>Blob çıktı özel zamanına göre bölümleme
-
-Azure Stream Analytics, blob depolama alanına özel zaman özniteliklerine dayalı çıkış sağlayabilir. Daha fazla bilgi için ziyaret [Azure Stream Analytics özel blob çıkış bölümleme](stream-analytics-custom-path-patterns-blob-storage-output.md).
-
-### <a name="blob-output-partitioning-by-field-or-attribute"></a>Blob çıkış alan ya da öznitelik bölümleme
-
-Azure Stream Analytics, blob depolama alanına özel alanlar veya özniteliklere göre çıkış sağlayabilir. Daha fazla bilgi için ziyaret [Azure Stream Analytics özel blob çıkış bölümleme](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### <a name="javascript-user-defined-aggregate"></a>JavaScript kullanıcı tanımlı toplam
 

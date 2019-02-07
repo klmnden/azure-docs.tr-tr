@@ -7,18 +7,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: 5dabab02758b4ade0f668adddf7644a654e1804b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: e2ec1b7ad6d1489836937d30b89d0f0f681a9bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756748"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819595"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry rolleri ve izinleri
 
 Azure Container Registry hizmeti farklı bir Azure container registry'ye izin düzeyleri sağlayan Azure rolleri, bir kümesini destekler. Azure kullanan [rol tabanlı erişim denetimi](../role-based-access-control/index.yml) kullanıcılara özel izinler atamak veya bir kayıt defteriyle etkileşimli çalışmak için gereken sorumluları hizmetini (RBAC).
 
-| Rol/izni       | [Resource Manager'a erişme](#access-resource-manage)| [Kayıt defteri oluşturma/silme](#create/delete-registry) | [Görüntü gönderme](#push-image) | [Görüntü çekme](#pull-image) | [İlkeleri değiştirme](#change-polices) |   [Oturum görüntüleri](#sign-images)  |
+| Rol/izni       | Resource Manager'a erişme| Kayıt defteri oluşturma/silme | [Görüntü gönderme](#push-image) | [Görüntü çekme](#pull-image) | İlkeleri değiştirme |   [Oturum görüntüleri](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- |
 | Sahip | X | X | X | X | X |  |  
 | Katılımcı | X | X | X | X | X |  |  

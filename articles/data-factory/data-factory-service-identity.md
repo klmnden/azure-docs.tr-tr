@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: b0cb72b8a9c1710b2b22d987c2818a490a2ea553
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 068929bbde8e4c1411004b45fc77f0188de43ff8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753368"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814223"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure veri fabrikası hizmet kimliği
 
@@ -44,7 +44,7 @@ Veri fabrikanızın aşağıdaki ilişkili hizmet kimliği yoksa bulup bulamayac
 
 - [PowerShell kullanarak hizmet kimliği oluşturma](#generate-service-identity-using-powershell)
 - [REST API kullanarak hizmet kimliği oluşturma](#generate-service-identity-using-rest-api)
-- [Bir Azure Resource Manager şablonu kullanarak bir hizmet kimliği oluşturma](#generate-service-identity-using-azure-resource-manager-template)
+- Bir Azure Resource Manager şablonu kullanarak bir hizmet kimliği oluşturma
 - [Hizmet kimliği kullanarak SDK oluşturma](#generate-service-identity-using-sdk)
 
 >[!NOTE]

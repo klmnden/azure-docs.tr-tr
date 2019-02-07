@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748043"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816195"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Depolama kaynağı silme hatalarını giderme
 
@@ -24,24 +24,24 @@ Bazı senaryolarda, aşağıdakilerden birini karşılaşabileceğiniz hatalar, 
 
 >**Depolama hesabı 'StorageAccountName' silinemedi. Hata: Depolama hesabının kullanımda, yapılarının nedeniyle silinemiyor.**
 
->**# Dışında # kapsayıcı silinemedi:<br>VHD'ler: kapsayıcı üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.**
+>**# Dışında # kapsayıcı silinemedi:<br>VHD'ler: Kapsayıcı üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.**
 
->**# Dışında # bloblar silinemedi:<br>BlobName.vhd: blob üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.**
+>**# Dışında # bloblar silinemedi:<br>BlobName.vhd: Blob üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.**
 
 Azure Vm'lerinde kullanılan VHD'ler, azure'daki standart veya premium depolama hesabında sayfa blobları olarak depolanan .vhd dosyalarıdır. Azure diskleri hakkında daha fazla bilgi için bkz: [yönetilmeyen ve yönetilen disk depolama için Microsoft Azure Linux Vm'leri](../linux/about-disks-and-vhds.md). 
 
 Azure bozulmasını önlemek için bir sanal Makineye bağlı bir disk silinmesini engeller. Ayrıca, kapsayıcılar ve bir VM'ye bağlı bir sayfa blobu olduğu depolama hesaplarında silinmesini engeller. 
 
 Şu hatalardan biriyle aldığında bir depolama hesabı, kapsayıcı veya blob silme işlemi şöyledir: 
-1. [Bloblar bir VM'ye tanımlayın](#step-1-identify-blobs-attached-to-a-vm)
+1. Bloblar bir VM'ye tanımlayın
 2. [Delete Vm'lerle bağlı **işletim sistemi diski**](#step-2-delete-vm-to-detach-os-disk)
 3. [Tümünü Ayır **veri disklerini** gelen kalan VM](#step-3-detach-data-disk-from-the-vm)
 
 Bu adımları tamamladıktan sonra depolama hesabı, kapsayıcı veya blob siliniyor. yeniden deneyin.
 
-## <a name="step-1-identify-blob-attached-to-a-vm"></a>1. adım: bir VM'ye blob belirleme
+## <a name="step-1-identify-blob-attached-to-a-vm"></a>1. Adım: Bir VM'ye blob tanımlayın
 
-### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>1. Senaryo: bir blob – silme ekli VM tanımlayın
+### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>Senaryo 1: Bir blob – silme ekli VM tanımlayın
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Hub menüsünde **tüm kaynakları**. Depolama hesabına altında Git **Blob hizmeti** seçin **kapsayıcıları**ve silmek için blob gidin.
 3. Varsa blobun **kiralama durumu** olduğu **kiralanmış**, sonra sağ tıklayıp **meta verileri Düzenle** Blob meta verileri bölmesini açmak için. 
@@ -53,27 +53,27 @@ Bu adımları tamamladıktan sonra depolama hesabı, kapsayıcı veya blob silin
 
      ![Depolama "Blob meta verilerini" bölmesi açık portal ekran görüntüsü](./media/troubleshoot-vhds/utd-blob-metadata-sm.png)
 
-6. Blob disk türü ise **OSDisk** izleyin [2. adım: işletim sistemi diski ayırmak için Sil VM](#step-2-delete-vm-to-detach-os-disk). Aksi takdirde blob disk türü ise **DataDisk** adımları [3. adım: VM'den veri diski çıkarma](#step-3-detach-data-disk-from-the-vm). 
+6. Blob disk türü ise **OSDisk** izleyin [2. adım: İşletim sistemi diskini ayırmak VM silme](#step-2-delete-vm-to-detach-os-disk). Aksi takdirde blob disk türü ise **DataDisk** adımları [3. adım: VM'den veri diski çıkarma](#step-3-detach-data-disk-from-the-vm). 
 
 > [!IMPORTANT]
 > Varsa **MicrosoftAzureCompute_VMName** ve **MicrosoftAzureCompute_DiskType** görünmez blob meta verilerini gösteren blob açıkça kiralanmış ve bir sanal makineye bağlı değil. İlk kiranın olmadan kiralanmış BLOB'lar silinemez. Kirayı Kes, bloba sağ tıklayın ve seçmek için **sonu kira**. Bir VM'ye bağlı olmayan kiralanmış blobları blob silinmesini önlemek, ancak kapsayıcı ya da depolama hesabının silinmesini engellemez.
 
-### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>2. Senaryo: bir kapsayıcı - silme, Vm'lere eklenmiş tüm BLOB kapsayıcısındaki tanımlayın
+### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Senaryo 2: Bir kapsayıcı - silme, Vm'lere eklenmiş tüm BLOB kapsayıcısındaki tanımlayın
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Hub menüsünde **tüm kaynakları**. Depolama hesabına altında Git **Blob hizmeti** seçin **kapsayıcıları**, silinecek kapsayıcıyı bulun.
-3. Kapsayıcı açmak için tıklayın ve içindeki blobların listesi görünür. Blob türü ile tüm blobları tanımlamak = **sayfa blobu** ve kiralama durumu = **kiralanmış** bu listeden. İzleyin [Senaryo 1](#step-1-identify-blobs-attached-to-a-vm) bu bloblarda her biriyle ilişkili VM tanımlamak için.
+3. Kapsayıcı açmak için tıklayın ve içindeki blobların listesi görünür. Blob türü ile tüm blobları tanımlamak = **sayfa blobu** ve kiralama durumu = **kiralanmış** bu listeden. Senaryo 1'ın bu bloblarda her biriyle ilişkili VM tanımlamak için izleyin.
 
     ![Depolama hesabının BLOB'ları ve "kiralama vurgulanmış durumu" ile "Kiralanmış" portal ekran görüntüsü](./media/troubleshoot-vhds/utd-disks-sm.png)
 
 4. İzleyin [2. adım](#step-2-delete-vm-to-detach-os-disk) ve [3. adım](#step-3-detach-data-disk-from-the-vm) vm'lerle silmek **OSDisk** ve ayırma **DataDisk**. 
 
-### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Senaryo 3: depolama silme - hesap, Vm'lere eklenmiş tüm BLOB Depolama hesabında tanımlayın
+### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Senaryo 3: Hesap - tanımlamak, Vm'lere eklenmiş tüm BLOB Depolama hesabında depolama siliniyor
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Hub menüsünde **tüm kaynakları**. Depolama hesabına altında Git **Blob hizmeti** seçin **Blobları**.
 3. İçinde **kapsayıcıları** bölmesinde, tüm kapsayıcıları tanımlamak burada **kiralama durumu** olduğu **kiralanmış** izleyin [Senaryo 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) her  **Kiralanmış** kapsayıcı.
 4. İzleyin [2. adım](#step-2-delete-vm-to-detach-os-disk) ve [3. adım](#step-3-detach-data-disk-from-the-vm) vm'lerle silmek **OSDisk** ve ayırma **DataDisk**. 
 
-## <a name="step-2-delete-vm-to-detach-os-disk"></a>2. adım: İşletim sistemi diskini ayırmak VM silme
+## <a name="step-2-delete-vm-to-detach-os-disk"></a>2. Adım: İşletim sistemi diskini ayırmak VM silme
 VHD bir işletim sistemi diski, VHD'nin silinebilmesi için önce sanal Makineyi silmeniz gerekir. Başka bir işlem bu adımları tamamladıktan sonra aynı sanal Makineye bağlı veri diskleri için gerekli olacaktır:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -83,7 +83,7 @@ VHD bir işletim sistemi diski, VHD'nin silinebilmesi için önce sanal Makineyi
 5. Üst kısmındaki **sanal makine ayrıntıları** bölmesinde **Sil**ve ardından **Evet** onaylamak için.
 6. Sanal Makinenin silinmesi gerekir, ancak VHD tutulabilir. Ancak, VHD'yi bir VM'ye bağlı artık veya üzerinde bir kira sahip. Bu, kira serbest bırakılması için birkaç dakika sürebilir. Kira serbest bırakılır doğrulamak için hem de blob konumuna Gözat **Blob özellikleri** bölmesinde **kiralama durumu** olmalıdır **kullanılabilir**.
 
-## <a name="step-3-detach-data-disk-from-the-vm"></a>3. adım: veri diski sanal makineden ayırın
+## <a name="step-3-detach-data-disk-from-the-vm"></a>3. Adım: VM'den veri diski çıkarma
 VHD kirayı kaldırmaktır VM'den veri diski VHD ise ayırma:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.

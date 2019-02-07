@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 7a17bed165a5a8ff15a122a1376d1a3a5e17d45f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700936"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813339"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -65,7 +65,7 @@ Toplayıcı sağlamak için Azure geçişi hizmetini internet üzerinden bağlan
 - **İnternet bağlantısı kontrol**: Toplayıcı, doğrudan İnternet'e veya bir ara sunucu aracılığıyla bağlanabilirsiniz.
     - Önkoşul denetimi bağlantıyı doğrular [gerekli ve isteğe bağlı URL'leri](#urls-for-connectivity).
     - İnternet'e doğrudan bir bağlantı varsa, belirli bir eylem, Toplayıcı gerekli URL'lere erişebildiğinden emin emin olma dışında gereklidir.
-    - Bir ara sunucu bağlanıyorsanız, Not [aşağıdaki gereksinimleri](#connect-via-a-proxy).
+    - Ara sunucusu üzerinden bağlanıyorsanız, aşağıdaki gereksinimleri dikkate alın.
 - **Zaman eşitleme doğrulayın**: Toplayıcı hizmet isteklerine kimlik doğrulaması sağlamak için internet saat sunucusuyla eşitlenmiş.
     - Böylece zaman doğrulanmış portal.azure.com url Toplayıcısından erişilebilir olmalıdır.
     - Makine eşitlenmemiş ise, saatin geçerli saati eşleştirilecek Toplayıcı VM üzerinde değiştirmeniz gerekir. Bunu yapmak için bir yönetici istemi VM'de çalıştırmak açın **w32tm /tz** saat dilimini denetlemek için. Çalıştırma **w32tm/resync** zaman eşitlenecek.
@@ -75,7 +75,7 @@ Toplayıcı sağlamak için Azure geçişi hizmetini internet üzerinden bağlan
     - Toplayıcı hizmetinin vCenter Server'a bağlanır, VM meta verileri ve performans verilerini toplar ve Azure geçişi hizmetine gönderir.
 - **VMware Powerclı 6.5 yüklendi denetleyin**: VCenter Server ile iletişim kurabilmesi için toplayıcı VM üzerinde VMware Powerclı 6.5 PowerShell modülü yüklenmelidir.
     - Toplayıcı modülü yüklemek için gereken URL'leri erişebiliyorsa, yükleme otomatik olarak Toplayıcı dağıtımı sırasında olur.
-    - Toplayıcı, dağıtım sırasında modülü yükleyemezse, şunları yapmalısınız [el ile yükleyin](#install-vwware-powercli-module-manually).
+    - Toplayıcı, dağıtım sırasında modülü yükleyemezse, bunu el ile yüklemeniz gerekir.
 - **VCenter sunucusu bağlantısını denetleyin**: Toplayıcı, vCenter Server ve Vm'leri, meta verileri ve performans sayaçları için sorgu erişebilmelidir. [Önkoşulları doğrulama](#connect-to-vcenter-server) bağlanma.
 
 
@@ -206,7 +206,7 @@ Disk ayrıntıları (başına disk) | Saniye başına yazma işlemlerinin sayıs
 Disk ayrıntıları (başına disk) | Saniye başına megabayt okuma aktarım hızı | virtualDisk.read.average
 Disk ayrıntıları (başına disk) | Saniye başına megabayt hızının yazma | virtualDisk.write.average
 Ağ bağdaştırıcısı ayrıntıları (NIC) başına | Ağ bağdaştırıcısı adı | NIC Anahtarı
-Ağ bağdaştırıcısı ayrıntıları (NIC) başına | MAC adresi | ((VirtualEthernetCard)nic).MacAddress
+Ağ bağdaştırıcısı ayrıntıları (NIC) başına | MAC Adresi | ((VirtualEthernetCard)nic).MacAddress
 Ağ bağdaştırıcısı ayrıntıları (NIC) başına | IPv4 Adresleri | vm.Guest.Net
 Ağ bağdaştırıcısı ayrıntıları (NIC) başına | IPv6 Adresleri | vm.Guest.Net
 Ağ bağdaştırıcısı ayrıntıları (NIC) başına | Saniye başına megabayt okuma aktarım hızı | NET.Received.average

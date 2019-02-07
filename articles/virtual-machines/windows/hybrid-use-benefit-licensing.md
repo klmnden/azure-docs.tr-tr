@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 757891a6968313c1a31ce67b399d6aa052abfa21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bd228a01cd3841772750882d13c33459385cc21
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999960"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817725"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure Hibrit Teklifi
 Yazılım Güvencesi olan müşteriler için Windows Server için Azure hibrit avantajı, şirket içi Windows Server lisanslarınızı kullanın ve Windows sanal makineler, düşük bir maliyet karşılığında Azure üzerinde çalıştırmak sağlar. Windows işletim sistemi ile yeni sanal makineleri dağıtmak için Windows Server için Azure hibrit Avantajı'nı kullanabilirsiniz. Bu makale Windows Server için Azure hibrit avantajı ile yeni VM'ler dağıtmayı ve varolan nasıl güncelleştirebilirsiniz adımları üzerinden Vm'leri çalıştıran gider. Windows Server için Azure hibrit Avantajı hakkında daha fazla bilgi için bkz: Lisans ve maliyet tasarrufu [Windows Server için Azure hibrit avantajı lisans sayfası](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -40,7 +40,7 @@ Yazılım Güvencesi olan müşteriler için Windows Server için Azure hibrit a
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure hibrit Avantajı'nı kullanma yolları
 Windows sanal makinelerini, Azure karma avantajı ile kullanmak için birkaç yolu vardır:
 
-1. Sağlanan birini Vm'leri dağıtabilirsiniz [Windows Server görüntüleri Azure Marketi'nde](# https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
+1. Sağlanan Windows Server görüntüleri Azure Market'te birinden Vm'leri dağıtabilirsiniz.
 2. Özel bir VM'yi karşıya yükleme ve bir Resource Manager şablonu veya Azure PowerShell kullanarak dağıtma
 3. Geçiş ve Azure karma avantajı ile çalışan arasında varolan bir VM'yi dönüştürebilir veya Windows Server için isteğe bağlı ücreti ödersiniz
 4. Windows Server için Azure hibrit avantajı üzerinde sanal makine ölçek kümesi de uygulayabilirsiniz

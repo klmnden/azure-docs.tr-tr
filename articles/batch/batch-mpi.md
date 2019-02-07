@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.date: 06/12/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2c7d6f75b9f2d6932ae3c8de863ad277fea8ffe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 420f69e246b322eff28b56237613cea250be7530
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460548"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766563"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Batch'de ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için çok örnekli görevleri kullanma
 
@@ -49,7 +49,7 @@ Bir görev çok örnekli ayarlar bir iş gönderdiğinizde, Batch çok örnekli 
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Çok örnekli görevler için gereksinimleri
-Çok örnekli görevler gerektiren bir havuzla **etkin düğümler arası iletişimin**ile **eşzamanlı görev yürütme devre dışı**. Eşzamanlı görev yürütme devre dışı bırakmak için ayarlanmış [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) özelliği 1.
+Çok örnekli görevler gerektiren bir havuzla **etkin düğümler arası iletişimin**ile **eşzamanlı görev yürütme devre dışı**. Eşzamanlı görev yürütme devre dışı bırakmak için ayarlanmış [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool) özelliği 1.
 
 > [!NOTE]
 > Batch [sınırları](batch-quota-limit.md#other-limits) düğümler arası iletişimin etkin olan bir havuz boyutu.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857916"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810091"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>GRUB ve tek kullanıcı modu erişmek için seri Konsolu
 GRUB genel birleşik Şifresizdir ' dir. GRUB ' diğer özelliklerin yanı sıra tek kullanıcı moduna önyükleme, önyükleme yapılandırması üzerinde değişiklik yapabilirsiniz.
@@ -39,7 +39,7 @@ GRUB sanal Makinenize erişim tek kullanıcı moduna aktarabilmek için etkinle�
 Seri konsol dikey açık sanal makinenizin yeniden başlatılmasını bir SysRq ile yapılabilir `'b'` , komut [SysRq](./serial-console-nmi-sysrq.md) etkin veya genel bakış dikey penceresinde (açık kapatmadan yeniden başlatmak için yeni bir tarayıcı sekmesinde VM yeniden tıklayarak düğmesi Seri konsol dikey). Bilgisayarı yeniden başlattığınızda GRUB ' beklenmesi gerekenler öğrenmek distro özgü aşağıdaki yönergeleri izleyin.
 
 ## <a name="general-single-user-mode-access"></a>Genel tek kullanıcı modu erişim
-Burada, bir hesabı parola kimlik doğrulaması ile yapılandırılmamış olduğu durumlarda tek kullanıcı moduna el ile erişim gerekli olabilir. GRUB yapılandırması tek kullanıcı moduna el ile değiştirmeniz gerekir. Bu işlemi tamamladıktan sonra bkz [kullanın tek kullanıcı moduna sıfırlamak veya bir parola eklemek için](#-Use-Single-User-Mode-to-reset-or-add-a-password) daha fazla yönerge için.
+Burada, bir hesabı parola kimlik doğrulaması ile yapılandırılmamış olduğu durumlarda tek kullanıcı moduna el ile erişim gerekli olabilir. GRUB yapılandırması tek kullanıcı moduna el ile değiştirmeniz gerekir. Bu kez yaptığınız, kullanım tek kullanıcı modu sıfırlama veya daha fazla yönerge için bir parola eklemek için bkz.
 
 Sanal makine için önyükleme oluşturulamıyor olduğu durumlarda, dağıtım paketlerini genellikle otomatik olarak, tek kullanıcı modunda veya Acil Durum modunda kaldıracağız. Bunlar otomatik olarak (bir kök parola ayarlamak gibi), tek kullanıcılı veya Acil durum moduna bırakabilirsiniz önce diğer ancak ek kurulum gerektirir.
 
@@ -103,7 +103,7 @@ Kök kullanıcı etkinleştirmek için yukarıdaki adımları gitti değil ise, 
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Not: düzenleme gibi görevleri de yapabilmesi için yukarıdaki yönergeleri ile çalışan, Acil Durum kabuğundan bıraktı.%n%ndizinleri `fstab`. Ancak, tek kullanıcı moduna girmek için kullanın ve kök parolanızı sıfırlamak için genel olarak kabul edilen öneri olur. 
+> Not: Yukarıdaki yönergeleri ile çalışan bırakın, Acil Durum kabuğundan de düzenleme gibi görevleri yapabilmeniz `fstab`. Ancak, tek kullanıcı moduna girmek için kullanın ve kök parolanızı sıfırlamak için genel olarak kabul edilen öneri olur. 
 
 
 ## <a name="access-for-centos"></a>CentOS erişimi

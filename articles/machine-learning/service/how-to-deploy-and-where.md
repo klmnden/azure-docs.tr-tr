@@ -11,16 +11,16 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a32cb694a18f8fff937f647804659efb71be415e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745733"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766631"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
-Azure Machine Learning hizmeti SDK'sını kullanarak eğitilen modelinizi dağıtabileceğiniz çeşitli yöntemler sağlar. Bu belgede, modelinizin Azure bulutta veya IOT edge cihazları için bir web hizmeti olarak dağıtmayı öğrenin.
+Azure Machine Learning hizmeti SDK'sını kullanarak eğitilen modelinizi dağıtabileceğiniz çeşitli yöntemler sağlar. Bu belgede, modelinizin Azure bulutta veya IOT Edge cihazları için bir web hizmeti olarak dağıtmayı öğrenin.
 
 > [!IMPORTANT]
 > Model bir web hizmeti olarak dağıtırken, çıkış noktaları arası kaynak paylaşımı (CORS) şu anda desteklenmiyor.
@@ -119,7 +119,7 @@ Yürütme komut dağıtılan görüntüye gönderilen verileri alır ve modele g
 
 #### <a name="working-with-json-data"></a>JSON verileriyle çalışma
 
-Kabul eder ve JSON verilerini döndüren bir örnek betiği verilmiştir. `run` İşlevi JSON verileri model bekler ve ardından döndürmeden önce JSON yanıtı dönüştürür bir biçime dönüştürür:
+Aşağıdaki örnek betik, kabul eder ve JSON verilerini döndürür. `run` İşlevi JSON verileri model bekler ve ardından döndürmeden önce JSON yanıtı dönüştürür bir biçime dönüştürür:
 
 ```python
 # import things required by this script
@@ -149,7 +149,7 @@ def run(raw_data):
 
 #### <a name="working-with-binary-data"></a>İkili verilerle çalışma
 
-Modelinizi kabul ediyorsa __ikili verileri__, kullanın `AMLRequest`, `AMLResponse`, ve `rawhttp`. İkili verileri kabul eder ve POST istekleri için ters bayt döndüren bir komut dosyası örneği verilmiştir. GET istekleri için yanıt gövdesinde tam URL'yi döndürür:
+Modelinizi kabul ediyorsa __ikili verileri__, kullanın `AMLRequest`, `AMLResponse`, ve `rawhttp`. Aşağıdaki örnek betik, ikili verileri kabul eder ve POST istekleri için ters bayt döndürür. GET istekleri için yanıt gövdesinde tam URL'yi döndürür:
 
 ```python
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -244,9 +244,6 @@ Azure Container Instances'a dağıtmak için aşağıdaki adımları kullanın:
 
     **Tahmini Süre**: Yaklaşık 3 dakika.
 
-    > [!TIP]
-    > Dağıtım sırasında bir hata varsa, kullanmak `service.get_logs()` hizmet günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
-
 Daha fazla bilgi için başvuru belgeleri için bkz. [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) sınıfları.
 
 ### <a id="aks"></a> Azure Kubernetes hizmetine dağıtın
@@ -334,9 +331,6 @@ print(service.state)
 
 **Tahmini Süre**: Yaklaşık 3 dakika.
 
-> [!TIP]
-> Dağıtım sırasında bir hata varsa, kullanmak `service.get_logs()` hizmet günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
-
 Daha fazla bilgi için başvuru belgeleri için bkz. [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) sınıfları.
 
 ### <a id="fpga"></a> Alanda programlanabilir kapı dizileri (FPGA) dağıtma
@@ -371,7 +365,7 @@ sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup
 
 "Cs" sonra elde edilen bağlantı dizesini kaydedin: "{Bu dizeyi kopyalayın}".
 
-Cihazınızı indirerek başlatmak [bu betik](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) bir UbuntuX64 IOT edge düğüm veya aşağıdaki komutları çalıştırmak için DSVM:
+Cihazınızı indirerek başlatmak [bu betik](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) bir UbuntuX64 IOT Edge düğüm veya aşağıdaki komutları çalıştırmak için DSVM:
 
 ```bash
 ssh <yourusername>@<yourdeviceip>
@@ -382,7 +376,7 @@ sudo ./installIoTEdge
 
 IOT Edge düğüm, IOT Hub'ınız için bağlantı dizesini almak hazırdır. Satır için konum ```device_connection_string:``` ve teklifler arası üst bağlantı dizesini yapıştırın.
 
-Cihazınızı kaydedemedik ve izleyerek IOT çalışma zamanı adım adım yükleme konusunda da bilgi alabilirsiniz [hızlı başlangıç: Bir Linux x64 cihaza, ilk IOT Edge modülü dağıtmak](../../iot-edge/quickstart-linux.md) belge.
+Cihazınızı kaydedemedik ve izleyerek IOT çalışma zamanı yükleme konusunda da bilgi alabilirsiniz [hızlı başlangıç: Bir Linux x64 cihaza, ilk IOT Edge modülü dağıtmak](../../iot-edge/quickstart-linux.md) belge.
 
 
 #### <a name="get-the-container-registry-credentials"></a>Kapsayıcı kayıt defteri kimlik bilgilerini alma
@@ -469,7 +463,7 @@ Web hizmeti bir REST API olduğundan, çeşitli programlama dillerini istemci uy
 
 ## <a id="update"></a> Web hizmetini güncelleştirmek
 
-Web hizmetini güncelleştirmek için `update` yöntemi. Aşağıdaki kod, yeni görüntüyü kullanarak web hizmetini güncelleştirmek gösterilmektedir:
+Yeni bir görüntü oluşturduğunuzda, el ile yeni görüntüyü kullanmak istediğiniz her hizmet güncelleştirmeniz gerekir gerekir. Web hizmetini güncelleştirmek için `update` yöntemi. Aşağıdaki kod, yeni görüntüyü kullanarak web hizmetini güncelleştirmek gösterilmektedir:
 
 ```python
 from azureml.core.webservice import Webservice
@@ -487,9 +481,6 @@ service.update(image = new_image)
 print(service.state)
 ```
 
-> [!NOTE]
-> Web hizmeti bir görüntüsünü güncelleştirdiğinizde otomatik olarak güncelleştirilmez. Ayrıca, yeni görüntüyü kullanmak istediğiniz her hizmet el ile güncelleştirmeniz gerekir.
-
 Daha fazla bilgi için başvuru belgeleri için bkz. [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) sınıfı.
 
 ## <a name="clean-up"></a>Temizleme
@@ -501,6 +492,19 @@ Görüntüyü silmek için kullanın `image.delete()`.
 Kayıtlı bir model silmek için kullanın `model.delete()`.
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), ve [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+* __Dağıtım sırasında bir hata varsa__, kullanın `service.get_logs()` hizmet günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
+
+* Günlükleri yönlendiren bir hata içeriyor olabilir __günlük düzeyi ayarlamak için hata ayıklama__. Günlük tutma düzeyini ayarlamaya Puanlama komut dosyası aşağıdaki satırları bir görüntü oluşturup ardından görüntüyü kullanarak bir hizmet oluşturma ekleyin:
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    ```
+
+    Bu değişiklik, ek günlük kaydını etkinleştirir ve daha fazla bilgi neden hatanın oluştuğu döndürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

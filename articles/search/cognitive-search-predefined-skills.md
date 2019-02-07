@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bf840dc00f36ee19f2e76ead6e61ae2377b97167
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: eddbb41f346661e86c64b1dd703321f434c5bbb6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749127"
+ms.locfileid: "55770435"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>İçerik zenginleştirme (Azure Search) için önceden tanımlanmış beceriler
 
@@ -34,7 +34,7 @@ Birkaç becerileri ne bunlar kullanma veya üretmek esnektir. Genel olarak, ço�
 |-------|-------------|
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Bu yetenek, terim yerleştirme, dilsel kurallar, diğer koşulları yakınlık ve nasıl olağan dışı kaynak verileri terimdir göre önemli tümcecikleri algılamak için pretrained modeli kullanır. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Hangi dili algılayın pretrained modelidir bu beceri (belge başına bir dil kimliği) kullanır. Birden çok dil aynı metin Segmentte kullanıldığında, genellikle kullanılan dilin LCID çıkış alınır.|
-| [Microsoft.Skills.Text.MergerSkill](cognitive-search-skill-textmerger.md) | Alanlar koleksiyonu tek bir alana metinden birleştirir.  |
+| [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | Alanlar koleksiyonu tek bir alana metinden birleştirir.  |
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Bu yetenek, varlıklar için sabit bir kategoriler kümesi oluşturmak için bir pretrained modeli kullanır: kişiler, konum, kuruluş, URL'ler, datetime alanları e-posta gönderir. |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Bu yetenek, bir kayıt kayıt temelinde pozitif veya negatif yaklaşım puanını için pretrained modeli kullanır. Puan, 0 ile 1 arasında ' dir. Nötr puanları için null durumu yaklaşım algılandı ve metin, dilden bağımsız olarak kabul edilir ortaya çıkar.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Böylece zenginleştirin veya içeriği aşamalı olarak artırmak sayfalarına metin böler. |

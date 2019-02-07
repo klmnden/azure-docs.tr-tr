@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8ac8f2fe62898cdeb386fd3a8275fec1712c1728
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5e8d45a9bf9fdffc824994238add2b8541a878a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491561"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812728"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect eşitleme: Bildirim Temelli Sağlamayı Anlama
 Bu konuda, Azure AD CONNECT'te yapılandırma modeli açıklanmaktadır. Bildirim temelli sağlama modeli adı verilir ve bir yapılandırma değişikliği kolayca yapmanızı sağlar. Bu konuda açıklanan pek çok gelişmiş ve çoğu müşteri senaryoları için gerekli değildir.
@@ -37,7 +37,7 @@ Bildirim temelli sağlama nesneleri bir kaynak bağlı dizinden gelen işlem ve 
 * Kaynak, kaynak nesnesi
 * [Kapsam](#scope), kapsam içinde olan tüm eşitleme kuralları bulur
 * [Birleştirme](#join), bağlayıcı alanı ve meta veri deposu arasındaki ilişki belirler
-* [Dönüştürme](#transform), nasıl öznitelikleri dönüştürdüğünü hesaplar ve akış
+* Dönüştürme, öznitelikleri nasıl dönüştürdüğünü hesaplar ve flow
 * [Öncelik](#precedence), öznitelik Katkıları çakışan çözümler
 * Hedef, hedef nesne
 

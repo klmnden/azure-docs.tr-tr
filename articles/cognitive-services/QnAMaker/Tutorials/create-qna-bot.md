@@ -11,12 +11,12 @@ ms.subservice: qna-maker`
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 428aea5775c1777f38d7ea563cfe3af700c27f02
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1e1152f810bffb2ab4dfe230c2d3b3c2a8198492
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211840"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811928"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Öğretici: Azure ile soru-cevap Robotu oluşturun Bot hizmeti v3
 
@@ -96,9 +96,6 @@ Bot yanıt veren "Lütfen QnAKnowledgebaseId ve QnASubscriptionKey uygulama ayar
     - **Yayımlama** bunu yapmadıysanız bilgi bankanızı,
 
     ![Soru-cevap Oluşturucu değerleri](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
-
-> [!NOTE]
-> Bilgi Bankası Önizleme sürümü ile soru-cevap Robotu bağlanmak istiyorsanız, değerini ayarlamak **Ocp-Apim-Subscription-Key** için **QnAAuthKey**. Bırakın **QnAEndpointHostName** boş.
 
 ## <a name="test-the-bot"></a>Bot test
 

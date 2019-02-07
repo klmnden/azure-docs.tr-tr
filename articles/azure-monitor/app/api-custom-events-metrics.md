@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: d0e549f0da5eb30dd11992518789d76c0892bca3
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d67085d2e90e318a8f134103f0798554b8967d6d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747484"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814427"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
@@ -774,7 +774,7 @@ Açabilir özellikler ve ölçümler olaylarınızı (ve ölçümler için gör�
 
 *Özellikleri* telemetrinizi kullanım raporları filtrelemek için kullanabileceğiniz dize değerlerdir. Örneğin, uygulamanız çeşitli oyunlar sağlıyorsa, oyunun adından da her olaya ekleyebilirsiniz, böylece hangi oyunlar daha popüler olduğunu görebilirsiniz.
 
-8192 bir dize uzunluk sınırı yoktur. (İleti parametresini büyük öbekler halinde veri göndermek istiyorsanız, kullanın [TrackTrace](#track-trace).)
+8192 bir dize uzunluk sınırı yoktur. (Büyük öbekler halinde veri göndermek istiyorsanız, TrackTrace ileti parametresini kullanın.)
 
 *Ölçümleri* grafik olarak sunulan sayısal değerlerdir. Örneğin, oyuncularınıza elde puanları aşamalı bir artış olup olmadığını görmek isteyebilirsiniz. Olay ile gönderilen özelliklere göre ayrı alabilmesi grafikler bölümlenebilecek veya Yığılmış grafikler için farklı oyunlar.
 
@@ -992,7 +992,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 Tek bir telemetri çağrıları kendi özellik sözlükleri varsayılan değerleri geçersiz kılabilirsiniz.
 
-*JavaScript için web istemcileri*, [JavaScript telemetri başlatıcıları kullanın](#js-initializer).
+*JavaScript için web istemcileri*, JavaScript telemetri başlatıcıları kullanın.
 
 *Tüm telemetri özellikleri eklemek için*, standart toplama modüllerden veri dahil olmak üzere [uygulamak `ITelemetryInitializer` ](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 17167271df81914c76882fc4d06717043e1befc1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06c385b1ca43277b59c337646c41cae360ce48a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214305"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816569"
 ---
 # <a name="glossary"></a>Sözlük
 
@@ -23,14 +23,14 @@ ms.locfileid: "55214305"
 
 #### <a name="attributes"></a>Öznitelikler
 
-Öznitelikler isteğe bağlı olarak [algılama](#Detection-Face-Detection) gibi sonuçları [yaş](#Age-Attribute), [cinsiyet](#Gender-Attribute), [baş poz](#Head-Pose-Attribute), [bıyığın](#Facial-Hair-Attribute), [gülümseyen](#Smile-Attribute).
-Örneğinden alınabilen [algılama](#Detection-Face-Detection) sorgu parametrelerini belirterek API: returnFaceAttributes. Öznitelikleri ekstra bilgi vermek ilgili seçili [yüzleri](#Face); ek olarak [yüz kimliği](#Face-ID) ve [dikdörtgen](#Face-Rectangle).
+Öznitelikleri algılama sonuçlarında isteğe bağlı gibi [yaş](#Age-Attribute), [cinsiyet](#Gender-Attribute), [baş poz](#Head-Pose-Attribute), [bıyığın](#Facial-Hair-Attribute), [gülümseyen ](#Smile-Attribute).
+Bunlar algılama API'si sorgu parametreleri belirterek elde edilebilir: returnFaceAttributes. Öznitelikleri ekstra bilgi vermek ilgili seçili [yüzleri](#Face); ek olarak [yüz kimliği](#Face-ID) ve [dikdörtgen](#Face-Rectangle).
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="age-attribute"></a>Yaş (öznitelik)
 
-Geçerlilik süresi aşağıdakilerden birini olan [öznitelikleri](#Attributes) , belirli bir yüzün yaşını açıklar. Yaş özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçları gruplayan ve ile denetlenebilir bir [algılama](#Detection-Face-Detection) isteği belirterek returnFaceAttributes parametresi.
+Geçerlilik süresi aşağıdakilerden birini olan [öznitelikleri](#Attributes) , belirli bir yüzün yaşını açıklar. Yaş öznitelik algılama sonuçları isteğe bağlıdır ve algılama istekle returnFaceAttributes parametresi belirtilerek denetlenebilir.
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -64,13 +64,13 @@ Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılama
 
 #### <a name="face"></a>Yüz
 
-Yüz tanıma, yüz tanıma API'si ile algılanan yüzeylere ilgili türetilen sonuçları için birleştirilmiş bir terimdir. Sonuç olarak, yüz tanıma tarafından birleştirilmiş bir kimlik gösterilir ([Face ID](#Face-ID)), görüntüleri belirli bir bölgede ([yüz dikdörtgeni](#Face-Rectangle)) ve ilgili ek yüz [öznitelikleri](#Face-Attributes-Facial-Attributes), gibi[yaş](#Age-Attribute), [cinsiyet](#Gender-Attribute), [yer işareti](#Face-Landmarks-Facial-Landmarks) ve [baş poz](#Head-Pose-Attribute). Ayrıca, yüzleri gelen döndürülebilir [algılama](#Detection-Face-Detection).
+Yüz tanıma, yüz tanıma API'si ile algılanan yüzeylere ilgili türetilen sonuçları için birleştirilmiş bir terimdir. Sonuç olarak, yüz tanıma tarafından birleştirilmiş bir kimlik gösterilir ([Face ID](#Face-ID)), görüntüleri belirli bir bölgede ([yüz dikdörtgeni](#Face-Rectangle)) ve ek ilgili öznitelikleri gibi yüz [yaş](#Age-Attribute), [cinsiyet](#Gender-Attribute), yer işareti ve [baş poz](#Head-Pose-Attribute). Ayrıca, yüz algılama döndürülebilir.
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="face-api"></a>Yüz Tanıma API'si
 
-Yüz tanıma API'si, yüz algılama ve tanıma için en gelişmiş algoritmalar sağlayan bir bulut tabanlı bir API'dir. Yüz tanıma API'si ana işlevselliğini iki kategoriye ayrılabilir: yüz [algılama](#Detection-Face-Detection) ile [öznitelikleri](#Face-Attributes-Facial-Attributes)ve yüz [tanıma](#Recognition).
+Yüz tanıma API'si, yüz algılama ve tanıma için en gelişmiş algoritmalar sağlayan bir bulut tabanlı bir API'dir. Yüz tanıma API'si ana işlevselliğini iki kategoriye ayrılabilir: yüz öznitelikleri ve yüz algılama [tanıma](#Recognition).
 
 Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [Yüz tanıma API'sine genel bakış](./Overview.md), [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [yüz tanıma - benzer Bul](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [yüz tanıma - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [yüz tanıma - tanımlamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [ Yüz tanıma - doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
@@ -80,13 +80,13 @@ Lütfen [öznitelikleri](#Attributes).
 
 #### <a name="face-id"></a>Yüz kimliği
 
-Face ID türetilen [algılama](#Detection-Face-Detection) sonuçları, bir dizeyi temsil eden bir [yüz](#Face) içinde [yüz tanıma API'si](#Face-API).
+Face ID bir dizeyi temsil eden algılama sonuçlarından türetilmiş bir [yüz](#Face) içinde [yüz tanıma API'si](#Face-API).
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="face-landmarksfacial-landmarks"></a>Yüz tanıma yer işareti/yanı sıra yüz yer işareti
 
-Yer işareti isteğe bağlı olarak [algılama](#Detection-Face-Detection) gözler ve burun ağız (aşağıdaki şekilde gösterilen) gibi anlamsal yüz noktaları sonuçlar;. Yer işareti ile denetlenebilir bir [algılama](#Detection-Face-Detection) Boole sayı returnFaceLandmarks isteği. ReturnFaceLandmarks true ayarlanırsa, döndürülen yüzleri yer işareti özniteliğe sahip olacaktır.
+Yer işareti algılama sonuçları isteğe bağlıdır; gözler ve burun ağız (aşağıdaki şekilde gösterilen) gibi anlamsal yüz noktaları olduğu. Yer işareti algılama istekle Boole sayı returnFaceLandmarks tarafından denetlenebilir. ReturnFaceLandmarks true ayarlanırsa, döndürülen yüzleri yer işareti özniteliğe sahip olacaktır.
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -94,19 +94,19 @@ Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılama
 
 #### <a name="face-rectangle"></a>Yüz dikdörtgeni
 
-Yüz dikdörtgeni türetilen [algılama](#Detection-Face-Detection) bir dik dikdörtgende (sol, üst düzey, genişlik, yükseklik) piksel cinsinden görüntü olan sonuçlar. Sol üst köşesinde bir [yüz](#Face) (sol, üst), genişlik ve yükseklik yanı sıra x nominal boyutlarının gösterir ve y eksenlerinin sırasıyla.
+Yüz dikdörtgeni piksel cinsinden görüntü içinde dikey bir dikdörtgen (sol, üst düzey, genişlik, yükseklik) olan algılama sonuçlardan türetilir. Sol üst köşesinde bir [yüz](#Face) (sol, üst), genişlik ve yükseklik yanı sıra x nominal boyutlarının gösterir ve y eksenlerinin sırasıyla.
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="facial-hair-attribute"></a>Bıyığın (öznitelik)
 
-Bıyığın biridir [öznitelikleri](#Attributes) kullanılabilir yüzleri bıyığın uzunluğunu tanımlamak için kullanılır. İsteğe bağlı olarak bıyığın özniteliktir [algılama](#Detection-Face-Detection) sonuçları gruplayan ve ile denetlenebilir bir [algılama](#Detection-Face-Detection) returnFaceAttributes isteğiyle. ReturnFaceAttributes 'facialHair' içeriyorsa, döndürülen yüzleri bıyığın özniteliğe sahip olacaktır.
+Bıyığın biridir [öznitelikleri](#Attributes) kullanılabilir yüzleri bıyığın uzunluğunu tanımlamak için kullanılır. Bıyığın öznitelik algılama sonuçları isteğe bağlıdır ve algılama istekle returnFaceAttributes tarafından denetlenebilir. ReturnFaceAttributes 'facialHair' içeriyorsa, döndürülen yüzleri bıyığın özniteliğe sahip olacaktır.
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="facelist"></a>FaceList
 
-FaceList, koleksiyonudur [PersistedFace](#PersistedFace) ve birimidir [Bul benzer](#Find-Similar). Bir FaceList birlikte bir [FaceList kimliği](#FaceList-ID), diğer öznitelikleri gibi ek olarak [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
+FaceList, koleksiyonudur [PersistedFace](#PersistedFace) ve birimidir [Bul benzer](#Find-Similar). Bir FaceList birlikte bir [FaceList kimliği](#FaceList-ID), yanı sıra adı ve kullanıcı verileri gibi diğer öznitelikleri.
 
 Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [FaceList - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
@@ -118,7 +118,7 @@ Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [FaceList -
 
 #### <a name="find-similar"></a>Benzer bulun
 
-Bu API, benzer yüzlerden yüzleri üzerindeki bir koleksiyona göre arama/sorgu için kullanılır. Sorgu yüzleri ve yüz koleksiyonları olarak gösterilir [kimlikleri yüz](#Face-ID) veya [FceList kimliği](#FaceList-ID)/[LargeFaceList kimliği](#LargeFaceList-ID) istek. Sonuçları tarafından temsil edilen Aranan benzer yüzleri döndürülür [kimlikleri yüz](#Face-ID) veya [PersistedFace kimlikleri](#PersistedFace-ID).
+Bu API, benzer yüzlerden yüzleri üzerindeki bir koleksiyona göre arama/sorgu için kullanılır. Sorgu yüzleri ve yüz koleksiyonları olarak gösterilir [kimlikleri yüz](#Face-ID) veya [FceList kimliği](#FaceList-ID)/[LargeFaceList kimliği](#LargeFaceList-ID) istek. Sonuçları tarafından temsil edilen Aranan benzer yüzleri döndürülür [kimlikleri yüz](#Face-ID) veya PersistedFace kimlikleri.
 
 Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [Yüz tanıma - benzer Bul](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b).
 
@@ -126,7 +126,7 @@ Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [Yüz tanı
 
 #### <a name="gender-attribute"></a>Cinsiyet (öznitelik)
 
-Cinsiyet biridir [öznitelikleri](#Attributes) kullanılabilir dikdörtgenlerini cinsiyetleri tanımlamak için kullanılır. Cinsiyet özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçları gruplayan ve ile denetlenebilir bir [algılama](#Detection-Face-Detection) returnFaceAttributes isteği. ReturnfaceAttributes 'cinsiyet' içeriyorsa, döndürülen yüzleri cinsiyet özniteliğe sahip olacaktır.
+Cinsiyet biridir [öznitelikleri](#Attributes) kullanılabilir dikdörtgenlerini cinsiyetleri tanımlamak için kullanılır. Cinsiyet öznitelik algılama sonuçları isteğe bağlıdır ve algılama istekle returnFaceAttributes tarafından denetlenebilir. ReturnfaceAttributes 'cinsiyet' içeriyorsa, döndürülen yüzleri cinsiyet özniteliğe sahip olacaktır.
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -146,7 +146,7 @@ Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - grup](htt
 
 #### <a name="head-pose-attribute"></a>HEAD (öznitelik) konusunda sizi uyarmayı
 
-HEAD poz biridir [öznitelikleri](#Attributes) temsil aşağıdaki şekilde gösterildiği gibi yönlendirme 3B alanda Top, aralık ve yaw açıları göre yüz. Değer aralıkları alma ve derece cinsinden olan [-180, 180] ve [-90, 90] yaw. Geçerli sürümde, her zaman algılamadan döndürülen aralık değer olan 0. İsteğe bağlı olarak baş poz özniteliktir [algılama](#Detection-Face-Detection) sonuçları gruplayan ve ile denetlenebilir bir [algılama](#Detection-Face-Detection) returnFaceAttributes parametresi tarafından istek. ReturnFaceAttributes parametresi 'headPose' içeriyorsa, döndürülen yüz öznitelikleri konusunda sizi uyarmayı baş sahip olur.
+HEAD poz biridir [öznitelikleri](#Attributes) temsil aşağıdaki şekilde gösterildiği gibi yönlendirme 3B alanda Top, aralık ve yaw açıları göre yüz. Değer aralıkları alma ve derece cinsinden olan [-180, 180] ve [-90, 90] yaw. Geçerli sürümde, her zaman algılamadan döndürülen aralık değer olan 0. Baş poz öznitelik algılama sonuçları isteğe bağlıdır ve algılama istekle returnFaceAttributes parametresi tarafından denetlenebilir. ReturnFaceAttributes parametresi 'headPose' içeriyorsa, döndürülen yüz öznitelikleri konusunda sizi uyarmayı baş sahip olur.
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
@@ -182,11 +182,11 @@ Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - doğrulam
 
 #### <a name="landmarks"></a>Yer işareti
 
-Lütfen [yüz yer işareti](#Face-Landmarks-Facial-Landmarks).
+Lütfen yüz yer işareti görürsünüz.
 
 #### <a name="largefacelist"></a>LargeFaceList
 
-LargeFaceList, koleksiyonudur [PersistedFace](#PersistedFace) ve birimidir [Bul benzer](#Find-Similar). Bir LargeFaceList birlikte bir [LargeFaceList kimliği](#LargeFaceList-ID), diğer öznitelikleri gibi ek olarak [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
+LargeFaceList, koleksiyonudur [PersistedFace](#PersistedFace) ve birimidir [Bul benzer](#Find-Similar). Bir LargeFaceList birlikte bir [LargeFaceList kimliği](#LargeFaceList-ID), yanı sıra adı ve kullanıcı verileri gibi diğer öznitelikleri.
 
 Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList - liste yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
 
@@ -198,7 +198,7 @@ Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceL
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
-LargePersonGroup, koleksiyonudur [kişiler](#Person) ve birimidir [kimliği](#Identification). Bir LargePersonGroup birlikte bir [LargePersonGroup kimliği](#LargePersonGroup-ID), diğer öznitelikleri gibi ek olarak [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
+LargePersonGroup, koleksiyonudur [kişiler](#Person) ve birimidir [kimliği](#Identification). Bir LargePersonGroup birlikte bir [LargePersonGroup kimliği](#LargePersonGroup-ID), yanı sıra adı ve kullanıcı verileri gibi diğer öznitelikleri.
 
 Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup kişi - listesinde](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
 
@@ -236,7 +236,7 @@ Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePerso
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace, yüz tanıma API'si, bir veri yapısıdır. PersistedFace ile birlikte gelen bir [PersistedFace kimliği](#PersistedFace-ID), diğer öznitelikleri gibi ek olarak [adı](#Name), ve [kullanıcı verilerini](#UserData-User-Data).
+PersistedFace, yüz tanıma API'si, bir veri yapısıdır. PersistedFace PersistedFace kimliği yanı sıra adı ve kullanıcı verileri gibi diğer öznitelikleri ile birlikte gelir.
 
 Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - yüz tanıma Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - yüz Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup kişi - yüz tanıma eklemek](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup kişi - yüz tanıma eklemek](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
@@ -248,7 +248,7 @@ Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceL
 
 #### <a name="person"></a>Kişi
 
-Kişi, yüz tanıma API'si yönetilen bir veri yapısıdır. Kişi ile birlikte gelen bir [kişinin kimliği](#Person-ID), diğer öznitelikleri gibi ek olarak [adı](#Name), koleksiyonu [PersistedFace](#PersistedFace), ve [kullanıcı verilerini](#UserData-User-Data).
+Kişi, yüz tanıma API'si yönetilen bir veri yapısıdır. Kişi ile birlikte gelen bir [kişinin kimliği](#Person-ID), adı, koleksiyonu gibi diğer öznitelikler yanı sıra [PersistedFace](#PersistedFace)ve kullanıcı verileri.
 
 Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
@@ -260,7 +260,7 @@ Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePerso
 
 #### <a name="persongroup"></a>PersonGroup
 
-PersonGroup, koleksiyonudur [kişiler](#Person) ve birimidir [kimliği](#Identification). Bir PersonGroup birlikte bir [PersonGroup kimliği](#PersonGroup-ID), diğer öznitelikleri gibi ek olarak [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
+PersonGroup, koleksiyonudur [kişiler](#Person) ve birimidir [kimliği](#Identification). Bir PersonGroup birlikte bir [PersonGroup kimliği](#PersonGroup-ID), yanı sıra adı ve kullanıcı verileri gibi diğer öznitelikleri.
 
 Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [PersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup kişi - listesinde](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
 
@@ -290,19 +290,25 @@ Lütfen [yüz dikdörtgeni](#Face-Rectangle).
 
 ## <a name="s"></a>S
 
-#### <a name="smile-attribute"></a>Gülümseyin (öznitelik)
-
-Gülümseme Gönder, biridir [öznitelikleri](#Attributes) kullanılabilir dikdörtgenlerini gülümseme ifade tanımlamak için kullanılır. Gülümseme Gönder özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçları gruplayan ve ile denetlenebilir bir [algılama](#Detection-Face-Detection) returnFaceAttributes isteği. ReturnFaceAttributes 'gülümseyin' içeriyorsa, döndürülen yüzleri gülümseme özniteliğe sahip olacaktır.
-
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
 #### <a name="similar-face-searching"></a>Benzer Yüz Arama
 
 Lütfen [Bul benzer](#Find-Similar).
 
+#### <a name="smile-attribute"></a>Gülümseyin (öznitelik)
+
+Gülümseme Gönder, biridir [öznitelikleri](#Attributes) kullanılabilir dikdörtgenlerini gülümseme ifade tanımlamak için kullanılır. Gülümseme Gönder öznitelik algılama sonuçları isteğe bağlıdır ve algılama istekle returnFaceAttributes tarafından denetlenebilir. ReturnFaceAttributes 'gülümseyin' içeriyorsa, döndürülen yüzleri gülümseme özniteliğe sahip olacaktır.
+
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+
+#### <a name="snapshot"></a>Anlık Görüntü
+
+Anlık görüntü belirli yüz veri türleri için geçici bir uzak depolamadır. Pano verileri bir abonelikten diğerine kopyalamak için bir tür olarak işlev görür. İlk kullanıcı "verilerin bir anlık görüntüsünü kaynak aboneliği alır" ve ardından ", hedef abonelikte yeni bir veri nesnesi uygulandıkları". 
+
+Daha fazla ayrıntı için [yüz Geçiş Kılavuzu](./face-api-how-to-topics/how-to-migrate-face-data.md) yanı sıra [anlık görüntü - Al](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/take) ve [anlık görüntüsü - uygulama](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/apply) başvuru belgeleri (REST).
+
 #### <a name="status-train"></a>Durum (eğitme)
 
-Durumu için bir yordam tanımlamak için kullanılan bir dize ise [eğitim LargeFaceList/LargePersonGroups/belirlenmiştir](#Train), '' çalışıyor' notstarted dahil olmak üzere', 'başarılı', 'başarısız'.
+Eğitim LargeFaceList/LargePersonGroups / 'notstarted', 'çalışıyor' dahil olmak üzere belirlenmiştir için yordam tanımlamak için kullanılan bir dize 'başarılı', 'başarısız' durumudur.
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [LargeFaceList - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
 
@@ -330,7 +336,7 @@ Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePerso
 
 #### <a name="verification"></a>Doğrulama
 
-Bu API, iki yüzün aynı olup olmadığını doğrulamak için kullanılır. Her iki yüz, istekte kimlikleri yüz olarak temsil edilir. Sonuçları içeren bir Boole alanı doğrulandı ([isIdentical](#Is-Identical)) aynı belirten true ise ve bir sayı alanında ([güvenle](#Confidence)) güven düzeyini gösteren.
+Bu API, iki yüzün aynı olup olmadığını doğrulamak için kullanılır. Her iki yüz, istekte kimlikleri yüz olarak temsil edilir. Sonuçları içeren aynı true ise belirten bir Boole alanı (isIdentical) ve bir sayı alanında doğrulandı ([güvenle](#Confidence)) güven düzeyini gösteren.
 
 Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 

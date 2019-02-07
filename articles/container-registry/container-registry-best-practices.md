@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857712"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810771"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry için en iyi yöntemler
 
@@ -46,15 +46,15 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Ayrılmış kaynak grubu
 
-Kapsayıcı kayıt defterleri birden çok kapsayıcı konağında kullanılan kaynaklar olduğundan, bir kayıt defteri kendi kaynak grubunda bulunmalıdır.
+Bir kayıt defteri, kapsayıcı kayıt defterleri birden çok kapsayıcı konağında kullanılan kaynaklar olduğundan, kendi kaynak grubunda yer almalıdır.
 
 Azure Container Instances gibi belirli bir konak türüyle denemeler yapabilecek olsanız da muhtemelen işiniz bittiğinde kapsayıcı örneğini silmek isteyeceksinizdir. Bununla birlikte, Azure Container Registry’ye gönderdiğiniz görüntü koleksiyonunu korumak da isteyebilirsiniz. Kayıt defterinizi kendi kaynak grubuna yerleştirerek, kapsayıcı örneğinin kaynak grubunu silerken yanlışlıkla kayıt defterindeki görüntü koleksiyonunu da silme riskini en aza indirirsiniz.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Bir Azure kapsayıcı kayıt defteri ile kimlik doğrulama için iki ana senaryo vardır: bireysel kimlik doğrulama ve hizmet (veya "gözetimsiz") kimlik doğrulaması. Aşağıdaki tabloda, bu senaryolara kısa bir genel bakış ve her biri için önerilen kimlik doğrulama yöntemi sağlanmıştır.
 
-| Tür | Örnek senaryo | Önerilen metot |
+| Type | Örnek senaryo | Önerilen metot |
 |---|---|---|
 | Bireysel kimlik | Geliştirme makinesinden görüntü çeken veya gönderen bir geliştirici. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Gözetimsiz kimlik/hizmet kimliği | Kullanıcıyla doğrudan ilgili olmayan derleme ve dağıtım işlem hatları. | [Hizmet sorumlusu](container-registry-authentication.md#service-principal) |
@@ -63,7 +63,7 @@ Azure Container Registry kimlik doğrulaması hakkında ayrıntılı bilgi edinm
 
 ## <a name="manage-registry-size"></a>Kayıt defteri boyutunu yönetme
 
-Her bir [kapsayıcı kayıt defteri SKU][container-registry-skus] öğesinde tipik senaryolara uygun depolama alanı kısıtlamaları mevcuttur: Başlangıç için **Temel**, üretim uygulamalarının çoğu için **Standart**, çok geniş ölçekli performans ve [coğrafi çoğaltma][container-registry-geo-replication] için **Premium**. Kayıt defterinizin kullanım ömrü boyunca kullanılmayan içerikleri düzenli olarak silerek boyutunu yönetmeniz gerekir.
+Her depolama alanı kısıtlamaları [kapsayıcı kayıt defteri SKU] [ container-registry-skus] tipik senaryolara yöneliktir: **Temel** başlangıç için **standart** üretim uygulamalarının çoğu için ve **Premium** hiper ölçekli performans ve [coğrafi çoğaltma][container-registry-geo-replication]. Kayıt defterinizin kullanım ömrü boyunca kullanılmayan içerikleri düzenli olarak silerek boyutunu yönetmeniz gerekir.
 
 Azure CLI komutunu [az acr show-usage] [ az-acr-show-usage] geçerli kayıt defterinizin boyutunu görüntülemek için:
 

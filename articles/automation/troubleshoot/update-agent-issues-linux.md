@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e1dca8655c6bf609bee255f183bcd2fe9b56bc55
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437505"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813118"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Güncelleştirme yönetimi Linux Aracısı onay sonuçlarında anlama
 
@@ -28,7 +28,7 @@ Aşağıdaki listede, bir makine olabilir üç hazır olma durumlarından şunla
 
 ## <a name="start-the-troubleshooter"></a>Sorun Gidericisi
 
-Tıklayarak Azure makineler için **sorun giderme** altında bağlantı **Güncelleştirme Aracısı hazırlığı** portal başlatır sütununda **Güncelleştirme Aracısı sorunlarını giderme** sayfası. Azure olmayan makineler için bağlantıyı bu makaleye getirir. Bkz: [çevrimdışı yönergeleri](#offline) Azure olmayan makine giderilir.
+Tıklayarak Azure makineler için **sorun giderme** altında bağlantı **Güncelleştirme Aracısı hazırlığı** portal başlatır sütununda **Güncelleştirme Aracısı sorunlarını giderme** sayfası. Azure olmayan makineler için bağlantıyı bu makaleye getirir. Azure olmayan makine sorunlarını gidermek için çevrimdışı yönergelere bakın.
 
 ![VM Listesi Sayfası](../media/update-agent-issues-linux/vm-list.png)
 
@@ -39,7 +39,7 @@ Tıklayarak Azure makineler için **sorun giderme** altında bağlantı **Günce
 
 ![Sayfa sorunlarını giderme](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-Tamamlandığında, sonuçları penceresinde döndürülür. [Bölümleri işaretleyin](#pre-requisistes-checks) hakkında her denetim aramak bilgi sağlar.
+Tamamlandığında, sonuçları penceresinde döndürülür. Onay bölümler, her denetimi aramak hakkında bilgi sağlar.
 
 ![Windows Update Aracısı sayfa denetler.](../media/update-agent-issues-linux/update-agent-checks.png)
 

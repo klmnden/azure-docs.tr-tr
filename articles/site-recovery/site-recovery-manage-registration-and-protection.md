@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 7a9c0ec081b676631f950270f9234284a102d7fa
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212197"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810329"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 
@@ -154,7 +154,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>(Hyper-V'den azure'a) Hyper-V sanal makine için korumayı devre dışı bırakın
 
 > [!NOTE]
-> Bir VMM sunucusu olmadan Azure'a Hyper-V sanal makinelerini çoğaltıyorsanız, bu yordamı kullanın. Kullanarak sanal makinelerinizde çoğaltıyorsanız **System Center VMM'den azure'a** senaryosu, ardından yönergeleri izleyin [için System Center VMM kullanılarak çoğaltılan bir Hyper-V sanal makine için korumayı devre dışı bırak Azure'a senaryosu](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)
+> Bir VMM sunucusu olmadan Azure'a Hyper-V sanal makinelerini çoğaltıyorsanız, bu yordamı kullanın. Kullanarak sanal makinelerinizde çoğaltıyorsanız **System Center VMM'den azure'a** senaryo, ardından izleme yönergeleri korumayı devre dışı bırakma için Hyper-V sanal makine Azure'a senaryosu için System Center VMM kullanarak çoğaltma
 
 1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makineye sağ tıklayın > **çoğaltma devre dışı bırakma**.
 2. İçinde **çoğaltma devre dışı bırakma**, aşağıdaki seçenekleri belirleyebilirsiniz:

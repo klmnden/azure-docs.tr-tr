@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f6e0d2dece791ac4ece73acdf2e15e3c9be412f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477615"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812861"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Batch hizmeti çözümlerinin Active Directory ile kimlik doğrulaması
 
@@ -91,7 +91,7 @@ Kiracı kimliği, uygulamanız için kimlik doğrulama hizmetleri sağlayan Azur
 
 Tümleşik kimlik doğrulaması ile kimlik doğrulamak için Batch hizmeti API'sine bağlanmak için uygulama izinleri vermeniz gerekir. Bu adım, Azure AD ile Batch hizmeti API çağrıları kimlik doğrulaması uygulamanızı sağlar.
 
-Kaydederler [uygulamanızı kayıtlı](#register-your-application-with-an-azure-ad-tenant), Batch hizmetine erişim vermek için Azure portalında aşağıdaki adımları izleyin:
+Uygulamanızı kaydettikten sonra Batch hizmetine erişim vermek için Azure portalında aşağıdaki adımları izleyin:
 
 1. Azure portalının sol taraftaki gezinti bölmesinde **tüm hizmetleri**. Tıklayın **uygulama kayıtları**.
 2. Listede, uygulamanızın uygulama kayıtları adı arayın:

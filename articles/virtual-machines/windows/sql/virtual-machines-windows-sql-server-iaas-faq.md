@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358992"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767348"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
 
@@ -86,7 +86,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **Kullandıkça Öde galeri görüntülerden birini oluşturulmuşsa, kendi SQL Server Lisansımı kullanmak için bir VM değiştirebilirim?**
 
-   Evet. Kolayca taşıyabilirsiniz ilk dağıtıldığı görüntü bağımsız olarak iki lisanslama modelleri arasında taşıyın. Daha fazla bilgi için [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md).
+   Evet. Kolayca taşıyabilirsiniz ilk olarak bir Kullandıkça Öde galeri görüntüsü ile başladıysanız iki lisanslama modelleri arasında taşıyın. Ancak, başlangıçta bir KLG görüntüsü ile başladıysanız PAYG için kendi lisansınızı geçmek mümkün olmayacaktır. Daha fazla bilgi için [SQL Server sanal makinesi için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md).
 
 1. **Yeni SQL VM oluşturmak için KLG görüntüleri ya da SQL VM RP kullanmalı mıyım?**
 
@@ -94,11 +94,11 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **Geçiş lisanslama modelleri, SQL Server için kapalı kalma süresi gerekiyor mu?**
 
-   Hayır. [Lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md) kapalı kalma süresi için SQL Server gerektirmez, bu değişiklik hemen etkili olur ve VM yeniden başlatma gerektirmez. 
+   Hayır. [Lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md) kapalı kalma süresi için SQL Server gerektirmez, bu değişiklik hemen etkili olur ve VM yeniden başlatma gerektirmez. Ancak, SQL Server VM'nize SQL VM kaynak sağlayıcısı ile kaydolmak için [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md) önkoşuldur ve SQL Iaas uzantısı yükleme SQL Server hizmetini yeniden başlatır. SQL Iaas uzantısı yüklü olması gerekir, bu nedenle, ardından da bir bakım penceresi sırasında yapılması gerekir. 
 
 1. **CSP aboneliklerinde Azure hibrit avantajı etkinleştirebilir miyim?**
 
-   Evet. [Lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md) için CSP aboneliklerinde kullanılabilir. 
+   Evet, Azure hibrit avantajı için CSP aboneliklerinde kullanılabilir. CSP müşterileri bir Kullandıkça Öde görüntüsü önce dağıtmanız ve ardından [lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md) getirin-kendi lisansını için.  
 
 1. **Sanal Makinem ile yeni SQL VM kaynak sağlayıcısı kaydetme ek maliyet getirir?**
 

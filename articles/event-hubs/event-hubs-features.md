@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a1b60bdf27e1a5f5cb6b9cfba72d78f8afa068eb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075175"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768690"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Özellikler ve Azure Event Hubs terminolojisinde
 
@@ -160,8 +160,8 @@ Event Hubs yüksek oranda ölçeklenebilir bir mimaridir ve boyutlandırma ile �
 
 Event Hubs işleme kapasitesi, *işleme birimleri* tarafından denetlenir. İşleme birimleri önceden satın alınan kapasite birimleridir. Tek bir işleme birimi aşağıdaki kapasiteyi içerir:
 
-* Giriş: Kadar ikinci veya 1000 olaya (hangisi önce gerçekleşirse) saniye başına saniyede 1 MB.
-* Çıkış: Saniye başına ikinci veya 4096 olay başına 2 MB'a kadar.
+* Giriş: İkinci veya 1000 olaya (hangisi önce gerçekleşirse) saniye başına başına 1 MB'a kadar.
+* Çıkış: İkinci veya 4096 olay / saniye başına 2 MB'a kadar.
 
 Satın alınan işleme birimlerinin kapasitesi aşıldığında giriş azaltılır ve [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) döndürülür. Çıkış, azaltma özel durumları oluşturmaz, ancak yine de satın alınan işleme birimlerinin kapasitesiyle sınırlıdır. Yayımlama hızı özel durumları alırsanız veya daha yüksek çıkış görmeyi bekliyorsanız ad alanı için kaç tane işleme birimi satın aldığınızı denetlediğinizden emin olun. Üretilen iş birimleri yönetebileceğiniz **ölçek** alanlarının dikey [Azure portalında](https://portal.azure.com). Üretilen iş birimleri program aracılığıyla kullanarak da yönetebilirsiniz [olay hub'ları API](event-hubs-api-overview.md).
 
@@ -169,7 +169,7 @@ Satın alınan işleme birimlerinin kapasitesi aşıldığında giriş azaltıl�
 
 Azure desteğine başvurularak 100 işleme birimine kadar 20'li bloklar daha fazla işleme birimi satın alabilirsiniz. Bu sınırı aşan 100 işleme biriminden oluşan bloklar satın alabilirsiniz.
 
-En iyi ölçeği elde etmek için işleme birimleri ve bölümlerini dengelemeniz önerilir. Tek bir bölüm en fazla bir işleme biriminden oluşan ölçeğe sahiptir. İşleme birimlerinin sayısı bir olay hub’ındaki bölüm sayısına eşit veya daha az olmalıdır.
+En iyi ölçeği elde etmek için işleme birimleri ve bölümlerini dengelemeniz önerilir. Tek bir bölüm bir işleme biriminden oluşan en az bir ölçeğe sahiptir. İşleme birimlerinin sayısı bir olay hub’ındaki bölüm sayısına eşit veya daha az olmalıdır.
 
 Event Hubs ayrıntılı fiyatlandırma bilgileri için bkz. [Event Hubs fiyatlandırması](https://azure.microsoft.com/pricing/details/event-hubs/).
 

@@ -6,19 +6,19 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 5d55879a5a8487636e2252abd359accf07e60ce6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634367"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809172"
 ---
-# <a name="mount-the-avere-vfxt-cluster"></a>Avere vFXT küme bağlama  
+# <a name="mount-the-avere-vfxt-cluster"></a>Avere vFXT kümesini takma  
 
 İstemci makineler vFXT kümenize bağlanmak için aşağıdaki adımları izleyin.
 
 1. Karar, küme düğümleri arasında istemci trafik yükünü dengele öğreneceksiniz. Okuma [istemci Yük Dengeleme](#balance-client-load), aşağıdaki Ayrıntılar için. 
-1. Tanımlamak [IP adresi ve bağlantı yolu](#identify-ip-addresses-and-paths-to-mount) bağlanacak.
+1. Bağlama için IP adresi ve bağlantı yolunu belirleyin.
 1. Sorunu [bağlama komutu](#mount-command-arguments), uygun bağımsız değişkenlerle.
 
 ## <a name="balance-client-load"></a>İstemci Yük Dengeleme
@@ -68,7 +68,7 @@ Yukarıdaki işlevi kullanılabilir Batch örnek parçasıdır [Avere vFXT örne
 
 Bağlama komut üç öğe vardır: 
 
-* vFXT yol - (açıklanan IP adresi ve ad alanı birleşim yolu bir birleşimini [aşağıda](#junction-and-ip-address))
+* vFXT yol - (aşağıda açıklanan IP adresi ve ad alanı birleşim yolu bir birleşimi)
 * Yerel yol - istemci üzerindeki yol 
 * komut seçenekleri - bağlama (listelenen [bağlama komut satırı bağımsız değişkenlerini](#mount-command-arguments))
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198155"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816552"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Görüntü İşleme API'si Sürüm 1.0 nedir?
 
@@ -26,17 +26,17 @@ ms.locfileid: "55198155"
 >- [Görüntü İşleme API'si Sürüm 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 Bulut tabanlı Görüntü İşleme API’si, geliştiriciler için görüntüleri işlemeye ve bilgileri döndürmeye yönelik gelişmiş algoritmalara erişim sağlar. Microsoft Görüntü İşleme algoritmaları bir görüntüyü karşıya yükleyerek veya bir görüntü URL’si belirterek girdilere ve kullanıcı seçimlerine göre görsel içerikleri farklı şekillerde analiz edebilir. Görüntü İşleme API'siyle kullanıcılar görüntüleri analiz ederek şunları yapabilir:
-* [Görüntüleri içeriğine göre etiketleme.](#Tagging)
-* [Görüntüleri kategorilere ayırma.](#Categorizing)
-* [Görüntülerin türünü ve kalitesini tanımlama.](#Identifying)
+* Resimleri içeriği temelinde etiketleyin.
+* Görüntüleri kategorilere ayırın.
+* Görüntü kalitesini ve türü tanımlayın.
 * [İnsan yüzlerini algılama ve bunların koordinatlarını döndürme. ](#Faces)
-* [Etki alanına özgü içeriği tanıma.](#Domain-Specific)
-* [İçerik açıklamaları oluşturma.](#Descriptions)
-* [Görüntülerde bulunan basılı metni tanımlamak için optik karakter tanıma özelliğini kullanma.](#OCR)
-* [El yazısı metinleri tanıma.](#RecognizeText)
-* [Renk düzenlerini ayırt etme.](#Color)
-* [Yetişkinlere yönelik içeriğe bayrak ekleme.](#Adult)
-* [Fotoğrafları küçük resim olarak kullanılabilecek şekilde kırpma.](#Thumbnails)
+* Etki alanına özgü içerik tanır.
+* İçerik açıklamalarını oluşturur.
+* Görüntüleri bulunan yazdırılan metin tanımlamak için optik karakter tanıma kullanın.
+* Resimlerdeki el yazısı tanıma.
+* Renk düzenleri ayırmak.
+* Yetişkinlere yönelik içeriğe bayrak.
+* Küçük resim olarak kullanılacak kırpma fotoğraflar'ni kullanın.
 
 ## <a name="requirements"></a>Gereksinimler
 * Giriş yöntemleri desteklenir: İkili bir uygulama/octet stream veya resim URL'si biçiminde ham görüntü.

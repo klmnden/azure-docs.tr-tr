@@ -6,29 +6,16 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 559bdd479d02a8744f9b113c43c2c860d8218401
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbdc57489eb7ebd50e3ce7e2b4e0e4081aef8e27
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038203"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770393"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos DB Öykünücüsünü kullanma
 
-<table>
-<tr>
-  <td><strong>İkililer</strong></td>
-  <td>[MSI’yi İndir](https://aka.ms/cosmosdb-emulator)</td>
-</tr>
-<tr>
-  <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
-</tr>
-<tr>
-  <td><strong>Docker kaynağı</strong></td>
-  <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
-</tr>
-</table>
+|**İkili dosyaları**|[indirme MSI](https://aka.ms/cosmosdb-emulator)|| **Docker**|[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)|| **Docker kaynak** | [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)|
 
 Azure Cosmos DB Öykünücüsü, geliştirme amaçlı olarak Azure Cosmos DB hizmetine öykünen yerel bir ortam sağlar. Azure Cosmos DB Öykünücüsü’nü kullanarak Azure aboneliği oluşturmadan veya masraf yapmadan uygulamanızı yerel ortamda geliştirip test edebilirsiniz. Uygulamanızın Azure Cosmos DB Öykünücüsü’ndeki performansından memnun olduğunuzda bulut üzerinde Azure Cosmos DB hesabı kullanmaya başlayabilirsiniz.
 
@@ -162,133 +149,28 @@ Yükleme konumundan, komut satırını kullanarak öykünücüyü başlatıp dur
 
 Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe /?` yazın.
 
-<table>
-<tr>
-  <td><strong>Seçenek</strong></td>
-  <td><strong>Açıklama</strong></td>
-  <td><strong>Komut</strong></td>
-  <td><strong>Bağımsız Değişkenler</strong></td>
-</tr>
-<tr>
-  <td>[Bağımsız değişken yok]</td>
-  <td>Varsayılan ayarlarla Azure Cosmos DB Öykünücüsünü başlatır.</td>
-  <td>CosmosDB.Emulator.exe</td>
-  <td></td>
-</tr>
-<tr>
-  <td>[Yardım]</td>
-  <td>Desteklenen komut satırı bağımsız değişkenleri listesini görüntüler.</td>
-  <td>CosmosDB.Emulator.exe /?</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GetStatus</td>
-  <td>Azure Cosmos DB Öykünücüsü’nün durumunu alır. Durum, çıkış kodu tarafından belirtilir: 1 = başlangıç, 2 çalışan, 3 = = durduruldu. Negatif çıkış kodu, bir hata oluştuğunu gösterir. Başka bir çıktı üretilmez.</td>
-  <td>CosmosDB.Emulator.exe /GetStatus</td>
-  <td></td>
-<tr>
-  <td>Kapat</td>
-  <td>Azure Cosmos DB Öykünücüsü’nü kapatır.</td>
-  <td>CosmosDB.Emulator.exe /Shutdown</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DataPath</td>
-  <td>Veri dosyalarının depolanacağı yolu belirtir. Varsayılan: %LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
-  <td>&lt;DataPath&gt;: Erişilebilir bir yol</td>
-</tr>
-<tr>
-  <td>Bağlantı noktası</td>
-  <td>Öykünücü için kullanılacak bağlantı noktası numarasını belirtir. Varsayılan: 8081.</td>
-  <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
-  <td>&lt;Bağlantı noktası&gt;: Tek bir bağlantı noktası numarası</td>
-</tr>
-<tr>
-  <td>MongoPort</td>
-  <td>MongoDB uyumluluk API’si için kullanılacak bağlantı noktası numarasını belirtir. Varsayılan: 10255.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
-  <td>&lt;mongoport&gt;: Tek bir bağlantı noktası numarası</td>
-</tr>
-<tr>
-  <td>DirectPorts</td>
-  <td>Doğrudan bağlantı için kullanılacak bağlantı noktalarını belirtir. Varsayılan değerler: 10251,10252,10253,10254.</td>
-  <td>CosmosDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
-  <td>&lt;directports&gt;: 4 bağlantı noktalarının virgülle ayrılmış listesi</td>
-</tr>
-<tr>
-  <td>Anahtar</td>
-  <td>Öykünücü için yetkilendirme anahtarı. Anahtar, 64 bayt vektörün base 64 kodlaması olmalıdır.</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
-  <td>&lt;Anahtar&gt;: Anahtarı bir 64-bayt vektörü base-64 kodlama olmalıdır</td>
-</tr>
-<tr>
-  <td>EnableRateLimiting</td>
-  <td>İstek oranını sınırlama davranışının etkinleştirildiğini belirtir.</td>
-  <td>CosmosDB.Emulator.exe /EnableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DisableRateLimiting</td>
-  <td>İstek oranını sınırlama davranışının devre dışı bırakıldığını belirtir.</td>
-  <td>CosmosDB.Emulator.exe /DisableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoUI</td>
-  <td>Öykünücü kullanıcı arabirimini gösterme.</td>
-  <td>CosmosDB.Emulator.exe /NoUI</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoExplorer</td>
-  <td>Başlangıçta veri gezginini gösterme.</td>
-  <td>CosmosDB.Emulator.exe /NoExplorer</td>
-  <td></td>
-</tr>
-<tr>
-  <td>PartitionCount</td>
-  <td>Maksimum bölümlenmiş koleksiyon sayısını belirtir. Daha fazla bilgi için bkz. [Koleksiyon sayısını değiştirme](#set-partitioncount).</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
-  <td>&lt;bölüm sayısı&gt;: İzin verilen tek bölüm koleksiyonlarını maksimum sayısı. Varsayılan: 25. Maksimum izin verilen: 250.</td>
-</tr>
-<tr>
-  <td>DefaultPartitionCount</td>
-  <td>Bölümlenen bir koleksiyon için varsayılan bölüm sayısını belirtir.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
-  <td>&lt;defaultpartitioncount&gt; Varsayılan: 25.</td>
-</tr>
-<tr>
-  <td>AllowNetworkAccess</td>
-  <td>Bir ağ üzerinden öykünücüye erişilmesini sağlar. Ağ erişimini etkinleştirmek için /Key=&lt;key_string&gt; veya /KeyFile=&lt;file_name&gt; öğesini de geçirmeniz gerekir.</td>
-  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>or<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoFirewall</td>
-  <td>/AllowNetworkAccess kullanıldığında güvenlik duvarı kurallarını ayarlama.</td>
-  <td>CosmosDB.Emulator.exe /NoFirewall</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GenKeyFile</td>
-  <td>Yeni bir yetkilendirme anahtarı oluşturun ve belirtilen dosyaya kaydedin. Oluşturulan anahtar, /Key veya /KeyFile seçenekleri ile kullanılabilir.</td>
-  <td>CosmosDB.Emulator.exe /GenKeyFile =&lt;anahtar dosyasının yolu&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>Tutarlılık</td>
-  <td>Hesap için varsayılan tutarlılık düzeyini ayarlayın.</td>
-  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
-  <td>&lt;Tutarlılık&gt;: Değer şunlardan biri olmalıdır [tutarlılık düzeyleri](consistency-levels.md): Oturum, güçlü ve nihai, veya BoundedStaleness. Varsayılan değer: Oturum.</td>
-</tr>
-<tr>
-  <td>?</td>
-  <td>Yardım iletisini gösterin.</td>
-  <td></td>
-  <td></td>
-</tr>
-</table>
+|**Seçenek** | **Açıklama** | **Komut**| **Bağımsız Değişkenler**|
+|---|---|---|---|
+|[Bağımsız değişken yok] | Varsayılan ayarlarla Azure Cosmos DB Öykünücüsünü başlatır. |CosmosDB.Emulator.exe| |
+|[Yardım] |Desteklenen komut satırı bağımsız değişkenleri listesini görüntüler.|CosmosDB.Emulator.exe /? | |
+| GetStatus |Azure Cosmos DB Öykünücüsü’nün durumunu alır. Durum, çıkış kodu tarafından belirtilir: 1 = başlangıç, 2 çalışan, 3 = = durduruldu. Negatif çıkış kodu, bir hata oluştuğunu gösterir. Başka bir çıktı üretilmez. | CosmosDB.Emulator.exe /GetStatus| |
+| Kapat| Azure Cosmos DB Öykünücüsü’nü kapatır.| CosmosDB.Emulator.exe /Shutdown | |
+|DataPath | Veri dosyalarının depolanacağı yolu belirtir. Varsayılan: %LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<DataPath\>: Erişilebilir bir yol |
+|Bağlantı noktası | Öykünücü için kullanılacak bağlantı noktası numarasını belirtir. Varsayılan: 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<Bağlantı noktası\>: Tek bir bağlantı noktası numarası |
+| MongoPort | MongoDB uyumluluk API’si için kullanılacak bağlantı noktası numarasını belirtir. Varsayılan: 10255. |CosmosDB.Emulator.exe /MongoPort = \<mongoport\>|\<mongoport\>: Tek bir bağlantı noktası numarası|
+| DirectPorts |Doğrudan bağlantı için kullanılacak bağlantı noktalarını belirtir. Varsayılan değerler: 10251,10252,10253,10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: 4 bağlantı noktalarının virgülle ayrılmış listesi |
+| Anahtar |Öykünücü için yetkilendirme anahtarı. Anahtar, 64 bayt vektörün base 64 kodlaması olmalıdır. | CosmosDB.Emulator.exe /Key:\<key\> | \<Anahtar\>: Anahtarı bir 64-bayt vektörü base-64 kodlama olmalıdır|
+| EnableRateLimiting | İstek oranını sınırlama davranışının etkinleştirildiğini belirtir. |CosmosDB.Emulator.exe /EnableRateLimiting | |
+| DisableRateLimiting |İstek oranını sınırlama davranışının devre dışı bırakıldığını belirtir. |CosmosDB.Emulator.exe /DisableRateLimiting | |
+| NoUI | Öykünücü kullanıcı arabirimini gösterme. | CosmosDB.Emulator.exe /NoUI | |
+| NoExplorer | Başlangıçta veri gezginini gösterme. |CosmosDB.Emulator.exe /NoExplorer | | 
+| PartitionCount | Maksimum bölümlenmiş koleksiyon sayısını belirtir. Daha fazla bilgi için bkz. [Koleksiyon sayısını değiştirme](#set-partitioncount). | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<bölüm sayısı\>: İzin verilen tek bölüm koleksiyonlarını maksimum sayısı. Varsayılan: 25. Maksimum izin verilen: 250.|
+| DefaultPartitionCount| Bölümlenen bir koleksiyon için varsayılan bölüm sayısını belirtir. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> Varsayılan: 25.|
+| AllowNetworkAccess | Bir ağ üzerinden öykünücüye erişilmesini sağlar. Ağ erişimini etkinleştirmek için /Key=\<key_string\> veya /KeyFile=\<file_name\> öğesini de geçirmeniz gerekir. | CosmosDB.Emulator.exe AllowNetworkAccess /Key =\<key_string\> veya CosmosDB.Emulator.exe /AllowNetworkAccess/keyfile =\<file_name\>| |
+| NoFirewall | /AllowNetworkAccess kullanıldığında güvenlik duvarı kurallarını ayarlama. |CosmosDB.Emulator.exe /NoFirewall | |
+| GenKeyFile | Yeni bir yetkilendirme anahtarı oluşturun ve belirtilen dosyaya kaydedin. Oluşturulan anahtar, /Key veya /KeyFile seçenekleri ile kullanılabilir. | CosmosDB.Emulator.exe /GenKeyFile =\<anahtar dosyasının yolu\> | |
+| Tutarlılık | Hesap için varsayılan tutarlılık düzeyini ayarlayın. | CosmosDB.Emulator.exe /Consistency=\<consistency\> | \<Tutarlılık\>: Değer şunlardan biri olmalıdır [tutarlılık düzeyleri](consistency-levels.md): Oturum, güçlü ve nihai, veya BoundedStaleness. Varsayılan değer: Oturum. |
+| ? | Yardım iletisini gösterin.| | |
 
 ## <a id="set-partitioncount"></a>Koleksiyon sayısını değiştirme
 

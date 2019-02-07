@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 74b104ac399f00e08ed10ded5cd62a9c32c15d4a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: fa154b79625fffb8174c510156b3a67df8bff785
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566814"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770444"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>SQL Server veritabanlarını Azure'a yedekleme
 
@@ -202,6 +202,7 @@ Iaas VM'de SQL Server için Azure Backup kullanarak kesintisiz yedeklemeleri emi
 
   * Baştaki/sondaki boşluk
   * Sondaki '!'
+  * Kapatma köşeli ayraç ']'
 
 Azure tablo desteklenmeyen karakterler için diğer ad kullanımı sahibiz ancak bu de önleme öneririz. Daha fazla bilgi için bkz. Bu [makale](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 

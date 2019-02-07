@@ -4,7 +4,7 @@ description: G Suite ile Azure Active Directory arasında çoklu oturum açmayı
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902474"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769415"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Öğretici: G Suite ile Azure Active Directory Tümleştirme
 
@@ -75,11 +75,11 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
     C: Bu kurulumu için e-posta özniteliği, kullanıcıların oturum açabilmesi için gereklidir. Bu öznitelik el ile ayarlanamaz.
 
-    E-posta özniteliği geçerli bir Exchange lisansına sahip herhangi bir kullanıcı için otomatik doldurulur. Uygulama erişim vermek için bu öznitelik almak gereken kullanıcı posta etkin değilse, bu hata alınır.
+    E-posta özniteliği geçerli bir Exchange lisansına sahip herhangi bir kullanıcı için otomatik doldurulur. Kullanıcı e-posta etkin değilse, erişim vermek için bu öznitelik almak uygulama gereksinimleriniz değiştikçe bu hata alınır.
 
-    Bir Exchange lisansı atayın, Lütfen bir yönetici hesabıyla portal.office.com gidin ve ardından tıklayın Yönetim Merkezi, faturalama, abonelik için Office 365 aboneliği ve ardından şirket, kullanıcılara atama seçin, kontrol etmek istediğiniz kullanıcıları kendi Abonelik ve sağ bölmede, düzenleme lisanslar'a tıklayın.
+    Bir yönetici hesabıyla portal.office.com tıklayarak Yönetim merkezinde, abonelikler, faturalama, Office 365 aboneliğinizi seçin ve ardından Ata seçeneğine tıklayın, kullanıcılara seçin aboneliğini denetleyin ve sağ bölmede, tıklayarak istediğiniz kullanıcıların gidebilirsiniz lisansları düzenleyin.
 
-    Exchange lisansı atandıktan sonra uygulanması bazı dakika sürebilir. Bundan sonra user.mail öznitelik girdiğinizde olur ve sorunun çözülmesi.
+    O365 lisansı atandıktan sonra uygulanması bazı dakika sürebilir. Bundan sonra user.mail öznitelik girdiğinizde olur ve sorunun çözülmesi.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
@@ -142,28 +142,45 @@ Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adı
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **temel SAML yapılandırma** bölüm için yapılandırmak istiyorsanız **Gmail** aşağıdaki adımları gerçekleştirin:
 
     ![G Suite etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak URL: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [G Suite istemci Destek ekibine](https://www.google.com/contact/) bu değerleri almak için.
 
-5. G Suite uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir. Varsayılan değer olan **benzersiz kullanıcı tanımlayıcısı** olduğu **user.userprincipalname** ancak G Suite bu kullanıcının e-posta adresi ile eşlenmesini bekliyor. Bunun için kullanabileceğiniz **user.mail** listeden öznitelik veya kuruluş yapılandırmanıza göre uygun öznitelik değeri kullanın.
+5. Üzerinde **temel SAML yapılandırma** bölüm için yapılandırmak istiyorsanız **Google Cloud Platform** aşağıdaki adımları gerçekleştirin:
+
+    ![G Suite etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak URL: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+    | |
+    |--|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
+    
+    > [!NOTE] 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [G Suite istemci Destek ekibine](https://www.google.com/contact/) bu değerleri almak için.
+
+6. G Suite uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir. Varsayılan değer olan **benzersiz kullanıcı tanımlayıcısı** olduğu **user.userprincipalname** ancak G Suite bu kullanıcının e-posta adresi ile eşlenmesini bekliyor. Bunun için kullanabileceğiniz **user.mail** listeden öznitelik veya kuruluş yapılandırmanıza göre uygun öznitelik değeri kullanın.
 
     ![image](common/edit-attribute.png)
 
-6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
+7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
     | Ad | Kaynak özniteliği |
     | ---------------| --------------- |
@@ -187,11 +204,11 @@ Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adı
 
     g. **Kaydet**’e tıklayın.
 
-7. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+8. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-8. Üzerinde **G Suite kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+9. Üzerinde **G Suite kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
@@ -203,7 +220,7 @@ Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adı
 
 ### <a name="configure-g-suite-single-sign-on"></a>G Suite çoklu oturum açmayı yapılandırın
 
-1. Tarayıcınızda yeni bir sekme açın ve oturum [G Suite Yönetici Konsolu](https://admin.google.com/) yönetici hesabınızı kullanarak.
+1. Tarayıcınızda yeni bir sekme açın ve oturum [G Suite Yönetici Konsolu](http://admin.google.com/) yönetici hesabınızı kullanarak.
 
 2. Tıklayın **güvenlik**. Bağlantıyı görmüyorsanız, bunun altında gizlenebilir **diğer denetimler** ekranın alt kısmındaki menü.
 

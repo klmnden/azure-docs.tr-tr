@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 331a71d4f807e1e596a91c1463064e3f6dcbd1e1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7d719ee6bdb8ce1f4131b474fe7602b492e69cd3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247043"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810686"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Azure Bilişsel hizmetler için Azure Stack dağıtma
 
@@ -144,7 +144,7 @@ Anahtar alanları hakkındaki ayrıntıları:
 | ImageLocation | Belirli bir bilişsel hizmet kapsayıcı görüntüyü ACR konumunu gösterir. Örneğin, yüz tanıma hizmeti: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |Uç nokta URL'si. adımda not ettiğiniz [Azure Kaynağı Oluştur](#create-azure-resources) |
 | ApiKey | Abonelik anahtarı. adımda not ettiğiniz [Azure Kaynağı Oluştur](#create-azure-resources) |
-| secretName | Adımda yalnızca belirtilen gizli dizi adı [Oluştur secrete özel kapsayıcı kayıt defterine erişim izni](#create-secrete-to-access-the-private-container-registry) |
+| secretName | Gizli anahtar adı, yalnızca Create adımda not ettiğiniz secrete özel kapsayıcı kayıt defterine erişim izni |
 
 ## <a name="deploy-the-cognitive-service"></a>Bilişsel hizmet dağıtma
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 167dce168f9adfa59a96c09c62548c7c6e253b09
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 53e975719b911a27667afc8565bd86261f927068
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211415"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820989"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Öğretici: Varlığın ve deyim listesi ile adlarını Ayıkla
 
@@ -239,7 +239,7 @@ Açık [işleri tümcecik list.csv](https://github.com/Azure-Samples/cognitive-s
 
     [![Ekran görüntüsü oluşturma yeni ifade listesi iletişim kutusu açılır sözcük, tümcecik değerler listesinde](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Oluştur ekran görüntüsü yeni ifade listesi iletişim kutusu açılır sözcük, tümcecik değerler listesinde")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-1. Tümcecik listesini kullanmak için uygulamayı tekrar [eğitin](#train) ve [yayımlayın](#publish).
+1. Eğitme ve yeniden ifade listesini kullanmak için uygulamayı yayımlayın.
 
 1. Uç noktayı aynı konuşmayla yeniden sorgulayın: `This is the lead welder paperwork.`
 

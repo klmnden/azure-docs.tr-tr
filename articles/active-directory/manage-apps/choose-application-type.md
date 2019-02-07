@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: d5ff6b05df74cd73fb374bbd7cf27b8fc7d69493
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ef752d2f9d57ee8674d91fd14b56b804ccf50d22
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697994"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814214"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory'de uygulama eklerken uygulama türünü seçme
 Uygulamaları Azure Active Directory (Azure AD) ekleyebilirsiniz dört türleri hakkında daha fazla bilgi edinin. Azure Active Directory'de uygulama eklerken dört uygulama türünü birini seçmeniz istenir. 
@@ -95,7 +95,7 @@ Aşağıda desteklenen **çoklu oturum açma** modları Azure AD uygulamaları i
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Özel olarak geliştirilmiş uygulamaları için çoklu oturum açma modları
 
-Uygulamalar aracılığıyla geliştirilmiş özel sahip [özel olarak geliştirilmiş bir uygulamada](#_Custom-Developed_Applications) deneyimi de içeren daha önce listelenen, ek tek oturum açma modları destekler:
+Özel geliştirilmiş özel olarak geliştirilmiş uygulama sahip olduğunuz uygulamalar da dahil daha önce listelenen destek ek tek oturum açma modları karşılaşırsınız:
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) tabanlı oturum açma
 

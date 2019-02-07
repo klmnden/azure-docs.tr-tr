@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 3e20aeb0e21eca5e4ac25206d638036f94a58202
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749704"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809308"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Çok sayıda Batch işi görevlere gönderin
 
@@ -164,7 +164,7 @@ except Exception as e:
     raise e
 ```
 
-Batch Python SDK'sını uzantısı bir JSON belirtimi için bir görev fabrikasını kullanarak proje görev parametreler eklemeyi de destekler. Örneğin, bir önceki de benzer bir parametreli Süpürme iş parametrelerini yapılandırmak [Batch CLI şablon](#example-batch-cli-template) örneği:
+Batch Python SDK'sını uzantısı bir JSON belirtimi için bir görev fabrikasını kullanarak proje görev parametreler eklemeyi de destekler. Örneğin, önceki Batch CLI şablon örnekte gösterilene benzer bir parametreli Süpürme iş parametrelerini yapılandırın:
 
 ```python
 parameter_sweep = {

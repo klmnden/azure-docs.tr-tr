@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: c911a53f16e07b67a1ec22a9e0592df06c192325
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e5b23269c8c9d5aecd7ef8ba58100f17cc7973c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188193"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809428"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Öğretici: Lessonly.com ile Azure Active Directory Tümleştirme
 
@@ -90,7 +90,7 @@ Yapılandırma ve Azure AD çoklu oturum açma Lessonly.com ile test etmek için
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Lessonly.com test kullanıcısı oluşturma](#creating-a-lessonly-test-user)**  - kullanıcı Azure AD gösterimini bağlı Lessonly.com Britta simon'un bir karşılığı vardır.
+1. **Lessonly.com test kullanıcısı oluşturma** - kullanıcı Azure AD gösterimini bağlı Lessonly.com Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fd6d47d8300872f5bcdf36aec492289f93858504
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653926"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814216"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Bir HDInsight uygulaması Azure Market'te yayımlama
 Bir Linux tabanlı HDInsight kümesi üzerinde bir Azure HDInsight uygulama yükleyebilirsiniz. Bu makalede, HDInsight uygulama Azure Marketi'nde yayımlama konusunda bilgi edinin. Azure Marketi'nde yayımlama hakkında genel bilgi için bkz. [Azure Marketi'nde teklif yayımlamak](../marketplace/marketplace-publishers-guide.md).
@@ -75,9 +75,9 @@ Yükleme betiğini aşağıdaki özelliklere sahip olmanız gerekir:
 * Betiğinizi düğümlerinde Hizmetleri başlarsa, hizmetleri izlenir ve düğümü yeniden başlatma oluşması durumunda otomatik olarak başlatılacak şekilde yapılandırılmış.
 
 ## <a name="package-the-application"></a>Uygulama paketi
-HDInsight uygulamanızı yüklemek için gereken tüm dosyaları içeren bir .zip dosyası oluşturun. .Zip dosyası olarak kullandığınız [uygulamayı yayımlamak](#publish-application). .Zip dosyasını aşağıdaki dosyaları içerir:
+HDInsight uygulamanızı yüklemek için gereken tüm dosyaları içeren bir .zip dosyası oluşturun. Uygulamayı yayımlamak için .zip dosyasını kullanın. .Zip dosyasını aşağıdaki dosyaları içerir:
 
-* [createUiDefinition.json](#define-application)
+* createUiDefinition.json
 * mainTemplate.json (bir örnek için bkz. [özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).)
 * Gerekli tüm betikler
 
@@ -94,7 +94,7 @@ Bir HDInsight uygulamasını yayımlamak için:
 5. Seçin **kullanmaya başlamak için bazı topolojiler tanımlayın**. Bir çözüm şablonu tüm topolojileri "üst" dir. Bir teklif veya çözüm şablonunda birden fazla topoloji tanımlayabilirsiniz. Bir teklif hazırlama için gönderildiğinde tüm topolojileri ile gönderildi. 
 6. Topoloji adı girin ve ardından **+**.
 7. Yeni bir sürüm girin ve ardından **+**.
-8. Ne zaman oluşturulan .zip dosyasını karşıya yükleyin, [uygulama paketlendi](#package-application).  
+8. Uygulama paketlendi sırada oluşturulan .zip dosyasını karşıya yükleyin.  
 9. Seçin **sertifika iste**. Microsoft Sertifika ekibi dosyaları gözden geçirir ve topolojiyi onaylar.
 
 ## <a name="next-steps"></a>Sonraki adımlar

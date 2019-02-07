@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429098"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815855"
 ---
 # <a name="traffic-analytics"></a>Trafik Analizi
 
@@ -164,7 +164,7 @@ Aşağıdaki seçenekler, resimde gösterildiği gibi seçin:
 2. Akış günlüklerini depolamak için mevcut bir depolama hesabını seçin. Verileri sonsuza kadar saklamak istiyorsanız, değer kümesine *0*. Depolama hesabı için Azure depolama ücretleri uygulanır.
 3. Ayarlama **bekletme** verilerini saklamak istediğiniz gün sayısı.
 4. Seçin *üzerinde* için **trafik analizi durumu**.
-5. Mevcut bir Log Analytics çalışma alanı seçin ya da seçin **yeni çalışma alanı oluştur** yeni bir tane de oluşturabilirsiniz. Bir Log Analytics çalışma alanı trafik analizi tarafından analiz oluşturmak için kullanılır toplanmış ve dizinli verileri depolamak için kullanılır. Mevcut bir çalışma öğesini seçerseniz, birinde varolmalıdır [desteklenen bölgeler](#traffic-analytics-supported-regions) ve yeni sorgu diline yükseltme yaptı. Mevcut bir çalışma yükseltmek istiyor musunuz veya bir çalışma alanı, desteklenen bir bölgede izniniz yok, yeni bir tane oluşturun. Sorgu dilleri hakkında daha fazla bilgi için bkz. [Azure Log Analytics yükseltme için yeni günlük araması](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Mevcut bir Log Analytics çalışma alanı seçin ya da seçin **yeni çalışma alanı oluştur** yeni bir tane de oluşturabilirsiniz. Bir Log Analytics çalışma alanı trafik analizi tarafından analiz oluşturmak için kullanılır toplanmış ve dizinli verileri depolamak için kullanılır. Mevcut bir çalışma öğesini seçerseniz, desteklenen bölgelerden birinde mevcut olmalıdır ve yeni sorgu diline yükseltme yaptı. Mevcut bir çalışma yükseltmek istiyor musunuz veya bir çalışma alanı, desteklenen bir bölgede izniniz yok, yeni bir tane oluşturun. Sorgu dilleri hakkında daha fazla bilgi için bkz. [Azure Log Analytics yükseltme için yeni günlük araması](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     Trafik analizi çözümü ve Nsg'ler barındırma log analytics çalışma alanı aynı bölgede olması gerekmez. Örneğin, Doğu ABD ve Batı ABD içindeki Nsg'ler olabilir, ancak bir çalışma alanında, Batı Avrupa bölgesinde trafik analizi olabilir. Birden çok Nsg'ler aynı çalışma alanında yapılandırılabilir.
 6. **Kaydet**’i seçin.

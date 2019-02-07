@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cbb15ff084c3639be801458d071f3966873c2509
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300277"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815668"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Sanal Makineler’de SQL Server ile Azure Premium Depolama kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -1191,7 +1191,7 @@ Yalnızca iki SQL sunucusuna sahip ve bunları yeni bir bulut hizmetine geçiş 
 
 Geçirilen ikincil getirildi ve var olan birincil yük devretmeden önce yeni bir bulut hizmeti için yeni IP adresi kaynağı eklenen sonra Bu önlem içinde küme Yük Devretme Yöneticisi almanız gerekir:
 
-IP adresi eklemek için bkz [ek](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), 14. adım.
+IP adresi eklemek için ek, adım 14 bakın.
 
 1. Geçerli IP adresi kaynağı için 'Var olan birincil SQL Server', olası sahip örnekte, 'dansqlams4' değiştirin:
 

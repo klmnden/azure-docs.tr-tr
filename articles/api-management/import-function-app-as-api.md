@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129769"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810788"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure İşlev Uygulamalarını Azure API Management'a API olarak aktarma
 
@@ -35,7 +35,7 @@ Bu makale, Azure İşlev Uygulamalarını Azure API Management'a API olarak akta
 > * Azure portalında API’yi test etme
 > * API'yi geliştirici portalında test etme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Azure API Management örneği oluşturma](get-started-create-service-instance.md) hızlı başlangıcını tamamlayın.
 * Aboneliğinizde bir Azure İşlevleri uygulaması bulunduğundan emin olun. Daha fazla bilgi için bkz. [Azure İşlev Uygulaması oluşturma](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Uygulamanın HTTP tetikleyicili İşlevler içermesi ve yetkilendirme düzeyinin *Anonim* veya *İşlev* olarak ayarlanması gerekir.
@@ -160,7 +160,7 @@ Azure API Management örneğinize gidin ve soldaki menüden **Adlandırılmış 
 
 API’leri test etmek için geliştirici portalından da işlem çağırabilirsiniz. 
 
-1. [Arka uç API’sini içeri aktarma ve yayımlama](#create-api) bölümünde oluşturduğunuz API’yi seçin.
+1. Alma oluşturduğunuz API'yi seçin ve bir arka uç API yayımlayın.
 
 2. **Geliştirici portalı**'nı seçin.
 

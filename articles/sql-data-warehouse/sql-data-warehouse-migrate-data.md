@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: a09037f2e33d87446696dd11477c4e8b45af4187
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11d41f9839456020ab65f11661c21f1e679cd76f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474182"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770661"
 ---
 # <a name="migrate-your-data"></a>Verilerinizi geçirme
 Farklı kaynaktaki verileri çeşitli araçlarla, SQL veri ambarı'na taşınabilir.  ADF kopyalama, SSIS ve bcp tüm bu hedefe ulaşmak için kullanılabilir. Ancak, veri arttıkça miktarda veri geçiş işlemi adımlara bölmek hakkında düşünmelisiniz. Her adım için performans ve esneklik kesintisiz veri geçişini sağlamak için en iyi duruma getirme olanağı verir.
@@ -29,11 +29,7 @@ Verilerinizi düz dosyaları başlar, sonra Yük başlatmadan önce Azure storag
 
 PolyBase Ayrıca, veri yükleme için yüksek performanslı seçeneği sağlar. Ancak, bir yerine iki araçlarını kullanarak geliyor. En iyi performansa gerek sonra PolyBase kullanma Tek bir araç deneyimi istediğiniz (ve veri çok büyük değilse) sonra ADF aradığınız cevaptır.
 
-
-> 
-> 
-
-Bazı harika [ADF örnekleri] için şu makaleye gidin [ADF örnekleri].
+İzleyin [Bu öğreticide]( /articles/data-factory/load-azure-sql-data-warehouse.md) ADF verileri veri ambarınıza yüklemek için nasıl kullanılacağını öğrenin.
 
 ## <a name="integration-services"></a>Tümleştirme Hizmetleri
 Integration Services (SSIS) karmaşık iş akışları, veri dönüştürme ve birkaç veri yükleme seçeneklerini destekleyen bir güçlü ve esnek ayıklama, dönüştürme ve yükleme (ETL) aracıdır. SSIS yalnızca azure'a ya da daha geniş bir geçişin parçası olarak veri aktarmak için kullanın.
@@ -182,7 +178,7 @@ Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış][devel
 
 <!--Article references-->
 [AzCopy]: ../storage/common/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/copy-activity-overview.md 
+[ADF Copy]: ../data-factory/load-azure-sql-data-warehouse.md 
 [ADF Copy examples]: ../data-factory/quickstart-create-data-factory-dot-net.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [şemanızın geçişini yapın]: sql-data-warehouse-migrate-schema.md

@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321186"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815090"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure'a Hyper-V olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısını çalıştırın
 
 Çalıştırabileceğiniz Site Recovery dağıtım Planlayıcısı komut satırı aracını (ASRDeploymentPlanner.exe) aşağıdaki dört modun herhangi birinde içinde: 
--   [Sanal makine (VM) listesini alma](#get-vm-list-for-profiling-hyper-v-vms)
+-   Sanal makine (VM) listesini alma
 -   [Profil](#profile-hyper-v-vms)
--   [Rapor oluşturma](#generate-report)
+-   Rapor oluşturma
 -   [Aktarım hızı alma](#get-throughput)
 
 Öncelikle, bir veya birden fazla Hyper-V konağından VM’lerin listesini almak için aracı çalıştırın. Ardından VM veri değişim sıklığı ve IOPS toplamak için aracı profil oluşturma modunda çalıştırın. Ardından, ağ bant genişliği ve depolama gereksinimlerini bulmak üzere raporu oluşturmak için aracı çalıştırın.
@@ -74,7 +74,7 @@ Araç, oluşturulan profilin doğru olmasını sağlamak için Hyper-V konağın
 Araç, kümedeki bir düğümden başka bir düğüme VM geçişini ve bir konak içindeki depolama geçişini sorunsuz bir şekilde işler.
 
 ### <a name="getting-the-vm-list-to-profile"></a>Profili oluşturulacak VM listesini alma
-Profili oluşturulacak VM’lerin listesini oluşturmak için [GetVMList](#get-vm-list-for-profiling-hyper-v-vms) işlemine başvurun.
+Bir profili VM'lerin listesini oluşturmak için GetVMList işleminin bakın.
 
 Profili oluşturulacak sanal makinelerin listesini oluşturduktan sonra, aracı profil oluşturma modunda çalıştırabilirsiniz. 
 

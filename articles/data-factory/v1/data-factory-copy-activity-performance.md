@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331664"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812098"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
 
@@ -176,7 +176,7 @@ Dikkat edilecek noktalar:
 >
 >
 
-Bu iki özellik daha iyi kullanmak ve veri taşıma aktarım hızınızı geliştirmek için bkz: [örnek kullanım durumları](#case-study-use-parallel-copy). Yapılandırmanız gerekmez **parallelCopies** varsayılan davranışı yararlanmak için. Yapılandırırsanız ve **parallelCopies** birden çok bulut DMUs değil tamamı kullanılana çok küçük.
+Bu iki özellik daha iyi kullanmak üzere ve veri taşıma aktarım hızınızı geliştirmek için kullanım örneği bakın. Yapılandırmanız gerekmez **parallelCopies** varsayılan davranışı yararlanmak için. Yapılandırırsanız ve **parallelCopies** birden çok bulut DMUs değil tamamı kullanılana çok küçük.
 
 ### <a name="billing-impact"></a>Faturalama etkisi
 Sahip **önemli** tabanlı kopyalama işlemi toplam zamanında ücretlendirilir unutmayın. Bir kopyalama işi bir saat bir bulut birimiyle almak için kullanılan ve artık bu dört bulut birimiyle 15 dakika sürer, toplam fatura neredeyse aynı kalır. Örneğin, dört bulut birimi kullanın. Birinci bulut biriminin 10 dakika, ikinci bir geçirdiği 10 dakika, üçüncü bir, 5 dakika ve dördüncü 5 dakikada bir, her bir kopyalama etkinliği çalıştırma. 10 + 10 + 5 + 5 = 30 dakika toplam kopyalama (veri hareketi) süresi için ücretlendirilir. Kullanarak **parallelCopies** faturalama etkisi yoktur.
@@ -297,7 +297,7 @@ Blob depolamadan SQL veri ambarı'na veri kopyalama kullanmayı **PolyBase** per
 
 * **Veri modelini**: Tablo şemanızı kopyalama aktarım hızını etkiler. Büyük satır boyutu, küçük satır boyutu, aynı miktarda veri kopyalamak için daha iyi bir performans sunar. Veritabanı daha az satır içeren veri daha az toplu işler daha verimli bir şekilde alabilirsiniz nedenidir.
 * **Sorgu veya saklı yordam**: Sorgu veya saklı yordam verileri daha verimli bir şekilde getirmek için kopyalama etkinliği kaynak belirttiğiniz mantığını iyileştirin.
-* İçin **şirket içi ilişkisel veritabanlarını**, SQL Server ve kullanımını gerektiren, Oracle gibi **veri yönetimi ağ geçidi**, bkz: [veri yönetimi ağ geçididikkatealınacaknoktalar](#considerations-on-data-management-gateway) bölümü.
+* İçin **şirket içi ilişkisel veritabanlarını**, SQL Server ve kullanımını gerektiren, Oracle gibi **veri yönetimi ağ geçidi**, veri yönetimi ağ geçidi bölümüne dikkat edilecek noktalara bakın.
 
 ## <a name="considerations-for-the-sink"></a>Havuz için dikkat edilmesi gerekenler
 ### <a name="general"></a>Genel
@@ -418,7 +418,7 @@ Bu durumda, bzıp2 veri sıkıştırma tüm işlem hattını yavaşlatmasını. 
 Performans izleme ve desteklenen veri depolarının bazılarını başvuruları ayarlama şunlardır:
 
 * Azure Storage (Blob Depolama ve tablo depolama gibi): [Azure depolama ölçeklenebilirlik hedefleri](../../storage/common/storage-scalability-targets.md) ve [Azure depolama performansı ve ölçeklenebilirlik denetim listesi](../../storage/common/storage-performance-checklist.md)
-* Azure SQL veritabanı: Yapabilecekleriniz [performansını izleme](../../sql-database/sql-database-single-database-monitor.md) ve veritabanı işlem birimi (DTU) yüzde denetleyin
+* Azure SQL Veritabanı: Yapabilecekleriniz [performansını izleme](../../sql-database/sql-database-single-database-monitor.md) ve veritabanı işlem birimi (DTU) yüzde denetleyin
 * Azure SQL veri ambarı: Kendi özellik veri ambarı birimi (Dwu) ölçülür bkz: [Yönet işlem gücünü Azure SQL veri ambarı (Genel)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Azure Cosmos DB'de performans düzeyleri](../../cosmos-db/performance-levels.md)
 * Şirket içi SQL Server: [İzleme ve performansı ayarlama](https://msdn.microsoft.com/library/ms189081.aspx)

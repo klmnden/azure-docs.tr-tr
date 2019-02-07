@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 13e00acaf287a9e153aaa8e5ce7d630f8d198f02
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a7789f9a3f3da46305a9d8cd7cda24019658f2ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330424"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811497"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı ve veri kopyalamak
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -78,7 +78,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam
 
 TypeProperties bölümünün her tür veri kümesi için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. **TypeProperties** türü için veri kümesi bölümünü **AzureSqlTable** aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | tableName |Tablo veya Görünüm bağlı hizmeti Azure SQL veritabanı örneğinde başvurduğu adı. |Evet |
 
@@ -95,7 +95,7 @@ Bir Azure SQL veritabanı'ndan veri taşıyorsanız, kaynak türü için kopyala
 ### <a name="sqlsource"></a>SqlSource
 Kopya etkinlikteki kaynak türünde olduğunda **SqlSource**, aşağıdaki özellikler kullanılabilir **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örnek: `select * from MyTable`. |Hayır |
 | sqlReaderStoredProcedureName |Kaynak tablo verilerini okuyan saklı yordamın adı. |Saklı yordamın adı. Son SQL deyim bir SELECT deyimi saklı yordam içinde olmalıdır. |Hayır |
@@ -145,7 +145,7 @@ GO
 ### <a name="sqlsink"></a>SqlSink
 **SqlSink** aşağıdaki özellikleri destekler:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |Zaman aralığı<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
@@ -199,7 +199,7 @@ Aynı aşağıdaki Data Factory varlıkları tanımlar:
   }
 }
 ```
-Bkz: [Azure SQL bağlı hizmeti](#linked-service) bu bağlı hizmeti tarafından desteklenen özellikler bölümünü listesi.
+Bu bağlı hizmeti tarafından desteklenen özelliklerin listesi için Azure SQL bağlı hizmeti bölümüne bakın.
 
 **Azure Blob Depolama bağlı hizmeti:**
 
@@ -248,7 +248,7 @@ Bkz: [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-serv
 }
 ```
 
-Bkz: [Azure SQL veri kümesi türü özellikleri](#dataset) bu veri kümesi türü tarafından desteklenen özellikler bölümünü listesi.
+Azure SQL veri kümesi türü özellikler bölümü listesi için bu veri kümesi türü tarafından desteklenen özelliklerin bakın.
 
 **Azure Blob çıktı veri kümesi:**
 
@@ -391,7 +391,7 @@ Zaman serisi, Azure SQL tablosuna (saatlik, günlük, vb.) verileri Azure blob �
   }
 }
 ```
-Bkz: [Azure SQL bağlı hizmeti](#linked-service) bu bağlı hizmeti tarafından desteklenen özellikler bölümünü listesi.
+Bu bağlı hizmeti tarafından desteklenen özelliklerin listesi için Azure SQL bağlı hizmeti bölümüne bakın.
 
 **Azure Blob Depolama bağlı hizmeti:**
 
@@ -499,7 +499,7 @@ Bkz: [Azure Blob veri kümesi türü özellikleri](data-factory-azure-blob-conne
   }
 }
 ```
-Bkz: [Azure SQL veri kümesi türü özellikleri](#dataset) bu veri kümesi türü tarafından desteklenen özellikler bölümünü listesi.
+Azure SQL veri kümesi türü özellikler bölümü listesi için bu veri kümesi türü tarafından desteklenen özelliklerin bakın.
 
 **Blob kaynağı ve SQL ile bir işlem hattındaki kopyalama etkinliği havuzu:**
 
