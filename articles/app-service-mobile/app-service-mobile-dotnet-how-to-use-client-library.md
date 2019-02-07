@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: fb9725e18c53e9d42ae51418a1eb614aaa10fd12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157337"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816790"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps için yönetilen istemci kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -103,7 +103,7 @@ Aşağıdaki bölümde, arama ve kayıtlarını almak ve tablo içindeki veriler
 * [Bir kayıt kimliğine göre arayın](#lookingup)
 * [Yazılmamış sorgularla ilgilenme](#untypedqueries)
 * [Veri ekleme](#inserting)
-* [Verileri güncelleştirme](#updating)
+* Verileri güncelleştirme
 * [Verileri silme](#deleting)
 * [Çakışma çözümü ve iyimser eşzamanlılık](#optimisticconcurrency)
 * [Bir Windows kullanıcı arabirimine bağlama](#binding)
@@ -902,7 +902,7 @@ private async void InitNotificationsAsync()
 WNS'ye zorlayan sonra yapmanız gerekenler [Microsoft Store paket SID'si elde](#package-sid).  Şablon kayıtlar için nasıl dahil olmak üzere Windows uygulamaları hakkında daha fazla bilgi için bkz: [Uygulamanıza anında iletme bildirimleri ekleme].
 
 İstemciden etiketleri isteyen desteklenmiyor.  Etiket istekleri sessizce kaydından bırakılır.
-Etiketlerle cihazını kaydetmek istiyorsanız, kayıt sizin adınıza gerçekleştirmesi için bildirim hub'ları API kullanan özel API oluşturun.  [Özel API çağrısı](#customapi) yerine `RegisterNativeAsync()` yöntemi.
+Etiketlerle cihazını kaydetmek istiyorsanız, kayıt sizin adınıza gerçekleştirmesi için bildirim hub'ları API kullanan özel API oluşturun.  Özel API yerine çağırma `RegisterNativeAsync()` yöntemi.
 
 ### <a name="package-sid"></a>Nasıl Yapılır: Microsoft Store paket SID'si alın
 Paket SID'si Microsoft Store uygulamalarında anında iletme bildirimleri etkinleştirmek için gereklidir.  Paket SID'si almak için Microsoft Store ile kaydedin.

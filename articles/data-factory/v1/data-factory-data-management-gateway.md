@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 101385b23d8ea683dc5762d491e6a4bef91bbed4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022317"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813781"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -246,7 +246,7 @@ Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, bağlantı noktası 80
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Ağ geçidi makinesinde 8050 bağlantı noktası açık değil kullanmayı tercih ederseniz kullanarak dışında mekanizmaları kullanma **kimlik bilgilerini ayarlama** uygulama veri deposu kimlik bilgilerini yapılandırmak için. Örneğin, kullanabileceğinizi [yeni AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell cmdlet'i. Bkz: [kimlik bilgilerini ayarlama ve güvenlik](#set-credentials-and-securityy) nasıl veri kimlik bilgilerini saklamak bölümü ayarlanabilir.
+Ağ geçidi makinesinde 8050 bağlantı noktası açık değil kullanmayı tercih ederseniz kullanarak dışında mekanizmaları kullanma **kimlik bilgilerini ayarlama** uygulama veri deposu kimlik bilgilerini yapılandırmak için. Örneğin, kullanabileceğinizi [yeni AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell cmdlet'i. Bkz. nasıl veri kimlik bilgilerini depolama kimlik bilgilerini ayarlama ve güvenlik bölümü ayarlanabilir.
 
 ## <a name="update"></a>Güncelleştirme
 Varsayılan olarak, veri yönetimi ağ geçidi, ağ geçidini daha yeni bir sürümü kullanılabilir olduğunda otomatik olarak güncelleştirilir. Ağ geçidi, tüm zamanlanmış görevlerin tümü tamamlanıncaya kadar güncelleştirilmez. Güncelleştirme işlemi tamamlanana kadar başka bir görev ağ geçidi tarafından işlenir. Güncelleştirme başarısız olursa, ağ geçidi eski sürüme geri alınır.
@@ -381,7 +381,7 @@ Durum  | Yorumlar/senaryoları
 Çevrimdışı | Düğümü çevrimdışı durumda.
 Yükseltiliyor | Düğüm, otomatik olarak güncelleştirilir.
 Sınırlı | Bağlantı sorunundan kaynaklanıyor. HTTP bağlantı noktası 8050 sorunu, service bus bağlantı sorunu veya kimlik bilgileri eşitleme sorunu nedeniyle olabilir. 
-Devre dışı | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
+Etkin Değil | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
 
 
 Aşağıdaki tabloda, olası durumlar sağlayan bir **mantıksal ağ geçidi**. Ağ geçidi durumu, ağ geçidi düğümleri durumlar üzerinde bağlıdır. 

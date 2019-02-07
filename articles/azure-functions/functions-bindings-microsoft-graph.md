@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793997"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822638"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure işlevleri için Microsoft Graph bağlamaları
 
@@ -524,7 +524,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
 |Kaynak|İzin|
 |--------|--------|
-|Microsoft Graph|Kullanıcı dosyalarına tam erişim elde edin|
+|Microsoft Graph|Kullanıcı dosyalarına tam erişim sağlama|
 
 Bağlama .NET işlevlerine aşağıdaki türlerini sunar:
 - string[][]
@@ -813,7 +813,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
 |Kaynak|İzin|
 |--------|--------|
-|Microsoft Graph|Kullanıcı dosyalarına tam erişim elde edin|
+|Microsoft Graph|Kullanıcı dosyalarına tam erişim sağlama|
 
 Bağlama .NET işlevlerine aşağıdaki türlerini sunar:
 - bayt]
@@ -1251,7 +1251,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 ### <a name="webhook-input---usage"></a>Web kancası giriş - kullanım
 
 Bağlama .NET işlevlerine aşağıdaki türlerini sunar:
-- String]
+- string[]
 - Özel bir nesne türü diziler
 - Newtonsoft.Json.Linq.JObject]
 - Microsoft.Graph.Subscription]
@@ -1421,7 +1421,7 @@ Bu bölümde bu yaklaşımların her için bir örnek içerir:
 Dile özgü örneğe bakın:
 
 * [C# betiği (.csx)](#app-identity-refresh---c-script-example)
-* [JavaScript](#app-identity-refresh---javascript-example)
+* JavaScript
 
 ### <a name="app-identity-refresh---c-script-example"></a>Uygulama kimliğini yenileme - C# betiği örneği
 

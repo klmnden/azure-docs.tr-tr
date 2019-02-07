@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5b72bd45299f636a208ab39be5b7eaade2730183
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095711"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814029"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Hızlı Başlangıç: Web API (Önizleme) kullanıma sunmak için uygulama yapılandırma
 
@@ -116,7 +116,7 @@ Uygulama bildirimi aracılığıyla yeni bir kapsamı kullanıma sunmak için:
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Web API'sinin diğer uygulamaların kullanımına sunulduğunu doğrulama
 
 1. Azure AD kiracınıza geri dönün, **Uygulama kayıtları**'nı seçin ve yapılandırmak istediğiniz istemci uygulamasını seçin.
-1. [Bir istemci uygulamasını web API'lerine erişecek şekilde yapılandırma](#configure-a-client-application-to-access-web-apis) bölümünde belirtilen adımları tekrarlayın.
+1. Adımları bir istemci uygulamanın web API'lerine erişimi Yapılandır özetlenen yineleyin.
 1. **Bir API seçin** adımına geldiğinizde, kaynağınızı seçin. İstemci izin istekleri için kullanılabilir durumdaki yeni kapsamı görmeniz gerekir.
 
 ## <a name="more-on-the-application-manifest"></a>Uygulama bildirimi hakkında daha fazla bilgi
