@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3b5425bd9f86bce289cc1f60c088febfd8f05ee3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 8731857d133e60cad4ecdca21874916949e05ff3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332634"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813526"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Data factory'yi kullanarak Data Lake depolama Gen1 gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +70,7 @@ Aşağıdaki bölümler, Data Lake Store için belirli Data Factory varlıkları
 ## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 Bağlı hizmet, bir veri deposuna bir veri fabrikasına bağlar. Bağlı hizmet türü oluşturma **birlikte AzureDataLakeStore** Data Lake Store verilerinizi veri fabrikanıza bağlamak için. Aşağıdaki tabloda Data Lake Store bağlı hizmetler için özel JSON öğeleri açıklar. Hizmet sorumlusu ve kullanıcı kimlik bilgileri doğrulaması arasında seçim yapabilirsiniz.
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | **type** | Type özelliği ayarlanmalıdır **birlikte AzureDataLakeStore**. | Evet |
 | **dataLakeStoreUri** | Azure Data Lake Store hesabı hakkında bilgi. Bu bilgiler aşağıdaki biçimlerden birini alır: `https://[accountname].azuredatalakestore.net/webhdfs/v1` veya `adl://[accountname].azuredatalakestore.net/`. | Evet |
@@ -91,7 +91,7 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için Azure Active Directory (Az
 
 Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Uygulamanın istemci kimliği belirtin. | Evet |
 | **serviceprincipalkey değerleri** | Uygulama anahtarını belirtin. | Evet |
@@ -118,7 +118,7 @@ Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kull
 ### <a name="user-credential-authentication"></a>Kullanıcı kimlik bilgileri doğrulaması
 Alternatif olarak, aşağıdaki özellikleri belirterek ya da Data Lake Store için kopyalamak için kullanıcı kimlik bilgilerinin kullanabilirsiniz:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | **Yetkilendirme** | Tıklayın **Authorize** düğmesini Data Factory Düzenleyicisi'nde ve bu özelliği otomatik olarak oluşturulan yetkilendirme URL'si atar kimlik bilgilerinizi girin. | Evet |
 | **sessionId** | OAuth yetkilendirme oturumundan OAuth oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Bu ayar, Data Factory Düzenleyicisi'ni kullandığınızda otomatik olarak oluşturulur. | Evet |
@@ -237,11 +237,11 @@ Bir Data Lake Store, girdi verilerini temsil eden bir veri kümesi belirtmek iç
 
 **TypeProperties** türü için bir veri kümesi bölümünü **birlikte AzureDataLakeStore** aşağıdaki özellikleri içerir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | **folderPath** |Kapsayıcı ve Data Lake Store klasörü yolu. |Evet |
-| **Dosya adı** |Azure Data Lake Store dosya adı. **FileName** özelliği isteğe bağlıdır ve büyük küçük harfe duyarlı. <br/><br/>Belirtirseniz **fileName**, etkinlik (kopyalama dahil) belirli bir dosya üzerinde çalışır.<br/><br/>Zaman **fileName** belirtilmezse, tüm dosyalarda kopyalama içerir **folderPath** giriş veri kümesinde.<br/><br/>Zaman **fileName** için bir çıktı veri kümesi belirtilmedi ve **preserveHierarchy** belirtilmezse etkinlik havuzunda oluşturulan dosya adıdır veri biçiminde. _GUID_.txt'. Örneğin: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Hayır |
-| **partitionedBy** |**PartitionedBy** özelliği, isteğe bağlıdır. Bir dinamik yol ve dosya adı için zaman serisi verilerini belirtmek için kullanabilirsiniz. Örneğin, **folderPath** veri her saat için parametreli olabilir. Ayrıntılar ve örnekler için bkz. [partitionedBy özelliği](#using-partitionedby-property). |Hayır |
+| **Dosya adı** |Azure Data Lake Store dosya adı. **FileName** özelliği isteğe bağlıdır ve büyük küçük harfe duyarlı. <br/><br/>Belirtirseniz **fileName**, etkinlik (kopyalama dahil) belirli bir dosya üzerinde çalışır.<br/><br/>Zaman **fileName** belirtilmezse, tüm dosyalarda kopyalama içerir **folderPath** giriş veri kümesinde.<br/><br/>Zaman **fileName** için bir çıktı veri kümesi belirtilmedi ve **preserveHierarchy** belirtilmezse etkinlik havuzunda oluşturulan dosya adıdır veri biçiminde. _GUID_.txt'. Örneğin: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. | Yok |
+| **partitionedBy** |**PartitionedBy** özelliği, isteğe bağlıdır. Bir dinamik yol ve dosya adı için zaman serisi verilerini belirtmek için kullanabilirsiniz. Örneğin, **folderPath** veri her saat için parametreli olabilir. Ayrıntılar ve örnekler için partitionedBy özelliğine bakın. |Hayır |
 | **Biçim** | Şu biçim türlerini destekler: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ve **ParquetFormat**. Ayarlama **türü** özelliği altında **biçimi** şu değerlerden biri olarak. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [JSON biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi ](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümlerine [Azure Data Factory tarafından desteklenen dosya ve sıkıştırma biçimleri](data-factory-supported-file-and-compression-formats.md) makalesi. <br><br> Dosyaları kopyalamak istiyorsanız "olarak-olan" dosya tabanlı depoları arasında (ikili kopya) atlamak `format` hem girdi ve çıktı veri kümesi tanımları bölümünde. |Hayır |
 | **Sıkıştırma** | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyleri **Optimal** ve **en hızlı**. Daha fazla bilgi için [Azure Data Factory tarafından desteklenen dosya ve sıkıştırma biçimleri](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
@@ -281,13 +281,13 @@ Bulunan özelliklerin **typeProperties** etkinlik bölümünü her etkinlik tür
 
 **Kümesinin kullanılması gerekir** aşağıdaki özellik destekler **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | **özyinelemeli** |Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. |(Varsayılan değer) true, False |Hayır |
 
 **AzureDataLakeStoreSink** şu özelliklerde destekler **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | **copyBehavior** |Kopyalama davranışını belirtir. |<b>PreserveHierarchy</b>: Hedef klasördeki ise dosya hiyerarşisini korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yoluna aynıdır.<br/><br/><b>FlattenHierarchy</b>: Tüm dosyaları kaynak klasörden hedef klasörün ilk düzeyinde oluşturulur. Hedef dosyalar otomatik olarak oluşturulan adları ile oluşturulur.<br/><br/><b>MergeFiles</b>: Tüm dosyaları kaynak klasörden bir dosya birleştirir. Dosya ya da blob adı belirtilirse, birleştirilmiş dosya adı belirtilen adıdır. Aksi takdirde, dosya otomatik olarak oluşturulan addır. |Hayır |
 

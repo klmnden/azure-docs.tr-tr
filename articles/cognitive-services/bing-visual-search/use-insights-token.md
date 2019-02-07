@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6017fc957d511aa21f8e28cf011378e8012123cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b3e948c2eafb43f804b330287b114ef9307b0aac
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151728"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813373"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Bir görüntü ile ilgili öngörüleri almak için bir ınsights belirteci kullanma
 
 Bing Görsel Arama API’si, verdiğiniz bir görüntü hakkında bilgi döndürür. Bir URL veya bir içgörü belirteci kullanarak ya da karşıya resim yükleyerek görüntüyü verebilirsiniz. Bu seçenekler hakkında daha fazla bilgi için bkz: [Bing görsel arama API'si nedir?](overview.md). Bu makalede, bir ınsights belirteci kullanmayı gösterir. Hızlı başlangıçlar, öngörüleri almak için bir resim karşıya gösteren örnekler görmek için ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
 
 
-Görsel Arama'ya resim belirteci veya URL gönderirseniz, POST'un gövdesine eklemeniz gereken form verileri aşağıda gösterilmiştir. Form verileri içerik düzeni üstbilgisini içermelidir ve kendi `name` parametresi, "knowledgeRequest" için ayarlanmış olması gerekir. `imageInfo` nesnesi hakkındaki ayrıntılar için bkz. [İstek](#the-request).
+Görsel Arama'ya resim belirteci veya URL gönderirseniz, POST'un gövdesine eklemeniz gereken form verileri aşağıda gösterilmiştir. Form verileri içerik düzeni üstbilgisini içermelidir ve kendi `name` parametresi, "knowledgeRequest" için ayarlanmış olması gerekir. Hakkındaki ayrıntılar için `imageInfo` nesne, istek bakın.
 
 ```json
 {

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c87b6791ea2d90ed302d796f17727a0338104beb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5339b0c77a69a915e58118888f8b82d095a43e38
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175002"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817800"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitleme sorunlarını giderme
 Bu konu, parola karması eşitleme ile ilgili sorunları gidermek adımlar sağlar. Parolaları eşitlemiyor beklendiği gibi kullanıcıların bir alt kümesine veya tüm kullanıcılar için olabilir.
@@ -237,7 +237,7 @@ Neden hiçbir parola eşitlenmedi belirlemek için aşağıdaki adımları izley
 
 5. Hiçbir sinyal görürseniz veya başka bir şey yaradıysa [tam eşitlemesi tüm parolaların](#trigger-a-full-sync-of-all-passwords). Betik yalnızca bir kez çalıştırın.
 
-6. Bkz: [parolaları eşitlenmeyen bir nesneyle ilgili sorunları giderme](#one-object-is-not-synchronizing-passwords) bölümü.
+6. Parolalar bölümüne eşitlenmeyen sorun giderme bir nesne bakın.
 
 ### <a name="connectivity-problems"></a>Bağlantı sorunları
 
@@ -303,7 +303,7 @@ Ayrıca, bir nesnenin durumlarını gözden geçirerek kolayca parola karması e
 
     ![Nesne günlük ayrıntıları](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    Azure AD Connect, nesne günlük boşsa, Active Directory'den parola karması okunamıyor olmuştur. Sorunlarını giderme devam [bağlantı hataları](#connectivity-errors). Daha başka bir değer görürseniz **başarı**, tabloya başvuran [parola eşitleme günlüğünü](#password-sync-log).
+    Azure AD Connect, nesne günlük boşsa, Active Directory'den parola karması okunamıyor olmuştur. Sorun gidermeyi bağlantı hataları ile devam edin. Daha başka bir değer görürseniz **başarı**, tabloya başvuran [parola eşitleme günlüğünü](#password-sync-log).
 
     h. Seçin **kökenini** sekmesini tıklatıp, en az bir eşitleme kuralı olduğundan emin olun **PasswordSync** sütun **True**. Varsayılan yapılandırmasında eşitleme kuralının adıdır. **içinde ad - kullanıcı AccountEnabled**.  
 

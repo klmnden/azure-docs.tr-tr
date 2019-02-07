@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2bb5550cfe07064d595151305955d87f9c61050
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208151"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819544"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Bilgi Keşfetme Hizmeti'ni kullanmaya başlama
 
@@ -100,7 +100,7 @@ Bir şema dosyanız ve veri dosyanız olduktan sonra, [`kes.exe build_index`](Co
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-Azure dışında hızla bir prototip oluşturmak için, [`kes.exe build_index`](CommandLine.md#build_index-command) en çok 10.000 nesne içeren veri dosyalarından yerel olarak küçük dizinler oluşturabilir. Daha büyük veri dosyaları için, komutu [Azure'da Windows VM'sinin](../../../articles/virtual-machines/windows/quick-create-portal.md) içinden çalıştırabilir veya Azure'da uzaktan derleme yapabilirsiniz. Ayrıntılar için bkz. [Ölçeklendirme](#scaling-up).
+Azure dışında hızla bir prototip oluşturmak için, [`kes.exe build_index`](CommandLine.md#build_index-command) en çok 10.000 nesne içeren veri dosyalarından yerel olarak küçük dizinler oluşturabilir. Daha büyük veri dosyaları için, komutu [Azure'da Windows VM'sinin](../../../articles/virtual-machines/windows/quick-create-portal.md) içinden çalıştırabilir veya Azure'da uzaktan derleme yapabilirsiniz. Ölçeklendirme yukarı Ayrıntılar için bkz.
 
 ## <a name="use-an-xml-grammar-specification"></a>XML dil bilgisi belirtimi kullanma
 
@@ -211,7 +211,7 @@ Hızlı bir prototip için, [`kes.exe host_service`](CommandLine.md#host_service
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-Bu, web hizmetinin yerel bir örneğini başlatır. Tarayıcıdan `http::localhost:<port>` adresini ziyaret ederek hizmeti etkileşimli olarak test edebilirsiniz. Daha fazla bilgi için bkz. [Test hizmeti](#testing-service).
+Bu, web hizmetinin yerel bir örneğini başlatır. Tarayıcıdan `http::localhost:<port>` adresini ziyaret ederek hizmeti etkileşimli olarak test edebilirsiniz. Hizmeti test etmek daha fazla bilgi için bkz.
 
 Doğal dil yorumunu, sorgu tamamlamayı, yapılandırılmış sorgu gelişimini ve histogram hesaplamasını test etmek için çeşitli [web API'lerini](WebAPI.md) doğrudan çağırmanız da mümkündür. Hizmeti durdurmak için, `kes.exe host_service` komut istemine "quit" girin veya Ctrl+C tuşlarına basın. İşte bazı örnekler:
 
@@ -220,7 +220,7 @@ Doğal dil yorumunu, sorgu tamamlamayı, yapılandırılmış sorgu gelişimini 
 * [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
 * [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-Azure dışında, [`kes.exe host_service`](CommandLine.md#host_service-command) en çok 10.000 nesnenin dizinleriyle sınırlıdır. Diğer sınırlar saniyede 10 istek olan API hızı ve işlem otomatik olarak sonlandırılmadan önce toplam 1000 istek sınırıdır. Bu kısıtlamaları aşmak için, komutu [Azure'da Windows VM'si](../../../articles/virtual-machines/windows/quick-create-portal.md) içinden çalıştırın veya [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) komutunu kullanarak Azure bulut hizmetine dağıtın. Ayrıntılar için bkz. [Hizmeti dağıtma](#deploying-service).
+Azure dışında, [`kes.exe host_service`](CommandLine.md#host_service-command) en çok 10.000 nesnenin dizinleriyle sınırlıdır. Diğer sınırlar saniyede 10 istek olan API hızı ve işlem otomatik olarak sonlandırılmadan önce toplam 1000 istek sınırıdır. Bu kısıtlamaları aşmak için, komutu [Azure'da Windows VM'si](../../../articles/virtual-machines/windows/quick-create-portal.md) içinden çalıştırın veya [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) komutunu kullanarak Azure bulut hizmetine dağıtın. Ayrıntılar için bkz: hizmet dağıtma.
 
 ## <a name="scale-up-to-host-larger-indices"></a>Daha büyük dizinleri barındırmak için ölçeklendirme
 
@@ -262,7 +262,7 @@ Hizmeti dağıttıktan sonra, doğal dil yorumunu, sorgu tamamlamayı, yapıland
 
 ## <a name="test-the-service"></a>Hizmeti test etme
 
-Canlı hizmetin hatalarını ayıklamak için, web tarayıcısından konak makinesine göz atın. [host_service](#hosting-service) yoluyla dağıtılan bir yerel hizmet için `http://localhost:<port>/` adresini ziyaret edin.  [deploy_service](#deploying-service) yoluyla dağıtılan bir Azure bulut hizmeti için `http://<serviceName>.cloudapp.net/` adresini ziyaret edin.
+Canlı hizmetin hatalarını ayıklamak için, web tarayıcısından konak makinesine göz atın. Host_service dağıtılan bir yerel hizmet için ziyaret `http://localhost:<port>/`.  Deploy_service dağıtılan bir Azure bulut hizmeti için ziyaret `http://<serviceName>.cloudapp.net/`.
 
 Bu sayfada hem temel API çağrısı istatistikleri hakkındaki bilgilerin bağlantısı hem de bu hizmette barındırılan dil bilgisi ve dizin yer alır. Bu sayfa ayrıca web API'lerinin kullanımını gösteren etkileşimli bir arama arabirimi de içerir. Arama kutusuna sorguları girin ve [interpret](interpretMethod.md), [evaluate](evaluateMethod.md) ve [calchistogram](calchistogramMethod.md) API çağrılarının sonuçlarına bakın. Bu sayfanın temel HTML kaynağı, zengin, etkileşimli bir arama deneyimi oluşturmak için web API'lerini bir uygulamaya tümleştirme örneği işlevi de görür.
 

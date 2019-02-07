@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382443"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816620"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>İş sürekliliği ve olağanüstü durum kurtarma Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -21,11 +21,11 @@ Azure Kubernetes Service (AKS) kümeleri yönetme gibi uygulama çalışma süre
 İş sürekliliği ve olağanüstü durum kurtarma aks'deki makale yardımcı konularına odaklanır. Bu en iyi planlayın. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-* [Birden çok bölgede AKS kümeleri planlama](#region-planning)
-* [Azure Traffic Manager ile birden fazla küme arasındaki trafiği yönlendirme](#ingress-traffic)
-* [Kapsayıcı görüntü kayıt defterleri için coğrafi çoğaltma kullanma](#container-registry)
-* [Uygulama durumu arasında birden çok kümeleri planlama](#managing-application-state)
-* [Birden çok bölgede depolama çoğaltma](#storage)
+* Birden çok bölgede AKS kümeleri planlama
+* Azure Traffic Manager ile birden fazla küme arasındaki trafiği yönlendirme
+* Kapsayıcı görüntü kayıt defterleri için coğrafi çoğaltma kullanma
+* Uygulama durumu arasında birden çok kümeleri planlama
+* Birden çok bölgede depolama çoğaltma
 
 ## <a name="plan-for-multi-region-deployment"></a>Çok bölgeli dağıtımını planlama
 

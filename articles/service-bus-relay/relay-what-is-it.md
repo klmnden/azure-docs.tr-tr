@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621039"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818048"
 ---
 # <a name="what-is-azure-relay"></a>Azure Geçiş nedir?
 Azure Relay hizmeti, kurumsal ağınızda çalışan hizmetleri güvenli bir şekilde genel buluta açmanızı sağlar. Güvenlik duvarınızda bir bağlantı noktası açma veya, kurumsal ağ altyapısına müdahale eden değişiklikler olmadan bunu yapabilirsiniz. 
@@ -44,7 +44,7 @@ Geçişli veri aktarımı desenindeki temel adımlar şunlardır:
 Azure Geçiş iki özelliğe sahiptir:
 
 - [Karma Bağlantılar](#hybrid-connections) - Çok platformlu senaryoları etkinleştiren açık standart web yuvalarını kullanır.
-- [WCF Geçişleri](#wcf-relays) - Windows Communication Foundation’ı (WCF) kullanarak uzak yordam çağrılarını etkinleştirir. WCF Geçişi, birçok müşterinin WCF programlama modelleriyle kullanmakta olduğu eski geçiş teklifidir.
+- WCF geçişleri - uzak yordam çağrılarını etkinleştirmek için Windows Communication Foundation (WCF) kullanır. WCF Geçişi, birçok müşterinin WCF programlama modelleriyle kullanmakta olduğu eski geçiş teklifidir.
 
 ## <a name="hybrid-connections"></a>Karma Bağlantılar
 

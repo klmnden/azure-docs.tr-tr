@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 9ebfb01071257c8879531c1879b6f8b3ba4493ef
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198907"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822502"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI ile anahtar Kasası'nı yönetme 
 
@@ -247,7 +247,7 @@ Key Vault için şablon dağıtımı etkinleştir: Gizli dizileri kasadan almak 
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Donanım güvenlik modülleri (HSM'ler) ile çalışma
 
-Ek güvence için HSM sınırını asla terk donanım güvenlik modülleri (HSM'ler) anahtarları oluşturmak veya içeri aktarma kullanabilirsiniz. HSM'ler, FIPS 140-2 Düzey 2 doğrulanmasına sahiptir. Bu gereksinim sizin için geçerli değilse bu bölümü atlayın ve [Anahtar kasasını ve ilişkili anahtarları ve gizli anahtarları silme](#delete-the-key-vault-and-associated-keys-and-secrets)'ye gidin.
+Ek güvence için HSM sınırını asla terk donanım güvenlik modülleri (HSM'ler) anahtarları oluşturmak veya içeri aktarma kullanabilirsiniz. HSM'ler, FIPS 140-2 Düzey 2 doğrulanmasına sahiptir. Bu gereksinim için geçerli değilse bu bölümü atlayın ve anahtar kasasını ve ilişkili anahtarları ve gizli anahtarları silme gidin.
 
 Bu HSM korumalı anahtarları oluşturmak için HSM korumalı anahtarları destekleyen bir kasa aboneliğinizin olması gerekir.
 

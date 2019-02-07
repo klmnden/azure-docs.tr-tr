@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470544"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809533"
 ---
 # <a name="design-for-data-modification"></a>Veri değişikliği için tasarım
-Bu makalede, ekleme, güncelleştirme iyileştirmek için tasarım konuları üzerinde odaklanır ve siler. Bazı durumlarda (Tasarım stillerden yönetme teknikleri olmasına rağmen tasarımlarında ilişkisel veritabanları için yaptığınız gibi veri değişikliği için en iyi duruma getirme tasarımları karşı sorgulama için en iyi duruma getirme tasarımları arasındaki dengeyi değerlendirin gerekir farklı ilişkisel bir veritabanındaki). Bölüm [tablo Tasarım desenleri](#table-design-patterns) tablo hizmeti için bazı ayrıntılı tasarım desenleri açıklar ve bazı bu stillerden vurgular. Uygulamada, varlıklar da değiştirmek için birçok tasarım varlıkları sorgulama için en iyi duruma getirilmiş ayrıca iş bulabilirsiniz.  
+Bu makalede, ekleme, güncelleştirme iyileştirmek için tasarım konuları üzerinde odaklanır ve siler. Bazı durumlarda (Tasarım stillerden yönetme teknikleri olmasına rağmen tasarımlarında ilişkisel veritabanları için yaptığınız gibi veri değişikliği için en iyi duruma getirme tasarımları karşı sorgulama için en iyi duruma getirme tasarımları arasındaki dengeyi değerlendirin gerekir farklı ilişkisel bir veritabanındaki). Bölüm tablosu tasarım desenleri, tablo hizmeti için bazı ayrıntılı tasarım desenleri açıklar ve bazı bu stillerden vurgular. Uygulamada, varlıklar da değiştirmek için birçok tasarım varlıkları sorgulama için en iyi duruma getirilmiş ayrıca iş bulabilirsiniz.  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Ekleme, güncelleştirme ve silme işlemlerinin performansını en iyi duruma getirme
 Bir varlığı silme ve güncelleştirmek için kullanarak tanımlayamayabilir olmalıdır **PartitionKey** ve **RowKey** değerleri. Tercih ettiğiniz bu açısından **PartitionKey** ve **RowKey** varlıkları değiştirme benzer ölçütleri için varlıklar olarak tanımlamak istediğiniz çünkü noktası sorguları desteklemek için tercih ettiğiniz izlemelisiniz için mümkün olduğunca verimli şekilde. Bulmak için bir varlık bulmaya verimsiz bir bölüm veya tablo taraması kullanmak istemediğiniz **PartitionKey** ve **RowKey** güncelleştirmek veya silmek için gereken değerleri.  
 
-Bölümüne şu desenlerden [tablo Tasarım desenleri](#table-design-patterns) adres iyileştirme performans veya ekleme, güncelleştirme ve silme işlemleri:  
+Performans veya, ekleme, en iyi duruma getirme tablo Tasarım desenleri adresi bölümünde aşağıdaki desenleri, güncelleştirme ve silme işlemleri:  
 
 * [Yüksek hacimli düzeni Sil](table-storage-design-patterns.md#high-volume-delete-pattern) -tablo silerek varlıklarını silme; eşzamanlı silinmesi için tüm varlıkları kendi ayrı bir tabloda depolayarak yüksek hacimli varlıkları silinmesini etkinleştirme.  
 * [Veri serisi deseni](table-storage-design-patterns.md#data-series-pattern) -Store eksiksiz bir veri serisinde yaptığınız istek sayısını en aza indirmek için tek bir varlık.  

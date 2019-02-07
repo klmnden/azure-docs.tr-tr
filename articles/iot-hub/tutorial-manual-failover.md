@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f0e8bf922f142b795dd1a2ded4b3ec265c43481a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
-ms.translationtype: HT
+ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39250058"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821295"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Öğretici: Bir IoT hub'ı için elle yük devretme gerçekleştirme (genel önizleme)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Öğretici: El ile yük devretme gerçekleştirmek için IOT hub (genel Önizleme)
 
 Elle yük devretme, müşterilerin hub işlemleri için birincil bölgeden coğrafi olarak eşleştirilen ilgili Azure coğrafi eşleme bölgesine [yük devretme](https://en.wikipedia.org/wiki/Failover) gerçekleştirmesini sağlayan bir IoT Hub hizmeti özelliğidir. Elle yük devretme, bölgesel olağanüstü durum veya uzun süreli hizmet kesintisi durumunda gerçekleştirilebilir. Ayrıca sisteminizin olağanüstü durum kurtarma özelliklerini test etmek için de planlı bir yük devretme gerçekleştirebilirsiniz. Bunun için üretim ortamı yerine test amaçlı bir IoT hub kullanmanız önerilir. Elle yük devretme özelliği, müşterilere ek maliyet olmadan sunulur.
 
@@ -29,7 +29,7 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştireceksiniz:
 > * IoT hub'ın işlemlerini birincil konuma geri almak için yeniden çalışma gerçekleştirin. 
 > * Hub'ın doğru konumda düzgün biçimde çalıştığını onaylayın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -50,7 +50,7 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştireceksiniz:
     **Bölge**: Önizleme kapsamındaki bölgelerden size yakın olanı seçin. Bu öğreticide `westus2` kullanılır. Yük devretme yalnızca coğrafi olarak eşleştirilmiş Azure bölgeleri arasında gerçekleştirilebilir. westus2 ile coğrafi olarak eşleştirilmiş bölge WestCentralUS bölgesidir.
     
    > [!NOTE]
-   > Elle yük devretme şu an için genel önizleme aşamasındadır ve şu Azure bölgelerinde *kullanılamaz*: Doğu ABD, Batı ABD, Kuzey Avrupa, Batı Avrupa, Brezilya Güney ve Orta Güney ABD.
+   > El ile yük devretme şu anda genel Önizleme aşamasındadır ve ise *değil* Azure şu bölgelerde kullanılabilir: Doğu ABD, Batı ABD, Kuzey Avrupa, Batı Avrupa, Güney Brezilya ve Güney Orta ABD.
 
    **IoT Hub'ı Adı**: IoT hub'ınıza bir ad verin. Hub adının genel olarak benzersiz olması gerekir. 
 
@@ -112,7 +112,7 @@ Yeniden çalışma işlemi, elle yük devretme işlemiyle aynı şekilde gerçek
 
    ![Elle yeniden çalışma isteğinin ekran görüntüsü](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   Görüntülenen başlıklar [yük devretme gerçekleştirme](#perform-a-failover) bölümünde anlatılanlarla aynıdır. Yeniden çalışma tamamlandıktan sonra birincil konum olarak `westus2`, ikincil konum olarak da `WestCentralUS` özgün değerleri gösterilir.
+   Başlıklar, gerçekleştirme yük devretme bölümünde açıklandığı gibi görüntülenir. Yeniden çalışma tamamlandıktan sonra birincil konum olarak `westus2`, ikincil konum olarak da `WestCentralUS` özgün değerleri gösterilir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme 
 

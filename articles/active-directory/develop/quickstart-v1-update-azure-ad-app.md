@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 437217bdd3cc2ae8724d6bf24134d8fe725daac7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093317"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819102"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de bir uygulamayı güncelleştirme
 
@@ -156,7 +156,7 @@ Bir uygulamayı Azure AD'ye kaydederken uygulamaya yalnızca kuruluşunuzdaki ku
 Tek kiracılı ve çok kiracılı uygulama arasındaki farkları göz önünde bulundurmak önemlidir:  
 
 - Tek kiracılı bir uygulama tek bir kuruluşta kullanılmak üzere tasarlanmıştır. Genellikle kurumsal bir geliştirici tarafından yazılmış olan iş kolu (LoB) uygulamasıdır. Tek kiracılı uygulamaya yalnızca hesabı uygulama kaydıyla aynı kiracıda bulunan kullanıcılar erişebilir. Sonuç olarak tek bir dizinde sağlanması gerekir.
-- Çok kiracılı bir uygulama birden fazla kuruluşta kullanılmak üzere tasarlanmıştır. Genellikle hizmet olarak yazılım (SaaS) web uygulaması olarak bilinen bu uygulama genellikle bağımsız bir yazılım satıcısı (ISV) tarafından yazılmıştır. Çok kiracılı uygulamaların kullanıcıların erişmesi gereken tüm kiracılarda sağlanması gerekir. Uygulamanın kayıtlı olduğu kiracının dışındaki kiracılarda kayıt için kullanıcı veya yönetici onayı gerekir. Yerel istemci uygulamaları kaynak sahibinin cihazına yüklendiğinden varsayılan olarak çok kiracılı olduğunu unutmayın. Onay çerçevesiyle ilgili ayrıntılar için yukarıdaki [Onay çerçevesine genel bakış](#overview-of-the-consent-framework) bölümünü inceleyin.
+- Çok kiracılı bir uygulama birden fazla kuruluşta kullanılmak üzere tasarlanmıştır. Genellikle hizmet olarak yazılım (SaaS) web uygulaması olarak bilinen bu uygulama genellikle bağımsız bir yazılım satıcısı (ISV) tarafından yazılmıştır. Çok kiracılı uygulamaların kullanıcıların erişmesi gereken tüm kiracılarda sağlanması gerekir. Uygulamanın kayıtlı olduğu kiracının dışındaki kiracılarda kayıt için kullanıcı veya yönetici onayı gerekir. Yerel istemci uygulamaları kaynak sahibinin cihazına yüklendiğinden varsayılan olarak çok kiracılı olduğunu unutmayın. Önceki Ayrıntılar için onay çerçeve bölümü üzerinde onay çerçevesine genel bakış.
 
 Bir uygulamayı çok kiracılı hale getirmek için hem uygulama kaydında hem de web uygulamasının kendisinde değişiklik yapılması gerekir. Aşağıdaki bölümde ikisi de açıklanmıştır.
 
@@ -184,7 +184,7 @@ Siz gerekli değişiklikleri yaptıktan sonra diğer kuruluşlardaki kullanıcı
 Web uygulamanız şu özellikleri de sunabilir:
 
 - Yöneticiler için "şirketimi kaydet" özelliği. "Yönetici onayı" olarak bilinen bu deneyim bir yöneticinin kuruluşundaki *tüm kullanıcılar* adına onay verebilmesini sağlar. Yönetici onayını yalnızca Genel Yönetici rolüne ait olan bir hesapla kimlik doğrulamasından geçen kullanıcılar verebilir. Diğer kullanıcılar bir hatayla karşılaşacaktır.
-- Kullanıcılar için kaydolma deneyimi. Kullanıcıya bir "kaydol" düğmesi sunulması ve bu düğmenin tarayıcıyı Azure AD OAuth2.0 `/authorize` uç noktasına veya OpenID Connect `/userinfo` uç noktasına yönlendirmesi beklenir. Bu uç noktaları, uygulamanın id_token verisini inceleyerek yeni kullanıcı hakkında bilgi edinmesini sağlar. Kayıt işleminin ardından kullanıcıya [Onay çerçevesine genel bakış](#overview-of-the-consent-framework) bölümünde gösterilene benzer bir onay istemi sunulur.
+- Kullanıcılar için kaydolma deneyimi. Kullanıcıya bir "kaydol" düğmesi sunulması ve bu düğmenin tarayıcıyı Azure AD OAuth2.0 `/authorize` uç noktasına veya OpenID Connect `/userinfo` uç noktasına yönlendirmesi beklenir. Bu uç noktaları, uygulamanın id_token verisini inceleyerek yeni kullanıcı hakkında bilgi edinmesini sağlar. Kaydolma aşaması kullanıcı onayı çerçeve bölümü bakış gösterilene benzer bir onay istemi sunulur.
 
 Çok kiracılı erişim ve oturum açma/kaydolma deneyimlerini desteklemek için gerekli uygulama değişiklikleri hakkında daha fazla bilgi için bkz.:
 

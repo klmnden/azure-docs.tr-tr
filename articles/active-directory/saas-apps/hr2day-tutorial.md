@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: bb03506bac22c8c82e856f403710a4908af6f9de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7d77d72264580e4cde83f6cbb9f83bf7030d941e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149264"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Öğretici: Azure Active Directory tarafından Merces HR2day ile tümleştirmesi
 
@@ -88,11 +88,11 @@ Ata tarafından Merces HR2day içinde **kullanıcı adı** için Azure AD'de **k
 
 Yapılandırma ve Azure AD çoklu oturum açma HR2day Merces tarafından ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. [Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on): Bu özelliği kullanmak etkinleştirin.
-1. [Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user): Azure AD çoklu oturum açma Britta Simon ile test edin.
-1. [Merces test kullanıcı tarafından bir HR2day oluşturma](#creating-an-hr2day-by-merces-test-user): Kullanıcı Azure AD gösterimini bağlı Merces tarafından HR2day bir karşılığı Britta simon'un oluşturun.
-1. [Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user): Britta Simon, Azure AD çoklu oturum açmayı kullanmak etkinleştirin.
-1. [Çoklu oturum açmayı test](#testing-single-sign-on): Yapılandırma çalışıp çalışmadığını doğrulayın.
+1. Azure AD çoklu oturum açmayı yapılandırın: Bu özelliği kullanmak etkinleştirin.
+1. Bir Azure AD test kullanıcısı oluşturun: Azure AD çoklu oturum açma Britta Simon ile test edin.
+1. Merces test kullanıcı tarafından bir HR2day oluşturun: Kullanıcı Azure AD gösterimini bağlı Merces tarafından HR2day bir karşılığı Britta simon'un oluşturun.
+1. Azure AD test kullanıcısı atayın: Britta Simon, Azure AD çoklu oturum açmayı kullanmak etkinleştirin.
+1. Çoklu oturum açmayı test edin: Yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 

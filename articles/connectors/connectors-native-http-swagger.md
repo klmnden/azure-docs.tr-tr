@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123181"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817760"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>HTTP + Swagger REST uç noktalarına çağrı Azure Logic Apps Bağlayıcısı
 
@@ -40,7 +40,7 @@ Kullanım HTTP + Swagger işlem bir eylem olarak bir mantıksal uygulama bir iş
 4. Swagger belgesinin URL'sini yazın:
    
    * Mantıksal Uygulama Tasarımcısı'ndan çalışmak için URL bir HTTPS uç noktası olması gerekir ve CORS etkinleştirmesi gerekir.
-   * Swagger belgesinin bu gereksinimi karşılamıyorsa, kullanabileceğiniz [CORS'yi Azure depolamasıyla](#hosting-swagger-from-storage) belge depolamak için.
+   * Swagger belgesinin bu gereksinimi karşılamıyorsa, belge depolamak için CORS'yi etkinleştirerek Azure depolamayı kullanabilirsiniz.
 5. Tıklayın **sonraki** okuyun ve Swagger belgesi işlemek için.
 6. HTTP çağrı için gerekli olan herhangi bir parametre ekleyin.
    
@@ -96,9 +96,9 @@ Bir yıldız işareti (*) gerekli bir alan anlamına gelir.
 | --- | --- | --- |
 | Yöntem * |method |Kullanılacak HTTP fiili. |
 | URI * |uri |HTTP isteği için URI. |
-| Üst bilgiler |headers |HTTP üstbilgileri dahil etmek için bir JSON nesnesi. |
+| Üst bilgiler |Üst bilgileri |HTTP üstbilgileri dahil etmek için bir JSON nesnesi. |
 | Gövde |body |HTTP istek gövdesi. |
-| Kimlik Doğrulaması |kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
+| Authentication |kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
 
 **Çıkış Ayrıntıları**
 

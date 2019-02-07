@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/31/2019
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 5f15a7d7a49724fda56cecd36e92cb40ced59b81
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510502"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769860"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Hızlı Başlangıç: Maliyet Analizi ile maliyetleri analiz
 
@@ -32,7 +32,9 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Maliyet analizi tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşterileri tarafından kullanılabilir. Maliyet verilerini görüntülemek için aşağıdaki kapsamlardan birine veya daha fazlasına en azından yazma erişiminiz olmalıdır. Maliyet Yönetimi verilerine erişim atama hakkında daha fazla bilgi için bkz. [verilerine erişim atama](assign-access-acm-data.md).
+Maliyet analizi, çeşitli Azure hesabı türlerini destekler. Desteklenen bir hesap türleri için tam listesini görüntülemek için bkz: [anlamak maliyet Yönetimi verilerine](understand-cost-mgt-data.md). Maliyet verilerini görüntülemek için bir Azure hesabınız için en azından okuma erişimi gerekir.
+
+İçin [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşteriler, okuma olması gerekir en az bir veya daha fazla maliyet verilerini görüntülemek için aşağıdaki kapsamları erişim.
 
 - Fatura hesabı
 - Bölüm
@@ -40,6 +42,8 @@ Maliyet analizi tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pric
 - Yönetim grubu
 - Abonelik
 - Kaynak grubu
+
+Maliyet Yönetimi verilerine erişim atama hakkında daha fazla bilgi için bkz. [verilerine erişim atama](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

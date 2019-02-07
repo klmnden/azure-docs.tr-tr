@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458258"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815753"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -54,7 +54,7 @@ Bu senaryonun doğru çalışması için üç önemli gereksinimi vardır:
 - BGP yolları öğrenir gibi hiçbir UDR Azure güvenlik duvarı alt ağda gereklidir.
 - VNet-Hub'ı VNet-Spoke'a eşlerken **AllowGatewayTransit** ayarladığınızdan ve VNet-Spoke'u VNet-Hub'a eşlerken de **UseRemoteGateways** ayarladığınızdan emin olun.
 
-Bu yolların nasıl oluşturulduğunu görmek için [Yolları Oluşturma](#create-routes) bölümüne bakın.
+Bu yolları nasıl oluşturulduğunu görmek için Bu öğreticide yollar oluşturma bölümüne bakın.
 
 >[!NOTE]
 >Azure güvenlik duvarı, doğrudan internet bağlantısı olması gerekir. Şirket içi ExpressRoute veya uygulama ağ geçidi aracılığıyla zorlamalı tünel etkinleştirdiyseniz, UDR 0.0.0.0/0 ile yapılandırmanız gerekiyor **NextHopType** değer kümesini olarak **Internet**, için atayın **AzureFirewallSubnet**.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b216d8a8a2c6e1ab7c7b71eedfca9cbd6dbd5cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23d745e084bf3439d8400b0cd6ac43bac75c7751
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197356"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Öğretici: RFPIO ile Azure Active Directory Tümleştirme
 
@@ -88,11 +88,11 @@ RFPIO içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kul
 
 Yapılandırma ve Azure AD çoklu oturum açma RFPIO ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configuring-azure-ad-single-sign-on)**--bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**--Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[RFPIO test kullanıcısı oluşturma](#creating-a-rfpio-test-user)**  --bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı RFPIO sağlamak için.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**--Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  --yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **Azure AD çoklu oturum açmayı yapılandırmayı**--bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **Bir Azure AD test kullanıcısı oluşturma**--Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **RFPIO test kullanıcısı oluşturma** --bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı RFPIO sağlamak için.
+1. **Azure AD test kullanıcı atama**--Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+1. **Çoklu oturum açmayı test** --yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 

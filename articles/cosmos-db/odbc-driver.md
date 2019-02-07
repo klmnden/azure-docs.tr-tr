@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034481"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816637"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC sürücüsü ile BI analizi araçları kullanarak Azure Cosmos DB'ye bağlanma
 
@@ -71,8 +71,8 @@ ODBC sürücüsü ile başlayalım.
     - **Yeniden deneme sayısı**: İlk istek, hizmet hız sınırlaması nedeniyle tamamlanmazsa, bir işlemin yeniden deneme sayısını girin.
     - **Şema dosyası**: Burada bir dizi seçeneğiniz vardır.
         - Bu giriş (boş) olduğu gibi bırakarak varsayılan olarak, her koleksiyonun şema belirlemek tüm koleksiyonlar için veriler'ın ilk sayfasında sürücü tarar. Bu işlem, koleksiyon eşlemesi bilinir. Tanımlı bir şema dosyası olmadan sürücü her bir sürücü oturumu için tarama yapması ve uygulamanın DSN daha yüksek başlangıç saati, neden olabilir. Bir şema dosyası her zaman için DSN ilişkilendirmenizi öneririz.
-        - Bir şema dosyası zaten varsa (kullanılarak oluşturulan bir olasılıkla [şema Düzenleyicisi](#schema-editor)), tıklayabilirsiniz **Gözat**, dosyaya gidin, tıklayın **Kaydet**ve ardından **Tamam**.
-        - Yeni bir şema oluşturmak istiyorsanız, tıklayın **Tamam**ve ardından **şema Düzenleyicisi** ana penceresinde. Daha sonra devam [şema Düzenleyicisi](#schema-editor) bilgileri. Yeni şema dosyası oluşturduktan sonra geri dönüp unutmayın **Gelişmiş Seçenekler** penceresi, yeni oluşturulan şema dosyası eklenecek.
+        - Bir şema dosyası (büyük olasılıkla bir şema Düzenleyicisi'ni kullanarak oluşturduğunuz) zaten varsa, tıklayabilirsiniz **Gözat**, dosyaya gidin, tıklayın **Kaydet**ve ardından **Tamam**.
+        - Yeni bir şema oluşturmak istiyorsanız, tıklayın **Tamam**ve ardından **şema Düzenleyicisi** ana penceresinde. Şema Düzenleyicisi bilgilerin devam edin. Yeni şema dosyası oluşturduktan sonra geri dönüp unutmayın **Gelişmiş Seçenekler** penceresi, yeni oluşturulan şema dosyası eklenecek.
 
 1. Tamamlayıp kapatmak sonra **Azure Cosmos DB ODBC sürücü DSN Kurulumu** penceresi, yeni kullanıcı DSN'si Kullanıcı DSN sekmesine eklenir.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce30b752ecf1d5413ae534fa03907cbf11b1c694
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794490"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816450"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Apache Hadoop kümelerini yönetme
 
@@ -88,7 +88,7 @@ Gelen [küme giriş sayfası](#homePage)altında **ayarları** seçin **özellik
 * **Bölge**: Azure konumu. Desteklenen Azure konumları listesi için bkz. **bölge** aşağı açılan liste kutusunu [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
 * **Oluşturulma tarihi**: Bir tarih kümesi dağıtıldı.
 * **İşletim sistemi**: Her iki **Windows** veya **Linux**.
-* **Tür**: Hadoop, HBase, Storm, Spark'i tıklatın.
+* **Tür**: Hadoop, HBase, Storm, Spark.
 * **Sürüm**. Bkz: [HDInsight sürümleri](hdinsight-component-versioning.md).
 * **Abonelik**: Abonelik adı.
 * **Varsayılan veri kaynağı**: Varsayılan Küme dosya sistemi.
@@ -124,7 +124,7 @@ Bir küme oluşturulduktan sonra ek Azure depolama hesapları ve Azure Data Lake
 Özellik ölçeklendirme kümesi küme yeniden oluşturmak zorunda kalmadan bir Azure HDInsight kümesi tarafından kullanılan çalışan düğümlerinin sayısını değiştirmenize izin verir.
 
 > [!NOTE]  
-> Yalnızca, HDInsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin sürümü hakkında şüpheleriniz varsa, Özellikler sayfasını kontrol edebilirsiniz.  Bkz: [kümeleri Listele ve Göster](#list-and-show-clusters).
+> Yalnızca, HDInsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin sürümü hakkında şüpheleriniz varsa, Özellikler sayfasını kontrol edebilirsiniz.  Listesini görmek ve kümelerini gösterir.
 
 Gelen [küme giriş sayfası](#homePage):
 
@@ -283,7 +283,7 @@ Bkz: [yönetme HDInsight kümeleri Apache Ambari Web kullanıcı arabirimini kul
 
 
 ## <a name="monitor-cluster-usage"></a>Küme kullanımı izleme
-**Kullanım** HDInsight küme dikey penceresinde bölümünü nasıl ayrılacağını ve bu küme için ayrılmış çekirdek sayısının yanı sıra HDInsight ile kullanmak için aboneliğinizi kullanılabilir çekirdek sayısı hakkında daha fazla bilgi görüntüler Bu küme içindeki düğümler için. Bkz: [kümeleri Listele ve Göster](#list-and-show-clusters).
+**Kullanım** HDInsight küme dikey penceresinde bölümünü nasıl ayrılacağını ve bu küme için ayrılmış çekirdek sayısının yanı sıra HDInsight ile kullanmak için aboneliğinizi kullanılabilir çekirdek sayısı hakkında daha fazla bilgi görüntüler Bu küme içindeki düğümler için. Listesini görmek ve kümelerini gösterir.
 
 > [!IMPORTANT]  
 > HDInsight kümesi tarafından sağlanan hizmetleri izlemek için Ambari Web veya Ambari REST API'sini kullanmanız gerekir. Ambari kullanarak daha fazla bilgi için bkz: [Apache Ambari kullanarak HDInsight yönetme kümelerini](hdinsight-hadoop-manage-ambari.md)

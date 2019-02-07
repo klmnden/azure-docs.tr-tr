@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 6ec09627fb80925fef72c491936a1dd83106874b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5e9ae8fcd756619c83ebde12df9f8405f1a39bf6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211704"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812591"
 ---
 # <a name="project-answer-search-v7-reference"></a>Proje yanıt arama v7 başvurusu
 
@@ -65,7 +65,7 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 |Üst bilgi|Açıklama|  
 |------------|-----------------|  
 |Kabul|İsteğe bağlı istek üst bilgisi.<br /><br /> Varsayılan medya türü application/json şeklindedir. Yanıt kullandığını belirtmek için [JSON-LD](http://json-ld.org/), uygulama/ld + json Accept üst bilgisi ayarlayın.|  
-|<a name="acceptlanguage" />Accept-Language|İsteğe bağlı istek üst bilgisi.<br /><br /> Kullanıcı arabirimi dizelerinde kullanılacak virgülle sınırlanmış bir dil listesi. Liste, tercih edilme durumuna göre azalan düzende sıralanır. Beklenen biçim de içinde olmak üzere daha fazla bilgi için bkz. [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Bu üst bilgi ve [setLang](#setlang) sorgu parametresi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.<br /><br /> Bu üst bilgiyi ayarlarsanız, [cc](#cc) sorgu parametresini de belirtmelisiniz. Hangi pazardan sonuç döndürüleceğini belirlemek için, Bing listeden bulduğu ilk desteklenen dili kullanır ve bunu `cc` parametresinin değeriyle birleştirir. Liste desteklenen bir dil içermiyorsa, Bing isteği destekleyen en yakın dili ve pazarı bulur ya da sonuçlar için toplu veya varsayılan bir pazar kullanır. Bing'in kullandığı pazarı saptamak için BingAPIs-Market üst bilgisine bakın.<br /><br /> Ancak birden çok dil belirtirseniz bu üst bilgiyi ve `cc` sorgu parametresini kullanın. Aksi takdirde, [mkt](#mkt) ile [setLang](#setlang) sorgu parametrelerini kullanın.<br /><br /> Kullanıcı arabirimi dizesi, kullanıcı arabiriminde etiket olarak kullanılan dizedir. JSON yanıt nesnelerinde çok az kullanıcı arabirimi dizesi vardır. Yanıt nesnelerinde Bing.com özelliklerine yönelik bağlantılar da belirtilen dildedir.|  
+|<a name="acceptlanguage" />Accept-Language|İsteğe bağlı istek üst bilgisi.<br /><br /> Kullanıcı arabirimi dizelerinde kullanılacak virgülle sınırlanmış bir dil listesi. Liste, tercih edilme durumuna göre azalan düzende sıralanır. Beklenen biçim de içinde olmak üzere daha fazla bilgi için bkz. [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Bu üst bilgi ve [setLang](#setlang) sorgu parametresi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.<br /><br /> Bu üst bilginin ayarlarsanız, cc sorgu parametresini de belirtmeniz gerekir. Hangi pazardan sonuç döndürüleceğini belirlemek için, Bing listeden bulduğu ilk desteklenen dili kullanır ve bunu `cc` parametresinin değeriyle birleştirir. Liste desteklenen bir dil içermiyorsa, Bing isteği destekleyen en yakın dili ve pazarı bulur ya da sonuçlar için toplu veya varsayılan bir pazar kullanır. Bing'in kullandığı pazarı saptamak için BingAPIs-Market üst bilgisine bakın.<br /><br /> Ancak birden çok dil belirtirseniz bu üst bilgiyi ve `cc` sorgu parametresini kullanın. Aksi takdirde, [mkt](#mkt) ile [setLang](#setlang) sorgu parametrelerini kullanın.<br /><br /> Kullanıcı arabirimi dizesi, kullanıcı arabiriminde etiket olarak kullanılan dizedir. JSON yanıt nesnelerinde çok az kullanıcı arabirimi dizesi vardır. Yanıt nesnelerinde Bing.com özelliklerine yönelik bağlantılar da belirtilen dildedir.|  
 |<a name="market" />BingAPIs-Market|Yanıt üst bilgisi.<br /><br /> İstek tarafından kullanılan pazar. Biçimi şöyledir: \<languageCode\>-\<countryCode\>. Örneğin, tr-TR.|  
 |<a name="traceid" />BingAPIs-TraceId|Yanıt üst bilgisi.<br /><br /> İsteğin ayrıntılarını içeren günlük girdisinin kimliği. Hata oluştuğunda, bu kimliği yakalayın. Sorunu belirleyemez ve çözemezseniz, Destek ekibine diğer bilgilerle birlikte bu kimliği de sağlayın.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Gerekli istek üst bilgisi.<br /><br /> [Bilişsel Hizmetler](https://www.microsoft.com/cognitive-services/)'de bu hizmete kaydolduğunuzda aldığınız abonelik anahtarı.|  
@@ -83,13 +83,13 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için gerekli sütununa bakın. URL gereken sorgu parametrelerine kodlayın.  
   
   
-|Name|Value|Type|Gereklidir|  
+|Ad|Değer|Type|Gerekli|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için bkz. [Pazar kodları](#market-codes).<br /><br /> **NOT:** URL önizlemesi API'sı şu anda yalnızca tr destekler-bize pazara çıkma sürelerini ve dili.<br /><br />|Dize|Evet|  
-|<a name="query" />q|Önizleme URL'si|Dize|Evet|  
-|<a name="responseformat" />responseFormat|Yanıt için kullanılacak medya türü. Büyük küçük harf duyarsız olası değerler şunlardır:<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> JSON varsayılandır. JSON hakkında bilgi yanıt içerdiğini nesneleri için bkz. [yanıt nesneleri](#response-objects).<br /><br />  JsonLd belirtirseniz, yanıt gövdesi, arama sonuçlarını içeren JSON-LD nesneler içerir. JSON-LD hakkında daha fazla bilgi için bkz. [JSON-LD](http://json-ld.org/).|Dize|Hayır|  
-|<a name="safesearch" />safeSearch|Yetişkinlere yönelik içeriği filtrelemek için kullanılan bir filtre. Aşağıdakiler, büyük/küçük harfe duyarlı olmayan olası filtre değerleridir.<br /><ul><li>Kapalı&mdash;yetişkinlere yönelik metin, görüntü veya video Web sayfalarının döndürür.<br /><br/></li><li>Orta&mdash;yetişkinlere yönelik metin ancak yetişkin değil görüntü veya video Web sayfalarının döndürür.<br /><br/></li><li>Katı&mdash;yetişkinlere yönelik metin, görüntü veya video Web sayfalarının döndürmüyor.</li></ul><br /> Varsayılan ayar Moderate değeridir.<br /><br /> **NOT:** İstek bir pazar geliyorsa gerektiren bu Bing'in yetişkinlere yönelik ilke `safeSearch` ayarlanır Strıct için Bing yoksayar `safeSearch` değeri ve Strıct kullanır.<br/><br/>**NOT:** Kullanırsanız `site:` sorgu işleci yanıt ne bakılmaksızın yetişkinlere yönelik içerik içerebilir fırsat yok `safeSearch` sorgu parametresi ayarlanır. `site:` işlecini yalnızca sitenin içeriği hakkında bilgi sahibiyseniz ve senaryonuz, yetişkinlere yönelik içeriğin mevcut olma ihtimalini destekliyorsa kullanın. |Dize|Hayır|  
-|<a name="setlang" />setLang|Kullanıcı arabirimi dizelerinde kullanılacak dil. Dili belirtirken ISO 639-1 2 harfi dil kodunu kullanın. Örneğin, Türkçe için dil kodu TR'dir. Varsayılan değer EN (İngilizce) ayarıdır.<br /><br /> İsteğe bağlı olsa da, her zaman dil belirtmelisiniz. Kullanıcı tarafından kullanıcı arabirimi dizelerinin farklı dilde görüntülenmesi istenmediği sürece, normalde `setLang` parametresini `mkt` parametresiyle aynı dile ayarlarsınız.<br /><br /> Bu parametre ve [Accept-Language](#acceptlanguage) üst bilgisi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.<br /><br /> Kullanıcı arabirimi dizesi, kullanıcı arabiriminde etiket olarak kullanılan dizedir. JSON yanıt nesnelerinde çok az kullanıcı arabirimi dizesi vardır. Ayrıca, yanıt nesnelerinde Bing.com özelliklerine yönelik bağlantılar da belirtilen dildedir.|Dize|Hayır| 
+|<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için Pazar kodları bölümüne bakın.<br /><br /> **NOT:** URL önizlemesi API'sı şu anda yalnızca tr destekler-bize pazara çıkma sürelerini ve dili.<br /><br />|String|Evet|  
+|<a name="query" />q|Önizleme URL'si|String|Evet|  
+|<a name="responseformat" />responseFormat|Yanıt için kullanılacak medya türü. Büyük küçük harf duyarsız olası değerler şunlardır:<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> JSON varsayılandır. JSON hakkında bilgi yanıt içerdiğini nesneleri için bkz. [yanıt nesneleri](#response-objects).<br /><br />  JsonLd belirtirseniz, yanıt gövdesi, arama sonuçlarını içeren JSON-LD nesneler içerir. JSON-LD hakkında daha fazla bilgi için bkz. [JSON-LD](http://json-ld.org/).|String|Hayır|  
+|<a name="safesearch" />safeSearch|Yetişkinlere yönelik içeriği filtrelemek için kullanılan bir filtre. Aşağıdakiler, büyük/küçük harfe duyarlı olmayan olası filtre değerleridir.<br /><ul><li>Kapalı&mdash;yetişkinlere yönelik metin, görüntü veya video Web sayfalarının döndürür.<br /><br/></li><li>Orta&mdash;yetişkinlere yönelik metin ancak yetişkin değil görüntü veya video Web sayfalarının döndürür.<br /><br/></li><li>Katı&mdash;yetişkinlere yönelik metin, görüntü veya video Web sayfalarının döndürmüyor.</li></ul><br /> Varsayılan ayar Moderate değeridir.<br /><br /> **NOT:** İstek bir pazar geliyorsa gerektiren bu Bing'in yetişkinlere yönelik ilke `safeSearch` ayarlanır Strıct için Bing yoksayar `safeSearch` değeri ve Strıct kullanır.<br/><br/>**NOT:** Kullanırsanız `site:` sorgu işleci yanıt ne bakılmaksızın yetişkinlere yönelik içerik içerebilir fırsat yok `safeSearch` sorgu parametresi ayarlanır. `site:` işlecini yalnızca sitenin içeriği hakkında bilgi sahibiyseniz ve senaryonuz, yetişkinlere yönelik içeriğin mevcut olma ihtimalini destekliyorsa kullanın. |String|Hayır|  
+|<a name="setlang" />setLang|Kullanıcı arabirimi dizelerinde kullanılacak dil. Dili belirtirken ISO 639-1 2 harfi dil kodunu kullanın. Örneğin, Türkçe için dil kodu TR'dir. Varsayılan değer EN (İngilizce) ayarıdır.<br /><br /> İsteğe bağlı olsa da, her zaman dil belirtmelisiniz. Kullanıcı tarafından kullanıcı arabirimi dizelerinin farklı dilde görüntülenmesi istenmediği sürece, normalde `setLang` parametresini `mkt` parametresiyle aynı dile ayarlarsınız.<br /><br /> Bu parametre ve [Accept-Language](#acceptlanguage) üst bilgisi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.<br /><br /> Kullanıcı arabirimi dizesi, kullanıcı arabiriminde etiket olarak kullanılan dizedir. JSON yanıt nesnelerinde çok az kullanıcı arabirimi dizesi vardır. Ayrıca, yanıt nesnelerinde Bing.com özelliklerine yönelik bağlantılar da belirtilen dildedir.|String|Hayır| 
 
 
 ## <a name="response-objects"></a>Yanıt nesneleri  
@@ -108,20 +108,20 @@ Gerçekleşen hata tanımlar.
   
 |Öğe|Açıklama|Type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />Kod|Hata kategorisi tanımlar hata kodu. Olası kodlarının listesi için bkz. [hata kodları](#error-codes).|Dize|  
-|<a name="error-message" />İleti|Hatanın açıklaması.|Dize|  
-|<a name="error-moredetails" />moreDetails|Hata hakkında ek bilgi sağlayan bir açıklama.|Dize|  
-|<a name="error-parameter" />Parametre|Sorgu parametresi hataya neden olan istek.|Dize|  
-|<a name="error-subcode" />Alt|Hatayı tanımlar hata kodu. Örneğin, varsa `code` InvalidRequest, olan `subCode` ParameterInvalid veya ParameterInvalidValue olabilir. |Dize|  
-|<a name="error-value" />Değer|Geçerli değildi sorgu parametrenin değeri.|Dize|  
+|<a name="error-code" />Kod|Hata kategorisi tanımlar hata kodu. Olası kodlarının listesi için bkz. [hata kodları](#error-codes).|String|  
+|<a name="error-message" />İleti|Hatanın açıklaması.|String|  
+|<a name="error-moredetails" />moreDetails|Hata hakkında ek bilgi sağlayan bir açıklama.|String|  
+|<a name="error-parameter" />Parametre|Sorgu parametresi hataya neden olan istek.|String|  
+|<a name="error-subcode" />Alt|Hatayı tanımlar hata kodu. Örneğin, varsa `code` InvalidRequest, olan `subCode` ParameterInvalid veya ParameterInvalidValue olabilir. |String|  
+|<a name="error-value" />Değer|Geçerli değildi sorgu parametrenin değeri.|String|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
 Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.  
   
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |----------|-----------|----------|  
-|_type|Tür ipucu.|Dize|  
+|_type|Tür ipucu.|String|  
 |<a name="errors" />Hataları|İsteğin neden başarısız olma nedenlerini tanımlayan hataların listesi.|[Hata:](#error)|  
 
   
@@ -129,55 +129,55 @@ Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.
 ### <a name="license"></a>Lisans  
 Altında bir metin veya resim kullanılabilir lisans tanımlar.  
   
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |----------|-----------|----------|  
-|ad|Lisans adı.|Dize|  
-|url|Kullanıcı Lisansı hakkında daha fazla bilgi edinebileceğiniz bir Web sitesi URL'si.<br /><br /> Köprü oluşturmak için adını ve URL'sini kullanın.|Dize|  
+|ad|Lisans adı.|String|  
+|url|Kullanıcı Lisansı hakkında daha fazla bilgi edinebileceğiniz bir Web sitesi URL'si.<br /><br /> Köprü oluşturmak için adını ve URL'sini kullanın.|String|  
   
 
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Lisans attribution için sözleşmeye dayalı bir kural tanımlar.  
   
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |----------|-----------|----------|  
-|_type|LicenseAttribution için ayarlanmış bir tür ipucu.|Dize|  
+|_type|LicenseAttribution için ayarlanmış bir tür ipucu.|String|  
 |lisans|İçeriği altında kullanılabilir lisans.|[Lisans](#license)|  
-|licenseNotice|Hedeflenen alanının yanındaki lisans. Örneğin, "Metin SA tarafından CC lisansı altında".<br /><br /> Lisans'ın adını ve URL'sini kullan `license` lisans ayrıntılarını açıklayan Web sitesi için köprü oluşturma için alan. Ardından, lisans adı değiştirin `licenseNotice` oluşturduğunuz köprü dizesiyle (örneğin, CC-tarafından-SA).|Dize|  
+|licenseNotice|Hedeflenen alanının yanındaki lisans. Örneğin, "Metin SA tarafından CC lisansı altında".<br /><br /> Lisans'ın adını ve URL'sini kullan `license` lisans ayrıntılarını açıklayan Web sitesi için köprü oluşturma için alan. Ardından, lisans adı değiştirin `licenseNotice` oluşturduğunuz köprü dizesiyle (örneğin, CC-tarafından-SA).|String|  
 |mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boole|  
-|targetPropertyName|Kuralın uygulanacağı alanın adı.|Dize|  
+|targetPropertyName|Kuralın uygulanacağı alanın adı.|String|  
   
 
 ### <a name="link"></a>Bağlantı  
 Köprü bileşenlerinin tanımlar.  
   
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |----------|-----------|----------|  
-|_type|Tür ipucu.|Dize|  
-|metin|Görünen metin.|Dize|  
-|url|BİR URL. URL'yi kullanın ve metin, köprü oluşturmak için görüntüler.|Dize|  
+|_type|Tür ipucu.|String|  
+|metin|Görünen metin.|String|  
+|url|BİR URL. URL'yi kullanın ve metin, köprü oluşturmak için görüntüler.|String|  
   
 
 ### <a name="linkattribution"></a>LinkAttribution  
 İçin bağlantı attribution sözleşmeye dayalı bir kural tanımlar.  
   
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |----------|-----------|----------|  
-|_type|LinkAttribution için ayarlanmış bir tür ipucu.|Dize|  
+|_type|LinkAttribution için ayarlanmış bir tür ipucu.|String|  
 |mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boole|  
-|targetPropertyName|Kuralın uygulanacağı alanın adı.<br /><br /> Bir hedef belirtilmemişse atıf varlığa bir bütün olarak uygular ve varlık sunu takip görüntülenmesi gerekir. Bir hedef belirtmeyen birden çok metin ve bağlantı attribution kuralı varsa, bunları birleştirmek ve onları görüntülemek kullanarak bir "veri:" etiketi. Örneğin, "verilerden < sağlayıcısı name1\> &#124; < sağlayıcısı name2\>".|Dize|  
-|metin|Attribution metin.|Dize|  
-|url|Sağlayıcının Web sitesi URL'si. Kullanım `text` ve'nın köprü oluşturmak için URL.|Dize|  
+|targetPropertyName|Kuralın uygulanacağı alanın adı.<br /><br /> Bir hedef belirtilmemişse atıf varlığa bir bütün olarak uygular ve varlık sunu takip görüntülenmesi gerekir. Bir hedef belirtmeyen birden çok metin ve bağlantı attribution kuralı varsa, bunları birleştirmek ve onları görüntülemek kullanarak bir "veri:" etiketi. Örneğin, "verilerden < sağlayıcısı name1\> &#124; < sağlayıcısı name2\>".|String|  
+|metin|Attribution metin.|String|  
+|url|Sağlayıcının Web sitesi URL'si. Kullanım `text` ve'nın köprü oluşturmak için URL.|String|  
   
   
 ### <a name="mediaattribution"></a>MediaAttribution  
 Medya attribution için sözleşmeye dayalı bir kural tanımlar.  
   
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |----------|-----------|----------|  
-|_type|MediaAttribution için ayarlanmış bir tür ipucu.|Dize|  
+|_type|MediaAttribution için ayarlanmış bir tür ipucu.|String|  
 |mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boole|  
-|targetPropertyName|Kuralın uygulanacağı alanın adı.|Dize|  
-|url|Medya içeriklerinin köprüsünü oluşturmak için kullandığınız URL. Örneğin, hedef görüntü varsa görüntü tıklanabilir yapmak için URL kullanın.|Dize|  
+|targetPropertyName|Kuralın uygulanacağı alanın adı.|String|  
+|url|Medya içeriklerinin köprüsünü oluşturmak için kullandığınız URL. Örneğin, hedef görüntü varsa görüntü tıklanabilir yapmak için URL kullanın.|String|  
   
   
   
@@ -186,23 +186,23 @@ Bir yayımcı olarak tanımlar.
   
 Bir yayımcı adının veya Web sitesi veya her ikisini sağlayabilir unutmayın.  
   
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |----------|-----------|----------|  
-|ad|Yayımcının adı.|Dize|  
-|url|Yayımcının Web sitesi URL'si.<br /><br /> Yayımcının Web sitesi sağlamayabilir unutmayın.|Dize|  
+|ad|Yayımcının adı.|String|  
+|url|Yayımcının Web sitesi URL'si.<br /><br /> Yayımcının Web sitesi sağlamayabilir unutmayın.|String|  
   
   
 
 ### <a name="webpage"></a>Web sayfası  
 Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.  
   
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |----------|-----------|----------|
-|ad|Sayfa başlığı, mutlaka HTML Başlığı|Dize|
-|url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|Dize|  
-|açıklama|Sayfa içeriği ve kısa açıklama|Dize|  
+|ad|Sayfa başlığı, mutlaka HTML Başlığı|String|
+|url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|String|  
+|açıklama|Sayfa içeriği ve kısa açıklama|String|  
 |isFamilyFriendly|Web dizindeki öğeler için en doğru; Bu algılama yöntemi yalnızca bir URL ve sayfa içeriği göre gerçek zamanlı öğesinden yapın|boole|
-|primaryImageOfPage/contentUrl|Önizlemede dahil etmek için temsili bir görüntü URL'si|Dize| 
+|primaryImageOfPage/contentUrl|Önizlemede dahil etmek için temsili bir görüntü URL'si|String| 
   
   
 ### <a name="querycontext"></a>QueryContext  
@@ -211,35 +211,35 @@ Bing istek için kullanılan sorgu bağlamı tanımlar.
 |Öğe|Açıklama|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Belirtilen sorgu yetişkinlere yönelik sonuçlar olup olmadığını belirten bir Boole değeri. Değer **true** yetişkinlere yönelik sonuçlar; sorgu varsa, aksi takdirde, **false**.|Boole|  
-|alterationOverrideQuery|Orijinal dizeyi kullanmak için Bing zorlamak için kullanılacak sorgu dizesi. Örneğin, sorgu dizesi ise *downwind saling*, geçersiz kılma sorgu dizesi olacaktır *+ downwind saling*. Sonuçlanan sorgu dizesini kodlayın unutmayın *% 2Bsaling + downwind*.<br /><br /> Bu alan, yalnızca özgün sorgu dizesi bir yazım hatası içeriyorsa dahildir.|Dize|  
-|alteredQuery|Bing tarafından sorguyu gerçekleştirmek için kullanılan sorgu dizesi. Bing yazım hatalarını özgün sorgu dizesini içerdiği değiştirilen sorgu dizesini kullanır. Örneğin, sorgu dizesi ise `saling downwind`, değiştirilen sorgu dizesi olacaktır `sailing downwind`.<br /><br /> Bu alan, yalnızca özgün sorgu dizesi bir yazım hatası içeriyorsa dahildir.|Dize|  
+|alterationOverrideQuery|Orijinal dizeyi kullanmak için Bing zorlamak için kullanılacak sorgu dizesi. Örneğin, sorgu dizesi ise *downwind saling*, geçersiz kılma sorgu dizesi olacaktır *+ downwind saling*. Sonuçlanan sorgu dizesini kodlayın unutmayın *% 2Bsaling + downwind*.<br /><br /> Bu alan, yalnızca özgün sorgu dizesi bir yazım hatası içeriyorsa dahildir.|String|  
+|alteredQuery|Bing tarafından sorguyu gerçekleştirmek için kullanılan sorgu dizesi. Bing yazım hatalarını özgün sorgu dizesini içerdiği değiştirilen sorgu dizesini kullanır. Örneğin, sorgu dizesi ise `saling downwind`, değiştirilen sorgu dizesi olacaktır `sailing downwind`.<br /><br /> Bu alan, yalnızca özgün sorgu dizesi bir yazım hatası içeriyorsa dahildir.|String|  
 |askUserForLocation|Bing doğru sonuçlar sağlamak için kullanıcının konumuna isteyip istemediğini gösteren bir Boole değeri. Kullanarak kullanıcının bulunduğu konum belirttiyseniz [X MSEdge Clientıp](#clientip) ve [X arama konumu](#location) üst bilgiler, bu alan yoksayabilirsiniz.<br /><br /> "Günün hava durumu" veya "kullanıcının konumuna doğru sonuçlar sağlamak için gereken Yakınımdaki restoranlar" gibi konumu kullanan sorgular için bu alan ayarlanır **true**.<br /><br /> ' % S'konum (örneğin, "Seattle hava") içeren konumu kullanan sorgular için bu alan kümesine **false**. Bu alan ayrıca kümesine **false** konumu "gibi en iyi satıcılar" uyumlu olmayan sorgular.|Boole|  
-|originalQuery|İstekte belirtilen sorgu dizesi.|Dize|  
+|originalQuery|İstekte belirtilen sorgu dizesi.|String|  
 
 ### <a name="identifiable"></a>Tanımlama
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |-------------|-----------------|----------|
-|id|Bir kaynak tanımlayıcısı|Dize|
+|id|Bir kaynak tanımlayıcısı|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Tanımlar grubu bir arama sonuçları, aşağıdaki gibi mainline.
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |-------------|-----------------|----------|
 |öğeler|Grup içinde görüntülemek için arama sonuçları listesi.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Görüntülenecek bir arama sonucu öğesi tanımlar.
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Görüntülenecek yanıtında öğenin sıfır tabanlı dizini. Bu alan öğe içermiyorsa, yanıt tüm öğeleri görüntüler. Örneğin, haber yanıt tüm haber makalelerini görüntüler.|Tamsayı|
-|answerType|Görüntülenecek öğe içeren yanıtı. Örneğin, haber.<br /><br />Yanıt SearchResponse nesnesinde bulunacak türünü kullanın. Türü bir SearchResponse alan adıdır.<br /><br /> Ancak, yalnızca bu nesne değeri alanı varsa yanıt türünü kullanın. Aksi takdirde, yoksayın.|Dize|
+|answerType|Görüntülenecek öğe içeren yanıtı. Örneğin, haber.<br /><br />Yanıt SearchResponse nesnesinde bulunacak türünü kullanın. Türü bir SearchResponse alan adıdır.<br /><br /> Ancak, yalnızca bu nesne değeri alanı varsa yanıt türünü kullanın. Aksi takdirde, yoksayın.|String|
 |textualIndex|Görüntülenecek textualAnswers yanıt dizini.| İşaretsiz tamsayı|
 |değer|Görüntülenecek yanıt veya öğeyi görüntülemek için bir yanıt tanımlayan kimliği. Kimliği bir yanıt tanımlıyorsa, yanıtın tüm öğeleri görüntüler.|Tanımlama|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Arama sonuçları sayfası içeriği yerleştirilmesi gerektiğini ve hangi sırayla tanımlar.  
   
-|Name|Value|  
+|Ad|Değer|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Ana hatta da görüntülemek için arama sonuçları.|  
 |<a name="ranking-pole" />kutup|Arama sonuçlarını, en çok görünen alınmasına üyelerine gösterilen (örneğin, ana hat görüntülenen ve kenar çubuğunuzu).|  
@@ -251,19 +251,19 @@ Arama sonuçları sayfası içeriği yerleştirilmesi gerektiğini ve hangi sır
   
 Hizmet bir saldırı hizmet reddi şüphelenen, istek başarılı olduğunu unutmayın (HTTP durum kodudur 200 Tamam); Ancak, yanıt gövdesi boş olur.  
   
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |----------|-----------|----------|  
-|_type|Tür ipucu SearchResponse için ayarlanır.|Dize|  
+|_type|Tür ipucu SearchResponse için ayarlanır.|String|  
 |Web sayfası|Önizleme tanımlayan bir JSON nesnesi|dize|  
   
   
 ### <a name="textattribution"></a>TextAttribution  
 Düz metin attribution için sözleşmeye dayalı bir kural tanımlar.  
   
-|Name|Value|Type|  
+|Ad|Değer|Type|  
 |----------|-----------|----------|  
-|_type|TextAttribution için ayarlanmış bir tür ipucu.|Dize|  
-|metin|Attribution metin.<br /><br /> Metin atıf varlığa bir bütün olarak uygular ve varlık sunu takip görüntülenmesi gerekir. Bir hedef belirtmeyen birden çok metin veya bağlantı attribution kuralı varsa, bunları birleştirmek ve onları görüntülemek kullanarak bir "veri:" etiketi.|Dize| 
+|_type|TextAttribution için ayarlanmış bir tür ipucu.|String|  
+|metin|Attribution metin.<br /><br /> Metin atıf varlığa bir bütün olarak uygular ve varlık sunu takip görüntülenmesi gerekir. Bir hedef belirtmeyen birden çok metin veya bağlantı attribution kuralı varsa, bunları birleştirmek ve onları görüntülemek kullanarak bir "veri:" etiketi.|String| 
 
 
 ## <a name="error-codes"></a>Hata kodları

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: juliako
-ms.openlocfilehash: 8eb49010d89c3039f46e5c84cd305b7d0b5ca025
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307014"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767461"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Bulut ve bölgelerde hangi Azure Media Services v3 var.
 
@@ -33,9 +33,16 @@ Azure Media Services v3, Azure Resource Manager bildiriminde genel Azure, Azure 
 | [LiveEvents](live-streaming-overview.md) | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
 | [Akış](streaming-endpoint-concept.md) | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
 
-## <a name="regions"></a>Bölgeler 
+## <a name="regionsgeographieslocations"></a>Bölge/coğrafyalar/konumları
 
-Sağlamanız gerektiğinde **konumu** parametresi, bölge kod adı olarak sağlamak için ihtiyacınız **konumu** değeri. Hesabınızın bulunduğu ve aramanız için yönlendirileceğini bölge kodu adını almak için aşağıdaki satırı çalıştırabilirsiniz [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+* [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Ürün bölgeye göre](https://azure.microsoft.com/global-infrastructure/services/)
+* [Azure coğrafyaları](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Azure konumları](https://azure.microsoft.com/global-infrastructure/locations/)
+
+## <a name="region-code-name"></a>Bölge kodu adı 
+
+Sağlamanız gerektiğinde **konumu** parametresi, bölge kod adı olarak sağlamak için ihtiyacınız **konumu** değeri. Hesabınızın bulunduğu ve aramanız için yönlendirileceğini bölge kodu adını almak için aşağıdaki satırı çalıştırabilirsiniz [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
 ```bash
 az account list-locations

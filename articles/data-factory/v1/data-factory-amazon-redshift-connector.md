@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eafc5dbd89d5727fac0040816785dbfcdf123b62
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563630"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817351"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Gelen Amazon, Redshift Azure Data Factory ile veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için 
 2. Kopyalama işleminin girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 3. Bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği ile işlem hattı oluşturma.
 
-Kopyalama Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları için JSON tanımları otomatik olarak oluşturulur. Araç veya API'lerden (dışında .NET API'si) kullandığınızda, Data Factory varlıkları JSON biçimini kullanarak tanımlayın. [JSON örneği: Veri kopyalama Amazon Redshift'ten Azure Blob depolama alanına](#json-example-copy-data-from-amazon-redshift-to-azure-blob) bir Amazon Redshift veri deposundan veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları gösterir.
+Kopyalama Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları için JSON tanımları otomatik olarak oluşturulur. Araç veya API'lerden (dışında .NET API'si) kullandığınızda, Data Factory varlıkları JSON biçimini kullanarak tanımlayın. JSON örneği: Azure Blob depolama alanına veri Amazon redshift'ten kopyalama, bir Amazon Redshift veri deposundan veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları gösterir.
 
 Aşağıdaki bölümlerde, Amazon Redshift için Data Factory varlıkları tanımlamak için kullanılan JSON özellikleri açıklanmaktadır.
 

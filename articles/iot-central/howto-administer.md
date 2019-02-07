@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992215"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822604"
 ---
 # <a name="administer-your-iot-central-application"></a>IOT Central uygulamanızı yönetme
 
@@ -107,7 +107,7 @@ Bir uygulamayı oluşturan kullanıcı otomatik olarak atanır **yönetici** rol
 
 Kullanıcıların **uygulama Oluşturucusu** rolü bir uygulamada uygulamayı yönetmek dışında her şeyi yapabilir. Başka bir deyişle, Oluşturucular, düzenlemek ve cihaz şablonları ve cihazları silmek, cihaz kümeleri yönetme, oluşturup analiz ve işleri çalıştırabilirsiniz. Oluşturucular erişimine sahip olmaz **Yönetim** uygulama bölümü.
 
-### <a name="application-operator"></a>Uygulama işleci
+### <a name="application-operator"></a>Uygulama İşletmeni
 
 Kullanıcıların **uygulama işleci** rolü cihaz şablonlarda değişiklik yapılamıyor ve uygulamayı yönetemezsiniz. Bu işleçler eklemeyi ve silmeyi cihazları, cihaz kümeleri yönetebilir ve analiz ve işleri çalıştırma anlamına gelir. İşleçler, erişim sahibi olmaz **uygulama Oluşturucusu** ve **Yönetim** sayfaları.
 
@@ -141,15 +141,15 @@ Bu Self Servis işlemi tamamlamak için aşağıdaki adımları izleyin:
 
 ## <a name="export-data"></a>Verileri dışarı aktarma
 
-Etkinleştirebilirsiniz **verileri sürekli dışarı aktarma** ölçümleri, cihazları ve cihaz şablonları verileri Azure Blob Depolama hesabınıza aktarmak. Daha fazla bilgi edinin [verilerinizi dışarı aktarma](#howto-export-data).
+Etkinleştirebilirsiniz **verileri sürekli dışarı aktarma** ölçümleri, cihazları ve cihaz şablonları verileri Azure Blob Depolama hesabınıza aktarmak. Verileriniz dışarı aktarma hakkında daha fazla bilgi edinin.
 
 ## <a name="manage-device-connection"></a>Cihaz bağlantısını yönetme
 
-Anahtarlar ve sertifikalar buraya kullanarak uygulamanızı bir ölçekte cihazları bağlayın. Daha fazla bilgi edinin [cihazları bağlama](#concepts-connectivity).
+Anahtarlar ve sertifikalar buraya kullanarak uygulamanızı bir ölçekte cihazları bağlayın. Cihazlar bağlama hakkında daha fazla bilgi edinin.
 
 ## <a name="use-access-tokens"></a>Erişim belirteçleri kullanma
 
-Geliştirici araçları kullanmaya erişim belirteçleri oluşturun. Şu anda IOT Central Gezgini cihaz iletilerini ve propreties ve ayarlarında yapılan değişiklikleri izlemek için bir geliştirici aracı kullanılabilir yoktur. Daha fazla bilgi edinin [IOT Central Gezgini](#howto-use-iotc-explorer). 
+Geliştirici araçları kullanmaya erişim belirteçleri oluşturun. Şu anda IOT Central Gezgini cihaz iletilerini ve propreties ve ayarlarında yapılan değişiklikleri izlemek için bir geliştirici aracı kullanılabilir yoktur. IOT Central Gezgini hakkında daha fazla bilgi edinin. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Denetim düzlemi işlemleri için Azure SDK'ları kullanın
 
@@ -159,7 +159,7 @@ Azure Resource Manager SDK'ları, kullanma örnekleri bulabilirsiniz [ https://g
 
 Daha fazla bilgi için Github'da bu paketleri göz atın.
 
-| Dil | Havuz | Paket |
+| Dil | Depo | Paket |
 | ---------| ---------- | ------- |
 | Node | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
 | Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)

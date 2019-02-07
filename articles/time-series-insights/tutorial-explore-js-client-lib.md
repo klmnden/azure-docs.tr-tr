@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: f231fa7624a2babea2a3d91076ad0348b3c9e976
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540393"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812081"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Öğretici: Azure Time Series Insights JavaScript istemci kitaplığını keşfetme
 
@@ -101,7 +101,7 @@ Ayrıntılı olarak gözden geçirmesek de, temelde TSI İstemci kitaplığı **
 
 Aşağıdaki kavramlar evrenseldir ve genel olarak TSI İstemci kitaplığı API'lerine uygulanabilir.
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 Daha önce de belirtildiği gibi, bu örnek bir SPA’dır ve kullanıcı kimlik doğrulaması için ADAL'deki OAuth 2.0 desteğini kullanır. Betiğin bu bölümünde ilgi çekici bazı noktalar:
 
@@ -147,7 +147,7 @@ Grafik denetimlerinin doldurulması ve işlenmesi genel bir desene uyar. TSI ör
    | `splitByObject`   | Bölme ölçütü olarak kullanmak istediğiniz dize özelliği (isteğe bağlı; null olabilir). | `{property: 'Station', type: 'String'}` |
    | `color`         | İşlemek istediğiniz nesnelerin rengi. | `'pink'` |
    | `alias`           | Toplama ifadesinin kolay adı. | `'Factory3Temperature'` |
-   | `contextMenuActions` | Görselleştirmede zaman serisi nesnelerine bağlı olacak eylem dizisi (isteğe bağlı). | Daha fazla bilgi için [Gelişmiş özellikler bölümünde açılan bağlam menüleri](#popup-context-menus) başlığına bakın. |
+   | `contextMenuActions` | Görselleştirmede zaman serisi nesnelerine bağlı olacak eylem dizisi (isteğe bağlı). | Daha fazla bilgi için açılan bağlam menüleri Gelişmiş özellikleri bölümünde bakın. |
 
 3. Toplama verilerini istemek için `TsiClient.Server` API'lerini kullanarak bir TSI sorgusu çağırın:
 
@@ -260,7 +260,7 @@ Ekran görüntüsünde ilgili açılan bağlam menüleriyle birlikte grafikler g
 
 Fırçalar, yakınlaştırma ve keşfetme gibi eylemleri tanımlamak üzere zaman aralığının kapsamını belirlemek için kullanılır.
 
-Fırçaları göstermek için kullanılan kod, [Açılan bağlam menüleri](#popup-context-menus-section) konusunu açıklayan önceki "Pasta/Çubuk Grafik Oluşturmak için Bağlam Menüsüyle Çizgi Grafik" örneğinde gösterilmiştir.
+Açılan bağlam menüleri açıklayan önceki "Çizgi grafik ile bağlam menüsü için oluşturma Pasta/Çubuk Grafik" örnekte Fırçalar göstermek için kullanılan kod gösterilmektedir.
 
 1. Fırça eylemleri, fırça için bir dizi özel eylem tanımlaması bakımından bağlam menüsüne benzer. Her eylem bir veya daha fazla öğe ile bir dizi içerir. Her öğe tek bir bağlam menüsü öğesini tanımlar:
    - `name`: Menü öğesi için kullanılan metin: "Konsol parametreleri yazdırın."

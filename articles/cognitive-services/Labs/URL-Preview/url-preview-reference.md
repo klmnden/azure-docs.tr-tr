@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cd99f8bce8eca622412b834b5a7b75fda3ceb1f7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222924"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812064"
 ---
 # <a name="project-url-preview-v7-reference"></a>Proje URL'si Önizleme v7 başvurusu
 
@@ -73,12 +73,12 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 ## <a name="query-parameters"></a>Sorgu parametreleri
 Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için gerekli sütununa bakın. URL gereken sorgu parametrelerine kodlayın. Sorgu, bir http veya https şemasına sahip bir mutlak URL olmalıdır; Göreli URL'ler veya ftp gibi diğer düzenleri desteklemiyoruz: / /
 
-|Name|Value|Type|Gereklidir|
+|Ad|Değer|Type|Gerekli|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için bkz. [Pazar kodları](#market-codes).<br /><br /> **NOT:** URL önizleme API'sı şu anda yalnızca ABD coğrafya ve İngilizce dilini desteklemektedir.<br /><br />|Dize|Evet|
-|<a name="query" />q|Önizleme URL'si|Dize|Evet|
-|<a name="responseformat" />responseFormat|Yanıt için kullanılacak medya türü. Büyük küçük harf duyarsız olası değerler şunlardır:<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> JSON varsayılandır. JSON hakkında bilgi yanıt içerdiğini nesneleri için bkz. [yanıt nesneleri](#response-objects).<br /><br />JsonLd belirtirseniz, yanıt gövdesi, arama sonuçlarını içeren JSON-LD nesneler içerir. JSON-LD hakkında daha fazla bilgi için bkz. [JSON-LD](http://json-ld.org/).|Dize|Hayır|
-|<a name="safesearch"/>safeSearch|Geçersiz yetişkinlere yönelik içeriği veya korsan içeriği, 400 ' hata koduyla engellendi ve *isFamilyFriendly* bayrağı alınmadı. <p>Yetişkinlere yönelik içeriği için yasal, aşağıda davranıştır. Durum kodu 200 döndürür ve *isFamilyFriendly* bayrağı false olarak ayarlanır.<ul><li>safeSearch strict =: Başlık, açıklama, URL ve görüntü döndürülmez.</li><li>safeSearch Orta; = Başlık, URL ve açıklama ancak açıklayıcı görüntü alın.</li><li>safeSearch; = Tüm yanıt nesneleri/öğeleri – başlık, URL, açıklama ve resim alın.</li></ul> |Dize|Gerekli değildir. </br> Varsayılan olarak safeSearch için strict =.|
+|<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için Pazar kodları bölümüne bakın.<br /><br /> **NOT:** URL önizleme API'sı şu anda yalnızca ABD coğrafya ve İngilizce dilini desteklemektedir.<br /><br />|String|Evet|
+|<a name="query" />q|Önizleme URL'si|String|Evet|
+|<a name="responseformat" />responseFormat|Yanıt için kullanılacak medya türü. Büyük küçük harf duyarsız olası değerler şunlardır:<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> JSON varsayılandır. JSON hakkında bilgi yanıt içerdiğini nesneleri için bkz. [yanıt nesneleri](#response-objects).<br /><br />JsonLd belirtirseniz, yanıt gövdesi, arama sonuçlarını içeren JSON-LD nesneler içerir. JSON-LD hakkında daha fazla bilgi için bkz. [JSON-LD](http://json-ld.org/).|String|Hayır|
+|<a name="safesearch"/>safeSearch|Geçersiz yetişkinlere yönelik içeriği veya korsan içeriği, 400 ' hata koduyla engellendi ve *isFamilyFriendly* bayrağı alınmadı. <p>Yetişkinlere yönelik içeriği için yasal, aşağıda davranıştır. Durum kodu 200 döndürür ve *isFamilyFriendly* bayrağı false olarak ayarlanır.<ul><li>safeSearch strict =: Başlık, açıklama, URL ve görüntü döndürülmez.</li><li>safeSearch Orta; = Başlık, URL ve açıklama ancak açıklayıcı görüntü alın.</li><li>safeSearch; = Tüm yanıt nesneleri/öğeleri – başlık, URL, açıklama ve resim alın.</li></ul> |String|Gerekli değildir. </br> Varsayılan olarak safeSearch için strict =.|
 
 ## <a name="response-objects"></a>Yanıt nesneleri
 Yanıt şeması ya da bir [Web] sayfasıdır veya ErrorResponse, Web araması API'si olduğu gibi. İstek başarısız olursa, en üst düzey nesnedir [ErrorResponse](#errorresponse) nesne.
@@ -92,36 +92,36 @@ Gerçekleşen hata tanımlar.
 
 |Öğe|Açıklama|Type|
 |-------------|-----------------|----------|
-|<a name="error-code" />Kod|Hata kategorisi tanımlar hata kodu. Olası kodlarının listesi için bkz. [hata kodları](#error-codes).|Dize|
-|<a name="error-message" />İleti|Hatanın açıklaması.|Dize|
-|<a name="error-moredetails" />moreDetails|Hata hakkında ek bilgi sağlayan bir açıklama.|Dize|
-|<a name="error-parameter" />Parametre|Sorgu parametresi hataya neden olan istek.|Dize|
-|<a name="error-subcode" />Alt|Hatayı tanımlar hata kodu. Örneğin, varsa `code` InvalidRequest, olan `subCode` ParameterInvalid veya ParameterInvalidValue olabilir. |Dize|
-|<a name="error-value" />Değer|Geçerli değildi sorgu parametrenin değeri.|Dize|
+|<a name="error-code" />Kod|Hata kategorisi tanımlar hata kodu. Olası kodlarının listesi için bkz. [hata kodları](#error-codes).|String|
+|<a name="error-message" />İleti|Hatanın açıklaması.|String|
+|<a name="error-moredetails" />moreDetails|Hata hakkında ek bilgi sağlayan bir açıklama.|String|
+|<a name="error-parameter" />Parametre|Sorgu parametresi hataya neden olan istek.|String|
+|<a name="error-subcode" />Alt|Hatayı tanımlar hata kodu. Örneğin, varsa `code` InvalidRequest, olan `subCode` ParameterInvalid veya ParameterInvalidValue olabilir. |String|
+|<a name="error-value" />Değer|Geçerli değildi sorgu parametrenin değeri.|String|
 
 ### <a name="errorresponse"></a>ErrorResponse
 Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.
 
-|Name|Value|Type|
+|Ad|Değer|Type|
 |----------|-----------|----------|
-|_type|Tür ipucu.|Dize|
+|_type|Tür ipucu.|String|
 |<a name="errors" />Hataları|İsteğin neden başarısız olma nedenlerini tanımlayan hataların listesi.|[Hata](#error)]|
 
 ### <a name="webpage"></a>Web sayfası
 Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
 
-|Name|Value|Type|
+|Ad|Değer|Type|
 |----------|-----------|----------|
-|ad|Sayfa başlığı, mutlaka HTML Başlığı|Dize|
-|url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|Dize|
-|açıklama|Sayfa içeriği ve kısa açıklama|Dize|
+|ad|Sayfa başlığı, mutlaka HTML Başlığı|String|
+|url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|String|
+|açıklama|Sayfa içeriği ve kısa açıklama|String|
 |isFamilyFriendly|Web dizindeki öğeler için en doğru; Bu algılama yöntemi yalnızca bir URL ve sayfa içeriği göre gerçek zamanlı öğesinden yapın|boole|
-|primaryImageOfPage/contentUrl|Önizlemede dahil etmek için temsili bir görüntü URL'si|Dize|
+|primaryImageOfPage/contentUrl|Önizlemede dahil etmek için temsili bir görüntü URL'si|String|
 
 ### <a name="identifiable"></a>Tanımlama
-|Name|Value|Type|
+|Ad|Değer|Type|
 |-------------|-----------------|----------|
-|id|Bir kaynak tanımlayıcısı|Dize|
+|id|Bir kaynak tanımlayıcısı|String|
 
 ## <a name="error-codes"></a>Hata kodları
 

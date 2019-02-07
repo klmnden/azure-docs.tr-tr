@@ -14,26 +14,26 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 55798af8d8e2b50614a3eee51b330c5b4fa0f918
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: a1c0078cf2359de7fa018af749c61880caa8fcdd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409585"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821832"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure Service Bus - Azure Event Grid tümleştirmesi örnekleri
 
 Bu makalede, Azure Event Grid’den gelen bir olayın alınmasına dayalı iletiler alan bir Azure işlevi ve mantıksal uygulamanın nasıl ayarlanacağını öğreneceksiniz. Yapacaklarınız:
  
-* Hata ayıklamaya ve Event Grid’den olayların ilk akışını görüntülemeye ilişkin basit bir [test Azure işlevi](#test-function-setup) oluşturun. Diğer adımları gerçekleştirip gerçekleştirmediğinize bakmaksızın bu adımı gerçekleştirin.
-* Event Grid olaylarına dayalı olarak [Azure Service Bus iletileri almak ve işlemek için bir Azure işlevi](#receive-messages-using-azure-function) oluşturun.
-* [Azure App Service’in Logic Apps özelliğini](#receive-messages-using-azure-logic-app) kullanın.
+* Hata ayıklamaya ve Event grid'den olayların ilk akışını görüntülemeye ilişkin basit bir test Azure işlevi oluşturun. Diğer adımları gerçekleştirip gerçekleştirmediğinize bakmaksızın bu adımı gerçekleştirin.
+* Event Grid olaylarını temel alarak Azure Service Bus iletileri almak ve işlemek için bir Azure işlevi oluşturun.
+* Azure App Service'in Logic Apps özelliğini kullanın.
 
 Oluşturduğunuz örnekte, Service Bus konusunun iki aboneliğinin olduğu varsayılır. Ayrıca bu örnekte yalnızca bir Service Bus aboneliğine yönelik olaylar göndermek için Event Grid aboneliğinin oluşturulduğu da varsayılır. 
 
 Örnekte, Service Bus konusuna iletiler gönderir ve sonra bu Service Bus aboneliği için olayın oluşturulduğunu doğrularsınız. İşlev veya mantıksal uygulama, Service Bus aboneliğinden iletileri alır ve tamamlar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce, sonraki iki bölümde yer alan adımları tamamladığınızdan emin olun.
 
 ### <a name="create-a-service-bus-namespace"></a>Service Bus ad alanı oluşturma

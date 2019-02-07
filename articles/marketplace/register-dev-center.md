@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 66daa71ffbe97e9f5374eedd7f51e5afe02f0b94
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755535"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815253"
 ---
 # <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne kaydolun  
 Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımcı olmak için yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumu açın.  
@@ -98,7 +98,7 @@ Ardından, Geliştirme Merkezi kayıt ile ilgili sorunlar varsa, bir destek bile
     
     Başlangıç e-posta düğmesine tıklayın.  
 1.  Oturum açma sayfasında, tüm Microsoft ID. kullanarak oturum açın. Ardından a Microsoft ID yoksa oluşturun.  
-    *   A Microsoft ID oluşturma hakkında daha fazla bilgi için ziyaret [a Microsoft Azure Marketi hesabını yönetmek için ID oluşturma yönergeleri](#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account) bölümü.  
+    *   A Microsoft ID oluşturma hakkında daha fazla bilgi için bir Azure Market hesabı bölümünde yönetmek için a Microsoft ID oluşturma yönergeleri ziyaret edin.  
 2.  Sorunun ayrıntıları girin.  
 3.  Bileti göndermeye gönder düğmesine tıklayın. 
 

@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: c65a71d9e64a1ea3f60abbe2e420652c12ba030e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 301a3f9a500c41cf13dfa071d3526d2128b5e131
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549560"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813628"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET için Batch Yönetimi istemci kitaplığı ile batch hesaplarını ve kotalarını yönetme
 
@@ -64,7 +64,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Batch yönetimi .NET kitaplığı ve onun BatchManagementClient sınıfını kullanan uygulamaların gerektiren **Hizmet Yöneticisi** veya **Abonelikteki** Batch sahip abonelik erişimi Yönetilecek hesabı. Daha fazla bilgi için [Azure Active Directory](#azure-active-directory) bölümü ve [hesap yönetimi] [ acct_mgmt_sample] kod örneği.
+> Batch yönetimi .NET kitaplığı ve onun BatchManagementClient sınıfını kullanan uygulamaların gerektiren **Hizmet Yöneticisi** veya **Abonelikteki** Batch sahip abonelik erişimi Yönetilecek hesabı. Daha fazla bilgi için Azure Active Directory bölümüne bakın ve [hesap yönetimi] [ acct_mgmt_sample] kod örneği.
 > 
 > 
 

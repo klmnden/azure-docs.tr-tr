@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 4110b8f1b336a604c89180ac44ad470132765830
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620532"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820683"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>C# Reliable Services ile Service uzaktan iletişim
 
@@ -239,7 +239,7 @@ Bu adım yalnızca V2 Dinleyicide dinleyen bir hizmet emin olur.
 
 ## <a name="use-the-remoting-v2-interface-compatible-stack"></a>Uzaktan iletişim V2 (Arabirimi uyumlu) yığını kullanın
 
- Uzaktan iletişim V2 (V2_1 bilinen uyumlu arabirimi) yığını V2 remoting yığınının tüm özelliklere sahiptir. Arabirimi yığınını remoting V1 yığın ile uyumludur, ancak V2 ve V1 ile geriye dönük olarak uyumlu değil. Hizmet kullanılabilirliği etkilemeden V2_1 için v1'den yükseltme için makaledeki adımları izleyin. [V1'den V2'ye yükseltme (uyumlu arabirimi)](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
+ Uzaktan iletişim V2 (V2_1 bilinen uyumlu arabirimi) yığını V2 remoting yığınının tüm özelliklere sahiptir. Arabirimi yığınını remoting V1 yığın ile uyumludur, ancak V2 ve V1 ile geriye dönük olarak uyumlu değil. Yükseltme makaledeki adımları v1'den V2_1 için hizmet kullanılabilirliğini etkilemeden yükseltmek için V2'ye V1'den izleyin (uyumlu arabirimi).
 
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>Bir derleme özniteliğini uzaktan iletişim V2 (Arabirimi uyumlu) yığını kullanın

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 26b4e2b1bf2dc9e59bc41e1d9f0628a1f476d402
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031499"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820853"
 ---
 # <a name="front-door-routing-methods"></a>Ön kapısı yönlendirme yöntemleri
 
@@ -24,12 +24,12 @@ Azure ön kapısı hizmeti çeşitli hizmet uç noktaları, HTTP/HTTPS trafiğin
 
 Ön kapısı trafik yönlendirme için dört ana kavram vardır:
 
-* **[Gecikme süresi](#latency):** gecikme tabanlı yönlendirme istekleri için en düşük gecikme süresi arka uçları bir duyarlılık aralığında kabul edilebilir gönderilmesini sağlar. Aslında, kullanıcı isteklerini ağ gecikmesi açısından arka uçları "en yakın" kümesini gönderilir.
-* **[Öncelik](#priority):** öncelikleri yedekleme arka uçları kullanılamıyor veya tüm trafiği için bir birincil hizmet arka ucu kullanın ve birincil durumda yedekleme sağlamak istediğinizde farklı uçlarınıza atayabilirsiniz.
-* **[Ağırlıklı](#weighted):** eşit ya da ağırlığı katsayıları göre bir dizi arka uçları trafiği dağıtmak istediğinizde ağırlıkları farklı uçlarınıza atayabilirsiniz.
-* **[Oturum benzeşimi](#sessionaffinity):** ön uç konaklarınız için oturum benzeşimi yapılandırabilirsiniz ya da kullanıcı oturumunu olduğu sürece bir kullanıcıdan gelen sonraki istekleri için aynı arka uca gönderilen istediğinizde etki alanları hala etkin ve arka uç örneği yine de durum araştırmaları temel alınarak sağlıklı bildirir. 
+* **[Gecikme süresi](#latency):** Gecikme süresi tabanlı yönlendirme istekleri için en düşük gecikme süresi arka uçları bir duyarlılık aralığında kabul edilebilir gönderilmesini sağlar. Aslında, kullanıcı isteklerini ağ gecikmesi açısından arka uçları "en yakın" kümesini gönderilir.
+* **[Öncelik](#priority):** Tüm trafiği için bir birincil hizmet arka ucu kullanın ve birincil veya yedek arka uçları kullanılamaz olması durumunda yedekleme sağlamak istediğinizde, farklı uçlarınıza öncelikleri atayabilirsiniz.
+* **[Ağırlıklı](#weighted):** Eşit ya da ağırlığı katsayıları göre bir dizi arka uçları trafiği dağıtmak istediğinizde farklı uçlarınıza ağırlıkları atayabilirsiniz.
+* **Oturum benzeşimi:** Oturum benzeşimi, frontend ana bilgisayar veya kullanıcı oturumu hala etkin olduğu sürece bir kullanıcıdan gelen sonraki istekleri için aynı arka uca gönderilen istediğinizde etki alanları ve arka uç örneği için yine de Sağlıklı durum yoklamalarına göre raporları yapılandırabilirsiniz. 
 
-Tüm ön kapısı yapılandırmaları, arka uç sistem durumunu izleme olanağı ve genel anında yük devretme otomatik. Daha fazla bilgi için [ön kapısı arka uç izleme](front-door-health-probes.md). Tek bir yönlendirme yöntemini devre dışı tabanlı ya da çalışma, ön kapısı yapılandırılabilir ve uygulamanızın bağlı olarak birden çok ya da tüm bu yönlendirme yöntemleri birlikte bir en uygun yönlendirme topolojisi oluşturmak için kullanabileceğiniz.
+Tüm Front Door yapılandırmaları, arka uç durumu ve otomatik anında global yük devretme izlemesini kapsar. Daha fazla bilgi için [ön kapısı arka uç izleme](front-door-health-probes.md). Tek bir yönlendirme yöntemini devre dışı tabanlı ya da çalışma, ön kapısı yapılandırılabilir ve uygulamanızın bağlı olarak birden çok ya da tüm bu yönlendirme yöntemleri birlikte bir en uygun yönlendirme topolojisi oluşturmak için kullanabileceğiniz.
 
 ## <a name = "latency"></a>En düşük gecikme süreleriyle trafik yönlendirme tabanlı
 
@@ -60,22 +60,22 @@ Her arka uçları ön kapısı yapılandırması içindeki arka uç havuzu, 1 il
 ## <a name = "weighted"></a>Ağırlıklı trafik yönlendirme yöntemi
 'Ağırlıklı' trafik yönlendirme yöntemini trafiği eşit olarak dağıtmak için veya önceden tanımlanmış ağırlığı kullanmayı sağlar.
 
-Ağırlıklı trafik yönlendirme yöntemini her bir arka uca ön kapısı yapılandırmasında arka uç havuzunuzun ağırlık atayın. Ağırlık 1000 ile 1 arasında bir tamsayı olduğu. Bu parametre '50' varsayılan ağırlığı kullanır.
+Ağırlıklı trafik yönlendirme yöntemini her bir arka uca ön kapısı yapılandırmasında arka uç havuzunuzun ağırlık atayın. Ağırlık 1-1000 arasında bir tamsayıdır. Bu parametre '50' varsayılan ağırlığı kullanır.
 
 Kabul edilen gecikme duyarlılık (belirtildiği gibi) içinde mevcut arka uçları listesini arasında trafiği belirtilen ağırlıkları oranını hepsini bir kez deneme mekanizması dağıtılmış. Daha sonra gecikme duyarlılık milisaniye 0 olarak ayarlanırsa, iki arka uçlar aynı ağ gecikme süresine sahip olmadığı sürece bu özellik geçerli olmaz. 
 
 Ağırlıklı yöntemin bazı yararlı senaryolara olanak tanır:
 
-* **Aşamalı uygulama yükseltmesi**: yeni bir arka ucuna yönlendirmek için trafik yüzdesi ayırın ve yavaş yavaş, diğer arka uçları ile par getirmek için zaman içinde trafik artırın.
-* **Uygulamayı azure'a**: arka uç havuzu ile hem Azure hem de dış arka uçlar oluşturun. Yeni arka uçların tercih edilmesi arka uçları ağırlığını ayarlayın. Kademeli olarak bunu devre dışı, yeni arka uçların sahip olmakla başlatılıyor sonra bunları en düşük ağırlıkları yavaş çoğu trafik olduğu aldıkları düzeylere artmaya atayarak ayarlayabilirsiniz. Ardından son olarak daha az tercih edilen arka uçları devre dışı bırakma ve bunları havuzdan kaldırılıyor.  
-* **Ek kapasite için bulut Patlaması**: hızlı bir şekilde ön kapısı yerleştirerek bir şirket içi dağıtım buluta genişletin. Bulutta ek kapasiteye ihtiyaç duyduğunuzda, ekleyin veya daha fazla arka uçları etkinleştirebilir ve her arka uca trafik hangi kısmını gider belirtin.
+* **Aşamalı uygulama yükseltmesi**: Yeni bir arka ucuna yönlendirmek için trafik yüzdesi ayırın ve yavaş yavaş, diğer arka uçları ile par getirmek için zaman içinde trafik artırın.
+* **Uygulamayı azure'a**: Arka uç havuzu ile hem Azure hem de dış arka uçlar oluşturun. Yeni arka uçların tercih edilmesi arka uçları ağırlığını ayarlayın. Kademeli olarak bunu devre dışı, yeni arka uçların sahip olmakla başlatılıyor sonra bunları en düşük ağırlıkları yavaş çoğu trafik olduğu aldıkları düzeylere artmaya atayarak ayarlayabilirsiniz. Ardından son olarak daha az tercih edilen arka uçları devre dışı bırakma ve bunları havuzdan kaldırılıyor.  
+* **Ek kapasite için bulut Patlaması**: Hızlı bir şekilde ön kapısı yerleştirerek bir şirket içi dağıtım buluta genişletin. Bulutta ek kapasiteye ihtiyaç duyduğunuzda, ekleyin veya daha fazla arka uçları etkinleştirebilir ve her arka uca trafik hangi kısmını gider belirtin.
 
 ## <a name = "affinity"></a>Oturum benzeşimi
-Varsayılan olarak olmadan oturum benzeşimi, özellikle farklı arka uçları gecikmeleri değiştikçe veya Dengeleme yapılandırması yüküne göre farklı arka uçları aynı istemciden gelen istekler ön kapısı iletir farklı istekleri aynı kullanıcı farklı bir ön kapısı ortamında Toprakları. Ancak, bazı durum bilgisi olan uygulamalar veya belirli senaryolarda, sonraki istekleri aynı kullanıcı ilk istek işlenmeden aynı arka uçta kavuşmak tercih edin. Tanımlama bilgilerine dayalı oturum benzeşimi özelliği, bir kullanıcı oturumunu aynı arka uçta tutmak istediğinizde kullanışlıdır. Ön kapısı yönetilen tanımlama bilgilerini kullanarak Azure ön kapısı hizmeti bir kullanıcı oturumundan sonraki trafiği arka uç sağlıklı olduğunu ve kullanıcı oturumunun süresi dolmadığından sürece işlemek için aynı arka uca yönlendirebilir. 
+Varsayılan olarak olmadan oturum benzeşimi, özellikle farklı arka uçları gecikmeleri değiştikçe veya Dengeleme yapılandırması yüküne göre farklı arka uçları aynı istemciden gelen istekler ön kapısı iletir farklı istekleri aynı kullanıcı farklı bir ön kapısı ortamında Toprakları. Ancak belirli diğer senaryolardaki bazı durum bilgisi olan uygulamalar, aynı kullanıcıdan gelen ardışık isteklerin ilk isteği işleyen aynı arka uca yönlendirilmesini tercih etmektedir. Tanımlama bilgilerine dayalı oturum benzeşimi özelliği, bir kullanıcı oturumunu aynı arka uçta tutmak istediğinizde kullanışlıdır. Ön kapısı yönetilen tanımlama bilgilerini kullanarak Azure ön kapısı hizmeti bir kullanıcı oturumundan sonraki trafiği arka uç sağlıklı olduğunu ve kullanıcı oturumunun süresi dolmadığından sürece işlemek için aynı arka uca yönlendirebilir. 
 
-Oturum benzeşimi, bir ön uç konak düzeyinde yapılandırılan etki alanları (veya alt etki alanları) her biri için olan etkinleştirilebilir. Etkinleştirildikten sonra ön kapısı kullanıcının oturumu için bir tanımlama bilgisi ekler. Tanımlama bilgilerine dayalı oturum benzeşimi aynı IP trafiğinin farklı uçlarınıza arasında daha eşit bir dağıtım açın, adres sağlar olsa bile farklı kullanıcıları tanımlamak ön kapı sağlar.
+Oturum benzeşimi, yapılandırılan etki alanlarınızın (veya alt etki alanlarınızın) her biri için ön uç konağı seviyesinde etkinleştirilebilir. Bu özellik etkinleştirildikten sonra Front Door kullanıcı oturumuna bir tanımlama bilgisi ekler. Front Door, tanımlama bilgisi tabanlı oturum benzeşimi sayesinde aynı IP adresini kullanan farklı kullanıcıları dahi tanımlayabilir ve bu sayede trafiğin farklı arka uçlarınız arasında daha eşit bir şekilde dağıtılmasını sağlayabilir.
 
-Ön kapısı şu anda yalnızca oturum tanımlama bilgisi olarak tanımlama bilgisinin ömrü kullanıcının oturumu ile aynıdır. 
+Front Door şu an için yalnızca oturum tanımlama bilgisini desteklediğinden tanımlama bilgisinin ömrü kullanıcı oturumunun ömrüyle aynıdır. 
 
 > [!NOTE]
 > Ortak Ara sunucuları ile oturum benzeşimi etkileyebilir. Bir oturumu yanıt tanımlama bilgileri aynı kaynak isteyen diğer istemcilerin kesintiye gibi önbelleğe kaydedilemeyen ise, hangi yapılamaz yanıt olarak bir oturum benzeşimi tanımlama bilgisini eklemek ön kapı gerektirdiğinden budur. Buna karşı korunmak için oturum benzeşimi olacak **değil** oluşturulması bu çalışırken arka uç önbelleğe alınabilir bir yanıt gönderirse. Oturum zaten kurulmuşsa, arka uç yanıtı önbelleğe ise bir önemi yoktur.
@@ -86,5 +86,5 @@ Oturum benzeşimi, bir ön uç konak düzeyinde yapılandırılan etki alanları
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [ön kapı oluşturmak](quickstart-create-front-door.md).
-- Bilgi [ön kapısı işleyişi](front-door-routing-architecture.md).
+- [Front Door oluşturmayı](quickstart-create-front-door.md) öğrenin.
+- [Front Door’un nasıl çalıştığını](front-door-routing-architecture.md) öğrenin.

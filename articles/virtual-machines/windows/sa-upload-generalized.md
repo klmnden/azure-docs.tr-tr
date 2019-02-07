@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 199343fce4774ea643bc22c879efc6717aa0a510
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 658cee95d695a310291d5b7180815c89bc2f0401
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244738"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818116"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Yeni bir VM oluşturmak için Azure'da genelleştirilmiş VHD yükleme
 
@@ -41,7 +41,7 @@ Genelleştirilmiş VHD tüm kişisel hesap bilgilerinizi Sysprep kullanarak kald
   * Sysprep kullanarak sanal makineyi Genelleştir
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Sysprep kullanarak bir Windows sanal makineyi Genelleştir
-Bu bölümde, Windows sanal makinenizi bir görüntü olarak kullanılmaya generalize gösterilir. Sysprep diğer öğelerin yanı sıra tüm kişisel hesap bilgilerinizi kaldırır ve makineyi bir görüntü olarak kullanılacak şekilde hazırlar. Sysprep hakkındaki ayrıntılar için bkz. [Sysprep İşlemini Kullanma: Giriş](https://technet.microsoft.com/library/bb457073.aspx).
+Bu bölümde, Windows sanal makinenizi bir görüntü olarak kullanılmaya generalize gösterilir. Sysprep diğer öğelerin yanı sıra tüm kişisel hesap bilgilerinizi kaldırır ve makineyi bir görüntü olarak kullanılacak şekilde hazırlar. Sysprep hakkında daha fazla ayrıntı için bkz: [Sysprep işlemini kullanma: Giriş](https://technet.microsoft.com/library/bb457073.aspx).
 
 Makinede çalışan sunucu rollerini Sysprep tarafından desteklendiğinden emin olun. Daha fazla bilgi için [sunucu rolleri için Sysprep desteği](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -97,7 +97,7 @@ Kullanılabilir depolama hesaplarını göstermek için şunu yazın:
 Get-AzureRmStorageAccount
 ```
 
-Mevcut bir depolama hesabı kullanmak istiyorsanız, devam [VM görüntüsünü karşıya yükleme](#upload-the-vm-vhd-to-your-storage-account) bölümü.
+Karşıya yükleme için mevcut bir depolama hesabı kullanmak istiyorsanız, VM görüntü bölümü devam edin.
 
 Bir depolama hesabı oluşturmanız gerekiyorsa, aşağıdaki adımları izleyin:
 

@@ -1,0 +1,133 @@
+---
+title: Azure maliyet Yönetimi verilerine anlama | Microsoft Docs
+description: Bu makalede, hangi verilerin Azure maliyet Yönetimi'nde bulunur ve ne sıklıkta, toplanan, gösterilen ve kapalı işlenir daha iyi anlamanıza yardımcı olur.
+services: cost-management
+keywords: ''
+author: bandersmsft
+ms.author: banders
+ms.date: 02/06/2019
+ms.topic: conceptual
+ms.service: cost-management
+manager: micflan
+ms.custom: ''
+ms.openlocfilehash: 0531c106228190fdc40f494e8eee70ec550f6404
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820272"
+---
+# <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerine anlama
+
+Bu makalede, hangi verilerin Azure maliyet Yönetimi'nde dahildir daha iyi anlamanıza yardımcı olur. Ve ne sıklıkta veri toplanan, gösterilen ve kapalı işleneceğini açıklar. Aylık Azure kullanım için faturalandırılırsınız. Bununla birlikte, faturalandırma ayınızdan sona erdiğinde Azure abonelik türü belirler. Maliyet Yönetimi veri değişir kullanım ne sıklıkta alan farklı etkenlere bağlı olarak. Verileri işlemek için ne kadar sürer ve Azure Hizmetleri kullanımı faturalandırma sistemine ne sıklıkta yayma gibi faktörleri içerir.
+
+## <a name="supported-microsoft-offers"></a>Desteklenen Microsoft teklifleri
+
+Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sunduğu](https://azure.microsoft.com/support/legal/offer-details/) Azure maliyet Yönetimi'nde.  Bir Azure teklifi, sahip olduğunuz Azure aboneliğinin türüdür.
+
+| Kategori  | **Teklif adı** | **Teklif numarası** |
+| --- | --- | --- |
+| **Kurumsal Anlaşma (EA)** | [Microsoft Azure Kurumsal](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
+| **Kurumsal Anlaşma (EA)**| Kurumsal Geliştirme ve Test | MS-AZR-0148P |
+| **Microsoft Geliştirici Ağı (MSDN)** | [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
+| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p/) | MS-AZR-0029P |
+| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) | MS-AZR-0059P |
+| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) | MS-AZR-0060P |
+| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) | MS-AZR-0063P |
+| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P |
+| **Doğrudan/kullandıkça-As-You-Öde** | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
+| **Doğrudan/kullandıkça-As-You-Öde** | Microsoft Azure dahili tüketim | MS-AZR-0015P |
+| **Doğrudan/kullandıkça-As-You-Öde** | [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
+| **Doğrudan/kullandıkça-As-You-Öde** | [Microsoft iş ortağı ağı](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
+| **Doğrudan/kullandıkça-As-You-Öde** | [Microsoft Azure Sponsorluğu](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
+| **Doğrudan/kullandıkça-As-You-Öde** | [Ücretsiz deneme](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
+| **Doğrudan/kullandıkça-As-You-Öde** | [Açık lisansta Azure](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
+| **Doğrudan/kullandıkça-As-You-Öde** | [Öğrenciler için Azure](https://azure.microsoft.com/en-us/offers/ms-azr-0170p/) | MS-AZR-0170P |
+| **Doğrudan/kullandıkça-As-You-Öde** | Azure Pass | MS-AZR - 0120P, MS - AZR - 0122P, MS-AZR - 0125P, MS - AZR - 0128P - MS-AZR - 0130P |
+
+Aşağıdaki tabloda, desteklenmeyen teklifler gösterilmektedir.
+
+| Kategori  | **Teklif adı** | **Teklif numarası** |
+| --- | --- | --- |
+| **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Azure | MS-AZR-0145P |
+| **Bulut çözümü sağlayıcısı (CSP)** | Azure kamu CSP | MS-AZR-USGOV-0145P |
+| **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Bulut Almanya için CSP’de Azure Almanya | MS-AZR-DE-0145P |
+| **Doğrudan/kullandıkça-As-You-Öde** | Öğrenciler için Azure Başlangıç | MS-AZR - 0144P |
+| **Destek planları** | Standart destek | MS-AZR-0041P |
+| **Destek planları** | Profesyonel doğrudan desteği | MS-AZR-0042P |
+| **Destek planları** | Geliştirici Desteği | MS-AZR-0043P |
+| **Destek planları** | Almanya destek planı | MS-AZR-DE-0043P |
+| **Destek planları** | Azure kamu standart destek | MS-AZR-USGOV-0041P |
+| **Destek planları** | Azure kamu profesyonel doğrudan desteği | MS-AZR-USGOV-0042P |
+| **Destek planları** | Azure kamu Geliştirici Desteği | MS-AZR-USGOV-0043P |
+
+Veriler için bir abonelik göremiyor ve aboneliğinizi desteklenen teklifleri altında kalırsa belirlemek istiyorsanız, aboneliğinizin desteklenip desteklenmediğini doğrulayabilirsiniz. Bir Azure aboneliği desteklendiğini doğrulamak için oturum [Azure portalında](https://portal.azure.com). Ardından **tüm hizmetleri** sol menü bölmesinde. Hizmetler listesinde seçin **abonelikleri**. Abonelik listesi menüde, doğrulamak istediğiniz aboneliğe tıklayın. Aboneliğiniz genel bakış sekmesinde gösterilen ve gördüğünüz **teklif** ve **Teklif kimliği**. Aşağıdaki resimde bir örnek gösterilir.
+
+![Abonelik genel bakış sekmesinin teklifi ve teklif kimliği gösteren örnek](./media/understand-cost-mgt-data/offer-and-offer-id.png)
+
+## <a name="costs-included-in-cost-management"></a>Maliyet Yönetimi'nde bulunan maliyetleri
+
+Aşağıdaki tablolarda, maliyet Yönetimi'nde değil ya da eklenmiştir. Bu verileri görüntüleyin.
+
+**Hesap türleri**
+
+| **Dahil edilen** | **Dahil değil** |
+| --- | --- |
+| Kurumsal Anlaşma (EA) | Bulut çözümü sağlayıcısı (CSP) - daha fazla bilgi için bkz: [iş ortağı merkezi genel bakış](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview). |
+| Kullandıkça Öde (PAYG) |   |
+| Geliştirme/test |   |
+| Ücretsiz deneme ve sponsorlu |   |
+| İş Ortağı Ağı |   |
+| Open ile Azure | &nbsp;  |
+
+**Maliyet ve kullanım verileri**
+
+| **Dahil edilen** | **Dahil değil** |
+| --- | --- |
+| Azure hizmet kullanımı<sup>1</sup> | Rezervasyon satın alma – daha fazla bilgi için [Otomasyon Azure ayırma için API'leri](../billing/billing-reservation-apis.md). |
+| Market teklifini kullanımı | Market satın alımları – daha fazla bilgi için [üçüncü taraf hizmet ücretlerini](../billing/billing-understand-your-azure-marketplace-charges.md). |
+|   | Destek ücretleri - daha fazla bilgi için bkz: [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
+|   | Vergi - daha fazla bilgi için [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
+|   | Krediler - daha fazla bilgi için [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
+
+<sup>1</sup> azure hizmet kullanımı üzerinde ayırma temel alır ve fiyatlarını görüştü.
+
+**Meta verileri**
+
+| **Dahil edilen** | **Dahil değil** |
+| --- | --- |
+| Kaynak etiketleri<sup>2</sup> | kaynak grubu etiketleri |
+
+<sup>2</sup> kaynak etiketleri kullanım her hizmetinden yayıldığını olarak uygulanır ve geçmiş kullanımı için geriye dönük olarak kullanılamaz.
+
+## <a name="rated-usage-data-refresh-schedule"></a>Derecelendirilmiş kullanım Veri Yenileme zamanlaması
+
+Maliyet ve kullanım verileri Azure portalında maliyet Yönetimi + faturalandırma içinde kullanılabilir ve [API'leri destekleme](https://aka.ms/costmgmt/docs). Maliyetleri gözden geçirirken, aşağıdaki noktaları göz önünde bulundurun:
+
+- Geçerli fatura dönemi için tahmini ücretleri altı kat gün güncelleştirilir.
+- Daha fazla kullanım tabi olarak, geçerli fatura dönemi için tahmini ücretleri değiştirebilirsiniz.
+- Her güncelleştirme toplanır ve tüm satır öğeleri ve önceki güncelleştirme bilgileri içerir.
+- Azure sonlandırır veya _kapatır_ geçerli fatura dönemi yukarı fatura dönemi sona erdikten sonra 72 saate (üç takvim günü).
+
+Aşağıdaki örnekler, faturalandırma nasıl son gösterir.
+
+Faturalama ayı 31 Mart sona ererse Kurumsal Anlaşma (EA) abonelikleri – ücretleri yukarı daha sonra 72 saat güncelleştirilir tahmin. Bu örnekte, gece yarısı (UTC) 4 Nisan tarafından.
+
+Faturalama ayının 15 Mayıs, tahmini ücretleri yukarı daha sonra 72 saat güncelleştirilir sonra sona ererse Kullandıkça Öde abonelikleri –. Bu örnekte, gece yarısı (UTC) Mayıs 19 tarafından.
+
+### <a name="rerated-data"></a>Rerated veri
+
+Kullanıp [maliyet Yönetimi API'leri](https://aka.ms/costmgmt/docs), verileri almak için Power BI veya Azure portalında yeniden derecelendirilmiş ve fatura kapatılana kadar sonuç olarak, değiştirmek için geçerli fatura döneminin ücretleri bekler.
+
+## <a name="usage-data-update-frequency-varies"></a>Kullanım verileri güncelleştirme sıklığını değişir
+
+Maliyet Yönetimi'nde tahakkuk kullanım verilerinizin kullanılabilirliğini birkaç dahil olmak üzere bir dizi etkene bağlıdır:
+
+- Ne sıklıkla (örneğin, depolama, bilgi işlem, CDN ve SQL) Azure Hizmetleri kullanımı gösterin.
+- Derecelendirme altyapıyı kullanım verilerini işlemek ve maliyet Yönetimi işlem hatları için geçen süre.
+
+Bazı hizmetler, kullanım diğerlerinden daha sık gösterin. Bu nedenle, bazı hizmetleri için maliyet Yönetimi'nde veri verileri daha az sık yayma diğer hizmetleri hemen görebilirsiniz. Genellikle, kullanım Hizmetleri için maliyet Yönetimi'nde görüntülenmesi 8-24 saat sürer. Güncelleştirmeleri birikmeli olduğundan daha fazla kullanım ücretler gibi açık bir ay yenilenir için bu verilere göz önünde bulundurun.
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+- Maliyet yönetimi için zaten ilk hızlı tamamlamadıysanız, hem okuma [maliyetleri başlamanızı](quick-acm-cost-analysis.md).

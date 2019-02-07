@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: anzaman
-ms.openlocfilehash: 7df709adbd8e45712c112b52fc76920f8b67fe91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 59a865cf6e822ecd1918d0c04b98f0edc0355223
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284832"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815481"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Video Indexer markaları modelinde özelleştirme
 
@@ -30,7 +30,7 @@ Marka algılama çok çeşitli içeriği Arşiv ve bulma, bağlamsal reklam, sos
 
 Yapı bağlamında windows hakkında konuşmak bağlamından belirsizliğinin ortadan kaldırılmasını ne yapılacağını bildiğiniz Gelişmiş Machine Learning algoritmaları temel kutu, Apple, Fox, vs. için bir marka ve aynı olarak "Windows" sözcüğü algılamaz. Marka algılaması bizim desteklenen tüm dillerde çalışır. İçin burayı tıklatın [tam Microsoft Build 2017 2. gün açılış konuşması videosu ve dizin](http://www.videoindexer.ai/media/ed6ede78ad/).
 
-Kendi markaları getirmek için kullanıma [sonraki adımlar](#next-stpes).
+Kendi markaları getirmek için sonraki adımları denetleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

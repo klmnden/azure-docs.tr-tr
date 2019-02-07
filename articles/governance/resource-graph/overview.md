@@ -4,16 +4,16 @@ description: Azure Kaynak Grafiği, büyük ölçekteki kaynaklarda karmaşık s
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ed64f6317fefb9e82dbe14e806499965d926d434
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6b3bad4e4619f8909f5c6d71111b4fad9ddb3098
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316208"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813288"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Kaynak Grafiği nedir
 
@@ -45,6 +45,10 @@ Azure Kaynak Grafiği’nin sorgu dilinin [Azure Veri Gezgini Sorgu Dili](../../
 ## <a name="permissions-in-azure-resource-graph"></a>Azure Kaynak Grafiği’nde izinler
 
 Kaynak Grafı’nı kullanmak için, sorgulamak istediğiniz kaynaklara en az okuma erişimi olan [Rol tabanlı erişim denetimi](../../role-based-access-control/overview.md) (RBAC) kapsamında uygun izinlere sahip olmanız gerekir. Sonuç döndürülmesi için Azure nesnesinde veya nesne grubunda en azından `read` iznine sahip olmanız gerekir.
+
+## <a name="throttling"></a>Azaltma
+
+Tüm müşteriler için en iyi deneyimi ve yanıt zamanı sağlamak için kaynak graf sorgularını kısıtlanmış. Lütfen kuruluşunuz büyük ölçekli ve sık kullanılan sorgular için kaynak Graph API'sini kullanmak isterse, Kaynak Grafiği sayfasından portal 'Geri' kullanın. İşinizin durumunu sağlayın ve sizinle iletişim kurmak takım için sırayla 'Microsoft, hakkındaki görüşlerinizi e-posta' onay kutusunu işaretleyin emin olun.
 
 ## <a name="running-your-first-query"></a>İlk sorgunuzu çalıştırma
 

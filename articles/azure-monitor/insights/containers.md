@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 9cf64f98e0a06fc063340f39326fdc1c12645db8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7d538695fe7c920bbd22fcfb0e097220aa249f07
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756453"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811826"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -100,16 +100,16 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanteri, performan
 2. Yükleyin ve Docker ile bir Log Analytics aracısını kullanın. İşletim sistemi ve Docker orchestrator bağlı olarak, aracınızı yapılandırmak için aşağıdaki yöntemleri kullanabilirsiniz.
   - Tek başına konakları için:
     - Desteklenen Linux işletim sistemlerinde yüklemek ve Docker'ı çalıştırın ve ardından yükleme ve yapılandırma [Linux için Log Analytics aracısını](../../azure-monitor/learn/quick-collect-linux-computer.md).  
-    - CoreOS üzerinde Linux için Log Analytics aracısını çalıştıramazsınız. Bunun yerine, Linux için Log Analytics aracısını kapsayıcı bir sürümünü çalıştırın. Gözden geçirme [CoreOS dahil olmak üzere Linux kapsayıcı konağında](#for-all-linux-container-hosts-including-coreos) veya [CoreOS dahil olmak üzere Azure kamu Linux kapsayıcı konağında](#for-all-azure-government-linux-container-hosts-including-coreos) Azure kamu bulutunda kapsayıcılar ile çalışıyorsanız.
+    - CoreOS üzerinde Linux için Log Analytics aracısını çalıştıramazsınız. Bunun yerine, Linux için Log Analytics aracısını kapsayıcı bir sürümünü çalıştırın. CoreOS dahil olmak üzere Linux kapsayıcı konağında veya Azure kamu bulutunda kapsayıcılar ile çalışıyorsanız, CoreOS dahil olmak üzere Azure kamu Linux kapsayıcı konağında gözden geçirin.
     - Windows Server 2016 ve Windows 10, Docker altyapısı ve istemci yükleme ardından bilgi toplamak ve Log Analytics'e göndermek için bir aracı bağlayın. Gözden geçirme [yüklemek ve Windows kapsayıcı konakları yapılandırma](#install-and-configure-windows-container-hosts) bir Windows ortamınız varsa.
   - Docker birden çok konak düzenleme için:
-    - Bir Red Hat OpenShift ortamınız varsa, gözden [Red Hat OpenShift için bir Log Analytics Aracısını Yapılandırma](#configure-an-oms-agent-for-red-hat-openshift).
+    - Bir Red Hat OpenShift ortamınız varsa, Red Hat OpenShift için bir Log Analytics aracısını Yapılandır gözden geçirin.
     - Azure Container Service kullanan bir Kubernetes kümesi varsa:
        - Gözden geçirme [Kubernetes için bir Log Analytics Linux Aracısı'nı yapılandırma](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Gözden geçirme [Kubernetes için bir Log Analytics Windows aracı yapılandırma](#configure-a-log-analytics-windows-agent-for-kubernetes).
-       - Gözden geçirme [kullanmak Linux Kubernetes Log Analytics aracısını dağıtmak için Helm](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
+       - Kullanım Linux Kubernetes Log Analytics aracısını dağıtmak için Helm gözden geçirin.
     - Bir Azure Container Service DC/OS kümeniz varsa, daha fazla bilgi [Log Analytics ile bir Azure Container Service DC/OS kümesini izleme](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
-    - Bir Docker Swarm modu ortamı varsa, daha fazla bilgi [Docker Swarm için bir Log Analytics Aracısını Yapılandırma](#configure-an-oms-agent-for-docker-swarm).
+    - Bir Docker Swarm modu ortamı varsa, yapılandırma Docker Swarm için bir Log Analytics aracısını edinin.
     - Bir Service Fabric kümeniz varsa, daha fazla bilgi [Log Analytics, Log Analytics ile kapsayıcıları izlemek](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Gözden geçirme [Windows üzerinden Docker altyapısının](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) makale yüklemek ve Windows çalıştıran bilgisayarlarda, Docker altyapısı yapılandırma hakkında ek bilgi için.

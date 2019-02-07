@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86c62c021c6668783b3f843a908f4b17845f8c72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172995"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768360"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Erişim belirteçleri isteniyor
 
@@ -78,8 +78,15 @@ API kapsamları yayımlamak için yapılandırıldıktan sonra istemci uygulamas
 > [!NOTE]
 > Şu anda, erişim belirteçleri ile birlikte özel etki alanları desteklenmez. İstek URL'sinde tenantName.onmicrosoft.com etki alanınızı kullanmanız gerekir.
 
+Aşağıdaki örnekte, bu değerleri değiştirin:
+
+- `<tenant-name>` -Azure AD B2C kiracınızın adı.
+- `<policy-name>` -Özel ilke veya kullanıcı akışınızı adı.
+- `<application-ID>` -Uygulama tanımlayıcısı kaydettiğiniz istemci uygulaması.
+- `<redirect-uri>` - **Yeniden yönlendirme URI'si** istemci uygulaması kaydolurken girdiğiniz.
+
 ```
-https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 Aynı istekte birden fazla izin almak için birden çok girişi tek ekleyebilirsiniz **kapsam** boşluklarla ayırarak parametresi. Örneğin:
@@ -114,7 +121,7 @@ Varsa `response_type` parametresinde bir `/authorize` istek içerir `token`, `sc
 
 İçinde başarıyla minted **erişim\_belirteci** (veya `/authorize` veya `/token` uç nokta), aşağıdaki talep mevcut olacaktır:
 
-| Name | İste | Açıklama |
+| Ad | İste | Açıklama |
 | --- | --- | --- |
 |Hedef kitle |`aud` |**Uygulama kimliği** tek kaynağının erişim belirteci verir. |
 |Kapsam |`scp` |Kaynak için verilen izinler. Birden çok verilen izinler, boşlukla ayrılmış. |

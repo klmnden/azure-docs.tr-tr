@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190008"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821516"
 ---
 # <a name="outbound-connections-classic"></a>Giden bağlantılar (Klasik)
 
@@ -54,7 +54,7 @@ Klasik dağıtımlarda farklı farklı işlevselliğe sahiptir:
 
 [Risk azaltma stratejisi](#snatexhaust) aynı farklılıkları da vardır.
 
-[Ön tahsis kısa ömürlü bağlantı noktaları için kullanılan algoritma](#ephemeralports) için PAT Klasik dağıtımlar için Azure Resource Manager kaynak dağıtımları ile aynıdır.
+Kısa ömürlü bağlantı noktaları için PAT Klasik dağıtımlar için ön tahsis için kullanılan algoritma, Azure Resource Manager kaynak dağıtımları ile aynıdır.
 
 ### <a name="ilpip"></a>Senaryo 1: Örnek düzeyinde ortak IP adresine sahip VM
 
@@ -74,13 +74,13 @@ Kısa ömürlü bağlantı noktaları yük dengeleyicinin genel IP adresi ön u�
 
 Bölümünde anlatıldığı gibi SNAT bağlantı noktaları önceden ayrılmış [anlama SNAT ve PAT](#snat) bölümü. Bunlar tükenmiş olabilir sınırlı bir kaynak hedeflenmiştir. Nasıl olduğunu anlama açısından önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiği şekilde etkisini anlamak için gözden [yönetme SNAT tükenmesi](#snatexhaust).
 
-Zaman [birden çok genel yük dengeli uç nokta](load-balancer-multivip.md) mevcut, bu genel IP adresleri olan bir [giden akışlar için aday](#multivipsnat), ve bir rastgele seçili.  
+Zaman [birden çok genel yük dengeli uç nokta](load-balancer-multivip.md) var, bu genel IP adreslerine giden akışlar için bir aday olan ve bir rastgele seçili.  
 
 ### <a name="defaultsnat"></a>Senaryo 3: İlişkili genel IP adresi yok
 
 Bu senaryoda, VM veya Web çalışanı rolü genel bir yük dengeli uç noktasının bir parçası değil.  Ve VM söz konusu olduğunda, kendisine atanmış bir ILPIP adresi yok. Azure, VM'ye giden bir akış oluşturduğunda, özel kaynak IP adresini bir genel kaynak IP adresine giden akış çevirir. Giden Bu akış için kullanılan genel IP adresini yapılandırılabilir değildir ve bu aboneliğe ait genel IP kaynağı limite karşı sayılmaz.  Azure, otomatik olarak bu adresi ayırır.
 
-Azure, bağlantı noktası maskelemeyi ile SNAT kullanır ([PAT](#pat)) bu işlevi gerçekleştirmek için. Bu senaryo benzer [Senaryo 2](#lb)yoktur dışında kullanılan IP adresi üzerinde denetimi yoktur. Bu senaryo 1 ve 2 mevcut olduğunda için geri dönüş bir senaryodur. Giden adresi üzerinde denetim istiyorsanız bu senaryo önerilmemektedir. Giden bağlantılar, uygulamanız önemli bir parçası ise, seçtiğiniz başka bir senaryo.
+Azure, bağlantı noktası maskelemeyi ile SNAT kullanır ([PAT](#pat)) bu işlevi gerçekleştirmek için. Kullanılan IP adresi üzerinde denetimi yoktur haricinde bu senaryo 2, benzer bir senaryodur. Bu senaryo 1 ve 2 mevcut olduğunda için geri dönüş bir senaryodur. Giden adresi üzerinde denetim istiyorsanız bu senaryo önerilmemektedir. Giden bağlantılar, uygulamanız önemli bir parçası ise, seçtiğiniz başka bir senaryo.
 
 Bölümünde anlatıldığı gibi SNAT bağlantı noktaları önceden ayrılmış [anlama SNAT ve PAT](#snat) bölümü.  Vm'leri veya Web çalışanı rolü genel IP adresini paylaşım sayısı ön tahsis kısa ömürlü bağlantı noktası sayısını belirler.   Nasıl olduğunu anlama açısından önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiği şekilde etkisini anlamak için gözden [yönetme SNAT tükenmesi](#snatexhaust).
 
@@ -104,7 +104,7 @@ Yaygın olarak SNAT bağlantı noktası tükenmesi için yol koşulları düzenl
 
 Kendini gizleyen SNAT bağlantı noktasını sayısı önceden ayrılmış SNAT kullanılabilir bağlantı noktası sayısını belirlemek için bir algoritma kullanırken arka uç havuzu boyutuna göre azure kullanır ([PAT](#pat)). Kısa ömürlü bağlantı noktaları için belirli genel IP kaynak adresi kullanılabilir SNAT bağlantı noktalarıdır.
 
-Belirli bir genel IP adresinin kaç VM veya Web çalışanı rolü örneği paylaşımında temel örneği dağıtıldığında azure bağlantı noktalarını SNAT preallocates.  Giden akışlar oluşturulduğunda [PAT](#pat) dinamik olarak (önceden ayrılmış sınıra kadar) kullanır ve akış kapandığında Bu bağlantı noktalarını serbest veya [boşta kalma zaman aşımı](#ideltimeout) gerçekleşir.
+Belirli bir genel IP adresinin kaç VM veya Web çalışanı rolü örneği paylaşımında temel örneği dağıtıldığında azure bağlantı noktalarını SNAT preallocates.  Giden akışlar oluşturulduğunda [PAT](#pat) dinamik olarak (önceden ayrılmış sınıra kadar) kullanır ve bu bağlantı noktaları akışı kapatır veya boşta kalma zaman aşımı meydana serbest bırakır.
 
 Aşağıdaki tabloda, arka uç havuz boyutları katmanları için SNAT bağlantı noktası preallocations gösterilmektedir:
 

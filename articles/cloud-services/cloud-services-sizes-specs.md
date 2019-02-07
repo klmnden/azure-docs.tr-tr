@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 78a073ec7ee8432ba7804daef150afcbbca23ef6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a2af7ffde336016ae89a1ab03d753ed11b901e05
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095578"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818711"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services boyutları
 Bu konuda sunulan boyutlar ve bulut Hizmeti rol örnekleri (web rolleri ve çalışan rolleri) için seçenekler açıklanmaktadır. Ayrıca, bu kaynakları kullanmayı planlarken dikkat edilmesi gereken dağıtım konuları sağlar. Her boyut, içine girdiğiniz Kimliğine sahip, [Hizmet tanım dosyası](cloud-services-model-and-package.md#csdef). Her boyut için fiyatlar kullanılabilir [bulut Hizmetleri fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/) sayfası.
@@ -44,7 +44,7 @@ Aşağıdaki önemli noktalar boyut konusunda karar vermenize yardımcı olabili
 
 * A8-A11 ve H Serisi boyutlar *yoğun işlem gücü kullanımlı örnekler* olarak da bilinir. Bu boyutları çalıştıran donanım; yüksek performanslı bilgi işlem (HPC) kümesi uygulamaları, modellemeler ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar için tasarlanmış ve iyileştirilmiştir. A8-A11 Serisinde, Intel Xeon E5-2670 @ 2,6 GHZ, H Serisinde ise Intel Xeon E5-2667 v3 @ 3,2 GHz işlemciler kullanılmaktadır. Ayrıntılı bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. [yüksek performanslı işlem VM boyutları](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Dv3 serisi, Dv2 serisi, D serisi, G serisi, daha hızlı CPU'ya ihtiyaç duyan, daha iyi yerel disk performansı veya yüksek bellek taleplerine sahip uygulamalar için uygundur. Bu seçenekler birçok kurumsal sınıf uygulama için güçlü bir bileşim sunar.
-* Azure veri merkezlerindeki fiziksel ana bilgisayarlardan bazıları A5 – A11 gibi daha büyük sanal makine boyutlarını desteklemeyebilir. Sonuç olarak, hata iletisini görebilirsiniz **{makine adı} sanal makine yapılandırılamadı** veya **{makine adı} sanal makine oluşturulamadı** mevcut bir sanal makine için yeni boyut; yeniden boyutlandırma sırasında 16 Nisan 2013'ten önce oluşturulan bir sanal ağda yeni bir sanal makine oluşturma; veya mevcut bir bulut hizmeti için yeni bir sanal makine ekleme. Bkz: [hata: "sanal makine yapılandırılamadı"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) her dağıtım senaryosu için geçici çözümler için destek Forumundaki.
+* Azure veri merkezlerindeki fiziksel ana bilgisayarlardan bazıları A5 – A11 gibi daha büyük sanal makine boyutlarını desteklemeyebilir. Sonuç olarak, hata iletisini görebilirsiniz **{makine adı} sanal makine yapılandırılamadı** veya **{makine adı} sanal makine oluşturulamadı** mevcut bir sanal makine için yeni boyut; yeniden boyutlandırma sırasında 16 Nisan 2013'ten önce oluşturulan bir sanal ağda yeni bir sanal makine oluşturma; veya mevcut bir bulut hizmeti için yeni bir sanal makine ekleme. Bkz: [hata: "Sanal makine yapılandırılamadı"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) her dağıtım senaryosu için geçici çözümler için destek Forumundaki.
 * Ayrıca aboneliğiniz, belirli boyut ailelerinde dağıtabileceğiniz çekirdek sayısını da sınırlıyor olabilir. Artırmak istediğini kotalar için Azure Desteği'ne başvurun.
 
 ## <a name="performance-considerations"></a>Performansla ilgili önemli noktalar
@@ -142,7 +142,7 @@ Bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. 
 | Standard_D12_v2 | 4         | 28           | 200                  | 4/yüksek |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8/yüksek |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/aşırı yüksek |
-| İşler için standart_d15_v2 | 20        | 140          | 1000                | 8/aşırı yüksek |
+| Standard_D15_v2 | 20        | 140          | 1000                | 8/aşırı yüksek |
 
 ## <a name="dv3-series"></a>Dv3 serisi
 
@@ -174,7 +174,7 @@ Bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. 
 | Standard_G2     | 4         | 56           | 768                  |2/yüksek |
 | Standard_G3     | 8         | 112          | 1536                |4/çok yüksek |
 | Standard_G4     | 16        | 224          | 3072                |8/aşırı yüksek |
-| İşler için standart_g5     | 32        | 448          | 6144                |8/aşırı yüksek |
+| Standard_G5     | 32        | 448          | 6144                |8/aşırı yüksek |
 
 ## <a name="h-series"></a>H Serisi
 Azure H Serisi sanal makineler, moleküler modelleme ve hesaplamalı akışkanlar dinamiği gibi üst düzey işlem hesaplama gereksinimlerine hitap eden yeni nesil yüksek performanslı bilgi işlem VM'leridir. Bu 8 ve 16 çekirdek VM'ler, Intel Haswell E5-2667 V3 işlemci teknolojisini DDR4 bellek ve yerel SSD tabanlı depolama oluşturulur.
@@ -195,7 +195,7 @@ H Serisi önemli miktarda CPU gücünün yanı sıra, FDR InfiniBand ile düşü
 ## <a name="configure-sizes-for-cloud-services"></a>Boyutlar Cloud Services için yapılandırma
 Hizmet modeli tarafından açıklanan bir parçası olarak bir rol örneği sanal makine boyutunu belirtebilirsiniz [Hizmet tanım dosyası](cloud-services-model-and-package.md#csdef). Rol boyutu CPU çekirdekleri, bellek kapasitesini ve çalışan bir örneğe ayrılmış yerel dosya sistemi boyutunu belirler. Uygulamanızın kaynak gereksinimi temel alan rol boyutu seçin.
 
-Rol boyutunu ayarlamak için bir örnek aşağıdadır [işler için standart_d2](#general-purpose-d) Web rol örneği için:
+Bir Web rol örneği için işler için standart_d2 rol boyutunu ayarlamak için bir örnek aşağıda verilmiştir:
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">

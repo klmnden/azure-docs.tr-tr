@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: fa7deb8a1ef536ef0c2b7fbb0a184a950821aebf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 95a0d1b8afba71f6c8226dfe1ad5268d9e6f24e1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477345"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816926"
 ---
 # <a name="filter-events-for-event-grid"></a>Event Grid için olayları filtreleyin
 
@@ -20,7 +20,7 @@ Bu makalede, olayları bir Event Grid Abonelik oluşturulurken filtre gösterilm
 
 ## <a name="filter-by-event-type"></a>Olay türüne göre filtrele
 
-Event Grid aboneliği oluşturulduğu sırada belirtebileceğiniz [olay türleri](event-schema.md) uç noktasına göndermesi için. Bu bölümdeki örneklerde, bir kaynak grubu için olay abonelikleri oluşturma ancak gönderilen olayları sınırlandırmak `Microsoft.Resources.ResourceWriteFailure` ve `Microsoft.Resources.ResourceWriteSuccess`. Daha fazla esneklik olayları olay türlerine göre filtreleme yaparken ihtiyacınız varsa bkz [Gelişmiş işleçler ve veri alanlarını olarak filtre](#filter-by-advanced-operators-and-data-fields).
+Event Grid aboneliği oluşturulduğu sırada belirtebileceğiniz [olay türleri](event-schema.md) uç noktasına göndermesi için. Bu bölümdeki örneklerde, bir kaynak grubu için olay abonelikleri oluşturma ancak gönderilen olayları sınırlandırmak `Microsoft.Resources.ResourceWriteFailure` ve `Microsoft.Resources.ResourceWriteSuccess`. Gelişmiş işleçler ve veri alanlarını göre filtrele, olayları olay türlerine göre filtreleme yaparken daha fazla esneklik gerekiyorsa, bkz.
 
 PowerShell için şunu kullanın `-IncludedEventType` abonelik oluştururken parametresi.
 
@@ -77,7 +77,7 @@ Bir Resource Manager şablon için kullandığınız `includedEventTypes` özell
 
 ## <a name="filter-by-subject"></a>Konuya göre filtrele
 
-Olayları olay verileri içindeki bir konuya göre filtreleyebilirsiniz. Başında ve sonunda konu için eşleşen bir değer belirtebilirsiniz. Konuya göre olaylar filtrelerken daha fazla esneklik gerekiyorsa bkz [Gelişmiş işleçler ve veri alanlarını olarak filtre](#filter-by-advanced-operators-and-data-fields).
+Olayları olay verileri içindeki bir konuya göre filtreleyebilirsiniz. Başında ve sonunda konu için eşleşen bir değer belirtebilirsiniz. Gelişmiş işleçler ve veri alanlarını göre filtrele konuya göre olaylar filtrelerken daha fazla esneklik gerekiyorsa, bkz.
 
 Aşağıdaki PowerShell örneği filtreleyen bir olay aboneliği başına tarafından konu oluşturun. Kullandığınız `-SubjectBeginsWith` belirli bir kaynak için olayları sınırlandırmak için parametre. Bir ağ güvenlik grubu kaynak Kimliğini geçirmeniz.
 

@@ -15,19 +15,19 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b7f9bda37d63956ea672528c28b81eaaac9891a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc4387dd56de96edd17fcd8e5672cfda96cf67b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243775"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816416"
 ---
 # <a name="connect-to-azure-stack"></a>Azure Stack'e Bağlanma
 
 Kaynakları yönetmek için Azure Stack Geliştirme Seti için bağlanmanız gerekir. Bu makalede ayrıntıları adımları geliştirme setine bağlanmak için gereklidir. Aşağıdaki bağlantı seçeneklerinden birini kullanabilirsiniz:
 
-* [Uzak Masaüstü](#connect-with-remote-desktop): hızlı bir şekilde geliştirme Seti'nden bağlanın, tek bir eş zamanlı kullanıcı sağlar.
-* [Sanal özel ağ (VPN)](#connect-with-vpn): istemcilerden (yapılandırma gerektirir) Azure Stack altyapısının dışında birden çok eş zamanlı kullanıcı bağlanmanıza olanak sağlar.
+* Uzak Masaüstü: hızlı bir şekilde geliştirme Seti'nden bağlanın, tek bir eş zamanlı kullanıcı sağlar.
+* Sanal özel ağ (VPN): birden çok eş zamanlı kullanıcıların (yapılandırma gerektirir) Azure Stack altyapısının dışında istemcilerden bağlanmasına izin verir.
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>Uzak Masaüstü ile Azure stack'e bağlanma
 Uzak Masaüstü Bağlantısı ile tek bir eş zamanlı kullanıcı kaynaklarını yönetmek için portalı ile çalışabilirsiniz.

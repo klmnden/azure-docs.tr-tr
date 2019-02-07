@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3ceb7585a26290985cd5a2c523ad8094b1d1a40a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5f0358bf58e61632fdeef8363d24b39c2cf2ebf0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194245"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811435"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Batch kaynaklarını PowerShell cmdlet'leriyle yönetme
 
@@ -267,7 +267,7 @@ New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServi
 [Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı](batch-application-packages.md) konusunda, uygulama paketlerine ilişkin daha fazla bilgi bulabilirsiniz.
 
 > [!IMPORTANT]
-> Uygulama paketlerini kullanmak için Batch hesabınıza [bir Azure Depolama hesabı bağlamanız](#linked-storage-account-autostorage) gerekir.
+> Uygulama paketlerini kullanmak için Batch hesabınıza bir Azure depolama hesabı bağlamanız gerekir.
 
 ### <a name="update-a-pools-application-packages"></a>Bir havuzun uygulama paketlerini güncelleştirme
 

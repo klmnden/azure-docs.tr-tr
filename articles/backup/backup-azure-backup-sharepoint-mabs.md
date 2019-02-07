@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
-ms.openlocfilehash: b75c9093a983ba3e4ac4050379efbb091b363ff7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7669d713f9a96ef893f7ec2ac895c28f654385c8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491975"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810976"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Bir SharePoint grubunu Azure’a yedekleme
 Microsoft Azure'da çok diğer veri kaynaklarını yedekleme aynı şekilde, Microsoft Azure Backup sunucusu (MABS) kullanarak bir SharePoint grubunu yedekleme. Azure Backup, yedekleme zamanlaması günlük oluşturmak için esneklik sağlar, haftalık, aylık veya yıllık yedekleme işaret ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekleri sunar. Ayrıca, Hızlı Kurtarma süresi hedeflerini (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun süreli saklama için azure'a kopyaları depolamak için yeteneği sağlar.
@@ -222,7 +222,7 @@ Aşağıdaki örnekte, *SharePoint kurtarma öğesi* yanlışlıkla silinmişse 
 4. MABS içinde gösterilen SharePoint nesneye tıklayın **kurtarma** içerik veritabanı yapısı almak için sekmesinde. Öğeye sağ tıklayın ve ardından **kurtarmak**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. Bu noktada izleyin [kurtarma adımları bu makalenin önceki bölümlerinde](#restore-a-sharepoint-item-from-disk-using-dpm) diskten bir SharePoint içerik veritabanını kurtarmak için.
+5. Bu noktada, bir SharePoint içerik veritabanını diskten kurtarmak için bu makalenin önceki bölümlerinde kurtarma adımları izleyin.
 
 ## <a name="faqs"></a>SSS
 S: SharePoint, SQL AlwaysOn (disk koruması) kullanılarak yapılandırılmışsa, bir SharePoint öğesi için özgün konuma kurtarma gerçekleştirebilir miyim?<br>

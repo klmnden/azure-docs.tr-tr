@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972048"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818133"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x
 
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Azure Functions çalışma zamanının sürümünü seçin: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Sürüm 1](functions-bindings-cosmosdb.md)
 > * [Sürüm 2](functions-bindings-cosmosdb-v2.md)
 
@@ -57,7 +57,7 @@ Dile özgü örneğe bakın:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-[Tetikleyici örnekler atla](#trigger---attributes)
+Tetikleyici örnekler atla
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örneği
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Tetikleyici örnekler atla](#trigger---attributes)
+Tetikleyici örnekler atla
 
 ### <a name="trigger---c-script-example"></a>Tetikleyici - C# betiği örneği
 
@@ -131,7 +131,7 @@ C# betik kodunu şu şekildedir:
     }
 ```
 
-[Tetikleyici örnekler atla](#trigger---attributes)
+Tetikleyici örnekler atla
 
 ### <a name="trigger---javascript-example"></a>Tetikleyici - JavaScript örneği
 
@@ -199,7 +199,7 @@ Java kod aşağıdaki gibidir:
 İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@CosmosDBTrigger` ek açıklama parametreleri değeri, Cosmos DB'den gelmesi.  Bu ek açıklama yerel Java türler, pojo'ları veya isteğe bağlı kullanarak boş değer atanabilir değer ile kullanılabilir<T>.
 
 
-[Tetikleyici örnekler atla](#trigger---attributes)
+Tetikleyici örnekler atla
 
 ### <a name="trigger---python-example"></a>Tetikleyici - Python örnek
 
@@ -276,7 +276,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**leaseRenewInterval**| **leaseRenewInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden geçerli bir örnek tarafından tutulan bölümler için tüm kira yenileme aralığı tanımlar. 17000 (17 saniye) varsayılandır.
 |**checkpointFrequency**| **checkpointFrequency**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira kontrol noktaları arasındaki süreyi tanımlar. Her zaman her işlev çağrısından sonra varsayılandır.
 |**maxItemsPerInvocation**| **maxItemsPerInvocation**| (İsteğe bağlı) Ayarlandığında, işlev çağrısı alınan öğeleri en uzun süreyi özelleştirir.
-|**startFromBeginning**| **StartFromBeginning**| (İsteğe bağlı) Ayarlandığında, değişiklik geçmişini geçerli zamanı yerine koleksiyonunun başından itibaren okumaya başlamak için tetikleyici söyler. Bu, yalnızca tetikleyici başladığında, sonraki çalıştırmaları, kontrol noktaları gibi zaten depolanmış ilk kez çalışır. Bu ayar `true` olduğunda önceden oluşturulmuş kiraları etkisi yoktur.
+|**startFromBeginning**| **startFromBeginning**| (İsteğe bağlı) Ayarlandığında, değişiklik geçmişini geçerli zamanı yerine koleksiyonunun başından itibaren okumaya başlamak için tetikleyici söyler. Bu, yalnızca tetikleyici başladığında, sonraki çalıştırmaları, kontrol noktaları gibi zaten depolanmış ilk kez çalışır. Bu ayar `true` olduğunda önceden oluşturulmuş kiraları etkisi yoktur.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1727,7 +1727,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 İçinde C# ve F# İşlevler, işlev giriş belgesi adlandırılmış giriş aracılığıyla yapılan tüm değişiklikler başarıyla çıktığında parametreleri otomatik olarak kalıcı olur.
 
-JavaScript işlevleri'nde güncelleştirmeleri otomatik olarak işlevi çıkıştan sonra duruma getirilmez. Bunun yerine, `context.bindings.<documentName>In` ve `context.bindings.<documentName>Out` güncelleştirmeleri yapmak. Bkz: [JavaScript örnek](#input---javascript-example).
+JavaScript işlevleri'nde güncelleştirmeleri otomatik olarak işlevi çıkıştan sonra duruma getirilmez. Bunun yerine, `context.bindings.<documentName>In` ve `context.bindings.<documentName>Out` güncelleştirmeleri yapmak. JavaScript örneğe bakın.
 
 ## <a name="output"></a>Çıktı
 

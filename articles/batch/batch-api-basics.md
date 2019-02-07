@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bdb7b1477725235ca88e9cf527c7f711fd6f6b73
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: b4d0ee26cb9f7283cac871c70737cd701fb74c91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732269"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818592"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
 
@@ -62,7 +62,7 @@ Aşağıdaki kaynaklardan--hesaplar, işlem düğümleri, havuzlar, işler ve g�
   * [Başlangıç görevi](#start-task)
   * [İş yöneticisi görevi](#job-manager-task)
   * [İş hazırlama ve bırakma görevleri](#job-preparation-and-release-tasks)
-  * [Çok örnekli görev (MPI)](#multi-instance-tasks)
+  * Çok örnekli görev (MPI)
   * [Görev bağımlılıkları](#task-dependencies)
 * [Uygulama paketleri](#application-packages)
 
@@ -215,7 +215,7 @@ Havuzdaki işlem düğümlerine dağıtım yapacak [uygulama paketlerini](#appli
 
 ### <a name="network-configuration"></a>Ağ yapılandırması
 
-Havuz işlem düğümlerinin oluşturulması gereken Azure [sanal ağın (VNet)](../virtual-network/virtual-networks-overview.md) alt ağını belirtebilirsiniz. Daha fazla bilgi için [Havuz ağ yapılandırması](#pool-network-configuration) bölümüne bakın.
+Havuz işlem düğümlerinin oluşturulması gereken Azure [sanal ağın (VNet)](../virtual-network/virtual-networks-overview.md) alt ağını belirtebilirsiniz. Daha fazla bilgi için havuz ağ yapılandırması bölümüne bakın.
 
 
 ## <a name="job"></a>İş
@@ -271,7 +271,7 @@ Bir düğümde hesaplama yapmak üzere tanımladığınız görevlere ek olarak,
 * [Başlangıç görevi](#start-task)
 * [İş yöneticisi görevi](#job-manager-task)
 * [İş hazırlama ve bırakma görevleri](#job-preparation-and-release-tasks)
-* [Çok örnekli görevler (MPI)](#multi-instance-tasks)
+* Çok örnekli görevler (MPI)
 * [Görev bağımlılıkları](#task-dependencies)
 
 ### <a name="start-task"></a>Başlangıç görevi

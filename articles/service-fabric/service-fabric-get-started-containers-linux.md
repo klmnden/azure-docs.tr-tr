@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: twhitney
-ms.openlocfilehash: e91c6fcb7d1943136ab1c110dd81445ab43164a7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 8cd7b33cca46433ec5efbc3a436f56ddc869a567
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100845"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820037"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -264,7 +264,8 @@ Yerel Service Fabric kümesine bağlanın.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Uygulama paketini kümenin görüntü deposuna kopyalamak, uygulama türünü kaydetmek ve uygulamanın bir örneğini oluşturmak için şablonda verilen yükleme betiğini kullanın.
+Şablonları sağlanan yükleme betiğini https://github.com/Azure-Samples/service-fabric-containers/ uygulama paketini kümenin görüntü deposuna kopyalamak için uygulama türünü kaydedin ve uygulamanın bir örneğini oluşturun.
+
 
 ```bash
 ./install.sh

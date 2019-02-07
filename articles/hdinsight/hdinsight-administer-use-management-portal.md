@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4210528003cdb1f584bec3dea80c1aa1db2f86df
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: dd94330835c52b27c61c484d44991152d092fbe7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632034"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811707"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Windows tabanlı Apache Hadoop kümelerini yönetme
 
@@ -119,7 +119,7 @@ Uzak Masaüstü bağlantısı kullanarak küme üzerinde özel yazılım yüklem
    * **Bölge**: Azure konumu. Desteklenen Azure konumları listesi için bkz. **bölge** açılan liste kutusunu [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Oluşturulan veri**.
    * **İşletim sistemi**: Her iki **Windows** veya **Linux**.
-   * **Tür**: Hadoop, HBase, Storm, Spark'i tıklatın.
+   * **Tür**: Hadoop, HBase, Storm, Spark.
    * **Sürüm**. Bkz: [HDInsight sürümleri](hdinsight-component-versioning.md)
    * **Abonelik**: Abonelik adı.
    * **Abonelik kimliği**.
@@ -203,7 +203,7 @@ Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. 
 Fiyatlandırma bilgileri için bkz. [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/). Portaldan bir kümeyi silmek için bkz: [küme silme](#delete-clusters)
 
 ## <a name="change-cluster-username"></a>Küme kullanıcı adını değiştir
-Bir HDInsight kümesi iki kullanıcı hesabı içerebilir. Oluşturma işlemi sırasında HDInsight küme kullanıcı hesabı oluşturulur. RDP aracılığıyla kümesine erişmek için bir RDP kullanıcı hesabı da oluşturabilirsiniz. Bkz: [Uzak Masaüstü'nü etkinleştirme](#connect-to-hdinsight-clusters-by-using-rdp).
+Bir HDInsight kümesi iki kullanıcı hesabı içerebilir. Oluşturma işlemi sırasında HDInsight küme kullanıcı hesabı oluşturulur. RDP aracılığıyla kümesine erişmek için bir RDP kullanıcı hesabı da oluşturabilirsiniz. Uzak Masaüstü'nü etkinleştirme bakın.
 
 **HDInsight küme kullanıcı adı ve parolayı değiştirmek için**
 
@@ -296,7 +296,7 @@ Ayrıca **dosya sistemine Gözat** yardımcı programı'ndan **Hadoop UI** HDIns
 ## <a name="open-hadoop-ui"></a>Hadoop kullanıcı arabirimini açın
 Kümesini izlemek için dosya sistemine Gözat ve günlükleri denetleme, tıklatın **Hadoop UI** HDInsight sorgu konsoluna. Bkz: [açık HDInsight sorgu Konsolu](#open-hdinsight-query-console).
 
-## <a name="open-yarn-ui"></a>Yarn UI'ı açın
+## <a name="open-yarn-ui"></a>Open Yarn UI
 Yarn kullanıcı arabiriminde kullanmak için **Yarn UI** HDInsight sorgu konsoluna. Bkz: [açık HDInsight sorgu Konsolu](#open-hdinsight-query-console).
 
 ## <a name="connect-to-clusters-using-rdp"></a>RDP kullanarak kümeye bağlanma

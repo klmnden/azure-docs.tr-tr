@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: b2a262e6829aca75f03db41ff72ab0cc067c93be
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025802"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812795"
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -91,7 +91,7 @@ Kullanıcı tanımlı bir yol oluştururken belirtebileceğiniz sonraki atlama t
 
     Adres ön eki 0.0.0.0/0 ve sonraki atlama türü sanal gereç olan bir yol tanımlayabilir ve gerecin trafiği inceleyip trafiği ileteceğini veya bırakacağını belirlemesini sağlayabilirsiniz. 0.0.0.0/0 adres ön ekini içeren kullanıcı tanımlı bir ol oluşturmak isterseniz öncelikle [0.0.0.0/0 adres ön eki](#default-route) bölümünü okuyun.
 
-- **Sanal ağ geçidi**: Bir sanal ağ geçidini yönlendirilen belirli adres önekleri hedefleyen trafiği ne zaman istediğinizi belirtin. Sanal ağ geçidi **VPN** türü ile oluşturulmalıdır. ExpressRoute ile özel yollar için [BGP](#border-gateway-protocol-routes) kullanmanız gerektiğinden, **ExpressRoute** türünde oluşturulmuş bir sanal ağ geçidi belirtemezsiniz. 0.0.0.0/0 adres ön ekini hedefleyen trafiği [yol tabanlı](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) sanal ağ geçidine yönlendiren bir yol tanımlayabilirsiniz. Şirket içinde trafiği inceleyen ve trafiğin iletileceğini veya bırakılacağını belirleyen bir cihazınız olabilir. 0.0.0.0/0 adres ön eki için kullanıcı tanımlı bir ol oluşturmak isterseniz öncelikle [0.0.0.0/0 adres ön eki](#default-route) bölümünü okuyun. [VPN sanal ağ geçidi için BGP’yi etkinleştirdiyseniz](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), 0.0.0.0/0 adres ön eki için kullanıcı tanımlı bir yol yapılandırmak yerine 0.0.0.0/0 ön eki ile BGP üzerinden bir yol tanıtabilirsiniz.
+- **Sanal ağ geçidi**: Bir sanal ağ geçidini yönlendirilen belirli adres önekleri hedefleyen trafiği ne zaman istediğinizi belirtin. Sanal ağ geçidi **VPN** türü ile oluşturulmalıdır. Türü olarak oluşturulan bir sanal ağ geçidi belirtemezsiniz **ExpressRoute** kullanıcı tanımlı bir yol içinde olduğundan, ExpressRoute ile özel yollar için BGP kullanmanız gerekir. 0.0.0.0/0 adres ön ekini hedefleyen trafiği [yol tabanlı](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) sanal ağ geçidine yönlendiren bir yol tanımlayabilirsiniz. Şirket içinde trafiği inceleyen ve trafiğin iletileceğini veya bırakılacağını belirleyen bir cihazınız olabilir. 0.0.0.0/0 adres ön eki için kullanıcı tanımlı bir ol oluşturmak isterseniz öncelikle [0.0.0.0/0 adres ön eki](#default-route) bölümünü okuyun. [VPN sanal ağ geçidi için BGP’yi etkinleştirdiyseniz](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), 0.0.0.0/0 adres ön eki için kullanıcı tanımlı bir yol yapılandırmak yerine 0.0.0.0/0 ön eki ile BGP üzerinden bir yol tanıtabilirsiniz.
 - **Hiçbiri**: Trafiği bir hedefe iletmek yerine bir adres ön eki trafiği bırakmaya istediğinizde belirtin. Bir özelliği tam olarak yapılandırmadıysanız, Azure bazı isteğe bağlı sistem yolları için *Hiçbiri* seçeneğini listeleyebilir. Örneğin, *Sanal ağ geçidi* ya da *Sanal gereç* **Sonraki atlama türü** ile **Sonraki atlama IP adresi** olarak *Hiçbiri* seçeneğinin listelendiğini görürseniz, bunun nedeni cihazın çalışmaması veya tam olarak yapılandırılmamış olması olabilir. Azure, sonraki atlama türü **Hiçbiri** olan ayrılmış adres ön ekleri için sistem [varsayılan yolları](#default) oluşturur.
 - **Sanal ağ**: Bir sanal ağ içindeki varsayılan yönlendirmesini geçersiz kılmak istediğiniz zaman belirtin. **Sanal ağ** atlama türü ile neden yol oluşturabileceğinize ilişkin bir örnek için [Yönlendirme örneği](#routing-example) makalesini inceleyin.
 - **Internet**: Açıkça İnternet'e bir adres ön ekini hedefleyen trafiği yönlendirmek istediğinizde ya da Azure Hizmetleri için Azure omurga ağında tutulup genel IP adresleri hedefleyen trafik istiyorsanız bu seçeneği belirtin.

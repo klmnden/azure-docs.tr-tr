@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af528f210f4464c973d88fab7eeb1572effc87bc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 54e78496b98fffefd2932a2ce7625f8b325fb32a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330407"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812659"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB gelen ve giden veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -301,11 +301,11 @@ Aşağıdaki işlem hattı verileri Azure blobuna Azure Cosmos DB veritabanı'nd
 ## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Örnek: Verileri Azure Blobundan Azure Cosmos DB'ye kopyalayın.
 Aşağıdaki örnekte gösterilmektedir:
 
-1. Bağlı hizmet türü [DocumentDb](#azure-documentdb-linked-service-properties).
+1. Bağlı hizmet türü DocumentDb.
 2. Bağlı hizmet türü [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Girdi [veri kümesi](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. Bir çıkış [veri kümesi](data-factory-create-datasets.md) türü [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
-5. A [işlem hattı](data-factory-create-pipelines.md) kullanan bir kopyalama etkinliği ile [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) ve [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
+4. Bir çıkış [veri kümesi](data-factory-create-datasets.md) DocumentDbCollection türü.
+5. A [işlem hattı](data-factory-create-pipelines.md) kullanan bir kopyalama etkinliği ile [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) ve DocumentDbCollectionSink.
 
 Örnek verileri Azure'dan kopyalar. Azure Cosmos DB için blob. Bu örneklerde kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
 

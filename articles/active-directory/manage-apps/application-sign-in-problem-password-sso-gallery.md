@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5ae7643123552eaa17d51e6cd1ed9c0293292ed0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184980"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822536"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Parola çoklu oturum açma için yapılandırılmış Azure AD galeri uygulamasında oturum açma sorunları
 
@@ -88,7 +88,7 @@ Uzaktan erişim paneli uzantısını Internet Explorer için kullanıcılarını
 
 Bir uygulama için gereken Azure AD Galerisi yapılandırmak için:
 
--   [Uygulama Azure AD galeri ekleme](#_Add_an_application)
+-   Uygulama Azure AD galeri ekleme
 
 -   [Parola çoklu oturum açma için uygulamayı yapılandırma](#configure-the-application-for-password-single-sign-on)
 
@@ -140,7 +140,7 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 8.  Modu **parola tabanlı oturum açma.**
 
-9.  [Uygulamaya kullanıcı atama](#_How_to_assign).
+9.  Uygulamaya kullanıcı atama.
 
 10. Ayrıca, kullanıcı adına kimlik bilgilerini kullanıcıları satırlarını seçip tıklayarak sağlayabilirsiniz **kimlik bilgilerini güncelleştirme** ve kullanıcılar adına kullanıcı adı ve parola girme. Aksi takdirde, kullanıcılar başlatma sırasında kimlik kendilerini girmeniz istenir.
 

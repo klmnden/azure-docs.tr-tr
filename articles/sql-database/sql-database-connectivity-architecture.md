@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469131"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809989"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
 
@@ -25,8 +25,7 @@ Bu makalede, Azure SQL Örneğiniz için trafiği farklı bileşenleri işlevi n
 
 > [!IMPORTANT]
 > **[Gelecek değişiklik] Azure SQL sunucuları için hizmet uç noktası bağlantıları için bir `Default` bağlantı davranış değişiklikleri `Redirect`.**
->
-> Değişiklik veya bu tarihten önce 2 Ocak 2019 tüm bölgeler için geçerlidir.
+> Müşterilerin yeni sunucular ve varolanları bağlantı türü ile açıkça (tercih) yeniden yönlendirme veya Proxy bağlantı mimarilerini bağlı olarak ayarlama oluşturmak için önerilir.
 >
 > Bu değişikliğin sonucu olarak mevcut ortamlarda bozucu bir hizmet uç noktası üzerinden bağlantı engellemek için aşağıdakileri yapın telemetri kullanırız:
 > - Değiştirilmeden önce hizmet uç noktaları aracılığıyla erişilen biz algılayan sunucular için şu bağlantı türüne çevirin `Proxy`.
@@ -38,7 +37,7 @@ Bu makalede, Azure SQL Örneğiniz için trafiği farklı bileşenleri işlevi n
 >
 > Azure SQL sunucusuna bağlantılara hizmet uç noktası kurulamadı ve bu değişiklikten etkilenen suspecting, bağlantı türü açıkça değerine ayarlandığını doğrulayın `Redirect`. Bu durumda, Sql ait tüm Azure IP adreslerine bölgedeki VM Güvenlik duvarı kuralları ve ağ güvenlik grupları (NSG) açmanız gerekir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) 11000 12000 bağlantı noktaları. Bu, sizin için bir seçenek değilse, sunucu açıkça geçiş `Proxy`.
 > [!NOTE]
-> Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
+> Bu konuda, tek veritabanları ve elastik havuzların ve SQL veri ambarı veritabanlarını barındıran Azure SQL veritabanı sunucuları için geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
 
 ## <a name="connectivity-architecture"></a>Bağlantı mimarisi
 

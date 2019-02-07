@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1b145b1162dcba5653c962f0af1969c1aa017f57
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054648"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819816"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak HDInsight Apache Hadoop kümelerini oluşturun
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -38,11 +38,12 @@ Resource Manager şablonu tek ve eşgüdümlü bir işlemle uygulamanız için a
 
 HDInsight şablon örneği bulabilirsiniz [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/?term=hdinsight). Platformlar arası kullanmak [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) ile [Resource Manager uzantısını](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) veya iş istasyonunuzda bir dosyaya şablonu kaydetmek için bir metin düzenleyicisi. 
 
-Resource Manager şablonları hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+Resource Manager şablonları hakkında daha fazla bilgi için aşağıdaki makaleleri ve örnekler bakın:
 
 * [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager şablonları ile uygulama dağıtma](../azure-resource-manager/resource-group-template-deploy.md)
-* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters) şablon başvurusu
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) şablon başvurusu
+* [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>Şablon oluşturma
 
@@ -51,7 +52,6 @@ Resource Manager, farklı araçlar kullanarak aboneliğinizdeki mevcut kaynaklar
 - Azure portalı: Bkz: [mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: Bkz: [dışarı Azure Resource Manager şablonları PowerShell ile](../azure-resource-manager/resource-manager-export-template-powershell.md).
 - Azure CLI Klasik: Bkz: [Klasik Azure CLI ile dışarı aktarma Azure Resource Manager şablonları](../azure-resource-manager/resource-manager-export-template-cli.md).
-
 
 ## <a name="deploy-using-the-portal"></a>Portalı kullanarak dağıtma
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: be068904d7aa935d722c59b08c36a1cf4904e933
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 37e2da00ecbecdddcc8757e64c57b03774092e14
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664144"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814998"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Azure İzleyici (Önizleme) VM'ler için dağıtma
 Bu makalede, Azure İzleyici ' VM'ler için ayarlanacak açıklar. Hizmet, Azure sanal makinelerinizi (VM) ve sanal makine ölçek kümeleri ve sanal makineleri ortamınızda işletim sistemi durumunu izler. Bu izleme, bulma ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme içerir. 
@@ -62,7 +62,7 @@ Azure portalında tek bir Azure VM için izlemeyi etkinleştirme, bu işlem sır
 * ServiceMap ve InfrastructureInsights çözümlerini yükleyin. Bu yükleme, yalnızca bu makalede sağlanan bir Azure Resource Manager şablonu kullanarak tamamlayabilirsiniz.
 * Performans sayaçları toplamak için Log Analytics çalışma alanı yapılandırın.
 
-Çalışma alanınız ölçekli senaryo için yapılandırmak üzere bkz [ölçekli dağıtımı için Log Analytics çalışma alanını ayarlama](#setup-log-analytics-workspace).
+Çalışma alanınız ölçekli senaryo için yapılandırmak için bkz ölçekli dağıtımı için Log Analytics çalışma alanını ayarlama.
 
 ### <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 

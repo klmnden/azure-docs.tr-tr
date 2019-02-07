@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cdc55491e827ab949d471c9b66c7caaa86f5055d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ba91bec752b16be0c172c65ff58241c852a61b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043337"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811656"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB'de tanılama günlüğüne kaydetme 
 
@@ -79,7 +79,7 @@ Azure portalında tanılama günlük kaydını etkinleştirmek için aşağıdak
 
     * **Bir depolama hesabında arşivle**: Bu seçeneği kullanmak için bağlanmak için mevcut bir depolama hesabı gerekir. Portalda yeni bir depolama hesabı oluşturmak için bkz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md) ve Azure Resource Manager, genel amaçlı hesap oluşturmak için yönergeleri izleyin. Bu sayfaya portalındaki depolama hesabınızı seçin, ardından döndürür. Bu, yeni oluşturulan depolama hesapları, aşağı açılan menüsünün görünmesi birkaç dakika sürebilir.
     * **Olay hub'ına Stream**: Bu seçeneği kullanmak için bağlanmak için mevcut bir Event Hubs ad alanı ve olay hub'gerekir. Bir Event Hubs ad alanı oluşturmak için bkz [Azure portalını kullanarak bir Event Hubs ad alanı ve olay hub'ı oluşturma](../event-hubs/event-hubs-create.md). Ardından, portaldaki Event Hubs ad alanı ve ilke adı seçmek için bu sayfaya dönün.
-    * **Log Analytics'e gönderme**: Bu seçeneği kullanmak için mevcut bir çalışma kullanabilir veya yeni bir Log Analytics çalışma alanı için adımları izleyerek oluşturabilirsiniz [yeni bir çalışma alanı oluşturma](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) portalında. Log Analytics'te, günlükleri görüntüleme hakkında daha fazla bilgi için bkz. [görünümü Log Analytics'te oturum](#view-in-loganalytics).
+    * **Log Analytics'e gönderme**: Bu seçeneği kullanmak için mevcut bir çalışma kullanabilir veya yeni bir Log Analytics çalışma alanı için adımları izleyerek oluşturabilirsiniz [yeni bir çalışma alanı oluşturma](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) portalında. Log Analytics'te, günlükleri görüntüleme hakkında daha fazla bilgi için görünümü Log Analytics'te oturum bakın.
     * **Oturum DataPlaneRequests**: Temel alınan Azure Cosmos DB dağıtılmış platformu SQL, grafik, MongoDB, Cassandra ve tablo API'si hesapları için arka uç isteklerini günlüğe kaydetmek için bu seçeneği belirleyin. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
     * **Oturum MongoRequests**: MongoDB için Azure Cosmos DB API'si ile yapılandırılan Cosmos hesaplar sunulması için Azure Cosmos DB ön uç kullanıcı tarafından başlatılan istek oturumu için bu seçeneği belirleyin. Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.
     * **Ölçüm istekleri**: Ayrıntılı verileri depolamak için bu seçeneği [Azure ölçümleri](../azure-monitor/platform/metrics-supported.md). Bir depolama hesabına arşivleme tanılama günlükleri için saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlükleri otomatik olarak silinir.

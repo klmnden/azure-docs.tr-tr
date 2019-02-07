@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6ab3e918feda3dcf898928f159ebf8e317a95527
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7156249e720416161cd56af7589ed85827c6034b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331852"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812559"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure tablo gelen ve giden veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +59,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam
 
 TypeProperties bölümünün her tür veri kümesi için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. **TypeProperties** türü için veri kümesi bölümünü **AzureTable** aşağıdaki özelliklere sahiptir.
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | tableName |Bağlı hizmeti Azure tablo veritabanı örneğinde tablonun adını gösterir. |Evet. Bir tableName bir azureTableSourceQuery belirtildiğinde, tablodaki tüm kayıtları hedefe kopyalanır. Sorguyu karşılayan bir tablodaki kayıtları bir azureTableSourceQuery de belirtilirse, hedefe kopyalanamadı. |
 
@@ -78,7 +78,7 @@ Etkinliğin typeProperties bölümündeki özellikler, diğer yandan her etkinli
 
 **AzureTableSource** typeProperties bölümünde aşağıdaki özellikleri destekler:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |Verileri okumak için özel sorgu kullanın. |Azure tablo sorgu dizesi. Sonraki bölümdeki örneklere bakın. |Hayır. Bir tableName bir azureTableSourceQuery belirtildiğinde, tablodaki tüm kayıtları hedefe kopyalanır. Sorguyu karşılayan bir tablodaki kayıtları bir azureTableSourceQuery de belirtilirse, hedefe kopyalanamadı. |
 | azureTableSourceIgnoreTableNotFound |Swallow özel durum tablosunun mevcut olup olmadığını gösterir. |TRUE<br/>FALSE |Hayır |
@@ -98,7 +98,7 @@ Azure tablo sütunu datetime türünde ise:
 
 **AzureTableSink** typeProperties bölümünde aşağıdaki özellikleri destekler:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Havuz tarafından kullanılan varsayılan bölüm anahtarı değeri. |Bir dize değeri. |Hayır |
 | azureTablePartitionKeyName |Değerleri bölüm anahtarı olarak kullanılan sütun adını belirtin. Belirtilmezse, AzureTableDefaultPartitionKeyValue bölüm anahtarı olarak kullanılır. |Sütun adı. |Hayır |
@@ -137,7 +137,7 @@ Aşağıdaki örnek, gösterir:
 1. Bağlı hizmet türü [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (tablo ve blob için kullanılır).
 2. Girdi [veri kümesi](data-factory-create-datasets.md) türü [AzureTable](#dataset-properties).
 3. Bir çıkış [veri kümesi](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. [İşlem hattı](data-factory-create-pipelines.md) kullanan kopyalama etkinlikli [AzureTableSource](#activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+4. [İşlem hattı](data-factory-create-pipelines.md) kopyalama etkinlikli AzureTableSource kullanır ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 Örnek, bir blob için bir Azure tablosu varsayılan bölümün saatte ait verileri kopyalar. Bu örneklerde kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
 
@@ -482,7 +482,7 @@ Taşınırken veri & Azure tablosundan aşağıdaki [Azure tablo hizmeti tarafı
 | Edm.Guid |Guid |128 bit genel benzersiz tanımlayıcı. |
 | Edm.Int32 |Int32 |Bir 32 bit tamsayı. |
 | Edm.Int64 |Int64 |Bir 64-bit tamsayı. |
-| Edm.String |Dize |UTF-16 kodlu bir değer. Dize değerleri, en fazla 64 KB olabilir. |
+| Edm.String |String |UTF-16 kodlu bir değer. Dize değerleri, en fazla 64 KB olabilir. |
 
 ### <a name="type-conversion-sample"></a>Tür dönüştürme örnek
 Aşağıdaki örnek, verileri Azure Blob'tan Azure tablo ile tür dönüştürmeleri kopyalamak için ' dir.
@@ -533,7 +533,7 @@ Tür eşlemesine Azure tablo OData türünden .NET türü için göz önünde bu
 
 **Azure tablo şeması:**
 
-| Sütun adı | Tür |
+| Sütun adı | Type |
 | --- | --- |
 | Kullanıcı Kimliği |Edm.Int64 |
 | ad |Edm.String |

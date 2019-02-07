@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 6b0acd33f6062ef0effe15001c8a8513e88715ba
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5933f74dcedb579023d187061229cdd53bce6414
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735458"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819449"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanıza gerçek bir cihaz ekleme
 
@@ -38,13 +38,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Başlamadan önce, oluşturucunun Azure IoT Central uygulamasını oluşturmak için en az ilk oluşturucu öğreticisini tamamlaması gerekir:
 
-* [Yeni bir cihaz türü belirleme](tutorial-define-device-type.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (Gerekli)
-* [Cihazınız için kurallar ve eylemler yapılandırma](tutorial-configure-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (İsteğe bağlı)
-* [İşlecin görünümlerini özelleştirme](tutorial-customize-operator.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (İsteğe bağlı)
+* [Yeni bir cihaz türü belirleme](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (Gerekli)
+* [Cihazınız için kurallar ve eylemler yapılandırma](tutorial-configure-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (İsteğe bağlı)
+* [İşlecin görünümlerini özelleştirme](tutorial-customize-operator-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (İsteğe bağlı)
 
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Uygulamanıza gerçek bir cihaz eklemek için, [Yeni bir cihaz türü belirleme](tutorial-define-device-type.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) öğreticisinde oluşturduğunuz **Bağlı Klima** cihaz şablonunu kullanırsınız.
+Uygulamanıza gerçek bir cihaz eklemek için, [Yeni bir cihaz türü belirleme](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) öğreticisinde oluşturduğunuz **Bağlı Klima** cihaz şablonunu kullanırsınız.
 
 1. İşleç olarak yeni bir cihaz eklemek için sol gezinti menüsünde **Device Explorer**’ı seçin:
 
@@ -88,7 +88,7 @@ Bu makaledeki örnek kod [Node.js](https://nodejs.org/) ile yazılmıştır ve a
 * **Sıcaklık Ayarla** ayarını kullana bir işleci yanıtlayın.
 * Azure IoT Central uygulamanızdan Echo komutunu işleyin.
 
-[Sonraki Adımlar](#next-steps) bölümünde başvurulan “Nasıl Yapılır” makaleleri daha ayrıntılı örnekler sağlar ve diğer programlama dillerinin kullanımını gösterir. Cihazların Azure IoT Central’a bağlanması hakkında daha fazla bilgi için [Cihaz bağlantısı](concepts-connectivity.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) adlı makaleye bakın.
+[Sonraki Adımlar](#next-steps) bölümünde başvurulan “Nasıl Yapılır” makaleleri daha ayrıntılı örnekler sağlar ve diğer programlama dillerinin kullanımını gösterir. Cihazların Azure IoT Central’a bağlanması hakkında daha fazla bilgi için [Cihaz bağlantısı](concepts-connectivity-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) adlı makaleye bakın.
 
 Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırlanacağını gösterir:
 
@@ -359,15 +359,15 @@ Artık Azure IoT Central uygulamanıza gerçek bir cihaz bağladığınıza gör
 
 Bir operatör olarak, aşağıdakileri yapmayı öğrenebilirsiniz:
 
-* [Cihazlarınızı yönetme](howto-manage-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-* [Cihaz kümelerini kullanma](howto-use-device-sets.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-* [Özel analiz oluşturma](howto-create-analytics.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Cihazlarınızı yönetme](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Cihaz kümelerini kullanma](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Özel analiz oluşturma](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
 
 Cihaz geliştiricisi olarak, şunları yapmayı öğrenebilirsiniz:
 
-* [DevKit’i hazırlama ve bağlama](howto-connect-devkit.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [DevKit’i hazırlama ve bağlama](howto-connect-devkit-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
 * [Raspberry Pi'yi hazırlama ve bağlama](howto-connect-raspberry-pi-python.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-* [Genel bir Node.js istemcisini Azure IoT Central uygulamanıza bağlama](howto-connect-nodejs.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Genel bir Node.js istemcisini Azure IoT Central uygulamanıza bağlama](howto-connect-nodejs-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
 * [Kodunuzu özelleştirme][lnk-nodejs-device-ref]
 
 

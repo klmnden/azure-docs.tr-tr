@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: f51a97e1493803998cfbdd81523e4e479b50346d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697116"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817249"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Örnek Yapılandırması: Cisco ASA cihazı (IKEv2/BGP yok)
 Bu makalede Azure VPN ağ geçitleri için bağlantı Cisco Uyarlamalı güvenlik Gereci (ASA) cihazlar için örnek yapılandırmaları sağlar. Örnekte Ikev2 Border Gateway Protocol (BGP) olmadan çalıştıran Cisco ASA cihazlar için geçerlidir. 
@@ -44,7 +44,7 @@ Azure VPN ağ geçitleri siteden siteye (S2S) VPN tüneli için standart IPSec/I
 > İsteğe bağlı olarak açıklandığı gibi şifreleme algoritmaları ve anahtar güçleriyle belirli bir bağlantı için tam bir birleşimi belirtebilirsiniz [şifreleme gereksinimleri hakkında](vpn-gateway-about-compliance-crypto.md). Algoritmalar ve anahtar güçleriyle tam bir birleşimini belirtirseniz, VPN cihazlarınızda karşılık gelen belirtimleri kullandığınızdan emin olun.
 
 ## <a name="single-vpn-tunnel"></a>Tek bir VPN tüneli
-Bu yapılandırmayı bir Azure VPN gateway ile bir şirket içi VPN cihazınız arasındaki tek S2S VPN tüneli oluşur. İsteğe bağlı olarak yapılandırabileceğiniz [VPN tüneli üzerinden BGP](#bgp).
+Bu yapılandırmayı bir Azure VPN gateway ile bir şirket içi VPN cihazınız arasındaki tek S2S VPN tüneli oluşur. Bu gibi durumlarda, BGP isteğe bağlı olarak VPN tüneli üzerinden yapılandırabilirsiniz.
 
 ![Tek S2S VPN tüneli](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 

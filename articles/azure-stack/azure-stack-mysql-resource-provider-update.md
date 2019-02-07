@@ -15,12 +15,12 @@ ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: f3129c27d123aa448f8293f7e1827dc3ebc5c82e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38d27c6f82533265705ff5483bfe835c81c9ce6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239086"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817300"
 ---
 # <a name="update-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcısını güncelle 
 
@@ -30,7 +30,7 @@ Azure Stack oluşturduğunda kaynak sağlayıcısı bağdaştırıcısını serb
 
 MySQL kaynak sağlayıcısı sürüm 1.1.33.0 sürümünden başlayarak, güncelleştirmeleri birikmeli özelliktedir ve yayımlanmış olan yüklü olması gerekmez; Başlangıç 1.1.24.0 sürümünden veya üzeri olduğu sürece. MySQL kaynak sağlayıcısı 1.1.24.0 sürümünü çalıştırıyorsanız, örneğin, ardından 1.1.33.0 sürümüne veya daha sonra ilk sürümünü 1.1.30.0 yüklemeye gerek olmadan yükseltebilirsiniz. Kullanılabilir kaynak sağlayıcısı sürümleri ve üzerinde desteklenir, Azure Stack sürümünü gözden geçirmek için sürümleri listesinde bakın [kaynak sağlayıcı önkoşulları dağıtma](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Kullandığınız kaynak Sağlayıcısı'nı güncelleştirmek için **UpdateMySQLProvider.ps1** betiği. İşlem bölümünde anlatıldığı gibi bir kaynak sağlayıcısını yüklemek için kullanılan işlem benzer [kaynak sağlayıcısı dağıtma](#deploy-the-resource-provider) bu makalenin. Betik kaynak sağlayıcısının indirmeye dahil edilir. 
+Kullandığınız kaynak Sağlayıcısı'nı güncelleştirmek için **UpdateMySQLProvider.ps1** betiği. İşlem, bir kaynak sağlayıcısı dağıtma bu makalenin kaynak sağlayıcı bölümüne açıklandığı yüklemek için kullanılan işleme benzer. Betik kaynak sağlayıcısının indirmeye dahil edilir. 
 
  > [!IMPORTANT]
  > Kaynak Sağlayıcısı'nı yükseltmeden önce yeni işlevler, düzeltmeler ve dağıtımınızı etkileyebilecek bilinen sorunlar hakkında bilgi edinmek için sürüm notlarını gözden geçirin.

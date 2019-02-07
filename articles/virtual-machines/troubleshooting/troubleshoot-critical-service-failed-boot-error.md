@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: d8140966f3ba8674938a4e21b0990371390d3516
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071300"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813803"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>"Windows Kritik hizmet başarısız" mavi ekranda bir Azure sanal makinesi önyükleme yaparken gösterir
 Bu makalede, Microsoft Azure'da Windows sanal makinesi (VM) önyüklediğinizde karşılaşabileceğiniz "Kritik hizmet başarısız" hatası. Bu sorunları gidermek için sorun giderme adımlarını sağlar. 
 
 > [!NOTE] 
-> Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli yerine yeni dağıtımlar için kullanmanızı öneririz Resource Manager dağıtım modeli kullanılarak açıklanır.
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli yerine yeni dağıtımlar için kullanmanızı öneririz Resource Manager dağıtım modeli kullanılarak açıklanır.
 
 ## <a name="symptom"></a>Belirti 
 
 Bir Windows VM başlamaz. Ne zaman iade önyükleme ekran görüntüleri [önyükleme tanılaması](./boot-diagnostics.md), mavi bir ekranda gördüğünüz aşağıdaki hata iletilerinden biri:
 
-- "Bir sorun ve yeniden başlatmanız gerekiyor bilgisayarınıza çalıştı. Yeniden başlatabilirsiniz. Bu sorun ve olası düzeltmeler hakkında daha fazla bilgi için ziyaret http://windows.com/stopcode. Destek ekibiyle çağırırsanız, kullanıcıların bu bilgileri sağlayın: kod durdur: kritik hizmet başarısız oldu " 
-- "Bir sorun ve yeniden başlatmanız gerekiyor bilgisayarınıza çalıştı. Biz yalnızca bazı hata bilgisi toplayacağınızı ve ardından biz sizin için yeniden başlatmanız gerekecektir. Daha fazla bilgi edinmek istiyorsanız, arayabilirsiniz daha sonra bu hata için çevrimiçi: CRITICAL_SERVICE_FAILED "
+- "Bir sorun ve yeniden başlatmanız gerekiyor bilgisayarınıza çalıştı. Yeniden başlatabilirsiniz. Bu sorun ve olası düzeltmeler hakkında daha fazla bilgi için ziyaret http://windows.com/stopcode. Destek ekibiyle çağırırsanız, kullanıcıların bu bilgileri sağlayın: Kod durdurun: KRİTİK HİZMETİ BAŞARISIZ OLDU" 
+- "Bir sorun ve yeniden başlatmanız gerekiyor bilgisayarınıza çalıştı. Biz yalnızca bazı hata bilgisi toplayacağınızı ve ardından biz sizin için yeniden başlatmanız gerekecektir. Daha fazla bilgi edinmek istiyorsanız, arayabilirsiniz daha sonra bu hata için çevrimiçi: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Nedeni
 
@@ -93,7 +93,7 @@ Döküm günlükleri ve seri konsol etkinleştirmek için aşağıdaki betiği �
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [İşletim sistemi diski çıkarın ve ardından etkilenen VM için işletim sistemi diskini yeniden ekleme](troubleshoot-recovery-disks-portal-windows.md). VM Modu'nda önyüklenir. Hata oluşmaya devam ederse, Git [isteğe bağlı bir adım](#optional-analysis-the-dump-logs-in-boot-debug-mode).
+2. [İşletim sistemi diski çıkarın ve ardından etkilenen VM için işletim sistemi diskini yeniden ekleme](troubleshoot-recovery-disks-portal-windows.md). VM Modu'nda önyüklenir. Hata oluşmaya devam ederse isteğe bağlı bir adıma gidin.
 3. Açık **çalıştırma** kutusuna ve çalıştırma **Doğrulayıcı** sürücü doğrulama Yöneticisi aracını başlatmak için.
 4. Seçin **otomatik olarak imzalanmamış sürücüleri seçin**ve ardından **sonraki**.
 5. İmzasız sürücü dosyaları listesini alırsınız. Dosya adlarını unutmayın.
@@ -104,7 +104,7 @@ Döküm günlükleri ve seri konsol etkinleştirmek için aşağıdaki betiği �
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  VM’yi yeniden başlatın. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>İsteğe bağlı: modunda kilitlenme dökümü günlüklerini analiz edin
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>İsteğe bağlı: Kilitlenme bilgi dökümü modunda döküm günlüklerini çözümleme
 
 Kendiniz döküm günlükler analiz için şu adımları izleyin:
 
@@ -138,7 +138,7 @@ Kendiniz döküm günlükler analiz için şu adımları izleyin:
 9. [İşletim sistemi diski çıkarın ve ardından etkilenen VM için işletim sistemi diskini yeniden ekleme](troubleshoot-recovery-disks-portal-windows.md).
 10. Dökümü analizi gösterir görmek için VM'yi önyüklemek. Yüklenemiyordur dosyasını bulun. Bu dosya bir dosyadan VM çalışma ile değiştirmeniz gerekir. 
 
-    Dökümü analizi örneği verilmiştir. Gördüğünüz gibi **hatası** filecrypt.sys üzerinde olduğundan: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
+    Dökümü analizi örneği verilmiştir. Gördüğünüz gibi **hatası** filecrypt.sys üzerinde olan: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
 
     ```
     kd> !analyze -v 

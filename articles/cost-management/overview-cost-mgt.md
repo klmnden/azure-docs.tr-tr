@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997117"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768666"
 ---
 # <a name="what-is-azure-cost-management"></a>Azure Maliyet Yönetimi nedir?
 
-Maliyet yönetimi, işlerinizle ilişkili maliyetleri etkili bir şekilde planladığınız ve denetlediğiniz bir işlemdir. Maliyet yönetimi görevleri normalde finans, yönetim ve uygulama takımları tarafından gerçekleştirilir. Azure Maliyet Yönetimi, Microsoft Kurumsal Anlaşmaları (EA) olan kuruluşların planlama yaparken maliyeti dikkate almasına yardımcı olur. Ayrıca, maliyetleri etkili bir şekilde analiz etmeye ve bulut harcamalarını iyileştirmek için gerçekleştirilecek eylemlere de katkı sağlar. Kuruluş olarak maliyet yönetimine nasıl yaklaşmak gerektiği hakkında daha fazla bilgi edinmek için, [Azure Maliyet Yönetimi en iyi yöntemleri](cost-mgt-best-practices.md) makalesini gözden geçirin.
+Maliyet yönetimi, işlerinizle ilişkili maliyetleri etkili bir şekilde planladığınız ve denetlediğiniz bir işlemdir. Maliyet yönetimi görevleri normalde finans, yönetim ve uygulama takımları tarafından gerçekleştirilir. Azure maliyet yönetimi, kuruluşların aklınızda maliyetiyle planlamak için yardımcı olur. Ayrıca, maliyetleri etkili bir şekilde analiz etmeye ve bulut harcamalarını iyileştirmek için gerçekleştirilecek eylemlere de katkı sağlar. Kuruluş olarak maliyet yönetimine nasıl yaklaşmak gerektiği hakkında daha fazla bilgi edinmek için, [Azure Maliyet Yönetimi en iyi yöntemleri](cost-mgt-best-practices.md) makalesini gözden geçirin.
 
 Faturalandırma, maliyet yönetimiyle ilgili olsa da aynı şey değildir. Faturalandırma, müşterilere mal veya hizmetler karşılığı fatura hazırlama ve ticari ilişkileri yönetme işlemidir.  Faturalandırma görevleri genellikle tedarik ve finans takımları tarafından yürütülür.
 
@@ -29,7 +29,7 @@ Azure portalı veya çeşitli API'leri kullanarak dışarı aktarma otomasyonu y
 
 ## <a name="plan-and-control-expenses"></a>Giderleri planlama ve denetleme
 
-Maliyet Yönetimi maliyetlerinizi planlamanıza ve denetlemenize şu yollardan yardımcı olur: Maliyet analizi, bütçeler, öneriler ve maliyet yönetimi verilerini dışarı aktarma.
+Planlama ve maliyetlerinizi denetim maliyet Yönetimi Yardımı içeren yolları: Maliyet analizi, bütçeler, öneriler ve maliyet Yönetimi verilerine dışarı aktarma.
 
 Kurumsal maliyetlerinizi incelemek ve analiz etmek için maliyet analizini kullanırsınız. Maliyetlerin nerede tahakkuk ettiğini anlamak ve harcama eğilimlerini belirlemek için kuruluşa göre toplu maliyetleri görüntüleyebilirsiniz. Bütçeye göre aylık, üç aylık, hatta yıllık maliyet eğilimlerini tahmin etmek için, zaman içinde tahakkuk eden maliyetleri de görebilirsiniz.
 
@@ -45,7 +45,7 @@ Maliyet yönetimi verilerine erişmek veya bu verileri incelemek için dış sis
 
 ## <a name="additional-azure-tools"></a>Ek Azure araçları
 
-Azure'un, Azure Maliyet Yönetimi özellik kümesi kapsamında yer almayan başka araçları da vardır. Bununla birlikte, bu araçlar maliyet yönetimi işleminde önemli bir rol oynar. Söz konusu araçlar hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılara bakın.
+Azure'un, Azure Maliyet Yönetimi özellik kümesi kapsamında yer almayan başka araçları da vardır. Bununla birlikte, maliyet Yönetimi işleminin önemli bir rol oyun. Söz konusu araçlar hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılara bakın.
 
 - [Azure Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/) - Önceden bulut maliyetlerinizi tahmin etmek için bu aracı kullanın.
 - [Azure Geçişi](../migrate/migrate-overview.md) - Azure yedek çözümünden neler gerektiği hakkında içgörüler elde etmek için geçerli veri merkezi yükünüzü değerlendirin.

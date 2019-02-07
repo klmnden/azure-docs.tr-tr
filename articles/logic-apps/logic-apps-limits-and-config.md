@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 494665e530104cd4711e8112f3a999e68c3485b8
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746396"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769877"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -195,53 +195,58 @@ Her bir tümleştirme hesabı yapıtları sayısına yönelik sınırlar aşağ�
 
 | Yapay Nesne | Sınır | Notlar | 
 |----------|-------|-------| 
-| EDI ticari iş ortakları | 25 | | 
-| EDI ticari sözleşmeleri | 10 | | 
-| Haritalar | 25 | | 
-| Şemalar | 25 | 
 | Derlemeler | 10 | | 
 | Toplu iş yapılandırmaları | 5 | 
 | Sertifikalar | 25 | | 
+| EDI ticari sözleşmeleri | 10 | | 
+| EDI ticari iş ortakları | 25 | | 
+| Haritalar | 25 | | 
+| Şemalar | 25 | 
 |||| 
 
 *Temel katman*
 
 | Yapay Nesne | Sınır | Notlar | 
 |----------|-------|-------| 
-| EDI ticari iş ortakları | 2 | | 
-| EDI ticari sözleşmeleri | 1 | | 
-| Haritalar | 500 | | 
-| Şemalar | 500 | 
 | Derlemeler | 25 | | 
 | Toplu iş yapılandırmaları | 1 | | 
 | Sertifikalar | 2 | | 
+| EDI ticari sözleşmeleri | 1 | | 
+| EDI ticari iş ortakları | 2 | | 
+| Haritalar | 500 | | 
+| Şemalar | 500 | 
 |||| 
 
 *Standart katman*
 
 | Yapay Nesne | Sınır | Notlar | 
 |----------|-------|-------| 
-| EDI ticari iş ortakları | 500 | | 
-| EDI ticari sözleşmeleri | 500 | | 
-| Haritalar | 500 | | 
-| Şemalar | 500 | 
 | Derlemeler | 50 | | 
 | Toplu iş yapılandırmaları | 5 |  
 | Sertifikalar | 50 | | 
+| EDI ticari sözleşmeleri | 500 | | 
+| EDI ticari iş ortakları | 500 | | 
+| Haritalar | 500 | | 
+| Şemalar | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>Yapıt kapasite sınırları
 
-| Ad | Sınır | Notlar | 
-| ---- | ----- | ----- | 
-| Şema | 8 MB | 2 MB'tan büyük dosyaları yüklemek için kullandığınız [URI blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
-| Harita (XSLT dosyası) | 2 MB | | 
-| Çalışma zamanı uç noktası: Okuma çağrısı 5 dakika başına | 60,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrıları | 45,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: İzleme çağrıları 5 dakika başına | 45,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: Eş zamanlı çağrılar engelleme | ~1,000 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
+| Yapay Nesne | Sınır | Notlar | 
+| -------- | ----- | ----- | 
+| Derleme | 8 MB | 2 MB'tan büyük dosyaları yüklemek için kullandığınız bir [Azure depolama hesabı ve blob kapsayıcısı](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Harita (XSLT dosyası) | 8 MB | 2 MB'tan büyük dosyaları yüklemek için kullandığınız [Azure Logic Apps REST API - eşler](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). | 
+| Şema | 8 MB | 2 MB'tan büyük dosyaları yüklemek için kullandığınız bir [Azure depolama hesabı ve blob kapsayıcısı](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+||||
+
+| Çalışma zamanı uç noktası | Sınır | Notlar |
+|------------------|-------|-------|
+| Okuma çağrısı 5 dakika başına | 60,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
+| 5 dakika başına çağrıları | 45,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
+| İzleme çağrıları 5 dakika başına | 45,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
+| Eş zamanlı çağrılar engelleme | ~1,000 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>

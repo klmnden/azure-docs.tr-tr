@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0a174c3de33b01f936eec599c1de68e2cebbf9c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745066"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820428"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Windows tabanlı HDInsight MapReduce örneklerini çalıştırma
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -54,7 +54,7 @@ Günümüzde, birçok kişi Apache Hive ve Apache Pig MapReduce seçin.  Daha fa
 ## <a name="hdinsight-sample-wordcount"></a>Sözcük sayısı - Java
 MapReduce proje göndermek için önce bir MapReduce işi tanımı oluşturun. İş tanımında MapReduce programını jar dosyasını ve jar dosyasını konumunu belirtin **wasb:///example/jars/hadoop-mapreduce-examples.jar**, sınıf adı ve bağımsız değişkenler.  Wordcount MapReduce programını iki bağımsız değişkeni alır: kaynak dosyanın sözcükler ve çıkış konumunu saymak için kullanılır.
 
-Kaynak kodu bulunabilir [ek A](#apendix-a---the-word-count-MapReduce-program-in-java).
+Kaynak kodu A. ekte bulunabilir.
 
 Yordam için Java MapReduce geliştirme programı, bakın - [geliştirme Java MapReduce programları HDInsight, Apache Hadoop için](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -135,7 +135,7 @@ Bu arada, satır yönelimli çıkışı Azaltıcı toplar [stdout] [ stdin-stdou
 
 **C# akış sözcük sayısı işi göndermek için**
 
-* Verilen yordamı izleyin [sayısı - Java Word](#word-count-java)ve iş tanımını aşağıdaki satırla değiştirin:
+* Sözcük sayısını - Java yordamı izleyin ve iş tanımını aşağıdaki satırla değiştirin:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -157,7 +157,7 @@ Bu örnek için sağlanan betiğini Hadoop jar işi gönderir ve en fazla 16 har
 
 **Pi estimator işi göndermek için**
 
-* Verilen yordamı izleyin [sayısı - Java Word](#word-count-java)ve iş tanımını aşağıdaki satırla değiştirin:
+* Sözcük sayısını - Java yordamı izleyin ve iş tanımını aşağıdaki satırla değiştirin:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -185,7 +185,7 @@ Bu örnek, üç adet MapReduce programlarını kullanır:
 
 **İşleri göndermek için**
 
-* Verilen yordamı izleyin [sayısı - Java Word](#word-count-java)ve şu iş tanımlarını kullanabilirsiniz:
+* Sözcük sayısını - Java yordamı izleyin ve aşağıdaki iş tanımlarını kullanın:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `

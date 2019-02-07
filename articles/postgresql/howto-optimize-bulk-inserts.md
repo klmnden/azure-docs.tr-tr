@@ -1,36 +1,40 @@
 ---
-title: PostgreSQL için Azure veritabanı'nda toplu eklemeler en iyi duruma getirme
+title: PostgreSQL sunucusu için Azure veritabanı üzerinde toplu eklemeler en iyi duruma getirme
 description: Bu makalede, PostgreSQL için Azure veritabanı toplu INSERT işlemlerine nasıl iyileştirebileceğiniz de açıklanır.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 9d2bfcddc649e4fff68bdba49df0945e88067036
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545245"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810251"
 ---
-# <a name="optimizing-bulk-inserts-and-use-of-transient-data-on-azure-database-for-postgresql-server"></a>Toplu eklemeler ve PostgreSQL sunucusu için Azure veritabanı üzerinde geçici veri kullanımını en iyi duruma getirme 
-Bu makalede, toplu ekleme işlemleri ve PostgreSQL sunucusu için Azure veritabanı üzerinde geçici veri kullanımını nasıl iyileştirebileceğiniz de açıklanır.
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Geçici veri PostgreSQL sunucusu için Azure veritabanı üzerinde kullanın ve toplu eklemeler en iyi duruma getirme 
+Bu makalede, toplu ekleme işlemleri en iyi duruma getirmek ve geçici veri PostgreSQL sunucusu için Azure veritabanı üzerinde kullanmak nasıl açıklanmaktadır.
 
-## <a name="using-unlogged-tables"></a>Kütüğe aktarılmamış tablolarını kullanma
-Geçici verileri içeren veya büyük veri kümelerini toplu olarak eklemek, iş yükü işlemlerini sahip müşteriler için kütüğe aktarılmamış tabloları kullanmayı düşünün.
+## <a name="use-unlogged-tables"></a>Kütüğe aktarılmamış tablolarını kullanma
+Geçici verileri içeren veya büyük veri kümelerini toplu olarak eklemek, iş yükü işlemlerini varsa kütüğe aktarılmamış tabloları kullanarak göz önünde bulundurun.
 
-Kütüğe aktarılmamış tablolar, etkili bir şekilde toplu eklemeler en iyi duruma getirmek için kullanılabilir bir PostgreSQL özelliğidir. Yazma tamamlanan günlüğe kaydetme (varsayılan olarak, kararlılık ve dayanıklılık iki ACID özellikleri sağlayan WAL), PostgreSQL kullanır. Bir kütüğe aktarılmamış tablosuna, ortalama PostgreSQL işlem günlüğüne yazmadan eklemeleri yaptığınız ekleme, kendisi bu tablolar daha hızlı normal tablolar yapmadan bir g/ç işlemdir.
+Kütüğe aktarılmamış tablolar, etkili bir şekilde toplu eklemeler en iyi duruma getirmek için kullanılabilir bir PostgreSQL özelliğidir. PostgreSQL yazma tamamlanan günlüğe kaydetme (WAL) kullanır. Kararlılık ve dayanıklılık, varsayılan olarak sağlar. Kararlılık, tutarlılık, yalıtım ve dayanıklılık ACID özelliklerini olun. 
 
-Aşağıda kütüğe aktarılmamış bir tablo oluşturmak için Seçenekler şunlardır:
-- Söz dizimi kullanarak yeni kütüğe aktarılmamış tablo oluşturun: `CREATE UNLOGGED TABLE <tableName>`
-- Mevcut bir dönüştürme söz dizimini kullanarak bir kütüğe aktarılmamış tablosu için tablo günlüğe: `ALTER <tableName> SET UNLOGGED`.  Bu söz dizimini kullanarak ters çevrilebilen: `ALTER <tableName> SET LOGGED`
+Bir kütüğe aktarılmamış tablo anlamına gelir, PostgreSQL ekleme hareket halinde yazmadan ekler, kendisi bir g/ç işlemdir günlüğe kaydetmez. Sonuç olarak, bu tablolar sıradan tablolardan daha önemli ölçüde daha hızlıdır.
+
+Kütüğe aktarılmamış bir tablo oluşturmak için aşağıdaki seçenekleri kullanın:
+- Söz dizimi kullanarak yeni bir kütüğe aktarılmamış tablo oluşturma `CREATE UNLOGGED TABLE <tableName>`.
+- Mevcut bir dönüştürme kütüğe aktarılmamış bir tabloya sözdizimini kullanarak tablo oturum açmış `ALTER <tableName> SET UNLOGGED`.  
+
+İşlemi geri almak için söz dizimini kullanın `ALTER <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Kütüğe aktarılmamış tablo düşüş
-Kütüğe aktarılmamış tablolar kilitlenme açısından güvenli değildir. Kütüğe aktarılmamış bir tablo, bir çökmeden sonra veya bir şekilde çoğaltamaması kapatma tabi otomatik olarak kesilir. Ayrıca bir kütüğe aktarılmamış tablosunun bekleme sunucularına çoğaltılmaz. Bir kütüğe aktarılmamış tablosunda oluşturulan tüm dizinlerin de otomatik olarak kütüğe aktarılmamış.  Ekleme işlemi tamamlandıktan sonra INSERT dayanıklı olacak şekilde oturum için tabloyu dönüştürebiliriz.
+Kütüğe aktarılmamış tabloları kilitlenme açısından güvenli değildir. Kütüğe aktarılmamış bir tablo, bir çökmeden sonra veya bir şekilde çoğaltamaması kapatma tabi otomatik olarak kesilir. Bir kütüğe aktarılmamış tablosunun ayrıca çoğaltılmadığından, bekleme sunucuları için. Bir kütüğe aktarılmamış tablosunda oluşturulan tüm dizinlerin de otomatik olarak kütüğe aktarılmamış. Sonra ekleme işlemi tamamlandıktan, oturum ekleme dayanıklı olmasını tabloya Dönüştür.
 
-Ancak, bazı müşteri iş yüklerinin biz yaklaşık olarak yüzde 15-20'si performans iyileştirmesi kütüğe aktarılmamış tabloları kullanırken karşılaşılan.
+Kütüğe aktarılmamış tabloları kullanıldığında bazı müşteri iş yüklerinin yaklaşık yüzde 15 ila yüzde 20 performans iyileştirmesi karşılaşmıştır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İş yükünüz için geçici veri kullanımını gözden geçirin ve büyük toplu ekler.  
-
-Aşağıdaki PostgreSQL belgeleri - gözden [tablo SQL komutları oluşturma](https://www.postgresql.org/docs/current/static/sql-createtable.html)
+İş yükünüz için geçici veri kullanımını gözden geçirin ve büyük toplu ekler. Aşağıdaki PostgreSQL belgelere bakın:
+ 
+- [Tablo SQL komutları oluşturma](https://www.postgresql.org/docs/current/static/sql-createtable.html)

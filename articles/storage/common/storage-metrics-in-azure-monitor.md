@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 4b71c5818ee6eade526134ab1b2508ed55f0c400
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699950"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811778"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -39,7 +39,7 @@ Boyutlar destekleyen ölçümler için istenen boyut değeri Metrik filtreleyebi
 
 ### <a name="access-metrics-with-the-rest-api"></a>REST API'si ile erişim ölçümleri
 
-Azure İzleyicisi'nin sağladığı [REST API'leri](/rest/api/monitor/) ölçüm tanımı ve değerleri okunamıyor. Bu bölümde, depolama ölçümlerini okuma işlemini göstermektedir. Kaynak Kimliği, tüm REST API'leri kullanılır. Daha fazla bilgi için lütfen okuyun [depolama hizmetleri için kaynak kimliği anlama](#understanding-resource-id-for-services-in-storage).
+Azure İzleyicisi'nin sağladığı [REST API'leri](/rest/api/monitor/) ölçüm tanımı ve değerleri okunamıyor. Bu bölümde, depolama ölçümlerini okuma işlemini göstermektedir. Kaynak Kimliği, tüm REST API'leri kullanılır. Depolama Hizmetleri için kaynak kimliği anlama, daha fazla bilgi için lütfen okuyun.
 
 Aşağıdaki örnek nasıl kullanılacağını gösterir [ArmClient](https://github.com/projectkudu/ARMClient) REST API ile test etmeyi kolaylaştırmak için komut satırına.
 
@@ -136,7 +136,7 @@ Blob, tablo, dosya veya kuyruk için ölçüm değerleri okumak istiyorsanız, y
 
 ### <a name="access-metrics-with-the-net-sdk"></a>.Net SDK'sı ile erişim ölçümleri
 
-Azure İzleyicisi'nin sağladığı [.Net SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) ölçüm tanımı ve değerleri okunamıyor. [Örnek kod](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) SDK'sı ile farklı parametreler kullanma işlemini gösterir. Kullanmanız gereken `0.18.0-preview` veya sonraki sürümü için depolama ölçümleri. Kaynak Kimliği, .net SDK'sı kullanılır. Daha fazla bilgi için lütfen okuyun [depolama hizmetleri için kaynak kimliği anlama](#understanding-resource-id-for-services-in-storage).
+Azure İzleyicisi'nin sağladığı [.Net SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) ölçüm tanımı ve değerleri okunamıyor. [Örnek kod](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) SDK'sı ile farklı parametreler kullanma işlemini gösterir. Kullanmanız gereken `0.18.0-preview` veya sonraki sürümü için depolama ölçümleri. Kaynak Kimliği, .net SDK'sı kullanılır. Depolama Hizmetleri için kaynak kimliği anlama, daha fazla bilgi için lütfen okuyun.
 
 Aşağıdaki örnek, Azure İzleyici .net SDK'sı depolama ölçümlerini okuma için nasıl kullanılacağını gösterir.
 

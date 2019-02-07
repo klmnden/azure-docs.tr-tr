@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244772"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811673"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>BLOB depolama alanından iOS kullanma
 
@@ -162,7 +162,7 @@ Aşağıdaki örnek ile bir kapsayıcı oluşturma işlemi gösterilmektedir **k
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Bir kapsayıcıya bir blob yükleme
-Belirtildiği gibi [Blob hizmeti kavramları](#blob-service-concepts) bölümünde, Blob Depolama farklı üç tür BLOB sunar: blok blobları, ekleme blobları ve sayfa blobları. Azure depolama iOS kitaplığı, üç tür BLOB'ları destekler. Çoğu durumda, kullanılması önerilen blob türü blok blobudur.
+Blob hizmeti kavramları bölümünde belirtildiği gibi Blob Depolama farklı üç tür BLOB sunar: blok blobları, ekleme blobları ve sayfa blobları. Azure depolama iOS kitaplığı, üç tür BLOB'ları destekler. Çoğu durumda, kullanılması önerilen blob türü blok blobudur.
 
 Aşağıdaki örnek, bir NSString blok blobu karşıya yükleme işlemini gösterir. Bu blob içeriğini, bu kapsayıcı içinde aynı ada sahip bir blob zaten varsa üzerine yazılır.
 

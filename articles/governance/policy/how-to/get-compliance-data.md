@@ -4,17 +4,17 @@ description: Azure İlkesi değerlendirmeleri ve etkileri uyumluluğunu belirler
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7925bc8a9f7cb65d0e92c943aa0a54d48611e286
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509005"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766435"
 ---
 # <a name="getting-compliance-data"></a>Uyumluluk verilerini alma
 
@@ -141,6 +141,26 @@ Olaylar (ekleme, Denetim, reddetme, dağıtım) kaynak oluşturmak için istek t
 Olay hakkında daha ayrıntılı bilgi toplamak ve seçmek için istediğiniz satıra sağ **etkinlik günlüklerini göster**. Etkinlik günlüğü sayfasında açılır ve atama ve olayların ayrıntılarını gösteren arama önceden filtre uygulanmış. Etkinlik günlüğü ek bağlam ve bu olaylar hakkında bilgi sağlar.
 
 ![İlke uyumluluk etkinlik günlüğü](../media/getting-compliance-data/compliance-activitylog.png)
+
+### <a name="change-history-preview"></a>Değişiklik geçmişi (Önizleme)
+
+Yeni bir parçası olarak **genel Önizleme**, değişiklik geçmişini son on dört günü uyumlu olmayan bir kaynak için kullanılabilir. Değişiklik geçmişi sağlar ayrıntılar hakkında bir değişiklik algıladığında ve _visual fark_ her değişiklik için. Uyumlu olmayan bir kaynak Resource Manager özelliklerini eklendiğinde, kaldırılmış veya değiştirilmiş bir değişiklik algılama tetiklenir.
+
+1. Azure portalında **Tüm hizmetler**’e tıkladıktan sonra **İlke**'yi arayıp seçerek Azure İlkesi hizmetini başlatın.
+
+1. Üzerinde **genel bakış** veya **Uyumluluk** sayfasında, ilke _uyumlu_.
+
+1. Altında **kaynak Uyumluluk** sekmesinde **ilke uyumluluğunu** sayfasında, bu bir kaynak seçin _uyumlu_.
+
+1. Seçin **değişiklik geçmişini (Önizleme)** sekmesinde **kaynak Uyumluluk** sayfası. Tüm mevcut görüntüleniyorsa listesini değişiklikleri algıladı.
+
+   ![İlke değişiklik geçmişi - sekmesi](../media/getting-compliance-data/change-history-tab.png)
+
+1. Algılanan değişiklikler birini seçin. _Visual fark_ uyumlu olmayan kaynak üzerinde sunulan için **değişiklik geçmişini** sayfası.
+
+   ![İlke değişiklik geçmişi - görsel fark](../media/getting-compliance-data/change-history-visual-diff.png)
+
+_Visual fark_ aides içinde bir kaynak değişikliklerini tanımlama. Algılanan değişiklikler için seçili ilkenin uyumlu olmadığı için kaynak neyin için ilişkili olmayabilir.
 
 ## <a name="command-line"></a>Komut satırı
 

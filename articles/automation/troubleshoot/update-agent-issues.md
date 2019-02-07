@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 5637d409233abc68983bd7cf1e55f406f15e3b59
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ff3492a0f523e32be8f6ffdabf9d15e4faa70cb4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432997"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812642"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Windows Aracısı onay sonuçları güncelleştirme yönetimini anlama
 
@@ -39,7 +39,7 @@ Tıklayarak Azure makineler için **sorun giderme** altında bağlantı **Günce
 
 ![Windows Update Aracısı sayfasında ilgili sorunları giderme](../media/update-agent-issues/troubleshoot-page.png)
 
-Hazır olduğunuzda, sonuçları sayfasında gösterilir. [Bölümleri denetler](#prerequisiste-checks) her iade nelerin dahil olduğunu gösterir.
+Hazır olduğunuzda, sonuçları sayfasında gösterilir. Denetimleri aşağıdaki bölümlerde her iade nelerin dahil olduğunu gösterir.
 
 ![Windows Update Aracısı denetimleri sorunlarını giderme](../media/update-agent-issues/update-agent-checks.png)
 

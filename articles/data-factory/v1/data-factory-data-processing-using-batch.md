@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021586"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822757"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54021586"
 
 Bu makalede, bir taşır ve büyük ölçekli veri kümelerini otomatik ve zamanlanmış bir şekilde işleyen örnek bir çözüm mimarisini açıklar. Ayrıca, Data Factory ve Azure Batch kullanarak çözüm uygulamak için bir uçtan uca kılavuz sağlar.
 
-Tüm örnek çözümünü kılavuz içerdiğinden bu tipik bir makale uzun bir makaledir. Bu hizmetler hakkında bilgi edinebilirsiniz Batch ve Data Factory için yeni başladıysanız ve nasıl birlikte çalışır. Hizmetleri ile ilgili bir sorun bildirin ve Tasarım/Çözüm Mimarileri mi oluşturuyorsunuz odaklanabilirsiniz [mimarisi bölümüne](#architecture-of-sample-solution) makalenin. Bir prototip veya çözüm geliştiriyorsanız, adım adım yönergeleri denemek isteyebilirsiniz [izlenecek](#implementation-of-sample-solution). Bu içerik ve nasıl kullanacağınız hakkındaki yorumlarınızı davet ediyoruz.
+Tüm örnek çözümünü kılavuz içerdiğinden bu tipik bir makale uzun bir makaledir. Bu hizmetler hakkında bilgi edinebilirsiniz Batch ve Data Factory için yeni başladıysanız ve nasıl birlikte çalışır. Hizmetleri ile ilgili bir sorun bildirin ve Tasarım/Çözüm Mimarileri mi oluşturuyorsunuz, makalenin mimarisi bölümüne odaklanabilirsiniz. Bir prototip veya çözüm geliştiriyorsanız, gözden geçirme hakkında adım adım yönergeleri denemek isteyebilirsiniz. Bu içerik ve nasıl kullanacağınız hakkındaki yorumlarınızı davet ediyoruz.
 
 İlk olarak, Data Factory ve Batch hizmetleri size nasıl yardımcı olabilir işlem büyük veri kümelerini bulutta bakalım.     
 
@@ -733,7 +733,7 @@ Bu adımda, başka bir veri kümesi türü AzureBlob, çıktı verilerini göste
 
 1. Seçin **Dağıt** oluşturmak ve dağıtmak için araç çubuğunda **OutputDataset**.
 
-#### <a name="step-4-create-and-run-the-pipeline-with-a-custom-activity"></a>4. adım: Oluşturma ve özel bir etkinlik ile işlem hattı çalıştırma
+#### <a name="step-4-create-and-run-the-pipeline-with-a-custom-activity"></a>4. Adım: Oluşturma ve özel bir etkinlik ile işlem hattı çalıştırma
 Bu adımda, bir etkinlik, daha önce oluşturduğunuz özel etkinliği ile işlem hattı oluşturun.
 
 > [!IMPORTANT]
@@ -804,7 +804,7 @@ Bu adımda, bir etkinlik, daha önce oluşturduğunuz özel etkinliği ile işle
 
 1. İşlem hattını dağıtmak için komut çubuğundan **Dağıt**’ı seçin.
 
-#### <a name="step-5-test-the-pipeline"></a>5. adım: İşlem hattını test etme
+#### <a name="step-5-test-the-pipeline"></a>5. Adım: İşlem hattını test etme
 Bu adımda, işlem hattının giriş klasörler halinde dosyaları bırakarak sınayın. Her giriş klasörü için bir dosya ile işlem hattı test ederek başlayın.
 
 1. Üzerinde **veri fabrikası** seçin Azure portalındaki dikey penceresinde **diyagram**.

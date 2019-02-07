@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233091"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820122"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Yerel Mod Rapor Sunucusu ile Azure VM Oluşturmak için PowerShell Kullanma
 > [!IMPORTANT] 
@@ -38,12 +38,12 @@ Bu konu açıklar ve bir SQL Server Reporting Services yerel mod rapor sunucusu 
   
   * Azure portalında, aboneliğinizin çekirdek sınırı doğrulamak için sol bölmedeki ve kullanım'a tıklayın ardından üst menüden ayarları.
   * Çekirdek kotasını artırmak için kişi [Azure Destek](https://azure.microsoft.com/support/options/). VM boyutu için bilgi [Azure için sanal makine boyutlarını](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* **Windows PowerShell komut dosyası**: konu, Windows PowerShell temel bilgiye sahip olduğunuzu varsayar. Windows PowerShell kullanma hakkında daha fazla bilgi için aşağıdakilere bakın:
+* **Windows PowerShell komut dosyası**: Konu, Windows PowerShell temel bilgiye sahip olduğunuzu varsayar. Windows PowerShell kullanma hakkında daha fazla bilgi için aşağıdakilere bakın:
   
   * [Windows Server'da Windows PowerShell'i başlatma](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell)
   * [Windows PowerShell ile çalışmaya başlama](https://technet.microsoft.com/library/hh857337.aspx)
 
-## <a name="step-1-provision-an-azure-virtual-machine"></a>1. adım: Azure sanal makinesi sağlama
+## <a name="step-1-provision-an-azure-virtual-machine"></a>1. Adım: Bir Azure sanal makinesi sağlama
 1. Azure portalına gidin.
 2. Tıklayın **sanal makineler** sol bölmesinde.
    
@@ -62,8 +62,8 @@ Bu konu açıklar ve bir SQL Server Reporting Services yerel mod rapor sunucusu 
 6. Üzerinde **sanal makine yapılandırması** sayfasında, aşağıdaki alanları düzenleyin:
    
    * Varsa birden fazla **sürüm yayın tarihi**, en son sürümü seçin.
-   * **Sanal makine adı**: makine adı, ayrıca sonraki yapılandırma sayfasında varsayılan bulut hizmeti DNS adı olarak kullanılır. DNS adını Azure hizmeti arasında benzersiz olması gerekir. VM VM ne için kullanıldığını açıklayan bir bilgisayar adıyla yapılandırmayı deneyin. Örneğin ssrsnativecloud.
-   * **Katman**: standart
+   * **Sanal makine adı**: Makine adı, sonraki yapılandırma sayfasında varsayılan bulut hizmeti DNS adı olarak da kullanılır. DNS adını Azure hizmeti arasında benzersiz olması gerekir. VM VM ne için kullanıldığını açıklayan bir bilgisayar adıyla yapılandırmayı deneyin. Örneğin ssrsnativecloud.
+   * **Katman**: Standart
    * **Boyut: A3** SQL Server iş yükleri için önerilen VM boyutu. Bir sanal makine yalnızca bir rapor sunucusu kullandıysanız, rapor sunucusuna büyük bir iş yükü deneyimleri sürece A2 VM boyutunu yeterli olur. VM fiyatlandırma bilgileri için bkz. [sanal makineler fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Yeni kullanıcı adı**: sağladığınız adına bir VM'de yönetici olarak oluşturulur.
    * **Yeni parola** ve **onaylayın**. Bu parola yeni bir yönetici hesabı için kullanılır ve güçlü bir parola kullanmanız önerilir.
@@ -71,20 +71,20 @@ Bu konu açıklar ve bir SQL Server Reporting Services yerel mod rapor sunucusu 
 7. Sonraki sayfada, aşağıdaki alanları düzenleyin:
    
    * **Bulut hizmeti**: seçin **yeni bir bulut hizmeti oluşturma**.
-   * **Bulut hizmeti DNS adı**: VM ile ilişkili olan bulut hizmeti Genel DNS adını budur. VM adı için yazdığınız adı varsayılan addır. Konunun daha sonraki adımlarda güvenilir bir SSL sertifikası oluşturma ve DNS adı değerini ardından kullanılırsa "**verilen**" Sertifika.
+   * **Bulut hizmeti DNS adı**: Bu VM ile ilişkili olan bulut hizmeti Genel DNS adıdır. VM adı için yazdığınız adı varsayılan addır. Konunun daha sonraki adımlarda güvenilir bir SSL sertifikası oluşturma ve DNS adı değerini ardından kullanılırsa "**verilen**" Sertifika.
    * **Bölge/benzeşim grubu/sanal ağ**: Son kullanıcılarınıza en yakın bölgeyi seçin.
-   * **Depolama hesabı**: otomatik olarak oluşturulan depolama hesabı kullanın.
-   * **Kullanılabilirlik kümesi**: yok.
+   * **Depolama hesabı**: Otomatik olarak oluşturulan depolama hesabı kullanın.
+   * **Kullanılabilirlik kümesi**: Yok.
    * **Uç noktaları** tutmak **Uzak Masaüstü** ve **PowerShell** uç noktaları ve HTTP veya HTTPS uç noktası, ortamınıza bağlı olarak ekleyin.
      
-     * **HTTP**: varsayılan genel ve özel bağlantı noktaları **80**. Özel bir bağlantı noktası 80 dışında kullanırsanız, değiştirme Not **$HTTPport = 80** http komut.
-     * **HTTPS**: varsayılan genel ve özel bağlantı noktaları **443**. En iyi güvenlik uygulaması özel bağlantı noktasını değiştirin ve güvenlik duvarını ve rapor sunucusunu özel bağlantı noktasını kullanacak şekilde yapılandırmaktır. Uç noktaları hakkında daha fazla bilgi için bkz. [kümesi ayarlama iletişim bir sanal makine ile nasıl](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Bir bağlantı noktası 443 dışındaki kullanırsanız parametreyi değiştirmeniz gerektiğini unutmayın **$HTTPsport = 443** HTTPS komut.
+     * **HTTP**: Varsayılan Genel ve özel bağlantı noktaları **80**. Özel bir bağlantı noktası 80 dışında kullanırsanız, değiştirme Not **$HTTPport = 80** http komut.
+     * **HTTPS**: Varsayılan Genel ve özel bağlantı noktaları **443**. En iyi güvenlik uygulaması özel bağlantı noktasını değiştirin ve güvenlik duvarını ve rapor sunucusunu özel bağlantı noktasını kullanacak şekilde yapılandırmaktır. Uç noktaları hakkında daha fazla bilgi için bkz. [kümesi ayarlama iletişim bir sanal makine ile nasıl](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Bir bağlantı noktası 443 dışındaki kullanırsanız parametreyi değiştirmeniz gerektiğini unutmayın **$HTTPsport = 443** HTTPS komut.
    * İleri'ye tıklayın. ![ileri](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Sihirbazın son sayfasında, varsayılan tutun **VM aracısını yükleyin** seçili. Bu konu başlığındaki adımları VM Aracısı yazılımınız değil ancak bu VM devam etmeyi planlıyorsanız, VM aracısı ve uzantıları, kendisinin CM geliştirmek izin verir.  VM Aracısı hakkında daha fazla bilgi için bkz. [VM aracısı ve uzantılar – bölüm 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Bir çalışan varsayılan yüklü uzantıları ad VM masaüstüne, iç IP ve boş disk alanı gibi sistem bilgilerini görüntüleyen "BGINFO" uzantısıdır.
 9. Tam tıklayın. ![tamam](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. **Durumu** sanal makinenin görüntüler olarak **başlangıç (hazırlama)** olarak sonra görüntüler ve sağlama işlemi sırasında **çalıştıran** VM'nin, sağlanmış ve kullanıma hazır olduğunda.
 
-## <a name="step-2-create-a-server-certificate"></a>2. adım: bir sunucu sertifikası oluşturma
+## <a name="step-2-create-a-server-certificate"></a>2. Adım: Bir sunucu sertifikası oluşturma
 > [!NOTE]
 > Rapor sunucusunda HTTPS'yi gerektirmez varsa **2. adıma geçin** ve bölüme gitmek **HTTP ve rapor sunucusu yapılandırmak için komut dosyası kullanma**. HTTP betiği hızlı bir şekilde rapor sunucusunu yapılandırmak ve rapor sunucusu için kullanılmaya hazır olacaktır.
 
@@ -133,7 +133,7 @@ Sanal makine sağlanırken VM'de otomatik olarak imzalanan bir sertifika oluştu
    7. Doğrulamak için çift sertifika adı altında tıklayın **güvenilen kök sertifika yetkilileri** ve hiçbir hata olmadığından ve sertifikanızı gördüğünüz doğrulayın. Rapor sunucusu, sertifikaları değerini yapılandırmak için bu konu ile dahil HTTPS betik kullanmak istiyorsanız **parmak izi** betiğin bir parametre olarak gereklidir. **Parmak izi değerini almak için**, aşağıdaki adımları tamamlayın. Parmak izi bölümünde almak için bir PowerShell örneğini de mevcuttur [HTTPS ve rapor sunucusu yapılandırmak için komut dosyası kullanma](#use-script-to-configure-the-report-server-and-HTTPS).
       
       1. Sertifika, örneğin ssrsnativecloud.cloudapp.net adına çift tıklayın.
-      2. Tıklayın **ayrıntıları** sekmesi.
+      2. **Ayrıntılar** sekmesine tıklayın.
       3. Tıklayın **parmak izi**. Parmak izi değerini örneğin a6 Ayrıntılar alanında görüntülenen 08 3c df f9 0b f7 e3 7c 25 ed a4 ed 7e ac 91 9c 2c fb 2f.
       4. Parmak izini kopyalayın ve değeri daha sonra kullanmak üzere kaydetmek veya artık betiği düzenleyin.
       5. (*) Çalıştırmadan önce betiğin, değer çiftlerini arasındaki boşlukları kaldırın. Örneğin önce belirtilen parmak izi artık a6083cdff90bf7e37c25eda4ed7eac919c2cfb2f olacaktır.
@@ -141,7 +141,7 @@ Sanal makine sağlanırken VM'de otomatik olarak imzalanan bir sertifika oluştu
 
 Otomatik olarak imzalanan bir SSL sertifikası kullanıyorsanız sertifika adına VM konak adı zaten eşleşir. Bu nedenle, makinenin DNS genel olarak kaydedilmiş ve herhangi bir istemciden erişilebilir.
 
-## <a name="step-3-configure-the-report-server"></a>3. adım: rapor sunucusu yapılandırma
+## <a name="step-3-configure-the-report-server"></a>3. Adım: Rapor sunucusunu yapılandırma
 Bu bölümde, sanal Makinenin bir Reporting Services yerel mod rapor sunucusu nasıl yapılandıracağınız anlatılmaktadır. Rapor sunucusunu yapılandırmak için aşağıdaki yöntemlerden birini kullanabilirsiniz:
 
 * Rapor sunucusunu yapılandırmak için komut dosyası kullan
@@ -149,7 +149,7 @@ Bu bölümde, sanal Makinenin bir Reporting Services yerel mod rapor sunucusu na
 
 Daha ayrıntılı adımları için konudaki [sanal makineye bağlanın ve Raporlama Hizmetleri Yapılandırma Yöneticisi'ni Başlat](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
 
-**Kimlik doğrulaması Not:** Windows kimlik doğrulama önerilen kimlik doğrulama yöntemi ve varsayılan Reporting Services kimlik doğrulamasıdır. VM üzerinde yapılandırılan kullanıcılar için Reporting Services rolleri atanmış ve Reporting Services erişebilirsiniz.
+**Kimlik doğrulaması Not:** Windows kimlik doğrulaması önerilen kimlik doğrulama yöntemidir ve varsayılan Reporting Services kimlik doğrulamasıdır. VM üzerinde yapılandırılan kullanıcılar için Reporting Services rolleri atanmış ve Reporting Services erişebilirsiniz.
 
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>Rapor sunucusu ve HTTP yapılandırmak için komut dosyası kullan
 Rapor sunucusunu yapılandırmak için Windows PowerShell Betiği kullanmak için aşağıdaki adımları tamamlayın. Yapılandırma, HTTP, HTTPS değil içerir:
@@ -283,7 +283,7 @@ Rapor sunucusunu yapılandırmak için Windows PowerShell Betiği kullanmak içi
 6. Betik, şu anda Reporting Services için yapılandırılır. Raporlama Hizmetleri için komut dosyasını çalıştırmak istiyorsanız, ad alanına "v11" Get-WmiObject deyimindeki yolunu sürümü bölümünü değiştirin.
 7. Betiği çalıştırın.
 
-**Doğrulama**: temel bir rapor sunucusu işlevselliği çalıştığını doğrulamak için bkz: [yapılandırmasını doğrulama](#verify-the-configuration) bu konunun ilerleyen bölümlerinde.
+**Doğrulama**: Temel rapor sunucusu işlevselliği çalıştığını doğrulamak için bkz: [yapılandırmasını doğrulama](#verify-the-configuration) bu konunun ilerleyen bölümlerinde.
 
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>Rapor sunucusu ve HTTPS yapılandırmak için komut dosyası kullan
 Rapor sunucusunu yapılandırmak için Windows PowerShell kullanmak için aşağıdaki adımları tamamlayın. Yapılandırma, HTTPS değil HTTP içerir.
@@ -469,7 +469,7 @@ Rapor sunucusunu yapılandırmak için Windows PowerShell kullanmak için aşağ
      OR
    * Mmc.exe VM'de çalıştırmak ve ardından eklemek **sertifikaları** ek.
    * Altında **güvenilen kök sertifika yetkilileri** düğüme çift tıklayın, sertifika adı. Sanal makinenin otomatik olarak imzalanan sertifika kullanıyorsanız, sertifikayı sonra sanal makinenin DNS adı olarak adlandırılır ve ile sona erer **cloudapp.net**.
-   * Tıklayın **ayrıntıları** sekmesi.
+   * **Ayrıntılar** sekmesine tıklayın.
    * Tıklayın **parmak izi**. Parmak izi değerini örneğin af 11 60 b6 4b 28 8 d 89 0a Ayrıntılar alanında görüntülenen 82 12 ff 6b a9 c3 66 4f 31 90 48
    * **Betiği çalıştırmadan önce**, değer çiftlerini arasındaki boşlukları Kaldır. Örneğin af1160b64b288d890a8212ff6ba9c3664f319048
 7. Değiştirme **$httpsport** parametresi: 
@@ -483,7 +483,7 @@ Rapor sunucusunu yapılandırmak için Windows PowerShell kullanmak için aşağ
 9. Betik, şu anda Reporting Services için yapılandırılır. Raporlama Hizmetleri için komut dosyasını çalıştırmak istiyorsanız, ad alanına "v11" Get-WmiObject deyimindeki yolunu sürümü bölümünü değiştirin.
 10. Betiği çalıştırın.
 
-**Doğrulama**: temel bir rapor sunucusu işlevselliği çalıştığını doğrulamak için bkz: [yapılandırmasını doğrulama](#verify-the-connection) bu konunun ilerleyen bölümlerinde. Sertifikayı doğrulamak için bağlama yönetici ayrıcalıklarıyla bir komut istemi açın ve ardından aşağıdaki komutu çalıştırın:
+**Doğrulama**: Temel rapor sunucusu işlevselliği çalışıp çalışmadığını doğrulamak için bu konunun ilerleyen bölümlerinde yapılandırma bölümü doğrula bakın. Sertifikayı doğrulamak için bağlama yönetici ayrıcalıklarıyla bir komut istemi açın ve ardından aşağıdaki komutu çalıştırın:
 
     netsh http show sslcert
 
@@ -505,7 +505,7 @@ Rapor sunucusunu yapılandırmak için PowerShell betiğini çalıştırmak iste
 5. Sol bölmede **Web hizmeti URL'si**.
 6. Varsayılan olarak, "Tüm atanan" ıp'li HTTP bağlantı noktası 80 için RS yapılandırılır. HTTPS eklemek için:
    
-   1. İçinde **SSL sertifikası**:, [VM adı] örneğin kullanmak istediğiniz sertifikayı seçin. cloudapp.net. Hiçbir sertifika listelenmiyorsa, bölümüne bakın. **2. adım: bir sunucu sertifikası oluşturma** yükleme ve sanal makinedeki sertifikaya güvenmek hakkında bilgi için.
+   1. İçinde **SSL sertifikası**:, [VM adı] örneğin kullanmak istediğiniz sertifikayı seçin. cloudapp.net. Hiçbir sertifika listelenmiyorsa, bölümüne bakın. **2. adım: Bir sunucu sertifikası oluşturma** yükleme ve sanal makinedeki sertifikaya güvenmek hakkında bilgi için.
    2. Altında **SSL bağlantı noktası**: 443'ü seçin. Sanal makine farklı bir özel bağlantı noktası ile HTTPS özel uç nokta yapılandırdıysanız, bu değeri burada kullanın.
    3. Tıklayın **Uygula** ve işlemin tamamlanmasını bekleyin.
 7. Sol bölmede **veritabanı**.
@@ -520,7 +520,7 @@ Rapor sunucusunu yapılandırmak için PowerShell betiğini çalıştırmak iste
 8. Sol bölmede **Rapor Yöneticisi URL'si**. Varsayılan değeri bırakın **sanal dizin** olarak **raporları** tıklatıp **Uygula**.
 9. Tıklayın **çıkış** Reporting Services Yapılandırma Yöneticisi'ni kapatın.
 
-## <a name="step-4-open-windows-firewall-port"></a>4. adım: Açık Windows Güvenlik Duvarı bağlantı noktası
+## <a name="step-4-open-windows-firewall-port"></a>4. Adım: Windows Güvenlik Duvarı bağlantı noktası Aç
 > [!NOTE]
 > Komut dosyalarından birini rapor sunucusunu yapılandırmak için kullandıysanız, bu bölümü atlayabilirsiniz. Betik, güvenlik duvarı bağlantı noktasını açmak için bir adım dahil. Varsayılan bağlantı noktası HTTP için 80 ve HTTPS için 443 numaralı bağlantı noktasını oluştu.
 > 
@@ -564,7 +564,7 @@ Temel rapor sunucusu işlevselliği artık çalışır durumda olduğunu doğrul
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>Kullanıcı oluşturma ve rol atama
-Yapılandırma ve rapor sunucusu doğruladıktan sonra genel yönetici bir veya daha fazla kullanıcı oluşturmak ve kullanıcılar için Reporting Services rolleri atamak için bir görevdir. Daha fazla bilgi için aşağıdakilere bakın:
+Yapılandırma ve rapor sunucusu doğruladıktan sonra genel yönetici bir veya daha fazla kullanıcı oluşturmak ve kullanıcılar için Reporting Services rolleri atamak için bir görevdir. Daha fazla bilgi için, aşağıdakilere bakın:
 
 * [Bir yerel kullanıcı hesabı oluşturun](https://technet.microsoft.com/library/cc770642.aspx)
 * [Rapor sunucusu (Rapor Yöneticisi) verme kullanıcı erişimini](https://msdn.microsoft.com/library/ms156034.aspx))
@@ -573,24 +573,24 @@ Yapılandırma ve rapor sunucusu doğruladıktan sonra genel yönetici bir veya 
 ## <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Oluşturma ve raporları Azure sanal makine yayımlama
 Aşağıdaki tabloda bazı Microsoft Azure sanal makinede barındırılan bir rapor sunucusu için bir şirket içi bilgisayardan varolan raporları yayımlamak kullanılabilir seçenekler özetlenmektedir:
 
-* **RS.exe betik**: rapor öğeleri ve mevcut rapor sunucusu, Microsoft Azure sanal makinenize kopyalamak için kullanım RS.exe betiği. Daha fazla bilgi için bkz: ' % s'bölümü "Yerel mod – Microsoft Azure sanal makinesinde yerel moda" [rapor sunucuları arasında içerik geçişi için betik örnek Raporlama Hizmetleri rs.exe](https://msdn.microsoft.com/library/dn531017.aspx).
-* **Rapor Oluşturucu**: tıklayarak sanal makineyi içeren-Microsoft SQL Server Rapor Oluşturucusu sürümünü bir kez. Rapor Oluşturucusu'nu ilk zamanı sanal makineyi başlatmak için:
+* **RS.exe betik**: Rapor öğeleri ve mevcut rapor sunucusu, Microsoft Azure sanal makinenize kopyalamak için RS.exe betiğini kullanın. Daha fazla bilgi için bkz: ' % s'bölümü "Yerel mod – Microsoft Azure sanal makinesinde yerel moda" [rapor sunucuları arasında içerik geçişi için betik örnek Raporlama Hizmetleri rs.exe](https://msdn.microsoft.com/library/dn531017.aspx).
+* **Rapor Oluşturucu**: Tıklayarak sanal makineyi içeren-Microsoft SQL Server Rapor Oluşturucusu sürümünü bir kez. Rapor Oluşturucusu'nu ilk zamanı sanal makineyi başlatmak için:
   
   1. Tarayıcınız, yönetici ayrıcalıklarıyla başlatın.
   2. Sanal makinede Rapor Yöneticisi'ni bulun ve tıklayın **Rapor Oluşturucusu'nu** Şeritte.
      
      Daha fazla bilgi için [yükleme, kaldırma ve destekleyici Rapor Oluşturucusu'nu](https://technet.microsoft.com/library/dd207038.aspx).
-* **SQL Server veri araçları: VM**: SQL Server 2012 ile VM oluşturduğunuz sonra SQL Server veri araçları sanal makineye yüklenir ve oluşturmak için kullanılan **rapor sunucusu projeleri** ve sanal makine üzerindeki raporlar. SQL Server veri araçları, sanal makinede rapor sunucusu raporları yayımlayabilirsiniz.
+* **SQL Server veri araçları: VM**:  SQL Server 2012 ile VM oluşturduğunuz sonra SQL Server veri araçları sanal makineye yüklenir ve oluşturmak için kullanılan **rapor sunucusu projeleri** ve sanal makine üzerindeki raporlar. SQL Server veri araçları, sanal makinede rapor sunucusu raporları yayımlayabilirsiniz.
   
-    SQL server 2014 ile bir VM oluşturduysanız, SQL Server veri araçları - BI visual Studio için yükleyebilirsiniz. Daha fazla bilgi için aşağıdakilere bakın:
+    SQL server 2014 ile bir VM oluşturduysanız, SQL Server veri araçları - BI visual Studio için yükleyebilirsiniz. Daha fazla bilgi için, aşağıdakilere bakın:
   
   * [Microsoft SQL Server veri araçları - Visual Studio 2013 için iş zekası](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server veri araçları - Visual Studio 2012 için iş zekası](https://www.microsoft.com/download/details.aspx?id=36843)
   * [SQL Server veri araçları ve SQL Server İş Zekası'nı (SSDT-BI)](https://docs.microsoft.com/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi)
-* **SQL Server veri araçları: Uzaktan**: yerel bilgisayarınızda SQL Server veri araçları Raporlama Hizmetleri raporlarını içeren bir Reporting Services projesi oluşturun. Projenin web hizmetinin URL'SİYLE bağlanmak için yapılandırın.
+* **SQL Server veri araçları: Uzak**:  Yerel bilgisayarınızda SQL Server veri araçları Raporlama Hizmetleri raporlarını içeren bir Reporting Services projesi oluşturun. Projenin web hizmetinin URL'SİYLE bağlanmak için yapılandırın.
   
     ![SSRS projesi için SSDT proje özellikleri](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
-* **Komut dosyası kullanma**: rapor sunucusu içeriğini kopyalamak için komut dosyası kullanın. Daha fazla bilgi için [rapor sunucuları arasında içerik geçişi için betik örnek Raporlama Hizmetleri rs.exe](https://msdn.microsoft.com/library/dn531017.aspx).
+* **Komut dosyası kullanma**: Rapor sunucusu içeriğini kopyalamak için komut dosyası kullanın. Daha fazla bilgi için [rapor sunucuları arasında içerik geçişi için betik örnek Raporlama Hizmetleri rs.exe](https://msdn.microsoft.com/library/dn531017.aspx).
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Sanal makine kullanmıyorsanız maliyeti en aza indir
 > [!NOTE]

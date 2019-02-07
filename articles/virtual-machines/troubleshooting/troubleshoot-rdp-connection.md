@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452471"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817344"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Bir Azure sanal makinesine Uzak Masaüstü bağlantılarında sorun giderme
 Uzak Masaüstü Protokolü (RDP) bağlantı Windows tabanlı Azure sanal makinenize (VM), sanal Makinenizin erişilemiyor bırakarak çeşitli nedenlerden dolayı başarısız olabilir. Sorun, VM, ağ bağlantısı veya ana bilgisayarınızda uzak masaüstü istemcisini Uzak Masaüstü hizmetiyle olabilir. Bu makalede, RDP bağlantı sorunlarını gidermek için en sık kullanılan yöntemlerden bazıları size yol gösterir. 
@@ -50,8 +50,8 @@ Daha ayrıntılı adımlar ve açıklamaları gerekiyorsa okumaya devam edin. Bu
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>RDP sorunlarını gidermenin yolları
 Aşağıdaki yöntemlerden birini kullanarak Resource Manager dağıtım modeli kullanılarak oluşturulan VM'ler giderebilirsiniz:
 
-* [Azure portalında](#using-the-azure-portal) - harika, hızlı bir şekilde RDP yapılandırması veya kullanıcı kimlik bilgilerini sıfırlamanız gereken ve Azure araçlarının yüklü olduğu yoksa.
-* [Azure PowerShell](#using-azure-powershell) - bir PowerShell İstemi ile kullanabiliyorsanız hızlı bir şekilde Azure PowerShell cmdlet'lerini kullanarak RDP yapılandırması veya kullanıcı kimlik bilgilerini sıfırlama.
+* Azure portalı - yüklü Azure Araçları, RDP yapılandırması veya kullanıcı kimlik bilgilerini ve hızlı bir şekilde sıfırlamanız gerekirse harika yok.
+* Bir PowerShell İstemi ile kullanabiliyorsanız, azure PowerShell - hızlı bir şekilde Azure PowerShell cmdlet'lerini kullanarak RDP yapılandırması veya kullanıcı kimlik bilgilerini sıfırlayın.
 
 Kullanılarak oluşturulan VM'ler sorun giderme adımları da bulabilirsiniz [Klasik dağıtım modelini](#troubleshoot-vms-created-using-the-classic-deployment-model).
 
@@ -236,7 +236,7 @@ Sanal makinenize RDP aracılığıyla bağlanmaya çalışırken bir özel hata 
 * [Lisans sağlanabilecek Uzak Masaüstü lisans sunucusu olmadığından uzak oturumun bağlantısı kesildi](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [Uzak Masaüstü bilgisayar "name" bulamıyor](troubleshoot-specific-rdp-errors.md#rdpname).
 * [Bir kimlik doğrulama hatası oluştu. Yerel Güvenlik Yetkilisi temas kurulamıyor](troubleshoot-specific-rdp-errors.md#rdpauth).
-* [Windows güvenlik hatası: kimlik bilgilerinizi çalışmama](troubleshoot-specific-rdp-errors.md#wincred).
+* [Windows güvenlik hatası: Kimlik bilgilerinizi çalışmama](troubleshoot-specific-rdp-errors.md#wincred).
 * [Bu bilgisayar, uzak bilgisayara bağlanamıyor](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Ek kaynaklar

@@ -13,12 +13,12 @@ caps.latest.revision: 17
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 71c791c9ac6f679f0f67b014c8fb5dd915d1a3e3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004413"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821703"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services tanım NetworkTrafficRules şeması
 `NetworkTrafficRules` Rolleri birbirleri ile nasıl iletişim kuracağını belirtir Hizmet tanım dosyası isteğe bağlı bir öğedeki bir düğümdür. Sınırlar hangi rollerin belirli rolünün iç Uç noktalara erişebilir. `NetworkTrafficRules` Değil bir tek başına öğesi; bir hizmet tanımı dosyasında iki veya daha fazla rol ile birleştirilir.
@@ -50,7 +50,7 @@ Ağ trafiği tanımlarını içeren bir hizmet tanımı dosyası temel biçimi a
 ## <a name="schema-elements"></a>Şema öğeleri
 `NetworkTrafficRules` Hizmet tanım dosyası düğümünün, bu konunun sonraki bölümlerinde ayrıntılı olarak açıklanan, bu öğeleri içerir:
 
-[NetworkTrafficRules öğesi](#NetworkTrafficRules)
+[NetworkTrafficRules Element](#NetworkTrafficRules)
 
 [OnlyAllowTrafficTo öğesi](#OnlyAllowTrafficTo)
 
@@ -58,7 +58,7 @@ Ağ trafiği tanımlarını içeren bir hizmet tanımı dosyası temel biçimi a
 
 [RoleEndpoint öğesi](#RoleEndpoint)
 
-[AllowAllTraffic öğesi](#AllowAllTraffic)
+AllowAllTraffic öğesi
 
 [WhenSource öğesi](#WhenSource)
 
@@ -76,7 +76,7 @@ Ağ trafiği tanımlarını içeren bir hizmet tanımı dosyası temel biçimi a
 ##  <a name="RoleEndpoint"></a> RoleEndpoint öğesi
 `RoleEndpoint` Öğesi ile iletişime izin vermek için bir rol üzerinde bir uç nokta açıklar. Birden çok belirtebilirsiniz `RoleEndpoint` rolünde birden fazla uç nokta varsa öğeleri.
 
-| Öznitelik      | Tür     | Açıklama |
+| Öznitelik      | Type     | Açıklama |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Gereklidir. Trafiğe izin vermek için uç nokta adı.|
 | `roleName`     | `string` | Gereklidir. Web rolü için iletişim sağlamak üzere adı.|
@@ -87,14 +87,14 @@ Ağ trafiği tanımlarını içeren bir hizmet tanımı dosyası temel biçimi a
 ##  <a name="WhenSource"></a> WhenSource öğesi
 `WhenSource` Açıklar rolleri koleksiyonu içinde tanımlanan uç noktaları ile iletişim kurabilmesi daha `Destinations` düğümü.
 
-| Öznitelik | Tür     | Açıklama |
+| Öznitelik | Type     | Açıklama |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Gereklidir. Kuralın iletişimleri izin verirken uygulanmasını belirtir. Şu anda geçerli olan tek değer olduğu `AnyRule`.|
   
 ##  <a name="FromRole"></a> FromRole öğesi
 `FromRole` Öğe içinde tanımlanan uç noktaları ile iletişim kurabilen rolleri belirtir `Destinations` düğümü. Birden çok belirtebilirsiniz `FromRole` uç noktaları ile iletişim kurabilen birden fazla rol varsa öğeleri.
 
-| Öznitelik  | Tür     | Açıklama |
+| Öznitelik  | Type     | Açıklama |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Gereklidir. İletişime izin vermek üzere rol adı.|
 

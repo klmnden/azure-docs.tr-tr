@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282212"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812387"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services sertifikalarına genel bakış
-Sertifikalar Azure'da bulut Hizmetleri için kullanılır ([hizmet sertifikaları](#what-are-service-certificates)) ve yönetim API'si ile kimlik doğrulaması ([yönetim sertifikaları](#what-are-management-certificates)). Bu konu nasıl hem sertifika türleri için genel bir bakış sağlar için [oluşturma](#create) ve [dağıtma](#deploy) bunları azure'a.
+Sertifikalar Azure'da bulut Hizmetleri için kullanılır ([hizmet sertifikaları](#what-are-service-certificates)) ve yönetim API'si ile kimlik doğrulaması ([yönetim sertifikaları](#what-are-management-certificates)). Bu konu nasıl hem sertifika türleri için genel bir bakış sağlar için [oluşturma](#create) ve Azure'a dağıtın.
 
 Azure'da kullanılan sertifikalar x.509 v3 sertifikaları ve başka bir güvenilir sertifika tarafından imzalanmış ya da kendinden imzalı olabilirler. Otomatik olarak imzalanan bir sertifika kendi oluşturucusu tarafından imzalanmış, bu nedenle varsayılan olarak güvenilmiyor. Çoğu tarayıcısı bu sorunu yoksayabilirsiniz. Yalnızca geliştirme ve test cloud services, otomatik olarak imzalanan sertifikalar kullanmanız gerekir. 
 
@@ -64,7 +64,7 @@ Bunlar bu ayarlara bağlı olarak, kendinden imzalı bir sertifika oluşturmak i
     > Cloudapp.net için SSL sertifikası alınamıyor. (veya herhangi bir için Azure ile ilgili) etki alanı; Sertifikanın konu adı, uygulamanıza erişmek için kullanılan özel etki alanı adı eşleşmelidir. Örneğin, **contoso.net**değil **contoso.cloudapp.net**.
 
 * En az 2048 bit şifreleme.
-* **Sertifika yalnızca hizmet**: istemci tarafı sertifika bulunmalıdır *kişisel* sertifika deposu.
+* **Hizmet sertifikası yalnızca**: İstemci tarafı sertifika bulunmalıdır *kişisel* sertifika deposu.
 
 Windows, sertifikayı oluşturmak için iki kolay yolu vardır `makecert.exe` yardımcı programı veya IIS.
 

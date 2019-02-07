@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle N2F - gider raporları | Microsoft Docs'
+title: 'Öğretici: N2F - Azure Active Directory tümleştirmesiyle gider raporlarını | Microsoft Docs'
 description: Azure Active Directory ve N2F - arasında çoklu oturum açmayı yapılandırma, Gider raporlarını öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 27fb299bc3bbbbf75bdf40ae02eac627763ce6d4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d8d3d9c14ee1eaa5e5d6dc3245c0d4071306f12a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006836"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811639"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Öğretici: Azure Active Directory tümleştirmesiyle N2F - gider bildirir.
+# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Öğretici: Harcama N2F - Azure Active Directory tümleştirmesiyle raporları
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile gider raporlarını N2F - tümleştirmek nasıl öğrenin.
 
@@ -61,7 +61,7 @@ N2F - eklemenize gerek N2F - Azure AD'de, Gider raporlarını tümleştirmesini 
 
 **N2F - galerisinden, Gider raporlarını eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde ** [Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -85,11 +85,11 @@ Tek çalışmak, oturum için Azure AD içinde N2F karşılığı kullanıcını
 
 Yapılandırma ve Azure AD çoklu oturum açma ile N2F - gider raporlarını, test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on) ** - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) ** - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bir N2F Oluştur - gider raporlarını kullanıcı test](#create-a-n2f---expense-reports-test-use) ** - N2F içinde bir karşılığı Britta simon'un sağlamak için - gider kullanıcı Azure AD gösterimini bağlantılı raporlar.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) ** - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on) ** - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **Bir N2F Oluştur - gider raporlarını kullanıcı test** - N2F içinde bir karşılığı Britta simon'un sağlamak için - gider kullanıcı Azure AD gösterimini bağlantılı raporlar.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -211,7 +211,7 @@ Azure AD kullanıcılarının N2F - gider raporlarını, oturum açmayı etkinle
 
     ![N2F - gider raporlarını yapılandırma](./media/n2f-expensereports-tutorial/user3.png)
 
-    a. İçinde **e-posta adresi** metin gibi kullanıcı e-posta adresini girin ** brittasimon@contoso.com **.
+    a. İçinde **e-posta adresi** metin gibi kullanıcı e-posta adresini girin **brittasimon@contoso.com**.
 
     b. İçinde **ad** metin gibi kullanıcı adını girin **Britta**.
 

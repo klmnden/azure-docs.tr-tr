@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ba8db3ebe2caf4c37d147f744326b6e631cb556
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022062"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814359"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Azure Data Factory kullanarak bir Web tablo kaynaktan veri taşıma
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](data-factory-web-table-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-web-table.md)
 
@@ -236,7 +236,7 @@ Veriler her saat yeni bir bloba yazılır (Sıklık: saat, interval: 1).
 
 İşlem hattının giriş ve çıkış veri kümelerini kullanmak için yapılandırıldığı ve saatte bir çalışacak şekilde zamanlanmış bir kopyalama etkinliği içeriyor. JSON tanımı, işlem hattındaki **kaynak** türü ayarlandığında **WebSource** ve **havuz** türü ayarlandığında **BlobSink**.
 
-Bkz: [WebSource türü özellikleri](#copy-activity-type-properties) WebSource tarafından desteklenen özelliklerin listesi için.
+WebSource türü özellikleri WebSource tarafından desteklenen özelliklerin listesi için bkz.
 
 ```json
 {  

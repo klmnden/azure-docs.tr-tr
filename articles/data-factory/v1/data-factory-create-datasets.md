@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 690c2769e129d5661e7d66cb3f9f968643c0dbdb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747019"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811095"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data factory'deki veri kümelerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 | yapısı |Şema kümesi.<br/><br/>Ayrıntılar için bkz [Dataset yapısını](#Structure). |Hayır |NA |
 | typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#Type). |Evet |NA |
 | external | Bir veri kümesi açıkça bir veri fabrikası işlem hattı tarafından veya üretilen olup olmadığını belirlemek için Boole bayrağı. Bir etkinliğin giriş veri kümesi geçerli işlem hattı tarafından üretilen değil, bu bayrağı true olarak ayarlayın. Bu bayrak, işlem hattının birinci etkinliğin giriş veri kümesi için true olarak ayarlayın.  |Hayır |false |
-| availability | İşleme penceresini (örneğin, saatlik veya günlük) veya veri kümesi üretim dilimleme modelini tanımlar. Her bir birimi kullanılan ve bir etkinlik çalışması tarafından üretilen veriler, veri dilim adı verilir. Bir çıktı veri kümesi Kullanılabilirliği (sıklığı - gün, interval - 1) günlük olarak ayarlanırsa, bir dilim günlük oluşturulur. <br/><br/>Ayrıntılar için bkz [veri kümesinin kullanılabilirliğine](#Availability). <br/><br/>Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
+| availability | İşleme penceresini (örneğin, saatlik veya günlük) veya veri kümesi üretim dilimleme modelini tanımlar. Her bir birimi kullanılan ve bir etkinlik çalışması tarafından üretilen veriler, veri dilim adı verilir. Bir çıktı veri kümesi Kullanılabilirliği (sıklığı - gün, interval - 1) günlük olarak ayarlanırsa, bir dilim günlük oluşturulur. <br/><br/>Ayrıntılar için veri kümesinin kullanılabilirliğine bakın. <br/><br/>Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
 | ilke |Ölçüt veya veri kümesinin dilimlerini karşılamalıdır koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [veri kümesi ilke](#Policy) bölümü. |Hayır |NA |
 
 ## <a name="dataset-example"></a>Veri kümesi örneği

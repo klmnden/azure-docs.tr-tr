@@ -11,37 +11,30 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 11/30/2018
-ms.openlocfilehash: fb45d5fe549966dbf1635ee23447f90080bbb627
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 01/31/2019
+ms.openlocfilehash: 84017e95d41f8934de248065a2b66792628b41d2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751302"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815551"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Hızlı Başlangıç: Machine Learning Hizmetleri (R ile) Azure SQL veritabanı (Önizleme) kullanma
 
-Bu makalede Machine Learning Services (R ile) genel önizleme sürümünü Azure SQL Veritabanı'nda kullanma adımları gösterilmektedir. Bir SQL veritabanı ile R arasında veri alışverişi yapmanın temel adımları anlatılmaktadır. Ayrıca bir SQL veritabanında makine öğrenmesi modeli oluşturmak, eğitmek ve kullanmak için [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) saklı yordamında doğru oluşturulmuş R kodu sarmalama süreçleri açıklanmaktadır.
+Bu makalede, genel önizlemeye sunulduğunu nasıl kullanabileceğini açıklar [Machine Learning Hizmetleri (R ile) Azure SQL veritabanı'nda](sql-database-machine-learning-services-overview.md). Bir SQL veritabanı ile R arasında veri alışverişi yapmanın temel adımları anlatılmaktadır. Ayrıca bir SQL veritabanında makine öğrenmesi modeli oluşturmak, eğitmek ve kullanmak için [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) saklı yordamında doğru oluşturulmuş R kodu sarmalama süreçleri açıklanmaktadır.
 
-SQL Veritabanı'nda makine öğrenmesi R kodunu ve işlevlerini yürütmek için kullanılır ve kod, ilişkisel veriler için R deyimi içeren T-SQL betiği veya T-SQL içerek R kodu gibi saklı yordamlar olarak kullanılabilir. Kurumsal R paketlerinin gücünden faydalanarak büyük ölçekli gelişmiş analizler sunmak için R betiklerini çalıştırmanın yanı sıra hesaplama ve işlem süreçlerini verilerin bulunduğu yere getirerek verileri ağ üzerinden çekme ihtiyacını ortadan kaldırabilirsiniz.
+Gelişmiş analiz ve makine öğrenimi veritabanında sunmak üzere R dilinin gücünü kullanın. Bu yetenek, hesaplamaları ve verilerin bulunduğu işlem, ağ üzerinden veri çekmek için ihtiyacını getirir. Ayrıca, ölçeğinde Gelişmiş analiz sağlamak üzere Kurumsal R paketleri gücünden yararlanın.
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
+Machine Learning Hizmetleri ile Kurumsal R paketleri Microsoft gelen yayılan r, temel bir dağıtım içerir. Microsoft R işlevleri ve algoritmaları, ölçek ve Tahmine dayalı analiz, modelleme, veri görselleştirmeleri ve öncü makine öğrenimi algoritması sunmaya yardımcı programı için tasarlanmıştır.
 
-## <a name="sign-up-for-the-preview"></a>Önizleme için kaydolun
+Azure aboneliğiniz yoksa, [hesap oluşturma](https://azure.microsoft.com/free/) başlamadan önce.
 
-Machine Learning Services (R ile) genel önizleme sürümü, SQL Veritabanı'nda varsayılan olarak etkin değildir. Microsoft'ta bir e-posta göndermek [ sqldbml@microsoft.com ](mailto:sqldbml@microsoft.com) genel önizlemeye kaydolmak için.
-
-Programa kayıtlı ve Microsoft tarafından yerleşik, genel Önizleme için ya da geçiş sonra mevcut veritabanı veya yeni bir veritabanı üzerinde bir R etkin hizmet oluşturun.
-
-SQL Veritabanı'ndaki Machine Learning Services (R ile) özellikleri şu an için yalnızca tek ve havuza alınmış veritabanları için sanal çekirdek tabanlı **Genel Amaçlı** ve **İş Açısından Kritik** hizmet katmanlarında kullanılabilir durumdadır. Bu ilk genel önizleme sürümünde **Hiper ölçeklendirme** hizmet katmanı veya **Yönetilen Örnek** desteği sunulmamaktadır. Genel önizleme sırasında Machine Learning Services (R ile) hizmetini üretim iş yükleri için kullanmamanız gerekir.
-
-Machine Learning Services (R ile), SQL veritabanınız için etkinleştirildikten sonra saklı yordam bağlamında R betiği çalıştırmayı öğrenmek için bu sayfaya dönün.
-
-Şu an için yalnızca R dili desteklenmektedir. Python desteği yoktur.
+> [!NOTE]
+> Machine Learning Hizmetleri (R ile) Azure SQL veritabanı'nda, şu anda genel Önizleme aşamasındadır. [Önizleme için kaydolun](sql-database-machine-learning-services-overview.md#signup).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu alıştırmalardaki örnek kodu çalıştırmak için Machine Learning Services (R ile) özelliğinin etkinleştirilmiş olduğu bir SQL veritabanına sahip olmanız gerekir. Genel önizleme sırasında Microsoft sizi programa alacak ve yukarıda anlatılan şekilde var olan veya yeni bir veritabanında makine öğrenmesi özelliklerini etkinleştirecektir.
+Bu alıştırmalardaki örnek kodu çalıştırmak için Machine Learning Services (R ile) özelliğinin etkinleştirilmiş olduğu bir SQL veritabanına sahip olmanız gerekir. Genel Önizleme sırasında Microsoft tarafından ekleyin ve machine learning, mevcut veya yeni bir veritabanı için etkinleştirin. Bağlantısındaki [Önizleme için kaydolun](sql-database-machine-learning-services-overview.md#signup).
 
 SQL Veritabanı bağlantısı yapabilen ve T-SQL sorgusu veya saklı yordam çalıştırabilen tüm veritabanı yönetim veya sorgu araçlarıyla SQL Veritabanı'na bağlanabilir ve R betiklerini çalıştırabilirsiniz. Bu hızlı başlangıçta [SQL Server Management Studio](sql-database-connect-query-ssms.md) kullanılmıştır.
 
@@ -49,20 +42,11 @@ SQL Veritabanı bağlantısı yapabilen ve T-SQL sorgusu veya saklı yordam çal
 
 Bu hızlı başlangıç ayrıca sunucu düzeyinde bir güvenlik duvarı kuralı yapılandırması gerektirir. Bunun nasıl yapılacağını gösteren bir hızlı başlangıç için bkz: [Sunucu düzeyinde güvenlik duvarı kuralı oluşturma](sql-database-server-level-firewall-rule.md).
 
-## <a name="different-from-sql-server"></a>SQL Server’dan farkı
-
-Azure SQL Veritabanı'nda sunulan Machine Learning Services (R ile) işlevleri, [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning) ile benzerdir. Ancak bazı farklar vardır:
-
-- Yalnızca R. Şu an için Python desteği yoktur.
-- `sp_configure` aracılığıyla `external scripts enabled` yapılandırmasına gerek yoktur.
-- Paketlerin **sqlmlutils** aracılığıyla yüklenmesi gerekir.
-- Ayrı dış kaynak idaresi yoktur. R kaynakları katmana bağlı olarak SQL kaynaklarının belirli bir yüzdesini oluşturur.
-
 ## <a name="verify-r-exists"></a>R ortamının var olduğundan emin olun
 
 Machine Learning Services (R ile) özelliklerinin SQL veritabanınızda etkinleştirildiğini onaylayabilirsiniz. Aşağıdaki adımları izleyin.
 
-1. SQL Server Management Studio’yu açın ve SQL veritabanınıza bağlanın.
+1. SQL Server Management Studio’yu açın ve SQL veritabanınıza bağlanın. Bağlanma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: Bağlanmak ve bir Azure SQL veritabanı sorgulamak için SQL Server Management Studio'yu kullanın](sql-database-connect-query-ssms.md).
 
 1. Aşağıdaki kodu çalıştırın. 
 
@@ -262,7 +246,6 @@ Microsoft, SQL veritabanınızda önceden Machine Learning Services ile birlikte
     **Sonuçlar**
 
     ![R içindeki yüklü paketler](./media/sql-database-connect-query-r/r-installed-packages.png)
-
 
 ## <a name="create-a-predictive-model"></a>Tahmine dayalı model oluşturma
 
@@ -530,8 +513,9 @@ SQL veritabanınızda yüklü olmayan bir paketi kullanmanız gerekiyorsa [sqlml
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Machine Learning Services hakkında daha fazla bilgi için aşağıdaki SQL Server Machine Learning Services makalelerini inceleyin. Bu makaleler SQL Server'a yönelik olsa da içindeki bilgilerin çoğu Azure SQL Veritabanı'nda Machine Learning Services (R ile) için de geçerlidir.
+Machine Learning hizmetleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın. Bu makaleler bazıları için SQL Server olsa da, ilgili bilgilerin çoğunu da Machine Learning Hizmetleri (R ile) Azure SQL veritabanı için geçerlidir.
 
+- [Azure SQL veritabanı Machine Learning Hizmetleri (R ile)](sql-database-machine-learning-services-overview.md)
 - [SQL Server Machine Learning Hizmetleri](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
 - [Öğretici: SQL Server'da R kullanarak veritabanında analizini öğrenin](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
 - [R ve SQL Server için uçtan uca veri bilimi kılavuzu](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)

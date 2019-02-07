@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: aafc960c0c26a94a8be672d0d72a46dfcb559013
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13b82aa4f256bf0ec2d0805e85241d72e115d737
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157015"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810210"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication ile oturum açma deneyimi
 > [!NOTE]
@@ -31,8 +31,8 @@ Oturum açma deneyimini, ikinci bir faktör olarak kullanmak istediğinize bağl
 | --- |
 | [Mobil veya ofis telefonumu için bir telefon çağrısı ile](#signing-in-with-a-phone-call) |
 | [Cep telefonuma metin ile](#signing-in-with-a-text-message)
-| [Microsoft Authenticator uygulamasından ile bildirimleri](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [Microsoft Authenticator uygulaması ile doğrulama kodları](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| Microsoft Authenticator uygulamasından ile bildirimleri |
+| Microsoft Authenticator uygulaması ile doğrulama kodları |
 | [Alternatif bir yöntem ile tercih edilen yöntemimi şu anda kullanamazsınız çünkü](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Telefonla Oturum imzalama
@@ -87,4 +87,4 @@ Bazı durumlarda telefon veya, tercih edilen doğrulama yöntemi olarak ayarlad�
 
 Bilgi edinmek için nasıl [iki adımlı doğrulama ayarlarınızı yönetme](multi-factor-authentication-end-user-manage-settings.md).
 
-Hakkında bilgi edinin [Microsoft Authenticator uygulaması ile çalışmaya başlama](microsoft-authenticator-app-how-to.md) böylece bildirimleri, telefon görüşmeleri ve metinler yerine oturum açmak için kullanabilirsiniz.
+Hakkında bilgi edinin [Microsoft Authenticator uygulaması ile çalışmaya başlama](user-help-auth-app-download-install.md) böylece bildirimleri, telefon görüşmeleri ve metinler yerine oturum açmak için kullanabilirsiniz.

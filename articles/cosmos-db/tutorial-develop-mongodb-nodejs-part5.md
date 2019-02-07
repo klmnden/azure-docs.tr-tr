@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: b550107056ec22af3a18ce0396559ad4ef8d245b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4e7aa9931ffb268f787882729341fbe860255f70
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034293"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767868"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>MongoDB - kullanım Cosmos DB'ye bağlanmak için Mongoose için Azure Cosmos DB API'si ile Angular uygulama oluşturma
 
@@ -234,7 +234,7 @@ Ardından, aşağıdaki adımları kullanarak uygulamayı çalıştırın:
 
 1. Visual Studio Code'da tüm değişikliklerinizi kaydedin. Sol tarafta, seçin **hata ayıklama** düğmesi ![Visual Studio code'da Hata Ayıkla simgesi](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)ve ardından **hata ayıklamayı Başlat** düğmesi ![Visual Studio code'da Hata Ayıkla simgesi ](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-1. Şimdi tarayıcıya geçin. Açık **Geliştirici Araçları** ve **Ağ sekmesi**. Git http://localhost:3000, ve uygulamamızı orada gördüğünüz.
+1. Şimdi tarayıcıya geçin. Açık **Geliştirici Araçları** ve **Ağ sekmesi**. Git `http://localhost:3000`, ve uygulamamızı orada gördüğünüz.
 
     ![Azure Portal’daki yeni Azure Cosmos DB hesabı](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

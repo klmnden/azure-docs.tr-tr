@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 6ac5a44f941f8ebcecc3a1d7e6b5e9dccf5704de
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242221"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813169"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Hizmet sorumluları oluşturma tarafından Azure Stack kaynaklara uygulamaları erişimi verin
 
@@ -73,7 +73,7 @@ Programlamayla oturum açılırken, uygulamanızın ve bir kimlik doğrulama ana
 
 1. Gelen **uygulama kayıtları** Active Directory'de, uygulamanızı seçin.
 
-2. **Uygulama kimliği**'ni kopyalayın ve bunu uygulama kodunuzda depolayın. Uygulamalarda [örnek uygulamalar](#sample-applications) kullanın **istemci kimliği** söz konusu olduğunda **uygulama kimliği**.
+2. **Uygulama kimliği**'ni kopyalayın ve bunu uygulama kodunuzda depolayın. Örnek uygulamalar uygulamalarda kullanımı **istemci kimliği** söz konusu olduğunda **uygulama kimliği**.
 
      ![Uygulama için uygulama kimliği](./media/azure-stack-create-service-principal/image12.png)
 3. Kimlik doğrulama anahtarını oluşturmak için **Anahtarlar**'ı seçin.

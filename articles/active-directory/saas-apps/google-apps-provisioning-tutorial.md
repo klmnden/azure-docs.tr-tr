@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 515b21c6854620a6bd1af53af8b1778d70613622
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1dd1cf143d66fec2ab8c12ee28a61bb3b8a83ade
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203955"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821839"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için G Suite'i yapılandırma
 
@@ -127,7 +127,7 @@ Bu bölümde Azure AD'nize G Suite API'sini sağlama kullanıcı hesabı ile ba�
     e. Google Apps eklemek için istediğinize herhangi ek bir etki alanı için önceki adımları yineleyin.
      
      > [!WARNING]
-     > G Suite kiracınız için birincil etki alanını değiştirmek ve zaten varsa yapılandırılmış çoklu oturum açma Azure AD ile durumunda #3. adım altında yinelemek zorunda [2. adım: Çoklu oturum açmayı etkinleştirme](#step-two-enable-single-sign-on).
+     > G Suite kiracınız için birincil etki alanı değiştirirseniz ve zaten çoklu oturum açma Azure AD ile yapılandırdıysanız, #3. Adım 2. adım altında yineleyin vardır: Çoklu oturum açmayı etkinleştirin.
        
 1. İçinde [Google Apps Yönetici Konsolu](https://admin.google.com/)seçin **yönetici rolleri**.
    

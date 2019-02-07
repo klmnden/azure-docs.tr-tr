@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001660"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814869"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure işlevleri için Mobile Apps bağlamaları 
 
@@ -44,7 +44,7 @@ Mobile Apps giriş bağlamasına mobil tablo uç noktasından bir kaydı yükler
 Dile özgü örneğe bakın:
 
 * [C# betiği (.csx)](#input---c-script-example)
-* [JavaScript](#input---javascript-example)
+* JavaScript
 
 ### <a name="input---c-script-example"></a>Giriş - C# betiği örneği
 
@@ -146,7 +146,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 | **direction**||"İçin" ayarlanmalıdır|
 | **Adı**|| İşlev imzası giriş parametresi adı.|
 |**TableName** |**TableName**|Mobil uygulamanın veri tablosunun adı|
-| **Kimliği**| **Kimlik** | Alınacak kaydın tanıtıcısı. Bağlı işlevi çağıran bir tetikleyici olarak veya statik olabilir. Örneğin, bir kuyruk tetikleyicisi işleviniz için ardından kullanırsanız `"id": "{queueTrigger}"` kuyruk iletisini dize değerini almak için kayıt Kimliğini kullanır.|
+| **id**| **Kimlik** | Alınacak kaydın tanıtıcısı. Bağlı işlevi çağıran bir tetikleyici olarak veya statik olabilir. Örneğin, bir kuyruk tetikleyicisi işleviniz için ardından kullanırsanız `"id": "{queueTrigger}"` kuyruk iletisini dize değerini almak için kayıt Kimliğini kullanır.|
 |**bağlantı**|**bağlantı**|Mobil uygulamanızın URL'sine sahip bir uygulama ayarının adı. İşlev, gerekli REST işlemlerini karşı mobil uygulamanızı oluşturmak için bu URL'yi kullanır. İşlev uygulamanızda mobil uygulamanın URL'si içeren bir uygulama ayarı oluşturmak ve ardından uygulama ayarlarında adını `connection` , giriş bağlama özelliği. URL şuna `http://<appname>.azurewebsites.net`.
 |**ApiKey**|**ApiKey**|Mobil uygulamanızın API anahtarı içeren bir uygulama ayarının adı. API anahtarı if sağlayın, [bir API anahtarı Node.js mobil uygulamanıza](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), veya [bir API anahtarı .NET Mobil uygulamanıza](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Anahtar sağlamak için işlev uygulamanızı API anahtarını içeren bir uygulama ayarı oluşturmak, sonra Ekle `apiKey` özelliği, giriş bağlama uygulama ayarının adı. |
 

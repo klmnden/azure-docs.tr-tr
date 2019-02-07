@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: f36ee3ce6a8d678cdd846474576fc049df0b4f88
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472312"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815770"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>SQL veri ambarı'na SQL kodunuzu geçirme
 Bu makalede, büyük olasılıkla, kodunuzun başka bir veritabanından SQL veri ambarı'na geçiş yapmak için ihtiyacınız olacak kod değişiklikleri açıklar. Dağıtılmış bir şekilde çalışmak için tasarlandığı gibi bazı SQL veri ambarı özellikleri performansını önemli ölçüde artırabilir. Ancak, performansı ve ölçeği sürdürmek istiyorsanız, bazı özellikler de kullanılabilir değil.
@@ -32,7 +32,7 @@ Aşağıdaki liste, SQL veri ambarı desteklemiyor en yaygın özellikler özetl
 * Output yan tümcesi
 * Satır içi kullanıcı tanımlı işlevler
 * çok deyimli İşlevler
-* [Ortak tablo ifadeleri](#Common-table-expressions)
+* Ortak tablo ifadeleri
 * [özyinelemeli ortak tablo ifadeleri (CTE)] (#Recursive-common-table-expressions-(CTE)
 * CLR işlevleri ve yordamları
 * $partition işlevi

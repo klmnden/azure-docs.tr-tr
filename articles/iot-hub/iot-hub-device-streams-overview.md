@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884971"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770797"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IOT Hub cihaz akışları (Önizleme)
 
@@ -82,8 +82,22 @@ Hem cihaz hem de cihaz akışını hizmet tarafında, IOT hub'ı ve kendi akış
 Alternatif olarak, uç bilgi hub'ının özellikler bölümü altında Azure CLI'yı kullanarak, özellikle kullanım alınabilir `property.hostname` ve `property.deviceStreams` anahtarları.
 
 ```azurecli-interactive
-az iot hub show --name <YourIoTHubName>
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+Çıktı, hub'ın cihaz ve hizmet cihaz akışını kurulabilmesi bağlanmak için gereken tüm uç noktaların bir JSON nesnesidir.
+
+```json
+{
+  "streamingEndpoints": [
+    "https://<YourIoTHubName>.<region-stamp>.streams.azure-devices.net"
+  ]
+}
+```
+
+> [!NOTE]
+> Azure CLI Sürüm 2.0.57 yüklediğinizden emin olun ya da daha yeni. En son sürümü [buradan](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) indirebilirsiniz.
+> 
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Beyaz liste cihaz akış uç noktaları
 
@@ -92,9 +106,14 @@ Belirtildiği gibi [önceki](#Overview), cihazınızın IOT Hub ile akış uç n
 Cihaz akış uç noktası ana bilgisayar adı, Azure IOT hub'ı portalındaki genel bakış sekmesinin altında bulunabilir. ![Alternatif metin](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "cihaz akış uç noktaları")
 
 Alternatif olarak, Azure CLI kullanarak bu bilgileri bulabilirsiniz:
-```cmd/sh
-az iot hub show --name <YourIoTHubName>
+
+```azurecli-interactive
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+> [!NOTE]
+> Azure CLI Sürüm 2.0.57 yüklediğinizden emin olun ya da daha yeni. En son sürümü [buradan](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) indirebilirsiniz.
+> 
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Etkinlik günlükleri cihaz akışları sorunlarını giderme
 

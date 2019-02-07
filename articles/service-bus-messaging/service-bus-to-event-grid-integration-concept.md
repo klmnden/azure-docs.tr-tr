@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 640c01b2c73509ac897218fdea3841d016767a49
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856919"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818271"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus - Event Grid tümleştirmesine Genel Bakış
 
@@ -43,7 +43,7 @@ Service Bus ad alanınıza gidin ve ardından **erişim denetimi (IAM)** seçip 
 Service Bus şu anda iki senaryo için olaylar gönderir:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
+* DeadletterMessagesAvailable
 
 Ayrıca Service Bus, standart Event Grid güvenliğini ve [kimlik doğrulaması mekanizmalarını](https://docs.microsoft.com/azure/event-grid/security-authentication) da kullanır.
 
@@ -115,7 +115,7 @@ Varsayılan olarak Service Bus, ad alanındaki tüm varlıklar için olaylar gö
 
 Service Bus ad alanları için Event Grid abonelikleri oluşturmanın üç farklı yolu vardır:
 
-* [Azure portalında](#portal-instructions)
+* Azure portalında
 * [Azure CLI](#azure-cli-instructions)’da
 * [PowerShell](#powershell-instructions)’de
 
@@ -168,7 +168,7 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
-Buradan diğer kurulum seçeneklerini keşfedebilir veya [olayların akışa alınmasını test edebilirsiniz](#test-that-events-are-flowing).
+Buradan diğer kurulum seçeneklerini keşfedin veya olayların akışa alındığını test edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

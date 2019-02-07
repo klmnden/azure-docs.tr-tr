@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d815bae2478d8853c63cd773cbfeaf5d3e90458c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659772"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816858"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage ile Azure CLI kullanma
 
@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>Depolama hesaplarını yönetme
 
 ### <a name="create-a-new-storage-account"></a>Yeni depolama hesabı oluşturma
-Azure Depolama kullanmak için bir depolama hesabınız olması gerekir. Bilgisayarınıza yapılandırdıktan sonra yeni bir Azure depolama hesabı oluşturabilirsiniz [aboneliğinize bağlanma](#connect-to-your-azure-subscription).
+Azure Depolama kullanmak için bir depolama hesabınız olması gerekir. Aboneliğinize bağlanmak için bilgisayarınızı yeniden yapılandırdıktan sonra yeni bir Azure depolama hesabı oluşturabilirsiniz.
 
 ```azurecli
 az storage account create \
@@ -277,7 +277,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-İle bir kapsayıcıdaki blobları listelemek [az storage blob listesi](/cli/azure/storage/blob#az_storage_blob_list) komutu.
+İle bir kapsayıcıdaki blobları listelemek [az storage blob listesi](/cli/azure/storage/blob) komutu.
 
 ```azurecli
 az storage blob list \

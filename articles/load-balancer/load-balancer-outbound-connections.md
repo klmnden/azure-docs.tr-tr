@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201389"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814835"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -34,17 +34,17 @@ Azure, bu işlevi gerçekleştirmek için kaynak ağ adresi çevirisi (SNAT) kul
 Vardır birden çok [giden senaryoları](#scenarios). Bu senaryolar, gerektiği şekilde birleştirebilirsiniz. Bunlar, dağıtım modeli için geçerli olan özellikler, kısıtlamalar ve desenleri dikkatli bir şekilde anlamak için bunları gözden geçirin ve uygulama senaryosu. Gözden geçirme Kılavuzu [bu senaryoları yönetme](#snatexhaust).
 
 >[!IMPORTANT] 
->Standart yük dengeleyici, giden bağlantı yeni yetenekler ve farklı davranışları tanıtır.   Örneğin, [Senaryo 3](#defaultsnat) farklı adımlar standart bir iç yük dengeleyici varsa ve yapılması gerektiğinde yok.   Genel kavramlar ve SKU'ları arasındaki farkları anlamak için tüm bu belgeyi dikkatle inceleyin.
+>Standart Load Balancer ve standart genel IP yeni yetenekler ve farklı davranışları giden bağlantı sunar.  Bunlar temel SKU'ları ile aynı değildir.  Standart SKU'lar ile çalışırken giden bağlantı istiyorsanız, bunu standart genel IP adresleri veya genel bir Standard Load Balancer ile açıkça tanımlamalısınız.  Bu, kullanırken giden bağlantı ve standart iç Load Balancer oluşturma içerir.  Standart bir genel yük Dengeleyicideki her zaman giden kuralları kullanmanızı öneririz.  [Senaryo 3](#defaultsnat) standart SKU ile kullanılamaz.  Standart bir iç yük dengeleyici kullanıldığında anlamına giden bağlantı istiyorsanız arka uç havuzundaki sanal makineleri için giden bağlantı oluşturmak için adımları uygulamanız gerekir.  Giden bağlantı, bir tek başına VM, tüm sanal makinenin bir kullanılabilirlik kümesi'ndeki bağlamında bir VMSS ağdaki tüm örnekleri bir grup olarak davranır. Bir kullanılabilirlik kümesindeki tek bir sanal makine standart bir SKU ile ilişkili ise standart SKU ile ilişkili oldukları gibi tek bir örneği ile doğrudan ilgili olmasa bile anlamına gelir, bu kullanılabilirlik kümesi içindeki tüm VM örnekleri artık aynı kurallara göre davranır.  Genel kavramları anlamanıza, gözden geçirmek için tüm bu belgeyi dikkatli bir şekilde gözden [Standard Load Balancer](load-balancer-standard-overview.md) SKU'ları gözden geçirme arasındaki farklar için [giden kuralları](load-balancer-outbound-rules-overview.md).  Giden kuralları kullanarak, giden bağlantı tüm yönleri üzerinde ayrıntılı denetim sağlar.
 
 ## <a name="scenarios"></a>Senaryoya genel bakış
 
 Azure Load Balancer ve ilgili kaynakları açıkça tanımlanmış kullanırken [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Azure, şu anda Azure Resource Manager kaynaklarını için giden bağlantı sağlamak için üç farklı yöntem sağlar. 
 
-| Senaryo | Yöntem | IP protokolleri | Açıklama |
-| --- | --- | --- | --- |
-| [1. (İle veya olmadan bir yük dengeleyici) bir örnek düzeyinde ortak IP adresine sahip VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor | TCP, UDP VE ICMP, ESP | Azure, örneğin NIC IP yapılandırması için atanan genel IP kullanır. Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. |
-| [2. Genel Load Balancer (örneğinde örnek düzeyinde ortak IP adresi yok) bir VM ile ilişkili](#lb) | Yük Dengeleyici ön uç bağlantı noktası (PAT) maskelemeyi ile SNAT kullanma | TCP, UDP |Azure genel IP adresi genel yük dengeleyici ön uçlar, birden çok özel IP adresi ile paylaşır. Azure, ön uçlar için PAT kısa ömürlü bağlantı noktaları kullanır. |
-| [3. Tek başına VM (yük dengeleyici, örnek düzeyinde ortak IP adresi yok)](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | TCP, UDP | Azure otomatik olarak SNAT için genel bir IP adresi atar, bu genel IP adresi birden çok özel IP adresi kullanılabilirlik kümesinin ile paylaşır ve bu genel IP adresi kısa ömürlü bağlantı noktalarını kullanır. Bir geri dönüş için yukarıdaki senaryoların senaryodur. Görünürlük ve denetim gerekiyorsa bunu önermiyoruz. |
+| SKU'lar | Senaryo | Yöntem | IP protokolleri | Açıklama |
+| --- | --- | --- | --- | --- |
+| Standart, temel | [1. (İle veya olmadan bir yük dengeleyici) bir örnek düzeyinde ortak IP adresine sahip VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor | TCP, UDP VE ICMP, ESP | Azure, örneğin NIC IP yapılandırması için atanan genel IP kullanır. Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. Standard Load Balancer kullanırken kullanmalısınız [giden kuralları](load-balancer-outbound-rules-overview.md) giden bağlantı açıkça tanımlamak için |
+| Standart, temel | [2. Genel Load Balancer (örneğinde örnek düzeyinde ortak IP adresi yok) bir VM ile ilişkili](#lb) | Yük Dengeleyici ön uç bağlantı noktası (PAT) maskelemeyi ile SNAT kullanma | TCP, UDP |Azure genel IP adresi genel yük dengeleyici ön uçlar, birden çok özel IP adresi ile paylaşır. Azure, ön uçlar için PAT kısa ömürlü bağlantı noktaları kullanır. |
+| yok ya da temel | [3. Tek başına VM (yük dengeleyici, örnek düzeyinde ortak IP adresi yok)](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | TCP, UDP | Azure otomatik olarak SNAT için genel bir IP adresi atar, bu genel IP adresi birden çok özel IP adresi kullanılabilirlik kümesinin ile paylaşır ve bu genel IP adresi kısa ömürlü bağlantı noktalarını kullanır. Bir geri dönüş için yukarıdaki senaryoların senaryodur. Görünürlük ve denetim gerekiyorsa bunu önermiyoruz. |
 
 Azure'da genel IP adresi alanı dışında uç noktaları ile iletişim kurmak için bir VM istemiyorsanız, gerektiğinde erişimi engellemek için ağ güvenlik grupları (Nsg'ler) kullanabilirsiniz. Bölüm [giden bağlantıyı engelliyor](#preventoutbound) Nsg'ler daha ayrıntılı olarak ele alınmaktadır. Tasarım Kılavuzu, uygulama ve tüm giden erişimi olmayan bir sanal ağ yönetme, bu makalenin kapsamı dışında olan.
 
@@ -68,7 +68,7 @@ Kısa ömürlü bağlantı noktaları yük dengeleyicinin genel IP adresi ön u�
 
 SNAT bağlantı noktaları önceden açıklandığı ayrılan [anlama SNAT ve PAT](#snat) bölümü. Bunlar tükenmiş olabilir sınırlı bir kaynak hedeflenmiştir. Nasıl olduğunu anlama açısından önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiği şekilde etkisini anlamak için gözden [yönetme SNAT tükenmesi](#snatexhaust).
 
-Zaman [birden çok genel IP adresi yük dengeleyici temel ile ilişkili](load-balancer-multivip-overview.md), bu genel IP adresleri olan bir [giden akışlar için aday](#multivipsnat), ve bir rastgele seçili.  
+Zaman [birden çok genel IP adresi yük dengeleyici temel ile ilişkili](load-balancer-multivip-overview.md), bu genel IP adreslerine giden akışlar için bir aday olan ve bir rastgele seçili.  
 
 Temel yük dengeleyici giden bağlantı durumunu izlemek için kullanabileceğiniz [Load Balancer için Log Analytics](load-balancer-monitor-log.md) ve [uyarı olay günlüklerini](load-balancer-monitor-log.md#alert-event-log) SNAT bağlantı noktası tükenmesi iletileri izlemek için.
 
@@ -161,10 +161,10 @@ Aşağıdaki tabloda, arka uç havuz boyutları katmanları için SNAT bağlant�
 | 101-200 | 256 |
 | 201-400 | 128 |
 | 401-800 | 64 |
-| 801 1.000 | 32 |
+| 801-1,000 | 32 |
 
 >[!NOTE]
-> Standart Load Balancer ile kullanırken [birden çok ön uç](load-balancer-multivip-overview.md), [her ön uç IP adresi kullanılabilir SNAT bağlantı noktalarının sayısı çarpar](#multivipsnat) önceki tabloda. Örneğin, 50 sanal makinenin 2 Yük Dengeleme kuralları, her bir ayrı ön uç IP adresi ile arka uç havuzu başına IP yapılandırması (2 x 1024) 2048 SNAT çıkış kullanır. Ayrıntılar için bkz. [birden çok ön uç](#multife).
+> Standart Load Balancer ile kullanırken [birden çok ön uç](load-balancer-multivip-overview.md), önceki tabloda kullanılabilir SNAT bağlantı noktalarının sayısı her ön uç IP adresi çarpar. Örneğin, 50 sanal makinenin 2 Yük Dengeleme kuralları, her bir ayrı ön uç IP adresi ile arka uç havuzu başına IP yapılandırması (2 x 1024) 2048 SNAT çıkış kullanır. Ayrıntılar için bkz. [birden çok ön uç](#multife).
 
 Kullanılabilir SNAT bağlantı noktasına doğrudan akışlar sayıya çevirmez unutmayın. Tek bir SNAT bağlantı noktası için birden fazla benzersiz hedefler yeniden kullanılabilir. Yalnızca akış benzersiz hale getirmek gerekli değilse, bağlantı noktaları tüketilir. Tasarım ve risk azaltma kılavuzu için ilgili bölümüne bakın. [exhaustible bu kaynağı yönetmek nasıl](#snatexhaust) ve açıklayan bölümüne [PAT](#pat).
 
@@ -257,7 +257,8 @@ Bir NSG AZURE_LOADBALANCER varsayılan etiket gelen sistem durumu araştırması
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [yük dengeleyici](load-balancer-overview.md).
 - [Standart Yük Dengeleyici](load-balancer-standard-overview.md) hakkında daha fazla bilgi edinin.
+- Daha fazla bilgi edinin [giden kuralları](load-balancer-outbound-rules-overview.md) genel bir Standard Load Balancer için.
+- Daha fazla bilgi edinin [yük dengeleyici](load-balancer-overview.md).
 - Daha fazla bilgi edinin [ağ güvenlik grupları](../virtual-network/security-overview.md).
 - Başka bir tuşa bazıları hakkında bilgi edinin [ağ özelliklerinden](../networking/networking-overview.md) azure'da.

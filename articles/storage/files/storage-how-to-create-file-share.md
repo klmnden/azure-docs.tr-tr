@@ -8,16 +8,16 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: ac9af046675cf868f158ee3af71e6c968c6ba98a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 084a5c8113e73590e3e7b9603542a0d866606f96
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463149"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818966"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Azure Dosyaları'nda bir dosya paylaşımı oluşturma
 Kullanarak Azure dosya paylaşımları oluşturabilirsiniz [Azure portalında](https://portal.azure.com/), Azure Storage PowerShell cmdlet'lerini, Azure Storage istemcisi kitaplıklarını veya Azure depolama REST API'si. Bu öğreticide şunları öğreneceksiniz:
-* [Azure portalı kullanarak Azure dosya paylaşımı oluşturma](#create-file-share-through-the-azure-portal)
+* Azure portalını kullanarak Azure dosya paylaşımı oluşturma
 * [PowerShell kullanarak Azure dosya paylaşımı oluşturma](#create-file-share-through-powershell)
 * [CLI kullanarak Azure dosya paylaşımı oluşturma](#create-file-share-through-command-line-interface-cli)
 

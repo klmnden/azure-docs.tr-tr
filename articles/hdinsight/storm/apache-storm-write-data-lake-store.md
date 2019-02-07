@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 91e6c2d400fa7add33a6c8e8856a3b9f8cfef4a3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912842"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819170"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Apache Hadoop HDFS'ye HDInsight üzerinde Apache Storm yazma
 
@@ -45,7 +45,7 @@ Dağıtım iş istasyonunuza Java ve JDK yüklerken aşağıdaki ortam değişke
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>HDInsight ile HdfsBolt kullanma
 
 > [!IMPORTANT]  
-> HDInsight üzerinde Storm ile HdfsBolt kullanmadan önce ilk betik eylemi içine gerekli jar dosyalarını kopyalamak için kullanmalısınız `extpath` Storm için. Daha fazla bilgi için [küme yapılandırma](#configure) bölümü.
+> HDInsight üzerinde Storm ile HdfsBolt kullanmadan önce ilk betik eylemi içine gerekli jar dosyalarını kopyalamak için kullanmalısınız `extpath` Storm için. Daha fazla bilgi için yapılandırma kümesi bölümüne bakın.
 
 HdfsBolt HDFS'ye yazma anlamak için sağladığınız dosya şeması kullanır. HDInsight ile aşağıdaki düzenlerden birini kullanın:
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 10/02/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c82c39de9b403e2e35f40c0290c8642c702790f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248070"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769330"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile web hizmetlerinin güvenliğini sağlamak için SSL kullan
 
@@ -103,5 +103,6 @@ Ardından, DNS sunucunuzun web hizmetine işaret edecek şekilde güncelleştirm
 FPGA için dağıtılan hizmetlerle SSL kullanarak şu anda desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Bilgi edinmek için nasıl [ML Model dağıtılan web hizmeti olarak Tüket](how-to-consume-web-service.md).
+Şunları nasıl yapacağınızı öğrenin:
++ [Bir machine learning web hizmeti olarak modeli kullanma](how-to-consume-web-service.md)
++ [Denemeler ve bir Azure sanal ağ içindeki çıkarım güvenli bir şekilde çalıştırın](how-to-enable-virtual-network.md)

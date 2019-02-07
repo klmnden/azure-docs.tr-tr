@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d150a91a00652d5af74253dfdf60eb728db97b5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8be5e94886237129824204ea166a2663e2f3110e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192848"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Zscaler özel erişim (ZPA)
 
@@ -95,7 +95,7 @@ Yapılandırma ve Azure AD çoklu oturum açma ile Zscaler özel erişim (ZPA) t
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Zscaler özel erişim (ZPA) test kullanıcısı oluşturma](#creating-a-zscaler-private-access-(zpa)-test-user)**  - içinde Zscaler özel erişim (Azure AD gösterimini her için bağlı ZPA) Britta simon'un bir karşılığı vardır.
+1. **Zscaler özel erişim (ZPA) test kullanıcısı oluşturma** - içinde Zscaler özel erişim (Azure AD gösterimini her için bağlı ZPA) Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 

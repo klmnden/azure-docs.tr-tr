@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8730070e1b235324a53ad81957339f4ef17db6dc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193708"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809643"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Log Analytics günlük araması sonuç Otomasyon Runbook'u ile bir eylem
 
-Azure Log Analytics'da bir günlük Arama sonuçlarından artık seçebilirsiniz **harekete** Otomasyon runbook'u çalıştırmak için.  Runbook, sorunu düzeltmek veya bu gibi sorun giderme bilgilerini toplarken bir e-posta gönderebilir veya bir hizmet isteği oluşturduğunuzda bazı diğer eylemler için kullanılabilir. 
+Azure Log Analytics'da bir günlük Arama sonuçlarından artık seçebilirsiniz **harekete** Otomasyon runbook'u çalıştırmak için. Runbook, sorunu düzeltmek veya bu gibi sorun giderme bilgilerini toplarken bir e-posta gönderebilir veya bir hizmet isteği oluşturduğunuzda bazı diğer eylemler için kullanılabilir. 
 
 ## <a name="components-and-features-used"></a>Kullanılan bileşenler ve özellikler
 * [Azure Otomasyon hesabı](../../automation/automation-quickstart-create-account.md)
@@ -30,11 +30,11 @@ Azure Log Analytics'da bir günlük Arama sonuçlarından artık seçebilirsiniz
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Runbook günlük araması'nı başlatmak için
 
-Bir olayı harekete ve günlük arama sonuçlarınızı runbook başlatmak için bir günlük araması oluşturma işlemiyle başlayın ve sonuçları bir runbook isteğe bağlı çağırabilirsiniz.  Bu, günlük arama özelliğinden gerçekleştirilebilir [Azure portalında](../../azure-monitor/log-query/log-query-overview.md).  Bu örnekte, bu özelliğin temel bir örnek ile Azure portalından bir günlük araması gerçekleştirin.
+Bir olayı harekete ve günlük arama sonuçlarınızı runbook başlatmak için bir günlük araması oluşturma işlemiyle başlayın ve sonuçları bir runbook isteğe bağlı çağırabilirsiniz. Bu, Klasik günlük arama özelliğinden gerçekleştirilebilir [Azure portalında](../../azure-monitor/log-query/log-query-overview.md). Bu örnekte, bu özelliğin temel bir örnek ile Azure portalından bir günlük araması gerçekleştirin.
 
 1. Azure portalında **tüm hizmetleri** seçip **Log Analytics**.  
 2. Log Analytics çalışma alanınızı seçin.
-3. Çalışma alanında, seçin **günlük araması**.  
+3. Çalışma alanında, seçin **günlükleri (Klasik)**.  
 4. Günlük araması sayfasında, bir günlük araması gerçekleştirin.  
 5. Günlük araması sonuçlarından sol tarafındaki bir alanların ve açılan, select üç nokta işaretine **üzerinde eylem gerçekleştirmenize**.<br><br> ![Arama sonuçlarından Al eylemini seçin](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Seçin **bir runbook'u çalıştırma** ve çalıştırmak için bir runbook seçin.  Herhangi bir runbook Log Analytics çalışma alanına bağlı Otomasyon hesabı seçin.  Şunlara dikkat edin:

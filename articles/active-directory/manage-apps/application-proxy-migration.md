@@ -15,12 +15,12 @@ ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d0a28dc1eee1536a0cabe454cd899d9111edff88
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d38fa458ae87ce29110b2423e832ff5c6262a01
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197747"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817589"
 ---
 # <a name="compare-remote-access-solutions"></a>Uzaktan erişim çözümlerini karşılaştırın
 
@@ -56,7 +56,7 @@ Azure AD uygulama ara sunucusu da dahil olmak üzere benzer ürünleri karşıla
 - Şirket içi kaynaklarınızı Azure AD'ye genişletme
    - Bulut ölçeğinde güvenlik ve koruma
    - Koşullu erişim ve çok faktörlü kimlik doğrulaması gibi özellikleri etkinleştirmek kolaydır
-- Hiçbir componenet sivil bölge içinde
+- Sivil bölge içinde bileşen yok
 - Gerekli olan herhangi bir gelen bağlantı
 - Bir erişim panelinde kullanıcılarınız O365 dahil olmak üzere tüm uygulamalar için gidebilir, Azure AD tümleşik SaaS uygulamaları ve şirket içi web uygulamaları. 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452652"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817284"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure portalında depolama hesabı izleme
 
@@ -46,7 +46,7 @@ ms.locfileid: "55452652"
 
 1. İzleme yapılandırmasını bitirdikten sonra seçin **Kaydet**.
 
-Ölçümleri varsayılan kümesini grafiklerinde bireysel hizmet dikey pencereleri (blob, kuyruk, tablo ve dosya) yanı sıra depolama hesabı dikey penceresi görüntülenir. Bir hizmet için ölçümleri etkinleştirdikten sonra verilerin, grafikte görünmesi bir saate kadar sürebilir. Seçebileceğiniz **Düzenle** tüm ölçüm grafiği için [hangi ölçümleri yapılandırma](#how-to-customize-metrics-charts) grafikte görüntülenir.
+Ölçümleri varsayılan kümesini grafiklerinde bireysel hizmet dikey pencereleri (blob, kuyruk, tablo ve dosya) yanı sıra depolama hesabı dikey penceresi görüntülenir. Bir hizmet için ölçümleri etkinleştirdikten sonra verilerin, grafikte görünmesi bir saate kadar sürebilir. Seçebileceğiniz **Düzenle** hangi ölçümleri grafiğinde görüntülenen yapılandırmak için bir ölçüm grafiği.
 
 Ölçümleri toplama ve günlüğe kaydetme ayarı devre dışı bırakabilirsiniz **durumu** için **kapalı**.
 
@@ -116,7 +116,7 @@ Portal panonuza herhangi biri depolama hesaplarınız için Azure depolama ölç
    ![Azure portalında kutucuk Galerisi](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Seçin **özelleştirme Bitti** ekleme grafikleri işiniz bittiğinde panonun üstüne yakın.
 
-Panonuza grafikleri ekledikten sonra daha fazla bunları açıklandığı gibi özelleştirebilirsiniz [ölçüm grafikleri özelleştirme](#how-to-customize-metrics-charts).
+Panonuza grafikleri ekledikten sonra bunları daha fazla özelleştirme ölçüm grafikleri içinde açıklanan şekilde özelleştirebilirsiniz.
 
 ## <a name="configure-logging"></a>Günlük tutmayı yapılandırma
 

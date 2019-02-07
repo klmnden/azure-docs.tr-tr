@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: fe647f96d8b992d8d5c1682d588bbdbba0ddf43b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055141"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816229"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Traffic Manager'ı yönetmek için PowerShell kullanma
 
@@ -66,7 +66,7 @@ Aşağıdaki tabloda parametreler açıklanmaktadır:
 | MonitorPort |Uç nokta durumunu izlemek için kullanılan TCP bağlantı noktasını belirtir. |
 | MonitorPath |Uç nokta sistem durumu için yoklama için kullanılan uç nokta etki alanı adı göreli yolunu belirtir. |
 
-Cmdlet, Azure Traffic Manager profili oluşturur ve PowerShell için karşılık gelen bir profili nesnesini döndürür. Bu noktada, profil, uç nokta içermiyor. Uç noktaları Traffic Manager profiline ekleme hakkında daha fazla bilgi için bkz. [Traffic Manager uç noktaları ekleme](#adding-traffic-manager-endpoints).
+Cmdlet, Azure Traffic Manager profili oluşturur ve PowerShell için karşılık gelen bir profili nesnesini döndürür. Bu noktada, profil, uç nokta içermiyor. Traffic Manager uç noktaları ekleme uç noktaları Traffic Manager profiline ekleme hakkında daha fazla bilgi için bkz.
 
 ## <a name="get-a-traffic-manager-profile"></a>Traffic Manager profili Al
 

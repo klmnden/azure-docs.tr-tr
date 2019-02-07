@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8d597a3491f80bc09c3e0676d17971f2509ba47a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184127"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818745"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics ile Active Directory çoğaltma durumunu izleme
 
@@ -49,7 +49,7 @@ Herhangi bir etki alanı denetleyicilerinizin doğrudan Log Analytics'e bağlanm
 2. [Windows bilgisayarı Log Analytics'e bağlayın](../../azure-monitor/platform/om-agents.md) veya [kullanarak mevcut Operations Manager ortamınızı Log analytics'e bağlanma](../../azure-monitor/platform/om-agents.md), zaten bağlı değil.
 3. Bu bilgisayarda, aşağıdaki kayıt defteri anahtarını ayarlayın:
 
-   * Anahtar: **Hkey_local_machıne\system\currentcontrolset\services\healthservice\parameters\management grupları\<ManagementGroupName > \Solutions\ADReplication**
+   * Anahtar: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
    * Değer: **IsTarget**
    * Değer verisi: **true**
 
@@ -118,38 +118,38 @@ Ayrıca **dışarı** sonuçları Excel'e. Verileri dışarı aktarma, çoğaltm
 
 ## <a name="ad-replication-status-faq"></a>AD çoğaltma durumu ile ilgili SSS
 **S: Ne sıklıkta AD çoğaltma durumu veriler güncelleştirildi mi?**
-Y: Bilgiler, beş günde bir güncelleştirilir.
+C: Bilgiler, beş günde bir güncelleştirilir.
 
 **S: Bu veriler sıklıkla güncelleştirilir yapılandırmak için bir yol var mı?**
-Y: Şu anda değil.
+C: Şu anda değil.
 
 **S: Tüm etki alanı denetleyicilerine my çoğaltma durumunu görmek için Log Analytics çalışma alanıma Ekle gerekiyor mu?**
-Y: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. Log Analytics çalışma alanınızda birden çok etki alanı denetleyiciniz varsa, bunların tümünün verileri Log Analytics'e gönderilir.
+C: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. Log Analytics çalışma alanınızda birden çok etki alanı denetleyiciniz varsa, bunların tümünün verileri Log Analytics'e gönderilir.
 
 **S: Herhangi bir etki alanı denetleyicileri Log Analytics çalışma alanıma Ekle istemiyorum. AD çoğaltma durumu çözümü kullanabilir miyim?**
-Y: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Bkz: [AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirmek için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+C: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Görmek için AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirin.
 
 **S: Veri koleksiyonu yapan işlemin adı nedir?**
-Y: AdvisorAssessment.exe
+C: AdvisorAssessment.exe
 
 **S: Ne kadar toplanacak veri için sürer?**
-Y: Veri Toplama süresi, Active Directory ortamında boyutuna bağlıdır, ancak genellikle 15 dakikadan kısa sürer.
+C: Veri Toplama süresi, Active Directory ortamında boyutuna bağlıdır, ancak genellikle 15 dakikadan kısa sürer.
 
 **S: Ne tür verilere toplanır?**
-Y: Çoğaltma bilgileri LDAP toplanır.
+C: Çoğaltma bilgileri LDAP toplanır.
 
 **S: Verileri toplandığında yapılandırmak için bir yol var mı?**
-Y: Şu anda değil.
+C: Şu anda değil.
 
 **S: Verileri toplamak hangi izinlerin gerekiyor?**
-Y: Active Directory normal kullanıcı izinlerini yeterlidir.
+C: Active Directory normal kullanıcı izinlerini yeterlidir.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Veri toplama sorunlarını giderme
 Veri toplamak için Log Analytics çalışma alanınıza bağlı için en az bir etki alanı denetleyicisi AD çoğaltma durumu çözüm paketi gerektirir. Bir etki alanı denetleyicisine bağlanmak kadar belirten bir ileti görünür **veri hala toplanmakta olan**.
 
 Etki alanı denetleyicilerinizden biri bağlama konusunda yardıma ihtiyacınız varsa, belgeleri görüntüleyebilirsiniz [bağlanmak Windows bilgisayarlarını Log Analytics'e](../../azure-monitor/platform/om-agents.md). Alternatif olarak, etki alanı denetleyicinize bir System Center Operations Manager ortamı için zaten bağlıysa, belgeleri görüntüleyebilirsiniz [System Center Operations Manager'a bağlama Log analytics'e](../../azure-monitor/platform/om-agents.md).
 
-Herhangi bir etki alanı denetleyicilerinizin doğrudan Log Analytics veya System Center Operations Manager bağlanmak istemiyorsanız bkz [AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirmek için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+Herhangi bir etki alanı denetleyicilerinizin doğrudan Log Analytics veya System Center Operations Manager bağlanmak istemiyorsanız, AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirmek için bkz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kullanım [Log Analytics'te günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı Active Directory çoğaltma Durumu verisini görüntülemek için.

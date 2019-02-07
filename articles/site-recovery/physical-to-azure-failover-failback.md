@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848638"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813696"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Yük devretme ve yeniden fiziksel sunucuları Azure'a çoğaltılan döndürme
 
@@ -24,10 +24,10 @@ Site Recovery kullanılarak Azure'da çoğaltılmış fiziksel sunucularda, VMwa
 
 Yük devretme ve yeniden çalışma dört aşamalıdır:
 
-1. **Azure’a yük devretme**: Makineleri şirket içi siteden Azure’a devredin.
-2. **Azure Vm'lerini yeniden koruma**: geri şirket içi VMware Vm'lerine çoğaltılmaya başlatılması Azure Vm'lerini yeniden koruyun.
-3. **Şirket içine yük devretme**: Azure’dan yeniden çalıştırmak için bir yük devretme işlemi çalıştırın.
-4. **Yeniden koruma şirket içi Vm'leri**: veri çalıştıktan sonra böylece bunlar Azure'a çoğaltmaya başlamak başlamaları için şirket içi VMware Vm'lerini yeniden koruyun.
+1. **Azure'a yük devretme**: Makineleri şirket içi siteden Azure'a yük devretme.
+2. **Azure Vm'lerini yeniden koruma**: Böylece geri şirket içi VMware Vm'lerine çoğaltılmaya başlatmaları Azure Vm'lerini yeniden koruyun.
+3. **Şirket içine yük devretme**: Azure'dan yeniden çalışma için bir yük devretme çalıştırın.
+4. **Yeniden koruma şirket içi Vm'leri**: Veri çalıştıktan sonra böylece bunlar Azure'a çoğaltmaya başlamak başlamaları için şirket içi VMware Vm'lerini yeniden koruyun.
 
 ## <a name="verify-server-properties"></a>Sunucu özelliklerini doğrulayın
 
@@ -36,7 +36,7 @@ Sunucu özelliklerini doğrulayın ve ile uyumlu olduğundan emin olun [Azure ge
 1. İçinde **korunan öğeler**, tıklayın **çoğaltılan öğeler**, makineyi seçin.
 
 2. İçinde **çoğaltılan öğe** bölmesinde makine bilgileri, sistem durumu özetini yoktur ve son kullanılabilir kurtarma noktası. Daha fazla ayrıntı görüntülemek için **Özellikler**’e tıklayın.
-3. **İşlem ve Ağ** bölümünde Azure adını, kaynak grubunu, hedef boyutunu, [kullanılabilirlik kümesini](../virtual-machines/windows/tutorial-availability-sets.md) ve [yönetilen disk ayarlarını](#managed-disk-considerations) değiştirebilirsiniz
+3. İçinde **işlem ve ağ**, değiştirebileceğiniz Azure ad, kaynak grubunu, hedef boyutunu, [kullanılabilirlik kümesi](../virtual-machines/windows/tutorial-availability-sets.md)ve yönetilen disk ayarlarını
 4. Ağ ayalarını, yük devretmeden sonra Azure VM’nin yerleştirileceği ağ/alt ağ ve VM’ye atanacak IP adresi dahil olmak üzere görüntüleyebilir ve değiştirebilirsiniz.
 5. İçinde **diskleri**, makine işletim sistemi ve veri diskleri hakkında bilgi bulabilirsiniz.
 
@@ -44,8 +44,8 @@ Sunucu özelliklerini doğrulayın ve ile uyumlu olduğundan emin olun [Azure ge
 
 1. **Ayarlar** > **Çoğaltılan öğeler** bölümünde makine > **Yük devretme**’ye tıklayın.
 2. **Yük devretme**’de yük devretmenin yapılacağı bir **Kurtarma Noktası** seçin. Şu seçeneklerden birini kullanabilirsiniz:
-   - **Varsayılan**: Bu seçenekte öncelikle Site Recovery’ye gönderilen tüm veriler işlenir. Yük devretmeden sonra oluşturulan Azure VM, yük devretme tetiklendiğinde Site Recovery’ye çoğaltılan tüm verilere sahip olduğundan en düşük RPO (Kurtarma Noktası Hedefi) sağlanır.
-   - **En son işlenen**: Bu seçenek, makinenin Site Recovery tarafından işlenen en son kurtarma noktasına devreder. İşlenmemiş verileri işlemek için zaman harcanmadığından bu seçenekte düşük bir RTO (Kurtarma Süresi Hedefi) sağlanır.
+   - **En son**: Bu seçenek öncelikle Site Recovery'ye gönderilen tüm verileri işler. Yük devretmeden sonra oluşturulan Azure VM, yük devretme tetiklendiğinde Site Recovery’ye çoğaltılan tüm verilere sahip olduğundan en düşük RPO (Kurtarma Noktası Hedefi) sağlanır.
+   - **En son işlenen**: Bu seçeneği, makine Site Recovery tarafından işlenen en son kurtarma noktasına devreder. İşlenmemiş verileri işlemek için zaman harcanmadığından bu seçenekte düşük bir RTO (Kurtarma Süresi Hedefi) sağlanır.
    - **Uygulamayla tutarlı olan sonuncu**: Bu seçenek makinenin Site Recovery tarafından işlenen en son uygulamayla tutarlı kurtarma noktasına devreder.
    - **Özel**: Bir kurtarma noktası belirtin.
 

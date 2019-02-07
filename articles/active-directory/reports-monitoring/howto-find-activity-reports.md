@@ -13,12 +13,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c7560dc6c3c5237a056a9468d3ab4f440e8e6dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc726f63ea5c8473601623024e18c1402cbebb51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190794"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820326"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure portalında Etkinlik raporlarını bulma
 
@@ -49,8 +49,6 @@ Denetim günlükleri raporu, aşağıdaki raporları birleştirir:
 
 Denetim verilerinin belirli bir kategorisi içinde belirterek erişmek için Denetim raporuna Gelişmiş filtreleme kullanabileceğiniz **etkinlik kategorisi** filtre. Örneğin, Self Servis parola sıfırlama için ilgili tüm etkinlikleri görüntülemek için seçin **Self Servis parola yönetimi** kategorisi. 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 Etkinlik kategorileri şunlardır:
 
 - Çekirdek Dizin
@@ -62,8 +60,6 @@ Etkinlik kategorileri şunlardır:
 ## <a name="sign-ins-report"></a>Oturum açma işlemleri raporu 
 
 **Oturum açma işlemleri** görünüm dahil tüm kullanıcı oturum açma işlemleri, hem de **uygulama kullanımı** rapor. Uygulama kullanım bilgileri de görüntüleyebilirsiniz **Yönet** bölümünü **kurumsal uygulamalar** genel bakış.
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 Oturum açma işlemleri raporu erişmek için:
 

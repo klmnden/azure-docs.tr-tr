@@ -6,17 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.lastreviewed: 12/06/2018
-keywords: ''
-ms.openlocfilehash: 5946f62821d05bd9036b9fc0e6b0fc8daa74c5dc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241211"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816365"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack veri merkezi tümleştirmesi - uç noktalarını yayımlama
 
@@ -53,8 +52,8 @@ Bunlar yayımlama Azure Stack için gerekli değil çünkü VIP'ler listelenmemi
 |Depolama Kuyruğu|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Depolama tablosu|&#42;.Table.  *&lt;bölge >.&lt; FQDN >*|HTTP<br>HTTPS|80<br>443|
 |Depolama Blobu|&#42;.BLOB.  *&lt;bölge >.&lt; FQDN >*|HTTP<br>HTTPS|80<br>443|
-|SQL kaynak sağlayıcısı|sqladapter.dbadapter.  *&lt;bölge >.&lt; FQDN >*|HTTPS|44300-44304|
-|MySQL kaynak sağlayıcısı|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|SQL Kaynak Sağlayıcısı|sqladapter.dbadapter.  *&lt;bölge >.&lt; FQDN >*|HTTPS|44300-44304|
+|MySQL Kaynak Sağlayıcısı|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
 |App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
 |  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
 |  |api.appservice.  *&lt;bölge >.&lt; FQDN >*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
@@ -69,19 +68,24 @@ Azure Stack, yalnızca saydam proxy sunucuları destekler. Bir dağıtımda sayd
 > [!Note]  
 > Azure Stack aşağıdaki tabloda listelenen Azure hizmetlerine erişmek için Expressroute kullanma desteği olmamasıdır.
 
-|Amaç|URL'si|Protokol|Bağlantı Noktaları|
-|---------|---------|---------|---------|
-|Kimlik|login.windows.net<br>login.microsoftonline.com<br>Graph.Windows.NET<br>https://secure.aadcdn.microsoftonline-p.com<br>Office.com|HTTP<br>HTTPS|80<br>443|
-|Market sendikasyonu|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
-|Düzeltme Eki & Güncelleştir|https://&#42;.azureedge.net|HTTPS|443|
-|Kayıt|https://management.azure.com|HTTPS|443|
-|Kullanım|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
-|NTP|(IP, NTP sunucusu dağıtımı için sağlanan)|UDP|123|
-|DNS|(IP, DNS sunucusu dağıtımı için sağlanan)|TCP<br>UDP|53|
-|CRL|(URL, sertifikadaki CRL dağıtım noktaları altında)|HTTP|80|
-|Altyapı yedekleme|(IP veya FQDN dış hedef dosya sunucusu)|SMB|445|
-|     |     |     |     |
+|Amaç|Hedef URL|Protokol|Bağlantı Noktaları|Kaynak Ağ|
+|---------|---------|---------|---------|---------|
+|Kimlik|login.windows.net<br>login.microsoftonline.com<br>Graph.Windows.NET<br>https://secure.aadcdn.microsoftonline-p.com<br>Office.com|HTTP<br>HTTPS|80<br>443|Genel VIP - en az/27<br>Ortak ağ alt yapısı|
+|Market sendikasyonu|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Genel VIP - en az/27|
+|Düzeltme Eki & Güncelleştir|https://&#42;.azureedge.net|HTTPS|443|Genel VIP - en az/27|
+|Kayıt|https://management.azure.com|HTTPS|443|Genel VIP - en az/27|
+|Kullanım|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|Genel VIP - en az/27|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Genel VIP - en az/27<br>Ortak ağ alt yapısı|
+|NTP|(IP, NTP sunucusu dağıtımı için sağlanan)|UDP|123|Genel VIP - en az/27|
+|DNS|(IP, DNS sunucusu dağıtımı için sağlanan)|TCP<br>UDP|53|Genel VIP - en az/27|
+|CRL|(URL, sertifikadaki CRL dağıtım noktaları altında)|HTTP|80|Genel VIP - en az/27|
+|Altyapı yedekleme|(IP veya FQDN dış hedef dosya sunucusu)|SMB|445|Ortak ağ alt yapısı|
+|LDAP|Active Directory Graph entegrasyonuna yönelik sağlanan orman|TCP<br>UDP|389|Genel VIP - en az/27|
+|LDAP SSL|Active Directory Graph entegrasyonuna yönelik sağlanan orman|TCP|636|Genel VIP - en az/27|
+|LDAP GC|Active Directory Graph entegrasyonuna yönelik sağlanan orman|TCP|3268|Genel VIP - en az/27|
+|LDAP GC SSL|Active Directory Graph entegrasyonuna yönelik sağlanan orman|TCP|3269|Genel VIP - en az/27|
+|AD FS|AD FS meta veri uç noktası için AD FS tümleştirme sağlanan|TCP|443|Genel VIP - en az/27|
+|     |     |     |     |     |
 
 > [!Note]  
 > Giden URL'leri, coğrafi konuma göre en iyi olası bağlantı sağlamak için Azure traffic manager'ı kullanarak Yük Dengelemesi yapılıyor. Yük dengeli URL'leri, Microsoft update ve arka uç, uç müşterileri etkilemeden değiştirme. Yük dengeli Küme URL'leri için Microsoft IP adreslerinin listesi paylaşmaz. URL yerine IP göre filtreleme destekleyen bir cihaz kullanmanız gerekir.

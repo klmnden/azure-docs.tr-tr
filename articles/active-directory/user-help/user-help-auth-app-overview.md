@@ -11,18 +11,15 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
-ms.openlocfilehash: fa37ed942158ecc0f58aa5884ff93ce27bc42745
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 67265636b26a0eec3c40ee1f95872cc870099de7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751081"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809694"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması nedir?
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
-
->[!Important]
->Microsoft Authenticator uygulamasını iki aşamalı doğrulama kullanan tüm uygulamalarda ve zamana bağlı bir kerelik parola (TOTP) standartlarını destekleyen herhangi bir hesabı ile çalışır.
 
 Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 
@@ -31,7 +28,11 @@ Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 - Oturum açma olmadan parola gerektirme, parmak izi, yüz tanıma veya PIN kullanıcı adınızı ve mobil Cihazınızı kullanarak sağlama.
 
 >[!Important]
->Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.<br><br>Hesabınızda oturum açarken sorun yaşıyorsanız, bkz. [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429) Yardım.  Aldığınız olduğunda yapılması gerekenler hakkında daha fazla bilgi alın ["Bu Microsoft hesabı mevcut değil"](https://support.microsoft.com/help/13811) iletisi, Microsoft hesabınızda oturum açın.
+>Microsoft Authenticator uygulamasını iki aşamalı doğrulama kullanan tüm uygulamalarda ve zamana bağlı bir kerelik parola (TOTP) standartlarını destekleyen herhangi bir hesabı ile çalışır.
+
+>Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
+
+>Hesabınızda oturum açarken sorun yaşıyorsanız, bkz. [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429) Yardım. Aldığınız olduğunda yapılması gerekenler hakkında daha fazla bilgi alın ["Bu Microsoft hesabı mevcut değil"](https://support.microsoft.com/help/13811) iletisi, Microsoft hesabınızda oturum açın.
 
 ## <a name="terminology"></a>Terminoloji
 |Sözleşme Dönemi|Açıklama|
@@ -67,11 +68,10 @@ Hesap türüne bağlı olarak, iki Faktörlü doğrulama kullanmalısınız veya
 
 |Makale |Açıklama |
 |------|------------|
-|[Uygulamayı indirme ve yükleme](microsoft-authenticator-app-how-to.md)|Nerede tanımlar ve nasıl alınacağını ve Android ve iOS çalıştıran cihazlar için Microsoft Authenticator uygulamasını yükleyin.|
-|[İş veya Okul hesabınızı ekleyin](microsoft-authenticator-app-add-work-account.md)|Çeşitli iş veya Okul ve kişisel hesaplar için Microsoft Authenticator uygulamasını eklemeyi açıklar.|
-|[Kişisel Microsoft hesabı ekleme](microsoft-authenticator-app-add-personal-account.md)|Kişisel Microsoft hesabınızı Microsoft Authenticator uygulamasına eklemeyi açıklar.|
-|[Microsoft olmayan bir Hesap Ekle](microsoft-authenticator-app-add-non-microsoft-account.md)|Microsoft dışı hesaplarınız için Microsoft Authenticator uygulamasını eklemeyi açıklar.|
-|[Hesaplarınızı el ile Ekle](microsoft-authenticator-app-add-account-manual.md)|Sağlanan QR kodunu tarayın yapamıyorsanız el ile hesaplarınızı Microsoft Authenticator uygulamasına eklemeyi açıklar.|
-|[Uygulamayı kullanarak oturum açın](microsoft-authenticator-app-phone-signin-faq.md)|Microsoft Authenticator uygulamasını kullanarak, çeşitli hesaplarında oturum açıklar.|
-|[Hesap kimlik bilgilerini yedekleme ve kurtarma](microsoft-authenticator-app-backup-and-recovery.md)| Microsoft Authenticator uygulamasını kullanarak hesap kimlik bilgilerinizi yedekleme ve kurtarma hakkında bilgi sağlar.|
-|[Microsoft Authenticator uygulaması hakkında SSS](microsoft-authenticator-app-faq.md)|Uygulamayla ilgili sık sorulan soruların yanıtlarını sunar.|
+|[Uygulamayı indirme ve yükleme](user-help-auth-app-download-install.md)|Nerede tanımlar ve nasıl alınacağını ve Android ve iOS çalıştıran cihazlar için Microsoft Authenticator uygulamasını yükleyin.|
+|[İş veya Okul hesapları ekleme](user-help-auth-app-add-work-school-account.md)|Çeşitli iş veya Okul ve kişisel hesaplar için Microsoft Authenticator uygulamasını eklemeyi açıklar.|
+|[Kişisel hesaplarınızın Ekle](user-help-auth-app-add-personal-ms-account.md)|Kişisel Microsoft ve Microsoft dışı hesaplar için Microsoft Authenticator uygulamasını eklemeyi açıklar.|
+|[Hesaplarınızı el ile Ekle](user-help-auth-app-add-account-manual.md)|Sağlanan QR kodunu tarayın yapamıyorsanız el ile hesaplarınızı Microsoft Authenticator uygulamasına eklemeyi açıklar.|
+|[Uygulamayı kullanarak oturum açın](user-help-auth-app-sign-in.md)|Microsoft Authenticator uygulamasını kullanarak, çeşitli hesaplarında oturum açıklar.|
+|[Hesap kimlik bilgilerini yedekleme ve kurtarma](user-help-auth-app-backup-recovery.md)| Microsoft Authenticator uygulamasını kullanarak hesap kimlik bilgilerinizi yedekleme ve kurtarma hakkında bilgi sağlar.|
+|[Microsoft Authenticator uygulaması hakkında SSS](user-help-auth-app-faq.md)|Uygulamayla ilgili sık sorulan soruların yanıtlarını sunar.|

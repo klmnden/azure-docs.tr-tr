@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 81bc37a4bbd63beda122d7254409e2b16f0e3cb1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2075f8f83392c9ddd1761a96958fcb6cb12dc013
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852176"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816433"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus kuyrukları ile çalışmaya başlama
 
@@ -45,13 +45,13 @@ Bu öğreticide aşağıdaki adımlar yer almaktadır:
 > [!NOTE] 
 > Dilerseniz [PowerShell](/powershell/azure/get-started-azureps) kullanarak Service Bus ad alanı ve mesajlaşma varlıkları da oluşturabilirsiniz. Daha fazla bilgi için bkz. [Service Bus kaynaklarını yönetmek için PowerShell’i kullanma](service-bus-manage-with-ps.md).
 
-Daha önce bir Service Bus Mesajlaşması ad alanı oluşturduysanız [Azure portalını kullanarak kuyruk oluşturma](#2-create-a-queue-using-the-azure-portal) bölümüne atlayın.
+Bir Service Bus Mesajlaşması ad alanı oluşturduysanız oluşturmak için Azure portalı bölümünden kullanarak kuyruk geçin.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-queue-using-the-azure-portal"></a>Azure portalını kullanarak kuyruk oluşturma
 
-Daha önce bir Service Bus kuyruğu oluşturduysanız [Kuyruğa ileti gönderme](#3-send-messages-to-the-queue) bölümüne atlayın.
+Bir Service Bus kuyruğu oluşturduysanız, iletileri gönderebilir kuyruk bölümüne atlayın.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 

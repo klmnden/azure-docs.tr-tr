@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f03fc201c1bce3187fdbd25c1de3567170478d30
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 38bb0840269d4b7bacbb0101590b389c8542a9b1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488462"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814240"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect eşitleme: Office 365 kaynaklar için tercih edilen veri konumu yapılandırın
 Bu konunun amacı, öznitelik tercih edilen veri konumu için Azure Active Directory (Azure AD) Connect eşitleme yapılandırma konusunda rehberlik sağlamaktır. Birisi çoklu coğrafi özellikleri Office 365'te kullandığında, kullanıcının Office 365 verilerine coğrafi konumunu belirlemek için bu öznitelik kullanın. (Koşulları *bölge* ve *coğrafi* birbirinin yerine kullanılır.)
@@ -238,7 +238,7 @@ Yerleşik Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin:
 ## <a name="step-8-verify-the-result"></a>8. adım: Sonucu doğrulayın
 Bu, artık yapılandırmasını doğrulayın ve kullanıcılarınız için etkinleştirme zamanı geldi.
 
-1. Coğrafi bir kullanıcı seçili özniteliğini ekleyin. Hizmetin kullanılabildiği coğrafyalar listesini bulunabilir [bu tabloda](#enable-synchronization-of-preferreddatalocation).  
+1. Coğrafi bir kullanıcı seçili özniteliğini ekleyin. Hizmetin kullanılabildiği coğrafyalar listesi bu tabloda bulunabilir.  
 ![Ekran görüntüsü AD özniteliği için bir kullanıcı eklendi](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Azure AD ile eşitlenecek öznitelik bekleyin.
 3. Exchange Online PowerShell kullanarak, posta kutusu bölgesi doğru şekilde ayarlandığını doğrulayın.  

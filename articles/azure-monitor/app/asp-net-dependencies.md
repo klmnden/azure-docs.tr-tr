@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d86df171de807c23aad6dd2cb8e2128098dede81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119994"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812481"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application ınsights'ı ayarlayın: Bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşen. Bu genellikle adlı HTTP veya bir veritabanı veya dosya sistemi kullanılarak bir hizmettir. [Application Insights](../../azure-monitor/app/app-insights-overview.md) ne sıklıkta bağımlılık çağrı başarısız olur ve uygulama bağımlılıkları için bekleyeceği süreyi ölçer. Belirli çağrıları incelemek ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -52,7 +52,7 @@ Kısmi bağımlılık bilgileri tarafından otomatik olarak toplanan [Applicatio
 * [Uygulama Haritası](#application-map) komşu bileşenlerini ve uygulama arasındaki bağımlılıkları görselleştirir.
 * [Performans ve tarayıcı hatası dikey pencereleri](#performance-and-blades) sunucu bağımlılık verileri gösterir.
 * [Tarayıcılar dikey](#ajax-calls) kullanıcılarınızın tarayıcılarından AJAX çağrılarını gösterir.
-* [Gelen yavaş veya başarısız istekleri tıklayın](#diagnose-slow-requests) kendi bağımlılık denetlemek için çağırır.
+* Bağımlılık çağrılarını denetlemek için yavaş veya başarısız istekleri tıklayın.
 * [Analytics](#analytics) sorgu bağımlılık verileri için kullanılabilir.
 
 ## <a name="application-map"></a>Uygulama Eşlemesi
@@ -210,7 +210,7 @@ Aşağıdaki tabloya başvurun ve kayıtlarınızın bağımlılık uygulamanız
 | IIS sunucusu |Her iki [sunucunuza Durum İzleyicisi yükleme](../../azure-monitor/app/monitor-performance-live-website-now.md). Veya [uygulamanızı .NET framework 4.6 veya üzeri için yükseltme](https://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](asp-net.md) uygulamanızda. |
 | IIS Express |IIS sunucusu bunun yerine kullanın. |
 | Azure Web Uygulaması |Web uygulaması Denetim Masası'ndaki [Application Insights dikey penceresini açın, web uygulaması Denetim Masası'ndaki](../../azure-monitor/app/azure-web-apps.md) yükleme istenirse seçin. |
-| Azure bulut hizmeti |[Kullanım başlangıç görevi](../../azure-monitor/app/cloudservices.md) veya [yükleme .NET framework 4.6 +](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
+| Azure Cloud Service |[Kullanım başlangıç görevi](../../azure-monitor/app/cloudservices.md) veya [yükleme .NET framework 4.6 +](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
 ## <a name="video"></a>Video
 

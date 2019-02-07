@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f02d511c5afa6d515f29b9fc557be3b49223c501
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4291f6083cfe07d689ef9377df57c3e9a41772fc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243292"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812217"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sı ile verileri dönüştürün
 
@@ -25,7 +25,7 @@ Bu makalede, farklı yöntemler kullanarak verileri yükleme bilgi [Azure Machin
 
 Şu anda aşağıdaki görevler için işlev vardır:
 
-- [Bir ifade kullanarak sütun ekleme](#column)
+- Bir ifade kullanarak sütun ekleme
 - [Eksik değerleri impute](#impute-missing-values)
 - [Sütunu örneğe göre türetme](#derive-column-by-example)
 - [Filtreleme](#filtering)

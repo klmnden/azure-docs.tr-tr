@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2108de8988e973644e0622a4b76a04408949298e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f6e9641d106c40c061752b57744eda09aac157a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635162"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821975"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Apache Spark, Azure HDInsight'ı kullanarak sorun giderme
 
@@ -23,7 +23,7 @@ ms.locfileid: "53635162"
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-Bu yordamı için yapılandırma değerlerini daha önce HDInsight ayarlandı. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu](#what-causes-a-spark-application-outofmemoryerror-exception). 
+Bu yordamı için yapılandırma değerlerini daha önce HDInsight ayarlandı. Hangi Spark belirlemek üzere ayarlanması ve hangi değerlerine ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu görmek yapılandırmaları gerekir. 
 
 1. Kümeleri listesinde seçin **Spark2**.
 
@@ -92,7 +92,7 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Hangi Spark belirlemek üzere ayarlanması ve hangi değerlerine ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu görmek yapılandırmaları gerekir.
 
 2. Jupyter Not Defteri, ilk hücrenin sonra **%% yapılandırma** yönergesi, Spark yapılandırmaları geçerli JSON biçiminde belirtin. Gerçek değerleri gerektiği gibi değiştirin:
 
@@ -107,7 +107,7 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. Hangi Spark belirlemek üzere ayarlanması ve hangi değerlerine ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu görmek yapılandırmaları gerekir. 
 
 2. Spark uygulaması Livy için cURL gibi bir REST istemcisi kullanarak gönderin. Aşağıdakine benzer bir komut kullanın. Gerçek değerleri gerektiği gibi değiştirin:
 
@@ -124,7 +124,7 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Hangi Spark belirlemek üzere ayarlanması ve hangi değerlerine ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu görmek yapılandırmaları gerekir.
 
 2. Spark-shell, aşağıdakine benzer bir komut kullanarak başlatın. Gerçek değer yapılandırmalarının gerektiği gibi değiştirin: 
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 10f9aaed87d573926aa261435ba0d7cee9d01370
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 80fe2fb2998ed129098a99f004da9c9e5e88e474
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733986"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815039"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-new-ui-design"></a>Azure IOT Central kullanıcı Arabirimi (yeni kullanıcı Arabirimi tasarımı) ilişkin tura katılın
 
@@ -77,19 +77,19 @@ Gezgini sayfa gösterir _cihazları_ göre gruplandırılmış uygulamanızda Az
 
 ![Cihaz Kümeleri sayfası](media/overview-iot-central-tour-experimental/devicesets.png)
 
-_Cihaz kümeleri_ sayfası, oluşturucu tarafından oluşturulan cihaz kümelerini gösterir. Cihaz kümesi, ilişkili cihazların bir koleksiyonudur. Oluşturucu, bir cihaz kümesine eklenen cihazları belirlemek üzere bir sorgu tanımlar. Uygulamanızdaki analizleri özelleştirirken cihaz kümelerini kullanırsınız. Daha fazla bilgi almak için [Azure IoT Central uygulamanızda cihaz kümelerini kullanma](howto-use-device-sets.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) makalesine bakın.
+_Cihaz kümeleri_ sayfası, oluşturucu tarafından oluşturulan cihaz kümelerini gösterir. Cihaz kümesi, ilişkili cihazların bir koleksiyonudur. Oluşturucu, bir cihaz kümesine eklenen cihazları belirlemek üzere bir sorgu tanımlar. Uygulamanızdaki analizleri özelleştirirken cihaz kümelerini kullanırsınız. Daha fazla bilgi almak için [Azure IoT Central uygulamanızda cihaz kümelerini kullanma](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) makalesine bakın.
 
 ## <a name="analytics"></a>Analiz
 
 ![Analiz sayfası](media/overview-iot-central-tour-experimental/analytics.png)
 
-Analiz sayfasında, uygulamanıza bağlı cihazların nasıl davrandığını anlamanıza yardımcı olan grafikler gösterilir. Operatör bu sayfayı kullanarak bağlı cihazlarla ilgili sorunları izler ve araştırır. Oluşturucu, bu sayfada gösterilen grafikleri tanımlayabilir. Daha fazla bilgi almak için [Azure IoT Central uygulamanız için özel analizler oluşturma](howto-create-analytics.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) makalesine bakın.
+Analiz sayfasında, uygulamanıza bağlı cihazların nasıl davrandığını anlamanıza yardımcı olan grafikler gösterilir. Operatör bu sayfayı kullanarak bağlı cihazlarla ilgili sorunları izler ve araştırır. Oluşturucu, bu sayfada gösterilen grafikleri tanımlayabilir. Daha fazla bilgi almak için [Azure IoT Central uygulamanız için özel analizler oluşturma](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) makalesine bakın.
 
 ## <a name="jobs"></a>İşler
 
 ![İşler sayfası](media/overview-iot-central-tour-experimental/jobs.png)
 
-İşler sayfası, cihazlarınızda toplu cihaz yönetimi işlemleri gerçekleştirmenize olanak sağlar. Oluşturucu, cihaz özelliklerini, ayarları ve komutları güncelleştirmek için bu sayfayı kullanır. Daha fazla bilgi edinmek için [İş çalıştırma](howto-run-a-job.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) makalesine bakın.
+İşler sayfası, cihazlarınızda toplu cihaz yönetimi işlemleri gerçekleştirmenize olanak sağlar. Oluşturucu, cihaz özelliklerini, ayarları ve komutları güncelleştirmek için bu sayfayı kullanır. Daha fazla bilgi edinmek için [İş çalıştırma](howto-run-a-job-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) makalesine bakın.
 
 ## <a name="device-templates"></a>Cihaz Şablonları
 
@@ -101,14 +101,14 @@ Cihaz şablonları burada bir oluşturucu oluşturur ve uygulamanın cihaz şabl
 
 ![Sürekli veri dışarı aktarma sayfası](media/overview-iot-central-tour-experimental/export.png)
 
-Sürekli veri dışarı aktarma burada uygulamadan telemetri gibi verileri dışarı aktarma bir yöneticinin tanımladığı sayfasıdır. Diğer hizmetler, dışarı aktarılan verileri saklamak veya analiz için kullanın. Daha fazla bilgi için bkz. [Azure IOT Central verilerinizi dışarı](howto-export-data.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) makalesi.
+Sürekli veri dışarı aktarma burada uygulamadan telemetri gibi verileri dışarı aktarma bir yöneticinin tanımladığı sayfasıdır. Diğer hizmetler, dışarı aktarılan verileri saklamak veya analiz için kullanın. Daha fazla bilgi için bkz. [Azure IOT Central verilerinizi dışarı](howto-export-data-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) makalesi.
 
 ## <a name="administration"></a>Yönetim
 
 ![Yönetim sayfası](media/overview-iot-central-tour-experimental/administration.png)
 
-Yönetim sayfası, uygulamadaki kullanıcıları ve rolleri tanımlama gibi bir yöneticinin kullandığı araçların bağlantılarını içerir. Daha fazla bilgi almak için [Azure IoT Central uygulamanızı yönetme](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) makalesine bakın.
+Yönetim sayfası, uygulamadaki kullanıcıları ve rolleri tanımlama gibi bir yöneticinin kullandığı araçların bağlantılarını içerir. Daha fazla bilgi almak için [Azure IoT Central uygulamanızı yönetme](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) makalesine bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IoT Central’a genel bir bakış elde ettiğinize ve kullanıcı arabiriminin düzenini tanıdığınıza göre önerilen sıradaki adım, [Azure IoT Central uygulaması oluşturma](quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) hızlı başlangıcının tamamlanmasıdır.
+Azure IoT Central’a genel bir bakış elde ettiğinize ve kullanıcı arabiriminin düzenini tanıdığınıza göre önerilen sıradaki adım, [Azure IoT Central uygulaması oluşturma](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) hızlı başlangıcının tamamlanmasıdır.

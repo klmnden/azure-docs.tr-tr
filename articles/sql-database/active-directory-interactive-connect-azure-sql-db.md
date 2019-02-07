@@ -12,16 +12,16 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 01/25/2019
 manager: craigg
-ms.openlocfilehash: def50aecbcf9186af9d0b9c781c3141ad2dcee59
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a7f2dbdb089df8035d18db25b3968d63a3c97c0f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753682"
+ms.locfileid: "55767512"
 ---
 # <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Active Directory MFA ile Azure SQL Database'e bağlanma
 
-Bu makalede sağlayan bir C# program olan Microsoft Azure SQL veritabanınıza bağlanır. Program destekleyen etkileşimli mod kimlik doğrulaması kullanan [Azure Active Directory (AD) çok faktörlü kimlik doğrulaması (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+Bu makalede sağlayan bir C# program olan Microsoft Azure SQL veritabanınıza bağlanır. Program destekleyen etkileşimli mod kimlik doğrulaması kullanan [Azure Active Directory (Azure AD) çok faktörlü kimlik doğrulaması (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 SQL araçları için MFA desteği hakkında daha fazla bilgi için bkz. [Azure Active Directory desteği SQL Server veri Araçları (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
@@ -29,15 +29,15 @@ SQL araçları için MFA desteği hakkında daha fazla bilgi için bkz. [Azure A
 
 .NET Framework sürüm 4.7.2, enum başlangıç [ `SqlAuthenticationMethod` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) - yeni bir değere sahip `ActiveDirectoryInteractive`. Bir istemci C# programı, sabit listesi değeri yönlendirir sistemin bir Azure SQL veritabanı'na bağlanmak için mfa'yı destekleyen Azure AD'ye etkileşimli modu kullanın. Programı çalıştıran kullanıcının aşağıdaki iletişim kutusu görür:
 
-1. Bir Azure AD kullanıcı adını görüntüler ve kullanıcının parolası soran bir iletişim kutusu.
+* Bir Azure AD kullanıcı adını görüntüler ve kullanıcının parolası soran bir iletişim kutusu.
 
    Kullanıcının etki alanını Azure AD ile birleştirildiyse parola gerektiğinde bu iletişim kutusunda görünmez.
 
    Ardından Azure AD İlkesi, kullanıcı MFA uygular, sonraki iki iletişim kutusu görüntülenir.
 
-2. İlk kez bir kullanıcı mfa'yı giden sistem metin ileti göndermek bir cep telefonu numarası için soran bir iletişim kutusu görüntüler. Her ileti sağlar *doğrulama kodu* , kullanıcının sonraki iletişim kutusunda girmeniz gerekir.
+* İlk kez bir kullanıcı mfa'yı giden sistem metin ileti göndermek bir cep telefonu numarası için soran bir iletişim kutusu görüntüler. Her ileti sağlar *doğrulama kodu* , kullanıcının sonraki iletişim kutusunda girmeniz gerekir.
 
-3. Sistem cep telefonuna gönderilen bir MFA doğrulama kodu için soran bir iletişim kutusu.
+* Sistem cep telefonuna gönderilen bir MFA doğrulama kodu için soran bir iletişim kutusu.
 
 Azure AD MFA gerektirecek şekilde yapılandırma hakkında daha fazla bilgi için bkz: [bulutta Azure multi Factor Authentication kullanmaya başlama](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
@@ -59,7 +59,7 @@ Başlamadan önce olmalıdır bir [Azure SQL veritabanı sunucusu](sql-database-
 ### <a name="register-your-app-and-set-permissions"></a>Uygulamanızı kaydetmenizi ve izinleri ayarlama
 
 
-Azure AD kimlik doğrulamasını kullanmak için C# programı olan bir AD uygulaması kaydedilecek. Bir uygulamayı kaydetme için bir AD yöneticisi olmanız gerekir veya bir kullanıcı AD atanan *uygulama geliştiricisi* rol. Rol atama hakkında daha fazla bilgi için bkz. [yönetici ve yönetici olmayan rollerin Azure Active Directory ile kullanıcılara atama.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+Azure AD kimlik doğrulamasını kullanmak için C# programı olan bir Azure AD uygulaması kaydedilecek. Bir uygulamayı kaydetme için bir Azure AD yöneticisi olmanız gerekir veya bir kullanıcı Azure AD atanan *uygulama geliştiricisi* rol. Rol atama hakkında daha fazla bilgi için bkz. [yönetici ve yönetici olmayan rollerin Azure Active Directory ile kullanıcılara atama.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
  Bir uygulama kaydı tamamlama oluşturur ve görüntüler bir **uygulama kimliği**. Bağlanmak için bu kimliği eklemek, programınızı sahiptir.
 
@@ -147,7 +147,7 @@ SSMS yeniden çalıştırmak bu sefer ile **kimlik doğrulaması** kümesine **A
 Daha fazla bilgi için [SSMS ve Azure AD için çok faktörlü kimlik doğrulamasını yapılandırma](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!NOTE]
-> Konuk kullanıcı veritabanında ise, de - veritabanı için AD etki alanı adı sağlamanız gerekir **seçenekleri** > **AD etki alanı adı veya Kiracı kimliği**. Etki alanı adı Azure Portalı'nda bulmak için seçin **Azure Active Directory** > **özel etki alanı adları**. İçinde C# örnek program, sağlayarak bir etki alanı adı gerekli değildir.
+> Konuk kullanıcı veritabanında ise, ayrıca veritabanı - Azure AD etki alanı adını sağlamanız gerekir **seçenekleri** > **AD etki alanı adı veya Kiracı kimliği**. Etki alanı adı Azure Portalı'nda bulmak için seçin **Azure Active Directory** > **özel etki alanı adları**. İçinde C# örnek program, sağlayarak bir etki alanı adı gerekli değildir.
 
 ## <a name="c-code-example"></a>C# kod örneği
 
@@ -161,7 +161,7 @@ Visual Studio'da bu paket yüklemek için seçin **proje** > **NuGet paketlerini
 
 using System;
 
-// Reference to AD authentication assembly
+// Reference to Azure AD authentication assembly
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 using DA = System.Data;

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1c6d5754af7455a4e4cf864062a1c29dd32c88b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 40e519495b8a245f72e51167f5807f9c585cb344
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492863"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817555"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Azure AD Connect eşitleme hizmeti yöneticisiyle bağlayıcıları kullanma
 
@@ -42,7 +42,7 @@ Bağlayıcılar sekmesi eşitleme altyapısının bağlandığı tüm sistemleri
 | Bağlayıcı alma |Kullanmayın. |
 | Bağlayıcıyı güncelleştir |Kullanmayın. |
 | Şemayı Yenile |Önbelleğe alınan şemasını yeniler. Bu yana, aynı zamanda güncelleştirmeleri kuralları eşitleme, Yükleme Sihirbazı'nda, bunun yerine, bu seçeneği kullanmak için tercih edilir. |
-| [Bağlayıcı alanı arama](#search-connector-space) |Nesneleri bulmak için kullanılan ve [bir nesne ve verileri sistem aracılığıyla izleyin](#follow-an-object-and-its-data-through-the-system). |
+| [Bağlayıcı alanı arama](#search-connector-space) |Nesneleri bulmak ve bir nesne ve verileri sistem aracılığıyla izlemek için kullanılır. |
 
 ### <a name="delete"></a>Sil
 Silme eylemi, iki farklı işlemler için kullanılır.  

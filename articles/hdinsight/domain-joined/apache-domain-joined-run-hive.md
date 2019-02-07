@@ -9,14 +9,14 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435524"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821227"
 ---
-# <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile HDInsight, Apache Hive ilkelerini yapılandırma
+# <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Kurumsal Güvenlik Paketi ile HDInsight içinde Apache Hive ilkelerini yapılandırma
 Apache Hive için Apache Ranger ilkelerini yapılandırmayı öğrenin. Bu makalede hivesampletable erişimini kısıtlamak için iki Ranger ilkesi oluşturacaksınız. hivesampletable, HDInsight kümelerine sahiptir. İlkeleri yapılandırdıktan sonra Excel ve ODBC sürücüsünü kullanarak HDInsight’taki Hive tablolarına bağlanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -45,7 +45,7 @@ Bu bölümde hivesampletable erişimi için iki Ranger ilkesi oluşturun. Farkl�
 
 **Ranger ilkeleri oluşturmak için**
 
-1. Ranger Yönetici Arabirimini açın. Bkz. [Apache Ranger Yönetici Arabirimine bağlanma](#connect-to-apache-ranager-admin-ui).
+1. Ranger Yönetici Arabirimini açın. Bkz. Apache Ranger yönetici Arabirimine bağlanma.
 2. **Hive**’ın altındaki **&lt;KümeAdı>_hive** öğesine tıklayın. Önceden yapılandırılmış iki ilke göreceksiniz.
 3. **Add New Policy**’ye tıklayıp aşağıdaki değerleri girin:
 

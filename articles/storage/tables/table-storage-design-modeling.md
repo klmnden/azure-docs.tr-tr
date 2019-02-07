@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 7f629ceb9fe5bd19c0558d1fde45d0bddcee744e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458882"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813016"
 ---
 # <a name="modeling-relationships"></a>İlişkileri modelleme
 Bu makalede, Azure tablo depolama çözümleri tasarlamanıza yardımcı olacak modelleme işlemi açıklanmaktadır.
@@ -101,7 +101,7 @@ Etki alanı modelleri varlıklar arasında bire bir ilişkiler içerebilir. Tabl
 Tablo hizmetinde bire bir ilişkiler uygulamak için yol açabilecek bir uygulama konuları vardır:  
 
 * Büyük varlıklar işleme (daha fazla bilgi için [büyük varlıklar deseni](table-storage-design-patterns.md#large-entities-pattern)).  
-* Erişim denetimleri uygulama (daha fazla bilgi için [paylaşılan erişim imzaları ile erişimi denetleme](#controlling-access-with-shared-access-signatures)).  
+* Erişim denetimleri uygulama (daha fazla bilgi için paylaşılan erişim imzaları ile erişimi denetleme bakın).  
 
 ## <a name="join-in-the-client"></a>İstemci katılın
 Tablo hizmetinde ilişkileri modellemek için yol olsa da, tablo hizmeti kullanarak iki ana nedeni ölçeklenebilirlik ve performans olduğunu unutmayın. Performans ve ölçeklenebilirlik çözümünüzün tehlikeye çok ilişkileri modelleme fark ederseniz, tablo tasarımınızla tüm veri ilişkileri oluşturmak gerekli olup olmadığını kendiniz istemeniz gerekir. Tasarımınızı basitleştirmek ve istemci uygulamanızı gerekli tüm birleştirmeler gerçekleştirme izin verirseniz, çözümünüzün performansını ve ölçeklenebilirliğini artırmak mümkün olabilir.  
@@ -117,7 +117,7 @@ Bu görünüm bu gibi varlıkları kullanarak tek bir kişi tablosunu kullanarak
 
 ![Kişi tablosu](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-İstemci kodu aynı tabloda birden fazla varlık türleri ile çalışma hakkında daha fazla bilgi için bkz [heterojen varlık türleri ile çalışmaktan](#working-with-heterogeneous-entity-types) bu kılavuzun sonraki. Bu varlık türünde istemci kodu anlamayı örnekleri sağlar.  
+İstemci kodu aynı tabloda birden fazla varlık türleri ile çalışma hakkında daha fazla bilgi için bkz bu kılavuzun devamında heterojen varlık türleri ile çalışma. Bu varlık türünde istemci kodu anlamayı örnekleri sağlar.  
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

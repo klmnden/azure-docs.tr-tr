@@ -1,34 +1,35 @@
 ---
-title: Bildirim tablo depolama stratejisi kullanarak PostgreSQL için Azure veritabanı'nda sorgu süresini iyileştirme
-description: Bu makalede, PostgreSQL için Azure veritabanı'nda bildirim tablo depolama stratejisi ile sorgu süresini iyileştirmek açıklar.
+title: BİLDİRİM tablo depolama stratejisi kullanarak PostgreSQL için Azure veritabanı üzerinde sorgu süresini en iyi duruma getirme
+description: Bu makalede, PostgreSQL sunucusu için Azure veritabanı üzerinde bildirim tablo depolama stratejisi ile sorgu süresini iyileştirmek açıklar.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 1fb818a65e26f969f72131b0f5265f3efdd36bb6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542229"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820887"
 ---
-# <a name="optimizing-query-time-with-toast-table-storage-strategy"></a>BİLDİRİM tablo depolama stratejisi ile sorgu süresini en iyi duruma getirme 
-Bu makalede bildirim tablo depolama stratejisi ile sorgu süreleri en iyi duruma getirme.
+# <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>BİLDİRİM tablo depolama stratejisi ile sorgu süresini iyileştirme 
+Bu makalede, büyük boyutlu özniteliği depolama teknik (bildirim) tablo depolama stratejisi ile sorgu süreleri en iyi duruma getirme açıklanır.
 
 ## <a name="toast-table-storage-strategies"></a>BİLDİRİM tablo depolama stratejileri
-Sıkıştırma ve satır dışı depolama arasında çeşitli birleşimlerini temsil eden diskte bildirim mümkün sütunları depolamak için dört farklı strateji vardır. Strateji, veri türünün düzeyinde ve sütun düzeyinde ayarlanabilir.
-- **Düz** sıkıştırma veya satır sonu depolama; engeller. Ayrıca, bunu tek baytlık üst bilgilerin kullanım varlena türleri için devre dışı bırakır. **Düz** bildirim mümkün olmayan veri türlerinin sütunlar için olası yalnızca stratejisidir.
-- **Genişletilmiş** sıkıştırma hem satır dışı depolama sağlar. **Genişletilmiş** çoğu bildirim mümkün veri türleri için varsayılan değerdir. Satırının hala çok büyük ise sıkıştırma denenen ilk sonra satır dışı depolama olacaktır.
-- **Dış** satır dışı depolama ancak değil sıkıştırma sağlar. Kullanım **dış** yalnızca gerekli getirmek için bu işlem için iyileştirilmiş olduğundan daha yüksek depolama alanı içinde hiçbir ceza geniş metin ve bytea sütunları daha hızlı, alt işlemlerin yapacak çıkış satır dışı bölümlerini değeri, sıkıştırılmış.
-- **Ana** sıkıştırma ancak değil çıkış satır dışı depolama sağlar. Satır bir sayfaya sığmayacak küçük yapmak için başka bir yol olduğunda satır dışı depolama yine de bu tür sütunlar için ancak yalnızca son çare olarak gerçekleştirilir.
+Dört farklı stratejiler sütunları bildirim kullanabileceğiniz diske depolamak için kullanılır. Sıkıştırma ve satır dışı depolama arasında çeşitli birleşimlerini temsil ederler. Strateji, veri türünün düzeyinde ve sütun düzeyinde ayarlanabilir.
+- **Düz** sıkıştırma veya satır sonu depolama engeller. Varlena türleri için tek baytlık üst bilgileri kullanımını devre dışı bırakır. Düz, sütunların veri türlerinin bildirim kullanamazsınız yalnızca olası stratejisidir.
+- **Genişletilmiş** sıkıştırma hem satır dışı depolama sağlar. Genişletilmiş bildirim kullanabileceğiniz birçok veri türleri için varsayılandır. Sıkıştırma, ilk olarak denenir. Satırının hala çok büyükse satır dışı depolama denenir.
+- **Dış** satır dışı depolama ancak değil sıkıştırma sağlar. Dış kullanımını alt dize işlemleri metin ve bytea genişliğinde daha hızlı hale getirir. Bu hız, daha yüksek depolama alanı içinde hiçbir ceza ile birlikte gelir. Bu işlemleri değil sıkıştırılmış satır dışı değer, yalnızca gerekli bölümlerini getirilecek getirilir.
+- **Ana** sıkıştırma ancak değil çıkış satır dışı depolama sağlar. Satır dışı depolama, yine de bu tür sütunlar için ancak yalnızca son çare olarak gerçekleştirilir. Satır bir sayfaya sığmayacak küçük yapmak için başka bir yol olduğunda gerçekleşir.
 
-## <a name="using-toast-table-storage-strategies"></a>BİLDİRİM tablo depolama stratejilerle
-Sorgularınızın bildirim mümkün veri türleri kullanılarak erişiyorsanız, **ana** varsayılan yerine **Genişletilmiş** sorgu sürelerini kısaltmak için seçeneği. **Ana** satır dışı depolama kullanımını değil. Bildirim mümkün veri türleri, sorgularınızı erişim değil, diğer taraftan, tutmak yararlı olabilir **Genişletilmiş** seçeneği. Bu nedenle ana tablo satırlarını daha büyük bir kısmı, performans yardımcı paylaşılan arabellek önbellekte sığdırır.
+## <a name="use-toast-table-storage-strategies"></a>BİLDİRİM tablo depolama stratejileri kullanın
+Sorgularınızın bildirim kullanabileceğiniz veri türleri erişirseniz, ana stratejisi sorgu sürelerini kısaltmak için yerine varsayılan Extended seçeneğini kullanarak göz önünde bulundurun. Ana satır dışı depolama kural yoktur. BİLDİRİM kullanabileceğiniz veri türleri, sorgularınızı erişmediğiniz, Genişletilmiş seçeneği tutmak yararlı olabilir. Ana tablo satırlarını daha büyük bir kısmını performans yardımcı olan paylaşılan arabellek önbelleğinde sığdırır.
 
-Geniş tabloların ve yüksek karakter sayısı ile bir şemayı kullanarak bir iş yükü varsa, PostgreSQL bildirim tabloları kullanarak göz önünde bulundurun. Bir örnek müşteri tablosu 255 karakteri kapsayarak çeşitli sütunları 350 sütunlarla büyüktür vardı. Kendi Kıyaslama sorgu süresini 467 saniye, bildirim stratejisi dönüştürmeden sonra bir 89 yüzde geliştirme 4203 saniyeden azaltılmış **ana**.
+Geniş tabloların ve yüksek karakter sayısı ile bir şema kullanan bir iş yükü varsa, PostgreSQL bildirim tabloları kullanarak göz önünde bulundurun. 350 sütunları 255 karakter yayılmış birden çok sütun içeren daha büyük bir örnek müşteri tablosu var. Ana stratejisi bildirim tabloya dönüştürüldü sonra kendi Kıyaslama sorgu süresini 467 saniyeye 4203 saniyeden azaltıldı. 89 yüzde geliştirme olmasıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İş yükünüz için yukarıdaki özelliklerini gözden geçirin. 
+İş yükünüz önceki özelliklerini gözden geçirin. 
 
-Aşağıdaki PostgreSQL belgeleri inceleyin: [Bölüm 68, veritabanı fiziksel depolama alanı](https://www.postgresql.org/docs/current/storage-toast.html) 
+Aşağıdaki PostgreSQL belgeleri inceleyin: 
+- [Bölüm 68, veritabanı fiziksel depolama alanı](https://www.postgresql.org/docs/current/storage-toast.html) 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4d75ab2328cbc18142742c3111ef1f5e7d8eb8f2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f67633ec62b28f54a97cccd0f27b43bdb626ee58
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731487"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822774"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Bir Microsoft uygulamasında oturum açma sorunları
 
@@ -34,11 +34,11 @@ Bir kullanıcı Microsoft tarafından yayımlanan bir uygulamaya erişim elde ed
 
 -   Microsoft veya bir 3. taraf yayımlar uygulamalar için ücretsiz olarak herkes için kullanıcılar ayrıca erişim aracılığıyla verilebilir **yönetici onayı**. Başka bir deyişle, bir yönetici tarafından kuruluşunuzdaki herkes uygulamaya bir genel yönetici hesabıyla oturum açın ve kuruluşunuzdaki herkes için erişim vermek için uygulama kullanılabilir belirledi.
 
-İle sorununuzu gidermek için Başlat [uygulama erişimi, dikkate alınması gereken genel sorun alanlarından](#general-problem-areas-with-application-access-to-consider) ve ardından okuma [izlenecek yol: Microsoft Application erişim sorunlarını giderme adımları](#walkthrough-steps-to-troubleshoot-microsoft-application-access) ayrıntıları alınamıyor.
+İle sorununuzu gidermek için Başlat [uygulama erişimi, dikkate alınması gereken genel sorun alanlarından](#general-problem-areas-with-application-access-to-consider) ve Kılavuzu okuyun: Microsoft Application erişim ayrıntıları almak için sorun giderme adımları.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Genel sorun alanlarından dikkate alınması gereken uygulama erişimi
 
-Nereden başlayacağınızı hakkında bir fikir varsa, ayrıntılarına ulaşabilirsiniz genel sorunlu alanları listesi aşağıda verilmiştir, ancak hızlı bir şekilde kullanmaya başlamak için adım adım kılavuzun okuma öneririz: [İzlenecek yol: Microsoft Application erişim sorunlarını giderme adımları](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Nereden başlayacağınızı hakkında bir fikir varsa, ayrıntılarına ulaşabilirsiniz genel sorunlu alanları listesi aşağıda verilmiştir, ancak hızlı bir şekilde kullanmaya başlamak için adım adım kılavuzun okuma öneririz: Çözüm: Microsoft Application erişim sorunlarını giderme adımları.
 
 -   [Kullanıcı hesabı ile ilgili sorunlar](#problems-with-the-users-account)
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: b81916de0940aa56eda97df94527fa6adc208285
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 23a1b2853423dd9f2a62c32792e27e3174495aff
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955839"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817045"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure Data Lake depolama Gen1 ile HDInsight kümeleri oluşturma
 > [!div class="op_single_selector"]
@@ -55,10 +55,10 @@ Bu bölümde, varsayılan veya ek depolama alanı olarak Data Lake depolama Gen1
 
     ![HDInsight kümesi için hizmet sorumlusu ekleme](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "HDInsight kümesi için hizmet sorumlusu ekleme")
 
-    - **Select Data Lake Store hesabı**: mevcut bir Data Lake depolama Gen1 hesabını seçin. Mevcut bir Data Lake depolama Gen1 hesabı gereklidir.  [Ön koşullara](#prerequisites) bakın.
-    - **Kök yolu**: depolanacak kümeye özgü dosyalar nerede bir yol girin. Ekran görüntüsünde olduğu __/kümeleri/myhdiadlcluster/__, hangi __/kümeleri__ klasör var olmalıdır ve portalın oluşturduğu *myhdicluster* klasör.  *Myhdicluster* küme adıdır.
-    - **Data Lake Store erişimi**: HDInsight kümesi ve Data Lake depolama Gen1 hesabı arasında erişim yapılandırın. Yönergeler için [yapılandırma Data Lake depolama Gen1 erişim](#configure-data-lake-store-access).
-    - **Ek depolama hesapları**: küme için ek depolama hesapları ekleme Azure depolama hesapları. Ek Data Lake depolama Gen1 hesapları eklemek için birincil depolama türü olarak Data Lake depolama Gen1 hesabı yapılandırırken verileri daha fazla Data Lake depolama Gen1 hesaplarında küme izinleri vermeyi tarafından gerçekleştirilir. Bkz: [yapılandırma Data Lake depolama Gen1 erişim](#configure-data-lake-store-access).
+    - **Select Data Lake Store hesabı**: Mevcut bir Data Lake depolama Gen1 hesabını seçin. Mevcut bir Data Lake depolama Gen1 hesabı gereklidir.  [Ön koşullara](#prerequisites) bakın.
+    - **Kök yolu**: Kümeye özgü dosyalar depolanacak nerede bir yol girin. Ekran görüntüsünde olduğu __/kümeleri/myhdiadlcluster/__, hangi __/kümeleri__ klasör var olmalıdır ve portalın oluşturduğu *myhdicluster* klasör.  *Myhdicluster* küme adıdır.
+    - **Data Lake Store erişimi**: HDInsight kümesi ve Data Lake depolama Gen1 hesabı arasında erişim yapılandırın. Data Lake depolama Gen1 yapılandırma yönergeleri için bkz erişim.
+    - **Ek depolama hesapları**: Azure depolama hesapları, küme için ek depolama hesapları olarak ekleyin. Ek Data Lake depolama Gen1 hesapları eklemek için birincil depolama türü olarak Data Lake depolama Gen1 hesabı yapılandırırken verileri daha fazla Data Lake depolama Gen1 hesaplarında küme izinleri vermeyi tarafından gerçekleştirilir. Bkz: yapılandırma Data Lake depolama Gen1 erişim.
 
 4. Üzerinde **Data Lake Store erişimi**, tıklayın **seçin**ve açıklandığı gibi küme oluşturma işlemine devam etmek [Hadoop kümeleri oluşturma HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -207,7 +207,7 @@ Bir Storm topolojisinden veri yazmak için Data Lake depolama Gen1 hesabı kulla
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Data Lake depolama Gen1 Azure HDInsight kümeleri ile kullanma](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [PowerShell: Data Lake depolama Gen1 kullanmak için HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [PowerShell: Data Lake depolama Gen1 kullanılacak bir HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

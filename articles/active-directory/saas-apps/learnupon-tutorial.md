@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: a548f11b1f423fb738108d9314f2fc887ef02c52
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66953eaa4c42b419a5146ccc396fddda15a31c35
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176854"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811368"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Öğretici: LearnUpon ile Azure Active Directory Tümleştirme
 
@@ -208,7 +208,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümün amacı LearnUpon Britta Simon adlı bir kullanıcı oluşturmaktır. LearnUpon tam zamanında sağlama, varsayılan olarak etkin olan destekler.
 
-Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı henüz mevcut değilse LearnUpon erişme denemesi sırasında oluşturulur. [Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-single-sign-on).
+Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı henüz mevcut değilse LearnUpon erişme denemesi sırasında oluşturulur. Azure AD çoklu oturum açmayı yapılandırma.
 
 >[!NOTE]
 >Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [LearnUpon Destek ekibine](https://www.learnupon.com/features/support/). 

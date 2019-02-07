@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b48382c8f429576a3d15c624c9c9028cffec3872
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508411"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813033"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>PowerShell kullanarak Azure VPN Gateways üzerinde BGP yapılandırma
 Bu makalede şirket içi siteden siteye (S2S) VPN bağlantısı ve Resource Manager dağıtım modeli ve PowerShell kullanarak VNet-VNet bağlantısı BGP'yi etkinleştirmek için adımlarında size kılavuzluk eder.
@@ -35,7 +35,7 @@ Bkz: [Azure VPN Gateways ile BGP'ye genel bakış](vpn-gateway-bgp-overview.md) 
 Bu makalede, aşağıdaki görevleri gerçekleştirmek için adımları gösterilmektedir:
 
 * [Bölüm 1 - etkinleştirin, Azure VPN Gateway'deki BGP](#enablebgp)
-* [2. Kısım - BGP ile şirketler arası bağlantı kurun](#crossprembgp)
+* 2. Kısım - BGP ile şirketler arası bağlantı kurun
 * [3. Kısım - BGP ile VNet-VNet bağlantı kurun](#v2vbgp)
 
 Ağ bağlantınızı BGP etkinleştirmek için yapı taşlarından yönergeleri her bir parçasını oluşturur. Üç tüm bölümleri tamamlayın, aşağıdaki diyagramda gösterildiği gibi topoloji derleme:

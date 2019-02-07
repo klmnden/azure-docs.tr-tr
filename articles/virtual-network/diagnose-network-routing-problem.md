@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee807387b5fc7c8a9d42564cdb6cee7d59db2508
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429643"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819799"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Bir sanal makine yönlendirme sorunu tanılama
 
@@ -116,7 +116,7 @@ Genellikle yönlendirme sorunlarını çözme şunlardan oluşur:
 - Herhangi bir özel yolları içeren bir yol tablosu, tanımladınız sağlama, ağ arabiriminin içinde bulunduğu alt ağ için ilişkilidir. Bilgi edinmek için nasıl [bir alt ağ yönlendirme tablosunu ilişkilendirme](manage-route-table.md#associate-a-route-table-to-a-subnet).
 - Cihazlar, dağıtılan Azure VPN ağ geçidi veya ağ sanal Gereçleri gibi çalıştırılabilir olduğundan emin olmak. Kullanım [VPN tanılamalarını](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) herhangi bir Azure VPN gateway sorunları belirlemek için Ağ İzleyicisi özelliğidir.
 
-İletişim sorunları yaşamaya devam ediyorsanız bkz [konuları](#considerations) ve [ek tanılama](#additional-dignosis).
+İletişim sorunları yaşamaya devam ediyorsanız bkz [konuları](#considerations) ve ek tanılama.
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 

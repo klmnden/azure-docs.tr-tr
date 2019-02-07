@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2e986e26f22e41e1cbf7b8d1c1af694522a01d06
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076835"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821584"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -70,7 +70,7 @@ Nasıl yeni bir HDInsight mevcut bir Azure sanal ağına eklemek keşfetmek içi
 
     Yönetilen bir hizmet olarak HDInsight, Azure veri merkezinde birden fazla IP adresi için sınırsız erişim gerektirir. Bu IP adresleri ile iletişime izin vermek için herhangi bir mevcut ağ güvenlik grupları veya kullanıcı tanımlı yollar güncelleştirin.
 
-    HDInsight, çeşitli bağlantı noktaları kullanan birden çok hizmetleri barındırır. Bu bağlantı noktaları için trafiği engellemediğinizden. Sanal gereç güvenlik duvarlarından izin vermek için bağlantı noktalarının listesi için bkz. [güvenlik](#security) bölümü.
+    HDInsight, çeşitli bağlantı noktaları kullanan birden çok hizmetleri barındırır. Bu bağlantı noktaları için trafiği engellemediğinizden. Sanal gereç güvenlik duvarlarından izin vermek için bağlantı noktalarının listesi için güvenlik bölümüne bakın.
 
     Mevcut güvenlik yapılandırmanızı bulmak için aşağıdaki Azure PowerShell veya Azure Klasik CLI komutları kullanın:
 

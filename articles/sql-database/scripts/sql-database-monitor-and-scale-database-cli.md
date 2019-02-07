@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7adb3023437fa525fad2cb167154b68bb03ff160
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 18d4127e8babfcb541312d14b80d2d5477feb331
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467399"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766445"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>CLI kullanarak tek bir SQL veritabanını izleme ve ölçeklendirme
 
@@ -52,7 +52,7 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Tek veritabanları ve elastik havuzlar barındıran bir SQL veritabanı sunucusu oluşturur. |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-show-usage) | Bir tek veya havuza alınmış veritabanının boyut kullanım bilgilerini gösterir. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db) | Bir tek veya havuza alınmış veritabanının boyut kullanım bilgilerini gösterir. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Veritabanı özelliklerini (hizmet katmanı veya işlem boyutu) güncelleştirir veya bir veritabanını elastik havuzun içine veya dışına ya da elastik havuzlar arasında taşır. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 |||

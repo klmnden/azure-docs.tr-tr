@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ef70b9e58a669695f3bdec7ad8ea4bab93e7e4b9
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 084784af256fdf31cf1661109c0535cb91ef1db5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082053"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817427"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>GRANT B2B kullanıcıları Azure AD'de, şirket içi uygulamalarınıza erişim
 
@@ -43,7 +43,7 @@ B2B kullanıcıları tümleşik Windows kimlik doğrulaması ve Kerberos kısıt
 
    B2B kullanıcı senaryosu için şirket içi dizin yetkilendirme için gerekli olan Konuk kullanıcı nesneleri oluşturmak için kullanabileceğiniz iki yöntem vardır:
 
-   - Microsoft Identity Manager (MIM) ve [MIM yönetim aracısı için Microsoft Graph](#create-b2b-guest-user-objects-through-mim-preview). 
+   - Microsoft Identity Manager (MIM) ve Microsoft Graph için MIM yönetim Aracısı. 
    - [Bir PowerShell Betiği](#create-b2b-guest-user-objects-through-a-script-preview). Betik kullanarak MIM gerektirmeyen daha basit bir çözümdür. 
 
 Aşağıdaki diyagramda, dizin iş birlikte B2B kullanıcıları şirket içi IWA ve KCD uygulamalarınıza erişim vermek için Azure AD uygulama ara sunucusu üst düzey bir genel bakış ve şirket içi B2B kullanıcı nesnesinin oluşturulmasını sağlar. Numaralandırılmış adımları aşağıdaki diyagramda ayrıntılı açıklanmıştır.

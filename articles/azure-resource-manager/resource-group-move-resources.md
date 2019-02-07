@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: e47334a20072f4b9f4d1401b5dd1f848fa99df5a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497324"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810295"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -239,7 +239,7 @@ Aynı abonelik içindeki başka bir kaynak grubu için bir kaynak grubundan kayn
 * Bir kerede yalnızca bir depolama hesabı (Klasik) taşınabilir.
 * Depolama hesabı (Klasik), bir sanal makine veya Bulut hizmeti ile aynı işlemde taşınamaz.
 
-Klasik kaynakları aynı abonelik içindeki yeni bir kaynak grubuna taşımak için aracılığıyla standart taşıma işlemlerini kullanın. [portalı](#use-portal), [Azure PowerShell](#use-powershell), [Azure CLI](#use-azure-cli), veya [REST API](#use-rest-api). Resource Manager kaynaklarını taşımak için kullandığınız gibi işlemlerin aynısını kullanın.
+Klasik kaynakları aynı abonelik içindeki yeni bir kaynak grubuna taşımak için aracılığıyla standart taşıma işlemlerini kullanın. [portalı](#use-portal), Azure PowerShell, Azure CLI veya REST API. Resource Manager kaynaklarını taşımak için kullandığınız gibi işlemlerin aynısını kullanın.
 
 #### <a name="new-subscription"></a>Yeni abonelik
 

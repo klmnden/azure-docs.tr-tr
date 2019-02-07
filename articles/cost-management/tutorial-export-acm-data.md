@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053543"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766431"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Oluşturma ve dışarı aktarılan verileri yönetme
 
@@ -30,8 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Verilerin toplandığını doğrulama
 
 ## <a name="prerequisites"></a>Önkoşullar
-
-Veri dışarı aktarma tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşterileri tarafından kullanılabilir. Aşağıdaki Azure izinleri abonelik başına kullanıcı ve grup tarafından yapılan veri dışarı aktarımı için desteklenir:
+Verileri dışarı aktarma da dahil olmak üzere, Azure hesap türleri için çeşitli kullanılabilir [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşteriler. Desteklenen bir hesap türleri için tam listesini görüntülemek için bkz: [anlamak maliyet Yönetimi verilerine](understand-cost-mgt-data.md). Aşağıdaki Azure izinleri abonelik başına kullanıcı ve grup tarafından yapılan veri dışarı aktarımı için desteklenir:
 
 - Sahip – Bir abonelik için zamanlanan dışarı aktarmaları oluşturabilir, değiştirebilir veya silebilir.
 - Katkıda bulunan – Kendi zamanlanan dışarı aktarmalarını oluşturabilir, değiştirebilir veya silebilir. Başkaları tarafından oluşturulan zamanlanmış dışarı aktarmaların adını değiştirebilir.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228296"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821958"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure ExpressRoute, Azure Vm'leri için olağanüstü durum kurtarma ile tümleştirin
 
@@ -190,7 +190,7 @@ Yük devretme sonrasında aynı IP adresine sahip tek bir ExpressRoute bağlant�
 ### <a name="example-steps"></a>Örnek adımlar
 Bu örnekte, burada ait kurtarma otomatik hale getirmek için yapmanız gerekenler:
 
-1. Adımlarını izleyin [çoğaltmayı ayarlama](#azure-vm-replication-steps).
+1. Çoğaltmayı ayarlama adımlarını izleyin.
 2. [Azure Vm'leri üzerinde başarısız](azure-to-azure-tutorial-failover-failback.md), aşağıdaki ek adımları sırasında veya sonrasında ile.
 
     a. Azure ExpressRoute ağ geçidi, hedef bölge merkez sanal ağda oluşturun. Bu hedef hub sanal ağı ExpressRoute devresine bağlama gereklidir.

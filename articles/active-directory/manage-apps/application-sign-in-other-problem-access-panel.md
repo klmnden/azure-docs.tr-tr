@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 529191cf867b6003b0c2eab5ed919087277c7095
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6dfc0f80285dfd7da6e78d7cbf9c993fed388a2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178044"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813543"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Bir uygulamaya erişim panelinden oturum açmada sorun
 
@@ -104,7 +104,7 @@ Tüm Kurumsal çoklu oturum açma özelliğine sahip etkin bir Azure AD Galerisi
 
 Bir uygulama için gereken Azure AD Galerisi yapılandırmak için:
 
--   [Uygulama Azure AD galeri ekleme](#add-an-application)
+-   Uygulama Azure AD galeri ekleme
 
 -   [(Oturum açma URL'si, tanımlayıcı, yanıt URL'si) Azure AD'de uygulama meta verileri değerlerini yapılandırma](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -114,7 +114,7 @@ Bir uygulama için gereken Azure AD Galerisi yapılandırmak için:
 
 -   [(Oturum açma URL'si, veren, oturum kapatma URL'si ve sertifikasını'de) uygulamasında Azure AD meta verileri değerlerini yapılandırma](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Uygulamaya kullanıcı atama](#assign-users-to-the-application)
+-   Uygulamaya kullanıcı atama
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Uygulama Azure AD galeri ekleme
 
@@ -362,9 +362,9 @@ Azure AD uygulama meta verileri veya sertifika indirmek için aşağıdaki adım
 
 Bir uygulama için gereken Azure AD Galerisi yapılandırmak için:
 
--   [Uygulama Azure AD galeri ekleme](#add-an-application)
+-   Uygulama Azure AD galeri ekleme
 
--   [Parola çoklu oturum açma için uygulamayı yapılandırma](#configure-the-application)
+-   Parola çoklu oturum açma için uygulamayı yapılandırma
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Uygulama Azure AD galeri ekleme
 

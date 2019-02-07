@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: be8a6ba83de81c5a82797ecf3d30c7a7fcaa65fa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162778"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822519"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede kullanım koşulları ile çalışmaya başlama işlemini açıklamaktadır.
@@ -337,7 +337,7 @@ Microsoft Intune kaydı uygulama için bir koşullu erişim ilkesini yapılandı
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 **S: Nasıl görebilirim ne zaman / kullanıcı kullanım koşullarını kabul ettiğini?**<br />
-C: Kullanım dikey koşullarınızda altındaki sayıya tıklayın **kabul edilen**. Ayrıca görüntüleyebilir veya Azure AD'de arama kabul etkinliğine denetim günlükleri. Daha fazla bilgi için [kimin kabul ve reddedilen, raporu görüntüle](#view-who-has-accepted-and-declined) ve [görünümü Azure AD denetim günlüklerini](#view-azure-ad-audit-logs).
+C: Kullanım dikey koşullarınızda altındaki sayıya tıklayın **kabul edilen**. Ayrıca görüntüleyebilir veya Azure AD'de arama kabul etkinliğine denetim günlükleri. Daha fazla bilgi için bkz: görüntüleme kimin kabul ve reddedilen rapor ve [görünümü Azure AD denetim günlüklerini](#view-azure-ad-audit-logs).
 
 **S: Ne kadar süreyle depolanan bilgilerin mi?**<br />
 C: Kullanım raporu ve kimin kabul ve reddedilen kullanım koşulları süresince depolanan şartları kullanıcı sayar. Azure AD denetim günlükleri, 30 gün boyunca saklanır.

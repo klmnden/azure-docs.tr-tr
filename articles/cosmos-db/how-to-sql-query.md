@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459035"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822417"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorgu örnekleri
 
@@ -1365,29 +1365,29 @@ Matematiksel işlevler her bağımsız değişken olarak sağlanan ve sayısal b
 
 | Kullanım | Açıklama |
 |----------|--------|
-| [[ABS (num_expr)](#bk_abs) | Belirtilen sayısal ifade (pozitif) mutlak değerini döndürür. |
-| [TAVAN (num_expr)](#bk_ceiling) | Büyüktür veya eşittir, belirtilen sayısal ifadenin en küçük tamsayı değerini döndürür. |
-| [KATI (num_expr)](#bk_floor) | Belirtilen sayısal ifade küçük veya eşit en büyük tamsayı döndürür. |
-| [EXP (num_expr)](#bk_exp) | Belirtilen sayısal ifadenin üssünü döndürür. |
+| [ABS (num_expr) | Belirtilen sayısal ifade (pozitif) mutlak değerini döndürür. |
+| TAVAN (num_expr) | Büyüktür veya eşittir, belirtilen sayısal ifadenin en küçük tamsayı değerini döndürür. |
+| KATI (num_expr) | Belirtilen sayısal ifade küçük veya eşit en büyük tamsayı döndürür. |
+| EXP (num_expr) | Belirtilen sayısal ifadenin üssünü döndürür. |
 | [Günlük (num_expr [, temel])](#bk_log) | Belirtilen sayısal ifade veya kullanarak belirtilen tabanda logaritmasını doğal logaritmasını döndürür |
-| [Log10 (num_expr)](#bk_log10) | 10 tabanında Logaritmik belirtilen sayısal ifadenin değerini döndürür. |
-| [ROUND (num_expr)](#bk_round) | En yakın tamsayı değerine yuvarlanır sayısal bir değer döndürür. |
-| [TRUNC (num_expr)](#bk_trunc) | En yakın tamsayı değerine kesilmiş sayısal bir değer döndürür. |
-| [SQRT (num_expr)](#bk_sqrt) | Belirtilen sayısal ifadenin kare kökünü döndürür. |
-| [KARE (num_expr)](#bk_square) | Belirtilen sayısal ifade karesini döndürür. |
+| Log10 (num_expr) | 10 tabanında Logaritmik belirtilen sayısal ifadenin değerini döndürür. |
+| ROUND (num_expr) | En yakın tamsayı değerine yuvarlanır sayısal bir değer döndürür. |
+| TRUNC (num_expr) | En yakın tamsayı değerine kesilmiş sayısal bir değer döndürür. |
+| SQRT (num_expr) | Belirtilen sayısal ifadenin kare kökünü döndürür. |
+| KARE (num_expr) | Belirtilen sayısal ifade karesini döndürür. |
 | [GÜÇ (num_expr, num_expr)](#bk_power) | Belirtilen sayısal ifade gücünü belirtilen değeri döndürür. |
-| [OTURUM (num_expr)](#bk_sign) | Oturum (-1, 0, 1) belirtilen sayısal ifadenin değerini döndürür. |
-| [ACOS (num_expr)](#bk_acos) | Kosinüsü belirtilen sayısal ifadesidir radyan cinsinden açı döndürür; arkkosinüsünü olarak da adlandırılır. |
-| [ASIN (num_expr)](#bk_asin) | Açının sinüsü belirtilen sayısal ifadesidir radyan cinsinden döndürür. Bu işlev, arksinüsünü olarak da adlandırılır. |
-| [ATAN (num_expr)](#bk_atan) | Tanjantı belirtilen sayısal ifadesidir radyan cinsinden açı döndürür. Bu arktanjantını olarak da adlandırılır. |
-| [ATN2 (num_expr)](#bk_atn2) | Burada açıyı pozitif x ekseni ve kaynaktan ray noktasına (y, x) arasında radyan cinsinden döndürür x ve y iki belirtilen float ifadelerin değerlerdir. |
-| [COS (num_expr)](#bk_cos) | Radyan cinsinden belirtilen ifade trigonometrik belirtilen bir açının kosinüsünü döndürür. |
-| [COT (num_expr)](#bk_cot) | Trigonometrik belirtilen bir açının kotanjantını radyan cinsinden belirtilen bir sayısal ifade döndürür. |
-| [DERECE (num_expr)](#bk_degrees) | Karşılık gelen açıyı derece için radyan cinsinden belirtilen bir açı cinsinden döndürür. |
-| [PI ()](#bk_pi) | PI sayısının sabit değerini döndürür. |
-| [RADYAN (num_expr)](#bk_radians) | Derece sayısal bir ifadenin girildiğinde radyan cinsinden döndürür. |
-| [SIN (num_expr)](#bk_sin) | Radyan cinsinden belirtilen ifade trigonometrik belirtilen bir açının sinüsünü döndürür. |
-| [TAN (num_expr)](#bk_tan) | Belirtilen ifadedeki giriş ifadesi tanjantını döndürür. |
+| OTURUM (num_expr) | Oturum (-1, 0, 1) belirtilen sayısal ifadenin değerini döndürür. |
+| ACOS (num_expr) | Kosinüsü belirtilen sayısal ifadesidir radyan cinsinden açı döndürür; arkkosinüsünü olarak da adlandırılır. |
+| ASIN (num_expr) | Açının sinüsü belirtilen sayısal ifadesidir radyan cinsinden döndürür. Bu işlev, arksinüsünü olarak da adlandırılır. |
+| ATAN (num_expr) | Tanjantı belirtilen sayısal ifadesidir radyan cinsinden açı döndürür. Bu arktanjantını olarak da adlandırılır. |
+| ATN2 (num_expr) | Burada açıyı pozitif x ekseni ve kaynaktan ray noktasına (y, x) arasında radyan cinsinden döndürür x ve y iki belirtilen float ifadelerin değerlerdir. |
+| COS (num_expr) | Radyan cinsinden belirtilen ifade trigonometrik belirtilen bir açının kosinüsünü döndürür. |
+| COT (num_expr) | Trigonometrik belirtilen bir açının kotanjantını radyan cinsinden belirtilen bir sayısal ifade döndürür. |
+| DEGREES (num_expr) | Karşılık gelen açıyı derece için radyan cinsinden belirtilen bir açı cinsinden döndürür. |
+| PI () | PI sayısının sabit değerini döndürür. |
+| RADYAN (num_expr) | Derece sayısal bir ifadenin girildiğinde radyan cinsinden döndürür. |
+| SIN (num_expr) | Radyan cinsinden belirtilen ifade trigonometrik belirtilen bir açının sinüsünü döndürür. |
+| TAN (num_expr) | Belirtilen ifadedeki giriş ifadesi tanjantını döndürür. |
 
 Örneğin, şimdi sorguları aşağıdaki örnekte gösterildiği gibi çalıştırabilirsiniz:
 

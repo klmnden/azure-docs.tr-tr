@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: 6a5a2fee11d785c7513b6c1d1e66bd8b80d80292
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9fd7a3c03c72a63f4163f85ac41248e200397206
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749721"
+ms.locfileid: "55770729"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Hesabım için iki aşamalı doğrulama ayarlayın
 İki aşamalı doğrulama, kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır. Bu makalede okuyorsanız, büyük olasılıkla bir e-posta iş veya Okul yöneticinizin multi-Factor Authentication hakkında aldığınız. Veya belki de oturum açmaya ve ek güvenlik doğrulama ayarlayın isteyen bir ileti alındı. Bu durum söz konusuysa **otomatik kayıt işlemini tamamlayıncaya kadar oturum açamazsınız**.
@@ -106,4 +106,4 @@ QR reader'ı kullanarak yerine el ile hesap mobil uygulamaya eklemek istiyorsan�
 ## <a name="next-steps"></a>Sonraki adımlar
 * Tercih edilen seçeneklerinizi değiştirin ve [iki adımlı doğrulama ayarlarınızı yönetme](multi-factor-authentication-end-user-manage-settings.md)
 * Ayarlanan [uygulama parolaları](multi-factor-authentication-end-user-app-passwords.md) iki aşamalı doğrulamayı desteklemeyen yerel cihaz uygulamaları için.
-* Kullanıma [Microsoft Authenticator uygulamasını](microsoft-authenticator-app-how-to.md) bile hücre hizmeti olmadığında hızlı ve güvenli kimlik doğrulaması.
+* Kullanıma [Microsoft Authenticator uygulamasını](user-help-auth-app-download-install.md) bile hücre hizmeti olmadığında hızlı ve güvenli kimlik doğrulaması.

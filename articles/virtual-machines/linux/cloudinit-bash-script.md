@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 8e8950cbd7927cb6b0543866ab976b550c9ec043
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f65ebfd2e1ce508c5cf9b224871102a35b55fe0
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959555"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770335"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Azure'da bir Linux sanal makinesi bir bash betiğini çalıştırmak için cloud-init kullanma
 Bu makalede nasıl kullanılacağını gösterir [cloud-init](https://cloudinit.readthedocs.io) çalıştırmak için mevcut bir bash betiği bir Linux sanal makinesine (VM) veya sanal makine ölçek kümeleri (VMSS) zaman azure'da sağlama sırasında. Kaynakları Azure tarafından sağlanan sonra ilk önyüklemede bu cloud-init betikleri çalıştırın. Cloud-init yerel olarak desteklenen Linux dağıtımları ve Azure ile işleyişi hakkında daha fazla bilgi için bkz. [cloud-init genel bakış](using-cloud-init.md)
@@ -36,13 +36,13 @@ Bu işlevi iş başında görmek için test etmek için basit bir bash komut dos
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-Bu görüntü dağıtmadan önce bir kaynak grubu oluşturmak için ihtiyacınız [az grubu oluşturma](/cli/azure/group#az_group_create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Bu görüntü dağıtmadan önce bir kaynak grubu oluşturmak için ihtiyacınız [az grubu oluşturma](/cli/azure/group) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Şimdi bir VM oluşturun [az vm oluşturma](/cli/azure/vm#az_vm_create) ve bash komut dosyasıyla belirtin `--custom-data simple_bash.sh` gibi:
+Şimdi bir VM oluşturun [az vm oluşturma](/cli/azure/vm) ve bash komut dosyasıyla belirtin `--custom-data simple_bash.sh` gibi:
 
 ```azurecli-interactive 
 az vm create \

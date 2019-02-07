@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: c958e4e11ba5eb88a8357c8ab373b6501e3eac6a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d5f4dc7f4abc13f253a206a63e65faf1106f9c7c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189927"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766189"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Güncelleştirmek ve azure'da bir Linux sanal makinesi, paketleri yüklemek için cloud-init kullanma
 Bu makalede nasıl kullanılacağını gösterir [cloud-init](https://cloudinit.readthedocs.io) güncelleştirme paketleri bir Linux için sanal makine (VM) ya da sanal makine ölçek kümeleri (VMSS zaman azure'da sağlama sırasında). Kaynakları Azure tarafından sağlanan sonra ilk önyüklemede bu cloud-init betikleri çalıştırın. Cloud-init yerel olarak desteklenen Linux dağıtımları ve Azure ile işleyişi hakkında daha fazla bilgi için bkz. [cloud-init genel bakış](using-cloud-init.md)
@@ -42,7 +42,7 @@ Bu görüntü dağıtmadan önce bir kaynak grubu oluşturmak için ihtiyacını
 az group create --name myResourceGroup --location eastus
 ```
 
-Şimdi bir VM oluşturun [az vm oluşturma](/cli/azure/vm#az_vm_create) ve cloud-init dosyası ile `--custom-data cloud_init_upgrade.txt` gibi:
+Şimdi bir VM oluşturun [az vm oluşturma](/cli/azure/vm) ve cloud-init dosyası ile `--custom-data cloud_init_upgrade.txt` gibi:
 
 ```azurecli-interactive 
 az vm create \

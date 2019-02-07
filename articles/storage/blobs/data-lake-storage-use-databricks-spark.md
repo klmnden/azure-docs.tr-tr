@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: 31d18d7ea4ee195f7ffcfa04fb247b5dfd525c6a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 533665ebfa3d35ed5f03326cf5614e37056b7713
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251495"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813611"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 önizlemesi verilere erişme
 
@@ -24,29 +24,37 @@ Bu öğreticide şunları yapacaksınız:
 > [!div class="checklist"]
 > * Databricks kümesi oluşturma
 > * Yapılandırılmamış verileri bir depolama hesabına alma
-> * Blob depolama alanındaki verilerinizde analiz çalıştırma
+> * Blob depolama alanındaki verilerinizi analiz çalıştırın
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide [Amerika Birleşik Devletleri Ulaştırma Bakanlığı](https://transtats.bts.gov/DL_SelectFields.asp) tarafından sunulan hava yolları uçuş verilerini kullanma ve sorgulama adımları gösterilmektedir. 
+* Bir Azure Data Lake depolama Gen2 hesabı oluşturun.
 
-1. Seçin **Prezipped dosya** tüm veri alanlarını seçmek için onay kutusunu.
-2. Seçin **indirme** ve sonuçları makinenize kaydedin.
-3. Dosya adını not ve indirme yolunu oluşturmak; Bu bilgiler sonraki adımda ihtiyacınız var.
+  Bkz: [bir Azure Data Lake depolama Gen2 hesabı oluşturma](data-lake-storage-quickstart-create-account.md).
 
-Bu öğreticiyi tamamlamak için bir depolama hesabı analitik özellikleriyle gerekir. Tamamlama öneririz bizim [hızlı](data-lake-storage-quickstart-create-account.md) oluşturmak için konu ile ilgili. 
+* Kullanıcı hesabınız olduğundan emin olun [depolama Blob verileri katkıda bulunan rolü](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) atanmış.
 
-## <a name="set-aside-storage-account-configuration"></a>Depolama hesabı yapılandırmasını not alın
+* AzCopy v10 yükleyin. Bkz: [v10 AzCopy ile veri aktarma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-Depolama hesabınızın ve bir dosya sistemi uç noktası URI'si adı gerekir.
+### <a name="download-the-flight-data"></a>Uçuş verilerini indirme
 
-Azure portalında depolama hesabınızın adını almak için seçtiğiniz **tüm hizmetleri** ve filtre terimini *depolama*. Ardından, **depolama hesapları** ve depolama hesabınızı bulun.
+Bu öğreticide, nakliye büro istatistikleri uçuş verileri bir ETL işlemi gerçekleştirmek nasıl göstermek için kullanılır. Bu öğreticiyi tamamlamak için bu verileri indirmeniz gerekir.
 
-Dosya sistemi uç noktası URI'si almak için seçtiğiniz **özellikleri**, Özellikler bölmesinde değerini bulun **birincil ADLS dosya sistemi uç noktası** alan.
+1. Git [araştırma ve yenilikçi teknoloji yönetim, nakliye istatistikleri bürosu](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
-Hem bu değerleri bir metin dosyasına yapıştırın. Bunları yakında gerekir.
+2. Seçin **Prezipped dosya** tüm veri alanlarını seçmek için onay kutusunu.
+
+3. Seçin **indirme** düğmesine tıklayın ve sonuçlar bilgisayarınıza kaydedin. 
+
+4. Sıkıştırılmış dosyanın içeriğini sıkıştırmasını ve dosya adını not ve dosyanın yolu. Bu bilgiler sonraki adımda ihtiyacınız var.
+
+## <a name="get-your-storage-account-name"></a>Depolama hesabınızın adını Al
+
+Depolama hesabınızın adı gerekir. Buna ulaşmak için oturum [Azure portalında](https://portal.azure.com/), seçin **tüm hizmetleri** ve filtre terimini *depolama*. Ardından, **depolama hesapları** ve depolama hesabınızı bulun.
+
+Adı bir metin dosyasına yapıştırın. Yakında gerekir.
 
 <a id="service-principal"/>
 
@@ -54,35 +62,75 @@ Hem bu değerleri bir metin dosyasına yapıştırın. Bunları yakında gerekir
 
 Bu konudaki yönergeleri izleyerek bir hizmet sorumlusu oluşturun: [Nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Bu makaledeki adımları gerçekleştirmek gibi gerekir ve belirli birkaç şey var.
-
-:heavy_check_mark: Adımları gerçekleştirirken [bir Azure Active Directory uygulaması oluşturma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) bölümü makalenin ayarladığınızdan emin olun **oturum açma URL'si** alanını **Oluştur** iletişim kutusu uç nokta URI'si, az önce toplanan.
+Birkaç, bu makaledeki adımları gerçekleştirmek olarak gerçekleştirmeniz yeterli bir şey yoktur.
 
 :heavy_check_mark: Adımları gerçekleştirirken [uygulamanızı bir role atama](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümü makalenin uygulamanıza atanacak emin **Blob Depolama katkıda bulunan rolü**.
 
 :heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
 
-## <a name="create-a-databricks-cluster"></a>Databricks kümesi oluşturma
+## <a name="create-an-azure-databricks-service"></a>Azure Databricks hizmeti oluşturma
 
-Sonraki adım, veri çalışma alanı oluşturmak için Databricks kümesini oluşturmaktır.
+Bu bölümde, Azure portalını kullanarak bir Azure Databricks hizmeti oluşturun.
 
-1. Gelen [Azure portalında](https://portal.azure.com)seçin **kaynak Oluştur**.
-2. Girin **Azure Databricks** arama alanına.
-3. Seçin **Oluştur** Azure Databricks dikey penceresinde.
-4. Databricks hizmetinizi adlandırın **myFlightDataService** (mutlaka denetleyin *panoya Sabitle* checkbox aynı hizmet oluşturma).
-5. Seçin **çalışma alanını Başlat** çalışma alanına yeni bir tarayıcı penceresinde açın.
-6. Seçin **kümeleri** sol gezinti çubuğundaki.
-7. Seçin **küme oluşturma**.
-8. **Cluster name** (Küme adı) alanına **myFlightDataCluster** yazın.
-9. **Worker Type** (Çalışan Türü) alanında **Standard_D8s_v3** seçeneğini belirleyin.
-10. **Min Workers** (Minimum Çalışan) değerini **4** olarak değiştirin.
-11. Seçin **küme oluşturma** sayfanın üstünde. (Bu işlem son 5 dakika kadar sürebilir.)
-12. İşlem tamamlandığında seçin **Azure Databricks** üzerinde gezinti çubuğunda sol üst köşesindeki.
-13. Sayfanın alt yarısındaki **New** (Yeni) bölümünden **Notebook** (Not Defteri) öğesini seçin.
-14. İçinde tercih ettiğiniz bir ad girin **adı** alan ve seçim **Python** dili olarak.
-15. Diğer tüm alanlar varsayılan değerlerde bırakılabilir.
-16. **Oluştur**’u seçin.
-17. Kopyala ve ilk hücreye aşağıdaki kod bloğu yapıştırın, ancak bu kodun henüz çalışmıyor.
+1. Azure portalında **Kaynak oluşturun** > **Analiz** > **Azure Databricks**'i seçin.
+
+    ![Azure portalında Databricks](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks on Azure portal")
+
+2. Altında **Azure Databricks hizmeti**, Databricks hizmeti oluşturmak için aşağıdaki değerleri sağlayın:
+
+    |Özellik  |Açıklama  |
+    |---------|---------|
+    |**Çalışma alanı adı**     | Databricks çalışma alanınız için bir ad sağlayın.  |
+    |**Abonelik**     | Açılan listeden Azure aboneliğinizi seçin.        |
+    |**Kaynak grubu**     | Yeni bir kaynak grubu oluşturmayı veya mevcut bir kaynak grubunu kullanmayı seçin. Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Daha fazla bilgi için bkz. [Azure Kaynak Grubuna genel bakış](../../azure-resource-manager/resource-group-overview.md). |
+    |**Konum**     | **Batı ABD 2**'yi seçin. Kullanılabilir diğer bölgeler için bkz. [Bölgeye göre kullanılabilir Azure hizmetleri](https://azure.microsoft.com/regions/services/).       |
+    |**Fiyatlandırma Katmanı**     |  Seçin **standart**.     |
+
+    ![Bir Azure Databricks çalışma alanı oluşturma](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "bir Azure Databricks hizmeti oluşturma")
+
+3. **Panoya sabitle**’yi ve sonra **Oluştur**’u seçin.
+
+4. Hesabın oluşturulması birkaç dakika sürer. Hesap oluşturma sırasında portal görüntüler **Azure Databricks için dağıtım gönderiliyor** kutucuğuna sağ tarafta. İşlem durumunu izlemek için üst kısmında ilerleme çubuğunu görüntüleyin.
+
+    ![Databricks dağıtım kutucuğu](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Databricks dağıtım kutucuğu")
+
+## <a name="create-a-spark-cluster-in-azure-databricks"></a>Azure Databricks’te Spark kümesi oluşturma
+
+1. Azure portalında, oluşturduğunuz Databricks hizmetine gidin ve seçin **çalışma alanını Başlat**.
+
+2. Azure Databricks portalına yönlendirilirsiniz. Portaldan **Küme**’yi seçin.
+
+    ![Azure’da Databricks](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Databricks on Azure")
+
+3. **Yeni küme** sayfasında, bir küme oluşturmak için değerleri girin.
+
+    ![Azure’da Databricks Spark kümesi oluşturma](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
+
+4. Aşağıdaki alanlara değerleri girin ve diğer alanlar için varsayılan değerleri kabul edin:
+
+    * Küme için bir ad girin.
+
+    * Bu makale için bir küme oluşturun **5.1** çalışma zamanı.
+
+    * Seçtiğinizden emin olun **sonra Sonlandır \_ \_ yapılmadan geçecek dakika cinsinden** onay kutusu. Küme kullanılmıyor ise küme sonlandırmak için bir süre (dakika cinsinden) belirtin.
+
+    * **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleme ve Spark işleri çalıştırabilirsiniz.
+
+## <a name="create-a-file-system-and-mount-it"></a>Bir dosya sistemi oluşturun ve bunu bağlama
+
+Bu bölümde, depolama hesabınızdaki bir dosya sistemi ve klasör oluşturacaksınız.
+
+1. İçinde [Azure portalında](https://portal.azure.com), oluşturduğunuz Azure Databricks hizmetine gidin ve seçin **çalışma alanını Başlat**.
+
+2. Sol tarafta, seçin **çalışma**. **Çalışma Alanı** açılır listesinden **Oluştur** > **Not Defteri**’ni seçin.
+
+    ![Databricks'te not defteri oluşturma](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Databricks not defteri oluşturma")
+
+3. **Not Defteri Oluştur** iletişim kutusunda, not defterinizin adını girin. Seçin **Python** dilini ve ardından Spark kümesini gibi daha önce oluşturduğunuz.
+
+4. **Oluştur**’u seçin.
+
+5. Kopyala ve ilk hücreye aşağıdaki kod bloğu yapıştırın, ancak bu kodun henüz çalışmıyor.
 
     ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
@@ -99,63 +147,66 @@ Sonraki adım, veri çalışma alanı oluşturmak için Databricks kümesini olu
     ```
 18. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` adımları tamamlandığında topladığınız değerleri bu kod bloğu içinde yer tutucu değerlerini [bir kenara depolama hesabı Yapılandırma](#config) ve [hizmet sorumlusu oluşturma](#service-principal) bu makalenin bölümler. Değiştirin `file-system-name` yer tutucu dosya sisteminize vermek istediğiniz herhangi bir ada sahip.
 
-19. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
+19. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları. 
+
+    Buna daha sonra komutları ekleyeceksiniz gibi bu not defteri, açık tutun.
 
 ## <a name="ingest-data"></a>Veriyi çekme
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Kaynak verilerini depolama hesabına kopyalama
 
-Bir sonraki görev, *.csv* dosyasındaki verileri Azure depolama alanına kopyalamak için AzCopy komutunu kullanmaktır. Bir komut istemi penceresi açın ve aşağıdaki komutları girin. Yer tutucuları değiştirmek emin `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>`, ve `<ACCOUNT_KEY>` , kenara bir önceki adımda karşılık gelen değerlerle.
+Veri kopyalamak için AzCopy kullanın, *.csv* Data Lake depolama Gen2 hesabınızı dosyasına.
 
-```bash
-set ACCOUNT_NAME=<ACCOUNT_NAME>
-set ACCOUNT_KEY=<ACCOUNT_KEY>
-azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
-```
+1. Bir komut istemi penceresi açın ve depolama hesabınızda oturum açın aşağıdaki komutu girin.
+
+   ```bash
+   azcopy login
+   ```
+
+   Kullanıcı hesabınızın kimlik doğrulaması için komut istemi penceresinde görünmesi yönergeleri izleyin.
+
+2. Verileri kopyalamak için *.csv* hesap, aşağıdaki komutu girin.
+
+   ```bash
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   ```
+   * Değiştirin `<csv-folder-path>` dizin yolu ile yer tutucu değerini *.csv* dosyası (dosya adı hariç).
+
+   * Değiştirin `storage-account-name` yer tutucu değerini, depolama hesabınızın adı.
+
+   * Değiştirin `file-system-name` yer tutucu dosya sisteminize vermek istediğiniz herhangi bir ada sahip.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Not Defteri'ni kullanarak CSV'yi Parquet biçimine dönüştürme
 
-Databricks’i tarayıcınızda yeniden açın ve aşağıdaki adımları uygulayın:
+Daha önce oluşturduğunuz not defterine yeni bir hücresi ekleyin ve bu hücreye aşağıdaki kodu yapıştırın. Değiştirin `storage-account-name` Bu kod parçacığı için csv dosyasını kaydettiğiniz klasörü adı ile yer tutucu değeri.
 
-1. Seçin **Azure Databricks** üzerinde gezinti çubuğunda sol üst köşesindeki.
-2. Sayfanın alt yarısındaki **New** (Yeni) bölümünden **Notebook** (Not Defteri) öğesini seçin.
-3. **Name** (Ad) alanına **CSV2Parquet** yazın.
-4. Diğer tüm alanlar varsayılan değerlerde bırakılabilir.
-5. **Oluştur**’u seçin.
-6. Aşağıdaki kodu yapıştırın **Cmd 1** hücre. (Bu kodu otomatik-Düzenleyicisi'nde kaydeder.)
+```python
+# Use the previously established DBFS mount point to read the data.
+# create a data frame to read data.
 
-    ```python
-    # Use the previously established DBFS mount point to read the data
-    # create a dataframe to read data
-    flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time_On_Time*.csv")
-    # read the all the airline csv files and write the output to parquet format for easy query
-    flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
-    print("Done")
-    ```
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+
+# read the airline csv file and write the output to parquet format for easy query.
+ flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+ print("Done")
+ ```
 
 ## <a name="explore-data"></a>Verileri inceleme
 
-Databricks çalışma alanına geri dönün ve seçin **son** sol gezinti çubuğunda simgesi.
-
-1. Seçin **uçuş Data Analytics** dizüstü bilgisayar.
-2. Yeni hücre oluşturmak için **Ctrl + Alt + N** tuşlarına basın.
-
-Aşağıdaki kod bloklarını **Cmd 1** bölümüne girin ve **Cmd + Enter** tuşlarına basarak Python betiğini çalıştırın.
-
-AzCopy ile yüklenen CSV dosyalarının bir listesini almak için aşağıdaki betiği çalıştırın:
+Yeni bir hücreye AzCopy karşıya CSV dosyaları listesini almak için aşağıdaki kodu yapıştırın. Değiştirin `<csv-folder-path>` yer tutucu değerini, daha önce kullanılan, yer tutucu için aynı değeri.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/temp/"))
+display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
 ```
 
 Yeni bir dosya oluşturmak ve *parquet/flights* klasöründeki dosyaları listelemek için şu betiği çalıştırın:
 
 ```python
-dbutils.fs.put("/mnt/flightdata/temp/1.txt", "Hello, World!", True)
-dbutils.fs.ls("/mnt/flightdata/temp/parquet/flights")
+dbutils.fs.put("/mnt/flightdata/1.txt", "Hello, World!", True)
+dbutils.fs.ls("/mnt/flightdata/parquet/flights")
 ```
 
 Bu kod örnekleriyle Data Lake Storage 2. Nesil etkin bir depolama hesabında depolanan verileri kullanarak HDFS’nin hiyerarşik özelliklerini keşfettiniz.
@@ -164,16 +215,15 @@ Bu kod örnekleriyle Data Lake Storage 2. Nesil etkin bir depolama hesabında de
 
 Bir sonraki adımda depolama hesabınıza yüklediğiniz verileri sorgulamaya başlayabilirsiniz. Aşağıdaki kod bloklarını **Cmd 1** bölümüne girin ve **Cmd + Enter** tuşlarına basarak Python betiğini çalıştırın.
 
-### <a name="run-simple-queries"></a>Basit Sorgu çalıştırma
+Veri kaynaklarınız için veri çerçevelerini oluşturmak için aşağıdaki betiği çalıştırın:
 
-Veri kaynaklarınız için veri çerçevesi oluşturma amacıyla aşağıdaki betiği çalıştırın:
+* Değiştirin `<csv-folder-path>` dizin yolu ile yer tutucu değerini *.csv* dosyası (dosya adı hariç).
 
-> [!IMPORTANT]
-> **<YOUR_CSV_FILE_NAME>** yer tutucusunun yerine bu öğreticinin başında indirdiğiniz dosyanın adını yazmayı unutmayın.
+* Değiştirin `<your-csv-file-name` adıyla bir yer tutucu değerini, *csv* dosya.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/<YOUR_CSV_FILE_NAME>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier
@@ -196,7 +246,7 @@ flightDF.show(20, False)
 display(flightDF)
 ```
 
-Verilerle analiz sorguları çalıştırmak için şu betiği çalıştırın:
+Verilerde bazı temel analiz sorguları çalıştırmak için bu betiği girin.
 
 ```python
 #Run each of these queries, preferably in a separate cmd cell for separate analysis
@@ -222,51 +272,8 @@ out = spark.sql("SELECT distinct(OriginCityName) FROM FlightTable where OriginSt
 print('Airports in Texas: ', out.show(100))
 
 #find all airlines that fly from Texas
-out1 = spark.sql("SELECT distinct(Carrier) FROM FlightTable WHERE OriginStateName='Texas'")
+out1 = spark.sql("SELECT distinct(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
 print('Airlines that fly to/from Texas: ', out1.show(100, False))
-```
-
-### <a name="run-complex-queries"></a>Karmaşık sorgular çalıştırma
-
-Daha karmaşık sorguları yürütmek için not defterindeki segmentleri sırayla çalıştırıp sonuçları inceleyin.
-
-```python
-#find the airline with the most flights
-
-#create a temporary view to hold the flight delay information aggregated by airline, then select the airline name from the Airlinecodes dataframe
-spark.sql("DROP VIEW IF EXISTS v")
-spark.sql("CREATE TEMPORARY VIEW v AS SELECT Carrier, count(*) as NumFlights from FlightTable group by Carrier, UniqueCarrier order by NumFlights desc LIMIT 10")
-output = spark.sql("SELECT AirlineName FROM AirlineCodes WHERE AirlineCode in (select Carrier from v)")
-
-#show the top row without truncation
-output.show(1, False)
-
-#show the top 10 airlines
-output.show(10, False)
-
-#Determine which is the least on time airline
-
-#create a temporary view to hold the flight delay information aggregated by airline, then select the airline name from the Airlinecodes dataframe
-spark.sql("DROP VIEW IF EXISTS v")
-spark.sql("CREATE TEMPORARY VIEW v AS SELECT Carrier, count(*) as NumFlights from FlightTable WHERE DepDelay>60 or ArrDelay>60 group by Carrier, UniqueCarrier order by NumFlights desc LIMIT 10")
-output = spark.sql("select * from v")
-#output = spark.sql("SELECT AirlineName FROM AirlineCodes WHERE AirlineCode in (select Carrier from v)")
-#show the top row without truncation
-output.show(1, False)
-
-#which airline improved its performance
-#find the airline with the most improvement in delays
-#create a temporary view to hold the flight delay information aggregated by airline, then select the airline name from the Airlinecodes dataframe
-spark.sql("DROP VIEW IF EXISTS v1")
-spark.sql("DROP VIEW IF EXISTS v2")
-spark.sql("CREATE TEMPORARY VIEW v1 AS SELECT Carrier, count(*) as NumFlights from FlightTable WHERE (DepDelay>0 or ArrDelay>0) and Year=2016 group by Carrier order by NumFlights desc LIMIT 10")
-spark.sql("CREATE TEMPORARY VIEW v2 AS SELECT Carrier, count(*) as NumFlights from FlightTable WHERE (DepDelay>0 or ArrDelay>0) and Year=2017 group by Carrier order by NumFlights desc LIMIT 10")
-output = spark.sql("SELECT distinct ac.AirlineName, v1.Carrier, v1.NumFlights, v2.NumFlights from v1 INNER JOIN v2 ON v1.Carrier = v2.Carrier INNER JOIN AirlineCodes ac ON v2.Carrier = ac.AirlineCode WHERE v1.NumFlights > v2.NumFlights")
-#show the top row without truncation
-output.show(10, False)
-
-#display for visual analysis
-display(output)
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
@@ -277,4 +284,3 @@ Artık ihtiyaç duyulan olmadığında kaynak grubunu ve tüm ilgili kaynakları
 
 [!div class="nextstepaction"] 
 > [Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme](data-lake-storage-tutorial-extract-transform-load-hive.md)
-

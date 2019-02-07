@@ -14,18 +14,18 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c60dded96df091b1a715fb7b972e9d7a23608d44
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990187"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818830"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS kayıtlarını ve Azure PowerShell kullanarak Azure DNS kayıt kümelerini yönetme
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Klasik Azure CLI](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure klasik CLI](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
@@ -50,7 +50,7 @@ Yeni kaydınızı aynı ada ve türe varolan bir kaydı olarak varsa yapmanız [
 
 `New-AzureRmDnsRecordSet` cmdlet’ini kullanarak kayıt kümeleri oluşturabilirsiniz. Kayıt, Canlı (TTL) için ad, bölge, zaman kümesi belirtmenize gerek kayıt kümesi oluştururken kayıt türünü ve kayıtları oluşturulacak.
 
-Bir kayıt kümesine kayıt eklemeye yönelik parametreler, kayıt kümesinin türüne bağlı olarak farklılık gösterir. Örneğin, 'A' türünde bir kayıt kümesi kullanırken, parametre kullanarak IP adresini belirtmeniz gerekir `-IPv4Address`. Diğer parametreler, diğer kayıt türleri için kullanılır. Bkz: [ek kayıt türü örnekleri](#additional-record-type-examples) Ayrıntılar için.
+Bir kayıt kümesine kayıt eklemeye yönelik parametreler, kayıt kümesinin türüne bağlı olarak farklılık gösterir. Örneğin, 'A' türünde bir kayıt kümesi kullanırken, parametre kullanarak IP adresini belirtmeniz gerekir `-IPv4Address`. Diğer parametreler, diğer kayıt türleri için kullanılır. Ek kayıt türü örnekleri Ayrıntılar için bkz.
 
 Aşağıdaki örnek, "contoso.com" DNS bölgesinde göreli adı "www" ile ayarlanmış bir kayıt oluşturur. Kayıt kümesinin tam adı "www.contoso.com" dir. 'A' kaydı türüdür ve TTL 3600 saniyedir. Tek kayıtlı, IP adresi '1.2.3.4' kayıt kümesi içerir.
 
@@ -236,7 +236,7 @@ Bu işlemlerin sırasını da olabilir *yöneltilen*, bir parametre olarak geçi
 Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Yukarıdaki örneklerde, mevcut bir kayıt kümesine 'A' türünde bir 'A' kaydı ekleme işlemini göstermektedir. Benzer bir dizi işlem değiştirerek, diğer türlerinin kayıt kümelerine kayıt eklemek için kullanılan `-Ipv4Address` parametresinin `Add-AzureRmDnsRecordConfig` belirli kayıt türlerinin diğer parametrelere sahip. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzureRmDnsRecordConfig` gösterildiği cmdlet'i [ek kayıt türü örnekleri](#additional-record-type-examples) yukarıda.
+Yukarıdaki örneklerde, mevcut bir kayıt kümesine 'A' türünde bir 'A' kaydı ekleme işlemini göstermektedir. Benzer bir dizi işlem değiştirerek, diğer türlerinin kayıt kümelerine kayıt eklemek için kullanılan `-Ipv4Address` parametresinin `Add-AzureRmDnsRecordConfig` belirli kayıt türlerinin diğer parametrelere sahip. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzureRmDnsRecordConfig` ek kayıt türü Yukarıdaki örneklerde gösterildiği gibi cmdlet'i.
 
 'CNAME' veya 'SOA' türündeki kayıt kümesi birden fazla kayıtla içeremez. Bu kısıtlama, DNS standartları ortaya çıkar. Azure DNS bir kısıtlaması değil.
 
@@ -270,7 +270,7 @@ Benzer şekilde bir kayıt kümesine kayıt eklemeye kayıt kümesi kaldırmak i
 Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Farklı kayıt türleri, uygun türe özgü parametrelerle geçirerek desteklenir `Remove-AzureRmDnsRecordSet`. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzureRmDnsRecordConfig` gösterildiği cmdlet'i [ek kayıt türü örnekleri](#additional-record-type-examples) yukarıda.
+Farklı kayıt türleri, uygun türe özgü parametrelerle geçirerek desteklenir `Remove-AzureRmDnsRecordSet`. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzureRmDnsRecordConfig` ek kayıt türü Yukarıdaki örneklerde gösterildiği gibi cmdlet'i.
 
 
 ## <a name="modify-an-existing-record-set"></a>Mevcut bir kayıt kümesini değiştirme

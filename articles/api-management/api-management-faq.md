@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 760feae2c9b58e162dae487e240dda72099ed91b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5fe2cab3ac9f9e5f3bbba17b8ab9467a298b24ea
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227986"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817691"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları alın.
@@ -37,7 +37,7 @@ Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları
 * [Tek bir API birden çok ortamda nasıl ayarlayabilirim?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [SOAP API Management ile kullanabilir miyim?](#can-i-use-soap-with-api-management)
 * [API Management ağ geçidi IP adresi sabit mi? Güvenlik duvarı kurallarında kullanabilir miyim?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* [Bir OAuth 2.0 yetkilendirme sunucusu ile AD FS güvenliği yapılandırabilir miyim?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
+* Bir OAuth 2.0 yetkilendirme sunucusu ile AD FS güvenliği yapılandırabilir miyim?
 * [Yönlendirme yöntemi, birden çok coğrafi konumlara dağıtımlarında API Management kullanıyor mu?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [API Management hizmet örneği oluşturmak için bir Azure Resource Manager şablonu kullanabilir miyim?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [Otomatik olarak imzalanan bir SSL sertifikası bir arka uç için kullanabilir miyim?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)

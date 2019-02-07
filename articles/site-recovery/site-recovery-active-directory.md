@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851035"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821397"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory ve DNS için olağanüstü durum kurtarmayı ayarlayın
 
@@ -31,10 +31,10 @@ Bu makalede, Active Directory için bir olağanüstü durum kurtarma çözümü 
 
 ## <a name="replicate-the-domain-controller"></a>Etki alanı denetleyicisi çoğaltma
 
-- Kurmanız [Site Recovery çoğaltma](#enable-protection-using-site-recovery), bir etki alanı denetleyicisi veya DNS barındıran en az bir VM üzerinde.
-- Varsa [birden çok etki alanı denetleyicileri](#environment-with-multiple-domain-controllers) ortamınızda, bunu da ayarlamanız gerekir bir [ek etki alanı denetleyicisi](#protect-active-directory-with-active-directory-replication) hedef sitede. Ek etki alanı denetleyicisi, azure'da veya ikincil şirket içi veri merkezinde olabilir.
+- Site Recovery çoğaltma, bir etki alanı denetleyicisini barındıran en az bir VM veya DNS ayarlamanız gerekir.
+- Ortamınızda birden çok etki alanı denetleyicisi varsa, hedef sitedeki bir ek etki alanı denetleyicisi de ayarlamanız gerekir. Ek etki alanı denetleyicisi, azure'da veya ikincil şirket içi veri merkezinde olabilir.
 - Yalnızca bazı uygulamalar ve bir etki alanı denetleyicisi varsa, tüm site üzerinde birlikte yük isteyebilirsiniz. Bu durumda, hedef siteye (ya da azure'da bir ikincil şirket içi veri merkezinde) etki alanı denetleyicisi çoğaltmak için Site Recovery kullanmanızı öneririz. Aynı yinelenen etki alanı denetleyicisi veya DNS sanal makine için kullanabileceğiniz [yük devretme testi](#test-failover-considerations).
-- - Birçok uygulama ve birden fazla etki alanı denetleyicisi ortamınızda bulunan veya birkaç uygulamalar Site Recovery ile etki alanı denetleyicisi sanal makinesini çoğaltmak için teker teker ayrıca başarısız. planlıyorsanız, bir ayarlamanızıöneririz[ek etki alanı denetleyicisi](#protect-active-directory-with-active-directory-replication) hedef sitede (ya da azure'da bir ikincil şirket içi veri merkezinde). İçin [yük devretme testi](#test-failover-considerations), Site Recovery tarafından çoğaltılmış etki alanı denetleyicisini kullanabilirsiniz. Yük devretme için hedef sitede ek etki alanı denetleyicisini kullanabilirsiniz.
+- - Ortamınızda birçok uygulama ve birden fazla etki alanı denetleyicisi varsa veya birkaç uygulamalar Site Recovery ile etki alanı denetleyicisi sanal makinesini çoğaltmak için teker teker ayrıca başarısız. planlıyorsanız ayarlamanız önerilir bir Ek etki alanı denetleyicisi hedef sitede (ya da azure'da bir ikincil şirket içi veri merkezinde). İçin [yük devretme testi](#test-failover-considerations), Site Recovery tarafından çoğaltılmış etki alanı denetleyicisini kullanabilirsiniz. Yük devretme için hedef sitede ek etki alanı denetleyicisini kullanabilirsiniz.
 
 ## <a name="enable-protection-with-site-recovery"></a>Site Recovery korumasını etkinleştirin
 
@@ -165,7 +165,7 @@ Yük devretme testinden sonra sanallaştırma korumaları tetiklenir, bir veya d
 1. Etki alanı denetleyicisinin yetkili geri yükleme yapın. Aşağıdaki bilgileri göz önünde bulundurun:
     * Önermemekteyiz rağmen [FRS çoğaltma](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), FRS çoğaltma kullanıyorsanız, yetkisiz bir geri yükleme adımlarını izleyin. İşlem açıklanan [dosya çoğaltma hizmeti yeniden başlatmak için BurFlags kayıt defteri anahtarını kullanarak](https://support.microsoft.com/kb/290762).
 
-        BurFlags hakkında daha fazla bilgi için blog gönderisine bakın [D2 ve D4: ne işe yarar?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+        BurFlags hakkında daha fazla bilgi için blog gönderisine bakın [D2 ve D4: Ne işe yarar? ](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
     * DFSR çoğaltma kullanırsanız, yetkisiz bir geri yükleme adımlarını tamamlayın. İşlem açıklanan [DFSR ile çoğaltılan SYSVOL (örneğin, "D4/D2" FRS için) için yetkilendirmeli ve yetkilendirmesiz bir eşitleme zorla](https://support.microsoft.com/kb/2218556).
 
         PowerShell işlevleri de kullanabilirsiniz. Daha fazla bilgi için [SYSVOL DFSR yetkili/yetkili olmayan geri yükleme PowerShell işlevleri](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).

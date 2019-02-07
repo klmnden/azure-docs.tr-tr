@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a3e7d2e5961f0951806ce9014fc320feef67ac90
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1d6f43b23bddf2d1ff7a2a41a11b4a2c8623d372
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735889"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768633"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -80,7 +80,7 @@ Bu bölümde, kural tetiklendiğinde gerçekleştirilecek eylemleri ayarlamak i�
 1. Seçin **e-posta** eylemi, bir geçerli e-posta adresi girerek **için** alan ve kural tetiklendiğinde e-postanın gövdesinde görüntülenen bir not girin.
 
     > [!NOTE]
-    > E-postaları, yalnızca uygulamaya eklenen ve en az bir kez oturum kullanıcılara gönderilir. Daha fazla bilgi edinin [kullanıcı yönetimi](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) Azure IOT Central içinde.
+    > E-postaları, yalnızca uygulamaya eklenen ve en az bir kez oturum kullanıcılara gönderilir. Daha fazla bilgi edinin [kullanıcı yönetimi](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) Azure IOT Central içinde.
 
    ![Eylem yapılandırma](media/howto-create-telemetry-rules-experimental/Configure_Action.png)
 
@@ -88,8 +88,8 @@ Bu bölümde, kural tetiklendiğinde gerçekleştirilecek eylemleri ayarlamak i�
 
 Diğer Eylemler gibi Microsoft Flow ve Web kancaları kuralı ekleyebilirsiniz. Kural başına en fazla 5 eylem ekleyebilirsiniz.
 
-- [Microsoft Flow eylem](howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) için Microsoft Flow bir iş akışında bir kuralı tetiklendiğinde kazandırın 
-- [Web kancası eylemi](howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) bir kuralı tetiklendiğinde diğer hizmetleri bildirmek için
+- [Microsoft Flow eylem](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) için Microsoft Flow bir iş akışında bir kuralı tetiklendiğinde kazandırın 
+- [Web kancası eylemi](howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) bir kuralı tetiklendiğinde diğer hizmetleri bildirmek için
 
 ## <a name="parameterize-the-rule"></a>Kural Parametreleştirme
 
@@ -115,6 +115,6 @@ Cihaza gidin ve etkinleştirme veya devre dışı bırakmak istediğiniz kuralı
 
 Azure IOT Central uygulamanızda kuralları oluşturulacağını öğrendiniz, bazı İleri Adım şunlardır:
 
-- [Microsoft Flow eylem kurallarında Ekle](howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Web kancası eylem kurallarında Ekle](howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Cihazlarınızı yönetme](howto-manage-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Microsoft Flow eylem kurallarında Ekle](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Web kancası eylem kurallarında Ekle](howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Cihazlarınızı yönetme](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

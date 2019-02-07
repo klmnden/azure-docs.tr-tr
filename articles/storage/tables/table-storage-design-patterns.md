@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469201"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821379"
 ---
 # <a name="table-design-patterns"></a>Tablo tasarımı desenleri
 Bu makalede, tablo hizmeti çözümleri ile kullanım için uygun olan bazı desenleri açıklar. Ayrıca, nasıl, pratikte bazı sorunlar ve dezavantajlarına diğer tablo depolama tasarım makalelerinde açıklanan ele görürsünüz. Aşağıdaki diyagramda, farklı düzenlerinin arasındaki ilişkileri özetlenmektedir:  
@@ -73,7 +73,7 @@ Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir
 
 * [İkincil dizin arası bölüm düzeni](#inter-partition-secondary-index-pattern)
 * [Bileşik anahtar deseni](#compound-key-pattern)
-* [Varlık grubu işlemleri](#entity-group-transactions)
+* Varlık grubu işlemleri
 * [Heterojen varlık türleri ile çalışma](#working-with-heterogeneous-entity-types)
 
 ## <a name="inter-partition-secondary-index-pattern"></a>İkincil dizin arası bölüm düzeni
@@ -128,7 +128,7 @@ Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir
 * [Son tutarlılık işlemleri deseni](#eventually-consistent-transactions-pattern)  
 * [İçi bölüm ikincil dizin düzeni](#intra-partition-secondary-index-pattern)  
 * [Bileşik anahtar deseni](#compound-key-pattern)  
-* [Varlık grubu işlemleri](#entity-group-transactions)  
+* Varlık grubu işlemleri  
 * [Heterojen varlık türleri ile çalışma](#working-with-heterogeneous-entity-types)  
 
 ## <a name="eventually-consistent-transactions-pattern"></a>Son tutarlılık işlemleri deseni
@@ -172,7 +172,7 @@ Farklı bölümler veya tablo mevcut varlıklar arasındaki son tutarlılık gar
 ### <a name="related-patterns-and-guidance"></a>İlgili düzenler ve kılavuzlar
 Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir:  
 
-* [Varlık grubu işlemleri](#entity-group-transactions)  
+* Varlık grubu işlemleri  
 * [Birleştirme veya değiştirme](#merge-or-replace)  
 
 > [!NOTE]
@@ -212,7 +212,7 @@ Birinci seçenek için bir listesini her benzersiz son adı ve her blob deposuna
 Aşağıdaki adımlar, ikinci seçenek kullanıyorsanız yeni bir çalışan ekleme yapıyorsanız izlemeniz gereken işlem özetlemektedir. Bu örnekte, bir çalışan kimliği 000152 ve satış departmanında son adı Jones ekliyoruz:  
 
 1. Dizin varlıkla almak bir **PartitionKey** "Sales" değerini ve **RowKey** değeri "Jones." Bu varlık Etag'i 2. adımda kullanmak üzere kaydedin.  
-2. Yeni bir çalışan varlık ekleyen bir varlık grubu işlem (diğer bir deyişle, bir toplu işlem) oluşturmak (**PartitionKey** "Sales" değerini ve **RowKey** değeri "000152") ve dizin varlığı güncelleştiren (**PartitionKey** "Sales" değerini ve **RowKey** "Jones" değeri) EmployeeIDs alan listesinde yeni çalışan kimliği ekleyerek. Varlık grubu işlemleri hakkında daha fazla bilgi için bkz: [varlık grubu işlemleri](#entity-group-transactions).  
+2. Yeni bir çalışan varlık ekleyen bir varlık grubu işlem (diğer bir deyişle, bir toplu işlem) oluşturmak (**PartitionKey** "Sales" değerini ve **RowKey** değeri "000152") ve dizin varlığı güncelleştiren (**PartitionKey** "Sales" değerini ve **RowKey** "Jones" değeri) EmployeeIDs alan listesinde yeni çalışan kimliği ekleyerek. Varlık grubu işlemleri varlık grubu işlemleri hakkında daha fazla bilgi için bkz.  
 3. Varlık grubu işlem (birisi yalnızca dizin varlık değiştirildi) iyimser eşzamanlılık hatası nedeniyle başarısız olursa, adım 1 yeniden baştan başlatmak gerekir.  
 
 İkinci seçenek kullanıyorsanız, bir çalışan silmek için benzer bir yaklaşım kullanabilirsiniz. Bir çalışanın soyadı değiştirme biraz daha karmaşık üç varlığı güncelleştiren bir varlık grubu işlem çalıştırmak gerekeceğinden: çalışan varlık, dizin varlık için eski son adı ve dizin varlık için yeni soyadı. Ardından iyimser eşzamanlılık kullanarak güncelleştirmeleri gerçekleştirmek için kullanabileceğiniz ETag değerleri almak için herhangi bir değişiklik yapmadan önce her varlığın alınması gerekir.  
@@ -251,7 +251,7 @@ Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir
 
 * [Bileşik anahtar deseni](#compound-key-pattern)  
 * [Son tutarlılık işlemleri deseni](#eventually-consistent-transactions-pattern)  
-* [Varlık grubu işlemleri](#entity-group-transactions)  
+* Varlık grubu işlemleri  
 * [Heterojen varlık türleri ile çalışma](#working-with-heterogeneous-entity-types)  
 
 ## <a name="denormalization-pattern"></a>Normalleştirilmişlikten çıkarma deseni
@@ -282,7 +282,7 @@ Sık ilgili bilgi aramak gerektiğinde bu düzeni kullanın. Bu düzen gerektiri
 Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir:  
 
 * [Bileşik anahtar deseni](#compound-key-pattern)  
-* [Varlık grubu işlemleri](#entity-group-transactions)  
+* Varlık grubu işlemleri  
 * [Heterojen varlık türleri ile çalışma](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>Bileşik anahtar deseni
@@ -325,7 +325,7 @@ Bu düzen, bir saklamanız gerekir veya ilgili daha fazla varlık sorguladığı
 ### <a name="related-patterns-and-guidance"></a>İlgili düzenler ve kılavuzlar
 Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir:  
 
-* [Varlık grubu işlemleri](#entity-group-transactions)  
+* Varlık grubu işlemleri  
 * [Heterojen varlık türleri ile çalışma](#working-with-heterogeneous-entity-types)  
 * [Son tutarlılık işlemleri deseni](#eventually-consistent-transactions-pattern)  
 
@@ -394,7 +394,7 @@ Aynı anda silmelisiniz varlıkları yüksek hacimli varsa bu düzeni kullanın.
 ### <a name="related-patterns-and-guidance"></a>İlgili düzenler ve kılavuzlar
 Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir:  
 
-* [Varlık grubu işlemleri](#entity-group-transactions)
+* Varlık grubu işlemleri
 * [Varlıkları değiştirme](#modifying-entities)  
 
 ## <a name="data-series-pattern"></a>Veri serisi deseni
@@ -454,7 +454,7 @@ Bu düzeni aşağıdaki durumlarda kullanın, boyutunu veya sayısını özellik
 ### <a name="related-patterns-and-guidance"></a>İlgili düzenler ve kılavuzlar
 Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir:  
 
-* [Varlık grubu işlemleri](#entity-group-transactions)
+* Varlık grubu işlemleri
 * [Birleştirme veya değiştirme](#merge-or-replace)
 
 ## <a name="large-entities-pattern"></a>Büyük varlıklar deseni
@@ -556,7 +556,7 @@ Günlük verilerini depolamak nasıl karar verirken aşağıdaki noktaları göz
 Bu bölümde önceki bölümlerde açıklanan desenleri uygularken göz önünde işlenmesi için dikkat edilmesi gerekenler bazıları açıklanmaktadır. Bu bölümde çoğu C# dilinde yazılmış olan ve depolama istemci Kitaplığı'nı (sürüm 4.3.0 zaman yazma) kullanan örnekler kullanır.  
 
 ## <a name="retrieving-entities"></a>Varlıkları alma
-Bölümünde açıklandığı gibi [sorgulamak için tasarım](#design-for-querying)en verimli sorgudur noktası sorgusu. Ancak, bazı senaryolarda birden çok varlıkları alma gerekebilir. Bu bölümde, depolama istemci kitaplığı kullanarak varlıkları almak için bazı genel yaklaşımları açıklanmaktadır.  
+Sorgulama için tasarım bölümünde açıklandığı gibi en verimli sorgusu noktası bir sorgudur. Ancak, bazı senaryolarda birden çok varlıkları alma gerekebilir. Bu bölümde, depolama istemci kitaplığı kullanarak varlıkları almak için bazı genel yaklaşımları açıklanmaktadır.  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>Depolama istemci kitaplığı kullanılarak noktası sorgu yürütme
 En kolay yolu noktası sorguyu kullanmaktır **almak** tablo işlemi ile varlık alan aşağıdaki C# kod parçacığında gösterildiği gibi bir **PartitionKey** "Sales" değerinin ve  **RowKey** "212" değerinin:  

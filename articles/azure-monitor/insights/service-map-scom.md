@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: 19e842fc3674536972327c3bc6d31641560e38db
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659193"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818762"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager ile hizmet eşlemesi tümleştirme
 
@@ -51,7 +51,7 @@ Hizmet eşlemesi tümleştirmesini yapılandırmak için aşağıdakileri yapın
 
     ![Hizmet eşlemesi genel bakış bölmesi](media/service-map-scom/scom-configuration.png)
 
-2. İçinde **bağlantı yapılandırması** penceresinde, Kiracı adı veya kimliği, uygulama kimliği (kullanıcı adı veya ClientID olarak da bilinir) ve hizmet sorumlusu parolasını girin ve ardından **sonraki**. Daha fazla bilgi için Git [hizmet sorumlusu oluşturma](#creating-a-service-principal).
+2. İçinde **bağlantı yapılandırması** penceresinde, Kiracı adı veya kimliği, uygulama kimliği (kullanıcı adı veya ClientID olarak da bilinir) ve hizmet sorumlusu parolasını girin ve ardından **sonraki**. Daha fazla bilgi için hizmet sorumlusu oluşturma'ya gidin.
 
     ![Bağlantı Yapılandırması penceresi](media/service-map-scom/scom-config-spn.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103318"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814480"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>GRUB ve tek kullanıcı modu erişmek için seri Konsolu
 GRUB genel birleşik, büyük olasılıkla ilk şey bir VM'yi önyüklemeden olduğunda görürsünüz Şifresizdir, ' dir. İşletim sistemi başlatılmadan önce bu görüntülediğinden, SSH erişilebilir değil. GRUB ' diğer özelliklerin yanı sıra tek kullanıcı moduna önyükleme, önyükleme yapılandırması üzerinde değişiklik yapabilirsiniz.
@@ -44,7 +44,7 @@ Sanal makinenizin yeniden başlatmayı da yapılabilir bir SysRq ile `'b'` , kom
 ![Linux seri konsolu yeniden başlatma](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Genel tek kullanıcı modu erişim
-Burada, bir hesabı parola kimlik doğrulaması ile yapılandırılmamış olduğu durumlarda tek kullanıcı moduna el ile erişim gerekli olabilir. GRUB yapılandırması tek kullanıcı moduna el ile değiştirmeniz gerekir. Bu işlemi tamamladıktan sonra bkz [kullanın tek kullanıcı moduna sıfırlamak veya bir parola eklemek için](#-Use-Single-User-Mode-to-reset-or-add-a-password) daha fazla yönerge için.
+Burada, bir hesabı parola kimlik doğrulaması ile yapılandırılmamış olduğu durumlarda tek kullanıcı moduna el ile erişim gerekli olabilir. GRUB yapılandırması tek kullanıcı moduna el ile değiştirmeniz gerekir. Bu kez yaptığınız, kullanım tek kullanıcı modu sıfırlama veya daha fazla yönerge için bir parola eklemek için bkz.
 
 Sanal makine için önyükleme oluşturulamıyor olduğu durumlarda, dağıtım paketlerini genellikle otomatik olarak, tek kullanıcı modunda veya Acil Durum modunda kaldıracağız. Bunlar otomatik olarak (bir kök parola ayarlamak gibi), tek kullanıcılı veya Acil durum moduna bırakabilirsiniz önce diğer ancak ek kurulum gerektirir.
 

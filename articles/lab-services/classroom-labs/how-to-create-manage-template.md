@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2f34b6c71c448f7273ba7477f18f5abb8f89cdec
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391194"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815260"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Oluşturma ve bir sınıf şablonunda Azure Lab Services'ı yönetme
 Laboratuvardaki şablon, tüm kullanıcıların sanal makinelerinin oluşturulduğu bir temel sanal makine görüntüsüdür. Şablon sanal makinesini, tam olarak laboratuvar kullanıcılarına sağlamak istediklerinizle yapılandırılacak şekilde ayarlayın. Laboratuvar kullanıcılarının görebileceği bir ad ve açıklama belirtebilirsiniz. Ardından, VM şablonu örneklerini Laboratuvar kullanıcılarınız için kullanılabilir hale getirmek için şablonu yayımlayın. Bir şablonu yayımladığınızda Azure Lab Services, şablonu kullanarak laboratuvarda sanal makineler oluşturur. Bu işlemde oluşturulan sanal makine sayısı, laboratuvarda izin verilen maksimum kullanıcı sayısıyla aynıdır. Laboratuvarın kullanım ilkesinde bu maksimum değeri ayarlayabilirsiniz. Tüm sanal makineler, şablonla aynı yapılandırmaya sahiptir.
@@ -72,7 +72,7 @@ Bu makalede, oluşturmak ve bir sınıf laboratuvarına Azure Lab Services'ın b
 
         > [!WARNING]
         > Yayımlama işlemini geri alamazsınız. 
-    2. Daha sonra yayımlamak istiyorsanız **Sonrası için kaydet**'i seçin. Şablon VM'sini sihirbaz tamamlandıktan sonra yayımlayabilirsiniz. Yapılandırma ve Sihirbaz tamamlandıktan sonra yayımlayın, yapılandırma ve Sihirbaz tamamlandıktan sonra yayımlama hakkında ayrıntılı bilgi için bkz hakkında daha fazla bilgi için bkz. [şablon yayımlama](#publish-the-template) konusundaki [sınıf laboratuvarlarını yönetme ](how-to-manage-classroom-labs.md) makalesi.
+    2. Daha sonra yayımlamak istiyorsanız **Sonrası için kaydet**'i seçin. Şablon VM'sini sihirbaz tamamlandıktan sonra yayımlayabilirsiniz. Yapılandırma ve Sihirbaz tamamlandıktan sonra yayımlama hakkında ayrıntılı bilgi için bkz: yapılandırma ve Sihirbaz tamamlandıktan sonra yayımlama hakkında ayrıntılı bilgi için şablon konusundaki Yayımla bkz [sınıf laboratuvarlarını yönetme](how-to-manage-classroom-labs.md) makalesi.
 
         ![Şablonu yayımlama](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Şablonun **yayımlama ilerleme durumunu** görürsünüz. Bu işlemin tamamlanması bir saat sürebilir. 

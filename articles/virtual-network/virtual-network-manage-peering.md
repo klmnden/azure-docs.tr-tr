@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 9c03e0ced565daef01304e288b71c46aa0035384
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fcd1d8c4dd1f9684db85514a80fea7022f52b0fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730102"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817096"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesini Sil
 
@@ -39,7 +39,7 @@ Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Kat�
 
 ## <a name="create-a-peering"></a>Bir eşleme oluşturma
 
-Bir eşleme oluşturmadan önce ile kendinizi alıştırın [gereksinimler ve kısıtlamalar](#requirements-and-contstraints) ve [gerekli izinleri](#permissions).
+Bir eşleme oluşturmadan önce gereksinimler ve kısıtlamalar ile hakkında bilgilenmeli ve [gerekli izinleri](#permissions).
 
 1. Azure portalının üst kısmındaki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünmesini, onu seçin. Seçmeyin **sanal ağlar (Klasik)** Klasik dağıtım modeliyle dağıtılan sanal ağ eşlemesi oluşturulamıyor gibi listede görünüp görünmediğine.
 2. Sanal ağ eşleme oluşturmak istediğiniz listeyi seçin.
@@ -75,7 +75,7 @@ Farklı Abonelikteki sanal ağlar ile dağıtım modelleri arasında eşleme uyg
 
 ## <a name="view-or-change-peering-settings"></a>Eşleme ayarlarını görüntülemek veya değiştirmek
 
-Bir eşleme değiştirmeden önce ile kendinizi alıştırın [gereksinimler ve kısıtlamalar](#requirements-and-contstraints) ve [gerekli izinleri](#permissions).
+Bir eşleme değiştirmeden önce gereksinimler ve kısıtlamalar ile hakkında bilgilenmeli ve [gerekli izinleri](#permissions).
 
 1. Portalın üst kısmındaki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünmesini, onu seçin. Seçmeyin **sanal ağlar (Klasik)** Klasik dağıtım modeliyle dağıtılan sanal ağ eşlemesi oluşturulamıyor gibi listede görünüp görünmediğine.
 2. Sanal ağ eşleme ayarlarını değiştirmek için istediğiniz listeyi seçin.

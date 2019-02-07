@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 5f096d016b2fa82e3b340a4a6b6c7e1fd6420216
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9c6ea982d9a605696dad0c943aa6dd2ae155d6bd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037200"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770746"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API hesabı ile Jeo-uzamsal ve GeoJSON konum verileri kullanın
 
@@ -150,32 +150,13 @@ Biz Jeo-uzamsal veriler ekleme işlemini Anlamadıysanız ayırdıktan sonra SQL
 ### <a name="spatial-sql-built-in-functions"></a>Uzamsal SQL yerleşik işlevler
 Azure Cosmos DB, Jeo-uzamsal sorgulamak için aşağıdaki açık Jeo-uzamsal Consortium (OGC) yerleşik işlevleri destekler. Tam bir set SQL dilinde yerleşik işlevler hakkında daha fazla bilgi için bkz. [Azure Cosmos DB'yi sorgulama](how-to-sql-query.md).
 
-<table>
-<tr>
-  <td><strong>Kullanım</strong></td>
-  <td><strong>Açıklama</strong></td>
-</tr>
-<tr>
-  <td>ST_DISTANCE (spatial_expr, spatial_expr)</td>
-  <td>İki GeoJSON noktası, çokgen veya LineString ifadeler uzaklığı döndürür.</td>
-</tr>
-<tr>
-  <td>ST_WITHIN (spatial_expr, spatial_expr)</td>
-  <td>İlk GeoJSON nesne (noktası, çokgen veya LineString) ikinci GeoJSON nesne içinde (noktası, çokgen veya LineString) olup olmadığını gösteren bir Boole ifadesi döndürür.</td>
-</tr>
-<tr>
-  <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>İki belirtilen GeoJSON nesnesi (noktası, çokgen veya LineString) kesişen olup olmadığını belirten bir Boole ifadesi döndürür.</td>
-</tr>
-<tr>
-  <td>ST_ISVALID</td>
-  <td>Belirtilen GeoJSON noktası, çokgen veya LineString ifade geçerli olup olmadığını gösteren bir Boole değeri döndürür.</td>
-</tr>
-<tr>
-  <td>ST_ISVALIDDETAILED</td>
-  <td>Bir Boole değeri içeren bir JSON değeri, belirtilen GeoJSON noktası, çokgen veya LineString ifade geçerliyse ve geçersiz değeri döndürür, ayrıca bir dize değeri olarak nedeni.</td>
-</tr>
-</table>
+|**Kullanım**|**Açıklama**|
+|---|---|
+| ST_DISTANCE (spatial_expr, spatial_expr) | İki GeoJSON noktası, çokgen veya LineString ifadeler uzaklığı döndürür.|
+|ST_WITHIN (spatial_expr, spatial_expr) | İlk GeoJSON nesne (noktası, çokgen veya LineString) ikinci GeoJSON nesne içinde (noktası, çokgen veya LineString) olup olmadığını gösteren bir Boole ifadesi döndürür.|
+|ST_INTERSECTS (spatial_expr, spatial_expr)| İki belirtilen GeoJSON nesnesi (noktası, çokgen veya LineString) kesişen olup olmadığını belirten bir Boole ifadesi döndürür.|
+|ST_ISVALID| Belirtilen GeoJSON noktası, çokgen veya LineString ifade geçerli olup olmadığını gösteren bir Boole değeri döndürür.|
+| ST_ISVALIDDETAILED| Bir Boole değeri içeren bir JSON değeri, belirtilen GeoJSON noktası, çokgen veya LineString ifade geçerliyse ve geçersiz değeri döndürür, ayrıca bir dize değeri olarak nedeni.|
 
 Uzamsal İşlevler, uzamsal veri yakınlık sorguları gerçekleştirmek için kullanılabilir. Örneğin, ST_DISTANCE yerleşik işlevi kullanarak belirtilen konumun içinde 30 KM ailesi tüm belgeleri döndüren bir sorgu aşağıdadır. 
 
@@ -238,7 +219,7 @@ Azure Cosmos DB ayrıca Ters sorgular gerçekleştirdiğini destekler, diğer bi
 
 ST_ISVALID ve ST_ISVALIDDETAILED uzamsal nesne geçerli olup olmadığını denetlemek için kullanılabilir. Örneğin, aşağıdaki sorguyu dışı aralık enlem değeri (-132.8) ile bir noktası geçerliliğini denetler. ST_ISVALID yalnızca bir Boole değeri döndürür ve ST_ISVALIDDETAILED Boolean ve neden geçersiz değerlendirilir nedeni içeren bir dize döndürür.
 
-** Sorgu **
+**Sorgu**
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 

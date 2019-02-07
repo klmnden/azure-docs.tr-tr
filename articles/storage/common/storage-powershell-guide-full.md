@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 7fbbcefde583d7e464633d9011e591b4c9bf6f65
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2787353230408d6374db36eb5621f98285245364
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460327"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766530"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage ile Azure PowerShell’i kullanma
 
@@ -201,7 +201,7 @@ Kullanarak izlemeyi yapılandırabilirsiniz [Azure portalında](https://portal.a
 
 * Etkinleştirmek ve PowerShell kullanarak depolama ölçümleri verileri görüntüleme hakkında bilgi edinmek için [etkinleştirme Azure depolama ölçümleri ve ölçüm verilerini görüntüleme](storage-enable-and-view-metrics.md#how-to-enable-metrics-using-powershell).
 
-* Etkinleştirmek ve PowerShell kullanarak depolama günlük verileri almak nasıl öğrenmek için bkz. [PowerShell kullanarak depolama günlüğü etkinleştirme](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell) ve [depolama günlüğü günlük verilerinizi bulma](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data).
+* Etkinleştirmek ve PowerShell kullanarak depolama günlük verileri almak nasıl öğrenmek için bkz. [PowerShell kullanarak depolama günlüğü etkinleştirme](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) ve [depolama günlüğü günlük verilerinizi bulma](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data).
 
 * Depolama sorunları gidermek için depolama ölçümleri ve depolama günlük kaydı kullanma hakkında ayrıntılı bilgi için bkz: [izleme Diagnosing ve Microsoft Azure depolama sorunlarını giderme](storage-monitoring-diagnosing-troubleshooting.md).
 

@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: b6dc0a63340fee03b34f4c5b6eca8ff011d6b178
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744188"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814852"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure anahtar kasası yönetilen depolama hesabı - CLI
 
@@ -56,23 +56,32 @@ ms.locfileid: "55744188"
     ```
     Kopya Kimliği alanı dışında yukarıdaki komutunun sonucu
     
-2. Uygulama kimliği, Azure anahtar Kasası'nın hizmet sorumlusu alma 
+2. Nesne kimliği, Azure anahtar Kasası'nın hizmet sorumlusu çalıştırarak alın aşağıdaki komutu
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
+    Bu komutun işlemin başarıyla tamamlanmasından sonra sonucu nesne Kimliğini bulun.
+    ```console
+        {
+            ...
+            "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+            ...
+        }
+    ```
+    
 3. Azure Key Vault kimlik için depolama anahtarı operatörü rolünü atama
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Anahtar kasası oluşturma yönetilen depolama hesabı.     <br /><br />
-   Aşağıda, bir oluşturma süresini 90 gün ayarlıyorsunuz. 90 günün sonunda, Key Vault yeniden 'anahtar1' ve 'anahtar1' active 'anahtar2' anahtarını değiştirme.
+   Aşağıda, bir oluşturma süresini 90 gün ayarlıyorsunuz. 90 günün sonunda, Key Vault yeniden 'anahtar1' ve 'anahtar1' active 'anahtar2' anahtarını değiştirme. Artık etkin anahtar Key1 işaret. 
    
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
     Kullanıcı depolama hesabı oluşturmadıysanız ve depolama hesabı için izinlere sahip değil durumunda, aşağıdaki adımları, anahtar Kasası'nda tüm depolama izinleri yönetebilirsiniz emin olmak hesabınız için izinleri ayarlayın.
     

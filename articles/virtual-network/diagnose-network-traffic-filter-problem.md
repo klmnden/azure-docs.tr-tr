@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424651"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821873"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Bir sanal makine ağ trafik filtresi sorununu tanılama
 
@@ -181,7 +181,7 @@ Azure kullanıp [portalı](#diagnose-using-azure-portal), [PowerShell](#diagnose
 
 Azure işlemleri gelen trafik, (varsa ilişkili bir NSG'si) alt ağ ile ilişkilendirilmiş NSG kurallarında işler ve ardından ağ arabirimi ile ilişkilendirilmiş NSG kuralları işler. Ağ arabirimi ve alt ağ ile ilişkilendirilen bir NSG varsa, bağlantı noktasını VM ulaşmak trafiği için hem Nsg içinde açık olması gerekir. Yönetim ve iletişim sorunları kolaylaştırmak için bir NSG'yi ağ arabirimine yerine bir alt ağı ilişkilendir öneririz. Farklı güvenlik kuralları bir alt ağ içindeki VM'ler ihtiyacınız varsa, ağ arabirimlerini bir uygulama güvenlik grubu (ASG) üyesi olun ve bir ASG kaynak ve hedef bir güvenlik kuralının olarak belirtin. Daha fazla bilgi edinin [uygulama güvenlik grupları](security-overview.md#application-security-groups).
 
-İletişim sorunları yaşamaya devam ediyorsanız bkz [konuları](#considerations) ve [ek tanılama](#additional-dignosis).
+İletişim sorunları yaşamaya devam ediyorsanız bkz [konuları](#considerations) ve ek tanılama.
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 

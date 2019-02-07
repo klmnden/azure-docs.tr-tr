@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826488"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816331"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Özel etki alanları için Azure DNS kullanma
 
@@ -32,7 +32,7 @@ Azure DNS aşağıdaki avantajları sağlar:
 
 * **Özel DNS çözümler gereksinimini ortadan kaldırır**. Daha önce birçok müşterinin sanal ağlarında DNS bölgelerini yönetmek için özel DNS çözümler oluşturuldu. DNS bölgesi Yönetimi artık oluşturma ve özel DNS çözümlerini yönetme yükünden kaldırır yerel Azure altyapısını kullanarak da gerçekleştirebilirsiniz.
 
-* **Tüm yaygın DNS kayıt türlerini kullanın**. Azure DNS, A, AAAA, CNAME, MX, NS, PTR, SOA, SRV ve TXT kayıtlarını destekler.
+* **Tüm yaygın DNS kayıt türlerini kullanın**. Azure DNS, A, AAAA, CNAME, MX, PTR, SOA, SRV ve TXT kayıtlarını destekler.
 
 * **Otomatik ana bilgisayar adı kayıt yönetimi**. Özel DNS kayıtlarınızı barındırma yanı sıra Azure belirtilen sanal ağlarda bulunan sanal makineler için ana bilgisayar adı kayıtlarını otomatik olarak korur. Bu senaryoda, gerek kalmadan özel DNS çözümler oluşturma veya uygulamaları değiştirmek için kullandığınız etki alanı adlarını iyileştirebilirsiniz.
 

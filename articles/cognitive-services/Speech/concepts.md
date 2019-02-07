@@ -10,12 +10,12 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219779"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816222"
 ---
 # <a name="basic-concepts"></a>Temel kavramlar
 
@@ -92,7 +92,7 @@ Microsoft konuşma tanıma hizmeti, geliştiricilerin, uygulamalarına konuşma 
 Tanıma üç mod vardır: `interactive`, `conversation`, ve `dictation`. Konuşma tanıma nasıl kullanıcıları duyma olasılığınız olan bağlı tanıma modu ayarlar. Uygulamanız için uygun tanıma modunu seçin.
 
 > [!NOTE]
-> Tanıma modları sahip olabileceği farklı davranışları [REST Protokolü](#rest-speech-recognition-api) arkadaşlarınıza kıyasla [WebSocket Protokolü](#webSocket-speech-recognition-api). Örneğin, REST API sürekli tanıma, hatta konuşma veya Dikte modunda desteklemez.
+> WebSocket Protokolü arkadaşlarınıza kıyasla tanıma modları REST Protokolü farklı davranışları olabilir. Örneğin, REST API sürekli tanıma, hatta konuşma veya Dikte modunda desteklemez.
 > [!NOTE]
 > Bu mod, doğrudan REST veya WebSocket protokolünü kullanırken geçerlidir. [İstemci kitaplıkları](GetStarted/GetStartedClientLibraries.md) tanıma modunu belirtmek üzere farklı parametreler kullanın. Daha fazla bilgi için seçtiğiniz istemci kitaplığı bakın.
 

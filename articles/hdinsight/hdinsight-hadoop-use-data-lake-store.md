@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a174ae5eb31620646167f36a6f3e13605db5eac6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5ba12e48092c02f9628e15166c84e871310d7556
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052777"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816382"
 ---
 # <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>Data Lake Storage Azure HDInsight kümeleri ile kullanma
 
@@ -69,7 +69,7 @@ Varsayılan depolama alanı olarak Data Lake Storage kullanabilmek için aşağ�
 - Tüm küme klasörlerine yönelik klasör.  Örneğin: adl://mydatalakestore/clusters.
 - Kümenin klasörü.  Örneğin: adl://mydatalakestore/clusters/cluster1storage.
 
-Hizmet sorumlusu oluşturma ve erişim verme için daha fazla bilgi için [yapılandırma Data Lake Storage erişim](#configure-data-lake-store-access).
+Data Lake Storage'ı yapılandırmak için hizmet sorumlusu oluşturma ve erişim verme daha fazla bilgi için bkz erişim.
 
 ### <a name="extracting-a-certificate-from-azure-keyvault-for-use-in-cluster-creation"></a>Küme oluşturma kullanmak için Azure anahtar Kasası ' bir sertifika ayıklanıyor
 
@@ -117,12 +117,12 @@ Ek depolama alanı olarak Data Lake Storage kullanabilmek için yalnızca dosyal
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-Hizmet sorumlusu oluşturma ve erişim verme için daha fazla bilgi için [yapılandırma Data Lake Storage erişim](#configure-data-lake-store-access).
+Data Lake Storage'ı yapılandırmak için hizmet sorumlusu oluşturma ve erişim verme daha fazla bilgi için bkz erişim.
 
 
 ## <a name="use-more-than-one-data-lake-storage-accounts"></a>Birden fazla Data Lake Storage hesaplarını kullanma
 
-Bir Data Lake Store hesabına ek olarak ekleme ve birden fazla Data Lake Storage ekleme hesapları bir veya birden fazla Data Lake Storage hesaplarını verilerde HDInsight kümesine izin verilerek gerçekleştirilir. Bkz: [yapılandırma Data Lake Storage erişim](#configure-data-lake-store-access).
+Bir Data Lake Store hesabına ek olarak ekleme ve birden fazla Data Lake Storage ekleme hesapları bir veya birden fazla Data Lake Storage hesaplarını verilerde HDInsight kümesine izin verilerek gerçekleştirilir. Bkz: yapılandırma Data Lake depolama erişim.
 
 ## <a name="configure-data-lake-storage-access"></a>Data Lake Store erişimini yapılandırma
 

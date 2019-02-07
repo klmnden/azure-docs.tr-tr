@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/06/2017
-ms.openlocfilehash: d56c44e299125b6b7d8aff429aa6352b8e653a16
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508666"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822383"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Programlama dili için Azure Machine Learning Studio'da R için hızlı başlangıç Öğreticisi
 
@@ -745,7 +745,7 @@ Bağıntı analiz gerçekleştirmek için XML'deki eğilimi hem değişkenlerin 
 
 Tam anlamıyla bir bit gerçekleşmesini içinde yoktur `ts.detrend()` işlevi. Bu kod çoğunu bağımsız değişkenleriyle olası sorunları veya hala hesaplamalar sırasında oluşabilecek özel durumları uğraşmanızı denetleniyor. Bu kod yalnızca birkaç satır gerçekten hesaplamalar gerçekleştirin.
 
-Bilmeden savunma programlamada bir örneği ele aldığımız zaten [değer dönüştürmeleri](#valuetransformations). Her iki hesaplama bloğu içinde sarmalanmış `tryCatch()`. Bazı hatalar için özgün giriş vektör döndürülecek mantıklı ve diğer durumlarda, ı sıfır, bir vektör döndürür.  
+Zaten değer dönüştürmeleri savunma programlamada bir örneği ele almıştık. Her iki hesaplama bloğu içinde sarmalanmış `tryCatch()`. Bazı hatalar için özgün giriş vektör döndürülecek mantıklı ve diğer durumlarda, ı sıfır, bir vektör döndürür.  
 
 Kümenin doğrusal regresyonunu XML'deki eğilimleri belirleme için kullanılan bir zaman serisi gerileme olduğuna dikkat edin. Zaman serisi nesnesi tahmin unsuru değişkendir.  
 

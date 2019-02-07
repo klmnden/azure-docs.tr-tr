@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 191afec8733258519370d11942c0f6d18da6b603
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6ee75b0ee465e330d78b166b0da12232b7915ae7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180407"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766070"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Güvenlik bilgileri (Önizleme) bir authenticator uygulamasını kullanmak için ayarlayın
 
@@ -28,7 +28,7 @@ Güvenlik bilgilerinizi ayarlamak için iş veya Okul hesabınızda oturum açı
 
 Kuruluşunuzun ayarlara bağlı olarak, oturum açtığınızda Microsoft Authenticator uygulamasını ayarlama istenebilir. Aksi takdirde, güvenlik bilgileri Microsoft Authenticator uygulamasını ayarlama başlamak için adımları izleyin. [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).
 
-İndirin ve Microsoft Authenticator uygulaması hakkında daha fazla bilgi için bkz: [Microsoft Authenticator uygulaması ile çalışmaya başlama](microsoft-authenticator-app-how-to.md).
+İndirin ve Microsoft Authenticator uygulaması hakkında daha fazla bilgi için bkz: [Microsoft Authenticator uygulaması ile çalışmaya başlama](user-help-auth-app-download-install.md).
 
 >[!Note]
 >Microsoft Authenticator uygulamasını kullanmak istemiyorsanız, farklı bir uygulama sırasında ayarlanan seçebilirsiniz. Bu makalede, Microsoft Authenticator uygulamasını kullanır. Authenticator uygulaması seçeneğinin görmüyorsanız, kuruluşunuzun doğrulama için bir authentication uygulamasını kullanmak için izin vermeyen mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: geetha
-ms.openlocfilehash: a5b0e6d700ce64a25c20b23738508d2796fc6caa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487566"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810006"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Yedekleme ve Azure Backup ile şifrelenmiş sanal makineleri geri yükleme
 Bu makalede Azure Backup'ı kullanarak sanal makineleri (VM'ler) geri adım hakkında konuşuyor. Ayrıca hata durumları için desteklenen senaryolar, önkoşulları ve sorun giderme adımları hakkında ayrıntılar sağlar.
@@ -36,7 +36,7 @@ Bu makalede Azure Backup'ı kullanarak sanal makineleri (VM'ler) geri adım hakk
 
 * Kurtarma Hizmetleri kasası oluşturuldu ve depolama çoğaltması içindeki adımları izleyerek ayarlandığı [yedekleme için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md).
 
-* Yedekleme verilen [bir anahtar kasasına erişim izni](#provide-permissions-to-backup) anahtarları ve gizli anahtarları için içeren şifrelenmiş VM'ler.
+* Yedekleme şifreli VM'ler için anahtarları ve gizli anahtarları içeren bir anahtar kasasına erişim izni verildi.
 
 ## <a name="backup-encrypted-vm"></a>VM yedekleme şifreli
 Yedekleme hedefi ayarlayın, bir ilkesi tanımlama, yapılandırma öğeleri ve bir yedeklemeyi tetikleyin için aşağıdaki adımları kullanın.
@@ -76,7 +76,7 @@ Eğer bir **üye kullanıcı**, etkinleştirme Yedekleme işleminin sorunsuz bir
 
    ![Şifrelenmiş Vm'leri message](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   İçin bir **Konuk kullanıcı**, yedekleme hizmetine çalışmak yedeklemeler için anahtar kasasına erişmek için gerekli izinleri sağlamanız gerekir. Takip ederek, bu izinleri sağlayabilirsiniz [aşağıdaki bölümde belirtilen adımlar](#provide-permissions-to-backup)
+   İçin bir **Konuk kullanıcı**, yedekleme hizmetine çalışmak yedeklemeler için anahtar kasasına erişmek için gerekli izinleri sağlamanız gerekir. Aşağıdaki bölümde anlatılan adımları izleyerek bu izinleri sağlayabilir.
 
    ![Şifrelenmiş Vm'leri message](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
 

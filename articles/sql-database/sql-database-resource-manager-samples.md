@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: af802a459777e8c3b10f7d1a5d84f4b87e011f0a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 71bdfb28a251a815775dc77c55986a10ea550ef7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747935"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770257"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Azure SQL veritabanı için Azure Resource Manager şablonları
 
@@ -40,7 +40,7 @@ Aşağıdaki tabloda, Azure SQL veritabanı için Azure Resource Manager şablon
 | [SQL veritabanı ile Azure Web uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Bu örnek, "Temel" hizmet düzeyinde ücretsiz bir Azure Web uygulaması ve SQL veritabanı oluşturur.|
 | [Azure Web uygulaması ve SQL veritabanı ile Redis önbelleği](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Bu şablon aynı kaynak grubunda bir Web uygulaması, Redis Cache ve SQL veritabanı oluşturur ve iki bağlantı dizesi SQL veritabanı ve Redis Cache için Web uygulaması oluşturur.|
 | [ADF V2 kullanarak blob Depolama'dan veri aktarın](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Bu Azure Resource Manager şablonu, Azure Blob depolama alanından SQL veritabanına veri kopyalayan Azure Data Factory V2 oluşturur.|
-| [SQL veritabanı ile HDInsight kümesi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Bu şablon, bir HDInsight kümesi, bir SQL veritabanı sunucusu, SQL veritabanı ve iki tablo oluşturmanıza olanak sağlar. Bu şablon, makalede HDInsight ile Hadoop kullanmak Sqoop tarafından kullanılır, https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop |
+| [SQL veritabanı ile HDInsight kümesi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Bu şablon, bir HDInsight kümesi, bir SQL veritabanı sunucusu, SQL veritabanı ve iki tablo oluşturmanıza olanak sağlar. Bu şablon tarafından kullanılan [makalede HDInsight Hadoop ile Sqoop kullanma](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) |
 | [SQL saklı yordamı bir zamanlamaya göre çalışan Azure mantıksal uygulama](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Bu şablon bir SQL saklı yordamı zamanlamaya göre çalıştırılacak bir mantıksal uygulama oluşturmanıza olanak sağlar. Yordam için herhangi bir bağımsız değişken şablonun gövdesini bölüme yerleştirebilirsiniz.|
 
 ## <a name="managed-instance"></a>Yönetilen Örnek

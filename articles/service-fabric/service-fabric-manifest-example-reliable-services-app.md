@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9cb41bfde38d9b47f5db994c0ca39c64b453ef1d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 548c05963b0b99ba3434d600b19f80cef6a09d6a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171465"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813356"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Güvenilir hizmetler uygulaması ve hizmet bildirimi örnekleri
 Bir ASP.NET Core web ön ucu ve durum bilgisi olan bir arka uç Service Fabric uygulaması için uygulama ve hizmet bildirimleri örnekleri aşağıda verilmiştir. Bu örnekler amacı hangi ayarlar kullanılabilir ve bunların nasıl kullanılacağını göstermektir. Bu uygulama ve hizmet bildirimleri dayalı [Service Fabric .NET hızlı](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) bildirimleri.
@@ -28,8 +28,8 @@ Aşağıdaki özellikleri gösterilmiştir:
 |Bildirim|Özellikler|
 |---|---|
 |[Uygulama bildirimi](#application-manifest)| [Kaynak İdaresi](service-fabric-resource-governance.md), [bir hizmeti bir yerel yönetici farklı çalıştır hesabı](service-fabric-application-runas-security.md), [varsayılan ilke, tüm hizmet kodu paketlere uygulamaları](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [kullanıcı ve grup ilkelerioluşturma](service-fabric-application-runas-security.md), bir veri paketi hizmet örnekleri arasında paylaşmak [hizmet uç noktaları geçersiz kıl](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
-|[FrontEndService hizmet bildirimi](#frontendservice-service-manifest)| [Hizmetin başlatılması sırasında bir betik çalıştırma](service-fabric-run-script-at-service-startup.md), [bir HTTPS uç noktası tanımlama](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
-|[BackEndService hizmet bildirimi](#backendservice-service-manifest)| [Yapılandırma paketi bildirmek](service-fabric-application-and-service-manifests.md), [veri paketi bildirmek](service-fabric-application-and-service-manifests.md), [bir uç nokta yapılandırma](service-fabric-service-manifest-resources.md)| 
+|FrontEndService hizmet bildirimi| [Hizmetin başlatılması sırasında bir betik çalıştırma](service-fabric-run-script-at-service-startup.md), [bir HTTPS uç noktası tanımlama](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
+|BackEndService hizmet bildirimi| [Yapılandırma paketi bildirmek](service-fabric-application-and-service-manifests.md), [veri paketi bildirmek](service-fabric-application-and-service-manifests.md), [bir uç nokta yapılandırma](service-fabric-service-manifest-resources.md)| 
 
 Bkz: [uygulama bildirim öğeleri](#application-manifest-elements), [VotingWeb hizmeti bildirim öğelerinin](#votingweb-service-manifest-elements), ve [VotingData hizmet bildirim öğeleri](#votingdata-service-manifest-elements) belirli XML hakkında daha fazla bilgi için öğeleri.
 

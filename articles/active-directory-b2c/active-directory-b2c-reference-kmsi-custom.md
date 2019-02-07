@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9002ab7396cd9beda767b4a9f81d9983ec74923d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163424"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812319"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de (KMSI) içinde Oturumumu açık bırak seçeneğini etkinleştirme
 
@@ -150,7 +150,7 @@ Oluşturduğunuz kullanıcı yolculuğu başlatır bağlı olan taraf (RP) dosya
 2. Yeni bir dosya açıp güncelleştirme **Policyıd** özniteliğini **TrustFrameworkPolicy** benzersiz bir değere sahip. İlkenizi adıdır. Örneğin, `SignUpOrSignInWithKmsi`.
 3. Değişiklik **Referenceıd** özniteliğini **DefaultUserJourney** oluşturduğunuz yeni kullanıcı yolculuğu tanımlayıcısını eşleştirilecek öğe. Örneğin, `SignUpOrSignInWithKmsi`.
 
-    KMSI'yi kullanarak yapılandırılmış **UserJourneyBehaviors** öğesi. **KeepAliveInDays** özniteliği denetimleri ne kadar süreyle kullanıcının oturum açmış durumda kalır. Aşağıdaki örnekte, KMSI oturumu otomatik olarak kullanım süresi sonu `7` ne sıklıkta sessiz kimlik doğrulaması kullanıcının gerçekleştirdiği bağımsız olarak gün. Ayarı **KeepAliveInDays** değerini `0` KMSI işlevselliği devre dışı bırakır. Varsayılan olarak, bu değer `0`. Varsa değerini **Ssosession** olduğu `Rolling`, KMSI oturumu tarafından Genişletilmiş `7` kullanıcı sessiz kimlik doğrulaması gerçekleştirdiğinde gün.  Varsa `Rolling` olan seçili gün sayısı için minimum tutmalısınız. 
+    KMSI'yi kullanarak yapılandırılmış **UserJourneyBehaviors** öğeyle **SingleSignOn**, **Ssosession**, ve **SessionExpiryInSeconds** ilk alt öğeleri olarak. **KeepAliveInDays** özniteliği denetimleri ne kadar süreyle kullanıcının oturum açmış durumda kalır. Aşağıdaki örnekte, KMSI oturumu otomatik olarak kullanım süresi sonu `7` ne sıklıkta sessiz kimlik doğrulaması kullanıcının gerçekleştirdiği bağımsız olarak gün. Ayarı **KeepAliveInDays** değerini `0` KMSI işlevselliği devre dışı bırakır. Varsayılan olarak, bu değer `0`. Varsa değerini **Ssosession** olduğu `Rolling`, KMSI oturumu tarafından Genişletilmiş `7` kullanıcı sessiz kimlik doğrulaması gerçekleştirdiğinde gün.  Varsa `Rolling` olan seçili gün sayısı için minimum tutmalısınız. 
 
     Değerini **SessionExpiryInSeconds** SSO oturumunun sona erme saati temsil eder. KMSI'yi oturumun veya dolup dolmadığını kontrol etmek için bu Azure AD B2C tarafından dahili olarak kullanılır. Değerini **KeepAliveInDays** web tarayıcısında SSO tanımlama bilgisinin süre sonu/Max-Age değeri belirler. Farklı **SessionExpiryInSeconds**, **KeepAliveInDays** tarayıcı kapatıldığında, tanımlama bilgisi silinmesini önlemek için kullanılır. Yalnızca SSO oturum tanımlama bilgisinin denetlenen yoksa, bir kullanıcının sessiz bir şekilde oturum **KeepAliveInDays**ve süresi dolduğunda, hangi tarafından denetlenir **SessionExpiryInSeconds**. 
     

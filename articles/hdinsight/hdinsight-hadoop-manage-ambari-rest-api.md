@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 03b4cc919086ff2a8eb038ad9c4f45200e9a6246
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 79bc9310eb3f7c8dd2b295405cea70c514d343d3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715126"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820883"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API'yi kullanarak HDInsight kümelerini yönetme
 
@@ -60,7 +60,7 @@ HDInsight üzerinde Ambari REST API için taban URI https://CLUSTERNAME.azurehdi
 >
 > `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 HDInsight üzerinde Ambari bağlanma HTTPS gerektirir. Yönetici hesabı adını kullanın (varsayılan değer **yönetici**) ve küme oluşturma sırasında sağladığınız parola.
 
@@ -132,7 +132,7 @@ $respObj.Clusters.health_report
 ```
 
 > [!NOTE]  
-> Bu belgenin kullanımı çoğu örnek while `ConvertFrom-Json` yanıt belgedeki öğeleri görüntülemek için [güncelleştirme Ambari yapılandırma](#example-update-ambari-configuration) örnek jq kullanır. Jq, bu örnekte, JSON yanıtı belgedeki yeni bir şablon oluşturmak için kullanılır.
+> Bu belge kullanım çoğu örnek while `ConvertFrom-Json` yanıt belgedeki öğeleri görüntülemek için jq güncelleştirme Ambari yapılandırma örneği kullanır. Jq, bu örnekte, JSON yanıtı belgedeki yeni bir şablon oluşturmak için kullanılır.
 
 Eksiksiz bir REST API başvuru için bkz: [Apache Ambari API Başvurusu V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 

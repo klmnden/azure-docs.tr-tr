@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226342"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822791"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
@@ -56,7 +56,7 @@ VMware sanal makineleri çoğaltılırken:
     >   * Premium veya standart depolama hesabı seçebilirsiniz. Premium hesabı seçerseniz, devam eden çoğaltma günlükleri için ek standart depolama hesabı belirtmeniz gerekir. Hesapları kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
     >   * Farklı bir depolama hesabı kullanmak istiyorsanız, aşağıdakileri yapabilirsiniz [oluşturmak](../storage/common/storage-create-storage-account.md). Kaynak Yöneticisi'ni kullanarak bir depolama hesabı oluşturmak için tıklayın **Yeni Oluştur**. 
 
-8. Yük devretme sonrasında çalışmaya başlayan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Ağın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. Bir ağ yoksa, yapmanız [oluşturmak](#set-up-an-azure-network). Kaynak Yöneticisi'ni kullanarak bir ağ oluşturmak için tıklayın **Yeni Oluştur**. Varsa bir alt ağ seçin ve ardından **Tamam**.
+8. Yük devretme sonrasında çalışmaya başlayan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Ağın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. Bir ağ yoksa, oluşturmanız gerekir. Kaynak Yöneticisi'ni kullanarak bir ağ oluşturmak için tıklayın **Yeni Oluştur**. Varsa bir alt ağ seçin ve ardından **Tamam**.
 
     ![Çoğaltma hedefi ayarı etkinleştir](./media/vmware-azure-enable-replication/enable-rep3.png)
 9. **Sanal Makineler** > **Sanal makineleri seçin** bölümünde, çoğaltmak istediğiniz her makineyi seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın. Görünüm/herhangi belirli bir sanal makineyi seçmek mümkün değildir, tıklayın [burada](https://aka.ms/doc-plugin-VM-not-showing) sorunu çözmek için.

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/20/2017
 ms.author: danlep
-ms.openlocfilehash: 350ae16aa66276e7e64c5c35718dca74a70f499e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854108"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770610"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry Web kancalarını kullanma
 
@@ -74,7 +74,7 @@ Azure CLI ile bir ACR Web kancası test etmek için [az acr Web kancası ping](/
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-Sonuçları görmek için [az acr Web kancası liste olayları](/cli/azure/acr/webhook#list-events) komutu.
+Sonuçları görmek için [az acr Web kancası liste olayları](/cli/azure/acr/webhook) komutu.
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
@@ -104,4 +104,4 @@ Web kancası Şeması Başvurusu biçimini ve Azure Container Registry tarafınd
 
 Bu makalede ele alınan yerel kayıt defteri Web kancası olaylarını ek olarak, Azure Container Registry olayları Event grid'e gönderebilir:
 
-[Hızlı Başlangıç: kapsayıcı kayıt defteri olayları Event Grid'e göndermek.](container-registry-event-grid-quickstart.md)
+[Hızlı Başlangıç: Kapsayıcı kayıt defteri olayları Event Grid'e göndermek](container-registry-event-grid-quickstart.md)

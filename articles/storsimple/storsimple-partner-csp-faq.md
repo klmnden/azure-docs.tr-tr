@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259947"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814291"
 ---
-# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>Bulut çözüm sağlayıcısı programı için StorSimple: sık sorulan sorular
+# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple bulut çözüm sağlayıcısı programı için: Sık Sorulan Sorular
 
 
 ## <a name="overview"></a>Genel Bakış
@@ -31,7 +31,7 @@ Sorular ve cevaplar Aşağıdaki kategorilerde düzenlenmiştir:
 
  - [StorSimple ve bulut çözüm sağlayıcısı programı (CSP) modeli](#storsimple-and-csp-model)
  - [Dağıtma ve sanal bir dizi iş ortağı olarak yönetme](#deploy-and-manage-storsimple-as-a-partner)
- - [CSP için StorSimple iş ortakları için destek](#support-for-storsimple-partners)
+ - CSP için StorSimple iş ortakları için destek
 
 ## <a name="storsimple-and-csp-model"></a>StorSimple ve CSP modeli
 

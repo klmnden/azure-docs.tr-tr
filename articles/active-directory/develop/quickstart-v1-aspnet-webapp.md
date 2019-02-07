@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: aeb9f1ba460a009daacf3090c75573dd5d69b813
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095864"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816280"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -64,7 +64,7 @@ Bu adımlarda OpenID Connect kullanarak bir ASP.NET projesi üzerinde OWIN ara y
 
 Bu örneğe ait Visual Studio projesini indirmek için şu adımları izleyin:
 1. [GitHub'daki projeyi indirin](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
-1. [Yapılandırma adımına](#configure-your-webconfig-and-register-an-application) geçerek yürütmeden önce kod örneğini yapılandırın.
+1. Kod örneği çalıştırmadan önce yapılandırmak için yapılandırma adımı atlayın.
 
 ## <a name="step-2-create-your-aspnet-project"></a>2. Adım: ASP.NET projenizi oluşturun
 
@@ -286,9 +286,9 @@ Kullanıcının taleplerini görmek için köprüyü seçin. Bu eylem yalnızca 
 
  Oturum açmış olan kullanıcının temel özelliklerinin bulunduğu bir tablo görmeniz gerekir:
 
-| Özellik | Value | Açıklama |
+| Özellik | Değer | Açıklama |
 |---|---|---|
-| Name | {User Full Name} | Kullanıcının adı ve soyadı |
+| Ad | {User Full Name} | Kullanıcının adı ve soyadı |
 | Kullanıcı adı | <span>user@domain.com</span> | Oturum açmış kullanıcıyı tanımlamak için kullanılan kullanıcı adı |
 | Konu| {Subject} |Web üzerinde kullanıcı oturumunu benzersiz bir şekilde tanımlayan dize |
 | Kiracı Kimliği | {Guid} | Kullanıcının Azure AD kuruluşunu benzersiz bir şekilde temsil eden *guid* değeri |

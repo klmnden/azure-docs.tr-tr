@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 28b73a70ef9ffd4e73117d599448434823747eca
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567409"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822451"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Oluşturma, değiştirme veya bir ağ güvenlik grubunu sil
 
@@ -92,7 +92,7 @@ Portalın üst kısmındaki arama kutusuna girin *ağ güvenlik grupları*. Zama
 
 ### <a name="delete-a-network-security-group"></a>Bir ağ güvenlik grubunu sil
 
-Herhangi bir alt ağ veya ağ arabirimleri için ağ güvenlik grubu ilişkiliyse, bu komut dosyası silinemiyor. [İlişkisini](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) tüm alt ağlar ve ağ arabirimleri silmeye çalışmadan önce bir ağ güvenlik grubu.
+Herhangi bir alt ağ veya ağ arabirimleri için ağ güvenlik grubu ilişkiliyse, bu komut dosyası silinemiyor. Tüm alt ağlar ve ağ arabirimlerinin ağ güvenlik grubu silmeye çalışmadan önce ilişkisini kaldırın.
 
 1. Portalın üst kısmındaki arama kutusuna girin *ağ güvenlik grupları* arama kutusuna. Zaman **ağ güvenlik grupları** arama sonuçlarında görünmesini, onu seçin.
 2. Listeden silmek istediğiniz ağ güvenlik grubu seçin.

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff214460d919eff5c3c1a2e608958673867ddc55
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392291"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822553"
 ---
 # <a name="disaster-recovery-principles"></a>Olağanüstü durum kurtarma ilkeleri
 
@@ -48,7 +48,7 @@ Burada, HANA sistem çoğaltması yüksek kullanılabilirlik işlevi üretim sit
 
 
 >[!NOTE]
->HANA büyük Örnek Depolama çoğaltma işlevselliği yansıtma ve depolama anlık görüntüleri çoğaltılıyor. Depolama anlık görüntüleri içinde sunulduğu şekilde gerçekleştirme, [yedekleme ve geri yükleme](#backup-and-restore) bölümünde bu makalede, olamaz olağanüstü durum kurtarma sitesine herhangi bir çoğaltma. Depolama anlık görüntüsü yürütme, depolama çoğaltma, olağanüstü durum kurtarma siteniz için bir önkoşuldur.
+>HANA büyük Örnek Depolama çoğaltma işlevselliği yansıtma ve depolama anlık görüntüleri çoğaltılıyor. Bu makalede yedekleme ve geri yükleme kısmında tanıtılan depolama anlık görüntüleri gerçekleştirme, olağanüstü durum kurtarma sitesine herhangi bir çoğaltma olamaz. Depolama anlık görüntüsü yürütme, depolama çoğaltma, olağanüstü durum kurtarma siteniz için bir önkoşuldur.
 
 
 
@@ -81,7 +81,7 @@ Ardından, ayarlayın veya RPO ve RTO olağanüstü durumda almak için depolama
 - İşlem günlüğü yedekleme biriminin (anlık görüntü türü **günlükleri**), 3 dakikada bir olağanüstü durum kurtarma siteniz olarak eşdeğer depolama birimi hedeflerin için çoğaltma kümesi.
 
 Kurtarma noktası hedefi en aza indirmek için şunu ayarlayın:
-- Gerçekleştirmek bir **hana** türü depolama anlık görüntüsü (bkz: "7. adım: anlık görüntüleri") 30 dakikada 1 saate.
+- Gerçekleştirmek bir **hana** türü depolama anlık görüntüsü (bkz: "7. adım: Anlık görüntüleri gerçekleştir:") 30 dakikada 1 saate.
 - SAP HANA işlem günlüğü yedeklemeleri her 5 dakikada gerçekleştirin.
 - Gerçekleştirmek bir **günlükleri** 5-15 dakikada bir anlık görüntü depolama yazın. Bu aralığı dönem, yaklaşık 25 15 dakikalık bir RPO elde edin.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 0c16369cca4fae89733ad281aa3332c393be2aff
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4fdfbb17670cd30438a8906a6b00bb4db354aedb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828426"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820275"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dinamik şifreleme: Bir içerik anahtarı yetkilendirme ilkesini yapılandırma
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -279,7 +279,7 @@ Aşağıdaki örnek, bir açık yetkilendirme ilkesi oluşturur ve içerik anaht
 ```
 
 ### <a name="token-restriction"></a>Belirteç kısıtlama
-Belirteç kısıtlamasına seçeneği yapılandırmak için belirtecin yetkilendirme gereksinimlerini tanımlamak için bir XML kullanmanız gerekir. XML gösterilen XML şemasına uygun olmalıdır belirteç kısıtlamasına yapılandırma "[belirteci kısıtlama şema](#token-restriction-schema)" bölümü.
+Belirteç kısıtlamasına seçeneği yapılandırmak için belirtecin yetkilendirme gereksinimlerini tanımlamak için bir XML kullanmanız gerekir. Belirteç kısıtlamasına yapılandırma XML "Belirteci kısıtlama schema" bölümünde gösterilen XML şemasına uygun olmalıdır.
 
 ```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c9e3a26f1ca8a577b883baacaf672cf73c8c5656
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6198d16b25330fb02cf5642addba0093ec437cab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488699"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811503"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış Ormanlardaki etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için eksiksiz bir genel adres listesi gibi Exchange Online ve Skype Kurumsal, Office 365 iş yükleri kullanarak kullanıcıların yararlanır. Varsayılan yapılandırma ile bir şirket içi Exchange veya Lync uygulamasıyla sahip olabileceği aynı deneyimi sahip.
@@ -93,8 +93,8 @@ Herhangi bir nedenle Yükleme Sihirbazı'nı çalıştırmak zamanınız yoksa y
 
 Etki alanı tabanlı filtreleme yapılandırması aşağıdaki adımlardan oluşur:
 
-1. [Etki alanlarını seçin](#select-domains-to-be-synchronized) eşitlemeye dahil etmek istediğiniz.
-2. Her eklendi ve kaldırıldı etki alanı için Ayarla [çalıştırma profilleri](#update-run-profiles).
+1. Eşitlemeye dahil etmek istediğiniz etki alanlarını seçin.
+2. Her eklenen hem Kaldırılan etki için çalıştırma profillerini ayarlayın.
 3. [Değişiklikleri uygulama ve doğrulama](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Eşitlenmesi gereken etki alanları seçin
@@ -110,7 +110,7 @@ Etki alanı filtre ayarlamak için aşağıdaki adımları uygulayın:
    Şirket içi Active Directory altyapınızı değiştirildi ve ekledikten veya ormandan etki alanları kaldırılır, ardından **Yenile** güncelleştirilmiş bir listesini almak için düğme. Yenilediğinizde, kimlik bilgileri sorulur. Herhangi bir kimlik bilgisi, Windows Server Active Directory ile okuma erişimi sağlar. Bu iletişim kutusundaki önceden doldurulmuş kullanıcı olmak zorunda değildir.  
    ![Yenileme gerekiyor](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. İşiniz bittiğinde kapatın **özellikleri** tıklayarak iletişim **Tamam**. Ormandan etki alanları kaldırılırsa, bir etki alanı kaldırıldı ve bu yapılandırma Temizlenen bir açılır ileti diyor.
-7. Ayarlamaya devam [çalıştırma profilleri](#update-run-profiles).
+7. Çalıştırma profilleri ayarlamaya devam edin.
 
 ### <a name="update-the-run-profiles"></a>Çalıştırma profillerini güncelleştirin
 Etki alanı filtrenizle güncelleştirdiyseniz, ayrıca çalıştırma profillerini güncelleştirmeniz gerekir.

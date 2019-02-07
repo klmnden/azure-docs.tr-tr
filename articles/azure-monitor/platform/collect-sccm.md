@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: b13e92369168a43f529ed0b83c10bc65893da83d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 79539e05e1623b153a8fad817918cfb56a521db1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193323"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814172"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager'ı Log Analytics'e bağlanma
 System Center Configuration Manager ortamınızı Azure Log Analytics'e eşitleme cihaz koleksiyonu verilere ve Log Analytics ve Azure Otomasyonu bu koleksiyonlara başvuru.  
@@ -32,8 +32,8 @@ Aşağıdaki adımlar, Log Analytics ile Configuration Manager tümleştirmesini
 
 1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydetmek ve istemci Kimliğini ve istemci gizli anahtarını kaydı Azure Active Directory'den olduğundan emin olun. Bkz: [Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../../active-directory/develop/howto-create-service-principal-portal.md) bu adımı tamamlamak hakkında ayrıntılı bilgi için.
 2. Azure portalında [Configuration Manager (kayıtlı web uygulaması) Log Analytics erişim izni vermek](#grant-configuration-manager-with-permissions-to-log-analytics).
-3. Configuration Manager'da [OMS Bağlantısı Ekleme Sihirbazı'nı kullanarak bir bağlantı ekleyin](#add-an-oms-connection-to-configuration-manager).
-4. Configuration Manager'da [bağlantı özelliklerini güncelleştirmek](#update-oms-connection-properties) süresi veya kaybolursa hiç olmadığı kadar parolası veya istemci gizli anahtarı.
+3. Configuration Manager'da OMS Bağlantısı Ekleme Sihirbazı'nı kullanarak bir bağlantı ekleyin.
+4. Parolası veya istemci gizli anahtarı hiç olmadığı kadar süresi veya kaybolursa, Yapılandırma Yöneticisi'nde, bağlantı özelliklerini güncelleştirir.
 5. [Microsoft Monitoring Agent'ı yükleyip](#download-and-install-the-agent) bilgisayarda çalışan Configuration Manager hizmet bağlantı noktası site sistemi rolü. Aracı, Configuration Manager verilerini Log Analytics çalışma alanınıza gönderir.
 6. Log analytics'te [koleksiyonları Configuration Manager'dan içeri aktarma](#import-collections) bilgisayar grupları olarak.
 7. Log Analytics'te verisinin Configuration Manager'dan olarak [bilgisayar grupları](../../azure-monitor/platform/computer-groups.md).

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 29fef9177e40bd89dd0f179b028d2f044af8addb
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913105"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821380"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>Data Lake Storage verilerini çözümlemek için HDInsight Spark kümesi kullanın
 
@@ -30,7 +30,7 @@ Bu öğreticide kullandığınız [Jupyter not defteri](https://jupyter.org/) bi
 ## <a name="prepare-the-data"></a>Verileri hazırlama
 
 > [!NOTE]  
-> Varsayılan depolama alanı olarak Data Lake Store ile HDInsight küme oluşturduysanız bu adımı gerçekleştirmeniz gerekmez. Küme oluşturma işlemi bazı örnek veriler, kümeyi oluştururken belirttiğiniz Data Lake Store hesabına ekler. Bölümüne atla [kullanım HDInsight Spark kümesi ile Data Lake Storage](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> Varsayılan depolama alanı olarak Data Lake Store ile HDInsight küme oluşturduysanız bu adımı gerçekleştirmeniz gerekmez. Küme oluşturma işlemi bazı örnek veriler, kümeyi oluştururken belirttiğiniz Data Lake Store hesabına ekler. Data Lake Storage bölüm kullan HDInsight Spark kümesiyle bölümüne atlayın.
 
 Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu olarak Data Lake Store ile HDInsight kümesi oluşturduysanız, Data Lake Storage hesabına önce bazı örnek veriler üzerinde kopyalamanız gerekir. Azure depolama Blob verileri HDInsight kümesi ile ilişkili örnek kullanabilirsiniz. Kullanabileceğiniz [ADLCopy aracı](https://aka.ms/downloadadlcopy) Bunu yapmak için. İndirin ve aracı bağlantıdan yükleyin.
 

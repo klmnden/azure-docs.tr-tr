@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 624e49cb0b211139a70d0262fbb8500deef8bf5b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744867"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820139"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ağ kavramları
 
@@ -23,7 +23,7 @@ Bu makalede aks'deki uygulamalarınıza ağ sağlayan temel kavramlar açıklanm
 - [Hizmetler](#services)
 - [Azure sanal ağları](#azure-virtual-networks)
 - [Giriş denetleyicileri](#ingress-controllers)
-- [Ağ ilkeleri](#network-policies)
+- Ağ ilkeleri
 
 ## <a name="kubernetes-basics"></a>Kubernetes hakkında temel bilgiler
 

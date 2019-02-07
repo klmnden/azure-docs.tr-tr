@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: f549c748c87405b47868c75cc01af81efd202af2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755365"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812495"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri dışı bir uygulama için yapılandırma
 
@@ -43,7 +43,7 @@ Bu uygulama herhangi bir türden Azure AD'ye hızlı bir şekilde tümleştirmek
 
 -   İzin bir **iş grubunun üyesi** kullanıcı adları ve parolaları kullanarak bir kullanıcıya atanmış belirtmek için [Self Servis uygulama erişimini](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) özelliği
 
--   İzin bir **yönetici** belirtmek için kullanıcı adları ve parolalar güncelleştirme kimlik bilgilerini kullanarak bir kullanıcıya atanmış özellik ne zaman [uygulamaya kullanıcı atama](#_How_to_configure_1)
+-   İzin bir **yönetici** kullanıcı adları ve parolalar uygulamaya kullanıcı atama, kimlik bilgilerini güncelleştirme özelliğini kullanarak bir kullanıcıya atanmış belirtmek için
 
 -   İzin bir **yönetici** belirtmek için paylaşılan kullanıcı adı veya parola güncelleştirme kimlik bilgilerini kullanarak bir kişi grubu tarafından kullanılan özellik ne zaman [uygulamaya grup atama](#assign-an-application-to-a-group-directly)
 
@@ -57,7 +57,7 @@ Bir uygulama için gereken Azure AD Galerisi yapılandırmak için:
 
 -   [Parola çoklu oturum açma için uygulamayı yapılandırma](#configure-the-application-for-password-single-sign-on)
 
--   [Bir kullanıcının veya grubun uygulamaya atama](#assign-the-application-to-a-user-or-a-group)
+-   Bir kullanıcının veya grubun uygulamaya atama
 
     -   [Bir uygulamaya doğrudan bir kullanıcı atama](#assign-a-user-to-an-application-directly)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604108"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813900"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API çağrıları için Postman'ı yapılandırma
 
@@ -30,7 +30,7 @@ Bu makalede nasıl yapılacağı gösterilmektedir **Postman** böylece Azure Me
 - İçin gereken bilgileri elde [API'lere erişim](access-api-cli-how-to.md)
 - AMS REST öğreticilerinden bazılarında gösterilen REST API'lerini yürütmek için [Postman](https://www.getpostman.com/) REST istemcisini yükleyin. 
 
-    Biz **Postman**'ı kullanıyoruz, ancak herhangi bir REST aracı da olabilir. Diğer Seçenekler şunlardır: **Visual Studio Code** REST eklentisiyle veya **Telerik Fiddler**. 
+    Biz **Postman**'ı kullanıyoruz, ancak herhangi bir REST aracı da olabilir. Diğer alternatifler: **Visual Studio Code** REST eklentisiyle veya **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Postman dosyalarını indirme
 
@@ -57,7 +57,7 @@ Bu bölümde Postman yapılandırılmaktadır.
     > [!Note]
     > Erişim değişkenlerini yukarıdaki **Media Services API'sine erişme** bölümünden aldığınız değerlerle güncelleştirin.
 
-7. Seçili dosyaya çift tıklayın ve [API'ye erişim](#access-the-media-services-api) adımlarını izleyerek aldığınız değerleri girin.
+7. Seçili dosyayı çift tıklatın ve erişimi API adımları izleyerek aldığınız değerleri girin.
 8. İletişim kutusunu kapatın.
 9. Aşağı açılan listeden **Azure Media Service v3 Environment** ortamını seçin.
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ede0b7cbeee9227a7023e5c0550a951897cc43e4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472992"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821193"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET için Azure Depolama'ya iş ve görev veri Batch dosya kuralları kitaplığı ile kalıcı
 
@@ -112,7 +112,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 `kind` Parametresinin [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[ SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) yöntemi kalıcı dosyaları kategorilere ayırır. Dört önceden tanımlanmış vardır [TaskOutputKind] [ net_taskoutputkind] türleri: `TaskOutput`, `TaskPreview`, `TaskLog`, ve `TaskIntermediate.` çıktı özel kategoriler de tanımlayabilirsiniz.
 
-Bu çıktı türleri, belirli bir görevin kalıcı çıktısı için daha sonra Batch sorguladığınızda listelemek için çıktı türünü belirtmenizi sağlar. Diğer bir deyişle, bir görev çıkışları listelediğinizde türlerden biri listeyi filtreleyebilirsiniz. Örneğin, "ver *Önizleme* için görev çıktısını *109*." Listeleme ve çıktılar alma hakkında daha fazla görünür [almak çıkış](#retrieve-output) makalenin ilerleyen bölümlerinde.
+Bu çıktı türleri, belirli bir görevin kalıcı çıktısı için daha sonra Batch sorguladığınızda listelemek için çıktı türünü belirtmenizi sağlar. Diğer bir deyişle, bir görev çıkışları listelediğinizde türlerden biri listeyi filtreleyebilirsiniz. Örneğin, "ver *Önizleme* için görev çıktısını *109*." Listeleme ve çıktılar alma hakkında daha fazla görünür makalenin sonraki bölümlerinde yer alma çıktısında.
 
 > [!TIP]
 > Çıkış türü de Azure portalında, belirli bir dosya göründüğü belirler: *TaskOutput*-sınıflandırılmış dosyalar görünür altında **bir görevin çıkış dosyaları**, ve *TaskLog* dosyalar görünür altında **görev günlükleri**.
@@ -197,7 +197,7 @@ Görev çıkış dosyalarını Azure portalında görüntülenir ve bağlı bir 
 
 Çıktı dosyalarınızı portalında görüntülenmesini etkinleştirmek için aşağıdaki gereksinimleri karşılamanız gerekir:
 
-1. [Bir Azure depolama hesabı bağlantı](#requirement-linked-storage-account) Batch hesabınıza.
+1. Bir Azure depolama hesabını Batch hesabınıza bağlayın.
 1. Depolama kapsayıcıları ve dosya için önceden tanımlanmış adlandırma kuralları çıkışları kalıcı olduğunda izliyor. Dosya kuralları Kitaplığı'nda bu kuralları tanımını bulabilirsiniz [Benioku][github_file_conventions_readme]. Kullanırsanız [Azure Batch dosya kuralları] [ nuget_package] , çıkışı kalıcı hale getirmek için kitaplık dosyası kuralları standardına göre dosyalarınızı kalıcı.
 
 Görev çıkış dosyalarını ve günlükleri, Azure portalında görüntülemek için ilgilendiğiniz, çıktısı'a tıklayın ya da görev için gidin **kaydedilen çıktı dosyaları** veya **günlükleri kaydedilmiş**. Bu görüntüde gösterilmektedir **kaydedilen çıktı dosyaları** "007" Kimliğine sahip görev için:

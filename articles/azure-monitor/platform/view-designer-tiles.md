@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186812"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817405"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Görünüm Tasarımcısı kutucukları Log analytics'te Başvuru Kılavuzu
 Azure Log Analytics'te Görünüm Tasarımcısı kullanarak veri görselleştirmeleri Log Analytics çalışma alanınızdaki çeşitli sunan Azure portalında özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir kutucuk ayarlarını bir başvuru kılavuzudur.
@@ -36,7 +36,7 @@ Kullanılabilir Görünüm Tasarımcısı kutucuklar, aşağıdaki tabloda açı
 | [Sayı](#number-tile) |Bir sorgunun kayıt sayısı. |
 | [İki sayı](#two-numbers-tile) |İki farklı sorgular kayıtlarını sayar. |
 | [Halka](#donut-tile) | Merkezinde Özet bir değerle bir sorgu temel alan grafiği. |
-| [Çizgi grafik ve belirtme çizgisi](#line-chart-amp-callout-tile) | Bir sorgu ve belirtme çizgisi Özet bir değerle temel alan bir çizgi grafiği. |
+| Çizgi grafik ve belirtme çizgisi | Bir sorgu ve belirtme çizgisi Özet bir değerle temel alan bir çizgi grafiği. |
 | [Çizgi grafik](#line-chart-tile) |Bir sorguyu temel alan bir çizgi grafiği. |
 | [İki zaman çizelgesi](#two-timelines-tile) | İki dizi sütun grafiği, her bir ayrı bir sorguyu temel alan. |
 

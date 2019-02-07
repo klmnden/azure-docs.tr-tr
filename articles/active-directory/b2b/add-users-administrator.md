@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 2/6/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 43cceeb9b65bcee97855f96c781c5d157b32346a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 001eb1946ff0fdc073baaa6da76f4bfa63fc3652
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080932"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810636"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure portalında Azure Active Directory B2B işbirliği kullanıcıları ekleme
 
@@ -45,7 +45,7 @@ B2B işbirliği kullanıcıları dizine eklemek için aşağıdaki adımları iz
    ![Yeni Konuk kullanıcı Arabiriminde burada gösterilir](./media/add-users-administrator/InviteGuest.png) 
 
     > [!NOTE]
-    > Bazı e-posta sağlayıcıları artı eklemek kullanıcıların (+) simgesini ve gelen kutusu filtreleme gibi şeyler yardımcı olmak için e-posta adreslerini ek metni. Ancak, Azure AD, e-posta adreslerini simgeler ayrıca şu anda desteklemiyor. Teslim sorunları önlemek için artı simgesini ve herhangi bir karakter kadar aşağıdaki atlayın @ sembolü.
+    > Grup e-posta adreslerini desteklenmez; tek bir e-posta adresi girin. Ayrıca, bazı e-posta sağlayıcıları artı eklemek kullanıcıların (+) simgesini ve gelen kutusu filtreleme gibi şeyler yardımcı olmak için e-posta adreslerini ek metni. Ancak, Azure AD, e-posta adreslerini simgeler ayrıca şu anda desteklemiyor. Teslim sorunları önlemek için artı simgesini ve herhangi bir karakter kadar aşağıdaki atlayın @ sembolü.
 
 6. Konuk kullanıcıya otomatik olarak daveti göndermek için **Davet Et**’i seçin. 
  

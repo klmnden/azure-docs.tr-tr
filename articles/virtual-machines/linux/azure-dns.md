@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 93614d4889c9c884f25c5e05cd620e8303226323
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39357775"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819153"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure'da Linux sanal makineleri için DNS ad çözümleme seçenekleri
 Azure DNS ad çözümlemesi, tek bir sanal ağdaki tüm sanal makineler için varsayılan olarak sağlar. Barındıran Azure üzerindeki sanal makinelerinize kendi DNS hizmetleri yapılandırarak kendi DNS ad çözümlemesi çözüm uygulayabilirsiniz. Aşağıdaki senaryolar sizin durumunuz için çalışan bir seçmenize yardımcı olacaktır.
@@ -33,7 +33,7 @@ Aşağıdaki tabloda, senaryolar ve karşılık gelen ad çözümlemesi çözüm
 
 | **Senaryo** | **Çözüm** | **Son eki** |
 | --- | --- | --- |
-| Rol örnekleri ve aynı sanal ağdaki sanal makineler arasındaki ad çözümlemesi |[Azure sağlayan ad çözümlemesi](#azure-provided-name-resolution) |ana bilgisayar adı veya tam etki alanı adı (FQDN) |
+| Rol örnekleri ve aynı sanal ağdaki sanal makineler arasındaki ad çözümlemesi |Azure sağlayan ad çözümlemesi |ana bilgisayar adı veya tam etki alanı adı (FQDN) |
 | Rol örnekleri ve farklı sanal ağlarda bulunan sanal makineler arasındaki ad çözümlemesi |Sorguları Azure (DNS proxy) tarafından çözümlemesi için sanal ağlar arasında iletecek müşteri tarafından yönetilen DNS sunucuları. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-using-your-own-dns-server). |Yalnızca FQDN |
 | Şirket içi bilgisayarları ve rol örnekleri veya azure'da sanal makineler hizmet adlarını çözümleme |Müşteri tarafından yönetilen DNS sunucuları (örneğin, şirket içi etki alanı denetleyicisi, yerel salt okunur etki alanı denetleyicisi veya DNS ikincil bölge aktarımlarını kullanarak eşitlenen). Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-using-your-own-dns-server). |Yalnızca FQDN |
 | Şirket içi bilgisayarlardan Azure konak adı çözümlemesi |Bir müşteri tarafından yönetilen DNS Ara sunucuya karşılık gelen sanal ağ içinde sorguları iletin. Proxy sunucusunu sorgular çözümlemesi için Azure'a iletir. Bkz: [kendi DNS sunucunuzu kullanarak ad çözümlemesi](#name-resolution-using-your-own-dns-server). |Yalnızca FQDN |
@@ -69,7 +69,7 @@ Bazı Linux dağıtımlarında, varsayılan olarak önbelleğe alma içermez. Ol
 
 Birkaç farklı DNS gibi dnsmasq, paketleri önbelleğe alma kullanılabilir. En yaygın dağıtımlarında dnsmasq yüklemek için adımları şunlardır:
 
-**Ubuntu (resolvconf kullanır)**
+**Ubuntu (uses resolvconf)**
   * ("Sudo apt-get install dnsmasq") dnsmasq paketini yükleyin.
 
 **SUSE (kullandığı netconf)**:
@@ -87,7 +87,7 @@ Birkaç farklı DNS gibi dnsmasq, paketleri önbelleğe alma kullanılabilir. En
 5. Önbellek yerel DNS Çözümleyicisi ayarlamak için ağ hizmeti ("hizmet ağı restart") yeniden başlatın
 
 > [!NOTE]
-> : 'Dnsmasq' paket yalnızca Linux için kullanılabilen birçok DNS Önbellek biridir. Kullanmadan önce kendi gereksinimlerinize uygunluğu denetleyin ve başka bir önbellek yüklü.
+> : 'Dnsmasq' yalnızca bir Linux için kullanılabilen birçok DNS Önbellek paketidir. Kullanmadan önce kendi gereksinimlerinize uygunluğu denetleyin ve başka bir önbellek yüklü.
 >
 >
 

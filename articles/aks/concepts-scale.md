@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 3e460df8c4841a23c76ef8d7b254938ce46a2b45
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381198"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819119"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ölçeklendirme seçenekleri
 
@@ -23,7 +23,7 @@ Bu makalede çekirdek tanıtılır yardımcı kavramları, AKS içinde uygulamal
 - [El ile ölçeklendirme](#manually-scale-pods-or-nodes)
 - [Yatay pod otomatik ölçeklendiricinin (HPA)](#horizontal-pod-autoscaler)
 - [Otomatik ölçeklendiricinin küme](#cluster-autoscaler)
-- [AKS ile Azure Container örneği (ACI) Tümleştirmesi](#burst-to-azure-container-instance)
+- AKS ile Azure Container örneği (ACI) Tümleştirmesi
 
 ## <a name="manually-scale-pods-or-nodes"></a>Pod'ların veya düğümleri el ile ölçeklendirme
 
@@ -65,7 +65,7 @@ Küme otomatik ölçeklendiricinin aks'deki kullanmaya başlamak için bkz. [AKS
 
 Küme otomatik ölçeklendiricinin düğüm havuzu kaynak kısıtlamaları nedeniyle zamanlanamaz pod'ların istediğinde, ek işlem kaynakları sağlamak için düğüm havuzdaki düğüm sayısını artar. Bu ek düğümler, başarıyla dağıtılan ve düğüm havuzu içinde kullanmak için kullanılabilir olduğunda, pod'ların ardından bunlar üzerinde çalışmak üzere zamanlanır.
 
-Hızlı bir şekilde ölçeklendirme uygulamanız gerekiyorsa, bazı pod'ları kümesi ölçeklendiriciyi tarafından dağıtılan ek düğümler zamanlanmış pod'ların kabul edebilir kadar zamanlanması için bekleyen bir durumda kalabilir. Yüksek patlama taleplerine sahip uygulamalar için [sanal düğümleri ve Azure Container Instances ile ölçek](#burst-to-azure-container-instance).
+Hızlı bir şekilde ölçeklendirme uygulamanız gerekiyorsa, bazı pod'ları kümesi ölçeklendiriciyi tarafından dağıtılan ek düğümler zamanlanmış pod'ların kabul edebilir kadar zamanlanması için bekleyen bir durumda kalabilir. Yüksek patlama taleplerine sahip uygulamalar için sanal düğümü ve Azure Container Instances ile ölçeklendirebilirsiniz.
 
 ### <a name="scale-down-events"></a>Olayları ölçeklendirin
 

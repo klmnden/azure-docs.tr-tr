@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 548bc9afb37f8c4a1c6c208a8741d1e3da0a784c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469405"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814121"
 ---
 # <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>İşlem çoğaltma ile tek başına, havuza alınmış ve Azure SQL veritabanı'nda veritabanları örnek
 
-İşlem çoğaltma bir Azure SQL veritabanı yönetilen örneği ve Azure SQL veritabanındaki bir tablodan veri çoğaltma olanak tanıyan SQL Server veya SQL Server uzak veritabanlarında yerleştirilen tablolara özelliğidir. Bu özellik, birden fazla tablo farklı veritabanlarındaki eşitlemenize olanak tanır.
+İşlem çoğaltması, Azure SQL veritabanı ve SQL Server, Azure SQL veritabanındaki bir tablodan veri çoğaltmanıza olanak sağlar veya uzak veritabanlarında yerleştirilmiş tablolar için SQL Server özelliğidir. Bu özellik, birden fazla tablo farklı veritabanlarındaki eşitlemenize olanak tanır.
 
 ## <a name="when-to-use-transactional-replication"></a>Ne zaman işlem çoğaltma kullanma
 
@@ -38,15 +38,15 @@ ms.locfileid: "55469405"
 ![SQL veritabanı ile çoğaltma](media/replication-to-sql-database/replication-to-sql-database.png)
 
 
-**Yayımcı** dağıtımcı güncelleştirmeleri göndererek örneği veya bazı tablolar (makaleler) yapılan değişiklikler yayımlayan sunucusunu olduğu. Bir şirket içi SQL Server'dan Azure SQL veritabanı yayımlama, aşağıdaki SQL Server sürümlerinde desteklenir:
+**Yayımcı** dağıtımcı güncelleştirmeleri göndererek örneği veya bazı tablolar (makaleler) yapılan değişiklikler yayımlayan sunucusunu olduğu. Yayımlama için herhangi bir Azure SQL veritabanı bir şirket içi SQL Server'dan SQL Server'ın aşağıdaki sürümleriyle desteklenir:
 
-    - SQL Server 2019 (Önizleme)
-    - SQL Server 2016 SQL 2017
-    - SQL Server 2014 SP1 CU3 veya büyük (12.00.4427)
-    - SQL Server 2014 RTM CU10 (12.00.2556)
-    - SQL Server 2012 SP3 veya büyük (11.0.6020)
-    - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-    - Azure'da yayımlama nesnelere desteklemeyen başka SQL Server sürümleri için kullanmak mümkün [verileri yeniden yayımlayarak](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) daha yeni SQL Server sürümleri için verileri taşımak için yöntemi. 
+   - SQL Server 2019 (Önizleme)
+   - SQL Server 2016 SQL 2017
+   - SQL Server 2014 SP1 CU3 veya büyük (12.00.4427)
+   - SQL Server 2014 RTM CU10 (12.00.2556)
+   - SQL Server 2012 SP3 veya büyük (11.0.6020)
+   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
+   - Azure'da yayımlama nesnelere desteklemeyen başka SQL Server sürümleri için kullanmak mümkün [verileri yeniden yayımlayarak](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) daha yeni SQL Server sürümleri için verileri taşımak için yöntemi. 
 
 **Dağıtıcı** bir örneği ya da bir yayımcıdan değişiklikleri makalelerinde toplar ve bunları abonelere dağıtan bir sunucu. Dağıtımcısı, Azure SQL veritabanı yönetilen örneği veya SQL Server'ın (yayımcı sürümden daha yüksek veya ona eşit, uzun gibi herhangi bir sürüm) olabilir. 
 

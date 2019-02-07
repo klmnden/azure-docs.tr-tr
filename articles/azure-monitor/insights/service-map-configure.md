@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 8457334e00f7c8dfbaee75a12d6bb71b760e60d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697009"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822721"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -134,8 +134,8 @@ Hizmet eşlemesi kendi verilerini Microsoft Dependency Aracıdan alır. Log Anal
 
 | Bağlı kaynak | Desteklenen | Açıklama |
 |:--|:--|:--|
-| Windows aracıları | Evet | Hizmet eşlemesi, analiz eder ve Windows bilgisayarlardan verileri toplar. <br><br>Ek olarak [Windows için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
-| Linux aracıları | Evet | Hizmet eşlemesi, analiz eder ve Linux bilgisayarlardan verileri toplar. <br><br>Ek olarak [Linux için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](#supported-operating-systems). |
+| Windows aracıları | Evet | Hizmet eşlemesi, analiz eder ve Windows bilgisayarlardan verileri toplar. <br><br>Ek olarak [Windows için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Windows aracıları Microsoft Dependency Aracısı gerektirir. Desteklenen işletim sistemleri işletim sistemlerinin tam listesi için bkz. |
+| Linux aracıları | Evet | Hizmet eşlemesi, analiz eder ve Linux bilgisayarlardan verileri toplar. <br><br>Ek olarak [Linux için Log Analytics aracısını](../../azure-monitor/platform/log-analytics-agent.md), Linux aracıları Microsoft Dependency Aracısı gerektirir. Desteklenen işletim sistemleri işletim sistemlerinin tam listesi için bkz. |
 | System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi analiz eder ve Windows ve Linux aracılarını bir bağlı olarak veri toplar [System Center Operations Manager yönetim grubu](../../azure-monitor/platform/om-agents.md). <br><br>System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. |
 | Azure depolama hesabı | Hayır | Azure Depolama'dan toplamak için hiçbir veri bu nedenle hizmet eşlemesi Aracısı bilgisayarlardan verileri toplar. |
 

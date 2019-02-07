@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8d7b18dfd88a1a136e8b6e11f9f712e9212d6dd5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7c07a1b19bd651eadf7c7b27d5216dd446cd7abb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788812"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810915"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK kullanarak HDInsight Apache Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -224,7 +224,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 Bu, Portal üzerinden de yapılabilir. Bkz: [Azure portalını kullanarak HDInsight yönetmek][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>HTTP kullanıcısı kimlik bilgilerini güncelleştirme
-Yordamın aynısını olan [vermek/iptal etmek HTTP erişim](#grant/revoke-access).  Kümenin HTTP erişim verilmişse, öncelikle iptal gerekir.  ' İ tıklatın ve ardından yeni HTTP kullanıcı kimlik bilgileriyle erişim verin.
+Aynı Grant/revoke HTTP erişim yordam var.  Kümenin HTTP erişim verilmişse, öncelikle iptal gerekir.  ' İ tıklatın ve ardından yeni HTTP kullanıcı kimlik bilgileriyle erişim verin.
 
 ## <a name="find-the-default-storage-account"></a>Varsayılan depolama hesabı bulunamadı
 Aşağıdaki kod parçacığı, varsayılan depolama hesabı adı ve bir küme için varsayılan depolama hesabı anahtarını almak nasıl gösterir.

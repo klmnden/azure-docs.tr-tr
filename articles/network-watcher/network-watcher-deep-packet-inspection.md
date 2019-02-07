@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 7af14143e8ce4924c17a41c6bb1ff33954f4b583
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c30e679b250c2d6c6b03a1fe5d70dbd06acf052
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568735"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818371"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Azure Ağ İzleyicisi ile paket incelemesi
 
@@ -61,7 +61,7 @@ WireShark kullanarak bu değeri bizim için hesaplanır.
 
 WireShark içinde filtre uygulamak için yakalama [SYN] pakette "İletim Denetimi Protokolü" segmentini genişletin ve TCP üstbilgisinde ayarlanan işaretlere inceleyin.
 
-Tüm [SYN] üzerinde filtre arıyoruz olduğundan ve [SYN ACK] bayrakları altında paketleri cofirm Syn biti 1 olarak ayarlayın ve ardından sağ tıklayarak Syn bit -> Uygula Filtre -> olarak seçili.
+Tüm [SYN] üzerinde filtre arıyoruz olduğundan ve [SYN ACK] Syn biti 1 olarak ayarlayın ve ardından sağ tıklayarak Syn bit -> Uygula Filtre -> olarak seçili paket bayrakları altında onaylayın.
 
 ![Şekil 7][7]
 

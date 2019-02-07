@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 9877698c8c6af68c5ffd88dab37150274ce87b37
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8a0300eeda49d85ffc08db8f285550e217613dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077343"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821627"
 ---
 # <a name="secure-your-key-vault"></a>Anahtar kasanızın güvenliğini sağlama
 
@@ -34,7 +34,7 @@ Kimlik doğrulaması için yönetim düzlemi ve veri düzleminde Azure Active Di
 
 Ele alınan konulara kısa bir genel bakış aşağıda verilmiştir:
 
-[Azure Active Directory kullanarak kimlik doğrulaması](#authentication-using-azure-active-directory) - Bu bölümde bir çağıranın anahtar kasasına yönetim düzlemi ve veri düzlemi üzerinden erişmek için Azure Active Directory ile kimlik doğrulaması yapma işlemi açıklanmaktadır. 
+Kimlik doğrulaması kullanarak Azure Active Directory - bu bölümde bir çağıranın anahtar kasasına yönetim düzlemi ve veri düzlemi üzerinden erişmek için Azure Active Directory ile kimliğini nasıl açıklar. 
 
 Kimlik doğrulaması için Azure Active Directory (Azure AD) her iki düzlem kullanın. Veri düzlemi, anahtar kasası erişim ilkesini kullanırken yetkilendirme için yönetim düzleminde rol tabanlı erişim denetimi (RBAC) kullanır.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022547"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813849"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Veri Yönetimi Ağ Geçidi kullanımıyla ilgili sorunları giderme
 Bu makalede, veri yönetimi ağ geçidi kullanarak sorunlarını giderme hakkında bilgi sağlar.
@@ -138,7 +138,7 @@ Aşağıdaki hata iletisini görebilirsiniz.
 Ağ geçidi, proxy kimlik doğrulaması parola veya Internet kaynaklarına erişmek için bir HTTP proxy'sinin değişir ancak uygun şekilde güncelleştirilmez gerektiren bir ortamda olduğunda bu hata oluşur, ağ geçidi'nde.
 
 #### <a name="resolution"></a>Çözüm
-Bölümündeki yönergeleri [Proxy server konuları](#proxy-server-considerations) bu bölümünü makalesini inceleyin ve veri yönetimi ağ geçidi Yapılandırma Yöneticisi ile proxy ayarlarını yapılandırın.
+Bu makalenin Proxy sunucusu konuları bölümünde yer alan yönergeleri izleyin ve veri yönetimi ağ geçidi Yapılandırma Yöneticisi ile proxy ayarlarını yapılandırın.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>Ağ geçidi sınırlı işlevsellikle çevrimiçi
 ### <a name="1-problem"></a>1. Sorun
@@ -169,8 +169,8 @@ Ağ geçidi, Service Bus üzerinden bulut hizmetine bağlanamıyor.
 Ağ geçidi çevrimiçine almak için aşağıdaki adımları izleyin:
 
 1. IP adresi, ağ geçidi makinesi ve kurumsal güvenlik duvarının giden kuralları sağlar. Windows olay günlüğünden IP adresleri bulabilirsiniz (kimliği 401 ==): Bir yuva erişim izinlerini XX tarafından yasaklanmış bir şekilde erişmek için girişimde bulunuldu. XX. XX. XX:9350.
-* Ağ geçidi üzerinde proxy ayarlarını yapılandırın. Bkz: [Proxy server konuları](#proxy-server-considerations) ayrıntıları bölümü.
-* Giden bağlantı noktası 5671 ve 9350-9354 hem Windows Güvenlik Duvarı ağ geçidi makinesinde ve kurumsal Güvenlik Duvarı'nı etkinleştirin. Bkz: [bağlantı noktaları ve Güvenlik Duvarı](#ports-and-firewall) ayrıntıları bölümü. Bu adım isteğe bağlıdır, ancak performans meselesi öneririz.
+* Ağ geçidi üzerinde proxy ayarlarını yapılandırın. Ayrıntılar için Proxy sunucusu dikkat edilecek noktalar bölümüne bakın.
+* Giden bağlantı noktası 5671 ve 9350-9354 hem Windows Güvenlik Duvarı ağ geçidi makinesinde ve kurumsal Güvenlik Duvarı'nı etkinleştirin. Bağlantı noktalarını ve ayrıntı için güvenlik duvarı bölümüne bakın. Bu adım isteğe bağlıdır, ancak performans meselesi öneririz.
 
 ### <a name="3-problem"></a>3. Sorun
 Aşağıdaki hatayı görürsünüz.

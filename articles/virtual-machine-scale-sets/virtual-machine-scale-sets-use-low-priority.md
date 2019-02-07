@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 85b974e954fd99f6f10426f1961ea9f4a5343c59
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953883"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811112"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Düşük öncelikli VM'ler, Ölçek kümesi (Önizleme)
 
@@ -43,13 +43,13 @@ Bunlar çıkarılacak zaman silinmesi, düşük öncelikli ölçek kümesinde sa
 
 Düşük öncelikli VM'ler, Ölçek kümesi dağıtmak için yeni ayarlayabileceğiniz *öncelik* bayrak *düşük*. Ölçek kümesindeki tüm sanal makineler, düşük öncelikli olacak şekilde ayarlanacaktır. Düşük öncelikli VM ile bir ölçek kümesi oluşturmak için aşağıdaki yöntemlerden birini kullanın:
 - [Azure portal](#use-the-azure-portal)
-- [Azure CLI](#use-the-azure-cli-20)
+- Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager şablonları](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Azure portalı kullanma
 
-Düşük öncelikli VM'ler kullanan bir ölçek kümesi oluşturma işlemi ayrıntılı olarak aynıdır [makale Başlarken](quick-create-portal.md). Bir ölçek kümesi dağıtırken, düşük öncelik bayrağını ve çıkarma ilkesini ayarlamayı da seçebilirsiniz: ![düşük öncelikli VM ile bir ölçek kümesi oluşturma](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+Düşük öncelikli VM'ler kullanan bir ölçek kümesi oluşturma işlemi ayrıntılı olarak aynıdır [makale Başlarken](quick-create-portal.md). Bir ölçek kümesi dağıtırken, düşük öncelik bayrağını ve çıkarma ilkesini ayarlamayı da seçebilirsiniz: ![Düşük öncelikli VM ile bir ölçek kümesi oluşturma](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
 ## <a name="use-the-azure-cli"></a>Azure CLI kullanma
 

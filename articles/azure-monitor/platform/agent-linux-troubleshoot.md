@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: b95a9b2243dda83be7de67802a8b6678419e335f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 84c6a88449844d3a2f59b3b93dd95b102b653679
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102593"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817623"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı ile ilgili sorunları giderme 
 
@@ -60,7 +60,7 @@ Bu adımların hiçbiri işinize yaramazsa aşağıdaki Destek kanallarını da 
 | NOT_DEFINED | Gerekli bağımlılıkları yüklü olmadığından auoms auditd eklentisi yüklü değil | Paket auditd auoms başarısız oldu, yüklemeyi. |
 | 2 | Kabuk pakete sağlanan seçeneği geçersiz. Çalıştırma `sudo sh ./omsagent-*.universal*.sh --help` kullanım için |
 | 3 | Kabuk pakete sağlanan seçeneği yoktur. Çalıştırma `sudo sh ./omsagent-*.universal*.sh --help` kullanım için. |
-| 4 | Geçersiz paket veya geçersiz proxy ayarları yazın. omsagent -*rpm*.sh paketler, yalnızca RPM tabanlı sistemler ve omsagent - yüklenebilir*deb*.sh paketleri Debian tabanlı sistemlerde yalnızca yüklenebilir. Bu Evrensel Yükleyicisi'nden kullanmanız önerilir [en son sürüm](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Ayrıca [gözden](#issue:-unable-to-connect-through-proxy-to-log-analytics) proxy ayarlarınızı doğrulayın. |
+| 4 | Geçersiz paket veya geçersiz proxy ayarları yazın. omsagent -*rpm*.sh paketler, yalnızca RPM tabanlı sistemler ve omsagent - yüklenebilir*deb*.sh paketleri Debian tabanlı sistemlerde yalnızca yüklenebilir. Bu Evrensel Yükleyicisi'nden kullanmanız önerilir [en son sürüm](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Ayrıca proxy ayarlarınızı doğrulamak için gözden geçirin. |
 | 5 | Kabuk paket kök olarak yürütülmelidir veya ekleme sırasında döndürülen 403 hatası oluştu. Komutunu kullanarak çalıştırmak `sudo`. |
 | 6 | Geçersiz paket mimari veya ekleme sırasında; döndürülen hata 200 hata oluştu omsagent -*x64.sh paketler, yalnızca 64-bit sistemler ve omsagent - yüklenebilir*x86.sh paketleri 32-bit sistemlerde yalnızca yüklenebilir. İndirme, mimariden için doğru paketi [en son sürüm](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | OMS paketi yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın. |

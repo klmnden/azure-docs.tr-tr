@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 47227b1f9ceb4ba9e35180aa0cb171d1edd5bb9a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edebd2efda7d8217c9b554f2d1f54135203502cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696855"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821567"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Azure CLI ile bir özel diskten Linux VM oluşturma
 
@@ -31,8 +31,8 @@ Bu makalede, özelleştirilmiş bir sanal sabit disk (VHD) karşıya yükleme ve
 Özelleştirilmiş diskinizden birden çok VM oluşturmak için öncelikle görüntüyü VM ya da VHD oluşturun. Daha fazla bilgi için [CLI kullanarak Azure VM'deki özel görüntüsünü oluşturma](tutorial-custom-images.md).
 
 Özel bir disk oluşturmak için iki seçeneğiniz vardır:
-* [Bir VHD’yi karşıya yükleme](#option-1-upload-a-specialized-vhd)
-* [Mevcut bir Azure VM'yi kopyalama](#option-2-copy-an-existing-azure-vm)
+* VHD’yi karşıya yükleme
+* Mevcut bir Azure VM'yi kopyalama
 
 ## <a name="quick-commands"></a>Hızlı komutlar
 

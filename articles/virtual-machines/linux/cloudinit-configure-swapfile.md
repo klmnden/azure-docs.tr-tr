@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2a5a878b7c8c3b6126d90b978241fbcb237d8db7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946315"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769921"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Bir Linux VM üzerinde bir takas dosyası yapılandırma için cloud-init kullanma
 Bu makalede nasıl kullanılacağını gösterir [cloud-init](https://cloudinit.readthedocs.io) takas dosyası üzerinde çeşitli Linux dağıtımları yapılandırmak için. Takas dosyası tarafından Linux Aracısı (hangi dağıtımların bir gerekli üzerinde temel WALA) geleneksel olarak yapılandırıldı.  Bu belge, cloud-init kullanarak sağlama süresi sırasında isteğe bağlı takas dosyası oluşturma işlemine özetler.  Cloud-init yerel olarak desteklenen Linux dağıtımları ve Azure ile işleyişi hakkında daha fazla bilgi için bkz. [cloud-init genel bakış](using-cloud-init.md)
@@ -48,13 +48,13 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-Bu görüntü dağıtmadan önce bir kaynak grubu oluşturmak için ihtiyacınız [az grubu oluşturma](/cli/azure/group#az_group_create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Bu görüntü dağıtmadan önce bir kaynak grubu oluşturmak için ihtiyacınız [az grubu oluşturma](/cli/azure/group) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Şimdi bir VM oluşturun [az vm oluşturma](/cli/azure/vm#az_vm_create) ve cloud-init dosyası ile `--custom-data cloud_init_swapfile.txt` gibi:
+Şimdi bir VM oluşturun [az vm oluşturma](/cli/azure/vm) ve cloud-init dosyası ile `--custom-data cloud_init_swapfile.txt` gibi:
 
 ```azurecli-interactive 
 az vm create \

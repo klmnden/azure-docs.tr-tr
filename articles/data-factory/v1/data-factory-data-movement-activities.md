@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3d0a3014fa224d6b5c85142e492afb0679f9f0b1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014690"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821329"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Kopyalama etkinliği'ni kullanarak veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -209,7 +209,7 @@ Farklı veri depolarını farklı yerel tür sistemlerine sahip. Kopyalama etkin
 1. Yerel kaynak türleri için .NET türüne dönüştürün.
 2. Bir .NET türünden bir yerel havuz türüne dönüştürün.
 
-Bir .NET türü bir veri deposu için bir yerel tür sisteminden eşleme ilgili veri deposu makalesinde bir. (Belirli bağlantıya tıklayın [desteklenen veri depoları](#supported-data-stores) tablo). Bu eşlemeler, kopyalama etkinliği uygun dönüştürmeleri gerçekleştirir. böylece tablolarınızı oluşturulurken uygun türlerini belirlemek için kullanabilirsiniz.
+Bir .NET türü bir veri deposu için bir yerel tür sisteminden eşleme ilgili veri deposu makalesinde bir. (Desteklenen veri depoları tablosundaki belirli bağlantısına tıklayın). Bu eşlemeler, kopyalama etkinliği uygun dönüştürmeleri gerçekleştirir. böylece tablolarınızı oluşturulurken uygun türlerini belirlemek için kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kopyalama etkinliği hakkında daha fazla bilgi edinmek için bkz: [verileri Azure Blob depolama alanından Azure SQL veritabanına kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

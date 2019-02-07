@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: e2fd6f88f34ac34ea304b5298940f317b4c0d37e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1983ecbdee3d15efc73ad395fd07cbc7cd4f279c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472499"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769734"
 ---
 # <a name="what-is-translator-speech-api"></a>Translator Konuşma Çevirisi API'si nedir?
 
@@ -23,7 +23,7 @@ ms.locfileid: "55472499"
 
 Translator Konuşma Çevirisi API'si, hedef işletim sistemi veya geliştirme dilinden bağımsız olarak, birden çok dilde konuşma çevirisine ihtiyaç duyan uygulamalara, araçlara veya çözümlere uçtan uca ve gerçek zamanlı konuşma çevirileri eklemek için kullanılabilir. API hem konuşmayı konuşmaya hem de konuşmayı metne çevirmek için kullanılabilir.
 
-Bir Azure hizmeti olan Translator Metin Çevirisi API'si, buluttaki [Azure Bilişsel Hizmetler API'si](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) makine öğrenimi ve yapak zeka algoritmaları koleksiyonunun parçasıdır ve geliştirme projelerinizde kullanılmaya hazırdır.
+Bir Azure hizmeti olan Translator Metin Çevirisi API'si, buluttaki [Azure Bilişsel Hizmetler API'si](https://docs.microsoft.com/azure/) makine öğrenimi ve yapak zeka algoritmaları koleksiyonunun parçasıdır ve geliştirme projelerinizde kullanılmaya hazırdır.
 
 Translator Konuşma Çevirisi API'si ile, istemci uygulamaları hizmete konuşma sesi akışı yapar ve kaynak dilde tanınan metni ve hedef dilde bu metnin çevirisini içeren metin ve ses tabanlı sonuçların akışını alır. Metin sonuçları, gelen ses akışına derin sinir ağlarıyla desteklenen Otomatik Konuşma Tanıma (ASR) uygulanarak oluşturulur. Ham ASR çıkışı kullanıcının amacını daha iyi yansıtması için TrueText olarak adlandırılan yeni bir teknikle geliştirilir. Örneğin, TrueText konuşmadaki istemsiz bozuklukları (hmm'lar ve öksürükler gibi), yinelenen sözcükleri kaldırır ve düzgün noktalama ve büyük harf kullanımını geri yükler. Küfürleri maskeleme veya çıkarma olanağı da sağlanır. Tanıma ve çeviri altyapıları, konuşmaları işlemek için özel olarak eğitilmiştir. 
 
@@ -66,6 +66,6 @@ Desteklenen dilleri [Microsoft.com](https://www.microsoft.com/en-us/translator/l
 > [Kod yazmaya başlama](quickstarts/csharp.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
-- [Bilişsel Hizmetler Belgeleri sayfası](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
+- [Bilişsel Hizmetler Belgeleri sayfası](https://docs.microsoft.com/azure/)
 - [Bilişsel Hizmetler Ürün sayfası](https://azure.microsoft.com/services/cognitive-services/)
 - [Çözüm ve fiyatlandırma bilgileri](https://www.microsoft.com/en-us/translator/home.aspx) 

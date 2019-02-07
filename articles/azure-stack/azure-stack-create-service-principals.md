@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 5ff2ee3ed271d8c32e2d41f40a56f71aa4c6c67c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245278"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809257"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Uygulamalara Azure Stack erişimi sağlama
 
@@ -38,10 +38,10 @@ Hizmet sorumluları olmadığından uygulama kendi kimlik bilgileriniz altında 
 
 Nasıl Azure Stack dağıttığınız bağlı olarak, bir hizmet sorumlusu oluşturma işlemiyle başlayın. Bu belgede, hizmet sorumlusu için oluşturma açıklanmaktadır:
 
-- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). Azure AD sağlayan bir çok kiracılı, bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Azure AD bağlı bir Azure Stack ile kullanabilirsiniz.
-- [Active Directory Federasyon Hizmetleri (AD FS)](#create-service-principal-for-ad-fs). AD FS Basitleştirilmiş, güvenli Kimlik Federasyonu ve Web'de çoklu oturum açma (SSO) özellikleri sağlar. AD FS ile Azure Stack örnekleri bağlı ve bağlantısı kesilmiş kullanabilirsiniz.
+- Azure Active Directory (Azure AD). Azure AD sağlayan bir çok kiracılı, bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Azure AD bağlı bir Azure Stack ile kullanabilirsiniz.
+- Active Directory Federasyon Hizmetleri (AD FS). AD FS Basitleştirilmiş, güvenli Kimlik Federasyonu ve Web'de çoklu oturum açma (SSO) özellikleri sağlar. AD FS ile Azure Stack örnekleri bağlı ve bağlantısı kesilmiş kullanabilirsiniz.
 
-Hizmet sorumlusu oluşturduktan sonra AD FS ve Azure Active Directory genel adımları alışkın olduğunuz [temsilci izinleri](#assign-role-to-service-principal) rolü.
+Hizmet sorumlusu oluşturduktan sonra AD FS ve Azure Active Directory genel adımları rol izinleri devretmek için kullanılır.
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Azure AD hizmet sorumlusunu Yönet
 
@@ -63,7 +63,7 @@ Programlamayla oturum açılırken, kimlik, uygulamanız için ve bir Web uygula
 
 1. Gelen **uygulama kayıtları** Active Directory'de, uygulamanızı seçin.
 
-2. **Uygulama kimliği**'ni kopyalayın ve bunu uygulama kodunuzda depolayın. Uygulamalarda [örnek uygulamalar](#sample-applications) istemci kimliği olarak bu değere bölümüne bakın
+2. **Uygulama kimliği**'ni kopyalayın ve bunu uygulama kodunuzda depolayın. Örnek uygulamalar bölümü uygulamalarında istemci kimliği olarak bu değere bakın.
 
      ![İstemci kimliği](./media/azure-stack-create-service-principal/image12.png)
 3. Bir Web uygulaması için bir kimlik doğrulama anahtarını oluşturmak için / API, select **ayarları** > **anahtarları**. 
@@ -74,7 +74,7 @@ Anahtar kaydedildikten sonra, anahtarın değeri görüntülenir. Daha sonra ana
 
 ![kaydedilen anahtar](./media/azure-stack-create-service-principal/image15.png)
 
-İşlem tamamlandıktan sonra yapabilecekleriniz [uygulamanızı rol atama](#assign-role-to-service-principal).
+İşlem tamamlandıktan sonra uygulamanızı bir rol atayabilirsiniz.
 
 ## <a name="manage-service-principal-for-ad-fs"></a>AD FS için hizmet sorumlusunu Yönet
 
@@ -116,7 +116,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
-|Name|SPN hesabının adı|Uygulamam|
+|Ad|SPN hesabının adı|Uygulamam|
 |ClientCertificates|Sertifika nesneler dizisi|X509 sertifika|
 |ClientRedirectUris<br>(İsteğe bağlı)|Uygulama yeniden yönlendirme URI'si|-|
 
@@ -203,7 +203,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
-|Name|SPN hesabının adı|Uygulamam|
+|Ad|SPN hesabının adı|Uygulamam|
 |ApplicationIdentifier|Benzersiz tanımlayıcı|S-1-5-21-1634563105-1224503876-2692824315-2119|
 |ClientCertificate|Sertifika nesneler dizisi|X509 sertifika|
 
@@ -247,7 +247,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 
 | Parametre | Açıklama | Örnek |
 |----------------------|--------------------------|---------|
-| Name | SPN hesabının adı | Uygulamam |
+| Ad | SPN hesabının adı | Uygulamam |
 | GenerateClientSecret | Gizli dizi oluşturma |  |
 
 #### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>Hizmet sorumlusu oluşturmak için ERCS PrivilegedEndpoint kullanın

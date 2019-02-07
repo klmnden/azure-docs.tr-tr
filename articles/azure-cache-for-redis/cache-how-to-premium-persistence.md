@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
-ms.openlocfilehash: 60f9baf7fb54706dc9d31c6920c0df24173d7b35
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 903fd465ce2a88e94b821c9a1b4c6c531083180a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105857"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819068"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Premium Azure önbelleği için Redis veri kalıcılığı yapılandırma
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, kümeleme, Kalıcılık ve sanal ağ desteği gibi Premium katman özellikleri dahil olmak üzere tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Bu makalede de Redis örneği için bir premium Azure Cache kalıcılığı yapılandırma açıklanır.
@@ -133,7 +133,7 @@ RDB hem AOF Kalıcılık için:
 * Daha küçük bir boyuta ölçeklendirilir ve tüm son yedekleme veritabanından verileri tutmak için daha küçük boyutu yeterli yer yok, genellikle kullanarak geri yükleme işlemi sırasında anahtarları çıkarılacak [allkeys lru](https://redis.io/topics/lru-cache) çıkarma ilkesi.
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>RDB yedekleme sıklığı, önbellek oluşturabilirim sonra değiştirebilir miyim?
-Evet, üzerinde RDB Kalıcılık için yedekleme sıklığını değiştirebilirsiniz **Redis veri kalıcılığı** dikey penceresi. Yönergeler için [yapılandırma Redis kalıcılığı](#configure-redis-persistence).
+Evet, üzerinde RDB Kalıcılık için yedekleme sıklığını değiştirebilirsiniz **Redis veri kalıcılığı** dikey penceresi. Yapılandırma Redis kalıcılığı yönergeler için bkz.
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Neden RDB yedekleme sıklığı 60 dakika varsa var 60 dakikadan fazla yedeklemeler arasında?
 RDB Kalıcılık yedekleme sıklığı aralığını önceki yedekleme işlemi başarıyla tamamlanana kadar başlatılmaz. Yedekleme sıklığı 60 dakikadır ve başarıyla tamamlanması 15 dakikada bir yedekleme işlemi alır, sonraki yedekleme başlangıç saati önceki yedeklemeden sonra 75 dakika kadar başlatılmaz.

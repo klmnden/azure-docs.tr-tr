@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 6bc1255c5bbb9cf74c97b88600f34e7fcd90ae4f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343168"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811061"
 ---
-# <a name="mxchip-iot-devkit"></a>MXChip IOT DevKit
+# <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
 Bu örnekte MXChip IOT DevKit WiFi bilgi ve algılayıcısı durumlarını izlemek ve Azure IOT Hub cihaz ikizlerini kullanarak kullanıcı LED rengini denetlemek için kullanabilirsiniz.
 
@@ -83,7 +83,7 @@ MXChip IOT Devkit'inize bilgisayarınıza bağlı:
 
 ## <a name="monitor-devkit-state-in-browser"></a>Tarayıcıda DevKit durumu İzleyicisi
 
-1. Bir Web tarayıcısında açın `DevKitState\web\index.html` sırasında oluşturulan dosya-- [gerekenler](#whatyouneed) adım.
+1. Bir Web tarayıcısında açın `DevKitState\web\index.html` oluşturulan dosya--sırasında adım gerekenler.
 
 2. Aşağıdaki Web sayfasında görünür:![İşlev uygulamanızın adını belirtin.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: c6a47448fc99c2f58b315898c1b6af65f894da8d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0e17fa877bc2e1e4f72891315d940546a11e674d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436696"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812506"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Derin Dalış - Gelişmiş analiz
 
@@ -56,10 +56,10 @@ En sığdırma algoritmalarından seçerek yanı sıra eğitim için veri sağla
 
 HDInsight öğrenme seçenekleri bir Gelişmiş analiz iş akışı için birden fazla makine vardır:
 
-* [Machine Learning ve Apache Spark](#machine-learning-and-spark)
-* [R ve ML Hizmetleri](#r-and-r-server)
-* [Azure Machine Learning ve Apache Hive](#azure-machine-learning-and-hive)
-* [Apache Spark ve derin öğrenme](#spark-and-deep-learning)
+* Machine Learning ve Apache Spark
+* R ve ML Hizmetleri
+* Azure Machine Learning ve Apache Hive
+* Apache Spark ve derin öğrenme
 
 ### <a name="machine-learning-and-apache-spark"></a>Machine Learning ve Apache Spark
 

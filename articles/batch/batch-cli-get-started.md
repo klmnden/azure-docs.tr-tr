@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d7daa0e38a97f55ce7e330c6c474f7aee91ed0d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5117d426ac9595dfe25828013c1bd8c7fa81f92c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728666"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812370"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch kaynaklarını Azure CLI ile yönetme
 
@@ -76,7 +76,7 @@ az login
 
 ![Azure'da oturum açma](./media/batch-cli-get-started/az-login.png)
 
-[Örnek kabuk betikleri](#sample-shell-scripts) bölümünde listelenen örnekler de Azure'da etkileşimli olarak oturum açarak Azure CLI oturumunuzu nasıl başlatacağınızı göstermektedir. Oturum açtıktan sonra Batch hesapları, anahtarları, uygulama paketleri ve kotaları dahil olmak üzere Batch Management kaynaklarıyla çalışmak için komutları çağırabilirsiniz.  
+Örnek Kabuk betikleri bölümünde listelenen örnekler de Azure'da etkileşimli olarak oturum açarak Azure CLI oturumunuzu başlatma gösterir. Oturum açtıktan sonra Batch hesapları, anahtarları, uygulama paketleri ve kotaları dahil olmak üzere Batch Management kaynaklarıyla çalışmak için komutları çağırabilirsiniz.  
 
 ### <a name="log-in-to-your-batch-account"></a>Batch hesabınızda oturum açma
 
@@ -110,7 +110,7 @@ Batch hesabınızla kimlik doğrulamasından geçmek için kullanabileceğiniz i
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-[Örnek kabul betikleri](#sample-shell-scripts) bölümünde listelenen örnekler, hem Azure AD hem de Paylaşılan Anahtar kullanarak Azure CLI ile Batch hesabınızda nasıl oturum açacağınızı göstermektedir.
+Örnek Kabuk betikleri bölümünde listelenen örnekler Azure CLI ile Batch hesabınızda oturum açarken her ikisini de kullanarak göstermektedir Azure AD ve paylaşılan anahtar.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Azure Batch CLI uzantısı komutlarını kullanma
 
@@ -168,7 +168,7 @@ Azure CLI sorunlarını giderirken aşağıdaki ipuçları yardımcı olabilir:
 
 * Herhangi bir CLI komutu için **yardım metni** almak üzere `-h` kullanın
 * **Ayrıntılı** komut çıktısını görüntülemek için `-v` ve `-vv` kullanın. `-vv` bayrağı eklendiğinde Azure CLI gerçek REST isteklerini ve yanıtlarını görüntüler. Bu anahtarlar tam hata çıktısını görüntülemek için kullanışlıdır.
-* `--json` seçeneği ile **komut çıktısını JSON olarak** görüntüleyebilirsiniz. Örneğin, `az batch pool show pool001 --json` seçeneği pool001'in özelliklerini JSON biçiminde gösterir. Bundan sonra bu çıktıyı kopyalayıp bir `--json-file` içinde kullanmak üzere değiştirebilirsiniz (bu makalenin başındaki [JSON dosyaları](#json-files) kısmına bakın).
+* `--json` seçeneği ile **komut çıktısını JSON olarak** görüntüleyebilirsiniz. Örneğin, `az batch pool show pool001 --json` seçeneği pool001'in özelliklerini JSON biçiminde gösterir. Daha sonra kopyalayın ve kullanmak için bu çıkış değiştirme bir `--json-file` (Bu makalenin önceki kısımlarında JSON dosyaları bakın).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>Sonraki adımlar

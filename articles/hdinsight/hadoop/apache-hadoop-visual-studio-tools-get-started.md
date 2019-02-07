@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: dc93d0b44d6d99e8418d4333ca8698bc9ebf3a96
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a23a2f536f765c62919960f3c582d04543b1f49a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629688"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820838"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Bağlanmak için Azure HDInsight ve Apache Hive sorguları çalıştırmak için Visual Studio için Data Lake Araçları'nı kullanın
 
@@ -250,11 +250,11 @@ Tez işlerinde Hive için Görev Yürütme Görünümünü kullanarak Hive işle
 ![Data Lake Visual Studio Araçları Görev Yürütme Görünümünün ekran görüntüsü](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png "Görev Yürütme Görünümü")
 
 ## <a name="run-hive-batch-jobs"></a>Hive toplu işleri çalıştırma
-Bir Hive betiğinin HDInsight kümesine göre test edilmesi (Etkileşimli Sorgu kümesi dışında) uzun süren bir işlem olabilir. İşlem birkaç dakika veya daha fazla sürebilir. Visual Studio için Data Lake Araçları, dinamik bir kümeye bağlanmadan Hive betiğini yerel olarak doğrulayabilir. Etkileşimli sorgular çalıştırma hakkında daha fazla bilgi için bkz. [Etkileşimli Hive sorguları çalıştırma](#run-interactive-hive-queries).
+Bir Hive betiğinin HDInsight kümesine göre test edilmesi (Etkileşimli Sorgu kümesi dışında) uzun süren bir işlem olabilir. İşlem birkaç dakika veya daha fazla sürebilir. Visual Studio için Data Lake Araçları, dinamik bir kümeye bağlanmadan Hive betiğini yerel olarak doğrulayabilir. Etkileşimli Hive sorguları çalıştırma etkileşimli sorgular çalıştırma hakkında daha fazla bilgi için bkz.
 
 Belirli Hive işlerine ait Yarn günlüklerini toplayarak ve görünmesini sağlayarak Hive işinin içeriğini görmek istiyorsanız Visual Studio için Data Lake Araçları’nı kullanabilirsiniz.
 
-Hive toplu işleri çalıştırma hakkında daha fazla bilgi almak için bkz. [Etkileşimli Hive sorguları çalıştırma](#run-interactive-hive-queries). Bu bölümdeki bilgiler, daha uzun süreli Hive toplu işlerini çalıştırma için geçerlidir.
+Hive toplu işleri çalıştırma hakkında daha fazla bilgi için etkileşimli Hive sorguları çalıştırma bakın. Bu bölümdeki bilgiler, daha uzun süreli Hive toplu işlerini çalıştırma için geçerlidir.
 
 ## <a name="run-apache-pig-scripts"></a>Apache Pig betikleri çalıştırma
 Visual Studio için Data Lake Araçları’nı kullanarak Pig betikleri oluşturup HDInsight kümelerine gönderebilirsiniz. İlk olarak, şablondan bir Pig projesi oluşturun. Ardından, betiği HDInsight kümelerine gönderin.

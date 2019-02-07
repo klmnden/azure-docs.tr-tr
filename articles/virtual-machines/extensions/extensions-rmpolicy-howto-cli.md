@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 5054fdc08c7a0a1b3833ed95784f6018ac5c697e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659261"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770593"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Uzantıları Yükleme Linux vm'lerinde kısıtlamak için Azure İlkesi'ni kullanın
 
@@ -98,7 +98,7 @@ Kopyalayın ve aşağıdaki .json dosyaya yapıştırın.
 
 ## <a name="create-the-policy"></a>İlke oluşturma
 
-Bir ilke tanımı, kullanmak istediğiniz yapılandırmayı depolamak için kullanılan bir nesnedir. İlke tanımı, ilke tanımlamak için kuralları ve parametre dosyalarını kullanır. Kullanarak ilke tanımı oluşturma [az ilke tanımını oluşturma](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
+Bir ilke tanımı, kullanmak istediğiniz yapılandırmayı depolamak için kullanılan bir nesnedir. İlke tanımı, ilke tanımlamak için kuralları ve parametre dosyalarını kullanır. Kullanarak ilke tanımı oluşturma [az ilke tanımını oluşturma](/cli/azure/role/assignment?view=azure-cli-latest).
 
 Bu örnekte, kuralları ve parametreleri, oluşturduğunuz ve .json dosyaları halinde, cloud shell'de depolanan dosyalarıdır.
 
@@ -117,7 +117,7 @@ az policy definition create \
 
 Bu örnekte kullanarak bir kaynak grubu İlkesi atar [az ilke ataması oluşturma](/cli/azure/policy/assignment). Herhangi bir VM oluşturduğunuz **myResourceGroup** kaynak grubu Linux için Linux VM erişimi ya da özel betik uzantıları yükleme mümkün olmayacak. İlkeyi atadığınız önce kaynak grubunun mevcut olması gerekir.
 
-Kullanma [az hesabı listesi](/cli/azure/account?view=azure-cli-latest#az_account_list) yerine bir örnek kullanmak için abonelik Kimliğinizi almak için.
+Kullanma [az hesabı listesi](/cli/azure/account?view=azure-cli-latest) yerine bir örnek kullanmak için abonelik Kimliğinizi almak için.
 
 
 ```azurecli-interactive

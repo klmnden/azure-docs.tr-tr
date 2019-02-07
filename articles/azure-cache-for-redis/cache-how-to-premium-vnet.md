@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c92b71a8f2b9fbeae9afc5f06b6d5412f6421a6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e71d92b2cf7888fd9e3c560beb6e0e7f18e7add0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020138"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822655"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Sanal ağ desteği için bir Premium Azure önbelleği için Redis yapılandırma
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, kümeleme, Kalıcılık ve sanal ağ desteği gibi Premium katman özellikleri dahil olmak üzere tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Bir sanal ağ, bulutta özel bir ağdır. Bir Azure önbelleği için Redis örneği bir VNet ile yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içindeki uygulamalardan erişilebilir. Bu makalede, Redis örneği için bir premium Azure Cache için sanal ağ desteğini yapılandırma açıklanır.
@@ -83,11 +83,11 @@ Bir sanal ağ kullanılırken, Azure önbelleği için Redis örneği bağlanmak
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Azure önbelleği için Redis sanal ağ hakkında SSS
 Aşağıdaki liste, Redis ölçeklendirmeye yönelik Azure önbelleği hakkında sık sorulan soruların yanıtlarını içerir.
 
-* [Azure Cache, Redis ve sanal ağlar ile bazı yaygın hatalı yapılandırma sorunları nelerdir?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* Azure Cache, Redis ve sanal ağlar ile bazı yaygın hatalı yapılandırma sorunları nelerdir?
 * [Önbelleğimin sanal ağ içinde çalıştığını nasıl doğrulayabilirim?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [Uzak sertifika geçersiz bildiren bir hata neden alıyorum bir VNET'te Azure Önbelleğimin bağlanmaya çalışırken Redis?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [Sanal ağlar bir standart veya temel önbellek ile kullanabilir miyim?](#can-i-use-vnets-with-a-standard-or-basic-cache)
-* [Neden Azure önbelleği için Redis oluşturma bazı alt ağlar, ancak diğerlerini başarısız oluyor?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+* Neden Azure önbelleği için Redis oluşturma bazı alt ağlar, ancak diğerlerini başarısız oluyor?
 * [Alt ağ adres alanı gereksinimleri nelerdir?](#what-are-the-subnet-address-space-requirements)
 * [Tüm önbellek özellikleri, bir sanal ağ içindeki bir önbellek barındırırken çalışıyor mu?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 

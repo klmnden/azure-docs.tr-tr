@@ -7,19 +7,30 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449563"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770495"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Sık sorulan sorular: Azure'dan Azure'a çoğaltma
 
 Bu makalede, Azure Vm'leri olağanüstü durum kurtarma (DR), Azure Site Recovery kullanarak başka bir Azure bölgesine dağıtma hakkında sık sorulan soruların yanıtlarını sağlar. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
+## <a name="in-this-article"></a>Bu makalede 
+1.  **[Azure için Azure üzerinde genel sorular](#general)** 
+1.  **[Çoğaltma](#replication)** 
+1.  **[Çoğaltma İlkesi](#replication-policy)** 
+1.  **[Çoklu VM tutarlılığı](#multi-vm-consistency)** 
+1.  **[Kurtarma planı](#recovery-plan)** 
+1.  **[Yeniden koruma ve yeniden çalışma](#reprotection-and-failback)** 
+1.  **[Güvenlik](#security)** 
+
+
 ## <a name="general"></a>Genel
+
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery nasıl fiyatlandırılır?
 Gözden geçirme [Azure Site Recovery fiyatlandırma](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) ayrıntıları.
 
@@ -59,7 +70,7 @@ Site Recovery ile çoğaltma ve aynı coğrafi kümedeki her iki bölge arasınd
 
 Hayır, Site Recovery, Internet bağlantısı gerektirmez. Ancak, Site Recovery hizmeti URL'lerine ve IP aralıklarının belirtildiği gibi erişmesi [bu makalede](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-## <a name="replication-policy"></a>Çoğaltma ilkesi
+## <a name="replication-policy"></a>Çoğaltma İlkesi
 
 ### <a name="what-is-a-replication-policy"></a>Bir çoğaltma ilkesi nedir?
 Kurtarma noktası bekletme geçmişine ve uygulamayla tutarlı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, Azure Site Recovery varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur:
@@ -198,7 +209,7 @@ Bu, durumunuza bağlıdır. Örneğin, VM Kaynak bölgesi varsa, kaynak ve hedef
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Ne kadar zaman mevcut yeniden çalışma için sınav zamanı?
 Yeniden koruma sonra yeniden çalışma için süreyi genellikle zaman yük devretme için birincil bölgeden ikincil bir bölgeye benzer. 
 
-## <a name="security"></a>Güvenlik
+## <a name="a-namesecuritysecurity"></a><a name="security">Güvenlik
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Çoğaltılan veriler Site Recovery hizmetine gönderilir mi?
 Hayır, Site Recovery çoğaltılan verilere müdahale etmez ve sanal makinelerinizde çalışan ne hakkında herhangi bir bilgi yoktur. Yalnızca çoğaltma ve yük devretme işlemlerini düzenlemek için gereken meta veriler Site Recovery hizmetine gönderilir.  
 Site Recovery, ISO 27001: 2013, 27018, HIPAA, DPA sertifikalı ve SOC2 ile FedRAMP JAB değerlendirmelerini sürecinde olduğundan.

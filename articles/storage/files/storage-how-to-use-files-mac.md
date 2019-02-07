@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 86224b90f7a93eae41c127d4ba87f685f895e15a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475718"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820411"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>macOS’da SMB üzerinden Azure dosya paylaşımını bağlama
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure dosya paylaşımları macOS El Capitan 10.11+ üzerine endüstri standardı SMB 3 protokolü kullanılarak takılabilir. Bu makalede, macOS’ta Bulucu kullanıcı arabirimiyle ve Terminal kullanarak Azure dosya paylaşımını bağlamanın iki farklı yolu gösterilir.
@@ -38,7 +38,7 @@ ms.locfileid: "55475718"
 1. **Açık Bulucu**: Bulucu varsayılan olarak macos'ta açıktır, ancak "macOS yüz simgesine" dock'taki tıklayarak seçili durumdaki uygulama olduğundan emin olun:  
     ![macOS yüz simgesi](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **"" Git"menüsünden sunucuya Bağlan" seçin**: UNC yolundan kullanarak [önkoşulları](#preq), başlangıç çift eğik çizgisini (`\\`) için `smb://` ve diğer tüm ters eğik çizgileri (`\`) eğik (`/`). Bağlantınız, aşağıdaki gibi görünmelidir: !["Sunucuya Bağlan" iletişim kutusu](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **"" Git"menüsünden sunucuya Bağlan" seçin**: Önkoşullar'dan UNC adını kullanarak başlangıç çift eğik dönüştürme (`\\`) için `smb://` ve diğer tüm ters eğik çizgileri (`\`) eğik (`/`). Bağlantınız, aşağıdaki gibi görünmelidir: !["Sunucuya Bağlan" iletişim kutusu](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Depolama hesabı adı ve bir kullanıcı adı ve parola istendiğinde depolama hesabı anahtarını kullanın**: "Sunucuya Bağlan" iletişim kutusunda "Bağlan"'ye tıkladığınızda kullanıcı adı ve parola (Bu paneldeki macOS kullanıcı adınızla olacaktır) istenir. macOS Anahtarlığınıza depolama hesabı adı/depolama hesabı anahtarı yerleştirebilirsiniz.
 

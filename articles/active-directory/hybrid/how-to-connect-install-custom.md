@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: be72c7fa81bffdcd8864a501264dd36fa697d18e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: fb451ab3a28ecca42fc05edad14cd513c4fe1f68
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489096"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820496"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](how-to-connect-install-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
 
 Azure AD Connect'i yüklemeye başlamadan önce emin olun [Azure AD Connect'i indirdiğinizden](https://go.microsoft.com/fwlink/?LinkId=615771) ve adımları tamamlayın önkoşul [Azure AD Connect: Donanım ve Önkoşullar](how-to-connect-install-prerequisites.md). Ayrıca [Azure AD Connect hesapları ve izinleri](reference-connect-accounts-permissions.md) bölümünde açıklandığı üzere, gerekli hesaplara sahip olduğunuzdan olduğundan emin olun .
 
-Özel ayarlar, topolojinizle eşleşmiyorsa (örneğin, DirSync'i yükseltmek için) diğer senaryolara ilişkin [ilgili belgelere](#related-documentation) göz atın.
+Özelleştirilmiş ayarları Örneğin, Dirsync'i yükseltmek topolojinizi eşleşmiyorsa diğer senaryolar için ilgili belgelere bakın.
 
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Azure AD Connect özel ayarlarını yükleme
 ### <a name="express-settings"></a>Hızlı Ayarlar

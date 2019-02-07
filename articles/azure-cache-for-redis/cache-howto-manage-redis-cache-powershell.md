@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ffbd785126bbc204191554e5d62d642a582a3c8d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105245"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822570"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure önbelleği için Redis Azure PowerShell ile yönetme
 > [!div class="op_single_selector"]
@@ -132,14 +132,14 @@ Aşağıdaki tabloda, özellikleri ve oluşturma ve yönetme, Azure önbelleği 
 | ShardCount |Premium önbellek kümeleme özellikli oluştururken oluşturmak için parça sayısı. Geçerli değerler şunlardır: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Önbelleğinin SKU belirtir. Geçerli değerler şunlardır: Temel, Standart, Premium |Standart |
 | RedisConfiguration |Redis yapılandırma ayarlarını belirtir. Her ayar hakkında daha fazla bilgi için aşağıdakilere bakın [RedisConfiguration özellikleri](#redisconfiguration-properties) tablo. | |
-| enableNonSslPort |SSL olmayan bağlantı noktasının etkinleştirilip etkinleştirilmeyeceğini gösterir. |False |
+| EnableNonSslPort |SSL olmayan bağlantı noktasının etkinleştirilip etkinleştirilmeyeceğini gösterir. |False |
 | MaxMemoryPolicy |Bu parametre kullanım - RedisConfiguration kullanın. | |
 | StaticIP |Bir vnet'teki önbelleğinizi barındırırken, benzersiz bir IP adresi alt ağ için önbellek belirtir. Sağlanmazsa, bir, alt ağdan seçilir. | |
 | Alt ağ |Bir vnet'teki önbelleğinizi barındırırken, önbellek dağıtacağınız bir alt ağ adını belirtir. | |
 | VirtualNetwork |Bir vnet'teki önbelleğinizi barındırırken, önbellek dağıtacağınız sanal ağın kaynak Kimliğini belirtir. | |
 | KeyType |Erişim anahtarlarını yenilenirken yeniden oluşturmak için hangi erişim anahtarını belirtir. Geçerli değerler şunlardır: Birincil, ikincil | |
 
-### <a name="redisconfiguration-properties"></a>RedisConfiguration özellikleri
+### <a name="redisconfiguration-properties"></a>RedisConfiguration properties
 | Özellik | Açıklama | Fiyatlandırma katmanları |
 | --- | --- | --- |
 | RDB yedekleme etkin |Olmadığını [Redis veri kalıcılığı](cache-how-to-premium-persistence.md) etkin |Yalnızca Premium |
@@ -260,7 +260,7 @@ Değerlerini belirtmek için `RedisConfiguration` parametresi içindeki değerle
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Daha fazla bilgi için `databases` özelliğine bakın [varsayılan Azure önbelleği için Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration). Kullanarak bir önbellek oluşturma hakkında daha fazla bilgi için [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet'in önceki bkz [bir Azure önbelleği için Redis oluşturmak için](#to-create-a-redis-cache) bölümü.
+Daha fazla bilgi için `databases` özelliğine bakın [varsayılan Azure önbelleği için Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration). Kullanarak bir önbellek oluşturma hakkında daha fazla bilgi için [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet'in önceki bir Azure önbelleği için Redis bölüm oluşturmak için bkz.
 
 ## <a name="to-update-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis güncelleştirmek için
 Azure önbelleği için Redis örneği kullanılarak güncelleştirilir [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Set-AzureRmRedisCache?view=azurermps-6.6.0) cmdlet'i.

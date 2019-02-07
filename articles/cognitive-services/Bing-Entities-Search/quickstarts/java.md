@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: befcdca4dc98e3c69868834daf77d8d7810af3dd
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5adf40648118f8eb6c33df80ba3e30208f1b2059
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749134"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813407"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Hızlı Başlangıç: Java kullanarak Bing varlık arama REST API'si için bir arama isteği gönder
 
@@ -215,7 +215,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 }
 ```
 
-[Başa dön](#HOLTop)
+[Başa dön](#main)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

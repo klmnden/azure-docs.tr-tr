@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 022dd937ae0557ca848a329039703f3b94ad0885
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b5254b45fcd71901876d9e77d1f29c0a0d40ce3f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245363"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813883"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Azure Stack'te sanal makine disk depolama alanı oluşturma
 
@@ -50,7 +50,7 @@ Portalı kullanarak ve PowerShell kullanarak diskleri ekleme aşağıdaki tablod
 
 | Yöntem | Seçenekler
 |-|-|
-|[Kullanıcı Portalı](#use-the-portal-to-add-additional-disks-to-a-vm)|-Mevcut bir VM'ye yeni veri diskleri ekleme. Yeni diskler, Azure Stack tarafından oluşturulur. </br> </br>-Daha önce oluşturulmuş bir VM için mevcut bir disk (.vhd) dosyasına ekleyin. Bunu yapmak için .vhd hazırlamak ve Azure Stack'e dosyayı karşıya yükleyin. |
+|Kullanıcı portalı|-Mevcut bir VM'ye yeni veri diskleri ekleme. Yeni diskler, Azure Stack tarafından oluşturulur. </br> </br>-Daha önce oluşturulmuş bir VM için mevcut bir disk (.vhd) dosyasına ekleyin. Bunu yapmak için .vhd hazırlamak ve Azure Stack'e dosyayı karşıya yükleyin. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -Bir işletim sistemi diski ile yeni bir VM oluşturun ve aynı zamanda, o sanal makineye bir veya daha fazla veri diski ekleyin. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Bir VM'ye disk ekleme için portalı kullanma

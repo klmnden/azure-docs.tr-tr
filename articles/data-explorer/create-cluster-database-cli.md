@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: howto
 ms.date: 1/31/2019
-ms.openlocfilehash: 8c035524adebcb131872c700280201aaac07c52b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: a4c9156ef80f05e247b1cfef0acd56b601a2db65
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747972"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812693"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-a-database-using-cli"></a>Bir Azure Veri Gezgini kümesi ve CLI kullanarak veritabanı oluşturma
 
@@ -48,12 +48,11 @@ az kusto cluster create --name azureclitest --sku D11_v2 --resource-group testrg
 
 Aşağıdaki değerleri sağlayın
 
-    **Ayar** | **Önerilen değer** | **Alan açıklaması**
-    |---|---|---|
-    | ad | *azureclitest* | İstenen kümenizin adıdır.|
-    | sku | *D13_v2* | Kümeniz için kullanılan SKU. |
-    | resource-group | *testrg* | Burada küme oluşturulan kaynak grubu adı. |
-    | | |
+   |**Ayar** | **Önerilen değer** | **Alan açıklaması**|
+   |---|---|---|
+   | ad | *azureclitest* | İstenen kümenizin adıdır.|
+   | sku | *D13_v2* | Kümeniz için kullanılan SKU. |
+   | resource-group | *testrg* | Burada küme oluşturulan kaynak grubu adı. |
 
 İsterseniz, vb. küme kapasitesi gibi kullanabileceğiniz daha fazla isteğe bağlı parametre yok.
 
@@ -75,14 +74,13 @@ az kusto database create --cluster-name azureclitest --name clidatabase --resour
 
 Aşağıdaki değerleri sağlayın
 
-    **Ayar** | **Önerilen değer** | **Alan açıklaması**
-    |---|---|---|
-    | Küme adı | *azureclitest* | Kümenizin adını burada oluşturulmalıdır.|
-    | ad | *clidatabase* | İstenen veritabanınızın adı.|
-    | resource-group | *testrg* | Burada küme oluşturulan kaynak grubu adı. |
-    | Geçici silme süresi | *3650:00:00:00* | Sorgu kullanılabilir, böylece veri tutulması gereken süre miktarı. |
-    | Sık erişimli-cache-süresi | *3650:00:00:00* | Veriler önbellekte tutulması gereken süre miktarı. |
-    | | |
+   |**Ayar** | **Önerilen değer** | **Alan açıklaması**|
+   |---|---|---|
+   | Küme adı | *azureclitest* | Kümenizin adını burada oluşturulmalıdır.|
+   | ad | *clidatabase* | İstenen veritabanınızın adı.|
+   | resource-group | *testrg* | Burada küme oluşturulan kaynak grubu adı. |
+   | Geçici silme süresi | *3650:00:00:00* | Sorgu kullanılabilir, böylece veri tutulması gereken süre miktarı. |
+   | Sık erişimli-cache-süresi | *3650:00:00:00* | Veriler önbellekte tutulması gereken süre miktarı. |
 
 Çalıştırarak, oluşturduğunuz veritabanını görebilirsiniz.
 

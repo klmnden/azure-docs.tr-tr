@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104623"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814954"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
 
@@ -64,7 +64,7 @@ Denetleme [Canlı ölçümleri Stream için giden bağlantı noktalarının](../
 |İsteğe bağlı|Canlı ölçümler açarken veriler akışla|SDK'ın yüklü ve etkin olduğunda, veriler gönderilir|
 |Ücretsiz|Canlı Stream veri için ücret alınmaz|Konusu [fiyatlandırması](../../azure-monitor/app/pricing.md)
 |Örnekleme|Tüm seçili ölçümlerini ve sayaçlarını aktarılır. Hataları ve Yığın izlemeleri örneklenir. TelemetryProcessors uygulanmaz.|Olayları olabilir [örneklenir](../../azure-monitor/app/api-filtering-sampling.md)|
-|Denetim kanalı|Filtre denetimi sinyalleri için SDK'sı gönderilir. Öneririz [güvenli bu kanal](#secure-channel).|Portala tek yönlü iletişim|
+|Denetim kanalı|Filtre denetimi sinyalleri için SDK'sı gönderilir. Bu kanal güvenli öneririz.|Portala tek yönlü iletişim|
 
 
 ## <a name="select-and-filter-your-metrics"></a>Seçin ve ölçümlerinizi Filtrele

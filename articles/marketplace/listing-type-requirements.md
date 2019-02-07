@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264691"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818541"
 ---
 # <a name="requirements-by-listing-type"></a>Liste türü tarafından gereksinimleri  
 Teknik ve pazarlama içeriği gereksinimleri vitrini, Teklif türü ve liste türüne göre değişir. Uyumluluğunuzu doğrulamak için aşağıdaki özellikleri gözden geçirin.  
@@ -34,15 +34,15 @@ Aşağıdaki tabloda, Appsource'ta yayımlama için önkoşul gereksinimleri aç
 
 | Gereksinim | Ayrıntılar | Gerekli ya da Önerilen |  
 |:--- |:--- |:--- |  
-| ***Azure Active Directory (Azure AD)*** | Uygulamanızı Azure Active Directory Federasyon çoklu oturum (Azure AD Federasyon SSO) açma etkin onay ile izin vermeniz gerekir.<ul> <li>Federasyon SSO Azure AD'ye etkinleştirme hakkında daha fazla bilgi için yapılandırma çoklu oturum açma, Azure Active Directory'de uygulama Galerisi'nde sayfanın bulunan olmayan uygulamalar için ziyaret edin [docs.microsoft.com/azure/active-directory/ Active-directory-saas-özel-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Gereklidir |   
+| ***Azure Active Directory (Azure AD)*** | Uygulamanızı Azure Active Directory Federasyon çoklu oturum (Azure AD Federasyon SSO) açma etkin onay ile izin vermeniz gerekir.<ul> <li>Federasyon SSO Azure AD'ye etkinleştirme hakkında daha fazla bilgi için yapılandırma çoklu oturum açma, Azure Active Directory'de uygulama Galerisi'nde sayfanın bulunan olmayan uygulamalar için ziyaret edin [docs.microsoft.com/azure/active-directory/ Active-directory-saas-özel-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Gerekli |   
 | ***Microsoft bulut Hizmetleri ile tümleştirme*** | Uygulamanızı Microsoft Power BI, Cortana Intelligence ve Microsoft Azure Hizmetleri gibi diğer Microsoft Cloud services ile tümleşmelidir.<ul> <li>Nesnelerin Internet'i Microsoft Cloud hizmet örneğidir.</li> </ul> | Önerilen |  
-| ***Hedef kitle*** | Satır iş kolu kullanıcıları ve işletme sahipleri için uygulamanızın olması gerekir. | Gereklidir | 
-| ***İş için bir hizmet (SaaS) uygulaması olarak yazılım*** | Uygulamanız aşağıdaki gereksinimleri karşılaması gerekir.<ul> <li>Bir satır iş kolu SaaS uygulaması</li> <li>Odaklanmış iş süreci</li> <li>Hedeflenen iş müşterilerine</li> <li>Kullanıcıların, kullanıcı adı ve parola gibi oturum açmak için iş kimlik bilgilerini etkinleştir</li> </ul> | Gereklidir |  
-| ***Ücretsiz deneme süresi ve deneme sürümü deneyimi*** | Uygulamanızı bir sırada bir müşteri uygulamanızı sınırlı bir süre için ücretsiz kullanmak için aşağıdaki seçeneklerden içermelidir.<ul> <li>Sağlayan bir `try` müşteriler uygulamanızın AppSource içinden bir deneme başlayabilir şekilde yöntemi</li> <li>Sağlayan bir `request trial` appsource'ta müşterilerin uygulamanızı'nin deneme sürümü isteyebilir şekilde seçeneği</li> </ul>Sağladığınız ücretsiz deneme müşteri uygulamanıza ek ücret ödemeden denemek için önceden ayarlanmış bir süre sağlaması gerekir. | Gereklidir |  
-| ***Kolayca yapılandırılabilir, kullanıma hazır bir çözüm*** | Uygulamanızı, kolay ve hızlı yapılandırma ve özelleştirme gerekli ayarlanmış olması gerekir. | Gereklidir |  
-| ***Müşteri adayı yönetimi*** | CRM'İNİZE aldığınız önce müşteri adayı verilerini mağazada müşteri adayları kabul etmek etkinleştirin.<ul> <li>Katılımlarını Marketo, Microsoft Dynamics veya Salesforce örnekler</li> </ul> | Gereklidir |  
-| ***Gizlilik İlkesi ve kullanım koşulları*** | Uygulamanızı genel bir URL kullanarak gizlilik ilkesi sayfanıza bir bağlantı sağlamanız gerekir. Metin olarak yayımlama sırasında kullanım koşullarınızı sağlanması gerekir. | Gereklidir |  
-| ***Destek*** | Uygulamanızı genel bir URL kullanarak müşteri destek sayfanız için bir bağlantı sağlamanız gerekir. Uygulamanız bir deneme ise, deneme süresi boyunca ek ücret ödemeden desteklemesi gerekir. | Gereklidir |  
+| ***Hedef kitle*** | Satır iş kolu kullanıcıları ve işletme sahipleri için uygulamanızın olması gerekir. | Gerekli | 
+| ***İş için bir hizmet (SaaS) uygulaması olarak yazılım*** | Uygulamanız aşağıdaki gereksinimleri karşılaması gerekir.<ul> <li>Bir satır iş kolu SaaS uygulaması</li> <li>Odaklanmış iş süreci</li> <li>Hedeflenen iş müşterilerine</li> <li>Kullanıcıların, kullanıcı adı ve parola gibi oturum açmak için iş kimlik bilgilerini etkinleştir</li> </ul> | Gerekli |  
+| ***Ücretsiz deneme süresi ve deneme sürümü deneyimi*** | Uygulamanızı bir sırada bir müşteri uygulamanızı sınırlı bir süre için ücretsiz kullanmak için aşağıdaki seçeneklerden içermelidir.<ul> <li>Sağlayan bir `try` müşteriler uygulamanızın AppSource içinden bir deneme başlayabilir şekilde yöntemi</li> <li>Sağlayan bir `request trial` appsource'ta müşterilerin uygulamanızı'nin deneme sürümü isteyebilir şekilde seçeneği</li> </ul>Sağladığınız ücretsiz deneme müşteri uygulamanıza ek ücret ödemeden denemek için önceden ayarlanmış bir süre sağlaması gerekir. | Gerekli |  
+| ***Kolayca yapılandırılabilir, kullanıma hazır bir çözüm*** | Uygulamanızı, kolay ve hızlı yapılandırma ve özelleştirme gerekli ayarlanmış olması gerekir. | Gerekli |  
+| ***Müşteri adayı yönetimi*** | CRM'İNİZE aldığınız önce müşteri adayı verilerini mağazada müşteri adayları kabul etmek etkinleştirin.<ul> <li>Katılımlarını Marketo, Microsoft Dynamics veya Salesforce örnekler</li> </ul> | Gerekli |  
+| ***Gizlilik İlkesi ve kullanım koşulları*** | Uygulamanızı genel bir URL kullanarak gizlilik ilkesi sayfanıza bir bağlantı sağlamanız gerekir. Metin olarak yayımlama sırasında kullanım koşullarınızı sağlanması gerekir. | Gerekli |  
+| ***Destek*** | Uygulamanızı genel bir URL kullanarak müşteri destek sayfanız için bir bağlantı sağlamanız gerekir. Uygulamanız bir deneme ise, deneme süresi boyunca ek ücret ödemeden desteklemesi gerekir. | Gerekli |  
 
 ## <a name="storefront-requirements-azure-marketplace"></a>StoreFront gereksinimleri: Azure Market  
 Azure Marketi'nde türlerini listeleme önkoşul gereksinimleri aşağıda verilmiştir.  
@@ -64,17 +64,17 @@ Liste türü listeleme vitrinler üzerinde aşağıdaki teklif türlerini Market
 
 | Teklif türü | Vitrin | Ayrıntılar |  
 |:---        |:---        |:---     |  
-| Danışmanlık Hizmetleri | AppSource | [Gereksinimler: AppSource: Listesi: Danışmanlık Hizmetleri](#requirements-appsource-list-consulting-services) |  
-| Danışmanlık Hizmetleri | Azure Market | [Gereksinimler: Azure Market: Listesi: Danışmanlık Hizmetleri](#requirements-azure-marketplace-list-consulting-services) |  
+| Danışmanlık Hizmetleri | AppSource | Gereksinimler: AppSource: Listesi: Danışmanlık Hizmetleri |  
+| Danışmanlık Hizmetleri | Azure Market | Gereksinimler: Azure Market: Listesi: Danışmanlık Hizmetleri |  
 | Benimle iletişime geçin | AppSource | [](#) |  
-| Benimle iletişime geçin | Azure Market | [Gereksinimler: AppSource: Listesi: Benimle iletişim kurun](#requirements-azure-marketplace-list-contact-me) |  
+| Benimle iletişime geçin | Azure Market | Gereksinimler: AppSource: Listesi: Benimle iletişime geçin |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Gereksinimler: AppSource: Listesi: Danışmanlık hizmeti  
 
 | Gereksinimler | Ayrıntılar |  
 |:--- |:--- |  
 | Hizmet teklifi özellikleri | Danışmanlık hizmetinize aşağıdaki ölçütleri karşılaması gerekir.<ul> <li>Sabit kapsam, sabit süre, sabit fiyat (veya ücretsiz) engagement sunun.</li> <li>Satış öncesi için öncelikle yönlendir.</li> <li>Tek bir müşteriye sınırlayın.</li> <li>Sitede yürütün.</li> </ul> |  
-| İş ortağı Danışmanlık Hizmetleri gereksinimleri | Hizmetiniz için ilgili alanda ölçütlere uygun olmalıdır.<table><tr><th>Çözüm Alanı</th><th>Ölçütler</th></tr><tr><td>Müşteri Etkileşimi için Dynamics 365</td><td>Silver veya Gold bulut müşteri ilişkileri yönetimi uzmanlığa sahip.</td></tr><tr><td>Finans ve operasyon, Enterprise edition için Dynamics 365</td><td>Silver veya Gold kurumsal kaynak planlama uzmanlığı ve bulut geliri sondaki 12 ay sonra 25.000 ABD Doları ya da daha fazlasına sahip.</td></tr><tr><td>Dynamics 365 için finans ve operasyon, işletme sürümü</td><td>Bulut Hizmetleri Sağlayıcısı (CSP) ya da dijital iş ortağı, kaydı (DPOR) bir veya daha fazla müşterileri için hizmet.</td></tr><tr><td>Power BI</td><td>Çözüm iş ortağı ölçütlere uygun olmalıdır.</td></tr><tr><td>PowerApps</td><td>Bir iş ortağı gösterimi çözümü vardır.</td></tr></table><ul> <li>Müşteri İlişkileri Yönetimi hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan bulut Müşteri İlişkileri Yönetimi [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Kaynak planlama hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan Kurumsal Kaynak planlama [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>CSP hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan bulut hizmeti sağlayıcısı [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Dijital kayıtlı iş ortağı DPOR hakkında daha fazla bilgi için ziyaret edin ve iş ortağı ilişkilendirme sayfasında bulunan [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Çözüm iş ortağı ölçütleri hakkında daha fazla bilgi için çözüm iş ortağı genel bakış sayfasını ziyaret edin ve Teşvikleri belge bulunan [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>İş ortağı gösterimi hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan iş ortağı gösterimi [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
+| İş ortağı Danışmanlık Hizmetleri gereksinimleri | Hizmetiniz için ilgili alanda ölçütlere uygun olmalıdır.<table><tr><th>Çözüm Alanı</th><th>Ölçütler</th></tr><tr><td>Müşteri Etkileşimi için Dynamics 365</td><td>Silver veya Gold bulut müşteri ilişkileri yönetimi uzmanlığa sahip.</td></tr><tr><td>Finans ve operasyon, Enterprise edition için Dynamics 365</td><td>Silver veya Gold kurumsal kaynak planlama uzmanlığı ve bulut geliri sondaki 12 ay sonra 25.000 ABD Doları ya da daha fazlasına sahip.</td></tr><tr><td>Dynamics 365 için finans ve operasyon, işletme sürümü</td><td>Bulut Hizmetleri Sağlayıcısı (CSP) ya da dijital iş ortağı, kaydı (DPOR) bir veya daha fazla müşterileri için hizmet.</td></tr><tr><td>Power BI</td><td>Çözüm iş ortağı ölçütlere uygun olmalıdır.</td></tr><tr><td>PowerApps</td><td>Bir iş ortağı gösterimi çözümü vardır.</td></tr></table><ul> <li>Müşteri İlişkileri Yönetimi hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan bulut Müşteri İlişkileri Yönetimi [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Kaynak planlama hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan Kurumsal Kaynak planlama [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>CSP hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan bulut hizmeti sağlayıcısı [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Dijital kayıtlı iş ortağı DPOR hakkında daha fazla bilgi için ziyaret edin ve iş ortağı ilişkilendirme sayfasında bulunan [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Çözüm iş ortağı ölçütleri hakkında daha fazla bilgi için çözüm iş ortağı genel bakış sayfasını ziyaret edin ve Teşvikleri belge bulunan [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>İş ortağı gösterimi hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan iş ortağı gösterimi [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
 #### <a name="requirements-azure-marketplace-list-consulting-service"></a>Gereksinimler: Azure Market: Listesi: Danışmanlık hizmeti  
 
@@ -91,11 +91,11 @@ Liste türü listeleme vitrinler üzerinde aşağıdaki teklif türlerini Market
 
 | Teklif türü | Vitrin | Ayrıntılar |  
 |:---        |:---        |:---     |  
-| Ücretsiz / SaaS denemesi | AppSource | [Liste türü gereksinimleri: Deneme sürümü](#listing-type-requirements-trial) |  
-| Ücretsiz / SaaS denemesi | Azure Market | [Gereksinimler: Azure Market: Deneme sürümü: Ücretsiz deneme sürümü / SaaS denemesi](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Etkileşimli tanıtım | AppSource | [Liste türü gereksinimleri: Deneme sürümü](#listing-type-requirements-trial) |  
+| Ücretsiz / SaaS denemesi | AppSource | Liste türü gereksinimleri: Deneme |  
+| Ücretsiz / SaaS denemesi | Azure Market | Gereksinimler: Azure Market: Deneme sürümü: Ücretsiz deneme sürümü / SaaS denemesi |  
+| Etkileşimli tanıtım | AppSource | Liste türü gereksinimleri: Deneme |  
 | Etkileşimli tanıtım | Azure Market | [Gereksinimler: Azure Market: Deneme sürümü: Etkileşimli tanıtım](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test sürüşü | AppSource | [Liste türü gereksinimleri: Deneme sürümü](#listing-type-requirements-trial) |  
+| Test sürüşü | AppSource | Liste türü gereksinimleri: Deneme |  
 | Test sürüşü | Azure Market | [Gereksinimler: Azure Market: Deneme sürümü: Test sürüşü](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Gereksinimler: Azure Market: Deneme  
@@ -133,8 +133,8 @@ Liste türü listeleme vitrinler üzerinde aşağıdaki teklif türlerini Market
 
 | Teklif türü | Vitrin | Ayrıntılar |   
 |:---        |:---        | :--- |  
-| Azure uygulamaları için: Yönetilen uygulama | Azure Market | [Gereksinimler: Azure Market: Transact: Azure uygulamaları için: Yönetilen uygulama](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Azure uygulamaları için: Çözüm şablonu | Azure Market | [Gereksinimler: Azure Market: Transact: Azure uygulamaları için: Çözüm şablonu](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Azure uygulamaları için: Yönetilen uygulama | Azure Market | Gereksinimler: Azure Market: Transact: Azure uygulamaları için: Yönetilen uygulama |  
+| Azure uygulamaları için: Çözüm şablonu | Azure Market | Gereksinimler: Azure Market: Transact: Azure uygulamaları için: Çözüm şablonu |  
 | Kapsayıcılar | Azure Market | [Gereksinimler: Azure Market: Transact: Container](#requirements-azure-marketplace-transact-container) |  
 | SaaS uygulama  | Azure Market | [Gereksinimler: Azure Market: Transact: SaaS uygulama](#requirements-azure-marketplace-transact-saas-app) |  
 | Sanal makine | Azure Market | [Gereksinimler: Azure Market: Transact: Sanal makine](#requirements-azure-marketplace-transact-virtual-machine) |  

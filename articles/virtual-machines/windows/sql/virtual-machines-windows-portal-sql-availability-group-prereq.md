@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359842"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818031"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure sanal makinelerinde Always On kullanılabilirlik grupları oluşturmak için önkoşulları tamamlayın
 
@@ -413,7 +413,7 @@ Her bir sanal makine etki alanının bir üyesi yeniden başlatıldıktan sonra 
 
 ### <a name="setServiceAccount"></a>SQL Server hizmet hesapları
 
-Her SQL Server sanal makinesinde SQL Server hizmet hesabını ayarlayın. Ne zaman oluşturduğunuz hesapları kullanmak, [etki alanı hesaplarının](#DomainAccounts).
+Her SQL Server sanal makinesinde SQL Server hizmet hesabını ayarlayın. Etki alanı hesapları yapılandırıldığında oluşturduğunuz hesapları kullanın.
 
 1. Açık **SQL Server Yapılandırma Yöneticisi**.
 2. SQL Server hizmetini sağ tıklatın ve ardından **özellikleri**.

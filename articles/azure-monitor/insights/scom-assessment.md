@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186132"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819867"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
 
@@ -55,7 +55,7 @@ Yapılan öneriler bilgi ve müşteri binlerce Microsoft mühendisinin göre kaz
 
  Operations Manager işletim Konsolu aracılığıyla değerlendirmeyi yapılandırmak için aşağıdaki adımları aşağıdaki sırayla gerçekleştirin:
 1. [Sistem Center Operations Manager sistem durumu denetimi için farklı çalıştır hesabı ayarlayın](#operations-manager-run-as-accounts-for-log-analytics)  
-2. [Sistem Center Operations Manager sistem durumu denetimi kuralı yapılandırma](#configure-the-assessment-rule)
+2. Sistem Center Operations Manager sistem durumu denetimi kuralı yapılandırma
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager değerlendirme veri koleksiyonu ayrıntıları
 

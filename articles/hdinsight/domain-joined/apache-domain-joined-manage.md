@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 4df96d0c3d1ec9cb64f2394fb97d46178906d916
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434826"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819136"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile HDInsight kümelerini yönetme
 Kullanıcılar ve roller HDInsight Kurumsal güvenlik paketi (ESP) ve ESP kümelerini nasıl yöneteceğinizi öğrenin.
@@ -215,7 +215,7 @@ Kurumsal güvenlik paketi HDInsight aşağıdaki roller vardır:
 6. Tıklayın **Kullanıcı Ekle** veya **Grup Ekle**ve ardından kullanıcıları veya Hive görünümleri kullanabileceğiniz grupları belirtin.
 
 ## <a name="configure-users-for-the-roles"></a>Kullanıcı rolleri için yapılandırma
- Rolleri ve izinlerini listesini görmek için bkz: [rolleri, HDInsight kümeleri ile ESP](#roles-of-domain---joined-hdinsight-clusters).
+ Rolleri ve izinlerini listesini görmek için ESP ile roller, HDInsight kümeleri bakın.
 
 1. Ambari Yönetimi kullanıcı arabirimini açın.  Bkz: [Ambari UI Yönetimi](#open-the-ambari-management-ui).
 2. Sol menüden **rolleri**.

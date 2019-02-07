@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 93534cf80a007dbb848a515ec4ec165c67e3b456
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: deca97b0749ceab9f2dfaf3c3940ac6b02b9c104
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730705"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822196"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimini Sil
 
@@ -52,7 +52,7 @@ Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için 
     |Özel IP adresi ataması|Evet| Bu ayarda, IPv4 adresi için atama yöntemi seçersiniz. Aşağıdaki atama yöntemler arasından seçim yapın: **Dinamik:** Bu seçeneğin belirlenmesi, Azure, seçilen alt ağın adres alanından sonraki kullanılabilir adresi otomatik olarak atar. **Statik:** Bu seçeneğin belirlenmesi, kullanılabilir ağdan bir IP adresi seçilen alt ağın adres alanı içinde el ile atamanız gerekir. Statik ve dinamik adresler, bunları değiştirebilir veya ağ arabirimi silinmiş kadar değiştirmeyin. Ağ arabirimi oluşturulduktan sonra atama yöntemini değiştirebilirsiniz. Azure DHCP sunucusu, sanal makinenin işletim sistemi içinde ağ arabirimine bu adresi atar.|
     |Ağ güvenlik grubu|Hayır| İzin kümesine **hiçbiri**, varolan seçin [ağ güvenlik grubu](security-overview.md), veya [ağ güvenlik grubu oluşturma](tutorial-filter-network-traffic.md). Ağ güvenlik grupları filtresi ağ trafiği bir ağ arabirimi içine ve dışına sağlar. Sıfır veya bir ağ güvenlik grubu için bir ağ arabirimi uygulayabilirsiniz. Sıfır veya bir ağ güvenlik grubu, ağ arabirimine atanmış bir alt ağ için de uygulanabilir. Bir ağ arabirimi ve alt ağ arabirimine atanmış bir ağ güvenlik grubu uygulanır, bazen beklenmedik sonuçlar ortaya çıkar. Ağ arabirimine ve alt ağa uygulanan ağ güvenlik gruplarında sorun giderme için bkz: [ağ güvenlik gruplarında sorun giderme](diagnose-network-traffic-filter-problem.md).|
     |Abonelik|Evet|Azure birini [abonelikleri](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Sanal makine, bir ağ arabirimine ve buna bağlanmak sanal ağ ekleyebilir, aynı abonelikte bulunması gerekir.|
-    |Özel IP adresi (IPv6)|Hayır| Bu onay kutusunu seçerseniz, ağ arabirimine atanmış IPv4 adresini ek olarak ağ arabiriminin IPv6 adresi atanır. Bkz: [IPv6](#IPv6) hakkında önemli bilgiler için kullanım, IPv6 ağ arabirimine sahip bu makalenin. IPv6 adresi için bir atama yöntemi seçemezsiniz. Bir IPv6 adresi atamak isterseniz, dinamik yöntem ile atanır.
+    |Özel IP adresi (IPv6)|Hayır| Bu onay kutusunu seçerseniz, ağ arabirimine atanmış IPv4 adresini ek olarak ağ arabiriminin IPv6 adresi atanır. Bu makalede hakkında önemli bilgiler için kullanım, IPv6 ağ arabirimine sahip IPv6 bölümüne bakın. IPv6 adresi için bir atama yöntemi seçemezsiniz. Bir IPv6 adresi atamak isterseniz, dinamik yöntem ile atanır.
     |IPv6 adı (yalnızca **özel IP adresi (IPv6)** onay kutusu işaretli) |Evet, varsa **özel IP adresi (IPv6)** onay kutusu işaretli.| Bu ad, bir ikincil ağ arabirimi IP yapılandırması için atanır. IP yapılandırması hakkında daha fazla bilgi için bkz: [ağ arabirimi ayarları görüntüle](#view-network-interface-settings).|
     |Kaynak grubu|Evet|Mevcut bir seçin [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) veya bir tane oluşturabilirsiniz. Bir ağ arabirimi, ona eklediğiniz sanal makineden aynı veya farklı bir kaynak grubunda mevcut olabilir veya sanal ağ, ona bağlanın.|
     |Konum|Evet|Sanal makineyi bir ağ arabirimine ekleyebilir ve kendisine bağlandığınız sanal ağ aynı bulunmalıdır [konumu](https://azure.microsoft.com/regions)de denilen bir bölge.|

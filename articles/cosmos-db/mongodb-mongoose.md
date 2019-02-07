@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 6cdfa7492a9916cc3e2300ad71e21acfb68e3d30
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352249"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822043"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Bir Node.js Mongoose uygulamasını Azure Cosmos DB'ye bağlanma
 
@@ -32,7 +32,7 @@ Cosmos DB, Microsoft'un Global olarak dağıtılmış çok modelli veritabanı h
 
 ## <a name="create-a-cosmos-account"></a>Bir Cosmos hesabı oluşturun
 
-Bir Cosmos hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Node.js uygulamanızı ayarlama](#SetupNode) adımına atlayabilirsiniz. Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için [Azure Cosmos DB Öykünücüsü](local-emulator.md) konusundaki adımları izleyin ve [Node.js uygulamanızı ayarlama](#SetupNode) adımına atlayın.
+Bir Cosmos hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa, Node.js uygulamanızı ayarlama kümesine İleri atlayabilirsiniz. Azure Cosmos DB öykünücüsü'nü kullanıyorsanız, bu adımları izleyin [Azure Cosmos DB öykünücüsü'nü](local-emulator.md) öykünücünün kurulumunu ve kümesine Node.js uygulamanızı ayarlama atlayabilirsiniz.
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 

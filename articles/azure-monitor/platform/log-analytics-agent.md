@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185979"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765697"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics aracısını log verileri toplama
 
-Daha önce Microsoft Monitoring Agent (MMA) veya OMS Linux aracısı olarak da adlandırılan Azure Log Analytics (OMS) Aracı'yı kapsamlı yönetimi için şirket içi makinelerde tarafından izlenen bilgisayarlar geliştirilmiştir [System Center Operations Yöneticisi](https://docs.microsoft.com/system-center/scom/)ve buluttaki sanal makineler. Windows ve Linux aracıları herhangi bir benzersiz günlük yanı sıra farklı kaynaklardan verileri toplamak için bir Log Analytics çalışma alanı ekleme veya izleme çözümünde ölçümler olarak tanımlanmış. 
+Daha önce Microsoft Monitoring Agent (MMA) veya OMS Linux aracısı olarak da adlandırılan, Azure Log Analytics aracısını kapsamlı yönetimi için şirket içi makinelerde tarafından izlenen bilgisayarlar geliştirilmiştir [System Center Operations Manager ](https://docs.microsoft.com/system-center/scom/)ve buluttaki sanal makineler. Windows ve Linux aracıları herhangi bir benzersiz günlük yanı sıra farklı kaynaklardan verileri toplamak için bir Log Analytics çalışma alanı ekleme veya izleme çözümünde ölçümler olarak tanımlanmış. 
 
 Bu makalede, aracı, sistem ve ağ gereksinimleri ve farklı dağıtım yöntemlerini ayrıntılı bir genel bakış sağlar.   
 
@@ -41,7 +41,7 @@ Log Analytics'e bağlanmak için yalnızca Linux ve Windows için aracı değil,
 ## <a name="supported-windows-operating-systems"></a>Desteklenen Windows işletim sistemleri
 Aşağıdaki Windows işletim sistemi sürümleri Windows aracısı için resmi olarak desteklenir:
 
-* Windows Server 2008 Service Pack 1 (SP1) veya üzeri
+* Windows Server 2008 R2 veya üzeri
 * Windows 7 SP1 ve üzeri.
 
 ## <a name="supported-linux-operating-systems"></a>Desteklenen Linux işletim sistemleri

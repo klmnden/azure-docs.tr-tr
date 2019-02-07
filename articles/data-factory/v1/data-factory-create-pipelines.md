@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fb0448e5ad5bd91c63c2fcde9887ec23544bed3f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f04903cc1ffd16edd951969c86659c8f1f33105f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331359"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814138"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>İşlem hatları ve etkinlikler Azure Data factory'de
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -92,7 +92,7 @@ Bir işlem hattının JSON biçiminde nasıl tanımlandığına daha yakından b
 }
 ```
 
-| Etiket | Açıklama | Gereklidir |
+| Etiket | Açıklama | Gerekli |
 | --- | --- | --- |
 | ad |İşlem hattının adı. İşlem hattının gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
 | açıklama | İşlem hattının ne için kullanıldığını açıklayan metni belirtin. |Evet |
@@ -130,7 +130,7 @@ Bir işlem hattının JSON biçiminde nasıl tanımlandığına daha yakından b
 
 Aşağıdaki tabloda, etkinlik JSON tanımındaki özellikler açıklamaktadır:
 
-| Etiket | Açıklama | Gereklidir |
+| Etiket | Açıklama | Gerekli |
 | --- | --- | --- |
 | ad | Etkinliğin adı. Etkinliğin gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
 | açıklama | Etkinliğin ne olduğunu veya ne için kullanıldığını açıklayan metin |Evet |
@@ -150,10 +150,10 @@ Aşağıdaki tabloda, etkinlik JSON tanımındaki özellikler açıklamaktadır:
 | Eşzamanlılık |Tamsayı <br/><br/>En büyük değer: 10 |1 |Etkinliğin eşzamanlı yürütmelerinin sayısı.<br/><br/>Bu, üzerinde farklı dilimleri oluşabilir paralel Etkinlik yürütme sayısını belirler. Örneğin, bir etkinlik geçtikleri gerekiyorsa, çok sayıda büyük eşzamanlılık değeri, kullanılabilir verilerin veri işleme hızı artar. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |İşlenmekte olan veri dilimi sıralama belirler.<br/><br/>Örneğin, varsa (4'te, bir gerçekleşmesini ve başka bir saat 17: 00) 2 böler ve hem de yürütme olması. Dilim saat 17: 00, executionPriorityOrder NewestFirst olacak şekilde ayarlarsanız, önce işlenir. ExecutionPriorityORder OldestFIrst olacak şekilde ayarlarsanız, benzer şekilde ardından 4'te en işlenir. |
 | retry |Tamsayı<br/><br/>En büyük değer 10 olabilir |0 |Dilimin veri işleme hatası olarak işaretlenmeden önce yeniden deneme sayısı. Veri dilimi için etkinlik yürütme belirtilen yeniden deneme sayısı en fazla yeniden denenir. Yeniden deneme hatadan sonra mümkün olan en kısa sürede gerçekleştirilir. |
-| timeout |Zaman aralığı |00:00:00 |Etkinlik için zaman aşımı. Örnek: 00:10:00 (zaman aşımı 10 dakika anlamına gelir)<br/><br/>Bir değer belirtilmezse veya 0'dır, zaman aşımı sonsuz olur.<br/><br/>Dilim üzerinde veri işleme süresi zaman aşımı değerini aşarsa, iptal edilir ve sistem işleme yeniden dener. Yeniden deneme sayısını, yeniden deneme özelliğine bağlıdır. Zaman aşımı meydana geldiğinde, durum zaman aşımına uğradı için ayarlanır. |
-| gecikme |Zaman aralığı |00:00:00 |Veri işleme dilim başlatılmadan önce gecikme belirtin.<br/><br/>Etkinlik bir veri diliminin yürütülmesi, gecikmenin beklenen yürütme süresi sonra başlatılır.<br/><br/>Örnek: 00:10:00 (10 dakika gecikme anlamına gelir) |
+| timeout |TimeSpan |00:00:00 |Etkinlik için zaman aşımı. Örnek: 00:10:00 (zaman aşımı 10 dakika anlamına gelir)<br/><br/>Bir değer belirtilmezse veya 0'dır, zaman aşımı sonsuz olur.<br/><br/>Dilim üzerinde veri işleme süresi zaman aşımı değerini aşarsa, iptal edilir ve sistem işleme yeniden dener. Yeniden deneme sayısını, yeniden deneme özelliğine bağlıdır. Zaman aşımı meydana geldiğinde, durum zaman aşımına uğradı için ayarlanır. |
+| gecikme |TimeSpan |00:00:00 |Veri işleme dilim başlatılmadan önce gecikme belirtin.<br/><br/>Etkinlik bir veri diliminin yürütülmesi, gecikmenin beklenen yürütme süresi sonra başlatılır.<br/><br/>Örnek: 00:10:00 (10 dakika gecikme anlamına gelir) |
 | longRetry |Tamsayı<br/><br/>En büyük değer: 10 |1 |Dilim yürütme başarısız olmadan önce uzun yeniden deneme sayısı.<br/><br/>denemeleri longRetry, longretryınterval gibi tarafından aralıklandırılmış. Yeniden deneme girişimleri arasındaki süre belirtmeniz gerekiyorsa, bu nedenle longRetry kullanın. Yeniden deneme longRetry belirtilirse, yeniden deneme girişimleri longRetry içerir ve yeniden deneme girişimlerinin sayısı en fazla olan * longRetry.<br/><br/>Örneğin etkinlik ilkesinde aşağıdaki ayarları sunuyoruz:<br/>Yeniden deneme: 3<br/>longRetry: 2<br/>longretryınterval gibi: 01:00:00<br/><br/>Yürütmek için yalnızca bir dilim olduğu varsayılır (Durum Bekliyor) ve her etkinlik yürütme başarısız olur. İlk 3 ardışık yürütme girişimleri olacaktır. Her girişimden sonra dilim durumu yeniden deneme olacaktır. İlk 3 deneme üzerinden sonra dilim durumu LongRetry olacaktır.<br/><br/>Bir saat sonra (diğer bir deyişle, longRetryInteval'ın değer), 3 ardışık yürütme girişimleri başka bir dizi olacaktır. Bundan sonra dilim durumu başarısız ve daha fazla yeniden deneme yok çalıştı. Bu nedenle genel 6 denemesi yapıldı.<br/><br/>Herhangi bir yürütme başarılı olursa, dilim durumu hazır olur ve daha fazla yeniden deneme yok çalıştı.<br/><br/>longRetry olduğu bağımlı veri belirleyici olmayan zamanlarda ulaşır ya da genel ortamının hangi verileri işlemesi altında güvenilir olmayan durumlarda kullanılabilir. Bu gibi durumlarda, bunun yapılması deneme birbiri ardına yardımcı ve bunun yapılması bir aralıktan sonra istenen çıkış sonuçlarında zaman.<br/><br/>Uyarı: longRetry veya longretryınterval gibi yüksek değerlerini ayarlamayın. Genellikle, yüksek değerler sistemle ilgili diğer konuları da kapsıyor. |
-| longRetryInterval |Zaman aralığı |00:00:00 |Uzun yeniden deneme girişimleri arasındaki gecikme |
+| longRetryInterval |TimeSpan |00:00:00 |Uzun yeniden deneme girişimleri arasındaki gecikme |
 
 ## <a name="sample-copy-pipeline"></a>Örnek kopyalama işlem hattı
 Aşağıdaki örnek işlem hattında, **Etkinlikler** bölümünde **Kopyalama** türünde olan bir etkinlik vardır. Bu örnekte [kopyalama etkinliği](data-factory-data-movement-activities.md), verileri Azure Blob depolama alanından Azure SQL veritabanına kopyalar.
@@ -307,7 +307,7 @@ Oluşturulan ve dağıtılan bir işlem hattı olduktan sonra yönetmek ve Azure
 - [İzleme ve işlem hatlarını izleme ve yönetme uygulaması'nı kullanarak yönetme](data-factory-monitor-manage-app.md)
 
 ## <a name="onetime-pipeline"></a>Tek seferlik işlem hattı
-Oluşturma ve zamanlama düzenli aralıklarla çalıştırmak için bir işlem hattı (örneğin: saatlik veya günlük) işlem hattı tanımında belirttiğiniz başlangıç ve bitiş saatleri içinde. Bkz: [etkinlikler zamanlamak](#scheduling-and-execution) Ayrıntılar için. Ayrıca, yalnızca bir kez çalışan bir işlem hattı oluşturabilirsiniz. Bunu yapmak için ayarladığınız **pipelineMode** özelliği için işlem hattı tanımındaki **onetime** aşağıdaki JSON örnekte gösterildiği gibi. Bu özellik için varsayılan değer **zamanlanmış**.
+Oluşturma ve zamanlama düzenli aralıklarla çalıştırmak için bir işlem hattı (örneğin: saatlik veya günlük) işlem hattı tanımında belirttiğiniz başlangıç ve bitiş saatleri içinde. Zamanlama etkinlikleri Ayrıntılar için bkz. Ayrıca, yalnızca bir kez çalışan bir işlem hattı oluşturabilirsiniz. Bunu yapmak için ayarladığınız **pipelineMode** özelliği için işlem hattı tanımındaki **onetime** aşağıdaki JSON örnekte gösterildiği gibi. Bu özellik için varsayılan değer **zamanlanmış**.
 
 ```json
 {

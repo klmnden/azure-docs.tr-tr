@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 139f6283c2b59aee53afa3f0dd52e06e2b0eff4c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9c463740acf6ef464880a43e0e68de683b97f64f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695228"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813436"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimlere
 
@@ -34,13 +34,13 @@ Filtreleri gibi şeyler müşterilerinize izin veren sunucu tarafı kurallar şu
 - Yalnızca belirtilen yorumlama ve/veya içeriği ("işleme filtreleme") çalmak için kullanılan cihaz tarafından desteklenen belirtilen dil parçaları sunun. 
 - ("Ayarlama sunu pencere") player DVR penceresinde sınırlı bir süre sağlamak amacıyla sunu penceresi DVR ayarlayın.
 
-Bu konu başlığı altında açıklanır [kavramları](#concepts) ve [gösterir filtreler tanımları](#definitions). Ardından, yaygın senaryolar hakkında ayrıntılar sağlar. Makalenin sonunda, filtreleri program aracılığıyla nasıl oluşturulacağını gösteren bağlantıları bulabilirsiniz.  
+Bu konu başlığı altında açıklanır [kavramları](#concepts) ve filtreler tanımları gösterir. Ardından, yaygın senaryolar hakkında ayrıntılar sağlar. Makalenin sonunda, filtreleri program aracılığıyla nasıl oluşturulacağını gösteren bağlantıları bulabilirsiniz.  
 
 ## <a name="concepts"></a>Kavramlar
 
 ### <a name="dynamic-manifests"></a>Dinamik bildirimlerin
 
-Medya Hizmetleri sunan **dinamik bildirimlerini** temel üzerinde önceden tanımlanmış [filtreleri](#filters). Filtreler tanımladıktan sonra istemcilerinize bunları belirli bir işleme veya alt klip videonuzun akışını sağlamak için kullanabilirsiniz. Bunlar, akış URL'SİNDE filtreleri belirtmeniz gerekir. Filtreler hızı Uyarlamalı akış için uygulanabilir: Apple HTTP canlı akış (HLS), MPEG-DASH ve kesintisiz akış. 
+Medya Hizmetleri sunan **dinamik bildirimlerini** önceden tanımlanmış filtrelere göre. Filtreler tanımladıktan sonra istemcilerinize bunları belirli bir işleme veya alt klip videonuzun akışını sağlamak için kullanabilirsiniz. Bunlar, akış URL'SİNDE filtreleri belirtmeniz gerekir. Filtreler hızı Uyarlamalı akış için uygulanabilir: Apple HTTP canlı akış (HLS), MPEG-DASH ve kesintisiz akış. 
 
 Aşağıdaki tabloda, filtrelerle URL'leri bazı örnekler gösterilmektedir:
 

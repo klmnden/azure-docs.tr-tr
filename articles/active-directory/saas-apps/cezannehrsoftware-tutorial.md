@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 7515d1d88e3652ba609286b1805e58853763434d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28a699f62a97120a27ba4d6f555182f090249dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183245"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812318"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Öğretici: Cezanne ik yazılım ile Azure Active Directory Tümleştirme
 
@@ -88,7 +88,7 @@ Yapılandırma ve Azure AD çoklu oturum açma Cezanne ik yazılım ile test etm
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Cezanne ik yazılım test kullanıcısı oluşturma](#create-a-cezannehrsoftware-test-user)**  - kullanıcı Azure AD gösterimini bağlı Cezanne ik yazılım Britta simon'un bir karşılığı vardır.
+1. **Cezanne ik yazılım test kullanıcısı oluşturma** - kullanıcı Azure AD gösterimini bağlı Cezanne ik yazılım Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 

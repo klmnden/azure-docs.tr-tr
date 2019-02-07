@@ -1,6 +1,6 @@
 ---
-title: Azure mikro hatalarına benzetimini | Microsoft Docs
-description: Bu makalede, Microsoft Azure Service Fabric içinde bulunan Test Edilebilirlik eylemler hakkında alınmaktadır.
+title: Azure mikro hizmetlerde hata benzetimleri yapma | Microsoft Docs
+description: Bu makalede, Microsoft Azure Service Fabric'te bulunan Test Edilebilirlik eylemleri hakkında konuşuyor.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 70ed1561af6dc06b4d1db89e6449540dd76b67be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757630"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815891"
 ---
-# <a name="testability-actions"></a>Test Edilebilirlik Eylemler
-Güvenilir olmayan bir altyapı benzetimini yapmak için Azure Service Fabric çeşitli gerçek hataları ve durumu geçişleri gerçekleştirecek birçok yöntem ile geliştirici olarak size sağlar. Bu Test Edilebilirlik eylemler olarak sunulur. Belirli bir arıza ekleme, durum geçişi veya doğrulama neden alt düzey API'leri eylemlerdir. Bu eylemler ile birleştirerek kapsamlı test senaryoları için hizmetlerinizi yazabilirsiniz.
+# <a name="testability-actions"></a>Test Edilebilirlik eylemleri
+Güvenilir olmayan bir altyapı benzetimini yapmak için Azure Service Fabric, çeşitli gerçek hataları ve durum geçişlerini benzetimini yapmak için yol ile geliştirici olarak size sağlar. Bu işlem Test Edilebilirlik eylemleri sunulur. Belirli hata ekleme, durum geçişi ve doğrulama neden alt düzey API'ler eylemlerdir. Bu eylemleri birleştirerek, hizmetlerinizi için kapsamlı test senaryolarını yazabilirsiniz.
 
-Service Fabric, bazı ortak test senaryoları bu eylemleri oluşan sağlar. Ortak durumu geçişleri ve hata durumları test etmek için dikkatle seçilen bu yerleşik senaryolar kullanan öneririz. Ancak, Eylemler, kapsam, yerleşik senaryolarla henüz kapsamında yer almayan veya uygulamanız için özel olarak hazırlanmış özel olan senaryolar için eklemek istediğiniz zaman özel test senaryoları oluşturmak için kullanılabilir.
+Service Fabric, bu eylemler bazı ortak test senaryoları oluşan sağlar. Ortak durumu geçişleri ve hata koşulları test etmek için dikkatli bir şekilde seçilen bu yerleşik senaryolar yazılımınız önemle öneririz. Ancak, Eylemler, kapsam, yerleşik senaryolarla henüz kapsamında değildir veya uygulamanız için uyarlanmış özel olan senaryoları için eklemek istediğiniz oluşturduğunuzda özel test senaryoları için kullanılabilir.
 
-C# uygulamalarının eylemlerin System.Fabric.dll bütünleştirilmiş kodunda bulunamadı. Sistem Fabric PowerShell modülü Microsoft.ServiceFabric.Powershell.dll bütünleştirilmiş kodunda bulunamadı. Çalışma zamanı yüklemesinin bir parçası olarak, kullanım kolaylığı için izin vermek için ServiceFabric PowerShell Modülü yüklü.
+C#uygulamaları eylemlerin System.Fabric.dll derlemesinde bulunamadı. Sistem Fabric PowerShell modülünü Microsoft.ServiceFabric.Powershell.dll derlemesinde bulunamadı. Kullanım kolaylığı için izin vermek için ServiceFabric PowerShell modülü çalışma zamanı yüklemesinin bir parçası olarak yüklenir.
 
-## <a name="graceful-vs-ungraceful-fault-actions"></a>Normal durunda hataya Eylemler karşılaştırması
-Test Edilebilirlik Eylemler iki ana demet sınıflandırılır:
+## <a name="graceful-vs-ungraceful-fault-actions"></a>Normal yaşanmamasını hata eylemleri karşılaştırması
+Test Edilebilirlik eylemleri iki ana demetlerin içine sınıflandırılır:
 
-* Durunda hatası: Bu hataları hataları makine yeniden başlatmaları gibi benzetimini gerçekleştirmek ve işlem kilitleniyor. Hatalar bu gibi durumlarda, işlem yürütme bağlamı aniden durdurur. Bu uygulama yeniden başlatılmadan önce durumu temizleme çalıştırabileceğiniz anlamına gelir.
-* Normal hatası: Bu hataları çoğaltma taşır gibi normal eylemlerin ve Yük Dengeleme tarafından tetiklenen düşme benzetimini yapma. Böyle durumlarda, hizmet kapatma, bir bildirim alır ve durumunu çıkmadan önce temizleyebilirsiniz.
+* Yaşanmamasını hataları: Bu hatalar, makine yeniden başlatmaları gibi hata benzetimleri yapma ve kilitlenmeleri işleyebilirsiniz. Hata bu gibi durumlarda, işlem yürütme bağlamı aniden durdurur. Bu, uygulama yeniden başlatılmadan önce durumu temizlik çalıştırabileceğiniz anlamına gelir.
+* Normal hataları: Bu hatalar, yineleme taşır ve Yük Dengeleme tarafından tetiklenen düşme gibi normal eylemlerin benzetimini yapar. Böyle durumlarda, hizmet kapatma ilişkin bir bildirim alır ve durumunu çıkmadan önce temizleyebilirsiniz.
 
-Daha iyi kalite doğrulama için çeşitli normal ve durunda hataları inducing sırasında hizmet ve iş yükünü çalıştırın. Durunda hataları nerede hizmet işlemi bazı iş akışı ortasında aniden çıkar senaryoları uygulamaktadır. Hizmet çoğaltma Service Fabric tarafından geri yüklendikten sonra bu kurtarma yolu sınar. Bu, veri tutarlılığı ve hizmet durumu hataları sonra doğru olup olmadığını yönetilmesini test yardımcı olur. Diğer kümesi Service Fabric tarafından taşınan çoğaltmaları için hizmet doğru şekilde tepki verdiğini hataları (normal hata sayısı) test. Bu işleme iptal RunAsync yönteminde sınar. Olan ayarlayın, doğru durumunu kaydetmek için iptal belirteci denetleyin ve RunAsync yöntemi çıkmak hizmet gerekiyor.
+Daha iyi kalite doğrulama için çeşitli zarif ve yaşanmamasını hataları inducing çalışırken hizmet ve iş yükünü çalıştırın. Yaşanmamasını hataları nerede hizmet işlemi bazı iş akışı ortasında aniden çıkar senaryoları alıştırma yapın. Service Fabric tarafından hizmet çoğaltma geri yüklendikten sonra bu kurtarma yolu sınar. Bu, veri tutarlılığı ve hizmet durumunu hatasından sonra doğru olup olmadığını yönetilmesini test yardımcı olur. Diğer küme hataları (normal hata sayısı) test Service Fabric tarafından taşınan çoğaltmalarına hizmetin doğru şekilde tepki verir. Bu işleme iptal RunAsync yönteminde sınar. Olan ayarlıysa, doğru durumunu kaydetmek için İptal belirtecini denetleyip RunAsync yöntemi çıkmak hizmet gerekiyor.
 
-## <a name="testability-actions-list"></a>Test Edilebilirlik eylemler listesi
-| Eylem | Açıklama | Yönetilen API | PowerShell cmdlet'i | Normal/durunda hataları |
+## <a name="testability-actions-list"></a>Test Edilebilirlik eylemleri listesi
+| Eylem | Açıklama | Yönetilen API | PowerShell cmdlet'i | Normal/yaşanmamasını hataları |
 | --- | --- | --- | --- | --- |
-| CleanTestState |Tüm test durumu kümeyi test sürücüsünün hatalı bir kapanma durumunda kaldırır. |CleanTestStateAsync |Remove-ServiceFabricTestState |Uygulanamaz |
-| InvokeDataLoss |Veri kaybı hizmet bölüme uygulanmasını. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normal |
-| InvokeQuorumLoss |Belirtilen durum bilgisi olan hizmet bölüm çekirdek kayıp yerleştirir. |InvokeQuorumLossAsync |Çağırma ServiceFabricQuorumLoss |Normal |
-| MovePrimary |Durum bilgisi olan hizmet belirtilen birincil çoğaltmasını belirtilen küme düğümü taşır. |MovePrimaryAsync |Taşıma ServiceFabricPrimaryReplica |Normal |
-| MoveSecondary |Bir durum bilgisi olan hizmetin geçerli ikincil çoğaltma için farklı küme düğümü taşır. |MoveSecondaryAsync |Taşıma ServiceFabricSecondaryReplica |Normal |
-| RemoveReplica |Bir çoğaltma hatası bir kümeden bir çoğaltma kaldırarak benzetimini yapar. Bu çoğaltma kapatılacak ve rolüne geçirecektir 'None', durumunun tamamı kümeden kaldırma. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Normal |
-| RestartDeployedCodePackage |Kod paketi işlemi başarısız bir kümedeki bir düğümün dağıtılmış kod paketi yeniden başlatarak benzetimini yapar. Bu işlemde barındırılan tüm kullanıcı hizmet çoğaltmalar yeniden kod paket işlemi durdurur. |RestartDeployedCodePackageAsync |Yeniden başlatma ServiceFabricDeployedCodePackage |Durunda |
-| RestartNode |Bir Service Fabric kümesi düğüm hatasından bir düğümü yeniden başlatarak benzetimini yapar. |RestartNodeAsync |Yeniden başlatma ServiceFabricNode |Durunda |
-| RestartPartition |Bir veri merkezi Kararma veya küme Kararma senaryosu bir bölüm, bazı veya tüm çoğaltmaları yeniden başlatarak benzetimini yapar. |RestartPartitionAsync |Restart-ServiceFabricPartition |Normal |
-| RestartReplica |Bir çoğaltma hatası kalıcı çoğaltma bir kümede yeniden başlatma, çoğaltma kapatma ve yeniden açmayı benzetimini yapar. |RestartReplicaAsync |Yeniden başlatma ServiceFabricReplica |Normal |
+| CleanTestState |Tüm test durumu, test sürücüsünün hatalı bir kapanma durumunda bir kümeden kaldırır. |CleanTestStateAsync |Remove-ServiceFabricTestState |Uygulanamaz |
+| InvokeDataLoss |Veri kaybı hizmet bölüme sevk. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normal |
+| InvokeQuorumLoss |Belirli bir durum bilgisi olan hizmet bölüm çekirdek kayıp yerleştirir. |InvokeQuorumLossAsync |Çağırma ServiceFabricQuorumLoss |Normal |
+| MovePrimary |Belirtilen küme düğümü için bir durum bilgisi olan hizmet belirtilen birincil çoğaltmasını taşır. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Normal |
+| MoveSecondary |Durum bilgisi olan hizmet geçerli ikincil bir çoğaltmasına farklı küme düğümü için taşır. |MoveSecondaryAsync |Taşıma ServiceFabricSecondaryReplica |Normal |
+| RemoveReplica |Bir çoğaltma hatası, bir kümeden bir çoğaltma kaldırarak benzetimini yapar. Bu çoğaltma kapatılır ve role geçer 'None', tüm durumuna kümeden kaldırma. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Normal |
+| RestartDeployedCodePackage |Bir kod paketi işlemi başarısız bir kümede dağıtılan bir kod paketi yeniden başlatarak benzetimini yapar. Bu, bu işlemde barındırılan tüm kullanıcı hizmet çoğaltmalar yeniden başlatılacak kod paket işlemi durdurur. |RestartDeployedCodePackageAsync |Yeniden başlatma ServiceFabricDeployedCodePackage |Yaşanmamasını |
+| RestartNode |Bir Service Fabric küme düğümü hatası bir düğümü yeniden başlatarak benzetimini yapar. |RestartNodeAsync |Yeniden başlatma-ServiceFabricNode |Yaşanmamasını |
+| RestartPartition |Bir veri merkezi Kararma veya küme Kararma senaryo bazılarını veya tümünü bir bölüm çoğaltmalarını yeniden başlatarak benzetimini yapar. |RestartPartitionAsync |Restart-ServiceFabricPartition |Normal |
+| RestartReplica |Bir çoğaltma hatası bir kümede kalıcı bir çoğaltması yeniden başlatılıyor, çoğaltma kapatma ve yeniden açmayı benzetimini yapar. |RestartReplicaAsync |Yeniden başlatma-servicefabricreplica komutunu |Normal |
 | BaşlangıçDüğümü |Bir düğüm zaten durdurulmuş bir kümede başlatır. |StartNodeAsync |Start-ServiceFabricNode |Uygulanamaz |
-| StopNode |Bir düğüm hatasından bir küme düğümünde durdurarak benzetimini yapar. BaşlangıçDüğümü çağrılıncaya kadar düğümü kapalı kalır. |StopNodeAsync |Stop-ServiceFabricNode |Durunda |
-| ValidateApplication |Kullanılabilirlik ve bazı hata sisteme inducing sonra genellikle bir uygulamadaki tüm Service Fabric Hizmetleri durumunu doğrular. |ValidateApplicationAsync |Test-ServiceFabricApplication |Uygulanamaz |
-| ValidateService |Kullanılabilirlik ve Service Fabric hizmeti bazı hata sisteme genellikle inducing sonra doğrular. |ValidateServiceAsync |Test-ServiceFabricService |Uygulanamaz |
+| StopNode |Bir düğümde hata oluştuktan bir kümedeki bir düğüm durdurarak benzetimini yapar. BaşlangıçDüğümü çağrılana kadar düğümü kapalı kalır. |StopNodeAsync |Stop-ServiceFabricNode |Yaşanmamasını |
+| ValidateApplication |Kullanılabilirlik ve bazı hata sisteme inducing sonra genellikle bir uygulamadaki tüm Service Fabric hizmetlerinin durumunu doğrular. |ValidateApplicationAsync |Test-ServiceFabricApplication |Uygulanamaz |
+| ValidateService |Bir Service Fabric hizmetinin sistem durumunu ve kullanılabilirliğini genellikle sisteme bazı hata inducing sonra doğrular. |ValidateServiceAsync |Test-ServiceFabricService |Uygulanamaz |
 
-## <a name="running-a-testability-action-using-powershell"></a>PowerShell kullanarak bir Test Edilebilirlik eylem çalıştırma
-Bu öğreticide PowerShell kullanarak bir Test Edilebilirlik eylemi çalıştırmak nasıl gösterir. Yerel (bir çalıştırma) küme veya bir Azure küme karşı Test Edilebilirlik eylemini çalıştırmak öğreneceksiniz. Microsoft.Fabric.Powershell.dll--Service Fabric PowerShell modülü--Microsoft Service Fabric MSI yüklediğinizde otomatik olarak yüklenir. Modül bir PowerShell istemi açtığınızda otomatik olarak yüklenir.
+## <a name="running-a-testability-action-using-powershell"></a>PowerShell kullanarak bir Test Edilebilirlik eylemi çalıştıran
+Bu öğreticide PowerShell kullanarak bir Test Edilebilirlik eylemi çalıştırmak gösterilmektedir. Yerel bir (bir kutu) kümesi veya Azure kümesine karşı Test Edilebilirlik eylemi çalıştırmayı öğreneceksiniz. Microsoft.Fabric.Powershell.dll--Service Fabric PowerShell modülünü--Microsoft Service Fabric MSI yüklediğinizde otomatik olarak yüklenir. Bir PowerShell istemi açtığınızda modülü otomatik olarak yüklenir.
 
-Eğitmen kesimleri:
+Öğretici segmentleri:
 
-* [Bir eylem karşı bir kutusunu küme çalıştırın](#run-an-action-against-a-one-box-cluster)
-* [Bir eylem Azure bir küme karşı çalıştırma](#run-an-action-against-an-azure-cluster)
+* [Eylem bir çalıştırma kümesine göre çalıştırma](#run-an-action-against-a-one-box-cluster)
+* [Eylem Azure kümesine karşı çalıştırma](#run-an-action-against-an-azure-cluster)
 
-### <a name="run-an-action-against-a-one-box-cluster"></a>Bir eylem karşı bir kutusunu küme çalıştırın
-Yerel küme karşı bir Test Edilebilirlik eylemi çalıştırmak için ilk kümeye bağlanın ve PowerShell komut istemini yönetici modunda açın. Bize bakmak **yeniden ServiceFabricNode** eylem.
+### <a name="run-an-action-against-a-one-box-cluster"></a>Eylem bir çalıştırma kümesine göre çalıştırma
+Test Edilebilirlik eylemi yerel kümede çalıştırmak için ilk kümeye bağlanın ve Yönetici modunda bir PowerShell istemi açın. Bize bakmak **Restart-ServiceFabricNode** eylem.
 
 ```powershell
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Burada eylemi **yeniden ServiceFabricNode** "Düğüm1" adlı bir düğümde çalıştırın. Bu düğümü yeniden başlatma eylemi gerçekten başarılı olup olmadığını doğrulamanız değil tamamlama modunu belirtir. "Doğrula" yeniden başlatma eylemi gerçekten başarılı olup olmadığını doğrulamak neden olacak şekilde tamamlama modunu belirtme. Düğümün adını kullanarak doğrudan belirtmek yerine, bu bölüm anahtarı ve çoğaltma, tür gibi belirtebilirsiniz:
+Burada eylemi **Restart-ServiceFabricNode** "Düğüm1" adlı bir düğümde çalıştırın. Bunu düğümünü yeniden başlatma eylemi gerçekten başarılı olup olmadığını doğrulamalısınız değil, tamamlama modunu belirtir. "Doğrula" yeniden başlatma eylemini gerçekten başarılı olup olmadığını doğrulamak neden olacak şekilde tamamlama modunu belirtme. Düğüm adını kullanarak doğrudan belirtmek yerine, bu bölüm anahtarını ve çoğaltma, türü şu şekilde belirtebilirsiniz:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -84,20 +84,20 @@ Connect-ServiceFabricCluster $connection
 Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 ```
 
-**Yeniden başlatma ServiceFabricNode** bir kümede bir Service Fabric düğümü yeniden başlatmak için kullanılmalıdır. Bu, tüm bu düğümde barındırılan sistem hizmeti ve kullanıcı hizmet çoğaltmalar yeniden Fabric.exe işlemi durdurur. Hizmetinizi test etmek için bu API'yi kullanarak yük devretme kurtarma yolları boyunca hatalar ortaya çıkarmaya yardımcı olur. Kümedeki düğüm hatalarını benzetimini yardımcı olur.
+**Yeniden başlatma-ServiceFabricNode** bir kümedeki Service Fabric düğümü yeniden başlatmak için kullanılmalıdır. Bu, tüm bu düğümde barındırılan sistemi hizmeti ve kullanıcı hizmet çoğaltmalar yeniden Fabric.exe işlemi durdurur. Hizmetinizi test etmek için bu API'yi kullanarak yük devretme kurtarma yolları boyunca hatalar ortaya çıkarmaya yardımcı olur. Kümedeki düğüm hata benzetimleri yapma yardımcı olur.
 
-Aşağıdaki ekran görüntüsü gösterildiği **yeniden ServiceFabricNode** eylem Test Edilebilirlik komutu.
+Aşağıdaki ekran görüntüsü gösterildiği **Restart-ServiceFabricNode** işlem Test Edilebilirlik komutu.
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-İlk çıkış **Get-ServiceFabricNode** (Service Fabric PowerShell modülden bir cmdlet) yerel küme beş düğümü olan gösterir: Node.5 Node.1. Test Edilebilirlik eylem (cmdlet'ini) sonra **yeniden ServiceFabricNode** düğümde yürütülen Node.4 adlı, biz düğümün çalışır durumda kalma süresi sıfırlama bakın.
+İlk çıkış **Get-ServiceFabricNode** (Service Fabric PowerShell modülden bir cmdlet) yerel kümeye beş düğüme sahip olduğunu gösterir: Node.1 Node.5 için. Test Edilebilirlik eylemi (cmdlet'ini) sonra **Restart-ServiceFabricNode** düğümde yürütülen Node.4 adlandırılmış düğümün çalışır durumda kalma süresi sıfırlandı görüyoruz.
 
-### <a name="run-an-action-against-an-azure-cluster"></a>Bir eylem Azure bir küme karşı çalıştırma
-Bir Test Edilebilirlik eylemi çalıştıran bir Azure küme karşı (PowerShell kullanarak), yerel bir küme karşı eylemi çalıştırmak için benzer. Tek fark yerel kümeye bağlanma yerine eylem çalıştırmadan önce ilk Azure kümeye bağlanmak yeterli olmasıdır.
+### <a name="run-an-action-against-an-azure-cluster"></a>Eylem Azure kümesine karşı çalıştırma
+Test Edilebilirlik eylemi çalıştıran bir Azure kümesine karşı (PowerShell kullanarak), eylemi yerel kümede çalıştırmak için benzerdir. Tek fark, yerel kümeye bağlanma yerine eylem çalıştırmadan önce ilk Azure kümesine bağlanmak olmanızın gerekmesidir.
 
-## <a name="running-a-testability-action-using-c35"></a>C kullanarak bir Test Edilebilirlik eylem çalıştırma&#35;
-C# kullanarak bir Test Edilebilirlik eylemi çalıştırmak için öncelikle FabricClient kullanarak kümeye bağlanmak gerekir. Ardından eylemi çalıştırmak için gerekli parametreleri edinin. Farklı Parametreler aynı eylemi çalıştırmak için kullanılabilir.
-RestartServiceFabricNode eylem baktığınızda, çalıştırmak için bir kümede bulunan düğüm bilgileri (düğüm adı ve düğüm örnek kimliği) kullanarak yoludur.
+## <a name="running-a-testability-action-using-c35"></a>C kullanarak bir Test Edilebilirlik eylemi çalıştıran&#35;
+Test Edilebilirlik eylemi çalıştırmak amacıyla kullanmak üzere C#, ilk FabricClient kullanarak kümeye bağlanmak gerekir. Ardından bir eylemi çalıştırmak için gereken parametreleri edinin. Farklı Parametreler aynı eylemi çalıştırmak için kullanılabilir.
+RestartServiceFabricNode eylem bakarak, çalıştırmak için bir kümedeki düğüm bilgileri (düğüm adı ve düğüm örnek kimliği) kullanarak yoludur.
 
 ```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
@@ -105,13 +105,13 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 Parametre açıklaması:
 
-* **CompleteMode** modu yeniden başlatma eylemi gerçekten başarılı olup olmadığını doğrulamalıdır değil olduğunu belirtir. "Doğrula" yeniden başlatma eylemi gerçekten başarılı olup olmadığını doğrulamak neden olacak şekilde tamamlama modunu belirtme.  
+* **CompleteMode** modu yeniden başlatma eylemini gerçekten başarılı olup olmadığını doğrulamalısınız değil olduğunu belirtir. "Doğrula" yeniden başlatma eylemini gerçekten başarılı olup olmadığını doğrulamak neden olacak şekilde tamamlama modunu belirtme.  
 * **OperationTimeout** işlemi TimeoutException özel durum önce tamamlanması için geçen süreyi ayarlar.
-* **CancellationToken** iptal edilmesi bekleyen bir çağrı sağlar.
+* **CancellationToken** iptal için bekleyen bir çağrı sağlar.
 
-Düğümün adını kullanarak doğrudan belirtmek yerine, onu bir bölüm anahtarı ve çoğaltma türünü aracılığıyla belirtebilirsiniz.
+Düğümün adını kullanarak doğrudan belirtmek yerine, bu bölüm anahtarını ve çoğaltma türü belirtebilirsiniz.
 
-Daha fazla bilgi için bkz: [PartitionSelector ve ReplicaSelector](#partition_replica_selector).
+PartitionSelector ve ReplicaSelector daha fazla bilgi için bkz.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll
@@ -181,9 +181,9 @@ class Test
 
 ## <a name="partitionselector-and-replicaselector"></a>PartitionSelector ve ReplicaSelector
 ### <a name="partitionselector"></a>PartitionSelector
-PartitionSelector Test Edilebilirlik kullanıma sunulan bir yardımcı olan ve belirli bir bölüm Test Edilebilirlik eylemlerden herhangi birini gerçekleştirileceği seçmek için kullanılır. Bölüm kimliği önceden biliniyorsa belirli bir bölüm seçmek için kullanılabilir. Ya da bölüm anahtarı sağlayın ve işlemi bölüm kimliği dahili olarak çözer. Ayrıca, rastgele bir bölüm seçme seçeneğiniz de vardır.
+PartitionSelector Test Edilebilirlik içinde kullanıma sunulan bir yardımcı olan ve herhangi bir Test Edilebilirlik eylemleri gerçekleştirmek için belirli bir bölüme seçmek için kullanılır. Belirli bir bölüme, bölüm kimliği önceden biliniyorsa seçmek için kullanılabilir. Ya da bölüm anahtarı sağlayabilir ve işlem bölüm kimliği dahili olarak çözer. Ayrıca, rastgele bir bölüm seçme seçeneğiniz de vardır.
 
-Bu yardımcı kullanmak için PartitionSelector nesnesi oluşturun ve Select * yöntemlerden birini kullanarak bölümü seçin. Daha sonra PartitionSelector nesnesinde gerektiriyorsa API'sine geçirin. Hiçbir seçenek belirlenirse, rastgele bir bölüm için varsayılan olarak ayarlanır.
+Bu yardımcı kullanmak için PartitionSelector nesnesi oluşturun ve Select * yöntemlerden birini kullanarak bölümü seçin. Ardından PartitionSelector nesnesinde gerektiriyorsa API'sine geçirin. Hiçbir seçenek belirlenirse, rastgele bir bölümü için varsayılan olarak.
 
 ```csharp
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
@@ -205,9 +205,9 @@ PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf
 ```
 
 ### <a name="replicaselector"></a>ReplicaSelector
-ReplicaSelector Test Edilebilirlik kullanıma sunulan bir yardımcı olan ve bir yineleme Test Edilebilirlik eylemlerden herhangi birini gerçekleştirileceği seçmenize yardımcı olmak üzere kullanılır. Çoğaltma Kimliği önceden biliniyorsa belirli bir çoğaltma seçmek için kullanılabilir. Ayrıca, bir birincil çoğaltmayı veya rastgele ikincil seçme seçeneğiniz vardır. Çoğaltma ve Test Edilebilirlik işlemi gerçekleştirmek istediğiniz bölümü seçmek gereken şekilde ReplicaSelector PartitionSelector türer.
+ReplicaSelector Test Edilebilirlik içinde kullanıma sunulan bir yardımcı olan ve herhangi bir Test Edilebilirlik eylemleri gerçekleştirmek için bir çoğaltma seçmenize yardımcı olması için kullanılır. Belirli bir çoğaltma, çoğaltma kimliği önceden biliniyorsa seçmek için kullanılabilir. Ayrıca, bir birincil çoğaltmaya veya rastgele bir ikincil seçme seçeneğiniz vardır. Çoğaltma hem de Test Edilebilirlik işlemi gerçekleştirmek istediğiniz bölümü seçmek gereken şekilde ReplicaSelector PartitionSelector türer.
 
-Bu yardımcı kullanmak için bir ReplicaSelector nesnesi oluşturun ve çoğaltma ve bölüm seçmek istediğiniz şekilde ayarlayın. Ardından bunu gerektiren API geçirebilirsiniz. Hiçbir seçenek belirlenirse, bir rastgele çoğaltma ve rastgele bölüm için varsayılan olarak.
+Bu yardımcı kullanmak için ReplicaSelector nesnesi oluşturma ve çoğaltma ve bölüm seçmek istediğiniz şekilde ayarlayın. Ardından bunu gerektiren API'ye geçirebilirsiniz. Seçeneği seçili ise, bir rastgele çoğaltma ve rastgele bir bölüm için varsayılan olarak.
 
 ```csharp
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
@@ -230,6 +230,6 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Test Edilebilirlik senaryoları](service-fabric-testability-scenarios.md)
 * Hizmetinizi test etme
-  * [Hataları sırasında hizmet iş yüklerinin benzetimi](service-fabric-testability-workload-tests.md)
-  * [Hizmetten hizmete iletişim hatası](service-fabric-testability-scenarios-service-communication.md)
+  * [Hizmet iş yükleri sırasında hata benzetimleri yapma](service-fabric-testability-workload-tests.md)
+  * [Hizmetten hizmete iletişimi hataları](service-fabric-testability-scenarios-service-communication.md)
 

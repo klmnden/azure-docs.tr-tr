@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96145906d40e465d2427a8100b3ad9333eec3f29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249104"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819527"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack için depolama kapasitesi yönetme 
 
@@ -51,7 +51,7 @@ Depolama Hizmetleri özel kullanım için depolama hizmeti paylaşımları oldu�
 
 Paylaşımları birimlerde Kiracı verileri tutar. Kiracı verilerini sayfa BLOB'ları içeren, blok blobları, ekleme blobları, tabloları, kuyrukları, veritabanları ve ilgili meta verileri depolar. Depolama nesneleri (BLOB'lar, vb.) tek tek tek bir paylaşım içinde bulunduğundan, en büyük boyutunu her nesne bir paylaşımı boyutunu aşamaz. Yeni nesne oluşturulduğunda bir paylaşımı kullanılmayan kalır ve kapasite üzerinde yeni nesneler en büyük boyutunu bağlıdır.
 
-Bir paylaşımı olduğunda düşük boş alan ve eylemlere [geri kazan](#reclaim-capacity) alanı başarılı ya da mevcut değilse, Azure Stack bulut operatörü için [geçirme](#migrate-a-container-between) blob kapsayıcıları bir paylaşımından diğerine.
+Bir paylaşımı olduğunda düşük boş alan ve eylemlere [geri kazan](#reclaim-capacity) alanı başarılı ya da mevcut değilse, Azure Stack bulut operatörü blob kapsayıcıları bir paylaşımından diğerine geçirebilirsiniz.
 
 - Kapsayıcılar ve bloblar hakkında daha fazla bilgi için bkz: [Blob Depolama](azure-stack-key-features.md#blob-storage) anahtar özellikler ve kavramlar Azure Stack'te.
 - Kiracı kullanıcılar'blob depolama alanında Azure Stack ile nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure Stack depolama hizmetleri](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332651"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822264"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Oracle şirket içi veri kopyalayın
 
@@ -92,7 +92,7 @@ API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için 
 3. Oluşturma **veri kümeleri** kopyalama işleminin girdi ve çıktı verilerini göstermek için. Örnekte önceki adımda, girdi verilerini içeren, Oracle veritabanında tablo belirtmek için bir veri kümesi oluşturun. Blob kapsayıcısını ve Oracle veritabanından kopyalanan verileri tutan klasörün belirtmek için başka bir veri kümesi oluşturursunuz. Oracle için özel veri kümesi özellikleri için bkz: [veri kümesi özellikleri](#dataset-properties).
 4. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği vardır. Önceki örnekte, kullandığınız **OracleSource** kaynağı olarak ve **BlobSink** kopyalama etkinliği için bir havuz olarak. Benzer şekilde, Azure Blob depolamadaki verileri bir Oracle veritabanına kopyalıyorsanız kullanmanız **BlobSource** ve **OracleSink** kopyalama etkinliğindeki. Bir Oracle veritabanına özel kopyalama etkinliği özellikleri için bkz: [kopyalama etkinliği özellikleri](#copy-activity-properties). Bir kaynak veya havuz olarak bir veri deposunu kullanma hakkında daha fazla bilgi için önceki bölümde veri deponuz için bağlantıyı seçin.
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları için JSON tanımları otomatik olarak sizin için oluşturulur: bağlı hizmetler, veri kümeleri ve işlem hattı. Araç veya API'lerden (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın. İçin veya bir şirket içi Oracle veritabanına veri kopyalamak için kullandığınız Data Factory varlıkları için JSON tanımları sahip örnekler için bkz: [JSON örnekler](#json-examples-for-copying-data-to-and-from-oracle-database).
+Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları için JSON tanımları otomatik olarak sizin için oluşturulur: bağlı hizmetler, veri kümeleri ve işlem hattı. Araç veya API'lerden (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın. Bir şirket içi Oracle veritabanına veri kopyalamak için kullandığınız Data Factory varlıkları için JSON tanımları sahip örnekler için JSON örneklere bakın.
 
 Aşağıdaki bölümler, Data Factory varlıkları tanımlamak için kullandığınız JSON özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -151,7 +151,7 @@ Yapı, kullanılabilirlik ve ilke gibi bir veri kümesi JSON dosyası bölümler
 
 **TypeProperties** bölümünde her veri kümesi türü için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. **TypeProperties** türü için veri kümesi bölümünü **OracleTable** aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | tableName |Tabloda bir Oracle veritabanına başvuran bağlı hizmetin adı. |Hayır (varsa **oracleReaderQuery** veya **OracleSource** belirtilir) |
 
@@ -170,7 +170,7 @@ Kullanılabilir özellikler **typeProperties** etkinlik bölümünü her etkinli
 
 Kopya etkinlikteki kaynak olduğunda, **OracleSource** türü, aşağıdaki özellikler kullanılabilir **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Verileri okumak için özel sorgu kullanın. |Bir SQL sorgu dizesi. Örneğin, "seçin \* gelen **MyTable**". <br/><br/>Belirtilmemişse, bu SQL deyimi yürütülür: "seçin \* gelen **MyTable**" |Hayır<br />(varsa **tableName** , **veri kümesi** belirtilir) |
 
@@ -178,7 +178,7 @@ Kopya etkinlikteki kaynak olduğunda, **OracleSource** türü, aşağıdaki öze
 
 **OracleSink** aşağıdaki özellikleri destekler:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Batch için bekleme süresi, işlemin zaman aşımına uğramadan önce tamamlanması ekleyin. |**Zaman aralığı**<br/><br/> Örnek: 00:30:00 (30 dakika) |Hayır |
 | writeBatchSize |Arabellek boyutu değerini ulaştığında veri SQL tablosuna ekler **writeBatchSize**. |Tamsayı (satır sayısı) |Hayır (varsayılan: 100) |
@@ -597,29 +597,29 @@ Verileri Oracle'dan taşıdığınızda, aşağıdaki eşlemeler Oracle veri tü
 
 | Oracle veri türü | .NET framework veri türü |
 | --- | --- |
-| BDOSYA |Bayt] |
-| BLOB |Bayt]<br/>(Microsoft sürücüsü kullandığınızda yalnızca Oracle 10 g ve sonraki sürümlerde desteklenir) |
-| CHAR |Dize |
-| CLOB |Dize |
+| BDOSYA |Byte[] |
+| BLOB |Byte[]<br/>(Microsoft sürücüsü kullandığınızda yalnızca Oracle 10 g ve sonraki sürümlerde desteklenir) |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | KAYAN NOKTA |Ondalık, dize (olursa hassasiyet > 28) |
 | INTEGER |Ondalık, dize (olursa hassasiyet > 28) |
 | YIL AY ARALIĞI |Int32 |
-| İKİNCİ GÜN ARALIĞI |Zaman aralığı |
-| UZUN |Dize |
-| LONG RAW |Bayt] |
-| NCHAR |Dize |
-| NCLOB |Dize |
+| İKİNCİ GÜN ARALIĞI |TimeSpan |
+| UZUN |String |
+| LONG RAW |Byte[] |
+| NCHAR |String |
+| NCLOB |String |
 | SAYI |Ondalık, dize (olursa hassasiyet > 28) |
-| NVARCHAR2 |Dize |
-| HAM |Bayt] |
-| SATIR KİMLİĞİ |Dize |
+| NVARCHAR2 |String |
+| HAM |Byte[] |
+| SATIR KİMLİĞİ |String |
 | ZAMAN DAMGASI |DateTime |
 | YEREL SAAT DİLİMİ İLE ZAMAN DAMGASI |DateTime |
 | SAAT DİLİMİ İLE ZAMAN DAMGASI |DateTime |
 | İŞARETSİZ TAMSAYI |Sayı |
-| VARCHAR2 |Dize |
-| XML |Dize |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Veri türleri **ARALIĞI Yıl Bitiş ayı** ve **ARALIĞINI gün için ikinci** Microsoft sürücüsü kullandığınızda desteklenmez.

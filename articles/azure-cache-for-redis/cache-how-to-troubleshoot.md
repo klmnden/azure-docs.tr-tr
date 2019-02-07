@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: 58c1af860c5ccc87f4396c698b432f47f0ea7c65
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d513825cad397763792fdc9ffb833ba54e957e7d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096968"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822672"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Azure önbelleği için Redis sorunlarını giderme
 Bu makalede, Azure Cache aşağıdaki kategorileri Redis sorunlarına yönelik sorun giderme kılavuzu sağlar.
@@ -131,7 +131,7 @@ Bkz: [Redis verilerimi ne?](https://gist.github.com/JonCole/b6354d92a2d51c141490
 Bu bölümde, önbellek sunucusunda bir koşul nedeniyle meydana gelen sorun giderme konuları anlatılmaktadır.
 
 * [Sunucudaki bellek baskısı](#memory-pressure-on-the-server)
-* [Yüksek CPU kullanımı / sunucu yükü](#high-cpu-usage-server-load)
+* Yüksek CPU kullanımı / sunucu yükü
 * [Sunucu tarafı bant genişliği aşıldı](#server-side-bandwidth-exceeded)
 
 ### <a name="memory-pressure-on-the-server"></a>Sunucudaki bellek baskısı
@@ -230,7 +230,7 @@ Bu hata iletisi sorunun nedenini ve olası çözümü noktası yardımcı olabil
 5. Sunucu üzerinde işlem için uzun süren komutları var mı? Redis sunucu üzerinde işlem için uzun sürüp komutları uzun süre çalışan zaman aşımı neden olabilir. Uzun süre çalışan komutlar bazı örnekleri şunlardır `mget` anahtarları, çok sayıda ile `keys *` kötü, lua komut yazılamaz veya okunamaz. Redis-cli istemcisini kullanarak Redis örneği için Azure önbelleğinize bağlanma veya kullanın [Redis Konsolu](cache-configure.md#redis-console) çalıştırıp [Slowlog'u](https://redis.io/commands/slowlog) beklenenden daha uzun süren istekleri olup olmadığını görmek için komutu. Redis sunucusu ve StackExchange.Redis daha az büyük istekleri yerine çok sayıda küçük isteği için iyileştirilmiştir. Verilerinizi daha küçük öbeklere ayırma şeyleri burada artırabilir. 
    
     Azure önbelleği için redis-cli ve stunnel kullanarak Redis SSL uç bağlanma hakkında daha fazla bilgi için bkz: [Redis Önizleme sürümü için ASP.NET oturum durumu sağlayıcısı ile tanışın](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog gönderisi. Daha fazla bilgi için [Slowlog'u](https://redis.io/commands/slowlog).
-6. Yüksek Redis sunucu yükü, zaman aşımı neden olabilir. Sunucu iş yükü izleyerek izleyebilirsiniz `Redis Server Load` [performans ölçümü önbelleğe](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Bir sunucu yükü 100 (en yüksek değer), redis sunucusunun istekleri işleme boş kalma süresi ile meşgul olduğunu gösterir. Belirli isteklerini tüm sunucu özelliğine sürüyor durumunda görmek için önceki paragrafta açıklandığı gibi Slowlog'u komutu çalıştırın. Daha fazla bilgi için [yüksek CPU kullanımı / sunucu yükü](#high-cpu-usage-server-load).
+6. Yüksek Redis sunucu yükü, zaman aşımı neden olabilir. Sunucu iş yükü izleyerek izleyebilirsiniz `Redis Server Load` [performans ölçümü önbelleğe](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Bir sunucu yükü 100 (en yüksek değer), redis sunucusunun istekleri işleme boş kalma süresi ile meşgul olduğunu gösterir. Belirli isteklerini tüm sunucu özelliğine sürüyor durumunda görmek için önceki paragrafta açıklandığı gibi Slowlog'u komutu çalıştırın. Daha fazla bilgi için bkz: yüksek CPU kullanımı / sunucu iş yükü.
 7. İstemci tarafında ağ blip neden olan herhangi bir olay oluştu? (Web, çalışan rolü veya bir Iaas VM) istemcide istemci örneklerinin sayısını artırma veya azaltma gibi bir olay oluştu veya yeni bir otomatik ölçeklendirme ve istemci sürümünü dağıtmaya etkin kontrol? Test işlemlerimizi, bu otomatik ölçeklendirme veya büyütme bulduk/aşağı neden giden ağ bağlantısını için birkaç saniye kaybolabilir. StackExchange.Redis kod böyle olaylara esnektir ve yeniden bağlanır. Yeniden bağlama bu süre boyunca sırasındaki tüm istekler zaman aşımı olabilir.
 8. Birçok küçük istek zaman aşımına uğradı Redis için Azure Cache için önceki büyük bir istek vardı? Parametre `qs` hata iletisi, kaç istek istemciden sunucuya gönderilen, ancak bir yanıt henüz işlenmemiş bildirir. StackExchange.Redis tek bir TCP bağlantısını kullanır ve bir yanıt aynı anda yalnızca okuyabilir çünkü bu değer büyüyen tutun. İlk işlem zaman aşımına uğradı olsa da, sunucunun içine/dışına gönderilen veri durdurmaz ve büyük isteği tamamlanmadan zaman aşımı neden diğer istekleri engellenir. Önbelleğinizi yükünüz için yeterince büyük olduğundan emin olmanın ve büyük değerler daha küçük öbeklere ayırma zaman aşımları olasılığını en aza indirmek bir çözümdür. Başka bir olası çözümü havuzu kullanmaktır `ConnectionMultiplexer` istemcinizde nesneleri ve az yüklenen seçin `ConnectionMultiplexer` yeni bir isteği gönderirken. Bu tek bir zaman aşımı da zaman aşımı giden diğer isteklerin neden olmasını engeller.
 9. Kullanıyorsanız `RedisSessionStateProvider`, ayarladığınız yeniden deneme zaman aşımı doğru emin olun. `retryTimeoutInMilliseconds` daha yüksek olmalıdır `operationTimeoutInMilliseconds`, aksi takdirde, yeniden deneme yok oluşur. Aşağıdaki örnekte `retryTimeoutInMilliseconds` 3000 olarak ayarlanır. Daha fazla bilgi için [Redis için Azure Cache için ASP.NET oturum durumu sağlayıcısı](cache-aspnet-session-state-provider.md) ve [çıktı önbelleği sağlayıcısı ile oturum durumu sağlayıcısı ve yapılandırma parametrelerini kullanma](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 4336cabd256e492981e1bbff8d1b3b9e4ef07df1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296614"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820530"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD ile eşitlenmeyen bir nesneyle ilgili sorunları giderme
 
@@ -143,7 +143,7 @@ Nesne ve bir özel öznitelik akışı için hangi kuralın uygulanacağı incel
 Parola Eşitleme durumunu ve geçmişini görmek için günlüğü sayfasında kullanılır. Daha fazla bilgi için [parola karması eşitleme sorunlarını giderme](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Meta veri deposu nesne özellikleri
-Active Directory kaynak aramaya başlamak daha iyi [bağlayıcı alanına](#connector-space). Ancak, meta veri deposu arama başlatabilirsiniz.
+Genellikle Active Directory Bağlayıcısı alanına kaynağından Aramayı Başlat daha iyidir. Ancak, meta veri deposu arama başlatabilirsiniz.
 
 ### <a name="search-for-an-object-in-the-mv"></a>MV nesnesi için arama
 İçinde **Eşitleme Hizmeti Yöneticisi**, tıklayın **meta veri deposu arama**. Kullanıcı bulur bildiğiniz bir sorgu oluşturun. AccountName (sAMAccountName) ve userPrincipalName gibi ortak öznitelikleri için arama yapabilirsiniz. Daha fazla bilgi için [meta veri deposu arama](how-to-connect-sync-service-manager-ui-mvsearch.md).
@@ -195,6 +195,5 @@ Azure ad Bağlayıcısı eksikse, ardından okuma [MV öznitelikleri](#mv-attrib
 Bu sekme Ayrıca, gidilecek sağlar [bağlayıcı alanı nesnesi](#connector-space-object-properties). Bir satırı seçin ve tıklayın **özellikleri**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinin [Azure AD Connect eşitleme](how-to-connect-sync-whatis.md) yapılandırma.
-
-[Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md) hakkında daha fazla bilgi edinin.
+- [Azure AD Connect eşitleme](how-to-connect-sync-whatis.md).
+- [Karma kimlik nedir? ](whatis-hybrid-identity.md).

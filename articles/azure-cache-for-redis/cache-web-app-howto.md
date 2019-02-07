@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: fd5a995bf03d530ccbcf9b839ccc840d202b47d6
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d80a10bea58fdcd5b20e24f9f8ba633f2714d55c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556196"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822587"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Hızlı Başlangıç: ASP.NET web uygulaması oluşturma 
 
@@ -98,9 +98,9 @@ Daha sonra, uygulama için önbellek oluşturursunuz.
 Bu bölümde, basit bir test karşı Azure önbelleği için Redis görüntüleyen yeni bir görünüm destekleyecek şekilde güncelleştirin.
 
 * [Önbellek için uygulama ayarı ile web.config dosyasını güncelleştirme](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
-* [StackExchange.Redis istemcisini kullanmak için uygulamayı yapılandırma](#configure-the-application-to-use-stackexchangeredis)
-* [HomeController ve Düzeni güncelleştirme](#update-the-homecontroller-and-layout)
-* [Yeni RedisCache görünümü ekleme](#add-a-new-rediscache-view)
+* StackExchange.Redis istemcisini kullanmak için uygulamayı yapılandırma
+* HomeController ve Düzeni güncelleştirme
+* Yeni RedisCache görünümü ekleme
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>Önbellek için uygulama ayarı ile web.config dosyasını güncelleştirme
 

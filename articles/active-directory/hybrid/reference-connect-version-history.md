@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: bf21b03463733f6613cfa515a6faf7c5ab1f33e8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: caff4973515d3866b94dba2e89d089ff042de43b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498140"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813254"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -36,6 +36,9 @@ Azure AD Connect'ten yükseltme adımları | Farklı yöntemlere [en son önceki
 Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için bkz: [hesapları ve izinleri](reference-connect-accounts-permissions.md#upgrade).
 
 İndir | [Azure AD Connect'i indirme](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+>[!NOTE]
+>Tüm sürümleri Azure AD Connect otomatik yükseltme için kullanılabilir hale getirilir. Yayın durumu, bir yayın otomatik yükseltme için veya yalnızca karşıdan yükleme için kullanılabilir hale getirileceğini olup olmadığını gösterir. Ardından Azure AD Connect sunucunuzda otomatik yükseltmeyi etkinleştirilmişse, sunucu otomatik olarak otomatik yükseltme için yayımlanan Azure AD Connect'in en son sürümünü yükseltecek. Tüm Azure AD Connect yapılandırmaları otomatik yükseltme için uygun olduğunu unutmayın. Lütfen hakkında daha fazla bilgi için bu bağlantıyı izleyin [otomatik yükseltme](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="12700"></a>1.2.70.0
 
@@ -539,7 +542,7 @@ Durum: 23 Temmuz 2017
   * Kullanıcı geri yazma özelliğini etkinleştirdiniz.
   
   >[!NOTE]
-  >Müşteriler Azure AD Connect derleme 1.1.105.0 ile ve sonra kapsam genişletme, Otomatik yükseltme özelliğini etkiler. Otomatik olarak yükseltilmesi için Azure AD Connect sunucunuzu istemiyorsanız, Azure AD Connect sunucunuzda cmdlet'i çalıştırmanız gerekir: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Etkinleştirme/otomatik yükseltme devre dışı bırakma hakkında daha fazla bilgi için makalesine bakın [Azure AD Connect: Otomatik yükseltme](how-to-connect-install-automatic-upgrade.md).
+  >Müşteriler Azure AD Connect derleme 1.1.105.0 ile ve sonra kapsam genişletme, Otomatik yükseltme özelliğini etkiler. Otomatik olarak yükseltilmesi için Azure AD Connect sunucunuzu istemiyorsanız, Azure AD Connect sunucunuzda cmdlet'i çalıştırmanız gerekir: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Etkinleştirme/otomatik yükseltme devre dışı bırakma hakkında daha fazla bilgi için makalesine bakın [Azure AD Connect: Otomatik yükseltme](how-to-connect-install-automatic-upgrade.md) makalesine bakın.
 
 ## <a name="115580"></a>1.1.558.0
 Durum: Serbest bırakılacak değil. Bu yapı değişiklikleri 1.1.561.0 sürümünde dahil edilir.
@@ -567,7 +570,7 @@ Durum: Serbest bırakılacak değil. Bu yapı değişiklikleri 1.1.561.0 sürüm
   * Kullanıcı geri yazma özelliğini etkinleştirdiniz.
   
   >[!NOTE]
-  >Müşteriler Azure AD Connect derleme 1.1.105.0 ile ve sonra kapsam genişletme, Otomatik yükseltme özelliğini etkiler. Otomatik olarak yükseltilmesi için Azure AD Connect sunucunuzu istemiyorsanız, Azure AD Connect sunucunuzda cmdlet'i çalıştırmanız gerekir: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Etkinleştirme/otomatik yükseltme devre dışı bırakma hakkında daha fazla bilgi için makalesine bakın [Azure AD Connect: Otomatik yükseltme](how-to-connect-install-automatic-upgrade.md).
+  >Müşteriler Azure AD Connect derleme 1.1.105.0 ile ve sonra kapsam genişletme, Otomatik yükseltme özelliğini etkiler. Otomatik olarak yükseltilmesi için Azure AD Connect sunucunuzu istemiyorsanız, Azure AD Connect sunucunuzda cmdlet'i çalıştırmanız gerekir: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Etkinleştirme/otomatik yükseltme devre dışı bırakma hakkında daha fazla bilgi için makalesine bakın [Azure AD Connect: Otomatik yükseltme](how-to-connect-install-automatic-upgrade.md) makalesine bakın.
 
 ## <a name="115570"></a>1.1.557.0
 Durum: Temmuz 2017
@@ -683,7 +686,7 @@ CBool(
 * Aşağıdaki şema değişiklikleri, sAMAccountName, domainNetBios ve Grup nesneleri için domainFQDN yanı sıra, kullanıcı nesnelerinin distinguishedName flow için özel bir eşitleme kuralları oluşturmak kanıtlayabilecekleri sunulmuştur:
 
   * Aşağıdaki öznitelikler MV şemaya eklenmiştir:
-    * Grup: Hesap adı
+    * Grup: accountName
     * Group: domainNetBios
     * Grup: domainFQDN
     * Kişi: distinguishedName
@@ -840,7 +843,7 @@ Doğrudan Kimlik Doğrulama
 * Azure AD Connect Sihirbazı aracılığıyla başarılı kimlik doğrulaması seçildiğinde ancak kendi bağlayıcı kaydı başarısız olursa başarısız olmasına neden olan sorun düzeltildi.
 * Neden olur, Masaüstü SSO özelliği etkinleştirilmişse seçilen oturum açma yöntemi üzerinde doğrulama atlama için Azure AD Connect Sihirbazı'nı denetler bir sorun düzeltildi.
 
-Parola Sıfırlama
+Parola sıfırlama
 * Azure AAD Connect sunucusu bağlantısı bir güvenlik duvarı veya Ara sunucu tarafından sonlandırıldı. yeniden bağlanmak kullanmamanız neden olabilecek bir sorun düzeltildi.
 
 **Yeni özellikler/iyileştirmeleri:**
@@ -855,7 +858,7 @@ AD FS Yönetimi
 * Şimdi, AD FS yükleme sırasında mevcut gmsa'yı (Grup yönetilen hizmet hesabı) belirtebilirsiniz.
 * Şimdi, Azure AD bağlı olan taraf güveni için imza karma algoritma olarak SHA-256'yı da yapılandırabilirsiniz.
 
-Parola Sıfırlama
+Parola sıfırlama
 * İşlev ürüne daha sıkı güvenlik duvarı kuralları içeren ortamlarda izin vermek için sunulan geliştirmeler.
 * Azure Service Bus geliştirilmiş bağlantı güvenilirlik.
 

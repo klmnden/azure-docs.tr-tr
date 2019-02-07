@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 3554151490215f128efc6725b7aaa0628d503366
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260148"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821312"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Öğretici: Jenkins sürekli tümleştirme ve dağıtım ile Github'dan Azure App Service'e dağıtma
 
@@ -45,7 +45,7 @@ Bu öğreticiyi tamamlamak için bu öğeler gerekir:
 
   Bir Jenkins sunucusu yoksa, şimdi Azure portalında aşağıdaki adımları tamamlayın: [Azure Linux VM'de bir Jenkins sunucusu oluşturma](/azure/jenkins/install-jenkins-solution-template)
 
-* A [GitHub](https://github.com) çalışan bir kopya alabilmeniz için hesap ([çatal](#fork)) için örnek Java web uygulaması. 
+* A [GitHub](https://github.com) örnek Java web uygulaması için bir çalışma kopyası (Çatal) alabilmeniz için hesap. 
 
 * [Azure CLI](/cli/azure/install-azure-cli),'nden ya da yerel komut satırınızda çalıştırabileceğiniz veya [Azure Cloud Shell](/azure/cloud-shell/overview)
 

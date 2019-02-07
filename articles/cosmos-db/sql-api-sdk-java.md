@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: cf011558ab984ecaf8181a4dc4ffcb80851f24fb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ebb6fe9f583c2658f187d3cca1185f1525fb1bf5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352963"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811044"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -32,20 +32,14 @@ ms.locfileid: "54352963"
 
 SQL API Java SDK'sı, zaman uyumlu işlemler destekler. Zaman uyumsuz desteği kullanan [SQL API Async Java SDK'sı](sql-api-sdk-async-java.md). 
 
-<table>
-
-<tr><td>**SDK'sını indirme**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
-
-<tr><td>**API belgeleri**</td><td>[Java API başvuru belgeleri](/java/api/com.microsoft.azure.documentdb)</td></tr>
-
-<tr><td>**SDK'sı için katkıda bulunan**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-
-<tr><td>**Kullanmaya başlama**</td><td>[Java SDK'sı ile çalışmaya başlama](sql-api-java-get-started.md)</td></tr>
-
-<tr><td>**Web uygulaması Öğreticisi**</td><td>[Azure Cosmos DB ile Web uygulaması geliştirme](sql-api-java-application.md)</td></tr>
-
-<tr><td>**En düşük desteklenen çalışma zamanı**</td><td>[Java Geliştirme Seti (JDK) 7 +](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK'sını indirme**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
+|**API belgeleri**|[Java API başvuru belgeleri](/java/api/com.microsoft.azure.documentdb)|
+|**SDK'sı için katkıda bulunan**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
+|**Kullanmaya başlama**|[Java SDK'sı ile çalışmaya başlama](sql-api-java-get-started.md)|
+|**Web uygulaması Öğreticisi**|[Azure Cosmos DB ile Web uygulaması geliştirme](sql-api-java-application.md)|
+|**En düşük desteklenen çalışma zamanı**|[Java Geliştirme Seti (JDK) 7 +](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Sürüm notları
 
@@ -218,7 +212,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| [2.1.1](#2.1.1) |21 Kasım 2018 |--- |
+| 2.1.1 |21 Kasım 2018 |--- |
 | [2.0.0](#2.0.0) |21 Eylül 2018 |--- |
 | [1.16.4](#1.16.4) |10 Eylül 2018 |--- |
 | [1.16.3](#1.16.3) |09 Eylül 2018 |--- |
@@ -249,7 +243,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 | [1.3.0](#1.3.0) |05 Ekim 2015 |--- |
 | [1.2.0](#1.2.0) |05 Ağustos 2015 |--- |
 | [1.1.0](#1.1.0) |09 Temmuz 2015 |--- |
-| [1.0.1](#1.0.1) |12 Mayıs 2015 |--- |
+| 1.0.1 |12 Mayıs 2015 |--- |
 | [1.0.0](#1.0.0) |07 Nisan 2015 |--- |
 | 0.9.5-prelease |09 Mar 2015 |29 Şubat 2016 |
 | 0.9.4-prelease |17 Şubat 2015 |29 Şubat 2016 |

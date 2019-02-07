@@ -16,12 +16,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d9ab89afba2b83f99bfbf432d033cd0546a25a9d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36699acab7a10a11ae60c62bab8e5130362ddfc7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247400"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817266"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -142,7 +142,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. PowerShell ISE yönetici olarak başlatın ve gidin **kayıt** klasöründe **AzureStack araçları ana** dizini oluşturuldu, [Azure Stack Araçlarıindirildi](#bkmk_tools). İçeri aktarma **RegisterWithAzure.psm1** kullanarak PowerShell Modülü:
+5. PowerShell ISE yönetici olarak başlatın ve gidin **kayıt** klasöründe **AzureStack araçları ana** Azure Stack araçları yüklendiğinde oluşturulan dizin. İçeri aktarma **RegisterWithAzure.psm1** kullanarak PowerShell Modülü:
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -206,7 +206,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. PowerShell ISE yönetici olarak başlatın ve gidin **kayıt** klasöründe **AzureStack araçları ana** dizini oluşturuldu, [Azure Stack Araçlarıindirildi](#bkmk_tools). İçeri aktarma **RegisterWithAzure.psm1** kullanarak PowerShell Modülü:
+5. PowerShell ISE yönetici olarak başlatın ve gidin **kayıt** klasöründe **AzureStack araçları ana** Azure Stack araçları yüklendiğinde oluşturulan dizin. İçeri aktarma **RegisterWithAzure.psm1** kullanarak PowerShell Modülü:
 
   ```PowerShell  
   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -225,11 +225,11 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Kayıt kapasite faturalandırmayla bağlantısı kesildi
 
-(İnternet bağlantısı olmayan) bağlantısı kesilmiş bir ortamda Azure Stack kaydediyorsanız, Azure Stack ortamından bir kayıt belirtecinizi almak ve sonra bu belirteci Azure'a bağlanabilir ve bir bilgisayara ihtiyacınız [PowerShell yüklü Azure Stack için](#bkmk_powershell).  
+Azure Stack bağlantısı kesilmiş bir ortamda (internet bağlantısı olmayan) kaydediyorsanız Azure Stack ortamından bir kayıt belirtecinizi almak ve sonra bu belirteci Azure'a bağlanabilir ve Azure Stack için PowerShell olan bir bilgisayarda gerekir yüklü.  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Azure Stack ortamından bir kayıt belirtecinizi almak
 
-1. PowerShell ISE yönetici olarak başlatın ve gidin **kayıt** klasöründe **AzureStack araçları ana** dizini oluşturuldu, [Azure Stack Araçlarıindirildi](#bkmk_tools). İçeri aktarma **RegisterWithAzure.psm1** Modülü:  
+1. PowerShell ISE yönetici olarak başlatın ve gidin **kayıt** klasöründe **AzureStack araçları ana** Azure Stack araçları yüklendiğinde oluşturulan dizin. İçeri aktarma **RegisterWithAzure.psm1** Modülü:  
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -448,15 +448,15 @@ Cmdlet'i çalıştırmak için ihtiyacınız vardır:
 | Parametre | Type | Açıklama |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | İçin kullanılan kimlik bilgileri [ayrıcalıklı uç noktasına erişmek](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Kullanıcı adı şu biçimdedir **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Dize | Dağıtım görevleri ile günlük toplama ve diğer posta gibi özellikler sağlayan bir önceden yapılandırılmış Uzaktan PowerShell Konsolu. Daha fazla bilgi edinmek için bkz [ayrıcalıklı uç noktayı kullanarak](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) makalesi. |
+| PrivilegedEndpoint | String | Dağıtım görevleri ile günlük toplama ve diğer posta gibi özellikler sağlayan bir önceden yapılandırılmış Uzaktan PowerShell Konsolu. Daha fazla bilgi edinmek için bkz [ayrıcalıklı uç noktayı kullanarak](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) makalesi. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Dize |  |
-| ResourceGroupLocation | Dize |  |
-| BillingModel | Dize | Faturalandırma modeli, aboneliğinizin kullanır. Bu parametre için izin verilen değerler şunlardır: Kapasite, PayAsYouUse ve geliştirme. |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | Faturalandırma modeli, aboneliğinizin kullanır. Bu parametre için izin verilen değerler şunlardır: Kapasite, PayAsYouUse ve geliştirme. |
 | MarketplaceSyndicationEnabled | True/False | Portalda Market yönetim özelliği kullanılabilir olup olmadığını belirler. İnternet bağlantısı ile kaydetme gerekiyorsa true olarak ayarlayın. Bağlantısı kesilmiş ortamlarda kaydediliyor false olarak ayarlayın. Bağlantısı kesilmiş kayıtları için [çevrimdışı dağıtım aracı](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) Market öğelerini indirme için kullanılabilir. |
 | UsageReportingEnabled | True/False | Azure Stack, varsayılan olarak kullanım ölçümleri raporları. Kapasite kullanır veya bağlantısı kesilmiş bir ortam destekleyen işleçlerle kullanım bildirimini devre dışı bırak gerekir. Bu parametre için izin verilen değerler şunlardır: TRUE, False. |
-| AgreementNumber değeri | Dize |  |
-| registrationName | Dize | Kayıt betiği Azure Stack birden fazla örneğinde aynı Azure abonelik kimliği kullanarak çalıştırıyorsanız kayıt için benzersiz bir ad ayarlayın. Parametrenin varsayılan değeri **AzureStackRegistration**. Azure Stack birden fazla örneğinde aynı adı kullanın, ancak komut başarısız olur. |
+| AgreementNumber değeri | String |  |
+| registrationName | String | Kayıt betiği Azure Stack birden fazla örneğinde aynı Azure abonelik kimliği kullanarak çalıştırıyorsanız kayıt için benzersiz bir ad ayarlayın. Parametrenin varsayılan değeri **AzureStackRegistration**. Azure Stack birden fazla örneğinde aynı adı kullanın, ancak komut başarısız olur. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -470,14 +470,14 @@ Get-AzsRegistrationToken giriş parametrelerini kayıt belirtecinizi oluşturur.
 | Parametre | Type | Açıklama |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | İçin kullanılan kimlik bilgileri [ayrıcalıklı uç noktasına erişmek](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Kullanıcı adı şu biçimdedir **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Dize |  Dağıtım görevleri ile günlük toplama ve diğer posta gibi özellikler sağlayan bir önceden yapılandırılmış Uzaktan PowerShell Konsolu. Daha fazla bilgi edinmek için bkz [ayrıcalıklı uç noktayı kullanarak](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) makalesi. |
+| PrivilegedEndpoint | String |  Dağıtım görevleri ile günlük toplama ve diğer posta gibi özellikler sağlayan bir önceden yapılandırılmış Uzaktan PowerShell Konsolu. Daha fazla bilgi edinmek için bkz [ayrıcalıklı uç noktayı kullanarak](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) makalesi. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Dize |  |
-| ResourceGroupLocation | Dize |  |
-| BillingModel | Dize | Faturalandırma modeli, aboneliğinizin kullanır. Bu parametre için izin verilen değerler şunlardır: Kapasite, PayAsYouUse ve geliştirme. |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | Faturalandırma modeli, aboneliğinizin kullanır. Bu parametre için izin verilen değerler şunlardır: Kapasite, PayAsYouUse ve geliştirme. |
 | MarketplaceSyndicationEnabled | True/False |  |
 | UsageReportingEnabled | True/False | Azure Stack, varsayılan olarak kullanım ölçümleri raporları. Kapasite kullanır veya bağlantısı kesilmiş bir ortam destekleyen işleçlerle kullanım bildirimini devre dışı bırak gerekir. Bu parametre için izin verilen değerler şunlardır: TRUE, False. |
-| AgreementNumber değeri | Dize |  |
+| AgreementNumber değeri | String |  |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

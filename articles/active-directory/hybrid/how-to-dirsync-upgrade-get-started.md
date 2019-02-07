@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 57b27854b973ec369ae0e06b854964774f5d91cd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 15d5b824525bc19d83abfbf2c08e068bd3837350
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487786"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821210"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync'ten yükseltme
 Azure AD Connect, DirSync'in yerini almıştır. Bu konu başlığı altında DirSync'ten yükseltme yöntemlerini bulabilirsiniz. Bu adımlar, Azure AD Connect'in başka bir sürümünden veya Azure AD Eşitleme'den yapılacak yükseltmeler için geçerli değildir.
@@ -34,7 +34,7 @@ Azure AD Connect'i yüklemeye başlamadan önce emin olun [Azure AD Connect'i in
 > [!NOTE]
 > Değişiklikleri Azure AD ile eşitlemeye başlamak için yeni Azure AD Connect sunucunuzu etkinleştirdikten sonra DirSync veya Azure AD Sync kullanmaya geri dönemezsiniz. Sürümün Azure AD Connect’ten DirSync ve Azure AD Sync gibi eski istemcilere düşürülmesi desteklenmez ve Azure AD’de veri kaybı gibi sorunlara yol açabilir.
 
-DirSync'ten yükseltmiyorsanız diğer senaryolar için [ilgili belgelere](#related-documentation) göz atın.
+Dirsync'ten yükseltmiyorsanız diğer senaryolar için ilgili belgelere bakın.
 
 ## <a name="upgrade-from-dirsync"></a>DirSync'ten yükseltme
 Geçerli DirSync dağıtımınıza bağlı olarak farklı yükseltme seçenekleri mevcuttur. Tahmini yükseltme süresi üç saatten azsa yerinde yükseltme yapılması önerilir. Tahmini yükseltme süresi üç saatten fazlaysa başka bir sunucu üzerinde paralel dağıtım yapılması önerilir. 50.000'den fazla nesneniz varsa yükseltmenin üç saatten fazla süreceği tahmin edilir.
@@ -127,7 +127,7 @@ Paralel dağıtım ile devam etmek istiyorsanız şu adımları tamamlamanız ge
 
 * **Ayarları dışarı aktar** düğmesine tıklayın. Azure AD Connect'i ayrı bir sunucuya yüklediğinizde bu ayarlar, geçerli DirSync hesabınızdan yeni Azure AD Connect yüklemenize geçirilir.
 
-Ayarlarınız başarıyla dışarı aktarıldıktan sonra DirSync sunucusundaki Azure AD Connect sihirbazından çıkabilirsiniz. [Azure AD Connect'i ayrı bir sunucuya yüklemek](#installation-of-azure-ad-connect-on-separate-server) için bir sonraki adımla devam edin
+Ayarlarınız başarıyla dışarı aktarıldıktan sonra DirSync sunucusundaki Azure AD Connect sihirbazından çıkabilirsiniz. Azure AD Connect'i ayrı bir sunucuya yüklemek için sonraki adıma devam et
 
 **50.000'den az nesneyle paralel dağıtım**
 
@@ -141,7 +141,7 @@ Ayarlarınız başarıyla dışarı aktarıldıktan sonra DirSync sunucusundaki 
 
 ![Analiz tamamlandı](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
 
-Ayarlarınız başarıyla dışarı aktarıldıktan sonra DirSync sunucusundaki Azure AD Connect sihirbazından çıkabilirsiniz. [Azure AD Connect'i ayrı bir sunucuya yüklemek](#installation-of-azure-ad-connect-on-separate-server) için bir sonraki adımla devam edin.
+Ayarlarınız başarıyla dışarı aktarıldıktan sonra DirSync sunucusundaki Azure AD Connect sihirbazından çıkabilirsiniz. Azure AD Connect'i ayrı bir sunucuya yüklemek için bir sonraki adımla devam edin.
 
 ### <a name="install-azure-ad-connect-on-separate-server"></a>Azure AD Connect'i ayrı bir sunucuya yükleme
 Azure AD Connect'i yeni bir sunucuya yüklediğinizde, Azure AD Connect’i temiz bir şekilde yüklemek istediğiniz varsayılır. DirSync yapılandırmasını kullanmak istiyorsanız tamamlamanız gereken bazı ek adımlar vardır:

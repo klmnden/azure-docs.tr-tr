@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015840"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822434"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma
 > [!NOTE]
@@ -172,7 +172,7 @@ Bu adımda iki bağlı hizmet oluşturursunuz: **AzureStorageLinkedService** ve 
       4. İçinde **kimlik bilgilerini ayarlama** iletişim kutusunda, kimlik doğrulama türü, kullanıcı adı ve parola belirtin ve tıklayın **Tamam**. Bağlantı başarılı olursa, şifrelenmiş kimlik bilgileri JSON biçiminde depolanır ve iletişim kutusunu kapatır.
       5. Otomatik olarak kapalı değilse, iletişim kutusunu başlatan boş tarayıcı sekmesini kapatın ve Azure portalı ile sekmesindeki geri kazanın.
 
-         Ağ geçidi makinesinde bu kimlik bilgileri olan **şifrelenmiş** Data Factory hizmetine sahip olan bir sertifikayı kullanarak. Bunun yerine veri yönetimi ağ geçidi ile ilişkili sertifika kullanmak istiyorsanız bkz [kimlik bilgilerini güvenli bir şekilde ayarlamak](#set-credentials-and-security).    
+         Ağ geçidi makinesinde bu kimlik bilgileri olan **şifrelenmiş** Data Factory hizmetine sahip olan bir sertifikayı kullanarak. Bunun yerine veri yönetimi ağ geçidi ile ilişkili sertifika kullanmak istiyorsanız, küme kimlik bilgilerini güvenli bir şekilde bakın.    
    3. Tıklayın **Dağıt** SQL Server'ı dağıtmak için komut çubuğunda bağlı hizmeti. Bağlı hizmet ağaç görünümünde görmeniz gerekir.
 
       ![Ağaç görünümünde SQL Server bağlı hizmeti](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
@@ -280,7 +280,7 @@ Bu adımda, kopyalama işlemi için girdi ve çıktı verilerini temsil eden gir
    * **folderPath** ayarlanır **adftutorial/outfromonpremdf** outfromonpremdf klasörü adftutorial kapsayıcısında olduğu. Oluşturma **adftutorial** zaten yoksa, kapsayıcı.
    * **availability** **hourly** olarak ayarlanmıştır (**frequency** **hour**, **interval** de **1** olarak ayarlanmıştır).  Data Factory hizmetinin her saat bir çıktı veri dilimi oluşturur **emp** Azure SQL veritabanı tablosunda.
 
-   Belirtmezseniz, bir **fileName** için bir **çıktı tablosu**'de oluşturulan dosyaları **folderPath** şu biçimde adlandırılır: Veriler. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt.).
+   Belirtmezseniz, bir **fileName** için bir **çıktı tablosu**'de oluşturulan dosyaları **folderPath** şu biçimde adlandırılır: Veriler. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Ayarlanacak **folderPath** ve **fileName** göre dinamik olarak **SliceStart** saat, partitionedBy özelliğini kullanın. Aşağıdaki örnekte, folderPath SliceStart’taki (işlemdeki dilimin başlangıç zamanı) Yıl, Ay ve Gün öğelerini, fileName ise SliceStart’taki Saat öğesini kullanır. Örneğin, dilim 2014-10-20T08:00:00 için oluşturulduysa, folderName wikidatagateway/wikisampledataout/2014/10/20, fileName de 08.csv olarak ayarlanır.
 

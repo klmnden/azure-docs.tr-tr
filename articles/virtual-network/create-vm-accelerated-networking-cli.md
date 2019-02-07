@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 6ab0a7b6204da4eca6c2b844228cf39e51cde220
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8c913d618313a72f6fb05ea45847a220f6070d42
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700256"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765747"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Linux sanal makinesi oluşturma
 
@@ -42,7 +42,7 @@ Hızlandırılmış ağ avantajları yalnızca üzerinde etkin VM için de geçe
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 Azure Galerisi hazır aşağıdaki dağıtımlar desteklenir: 
-* **Ubuntu 16.04** 
+* **Ubuntu 16.04+** 
 * **SLES 12 SP3** 
 * **RHEL 7.4**
 * **CentOS 7.4**

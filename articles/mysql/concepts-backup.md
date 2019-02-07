@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 5fe1c4c8a3f3d27af0040c013deb6649b33c1a72
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: cefb0c5f578f109a8cce2555dd896f81d2f0f627
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540903"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821125"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Yedekleme ve MySQL için Azure veritabanı'nda geri yükleme
 
@@ -50,7 +50,7 @@ Geri yükleme iki tür vardır:
 Tahmini kurtarma süresi, veritabanı boyutu, işlem günlüğü boyutu, ağ bant genişliğini ve aynı anda aynı bölgede kurtarılan veri tabanı toplam sayısı dahil olmak üzere birçok faktöre bağlıdır. Kurtarma zamanı, genellikle daha az 12 saati geçmez.
 
 > [!IMPORTANT]
-> Silinen sunucuları **olamaz** geri yüklenemiyor. Sunucu silerseniz sunucusuna ait tüm veritabanlarını da silinir ve kurtarılamaz. 
+> Silinen sunucuları **olamaz** geri yüklenemiyor. Sunucu silerseniz sunucusuna ait tüm veritabanlarını da silinir ve kurtarılamaz. Sunucu kaynaklarını korumak için dağıtım sonrasında, yanlışlıkla silme veya beklenmeyen değişiklikleri, yöneticiler yararlanabilir [yönetim kilitleri](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
 

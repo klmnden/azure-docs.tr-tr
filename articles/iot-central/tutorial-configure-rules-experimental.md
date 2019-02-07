@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 0789f113a68d98ff0d70fd3e9b3c8528122c2fc2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d8a5ca6285624720e23a4986917ab5e715f6ebfa
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729177"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768022"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central-new-ui-design"></a>Öğretici: Kurallar ve Eylemler için Cihazınızı Azure IOT Central (yeni kullanıcı Arabirimi tasarımı) yapılandırma
 
@@ -77,7 +77,7 @@ Bir kural tanımladığınızda, kural koşulları yerine getirildiği zaman ça
     | Notlar     | Klima sıcaklığı eşiği aştı. |
 
     > [!NOTE]
-    > Bir e-posta bildirimi almak için e-posta adresinin [uygulamadaki bir kullanıcı kimliği](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) olması ve bu kullanıcının uygulamada en az bir kez oturum açmış olması gerekir.
+    > Bir e-posta bildirimi almak için e-posta adresinin [uygulamadaki bir kullanıcı kimliği](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) olması ve bu kullanıcının uygulamada en az bir kez oturum açmış olması gerekir.
 
     ![Sıcaklık eylemi](media/tutorial-configure-rules-experimental/temperatureaction.png)
 

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: e4ea964600c03ce3f3b5b276ed02d12f573814bf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e1c225eb77a76015520690916db0399487ffe9e7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756504"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822621"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Bilgisayarları Log Analytics ağ geçidini kullanarak Internet erişimi olmadan bağlayın
 
@@ -34,7 +34,7 @@ Log Analytics gateway destekler:
 * Azure Otomasyon karma Runbook çalışanları  
 * Microsoft İzleme Aracısı ile Windows bilgisayarları doğrudan Log Analytics çalışma alanına bağlı
 * Linux için Log Analytics Aracısı ile Linux bilgisayarları doğrudan Log Analytics çalışma alanına bağlı  
-* System Center Operations Manager 2012 SP1 UR7 ile Operations Manager 2012 R2 UR3, Operations Manager 2016 ve Operations Manager sürümü 1801 yönetim grubu ile Log Analytics ile tümleşiktir.  
+* System Center Operations Manager 2012 SP1 UR7 ile Operations Manager 2012 R2 UR3, Operations Manager 2016 veya sonraki bir yönetim grubu ile Log Analytics ile tümleşiktir.  
 
 BT güvenlik ilkeleriniz ağınızdaki noktası satışı (POS) cihazları veya BT Hizmetleri destekleyen sunucular gibi Internet'e bağlanmak için bilgisayarları nepovolit ancak bunları izlemek ve yönetmek için Azure Otomasyonu veya Log Analytics'e bağlanmak gerekiyorsa , yapılandırma ve gerçekleştirilemeyeceğine ilişkin verileri almak için doğrudan Log Analytics ağ geçidi ile iletişim kurmak için yapılandırılabilir.  Bu bilgisayarları doğrudan Log Analytics çalışma alanına bağlamak için Log Analytics aracısını ile yapılandırıldıysa, tüm bilgisayarları bunun yerine Log Analytics ağ geçidi ile iletişim kurar.  Ağ geçidi veri aracılardan hizmete doğrudan aktarır, bunu herhangi bir veri aktarım sırasında analiz etmez.
 

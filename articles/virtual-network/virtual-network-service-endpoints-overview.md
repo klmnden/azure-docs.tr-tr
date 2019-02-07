@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 45a0c179677a0a2c144ea33dbfb031c88257e1cb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0f36439cba4a946fb05466f2d961e537196f0095
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382506"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818609"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -37,10 +37,7 @@ Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 - **[Azure anahtar kasası](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
-
-**Önizleme**
-
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Önizleme kullanılabilir.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: ADLS Gen1 kullanılabilir olduğu tüm Azure bölgelerinde genel olarak kullanılabilir.
 
 En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 
@@ -99,7 +96,7 @@ Hizmet uç noktaları aşağıdaki avantajları sağlar:
 ### <a name="scenarios"></a>Senaryolar
 
 - **Eşlenmiş, bağlı veya birden çok sanal ağ**: Bir sanal ağ içindeki veya birden çok sanal ağda birden fazla alt ağdaki Azure hizmetlerinin güvenliğini sağlamak için her alt ağ hizmet uç noktalarını ayrı ayrı etkinleştirebilir ve tüm alt ağların Azure hizmet kaynaklarının güvenliğini.
-- **Sanal ağdan Azure hizmetlerine giden trafik filtreleme**: Sanal ağdan bir Azure hizmetine giden trafiği incelemek veya filtrelemek istiyorsanız, sanal ağda ağ sanal Gereci dağıtabilirsiniz. Ardından hizmet uç noktalarını ağ sanal gerecinin dağıtılmış olduğu alt ağa uygulayabilir ve Azure hizmet kaynağını yalnızca bu alt ağ ile sınırlayabilirsiniz. Bu senaryo, Azure hizmet erişimini ağ sanal gereci filtresi kullanarak sanal ağınızdan yalnızca belirli Azure kaynaklarına gidecek şekilde sınırlamak istediğinizde yararlı olabilir. Daha fazla bilgi için bkz. [Ağ sanal gereçleri ile çıkış](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Sanal ağdan Azure hizmetlerine giden trafik filtreleme**: Sanal ağdan bir Azure hizmetine giden trafiği incelemek veya filtrelemek istiyorsanız, sanal ağda ağ sanal Gereci dağıtabilirsiniz. Ardından hizmet uç noktalarını ağ sanal gerecinin dağıtılmış olduğu alt ağa uygulayabilir ve Azure hizmet kaynağını yalnızca bu alt ağ ile sınırlayabilirsiniz. Bu senaryo, Azure hizmet erişimini ağ sanal gereci filtresi kullanarak sanal ağınızdan yalnızca belirli Azure kaynaklarına gidecek şekilde sınırlamak istediğinizde yararlı olabilir. Daha fazla bilgi için bkz. [Ağ sanal gereçleri ile çıkış](/azure/architecture/reference-architectures/dmz/nva-ha).
 - **Azure kaynaklarını doğrudan sanal ağlara dağıtılan hizmetler sınırlama**: Çeşitli Azure Hizmetleri doğrudan bir sanal ağdaki belirli alt ağlara dağıtılabilir. Yönetilen hizmet alt ağında bir hizmet uç noktası kurarak Azure hizmet kaynaklarını [yönetilen hizmet](virtual-network-for-azure-services.md) alt ağlarına ayırabilirsiniz.
 - **Bir Azure sanal makinesinde gelen disk trafiği**: Sanal makine diski trafiği (diskıo ve bağlama dahil), yönetilen ve yönetilmeyen diskler için hizmet uç noktası değişiklikleri Azure depolama için yönlendirme etkilenmez. Ağ seçmek için hizmet uç noktaları ve [Azure Depolama ağ kuralları](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) aracılığıyla REST erişimini sayfa bloblarına sınırlayabilirsiniz. 
 

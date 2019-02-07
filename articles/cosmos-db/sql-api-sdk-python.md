@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 01f6fe3ef309f19896befe61512d524a8543745f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9a240e15049d1acd7344f3ecf7dbf41ff2c3850d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041467"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818796"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB için Python SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -30,20 +30,14 @@ ms.locfileid: "54041467"
 > * [Bulkexecutor'a - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulkexecutor'a - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK'sını indirin**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
-
-<tr><td>**API belgeleri**</td><td>[Python API başvuru belgeleri](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
-
-<tr><td>**SDK yükleme yönergeleri**</td><td>[Python SDK'sını yükleme yönergeleri](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**SDK'sı için katkıda bulunan**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**Kullanmaya başlama**</td><td>[Python SDK'sı ile çalışmaya başlama](sql-api-python-application.md)</td></tr>
-
-<tr><td>**Geçerli desteklenen platform**</td><td>[Python 2.7](https://www.python.org/downloads/) ve [Python 3.5](https://www.python.org/downloads/)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK'sını indirin**|[PyPI](https://pypi.org/project/azure-cosmos)|
+|**API belgeleri**|[Python API başvuru belgeleri](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**SDK yükleme yönergeleri**|[Python SDK'sını yükleme yönergeleri](https://github.com/Azure/azure-cosmos-python)|
+|**SDK'sı için katkıda bulunan**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**Kullanmaya başlama**|[Python SDK'sı ile çalışmaya başlama](sql-api-python-application.md)|
+|**Geçerli desteklenen platform**|[Python 2.7](https://www.python.org/downloads/) ve [Python 3.5](https://www.python.org/downloads/)|
 
 ## <a name="release-notes"></a>Sürüm notları
 
@@ -177,7 +171,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 | [1.6.0](#1.6.0) |29 Mart 2016 |--- |
 | [1.5.0](#1.5.0) |03 Ocak 2016 |--- |
 | [1.4.2](#1.4.2) |06 Ekim 2015 |--- |
-| [1.4.1](#1.4.1) |06 Ekim 2015 |--- |
+| 1.4.1 |06 Ekim 2015 |--- |
 | [1.2.0](#1.2.0) |06 Ağustos 2015 |--- |
 | [1.1.0](#1.1.0) |09 Temmuz 2015 |--- |
 | [1.0.1](#1.0.1) |25 Mayıs 2015 |--- |

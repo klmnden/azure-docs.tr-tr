@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2b8a0db21ab4beb2128ae0a1cebbf9fb42691f3c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177416"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768192"
 ---
 # <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama konusunda yardım alın
 
@@ -36,7 +36,7 @@ Neden alternatif bir doğrulama yöntemi, hesabınızla birlikte kullanılacak g
 
 - **Telefonunuz kaybolur veya yeni bir telefon numarası alındı.** Telefonunuz kaybolur veya yeni bir sayı değil, farklı bir yöntemi kullanarak oturum açın veya ayarlarınızı temizlemek için yöneticinize başvurun. Telefonunuz kaybolur veya çalınırsa, bu nedenle uygun güncelleştirmeleri hesabınıza sağlanabilir bilmeniz, yöneticiniz izin vererek kesinlikle öneririz. Ayarlarınızı temizlendikten sonra açmanız istenir [kaydetmek için iki aşamalı doğrulamayı](multi-factor-authentication-end-user-first-time.md) bir sonraki oturum açışınızda.
 
-- **Kimlik doğrulaması metin ya da telefon aramasına alamıyor.** Neden, metin ya da telefon aramasına alamayabilirsiniz birkaç nedeni vardır. Geçmiş metinlerinizi veya telefon çağrıları başarıyla yönettiniz ise bunun değil hesabınıza telefon sağlayıcısı ile ilgili bir sorun olabilir. Genellikle hatalı bir sinyal nedeniyle gecikmeler varsa, kullanmanızı öneririz [Microsoft Authenticator uygulamasını](microsoft-authenticator-app-how-to.md) mobil Cihazınızda. Bu uygulama, herhangi bir hücreyi sinyali veya Internet bağlantısı gerektirmeden oturum açma için rastgele güvenlik kodları oluşturabilirsiniz.<br><br>SMS mesajı almaya çalıştığınız metin arkadaşı en güncel bir kod edinin ve çeşitli iletiler gönderildiyse emin emin olmak için bir test olarak kullandığınız isteyin.
+- **Kimlik doğrulaması metin ya da telefon aramasına alamıyor.** Neden, metin ya da telefon aramasına alamayabilirsiniz birkaç nedeni vardır. Geçmiş metinlerinizi veya telefon çağrıları başarıyla yönettiniz ise bunun değil hesabınıza telefon sağlayıcısı ile ilgili bir sorun olabilir. Genellikle hatalı bir sinyal nedeniyle gecikmeler varsa, kullanmanızı öneririz [Microsoft Authenticator uygulamasını](user-help-auth-app-download-install.md) mobil Cihazınızda. Bu uygulama, herhangi bir hücreyi sinyali veya Internet bağlantısı gerektirmeden oturum açma için rastgele güvenlik kodları oluşturabilirsiniz.<br><br>SMS mesajı almaya çalıştığınız metin arkadaşı en güncel bir kod edinin ve çeşitli iletiler gönderildiyse emin emin olmak için bir test olarak kullandığınız isteyin.
 
 - **Uygulama parolalarınızı çalışmıyor.** Uygulama parolaları için iki aşamalı doğrulamayı desteklemeyen eski masaüstü uygulamalarının normal parolanızı değiştirin. İlk olarak, doğru parolayı girdiğinizden emin olun. Bunu düzeltelim değil, oturum açmayı deneyin [yeni bir uygulama parolası oluşturmanız](multi-factor-authentication-end-user-app-passwords.md) veya yöneticinize başvurarak [, var olan uygulama parolalarını Sil](../authentication/howto-mfa-userdevicesettings.md) bu nedenle yeni bir tane oluşturabilirsiniz.
 
@@ -61,4 +61,4 @@ Bu adımları denemenize rağmen sorunlarla karşılaşırsanız çalışmakta o
 
 * [İki adımlı doğrulama ayarlarınızı yönetme](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Microsoft Authenticator uygulaması hakkında SSS](microsoft-authenticator-app-faq.md)
+* [Microsoft Authenticator uygulaması hakkında SSS](user-help-auth-app-faq.md)

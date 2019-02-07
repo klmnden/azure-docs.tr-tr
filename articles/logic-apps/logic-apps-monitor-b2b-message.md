@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: d5425cf7c2ea39770bbc3e9368f34d57d7279842
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534885"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818303"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Azure Log Analytics'te Azure Logic Apps ile B2B iletilerini izleme
 
-Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra iş ortakları birbirleriyle iletiler gönderip alabilir. Bu iletişim beklediğiniz gibi çalışır, AS2, X12, izleyebilir ve EDIFACT iletileri ve tümleştirme hesabınız için günlüğe kaydetme tanılama ayarlama denetlemek için [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Bu hizmet, Bulut ve şirket içi ortamlarını, kullanılabilirlik ve performansı korumak ve çalışma zamanı Ayrıntılar ve daha zengin hata ayıklama olaylarını toplar izler. Ayrıca [diğer hizmetleri ile bu verileri kullanın](#extend-diagnostic-data) Azure depolama ve Azure Event Hubs gibi.
+Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra iş ortakları birbirleriyle iletiler gönderip alabilir. Bu iletişim beklediğiniz gibi çalışır, AS2, X12, izleyebilir ve EDIFACT iletileri ve tümleştirme hesabınız için günlüğe kaydetme tanılama ayarlama denetlemek için [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Bu hizmet, Bulut ve şirket içi ortamlarını, kullanılabilirlik ve performansı korumak ve çalışma zamanı Ayrıntılar ve daha zengin hata ayıklama olaylarını toplar izler. Bu veriler, Azure depolama ve Azure Event Hubs gibi diğer hizmetlerle de kullanabilirsiniz.
 
 > [!NOTE]
 > Bu sayfa, başvurular için Microsoft Operations Management Suite (olan OMS), yine de olabilir [Ocak 2019 ' devre dışı bırakma](../azure-monitor/platform/oms-portal-transition.md), ancak bu adımlar, mümkün olduğunda Azure Log Analytics ile değiştirir. 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1491068248d20a917e28db5a75dee3d4b3753f5c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1c58574a96c07dcb4008682efdf96fba111d7b61
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731451"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810346"
 ---
 # <a name="back-up-your-app-in-azure"></a>Uygulamanızı Azure’a yedekleme
 Yedekleme ve geri yükleme özelliği [Azure App Service](overview.md) uygulama yedeklerini el ile veya bir zamanlamaya göre kolayca oluşturmanıza olanak sağlar. Uygulama mevcut uygulamanın üzerine yazarak veya başka bir uygulamaya geri önceki bir durumun anlık görüntüye geri yükleyebilirsiniz. 
@@ -52,7 +52,7 @@ Aşağıdaki veritabanı çözümleri ile yedekleme özelliği desteklenir:
 ## <a name="requirements-and-restrictions"></a>Gereksinimler ve kısıtlamalar
 * Yedekleme ve geri yükleme özelliği olduğu App Service planı gerektirir **standart** katmanı veya **Premium** katmanı. App Service planınızı daha yüksek bir katmana kullanmak üzere ölçeklendirme hakkında daha fazla bilgi için bkz. [azure'da uygulamanın ölçeğini](web-sites-scale.md).  
   **Premium** katmanı sağlayan daha fazla sayıda günlük yedekleme değerinden çıkarır **standart** katmanı.
-* Bir Azure depolama hesabı ve kapsayıcı yedeklemek istediğiniz uygulama ile aynı abonelikte ihtiyacınız var. Azure depolama hesapları hakkında daha fazla bilgi için bkz. [bağlantıları](#moreaboutstorage) bu makalenin sonunda.
+* Bir Azure depolama hesabı ve kapsayıcı yedeklemek istediğiniz uygulama ile aynı abonelikte ihtiyacınız var. Azure depolama hesapları hakkında daha fazla bilgi için bu makalenin sonundaki bağlantılara bakın.
 * Yedekleme, uygulama ve veritabanı içeriğinin 10 GB'a kadar olabilir. Yedekleme boyutu bu sınırı aşarsa, bir hata alırsınız.
 * MySQL desteklenmiyor için Azure veritabanı yedeklerini SSL etkin. Bir yedekleme yapılandırılmışsa, başarısız olmuş yedeklemeler alırsınız.
 * PostgreSQL desteklenmiyor için Azure veritabanı yedeklerini SSL etkin. Bir yedekleme yapılandırılmışsa, başarısız olmuş yedeklemeler alırsınız.

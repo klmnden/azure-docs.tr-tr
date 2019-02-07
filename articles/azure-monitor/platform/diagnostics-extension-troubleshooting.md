@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473818"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822145"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure tanılama sorunlarını giderme
 Bu makalede, Azure Tanılama'yı kullanarak ilgili sorun giderme bilgileri açıklar. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure tanılama genel bakış](diagnostics-extension-overview.md).
@@ -105,7 +105,7 @@ Olay verilerini hiç görüntülenmezse en yaygın nedeni, depolama hesabı bilg
 
 Çözüm: Tanılama yapılandırmanızı düzeltin ve tanılama yeniden yükleyin.
 
-Depolama hesabı makinede doğru bir şekilde yapılandırıldığını, uzak erişim ve DiagnosticsPlugin.exe ve MonAgentCore.exe çalıştığından emin olun. Bunlar çalıştırmadığınız, adımları [Azure tanılama başlatılmıyor](#azure-diagnostics-is-not-starting).
+Depolama hesabı makinede doğru bir şekilde yapılandırıldığını, uzak erişim ve DiagnosticsPlugin.exe ve MonAgentCore.exe çalıştığından emin olun. Bunlar çalıştırmadığınız, adımları izleyin. Azure Tanılama'da başlatılmıyor.
 
 İşlemler çalıştırıyorsanız, Git [yerel olarak yakalanan veri?](#is-data-getting-captured-locally) iletideki yönergeleri izleyin.
 
@@ -119,7 +119,7 @@ Tanılama yapılandırması toplanacak veri belirli bir tür için yönergeler i
 - **Performans sayaçları**: Perfmon aracını açın ve sayaç denetleyin.
 
 - **İzleme günlükleri**:  Uzaktan erişim VM'ye ve bir TextWriterTraceListener uygulamanın yapılandırma dosyasına ekleyin.  Bkz: https://msdn.microsoft.com/library/sk36c28t.aspx metin dinleyiciyi ayarlamak için.  Emin `<trace>` öğesinin `<trace autoflush="true">`.<br />
-Oluşturulan izleme günlüklerini görmüyorsanız bkz [eksik izleme günlükleri hakkında daha fazla](#more-about-trace-logs-missing).
+Oluşturulan izleme günlükleri görmüyorsanız, eksik izleme günlükleri hakkında daha fazla.
 
 - **ETW izlemelerini**: Uzaktan erişim VM ve PerfView yükleyin.  PerfView içinde çalıştırma **dosya** > **kullanıcı komutu** > **dinleme etwprovder1** > **etwprovider2**ve benzeri. **Dinleme** komutu büyük/küçük harfe ve ETW sağlayıcıları virgülle ayrılmış liste arasında boşluk olamaz. Çalıştırılacak komutu başarısız olursa, seçebileceğiniz **günlük** ne çalıştırmayı denedi ve hangi sonuç görmek için sağa Perfview aracının alt düğmesi.  Girişin doğru olduğunu varsayarsak, yeni bir pencere açılır. Birkaç saniye içinde ETW izlemelerini görmeye başlar.
 
@@ -127,13 +127,13 @@ Oluşturulan izleme günlüklerini görmüyorsanız bkz [eksik izleme günlükle
 
 #### <a name="is-data-getting-captured-locally"></a>Verileri yerel olarak yakalanır?
 Ardından, verileri yerel olarak yakalanan emin olun.
-Verileri yerel olarak depolanan `*.tsf` dosyalar [tanılama verilerini yerel mağazada](#log-artifacts-path). Farklı türde günlükleri toplanan farklı `.tsf` dosyaları. Azure depolama tablo adlarına benzer adlarıdır.
+Verileri yerel olarak depolanan `*.tsf` Tanılama verileri için yerel deposundaki dosyaları. Farklı türde günlükleri toplanan farklı `.tsf` dosyaları. Azure depolama tablo adlarına benzer adlarıdır.
 
 Örneğin, `Performance Counters` içinde toplanan alma `PerformanceCountersTable.tsf`. Olay günlükleri toplanan `WindowsEventLogsTable.tsf`. Yönergeleri kullanın [yerel günlük ayıklama](#local-log-extraction) bölümü yerel koleksiyon dosyaları açmak ve bunları diskte toplanan gördüğünüzü doğrulayın.
 
 Yerel olarak toplanan günlükleri görmüyor ve ana bilgisayar veri oluşturduğunu zaten doğruladıktan, büyük olasılıkla bir yapılandırma sorunu da sahip olursunuz. Yapılandırmanızı dikkatle gözden geçirin.
 
-Ayrıca MonitoringAgent için oluşturulan yapılandırmasını gözden geçirmek [MaConfig.xml](#log-artifacts-path). İlgili günlük kaynağını tanımlayan bir bölüm olduğundan emin olun. Ardından, tanılama yapılandırması ve İzleme Aracısı yapılandırması arasındaki çevirisini kaybolmamasını doğrulayın.
+Ayrıca MonitoringAgent MaConfig.xml için oluşturulan yapılandırmayı gözden geçirin. İlgili günlük kaynağını tanımlayan bir bölüm olduğundan emin olun. Ardından, tanılama yapılandırması ve İzleme Aracısı yapılandırması arasındaki çevirisini kaybolmamasını doğrulayın.
 
 #### <a name="is-data-getting-transferred"></a>Veri aktarılır?
 Verileri yerel olarak yakalanır ama yine de, depolama hesabınızı görmüyorsanız doğruladıysanız, aşağıdaki adımları uygulayın:
@@ -142,10 +142,10 @@ Verileri yerel olarak yakalanır ama yine de, depolama hesabınızı görmüyors
 
 - Belirtilen depolama hesabının doğru olduğundan emin olun. Bileşenleri, genel depolama uç noktaları ulaşmasını önleyen ağ kısıtlamaları olmayan emin olun. Bunu yapmanın bir yolu, makinede uzaktan erişim için ve aynı depolama hesabına kendiniz bir şeyler yazmak daha sonra deneyin.
 
-- Son olarak, hangi hataları izleme aracı tarafından rapor edilir bakabilirsiniz. İzleme Aracısı, günlükler Yazar `maeventtable.tsf`, bulunan [tanılama verilerini yerel mağazada](#log-artifacts-path). Bölümündeki yönergeleri [yerel günlük ayıklama](#local-log-extraction) bu dosyayı açmak için bölüm. Ardından olup olmadığını belirlemeye çalışın `errors` depolama alanına yazılmasını yerel dosyalar için okuma hataları gösterir.
+- Son olarak, hangi hataları izleme aracı tarafından rapor edilir bakabilirsiniz. İzleme Aracısı, günlükler Yazar `maeventtable.tsf`, Tanılama verileri yerel deposunda bulunur. Bölümündeki yönergeleri [yerel günlük ayıklama](#local-log-extraction) bu dosyayı açmak için bölüm. Ardından olup olmadığını belirlemeye çalışın `errors` depolama alanına yazılmasını yerel dosyalar için okuma hataları gösterir.
 
 ### <a name="capturing-and-archiving-logs"></a>Yakalama ve günlüklerini arşivleme
-Destek ile iletişim kurarak hakkında düşünmek, makinenizden günlükleri toplamak için gereken ilk şey, isteyebilirler olur. Bu kendiniz yaparak zamandan tasarruf edebilirsiniz. Çalıştırma `CollectGuestLogs.exe` yardımcı programını şu [günlük toplama yardımcı programı yolu](#log-artifacts-path). Bir .zip oluşturduğu tüm ilgili Azure dosyasıyla aynı klasörde günlüğe kaydeder.
+Destek ile iletişim kurarak hakkında düşünmek, makinenizden günlükleri toplamak için gereken ilk şey, isteyebilirler olur. Bu kendiniz yaparak zamandan tasarruf edebilirsiniz. Çalıştırma `CollectGuestLogs.exe` günlük toplama yardımcı programı yolunda yardımcı programı. Bir .zip oluşturduğu tüm ilgili Azure dosyasıyla aynı klasörde günlüğe kaydeder.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Tanılama veri tabloları bulunamadı
 Aşağıdaki kodu kullanarak ETW olayları barındıran Azure depolama tablolarında adlandırılır:
@@ -213,7 +213,7 @@ Bu kod, dört tablo oluşturur:
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Tanılama uzantı yapılandırmasını denetleme
 Gitmek için uzantı yapılandırmayı denetlemek için en kolay yolu olan [Azure kaynak Gezgini](http://resources.azure.com), ve ardından Git sanal makine veya Bulut hizmeti nerede Azure tanılama uzantısını (IaaSDiagnostics / PaaDiagnostics) olan.
 
-Alternatif olarak, makineye ve açıklanan Azure tanılama yapılandırma dosyası göz Uzak Masaüstü [oturum yapıtlarını yol bölümü](#log-artifacts-path).
+Alternatif olarak, Uzak Masaüstü Bağlantısı makine ve günlük yapıtları yolu bölümünde açıklanan Azure tanılama yapılandırma dosyası bakın.
 
 Her iki durumda da, arama **Microsoft.Azure.Diagnostics**ve ardından **xmlCfg** veya **WadCfg** alan.
 

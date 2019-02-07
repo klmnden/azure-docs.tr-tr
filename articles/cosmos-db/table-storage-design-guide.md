@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913606"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820972"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure depolama Tablo Tasarımı Kılavuzu: Tasarlama ölçeklenebilir ve performansa yönelik tablolar
 
@@ -205,9 +205,9 @@ Aşağıdaki örneklerde, tablo hizmeti aşağıdaki yapıya sahip çalışan va
 | **FirstName** |Dize |
 | **Soyadı** |Dize |
 | **Geçerlilik süresi** |Tamsayı |
-| **EmailAddress** |Dize |
+| **EmailAddress** |String |
 
-Önceki bölümde [Azure tablo hizmeti genel bakış](#overview) Azure tablo hizmeti için sorgu tasarlama üzerinde doğrudan bir etkisi olan anahtar özelliklerinden bazılarını açıklar. Bunlar, tablo hizmeti sorguları tasarlamaya yönelik aşağıdaki genel yönergeleri sonuçlanır. Aşağıdaki örneklerde kullanılan filtre söz dizimi hakkında daha fazla bilgi için REST API, tablo hizmetinden olup [varlıkları sorgulayın](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Önceki bölümde Azure tablo hizmeti genel bakış için sorgu tasarlama, doğrudan bir etkisi yoktur anahtar Azure tablo hizmeti özelliklerinin bazılarını açıklar. Bunlar, tablo hizmeti sorguları tasarlamaya yönelik aşağıdaki genel yönergeleri sonuçlanır. Aşağıdaki örneklerde kullanılan filtre söz dizimi hakkında daha fazla bilgi için REST API, tablo hizmetinden olup [varlıkları sorgulayın](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * A ***noktası sorgusu*** kullanılacak en verimli arama ve yüksek hacimli aramaları veya en düşük gecikme gerektiren aramalar için kullanılması önerilir. Böyle bir sorguyu her ikisi de belirterek tek bir varlık verimli bir şekilde bulmak için dizinleri kullanabilirsiniz **PartitionKey** ve **RowKey** değerleri. Örneğin: $filter = (PartitionKey eq 'Satış') ve (RowKey eq '2')  
 * İkinci en iyi olan bir ***aralık sorgusu*** kullanan **PartitionKey** ve bir dizi filtreleri **RowKey** birden fazla varlık döndürülecek değer. **PartitionKey** değer belirli bir bölüm tanımlar ve **RowKey** değerleri bu bölümdeki varlıkları kümesini belirleyin. Örneğin: $filter PartitionKey eq 'Satışları'değerine ve RowKey ge'nin' ve RowKey lt 'T ='  
@@ -1294,7 +1294,7 @@ Her varlığın hala olmalıdır **PartitionKey**, **RowKey**, ve **zaman damgas
 
 İlk seçenek, varlık eklenmesini türünü **RowKey**, farklı türden iki varlık aynı anahtar değerine sahip olabileceğiniz bir olasılık varsa yararlı olur. Ayrıca, aynı türde birlikte bölümündeki varlıkları gruplandırır.  
 
-Bu bölümde açıklanan olan tekniklerle tartışmaya özellikle ilgilendiren [kalıtım ilişkileri](#inheritance-relationships) bölümünde bu kılavuzun önceki bölümlerinde [ilişkileri modelleme](#modelling-relationships).  
+Bu bölümde açıklanan olan tekniklerle tartışmaya özellikle ilgilendiren [kalıtım ilişkileri](#inheritance-relationships) bölümünde bu kılavuzun başlarındaki ilişkileri modelleme.  
 
 > [!NOTE]
 > İstemci uygulamaların POCO nesneleri gelişmesine ve farklı sürümleri ile çalışmasını sağlamak için varlık türü değeri bir sürüm numarası dahil olmak üzere düşünmelisiniz.  

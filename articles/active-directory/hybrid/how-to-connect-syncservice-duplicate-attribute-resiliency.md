@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: b32369000e7f300beaed98d7f832a5d11659f3f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f4a9b4aba54f3968584187e108e87177c44bbc8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487083"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815805"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı
 Yinelenen öznitelik dayanıklılığı kaynaklanan uyuşmazlıkları ortadan kaldıracak Azure Active Directory özelliğidir **UserPrincipalName** ve **ProxyAddress** Microsoft'un birini çalıştırırken çakışıyor Eşitleme araçları.
@@ -81,7 +81,7 @@ Ardından farklı şekillerde hataları görüntülemek için aşağıdaki cmdle
 2. [Özellik türü tarafından](#by-property-type)
 3. [Çakışan değere göre](#by-conflicting-value)
 4. [Bir dize aramayı kullanma](#using-a-string-search)
-5. [Sıralı](#sorted)
+5. Sıralı
 6. [Sınırlı bir miktar veya tümü](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>Tümünü incele

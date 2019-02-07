@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: 6bfc12c17b38543f0c6979b5f5eeada562483bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352823"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819357"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Senaryolar ve Media Services özelliklerinin veri merkezleri arasında kullanılabilirliği
 
@@ -26,11 +26,11 @@ Microsoft Azure Media Services (AMS), çeşitli istemcilere (TV, PC ve mobil cih
 
 AMS, dünyanın dört bir yanındaki birden fazla veri merkezinde çalışmaktadır. Bu veri merkezleri, coğrafi bölgeler halinde gruplandırılarak uygulamalarınızı oluşturacağınız yeri seçme esnekliği tanır. [Bölgeler ve konumlarının listesini](https://azure.microsoft.com/regions/) gözden geçirebilirsiniz. 
 
-Bu konu başlığı altında, içeriğinizin [canlı](#live_scenarios) veya [isteğe bağlı](#vod_scenarios) teslimiyle ilgili yaygın senaryolar gösterilmektedir. Bu konu başlığında, medya özellikleri ve hizmetlerinin veri merkezleri arasında kullanılabilirliği hakkındaki ayrıntılar da sağlanır.
+Bu konuda, içeriğinizi teslim etmek için yaygın senaryolar gösterilmektedir [canlı](#live_scenarios) veya isteğe bağlı. Bu konu başlığında, medya özellikleri ve hizmetlerinin veri merkezleri arasında kullanılabilirliği hakkındaki ayrıntılar da sağlanır.
 
 ## <a name="overview"></a>Genel Bakış
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Azure Media Services’i kullanmaya başlamak için aşağıdakilerin bulunması gerekir:
 
@@ -148,7 +148,7 @@ AMS müşterileri akış uç noktalarını, medya işleme ve depolamayı kendi A
 
     **Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. **Premium** akış uç noktası olan müşteriler, varsayılan olarak bir akış birimi (SU) alır. Akış uç noktası, SU’lar eklenerek ölçeklendirilebilir. Her SU, uygulamaya ek bant genişliği kapasitesi sağlar. **Premium** akış uç noktalarını ölçeklendirme hakkında daha fazla bilgi için, [Akış uç noktalarını ölçeklendirme](media-services-portal-scale-streaming-endpoints.md) konusuna bakın.
 
-* Media Services hesabı bir Ayrılmış Birim Türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: **S1**, **S2** veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır.
+* Media Services hesabı bir Ayrılmış Birim Türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden seçebilirsiniz: **S1**, **S2**, veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır.
 
     Ayrılmış birim türünü belirtmenin yanı sıra, hesabınızın **Ayrılmış Birimler** (RU) ile sağlanmasını da belirtebilirsiniz. Sağlanan RU sayısı, verili bir hesapta eşzamanlı olarak işlenebilecek medya görevlerinin sayısını belirler.
 
@@ -174,7 +174,7 @@ Media Services müşterileri **Standart** akış uç noktası veya **Premium** a
 
 #### <a name="availability"></a>Kullanılabilirlik
 
-|Adı|Durum|Veri merkezleri
+|Ad|Durum|Veri merkezleri
 |---|---|---|
 |Standart|GA|Tümü|
 |Premium|GA|Tümü|
@@ -183,7 +183,7 @@ Media Services müşterileri **Standart** akış uç noktası veya **Premium** a
 
 #### <a name="availability"></a>Kullanılabilirlik
 
-Şu bölgeler hariç tüm veri merkezlerinde kullanılabilir: Almanya, Brezilya Güney, Hindistan Batı, Hindistan Güney ve Hindistan Orta. 
+Tüm veri merkezlerinde kullanılabilir: Almanya, Brezilya Güney, Hindistan Batı, Hindistan Güney ve Hindistan orta. 
 
 ### <a name="encoding-media-processors"></a>Kodlama medya işleyicileri
 
@@ -240,7 +240,7 @@ Tüm veri merkezlerinde kullanılabilir.
 
 ### <a name="reserved-unit-ru-type"></a>Ayrılmış birim (RU) türü
 
-Media Services hesabı bir Ayrılmış birim türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: S1, S2 ve S3.
+Media Services hesabı bir Ayrılmış birim türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden seçebilirsiniz: S1, S2 veya S3.
 
 Daha fazla bilgi için [ölçeklendirme](#scaling) bölümüne bakın.
 

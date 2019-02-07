@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 12/21/2018
-ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c60ba4f4106ddd0c3fc643288894fb55d3d27f8c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240353"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816467"
 ---
 # <a name="asdk-release-notes"></a>ASDK sürüm notları 
  
@@ -60,7 +60,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 - AD FS kullanılırken bir kullanıcı grubuna RBAC ilkelerini uygulama önleyen bir sorun düzeltildi.
 
 <!--3463840 - IS, ASDK --> 
-- Altyapı yedeklemeleri erişilemez dosya sunucusundan genel VIP ağları nedeniyle başarısız olan ilgili sorun düzeltildi. Bu düzeltmenin hizmet altyapı yedekleme genel altyapı ağına geri taşınır. En son uyguladıysanız [1809 için Azure Stack düzeltme](#azure-stack-hotfixes) , bu sorunu giderir, 1811 güncelleştirme herhangi bir değişiklik yapmaz. 
+- Altyapı yedeklemeleri erişilemez dosya sunucusundan genel VIP ağları nedeniyle başarısız olan ilgili sorun düzeltildi. Bu düzeltmenin hizmet altyapı yedekleme genel altyapı ağına geri taşınır. Bu sorunu ele en son Azure Stack için düzeltme 1809 uyguladıysanız 1811 güncelleştirme herhangi bir değişiklik yapmaz. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Azure Stack yönetici veya kullanıcı portalı oturum açmak için kullandığınız hesabı görüntülendiği olarak bir sorun düzeltildi **tanımlanmayan kullanıcı**. Hesap ya da sahip olduğunda bu ileti görüntülendi bir *ilk* veya *son* adı belirtilmedi.   
