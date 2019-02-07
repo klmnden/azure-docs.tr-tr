@@ -19,11 +19,13 @@ items:
   items:
   - name: 1 - B2C kiracısı oluşturma
     href: tutorial-create-tenant.md
-  - name: 2 - Uygulamaları kaydetme
+  - name: 2 - Uygulamayı kaydetme
     href: tutorial-register-applications.md
   - name: 3 - Kullanıcı akışları oluşturma
     href: tutorial-create-user-flows.md
-  - name: 4 - Kullanıcı arabirimini özelleştirme
+  - name: Kimlik sağlayıcıları ekleme
+    href: tutorial-add-identity-providers.md
+  - name: Kullanıcı arabirimini özelleştirme
     href: tutorial-customize-ui.md
   - name: Hesaplarda kimlik doğrulaması yapma
     items:
@@ -75,7 +77,11 @@ items:
   items:
   - name: Denetim günlüklerine erişme
     href: active-directory-b2c-reference-audit-logs.md
-  - name: Yaş sınırı
+  - name: Web API'si uygulaması ekleme
+    href: add-web-application.md
+  - name: Yerel istemci uygulaması ekleme
+    href: add-native-application.md
+  - name: Yaş sınırını yapılandırma
     href: basic-age-gating.md
   - name: Belirteçleri yapılandırma
     href: active-directory-b2c-token-session-sso.md
@@ -318,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: c7f7036e52c5c9d0f9d7c51a882474028ba63aef
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8aa1d5bf118330f6f04cfd35a59f2b60ce6e1ee8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240854"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751795"

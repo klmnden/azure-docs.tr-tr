@@ -7,6 +7,8 @@ items:
     href: terraform-overview.md
 - name: Hızlı Başlangıçlar
   items:
+  - name: Çok hizmetli bir uygulama oluşturma
+    href: terrafom-quickstart.md
   - name: Terraform’u yükleme ve yapılandırma
     href: /azure/virtual-machines/linux/terraform-install-configure
     maintainContext: true
@@ -70,9 +72,9 @@ items:
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Azure Yol Haritası
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 5ca3121f8bdb63a49aa99ba9ed8ab2ad8bfbfefd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 352b6bcf9bbce9e38ba2b048d1b8997896870f24
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462522"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750248"

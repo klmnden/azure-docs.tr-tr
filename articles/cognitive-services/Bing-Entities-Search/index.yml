@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f1db6f04a7e7bf32f861fd2eaf193e3cd25d9e12
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23c5ccd33e63f2cdc9a62925078c3d70d92e9165
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167861"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55748990"
 documentType: LandingData
 title: Bing Varlık Arama Belgeleri
 metadata:
-  title: Bing Varlık Araması Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
+  title: Bing Varlık Arama API'si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
   description: Kişiler, yerler veya tanımlanan diğer konularla ilgili bilgiler edinmek için Bing Varlık Arama API’si nasıl kullanılır? Öğreticilerde bu hizmeti kullanan uygulamaların nasıl derleneceği açıklanmaktadır.
   services: cognitive-services
   author: mikedodaro
@@ -18,11 +18,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/07/2018
+  ms.date: 02/01/2019
   ms.author: v-gedod
 abstract:
-  description: Bing Varlık Arama API’si Bing’in bir kullanıcı sorgusuyla ilgili olduğunu belirttiği varlıklarla ilgili bilgiler döndürür.
+  description: Bing Varlık Arama API'si uygulamalarınızın arama sorgularında algılanan varlıklar hakkında bilgi almasını sağlar. Bunlar kişiler, yerler ve medya başlıkları gibi varlıklar olabilir.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-entities-search/overview
+      html: <p>Bing Varlık Arama API'si hakkında bilgi edinin</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Varlıkları arama
+    - href: /azure/cognitive-services/bing-entities-search/concepts/search-for-entities
+      html: <p>Bing Varlık Arama API'siyle varlıklar için nasıl arama yapabileceğinizi öğrenin.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Arama isteği gönderme
+    - href: /azure/cognitive-services/bing-custom-search/hosted-ui
+      html: <p>API'ye arama isteği göndermeyi öğrenin.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Arama sorguları gönderme
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
@@ -32,15 +53,15 @@ sections:
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: quickstarts/csharp
+      href: quickstarts/entity-sdk-csharp-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: quickstarts/java
+      href: quickstarts/entity-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: quickstarts/nodejs
+      href: quickstarts/entity-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -48,7 +69,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: quickstarts/python
+      href: quickstarts/entity-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
@@ -59,7 +80,7 @@ sections:
   - type: paragraph
     text: 'Bing Varlık Arama API’sini kullanarak uygulama geliştirmeyi öğrenin:'
   - type: paragraph
-    text: <a href="tutorial-bing-entities-search-single-page-app">Tek sayfalı web uygulaması</a> &#124; <a href="tutorial-bing-entities-search-single-page-app-source">Kaynak kodu</a>
+    text: <a href="tutorial-bing-entities-search-single-page-app">Tek sayfalı web uygulaması</a>
 - title: Örnekler
   items:
   - type: paragraph

@@ -29,39 +29,37 @@ items:
     href: cli-samples.md
 - name: Kavramlar
   items:
-  - name: v2'den v3'e geçiş
-    href: migrate-from-v2-to-v3.md
-  - name: Varlıklar
-    href: entities-overview.md
+  - name: Alma
     items:
-    - name: Hesap Filtreleri ve Varlık Filtreleri
-      href: filters-dynamic-manifest-overview.md
     - name: Varlıklar
       href: assets-concept.md
-    - name: İçerik Anahtar İlkeleri
-      href: content-key-policy-concept.md
-    - name: Canlı Etkinlikler ve Canlı Çıkışlar
-      href: live-events-outputs-concept.md
+  - name: Kodlama
+    href: encoding-concept.md
+    items:
+    - name: Dönüşümler ve İşler
+      href: transforms-jobs-concept.md
+    - name: Media Encoder Standard biçimleri
+      href: media-encoder-standard-formats.md
+    - name: Autogen uyarlamalı bit hızı merdiveni
+      href: autogen-bitrate-ladder.md
+  - name: Çözümleme
+    href: analyzing-video-audio-files-concept.md
+    items:
+    - name: Dönüşümler ve İşler
+      href: transforms-jobs-concept.md
+  - name: Akış
+    items:
     - name: Akış Uç Noktaları
       href: streaming-endpoint-concept.md
     - name: Akış Bulucuları
       href: streaming-locators-concept.md
     - name: Akış İlkeleri
       href: streaming-policy-concept.md
-    - name: Dönüşümler ve İşler
-      href: transforms-jobs-concept.md
-  - name: İçerik kodlama
-    href: encoding-concept.md
-    items:
-    - name: Media Encoder Standard biçimleri
-      href: media-encoder-standard-formats.md
-    - name: Autogen uyarlamalı bit hızı merdiveni
-      href: autogen-bitrate-ladder.md
-  - name: İçerik çözümleme
-    href: analyzing-video-audio-files-concept.md
-  - name: Canlı olay akışı
+  - name: Canlı akış
     href: live-streaming-overview.md
     items:
+    - name: Canlı Etkinlikler ve Canlı Çıkışlar
+      href: live-events-outputs-concept.md
     - name: Önerilen gerçek zamanlı kodlayıcılar
       href: recommended-on-premises-live-encoders.md
     - name: Bulut DVR kullanma
@@ -72,13 +70,23 @@ items:
       href: live-event-states-billing.md
     - name: Gecikme süresi
       href: live-event-latency.md
+  - name: Teslim etme
+    items:
+    - name: Filtreler ve dinamik bildirim
+      href: filters-dynamic-manifest-overview.md
   - name: İzleme
     items:
     - name: Event Grid
       href: reacting-to-media-services-events.md
-  - name: İçerik koruma
+  - name: Koruma
     href: content-protection-overview.md
     items:
+    - name: İçerik Anahtar İlkeleri
+      href: content-key-policy-concept.md
+    - name: Akış İlkeleri
+      href: streaming-policy-concept.md
+    - name: Akış Bulucuları
+      href: streaming-locators-concept.md
     - name: Erişim denetimiyle çoklu DRM sistemi
       href: design-multi-drm-system-with-access-control.md
   - name: Kayıttan yürütme
@@ -89,6 +97,10 @@ items:
       href: limits-quotas-constraints.md
     - name: Depolama hesapları
       href: storage-account-concept.md
+  - name: Filtre, düzen, sayfa varlıkları
+    href: entities-overview.md
+  - name: v2'den v3'e geçiş
+    href: migrate-from-v2-to-v3.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: başlarken
@@ -179,8 +191,6 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Fiyatlandırma
     href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: Bölgesel kullanılabilirlik
-    href: https://azure.microsoft.com/regions/services/
   - name: Videolar
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
   - name: OpenAPI Belirtimi (Swagger)
@@ -199,15 +209,17 @@ items:
       href: https://aka.ms/ams-v3-nodejs-sdk
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
+  - name: AMSE
+    href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Sürüm notları
     href: release-notes.md
   - name: SSS
     href: frequently-asked-questions.md
   - name: Azure bulutları ve bölgeleri
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0e748b32092ec9e27888c9fac039c27e6411b34a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e92d8c5a5d6ccf11205608a9e887b6636a584786
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693876"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819935"
