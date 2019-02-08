@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing otomatik öneri API'si hakkında sık sorulan soruların yanıtlarını alın.
 services: cognitive-services
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: b0ec10bbf03e8a8d005eece4b6496b74b2943233
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cc14ceafaf0d9dd913cdef3864b0391f05d721e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173267"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882259"
 ---
 # <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>Sorulan sorular (SSS) hakkında Bing otomatik öneri API'si
  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: ff717b6cec36f7932f2e4e57dfef9ced0ea902d4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619920"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893065"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Güvenlik Playbook'u (Önizleme)
 Bu belge, Azure Güvenlik Merkezi'ndeki güvenlik playbook'larını kullanarak güvenlikle ilgili sorunlara yanıt vermenize yardımcı olur.
@@ -93,7 +93,7 @@ Bu iş akışında her bir görevin yürütülmesi için geçen süreyi görebil
 Var olan playbook'ları Güvenlik Merkezi'nde değiştirerek eylem veya koşul ekleyebilirsiniz. Bunu yapmak için tek yapmanız gereken Playbook'lar sekmesinde değiştirmek istediğiniz playbook'un adına tıklayarak Mantıksal Uygulama Tasarımcısı'nda açılmasını sağlamaktır.
 
 > [!NOTE]
-> Azure Logic App kullanarak kendi playbook'unuzu oluşturma hakkında daha fazla bilgi için bkz. [Bulut uygulamaları ile bulut hizmetleri arasında süreçleri otomatik hale getirmek için ilk mantıksal uygulama iş akışınızı oluşturma](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger).
+> Azure Logic App kullanarak kendi playbook'unuzu oluşturma hakkında daha fazla bilgi için bkz. [Bulut uygulamaları ile bulut hizmetleri arasında süreçleri otomatik hale getirmek için ilk mantıksal uygulama iş akışınızı oluşturma](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app).
 
 
 ## <a name="see-also"></a>Ayrıca bkz.

@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4bdebe415bcd86867bebeb7f03dc6dafa8480169
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3f37b996caa60a54c18388cb1f65873bf0aa4ed9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259793"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877703"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Azure Data Lake depolama Gen1 ve Azure Blob Depolama ile karşılaştırma
-  >[!NOTE] 
-    >[Azure Data Lake depolama Gen2 önizlemesi](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) kısa süre önce duyurduk. Data Lake depolama Gen2 önizlemesi olan iki var olan depolama hizmetlerimizi, Azure Blob Depolama yeteneklerini yakınsamaya sonucunu ve [Azure Data Lake depolama Gen1](https://docs.microsoft.com/azure/data-lake-store/index). Azure Data Lake depolama Gen1 özellikleri gibi dosya sistemi sematiğini dosya düzeyinde güvenlik ve ölçek ile düşük maliyetli, katmanlı depolama, yüksek kullanılabilirlik/olağanüstü durum kurtarma özelliklerini birleştirilir [Azure Blob Depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> Data Lake depolama Gen2 önizlemesi, kurumsal veri gölleri oluşturmak için temel olarak kullanmaya başlayın ve Azure Data Lake depolama Gen1 yanı sıra, Azure Blob Depolama en iyi şekilde öneririz.
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)] 
 
 Bu makalede tabloda büyük veri işleme önemli bazı yönlerini boyunca Azure Data Lake depolama Gen1 ve Azure Blob Depolama alanı arasındaki farklar özetlenmektedir. Azure Blob Depolama, genel amaç, çeşitli depolama senaryoları için tasarlanan ölçeklenebilir nesne deposu. Azure Data Lake depolama Gen1 büyük veri analizi iş yükleri için en iyi duruma getirilmiş hiper ölçekli bir depodur.
-
-
-
-
 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Depolama |
 | --- | --- | --- |

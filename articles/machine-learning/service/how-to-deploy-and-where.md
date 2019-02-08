@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c83342e5eb0e6c1f45daa54ea3c4f3c602ff7a39
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766631"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878621"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -463,7 +463,7 @@ Web hizmeti bir REST API olduğundan, çeşitli programlama dillerini istemci uy
 
 ## <a id="update"></a> Web hizmetini güncelleştirmek
 
-Yeni bir görüntü oluşturduğunuzda, el ile yeni görüntüyü kullanmak istediğiniz her hizmet güncelleştirmeniz gerekir gerekir. Web hizmetini güncelleştirmek için `update` yöntemi. Aşağıdaki kod, yeni görüntüyü kullanarak web hizmetini güncelleştirmek gösterilmektedir:
+Yeni bir görüntü oluşturduğunuzda, yeni görüntüyü kullanmak istediğiniz her hizmeti el ile güncelleştirmeniz gerekir. Web hizmetini güncelleştirmek için `update` yöntemi. Aşağıdaki kod, yeni görüntüyü kullanarak web hizmetini güncelleştirmek gösterilmektedir:
 
 ```python
 from azureml.core.webservice import Webservice
