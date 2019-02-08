@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 437ab5fe8eec2a7c097805f3328df4dd9a2398c6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752254"
+ms.locfileid: "55769961"
 documentType: LandingData
 title: Azure SQL Veritabanı Belgeleri
 metadata:
@@ -68,7 +68,7 @@ sections:
       html: <p>Şirket içi veritabanlarınızı, tam olarak yönetilen Azure PaaS veritabanı hizmeti üzerinde veritabanında neredeyse hiç kod değişikliği gerekmeden kolayca geçirmek için Yönetilen Örnek kullanın.</p>
       image:
         src: media/index/i_mi.svg
-      title: Yönetilen Örnek
+      title: Yönetilen örnek
     - href: /azure/sql-database/sql-database-paas
       html: <p>Yerleşik yüksek kullanılabilirlik, otomatik yedeklemeler ve coğrafi çoğaltma özellikleri, bakım işlemlerinin ve altyapı veya donanım hatalarının işletmenizi durdurmasını önler.</p>
       image:
@@ -110,18 +110,18 @@ sections:
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
-    - title: Yönetilen örnek oluşturma
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Elastik havuz oluşturma
       values:
       - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
+    - title: Yönetilen örnek oluşturma
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
@@ -129,11 +129,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Hızlı başlangıç kılavuzlarımızı kullanarak <a href="/azure/sql-database/sql-database-quickstart-guide">Tek veritabanı</a> ve <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">Yönetilen Örnek</a> ile çalışmaya başlayın.
+    - html: Hızlı başlangıç kılavuzlarımızı kullanarak <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">tek bir veritabanı</a> ve bir <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">yönetilen örnek</a> ile çalışmaya başlayın.
     - html: <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> veya <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a> kullanarak yeni tek veritabanı için şema oluşturma ve tasarlama
-    - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Veritabanı Geçiş Yardımcısı</a> veya <a href="/azure/sql-database/sql-database-import">BACPAC İçeri Aktarma</a>’yı kullanarak mevcut bir veritabanını Azure’a aktarma
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Yerel SQL Server yedekleme dosyası</a> veya <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Veritabanı Geçiş Yardımcısı</a>'nı kullanarak ya da <a href="/azure/sql-database/sql-database-import">BACPAC dosyasını içeri aktararak</a> mevcut veritabanını Azure'a geçirme
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">SQL Veritabanınızın güvenliğini sağlama</a>
-    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Coğrafi olarak dağıtılmış veritabanı</a>’nı kullanarak verilerinizi global olarak dağıtma
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Coğrafi olarak dağıtılmış bir veritabanı</a> kullanarak verilerinizi global ölçekte dağıtma
 - title: Microsoft Learn ile becerilerinizi geliştirin
   items:
   - type: list

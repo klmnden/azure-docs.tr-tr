@@ -191,6 +191,8 @@ items:
       href: sql-database-automated-backups.md
     - name: Uzun süreli yedek saklama
       href: sql-database-long-term-retention.md
+    - name: Planlı bakım olayları
+      href: sql-database-planned-maintenance.md
     - name: Yük devretme grupları ve coğrafi çoğaltma
       items:
       - name: Etkin coğrafi çoğaltma
@@ -295,8 +297,6 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Elastik işlemler
       href: sql-database-elastic-transactions-overview.md
-  - name: SQL özellik karşılaştırması
-    href: sql-database-features.md
   - name: İzleme ve ayarlama
     items:
     - name: İzleme ve ayarlamaya genel bakış
@@ -321,24 +321,28 @@ items:
         href: sql-database-performance.md
       - name: Veritabanı danışmanı performans önerileri
         href: sql-database-advisor.md
-  - name: Verileri yükleme ve taşıma
-    items:
-    - name: SQL Data Sync
-      href: sql-database-sync-data.md
-    - name: İşlem çoğaltması
-      href: sql-database-managed-instance-transactional-replication.md
   - name: Veritabanlarının özellikleri
     items:
-    - name: Veritabanlarının özellikleri
-      href: sql-database-develop-overview.md
+    - name: SQL özellik karşılaştırması
+      href: sql-database-features.md
     - name: Çok modelli özellikler
       href: sql-database-multi-model-features.md
     - name: Bellek içi
       href: sql-database-in-memory.md
+    - name: İşlem çoğaltması
+      href: sql-database-managed-instance-transactional-replication.md
+    - name: SQL Data Sync
+      href: sql-database-sync-data.md
     - name: Zamana bağlı tablolar
       href: sql-database-temporal-tables.md
     - name: İş otomasyonu
       href: sql-database-job-automation-overview.md
+    - name: Makine öğrenimi
+      items:
+      - name: Makine öğrenmesine genel bakış
+        href: sql-database-machine-learning-services-overview.md
+      - name: Temel farklılıklar
+        href: sql-database-machine-learning-services-differences.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Genel Bakış
@@ -523,8 +527,8 @@ items:
       href: sql-database-manage-automation.md
   - name: Uygulama geliştirme
     items:
-    - name: Bağlantı
-      href: sql-database-libraries.md
+    - name: Genel Bakış
+      href: sql-database-develop-overview.md
     - name: JSON verileriyle çalışma
       href: sql-database-json-features.md
     - name: Spark Bağlayıcısı kullanma
@@ -712,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastik işin yüklemesini kaldırma (kullanım dışı)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9a04e463a7324b1021594a8fbefc5988ad8471f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1b32688e6e9ed6b826dd9191c8d58e85b1b2b128
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756742"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813693"
