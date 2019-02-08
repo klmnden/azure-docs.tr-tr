@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968741"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246492"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Geri dönülemez veri kaybından kurtarma
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri.*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri.*
 
 Azure Stack, veri merkezinizde Azure hizmetleri çalıştırır. Azure Stack, tek bir rafa yüklü dört düğüm kadar küçük ortamlarda çalıştırabilirsiniz. Buna karşılık, Azure birden çok veri merkezinde ve her bölgede birden fazla bölge 40'tan fazla bölgede çalışır. Kullanıcı kaynaklarını birden çok sunucuları, raflar, veri merkezleri ve bölgeleri yayılabilir. Azure Stack ile şu anda yalnızca tüm bulut için tek bir rafa dağıtmayı seçebilirsiniz. Bu bulut için veri merkezi veya önemli ürün hataları nedeniyle hataları yıkıcı olaylara riskini ortaya çıkarır. Bir olağanüstü durumla karşılaştığınızda, Azure Stack örneği çevrimdışı olur. Tüm veriler büyük olasılıkla kurtarılamaz.
 
