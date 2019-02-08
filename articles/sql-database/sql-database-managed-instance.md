@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: c0067dc96837d758e4c2551bcb29faf63c1a7715
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751557"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895050"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Gelişmiş veri güvenliği, sanal ağlarla ve neredeyse % 100 uyumluluk SQL veritabanını kullan
 
@@ -93,8 +93,8 @@ Her iki hizmet katmanları, % 99,99 oranında kullanılabilirlik garantisi ve ba
 Aşağıdaki listede, genel amaçlı hizmet katmanının önemli bir özelliği açıklanmaktadır:
 
 - Çoğu tipik performans gereksinimlerine sahip iş kolu uygulamaları için Tasarım
-- Yüksek performanslı Azure Premium depolama (8 TB)
-- Yerleşik [yüksek kullanılabilirlik](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) güvenilir Azure Premium depolama tabanlı ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Yüksek performanslı Azure Blob Depolama (8 TB)
+- Yerleşik [yüksek kullanılabilirlik](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) güvenilir Azure Blob depolama alanına dayalı olarak ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
 Daha fazla bilgi için [depolama katmanı genel amaçlı katmanında](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) ve [depolama performansı en iyi yöntemler ve dikkat edilecek noktalar için yönetilen örnek (genel amaçlı)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -107,7 +107,7 @@ Hizmet katmanlarında arasındaki fark hakkında daha fazla bilgi [yönetilen ö
 Aşağıdaki listede, iş açısından kritik hizmet katmanının anahtar özellikleri özetlenmektedir:
 
 - En yüksek performans ve yüksek kullanılabilirlik gereksinimleri olan iş uygulamaları için tasarlanmış
-- Süper hızlı SSD depolama ile birlikte gelir (1 TB'a kadar 5. nesil Gen 4 ve 4 TB)
+- Süper hızlı yerel SSD depolama ile birlikte gelir (1 TB'a kadar 5. nesil Gen 4 ve 4 TB)
 - Yerleşik [yüksek kullanılabilirlik](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) göre [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Yerleşik ek [salt okunur veritabanı çoğaltmasını](sql-database-read-scale-out.md) kullanılabilecek raporlama ve diğer salt okunur iş yükleri için
 - [Bellek içi OLTP](sql-database-in-memory.md) yüksek performans gereksinimlerine sahip iş yükü için kullanılabilir  
@@ -179,7 +179,7 @@ Yönetilen örnek dağıtım seçeneği hedefleri kullanıcı senaryoları yığ
 
 ### <a name="back-up-and-restore"></a>Yedekleme ve geri yükleme  
 
-Azure blob depolama için yedeklemeleri SQL geçiş yaklaşımı yararlanır. Azure depolama blobu'nda depolanan yedeklemeler doğrudan geri yükleyebilirsiniz kullanarak bir yönetilen örnek [T-SQL RESTORE komutunu](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+Azure Blob Depolama için yedeklemeleri SQL geçiş yaklaşımı yararlanır. Azure depolama blobu'nda depolanan yedeklemeler doğrudan geri yükleyebilirsiniz kullanarak bir yönetilen örnek [T-SQL RESTORE komutunu](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
 - Wide World Importers - standart veritabanı yedek dosyasını geri yükleme işlemini gösteren Hızlı Başlangıç için bkz. [bir yedekleme dosyası yönetilen örneğine geri](sql-database-managed-instance-get-started-restore.md). Bu hızlı başlangıçta, Azure Web günlüğü depolama ve güvenli bir paylaşılan erişim imzası (SAS) anahtarı kullanarak bir yedekleme dosyası karşıya yüklemeniz gösterilmektedir.
 - URL'den geri yükleme hakkında daha fazla bilgi için bkz. [yerel geri URL'den](sql-database-managed-instance-migrate.md#native-restore-from-url).

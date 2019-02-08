@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake depolama Gen2 DistCp kullanma önizlemesi veri kopyalama | Microsoft Docs
-description: Data Lake depolama Gen2 önizlemesi ve veri kopyalamak için DistCp aracını kullanın
+title: Azure Data Lake depolama Gen2 DistCp kullanarak verileri kopyalama | Microsoft Docs
+description: Data Lake depolama Gen2'ye ve veri kopyalamak için DistCp aracını kullanın
 services: storage
 author: seguler
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8328ea5afb66bbecdafbb06dcbf6700194d62f9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244156"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864069"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>Azure depolama BLOB'ları ile Azure Data Lake depolama Gen2 önizlemesi arasında veri kopyalamak için DistCp kullanma
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Azure depolama BLOB'ları ile Azure Data Lake depolama Gen2 arasında veri kopyalamak için DistCp kullanma
 
 Kullanabileceğiniz [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) etkin hiyerarşik ad alanı ile bir genel amaçlı V2 depolama hesabı ve genel amaçlı V2 depolama hesabı arasında veri kopyalamak için. Bu makalede, yönergeler DistCp aracını sağlar.
 
@@ -24,8 +24,8 @@ Komut satırı parametreleri çeşitli DistCp sağlar ve uygulamanızın kullan�
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Data Lake depolama Gen2 Önizleme özellikleri (hiyerarşik ad alanı) etkin olmayan mevcut bir Azure depolama hesabı**.
-* **Data Lake depolama Gen2 ile'bir Azure depolama hesabı (Önizleme) özelliği etkinleştirilmiş**. Bir oluşturma hakkında yönergeler için bkz: [bir Azure Data Lake depolama Gen2 önizlemesi depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
+* **Data Lake depolama Gen2 özellikleri (hiyerarşik ad alanı) etkin olmayan mevcut bir Azure depolama hesabı**.
+* **Data Lake depolama Gen2 özelliği etkin bir Azure depolama hesabıyla**. Bir oluşturma hakkında yönergeler için bkz: [bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
 * **Bir dosya sistemi** , oluşturuldu depolama hesabında etkin hiyerarşik ad alanı.
 * **Azure HDInsight kümesinde** Data Lake depolama Gen2'ye etkin olan bir depolama hesabına erişim. Bkz: [kullanımı Azure Data Lake depolama Gen2 Azure HDInsight ile kümeleri](data-lake-storage-use-hdi-cluster.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
 

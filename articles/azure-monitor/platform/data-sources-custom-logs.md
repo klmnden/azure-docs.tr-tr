@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 628cbcbfb712d2fcaa53bdaee262f88a78dd1527
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198789"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895678"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log analytics'te özel günlükler
 Log analytics'te özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek. Toplandığında, verileri ayrı ayrı alanlara sorgularınızdaki ayrıştırmak veya sırasında ayrı alanlar koleksiyonuna olan verileri ayıklayın.
@@ -29,7 +29,7 @@ Günlük dosyaları toplanacak, aşağıdaki ölçütlere uymalıdır.
 
 - Günlük her satırda tek bir giriş olan veya bir zaman damgası eşleşen her giriş başlangıcına aşağıdaki biçimlerden birini kullanın.
 
-    YYYY-AA-GG SS: DD:<br>D.M.YYYY HH: MM: SS AM/PM<br>Ay gg, YYYY SS: dd:<br />YYAAGG ss: dd:<br />ddMMyy ss: dd:<br />MMM d ss: dd:<br />dd/MMM/yyyy:HH:mm:ss zzz<br />yyyy-aa-ddTHH:mm:ssK
+    YYYY-AA-GG SS: DD:<br>D.M.YYYY HH: MM: SS AM/PM<br>Ay gg, YYYY SS: dd:<br />yyMMdd HH:mm:ss<br />ddMMyy HH:mm:ss<br />MMM d ss: dd:<br />dd/MMM/yyyy:HH:mm:ss zzz<br />yyyy-aa-ddTHH:mm:ssK
 
 - Günlük dosyası döngüsel günlüğü ya da günlük döndürme, dosyanın yeni girişlerle burada üzerine izin vermemesi gerekir.
 - Günlük dosyası, ASCII veya UTF-8 kodlamasını kullanmanız gerekir.  UTF-16 gibi diğer biçimlerde desteklenmez.
@@ -40,6 +40,10 @@ Günlük dosyaları toplanacak, aşağıdaki ölçütlere uymalıdır.
   
 >[!NOTE]
 > Her gün veya belirli bir boyuta ulaştığında, uygulamanızın yeni bir günlük dosyası oluşturur, yeniden başlatıldıktan sonra Linux için Log Analytics aracısını kadar bunları bulmaz. Aracı yalnızca numaralandırır ve başlatılması sırasında belirtilen günlükleri desenler için izlemeye başlar ve bu nedenle yeniden başlatma aracı işlemi otomatik hale getirerek etrafında planlamanız gerekir çünkü budur.  Bu sınırlama Windows için Log Analytics aracısı yok.  
+>
+
+>[!NOTE]
+> Log Analytics çalışma alanı en fazla 500 özel günlükleri oluşturulabilir. 
 >
 
 ## <a name="defining-a-custom-log"></a>Özel günlük tanımlama

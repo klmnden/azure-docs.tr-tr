@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: faebf6c5e7b32ec842c19af07e36a1120156e103
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732592"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894131"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -38,7 +38,7 @@ Bu özellik, Azure AD'de "kendi uygulamanızı getir" özelliği ile birlikte ku
 
 Azure Active Directory'de SCIM'yi kullanma için iki kullanım örnekleri vardır:
 
-* **Kullanıcılar ve gruplar SCIM'yi destekleyen uygulamalar için sağlama** -2.0 SCIM'yi destekleyen ve bir yapılandırma olmadan Azure AD ile kimlik doğrulaması çalıştığı için OAuth taşıyıcı belirteçlerini kullanmak uygulamalar.
+* **Kullanıcılar ve gruplar SCIM'yi destekleyen uygulamalar için sağlama** -2.0 SCIM'yi destekleyen ve kimlik doğrulaması için OAuth taşıyıcı belirteçlerini kullanmak uygulamaların çalıştığı yapılandırma olmadan Azure AD ile.
   
 * **Uygulamalar için kendi sağlama çözümü oluşturma desteği diğer API tabanlı sağlama** -SCIM olmayan uygulamalar için Azure AD SCIM uç nokta ve uygulamanın desteklediği için herhangi bir API'yi arasında çeviri yapmak için bir SCIM uç noktası oluşturabilirsiniz. Kullanıcı sağlama. SCIM uç nokta geliştirmenize yardımcı olmak için ortak dil altyapısı (CLI) kitaplıkları birlikte SCIM uç noktası sağlayın ve SCIM iletileri çevirme işlemini gösteren kod örnekleri vardır.  
 
@@ -74,7 +74,7 @@ Bu makalede açıklanan SCIM profilini destekleyen uygulamalar, Azure Active Dir
    *Şekil 3: Azure portalında sağlama yapılandırma*
     
 6. İçinde **Kiracı URL'si** uygulamanın SCIM uç nokta URL'sini girin. Örnek: https://api.contoso.com/scim/v2/
-7. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. Bu alan boş bırakılırsa, Azure AD OAuth taşıyıcı belirteci her isteği ile Azure AD tarafından verilen dahil. Azure AD kimlik sağlayıcısı bu Azure AD'ye doğrulayabilirsiniz olarak kullanan uygulamalar-belirteç.
+7. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. Bu alan boş bırakılırsa, Azure AD her isteği ile Azure AD tarafından verilen bir OAuth taşıyıcı belirtecini içerir. Kimlik sağlayıcısı olarak Azure AD'yi kullanan uygulamalar, bu Azure AD tarafından verilen belirteci doğrulayabilirsiniz.
 8. Tıklayın **Test Bağlantısı** düğmesine sahip Azure Active Directory SCIM uç noktaya bağlanmayı deneyin. Denemesi başarısız olursa hata bilgileri görüntülenir.  
 
     >[!NOTE]
@@ -86,7 +86,7 @@ Bu makalede açıklanan SCIM profilini destekleyen uygulamalar, Azure Active Dir
     >[!NOTE]
     >İsteğe bağlı olarak, "eşleme grupları" devre dışı bırakarak Grup nesnelerini eşitlemeyi devre dışı bırakın. 
 
-11. Altında **ayarları**, **kapsam** alanı grupları ve hangi kullanıcıların eşitleneceğini tanımlar. "Eşitleme yalnızca atanan kullanıcı ve grupları (önerilen)" seçerek kullanıcıları yalnızca eşitlendiğini ve atanan gruplar **kullanıcılar ve gruplar** sekmesi.
+11. Altında **ayarları**, **kapsam** alanı, hangi kullanıcıların ve grupların eşitlenmesi tanımlar. "Eşitleme yalnızca atanan kullanıcı ve grupları (önerilen)" seçerek kullanıcıları yalnızca eşitlendiğini ve atanan gruplar **kullanıcılar ve gruplar** sekmesi.
 12. Yapılandırma tamamlandıktan sonra değiştirmek **sağlama durumu** için **üzerinde**.
 13. Tıklayın **Kaydet** Azure AD sağlama hizmeti başlatılamadı. 
 14. Eşitleme yalnızca kullanıcılar ve gruplar (önerilen) atadıysanız, seçtiğinizden emin olun **kullanıcılar ve gruplar** sekmesini ve kullanıcılara ve/veya eşitlemek istediğiniz grupları atayabilirsiniz.
@@ -153,7 +153,7 @@ Azure ad sağlama isteklerini kabul edebilen bir SCIM uç noktası uygulamak iç
    ![][2]
    *Şekil 4: Azure portalında sağlama yapılandırma*
     
-6. İçinde **Kiracı URL'si** internet açık URL ve bağlantı noktası SCIM uç noktanızı girin. Giriş aşağıdakine benzer olan http://testmachine.contoso.com:9000 veya internet olduğu < IP adresi > http://<ip-address>:9000/, kullanıma sunulan IP adresi.  
+6. İçinde **Kiracı URL'si** internet açık URL ve bağlantı noktası SCIM uç noktanızı girin. Giriş aşağıdakine benzer olan http://testmachine.contoso.com:9000 veya http://\<IP adresi >: 9000 / burada \<IP adresi > olan internet açık IP adresi.  
 7. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. Bu alan boş bırakılırsa, Azure AD her isteği ile Azure AD tarafından verilen bir OAuth taşıyıcı belirtecini içerir. Azure AD kimlik sağlayıcısı bu Azure AD'ye doğrulayabilirsiniz olarak kullanan uygulamalar-belirteç.
 8. Tıklayın **Test Bağlantısı** düğmesine sahip Azure Active Directory SCIM uç noktaya bağlanmayı deneyin. Denemesi başarısız olursa hata bilgileri görüntülenir.  
 
