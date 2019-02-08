@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 110e8c6a57cd2cdfedec808e073f04b70a55362d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f077080793ef595019667028188a2a98dcbd2c0c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465590"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895712"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Bir ağ sanal Gereci aracılığıyla trafiği yönlendirme
 
@@ -50,18 +50,18 @@ Bu betik, bir kaynak grubu, sanal ağ ve ağ güvenliği grupları oluşturmak i
 
 | Komut | Notlar |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az group create](/cli/azure/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az network vnet create](/cli/azure/network/vnet) | Bir Azure sanal ağı ve ön uç alt ağı oluşturur. |
-| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Arka uç ve DMZ alt ağları oluşturur. |
-| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Internet'ten sanal Makineye erişmek için genel bir IP adresi oluşturur. |
+| [az network subnet create](/cli/azure/network/vnet/subnet) | Arka uç ve DMZ alt ağları oluşturur. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Internet'ten sanal Makineye erişmek için genel bir IP adresi oluşturur. |
 | [az network nic create](/cli/azure/network/nic) | Bir sanal ağ arabirimi oluşturur ve bunun için IP iletimini etkinleştirir. |
-| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Ağ güvenlik grubu (NSG) oluşturur. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Sanal makineye gelen HTTP ve HTTPS bağlantı noktalarına izin veren NSG kuralları oluşturur. |
-| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| NSG’leri ve rota tablolarını alt ağlarla ilişkilendirir. |
+| [az network nsg create](/cli/azure/network/nsg) | Ağ güvenlik grubu (NSG) oluşturur. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) | Sanal makineye gelen HTTP ve HTTPS bağlantı noktalarına izin veren NSG kuralları oluşturur. |
+| [az network vnet subnet update](/cli/azure/network/vnet/subnet)| NSG’leri ve rota tablolarını alt ağlarla ilişkilendirir. |
 | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Tüm rotalar için bir rota tablosu oluşturur. |
 | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Alt ağları ve VM ile Internet arasında trafiği yönlendirmek için rotalar oluşturur. |
-| [az vm create](/cli/azure/vm#az_vm_create) | Bir sanal makine oluşturur ve ona NIC’yi ekler. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini belirtir. |
-| [az group delete](/cli/azure/group#az_group_delete) | Bir kaynak grubunu ve içerdiği tüm kaynakları siler. |
+| [az vm create](/cli/azure/vm) | Bir sanal makine oluşturur ve ona NIC’yi ekler. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini belirtir. |
+| [az group delete](/cli/azure/group) | Bir kaynak grubunu ve içerdiği tüm kaynakları siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

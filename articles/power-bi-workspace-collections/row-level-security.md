@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258859"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892244"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI Çalışma Alanı Koleksiyonları ile satır düzeyinde güvenlik
 
@@ -48,7 +48,7 @@ RLS, Power BI Desktop'ta yazılmıştır. Biz veri kümesini ve raporu açtığ�
 Bu şemada dikkat gereken bazı noktalar şunlardır:
 
 * Gibi tüm ölçüler **Total Sales**, depolanan **satış** Olgu Tablosu.
-* Dört ek ilgili boyut tablolarının vardır: **öğesi**, **zaman**, **Store**, ve **bölge**.
+* Dört ek ilgili boyut tablolarının vardır: **Öğe**, **zaman**, **Store**, ve **bölge**.
 * Filtreler bir tablodan diğerine akabilir çizgilerindeki oklar ilişki gösterir. Örneğin, bir filtre yerleştirildiği **Time [Date]**, geçerli şemada, yalnızca değerler filtreler **satış** tablo. Tüm ilişki oklar sales tablosunu işaret olduğundan başka tablo yoktur bu filtreden etkilenecek.
 * **Bölge** tablo için her bir district manager olan gösterir:
   
@@ -56,7 +56,7 @@ Bu şemada dikkat gereken bazı noktalar şunlardır:
 
 Biz bir filtre uygularsanız, bu şemaya göre **District Manager** bölge tablodaki sütun ve filtre raporu görüntüleyen kullanıcıyla eşleştiğinde, filtresini ayrıca filtreler aşağı **Store** ve  **Satış** tablolarını da yalnızca Yöneticisi belirli ilgili bölge yöneticisine ait verileri gösterecek.
 
-İşte nasıl:
+Bunu şu şekilde yapabilirsiniz:
 
 1. Modelleme sekmesinde, **Rolleri Yönet**.  
    ![Modelleme Şerit düğmesi rolleri yönetme](media/row-level-security/modeling-tab-5.png)
@@ -94,7 +94,7 @@ Bu Power BI Desktop uygulamasında yapmanız gereken tüm iş odaklı serimiz, a
 * **Kullanıcı adı** (isteğe bağlı) – RLS ile kullanılan bu RLS kurallarını uygularken kullanıcının belirlemenize yardımcı olması için kullanılan bir dizedir. Satır düzeyi güvenlik ile Power BI Embedded ' ı kullanma
 * **rolleri** – satır düzeyi güvenlik kurallarını uygularken seçilecek rolleri içeren bir dize. Birden fazla rol geçirilirse, bir dize dizisi olarak geçirilmelidir.
 
-Kullanarak belirteci oluşturma [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) yöntemi. Username özelliği varsa, en az bir değer de rollerinde geçmesi gerekir.
+Kullanarak belirteci oluşturma [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) yöntemi. Username özelliği varsa, en az bir değer de rollerinde geçmesi gerekir.
 
 Örneğin, EmbedSample değiştirebilir. DashboardController satırı 55 yazılım güncelleştirilemedi
 

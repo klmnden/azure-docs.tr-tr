@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Content Moderator'ın makine Yardımlı resim denetimi ve orta görüntüleri için İnsan-de--döngü gözden geçirme aracı yetişkinlere yönelik ve müstehcen içeriği için kullanın.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1141e5c5f55b0b0bb012e1ce66ad824f02758825
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1dba848be0c24ef26dcefd23d4fc3f7201420449
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220162"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873521"
 ---
 # <a name="learn-image-moderation-concepts"></a>Görüntü denetimi kavramları öğrenin
 

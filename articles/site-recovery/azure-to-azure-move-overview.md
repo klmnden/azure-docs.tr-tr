@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5d844692b6199d93fa835da1021c9753311e17de
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 55ab80dc0d914810ad430f59acc304620a7054d4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823432"
+ms.locfileid: "55882990"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye taşıma
 
@@ -33,7 +33,7 @@ Bu belge çeşitli senaryolar üzerinden burada Vm'lerinizi ve kılavuz mimari y
 Müşteriler, aşağıdaki nedenlerden dolayı Vm'leri Taşı:-
 
 - Zaten dağıtılmış tek bir bölge ve yeni bir bölgeye destek, uygulamanızın veya hizmetinizin, son kullanıcılara yakın olan eklendi sonra istiyorsunuz **Vm'leriniz, yeni bölge için olduğu gibi taşımak** gecikme süresini azaltmak için. Aynı yaklaşımı alınmış abonelikleri birleştirmek istediğiniz veya idare vardır / Kuruluş kuralları taşımanız gerekir. 
-- VM'nizi tek bir örnek olarak VM dağıtıldı veya kullanılabilirlik bir parçası olarak ayarlandığında, yapabilecekleriniz SLAsm kullanılabilirliğini artırmak istiyorsanız **Vm'lerinizi Taşı bir kullanılabilirlik kümesi**. 
+- VM'nizi tek bir örnek olarak VM dağıtıldı veya kullanılabilirlik bir parçası olarak kullanılabilirlik SLA'ları yapabilecekleriniz artırmak ayarlandığında, isterseniz **Vm'lerinizi bir kullanılabilirlik bölgesine taşıma**. 
 
 ## <a name="how-to-move-azure-vms"></a>Azure sanal makineleri taşıma
 Sanal makinelerin taşınmasında aşağıdaki adımları içerir:

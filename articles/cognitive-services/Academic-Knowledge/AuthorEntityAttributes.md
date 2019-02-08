@@ -4,30 +4,30 @@ titlesuffix: Azure Cognitive Services
 description: Akademik bilgi API'si Yazar varlıkta ile kullanabileceğiniz öznitelikleri hakkında bilgi edinin.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 48758ac9ec8c993bbdb490229ae20fcce1fb0a49
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175188"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878944"
 ---
 # <a name="author-entity"></a>Yazar varlık
 <sub> * Şu öznitelikleri Yazar varlığa özgüdür. (Ty = '1') </sub>
 
-Ad    |Açıklama                            |Tür       | İşlemler
+Ad    |Açıklama                            |Type       | İşlemler
 ------- | ------------------------------------- | --------- | ----------------------------
 Kimlik      |Varlık Kimliği                              |Int64      |Eşittir
-AuN     |Normalleştirilmiş yazar adı                 |Dize     |Eşittir
-DAuN    |Yazar görünen adı                    |Dize     |yok
+AuN     |Normalleştirilmiş yazar adı                 |String     |Eşittir
+DAuN    |Yazar görünen adı                    |String     |yok
 BİLGİ      |Yazar Alıntısı toplam sayısı            |Int32      |yok  
 ECC     |Yazar toplam tahmini alıntı sayısı  |Int32      |yok
-E       |Genişletilmiş meta verileri ("Genişletilmiş Meta öznitelikleri" Tablo bakın)  |Dize     |yok  
+E       |Genişletilmiş meta verileri ("Genişletilmiş Meta öznitelikleri" Tablo bakın)  |String     |yok  
 
 
 ## <a name="extended-metadata-attributes"></a>Genişletilmiş meta veri öznitelikleri ##

@@ -4,27 +4,27 @@ titlesuffix: Azure Cognitive Services
 description: Akademik bilgi API'si, Bilişsel Hizmetler günlük varlıkta ile kullanabileceğiniz öznitelikleri hakkında bilgi edinin.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 397293c17320ef75daa5c31af76d49183b6c435c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ffb159dc684b4b6663dcb966706d4745ab88a403
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193837"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872587"
 ---
 # <a name="journal-entity"></a>Günlük varlık
 
 <sub> * Şu öznitelikleri günlük varlığa özgüdür. (Ty = '2') </sub>
 
-Name    |Açıklama                            |Type       | İşlemler
+Ad    |Açıklama                            |Type       | İşlemler
 ------- | ------------------------------------- | --------- | ----------------------------
 Kimlik      |Varlık Kimliği                              |Int64      |Eşittir
-DJN     |Normalleştirilmiş günlük adı                |Dize     |yok
-JN      |Günlük görünen adı                   |Dize     |Eşittir
+DJN     |Normalleştirilmiş günlük adı                |String     |yok
+JN      |Günlük görünen adı                   |String     |Eşittir
 BİLGİ      |Günlük toplam alıntı sayısı           |Int32      |yok  
 ECC     |Günlük toplam tahmini alıntı sayısı |Int32      |yok

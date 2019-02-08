@@ -4,17 +4,15 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 77fc95c53ba89c3905ebd1aec785e22f42339369
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164788"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889519"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla normal düzeltmeleri yüklemek için
-1. Cihaz seri konsoluna bağlanın. Daha fazla bilgi için [1. adım: seri konsoluna bağlanmak](../articles/storsimple/storsimple-update-device.md#step1).
+1. Cihaz seri konsoluna bağlanın. Daha fazla bilgi için [1. adım: Seri konsola bağlanmak](../articles/storsimple/storsimple-update-device.md#step1).
 2. Seri konsol menüsünde seçeneğini 1 **tam erişimle oturum açmak**. Parolayı yazın. Varsayılan parola **Password1**.
 3. Komut istemine şunları yazın:
    

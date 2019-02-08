@@ -1,5 +1,16 @@
-<!--author=alkohli last changed: 12/15/15-->
-
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: db05ce33a9fb602d6d48d1a1606f48a7fbde246e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889176"
+---
 | Sınır tanımlayıcı | Sınır | Yorumlar |
 | --- | --- | --- |
 | Depolama hesabı kimlik bilgileri sayısı |64 | |

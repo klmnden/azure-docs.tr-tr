@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ddf08c69b5ef06d6243230230bcfdb56965aef4d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239953"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893692"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Anahtar Kasası'nda Azure Stack PowerShell kullanarak yönetme
 
@@ -65,7 +65,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 Kayıt başarılı olursa, aşağıdaki çıktı döndürülür:
 
-![Kayıt](media/azure-stack-key-vault-manage-powershell/image2.png) çağırdığınızda, anahtar kasası komutları "abonelik 'Microsoft.KeyVault' ad alanını kullanacak şekilde kaydedilmemiş."gibi bir hata alabilirsiniz Bir hata alırsanız, sahip olduğunuz onaylayın [Key Vault kaynak sağlayıcısı etkin](#enable-your-tenant-subscription-for-vault-operations) daha önce bahsedilen yönergeleri izleyerek.
+![Kayıt](media/azure-stack-key-vault-manage-powershell/image2.png) çağırdığınızda, anahtar kasası komutları "abonelik 'Microsoft.KeyVault' ad alanını kullanacak şekilde kaydedilmemiş."gibi bir hata alabilirsiniz Bir hata alırsanız, daha önce bahsedilen yönergeleri izleyerek Key Vault kaynak sağlayıcısı etkinleştirdiyseniz onaylayın.
 
 ## <a name="create-a-key-vault"></a>Bir anahtar kasası oluşturma
 

@@ -12,23 +12,23 @@ ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c1b6c55475c1600c89c1ac1cae9dee0068b92070
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b717e26e61a6633ea51817bcb21ebeb15a20969
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478228"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892012"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Hızlı Başlangıç: Yeni bir Azure SQL veritabanına BACPAC dosyasını içeri aktarma
 
-Bir SQL Server veritabanını kullanarak bir Azure SQL veritabanına geçirebilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosyası (zip dosyasıyla bir `.bacpac` bir veritabanının meta verilere ve verilere sahip uzantısı). Azure blob depolama alanından (yalnızca standart depolama) bir BACPAC dosyasını içeri aktarabilirsiniz veya yerel depoda bir şirket içi konum. İçeri aktarma hızını en üst düzeye çıkarmak için daha yüksek bir hizmet katmanına belirtin ve boyutu (P6 gibi) işlem kullanabilirsiniz. İçeri aktarma başarılı olduktan sonra ölçeği azaltabilirsiniz. İçeri aktarılan veritabanının uyumluluk düzeyi, kaynak veritabanının uyumluluk düzeyi üzerinde temel alır.
+Bir SQL Server veritabanını kullanarak bir Azure SQL veritabanına geçirebilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosyası (zip dosyasıyla bir `.bacpac` bir veritabanının meta verilere ve verilere sahip uzantısı). (Yalnızca standart depolama) Azure Blob depolamadaki verileri bir BACPAC dosyasını içeri aktarabilirsiniz veya yerel depoda bir şirket içi konum. İçeri aktarma hızını en üst düzeye çıkarmak için daha yüksek bir hizmet katmanına belirtin ve boyutu (P6 gibi) işlem kullanabilirsiniz. İçeri aktarma başarılı olduktan sonra ölçeği azaltabilirsiniz. İçeri aktarılan veritabanının uyumluluk düzeyi, kaynak veritabanının uyumluluk düzeyi üzerinde temel alır.
 
 > [!IMPORTANT]
 > Veritabanınızı içeri aktardıktan sonra veritabanını, geçerli uyumluluk düzeyinde (düzey 100 AdventureWorks2008R2 veritabanı için) veya daha yüksek bir düzeyde çalışılacak seçebilirsiniz. Veritabanını belirli bir uyumluluk düzeyinde çalıştırmanın etkileri ve buna yönelik seçenekler hakkında daha fazla bilgi için, bkz. [Veritabanı Uyumluluk Düzeyini Değiştirme](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Uyumluluk düzeyleriyle ilgili ek veritabanı düzeyi ayarları hakkında bilgi için, ayrıca bkz. [VERİTABANI KAPSAMLI YAPILANDIRMAYI DEĞİŞTİRME](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
 
 ## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>Azure portalında bir BACPAC dosyasından alma
 
-Bu bölümde gösterilmiştir nasıl, [Azure portalında](https://portal.azure.com), Azure blob depolamada depolanan bir BACPAC dosyasından Azure SQL veritabanı oluşturmak için. Portal *yalnızca* blob depolama Azure'dan bir BACPAC dosyasını içeri destekler.
+Bu bölümde gösterilmiştir nasıl, [Azure portalında](https://portal.azure.com), Azure Blob depolamada depolanan bir BACPAC dosyasından Azure SQL veritabanı oluşturmak için. Portal *yalnızca* BACPAC dosyasını Azure Blob depolama alanından alma destekler.
 
 > [!NOTE]
 > [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md) bu makaledeki diğer yöntemleri kullanarak BACPAC dosyasından alma destekler, ancak şu anda Azure portalında geçişini desteklemez.

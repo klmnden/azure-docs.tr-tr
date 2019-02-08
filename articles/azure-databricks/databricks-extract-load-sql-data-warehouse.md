@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 01/24/2019
-ms.openlocfilehash: c8b97ed5a1e1131e073783300a233ef72ef34110
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 57de2d9c63a4185997ac86056b9e3189ad66e478
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818660"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893146"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Öğretici: Ayıklama, dönüştürme ve Azure Databricks kullanarak verileri yüklemek
 
@@ -153,7 +153,7 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturun v
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    ```
 
-6. Bu kod bloğunda değiştirin `application-id`, `authentication-id`, ve `tenant-id` adımları tamamlandığında topladığınız değerleri bu kod bloğu içinde yer tutucu değerlerini [depolama hesabı Yapılandırmasıkenara](#config). Değiştirin `storage-account-name` yer tutucu değerini, depolama hesabınızın adı.
+6. Bu kod bloğunda değiştirin `application-id`, `authentication-id`, ve `tenant-id` Bu kod bloğu içinde yer tutucu değerlerini kümesi aside depolama hesabı yapılandırma adımları tamamlandığında, toplanan değerlere sahip. Değiştirin `storage-account-name` yer tutucu değerini, depolama hesabınızın adı.
 
 7. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 

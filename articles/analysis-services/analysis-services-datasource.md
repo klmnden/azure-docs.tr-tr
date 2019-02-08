@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c7b3695e5cb43a9c8f659a3ac1baddab51526b2d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299053"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893740"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services'da desteklenen veri kaynakları
 
@@ -28,14 +28,15 @@ Azure Analysis Services ve SQL Server Analysis Services için veri kaynakları v
 |Azure Blob Depolama<sup>[1](#tab1400a)</sup>     |   Evet       |    Hayır      |
 |Azure tablo depolaması<sup>[1](#tab1400a)</sup>    |   Evet       |    Hayır      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Evet        |  Hayır        |
-|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   Evet       |    Hayır      |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup> [4](#gen2)</sup>      |   Evet       |    Hayır      |
 |Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Evet     |   Hayır       |
 |Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup> [3](#databricks)</sup>     |   Evet       |   Hayır       |
 ||||
 
-<a name="tab1400a">1</a> tablosal 1400 ve daha yüksek bir model.   
-<a name="azsqlmanaged">2</a> azure SQL veritabanı yönetilen örneği desteklenir. Yönetilen örnek bir özel IP adresi ile Azure sanal ağ içinde çalıştığından, bir şirket içi veri ağ geçidi gereklidir.   
-<a name="databricks">3</a> Spark Bağlayıcısı'nı kullanarak azure Databricks şu anda desteklenmiyor.
+<a name="tab1400a">1</a> -tablosal 1400 ve daha yüksek bir model.   
+<a name="azsqlmanaged">2</a> -azure SQL veritabanı yönetilen örneği desteklenir. Yönetilen örnek bir özel IP adresi ile Azure sanal ağ içinde çalıştığından, bir şirket içi veri ağ geçidi gereklidir.   
+<a name="databricks">3</a> - azure Databricks kullanarak Spark Bağlayıcısı şu anda desteklenmiyor.   
+<a name="gen2">4</a> -ADLS Gen2 şu anda desteklenmiyor.
 
 
 **Sağlayıcı**   

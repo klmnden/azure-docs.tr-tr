@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Özel görüntü işleme modeli oluşturmak, eğitmek, test etmek ve dışarı aktarmak için REST API kullanın.
 services: cognitive-services
 author: blackmist
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 2f28af14c0579a7a6b514d66d2b66a540adb8fac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e33eb58dd4228bb1093c239bae960f71c0f3788c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226528"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55885006"
 ---
 # <a name="tutorial-use-the-custom-vision-rest-api"></a>Öğretici: Özel işleme REST API'si kullanma
 

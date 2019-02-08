@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: b242fca5a5a8490cc51222a6dd8b1ff1bb724417
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5d7b798c66ec6512c8badcccbf36d6f2f0d50e3b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247917"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882956"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>HDInsight ve Azure Data Lake depolama Gen2 üzerinde Storm için performans ayarlama Kılavuzu
 
@@ -23,7 +23,7 @@ Azure Storm topolojisi performansını ayarlama, dikkate alınması faktörleri 
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Azure Data Lake depolama Gen2 hesap**. Bir oluşturma hakkında yönergeler için bkz: [hızlı başlangıç: Bir depolama alanı oluşturmak için analitik hesap](data-lake-storage-quickstart-create-account.md).
-* **Bir Azure HDInsight kümesi** bir Data Lake depolama Gen2 hesabına erişim. Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
+* **Azure HDInsight kümesinde** bir Data Lake depolama Gen2 hesabına erişim. Bkz: [kullanımı Azure Data Lake depolama Gen2 Azure HDInsight ile kümeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
 * **Data Lake depolama Gen2'de bir Storm kümesi çalıştıran**. Daha fazla bilgi için [HDInsight üzerinde Storm](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Performans ayarlama yönergeleri Data Lake depolama Gen2**.  Genel performans için bkz [Data Lake depolama Gen2 performans rehberi ayarlama](data-lake-storage-performance-tuning-guidance.md).   
 

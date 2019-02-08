@@ -11,20 +11,24 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: e2159e7cc59830c3d0d10f1c5b9697ab5b45b666
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/06/2019
+ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824291"
+ms.locfileid: "55875612"
 ---
 # <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Machine Learning Hizmetleri (R ile) Azure SQL veritabanı (Önizleme)
 
 Machine Learning Hizmetleri, Azure SQL veritabanı, veritabanı R betikleri yürütmek için kullanılan bir özelliktir. Bu özellik, yüksek performanslı Tahmine dayalı analiz ve makine öğrenimi için Microsoft R paketleri içerir. İlişkisel veri R betikleri saklı yordamlar, T-SQL betiği içeren R bildirimleri veya R kodunu içeren T-SQL aracılığıyla kullanılabilir.
 
-> [!NOTE]
-> Machine Learning Hizmetleri (R ile) Azure SQL veritabanı'nda, şu anda genel Önizleme aşamasındadır. [Önizleme için kaydolun](#signup) aşağıda.
+> [!IMPORTANT]
+> Machine Learning Hizmetleri (R ile) Azure SQL veritabanı'nda şu anda tek veritabanları ve sanal çekirdek tabanlı satın alma modeli kullanarak elastik havuzları için genel önizlemeye sunuldu **genel amaçlı** ve **iş kritik** hizmet katmanları. Bu ilk genel önizlemeye sunuldu **hiper ölçekli** hizmet katmanı ve **yönetilen örnek** dağıtım seçeneği desteklenmez. Şu an için yalnızca R dili desteklenmektedir. Python desteği yoktur. 
+>
+> Önizleme şu anda aşağıdaki bölgelerde: Batı Avrupa, Kuzey Avrupa, Batı ABD 2, Doğu ABD, Güney Orta ABD, Kuzey Orta ABD, Kanada Orta, Güneydoğu Asya, Hindistan Güney ve Avustralya Güneydoğu kullanılabilir. 
+>
+> [Önizleme için kaydolun](#signup) aşağıda.
 
 ## <a name="what-you-can-do-with-r"></a>R ile yapabilecekleriniz
 
@@ -55,10 +59,6 @@ Genel önizlemeye kaydolmak için aşağıdaki adımları izleyin:
 2. Microsoft'ta bir e-posta göndermek [ sqldbml@microsoft.com ](mailto:sqldbml@microsoft.com) genel önizlemeye kaydolmak için. Machine Learning Services (R ile) genel önizleme sürümü, SQL Veritabanı'nda varsayılan olarak etkin değildir.
 
 Programda kaydedildikten sonra Microsoft tarafından yerleşik, veritabanını etkinleştir R için mevcut veya yeni ve genel önizlemeye sunuldu.
-
-Machine Learning Hizmetleri (R ile) SQL veritabanı'nda şu anda yalnızca sanal çekirdek tabanlı satın alma modeli kullanılabilir **genel amaçlı** ve **iş açısından kritik** hizmet katmanları için tek başına ve Elastik havuz dağıtım seçenekleri. Bu ilk genel önizlemeye sunuldu **hiper ölçekli** hizmet katmanı ve **yönetilen örneği** dağıtımlardaki seçim desteklenmez.
-
-Şu an için yalnızca R dili desteklenmektedir. Python desteği yoktur. Önizleme aşağıdaki bölgeler: Batı Avrupa, Kuzey Avrupa, Batı ABD 2, Doğu ABD, Güney Orta ABD, Kuzey Orta ABD, Kanada Orta, Güneydoğu Asya, Hindistan Güney ve Avustralya Güneydoğu başlangıçta kullanılabilir. Ek bölgeler daha sonra eklenecektir.
 
 Machine Learning Hizmetleri ile R üretim iş yükleri için genel Önizleme sırasında kullanmayın.
 

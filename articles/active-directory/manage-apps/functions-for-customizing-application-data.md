@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 7b69929b210f0f30db28b18073893505d2977051
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3361bc384f3da3d2bde6eab703056dd85356b5f8
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179047"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895423"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma
 Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz için öznitelik eşlemelerini türdeki bir ifade eşleme biridir. Bu, kullanıcılarınızın verileri fazla SaaS uygulaması için kabul edilebilir biçimlere dönüştürme olanak tanıyan bir betik gibi ifade yazmanız gerekir.
@@ -34,7 +34,7 @@ Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz i
   1. Öznitelik, köşeli ayraçlar içine alınmalıdır. Örneğin: [attributeName]
   2. Dize sabitleri çift tırnak içine alınmalıdır. Örneğin: "ABD"
   3. Diğer işlevler. Örneğin: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
-* Dize sabitleri için bir ters eğik çizgi (\) veya tırnak işareti (") dizedeki gerekiyorsa, eğik çizgi (\) simgesiyle kaçınılmalıdır. Örneğin: "Şirket adı: \"Contoso\""
+* Dize sabitleri için bir ters eğik çizgi (\) veya tırnak işareti (") dizedeki gerekiyorsa, eğik çizgi (\) simgesiyle kaçınılmalıdır. Örneğin: "Şirket adı: \\"Contoso\\" "
 
 ## <a name="list-of-functions"></a>İşlevlerin listesi
 [Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılın](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [değiştirin](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Anahtar](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
@@ -220,7 +220,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı |
-| **Kültür** |İsteğe bağlı |Dize |RFC 4646 üzerinde temel kültür adı biçimi *languagecode2-ülke/regioncode2*burada *languagecode2* iki harfli dil kodu ve *ülke/regioncode2*iki harfli alt koddur. Ja-JP Japonca (Japonya) ve en-US için İngilizce (ABD) için verilebilir. Burada iki harfli dil kodunu kullanılabilir olmadığı durumlarda, ISO 639-2 ' türetilmiş bir üç harfli kod kullanılır.|
+| **Kültür** |İsteğe bağlı |String |RFC 4646 üzerinde temel kültür adı biçimi *languagecode2-ülke/regioncode2*burada *languagecode2* iki harfli dil kodu ve *ülke/regioncode2*iki harfli alt koddur. Ja-JP Japonca (Japonya) ve en-US için İngilizce (ABD) için verilebilir. Burada iki harfli dil kodunu kullanılabilir olmadığı durumlarda, ISO 639-2 ' türetilmiş bir üç harfli kod kullanılır.|
 
 - - -
 ### <a name="toupper"></a>toUpper
@@ -233,7 +233,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı |
-| **Kültür** |İsteğe bağlı |Dize |RFC 4646 üzerinde temel kültür adı biçimi *languagecode2-ülke/regioncode2*burada *languagecode2* iki harfli dil kodu ve *ülke/regioncode2*iki harfli alt koddur. Ja-JP Japonca (Japonya) ve en-US için İngilizce (ABD) için verilebilir. Burada iki harfli dil kodunu kullanılabilir olmadığı durumlarda, ISO 639-2 ' türetilmiş bir üç harfli kod kullanılır.|
+| **Kültür** |İsteğe bağlı |String |RFC 4646 üzerinde temel kültür adı biçimi *languagecode2-ülke/regioncode2*burada *languagecode2* iki harfli dil kodu ve *ülke/regioncode2*iki harfli alt koddur. Ja-JP Japonca (Japonya) ve en-US için İngilizce (ABD) için verilebilir. Burada iki harfli dil kodunu kullanılabilir olmadığı durumlarda, ISO 639-2 ' türetilmiş bir üç harfli kod kullanılır.|
 
 ## <a name="examples"></a>Örnekler
 ### <a name="strip-known-domain-name"></a>Şerit bilinen etki alanı adı

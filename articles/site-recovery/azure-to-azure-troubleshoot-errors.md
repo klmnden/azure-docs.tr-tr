@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: e0f6fcd3886ca26b51011c1d7416b942bcec5c19
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 289d9f9398816f6ec9774eb6326da4d22bcd649e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768529"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882174"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -293,7 +293,7 @@ VM üzerinde çoğaltmayı etkinleştirmek için sağlama durumu olmalıdır **b
 
 **Hata kodu** | **Olası nedenler** | **Öneriler**
 --- | --- | ---
-150172<br></br>**İleti**: 10 GB, desteklenen en küçük boyutu (DiskSize) ile (DiskName) içerdiğinden, sanal makine boyutu için koruma etkinleştirilemedi. | -Disk desteklenen boyut 1024 MB değerinden küçük| Disk boyutlarının desteklenen boyut aralıkları içinde olduğundan ve işlemi yeniden deneyin emin olun. 
+150172<br></br>**İleti**: Desteklenen en küçük boyutu (DiskSize) ile (DiskName) içerdiğinden, sanal makine boyutu için 1024 MB koruma etkinleştirilemedi. | -Disk desteklenen boyut 1024 MB değerinden küçük| Disk boyutlarının desteklenen boyut aralıkları içinde olduğundan ve işlemi yeniden deneyin emin olun. 
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>GRUB yapılandırması UUID (hata kodu 151126) yerine belirtilen bir cihaz adı olarak koruma etkinleştirilemedi
 
@@ -329,7 +329,7 @@ blkid /dev/sda1
 *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 1. Restart the protection again
 
-## Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (error code 151126)
+## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
 **Possible Cause:** </br>
 The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples: 
 

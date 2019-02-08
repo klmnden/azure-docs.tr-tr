@@ -12,16 +12,16 @@ ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e980ec81f66e1045a4d9df33b3392589f5c1a668
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d00d9b4a945b139ed7b930609fdab24e4a211551
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463761"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891106"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL veritabanını BACPAC dosyasına dışarı aktarma
 
-Arşivleme veya başka bir platformuna geçmek için bir veritabanı dışarı aktarmak, ihtiyacınız olduğunda, veritabanı şemasını ve verilerini dışa aktarabilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosya. Bir BACPAC dosyasına BACPAC SQL Server veritabanındaki verileri ve meta verileri içeren bir uzantıya sahip bir ZIP dosyasıdır. BACPAC dosyasını Azure blob depolama alanında veya bir şirket içi konuma yerel depolama alanında depolanan ve daha sonra Azure SQL veritabanı'na veya SQL Server şirket içi yükleme içeri aktarıldı.
+Arşivleme veya başka bir platformuna geçmek için bir veritabanı dışarı aktarmak, ihtiyacınız olduğunda, veritabanı şemasını ve verilerini dışa aktarabilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosya. Bir BACPAC dosyasına BACPAC SQL Server veritabanındaki verileri ve meta verileri içeren bir uzantıya sahip bir ZIP dosyasıdır. BACPAC dosyasını Azure Blob Depolama alanında veya bir şirket içi konuma yerel depolama alanında depolanabilir ve daha sonra içeri aktarılan arka Azure SQL veritabanı veya SQL Server şirket yükleme.
 
 > [!IMPORTANT]
 > Azure SQL veritabanı otomatik dışa aktarma, 1 Mart 2017'de devre dışı bırakılan. Kullanabileceğiniz [uzun süreli yedek saklama](sql-database-long-term-retention.md

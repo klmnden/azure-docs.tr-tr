@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 221dd8a26f0d01d79d066c214bd53f7e881e5554
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 747f58ba5062bd8bcc3995bbfa73cea49e8ddc4b
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201236"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892907"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB ve Java için performans ipuçları
 
@@ -103,11 +103,11 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
    <a id="tune-page-size"></a>
 8. **Daha iyi performans için sorgu/okuma akışlarına yönelik sayfa boyutunu ayarlama**
 
-    Akışı, bir toplu gerçekleştirme belgeleri okuma kullanarak okuma (örneğin, [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments#com.microsoft.azure.documentdb.documentclient.readDocumentsStringFeedOptionsc)) ya da sonuç kümesi çok büyükse bir SQL sorgusu gönderirken, sonuçları bölümlenmiş bir biçimde döndürülür. Varsayılan olarak, sonuçları 100 öğe 1 MB veya öbekler halinde döndürülür, ilk isabet sınırlarından hangisi.
+    Akışı, bir toplu gerçekleştirme belgeleri okuma kullanarak okuma (örneğin, [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments)) ya da sonuç kümesi çok büyükse bir SQL sorgusu gönderirken, sonuçları bölümlenmiş bir biçimde döndürülür. Varsayılan olarak, sonuçları 100 öğe 1 MB veya öbekler halinde döndürülür, ilk isabet sınırlarından hangisi.
 
     Sayısını azaltmak için ağ gidiş dönüşleri yürürlükteki tüm sonuçları almak için gereken, sayfa boyutu kullanarak artırabilirsiniz [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) en fazla 1000 istek üstbilgisi. Yalnızca birkaç sonuçları görüntülemek için gerek duyduğunuz durumlarda Örneğin, kullanıcı arabirimi veya uygulama API'nizi yalnızca 10 döndürürse birer sonuçları, 10 okuma ve sorgular için kullanılan aktarım hızını azaltmak için sayfa boyutunu da azaltabilirsiniz.
 
-    Sayfa boyutu kullanarak da ayarlayabilir [setPageSize yöntemi](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize#com.microsoft.azure.documentdb.feedoptionsbase.setPageSizeInteger).
+    Sayfa boyutu kullanarak da ayarlayabilir [setPageSize yöntemi](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
 
 ## <a name="indexing-policy"></a>Dizin Oluşturma İlkesi
  

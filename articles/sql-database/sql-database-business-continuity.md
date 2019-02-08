@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 90d95d7ad1ffb3200a69e0e7980dae2d7ed97470
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755178"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894335"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -132,7 +132,7 @@ Otomatik yedeklemelerini coğrafi olarak yedekli depolama (varsayılan olarak et
 Bu iki kurtarma sisteminden herhangi biriyle gerçekleştirilen kurtarma işleminden sonra kullanıcılarınızın ve uygulamalarınızın çalışmaya devam etmesi için aşağıdaki ek görevleri gerçekleştirmeniz gerekir:
 
 - İstemcilerin ve istemci uygulamalarının yeni sunucuya ve geri yüklenen veritabanına nasıl yönlendirileceğini belirleme
-- Uygun sunucu düzeyi IP güvenlik duvarı kurallarını kullanın veya bağlanmak kullanıcılar için yerinde olmasını [veritabanı düzeyinde güvenlik duvarları](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) uygun kuralları etkinleştirmek için.
+- Uygun sunucu düzeyi IP güvenlik duvarı kurallarını kullanın veya bağlanmak kullanıcılar için yerinde olmasını [veritabanı düzeyinde güvenlik duvarları](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) uygun kuralları etkinleştirmek için.
 - Uygun giriş bilgilerinin ve ana veritabanı düzeyi izinlerin mevcut olduğunu doğrulama ([kapsanan kullanıcıları](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) da kullanabilirsiniz)
 - Denetimi uygun şekilde yapılandırma
 - Uyarıları uygun şekilde yapılandırma

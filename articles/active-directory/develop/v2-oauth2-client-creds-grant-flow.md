@@ -12,30 +12,30 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/13/2018
+ms.topic: conceptual
+ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 090f9771bf8d1010e4249d97d5768891f02c54b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 49c5aef3e67d90590fdc1bffa195b94143bc38b8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096611"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883041"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışı
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri verme](https://tools.ietf.org/html/rfc6749#section-4.4) RFC olarak da adlandırılır 6749 içinde belirtilen *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web barındırılan kaynaklara erişmek için. Hemen bir kullanıcı etkileşimi olmadan arka planda çalışması gereken sunucudan sunucuya etkileşimleri için bu tür bir verme yaygın olarak kullanılır. Bu tür uygulamalar genellikle olarak ifade edilir *Daemon'ları* veya *hizmet hesapları*.
+Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri verme](https://tools.ietf.org/html/rfc6749#section-4.4) RFC olarak da adlandırılır 6749 içinde belirtilen *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web barındırılan kaynaklara erişmek için. Bu tür bir verme, hemen bir kullanıcı etkileşimi olmadan arka planda çalışması gereken sunucudan sunucuya etkileşimleri için yaygın olarak kullanılır. Bu tür uygulamalar olarak anılır *Daemon'ları* veya *hizmet hesapları*.
 
-OAuth 2.0 istemci kimlik bilgileri, başka bir web hizmetini çağırırken bir kullanıcının kimliğine bürünmek yerine kendi kimlik bilgilerini kullanmak için bir web hizmetinin (gizli istemci) akış izinleri verin. Bu senaryoda istemci genellikle bir orta katman web hizmeti, arka plan programı hizmeti veya web sitesi olur. Daha yüksek bir güvence düzeyi için Azure Active Directory (Azure AD) kimlik bilgisi olarak (bir paylaşılan gizlilik) yerine bir sertifika kullanmak arama hizmeti de sağlar.
+OAuth 2.0 istemci kimlik bilgileri, başka bir web hizmetini çağırırken bir kullanıcının kimliğine bürünmek yerine kendi kimlik bilgilerini kullanmak için bir web hizmetinin (gizli istemci) akış izinleri verin. Bu senaryoda istemci genellikle bir orta katman web hizmeti, bir arka plan programı hizmeti veya web sitesi olur. Daha yüksek bir güvence düzeyi için Microsoft identity platformuna (yerine, paylaşılan gizlilik) bir sertifika bir kimlik bilgisi olarak kullanılacak arama hizmeti de sağlar.
 
 > [!NOTE]
 > V2.0 uç noktası, tüm Azure AD senaryoları ve özellikleri desteklemiyor. V2.0 uç noktası kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
 
-Daha fazla tipik *üç bacaklı OAuth*, bir istemci uygulamanın belirli bir kullanıcı adına bir kaynağa erişim izni verilir. İzin, genellikle sırasında uygulamaya kullanıcıdan görevlendirildiğini [onay](v2-permissions-and-consent.md) işlem. Ancak, istemci kimlik bilgileri akışı, uygulamanın kendisi doğrudan izinleri verilir. Kaynak bir kaynak için bir belirteç, zorunlu uygulama sunar uygulamanın kendi bir eylem ve değil, gerçekleştirme yetkisi varsa kullanıcı yetkilendirme sahiptir.
+Daha fazla tipik *üç bacaklı OAuth*, bir istemci uygulamanın belirli bir kullanıcı adına bir kaynağa erişim izni verilir. İzin, genellikle sırasında uygulamaya kullanıcıdan görevlendirildiğini [onay](v2-permissions-and-consent.md) işlem. Ancak, istemci kimlik bilgileri de (*iki bacaklı OAuth*) akışı, izinler uygulamanın kendisi doğrudan verilir. Uygulama bir kaynağa bir belirteç sunar, uygulama bir eylem ve kullanıcının gerçekleştirme yetkisi olan kaynak zorlar. 
 
 ## <a name="protocol-diagram"></a>Protokol diyagramı
 
@@ -47,10 +47,10 @@ Tüm istemci kimlik bilgileri akışı, aşağıdaki diyagrama benzer. Bu makale
 
 Bir uygulama genellikle iki yöntemden biriyle bir kaynağa erişmek için doğrudan yetkilendirme alır: 
 
-* Erişim denetimi listesi (ACL) kaynakta
-* Azure AD'de uygulama iznini atama
+* [Erişim denetimi listesi (ACL) kaynakta](#access-control-lists)
+* [Azure AD'de uygulama iznini atama](#application-permissions)
 
-Bu iki yöntem Azure AD'de en yaygın olarak bulunur ve bunları istemcilerin ve istemci gerçekleştirmek kaynaklar için kimlik bilgileri akışı öneririz. Ancak herhangi bir şekilde istemcileri yetkilendirmek bir kaynak seçebilirsiniz. Her kaynak sunucu, uygulama için en anlamlı yöntemi seçebilirsiniz.
+Bu iki yöntem Azure AD'de en yaygın olarak bulunur ve bunları istemcilerin ve istemci gerçekleştirmek kaynaklar için kimlik bilgileri akışı öneririz. Bir kaynak, istemcileri farklı yollarla yetkilendirmek de seçebilirsiniz. Her kaynak sunucu, uygulama için en anlamlı yöntemi seçebilirsiniz.
 
 ### <a name="access-control-lists"></a>Erişim denetimi listeleri
 
@@ -77,8 +77,8 @@ Uygulama izinleri, uygulamanızda kullanmak için sonraki bölümde açıklanan 
 
 1. Kaydetme ve uygulama üzerinden oluşturma [uygulama kayıt portalı](quickstart-v2-register-an-app.md) veya yeni [uygulama kayıtları (Önizleme) deneyimi](quickstart-register-app.md).
 1. Uygulamanızı kaydetmek veya uygulamanızı oluşturmak için kullanılan portalında gidin. Uygulamanızı oluşturduğunuzda en az bir uygulama gizli anahtarı kullanmanız gerekir.
-2. Bulun **Microsoft Graph izinleri** bölümüne ve ardından ekleyin **uygulama izinleri** , uygulamanız için gerekli.
-3. **Kaydet** uygulama kaydı.
+1. Bulun **API izinleri** bölümüne ve ardından ekleyin **uygulama izinleri** , uygulamanız için gerekli.
+1. **Kaydet** uygulama kaydı.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Önerilen: Kullanıcı uygulamanızda oturum açın
 
@@ -100,7 +100,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 ```
-// Pro tip: Try pasting the following request in a browser!
+// Pro tip: Try pasting the following request in a browser.
 ```
 
 ```
@@ -109,9 +109,9 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| `tenant` | Gereklidir | İzni istemek için istediğiniz dizinin Kiracı. Bu GUID veya kolay adı biçiminde olabilir. Kullanıcının ait olduğu için Kiracı ve herhangi bir kiracıyla oturum oturum, kullanın bildirmek istediğiniz bilmiyorsanız, `common`. |
-| `client_id` | Gereklidir | Uygulamanıza atanan uygulama (istemci) kimliği. Uygulamanızı kayıtlı olduğu portalda bu bilgiyi bulabilirsiniz. |
-| `redirect_uri` | Gereklidir | Yeniden yönlendirme URI'si, uygulamanızı işlemek gönderilecek yanıt istediğiniz. Bu URL olarak kodlanmış olması dışında tam olarak bir yeniden yönlendirme Portalı'nda kayıtlı bir URI'leri eşleşmesi gerekir ve ek yol kesimine sahip olabilir. |
+| `tenant` | Gerekli | İzni istemek için istediğiniz dizinin Kiracı. Bu GUID veya kolay adı biçiminde olabilir. Kullanıcının ait olduğu için Kiracı ve herhangi bir kiracıyla oturum oturum, kullanın bildirmek istediğiniz bilmiyorsanız, `common`. |
+| `client_id` | Gerekli | Uygulamanıza atanan uygulama (istemci) kimliği. Uygulamanızı kayıtlı olduğu portalda bu bilgiyi bulabilirsiniz. |
+| `redirect_uri` | Gerekli | Yeniden yönlendirme URI'si, uygulamanızı işlemek gönderilecek yanıt istediğiniz. Bu URL olarak kodlanmış olması dışında tam olarak bir yeniden yönlendirme Portalı'nda kayıtlı bir URI'leri eşleşmesi gerekir ve ek yol kesimine sahip olabilir. |
 | `state` | Önerilen | Ayrıca belirteci yanıtta döndürülen istek yer aldığı bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Durumu, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için kullanılır. |
 
 Bu noktada, Azure AD, yalnızca Kiracı Yöneticisi isteği tamamlamak oturum açabildiğinizi uygular. Yönetici uygulama kayıt portalında uygulamanıza için istenen tüm doğrudan uygulama izinleri de onaylaması istenir.
@@ -128,7 +128,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | --- | --- |
 | `tenant` | Uygulamanız, GUID biçiminde istenen izinler directory kiracısı. |
 | `state` | Ayrıca belirteci yanıtta döndürülen istek yer aldığı bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Durumu, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için kullanılır. |
-| `admin_consent` | Kümesine **true**. |
+| `admin_consent` | Kümesine **True**. |
 
 ##### <a name="error-response"></a>Hata yanıtı
 
@@ -168,11 +168,11 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| `tenant` | Gereklidir | Dizin Kiracı uygulama, GUID ya da etki alanı adı biçiminde boşluğunun planlamaktadır. |
-| `client_id` | Gereklidir | Uygulamanıza atanan uygulama kimliği. Uygulamanızı kayıtlı olduğu portalda bu bilgiyi bulabilirsiniz. |
-| `scope` | Gereklidir |Geçirilen değer `scope` bu istek parametresi istediğiniz ile yapıştırılmış kaynağın kaynak tanımlayıcısı (uygulama kimliği URI'si) olmalıdır `.default` soneki. Microsoft Graph örnekte değeri, `https://graph.microsoft.com/.default`. Bu değer, v2.0 uç noktası, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinleri, bunu olanlar için kullanmak istediğiniz kaynakla ilişkili bir belirteç vermek bildirir. |
-| `client_secret` | Gereklidir | Uygulama kayıt portalında uygulamanıza için oluşturulan uygulama gizli anahtarı. İstemci gizli anahtarı gönderilmeden önce URL kodlamalı olmalıdır. |
-| `grant_type` | Gereklidir | Olmalıdır `client_credentials`. |
+| `tenant` | Gerekli | Dizin Kiracı uygulama, GUID ya da etki alanı adı biçiminde boşluğunun planlamaktadır. |
+| `client_id` | Gerekli | Uygulamanıza atanan uygulama kimliği. Uygulamanızı kayıtlı olduğu portalda bu bilgiyi bulabilirsiniz. |
+| `scope` | Gerekli | Geçirilen değer `scope` bu istek parametresi istediğiniz ile yapıştırılmış kaynağın kaynak tanımlayıcısı (uygulama kimliği URI'si) olmalıdır `.default` soneki. Microsoft Graph örnekte değeri, `https://graph.microsoft.com/.default`. </br>Bu değer, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinleri, kullanmak istediğiniz kaynağı ile ilgili olanlar için bir belirteç uç noktası yayımlamalısınız v2.0 uç noktasına bildirir. Hakkında daha fazla bilgi edinmek için `/.default` kapsam için bkz: [belge onay](v2-permissions-and-consent.md#the-default-scope). |
+| `client_secret` | Gerekli | Uygulama kayıt portalında uygulamanıza için oluşturulan uygulama gizli anahtarı. İstemci gizli anahtarı gönderilmeden önce URL kodlamalı olmalıdır. |
+| `grant_type` | Gerekli | Ayarlanmalıdır `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>İkinci durum: Bir sertifika ile erişim belirteci isteği
 
@@ -190,12 +190,12 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| `tenant` | Gereklidir | Dizin Kiracı uygulama, GUID ya da etki alanı adı biçiminde boşluğunun planlamaktadır. |
-| `client_id` | Gereklidir |Uygulamanıza atanan uygulama kimliği. |
-| `scope` | Gereklidir | Geçirilen değer `scope` bu istek parametresi istediğiniz ile yapıştırılmış kaynağın kaynak tanımlayıcısı (uygulama kimliği URI'si) olmalıdır `.default` soneki. Microsoft Graph örnekte değeri, `https://graph.microsoft.com/.default`. <br>Bu değer, v2.0 uç noktası, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinleri, bunu olanlar için kullanmak istediğiniz kaynakla ilişkili bir belirteç vermek bildirir. |
-| `client_assertion_type` | Gereklidir | Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| `client_assertion` | Gereklidir | Onaylama (bir JSON Web belirteci) oluşturmak ve sertifika ile imzalamak için gereken kimlik bilgileri olarak uygulamanız için kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanız ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
-| `grant_type` | Gereklidir | Ayarlanmalıdır `client_credentials`. |
+| `tenant` | Gerekli | Dizin Kiracı uygulama, GUID ya da etki alanı adı biçiminde boşluğunun planlamaktadır. |
+| `client_id` | Gerekli |Uygulamanıza atanan uygulama (istemci) kimliği. |
+| `scope` | Gerekli | Geçirilen değer `scope` bu istek parametresi istediğiniz ile yapıştırılmış kaynağın kaynak tanımlayıcısı (uygulama kimliği URI'si) olmalıdır `.default` soneki. Microsoft Graph örnekte değeri, `https://graph.microsoft.com/.default`. <br>Bu değer, v2.0 uç noktası, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinleri, bunu olanlar için kullanmak istediğiniz kaynakla ilişkili bir belirteç vermek bildirir. Hakkında daha fazla bilgi edinmek için `/.default` kapsam için bkz: [belge onay](v2-permissions-and-consent.md#the-default-scope). |
+| `client_assertion_type` | Gerekli | Değer ayarlanmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Gerekli | Oluşturma ve sertifika ile imzalamak için gereken onaylama (bir JSON web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanız ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
+| `grant_type` | Gerekli | Ayarlanmalıdır `client_credentials`. |
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizli diziyi isteğiyle olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.
 
@@ -261,6 +261,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## <a name="code-sample"></a>Kod örneği
+## <a name="code-samples-and-other-documentation"></a>Kod örnekleri ve diğer belgeler
 
-İstemci kimlik bilgileri verme yönetici kullanarak uygulayan uç nokta onay uygulamanın bir örneğini görmek için bkz: bizim [v2.0 arka plan kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Okuma [istemci kimlik bilgileri, genel bakış belgeleri](http://aka.ms/msal-net-client-credentials) Microsoft kimlik doğrulama Kitaplığı'ndan
+
+| Örnek | Platform |Açıklama |
+|--------|----------|------------|
+|[Active-directory-dotnetcore-arka plan programı-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET core 2.1 konsol | Bir kullanıcı adına yerine uygulama kimliğini kullanarak Microsoft Graph sorgulama Kiracı kullanıcıları görüntüler basit bir .NET Core uygulaması. Örnek ayrıca kimlik doğrulaması için sertifikalar kullanılarak değişim gösterilmektedir. |
+|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Verileri bir kullanıcı adına yerine uygulama kimliğini kullanarak Microsoft Graph web uygulaması. |

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c280a1f7e060ab7637e8d0b2484951f72b58a89c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081203"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894114"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma
 
@@ -54,7 +54,7 @@ Data Factory hizmeti verileri taşıyıp dönüştüren ve ardından işlem hatt
 Bkz: [Azure Data Factory'ye giriş](data-factory-introduction.md) ve [ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline.md) makaleler Azure Data Factory hizmetiyle hızlıca başlamak için.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory ve Machine Learning ile birlikte
-Azure Data Factory bir yayımlanan kullanan işlem hatları kolayca oluşturmanıza olanak sağlar [Azure Machine Learning] [ azure-machine-learning] web için Tahmine dayalı analiz hizmetidir. Kullanarak **Batch yürütme etkinliği** toplu verilerde tahmin yapmayı sağlayan bir Azure Machine Learning studio web hizmeti bir Azure Data Factory işlem hattında çağırabilirsiniz. Bkz: [Batch yürütme etkinliği kullanarak bir Azure Machine Learning studio web hizmetini çağırmak](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) ayrıntıları bölümü.
+Azure Data Factory bir yayımlanan kullanan işlem hatları kolayca oluşturmanıza olanak sağlar [Azure Machine Learning] [ azure-machine-learning] web için Tahmine dayalı analiz hizmetidir. Kullanarak **Batch yürütme etkinliği** toplu verilerde tahmin yapmayı sağlayan bir Azure Machine Learning studio web hizmeti bir Azure Data Factory işlem hattında çağırabilirsiniz. Ayrıntılar için Batch yürütme etkinliği bölümünü kullanarak bir Azure Machine Learning studio web hizmeti çağırma bakın.
 
 Zaman içinde yeni bir giriş veri kümeleri kullanarak eğitilebileceği denemeleri Puanlama Azure Machine Learning Studio'da Tahmine dayalı modelleri gerekir. Aşağıdaki adımları uygulayarak bir Data Factory işlem hattı Azure Machine Learning studio modelden yeniden eğitebilir:
 

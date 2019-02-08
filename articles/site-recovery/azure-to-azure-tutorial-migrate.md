@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 70229a0b211acd08d285ad7a943f39285fad8012
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f6713326045ebd84f1cd484803fbc725ad798d7b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810431"
+ms.locfileid: "55882276"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye taşıma
 
@@ -31,7 +31,7 @@ Bu öğreticide Azure Vm'leri, Azure Site Recovery kullanarak başka bir bölgey
 > * [Kaynak bölgedeki kaynakları AT](#discard-the-resource-in-the-source-region) 
 
 > [!IMPORTANT]
-> Bu belge, Azure Vm'leri bir bölgeden diğerine olduğu gibi gereksinim, bir kullanılabilirlik bölgeye sabitlenmiş Vm'leri için farklı bir bölgede kümesindeki sanal makinelerin taşınmasında kullanılabilirliği geliştirmek için ise başvuru olarak Öğreticisi burada taşımak için size yol gösterir.
+> Bu belge, Azure Vm'leri bir bölgeden diğerine olduğu gibi gereksinim, bir kullanılabilirlik bölgeye sabitlenmiş Vm'leri için farklı bir bölgede kümesindeki sanal makinelerin taşınmasında kullanılabilirliği geliştirmek için ise başvuru olarak Öğreticisine taşımak için size kılavuzluk eder [burada](move-azure-VMs-AVset-Azone.md).
 
 ## <a name="verify-prerequisites"></a>Önkoşulları doğrulama
 

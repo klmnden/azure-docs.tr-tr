@@ -5,24 +5,27 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/22/2019
+ms.date: 2/7/2019
 ms.author: victorh
-ms.openlocfilehash: 87a80703c473245660a850645ca3fef21bbd80f6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452726"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895489"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Bir Azure DNS alt etki alanı temsilcisi
 
-Bir DNS alt etki alanı için temsilci seçmek için Azure portalını kullanabilirsiniz. Örneğin, contoso.com etki alanına aitse, adlı bir alt etki alanını devredebilirsiniz *mühendislik* başka ve ayrı bölgesine contoso.com bölgesi ayrı olarak yönetilebilir.
+Bir DNS alt etki alanı için temsilci seçmek için Azure portalını kullanabilirsiniz. Örneğin, contoso.com etki alanına aitse, adlı bir alt etki alanını devredebilirsiniz *mühendislik* başka ve ayrı bölgesine contoso.com bölgesi ayrı olarak yönetebilir.
+
+Tercih ederseniz, kullanarak bir alt etki alanını devredebilirsiniz [Azure PowerShell](delegate-subdomain-ps.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bir Azure DNS alt etki alanı atanacak genel etki alanınızı Azure DNS'e devretmeniz gerekir. Bkz: [bir etki alanını Azure DNS'ye devretme](./dns-delegate-domain-azure-dns.md) ad sunucularınızın temsilcisi için yapılandırma hakkında yönergeler için. Etki alanınızda, Azure DNS bölgesini temsilci sonra alt etki alanını devredebilirsiniz.
 
-Bu makaledeki örneklerde, contoso.com etki alanını kullanın. Bu yordamlar kullanılırken yerine kendi etki alanınızı kullanmalısınız.
+> [!NOTE]
+> Contoso.com, bu makalenin tamamında örnek olarak kullanılır. contoso.com yerine kendi etki alanı adınızı yazın.
 
 ## <a name="create-a-zone-for-your-subdomain"></a>Bir bölge, alt etki alanı oluşturma
 
@@ -38,10 +41,13 @@ Bu makaledeki örneklerde, contoso.com etki alanını kullanın. Bu yordamlar ku
 
 ## <a name="note-the-name-servers"></a>Ad sunucularını unutmayın
 
-Ardından, dört ad sunucusunun, alt etki alanı kopyalayın.
+Ardından, mühendislik alt etki alanı için dört ad sunucusunun unutmayın.
 
-1. Üzerinde **mühendislik** bölge bölmesinde, bölge için dört ad sunucusunun unutmayın. Bu ad sunucularını daha sonra kullanacaksınız.
-2. Oluşturma bir **A** test etmek için kullanılacak kayıt. Örneğin, oluşturun bir **www** A kaydetmek ve onunla yapılandırmak bir **10.10.10.10** IP adresi.
+Üzerinde **mühendislik** bölge bölmesinde, bölge için dört ad sunucusunun unutmayın. Bu ad sunucularını daha sonra kullanacaksınız.
+
+## <a name="create-a-test-record"></a>Bir test kaydı oluşturun
+
+Oluşturma bir **A** test etmek için kullanılacak kayıt. Örneğin, oluşturun bir **www** A kaydetmek ve onunla yapılandırmak bir **10.10.10.10** IP adresi.
 
 ## <a name="create-an-ns-record"></a>Bir NS kayıt oluşturma
 
@@ -59,10 +65,8 @@ Ardından, bir ad sunucusu (NS) kaydı için oluşturma **mühendislik** bölge.
 Temsilci seçmeyi test etmek için nslookup kullanın.
 
 1. Bir PowerShell penceresi açın.
-2. Komut istemine yazın `nslookup www.engineering.<your domain name>.`
+2. Komut istemine yazın `nslookup www.engineering.contoso.com.`
 3. Adresini gösteren bir yetkili olmayan yanıt alması gereken **10.10.10.10**.
-
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

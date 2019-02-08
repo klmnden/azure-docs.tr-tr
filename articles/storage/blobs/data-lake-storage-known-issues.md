@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 02/07/2018
 ms.author: normesta
-ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ff158b726c57f4aa5b7822dc0273ab42c350522c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731556"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895542"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar
 
@@ -23,7 +23,7 @@ Bu makale, Azure Data Lake depolama Gen2 geçici ilişkin sınırlamalar ve bili
 
 BLOB Depolama API'leri ve Azure Data Lake Gen2 API'lerini birbirleri ile birlikte çalışabilir değil.
 
-BLOB API'leri birlikte çalışabilen duruma kadar özel araçlar, uygulamaları veya Blob API'leri kullanan betikler vardır ve bunları tüm hesabınıza yüklediğiniz içerik çalışmak için kullanmak istiyorsanız, daha sonra Blob Depolama hesabınızda hiyerarşik ad alanları etkinleştirme Azure Data Lake Gen2 API'leri ile. Hiyerarşik ad alanı olmayan bir depolama hesabı kullanarak erişim denetimi listeleri ardından dizin ve dosya sistemi gibi Data Lake depolama Gen2 belirli özelliklere erişiminiz yoksa anlamına gelir.
+BLOB API'leri duruma kadar araçları, uygulamaları, hizmetleri veya Blob API'leri kullanan betikler vardır ve bunları tüm hesabınıza yüklediğiniz içerik çalışmak için kullanmak istiyorsanız, ardından bir hiyerarşik ad alanı Blob Depolama hesabınızda etkinleştirme Azure Data Lake Gen2 API'leri ile birlikte çalışabilir. Hiyerarşik ad alanı olmayan bir depolama hesabı kullanarak erişim denetimi listeleri ardından dizin ve dosya sistemi gibi Data Lake depolama Gen2 belirli özelliklere erişiminiz yoksa anlamına gelir.
 
 ## <a name="blob-storage-apis"></a>BLOB Depolama API'leri
 
@@ -41,15 +41,15 @@ Bu API'ler Blob Depolama API'leri henüz Azure Data Lake Gen2 API'leri ile birli
 
 * Bu verileri başka bir depolama hesabına herhangi bir nedenden dolayı kopyalanması gerekip gerekmediğini ve bu durumda, üretimde etkin bir şekilde etkilenmez olsa bile, bize neden?
 
-Böylece bu verileri hiyerarşik ad alanları etkin olmayan bir depolama hesabına kopyalayabilirsiniz Bu koşullar altında biz erişim Blob API için sınırlı bir süre için geri yükleyebilirsiniz.
+Böylece bu verileri hiyerarşik ad alanı özelliğinin etkin olmayan bir depolama hesabına kopyalayabilirsiniz Bu koşullar altında biz erişim Blob API için sınırlı bir süre için geri yükleyebilirsiniz.
 
-Yönetilmeyen sanal makine (VM) diskleri devre dışı Blob Depolama API'leri bağlıdır, hiyerarşik ad alanları bir depolama hesabı üzerinde etkinleştirmek istiyorsanız, bu nedenle yönetilmeyen VM disklerini hiyerarşik ad alanları etkin olmayan bir depolama hesabına yerleştirmeyi düşünün.
+Yönetilmeyen sanal makine (VM) diskleri devre dışı Blob Depolama API'leri bağlıdır, hiyerarşik bir ad alanı bir depolama hesabı üzerinde etkinleştirmek istiyorsanız, bu nedenle yönetilmeyen VM disklerini hiyerarşik ad alanı özelliği olmayan bir depolama hesabına yerleştirmeyi düşünün etkin.
 
 ## <a name="azure-storage-explorer"></a>Azure Depolama Gezgini
 
 Azure Depolama Gezgini'ni kullanarak Data Lake depolama Gen2 hesapları yönetmek veya görüntülemek için en az olmalıdır sürüm `1.6.0` olarak kullanılabilir olan Aracı'nın bir [ücretsiz](https://azure.microsoft.com/features/storage-explorer/).
 
-Depolama Gezgini, Azure Portalı'na katıştırılmış sürümü şu anda mu Not görüntüleme veya etkin hiyerarşik ad alanları ile Data Lake depolama Gen2 hesaplarını yönetme desteği.
+Depolama Gezgini, Azure Portalı'na katıştırılmış sürümü şu anda mu Not görüntüleme veya etkin hiyerarşik ad alanı özelliği ile Data Lake depolama Gen2 hesapları yönetme desteği.
 
 ## <a name="blob-viewing-tool"></a>BLOB görüntüleme aracı
 
@@ -75,17 +75,17 @@ Bunun yerine, en güncel AzCopy önizleme sürümünü kullanın ( [AzCopy v10](
 
 Geçici silme ve anlık görüntüleri, Azure Data Lake depolama Gen2 hesaplarında kullanılamaz.
 
-Dahil tüm sürüm oluşturma özellikleri [anlık görüntüleri](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) ve [geçici silme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) hiyerarşik ad alanları etkin olduğu depolama hesaplarında için henüz kullanılamamaktadır.
+Dahil tüm sürüm oluşturma özellikleri [anlık görüntüleri](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) ve [geçici silme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) hiyerarşik ad alanı özelliğinin etkin olduğu depolama hesaplarında için henüz kullanılamamaktadır.
 
 ## <a name="object-level-storage-tiers"></a>Nesne düzeyinde depolama katmanları
 
-Nesne düzeyinde depolama katmanları (sık erişimli, soğuk ve Arşiv) Azure Data Lake depolama Gen 2 hesapları için henüz kullanılamıyor, ancak hiyerarşik ad alanları etkin olmayan depolama hesapları için kullanılabilir.
+Nesne düzeyinde depolama katmanları (sık erişimli, soğuk ve Arşiv) Azure Data Lake depolama Gen 2 hesapları için henüz kullanılamıyor, ancak hiyerarşik ad alanı özelliğinin etkin olmayan depolama hesapları için kullanılabilir.
 
-## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Azure Blob Depolama yaşam döngüsü yönetimi (Önizleme) İlkeleri
+## <a name="azure-blob-storage-lifecycle-management-policies"></a>Azure Blob Depolama yaşam döngüsü yönetimi ilkeleri
 
-Azure Blob Depolama yaşam döngüsü yönetimi (Önizleme) ilkeleri, Azure Data Lake depolama Gen2 hesapları için henüz kullanılamamaktadır.
+Azure Blob Depolama yaşam döngüsü yönetimi ilkeleri, Azure Data Lake depolama Gen2 hesapları için henüz kullanılamamaktadır.
 
-Bu ilkeler, hiyerarşik ad alanları etkin olmayan depolama hesapları için kullanılabilir.
+Bu ilkeler, hiyerarşik ad alanı özelliğinin etkin olmayan depolama hesapları için kullanılabilir.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 

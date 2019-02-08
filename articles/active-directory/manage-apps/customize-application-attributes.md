@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eaf6890223526b213ac4ec1180288b95fe6eaa29
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c32b24007a041b9eb2cc1a5418c221239f3267b6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149871"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893886"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de SaaS uygulamaları için öznitelik eşlemelerini sağlama özelleştirme
 Microsoft Azure AD, Salesforce ve Google Apps gibi üçüncü taraf SaaS uygulamalarına kullanıcı hazırlama için destek sağlar. Etkin bir üçüncü taraf SaaS uygulaması için kullanıcı sağlamayı varsa, Azure portalı, öznitelik değerleri öznitelik eşlemeleri formunda denetler.
@@ -102,7 +102,7 @@ Uygulama ve öznitelik listesini özelleştirmesini destekleyen sistemleri şunl
 * Destekleyen uygulamalar [SCIM 2.0](https://tools.ietf.org/html/rfc7643), öznitelikler tanımlanan burada [Çekirdek Şeması](https://tools.ietf.org/html/rfc7643) eklenmesi gerekir
 
 >[!NOTE]
->Desteklenen öznitelik listesini düzenlemek, yalnızca kendi uygulamalarınıza ve sistemlerinize şemasını özelleştirmiş ve nasıl kendi özel öznitelikler tanımlanan, birinci elden bilgisine sahip Yöneticiler için önerilir. Bu, bazen bir uygulama veya sistem tarafından sağlanan API'ler ve geliştiricilerin araçları konusunda gerektirir. 
+>Desteklenen öznitelik listesini düzenlemek, yalnızca kendi uygulamalarınıza ve sistemlerinize şemasını özelleştirmiş ve nasıl kendi özel öznitelikler tanımlanan, birinci elden bilgisine sahip Yöneticiler için önerilir. Bu, bazen bir uygulama veya sistem tarafından sağlanan API'ler ve geliştirici araçları konusunda gerektirir. 
 
 ![Düzenleyici](./media/customize-application-attributes/25.png) 
 

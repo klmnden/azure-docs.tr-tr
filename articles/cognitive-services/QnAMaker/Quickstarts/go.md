@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: G0 REST tabanlı bilgi alın ve kod örnekleri, hızlı bir şekilde yardımcı olmak için Microsoft Bilişsel hizmetler, Azure üzerinde Microsoft Translator metin çevirisi API'si ile çalışmaya başlamak.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 67654e11f3f5b883c587a4fdc0bb7a25f56cd48b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: bd3dfc9b2b0b169ebb27909812256dbee91e1dec
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220034"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883976"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-go"></a>Soru-cevap Oluşturucu REST API ile Git kullanma 
 <a name="HOLTop"></a>

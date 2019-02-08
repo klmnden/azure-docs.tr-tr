@@ -13,13 +13,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729006"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894403"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL veritabanı yönetilen örneği denetimini kullanmaya başlama
 
@@ -154,7 +154,7 @@ Aşağıdaki bölümde, yönetilen Örneğinize denetim yapılandırma açıklan
 
 Ek bilgi için:
 
-- [Azure SQL veritabanı ve SQL Server'da veritabanlarını tek veritabanları, elastik havuz, s ve yönetilen örnekleri arasındaki farklar denetleme](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Azure SQL veritabanı ve SQL Server'da veritabanlarını tek veritabanları, elastik havuz, s ve yönetilen örnekleri arasındaki farklar denetleme](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [SUNUCU DENETİMİ OLUŞTURMA](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER DENETİM](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -223,13 +223,13 @@ Log Analytics, tüm iş yüklerinizde ve sunucularınızda milyonlarca kaydı ko
 
 Azure SQL veritabanı ve SQL Server'da veritabanlarını veritabanlarında denetimi arasındaki temel farklılıklar şunlardır:
 
-- Azure SQL veritabanı yönetilen örnek dağıtım seçeneği ile works sunucu düzeyinde ve depoları denetim `.xel` günlük dosyalarını Azure blob depolama hesabı.
+- Azure SQL veritabanı yönetilen örnek dağıtım seçeneği ile works sunucu düzeyinde ve depoları denetim `.xel` günlük dosyalarını Azure Blob Depolama alanında.
 - Tek veritabanı ve elastik havuz dağıtım seçeneklerinde Azure SQL veritabanı'nda çalışır ve veritabanı düzeyinde denetim.
 - Şirket içi SQL Server / sanal makineler, sunucuda denetim works düzey, ancak dosyaları sistem/windows olay günlüklerini olayları depolar.
 
-XEvent yönetilen örneğinde denetimi, Azure blob depolama hedeflerini destekler. Dosya ve windows günlükleri **desteklenmiyor**.
+XEvent yönetilen örneğinde denetimi, Azure Blob Depolama hedeflerini destekler. Dosya ve windows günlükleri **desteklenmiyor**.
 
-Anahtarının farklar içinde `CREATE AUDIT` Azure blob depolama alanına denetim söz dizimi şunlardır:
+Anahtarının farklar içinde `CREATE AUDIT` Azure Blob depolama alanına denetim söz dizimi şunlardır:
 
 - Yeni bir söz dizimi `TO URL` sağlanır ve Azure blob depolama kapsayıcısının URL'sini belirtmenize olanak tanıyan burada `.xel` dosyalar yerleştirilir.
 - Yeni bir söz dizimi `TO EXTERNAL MONITOR` bile Hub ve Log Analytics hedefleri etkinleştirmek için sağlanır.

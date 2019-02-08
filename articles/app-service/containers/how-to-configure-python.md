@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 416566ac52e8df6324cbf6146919df160deb0f98
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6965379aadefd110ce6e46e105bbde10626b63c1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221003"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892176"
 ---
 # <a name="configure-your-python-app-for-azure-app-service"></a>Python uygulamanızı Azure App Service için yapılandırma
 Bu makalede nasıl [Azure App Service](app-service-linux-intro.md) Python uygulamaları ve gerektiğinde App Service'in davranışını nasıl özelleştirebileceğiniz çalışır. Python uygulamaları tüm ile dağıtılması gerekir gerekli [pip](https://pypi.org/project/pip/) modüller. App Service dağıtım Altyapısı'nı (Kudu) otomatik olarak sanal ortam etkinleştirir ve çalışan `pip install -r requirements.txt` dağıttığınızda sizin için bir [Git deposu](../deploy-local-git.md), veya bir [Zip paketini](../deploy-zip.md) yapı işlemleri ile açık.
@@ -82,7 +82,7 @@ Django uygulamaları için App Service uygulama kodunuzda `wsgi.py` adlı bir do
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Başlangıç komutu üzerinde daha fazla denetime sahip olmak istiyorsanız [özel başlangıç komutu](#custom-startup-command) kullanın ve `<module>` yerine *wsgi.py* dosyasını içeren modülün adını yazın.
+Başlangıç komutu üzerinde ayrıntılı denetim istiyorsanız, bir özel başlatma komutunu kullanın ve Değiştir `<module>` içeren modül adıyla *wsgi.py*.
 
 ### <a name="flask-app"></a>Flask uygulaması
 
@@ -95,7 +95,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-Ana uygulama modülünüz farklı bir dosyada bulunuyorsa uygulama nesnesi için farklı bir ad kullanın veya Gunicorn'a ek bağımsız değişkenler sağlamak istiyorsanız [özel başlangıç komutu](#custom-startup-command) kullanın.
+Ana uygulama modülünüzde farklı bir dosya içeriyorsa, uygulama nesnesinin farklı bir ad kullanın veya istediğiniz ek bağımsız değişkenler için Gunicorn sağlamak için bir özel başlatma komutunu kullanın.
 
 ### <a name="default-behavior"></a>Varsayılan davranış
 
@@ -160,7 +160,7 @@ Popüler web çerçeveleri erişmenizi `X-Forwarded-*` bilgileri, standart uygul
 - App Service'i yeniden başlatın, 15-20 saniye bekleyin ve uygulamayı yeniden denetleyin.
 - Windows tabanlı örnek yerine Linux için App Service’i kullandığınızdan emin olun. Azure CLI’de `<resource_group_name>` ve `<app_service_name>` hizmetini uygun bir şekilde değiştiren `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind` komutunu çalıştırın. Çıktı olarak `app,linux` görünmelidir, aksi takdirde App Service’i yeniden oluşturun ve Linux’u seçin.
 - SSH veya Kudu kullanarak doğrudan App Service'e bağlanın ve dosyalarınızın *site/wwwroot* dizininde bulunduğunu doğrulayın. Dosyalarınız orada değilse dağıtım işlemlerinizi gözden geçirin ve uygulamayı yeniden dağıtın.
-- Dosyalarınız oradaysa App Service başlangıç dosyanızı tanımlayamamış olabilir. Uygulamanızın App Service'in [Django](#django-app) veya [Flask](#flask-app) için beklediği şekilde yapılandırılmış olduğundan emin olun veya [özel başlangıç komutu](#custom-startup-command) kullanın.
+- Dosyalarınız oradaysa App Service başlangıç dosyanızı tanımlayamamış olabilir. Uygulamanızı App Service için bekliyor olarak yapılandırıldığını denetleyin [Django](#django-app) veya [Flask](#flask-app), veya bir özel başlatma komutunu kullanın.
 - **Tarayıcıda "Hizmet Kullanılamıyor" iletisini görüyorsunuz.** Bu durum, tarayıcının App Service'ten yanıt beklerken zaman aşımına uğradığını gösterir. Bunun nedeni App Service'in Gunicorn sunucusunu başlatmış olması ancak uygulama kodunu belirten bağımsız değişkenlerin hatalı olmasıdır.
 - Özellikle App Service Planınızda en düşük fiyatlandırma katmanlarını kullanıyorsanız tarayıcıyı yenileyin. Ücretsiz katmanları kullandığınızda uygulamanın başlaması daha uzun sürebilir ve tarayıcıyı yenilediğinizde yanıt verebilir.
 - Uygulamanızın App Service'in [Django](#django-app) veya [Flask](#flask-app) için beklediği şekilde yapılandırılmış olduğundan emin olun veya [özel başlangıç komutu](#customize-startup-command) kullanın.

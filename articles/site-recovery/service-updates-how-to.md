@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: a497784a665c62d23a017b71acf709120e34c369
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 67fe5da86b4736daa43a85a7a1a077c329732b60
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746974"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890476"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery hizmeti güncelleştirmeleri
 Bir kuruluş olarak plansız kesintiler ve verilerinizin güvenliğini korumak için nasıl gideceğinizi ve Planlı çalışan uygulamaları/iş yüklerini out şekil yapmanız gerekir. Azure Site Recovery, Vm'leri ve fiziksel sunucuları bir site dışı kalırsa kullanılabilir çalışan uygulamalarınızı tutarak, BCDR stratejinize katkıda bulunur. Site Recovery, VM ve fiziksel sunucularda çalışan iş yüklerini çoğaltarak birincil sitenin kullanılamaz hale gelmesi durumunda bunların ikincil bir konumda kullanılabilir kalmasını sağlar. Birincil site yeniden çalışmaya başladığında birincil sitede iş yüklerini kurtarır.
@@ -118,6 +118,7 @@ Yeniden başlatma, Mobility Aracısı her bir yükseltmeden sonra tüm son deği
 
 |Güncelleştirme paketi  |Sağlayıcı  |Birleşik Kurulum| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[Güncelleştirme paketi 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) -düzeltme     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Güncelleştirme paketi 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Güncelleştirme paketi 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Güncelleştirme Paketi 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0

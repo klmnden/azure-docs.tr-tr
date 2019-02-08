@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 3b425af972b0983db076ab103a33c57f7a127210
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 1e2511ed22cfc6e81844bfdc4672d5fc67ea744f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095762"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893230"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Öğretici: Bir sınıf laboratuvarı ayarlama 
 Bu öğreticide, sınıftaki öğrenciler tarafından kullanılan sanal makinelerle bir sınıf laboratuvarı ayarlayacaksınız.  
@@ -43,13 +43,12 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
 2. **Oturum aç**’ı seçip kimlik bilgilerinizi girin. Azure Lab Services, kuruluş hesaplarını ve Microsoft hesaplarını destekler. 
 3. **Yeni Laboratuvar** penceresinde aşağıdaki eylemleri gerçekleştirin: 
     1. Laboratuvarınız için bir **ad** belirtin. 
-    2. Laboratuvara katılmasına izin verilen maksimum **kullanıcı sayısını** belirtin. 
+    2. Maksimum belirtin **sanal makinelerin sayısı** Laboratuvardaki. Laboratuvarı oluşturduktan sonra veya varolan bir laboratuvar içindeki VM sayısını decreate veya artırabilirsiniz. Daha fazla bilgi için [bir laboratuvar içindeki sanal makine sayısını güncelleştir](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. **Kaydet**’i seçin.
 
         ![Sınıf laboratuvarı oluşturma](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. **Sanal makine özelliklerini seçin** sayfasında aşağıdaki adımları gerçekleştirin:
     1. Laboratuvarda oluşturulan sanal makineler (VM) için bir **boyut** seçin. 
-    2. VM'lerin oluşturulmasını istediğiniz **bölgeyi** seçin. 
     3. Laboratuvardaki VM'leri oluşturmak için kullanılacak **VM görüntüsünü** seçin. 
     4. **İleri**’yi seçin.
 
@@ -69,14 +68,12 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
 7. Şablon yapılandırma işlemleri tamamlandıktan sonra şu sayfayı görürsünüz: 
 
     ![Tamamlanmış şablon yapılandırma sayfası](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. Bu öğreticide aşağıdaki adımlar isteğe bağlıdır: 
+8. Üzerinde **yapılandırma şablonu** sayfasında, aşağıdaki adımları uygulayın: Bu adımlar **isteğe bağlı** öğretici.
     1. **Başlat**'ı seçerek şablon VM'sini başlatın.
     2. **Bağlan**'ı seçerek şablon VM'sine bağlanın. 
     3. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin. 
     4. VM'yi **durdurun**.  
     5. Şablon için bir **açıklama** girin
-
-        ![Şablon yapılandırma sayfasında İleri](../media/tutorial-setup-classroom-lab/configure-template-next.png)
 9. Şablon sayfasında **İleri**'yi seçin. 
 10. **Şablonu yayımla** sayfasında aşağıdaki işlemleri gerçekleştirin. 
     1. Şablonu hemen yayımlamak için *Şablonu yayımladıktan sonra değiştiremeyeceğimi anlıyorum. Bu işlem yalnızca bir kez gerçekleştirilebilir ve bir saat sürebilir* onay kutusunu işaretleyip **Yayımla**'yı seçin.  
@@ -103,7 +100,9 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
 
 1. Seçin **kullanıcılar** sol menüsünde. Varsayılan olarak, **erişimi kısıtlama** seçeneği etkinleştirilir. Bu ayar etkin olduğunda, kullanıcı listesinde kullanıcı değilse kullanıcı kayıt bağlantıya sahip olsa bile, bir kullanıcı laboratuvarla kaydedilemiyor. Yalnızca bu listedeki kullanıcılar laboratuvarla gönderdiğiniz kayıt bağlantıyı kullanarak kaydedebilirsiniz. Bu yordamda, kullanıcıların listesine ekleyin. Alternatif olarak, kapatabilirsiniz **erişimi kısıtlama**, kullanıcıların kayıt bağlantıya sahip oldukları sürece laboratuvarla kaydolmasını sağlar. 
 2. Seçin **kullanıcı ekleme** araç. 
-3. Üzerinde **kullanıcı ekleme** sayfasında, ayrı bir satırda veya tek bir satırda noktalı virgülle ayırarak kullanıcılar e-posta adreslerini girin. 
+
+    ![Kullanıcı düğmesi ekleme](../media/how-to-configure-student-usage/add-users-button.png)
+1. Üzerinde **kullanıcı ekleme** sayfasında, ayrı bir satırda veya tek bir satırda noktalı virgülle ayırarak kullanıcılar e-posta adreslerini girin. 
 
     ![Kullanıcı e-posta ekleyin](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. **Kaydet**’i seçin. E-posta adreslerini kullanıcıları ve bunların durumlarını (veya kayıtlı) listesinde görürsünüz. 

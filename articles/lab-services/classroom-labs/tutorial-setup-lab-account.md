@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4b8b5502090e1b115829b65834532dd6ce15a934
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 28710ebfaef4c82212e0208c36f50a96f0dda083
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835922"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892057"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Öğretici: Azure Lab Services ile bir laboratuvar hesabı ayarlama
 Azure Lab Services’te, bir laboratuvar hesabı, kuruluşunuzdaki laboratuvarların yönetildiği merkezi hesap olarak görev yapar. Laboratuvar hesabınızda, laboratuvar oluşturmak üzere başkalarına izin verin ve laboratuvar hesabı altındaki tüm laboratuvarlara uygulanan ilkeler ayarlayın. Bu öğreticide, laboratuvar yöneticisi olarak bir laboratuvar hesabı oluşturmayı öğrenin. 
@@ -37,11 +37,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Aşağıdaki adımlar, Azure portalını kullanarak Azure Lab Services ile nasıl bir laboratuvar hesabı oluşturulacağını göstermektedir. 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol taraftaki ana menüden **Kaynak oluştur**’u seçin.
-3. Azure Market’te **Lab Services** ifadesini aratıp açılan listeden **Lab Services** uygulamasını seçin. 
-4. Filtrelenen sonuç listesinden **Lab Services (Önizleme)** öğesini seçin. 
-1. **Laboratuvar hesabı oluştur** penceresinde **Oluştur**’u seçin.
-2. **Laboratuvar hesabı** penceresinde aşağıdaki eylemleri gerçekleştirin: 
+2. Seçin **tüm hizmetleri** sol menüsünde. Seçin **Laboratuvar hesaplarını** içinde **DEVOPS** bölümü. Yıldız seçerseniz (`*`) yanındaki **Laboratuvar hesaplarını**, eklenir **Sık Kullanılanlar** sol menüde bölümü. Bir sonraki zamandan ve sonraki sürümlerde, seçtiğiniz **Laboratuvar hesaplarını** altında **Sık Kullanılanlar**.
+
+    ![Laboratuvar hesaplarını tüm hizmetleri ->](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. Üzerinde **Laboratuvar hesaplarını** sayfasında **Ekle** araç. 
+
+    ![Laboratuvar hesaplarını sayfada Ekle'yi seçin](../media/tutorial-setup-lab-account/add-lab-account-button.png)
+4. Üzerinde **Laboratuvar hesabı** sayfasında, aşağıdaki eylemleri gerçekleştirin: 
     1. **Laboratuvar hesabı adı** için bir ad girin. 
     2. Laboratuvar hesabı oluşturmak istediğiniz **Azure aboneliğini** seçin.
     3. **Kaynak grubu** için, **Yeni oluştur**’u seçip kaynak grubu için bir ad girin.
@@ -49,9 +51,11 @@ Aşağıdaki adımlar, Azure portalını kullanarak Azure Lab Services ile nası
     5. **Oluştur**’u seçin. 
 
         ![Laboratuvar hesabı oluştur penceresi](../media/tutorial-setup-lab-account/lab-account-settings.png)
-5. Laboratuvar hesabının sayfasını görmüyorsanız, **bildirimler** düğmesini seçin ve sonra bildirimlerdeki **Kaynağa git** düğmesine tıklayın. 
+5. Seçin **zil simgesine** araç çubuğunda (**bildirimleri**), dağıtım başarılı oldu ve ardından onaylamak **kaynağa Git**. 
 
-    ![Laboratuvar hesabı oluştur penceresi](../media/tutorial-setup-lab-account/notification-go-to-resource.png)    
+    Alternatif olarak, seçin **Yenile** üzerinde **Laboratuvar hesaplarını** sayfasında ve oluşturduğunuz Laboratuvar hesabını seçin. 
+
+    ![Laboratuvar hesabı oluştur penceresi](../media/tutorial-setup-lab-account/go-to-lab-account.png)    
 6. Aşağıdaki **laboratuvar hesabı** sayfasını görürsünüz:
 
     ![Laboratuvar hesabı sayfası](../media/tutorial-setup-lab-account/lab-account-page.png)
@@ -62,9 +66,13 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için kullanıcının
 Eğitimcilere, sınıfları için laboratuvar oluşturma ve **Laboratuvar Oluşturan** rolüne bunları ekleme izni sağlamak için:
 
 1. Üzerinde **Laboratuvar hesabı** sayfasında **erişim denetimi (IAM)**, tıklatıp **+ rol ataması Ekle** araç. 
-2. **İzin ekle** sayfasında, **Rol** için **Laboratuvar Oluşturan**’ı seçin, Laboratuvar Oluşturan rolüne eklemek istediğiniz kullanıcıyı seçin ve **Kaydet** seçeneğini belirleyin. 
 
-## <a name="specify-marketplace-images-available-to-lab-owners"></a>Laboratuvar sahiplerine sunulan Market görüntülerini belirtme
+    ![Erişim Denetimi'ne rol ataması Ekle düğmesi](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
+1. Üzerinde **rol ataması Ekle** sayfasında **Laboratuvar oluşturan** için **rol**, Laboratuvar Creators role ekleyin ve istediğiniz kullanıcıyı seçin **Kaydet**. 
+
+    ![Laboratuvar oluşturan Ekle](../media/tutorial-setup-lab-account/add-lab-creator.png)
+
+## <a name="specify-marketplace-images-available-to-lab-creators"></a>Market görüntüleri için laboratuvar creators kullanılabilir belirtin
 Laboratuvar sahibi olarak laboratuvar oluşturucuların laboratuvar hesabında laboratuvar oluşturmak için kullanacağı Market görüntülerini belirtebilirsiniz. 
 
 1. Sol taraftaki menüden **Market görüntüleri**'ni seçin. Listede varsayılan olarak tüm görüntüler (hem etkin hem devre dışı) yer alır. Yalnızca etkin/devre dışı görüntüleri görmek için en üstteki açılan listeden **Yalnızca etkin**/**Yalnızca devre dışı** seçeneğini belirleyerek listeyi filtreleyebilirsiniz. 

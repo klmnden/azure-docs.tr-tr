@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 17fdcb4a57379fd11e841715a6908a4a0d280bd9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563346"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891479"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -106,7 +106,7 @@ Bir Azure VM durumunu görüntülemek için seçin **Insights (Önizleme)** sol 
 
 ![Vm'leri sistem durumuna genel bakış seçili Azure sanal makine için Azure İzleyici](./media/vminsights-health/vminsights-directvm-health.png)
 
-Üzerinde **sistem durumu** bölümünde sekmesinde **Konuk VM sistem durumu**, tablo, sanal makinenizin geçerli sistem durumunu gösterir ve VM sistem durumu uyarılarını toplam sayısı, iyi durumda olmayan bir bileşen tarafından oluşturuldu. Başvurmak [uyarılar](#alerting-and-alert-management) uyarı deneyimi hakkında ayrıntılı bilgi için.  
+Üzerinde **sistem durumu** bölümünde sekmesinde **Konuk VM sistem durumu**, tablo, sanal makinenizin geçerli sistem durumunu gösterir ve VM sistem durumu uyarılarını toplam sayısı, iyi durumda olmayan bir bileşen tarafından oluşturuldu. Uyarı deneyimi hakkında daha fazla ayrıntı için uyarılar bölümüne bakın.  
 
 Bir VM için tanımlanan sistem durumları aşağıdaki tabloda açıklanmıştır: 
 

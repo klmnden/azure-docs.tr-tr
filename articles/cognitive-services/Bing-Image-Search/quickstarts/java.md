@@ -5,19 +5,19 @@ description: JSON yanıtlar almasına ve bu hızlı başlangıçta, Java kullana
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 13edea67a93ecf2d2b53dcc04a2c1d49b864952e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8c2afddd0e4f09ac305de709815d93fde0ebc50b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203292"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884214"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Hızlı Başlangıç: Bing resim arama REST API'si ve Java kullanarak resimler için arama yapın
 

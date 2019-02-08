@@ -5,24 +5,24 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/07/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: ca1012e0f1b0b7a9e0d8bd88d94876c20d22dec5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fce7beeda352b9add3603fb74c558ad1b64fac2a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473792"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895525"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake depolama Gen2 Güvenlik Kılavuzu
 
-Azure Data Lake depolama Gen2 önizlemesi, Azure depolama hesaplarında özellikler kümesidir. Bu nedenle, bu makaledeki tüm başvuruları bir Azure depolama hesabı için etkinleştirilmiş hiyerarşik ad alanı ile (Data Lake depolama Gen2 Özellikler) yöneliktir.
+Azure Data Lake depolama Gen2, Azure depolama hesaplarında özellikler kümesidir. Bu nedenle, bu makaledeki tüm başvuruları bir Azure depolama hesabı için etkinleştirilmiş hiyerarşik ad alanı ile (Data Lake depolama Gen2 Özellikler) yöneliktir.
 
 - Azure Depolama'ya yazılan tüm veriler, kullanılarak otomatik olarak şifrelenir [depolama hizmeti şifrelemesi (SSE)](storage-service-encryption.md). Daha fazla bilgi için [Azure Blobları, dosyalar, tablolar ve kuyruk depolama için varsayılan şifreleme Duyurusu](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) ve rol tabanlı Access Control (RBAC) desteklenen Azure depolama için kaynak yönetimi işlemleri ve veri işlemleri için şu şekilde:
     - Güvenlik ilkeleri ve Azure AD kullanım anahtar yönetimi gibi yönetim işlemlerini kaynak yetkilendirmek için depolama hesabına kapsamına RBAC rolleri atayabilirsiniz.
-    - Azure AD tümleştirmesi, Azure Depolama'da veri işlemleri için önizleme modunda desteklenir. Bir abonelik, kaynak grubu, depolama hesabı veya bir güvenlik sorumlusu veya Azure kaynakları için yönetilen bir kimlik için tek bir dosya sistemi kapsamı RBAC rolleri atayabilirsiniz. Daha fazla bilgi için [erişim Azure Active Directory (Önizleme) kullanarak Azure depolama için kimlik doğrulaması](storage-auth-aad.md).
+    - Azure AD tümleştirmesi, Azure Depolama'da veri işlemleri için desteklenir. Bir abonelik, kaynak grubu, depolama hesabı veya bir güvenlik sorumlusu veya Azure kaynakları için yönetilen bir kimlik için tek bir dosya sistemi kapsamı RBAC rolleri atayabilirsiniz. Daha fazla bilgi için [erişim için Azure depolama, Azure Active Directory'yi kullanarak kimlik doğrulaması](storage-auth-aad.md).
 - Azure depolama veri nesnelerini temsilci erişimi kullanılarak verilebilir [paylaşılan erişim imzaları](../storage-dotnet-shared-access-signature-part-1.md).
 
 Bu makalede, Azure depolama ile kullanılan bu güvenlik özelliklerin her biri bir bakış sağlar. Bağlantılardır her özelliğin ayrıntılarını bunu sağlayacak makaleler için bunu kolayca yapabilirsiniz sağlanan araştırma her konuyla ilgili daha fazla.
@@ -133,7 +133,7 @@ Veri düzlemi güvenliği Azure Depolama'da depolanan veri nesnelerini güvenli 
 
 Azure depolama, veri nesnelerine erişimi yetkilendirmek için üç seçeneğiniz de dahil olmak üzere:
 
-- Dosya sistemleri ve Kuyruklar'ı (Önizleme) erişim yetkisi vermek için Azure AD kullanarak. Azure AD yetkilendirme, kodunuzda gizli dizileri depolamak için gereken kaldırmayı da için diğer yaklaşımlar avantaj sağlar. Daha fazla bilgi için [erişim Azure Active Directory (Önizleme) kullanarak Azure depolama için kimlik doğrulaması](storage-auth-aad.md). 
+- Dosya sistemleri ve kuyruklara erişim yetkisi vermek için Azure AD kullanarak. Azure AD yetkilendirme, kodunuzda gizli dizileri depolamak için gereken kaldırmayı da için diğer yaklaşımlar avantaj sağlar. Daha fazla bilgi için [erişim için Azure depolama, Azure Active Directory'yi kullanarak kimlik doğrulaması](storage-auth-aad.md). 
 - Paylaşılan anahtar aracılığıyla erişim yetkisi vermek için depolama hesabı anahtarlarını kullanma. Microsoft, Azure AD, bunun yerine, mümkün olduğunda kullanarak önerir. Bu nedenle, depolama hesabı anahtarları, uygulamanızda depolama paylaşılan anahtar ile yetkilendirme gerektirir. Üretim uygulamaları için ya da Azure tabloları ve dosyalarına erişimi yetkilendirmek için Azure AD tümleştirmesi Önizleme aşamasındayken paylaşılan anahtar'ı kullanmaya devam edin.
 - Belirli bir süre için belirli veri nesnelerini denetimli izinler vermek için paylaşılan erişim imzaları kullanma.
 
@@ -229,7 +229,7 @@ Paylaşılan erişim imzalarını ve depolanan erişim ilkelerini örnekleri ile
 
     Bu makale, SAS Modeli'ni veya paylaşılan erişim imzaları örnekleri bir açıklama içerir ve SAS'ın en iyi yöntem önerileri kullanın. De ele izni iptal olur.
 
-* Kimlik Doğrulaması
+* Authentication
 
   * [Azure Storage Hizmetleri için kimlik doğrulaması](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Paylaşılan erişim imzaları öğretici kullanmaya başlama

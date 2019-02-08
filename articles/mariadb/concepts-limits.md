@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 02/07/2019
+ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970296"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895797"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasitesi, depolama altyapısı desteği, destek ayrıcalığına, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
@@ -52,6 +52,7 @@ Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 ### <a name="unsupported"></a>Desteklenmiyor
 - DBA rolü: Birçok sunucu parametreleri ve ayarları yanlışlıkla sunucu performansının düşmesine neden veya DBMS ACID özelliklerini negate. Bu nedenle, bir ürün düzeyinde SLA ve hizmet bütünlüğü korumak için bu hizmeti DBA rol kullanıma sunmuyor. Yeni bir veritabanı örneği oluşturulduğunda bu oluşturulur, varsayılan kullanıcı hesabı, veritabanı yönetilen örneğine DDL ve DML deyimleri çoğunu gerçekleştirmek bu kullanıcı sağlar.
 - Süper ayrıcalık: Benzer şekilde [Süper ayrıcalık](https://mariadb.com/kb/en/library/grant/#global-privileges) de sınırlıdır.
+- DEFINER: Süper oluşturma ayrıcalıkları gerektirir ve sınırlıdır. Bir yedekleme kullanarak veriyi içeri aktarma, kaldırma `CREATE DEFINER` el ile veya kullanılarak komutları `--skip-definer` bir mysqldump gerçekleştirirken komutu.
 
 ## <a name="data-manipulation-statement-support"></a>Veri işleme ifadesi desteği
 
@@ -76,6 +77,9 @@ Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 
 ### <a name="subscription-management"></a>Abonelik yönetimi
 - Önceden oluşturulmuş sunucuları, abonelik ve kaynak grubu üzerinde dinamik olarak taşıma şu anda desteklenmiyor.
+
+### <a name="vnet-service-endpoints"></a>Sanal ağ hizmet uç noktaları
+- Yalnızca genel amaçlı ve bellek için iyileştirilmiş sunucuları için sanal ağ hizmet uç noktaları desteğidir.
 
 ## <a name="current-known-issues"></a>Bilinen geçerli sorunlar
 - Bağlantı kurulduktan sonra MariaDB sunucuyu yanlış sunucu sürümünü görüntüler. Doğru sunucu örneği altyapı sürümü almak için kullanın `select version();` komutu.

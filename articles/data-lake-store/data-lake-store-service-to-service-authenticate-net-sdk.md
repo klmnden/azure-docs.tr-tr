@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 58d8cfdbd2ad5d7e727decfa3e3cfdd7151b0048
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3075f515b8095451a873727fef696fd523664d0a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250220"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891728"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Azure Data Lake depolama Gen1 ile
 > [!div class="op_single_selector"]
@@ -63,57 +63,62 @@ Bu makalede, Azure Data Lake depolama Gen1 ile hizmetten hizmete kimlik doğrula
 
 6. **Program.cs** öğesini açın, var olan kodu silin ve ardından ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+
+using Microsoft.Rest;
+using Microsoft.Rest.Azure.Authentication;
+using Microsoft.Azure.Management.DataLake.Store;
+using Microsoft.Azure.Management.DataLake.Store.Models;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>Gizli anahtarla hizmetten hizmete kimlik doğrulaması
 Bu kod parçacığı, .NET istemci uygulamanıza ekleyin. Yer tutucu değerlerini (bir önkoşul olarak listelenen) bir Azure AD web uygulamasından alınan değerlerle değiştirin.  Bu kod parçacığı uygulamanızın kimlik doğrulaması sağlar **etkileşimsiz** Data Lake depolama Gen1 ile Azure AD web uygulaması için istemci parolası/anahtarı kullanarak. 
 
-    private static void Main(string[] args)
-    {    
-        // Service principal / appplication authentication with client secret / key
-        // Use the client ID of an existing AAD "Web App" application.
-        string TENANT = "<AAD-directory-domain>";
-        string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
-        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
-        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
-        string secret_key = "<AAD_WEB_APP_SECRET_KEY>";
-        var armCreds = GetCreds_SPI_SecretKey(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, secret_key);
-        var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
-    }
+```csharp
+private static void Main(string[] args)
+{    
+    // Service principal / application authentication with client secret / key
+    // Use the client ID of an existing AAD "Web App" application.
+    string TENANT = "<AAD-directory-domain>";
+    string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
+    System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+    System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+    string secret_key = "<AAD_WEB_APP_SECRET_KEY>";
+    var armCreds = GetCreds_SPI_SecretKey(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, secret_key);
+    var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
+}
+```
 
-Önceki kod parçacığında yardımcı işlevini kullanan `GetCreds_SPI_SecretKey`. Bu yardımcı işlev kodunu kullanılabilir [github'da burada](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
+Yukarıdaki kod parçacığında yardımcı işlevini kullanan `GetCreds_SPI_SecretKey`. Bu yardımcı işlev kodunu kullanılabilir [github'da burada](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Sertifika ile hizmetten hizmete kimlik doğrulaması
 
 Bu kod parçacığı, .NET istemci uygulamanıza ekleyin. Yer tutucu değerlerini (bir önkoşul olarak listelenen) bir Azure AD web uygulamasından alınan değerlerle değiştirin. Bu kod parçacığı uygulamanızın kimlik doğrulaması sağlar **etkileşimsiz** Data Lake depolama Gen1 ile bir Azure AD web uygulaması için sertifika kullanma. Azure AD uygulaması oluşturma hakkında yönergeler için bkz: [sertifikalar ile hizmet sorumlusu oluşturma](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
-    
-    private static void Main(string[] args)
-    {
-        // Service principal / application authentication with certificate
-        // Use the client ID and certificate of an existing AAD "Web App" application.
-        string TENANT = "<AAD-directory-domain>";
-        string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
-        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
-        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
-        var cert = new X509Certificate2(@"d:\cert.pfx", "<certpassword>");
-        var armCreds = GetCreds_SPI_Cert(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, cert);
-        var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
-    }
+```csharp
+private static void Main(string[] args)
+{
+    // Service principal / application authentication with certificate
+    // Use the client ID and certificate of an existing AAD "Web App" application.
+    string TENANT = "<AAD-directory-domain>";
+    string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
+    System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+    System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+    var cert = new X509Certificate2(@"d:\cert.pfx", "<certpassword>");
+    var armCreds = GetCreds_SPI_Cert(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, cert);
+    var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
+}
+```
 
-Önceki kod parçacığında yardımcı işlevini kullanan `GetCreds_SPI_Cert`. Bu yardımcı işlev kodunu kullanılabilir [github'da burada](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
+Yukarıdaki kod parçacığında yardımcı işlevini kullanan `GetCreds_SPI_Cert`. Bu yardımcı işlev kodunu kullanılabilir [github'da burada](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Data Lake depolama Gen1 ile kimlik doğrulaması için hizmetten hizmete kimlik doğrulaması kullanmayı öğrendiniz .NET SDK kullanarak. Data Lake depolama Gen1 ile çalışması için .NET SDK'sı kullanma hakkında konuşmak Aşağıdaki makaleler artık göz atabilirsiniz.

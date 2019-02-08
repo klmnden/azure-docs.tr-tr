@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: d87248f778c6c39cc64b1cc4725cd61d029ce040
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666378"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893247"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Öğretici: Kurumsal güvenlik paketi (Önizleme) ile HDInsight, Apache HBase ilkelerini yapılandırma
 
@@ -45,7 +45,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="create-domain-users"></a>Etki alanı kullanıcılarını oluşturma
 
-Ziyaret [Kurumsal güvenlik paketi ile bir HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster)nasıl oluşturulacağını öğrenmek için **sales_user1** ve **marketing_user1** etki alanı kullanıcıları. Bir üretim senaryosunda, etki alanı kullanıcıları Active Directory kiracınızdan gelir.
+Ziyaret [Kurumsal güvenlik paketi ile bir HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)nasıl oluşturulacağını öğrenmek için **sales_user1** ve **marketing_user1** etki alanı kullanıcıları. Bir üretim senaryosunda, etki alanı kullanıcıları Active Directory kiracınızdan gelir.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>HBase tabloları oluşturmak ve örnek verileri içeri aktarma
 

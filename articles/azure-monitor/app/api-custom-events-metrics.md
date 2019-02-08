@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: d67085d2e90e318a8f134103f0798554b8967d6d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814427"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55896001"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
@@ -572,6 +572,20 @@ telemetry.trackTrace({
     properties: properties
 });
 ```
+
+*Tarayıcı/istemci-tarafı JavaScript*
+
+```javascript
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+```
+
+Bir tanılama olayını girerek veya bir yöntem bırakarak gibi oturum açın.
+
+ Parametre | Açıklama
+---|---
+`message` | Tanılama verileri. Yerine bir ad çok uzun olabilir.
+`properties` | Dize dizeye eşleyin: İçin kullanılan ek verileri [özel durumları filtrelemek](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) portalında. Varsayılan olarak boş.
+`severityLevel` | Desteklenen değerler: [SeverityLevel.ts](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/JavaScript/JavaScriptSDK.Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 İleti içeriği arama yapabilirsiniz, ancak (özellik değerlerini), üzerinde filtre uygulanamıyor.
 

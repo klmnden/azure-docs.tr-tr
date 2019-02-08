@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bb2d1182d473203e045b85e25d7c7a90f45a3ac6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493329"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894386"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Nasıl Yapılır: Azure AD'de eski cihazları yönetme
 
@@ -122,7 +122,7 @@ Azure AD'yi temizlemek için:
 
 - **Windows 10 cihazları** - Windows 10 cihazlarını şirket içi AD'nizde devre dışı bırakın veya silin, sonra da Azure AD Connect'in değişen cihaz durumunu Azure AD'ye eşitlemesini sağlayın.
 
-- **Windows 7/8** - Windows 10 cihazlarını Azure AD'de devre dışı bırakın veya silin. Windows 7/8 cihazlarını Azure AD'de devre dışı bırakmak veya silmek için Azure AD Connect kullanamazsınız.
+- **Windows 7/8** - devre dışı bırakın veya Windows 7/8 cihazları Azure AD'de silin. Windows 7/8 cihazlarını Azure AD'de devre dışı bırakmak veya silmek için Azure AD Connect kullanamazsınız.
 
 
 

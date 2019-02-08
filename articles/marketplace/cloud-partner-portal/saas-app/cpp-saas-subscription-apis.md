@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e56169d74d1669c3bb7adda06590145d2ca31b72
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695381"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893349"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Azure - API'leri ile SaaS satış
 
@@ -68,7 +68,7 @@ Azure portalını kullanarak yeni bir uygulamayı kaydetmek için aşağıdaki a
     -   **Oturum açma URL'si**: Web uygulaması/API uygulamaları için uygulamanızın temel URL'si sağlayın. Örneğin, **http://localhost:31544** yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi daha sonra kullanmanız gerekir.
     -   **Yeniden yönlendirme URI'si**: Yerel uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin, örneğin **http://MyFirstAADApp**.
 
-        ![SaaS AD uygulama kayıtları](./media/saas-offer-app-registration-2.png) web uygulamaları veya yerel uygulamalar için belirli örnekler için hızlı başlangıç kullanıma destekli bölmesinin Başlarken bölümünde kullanılabilir ayarlar [Azure AD Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
+        ![SaaS AD uygulama kayıtları](./media/saas-offer-app-registration-2.png) web uygulamaları veya yerel uygulamalar için belirli örnekler için hızlı başlangıç kullanıma destekli bölmesinin Başlarken bölümünde kullanılabilir ayarlar [Azure AD Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 5.  Tamamladığınızda **Oluştur**’a tıklayın. Azure AD uygulamanız ve sizin için benzersiz bir uygulama kimliği atar\'re uygulamanıza geçen\'s ana kayıt sayfası. Web uygulaması ya da yerel uygulama olmasına bağlı olarak uygulamanıza ek özellikler eklemek için değişik seçenekler sunulur.
 
@@ -148,7 +148,9 @@ Geçerli API sürümü `api-version=2017-04-15`.
 
 ### <a name="resolve-subscription"></a>Abonelik çözümleyin
 
-GÖNDERİSİNİ eyleme çözmek bir kalıcı kaynak kimliği için bir belirteç çözmek kullanıcıların uç nokta sağlar
+GÖNDERİSİNİ eyleme çözmek bir kalıcı kaynak kimliği için bir Market belirteç çözmek kullanıcıların uç nokta sağlar  Kaynak Kimliği SAAS abonelik için benzersiz tanımlayıcısıdır. 
+
+Bir kullanıcı, bir ISV Web sitesine yönlendirilir, sorgu parametrelerinde bir belirteç URL'sini içerir. Bu belirteci kullanmasına ve bu sorunu çözmek için bir istekte bulunmak için ISV bekleniyor. Yanıtın benzersiz SAAS abonelik kimliği, adı, Teklif kimliği ve kaynak planlama içerir. Bu belirteci yalnızca bir saat için geçerli değil.
 
 *İstek*
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b57bea85b76b69b1826a81aa582f5326db588cb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f1d1ad091f08545225b1f9aa195329df19c4194d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811579"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Yazı tahtası öğrenin
 
@@ -211,7 +211,7 @@ Bu bölümde, erişim izni verme Yazı tahtası öğrenmek için Azure çoklu ot
 
 ### <a name="create-blackboard-learn-test-user"></a>Yazı tahtası öğrenin test kullanıcısı oluşturma
 
-Bu bölümde, Yazı tahtası öğrenin Britta Simon adlı bir kullanıcı oluşturun. Yazı tahtası öğrenin uygulama desteği yalnızca zaman kullanıcı sağlama. Bölümünde açıklandığı gibi talep yapılandırdığınızdan emin olun  **[yapılandırma Azure AD çoklu oturum açma](#configuring-azure-ad-single-sign-on)**
+Bu bölümde, Yazı tahtası öğrenin Britta Simon adlı bir kullanıcı oluşturun. Yazı tahtası öğrenin uygulama desteği yalnızca zaman kullanıcı sağlama. Bölümünde açıklandığı gibi talep yapılandırdığınızdan emin olun **yapılandırma Azure AD çoklu oturum açma**
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

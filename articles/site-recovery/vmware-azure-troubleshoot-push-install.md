@@ -6,23 +6,29 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 01/18/2019
-ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/07/2019
+ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411756"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895695"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility hizmeti anında yükleme sorunlarını giderme
 
 Mobility hizmetinin yüklenmesi sırasında bir anahtar çoğaltmayı etkinleştirme sırasında adımdır. Bu adım başarısını yalnızca önkoşulları sağladıktan ve desteklenen yapılandırmalar ile çalışma bağlıdır. Mobility hizmeti yüklemesi sırasında karşılaşacağınız en yaygın hataların nedeni şunlardır:
 
-* Kimlik bilgisi/ayrıcalık hataları
-* Oturum açma hataları
-* Bağlantı hataları
-* Desteklenmeyen işletim sistemleri
-* VSS yükleme hataları
+* [Kimlik bilgisi/ayrıcalık hataları](#credentials-check-errorid-95107--95108)
+* [Oturum açma hataları](#login-failures-errorid-95519-95520-95521-95522)
+* [Bağlantı hataları](#connectivity-failure-errorid-95117--97118)
+* [Dosya ve yazıcı paylaşımı hataları](#file-and-printer-sharing-services-check-errorid-95105--95106)
+* [WMI Hatası](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+* [Desteklenmeyen işletim sistemleri](#unsupported-operating-systems)
+* [Desteklenmeyen önyükleme yapılandırmaları](#unsupported-boot-disk-configurations-errorid-95309-95310-95311)
+* [VSS yükleme hataları](#vss-installation-failures)
+* [GRUB yapılandırma cihaz UUID yerine cihaz adı](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
+* [LVM'yi birim](#lvm-support-from-920-version)
+* [Uyarıları yeniden başlatma](#install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266)
 
 Çoğaltmayı etkinleştirdiğinizde göndermeye çalıştığında Azure Site Recovery mobility Hizmeti Aracısı sanal makinenize yükleyin. Bunun bir parçası olarak, yapılandırma sunucusu ile sanal makineye bağlanın ve aracıyı kopyalamak çalışır. Başarılı yükleme etkinleştirmek için aşağıda verilen adım adım sorun giderme yönergeleri izleyin.
 
@@ -56,12 +62,14 @@ Etki alanı güven ilişkisi kurulmasını birincil etki alanı ve iş istasyonu
 
 Seçilen kullanıcı hesabının kimlik bilgilerini değiştirmek istiyorsanız, verilen yönergeleri izleyin [burada](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="login-failure-errorid-95519"></a>Oturum açma hatası (errorID: 95519)
+## <a name="login-failures-errorid-95519-95520-95521-95522"></a>Oturum açma hataları (errorID: 95519, 95520, 95521, 95522)
+
+### <a name="credentials-of-the-user-account-have-been-disabled-errorid-95519"></a>Kullanıcı hesabının kimlik bilgilerini devre dışı bırakıldı (errorID: 95519)
 
 Çoğaltmayı etkinleştirme sırasında seçilen kullanıcı hesabı devre dışı bırakıldı. Kullanıcı hesabını etkinleştirmek için makalesine bakabilirsiniz [burada](https://aka.ms/enable_login_user) veya metin değiştirerek aşağıdaki komutu çalıştırın *kullanıcıadı* gerçek kullanıcı adına sahip.
 `net user 'username' /active:yes`
 
-## <a name="login-failure-errorid-95520"></a>Oturum açma hatası (errorID: 95520)
+### <a name="credentials-locked-out-due-to-multiple-failed-login-attempts-errorid-95520"></a>Kimlik bilgileri nedeniyle birden çok başarısız oturum açma denemesi kilitli (errorID: 95520)
 
 Kullanıcı hesabının bir makineye erişmek için birden fazla başarısız deneme çalışmalarını kilitleyecek. Hatanın nedeni şunlar olabilir:
 
@@ -70,11 +78,11 @@ Kullanıcı hesabının bir makineye erişmek için birden fazla başarısız de
 
 Bu nedenle, verilen yönergeleri izleyerek seçilen kimlik bilgilerini değiştirme [burada](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) süre sonra işlemi yeniden deneyin.
 
-## <a name="login-failure-errorid-95521"></a>Oturum açma hatası (errorID: 95521)
+### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Kaynak makinede oturum açma sunucusu kullanılamıyor (errorID: 95521)
 
 Oturum açma sunucusu, kaynak makinede mevcut olmadığı durumlarda, bu hata oluşur. Oturum açma sunucusu olarak kullanım dışı kalması oturum açma isteği başarısız olmasına neden ve bu nedenle mobility Aracısı yüklenemiyor. Başarılı oturum açma için oturum açma sunucusu kaynak makinede kullanılabilir ve oturum açma hizmeti başlatmak emin olun. Ayrıntılı yönergeler için tıklayın [burada](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
 
-## <a name="login-failure-errorid-95522"></a>Oturum açma hatası (errorID: 95522)
+### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Oturum açma hizmeti kaynak makinede çalışmadığından (errorID: 95522)
 
 Oturum açma hizmeti, kaynak makinede çalışmıyor ve oturum açma isteğinin hataya neden oldu. Bu nedenle, mobility Aracısı yüklenemiyor. Gidermek için oturum açma hizmeti için başarılı oturum açma kaynak makinede çalıştığından emin olun. Oturum açma hizmeti başlatmak için komut "net start oturum açma" komut isteminden çalıştırın veya Görev Yöneticisi'nden "NetLogon" hizmetini başlatın.
 
@@ -138,15 +146,17 @@ Diğer WMI sorun giderme makaleleri aşağıdaki makalelerinden bulunamadı.
 Başka bir yaygın başarısızlık nedeni desteklenmeyen bir işletim sistemi nedeniyle olabilir. Desteklenen işletim sistemi/çekirdek sürümü mobilite hizmetinin başarılı yükleme için üzerinde olduğundan emin olun. Özel bir düzeltme eki kullanımını kaçının.
 İşletim sistemleri ve Azure Site Recovery tarafından desteklenen bir çekirdek sürümleri listesini görüntülemek için bkz bizim [destek matrisi belge](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Önyükleme ve sistem bölümleri veya birimleri aynı diskte (errorID: 95309)
+## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>Desteklenmeyen önyükleme disk yapılandırmaları (errorID: 95309, 95310, 95311)
+
+### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Önyükleme ve sistem bölümleri veya birimleri aynı diskte (errorID: 95309)
 
 Önce 9.20 sürümü, önyükleme ve sistem bölümleri / birimler farklı disklerde was'da desteklenmeyen bir yapılandırma. Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), bu yapılandırma desteklenir. Bu destek için en son sürümünü kullanın.
 
-## <a name="boot-disk-not-found-errorid-95310"></a>Önyükleme diski bulunamadı (errorID: 95310)
+### <a name="the-boot-disk-is-not-available-errorid-95310"></a>Önyükleme diski kullanılamıyor (errorID: 95310)
 
 Bir önyükleme diski olmadan bir sanal makine korunamaz. Bu yük devretme işlemi sırasında kesintisiz kurtarma sanal makinesinin emin olmaktır. Yük devretmeden sonra makineyi önyüklemek için hata olmaması önyükleme diski sonuçlanır. Sanal makine önyükleme diski içerdiğinden emin olun ve işlemi yeniden deneyin. Ayrıca, aynı makinede birden fazla önyükleme diski desteklenmediğini unutmayın.
 
-## <a name="multiple-boot-disks-found-errorid-95311"></a>Birden çok önyükleme diski bulundu (errorID: 95311)
+### <a name="multiple-boot-disks-present-on-the-source-machine-errorid-95311"></a>Kaynak makinede birden fazla önyükleme diski sunar (errorID: 95311)
 
 Birden fazla önyükleme diski sanal makineyle değil bir [yapılandırma desteklenen](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
@@ -154,9 +164,45 @@ Birden fazla önyükleme diski sanal makineyle değil bir [yapılandırma destek
 
 9.20 sürümünden önce desteklenmeyen bir yapılandırma kök bölümü veya birimi birden fazla diskte olduğu. Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), bu yapılandırma desteklenir. Bu destek için en son sürümünü kullanın.
 
-## <a name="grub-uuid-failure-errorid-95320"></a>KAZ UUID hatası (errorID: 95320)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>GRUB yapılandırması UUID yerine belirtilen bir cihaz adı olarak koruma etkinleştirilemedi (errorID: 95320)
 
-Ardından, kaynak makinenin GRUB UUID yerine cihaz adını kullanıyorsa, mobility Aracısı yüklemesi başarısız olur. GRUB dosyada değişiklik yapmak için sistem yöneticinize ulaşın.
+**Olası neden:** </br>
+GRUB yapılandırma dosyaları ("/ boot/grub/menu.lst", "/ boot/grub/grub.cfg", "/ boot/grub2/grub.cfg" veya "/ varsayılan/etc/grub") parametre değeri içerebilir **kök** ve **sürdürme** olarak UUID yerine gerçek cihaz adları. Site Recovery VM gelen aynı ada sahip sorunları kaynaklanan yük devretmede büyütme gibi değil aygıtlarını adı VM yeniden başlatma arasında değişiklik gösterebileceği UUID yaklaşım zorunlu kılar. Örneğin: </br>
+
+
+- GRUB dosyasıdır aşağıdaki satırı **/boot/grub2/grub.cfg**. <br>
+*Linux /boot/vmlinuz-3.12.49-11-default **kök = / dev/sda2** ${extra_cmdline} **= / dev/sda1 sürdürme** splash sessiz sessiz showopts =*
+
+
+- GRUB dosyasıdır aşağıdaki satırı **/boot/grub/menu.lst**
+*çekirdek /boot/vmlinuz-3.0.101-63-default **kök = / dev/sda2** **= / dev/sda1 Sürdür ** splash sessiz crashkernel = 256M-:128M showopts vga = 0x314 =*
+
+Yukarıdaki kalın dize gözlemlerseniz, GRUB parametreleri "root" ve "Devam" UUID yerine gerçek cihaz adları vardır.
+ 
+**Nasıl:**<br>
+Cihaz adları, karşılık gelen UUID ile değiştirilmelidir.<br>
+
+
+1. Komutunu yürüterek cihazı UUID'si Bul "blkid <device name>". Örneğin:<br>
+```
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
+
+2. Biçimde, UUID artık cihaz adı yerine "kök UUID = =<UUID>". Örneğin cihaz adları için kök UUID ile değiştirin ve parametre dosyaları yukarıdaki sürdürmek için "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" veya "/ varsayılan/etc/grub: gibi görünen dosyalarda satır sonra. <br>
+*Çekirdek /boot/vmlinuz-3.0.101-63-default **kök UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4 =** **sürdürme UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b =** splash sessiz crashkernel = 256M-:128M = showopts vga 0x314 =*
+3. Korumayı yeniden yeniden başlatın
+
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Mobility hizmetini yeniden başlatmak için uyarı ile tamamlandı yükleme (errorID: 95265 & 95266)
+
+Site Recovery mobility hizmeti biri filtre sürücüsü adlı birçok bileşen vardır. Filtre sürücüsü, yalnızca bir anda sistemin yeniden başlatılması, sistem belleğe yüklenen. Bu, yeni bir filtre sürücüsü yüklendiğinde, filtre sürücüsü düzeltmesi'nin yalnızca gerçekleşmiş anlamına gelir; Bu, yalnızca sistem yeniden başlatma sırasında gerçekleşebilir.
+
+**Lütfen unutmayın** bu bir uyarıdır ve mevcut çoğaltma bile yeni aracı güncelleştirmesinden sonra çalışır. Yeni filtre sürücüsü ancak daha da eski filtre sürücüsü tutar çalışma yeniden yoksa, avantajlarını almak istediğiniz herhangi bir zamanda yeniden başlatmayı seçebilirsiniz. Bu nedenle, bir güncelleştirme filtre sürücüsü dışında yeniden başlatma olmadan sonra **diğer iyileştirmeler ve düzeltmeler mobility hizmetinin avantajlarından gerçekleşen**. Bu nedenle, önerilen olsa da her yükseltme işleminden sonra yeniden başlatmak için zorunlu değildir. Yeniden başlatma zorunlu olduğunda hakkında daha fazla bilgi için tıklatın [burada](https://aka.ms/v2a_asr_reboot).
+
+> [!TIP]
+>Yükseltme, bakım penceresi sırasında zamanlama ile ilgili en iyi uygulamalar için başvuru [burada](https://aka.ms/v2a_asr_upgrade_practice).
 
 ## <a name="lvm-support-from-920-version"></a>9.20 sürümünden LVM desteği
 

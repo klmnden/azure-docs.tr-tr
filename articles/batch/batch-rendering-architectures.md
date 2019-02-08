@@ -5,15 +5,15 @@ services: batch
 author: davefellows
 manager: jeconnoc
 ms.author: lahugh
-ms.date: 08/13/2018
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b8813466b9c0f74a608c0150c037dfec3db08dbc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543504"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893825"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure işleme için başvuru mimarileri
 
@@ -25,11 +25,11 @@ Aşağıdaki diyagramda, aşağıdaki Azure hizmetlerini içeren karma bir senar
 
 * **İşlem** -Azure Batch havuzu veya sanal makine ölçek kümesi.
 
-* **Ağ** -şirket içi: Azure ExpressRoute veya VPN. Azure: Azure sanal ağı.
+* **Ağ** -şirket içi: Azure ExpressRoute veya VPN. Azure: Azure VNet.
 
-* **Depolama** - giriş ve çıkış dosyaları: NFS veya CFS kullanarak Azure Vm'leri, Azure dosya eşitleme veya RSync aracılığıyla şirket içi depolama ile eşitlenir.
+* **Depolama** - giriş ve çıkış dosyaları: NFS veya CFS kullanarak Azure Vm'leri, Azure dosya eşitleme veya RSync aracılığıyla şirket içi depolama ile eşitlenir. Alternatif olarak: Avere vFXT giriş veya çıkış dosyalarını NFS kullanarak şirket içi NAS cihazlardan.
 
-  ![Bulut Patlaması - karma NFS veya CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
+  ![Bulut Patlaması - karma NFS veya CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Karma Blobfuse ile
 
@@ -37,7 +37,7 @@ Aşağıdaki diyagramda, aşağıdaki Azure hizmetlerini içeren karma bir senar
 
 * **İşlem** -Azure Batch havuzu veya sanal makine ölçek kümesi.
 
-* **Ağ** -şirket içi: Azure ExpressRoute veya VPN. Azure: Azure sanal ağı.
+* **Ağ** -şirket içi: Azure ExpressRoute veya VPN. Azure: Azure VNet.
 
 * **Depolama** - giriş ve çıkış dosyaları: Blob depolama, işlem kaynaklarına Azure Blobfuse aracılığıyla bağlanır.
 
@@ -49,11 +49,11 @@ Aşağıdaki diyagramda, işlem ve depolama için bağlı tamamen karma bir sena
 
 * **İşlem** -Azure Batch havuzu veya sanal makine ölçek kümesi.
 
-* **Ağ** -şirket içi: Azure ExpressRoute veya VPN. Azure: Azure sanal ağı.
+* **Ağ** -şirket içi: Azure ExpressRoute veya VPN. Azure: Azure VNet.
 
-* **Depolama** -şirketler arası: Avere vFXT. İsteğe bağlı, arşivleme Azure Data Box aracılığıyla dosyaları Blob Depolama için şirket içi.
+* **Depolama** -şirketler arası: Avere vFXT. İsteğe bağlı şirket içi arşivleme Azure Data Box dosyaları Blob depolama alanına veya Avere FXT NAS hızlandırması için şirket içinde.
 
-  ![Bulut Patlaması - karma hesaplama ve depolama](./media/batch-rendering-architectures/hybrid-compute-storage.png)
+  ![Bulut Patlaması - karma hesaplama ve depolama](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

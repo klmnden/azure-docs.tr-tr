@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: afcac73af84010f37eccd018f39852712e495b84
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: f0f0e32ccbb8fdac934f81e2f90132f63a91f069
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773804"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892125"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Microsoft olmayan hesapların Ekle
 Microsoft olmayan hesapların gibi Google, Facebook veya GitHub için iki aşamalı doğrulama için Microsoft Authenticator uygulaması ekleyin. Microsoft Authenticator uygulamasını iki aşamalı doğrulama kullanan tüm uygulamalarda ve zamana bağlı bir kerelik parola (TOTP) standartlarını destekleyen herhangi bir hesabı ile çalışır.
@@ -55,7 +55,7 @@ Facebook, Google, GitHub ve Amazon hesaplarınız için işlemi burada sağlayar
 4. QR kodu taraması için cihazınızın kamerasının kullanın **Authenticator kümesi** bilgisayarınıza sayfasında.
 
     >[!Note]
-    >Kameranız düzgün çalışmayan varsa [QR kodu ve URL'yi el ile girmek](#add-an-account-to-the-app-manually).
+    >Kameranız düzgün çalışmıyorsa, QR kodu ve URL'yi elle girebilirsiniz.
 
 5. Gözden geçirme **hesapları** hesap bilgilerinizi emin olmak için Cihazınızda Microsoft Authenticator uygulamasının sayfa, sağ ve ilişkili altı basamaklı doğrulama kodu yok.
 
@@ -94,7 +94,7 @@ Facebook, Google, GitHub ve Amazon hesaplarınız için işlemi burada sağlayar
 3. QR kodu taraması için cihazınızın kamerasının kullanın **iki öğeli kimlik doğrulamasını** bilgisayarınıza sayfasında.
 
     >[!Note]
-    >Kameranız düzgün çalışmayan varsa [QR kodu ve URL'yi el ile girmek](#add-an-account-to-the-app-manually).
+    >Kameranız düzgün çalışmıyorsa, QR kodu ve URL'yi elle girebilirsiniz.
 
 4. Gözden geçirme **hesapları** hesap bilgilerinizi emin olmak için Cihazınızda Microsoft Authenticator uygulamasının sayfa, sağ ve ilişkili altı basamaklı doğrulama kodu yok.
 
@@ -165,7 +165,7 @@ Facebook, Google, GitHub ve Amazon hesaplarınız için işlemi burada sağlayar
 6. QR kodu taraması için cihazınızın kamerasının kullanın **kodları nasıl alırsınız seçin** bilgisayarınıza sayfasında.
 
     >[!Note]
-    >Kameranız düzgün çalışmayan varsa [QR kodu ve URL'yi el ile girmek](#add-an-account-to-the-app-manually).
+    >Kameranız düzgün çalışmıyorsa, QR kodu ve URL'yi elle girebilirsiniz.
 
 5. Gözden geçirme **hesapları** hesap bilgilerinizi emin olmak için Cihazınızda Microsoft Authenticator uygulamasının sayfa, sağ ve ilişkili altı basamaklı doğrulama kodu yok.
 

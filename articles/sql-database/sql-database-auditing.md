@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 0c79554d2db4c1dc17cfbdeed052c1ae16cd68c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/07/2019
+ms.openlocfilehash: 26517e55685de6e1fd9174bb1892b877f0e263d6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297693"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895661"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -41,7 +41,7 @@ SQL veritabanı denetimi kullanabilirsiniz:
 - **Analiz** raporlar. Şüpheli olayları, olağan dışı etkinliği ve eğilimleri bulabilirsiniz.
 
 > [!IMPORTANT]
-> Denetim günlüklerine yazılır **ekleme Blobları** Azure aboneliğinizde bir Azure Blob Depolama alanında.
+> Denetim günlüklerine yazılır **ekleme Blobları** Azure aboneliğinizde Azure Blob Depolama alanında.
 >
 > - **Premium depolama** şu anda **desteklenmiyor** tarafından ekleme Blobları.
 > - **Sanal ağ içindeki depolama** şu anda **desteklenmiyor**.
@@ -251,7 +251,7 @@ Burada yan tümcesi destek ek filtreleme ile genişletilmiş İlkesi:
 
 Kullanarak Azure SQL veritabanı denetimi yönetebileceğiniz [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) Bu örneklerde gösterildiği gibi şablonları:
 
-- [Denetim günlükleri, Azure blob depolama hesabına yazma etkinleştirilmiş denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Denetim günlükleri, Azure Blob Depolama hesabına yazma etkinleştirilmiş denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Denetim günlüklerini Log Analytics'e yazmak için etkin bir denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Denetim günlükleri Olay hub'ları yazmak için etkin bir denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 

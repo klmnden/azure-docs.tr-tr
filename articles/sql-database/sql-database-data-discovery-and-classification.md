@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731861"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892890"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL veritabanı veri bulma & sınıflandırma
 
@@ -143,7 +143,8 @@ Sınıflandırmaları programlı olarak yönetmek için REST API de kullanabilir
 - [Oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - oluşturur veya belirli bir sütunun duyarlılık etiketi güncelleştirir
 - [Silme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) -belirli bir sütunun duyarlılık etiketi siler
 - [Alma](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -belirli bir sütunun duyarlılık etiketi alır
-- [Liste tarafından veritabanı](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) -belirli bir veritabanı duyarlılık etiketlerini alır
+- [Liste tarafından geçerli veritabanı](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -belirli bir veritabanı geçerli duyarlılık etiketlerini alır
+- [Veritabanı tarafından önerilen listesinde](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -belirli bir veritabanı geçerli duyarlılık etiketlerini alır
 
 ## <a id="subheading-5"></a>Sonraki adımlar
 

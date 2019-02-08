@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: da3c90579dafebf1b5b362c7129e681663a0a7ab
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301586"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891887"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelliğinin Gelişmiş kullanımı
 
@@ -174,7 +174,7 @@ Sunucu kodunuzdan kolayca erişebilmeleri için sağlayıcıya özel belirteçle
 İstemci kodunuz içinden (örneğin, bir mobil uygulama veya tarayıcı içinde JavaScript), bir HTTP gönderme `GET` isteği `/.auth/me`. Döndürülen JSON sağlayıcıya özgü belirteçleri sahiptir.
 
 > [!NOTE]
-> Erişim belirteci sağlayıcısı kaynakları bir gizli anahtar ile sağlayıcınız yapılandırırsanız mevcut şekilde erişmek için ' dir. Yenileme belirteçlerini almak hakkında bilgi için bkz. [erişim belirteçlerini yenileme](#refresh-access-tokens).
+> Erişim belirteci sağlayıcısı kaynakları bir gizli anahtar ile sağlayıcınız yapılandırırsanız mevcut şekilde erişmek için ' dir. Yenileme belirteçlerini almak nasıl görmek için erişim belirteçlerini yenileme bakın.
 
 ## <a name="refresh-identity-provider-tokens"></a>Kimlik sağlayıcısı belirteçleri yenileme
 
