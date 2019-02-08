@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Bing haber arama REST API'si kullanarak bir istek göndermek için bu hızlı başlangıçta kullanmak C#ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 44958a806d7476bfc347236421758d6f8c4bc5ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 74ac8602e61404214f300682f5696100b8fa0c60
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150719"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868863"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Kullanarak haber arama C# ve Bing haber arama REST API'si
 

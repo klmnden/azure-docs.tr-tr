@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 577860baa74d9f0cd7f411a64d9e6bfa9322731c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490456"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894999"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Kullanım ayarları ve ilkeleri yapılandırma
 Bu makalede kullanıcıların laboratuvara ekleme, bunları laboratuvarla kayıtlı almak için VM ve daha fazlasını kullanabilirsiniz saat sayısını denetlemek nasıl açıklar. 
@@ -29,7 +29,9 @@ Varsa **erişimi kısıtlama** etkin kullanıcılar (e-posta adresleri) listeye 
 
 1. Seçin **kullanıcılar** sol menüsünde.
 2. Seçin **kullanıcı ekleme** araç. 
-3. Üzerinde **kullanıcı ekleme** sayfasında, ayrı bir satırda veya tek bir satırda noktalı virgülle ayırarak kullanıcılar e-posta adreslerini girin. 
+
+    ![Kullanıcı düğmesi ekleme](../media/how-to-configure-student-usage/add-users-button.png)
+1. Üzerinde **kullanıcı ekleme** sayfasında, ayrı bir satırda veya tek bir satırda noktalı virgülle ayırarak kullanıcılar e-posta adreslerini girin. 
 
     ![Kullanıcı e-posta ekleyin](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. **Kaydet**’i seçin. E-posta adreslerini kullanıcıları ve bunların durumlarını (veya kayıtlı) listesinde görürsünüz. 

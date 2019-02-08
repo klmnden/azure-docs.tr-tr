@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: JavaScript ile Bing URL Önizleme API'sini kullanmaya hızlıca başlamak için örnek betik.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 941cdd25eb6f16b580900fed6e41aa4bf8df15f7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1f3c37e770c2edd76bd299771648b2de29d42dd9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224890"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873657"
 ---
 # <a name="quickstart-url-preview-in-javascript"></a>Hızlı Başlangıç: JavaScript içinde URL önizlemesi 
 

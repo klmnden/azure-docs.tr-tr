@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: bdb4db2d1a9447e8e328728288c1cf425c65a988
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: 3521f910ded2e24de9cfa7b1aa1d635843527ef5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511844"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878825"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL veritabanı hizmet katmanları
 
 Azure SQL veritabanı altyapı hataları durumda bile % 99,99 kullanılabilirlik sağlamak üzere bulut ortamı için ayarlanmış bir SQL Server veritabanı altyapısı mimarisini temel alır. Azure SQL veritabanı'nda kullanılan üç Mimari modeli vardır:
+
 - [Genel amaçlı](sql-database-service-tier-general-purpose.md) genel iş yüklerinin çoğu için tasarlanmıştır.
 - [İş açısından kritik](sql-database-service-tier-business-critical.md) bir okunabilir çoğaltma ile düşük gecikme süreli iş yükleri için tasarlanmıştır.
 - [Hiper ölçekli](sql-database-service-tier-hyperscale.md) çok büyük veritabanları için tasarlanan (en fazla 100 TB) birden çok okunabilir çoğaltma ile.
@@ -40,8 +41,8 @@ Aşağıdaki topluluklara bir göz atın:
 - Gereken tek veritabanı boyutu (MDF boyutu) yapılandırırken, ek depolama alanı % 30'luk LDF desteklemek için otomatik olarak eklenir
 - Yönetilen örnek depolama boyutu, 32 GB'ın katları şeklinde belirtilmelidir.
 - Desteklenen en fazla 10 GB arasındaki herhangi bir tek veritabanı boyutu seçebilirsiniz.
-  - Standart depolama için artırmak veya azaltmak boyutu 10 GB'lık artışlarla
-  - Premium depolama için artırmak veya azaltmak boyutu 250 GB'lık artışlarla
+  - Depolama, standart veya genel amaçlı hizmet katmanlarında sunulduğundan, artırmak veya azaltmak boyutu 10 GB'lık artışlarla
+  - Depolama alanında premium veya buxiness kritik hizmet katmanları için artırmak veya azaltmak boyutu 250 GB'lık artışlarla
 - Genel amaçlı hizmet katmanındaki `tempdb` ekli bir SSD ve bu depolama maliyeti sanal çekirdek fiyatına dahil kullanır.
 - İş açısından kritik hizmet katmanındaki `tempdb` paylaşımları ekli SSD MDF ve LDF dosyaları ve tempDB depolama maliyeti sanal çekirdek fiyatı yer almaktadır.
 

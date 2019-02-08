@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bing görsel arama API'sine bir görüntü ile ilgili öngörüleri almak için belirteci görüntünün InSight'ı kullanmayı gösterir.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: b3e948c2eafb43f804b330287b114ef9307b0aac
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a1a2128e4e13494a76dfad9f051be56e02dbd995
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813373"
+ms.locfileid: "55878808"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Bir görüntü ile ilgili öngörüleri almak için bir ınsights belirteci kullanma
 

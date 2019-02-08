@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 19fc20f21a57c2325254581c642b75c92c221fd9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 55106f855d1f2cab82b751b306a3a289bd740e9e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536099"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895355"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasitesi, depolama altyapısı desteği, destek ayrıcalığına, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz: [genel kısıtlamalar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
@@ -55,6 +55,7 @@ Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 ### <a name="unsupported"></a>Desteklenmiyor
 - DBA rolü: Birçok sunucu parametreleri ve ayarları yanlışlıkla sunucu performansının düşmesine neden veya DBMS ACID özelliklerini negate. Bu nedenle, bir ürün düzeyinde SLA ve hizmet bütünlüğü korumak için bu hizmeti DBA rol kullanıma sunmuyor. Yeni bir veritabanı örneği oluşturulduğunda bu oluşturulur, varsayılan kullanıcı hesabı, veritabanı yönetilen örneğine DDL ve DML deyimleri çoğunu gerçekleştirmek bu kullanıcı sağlar. 
 - Süper ayrıcalık: Benzer şekilde [Süper ayrıcalık](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) de sınırlıdır.
+- DEFINER: Süper oluşturma ayrıcalıkları gerektirir ve sınırlıdır. Bir yedekleme kullanarak veriyi içeri aktarma, kaldırma `CREATE DEFINER` el ile veya kullanılarak komutları `--skip-definer` bir mysqldump gerçekleştirirken komutu.
 
 ## <a name="data-manipulation-statement-support"></a>Veri işleme ifadesi desteği
 

@@ -1,25 +1,18 @@
 ---
 title: Azure kaynak durumu hakkında SSS | Microsoft Docs
 description: Azure kaynak durumu genel bakış
-services: Resource health
-documentationcenter: dev-center-name
 author: stephbaron
-manager: ''
-editor: ''
-ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
-ms.service: service-health
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Supportability
-ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: 821495ceb052184f3216c8ed696b39db33db00ac
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.topic: conceptual
+ms.service: service-health
+ms.date: 01/29/2019
+ms.workload: Supportability
+ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977224"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884554"
 ---
 # <a name="azure-resource-health-faq"></a>Azure kaynak durumu hakkında SSS
 Azure kaynak durumu hakkında genel soruların yanıtlarını öğrenin.
@@ -38,9 +31,9 @@ Kaynak durumu göre çeşitli denetimleri gerçekleştirir [kaynak türü](resou
 
 ## <a name="what-does-each-of-the-health-status-mean"></a>Her sistem durumu ne demektir?
 Üç farklı sistem durumlarını vardır:
-- Kullanılabilir: Olmadığı herhangi bir bilinen sorun bu kaynak etkileyen Azure platform
+- Kullanılabilir: Bu kaynak etkileyen Azure platformunda herhangi bir bilinen sorun yok
 - Kullanılabilir: Kaynak durumu, kaynak etkileyen sorunları algıladı.
-- Bilinmeyen: hakkında bilgi alma durdurduğundan kaynak durumu kaynağının durumu belirlenemiyor. 
+- Bilinmiyor: Kaynak durumu, hakkında bilgi alma durdurduğundan kaynak durumu belirlenemiyor. 
 
 ## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>Bilinmeyen Durum ne anlama geliyor? Kaynağım ile yanlış bir şey mi?
 Kaynak durumu, belirli bir kaynak hakkında bilgi alma durduğunda sistem durumunu bilinmeyen olarak ayarlanır. Bu durum, kesin bir yere sorunlarla karşılaştığı durumlarda kaynak durumu göstergesi olmamasına karşın Azure bir sorun olduğunu gösteriyor olabilir.

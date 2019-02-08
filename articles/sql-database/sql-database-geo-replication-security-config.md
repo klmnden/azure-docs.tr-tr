@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1430bc4a9de863c25e40a2655f0a1cd7a75ae0f7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561408"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858289"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Yapılandırma ve Azure SQL veritabanı güvenliğini coğrafi geri yükleme ya da yük devretme için yönetme
 
@@ -32,6 +32,9 @@ Ana dengelemeyi uygun ölçekte olağanüstü durum kurtarma işlemini yönetmey
 ## <a name="how-to-configure-logins-and-users"></a>Oturum açma bilgileri ve kullanıcılar nasıl yapılandırılır?
 
 Oturumlar ve kullanıcılar kullanıyorsanız (bağımsız kullanıcılar yerine), aynı oturum açma bilgileri ana veritabanında mevcut emin olmak için ek adımlar uygulaması gerekir. Aşağıdaki bölümlerde adımları dahil olan ve ek konuları özetler.
+
+  >[!NOTE]
+  > Veritabanlarınızı yönetmek için Azure Active Directory (AAD) oturum açma bilgileri kullanmak da mümkündür. Daha fazla bilgi için [Azure SQL oturumları ve kullanıcıları](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>İkincil ya kurtarılan veritabanına kullanıcı erişimini ayarlama
 

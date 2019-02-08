@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a3807dc792c2e56c3e7c1b74f7d3e8f73ac0f4b0
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7fb382c6c57972484eff80c0d7355319a1f9178a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705098"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893560"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak ilgi çekici noktaya yönlendirme
 
@@ -202,7 +202,7 @@ Bu bölümde, belirtilen bir başlangıç noktasından bir hedefe giden yolu bul
         endPoint.geometry.coordinates[0];
     ```
 
-3. Yolu almak için betiğe aşağıdaki kod bloğunu ekleyin. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) yöntemi aracılığıyla Azure Haritalar yönlendirme hizmetini sorgular ve sonra [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) kullanarak yanıtı GeoJSON biçiminde ayrıştırır. Ardından veri kaynağı yanıtına rota çizgisi eklenerek haritada otomatik olarak işlenmesi sağlanır.
+3. Yolu almak için betiğe aşağıdaki kod bloğunu ekleyin. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) yöntemi aracılığıyla Azure Haritalar yönlendirme hizmetini sorgular ve sonra [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) kullanarak yanıtı GeoJSON biçiminde ayrıştırır. Ardından veri kaynağı yanıtına rota çizgisi eklenerek haritada otomatik olarak işlenmesi sağlanır.
 
     ```JavaScript
     //Execute the car route query then add the route to the map once a response is received.

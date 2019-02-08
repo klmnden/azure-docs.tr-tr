@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Varlık Arama API'sinin tek sayfalı bir Web uygulamasında kullanılmasını gösterir.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: ccc94f5fa44cc177db62af3d7318a8f3071e9098
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: eb1784374914846229b18fd6ee92068b4e8a7589
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752645"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858766"
 ---
 # <a name="tutorial-single-page-web-app"></a>Öğretici: Tek sayfalı web uygulaması
 

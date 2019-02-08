@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: JavaScript ile Duygu Tanıma API'sini kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri edinin.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3c6e5b0d759aeb8aa0b06e359f1f48eaf6c44520
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2c132e735965ecabe8ecdb0bf56c008add5468c2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208967"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884384"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı Başlangıç: Görüntüdeki yüzleri üzerinde duyguları tanıma için bir uygulama oluşturun.
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bu öğreticide makine Yardımlı resim denetimi ve İnsan içinde--döngüsü gözden geçirme oluşturma ile tam bir video ve döküm denetimi çözümü oluşturmak nasıl anlamanıza yardımcı olur.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 601c282e6b3339537c3ad419098f55116a40955f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e3578c08b78894c2f9a858e97c7cbe2d260731c5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208883"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878757"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Öğretici: Video ve döküm denetleme
 

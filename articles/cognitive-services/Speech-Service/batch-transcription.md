@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Batch transkripsiyonu, depolama, Azure BLOB'ları gibi ses büyük bir miktarını konuşmaların istiyorsanız idealdir. Adanmış REST API'sini kullanarak bir paylaşılan erişim imzası (SAS) URI ses dosyalarının üzerine gelin ve döküm zaman uyumsuz olarak alır.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: bf89180ea98473d2da3495286396a12c6f25288f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228670"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867129"
 ---
 # <a name="why-use-batch-transcription"></a>Batch transkripsiyonu neden kullanmalısınız?
 
@@ -49,7 +49,7 @@ Batch tanıma API'si, aşağıdaki biçimlerde destekler:
 > [!NOTE]
 > Batch tanıma API'si (katman ödeme) bir S0 anahtarı gerektirir. Ücretsiz (f0) anahtar ile çalışmaz.
 
-Stereo ses akışları için Batch transkripsiyonu API sol ve sağ kanal döküm sırasında böler. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Aşağıdaki JSON örneği kanal çıkış, includuing küfür filtresini ve noktalama işaretleri modeli ayarlama özellikleri gösterir.
+Stereo ses akışları için Batch transkripsiyonu API sol ve sağ kanal döküm sırasında böler. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Bir örnek istek aşağıdaki JSON'u göstermektedir includuing özelliklerini küfür ayarlamak için filtre, noktalama işareti modeli ve düzeyi zaman damgaları word
 
 ```json
 {
@@ -60,7 +60,8 @@ Stereo ses akışları için Batch transkripsiyonu API sol ve sağ kanal döküm
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -208,7 +209,7 @@ Taban çizgisi kullanmak istemiyorsanız, hem akustik ve dil modelleri için mod
 Örnek bu makalede bulabileceğiniz [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Bir ses tanıma, ses dosyası yanı sıra, iki için üç dakikalık yükü süresi için eşit bir zaman aralığı normalde gerektirir.
+> Bir zaman SLA'sı için batch aracılığıyla ses trascriptions sunmuyoruz. Döküm işi (çalışır durumda) actioned eklendiğinde, ancak typially gerçek zamanlı daha hızlı işlenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

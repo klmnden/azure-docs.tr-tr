@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 50c0c781e7e1c95896a22f0cd71ed20bbad4c2b3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165536"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888769"
 ---
-<!--author=alkohli last changed: 01/20/2017-->
-
 #### <a name="to-create-a-manual-backup"></a>El ile yedekleme oluşturmak için
 
 1. StorSimple Cihaz Yöneticisi hizmetinize gidin ve **Cihazlar**’a tıklayın. Tablosal cihaz listesinden cihazınızı seçin. **Ayarlar > Yönet > Yedekleme ilkeleri** seçeneğine gidin.
@@ -23,7 +21,7 @@ ms.locfileid: "50165536"
 
 3. **Şimdi yedekle** dikey penceresinde aşağıdaki adımları gerçekleştirin:
 
-    1. Açılan listeden uygun **Anlık görüntü türü**’nü seçin: **Yerel** anlık görüntü veya **Bulut** anlık görüntüsü. Yedekleme ve geri yükleme işlemlerinin hızlı olması için yerel anlık görüntüyü, veri dayanıklılığı için bulut anlık görüntüsünü seçin.
+    1. Uygun seçin **anlık görüntü türü** aşağı açılan listeden: **Yerel** anlık görüntü veya **bulut** anlık görüntü. Yedekleme ve geri yükleme işlemlerinin hızlı olması için yerel anlık görüntüyü, veri dayanıklılığı için bulut anlık görüntüsünü seçin.
 
         ![El ile yedekleme oluşturma](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 

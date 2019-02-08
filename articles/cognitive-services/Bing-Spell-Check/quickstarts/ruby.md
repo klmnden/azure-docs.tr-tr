@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Yazım Denetimi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
-ms.openlocfilehash: 3371ed7689ad089559a5874fb89f14962194194d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d3c273c7e5774e4f6d5b6984b77ff76bfb041343
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203248"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873181"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-ruby"></a>Hızlı başlangıç: Ruby ile Bing Yazım Denetimi API'si 
 

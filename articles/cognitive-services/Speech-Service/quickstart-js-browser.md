@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Konuşma Tanıma Hizmeti SDK’sını kullanarak tarayıcıda JavaScript’te konuşma tanımayı öğrenme
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: a38553bc2c549989fe24f3a95e972858f6813fc5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d51624e5ae4d0e1052b562cd9142238828614597
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211160"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872195"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma hizmeti SDK'sını kullanarak bir tarayıcıda JavaScript dilinde konuşma tanıma
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Python kullanarak Bing Web araması REST API'si için istekleri göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4aab5c51d36b3db01175216be9f4e62a897d6132
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4535014dad75bd598b7e55877c447df4609e5902
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178231"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871414"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web araması API'si çağırmak için Python kullanma  
 **Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).

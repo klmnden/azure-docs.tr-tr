@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0c2ff94d65e775a12fd76b3115aa8b69ae9a405f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b4dc2e48093398077071eb2423a80c86eb62c67
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815022"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894947"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell kullanarak bir yönlendirme tablosu ile ağ trafiğini yönlendirme
 
@@ -248,7 +248,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 Bu makalede yönlendirmeyi test etmek için izleme yönlendirme kullanılsa da, üretim dağıtımları için Windows Güvenlik Duvarı üzerinden ICMP'ye izin verilmesi önerilmez.
 
-[IP iletmeyi etkinleştirme](#enable-ip-forwarding) bölümünde, VM'nin ağ arabirimi için Azure’da IP iletimini etkinleştirdiniz. VM içindeki işletim sistemi veya VM içinde çalışan bir uygulama da ağ trafiğini iletebilmelidir. İşletim sistemi içinde IP iletimini etkinleştirmeniz *myVmNva*.
+Sanal makinenin ağ arabiriminde IP iletimini Etkinleştir için azure'da IP iletimini etkinleştirdiğiniz. VM içindeki işletim sistemi veya VM içinde çalışan bir uygulama da ağ trafiğini iletebilmelidir. İşletim sistemi içinde IP iletimini etkinleştirmeniz *myVmNva*.
 
 Bir komut isteminden *myVmPrivate* VM, Uzak Masaüstü Bağlantısı *myVmNva*:
 

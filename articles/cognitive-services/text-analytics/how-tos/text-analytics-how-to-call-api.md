@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Metin analizi REST API'nin nasıl çağrılacağını öğrenin.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 579040c3a1466d431a9ae2105edbf02fa41570b6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 60aa51e4dac796e034b7b0506be0e205951226de
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211597"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870784"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Metin analizi REST API'nin nasıl çağrılacağını
 
@@ -44,8 +44,8 @@ Giriş JSON içinde yapılandırılmamış ham metin olmalıdır. XML desteklenm
 
 | Öğe | Geçerli değerler | Gerekli mi? | Kullanım |
 |---------|--------------|-----------|-------|
-|`id` |Dize veri türünde, ancak uygulamada belge kimlikleri tamsayılar olma eğilimindedir. | Gereklidir | Sistem, yapı çıktı sağladığınız kimlikleri kullanır. Dil kodları, anahtar ifadeleri ve duyarlılık puanlarını her kimliği istekteki proje Kimliğiyle için oluşturulur.|
-|`text` | Yapılandırılmamış ham metni, en çok 5000 karakter. | Gereklidir | Dil algılama için metin herhangi bir dille ifade edilebilir. Yaklaşım analizi, anahtar ifade ayıklama ve varlık kimliği için metin olmalıdır bir [dil desteklenen](../text-analytics-supported-languages.md). |
+|`id` |Dize veri türünde, ancak uygulamada belge kimlikleri tamsayılar olma eğilimindedir. | Gerekli | Sistem, yapı çıktı sağladığınız kimlikleri kullanır. Dil kodları, anahtar ifadeleri ve duyarlılık puanlarını her kimliği istekteki proje Kimliğiyle için oluşturulur.|
+|`text` | Yapılandırılmamış ham metni, en çok 5000 karakter. | Gerekli | Dil algılama için metin herhangi bir dille ifade edilebilir. Yaklaşım analizi, anahtar ifade ayıklama ve varlık kimliği için metin olmalıdır bir [dil desteklenen](../text-analytics-supported-languages.md). |
 |`language` | 2 karakterli [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) için kod bir [dil desteklenmiyor](../text-analytics-supported-languages.md) | Değişir | Yaklaşım analizi, anahtar ifade ayıklama ve varlık bağlama için gerekli; dil algılama için isteğe bağlı. Hata yoktur, hariç tutarsanız, ancak analiz olmadan zayıflar. Dil kodu karşılık gelmelidir `text` size sağlar. |
 
 Sınırları hakkında daha fazla bilgi için bkz. [metin Analizi'ne genel bakış > veri sınırları](../overview.md#data-limits). 

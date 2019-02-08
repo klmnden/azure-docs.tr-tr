@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, komut satırına metin çıktısı kullanıcı konuşma yakalamak ve başka bir dile çevirmek için basit bir C++ uygulaması oluşturacaksınız. Bu kılavuz, Windows kullanıcıları için tasarlanmıştır.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 7c5ab43aad4f4a34a688e373ac8c125ae4063157
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 70a5e05416be3dd12f391c67c6046546b3c564f7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223876"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883245"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Hızlı Başlangıç: C++ için konuşma Speech SDK'sı ile Çevir
 

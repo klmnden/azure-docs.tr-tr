@@ -4,19 +4,19 @@ titleSuffix: QnA Maker- Azure Cognitive Services
 description: Bu C# REST tabanlı bir hızlı başlangıç size yol gösterir, yayımlanan Bilgi Bankası temsil eden adanmış bir Azure Search dizini için test edilmiş Bilgi Bankası en son sürümünü iter, Bilgi Bankası yayımlama aracılığıyla. Ayrıca uygulamanızda veya sohbet botunuzda çağrılabilecek bir uç nokta da oluşturulur.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/18/2018
 ms.author: diberry
-ms.openlocfilehash: d8ca655eb3c1c06871b421acb840948aaee25dcd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 587661236e28b9e0fdf7d527b762897d417d0d98
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214430"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866857"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Hızlı Başlangıç: Soru-cevap Oluşturucu kullanarak Bilgi Bankası yayımlamaC#
 

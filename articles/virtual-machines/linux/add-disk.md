@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754311"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892785"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
 Bu makalede verilerinizi - koruyabilmeniz için bile, sanal Makinenizin Bakım veya yeniden boyutlandırma nedeniyle daralıp kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir.
@@ -73,10 +73,10 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Burada, *sdc* istiyoruz disktir. İle diski bölümlendirin `parted`, disk boyutu 2 tebibytes (TiB) ise ya da daha büyük MBR veya GPT bölümleme kullanabilirsiniz 2TiB altında ise GPT bölümleme, kullanmanız gerekir. Birincil disk 1 bölüme kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `parted` üzerinde işlem */dev/sdc*:
+Burada, *sdc* istiyoruz disktir. İle diski bölümlendirin `parted`, disk boyutu 2 tebibytes (TiB) ise ya da daha büyük MBR veya GPT bölümleme kullanabilirsiniz 2TiB altında ise GPT bölümleme, kullanmanız gerekir. MBR bölümleme kullanıyorsanız, kullanabileceğiniz `fdisk`. Birincil disk 1 bölüme kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `fdisk` üzerinde işlem */dev/sdc*:
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 Kullanım `n` yeni bir bölüm eklemek için komutu. Bu örnekte, biz de tercih `p` için birincil bölüm ve varsayılan değerleri kabul edin. Çıktı aşağıdaki örneğe benzer olacaktır:

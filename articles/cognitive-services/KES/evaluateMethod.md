@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bilgi keşfetme hizmeti (KES içinde) API değerlendir yöntemi kullanmayı öğrenin.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: d6ddb76954108c037dc4135393df8622c9dbd101
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dcfa9bb7931cf3b682bacf722b67acd6d4a370c0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220782"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860737"
 ---
 # <a name="evaluate-method"></a>yöntemi
 
@@ -27,7 +27,7 @@ Genellikle, bir ifade yorumlama yöntemi için bir yanıt alınır.  Ancak, ayn�
 
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
-Name|Value|Açıklama
+Ad|Değer|Açıklama
 ----|----|----
 ifade       | Metin dizesi | Bir alt dizin varlıkların seçer yapılandırılmış sorgu ifadesi.
 Öznitelikleri | Metin dizesi | Yanıta eklenecek özniteliklerin virgülle ayrılmış listesi.

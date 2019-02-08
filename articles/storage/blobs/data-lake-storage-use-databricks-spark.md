@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Spark kullanarak Azure Databricks ile Azure Data Lake Storage 2. Nesil Önizleme verilerine erişme | Microsoft Docs'
+title: "Öğretici: Azure Databricks Spark'ı kullanarak Azure Data Lake depolama Gen2'ye veri erişim | Microsoft Docs"
 description: Bu öğreticide, Spark, Azure Data Lake depolama Gen2'ye depolama hesabınız verilere erişmek için bir Azure Databricks kümesinde sorguları çalıştırma işlemi gösterilmektedir.
 services: storage
 author: dineshmurthy
@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: 533665ebfa3d35ed5f03326cf5614e37056b7713
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813611"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891666"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 önizlemesi verilere erişme
+# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 verilere erişme
 
-Bu öğreticide, Azure Databricks kümesiyle Azure Data Lake depolama Gen2'ye sahip bir Azure depolama hesabında depolanan verilere bağlanmak gösterilir (Önizleme) etkin. Bu bağlantı, yerel olarak sorgular ve analiz, verilerinizde kümenizden çalıştırmanızı sağlar.
+Bu öğreticide, Azure Databricks kümesiyle Azure Data Lake depolama Gen2'ye etkin olan bir Azure depolama hesabına depolanan verilere bağlanma gösterilmektedir. Bu bağlantı, yerel olarak sorgular ve analiz, verilerinizde kümenizden çalıştırmanızı sağlar.
 
 Bu öğreticide şunları yapacaksınız:
 
@@ -145,7 +145,7 @@ Bu bölümde, depolama hesabınızdaki bir dosya sistemi ve klasör oluşturacak
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` adımları tamamlandığında topladığınız değerleri bu kod bloğu içinde yer tutucu değerlerini [bir kenara depolama hesabı Yapılandırma](#config) ve [hizmet sorumlusu oluşturma](#service-principal) bu makalenin bölümler. Değiştirin `file-system-name` yer tutucu dosya sisteminize vermek istediğiniz herhangi bir ada sahip.
+18. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` vekümesiasidedepolamahesabıyapılandırmaadımlarıtamamlandığındatopladığınızdeğerleribukodbloğuiçindeyertutucudeğerlerini[Hizmet sorumlusu oluşturma](#service-principal) bu makalenin bölümler. Değiştirin `file-system-name` yer tutucu dosya sisteminize vermek istediğiniz herhangi bir ada sahip.
 
 19. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları. 
 

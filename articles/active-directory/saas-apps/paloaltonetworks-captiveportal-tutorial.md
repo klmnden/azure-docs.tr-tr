@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 15ddb29f090ca8dc14befc93e3377c181038b554
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1888ac8098773d6110e5510a3dd6c0ca1220f5d7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816169"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Öğretici: Palo Alto ağları Captive portalı ile Azure Active Directory Tümleştirme
 
@@ -81,7 +81,7 @@ Yapılandırma ve Azure AD çoklu oturum açma Palo Alto ağları Captive portal
 2. **[Palo Alto ağları Captive portalı çoklu oturum açmayı yapılandırma](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Uygulamada çoklu oturum açma ayarları yapılandırın.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**: Azure AD çoklu oturum açma kullanıcı ile test *Britta Simon*.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**: Britta Simon, Azure AD çoklu oturum açma kullanacak şekilde ayarlanmış.
-5. **[Palo Alto ağları Captive portalı test kullanıcısı oluşturma](#create-palo-alto-networks-captive-portal-test-user)**: Karşılık gelen kullanıcı oluşturma *Britta Simon* portalında Palo Alto ağları Captive için Azure AD kullanıcı bağlı.
+5. **Palo Alto ağları Captive portalı test kullanıcısı oluşturma**: Karşılık gelen kullanıcı oluşturma *Britta Simon* portalında Palo Alto ağları Captive için Azure AD kullanıcı bağlı.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**: Yapılandırma çalıştığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın

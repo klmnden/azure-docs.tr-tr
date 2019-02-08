@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: dc9c3b6740533ae26cf395e436908a359cadf8d9
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: c92bb8e7441e9701d11f3223fa6ebde7869d6233
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321322"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895742"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure işlevleri HTTP Tetikleyicileri ve bağlamaları
 
@@ -27,6 +27,8 @@ Yanıt için HTTP tetikleyicisi özelleştirilebilir [Web kancaları](https://en
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+Bu makalede kod, .NET Core kullanan işlevler 2.x sözdizimi için varsayılan olarak. 1.x söz dizimi hakkında daha fazla bilgi için bkz: [1.x işlev şablonları](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
@@ -63,26 +65,21 @@ Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-lib
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
-public static async Task<HttpResponseMessage> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, 
-    ILogger log)
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] 
+    HttpRequest req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
+    string name = req.Query["name"];
 
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
 
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+    return name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {name}")
+        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
 
@@ -117,48 +114,46 @@ Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.jso
 
 [Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-İçin bağlanan bir C# kodu işte `HttpRequestMessage`:
+İçin bağlanan bir C# kodu işte `HttpRequest`:
 
-```csharp
+```cs
 using System.Net;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
-    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
+    string name = req.Query["name"];
 
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
 
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+    return name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {name}")
+        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
 
-Özel bir nesne yerine adlarınıza bağlayabileceğiniz `HttpRequestMessage`. Bu nesne, JSON olarak ayrıştırılmış istek gövdesinden oluşturulur. Benzer şekilde, çıktı bağlama ve 200 durum koduyla birlikte yanıt gövdesi olarak döndürülen HTTP yanıtına bir tür geçirilebilir.
+Özel bir nesne yerine adlarınıza bağlayabileceğiniz `HttpRequest`. Bu nesne istek gövdesinden oluşturulur ve JSON olarak ayrıştırılır. Benzer şekilde, çıktı bağlama ve 200 durum koduyla birlikte yanıt gövdesi olarak döndürülen HTTP yanıtına bir tür geçirilebilir.
 
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-public static string Run(CustomObject req, ILogger log)
-{
-    return "Hello " + req?.name;
+public static string Run(Person person, ILogger log)
+{   
+    return person.Name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {person.Name}")
+        : new BadRequestObjectResult("Please pass an instance of Person.");
 }
 
-public class CustomObject {
-     public string name {get; set;}
+public class Person {
+     public string Name {get; set;}
 }
 ```
 
@@ -547,12 +542,12 @@ Web kancası türü ve rota şablonu için özelliklerin vardır ve yetkilendirm
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestMessage req)
+public static Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
 {
     ...
 }
- ```
+```
 
 Tam bir örnek için bkz. [tetikleyici - C# örneği](#trigger---c-example).
 
@@ -572,7 +567,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
 
-İçin C# ve F# İşlevler, ya da giriş, tetikleyici türü bildirebilirsiniz `HttpRequestMessage` veya özel bir tür. Seçerseniz `HttpRequestMessage`, istek nesnesi tam erişim elde edersiniz. Özel bir tür için çalışma zamanı nesne özelliklerini ayarlamak için JSON istek gövdesini ayrıştırmak çalışır.
+İçin C# ve F# İşlevler, ya da giriş, tetikleyici türü bildirebilirsiniz `HttpRequest` veya özel bir tür. Seçerseniz `HttpRequest`, istek nesnesi tam erişim elde edersiniz. Özel bir tür için çalışma zamanı nesne özelliklerini ayarlamak için JSON istek gövdesini ayrıştırmak çalışır.
 
 JavaScript işlevleri için istek gövdesi istek nesnesi yerine işlevler çalışma zamanı sağlar. Daha fazla bilgi için [JavaScript tetikleyicisi örneğinde](#trigger---javascript-example).
 
@@ -612,13 +607,19 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 Böylece, iki parametre adresi desteklemek işlev kodunu _kategori_ ve _kimliği_. Kullanabilirsiniz [Web API rota kısıtlaması](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) , parametrelere sahip. Aşağıdaki C# işlev kodunu her iki parametre kullanır.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
-                                                ILogger log)
+public static Task<IActionResult> Run(HttpRequest req, string category, int? id, ILogger log)
 {
     if (id == null)
-        return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");
+    {
+        return (ActionResult)new OkObjectResult($"All {category} items were requested.");
+    }
     else
-        return  req.CreateResponse(HttpStatusCode.OK, $"{category} item with id = {id} has been requested.");
+    {
+        return (ActionResult)new OkObjectResult($"{category} item with id = {id} has been requested.");
+    }
+    
+    // -----
+    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 }
 ```
 
@@ -674,7 +675,7 @@ public static IActionResult Run(HttpRequest req, ILogger log)
 {
     ClaimsPrincipal identities = req.HttpContext.User;
     // ...
-    return new OkResult();
+    return new OkObjectResult();
 }
 ```
 
@@ -730,7 +731,7 @@ Program aracılığıyla işlev tuşlarını almak için hiçbir desteklenen API
 
 Çoğu HTTP tetikleyici şablonları, istekteki bir API anahtarı gerektirir. Bu nedenle, HTTP isteği normalde şu URL gibi görünür:
 
-    https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
+    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 
 Adlı bir sorgu dizesi değişkeni anahtar eklenebilir `code`, yukarıdaki gibi. Olarak da eklenebilir bir `x-functions-key` HTTP üstbilgisi. Anahtarın değeri, işlev için tanımlanan herhangi bir işlev tuşu veya herhangi bir ana bilgisayar anahtarı olabilir.
 
@@ -774,7 +775,7 @@ Slack Web kancası Slack belirteçten ile bir işleve özgü anahtar yapılandı
 
 Web kancası yetkilendirme Web kancası alıcı bileşeni tarafından HTTP tetikleyicisi bir parçası olarak işlenir ve mekanizması Web kancası türüne göre değişir. Her mekanizmasının bir anahtara bağlıdır. Varsayılan olarak, "varsayılan" adlı işlev anahtarı kullanılır. Farklı bir anahtar kullanmak için aşağıdaki yollardan biriyle anahtar adı ile istek göndermek için Web kancası sağlayıcı yapılandırın:
 
-* **Sorgu dizesi**: Sağlayıcı anahtar adı geçen `clientid` gibi sorgu dizesi parametresi, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Sorgu dizesi**: Sağlayıcı anahtar adı geçen `clientid` gibi sorgu dizesi parametresi, `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **İstek üstbilgisi**: Sağlayıcı anahtar adı geçen `x-functions-clientid` başlığı.
 
 ## <a name="trigger---limits"></a>Tetikleyici - sınırları
@@ -805,7 +806,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 ## <a name="output---usage"></a>Çıkış - kullanım
 
-Bir HTTP yanıt göndermek için dil standardı yanıt desenleri kullanın. İşlev dönüş türü, C# veya C# betiği olun `HttpResponseMessage` veya `Task<HttpResponseMessage>`. C# ' ta dönen değer özniteliği gerekli değildir.
+Bir HTTP yanıt göndermek için dil standardı yanıt desenleri kullanın. İşlev dönüş türü, C# veya C# betiği olun `IActionResult` veya `Task<IActionResult>`. C# ' ta dönen değer özniteliği gerekli değildir.
 
 Örneğin yanıt bkz [tetikleyicisi örneğinde](#trigger---example).
 

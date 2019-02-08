@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a180dd92af20df5cd8f7dbfd12687e7cddd223f2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295585"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856640"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir bilgi grafiği: Makine öğrenimi algoritma örnekleri ile temelleri
 Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak için kullanılan popüler algoritmaları hakkında bilgi edinmek için bu bilgi grafiği anlaşılması kolay bakış indirin. Algoritma örnekleri hangi algoritmaları ve kullanıldıkları anlamak machine learning Acemi yardımcı olur.
@@ -32,8 +32,8 @@ Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak 
 * Farklı türlerdeki makine öğrenimi algoritmaları, bunların nasıl kullanıldığı ve çözümünüz için doğru olanı seçmeleri nasıl daha ayrıntılı bir açıklaması için bkz. [Microsoft Azure Machine Learning için algoritma seçme](algorithm-choice.md).
 * Machine Learning Studio'da kullanılabilen tüm makine öğrenimi algoritma kategoriye göre bir listesi için bkz [modeli Başlat] [ initialize-model] Machine Learning Studio algoritma ve modül Yardımı.
 * Bir tam alfabetik listesi algoritmaları ve Machine Learning Studio'daki modüller için bkz: [Machine Learning Studio modüllerinin A-Z listesi] [ a-z-list] Machine Learning Studio algoritma ve modül Yardımı.
-* Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](studio-overview-diagram.md).
 * Azure AI Gallery ve topluluk tarafından oluşturulan kaynaklara genel bir bakış için bkz: [paylaşımı ve Azure AI Gallery'de kaynakları bulmak](gallery-how-to-use-contribute-publish.md).
+* İndirin ve Machine Learning Studio özelliklerine genel bir fikir veren bir diyagramını Yazdır: [Microsoft Azure Machine Learning Studio işlevlerine genel bakış (PDF)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
 
 
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0265de5b224e62d188fe6e3b9322d5c2e3f77fa1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302130"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883143"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Azure Data Box ağ geçidi önizlemesi sürüm notları
 
@@ -52,9 +52,8 @@ Aşağıdaki tabloda, önizleme sürümünü çalıştıran, veri kutusu ağ ge�
 | **7.** |Yenile | İzinler ve erişim denetim listeleri (ACL'ler), bir yenileme işlemi arasında korunmaz.  | |
 | **8.** |Kopyala | Veri kopyalama hatasıyla başarısız oluyor:  Bir dosya sistemi sınırlaması nedeniyle istenen işlem tamamlanamadı.  |128 KB (ReFS için üst sınır) dosyası ile ilişkili diğer veri Stream (REKLAM) aştığında, bu hata oluşur.  |
 | **9.** |Simgesel bağlantılar |Sembolik bağlantılar desteklenmez.  |Sembolik bağlantılar dizinler için hiçbir zaman çevrimdışı olarak işaretlenmiş dizinlerde neden. Sonuç olarak, gri arası dizinleri çevrimdışı olduğunu ve tüm ilişkili içeriği tamamen Azure'da yüklenen gösterir dizinlerde göremeyebilirsiniz. |
-| **10.** |Çevrimiçi Yardım |Azure portalı Yardım bağlantıları belgelerinin bağlantısı yok.|Yardım bağlantıları genel kullanım sürümünde çalışır. |
-
-
+| **10.** |Paylaşımlar |Dosya değişikliği hatalarında karşıya yüklemek için sayfa BLOB'ları ile var olan bir kapsayıcı bir blok blobu paylaşımına (veya tersi) yenileme yol açar.  |Bu davranış, bu adımları izlediğinizde görülür: <li> Cihazda bir blok blobu paylaşımı oluşturun. </li><li> Paylaşım, sayfa BLOB'ları olan bir var olan bulut kapsayıcısı ile ilişkilendirin.</li><li>Bu paylaşım yenileyin. </li><li>Bazı bulut sayfa Blobları olarak depolanır yenilenmiş dosyaları değiştirin.</li> Karşıya yükleme hataları görülür. |
+| **11.** |Çevrimiçi Yardım |Azure portalı Yardım bağlantıları belgelerinin bağlantısı yok.|Yardım bağlantıları genel kullanım sürümünde çalışır. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6986a5c40b51300b631f3fdce6c3a88b43fb5b11
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 55e4ce4a59a498c5c22fe6e701e3140aa65e7a10
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730892"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895253"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Node.js kullanarak Azure Event Hubs'tan gelen olayları alma
 
@@ -83,18 +83,18 @@ Node.js kullanarak bir olay hub'ından olaylarını almak için örnek kod aşa�
   const storageContainerName = "test-container";
   
   async function main() {
-    // Create the Event Processo Host
+    // Create the Event Processor Host
     const eph = EventProcessorHost.createFromConnectionString(
       EventProcessorHost.createHostName("my-host"),
       storageCS,
       storageContainerName,
       ehCS,
       {
-        eventHubPath: path
-      },
-      onEphError: (error) => {
-        console.log("This handler will notify you of any internal errors that happen " +
-        "during partition and lease management: %O", error);
+        eventHubPath: path,
+        onEphError: (error) => {
+          console.log("This handler will notify you of any internal errors that happen " +
+          "during partition and lease management: %O", error);
+        }
       }
     );
     let count = 0;

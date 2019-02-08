@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 08d9978134ce214a468691ec367fb1797f6e86fc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7536b5d0815351d2e6cb67705060d2e1046c970
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457760"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857881"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Sorgu bir Azure Cosmos kapsayıcısı
 
-Bu makalede bir Azure Cosmos DB’deki kapsayıcının (koleksiyon, grafik, tablo) nasıl sorgulanacağı açıklanır.
+Bu makalede, Azure Cosmos DB'de bir kapsayıcı (koleksiyon, graf veya tablo) sorgu açıklanmaktadır.
 
 ## <a name="in-partition-query"></a>Bölüm içi sorgu
 
-Belirtilen bir bölüm anahtarı filtresi sorgu varsa, kapsayıcılar, verileri sorguladığınızda, Azure Cosmos DB sorguyu otomatik olarak filtrede belirtilen bölüm anahtarı değerlerine karşılık gelen bölümlere yönlendirir. Örneğin, aşağıdaki sorgu, bölüm anahtarı değeri "XMS-0001" karşılık gelen tüm belgelerin tutan DeviceID bölüme yönlendirilir.
+Belirtilen bir bölüm anahtarı filtresi sorgu varsa, kapsayıcılar, verileri sorguladığınızda, Azure Cosmos DB sorguyu otomatik olarak işler. Sorgu, filtrede belirtilen bölüm anahtarı değerlerine karşılık gelen bölümlere yönlendirir. Aşağıdaki sorgu gibi yönlendirilir `DeviceId` bölüm anahtarı değerine karşılık gelen tüm belgelerin tutan bölüm `XMS-0001`.
 
 ```csharp
 // Query using partition key into a class called, DeviceReading
@@ -30,7 +30,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 ## <a name="cross-partition-query"></a>Bölümler arası sorgu
 
-Aşağıdaki sorgunun bölüm anahtarında (DeviceId) filtresi yoktur ve bölümün dizinine göre yürütüldüğü tüm bölümleri yayılır. Bölümler arasında sorgu yürütmek için, **EnableCrossPartitionQuery** değerini true olarak ayarlayın (veya REST API'de x-ms-documentdb-query-enablecrosspartition).
+Aşağıdaki sorgunun bölüm anahtarına göre bir filtre yok (`DeviceId`) ve onu çalıştırdığı bölümün dizinine göre tüm bölümleri için yayılır. Bölümler arasında sorgu çalıştırmak için ayarlanmış `EnableCrossPartitionQuery` true (veya `x-ms-documentdb-query-enablecrosspartition`  REST API'de).
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading
@@ -40,11 +40,11 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-Cosmos DB, SQL kullanılarak kapsayıcılar üzerinde toplama işlevlerini (COUNT, MIN, MAX, ve AVG) destekler. SDK sürüm 1.12.0'dan başlayarak kapsayıcılar üzerinde toplama işlevleri. Sorguların tek bir toplama işleci ve izdüşümde tek bir değer içermesi gerekir.
+Azure Cosmos DB SQL kullanarak kapsayıcıları üzerinde toplama işlevleri sayısı, MIN, Maks ve ortalama destekler. Kapsayıcıları başlayıp 1.12.0 SDK sürümü ve üzeri üzerinde toplama işlevleri. Sorgular tek bir toplama işleci içermelidir ve projeksiyon tek bir değer içermelidir.
 
 ## <a name="parallel-cross-partition-query"></a>Paralel bölümler arası sorgu
 
-Sürümü 1.9.0 ve üstü olan Cosmos DB SDK'ları, paralel sorgu yürütme seçeneklerini destekler.  Paralel bölümler arası sorgular, düşük gecikme süreli bölümler arası sorgular yürütmenize olanak tanır. Örneğin, aşağıdaki sorgu bölümler arasında paralel çalıştırılacak şekilde yapılandırılmıştır.
+Azure Cosmos DB SDK 1.9.0 ve üstü destek paralel sorgu yürütme seçenekleri. Paralel bölümler arası sorgular, düşük gecikme süreli bölümler arası sorgular yürütmenize olanak tanır. Örneğin, aşağıdaki sorgu bölümler arasında paralel çalıştırılacak şekilde yapılandırılmıştır.
 
 ```csharp
 // Cross-partition Order By Query with parallel execution
@@ -57,15 +57,15 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 Aşağıdaki parametreleri ayarlayarak paralel sorgu yürütme işlemini yönetebilirsiniz:
 
-- **Maxanalyticsunits**: Kapsayıcının bölümleri için en fazla eşzamanlı ağ bağlantı sayısını ayarlar. Bu özelliği -1 olarak ayarlarsanız, paralellik derecesi SDK tarafından yönetilir. MaxDegreeOfParallelism belirtilmezse veya 0 olarak ayarlanırsa, kapsayıcının bölümlerine tek ağ bağlantısı kurulur.
+- **Maxanalyticsunits**: Kapsayıcının bölümleri için en fazla eşzamanlı ağ bağlantı sayısını ayarlar. Bu özelliği -1 olarak ayarlarsanız, paralellik derecesi SDK yönetir. Varsa `MaxDegreeOfParallelism` varsayılan değer, belirtilen veya ayarlanmış 0 değil, kapsayıcının bölümlerine tek ağ bağlantısı.
 
-- **MaxBufferedItemCount**: Gecikme süresi ile istemci tarafı bellek kullanımı başardı sorgulayın. Bu seçenek atlanırsa veya -1 olarak ayarlanırsa, paralel sorgu yürütme işlemi sırasında arabelleğe alınan öğelerin sayısı SDK tarafından yönetilir.
+- **MaxBufferedItemCount**: Gecikme süresi ile istemci tarafı bellek kullanımı başardı sorgulayın. Bu seçeneği atlanırsa veya -1 olarak ayarlamak için paralel sorgu yürütme işlemi sırasında arabelleğe alınan öğelerin sayısı SDK'yı yöneten olur.
 
-Koleksiyonun durumu aynı olduğunda, paralel sorgu sonuçları seri yürütme ile aynı sırada döndürür. Sıralama işleçleri (ORDER BY ve/veya TOP) içeren bir bölümler arası sorgu gerçekleştirirken, Azure Cosmos DB SDK'sı sorguyu bölümler arasında paralel olarak gönderir ve genel olarak sıralanmış sonuçları oluşturmak için sunucu tarafında kısmen sıralanmış sonuçları birleştirir.
+Koleksiyon aynı durumuyla paralel sorgu sonuçları seri yürütme ile aynı sırada döndürür. Sıralama (ORDER BY arama, üst) işleçleri içeren bir bölümler arası sorgu gerçekleştirirken, Azure Cosmos DB SDK'sı bölümler arasında paralel sorgu verir. Bu, genel olarak sıralanmış sonuçları oluşturmak için sunucu tarafında kısmen sıralanmış sonuçları birleştirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Cosmos DB'de bölümleme hakkında bilgi edinmek için aşağıdaki makalelere bakın:
+Azure Cosmos DB'de bölümleme hakkında bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Azure Cosmos DB'de bölümleme](partitioning-overview.md)
 - [Azure Cosmos DB'de yapay bölümleme anahtarları](synthetic-partition-keys.md)

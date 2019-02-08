@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: cadf4c564ab8600094bc545ae7270eb9c0642e1e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767461"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890969"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Bulut ve bölgelerde hangi Azure Media Services v3 var.
 
@@ -40,7 +40,7 @@ Azure Media Services v3, Azure Resource Manager bildiriminde genel Azure, Azure 
 * [Azure coğrafyaları](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Azure konumları](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="region-code-name"></a>Bölge kodu adı 
+### <a name="region-code-name"></a>Bölge kodu adı 
 
 Sağlamanız gerektiğinde **konumu** parametresi, bölge kod adı olarak sağlamak için ihtiyacınız **konumu** değeri. Hesabınızın bulunduğu ve aramanız için yönlendirileceğini bölge kodu adını almak için aşağıdaki satırı çalıştırabilirsiniz [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -62,6 +62,14 @@ Bir kez yukarıda gösterilen tüm Azure bölgelerinde listesini alma satırı �
       "subscriptionId": null
     }
 ```
+
+## <a name="endpoints"></a>Uç Noktalar  
+
+| Uç Nokta|Küresel Azure | Azure Kamu|Azure Almanya|Azure Çin 21Vianet|
+| --- | --- | --- | --- | --- |
+| Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.microsoftonline.com/` | `https://login.microsoftonline.us/` | `https://login.microsoftonline.de/` | `https://login.chinacloudapi.cn/` |
+| Belirteç hedef kitlesi | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net/` | `https://management.core.cloudapi.de/`| `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

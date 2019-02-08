@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b63a4ed26688b73b9a8b1568433c7ae7606e6c6a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 00e1823ab87048857267456f8e7d295d725a194d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698979"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890510"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI ile sanal makine ölçek kümesine uygulama yükleme
 Bu betik Ubuntu çalıştıran bir sanal makine ölçek kümesi oluşturur ve Özel Betik Uzantısı kullanarak temel bir web uygulaması yükler. Betiği çalıştırdıktan sonra web uygulamasına web tarayıcısı üzerinden erişebilirsiniz.
@@ -46,7 +46,7 @@ Bu betik, bir kaynak grubu, sanal makine ölçek kümesi ve tüm ilgili kaynakla
 | Komut | Notlar |
 |---|---|
 | [az group create](/cli/azure/ad/group) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Sanal makine ölçek kümesi oluşturur ve bunu sanal ağa, alt ağa ve ağ güvenlik grubuna bağlar. Birden çok sanal makine örneklerine trafiği dağıtmak için bir yük dengeleyici de oluşturulur. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini de belirtir.  |
+| [az vmss create](/cli/azure/vmss) | Sanal makine ölçek kümesi oluşturur ve bunu sanal ağa, alt ağa ve ağ güvenlik grubuna bağlar. Birden çok sanal makine örneklerine trafiği dağıtmak için bir yük dengeleyici de oluşturulur. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini de belirtir.  |
 | [az vmss extension set](/cli/azure/vmss/extension) | Her sanal makine örneğinde veri disklerini hazırlayan bir betik çalıştırmak için Azure Özel Betik Uzantısı’nı yükler. |
 | [az network lb rule create](/cli/azure/network/lb/rule) | 80 numaralı TCP bağlantı noktası üzerindeki trafiği ölçek kümesindeki sanal makine örneklerine dağıtmak için bir yük dengeleyici kuralı oluşturur. |
 | [az network public-ip show](/cli/azure/network/public-ip) | Yük dengeleyici tarafından kullanılan atanan genel IP adresi hakkında bilgi alır. |

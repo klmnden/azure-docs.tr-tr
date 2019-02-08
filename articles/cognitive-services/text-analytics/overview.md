@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler'deki Metin Analizi hizmeti yaklaşım analizi, anahtar ifade ayıklama, dil algılama ve varlık bağlama özellikleri sunar.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 73505064bf5cde4e97cd210698e21883cc9f5e38
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6e14d1b6d9bec4409ca2a1e57c7d2fb018ccce53
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227888"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869458"
 ---
 # <a name="what-is-text-analytics"></a>Metin Analizi nedir?
 
@@ -66,7 +66,7 @@ Bu bölüm, daha kolay bulunmasını sağlama amacıyla başka bir makaleye taş
 
 Tüm Metin Analizi API'si uç noktaları ham metin verisi kabul eder. Geçerli sınır belge başına 5000 karakterdir. Daha büyük belgeleri analiz etmeniz gerekiyorsa daha küçük parçalara bölebilirsiniz. Sınırı yine de yükseltmeye ihtiyacınız varsa gereksinimleriniz üzerinde konuşmak için [bize ulaşın](https://azure.microsoft.com/overview/sales-number/).
 
-| Sınır | Value |
+| Sınır | Değer |
 |------------------------|---------------|
 | Tek belge için maksimum boyut | ölçülen olarak 5000 karakter [ `StringInfo.LengthInTextElements` ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | İsteğin tamamının maksimum boyutu | 1 MB |

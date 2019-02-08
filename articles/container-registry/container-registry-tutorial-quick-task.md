@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754382"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860482"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Öğretici: Oluşturun ve kapsayıcı görüntülerini Azure Container kayıt defteri görevler ile bulutta dağıtın
 
@@ -21,7 +21,7 @@ ms.locfileid: "53754382"
 
 "İç döngü" geliştirme döngüsü tekrar eden kod yazma, derleme ve kaynak denetimine göndermeden önce uygulamanızı test etme sürecidir. Hızlı görev, iç döngünüzü buluta genişleterek, derleme başarısını doğrulama ve başarıyla derlenen görüntüleri kapsayıcı kayıt defterinize otomatik olarak gönderme olanağı sağlar. Görüntüleriniz bulutta, kayıt defterinize yakın bir konumda yerel olarak derlenerek daha hızlı dağıtımı mümkün kılar.
 
-Tüm Dockerfile uzmanlığınız ACR Görevlerine doğrudan aktarılabilir. ACR Görevleri ile bulutta derlemek için Dockerfile’ı değiştirmeniz gerekmez, yalnızca çalıştırdığınız komutu değiştirmeniz yeterlidir.
+Tüm Dockerfile uzmanlığınız ACR Görevlerine doğrudan aktarılabilir. ACR Görevleri ile bulutta derlemek için Dockerfile’ı değiştirmeniz gerekmez, yalnızca çalıştırdığınız komutu değiştirmeniz yeterlidir. 
 
 Dizinin birinci bölümü olan bu öğreticide şunları öğreneceksiniz:
 
@@ -30,7 +30,7 @@ Dizinin birinci bölümü olan bu öğreticide şunları öğreneceksiniz:
 > * Azure’da kapsayıcı görüntüsü derleme
 > * Azure Container Instances‘a kapsayıcı dağıtma
 
-Sonraki öğreticilerde, ACR Görevlerini kod işleme ve temel görüntü güncelleştirmesi üzerindeki otomatik kapsayıcı görüntüsü derlemelerine yönelik görevler için kullanmayı öğreneceksiniz.
+Sonraki öğreticilerde, ACR Görevlerini kod işleme ve temel görüntü güncelleştirmesi üzerindeki otomatik kapsayıcı görüntüsü derlemelerine yönelik görevler için kullanmayı öğreneceksiniz. ACR görevleri de çalıştırabilir [çok adımlı görevler](container-registry-tasks-multi-step.md) (Önizleme aşamasında), bir YAML kullanarak dosya oluşturun, gönderin ve isteğe bağlı olarak birden çok kapsayıcı test adımları tanımlayın.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

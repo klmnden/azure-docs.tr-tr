@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 555c8b0b4046fd20583597ae4f0215a815806b8e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770495"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860416"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Sık sorulan sorular: Azure'dan Azure'a çoğaltma
 
@@ -33,6 +33,10 @@ Bu makalede, Azure Vm'leri olağanüstü durum kurtarma (DR), Azure Site Recover
 
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery nasıl fiyatlandırılır?
 Gözden geçirme [Azure Site Recovery fiyatlandırma](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) ayrıntıları.
+### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Azure Site Recovery için ücretsiz katman nasıl çalışır?
+Azure Site Recovery ile korunan her örnek, ilk 31 gün boyunca ücretsiz olarak korunur. 32. günden itibaren örneğin korunması yukarıdaki fiyatlarla ücretlendirilir.
+###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>İlk 31 gün boyunca başka herhangi bir Azure hizmeti için ücretlendirilir miyim?
+Evet, Azure Site Recovery korunan bir örnek için ilk 31 gün boyunca ücretsiz olsa da Azure Depolama, depolama işlemleri ve veri aktarımı için ücretlendirilmeye devam edebilirsiniz. Korunan bir sanal makine için de Azure işlem ücretleri alınabilir. Fiyatlandırma hakkında tam bilgi almak [burada](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Site Recovery, Azure Vm'lerinde yapılandırmak için en iyi uygulamalar nelerdir?
 1. [Azure'dan Azure'a mimarisini anlama](azure-to-azure-architecture.md)
@@ -70,6 +74,10 @@ Site Recovery ile çoğaltma ve aynı coğrafi kümedeki her iki bölge arasınd
 
 Hayır, Site Recovery, Internet bağlantısı gerektirmez. Ancak, Site Recovery hizmeti URL'lerine ve IP aralıklarının belirtildiği gibi erişmesi [bu makalede](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Ayrı bir kaynak grubu ayrı katmanlara yönelik olan uygulama çoğaltabilirim? 
+Evet, uygulama çoğaltma ve olağanüstü durum kurtarma yapılandırması ayrı bir kaynak grubunda çok tutun.
+Örneğin, bir uygulama ile varsa her uygulama, db ve ayrı bir kaynak grubundaki web katmanlarını ardından tıklayarak [çoğaltma sihirbazını](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice tüm katmanlarda korumak için. ASR, üç farklı bir kaynak grubunda bu üç katmanda çoğaltır.
+
 ## <a name="replication-policy"></a>Çoğaltma İlkesi
 
 ### <a name="what-is-a-replication-policy"></a>Bir çoğaltma ilkesi nedir?
@@ -89,9 +97,12 @@ Bugün, çoğu uygulama iyi kilitlenme ile tutarlı anlık görüntülerden kurt
 Site Recovery, her 5 dakikada bir kilitlenme ile tutarlı kurtarma noktası oluşturur.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Uygulamayla tutarlı kurtarma noktası nedir? 
-Uygulamayla tutarlı kurtarma noktaları, uygulamayla tutarlı anlık görüntülerden oluşturulur. Uygulamayla tutarlı anlık görüntüler, bellekteki tüm verileri ve tüm işlemleri ile kilitlenme ile tutarlı anlık görüntüler aynı verileri yakalayın. 
+Uygulamayla tutarlı kurtarma noktaları, uygulamayla tutarlı anlık görüntülerden oluşturulur. Uygulamayla tutarlı kurtarma noktaları, bellekteki tüm verileri ve tüm işlemleri ile kilitlenme ile tutarlı anlık görüntüler aynı verileri yakalayın. 
 
 Ek içeriklerini nedeniyle uygulamayla tutarlı anlık görüntüleri en ilgili ve tanımladığımız gerçekleştirmek için gerçekleştirin. Veritabanı işletim sistemleri ve SQL Server gibi uygulamalar için uygulamayla tutarlı kurtarma noktalarını öneririz.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Uygulamayla tutarlı kurtarma noktası uygulama performansı üzerindeki etkisi nedir?
+Uygulamayla tutarlı kurtarma noktalarını yakalar tüm verileri bellek içinde ve işlem dikkate framework sessiz moda alın, uygulama için windows VSS gibi gerektirir. Bu, çok sık yapıldığında olabilir performans etkisi iş yükü çok meşgul ise. Genellikle düşük sıklık düzeyi veritabanı olmayan iş yükleri için ve veritabanı iş yükü için bile uygulama ile tutarlı kurtarma noktaları için 1 saat kullanmayı düşürebilmek önerilir. 
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Uygulamayla tutarlı kurtarma noktası oluşturma işlemi en az sıklığı nedir?
 Site Recovery oluşturur bir uygulamayla tutarlı kurtarma noktası ile en az bir sıklığı 1 saat içinde.

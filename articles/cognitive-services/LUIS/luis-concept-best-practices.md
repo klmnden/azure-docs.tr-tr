@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS uygulama modelinden en iyi sonuçları almak için LUIS en iyi adımları öğrenin.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6f9c559ce6fe66d4fe3df9382bc931f4a55e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e307f258f4bf4c6aec6a0932f0787ef56f2b0d46
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209375"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859309"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bilişsel hizmetler dil anlama uygulamayla oluşturmaya yönelik en iyi uygulamalar
 LUIS uygulamanızı oluşturmak için yazma işleminin hızlandırılmasının uygulamayı kullanın. 

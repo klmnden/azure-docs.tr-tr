@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Konuşma yorumlamak için uygulamanız gereken kullanıcıdan giriş. Kullanıcıların girer düşündüğünüz tümcecikleri toplayın. Aynı anlama gelir, ancak oluşturulan konuşma farklı sözcük uzunluğu ve sözcük yerleştirme dahil.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: a1d71bb992276cb37c73a7ba27b427ccb617f688
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 63334c861cc85c7119ccd3111429dee47ada3162
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216107"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862947"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS uygulamanızı iyi konuşma neler olduğunu anlama
 

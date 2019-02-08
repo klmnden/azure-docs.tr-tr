@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: C# için Content Moderator SDK'sını kullanarak özel terim listeleriyle metin denetleme.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: b3b2d7fe3268846546d1727b62018d9ef5b409ce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: da8ad71ccf8b58ddf3ef7cc6a2f9e9c732913caa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219303"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858408"
 ---
 # <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Hızlı Başlangıç: Metin bir özel terim listesine karşı denetleyinC#
 

@@ -3,19 +3,19 @@ title: Bilgi Bankası - soru-cevap Oluşturucu geliştirin
 titleSuffix: Azure Cognitive Services
 description: ''
 author: diberry
-manager: cgronlun
+manager: nitinme
 displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 639b665926f54387dfdc6e837c15c8d6d28df925
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6feb521aa47ca813b3067451c8c77111deb60e73
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755773"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874014"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Bilgi bankasını geliştirmek için etkin öğrenmeyi kullanma
 
@@ -56,7 +56,7 @@ Algoritma yakınlık belirlemek için basit bir hesaplama değil. Önceki örnek
 
 ## <a name="turn-on-active-learning"></a>Etkin öğrenmeyi Aç
 
-Varsayılan olarak etkin olarak öğrenmeye kapalıdır. Önerilen bu soruları görmek için açık. 
+Varsayılan olarak etkin olarak öğrenmeye kapalıdır. Bu önerilen bu soruları görmek için etkinleştirin. 
 
 1. Üzerinde öğrenme etkin açmak için tıklayın, **adı**Git [ **hizmet ayarları** ](https://www.qnamaker.ai/UserSettings) sağ üst köşedeki soru-cevap Oluşturucu Portalı'nda.  
 

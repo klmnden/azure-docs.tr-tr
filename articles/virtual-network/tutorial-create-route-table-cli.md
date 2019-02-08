@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 08189522f4f73e996ed98f3996f87da8d93b5d2a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157474"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895644"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI kullanarak bir yönlendirme tablosu ile ağ trafiğini yönlendirme
 
@@ -44,7 +44,7 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 ## <a name="create-a-route-table"></a>Yönlendirme tablosu oluşturma
 
-Bir yol tablosu oluşturabilmeniz için önce bir kaynak grubu oluşturun [az grubu oluşturma](/cli/azure/group#az_group_create) bu makalede oluşturulan tüm kaynaklar için. 
+Bir yol tablosu oluşturabilmeniz için önce bir kaynak grubu oluşturun [az grubu oluşturma](/cli/azure/group) bu makalede oluşturulan tüm kaynaklar için. 
 
 ```azurecli-interactive
 # Create a resource group.
@@ -78,7 +78,7 @@ az network route-table route create \
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Yönlendirme tablosunu bir alt ağ ile ilişkilendirme
 
-Bir yönlendirme tablosunu bir alt ağ ilişkilendirmeden önce bir sanal ağ ve alt ağ oluşturmanız gerekir. Bir alt ağ ile sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az_network_vnet_create).
+Bir yönlendirme tablosunu bir alt ağ ilişkilendirmeden önce bir sanal ağ ve alt ağ oluşturmanız gerekir. Bir alt ağ ile sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -107,7 +107,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-İlişkilendirme *myRouteTablePublic* yol tablosuna *genel* alt ağ ile [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
+İlişkilendirme *myRouteTablePublic* yol tablosuna *genel* alt ağ ile [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -136,7 +136,7 @@ az vm create \
 
 Sanal makinenin oluşturulması birkaç dakika sürer. Azure VM oluşturma işlemini tamamlayıp VM hakkında daha fazla çıkış döndürür kadar sonraki adıma geçmeyin. 
 
-Bir ağ arabiriminin kendi IP adresini hedeflemeden kendisine gönderilen ağ trafiğini iletebilmesi için, ağ arabiriminde IP iletme özelliğinin etkinleştirilmiş olması gerekir. Ağ arabirimi için IP iletimini etkinleştirmeniz [az ağ NIC güncelleştirme](/cli/azure/network/nic#az_network_nic_update).
+Bir ağ arabiriminin kendi IP adresini hedeflemeden kendisine gönderilen ağ trafiğini iletebilmesi için, ağ arabiriminde IP iletme özelliğinin etkinleştirilmiş olması gerekir. Ağ arabirimi için IP iletimini etkinleştirmeniz [az ağ NIC güncelleştirme](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
@@ -145,7 +145,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-VM içindeki işletim sistemi veya VM içinde çalışan bir uygulama da ağ trafiğini iletebilmelidir. Sanal makinenin işletim sistemi içinde IP iletimini etkinleştirmeniz [az vm uzantısı kümesi](/cli/azure/vm/extension#az_vm_extension_set):
+VM içindeki işletim sistemi veya VM içinde çalışan bir uygulama da ağ trafiğini iletebilmelidir. Sanal makinenin işletim sistemi içinde IP iletimini etkinleştirmeniz [az vm uzantısı kümesi](/cli/azure/vm/extension):
 
 ```azurecli-interactive
 az vm extension set \
@@ -268,7 +268,7 @@ SSH oturumları hem de kapatmak *myVmPublic* ve *myVmPrivate* VM'ler.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse [az grubu Sil](/cli/azure/group#az_group_delete) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için.
+Artık gerekli değilse [az grubu Sil](/cli/azure/group) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

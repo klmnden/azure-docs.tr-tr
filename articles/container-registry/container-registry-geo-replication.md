@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 784174c1fb2427441e0ed1a13b147d2440539fa9
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a83cf6b37a28ec38165778faa7a9ecc266cce7bd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870347"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858272"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry’de coğrafi çoğaltma
 
@@ -26,14 +26,18 @@ Coğrafi olarak çoğaltılmış bir kayıt defteri aşağıdaki avantajları sa
 * Hiçbir ek çıkış ücretleri, kapsayıcı konağı ile aynı bölgede yerel, çoğaltılmış bir kayıt defterinden görüntü olarak alınır
 * Kayıt defteri birden çok bölgede tek yönetim
 
+> [!NOTE]
+> Birden fazla Azure container registry'den kapsayıcı görüntüleri kopyalarını bulundurmak gerekiyorsa, Azure Container Registry de destekler [görüntü alma](container-registry-import-images.md). Örneğin, bir DevOps iş akışında, görüntüyü bir geliştirme kayıt defterinden bir üretim kayıt defterine Docker komutlarını kullanmaya gerek kalmadan alabilirsiniz.
+>
+
 ## <a name="example-use-case"></a>Örnek Kullanım örneği
-Contoso, ABD, Kanada ve Avrupa arasında yer alan bir genel durum Web sitesini çalıştırır. Yerel ve ağa yakın içeriğin bulunduğu bu pazarlar için Contoso çalıştıran [Azure Container Service](/azure/container-service/kubernetes/) (ACS) Kubernetes kümeleri Batı ABD, Doğu ABD, Kanada Orta ve Batı Avrupa içinde. Bir Docker görüntüsü dağıtılan Web uygulaması, tüm bölgelerde aynı kodu ve görüntü kullanır. Bu bölge için yerel içerik, her bölgeye benzersiz olarak sağlanan bir veritabanından alınır. Bölgesel her dağıtım, yerel veritabanı gibi kaynakları için benzersiz yapılandırmasını sahiptir.
+Contoso, ABD, Kanada ve Avrupa arasında yer alan bir genel durum Web sitesini çalıştırır. Yerel ve ağa yakın içeriğin bulunduğu bu pazarlar için Contoso çalıştıran [Azure Kubernetes hizmeti](/azure/aks/) (AKS), Batı ABD, Doğu ABD, Kanada Orta ve Batı Avrupa kümeleri. Bir Docker görüntüsü dağıtılan Web uygulaması, tüm bölgelerde aynı kodu ve görüntü kullanır. Bu bölge için yerel içerik, her bölgeye benzersiz olarak sağlanan bir veritabanından alınır. Bölgesel her dağıtım, yerel veritabanı gibi kaynakları için benzersiz yapılandırmasını sahiptir.
 
 Geliştirme ekibi, Seattle WA, West US veri merkezini kullanarak bulunur.
 
 ![Birden çok kayıt defterleri için gönderme](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Birden çok kayıt defterleri için gönderme*
 
-Coğrafi çoğaltma özelliklerini kullanılmadan önce bir ABD bankasına bağlı kayıt defterinde Batı ABD, Batı Avrupa'daki ek bir kayıt defteri ile Contoso vardı. Bu farklı bölgelerdeki hizmet vermek için geliştirme ekibi iki farklı kayıt defterlerinde görüntüleri gönderme gerekiyordu.
+Coğrafi çoğaltma özelliklerini kullanılmadan önce bir ABD bankasına bağlı kayıt defterinde Batı ABD, Batı Avrupa'daki ek bir kayıt defteri ile Contoso vardı. Bu farklı bölgelerdeki hizmet vermek için iki farklı kayıt defterlerinde görüntüleri Geliştirme takımına gönderilir.
 
 ```bash
 docker push contoso.azurecr.io/public/products/web:1.2

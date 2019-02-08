@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730026"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869101"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch havuzundaki işlem düğümlerini ölçekleme için bir otomatik ölçeklendirme formülü oluşturma
 
@@ -376,7 +376,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Otomatik ölçeklendirme özellikli bir havuz oluşturduğunuzda, belirtmeyin _targetDedicatedComputeNodes_ parametresi veya _targetLowPriorityComputeNodes_ çağrı parametresi **CreatePool** . Bunun yerine, belirtirsiniz **AutoScaleEnabled** ve **AutoScaleFormula** havuzu özellikleri. Bu özelliklerin değerlerini, her düğüm türü hedef sayısını belirlemek. Ayrıca, el ile yeniden boyutlandırma otomatik ölçeklendirme özellikli bir havuz için (örneğin, [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), ilk **devre dışı** üzerinde otomatik ölçeklendirme Havuz ve yeniden boyutlandırın.
+> Otomatik ölçeklendirme özellikli bir havuz oluşturduğunuzda, belirtmeyin _targetDedicatedNodes_ parametresi veya _targetLowPriorityNodes_ çağrı parametresi **CreatePool** . Bunun yerine, belirtirsiniz **AutoScaleEnabled** ve **AutoScaleFormula** havuzu özellikleri. Bu özelliklerin değerlerini, her düğüm türü hedef sayısını belirlemek. Ayrıca, el ile yeniden boyutlandırma otomatik ölçeklendirme özellikli bir havuz için (örneğin, [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), ilk **devre dışı** üzerinde otomatik ölçeklendirme Havuz ve yeniden boyutlandırın.
 >
 >
 
@@ -412,7 +412,7 @@ Mevcut havuzlardan üzerinde otomatik ölçeklendirmeyi etkinleştirdiğinizde, 
   * Otomatik ölçeklendirme formülü veya deneme aralığı, Batch hizmeti atlarsanız, bu ayarın geçerli değerini kullanmaya devam eder.
 
 > [!NOTE]
-> Değerleri belirttiyseniz *targetDedicatedComputeNodes* veya *targetLowPriorityComputeNodes* parametrelerinin **CreatePool** Havuzun oluşturulması sırasında yöntemi .NET veya otomatik ölçeklendirme formülü değerlendirildiğinde karşılaştırılabilir parametreler için başka bir dilde, ardından bu değerleri yok sayılır.
+> Değerleri belirttiyseniz *targetDedicatedNodes* veya *targetLowPriorityNodes* parametrelerinin **CreatePool** ,. NET'te veya için havuz oluştururken yöntemi otomatik ölçeklendirme formülü değerlendirildiğinde, başka bir dil ve ardından bu değerleri karşılaştırılabilir parametreleri göz ardı edilir.
 >
 >
 

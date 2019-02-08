@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 5995c896f02720d82862895795e1e8d43f6bb226
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d24dcc6f12347c66abc033f4c8b25c3b49870a44
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756478"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895780"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Bir Linux VM'ye veri diski için portalı kullanma 
 Bu makalede Azure portalı üzerinden bir Linux sanal makinesi için yeni ve var olan diskleri ekleme gösterilmektedir. Ayrıca [Azure portalında bir Windows sanal makinesine veri diski](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -102,10 +102,10 @@ Burada, *sdc* istiyoruz disktir.
 ### <a name="partition-a-new-disk"></a>Yeni bir disk bölümü
 Verileri içeren varolan bir diski kullanıyorsanız, disk takılamadı için atlayın. Yeni bir disk bağlıyorsanız, disk bölümleme gerekir.
 
-İle diski bölümlendirin `parted`, disk boyutu 2 tebibytes (TiB) ise ya da daha büyük MBR veya GPT bölümleme kullanabilirsiniz 2TiB altında ise GPT bölümleme, kullanmanız gerekir. Birincil disk 1 bölüme kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `parted` üzerinde işlem */dev/sdc*:
+`fdisk` ile diski bölümlendirin. Disk boyutu 2 tebibytes (TiB) veya daha büyük daha sonra ise GPT kullanmalısınız kullanabileceğiniz bölümleme, `parted` GPT bölümleme gerçekleştirilecek. Disk boyutu 2TiB altında ise, MBR veya GPT bölümleme kullanabilirsiniz. Birincil disk 1 bölüme kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `fdisk` üzerinde işlem */dev/sdc*:
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 Kullanım `n` yeni bir bölüm eklemek için komutu. Bu örnekte, biz de tercih `p` için birincil bölüm ve varsayılan değerleri kabul edin. Çıktı aşağıdaki örneğe benzer olacaktır:

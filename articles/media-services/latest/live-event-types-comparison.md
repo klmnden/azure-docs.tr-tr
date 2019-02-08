@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/06/2019
 ms.author: juliako
-ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153973"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878366"
 ---
 # <a name="live-event-types-comparison"></a>Canlı olay türlerini karşılaştırma
 
@@ -45,7 +45,7 @@ Aşağıdaki tabloda, iki canlı olay türlerinin özellikleri karşılaştırı
 | Çıkış video en yüksek ekran çözünürlüğü|Aynı giriş|720p (30'da kare/saniye)|
 | Giriş protokolleri|RTMP, parçalanmış-MP4 (kesintisiz akış)|RTMP, parçalanmış-MP4 (kesintisiz akış)|
 | Fiyat|Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) ve "Canlı Video" sekmesine tıklayın|Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) ve "Canlı Video" sekmesine tıklayın|
-| Maksimum Çalıştırma süresi|24 x 365 doğrusal Canlı|7/24|
+| Maksimum Çalıştırma süresi| 24 saat x 365 gün Canlı doğrusal | En fazla 24 saat|
 | Veri özelliği aracılığıyla katıştırılmış CEA 608/708 geçirmek için açıklamalı alt yazılar|Evet|Evet|
 | Maskeleme görüntülerini ekleme desteği|Hayır|Hayır|
 | API aracılığıyla sinyal ad desteği| Hayır|Hayır|

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 78402299aa0abc9b51b2995ffe6d2fc9b55c02aa
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bfd6e715e907925a1ba3db3b60c0d3eccb637930
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241433"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866109"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen2"></a>HDInsight ve Azure Data Lake depolama Gen2 üzerinde Spark için performans ayarlama Kılavuzu
 
@@ -23,7 +23,7 @@ Spark üzerinde performans ayarlama, kümenizde çalışan uygulamaların sayıs
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Azure Data Lake depolama Gen2 hesap**. Bir oluşturma hakkında yönergeler için bkz: [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md).
-* **Azure HDInsight kümesinde** bir Data Lake depolama Gen2 hesabına erişim. Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun. 
+* **Azure HDInsight kümesinde** bir Data Lake depolama Gen2 hesabına erişim. Bkz: [kullanımı Azure Data Lake depolama Gen2 Azure HDInsight ile kümeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
 * **Data Lake depolama Gen2'de Spark kümesi çalıştıran**.  Daha fazla bilgi için [Data Lake depolama Gen2 analiz etmek için kullanım HDInsight Spark kümesi](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
 * **Performans ayarlama yönergeleri Data Lake depolama Gen2**.  Genel performans için bkz [veri Lake depolama Gen2 performans ayarlama Kılavuzu](data-lake-storage-performance-tuning-guidance.md) 
 

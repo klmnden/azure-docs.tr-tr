@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 5edf301ffc87a17963c3c32c7ea1b559e0834cf7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d60c99349fef26fc1ead7f6ea4b77d0c364c4abb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244479"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868149"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için algoritma seçme
 
@@ -44,9 +44,7 @@ I ile söz konusu açıklandı birkaç veri bilimcileri en iyi algoritmayı bulm
 İşte bir örnek [Azure AI Gallery](http://gallery.cortanaintelligence.com/) aynı verilere karşı çeşitli algoritmalar çalışır ve sonuçları karşılaştıran bir deneme: [Çok sınıflı sınıflandırıcılar karşılaştırın: Harfli tanıma](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
-> Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](studio-overview-diagram.md).
-> 
-> 
+> Anlaşılması kolay bilgi grafiği machine learning temel bilgileri yaygın machine learning soruları yanıtlamak için kullanılan popüler algoritmaları hakkında bilgi edinmek için genel bakış indirmek için bkz [makine öğrenimi algoritma örnekleri ile Temelleri](basics-infographic-with-algorithm-examples.md).
 
 ## <a name="flavors-of-machine-learning"></a>Machine Learning model olarak sağlanır
 
@@ -242,13 +240,13 @@ Başlatılan ve Microsoft Research'ün kendi John Langford tarafından yürütü
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-* Algoritmalar açıklar ve örnekler sağlayan bir indirilebilir bilgi grafiği için bkz: [indirilebilir bilgi grafiği: Makine öğrenimi algoritma örnekleri ile Temelleri](basics-infographic-with-algorithm-examples.md).
+* Anlaşılması kolay bilgi grafiği machine learning temel bilgileri yaygın machine learning soruları yanıtlamak için kullanılan popüler algoritmaları hakkında bilgi edinmek için genel bakış indirmek için bkz [makine öğrenimi algoritma örnekleri ile Temelleri](basics-infographic-with-algorithm-examples.md).
 
 * Machine Learning Studio'da kullanılabilen tüm makine öğrenimi algoritma kategoriye göre bir listesi için bkz [modeli Başlat](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) Machine Learning Studio algoritma ve modül Yardımı.
 
 * Bir tam alfabetik listesi algoritmaları ve Machine Learning Studio'daki modüller için bkz: [Machine Learning Studio modüllerinin A-Z listesi](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) Machine Learning Studio algoritma ve modül Yardımı.
 
-* Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](studio-overview-diagram.md).
+* İndirin ve Machine Learning Studio özelliklerine genel bir fikir veren bir diyagramını Yazdır: [Microsoft Azure Machine Learning Studio işlevlerine genel bakış (PDF)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
 
 <!-- Media -->
 

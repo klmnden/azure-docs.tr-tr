@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Şema biçimi, bilgi keşfetme hizmeti (KES) API hakkında daha fazla bilgi edinin.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227310"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860720"
 ---
 # <a name="schema-format"></a>Şema biçimi
 
@@ -43,10 +43,10 @@ Desteklenen öznitelik veri türlerinin bir listesi aşağıdadır:
 
 | Type | Açıklama | İşlemler | Örnek |
 |------|-------------|------------|---------|
-| Dize | Dize (1-1024 karakter) | Equals, starts_with | "hello world" |
+| String | Dize (1-1024 karakter) | Equals, starts_with | "hello world" |
 | Int32 | İşaretli 32 bit tam sayı | is_between starts_with, eşittir | 2016 |
 | Int64 | İşaretli 64 bit tam sayı | is_between starts_with, eşittir | 9876543210 |
-| çift | Çift duyarlıklı kayan nokta değeri | is_between starts_with, eşittir | 1.602e-19 |
+| Double | Çift duyarlıklı kayan nokta değeri | is_between starts_with, eşittir | 1.602e-19 |
 | Tarih | Tarih (1400-01-01-9999-12-31) | Equals, is_between | '2016-03-14' |
 | Guid | Genel benzersiz tanıtıcısı | şuna eşittir: | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | Blob | Dahili olarak sıkıştırılmış veri dizini oluşturulmamış | *Yok.* | "Her kişi ve her kuruluşun gezegendeki daha fazlasını başarmak için güçlendirin" |

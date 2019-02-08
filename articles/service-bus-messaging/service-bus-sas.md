@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846345"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895865"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile Service Bus erişim denetimi
 
@@ -96,7 +96,7 @@ Bu URI veya hiyerarşik öğelerinden belirtilen varlık üzerinde imzalamak iç
 
 İçinde kullanılan anahtarlar düzenli aralıklarla yeniden önerilir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) nesne. Kademeli olarak anahtarlarını döndürmek için birincil ve ikincil anahtar yuva yok. Uygulamanızı genellikle birincil anahtarı kullanır, ikincil anahtar yuvaya birincil anahtarı kopyalayın ve ardından yalnızca birincil anahtarı yeniden. Yeni birincil anahtar değerini daha sonra ikincil yuvada eski birincil anahtar kullanarak erişim devam istemci uygulamalara yapılandırılabilir. Tüm istemcilerin güncelleştirildikten sonra son olarak, eski birincil anahtarı devre dışı bırakmak için ikincil anahtarı yeniden oluşturabilirsiniz.
 
-Bildiğiniz veya bir anahtar güvenliği aşıldığında ve anahtarlar iptal etmek sahip olduğunuz şüpheleniyorsanız, her ikisi de yeniden oluşturabilirsiniz [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) ve [ikincil anahtarı oluşturma](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) , bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), bunları yeni anahtarlarla değiştirme. Bu yordam, tüm belirteçlerin eski anahtarlarla imzalanması geçersiz kılar.
+Bildiğiniz veya bir anahtar güvenliği aşıldığında ve anahtarlar iptal etmek sahip olduğunuz şüpheleniyorsanız, her ikisi de yeniden oluşturabilirsiniz [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ve [ikincil anahtarı oluşturma](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) , bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), bunları yeni anahtarlarla değiştirme. Bu yordam, tüm belirteçlerin eski anahtarlarla imzalanması geçersiz kılar.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Service Bus ile paylaşılan erişim imzası kimlik doğrulaması
 

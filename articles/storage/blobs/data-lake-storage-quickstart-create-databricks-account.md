@@ -8,16 +8,16 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0ec682ea852f3c6da6248f3c16b539725ca18c0f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694176"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895814"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Hızlı Başlangıç: Azure Databricks kullanarak Azure Data Lake depolama Gen2 verileri çözümleme
 
-Bu hızlı başlangıçta, Azure Data Lake depolama Gen2 önizleme özelliği etkinleştirilmiş olan bir depolama hesabına depolanan veriler üzerinde analiz gerçekleştirmek için Azure Databricks kullanarak bir Apache Spark işi çalıştırma işlemini göstermektedir.
+Bu hızlı başlangıçta, Azure Data Lake depolama Gen2'ye etkin olan bir depolama hesabına depolanan veriler üzerinde analiz gerçekleştirmek için Azure Databricks kullanarak bir Apache Spark işi çalıştırma işlemini göstermektedir.
 
 Spark işi bir parçası olarak, demografiye dayalı ücretsiz/Ücretli kullanımı hakkında Öngörüler elde etmek için bir radyo kanalının abonelik verilerini analiz.
 

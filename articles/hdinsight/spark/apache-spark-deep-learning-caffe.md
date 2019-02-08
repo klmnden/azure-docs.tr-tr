@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 451ccff9747988ee019f2be9e0cccec12c9c1ef9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118245"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891088"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Azure HDInsight Spark üzerinde dağıtılmış derin öğrenme için Caffe kullanma
 
@@ -64,7 +64,7 @@ Betik eylemi iki adımı vardır. İlk adım, gerekli tüm kitaplıkların yükl
 
 İkinci adım, derleme, indirip protobuf 2.5.0 Caffe için çalışma zamanı sırasında dir. Protobuf 2.5.0 [gereklidir](https://github.com/yahoo/CaffeOnSpark/issues/87), ancak bu sürümü Kaynak Kodu derlemek gereken şekilde Ubuntu 16 üzerindeki bir paket olarak kullanılabilir değildir. Ayrıca birkaç kaynak yok Internet'te derlemeniz konusunda. Daha fazla bilgi için [burada](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-Başlamak için yalnızca bu betik eylemi kümenizi karşı tüm çalışan düğümleri ve baş düğümlerine (HDInsight 3.5 için) çalıştırabilirsiniz. Betik eylemleri var olan bir kümede çalıştırmak veya betik eylemleri küme oluşturma sırasında kullanabilirsiniz. Betik eylemleri hakkında daha fazla bilgi için belgelere bakın [burada](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+Başlamak için yalnızca bu betik eylemi kümenizi karşı tüm çalışan düğümleri ve baş düğümlerine (HDInsight 3.5 için) çalıştırabilirsiniz. Betik eylemleri var olan bir kümede çalıştırmak veya betik eylemleri küme oluşturma sırasında kullanabilirsiniz. Betik eylemleri hakkında daha fazla bilgi için belgelere bakın [burada](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
 ![Bağımlılıkları yüklemek üzere betik eylemleri](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 

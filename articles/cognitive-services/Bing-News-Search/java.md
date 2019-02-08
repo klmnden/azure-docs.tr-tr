@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Java kullanarak Bing haber arama REST API'si için bir istek göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 71f0ece2ff06ef000092485b8e7e11c5eedb38dd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: aa90eef5a0888da5a702e5efed489fa37a39a7c2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174508"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861979"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Java ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 

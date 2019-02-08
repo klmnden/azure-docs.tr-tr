@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Video arama PHP kullanarak REST API'sini için video arama istekleri göndermek için bu Hızlı Başlangıç'ı kullanın
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: d009bbd8fec33f3ade633bfd3ae1b9b5df305744
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3f96bb829bb32e0fa706349684ca3796a7c5379d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569587"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863984"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Hızlı Başlangıç: Bing Video arama REST API'si ile PHP videolar için arama yapın
 

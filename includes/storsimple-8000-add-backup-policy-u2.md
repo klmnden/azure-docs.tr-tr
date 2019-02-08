@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 0541b15743cff16ec0d19f8b450150c5430afb8d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 02274bacb66a33ef54e07bc8113d7db46d4d5296
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164429"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889577"
 ---
-<!--author=alkohli last changed: 02/10/17-->
-
 #### <a name="to-add-a-storsimple-backup-policy"></a>Bir StorSimple yedekleme ilkesi eklemek için
 
 1. StorSimple cihazınıza gidin ve **Yedekleme ilkesi**’ne tıklayın.

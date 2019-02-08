@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 40a43fd8ea1f47b564d0c0ee2b5e67fd011f2ff9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730773"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895984"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -182,7 +182,7 @@ Bu model kullanım dışı bırakıldı, var olan cihazları sağlanan için des
     - (Azure Global veya Azure kamu) geçirmeyi planladığınız Azure Bulutu seçin.
     - Lisans koşullarını kabul edin ve üçüncü taraf bilgilerini okuyun.
     - Toplayıcı, VM’nin İnternet erişimine sahip olup olmadığını denetler.
-    - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) internet bağlantı gereksinimleri hakkında ve [URL'lerin listesini](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) Toplayıcı erişen.
+    - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) internet bağlantı gereksinimleri hakkında ve [URL'lerin listesini](https://docs.microsoft.com/azure/migrate/concepts-collector) Toplayıcı erişen.
 
       > [!NOTE]
       > Proxy adresinin, http://ProxyIPAddress veya http://ProxyFQDN biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir. Araya giren bir proxy varsa, proxy sertifikası aktardıysanız değil, internet bağlantısı başlangıçta başarısız olabilir; [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector) üzerinde nasıl, bu toplayıcı VM üzerinde güvenilen bir sertifika olarak proxy sertifikasını alarak düzeltebilirsiniz.

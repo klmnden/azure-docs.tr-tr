@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, başka bir Java ve Translator Text REST API kullanarak bir komut dosyasından (dönüştürme) metin alfabeye öğreneceksiniz. Bu örnekte Japonca, Latin alfabesine dönüştürülmektedir.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: e42aa7ec796b3be912614ced5f3a4db47f67c124
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 76de6b91d6b136dc0d2f6933e29f24ca3ea3e785
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210072"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857082"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Hızlı Başlangıç: Java kullanarak metin alfabeye için Translator Text API kullanın
 

@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Özel konuşma hizmeti artık konuşma hizmeti bir parçasıdır. En son kalite ve özellik güncelleştirmeleri yararlanmak için konuşma hizmeti geçin.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 594233b9e345f9578c218b042a64ea167d50addb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211041"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856906"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Konuşma hizmeti için özel konuşma hizmeti geçirme
 
@@ -40,12 +40,6 @@ Fiyatlandırma modeli konuşma hizmeti için bir saat dayalı bir fiyatlandırma
 3. Hızlı Başlangıç kılavuzları ve SDK'sı örnekleri doğru API'lerini kullanmayı izleyin. REST API'lerini kullanmanız durumunda Ayrıca kaynak anahtarları ve doğru Uç noktalara kullanmanız gerekir.
 
 4. Konuşma hizmeti ve API'leri kullanmak için İstemci uygulamayı güncelleştirin.
-
-> [!NOTE]
-> * Konuşma Language Understanding (LUIS) etkinleştirilirse, tek bir LUIS kaynağı aynı bölgede tüm konuşma hizmetlerinin yanı sıra LUIS çalışır. Daha fazla bilgi için [amaçlardan tutun konuşma tanıma](how-to-recognize-intents-from-speech-csharp.md).
-> * Metni metin çevirisi, konuşma hizmeti bir parçası değil. Bu işlev, kendi Azure kaynak aboneliği gerektirir.
- 
-
 
 ## <a name="migration-for-existing-customers"></a>Mevcut müşteriler için geçiş
 

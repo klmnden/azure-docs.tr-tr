@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105194"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895848"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makinelerini veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarmayı ayarlama
 
@@ -82,7 +82,7 @@ Güncelleştirmeleri gibi yükleyin:
 
 İndirme [güncelleştirme](https://aka.ms/asr-scout-update7) .zip dosyası ve [MySQL ve PHP yükseltme](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) yapılandırma dosyaları. Tüm taban güncelleştirme .zip dosyasını içeren ikili dosyaları ve aşağıdaki bileşenlerden toplu yükseltme ikili dosyaları: 
   - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
-  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.Tar.gz
+  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
   - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
   - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
   - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
@@ -174,7 +174,7 @@ Scout güncelleştirme 6 toplu bir güncelleştirmesidir. Bu güncelleştirme 1 
     - Red Hat Enterprise Linux (RHEL) 6.9
     - CentOS 6.9
     - Oracle Linux 5.11
-    - Oracle Linux 6,8
+    - Oracle Linux 6.8
 * VMware için merkezi 6.5 desteği eklendi
 
 Güncelleştirmeleri gibi yükleyin:
@@ -186,7 +186,7 @@ Güncelleştirmeleri gibi yükleyin:
   - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
   - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
   - UA update4 BITS RHEL5 OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. .Zip dosyalarını ayıklayın.
@@ -218,7 +218,7 @@ Scout güncelleştirme 5 toplu bir güncelleştirmesidir. Bu, güncelleştirme 1
 
 #### <a name="new-platform-support"></a>Yeni platform desteği
 * SUSE Linux Enterprise Server 11 4(SP4) hizmet paketi
-* SLES 11 SP4 64 bit **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** temel Scout GA paket ile paketlenmiştir (**InMage_Scout_Standard_8.0.1 GA.zip**). Açıklanan şekilde portaldan GA paketi indirmek [kasa oluşturma](#create-a-vault).
+* SLES 11 SP4 64 bit **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** temel Scout GA paket ile paketlenmiştir (**InMage_Scout_Standard_8.0.1 GA.zip**). İndirme GA paket açıklandığı gibi portaldan bir kasa oluşturun.
 
 
 #### <a name="bug-fixes-and-enhancements"></a>Hata düzeltmeleri ve geliştirmeleri
@@ -248,11 +248,11 @@ Scout güncelleştirme 4 toplu bir güncelleştirmesidir. Bu, güncelleştirme 1
 * Bu Linux işletim sistemleri için destek eklenmiştir:
   * Red Hat Enterprise Linux (RHEL) 7.0, 7.1 ve 7.2
   * 7.0, 7.1 ve 7.2 centOS
-  * Red Hat Enterprise Linux (RHEL) 6,8
-  * CentOS 6,8
+  * Red Hat Enterprise Linux (RHEL) 6.8
+  * CentOS 6.8
 
 > [!NOTE]
-> RHEL/CentOS 7 64-bit **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** temel Scout GA paket ile paketlenmiştir **InMage_Scout_Standard_8.0.1 GA.zip**. Scout GA paket açıklandığı gibi portaldan indirme [kasa oluşturma](#create-a-vault).
+> RHEL/CentOS 7 64-bit **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** temel Scout GA paket ile paketlenmiştir **InMage_Scout_Standard_8.0.1 GA.zip**. İndirme Scout GA paket açıklandığı gibi portaldan bir kasa oluşturun.
 
 #### <a name="bug-fixes-and-enhancements"></a>Hata düzeltmeleri ve geliştirmeleri
 
@@ -305,7 +305,7 @@ Güncelleştirme 3, aşağıdaki sorunları giderir:
 * RX 8.0.1 Scout için Scout 7.1 yükseltildikten sonra SMTP işlevselliği beklendiği gibi çalışmıyor.
 * Daha fazla istatistikleri tamamlamak için geçen süreyi izlemek için geri alma işlemi için günlüğüne sürümüne eklenmiştir.
 * Kaynak sunucuda Linux işletim sistemleri için destek eklenmiştir:
-  * Red Hat Enterprise Linux (RHEL) 6 güncelleştirmesi 7
+  * Red Hat Enterprise Linux (RHEL) 6 update 7
   * CentOS 6, 7 güncelleştir
 * Yapılandırma sunucusu ve RX konsolları artık bit eşlem moduna girer çifti için bildirimleri göster.
 * Aşağıdaki güvenlik düzeltmeleri RX eklenmiştir:
@@ -331,8 +331,8 @@ Güncelleştirme 1, aşağıdaki hata düzeltmeleri ve yeni özellikler içerir:
 * Kaynak sunucuda aşağıdaki Linux işletim sistemleri için destek eklendi:
     * RHEL 6 güncelleştirmesi 6
     * RHEL 5 güncelleştirme 11
-    * CentOS 6 güncelleştirmesi 6
-    * CentOS 5 güncelleştirme 11
+    * CentOS 6 Update 6
+    * CentOS 5 Update 11
 * Aşağıdaki sorunları ele almak hata düzeltmeleri:
   * Yapılandırma sunucusu veya RX sunucusu için kasa kaydı başarısız.
   * Küme birimleri kümelenmiş olmadığında bunlar sürdürme gibi VM'ler yeniden korunduktan beklendiği görünmez.

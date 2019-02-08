@@ -3,18 +3,18 @@ title: Metin analizi REST API (Azure üzerinde Microsoft Bilişsel hizmetler) il
 description: İzlenecek yol Bu öğreticide Azure üzerinde Microsoft Bilişsel hizmetler metin analizi REST API kullanarak duyarlılığını algılamak nasıl.
 services: cognitive-services
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: e5ceb6208229baf3e07e4030992d5de85309789c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4c5b55a5e11bddd6eac8155c2e49ccbd80d3164e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212503"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856385"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Örnek: Metin analizi yaklaşım tespit etme
 

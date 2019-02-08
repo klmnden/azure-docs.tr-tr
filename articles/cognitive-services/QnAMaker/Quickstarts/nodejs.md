@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Node.js REST tabanlı bilgi alın ve kod örnekleri, hızlı bir şekilde yardımcı olmak için Microsoft Bilişsel hizmetler, Azure üzerinde Microsoft Translator metin çevirisi API'si ile çalışmaya başlamak.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7e7e362a2536f7adf2a7d68b096ab76d73f15a61
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 9f4bfc0f61aeda1a4bcfce67b1501f9d297e3bce
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496236"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874638"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Node.js ile soru-cevap Oluşturucu REST API'si kullanma 
 <a name="HOLTop"></a>

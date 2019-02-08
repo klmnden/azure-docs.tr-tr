@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1a9cbb14bc6d6df25dbc627bba5a3e72db5350a6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c7a73472696b0315f0ef11722ca98de79562258e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727339"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895321"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Azure CLI kullanarak dış yeniden yönlendirmeyi ile bir uygulama ağ geçidi oluşturma
 
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Dinleyici ve yönlendirme kuralı Ekle
 
-Dinleyici, uygulama ağ geçidinin trafiği uygun şekilde yönlendirmek etkinleştirmek için gereklidir. Kullanarak dinleyiciyi oluşturun [az ağ application-gateway http-listener oluşturma](/cli/azure/network/application-gateway) ile oluşturulan ön uç bağlantı noktasıyla [az ağ application-gateway frontend-port oluşturma](/cli/azure/network/application-gateway). Bir kural, gelen trafiğin gönderileceği bilmek dinleyici için gereklidir. Adlı bir temel kuralı oluşturun *redirectRule* kullanarak [az ağ uygulama ağ geçidi kuralı oluşturma](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) ile yeniden yönlendirmeyi yapılandırma.
+Dinleyici, uygulama ağ geçidinin trafiği uygun şekilde yönlendirmek etkinleştirmek için gereklidir. Kullanarak dinleyiciyi oluşturun [az ağ application-gateway http-listener oluşturma](/cli/azure/network/application-gateway) ile oluşturulan ön uç bağlantı noktasıyla [az ağ application-gateway frontend-port oluşturma](/cli/azure/network/application-gateway). Bir kural, gelen trafiğin gönderileceği bilmek dinleyici için gereklidir. Adlı bir temel kuralı oluşturun *redirectRule* kullanarak [az ağ uygulama ağ geçidi kuralı oluşturma](/cli/azure/network/application-gateway) ile yeniden yönlendirmeyi yapılandırma.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

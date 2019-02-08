@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake depolama 2. nesil ile veri yükleme (Önizleme) Azure Data Factory ile
-description: Azure Data Factory, verileri Azure Data Lake depolama Gen2 kopyalamak için kullanın (Önizleme)
+title: Azure Data Lake depolama Gen2 Azure Data Factory ile veri yükleme
+description: Azure Data Lake depolama Gen2 veri kopyalamak için Azure Data factory'yi kullanın.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6b03e08200c4d20a64fad329abda71c5c7edab26
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680863"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876088"
 ---
-# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Azure Data Lake depolama 2. nesil ile veri yükleme (Önizleme) Azure Data Factory ile
+# <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Azure Data Lake depolama Gen2 Azure Data Factory ile veri yükleme
 
-Azure Data Lake depolama Gen2 önizlemesi yerleşik, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md). Her iki dosya sistemi ve nesne depolama paradigmalarını kullanarak verilerinizi ile arabirim oluşturmasını sağlar.
+Azure Data Lake depolama Gen2 yerleşik, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md). Her iki dosya sistemi ve nesne depolama paradigmalarını kullanarak verilerinizi ile arabirim oluşturmasını sağlar.
 
 Azure Data Factory, tam olarak yönetilen bulut tabanlı veri tümleştirme hizmetidir. Hizmet lake zengin bir şirket içi verilerle doldurmak için kullanabileceğiniz bulut tabanlı veri depoları ve zamandan tasarruf edin ve analiz çözümlerinizi oluştururken. Desteklenen bağlayıcılar ayrıntılı bir listesi için tablosuna bakın [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -33,9 +33,9 @@ Bu makalede Data Factory-veri kopyalama aracını kullanarak verileri gösterilm
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliği: Azure aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) başlamadan önce.
-* Data Lake depolama Gen2'ye etkin Azure depolama hesabıyla: bir depolama hesabınız yoksa, tıklayın [burada](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) oluşturmak için.
-* AWS hesabı ile verileri içeren bir S3 demetini: Bu makalede, Amazon S3'ten veri kopyalama işlemi gösterilmektedir. Benzer adımları izleyerek diğer veri depolarına kullanabilirsiniz.
+* Azure aboneliği: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
+* Azure depolama hesabı ile Data Lake depolama Gen2'ye etkin: Bir depolama hesabınız yoksa, tıklayın [burada](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) oluşturmak için.
+* AWS hesabı verileri içeren bir S3 demetini ile: Bu makalede, Amazon S3'ten veri kopyalama gösterilmektedir. Benzer adımları izleyerek diğer veri depolarına kullanabilirsiniz.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
@@ -47,10 +47,10 @@ Bu makalede Data Factory-veri kopyalama aracını kullanarak verileri gösterilm
    ![Yeni veri fabrikası sayfası](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)
  
     * **Ad**: Azure data factory'nizi için genel olarak benzersiz bir ad girin. Hatasını alırsanız "veri fabrikası adı \"LoadADLSDemo\" kullanılabilir değil," veri fabrikası için farklı bir ad girin. Örneğin, adı kullanabilirsiniz  _**adınız**_**ADFTutorialDataFactory**. Veri Fabrikası oluşturmayı yeniden deneyin. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
-    * **Abonelik**: veri fabrikasının oluşturulacağı Azure aboneliğini seçin. 
-    * **Kaynak grubu**: aşağı açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** seçenek ve bir kaynak grubu adını girin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
-    * **Sürüm**: seçin **V2**.
-    * **Konum**: veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları başka konumlarda ve bölgelerde olabilir. 
+    * **Abonelik**: Veri fabrikasının oluşturulacağı Azure aboneliğini seçin. 
+    * **Kaynak grubu**: Aşağı açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** seçenek ve bir kaynak grubu adını girin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
+    * **Sürüm**: Seçin **V2**.
+    * **Konum**: Veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları başka konumlarda ve bölgelerde olabilir. 
 
 3. **Oluştur**’u seçin.
 4. Oluşturma işlemi tamamlandıktan sonra veri fabrikanıza gidin. Gördüğünüz **Data Factory** aşağıdaki görüntüde gösterildiği gibi bir giriş sayfası: 
@@ -92,7 +92,7 @@ Bu makalede Data Factory-veri kopyalama aracını kullanarak verileri gösterilm
 
     ![Çıkış klasörü belirtin](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
-7. İçinde **hedef veri deposuna** sayfasında **+ yeni bağlantı oluştur**ve ardından **Azure Data Lake depolama Gen2'ye (Önizleme)** seçip **devam et** :
+7. İçinde **hedef veri deposuna** sayfasında **+ yeni bağlantı oluştur**ve ardından **Azure Data Lake depolama Gen2'ye**seçip **devam**:
 
     ![Hedef veri deposu sayfası](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 

@@ -3,7 +3,7 @@ title: Uç nokta kotasını artırın
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS), tek bir anahtarın kota dışında uç nokta isteği Kotayı artırmak olanağı sunar. LUIS için daha fazla anahtarları oluşturma ve bunları LUIS uygulamaya ekleme tarafından yapıldığını **Yayımla** sayfasını **kaynakları ve anahtarları** bölümü.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 802a5cc629a467527c916c5a41a9c00d06e85600
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ba3ca363afe96c137a4a9eecdeda33e0f9129111
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491731"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868438"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Uç nokta kota anahtarlarını yönetmek için Microsoft Azure Traffic Manager'ı kullanma
 Language Understanding (LUIS), tek bir anahtarın kota dışında uç nokta isteği Kotayı artırmak olanağı sunar. LUIS için daha fazla anahtarları oluşturma ve bunları LUIS uygulamaya ekleme tarafından yapıldığını **Yayımla** sayfasını **kaynakları ve anahtarları** bölümü. 

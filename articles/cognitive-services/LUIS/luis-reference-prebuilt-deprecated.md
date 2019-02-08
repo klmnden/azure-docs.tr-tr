@@ -5,18 +5,18 @@ description: Bu makale, Language Understanding (LUIS) kullanım dışı önceden
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f7071d34f6167786012bd50be7b778fa08b46371
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 576acb0c03d6701018cefa26118a334d3b9c83b8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217008"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869611"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Bir LUIS uygulaması kullanım dışı önceden oluşturulmuş varlıklar
 Aşağıdaki önceden oluşturulmuş varlıklar kullanım dışıdır ve yeni LUIS uygulamalara eklenemez.
@@ -121,7 +121,7 @@ Ansiklopedi yerleşik varlık aşağıdaki tabloda 100'den fazla alt türlerini 
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.american_football.team  ```| ``` green bay packers  ```|
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.ice_hockey.team  ```| ``` hamilton bulldogs  ```|
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.soccer.team  ```| ``` fc bayern munich  ```|
-'''builtin.encyclopedia.organization.organization |Builtin.Encyclopedia.Government.political_party|pertubuhan kebangsaan melayu singapura'' '|
+```builtin.encyclopedia.organization.organization |builtin.encyclopedia.government.political_party|pertubuhan kebangsaan melayu singapura```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.time.event  ```| ``` 1740 batavia massacre   ```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.sports.championship_event  ```| ``` super bowl xxxix  ```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.award.competition  ```| ``` eurovision song contest 2003  ```|

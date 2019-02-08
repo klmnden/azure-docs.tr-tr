@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: c62be5041792690f023361da6254157aed1beeb2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: e0455ef99016fe1029f17256a6dbf5d9bbd8aa4d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749061"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890578"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL veritabanı'nı satın alma modeli
 
@@ -56,10 +56,13 @@ Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depola
 
 > [!IMPORTANT]
 > İşlem, IOs, veri ve günlük depolama, veritabanı veya elastik havuz başına ücretlendirilir. Yedekleme depolama, her veritabanı ücretlendirilir. Yönetilen örnek ücretleri hakkında daha fazla bilgi için bkz. [yönetilen örnekleri](sql-database-managed-instance.md).
-> **Bölge kısıtlamaları:** Desteklenen bölgelerin güncel listesi için bkz. [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Şu anda desteklenmeyen bir bölgede bir yönetilen örnek oluşturmak istiyorsanız, aşağıdakileri yapabilirsiniz [Azure portalı üzerinden destek isteği Gönder](#obtaining-a-larger-quota-for-sql-managed-instance).
+> **Bölge kısıtlamaları:** Desteklenen bölgelerin güncel listesi için bkz. [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Şu anda desteklenmeyen bir bölgede bir yönetilen örnek oluşturmak istiyorsanız, aşağıdakileri yapabilirsiniz [Azure portalı üzerinden destek isteği Gönder](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Veritabanı veya elastik Havuzu'nu sanal çekirdek 300'den fazla DTU dönüştürme kullanırsa maliyetinizi azaltabilir. API'nizi tercih ettiğiniz veya kapalı kalma süresi ile Azure portalını kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir. DTU satın alma modeli, performans ve iş gereksinimlerini karşılıyorsa, onu kullanmaya devam etmek. Sanal çekirdek-model DTU modelden dönüştürmeye karar verirseniz, aşağıdaki kural karşısında kullanarak işlem boyutu seçmeniz gerekir: genel amaçlı katmanında; en az 1 sanal çekirdek standart katmandaki her 100 DTU gerektirir Her Premium katmanda 125 DTU, iş açısından kritik katmanında en az 1 sanal çekirdek gerektirir.
+300'den fazla Dtu, tek veritabanı veya elastik Havuzu'nu kullanırsa, sanal çekirdek tabanlı satın alma modeli için dönüştürme maliyetinizi azaltabilir. Dönüştürülecek karar verirseniz, API'nizi tercih ettiğiniz veya kapalı kalma süresi ile Azure portalını kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir ve otomatik olarak yapılmaz. DTU tabanlı satın alma modeli, performans ve iş gereksinimlerini karşılıyorsa, onu kullanmaya devam etmek. Sanal çekirdek tabanlı satın alma modeli için DTU tabanlı satın alma modeli dönüştürmeye karar verirseniz, aşağıdaki kurallar karşısında kullanarak işlem boyutu seçin: 
+
+- Standart katmandaki her 100 DTU genel amaçlı katmanında en az 1 sanal çekirdek gerektirir
+- Her Premium katmanda 125 DTU iş açısından kritik katmanında en az 1 sanal çekirdek gerektirir
 
 ## <a name="dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli
 

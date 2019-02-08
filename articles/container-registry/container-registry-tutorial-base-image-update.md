@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c89a239cd3abbdd59813626f4b64596ee8a1fd7e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 521d9f3e435e972d373f62619904f9fa478e0685
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756810"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858646"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Öğretici: Temel görüntü Azure container registry güncelleştirildiğinde kapsayıcı görüntü oluşturmayı otomatikleştirme 
 
@@ -78,6 +78,8 @@ Bu öğreticide, bir temel görüntü güncelleştirme senaryosunda size yol gö
 [Dockerfile temel][dockerfile-base]: Görüntü, `Dockerfile-app` base belirtir. Bunun kendisi de [Node][base-node] görüntüsünü temel alır ve `NODE_VERSION` ortam değişkenini içerir.
 
 Aşağıdaki bölümlerde bir görev oluşturacak, temel görüntü Dockerfile içinde `NODE_VERSION` değerini güncelleştirecek ve sonra da ACR Görevlerini kullanarak temel görüntü oluşturacaksınız. ACR görevi yeni temel görüntüyü kayıt defterinize gönderdikten sonra, uygulama görüntüsünün derlemesini otomatik olarak tetikler. İsteğe bağlı olarak, derleme görüntülerinde farklı sürüm dizeleri görmek için uygulama kapsayıcısı görüntüsünü yerel olarak çalıştırırsınız.
+
+Bu öğreticide, ACR görev oluşturur ve bir Dockerfile içinde belirtilen tek bir kapsayıcı görüntüsü iter. ACR görevleri de çalıştırabilir [çok adımlı görevler](container-registry-tasks-multi-step.md) (Önizleme aşamasında), bir YAML kullanarak dosya oluşturun, gönderin ve isteğe bağlı olarak birden çok kapsayıcı test adımları tanımlayın.
 
 ## <a name="build-the-base-image"></a>Temel görüntü oluşturma
 

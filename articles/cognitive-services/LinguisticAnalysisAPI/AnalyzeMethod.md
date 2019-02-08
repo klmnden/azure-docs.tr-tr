@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Analiz yöntemi belirli doğal dil Girişleri analiz etmek için dil analizi API'si kullanma
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208644"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861689"
 ---
 # <a name="analyze-method"></a>Analiz yöntemi
 
@@ -38,7 +38,7 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>İstek parametreleri
 
-Name | Type | Gerekli | Açıklama
+Ad | Type | Gerekli | Açıklama
 -----|-------|----------|------------
 **Dil**    | dize | Evet | İki harfli ISO dil kod'analiz için kullanılacak. Örneğin, "en" İngilizce olarak belirlenmiştir.
 **analyzerIds** | dize listesi | Evet | Çözümleyiciler, uygulamak için bir GUID'ler listesi. Daha fazla bilgi için Çözümleyicileri belgelerine bakın.
@@ -50,7 +50,7 @@ Analiz çıkış dizisi, istekte belirtilen her bir öznitelik için bir tane.
 
 Sonuçlar şu şekilde görünür:
 
-Name | Tür | Açıklama
+Ad | Tür | Açıklama
 -----|------|--------------
 Analyzerıd | dize | Belirtilen Çözümleyicisi GUİD'si
 Sonuç | object | Çözümleyici sonucu
@@ -59,7 +59,7 @@ Sonuç türü giriş Çözümleyicisi türüne bağlı olduğunu unutmayın.
 
 ### <a name="tokens-response-json"></a>Belirteçler yanıt (JSON)
 
-Name | Tür | Açıklama
+Ad | Tür | Açıklama
 -----|------|-------------
 Sonuç | tümce nesnelerinin listesi | içinde bulunan metinde tanımlanmış cümleyi sınırları |
 [x] sonucu. Uzaklık | int | Her cümle başlangıç karakteri uzaklığı |

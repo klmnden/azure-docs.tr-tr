@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bu öğreticide, Orta Facebook gönderilerinizi ve açıklamalar yardımcı olması için makine öğrenme tabanlı Content Moderator kullanmayı öğreneceksiniz.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: b43f3645a2fb9cc6ede4b27b4412b9e70e2b26f8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 86c89164e3ccd5bf5df303b98cf6d336f3916e2b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213846"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878079"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Öğretici: Content Moderator ile Facebook içerik denetleme
 
@@ -134,7 +134,7 @@ Azure İşlevlerinizi oluşturmak için [Azure Yönetim Portalı](https://portal
         2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Şu ortam değişkenlerini güncelleştirin:
     
-    | Anahtar | Value   | 
+    | Anahtar | Değer   | 
     | -------------------- |-------------|
     | appId   | Buraya Facebook Uygulama Tanımlayıcınızı ekleyin  | 
     | appSecret | Buraya Facebook Uygulamanızın gizli dizisini ekleyin | 

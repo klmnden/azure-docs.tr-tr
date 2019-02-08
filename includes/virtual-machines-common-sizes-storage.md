@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b4de9efbe85d5ab497bccd1742df23ddc1b3af43
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bb88736762219028d58fe70d0ec32309967c95a4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354668"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55830715"
 ---
 Depolama en iyi duruma getirilmiş VM boyutları, yüksek disk aktarım hızı ve g/ç sunar ve büyük veri, SQL, NoSQL veritabanları, veri ambarı ve büyük işlem veritabanları için idealdir.  Cassandra, MongoDB, Cloudera ve Redis örneklerindendir. Bu makalede, Vcpu, veri diskleri ve NIC hem de yerel depolama aktarım hızı ve ağ bant genişliği için en iyi duruma getirilmiş her boyut sayısı hakkında bilgi sağlar.
 
@@ -31,7 +31,7 @@ Premium Depolama: Desteklenen
 
 Premium depolama önbelleğe alma: Desteklenmiyor
 
-| Boyut          | Sanal işlemci | Bellek (GiB) | Geçici disk<sup>1</sup> (GiB) | NVMe diskleri | NVMe Disk aktarım hızı<sup>2</sup> (okuma IOPS / MB/sn) | Konak önbellek boyutu<sup>3</sup> | Maksimum veri diskleri | Maks NIC / beklenen ağ bant genişliği (MB/sn) | 
+| Boyut          | Sanal işlemci | Bellek (GiB) | Geçici disk<sup>1</sup> (GiB) | NVMe diskleri<sup>2</sup> | NVMe Disk aktarım hızı<sup>3</sup> (okuma IOPS / MB/sn) | Konak önbellek boyutu<sup>4</sup> | Maksimum veri diskleri | Maks NIC / beklenen ağ bant genişliği (MB/sn) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2,000 | Yok | 16 | 2 / 3,200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4,500 | Yok | 32 | 4 / 6,400  | 
@@ -39,11 +39,13 @@ Premium depolama önbelleğe alma: Desteklenmiyor
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.7 M / 18, 000   | Yok | 32 | 8 / 25,600 |
 | Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | Yok | 32 | 8 / 32,000 |
  
-<sup>1</sup> Lsv2 serisi VM'ler, standart bir SCSI tabanlı geçici kaynak disk için işletim sistemi disk belleği/takas dosyası kullanımı (Windows, Linux üzerinde /dev/sdb D:) sahip. 80 MB/sn aktarım hızı (örneğin Standard_L80s_v2 800 GiB 40.000 IOPS ve 800 MB/sn sağlar) her 8 Vcpu için ve bu disk, depolama, 80 GiB, 4000 IOPS sağlar. Bu, NVMe sürücüler tam uygulama kullanımı için ayrılmış sağlar.
+<sup>1</sup> Lsv2 serisi VM'ler, standart bir SCSI tabanlı geçici kaynak disk için işletim sistemi disk belleği/takas dosyası kullanımı (Windows, Linux üzerinde /dev/sdb D:) sahip. 80 MB/sn aktarım hızı (örneğin Standard_L80s_v2 800 GiB 40.000 IOPS ve 800 MB/sn sağlar) her 8 Vcpu için ve bu disk, depolama, 80 GiB, 4000 IOPS sağlar. Bu, NVMe sürücüler tam uygulama kullanımı için ayrılmış sağlar. Kısa ömürlü bu diskidir ve Durdur/serbest tüm veriler kaybolur.
 
-<sup>2</sup> Hyper-V NVMe doğrudan teknoloji NVMe sürücüler Konuk VM alanı güvenli bir şekilde eşlenen kısıtlanmamışsa erişim sağlar.  En yüksek performansı elde etmek için en son WS2019 derleme veya Ubuntu 18.04 veya 16.04 Azure marketi'ndeki gerektirir.  Yazma performansı g/ç boyutu, sürücü yükleme ve kapasite kullanımı göre değişir.
+<sup>2</sup> yerel NVMe diskleri kısa ömürlü, veriler, Durdur /, VM'yi serbest bırakın, bu diskler üzerindeki kaybolacak.
 
-<sup>3</sup> Lsv2 serisi VM'ler Lsv2 iş yükleri fayda gibi veri diski için konak önbelleği sağlamaz.  Ancak, Lsv2 Vm'leri, Azure'nın kısa ömürlü VM işletim sistemi disk seçeneği (30 GiB) barındırabilir. 
+<sup>3</sup> NVMe doğrudan Hyper-V teknolojisi Konuk VM alanı güvenli bir şekilde eşlenen yerel NVMe sürücüler kısıtlanmamışsa erişim sağlar.  En yüksek performansı elde etmek için en son WS2019 derleme veya Ubuntu 18.04 veya 16.04 Azure marketi'ndeki gerektirir.  Yazma performansı g/ç boyutu, sürücü yükleme ve kapasite kullanımı göre değişir.
+
+<sup>4</sup> Lsv2 serisi VM'ler Lsv2 iş yükleri fayda gibi veri diski için konak önbelleği sağlamaz.  Ancak, Lsv2 Vm'leri, Azure'nın kısa ömürlü VM işletim sistemi disk seçeneği (30 GiB) barındırabilir. 
 
 
 

@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c71c7423b4cde2a24c8154899eec256e5746b6d7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814852"
+ms.locfileid: "55865378"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure anahtar kasası yönetilen depolama hesabı - CLI
 
@@ -56,13 +56,13 @@ ms.locfileid: "55814852"
     ```
     Kopya Kimliği alanı dışında yukarıdaki komutunun sonucu
     
-2. Nesne kimliği, Azure anahtar Kasası'nın hizmet sorumlusu çalıştırarak alın aşağıdaki komutu
+2. Azure anahtar kasası nesne kimliği hizmet sorumlusu çalıştırarak alın aşağıdaki komutu
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
-    Bu komutun işlemin başarıyla tamamlanmasından sonra sonucu nesne Kimliğini bulun.
+    Bu komutun işlemin başarıyla tamamlanmasından sonra sonucu nesne Kimliğini bulun:
     ```console
         {
             ...
@@ -71,7 +71,7 @@ ms.locfileid: "55814852"
         }
     ```
     
-3. Azure Key Vault kimlik için depolama anahtarı operatörü rolünü atama
+3. Azure anahtar kasası kimliği için depolama anahtarı operatörü rolü atayın.
 
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>

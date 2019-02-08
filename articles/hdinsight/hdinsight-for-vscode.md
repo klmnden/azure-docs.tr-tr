@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight araçları - Visual Studio kodu Hive, LLAP veya PySpark kullanın | Microsoft Docs
 description: Oluşturmak ve sorgular ve betikleri göndermek amacıyla Visual Studio Code için Azure HDInsight Araçları'nı kullanmayı öğrenin.
-Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
@@ -9,75 +9,70 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/15/2018
-ms.openlocfilehash: 230c5a50efe762b8f27e6a0a84c36c74403b8ecc
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/04/2019
+ms.openlocfilehash: 3301f3cdea1795db3b17bc2fa7da05bf362c744d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663885"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895084"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Visual Studio Code için Azure HDInsight araçları kullanma
 
-Azure HDInsight araçları Visual Studio Code için (VS Code) oluşturmak ve için Apache Spark, Apache Hive toplu işlerini, etkileşimli Hive sorgularını ve PySpark betiklerini göndermek için nasıl kullanılacağını öğrenin. İlk açıklayacağız VS Code'da HDInsight Araçları'nı yükleme ve ardından Hive ve Spark işleri göndermek nasıl alacağız. 
+Oluşturmak ve için Apache Spark, Apache Hive toplu işlerini, etkileşimli Hive sorgularını ve PySpark betiklerini göndermek amacıyla Visual Studio Code için Azure HDInsight Araçları'nı kullanmayı öğrenin. İlk olarak Visual Studio Code'da HDInsight Araçları'nı yükleme açıklayacağız ve ardından Hive ve Spark işleri göndermek nasıl alacağız.  
 
-Azure HDInsight araçları, Windows, Linux ve Macos'ta içeren VS Code tarafından desteklenen platformlara yüklenebilir. Aşağıda farklı platformlar için önkoşulları bulabilirsiniz.
+Azure HDInsight araçları, Windows, Linux ve Macos'ta içeren Visual Studio Code tarafından desteklenmeyen platformlarda yüklenebilir. Aşağıda farklı platformlar için önkoşulları bulabilirsiniz.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu makaledeki adımları tamamlamak için aşağıdakiler gereklidir:
 
-- Bir HDInsight kümesi. Bir küme oluşturmak için bkz: [HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-- [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
+- Bir HDInsight kümesi. Bir küme oluşturmak için bkz: [HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
+- [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono, yalnızca Linux ve macOS için gereklidir.
-- VSCode [Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+- [Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) Visual Studio Code için.
+- [Visual Studio Code için PySpark etkileşimli ortamını ayarlama](set-up-pyspark-interactive-environment.md).
+- Adlı bir yerel dizin **HDexample**.  Bu makalede **C:\HD\HDexample**.
 
-## <a name="install-the-hdinsight-tools"></a>HDInsight Araçları'nı yükleme
-   
-Önkoşullar yüklendikten sonra VS Code için Azure HDInsight araçları yükleyebilirsiniz. 
+## <a name="install-azure-hdinsight-tools"></a>Azure HDInsight Araçları'nı yükleme
 
-### <a name="to-install-azure-hdinsight-tools"></a>Azure HDInsight Araçları'nı yüklemek için
+Önkoşulları tamamladıktan sonra Visual Studio Code için Azure HDInsight araçları yükleyebilirsiniz.  Azure HDInsight Araçları'nı yüklemek için aşağıdaki adımları tamamlayın:
 
 1. Visual Studio Code'u açın.
 
-2. Sol bölmede seçin **uzantıları**. Arama kutusuna **HDInsight**.
+2. Menü çubuğundan gidin **görünümü** > **uzantıları**.
 
-3. Yanındaki **Azure HDInsight Araçları**seçin **yükleme**. Birkaç saniye sonra **yükleme** düğmesi değişiklikleri **yeniden**.
+3. Arama kutusuna **HDInsight**.
 
-4. Seçin **yeniden** etkinleştirmek için **Azure HDInsight Araçları** uzantısı.
-
-5. Seçin **Reload Window** onaylamak için. Gördüğünüz **Azure HDInsight Araçları** içinde **uzantıları** bölmesi.
+4. Seçin **Azure HDInsight Araçları** seçin ve arama sonuçlarını **yükleme**.  
 
    ![HDInsight için Visual Studio kod Python yükleme](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
+5. Seçin **yeniden** etkinleştirmek için **Azure HDInsight Araçları** yüklendikten sonra uzantı.
+
+
 ## <a name="open-hdinsight-work-folder"></a>HDInsight iş klasörü aç
 
-Azure'a bağlanabilmesi için VS Code'da iş klasörü oluşturun.
+Bir çalışma klasörü açmak için aşağıdaki adımları tamamlayın ve Visual Studio Code'da bir dosya oluşturun:
 
-### <a name="to-open-a-work-folder"></a>Bir çalışma klasörü açmak için
+1. Menü çubuğundan gidin **dosya** > **Klasör Aç...**   >  **C:\HD\HDexample**, ardından **Klasör Seç** düğmesi. Klasör görünür **Gezgini** soldaki görünümü.
 
-1. Üzerinde **dosya** menüsünde **Klasör Aç**. Ardından iş klasörünüz olarak var olan bir klasörü belirtin veya yeni bir tane oluşturun. Klasör, sol bölmede görünür.
-
-2. Sol bölmeden **yeni dosya** iş klasörü yanındaki simge.
+2. Gelen **Gezgini** görüntülemek için klasörü seçin **HDexample**, ardından **yeni dosya** iş klasörü yanındaki simge.
 
    ![Yeni dosya](./media/hdinsight-for-vscode/new-file.png)
 
-3. ' % S '.hql (Hive sorguları) veya .py (Spark betiğini) dosya uzantısı ile yeni dosya adı. 
+3. ' % S '.hql (Hive sorguları) veya .py (Spark betiğini) dosya uzantısı ile yeni dosya adı.  Bu örnekte **HelloWorld.hql**.
 
 ## <a name="connect-to-hdinsight-cluster"></a>HDInsight kümesine bağlanma
 
-VS koddan betikleri HDInsight kümelerine gönderebilirsiniz önce Azure hesabınıza bağlanın veya bir kümesini bağlamak gerekir (Ambari kullanarak kullanıcı adı/parola veya etki alanı hesabı alanına).
+Visual Studio Code'dan betikleri HDInsight kümelerine gönderebilirsiniz önce Azure hesabınıza bağlanın veya bir kümesini bağlamak gerekir (Ambari kullanarak kullanıcı adı/parola veya etki alanı hesabı alanına).  Azure'a bağlanmak için aşağıdaki adımları tamamlayın:
 
-### <a name="to-connect-to-azure"></a>Azure'a bağlanmak için
-
-1. Bunları henüz yoksa, yeni bir çalışma klasörü ve yeni betik dosyası oluşturun.
-
-2. Kod Düzenleyicisi'ni sağ tıklatın ve ardından bağlam menüsünde seçin **HDInsight: Oturum açma**. Ayrıca girebilirsiniz **Ctrl + Shift + P**yazıp enter **HDInsight: Oturum açma**.
+1. Menü çubuğundan gidin **görünümü** > **komut paleti...** girin **HDInsight: Oturum açma**.
 
     ![Visual Studio Code oturum açma için HDInsight araçları](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-3. Oturum açmak için oturum açma yönergeleri izleyin. **çıkış** bölmesi.
+2. Oturum açma yönergeleri **çıkış** bölmesi.
     + Azure, genel ortam için **HDInsight: Oturum açma** komut tetikleme **Azure'da oturum aç** eylem HDInsight Gezgini ve bunun tersi de geçerlidir.
 
         ![Azure için oturum açma yönergeleri](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
@@ -86,105 +81,103 @@ VS koddan betikleri HDInsight kümelerine gönderebilirsiniz önce Azure hesabı
 
         ![Diğer ortam için oturum açma yönergeleri](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
-    Bağlandıktan sonra Azure hesap adınızı VS Code penceresinin sol alt durum çubuğunda gösterilir. 
-
-    > [!NOTE]  
-    > Bir bilinen Azure kimlik doğrulama sorunu nedeniyle bir tarayıcı özel modda veya gizli modda açmanız gerekir. Azure hesabınızı etkin iki faktör varsa, PIN kimlik doğrulaması yerine telefon kimlik doğrulaması kullanılması önerilir.
+ Bağlandıktan sonra Azure hesabınızın adını Visual Studio kod penceresinin sol alt durum çubuğunda gösterilir.  
   
 
-4. Kod Düzenleyicisi'ni bağlam menüsünü açmak için sağ tıklayın. Bağlam menüsünden aşağıdaki görevleri gerçekleştirebilirsiniz:
-
-    - Oturumu kapat
-    - Kümeleri listeleme
-    - Kümesi varsayılan kümeleri
-    - Etkileşimli Hive sorguları gönderme
-    - Hive toplu iş betikleri gönderme
-    - PySpark etkileşimli sorguları gönderme
-    - PySpark toplu betiklerden gönderin
-    - Kümesi yapılandırması
-
-<h3 id="linkcluster">Bir kümeye bağlanmak için</h3>
+<h2 id="linkcluster">Bağlantı oluşturun: Azure HDInsight</h2>
 
 Normal bir küme kullanarak bağlayabilirsiniz bir [Apache Ambari](https://ambari.apache.org/) yönetilen kullanıcı adı veya bir etki alanı kullanıcı adı kullanarak bir kurumsal güvenlik paketi güvenli Hadoop kümesi bağlantısını (gibi: user1@contoso.com).
-1. Seçerek komut paletini açın **CTRL + SHIFT + P**yazıp enter **HDInsight: Küme bağlantı**.
+
+1. Menü çubuğundan gidin **görünümü** > **komut paleti...** girin **HDInsight: Küme bağlantı**.
 
    ![bağlantı kümesi komutu](./media/hdinsight-for-vscode/link-cluster-command.png)
 
-2. HDInsight girin küme URL'si, kullanıcı adı -> giriş -> giriş parola seçin -> küme türü -> bunu gösterir başarı bilgisi doğrulama geçirilmiş.
-   
-   ![bağlantı kümesi iletişim kutusu](./media/hdinsight-for-vscode/link-cluster-process.png)
+2. Bağlı küme türü seçin **Azure HDInsight**.
+
+3. HDInsight kümesi URL'si girin.
+
+4. Ambari kullanıcı adını girin, varsayılan **yönetici**.
+
+5. Ambari parolasını girin.
+
+6. Küme türü seçin.
+
+7. Gözden geçirme **çıkış** doğrulama için görünümü.
 
    > [!NOTE]  
-   > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlı kullanıcı adı ve parola kullanılır. 
-   
-3. Komutunu kullanarak bir bağlı küme görebilirsiniz **listesi küme**. Artık bağlantılı bu küme için bir komut gönderebilirsiniz.
-
-   ![bağlı küme](./media/hdinsight-for-vscode/linked-cluster.png)
-
-4. Ayrıca, girişini yaparak tarafından bir küme kesebilir **HDInsight: Bir küme bağlantısını** komut paletinden.
+   > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlı kullanıcı adı ve parola kullanılır.  
 
 
-### <a name="to-link-a-generic-apache-livy-endpoint"></a>Genel bir Apache Livy uç noktasını bağlamak için
+## <a name="create-link-generic-livy-endpoint"></a>Bağlantı oluşturun: Livy genel uç noktası
 
-1. Seçerek komut paletini açın **CTRL + SHIFT + P**yazıp enter **HDInsight: Küme bağlantı**.
-2. Seçin **genel Livy uç nokta**.
+1. Menü çubuğundan gidin **görünümü** > **komut paleti...** girin **HDInsight: Küme bağlantı**.
+
+2. Bağlı küme türü seçin **genel Livy uç nokta**.
+
 3. Genel Livy uç noktası girin. Örneğin: http\:/ / 10.172.41.42:18080.
-4. Seçin **temel** genel Livy uç noktası için Aksi takdirde yetkilendirme seçtiğinizde **hiçbiri**.
-5. Giriş kullanıcı adı seçin, **temel** step4 içinde.
-6. Giriş parola seçin, **temel** step4 içinde.
-7. Genel livy uç noktası başarıyla bağlanıldı.
 
-   ![Bağlantılı genel livy küme](./media/hdinsight-for-vscode/link-cluster-process-generic-livy.png)
+4. Yetkilendirme türünü seçin **temel** veya **hiçbiri**.  Varsa **temel**, ardından:  
+    &emsp;bir. Ambari kullanıcı adını girin, varsayılan **yönetici**.  
+    &emsp;b. Ambari parolasını girin.
+
+5. Gözden geçirme **çıkış** doğrulama için görünümü.
 
 ## <a name="list-hdinsight-clusters"></a>HDInsight kümeleri listeleme
 
-Bağlantıyı sınamak için HDInsight kümelerinizi listeleyebilirsiniz:
+1. Menü çubuğundan gidin **görünümü** > **komut paleti...** girin **HDInsight: Liste küme**.
 
-### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>HDInsight kümeleri, Azure aboneliği altında listelemek için
-1. Bir çalışma klasörü açın ve sonra Azure'a bağlanın. Daha fazla bilgi için [açık HDInsight çalışır klasör](#open-hdinsight-work-folder) ve [Azure'a bağlanma](#connect-to-hdinsight-cluster).
+2. İstediğiniz aboneliği seçin.
 
-2. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **HDInsight: Liste küme** bağlam menüsünden. 
-
-3. HDInsight kümeleri görünür **çıkış** bölmesi.
+3. Gözden geçirme **çıkış** görünümü.  Görünüm, bağlantılı kümesi ve Azure aboneliğiniz kapsamındaki tüm kümelere gösterir.
 
     ![Bir varsayılan küme yapılandırmasını ayarlayın](./media/hdinsight-for-vscode/list-cluster-result.png)
 
-## <a name="set-a-default-cluster"></a>Bir varsayılan küme
-1. Bir çalışma klasörü açın ve Azure'a bağlanın. Bkz: [açık HDInsight iş klasörü](#open-hdinsight-work-folder) ve [Azure'a bağlanma](#connect-to-hdinsight-cluster).
+## <a name="set-default-cluster"></a>Varsayılan kümesi
 
-2. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **HDInsight: Ayarlanmış varsayılan küme**. 
+1. Klasörü yeniden açın **HDexample** oluşturulan [önceki](#open-hdinsight-work-folder) kapalı.  
 
-3. Geçerli komut dosyası için varsayılan küme olarak bir küme seçin. Araçları yapılandırma dosyasını otomatik olarak güncelleştirmek **. VSCode\settings.json**. 
+2. Dosyayı seçin **HelloWorld.hql** oluşturulan [önceki](#open-hdinsight-work-folder) Kod Düzenleyicisi'nde açılır.
+
+3. [Connect](#connect-to-hdinsight-cluster) henüz yapmadıysanız, Azure hesabınıza.
+
+4. Kod Düzenleyicisi'ni sağ tıklatın ve seçin **HDInsight: Ayarlanmış varsayılan küme**.  
+
+5. Geçerli komut dosyası için varsayılan küme olarak bir küme seçin. Araçları yapılandırma dosyasını otomatik olarak güncelleştirmek **. VSCode\settings.json**. 
 
    ![Kümesi varsayılan küme yapılandırması](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
 ## <a name="set-the-azure-environment"></a>Azure ortamı ayarlama
-1. Seçerek komut paletini açın **CTRL + SHIFT + P**.
 
-2. Girin **HDInsight: Azure ortamı ayarlama**.
+1. [Connect](#connect-to-hdinsight-cluster) henüz yapmadıysanız, Azure hesabınıza.
 
-3. "Azure" veya "AzureChina" varsayılan oturum açma giriş olarak gibi bir ortam seçin.
+2. Menü çubuğundan gidin **görünümü** > **komut paleti...** girin **HDInsight: Azure ortamı ayarlama**.
 
-4. Bu arada, araç, varsayılan oturum açma girişi zaten kaydetti **. VSCode\settings.json**. Ayrıca doğrudan bu yapılandırma dosyasında güncelleştirmeniz. 
+3. Varsayılan oturum açma Giriş bir ortam seçin.
+
+4. Bu arada, araç, varsayılan oturum açma girişi zaten kaydetti **. VSCode\settings.json**. Ayrıca doğrudan bu yapılandırma dosyasında güncelleştirebilirsiniz. 
 
    ![Kümesi varsayılan oturum açma girişi yapılandırma](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
+
 ## <a name="submit-interactive-hive-queries-hive-batch-scripts"></a>Etkileşimli Hive sorguları göndermek, Hive toplu betiklerden
 
-VS Code için HDInsight araçları ile etkileşimli Hive sorguları, Hive toplu betiklerden HDInsight kümelerine gönderebilirsiniz.
+Visual Studio Code için HDInsight araçları ile etkileşimli Hive sorguları göndermek ve batch betikleri HDInsight kümeleri için Hive.
 
-1. Yoksa, yeni bir çalışma klasörü ve yeni bir Hive betik dosyası oluşturun.
+1. Klasör yeniden **HDexample** oluşturulan [önceki](#open-hdinsight-work-folder) kapalı.  
 
-2. Azure hesabı veya bağlantı kümeye bağlanın.
+2. Dosyayı seçin **HelloWorld.hql** oluşturulan [önceki](#open-hdinsight-work-folder) Kod Düzenleyicisi'nde açılır.
 
-3. Aşağıdaki kodu kopyalayıp Hive dosyanıza yapıştırın ve kaydedin.
+3. [Connect](#connect-to-hdinsight-cluster) henüz yapmadıysanız, Azure hesabınıza.
+
+4. Aşağıdaki kodu kopyalayıp Hive dosyanıza yapıştırın ve kaydedin.
 
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. Kod Düzenleyicisi'ni sağ tıklayın, **HDInsight: Etkileşimli hive** sorgu gönderin veya kısayol **Ctrl + Alt + ı**. Seçin **HDInsight: Hive toplu** betiği gönderin veya kısayol **Ctrl + Alt + H**. 
 
-5. Varsayılan Küme belirtmediyseniz kümeyi seçin. Araçlar, bağlam menüsünü kullanarak betik dosyasının tamamı yerine bir kod bloğu göndermenize de olanak sağlar. Sorgu sonuçları, birkaç dakika sonra yeni bir sekmede görünür.
+5. Kod Düzenleyicisi'ni sağ tıklayın, **HDInsight: Etkileşimli hive** sorgu gönderin veya kısayol **Ctrl + Alt + ı**.  Seçin **HDInsight: Hive toplu** betiği gönderin veya kısayol **Ctrl + Alt + H**.  
+
+6. Varsayılan Küme belirtmediyseniz kümeyi seçin. Araçlar, bağlam menüsünü kullanarak betik dosyasının tamamı yerine bir kod bloğu göndermenize de olanak sağlar. Sorgu sonuçları, birkaç dakika sonra yeni bir sekmede görünür.
 
    ![Interactive Hive sonucu](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -194,18 +187,17 @@ VS Code için HDInsight araçları ile etkileşimli Hive sorguları, Hive toplu 
 
 ## <a name="submit-interactive-pyspark-queries"></a>PySpark etkileşimli sorguları gönderme
 
-### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>HDInsight Spark kümeleri etkileşimli PySpark sorguları göndermek için.
+1. Klasör yeniden **HDexample** oluşturulan [önceki](#open-hdinsight-work-folder) kapalı.  
 
-1. Bunları henüz yoksa, yeni bir çalışma klasörü ve yeni .py dosyası oluşturun.
+2. Yeni bir dosya oluşturun **HelloWorld.py** aşağıdaki [önceki](#open-hdinsight-work-folder) adımları.
 
-    > [!NOTE]
-    > VSCode .py dosya Python uzantısı'nı yüklemeniz önerir. Uzantıyı yüklemek ya da iletişim kutusunu kapatın.
-    > 
+3. Python için önkoşul yüklemediyseniz, bir Python uzantısı öneri iletişim alırsınız.  Yükleyin ve yüklemeyi tamamlamak için Visual Studio Code yeniden yükleyin.
+
     >![HDInsight için Visual Studio kod Python yükleme](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
-2. Henüz yapmadıysanız, Azure hesabınıza bağlanın.
+4. [Connect](#connect-to-hdinsight-cluster) henüz yapmadıysanız, Azure hesabınıza.
 
-3. Kopyalayıp betik dosyasına aşağıdaki kodu yapıştırın:
+5. Kopyalayıp betik dosyasına aşağıdaki kodu yapıştırın:
    ```python
    from operator import add
    lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
@@ -219,16 +211,16 @@ VS Code için HDInsight araçları ile etkileşimli Hive sorguları, Hive toplu 
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Python ortamını bunu yapmadıysanız bkz. yükleme [Visual Studio Code için PySpark etkileşimli ortamını ayarlama](set-up-pyspark-interactive-environment.md).
 
-5. Bu betik vurgulayın. Ardından Kod Düzenleyicisi'ni sağ tıklatın ve seçin **HDInsight: PySpark etkileşimli**, veya kısayolu **Ctrl + Alt + ı**.
+6. Kod Düzenleyicisi'ni sağ tıklayın, **HDInsight: PySpark etkileşimli** sorgu gönderin veya kısayol **Ctrl + Alt + ı**.  
 
-6. PySpark sorgunuzu gönderebilirsiniz yapılacak bir kümeyi seçin. Hemen sonra sorgu sonucu yeni doğru sekmede gösterilmektedir:
+7. Varsayılan Küme belirtmediyseniz kümeyi seçin. Araçlar, bağlam menüsünü kullanarak betik dosyasının tamamı yerine bir kod bloğu göndermenize de olanak sağlar. Sorgu sonuçları, birkaç dakika sonra yeni bir sekmede görünür.
 
    ![Python iş sonucu Gönder](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
-7. Aracı'nı da destekler **SQL yan tümcesi** sorgu.
 
-   ![Python iş sonucu gönderme](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) alt durum sorguları zaman çalıştırdığınız çubuğunda sol taraftaki gönderme durumu görüntülenir. Diğer sorgular durum olduğunda paylaşmayın **PySpark Çekirdeği (meşgul)**. 
+8. Aracı'nı da destekler **SQL yan tümcesi** sorgu.
+
+   ![Python iş sonucu gönderme](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) alt durum sorguları zaman çalıştırdığınız çubuğunda sol taraftaki gönderme durumu görüntülenir. Diğer sorgular durum olduğunda paylaşmayın **PySpark Çekirdeği (meşgul)**.  
 
 >[!NOTE]  
 >Küme oturum bilgilerini koruyabilir. Aynı kümenin birden çok hizmet çağrısını üzerinde başvurulabilen şekilde tanımlanmış değişken, işlev ve karşılık gelen değerler oturumda tutulur. 
@@ -243,19 +235,22 @@ Python2.x kullanmak için adımları izleyin:
 
 1. Python 2.7 için yerel bir bilgisayara yüklemeniz ve sistem yoluna ekleyin.
 
-2. VSCode yeniden başlatın.
+2. Visual Studio Code'u yeniden başlatın.
 
 3. Python 2'ye tıklayarak geçiş **Python XXX** durum çubuğu sonra hedef Python'ı seçin.
 
    ![Python sürümü seçin](./media/hdinsight-for-vscode/hdi-azure-hdinsight-select-python.png)
 
+
 ## <a name="submit-pyspark-batch-job"></a>PySpark batch işi gönderme
 
-1. Bunları henüz yoksa, yeni bir çalışma klasörü ve yeni betik dosyası .py uzantısıyla oluşturun.
+1. Klasör yeniden **HDexample** oluşturulan [önceki](#open-hdinsight-work-folder) kapalı.  
 
-2. Zaten yapmadıysanız, Azure hesabınıza bağlanın.
+2. Yeni bir dosya oluşturun **BatchFile.py** aşağıdaki [önceki](#open-hdinsight-work-folder) adımları.
 
-3. Kopyalayıp betik dosyasına aşağıdaki kodu yapıştırın:
+3. [Connect](#connect-to-hdinsight-cluster) henüz yapmadıysanız, Azure hesabınıza.
+
+4. Kopyalayıp betik dosyasına aşağıdaki kodu yapıştırın:
 
     ```python
     from __future__ import print_function
@@ -277,23 +272,28 @@ Python2.x kullanmak için adımları izleyin:
             print("%s: %i" % (word, count))
         spark.stop()
     ```
+
 4. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **HDInsight: PySpark Batch**, veya kısayolu **Ctrl + Alt + H**. 
 
 5. Hangi, PySpark işi göndermek bir kümeyi seçin. 
 
    ![Python iş sonucu Gönder](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
-Bir Python işi gönderdikten sonra gönderme günlükleri görünür **çıkış** VS code'da penceresi. **Spark UI URL** ve **Yarn UI URL** de gösterilir. URL, iş durumunu izlemek için bir web tarayıcısı açabilirsiniz.
+Bir Python işi gönderdikten sonra gönderme günlükleri görünür **çıkış** Visual Studio Code penceresi. **Spark UI URL** ve **Yarn UI URL** de gösterilir. URL, iş durumunu izlemek için bir web tarayıcısı açabilirsiniz.
 
 ## <a name="apache-livy-configuration"></a>Apache Livy yapılandırma
 
-[Apache Livy](https://livy.incubator.apache.org/) yapılandırma desteklenir, sırasında ayarlanabilir **. VSCode\settings.json** çalışma alanı klasörünün içinde. Şu anda livy yapılandırma yalnızca Python betiğini destekler. Daha fazla bilgi [Livy Benioku](https://github.com/cloudera/livy/blob/master/README.rst ).
+[Apache Livy](https://livy.incubator.apache.org/) yapılandırma desteklenir, sırasında ayarlanabilir **. VSCode\settings.json** çalışma alanı klasörüne. Şu anda livy yapılandırma yalnızca Python betiğini destekler. Daha fazla bilgi [Livy Benioku](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**Livy yapılandırma tetikleme**
-   
-Bulabileceğiniz **dosya** menüsünde **tercihleri**ve **ayarları** bağlam menüsünde. Tıklayın **çalışma alanı ayarlarını** sekmesinde başlatabilir livy yapılandırmasını ayarlayın.
 
-Bir dosya da gönderebilir, bildirim .vscode klasörü çalışma klasörü otomatik olarak eklenir. Livy yapılandırma tıklayarak bulabilirsiniz **.vscode\settings.json**.
+Yöntem 1  
+1. Menü çubuğundan gidin **dosya** > **tercihleri** > **ayarları**.  
+2. İçinde **arama ayarları** metin kutusuna girin **HDInsight iş Sumission: Livy Conf**.  
+3. Seçin **settings.json içinde düzenleme** ilgili arama sonucu.
+
+Yöntem 2   
+Bir dosya göndermek, .vscode klasörü otomatik olarak iş klasöre eklenen dikkat edin. Livy yapılandırma tıklayarak bulabilirsiniz **.vscode\settings.json**.
 
 + Proje ayarları:
 
@@ -342,29 +342,24 @@ Bir dosya da gönderebilir, bildirim .vscode klasörü çalışma klasörü otom
 
 ## <a name="integrate-with-azure-hdinsight-from-explorer"></a>Azure HDInsight Gezgini'nden tümleştirin
 
-Azure HDInsight, sol bölmenin eklendi. Göz atabilir ve kümeye doğrudan yönetin.
+**Azure HDInsight** Gezgini görünümü eklenmiştir. Göz atabilir ve kümelere doğrudan ile yönettiğiniz **Azure HDInsight**.
 
-1. Genişletin **AZURE HDINSİGHT**değil oturum, içinde gösterecektir **Azure'da oturum aç...**  bağlantı.
+1. [Connect](#connect-to-hdinsight-cluster) henüz yapmadıysanız, Azure hesabınıza.
 
-    ![Bağlantı resmi oturum açın](./media/hdinsight-for-vscode/hid-azure-hdinsight-sign-in.png)
+2. Menü çubuğundan gidin **görünümü** > **Gezgini**.
 
-2. Tıklayın **Azure'da oturum aç**, sağ alt kısmında oturum açma bağlantısı ve kod açılır.
-
-    ![Diğer ortam için oturum açma yönergeleri](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin-code.png)
-
-3. Tıklayın **açın & Kopyala** düğmesi, tarayıcı, açılır kodu yapıştırın, tıklayın **devam** düğmesi, başarılı oturum açma hakkında ipucu görür.
-
-4. Oturum açtıktan sonra kullanılabilen abonelikler ve (Spark, Hadoop ve HBase desteklenir) kümeleri listelenir **AZURE HDINSİGHT**. 
+3. Sol bölmeden genişletin **AZURE HDINSİGHT**.  Kullanılabilir abonelikler ve (Spark, Hadoop ve HBase desteklenir) kümeleri listelenir. 
 
    ![Azure HDInsight abonelik](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
 
-5. Hive meta veri veritabanı ve tablo şemasını görüntülemek için kümeyi genişletin.
+4. Hive meta veri veritabanı ve tablo şemasını görüntülemek için kümeyi genişletin.
 
    ![Azure HDInsight kümesi](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
+
 ## <a name="additional-features"></a>Ek özellikler
 
-VS Code için HDInsight aşağıdaki özellikleri destekler:
+Visual Studio Code için HDInsight aşağıdaki özellikleri destekler:
 
 - **IntelliSense otomatik tamamlama**. Anahtar sözcüğü, yöntemleri, değişkenler vb. için öneriler açılır. Farklı simgeler farklı türde nesneyi temsil eder.
 
@@ -374,39 +369,20 @@ VS Code için HDInsight aşağıdaki özellikleri destekler:
 
     ![Söz dizimi önemli Visual Studio Code için HDInsight araçları](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
+
+## <a name="unlink-cluster"></a>Küme bağlantısını Kaldır
+
+1. Menü çubuğundan gidin **görünümü** > **komut paleti...** yazıp enter **HDInsight: Bir küme bağlantısını**.  
+
+2. Bağlantısını kesmek için kümeyi seçin.  
+
+3. Gözden geçirme **çıkış** doğrulama için görünümü.  
+
+
+## <a name="logout"></a>Oturumu Kapat  
+
+Menü çubuğundan gidin **görünümü** > **komut paleti...** yazıp enter **HDInsight: Oturum kapatma**.  Alt sağ köşesinde bildiren bir açılır pencere olacak **oturum kapatma başarıyla!**.
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
-
-### <a name="demo"></a>Tanıtım
-* VS Code için HDInsight: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
-
-### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
-
-* [Apache Spark uygulamalar VPN üzerinden uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Apache Spark uygulamalarında SSH üzerinden uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Hortonworks korumalı alanı ile Intellij için HDInsight araçları kullanma](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Apache Spark uygulamaları oluşturmak için Eclipse için Azure araç seti, HDInsight araçları kullanma](spark/apache-spark-eclipse-tool-plugin.md)
-* [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](spark/apache-spark-zeppelin-notebook.md)
-* [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](spark/apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter not defterleri ile dış paketleri kullanma](spark/apache-spark-jupyter-notebook-use-external-packages.md)
-* [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Azure HDInsight, Microsoft Power BI ile Apache Hive verileri Görselleştirme](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Power BI'da Azure HDInsight ile etkileşimli sorgu Hive verilerini görselleştirme](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Visual Studio Code için PySpark etkileşimli ortamını ayarlama](set-up-pyspark-interactive-environment.md)
-* [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma ](./hdinsight-connect-hive-zeppelin.md)
-
-### <a name="scenarios"></a>Senaryolar
-* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](spark/apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-running-applications"></a>Oluşturma ve uygulamaları çalıştırma
-* [Scala kullanarak tek başına uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
-* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
-
-### <a name="manage-resources"></a>Kaynakları yönetme
-* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](spark/apache-spark-resource-manager.md)
-* [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](spark/apache-spark-job-debugging.md)
-
-
-
+Bir tanıtım videosu Visual Studio Code için HDInsight'ı kullanmanın [Visual Studio Code için HDInsight](https://go.microsoft.com/fwlink/?linkid=858706)

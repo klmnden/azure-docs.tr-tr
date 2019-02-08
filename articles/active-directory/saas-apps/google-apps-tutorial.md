@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 50f95ea10308e27fa36bda77c4f3e1bd4914bb30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769415"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Öğretici: G Suite ile Azure Active Directory Tümleştirme
 
@@ -42,7 +42,7 @@ G Suite ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğel
 - Google Apps aboneliği veya Google Cloud Platform abonelik.
 
 > [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz. Bu belge, yeni kullanıcı çoklu oturum açma deneyimini kullanarak oluşturuldu. Kurulum, hala eski kullanıyorsanız, farklı görünecektir. G Suite uygulamanın çoklu oturum açma ayarlarını yeni deneyim etkinleştirebilirsiniz. Git **Azure AD, kurumsal uygulamalar**seçin **G Suite**seçin **çoklu oturum açma** ve ardından **yeni deneyimimizi deneyin**.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz. Bu belge, yeni kullanıcı çoklu oturum açma deneyimini kullanarak oluşturuldu. Kurulum, hala eski kullanıyorsanız, farklı olarak görünecektir. G Suite uygulamanın çoklu oturum açma ayarlarını yeni deneyim etkinleştirebilirsiniz. Git **Azure AD, kurumsal uygulamalar**seçin **G Suite**seçin **çoklu oturum açma** ve ardından **yeni deneyimimizi deneyin**.
 
 Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
@@ -146,7 +146,7 @@ Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adı
 
     ![G Suite etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak URL: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
     | |
@@ -163,7 +163,7 @@ Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adı
 
     ![G Suite etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak URL: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
     | |

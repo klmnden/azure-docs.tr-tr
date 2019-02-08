@@ -12,16 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: f75ea7bd728b16c91122119c3e14da2a1e123d45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9459aa9df74efa500109d7c281daad28355bd0d0
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452320"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895746"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Hızlı Başlangıç: Bir veritabanı yönetilen örneği'ne geri yükleme 
 
-Bu hızlı başlangıçta, bir veritabanı (Wide World Importers - standart yedekleme dosyasını) Azure blob depolama alanından Azure SQL veritabanı'na geri yüklemek için SQL Server Management Studio (SSMS) kullanacaksınız [yönetilen örneği](sql-database-managed-instance.md). 
+Bu hızlı başlangıçta, SQL Server Management Studio (SSMS) (Wide World Importers - standart yedekleme dosyasını) bir veritabanını geri yüklemek için Azure Blob depolama alanından Azure SQL veritabanı'na kullanacağınız [yönetilen örneği](sql-database-managed-instance.md). 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
@@ -40,11 +40,11 @@ Bu hızlı başlangıç:
   - [Noktadan siteye bağlantı, şirket içinden Azure SQL veritabanı yönetilen örneği için yapılandırma](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]
-> Veritabanı yedekleme ve bir SQL Server geri yükleme hakkında daha fazla bilgi için Azure blob depolama kullanan ve bir [paylaşılan erişim imzası (SAS) anahtarı](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), bkz: [URL'ye SQL Server Yedekleme](sql-database-managed-instance-get-started-restore.md).
+> Veritabanı yedekleme ve bir SQL Server geri yükleme hakkında daha fazla bilgi için Azure Blob Depolama kullanan ve bir [paylaşılan erişim imzası (SAS) anahtarı](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), bkz: [URL'ye SQL Server Yedekleme](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="restore-the-database-from-a-backup-file"></a>Veritabanını bir yedekleme dosyasından geri yükleyin.
 
-SSMS'de, yönetilen Örneğinize Wide World Importers veritabanını geri yüklemek için aşağıdaki adımları izleyin. Veritabanı yedek dosyasını, bir önceden yapılandırılmış Azure blob depolama hesabında depolanır.
+SSMS'de, yönetilen Örneğinize Wide World Importers veritabanını geri yüklemek için aşağıdaki adımları izleyin. Veritabanı yedek dosyasını, önceden yapılandırılmış bir Azure Blob Depolama hesabında depolanır.
 
 1. SMSS açın ve yönetilen Örneğinize bağlanın.
 2. Sol taraftaki menüden, yönetilen Örneğinize sağ tıklayıp **yeni sorgu** yeni bir sorgu penceresi açın.

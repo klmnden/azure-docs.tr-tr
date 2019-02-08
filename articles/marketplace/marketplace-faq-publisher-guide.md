@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658343"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894165"
 ---
 # <a name="marketplace-faqs"></a>Market SSS
 
@@ -350,7 +350,7 @@ Zaten bir Microsoft hesabınız yok mu yoksa [hesap oluşturma](https://signup.l
 
 **Neden Geliştirme Merkezi hesabı gerekir mi?**
 
-Bir Geliştirme Merkezi hesabı için türlerini listeleyen Transact publisher'ın sizin adınıza müşteriler faturalandırmak Microsoft etkinleştirmek için gereklidir. Kayıt sağlar: yasal doğrulamak Microsoft Geliştirme Merkezi hesabı vergi ve bankacılık bilgilerini. Daha fazla bilgi için [geliştirme merkezinden kaydetmesini](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center).
+Bir Geliştirme Merkezi hesabı için türlerini listeleyen Transact publisher'ın sizin adınıza müşteriler faturalandırmak Microsoft etkinleştirmek için gereklidir. Kayıt sağlar: yasal doğrulamak Microsoft Geliştirme Merkezi hesabı vergi ve bankacılık bilgilerini. Daha fazla bilgi için [geliştirme merkezinden kaydetmesini](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Yayımcılar hangi Geliştirme Merkezi hesabı kayıt gerektiriyor?**
 

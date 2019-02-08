@@ -1,6 +1,6 @@
 ---
 title: Azure Depolama Gezgini ile Data Lake depolama Gen2 izinlerini ayarlama
-description: İçinde bu nasıl yapılır, dosyalar ve dizinler, Azure Data Lake depolama Gen2 içinde Azure Depolama Gezgini ile izinleri ayarlamak öğrenin (Önizleme) özellikli depolama hesabı.
+description: Bu nasıl için Azure Depolama Gezgini ile dosya ve dizinleri, Azure Data Lake depolama Gen2 özellikli depolama hesabı içinde izinler öğrenin.
 services: storage
 author: roygara
 ms.custom: mvc
@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: fd4ca3946ed4c32a8fd2f08c1c242c33dbca2aaf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238322"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867061"
 ---
-# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake depolama 2. nesil ile Azure Depolama Gezgini'ni kullanarak dosya ve dizin düzeyi izinleri ayarla (Önizleme)
+# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama 2. nesil ile Azure Depolama Gezgini'ni kullanarak dosya ve dizin düzeyi izinleri ayarlayın
 
-Azure Data Lake depolama Gen2'içinde depolanan dosyalar (Önizleme) desteği ayrıntılı izinler ve erişim denetimi listesi (ACL) yönetimi. Birlikte ayrıntılı izinler ve ACL yönetimi, çok ayrıntılı bir düzeyde verilerinize erişimini yönetmenizi sağlar.
+Azure Data Lake depolama Gen2'içinde depolanan dosyaların hassas izinlere desteklemek ve erişim denetimi listesi (ACL) yönetimi. Birlikte ayrıntılı izinler ve ACL yönetimi, çok ayrıntılı bir düzeyde verilerinize erişimini yönetmenizi sağlar.
 
 Bu makalede, Azure Depolama Gezgini'ni kullanarak öğreneceksiniz:
 

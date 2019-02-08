@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 24feef28edac73f625de1c1b7dfd9a4aaf9883af
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734632"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893605"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
@@ -65,14 +65,14 @@ Aşağıdaki tanılama telemetrisi toplamak için Azure SQL veritabanlarını ay
 
 | Veritabanları için telemetri izleme | Tek veritabanı ve havuza veritabanı desteği | Yönetilen örnek destek |
 | :------------------- | ------------------- | ------------------- |
-| [Tüm ölçümleri](sql-database-metrics-diag-logging.md#all-metrics): DTU/CPU yüzdesi, DTU/CPU sınırı, fiziksel içeren veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi. | Evet | Hayır |
-| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU kullanımı gibi çalışma zamanı istatistikleri sorgu ve sorgu süresi istatistikleri hakkında bilgi içerir. | Evet | Evet |
-| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): CPU, günlük ve KİLİTLEME gibi (ne sorgularınızın beklenen) sorgu bekleme istatistikleri hakkında bilgi içerir. | Evet | Evet |
-| [Hataları](sql-database-metrics-diag-logging.md#errors-dataset): Veritabanında SQL hatalar hakkında bilgi içerir. | Evet | Evet |
-| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Ne kadar süre bekleyin farklı türlerde bekleyen veritabanı harcanan bilgilerini içerir. | Evet | Hayır |
-| [Zaman aşımları](sql-database-metrics-diag-logging.md#time-outs-dataset): Veritabanında zaman aşımları hakkındaki bilgileri içerir. | Evet | Hayır |
-| [Blokları](sql-database-metrics-diag-logging.md#blockings-dataset): Veritabanı olaylarını engelleme hakkında bilgi içerir. | Evet | Hayır |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Akıllı Öngörüler performans içerir. Daha fazla bilgi için bkz. [Intelligent Insights](sql-database-intelligent-insights.md). | Evet | Evet |
+| [Tüm ölçümleri](#all-metrics): DTU/CPU yüzdesi, DTU/CPU sınırı, fiziksel içeren veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi. | Evet | Hayır |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU kullanımı gibi çalışma zamanı istatistikleri sorgu ve sorgu süresi istatistikleri hakkında bilgi içerir. | Evet | Evet |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): CPU, günlük ve KİLİTLEME gibi (ne sorgularınızın beklenen) sorgu bekleme istatistikleri hakkında bilgi içerir. | Evet | Evet |
+| [Hataları](#errors-dataset): Veritabanında SQL hatalar hakkında bilgi içerir. | Evet | Evet |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Ne kadar süre bekleyin farklı türlerde bekleyen veritabanı harcanan bilgilerini içerir. | Evet | Hayır |
+| [Zaman aşımları](#time-outs-dataset): Veritabanında zaman aşımları hakkındaki bilgileri içerir. | Evet | Hayır |
+| [Blokları](#blockings-dataset): Veritabanı olaylarını engelleme hakkında bilgi içerir. | Evet | Hayır |
+| [SQLInsights](#intelligent-insights-dataset): Akıllı Öngörüler performans içerir. Daha fazla bilgi için bkz. [Intelligent Insights](sql-database-intelligent-insights.md). | Evet | Evet |
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -169,7 +169,7 @@ Aşağıdaki tanılama telemetrisi toplamak için bir yönetilen örnek kaynağ�
 
 | Kaynak | Telemetri izleme |
 | :------------------- | ------------------- |
-| **Yönetilen örnek** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance) sanal çekirdek sayısı, ortalama CPU yüzdesi, g/ç istekleri, bayt okunan/yazılan, ayrılmış depolama alanı içerir ve kullanılan depolama alanı. |
+| **Yönetilen örnek** | [ResourceUsageStats](#logs-for-managed-instances) sanal çekirdek sayısı, ortalama CPU yüzdesi, g/ç istekleri, bayt okunan/yazılan, ayrılmış depolama alanı içerir ve kullanılan depolama alanı. |
 
 Yönetilen örnek kaynak için tanılama telemetrisi akışını etkinleştirmek için aşağıdaki adımları izleyin:
 

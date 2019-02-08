@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 426c090a79931f252a5daeacbdd83d0238ecf672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455108"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868131"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuz kaynakları ölçeklendirin
 
@@ -27,8 +27,8 @@ Bu makalede, Azure SQL veritabanı'nda elastik havuzlara ve havuza alınmış ve
 
 - En büyük boyut sınırı en fazla depolama alanı sağlanabilir:
 
-  - Standart depolama için artırmak veya azaltmak boyutu 10 GB'lık artışlarla
-  - Premium depolama için artırmak veya azaltmak boyutu 250 GB'lık artışlarla
+  - Depolama, standart veya genel amaçlı hizmet katmanlarında sunulduğundan, artırmak veya azaltmak boyutu 10 GB'lık artışlarla
+  - İş açısından kritik veya premium depolama için hizmet katmanları, artırmak veya azaltmak boyutu 250 GB'lık artışlarla
 - Elastik havuz için depolama, artan ya da en büyük boyutunu azaltarak sağlanabilir.
 - Elastik havuz için depolama hizmeti katmanının depolama birimi fiyatı ile çarpılan depolama alanı miktarı fiyatıdır. Ek depolama alanının fiyatı hakkında daha fazla bilgi için bkz: [SQL veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 

@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: ad45b117df545c361f17c299bee47b314a408b06
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166057"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888830"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>SharePoint için StorSimple bağdaştırıcısını yüklemek için
 1. Yükleyici aynı zamanda SharePoint Merkezi Yönetim web uygulamasını çalıştırmak için yapılandırılmış olan web ön uç (WFE) sunucusuna kopyalayın. 
 2. WFE sunucusunda oturum açmak için yönetici ayrıcalıklarına sahip bir hesap kullanın.
@@ -29,5 +27,5 @@ ms.locfileid: "50166057"
    
     ![StorSimple bağdaştırıcısı Kurulum Tamamlandı sayfası](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
 7. SharePoint Merkezi Yönetim sayfasını açın. SharePoint bağlantıları için StorSimple bağdaştırıcısını içeren bir StorSimple yapılandırma grubu görmeniz gerekir.
-8. Sonraki adıma gidin: [yapılandırma KKY](#configure-rbs).
+8. Sonraki adıma gidin: [KKY yapılandırma](#configure-rbs).
 

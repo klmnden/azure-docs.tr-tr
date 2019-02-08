@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Soru-cevap Oluşturucu hizmetini en sık sorulan sorulardan currated listesinde, daha hızlı ve daha iyi sonuçlar hizmeti benimsemek yardımcı olur.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 95a8653d946e9896a13e7ecc9f05592467734576
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6399fe3e53a572c8aea6b804c0e82ffed41cab77
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208993"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873963"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>Soru-cevap Oluşturucu için sık sorulan sorular
 

@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: e57142631668ba0b74573b2953e84f581023b24f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c5858aaf09cd832a5d60d32bb33aeeb51795b406
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660655"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870444"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Linux üzerinde App Service'te Ruby on Rails uygulaması oluşturma
 
@@ -53,7 +53,7 @@ Azure'a dağıttığınızda nasıl görüneceğini görmek için uygulamayı ye
 
 İlk adım, gerekli gem'leri yüklemektir. Örneğe bir `Gemfile` dahil edildiğinden yüklenecek gem'leri belirtmeniz gerekmez. Bunun için bundler'ı kullanacağız:
 
-```
+```bash
 bundle install
 ```
 

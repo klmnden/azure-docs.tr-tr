@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
-ms.author: panosper
-ms.openlocfilehash: 0e4c21a064cdb0a60aef49482eee4b768112b899
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ms.openlocfilehash: 19a7f3e5a807066aacda593be64cda61a0a77fe7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216430"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868081"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Öğretici: Özel akustik model oluşturma
 
@@ -65,7 +65,7 @@ Akustik modelin özelleştirilmesi için akustik bir veri kümesi, iki bölümde
 > Web portalı aracılığıyla gerçekleştirilen veri içeri aktarma işlemleri şu an için 2 GB ile sınırlı olduğundan bir akustik veri kümesi bu boyutu aşamaz. Bu da 16 kHz kaliteyle yaklaşık 17 saate, 8 kHz ile de yaklaşık 34 saate denk gelir. Ses verilerinin ana gereksinimleri aşağıdaki tabloda özetlenmiştir.
 >
 
-| Özellik | Value |
+| Özellik | Değer |
 |---------- |----------|
 | Dosya Biçimi | RIFF (WAV) |
 | Örnekleme Oranı | 8000 Hz veya 16000 Hz |

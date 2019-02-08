@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing özel arama API'si uç noktası özeti.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: ed420676ddc4c83be93939874f2943126f9209e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b997db319677f6904db7e2fdee4ef0c6bf76a180
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176633"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859377"
 ---
 # <a name="custom-search"></a>Özel Arama
 Bing Özel Arama API’si, önemsediğiniz konulara özel olarak uyarlanmış arama deneyimleri oluşturmanızı sağlar. Kullanıcılarınız, arama sonucu sayfalarındaki alakasız içeriği ayıklamak zorunda kalmadan içeriğe göre oluşturulan arama sonuçlarını görebilir.

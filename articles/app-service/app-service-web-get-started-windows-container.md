@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f1d072d40967ac6d106de7489e0a2148fe7948ed
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: af5f1a5b8775e1e7346d4280dab77b98760b3209
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598110"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895236"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure'da özel Windows kapsayıcısı çalıştırma (Önizleme)
 
@@ -33,7 +33,7 @@ Bu öğreticiyi tamamlamak için:
 
 - <a href="https://hub.docker.com/" target="_blank">Docker Hub hesabı için kaydolma</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Docker for Windows'u yükleyin</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers" target="_blank">Windows kapsayıcılarını çalıştırmak için Docker’a geçiş yapın</a>.
+- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Windows kapsayıcılarını çalıştırmak için Docker’a geçiş yapın</a>.
 - **ASP.NET ve web geliştirme** ve **Azure geliştirme** iş yükleriyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi yükleyin. Visual Studio 2017'yi zaten yüklediyseniz:
     - **Yardım** > **Güncelleştirmeleri Denetle**'ye tıklayarak Visual Studio'daki en son güncelleştirmeleri yükleyin.
     - **Araçlar** > **Araçları ve Özellikleri Al**'a tıklayarak iş yüklerini Visual Studio’ya ekleyin.

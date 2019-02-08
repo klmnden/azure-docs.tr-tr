@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 7d719ee6bdb8ce1f4131b474fe7602b492e69cd3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1ccbe8b268725cf3d0747486a20e0597d023662e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810686"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890612"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Azure Bilişsel hizmetler için Azure Stack dağıtma
 
@@ -205,7 +205,7 @@ print(faces)
 
 [Yükleme ve görüntü işleme API'si kapsayıcıları çalıştırmak nasıl.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
-[Yükleme ve yüz tanıma API'si kapsayıcıları çalıştırın](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#create-a-face-resource-on-azure)
+[Yükleme ve yüz tanıma API'si kapsayıcıları çalıştırın](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers)
 
 [Yükleme ve metin analizi API'si kapsayıcıları çalıştırın](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
 

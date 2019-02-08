@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: b1aa60b028efb4bf4820f1f084a7cf0eea6e9639
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: adcf823879ee04c43d74743aa5d94184b63fd337
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808128"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Öğretici: Azure Active Directory Tümleştirmesi Symantec Web güvenlik hizmetini (WSS)
 
@@ -79,7 +79,7 @@ Tek iş için oturum açma için bir Azure AD kullanıcısı ile ilgili kullanı
 Yapılandırma ve Azure AD çoklu oturum açma Symantec Web güvenlik hizmetini (WSS) test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Symantec Web güvenlik hizmetini (WSS) çoklu oturum açmayı yapılandırma](#configure-symantec-web-security-service-(wss)-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+2. **Symantec Web güvenlik hizmetini (WSS) çoklu oturum açmayı yapılandırma** - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 5. **[Symantec Web güvenlik hizmetini (WSS) test kullanıcısı oluşturma](#create-symantec-web-security-service-wss-test-user)**  - Symantec Web güvenlik hizmetini (WSS), kullanıcı Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.

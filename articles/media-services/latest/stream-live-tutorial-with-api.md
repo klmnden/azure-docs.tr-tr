@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 49598eb8579e20dd20ca63d11529ba106a510102
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170530"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894182"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Öğretici: Media Services v3 ile canlı Stream .NET kullanma
 
@@ -166,7 +166,7 @@ Aşağıdaki kod, tüm Canlı olaylar hesabınızı temizlemek gösterilmektedir
 
 ## <a name="watch-the-event"></a>Olayı izleme
 
-Olay izlemek için kod açıklanan çalıştırdığınızda aldığınız akış URL'sini kopyalayın [bir akış Bulucu](#create-a-streaminglocator) ve tercih ettiğiniz bir oynatıcı kullanın. Akışınızı http://ampdemo.azureedge.net üzerinde test etmek için [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)'ı kullanabilirsiniz. 
+Olay izlemek için kod çalıştırdığınızda aldığınız akış URL'sini kopyalama bir akış Bulucu açıklandığı ve tercih ettiğiniz bir oynatıcı kullanın. Akışınızı http://ampdemo.azureedge.net üzerinde test etmek için [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)'ı kullanabilirsiniz. 
 
 Canlı etkinlik, olayları otomatik olarak durduğunda isteğe bağlı içeriğe dönüşür. Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullanıcılar arşivlenen içeriğinizin isteğe bağlı içerik olarak akışını gerçekleştirebilir. Bir olay tarafından kullanılıyorsa varlık silinemez; önce olayın silinmesi gerekir. 
 

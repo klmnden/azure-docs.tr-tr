@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e4f8b99cfeaa35644ed51fd8ad712fe4744c0226
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751506"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890952"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI kullanarak sanal ağ hizmet uç noktaları ile PaaS kaynaklarına ağ erişimini kısıtlama
 
@@ -72,7 +72,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-Ek bir alt ağ ile sanal ağ oluşturma [az ağ sanal ağ alt ağı oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Bu örnekte, bir hizmet uç noktası için *Microsoft.Storage* alt ağ için oluşturulur: 
+Ek bir alt ağ ile sanal ağ oluşturma [az ağ sanal ağ alt ağı oluşturma](/cli/azure/network/vnet/subnet). Bu örnekte, bir hizmet uç noktası için *Microsoft.Storage* alt ağ için oluşturulur: 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -85,7 +85,7 @@ az network vnet subnet create \
 
 ## <a name="restrict-network-access-for-a-subnet"></a>Bir kaynak için ağ erişimini kısıtlama
 
-Bir ağ güvenlik grubu oluşturun [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create). Aşağıdaki örnekte adlı bir ağ güvenlik grubu oluşturur *myNsgPrivate*.
+Bir ağ güvenlik grubu oluşturun [az ağ nsg oluşturma](/cli/azure/network/nsg). Aşağıdaki örnekte adlı bir ağ güvenlik grubu oluşturur *myNsgPrivate*.
 
 ```azurecli-interactive
 az network nsg create \
@@ -93,7 +93,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-Ağ güvenlik grubuyla ilişkilendirdiğiniz *özel* alt ağ ile [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). Aşağıdaki örnek ilişkilendirir *myNsgPrivate* ağ güvenlik grubunu *özel* alt ağı:
+Ağ güvenlik grubuyla ilişkilendirdiğiniz *özel* alt ağ ile [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet). Aşağıdaki örnek ilişkilendirir *myNsgPrivate* ağ güvenlik grubunu *özel* alt ağı:
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -156,7 +156,7 @@ Hizmet uç noktaları için etkinleştirilmiş Azure hizmetleri aracılığıyla
 
 ### <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Bir Azure depolama hesabı oluşturun [az depolama hesabı oluşturma](/cli/azure/storage/account#az_storage_account_create). Değiştirin `<replace-with-your-unique-storage-account-name>` 3-24 karakter uzunluğunda, tüm Azure konumlarında benzersiz olan bir ada sahip yalnızca sayı ve küçük harfler kullanarak.
+Bir Azure depolama hesabı oluşturun [az depolama hesabı oluşturma](/cli/azure/storage/account). Değiştirin `<replace-with-your-unique-storage-account-name>` 3-24 karakter uzunluğunda, tüm Azure konumlarında benzersiz olan bir ada sahip yalnızca sayı ve küçük harfler kullanarak.
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -197,7 +197,7 @@ az storage share create \
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Tüm bir depolama hesabına ağ erişimini engelle
 
-Varsayılan olarak, depolama hesapları herhangi bir ağdaki istemcilerden gelen ağ bağlantılarını kabul eder. Seçili ağlar erişimi sınırlamak için varsayılan eylem için değiştirme *Reddet* ile [az depolama hesabını güncelleştirme](/cli/azure/storage/account#az_storage_account_update). Ağ erişimi engellendi sonra depolama hesabı herhangi bir ağdan erişilebilir değil.
+Varsayılan olarak, depolama hesapları herhangi bir ağdaki istemcilerden gelen ağ bağlantılarını kabul eder. Seçili ağlar erişimi sınırlamak için varsayılan eylem için değiştirme *Reddet* ile [az depolama hesabını güncelleştirme](/cli/azure/storage/account). Ağ erişimi engellendi sonra depolama hesabı herhangi bir ağdan erişilebilir değil.
 
 ```azurecli-interactive
 az storage account update \
@@ -208,7 +208,7 @@ az storage account update \
 
 ### <a name="enable-network-access-from-a-subnet"></a>Bir alt ağdan ağ erişimini etkinleştirme
 
-Depolama hesabından için ağ erişimine izin ver *özel* alt ağ ile [az depolama hesabı ağ kuralı ekleyin](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add).
+Depolama hesabından için ağ erişimine izin ver *özel* alt ağ ile [az depolama hesabı ağ kuralı ekleyin](/cli/azure/storage/account/network-rule).
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -334,7 +334,7 @@ Erişim reddedilir ve aldığınız bir *bu isteği bu işlemi gerçekleştirmek
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse [az grubu Sil](/cli/azure#az_group_delete) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için.
+Artık gerekli değilse [az grubu Sil](/cli/azure) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

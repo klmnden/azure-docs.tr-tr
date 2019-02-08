@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bu makalede, deneme Custom Decision Service için bir kılavuzdur.
 services: cognitive-services
 author: marco-rossi29
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219830"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870274"
 ---
 # <a name="experimentation"></a>Deneme
 
@@ -80,7 +80,7 @@ Sonuçları günlüğe eklenir *mwt-ds/DataScience/experiments.csv* dosya.
 | Girdi | Açıklama | Varsayılan |
 | --- | --- | --- |
 | `-h`, `--help` | Yardım iletisini ve çıkış gösterir. | |
-| `-f FILE_PATH`, `--file_path FILE_PATH` | Veri dosyası yolu (`.json` veya `.json.gz` biçimidir - her satır bir `dsjson`). | Gereklidir |  
+| `-f FILE_PATH`, `--file_path FILE_PATH` | Veri dosyası yolu (`.json` veya `.json.gz` biçimidir - her satır bir `dsjson`). | Gerekli |  
 | `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Temel Vowpal Wabbit komutu.  | `vw --cb_adf --dsjson -c` |  
 | `-p N_PROC`, `--n_proc N_PROC` | Kullanılacak paralel işlem sayısı. | Mantıksal işlemciler |  
 | `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Paylaşılan özellik ad alanları (örneğin, `abc` ad alanları anlamına gelir `a`, `b`, ve `c`).  | Veri dosyasından otomatik olarak algıla |  

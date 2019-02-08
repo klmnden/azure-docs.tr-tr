@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Python Görsel Arama SDK'sı konsol uygulamasını kurma.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: dfd611746b8d962d5844fcac0e9ea42638acad11
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 970b3e7e8e45e5d5249fb5a45c966d9395b130a0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766614"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884163"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Hızlı Başlangıç: Python için Bing görsel arama SDK'sını kullanarak görüntü Öngörüler elde edin
 

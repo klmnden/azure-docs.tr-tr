@@ -10,20 +10,17 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b291c8e15b771163d7986f78695bc74ef3084162
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f21f835ea50563497b73fb6e4505f60411029406
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150810"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883007"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Uygulamanızı Azure Active Directory B2C için bir erişim belirteci ile özel bir ilke geçirin
 
 > [!NOTE]
 > Bu özellik şu anda genel Önizleme aşamasındadır.
-
-> [!Important]
-> Bu genel önizleme özelliği geçici olarak kullanılamıyor.
 
 A [özel ilke](active-directory-b2c-get-started-custom.md) Azure Active Directory (Azure AD) B2C'de, uygulamanızın kullanıcıları ıntune'a kaydolma veya bir kimlik sağlayıcısı ile oturum açmak için bir fırsat sağlar. Bu durumda, Azure AD B2C alır bir [erişim belirteci](active-directory-b2c-reference-tokens.md) kimlik sağlayıcısından gelen. Azure AD B2C kullanıcı hakkında bilgi almak için bu belirteci kullanır. Belirteci aracılığıyla Azure AD B2C'de kayıt uygulamaları geçirmek için özel ilkeniz için bir talep türü ve çıkış talep ekleyin. 
 

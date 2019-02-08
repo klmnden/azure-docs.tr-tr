@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091536"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894726"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute devre oluşturma ve değiştirme
 > [!div class="op_single_selector"]
@@ -51,7 +51,8 @@ Bir tarayıcıdan [Azure portalına](http://portal.azure.com) gidin ve Azure hes
   ![SKU katmanı ve ölçüm verilerini yapılandırma](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   * **Katman** ExpressRoute standart ya da ExpressRoute premium eklenti etkin olup olmadığını belirler. Belirtebileceğiniz **standart** standart SKU'nun almak veya **Premium** premium eklenti için.
-  * **Ölçüm verileri** fatura türünü belirler. Belirtebileceğiniz **ölçülen** ölçülen veri planı için ve **sınırsız** sınırsız veri planı için. Fatura türünden değiştirebileceğinizi unutmayın **ölçülen** için **sınırsız**, ancak türünden değiştiremezsiniz **sınırsız** için **ölçülen**.
+  * **Ölçüm verileri** fatura türünü belirler. Belirtebileceğiniz **ölçülen** ölçülen veri planı için ve **sınırsız** sınırsız veri planı için. Fatura türünden değiştirebileceğinizi unutmayın **ölçülen** için **sınırsız**.
+    > [!IMPORTANT] Türünü değiştiremezsiniz **sınırsız** için **ölçülen**.
   * **Eşdüzey hizmet sağlama konumu** nerede sizin eşlemeyi Microsoft ile fiziksel konumu.
 
     > [!IMPORTANT]
@@ -77,20 +78,20 @@ Bu sayfada **sağlayıcısı durumu** hizmet sağlayıcı tarafında sağlama ge
 
 Yeni bir ExpressRoute bağlantı hattı'ı oluşturduğunuzda, bağlantı hattı şu durumda olur:
 
-Sağlayıcı Durumu: sağlanmadı<BR>
-Bağlantı hattı durumu: etkin
+Sağlayıcı Durumu: Sağlanmadı<BR>
+Bağlantı hattı durumu: Etkin
 
 ![Sağlama işlemini başlatın](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Bağlantı sağlayıcısı, etkinleştirmeden sürecinde olduğunda bağlantı hattının aşağıdaki duruma değiştirir:
 
-Sağlayıcı Durumu: sağlama<BR>
-Bağlantı hattı durumu: etkin
+Sağlayıcı Durumu: Sağlama<BR>
+Bağlantı hattı durumu: Etkin
 
 Bir ExpressRoute bağlantı hattı kullanabilmek için şu durumda olmalıdır:
 
-Sağlayıcı Durumu: sağlanan<BR>
-Bağlantı hattı durumu: etkin
+Sağlayıcı Durumu: Sağlandı<BR>
+Bağlantı hattı durumu: Etkin
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Durum ve bağlantı hattı tuşunun durumunu düzenli aralıklarla denetleyin
 Siz de seçerek ilginizi çeken bağlantı hattı özelliklerini görüntüleyebilirsiniz. Denetleme **sağlayıcısı durumu** ve azure'a taşındı olun **sağlanan** devam etmeden önce.
@@ -117,10 +118,11 @@ Belirli bir ExpressRoute bağlantı hattı özelliklerini bağlantıyı etkileme
 Kapalı kalma süresi olmadan aşağıdaki görevleri gerçekleştirebilirsiniz:
 
 * Etkinleştirmek veya ExpressRoute bağlantı hattı için bir ExpressRoute Premium eklentisi devre dışı bırakın.
-* Bant genişliği var. sağlanan ExpressRoute devreniz bağlantı noktasında kapasite artıştır. Bağlantı hattı bant önceki sürüme indirme desteklenmiyor. 
-* Ölçüm plandan değiştirme *ölçülen veri* için *sınırsız veri*. Ölçüm plan sınırsız verilerden ölçülen veri değiştirme desteklenmiyor.
+* Bant genişliği var. sağlanan ExpressRoute devreniz bağlantı noktasında kapasite artıştır.
+  > [!IMPORTANT] Bağlantı hattı bant önceki sürüme indirme desteklenmiyor. 
+* Ölçüm plandan değiştirme *ölçülen veri* için *sınırsız veri*.
+  > [!IMPORTANT] Ölçüm plan sınırsız verilerden ölçülen veri değiştirme desteklenmiyor.
 * Etkinleştirebilir ve devre dışı *Klasik işlemlere izin Ver'i*.
-
 > [!IMPORTANT]
 > ExpressRoute bağlantı hattı mevcut bağlantı noktası üzerinde yetersiz kapasite ise yeniden oluşturmanız gerekebilir. Yoksa hiçbir ek kapasite kullanılabilir o konumda devre yükseltemezsiniz.
 >

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817240"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892193"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso geçişi: Bir Azure kapsayıcı ve Azure SQL veritabanı için bir şirket içi uygulamayı yeniden oluşturma
 
@@ -317,7 +317,7 @@ Azure SQL veritabanı'na bağlanmak için erişim izni vermek için bir güvenli
 
 Daha fazla yardıma mı ihtiyacınız var?
 
-[Hakkında bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#creating-and-managing-firewall-rules) oluşturma ve Azure SQL veritabanı için güvenlik duvarı kurallarını yönetme.
+[Hakkında bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) oluşturma ve Azure SQL veritabanı için güvenlik duvarı kurallarını yönetme.
 
 ### <a name="migrate"></a>Geçiş
 

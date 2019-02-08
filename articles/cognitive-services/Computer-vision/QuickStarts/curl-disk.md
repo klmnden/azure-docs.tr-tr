@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, cURL ile Görüntü İşleme API’si kullanarak bir yerel görüntüyü analiz edeceksiniz.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 91e127c1ad41c459d0f1a1c2070cb193d59dd80b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b73c574f790891e2ad849fd0bd9fb27c313051f0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209970"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869271"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Hızlı Başlangıç: REST API kullanarak yerel bir resmi çözümleme ve görüntü işleme cURL
 

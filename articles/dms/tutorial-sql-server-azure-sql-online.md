@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/06/2019
-ms.openlocfilehash: ac7b4dc563fa663dd016971ba6a27104860c8cce
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.date: 02/07/2019
+ms.openlocfilehash: e28aba5c482cbacefbe42be9c8825e58c130fe76
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767975"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858952"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Öğretici: DMS kullanarak SQL Server'ı çevrimiçi Azure SQL Veritabanı'na geçirme
 Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneğindeki veritabanlarını minimum çalışmama süresi ile [Azure SQL Veritabanı](https://docs.microsoft.com/azure/sql-database/)'na geçirebilirsiniz. Bu öğreticide şirket içi SQL Server 2016 (veya üzeri) örneğine geri yüklemiş olan **Adventureworks2012** veritabanını Azure Veritabanı Geçiş Hizmeti'ni kullanarak bir Azure SQL Veritabanına geçireceksiniz.
@@ -233,7 +233,7 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
  
 3. +**Yeni Geçiş Projesi**'ni seçin.
 4. **Yeni geçiş projesi** ekranında proje için bir ad belirtin, **Kaynak sunucu türü** metin kutusunda **SQL Server**, **Hedef sunucu türü** metin kutusunda ise **Azure SQL Veritabanı** seçeneğini belirleyin.
-5. **Etkinlik türünü seçin** bölümünde, **Çevrimiçi veri geçişi** seçeneğini belirleyin
+5. İçinde **etkinlik türünü seçin** bölümünden **çevrimiçi veri geçişi**.
 
     ![Veritabanı Geçiş Hizmeti Projesi Oluşturma](media/tutorial-sql-server-to-azure-sql-online/dms-create-project3.png)
 
@@ -312,6 +312,6 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
     ![Etkinlik Durumu - tamamlandı](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- MySQL için Azure Veritabanı'na yönelik çevrimiçi geçiş gerçekleştirirken karşılaşılan bilinen sorunlar ve sınırlamalar hakkında bilgi için [Azure SQL Veritabanı çevrimiçi geçiş işlemleri ile ilgili bilinen sorunlar ve geçici çözümler](known-issues-azure-sql-online.md) başlıklı makaleye bakın.
+- Bilinen sorunlar ve Azure SQL veritabanı çevrimiçi geçiş gerçekleştirirken sınırlamalar hakkında daha fazla bilgi için bkz [bilinen sorunlar ve geçici çözümler ile Azure SQL veritabanı çevrimiçi geçişlerini](known-issues-azure-sql-online.md).
 - Azure Veritabanı Geçiş Hizmeti hakkında bilgi için [What is the Azure Database Migration Service? (Azure Veritabanı Geçiş Hizmeti nedir?)](https://docs.microsoft.com/azure/dms/dms-overview) başlıklı makaleye bakın.
-- Azure SQL Veritabanı hakkında bilgi için [Azure SQL Veritabanı hizmeti nedir?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) başlıklı makaleye bakın.
+- Azure SQL veritabanı hakkında daha fazla bilgi için bkz [Azure SQL veritabanı hizmeti nedir?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).

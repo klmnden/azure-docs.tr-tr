@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Translator metin API'si V3.0 için başvuru belgeleri.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 767021772fc86013cd8192216eb03840f1160807
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459103"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878706"
 ---
 # <a name="translator-text-api-v30"></a>Translator metin çevirisi API'si v3.0
 
@@ -49,7 +49,7 @@ Belirli bir veri merkezi tarafından işlenmek üzere istek zorlamak için isten
 |Azure|Asya Pasifik|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Translator metin çevirisi API'si için abone veya [Bilişsel hizmetler hepsi bir arada özellikli](https://azure.microsoft.com/pricing/details/cognitive-services/) Microsoft Bilişsel hizmetler ve aboneliğinizi anahtar (Azure portalında kullanılabilir) kimliğini doğrulamak için kullanın. 
 

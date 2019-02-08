@@ -3,18 +3,18 @@ title: Metin analizi REST API (Azure üzerinde Microsoft Bilişsel hizmetler) il
 description: İzlenecek yol Bu öğreticide Azure üzerinde Microsoft Bilişsel hizmetler metin analizi REST API kullanarak dil tespit etme.
 services: cognitive-services
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: e613652511a18f2234c82cce47f0beeb2d3bbdd6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b32288876a617ec4c228af22170bdaf83c4eb87b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211959"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857525"
 ---
 # <a name="example-how-to-detect-language-in-text-analytics"></a>Örnek: Metin analizi dil tespit etme
 

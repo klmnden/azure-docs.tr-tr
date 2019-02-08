@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 824bedf782d6d227f2fa3adcf52492bb5a3eb478
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c018bec98fc9e1edc22a8535d06961d192f4c992
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696872"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880425"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Önizleme: Azure AD parola koruması dağıtma
 
@@ -169,7 +169,7 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
       Yukarıdaki örneklerde, şu anda oturum açmış kullanıcı aynı zamanda kök etki alanı için Active Directory etki alanı yönetici ise yalnızca başarılı olur. Durum bu değilse, diğer etki alanı kimlik bilgileri - ForestCredential parametresi aracılığıyla sağlayabilir.
 
    > [!NOTE]
-   > Birden fazla ara sunucuyu ortamınızda yüklü değilse, ormanı kaydetmek için kullandığı proxy sunucusunu olduğu önemli değildir.
+   > Birden fazla ara sunucuyu ortamınızda yüklü değilse, hangi Ara sunucu ormanı kaydetmek için kullanılan bir önemi yoktur.
 
    > [!TIP]
    > İlk kez cmdlet'ini yürütme tamamlanmadan önce bu cmdlet için belirli bir Azure kiracısı çalıştırdığınızda önemli bir gecikme (birçok saniye) olabilir. Bir hata bildirdi sürece bu gecikme açılan kutuyla düşünülmemelidir.

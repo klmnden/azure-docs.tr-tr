@@ -4,29 +4,29 @@ titlesuffix: Azure Cognitive Services
 description: Akademik bilgi API'si konferans örneği varlıkta ile kullanabileceğiniz öznitelikleri hakkında bilgi edinin.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: db025f377a3fab2f788252db0c8e3555837a6de8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 183a307159adb5dfdb248eb0cf4862462a626db6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196115"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879199"
 ---
 # <a name="conference-instance-entity"></a>Konferans örneği varlık
 
 <sub> * Şu öznitelikleri konferans örneği varlığa özgüdür. (Ty = '4') </sub>
 
-Ad    |Açıklama                            |Tür       | İşlemler
+Ad    |Açıklama                            |Type       | İşlemler
 ------- | ------------------------------------- | --------- | ----------------------------
 Kimlik      |Varlık Kimliği                              |Int64      |Eşittir
-CIN     |Konferans örneği normalleştirilmiş adı ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |Dize     |Eşittir
-DCN     |Konferans örneği görünen ad ({ConferenceSeriesName}: {ConferenceInstanceYear})       |Dize     |yok
-CIL'İ     |Konferans örneği konumu    |Dize     |Eşittir<br/>StartsWith
+CIN     |Konferans örneği normalleştirilmiş adı ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |String     |Eşittir
+DCN     |Konferans örneği görünen ad ({ConferenceSeriesName}: {ConferenceInstanceYear})       |String     |yok
+CIL'İ     |Konferans örneği konumu    |String     |Eşittir<br/>StartsWith
 CISD    |Konferans örneği başlangıç tarihi  |Tarih       |Eşittir<br/>IsBetween
 CIED    |Konferans örneği bitiş tarihi    |Tarih       |Eşittir<br/>IsBetween
 CIARD   |Soyut kayıt son tarihi konferans örneği  |Tarih       |Eşittir<br/>IsBetween
@@ -35,7 +35,7 @@ CIFVD   |Son sürüm konferans örneği son tarihi  |Tarih       |Eşittir<br/>I
 CINDD   |Konferans örneği bildirim tarihi   |Tarih       |Eşittir<br/>IsBetween
 CD. T    |Konferans örneği olay başlığı   |Tarih       |Eşittir<br/>IsBetween
 CD. D    |Konferans örneği olay tarihi    |Tarih       |Eşittir<br/>IsBetween
-PCS.CN  |Örneğin konferans serisi adı |Dize     |Eşittir
+PCS.CN  |Örneğin konferans serisi adı |String     |Eşittir
 PCS.CId |Konferans serisi kimliği örneği |Int64    |Eşittir
 BİLGİ      |Konferans örneği alıntı toplam sayısı           |Int32      |yok  
 ECC     |Konferans örneği toplam tahmini alıntı sayısı |Int32      |yok

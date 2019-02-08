@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 9323b393edb808f3d2d069f868deb0b67cd0c871
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 621dc22ead8fbb6882c692851d39b658da043c55
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855192"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894692"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Azure'daki bir kümeye yapılandırmasını Yükselt 
 
 Bu makalede, Service Fabric kümeniz için çeşitli yapı ayarları özelleştirmeyi açıklar. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak.
 
 > [!NOTE]
-> Tüm ayarlar, portalda kullanılabilir değildir. Aşağıda listelenen bir ayar portalı üzerinden kullanılabilir değilse, bir Azure Resource Manager şablonu kullanarak bunu özelleştirin.> 
+> Tüm ayarlar, portalda kullanılabilir değildir ve bu bir [açısından en iyisi, bir Azure Resource Manager şablonu kullanarak özelleştirmek için](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); Service Fabric Dev\Test senaryo için yalnızca portalıdır.> 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak küme ayarlarını özelleştirme
 Azure kümeleri JSON Resource Manager şablonu aracılığıyla yapılandırılabilir. Farklı ayarlar hakkında daha fazla bilgi için bkz: [kümeleri için yapılandırma ayarlarını](service-fabric-cluster-fabric-settings.md). Örneğin, aşağıdaki adımları yeni bir ayar ekleme Göster *MaxDiskQuotaInMB* için *tanılama* Azure kaynak Gezgini'ni kullanarak bölümü.

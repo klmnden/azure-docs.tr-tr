@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9db6736813b6d99efad687581f19d23023e1593a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0ac37c2bb0430cc4299947638596be8698ae4a34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814546"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892348"
 ---
 # <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>WSFC, oluşturma, dinleyici ve ILB Azure Hızlı Başlangıç şablonu ile bir SQL Server VM'de Always On kullanılabilirlik grubu için yapılandırma
 Bu makalede, Azure hızlı başlangıç şablonları kısmen SQL Server sanal makineleri için azure'da bir Always On kullanılabilirlik grubu yapılandırmasının dağıtımını otomatikleştirmek için kullanmayı açıklar. Bu işlemde kullanılan iki Azure hızlı başlangıç şablonları vardır. 
@@ -166,7 +166,7 @@ Ağ dinleyicisi Azure Hızlı Başlangıç şablonu zaten kullanılan seçilmiş
 ### <a name="connection-only-works-from-primary-replica"></a>Bağlantı yalnızca birincil çoğaltmadan çalışır
 Bu büyük olasılıkla başarısız, davranıştır **101-sql-vm-aglistener-setup** şablon dağıtımı ILB yapılandırması tutarsız bir durumda bırakır. Arka uç havuzu kullanılabilirlik kümesi listeler ve kuralları için durum araştırması ve Yük Dengeleme kuralları için mevcut olduğunu doğrulayın. Herhangi bir şey eksikse, daha sonra ILB tutarsız bir duruma yapılandırmadır. 
 
-Bu davranışı düzeltmek için kullanarak dinleyiciyi kaldırmak [PowerShell](#remove-availability-group-listener), Azure portalından iç Yük Dengeleyiciyi silmek ve tekrar başlangıç [3. adım](#step-3---manually-create-the-internal-load-balanced-ilb). 
+Bu davranışı düzeltmek için kullanarak dinleyiciyi kaldırmak [PowerShell](#remove-availability-group-listener), Azure portalından iç Yük Dengeleyiciyi silmek ve adım 3'ı yeniden başlatın. 
 
 ### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest - yalnızca SQL sanal makine listesi güncelleştirilebilir
 Dağıtırken bu hata oluşabilir **101-sql-vm-aglistener-setup** şablon dinleyicisi, SQL Server Management Studio (SSMS) aracılığıyla silindi ancak SQL VM kaynak Sağlayıcısı'ndan silinmedi. SSMS ile bir dinleyici silinmesi, meta verileri dinleyicisinin SQL VM kaynak Sağlayıcısı'ndan kaldırmaz; Dinleyici kullanarak kaynak Sağlayıcısı'ndan silinmelidir [PowerShell](#remove-availability-group-listener). 

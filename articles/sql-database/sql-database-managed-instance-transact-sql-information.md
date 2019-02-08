@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 59599686b2a9ccee7250e33f0786d4c7af816983
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734615"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894318"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Yönetilen örnek T-SQL farklılıkları, SQL Server'dan Azure SQL veritabanı
 
@@ -27,7 +27,7 @@ Yönetilen örnek dağıtım seçeneği, şirket içi SQL Server veritabanı alt
 
 Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makalede özetler ve bu farklar açıklanmaktadır. <a name="Differences"></a>
 - [Kullanılabilirlik](#availability) farklılıkları dahil olmak üzere [her zaman açık](#always-on-availability) ve [yedeklemeleri](#backup),
-- [Güvenlik](#security) farklılıkları dahil olmak üzere [denetim](#auditing), [sertifikaları](#certificates), [kimlik bilgilerini](#credentials), [şifreleme sağlayıcıları](#cryptographic-providers), [Oturumları / kullanıcılar](#logins--users), [hizmet anahtarı ve hizmet ana anahtarını](#service-key-and-service-master-key),
+- [Güvenlik](#security) farklılıkları dahil olmak üzere [denetim](#auditing), [sertifikaları](#certificates), [kimlik bilgilerini](#credential), [şifreleme sağlayıcıları](#cryptographic-providers), [Oturumları / kullanıcılar](#logins--users), [hizmet anahtarı ve hizmet ana anahtarını](#service-key-and-service-master-key),
 - [Yapılandırma](#configuration) farklılıkları dahil olmak üzere [arabellek havuzu uzantısı](#buffer-pool-extension), [harmanlama](#collation), [Uyumluluk Düzeyleri](#compatibility-levels),[veritabanı Yansıtma](#database-mirroring), [veritabanı seçenekleri](#database-options), [SQL Server Agent](#sql-server-agent), [Tablo Seçenekleri](#tables),
 - [İşlevler](#functionalities) dahil olmak üzere [toplu ekleme/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [dağıtılmış işlemler](#distributed-transactions), [ Genişletilmiş olaylar](#extended-events), [dış kitaplıkları](#external-libraries), [Filestream ve Filetable](#filestream-and-filetable), [anlam tam metin araması](#full-text-semantic-search), [bağlı sunucuları](#linked-servers), [Polybase](#polybase), [çoğaltma](#replication), [geri](#restore-statement), [hizmet Aracısı](#service-broker), [ Saklı yordamlar, İşlevler ve tetikleyiciler](#stored-procedures-functions-triggers),
 - [Farklı bir davranış, yönetilen örneğiniz özellikleri](#Changes)
@@ -74,13 +74,13 @@ T-SQL kullanarak yedeklemeler hakkında daha fazla bilgi için bkz: [yedekleme](
 
 Azure SQL veritabanı ve SQL Server'da veritabanlarını veritabanlarında denetimi arasındaki temel farklılıklar şunlardır:
 
-- Azure SQL veritabanı yönetilen örnek dağıtım seçeneği ile works sunucu düzeyinde ve depoları denetim `.xel` günlük dosyalarını Azure blob depolama hesabı.
+- Azure SQL veritabanı yönetilen örnek dağıtım seçeneği ile works sunucu düzeyinde ve depoları denetim `.xel` günlük dosyalarını Azure Blob Depolama alanında.
 - Tek veritabanı ve elastik havuz dağıtım seçeneklerinde Azure SQL veritabanı'nda çalışır ve veritabanı düzeyinde denetim.
 - Şirket içi SQL Server / sanal makineler, sunucuda denetim works düzey, ancak dosyaları sistem/windows olay günlüklerini olayları depolar.
   
-XEvent yönetilen örneğinde denetimi, Azure blob depolama hedeflerini destekler. Dosya ve windows günlükleri desteklenmez.
+XEvent yönetilen örneğinde denetimi, Azure Blob Depolama hedeflerini destekler. Dosya ve windows günlükleri desteklenmez.
 
-Anahtarının farklar içinde `CREATE AUDIT` denetleme için Azure blob depolama söz dizimi olan:
+Anahtarının farklar içinde `CREATE AUDIT` denetleme için Azure Blob Depolama söz dizimi olan:
 
 - Yeni bir söz dizimi `TO URL` sağlanır ve Azure blob depolama kapsayıcısının URL'sini belirtmenize olanak tanıyan burada `.xel` dosyaları yerleştirilecek
 - Söz dizimi `TO FILE` yönetilen örnek, Windows dosya paylaşımları erişemediği için desteklenmiyor.
@@ -170,7 +170,7 @@ Daha fazla bilgi için [ALTER DATABASE SET PARTNER ve SET WITNESS](https://docs.
 - Bellek içi nesneler genel amaçlı hizmet katmanında desteklenmiyor.  
 - Veritabanı başına en fazla 280 dosyaları olduğunu belirtmek örnek başına 280 dosyaların bir sınırlama yoktur. Hem verileri hem de günlük dosyaları, bu sınırında sayılır.  
 - Veritabanı dosya akışı verisi içeren dosya grupları içeremez.  Geri yükleme başarısız olur .bak içeriyorsa `FILESTREAM` veri.  
-- Her dosya Azure Premium depolama alanına yerleştirilir. Azure Premium depolama diskleri gibi her bir dosya boyutuna g/ç ve dosya başına aktarım hızı aynı şekilde değişir. Bkz: [Azure Premium disk performansı](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Her dosya, Azure Blob depolamada yer alır. G/ç ve dosya başına aktarım hızı, her bir dosya boyutuna bağlıdır.  
 
 #### <a name="create-database-statement"></a>CREATE DATABASE deyimi
 
@@ -275,10 +275,10 @@ Tablo oluşturma veya değiştirme hakkında daha fazla bilgi için bkz: [CREATE
 
 ### <a name="bulk-insert--openrowset"></a>Toplu ekleme / openrowset
 
-Dosyaları Azure blob depolama alanından içeri aktarılmalıdır şekilde yönetilen örnek, dosya paylaşımları ve Windows klasörleri erişilemiyor:
+Dosyaları Azure Blob depolama alanından içeri aktarılmalıdır şekilde yönetilen örnek, dosya paylaşımları ve Windows klasörleri erişilemiyor:
 
-- `DATASOURCE` gereklidir `BULK INSERT` dosyaları Azure blob depolama alanından alınırken komutu. Bkz: [toplu ekleme](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` gereklidir `OPENROWSET` bir dosyanın içeriğini Azure blob depolama alanından okurken işlev. Bkz: [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `DATASOURCE` gereklidir `BULK INSERT` dosyaları Azure Blob depolama alanından alınırken komutu. Bkz: [toplu ekleme](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` gereklidir `OPENROWSET` bir dosyanın içeriğini Azure Blob depolama alanından okurken işlev. Bkz: [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### <a name="clr"></a>CLR
 
@@ -305,7 +305,7 @@ Hiçbiri MSDTC ya da [elastik işlemler](sql-database-elastic-transactions-overv
 
 Bazı Windows özgü hedefler Xevent'ler için desteklenmez:
 
-- `etw_classic_sync target` desteklenmiyor. Store `.xel` dosyalarını Azure blob depolama. Bkz: [etw_classic_sync hedef](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
+- `etw_classic_sync target` desteklenmiyor. Store `.xel` dosyalarını Azure blob depolama. Bkz: [etw_classic_sync hedef](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
 - `event_file target`desteklenmiyor. Store `.xel` dosyalarını Azure blob depolama. Bkz: [event_file hedef](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Dış kitaplıkları
@@ -347,7 +347,7 @@ Yönetilen örneğe bağlı sunucular hedefleri sınırlı sayıda destekler:
 
 ### <a name="polybase"></a>Polybase
 
-Dış tablolar HDFS veya Azure blob depolamadaki dosyalara başvuru desteklenmez. Polybase hakkında daha fazla bilgi için bkz. [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
+Dış tablolar HDFS veya Azure Blob depolamadaki dosyalara başvurma desteklenmez. Polybase hakkında daha fazla bilgi için bkz. [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Çoğaltma
 
@@ -365,7 +365,7 @@ Dış tablolar HDFS veya Azure blob depolamadaki dosyalara başvuru desteklenmez
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Kaynak  
-  - `FROM URL` (Azure blob depolama) yalnızca desteklenen seçenektir.
+  - `FROM URL` (Azure Blob Depolama) yalnızca desteklenen seçenektir.
   - `FROM DISK`/`TAPE`/ yedekleme aygıtı desteklenmiyor.
   - Yedekleme kümeleri desteklenmez.
 - `WITH` seçenekleri desteklenmez (Hayır `DIFFERENTIAL`, `STATS`vb..)

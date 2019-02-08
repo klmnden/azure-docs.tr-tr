@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bing arama API'leri ve, uygulamalarınız ve hizmetlerinizdeki bilişsel alanlarınıza nasıl olanak sağlayabileceğiniz hakkında bilgi edinmek için bu makaleyi kullanın.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: b2277f540b076307fe74c57068ff288860f82796
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 60de69c71df61cb53e446aa8759842f72c2acf5d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513120"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864188"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Bing arama API'leri nelerdir?
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Özel bir Bing arama etki alanı örneği ve tanımladığınız Web sayfaları oluşturmak için bu makaleyi kullanın.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2017
 ms.author: aahi
-ms.openlocfilehash: 360860813e4901a3346eec1fd2a970f0d1e86c46
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0e3d8caacb425fcd06f3dec55ca0017d702f521e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177891"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873266"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Hızlı Başlangıç: İlk Bing özel arama örneğinizin oluşturma
 

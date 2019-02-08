@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 51869bcc2ee892bc150102595de09782eb01547c
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 07230b061f9b18e1efe6ce8c65abe0f7e7f73b34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770529"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893503"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS nedir?
 
@@ -30,7 +30,7 @@ Azure DNS içindeki DNS etki alanları Azure'un global DNS ad sunucusu ağında 
 
  Azure DNS, Azure Resource Manager'ı temel alır ve aşağıdaki gibi özellikler sunar:
 
-* [Rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control): Resource Manager, belirli eylemlere kuruluşunuzda kimlerin erişebildiğini denetlemenize olanak tanır.
+* [Rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview): Resource Manager, belirli eylemlere kuruluşunuzda kimlerin erişebildiğini denetlemenize olanak tanır.
 
 * [Etkinlik günlükleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview): Sorun giderme sırasında bir hata bulmak veya kuruluşunuzdaki kullanıcının bir kaynağı nasıl değiştirdiğini izlemek için etkinlik günlüklerini kullanın.
 

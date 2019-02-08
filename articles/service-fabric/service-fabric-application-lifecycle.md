@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: cb44311ecdf6a2c9284b14884184863237422f96
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e7939b8d7a6a64519ac8239591c37e06ced56599
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754549"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890527"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric uygulama yaşam döngüsü
 Diğer platformlar ile Azure Service fabric'te uygulama genellikle aşağıdaki aşamaları geçtikçe: tasarım, geliştirme, test, dağıtım, yükseltme, Bakım ve kaldırma. Service Fabric, nihai yetkisinin alınması için bulut uygulamaları, geliştirme, dağıtım, günlük yönetim ve Bakım tam uygulama yaşam döngüsü için birinci sınıf destek sağlar. Hizmet modeli, uygulama yaşam döngüsü içinde bağımsız olarak katılmak birkaç farklı rol sağlar. Bu makalede, API'leri ve Service Fabric uygulama yaşam döngüsünün aşamaları boyunca farklı rolleri tarafından nasıl kullanıldıkları hakkında genel bir bakış sağlar.
@@ -58,7 +58,7 @@ Bkz: [uygulama dağıtma](service-fabric-deploy-remove-applications.md) örnekle
 
 ## <a name="test"></a>Test etme
 1. Yerel geliştirme kümesi veya bir test kümesine dağıttıktan sonra bir *servis Geliştirici* yerleşik yük devretme testi senaryosu kullanarak çalıştırır [ **FailoverTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) ve [ **FailoverTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) sınıfları veya [ **Invoke-ServiceFabricFailoverTestScenario** cmdlet'i](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). Yük devretme testi senaryosu, önemli geçişleri ve hala kullanılabilir ve çalışır olduğundan emin olmak için yük devretme işlemleri belirtilen bir hizmeti çalışır.
-2. *Servis Geliştirici* ardından yerleşik chaos test senaryosu kullanarak çalıştırır [ **ChaosTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) ve [  **ChaosTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario#System_Fabric_Testability_Scenario_ChaosTestScenario) sınıfları veya [ **Invoke-ServiceFabricChaosTestScenario** cmdlet'i](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Kaos test senaryosu, kümeye birden çok düğüm, kod paketi ve çoğaltma hataları rastgele sevk.
+2. *Servis Geliştirici* ardından yerleşik chaos test senaryosu kullanarak çalıştırır [ **ChaosTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) ve [  **ChaosTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) sınıfları veya [ **Invoke-ServiceFabricChaosTestScenario** cmdlet'i](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Kaos test senaryosu, kümeye birden çok düğüm, kod paketi ve çoğaltma hataları rastgele sevk.
 3. *Servis Geliştirici* [hizmetten hizmete iletişimi test](service-fabric-testability-scenarios-service-communication.md) birincil çoğaltmalara küme çevresinde hareket test senaryoları yazma tarafından.
 
 Bkz: [hata analizi hizmeti giriş](service-fabric-testability-overview.md) daha fazla bilgi için.

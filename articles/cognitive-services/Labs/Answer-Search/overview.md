@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Proje Yanıt Arama'ya giriş.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: cb02c9067e4d672b0aace4caf13e4c8f0d718afb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1898a4576b86d7abb302e325aef827bab6b9d7dd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220204"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877431"
 ---
 # <a name="what-is-project-answer-search"></a>Proje Yanıt Arama nedir?
 Proje Yanıt Arama API'si soru sorgularına yanıt bulmak için Bing v7 uç noktasını kullanır. "What is the circumference of the earth?" (Dünyanın çevresinin uzunluğu nedir?) gibi bir soruya olgu içeren bir yanıt döndürülür.  Kişi, yer veya nesne sorguları, sorguda tanımlanan varlıkla ilgili bilgileri döndürür. Bu senaryolar sohbet botları, mesajlaşma uygulamaları, okuyucular gibi uygulamalarda yararlı olabilir.  

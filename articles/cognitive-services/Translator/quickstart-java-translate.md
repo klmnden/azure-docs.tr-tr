@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, İtalyanca ve Almanca Java ve Translator Text REST API kullanarak bir metin dizesi İngilizce'den Çevir öğreneceksiniz.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: a757b766537cc4f1105d77478f4a1d7543c27e40
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 91270c11d7d3a15df4a072ef0c7051a75786b0e2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227922"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870886"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Java kullanarak bir dizeye çevirmek için kullanın
 

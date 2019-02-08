@@ -10,14 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3e3c456da122e33a67b2ee3377bc15cb684b896
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979075"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864868"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Azure Data Lake Azure CLI kullanarak Store ile çalışmaya başlama
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -37,7 +40,7 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 
 * **Azure CLI** -bkz [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) yönergeler için.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Bu makalede, Data Lake depolama son kullanıcı olarak oturum burada Gen1 ile basit bir kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake depolama hesabı ve dosya sistemi sonra oturum açmış olan kullanıcının erişim düzeyi tarafından yönetilir Gen1 için erişim düzeyi. Ancak, diğer yaklaşımlar da Data Lake depolama Gen1 ile kimlik doğrulaması için olan vardır **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulaması**. Kimlik doğrulaması gerçekleştirmeyle ilgili yönergeler ve daha fazla bilgi için [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md) bölümlerine göz atın.
 

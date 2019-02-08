@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: URL önizlemesi uç nokta özeti.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 985e08a9622e08d2a4b52dae996952cd6a7e7ad4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7cc52493ec0e2b9c81d52da4bb22102c2c7e5e5c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207466"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861996"
 ---
 # <a name="project-url-preview-endpoint"></a>Proje URL'si Önizleme uç noktası
 
@@ -31,10 +31,10 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ```
 
 ### <a name="query-parameters"></a>Sorgu parametreleri
-|Name|Value|Type|Gereklidir|  
+|Ad|Değer|Type|Gerekli|  
 |----------|-----------|----------|--------------|  
-|q|URL önizlemesi|Dize |Evet|
-|safeSearch|Geçersiz yetişkinlere yönelik içeriği veya korsan içeriği, 400 ' hata koduyla engellendi ve *isFamilyFriendly* bayrağı alınmadı. <p>Yetişkinlere yönelik içeriği için yasal, aşağıda davranıştır. Durum kodu 200 döndürür ve *isFamilyFriendly* bayrağı false olarak ayarlanır.<ul><li>safeSearch strict =: Başlık, açıklama, URL ve görüntü döndürülmez.</li><li>safeSearch Orta; = Başlık, URL ve açıklama ancak açıklayıcı görüntü alın.</li><li>safeSearch; = Tüm yanıt nesneleri/öğeleri – başlık, URL, açıklama ve resim alın.</li></ul> |Dize|Gerekli değildir. </br> Varsayılan olarak safeSearch için strict =.| 
+|q|URL önizlemesi|String |Evet|
+|safeSearch|Geçersiz yetişkinlere yönelik içeriği veya korsan içeriği, 400 ' hata koduyla engellendi ve *isFamilyFriendly* bayrağı alınmadı. <p>Yetişkinlere yönelik içeriği için yasal, aşağıda davranıştır. Durum kodu 200 döndürür ve *isFamilyFriendly* bayrağı false olarak ayarlanır.<ul><li>safeSearch strict =: Başlık, açıklama, URL ve görüntü döndürülmez.</li><li>safeSearch Orta; = Başlık, URL ve açıklama ancak açıklayıcı görüntü alın.</li><li>safeSearch; = Tüm yanıt nesneleri/öğeleri – başlık, URL, açıklama ve resim alın.</li></ul> |String|Gerekli değildir. </br> Varsayılan olarak safeSearch için strict =.| 
 
 ## <a name="response-object"></a>Yanıt nesnesi
 

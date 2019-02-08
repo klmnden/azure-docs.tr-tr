@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: C# ile Duygu Tanıma API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneğini edinin.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45282c4ad534930fa72a8d8fb71105dca4af23de
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 827617a15f8fe6ffda795f7b26ecc50b9f0cf74b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218249"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883375"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı Başlangıç: Görüntüdeki yüzleri üzerinde duyguları tanıma için bir uygulama oluşturun.
 

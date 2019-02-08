@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659526"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894071"
 ---
 # <a name="live-events-and-live-outputs"></a>Canlı Etkinlikler ve Canlı Çıkışlar
 
 Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağıtmanıza olanak sağlar. Media Services v3 sürümünde, canlı akış olayları yapılandırmak için bu makalede ele alınan kavramları anlamanız gerekir:
 
 * [Canlı etkinlikler](#live-events)
-* [Canlı olay türleri](#live-vent-types)
-* [Canlı olay türlerini karşılaştırma](#live-event-types-comparison)
+* Canlı olay türleri
+* Canlı olay türlerini karşılaştırma
 * [Canlı olay oluşturma seçenekleri](#live-event-creation-options)
 * [Canlı etkinlik URL'lerini alma](#live-event-ingest-urls)
 * [Canlı olay Önizleme URL'si](#live-event-preview-url)

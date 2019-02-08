@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
-ms.author: panosper
-ms.openlocfilehash: 0798fb16954d2d0b5e0d614d619cd772670d30c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ms.openlocfilehash: fe486cb31aa77cf130ca852d022543d1400c6470
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218096"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862420"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Öğretici: Özel dil modeli oluşturma
 
@@ -53,7 +53,7 @@ Bazı cümlelerin ağırlığının daha fazlasını isterseniz verilerinize bir
 
 Dil verilerinin ana gereksinimleri aşağıdaki tabloda özetlenmiştir.
 
-| Özellik | Value |
+| Özellik | Değer |
 |----------|-------|
 | Metin Kodlaması | en-US: ABD ACSII veya UTF-8 ya da zh-CN: UTF-8|
 | Satır başına konuşma sayısı | 1 |

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 2235c281b5b25390838a8f201481cfbdc9e5c223
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479210"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891990"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes hizmeti ve Terraform kullanan uygulama ağ geçidi giriş denetleyicisine ile bir Kubernetes kümesi oluşturma
 [Azure Kubernetes Service (AKS)](/azure/aks/) , barındırılan Kubernetes ortamınızı yönetir. AKS hızlı ve kolay kapsayıcı düzenleme uzmanlığı gerektirmeden kapsayıcıya alınmış uygulamaları dağıtmayı ve yönetmeyi kolaylaştırır. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.
@@ -35,7 +35,7 @@ Bu öğreticide, şunların oluştururken aşağıdaki görevleri gerçekleştir
 
 - **Terraform'u yapılandırın**: Makaledeki yönergeleri izleyerek [Terraform ve Azure erişimi yapılandırma](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure hizmet sorumlusu**: Bölümündeki yönergeleri izleyerek **hizmet sorumlusu oluşturma** makale bölümünde [Azure, Azure CLI ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Uygulama kimliği, displayName ve parola değerlerini not alın.
+- **Azure hizmet sorumlusu**: Bölümündeki yönergeleri izleyerek **hizmet sorumlusu oluşturma** makale bölümünde [Azure, Azure CLI ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Uygulama kimliği, displayName ve parola değerlerini not alın.
     - Aşağıdaki komutu çalıştırarak, hizmet sorumlusu nesne kimliği unutmayın.
 
     ```bash
@@ -617,7 +617,7 @@ Bu bölümde `terraform init` komutunu kullanarak önceki bölümlerde oluşturd
 
     !["terraform plan" komutunun sonuçları](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-plan-complete.png)
 
-1. Kubernetes kümesini oluşturma planını uygulamak için `terraform apply` komutunu çalıştırın. Kubernetes kümesi oluşturma işlemi birkaç dakika sürebilir ve bu durum Cloud Shell oturumunun zaman aşımına uğramasına neden olabilir. Cloud Shell oturumu zaman aşımına uğrarsa öğreticiyi tamamlamak için ["Zaman aşımına uğrayan Cloud Shell oturumunu kurtarma"](#recover-from-a-dloud-shell-timeout) bölümündeki adımları izleyin.
+1. Kubernetes kümesini oluşturma planını uygulamak için `terraform apply` komutunu çalıştırın. Kubernetes kümesi oluşturma işlemi birkaç dakika sürebilir ve bu durum Cloud Shell oturumunun zaman aşımına uğramasına neden olabilir. Cloud Shell oturum zaman aşımına uğrarsa, öğreticiyi tamamlamak etkinleştirmek için "Cloud Shell zaman aşımı bozulmayı" bölümündeki adımları izleyin.
 
     ```bash
     terraform apply out.plan

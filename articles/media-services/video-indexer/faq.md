@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0b74b6ef1d849f40e7a8e6f50d87e7b322e919e7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567290"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891786"
 ---
 # <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -66,7 +66,7 @@ Web tabanlı Video Indexer portalında dosya karşıya yükleme iletişim kutusu
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Video Indexer'ın medyadan öngörüleri ayıklamak için ne kadar sürer?
 
-Insights sayısını sayısınıdosyasındabulunanherikiVideoIndexerAPIvewebtabanlıVideoIndexerarabiriminikullanarakbirsesveyavideodosyasıdizinioluşturmakiçingerekensüreyidosyauzunluğuvekalitesi,gibibirdençokparametrebağlıdır[ayrılmış birimleri](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) kullanılabilir olup olmadığını ve [akış uç noktası](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) etkin olup olmadığı. 10 ayrılmış birim türü S3 etkin varsayılarak, çoğu içerik türleri için biz dizin 1/3-için (örneğin, bir kaynak 10 dakikalık video alır 3.5 için 5 dakika) ses veya video dosyası süresinin ½ aldığını tahmin edin. Ancak, kendi içeriğiyle birkaç test dosyalarını çalıştırmak ve daha iyi bir fikir almak için ortalama ele öneririz.
+Insights sayısını sayısınıdosyasındabulunanherikiVideoIndexerAPIvewebtabanlıVideoIndexerarabiriminikullanarakbirsesveyavideodosyasıdizinioluşturmakiçingerekensüreyidosyauzunluğuvekalitesi,gibibirdençokparametrebağlıdır[ayrılmış birimleri](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) kullanılabilir olup olmadığını ve [akış uç noktası](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) etkin olup olmadığı. Kendi içeriğinizi birkaç test dosyalarını çalıştırmak ve daha iyi bir fikir almak için ortalama ele öneririz.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Video Indexer ile işlemleri otomatik hale getirmek için özelleştirilmiş iş akışları oluşturabilir miyim?
 

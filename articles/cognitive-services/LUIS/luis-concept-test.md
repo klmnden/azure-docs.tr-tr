@@ -3,19 +3,19 @@ title: LUIS uygulamanızı test edin
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Test LUIS için örnek konuşma sağlayan ve LUIS tanınan hedefleri ve varlıkların bir yanıt alma işlemidir.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 6f18b0ec5d56fa8834bb0d1d6bc5c58831c832ff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: bfb6d2461caf7b5c2c03ea99ad3b4c6ffa06fa0a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225338"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870852"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Örnek konuşma LUIS test etme
 

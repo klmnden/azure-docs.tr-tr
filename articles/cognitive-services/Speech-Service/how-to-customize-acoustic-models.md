@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler'de Özel Konuşma Tanıma Hizmeti ile akustik model oluşturmayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 8bee93c4bb932730000a06cc2bc3fe5a3e330a1f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b644d1d227b5dbd69af38cc32defffb8152b0cde
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217637"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878128"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Öğretici: Özel akustik model oluşturma
 
@@ -63,7 +63,7 @@ Akustik modelin özelleştirilmesi için akustik bir veri kümesi, iki bölümde
 > Web portalı aracılığıyla gerçekleştirilen veri içeri aktarma işlemleri şu an için 2 GB ile sınırlı olduğundan bir akustik veri kümesi bu boyutu aşamaz. Bu boyut 16 KHz kaliteyle kaydedilmiş yaklaşık 17 saatlik sese veya 8 KHz kaliteyle kaydedilmiş yaklaşık 34 saatlik sese denk gelir. Ses verilerinin ana gereksinimleri aşağıdaki tabloda özetlenmiştir:
 >
 
-| Özellik | Value |
+| Özellik | Değer |
 |---------- |----------|
 | Dosya Biçimi | RIFF (WAV) |
 | Örnekleme Oranı | 8000 Hertz (Hz) veya 16.000 Hz |

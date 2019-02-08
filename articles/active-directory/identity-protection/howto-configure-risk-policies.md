@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: f9ffbebee06ab7b9e010c7e6c84fee533611fb38
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f2cf9d1ed2cb970cf6f477df07af62d594ea930c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567664"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890918"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Nasıl Yapılır: Azure Active Directory kimlik koruması (yenilenmiş) risk ilkelerini yapılandırma
 
@@ -81,7 +81,7 @@ Ancak, güvenlik nedeniyle, bu ayar yalnızca MFA için önceden kaydedilmiş ol
 
 Riskli oturum açma işlemleri için mfa'yı gerekli istiyorsanız, şunları yapmalısınız:
 
-1. Etkinleştirme [çok faktörlü kimlik doğrulaması kayıt ilkesi](#multi-factor-authentication-registration-policy) etkilenen kullanıcılar için.
+1. Etkilenen kullanıcılar için çok faktörlü kimlik doğrulaması kayıt ilkesi etkinleştirin.
 
 2. Etkilenen kullanıcılar oturum açmak için bir MFA kayıt gerçekleştirmek için riskli olmayan bir oturumda gerektirir.
 

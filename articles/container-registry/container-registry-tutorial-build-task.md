@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: dd99a6b49894b3489d1cc01f1fcbc56d29247b41
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756368"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868574"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Öğretici: Kaynak kodu işlerseniz kapsayıcı görüntü bulutta oluşturmayı otomatikleştirme
 
@@ -51,6 +51,8 @@ ACR Görevleri şu an için aşağıdaki tetikleyicileri desteklemektedir:
 
 * Git deposuna işleme
 * Temel görüntü güncelleştirme
+
+Bu öğreticide, ACR görev oluşturur ve bir Dockerfile içinde belirtilen tek bir kapsayıcı görüntüsü iter. ACR görevleri de çalıştırabilir [çok adımlı görevler](container-registry-tasks-multi-step.md) (Önizleme aşamasında), bir YAML kullanarak dosya oluşturun, gönderin ve isteğe bağlı olarak birden çok kapsayıcı test adımları tanımlayın.
 
 ## <a name="create-a-build-task"></a>Derleme görevi oluşturma
 
@@ -99,7 +101,7 @@ az acr task create \
 > [!IMPORTANT]
 > Önizlemede daha önce `az acr build-task` komutuyla görev oluşturduysanız [az acr task][az-acr-task] komutuyla bu görevleri yeniden oluşturmanız gerekebilir.
 
-Bu görev, `--context` ile belirtilen depodaki *ana* dala kod işlenen her durumda ACR Görevlerinin söz konusu daldaki koddan kapsayıcı görüntüsü derleyeceğini belirtir. `--file` ile belirtilen depo kök dizinindeki Dockerfile kullanılır. `--image` bağımsız değişkeni, görüntü etiketinin sürüm kısmı için parametreli `{{.Run.ID}}` değeri belirtir ve derlenen görüntünün belirli bir derleme ile ilişkili olmasını ve benzersiz şekilde etiketlenmesini sağlar.
+Bu görev, `--context` ile belirtilen depodaki *ana* dala kod işlenen her durumda ACR Görevlerinin söz konusu daldaki koddan kapsayıcı görüntüsü derleyeceğini belirtir. Dockerfile tarafından belirtilen `--file` deposundan, kök görüntüsünü oluşturmak için kullanılır. `--image` bağımsız değişkeni, görüntü etiketinin sürüm kısmı için parametreli `{{.Run.ID}}` değeri belirtir ve derlenen görüntünün belirli bir derleme ile ilişkili olmasını ve benzersiz şekilde etiketlenmesini sağlar.
 
 Başarılı bir [az acr task create][az-acr-task-create] komutundaki çıktı aşağıdakilere benzer:
 

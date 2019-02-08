@@ -5,19 +5,19 @@ description: JSON yanıtlar almasına ve bu hızlı başlangıçta, Ruby kullana
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: d8a3daa377d58522cea36adedc53b9145bfa99bf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5574c64f32950121ea6ed738eff44d7b85ef0250
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194024"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872280"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Hızlı Başlangıç: Bing resim arama REST API'si ile Ruby resimler için arama yapın
 

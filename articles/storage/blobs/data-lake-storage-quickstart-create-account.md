@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732456"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884469"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Hızlı Başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma
 
@@ -93,7 +93,7 @@ Azure portalında genel amaçlı v2 bir depolama hesabı oluşturmak için aşa�
 6. Depolama hesabını oluşturmak istediğiniz aboneliği seçin.
 7. Seçin **sonraki: Gelişmiş >**
 8. Altında değerleri bırakın **güvenlik** ve **sanal ağlar** alanlarını varsayılan değerlerine ayarlayın.
-9. **Data Lake Storage Gen2 (önizleme)** bölümünde **Hiyerarşik ad alanı**'nı **Etkin** duruma getirin.
+9. İçinde **Data Lake depolama Gen2** bölümünde kümesi **hiyerarşik ad alanı** için **etkin**.
 10. Tıklayın **gözden geçir + Oluştur** depolama hesabı oluşturmak için.
 
     ![Azure portalında depolama hesabı oluşturmayı gösteren ekran görüntüsü](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)

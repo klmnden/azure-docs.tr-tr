@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bilgi keşfetme hizmeti (KES içinde) API yorumlama yöntemi kullanmayı öğrenin.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 4f950734081be6cf76770b1c6cb2feca7efdae70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221412"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870937"
 ---
 # <a name="interpret-method"></a>Yöntem yorumlama
 
@@ -25,7 +25,7 @@ ms.locfileid: "55221412"
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-Name|Value| Açıklama
+Ad|Değer| Açıklama
 ----|----|----
 sorgu    | Metin dizesi | Kullanıcı tarafından girilen sorgu.  Tam 1 olarak ayarlanırsa, sorgu oluşturma sorgu otomatik tamamlama önerileri için önek olarak yorumlanacaktır.        
 Tamamlayın | 0 (varsayılan) veya 1 | 1 dilbilgisi ve dizin verileri temel alan otomatik tamamlama önerileri oluşturulan anlamına gelir.         

@@ -1,6 +1,6 @@
 ---
-title: 2. nesil için Azure Data Lake depolama Gen1 veri kopyalama (Önizleme) Azure Data Factory ile
-description: 2. nesil için Azure Data Lake depolama Gen1 verileri kopyalamak için Azure Data factory'yi kullanın (Önizleme)
+title: Azure Data Lake depolama Gen1 verileri Azure Data Factory ile Gen2'ye kopyalayın
+description: 2. nesil için Azure Data Lake depolama Gen1 verileri kopyalamak için Azure Data factory'yi kullanın.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 40cf8dcf6729d577c4fff694b0380833fccb142d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: da42e0bf86aca571fb26367f18bbf07f90f5531b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679367"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884622"
 ---
-# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>2. nesil için Azure Data Lake depolama Gen1 veri kopyalama (Önizleme) Azure Data Factory ile
+# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Lake depolama Gen1 verileri Azure Data Factory ile Gen2'ye kopyalayın
 
-Azure Data Lake depolama Gen2 önizlemesi yerleşik, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md). Her iki dosya sistemi ve nesne depolama paradigmalarını kullanarak verilerinizi ile arabirim oluşturmasını sağlar.
+Azure Data Lake depolama Gen2 yerleşik, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md). Her iki dosya sistemi ve nesne depolama paradigmalarını kullanarak verilerinizi ile arabirim oluşturmasını sağlar.
 
 Azure Data Lake depolama Gen1 kullanıyorsanız, Azure Data Factory kullanarak verileri Data Lake depolama Gen1 Gen2'ye kopyalayarak Gen2 yeni özelliği değerlendirebilirsiniz.
 
@@ -32,9 +32,9 @@ Bu makalede Data Factory-veri kopyalama aracını veri kopyalamak için nasıl k
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliği: Azure aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) başlamadan önce.
+* Azure aboneliği: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 * Bu verileri Azure Data Lake depolama Gen1 hesabı.
-* Data Lake depolama Gen2'ye etkin Azure depolama hesabıyla: bir depolama hesabınız yoksa, tıklayın [burada](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) oluşturmak için.
+* Azure depolama hesabı ile Data Lake depolama Gen2'ye etkin: Bir depolama hesabınız yoksa, tıklayın [burada](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) oluşturmak için.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
@@ -46,10 +46,10 @@ Bu makalede Data Factory-veri kopyalama aracını veri kopyalamak için nasıl k
    ![Yeni veri fabrikası sayfası](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
     * **Ad**: Azure data factory'nizi için genel olarak benzersiz bir ad girin. Hatasını alırsanız "veri fabrikası adı \"LoadADLSDemo\" kullanılabilir değil," veri fabrikası için farklı bir ad girin. Örneğin, adı kullanabilirsiniz  _**adınız**_**ADFTutorialDataFactory**. Veri Fabrikası oluşturmayı yeniden deneyin. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
-    * **Abonelik**: veri fabrikasının oluşturulacağı Azure aboneliğini seçin. 
-    * **Kaynak grubu**: aşağı açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** seçenek ve bir kaynak grubu adını girin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
-    * **Sürüm**: seçin **V2**.
-    * **Konum**: veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları başka konumlarda ve bölgelerde olabilir. 
+    * **Abonelik**: Veri fabrikasının oluşturulacağı Azure aboneliğini seçin. 
+    * **Kaynak grubu**: Aşağı açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** seçenek ve bir kaynak grubu adını girin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
+    * **Sürüm**: Seçin **V2**.
+    * **Konum**: Veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları başka konumlarda ve bölgelerde olabilir. 
 
 3. **Oluştur**’u seçin.
 4. Oluşturma işlemi tamamlandıktan sonra veri fabrikanıza gidin. Gördüğünüz **Data Factory** aşağıdaki görüntüde gösterildiği gibi bir giriş sayfası: 
@@ -92,7 +92,7 @@ Bu makalede Data Factory-veri kopyalama aracını veri kopyalamak için nasıl k
 
     ![Çıkış klasörü belirtin](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-7. İçinde **hedef veri deposuna** sayfasında **+ yeni bağlantı oluştur**ve ardından **Azure Data Lake depolama Gen2'ye (Önizleme)** seçip **devam et** :
+7. İçinde **hedef veri deposuna** sayfasında **+ yeni bağlantı oluştur**ve ardından **Azure Data Lake depolama Gen2'ye**seçip **devam**:
 
     ![Hedef veri deposu sayfası](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 

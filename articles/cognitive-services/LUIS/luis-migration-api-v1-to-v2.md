@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Sürüm 1 uç noktasını ve geliştirme API'leri kullanım dışı bırakılmıştır. Sürüm 2 uç nokta ve yazma API'leri geçirme anlamak için bu kılavuzu kullanın.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8b2057c6649f0dcec5f5c9b2d5923be2446f4d6b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dfd30ce148002e32986c58aff607e182033e02b3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208627"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859890"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 için LUIS uygulamaları v2 Geçiş Kılavuzu
 Sürüm 1 [uç nokta](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanım dışı bırakılmıştır. 2. sürüme geçirme anlamak için bu kılavuzu kullanın [uç nokta](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 

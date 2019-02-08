@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Bing Web araması API'si tarafından kullanılan yanıtlar ve yanıt türleri hakkında bilgi edinin.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f76c9bfa5dc6a3542ace7025e0889ee64cd2e783
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: db7ac84b5ce1f3ee2558bbc5ce14332aecd578c7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188635"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860652"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web araması API'si yanıt yapısı ve yanıt türleri  
 
@@ -296,7 +296,7 @@ Matematik ifadesi şu simgeleri içerebilir:
 |*|Çarpma|
 |^|Güç|
 |!|Faktöriyelini|
-|.|Onluk|
+|.|Decimal|
 |()|Öncelik gruplandırma|
 |[]|İşlev|
 

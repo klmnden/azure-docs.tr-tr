@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yükleyin, projenizi eğitin ve C# ile .NET SDK'yı kullanarak bir tahminde bulunun.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: anroth
-ms.openlocfilehash: 01c4da98bbc89a49007aa7064907abd9ed01cc0d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fd6ff54b490e3f389439d3831c7a249d4c928450
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227548"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884894"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Hızlı Başlangıç: Özel görüntü işleme .NET SDK ile birlikte bir görüntü sınıflandırma projesi oluşturma
 

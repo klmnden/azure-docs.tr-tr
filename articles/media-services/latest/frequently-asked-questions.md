@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: juliako
-ms.openlocfilehash: be4c08bc31c8811655230ab89b48271f4c2b3164
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756589"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875500"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 sık sorulan sorular
 
@@ -36,17 +36,7 @@ Http (s) video işaret eden bir URL kullanarak işleri gönderme önerilir. Daha
 
 ### <a name="how-does-pagination-work"></a>Sayfalandırma nasıl çalışır?
 
-Media Services $top OData desteklemek için kaynakları destekler ancak $top için geçirilen değer daha az 1000'den (örneğin, sayfalandırma sayfa boyutu) olmalıdır.
-
-Bu, ya da öğeleri $top (örneğin, 100 en son öğe) kullanarak küçük bir örnek almak veya sayfalandırma kullanarak tüm öğeleri ancak sayfa için sağlar. 
-
-Media Services ile bir kullanıcı tarafından belirtilen sayfalama verilerde desteklemiyor sayfa boyutu.
-
-Daha fazla bilgi için [filtreleme, sıralama, sayfalama](entities-overview.md).
-
-### <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Media Services v3 bir varlıkta almak nasıl?
-
-V3 üzerinde oluşturulan hem yönetim hem de işlemler işlevselliği kullanıma sunma birleştirilmiş bir API yüzeyi temel **Azure Resource Manager**. Dağıtabilirler **Azure Resource Manager**, kaynak adları her zaman benzersizdir. Bu nedenle, kaynağınız için benzersiz tanımlayıcı dizeleri (örneğin, GUID'leri) kullanabilirsiniz.
+Sayfalandırma kullanırken, sonraki bağlantısını toplamasını ve belirli bir sayfa bağımlı olmadan her zaman kullanmalısınız. Ayrıntılar ve örnekler için bkz. [filtreleme, sıralama, sayfalama](entities-overview.md).
 
 ## <a name="live-streaming"></a>Canlı akış 
 

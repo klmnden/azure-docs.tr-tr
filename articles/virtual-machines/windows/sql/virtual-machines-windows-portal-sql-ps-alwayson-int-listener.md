@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/22/2017
+ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: dd09dd337cfe11729ef3ddc5d9b19f024d64300e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064007"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873011"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Bir veya daha fazla Always On kullanılabilirlik grubu dinleyicisi - Resource Manager'ı yapılandırma
 Bu konu başlığı altında gösterilir nasıl yapılır:
@@ -40,16 +40,42 @@ Bu konuda, kullanılabilirlik gruplarını zaten yapılandırılmış olmasını
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
+## <a name="verify-powershell-version"></a>PowerShell sürümünü doğrula
+
+Bu makaledeki örneklerde, Azure PowerShell modülünün 5.4.1 kullanarak test edilmez.
+
+Doğrulayın, PowerShell modülü 5.4.1 veya üzeri.
+
+Bkz: [Azure PowerShell modülünü yükleme](http://docs.microsoft.com/powershell/azure/install-az-ps).
+
 ## <a name="configure-the-windows-firewall"></a>Windows Güvenlik duvarını yapılandırma
+
 Windows Güvenlik Duvarı'nı SQL Server erişimine izin verecek şekilde yapılandırın. Güvenlik duvarı kuralları, SQL Server örneği ve dinleyici araştırma bağlantı noktalarını kullandığı için TCP bağlantılara izin verin. Ayrıntılı yönergeler için bkz. [veritabanı altyapısı erişimi için Windows Güvenlik duvarını yapılandırma](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). SQL Server bağlantı noktası için ve araştırma bağlantı noktası için bir gelen kuralı oluşturun.
 
 Eğer bir Azure ağ güvenlik grubu ile erişimi kısıtlama olun arka uç SQL Server VM IP adreslerine izin verme kuralları içerir ve yük dengeleyici kayan IP adresleri /AG dinleyicisi ve küme çekirdek IP adresi için varsa.
 
+## <a name="determine-the-load-balancer-sku-required"></a>Gerekli SKU yük dengeleyici belirleme
+
+[Azure yük dengeleyici](../../../load-balancer/load-balancer-overview.md) 2 Sku'da kullanılabilir: Temel ve standart. Standart load balancer önerilir. Temel yük dengeleyici, bir kullanılabilirlik kümesindeki sanal makineler varsa izin verilir. Standart load balancer, tüm sanal makine IP adresleri standart IP adreslerini kullanmanız gerekir.
+
+Geçerli [Microsoft şablon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) için bir kullanılabilirlik grubu temel IP adreslerine sahip bir temel yük dengeleyici kullanır.
+
+Bu makaledeki örneklerde standart load balancer'ı belirtin. Örneklerde, komut dosyasını içeren `-sku Standard`.
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+```
+
+Temel yük dengeleyici oluşturmak için kaldırmak `-sku Standard` satırından yük dengeleyici oluşturur. Örneğin:
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+```
+
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Örnek betiği: PowerShell ile iç yük dengeleyici oluşturma
+
 > [!NOTE]
-> Kullanılabilirlik grubunuzun oluşturduysanız [Microsoft şablon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), iç load balancer'ın zaten oluşturuldu. 
-> 
-> 
+> Kullanılabilirlik grubunuzun oluşturduysanız [Microsoft şablon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), iç load balancer'ın zaten oluşturuldu.
 
 Aşağıdaki PowerShell betiğini bir iç yük dengeleyici oluşturur, Yük Dengeleme kuralları yapılandırır ve bir IP adresi yük dengeleyici için ayarlar. Betiği çalıştırmak için Windows PowerShell ISE'yi açın ve komut dosyası betik bölmesine yapıştırın. Kullanım `Connect-AzureRmAccount` PowerShell oturum açmak için. Birden çok Azure aboneliğiniz varsa, `Select-AzureRmSubscription ` aboneliği ayarlamak için. 
 
@@ -86,7 +112,7 @@ $SQLHealthProbe = New-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -Protoco
 
 $ILBRule = New-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP 
 
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe 
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 
 $bepool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB 
 

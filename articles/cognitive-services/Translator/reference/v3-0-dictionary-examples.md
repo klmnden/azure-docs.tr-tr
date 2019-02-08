@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Translator metin API'si sözlük örnekleri yöntemi kullanın.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: b12b9d56f42911da606e3bdcfedbe3f789d2c4e8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a72aca47b33c911d4812274cfa624eaacbdec0d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466946"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884792"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator metin çevirisi API'si 3.0: Sözlük Örnekleri
 

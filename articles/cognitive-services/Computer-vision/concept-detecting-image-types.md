@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Görüntü işleme API'si, resim türü algılama özellikle ilgili kavramları.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: da7cce0cd69823f254cd6b666dc468f155b9e097
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6cd7b2a8a70a315b05c0824a863803bbc6ffabb2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156284"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872144"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Görüntü işleme olan algılama resim türleri
 
@@ -26,7 +26,7 @@ Görüntü işleme görüntüleri içerik türü tarafından bir görüntüyü k
 
 Görüntü işleme, görüntüye inceler ve aşağıdaki tabloda açıklandığı gibi küçük resim 0 ile 3 bir ölçekte sonra görüntünün olasılığını derecelendirir.
 
-| Value | Anlamı |
+| Değer | Anlamı |
 |-------|---------|
 | 0 | Küçük resim değil |
 | 1 | belirsiz |

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bilgi keşfetme hizmeti (KES içinde) API anlam yorumlama kullanmayı öğrenin.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 2b0065dbdac8e3bdbc535f2d7d103b24110e1d02
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217281"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860822"
 ---
 # <a name="semantic-interpretation"></a>Anlam yorumlama
 
@@ -35,11 +35,11 @@ Bir değişken, bir harfle başlar ve yalnızca harfler (A-Z), sayılar (0-9) ve
 
 |Type|Açıklama|Örnekler|
 |----|----|----|
-|Dize|0 veya daha fazla karakter dizisi|"Hello World!"<br/>""|
-|bool|Boole değeri|true<br/>false|
+|String|0 veya daha fazla karakter dizisi|"Hello World!"<br/>""|
+|Bool|Boole değeri|true<br/>false|
 |Int32|32 bitlik işaretli tamsayı.  -2.1e9 için 2.1e9|123<br/>-321|
 |Int64|64-bit işaretli tamsayı. -9.2e18 ve 9.2e18|9876543210|
-|çift|Çift duyarlıklı kayan nokta. 1.7E +/-308 (15 basamak)|123.456789<br/>1.23456789e2|
+|Double|Çift duyarlıklı kayan nokta. 1.7E +/-308 (15 basamak)|123.456789<br/>1.23456789e2|
 |Guid|Genel benzersiz tanıtıcısı|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
 |Sorgu|Veri nesneleri bir alt dizinde belirten sorgu ifadesi|All()<br/>Ve (*S1*, *S2*)|
 
@@ -139,10 +139,10 @@ Değişkenin değerini döndürür *adı* altında belirtilen tanımlanan *kapsa
 
 Sistem değişkenleri, hizmet tarafından önceden tanımlanan ve çeşitli İstatistikler sistemin geçerli durumunu almak için kullanılabilir.  Şu anda desteklenen sistem değişkenleri kümesi aşağıdadır:
 
-|Name|Tür|Açıklama|
+|Ad|Tür|Açıklama|
 |----|----|----|
-|IsAtEndOfQuery|bool|Tüm giriş sorgu metni geçerli yorumu eşleşti true|
-|IsBeyondEndOfQuery|bool|Geçerli yorumu giriş sorgu metni ötesinde tamamlamaları önerdiği true|
+|IsAtEndOfQuery|Bool|Tüm giriş sorgu metni geçerli yorumu eşleşti true|
+|IsBeyondEndOfQuery|Bool|Geçerli yorumu giriş sorgu metni ötesinde tamamlamaları önerdiği true|
 
 ### <a name="setvariable-function"></a>SetVariable işlevi
 

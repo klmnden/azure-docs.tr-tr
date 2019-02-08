@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 70dfc03c37b2e7a93218ff7e710dbd22f622d418
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 01c6fd8cb0e4995bfd4409072d47d2743d1aed1f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813313"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Öğretici: Parola Yöneticisi Keeper & dijital kasa ile Azure Active Directory Tümleştirme
 
@@ -78,7 +78,7 @@ Tek iş için oturum açma için bir Azure AD kullanıcısı ile ilgili kullanı
 Yapılandırma ve Azure AD çoklu oturum açma Keeper parola Yöneticisi ve dijital kasa ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Parola Yöneticisi Keeper & dijital kasa çoklu oturum açmayı Yapılandır](#configure-keeper-password-manager-&-digital-vault-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+2. **Parola Yöneticisi Keeper & dijital kasa çoklu oturum açmayı Yapılandır** - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 5. **[Parola Yöneticisi Keeper & dijital kasa test kullanıcısı oluşturma](#create-keeper-password-manager--digital-vault-test-user)**  - Britta simon'un Keeper parola Yöneticisi & kullanıcı Azure AD gösterimini bağlı dijital kasa içinde bir karşılığı vardır.

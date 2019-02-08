@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bir ASP.NET Core web uygulamasından Bing Haber Arama hizmetine bağlanın.
 services: cognitive-services
 author: ghogen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: e90b630b46f9c54175e30cf28e631ba40146f9ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 188e58261cec90e9afcc885f3da21fa3fab3b746
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189179"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875442"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Öğretici: Bing haber arama API'si Visual Studio'da bağlı hizmetler ile bağlanın veC#
 

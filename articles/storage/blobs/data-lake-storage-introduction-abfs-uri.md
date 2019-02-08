@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake depolama Gen2 önizlemesini URI kullanma
-description: Azure Data Lake depolama Gen2 önizlemesini URI kullanma
+title: Azure Data Lake depolama Gen2'ye kullanmak URI'si
+description: Azure Data Lake depolama Gen2'ye kullanmak URI'si
 services: storage
 author: jamesbak
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 63dcea94fd880102a784e6f776855c44d4e97c87
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fe020ab1091b91ba21174b59d0ce25ab0c6122ca
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243326"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878315"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Azure Data Lake depolama Gen2'ye kullanmak URI'si
 
-[Hadoop dosya sistemi](http://www.aosabook.org/en/hdfs.html) Azure Data Lake depolama Gen2 önizlemesi ile uyumlu sürücü, düzen tanımlayıcısı tarafından bilinen `abfs` (Azure Blob dosya sistemi). Diğer Hadoop dosya sistemi sürücüleri ile tutarlı ABFS sürücü adresi dosyalara ve dizinlere bir Data Lake depolama Gen2 özellikli hesabında bir URI biçimi kullanır.
+[Hadoop dosya sistemi](http://www.aosabook.org/en/hdfs.html) Azure Data Lake depolama Gen2'ile uyumlu sürücü, düzen tanımlayıcısı tarafından bilinen `abfs` (Azure Blob dosya sistemi). Diğer Hadoop dosya sistemi sürücüleri ile tutarlı ABFS sürücü adresi dosyalara ve dizinlere bir Data Lake depolama Gen2 özellikli hesabında bir URI biçimi kullanır.
 
 ## <a name="uri-syntax"></a>URI söz dizimi
 

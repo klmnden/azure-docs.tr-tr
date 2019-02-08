@@ -5,16 +5,16 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/16/2018
-ms.openlocfilehash: 83e862aea5b1f2de5a3f80970c2331fc9d81704e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 2/7/2019
+ms.openlocfilehash: cd9275e9e112d24d9dbb3d1d5a60c871d7d8ae5c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540289"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890473"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Azure portalını kullanarak MySQL sunucusu için Azure veritabanını yeniden başlatın
-Bu konuda, bir MySQL sunucusu için Azure veritabanı nasıl yeniden açıklanmaktadır. Sunucu işlemi gerçekleştirirken, kısa bir kesintiye neden sunucunuzun bakım nedeniyle yeniden başlatmanız gerekebilir.
+Bu konuda, MySQL için Azure veritabanı nasıl yeniden açıklanmaktadır. Sunucu işlemi gerçekleştirirken, kısa bir kesintiye neden sunucunuzun bakım nedeniyle yeniden başlatmanız gerekebilir.
 
 Sunucunun yeniden başlatılması, Hizmet meşgul olduğunda engellenir. Örneğin, hizmet sanal çekirdekler ölçeklendirme gibi daha önce istenen bir işlemin işliyor olabilir.
 
@@ -34,7 +34,7 @@ Aşağıdaki adımları MySQL sunucusunu yeniden başlatın:
 
    ![MySQL - genel bakış - yeniden Başlat düğmesi için Azure veritabanı](./media/howto-restart-server-portal/2-server.png)
 
-3. Tıklayın **Evet** sunucuyu yeniden başlatmadan onaylamak için. 
+3. Tıklayın **Evet** sunucuyu yeniden başlatmadan onaylamak için.
 
    ![-MySQL için Azure veritabanı, yeniden başlatma işlemini onaylayın ](./media/howto-restart-server-portal/3-restart-confirm.png)
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Tüm Bing özel arama döndüren Web sayfalarındaki sayfa işlemi gösterilmektedir.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 50c4389830c6a9c131610e9091f7166097b1e728
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 625b85190c3b5fe338d804974ecd9c0c1a9d7a0d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158256"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868625"
 ---
 # <a name="paging-webpages"></a>Disk belleği Web sayfaları 
 

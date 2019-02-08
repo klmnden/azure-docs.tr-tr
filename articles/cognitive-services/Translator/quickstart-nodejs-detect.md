@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Node.js ve Translator Metin Çevirisi API'sini kullanarak sağlanan metnin dilini tanımlamayı öğreneceksiniz.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: ecf762d47a5e8aa9762b67d5b6419bede91c142c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8e09eb19558bf3c328c8ce29cf35ce83074568aa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222058"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876224"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Hızlı Başlangıç: Translator metin çevirisi API'si Node.js ile metin dili algılamak için kullanın
 
@@ -90,7 +90,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 Bir isteğin kimliğini doğrulamanın en kolay yolu, abonelik anahtarınızda bir `Ocp-Apim-Subscription-Key` üst bilgisi olarak geçirmektir. Bu örnekte bu yöntem kullanılır. Alternatif olarak, abonelik anahtarınızı bir erişim belirteciyle değiştirebilir ve isteğinizi doğrulamak için erişim belirtecini bir `Authorization` üst bilgisi olarak geçirebilirsiniz. Daha fazla bilgi için bkz. [Kimlik doğrulaması](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

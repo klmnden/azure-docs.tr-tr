@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Node.js ve Translator Metin Çevirisi API'sini kullanarak bir metni bir alfabeden başka bir alfabeye çevirmeyi (dönüştürmeyi) öğreneceksiniz. Bu örnekte Japonca, Latin alfabesine dönüştürülmektedir.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 2fe70e570cc5cb5b2572719c496f044c39b1bfa4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1d957adb58104b0c635999f724d99f089c1d1c30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207930"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55855875"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Hızlı Başlangıç: Node.js ile metin alfabeye için Translator Text API kullanın
 
@@ -93,7 +93,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 Bir isteğin kimliğini doğrulamanın en kolay yolu, abonelik anahtarınızda bir `Ocp-Apim-Subscription-Key` üst bilgisi olarak geçirmektir. Bu örnekte bu yöntem kullanılır. Alternatif olarak, abonelik anahtarınızı bir erişim belirteciyle değiştirebilir ve isteğinizi doğrulamak için erişim belirtecini bir `Authorization` üst bilgisi olarak geçirebilirsiniz. Daha fazla bilgi için bkz. [Kimlik doğrulaması](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

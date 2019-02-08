@@ -1,20 +1,20 @@
 ---
-title: Kimlik Doğrulaması
+title: Authentication
 titleSuffix: Cognitive Services - Azure
 description: 'Bir Azure Bilişsel hizmetler kaynağı için bir istek kimliğini doğrulamak için üç yolu vardır: bir abonelik anahtarı, bir taşıyıcı belirteç veya birden çok hizmet bir abonelik. Bu makalede, her yöntemi ve istek yapma hakkında bilgi edineceksiniz.'
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305460"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859755"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Bilişsel hizmetler isteklerine kimlik doğrulaması
 

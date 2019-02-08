@@ -5,18 +5,18 @@ description: LUIS, bir dizi ortak, konuşma kullanıcı senaryoları hızlı bir
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 74b28c926e077bb35122d3435fcfd93816acc9fd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e1b99396c4739dc6f1b7a4da0164553d4c25ef3c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215223"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867112"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>Genel kullanım senaryoları için önceden oluşturulmuş etki alanlarını ekleyin 
 

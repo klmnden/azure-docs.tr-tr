@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: a4fc037ed566905133f59163ef99d5e107ca4bcc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e47bf2a75b06f0804e446b0fdde4215b6e8193f6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190930"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874728"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD), oluşturma, Bakım ve bulutta kullanıcı kim
 
 * Kaynak ve hedef sistemleri arasında mevcut kimlikleri eşleştirmek yeteneği.
 * Hangi kullanıcı verilerini tanımlayan özelleştirilebilir öznitelik eşlemelerini kaynak sistemden hedef sisteme akışı.
-* Sağlama hataları için isteğe bağlı bir e-posta uyarıları
+* Sağlama hataları için isteğe bağlı bir e-posta uyarıları'nı tıklatın.
 * İzleme ve sorun giderme Yardımı için raporlama ve etkinlik günlükleri.
 
 ## <a name="why-use-automated-provisioning"></a>Otomatik sağlama neden kullanmalısınız?
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD), oluşturma, Bakım ve bulutta kullanıcı kim
 Bu özelliği kullanmak için bazı ortak motivasyonlardan şunlardır:
 
 * Maliyetleri, verimsiz ve el ile sağlama işlemleriyle ilişkili İnsan hatası önleme.
-* Barındırma ve özel geliştirilmiş sağlama çözümleri ve betikleri ile ilişkili maliyetleri engelleme
+* Barındırma ve özel geliştirilmiş sağlama çözümleri ve betikleri ile ilişkili maliyetleri engelleme.
 * Kuruluştan ayrılan zaman anında kullanıcıların kimliklerini anahtar SaaS uygulamalarından kaldırarak, kuruluşunuzun güvenliğini sağlama.
 * Çok sayıda kullanıcı belirli bir SaaS uygulama veya sistem kolayca içeri aktarmak için.
 * İlkeleri kullanan bir uygulamada oturum açabilir ve kimin sağlanan belirlemek için tek bir dizi zorunda için.
@@ -107,7 +107,7 @@ Uygulama Yönetimi ekranında, sağlama yapılandırılan **sağlama** sekmesi.
 
 ![Ayarlar](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **Kapsam filtreleri** hangi kullanıcıların sağlama hizmeti söyleyin ve kaynak sistemi grubunda alabileceğiniz ve/veya hedef sisteme sağlaması kaldırıldı. Kapsam birlikte değerlendirildiğini filtreleri gereken iki unsur vardır kimin sağlama kapsamında olduğunu belirleyin:
+* **Kapsam filtreleri** hangi kullanıcıların sağlama hizmeti söyleyin ve grupları kaynak sistemindeki sağlanan ve/veya hedef sistem için sağlaması kaldırıldı. Kapsam birlikte değerlendirildiğini filtreleri gereken iki unsur vardır kimin sağlama kapsamında olduğunu belirleyin:
 
     * **Öznitelik değerleri üzerinde filtre** -belirli bir öznitelik değerleri üzerinde filtreleme "Kaynak nesne kapsamı" menüsünde öznitelik eşlemelerini sağlar. Örneğin, yalnızca "Sales", "Departman" özniteliğine sahip kullanıcıların sağlama kapsamında olması gerektiğini belirtebilirsiniz. Daha fazla bilgi için [kapsam belirleme filtrelerini kullanma](define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -214,13 +214,13 @@ Yapılandırma için **eşitleme atanan kullanıcı ve grupları yalnızca**, ş
     
 Tamamlamak süresini etkileyen faktörler özeti bir **ilk eşitleme**:
 
-* Kullanıcılar ve gruplar sağlama kapsamında toplam sayısı
+* Kullanıcılar ve gruplar sağlama kapsamında toplam sayısı.
 
-* Kullanıcılar, gruplar ve Grup üyeleri kaynak sistemde bulunan (Azure AD) toplam sayısı
+* Kullanıcılar, gruplar ve Grup üyeleri kaynak sistemde bulunan (Azure AD) toplam sayısı.
 
 * Olup olmadığını kullanıcıların sağlama kapsamında hedef uygulamada mevcut kullanıcılar eşleştirilir veya ilk kez oluşturulması gerekir. Eşitleme işleri, tüm kullanıcılar için ilk kez oluşturulur olması yaklaşık *iki kez sürece* olarak eşitleme işleri, tüm kullanıcılar için mevcut kullanıcıların eşleştirilir.
 
-* Hataların sayısı [denetim günlükleri](check-status-user-account-provisioning.md). Çok sayıda hata ve sağlama hizmeti bir karantina duruma geçti performansı daha yavaştır 
+* Hataların sayısı [denetim günlükleri](check-status-user-account-provisioning.md). Çok sayıda hata ve sağlama hizmeti bir karantina duruma geçti performans daha yavaş olur.    
 
 * İstek hız sınırları ve hedef sistem tarafından uygulanan kısıtlama. Bazı hedef sistemleri istek hızı sınırlarını ve hangi büyük eşitleme işlemler sırasındaki performansınızı etkileyebilir azaltma uygular. Bu şartlar altında çok fazla istek çok hızlı aldığı uygulama yanıt hızını yavaş veya bağlantıyı kapatın. Performansı artırmak için bağlayıcı uygulama isteklerini uygulama bunları işleyebileceğinden daha hızlı göndererek değil ayarlamak gerekir. Microsoft tarafından oluşturulan sağlama bağlayıcılar bu ayarı yapın. 
 

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Arama sonuçlarını Node.js kullanarak Bing özel arama örneğinizin talep başlamak için bu Hızlı Başlangıç'ı kullanın
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: a4a0140e8dcb8fccf7ac6699132a7dc44eacb175
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 81746f1c1516bd59cbfb917dcaefa00195558d05
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163271"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875459"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak Bing özel arama uç noktanızı arayın
 

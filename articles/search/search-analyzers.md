@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 121b5542f9388355b97744aa224ac824dd8d8728
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631955"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867214"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Metin işleme Azure Search'te çözümleyiciler
 
@@ -92,7 +92,7 @@ Bu örnekte yürüyen:
 * Çözümleyiciler aranabilir bir alanı için alan sınıfının bir özelliği var.
 * Özel bir çözümleyici dizin tanımı'nın bir parçasıdır. Bunu hafifçe (örneğin, bir filtre içinde tek bir seçenek özelleştirme) özelleştirilebilen veya birden fazla yerde özelleştirilebilir.
 * Bu durumda, özel çözümleyici sırayla bir özelleştirilmiş standart simgeleştirici "my_standard_tokenizer" ve belirteç iki filtre kullanır "my_analyzer" olduğu: küçük harf ve özelleştirilmiş asciifolding filtre "my_asciifolding".
-* Ayrıca, tüm tire simgeleştirme (standart simgeleştirici sonlarını dash ancak alt çizgi) önce alt çizgi ile değiştirilecek özel "map_dash" char filtre tanımlar.
+* Ayrıca, 2 özel char Filtreler "map_dash" ve "remove_whitespace" tanımlar. İkincisi tüm boşlukları kaldırır ancak ilk tüm tire alt çizgi ile değiştirir. UTF-8 kodlamalı eşleme kuralları boşluk olması gerekir. Char filtreleri önce simgeleştirme uygulanır ve sonuçta elde edilen belirteçleri (standart simgeleştirici sonlarını tire ve boşluk ancak alt çizgi) etkiler.
 
 ~~~~
   {
@@ -116,7 +116,8 @@ Bu örnekte yürüyen:
            "name":"my_analyzer",
            "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
            "charFilters":[
-              "map_dash"
+              "map_dash",
+              "remove_whitespace"
            ],
            "tokenizer":"my_standard_tokenizer",
            "tokenFilters":[
@@ -130,6 +131,11 @@ Bu örnekte yürüyen:
            "name":"map_dash",
            "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
            "mappings":["-=>_"]
+        },
+        {
+           "name":"remove_whitespace",
+           "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
+           "mappings":["\\u0020=>"]
         }
      ],
      "tokenizers":[

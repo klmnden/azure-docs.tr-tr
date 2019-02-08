@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, PHP ile Translator Metin Çevirisi API’sini kullanarak alternatif çeviriler ve bağlam içindeki terim örnekleri bulacaksınız.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 7f45bcb02f1c3002cffff8b72a4f182f0bfa9497
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cd73aba2ffd8504851894c3c27d19eed3ceee6dc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215512"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864494"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Hızlı Başlangıç: PHP kullanarak iki dilli sözlük ile sözcük arayın
 

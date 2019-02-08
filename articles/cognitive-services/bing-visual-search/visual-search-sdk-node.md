@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bing görsel arama SDK'sını kullanarak bir görüntüyü karşıya yükleme ve ilgili Öngörüler elde edin.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 8e1566d7b1be429146dc3ce919ffd5f57b1b99d2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c46c33b81a1162bdb30edc7a39a04fea8c0abb7d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770512"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866942"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Hızlı Başlangıç: Node.js için Bing görsel arama SDK'sını kullanarak görüntü Öngörüler elde edin
 

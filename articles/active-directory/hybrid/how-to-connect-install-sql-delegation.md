@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 89d5c9c4e553ac82b604c1d3a20eb67b4055e6c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e681d192b3df429fc7aa5f340baa56fa739bad34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492904"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891649"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>SQL yönetici temsilcisi izinlerini kullanarak Azure AD Connect'i yükleme
 En son Azure AD Connect derleme önce SQL, gerekli yapılandırmaları dağıtırken yönetim temsilcisi seçme desteklenmiyor.  Azure AD Connect'i yüklemek isteyen kullanıcılar, SQL Server'da Sistem Yöneticisi (SA) izinlerine sahip gerekmiyor.
@@ -54,10 +54,7 @@ Bant dışı veritabanını sağlamak ve veritabanı sahibi izinleriyle Azure AD
 ## <a name="additional-information"></a>Ek bilgiler
 Veritabanı oluşturulduktan sonra Azure AD Connect Yöneticisi yükleyebilir ve şirket içi eşitleme sırasında kolaylık yapılandırın.  
 
-**/Useexistingdatabase** bayrağı, önceden oluşturulmuş bir veritabanı kullanılırken gereklidir.  Yalnızca kurtarma durumlarda kullanılmaz.
-
-Her senaryo için ilgili Azure AD Connect yeni yüklemelerini hizmetinin yanı sıra, bu özellik ayrıca temsilci sağlar **/useexistingdatabase** bayrağı.  Mevcut bir veritabanı ile Azure AD Connect yükleme hakkında daha fazla bilgi için bkz. [var olan bir ad eşitleme veritabanını kullanarak Azure AD Connect'i yükleme](how-to-connect-install-existing-database.md)
-
+Mevcut bir veritabanı ile Azure AD Connect yükleme hakkında daha fazla bilgi için bkz. [var olan bir ad eşitleme veritabanını kullanarak Azure AD Connect'i yükleme](how-to-connect-install-existing-database.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama](how-to-connect-install-express.md)

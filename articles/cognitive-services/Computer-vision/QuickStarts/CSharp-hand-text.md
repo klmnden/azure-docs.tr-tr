@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, C# ile Görüntü İşleme API’sini kullanarak bir görüntüden el yazısı metni ayıklayacaksınız.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7f9531542f6c2bab139ca4fe500afd69d5fec1c8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 160d42725abdb91af4f83696c2bceae38bbab67d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227004"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869339"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>Hızlı Başlangıç: C ve REST API kullanarak resimlerdeki el yazısı metinleri ayıklamak&#35; , görüntü işleme
 

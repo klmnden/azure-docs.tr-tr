@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Dağıtım bir dizi kağıt varlık ait öznitelik değerleri hesaplamak için CalcHistogram yöntemini kullanın.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e922f1c02876f09dcf51b192bc08c4f4fccac9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192545"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879029"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram yöntemi
 
@@ -30,7 +30,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
   
 ## <a name="request-parameters"></a>İstek Parametreleri
 
-Name  |Value | Gerekli mi?  |Açıklama
+Ad  |Değer | Gerekli mi?  |Açıklama
 -----------|----------|--------|----------
 **ifade**    |Metin dizesi | Evet  |Varlıkları histogramlar hesaplanacağı belirten bir sorgu ifadesi.
 **Model** |Metin dizesi | Hayır |Sorgulamak istediğiniz model adını seçin.  Değer şu anda, varsayılan olarak *son*.
@@ -41,7 +41,7 @@ Name  |Value | Gerekli mi?  |Açıklama
 
 ## <a name="response-json"></a>Yanıt (JSON)
 
-Name | Açıklama
+Ad | Açıklama
 --------|---------
 **ifade**  |İfade parametre istek.
 **num_entities** | Eşleşen varlıkların toplam sayısı.

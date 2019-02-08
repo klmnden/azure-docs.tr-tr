@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 3f42e149b88c2405a37366c3c7b886c7a8613e00
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382543"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862301"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Kullanım Azure Cosmos DB değişiklik akışı, gerçek zamanlı veri analizi görselleştirmek için
 
@@ -165,7 +165,7 @@ Görmek için nasıl değişiklik akışı bir e-ticaret sitesinde yeni eylemler
 
 1. Dosya Gezgini'nde depoyu geri gidin ve sağ tıklayarak **ChangeFeedFunction.sln** tekrar yeni bir Visual Studio penceresi açın.  
 
-2. Gidin **App.config** dosya. İçinde <appSettings> engelleme, URI ekleyin ve benzersiz **birincil anahtar** , daha önce aldığınız, Azure Cosmos DB hesabı.  
+2. Gidin **App.config** dosya. İçinde <appSettings> engelleme, uç nokta ekleyin ve benzersiz **birincil anahtar** , daha önce aldığınız, Azure Cosmos DB hesabı.  
 
 3. Ekleme **koleksiyon** ve **veritabanı** adları. (Bu adlar olmalıdır **changefeedlabcollection** ve **changefeedlabdatabase** sizinki farklı ad seçmediğiniz sürece.)
 

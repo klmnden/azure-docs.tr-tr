@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Azure Custom Decision Service tarafından üretilen günlük dosyalarını indirin.
 services: cognitive-services
 author: marco-rossi29
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 227caaa1b726210fd498596d716aa41365a63c7a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c03278c0d0faced20f4e02fcc1f61531c88ae141
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228126"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869679"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -44,8 +44,8 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | Girdi | Açıklama | Varsayılan |
 | --- | --- | --- |
 | `-h`, `--help` | Çıkış ve yardım iletisini gösterir. | |
-| `-a APP_ID`, `--app_id APP_ID` | Uygulama Kimliği (diğer bir deyişle, Azure depolama blobu kapsayıcısının adı). | Gereklidir |
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | (Bir alt klasör oluşturulduğunda) veri yükleme için taban dizini.  | Gereklidir |
+| `-a APP_ID`, `--app_id APP_ID` | Uygulama Kimliği (diğer bir deyişle, Azure depolama blobu kapsayıcısının adı). | Gerekli |
+| `-l LOG_DIR`, `--log_dir LOG_DIR` | (Bir alt klasör oluşturulduğunda) veri yükleme için taban dizini.  | Gerekli |
 | `-s START_DATE`, `--start_date START_DATE` | Başlangıç tarihi (dahil), buna indirme *YYYY-AA-GG* biçimi. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | (Dahil) yükleme son tarihi *YYYY-AA-GG* biçimi. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Kullanılacak üzerine yazma modu. | |

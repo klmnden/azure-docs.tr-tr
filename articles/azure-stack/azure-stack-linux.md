@@ -15,12 +15,12 @@ ms.date: 11/16/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: be537d9598eeda902254e56a9202415f4f498d93
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bee143f7e814884eda3c5dc9017895a8431e76aa
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245142"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890561"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Azure Stack'e Linux görüntüleri ekleme
 
@@ -38,7 +38,7 @@ Bu görüntüler için sık sık güncelleştirme olduğunu unutmayın, bu neden
 
 Mümkün olduğunda, Market hazırlanan ve Azure Stack için test yönetimi aracılığıyla sağlanan görüntülerin indirin. 
  
-Azure Linux Aracısı (genellikle adlı `WALinuxAgent` veya `walinuxagent`) gereklidir ve aracıyı'nin tüm sürümleri Azure Stack'te çalışır. Sürüm 2.2.18 veya sürümünü kullanmalısınız kendi görüntünüzü oluşturabilir. Unutmayın [cloud-init](https://cloud-init.io/) Azure Stack üzerinde şu anda desteklenmiyor.
+Azure Linux Aracısı (genellikle adlı `WALinuxAgent` veya `walinuxagent`) gereklidir ve aracıyı'nin tüm sürümleri Azure Stack'te çalışır. Sürüm 2.2.20 veya sürümünü kullanmalısınız kendi görüntünüzü oluşturabilir. Unutmayın [cloud-init](https://cloud-init.io/) Azure Stack üzerinde şu anda desteklenmiyor.
 
 Aşağıdaki yönergeleri kullanarak kendi Linux görüntünüzü hazırlayabilirsiniz:
 

@@ -7,12 +7,12 @@ ms.service: healthcare-apis
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: c0602d44a5b01e31cd2082e2b05d17c4289adaa1
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e8305c5a69fa3fda29f4f1292b7faa59f8ec3608
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824270"
+ms.locfileid: "55870155"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Kaynak uygulaması Azure Active Directory'de Kaydettir
 
@@ -42,7 +42,9 @@ Bir kaynak uygulama tanımlayıcı URI'si hangi istemcilerin kaynağa erişim is
 
 2. Tıklayın **ayarlamak** yanındaki *uygulama kimliği URI'si*.
 
-3. Tıklayın **"kapsam" Ekle** ve sizin için API tanımlamak istediğiniz herhangi bir kapsam ekleyin. Azure AD şu anda izin vermiyor eğik çizgi (`/`) kapsamın adları. Kullanmanızı öneririz `$` yerine. Bir kapsam ister `patient/*.read` olacaktır `patient$*.read`.
+3. ' % S'tanımlayıcısı URI girin ve tıklayın **Kaydet**. İyi bir tanımlayıcı URI'si FHIR sunucunuzun URI olacaktır.
+
+4. Tıklayın **"kapsam" Ekle** ve sizin için API tanımlamak istediğiniz herhangi bir kapsam ekleyin. Azure AD şu anda izin vermiyor eğik çizgi (`/`) kapsamın adları. Kullanmanızı öneririz `$` yerine. Bir kapsam ister `patient/*.read` olacaktır `patient$*.read`.
 
     ![Hedef kitleniz ve kapsamı](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
 

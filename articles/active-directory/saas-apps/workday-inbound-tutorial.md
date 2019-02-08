@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 11541318ca7e693cc422ecaeab182407cc5bd736
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188601"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895763"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: Workday için otomatik kullanıcı sağlamayı yapılandırma
 
@@ -713,7 +713,7 @@ Workday sağlama uygulama yapılandırmaları tamamladıktan sonra Azure portal�
 
 3. Bu işlem, değişken sayıda kaç kullanıcının Workday'deki kiracıda olduğunu bağlı olarak saat sürebilir ilk eşitleme başlar. 
 
-4. Herhangi bir zamanda denetleyin **denetim günlükleri** Azure portalında sağlama hizmeti gerçekleştirdiği eylemleri görmek için sekmesinde. Denetim günlüklerini olduğu gibi kullanıcıların Workday dışında okuma gönderildiğini ve ardından daha sonra eklendiğinde veya Active Directory sağlama hizmeti tarafından gerçekleştirilen tüm bireysel eşitleme olayları listeler. Başvurmak [sorun giderme](#troubleshooting-provisioning-issues) bölümü hazırlama hataları düzeltin ve denetim günlüklerini gözden geçirmek yönergeler.
+4. Herhangi bir zamanda denetleyin **denetim günlükleri** Azure portalında sağlama hizmeti gerçekleştirdiği eylemleri görmek için sekmesinde. Denetim günlüklerini olduğu gibi kullanıcıların Workday dışında okuma gönderildiğini ve ardından daha sonra eklendiğinde veya Active Directory sağlama hizmeti tarafından gerçekleştirilen tüm bireysel eşitleme olayları listeler. Denetim günlüklerini gözden geçirin ve sağlama hataları düzeltmek yönergeler için sorun giderme bölümüne bakın.
 
 5. İlk eşitleme tamamlandıktan sonra bir denetim özet raporu yazacak **sağlama** sekmesinde, aşağıda gösterildiği gibi.
 

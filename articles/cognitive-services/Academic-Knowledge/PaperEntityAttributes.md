@@ -4,53 +4,53 @@ titlesuffix: Azure Cognitive Services
 description: Akademik bilgi API'si kağıt varlıkta ile kullanabileceğiniz öznitelikleri hakkında bilgi edinin.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: d36a39f10f9e0129af3b730a65387d7108209004
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 240541dd76221ee19c96b162da02ced90fb0ad90
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168388"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873096"
 ---
 # <a name="paper-entity"></a>Kağıt varlık
 
 <sub> * Aşağıdaki öznitelikleri kağıt varlığa özgüdür. (Ty = '0') </sub>
 
 
-Name    |Açıklama                                        |Type       | İşlemler
+Ad    |Açıklama                                        |Type       | İşlemler
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Kimlik      |Varlık Kimliği                                          |Int64      |Eşittir
-Za      |Kağıt başlığı                                        |Dize     |Eşittir<br/>StartsWith
-L       |Kağıt dil kodu ayırarak "\@@@"            |Dize     |Eşittir
+Za      |Kağıt başlığı                                        |String     |Eşittir<br/>StartsWith
+L       |Kağıt dil kodu ayırarak "\@@@"            |String     |Eşittir
 E       |Kağıt yıl                                         |Int32      |Eşittir<br/>IsBetween
 D       |İnceleme Tarihi                                         |Tarih       |Eşittir<br/>IsBetween
 BİLGİ      |Alıntı sayısı                                     |Int32      |yok  
 ECC     |Tahmini alıntı sayısı                           |Int32      |yok
-AA.AuN  |Yazar adı                                        |Dize     |Eşittir<br/>StartsWith
+AA.AuN  |Yazar adı                                        |String     |Eşittir<br/>StartsWith
 AA.AuId |Yazar Kimliği                                          |Int64      |Eşittir
-AA.AfN  |Yazar ilişkisi adı                            |Dize     |Eşittir<br/>StartsWith
+AA.AfN  |Yazar ilişkisi adı                            |String     |Eşittir<br/>StartsWith
 AA.AfId |Yazar bağlantı kimliği                              |Int64      |Eşittir
 AA. S    |Yazar sıra kağıt                         |Int32      |Eşittir
-F.FN    |Örnek olay incelemesini ad alanı                                |Dize     |Eşittir<br/>StartsWith
+F.FN    |Örnek olay incelemesini ad alanı                                |String     |Eşittir<br/>StartsWith
 F.FId   |Örnek olay incelemesini Kimliği alanı                                  |Int64      |Eşittir
-J.JN    |Günlük adı                                       |Dize     |Eşittir<br/>StartsWith
+J.JN    |Günlük adı                                       |String     |Eşittir<br/>StartsWith
 J.JId   |Günlük kimliği                                         |Int64      |Eşittir
-C.CN    |Konferans serisi adı                             |Dize     |Eşittir<br/>StartsWith
+C.CN    |Konferans serisi adı                             |String     |Eşittir<br/>StartsWith
 C.CId   |Konferans serisi kimliği                               |Int64      |Eşittir
 RId     |Başvurulan incelemeler kimliği                              |Int64[]    |Eşittir
 W       |Kağıt başlık ve Özet sözcük                |String[]   |Eşittir
-E       |Genişletilmiş meta verileri (aşağıdaki tabloya bakın)                |Dize     |yok  
+E       |Genişletilmiş meta verileri (aşağıdaki tabloya bakın)                |String     |yok  
         
 
 
 ## <a name="extended-metadata-attributes"></a>Genişletilmiş meta veri öznitelikleri ##
 
-Name    | Açıklama               
+Ad    | Açıklama               
 --------|---------------------------    
 DN      | Kağıt görünen adı 
 S       | Kaynaklar - statik sırasına göre sıralanmış kağıdın, web kaynaklarının listesi

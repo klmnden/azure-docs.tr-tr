@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Bu makalede, konuşma tanıma hizmeti SDK'sı kullanırken karşılaşabileceğiniz sorunları gidermenize yardımcı olacak bilgiler sağlar.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217187"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859326"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Konuşma hizmeti SDK'sını sorunlarını giderme
 
@@ -67,6 +67,8 @@ Aşağıdaki komutlardan birini çalıştırarak bir geçerli abonelik anahtarı
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
+Bir geçerli abonelik anahtarı girdiğiniz komut bir yetkilendirme belirteci döndürür, aksi takdirde bir hata döndürülür.
+
 ### <a name="validate-an-authorization-token"></a>Bir yetkilendirme belirtecini doğrula
 
 Bir yetkilendirme belirteci kimlik doğrulaması için kullanıyorsanız, yetkilendirme belirtecini hala geçerli olduğunu doğrulamak için aşağıdaki komutlardan birini çalıştırın. Belirteçleri 10 dakika için geçerlidir.
@@ -101,6 +103,8 @@ Bir yetkilendirme belirteci kimlik doğrulaması için kullanıyorsanız, yetkil
     ```
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
+
+Geçerli bir yetkilendirme belirteciyle girdiyseniz, komut döküm için bir hata döndürdü, ses dosyası, aksi halde döndürür.
 
 ---
 

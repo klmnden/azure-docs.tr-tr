@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Java için Bing varlık arama SDK'sı ile varlıkları aramak için kullanın
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 5911719e0277d0ac842b285aebc03369aa82621f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1534b2a85067867800c147c86ee7d82374de8794
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757496"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866204"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Hızlı Başlangıç: Java için Bing varlık arama SDK'sı ile arama isteği gönder
 

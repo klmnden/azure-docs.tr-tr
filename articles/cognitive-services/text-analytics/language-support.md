@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: "Doğal metin analizi API'si tarafından desteklenen dillerin listesi. Bu makalede her işlem için desteklenen dilleri açıklar: yaklaşım analizi, anahtar ifade ayıklama, dil algılama ve varlık tanıma."
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: ec1858256c942fd50818a214de426fd00c3c2c88
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 421d891ea6c580cfbdd7cfc40755b43e1d4b207e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216940"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871294"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Metin analizi API'si için dil ve bölge desteği
 

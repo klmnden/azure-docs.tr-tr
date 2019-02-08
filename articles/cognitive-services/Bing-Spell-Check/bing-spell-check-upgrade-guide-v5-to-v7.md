@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanıtır.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 5e9ae0f7affe563d69fd2a55daeaf03a230c03c7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 402fabc41908afc35396064ef4e518fc3c231052
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55202952"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866364"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Yazım denetimi API'si Yükseltme Kılavuzu
 

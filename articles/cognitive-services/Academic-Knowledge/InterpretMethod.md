@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Kullanıcı sorgu dizeleri üzerinde Academic Graph verileri ve Microsoft Bilişsel hizmetler akademik dilbilgisi göre biçimlendirilmiş ınterpretations döndürülecek yorumlama yöntemi kullanın.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171669"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860533"
 ---
 # <a name="interpret-method"></a>Yöntem yorumlama
 
@@ -29,7 +29,7 @@ Etkileşimli bir deneyim sağlamak üzere bu yöntemi tekrar tekrar sonrasında 
 
 ## <a name="request-parameters"></a>İstek Parametreleri
 
-Name     | Value | Gerekli mi?  | Açıklama
+Ad     | Değer | Gerekli mi?  | Açıklama
 ---------|---------|---------|---------
 **Sorgu**    | Metin dizesi | Evet | Kullanıcı tarafından girilen sorgu.  Tam 1 olarak ayarlanırsa, sorgu oluşturma sorgu otomatik tamamlama önerileri için önek olarak yorumlanacaktır.        
 **Model**    | Metin dizesi | Hayır  | Sorgulamak istediğiniz modelin adı.  Değer şu anda, varsayılan olarak *son*.        
@@ -40,7 +40,7 @@ Name     | Value | Gerekli mi?  | Açıklama
 <br>
   
 ## <a name="response-json"></a>Yanıt (JSON)
-Name     | Açıklama
+Ad     | Açıklama
 ---------|---------
 **Sorgu** |*Sorgu* istek parametresi.
 **Yorumlar** |Kullanıcı girişi dilbilgisi karşı eşleşen 0 veya daha farklı yolları dizisi.

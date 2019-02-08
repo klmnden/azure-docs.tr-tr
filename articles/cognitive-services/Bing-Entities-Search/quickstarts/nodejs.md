@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing varlık arama REST API'si kullanarak bir istek göndermek için bu hızlı başlangıçta kullanmak C#ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 37e00c6cdc5340607a4aabc446d87e1a8575c552
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 87afdd9e949ec866c6ee962c2b68af42590bee67
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755144"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878723"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak Bing varlık arama REST API'si için bir arama isteği gönder
 

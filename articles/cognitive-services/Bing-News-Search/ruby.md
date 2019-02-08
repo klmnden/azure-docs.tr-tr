@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Ruby kullanarak Bing haber arama REST API'si için bir istek göndermek için kullanın ve bir JSON yanıtı alırsınız.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b55f6ac033d7c1cb57ec015a62368fc3e10706c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9ed658c6613d270ab3de67a8800263d677d70bac
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203870"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867027"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Ruby ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 

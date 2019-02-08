@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 07be781c917a466b67580a99490eca4f6ff29985
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9e5570b937fe97cc9b6ccd9ac804a35ff8e07d6f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239800"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883075"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>HDInsight ve Azure Data Lake depolama Gen2 Hive için performans ayarlama Kılavuzu
 
@@ -23,7 +23,7 @@ Varsayılan ayarlar, birçok farklı kullanım örnekleri arasında iyi bir perf
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Data Lake depolama Gen2 hesabı**. Bir oluşturma hakkında yönergeler için bkz: [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
-* **Azure HDInsight kümesinde** bir Data Lake depolama Gen2 hesabına erişim.
+* **Azure HDInsight kümesinde** bir Data Lake depolama Gen2 hesabına erişim. Bkz: [kullanımı Azure Data Lake depolama Gen2 Azure HDInsight ile kümeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 * **HDInsight üzerinde Hive'ı çalıştıran**.  HDInsight üzerinde Hive işlerini çalıştırma hakkında bilgi edinmek için bkz. [HDInsight Hive kullanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Performans ayarlama yönergeleri Data Lake depolama Gen2**.  Genel performans için bkz [veri Lake depolama Gen2 performans ayarlama Kılavuzu](data-lake-storage-performance-tuning-guidance.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanı yönetilen örneği'nde çoğaltma yapılandırması | Microsoft Docs
-description: Azure SQL veritabanı yönetilen örneği'nde işlem çoğaltma yapılandırma hakkında bilgi edinin
+title: Bir Azure SQL veritabanı yönetilen örnek veritabanında çoğaltma yapılandırma | Microsoft Docs
+description: Bir Azure SQL veritabanı yönetilen örnek veritabanında işlemsel çoğaltma yapılandırma hakkında bilgi edinin
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,61 +11,58 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 038d8c919e68e68f886525a6c78139496edef8e1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467672"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893027"
 ---
-# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği'nde çoğaltmayı yapılandırma
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Bir Azure SQL veritabanı yönetilen örnek veritabanında çoğaltmayı yapılandırma
 
-İşlem çoğaltma sağlar, yönetilen örneği SQL Server veya Azure SQL veritabanı yönetilen örneği veritabanlarına verileri çoğaltmak için veya veritabanlarınızda başka SQL Server, SQL veritabanı tek veritabanı yönetilen örneğinde yapılan değişiklikleri göndermek veya Elastik havuz veya diğer yönetilen örneği. Çoğaltma üzerinde genel önizlemede olan [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). Bir yönetilen örnek, yayımcı ve dağıtıcı abone veritabanlarını barındırabilir. Bkz: [işlem çoğaltması yapılandırmaları](sql-database-managed-instance-transactional-replication.md#common-configurations) kullanılabilir yapılandırmaları için.
+İşlem çoğaltma SQL Server veritabanı veya başka bir örneği veritabanından bir Azure SQL veritabanı yönetilen örnek veritabanına veri çoğaltmanıza olanak sağlar. İşlem çoğaltma, bir örneği veritabanında bir SQL Server veritabanını Azure SQL veritabanı yönetilen örneği'nde tek bir Azure SQL veritabanı, veritabanı bir havuza alınmış Azure SQL veritabanı elastik havuz veritabanına yapılan değişiklikleri göndermek için de kullanabilirsiniz. İşlem çoğaltma üzerinde genel önizlemede olan [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). Yönetilen örnek, yayımcı ve dağıtıcı abone veritabanlarını barındırabilir. Bkz: [işlem çoğaltması yapılandırmaları](sql-database-managed-instance-transactional-replication.md#common-configurations) kullanılabilir yapılandırmaları için.
 
 ## <a name="requirements"></a>Gereksinimler
 
-Yayımcı ve dağıtıcı Azure SQL veritabanı gerektirir:
+Bir yayımcı ya da bir dağıtıcı olarak çalışması için bir yönetilen örnek yapılandırma gerektirir:
 
-- Azure SQL veritabanı yönetilen Geo-DR yapılandırmada değil örneği.
+- Yönetilen örnek şu anda bir coğrafi çoğaltma ilişkisine katılmıyor olduğunu.
 
    >[!NOTE]
-   >Yönetilen örnek sayesinde yapılandırılmamış olan Azure SQL veritabanları, yalnızca abone olabilir.
+   >Yalnızca tek veritabanlarının ve havuza alınmış veritabanlarını Azure SQL veritabanı'nda abone olabilir.
 
-- SQL Server'ın tüm örnekleri aynı vNet üzerinde olması gerekir.
+- Tüm yönetilen örnekleri aynı vNet üzerinde olmalıdır.
 
 - Bağlantı çoğaltma katılımcılar SQL kimlik doğrulaması kullanır.
 
 - Çoğaltma çalışma dizini için bir Azure depolama hesabı paylaşımı.
 
-- Bağlantı noktası 445 (TCP Giden) Azure dosya paylaşımına erişmek için yönetilen örnek alt güvenlik kurallarında açık olması gerekir
+- Bağlantı noktası 445 (TCP Giden) Azure dosya paylaşımına erişmek için yönetilen örnek alt ağ güvenliği kurallarının açılması gerekiyor
 
 ## <a name="features"></a>Özellikler
 
 Desteklediği Özel Uygulamalar:
 
-- Şirket içi ve Azure SQL veritabanı yönetilen örneği örnekleri karışımını işlem ve anlık görüntü çoğaltma.
-
-- Aboneler, şirket içi, Azure SQL veritabanı tek veritabanı veya havuza alınmış veritabanlarını Azure SQL veritabanı elastik havuzları olabilir.
-
+- Şirket içi SQL Server ve Azure SQL veritabanı yönetilen örnekleri karışımını işlem ve anlık görüntü çoğaltma.
+- Aboneler, şirket içi SQL Server veritabanları, Azure SQL veritabanı'nda tek veritabanları veya havuza alınmış veritabanlarını Azure SQL veritabanı elastik havuzları olabilir.
 - Tek yönlü veya çift yönlü çoğaltma.
 
-Aşağıdaki özellikler desteklenmez:
+Aşağıdaki özellikler bir Azure SQL veritabanı yönetilen örneğinde desteklenmiyor:
 
 - Güncelleştirilebilir abonelikler.
-
 - Etkin coğrafi çoğaltma.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Yayımlama ve dağıtım örneği yapılandırma
 
-1. [Bir Azure SQL veritabanı yönetilen örneği oluşturma](sql-database-managed-instance-create-tutorial-portal.md) portalında.
+1. [Bir Azure SQL veritabanı yönetilen örnek oluşturma](sql-database-managed-instance-create-tutorial-portal.md) portalında.
 2. [Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) için çalışma dizini.
 
    Depolama anahtarlarını kopyaladığınızdan emin olun. Bkz: [depolama erişim anahtarlarını görüntüleme ve kopyalama](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Yayımcı için bir veritabanı oluşturun.
+3. Yayımcı için bir örnek veritabanı oluşturun.
 
-   Aşağıdaki örnek betiklerde değiştirin `<Publishing_DB>` ile bu veritabanının adı.
+   Aşağıdaki örnek betiklerde değiştirin `<Publishing_DB>` ile örnek veritabanının adı.
 
 4. Bir veritabanı kullanıcısı için dağıtıcı SQL kimlik doğrulaması ile oluşturun. Güvenli bir parola kullanın.
 

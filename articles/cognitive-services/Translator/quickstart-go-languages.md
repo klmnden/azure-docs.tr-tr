@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/05/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 45dcd87910e0dbfc57aa09751cbdaa7a043d7cf1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f750bfb07ee273f7b1d355657bfd3c4808f84ef5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226664"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891734"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Go kullanarak desteklenen dillerin listesini almak için kullanın
 
 Bu hızlı başlangıçta, Git ve Translator Text REST API kullanarak desteklenen dillerin listesi döndüren bir GET isteğinde bulunmak öğreneceksiniz.
-
-Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıç şunları gerektirir:
 
 * [Go](https://golang.org/doc/install)
-* Translator Metin Çevirisi için Azure abonelik anahtarı
 
 ## <a name="create-a-project-and-import-required-modules"></a>Bir proje oluşturun ve gerekli modülleri içeri aktarın
 
@@ -43,43 +40,32 @@ import (
     "log"
     "net/http"
     "net/url"
-    "os"
 )
 ```
 
 ## <a name="create-the-main-function"></a>Main işlevi oluşturma
 
-Bu örnek, `TRANSLATOR_TEXT_KEY` ortam değişkeninden Translator Metin Çevirisi abonelik anahtarınızı okumaya çalışır. Ortam değişkenlerini bilmiyorsanız, `subscriptionKey` öğesini dize olarak ayarlayabilir ve koşul deyimini açıklama satırı yapabilirsiniz.
+Uygulamamız için ana işlevi oluşturalım. Tek satırlık bir kod olduğunu fark edeceksiniz. Alma ve Translator metin çevirisi için desteklenen dillerin listesini yazdırmak için tek bir işlev oluşturuyoruz olmasıdır.
 
 Bu kodu projenize kopyalayın:
 
 ```go
 func main() {
     /*
-     * Read your subscription key from an env variable.
-     * Please note: You can replace this code block with
-     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
-     */
-    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
-    if subscriptionKey == "" {
-       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
-    }
-    /*
      * This calls our getLanguages function, which we'll
      * create in the next section. It takes a single argument,
      * the subscription key.
      */
-    getLanguages(subscriptionKey)
+    getLanguages()
 }
 ```
 
 ## <a name="create-a-function-to-get-a-list-of-supported-languages"></a>Desteklenen dillerin listesini almak için bir işlev oluşturma
 
-Desteklenen dillerin listesini almak için bir işlevi oluşturalım. Bu işlev, tek bir bağımsız değişken, Translator metin çevirisi abonelik anahtarınızı olacaktır.
+Desteklenen dillerin listesini almak için bir işlevi oluşturalım.
 
 ```go
-func getLanguages(subscriptionKey string) {
+func getLanguages() {
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -93,8 +79,9 @@ Bu kodu kopyalayın `getLanguages` işlevi.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/languages?api-version=3.0")
+u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/languages")
 q := u.Query()
+q.Add("api-version", "3.0")
 u.RawQuery = q.Encode()
 ```
 
@@ -112,7 +99,6 @@ if err != nil {
     log.Fatal(err)
 }
 // Add required headers
-req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
 // Call the Translator Text API

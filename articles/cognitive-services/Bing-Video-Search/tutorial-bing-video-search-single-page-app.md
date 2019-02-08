@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Video Arama API'sinin tek sayfalı bir Web uygulamasında kullanılmasını açıklar.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: f3a13bf15ed1ef1629cd17af43a0f71df80b1349
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 034ea49322f213971f549673a1d179a301585c96
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567545"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875222"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Öğretici: Video arama tek sayfalı uygulama
 Bing Video Arama API'si Web'de arama yapmanızı ve arama sorgusuna uyan video sonuçları almanızı sağlar. Bu öğreticide, Bing arama API'sini kullanarak sayfada arama sonuçlarını görüntüleyen tek sayfalı bir Web uygulaması oluşturuyoruz. Uygulama HTML, CSS ve JavaScript bileşenlerini içeriyor.

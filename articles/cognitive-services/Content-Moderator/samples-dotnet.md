@@ -3,18 +3,18 @@ title: Kod örnekleri - Content Moderator, .NET
 description: Content Moderator SDK'sı aracılığıyla .NET uygulamaları kullanın.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43aa1ca624bce78fa113c34fa19da9ccfea69bbc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4049211acd760f74fbb4a725f878e5c51acbe7dd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222108"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875953"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Content Moderator .NET SDK örnekleri
 

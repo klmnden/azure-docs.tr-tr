@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: e4b217ada2aae159680b113b6ddcb41c9d121f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753070"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894709"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL veritabanı ve SQL veri ambarı IP güvenlik duvarı kuralları
 
@@ -92,7 +92,7 @@ Performansı artırmak için sunucu düzeyinde IP güvenlik duvarı kuralların�
 > [!TIP]
 > Kullanabileceğiniz [SQL Database Auditing](sql-database-auditing.md) sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı değişiklikleri denetlemek için.
 
-## <a name="manage-ip-firewall-rules-using-the-azure-portal"></a>Azure portalını kullanarak IP güvenlik duvarı kurallarını yönetme
+## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>Azure portalını kullanarak sunucu düzeyinde IP güvenlik duvarı kurallarını yönetme
 
 Azure portalında sunucu düzeyinde IP güvenlik duvarı kuralını ayarlamak için ya da Genel Bakış sayfasına, Azure SQL veritabanınızı veya genel bakış sayfası için SQL veritabanı sunucunuz için gidebilirsiniz.
 
@@ -196,7 +196,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [Güvenlik Duvarı Kuralını Sil](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Sunucu |Sunucu düzeyinde IP güvenlik duvarı kurallarını kaldırır |
 | [Güvenlik duvarı kurallarını Al](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Sunucu | Sunucu düzeyinde IP güvenlik duvarı kuralları alır |
 
-## <a name="server-level-ip-firewall-rule-versus-a-database-level-ip-firewall-rule"></a>Sunucu düzeyinde IP güvenlik duvarı kuralı ve veritabanı düzeyinde IP güvenlik duvarı kuralı
+## <a name="server-level-versus-database-level-ip-firewall-rules"></a>Sunucu düzeyinde ve veritabanı düzeyinde IP güvenlik duvarı kuralları
 
 S. Kullanıcılar bir veritabanının başka bir veritabanından tamamen yalıtılmış olmalıdır?
 Yanıt Evet ise, veritabanı düzeyinde IP güvenlik duvarı kurallarını kullanarak erişim verin. Bu, tüm veritabanları, savunmalarınıza derinliğini azaltmak için güvenlik duvarı üzerinden erişime izin sunucu düzeyinde IP güvenlik duvarı kurallarının kullanılmasını önler.

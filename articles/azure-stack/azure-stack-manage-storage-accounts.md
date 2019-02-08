@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a8134e2350b650f7dfe0b3a1d58d107e42493223
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766512"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895077"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure stack'teki depolama hesapları yönetme
 
@@ -67,7 +67,7 @@ Silinen hesabı kurtarma için gerek duyduğunuz bir durumda olabilir.
 
 Azure Stack'te Bunu yapmak için basit bir yolu yoktur:
 
-1. Depolama hesapları listesine göz atın. Bkz: [bir depolama hesabı bulunamadı](#find) daha fazla bilgi için bu makaledeki.
+1. Depolama hesapları listesine göz atın. Daha fazla bilgi için bu makaledeki bir depolama hesabı Bul bakın.
 2. Bu belirli hesabını listede bulun. Filtre gerekebilir.
 3. Denetleme *durumu* hesabının. Söyleyin **silinmiş**.
 4. Hesap ayrıntıları bölmesi açılır hesabı seçin.
@@ -113,7 +113,7 @@ Bir bekletme dönemi yan etkileri silinen hesabı dışında bir bekletme dönem
 Portal veya PowerShell kullanarak kapasite kazanabilirsiniz.
 
 **Portalı kullanarak kapasiteyi geri kazanmak için:**
-1. Depolama hesapları bölmesine gidin. Bkz: [bir depolama hesabı bulunamadı](#find).
+1. Depolama hesapları bölmesine gidin. Bulma bir depolama hesabına bakın.
 2. Seçin **alanı geri kazan** bölmenin üstünde.
 3. İleti okumak ve ardından **Tamam**.
 

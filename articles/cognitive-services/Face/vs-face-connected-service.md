@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bir görüntüdeki yüzlerin özelliklerini algılamak için Bilişsel Hizmetler Yüz Tanıma API’sini kullanan basit bir Windows uygulaması oluşturun.
 services: cognitive-services
 author: ghogen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: 00b1d3ed636bb1690e9d5026c558ca989de95375
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a8c3bc7a3a659809f1602ffae303f9bd26f2c35a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209443"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857792"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Visual Studio’da Bağlı Hizmetler’i kullanarak Bilişsel Hizmetler Yüz Tanıma API’sine bağlanma
 

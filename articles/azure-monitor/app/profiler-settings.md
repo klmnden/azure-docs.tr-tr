@@ -3,21 +3,21 @@ title: Azure Application Insights Profiler ayarlar bölmesini kullanın | Micros
 description: Profiler durumunu görmek ve oturumları profilini oluşturmaya başla
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
-ms.openlocfilehash: 16e855d8c9c5863339ec09b48d41d6f011b3e836
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.author: cweining
+ms.openlocfilehash: 7f864c90b8279f315fc0dbe96f41bfd03be7cebc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358688"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883382"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler'ı Yapılandır
 

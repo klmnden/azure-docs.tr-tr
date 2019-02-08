@@ -1,22 +1,22 @@
 ---
-title: Azure Data Lake depolama Gen2 önizlemesi Azure HDInsight kümeleri ile kullanma
-description: Azure Data Lake depolama Gen2 önizlemesi buradan veri sorgulamak ve analiz sonuçlarınızı depolama hakkında bilgi edinin.
+title: Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
+description: Azure Data Lake depolama Gen2 buradan veri sorgulamak ve analiz sonuçlarınızı depolama hakkında bilgi edinin.
 author: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 739076289a1324cb47f0c980f0d21b153c7b5edc
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0932c576a47af85c496d5d2d12dbc1b997d48e16
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662967"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874337"
 ---
-# <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 önizlemesi Azure HDInsight kümeleri ile kullanma
+# <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
-Bir HDInsight kümesindeki verileri çözümlemek için Azure Blob Depolama, Azure Data Lake depolama Gen2 etkin önizlemesi ile Azure Blob Depolama veya Azure Data Lake depolama Gen1 herhangi bir birleşimini ya da verileri depolayabilirsiniz. Tüm depolama seçenekleri, kullanıcı verilerini kaybetmeden hesaplama için kullanılan HDInsight kümelerini güvenle silmenizi sağlar.
+Bir HDInsight kümesindeki verileri çözümlemek için Azure Blob Depolama, Azure Data Lake depolama etkin Gen2 ile Azure Blob Depolama veya Azure Data Lake depolama Gen1 herhangi bir birleşimini ya da verileri depolayabilirsiniz. Tüm depolama seçenekleri, kullanıcı verilerini kaybetmeden hesaplama için kullanılan HDInsight kümelerini güvenle silmenizi sağlar.
 
 Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında Azure Depolama'da veya Data Lake depolama 2. nesil olarak varsayılan dosya sistemi tarafından sunulan hiyerarşik ad alanı, bir blob kapsayıcısı belirtebilirsiniz. Alternatif olarak HDInsight 3.5 ile kapsayıcı ya da hiyerarşik ad alanı birkaç özel durum varsayılan dosya sistemi olarak seçebilirsiniz.
 
@@ -154,7 +154,7 @@ az storage account create \
 ```
 
 > [!NOTE]
-> Data Lake depolama Gen2'ın yalnızca genel Önizleme sırasında `--sku Standard_LRS` desteklenir.
+> Yalnızca genel Data Lake depolama Gen2'ın sırasında `--sku Standard_LRS` desteklenir.
 
 Depolama hesabının oluşturulacağı coğrafi bölgeyi belirtmeniz istenir. HDInsight kümenizi oluşturmayı planladığınız aynı bölgede depolama hesabı oluşturun.
 

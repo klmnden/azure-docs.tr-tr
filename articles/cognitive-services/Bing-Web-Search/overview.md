@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Bing Web araması API'si, kullanıcı sorgularına anında yanıt sağlayan bir RESTful hizmetidir. Arama sonuçları; web sayfalarını, görüntüleri, videoları, haberleri, çevirileri ve daha fazlasını içerecek şekilde yapılandırılabilir. Sonuçlar, JSON biçiminde sunulur ve aramayla ilgi düzeyini ve Bing Web Araması aboneliklerinizi temel alır.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
 ms.date: 08/14/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 46d79b1ac6c56ba953eb0908e46338387b69ff1f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 2cf135cc984ce032113de65bead210bd4c5e95ce
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768285"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861808"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Bing Web araması API'si nedir?
 

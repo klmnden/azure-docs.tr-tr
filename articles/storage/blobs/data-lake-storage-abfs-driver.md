@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake depolama Gen2 önizlemesi için Azure Blob dosya sistemi sürücüsü
+title: Azure Data Lake depolama Gen2 Azure Blob dosya sistemi sürücüsü
 description: ABFS Hadoop dosya sistemi sürücüsü
 services: storage
 author: jamesbak
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f50723fa494df0ff1490bf27451394a6e13da467
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c2830cb92df0794e9afbaadfe872ab3e044669cb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240888"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865973"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob dosya sistemi sürücü (ABFS): Hadoop için adanmış bir Azure depolama sürücüsü
 
-Verileri Azure Data Lake depolama Gen2 önizlemesi için birincil erişim yöntemleri biri aracılığıyla [Hadoop dosya sistemi](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake depolama Gen2, kullanıcıların yeni bir sürücü, Azure Blob dosya sistemi sürücüsü için Azure Blob Depolama erişim sağlar veya `ABFS`. ABFS Apache Hadoop bir parçasıdır ve hadoop ticari dağıtımlarının çoğunda dahil edilir. Bu sürücü kullanarak, birçok uygulama ve çerçeveler verileri Azure Blob depolama alanındaki açıkça Data Lake depolama Gen2'ye başvurma herhangi bir kodu erişebilir.
+Azure Data Lake depolama Gen2 verileri için birincil erişim yöntemleri biri aracılığıyla [Hadoop dosya sistemi](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake depolama Gen2, kullanıcıların yeni bir sürücü, Azure Blob dosya sistemi sürücüsü için Azure Blob Depolama erişim sağlar veya `ABFS`. ABFS Apache Hadoop bir parçasıdır ve hadoop ticari dağıtımlarının çoğunda dahil edilir. Bu sürücü kullanarak, birçok uygulama ve çerçeveler verileri Azure Blob depolama alanındaki açıkça Data Lake depolama Gen2'ye başvurma herhangi bir kodu erişebilir.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Önceki özelliği: Windows Azure depolama blobu sürücü
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Dahili olarak ABFS sürücü dosyalara ve dizinlere URI belirtilen kaynaklar çevirir ve bu başvuruları ile Azure Data Lake depolama REST API çağrıları yapar.
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 Hadoop application Data Lake depolama Gen2'ye yeteneğine sahip bir hesap içinde yer alan kaynaklara güvenle erişin, böylece iki tür kimlik doğrulaması ABFS sürücü destekler. Kullanılabilir kimlik doğrulama düzenleri tam ayrıntıları verilmiştir [Azure depolama Güvenlik Kılavuzu](../common/storage-security-guide.md). Bunlar:
 

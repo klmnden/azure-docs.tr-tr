@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: .NET için Azure Content Moderator SDK'sını kullanarak bir Content Moderator istemcisi döndürme
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 08902df231fedd2c1c5653052540cb1cdabba9cf
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 94a16d03e47a9bec29e5e1c4326beab376dd33dd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224954"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864409"
 ---
 # <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>Hızlı Başlangıç: Content Moderator istemci döndürmek için kullanılan yardımcı kodu
 

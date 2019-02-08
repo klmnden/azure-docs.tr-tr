@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2ef37e9661139b0b1d24ddc005df7bf338397803
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163815"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856368"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>SSO ve Azure Active Directory B2C'de özel ilkeleri kullanarak belirteci özelleştirme yönetme
 
@@ -52,7 +52,18 @@ Aşağıdaki değerleri, önceki örnekte ayarlanır:
 - **Yenileme belirteci ömrü** - değeri ayarı ile yenileme belirteci ömrü **refresh_token_lifetime_secs** meta veri öğesi. Varsayılan değer 1209600 (14 gün) saniyedir.
 - **Yenileme belirteci kayan pencere ömrü** - istiyorsanız, yenileme belirteci kayan pencere ömrü ayarlayın, değerini **rolling_refresh_token_lifetime_secs** meta veri öğesi. 7776000 (90 gün) varsayılan değerdir. Bir kayan pencere ömrü uygulamak istemiyorsanız öğeyle değiştirin `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
 - **Verici (iss) talebi** -verici (iss) talebi ile ayarlanır **IssuanceClaimPattern** meta veri öğesi. Geçerli değerler `AuthorityAndTenantGuid` ve `AuthorityWithTfp`.
-- **Ayar talep ilke Kimliğini temsil eden** -bu değeri ayarlamak için Seçenekler `TFP` (güven framework ilke) ve `ACR` (kimlik doğrulaması bağlamı Başvurusu). `TFP` Önerilen değerdir. Ayarlama **AuthenticationContextReferenceClaimPattern** değeriyle `None`. İçinde **OutputClaims** öğesi, bu öğeyi ekleyin:
+- **Ayar talep ilke Kimliğini temsil eden** -bu değeri ayarlamak için Seçenekler `TFP` (güven framework ilke) ve `ACR` (kimlik doğrulaması bağlamı Başvurusu). `TFP` Önerilen değerdir. Ayarlama **AuthenticationContextReferenceClaimPattern** değeriyle `None`. 
+
+    İçinde **ClaimsSchema** öğesi, bu öğeyi ekleyin: 
+    
+    ```XML
+    <ClaimType Id="trustFrameworkPolicy">
+      <DisplayName>Trust framework policy name</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    ```
+    
+    İçinde **OutputClaims** öğesi, bu öğeyi ekleyin:
     
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />

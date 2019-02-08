@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Metin analizi REST API'sini kullanarak varlıkları tanıması konusunda bilgi edinin.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5b8ebc76355d39c1e81217fd1f7af09f876838c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220401"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862354"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Adlandırılmış varlık tanıma, metin analizi (Önizleme) kullanma
 
@@ -58,7 +58,7 @@ Varlık bağlama çeşitli dillerde kullanarak, karşılık gelen Bilgi Bankası
 | DateTime      | Tarih          | "Mayıs 2 2017", "02/05/2017"   | 
 | Tarih/Saat     | Zaman          | "8 am", "8:00"  | 
 | DateTime      | DateRange     | "2 Mayıs Mayıs 5 için"    | 
-| DateTime      | TimeRange     | "18: 00 için 7 pm"     | 
+| DateTime      | timeRange     | "18: 00 için 7 pm"     | 
 | DateTime      | Süre      | "1 dakika ve 45 saniye"   | 
 | DateTime      | Ayarla           | "her Salı"     | 
 | DateTime      | TimeZone      |    | 

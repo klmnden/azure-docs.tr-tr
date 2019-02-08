@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Bu Yükseltme Kılavuzu, sürüm 5 ve Bing resim arama API'si 7 sürümü arasındaki değişiklikleri açıklar. Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanımlamanıza yardımcı olması için bu kılavuzu kullanın.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 7F78B91F-F13B-40A4-B8A7-770FDB793F0F
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: ec870ee8b40e732bf12c90689fb7ca79a7ff516c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4cd77dc6572ed100a7bef34829ed17579e3b5491
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55204193"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876791"
 ---
 # <a name="bing-image-search-api-upgrade-guide"></a>Bing resim arama API'si Yükseltme Kılavuzu
 

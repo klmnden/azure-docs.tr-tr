@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS kapsayıcı eğitilen veya yayımlanmış uygulamanızı bir docker kapsayıcısına yükler ve kapsayıcının API uç noktalardan gelen sorgu tahminler elde etmek için erişim sağlar.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 1ae4396c6b91f81e273e6ad171f4cac9b55445f6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296911"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864742"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -252,7 +252,7 @@ Daha fazla [örnekler](luis-container-configuration.md#example-docker-run-comman
 
 Kapsayıcı, REST tabanlı sorgu tahmin uç nokta API'leri sağlar. Uç noktaları (hazırlık veya üretim) yayımlanan uygulamalar için bir _farklı_ daha eğitilen uygulamalar için uç nokta yolu. 
 
-Ana bilgisayarını kullanmak https://localhost:5000, kapsayıcı API'leri için. 
+Ana bilgisayarını kullanmak `https://localhost:5000`, kapsayıcı API'leri için. 
 
 |Paket türü|Yöntem|Yol|Sorgu parametreleri|
 |--|--|--|--|

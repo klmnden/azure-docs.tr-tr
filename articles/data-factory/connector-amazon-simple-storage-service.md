@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: cd07343e056493369d2093651ecf7c466595f412
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 16d0002ec8e42eec92895aaf582a8c2b3df2c3a6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656592"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895270"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Amazon basit depolama hizmeti Azure Data Factory kullanarak veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ Amazon S3'bağlı hizmeti için aşağıdaki özellikleri destekler:
 | type | Type özelliği ayarlanmalıdır **AmazonS3**. | Evet |
 | accessKeyId | Gizli erişim anahtarı kimliği. |Evet |
 | secretAccessKey | Gizli erişim anahtarı kendisi. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet |
-| ServiceUrl | Bir S3 ile uyumlu depolama sağlayıcısı resmi Amazon S3 hizmeti dışındaki veri kopyalıyorsanız özel S3 uç noktasını belirtin. Örneğin, [Google bulut depolamadan veri kopyalama](#copy-from-google-cloud-storage), belirtin `https://storage.googleapis.com`. | Hayır |
+| ServiceUrl | Bir S3 ile uyumlu depolama sağlayıcısı resmi Amazon S3 hizmeti dışındaki veri kopyalıyorsanız özel S3 uç noktasını belirtin. Örneğin, Google bulut depolama alanından verileri kopyalamak için belirtmeniz `https://storage.googleapis.com`. | Hayır |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel ağında bulunuyorsa), Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 >[!TIP]

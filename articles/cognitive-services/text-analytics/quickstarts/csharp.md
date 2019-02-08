@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Metin Analizi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 5b6ae20445b74aa1713f9af5765684a9c01e2953
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1ae1288c8efd138863d63fc6437115aeb5fe98c8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224318"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865786"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Kullanarak C# metin analizi Bilişsel hizmetini çağırmak için
 <a name="HOLTop"></a>

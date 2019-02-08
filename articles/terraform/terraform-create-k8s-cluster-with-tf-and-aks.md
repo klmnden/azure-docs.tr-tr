@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 0ef206cf4407c6392ae5d9a70ba156f5635715e9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 57615ecd4c81359360004b732736bf757c0026c3
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814801"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892074"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service ve Terraform ile bir Kubernetes kümesi oluşturma
 [Azure Kubernetes Service (AKS)](/azure/aks/), barındırılan Kubernetes ortamınızı yöneterek kapsayıcılı uygulamaları, kapsayıcı yönetimi uzmanlığı gerekmeden hızla ve kolayca dağıtma olanağı sunar. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.
@@ -32,7 +32,7 @@ Bu öğreticide aşağıdaki [Terraform](http://terraform.io) ve AKS'yi kullanar
 
 - **Terraform'u yapılandırın**: Makaledeki yönergeleri izleyerek [Terraform ve Azure erişimi yapılandırma](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure hizmet sorumlusu**: Bölümündeki yönergeleri izleyerek **hizmet sorumlusu oluşturma** makale bölümünde [Azure, Azure CLI ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). appId, displayName, password ve tenant değerlerini not edin.
+- **Azure hizmet sorumlusu**: Bölümündeki yönergeleri izleyerek **hizmet sorumlusu oluşturma** makale bölümünde [Azure, Azure CLI ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). appId, displayName, password ve tenant değerlerini not edin.
 
 ## <a name="create-the-directory-structure"></a>Dizin yapısını oluşturma
 İlk adım, bu alıştırmadaki Terraform yapılandırma dosyalarınızı barındıracak olan dizini oluşturmaktır.

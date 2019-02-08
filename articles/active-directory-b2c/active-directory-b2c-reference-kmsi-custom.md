@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812319"
+ms.locfileid: "55870971"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de (KMSI) içinde Oturumumu açık bırak seçeneğini etkinleştirme
 
@@ -154,7 +154,7 @@ Oluşturduğunuz kullanıcı yolculuğu başlatır bağlı olan taraf (RP) dosya
 
     Değerini **SessionExpiryInSeconds** SSO oturumunun sona erme saati temsil eder. KMSI'yi oturumun veya dolup dolmadığını kontrol etmek için bu Azure AD B2C tarafından dahili olarak kullanılır. Değerini **KeepAliveInDays** web tarayıcısında SSO tanımlama bilgisinin süre sonu/Max-Age değeri belirler. Farklı **SessionExpiryInSeconds**, **KeepAliveInDays** tarayıcı kapatıldığında, tanımlama bilgisi silinmesini önlemek için kullanılır. Yalnızca SSO oturum tanımlama bilgisinin denetlenen yoksa, bir kullanıcının sessiz bir şekilde oturum **KeepAliveInDays**ve süresi dolduğunda, hangi tarafından denetlenir **SessionExpiryInSeconds**. 
     
-    Bir kullanıcı değil etkinleştirirseniz **Oturumumu açık bırak** tarafından belirtilen süre geçtikten sonra kaydolma ve oturum açma sayfasında bir oturum süresinin sona **SessionExpiryInSeconds** geçti veya tarayıcı kapatıldı. Bir kullanıcı etkinleştirirse **Oturumumu açık bırak**, değerini **KeepAliveInDays** değerini geçersiz kılar **SessionExpiryInSeconds** ve oturumu sona erme saati belirler. Kullanıcılar bile Tarayıcıyı kapatın ve yeniden açın, bunlar yine de sessiz bir şekilde oturum açma saati içinde olduğu sürece **KeepAliveInDays**. Değerini ayarlamak önerilir **SessionExpiryInSeconds** (1200 saniye), kısa bir süre değerini sırasında olmasını **KeepAliveInDays** oldukça uzun bir süre (7 gün) gösterildiği şekilde ayarlanabilir Aşağıdaki örnekte:
+    Bir kullanıcı değil etkinleştirirseniz **Oturumumu açık bırak** tarafından belirtilen süre geçtikten sonra kaydolma ve oturum açma sayfasında bir oturum süresinin sona **SessionExpiryInSeconds** geçti veya tarayıcı kapatıldı. Bir kullanıcı etkinleştirirse **Oturumumu açık bırak**, değerini **KeepAliveInDays** değerini geçersiz kılar **SessionExpiryInSeconds** ve oturumu sona erme saati belirler. Kullanıcılar tarayıcıyı kapatın ve yeniden açın bile kullanıcılar hala sessiz bir şekilde zaman içinde olduğu sürece oturum **KeepAliveInDays**. Değerini ayarlamak önerilir **SessionExpiryInSeconds** (1200 saniye), kısa bir süre değerini sırasında olmasını **KeepAliveInDays** oldukça uzun bir süre (7 gün) gösterildiği şekilde ayarlanabilir Aşağıdaki örnekte:
 
     ```XML
     <RelyingParty>

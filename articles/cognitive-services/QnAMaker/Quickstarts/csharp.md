@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Alma C# hızlı bir şekilde yardımcı olması için REST tabanlı bilgi ve kod örnekleri, azure'da Microsoft Bilişsel Hizmetler Microsoft Translator metin tanıma API'sini kullanmaya başlama.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 34290704bf5220302a0ce73aa59c1a3b212f2723
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 630b8233caded0865271d625d12a8bcf193c2bde
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217671"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866262"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>Soru-cevap Oluşturucu REST API ile kullanmaC# 
 <a name="HOLTop"></a>

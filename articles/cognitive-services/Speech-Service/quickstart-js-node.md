@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Speech SDK'sı için Node.js kullanarak bir konuşma metin konsol uygulaması oluşturmak için bu kılavuzu kullanın. İşiniz bittiğinde konuşmayı metne gerçek zamanlı dönüştürmek için bilgisayarınızın mikrofonunu kullanabilirsiniz.
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 99938f8b64339556c0ee4b9caa9124c609159af6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5fa0b6d2a361fdbf372ba73fed9d8e2c48cb3630
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747290"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871226"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Hızlı Başlangıç: Node.js için Speech SDK'sı ile Konuşma tanıma
 

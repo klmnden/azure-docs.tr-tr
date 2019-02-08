@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bu makalede metin okuma ses özelleştirme tanınabilir, tür, bir marka ses oluşturmanızı sağlayan bir genel bakıştır.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: panosper
-ms.openlocfilehash: 783679d3d989fe40c6a5ef0c8592ed10aae26643
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239902"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868336"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 

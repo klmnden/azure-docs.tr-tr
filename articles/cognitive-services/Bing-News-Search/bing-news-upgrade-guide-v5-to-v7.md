@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanıtır.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 76d83397f27509b09b04753bce62b5a329da8d71
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 04c457fba5cb32cc1312ffac2c2f7c1470b5a46b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733714"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878451"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Haber arama API'si Yükseltme Kılavuzu
 

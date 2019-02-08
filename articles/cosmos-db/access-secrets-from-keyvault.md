@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB anahtarlara erişmek ve depolamak için Key Vault'u kullanın
-description: Depolama ve Azure Cosmos DB bağlantı dizesi, anahtarları, URI's erişmek için Azure Key Vault'u kullanın.
+description: Depolamak ve Azure Cosmos DB bağlantı dizesi, anahtar, uç noktalarına erişmek için Azure Key Vault'u kullanın.
 author: rafats
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
 ms.reviewer: sngun
-ms.openlocfilehash: 8a3863ff67549c77692f8629c2e7315aec94faf8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 770e1e543a16bb54acc216aa550c44be26ab7a1a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463319"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858460"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Cosmos anahtarları Azure Key Vault'u kullanarak güvenli hale getirme 
 
-Azure Cosmos DB için uygulamalarınızı kullanırken, uygulamanın yapılandırma dosyası içinde uç noktası URI'si ve anahtar kullanarak veritabanı, koleksiyonlar, belgeler erişebilirsiniz.  Ancak, kullanılabilir tüm kullanıcılar için düz metin biçiminde olduğundan, anahtarları ve URL'yi doğrudan uygulama koduna koymak güvenli değildir. URI'si ve anahtarlar kullanılabilir, ancak güvenli bir mekanizma aracılığıyla olduğundan emin olmanız gerekir. Bu, Azure Key Vault, güvenli bir şekilde depolamak ve uygulama parolalarını yönetme burada yardımcı olur.
+Azure Cosmos DB için uygulamalarınızı kullanırken, uygulamanın yapılandırma dosyasında uç noktasını ve anahtarı kullanarak veritabanı, koleksiyonlar, belgeler erişebilirsiniz.  Ancak, kullanılabilir tüm kullanıcılar için düz metin biçiminde olduğundan, anahtarları ve URL'yi doğrudan uygulama koduna koymak güvenli değildir. Uç nokta ve anahtarlar kullanılabilir, ancak güvenli bir mekanizma aracılığıyla olduğundan emin olmanız gerekir. Bu, Azure Key Vault, güvenli bir şekilde depolamak ve uygulama parolalarını yönetme burada yardımcı olur.
 
 Aşağıdaki adımlar, depolama ve Azure Cosmos DB erişim anahtarlarını Key Vault'tan okumak için gereklidir:
 
