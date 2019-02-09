@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d82e0aa1f803001cf3bab5ec133a59f1fe19e4aa
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546870"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981426"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri için planlı bakım bildirimlerini
+
 
 Azure güncelleştirmeleri güvenilirlik, performans ve sanal makineler (VM) konak altyapısının güvenliğini iyileştirmek için düzenli olarak gerçekleştirir. Güncelleştirmeleri barındırma ortamına düzeltme eki veya yükseltme ve donanım yetkisini alma içerebilir. Çoğu güncelleştirme, barındırılan sanal makineleri etkilemez. Ancak, güncelleştirmeleri bu senaryolarda Vm'leri etkiler:
 
@@ -38,10 +39,8 @@ Yeniden başlatma gerektiren bir planlı bakım içinde Dalgalar zamanlanır. He
 
 Bakımı Başlat ve ne zaman Azure bakım otomatik olarak başlatılacak bilerek, sanal Makinenizin yeniden başlatma için yeterli süre vermek amacıyla iki pencereleri aşağıdakiler amacı var.
 
-
 Azure portalı, PowerShell, REST API ve Azure CLI için bakım pencerelerini, sanal makine ölçek kümesi Vm'lerine sorgulamaya ve Self Servis bakım başlatmak için kullanabilirsiniz.
 
-  
 ## <a name="should-you-start-maintenance-during-the-self-service-window"></a>Self Servis penceresi sırasında bakım başlamanız gerekir?  
 
 Aşağıdaki yönergeler bakım seçtiğiniz bir zamanda başlatmak karar vermenize yardımcı olabilir.
@@ -118,12 +117,12 @@ Bakım başlattıktan sonra etkilenen sanal makine ölçek kümenizdeki VM'lerin
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>PowerShell kullanarak bakım durumunu denetleme
 
-Sanal makine ölçek kümelerinizdeki Vm'lere bakım için zamanlanmış zaman görmek için Azure PowerShell kullanabilirsiniz. Planlı bakım bilgileri kullanılabilir kullanarak [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) cmdlet'ini kullandığınızda `-InstanceView` parametresi.
+Sanal makine ölçek kümelerinizdeki Vm'lere bakım için zamanlanmış zaman görmek için Azure PowerShell kullanabilirsiniz. Planlı bakım bilgileri kullanılabilir kullanarak [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cmdlet'ini kullandığınızda `-InstanceView` parametresi.
  
 Yalnızca bunu planlı bakım bakım bilgileri döndürülür. Sanal makine örneği etkileyen herhangi bir bakım zamanlanırsa, cmdlet herhangi bir bakım bilgi döndürmüyor. 
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 Aşağıdaki özellikler altında döndürülür **MaintenanceRedeployStatus**: 
@@ -140,10 +139,10 @@ Aşağıdaki özellikler altında döndürülür **MaintenanceRedeployStatus**:
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>PowerShell kullanarak sanal makine Örneğinize Bakımı Başlat
 
-Bakım, bir VM'de başlatabilirsiniz **IsCustomerInitiatedMaintenanceAllowed** ayarlanır **true**. Kullanım [Set-AzureRmVmss](/powershell/module/azurerm.compute/set-azurermvmss) cmdlet'iyle `-PerformMaintenance` parametresi.
+Bakım, bir VM'de başlatabilirsiniz **IsCustomerInitiatedMaintenanceAllowed** ayarlanır **true**. Kullanım [kümesi AzVmss](/powershell/module/az.compute/set-azvmss) cmdlet'iyle `-PerformMaintenance` parametresi.
 
 ```powershell
-Set-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>CLI kullanarak bakım durumunu denetleme

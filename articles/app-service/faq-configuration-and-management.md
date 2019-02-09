@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5ab47165118b68e91c1218be35c6f88aa55350e2
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190910"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982616"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure'daki Web uygulamaları için yapılandırma ve yönetim hakkında SSS
 
@@ -244,7 +244,7 @@ Zamanlanan Webjob'lar Cron ifadeleri kullanarak oluşturabilirsiniz:
 
 1. Bir settings.job dosyası oluşturun.
 2. Bu JSON dosyasında bir Cron ifadesi kullanarak bir zamanlama özellik içerir: 
-    ```
+    ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
@@ -270,7 +270,7 @@ Mesajın gösterdiği gibi bu sahtekarlık doğrulama işleminin tamamlanması 2
 
 App Service sertifikanızı 24 saat sonra bu mesajını göstermeye devam ederse, lütfen aşağıdaki PowerShell betiğini çalıştırın. Betik kişiler [sertifika sağlayıcısı](https://www.godaddy.com/) doğrudan bu sorunu çözmek için.
 
-```
+```powershell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
@@ -312,10 +312,10 @@ Bu koşulların hiçbiri geçerli ve sorun devam ederse, bir destek isteği gön
 
 Sıkıştırma hem statik ve dinamik içerik türleri için açmak için uygulama düzeyi web.config dosyasına aşağıdaki kodu ekleyin:
 
-```
+```xml
 <system.webServer>
-<urlCompression doStaticCompression="true" doDynamicCompression="true" />
-< /system.webServer>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+</system.webServer>
 ```
 
 Sıkıştırılacak istediğiniz belirli dinamik ve statik MIME türleri de belirtebilirsiniz. Forum soru için yanıt sürelerimiz daha fazla bilgi için bkz. [httpCompression ayarları basit bir Azure Web sitesinde](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).

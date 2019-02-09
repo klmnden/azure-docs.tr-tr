@@ -14,44 +14,45 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: bab3b37d2d5063c77f8aceee84646b1ee72b0617
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 0ae4c883baa156276646755273547a17d23edc55
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892550"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982497"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure'da Windows sanal makine görüntüleri oluşturmak için Packer kullanma
 Azure'daki her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümünü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure marketi, en yaygın işletim sistemi için birinci ve üçüncü taraf çok sayıda görüntü sağlar ve uygulama ortamları veya uygulamanızın ihtiyaçlarına yönelik kendi özel görüntülerinizi oluşturabilir. Bu makalede, açık kaynaklı aracının nasıl kullanılacağı ayrıntılı [Packer](https://www.packer.io/) tanımlama ve azure'da özel görüntü oluşturma.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-azure-resource-group"></a>Azure kaynak grubu oluşturun
 Kaynak VM oluştururken derleme işlemi sırasında geçici Azure kaynaklarını Packer oluşturur. Bir görüntü olarak kullanmak için kaynak VM yakalamak için bir kaynak grubu tanımlamanız gerekir. Packer yapı işleminin çıktısı, bu kaynak grubunda depolanır.
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+Bir kaynak grubu oluşturun [yeni AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```powershell
 $rgName = "myResourceGroup"
 $location = "East US"
-New-AzureRmResourceGroup -Name $rgName -Location $location
+New-AzResourceGroup -Name $rgName -Location $location
 ```
 
 ## <a name="create-azure-credentials"></a>Azure kimlik bilgilerini oluşturma
 Packer ile Azure hizmet sorumlusu kullanarak kimliğini doğrular. Bir Azure hizmet sorumlusu, uygulamaları, hizmetleri ve Packer gibi Otomasyon araçları ile kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve hizmet sorumlusu Azure'da gerçekleştirebilirsiniz ne gibi işlemler için izinler tanımlayın.
 
-Bir hizmet sorumlusu oluşturma [yeni AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) ve hizmet sorumlusuna sahip kaynakları oluşturup yönetmek için izinleri atamak [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment). Değiştirin *&lt;parola&gt;* örnekte kendi parolanızı ile.  
+Bir hizmet sorumlusu oluşturma [yeni AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) ve hizmet sorumlusuna sahip kaynakları oluşturup yönetmek için izinleri atamak [yeni AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Değiştirin *&lt;parola&gt;* örnekte kendi parolanızı ile.  
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "AzurePacker" `
+$sp = New-AzADServicePrincipal -DisplayName "AzurePacker" `
     -Password (ConvertTo-SecureString "<password>" -AsPlainText -Force)
 Sleep 20
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Azure için kimlik doğrulaması için Azure kiracısı ve abonelik kimlikleri ile elde etmeniz [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
+Azure için kimlik doğrulaması için Azure kiracısı ve abonelik kimlikleri ile elde etmeniz [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-$sub = Get-AzureRmSubscription
+$sub = Get-AzSubscription
 $sub.TenantId[0]
 $sub.SubscriptionId[0]
 ```
@@ -206,10 +207,10 @@ VM oluşturmak için provisioners çalıştırıp dağıtımını temizleme Pack
 
 
 ## <a name="create-a-vm-from-the-packer-image"></a>Packer görüntüsünden VM oluşturma
-Artık bir VM ile görüntüsünden oluşturabilirsiniz [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Zaten mevcut değilse, destekleyici ağ kaynakları oluşturulur. İstendiğinde, bir yönetici kullanıcı adı ve VM'deki oluşturulması için parola girin. Aşağıdaki örnekte adlı bir VM oluşturur *myVM* gelen *myPackerImage*:
+Artık bir VM ile görüntüsünden oluşturabilirsiniz [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Zaten mevcut değilse, destekleyici ağ kaynakları oluşturulur. İstendiğinde, bir yönetici kullanıcı adı ve VM'deki oluşturulması için parola girin. Aşağıdaki örnekte adlı bir VM oluşturur *myVM* gelen *myPackerImage*:
 
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -Location $location `
@@ -221,16 +222,16 @@ New-AzureRmVm `
     -Image "myPackerImage"
 ```
 
-Farklı kaynak grubuna ya da, Packer görüntü bölgesinden Vm'leri oluşturmak istiyorsanız, görüntü adı yerine görüntü kimliği belirtin. Görüntü kimliği ile edinebilirsiniz [Get-Azurermımage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
+Farklı kaynak grubuna ya da, Packer görüntü bölgesinden Vm'leri oluşturmak istiyorsanız, görüntü adı yerine görüntü kimliği belirtin. Görüntü kimliği ile edinebilirsiniz [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/Get-AzImage).
 
 Bu, Packer görüntüsünden VM oluşturma birkaç dakika sürer.
 
 
 ## <a name="test-vm-and-webserver"></a>Test VM ve Web sunucusu
-[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ile VM’nizin genel IP adresini alın. Aşağıdaki örnek, daha önce oluşturulan *myPublicIP* için IP adresini alır:
+İle sanal makinenizin genel IP adresini [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). Aşağıdaki örnek, daha önce oluşturulan *myPublicIP* için IP adresini alır:
 
 ```powershell
-Get-AzureRmPublicIPAddress `
+Get-AzPublicIPAddress `
     -ResourceGroupName $rgName `
     -Name "myPublicIPAddress" | select "IpAddress"
 ```

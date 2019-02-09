@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 1a5b9f7abbb17aeefa3647e965c63c1f6dc4b0a7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b1ad5aa074a7719dbe6000301c8cd04e6e1ad632
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429268"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984554"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Genelleştirilmiş VHD yükleme ve Azure'da yeni VM'ler oluşturmak için bunu kullanın
 
@@ -32,7 +32,8 @@ Bu makalede, Azure'da bir genelleştirilmiş VM'nin VHD yükleme, bir VHD'den g�
 
 - Azure'a herhangi bir VHD'yi karşıya yüklemeden önce uygulamanız gereken [Windows VHD veya VHDX yüklemek için hazırlama](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Gözden geçirme [yönetilen Diskler'e geçiş planı](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) için geçişiniz başlamadan önce [yönetilen diskler](managed-disks-overview.md).
-- Bu makalede, AzureRM modülü, 5.6 veya sonraki bir sürümü gerektirir. Çalıştırma ` Get-Module -ListAvailable AzureRM.Compute` sürümünüzü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Sysprep kullanarak kaynak VM generalize
@@ -65,17 +66,17 @@ VHD bir sanal makine için yönetilen disk oluşturmak için kullanacaksanız, d
 Kullanılabilir depolama hesapları gösterecek şekilde girin:
 
 ```azurepowershell
-Get-AzureRmStorageAccount | Format-Table
+Get-AzStorageAccount | Format-Table
 ```
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>VHD, depolama hesabınıza yükleme
 
-Kullanım [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) VHD'nin depolama hesabınızdaki bir kapsayıcıya yüklemek için cmdlet'i. Bu örnek dosyayı yükler *myVHD.vhd* gelen *C:\Users\Public\Documents\Virtual sabit diskleri\\*  adlı bir depolama hesabına *mystorageaccount* içinde *myResourceGroup* kaynak grubu. Dosya adlı bir kapsayıcının içine yerleştirilecek *mycontainer* ve yeni dosya adı *myUploadedVHD.vhd*.
+Kullanım [Ekle AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) VHD'nin depolama hesabınızdaki bir kapsayıcıya yüklemek için cmdlet'i. Bu örnek dosyayı yükler *myVHD.vhd* gelen *C:\Users\Public\Documents\Virtual sabit diskleri\\*  adlı bir depolama hesabına *mystorageaccount* içinde *myResourceGroup* kaynak grubu. Dosya adlı bir kapsayıcının içine yerleştirilecek *mycontainer* ve yeni dosya adı *myUploadedVHD.vhd*.
 
 ```powershell
 $rgName = "myResourceGroup"
 $urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
     -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
@@ -129,15 +130,15 @@ $imageName = "myImage"
 İşletim sistemi VHD'niz genelleştirilmiş kullanarak görüntüsünü oluşturun.
 
 ```powershell
-$imageConfig = New-AzureRmImageConfig `
+$imageConfig = New-AzImageConfig `
    -Location $location
-$imageConfig = Set-AzureRmImageOsDisk `
+$imageConfig = Set-AzImageOsDisk `
    -Image $imageConfig `
    -OsType Windows `
    -OsState Generalized `
    -BlobUri $urlOfUploadedImageVhd `
    -DiskSizeGB 20
-New-AzureRmImage `
+New-AzImage `
    -ImageName $imageName `
    -ResourceGroupName $rgName `
    -Image $imageConfig
@@ -150,7 +151,7 @@ Artık bir görüntünüz olduğuna göre, görüntüden bir veya daha fazla yen
 
 
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -ImageName $imageName `

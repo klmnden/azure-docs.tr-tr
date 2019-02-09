@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 93fbcb96415aa2c800a772fdeb925b1513d7512d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2be50b7f2583f7f15b2a0783ef729b91bc158234
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863015"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983670"
 ---
 # <a name="install-and-run-containers"></a>Kapsayıcıları yükleme ve çalıştırma
 
@@ -68,7 +68,7 @@ Yüz tanıma API'si için kapsayıcı görüntülerini kullanılabilir.
 
 ### <a name="docker-pull-for-the-face-container"></a>Docker isteği yüz kapsayıcısı için
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
 ```
 
@@ -132,18 +132,7 @@ Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](./face-resourc
 
 Azure için fatura, kullanarak yüz tanıma API'si kapsayıcıları Gönder bir _yüz tanıma API'si_ Azure hesabınız kaynaktaki. 
 
-Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini göndermeyin. 
-
-`docker run` Komutu, faturalama amacıyla aşağıdaki değişkenleri kullanır:
-
-| Seçenek | Açıklama |
-|--------|-------------|
-| `ApiKey` | API anahtarı _yüz tanıma API'si_ kaynak faturalandırma bilgileri izlemek için kullanılır. |
-| `Billing` | Uç noktası _yüz tanıma API'si_ kaynak faturalandırma bilgileri izlemek için kullanılır.|
-| `Eula` | Kapsayıcı lisansını kabul ettiğinizi gösterir.<br/>Bu seçenek değeri ayarlanmalıdır `accept`. |
-
-> [!IMPORTANT]
-> Seçeneklerin üçünü geçerli değerlerle belirtilmiş olmalı veya kapsayıcı başlatılamıyor.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Bu seçenekler hakkında daha fazla bilgi için bkz. [kapsayıcıları yapılandırma](./face-resource-container-config.md).
 

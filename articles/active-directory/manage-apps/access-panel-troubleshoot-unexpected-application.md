@@ -3,8 +3,8 @@ title: Uygulama erişim panelinde nasıl göründüğünü | Microsoft Docs
 description: Bir uygulamanın erişim panelinde gösterildiğini neden sorunlarını giderme
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewr: japere
-ms.openlocfilehash: 83aa3b1b132c52944d350a9d2b5231857a10c7fb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 299024bffc8f876527ca42c4143a0076d64ce727
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191772"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964994"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Uygulama erişim panelinde nasıl görünür?
 
@@ -73,7 +73,7 @@ Bir kullanıcının lisans atanmış denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -101,7 +101,7 @@ Bir grubun üyeliğini denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -121,7 +121,7 @@ Bir grubun üyeliğini denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 

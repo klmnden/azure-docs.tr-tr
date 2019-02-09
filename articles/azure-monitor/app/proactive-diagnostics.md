@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2016
+ms.date: 02/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: c284236af64c3981a5d15570bcd2705bb7d6a99b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: edbd7000001ae6927078e2f1bb9e348cc78f9efa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121063"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962120"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights, akıllı algılama
  Akıllı algılama, web uygulamanızdaki olası performans sorunlarını otomatik olarak sizi uyarır. Uygulamanızın gönderdiği telemetri öngörülü analiz gerçekleştirir [Application Insights](../../azure-monitor/app/app-insights-overview.md). Hata oranları ani bir artış ya da istemci veya sunucu performans anormal desenleri ise bir uyarı alırsınız. Bu özellik, herhangi bir yapılandırma gerekir. Uygulamanızı yeterli telemetri gönderiyorsa çalışır.
@@ -46,6 +46,14 @@ Algılama üç tür vardır:
 * [Akıllı algılama - Azure bulut hizmeti sorunları](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Uygulamanızı Azure Cloud Services'da barındırılan ve rol örneği başlatma hataları, sık geri dönüştürme veya çalışma zamanı kilitlenmeleri varsa uyarı alın.
 
 (Her bildirim Yardım bağlantıları için ilgili makaleleri göz önüne almanız.)
+
+## <a name="smart-detection-email-notifications"></a>Akıllı algılama e-posta bildirimleri
+
+Önizleme olarak işaretlenmiş kuralları hariç tüm akıllı algılama kuralları algılamalar bulunduğunda, e-posta bildirimleri göndermek için varsayılan olarak yapılandırılır.
+
+Belirli bir akıllı algılama kuralına için e-posta bildirimlerini yapılandırma yapılabilir akıllı algılama açarak **ayarları** dikey penceresinde ve açılır kuralı seçmeye **düzenleme kuralı** dikey penceresi.
+
+Alternatif olarak, Azure Resource Manager şablonlarını kullanarak yapılandırmasını değiştirebilirsiniz. [Azure Resource Manager şablonlarını kullanarak Application ınsights'ı yönetme akıllı algılama kurallarını](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) daha fazla ayrıntı için.
 
 ## <a name="video"></a>Video
 

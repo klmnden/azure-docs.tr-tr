@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: acf455bff739666712917008dc8090c6a95c6dc4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f785e9e540af01b74678cf75159775cd2888e09e
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815661"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959587"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure veri kutusu ağ geçidi sınırları (Önizleme)
 
@@ -26,8 +26,7 @@ Limitler, dağıtmanıza ve Microsoft Azure veri kutusu ağ geçidi çözümün�
 
 ## <a name="data-box-gateway-service-limits"></a>Veri kutusu Gateway hizmet limitleri
 
-- Bu sürümde, hizmet yalnızca ABD, AB ve Asya Pasifik belirli bölgelerde kullanılabilir durumdadır. Daha fazla bilgi için bölge kullanılabilirliği gidin. Depolama hesabı bölgeye cihazın dağıtıldığı fiziksel olarak yakın olmalıdır (hizmet coğrafi bölgesinden farklı olabilir).
-- Farklı bir abonelik veya kaynak grubu için bir veri kutusu ağ geçidi kaynağı taşıma desteklenmiyor. Daha fazla ayrıntı için [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+[!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
 ## <a name="data-box-gateway-device-limits"></a>Veri kutusu ağ geçidi cihaz sınırları
 
@@ -37,48 +36,24 @@ Veri kutusu ağ geçidi cihazı için sınırlar aşağıdaki tabloda açıklanm
 |---|---|
 |Hayır. cihaz başına dosyaları |100 milyon <br> Sınır ~ her 2 TB disk alanı ile en fazla 100 milyon sınırında 25 milyon dosya |
 |Hayır. cihaz başına paylaşılma sayısı |24 |
+|Hayır. kapsayıcı başına paylaşılma sayısı |1 |
 |Bir paylaşıma yazılan en büyük dosya boyutu|2 TB sanal cihaz için en büyük dosya boyutu 500 GB'dir. <br> En çok 5 TB ulaşana kadar önceki oranını veri disk boyutu ile maksimum dosya boyutu artar. |
 
 ## <a name="azure-storage-limits"></a>Azure depolama sınırları
 
-Bu bölümde, Azure dosyaları, Azure blok BLOB'ları ve veri kutusu ağ geçidi/veri kutusu Edge hizmetine uygunsa Azure sayfa blobları için Azure depolama hizmeti için sınırlar ve gerekli adlandırma kurallarını açıklar. Depolama sınırları dikkatle gözden geçirin ve tüm önerilere uyun.
-
-Azure depolama hizmet sınırları ve adlandırma paylaşımları, kapsayıcılar ve dosyalar için en iyi yöntemler üzerinde en son bilgiler için bkz:
-
-- [Adlandırma ve kapsayıcıları başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Paylaşımları adlandırma ve onlara başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Blok blobları ve sayfa blob kuralları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
-
-> [!IMPORTANT]
-> Herhangi bir dosya ya da Azure depolama hizmeti limitlerin ya da Azure dosya/Blob adlandırma kurallarına uygun olmayan dizin varsa, ardından bu dosyaları veya dizinleri veri kutusu ağ geçidi/veri kutusu Edge hizmeti aracılığıyla Azure Depolama'ya alınan değil.
+[!INCLUDE [data-box-edge-gateway-storage-limits](../../includes/data-box-edge-gateway-storage-limits.md)]
 
 ## <a name="data-upload-caveats"></a>Uyarılar karşıya veri yükleme
 
-Azure'a taşınırken aşağıdaki uyarılar için veri uygulayın.
-
-- Birden fazla cihaz olanla aynı kapsayıcıya yazamaz öneririz.
-- Kopyalanan nesne olarak aynı ada sahip bir bulutta (örneğin, bir bloba veya bir dosya) var olan bir Azure nesne varsa, cihaz bulut dosyanın üzerine yazar.
-- Paylaşım klasör altında oluşturulan bir boş dizin hiyerarşisi (olmadan tüm dosyaları) için blob kapsayıcılar karşıya yüklenmemiş.
-- Cihaz boyutundan büyük dosyalar kopyalıyorsanız kullanmak için önerilir *Robocopy* veya *rsync* herhangi bir hata olmadığından emin olun.
+[!INCLUDE [data-box-edge-gateway-storage-data-upload-caveats](../../includes/data-box-edge-gateway-storage-data-upload-caveats.md)]
 
 ## <a name="azure-storage-account-size-and-object-size-limits"></a>Azure depolama hesabı boyut ve nesne boyutu sınırları
 
-Depolama hesabına kopyalanır veri boyutu sınırları şunlardır. Karşıya yüklediğiniz veriler için limitler uyduğundan emin olun. Bu sınırlar en güncel bilgiler için Git [Azure blob depolama ölçek hedefleri](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) ve [Azure dosyaları ölçeklendirme hedeflerini](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
-
-| Azure depolama hesabına kopyalanan verileri boyutu                      | Varsayılan Sınır          |
-|---------------------------------------------------------------------|------------------------|
-| Blok blobu ve sayfa blob                                            | Depolama hesabı başına 500 TB|
-
+[!INCLUDE [data-box-edge-gateway-storage-acct-limits](../../includes/data-box-edge-gateway-storage-acct-limits.md)]
 
 ## <a name="azure-object-size-limits"></a>Azure nesne boyutu sınırları
 
-Azure nesnelerin yazılabilir boyutları aşağıda verilmiştir. Yüklenen tüm dosyalar bu sınırlara uyacak emin olun.
-
-| Azure nesne türü | Varsayılan limit                                             |
-|-------------------|-----------------------------------------------------------|
-| Blok Blobu        | ~ 8 TB                                                 |
-| Sayfa Blobu         | 1 TB <br> Sayfa blobu biçiminde yüklenen her dosya 512 bayt hizalı (tamsayı katı) olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var. |
-
+[!INCLUDE [data-box-edge-gateway-storage-object-limits](../../includes/data-box-edge-gateway-storage-object-limits.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: e4963ebae73bdd81246433fe43206139caa1661c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295789"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982854"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI’yı kullanarak özel bir Dockler kapsayıcı kayıt defterine ilk görüntünüzü itme
 
@@ -37,7 +37,7 @@ az acr login --name myregistry
 
 İle oturum açabilir [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/). Örneğin, sahip olabileceğiniz [hizmet sorumlusuna atanmış](container-registry-authentication.md#service-principal) kayıt defterinize bir Otomasyon senaryosu için. Etkileşimli olarak aşağıdaki komutu çalıştırdığınızda, hizmet sorumlusu uygulama kimliği (kullanıcı adı) ve istendiğinde parolayı belirtin. Oturum açma kimlik bilgilerini yönetmek en iyi yöntemler için bkz: [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/) komut başvurusuna:
 
-```Docker
+```
 docker login myregistry.azurecr.io
 ```
 
@@ -50,7 +50,7 @@ Her iki komutları döndürür `Login Succeeded` tamamlandıktan sonra.
 
 Önce genel Nginx görüntüsünü yerel bilgisayarınıza çekin.
 
-```Docker
+```
 docker pull nginx
 ```
 
@@ -58,7 +58,7 @@ docker pull nginx
 
 Yürütme aşağıdaki [docker run](https://docs.docker.com/engine/reference/run/) yerel bir örneğini Nginx kapsayıcısını etkileşimli olarak başlatmak için komut (`-it`) bağlantı noktası 8080 üzerinde. `--rm` Bağımsız değişkeni, durdurduğunuzda kapsayıcı kaldırılması gerektiğini belirtir.
 
-```Docker
+```
 docker run -it --rm -p 8080:80 nginx
 ```
 
@@ -74,7 +74,7 @@ Durdur ve kapsayıcı kaldırmak için basın `Control` + `C`.
 
 Kullanım [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) kayıt defterinizin tam yoluyla görüntünün bir diğer ad oluşturmak için. Bu örnek, kayıt defterinin kökünde dağınıklığı önlemek için `samples` ad alanını belirtir.
 
-```Docker
+```
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
@@ -84,7 +84,7 @@ Ad alanları ile etiketleme hakkında daha fazla bilgi için bkz. [depo ad alanl
 
 Özel kayıt defterinize görüntü tam olarak nitelenmiş yola sahip etiketlediğinize göre bunu kayıt defterine gönderebilir [docker itme](https://docs.docker.com/engine/reference/commandline/push/):
 
-```Docker
+```
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
@@ -92,7 +92,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Kullanım [docker isteği](https://docs.docker.com/engine/reference/commandline/pull/) komut görüntüyü kayıt defterinizden çekme:
 
-```Docker
+```
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
@@ -100,7 +100,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/run/) kayıt defterinizden çekilen görüntü çalıştırmak için komutu:
 
-```Docker
+```
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
@@ -112,7 +112,7 @@ Durdur ve kapsayıcı kaldırmak için basın `Control` + `C`.
 
 Nginx görüntüsü artık ihtiyacınız kalmadığında, yerel olarak ile silebilirsiniz [docker RMI](https://docs.docker.com/engine/reference/commandline/rmi/) komutu.
 
-```Docker
+```
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 

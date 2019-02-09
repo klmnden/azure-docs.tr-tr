@@ -13,19 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: b5f851fe5c8aebba441903ccc004b7dbd0029ba3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414325"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984775"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker'ı Azure sanal makinesinde önyükleme hataları
 
  Bu makalede, Microsoft Azure'da Windows sanal makinesi (VM) başlattığınızda karşılaşabileceğiniz BitLocker hataları açıklanır.
 
-> [!NOTE] 
-> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Resource Manager dağıtım modelini incelemektedir. Bu model Klasik dağıtım modeli kullanılarak yerine yeni dağıtımlar için kullanmanızı öneririz.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
  ## <a name="symptom"></a>Belirti
 
@@ -33,7 +32,7 @@ ms.locfileid: "47414325"
 
 - BitLocker anahtarı içeren USB sürücüsüne takın.
 
-- Kilitli! Yeniden kullanmaya başlamak için kurtarma anahtarını girin (klavye düzeni: ABD) bilgisayarınıza gizliliğinizi korumak için kilitli olduğu için çok fazla kez yanlış oturum açma bilgilerini girildi. Kurtarma anahtarını almak için şu adrese gidin http://windows.microsoft.com/recoverykeyfaq başka bir PC veya mobil Cihazınızda. Bu anahtar gerektiği durumlarda XXXXXXX kimliğidir. Veya bilgisayarınızı sıfırlayabilir.
+- Kilitli! Yeniden kullanmaya başlamak için kurtarma anahtarını girin (klavye düzeni: Bilgisayarınıza gizliliğinizi korumak için kilitli olduğu için çok fazla kez oturum açma bilgilerini ABD) yanlış girildi. Kurtarma anahtarını almak için şu adrese gidin http://windows.microsoft.com/recoverykeyfaq başka bir PC veya mobil Cihazınızda. Bu anahtar gerektiği durumlarda XXXXXXX kimliğidir. Veya bilgisayarınızı sıfırlayabilir.
 
 - Bu sürücü [] tuşuna Ekle yazarken parola görmek için kilidini açmak için parolayı girin.
 - Kurtarma anahtarınızı yük, Kurtarma anahtarını USB cihazından girin.
@@ -57,17 +56,17 @@ Bu yöntem, çözümleme sorunu varsa, BEK dosyayı el ile geri yüklemek için 
     $rgName = "myResourceGroup"
     $osDiskName = "ProblemOsDisk"
 
-    New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzureRmDisk -diskName $osDiskName -ResourceGroupName $rgName
+    New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
 
     $recoveryVMName = "myRecoveryVM" 
     $recoveryVMRG = "RecoveryVMRG" 
-    $OSDisk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $osDiskName;
+    $OSDisk = Get-AzDisk -ResourceGroupName $rgName -DiskName $osDiskName;
 
-    $vm = get-AzureRMVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
+    $vm = get-AzVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
 
-    Add-AzureRmVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
+    Add-AzVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
 
-    Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
+    Update-AzVM -VM $vm -ResourceGroupName $recoveryVMRG
     ```
      Bir blob görüntüsünden geri yüklenen VM'ye yönetilen disk eklenemiyor.
 
@@ -76,7 +75,7 @@ Bu yöntem, çözümleme sorunu varsa, BEK dosyayı el ile geri yüklemek için 
 4. Yükseltilmiş (yönetici olarak çalıştır) Azure PowerShell oturumu açın. Azure aboneliği için oturum açmak için aşağıdaki komutları çalıştırın:
 
     ```Powershell
-    Add-AzureRMAccount -SubscriptionID [SubscriptionID]
+    Add-AzAccount -SubscriptionID [SubscriptionID]
     ```
 
 5. BEK dosyasının adı denetlemek için aşağıdaki betiği çalıştırın:

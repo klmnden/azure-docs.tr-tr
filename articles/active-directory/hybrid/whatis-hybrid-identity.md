@@ -12,16 +12,16 @@ ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc18353ff89f8613847c977066e51620fb3e834f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bc468f328b8bd6066687996f5e74cfe867a4fc87
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494673"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984656"
 ---
 # <a name="what-is-hybrid-identity"></a>Hibrit kimlik nedir? 
 
-Bugün, şirketler ve kuruluşlar bir çok daha fazla şirket içi bir karışımını olma olan ve bulut uygulamalarına.  Kullanıcılar bu uygulamaları hem şirket içi erişim gerektirir ve bulut. Bu gereksinim, zorlu bir senaryo haline gelmiştir. 
+Bugün, şirketler ve kuruluşlar şirket içi bir karışımını daha gelmektedir ve bulut uygulamalarına.  Kullanıcılar bu uygulamaları hem şirket içi erişim gerektirir ve bulut. Bu gereksinim, zorlu bir senaryo haline gelmiştir. 
 
 Microsoft'un kimlik çözümleri, şirket içi ve bulut tabanlı özellikleri kapsar.  Kimlik doğrulaması ve yetkilendirme konumdan bağımsız olarak tüm kaynaklara genel bir kullanıcı kimliği bu çözümler oluşturun. Bu diyoruz **karma kimlik**.
 
@@ -42,14 +42,14 @@ Aşağıda, bazı yaygın karma kimlik ve erişim yönetimi senaryoları, hangi 
 |Şunu istiyorum:|PHS ve SSO<sup>1</sup>| PTA ve SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |Şirket içi Active Directory ortamında oluşturulan yeni kullanıcı, kişi ve grup hesaplarının otomatik olarak bulutla eşitlenmesi.|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| ![Önerilen](./media/whatis-hybrid-identity/ic195031.png) |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
-|Kiracımı Office 365 karma senaryoları için ayarlamak|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| ![Önerilen](./media/whatis-hybrid-identity/ic195031.png) |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
-|Kullanıcılarımın şirket içi parolalarıyla bulut hizmetlerinde oturum açması ve hizmetlere erişim sağlaması|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| ![Önerilen](./media/whatis-hybrid-identity/ic195031.png) |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
-|Kuruluş kimlik bilgileri ile çoklu oturum açmayı uygulamaya alma|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| ![Önerilen](./media/whatis-hybrid-identity/ic195031.png) |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)|  
-|Parola karmalarının bulutta depolanmadığından emin olma| |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
-|Bulutta çok faktörlü kimlik doğrulama çözümlerini etkinleştirme| |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
-|Şirket içi ortamda çok faktörlü kimlik doğrulama çözümlerini etkinleştirme| | |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
-|Kullanıcılarım için akıllı kart desteği sunma<sup>4</sup>| | |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
-|Office Portalı'nda ve Windows 10 masaüstünde parola süre sonu bildirimleri görüntüleme| | |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
+|Kiracıma Office 365 karma senaryolar için ayarlayın.|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| ![Önerilen](./media/whatis-hybrid-identity/ic195031.png) |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
+|Kullanıcılarımın oturum açın ve şirket içi parolalarını kullanarak bulut hizmetlerine erişim sağlar.|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| ![Önerilen](./media/whatis-hybrid-identity/ic195031.png) |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
+|Tek şirket kimlik bilgilerini kullanarak oturum açmayı uygulayın.|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| ![Önerilen](./media/whatis-hybrid-identity/ic195031.png) |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)|  
+|Bulutta hiç parola karmaları depolanır emin olun.| |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
+|Bulutta multi-Factor authentication çözümleri sağlar.| |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)|![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
+|Şirket içi multi-Factor authentication çözümleri sağlar.| | |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
+|Kullanıcılarım için akıllı kart kimlik doğrulamasını destekler. <sup>4</sup>| | |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
+|Office Portalı'nda ve Windows 10 Masaüstü parola süre sonu bildirimleri görüntüleyin.| | |![Önerilen](./media/whatis-hybrid-identity/ic195031.png)| 
 
 > <sup>1</sup> Çoklu oturum açma ile parola karması eşitleme. 
 > 

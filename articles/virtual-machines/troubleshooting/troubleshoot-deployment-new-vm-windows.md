@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24a12c9144535fecd23be432ee33402eb6528b28
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8f18fbabe52c9170cde70900933ce96a3a6400c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414321"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984350"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Azure'da yeni bir Windows sanal makine oluştururken dağıtım sorunlarını giderme
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -44,21 +44,21 @@ Sorun gidermeye başlamak için sorunla ilişkili hatanın tanımlamak için etk
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** genelleştirilmiş, Windows işletim sistemi olan ve karşıya yüklendi ve genelleştirilmiş ayarıyla yakalanan durumunda hataları olmaz. Benzer şekilde, işletim sistemi Windows özelleştirilmiş ve karşıya yüklendi ve özel ayarlarla yakalanan sonra olmayacaktır hataları.
+**Y:** İşletim sistemi Windows genelleştirilmiş olduğundan ve karşıya yüklenen ve genelleştirilmiş ayarıyla yakalanan, ardından olmayacaktır hataları. Benzer şekilde, işletim sistemi Windows özelleştirilmiş ve karşıya yüklendi ve özel ayarlarla yakalanan sonra olmayacaktır hataları.
 
 **Karşıya yükleme hataları:**
 
-**N<sup>1</sup>:** işletim sistemi Windows genelleştirilmiş olarak karşıya ise özelleştirilmiş, OOBE ekranında takılı VM ile bir sağlama zaman aşımı hatası alırsınız.
+**N<sup>1</sup>:** İşletim sistemi Windows genelleştirilmiş olarak karşıya ise özelleştirilmiş, OOBE ekranında takılı VM ile bir sağlama zaman aşımı hatası alırsınız.
 
-**N<sup>2</sup>:** işletim sistemi Windows özelleştirilmiş ve genelleştirilmiş olarak yüklenmiş ise, özgün bilgisayar adıyla yeni VM'nin çalıştığından OOBE ekranında takılı VM ile bir sağlama hatası alırsınız Kullanıcı adı ve parola.
+**N<sup>2</sup>:** İşletim sistemi Windows özelleştirilmiş ve genelleştirilmiş olarak yüklenmiş ise, yeni VM özgün bilgisayar adı, kullanıcı adı ve parola ile çalıştığı için OOBE ekranında takılı VM ile bir sağlama hatası alırsınız.
 
 **Çözümleme**
 
-Hem bu hataları gidermek için [özgün VHD yüklemek için Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd), mevcut şirket içi, işletim sistemi (genelleştirilmiş/özel) olarak aynı ayarı ile. Genelleştirilmiş olarak yüklemek için önce sysprep çalıştırmayı unutmayın.
+Hem bu hataları gidermek için [özgün VHD yüklemek için Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), mevcut şirket içi, işletim sistemi (genelleştirilmiş/özel) olarak aynı ayarı ile. Genelleştirilmiş olarak yüklemek için önce sysprep çalıştırmayı unutmayın.
 
 **Hataları yakalamaya:**
 
-**N<sup>3</sup>:** işletim sistemi Windows genelleştirilmiş olarak yakalanır ise özgün VM genelleştirilmiş olarak işaretlenir kullanılabilir olmadığı için özelleştirilmiş, sağlama bir zaman aşımı hatası alırsınız.
+**N<sup>3</sup>:** İşletim sistemi Windows genelleştirilmiş olarak yakalanır ise özgün VM genelleştirilmiş olarak işaretlenir kullanılabilir olmadığı için özelleştirilmiş, sağlama bir zaman aşımı hatası alırsınız.
 
 **N<sup>4</sup>:** Windows özelleştirilmiş ve genelleştirilmiş olarak yakalanan işletim sistemi ise, yeni VM özgün bilgisayar adı, kullanıcı adı ve parola ile çalıştığı için sağlama hatası alırsınız. İşaretli olduğu için ayrıca orijinal VM kullanılamaz olarak özelleştirilmiş.
 
@@ -66,10 +66,10 @@ Hem bu hataları gidermek için [özgün VHD yüklemek için Add-AzureRmVhd](htt
 
 Hem bu hataları gidermek için geçerli görüntünün portaldan silin ve [geçerli Vhd'lerden elde](../windows/create-vm-specialized.md) işletim sistemi (genelleştirilmiş/özel) olarak aynı ayarı ile.
 
-## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Sorun: Özel/Galeri/Market görüntüsü; ayırma hatası
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Sorun: Galeri/özel/Market görüntüsü; ayırma hatası
 Yeni VM istek, istenen VM boyutu destekleyemiyorsa veya isteği gerçekleştirmek için kullanılabilir boş alan yok bir kümeye sabitlenmiş durumlarda bu hata oluşur.
 
-**1. neden:** küme istenen VM boyutu destekleyemez.
+**1. neden:** Küme, istenen VM boyutu destekleyemez.
 
 **1. çözüm:**
 
@@ -80,7 +80,7 @@ Yeni VM istek, istenen VM boyutu destekleyemiyorsa veya isteği gerçekleştirme
   * Tüm sanal makineleri durdurduktan sonra istenen boyutu yeni bir VM oluşturun.
   * İlk olarak, yeni VM'yi başlatın ve ardından her biri durdurulmuş sanal makineler seçin ve tıklayın **Başlat**.
 
-**2. neden:** küme ücretsiz kaynak yok.
+**2. neden:** Kümenin boş kaynak yok.
 
 **2. çözüm:**
 

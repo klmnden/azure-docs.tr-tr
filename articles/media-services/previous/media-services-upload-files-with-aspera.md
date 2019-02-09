@@ -4,7 +4,7 @@ description: Bu öğreticide, Azure üzerinde **Aspera Server On Demand** hizmet
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/17/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d2a1fc23f4ff725a08a1be433c7a5373c01a12a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: c9705611803e63c41e906b020e9f908a2cdd6779
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780594"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979998"
 ---
-# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure üzerinde Aspera Server On Demand hizmetini kullanan bir Media Services hesabına dosya yükleme
+# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure-legacy"></a>(Eski) Azure üzerinde Aspera Server On Demand hizmetini kullanan bir Media Services hesabına dosya yükleme
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -37,7 +37,7 @@ Azure işlevlerinin Aspera ve Media Services ile kullanımını gösteren bir ö
 >Azure Media Services medya işlemcileri (MP’ler) ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Dosya boyutu sınırlaması hakkında ayrıntılı bilgi için [bu](media-services-quotas-and-limitations.md) makaleye bakın.
 >
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 

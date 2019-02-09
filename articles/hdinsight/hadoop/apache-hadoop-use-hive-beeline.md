@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1c4637bf3b71ade6cceb4427180edf8bc408670
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3470caec801c5be54f04fc09a5da734a973f0c82
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408111"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962171"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive ile Apache Beeline istemcisini kullanma
 
@@ -25,6 +25,7 @@ Beeline HDInsight kümenizin baş düğümlerine dahil edilmiş bir Hive istemci
 
 * __Beeline bir baş veya kenar düğümüne SSH bağlantısından kullanarak__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
 * __HDInsight için bir Azure sanal ağ üzerinden bağlanan bir istemci, Beeline kullanma__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Beeline bir Azure sanal ağ üzerinden bir HDInsight Kurumsal güvenlik paketi (ESP) kümesine bağlanma, bir istemci kullanarak__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
 * __HDInsight için genel internet üzerinden bağlanan bir istemci, Beeline kullanma__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -35,6 +36,8 @@ Beeline HDInsight kümenizin baş düğümlerine dahil edilmiş bir Hive istemci
 > `clustername` değerini HDInsight kümenizin adıyla değiştirin.
 >
 > Bir sanal ağ üzerinden kümeye bağlanırken değiştirin `<headnode-FQDN>` ile küme baş düğümüne tam etki alanı adı.
+>
+> Bir kurumsal güvenlik paketi (ESP) kümeye bağlanırken değiştirin `<AAD-Domain>` adla, Azure Active Directory (küme katılmış olduğu AAD). Değiştirin `<username>` kümeye erişmek için gerekli izinlere sahip bir etki alanı hesabı adı ile.
 
 ## <a id="prereq"></a>Önkoşullar
 
@@ -67,6 +70,12 @@ Beeline HDInsight kümenizin baş düğümlerine dahil edilmiş bir Hive istemci
 
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
+    * Azure Active Directory (AAD) bir kurumsal güvenlik paketi (ESP) kümesine bağlanma katıldığında, etki alanı adını da belirtmeniz gerekir `<AAD-Domain>` ve kümeye erişmek için gerekli izinlere sahip bir etki alanı kullanıcı hesabı adını `<username>`:
+        
+        ```bash
+        kinit <username>
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
         ```
 
 2. Beeline komutları ile başlayan bir `!` karakter, örneğin `!help` Yardımı görüntüler. Ancak `!` bazı komutlar için atlanabilir. Örneğin, `help` de çalışır.

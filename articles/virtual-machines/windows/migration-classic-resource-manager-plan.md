@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 540abeed3587959af5ca229f59343774b824547b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566246"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982905"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini planlama
 Azure Resource Manager çok sayıda harika özellikleri sunarken, geçiş yolculuğunuza emin sorunsuz şeyler yapmak için planlamak için önemlidir. Harcadığınız zamanı planlama, sorunları geçiş etkinliklerini yürütülürken karşılaşmayacağınızdan emin olursunuz.
@@ -131,23 +131,25 @@ Birçok büyük geçişlerin bulunan sorunları yoktu. Bu kapsamlı bir liste de
     - Yönlendirme Tabloları
 
     Geçerli Azure Resource Manager kotanızı aşağıdaki komutları kullanarak en son Azure PowerShell sürümüyle denetleyebilirsiniz.
+    
+    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
     **İşlem** *(çekirdek, kullanılabilirlik kümeleri)*
 
     ```powershell
-    Get-AzureRmVMUsage -Location <azure-region>
+    Get-AzVMUsage -Location <azure-region>
     ```
 
     **Ağ** *(sanal ağlar, statik genel IP'ler, genel IP'ler, ağ güvenlik grupları, ağ arabirimleri, yük Dengeleyiciler, rota tabloları)*
 
     ```powershell
-    Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
+    Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
     **Depolama** *(depolama hesabı)*
 
     ```powershell
-    Get-AzureRmStorageUsage
+    Get-AzStorageUsage
     ```
 
 - **Azure Resource Manager API'si azaltma sınırları** - (örn. büyük bir ortamı varsa > Sınırları yazma işlemleri için varsayılan API isabet 400 bir vnet'teki VM'ler), (şu anda `1200 writes/hour`) Azure Resource Manager'daki. Geçişi başlatmadan önce bu abonelik sınırınızı artırmak amacıyla bir destek bileti tetiklemelidir.

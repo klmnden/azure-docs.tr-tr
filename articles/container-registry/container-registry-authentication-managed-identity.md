@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: 46965842831673d25d636e0cfbfa3d0097b82f99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fdba8969ad326565834625fe1ca7ece5e089a904
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857351"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984214"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure yönetilen bir Azure container registry'ye kimliğini doğrulamak için kimliği kullan 
 
@@ -178,7 +178,7 @@ az acr login --name myContainerRegistry
 
 Görmelisiniz bir `Login succeeded` ileti. Daha sonra çalıştırabileceğiniz `docker` kimlik bilgileri olmadan komutları. Örneğin, [docker isteği] [ docker-pull] çekme `aci-helloworld:v1` kayıt defterinizin oturum açma sunucusu adını belirterek görüntüsü. Oturum açma sunucusu adını, ardından kapsayıcı kayıt defterinizin adı (tümü küçük harf) oluşan `.azurecr.io` - Örneğin, `mycontainerregistry.azurecr.io`.
 
-```docker
+```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
@@ -230,7 +230,7 @@ az acr login --name myContainerRegistry
 
 Görmelisiniz bir `Login succeeded` ileti. Daha sonra çalıştırabileceğiniz `docker` kimlik bilgileri olmadan komutları. Örneğin, [docker isteği] [ docker-pull] çekme `aci-helloworld:v1` kayıt defterinizin oturum açma sunucusu adını belirterek görüntüsü. Oturum açma sunucusu adını, ardından kapsayıcı kayıt defterinizin adı (tümü küçük harf) oluşan `.azurecr.io` - Örneğin, `mycontainerregistry.azurecr.io`.
 
-```docker
+```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 

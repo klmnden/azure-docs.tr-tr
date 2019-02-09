@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 749a599936825f5f69ae18affad0fa89a4f1118f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 95b5bbb6c227b5001865a751abddddc4924e7b2d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259640"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981086"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı HDInsight kümeleri üzerinde Apache Solr kullanma
 
@@ -46,17 +46,12 @@ Bu konuda kullanılan örnek betik, belirli bir yapılandırma ile bir Windows t
 
     ![Bir küme özelleştirmek için betik eylemi kullanmanız](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "küme özelleştirmek için betik eylemini kullanın")
 
-    <table border='1'>
-        <tr><th>Özellik</th><th>Değer</th></tr>
-        <tr><td>Ad</td>
-            <td>Betik eylemi için bir ad belirtin. Örneğin, <b>Solr yükleme</b>.</td></tr>
-        <tr><td>Betiği URI'si</td>
-            <td>Küme özelleştirmek için çağrılır betik Tekdüzen Kaynak Tanımlayıcısı (URI) belirtin. Örneğin, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
-        <tr><td>Düğüm Türü</td>
-            <td>Özelleştirme kodun çalıştığı düğüm belirtin. Seçebileceğiniz <b>tüm düğümleri</b>, <b>baş düğümlerine yalnızca</b>, veya <b>çalışan düğümleri yalnızca</b>.
-        <tr><td>Parametreler</td>
-            <td>Komut dosyası tarafından gerekli parametreleri belirtin. Bu boş bırakabilirsiniz şekilde Solr yükleme betiği herhangi bir parametre gerektirmez.</td></tr>
-    </table>
+    |Özellik|Değer|
+    |---|---|
+    |Ad|Betik eylemi için bir ad belirtin. Örneğin, **Solr yükleme**.|
+    |Betiği URI'si|Küme özelleştirmek için çağrılır betik Tekdüzen Kaynak Tanımlayıcısı (URI) belirtin. Örneğin, *https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1*|
+    |Düğüm Türü|Özelleştirme kodun çalıştığı düğüm belirtin. Seçebileceğiniz **tüm düğümleri**, **baş düğümlerine yalnızca**, veya **çalışan düğümleri yalnızca**.
+    |Parametreler|Komut dosyası tarafından gerekli parametreleri belirtin. Bu boş bırakabilirsiniz şekilde Solr yükleme betiği herhangi bir parametre gerektirmez.|
 
     Küme üzerinde birden çok bileşenleri yüklemek için birden fazla betik eylemi ekleyebilirsiniz. Komut ekledikten sonra küme oluşturmaya başlamak için onay işaretine tıklayın.
 

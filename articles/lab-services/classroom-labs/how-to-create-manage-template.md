@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b287a67c470cc1697065838e52916c285a2233a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815260"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960199"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Oluşturma ve bir sınıf şablonunda Azure Lab Services'ı yönetme
 Laboratuvardaki şablon, tüm kullanıcıların sanal makinelerinin oluşturulduğu bir temel sanal makine görüntüsüdür. Şablon sanal makinesini, tam olarak laboratuvar kullanıcılarına sağlamak istediklerinizle yapılandırılacak şekilde ayarlayın. Laboratuvar kullanıcılarının görebileceği bir ad ve açıklama belirtebilirsiniz. Ardından, VM şablonu örneklerini Laboratuvar kullanıcılarınız için kullanılabilir hale getirmek için şablonu yayımlayın. Bir şablonu yayımladığınızda Azure Lab Services, şablonu kullanarak laboratuvarda sanal makineler oluşturur. Bu işlemde oluşturulan sanal makine sayısı, laboratuvarda izin verilen maksimum kullanıcı sayısıyla aynıdır. Laboratuvarın kullanım ilkesinde bu maksimum değeri ayarlayabilirsiniz. Tüm sanal makineler, şablonla aynı yapılandırmaya sahiptir.
@@ -92,7 +92,7 @@ Başlık ve açıklama ilk kez ayarlamak için aşağıdaki adımları kullanın
 1. İçinde **şablon** fareyi hareket ettirin bölümünde **adı** şablonunun veya **açıklama** şablonunun ve bu seçeneği belirleyin. 
 2. Girin **yeni adı** veya **yeni açıklama** tuşuna basın ve şablon için **ENTER**.
 
-    ![Templae ad ve açıklama](../media/how-to-create-manage-template/template-name-description.png)
+    ![Şablon adı ve açıklaması](../media/how-to-create-manage-template/template-name-description.png)
 
 ## <a name="set-up-or-update-a-template-vm"></a>Ayarlayın veya bir VM şablonunu güncelleştirme
  Şablon VM'yi öğrencilerinizin kullanımına sunmadan önce bağlanıp gerekli yazılımları yüklemeniz gerekir. VM şablon ilk kez ayarlama veya VM güncelleştirmek için aşağıdaki adımları kullanın. 
@@ -103,7 +103,12 @@ Başlık ve açıklama ilk kez ayarlamak için aşağıdaki adımları kullanın
 1. Uyarıyı gözden geçirin ve seçin **Başlat**. 
 
     ![Başlangıç şablonu - uyarı](../media/how-to-create-manage-template/start-template-warning.png)
+2. Laboratuvar durumu kutucuğu göreceğiniz **şablon** bölümü.
+
+    ![Başlangıç şablonu - durum](../media/how-to-create-manage-template/template-start-status.png)
 1. Bir VM'ye bağlanmak için başlatıldıktan sonra seçin **Connect**ve yönergeleri izleyin. 
+
+    ![Bağlanma veya VM şablonu Durdur](../media/how-to-create-manage-template/connect-stop-vm.png)
 1. Öğrencilerinizin laboratuvarda ihtiyaç duyacağı uygulamaları (Visual Studio, Azure Depolama Gezgini gibi) yükleyin. 
 2. Şablon VM bağlantısını kesin (uzak masaüstü oturumunuzu kapatın). 
 3. **Durdur**'u seçerek şablon VM'yi **durdurun**. 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bc920493b32d500602a5b683c098d23aff855150
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fb27386881e89cd9056d0efccb7d3c301867bd83
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823297"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965996"
 ---
 1. İçinde **Android Studio**seçin **Araçları** seçin ve menü **SDK Yöneticisi**. 
 2. Projenizde kullanılan Android SDK'sının hedef sürümü seçin ve seçin **Paket ayrıntılarını göster**. 
@@ -29,7 +29,7 @@ ms.locfileid: "55823297"
 4. Seçin **Tamam** kapatmak için **yeni projeler için ayarları** iletişim kutusu.  
 5. Açık `build.gradle` dosyası **uygulama** dizini altındaki şu satırı ekleyin `dependencies`. 
 
-    ```text
+    ```gradle
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     ```
 5. Seçin **Şimdi Eşitle** araç çubuğunda simgesi.

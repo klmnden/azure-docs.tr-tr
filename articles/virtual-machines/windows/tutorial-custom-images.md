@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8585023b01de55acb6c1b43b45e27af914a0a96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884427"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976955"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Öğretici: Azure PowerShell ile Azure VM'deki özel görüntüsünü oluşturma
 
-Özel görüntüler market görüntüleri gibidir, ancak bunları kendiniz oluşturursunuz. Özel görüntüler, uygulamaları, uygulama yapılandırmalarını ve diğer işletim sistemi yapılandırmalarını önceden yükleme gibi yapılandırmaları önyüklemek için kullanılabilir. Bu öğreticide, bir Azure sanal makinesine ait kendi özel görüntünüzü oluşturursunuz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Özel görüntüler market görüntüleri gibidir, ancak bunları kendiniz oluşturursunuz. Özel görüntüler, dağıtımları bootstrap ve birden çok VM arasında tutarlılık sağlamak için kullanılabilir. Bu öğreticide, kendi özel görüntünüzü PowerShell kullanarak bir Azure sanal makine oluşturun. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Sysprep ve VM’leri genelleştirme
@@ -40,13 +40,15 @@ Aşağıdaki adımlar, mevcut bir VM’yi alıp, yeni VM örnekleri oluşturmak 
 
 Bu öğreticideki örneği tamamlamak için, mevcut bir sanal makinenizin olması gerekir. Gerekirse, bu [betik örneği](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) sizin için bir tane oluşturabilir. Bu öğreticide çalışırken, gerektiğinde kaynak grubu ve VM adlarını değiştirin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, AzureRM modülü 5.7.0 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
+Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. 
+
+Cloud Shell'i açmak için kod bloğunun sağ üst köşesinden **Deneyin**'i seçmeniz yeterlidir. İsterseniz [https://shell.azure.com/powershell](https://shell.azure.com/powershell) adresine giderek Cloud Shell'i ayrı bir tarayıcı sekmesinde de başlatabilirsiniz. **Kopyala**’yı seçerek kod bloğunu kopyalayın, Cloud Shell’e yapıştırın ve Enter tuşuna basarak çalıştırın.
 
 ## <a name="prepare-vm"></a>VM'yi hazırlama
 
-Sanal makinenin görüntüsünü oluşturmak için, VM'yi genelleştirerek, serbest bırakarak ve ardından kaynak VM'yi Azure'da genelleştirilmiş olarak işaretleyerek VM’yi hazırlamanız gerekir.
+Bir sanal makine görüntüsü oluşturmak için kaynak VM, Genelleştirme, serbest bırakılıyor ve Azure ile genelleştirilmiş olarak işaretleme hazırlamanız gerekir.
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep kullanarak Windows VM'sini genelleştirme
 
@@ -54,60 +56,71 @@ Sysprep diğer öğelerin yanı sıra tüm kişisel hesap bilgilerinizi kaldır�
 
 
 1. Sanal makineye bağlanın.
-2. Yönetici olarak Komut İstemi penceresini açın. *%windir%\system32\sysprep* dizinine geçin ve *sysprep.exe*'yi çalıştırın.
-3. **Sistem Hazırlama Aracı** iletişim kutusunda  *Sistem İlk Çalıştırma Deneyimi (OOBE) Moduna Gir*'i seçin ve *Genelleştir* onay kutusunun seçili olduğundan emin olun.
-4. **Kapatma Seçenekleri**'nde *Kapat*'ı seçin ve **Tamam**'a tıklayın.
+2. Yönetici olarak Komut İstemi penceresini açın. Dizinine *%windir%\system32\sysprep*ve ardından çalıştırın `sysprep.exe`.
+3. **Sistem Hazırlama Aracı** iletişim kutusunda  **Sistem İlk Çalıştırma Deneyimi (OOBE) Moduna Gir**'i seçin ve **Genelleştir** onay kutusunun seçili olduğundan emin olun.
+4. **Kapatma Seçenekleri**'nde **Kapat**'ı seçin ve **Tamam**'a tıklayın.
 5. Sysprep tamamlandığında, sanal makineyi kapatır. **VM'yi yeniden başlatmayın**.
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>VM’yi serbest bırakma ve genelleştirilmiş olarak işaretleme
 
 Görüntü oluşturmak için, VM'nin serbest bırakılması ve Azure'da genelleştirilmiş olarak işaretlenmesi gerekir.
 
-[Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) komutunu kullanarak VM'yi serbest bırakın.
+Kullanarak VM'yi serbest [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
+Stop-AzVM `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM -Force
 ```
 
-[Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm) komutunu kullanarak sanal makinenin durumunu `-Generalized` olarak ayarlayın. 
+Sanal makinenin durumunu `-Generalized` kullanarak [Set-AzVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). 
    
 ```azurepowershell-interactive
-Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
+Set-AzVM `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM -Generalized
 ```
 
 
 ## <a name="create-the-image"></a>Görüntü oluşturma
 
-Şimdi [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) ve [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage) komutlarını kullanarak sanal makinenin görüntüsünü oluşturabilirsiniz. Aşağıdaki örnek, *myVM* adlı bir VM’den *myImage* adlı bir görüntü oluşturur.
+VM görüntüsünü kullanarak oluşturabileceğiniz artık [yeni AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig) ve [yeni AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage). Aşağıdaki örnek, *myVM* adlı bir VM’den *myImage* adlı bir görüntü oluşturur.
 
 Sanal makineyi alın. 
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
+$vm = Get-AzVM `
+   -Name myVM `
+   -ResourceGroupName myResourceGroup
 ```
 
 Görüntü yapılandırması oluşturun.
 
 ```azurepowershell-interactive
-$image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
+$image = New-AzImageConfig `
+   -Location EastUS `
+   -SourceVirtualMachineId $vm.ID 
 ```
 
 Görüntü oluşturun.
 
 ```azurepowershell-interactive
-New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
+New-AzImage `
+   -Image $image `
+   -ImageName myImage `
+   -ResourceGroupName myResourceGroup
 ``` 
 
  
 ## <a name="create-vms-from-the-image"></a>Görüntüden VM oluşturma
 
-Artık bir görüntünüz olduğuna göre, görüntüden bir veya daha fazla yeni VM oluşturabilirsiniz. Özel görüntüden VM oluşturma işlemi, Market görüntüsü kullanarak VM oluşturmaya benzer. Market görüntüsünü kullandığınızda, görüntü, görüntü sağlayıcısı, teklif, SKU ve sürüm hakkındaki bilgileri sağlamanız gerekir. [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet'inin basitleştirilmiş parametre kümesini kullanarak, aynı kaynak grubunda yer aldığı sürece özel görüntünün yalnızca adını sağlamanız yeterli olur. 
+Artık bir görüntünüz olduğuna göre, görüntüden bir veya daha fazla yeni VM oluşturabilirsiniz. Özel görüntüden VM oluşturma işlemi, Market görüntüsü kullanarak VM oluşturmaya benzer. Market görüntüsünü kullandığınızda, görüntü, görüntü sağlayıcısı, teklif, SKU ve sürüm hakkındaki bilgileri sağlamanız gerekir. Kullanarak Basitleştirilmiş parametre kümesi için [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet'i, yalnızca gereken aynı kaynak grubunda olduğu sürece, özel görüntü adını sağlayın. 
 
-Bu örnekte *myResourceGroup* içindeki *myImage* görüntüsünden *myVMfromImage* adlı VM'yi oluşturursunuz.
+Bu örnek adlı bir VM oluşturur *Myımage* gelen *Myımage* içinde görüntü *myResourceGroup*.
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
     -ImageName "myImage" `
@@ -126,14 +139,14 @@ Burada, yaygın görüntü yönetimi görevlerini ve PowerShell kullanarak bunla
 Tüm görüntüleri ada göre listeleyin.
 
 ```azurepowershell-interactive
-$images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images = Get-AzResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 
 Görüntüyü silin. Bu örnek adlı görüntüyü siler *Myımage* gelen *myResourceGroup*.
 
 ```azurepowershell-interactive
-Remove-AzureRmImage `
+Remove-AzImage `
     -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```

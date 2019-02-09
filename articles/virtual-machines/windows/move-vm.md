@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 1daf04e3f878d0748bfa0904259c7b7187481843
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ede2092be4e4eaf201e15307a7d9934ea267ae37
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580503"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980712"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Bir Windows VM için başka bir Azure abonelik veya kaynak grubunu Taşı
 Bu makalede, bir Windows sanal makinesi (VM), kaynak grubu veya abonelik arasında taşıma konusunda size yol gösterir. Abonelikler arasında taşıma, kişisel bir abonelikte ilk olarak bir VM oluşturduysanız, kullanışlı ve çalışmaya devam etmek için şirketinizin aboneliğine taşımak şimdi istiyorsunuz.
 
 > [!IMPORTANT]
->Şu anda Azure yönetilen diskler taşıyamazsınız. 
->
 >Yeni kaynak kimliklerini taşımanın bir parçası oluşturulur. VM taşındıktan sonra araçları ve betikleri, yeni kaynak kimliğini kullanacak şekilde güncelleştirmeniz gerekir. 
 > 
 > 
@@ -36,23 +34,23 @@ Bu makalede, bir Windows sanal makinesi (VM), kaynak grubu veya abonelik arasın
 
 ## <a name="use-powershell-to-move-a-vm"></a>Bir VM'yi taşıma için Powershell kullanma
 
-Bir sanal makineyi başka bir kaynak grubuna taşımak için ayrıca tüm bağımlı kaynakları taşıdığınızdan emin olmanız gerekir. Bu kaynakların her biri kaynak kimliği listesini almak için kullanın [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet'i.
+Bir sanal makineyi başka bir kaynak grubuna taşımak için ayrıca tüm bağımlı kaynakları taşıdığınızdan emin olmanız gerekir. Bu kaynakların her biri kaynak kimliği listesini almak için kullanın [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) cmdlet'i.
 
 ```azurepowershell-interactive
- Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-Önceki komutun çıktısındaki kaynak kimliklerinin virgülle ayrılmış bir listesi olarak kullanabileceğiniz [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) her kaynak hedef konuma taşımak için. 
+Önceki komutun çıktısındaki kaynak kimliklerinin virgülle ayrılmış bir listesi olarak kullanabileceğiniz [taşıma AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) her kaynak hedef konuma taşımak için. 
 
 ```azurepowershell-interactive
-Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+Move-AzResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
     
 Kaynakları farklı aboneliğe taşımak dahil **- DestinationSubscriptionId** parametresi. 
 
 ```azurepowershell-interactive
-Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
+Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
     -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```

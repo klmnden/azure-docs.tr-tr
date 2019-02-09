@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 292063183561722eae76c3d30ce242facd22df26
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756538"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981460"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
@@ -47,6 +47,11 @@ Azure Machine Learning hizmeti farklı işlem hedef arasında değişen desteğe
 |[Azure Data Lake Analytics'i](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+**Tüm hedefler için birden fazla eğitim işleri yeniden kullanılabilir işlem**. Örneğin, uzak bir VM çalışma alanınıza eklediğiniz sonra birden çok iş için kullanabilirsiniz.
+
+> [!NOTE]
+> Azure Machine Learning işlem oluşturulabilir kalıcı bir kaynak olarak veya bir farklı çalıştır istediğinizde dinamik olarak oluşturulur. Bu şekilde oluşturulan işlem hedefleri yeniden kullanmak için eğitim çalıştırma tamamlandıktan sonra işlem hedef çalışma tabanlı olarak oluşturulmasını kaldırır.
+
 ## <a name="whats-a-run-configuration"></a>Bir çalıştırma yapılandırma nedir?
 
 Eğitim, yerel bilgisayarınızda başlatmak ve daha sonra farklı işlem hedefte Bu eğitim betiğini çalıştırmak için yaygındır. Azure Machine Learning hizmeti ile kodunuzu değiştirmek zorunda kalmadan kodunuzu çeşitli işlem hedefler üzerinde çalıştırabilirsiniz. 
@@ -65,7 +70,7 @@ Sistem tarafından yönetilen bir ortamda istediğiniz zaman kullanmak [Conda](h
 
 Tek yapmak için ihtiyacınız olan her paket bağımlılık kullanarak belirttiğiniz [CondaDependency sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) ardından Conda adlı bir dosya oluşturur **conda_dependencies.yml** içinde **aml_config** Paket bağımlılıklarını ve eğitim denemenizi gönderdiğinizde Python ortamınızı kümeleri listesi ile çalışma dizini. 
 
-Yeni bir ortam ilk Kurulum gerekli bağımlılıkları boyutuna bağlı olarak birkaç dakika sürebilir. Saati ayarla, paketlerin listesi değişmeden kaldığı sürece, yalnızca bir kez gerçekleşir.
+Yeni bir ortam ilk kurulumu gerekli bağımlılıkları boyutuna bağlı olarak birkaç dakika sürebilir. Kurulum süresi, paketlerin listesi değişmeden kaldığı sürece, yalnızca bir kez gerçekleşir.
   
 Aşağıdaki kod örneği scikit gerektiren sistem tarafından yönetilen bir ortamda gösterir-öğrenin:
     
@@ -73,7 +78,7 @@ Aşağıdaki kod örneği scikit gerektiren sistem tarafından yönetilen bir or
 
 #### <a name="user-managed-environment"></a>Kullanıcı tarafından yönetilen ortamı
 
-Bir kullanıcı tarafından yönetilen ortamlarda ortamınızı ayarlarken ve işlem hedef eğitim betiğinizi gereken her paket yükleme sorumludur. Eğitim ortamınızı zaten yapılandırılmışsa (gibi yerel makinenizde), ayarlayarak ayarlama adımını atlayabilirsiniz `user_managed_dependencies` true. Conda ortamınızı denetlemez ve her şeyi sizin için yükler.
+Kullanıcı tarafından yönetilen bir ortam için ortamınızı ayarlarken ve işlem hedef eğitim betiğinizi gereken her paket yükleme için sorumlu olursunuz. Eğitim ortamınızı zaten yapılandırılmışsa (gibi yerel makinenizde), ayarlayarak Kurulum adımı atlayabilirsiniz `user_managed_dependencies` true. Conda ortamınızı denetlemez ve her şeyi sizin için yükler.
 
 Aşağıdaki kod, kullanıcı tarafından yönetilen bir ortamda eğitim çalıştırmalarının yapılandırma örneği gösterilmektedir:
 
@@ -242,7 +247,7 @@ Azure portalında bir çalışma alanınız ile ilişkili olan işlem hedefleri 
 
 * [Görünüm işlem hedeflerini](#portal-view) çalışma alanınıza bağlı
 * [İşlem hedefi oluşturmak](#portal-create) çalışma alanınızdaki
-* [Var olan işlem hedefleri yeniden kullanma](#portal-reuse)
+* [İşlem hedefi ekleme](#portal-reuse) dışında çalışma oluşturuldu
 
 Bir hedef oluşturulur ve çalışma alanınıza bağlı sonra onu çalıştırması yapılandırmanızdaki kullanacaksınız bir `ComputeTarget` nesnesi: 
 
@@ -293,9 +298,11 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 
 
-### <a id="portal-reuse"></a>Var olan işlem hedefleri yeniden kullanma
+### <a id="portal-reuse"></a>İşlem hedefleri ekleme
 
-İşlem hedeflerin listesini görüntülemek için daha önce açıklanan adımları izleyin. Ardından bir işlem hedefine yeniden kullanmak için aşağıdaki adımları kullanın: 
+Azure Machine Learning hizmeti çalışma dışında oluşturulan işlem hedefleri kullanmak için bunları eklemeniz gerekir. İşlem hedefi eklemek çalışma alanınızı kullanılmasını sağlar.
+
+İşlem hedeflerin listesini görüntülemek için daha önce açıklanan adımları izleyin. Ardından, işlem hedefi eklemek için aşağıdaki adımları kullanın: 
 
 1. İşlem hedefi eklemek için artı işaretini (+) seçin. 
 1. İşlem hedefi için bir ad girin. 

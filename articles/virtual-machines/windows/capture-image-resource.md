@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: ff2352005470755c8ca0f472c4a790a820fea6b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a5e3fbc3369f19af8d93e23d669a4449ab3d414c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754396"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980593"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure'da bir genelleştirilmiş VM'nin yönetilen görüntüsünü oluşturma
 
 Yönetilen bir görüntü kaynağı genelleştirilmiş sanal makineden bir yönetilen diskin veya depolama hesabındaki yönetilmeyen disk olarak depolanan (VM) oluşturulabilir. Görüntü daha sonra birden çok VM oluşturmak için kullanılabilir. Yönetilen görüntüleri faturalandırılır hakkında bilgi için bkz: [yönetilen diskler fiyatlandırması](https://azure.microsoft.com/pricing/details/managed-disks/). 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep kullanarak Windows VM'sini genelleştirme
 
@@ -85,11 +87,11 @@ Windows VM'nizi genelleştirmek için şu adımları izleyin:
 Doğrudan VM'den görüntü oluşturma, görüntü işletim sistemi diski ve veri diskleri dahil olmak üzere VM ile ilişkili tüm diskleri içerdiğinden sağlar. Bu örnekte, yönetilen diskleri kullanan bir VM'den yönetilen bir görüntü oluşturma işlemi gösterilmektedir.
 
 
-Başlamadan önce sürüm 5.7.0 olmalıdır AzureRM.Compute PowerShell modülünün en son sürüm olduğundan emin olun veya üzeri. Sürümü bulmak için çalıştırın `Get-Module -ListAvailable AzureRM.Compute` PowerShell'de. Yükseltmeniz gerekirse bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, çalıştırma `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+Başlamadan önce sürüm 5.7.0 olmalıdır AzureRM.Compute PowerShell modülünün en son sürüm olduğundan emin olun veya üzeri. Sürümü bulmak için çalıştırın `Get-Module -ListAvailable AzureRM.Compute` PowerShell'de. Yükseltmeniz gerekirse bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](/powershell/azure/azurerm/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız, çalıştırma `Connect-AzAccount` Azure ile bir bağlantı oluşturmak için.
 
 
 > [!NOTE]
-> Görüntünüzü bölgesel olarak yedekli depolamada depolamak istiyorsanız, desteklediği bir bölgede oluşturmanız gerekir [kullanılabilirlik](../../availability-zones/az-overview.md) ve `-ZoneResilient` görüntü yapılandırması parametresinde (`New-AzureRmImageConfig` komutu).
+> Görüntünüzü bölgesel olarak yedekli depolamada depolamak istiyorsanız, desteklediği bir bölgede oluşturmanız gerekir [kullanılabilirlik](../../availability-zones/az-overview.md) ve `-ZoneResilient` görüntü yapılandırması parametresinde (`New-AzImageConfig` komutu).
 
 Bir VM görüntüsü oluşturmak için aşağıdaki adımları izleyin:
 
@@ -104,30 +106,30 @@ Bir VM görüntüsü oluşturmak için aşağıdaki adımları izleyin:
 2. VM serbest emin olun.
 
     ```azurepowershell-interactive
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Sanal makinenin durumunu **Genelleştirmiş**. 
    
     ```azurepowershell-interactive
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
 4. Sanal makineyi alın. 
 
     ```azurepowershell-interactive
-    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
+    $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
     ```
 
 5. Görüntü yapılandırması oluşturun.
 
     ```azurepowershell-interactive
-    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
+    $image = New-AzImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
     ```
 6. Görüntü oluşturun.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
+    New-AzImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>PowerShell kullanarak bir yönetilen diskten görüntü oluşturma
@@ -148,7 +150,7 @@ Yalnızca işletim sistemi disk görüntüsü oluşturmak istiyorsanız, işleti
 2. VM Al.
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
+   $vm = Get-AzVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. Yönetilen diskin Kimliğini alın.
@@ -160,14 +162,14 @@ Yalnızca işletim sistemi disk görüntüsü oluşturmak istiyorsanız, işleti
 3. Görüntü yapılandırması oluşturun.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
     ```
     
 4. Görüntü oluşturun.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
@@ -188,19 +190,19 @@ Aşağıdaki adımları izleyerek, genelleştirilmiş bir sanal makinenin bir an
 2. Anlık görüntü alın.
 
    ```azurepowershell-interactive
-   $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
+   $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
 3. Görüntü yapılandırması oluşturun.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
 4. Görüntü oluşturun.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
@@ -221,20 +223,20 @@ Genelleştirilmiş bir işletim sistemi VHD'si bir depolama hesabı, yönetilen 
 2. Durdur/VM'yi serbest bırakın.
 
     ```azurepowershell-interactive
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. VM genelleştirilmiş olarak işaretleyin.
 
     ```azurepowershell-interactive
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized  
     ```
 4.  Görüntünün genelleştirilmiş işletim sistemi VHD'niz kullanarak oluşturun.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $image = New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
     

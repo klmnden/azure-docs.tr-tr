@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2f45b8e5a8fbf06a86a16336b825d185baf4976b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386463"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959689"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics, HDInsight kümelerinizi izlemek için kullanın
 
@@ -46,9 +46,19 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Bu bölümde, bir Azure Log Analytics çalışma alanı işleri, hata ayıklama günlükleri izlemek üzere kullanmak için mevcut bir HDInsight Hadoop kümesi yapılandırın.
 
-1. Bir HDInsight kümesi, Azure portalında açın.
-2. Sol bölmede seçin **izleme**.
-3. Sağ bölmede seçin **etkinleştirme**, mevcut bir Log Analytics çalışma alanını seçin ve ardından **Kaydet**.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+
+2. Sol menüden **tüm hizmetleri**.
+
+3. Altında **ANALYTICS**seçin **HDInsight kümeleri**.
+
+4. Soldan altında **izleme**seçin **Operations Management Suite**.
+
+5. Ana görünümünde altında **OMS izleme**seçin **etkinleştirme**.
+
+6. Gelen **bir çalışma alanı seçin** aşağı açılan listesinde, mevcut bir Log Analytics çalışma alanını seçin.
+
+7. **Kaydet**’i seçin.
 
     ![HDInsight kümeleri için izlemeyi etkinleştirin](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "HDInsight kümeleri için izlemeyi etkinleştir")
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 18d6478763fd6551cc8baac6ea54e8d91f1a28e6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629977"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980610"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration uzantısı işleyicisi giriş
 
@@ -36,15 +36,15 @@ Bu makalede her iki senaryoyu hakkında bilgi sağlar: DSC uzantısı için Otom
 ## <a name="prerequisites"></a>Önkoşullar
 
 - **Yerel makine**: Azure VM uzantısı ile etkileşimde bulunmak üzere Azure portalında veya Azure PowerShell SDK'sını kullanmanız gerekir.
-- **Konuk Aracısı**: DSC yapılandırması tarafından yapılandırılmış olan Azure VM, Windows Management Framework (WMF) 4.0 veya üzeri destekleyen bir işletim sistemi olmalıdır. Desteklenen işletim sistemi sürümleri tam listesi için bkz. [DSC uzantısı sürüm geçmişi](/powershell/dsc/azuredscexthistory).
+- **Konuk Aracısı**: DSC yapılandırması tarafından yapılandırılmış bir Azure VM, Windows Management Framework (WMF) 4.0 veya üzeri destekleyen bir işletim sistemi olmalıdır. Desteklenen işletim sistemi sürümleri tam listesi için bkz. [DSC uzantısı sürüm geçmişi](/powershell/dsc/azuredscexthistory).
 
 ## <a name="terms-and-concepts"></a>Terimleri ve kavramları
 
 Bu kılavuz, aşağıdaki kavramları bilindiğini varsayar:
 
-- **Yapılandırma**: bir DSC yapılandırma belgesi.
-- **Düğüm**: bir DSC yapılandırması için bir hedef. Bu belgedeki *düğüm* her zaman bir Azure VM'ye ifade eder.
-- **Yapılandırma verilerini**: Ortam veri yapılandırması için bir .psd1 dosya.
+- **Yapılandırma**: DSC yapılandırma belgesi.
+- **Düğüm**: DSC yapılandırması için bir hedef. Bu belgedeki *düğüm* her zaman bir Azure VM'ye ifade eder.
+- **Yapılandırma verilerini**: Bir yapılandırma için çevresel verileri olan bir .psd1 dosyası.
 
 ## <a name="architecture"></a>Mimari
 
@@ -70,17 +70,17 @@ Azure DSC uzantısı olması amaçlanan bir varsayılan yapılandırma betiği i
 
 DSC uzantısı'nı yönetmek için kullanılan PowerShell cmdlet'lerini, etkileşimli sorun giderme ve bilgi toplama senaryolar en iyi şekilde kullanılır. Cmdlet'ler, paketleme, yayımlama ve DSC uzantı dağıtımlarını izlemek için kullanabilirsiniz. DSC uzantısı için cmdlet'leri olmayan henüz çalışmak için güncelleştirilmiş [varsayılan yapılandırma betiğini](#default-configuration-script).
 
-**Yayımla AzureRmVMDscConfiguration** cmdlet'i bir yapılandırma dosyasında alır, bağımlı DSC kaynakları tarar ve ardından bir .zip dosyası oluşturur. .Zip dosyasını, yapılandırma ve yapılandırmayı uygulamak için gereken DSC kaynakları içerir. Cmdlet ayrıca paketin yerel olarak kullanarak oluşturabilirsiniz *- OutputArchivePath* parametresi. Aksi takdirde, cmdlet .zip dosyasını BLOB depolamaya yayımlar ve bir SAS belirteci ile güvenliğini sağlar.
+**Yayımla AzVMDscConfiguration** cmdlet'i bir yapılandırma dosyasında alır, bağımlı DSC kaynakları tarar ve ardından bir .zip dosyası oluşturur. .Zip dosyasını, yapılandırma ve yapılandırmayı uygulamak için gereken DSC kaynakları içerir. Cmdlet ayrıca paketin yerel olarak kullanarak oluşturabilirsiniz *- OutputArchivePath* parametresi. Aksi takdirde, cmdlet .zip dosyasını BLOB depolamaya yayımlar ve bir SAS belirteci ile güvenliğini sağlar.
 
 Cmdlet oluşturan .ps1 yapılandırma Arşiv klasörünün kökünde .zip dosyasındaki betiğidir. Modül klasörü kaynakları arşivi klasöre yerleştirilir.
 
-**Kümesi AzureRmVMDscExtension** cmdlet'i bir VM yapılandırma nesnesine PowerShell DSC uzantısı için gerekli ayarları ekler.
+**Kümesi AzVMDscExtension** cmdlet'i bir VM yapılandırma nesnesine PowerShell DSC uzantısı için gerekli ayarları ekler.
 
-**Get-AzureRmVMDscExtension** cmdlet'i belirli bir VM DSC uzantı durumunu alır.
+**Get-AzVMDscExtension** cmdlet'i belirli bir VM DSC uzantı durumunu alır.
 
-**Get-AzureRmVMDscExtensionStatus** cmdlet'i DSC uzantı işleyici tarafından yapılandırmalara uygun koşullarda çalışıldığından DSC yapılandırma durumunu alır. Bu eylem, bir grup VM'yi veya tek bir VM üzerinde gerçekleştirilebilir.
+**Get-AzVMDscExtensionStatus** cmdlet'i DSC uzantı işleyici tarafından yapılandırmalara uygun koşullarda çalışıldığından DSC yapılandırma durumunu alır. Bu eylem, bir grup VM'yi veya tek bir VM üzerinde gerçekleştirilebilir.
 
-**Remove-AzureRmVMDscExtension** cmdlet'i uzantısı işleyicinin belirli bir sanal makineden kaldırır. Bu cmdlet mu *değil* yapılandırmasını kaldırmak, WMF kaldırın veya VM üzerinde uygulanan ayarları değiştirin. Uzantı işleyici yalnızca kaldırır. 
+**Remove-AzVMDscExtension** cmdlet'i uzantısı işleyicinin belirli bir sanal makineden kaldırır. Bu cmdlet mu *değil* yapılandırmasını kaldırmak, WMF kaldırın veya VM üzerinde uygulanan ayarları değiştirin. Uzantı işleyici yalnızca kaldırır. 
 
 Resource Manager DSC uzantı cmdlet'leri hakkında önemli bilgiler:
 
@@ -117,9 +117,9 @@ $location = 'westus'
 $vmName = 'myVM'
 $storageName = 'demostorage'
 #Publish the configuration script to user storage
-Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
+Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
-Set-AzureRmVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
 ```
 
 ## <a name="azure-portal-functionality"></a>Azure portal işlevi
@@ -135,19 +135,19 @@ Portal şu giriş toplar:
 
 - **Yapılandırma modülleri veya betik**: Bu alan zorunludur (formu için güncelleştirilmemiş [varsayılan yapılandırma betiğini](#default-configuration-script)). Yapılandırma modülleri ve komut dosyalarını bir yapılandırma betiği içeren bir .ps1 dosyası veya kökünde bir .ps1 yapılandırma betiği içeren bir .zip dosyası gerektirir. Bir .zip dosyası kullanıyorsanız, tüm bağımlı kaynaklarla .zip modülü klasörlerdeki eklenmesi gerekir. .Zip dosyasını kullanarak oluşturabileceğiniz **Yayımla AzureVMDscConfiguration - OutputArchivePath** Azure PowerShell SDK'sına dahil cmdlet'i. .Zip dosyası, kullanıcı blob depolama alanına yüklenir ve bir SAS belirteci tarafından güvenli hale getirilmiş.
 
-- **Yapılandırmasını modülü ile nitelenen adı**: birden çok yapılandırma işlevi bir .ps1 dosyasına ekleyebilirsiniz. Ardından yapılandırma .ps1 komut dosyasının adını girin \\ ve yapılandırma işlevin adı. Örneğin, .ps1 komut dosyanızın adı configuration.ps1 ve yapılandırmayı ise **IisInstall**, girin **configuration.ps1\IisInstall**.
+- **Modül adını yapılandırma**: Bir .ps1 dosyasına birden çok yapılandırma işlevleri içerebilir. Ardından yapılandırma .ps1 komut dosyasının adını girin \\ ve yapılandırma işlevin adı. Örneğin, .ps1 komut dosyanızın adı configuration.ps1 ve yapılandırmayı ise **IisInstall**, girin **configuration.ps1\IisInstall**.
 
-- **Yapılandırma değişkenleri**: yapılandırma işlev bağımsız değişkeni alır, bunları burada biçiminde girin **argumentName1 value1, argumentName2 = Value2**. Bu biçim, PowerShell cmdlet'leri veya Resource Manager şablonlarında yapılandırma bağımsız değişkenleri kabul edilir, farklı bir biçimidir.
+- **Yapılandırma değişkenleri**: Yapılandırma işlev bağımsız değişkeni alır, bunları burada biçiminde girin **argumentName1 value1, argumentName2 = Value2**. Bu biçim, PowerShell cmdlet'leri veya Resource Manager şablonlarında yapılandırma bağımsız değişkenleri kabul edilir, farklı bir biçimidir.
 
 - **Yapılandırma verileri PSD1 dosyası**: Bu alan isteğe bağlıdır. Yapılandırmanızı .psd1 yapılandırma veri dosyası gerektiriyorsa, veri alanını seçebilir ve kullanıcı blob depolamaya yüklemek için bu alanı kullanın. Yapılandırma verileri dosyası, blob depolama alanındaki bir SAS belirteci tarafından sağlanır.
 
-- **WMF sürümünü**: sanal makinenizde yüklü Windows Management Framework (WMF) sürümünü belirtir. Bu özellik için en son yükler WMF'nin en son sürümünü ayarlama. Şu anda bu özellik için yalnızca olası değerler şunlardır 4.0, 5.0, 5.1 ve son. Bu olası değerler şunlardır: güncelleştirmeleri tabidir. Varsayılan değer **son**.
+- **WMF sürümünü**: Sanal makinenizde yüklü Windows Management Framework (WMF) sürümünü belirtir. Bu özellik için en son yükler WMF'nin en son sürümünü ayarlama. Şu anda bu özellik için yalnızca olası değerler şunlardır 4.0, 5.0, 5.1 ve son. Bu olası değerler şunlardır: güncelleştirmeleri tabidir. Varsayılan değer **son**.
 
-- **Veri toplama**: uzantı bir telemetri toplarız belirler. Daha fazla bilgi için [Azure DSC uzantı veri koleksiyonu](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
+- **Veri toplama**: Uzantı bir telemetri toplarız belirler. Daha fazla bilgi için [Azure DSC uzantı veri koleksiyonu](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
 
-- **Sürüm**: yüklemek için DSC uzantı sürümünü belirtir. Sürümleri hakkında daha fazla bilgi için bkz. [DSC uzantısı sürüm geçmişi](/powershell/dsc/azuredscexthistory).
+- **Sürüm**: Yüklemek için DSC uzantı sürümünü belirtir. Sürümleri hakkında daha fazla bilgi için bkz. [DSC uzantısı sürüm geçmişi](/powershell/dsc/azuredscexthistory).
 
-- **Alt sürüm yükseltme otomatik**: Bu alan eşlendiği **AutoUpdate** geçiş cmdlet'leri ve otomatik olarak yükleme sırasında en son sürüme güncelleştirmek uzantı sağlar. **Evet** kullanılabilir en son sürüme kullanılacak uzantısı işleyicisi yenilemelerini ister ve **Hayır** zorlayacak **sürüm** belirtilen yüklenecek. Hiçbirini seçme **Evet** ya da **Hayır** seçerek aynı **Hayır**.
+- **Otomatik yükseltme Podverze**: Bu alan eşlendiği **AutoUpdate** geçiş cmdlet'leri ve otomatik olarak yükleme sırasında en son sürüme güncelleştirmek uzantı sağlar. **Evet** kullanılabilir en son sürüme kullanılacak uzantısı işleyicisi yenilemelerini ister ve **Hayır** zorlayacak **sürüm** belirtilen yüklenecek. Hiçbirini seçme **Evet** ya da **Hayır** seçerek aynı **Hayır**.
 
 ## <a name="logs"></a>Günlükler
 

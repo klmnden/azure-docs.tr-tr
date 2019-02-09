@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 436dbccfe8d5b732bc64b58ff79dc772ac8b2bce
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754028"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964194"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Denetleme ve SQL veritabanı ve SQL veri ambarı veritabanına erişim izni verme
 
@@ -37,11 +37,14 @@ Yönetici işlevlerine sahip iki yönetici hesabı (**Sunucu yöneticisi** ve **
 
 - **Sunucu Yöneticisi**
 
-Bir Azure SQL sunucusu oluşturduğunuzda **Sunucu yöneticisi oturum açma bilgileri** belirlemeniz gerekir. SQL Server, bu hesabı ana veritabanında oturum açma bilgileri olarak oluşturur. Bu hesap SQL Server kimlik doğrulaması (kullanıcı adı ve parola) kullanarak bağlanır. Bu hesaplardan yalnızca biri mevcut olabilir.   
+  Bir Azure SQL sunucusu oluşturduğunuzda **Sunucu yöneticisi oturum açma bilgileri** belirlemeniz gerekir. SQL Server, bu hesabı ana veritabanında oturum açma bilgileri olarak oluşturur. Bu hesap SQL Server kimlik doğrulaması (kullanıcı adı ve parola) kullanarak bağlanır. Bu hesaplardan yalnızca biri mevcut olabilir.
 
-- **Azure Active Directory Yöneticisi**   
+  > [!NOTE]
+  > Sunucu Yöneticisi parolasını sıfırlamak için şu adrese gidin [Azure portalında](https://portal.azure.com), tıklayın **SQL sunucuları**listeden sunucuyu seçin ve ardından **parola sıfırlama**.
 
-Ayrıca, Azure Active Directory’deki bir adet kişi veya güvenlik grubu hesabı da yönetici olarak yapılandırılabilir. Bir Azure AD Yöneticisi, ancak bir Azure AD Yöneticisi yapılandırma adımı isteğe bağlıdır **gerekir** SQL veritabanına bağlanmak için Azure AD hesapları kullanmak istiyorsanız yapılandırılabilir. Azure Active Directory erişimini yapılandırma hakkında daha fazla bilgi için bkz. [Azure Active Directory Kimlik Doğrulamasını Kullanarak SQL Veritabanı’na veya SQL Veri Ambarı’na Bağlanma](sql-database-aad-authentication.md) ve [SQL Veritabanı ve SQL Veri Ambarı ile Azure AD MFA kullanımı için SSMS desteği](sql-database-ssms-mfa-authentication.md).
+- **Azure Active Directory Yöneticisi**
+
+  Ayrıca, Azure Active Directory’deki bir adet kişi veya güvenlik grubu hesabı da yönetici olarak yapılandırılabilir. Bir Azure AD Yöneticisi, ancak bir Azure AD Yöneticisi yapılandırma adımı isteğe bağlıdır **gerekir** SQL veritabanına bağlanmak için Azure AD hesapları kullanmak istiyorsanız yapılandırılabilir. Azure Active Directory erişimini yapılandırma hakkında daha fazla bilgi için bkz. [Azure Active Directory Kimlik Doğrulamasını Kullanarak SQL Veritabanı’na veya SQL Veri Ambarı’na Bağlanma](sql-database-aad-authentication.md) ve [SQL Veritabanı ve SQL Veri Ambarı ile Azure AD MFA kullanımı için SSMS desteği](sql-database-ssms-mfa-authentication.md).
 
 **Sunucu yöneticisi** ve **Azure AD yöneticisi** hesapları şu özelliklere sahiptir:
 
@@ -71,7 +74,6 @@ Bir sunucu, veritabanı, sunucu düzeyinde IP güvenlik duvarı kuralları oluş
 
 > [!IMPORTANT]
 > Microsoft Azure ve SQL Veritabanı güncelleştirmeleriyle aynı sürümde olmak için her zaman en güncel Management Studio sürümünü kullanmanız önerilir. [SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).
-
 
 ## <a name="additional-server-level-administrative-roles"></a>Ek sunucu düzeyinde yönetim rolleri
 

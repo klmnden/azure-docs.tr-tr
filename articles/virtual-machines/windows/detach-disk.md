@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: e27826629873566bf7b746649923c25e6ab70827
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 750bb275ef936b3911503cd4c0f50674d3dff2d1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457165"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981154"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Nasıl bir Windows sanal makinesinden veri diski çıkarma
 
@@ -35,16 +35,18 @@ Sanal makineye bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayc
 Disk üzerinde var olan verileri yeniden kullanmak isterseniz bu verileri aynı sanal makineye veya başka birine yeniden ekleyebilirsiniz.
 
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="detach-a-data-disk-using-powershell"></a>PowerShell kullanarak veri diski çıkarma
 
 Yapabilecekleriniz *sık erişimli* PowerShell kullanarak veri diski kaldırma, ancak hiçbir şey etkin bir şekilde kullanarak diski sanal makineden kullanımdan çıkarmadan önce emin olun.
 
-Bu örnekte biz adlı disk kaldırmak **myDisk** VM'den **myVM** içinde **myResourceGroup** kaynak grubu. İlk disk kullanarak kaldırmanız [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet'i. Sanal makinenin durumunu güncelleştirmeden sonra kullanarak [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) veri diski kaldırma işlemini tamamlamak için cmdlet'i.
+Bu örnekte biz adlı disk kaldırmak **myDisk** VM'den **myVM** içinde **myResourceGroup** kaynak grubu. İlk disk kullanarak kaldırmanız [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) cmdlet'i. Sanal makinenin durumunu güncelleştirmeden sonra kullanarak [güncelleştirme-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) veri diski kaldırma işlemini tamamlamak için cmdlet'i.
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "myDisk"
-Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
+Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
 Disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildir.

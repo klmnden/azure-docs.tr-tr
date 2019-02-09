@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 33bab4b66532a4cdcbd33c2f8594476d07985f4b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 88efa25e09cf6034e9320569358488d9aebb7ad6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096951"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958448"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de yeni bir kiracı oluşturma
 Kuruluşunuz için yeni bir kiracı oluşturulması da dahil olmak üzere, Azure Active Directory (Azure AD) portalı kullanarak tüm yönetim görevlerinizi gerçekleştirebilirsiniz. 
@@ -34,7 +34,7 @@ Genel yönetici hesabını kullanarak kuruluşunuzun [Azure portalda](https://po
 Azure portalda oturum açtıktan sonra kuruluşunuz için yeni bir kiracı oluşturabilirsiniz. Yeni kiracınız kuruluşunuzu temsil eder ve şirket içindeki ve dışındaki kullanıcılarınız için belirli bir Microsoft bulut hizmetleri örneğini yönetmenize yardımcı olur.
 
 ### <a name="to-create-a-new-tenant"></a>Yeni kiracı oluşturmak için
-1. Sırayla **Azure Active Directory**, **Kaynak oluştur**, **Kimlik** ve **Azure Active Directory** seçeneklerini belirleyin.
+1. Seçin **kaynak Oluştur**seçin **kimlik**ve ardından **Azure Active Directory**.
 
     **Dizin oluştur** sayfası görüntülenir.
 

@@ -3,8 +3,8 @@ title: Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma | M
 description: İfade eşlemeleri otomatik Azure Active Directory'de SaaS uygulama nesnelerin sağlama sırasında öznitelik değerleri kabul edilebilir bir biçime dönüştürmek için kullanmayı öğrenin.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 3361bc384f3da3d2bde6eab703056dd85356b5f8
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: c97fd915e9022171125c7c0f687413e433f82871
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895423"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983854"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma
 Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz için öznitelik eşlemelerini türdeki bir ifade eşleme biridir. Bu, kullanıcılarınızın verileri fazla SaaS uygulaması için kabul edilebilir biçimlere dönüştürme olanak tanıyan bir betik gibi ifade yazmanız gerekir.
@@ -49,7 +49,7 @@ Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz i
 
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
-| **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı |
+| **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı. |
 | **suffix** |Gerekli |Dize |Kaynak değerin sonuna istediğiniz dize. |
 
 - - -
@@ -72,7 +72,7 @@ Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz i
 
 **Açıklama:**<br> Birden çok birleştirebilirsiniz dışında join() Append() için benzer **kaynak** dize değerleri tek bir dize olarak ve her bir değeri ile ayrılmış bir **ayırıcı** dize.
 
-Kaynak değerlerden biri çok değer özniteliği, her değer ise bu özniteliğin birlikte katılacaksa, ayırıcı değeri ayrılmış.
+Kaynak değerlerden biri çok değerli öznitelik ise, ardından bu öznitelik her değer birlikte ayırıcı değeri tarafından ayrılmış katılır.
 
 **Parametreler:**<br> 
 
@@ -105,7 +105,7 @@ Kaynak değerlerden biri çok değer özniteliği, her değer ise bu özniteliğ
 
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
-| **Kaynak** |Gerekli |Dize | Genellikle bir ad veya son name özniteliği |
+| **Kaynak** |Gerekli |String | Genellikle bir ad veya son name özniteliği. |
 
 - - -
 ### <a name="not"></a>değil
@@ -117,7 +117,7 @@ Kaynak değerlerden biri çok değer özniteliği, her değer ise bu özniteliğ
 
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
-| **Kaynak** |Gerekli |Boole dizesi |Beklenen **kaynak** değerler "True" veya "False"... |
+| **Kaynak** |Gerekli |Boole dizesi |Beklenen **kaynak** değerler "True" veya "False". |
 
 - - -
 ### <a name="replace"></a>Değiştir
@@ -128,7 +128,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 
 * Zaman **oldValue** ve **replacementValue** sağlanır:
   
-  * İle replacementValue oldValue kaynaktaki tüm oluşumlarını değiştirir
+  * Tüm oluşumlarını değiştirir **oldValue** içinde **kaynak** ile *replacementValue**
 * Zaman **oldValue** ve **şablon** sağlanır:
   
   * Tüm oluşumlarını değiştirir **oldValue** içinde **şablon** ile **kaynak** değeri
@@ -167,7 +167,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
-| **... uniqueValueRule1 uniqueValueRuleN** |En az 2 gerekli, en üst sınır. |Dize | Değerlendirmek için benzersiz bir değer oluşturma kuralları listesi |
+| **... uniqueValueRule1 uniqueValueRuleN** |En az 2 gerekli, en üst sınır. |String | Değerlendirmek için benzersiz bir değer oluşturma kuralları listesi. |
 
 
 - - -
@@ -219,7 +219,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
-| **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı |
+| **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı. |
 | **Kültür** |İsteğe bağlı |String |RFC 4646 üzerinde temel kültür adı biçimi *languagecode2-ülke/regioncode2*burada *languagecode2* iki harfli dil kodu ve *ülke/regioncode2*iki harfli alt koddur. Ja-JP Japonca (Japonya) ve en-US için İngilizce (ABD) için verilebilir. Burada iki harfli dil kodunu kullanılabilir olmadığı durumlarda, ISO 639-2 ' türetilmiş bir üç harfli kod kullanılır.|
 
 - - -
@@ -232,7 +232,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
-| **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı |
+| **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı. |
 | **Kültür** |İsteğe bağlı |String |RFC 4646 üzerinde temel kültür adı biçimi *languagecode2-ülke/regioncode2*burada *languagecode2* iki harfli dil kodu ve *ülke/regioncode2*iki harfli alt koddur. Ja-JP Japonca (Japonya) ve en-US için İngilizce (ABD) için verilebilir. Burada iki harfli dil kodunu kullanılabilir olmadığı durumlarda, ISO 639-2 ' türetilmiş bir üç harfli kod kullanılır.|
 
 ## <a name="examples"></a>Örnekler

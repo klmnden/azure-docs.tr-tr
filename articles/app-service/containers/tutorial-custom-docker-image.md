@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 62cdc50b40fb1273fdc2eece050869fc2284cf6c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632985"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984826"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma
 
@@ -59,7 +59,7 @@ cd docker-django-webapp-linux
 
 Git deposunda _Dockerfile_ dosyasına göz atın. Bu dosya, uygulamanızı çalıştırmak için gereken Python ortamını açıklar. Görüntü ayrıca, kapsayıcı ile konak arasında güvenli iletişim için bir [SSH](https://www.ssh.com/ssh/protocol/) sunucusu ayarlar.
 
-```docker
+```Dockerfile
 FROM python:3.4
 
 RUN mkdir /code
@@ -254,7 +254,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="test-the-web-app"></a>Web uygulamasını test etme
 
-Web uygulamasına göz atarak uygulamanın çalıştığını doğrulayın (`http://<app_name>azurewebsites.net`). 
+Web uygulamasına göz atarak uygulamanın çalıştığını doğrulayın (`http://<app_name>.azurewebsites.net`). 
 
 ![Web uygulaması bağlantı noktası yapılandırmasını test etme](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -280,7 +280,7 @@ SSH, kapsayıcı ile istemci arasında güvenli iletişime olanak tanır. Özel 
 
 * `apt-get` çağrısı yapan ve ardından kök hesabın parolasını `"Docker!"` olarak ayarlayan bir [RUN](https://docs.docker.com/engine/reference/builder/#run) yönergesi.
 
-    ```docker
+    ```Dockerfile
     ENV SSH_PASSWD "root:Docker!"
     RUN apt-get update \
             && apt-get install -y --no-install-recommends dialog \
@@ -294,7 +294,7 @@ SSH, kapsayıcı ile istemci arasında güvenli iletişime olanak tanır. Özel 
 
 * Docker altyapısına [sshd_config](https://man.openbsd.org/sshd_config) dosyasını */etc/ssh/* dizinine taşımasını bildiren bir [COPY](https://docs.docker.com/engine/reference/builder/#copy) yönergesi. Yapılandırma dosyanızın [bu sshd_config dosyasına](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config) dayanması gerekir.
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
@@ -305,7 +305,7 @@ SSH, kapsayıcı ile istemci arasında güvenli iletişime olanak tanır. Özel 
 
 * Kapsayıcıda 2222 numaralı bağlantı noktasını ortaya çıkaran [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) yönergesi. Kök parolası biliniyor olsa da, 2222 numaralı bağlantı noktasına İnternet üzerinden erişilemez. Bu, yalnızca özel sanal ağın köprü ağı içinde yer alan kapsayıcıların erişebildiği dahili bir bağlantı noktasıdır. Bundan sonra, komutlar SSH yapılandırma ayrıntılarını kopyalar ve `ssh` hizmetini başlatır.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 8000 2222
     ```
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 63f71a0431ebeb63d041d19ce2c7b1e942e6fa14
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 88347076888b68459747757d655759d3f83d19a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894964"
+ms.locfileid: "55964568"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Java kullanarak desteklenen dillerin listesini almak için kullanın
 
@@ -162,6 +162,12 @@ public static void main(String[] args) {
 
 ```console
 gradle build
+```
+
+Derleme tamamlandığında çalıştırın:
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>Örnek yanıt

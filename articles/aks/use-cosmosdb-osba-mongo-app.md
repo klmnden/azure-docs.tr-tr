@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, açık hizmet Aracısı, Azure için açık hizmet Aracısı
-ms.openlocfilehash: 04b513de1d47749bb87b7aaf79839389ab4d7290
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 3146d11f33809391d93305d63bad757ed281fb70
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082562"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977024"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Mevcut MongoDB uygulamasını Azure Cosmos DB API ile MongoDB ile açık hizmet Aracısı (OSBA) Azure için tümleştirme
 
@@ -208,7 +208,7 @@ Bu komut dahil olmak üzere çeşitli yapıtların oluşturur. bir *grafikleri /
 
 Adlı projenize kökünde bir dosya oluşturun *Dockerfile* bu içeriğe sahip:
 
-```dockerfile
+```Dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app

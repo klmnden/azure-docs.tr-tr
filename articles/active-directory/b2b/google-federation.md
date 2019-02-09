@@ -10,18 +10,18 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: bc0a4d4ce13c4013d634748503f98451e5fae9be
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a12ae074d82fda329c30b367e4ef76285d92e0a1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216165"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983483"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google B2B Konuk kullanıcılar için kimlik sağlayıcısı Ekle
 
 Google ile Federasyon ayarlayarak, paylaşılan uygulamaları ve kaynakları kendi Google hesapları ile Microsoft Accounts (MSA) veya Azure AD hesapları oluşturmak zorunda kalmadan oturum açmak, davet edilen kullanıcılar izin verebilirsiniz.  
 > [!NOTE]
-> Google Konuk kullanıcılarınızın Kiracı bağlamını içeren bir bağlantıyı kullanarak oturum açmanız gerekir (örneğin, `https://myapps.microsoft.com/?tenantid=<tenant id>` veya `https://portal.azure.com/<tenant id>`, veya bir doğrulanmış varsayılan etki alanı, söz konusu olduğunda `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Kiracı bağlam içerirler sürece uygulamalarına ve kaynaklarına doğrudan bağlantılar da çalışır. Konuk kullanıcıları hiçbir Kiracı bağlamına sahip uç noktaları kullanarak oturum şu anda belirleyemiyoruz. Örneğin, kullanarak `https://myapps.microsoft.com`, `https://portal.azure.com`, veya ekipler ortak uç nokta bir hataya neden olur.
+> Google Konuk kullanıcılarınızın Kiracı bağlamını içeren bir bağlantıyı kullanarak oturum açmanız gerekir (örneğin, `https://myapps.microsoft.com/?tenantid=<tenant id>` veya `https://portal.azure.com/<tenant id>`, doğrulanmış bir etki alanı söz konusu olduğunda veya `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Kiracı bağlam içerirler sürece uygulamalarına ve kaynaklarına doğrudan bağlantılar da çalışır. Konuk kullanıcıları hiçbir Kiracı bağlamına sahip uç noktaları kullanarak oturum şu anda belirleyemiyoruz. Örneğin, kullanarak `https://myapps.microsoft.com`, `https://portal.azure.com`, veya ekipler ortak uç nokta bir hataya neden olur.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Google kullanıcı deneyimini nedir?
 Bir Google Gmail kullanıcıya bir davet gönderdiğinizde, Konuk kullanıcının paylaşılan uygulamaları veya Kiracı bağlamını içeren bir bağlantı kullanarak kaynakları erişmelidir. Deneyimlerini olup, henüz Google'da oturum açmadıysanız bağlı olarak değişir:

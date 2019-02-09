@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881605"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962239"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Application Insights akıllı algılama kurallarını yönetme
 
@@ -31,6 +31,7 @@ Bir akıllı algılama kuralına için aşağıdaki ayarları yapılandırabilir
 - Kural etkin olduğunda (varsayılan değer **true**.)
 - Abonelik sahiplerine e-posta gönderilmesi gerekiyorsa, Katkıda Bulunanlar ve okuyucular bir algılama zaman bulundu (varsayılan değer **true**.)
 - Bir algılama bulunduğu zaman bir bildirim almanız gerekir herhangi ek bir e-posta alıcıları.
+- * E-posta yapılandırmasını kullanılamaz olarak akıllı algılama kuralları işaretlenmiş için _Önizleme_.
 
 Azure Resource Manager aracılığıyla kural ayarları yapılandırma izin vermek için akıllı algılama kuralı yapılandırması adlı Application Insights kaynağı içinde bir iç kaynak olarak sunuldu **ProactiveDetectionConfigs**.
 Düzeyde esneklik için her bir akıllı algılama kuralına benzersiz bildirim ayarları ile yapılandırılabilir.

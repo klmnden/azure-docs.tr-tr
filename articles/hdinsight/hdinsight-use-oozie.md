@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 983ea87a7387c4ce6bb0c1c67bf46d81c717e69a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993105"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984265"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Tanımlamak ve iş akışı çalıştırma HDInsight için Apache Hadoop ile Apache Oozie kullanma
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -123,26 +123,23 @@ Oozie iş akışı tanımları hPDL (XML işlem tanımı dili) yazılır. Varsay
 
 RunHiveScript birkaç değişkeni yok. Azure PowerShell kullanarak Oozie iş istasyonunuzdan gönderdiğinizde değerlerini geçirirsiniz.
 
-<table border = "1">
-<tr><th>İş akışı değişkenleri</th><th>Açıklama</th></tr>
-<tr><td>${Jobtracker'a}</td><td>Hadoop işi İzleyicisi URL'sini belirtir. Kullanım <strong>jobtrackerhost:9010</strong> HDInsight sürüm 3.0 ve 2.1 içinde.</td></tr>
-<tr><td>${nameNode}</td><td>Hadoop adı düğüm URL'sini belirtir. Örneğin, varsayılan dosya sistemi adresi kullanın <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>İşin gönderildiği kuyruk adı belirtir. Kullanım <strong>varsayılan</strong>.</td></tr>
-</table>
+|İş akışı değişkenleri|Açıklama|
+|---|---|
+|${jobTracker}|Hadoop işi İzleyicisi URL'sini belirtir. Kullanım **jobtrackerhost:9010** HDInsight sürüm 3.0 ve 2.1 içinde.|
+|${nameNode}|Hadoop adı düğüm URL'sini belirtir. Örneğin, varsayılan dosya sistemi adresi kullanın *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+|${queueName}|İşin gönderildiği kuyruk adı belirtir. Kullanım **varsayılan**.|
 
-<table border = "1">
-<tr><th>Hive eylem değişkeni</th><th>Açıklama</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Hive tablosu oluşturma komutu için kaynak dizini belirtir.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>ÜZERİNE INSERT deyimi için çıkış klasörü belirtir.</td></tr>
-<tr><td>${hiveTableName}</td><td>Log4j veri dosyalarına başvuran bir Hive tablosu adını belirtir.</td></tr>
-</table>
+|Hive eylem değişkeni|Açıklama|
+|---|---|
+|${hiveDataFolder}|Hive tablosu oluşturma komutu için kaynak dizini belirtir.|
+|${hiveOutputFolder}|ÜZERİNE INSERT deyimi için çıkış klasörü belirtir.|
+|${hiveTableName}|Log4j veri dosyalarına başvuran bir Hive tablosu adını belirtir.|
 
-<table border = "1">
-<tr><th>Sqoop eylem değişkeni</th><th>Açıklama</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Azure SQL veritabanı bağlantı dizesini belirtir.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Veriler için dışa Azure SQL veritabanı tablosunu belirtir.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Hive Ekle üzerine deyimi için çıkış klasörü belirtir. Sqoop dışa aktar (dışarı aktarma-dir) aynı klasörde budur.</td></tr>
-</table>
+|Sqoop eylem değişkeni|Açıklama|
+|---|---|
+|${sqlDatabaseConnectionString}|Azure SQL veritabanı bağlantı dizesini belirtir.|
+|${sqlDatabaseTableName}|Veriler için dışa Azure SQL veritabanı tablosunu belirtir.|
+|${hiveOutputFolder}|Hive Ekle üzerine deyimi için çıkış klasörü belirtir. Sqoop dışa aktar (dışarı aktarma-dir) aynı klasörde budur.|
 
 Oozie iş akışının ve iş akışı eylemlerini kullanma hakkında daha fazla bilgi için bkz. [Apache Oozie 4.0 belgeleri] [ apache-oozie-400] (HDInsight sürüm 3.0 için) veya [ApacheOozie3.3.2belgeleri] [ apache-oozie-332] (için HDInsight sürüm 2.1).
 

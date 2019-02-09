@@ -10,18 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 344b049c46243c06c32ed061410f48f71bc70f54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580952"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984588"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Abonelikler arasında Azure Etkinlik Günlüklerini Log Analytics'e toplama
+# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>Azure Active Directory kiracılarındaki farklı abonelikler arasında Azure etkinlik günlüklerini Log Analytics'e toplama
 
-Bu makalede Logic Apps için Azure Log Analytics Veri Toplayıcı bağlayıcısını kullanarak Azure Etkinlik Günlüklerini Log Analytics çalışma alanında toplama yönteminin adım adım yönergeleri sağlanır. Günlükleri farklı bir Azure Active Directory'deki çalışma alanına göndermeniz gerektiğinde bu makaledeki işlemi kullanın. Örneğin yönetilen bir servis sağlayıcısıysanız, müşterinin aboneliğinden etkinlik günlüklerini toplamak ve bunları kendi aboneliğinizdeki bir Log Analytics çalışma alanında depolamak isteyebilirsiniz.
+Bu makalede Logic Apps için Azure Log Analytics Veri Toplayıcı bağlayıcısını kullanarak Azure Etkinlik Günlüklerini Log Analytics çalışma alanında toplama yönteminin adım adım yönergeleri sağlanır. Günlükleri farklı bir Azure Active Directory kiracısındaki bir çalışma alanına göndermeniz gerektiğinde bu makaledeki işlemi kullanın. Örneğin yönetilen bir servis sağlayıcısıysanız, müşterinin aboneliğinden etkinlik günlüklerini toplamak ve bunları kendi aboneliğinizdeki bir Log Analytics çalışma alanında depolamak isteyebilirsiniz.
 
 Log Analytics çalışma alanı aynı Azure aboneliğindeyse veya farklı bir abonelikte ancak aynı Azure Active Directory içindeyse, Azure etkinlik günlüklerini toplamak için [Azure etkinlik günlüğü çözümü](collect-activity-logs.md) altında verilen adımları kullanın.
 

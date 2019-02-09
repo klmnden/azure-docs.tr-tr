@@ -3,8 +3,8 @@ title: SaaS uygulama Azure AD'de kullanıcı sağlamayı otomatik | Microsoft Do
 description: Otomatik olarak sağlamak için Azure AD'ye nasıl kullanabileceğinizi giriş sağlamasını ve kullanıcı hesapları arasında birden çok üçüncü taraf SaaS uygulamaları sürekli olarak güncelleştirin.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/30/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: e47bf2a75b06f0804e446b0fdde4215b6e8193f6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 10a693c36c8863f856eac49f0c3da44e3a89fef5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874728"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960505"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 

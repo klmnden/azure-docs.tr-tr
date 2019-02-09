@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 121b5542f9388355b97744aa224ac824dd8d8728
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 008a24fe9822ca51b81e1f6979a3731d794a8867
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867214"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964347"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Metin işleme Azure Search'te çözümleyiciler
 
@@ -92,7 +92,7 @@ Bu örnekte yürüyen:
 * Çözümleyiciler aranabilir bir alanı için alan sınıfının bir özelliği var.
 * Özel bir çözümleyici dizin tanımı'nın bir parçasıdır. Bunu hafifçe (örneğin, bir filtre içinde tek bir seçenek özelleştirme) özelleştirilebilen veya birden fazla yerde özelleştirilebilir.
 * Bu durumda, özel çözümleyici sırayla bir özelleştirilmiş standart simgeleştirici "my_standard_tokenizer" ve belirteç iki filtre kullanır "my_analyzer" olduğu: küçük harf ve özelleştirilmiş asciifolding filtre "my_asciifolding".
-* Ayrıca, 2 özel char Filtreler "map_dash" ve "remove_whitespace" tanımlar. İkincisi tüm boşlukları kaldırır ancak ilk tüm tire alt çizgi ile değiştirir. UTF-8 kodlamalı eşleme kuralları boşluk olması gerekir. Char filtreleri önce simgeleştirme uygulanır ve sonuçta elde edilen belirteçleri (standart simgeleştirici sonlarını tire ve boşluk ancak alt çizgi) etkiler.
+* Ayrıca, 2 özel char Filtreler "map_dash" ve "remove_whitespace" tanımlar. İkincisi tüm boşlukları kaldırır ancak ilk tüm tire alt çizgi ile değiştirir. Alanları eşleme kuralları kodlanmış UTF-8 gerekir. Char filtreleri önce simgeleştirme uygulanır ve sonuçta elde edilen belirteçleri (standart simgeleştirici sonlarını tire ve boşluk ancak alt çizgi) etkiler.
 
 ~~~~
   {

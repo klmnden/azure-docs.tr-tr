@@ -3,8 +3,8 @@ title: Azure Active Directory otomatik kullanıcı hesabı SaaS uygulamaları i�
 description: Otomatik kullanıcı hesabı işleri sağlama durumunu denetlemek ve bireysel kullanıcıları sağlama sorunlarını gidermek öğrenin.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 833fe24f83a2f159fd00d24c67b6864ce614c445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a013c8d3c78801414ab83fd89a59caa316f1c28f
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203921"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958711"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Öğretici: Raporlama hesabı otomatik kullanıcı hazırlama
 
@@ -58,13 +58,13 @@ Buradan, hem sağlama özet raporu hem de sağlama denetim günlüklerine erişm
 
 Sağlama Özet raporunda görünür **sağlama** uygulama sekmesinde için. Bulunur **eşitleme ayrıntıları** altında bölümünde **ayarları**, aşağıdaki bilgileri sağlar:
 
-* Kullanıcıların toplam sayısı ve / grupları eşitlenmemiş ve şu anda kaynak ve hedef sistemleri arasında sağlama kapsamına dahildir
+* Kullanıcıların toplam sayısı ve / grupları eşitlenmemiş ve şu anda kaynak ve hedef sistemleri arasında sağlama kapsamına dahildir.
 
 * Son eşitleme çalıştırıldı. Eşitlemeler düğümlerin her 20-40 dakika sonra bir [ilk eşitleme](user-provisioning.md#what-happens-during-provisioning) tamamlandı.
 
-* Olup olmadığı bir [ilk eşitleme](user-provisioning.md#what-happens-during-provisioning) tamamlandı
+* Olup olmadığı bir [ilk eşitleme](user-provisioning.md#what-happens-during-provisioning) tamamlandı.
 
-* Sağlama işlemini karantinasında yerleştirilmiş olup olmadığını ve (örneğin, geçersiz yönetici kimlik bilgileri nedeniyle hedef sistemiyle iletişim kurulamıyor) karantina durum nedeni nedir
+* Sağlama işlemini karantinasında yerleştirilmiş olup olmadığını ve (örneğin, geçersiz yönetici kimlik bilgileri nedeniyle hedef sistemiyle iletişim kurulamıyor) karantina durum nedeni nedir.
 
 Sağlama özet raporu sağlama işin işlem durumunu denetlemek için ilk yerde yöneticileri Ara olmalıdır.
 
@@ -79,7 +79,7 @@ Sağlama hizmeti tarafından gerçekleştirilen tüm etkinlikler görüntüleneb
 
 * **Olay dışarı aktarmanızı** -Azure AD sağlama hizmeti, bir hedef sistem için bir kullanıcı hesabı veya grup nesnesi Yazar her zaman bir "export" olay kaydedilir. Bu olaylar, tüm kullanıcı özniteliklerini ve Olay sırasındaki sağlama hizmetini Azure AD tarafından yazılan değerleri kaydedin. Bir hata olduğunda hedef sistem için kullanıcı hesabını veya grubunu nesne yazarken, burada görüntülenir.
 
-* **Emanet olay işleme** -işlem escrows ortaya sağlama hizmeti bir işlem çalışırken bir hatayla karşılaşırsa ve geri alma aralığı zaman yeniden başlar. Sağlama işlemi devre dışı bırakılan her zaman bir "emanet" olay kaydedilir.
+* **Emanet olay işleme** -işlem escrows ortaya sağlama hizmeti bir işlem çalışırken bir hatayla karşılaşırsa ve geri alma aralığı zaman yeniden başlar. Sağlama işlemi yapılan yeniden deneme her zaman bir "emanet" olay kaydedilir.
 
 Olayları tek tek bir kullanıcı için sağlama sırasında baktığımda olaylar normalde şu sırayla gerçekleşir:
 
@@ -102,7 +102,7 @@ Sağlama denetim günlükleri için en yaygın kullanım örneği, tek bir kulla
 
 2. Gelen **kategori** menüsünde **hesap sağlama**.
 
-3. İçinde **tarih aralığı** menüsünde, aramak istediğiniz tarih aralığını seçin
+3. İçinde **tarih aralığı** menüsünde, aramak istediğiniz tarih aralığını seçin.
 
 4. İçinde **arama** çubuğunda, aramak istediğiniz kullanıcının kullanıcı kimliği girin. Kimliği değerinin biçimi ne olursa olsun öznitelik eşlemesi yapılandırma (örneğin, userPrincipalName veya çalışan kimlik numarası) birincil eşleşen kimliği olarak seçtiğiniz eşleşmesi gerekir. Gerekli kimlik değerini hedef sütununda görünür.
 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 17a7b0e0ee76490ef43fb869260dceef83cbd124
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816586"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984503"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Etkinlik günlüğü Uyarıları yönetme  
 
@@ -203,20 +203,28 @@ Yukarıdaki örnek json (örneğin) sampleActivityLogAlert.json amacıyla bu kı
 [Azure İzleyici - etkinlik günlüğü uyarıları API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu. Bu nedenle Azure CLI yanı sıra, Resource Manager cmdlet'ini kullanarak Powershell kullanılabilir.
 
 ## <a name="powershell"></a>PowerShell
-Aşağıda örnek daha önce gösterilen kaynak şablonu (sampleActivityLogAlert.json) için Azure Resource Manager PowerShell cmdlet'i aracılığıyla kullanım kaynak şablonu bölümünde gösterilmektedir:
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
-```
-Burada görüntülerle sampleActivityLogAlert.parameters.json uyarı kuralı oluşturmak için gereken parametreleri için sağlanan değerlere sahiptir.
+
+Etkinlik günlüğü uyarıları adanmış PowerShell cmdlet'leri kullanılabilir:
+
+- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): Yeni veya mevcut etkinlik günlük uyarı kuralı kaynağı güncelleştirmek için
+- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): Bir veya daha fazla etkinlik günlük uyarı kuralı kaynakları almak için
+- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): Kullanıcı onayı ile etkinlik günlüğü uyarı kuralı kaynak silinemedi
+- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): Mevcut bir etkinlik günlük uyarı kuralı kaynağı etkinleştirmek için
+- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): Mevcut bir etkinlik günlük uyarı kuralı kaynağı devre dışı bırakmak için
 
 ## <a name="cli"></a>CLI
-Aşağıda Azure Resource Manager kaynak şablonu (sampleActivityLogAlert.json) daha önce gösterilen örnek için Azure CLI komutu aracılığıyla kullanım kaynak şablonu bölümünde gösterilmektedir:
 
-```azurecli
-az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
-```
-*SampleActivityLogAlert.parameters.json* dosyası uyarı kuralı oluşturmak için gereken parametreleri için sağlanan değerlere sahiptir.
+Azure CLI komutları kümesi altında ayrılmış [az İzleyici etkinlik günlüğü Uyarısı](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) etkinlik günlüğü uyarı kuralları yönetmek için kullanılabilir.
 
+Yeni bir etkinlik günlüğü uyarı kuralı oluşturmak için bu sırayla kullanın:
+
+1. [az İzleyici etkinlik günlüğü uyarısı oluşturma](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Yeni etkinlik günlük uyarı kuralı kaynağı oluşturma
+1. [az İzleyici etkinlik günlüğü uyarısı kapsam](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Kapsam için oluşturulan etkinlik günlük uyarı kuralı Ekle
+1. [az İzleyici etkinlik günlüğü uyarısı eylem grubu](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): Eylem grubu için etkinlik günlüğü uyarı kuralı Ekle
+
+Bir etkinlik günlük uyarı kuralı kaynağı, Azure CLI komutunu alınacak [az İzleyici etkinlik günlüğü Uyarısı Göster](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+) kullanılabilir. Ve bir kaynak grubundaki tüm etkinlik günlük uyarı kuralı kaynağı görüntülemek için [az İzleyici etkinlik günlüğü uyarı listesi](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Azure CLI komutunu kullanarak etkinlik günlük uyarı kuralı kaynakları kaldırılabilir [az İzleyici etkinlik günlüğü uyarısını silme](https://docs.microsoft.com/en-us/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

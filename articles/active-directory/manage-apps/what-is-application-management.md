@@ -2,21 +2,21 @@
 title: Azure Active Directory ile Uygulamaları Yönetme | Microsoft Docs
 description: Bu makalede, Azure Active Directory’yi şirket içi, bulut ve SaaS uygulamalarınızla tümleştirmenin avantajları açıklanmaktadır.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 10/30/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvinh
-ms.openlocfilehash: e9cbc29950b1e5363691d44aa6e34391c541762b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c95655f38d73bfb6875f5afb7776481aac474141
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155913"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963531"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Azure Active Directory ile uygulama yönetimi
 

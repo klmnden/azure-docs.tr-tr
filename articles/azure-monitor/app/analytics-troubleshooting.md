@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecf0638aa999208331603ac30ccf4eb17b3c4500
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189941"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960692"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Application Insights Analiz Sorunlarını Giderme
 Sorun [Application Insights Analytics](analytics.md)? Buradan başlayın. Analytics, Azure Application Insights'ın güçlü bir arama aracıdır.
@@ -36,7 +36,7 @@ Uzantı devre dışı bırakın veya farklı bir tarayıcı kullanın.
 
 Portal çalışma zamanı işlenmeyen özel durum sırasında iç hata oluştu.
 
-* Tarayıcının önbelleğini temizleyin. 
+* Tarayıcının önbelleğini temizleyin.
 
 ## <a name="e-b"></a>403 ...Lütfen yeniden deneyin
 ![403 ...Lütfen yeniden deneyin](media/analytics-troubleshooting/020.png)
@@ -71,7 +71,7 @@ Kimlik doğrulamasıyla ilgili bir hata oluştu (kimlik doğrulama veya erişim 
 ## <a name="e-d"></a>404 ... Kaynak bulunamadı
 ![404 ... kaynak bulunamadı](media/analytics-troubleshooting/040.png)
 
-Uygulama kaynağı artık Application Insights ve kullanılabilir birincile t silindi. Analytics sayfanın URL'sini kaydedilirse, bu durum oluşabilir.
+Uygulama kaynağı Application Insights'tan silindi ve artık kullanılamaz. Analytics sayfanın URL'sini kaydedilirse, bu durum oluşabilir.
 
 ## <a name="e-e"></a>403 ... Yetkilendirme yok
 ![403 ... yetkili değil](media/analytics-troubleshooting/050.png)

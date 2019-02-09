@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: fbfe32ee8eede6666e0c7086ef4c586af1c1b4c4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 58a22253efb6928c87937e4aba852dd93a3e4422
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861315"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978553"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Yükleme ve metni tanı kapsayıcıları çalıştırma
 
@@ -72,7 +72,7 @@ Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline
 
 ### <a name="docker-pull-for-the-recognize-text-container"></a>Docker isteği metni tanı kapsayıcısı için
 
-```Docker
+```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 
@@ -146,18 +146,7 @@ Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](./computer-vis
 
 Azure için fatura, kullanarak metni tanı kapsayıcıları Gönder bir _metni tanı_ Azure hesabınız kaynaktaki. 
 
-Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini göndermeyin. 
-
-`docker run` Komutu, faturalama amacıyla aşağıdaki değişkenleri kullanır:
-
-| Seçenek | Açıklama |
-|--------|-------------|
-| `ApiKey` | API anahtarı _metni tanı_ kaynak faturalandırma bilgileri izlemek için kullanılır. |
-| `Billing` | Uç noktası _metni tanı_ kaynak faturalandırma bilgileri izlemek için kullanılır.|
-| `Eula` | Kapsayıcı lisansını kabul ettiğinizi gösterir.<br/>Bu seçenek değeri ayarlanmalıdır `accept`. |
-
-> [!IMPORTANT]
-> Seçeneklerin üçünü geçerli değerlerle belirtilmiş olmalı veya kapsayıcı başlatılamıyor.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Bu seçenekler hakkında daha fazla bilgi için bkz. [kapsayıcıları yapılandırma](./computer-vision-resource-container-config.md).
 

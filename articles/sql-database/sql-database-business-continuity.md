@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 90d95d7ad1ffb3200a69e0e7980dae2d7ed97470
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: bdb89a89713c093768de3e40eda2bcbb6a311b2b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894335"
+ms.locfileid: "55960892"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -100,6 +100,7 @@ Uygulamanız aşağıdaki ölçütleri karşılıyorsa, otomatik yük devretme g
 - Etkin coğrafi çoğaltma ek maliyeti, olası mali yükümlülükten veya ilgili iş kaybından daha düşükse.
 
 Eylem gerçekleştirmeniz ne zaman bunu, kurtarılır ne kadar sürdüğü ve ücretler ne kadar veri kaybını nasıl, uygulamanızda bu iş sürekliliği özelliklerini kullanma şeklinize bağlıdır. Aslında, veritabanı yedeklemeleri ve uygulama gereksinimlerinize bağlı olarak active geografickou replikaci kullanmayı tercih edebilirsiniz. Uygulama tasarımı noktaları hakkında bağımsız veritabanları ve elastik havuzlar için bu iş sürekliliği özelliklerini kullanan bir tartışma için bkz [bulutta olağanüstü durum kurtarma için uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md) ve [esnek Havuz olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
 
 Aşağıdaki bölümlerde veritabanı yedeklerini veya etkin coğrafi çoğaltmayı kullanarak kurtarma adımlarını genel bir bakış sağlar. Planlama gereksinimleri, Kurtarma sonrası adımlar ve kesinti simülasyonu yapma hakkında bilgi olağanüstü durum kurtarma tatbikatı gerçekleştirme dahil olmak üzere ayrıntılı adımlar için bkz: [bir SQL veritabanını kesintiden kurtarma](sql-database-disaster-recovery.md).
 

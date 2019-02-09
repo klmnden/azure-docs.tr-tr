@@ -13,18 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434998"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980882"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Uzantıları Yükleme Windows vm'lerinde kısıtlamak için Azure İlkesi'ni kullanın
 
 Kullanımı veya Windows Vm'lerinizi belirli uzantılarını yüklenmesini engellemek istiyorsanız, uzantıları VM'ler için bir kaynak grubu içinde kısıtlamak için PowerShell kullanarak Azure ilkesi oluşturabilirsiniz. 
 
-Bu öğreticide, Azure PowerShell'in en son sürüme sürekli olarak güncelleştirilen Cloud Shell içinde kullanılır. PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümünü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). 
+Bu öğreticide, Azure PowerShell'in en son sürüme sürekli olarak güncelleştirilen Cloud Shell içinde kullanılır. 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-a-rules-file"></a>Kurallar dosyası oluşturma
 
@@ -97,13 +99,13 @@ Kopyalayın ve aşağıdaki .json dosyaya yapıştırın.
 
 ## <a name="create-the-policy"></a>İlke oluşturma
 
-Bir ilke tanımı, kullanmak istediğiniz yapılandırmayı depolamak için kullanılan bir nesnedir. İlke tanımı, ilke tanımlamak için kuralları ve parametre dosyalarını kullanır. Kullanarak ilke tanımı oluşturma [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet'i.
+Bir ilke tanımı, kullanmak istediğiniz yapılandırmayı depolamak için kullanılan bir nesnedir. İlke tanımı, ilke tanımlamak için kuralları ve parametre dosyalarını kullanır. Kullanarak ilke tanımı oluşturma [yeni AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) cmdlet'i.
 
  İlke kuralları ve parametreleri, oluşturduğunuz ve .json dosyaları halinde, cloud shell'de depolanan dosyalarıdır.
 
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
    -Name "not-allowed-vmextension-windows" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied."   `
@@ -116,13 +118,13 @@ $definition = New-AzureRmPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>İlke atama
 
-Bu örnekte kullanarak bir kaynak grubu İlkesi atar [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Herhangi bir VM oluşturduğunuz **myResourceGroup** kaynak grubu VM erişim aracı veya özel betik uzantıları yüklemek mümkün olmayacaktır. 
+Bu örnekte kullanarak bir kaynak grubu İlkesi atar [yeni AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Herhangi bir VM oluşturduğunuz **myResourceGroup** kaynak grubu VM erişim aracı veya özel betik uzantıları yüklemek mümkün olmayacaktır. 
 
-Kullanım [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) yerine bir örnek kullanmak için abonelik Kimliğinizi almak için cmdlet.
+Kullanım [Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) yerine bir örnek kullanmak için abonelik Kimliğinizi almak için cmdlet.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
-$assignment = New-AzureRMPolicyAssignment `
+$assignment = New-AzPolicyAssignment `
    -Name "not-allowed-vmextension-windows" `
    -Scope $scope `
    -PolicyDefinition $definition `
@@ -139,10 +141,10 @@ $assignment
 
 ## <a name="test-the-policy"></a>Test İlkesi
 
-İlkeyi test etmek için VM erişimi uzantısı kullanmayı deneyin. Şu iletiyle başarısız olması "Set-AzureRmVMAccessExtension: Kaynak 'myVMAccess' ilke tarafından izin verilmedi."
+İlkeyi test etmek için VM erişimi uzantısı kullanmayı deneyin. Şu iletiyle başarısız olması "Set-AzVMAccessExtension: Kaynak 'myVMAccess' ilke tarafından izin verilmedi."
 
 ```azurepowershell-interactive
-Set-AzureRmVMAccessExtension `
+Set-AzVMAccessExtension `
    -ResourceGroupName "myResourceGroup" `
    -VMName "myVM" `
    -Name "myVMAccess" `
@@ -154,13 +156,13 @@ Set-AzureRmVMAccessExtension `
 ## <a name="remove-the-assignment"></a>Atamasını Kaldır
 
 ```azurepowershell-interactive
-Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
+Remove-AzPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
 ## <a name="remove-the-policy"></a>İlke Kaldır
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
+Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Sonraki adımlar

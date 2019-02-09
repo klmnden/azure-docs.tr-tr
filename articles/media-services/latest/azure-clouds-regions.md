@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: cadf4c564ab8600094bc545ae7270eb9c0642e1e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a5a4205c97e4db25d5d0a92472610364d912b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890969"
+ms.locfileid: "55963446"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Bulut ve bölgelerde hangi Azure Media Services v3 var.
 
@@ -65,11 +65,39 @@ Bir kez yukarıda gösterilen tüm Azure bölgelerinde listesini alma satırı �
 
 ## <a name="endpoints"></a>Uç Noktalar  
 
-| Uç Nokta|Küresel Azure | Azure Kamu|Azure Almanya|Azure Çin 21Vianet|
-| --- | --- | --- | --- | --- |
-| Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.microsoftonline.com/` | `https://login.microsoftonline.us/` | `https://login.microsoftonline.de/` | `https://login.chinacloudapi.cn/` |
-| Belirteç hedef kitlesi | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net/` | `https://management.core.cloudapi.de/`| `https://management.core.chinacloudapi.cn/` |
+Aşağıdaki uç noktaların Media Services hesapları için farklı Ulusal Azure bulutlarına bağlanırken bilmek önemlidir.
+
+### <a name="global-azure"></a>Küresel Azure
+
+|Uç Noktalar ||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` | 
+| Belirteç hedef kitlesi | `https://management.core.windows.net/` |
+
+### <a name="azure-government"></a>Azure Kamu
+
+|Uç Noktalar||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` | 
+| Belirteç hedef kitlesi | `https://management.core.usgovcloudapi.net/` |
+
+### <a name="azure-germany"></a>Azure Almanya
+
+| Uç Noktalar ||
+| --- | --- |  
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| Belirteç hedef kitlesi | `https://management.core.cloudapi.de/`|
+
+### <a name="azure-china-21vianet"></a>Azure Çin 21Vianet
+
+|Uç Noktalar||
+| --- | --- | 
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| Belirteç hedef kitlesi |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,24 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: c766303920913a3ed6e654b3f9b29a0b99bb012a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 92fee850b6ba013c759d3441219f1946a0faedb3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041284"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984160"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Sanal makine vCPU kotaları
 
 VCPU kotaları sanal makineler ve sanal makine ölçek kümeleri için her bölgede her abonelik için iki katmanda düzenlenir. İlk katmandır toplam bölgesel vcpu sayısı ve çeşitli VM boyutu ailesi çekirdek D serisi Vcpu gibi ikinci katmandır. Dilediğiniz zaman yeni bir VM Vcpu dağıtılmış VM vCPU kotası VM boyutu ailesi veya toplam bölgesel vCPU kotası aşmamalıdır. Kotalarda biri aşılırsa, VM dağıtımı izin verilmiyor. Genel bölgesindeki sanal makine sayısı kotasının yoktur. Bu kotalar ayrıntı görülebilir **kullanım ve kotalar** bölümünü **abonelik** sayfasını [Azure portalı](https://portal.azure.com), ya da değerlerini kullanarak sorgulayabilirsiniz. PowerShell.
 
+ [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)] 
  
 ## <a name="check-usage"></a>Kullanımı denetleme
 
-Kullanabileceğiniz [Get-AzureRmVMUsage](/powershell/module/azurerm.compute/get-azurermvmusage) cmdlet'ini kota kullanımınızı kontrol edin.
+Kullanabileceğiniz [Get-AzVMUsage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmusage) cmdlet'ini kota kullanımınızı kontrol edin.
 
 ```azurepowershell-interactive
-Get-AzureRmVMUsage -Location "East US"
+Get-AzVMUsage -Location "East US"
 ```
 
 Çıktı aşağıdakine benzer görünecektir:

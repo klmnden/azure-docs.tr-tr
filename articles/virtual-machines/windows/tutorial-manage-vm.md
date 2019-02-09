@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/02/2018
+ms.date: 11/28/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b725713777eb6ca25c829d327f91921b28cd4203
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: a2e056baa2dd27ca0bf054d0dacf15d35e0ef384
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035977"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977940"
 ---
-# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Öğretici: Azure PowerShell ile Windows VM’leri Oluşturma ve Yönetme
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Öğretici: Azure PowerShell ile Windows Vm'leri oluşturma ve yönetme
 
 Azure sanal makineleri tam olarak yapılandırılabilir ve esnek bir bilgi işlem ortamı sağlar. Bu öğretici sanal makine (VM) boyutu seçme, VM görüntüsü seçme ve VM dağıtma gibi temel Azure sanal makine dağıtımı görevlerini kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -42,12 +42,12 @@ Cloud Shell'i açmak için kod bloğunun sağ üst köşesinden **Deneyin**'i se
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutu ile yeni bir kaynak grubu oluşturun.
+Bir kaynak grubu oluşturun [yeni AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) komutu.
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir sanal makineden önce bir kaynak grubu oluşturulmalıdır. Bu örnekte, *EastUS* bölgesinde *myResourceGroupVM* adlı bir kaynak grubu oluşturulur:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
    -ResourceGroupName "myResourceGroupVM" `
    -Location "EastUS"
 ```
@@ -56,7 +56,7 @@ Kaynak grubu, bu öğretici boyunca görülebileceği gibi bir VM oluşturulurke
 
 ## <a name="create-a-vm"></a>VM oluşturma
 
-VM oluştururken, işletim sistemi görüntüsü, ağ yapılandırması ve yönetici kimlik bilgileri gibi çeşitli seçenekler bulunur. Bu örnekte Windows Server 2016 Datacenter'ın varsayılan sürümünü çalıştıran *myVM* adlı bir VM oluşturulur.
+Bir sanal makine oluşturulurken işletim sistemi görüntüsü, ağ yapılandırması ve yönetici kimlik bilgileri gibi çeşitli seçenekler kullanılabilir. Bu örnekte Windows Server 2016 Datacenter'ın varsayılan sürümünü çalıştıran *myVM* adlı bir VM oluşturulur.
 
 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6) komutuyla VM’de yönetici hesabı için gereken kullanıcı adı ve parolasını ayarlayın:
 
@@ -64,10 +64,10 @@ VM oluştururken, işletim sistemi görüntüsü, ağ yapılandırması ve yöne
 $cred = Get-Credential
 ```
 
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile sanal makineyi oluşturun.
+İle VM oluşturma [yeni-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
     -Location "EastUS" `
@@ -85,7 +85,7 @@ Dağıtım tamamlandıktan sonra VM ile bir uzak masaüstü bağlantısı oluşt
 VM'nin genel IP adresini döndürmek için aşağıdaki komutları çalıştırın. Sonraki bir adımda web bağlantısını test etmek üzere tarayıcınızla bağlanabilmek için bu IP Adresini not alın.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
    -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
@@ -101,16 +101,18 @@ mstsc /v:<publicIpAddress>
 
 Azure Market, yeni VM oluşturmak için kullanılabilecek çok sayıda görüntü içerir. Önceki adımlarda, Windows Server 2016 Datacenter görüntüsü kullanılarak bir VM oluşturuldu. Bu adımda, PowerShell modülü markette diğer Windows görüntülerini aramak için kullanılır, bu da yeni sanal makinelerin toplandığı yer olarak ayrıca kullanılabilir. Bu işlem, görüntüyü [tanımlamak](cli-ps-findimage.md#terminology) için yayımcının, teklifin, SKU’nun ve isteğe bağlı olarak bir sürüm numarasının bulunmasını kapsar.
 
-Görüntü yayımcılarının bir listesini döndürmek için [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) komutunu kullanın:
+Kullanım [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) görüntü yayımcılarını listesini döndürmek için komutu:
 
 ```azurepowershell-interactive
-Get-AzureRmVMImagePublisher -Location "EastUS"
+Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Görüntü tekliflerinin bir listesini döndürmek için [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) komutunu kullanın. Bu komutla, döndürülen liste belirtilen `MicrosoftWindowsServer` adlı yayımcı üzerinde filtrelenir:
+Kullanım [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) görüntü tekliflerinin bir listesini döndürmek için. Bu komutla, döndürülen liste belirtilen `MicrosoftWindowsServer` adlı yayımcı üzerinde filtrelenir:
 
 ```azurepowershell-interactive
-Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
+Get-AzVMImageOffer `
+   -Location "EastUS" `
+   -PublisherName "MicrosoftWindowsServer"
 ```
 
 Sonuçlar şu örneğe benzer olacaktır: 
@@ -123,10 +125,13 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-[Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) komutu daha sonra görüntü adlarının bir listesini döndürmek için yayımcı ve teklif adını filtreler.
+[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) komut daha sonra görüntü adlarının bir listesini döndürmek için yayımcı ve teklif adını filtreler filtre.
 
 ```azurepowershell-interactive
-Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
+Get-AzVMImageSku `
+   -Location "EastUS" `
+   -PublisherName "MicrosoftWindowsServer" `
+   -Offer "WindowsServer"
 ```
 
 Sonuçlar şu örneğe benzer olacaktır: 
@@ -153,7 +158,7 @@ Skus                                      Offer         PublisherName          L
 Bu bilgiler, belirli bir görüntüye sahip bir VM’yi dağıtmak için kullanılabilir. Bu örnek, Kapsayıcılar’ı içeren Windows Server 2016 görüntüsünün en son sürümünü kullanarak VM'yi dağıtır.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM2" `
     -Location "EastUS" `
@@ -170,12 +175,12 @@ PowerShell komut istemlerinin size döndürülmesi için `-AsJob` parametresi VM
 
 ## <a name="understand-vm-sizes"></a>VM boyutlarını anlama
 
-VM'nin boyutu VM tarafından kullanılabilen CPU, GPU ve bellek gibi kaynakların miktarını belirler. Sanal makineler, beklenen iş yüküne uygun bir VM boyutu kullanılarak oluşturulmalıdır. İş yükü artarsa, mevcut sanal makine de yeniden boyutlandırılabilir.
+VM boyutunu, sanal Makineye sunulur CPU, GPU ve bellek gibi işlem kaynakları miktarını belirler. Sanal makineler, iş yükü için uygun bir VM boyutu oluşturulmalıdır. İş yükü artarsa, mevcut sanal makine de yeniden boyutlandırılabilir.
 
 ### <a name="vm-sizes"></a>VM Boyutları
 
 Aşağıdaki tabloda boyutlar kullanım durumlarına göre kategorilere ayrılmaktadır.  
-| Tür                     | Ortak boyutlar           |    Açıklama       |
+| Type                     | Ortak boyutlar           |    Açıklama       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Genel amaçlı](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Dengeli CPU/bellek. Küçük ve orta ölçekli uygulama ve veri çözümlerini geliştirmek/test etmek için idealdir.  |
 | [İşlem için iyileştirilmiş](sizes-compute.md)   | Fsv2, Fs, F             | Yüksek CPU/bellek. Orta düzey trafiğe sahip uygulamalar, ağ gereçleri ve toplu işlemler için idealdir.        |
@@ -186,69 +191,71 @@ Aşağıdaki tabloda boyutlar kullanım durumlarına göre kategorilere ayrılma
 
 ### <a name="find-available-vm-sizes"></a>Kullanılabilir VM boyutlarını bulma
 
-Belirli bir bölgede kullanılabilen VM boyutlarının listesini görmek için, [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) komutunu kullanın.
+Belirli bir bölgede kullanılabilen VM boyutlarının listesini görmek için [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) komutu.
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location "EastUS"
+Get-AzVMSize -Location "EastUS"
 ```
 
 ## <a name="resize-a-vm"></a>VM’yi yeniden boyutlandırma
 
 VM dağıtıldıktan sonra, kaynak ayırmayı artırmak veya azaltmak için yeniden boyutlandırılabilir.
 
-Bir VM’yi yeniden boyutlandırmadan önce, istenen boyutun VM kümesinde kullanılabilir olup olmadığını denetleyin. [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) komutu, boyutlarının listesini döndürür.
+Bir VM'yi yeniden boyutlandırmadan önce istediğiniz boyuta VM kümesinde kullanılabilir olup olmadığını denetleyin. [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) komutu, boyutlarının listesini döndürür.
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
+Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
 ```
 
-İstenen boyut kullanılabilirse, VM açık durumdayken yeniden boyutlandırılabilir ancak işlem sırasında yeniden başlatılır.
+Boyutu varsa, ancak işlem sırasında yeniden başlatılıncaya kadar bir açık durumundan VM boyutlandırılabilir.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
+$vm = Get-AzVM `
+   -ResourceGroupName "myResourceGroupVM"  `
+   -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_DS3_v2"
-Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
+Update-AzVM `
+   -VM $vm `
+   -ResourceGroupName "myResourceGroupVM"
 ```
 
-İstediğiniz boyut geçerli kümede değilse, yeniden boyutlandırma işlemi gerçekleştirilmeden önce VM’nin serbest bırakılması gerekir. VM'nin serbest bırakılmasıyla geçici diskteki tüm veriler kaldırılır ve statik IP adresi kullanılmadığı sürece genel IP adresi değişir.
+İstediğiniz boyut geçerli kümede kullanılabilir durumda değilse, VM'yi yeniden boyutlandırma işlemi gerçekleştirilmeden önce serbest bırakılması gerekir. VM'nin serbest bırakılmasıyla geçici diskteki tüm veriler kaldırılır ve statik IP adresi kullanılmadığı sürece genel IP adresi değişir.
 
 ```azurepowershell-interactive
-Stop-AzureRmVM `
+Stop-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM" -Force
-$vm = Get-AzureRmVM `
+$vm = Get-AzVM `
    -ResourceGroupName "myResourceGroupVM"  `
    -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_E2s_v3"
-Update-AzureRmVM -VM $vm `
+Update-AzVM -VM $vm `
    -ResourceGroupName "myResourceGroupVM"
-Start-AzureRmVM `
+Start-AzVM `
    -ResourceGroupName "myResourceGroupVM"  `
    -Name $vm.name
 ```
 
 ## <a name="vm-power-states"></a>VM güç durumları
 
-Bir Azure VM’si birçok güç durumuna sahip olabilir. Bu durum VM’nin hiper yönetici açısından bulunduğu geçerli durumu temsil eder.
+Bir Azure VM’si birçok güç durumuna sahip olabilir. 
 
-### <a name="power-states"></a>Güç durumları
 
 | Güç Durumu | Açıklama
 |----|----|
-| Başlatılıyor | Sanal makinenin başlatıldığını gösterir. |
-| Çalışıyor | Sanal makinenin çalıştığını gösterir. |
-| Durduruluyor | Sanal makinenin durdurulmakta olduğunu gösterir. |
-| Durduruldu | VM'nin durdurulduğunu gösterir. Durduruldu durumundaki sanal makinelere bilgi işlem ücretleri uygulanmaya devam eder.  |
-| Serbest bırakılıyor | VM'nin serbest bırakılmakta olduğunu gösterir. |
-| Serbest bırakıldı | VM'nin hiper yöneticiden kaldırıldığını ancak denetim masasında hala kullanılabilir olduğunu gösterir. `Deallocated` durumundaki sanal makinelere bilgi işlem ücretleri uygulanmaz. |
-| - | VM'nin güç durumunun bilinmediğini gösterir. |
+| Başlatılıyor | Sanal makine başlatılıyor. |
+| Çalışıyor | Sanal makine çalışıyor. |
+| Durduruluyor | Sanal makine durduruluyor. |
+| Durduruldu | VM durduruldu. Durduruldu durumundaki sanal makinelere bilgi işlem ücretleri uygulanmaya devam eder.  |
+| Serbest bırakılıyor | VM serbest bırakıldı. |
+| Serbest bırakıldı | Sanal Makinenin hiper yöneticiden kaldırılır, ancak denetim masasında hala kullanılabilir olduğunu gösterir. `Deallocated` durumundaki sanal makinelere bilgi işlem ücretleri uygulanmaz. |
+| - | Sanal makinenin güç durumu bilinmiyor. |
 
-### <a name="find-power-state"></a>Güç durumunu bulma
 
-Belirli bir VM’nin durumunu almak için, [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) komutunu kullanın. VM ve kaynak grubu için geçerli bir ad belirttiğinizden emin olun.
+Belirli bir VM'nin durumunu almak için kullanın [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) komutu. VM ve kaynak grubu için geçerli bir ad belirttiğinizden emin olun.
 
 ```azurepowershell-interactive
-Get-AzureRmVM `
+Get-AzVM `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
@@ -264,14 +271,14 @@ PowerState/running
 
 ## <a name="management-tasks"></a>Yönetim görevleri
 
-VM'nin yaşam döngüsü boyunca, VM'yi başlatmak, durdurmak veya silmek gibi yönetim görevleri gerçekleştirmek isteyebilirsiniz. Ayrıca, yinelenen veya karmaşık görevleri otomatikleştirmek için betikler oluşturmak isteyebilirsiniz. Azure PowerShell kullanarak, birçok ortak yönetim görevi komut satırından veya betikler içinde çalıştırılabilir.
+Bir VM yaşam döngüsü boyunca, başlatma, durdurma veya sanal Makineyi silme gibi yönetim görevlerini çalıştırmak isteyebilirsiniz. Ayrıca, yinelenen veya karmaşık görevleri otomatikleştirmek için betikler oluşturmak isteyebilirsiniz. Azure PowerShell kullanarak, birçok ortak yönetim görevi komut satırından veya betikler içinde çalıştırılabilir.
 
 ### <a name="stop-a-vm"></a>VM durdurma
 
-[Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) ile VM'yi durdurun ve serbest bırakın:
+Durdur ve serbest bırak ile bir VM [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm):
 
 ```azurepowershell-interactive
-Stop-AzureRmVM `
+Stop-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM" -Force
 ```
@@ -281,17 +288,17 @@ VM'yi sağlanan bir durumda tutmak istiyorsanız, - StayProvisioned parametresin
 ### <a name="start-a-vm"></a>VM başlatma
 
 ```azurepowershell-interactive
-Start-AzureRmVM `
+Start-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM"
 ```
 
 ### <a name="delete-resource-group"></a>Kaynak grubunu silme
 
-Kaynak grubunu silmek, ayrıca grubun içerdiği tüm kaynakları da siler.
+Kaynak grubunu sildiğinizde her şeyi bir kaynak grubu içinde silinir.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup `
+Remove-AzResourceGroup `
    -Name "myResourceGroupVM" `
    -Force
 ```

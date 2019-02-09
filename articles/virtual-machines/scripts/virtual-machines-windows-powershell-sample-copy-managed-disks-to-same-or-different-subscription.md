@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Betiği örnek - kopyalama (Taşı) yönetilen aynı veya farklı bir abonelik disklere | Microsoft Docs
-description: Azure PowerShell Betiği örnek - kopyalama (Taşı) yönetilen aynı veya farklı bir abonelik disklere
+title: Azure PowerShell betik örneği - yönetilen diskleri aynı veya farklı aboneliğe kopyalama (taşıma) | Microsoft Docs
+description: Azure PowerShell betik örneği - yönetilen diskleri aynı veya farklı aboneliğe kopyalama (taşıma)
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,40 +15,42 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: a14b25236fc233ef7b98b29e62a1270c5e4d8f53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b337fb5dd74889c6b15e9fbbbbd684859bed90b0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23879634"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980134"
 ---
-# <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Aynı abonelik ya da farklı bir abonelik PowerShell ile yönetilen diskleri kopyalama
+# <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Yönetilen diskleri aynı abonelikte veya PowerShell ile farklı abonelikte kopyalama
 
-Bu komut dosyası, aynı abonelik ya da farklı bir abonelik varolan bir yönetilen diski bir kopyasını oluşturur. Yeni disk üst yönetilen disk ile aynı bölgede oluşturulur.   
+Bu betik bir kopyasını mevcut bir yönetilen diski aynı aboneliğinden veya farklı bir abonelik oluşturur. Yeni disk, üst yönetilen diskin aynı bölgede oluşturulur.   
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Örnek komut dosyası
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
+## <a name="sample-script"></a>Örnek betik
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.ps1 "Copy managed disk")]
 
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyasını yeni bir yönetilen disk kaynağı yönetilen disk kimliğini kullanarak hedef abonelikte oluşturmak için komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik, kaynak yönetilen diskin kimliğini kullanarak hedef abonelikte yeni bir yönetilen disk oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [AzureRmDiskConfig yeni](/powershell/module/azurerm.compute/New-AzureRmDiskConfig) | Disk oluşturmak için kullanılan disk yapılandırması oluşturur. Kaynak Kimliği üst disk konumu olarak aynı konumu ve üst diski içerir.  |
-| [AzureRmDisk yeni](/powershell/module/azurerm.compute/New-AzureRmDisk) | Disk yapılandırması, disk adı ve parametre olarak geçirilen kaynak grubu adı kullanarak bir disk oluşturur. |
+| [Yeni AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Disk oluşturmak için kullanılan disk yapılandırmasını oluşturur. Bu, kaynak kimliğini ve üst diski üst disk konumu olarak aynı konumu içerir.  |
+| [Yeni AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Parametre olarak geçirilen disk yapılandırmasını, disk adını ve kaynak grubu adını kullanarak bir disk oluşturur. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Yönetilen bir diskten bir sanal makine oluşturun](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Yönetilen diskten sanal makine oluşturma](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Azure PowerShell modülü hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](/powershell/azure/overview).
 
-Ek sanal makine PowerShell komut dosyası örnekleri bulunabilir [Azure Windows VM belgelerine](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ek sanal makine PowerShell betiği örnekleri, [Azure Windows VM belgeleri](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) içinde bulunabilir.

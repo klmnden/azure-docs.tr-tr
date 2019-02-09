@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765204"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982684"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics özel çıkış bölümleme blob
 
@@ -67,8 +67,6 @@ Her kayıtta blob sahip olduğuna dikkat edin. bir **client_id** klasörü eşle
 ## <a name="custom-datetime-path-patterns"></a>Özel DateTime yol desenleri
 
 Özel DateTime yol desenleri, Azure Stream Analytics, Azure HDInsight ve Azure Databricks için aşağı yönde işleme e veri göndermek üzere olanağı sağlayabilir, Hive akışı kuralları ile eşleşen bir çıktı biçimi belirtmenizi sağlar. Özel DateTime yol desenleri, kullanarak kolayca uygulanır `datetime` , biçim belirteci ile birlikte çıkış BLOB yolu ön eki alanındaki anahtar sözcük. Örneğin, `{datetime:yyyy}`.
-
-Bu bağlantı için kullanmak [Azure portalı](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) özel DateTime yol desenleri için blob depolama Çıktı Önizleme sağlayan bir özellik bayrağını değiştirilecek. Bu özellik, ana Portalı'nda kısa süre içinde etkinleştirilecektir.
 
 ### <a name="supported-tokens"></a>Desteklenen belirteçler
 

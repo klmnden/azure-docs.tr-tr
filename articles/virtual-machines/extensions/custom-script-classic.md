@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: roiyz
-ms.openlocfilehash: 8eb7822962988b02f09c2a2ea31b745ef01d5533
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: f7a1cb0ff1e530f15db7d56421fcc67555ac8ada
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451859"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978570"
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Özel betik uzantısı için Klasik dağıtım modelini kullanarak Windows
 
@@ -79,7 +79,7 @@ Aşağıdaki JSON şema için özel betik uzantısı gösterir. Betik konumu (Az
 | apiVersion | 2015-06-15 |
 | Yayımcı | Microsoft.Compute |
 | Uzantı | CustomScriptExtension |
-| typeHandlerVersion | 1.8 |
+| typeHandlerVersion | 1,8 |
 | fileUris (örn.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (örn.) | PowerShell - ExecutionPolicy sınırsız - dosya yapılandırma-müzik-app.ps1 |
 
@@ -89,7 +89,7 @@ Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. 
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
 
-`Set-AzureVMCustomScriptExtension` Komutu, mevcut bir sanal makine için özel betik uzantısı eklemek için kullanılabilir. Daha fazla bilgi için [kümesi AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+`Set-AzureVMCustomScriptExtension` Komutu, mevcut bir sanal makine için özel betik uzantısı eklemek için kullanılabilir. Daha fazla bilgi için [kümesi AzVMCustomScriptExtension ](https://docs.microsoft.com/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
 # create vm object

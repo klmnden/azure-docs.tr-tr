@@ -4,16 +4,16 @@ description: Azure İlkesi, özel iş kurallarını uygulamak için özel bir il
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/24/2019
+ms.date: 02/08/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 9474fa843541e0a70a27fa00583d097bfe24fb8a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bb9ead3dc10c7f3b5e561196624c4798775d5c3d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885591"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962987"
 ---
 # <a name="create-a-custom-policy-definition"></a>Özel bir ilke tanımı oluşturma
 
@@ -182,13 +182,13 @@ Sonuçlarda adlı depolama hesabı tarafından desteklenen bir diğer ad görüy
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell'de `Get-AzureRmPolicyAlias` cmdlet'i, kaynak diğer adları aramak için kullanılır.
+Azure PowerShell'de `Get-AzPolicyAlias` cmdlet'i, kaynak diğer adları aramak için kullanılır.
 İçin filtreleyeceğiz **Microsoft.Storage** ad alanı temel aldık Azure kaynak hakkında daha önce ayrıntıları.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
 
-# Use Get-AzureRmPolicyAlias to list aliases for Microsoft.Storage
+# Use Get-AzPolicyAlias to list aliases for Microsoft.Storage
 (Get-AzPolicyAlias -NamespaceMatch 'Microsoft.Storage').Aliases
 ```
 
@@ -207,7 +207,7 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 Sonuçlar şu Resource Manager şablonları ve Azure kaynak Gezgini üzerinden gördükleri için benzer görünür. Ancak, Azure kaynak Graph sonuçları de [diğer](../concepts/definition-structure.md#aliases) ayrıntıları. Diğer adlar için bir depolama hesabından örnek çıktı aşağıdaki gibidir:

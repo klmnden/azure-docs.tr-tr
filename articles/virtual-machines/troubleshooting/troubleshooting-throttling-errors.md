@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 15a4ff73476ce54f0617a88e040ac64d7288e9a8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 401bd3badc555ee001fbc355c7bdb77786c2d053
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741122"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977827"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API azaltma hatalarının sorunlarını giderme 
 
@@ -79,8 +79,8 @@ Yukarıda gösterildiği gibi her kısıtlama hatası içerir `Retry-After` sani
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>API çağrısı oranı ve azaltma hata Çözümleyicisi
 Bir sorun giderme özelliğini bir önizleme sürümünü işlem kaynak sağlayıcısı API'si için kullanılabilir. Bu PowerShell cmdlet'lerini işlemi her zaman aralığını ve azaltma ihlalleri her işlem grubu (ilke) başına API istek hızı hakkında istatistikler sağlar:
--   [Export-Azurermloganalyticrequestratebyınterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
--   [Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+-   [Dışarı aktarma AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Dışarı aktarma AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
 
 API çağrısı istatistikleri, bir aboneliğin istemci davranışını harika Öngörüler sağlar ve azaltma neden arama desenlerinin kolay tanımayı etkinleştirin.
 

@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 080cfb43f8fef04d2459dd0bb8779d2aa66cc359
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461348"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960982"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Bir Azure SQL veritabanı işlemsel olarak tutarlı bir kopyası kopyalayın
 
@@ -68,6 +68,7 @@ Ana veritabanı sunucu düzeyi asıl oturum açma veya kopyalamak istediğiniz v
 Kaynak veritabanıyla kopyalamaya Başla [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) deyimi. Bu deyimi yürütüp, veritabanı kopyalama işlemi başlatır. Veritabanı kopyalama zaman uyumsuz bir işlem olduğundan, veritabanı kopyalama tamamlanmadan önce CREATE DATABASE deyimi döndürür.
 
 ### <a name="copy-a-sql-database-to-the-same-server"></a>Bir SQL veritabanını aynı sunucuya kopyalama
+
 Ana veritabanı sunucu düzeyi asıl oturum açma veya kopyalamak istediğiniz veritabanı oluşturulan oturum açma için oturum açın. Başarılı olması için veritabanı kopyalama için sunucu düzeyinde sorumlu olmayan oturum açma bilgileri. dbmanager rolünün üyeleri olmalıdır.
 
 Bu komut, Veritabanı1 Veritabanı2 aynı sunucu üzerinde adlı yeni bir veritabanına kopyalar. Veritabanınızın boyutuna bağlı olarak, kopyalama işleminin tamamlanması biraz zaman alabilir.
@@ -86,6 +87,9 @@ Bu komut, Veritabanı1 Veritabanı2 Sunucu2'adlı yeni bir veritabanı Sunucu1 k
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
+## <a name="to-move-a-database-between-subscriptions"></a>Bir veritabanını abonelikler arasında taşıma
+
+İçinde [Azure portalında](https://portal.azure.com), tıklayın **SQL sunucuları** ve ardından listeden veritabanınızı barındıran sunucuyu belirleyin. Tıklayın **taşıma**ve ardından taşınacak kaynaklar ve taşımak için bir abonelik seçin.
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Kopyalama işlemi ilerlemesini izleme
 
@@ -96,7 +100,6 @@ Kopyalama işlemi sys.databases ve sys.dm_database_copies görünümleri sorgula
 
 > [!NOTE]
 > İptal işlemi devam ederken kopyalama karar verirseniz, yürütme [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) yeni veritabanı deyimi. Alternatif olarak, DROP DATABASE deyimi kaynak veritabanı üzerinde çalıştırma da kopyalama işlemi iptal eder.
-> 
 
 ## <a name="resolve-logins"></a>Oturum açma bilgileri çözün
 

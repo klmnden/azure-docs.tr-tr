@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 09/10/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247740"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984282"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>ASDK komut satırından dağıtma
 ASDK değerlendirmek ve Azure Stack özelliklerini ve hizmetler için dağıtabileceğiniz bir test ve geliştirme ortamıdır. Bu alınacağı ayarlandıktan ve çalışmaya, ortam donanım hazırlama ve bazı komut dosyaları (Bu işlem birkaç saat sürebilir) çalıştırmanız gerekir. Bundan sonra yönetici ve kullanıcı portalı için Azure Stack kullanmaya başlamak için oturum açabilir.
@@ -134,21 +134,18 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 Ortamınız DHCP etkin olmaması durumunda aşağıdaki ek parametreler (sağlanan örnek kullanım) yukarıdaki seçeneklerden birini eklemeniz gerekir: 
 
 ```powershell
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 10.222.112.26
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 isteğe bağlı parametreler
 |Parametre|Gerekli/isteğe bağlı|Açıklama|
 |-----|-----|-----|
-|AdminPassword|Gereklidir|Geliştirme Seti dağıtımının bir parçası oluşturulan tüm sanal makinelerde yerel yönetici hesabı ve diğer tüm kullanıcı hesaplarını ayarlar. Bu parola, ana bilgisayardaki geçerli yerel yönetici parolasını eşleşmesi gerekir.|
-|InfraAzureDirectoryTenantName|Gereklidir|Kiracı dizinini ayarlar. AAD hesabının birden çok dizini Yönetme iznine sahip olduğu belirli bir dizini belirtmek için bu parametreyi kullanın. Tam adı biçiminde bir AAD Directory Kiracısı. onmicrosoft.com veya Azure AD'yi özel etki alanı adı doğrulandı.|
-|Zaman sunucusunu|Gereklidir|Belirli bir saat sunucusu belirtmek için bu parametreyi kullanın. Bu parametre, geçerli saat sunucusu IP adresi olarak sağlanmalıdır. Sunucu adları desteklenmez.|
+|AdminPassword|Gerekli|Geliştirme Seti dağıtımının bir parçası oluşturulan tüm sanal makinelerde yerel yönetici hesabı ve diğer tüm kullanıcı hesaplarını ayarlar. Bu parola, ana bilgisayardaki geçerli yerel yönetici parolasını eşleşmesi gerekir.|
+|InfraAzureDirectoryTenantName|Gerekli|Kiracı dizinini ayarlar. AAD hesabının birden çok dizini Yönetme iznine sahip olduğu belirli bir dizini belirtmek için bu parametreyi kullanın. Tam adı biçiminde bir AAD Directory Kiracısı. onmicrosoft.com veya Azure AD'yi özel etki alanı adı doğrulandı.|
+|Zaman sunucusunu|Gerekli|Belirli bir saat sunucusu belirtmek için bu parametreyi kullanın. Bu parametre, geçerli saat sunucusu IP adresi olarak sağlanmalıdır. Sunucu adları desteklenmez.|
 |InfraAzureDirectoryTenantAdminCredential|İsteğe bağlı|Azure Active Directory kullanıcı adını ve parolasını ayarlar. Bu Azure kimlik bilgileri, bir kuruluş kimliği olmalıdır|
 |InfraAzureEnvironment|İsteğe bağlı|Azure ile bu Azure Stack dağıtım kaydetmek istediğiniz ortamı seçin. Genel Azure, Azure - Çin'de, Azure - US Government seçenekleri içerir.|
 |DNSForwarder|İsteğe bağlı|Bir DNS sunucusu, Azure Stack dağıtımının bir parçası oluşturulur. Damga dışında adlarını çözümlemek için çözüm içindeki bilgisayarları izin vermek için mevcut altyapı DNS sunucunuzu sağlar. Damga DNS sunucusu bu sunucusuna Bilinmeyen ad çözümleme isteklerini iletir.|
-|NatIPv4Address|DHCP NAT desteği için gerekli|Statik bir IP adresi için MAS-BGPNAT01 ayarlar. Bu parametreyi yalnızca DHCP'nin, İnternet erişimi için geçerli bir IP adresi atayamadığı durumlarda kullanın.|
-|NatIPv4Subnet|DHCP NAT desteği için gerekli|NAT destek DHCP için kullanılan IP alt ağ önek. Bu parametreyi yalnızca DHCP'nin, İnternet erişimi için geçerli bir IP adresi atayamadığı durumlarda kullanın.|
-|PublicVlanId|İsteğe bağlı|VLAN kimliğini ayarlar Bu parametreyi yalnızca MAS-BGPNAT01 ve konak fiziksel ağ (ve İnternet'e) erişmek için VLAN Kimliğini yapılandırması gereken durumlarda kullanın. Örneğin,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
 |Yeniden çalıştır|İsteğe bağlı|Dağıtım yeniden çalıştırmak için bu bayrağı kullanın. Önceki tüm giriş kullanılır. Çeşitli benzersiz değerler olduğundan ve oluşturulan dağıtım için kullanılan, daha önce sağlanan verileri yeniden girmeden desteklenmiyor.|
 
 

@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: c0e6aa34b80389689e49ac6ad3566a3a109a96e1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 803c9af7b6c40f7deee2b81fb7ff0ae82ef6778a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158171"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965163"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android için Azure Mobile Apps SDK'sını kullanma
 
@@ -55,7 +55,7 @@ Her ikisini de değiştirme **build.gradle** dosyaları:
 
 1. Bu kodu ekleyin *proje* düzeyi **build.gradle** içinde dosya *buildscript* etiketi:
 
-    ```text
+    ```gradle
     buildscript {
         repositories {
             jcenter()
@@ -65,7 +65,7 @@ Her ikisini de değiştirme **build.gradle** dosyaları:
 
 2. Bu kodu ekleyin *modülü uygulama* düzeyi **build.gradle** içinde dosya *bağımlılıkları* etiketi:
 
-    ```text
+    ```gradle
     compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
@@ -496,7 +496,7 @@ Düzen, birden çok XML kod parçacıkları tarafından tanımlanır. Varolan bi
 
 Önceki kodda, *ListItem* öznitelik listesinde tek bir satır için Düzen kimliğini belirtir. Bu kod, bir onay kutusu ve ilgili metin belirtir ve listedeki her öğe için bir kez örneği. Bu düzen aşağıdaki dotnetclıtools'u görüntülemiyor **kimliği** alan ve daha karmaşık bir düzen belirtirsiniz ek alanlar görüntüsünü. Bu kodu **row_list_to_do.xml** dosya.
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -520,7 +520,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 Bağdaştırıcıları geçersiz kılma **getView** yöntemi. Örneğin:
 
-```
+```java
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -959,7 +959,7 @@ Ayrıca proje customtabs için yapılandırmak gerekir.  Önce bir yeniden yönl
 
 Ekleme **redirectUriScheme** için `build.gradle` uygulamanız için dosya:
 
-```text
+```gradle
 android {
     buildTypes {
         release {
@@ -976,7 +976,7 @@ android {
 
 Son olarak, ekleme `com.android.support:customtabs:23.0.1` bağımlılıklar listesine `build.gradle` dosyası:
 
-```text
+```gradle
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.code.gson:gson:2.3'
@@ -1076,7 +1076,7 @@ Kullanıcıların uygulamanızla Azure Active Directory'yi kullanarak oturum aç
 1. AAD oturum açma için mobil uygulama arka ucunuzu izleyerek yapılandırın [App Service, Active Directory oturum açma için yapılandırma] [ 22] öğretici. Yerel istemci uygulaması kaydetme isteğe bağlı bir adım tamamladığınızdan emin olun.
 2. ADAL build.gradle dosyanıza aşağıdaki tanımları içerecek şekilde değiştirerek yükleyin:
 
-    ```
+    ```gradle
     repositories {
         mavenCentral()
         flatDir {

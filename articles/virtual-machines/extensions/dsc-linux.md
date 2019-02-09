@@ -14,16 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 34b70b1a6a77a20a034a7822d9c4961c36cdd51c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d3ed1078f1f334a5732befa49cbdc5043767ad2c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663970"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978689"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux (Microsoft.OSTCExtensions.DSCForLinux) için DSC uzantısı
-
-## <a name="overview"></a>Genel Bakış
 
 Desired State Configuration ' nı (DSC), BT yönetmenize olanak sağlayan bir yönetim platformudur ve yapılandırmayı kod olarak ile geliştirme altyapısı.
 
@@ -35,6 +33,8 @@ DSCForLinux uzantısı yayımlandı ve Microsoft tarafından desteklenmiyor. Uza
 - Düğüm yapılandırması (çekme ExtensionAction) çekmek için çekme sunucusunu yapılandırmak için Linux VM meta MOF yapılandırmasını Uygula
 - Linux VM (yükleme ExtensionAction) özel DSC modülleri yükleme
 - Linux VM (ExtensionAction kaldırmak) için özel DSC modülleri kaldırma
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -366,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 Azure hesabınıza (Azure Resource Manager moduna) çalıştırarak oturum:
 
 ```powershell>
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 Tıklayın [ **burada** ](../../azure-resource-manager/powershell-azure-resource-manager.md) Azure PowerShell'i Azure Resource Manager ile kullanma hakkında daha fazla bilgi için.
@@ -398,7 +398,7 @@ $publicConfig = '{
 ```
 
 ```
-Set-AzureRmVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
+Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```

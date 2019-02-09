@@ -3,8 +3,8 @@ title: Azure AD galeri uygulaması için kullanıcı sağlama yapılandırma sor
 description: Azure AD uygulama galerisinde bulunan yapılandırma kullanıcı uygulamaya zaten sağlama listelenen genişlettiklerinde karşılaştığı yaygın sorunları giderme
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 38075c9216eab955a023fee53aad74f3768d783c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 90f53624a05b462f517c8e2b36034326348f9899
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822281"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959383"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD galeri uygulaması için kullanıcı sağlama yapılandırma sorunu
 
@@ -55,7 +55,7 @@ Ayarlarsanız **sağlama durumu** olmasını **üzerinde** içinde **Azure Activ
 
 ## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Yapılandırma çalışmıyor uygulama kimlik bilgileri nedeniyle kaydedilemiyor.
 
-Çalışmak için sağlama sırada Azure AD'ye bağlanmak için kullanıcı yönetimi, uygulama tarafından sağlanan API izin geçerli kimlik bilgilerini gerektirir. Bu kimlik bilgileri çalışmıyor veya bunlar wat bilmiyorsanız, daha önce açıklanan bu uygulamayı hazırlama için öğreticiyi gözden geçirin.
+Çalışmak için sağlama sırada Azure AD'ye bağlanmak için kullanıcı yönetimi, uygulama tarafından sağlanan API izin geçerli kimlik bilgilerini gerektirir. Bu kimlik bilgileri çalışmıyor veya bunların ne olduğunu bilmiyorsanız, daha önce açıklanan bu uygulamayı hazırlama için öğreticiyi gözden geçirin.
 
 ## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Denetim günlükleri kullanıcılar atlandı ve atanmış oldukları olsa bile sağlanmadı varsayalım.
 

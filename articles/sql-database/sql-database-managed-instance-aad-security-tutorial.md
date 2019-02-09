@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 402e10d9b99dbf0eeba8aac27071e4d78fdf0f01
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732779"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984520"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Öğretici: Azure AD oturum açma bilgileri kullanarak Azure SQL veritabanı örneği güvenlik yönetilen
 
@@ -32,7 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > - Bir Azure Active Directory (AD) oturum açma işlemi için bir yönetilen örnek oluşturma
 > - Yönetilen örnek Azure AD oturum açma izinleri verme
 > - Azure AD kullanıcıları Azure AD oturum açma bilgilerinden oluştur
-> - Azure AD kullanıcılarını ve yönetilen bir veritabanı güvenlik izinleri Ata
+> - Azure AD kullanıcıları için izinleri atayın ve veritabanı güvenliğini yönetme
 > - Azure AD kullanıcılarla kimliğe bürünme kullanma
 > - Veritabanları arası sorgular ile Azure AD kullanıcılarını kullanın.
 > - Tehdit koruması, Denetim, veri maskeleme ve şifreleme gibi güvenlik özellikleri hakkında bilgi edinin

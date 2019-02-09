@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816365"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977756"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack veri merkezi tümleştirmesi - uç noktalarını yayımlama
 
@@ -38,11 +38,11 @@ Bunlar yayımlama Azure Stack için gerekli değil çünkü VIP'ler listelenmemi
 |Uç nokta (VIP)|DNS ana bilgisayar bir kaydı|Protokol|Bağlantı Noktaları|
 |---------|---------|---------|---------|
 |AD FS|ADFS.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443|
-|Portal (Yönetici)|Adminportal.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Portal (Yönetici)|Adminportal.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure Resource Manager (Yönetici)|Adminmanagement.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443<br>30024|
-|Portal (kullanıcı)|Portalı.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (kullanıcı)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Azure Resource Manager (Yönetici)|Adminmanagement.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443|
+|Portal (kullanıcı)|Portalı.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443|
+|Azure Resource Manager (kullanıcı)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Graf|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Sertifika iptal listesi|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.  *&lt;bölge >.&lt; FQDN >*|TCP VE UDP|53|
@@ -79,7 +79,6 @@ Azure Stack, yalnızca saydam proxy sunucuları destekler. Bir dağıtımda sayd
 |NTP|(IP, NTP sunucusu dağıtımı için sağlanan)|UDP|123|Genel VIP - en az/27|
 |DNS|(IP, DNS sunucusu dağıtımı için sağlanan)|TCP<br>UDP|53|Genel VIP - en az/27|
 |CRL|(URL, sertifikadaki CRL dağıtım noktaları altında)|HTTP|80|Genel VIP - en az/27|
-|Altyapı yedekleme|(IP veya FQDN dış hedef dosya sunucusu)|SMB|445|Ortak ağ alt yapısı|
 |LDAP|Active Directory Graph entegrasyonuna yönelik sağlanan orman|TCP<br>UDP|389|Genel VIP - en az/27|
 |LDAP SSL|Active Directory Graph entegrasyonuna yönelik sağlanan orman|TCP|636|Genel VIP - en az/27|
 |LDAP GC|Active Directory Graph entegrasyonuna yönelik sağlanan orman|TCP|3268|Genel VIP - en az/27|
@@ -89,9 +88,6 @@ Azure Stack, yalnızca saydam proxy sunucuları destekler. Bir dağıtımda sayd
 
 > [!Note]  
 > Giden URL'leri, coğrafi konuma göre en iyi olası bağlantı sağlamak için Azure traffic manager'ı kullanarak Yük Dengelemesi yapılıyor. Yük dengeli URL'leri, Microsoft update ve arka uç, uç müşterileri etkilemeden değiştirme. Yük dengeli Küme URL'leri için Microsoft IP adreslerinin listesi paylaşmaz. URL yerine IP göre filtreleme destekleyen bir cihaz kullanmanız gerekir.
-
-> [!Note]  
-> 1809 içinde altyapısını yedekleme hizmeti dış dosya sunucusuna genel VIP ağ üzerinden iletişim kurar. 1809 önce hizmet ortak altyapı ağı üzerinden iletilir. Ortamınızı erişim altyapı kaynakları için genel VIP ağdan izin vermediği durumlarda, en son uygulama [1809 düzeltme](azure-stack-update-1809.md#post-update-steps) Azure Stack için. Bu düzeltme altyapısını yedekleme hizmeti ortak altyapı ağına geri taşınır. 1809 düzeltme uygularsanız 1811 altyapı yedekleme hizmeti ortak altyapı ağı üzerinde kalır. Güncelleştirme düzeltmeyi uygulamazsanız service ortak altyapı ağına geri taşınır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e45dfbea9545c72d80a17e8ae144f4dacc70a63
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995023"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977618"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>İş akışları tanımlamak ve işlerini koordine etmek için HDInsight, Apache Hadoop ile zamana dayalı Apache Oozie düzenleyicisini kullanma
 Bu makalede, zamana dayalı Düzenleyicisi işlerini nasıl tetikleyeceğinizi yanı sıra iş akışlarını ve düzenleyicileri nasıl tanımlanacağını öğreneceksiniz. Git yararlıdır [HDInsight ile kullanmak Apache Oozie] [ hdinsight-use-oozie] önce bu makaleyi okuyun. Oozie ek olarak, Azure Data Factory kullanarak işleri zamanlayabilirsiniz. Azure Data Factory bilgi edinmek için [kullanım Apache Pig ve Apache Hive ile veri fabrikası](../data-factory/transform-data.md).
@@ -68,24 +68,23 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Bir HDInsight kümesi**. HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz: [oluşturma HDInsight kümeleri][hdinsight-provision], veya [HDInsight ile çalışmaya başlama][hdinsight-get-started]. Bu öğreticiyi incelemek için aşağıdaki veriler ihtiyacınız olacak:
 
-    <table border = "1">
-    <tr><th>Küme özelliği</th><th>Windows PowerShell değişken adı</th><th>Değer</th><th>Açıklama</th></tr>
-    <tr><td>HDInsight küme adı</td><td>$clusterName</td><td></td><td>Bu öğreticide çalıştırılacağı HDInsight kümesi.</td></tr>
-    <tr><td>HDInsight küme kullanıcı adı</td><td>$clusterUsername</td><td></td><td>HDInsight küme kullanıcı adı. </td></tr>
-    <tr><td>HDInsight küme kullanıcı parolası </td><td>$clusterPassword</td><td></td><td>HDInsight küme kullanıcı parolası.</td></tr>
-    <tr><td>Azure depolama hesabı adı</td><td>$storageAccountName</td><td></td><td>HDInsight kümesi için kullanılabilen bir Azure depolama hesabı. Bu öğretici için küme sağlama işlemi sırasında belirtilen varsayılan depolama hesabı kullanın.</td></tr>
-    <tr><td>Azure Blob kapsayıcısı adı</td><td>$containerName</td><td></td><td>Bu örnekte, varsayılan HDInsight küme dosya sistemi için kullanılan Azure Blob Depolama kapsayıcısına kullanın. Varsayılan olarak, HDInsight kümesi ile aynı ada sahiptir.</td></tr>
-    </table>
+    |Küme özelliği|Windows PowerShell değişken adı|Değer|Açıklama|
+    |---|---|---|---|
+    |HDInsight küme adı|$clusterName||Bu öğreticide çalıştırılacağı HDInsight kümesi.|
+    |HDInsight küme kullanıcı adı|$clusterUsername||HDInsight küme kullanıcı adı. |
+    |HDInsight küme kullanıcı parolası |$clusterPassword||HDInsight küme kullanıcı parolası.|
+    |Azure depolama hesabı adı|$storageAccountName||HDInsight kümesi için kullanılabilen bir Azure depolama hesabı. Bu öğretici için küme sağlama işlemi sırasında belirtilen varsayılan depolama hesabı kullanın.|
+    |Azure Blob kapsayıcısı adı|$containerName||Bu örnekte, varsayılan HDInsight küme dosya sistemi için kullanılan Azure Blob Depolama kapsayıcısına kullanın. Varsayılan olarak, HDInsight kümesi ile aynı ada sahiptir.|
+
 
 * **Bir Azure SQL veritabanı**. İstasyonunuzdan erişime izin vermek SQL veritabanı sunucusu için bir güvenlik duvarı kuralı yapılandırmanız gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarını yapılandırma hakkında yönergeler için bkz: [Azure SQL veritabanı ile çalışmaya başlamak][sqldatabase-get-started]. Bu makalede, Bu öğretici için gereksinim duyduğunuz Azure SQL veritabanı tablosu oluşturmak için bir Windows PowerShell komut dosyası sağlar.
 
-    <table border = "1">
-    <tr><th>SQL veritabanı özelliği</th><th>Windows PowerShell değişken adı</th><th>Değer</th><th>Açıklama</th></tr>
-    <tr><td>SQL veritabanı sunucu adı</td><td>$sqlDatabaseServer</td><td></td><td>SQL veritabanı sunucusu Sqoop verileri dışarı aktarır. </td></tr>
-    <tr><td>SQL veritabanı oturum açma adı</td><td>$sqlDatabaseLogin</td><td></td><td>SQL veritabanı oturum açma adı.</td></tr>
-    <tr><td>SQL veritabanı oturum açma parolası</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL veritabanı oturum açma parolası.</td></tr>
-    <tr><td>SQL veritabanı adı</td><td>$sqlDatabaseName</td><td></td><td>Azure SQL veritabanı Sqoop verileri dışarı aktarır. </td></tr>
-    </table>
+    |SQL veritabanı özelliği|Windows PowerShell değişken adı|Değer|Açıklama|
+    |---|---|---|---|
+    |SQL veritabanı sunucu adı|$sqlDatabaseServer||SQL veritabanı sunucusu Sqoop verileri dışarı aktarır. |
+    |SQL veritabanı oturum açma adı|$sqlDatabaseLogin||SQL veritabanı oturum açma adı.|
+    |SQL veritabanı oturum açma parolası|$sqlDatabaseLoginPassword||SQL veritabanı oturum açma parolası.|
+    |SQL veritabanı adı|$sqlDatabaseName||Azure SQL veritabanı Sqoop verileri dışarı aktarır. |
 
   > [!NOTE]   
   > Varsayılan olarak bir Azure SQL veritabanı, Azure HDInsight gibi Azure hizmetlerinden bağlantılar sağlar. Bu güvenlik duvarı ayarı devre dışıysa, Azure Portalı'ndan etkinleştirmeniz gerekir. SQL veritabanı oluşturma ve güvenlik duvarı kuralları yapılandırma hakkında daha fazla yönerge için bkz. [oluşturma ve SQL veritabanını Yapılandır][sqldatabase-get-started].
@@ -190,30 +189,27 @@ Hive iş akışı eylemi HiveQL komut dosyasını çağırır. Bu komut dosyası
 
     İş akışı değişkenleri
 
-    <table border = "1">
-    <tr><th>İş akışı değişkenleri</th><th>Açıklama</th></tr>
-    <tr><td>${Jobtracker'a}</td><td>Hadoop işi İzleyicisi URL'sini belirtin. Kullanım <strong>jobtrackerhost:9010</strong> sürüm 3.0 ve 2.0 üzerinde HDInsight kümesi.</td></tr>
-    <tr><td>${nameNode}</td><td>Hadoop adı düğüm URL'sini belirtin. Varsayılan dosya sistemi wasb kullanın: / / adres, örneğin, <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-    <tr><td>${queueName}</td><td>İş için gönderilecek kuyruk adını belirtir. Kullanım <strong>varsayılan</strong>.</td></tr>
-    </table>
+    |İş akışı değişkenleri|Açıklama|
+    |---|---|
+    |${jobTracker}|Hadoop işi İzleyicisi URL'sini belirtin. Kullanım **jobtrackerhost:9010** sürüm 3.0 ve 2.0 üzerinde HDInsight kümesi.|
+    |${nameNode}|Hadoop adı düğüm URL'sini belirtin. Varsayılan dosya sistemi wasb kullanın: / / adres, örneğin, *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+    |${queueName}|İş için gönderilecek kuyruk adını belirtir. Kullanım **varsayılan**.|
 
     Hive eylem değişkenleri
 
-    <table border = "1">
-    <tr><th>Hive eylem değişkeni</th><th>Açıklama</th></tr>
-    <tr><td>${hiveDataFolder}</td><td>Hive tablosu oluşturma komutu için kaynak dizini.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>Çıkış klasörü üzerine INSERT deyimi için.</td></tr>
-    <tr><td>${hiveTableName}</td><td>Log4j veri dosyalarına başvuran bir Hive tablosu adı.</td></tr>
-    </table>
+    |Hive eylem değişkeni|Açıklama|
+    |----|----|
+    |${hiveDataFolder}|Hive tablosu oluşturma komutu için kaynak dizini.|
+    |${hiveOutputFolder}|Çıkış klasörü üzerine INSERT deyimi için.|
+    |${hiveTableName}|Log4j veri dosyalarına başvuran bir Hive tablosu adı.|
 
     Sqoop eylem değişkenleri
 
-    <table border = "1">
-    <tr><th>Sqoop eylem değişkeni</th><th>Açıklama</th></tr>
-    <tr><td>${sqlDatabaseConnectionString}</td><td>SQL veritabanı bağlantı dizesi.</td></tr>
-    <tr><td>${sqlDatabaseTableName}</td><td>Verilerin nerede dışarı aktarılacak için Azure SQL veritabanı tablosu.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>Çıkış klasörü Ekle yığın üzerine deyimi için. Sqoop dışa aktar (dışarı aktarma-dir) aynı klasörde budur.</td></tr>
-    </table>
+    |Sqoop eylem değişkeni|Açıklama|
+    |---|---|
+    |${sqlDatabaseConnectionString}|SQL veritabanı bağlantı dizesi.|
+    |${sqlDatabaseTableName}|Verilerin nerede dışarı aktarılacak için Azure SQL veritabanı tablosu.|
+    |${hiveOutputFolder}|Çıkış klasörü Ekle yığın üzerine deyimi için. Sqoop dışa aktar (dışarı aktarma-dir) aynı klasörde budur.|
 
     Oozie iş akışının ve iş akışı eylemlerini kullanma hakkında daha fazla bilgi için bkz. [Apache Oozie 4.0 belgeleri] [ apache-oozie-400] (için HDInsight kümesi sürüm 3.0) veya [Apache Oozie 3.3.2 belgeleri ] [ apache-oozie-332] (için HDInsight kümesi sürüm 2.1).
 

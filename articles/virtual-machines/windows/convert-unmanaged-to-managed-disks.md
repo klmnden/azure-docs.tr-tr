@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: fecf17d95231cc37a141cfb72397f44ce2e980b5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: bcfb227b8ced6b17fe23c1a60468de24f1835ba0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435609"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979964"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Bir Windows sanal makine yönetilmeyen disklerden yönetilen disklere dönüştürme
 
 Mevcut Windows yönetilmeyen diskler kullanan sanal makineleri (VM'ler) varsa, VM'lerin üzerinden yönetilen diskleri kullanma dönüştürebilirsiniz [Azure yönetilen diskler](managed-disks-overview.md) hizmeti. Bu işlem, hem işletim sistemi diski hem de bağlı veri diskleri dönüştürür.
 
-Bu makalede, Azure PowerShell kullanarak Vm'leri dönüştürme işlemini göstermektedir. Gerekirse yüklemek veya yükseltmek bkz [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -43,18 +43,18 @@ Bu makalede, Azure PowerShell kullanarak Vm'leri dönüştürme işlemini göste
 ## <a name="convert-single-instance-vms"></a>Tek Örnekli VM'ler Dönüştür
 Bu bölümde, tek örnek Azure Vm'leri yönetilmeyen disklerden yönetilen disklere dönüştürme ele alınmaktadır. (Bir kullanılabilirlik kümesindeki sanal makineleriniz varsa sonraki bölüme bakın.) 
 
-1. Kullanarak VM'yi serbest bırakın [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) cmdlet'i. Aşağıdaki örnekte adlı VM serbest bırakılır `myVM` adlı kaynak grubunda `myResourceGroup`: 
+1. Kullanarak VM'yi serbest bırakın [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet'i. Aşağıdaki örnekte adlı VM serbest bırakılır `myVM` adlı kaynak grubunda `myResourceGroup`: 
 
   ```azurepowershell-interactive
   $rgName = "myResourceGroup"
   $vmName = "myVM"
-  Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+  Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
   ```
 
-2. Kullanarak VM'yi yönetilen disklere dönüştürme [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) cmdlet'i. Aşağıdaki işlem, işletim sistemi diski ve varsa veri diskleri dahil olmak üzere önceki VM dönüştürür ve sanal makineyi başlatır:
+2. Kullanarak VM'yi yönetilen disklere dönüştürme [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) cmdlet'i. Aşağıdaki işlem, işletim sistemi diski ve varsa veri diskleri dahil olmak üzere önceki VM dönüştürür ve sanal makineyi başlatır:
 
   ```azurepowershell-interactive
-  ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+  ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
   ```
 
 
@@ -63,40 +63,40 @@ Bu bölümde, tek örnek Azure Vm'leri yönetilmeyen disklerden yönetilen diskl
 
 Dönüştürmek istediğiniz Vm'leri yönetilen diskleri olan bir kullanılabilirlik kümesindeki, ilk kullanılabilirlik kümesini bir yönetilen kullanılabilirlik kümesine dönüştürmeniz gerekir.
 
-1. Kullanılabilirlik kümesini kullanarak dönüştürme [güncelleştirme AzureRmAvailabilitySet](/powershell/module/azurerm.compute/update-azurermavailabilityset) cmdlet'i. Aşağıdaki örnekte adlı kullanılabilirlik kümesi güncelleştirmeleri `myAvailabilitySet` adlı kaynak grubunda `myResourceGroup`:
+1. Kullanılabilirlik kümesini kullanarak dönüştürme [güncelleştirme AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) cmdlet'i. Aşağıdaki örnekte adlı kullanılabilirlik kümesi güncelleştirmeleri `myAvailabilitySet` adlı kaynak grubunda `myResourceGroup`:
 
   ```azurepowershell-interactive
   $rgName = 'myResourceGroup'
   $avSetName = 'myAvailabilitySet'
 
-  $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
-  Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
+  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
   ```
 
   Burada, kullanılabilirlik kümesi bölge yer alıyorsa yalnızca 2 yönetilen hata etki alanları var ancak yönetilmeyen hata etki alanları sayısı 3, bu komut "3 belirtilen hata etki alanı sayısı 1-2 aralığında olmalıdır." benzer bir hata gösterir Hatayı gidermek için hata etki alanı 2 güncelleştirmesi güncelleştirin ve `Sku` için `Aligned` gibi:
 
   ```azurepowershell-interactive
   $avSet.PlatformFaultDomainCount = 2
-  Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
+  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
-2. Serbest bırakın ve kullanılabilirlik kümesindeki Vm'leri dönüştürün. Aşağıdaki betiği kullanarak, her VM serbest bırakılır [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) cmdlet'ini dönüştürür, kullanarak [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk)ve otomatik olarak uzaklıkta dönüştürme işleminin yeniden başlatır :
+2. Serbest bırakın ve kullanılabilirlik kümesindeki Vm'leri dönüştürün. Aşağıdaki betiği kullanarak, her VM serbest bırakılır [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet'ini dönüştürür, kullanarak [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk)ve otomatik olarak uzaklıkta dönüştürme işleminin yeniden başlatır:
 
   ```azurepowershell-interactive
-  $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
   foreach($vmInfo in $avSet.VirtualMachinesReferences)
   {
-     $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
-     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
-     ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
+     $vm = Get-AzVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
+     Stop-AzVM -ResourceGroupName $rgName -Name $vm.Name -Force
+     ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
   }
   ```
 
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Dönüştürme sırasında bir hata varsa veya bir VM, önceki bir dönüştürme sorunları nedeniyle başarısız bir durumda ise, çalıştırın `ConvertTo-AzureRmVMManagedDisk` cmdlet'ini yeniden. Basit bir yeniden deneme durum genellikle engellemesini kaldırır.
+Dönüştürme sırasında bir hata varsa veya bir VM, önceki bir dönüştürme sorunları nedeniyle başarısız bir durumda ise, çalıştırın `ConvertTo-AzVMManagedDisk` cmdlet'ini yeniden. Basit bir yeniden deneme durum genellikle engellemesini kaldırır.
 Dönüştürmeden önce dönüştürme 409 hata kodu ile başarısız olur ya da tüm VM Uzantıları 'sağlama başarılı' durumda olduğundan emin olun.
 
 

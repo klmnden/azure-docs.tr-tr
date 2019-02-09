@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e20599833d3073e4819dbc974d4b2afe962ba18a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331666"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984316"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines'de (Resource Manager) için otomatik yedekleme v2
 
@@ -153,16 +153,18 @@ Otomatik yedekleme ilk kez etkinleştirirseniz, Azure SQL Server Iaas Aracısı 
 Otomatik yedekleme v2 yapılandırmak için PowerShell kullanabilirsiniz. Başlamadan önce şunları yapmalısınız:
 
 - [En son Azure PowerShell'i yükleyip](https://aka.ms/webpi-azps).
-- Windows PowerShell'i açın ve hesabınızla ilişkilendirmek **Connect-AzureRmAccount** komutu.
+- Windows PowerShell'i açın ve hesabınızla ilişkilendirmek **Connect AzAccount** komutu.
+
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ### <a name="install-the-sql-iaas-extension"></a>SQL Iaas uzantısı yükleme
-Azure portalından bir SQL Server sanal makinesi sağladıysanız, SQL Server Iaas uzantısı zaten yüklü olması gerekir. Sanal makinenizin çağırarak yüklü olup olmadığını belirlemek **Get-AzureRmVM** komut ve İnceleme **uzantıları** özelliği.
+Azure portalından bir SQL Server sanal makinesi sağladıysanız, SQL Server Iaas uzantısı zaten yüklü olması gerekir. Sanal makinenizin çağırarak yüklü olup olmadığını belirlemek **Get-AzVM** komut ve İnceleme **uzantıları** özelliği.
 
 ```powershell
 $vmname = "vmname"
 $resourcegroupname = "resourcegroupname"
 
-(Get-AzureRmVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
+(Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
 ```
 
 SQL Server Iaas Aracısı uzantısı yüklü değilse, "Sqlıaasagent" veya "SQLIaaSExtension" olarak listelenen görmeniz gerekir. **ProvisioningState** için uzantı ayrıca "Başarılı" göstermelidir. 
@@ -171,16 +173,16 @@ Bunu yüklü değil veya sağlanması başarısız oldu, şu komutla yükleyin. 
 
 ```powershell
 $region = “EASTUS2”
-Set-AzureRmVMSqlServerExtension -VMName $vmname `
+Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region 
 ```
 
 ### <a id="verifysettings"></a> Geçerli ayarları doğrulayın
-Otomatik yedekleme sağlama sırasında etkinleştirilirse, geçerli yapılandırmayı denetlemek için PowerShell kullanabilirsiniz. Çalıştırma **Get-AzureRmVMSqlServerExtension** inceleyin ve komutu **AutoBackupSettings** özelliği:
+Otomatik yedekleme sağlama sırasında etkinleştirilirse, geçerli yapılandırmayı denetlemek için PowerShell kullanabilirsiniz. Çalıştırma **Get-AzVMSqlServerExtension** inceleyin ve komutu **AutoBackupSettings** özelliği:
 
 ```powershell
-(Get-AzureRmVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
+(Get-AzVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
 ```
 
 Aşağıdaki çıktıyı almalısınız:
@@ -214,27 +216,27 @@ Herhangi bir zamanda, yapılandırma ve davranışını değiştirmek de otomati
 $storage_accountname = “yourstorageaccount”
 $storage_resourcegroupname = $resourcegroupname
 
-$storage = Get-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
+$storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
     -Name $storage_accountname -ErrorAction SilentlyContinue
 If (-Not $storage)
-    { $storage = New-AzureRmStorageAccount -ResourceGroupName $storage_resourcegroupname `
+    { $storage = New-AzStorageAccount -ResourceGroupName $storage_resourcegroupname `
     -Name $storage_accountname -SkuName Standard_GRS -Location $region } 
 ```
 
 > [!NOTE]
 > Otomatik yedekleme, premium depolama alanında depolama yedeklemeleri desteklemez, ancak, Premium depolama kullanan sanal makine diskleri yedeklerden alabilir.
 
-Ardından **yeni AzureRmVMSqlServerAutoBackupConfig** etkinleştirmek ve Azure depolama hesabında yedeklemeleri depolamak için otomatik yedekleme v2 ayarlarını yapılandırmak için komutu. Bu örnekte, 10 gün boyunca bekletilecek yedeklemeleri ayarlanır. Sistem Veritabanı Yedeklemeleri etkinleştirilir. Tam yedeklemeler için bir haftalık, iki saat 20:00 başlayan bir zaman penceresi ile zamanlanır. Günlük yedeklemeler için 30 dakikada zamanlanır. İkinci komut, **Set-AzureRmVMSqlServerExtension**, bu ayarlarla belirtilen Azure sanal Makineyi güncelleştirir.
+Ardından **yeni AzVMSqlServerAutoBackupConfig** etkinleştirmek ve Azure depolama hesabında yedeklemeleri depolamak için otomatik yedekleme v2 ayarlarını yapılandırmak için komutu. Bu örnekte, 10 gün boyunca bekletilecek yedeklemeleri ayarlanır. Sistem Veritabanı Yedeklemeleri etkinleştirilir. Tam yedeklemeler için bir haftalık, iki saat 20:00 başlayan bir zaman penceresi ile zamanlanır. Günlük yedeklemeler için 30 dakikada zamanlanır. İkinci komut, **kümesi AzVMSqlServerExtension**, bu ayarlarla belirtilen Azure sanal Makineyi güncelleştirir.
 
 ```powershell
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
     -RetentionPeriodInDays 10 -StorageContext $storage.Context `
     -ResourceGroupName $storage_resourcegroupname -BackupSystemDbs `
     -BackupScheduleType Manual -FullBackupFrequency Weekly `
     -FullBackupStartHour 20 -FullBackupWindowInHours 2 `
     -LogBackupFrequencyInMinutes 30 
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname 
 ```
 
@@ -246,7 +248,7 @@ Bu, yüklemek ve SQL Server Iaas Aracısı'nı yapılandırmak için birkaç dak
 $password = "P@ssw0rd"
 $encryptionpassword = $password | ConvertTo-SecureString -AsPlainText -Force  
 
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
     -EnableEncryption -CertificatePassword $encryptionpassword `
     -RetentionPeriodInDays 10 -StorageContext $storage.Context `
     -ResourceGroupName $storage_resourcegroupname -BackupSystemDbs `
@@ -254,19 +256,19 @@ $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
     -FullBackupStartHour 20 -FullBackupWindowInHours 2 `
     -LogBackupFrequencyInMinutes 30 
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
 Ayarlarınızı uygulandığını doğrulamak için [otomatik yedekleme yapılandırmasını doğrulama](#verifysettings).
 
 ### <a name="disable-automated-backup"></a>Otomatik yedeklemeyi devre dışı bırak
-Otomatik yedekleme devre dışı bırakmak için aynı betiği olmadan çalıştırın **-etkinleştirme** parametresi **yeni AzureRmVMSqlServerAutoBackupConfig** komutu. Olmaması **-etkinleştirme** parametresi sinyalleri özelliğini devre dışı bırakma komutu. Yükleme gibi ile otomatik yedekleme devre dışı bırakmak için birkaç dakika sürebilir.
+Otomatik yedekleme devre dışı bırakmak için aynı betiği olmadan çalıştırın **-etkinleştirme** parametresi **yeni AzVMSqlServerAutoBackupConfig** komutu. Olmaması **-etkinleştirme** parametresi sinyalleri özelliğini devre dışı bırakma komutu. Yükleme gibi ile otomatik yedekleme devre dışı bırakmak için birkaç dakika sürebilir.
 
 ```powershell
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
@@ -288,21 +290,21 @@ $logbackupfrequency = "30"
 
 # ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL IaaS Extension 
 
-Set-AzureRmVMSqlServerExtension -VMName $vmname `
+Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region
 
 # Creates/use a storage account to store the backups
 
-$storage = Get-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
+$storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
     -Name $storage_accountname -ErrorAction SilentlyContinue
 If (-Not $storage)
-    { $storage = New-AzureRmStorageAccount -ResourceGroupName $storage_resourcegroupname `
+    { $storage = New-AzStorageAccount -ResourceGroupName $storage_resourcegroupname `
     -Name $storage_accountname -SkuName Standard_GRS -Location $region }
 
 # Configure Automated Backup settings
 
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
     -RetentionPeriodInDays $retentionperiod -StorageContext $storage.Context `
     -ResourceGroupName $storage_resourcegroupname -BackupSystemDbs `
     -BackupScheduleType $backupscheduletype -FullBackupFrequency $fullbackupfrequency `
@@ -311,7 +313,7 @@ $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
 
 # Apply the Automated Backup settings to the VM
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 

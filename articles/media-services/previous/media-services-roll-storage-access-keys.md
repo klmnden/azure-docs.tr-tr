@@ -4,7 +4,7 @@ description: Bu makaleler, depolama erişim anahtarlarını değiştirdikten son
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 4ab2c58e5a0f9e04d824eeea443a13af7a32617d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 096372215ae44902c633489d197dc1d8aa60f193
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619665"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983024"
 ---
-# <a name="update-media-services-after-rolling-storage-access-keys"></a>Depolama erişim anahtarlarını değiştirdikten sonra Media Services'ı güncelleştirme
+# <a name="update-media-services-after-rolling-storage-access-keys-legacy"></a>Depolama erişim anahtarlarını (eski) değiştirdikten sonra Media Services'ı güncelleştirme
 
 Yeni bir Azure Media Services (AMS) hesabı oluşturduğunuzda, medya içeriğinizi depolamak için kullanılan bir Azure depolama hesabı seçmeniz istenir. Media Services hesabınız için birden fazla depolama hesapları ekleyebilirsiniz. Bu makale depolama anahtarlarını döndürme işlemini gösterir. Ayrıca bir medya hesabı için depolama hesapları ekleme işlemini de gösterir. 
 
@@ -68,7 +68,7 @@ Aşağıdaki örnek, depolama hesabı almak ve AMS hesabı ile eşitlemek göste
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>AMS hesabınızı depolama hesapları ekleme adımları
 
-Aşağıdaki makalede AMS hesabınızı depolama hesapları ekleme işlemi gösterilmektedir: [bir Media Services hesabına birden çok depolama hesabı ekleme](meda-services-managing-multiple-storage-accounts.md).
+Aşağıdaki makalede, depolama hesapları AMS hesabınızı ekleme işlemi gösterilmektedir: [Bir Media Services hesabına birden çok depolama hesabı ekleme](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

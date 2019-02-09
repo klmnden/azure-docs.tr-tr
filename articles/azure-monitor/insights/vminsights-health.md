@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 17fdcb4a57379fd11e841715a6908a4a0d280bd9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891479"
+ms.locfileid: "55961280"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -44,7 +44,7 @@ VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz
 >
 >Bugün Azure İzleyici sistem durumu özelliği ile sanal makineleri için sunulan tüm işlevlerin gerileme vardır.
 
->Bu değişikliğe bağlı olarak, hizmet ve sistem durumu geçmişi zaman kısa bir süre için bazı kesintisi olacaktır. Sistem durumu tanılama iki deneyimlerinde etkilenen - durum değişikliği geçmişi sıfırlanır ve durumu ölçütlerini için önceki durum değişikliklerini gözden geçirme için sistem durumu tanılama sayfası durum değişikliği sütununda kullanılabilir olmaz. Herhangi bir geçmiş verilerin ilgileniyorsanız, sistem durumu ölçütlerini verileri ve karşılık gelen durum değişikliklerini görüntüsü başvuru için uygulayabileceğiniz sonra kritik VM görev. 
+>Bu değişikliğin sonucu olarak iki sistem tanılama deneyimlerinde etkilenen - durum değişikliği geçmişi sıfırlanır ve durumu ölçütlerini için önceki durum değişikliklerini gözden geçirme için sistem durumu tanılama sayfası durum değişikliği sütununda kullanılabilir olmaz. Herhangi bir geçmiş verilerin ilgileniyorsanız, sistem durumu ölçütlerini verileri ve karşılık gelen durum değişikliklerini görüntüsü başvuru için uygulayabileceğiniz sonra kritik VM görev. 
 
 ## <a name="monitoring-configuration-details"></a>İzleme Yapılandırma Ayrıntıları
 Bu bölümde, Azure Windows ve Linux sanal makinelerini izlemek için tanımlanan varsayılan sistem durumu ölçütlerini özetlenmektedir. Tüm sistem durumu ölçütlerini, sağlıksız koşul karşılandığında uyarı önceden yapılandırılmış. 

@@ -7,20 +7,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 1/30/2019
 ms.author: yizhon
-ms.openlocfilehash: b213642b093c3b5f79e5993af91ae51517f09c70
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0bfba7f923ca394aa29dd907db1b8b1284a605d8
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747973"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981681"
 ---
-# <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Azure IOT SDK'larını kullanarak mobil cihazlar için geliştirme
-[Azure IOT Hub SDK'ları](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) çok çeşitli Windows, Linux, OSX, MBED ve Android ve iOS gibi mobil platformlar da dahil olmak üzere popüler platformlar için ilk katman desteği sağlar.  Büyük seçme hakkını ve esnekliği IOT dağıtımlarda etkinleştirmek için taahhüdümüzün bir parçası olarak, Java SDK'yı da destekler [Android şeyler](https://developer.android.com/things/) platform.  Geliştiriciler, kullanırken Android şeyler işletim sistemi, cihaz tarafında avantajlarından yararlanabilir [Azure IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) merkezi iletiyi aynı anda milyonlarca için ölçeklendirilen hub cihazları bağlı. 
+# <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Azure IOT SDK'larını kullanarak Android şeyler platformlar için geliştirin
+[Azure IOT Hub SDK'ları](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) Windows, Linux, OSX, MBED ve Android ve iOS gibi mobil platformları gibi popüler platformlar için ilk katman desteği sağlar.  Büyük seçme hakkını ve esnekliği IOT dağıtımlarda etkinleştirmek için taahhüdümüzün bir parçası olarak, Java SDK'yı da destekler [Android şeyler](https://developer.android.com/things/) platform.  Geliştiriciler, kullanırken Android şeyler işletim sistemi, cihaz tarafında avantajlarından yararlanabilir [Azure IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) merkezi iletiyi aynı anda milyonlarca için ölçeklendirilen hub cihazları bağlı. 
 
 Bu öğreticide, Azure IOT Java SDK'sını kullanarak Android şey üzerinde bir cihaz tarafı uygulamayı oluşturmak için adımları açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Bir Android şeyler donanım Android şeyler çalışan işletim sistemi ile desteklenir.  İzleyebileceğiniz [Android şeyler belgeleri](https://developer.android.com/things/get-started/kits#flash-at) flash Android şeyler konusunda.  Android şeyler Cihazınızı klavye, ekran ve fare bağlı gibi temel çevre ile İnternet'e bağlı olduğundan emin olun.  Bu öğreticide, Raspberry Pi 3 kullanılır.
+* Bir Android şeyler donanım Android şeyler çalışan işletim sistemi ile desteklenir.  İzleyebileceğiniz [Android şeyler belgeleri](https://developer.android.com/things/get-started/kits#flash-at) Android şeyler işletim sistemi flash konusunda.  Android şeyler Cihazınızı klavye, ekran ve fare bağlı gibi temel çevre ile İnternet'e bağlı olduğundan emin olun.  Bu öğreticide, Raspberry Pi 3 kullanılır.
 * En son sürümünü [Android Studio](https://developer.android.com/studio/)
 * En son sürümünü [Git](https://git-scm.com/)
 
@@ -69,12 +69,13 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
     ```
 4.  Android Studio'da bulunan "\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample" Android projeyi açın.
 5.  Gradle.Properties dosyasını açın ve cihaz bağlantısı dizeniz ile "Device_connection_string daha önce not ettiğiniz" değiştirin.
+    ![Ana dalın depo ekran görüntüsü](./media/how-to-android-things/connection-string.png)
 6.  Tıklayın çalıştırma - hata ayıklama ve bu kod, Android şeyler cihazlara dağıtmak için Cihazınızı seçin.
 7.  Uygulama başarıyla başlatıldıktan sonra Android şeyler Cihazınızda çalışan bir uygulama görebilirsiniz.  Bu örnek uygulama, rastgele oluşturulan sıcaklık okumalar gönderir.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Hub’ınızdan telemetri okuma
 
-XCode öykünücüsü üzerinde çalıştığınız örnek uygulama, cihazdan gönderilen iletilere ilişkin verileri gösterir. Alınan verileri IoT hub’ınız aracılığıyla da görüntüleyebilirsiniz. IoT Hub uzantısı IoT Hub’ınızdaki bir hizmet tarafı **Olaylar** uç noktasına bağlanabilir. Uzantı, simülasyon cihazınızdan gönderilen cihazdan buluta iletileri alır. IoT Hub arka uç uygulaması genellikle cihazdan buluta iletileri alıp işlemek için bulutta çalışır.
+Alınan verileri IOT hub'ınız görüntüleyebilirsiniz. IoT Hub uzantısı IoT Hub’ınızdaki bir hizmet tarafı **Olaylar** uç noktasına bağlanabilir. Uzantı, simülasyon cihazınızdan gönderilen cihazdan buluta iletileri alır. IoT Hub arka uç uygulaması genellikle cihazdan buluta iletileri alıp işlemek için bulutta çalışır.
 
 Aşağıdaki komutları Azure Cloud Shell'de çalıştırın, `YourIoTHubName` yerine IoT hub'ınızın adını yazın:
 

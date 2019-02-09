@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 97cdae49b4676500e29ac25b12712c94e575e5f8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819527"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960575"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack için depolama kapasitesi yönetme 
 
@@ -91,7 +91,7 @@ Bulut operatörü olarak, tüm paylaşımlar depolama kapasitesini görüntülem
 1. Oturum [Yönetici portalı](https://adminportal.local.azurestack.external).
 2. Seçin **tüm hizmetleri** > **depolama** kullanım bilgileri görüntüleyebileceğiniz dosya paylaşımı listesini açın. 
 
-  ![Örnek: Depolama dosya paylaşımları](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![Örnek: Depolama dosya paylaşımları](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **Toplam** paylaşımında kullanılabilir bayt cinsinden toplam alan. Bu alan, veri ve depolama hizmetleri tarafından korunur meta verileri için kullanılır.
   - **KULLANILAN** tüm kapsamları kiracısına ilişkin veriler ve ilişkili meta verileri depolayan dosyalarından tarafından kullanılan veri bayt miktarı.

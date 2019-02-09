@@ -16,12 +16,12 @@ ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: a7e8b1471e056fd789cda5258dd088e623c3cebd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2432c30ca98904c2e6789f4b15468f905096bbf7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248512"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962800"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Güncelleştirme 3 sürüm notları Azure Stack üzerinde App Service'e
 
@@ -197,7 +197,7 @@ Mevcut bir sanal ağ ve dosya sunucunuza bağlanmak için bir dahili IP adresine
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure Stack üzerinde Azure App Service'te çalışan bulut yöneticileri için bilinen sorunlar
 
-Belgeye başvurun [Azure Stack 1807 sürüm notları](azure-stack-update-1807.md)
+Azure Stack 1807 sürüm notlarında belgelerine bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

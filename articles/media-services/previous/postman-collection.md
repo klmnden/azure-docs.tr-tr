@@ -4,23 +4,23 @@ description: Bu makalede, Azure Media Services REST çağrıları için Postman 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 34eb7c48c8ebc36f9172f97dda845542b3840a19
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: f9f8d9fcdca649494088ad9c53415429c5232384
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747688"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978536"
 ---
-# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>İsteğe bağlı Akış işlemleri bir Postman koleksiyonunu içeri aktarma
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations-legacy"></a>İsteğe bağlı Akış işlemleri (eski) ile bir Postman koleksiyonunu içeri aktarma
 
 Bu makalede bir tanımını içeren **Postman** gruplandırılmış Azure Media Services REST API'lerini çağırma HTTP isteklerini içeren koleksiyon. Yapılandırma hakkında daha fazla bilgi için **Postman** da kullanılabilmesi için Media Services REST API'leri çağırmak için bkz [Postman yapılandırmak için Media Services REST API çağrıları](media-rest-apis-with-postman.md) öğretici.
 

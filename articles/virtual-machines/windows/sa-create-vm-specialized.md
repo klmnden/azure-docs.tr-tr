@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0de7979edd741a7e4a1dc3354a8dc895929a9532
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6a54dc6a1068a9f7908760fb70fea45ef34f5b60
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811690"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981443"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Bir depolama hesabında özelleştirilmiş bir VHD'den VM oluşturma
 
@@ -31,13 +31,7 @@ ms.locfileid: "55811690"
 * [Bir VHD’yi karşıya yükleme](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Mevcut bir Azure VM'yi VHD'yi kopyalayın](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
-## <a name="before-you-begin"></a>Başlamadan önce
-PowerShell kullanıyorsanız, AzureRM.Compute PowerShell modülünün en son sürümüne sahip olduğunuzdan emin olun. Yüklemek için aşağıdaki komutu çalıştırın.
-
-```powershell
-Install-Module AzureRM.Compute 
-```
-Daha fazla bilgi için [Azure PowerShell sürüm oluşturma](/powershell/azure/overview).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>1. seçenek: Özelleştirilmiş bir VHD'yi karşıya yükleme
@@ -58,7 +52,7 @@ Karşıya yüklenen VM görüntüsü depolamak için Azure depolama hesabında i
 Kullanılabilir depolama hesaplarını göstermek için şunu yazın:
 
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 Karşıya yükleme için mevcut bir depolama hesabı kullanmak istiyorsanız, VM görüntü bölümü devam edin.
@@ -68,29 +62,29 @@ Bir depolama hesabı oluşturmanız gerekiyorsa, aşağıdaki adımları izleyin
 1. Burada depolama hesabının oluşturulması gereken kaynak grubunun adını ihtiyacınız vardır. Aboneliğinizdeki tüm kaynak gruplarını bulmak için şunu yazın:
    
     ```powershell
-    Get-AzureRmResourceGroup
+    Get-AzResourceGroup
     ```
 
     Adlı bir kaynak grubu oluşturmak için **myResourceGroup** içinde **Batı ABD** bölge, türü:
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Adlı bir depolama hesabı oluşturma **mystorageaccount** kullanarak bu kaynak grubundaki [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
+2. Adlı bir depolama hesabı oluşturma **mystorageaccount** kullanarak bu kaynak grubundaki [yeni AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet:
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+    New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>VHD, depolama hesabınıza yükleme
-Kullanım [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) görüntüyü depolama hesabınızdaki bir kapsayıcıya yüklemek için cmdlet'i. Bu örnek dosyayı yükler **myVHD.vhd** gelen `"C:\Users\Public\Documents\Virtual hard disks\"` adlı bir depolama hesabına **mystorageaccount** içinde **myResourceGroup** kaynak grubu. Dosya adlı bir kapsayıcının içine yerleştirilecek **mycontainer** ve yeni dosya adı **myUploadedVHD.vhd**.
+Kullanım [Ekle AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) görüntüyü depolama hesabınızdaki bir kapsayıcıya yüklemek için cmdlet'i. Bu örnek dosyayı yükler **myVHD.vhd** gelen `"C:\Users\Public\Documents\Virtual hard disks\"` adlı bir depolama hesabına **mystorageaccount** içinde **myResourceGroup** kaynak grubu. Dosya adlı bir kapsayıcının içine yerleştirilecek **mycontainer** ve yeni dosya adı **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
 $urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
     -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
@@ -119,17 +113,17 @@ Yeni ve yinelenen bir VM oluşturulurken kullanılacak başka bir depolama hesab
 ### <a name="before-you-begin"></a>Başlamadan önce
 Emin olun:
 
-* Hakkında bilgilere sahip **kaynak ve hedef depolama hesapları**. Kaynak VM için depolama hesabı ve kapsayıcı adları olması gerekir. Genellikle, kapsayıcı adı olacaktır **VHD'ler**. Bir hedef depolama hesabının olması gerekir. Zaten yoksa, her iki portal kullanarak bir tane oluşturabilirsiniz (**tüm hizmetleri** > depolama hesapları > Ekle) veya bu adı kullanıyor [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet'i. 
+* Hakkında bilgilere sahip **kaynak ve hedef depolama hesapları**. Kaynak VM için depolama hesabı ve kapsayıcı adları olması gerekir. Genellikle, kapsayıcı adı olacaktır **VHD'ler**. Bir hedef depolama hesabının olması gerekir. Zaten yoksa, her iki portal kullanarak bir tane oluşturabilirsiniz (**tüm hizmetleri** > depolama hesapları > Ekle) veya bu adı kullanıyor [yeni AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet'i. 
 * İndirdiğinizi ve yüklediğinizi [AzCopy aracı](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>VM'yi serbest bırakın
 Kopyalanacak VHD boşaltır VM'yi serbest bırakın. 
 
 * **Portal**: Tıklayın **sanal makineler** > **myVM** > Durdur
-* **PowerShell**: Kullanım [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) durdurmak için (serbest bırakın) adlı bir sanal makine **myVM** kaynak grubundaki **myResourceGroup**.
+* **PowerShell**: Kullanım [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) durdurmak için (serbest bırakın) adlı bir sanal makine **myVM** kaynak grubundaki **myResourceGroup**.
 
 ```powershell
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
 **Durumu** Azure VM için portalı değişiklikleri **durduruldu** için **durduruldu (serbest bırakıldı)**.
@@ -140,20 +134,20 @@ Kaynak ve hedef depolama hesapları URL'lerini ihtiyacınız vardır. Aşağıda
 URL almak için Azure portal veya Azure Powershell kullanabilirsiniz:
 
 * **Portal**: Tıklayın **>** için **tüm hizmetleri** > **depolama hesapları** > *depolama hesabı*  >  **Blobları** ve kaynak VHD dosyanız büyük olasılıkla kullanımda **VHD'ler** kapsayıcı. Tıklayın **özellikleri** etiketli metni kopyalayın ve kapsayıcı **URL**. Kapsayıcılar kaynak ve hedef URL'leri gerekir. 
-* **PowerShell**: Kullanım [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) adlı VM için bilgi almak için **myVM** kaynak grubundaki **myResourceGroup**. Sonuçlarda konum **depolama profili** bölümü **Vhd Uri'si**. URI'ın ilk bölümü URL'dir kapsayıcıya ve son bölümü VM için işletim sistemi VHD'si adıdır.
+* **PowerShell**: Kullanım [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) adlı VM için bilgi almak için **myVM** kaynak grubundaki **myResourceGroup**. Sonuçlarda konum **depolama profili** bölümü **Vhd Uri'si**. URI'ın ilk bölümü URL'dir kapsayıcıya ve son bölümü VM için işletim sistemi VHD'si adıdır.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>Depolama erişim anahtarlarını alma
 Erişim anahtarları, depolama hesapları kaynak ve hedef için bulun. Erişim anahtarları hakkında daha fazla bilgi için bkz. [Azure depolama hesapları hakkında](../../storage/common/storage-create-storage-account.md).
 
 * **Portal**: Tıklayın **tüm hizmetleri** > **depolama hesapları** > *depolama hesabı* > **erişim anahtarları**. Olarak etiketlenen tuşunu kopyalamak **key1**.
-* **PowerShell**: Kullanım [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) depolama hesabı için depolama anahtarı almak için **mystorageaccount** kaynak grubundaki **myResourceGroup**. Etiketlenen tuşunu kopyalamak **key1**.
+* **PowerShell**: Kullanım [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) depolama hesabı için depolama anahtarı almak için **mystorageaccount** kaynak grubundaki **myResourceGroup**. Etiketlenen tuşunu kopyalamak **key1**.
 
 ```powershell
-Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
+Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
 ```
 
 ### <a name="copy-the-vhd"></a>VHD'yi kopyalayın
@@ -208,14 +202,14 @@ Sanal ağ oluşturup alt [sanal ağ](../../virtual-network/virtual-networks-over
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubNet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
 2. Sanal ağ oluşturun. Bu örnek, sanal ağ adı olacak şekilde ayarlar **myVnetName**, konuma **Batı ABD**ve sanal ağa ait adres ön ekini **10.0.0.0/16**. 
    
     ```powershell
     $location = "West US"
     $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+    $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Ağ güvenlik grubu ve bir RDP kuralı oluşturma
@@ -226,11 +220,11 @@ NSG adı Bu örnekte ayarlar **myNsg** ve RDP kuralının adını **myRdpRule**.
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
     
 ```
@@ -244,14 +238,14 @@ Sanal makinenin sanal ağda iletişimini etkinleştirmeniz için, [genel IP adre
    
     ```powershell
     $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+    $pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
 2. NIC oluşturma Bu örnekte, NIC adı kümesine **myNicName**. Bu adım Ayrıca bu NIC ile daha önce oluşturduğunuz ağ güvenlik grubu ilişkilendirir.
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    $nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName `
     -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
     ```
 
@@ -260,13 +254,13 @@ Sanal makinenin sanal ağda iletişimini etkinleştirmeniz için, [genel IP adre
 Bu örnekte, "myVM" VM adına ve "Standard_a2 =" için VM boyutunu ayarlar.
 ```powershell
 $vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
 ### <a name="add-the-nic"></a>NIC ekleme
     
 ```powershell
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
     
@@ -281,14 +275,14 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
     
     ```powershell
     $osDiskName = $vmName + "osDisk"
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
+    $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
     ```
 
 İsteğe bağlı: VM'ye eklenmesine gerek veri diskleri varsa, veri VHD'leri URL'leri ve uygun mantıksal birim numarası (Lun) kullanarak veri diski ekleyin.
 
 ```powershell
 $dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
+$vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
 ```
 
 Bir depolama hesabını kullanırken, veri ve işletim sistemi disk URL'leri aşağıdaki gibi görünmelidir: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Bunu portalı hedef depolama kapsayıcısına gözatma işletim sistemi veya veri kopyalanan VHD tıklayarak ve sonra URL'yi içeriğini kopyalamayı bulabilirsiniz.
@@ -300,7 +294,7 @@ Yeni oluşturduğumuz yapılandırmaları kullanarak VM oluşturun.
 
 ```powershell
 #Create the new VM
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
 Bu komut başarılı olduysa, şunun gibi bir çıktı görürsünüz:
@@ -316,7 +310,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 Yeni oluşturulan VM ya da görmeniz gerekir, [Azure portalında](https://portal.azure.com)altında **tüm hizmetleri** > **sanal makineler**, veya aşağıdaki PowerShell kullanarak komutlar:
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $rgName
+$vmList = Get-AzVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 

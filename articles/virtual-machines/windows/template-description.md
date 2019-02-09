@@ -15,18 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e32e2833edc7027a984bb27b34608e4b1b898113
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 094df21bb0264ebbd8ad23c594ceb52db19d9c2f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767096"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979624"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Sanal makineler bir Azure Resource Manager şablonu
 
 Bu makalede sanal makineleri için geçerli bir Azure Resource Manager şablonu yönlerini açıklar. Bu makalede, bir sanal makine oluşturmak için tam bir şablon olarak açıklanmamaktadır; Bunun için depolama hesapları, ağ arabirimleri, ortak IP adresleri ve sanal ağlar için kaynak tanımları gerekir. Bu kaynakları nasıl birlikte tanımlanabilir hakkında daha fazla bilgi için bkz. [Resource Manager şablonu Kılavuzu](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Kullanabileceğiniz birçok [galerideki şablonları](https://azure.microsoft.com/documentation/templates/?term=VM) VM kaynağını içerir. Bir şablona dahil tüm öğeler burada açıklanmıştır.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 Bu örnek belirtilen sayıda VM'ler oluşturmak için bir şablon tipik kaynak bölümünü gösterir:
 
@@ -163,8 +165,9 @@ Bu örnek belirtilen sayıda VM'ler oluşturmak için bir şablon tipik kaynak b
 En son API sürümlerini almak için bu fırsatlar kullanın:
 
 - REST API - [tüm kaynak sağlayıcıları Listele](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
+- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+
 
 ## <a name="parameters-and-variables"></a>Parametreler ve değişkenler
 
@@ -442,7 +445,7 @@ Yüklü uzantılar portalında uzantılarının ayarlarından durumunu görebili
 
 ![Uzantı durumu alma](./media/template-description/virtual-machines-show-extensions.png)
 
-Uzantı bilgileri kullanarak da alabilirsiniz **Get-AzureRmVMExtension** PowerShell komutunu **vm uzantısı get** Azure CLI komutunu veya **uzantısı bilgialma**REST API.
+Uzantı bilgileri kullanarak da alabilirsiniz **Get-AzVMExtension** PowerShell komutunu **vm uzantısı get** Azure CLI komutunu veya **uzantısı bilgialma**REST API.
 
 ## <a name="deployments"></a>Dağıtımlar
 

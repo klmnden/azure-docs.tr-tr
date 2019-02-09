@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 311e2ee65b2c24eb1c288a2161bf371732aea452
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e95440f72580b928cd41b6d03f30459cfb70a510
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817674"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965401"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Apache Hive, HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme
 [Apache Hive](https://hive.apache.org/) çalıştırmanın sağlar [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) işleri SQL benzeri bir betik dilini aracılığıyla adlı *[HiveQL] [ hadoop-hiveql]*, hangi uygulanabilir özetleme, sorgulamaya ve analiz etmeye büyük hacimli verileri doğru.
@@ -66,13 +66,13 @@ Get/kendi depolama hesabına veri yükleme konusunda ve HiveQL betik dosyası ol
 
 Aşağıdaki tabloda, bu öğreticide kullanılan dosyaları listeler:
 
-<table border="1">
-<tr><th>Dosyalar</th><th>Açıklama</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Hive işi tarafından kullanılan HiveQL betik dosyası. Bu betik, ortak erişim ile bir Azure Blob Depolama hesabına yüklendi. <a href="#appendix-b">Ek B</a> yönergeler hazırlama ve bu dosyayı karşıya yüklemek, kendi Azure Blob Depolama hesabına sahiptir.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Hive iş için giriş verileri. Verilere genel erişim ile bir Azure Blob Depolama hesabına yüklendi. <a href="#appendix-a">Ek A</a> veri almanın ve kendi Azure Blob Depolama hesabına veri yükleme yönergeleri açmıştır.</td></tr>
-<tr><td>\tutorials\flightdelays\output</td><td>Hive işi için çıkış yolu. Varsayılan kapsayıcı, çıktı verilerini depolamak için kullanılır.</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>Varsayılan kapsayıcı Hive işi durumu klasörü.</td></tr>
-</table>
+|Dosyalar|Açıklama|  
+|----|----|   
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql|Hive işi tarafından kullanılan HiveQL betik dosyası. Bu betik, ortak erişim ile bir Azure Blob Depolama hesabına yüklendi. <a href="#appendix-b">Ek B</a> yönergeler hazırlama ve bu dosyayı karşıya yüklemek, kendi Azure Blob Depolama hesabına sahiptir.|
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|Hive iş için giriş verileri. Verilere genel erişim ile bir Azure Blob Depolama hesabına yüklendi. <a href="#appendix-a">Ek A</a> veri almanın ve kendi Azure Blob Depolama hesabına veri yükleme yönergeleri açmıştır.|
+|\tutorials\flightdelays\output|Hive işi için çıkış yolu. Varsayılan kapsayıcı, çıktı verilerini depolamak için kullanılır.|
+|\tutorials\flightdelays\jobstatus|Varsayılan kapsayıcı Hive işi durumu klasörü.|
+
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Küme oluşturma ve Hive/Sqoop işleri çalıştırma
 Hadoop MapReduce toplu işlem ' dir. Bir Hive işi çalıştırmak için en uygun maliyetli iş için bir küme oluşturmak ve iş tamamlandıktan sonra işi silmek için yoludur. Bu işlem aşağıdaki betiği kapsar.
@@ -250,12 +250,11 @@ Veri dosyasını karşıya yükleme ve [HiveQL](https://cwiki.apache.org/conflue
 1. [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (Araştırma ve Yenilikçi Teknolojiler İdaresi, Ulaşım İstatistikleri Bürosu) sayfasına göz atın.
 2. Sayfada aşağıdaki değerleri seçin:
 
-    <table border="1">
-    <tr><th>Adı</th><th>Değer</th></tr>
-    <tr><td>Yıl Filtresi</td><td>2013 </td></tr>
-    <tr><td>Dönem Filtresi</td><td>Ocak</td></tr>
-    <tr><td>Alanlar</td><td>*Yıl*, *FlightDate*, *UniqueCarrier*, *taşıyıcı*, *FlightNum*, *OriginAirportID*, *Kaynak*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (diğer tüm alanlar Temizle)</td></tr>
-    </table>
+    |Adı|Değer|
+    |---|---|
+    |Yıl Filtresi|2013|
+    |Dönem Filtresi|Ocak|
+    |Alanlar|*Yıl*, *FlightDate*, *UniqueCarrier*, *taşıyıcı*, *FlightNum*, *OriginAirportID*, *Kaynak*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (diğer tüm alanlar Temizle)|
 
 3. **İndir**’e tıklayın.
 4. İçin dosyanın sıkıştırmasını açın **C:\Tutorials\FlightDelay\2013Data** klasör. Her dosya, bir CSV dosyasıdır ve yaklaşık 60 GB boyutunda.
@@ -266,11 +265,10 @@ Veri dosyasını karşıya yükleme ve [HiveQL](https://cwiki.apache.org/conflue
 
 1. Parametreleri hazırlayın:
 
-    <table border="1">
-    <tr><th>Değişken adı</th><th>Notlar</th></tr>
-    <tr><td>$storageAccountName</td><td>Verileri karşıya yüklemek için istediğiniz Azure depolama hesabı.</td></tr>
-    <tr><td>$blobContainerName</td><td>Verileri karşıya yüklemek istediğiniz yeri Blob kapsayıcısı.</td></tr>
-    </table>
+    |Değişken adı|Notlar|
+    |---|---|
+    |$storageAccountName|Verileri karşıya yüklemek için istediğiniz Azure depolama hesabı.|
+    |$blobContainerName|Verileri karşıya yüklemek istediğiniz yeri Blob kapsayıcısı.|
     
 2. Open Azure PowerShell ISE.
 3. Aşağıdaki komut dosyası, betik bölmesine yapıştırın:
@@ -375,11 +373,10 @@ HiveQL komutların tam listesi için bkz. [Apache Hive veri tanımlama dili][had
 
 1. Parametreleri hazırlayın:
 
-    <table border="1">
-    <tr><th>Değişken adı</th><th>Notlar</th></tr>
-    <tr><td>$storageAccountName</td><td>Azure depolama hesabı için HiveQL betiğini karşıya yüklemek istediğiniz yeri.</td></tr>
-    <tr><td>$blobContainerName</td><td>Blob kapsayıcısı için HiveQL betiğini karşıya yüklemek istediğiniz yeri.</td></tr>
-    </table>
+    |Değişken adı|Notlar|
+    |---|---|
+    |$storageAccountName|Azure depolama hesabı için HiveQL betiğini karşıya yüklemek istediğiniz yeri.|
+    |$blobContainerName|Blob kapsayıcısı için HiveQL betiğini karşıya yüklemek istediğiniz yeri.|
     
 2. Open Azure PowerShell ISE.  
 
@@ -564,14 +561,14 @@ HiveQL komutların tam listesi için bkz. [Apache Hive veri tanımlama dili][had
 
 1. Parametreleri hazırlayın:
 
-    <table border="1">
-    <tr><th>Değişken adı</th><th>Notlar</th></tr>
-    <tr><td>$sqlDatabaseServerName</td><td>Azure SQL veritabanı sunucu adı. Yeni bir sunucu oluşturmak için hiçbir şey girin.</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>Azure SQL veritabanı sunucusu için oturum açma adı. Mevcut bir sunucu $sqlDatabaseServerName ise oturum açma ve oturum açma parolası sunucunun kimliğini doğrulamak için kullanılır. Aksi takdirde bunlar yeni bir sunucu oluşturmak için kullanılır.</td></tr>
-    <tr><td>$sqlDatabasePassword</td><td>Azure SQL veritabanı sunucusu için oturum açma parolası.</td></tr>
-    <tr><td>$sqlDatabaseLocation</td><td>Yalnızca yeni bir Azure veritabanı sunucusunu oluştururken bu değeri kullanılır.</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>Sqoop işin AvgDelays tablo oluşturmak için kullanılan SQL veritabanı. Boş bırakılırsa HDISqoop adlı bir veritabanı oluşturur. AvgDelays Sqoop iş çıktısı için tablo adıdır. </td></tr>
-    </table>
+    |Değişken adı|Notlar|
+    |---|---|
+    |$sqlDatabaseServerName|Azure SQL veritabanı sunucu adı. Yeni bir sunucu oluşturmak için hiçbir şey girin.|
+    |$sqlDatabaseUsername|Azure SQL veritabanı sunucusu için oturum açma adı. Mevcut bir sunucu $sqlDatabaseServerName ise oturum açma ve oturum açma parolası sunucunun kimliğini doğrulamak için kullanılır. Aksi takdirde bunlar yeni bir sunucu oluşturmak için kullanılır.|
+    |$sqlDatabasePassword|Azure SQL veritabanı sunucusu için oturum açma parolası.|
+    |$sqlDatabaseLocation|Yalnızca yeni bir Azure veritabanı sunucusunu oluştururken bu değeri kullanılır.|
+    |$sqlDatabaseName|Sqoop işin AvgDelays tablo oluşturmak için kullanılan SQL veritabanı. Boş bırakılırsa HDISqoop adlı bir veritabanı oluşturur. AvgDelays Sqoop iş çıktısı için tablo adıdır.|
+
     
 2. Open Azure PowerShell ISE.
 

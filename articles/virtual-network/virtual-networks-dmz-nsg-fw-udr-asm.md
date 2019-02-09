@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448475"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965265"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Örnek 3: ağları bir güvenlik duvarı, UDR ve NSG ile korunacak bir DMZ oluşturma
 [Güvenlik sınırı en iyi yöntemler sayfasına geri dönün][HOME]
@@ -109,35 +109,46 @@ Yönlendirme tablolarını oluşturulduktan sonra kendi alt ağlara bağlanır. 
 Bu örnek için aşağıdaki komutları yol tablosu oluşturun, bir kullanıcı tanımlı yol ekleyin ve sonra yönlendirme tablosunu bir alt ağa bağlamak için kullanılır (Not; aşağıda bir dolar işareti ile başlayan herhangi bir öğe (örn: $BESubnet) komut dosyası kullanıcı tanımlı değişkenler Bu belgenin başvurusu bölümü):
 
 1. İlk temel yönlendirme tablosunun oluşturulması gerekir. Bu kod parçacığı, arka uç alt ağı için bir tablo oluşturulmasını gösterir. Betikte, karşılık gelen bir tablo için ön uç alt ağı da oluşturulur.
-   
-     New-AzureRouteTable -Name $BERouteTableName `
-   
-         -Location $DeploymentLocation `
-         -Label "Route table for $BESubnet subnet"
+
+   ```powershell
+   New-AzureRouteTable -Name $BERouteTableName `
+       -Location $DeploymentLocation `
+       -Label "Route table for $BESubnet subnet"
+   ```
+
 2. Yol tablosu oluşturulduktan sonra belirli kullanıcı tanımlı yollar eklenebilir. Bu konuda ölçeklendirmesinden, tüm trafik (0.0.0.0/0) (bir değişken $VMIP [0], komut dosyasında sanal gerece oluşturulduğunda atanan IP adresini geçirmek için kullanılır) sanal Gereci aracılığıyla yönlendirilir. Betikte, karşılık gelen bir kural ön uç tabloda da oluşturulur.
-   
-     Get-AzureRouteTable $BERouteTableName | `
-   
-         Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
-         -NextHopType VirtualAppliance `
-         -NextHopIpAddress $VMIP[0]
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
+
 3. Yukarıdaki rota girişi, trafiği ağ sanal Gerecinin değil de, doğrudan hedefine yönlendirmek için sanal ağ içindeki izin varsayılan "0.0.0.0/0" yol, ancak hala mevcut varsayılan 10.0.0.0/16 kuralını geçersiz kılar. Doğru izleme kuralı bu davranışı eklenmesi gerekir.
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
+
 4. Bu noktada yapılacak bir seçenek yoktur. Yukarıdaki iki rotalarla değerlendirmesi, tek bir alt ağ içinde bile trafiği için Güvenlik Duvarı tüm trafiği yönlendirir. Yerel Güvenlik Duvarı müdahalesi olmadan üçüncü yönlendirmek için bir alt ağ trafiğine izin verecek şekilde belirli bir kural eklenebilir ancak bu, istenebilir. Bu rota var. yerel alt ağ yalnızca için herhangi bir adresi destine durumları rota doğrudan (NextHopType VNETLocal =).
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
-            -NextHopType VNETLocal
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+           -NextHopType VNETLocal
+   ```
+
 5. Son olarak, oluşturduğunuz ve bir kullanıcı tanımlı yollar ile doldurulmuş yönlendirme tablosu ile tablo artık bir alt ağa bağlı olmalıdır. Betikte, ön uç yol tablosu ayrıca ön uç alt ağına bağlanır. Arka uç alt ağı için bağlama betiği aşağıda verilmiştir.
-   
-     Set-AzureSubnetRouteTable - VirtualNetworkName $VNetName '
-   
-        -SubnetName $BESubnet `
-        -RouteTableName $BERouteTableName
+
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
+       -SubnetName $BESubnet `
+       -RouteTableName $BERouteTableName
+   ```
 
 ## <a name="ip-forwarding"></a>IP İletimi
 UDR, bir yardımcı özelliği olan IP iletimi. Bu, özellikle gerecine gönderilmiş olan trafiği almasını ve ardından bu trafiğin ultimate hedefine iletmek sağlayan bir sanal gereç üzerinde bir ayardır.
@@ -149,13 +160,14 @@ AppVM01 gelen trafiği DNS01 sunucusuna bir istek yapıyorsa örnek olarak, UDR 
 > 
 > 
 
-IP iletimi ayarlama, tek bir komuttur ve VM oluşturma sırasında yapılabilir. Bu örnekte akış için kod parçacığı kodun sonuna doğru olduğundan ve UDR komutları ile gruplandırılmış:
+IP iletimi ayarlama, tek bir komuttur ve VM oluşturma sırasında yapılabilir. Bu örnekte akışına, kod parçacığını kodun sonuna doğru olduğundan ve UDR komutları ile gruplandırılmış:
 
 1. Bu durumda, bir sanal gereç, güvenlik duvarı olan VM örneği çağırın ve IP iletimini etkinleştirmeniz (Not; bir dolar işareti olan kırmızı başlayan herhangi bir öğeyi (örneğin: $VMName[0]) olan bir kullanıcı tanımlı değişken başvuru bölümünde, bu belgenin komut dosyası. "[0], parantez içine sıfır değişiklik olmadan çalışmaya örnek betiği sanal makinelerin dizideki ilk VM temsil eder, güvenlik duvarı ilk sanal makine (VM 0) olması gerekir):
-   
-     Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-   
+
+    ```powershell
+    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
         Set-AzureIPForwarding -Enable
+    ```
 
 ## <a name="network-security-groups-nsg"></a>Ağ Güvenlik Grupları (NSG)
 Bu örnekte, bir NSG grubu oluşturulan ve ardından tek bir kural ile yüklendi. Bu grup, ardından yalnızca ön uç ve arka uç alt ağlara (SecNet değil) bağlıdır. Aşağıdaki kural bildirimli olarak üretiliyor:
@@ -166,22 +178,26 @@ Nsg'leri Bu örnekte kullanılan olsa da, cihazın ana amacı el ile gerçekleş
 
 Bu örnekte ağ güvenlik grubu ile ilgili bir ilgi çekici nokta, yalnızca bir kural, aşağıda gösterilen güvenlik alt dahil tüm sanal ağ için internet trafiği reddetmeye yönelik olduğu içermesidir. 
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
-        from the Internet" `
-        -Type Inbound -Priority 100 -Action Deny `
-        -SourceAddressPrefix INTERNET -SourcePortRange '*' `
-        -DestinationAddressPrefix VIRTUAL_NETWORK `
-        -DestinationPortRange '*' `
-        -Protocol *
+```powershell
+Get-AzureNetworkSecurityGroup -Name $NSGName | `
+    Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
+    from the Internet" `
+    -Type Inbound -Priority 100 -Action Deny `
+    -SourceAddressPrefix INTERNET -SourcePortRange '*' `
+    -DestinationAddressPrefix VIRTUAL_NETWORK `
+    -DestinationPortRange '*' `
+    -Protocol *
+```
 
 NSG yalnızca ön uç ve arka uç alt ağa bağlı olduğundan, kuralın trafiğinde ancak işlenen değil güvenlik alt ağına gelen. Sonuç olarak, NSG, hiçbir zaman güvenlik alt ağa bağlı olduğundan NSG kuralı VNet üzerinde herhangi bir adresi yok Internet trafiğini diyor olsa da, trafiği güvenlik alt ağa akacak.
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $FESubnet -VirtualNetworkName $VNetName
+```powershell
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $FESubnet -VirtualNetworkName $VNetName
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $BESubnet -VirtualNetworkName $VNetName
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $BESubnet -VirtualNetworkName $VNetName
+```
 
 ## <a name="firewall-rules"></a>Güvenlik Duvarı Kuralları
 Güvenlik Duvarı'nı, kuralları iletme oluşturulması gerekir. Güvenlik duvarı engelleme veya ileten tüm gelen, giden ve içi-VNet trafiği olduğundan çok sayıda güvenlik duvarı kuralları gerekir. Ayrıca, tüm gelen trafiği, güvenlik hizmeti genel IP adresini (farklı bağlantı noktaları üzerinde) güvenlik duvarı tarafından işlenecek ulaşırsınız. Alt ağlar ' ayarlamadan önce mantıksal akışlarda diyagram için en iyi uygulamadır ve önlemek için güvenlik duvarı kuralları daha sonra yeniden. Aşağıdaki şekil, bu örnek için güvenlik duvarı kurallarını mantıksal bir görünümüdür:
@@ -233,9 +249,11 @@ Güvenlik Duvarı'nı çalıştıran sanal makine için bir önkoşul ortak uç 
 
 Bir uç nokta ya da VM oluşturma zamanında açılabilir veya örnek komut dosyasında yapılan ve aşağıda bu kod parçacığında gösterildiği gibi derleme sonrası (Not; herhangi bir dolar işareti öğesi başlayarak (örn: $VMName[$i]) olan bir kullanıcı tanımlı değişken başvuru _Böl içinde komut dosyası Bu belgenin n. Parantez içine "$i" [$i] belirli bir VM'ye sanal dizide dizi sayısını temsil eder):
 
-    Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
-        -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
-        Update-AzureVM
+```powershell
+Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
+    -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
+    Update-AzureVM
+```
 
 Değişkenleri, ancak uç noktalar kullanımı nedeniyle değil açıkça burada gösterilen ancak **yalnızca** güvenlik bulut hizmetinde açılır. Tüm gelen trafiği yönetildiğinden emin olmak için budur (yönlendirilmiş NAT bırakılan içeren) bir güvenlik duvarı tarafından.
 
@@ -338,7 +356,7 @@ Bu örnekte tamamlamak için gereken her bir kural ayrıntılarını aşağıda 
   
     Bu geçişi kural her IIS sunucusu AppVM01 ulaşmak için ön uç alt ağda sağlar (IP adresi 10.0.2.5) herhangi bir bağlantı üzerinde web uygulaması tarafından gerekli verilere herhangi bir protokolünü kullanarak.
   
-    Bu ekran görüntüsünde, bir "\<dest açık\>" hedef alanı 10.0.2.5 hedef olarak belirtmek için kullanılır. Bu şunlardan biri olabilir gösterildiği veya açık adlı ağ (DNS sunucusu için Önkoşullar'da yapıldığı gibi) nesne. Hangi yöntemi kullanılacak Güvenlik Duvarı'nın yöneticisine kalmıştır budur. İlk boş satırda altında 10.0.2.5 bir işinizi Desitnation eklemek için çift \<dest açık\> ve açılır pencerede adresini girin.
+    Bu ekran görüntüsünde, bir "\<dest açık\>" hedef alanı 10.0.2.5 hedef olarak belirtmek için kullanılır. Bu şunlardan biri olabilir gösterildiği veya açık adlı ağ (DNS sunucusu için Önkoşullar'da yapıldığı gibi) nesne. Hangi yöntemi kullanılacak Güvenlik Duvarı'nın yöneticisine kalmıştır budur. İlk boş satırda altında 10.0.2.5 bir işinizi hedefi eklemek için çift \<dest açık\> ve açılır pencerede adresini girin.
   
     Bağlantı yöntemi "No SNAT" için ayarlanabilir bu nedenle bu iç trafik olduğundan geçirmek bu kural, NAT gereklidir.
   
@@ -389,7 +407,7 @@ Bu örnek ortam derleme güvenlik duvarı kural kümesi etkinleştirme'yle tamam
 
 ## <a name="traffic-scenarios"></a>Trafik senaryoları
 > [!IMPORTANT]
-> Bir anahtar takeway unutmayın olmaktır **tüm** trafiği, güvenlik duvarı üzerinden gelen. Bu nedenle IIS01 sunucuya Uzak Masaüstü için ön uç bulut hizmeti ve ön uç alt olmasına rağmen bu sunucuya erişmek için biz RDP için güvenlik duvarında bağlantı noktası 8014 gerekir ve ardından RDP isteği IIS01 RDP Por için dahili olarak yönlendirmek Güvenlik Duvarı'nı izin t. Azure portalının "Bağlan" düğmesi olduğundan IIS01 için doğrudan RDP yol yok (portal görebilirsiniz kadar) işe yaramaz. Başka bir deyişle, İnternet'ten gelen tüm bağlantıları, güvenlik hizmetleri ve bağlantı noktası, örneğin secscv001.cloudapp.net:xxxx olacaktır.
+> Bir güvenebileceğinizdir unutmayın olmaktır **tüm** trafiği, güvenlik duvarı üzerinden gelen. Bu nedenle IIS01 sunucuya Uzak Masaüstü için ön uç bulut hizmeti ve ön uç alt olmasına rağmen bu sunucuya erişmek için biz RDP için güvenlik duvarında bağlantı noktası 8014 gerekir ve ardından RDP isteği IIS01 RDP Por için dahili olarak yönlendirmek Güvenlik Duvarı'nı izin t. Azure portalının "Bağlan" düğmesi olduğundan IIS01 için doğrudan RDP yol yok (portal görebilirsiniz kadar) işe yaramaz. Başka bir deyişle, İnternet'ten gelen tüm bağlantıları, güvenlik hizmetleri ve bağlantı noktası, örneğin secscv001.cloudapp.net:xxxx olacaktır.
 > 
 > 
 
@@ -592,6 +610,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
 > 
 > 
 
+```powershell
     <# 
      .SYNOPSIS
       Example of DMZ and User Defined Routing in an isolated network (Azure only, no hybrid connections)
@@ -604,7 +623,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
        - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
        - One server on the FrontEnd Subnet
        - Three Servers on the BackEnd Subnet
-       - IP Forwading from the FireWall out to the internet
+       - IP Forwarding from the FireWall out to the internet
        - User Defined Routing FrontEnd and BackEnd Subnets to the NVA
 
       Before running script, ensure the network configuration file is created in
@@ -702,7 +721,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
           $SubnetName += $FESubnet
           $VMIP += "10.0.1.4"
 
-        # VM 2 - The First Appliaction Server
+        # VM 2 - The First Application Server
           $VMName += "AppVM01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -711,7 +730,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
+        # VM 3 - The Second Application Server
           $VMName += "AppVM02"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -730,7 +749,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Varibles or   #
+    # No User Defined Variables or   #
     # Configuration past this point #
     # ----------------------------- #
 
@@ -741,7 +760,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
 
       # Create Storage Account
         If (Test-AzureName -Storage -Name $StorageAccountName) { 
-            Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
+            Write-Host "Fatal Error: This storage account name is already in use, please pick a different name." -ForegroundColor Red
             Return}
         Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
               New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
@@ -872,7 +891,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
             |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $FEPrefix `
             -NextHopType VNETLocal
 
-      # Assoicate the Route Tables with the Subnets
+      # Associate the Route Tables with the Subnets
         Write-Host "Binding Route Tables to the Subnets" -ForegroundColor Cyan 
         Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
             -SubnetName $BESubnet `
@@ -920,11 +939,12 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
       Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
       Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
       Write-Host
-
+```
 
 #### <a name="network-config-file"></a>Ağ yapılandırma dosyası
 Güncelleştirilmiş konumu ile bu xml dosyasını kaydedin ve bağlantıyı yukarıdaki betik $NetworkConfigFile değişkeninde bu dosyaya ekleyin.
 
+```xml
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
@@ -957,6 +977,7 @@ Güncelleştirilmiş konumu ile bu xml dosyasını kaydedin ve bağlantıyı yuk
         </VirtualNetworkSites>
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
+```
 
 #### <a name="sample-application-scripts"></a>Örnek uygulama komut dosyaları
 Bu ve diğer DMZ örnekleri için örnek uygulamayı yüklemek istiyorsanız, aşağıdaki bağlantıda bir sağlanmıştır: [Örnek uygulama betiği][SampleApp]

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 9992e7d280472186b32dea3c102a02e3df4d25ce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 871b6314bff7c984bc6cc779c43800883b8ff767
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872909"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963820"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye Giriş
 
@@ -87,5 +87,4 @@ Aşağıdaki makaleler bazı ana kavramlar Data Lake depolama Gen2'ye ve ayrınt
 
 -   [Hiyerarşik ad alanı](data-lake-storage-namespace.md)
 -   [Depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
--   [Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 -   [Azure Databricks'te bir Data Lake depolama Gen2 hesabı kullanın](data-lake-storage-quickstart-create-databricks-account.md)

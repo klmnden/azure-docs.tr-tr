@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 105b4e34d307ac08b8efbb5e263825f2df28e28c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2b8b97878fc0970c8cfc95e5bd4420306e34cc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862335"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977109"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Yükleme ve metin analizi kapsayıcıları çalıştırma
 
@@ -77,19 +77,19 @@ Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker isteği için anahtar tümcecik ayıklama kapsayıcısı
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
 ### <a name="docker-pull-for-the-language-detection-container"></a>Dil algılama kapsayıcısı için docker isteği
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
 ### <a name="docker-pull-for-the-sentiment-container"></a>Docker isteği yaklaşım kapsayıcısı için
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
@@ -156,18 +156,7 @@ Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](../text-analyt
 
 Azure için fatura, kullanarak metin analizi kapsayıcıları Gönder bir _metin analizi_ Azure hesabınız kaynaktaki. 
 
-Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini göndermeyin. 
-
-`docker run` Komutu, faturalama amacıyla aşağıdaki değişkenleri kullanır:
-
-| Seçenek | Açıklama |
-|--------|-------------|
-| `ApiKey` | API anahtarı _metin analizi_ kaynak faturalandırma bilgileri izlemek için kullanılır. |
-| `Billing` | Uç noktası _metin analizi_ kaynak faturalandırma bilgileri izlemek için kullanılır.|
-| `Eula` | Kapsayıcı lisansını kabul ettiğinizi gösterir.<br/>Bu seçenek değeri ayarlanmalıdır `accept`. |
-
-> [!IMPORTANT]
-> Seçeneklerin üçünü geçerli değerlerle belirtilmiş olmalı veya kapsayıcı başlatılamıyor.
+[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Bu seçenekler hakkında daha fazla bilgi için bkz. [kapsayıcıları yapılandırma](../text-analytics-resource-container-config.md).
 

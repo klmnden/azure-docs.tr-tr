@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/04/2017
+ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1bee08800eb5b480024001f742e8965cbd609a73
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2e7e67236a2f9709bafc0a0383f6ac12b26ca57e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428894"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984197"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Öğretici: İzleme ve azure'da Windows sanal makinesi güncelleştirme
 
@@ -40,7 +40,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Değişiklikleri ve sayımı izleme
 > * Gelişmiş izlemeyi ayarlama
 
-Bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
+
+Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. 
+
+Cloud Shell'i açmak için kod bloğunun sağ üst köşesinden **Deneyin**'i seçmeniz yeterlidir. İsterseniz [https://shell.azure.com/powershell](https://shell.azure.com/powershell) adresine giderek Cloud Shell'i ayrı bir tarayıcı sekmesinde de başlatabilirsiniz. **Kopyala**’yı seçerek kod bloğunu kopyalayın, Cloud Shell’e yapıştırın ve Enter tuşuna basarak çalıştırın.
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
@@ -50,10 +54,10 @@ Bu öğreticide Azure izlemesi ve güncelleştirme yönetimini yapılandırmak i
 $cred = Get-Credential
 ```
 
-Şimdi [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile sanal makineyi oluşturun. Aşağıdaki örnekte *EastUS* konumunda *myVM* adlı bir VM oluşturulur. Henüz yoksa, *myResourceGroupMonitorMonitor* kaynak grubu ve destekleyici ağ kaynakları oluşturulur:
+Artık VM oluşturma [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Aşağıdaki örnekte *EastUS* konumunda *myVM* adlı bir VM oluşturulur. Henüz yoksa, *myResourceGroupMonitorMonitor* kaynak grubu ve destekleyici ağ kaynakları oluşturulur:
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupMonitor" `
     -Name "myVM" `
     -Location "East US" `
@@ -66,10 +70,10 @@ Kaynakların ve sanal makinenin oluşturulması birkaç dakika sürer.
 
 Windows sanal makinelerinin önyüklemesi yapıldığında, önyükleme tanılama aracısı sorun giderme amacıyla kullanılabilecek bir ekran çıktısı yakalar. Bu özellik varsayılan olarak etkindir. Yakalanan ekran görüntüleri, yine varsayılan olarak oluşturulan bir Azure depolama hesabında depolanır.
 
-Önyükleme tanılama verilerini [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) komutuyla alırsınız. Aşağıdaki örnekte, önyükleme tanılamaları *c:\* sürücüsünün kök dizinine indirilir.
+Önyükleme tanılama verilerini [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata) komutuyla alırsınız. Aşağıdaki örnekte, önyükleme tanılamaları *c:\* sürücüsünün kök dizinine indirilir.
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
+Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
 ## <a name="view-host-metrics"></a>Konak ölçümlerini görüntüleme
@@ -259,13 +263,13 @@ Grafik, zaman içinde gerçekleştirilen değişiklikleri gösterir. Etkinlik G�
 
 [Azure Otomasyonu](../../automation/automation-intro.md) tarafından sağlanan Güncelleştirme Yönetimi ve Değişiklik ve Sayım gibi çözümleri kullanarak sanal makinenizin daha gelişmiş izlemesini gerçekleştirebilirsiniz.
 
-Log Analytics çalışma alanına eriştiğinizde, **AYARLAR** bölümünden **Gelişmiş ayarlar**’ı seçerek çalışma alanı anahtarını ve çalışma alanı tanıtıcısını bulabilirsiniz. Sanal makineye Microsoft Monitoring Agent uzantısı eklemek için [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) komutunu kullanın. Aşağıdaki örnekte yer alan değerleri, Log Analytics çalışma alanı anahtarınızı ve çalışma alanı kimliğinizi yansıtacak şekilde güncelleştirin.
+Log Analytics çalışma alanına eriştiğinizde, **AYARLAR** bölümünden **Gelişmiş ayarlar**’ı seçerek çalışma alanı anahtarını ve çalışma alanı tanıtıcısını bulabilirsiniz. Kullanım [kümesi AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) Microsoft Monitoring agent uzantısını VM'ye eklemek için komutu. Aşağıdaki örnekte yer alan değerleri, Log Analytics çalışma alanı anahtarınızı ve çalışma alanı kimliğinizi yansıtacak şekilde güncelleştirin.
 
 ```powershell
 $workspaceId = "<Replace with your workspace Id>"
 $key = "<Replace with your primary key>"
 
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
+Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
   -VMName "myVM" `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `

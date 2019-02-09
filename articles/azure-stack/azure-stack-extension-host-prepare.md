@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 3e838f932299a9ea7f837570f9d15725230eb4f8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b0d3b3e4901fbcece13c201938be8bccb1bb9c82
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660094"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962375"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack için uzantısı konağı için hazırlama
 
@@ -187,7 +187,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 
 | Uç nokta (VIP) | Protokol | Bağlantı Noktaları |
 |----------------|----------|-------|
-| AdminHosting | HTTPS | 443 |
+| Yönetici barındırma | HTTPS | 443 |
 | Barındırma | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Varolan Yayımlama Kuralları (Post etkinleştirme uzantısı konağının) güncelleştirme

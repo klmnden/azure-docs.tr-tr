@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 53062ee6384113ef8c483bc9cc6b407559c35994
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 662713a5ef350bd34f25558de69e3cbfd5fc80a3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406135"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982871"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell kullanarak özel bir diskten Windows VM oluşturma
 
@@ -37,28 +37,22 @@ Azure portalında da kullanabilirsiniz [özelleştirilmiş bir VHD'den yeni VM o
 
 Bu makalede, yönetilen diskleri kullanma işlemini göstermektedir. Eski dağıtım varsa gerektiren bir depolama hesabı kullanma, bkz: [bir depolama hesabında özelleştirilmiş bir VHD'den VM oluşturma](sa-create-vm-specialized.md).
 
-## <a name="before-you-begin"></a>Başlamadan önce
-PowerShell kullanmak için AzureRM.Compute PowerShell modülünün en son sürümüne sahip olduğunuzdan emin olun. 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-```powershell
-Install-Module AzureRM -RequiredVersion 6.0.0
-```
-Daha fazla bilgi için [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+## <a name="option-1-use-an-existing-disk"></a>1. seçenek: Var olan bir diski kullanın
 
-## <a name="option-1-use-an-existing-disk"></a>1. seçenek: var olan bir diski kullanma
-
-Sildiğiniz bir sanal makine vardı ve yeni bir VM oluşturun, kullanın işletim sistemi diskini yeniden kullanmak istiyorsanız [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermdisk?view=azurermps-6.8.1).
+Sildiğiniz bir sanal makine vardı ve yeni bir VM oluşturun, kullanın işletim sistemi diskini yeniden kullanmak istiyorsanız [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk?view=azurermps-6.8.1).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
 $osDiskName = 'myOsDisk'
-$osDisk = Get-AzureRmDisk `
+$osDisk = Get-AzDisk `
 -ResourceGroupName $resourceGroupName `
 -DiskName $osDiskName
 ```
 Artık bu disk için işletim sistemi diski olarak iliştirilebilir bir [yeni VM](#create-the-new-vm).
 
-## <a name="option-2-upload-a-specialized-vhd"></a>2. seçenek: özelleştirilmiş bir VHD'yi karşıya yükleme
+## <a name="option-2-upload-a-specialized-vhd"></a>2. seçenek: Özelleştirilmiş bir VHD'yi karşıya yükleme
 
 Hyper-V veya sanal makine başka bir buluttan dışarı gibi bir şirket içi sanallaştırma aracı ile oluşturulan özel bir VM VHD yükleyebilirsiniz.
 
@@ -76,31 +70,31 @@ Karşıya yüklenen VHD depolamak için Azure depolama hesabı gerekir. Mevcut b
 Kullanılabilir depolama hesaplarını gösterir.
 
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 Mevcut bir depolama hesabı kullanmak için devam etmek için [VHD'nizi karşıya yüklemeyi](#upload-the-vhd-to-your-storage-account) bölümü.
 
 Depolama hesabı oluşturma.
 
-1. Depolama hesabının oluşturulacağı kaynak grubunun adı gerekir. Kullanım Get-AzureRmResourceGroup aboneliğinizdeki tüm kaynak grupları bakın.
+1. Depolama hesabının oluşturulacağı kaynak grubunun adı gerekir. Kullanım Get-AzResourceGroup aboneliğinizdeki tüm kaynak grupları bakın.
    
     ```powershell
-    Get-AzureRmResourceGroup
+    Get-AzResourceGroup
     ```
 
     Adlı bir kaynak grubu oluşturma *myResourceGroup* içinde *Batı ABD* bölge.
 
     ```powershell
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
        -Name myResourceGroup `
        -Location "West US"
     ```
 
-2. Adlı bir depolama hesabı oluşturma *mystorageaccount* kullanarak yeni kaynak grubunda [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet'i.
+2. Adlı bir depolama hesabı oluşturma *mystorageaccount* kullanarak yeni kaynak grubunda [yeni AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet'i.
    
     ```powershell
-    New-AzureRmStorageAccount `
+    New-AzStorageAccount `
        -ResourceGroupName myResourceGroup `
        -Name mystorageaccount `
        -Location "West US" `
@@ -109,12 +103,12 @@ Depolama hesabı oluşturma.
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>VHD, depolama hesabınıza yükleme 
-Kullanım [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) VHD'nin depolama hesabınızdaki bir kapsayıcıya yüklemek için cmdlet'i. Bu örnek dosyayı yükler *myVHD.vhd* gelen "C:\Users\Public\Documents\Virtual sabit diskleri\" adlı bir depolama hesabına *mystorageaccount* içinde  *myResourceGroup* kaynak grubu. Dosya adında bir kapsayıcıda depolanır *mycontainer* ve yeni dosya adı *myUploadedVHD.vhd*.
+Kullanım [Ekle AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) VHD'nin depolama hesabınızdaki bir kapsayıcıya yüklemek için cmdlet'i. Bu örnek dosyayı yükler *myVHD.vhd* gelen "C:\Users\Public\Documents\Virtual sabit diskleri\" adlı bir depolama hesabına *mystorageaccount* içinde  *myResourceGroup* kaynak grubu. Dosya adında bir kapsayıcıda depolanır *mycontainer* ve yeni dosya adı *myUploadedVHD.vhd*.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $resourceGroupName `
+Add-AzVhd -ResourceGroupName $resourceGroupName `
    -Destination $urlOfUploadedVhd `
    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
@@ -138,13 +132,13 @@ Bu komut, ağ bağlantınızı ve VHD dosyasının boyutuna bağlı olarak tamam
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>VHD'den yönetilen disk oluşturma
 
-Kullanarak, depolama hesabınızdaki özelleştirilmiş bir VHD'den yönetilen disk oluşturma [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Bu örnekte *myOSDisk1* disk disk adı için koyar *Standard_LRS* depolama ve kullandığı *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* kaynak VHD URI'sini olarak.
+Kullanarak, depolama hesabınızdaki özelleştirilmiş bir VHD'den yönetilen disk oluşturma [yeni AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Bu örnekte *myOSDisk1* disk disk adı için koyar *Standard_LRS* depolama ve kullandığı *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* kaynak VHD URI'sini olarak.
 
 Yeni VM için yeni bir kaynak grubu oluşturun.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location `
+New-AzResourceGroup -Location $location `
    -Name $destinationResourceGroup
 ```
 
@@ -153,21 +147,21 @@ Karşıya yüklenen VHD'den yeni işletim sistemi diski oluşturun.
 ```powershell
 $sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
 $osDiskName = 'myOsDisk'
-$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
+$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
+    (New-AzDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>Seçenek 3: mevcut bir Azure VM'yi kopyalama
+## <a name="option-3-copy-an-existing-azure-vm"></a>Seçenek 3: Mevcut bir Azure VM'yi kopyalama
 
 Bir VM anlık görüntüsü tarafından yönetilen diskler kullanır ve ardından bu anlık görüntü kullanarak yeni bir disk ve yeni bir sanal makine yönetilen bir sanal makinenin bir kopyasını oluşturabilirsiniz.
 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>İşletim sistemi diskinin anlık görüntüsünü alma
 
-(Tüm diskler dahil) VM'nin tamamını veya tek bir diskin anlık görüntüsünü alabilir. Yalnızca işletim sistemi diski ile bir sanal makinenizin anlık görüntüsünü almak nasıl bir aşağıdaki adımlarda [yeni AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet'i. 
+(Tüm diskler dahil) VM'nin tamamını veya tek bir diskin anlık görüntüsünü alabilir. Yalnızca işletim sistemi diski ile bir sanal makinenizin anlık görüntüsünü almak nasıl bir aşağıdaki adımlarda [yeni AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet'i. 
 
 İlk olarak, bazı parametrelerini ayarlayın. 
 
@@ -181,20 +175,20 @@ $snapshotName = 'mySnapshot'
 VM nesnesini alın.
 
 ```powershell
-$vm = Get-AzureRmVM -Name $vmName `
+$vm = Get-AzVM -Name $vmName `
    -ResourceGroupName $resourceGroupName
 ```
 İşletim sistemi disk adı alın.
 
  ```powershell
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName `
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName `
    -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
 Anlık görüntü yapılandırmasını oluşturun. 
 
  ```powershell
-$snapshotConfig =  New-AzureRmSnapshotConfig `
+$snapshotConfig =  New-AzSnapshotConfig `
    -SourceUri $disk.Id `
    -OsType Windows `
    -CreateOption Copy `
@@ -204,24 +198,24 @@ $snapshotConfig =  New-AzureRmSnapshotConfig `
 Anlık görüntüsünü alın.
 
 ```powershell
-$snapShot = New-AzureRmSnapshot `
+$snapShot = New-AzSnapshot `
    -Snapshot $snapshotConfig `
    -SnapshotName $snapshotName `
    -ResourceGroupName $resourceGroupName
 ```
 
 
-Yüksek performanslı olmasını gerektiren bir VM oluşturmak için bu anlık görüntüyü kullanmak için parametreyi eklemek `-AccountType Premium_LRS` yeni AzureRmSnapshot komutu. Premium yönetilen Disk olarak depolanır, böylece bu parametre, anlık görüntü oluşturur. Premium yönetilen diskler standart daha pahalıdır, bu nedenle bu parametre kullanmadan önce Premium gerekir emin olun.
+Yüksek performanslı olmasını gerektiren bir VM oluşturmak için bu anlık görüntüyü kullanmak için parametreyi eklemek `-AccountType Premium_LRS` yeni AzSnapshot komutu. Premium yönetilen Disk olarak depolanır, böylece bu parametre, anlık görüntü oluşturur. Premium yönetilen diskler standart daha pahalıdır, bu nedenle bu parametre kullanmadan önce Premium gerekir emin olun.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Anlık görüntüden yeni bir disk oluşturma
 
-Kullanarak anlık görüntüden yönetilen disk oluşturma [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Bu örnekte *myOSDisk* disk adı.
+Kullanarak anlık görüntüden yönetilen disk oluşturma [yeni AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Bu örnekte *myOSDisk* disk adı.
 
 Yeni VM için yeni bir kaynak grubu oluşturun.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location `
+New-AzResourceGroup -Location $location `
    -Name $destinationResourceGroup
 ```
 
@@ -234,8 +228,8 @@ $osDiskName = 'myOsDisk'
 Yönetilen disk oluşturun.
 
 ```powershell
-$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig  -Location $location -CreateOption Copy `
+$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
+    (New-AzDiskConfig  -Location $location -CreateOption Copy `
     -SourceResourceId $snapshot.Id) `
     -ResourceGroupName $destinationResourceGroup
 ```
@@ -253,7 +247,7 @@ Oluşturma [sanal ağ](../../virtual-network/virtual-networks-overview.md) ve sa
    
     ```powershell
     $subnetName = 'mySubNet'
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig `
        -Name $subnetName `
        -AddressPrefix 10.0.0.0/24
     ```
@@ -262,7 +256,7 @@ Oluşturma [sanal ağ](../../virtual-network/virtual-networks-overview.md) ve sa
    
     ```powershell
     $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork `
+    $vnet = New-AzVirtualNetwork `
        -Name $vnetName -ResourceGroupName $destinationResourceGroup `
        -Location $location `
        -AddressPrefix 10.0.0.0/16 `
@@ -278,11 +272,11 @@ Bu örnekte ağ güvenlik grubu (NSG) adını ayarlar *myNsg* ve RDP kuralının
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $destinationResourceGroup `
    -Location $location `
    -Name $nsgName -SecurityRules $rdpRule
@@ -298,7 +292,7 @@ Sanal ağda sanal makineyle iletişimi etkinleştirmek için ihtiyacınız olaca
    
     ```powershell
     $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress `
+    $pip = New-AzPublicIpAddress `
        -Name $ipName -ResourceGroupName $destinationResourceGroup `
        -Location $location `
        -AllocationMethod Dynamic
@@ -308,7 +302,7 @@ Sanal ağda sanal makineyle iletişimi etkinleştirmek için ihtiyacınız olaca
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName `
+    $nic = New-AzNetworkInterface -Name $nicName `
        -ResourceGroupName $destinationResourceGroup `
        -Location $location -SubnetId $vnet.Subnets[0].Id `
        -PublicIpAddressId $pip.Id `
@@ -323,31 +317,31 @@ Bu örnekte VM adını ayarlar *myVM* ve VM boyutu için *standard_a2 =*.
 
 ```powershell
 $vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
 ### <a name="add-the-nic"></a>NIC ekleme
     
 ```powershell
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
 
 ### <a name="add-the-os-disk"></a>İşletim sistemi diski Ekle 
 
-İşletim sistemi diski kullanarak yapılandırmaya ekleyin [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). Bu örnek için disk boyutunu ayarlar *128 GB* ve yönetilen diski olarak bağlayan bir *Windows* işletim sistemi diski.
+İşletim sistemi diski kullanarak yapılandırmaya ekleyin [kümesi AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). Bu örnek için disk boyutunu ayarlar *128 GB* ve yönetilen diski olarak bağlayan bir *Windows* işletim sistemi diski.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
+$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 
 ### <a name="complete-the-vm"></a>VM tamamlayın 
 
-Kullanarak VM oluşturma [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) oluşturduğumuz yapılandırmaya sahip.
+Kullanarak VM oluşturma [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) oluşturduğumuz yapılandırmaya sahip.
 
 ```powershell
-New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
+New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 ```
 
 Bu komutun başarılı olursa, şunun gibi bir çıktı görürsünüz:
@@ -363,7 +357,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 Yeni oluşturulan VM ya da görmeniz gerekir, [Azure portalında](https://portal.azure.com) altında **Gözat** > **sanal makineler**, veya aşağıdaki PowerShell komutlarını kullanarak.
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $destinationResourceGroup
+$vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 

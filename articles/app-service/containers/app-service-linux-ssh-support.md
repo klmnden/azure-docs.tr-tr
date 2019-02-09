@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: ff5c18b08a2921efe72a35b9bd982986c1867812
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251317"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984486"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service için SSH desteği
 
@@ -58,7 +58,7 @@ Azure App Service deposu olarak bu adımları gösterilen [örneği](https://git
     > [!NOTE]
     > Bu yapılandırma kapsayıcıya dış bağlantılar kurulmasına izin vermez. SSH yalnızca Kudu erişilebilir / yayımlama kimlik bilgilerini kullanarak kimlik doğrulaması SCM sitesine.
 
-    ```docker
+    ```Dockerfile
     # ------------------------
     # SSH Server support
     # ------------------------
@@ -74,13 +74,13 @@ Azure App Service deposu olarak bu adımları gösterilen [örneği](https://git
     > * `Ciphers` aşağıdakilerden en az birini içermelidir: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` aşağıdakilerden en az birini içermelidir: `hmac-sha1,hmac-sha1-96`.
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
 3. Bağlantı noktasına 2222 Et [ `EXPOSE` yönerge](https://docs.docker.com/engine/reference/builder/#expose) Dockerfile için. Kök parolası biliniyor olsa da, 2222 numaralı bağlantı noktasına İnternet üzerinden erişilemez. Bir iç yalnızca bağlantı noktası erişilebilir yalnızca özel bir sanal ağın köprü ağı içinde kapsayıcılara göre var.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 2222 80
     ```
 
@@ -93,7 +93,7 @@ Azure App Service deposu olarak bu adımları gösterilen [örneği](https://git
 
 Dockerfile'ı kullanan [ `ENTRYPOINT` yönerge](https://docs.docker.com/engine/reference/builder/#entrypoint) betiği çalıştırmak için.
 
-    ```docker
+    ```Dockerfile
     COPY init_container.sh /opt/startup
     ...
     RUN chmod 755 /opt/startup/init_container.sh

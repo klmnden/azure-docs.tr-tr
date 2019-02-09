@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec80be0ece3596eab418ac39507954142944e34a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4bcd7bcef0969cec82d42ead6307e72a3abea6e1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260504"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978877"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı HDInsight kümeleri üzerinde Apache giraph'ı kullanma
 
@@ -46,17 +46,12 @@ Kullanarak Azure HDInsight (Hadoop, Storm, HBase, Spark) kümesinde herhangi bir
 
     ![Bir küme özelleştirmek için betik eylemi kullanmanız](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "küme özelleştirmek için betik eylemini kullanın")
 
-    <table border='1'>
-        <tr><th>Özellik</th><th>Değer</th></tr>
-        <tr><td>Ad</td>
-            <td>Betik eylemi için bir ad belirtin. Örneğin, <b>Giraph yükleme</b>.</td></tr>
-        <tr><td>Betiği URI'si</td>
-            <td>Küme özelleştirmek için çağrılır betik Tekdüzen Kaynak Tanımlayıcısı (URI) belirtin. Örneğin, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-        <tr><td>Düğüm Türü</td>
-            <td>Özelleştirme kodun çalıştığı düğüm belirtin. Seçebileceğiniz <b>tüm düğümleri</b>, <b>baş düğümlerine yalnızca</b>, veya <b>çalışan düğümleri yalnızca</b>.
-        <tr><td>Parametreler</td>
-            <td>Komut dosyası tarafından gerekli parametreleri belirtin. Bu boş bırakabilirsiniz şekilde Giraph'ı yüklemek için betik herhangi bir parametre gerektirmez.</td></tr>
-    </table>
+    |Özellik|Değer|  
+    |---|---|  
+    |Ad|Betik eylemi için bir ad belirtin. Örneğin, **Giraph yükleme**|
+    |Betiği URI'si|Küme özelleştirmek için çağrılır betik Tekdüzen Kaynak Tanımlayıcısı (URI) belirtin. Örneğin, *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |Düğüm Türü|Özelleştirme kodun çalıştığı düğüm belirtin. Seçebileceğiniz **tüm düğümleri**, **baş düğümlerine yalnızca**, veya **çalışan düğümleri yalnızca**.
+    |Parametreler|Komut dosyası tarafından gerekli parametreleri belirtin. Bu boş bırakabilirsiniz şekilde Giraph'ı yüklemek için betik herhangi bir parametre gerektirmez.|  
 
     Küme üzerinde birden çok bileşenleri yüklemek için birden fazla betik eylemi ekleyebilirsiniz. Komut ekledikten sonra küme oluşturmaya başlamak için onay işaretine tıklayın.
 
@@ -78,6 +73,7 @@ Temel göstermek için SimpleShortestPathsComputation örnek kullanıyoruz <a hr
     Çıkış çizilmiş ve nesneler arasındaki uzaklık değeri (veya ağırlık) kullanarak, yukarıdaki verileri şuna benzeyebilir:
 
     ![tiny_graph.txt arasında değişen mesafenin satırlarla bir daire olarak çizilir.](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+
 2. SimpleShortestPathsComputation örneği çalıştırın. Giriş olarak tiny_graph.txt dosyası kullanarak örneği çalıştırmak için aşağıdaki Azure PowerShell cmdlet'lerini kullanın.
 
     > [!IMPORTANT]  

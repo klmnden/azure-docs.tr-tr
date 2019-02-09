@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 577860baa74d9f0cd7f411a64d9e6bfa9322731c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894999"
+ms.locfileid: "55964823"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Kullanım ayarları ve ilkeleri yapılandırma
 Bu makalede kullanıcıların laboratuvara ekleme, bunları laboratuvarla kayıtlı almak için VM ve daha fazlasını kullanabilirsiniz saat sayısını denetlemek nasıl açıklar. 
@@ -66,11 +66,14 @@ Aşağıdaki adımları kullanarak, kullanıcı başına kotaları ayarlayabilir
 
 1. Seçin **kullanıcılar** sol menüsünde.
 2. Seçin **kullanıcı başına kota: sınırsız** araç. 
-3. Üzerinde **kullanıcı başına kotası** sayfasında **bir kullanıcının, bir VM kullanabileceği süreyi sınırlamak**. 
-4. İçin **kaç saat her kullanıcıya vermek istediğiniz**saat sayısını girin ve seçin **Kaydet**. 
+3. Üzerinde **kullanıcı başına kotası** sayfasında, aşağıdaki seçeneklerden birini seçin: 
+    1. **None**. Kullanıcıların sanal makinelerinde yalnızca zamanlanmış süre boyunca veya Laboratuvar sahibi için sanal makinelerde döndüğünde kullanabilirsiniz.
+    2. **Sınırsız (varsayılan)**. Kullanıcılar, herhangi bir zaman kısıtlaması olmadan sanal makinelerini kullanabilirsiniz.
+    3. **Kullanıcı başına saat sayısını belirtin**. Kullanıcıların sanal makinelerinde kümesi kaç saat (aşağıda zamanlanan süreden ek olarak belirtilen) için kullanabilirsiniz. Bu seçeneği belirlerseniz, girin **saat sayısı** metin kutusuna. 
 
-    ![Saat başına kullanıcı sayısı](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. Saat araç çubuğundaki göreceksiniz: **Kullanıcı başına kota: &lt;saat sayısı&gt;**. 
+        ![Saat başına kullanıcı sayısı](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. **Kaydet**’i seçin. 
+5. Değiştirilmiş değerlere araç göreceksiniz: **Kullanıcı başına kota: &lt;saat sayısı&gt;**. 
 
     ![Kullanıcı başına kotası](../media/how-to-configure-student-usage/quota-per-user.png)
 
@@ -80,8 +83,19 @@ Aşağıdaki adımları kullanarak, kullanıcı başına kotaları ayarlayabilir
 ### <a name="add-users-by-uploading-a-csv-file"></a>Bir CSV dosyasını karşıya yükleyerek kullanıcı ekleme
 Kullanıcıların e-posta adreslerini içeren bir CSV dosyası karşıya yükleyerek, kullanıcılar da ekleyebilirsiniz.
 
-1. Seçin **karşıya CSV** araç.
-2. Kullanıcı e-posta adreslerini içeren CSV dosyası seçin. Excel'de açtığınızda, bir sütundaki tüm e-posta adresleri olmalıdır. 
+1. Bir sütun kullanıcıların e-posta adreslerine sahip bir CSV dosyası oluşturabilirsiniz.
+
+    ![Kullanıcı başına kotası](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. Üzerinde **kullanıcılar** Laboratuvar seçin sayfasında **karşıya CSV** araç.
+
+    ![Karşıya Yükle CSV düğmesi](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. Kullanıcı e-posta adreslerini içeren CSV dosyası seçin. Seçtiğinizde, **açık** CSV dosyasını seçtikten sonra aşağıdaki görüntüyle **kullanıcı ekleme** penceresi. E-posta adresi listesi, CSV dosyasından e-posta adresleriyle doldurulur. 
+
+    ![CSV dosyasından e-posta adresleriyle doldurulur kullanıcılar pencere Ekle](../media/how-to-configure-student-usage/add-users-window.png)
+4. Seçin **Kaydet** içinde **kullanıcı ekleme** penceresi. 
+5. Kullanıcılar listesindeki kullanıcıları gördüğünüzü onaylayın. 
+
+    ![Eklenen kullanıcıların listesi](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## <a name="manage-user-vms"></a>Kullanıcı Vm'leri yönetme
 Azure Lab Services'i kullanarak kayıt Öğrenciler kaydı bağladıktan sonra Öğrenciler için tarihinde atanmış Vm'leri, gördüğünüz sağlanan **sanal makineler** sekmesi. 

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services tarafından - önerilen canlı akış şirket içi Kodlayıcıları hakkında bilgi edinin | Microsoft Docs
+title: Azure Media Services tarafından - önerilen kodlayıcılarda canlı akış | Microsoft Docs
 description: Media Services tarafından önerilen canlı akış şirket içi Kodlayıcıları hakkında bilgi edinin
 services: media-services
 keywords: encoding;encoders;media
@@ -9,18 +9,18 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c3e42ba9fe84ded8c60fc71f19de785945852116
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a165fac2de89d5510b21b9185d4bc61e730b09ff
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656677"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960131"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Önerilen canlı akış kodlayıcılar
 
-Medya Hizmetleri'nde bir [canlı olay](https://docs.microsoft.com/rest/api/media/liveevents) (kanal), canlı akış içeriği işlemek için bir işlem hattı temsil eder. Canlı olay iki yoldan biriyle Canlı giriş akışları alır:
+Azure Media Services, bir [canlı olay](https://docs.microsoft.com/rest/api/media/liveevents) (kanal), canlı akış içeriği işlemek için bir işlem hattı temsil eder. Canlı olay iki yoldan biriyle Canlı giriş akışları alır.
 
-* Çoklu bit hızlı RTMP veya kesintisiz akış (parçalanmış MP4) akış canlı olay Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmemiş bir şirket içi Canlı Kodlayıcı gönderir. Alınan akışların herhangi başka bir işlemeye gerek kalmadan Canlı olayları geçirin. Bu yöntem çağrılır **doğrudan**. Gerçek zamanlı bir kodlayıcı tek bit hızında akışa bir geçiş kanalı üzerinden gönderebilir, ancak bit hızı Uyarlamalı akış için bir istemci için izin vermediğinden bu yapılandırma önerilmez.
+* Çoklu bit hızlı RTMP veya kesintisiz akış (parçalanmış MP4) akış canlı olay Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmemiş bir şirket içi Canlı Kodlayıcı gönderir. Alınan akışların herhangi başka bir işlemeye gerek kalmadan Canlı olayları geçirin. Bu yöntem çağrılır **doğrudan**. Gerçek zamanlı bir kodlayıcı, doğrudan bir kanala tek bit hızında akışa gönderebilirsiniz. Bit hızı Uyarlamalı akış için bir istemci için izin vermez çünkü bu yapılandırma önerilmemektedir.
 
   > [!NOTE]
   > Doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur.
@@ -67,42 +67,42 @@ Canlı etkinlik türünüz için geçerli ayarları hakkında daha fazla bilgi i
 
 ### <a name="playback-requirements"></a>Kayıttan yürütme gereksinimleri
 
-Hem bir ses ve video akışı kayıttan yürütme içeriği sırada mevcut olması gerekir. Kayıttan yürütme yalnızca video akışının desteklenmiyor.
+İçerik yürütmek için hem bir ses ve video akışı mevcut olması gerekir. Kayıttan yürütme yalnızca video akışının desteklenmiyor.
 
 ### <a name="configuration-tips"></a>Yapılandırma ipuçları
 
 - Mümkün olduğunda, bir sabit internet bağlantısı kullanın.
-- Bir iyi bant genişliği gereksinimlerini belirlerken için udur akış bit hızlarına dönüştürme çift. Bu zorunlu bir gereksinim olmamasına karşın, Ağ Tıkanıklığı etkisini azaltmaya yardımcı olur.
-- Kodlayıcıları kullanarak yazılım tabanlı, gereksiz tüm programları kapatın.
-- Gönderme başlatıldıktan sonra kodlayıcı yapılandırması değiştirmeyin. Bu olayla ilgili olumsuz etkilere sahiptir ve olay kararsız duruma gelmesine neden olabilir. 
-- Kendiniz etkinliğiniz kurmak için bol zaman vermek emin olun. Büyük ölçekli olay için saat önce olay Kur'u başlatmak için önerilir.
+- Bant genişliği gereksinimlerini, ikili akış bit hızlarında zaman belirlerken. Zorunlu olsa da, Ağ Tıkanıklığı etkisini azaltmak için bu basit kuralı yardımcı olur.
+- Yazılım tabanlı kodlayıcılar kullanırken, gereksiz tüm programları kapatın.
+- Gönderme başlatıldıktan sonra Kodlayıcı yapılandırmanızı değiştirme olay üzerinde olumsuz etkileri vardır. Yapılandırma değişiklikleri kararsız duruma gelmesine neden olabilir. 
+- Kendinize, olay ayarlamak için bol zaman verin emin olun. Büyük ölçekli olay için bir saat önce olay Kur'u başlatma öneririz.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>Nasıl bir şirket içi Kodlayıcı iş ortağı
+## <a name="becoming-an-on-premises-encoder-partner"></a>Bir şirket içi Kodlayıcı iş ortağı olmak
 
-Bir Azure Media Services şirket içi Kodlayıcı iş ortağı olarak, Media Services, kurumsal müşterilere kodlayıcınız önererek ürününüzü yükseltir. Bir şirket içi Kodlayıcı iş ortağı için Uyumluluk, şirket içi Kodlayıcı, Media Services ile doğrulamanız gerekir. Bunu yapmak için aşağıdaki Doğrulamalar tamamlayın:
+Bir Azure Media Services şirket içi Kodlayıcı iş ortağı olarak, Media Services, kurumsal müşterilere kodlayıcınız önererek ürününüzü yükseltir. Bir şirket içi Kodlayıcı iş ortağı için Uyumluluk, şirket içi Kodlayıcı, Media Services ile doğrulamanız gerekir. Bunu yapmak için aşağıdaki Doğrulamalar tamamlayın.
 
 ### <a name="pass-through-live-event-verification"></a>Doğrudan canlı olay doğrulama
 
-1. Media Services hesabınızı emin **akış uç noktası** çalışıyor. 
+1. Media Services hesabınızı doğrulayın **akış uç noktası** çalışıyor. 
 2. Oluşturma ve başlatma **doğrudan** canlı olay. <br/> Daha fazla bilgi için [canlı olay durumları ve faturalandırma](live-event-states-billing.md).
-3. Alma URL'leri alma ve göndermeye URL'sini kullanmak üzere, şirket içi Kodlayıcı yapılandırma Media Services için bir Çoklu bit hızlı canlı akış.
+3. Alma URL'leri alma ve, şirket içi Kodlayıcı, Çoklu bit hızlı canlı akış medya hizmetlerine göndermek için URL'sini kullanmak üzere yapılandırın.
 4. Önizleme URL'sini ve aslında kodlayıcıdan giriş alındığını doğrulamak için kullanın.
 5. Yeni bir **varlık** nesne.
 6. Oluşturma bir **Canlı çıkış** oluşturduğunuz varlık adını kullanın.
 7. Oluşturma bir **akış Bulucu** yerleşik ile **akış ilke** türleri.
 8. Yolları listesini **akış Bulucu** kullanılacak URL'leri geri dönebilirsiniz.
-9. Konak adı için alma **akış uç noktası** alanından akışını yapmak istiyor.
-10. Ana bilgisayar adı tam URL'sini almak için 9. adım 8. adımdaki URL'yi birleştirin.
+9. Ana bilgisayar adını alın **akış uç noktası** gelen akışla aktarmak istediğiniz.
+10. 8. adımdaki URL'yi, ana bilgisayar adı tam URL'sini almak için 9. adımda birleştirin.
 11. Yaklaşık 10 dakika, gerçek zamanlı Kodlayıcı çalıştırın.
 12. Canlı etkinliği durdurmak. 
-13. Gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) , kayıttan yürütme için tüm kalite düzeylerine görünür hiçbir arızalardan bulunmasını arşivlenmiş varlığı izleyin (ya da alternatif olarak izleyin ve önizleme URL'si aracılığıyla Canlı oturumda doğrulamak için).
-14. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve akış URL'si yayımlanmış varlık kimliği kaydedin.
+13. Gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) , kayıttan yürütme yok görünür arızalardan tüm kalite düzeylerine sahip olduğundan emin olmak arşivlenmiş varlığı izlemek için. Veya, izleyin ve canlı oturumda Önizleme URL ile doğrulayın.
+14. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve yayımlanan akış URL'si varlık kimliği kaydedin.
 15. Her bir örnek oluşturduktan sonra canlı olay durumunu sıfırlayın.
-16. (İle ve ad sinyal/açıklamalı alt yazılar/hızları kodlama farklı olmadan), kodlayıcı tarafından desteklenen tüm yapılandırmalar için 15-5 adımlarını tekrarlayın.
+16. 5. adım-15 (ile ve ad sinyal, açıklamalı alt yazıları veya farklı bir kodlama hızlarını içermeyen), kodlayıcı tarafından desteklenen tüm yapılandırmalar için yineleyin.
 
 ### <a name="live-encoding-live-event-verification"></a>Canlı kodlama canlı olay doğrulama
 
-1. Media Services hesabınızı emin **akış uç noktası** çalışıyor. 
+1. Media Services hesabınızı doğrulayın **akış uç noktası** çalışıyor. 
 2. Oluşturma ve başlatma **live encoding** canlı olay. <br/> Daha fazla bilgi için [canlı olay durumları ve faturalandırma](live-event-states-billing.md).
 3. Alma URL'leri alma ve tek bit hızında bir canlı akışı Media Services'a iletin yapmak için kodlayıcınızı yapılandırın.
 4. Önizleme URL'sini ve aslında kodlayıcıdan giriş alındığını doğrulamak için kullanın.
@@ -110,22 +110,22 @@ Bir Azure Media Services şirket içi Kodlayıcı iş ortağı olarak, Media Ser
 6. Oluşturma bir **Canlı çıkış** oluşturduğunuz varlık adını kullanın.
 7. Oluşturma bir **akış Bulucu** yerleşik ile **akış ilke** türleri.
 8. Yolları listesini **akış Bulucu** kullanılacak URL'leri geri dönebilirsiniz.
-9. Konak adı için alma **akış uç noktası** alanından akışını yapmak istiyor.
-10. Ana bilgisayar adı tam URL'sini almak için 9. adım 8. adımdaki URL'yi birleştirin.
+9. Ana bilgisayar adını alın **akış uç noktası** gelen akışla aktarmak istediğiniz.
+10. 8. adımdaki URL'yi, ana bilgisayar adı tam URL'sini almak için 9. adımda birleştirin.
 11. Yaklaşık 10 dakika, gerçek zamanlı Kodlayıcı çalıştırın.
 12. Canlı etkinliği durdurmak.
-13. Gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) , kayıttan yürütme için tüm kalite düzeylerine görünür hiçbir arızalardan bulunmasını arşivlenmiş varlığı izleyin (ya da alternatif olarak izleyin ve önizleme URL'si aracılığıyla Canlı oturumda doğrulamak için).
-14. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve akış URL'si yayımlanmış varlık kimliği kaydedin.
+13. Gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) , kayıttan yürütme için tüm kalite düzeylerine görünür hiçbir arızalardan bulunmasını arşivlenmiş varlığı izlemek için. Veya, izleyin ve canlı oturumda Önizleme URL ile doğrulayın.
+14. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve yayımlanan akış URL'si varlık kimliği kaydedin.
 15. Her bir örnek oluşturduktan sonra canlı olay durumunu sıfırlayın.
-16. (İle ve ad sinyal/açıklamalı alt yazılar/hızları kodlama farklı olmadan), kodlayıcı tarafından desteklenen tüm yapılandırmalar için 15-5 adımlarını tekrarlayın.
+16. 5. adım-15 (ile ve ad sinyal, açıklamalı alt yazıları veya farklı bir kodlama hızlarını içermeyen), kodlayıcı tarafından desteklenen tüm yapılandırmalar için yineleyin.
 
 ### <a name="longevity-verification"></a>Dayanıklılık doğrulama
 
-Aynı adımları olarak [doğrudan canlı olay doğrulama](#pass-through-live-event-verification) 11. adım dışında. <br/>10 dakika yerine, bir hafta veya daha uzun, gerçek zamanlı Kodlayıcı çalıştırın. Gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) Canlı süresi zaman (ya da arşivlenmiş varlığı), kayıttan yürütme sahip hiçbir görünür arızalardan emin olmak için akış izlemek için.
+Aynı adımları olarak [doğrudan canlı olay doğrulama](#pass-through-live-event-verification) dışında 11. adım. <br/>10 dakika yerine, bir hafta veya daha uzun, gerçek zamanlı Kodlayıcı çalıştırın. Gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) Canlı süresi zaman (veya bir arşivlenmiş varlığı), kayıttan yürütme sahip hiçbir görünür arızalardan emin olmak için akış izlemek için.
 
 ### <a name="email-your-recorded-settings"></a>E-posta, kaydedilmiş ayarları
 
-Son olarak, kaydedilen ayarlarınızı e-posta ve arşiv parametreleri için Azure Media Services canlı amsstreaming@microsoft.com tüm kendi kendine doğrulama denetimleri başarılı bir bildirim olarak. Ayrıca, tüm izleme kayıtları için iletişim bilgilerinizi içerir. Bu işlem ile ilgili herhangi bir sorunuz Azure Media Services ekibiyle iletişime geçebilirsiniz.
+Son olarak, kaydedilen ayarlarınızı e-posta ve arşiv parametreleri için Azure Media Services canlı amsstreaming@microsoft.com tüm kendi kendine doğrulama denetimleri başarılı bir bildirim olarak. Ayrıca, tüm izlemeler için iletişim bilgilerinizi ekleyin. Bu işlem hakkında herhangi bir sorunuz Azure Media Services ekibiyle iletişime geçebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

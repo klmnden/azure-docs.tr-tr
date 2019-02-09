@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f79db8cdec0aa48ae300aff4c58072fb6afdc932
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 1bd5c63db63bea24e5cf088cf9974233d3535912
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932791"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976481"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>PowerShell kullanarak Azure'da bağlantı noktalarını ve uç noktaları bir VM'ye açma
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -30,15 +30,15 @@ Bir ağ güvenlik grubu oluşturup ACL kuralları ihtiyacınız [Azure PowerShel
 Azure hesabınızda oturum açın:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Aşağıdaki örneklerde, parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *Vm2*, ve *myVnet*.
 
-Bir kural oluştururken [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). Aşağıdaki örnekte adlı bir kural oluşturur *myNetworkSecurityGroupRule* izin vermek için *tcp* bağlantı noktası üzerinde trafiğe *80*:
+Bir kural oluştururken [yeni AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig). Aşağıdaki örnekte adlı bir kural oluşturur *myNetworkSecurityGroupRule* izin vermek için *tcp* bağlantı noktası üzerinde trafiğe *80*:
 
 ```powershell
-$httprule = New-AzureRmNetworkSecurityRuleConfig `
+$httprule = New-AzNetworkSecurityRuleConfig `
     -Name "myNetworkSecurityGroupRule" `
     -Description "Allow HTTP" `
     -Access "Allow" `
@@ -51,40 +51,40 @@ $httprule = New-AzureRmNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Ardından, ağ güvenlik grubu oluşturma [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) ve yeni oluşturduğunuz gibi HTTP kuralı atayın. Aşağıdaki örnekte adlı bir ağ güvenlik grubu oluşturur *Vm2*:
+Ardından, ağ güvenlik grubu oluşturma [yeni AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) ve yeni oluşturduğunuz gibi HTTP kuralı atayın. Aşağıdaki örnekte adlı bir ağ güvenlik grubu oluşturur *Vm2*:
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
     -ResourceGroupName "myResourceGroup" `
     -Location "EastUS" `
     -Name "myNetworkSecurityGroup" `
     -SecurityRules $httprule
 ```
 
-Şimdi github'dan ağ güvenlik grubunuzu bir alt ağa atayın. Aşağıdaki örnekte adlı varolan bir sanal ağ atar *myVnet* değişkenine *$vnet* ile [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
+Şimdi github'dan ağ güvenlik grubunuzu bir alt ağa atayın. Aşağıdaki örnekte adlı varolan bir sanal ağ atar *myVnet* değişkenine *$vnet* ile [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork):
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVnet"
 ```
 
-Alt ağınız ile ağ güvenlik grubunuzu ilişkilendirmek [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig). Aşağıdaki örnekte adlı alt ağ ilişkilendirir *mySubnet* , ağ güvenlik grubu ile:
+Alt ağınız ile ağ güvenlik grubunuzu ilişkilendirmek [kümesi AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig). Aşağıdaki örnekte adlı alt ağ ilişkilendirir *mySubnet* , ağ güvenlik grubu ile:
 
 ```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
 
-Set-AzureRmVirtualNetworkSubnetConfig `
+Set-AzVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
     -Name "mySubnet" `
     -AddressPrefix $subnetPrefix.AddressPrefix `
     -NetworkSecurityGroup $nsg
 ```
 
-Son olarak, sanal ağınız ile güncelleştirme [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) sırasıyla, değişikliklerin etkili olabilmesi için:
+Son olarak, sanal ağınız ile güncelleştirme [kümesi AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork) sırasıyla, değişikliklerin etkili olabilmesi için:
 
 ```powershell
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
 
 

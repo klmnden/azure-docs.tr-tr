@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: fe1993a914ea4d3bd8ab9116748198cbb0c1c43c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513942"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55904939"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -76,11 +76,12 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resource Manager ile yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md)
 
 | Kaynak | Varsayılan limit |
-| --- | --- | --- |
+| --- | --- |
 | Yük Dengeleyiciler | 1000 | 
 | Her bir kaynak, temel kuralları | 250 |
 | Her bir kaynak, standart kuralları | 1500 | 
 | IP yapılandırması başına kuralları | 299 |
+| NIC başına kuralları | 500 |
 | Ön uç IP yapılandırmaları, temel | 200 |
 | Ön uç IP yapılandırmaları, standart | 600 |
 | Arka uç havuzu, temel | 100, tek bir kullanılabilirlik kümesi |
@@ -88,7 +89,5 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Standart yük dengeleyici başına arka uç kaynaklarına * | 150 |
 | HA bağlantı noktaları, standart | İç ön uç başına 1 |
 
-** En fazla 150 kaynaklar, tek başına sanal makineler, kullanılabilirlik kümeleri ve sanal makine ölçek kümeleri herhangi bir birleşimi.
-
-Varsayılan sınırları artırmanız gerekirse [desteğe başvurun](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
+** Kadar 150 kaynakları, tek başına sanal makine kaynakları, herhangi bir birleşimini kaynakları kullanılabilirlik kümeleri ve kaynaklar sanal makine ölçek kümesi.
 

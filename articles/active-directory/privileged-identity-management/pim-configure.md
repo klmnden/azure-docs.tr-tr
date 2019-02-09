@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5f1e5838fcf6eeac3b58fb0eef8fe08eb9202d4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7c2c8967cbdb404ca23f860f019cfbb6cce5415b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167147"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982735"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
 
@@ -58,13 +58,15 @@ PIM ve belgelerin daha iyi anlamak için aşağıdaki koşulları gözden geçir
 | --- | --- | --- |
 | Uygun | Type | Bir kullanıcı rolü kullanmak için bir veya daha fazla eylem gerçekleştirmek gereken bir rol ataması. Bir kullanıcı rolü için uygun duruma getirildi, ayrıcalıklı görevleri gerçekleştirmek ihtiyaç duydukları zaman rolünü etkinleştirebilir anlamına gelir. Kalıcı uygun rol atamasını karşı kimseler verilen erişimi hiçbir fark yoktur. Tek fark, bazıları her zaman bu erişim olmanızın gerekmemesidir. |
 | etkin | Type | Bir kullanıcı rolü kullanmak için herhangi bir eylemi gerçekleştirmek gerektirmeyen bir rol ataması. Etkin olarak atanan kullanıcılar role atanmış ayrıcalıklarına sahiptir. |
-| etkinleştirme |  | Bir kullanıcı için uygun rolü kullanmak için bir veya daha fazla eylemler gerçekleştirme işlemi. Bir iş gerekçesi sağlamak veya belirlenmiş onaylayanlar onayı isteyen bir çok faktörlü kimlik doğrulaması (MFA) denetimi gerçekleştirme işlemleri içerebilir. |
+| etkinleştirme |  | Bir kullanıcı için uygun bir rolü kullanmak için bir veya daha fazla eylemler gerçekleştirme işlemi. Bir iş gerekçesi sağlamak veya belirlenmiş onaylayanlar onayı isteyen bir çok faktörlü kimlik doğrulaması (MFA) denetimi gerçekleştirme işlemleri içerebilir. |
 | Atanan | Durum | Etkin bir rol atamanız bulunan bir kullanıcı. |
-| Etkinleştirildi | Durum | Bir uygun rol ataması bulunan bir kullanıcı rolü etkinleştirmek için eylemleri ve artık etkindir. |
+| Etkinleştirildi | Durum | Bir uygun rol ataması bulunan bir kullanıcı rolü etkinleştirmek için eylemleri ve artık etkindir.  Sonra kullanıcı rolü bir önceden yapılandırılmış süre,-yeniden etkinleştirmek ihtiyaç duydukları önce bir süre boyunca kullanabilirsiniz. |
 | kalıcı uygun | Süre | Bir kullanıcı her zaman rolü etkinleştirmek uygun olduğu bir rol ataması. |
 | kalıcı etkin | Süre | Bir rol ataması burada bir kullanıcı her zaman rol herhangi bir eylem gerçekleştirmeden kullanabilirsiniz. |
 | uygun sona | Süre | Bir kullanıcı rolü içinde belirtilen bir başlangıç ve bitiş tarihi etkinleştirmek uygun olduğu bir rol ataması. |
 | Etkin süresi dolacak | Süre | Bir rol ataması herhangi bir eylem içinde belirtilen bir başlangıç ve bitiş tarihi yapmadan bir kullanıcı rolü burada kullanabilirsiniz. |
+| Just-in-time (JIT) erişim |  | Kötü amaçlı veya yetkisiz kullanıcıların izinleri süresi dolduktan sonra erişmesini engelleyen kullanıcılar ayrıcalıklı görevlerin gerçekleştirilmesi için geçici izinleri aldıkları modeli. Yalnızca kullanıcıların gerektiğinde erişim izni verilir. |
+| en az ayrıcalık erişim ilkesi |  | Her kullanıcı en düşük ayrıcalıkları ile yalnızca sağlanan önerilen bir güvenlik uygulaması gerçekleştirmek için yetkili görevleri gerçekleştirmek gerekli. Bu yöntem, genel yönetici sayısı en aza indirir ve bunun yerine özel yönetici rolleri belirli senaryolar için kullanır. |
 
 ## <a name="what-does-pim-look-like"></a>PIM ne gibi görünüyor?
 
@@ -104,6 +106,6 @@ PIM aşağıdaki senaryoları destekler:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PIM kullanmaya başlama](pim-getting-started.md)
 - [PIM'i kullanmak için lisans gereksinimleri](subscription-requirements.md)
 - [Azure AD'de karma ve bulut dağıtımları için ayrıcalıklı erişim güvenliğini sağlama](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [PIM dağıtma](pim-deployment-plan.md)

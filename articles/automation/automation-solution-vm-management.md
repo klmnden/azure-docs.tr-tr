@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/30/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658395"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979658"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -209,7 +209,7 @@ Aşağıdaki tabloda, Otomasyon hesabınızda oluşturduğunuz değişkenleri li
 |External_AutoStop_TimeAggregationOperator | Koşulu değerlendirmek için seçilen pencere boyutuna uygulandığı zaman Toplama işleci. Kabul edilebilir değerler **ortalama**, **Minimum**, **maksimum**, **toplam**, ve **son**.|
 |External_AutoStop_TimeWindow | Pencere boyutu bu sırada Azure uyarı tetiklemek için seçilen ölçümleri analiz eder. Bu parametre, giriş timespan biçim olarak kabul eder. Olası değerler şunlardır: 6 saat için 5 dakika.|
 |External_EnableClassicVMs| Klasik sanal makineleri çözüm tarafından hedeflenen olup olmadığını belirtir. Varsayılan değer True'dur. Bu müşterilere CSP abonelikleri False olarak ayarlanmalıdır.|
-|External_ExcludeVMNames | Hariç tutulacak VM adlarını adları boşluk virgül kullanarak ayırarak girin.|
+|External_ExcludeVMNames | Hariç tutulacak VM adlarını adları boşluk virgül kullanarak ayırarak girin. Bu, 140 Vm'lere sınırlıdır. 140'tan fazla VM'ler hariç tutulması gereken sanal makineleri eklenen eklerseniz başlatılması veya kapatma yanlışlıkla|
 |External_Start_ResourceGroupNames | Değerleri başlatma eylemleri için hedeflenen virgülle ayırarak bir veya daha fazla kaynak grupları belirtir.|
 |External_Stop_ResourceGroupNames | Değerleri durdurma eylemler için hedeflenen virgülle ayırarak bir veya daha fazla kaynak grubunu belirtir.|
 |Internal_AutomationAccountName | Otomasyon hesabının adını belirtir.|
@@ -333,7 +333,7 @@ Sanal makineleri çözümü kapatır, gönderilen örnek e-posta verilmiştir.
 
 ### <a name="exclude-a-vm"></a>Bir VM Dışla
 
-Bir VM çözümünden çıkarmak için ona ekleyebilirsiniz **External_ExcludeVMNames** değişkeni. Bu değişken Başlat/Durdur çözümü dışlanacak belirli sanal makineler bir virgülle ayrılmış listesidir.
+Bir VM çözümünden çıkarmak için ona ekleyebilirsiniz **External_ExcludeVMNames** değişkeni. Bu değişken Başlat/Durdur çözümü dışlanacak belirli sanal makineler bir virgülle ayrılmış listesidir. Bu liste, 140 Vm'lere sınırlıdır. 140'tan fazla VM'ler için bu virgülle ayrılmış liste eklerseniz, hariç tutulacak ayarlanmış Vm'leri yanlışlıkla başlatılması veya durdurulmasına.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Başlatma ve kapatma zamanlamalarını değiştirme
 

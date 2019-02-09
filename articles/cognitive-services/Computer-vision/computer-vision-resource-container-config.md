@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4785acacf4749ebddf362fa036b6f6a17cb0056b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b6aaf7f7eaeb6d011fc29457a1b58584d6af8ec9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868387"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984571"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Tanı metin Docker kapsayıcıları yapılandırın
 
@@ -45,7 +45,7 @@ Bu ayar, aşağıdaki yerinde bulunabilir:
 
 ## <a name="billing-configuration-setting"></a>Yapılandırma ayarı faturalama
 
-`Billing` Ayar uç noktası URI'si belirtir, _görüntü işleme_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değeri geçerli bir uç noktası URI'si olmalıdır için bir _görüntü işleme_ azure'da kaynak.
+`Billing` Ayar uç noktası URI'si belirtir, _görüntü işleme_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değeri geçerli bir uç noktası URI'si olmalıdır için bir _görüntü işleme_ azure'da kaynak. Kapsayıcı yaklaşık her 10 ila 15 dakika kullanım raporları.
 
 Bu ayar, aşağıdaki yerinde bulunabilir:
 
@@ -112,7 +112,7 @@ Aşağıdaki Docker için tanı metin kapsayıcı verilebilir.
 
 ### <a name="basic-example"></a>Temel örnek 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
@@ -122,7 +122,7 @@ Aşağıdaki Docker için tanı metin kapsayıcı verilebilir.
 
 ### <a name="logging-example-with-command-line-arguments"></a>Komut satırı bağımsız değişkenleri ile günlük örnek
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
@@ -133,7 +133,7 @@ Aşağıdaki Docker için tanı metin kapsayıcı verilebilir.
 
 ### <a name="logging-example-with-environment-variable"></a>Günlük örnek ortam değişkeni
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \

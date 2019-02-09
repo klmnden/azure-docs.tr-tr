@@ -2,20 +2,20 @@
 title: Parola çoklu oturum açma için Galeri dışı applicationn yapılandırma | Microsoft Docs
 description: Azure AD uygulama Galerisi'nde listelenmeyen olduğunda özel bir galeri dışı uygulama güvenli parola tabanlı çoklu oturum açma için yapılandırma
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: barbkess
-ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: celested
+ms.openlocfilehash: e9b0cc8c1268cd5772e515cc923a3455763c1374
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812495"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961032"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri dışı bir uygulama için yapılandırma
 

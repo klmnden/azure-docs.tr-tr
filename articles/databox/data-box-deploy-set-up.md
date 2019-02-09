@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902177"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982412"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Öğretici: Kablo ve Azure Data Box için bağlanın
 
@@ -40,7 +40,7 @@ Başlamadan önce aşağıdakilerden emin olun:
     - Yüksek hızlı ağa bağlısınız. En az bir adet 10 GbE bağlantınızın olması önemle tavsiye edilir. 10 GbE bağlantı yoksa, 1 GbE veri bağlantısı kullanılabilir ancak kopyalama hızı etkilenir. 
 6. Data Box’ı yerleştirebileceğiniz düz bir yüzeye erişiminiz olmalıdır. Cihazı standart bir rafa yerleştirmek istiyorsanız, veri merkezi rafınızda bir 7U yuvası olmalıdır. Cihazı düz veya dik şekilde rafa yerleştirebilirsiniz.
 7. Data Box'ınızı ana bilgisayara bağlamak için aşağıdaki kabloları temin ettiniz.
-    - İki 10 GbE SFP + Twinax kabloları (veri 1, veri 2 ağ arabirimi ile kullanın) Bakır. Bu arabirimiyle uyumlu olan kabloları çalışması gerekir böylece veri kutusu Mellanox ConnectX®-3 Pro tr çift bağlantı noktası 10GBASE T bağdaştırıcıları PCI Express 3.0 ağ arabirimi sahiptir. Örneğin, bir CISCO SFP H10GB CU3M 10GBASE CU TWINMAX SFP + 3 M kablo inhouse sınama amacıyla kullanılmıştır.
+    - Bir veya daha fazla 10 GbE SFP + siyah Bakır Twinax veya (ağ arabirimleri ile veri 1, 2 veri kullanın) SFP + fiber optik kablolarını. Bu arabirimiyle uyumlu olan kabloları çalışması gerekir böylece veri kutusu Mellanox ConnectX®-3 Pro tr çift bağlantı noktası 10GBASE T bağdaştırıcıları PCI Express 3.0 ağ arabirimi sahiptir. Örneğin, bir CISCO SFP H10GB CU3M 10GBASE CU TWINMAX SFP + 3 M kablo inhouse sınama amacıyla kullanılmıştır.
     - Bir RJ-45 CAT 6 ağ kablosu (MGMT ağ arabirimi ile kullanın)
     - Bir RJ-45 CAT 6A VEYA bir RJ-45 CAT 6 ağ kablosu (sırasıyla 10 Gb/sn veya 1 Gb/sn olarak yapılandırılmış DATA 3 ağ arabirimi ile birlikte kullanın)
 
@@ -57,7 +57,7 @@ Cihazınızın kablolarını bağlamak için aşağıdaki adımları uygulayın.
     1. Güç kablosunu etiketli güç girişi konumuna bağlayın. Güç kablosunun diğer ucu bir güç dağıtım birimine bağlı olmalıdır.
     2. RJ-45 CAT 6 kablosunu kullanarak MGMT bağlantı noktasını bir uca, dizüstü bilgisayarı ise diğer uca bağlayın.            
     3. RJ-45 CAT 6A kablosunun bir ucunu DATA 3 bağlantı noktasına bağlayın. RJ-45 CAT 6A kablosu ile bağlarsanız DATA 3 10 GbE olarak, RJ-45 CAT 6 kablosuyla bağlarsanız 1 GbE olarak yapılandırılır.
-    4. 10 GbE SFP+ Twinax bakır kablolarını kullanarak sırasıyla DATA 1 ve DATA 2 bağlantı noktalarını bağlayın. 
+    4. Veri aktarımı için bağlamak istediğiniz ağ arabirimlerine bağlı olarak, veriler 1. ve 2 veri bağlantı noktaları sırasıyla bağlanmak için en fazla iki 10 GbE SFP + siyah Bakır Twinax veya SFP + fiber optik kablolarını kullanın. 
     5. Veri bağlantı noktalarından çıkan kabloların diğer ucu 10 GbE anahtar ile ana bilgisayara bağlanır.
 
 4. Cihazın ön çalışma panelindeki güç düğmesini bulun. Cihazı açın.

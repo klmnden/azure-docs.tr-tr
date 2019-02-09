@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102405"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961899"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Yükseltme ve bir Azure Service Fabric kümesi güncelleştiriliyor
 
@@ -27,7 +27,7 @@ Herhangi bir modern sistemi için upgradability yönelik uzun vadeli ürününü
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Kümenizde çalışan yapı sürümü denetleme
 
-Kümenizi desteklenen yapı sürümü her zaman çalışır durumda tutmak emin olun. Gibi ve biz service fabric yeni bir sürümünü duyurmaktan zaman önceki sürümü en az 60 gün o tarihten sonra destek sonu için işaretlenir. Yeni sürümler, service fabric Ekibi blogunda bildirilir. Yeni sürüm daha sonra seçmek kullanılabilir.
+Kümenizi çalıştıran tutmaya dikkat bir [yapı sürümü desteklenen](service-fabric-versions.md) her zaman. Gibi ve biz service fabric yeni bir sürümünü duyurmaktan zaman önceki sürümü en az 60 gün o tarihten sonra destek sonu için işaretlenir. Yeni sürümler, service fabric Ekibi blogunda bildirilir. Yeni sürüm daha sonra seçmek kullanılabilir.
 
 14 gün önce kümenizin çalıştığı, yayın sonu bir uyarı sistem durumu, kümenizin yerleştiren bir sistem durumu olayı oluşturulur. Desteklenen yapı sürümüne yükseltene kadar küme bir uyarı durumunda kalır.
 

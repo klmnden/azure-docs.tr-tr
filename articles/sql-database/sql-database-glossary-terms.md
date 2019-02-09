@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 0ae6dea86019b84e8d086a595995f8bd5b2a55ed
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: d773d270b3b352bcaef189d201d824695b42bcef
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753308"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980151"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL veritabanı terimler sözlüğü
 
@@ -28,7 +28,7 @@ ms.locfileid: "55753308"
 ||Elastik havuz|[Elastik havuz](sql-database-elastic-pool.md)|
 ||Yönetilen örnek|[Yönetilen örnek](sql-database-managed-instance.md)|
 |Sunucu nesneleri|SQL veritabanı sunucusu veya veritabanı sunucusu|[Veritabanı sunucusu](sql-database-servers.md)|
-||SQL veritabanı yönetilen örneği veya yönetilen örnek|[Yönetilen örnek](sql-database-managed-instance.md)|
+||SQL veritabanı yönetilen örnek sunucusu, yönetilen örnek sunucusu veya server örneği|[Yönetilen örnek](sql-database-managed-instance.md)|
 Veritabanı nesneleri|Azure SQL veritabanı|Azure SQL veritabanı'nda herhangi bir veritabanı|
 ||Tek veritabanı|Tek veritabanı dağıtım seçeneğini kullanarak tek başına veritabanı oluşturulmuş bir veritabanı|
 ||Havuza veritabanı|Bir veritabanı içinde oluşturulan veya esnek havuza taşındı|

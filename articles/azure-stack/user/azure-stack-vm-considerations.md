@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112e9aa023fb29bd960b61139861db4007c61b4d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245982"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962256"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack'te sanal makineleri kullanma konuları
 
@@ -41,8 +41,9 @@ Azure Stack sanal makineleri isteğe bağlı ve ölçeklenebilir işlem kaynağ�
 | Sanal makine disk performansı | Disk türünü ve boyutuna bağlıdır. | VM diskleri bağlı VM boyutuna bağlıdır başvurmak için [Azure Stack'te desteklenen sanal makine boyutları](azure-stack-vm-sizes.md) makalesi.
 | API sürümleri | Azure, her zaman tüm sanal makine özellikleri için en son API sürümleri vardır. | Azure yığını, bu hizmetler için belirli Azure hizmetlerinin ve belirli API sürümlerini destekler. Desteklenen API sürümlerinin listesi görüntülemek için başvurmak [API sürümlerini](#api-versions) bu makalenin. |
 | Azure örnek meta veri hizmeti | Azure örnek meta veri hizmeti yönetmek ve sanal makinelerinizi yapılandırmak için kullanılan sanal makine örneklerini çalıştırma hakkında bilgi sağlar.  | Örnek meta veri hizmeti, Azure Stack üzerinde desteklenmiyor. |
-|Sanal makine kullanılabilirlik kümeleri|Birden çok hata etki alanları (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanları<br>Yönetilen disk desteği|Birden çok hata etki alanları (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanı (en fazla 20)<br>Yönetilen disk desteği yok|
-|Sanal makine ölçek kümeleri|Desteklenen otomatik ölçeklendirme|Otomatik ölçeklendirme desteklenmiyor.<br>Portal, Resource Manager şablonları veya PowerShell kullanarak bir ölçek kümesine daha fazla örnek ekleyin.
+| Sanal makine kullanılabilirlik kümeleri|Birden çok hata etki alanları (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanları|Birden çok hata etki alanları (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanı (en fazla 20)|
+| Sanal makine ölçek kümeleri|Desteklenen otomatik ölçeklendirme|Otomatik ölçeklendirme desteklenmiyor.<br>Portal, Resource Manager şablonları veya PowerShell kullanarak bir ölçek kümesine daha fazla örnek ekleyin. |
+| Sanal makine tanılama | Linux VM tanılama | Linux VM tanılama Azure Stack'te desteklenmez. VM tanılaması etkin bir Linux sanal makinesi dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz, ayrıca dağıtım başarısız olur.
 
 ## <a name="virtual-machine-sizes"></a>Sanal makine boyutları
 
@@ -71,7 +72,7 @@ Sanal makine boyutları ve bunların ilişkili kaynak miktarları ise, Azure Sta
 
 ## <a name="virtual-machine-extensions"></a>Sanal makine uzantıları
 
- Azure Stack, uzantılar, küçük bir kümesini içerir. Güncelleştirmeleri ve ek uzantı Market dağıtımı kullanılabilir.
+Azure Stack, uzantılar, küçük bir kümesini içerir. Güncelleştirmeleri ve ek uzantı Market dağıtımı kullanılabilir.
 
 Azure Stack ortamınıza kullanılabilir sanal makine uzantıları listesini almak için aşağıdaki PowerShell betiğini kullanın:
 
@@ -82,6 +83,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+Bir VM dağıtımı üzerinde bir uzantı sağlama çok uzun sürerse, serbest bırakma veya VM silme işlemini durdurulmaya çalışılırken yerine sağlama zaman aşımı sağlar.
 
 ## <a name="api-versions"></a>API sürümleri
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c223b55e8854c9d304354d917e07f4dd7720e72c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507826"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958499"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL veritabanı Premium RS hizmet Katmanı (Önizleme) kullanımdan - geçiş seçenekleri
 
@@ -50,8 +50,8 @@ Yoğun işlem gücü kullanımlı Premium RS iş yükleriniz için SQL Server ve
 
 |**Şu anda...**|**Benzer şekilde, sanal çekirdek tabanlı geçirme...**|**Karşılaştırılabilir için DTU tabanlı geçirme...**|
 |---|---|---|
-|Premium RS 1|Genel amaçlı 1 sanal çekirdek (Gen 4)|Standart 3|
-|Premium RS 2|Genel amaçlı, 2 sanal çekirdek (Gen 4)|Standart 4|
+|Premium RS 1|Genel amaçlı 1 sanal çekirdek (4. nesil)|Standart 3|
+|Premium RS 2|Genel amaçlı, 2 sanal çekirdek (4. nesil)|Standart 4|
 |Premium RS 4|Genel amaçlı 4 sanal çekirdek (4. nesil)|Standart 6|
 |Premium RS 6|Genel amaçlı 6 sanal çekirdek (4. nesil)|Standart 7|
 
@@ -59,8 +59,8 @@ Yoğun işlem gücü kullanımlı Premium RS iş yükleriniz için SQL Server ve
 
 |**Şu anda...**|**Benzer şekilde, sanal çekirdek tabanlı geçirme...**|**Karşılaştırılabilir için DTU tabanlı geçirme...**|
 |---|---|---|
-|Premium RS 125 DTU havuzu|Genel amaçlı 1 sanal çekirdek (Gen 4)|Standart havuz 100 edtu'ları|
-|Premium RS 250 DTU havuzu|Genel amaçlı, 2 sanal çekirdek (Gen 4)|250 standart havuz edtu'ları|
+|Premium RS 125 DTU havuzu|Genel amaçlı 1 sanal çekirdek (4. nesil)|Standart havuz 100 edtu'ları|
+|Premium RS 250 DTU havuzu|Genel amaçlı, 2 sanal çekirdek (4. nesil)|250 standart havuz edtu'ları|
 |Premium RS 500 DTU havuzu|Genel amaçlı 4 sanal çekirdek (4. nesil)|500 standart havuz edtu'ları|
 |Premium RS 1000 DTU havuzu|Genel amaçlı 8 sanal çekirdek (4. nesil)|Standart havuz 1000 edtu'ları|
 
@@ -70,10 +70,10 @@ Bizim sanal çekirdek tabanlı hiper ölçekli katmanında, şu anda Önizleme v
 
 |**Şu anda...**|**Benzer şekilde, sanal çekirdek tabanlı geçirme...**|**Karşılaştırılabilir için DTU tabanlı geçirme...**|
 |---|---|---|
-|Premium RS 1|(Önizleme) Hiper ölçekli 1 sanal çekirdek (Gen 4) veya kritik iş 1 sanal çekirdek (Gen 4)|Premium 1|
-|Premium RS 2|(Önizleme) Hiper ölçekli 2 sanal çekirdek (Gen 4) veya kritik iş 2 sanal çekirdek (Gen 4|Premium 2|
-|Premium RS 4|(Önizleme) Hiper ölçekli 4 sanal çekirdek (Gen 4) ya da iş kritik 4 sanal çekirdek (4. nesil)|Premium 4
-|Premium RS 6|(Önizleme) Hiper ölçekli 6 sanal çekirdek (Gen 4) ya da iş kritik 6 sanal çekirdek (4. nesil)|Premium 6|
+|Premium RS 1|(Önizleme) Hiper ölçekli 1 sanal çekirdek (4. nesil) veya kritik iş 1 sanal çekirdek (4. nesil)|Premium 1|
+|Premium RS 2|(Önizleme) Hiper ölçekli 2 sanal çekirdek (4. nesil) veya kritik iş 2 sanal çekirdek (4. nesil|Premium 2|
+|Premium RS 4|(Önizleme) Hiper ölçekli 4 sanal çekirdek (4. nesil) ya da iş kritik 4 sanal çekirdek (4. nesil)|Premium 4
+|Premium RS 6|(Önizleme) Hiper ölçekli 6 sanal çekirdek (4. nesil) ya da iş kritik 6 sanal çekirdek (4. nesil)|Premium 6|
 
 |**Şu anda...**|**Benzer şekilde, sanal çekirdek tabanlı geçirme...**|**Karşılaştırılabilir için DTU tabanlı geçirme...**|
 |---|---|---|

@@ -2,21 +2,21 @@
 title: Uzaktan erişim için şirket içi uygulamalar - Azure Active Directory Uygulama proxy'si | Microsoft Docx
 description: Azure Active Directory Uygulama proxy'si, şirket içi web uygulamalarına güvenli uzaktan erişim sağlar. Bir çoklu oturum açma sonra Azure ad, kullanıcılar hem buluttaki hem de şirket içi uygulamaları dış URL veya bir iç uygulama portal erişebilir. Örneğin, uygulama ara sunucusu uzaktan erişim ve çoklu oturum açma Uzak Masaüstü, SharePoint, Teams, Tableau, Qlik ve iş kolu (LOB) uygulamaları için sağlayabilir.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 643ef7f9960b2a91c88b4e13fe318748d175e036
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: b96ffcc7f131e54a0816875250cd10cd42c9af52
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692752"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962001"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Azure Active Directory Uygulama proxy'si aracılığıyla şirket içi uygulamalara uzaktan erişim 
 

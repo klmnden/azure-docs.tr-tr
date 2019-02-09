@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: e402cc214f25447407754bc6269300f4f052af4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 30d9de5653db385760155d533ad747c3cf6d2400
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232745"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960360"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics, Azure Resource Manager şablonlarını kullanarak yönetme
 Kullanabileceğiniz [Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve Log Analytics çalışma alanları yapılandırmak için. Şablonlar ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
@@ -54,9 +54,9 @@ Aşağıdaki parametreleri varsayılan değeri ayarlayın:
 * Konum - Doğu ABD için varsayılanları
 * Nisan 2018'de yayınlanan yeni GB başına fiyatlandırma katmanına varsayılan fiyatlandırma modelinde SKU-
 
->[!WARNING]
->Oluşturma veya yeni Nisan 2018 fiyatlandırma modelini tercih bir Abonelikteki Log Analytics çalışma alanını yapılandırma, yalnızca geçerli Log Analytics fiyatlandırma katmanı ise **PerGB2018**. 
->
+> [!NOTE]
+>Oluşturma veya yeni Nisan 2018 fiyatlandırma modelini tercih bir Abonelikteki Log Analytics çalışma alanını yapılandırma, yalnızca geçerli Log Analytics fiyatlandırma katmanı ise **PerGB2018**.  
+>Bazı abonelikler (pre-Nisan 2018 fiyatlandırma modelinde) sahipse [https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], belirtebileceğiniz **tek başına** fiyatlandırma katmanı ve bu başarılı olur pre-Nisan 2018 fiyatlandırma modeline ve için hem abonelik için Yeni fiyatlandırmayla, abonelikler. Fiyatlandırma katmanını yeni proicing modeli benimseyen Aboneliklerde çalışma alanları için ayarlanacak **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Şablon oluşturma ve dağıtma
 

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8e9cb570f69eb29887f4f904ba7b2b35548f3771
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117461"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965367"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -195,6 +195,63 @@ Olduğunda, [web sayfaları için Application Insights yapılandırma](../../azu
 Örnekleme yüzdesi, yakın 100/N N bir tamsayı olduğu bir yüzdesini seçin.  Şu anda örnekleme diğer değerleri desteklemiyor.
 
 Sabit fiyat örnekleme sunucuda da etkinleştirirseniz, söz konusu, arama istekleri ve ilgili sayfa görünümleri arasında gezinebilirsiniz şekilde istemciler ve sunucu eşitler.
+
+## <a name="aspnet-core-sampling"></a>ASP.NET Core örnekleme
+
+Uyarlamalı örnekleme, tüm ASP.NET Core uygulamaları için varsayılan olarak etkindir. Devre dışı bırakın veya örnekleme davranışını özelleştirebilirsiniz.
+
+### <a name="turning-off-adaptive-sampling"></a>Uyarlamalı örnekleme kapatma
+
+Biz Application Insights hizmet yöntemi eklediğinizde varsayılan örnekleme özelliği devre dışı bırakılabilir ```ConfigureServices```kullanarak ```ApplicationInsightsServiceOptions```:
+
+``` c#
+public void ConfigureServices(IServiceCollection services)
+{
+// ...
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+services.AddApplicationInsightsTelemetry(aiOptions);
+
+//...
+}
+```
+
+Yukarıdaki kod, örnekleme özelliği devre dışı bırakır. Daha fazla özelleştirme seçenekleri ile örnekleme eklemek için aşağıdaki adımları izleyin.
+
+### <a name="configure-sampling-settings"></a>Örnekleme ayarları yapılandırın
+
+Uzantı yöntemleri kullanmak ```TelemetryProcessorChainBuilder``` örnekleme davranışını özelleştirmek için aşağıda gösterildiği gibi.
+
+> [!IMPORTANT]
+> Bu yöntemi kullanırsanız örnekleme yapılandırmak için lütfen aiOptions.EnableAdaptiveSampling kullandığınızdan emin olun = false; AddApplicationInsightsTelemetry() ayarlarla.
+
+``` c#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+
+var builder = configuration .TelemetryProcessorChainBuilder;
+// version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+// var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+
+// Using adaptive sampling
+builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+ 
+// OR Using fixed rate sampling   
+double fixedSamplingPercentage = 50;
+builder.UseSampling(fixedSamplingPercentage);
+
+builder.Build();
+
+// ...
+}
+
+```
+
+**Örnekleme yapılandırmak için yukarıdaki yöntemini kullanıyorsanız, lütfen kullandığınızdan emin olun ```aiOptions.EnableAdaptiveSampling = false;``` AddApplicationInsightsTelemetry() ayarlarla.**
+
+Bu olmadan olacaktır birden çok örnekleme işlemci istenmeyen sonuçları için önde gelen TelemetryProcessor zincirindeki.
 
 ## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>ASP.NET ve Java web siteleri için sabit oranı örnekleme
 Sabit fiyat örnekleme, web sunucusu ve web tarayıcıları gönderilen trafik azaltır. Uyarlamalı örnekleme aksine, sizin tarafınızdan karar sabit bir hızda telemetri azaltır. Bu ayrıca istemci ve sunucu örnekleme eşitler ve böylece ilgili öğeleri korunur - Örneğin, bir sayfa görünümü'nde arama baktığınızda, ilgili istek bulabilirsiniz.

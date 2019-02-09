@@ -3,7 +3,7 @@ title: Azure Stack için PowerShell'i yükleme | Microsoft Docs
 description: Azure Stack için PowerShell yüklemeyi öğrenin.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 01/17/2018
-ms.author: sethm
+ms.date: 02/08/2019
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/17/2018
-ms.openlocfilehash: 7909fd3c7eba4ada9dc74e2eada019327d054fee
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: f249f5e975ce046a3e19da93534d99ff675b8391
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240515"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961491"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack için PowerShell'i yükleme
 
@@ -28,7 +28,7 @@ ms.locfileid: "55240515"
 
 Bulut ile çalışmak için Azure Stack uyumlu PowerShell modülleri yüklemeniz gerekir. Uyumluluk adlı bir özellik üzerinden etkin *API profillerini*.
 
-API profillerini Azure ve Azure Stack arasında sürümü farkları yönetmek için bir yol sağlar. Bir API Sürüm profili belirli API sürümleri ile Azure Resource Manager PowerShell modüllerini kümesidir. Her bulut platformu desteklenen API sürümü profillerini kümesi vardır. Örneğin, Azure Stack gibi belirli tarihli profil sürümü destekleyen **2018-03-01-karma**. Belirtilen profiliyle Azure Resource Manager PowerShell modülleri, bir profil yükleme sırasında yüklenir.
+API profillerini Azure ve Azure Stack arasında sürümü farkları yönetmek için bir yol sağlar. Bir API Sürüm profili belirli API sürümleri ile Azure Resource Manager PowerShell modüllerini kümesidir. Her bulut platformu desteklenen API sürümü profillerini kümesi vardır. Örneğin, Azure Stack gibi bir özel profil sürümünü destekler **2.4.0**. Belirtilen profiliyle Azure Resource Manager PowerShell modülleri, bir profil yükleme sırasında yüklenir.
 
 Internet uyumlu PowerShell modülleri bağlı, kısmen bağlantılı veya bağlantısız senaryoları Azure Stack yükleyebilirsiniz. Bu makale, bu senaryolar için Azure Stack için PowerShell yüklemeye yönelik ayrıntılı yönergeleri size.
 
@@ -51,7 +51,7 @@ Azure Stack ve PowerShell ile çalışmaya başlamadan önce aşağıdaki önko�
 
 Bir depo PSGallery kayıtlıysa doğrulayın.
 
-> [!Note]
+> [!Note]  
 > Bu adım, Internet erişimi gerektirir.
 
 Yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'leri çalıştırın:
@@ -87,41 +87,28 @@ Gerekli sürümü yüklemeden önce önceden yüklenmiş tüm Azure Stack AzureR
 
 Azure Stack gerektirir **2018-03-01-karma** Azure Stack 1808 veya sonraki bir sürümü için API Sürüm profili. Profili yüklenerek elde edilen **AzureRM.Bootstrapper** modülü. Ayrıca, AzureRM modülleri için de Azure Stack özel PowerShell modüllerine yüklemeniz gerekir. Azure Stack PowerShell modüllerini gerektirir ve API Sürüm profili olduğunuz Azure Stack sürümüne bağlıdır çalışıyor.
 
+Kurulum, üç adım vardır:
+
+1. Azure Stack sürümünüze bağlı olarak Azure Stack PowerShell'i yükleme
+2. Ek depolama alanı özelliklerini etkinleştirme
+3. PowerShell yüklenmesini onaylayın
+
+### <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell’i yükleme
+
 Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerShell betiğini çalıştırın:
 
-- Azure Stack 1811 veya üzeri.
+- Azure Stack 1901 veya üzeri.
 
     ```PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRm.BootStrapper
-
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-
-    Install-Module -Name AzureStack -RequiredVersion 1.6.0
+    Install-Module AzureRM -RequiredVersion 2.4.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.0
     ```
 
-    İndirme (bağlı bölümde bahsedilen) ek depolama özelliklerini kullanmak ve de aşağıdaki kullanarak paketleri yüklemeniz sağlamak için.
+    > [!Note]  
+    > Azure Stack Modül sürümü 1.7.0 bölünmesi farklıdır. Azure yığını geçirme 1.6.0 Lütfen başvurmak için [Geçiş Kılavuzu](https://aka.ms/azspshmigration170).
 
-    ```PowerShell
-    # Install the Azure.Storage module version 4.5.0
-    Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
-
-    # Install the AzureRm.Storage module version 5.0.4
-    Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
-
-    # Remove incompatible storage module installed by AzureRM.Storage
-    Uninstall-Module Azure.Storage -RequiredVersion 4.6.1 -Force
-
-    # Load the modules explicitly specifying the versions
-    Import-Module -Name Azure.Storage -RequiredVersion 4.5.0
-    Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4
-    ```
-
-> [!Note]
-> Azure Powershell'den yükseltmek **2017-03-09-profile** için **2018-03-01-karma**, lütfen [Geçiş Kılavuzu](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
-
-- Azure Stack 1811 veya üzeri.
+- Azure Stack 1811 veya önceki bir sürümü.
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
@@ -145,6 +132,30 @@ Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerS
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
+> [!Note]  
+> Azure Powershell'den yükseltmek **2.3.0** (Ayrıca olarak gösterilen **2017-03-09-profile**) için **2.4.0**, lütfen bkz [Geçiş Kılavuzu](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
+
+### <a name="enable-additional-storage-features"></a>Ek depolama alanı özelliklerini etkinleştirme
+
+İndirme (bağlı bölümde bahsedilen) ek depolama özelliklerini kullanmak ve de aşağıdaki kullanarak paketleri yüklemeniz sağlamak için.
+
+```PowerShell
+# Install the Azure.Storage module version 4.5.0
+Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
+
+# Install the AzureRm.Storage module version 5.0.4
+Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
+
+# Remove incompatible storage module installed by AzureRM.Storage
+Uninstall-Module Azure.Storage -RequiredVersion 4.6.1 -Force
+
+# Load the modules explicitly specifying the versions
+Import-Module -Name Azure.Storage -RequiredVersion 4.5.0
+Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4
+```
+
+### <a name="confirm-the-installation-of-powershell"></a>PowerShell yüklenmesini onaylayın
+
 Aşağıdaki komutu çalıştırarak yüklemeyi doğrulayın:
 
 ```PowerShell
@@ -158,28 +169,34 @@ Yükleme başarılı olursa, AzureRM ve AzureStack modülleri çıktısında gö
 
 Bağlantısı kesilmiş bir senaryoda, PowerShell modülleri Internet bağlantısı olan bir makine için ilk indirme ve yükleme Azure Stack Geliştirme Seti için Aktarım gerekir.
 
-Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sürümünüze bağlı olarak Azure Resource Manager ve AzureStack paketleri indirmek için aşağıdaki komut kullanın:
+Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sürümünüze bağlı olarak Azure Resource Manager ve AzureStack paketleri indirmek için aşağıdaki betikleri kullanın.
 
-  - Azure Stack 1811 veya üzeri.
+Yükleme dört adım vardır:
+
+1. Bağlı bir makine için Azure Stack PowerShell'i yükleme
+2. Ek depolama alanı özelliklerini etkinleştirme
+3. Bağlantısı kesilmiş iş istasyonunuzu PowerShell paketler taşıma
+4. PowerShell yüklenmesini onaylayın
+
+
+### <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell’i yükleme
+
+- Azure Stack 1901 veya üzeri.
 
     ```PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
     $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.4.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.0
     ```
 
-    İndirme (bağlı bölümde bahsedilen) ek depolama özelliklerini kullanmak ve de aşağıdaki kullanarak paketleri yüklemeniz sağlamak için.
+    > [!Note]  
+    > Azure Stack Modül sürümü 1.7.0 bölünmesi farklıdır. AzureStack geçiş 1.6.0 Lütfen başvurmak için [Geçiş Kılavuzu](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
-    ```PowerShell
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
-    ```
 
-  - Azure Stack 1811 veya üzeri.
+  - Azure Stack 1811 veya önceki bir sürümü.
 
     ```PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -201,11 +218,23 @@ Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sü
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
 
-2. İndirilen paketler bir USB cihazına kopyalayın.
+### <a name="enable-additional-storage-features"></a>Ek depolama alanı özelliklerini etkinleştirme
 
-3. İş istasyonunda oturum açabilir ve paketleri USB cihazından iş istasyonundaki bir konuma kopyalayın.
+İndirme (bağlı bölümde bahsedilen) ek depolama özelliklerini kullanmak ve de aşağıdaki kullanarak paketleri yüklemeniz sağlamak için.
 
-4. Artık bu konum varsayılan depo Kaydet ve bu depodan AzureRM ve AzureStack modüllerini yükleyin:
+```PowerShell
+$Path = "<Path that is used to save the packages>"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
+```
+
+### <a name="add-your-packages-to-your-workstation"></a>Paketlerinizi istasyonunuza Ekle
+
+1. İndirilen paketler bir USB cihazına kopyalayın.
+
+2. Bağlantısı kesilmiş iş istasyonunda oturum açabilir ve paketleri USB cihazından iş istasyonundaki bir konuma kopyalayın.
+
+3. Artık bu konum varsayılan depo Kaydet ve bu depodan AzureRM ve AzureStack modüllerini yükleyin:
 
    ```PowerShell
    #requires -Version 5
@@ -222,6 +251,15 @@ Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sü
 
    Install-Module -Name AzureStack -Repository $RepoName
    ```
+
+### <a name="confirm-the-installation-of-powershell"></a>PowerShell yüklenmesini onaylayın
+
+Aşağıdaki komutu çalıştırarak yüklemeyi doğrulayın:
+
+```PowerShell
+Get-Module -Name "Azure*" -ListAvailable
+Get-Module -Name "Azs*" -ListAvailable
+```
 
 ## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. PowerShell bir proxy sunucusu kullanacak şekilde yapılandırma
 

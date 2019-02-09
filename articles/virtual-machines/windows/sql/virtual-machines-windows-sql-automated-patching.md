@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0f6677cce369117886a8b4534423414c2fd56d0c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d9cedd05e949d9684473d620629314a34802c1fc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331070"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977312"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines’de (Resource Manager) SQL Server için Otomatik Düzeltme Eki Uygulama
 > [!div class="op_single_selector"]
@@ -53,6 +53,8 @@ Otomatik düzeltme eki uygulama kullanmak için aşağıdaki önkoşulları göz
 **Azure PowerShell**:
 
 * [En son Azure PowerShell komutlarını yükleme](/powershell/azure/overview) PowerShell ile otomatik düzeltme eki uygulama'yı yapılandırmayı planlıyorsanız.
+
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > Otomatik düzeltme eki uygulama, SQL Server Iaas Aracısı uzantısını kullanır. Geçerli SQL sanal makine galeri görüntüleri, varsayılan olarak bu uzantı ekleyin. Daha fazla bilgi için [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
@@ -103,13 +105,13 @@ Mevcut SQL Server sanal makineleri için SQL Server sanal makinenizi seçin. Ard
 ## <a name="configuration-with-powershell"></a>PowerShell ile yapılandırma
 SQL VM'nizi sağladıktan sonra otomatik düzeltme eki uygulama yapılandırmak için PowerShell kullanın.
 
-Aşağıdaki örnekte, PowerShell, otomatik düzeltme eki uygulama, var olan bir SQL Server sanal makinesinde yapılandırmak için kullanılır. **AzureRM.Compute\New AzureRmVMSqlServerAutoPatchingConfig** komut, otomatik güncelleştirmeler için yeni bir bakım penceresi yapılandırır.
+Aşağıdaki örnekte, PowerShell, otomatik düzeltme eki uygulama, var olan bir SQL Server sanal makinesinde yapılandırmak için kullanılır. **AzureRM.Compute\New AzVMSqlServerAutoPatchingConfig** komut, otomatik güncelleştirmeler için yeni bir bakım penceresi yapılandırır.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
-    Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+    Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > Uzantı zaten yüklü değilse, uzantının yüklenmesi, SQL Server hizmetini yeniden başlatır.
@@ -125,7 +127,7 @@ Aşağıdaki tabloda, bu örneği temel alarak, hedef Azure VM'si pratik etkisi 
 
 Bu, yüklemek ve SQL Server Iaas Aracısı'nı yapılandırmak için birkaç dakika sürebilir.
 
-Otomatik düzeltme eki uygulama devre dışı bırakmak için olmadan aynı betiği çalıştırın. **-etkinleştirme** parametresi **AzureRM.Compute\New AzureRmVMSqlServerAutoPatchingConfig**. Olmaması **-etkinleştirme** parametresi sinyalleri özelliğini devre dışı bırakma komutu.
+Otomatik düzeltme eki uygulama devre dışı bırakmak için olmadan aynı betiği çalıştırın. **-etkinleştirme** parametresi **AzureRM.Compute\New AzVMSqlServerAutoPatchingConfig**. Olmaması **-etkinleştirme** parametresi sinyalleri özelliğini devre dışı bırakma komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Diğer kullanılabilir otomasyon görevleri hakkında daha fazla bilgi için bkz. [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).

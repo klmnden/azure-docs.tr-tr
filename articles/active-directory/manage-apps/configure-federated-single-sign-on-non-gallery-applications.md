@@ -3,8 +3,8 @@ title: Federasyon çoklu oturum açma galeri dışı bir uygulama için yapılan
 description: Federasyon çoklu oturum açma, Azure AD ile tümleştirmek istediğiniz özel bir galeri dışı uygulama için yapılandırma
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
-ms.openlocfilehash: d79076a0669f725c3f1864a979812ede1020cd75
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: celested
+ms.openlocfilehash: c4d064fcdc8af08058cfde3ea564005459236195
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812132"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960233"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Federasyon çoklu oturum açma galeri dışı bir uygulama için yapılandırma
 

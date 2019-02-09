@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025914"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980476"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
@@ -75,12 +75,12 @@ Windows Konuk Aracısı, proxy sunucusu, aracı trafiğini isteklerini yeniden y
 
 ## <a name="discover-vm-extensions"></a>VM uzantıları bulma
 
-Birçok farklı sanal makine uzantıları, Azure sanal makineleri ile kullanmak için kullanılabilir. Tam listesini görmek için [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). Aşağıdaki örnekte tüm kullanılabilir uzantıları listeler *WestUS* konumu:
+Azure VM'leri ile kullanabileceğiniz birçok farklı VM uzantısı vardır. Tam listesini görmek için [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). Aşağıdaki örnekte tüm kullanılabilir uzantıları listeler *WestUS* konumu:
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location "WestUS" | `
-Get-AzureRmVMExtensionImageType | `
-Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location "WestUS" | `
+Get-AzVMExtensionImageType | `
+Get-AzVMExtensionImage | Select Type, Version
 ```
 
 ## <a name="run-vm-extensions"></a>VM Uzantıları'nı çalıştırın
@@ -91,10 +91,10 @@ Aşağıdaki yöntemlerden bir uzantı mevcut bir VM'ye karşı çalıştırmak 
 
 ### <a name="powershell"></a>PowerShell
 
-Çeşitli PowerShell komutlarını tek tek uzantıların çalıştırmak için mevcut. Listesini görmek için [Get-Command](/powershell/module/microsoft.powershell.core/get-command) ve filtre *uzantısı*:
+Çeşitli PowerShell komutlarını tek tek uzantıların çalıştırmak için mevcut. Listesini görmek için [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) ve filtre *uzantısı*:
 
 ```powershell
-Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
+Get-Command Set-Az*Extension* -Module AzureRM.Compute
 ```
 
 Bu, aşağıdakine benzer bir çıktı sağlar:
@@ -102,25 +102,25 @@ Bu, aşağıdakine benzer bir çıktı sağlar:
 ```powershell
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Set-AzureRmVMAccessExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMADDomainExtension                     4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMAEMExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBackupExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBginfoExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMChefExtension                         4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMCustomScriptExtension                 4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDscExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMExtension                             4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMSqlServerExtension                    4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAccessExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMADDomainExtension                     4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAEMExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBackupExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBginfoExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMChefExtension                         4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDscExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMExtension                             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
 ```
 
 Aşağıdaki örnek, hedef sanal makineye bir GitHub deposundan bir betik indirin ve ardından komut dosyasını çalıştırmak için özel betik uzantısı kullanır. Özel betik uzantısı hakkında daha fazla bilgi için bkz. [özel betik uzantısına genel bakış](custom-script-windows.md).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
+Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" -Name "myCustomScript" `
     -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
     -Run "Create-File.ps1" -Location "West US"
@@ -131,12 +131,12 @@ Aşağıdaki örnekte, VM erişimi uzantısı, geçici bir parola için Windows 
 ```powershell
 $cred=Get-Credential
 
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
+Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
     -Location WestUS -UserName $cred.GetNetworkCredential().Username `
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzureRmVMExtension` Komutu, herhangi bir VM uzantısı'nı başlatmak için kullanılabilir. Daha fazla bilgi için [Set-AzureRmVMExtension başvuru](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension).
+`Set-AzVMExtension` Komutu, herhangi bir VM uzantısı'nı başlatmak için kullanılabilir. Daha fazla bilgi için [kümesi AzVMExtension başvuru](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
 ### <a name="azure-portal"></a>Azure portal
@@ -269,7 +269,7 @@ Yayımcılar olası farklı sürümleri üzerinde farklı bölgelerde Vm'niz ola
 #### <a name="listing-extensions-deployed-to-a-vm"></a>Bir VM'ye dağıttınız uzantılarını listeleme
 
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
+$vm = Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
 $vm.Extensions | select Publisher, VirtualMachineExtensionType, TypeHandlerVersion
 ```
 
@@ -310,10 +310,10 @@ En son alt sürüm hata düzeltmeleri almak için otomatik güncelleştirme her 
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Uzantı bir VM ile aynı autoUpgradeMinorVersion ayarlarsanız tanımlama
 
-Uzantı 'ile aynı autoUpgradeMinorVersion' sağladıysanız VM modelden görebilirsiniz. Denetlemek için kullanmak [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) ve VM ve kaynak grubu adı şu şekilde sağlayın:
+Uzantı 'ile aynı autoUpgradeMinorVersion' sağladıysanız VM modelden görebilirsiniz. Denetlemek için kullanmak [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) ve VM ve kaynak grubu adı şu şekilde sağlayın:
 
 ```powerShell
- $vm = Get-AzureRmVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
+ $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
@@ -366,10 +366,10 @@ Tüm VM uzantıları için aşağıdaki sorun giderme adımlarını uygulayın.
 
 ### <a name="view-extension-status"></a>Uzantı durumu görüntüle
 
-Bir VM'ye karşı VM uzantısı çalıştırıldıktan sonra kullanmak [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) uzantı Durumu döndürülecek. *Alt durumlar [0]* uzantı sağlama başarılı, VM'ye dağıttınız BT'nin başarılı anlamına gelir, ancak uzantı VM içindeki yürütülemedi, gösterir *alt durumlar [1]*.
+Bir VM'ye karşı VM uzantısı çalıştırıldıktan sonra kullanmak [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) uzantı Durumu döndürülecek. *Alt durumlar [0]* uzantı sağlama başarılı, VM'ye dağıttınız BT'nin başarılı anlamına gelir, ancak uzantı VM içindeki yürütülemedi, gösterir *alt durumlar [1]*.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
+Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
 Aşağıdaki örnek çıktıya benzer bir çıkış:
@@ -402,10 +402,10 @@ Uzantı yürütme durumu, ayrıca Azure portalında bulunabilir. Bir uzantı dur
 
 ### <a name="rerun-vm-extensions"></a>VM uzantılarını yeniden çalıştırın
 
-VM uzantısı çalıştırılması gereken durumlar olabilir. Uzantı, kaldırma ve uzantı ile kendi tercih ettiğiniz bir yürütme yöntemi daha sonra yeniden çalıştırabilirsiniz. Bir uzantıyı kaldırmak için [Remove-AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) gibi:
+VM uzantısı çalıştırılması gereken durumlar olabilir. Uzantı, kaldırma ve uzantı ile kendi tercih ettiğiniz bir yürütme yöntemi daha sonra yeniden çalıştırabilirsiniz. Bir uzantıyı kaldırmak için [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) gibi:
 
 ```powershell
-Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
+Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
 Ayrıca uzantı Azure portalında şu şekilde kaldırabilirsiniz:

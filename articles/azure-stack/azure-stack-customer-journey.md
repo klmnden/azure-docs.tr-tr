@@ -16,18 +16,18 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f900fa5105f42dac57b392d41a8cd888850fc648
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 491664067c87de8f94d2395cb2ffbdeade2595b0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249504"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979556"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Azure Stack veri merkezi tümleştirmesi
 
-Bu makalede, bir çözüm sağlayıcısı tarafından başarılı bir şirket içi dağıtım için tümleşik bir çözüm aracılığıyla satın alma, uçtan uca Azure Stack müşteri deneyim açıklanmaktadır. Yolculuğunuza kolaylaştırmak ve beklentileri, Azure Stack müşterisi olarak, Azure Stack ile veri merkezinizi tümleştirdiğinizde beklediğiniz üzerinde ayarlamanıza yardımcı olması için bu bilgileri kullanın.
+Bu makalede, bir çözüm sağlayıcısı tarafından başarılı bir şirket içi dağıtım için tümleşik bir sistem aracılığıyla satın alma, uçtan uca Azure Stack müşteri deneyim açıklanmaktadır. Yolculuğunuza kolaylaştırmak ve size, bir Azure Stack Müşteri beklentileri ayarlamanıza yardımcı olması için bu bilgileri kullanın.
 
-Azure Stack müşterisi olarak, aşağıdaki veri merkezi tümleştirmesi aşamaları tahmin etmeleri gereken:
+Azure Stack müşterisi olarak, aşağıdaki aşamaları tahmin etmeleri gereken:
 
 |     |Planlama aşamasında|Sipariş işlemi|Dağıtım öncesi|Fabrika işlem|Donanım teslim|Yerinde dağıtım|
 |-----|-----|-----|-----|-----|-----|-----|
@@ -63,7 +63,7 @@ Bu aşamada, nasıl Azure Stack ile veri merkezinizi tümleştirmek istediğiniz
 [Genel veri merkezi tümleştirme konuları](azure-stack-datacenter-integration.md) makale şablonun, dağıtım çalışma sayfası bilinen tamamlamanıza yardımcı olacak bilgileri sağlar. 
 
 > [!IMPORTANT]
-> Bu aşamada tüm önkoşul bilgilerini araştırılması ve çözüm sıralama önce karar önemlidir. Bu adımı zaman alıcıdır ve işbirliği ve kuruluşunuzdaki birden çok Disipline toplamayı veri gerektirir unutmayın. 
+> Bu aşamada tüm önkoşul bilgilerini araştırılması ve çözüm sıralama önce karar önemlidir. Bu adımı zaman alıcıdır ve işbirliği ve kuruluşunuzdaki birden çok Disipline toplamayı veri gerektirir unutmayın. Yanlış ya da eksik bilgilerden daha uzun bir dağıtımda neden olabilir. 
 
 Dağıtım öncesi aşamasında aşağıdakilere karar vermeniz gerekir:
 
@@ -90,7 +90,7 @@ Bu **önemli** tüm önkoşul veri kilitli ve kullanılabilir *çözümü dağı
 
 -   Tüm sertifikaları satın alınmalıdır ve hazır.
 
--   Etki alanı adı üzerinde karar gerekir.
+-   Bölge adı üzerinde karar gerekir.
 
 -   Tüm ağ tümleştirme parametrelerini sonlandırıldıktan ve çözümü sağlayıcınız ile paylaşılan ile aynı.
 
@@ -102,16 +102,16 @@ Azure Stack dağıtmak için bir yerinde mühendis donanım çözüm sağlayıc�
 
 Yerinde destek mühendisinden dağıtım deneyimi sırasında beklediğiniz verilmiştir:
 
-- Çözüm, düzgün bir şekilde bir araya getirildiği ve gereksinimlerinizi karşıladığından emin olmak için tüm kablo ve kenarlık bağlantısını denetleyin
-- ' % S'çözüm HLH (donanım yaşam döngüsü ana bilgisayarı) yapılandırma
+- Çözüm, düzgün bir şekilde bir araya getirildiği ve gereksinimlerinizi karşıladığından emin olmak için tüm kablo ve kenarlık bağlantısını denetleyin.
+- ' % S'çözüm HLH (donanım yaşam döngüsü konak) varsa yapılandırın.
 - Tüm BMC, BIOS ve ağ ayarlarının doğru olduğundan emin olun.
-- Tüm bileşenlerin bellenim çözüm tarafından onaylanmış son sürümde olduğundan emin olun
-- Dağıtımı Başlat
+- Tüm bileşenlerin bellenim çözüm tarafından onaylanmış son sürümde olduğundan emin olun.
+- Dağıtımı başlatın.
 
 > [!NOTE]
 > Yerinde destek mühendisi tarafından bir dağıtım yordamı tamamlamak için bir iş hafta sürebilir.
 
-## <a name="post-integration-phase"></a>Sonrası tümleştirme aşaması
+## <a name="post-deployment-phase"></a>Dağıtım sonrası aşaması
 Çözümü Kapat müşteriye sonrası tümleştirme aşamasında devredildiği önce birkaç adım iş ortağı tarafından gerçekleştirilmesi gerekir. Bu aşamada doğrulama doğru sistem dağıtıldığından emin olmak önemli ve gerçekleştiriliyor. 
 
 OEM iş ortağı tarafından gerçekleştirilen eylemler şunlardır:
@@ -122,13 +122,13 @@ OEM iş ortağı tarafından gerçekleştirilen eylemler şunlardır:
 
 -   [Market Sendikasyonu](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Yedek anahtar yapılandırma dosyaları
+-   Yedek anahtar yapılandırması ve HLH yapılandırma dosyaları
 
 -   DVM Kaldır
 
 -   Özet bir müşteri dağıtımı için hazırlama
 
--   [Çözüm yazılımın en son sürüme güncelleştirildiğinden emin olmak için Güncelleştirmeleri denetle](azure-stack-updates.md)
+-   [Çözüm yazılımın en son sürüme güncelleştirildiğinden emin olmak için Güncelleştirmeleri denetle](.\azure-stack-updates.md)
 
 Gerekli veya isteğe bağlı yükleme türüne bağlı olarak birkaç adım vardır.
 

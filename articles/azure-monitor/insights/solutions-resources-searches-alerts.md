@@ -13,14 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901199"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980117"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics ekleme aramaları ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
+
+> [!IMPORTANT]
+> Resource Manager şablonu kullanarak bir uyarı oluşturmak için ayrıntıları burada olan tanesi tarihi artık [Log Analytics uyarılarını, Azure İzleyici Genişletilmiş](../platform/alerts-extend.md). Resource Manager şablonu ile günlük uyarısı oluşturma hakkında daha fazla bilgi edinmek için bkz: [Azure kaynak şablonu kullanarak yönetme günlük uyarıları](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
 
 > [!NOTE]
 > Şu anda Önizleme aşamasında olan yönetim çözümleri oluşturmak için başlangıç belgeleri budur. Aşağıda açıklanan herhangi bir şema tabi bir değişikliktir.
@@ -180,7 +183,7 @@ Uyarı eylemi kaynakların özellikleri aşağıdaki tablolarda açıklanmışt�
 
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
-| Tür | Evet | Eylem türü.  Bu **uyarı** uyarı eylemleri için. |
+| Type | Evet | Eylem türü.  Bu **uyarı** uyarı eylemleri için. |
 | Ad | Evet | Uyarı görünen adı.  Bu uyarı kuralı için konsolunda görüntülenen addır. |
 | Açıklama | Hayır | Uyarının isteğe bağlı bir açıklama. |
 | Severity | Evet | Önem derecesi uyarı kaydını aşağıdaki değerleri:<br><br> **Kritik**<br>**Uyarı**<br>**Bilgilendirme**

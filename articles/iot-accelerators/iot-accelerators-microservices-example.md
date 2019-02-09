@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 95bec451c556ff9f3c5bcccee68f900543639733
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631915"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978094"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Bir mikro hizmeti özelleştirme ve yeniden dağıtma
 
@@ -123,13 +123,13 @@ Yeni docker görüntüsünü docker hub'a gönderebilmek için önce Docker gör
 2. Docker-compose.yml herhangi bir metin düzenleyicisinde ya da istediğiniz gibi IDE açın.
 3. Aşağıdaki kodu bulun:
 
-    ```docker
+    ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     ve aşağıdaki gibi görünür ve kaydetmek için değiştirin.
 
-    ```cmd/sh
+    ```yml
     image: [docker ID]/iothub-manager-dotnet:testing
     ```
 

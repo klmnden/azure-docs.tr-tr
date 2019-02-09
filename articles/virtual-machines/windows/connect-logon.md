@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4bfb17a7c50e97ae71908f052f7f38110cf376df
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296899"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978976"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Nasıl bağlanın ve bir Azure Windows çalıştıran sanal makine için oturum açın
 Bir Windows masaüstü bilgisayarından Uzak Masaüstü (RDP) oturumu başlatmak için Azure portalında **Bağlan** düğmesini kullanırsınız. Önce sanal makineye bağlanın ve ardından oturum açın.
@@ -56,18 +56,18 @@ Bir Mac bilgisayardan bir Windows VM'ye bağlanmak için gibi Mac için bir RDP 
 
 ## <a name="connect-to-the-virtual-machine-using-powershell"></a>PowerShell kullanarak sanal makineye bağlanma
 
-PowerShell kullanarak ve AzureRM Modülü yüklü kullanarak bağlanabilir `Get-AzureRmRemoteDesktopFile` cmdlet'ini aşağıda gösterildiği gibi.
+PowerShell kullanarak ve AzureRM Modülü yüklü kullanarak bağlanabilir `Get-AzRemoteDesktopFile` cmdlet'ini aşağıda gösterildiği gibi.
 
 Bu örnek, benzer istekleri aracılığıyla alma RDP bağlantı hemen başlatılır.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
 ```
 
 Ayrıca, gelecekte kullanım için RDP dosyasını kaydedebilir.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

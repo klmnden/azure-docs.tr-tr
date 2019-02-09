@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e7ec07c29f742202b17e94d96d88b0dfb223100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464356"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963854"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastik havuzlar, yönetmenize ve birden çok Azure SQL veritabanını ölçeklendirme Yardım
 
@@ -34,6 +34,9 @@ Elastik havuzlar, veritabanları ihtiyaç duydukları zaman ihtiyaç duydukları
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
+
+> [!IMPORTANT]
+> Elastik havuzlar için veritabanı başına ücret yoktur. Bir havuz en yüksek eDTU veya sanal çekirdek, kullanım veya havuza bir saatten az için etkin olup bağımsız olarak mevcut olduğu her saat için faturalandırılırsınız.
 
 Elastik havuzlar geliştiricinin tek veritabanları tarafından öngörülemez süreler boyunca kullanımı sağlamak için birden çok veritabanı tarafından paylaşılan bir havuz için kaynak satın etkinleştirin. Havuz ya da tabanlı kaynaklarını yapılandırabilirsiniz [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bir havuz için kaynak gereksinimi, veritabanlarının toplam kullanımına tarafından belirlenir. Havuz için kullanılabilen kaynakları miktarı Geliştirici bütçesine göre denetlenir. Geliştirici yalnızca veritabanlarını havuza ekler, veritabanları için minimum ve maksimum kaynakları ayarlar (minimum ve maksimum Dtu veya en düşük veya en yüksek Vcore modeli kaynaklama dillerinden bağlı olarak) ve ardından kaynakları temel ayarlar, Bütçe. Geliştirici, hizmetini zayıf bir başlangıçtan sürekli artan ölçekte olgun bir işletmeye sorunsuzca büyütmek için havuzları kullanabilir.
 

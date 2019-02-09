@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: 8f85ded20470ecc5a7868c094e88a149c88b7f39
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6aeba722a0661979664f8d61efdb9b2bf47ad801
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749576"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981664"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Örnek kimlikleri için Azure VM ölçek kümesi Vm'leri anlama
 Bu makalede örnek kimlikleri ölçek kümeleri ve bunlar yüzey çeşitli yolları açıklar.
@@ -31,7 +31,7 @@ Her bir VM ölçek kümesindeki benzersiz olarak tanımlayan bir örnek kimliği
 
 REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (daha fazla bilgi için [REST API belgelerini](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 
-PowerShell: `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (daha fazla bilgi için [Powershell belgeleri](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm))
+PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (daha fazla bilgi için [Powershell belgeleri](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
 
 CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (daha fazla bilgi için [CLI belgeleri](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
 
@@ -39,7 +39,7 @@ Bir ölçek kümesindeki tüm örnekleri listeleyerek örnek kimlikleri listesin
 
 REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (daha fazla bilgi için [REST API belgelerini](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list))
 
-PowerShell: `Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (daha fazla bilgi için [Powershell belgeleri](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
+PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (daha fazla bilgi için [Powershell belgeleri](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm))
 
 CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (daha fazla bilgi için [CLI belgeleri](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
 

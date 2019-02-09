@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute için bir Azure sanal ağ geçidi ekleme: Portal | Microsoft Docs'
+title: 'ExpressRoute için bir Azure sanal ağı için ağ geçidi ekleyin: Portal | Microsoft Docs'
 description: Bu makalede önceden oluşturulmuş bir Resource Manager Vnet'i expressroute için sanal ağ geçidi eklerken size yol gösterir.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 37fe2e2adb947e2e9ddc86a34baf6994b5771be6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a21c9682cfeaa7421d089bf75eb9d8b45e1d3d46
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091212"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982769"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Azure portalını kullanarak ExpressRoute için sanal ağ geçidi yapılandırma
 > [!div class="op_single_selector"]
@@ -39,12 +39,11 @@ Bu görev için adımları aşağıdaki yapılandırma başvuru listesinde değe
     * Alt ağ adres alanı = "192.168.1.0/24"
 * Kaynak grubu "TestRG" =
 * Konum "Doğu ABD" =
-* Ağ geçidi alt ağ adı: gereken her zaman adını bir ağ geçidi alt ağı "GatewaySubnet" *GatewaySubnet*.
+* Ağ geçidi alt ağ adı: Gereken her zaman adını bir ağ geçidi alt ağı "GatewaySubnet" *GatewaySubnet*.
     * Ağ geçidi alt ağ adres alanı = "192.168.200.0/26"
 * Ağ geçidi adı "ERGW" =
-* Ağ geçidi IP adı "MyERGWVIP" =
-* Ağ geçidi türü = "ExpressRoute" Bu tür bir ExpressRoute yapılandırma için gereklidir.
 * Ağ geçidi genel IP adı "MyERGWVIP" =
+* Ağ geçidi türü = "ExpressRoute" Bu tür bir ExpressRoute yapılandırma için gereklidir.
 
 Görüntüleyebileceğiniz bir [Video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) yapılandırmanıza başlamadan önce bu adımları.
 
@@ -67,14 +66,14 @@ Görüntüleyebileceğiniz bir [Video](https://azure.microsoft.com/documentation
 2. **Sanal ağ geçidi oluştur** dikey penceresinde, sanal ağ geçidinize ait değerleri girin.
 
     ![Sanal ağ geçidi oluştur dikey penceresinin alanları](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Sanal ağ geçidi oluştur dikey penceresinin alanları")
-3. **Ad**: Ağ geçidinizi adlandırın. Bir ağ geçidi alt ağını adlandırmayla aynı değildir. Bu ad, oluşturduğunuz ağ geçidi nesnesinin adıdır.
-4. **Ağ geçidi türü**: seçin **ExpressRoute**.
-5. **SKU**: Açılır listeden ağ geçidi SKU’sunu seçin.
+3. **Ad**: Geçidinizi adlandırın. Bir ağ geçidi alt ağını adlandırmayla aynı değildir. Bu ad, oluşturduğunuz ağ geçidi nesnesinin adıdır.
+4. **Ağ geçidi türü**: Seçin **ExpressRoute**.
+5. **SKU**: Açılan listeden ağ geçidi SKU'sunu seçin.
 6. **Konum**: **Konum** alanını, sanal ağınızın bulunduğu konumu işaret edecek şekilde ayarlayın. Konum, sanal ağınızın bulunduğu bölgeye işaret etmiyorsa, 'Sanal ağ seçin' açılır menüsünde sanal ağ görüntülenmez.
 7. Bu ağ geçidini eklemek istediğiniz sanal ağı seçin. **Sanal ağ**'a tıklayarak **Sanal ağ seçin** dikey penceresini açın. VNet'i seçin. Sanal ağınızı görmüyorsanız **Konum** alanının, sanal ağınızın bulunduğu bölgeyi işaret ettiğinden emin olun.
 9. Genel bir IP adresi seçin. **Genel IP adresi**'ne tıklayarak **Genel IP adresi seçin** dikey penceresini açın. **+Yeni Oluştur**'a tıklayarak **Genel IP adresi oluştur** dikey penceresini açın. Genel IP adresiniz için bir ad girin. Bu dikey pencere bir genel IP adresi nesnesi oluşturur ve daha sonra bu nesneye dinamik olarak bir genel IP adresi atanır. Bu dikey penceredeki değişiklikleri kaydetmek için **Tamam**’a tıklayın.
 10. **Abonelik**: Doğru aboneliğin seçildiğini doğrulayın.
-11. **Kaynak grubu**: Bu ayar, seçtiğiniz Sanal Ağ tarafından belirlenir.
+11. **Kaynak grubu**: Bu ayar, sanal ağ tarafından belirlenir.
 12. Önceki ayarları belirttikten sonra **Konum**'u ayarlamayın.
 13. Ayarları doğrulayın. Ağ geçidinizin panoda görünmesini istiyorsanız dikey pencerenin altında yer alan **Panoya sabitle** seçeneğini belirleyebilirsiniz.
 14. Ağ geçidi oluşturmaya başlamak için **Oluştur**’a tıklayın. Ayarlar doğrulanır ve ağ geçidi dağıtılır. Sanal ağ geçidi oluşturma, tamamlanması 45 dakika sürebilir.

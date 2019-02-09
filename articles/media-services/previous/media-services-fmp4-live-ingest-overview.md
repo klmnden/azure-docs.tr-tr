@@ -4,7 +4,7 @@ description: Bu belirtim protokolü ve parçalanmış MP4 tabanlı canlı akış
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228887"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984843"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services bölünmüş MP4 Canlı içe alma belirtimi
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Azure Media Services bölünmüş MP4 Canlı içe alma belirtimi (eski)
+
 Bu belirtim protokolü ve parçalanmış MP4 tabanlı canlı akış alımı için Azure Media Services için biçimini açıklar. Media Services müşterileri, etkinliklerin canlı akış ve bulut platformu olarak Azure'u kullanarak gerçek zamanlı olarak içerik yayın için kullanabileceğiniz bir canlı akış hizmeti sağlar. Bu belge, ayrıca en iyi anlatılmaktadır Canlı düzeyde yedekli ve sağlam oluşturmaya yönelik yöntemler alma mekanizmaları.
 
 ## <a name="1-conformance-notation"></a>1. Uygunluk gösterimi
@@ -87,12 +88,12 @@ Bu seçenek, tek bir kodlayıcı tüm ses/video parçalar oluşturur ve ardında
 
 ![Akışları bir izleme][image2]
 
-### <a name="option-2-each-track-in-a-separate-stream"></a>Seçenek 2: Ayrı bir akış her izleme
+### <a name="option-2-each-track-in-a-separate-stream"></a>2. seçenek: Ayrı bir iş akışındaki her izleme
 Bu seçenek, kodlayıcı adet her parça MP4 bitstream yerleştirir ve ardından tüm akışları ayrı HTTP bağlantıları üzerinden gönderir. Bu, bir kodlayıcı veya birden çok kodlayıcılar ile yapılabilir. Canlı alma bu Canlı sunumu dört akışları olarak görür.
 
 ![Akışları ayrı parçaları][image3]
 
-### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Seçenek 3: ses kaydı en düşük hızı video izleme ile bir akışa paket.
+### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Seçenek 3: Ses kaydı en düşük hızı video izleme ile bir akışa paket
 Bu seçenekte, müşterinin bir parçanın MP4 bitstream ses kaydı ile bit hızı düşük video izleme paketini ve diğer iki video parçaları olarak ayrı akışları bırakın seçer. 
 
 ![Akışları ses ve video izler][image4]

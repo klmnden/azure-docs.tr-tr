@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 77eb372bbe3647e03919aae21087d3270c22148a
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506567"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979896"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Uzak Masaüstü Hizmetleri veya bir Windows VM'de yönetici parolasını sıfırlama
 Bir Windows sanal makinesi (VM) bağlanamıyorsanız, yerel Yönetici parolanızı sıfırlayın ya da (Windows etki alanı denetleyicilerinde desteklenmez) Uzak Masaüstü Hizmetleri yapılandırmasını sıfırlayın. Parolayı sıfırlamak için Azure portalı veya Azure PowerShell'deki VM Erişimi uzantısını kullanın. VM'de oturum açtıktan sonra yerel yönetici parolasını sıfırlayın.  
@@ -54,11 +54,11 @@ Uzak Masaüstü Hizmetleri ve kimlik bilgileri aşağıdaki yollarla sıfırlaya
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>VMAccess uzantısı ve PowerShell kullanarak sıfırlayın
 
-İlk olarak, bilgisayarınızda yüklü olduğundan emin olun [en son PowerShell modülünün yüklü ve yapılandırılmış](/powershell/azure/overview) ve Azure aboneliğinizi kullanarak oturum açtınız [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet'i.
+İlk olarak, bilgisayarınızda yüklü olduğundan emin olun [en son PowerShell modülünün yüklü ve yapılandırılmış](/powershell/azure/overview) ve Azure aboneliğinizi kullanarak oturum açtınız [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet'i.
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Yerel yönetici hesabı parola sıfırlama**
 
-- Yönetici parolası veya kullanıcı adı ile sıfırlama [kümesi AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet'i. `typeHandlerVersion` Ayarı olmalıdır 2.0 veya daha büyük olduğundan sürüm 1. 
+- Yönetici parolası veya kullanıcı adı ile sıfırlama [kümesi AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet'i. `typeHandlerVersion` Ayarı olmalıdır 2.0 veya daha büyük olduğundan sürüm 1. 
 
     ```powershell
     $SubID = "<SUBSCRIPTION ID>" 
@@ -66,9 +66,9 @@ Uzak Masaüstü Hizmetleri ve kimlik bilgileri aşağıdaki yollarla sıfırlaya
     $VmName = "<VM NAME>" 
     $Location = "<LOCATION>" 
  
-    Connect-AzureRmAccount 
-    Select-AzureRMSubscription -SubscriptionId $SubID 
-    Set-AzureRmVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
+    Connect-AzAccount 
+    Select-AzSubscription -SubscriptionId $SubID 
+    Set-AzVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
     ```
 
     > [!NOTE] 
@@ -76,10 +76,10 @@ Uzak Masaüstü Hizmetleri ve kimlik bilgileri aşağıdaki yollarla sıfırlaya
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Uzak Masaüstü Hizmetleri yapılandırmasını Sıfırla**
 
-1. İle sanal makinenize uzaktan erişimi sıfırlama [kümesi AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet'i. Aşağıdaki örnekte adlı erişim uzantısı sıfırlar `myVMAccess` adlı VM'de `myVM` içinde `myResourceGroup` kaynak grubu:
+1. İle sanal makinenize uzaktan erişimi sıfırlama [kümesi AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet'i. Aşağıdaki örnekte adlı erişim uzantısı sıfırlar `myVMAccess` adlı VM'de `myVM` içinde `myResourceGroup` kaynak grubu:
 
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
+    Set-AzVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
     ```
 
     > [!TIP]

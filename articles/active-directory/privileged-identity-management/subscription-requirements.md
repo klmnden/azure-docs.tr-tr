@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ad64fba0288aa5663e008484d6f0d2cbdff0bca6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f6e2042f94ce653c1d569385deddbade548a58b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187301"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977839"
 ---
 # <a name="license-requirements-to-use-pim"></a>PIM'i kullanmak için lisans gereksinimleri
 
@@ -33,6 +33,7 @@ PIM'i kullanmak için dizin aşağıdaki ücretli veya deneme sürümü lisansla
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
+- Microsoft 365 M5
 
 Daha fazla bilgi için bkz. [Azure Active Directory nedir?](../fundamentals/active-directory-whatis.md).
 
@@ -63,5 +64,6 @@ Bir Azure AD Premium P2, EMS E5 veya deneme sürümü lisansına dolarsa, PIM ö
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- [PIM dağıtma](pim-deployment-plan.md)
 - [PIM kullanmaya başlama](pim-getting-started.md)
 - [Rolleri PIM'de yönetemez.](pim-roles.md)

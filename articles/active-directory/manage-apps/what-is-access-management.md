@@ -3,9 +3,8 @@ title: Azure AD kullanarak uygulamalara erişimi yönetme | Microsoft Docs
 description: Azure Active Directory kuruluşlar her kullanıcının erişimi olan uygulamaları belirtmek nasıl sağladığını açıklar.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: barbkess
-ms.openlocfilehash: 0c8450523890430587bedebbcd77ceddd8a03e42
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.openlocfilehash: 1be695384ff6828561fe8e1e858d052cba302dc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183399"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982710"
 ---
 # <a name="managing-access-to-apps"></a>Uygulamalara erişimi yönetme
 Devam eden erişim yönetimi, kullanım değerlendirme ve raporlama bir uygulama, kuruluşunuzun kimlik sistemine tümleştirildikten sonra bir mücadele haline devam edin. Çoğu durumda, BT yöneticileri veya Yardım Masası sahip devam eden etkin bir rol, uygulamalara erişimi yönetme gerçekleştirilecek. Bazı durumlarda, atama, genel veya bölümsel BT ekibi tarafından gerçekleştirilir. Atama karar BT kolaylaştırır önce onay gerektiren iş karar mercii Devredilmiş olması sık yöneliktir atama.  Tümleştirme mevcut otomatik kimlik ve erişim yönetimi sistemi kullanarak, rol tabanlı erişim denetimi (RBAC) veya öznitelik tabanlı erişim denetimi (ABAC) gibi diğer kuruluşlar yaparlar. Tümleştirme ve kural geliştirme özelleştirilmiş ve pahalı olma eğilimindedir. İzleme veya her iki Yönetim yaklaşımını üzerinde raporlama kendi ayrı, yüksek maliyetli ve karmaşık bir yatırımdır.
@@ -39,7 +38,7 @@ Bu iki atama modları kullanarak, Yöneticiler tüm istenen atama Yönetimi yakl
 Azure AD ile kullanımı ve atama raporlama tam olarak tümleşiktir, atama durumu, atama hataları ve hatta kullanım kolayca bildirilecek yöneticileri etkinleştirme.
 
 ## <a name="complex-application-assignment-with-azure-ad"></a>Azure AD ile karmaşık uygulama atama
-Salesforce gibi bir uygulamayı düşünün. Birçok kuruluşta, Salesforce, öncelikle pazarlama ve satış kuruluşlar tarafından kullanılır. Satış ekibi üyelerinin sınırlı erişimi olan ancak genellikle, pazarlama ekibinin üyeleri yüksek oranda salesforce'a, ayrıcalıklı erişimi. Çoğu durumda, bilgi çalışanları genel bir popülasyonunu uygulamaya erişimi kısıtladı. Bu kuralların istisnaları işleniyor. Genellikle bir kullanıcı erişimi vermek veya rollerine genel kurallar bağımsız olarak değiştirmek için pazarlama veya satış liderlik takımlar prerogative olur.
+Salesforce gibi bir uygulamayı düşünün. Birçok kuruluşta, Salesforce, öncelikle pazarlama ve satış ekipleri tarafından kullanılır. Satış ekibi üyelerinin sınırlı erişimi olan ancak genellikle, pazarlama ekibinin üyeleri yüksek oranda salesforce'a, ayrıcalıklı erişimi. Çoğu durumda, bilgi çalışanları genel bir popülasyonunu uygulamaya erişimi kısıtladı. Bu kuralların istisnaları işleniyor. Genellikle bir kullanıcı erişimi vermek veya rollerine genel kurallar bağımsız olarak değiştirmek için pazarlama veya satış liderlik takımlar prerogative olur.
 
 Azure AD ile uygulamaları Salesforce gibi çoklu oturum açma (SSO) ve otomatik sağlama için önceden yapılandırılmış olabilir. Uygulama yapılandırıldıktan sonra bir yönetici oluşturmak ve uygun gruplara atamak için bir kerelik eylem sürebilir. Bu örnekte, yönetici, aşağıdaki atamalardan yürütebilirsiniz:
 
@@ -47,7 +46,7 @@ Azure AD ile uygulamaları Salesforce gibi çoklu oturum açma (SSO) ve otomatik
   
   * Pazarlama grupların tüm üyeleri Salesforce "Pazarlama" rolüne atanması
   * Tüm üyeler satış ekibinin grupları Salesforce "sales" rolüne atanır. Daha fazla iyileştirme farklı Salesforce rollere atanmış bölgesel satış ekipleri temsil eden birden çok gruplarını kullanabilirsiniz.
-* Özel durum mekanizması etkinleştirmek için her rol için bir Self Servis Grup oluşturulabilir. Örneğin, "Özel durum Salesforce pazarlama" grubu bir Self Servis Grup oluşturulabilir. Grup için Salesforce pazarlama rol atanabilir ve pazarlama liderlik ekibindeki sahipleri yapılabilir. Pazarlama liderlik takım üyeleri ekleyin veya kullanıcıları kaldırmak, bir birleşim İlkesi ayarlamak veya bile onaylayın veya bireysel kullanıcılar katılma isteklerini reddedin. Bu mekanizma, sahipleri veya üyeleri için özel eğitim gerektirmeyen bir bilgi çalışanı uygun deneyimi aracılığıyla desteklenir.
+* Özel durum mekanizması etkinleştirmek için her rol için bir Self Servis Grup oluşturulabilir. Örneğin, "Özel durum Salesforce pazarlama" grubu bir Self Servis Grup oluşturulabilir. Grup için Salesforce pazarlama rol atanabilir ve pazarlama liderlik ekibindeki sahip hale getirilebilir. Pazarlama liderlik takım üyeleri ekleyin veya kullanıcıları kaldırmak, bir birleşim İlkesi ayarlamak veya bile onaylayın veya bireysel kullanıcılar katılma isteklerini reddedin. Bu mekanizma, sahipleri veya üyeleri için özel eğitim gerektirmeyen bir bilgi çalışanı uygun deneyimi aracılığıyla desteklenir.
 
 Bu durumda, kendi rol ataması Salesforce'ta güncelleştirilecek farklı gruplara eklendikçe atanmış tüm kullanıcılar Salesforce, otomatik olarak sağlanması. Kullanıcıları bulmak ve Salesforce, Office web istemcileri, Microsoft uygulama erişim panelinde veya kendi kuruluş Salesforce oturum açma sayfasına giderek bile erişmek mümkün olacaktır. Yöneticiler, kolayca Azure AD raporlama kullanarak kullanımı ve atama durumu görüntülemek hazırdır.
 

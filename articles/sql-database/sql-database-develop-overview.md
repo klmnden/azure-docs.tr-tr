@@ -11,20 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: d9de6100e3bb7c3cc71a7a251d790df4907be5f2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820360"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964806"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL veritabanı uygulaması geliştirmeye genel bakış
 
 Bu makalede, geliştiricilerin Azure SQL Veritabanı ile bağlantı kurmak üzere kod yazarken dikkat etmesi gereken noktalara yer verilmiştir. Bu makalede, Azure SQL veritabanı (tek veritabanı, elastik havuzlar, yönetilen örnek) tüm dağıtım modelleri için geçerlidir.
 
 > [!TIP]
-> Başlarken göz çalışmaya yönelik Kılavuzlar [tek veritabanı](sql-database-single-database-quickstart-guide.md) ve [yönetilen örnek](sql-database-managed-instance-quickstart-guide.md) Azure SQL veritabanınızı Kurulum gerekiyorsa.
+> Başlarken göz çalışmaya yönelik Kılavuzlar [tek veritabanları](sql-database-single-database-quickstart-guide.md) ve [yönetilen örnekleri](sql-database-managed-instance-quickstart-guide.md) Azure SQL veritabanınızı Kurulum gerekiyorsa.
 >
 
 ## <a name="language-and-platform"></a>Dil ve platform
@@ -49,14 +49,16 @@ Uzun süre çalışan işlemler kaçının, çünkü herhangi bir altyapı ya da
 
 ## <a name="resiliency"></a>Dayanıklılık
 
-Azure SQL veritabanı burada gerçekleşen geçici hataların altyapının veya Bulut varlıklarını arasındaki iletişimi beklediğiniz bir bulut hizmetidir.
-Azure SQL veritabanı üzerinde karşılıklı altyapı hatalara dayanıklı olsa da, bu hatalar bağlantınızı etkileyebilir. SQL veritabanına bağlanırken geçici bir hata oluştuğunda, kodunuzu gereken [çağrıyı yeniden denemesi](sql-database-connectivity-issues.md). Yeniden deneme mantığının SQL Veritabanını aynı anda yeniden deneme yapan birden fazla istemciyle boğmaması için geri alma mantığını kullanmasını öneririz. Yeniden deneme mantığı bağlıdır [SQL veritabanı istemci programları için hata iletileri](sql-database-develop-error-messages.md).
+Azure SQL veritabanı burada gerçekleşen geçici hataların altyapının veya Bulut varlıklarını arasındaki iletişimi beklediğiniz bir bulut hizmetidir. Azure SQL veritabanı üzerinde karşılıklı altyapı hatalara dayanıklı olsa da, bu hatalar bağlantınızı etkileyebilir. SQL veritabanına bağlanırken geçici bir hata oluştuğunda, kodunuzu gereken [çağrıyı yeniden denemesi](sql-database-connectivity-issues.md). Yeniden deneme mantığının SQL Veritabanını aynı anda yeniden deneme yapan birden fazla istemciyle boğmaması için geri alma mantığını kullanmasını öneririz. Yeniden deneme mantığı bağlıdır [SQL veritabanı istemci programları için hata iletileri](sql-database-develop-error-messages.md).
+
+Azure SQL veritabanınızı planlı bakım olayları için hazırlanması hakkında daha fazla bilgi için bkz. [Azure SQL veritabanı'nda Azure bakım olayları için planlama](sql-database-planned-maintenance.md).
 
 ## <a name="network-considerations"></a>Ağ konuları
 
 - İstemci programınızı barındıran bilgisayarda güvenlik duvarının 1433 numaralı bağlantı noktasından giden TCP iletişimine izin verdiğinden emin olun.  Daha fazla bilgi: [Bir Azure SQL veritabanı güvenlik duvarını](sql-database-configure-firewall-settings.md).
 - İstemciniz bir Azure sanal makine (VM) üzerinde çalışırken istemci programınız SQL veritabanına bağlanır, VM'de belirli bağlantı noktası aralıklarını açmanız gerekir. Daha fazla bilgi: [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Azure SQL veritabanı istemci bağlantıları, bazen Proxy'yi atlar ve veritabanı ile doğrudan etkileşim. 1433 dışındaki bağlantı noktaları önemli hale gelmiştir. Daha fazla bilgi için [Azure SQL veritabanı bağlantı mimarisi](sql-database-connectivity-architecture.md) ve [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Yönetilen örnek için ağ configation için bkz: [yönetilen örnekleri için ağ yapılandırması](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

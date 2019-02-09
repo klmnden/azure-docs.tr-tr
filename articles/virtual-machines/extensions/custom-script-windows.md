@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f29c995c4fb4a1e87c95295779ff83dd133ac61c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963513"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984401"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows için özel betik uzantısı
 
@@ -31,7 +31,7 @@ Bu belge, Azure PowerShell modülü, Azure Resource Manager şablonları ve soru
 ## <a name="prerequisites"></a>Önkoşullar
 
 > [!NOTE]  
-> Özel betik uzantısı, bu yana kendisine bekler, parametre olarak aynı VM ile Update-AzureRmVM çalıştırmak için kullanmayın.  
+> Özel betik uzantısı, bu yana kendisine bekler, parametre olarak aynı VM ile Update-AzVM çalıştırmak için kullanmayın.  
 >   
 > 
 
@@ -140,15 +140,15 @@ Genel ayarlar, betik yürütüldüğü VM düz metin olarak gönderilir.  Koruma
 
 Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde ayrıntılı JSON şema, bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında özel betik uzantısı'nı çalıştırmak için kullanılabilir. Aşağıdaki örnekler özel betik uzantısı kullanma işlemini gösterir:
 
-* [Öğretici: Azure Resource Manager şablonları ile sanal makine uzantıları dağıtma](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Öğretici: Sanal makine uzantıları Azure Resource Manager şablonları ile dağıtma](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Windows ve Azure SQL DB iki katmanlı uygulama dağıtma](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
 
-`Set-AzureRmVMCustomScriptExtension` Komutu, mevcut bir sanal makine için özel betik uzantısı eklemek için kullanılabilir. Daha fazla bilgi için [kümesi AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+`Set-AzVMCustomScriptExtension` Komutu, mevcut bir sanal makine için özel betik uzantısı eklemek için kullanılabilir. Daha fazla bilgi için [kümesi AzVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location myLocation `
     -FileUri myURL `
@@ -173,7 +173,7 @@ $storagekey = "1234ABCD"
 $ProtectedSettings = @{"storageAccountName" = $storageaccname; "storageAccountKey" = $storagekey; "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File 1_Add_Tools.ps1"};
 
 #run command
-Set-AzureRmVMExtension -ResourceGroupName myRG `
+Set-AzVMExtension -ResourceGroupName myRG `
     -Location myLocation ` 
     -VMName myVM ` 
     -Name "buildserver1" ` 
@@ -190,7 +190,7 @@ Bu örnekte, komut dosyası konumunuz için yerel bir SMB sunucusu kullanmak ist
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
  
-Set-AzureRmVMExtension -ResourceGroupName myRG 
+Set-AzVMExtension -ResourceGroupName myRG 
     -Location myLocation ` 
     -VMName myVM ` 
     -Name "serverUpdate" 
@@ -213,7 +213,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure PowerShell modülü kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için aşağıdaki komutu çalıştırın:
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 Uzantı yürütme çıktısı, hedef sanal makinede aşağıdaki dizini altında bulunan dosyaları için günlüğe kaydedilir.

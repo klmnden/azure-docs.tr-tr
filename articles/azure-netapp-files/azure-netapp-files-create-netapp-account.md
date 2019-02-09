@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 47b9d25f8db2241bb578528780e28f43d56371e5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413192"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963089"
 ---
 # <a name="create-a-netapp-account"></a>NetApp hesabı oluşturma
 NetApp hesabı oluşturmak, kapasite havuzu ayarlamanıza ve ardından birim oluşturmanıza olanak tanır. Yeni NetApp hesabını oluşturmak için Azure NetApp Files dikey penceresini kullanırsınız.
@@ -31,8 +31,8 @@ NetApp kaynak sağlayıcısı ve genel önizleme özelliğini kullanmak için ab
 
 ## <a name="steps"></a>Adımlar 
 
-1. Azure portal Önizleme bulun portal Önizleme daveti ve oturum açma URL'si. 
-2.  Aşağıdaki yöntemlerden birini kullanarak Azure NetApp Files dikey penceresine ulaşın:  
+1. Azure Portal’da oturum açın. 
+2. Aşağıdaki yöntemlerden birini kullanarak Azure NetApp Files dikey penceresine ulaşın:  
   * Azure portalı arama kutusunda **Azure NetApp Files** için arama yapın.  
   * Gezintide **Tüm hizmetler**'e tıklayın ve ardından Azure NetApp Files için filtreleyin.  
 
@@ -50,7 +50,6 @@ NetApp kaynak sağlayıcısı ve genel önizleme özelliğini kullanmak için ab
     Mevcut Kaynak Grubunu kullanın ya da yeni bir tane oluşturun.
   * **Konum**  
     Hesabın ve alt kaynaklarının içinde yer almasını istediğiniz bölgeyi seçin.  
-    Şu anda, Azure NetApp Files hizmeti yalnızca ABD Doğu bölgesinde desteklenir.  
 
     ![Yeni NetApp hesabı](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 

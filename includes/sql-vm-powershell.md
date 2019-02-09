@@ -4,26 +4,25 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: mikeray
-ms.openlocfilehash: e81cdb478a63e1e584aef2c32754bd321d245365
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: f9a45da2703518000aa464da067c5cf71a198fd4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440510"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984979"
 ---
 ## <a name="start-your-powershell-session"></a>PowerShell oturumunuzu başlatma
-En son ilk gerek [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) yüklü ve çalışır. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+ 
 
-> [!NOTE]
-> Bu konuda kullanım örnekleri [Azure Resource Manager dağıtım modeli](../articles/azure-resource-manager/resource-group-overview.md), bu nedenle örneklerde [Azure Resource Manager cmdlet'leri](https://msdn.microsoft.com/library/azure/mt125356.aspx). 
-> 
-> 
+Çalıştırma [ **Connect Az Account** ](https://docs.microsoft.com/powershell/module/az.accounts/connect-azmaccount) cmdlet'i ve kimlik bilgilerinizi girmeniz için bir oturum açma ekranı gösterilir. Azure portala giriş yapmak için kullandığınız kimlik bilgilerinin aynısını kullanın.
 
-Çalıştırma [ **Connect-AzureRmAccount** ](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet'i ve kimlik bilgilerinizi girmeniz için bir oturum açma ekranı gösterilir. Azure portala giriş yapmak için kullandığınız kimlik bilgilerinin aynısını kullanın.
+```powershell
+Connect-AzAccount
+```
 
-    Connect-AzureRmAccount
+Kullanan birden fazla aboneliğiniz varsa [ **kümesi AzContext** ](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet'ini kullanması gereken PowerShell oturumunuzun hangi aboneliği seçin. Geçerli PowerShell oturumunda hangi aboneliğin kullanıldığını görmek için çalıştırma [ **Get-AzContext**](https://docs.microsoft.com/powershell/module/az.accounts/get-azcontext). Tüm aboneliklerinizi görmek için şunu çalıştırın [ **Get-AzSubscription**](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription).
 
-Birden fazla aboneliğiniz varsa, PowerShell oturumunuzun hangi aboneliği kullanacağını seçmek için [**Set-AzureRmContext**](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext) cmdlet’ini kullanın. Geçerli PowerShell oturumunda hangi aboneliğin kullanıldığını görmek için [**Get-AzureRmContext**](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermcontext) cmdlet’ini kullanın. Tüm aboneliklerinizi görmek için [**Get-AzureRmSubscription**](https://docs.microsoft.com/powershell/module/servicemanagement/azurerm.profile/get-azurermsubscription) cmdlet’ini çalıştırın.
-
-    Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+```powershell
+Set-AzContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+```
 

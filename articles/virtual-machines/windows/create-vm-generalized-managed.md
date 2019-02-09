@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c452341567055e0272c8e6a90c43d6b886d6a928
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9157765afaa610d207a47e19b73f80ae3898fd68
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425603"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977567"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Yönetilen bir görüntüden VM oluşturma
 
 Birden çok sanal makine (VM) yönetilen bir Azure VM'den oluşturabilirsiniz Azure portal veya PowerShell kullanarak görüntü. Yönetilen bir VM görüntüsü işletim sistemi ve veri diskleri dahil olmak üzere, bir VM oluşturmak gerekli bilgileri içerir. Sanal sabit hem işletim sistemi diskleri ve tüm veri diskleri dahil olmak üzere, görüntüyü oluşturan diskleri (VHD'ler), yönetilen diskler olarak depolanır. 
 
 Yeni bir sanal makine oluşturmadan önce şunları yapmanız gerekir [yönetilen bir VM görüntüsü oluşturma](capture-image-resource.md) kaynak görüntü olarak kullanılacak. 
+
 
 ## <a name="use-the-portal"></a>Portalı kullanma
 
@@ -41,17 +42,17 @@ Yeni bir sanal makine oluşturmadan önce şunları yapmanız gerekir [yönetile
 
 ## <a name="use-powershell"></a>PowerShell kullanma
 
-Basitleştirilmiş parametre kümesi kullanarak görüntüden bir VM oluşturmak için PowerShell kullanabilirsiniz [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet'i. Görüntü, burada VM oluşturacağınız aynı kaynak grubunda olması gerekiyor.
+Basitleştirilmiş parametre kümesi kullanarak görüntüden bir VM oluşturmak için PowerShell kullanabilirsiniz [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet'i. Görüntü, burada VM oluşturacağınız aynı kaynak grubunda olması gerekiyor.
 
-Bu örnek AzureRM modülü 5.6.0 bir sürümü gerektirir veya üzeri. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-İçin Basitleştirilmiş parametre kümesi [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) yalnızca bir görüntüden bir VM oluşturmak için ad, kaynak grubu ve görüntü adı sağlamanız gerekir. Yeni-AzureRmVm değerini kullanacağınız **-adı** parametre adı olarak tüm kaynakları otomatik olarak oluşturur. Bu örnekte, kaynakların her biri için ayrıntılı adlar sağlar ancak onları otomatik olarak oluşturmasını cmdlet'i sağlar. Ayrıca, kaynak sanal ağ gibi önceden oluşturabilir ve kaynak adı cmdlet'e geçirin. Yeni-AzureRmVm adlarına göre bunları bulabilirsiniz varolan kaynakları kullanır.
+İçin Basitleştirilmiş parametre kümesi [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) yalnızca bir görüntüden bir VM oluşturmak için ad, kaynak grubu ve görüntü adı sağlamanız gerekir. Yeni-AzVm değerini kullanacağınız **-adı** parametre adı olarak tüm kaynakları otomatik olarak oluşturur. Bu örnekte, kaynakların her biri için ayrıntılı adlar sağlar ancak onları otomatik olarak oluşturmasını cmdlet'i sağlar. Ayrıca, kaynak sanal ağ gibi önceden oluşturabilir ve kaynak adı cmdlet'e geçirin. Yeni-AzVm adlarına göre bunları bulabilirsiniz varolan kaynakları kullanır.
 
 Aşağıdaki örnekte adlı bir VM oluşturur *Myımage*, *myResourceGroup* kaynak grubundan görüntüsünü *Myımage*. 
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
     -ImageName "myImage" `

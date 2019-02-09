@@ -12,21 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6581c389cb7b1aa9c6ce6b9e84b56017264822f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 7ef7216b2d3adf99b0c1fd9ace84991169106529
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232962"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976274"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Azure Media Services için Java istemci SDK’sı kullanmaya başlama
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services-legacy"></a>Azure Media Services için (eski) Java istemci SDK'sı ile çalışmaya başlama
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Bu öğretici, Java istemci SDK’sı kullanarak Azure Media Services ile basit bir video içerik teslim hizmeti uygulama adımlarında size kılavuzluk eder.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
@@ -48,7 +49,7 @@ Java için Media Services SDK’sını kullanmaya başlamak üzere [Azure Media 
 >[!NOTE]
 >Azure Media Services Java SDK'sının kaynak kodunu [GitHub depomuzda](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media) bulabilirsiniz. Ana dal yerine 0,9 dalına geçiş yaptığınızdan emin olun. 
 
-## <a name="how-to-use-azure-media-services-with-java"></a>Nasıl Yapılır: Java ile Azure Media Services’i Kullanma
+## <a name="how-to-use-azure-media-services-with-java"></a>Nasıl yapılır: Java ile Azure Media Services'i kullanma
 
 >[!NOTE]
 >Media Services hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir.
@@ -58,7 +59,7 @@ Aşağıdaki kod bir varlık oluşturma, varlığa bir medya dosyası yükleme, 
 Bu kodu kullanmadan önce bir Media Services hesabı ayarlayın. Hesap ayarlama hakkında daha fazla bilgi için bkz. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md).
 
 Kod, Azure AD hizmet sorumlusu kimlik doğrulamasını kullanarak Azure Media Services API’sine bağlanır. Bir Azure AD uygulaması oluşturun ve kodda aşağıdaki değişkenlerin değerlerini belirtin:
-* `tenant`: Azure AD uygulamasının bulunduğu Azure AD kiracı etki alanı
+* `tenant`: Azure AD uygulamasının bulunduğu Azure AD Kiracı etki alanı
 * `clientId`: Azure AD uygulamasının istemci kimliği
 * `clientKey`: Azure AD uygulamasının istemci anahtarı
 * `restApiEndpoint`: Azure Media Services hesabının REST API uç noktası

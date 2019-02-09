@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32679e37062fbf77ce6ab03b6ea708c0d5eeea30
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dbf614f9749039b054e1134df31334a6248e2b78
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816246"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981409"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Kullanılabilirlik alanları kullanan bir sanal makine ölçek kümesi oluşturma
 
@@ -117,12 +117,12 @@ Bu, oluşturmak ve tüm kaynaklarının ve VM'lerin belirttiğiniz bölgeleri i�
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell kullanma
 
-Kullanılabilirlik alanları kullanmak için desteklenen bir Azure bölgesinde ölçek kümenizi oluşturmanız gerekir. Ekleme `-Zone` parametresi [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) kullanmak için hangi bölgeyi belirtin ve komutu (bölge gibi *1*, *2*, veya *3*).
+Kullanılabilirlik alanları kullanmak için desteklenen bir Azure bölgesinde ölçek kümenizi oluşturmanız gerekir. Ekleme `-Zone` parametresi [yeni AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) kullanmak için hangi bölgeyi belirtin ve komutu (bölge gibi *1*, *2*, veya *3*).
 
 Aşağıdaki örnekte adlı bir tek bölgeli ölçek kümesi oluşturur *myScaleSet* içinde *Doğu ABD 2* bölge *1*. Sanal ağ, genel IP adresi ve yük dengeleyici için Azure ağ kaynakları otomatik olarak oluşturulur. İstendiğinde, ölçek kümesindeki sanal makine örnekleri için kendi istediğiniz yönetici kimlik bilgilerini sağlayın:
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `
@@ -139,7 +139,7 @@ New-AzureRmVmss `
 Bölgesel olarak yedekli ölçek kümesi oluşturmak için birden fazla bölge ile belirtin `-Zone` parametresi. Aşağıdaki örnekte adlı bir bölgesel olarak yedekli ölçek kümesi oluşturur *myScaleSet* arasında *Doğu ABD 2* bölgeleri *1, 2, 3*. Sanal ağ, genel IP adresi ve yük dengeleyici için bölgesel olarak yedekli Azure ağ kaynakları otomatik olarak oluşturulur. İstendiğinde, ölçek kümesindeki sanal makine örnekleri için kendi istediğiniz yönetici kimlik bilgilerini sağlayın:
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `

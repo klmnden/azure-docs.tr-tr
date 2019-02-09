@@ -1,6 +1,6 @@
 ---
 title: Azure Lab Services içinde sınıf laboratuvarlarını yönetme | Microsoft Docs
-description: Oluşturma ve bir sınıf laboratuvarı yapılandırmak hakkında bilgi edinin, tüm sınıf laboratuvarlarını, kayıt Laboratuvar kullanıcıyla bağlantı veya bir laboratuvar silme palaşma görüntüleyin.
+description: Oluşturma ve bir sınıf laboratuvarı yapılandırmak, tüm sınıf laboratuvarlarını görüntülemek, kayıt bağlantısını bir laboratuvar kullanıcıyla paylaşın veya bir laboratuvar silme öğrenin.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7d311a3fa1b00a6324c9bb81a14c1a575319472f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820003"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962834"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services içinde sınıf laboratuvarlarını yönetme 
 Bu makalede, oluşturma ve bir sınıf laboratuvarına silme açıklar. Ayrıca, bir laboratuvar hesabı tüm sınıf laboratuvarlarını görüntülemek nasıl gösterir. 
@@ -107,7 +107,12 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
 3. Üzerinde **silme Laboratuvar** iletişim kutusunda **Sil**. 
 
     ![Sil iletişim kutusu](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
- 
+
+## <a name="switch-to-another-classroom-lab"></a>Geçiş yapmak için başka bir sınıf laboratuvarı
+Başka bir sınıf laboratuvarı için geçerli geçiş yapmak için üst Laboratuvar hesabı labs açılan listesini seçin.
+
+![Laboratuvar üstündeki aşağı açılan listeden seçin](../media/how-to-manage-classroom-labs/switch-lab.png)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki makalelere bakın:

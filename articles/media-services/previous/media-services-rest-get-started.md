@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b76adda6e09cdce1f94c2d0691cbe7e4cc2b6b50
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237613"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983534"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST kullanarak isteğe bağlı içerik göndermeye başlama
+# <a name="get-started-with-delivering-content-on-demand-using-rest-legacy"></a>REST (eski) kullanarak isteğe bağlı içerik göndermeye başlama
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Bu hızlı başlangıçta, Azure Media Services (AMS) REST API'lerini kullanarak bir isteğe bağlı video (VoD) içerik teslim uygulaması gerçekleştirilmesinin adımları gösterilmektedir.
@@ -268,7 +269,7 @@ Bir SAS URL'si aşağıdaki biçime sahiptir:
 Bazı dikkate alınması gereken noktalar vardır:
 
 * Belirli bir varlık ile tek seferde ilişkilendirilen beşten fazla benzersiz Bulucu sayısı sahip olamaz. 
-* Hemen dosyalarınızı karşıya yüklemek ihtiyacınız varsa, geçerli saatten önce beş dakika, StartTime değeri ayarlamanız gerekir. Olabilir saat, istemci makinesi ile Media Services arasında eğriltme olmasıdır. Ayrıca, StartTime değeri aşağıdaki tarih saat biçiminde olmalıdır: YYYY-AA-ssZ (örneğin, "2014-05-23T17:53:50Z").    
+* Hemen dosyalarınızı karşıya yüklemek ihtiyacınız varsa, geçerli saatten önce beş dakika, StartTime değeri ayarlamanız gerekir. Olabilir saat, istemci makinesi ile Media Services arasında eğriltme olmasıdır. Ayrıca, StartTime değeri, şu tarih saat biçiminde olmalıdır: YYYY-AA-ssZ (örneğin, "2014-05-23T17:53:50Z").    
 * 30-40 ikinci olabilir kullanıma hazır olduğunda bir Bulucu için oluşturulduktan sonra gecikme. Bu sorun, her ikisi için de geçerlidir [SAS URL'si](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) ve Kaynak Konum Belirleyicisi.
 
 Aşağıdaki örnek, Type özelliği (bir SAS Bulucu için "1") ve bir isteğe bağlı kaynak konum belirleyicisi "2" istek gövdesinde tanımlanan bir SAS URL'si Bulucusu oluşturmak nasıl gösterir. **Yolu** dosyanızı karşıya yüklemek için kullanmanız gereken URL'yi döndürülen özelliğini içerir.
@@ -407,7 +408,7 @@ Başarılı olursa, aşağıdaki döndürülür:
 
 Önce Media Services, medya varlıklarına kodlanmış başlayan kümeniz, medyaya, kodlama vb. sonra istemcilere teslim edilir. Bu etkinlikler, yüksek performans ve kullanılabilirlik sağlamak için birden fazla arka plan rol örneğinde zamanlanır ve çalıştırılır. Bu etkinliklere işler adı verilir ve her bir iş varlık dosyası üzerinde asıl işi yapan atomik görevlerden oluşur (daha fazla bilgi için [iş](https://docs.microsoft.com/rest/api/media/operations/job), [görev](https://docs.microsoft.com/rest/api/media/operations/task) açıklamaları).
 
-İle Azure Media Services en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı Uyarlamalı akış iletmektir çalışırken daha önce belirtildiği gibi. Media Services dinamik olarak paketlemek Uyarlamalı bit hızı MP4 dosyaları kümesini aşağıdaki biçimlerden birini: HTTP canlı akışı (HLS), kesintisiz akış, MPEG DASH.
+İle Azure Media Services en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı Uyarlamalı akış iletmektir çalışırken daha önce belirtildiği gibi. Media Services dinamik olarak Uyarlamalı bit hızı MP4 dosyaları kümesini şu biçimlerden birine paketleyebilir: HTTP canlı akış (HLS), kesintisiz akış, MPEG DASH.
 
 Aşağıdaki bölümde, bir kodlama görevi içeren işi oluşturma işlemi gösterilmektedir. Görev e kodlamasını Ara dosyayı Uyarlamalı bit hızlı MP4'ı kullanarak bir küme içine belirtir **Media Encoder Standard**. Bölüm işleme ilerleme durumu işi izlemek nasıl de gösterir. İş tamamlandıktan sonra varlıklarınızı erişmek için gerekli olan bulucular oluşturmak olacaktır.
 
@@ -458,7 +459,7 @@ Aşağıdaki kod Kodlayıcısı'nın kimliği ister.
     }
 
 ### <a name="create-a-job"></a>Bir iş oluşturma
-Bir veya daha fazla görevi gerçekleştirmek istediğiniz işleme türüne bağlı olarak her bir iş olabilir. REST API aracılığıyla, işlerini ve görevlerini ilgili iki yoldan biriyle oluşturabilirsiniz: görevleri tanımlı satır içi OData toplu işlem veya iş varlıkları görevleri gezinti özelliği aracılığıyla olabilir. Media Services SDK'sı, toplu işlem kullanır. Ancak, bu makaledeki kod örnekleri okunabilirlik açısından, satır içi olarak tanımlanan görevlerdir. Toplu işlem hakkında daha fazla bilgi için bkz: [açık veri Protokolü (OData) toplu işleme](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Bir veya daha fazla görevi gerçekleştirmek istediğiniz işleme türüne bağlı olarak her bir iş olabilir. REST API aracılığıyla, işlerini ve görevlerini ilgili iki yoldan biriyle oluşturabilirsiniz: OData toplu işlem veya iş varlıkları görevleri gezinti özelliği aracılığıyla tanımlı satır içi görevleri olabilir. Media Services SDK'sı, toplu işlem kullanır. Ancak, bu makaledeki kod örnekleri okunabilirlik açısından, satır içi olarak tanımlanan görevlerdir. Toplu işlem hakkında daha fazla bilgi için bkz: [açık veri Protokolü (OData) toplu işleme](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 Aşağıdaki örnek nasıl oluşturulacağı ve bir görev belirli bir çözümleme ve kaliteli video kodlamak için ayarlama işlemiyle sonrası gösterir. Aşağıdaki bir belge bölümü tüm listesini içeren [görev ön ayarları](https://msdn.microsoft.com/library/mt269960) Media Encoder Standard işlemcisi tarafından desteklenir.  
 
@@ -692,7 +693,7 @@ Aşağıdaki kod, çıktı varlık kimliği istemek nasıl gösterir
 
 ## <a id="publish_get_urls"></a>Varlık yayımlama ve akış ve aşamalı indirme URL'lerini alın REST API ile
 
-Bir varlığı akışla aktarmak veya indirmek için söz konusu varlığı önce bir bulucu oluşturarak “yayımlamak” gerekir. Bulucular varlıkta bulunan dosyalara erişim imkanı sağlar. Media Services, iki tür bulucuyu destekler: Medyayı akışla aktarmak (örneğin MPEG DASH, HLS veya Kesintisiz Akış) için kullanılan OnDemandOrigin bulucuları ve medya dosyalarını indirmek için kullanılan Erişim İmzası (SAS) bulucuları. 
+Bir varlığı akışla aktarmak veya indirmek için söz konusu varlığı önce bir bulucu oluşturarak “yayımlamak” gerekir. Bulucular varlıkta bulunan dosyalara erişim imkanı sağlar. Media Services iki tür bulucuyu destekler: Akış medya (örneğin, MPEG DASH, HLS veya kesintisiz akış) ve medya dosyalarını indirmek için kullanılan erişim imzası (SAS) bulucuları için kullanılan OnDemandOrigin bulucuları. 
 
 Bulucuları oluşturduktan sonra akış veya dosyaları indirmek için kullanılan URL'leri oluşturabilirsiniz.
 
@@ -742,7 +743,7 @@ Aşağıdaki örnek, belirli bir varlık için Okuma izinleri AccessPolicy belir
 Başarılı olursa, oluşturduğunuz AccessPolicy varlığı açıklayan 201 başarı kodu döndürülür. Ardından AccessPolicy kimliği Bulucu varlık oluşturmak için (çıkış varlık gibi) sunmak istediğiniz dosyayı içeren varlığı varlık kimliği ile birlikte kullanabilirsiniz.
 
 > [!NOTE]
-> Bu temel iş akışı (Bu konunun önceki kısımlarında anlatıldığı) bir varlığı almak, bir dosyayı karşıya yüklemeyi aynıdır. (Veya istemcilerinize) hemen dosyalarınıza erişmek ihtiyacınız varsa, ayrıca, dosyaları, karşıya yükleme gibi StartTime değeri beş dakika geçerli saatten önce ayarlayın. Çünkü istemci ve Media Services arasında eğriltme saat olabilir bu eylem gerekli değildir. StartTime değeri aşağıdaki tarih saat biçiminde olmalıdır: YYYY-AA-ssZ (örneğin, "2014-05-23T17:53:50Z").
+> Bu temel iş akışı (Bu konunun önceki kısımlarında anlatıldığı) bir varlığı almak, bir dosyayı karşıya yüklemeyi aynıdır. (Veya istemcilerinize) hemen dosyalarınıza erişmek ihtiyacınız varsa, ayrıca, dosyaları, karşıya yükleme gibi StartTime değeri beş dakika geçerli saatten önce ayarlayın. Çünkü istemci ve Media Services arasında eğriltme saat olabilir bu eylem gerekli değildir. StartTime değeri, şu tarih saat biçiminde olmalıdır: YYYY-AA-ssZ (örneğin, "2014-05-23T17:53:50Z").
 >
 >
 

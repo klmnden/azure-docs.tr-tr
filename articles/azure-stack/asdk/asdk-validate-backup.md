@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 027d4a9f93032bfdd0f4cda96df74c92b5679540
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251580"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965333"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Azure Stack yedekleme doğrulamak için ASDK kullanın
 Azure Stack dağıtma ve kullanıcı kaynaklarını tekliflerini, planları, kotalar ve abonelikler gibi sağlama sonra yapmanız gerekenler [Azure Stack altyapısını yedekleme etkinleştir](../azure-stack-backup-enable-backup-console.md). Zamanlama ve normal altyapı yedeklemeleri geri dönülemez bir donanım veya Hizmeti hatası olması durumunda altyapı Yönetimi veri kaybı olmadığından sağlayacaktır.
@@ -47,7 +47,7 @@ Altyapı tarafından sunulan tümleşik sistemler dağıtımınızı yedeklerden
 
 
 
-### <a name="cloud-recovery-prerequisites"></a>Bulut kurtarma önkoşulları
+### <a name="prereqs"></a>Bulut kurtarma önkoşulları
 ASDK bulut kurtarma dağıtımı başlatmadan önce aşağıdaki bilgilere sahip olduğunuzdan emin olun:
 
 |Önkoşul|Açıklama|
@@ -80,6 +80,43 @@ Ardından, en son Azure Stack yedekleme dosyalarını yeni oluşturduğunuz payl
 > [!IMPORTANT]
 > ASDK yükleme için ağ tam olarak bir ağ arabirim kartı (NIC) destekler. Birden çok NIC varsa, yalnızca bir etkin (ve diğerlerinin tümü devre dışıdır) dağıtım betiğini çalıştırmadan önce emin olun.
 
+### <a name="use-the-installer-to-deploy-the-asdk-in-recovery-mode"></a>Yükleyici, kurtarma modunda ASDK dağıtım yapma
+Bu bölümdeki adımları indirme ve çalıştırma tarafından sağlanan bir grafik kullanıcı arabirimi (GUI) kullanarak ASDK dağıtmayı Göster **asdk installer.ps1** PowerShell Betiği.
+
+> [!NOTE]
+> Azure Stack geliştirme Seti'ni yükleyicisi kullanıcı arabirimi, WCF ve PowerShell temel alan bir açık kaynaklı komut dosyasıdır.
+
+1. Ana bilgisayar CloudBuilder.vhdx görüntünün başarıyla başlatıldıktan sonra yönetici kimlik bilgilerini kullanarak oturum belirtilen, [Geliştirme Seti ana bilgisayar hazırlanmış](asdk-prepare-host.md) ASDK yükleme. Bu Geliştirme Seti ana bilgisayar yerel yönetici kimlik bilgileriyle aynı olmalıdır.
+2. Yükseltilmiş bir PowerShell konsolu açın ve çalıştırın  **&lt;sürücü harfi > \AzureStack_Installer\asdk-installer.ps1** PowerShell Betiği. Betik, artık C:\ CloudBuilder.vhdx görüntüde değerinden farklı bir sürücüde olabilir. Tıklayın **kurtarmak**.
+
+    ![ASDK yükleyicisi betiği](media/asdk-validate-backup/1.PNG) 
+
+3. ASDK ana bilgisayarda kimlik sağlayıcısı ve kimlik bilgileri sayfasında, Azure AD directory bilgilerinizi (isteğe bağlı) ve yerel yönetici parolasını girin. **İleri**’ye tıklayın.
+
+    ![Kimlik ve kimlik bilgileri sayfası](media/asdk-validate-backup/2.PNG) 
+
+4. ' A tıklayın ve ASDK ana bilgisayar tarafından kullanılacak ağ bağdaştırıcısı seçin **sonraki**. Diğer tüm ağ arabirimleri ASDK yükleme sırasında devre dışı bırakılır. 
+
+    ![Ağ bağdaştırıcısı arabirimi](media/asdk-validate-backup/3.PNG) 
+
+5. Ağ yapılandırma sayfasında, geçerli saat sunucusu ve DNS ileticisi IP adresleri sağlayın. **İleri**’ye tıklayın.
+
+    ![Ağ yapılandırma sayfası](media/asdk-validate-backup/4.PNG) 
+
+6. Ağ arabirim kartının özellikleri doğrulandıktan sonra tıklayın **sonraki**. 
+
+    ![Ağ kartı ayarlarını doğrulama](media/asdk-validate-backup/5.PNG) 
+
+7. Daha önce açıklanan gerekli bilgileri sağlayın [Önkoşullar bölümüne](#prereqs) Yedekleme Ayarları sayfası ve kullanıcı adı ve parola paylaşımına erişmek için kullanılacak. Tıklayın **sonraki**: 
+
+   ![Yedekleme Ayarları sayfası](media/asdk-validate-backup/6.PNG) 
+
+8. Özet sayfasında ASDK dağıtmak için kullanılacak dağıtım betiği gözden geçirin. Tıklayın **Dağıt** dağıtımına başlamak için. 
+
+    ![Özet sayfası](media/asdk-validate-backup/7.PNG) 
+
+
+### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Kurtarma modunda ASDK dağıtmak için PowerShell kullanma
 Ortamınız için aşağıdaki PowerShell komutları değiştirebilir ve bunları bulut kurtarma modunda ASDK dağıtmak için çalıştırın:
 
 ```powershell

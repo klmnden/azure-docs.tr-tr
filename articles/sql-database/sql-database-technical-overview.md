@@ -12,15 +12,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f4b72a95c64467ce287d2cb762222d17334aad57
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755434"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982276"
 ---
-# <a name="the-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti
+# <a name="what-is-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti nedir?
 
 SQL Veritabanı, Microsoft Azure'da yer alan ve ilişkisel veri, JSON, uzamsal ve XML gibi yapıları destekleyen çok amaçlı ilişkisel veritabanı yönetilen hizmetidir. SQL veritabanı iki farklı satın alma modeli içinde dinamik olarak Ölçeklenebilir performans sunar: sanal çekirdek tabanlı satın alma modeli ve DTU tabanlı satın alma modeli. SQL Veritabanı ayrıca çok büyük ölçekli analitik analiz ve raporlama için [columnstore dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) ve raporlama ve çok büyük ölçekli işlemler için [bellek içi OLTP](sql-database-in-memory.md) gibi seçenekler sunar. Microsoft, SQL kod tabanıyla ilgili tüm düzeltme ve güncelleştirme işlerini sorunsuz olarak yaparak altyapı yönetimini tamamen soyutlar.
 
@@ -67,10 +67,10 @@ Dinamik ölçeklenebilirlik, otomatik ölçeklendirmeden farklıdır. Bir hizmet
 SQL veritabanı iki satın alma modeli sunar:
 
 - [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) işlem, bellek, hafif ve ağır veritabanı iş yüklerini desteklemek için üç hizmet katmanı g/ç kaynakları karışımını sunar. İşlem boyutları her katman içinde ek depolama kaynakları ekleyebileceğiniz, bu kaynakları farklı bir karışımını sağlar.
-- [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) sanal çekirdek miktarı veya bellek ve miktarını sayısını ve depolama hızını seçmenize olanak sağlar.
+- [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) sanal çekirdek miktarı veya bellek ve miktarını sayısını ve depolama hızını seçmenize olanak sağlar. Sanal çekirdek tabanlı satın alma modeli de kullanmanıza olanak tanır [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/) maliyet tasarrufu elde etmek için. Azure hibrit Avantajı hakkında daha fazla bilgi için bkz: [sık sorulan sorular](#sql-database-frequently-asked-questions-faq).
 
   > [!IMPORTANT]
-  > [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) şu anda genel Önizleme aşamasındadır. Tüm üretim iş yüklerini hiper ölçekli veritabanlarında henüz çalıştıran önerilmemektedir. Diğer hizmet katmanları için bir hiper ölçekli veritabanı güncelleştirilemiyor. Test amacıyla geçerli veritabanınızın bir kopyasını alın ve kopyasını hiper ölçekli hizmet katmanına güncelleştirmek öneririz.
+  > [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) tek veritabanları için şu anda genel Önizleme aşamasındadır. Tüm üretim iş yüklerini hiper ölçekli veritabanlarında henüz çalıştıran önerilmemektedir. Diğer hizmet katmanları için bir hiper ölçekli veritabanı güncelleştirilemiyor. Test amacıyla geçerli veritabanınızın bir kopyasını alın ve kopyasını hiper ölçekli hizmet katmanına güncelleştirmek öneririz.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Kaynak kullanımını en verimli hale getirmek için elastik havuzlar
 
@@ -195,6 +195,41 @@ SQL Veritabanı uygulama oluşturma ve uygulamaların bakımını yapma işlemle
   Windows, macOS ve Linux dahil olmak üzere uzantıları destekleyen bir ücretsiz, indirilebilir ve açık kaynak kod Düzenleyicisi [mssql uzantısı](https://aka.ms/mssql-marketplace) Microsoft SQL Server, Azure SQL veritabanı ve SQL veri ambarı'nı sorgulamak için.
 
 SQL Veritabanı MacOS, Linux ve Windows üzerinde Python, Java, Node.js, PHP, Ruby ve .NET ile uygulama oluşturmayı destekler. SQL Veritabanı, SQL Server ile aynı [bağlantı kitaplıklarını destekler](sql-database-libraries.md).
+
+## <a name="sql-database-frequently-asked-questions-faq"></a>SQL veritabanı sık sorulan sorular (SSS)
+
+### <a name="what-is-the-current-version-of-sql-database"></a>SQL veritabanı'nın geçerli sürümü nedir
+
+Geçerli sürümü, SQL veritabanı V12 ' dir. Sürüm V11 kullanımdan kaldırılmıştır.
+
+### <a name="can-i-control-when-patching-downtime-occurs"></a>Kapalı kalma süresi düzeltme eki uygulama oluştuğunda denetleyebilirim
+
+Hayır. Düzeltme eki uygulama etkisini genellikle belirgin değil ise, [yeniden deneme mantığı uyguluyor](sql-database-develop-overview.md#resiliency) uygulamanızda. Azure SQL veritabanınızı planlı bakım olayları için hazırlanması hakkında daha fazla bilgi için bkz. [Azure SQL veritabanı'nda Azure bakım olayları için planlama](sql-database-planned-maintenance.md).
+
+### <a name="azure-hybrid-benefit-questions"></a>Azure hibrit avantajı soruları
+
+#### <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>SQL Server için Azure hibrit avantajı ile çift kullanımlı hakları vardır
+
+Geçişleri sorunsuz bir şekilde çalıştığından emin olmak için ikili kullanım hakları lisans 180 günü var. Bu 180 günlük süre sonra SQL Server Lisansı yalnızca SQL veritabanı bulutta kullanılabilir ve ikili kullanım hakları şirket içi yok ve bulut.
+
+#### <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Azure hibrit avantajı, SQL Server için lisans taşınabilirliği ' farkı nedir
+
+Bugün, lisans taşınabilirliği avantajlarından paylaşılan üçüncü taraf sunucular için lisanslarını yeniden atanmasına imkan tanır Yazılım Güvencesi içeren SQL Server müşterileri için sunuyoruz. Bu avantajı, Azure Iaas ve AWS EC2 üzerinde kullanılabilir.
+SQL Server için Azure hibrit avantajı, lisans taşınabilirliği iki temel alanlarda farklıdır:
+
+- Bu, yüksek oranda sanallaştırılmış iş yüklerini Azure'a taşımak için ekonomik avantajlarını sağlar. SQL EE müşteriler, 4 çekirdek alabilir yüksek oranda sanallaştırılmış uygulamalar için şirket içi oldukları her çekirdek için genel amaçlı SKU'SUNDA Azure'da içinde. Lisans taşınabilirliği sanallaştırılmış iş yüklerini buluta taşımak için herhangi bir özel maliyet avantajları izin vermez.
+- SQL Server ile şirket içinde yüksek oranda uyumludur (SQL veritabanı yönetilen örneği) Azure PaaS hedefte sağlar
+
+#### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server için Azure hibrit Avantajı'ndan belirli haklar nelerdir
+
+SQL veritabanı müşterilerinin, SQL Server için Azure hibrit avantajı ile ilişkili aşağıdaki hakkına sahip olursunuz:
+
+|Lisans Ayak izi|Azure hibrit avantajı SQL Server almak sizin için yapar?|
+|---|---|
+|SQL Server Enterprise Edition çekirdek müşterilerle SA|<li>Genel amaçlı ya da iş açısından kritik SKU'SUNDA taban ücreti ödeyebilirsiniz</li><br><li>1 çekirdek şirket içi genel amaçlı SKU'SUNDA 4 çekirdek =</li><br><li>1 çekirdek şirket içi iş açısından kritik SKU'SUNDA 1 çekirdek =</li>|
+|SQL Server Standard Edition çekirdek müşterilerle SA|<li>Taban fiyatı yalnızca genel amaçlı SKU'SUNDA ödeyebilirsiniz</li><br><li>1 çekirdek şirket içi genel amaçlı SKU'SUNDA 1 çekirdek =</li>|
+|||
+
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>SQL Server mühendislik ekibi ile iletişime geçme
 

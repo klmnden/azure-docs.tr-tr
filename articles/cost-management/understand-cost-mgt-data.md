@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 6a888df453a2626756fa47115ef97d04be701265
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892873"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981766"
 ---
-# <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerine anlama
+# <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerini anlama
 
 Bu makalede, hangi verilerin Azure maliyet Yönetimi'nde dahildir daha iyi anlamanıza yardımcı olur. Ve ne sıklıkta veri toplanan, gösterilen ve kapalı işleneceğini açıklar. Aylık Azure kullanım için faturalandırılırsınız. Bununla birlikte, faturalandırma ayınızdan sona erdiğinde Azure abonelik türü belirler. Maliyet Yönetimi veri değişir kullanım ne sıklıkta alan farklı etkenlere bağlı olarak. Verileri işlemek için ne kadar sürer ve Azure Hizmetleri kullanımı faturalandırma sistemine ne sıklıkta yayma gibi faktörleri içerir.
 
@@ -28,14 +28,13 @@ Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sundu�
 | Kategori  | **Teklif adı** | **Teklif numarası** |
 | --- | --- | --- |
 | **Azure Almanya** | [Azure Almanya Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
-|**Azure Devlet Kurumları**|Azure kamu Enterprise|MS-AZR-USGOV-0017P|
-| **Kurumsal Anlaşma (EA)**| Kurumsal Geliştirme ve Test | MS-AZR-0148P |
+| **Azure Devlet Kurumları** | Azure kamu Enterprise | MS-AZR-USGOV-0017P |
+| **Kurumsal Anlaşma (EA)** | Kurumsal Geliştirme ve Test | MS-AZR-0148P |
 | **Kurumsal Anlaşma (EA)** | [Microsoft Azure Kurumsal](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
 | **Microsoft Geliştirici Ağı (MSDN)** | [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
 | **Kullandıkça Öde** | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
 | **Kullandıkça Öde** | [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
 | **Kullandıkça Öde** | [Microsoft iş ortağı ağı](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **Kullandıkça Öde** | [Microsoft Azure Sponsorluğu](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Kullandıkça Öde** | [Ücretsiz deneme](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
 | **Kullandıkça Öde** | [Açık lisansta Azure](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
 | **Kullandıkça Öde** | [Öğrenciler için Azure](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
@@ -54,6 +53,7 @@ Aşağıdaki tabloda, desteklenmeyen teklifler gösterilmektedir.
 | **Bulut çözümü sağlayıcısı (CSP)** | Azure kamu CSP | MS-AZR-USGOV-0145P |
 | **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Bulut Almanya için CSP’de Azure Almanya | MS-AZR-DE-0145P |
 | **Kullandıkça Öde** | Öğrenciler için Azure Başlangıç | MS-AZR - 0144P |
+| **Kullandıkça Öde** | [Microsoft Azure Sponsorluğu](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Destek planları** | Standart destek | MS-AZR-0041P |
 | **Destek planları** | Profesyonel doğrudan desteği | MS-AZR-0042P |
 | **Destek planları** | Geliştirici Desteği | MS-AZR-0043P |
@@ -69,17 +69,6 @@ Veriler için bir abonelik göremiyor ve aboneliğinizi desteklenen teklifleri a
 ## <a name="costs-included-in-cost-management"></a>Maliyet Yönetimi'nde bulunan maliyetleri
 
 Aşağıdaki tablolarda, maliyet Yönetimi'nde değil ya da eklenmiştir. Bu verileri görüntüleyin.
-
-**Hesap türleri**
-
-| **Dahil edilen** | **Dahil değil** |
-| --- | --- |
-| Kurumsal Anlaşma (EA) | Bulut çözümü sağlayıcısı (CSP) - daha fazla bilgi için bkz: [iş ortağı merkezi genel bakış](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview). |
-| Kullandıkça Öde (PAYG) |   |
-| Geliştirme/test |   |
-| Ücretsiz ve deneme |   |
-| İş Ortağı Ağı |   |
-| Open ile Azure | &nbsp;  |
 
 **Maliyet ve kullanım verileri**
 

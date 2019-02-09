@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e11ef458fad11f04ce159d5e79c4152d2bd7e4c6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6f67ad04fed2018ba71dd39ed03c24e6aebecf90
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746807"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984741"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Windows tabanlı HDInsight kümelerini betik eylemi kullanarak özelleştirme
 **Betik eylemi** çağırmak için kullanılan [özel betikler](hdinsight-hadoop-script-actions.md) bir kümede ek yazılım yüklemek için küme oluşturma işlemi sırasında.
@@ -62,17 +62,12 @@ HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için birk
 
     ![Bir küme özelleştirmek için betik eylemi kullanmanız](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "küme özelleştirmek için betik eylemini kullanın")
 
-    <table border='1'>
-        <tr><th>Özellik</th><th>Değer</th></tr>
-        <tr><td>Ad</td>
-            <td>Betik eylemi için bir ad belirtin.</td></tr>
-        <tr><td>Betiği URI'si</td>
-            <td>Küme özelleştirmek için çağrılan betik URI'si belirtin. s</td></tr>
-        <tr><td>HEAD/çalışan</td>
-            <td>Düğüm belirtin (**Head** veya **çalışan**) özelleştirme betik çalıştığı şirket.</b>.
-        <tr><td>Parametreler</td>
-            <td>Komut dosyası tarafından gerekli parametreleri belirtin.</td></tr>
-    </table>
+      |Özellik|Değer|  
+      |---|---|
+      |Ad|Betik eylemi için bir ad belirtin.|
+      |Betiği URI'si|Kümeleri özelleştirmek için çağrılan betik URI'si belirtin.|
+      |HEAD/çalışan|Düğüm belirtin (**baş** veya **çalışan**) özelleştirme betiğin çalıştırıldığı üzerinde.|
+      |Parametreler|Komut dosyası tarafından gerekli parametreleri belirtin.|
 
     Küme üzerinde birden çok bileşenleri yüklemek için birden fazla betik eylemi eklemek için ENTER tuşuna basın.
 3. Tıklayın **seçin** betik eylemi yapılandırmasını kaydetmek ve küme oluşturma işlemine devam etmek için.
@@ -80,7 +75,7 @@ HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için birk
 ## <a name="call-scripts-using-azure-powershell"></a>Azure PowerShell kullanarak komut dosyalarını çağırma
 Bu aşağıdaki PowerShell Betiği, Windows tabanlı HDInsight kümesi üzerinde Spark'ı yüklemek gösterilmektedir.  
 
-    ```powershell
+```powershell  
     # Provide values for these variables
     $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
@@ -159,7 +154,7 @@ Bu aşağıdaki PowerShell Betiği, Windows tabanlı HDInsight kümesi üzerinde
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-    ```
+```
 
 Diğer yazılım yüklemek için betik komut dosyasında değiştirilecek gerekir:
 
@@ -172,12 +167,14 @@ Aşağıdaki örnek, Windows tabanlı HDInsight kümesi üzerinde Apache Spark'�
 
 1. Visual Studio'da C# konsol uygulaması oluşturun.
 2. Nuget Paket Yöneticisi konsolundan aşağıdaki komutu çalıştırın.
-    ```powershell
+
+    ```powershell  
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
     ```
-3. Aşağıdaki using deyimlerini Program.cs dosyasında:
+
+1. Aşağıdaki using deyimlerini Program.cs dosyasında:
 
     ```csharp
         using System;

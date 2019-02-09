@@ -3,9 +3,8 @@ title: Azure AD'de Federasyon sertifikalarını yönetme | Microsoft Docs
 description: Federasyon sertifikalarınızı sona erme tarihini özelleştirme ve yakında sona erecek sertifikaları yenile öğrenin.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: jeedes
-ms.openlocfilehash: efdcdb8dd2f7917bd1270b9da1d87be655ea675f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 73aa9d232567f7c0994c29c29076ef4c8d9319fc
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171006"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963956"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Federasyon çoklu oturum açma için Azure Active Directory'de sertifikaları yönetme
 Bu makalede, yaygın soruları ve Azure Active Directory (Azure AD), SaaS uygulamaları için Federasyon çoklu oturum açma (SSO) kurmaya oluşturur sertifikalarla ilgili bilgiler yer almaktadır. Uygulamaları Azure AD uygulama galerisinde veya galeri dışı uygulama şablonu kullanarak ekleyin. Federasyon SSO seçeneği kullanarak uygulamayı yapılandırın.

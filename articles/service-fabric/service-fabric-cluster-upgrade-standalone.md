@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 6f0ffac9ecf4d0c8f6c3dc7c57670b168417cd3a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ed50f49b110d910a298e608f3625a3bddfe8a0a8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855143"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963175"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Yükseltme ve Service Fabric tek başına küme güncelleştiriliyor
 
 Herhangi bir modern sistemi için upgradability yönelik uzun vadeli ürününüzün başarısını ulaşmak için anahtardır. Bir Azure Service Fabric tek başına küme sahip olduğunuz bir kaynaktır. Bu makalede, hangi yükseltme veya güncelleştirilebilen açıklanır.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Kümenizde çalışan yapı sürümü denetleme
-Kümeniz her zaman desteklenen bir Service Fabric sürümü çalıştığından emin olun. Microsoft, Service Fabric, yeni bir sürüm olduğunu bildirir, önceki sürümü en az Duyurunun tarihinden 60 gün sonra destek sonu için işaretlenir. Yeni yayınlar duyurulan [Service Fabric Ekibi blogunda](https://blogs.msdn.microsoft.com/azureservicefabric/). Bu noktada seçmek yeni sürüm kullanılabilir.
+Kümeniz her zaman çalıştığından emin olun bir [Service Fabric sürümü desteklenen](service-fabric-versions.md). Microsoft, Service Fabric, yeni bir sürüm olduğunu bildirir, önceki sürümü en az Duyurunun tarihinden 60 gün sonra destek sonu için işaretlenir. Yeni yayınlar duyurulan [Service Fabric Ekibi blogunda](https://blogs.msdn.microsoft.com/azureservicefabric/). Bu noktada seçmek yeni sürüm kullanılabilir.
 
 Kümenizi, kümenizin olmasını istediğiniz bir desteklenen yapı sürümü el ile seçebilirsiniz veya Microsoft tarafından yayımlanır yayımlanmaz otomatik yapı yükseltmeleri almak için ayarlayabilirsiniz. Daha fazla bilgi için okuma [kümenizde çalışan Service Fabric sürümüne yükseltme](service-fabric-cluster-upgrade-windows-server.md).
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: f85d404df37d34f7363114fbbf34ceec3bbe7c0f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 3bf6fae2b539ee3a21b4a96071fed67dd8bd1597
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042810"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983619"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Azure PowerShell kullanarak blobları Listele
 
@@ -33,30 +33,30 @@ Bu hızlı başlangıçta, Azure PowerShell modülü Az 0.7 veya sonraki bir sü
 
 Bloblar her zaman bir kapsayıcıya yüklenir. Bu, blob gruplarını bilgisayarınızdaki dosyaları klasörler halinde düzenlediğiniz gibi düzenleyebilmenizi sağlar.
 
-Kapsayıcı adını ayarlayın ve ardından [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer)’ı kullanarak kapsayıcıyı oluşturun. Dosyalara genel erişime izin vermek için izinleri `blob` olarak ayarlayın. Bu örnekteki kapsayıcı adı *quickstartblobs*’tur.
+Kapsayıcı adını ayarlayın, ardından kullanarak kapsayıcıyı oluşturun [yeni AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer). Dosyalara genel erişime izin vermek için izinleri `blob` olarak ayarlayın. Bu örnekteki kapsayıcı adı *quickstartblobs*’tur.
 
 ```powershell
 $containerName = "quickstartblobs"
-new-azurestoragecontainer -Name $containerName -Context $ctx -Permission blob
+new-AzStoragecontainer -Name $containerName -Context $ctx -Permission blob
 ```
 
 ## <a name="upload-blobs-to-the-container"></a>Blobları kapsayıcıya yükleme
 
 Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. IaaS VM’lerini yedekleyen VHD dosyaları sayfa bloblarıdır. Ekleme bloblarını, bir dosyaya yazıp daha sonradan daha fazla bilgi eklemek istediğiniz durumlarda günlüğe kaydetmek için kullanın. Blob depolamada depolanan çoğu dosya blok blobudur. 
 
-Bir dosyayı bir blok blobuna yüklemek için, bir kapsayıcı başvurusu alın ve bu kapsayıcıdaki blok blobuna bir başvuru alın. Blob başvurusunu aldıktan sonra verileri için kullanarak karşıya yükleyebilirsiniz [set-azurestorageblobcontent](/powershell/module/azure.storage/set-azurestorageblobcontent). Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, blob varsa blobun üzerine yazılır.
+Bir dosyayı bir blok blobuna yüklemek için, bir kapsayıcı başvurusu alın ve bu kapsayıcıdaki blok blobuna bir başvuru alın. Blob başvurusunu aldıktan sonra verileri için kullanarak karşıya yükleyebilirsiniz [kümesi AzStorageBlobContent](/powershell/module/az.storage/set-AzStorageblobcontent). Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, blob varsa blobun üzerine yazılır.
 
 Aşağıdaki örneklerde yerel diskteki *D:\\_TestImages* klasöründen *Image001.jpg* ve *Image002.png* dosyaları az önce oluşturduğunuz kapsayıcıya yüklenmektedir.
 
 ```powershell
 # upload a file
-set-azurestorageblobcontent -File "D:\_TestImages\Image001.jpg" `
+set-AzStorageblobcontent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
   -Context $ctx 
 
 # upload another file
-set-azurestorageblobcontent -File "D:\_TestImages\Image002.png" `
+set-AzStorageblobcontent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
@@ -66,27 +66,27 @@ Devam etmeden önce istediğiniz sayıda dosyayı karşıya yükleyin.
 
 ## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-Kullanarak kapsayıcıda BLOB listesini alma [get-azurestorageblob](/powershell/module/azure.storage/get-azurestorageblob). Bu örnekte karşıya yüklenen blobların yalnızca adları gösterilmektedir.
+Kullanarak kapsayıcıda BLOB listesini alma [Get-AzStorageBlob](/powershell/module/az.storage/get-AzStorageblob). Bu örnekte karşıya yüklenen blobların yalnızca adları gösterilmektedir.
 
 ```powershell
-get-azurestorageblob -Container $ContainerName -Context $ctx | select Name
+Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 ```
 
 ## <a name="download-blobs"></a>Blob’ları indirme
 
-Blobları yerel diskinize indirin. İndirmek istediğiniz her bir blob kümesi için ad ve çağrı [get-azurestorageblobcontent](/powershell/module/azure.storage/get-azurestorageblobcontent) blobu indirmek için.
+Blobları yerel diskinize indirin. İndirmek istediğiniz her bir blob kümesi için ad ve çağrı [Get-AzStorageBlobConten](/powershell/module/az.storage/get-AzStorageblobcontent) blobu indirmek için.
 
 Bu örnekte, bloblar yerel diskteki *D:\\_TestImages\Downloads* klasörüne indirilir. 
 
 ```powershell
 # download first blob
-get-azurestorageblobcontent -Blob "Image001.jpg" `
+Get-AzStorageblobcontent -Blob "Image001.jpg" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx 
 
 # download another blob
-get-azurestorageblobcontent -Blob "Image002.png" `
+Get-AzStorageblobcontent -Blob "Image002.png" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx
@@ -111,7 +111,7 @@ Hızlı bir örnek olarak, bir PowerShell penceresinden *myfile.txt* adlı dosya
 Oluşturduğunuz tüm varlıkları kaldırın. Varlıkları kaldırmanın en kolay yolu kaynak grubunu silmektir. Kaynak grubunu kaldırdığınızda o grubun içindeki tüm kaynaklar da silinir. Aşağıdaki örnekte, kaynak grubu kaldırıldığında depolama hesabı ve kaynak grubunun kendisi de kaldırılır.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

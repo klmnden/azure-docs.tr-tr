@@ -1,28 +1,28 @@
 ---
-title: Postman koleksiyonu için Azure canlı akış REST çağrılarını içeri aktarma
-description: Bu makale Azure Media Services REST çağrılarını Postman toplamalarında tanımını sağlar.
+title: Azure canlı akış REST çağrılarını yönelik Postman koleksiyonunu içeri aktarma
+description: Bu makalede, Azure Media Services REST çağrıları için Postman koleksiyonu tanımını sağlar.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ea88d6a85fb0b22d12c9d30baf23c33074666568
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e931e8c3696b53724d7893100bb1749856f04f9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790737"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976361"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Canlı akış işlemleri Postman koleksiyonuyla alma
+# <a name="import-a-postman-collection-with-live-streaming-operations-legacy"></a>Canlı akış işlemleri (eski) ile bir Postman koleksiyonunu içeri aktarma
 
-Bu makalede bir tanımını içeren **Postman** gruplandırılmış HTTP içeren koleksiyon istekleri bu çağrı **canlı akış** Azure Media Services REST API'leri. Nasıl yapılandırılacağı hakkında bilgi için **Postman** , böylece Media Services REST API'leri çağırmak için bkz: [Postman yapılandırmak için Media Services REST API çağrıları](media-rest-apis-with-postman.md) Öğreticisi.
+Bu makalede bir tanımını içeren **Postman** gruplandırılmış HTTP içeren koleksiyon istekleri bu çağrı **canlı akış** Azure Media Services REST API'leri. Yapılandırma hakkında daha fazla bilgi için **Postman** da kullanılabilmesi için Media Services REST API'leri çağırmak için bkz [Postman yapılandırmak için Media Services REST API çağrıları](media-rest-apis-with-postman.md) öğretici.
 
 ```
 {

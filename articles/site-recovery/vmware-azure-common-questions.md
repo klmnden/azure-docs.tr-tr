@@ -1,19 +1,19 @@
 ---
 title: Sık sorulan soruları - VMware-Azure Site Recovery ile Azure'a olağanüstü durum kurtarma | Microsoft Docs
 description: Azure Site Recovery kullanılarak Azure'da şirket içi VMware vm'lerinin olağanüstü durum kurtarma oluşturduğunuzda bu makalede, sık sorulan sorular özetler.
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 1/29/2019
+ms.date: 2/7/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fb4add1194f7fe6d10859f76f244f027b35ad92d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212248"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960590"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -108,6 +108,9 @@ Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure depo
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure'a ne sıklıkta çoğaltabilirim?
 VMware Vm'lerini Azure'a çoğaltırken çoğaltma sürekli olarak yapılır.
+
+### <a name="can-i-retain-the-ip-address-on-failover"></a>Ben, yük devretme IP adresi tutabilir miyim?
+Evet, yük devretme IP adresi tutabilirsiniz. 'İşlem ve ağ' dikey penceresinde yük devretmeden önce hedef IP adresi belirttiğinizden emin olun. Ayrıca, yük devretme, yeniden çalışma sırasındaki IP çakışmalarını önlemek için zamanında makineleri kapatmayı emin olun.
 
 ### <a name="can-i-extend-replication"></a>Ben çoğaltma uzatabilir miyim?
 Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

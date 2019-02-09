@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: c71c7423b4cde2a24c8154899eec256e5746b6d7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9bff93fbec73eb73dca01660d46e35e194edb626
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865378"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963497"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure anahtar kasası yönetilen depolama hesabı - CLI
 
@@ -44,6 +44,12 @@ ms.locfileid: "55865378"
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Key Vault depolama hesabı anahtarlarını yönetmek için kullanımı konusunda adım yönergeleri ile adım
 --------------------------------------------------------------------------------
+Kavramsal olarak izlendiğini adımları listesidir
+- Biz ilk (önceden mevcut olan) depolama hesabı alın
+- Biz sonra (önceden mevcut olan) bir anahtar kasası getirilemedi
+- Ardından KeyVault ile yönetilen depolama hesabı, kasaya Key1 etkin anahtar olarak ve 180 günlük bir oluşturma süresini ayarlama ekliyoruz
+- Son olarak Key1 ile belirtilen depolama hesabı için bir depolama bağlamı ayarladık
+
 İçinde yönergeler, size Key Vault operatör izinleri depolama hesabınız için bir hizmet olarak atama
 
 > [!NOTE]
@@ -85,9 +91,41 @@ ms.locfileid: "55865378"
     ```
     Kullanıcı depolama hesabı oluşturmadıysanız ve depolama hesabı için izinlere sahip değil durumunda, aşağıdaki adımları, anahtar Kasası'nda tüm depolama izinleri yönetebilirsiniz emin olmak hesabınız için izinleri ayarlayın.
     
+
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Key Vault oluşturun ve SAS belirteçleri oluşturmak için kullanımı konusunda adım yönergeleri ile adım
+--------------------------------------------------------------------------------
+SAS (paylaşılan erişim imzası) belirteçleri oluşturmak için Key Vault da sorabilirsiniz. Paylaşılan erişim imzası, depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. Bir SAS ile hesap anahtarlarınızı paylaşmadan depolama hesabınızdaki kaynaklara erişim istemcileri verebilirsiniz. Bu, uygulamalarınızda paylaşılan erişim imzaları kullanmanın anahtar noktasıdır. SAS, hesap anahtarlarınızı tehlikeye atmadan depolama kaynaklarınızı paylaşmanın güvenli bir yoludur.
+
+Oluşturmayı tamamladıktan sonra listelenen adımları SAS belirteçleri oluşturmak için Key Vault istemek için aşağıdaki komutları çalıştırabilirsiniz. 
+
+Listenin içinde ulaşılacağına şeyleri adımlarla ilgili daha fazla bilgi
+- Bir hesap SAS tanımı adlı ayarlar '<YourSASDefinitionName>'KeyVault ile yönetilen depolama hesabındaki'<YourStorageAccountName>'kasanızdaki'<VaultName>'. 
+- Belirtilen başlangıç ve bitiş tarihleri ve https üzerinden tüm izinlere sahip bir hesap SAS belirtecini Hizmetleri Blob, dosya, tablo ve kuyruk hizmeti, kapsayıcı ve nesne, kaynak türleri için oluşturur
+- Kasadaki yukarıda, SAS türü 'account' ve geçerli N gün için oluşturulan SAS belirteciyle şablon URI ile bir KeyVault ile yönetilen depolama SAS tanımı ayarlar
+- KeyVault gizli SAS tanımına karşılık gelen gerçek erişim belirtecini alır
+
+1. Bu adımda bir SAS tanımı oluşturacağız. Bu SAS tanımı oluşturulduktan sonra daha fazla SAS belirteçleri oluşturmak için Key Vault sorabilirsiniz. Bu işlem, depolama/setsas izni gerektirir.
+
+```
+$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+```
+Yukarıdaki işlemi hakkında daha fazla yardım gördüğünüz [burada](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
+
+Bu işlem başarıyla çalıştığında, aşağıda gösterildiği gibi benzer bir çıktı görmeniz gerekir. Bu kopyalama
+
+```console
+   "se=2020-01-01&sp=***"
+```
+
+2. Bu adımda bir SAS tanımı oluşturmak için yukarıda oluşturulan çıktı ($sasToken) kullanacağız. Daha fazla belgelerini okuyun [burada](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+
+```
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+```
+                        
+
  > [!NOTE] 
  > Kullanıcının depolama hesabı için izinler yok durumda biz ilk kullanıcının nesne kimliği alın
-
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
@@ -96,11 +134,11 @@ ms.locfileid: "55865378"
     
     ```
     
-## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>SAS belirteçleri kullanarak depolama hesabınızın erişim
+## <a name="fetch-sas-tokens-in-code"></a>SAS belirteçleri kodda getirilemedi
 
 Bu bölümde getirilirken tarafından depolama hesabınızda işlemleri nasıl yapabilirsiniz ele alınacaktır [SAS belirteçlerini](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) Key vault'tan
 
-İçinde aşağıdaki bölümüne, biz Key Vault'ta depolanan depolama hesabı anahtarınızı getirme nasıl gerçekleştirileceğini gösterir ve depolama hesabınız için bir SAS (paylaşılan erişim imzası) tanımı oluşturmak için kullandığı.
+İçinde aşağıdaki bölümüne, biz bir SAS tanımında yukarıda da gösterildiği gibi oluşturulduktan sonra SAS belirteçlerini almak nasıl ekleyebileceğiniz gösterilmektedir.
 
 > [!NOTE] 
   İçinde okumak için Key Vault kimlik doğrulaması için izleyebileceğiniz 3 yol vardır [temel kavramlar](key-vault-whatis.md#basic-concepts)

@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c907af8e91a7463c74e0bb14b0d8e0862c4e0fa3
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3727d2db375847c8df0a96d5721ea3135584eeec
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887266"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976257"
 ---
-# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri için Azure PowerShell örnekleri
+# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Azure PowerShell örnekleri için sanal makine ölçek kümeleri.
 
 Aşağıdaki tablo, Azure PowerShell kullanılarak derlenen bash komut dosyalarının bağlantılarını içerir.
 
@@ -41,3 +41,6 @@ Aşağıdaki tablo, Azure PowerShell kullanılarak derlenen bash komut dosyalar�
 | [Tek bölgeli ölçek kümesi oluşturma](scripts/powershell-sample-single-availability-zone-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Tek bir Kullanılabilirlik Alanı kullanan bir sanal makine ölçeği oluşturur. |
 | [Alanlar arası yedekli ölçek kümesi oluşturma](scripts/powershell-sample-zone-redundant-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Birden çok Kullanılabilirlik Alanında sanal makine ölçeği oluşturur. |
 | | |
+
+
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    

@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 52e115aa7f54eccc2be4e500c544aa38ca3bc32d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631285"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975793"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Kimlik bilgilerini geçirmek için Azure DSCExtension işleyicisi
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 Bu makale için Azure Desired State Configuration ' nı (DSC) uzantısı kapsar. DSC uzantısı işleyicisine genel bakış için bkz. [Azure Desired State Configuration uzantısı işleyicisi giriş](dsc-overview.md).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="pass-in-credentials"></a>Kimlik bilgilerini geçirin
 
@@ -65,7 +65,7 @@ Eklenmesi önemlidir **düğüm localhost** yapılandırmasının bir parçası 
 
 Bu betik, Azure Blob depolama alanına yayımlama için:
 
-`Publish-AzureRmVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
+`Publish-AzVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
 Azure DSC uzantısı ve kimlik bilgileri sağlamak için:
 
@@ -73,16 +73,16 @@ Azure DSC uzantısı ve kimlik bilgileri sağlamak için:
 $configurationName = 'Main'
 $configurationArguments = @{ Credential = Get-Credential }
 $configurationArchive = 'user_configuration.ps1.zip'
-$vm = Get-AzureRmVM -Name 'example-1'
+$vm = Get-AzVM -Name 'example-1'
 
-$vm = Set-AzureRmVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
+$vm = Set-AzVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
 
-$vm | Update-AzureRmVM
+$vm | Update-AzVM
 ```
 
 ## <a name="how-a-credential-is-secured"></a>Bir kimlik bilgisi güvenliği nasıl sağlanır
 
-Bu kodu çalıştırmak için kimlik bilgilerini ister. Kimlik bilgileri sağlandıktan sonra kısaca bellekte depolanır. Kimlik bilgisi, yayımlanan kullanarak **kümesi AzureRmVMDscExtension** cmdlet'i, kimlik bilgisi, sanal makineye HTTPS üzerinden iletilir. VM, Azure yerel sanal makine sertifikası kullanarak diskte şifrelenmiş kimlik bilgileri depolar. Kimlik bilgisi kısaca bellekte şifresi çözülür ve ardından DSC için geçirmek için yeniden şifrelenir.
+Bu kodu çalıştırmak için kimlik bilgilerini ister. Kimlik bilgileri sağlandıktan sonra kısaca bellekte depolanır. Kimlik bilgisi, yayımlanan kullanarak **kümesi AzVMDscExtension** cmdlet'i, kimlik bilgisi, sanal makineye HTTPS üzerinden iletilir. VM, Azure yerel sanal makine sertifikası kullanarak diskte şifrelenmiş kimlik bilgileri depolar. Kimlik bilgisi kısaca bellekte şifresi çözülür ve ardından DSC için geçirmek için yeniden şifrelenir.
 
 Bu işlem farklıdır [uzantı işleyici olmadan güvenli yapılandırmaları kullanarak](/powershell/dsc/securemof). Azure ortamı, yapılandırma verilerini sertifikaları aracılığıyla güvenli bir şekilde aktarmak için bir yol sunar. DSC uzantısı işleyicisine kullandığınızda sağlamanıza gerek kalmaması **$CertificatePath** veya **$CertificateID**/ **$Thumbprint** girişte**ConfigurationData**.
 

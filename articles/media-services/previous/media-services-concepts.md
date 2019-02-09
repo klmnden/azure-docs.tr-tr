@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/08/2018
 ms.author: juliako
-ms.openlocfilehash: 06c6451a7c8532b32a1c130f6b71df97857d2e7f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b3805cf46fe0fbf2461ab11959de101d8d4154f0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353714"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984605"
 ---
-# <a name="azure-media-services-concepts"></a>Azure Media Services kavramları
+# <a name="azure-media-services-concepts-legacy"></a>Azure Media Services kavramları (eski)
+
 Bu konu, en önemli Media Services kavramları hakkında genel bir bakış sağlar.
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Varlıklar ve depolama
@@ -74,7 +75,7 @@ Bir blob kapsayıcı bir dizi blobun bir gruplandırmasını sağlar. BLOB kapsa
 ### <a name="a-idlocatorslocators"></a><a id="locators"/>Bulucular
 [Bulucu](https://docs.microsoft.com/rest/api/media/operations/locator)bir varlıkta bulunan dosyalara erişmek için bir giriş noktası sağlar. Bir erişim ilkesi, bir istemci belirli bir varlık erişimi olduğunu süresi ve izinlerini tanımlamak için kullanılır. Farklı bulucular farklı başlangıç zamanlarını ve bağlantı türleri farklı istemciler için tüm kullanırken süresi ayarları ve aynı izni sağlayabilir, bulucular bir çoktan bire bir ilişkisi olan bir erişim ilkesi olabilir; Ancak, Azure depolama hizmetleri tarafından ayarlanmış bir paylaşılan erişim ilkesi kısıtlama nedeniyle, belirli bir varlık ile tek seferde ilişkilendirilen beşten fazla benzersiz Bulucu sayısı sahip olamaz. 
 
-Media Services iki tür Bulucuyu destekler: karşıya yükleme veya indirme medya dosyaları to\from Azure depolama için medya (örneğin, MPEG DASH, HLS veya kesintisiz akış) akışla aktarmak veya aşamalı medya ve SAS URL bulucular indirmek için kullanılan OnDemandOrigin bulucuları ve kullanılır. 
+Media Services iki tür bulucuyu destekler: Medya (örneğin, MPEG DASH, HLS veya kesintisiz akış) akışla aktarmak veya aşamalı medya ve karşıya yükleme veya indirme medya dosyaları to\from Azure depolama için kullanılan SAS URL'SİNİN bulucuları indirmek için kullanılan OnDemandOrigin bulucuları. 
 
 >[!NOTE]
 >İzin (AccessPermissions.List) OnDemandOrigin bir Bulucu oluşturma sırasında kullanılmamalıdır. 
@@ -108,7 +109,7 @@ Desteklenen kodlayıcılara hakkında daha fazla bilgi için bkz. [kodlayıcıla
 Azure Media Services için canlı akış içeriğinin işleneceği bir işlem hattı bir kanalı temsil eder. Bir kanal, Canlı giriş akışları iki yoldan biriyle alır:
 
 * Bir şirket içi Canlı Kodlayıcı, Çoklu bit hızlı RTMP veya kesintisiz akış (parçalanmış MP4) kanalına gönderir. Çoklu bit hızlı kesintisiz akış çıktısı sağlayan şu gerçek zamanlı Kodlayıcıları kullanabilirsiniz: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ve Elemental. Şu gerçek zamanlı kodlayıcılar RTMP çıktısı: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision ve Tricaster kodlayıcılar. Diğer kodlama dönüştürme ve kodlama, alınan akışların kanallar aracılığıyla geçirin. İstendiğinde, Media Services akışı müşterilere teslim eder.
-* Tek bit hızlı akış (aşağıdaki biçimlerden birinde: RTMP veya kesintisiz akış (parçalanmış MP4)) Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala gönderilir. Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
+* Tek bit hızlı akış (aşağıdaki biçimlerden birinde: RTMP veya kesintisiz akış (parçalanmış MP4)), Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala gönderilir. Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
 ### <a name="channel"></a>Kanal
 Medya Hizmetleri'nde [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s canlı akış içeriğinin işlemekten sorumlu. Bir kanalın giriş uç noktası sağlar (alma URL'si) için Canlı bir işlenmesinde ardından sağlayın. Kanal, Canlı giriş akışları Canlı işlenmesinde alır ve bir veya daha fazla Akış akış için kullanılabilir hale getirir. Kanalları da daha fazla işleme edip teslime geçmeden önce akışınızı onaylama için kullandığınız bir önizleme uç noktası (Önizleme URL'si) sağlar.
@@ -137,7 +138,7 @@ Daha fazla bilgi için bkz.
 ### <a name="dynamic-encryption"></a>Dinamik şifreleme
 Azure Media Services, depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdaki güvenliğini sağlar. Media Services dinamik olarak Gelişmiş Şifreleme Standardı ((128 bit şifreleme anahtarlarını kullanarak) AES) ve PlayReady ve/veya Widevine DRM kullanarak genel şifreleme (CENC) ile şifrelenmiş içerik dağıtmanıza olanak sağlar. Media Services, yetkili istemcilere AES anahtarları ve PlayReady lisans sunma için bir hizmet de sağlar.
 
-Şu anda, akış biçimlerine şifreleyebilirsiniz: HLS, MPEG DASH ve kesintisiz akış. İlerlemeli indirmeler şifrelenemiyor.
+Şu anda, akış biçimlerine'şifreleme de yapabilirsiniz: HLS, MPEG DASH ve kesintisiz akış. İlerlemeli indirmeler şifrelenemiyor.
 
 Media Services için bir varlık şifrelemek istiyorsanız bir şifreleme anahtarı (CommonEncryption veya EnvelopeEncryption) Varlığınızı ile ilişkilendirmek ve anahtar için yetkilendirme ilkelerini de yapılandırmanız gerekir.
 

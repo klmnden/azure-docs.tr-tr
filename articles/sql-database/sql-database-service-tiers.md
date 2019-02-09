@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e0455ef99016fe1029f17256a6dbf5d9bbd8aa4d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3e4e9d9fb3b7e9a66ec3522e046bdca1ecad98c9
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890578"
+ms.locfileid: "55965103"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL veritabanı'nı satın alma modeli
 
@@ -39,10 +39,20 @@ Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
 |**Satın alma modeli**|**Açıklama**|**En iyi**|
 |---|---|---|
 |DTU tabanlı model|Bu model, işlem, depolama ve GÇ kaynakları ile birlikte gelen bir ölçüyü temel alır. İşlem boyutları, tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve elastik havuzlar için esnek veritabanı işlem birimleri (Edtu) cinsinden ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [Dtu'lar ve Edtu'lar nelerdir?](sql-database-service-tiers.md#dtu-based-purchasing-model).|Basit, önceden yapılandırılmış kaynak seçenekleri isteyen müşteriler için idealdir.|
-|vCore tabanlı model|Bu model, işlem ve depolama kaynaklarını bağımsız olarak seçmenizi sağlar. Ayrıca, maliyet tasarrufu elde etmek için SQL Server için Azure hibrit avantajı kullanmanıza olanak sağlar.|Esneklik, Denetim ve saydamlık değerini müşteriler için idealdir.|
+|vCore tabanlı model|Bu model, işlem ve depolama kaynaklarını bağımsız olarak seçmenizi sağlar. Sanal çekirdek tabanlı satın alma modeli de kullanmanıza olanak tanır [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/) maliyet tasarrufu elde etmek için.|Esneklik, Denetim ve saydamlık değerini müşteriler için idealdir.|
 ||||  
 
 ![Fiyatlandırma modeli](./media/sql-database-service-tiers/pricing-model.png)
+
+## <a name="compute-costs"></a>İşlem maliyetleri
+
+İşlem maliyet, uygulama için sağlanan toplam işlem kapasitesini yansıtır. İş kritik hizmet katmanında, biz otomatik olarak en az 3 çoğaltma ayırın. Bu ek işlem kaynakları ayrılması yansıtacak şekilde yaklaşık 2.7 x daha yüksek iş kritik hizmet katmanındaki genel amaçlı hizmet katmanındaki sanal çekirdek tabanlı satın alma modeli fiyatına değeridir. Aynı nedenden dolayı daha yüksek depolama GB başına fiyat SSD depolama, düşük gecikme süresi ve yüksek g/ç iş kritik hizmet katmanı yansıtır. Her iki durumda da bir standart depolama sınıfı kullandığımızdan aynı zamanda, yedekleme depolama maliyeti, bu iki hizmet katmanları arasında farklı değildir.
+
+## <a name="storage-costs"></a>Depolama maliyetleri
+
+Farklı depolama türlerini farklı faturalandırılır. Veri depolama için seçtiğiniz en fazla veritabanı veya havuz boyutuna bağlı olarak sağlanan depolama alanı için ücretlendirilirsiniz. Maliyeti azaltmak veya artırmak, en fazla sürece değiştirmez. Yedekleme depolama alanı, örneğinizin otomatik yedekleme işlemleriyle ilişkilidir ve dinamik olarak ayrılır. Yedekleme saklama döneminizin artırılması, örneğiniz tarafından kullanılan yedekleme alanının artmasına neden olur. Toplam sağlanan sunucu depolama alanınızın yüzde 100’üne ulaşana kadar yedekleme alanı için ek ücret ödemezsiniz. Ek yedekleme alanı kullanımı, GB cinsinden aylık olarak ücretlendirilir. Örneğin, veritabanı depolama alanınızın boyutu 100 GB’sa ek maliyet olmaksızın 100 GB yedekleme alanına sahip olursunuz. Ancak yedekleme boyutu 110 GB olursa fazlalık 10 GB için ödeme yapın.
+
+Tek bir veritabanı yedekleme alanı için veritabanının boyutuna eksi veritabanı yedeklemeleri için ayrılan depolama alanı için günlere eşit olarak ücretlendirilir. Elastik havuz Yedekleme depolaması için veritabanı yedeklerini eksi elastik havuzun en yüksek boyut havuzdaki tüm veritabanları için ayrılan depolama alanı için günlere eşit olarak ücretlendirilir. Tüm elastik havuz ve veritabanı boyutunu artırma veya işlem hızı artış daha fazla depolama alanı gerektirir ve bu nedenle yedekleme depolama faturanız artırır.  En yüksek boyut artırdığınızda, bu yeni miktar faturalandırılan yedekleme depolama boyutundan çıkarılır.
 
 ## <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli
 
@@ -97,6 +107,22 @@ Bir mevcut şirket içi veya kullanabileceğiniz SQL Server sanal makine iş yü
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Esnek bir kaynak havuzundan fayda iş yükleri
 
 Havuzlar, belirli kullanım düzenlerine sahip çok sayıda veritabanı bulunan durumlar için uygundur. Belirli bir veritabanı için bu düzen bir düşük kullanımı ortalama nispeten nadir zamanlarda kullanımın ani olarak artması şeklindedir. SQL Veritabanı, mevcut bir SQL Veritabanı sunucusundaki veritabanlarının geçmiş kaynak kullanımını otomatik olarak değerlendirir ve Azure portalda uygun havuz yapılandırmasını önerir. Daha fazla bilgi için bkz. [ne zaman elastik bir havuz kullanılması gerekir?](sql-database-elastic-pool.md)
+
+## <a name="service-tier-frequently-asked-questions-faq"></a>Hizmet katmanı sık sorulan sorular (SSS)
+
+### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>DTU tabanlı bir veritabanından sanal çekirdek tabanlı hizmet katmanı için dönüştürmek için uygulamamı çevrimdışı duruma getirmem gerekiyor mu
+
+Yeni hizmet katmanları, Standard hizmet katmanından Premium hizmet katmanına ve tam tersi yönde veritabanı yükseltmesi için kullanılan mevcut işleme benzeyen basit bir çevrimiçi dönüştürme yöntemi sunar. Bu dönüştürme, Azure portalı, PowerShell, Azure CLI, T-SQL veya REST API kullanılarak başlatılabilir. Bkz: [tek veritabanlarını yönetmek](sql-database-single-database-scale.md) ve [elastik havuzları yönetme](sql-database-elastic-pool.md).
+
+### <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>Ben bir veritabanı sanal çekirdek tabanlı hizmet katmanından bir DTU tabanlı bir dala dönüştürebilir miyim
+
+Evet, Azure portalı, PowerShell, Azure CLI, T-SQL veya REST API'yi kullanarak tüm desteklenen performans hedefi veritabanınızı kolayca dönüştürebilirsiniz. Bkz: [tek veritabanlarını yönetmek](sql-database-single-database-scale.md) ve [elastik havuzları yönetme](sql-database-elastic-pool.md).
+
+### <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>Ben yükseltebilir veya genel amaçlı ve iş açısından kritik hizmet katmanları arasında düşürebilirsiniz
+
+Evet, bazı kısıtlamalar ile. Hedef SKU'su, en fazla veritabanı veya elastik havuz boyutu mevcut dağıtımınız için yapılandırılmış karşılaması gerekir. Kullanıyorsanız [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/), iş açısından kritik SKU'SUNDA yalnızca Enterprise Edition lisansları olan müşteriler için kullanılabilir. Enterprise Edition lisans ile SQL Server için Azure hibrit avantajı kullanarak genel amaçlı hizmet katmanı için şirket içinden geçirilmiş olan müşteriler, iş kritik hizmet katmanına yükseltebilirsiniz. Ayrıntılar için bkz. [SQL Server için Azure hibrit Avantajı'ndan belirli haklar nelerdir](https://azure.microsoft.com/pricing/hybrid-benefit/)?
+
+Bu dönüştürme, kapalı kalma süresi sonuçlanmaz ve Azure portalı, PowerShell, Azure CLI, T-SQL veya REST API kullanılarak başlatılabilir. Bkz: [tek veritabanlarını yönetmek](sql-database-single-database-scale.md) ve [elastik havuzları yönetme](sql-database-elastic-pool.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

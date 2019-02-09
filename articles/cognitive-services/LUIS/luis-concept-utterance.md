@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 63334c861cc85c7119ccd3111429dee47ada3162
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862947"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984367"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS uygulamanızı iyi konuşma neler olduğunu anlama
 
@@ -39,7 +39,7 @@ Ne zaman önce başlamanıza tarafından [örnek Konuşma ekleme](luis-how-to-ad
 
 ### <a name="utterances-arent-always-well-formed"></a>Konuşma her zaman iyi biçimlendirilmiş değil
 
-"Bir bilet Paris için benim için kitap" veya "Kayıt" gibi bir cümle bir parçasını gibi bir cümle olabilir ya da "Paris uçuş."  Kullanıcılar, yazım hatalarını genellikle yapın. Uygulamanızı planlarken [Check][(luis-tutorial-bing-spellcheck) için LUIS iletmeden önce kullanıcı girişi düzeltmek için Bing yazım. kullandığınız olup olmadığını göz önünde bulundurun 
+"Bir bilet Paris için benim için kitap" veya "Kayıt" gibi bir cümle bir parçasını gibi bir cümle olabilir ya da "Paris uçuş."  Kullanıcılar, yazım hatalarını genellikle yapın. Uygulamanızı planlarken, kullandığınız olup olmadığını göz önünde bulundurun [Bing yazım denetimi](luis-tutorial-bing-spellcheck.md) LUIS için iletmeden önce kullanıcı girişi düzeltmek için. 
 
 Onay kullanıcı konuşma yazım değil, yazım hatalarını ve yazım hatalarını içeren konuşma üzerinde LUIS eğitme.
 

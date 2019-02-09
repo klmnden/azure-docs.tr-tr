@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 1ae4396c6b91f81e273e6ad171f4cac9b55445f6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864742"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982395"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -60,7 +60,7 @@ Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
 
 Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) bir kapsayıcı görüntüsünü indirmek için komut `mcr.microsoft.com/azure-cognitive-services/luis` depo:
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -324,18 +324,7 @@ Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](luis-container
 
 Fatura bilgilerini azure'a, kullanarak LUIS kapsayıcı gönderen bir _Language Understanding_ Azure hesabınız kaynaktaki. 
 
-Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini (utterance) göndermeyin. 
-
-`docker run` Faturalama amacıyla aşağıdaki değişkenleri kullanır:
-
-| Seçenek | Açıklama |
-|--------|-------------|
-| `ApiKey` | API anahtarı _Language Understanding_ kaynak faturalandırma bilgileri izlemek için kullanılır.<br/>Bu seçeneğin değeri, belirtilen sağlanan LUIS Azure kaynağı için bir API anahtarı ayarlanmalıdır `Billing`. |
-| `Billing` | Uç noktası _Language Understanding_ kaynak faturalandırma bilgileri izlemek için kullanılır.<br/>Bu seçeneğin değeri, sağlanan bir LUIS Azure kaynağın URI'sini uç noktasına ayarlamanız gerekir.|
-| `Eula` | Kapsayıcı lisansını kabul ettiğinizi gösterir.<br/>Bu seçenek değeri ayarlanmalıdır `accept`. |
-
-> [!IMPORTANT]
-> Seçeneklerin üçünü geçerli değerlerle belirtilmiş olmalı veya kapsayıcı başlatılamıyor.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Bu seçenekler hakkında daha fazla bilgi için bkz. [kapsayıcıları yapılandırma](luis-container-configuration.md).
 

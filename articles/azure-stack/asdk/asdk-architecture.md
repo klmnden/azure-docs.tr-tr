@@ -12,33 +12,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2cee4d75a111f56012782228d8070bb728720aca
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9157acc7517aea56f087a3dbff0fe7114f8b4c87
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238357"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958814"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack Geliştirme Seti mimarisi
-Azure Stack geliştirme Seti'ni (ASDK) Azure Stack, tek düğümlü dağıtımıdır. Tüm bileşenleri tek bir konakta çalışan sanal makinelere yüklenir. 
+Azure Stack geliştirme Seti'ni (ASDK) Azure Stack tek ana bilgisayar üzerinde çalışan tek düğümlü dağıtımıdır. Azure Stack için NAT ve VPN özellikler sağlamak için ana bilgisayarda Edge yönlendirme compontents yüklenir. Azure Stack altyapısını rolleri Hyper-V fiziksel ana bilgisayar katmanındaki çalıştırın.
 
-## <a name="logical-architecture-diagram"></a>Mantıksal mimari diyagramı
-Aşağıdaki diyagramda ASDK ve bileşenlerinin mantıksal mimari gösterilmektedir.
-
-![ASDK mimarisi](media/asdk-architecture/image1.png)
 
 ## <a name="virtual-machine-roles"></a>Sanal makine rolleri
 ASDK Geliştirme Seti ana bilgisayarda bulunan aşağıdaki sanal makineleri kullanarak hizmetleri sunar:
 
-| Name | Açıklama |
+| Ad | Açıklama |
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack depolama hizmetleri.|
 | **AzS-ADFS01** | Active Directory Federasyon Hizmetleri (ADFS).  |
-| **AzS-BGPNAT01** | Kenar yönlendirici ve Azure Stack için NAT ve VPN özellikleri sağlar. |
 | **AzS-CA01** | Azure Stack rol hizmetleri için sertifika yetkilisi Hizmetleri.|
 | **AzS-DC01** | Active Directory, DNS ve DHCP hizmetleri Microsoft Azure Stack için.|
 | **AzS-ERCS01** | Acil Durum Kurtarma Konsolu VM. |

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: f0f3ec25f10faa25b6b90ba4d8114c15d25131c6
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359996"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979148"
 ---
-# <a name="streaming-endpoints-overview"></a>Akış uç noktalarına genel bakış 
+# <a name="streaming-endpoints-overview-legacy"></a>Akış uç noktalarına genel bakış (eski)
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -48,7 +48,7 @@ Tüm ek uç noktalar için: `{EndpointName}-{AccountName}.streaming.mediaservice
 
 Media Services'ın Ocak 2017 sürümünden başlayarak, iki akış tür vardır: **Standart** ve **Premium**. Bu türler, akış uç noktası sürüm "2. 0" bir parçasıdır.
 
-Tür|Açıklama
+Type|Açıklama
 ---|---
 **Standart**|Bu, senaryoların büyük bölümü için işe yarar varsayılan seçenektir.<br/>Bu seçenek, sabit sınırlı SLA'sını alın, akış uç noktasını ilk 15, başlattıktan sonra gün ücretsizdir.<br/>Yalnızca ilk ilk 15 gün boyunca ücretsiz olarak birden fazla akış uç noktaları, oluşturmak, bunları başlar başlamaz, diğerleri faturalandırılır. <br/>Ücretsiz deneme sürümü yalnızca yeni oluşturulan media services hesapları ve varsayılan akış uç noktası için geçerli olduğunu unutmayın. Mevcut akış uç noktaları ve ayrıca oluşturulan akış uç noktalarını ücretsiz deneme süresi içerir değil bile 2.0 sürümüne yükseltilir veya bunlar 2.0 sürümünde oluşturulur.
 **Premium**|Bu seçenek, daha yüksek ölçek veya denetim gerektiren profesyonel senaryolar için uygundur.<br/>Satın aldığınız premium akış birimi (SU) kapasite tabanlı değişken SLA, adanmış bir akış uç noktalarını yalıtılmış bir ortamda dinamik ve kaynaklar için rekabet değil.
@@ -71,7 +71,7 @@ Varsa, **sürüm "1.0"** akış uç noktası olan > = 1 premium akış birimleri
 
 ### <a name="versions"></a>Sürümler
 
-|Tür|StreamingEndpointVersion|ScaleUnits|CDN|Faturalandırma|SLA| 
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Faturalandırma|SLA| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Klasik|1.0|0|NA|Ücretsiz|NA|
 |Standart Akış Uç Noktası|2.0|0|Evet|Ücretli|Evet|
