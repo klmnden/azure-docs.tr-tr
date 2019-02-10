@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 93103311e8a9f6f4998195e21cdbc7523b1d4fca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594298"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985524"
 ---
 Kolayca [otomatik olarak ölçeklendirme](../articles/azure-monitor/platform/autoscale-best-practices.md) , [sanal makineleri (VM'ler)](../articles/virtual-machines/windows/overview.md) kullandığınızda [sanal makine ölçek kümeleri](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) ve [Azure otomatik ölçeklendirme özelliği İzleyici](../articles/azure-monitor/platform/autoscale-overview.md). Sanal makinelerinizin bir ölçek kümesinin otomatik olarak ölçeklendirilmesi üyelerinin olması gerekir. Bu makalede, dikey ve yatay otomatik ve el ile yöntemleri kullanarak sanal makinelerinizi ölçeklendirmek nasıl daha iyi anlamak sağlayan bilgiler sağlar.
 
@@ -57,11 +57,11 @@ Yapabilecekleriniz [Tetikleyiciler ayarlamak](../articles/azure-monitor/platform
 
 Ekleyebilir veya VM ölçek kümesi kapasitesini değiştirerek kaldırın. Azure portalında azaltmak veya sanal makinelerin sayısını artırmak (olarak gösterilen **örnek sayısı**) ölçek geçersiz kılma koşul çubuğu ölçeklendirme ekranda sola veya sağa kaydırarak.
 
-Azure PowerShell kullanarak ölçek kümesi nesnesini kullanarak almanız gereken [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Ardından **sku.capacity** istediğiniz VM'lerin ve güncelleştirme özelliği ölçek kümesi ile [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Azure CLI'yı kullanarak ile kapasitesini değiştirme **--yeni kapasite** parametresi için [az vmss ölçek](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) komutu.
+Azure PowerShell kullanarak ölçek kümesi nesnesini kullanarak almanız gereken [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss). Ardından **sku.capacity** istediğiniz VM'lerin ve güncelleştirme özelliği ölçek kümesi ile [güncelleştirme AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). Azure CLI'yı kullanarak ile kapasitesini değiştirme **--yeni kapasite** parametresi için [az vmss ölçek](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) komutu.
 
 ### <a name="vertical"></a>Dikey
 
-Vm'leri Azure portalında ölçek kümesi boyutu ekranında boyutunu el ile değiştirebilirsiniz. Get-görüntü başvurusu sku özelliğini ayarlayarak ve ardından kullanarak AzureRmVmss ile Azure PowerShell kullanabilirsiniz [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) ve [Update-Azurermvmssınstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+Vm'leri Azure portalında ölçek kümesi boyutu ekranında boyutunu el ile değiştirebilirsiniz. Get-görüntü başvurusu sku özelliğini ayarlayarak ve ardından kullanarak AzVmss ile Azure PowerShell kullanabilirsiniz [güncelleştirme AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) ve [güncelleştirme AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

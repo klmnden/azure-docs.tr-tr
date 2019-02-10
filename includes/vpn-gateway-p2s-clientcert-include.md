@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7ae3886db6391836cd8d281e44c95c5253cc8dd5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323890"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985528"
 ---
 Noktadan siteye bağlantı ile sanal ağdan sanal ağa bağlanan her istemci bilgisayara bir istemci sertifikası yüklü olmalıdır. Kök sertifikadan oluşturur ve her istemci bilgisayara yükleyin. Geçerli bir istemci sertifikası yüklemezseniz, istemci sanal ağa bağlanmaya çalıştığında, kimlik doğrulaması başarısız olur.
 
@@ -31,4 +31,8 @@ Aşağıdaki yöntemleri kullanarak istemci sertifikaları oluşturabilirsiniz:
   * [MakeCert yönergeleri](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): Sertifikaları oluşturmak için bir Windows 10 bilgisayarına erişim yoksa MakeCert kullanın. MakeCert kullanım dışı bırakılmış olsa da, bu sertifikaları oluşturmak için kullanmaya devam edebilirsiniz. Oluşturulan sertifikalar tüm desteklenen P2S istemcilere yükleyebilirsiniz.
   * [Linux yönergeleri](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
-  Otomatik olarak imzalanan kök sertifikadan istemci sertifikası oluşturma, sertifikayı oluşturmak için kullandığınız bilgisayara otomatik olarak yüklenir. Bir istemci sertifikasını başka bir istemci bilgisayara yüklemek istiyorsanız, tüm sertifika zinciriyle birlikte .pfx dosyası olarak dışarı aktarın. Bir .pfx dosyası oluşturur, bunun yapılması, istemcinin kimliğini doğrulamak için gerekli kök sertifika bilgileri içerir. Sertifikayı dışarı aktarma adımları için bkz. [noktadan siteye sertifikaları oluşturma ve dışarı aktarma PowerShell kullanarak](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).
+  Otomatik olarak imzalanan kök sertifikadan istemci sertifikası oluşturma, sertifikayı oluşturmak için kullandığınız bilgisayara otomatik olarak yüklenir. Bir istemci sertifikasını başka bir istemci bilgisayara yüklemek istiyorsanız, tüm sertifika zinciriyle birlikte .pfx dosyası olarak dışarı aktarın. Bir .pfx dosyası oluşturur, bunun yapılması, istemcinin kimliğini doğrulamak için gerekli kök sertifika bilgileri içerir. 
+
+**Sertifikayı dışarı aktarmak için**
+
+Sertifikayı dışarı aktarma adımları için bkz. [noktadan siteye sertifikaları oluşturma ve dışarı aktarma PowerShell kullanarak](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).
