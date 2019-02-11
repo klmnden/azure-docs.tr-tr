@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd7254a9ec1ce5671aa5271ca26c678b20ef48cb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608639"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978077"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IOT Hub ile HDInsight üzerinde Apache kafka'yı kullanma
 
@@ -84,7 +84,7 @@ Connect API hakkında daha fazla bilgi için bkz. [ https://kafka.apache.org/doc
 >
 >    Bu komut, adlı bir dosya oluşturur. `kafka-connect-iothub-assembly_2.11-0.6.jar` içinde `target/scala-2.11` projesi için dizin.
 
-## <a name="configure-apache-kafka"></a>Apache Kafka yapılandırın
+## <a name="configure-apache-kafka"></a>Configure Apache Kafka
 
 Kenar düğümüne SSH bağlantısından, Kafka Bağlayıcısı'nı tek başına modunda çalışacak şekilde yapılandırmak için aşağıdaki adımları kullanın:
 
@@ -127,7 +127,7 @@ Kenar düğümüne SSH bağlantısından, Kafka Bağlayıcısı'nı tek başına
 
     * Değişiklik `key.converter=` ve `value.converter=` aşağıdaki değerlere satırlar:
 
-        ```text
+        ```ini
         key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
@@ -189,7 +189,7 @@ Bağlayıcı tarafından kullanılan IOT hub'ı bilgileri almak için aşağıda
 
         Değiştirin `myhubname` IOT hub'ınızın adıyla. Yanıt aşağıdaki metne benzer:
 
-        ```text
+        ```json
         "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
         "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
         "Partitions": 2
@@ -349,7 +349,7 @@ Bağlayıcı aracılığıyla göndermek için aşağıdaki adımları kullanın
     > [!IMPORTANT]  
     > Değerini ayarlamalısınız `"deviceId"` giriş cihazınızın kimliği. Aşağıdaki örnekte, cihazın adlı `fakepi`:
 
-    ```text
+    ```json
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
     ```
 
