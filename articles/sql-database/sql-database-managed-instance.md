@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c0067dc96837d758e4c2551bcb29faf63c1a7715
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895050"
+ms.locfileid: "55964160"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Gelişmiş veri güvenliği, sanal ağlarla ve neredeyse % 100 uyumluluk SQL veritabanını kullan
 
@@ -107,7 +107,7 @@ Hizmet katmanlarında arasındaki fark hakkında daha fazla bilgi [yönetilen ö
 Aşağıdaki listede, iş açısından kritik hizmet katmanının anahtar özellikleri özetlenmektedir:
 
 - En yüksek performans ve yüksek kullanılabilirlik gereksinimleri olan iş uygulamaları için tasarlanmış
-- Süper hızlı yerel SSD depolama ile birlikte gelir (1 TB'a kadar 5. nesil Gen 4 ve 4 TB)
+- Süper hızlı yerel SSD depolama ile birlikte gelir (1 TB'ye kadar 4. nesil ve en fazla 5. nesil üzerinde 4 TB)
 - Yerleşik [yüksek kullanılabilirlik](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) göre [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Yerleşik ek [salt okunur veritabanı çoğaltmasını](sql-database-read-scale-out.md) kullanılabilecek raporlama ve diğer salt okunur iş yükleri için
 - [Bellek içi OLTP](sql-database-in-memory.md) yüksek performans gereksinimlerine sahip iş yükü için kullanılabilir  

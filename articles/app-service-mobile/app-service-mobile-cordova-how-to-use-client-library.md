@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 358e8cd92fe250741adbbb9208b5e149a5f60216
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959742"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962460"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps için Apache Cordova istemci kitaplığını kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -55,7 +55,7 @@ ionic plugin add cordova-plugin-ms-azure-mobile-apps
 
 Aşağıdaki satırları ekleyin `app.component.ts` istemci nesnesini oluşturmak için:
 
-```
+```typescript
 declare var WindowsAzure: any;
 var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
 ```
@@ -71,8 +71,8 @@ Azure Mobile Apps Cordova eklentisini hem Ionic v1 ve v2 uygulamalarını destek
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Nasıl yapılır: kullanıcıların kimlik doğrulaması
-Azure App Service kimlik doğrulama ve yetkilendirme çeşitli dış kimlik sağlayıcısı kullanarak uygulama kullanıcılarının destekler: Facebook, Google, Microsoft Account ve Twitter. Tablolarda yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi sınırlandırmak için izinleri ayarlayabilirsiniz. Sunucu betiklerini yetkilendirme kurallarını uygulamak için kimliği doğrulanmış kullanıcıların kimliğini de kullanabilirsiniz. Daha fazla bilgi için [kimlik doğrulamayı kullanmaya başlama] öğretici.
+## <a name="auth"></a>Nasıl Yapılır: Kullanıcıların kimliklerini doğrulama
+Azure App Service kimlik doğrulama ve yetkilendirme çeşitli dış kimlik sağlayıcısı kullanarak uygulama kullanıcılarının destekler: Facebook, Google, Microsoft hesabı ve Twitter gibi. Tablolarda yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi sınırlandırmak için izinleri ayarlayabilirsiniz. Sunucu betiklerini yetkilendirme kurallarını uygulamak için kimliği doğrulanmış kullanıcıların kimliğini de kullanabilirsiniz. Daha fazla bilgi için [kimlik doğrulamayı kullanmaya başlama] öğretici.
 
 Bir Apache Cordova uygulamasında kimlik doğrulaması kullanırken, aşağıdaki Cordova eklentileri kullanılabilir olmalıdır:
 
@@ -83,7 +83,7 @@ Bir Apache Cordova uygulamasında kimlik doğrulaması kullanırken, aşağıdak
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Nasıl yapılır: Mobil uygulama hizmetiniz için dış yönlendirme URL'leri yapılandırın.
+### <a name="configure-external-redirect-urls"></a>Nasıl Yapılır: Mobil uygulama hizmetiniz için dış yönlendirme URL'leri yapılandırın.
 Birden fazla Apache Cordova uygulamaları, OAuth UI akışları işlemek için bir geri döngü olanağını kullanın.  Kimlik doğrulama hizmeti yalnızca hizmetiniz varsayılan olarak nasıl bilir beri localhost OAuth UI akışlarda sorunlara neden.  Sorunlu OAuth UI akışlar örnekleri şunlardır:
 
 * Ripple öykünücüsüne.
@@ -123,10 +123,10 @@ App Service CORS ayarlarını da bu döngü URL'leri ekleyin:
 
 Bu işlem yaklaşık 10-15 etkili olması için saniye yeni ayarların götürür.
 
-## <a name="register-for-push"></a>Nasıl yapılır: anında iletme bildirimleri kaydınızı
+## <a name="register-for-push"></a>Nasıl Yapılır: Anında iletme bildirimleri için kaydolun
 Yükleme [modul phonegap plugin push] anında iletme bildirimleri işlemek için.  Bu eklentiyi kullanarak kolayca eklenebilir `cordova plugin add` komut satırında veya Visual Studio içinde Git eklentisi yükleyici aracılığıyla komutu.  Aşağıdaki kodda, Apache Cordova uygulamanızı anında iletme bildirimleri için Cihazınızı kaydeder:
 
-```
+```javascript
 var pushOptions = {
     android: {
         senderId: '<from-gcm-console>'

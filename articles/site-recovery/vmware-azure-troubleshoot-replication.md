@@ -1,22 +1,61 @@
 ---
 title: Azure Site Recovery kullanarak VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için çoğaltma sorunlarını giderme | Microsoft Docs
 description: Bu makalede VMware vm'lerinin olağanüstü durum kurtarma sırasında yaygın çoğaltma sorunlarına yönelik sorun giderme bilgileri ve fiziksel sunucuları Azure'a Azure Site Recovery kullanarak sağlar.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/18/2019
-ms.author: ramamill
-ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/7/2019
+ms.author: mayg
+ms.openlocfilehash: 71c07d93d75ee372a50ec4ff5fc81e92926d329b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411484"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964790"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için çoğaltma sorunlarını giderme
 
 Azure Site Recovery kullanarak VMware sanal makineleri veya fiziksel sunucuları koruduğunuzda, belirli bir hata iletisi görebilirsiniz. Bu makalede, şirket içi VMware Vm'leri ve fiziksel sunucuları Azure'a kullanarak çoğaltma yaptığınızda çalıştırdığınızca bazı yaygın sorunlar [Site Recovery](site-recovery-overview.md).
+
+## <a name="monitor-process-server-health-to-avoid-replication-issues"></a>Çoğaltma sorunlarını önlemek için işlem sunucusunun sistem durumunu izleme
+
+İlişkili kaynak makineleriniz için çoğaltmanın ilerlediğini emin olmak için portal üzerindeki işlem sunucusu (PS) durumunu izlemek için önerilir. Kasada Yönet gidin > Site Recovery altyapısı > yapılandırma sunucuları. Yapılandırma sunucusu dikey penceresinde, ilişkili bölümünde işlem sunucusunu tıklayın. Kendi sistem durumu istatistikleriyle işlem sunucu dikey penceresi açılır. CPU kullanımı, bellek kullanımı, çoğaltma, sertifika sona erme tarihi ve kullanılabilir boş alanı gerekli PS hizmetlerinin durumunu izleyebilirsiniz. Tüm istatistiklerin durum yeşil olmalıdır. 
+
+**Bellek ve CPU kullanımı % 70'in altında olan ve % 25 yukarıdaki alanı boş önerilen**. Boş alan Azure'a yüklemeden önce kaynak makinelerden çoğaltma verilerini depolamak için kullanılan işlem sunucusu önbellek diski alanı ifade eder. %20 değerinden azaltır, çoğaltma için tüm ilişkili kaynak makinelerden kısıtlanır. İzleyin [kapasite Kılavuzu](./site-recovery-plan-capacity-vmware.md#capacity-considerations) kaynak makinelerden çoğaltma için gerekli yapılandırmayı öğrenin.
+
+PS makinede şu hizmetlerin çalıştığından emin olun. Veya çalışmadığından herhangi bir hizmeti yeniden başlatın.
+
+**Yerleşik bir işlem sunucusu**
+
+* cxprocessserver
+* Inmage Pushınstall
+* Günlük karşıya yükleme hizmeti (LogUpload)
+* Inmage Scout uygulama hizmeti
+* Microsoft Azure kurtarma Hizmetleri Aracısı (obengine)
+* Inmage Scout VX Aracısı - Sentinel/Outpost (svagents)
+* tmansvc
+* World Wide Web Yayımlama Hizmeti (W3SVC)
+* MySQL
+* Microsoft Azure Site Recovery hizmeti (dra)
+
+**Genişleme işlem sunucusu**
+
+* cxprocessserver
+* Inmage Pushınstall
+* Günlük karşıya yükleme hizmeti (LogUpload)
+* Inmage Scout uygulama hizmeti
+* Microsoft Azure kurtarma Hizmetleri Aracısı (obengine)
+* Inmage Scout VX Aracısı - Sentinel/Outpost (svagents)
+* tmansvc
+
+**Azure'da yeniden çalışma için işlem sunucusu**
+
+* cxprocessserver
+* Inmage Pushınstall
+* Günlük karşıya yükleme hizmeti (LogUpload)
+
+Tüm hizmetlerin StartType ayarlandığından emin olun **otomatik veya Otomatik (Gecikmeli Başlatma)**. Microsoft Azure kurtarma Hizmetleri Aracısı (obengine) hizmet olarak yukarıda kendi StartType sahip olması gerekmez.
 
 ## <a name="initial-replication-issues"></a>İlk çoğaltma sorunları
 
@@ -26,7 +65,7 @@ Azure Site Recovery kullanarak VMware sanal makineleri veya fiziksel sunucuları
 
 Kaynak makine denetleyebilirsiniz aşağıdaki listeyi gösterir yolları:
 
-*  Kaynak sunucuda komut satırında aşağıdaki komutu çalıştırarak HTTPS bağlantı noktası (varsayılan HTTPS bağlantı noktası 9443 olduğu) ile işlem sunucusu ping Telnet kullanın. Komut ve sorunları o blok güvenlik duvarı bağlantı noktası için ağ bağlantısı sorunları denetler.
+*  Kaynak sunucuda komut satırında aşağıdaki komutu çalıştırarak HTTPS bağlantı noktası üzerinden işlem sunucusu ping Telnet kullanın. HTTPS bağlantı noktası 9443, çoğaltma trafiğini gönderip için işlem sunucusu tarafından kullanılan varsayılan değerdir. Kayıt zamanında Bu bağlantı noktasını değiştirebilirsiniz. Aşağıdaki komut, sorunları o blok güvenlik duvarı bağlantı noktası ve ağ bağlantısı sorunları için denetler.
 
 
    `telnet <process server IP address> <port>`
@@ -35,13 +74,42 @@ Kaynak makine denetleyebilirsiniz aşağıdaki listeyi gösterir yolları:
    > [!NOTE]
    > Telnet bağlantısını test etmek için kullanın. Kullanmayın `ping`. Telnet yüklü değilse, listelenen adımları tamamlamak [Telnet istemcisi yükleme](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
+   Telnet PS bağlantı noktasına başarıyla bağlanabilmek için ise, boş bir ekran görülebilir.
+
    İşlem sunucusuna bağlanamıyorsa, işlem sunucusunun gelen bağlantı noktası 9443'e izin verin. Örneğin, bir çevre ağına ağınız varsa, işlem sunucusunun gelen bağlantı noktası 9443'e izin vermeniz gereken veya denetimli alt ağ. Ardından, sorunun nerede oluştuğunu görmek için kontrol edin.
 
-*  Durumunu **Inmage Scout VX Aracısı-Sentinel/OutpostStart** hizmeti. Hizmet çalışmıyorsa, hizmeti başlatın ve sorunun nerede oluştuğunu görmek için kontrol edin.   
+*  Telnet başarılı ise ve henüz kaynak makine PS erişilebilir olmadığını bildiriyor. kaynak makinedeki web tarayıcısı açın ve adres https://<PS_IP>:<PS_Data_Port>/ erişilebilir olup olmadığını denetleyin.
+
+    HTTPS sertifika hatası bu adresi ulaşmaktan bekleniyor. Sertifika hatası yok sayılıyor ve devam etmeden 400 – Hatalı istek, sunucu başka bir deyişle, tarayıcının isteği yanıt veremez ve sunucuya standart HTTPS bağlantı da ve iyi çalışıp çalışmadığını bitmelidir.
+
+    Bu başarısız olursa, tarayıcı hata iletisinde ayrıntıları rehberlik sağlar. İçin örneğin Ara sunucu kimlik doğrulaması yanlışsa, proxy sunucusu 407 – Proxy kimlik doğrulaması gerekli birlikte gerekli eylemleri hata iletisi döndürür. 
+
+*  Kaynak VM ağına ilgili hataları aşağıdaki günlükleri karşıya yükleme hataları kontrol edin:
+
+       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
 ### <a name="check-the-process-server"></a>İşlem sunucusu denetleyin
 
 İşlem sunucusu denetleyebilirsiniz aşağıdaki listeyi gösterir yolları:
+
+> [!NOTE]
+> NAT IP üzerinde yapılandırılmamış olması ve işlem sunucusu statik bir IPv4 adresi olmalıdır.
+
+* **Kaynak makine ve işlem sunucusu arasındaki bağlantıyı denetleyin**
+1. Telnet kaynak makineden mümkün olan ve henüz PS kaynak sunucudan erişilebilir değil durumunda, kaynak VM üzerinde cxpsclient aracını çalıştırarak cxprocessserver kaynak VM ile uçtan uca bağlantıyı denetleyin:
+
+       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+
+    PS karşılık gelen hatalar hakkında ayrıntılı bilgi için aşağıdaki dizinde oluşturulan günlüklerini kontrol edin:
+
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+       and
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+2. PS gelen hiçbir sinyal yok durumda PS aşağıdaki günlükleri kontrol edin:
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 *  **İşlem sunucusu etkin bir şekilde veri Azure'a gönderme olup olmadığını denetleyin**.
 

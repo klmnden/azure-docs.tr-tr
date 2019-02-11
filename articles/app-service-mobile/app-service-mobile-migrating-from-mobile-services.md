@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119001"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960753"
 ---
 # <a name="article-top"></a>Var olan Azure mobil hizmetinizi Azure App Service'e geçirme
 İle [Azure App Service'in genel kullanılabilirlik], Azure mobil Hizmetleri'ne sitelerine yerinde Azure App Service'in tüm özelliklerinden yararlanmak için kolayca da geçirilebilir.  Bu belgede, sitenizin Azure App Service için Azure Mobile Services geçirilirken beklenmesi gerekenler açıklanmaktadır.
@@ -321,7 +321,7 @@ Günlükleri görüntülemek için:
 3. Tıklayın **Araçları** düğmesi
 4. Seçin **günlük Stream** GÖZLEMLE menüsü altında.
 
-Böylece, oluşturulan gibi günlükleri penceresinde görüntülenir.  Ayrıca, dağıtım kimlik bilgilerinizi kullanarak daha sonra çözümlemek için günlükleri indirebilirsiniz. Daha fazla bilgi için [Günlüğe kaydetme] belgeleri.
+Böylece, oluşturulan gibi günlükleri penceresinde görüntülenir.  Ayrıca, dağıtım kimlik bilgilerinizi kullanarak daha sonra çözümlemek için günlükleri indirebilirsiniz. Daha fazla bilgi için [Logging] belgeleri.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>Bir site kesintisi neden geçirilmiş bir mobil uygulama kopya siliniyor
@@ -332,7 +332,7 @@ Azure PowerShell kullanarak, geçirilen mobil hizmetinize kopyalayın ve ardınd
 ### <a name="changing-webconfig-does-not-work"></a>Web.config değiştiriliyor çalışmıyor
 Bir ASP.NET sitesi varsa, değişikliklerini `Web.config` dosya uygulanmadı.  Azure App Service uygun bir yapılar `Web.config` Mobile Services çalışma zamanı desteği başlatılırken dosya.  Bir XML dönüşümü dosyası kullanarak (örneğin, özel üst bilgiler) belirli ayarları geçersiz kılabilirsiniz.  Bir dosya oluşturun olarak adlandırılan `applicationHost.xdt` -bu dosya düştüğünden gerekir `D:\home\site` Azure hizmeti üzerinde dizin.  Karşıya yükleme `applicationHost.xdt` Kudu kullanarak doğrudan veya bir özel dağıtım betiği aracılığıyla dosya.  Aşağıdaki örnek bir belgeyi gösterir:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>
@@ -388,7 +388,7 @@ Uygulamanızı App Service'e geçirilir, kullanabileceğiniz daha da fazla özel
 [Fiddler]: https://www.telerik.com/fiddler
 [Azure App Service'in genel kullanılabilirlik]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Günlüğe kaydetme]: ../app-service/troubleshoot-diagnostic-logs.md
+[Logging]: ../app-service/troubleshoot-diagnostic-logs.md
 [Mobile Apps Node.js SDK'sı]: https://github.com/azure/azure-mobile-apps-node
 [Mobil hizmetler ile App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md

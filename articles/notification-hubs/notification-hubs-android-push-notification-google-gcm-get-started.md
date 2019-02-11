@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 05caf83ffbd75ffdc66f9e31e4b34f2303c2024c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 54c5daa45a7a31334a8f4f437e914dff64752499
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448865"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963072"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Cloud Messaging kullanarak Android cihazlarına anında iletme bildirimleri
 
@@ -88,13 +88,13 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
 
 1. **Uygulamanın** `Build.Gradle` dosyasında **bağımlılıklar** bölümüne aşağıdaki satırları ekleyin.
 
-    ```text
+    ```gradle
     compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 2. **Bağımlılıklar** bölümünden sonra aşağıdaki depoyu ekleyin.
 
-    ```text
+    ```gradle
     repositories {
         maven {
             url "http://dl.bintray.com/microsoftazuremobile/SDK"

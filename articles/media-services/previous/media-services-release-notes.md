@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3cf819ceb01e52b029e8654dddc355afd27a9b63
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631677"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983007"
 ---
-# <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
+# <a name="azure-media-services-release-notes-legacy"></a>Azure Media Services sürüm notları (eski)
+
 Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorunlar değişiklikleri özetlemek için.
 
 > [!NOTE]
@@ -421,7 +422,7 @@ Değişiklikler hakkında daha fazla bilgi için bkz. [3.0.0.1 ve 3.0.0.2 Media 
 * 3.0 için geriye dönük uyumluluk sorunu düzeltildi. *.* serbest bırakır.
 
 ## <a id="december_changes_13"></a>Aralık 2013 sürümü
-### <a name="dec_13_donnet_changes"></a>Media Services .NET SDK'sı 3.0.0.0
+### <a name="dec_13_donnet_changes"></a>Media Services .NET SDK 3.0.0.0
 > [!NOTE]
 > 3.0.x.x yayınlar 2.4.x.x sürümleriyle geriye dönük olarak uyumlu değildir.
 > 
