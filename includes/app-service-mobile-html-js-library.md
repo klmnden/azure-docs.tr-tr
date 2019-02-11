@@ -4,24 +4,24 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 32d09722e8c396a64451018ac92fbc7bc072f461
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133623"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905201"
 ---
 ## <a name="create-client"></a>İstemci bağlantısı oluşturma
 Bir `WindowsAzure.MobileServiceClient` nesnesi oluşturarak istemci bağlantısı oluşturun.  `appUrl` ifadesini Mobile Uygulamanızın URL’si ile değiştirin.
 
-```
+```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
 ## <a name="table-reference"></a>Tablolarla çalışma
 Verilere erişmek veya verileri güncelleştirmek için arka uç tablosuna başvuru oluşturun. `tableName` ifadesini tablonuzun adıyla değiştirin
 
-```
+```javascript
 var table = client.getTable(tableName);
 ```
 
@@ -35,11 +35,11 @@ Bir tablo başvurusu oluşturduktan sonra tablonuzla başka işlemler yapabilirs
 * [Verileri değiştirme](#modifying)
 * [Veri silme](#deleting)
 
-### <a name="querying"></a>Nasıl yapılır: Tablo başvurusu sorgulama
+### <a name="querying"></a>Nasıl Yapılır: Bir tablo başvurusu sorgulama
 Bir tablo başvurusu oluşturduktan sonra sunucudaki verileri sorgulamak için kullanabilirsiniz.  Sorgular "LINQ benzeri" bir dilde yapılır.
 Tablodan tüm verileri döndürmek için aşağıdaki kodu kullanın:
 
-```
+```javascript
 /**
  * Process the results that are received by a call to table.read()
  *
@@ -72,7 +72,7 @@ Sorgu söz dizimi hakkında daha fazla bilgi için [Query nesnesi belgelerine] b
 #### <a name="table-filter"></a>Sunucu üzerindeki verileri filtreleme
 Tablo başvurusunda bir `where` yan tümcesi kullanabilirsiniz:
 
-```
+```javascript
 table
     .where({ userId: user.userId, complete: false })
     .read()
@@ -81,7 +81,7 @@ table
 
 Ayrıca, nesneyi filtreleyen bir işlev de kullanabilirsiniz.  Bu durumda, `this` değişkeni filtre uygulanan geçerli nesneye atanır.  Aşağıdaki kod önceki örnek ile işlevsel olarak eşdeğerdir:
 
-```
+```javascript
 function filterByUserId(currentUserId) {
     return this.userId === currentUserId && this.complete === false;
 }
@@ -95,7 +95,7 @@ table
 #### <a name="table-paging"></a>Verileri sayfalama
 `take()` ve `skip()` yöntemlerini kullanın.  Örneğin, tabloyu 100 satırlı kayıtlara bölmek istiyorsanız:
 
-```
+```javascript
 var totalCount = 0, pages = 0;
 
 // Step 1 - get the total number of records
@@ -120,10 +120,10 @@ Sonuç nesnesine bir totalCount alanı eklemek için `.includeTotalCount()` yön
 
 Bir sayfa listesi sağlamak için pages değişkenini ve bazı kullanıcı arabirimi düğmelerini kullanabilirsiniz; her sayfanın yeni kayıtlarını yüklemek için `loadPage()` seçeneğini kullanın.  Daha önce yüklenmiş kayıtlara hızlı erişim için önbelleğe almayı uygulayın.
 
-#### <a name="sorting-data"></a>Nasıl yapılır: Sıralanmış veriler döndürme
+#### <a name="sorting-data"></a>Nasıl Yapılır: Sıralanmış verileri döndürür
 `.orderBy()` veya `.orderByDescending()` sorgu yöntemlerini kullanın:
 
-```
+```javascript
 table
     .orderBy('name')
     .read()
@@ -132,7 +132,7 @@ table
 
 Query nesnesi hakkında daha fazla bilgi için [Query nesnesi belgelerine] bakın.
 
-### <a name="inserting"></a>Nasıl yapılır: Veri ekleme
+### <a name="inserting"></a>Nasıl Yapılır: Veri ekleme
 Uygun tarihle bir JavaScript nesnesi oluşturun ve `table.insert()` öğesini zaman uyumsuz olarak çağırın:
 
 ```javascript
@@ -152,7 +152,7 @@ Ekleme başarılı olduğunda, eklenen öğe eşitleme işlemleri için gereken 
 
 Azure Mobile Apps Node.js Sunucu SDK’sı, geliştirme için dinamik şemayı destekler.  Dinamik Şema, bir insert veya update işleminde sütun belirterek tabloya sütun eklemenize olanak tanır.  Uygulamanızı üretime taşımadan önce dinamik şemanın kapatılması önerilir.
 
-### <a name="modifying"></a>Nasıl yapılır: Verileri değiştirme
+### <a name="modifying"></a>Nasıl Yapılır: Verileri değiştirme
 `.insert()` yöntemine benzer şekilde, bir Update nesnesi oluşturup `.update()` öğesini çağırmanız gerekir.  Update nesnesi, güncelleştirilecek kaydın kimliğini içermelidir; bu kimlik, kayıt okunurken veya `.insert()` çağrılırken elde edilir.
 
 ```javascript
@@ -168,10 +168,10 @@ table
     }, failure);
 ```
 
-### <a name="deleting"></a>Nasıl yapılır: Veri silme
+### <a name="deleting"></a>Nasıl Yapılır: Verileri silme
 Bir kaydı silmek için `.del()` yöntemini çağırın.  Kimliği bir nesne başvurusuna geçirin:
 
-```
+```javascript
 table
     .del({ id: '7163bc7a-70b2-4dde-98e9-8818969611bd' })
     .done(function () {
