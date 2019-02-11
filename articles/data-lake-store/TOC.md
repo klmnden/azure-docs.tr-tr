@@ -1,5 +1,5 @@
 # [Data Lake Storage Gen1 Belgeleri](index.md)
-# [Data Lake Storage Gen2 (önizleme) belgelerine geçiş](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [Data Lake Storage 2. Nesil'e geçiş belgeleri](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # Genel Bakış
 ## [Data Lake Storage Gen1'e Genel Bakış](data-lake-store-overview.md)

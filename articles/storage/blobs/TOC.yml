@@ -513,14 +513,14 @@ items:
       href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Hızlı Başlangıçlar
     items:
-    - name: Data Lake Storage Gen2 uyumlu Depolama hesabı oluşturma
+    - name: Depolama hesabı oluşturma
       href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Databricks hesabı oluşturma/bağlama
+    - name: Depolama Gezgini ile verileri yönetme
+      href: ../blobs/data-lake-storage-explorer.md
+    - name: Databricks ile verileri çözümleme
       href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: HDInsight kümesi oluşturma
       href: ../blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure Depolama Gezgini’ni kullanmaya başlama
-      href: ../blobs/data-lake-storage-explorer.md
   - name: Öğreticiler
     items:
     - name: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
@@ -533,7 +533,7 @@ items:
     items:
     - name: Hadoop için Azure Blob Dosya Sistemi sürücüsü
       href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure Blob Dosya Sistemi URI'sine giriş
+    - name: Azure Blob Dosya Sistemi URI'si
       href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Hiyerarşik Ad Alanı Hizmeti
       href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -547,53 +547,57 @@ items:
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Müşteri anahtarlarıyla bekleyen verileri şifreleme
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Azure Data Lake Storage 2. Nesil'de Access Control
+      - name: Erişim Denetimi
         href: data-lake-storage-access-control.md
-      - name: Güvenlik duvarlarını ve sanal ağları yapılandırma
-        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Kimlik Doğrulaması
-        items:
-        - name: RBAC ile erişim haklarını yönetme
-          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Nasıl yapılır
     items:
-    - name: Azure Depolama Gezgini’ni kullanarak izinleri ayarlama
-      href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
-    - name: Data Lake Storage Gen2'yi Azure HDInsight kümeleriyle kullanma
-      href: ../blobs/data-lake-storage-use-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Data Lake Storage Gen2 ile Hadoop Dosya Sistemi CLI'sini kullanma
-      href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Data Lake Storage 1. Nesil’den yükseltme
-      href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Veriyi çekme
       items:
-      - name: Distcp kullanarak Data Lake Storage Gen2'ye veri kopyalama
+      - name: Distcp'yi kullanma
         href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Azure Data Factory kullanarak Data Lake Storage Gen2'ye veri kopyalama
+      - name: Azure Data Factory'yi kullanma
         href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Performans
+    - name: Verilerin güvenliğini sağlama
+      items:
+      - name: Güvenlik duvarlarını ve sanal ağları yapılandırma
+        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: RBAC ile erişim haklarını yönetme
+        href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Dosya ve dizin düzeyinde izinler ayarlama
+        href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
+    - name: Azure Hizmetleri ile tümleştirme
+      items:
+      - name: HDInsight kümelerini kullanma
+        href: ../blobs/data-lake-storage-use-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Hadoop Dosya Sistemi CLI ile kullanma
+        href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Azure Databricks ile kullanma
+        href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
+      - name: Azure SQL Veri Ambarı ile kullanma
+        href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase
+    - name: Performansı iyileştirme
       items:
       - name: Genel Bakış
         href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: HDInsight üzerinde Spark kullanma
+      - name: HDInsight üzerinde Spark'ı iyileştirme
         href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: HDInsight üzerinde Hive kullanma
+      - name: HDInsight üzerinde Hive'ı iyileştirme
         href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: HDInsight üzerinde MapReduce kullanma
+      - name: HDInsight üzerinde MapReduce'u iyileştirme
         href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: HDInsight üzerinde Storm kullanma
+      - name: HDInsight üzerinde Storm'u iyileştirme
         href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure DataBricks’e bağlanma
-      href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
-    - name: Azure SQL Data Warehouse’a bağlanma
-      href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase
+    - name: Geçiş verileri
+      items:
+      - name: Data Lake Storage 1. Nesil’den yükseltme
+        href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Başvuru
     items:
     - name: REST
       href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
   - name: Kaynaklar
     items:
-    - name: Data Lake Storage 2. Nesil’deki bilinen sorunlar
+    - name: Bilinen sorunlar
       href: data-lake-storage-known-issues.md
     - name: Azure Yol Haritası
       href: https://azure.microsoft.com/roadmap/?category=storage
@@ -611,9 +615,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Videolar
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: dec146846ac3bf889ac0d694fc769c899ab1d12e
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 546184e0552bbd0a5a3cc8ba864fba8794428dec
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767675"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870529"

@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 4e2fcdac282d0cca9fe993efdaf787e43c2b6e9d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68e4a7bd73b7fdd4b21140c912422b062f51c775
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433825"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869203"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Azure Data Lake Storage Gen1 Belgeleri
 
-Azure Data Lake Storage Gen1'i (eski adıyla Azure Data Lake Store) kullanarak her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir depo oluşturma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, işlem ve keşif analizi için bir veri gölü deposu ayarlama, yönetme ve depoya erişme ile ilgili bilgiler içerir.
+Azure Data Lake Storage 2. Nesil genel kullanıma sunuldu. Bugün kullanmaya başlamanızı öneririz. Daha fazla bilgi için [ürün sayfasına](https://aka.ms/adlsgen2-product) bakın.
 
-Data Lake Storage Gen2 önizleme sürümü hakkında bilgi edinmek istiyorsanız [ürün sayfasına](https://aka.ms/adlsgen2-product) bakın.
+Azure Data Lake Storage Gen1'i (eski adıyla Azure Data Lake Store) kullanarak her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir depo oluşturma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, işlem ve keşif analizi için bir veri gölü deposu ayarlama, yönetme ve depoya erişme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

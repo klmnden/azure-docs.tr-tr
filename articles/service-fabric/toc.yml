@@ -259,6 +259,8 @@ items:
       href: service-fabric-linux-windows-differences.md
     - name: Azure’da kümeler
       items:
+      - name: Azure kümelerine genel bakış
+        href: service-fabric-azure-clusters-overview.md
       - name: Düğüm türleri ve VM Ölçek Kümeleri
         href: service-fabric-cluster-nodetypes.md
       - name: Azure’da kümeleri yükseltme
@@ -269,6 +271,8 @@ items:
         href: service-fabric-patterns-networking.md
     - name: Tek başına kümeler
       items:
+      - name: Tek başına kümelere genel bakış
+        href: service-fabric-standalone-clusters-overview.md
       - name: Tek başına kümeleri yükseltme
         href: service-fabric-cluster-upgrade-standalone.md
       - name: Ölçeklendirme
@@ -837,9 +841,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 28faaf7c5f36dd9c606707c8fdb9b8381b5ed695
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 74fccc181b6199a9f5441f1ee977d2a798eb7f2f
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893281"
+ms.locfileid: "55965146"
