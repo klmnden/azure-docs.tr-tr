@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250776"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998714"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES ön Ayarları özelleştirerek Gelişmiş encoding gerçekleştirme 
 
@@ -238,15 +238,15 @@ Aşağıdaki maddeler geçerlidir:
 * Başlangıç/adım/aralığı için açık zaman damgaları kullanımını giriş kaynağı en az 1 dakika uzunluğunda olduğunu varsayar.
 * Png/jpg/BmpImage öğeleri başlatma, adım ve dize öznitelikleri aralığı – bunlar olarak yorumlanabilir:
 
-  * Çerçeve numarası negatif olmayan tamsayılar olmaları durumunda, örneğin "Başlat": "120"
-  * Göreli süre olarak % tam sayıysa kaynağı, örneğin "Başlat": "%15", veya
-  * Ss zaman damgası... Biçim, örneğin "Başlat": "00: 01:00"
+  * Örneğin "Başlangıç" negatif olmayan tamsayılar olmaları durumunda çerçeve numarası: "120",
+  * Süre olarak % tam sayıysa kaynağı, örneğin "Başlat" göreli: "%15", VEYA
+  * Ss zaman damgası... Örneğin "Başlangıç" biçimi: "00:01:00"
 
     Karışık ve yazarken gösterimler Lütfen eşleşen.
 
-    Ayrıca, başlangıç özel makro de destekler: {, hangi içerik Not ilk "ilginç" çerçevesini belirlemeye çalışır en iyi}: (adım ve aralığı dikkate alınmaz başlangıç {iyi} olarak ayarlandığında)
-  * Varsayılan: Başlatın: {en iyi}
-* Çıkış biçimi için her görüntü biçimi açıkça sağlanması gerekiyor: Jpg/Png/BmpFormat. MES JpgVideo JpgFormat için mevcut olduğunda, vb. ile eşleşir. Yeni bir görüntü codec bileşeni belirli makrosu OutputFormat sunar: {Index} olması gereken sunar (bir kez ve yalnızca bir kez) görüntü için Çıkış biçimleri.
+    Ayrıca, başlangıç özel makro de destekler: {, hangi içerik Not ilk "ilginç" çerçevesini belirlemeye çalışır en iyi}: (Başlangıç {iyi} olarak ayarlandığında adım ve aralığı göz ardı edilir)
+  * Varsayılanlar: Başlangıç: {en iyi}
+* Çıkış biçimi için her görüntü biçimi açıkça sağlanması gerekir: Jpg/Png/BmpFormat. MES JpgVideo JpgFormat için mevcut olduğunda, vb. ile eşleşir. Yeni bir görüntü codec bileşeni belirli makrosu OutputFormat sunar: {Index} olması gereken sunar (bir kez ve yalnızca bir kez) görüntü için Çıkış biçimleri.
 
 ## <a id="trim_video"></a>(Kırpma) bir videoyu Kırp
 Bu bölümde, küçük resim veya giriş sözde Ara dosyayı ya da isteğe bağlı dosya olduğu giriş Videoyu Kırp Kodlayıcı hazır değiştirilmesi hakkında konuşuyor. Kodlayıcı, küçük veya trim yakalanan veya bir canlı akıştan Arşivlenmiş bir varlık için de kullanılabilir – için bu Ayrıntılar kullanılabilir [bu blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
@@ -752,7 +752,7 @@ XML'deki otomatik taramayı kapatabilirsiniz. Bu seçenek önerilmez.
 
 
 ## <a id="audio_only"></a>Yalnızca ses hazır
-Bu bölüm iki yalnızca ses MES ön ayarları gösterir: AAC ses ve AAC iyi kalite ses.
+Bu bölüm iki yalnızca ses MES ön ayarları gösterir: AAC ses ve AAC kaliteli ses.
 
 ### <a name="aac-audio"></a>AAC ses
     {

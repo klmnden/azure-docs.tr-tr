@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 89a54d99aa47af273e5955c2103ec696a985737e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8e9d41131228c2399277e59a6d0edd78efda307b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493754"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999122"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini dağıtma
 Azure Machine Learning, derleme, test etme ve Tahmine dayalı analiz çözümlerini dağıtmak sağlar.
@@ -34,7 +34,7 @@ Tahmine dayalı analiz modeli eğitmek için Azure Machine Learning Studio eğit
 Oluşturma ve eğitim denemeleri yönetme işlemini başka bir yerde daha kapsamlı olarak ele alınmıştır. Daha fazla bilgi için şu makalelere bakın:
 
 * [Azure Machine Learning Studio'da basit bir deneme oluşturma](create-experiment.md)
-* [Azure Machine Learning ile Tahmine dayalı bir çözüm geliştirin](walkthrough-develop-predictive-solution.md)
+* [Azure Machine Learning ile Tahmine dayalı bir çözüm geliştirin](tutorial-part1-credit-risk.md)
 * [Eğitim verilerinizi Azure Machine Learning Studio'ya alma](import-data.md)
 * [Azure Machine Learning Studio'da deneme yinelemelerini yönetme](manage-experiment-iterations.md)
 

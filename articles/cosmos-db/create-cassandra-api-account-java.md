@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 7ef34ad17dbfbbadde7442fdcba2d02d25a6e4ad
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: fc1505526ddff33c68b6d7a4030338dd7d712598
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037507"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994481"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Öğretici: Anahtar/değer veri depolamak için bir Java uygulaması kullanarak Azure Cosmos DB'de Cassandra API hesabı oluşturma
 
@@ -45,7 +45,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 2.   **Kaynak oluştur**  >  **Veritabanları**  >  **Azure Cosmos DB** 'yi seçin.  
 
-3. İçinde **yeni hesabı** bölmesinde, yeni Azure Cosmos hesabının ayarlarını girin. 
+3. İçinde **yeni hesabı** bölmesinde, yeni Azure Cosmos hesabının ayarlarını girin. 
 
    |Ayar   |Önerilen değer  |Açıklama  |
    |---------|---------|---------|

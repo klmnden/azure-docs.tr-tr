@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici Log Analytics kayıtları standart özelliklerinde | Microsoft Docs
-description: Azure İzleyici Log analytics'te birden çok veri türü için ortak olan özellikleri açıklar.
+title: Azure İzleyici'de standart özellikler günlük kayıtlarının | Microsoft Docs
+description: Azure İzleyici günlüklerine birden çok veri türü için ortak olan özellikleri açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381944"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997048"
 ---
-# <a name="standard-properties-in-log-analytics-records"></a>Log Analytics kayıtları standart özellikler
-Verileri [Log Analytics](../log-query/log-query-overview.md) kümesi her bir özellik kümesi olan bir özel veri türü ile kayıt olarak depolanır. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
+# <a name="standard-properties-in-azure-monitor-log-records"></a>Azure İzleyici günlük kayıtlarını standart özellikler
+Azure İzleyici'de günlük veri [bir kayıt kümesi depolanan](../log-query/log-query-overview.md), her bir özellik kümesi olan belirli veri türüne sahip. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
 
 Bazı veri türleri, ancak henüz diğerleri bunları görebilirsiniz bu özelliklerin bazıları hala uygulanan sürecinde, olduğundan.
 
@@ -39,7 +39,7 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>Tür
+## <a name="type"></a>Type
 **Türü** özellik adını tutan tablosu kayda alındığı, ayrıca, kayıt türü olarak düşünülebilir. Bu özellik, kayıtları kullananlar gibi birden çok tablodan birleştirmek sorgularda yararlıdır `search` farklı türlerde kayıtlar arasında ayrım yapmak için işleci. **$table** yerine kullanılan **türü** bazı yerlerde.
 
 ### <a name="examples"></a>Örnekler
@@ -151,6 +151,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Nasıl hakkında daha fazla bilgiyi [Log Analytics verilerinin depolandığı](../log-query/log-query-overview.md).
-- Ders almak [Log Analytics'te sorgu yazma](../../azure-monitor/log-query/get-started-queries.md).
-- Ders almak [Log Analytics sorguları tabloları birleştirme](../../azure-monitor/log-query/joins.md).
+- Nasıl hakkında daha fazla bilgiyi [Azure İzleyici günlük verilerinin depolandığı](../log-query/log-query-overview.md).
+- Ders almak [günlük sorguları yazma](../../azure-monitor/log-query/get-started-queries.md).
+- Ders almak [günlük sorgularda tabloları birleştirme](../../azure-monitor/log-query/joins.md).
