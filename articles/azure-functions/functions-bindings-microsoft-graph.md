@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822638"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100807"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure işlevleri için Microsoft Graph bağlamaları
 
@@ -524,7 +524,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
 |Kaynak|İzin|
 |--------|--------|
-|Microsoft Graph|Kullanıcı dosyalarına tam erişim sağlama|
+|Microsoft Graph|Kullanıcı dosyalarına tam erişim elde edin|
 
 Bağlama .NET işlevlerine aşağıdaki türlerini sunar:
 - string[][]
@@ -813,7 +813,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
 |Kaynak|İzin|
 |--------|--------|
-|Microsoft Graph|Kullanıcı dosyalarına tam erişim sağlama|
+|Microsoft Graph|Kullanıcı dosyalarına tam erişim elde edin|
 
 Bağlama .NET işlevlerine aşağıdaki türlerini sunar:
 - bayt]
@@ -982,7 +982,7 @@ Web kancaları Microsoft Graph olaylara tepki olanak sağlar. Web kancaları des
 - A [Microsoft Graph Web kancası aboneliği giriş bağlama](#webhook-input) mevcut abonelikleri listeleyin ve isteğe bağlı olarak bunları yenileme olanak tanır.
 - A [Microsoft Graph Web kancası aboneliği çıktı bağlamasını](#webhook-output) oluşturun veya Web kancası aboneliklerini silmenize olanak sağlar.
 
-Bağlamaları herhangi bir Azure AD izinleri gerektirmez, ancak tepki istediğiniz kaynak türü için uygun izinleri istemeniz gerekir. Hangi izinleri her kaynak türü için gereklidir ve bir listesi için bkz [abonelik izinleri](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
+Bağlamaları herhangi bir Azure AD izinleri gerektirmez, ancak tepki istediğiniz kaynak türü için uygun izinleri istemeniz gerekir. Hangi izinleri her kaynak türü için gereklidir ve bir listesi için bkz [abonelik izinleri](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Web kancaları hakkında daha fazla bilgi için bkz: [Microsoft Graph Web kancaları ile çalışma].
 

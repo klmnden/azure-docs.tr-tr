@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: ba2eb5a7f888e4cffcd798259afa8194b4021025
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 16871bdc59d141334bc2c95f26929f270d7971cf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488901"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100549"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps için JavaScript istemci kitaplığını kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "38488901"
 Bu kılavuzu kullanarak en yaygın senaryoları gerçekleştirmek için öğretir [Azure mobil uygulamaları için JavaScript SDK'sı]. Azure Mobile Apps için yeni başladıysanız, ilk olarak işlemini [Azure Mobile Apps Hızlı Başlangıç] bir arka uç oluşturma ve bir tablo oluşturun. Bu kılavuzda, HTML/JavaScript Web uygulamaları kullanarak mobil arka uç odaklanın.
 
 ## <a name="supported-platforms"></a>Desteklenen platformlar
-Bilinen tarayıcılar geçerli ve son sürümleri için tarayıcı desteği sınırlandırırız: Google Chrome, Microsoft Edge, Microsoft Internet Explorer ve Mozilla Firefox.  SDK'sı göreceli olarak modern bir tarayıcı ile işlevine bekliyoruz.
+Bilinen tarayıcılar geçerli ve son sürümleri için tarayıcı desteği sınırlandırırız:  Google Chrome, Microsoft Edge, Internet Explorer ve Mozilla Firefox.  SDK'sı göreceli olarak modern bir tarayıcı ile işlevine bekliyoruz.
 
 Paket, globals, AMD, destekler ve CommonJS biçimleri Evrensel JavaScript modül olarak dağıtılır.
 
@@ -42,10 +42,10 @@ npm install azure-mobile-apps-client --save
 
 Kitaplık Browserify ve Web gibi ve AMD kitaplığı olarak CommonJS ortamlar içinde bir ES2015 modülü olarak da kullanılabilir.  Örneğin:
 
-```
-# For ECMAScript 5.1 CommonJS
+```javascript
+// For ECMAScript 5.1 CommonJS
 var WindowsAzure = require('azure-mobile-apps-client');
-# For ES2015 modules
+// For ES2015 modules
 import * as WindowsAzure from 'azure-mobile-apps-client';
 ```
 
@@ -57,14 +57,14 @@ Bizim CDN'den doğrudan indirerek, önceden oluşturulmuş bir SDK sürümünü 
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Nasıl yapılır: kullanıcıların kimlik doğrulaması
-Azure App Service kimlik doğrulama ve yetkilendirme çeşitli dış kimlik sağlayıcısı kullanarak uygulama kullanıcılarının destekler: Facebook, Google, Microsoft Account ve Twitter. Tablolarda yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi sınırlandırmak için izinleri ayarlayabilirsiniz. Sunucu betiklerini yetkilendirme kurallarını uygulamak için kimliği doğrulanmış kullanıcıların kimliğini de kullanabilirsiniz. Daha fazla bilgi için [kimlik doğrulamayı kullanmaya başlama] öğretici.
+## <a name="auth"></a>Nasıl Yapılır: Kullanıcıların kimliklerini doğrulama
+Azure App Service kimlik doğrulama ve yetkilendirme çeşitli dış kimlik sağlayıcısı kullanarak uygulama kullanıcılarının destekler: Facebook, Google, Microsoft hesabı ve Twitter gibi. Tablolarda yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi sınırlandırmak için izinleri ayarlayabilirsiniz. Sunucu betiklerini yetkilendirme kurallarını uygulamak için kimliği doğrulanmış kullanıcıların kimliğini de kullanabilirsiniz. Daha fazla bilgi için [kimlik doğrulamayı kullanmaya başlama] öğretici.
 
 İki kimlik doğrulama akışı desteklenir: sunucu akış ve istemci akışı.  Sağlayıcının web kimlik doğrulaması arabirimde olmasına olduğundan sunucu akışı Basit kimlik doğrulaması deneyimi sağlar. Gibi istemci akışı için cihaza özgü özellikleri ile daha derin tümleştirme sağlayan çoklu oturum açma olarak, sağlayıcıya özgü SDK'ları üzerinde kullanır.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Nasıl yapılır: Mobil uygulama hizmetiniz için dış yönlendirme URL'leri yapılandırın.
+### <a name="configure-external-redirect-urls"></a>Nasıl Yapılır: Mobil uygulama hizmetiniz için dış yönlendirme URL'leri yapılandırın.
 Çeşitli JavaScript uygulamaları, OAuth UI akışları işlemek için bir geri döngü olanağını kullanın.  Bu özellikler şunları içerir:
 
 * Hizmetinizi yerel olarak çalıştırma
