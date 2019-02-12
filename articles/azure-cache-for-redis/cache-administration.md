@@ -14,15 +14,17 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 0f86bd807bf7bf0d00ad659f86b6e1170f31074c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 72e27b7098d9891dc54b31c34e2211362e7c9f50
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020014"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099981"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure önbelleği için Redis yönetme
 Bu konuda gibi yönetim görevlerini gerçekleştirmek kullanılan nasıl açıklanmaktadır [yeniden](#reboot) ve [güncelleştirmelerini zamanlama](#schedule-updates) , Azure önbelleği için Redis örneği için.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="reboot"></a>Yeniden başlatma
 **Yeniden** dikey önbelleğinizin bir veya daha fazla düğüm yeniden başlatmanızı sağlar. Bu yeniden başlatma özelliği, bir önbellek düğümü bir hata varsa, dayanıklılık için uygulamanızı test olanak tanır.
@@ -92,7 +94,7 @@ Yeniden başlatma, tüm fiyatlandırma katmanları için kullanılabilir.
 
 Bir bakım penceresi belirtmek için istenen gün işaretleyin ve her gün için bakım penceresi başlangıç saati belirleyin ve tıklayın **Tamam**. Bakım penceresi saati UTC biçiminde olduğunu unutmayın. 
 
-Güncelleştirmeler için varsayılan ve en düşük bakım penceresi beş saattir. Bu değer Azure Portalı'ndan yapılandırılabilir değildir, ancak PowerShell kullanarak yapılandırabilirsiniz `MaintenanceWindow` parametresinin [yeni AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet'i. Daha fazla bilgi için [PowerShell, CLI veya diğer yönetim araçlarını kullanarak zamanlanmış güncelleştirmeler yönetebilirim?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+Güncelleştirmeler için varsayılan ve en düşük bakım penceresi beş saattir. Bu değer Azure Portalı'ndan yapılandırılabilir değildir, ancak PowerShell kullanarak yapılandırabilirsiniz `MaintenanceWindow` parametresinin [yeni AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet'i. Daha fazla bilgi için [PowerShell, CLI veya diğer yönetim araçlarını kullanarak zamanlanmış güncelleştirmeler yönetebilirim?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 
 
 ## <a name="schedule-updates-faq"></a>SSS güncelleştirmelerini zamanlama
@@ -110,10 +112,10 @@ Yalnızca sunucu zamanlanmış bakım penceresi sırasında yapılan güncelleş
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>Ben zamanlanmış güncelleştirmeler PowerShell, CLI veya diğer yönetim araçlarını kullanarak yönetilen alabilirim?
 Evet, aşağıdaki PowerShell cmdlet'lerini kullanarak, Zamanlanmış güncelleştirmeleri yönetebilirsiniz:
 
-* [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
-* [Yeni AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
-* [Remove-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
+* [Get-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/get-azrediscachepatchschedule)
+* [Yeni AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
+* [Yeni AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
+* [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Fiyatlandırma katmanları zamanlama Güncelleştirmeler işlevini kullanabilir miyim?
 **Güncelleştirmeleri zamanla** özelliği, yalnızca premium fiyatlandırma katmanı kullanılabilir.

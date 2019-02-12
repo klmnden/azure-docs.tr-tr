@@ -11,22 +11,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
-ms.reviewer: wfayed
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.reviewer: justini
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: 0c3f52c78bbfd3094324b74f3b66610fcebfa2f4
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729957"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099301"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure stack'teki güncelleştirmelerini uygulayın
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri*
 
-Kullanabileceğiniz **güncelleştirme** kutucuğunda Azure Stack için Microsoft veya OEM güncelleştirme paketleri uygulamak Yönetim Portalı'nda. Güncelleştirme paketinin indirilebilmesi Azure Stack'e paket dosyalarını içeri ve ardından güncelleştirme paketini yüklemeniz gerekir.
+Kullanabileceğiniz **güncelleştirme** kutucuğunda Azure Stack için Microsoft veya OEM güncelleştirme paketleri uygulamak Yönetim Portalı'nda.
+
+Bir tümleşik sistemler sürümü 1807 kullandığınız ya da daha önce güncelleştirme paketini indirin Azure Stack'e paket dosyalarını içeri ve ardından güncelleştirme paketini yükleyin. Yönergeler için [paketini yükleyerek güncelleştirme Azure Stack](#update-azure-stack-by-downloading-the-package)
+
+Bu yönergeler iş ile Azure Stack tümleşik sistemleri yükseltin. Azure Stack geliştirme sistemi kullanıyorsanız, güncel sürümü için yükleme paketi indirmeniz gerekir. Yönergeler için [Azure Stack geliştirme Seti'ni yükleme](.\asdk\asdk-install.md)
+
+## <a name="update-azure-stack"></a>Azure Stack güncelleştir
+
+### <a name="select-and-apply-an-update-package"></a>Seçin ve bir güncelleştirme paketini Uygula
+
+1. Yönetim Portalı'nı açın.
+
+2. Seçin **Pano**. Seçin **güncelleştirme** Döşe.
+
+    ![Azure Stack güncelleştirmesi mevcut](media/azure-stack-apply-updates/azure-stack-updates-1901-dashboard.png)
+
+3. Azure Stack'ın geçerli sürümü not edin. Sonraki tam sürümüne güncelleştirebilirsiniz. Örneğin, Azure Stack 1811 çalıştıran, sonraki sürüm yayın tarihi 1901 ise için.
+
+    ![Azure yığını güncelleştirmesi uygulama](media/azure-stack-apply-updates/azure-stack-updates-1901-updateavailable.png)
+
+4. Güncelleştirmeler listesinde kullanılabilir bir sonraki sürümü seçin. Seçebileceğiniz **görünümü** sürümde, sürümü için sürüm notları konusunda açmak için Notlar sütununu sürüm değişikliklerini gözden geçirmek istediğiniz.
+
+5. Şimdi, güncelleştirmeyi seçin. Güncelleştirme başlar.
+
+### <a name="review-update-history"></a>Güncelleştirme geçmişini gözden geçirme
+
+1. Yönetim Portalı'nı açın.
+
+2. Seçin **Pano**. Seçin **güncelleştirme** Döşe.
+
+3. Seçin **güncelleştirme geçmişi**.
+
+![Azure Stack güncelleştirme geçmişi](media/azure-stack-apply-updates/azure-stack-update-history.PNG)
+
+## <a name="update-azure-stack-by-downloading-the-package"></a>Paketini yükleyerek Azure Stack güncelleştir
+
+Bir tümleşik sistemler sürümü 1807 kullandığınız ya da daha önce güncelleştirme paketini indirin Azure Stack'e paket dosyalarını içeri ve ardından güncelleştirme paketini yükleyin.
 
 ## <a name="download-the-update-package"></a>Güncelleştirme paketini indirme
 

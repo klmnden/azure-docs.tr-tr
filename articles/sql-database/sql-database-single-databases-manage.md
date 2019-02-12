@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 5612926b26ac71675a42c7c726d0354a1738ac31
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0a43414ef446beb3f5d6c8e357390363a95ac31c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996437"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099352"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>SQL veritabanı sunucuları ve Azure SQL veritabanı'nda tek veritabanları oluşturma ve yönetme
 
@@ -160,5 +160,5 @@ Azure SQL server, veritabanlarını ve güvenlik duvarları oluşturmak ve yöne
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bir SQL Server veritabanını Azure'a geçirme hakkında bilgi edinmek için [Azure SQL veritabanına geçirme](sql-database-cloud-migrate.md).
+- Bir SQL Server veritabanını Azure'a geçirme hakkında bilgi edinmek için [Azure SQL veritabanına geçirme](sql-database-single-database-migrate.md).
 - Desteklenen özellikler hakkında bilgi edinmek için bkz. [Özellikler](sql-database-features.md).

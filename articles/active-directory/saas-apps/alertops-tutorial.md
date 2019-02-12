@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 15f362386197c76de578e2ffffae4c165ba59c67
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 7ea7ac7e9c41dd11815da85d4a791eb8c93f7bec
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55569333"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100389"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alertops"></a>Öğretici: AlertOps ile Azure Active Directory Tümleştirme
 
@@ -251,4 +251,3 @@ Erişim paneli AlertOps kutucuğa tıkladığınızda, size otomatik olarak SSO'
 - [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

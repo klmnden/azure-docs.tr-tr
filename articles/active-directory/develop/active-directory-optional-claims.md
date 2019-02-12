@@ -16,12 +16,12 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fa8328039c82ffb8be94c1d7abde7b2b6b6dd52d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077263"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098247"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Nasıl yapılır: Azure AD uygulamanızı (genel Önizleme) için isteğe bağlı bir talep sağla
 
@@ -76,7 +76,7 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 | `ztdid`                    | Sıfır dokunma dağıtım kimliği | JWT | | Cihaz kimliği için kullanılan [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 |`email`                     | Adreslenebilir e-posta kullanıcı varsa, bu kullanıcı için.  | JWT, SAML | | Kullanıcı kiracıda bir konuk ise bu değer varsayılan olarak dahil edilir.  Yönetilen kullanıcılar için (Bu Kiracı içindeki), bu isteğe bağlı bir talep aracılığıyla veya yalnızca v2.0 OpenID kapsamı ile istenmesi gerekir.  Yönetilen kullanıcılar için e-posta adresi olarak [Office Yönetim Portalı](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Kiracıdaki kullanıcıların hesap durumu. | JWT, SAML | | Kullanıcı, kiracısının üyesi ise, değer `0`. Bir konuk olmaları durumunda değerdir `1`. |
-| `upn`                      | UserPrincipalName talep. | JWT, SAML  |           | Bu talep otomatik olarak dahil olsa da, Konuk kullanıcı durumda davranışını değiştirmek için ek özellikler eklemek için isteğe bağlı bir talep olarak belirtebilirsiniz. <br> Ek özellikleri: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `upn`                      | UserPrincipalName talep. | JWT, SAML  |           | Bu talep otomatik olarak dahil olsa da, Konuk kullanıcı durumda davranışını değiştirmek için ek özellikler eklemek için isteğe bağlı bir talep olarak belirtebilirsiniz.  |
 
 ### <a name="v20-optional-claims"></a>İsteğe bağlı taleplerin v2.0
 
@@ -85,30 +85,28 @@ Bu talepler her zaman v1.0 belirteçlerinde dahil, ancak v2.0 belirteçlerinde i
 **Tablo 3: Yalnızca v2.0 isteğe bağlı talepleri**
 
 | JWT talep     | Ad                            | Açıklama                                | Notlar |
-|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+|---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP Adresi                      | Oturum açtığınız istemci IP adresi.   |       |
 | `onprem_sid`  | Şirket İçi Güvenlik Tanımlayıcısı |                                             |       |
 | `pwd_exp`     | Parola süre sonu zamanı        | Parola süresinin dolma datetime. |       |
-| `pwd_url`     | Parola URL'sini değiştirme             | Kullanıcının parolasını değiştirmek için ziyaret edebileceği bir URL.   |       |
-| `in_corp`     | İç şirket ağı        | Sinyaller istemci ve şirket ağından oturum açılıyor. Değilse, talep dahil değildir.   |       |
-| `nickname`    | Takma ad                        | İlk veya son adından ayrı kullanıcı için ek bir ad. |       |                                                                                                                |       |
+| `pwd_url`     | Parola URL'sini değiştirme             | Kullanıcının parolasını değiştirmek için ziyaret edebileceği bir URL.   |   |
+| `in_corp`     | İç şirket ağı        | Sinyaller istemci ve şirket ağından oturum açılıyor. Değilse, talep dahil değildir.   |  Kapatarak tabanlı [güvenilen IP'ler](../authentication/howto-mfa-mfasettings.md#trusted-ips) MFA ayarları.    |
+| `nickname`    | Takma ad                        | İlk veya son adından ayrı kullanıcı için ek bir ad. | 
 | `family_name` | Soyadı                       | Son adını, soyadını veya kullanıcının aile adı Azure AD kullanıcı nesnesinde tanımlanan sağlar. <br>"family_name": "Mert" |       |
 | `given_name`  | Ad                      | İlk sağlar veya "Azure AD kullanıcı nesnesindeki belirlenen kullanıcı adı verilen".<br>"given_name": "Ferdi"                   |       |
+| `upn`       | Kullanıcı Asıl Adı | Username_hint parametresiyle birlikte kullanılabilecek kullanıcı için bir tanımlayıcı.  Kullanıcı için kalıcı bir tanımlayıcı değil ve anahtar verileri kullanılmamalıdır. | Bkz: [ek özellikler](#additional-properties-of-optional-claims) aşağıda talep yapılandırma. |
 
 ### <a name="additional-properties-of-optional-claims"></a>İsteğe bağlı taleplerin ek özellikler
 
-Bazı isteğe bağlı bir talep, talep döndürülen şeklini değiştirmek için yapılandırılabilir. Bu ek özellikler genellikle farklı veri beklentileri ile şirket içi uygulamaların taşınmasına yardımcı olmak için kullanılır (örneğin, `include_externally_authenticated_upn_without_hash` hashmarks işleyemiyor istemcilerle yardımcı olur (`#`) UPN içinde)
+Bazı isteğe bağlı bir talep, talep döndürülen şeklini değiştirmek için yapılandırılabilir. Bu ek özellikler genellikle farklı veri beklentileri ile şirket içi uygulamaların taşınmasına yardımcı olmak için kullanılır (örneğin, `include_externally_authenticated_upn_without_hash` karma işareti işleyemiyor istemcilerle yardımcı olur (`#`) UPN içinde)
 
-**Tablo 4: Standart isteğe bağlı talep yapılandırma değerleri**
+**Tablo 4: İsteğe bağlı bir talep yapılandırma değerleri**
 
-| Özellik adı                                     | Ek özellik adı                                                                                                             | Açıklama |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  SAML hem JWT yanıtlar için kullanılabilir.        |
-| | `include_externally_authenticated_upn`              | Kaynak kiracıda depolanmış olarak UPN Konuk içerir. Örneğin, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
-| | `include_externally_authenticated_upn_without_hash` | Yukarıdaki aynı dışındaki hashmarks (`#`) alt çizgi ile değiştirilir (`_`), örneğin `foo_hometenant.com_EXT_@resourcetenant.com` |             
-
-> [!Note]
->Bir ek özellik olmadan upn isteğe bağlı talebi, belirteçte verilen yeni bir talep görmek için herhangi bir davranış – değiştirmez belirtilmesi, en az bir ek özellikler eklenmelidir. 
+| Özellik adı  | Ek özellik adı | Açıklama |
+|----------------|--------------------------|-------------|
+| `upn`          |                          | V1.0 ve v2.0 belirteçleri ve SAML hem JWT yanıtları için kullanılabilir. |
+|                | `include_externally_authenticated_upn`  | Kaynak kiracıda depolanmış olarak UPN Konuk içerir. Örneğin, `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | Aynı yukarıdaki karma işaretler dışında (`#`) alt çizgi ile değiştirilir (`_`), örneğin `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Ek özellikleri örneği
 
@@ -151,12 +149,12 @@ Bu OptionalClaims nesne başka bir upn ile ek giriş kiracısında ve kaynak Kir
 "saml2Token": [ 
               { 
                     "name": "upn", 
-                    "essential": true
+                    "essential": false
                },
                { 
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
-                    "essential": true
+                    "essential": false
                }
        ]
    }

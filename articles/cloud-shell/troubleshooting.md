@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ad389cfaa92ad487fad8b7ecb6feac40324572f0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568541"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100576"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Sorun giderme & sınırlamaları Azure Cloud Shell
 
@@ -109,10 +109,6 @@ Cloud Shell'de aşağıdaki tarayıcılardan en son sürümlerini destekler:
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Belirli bir kullanıcı için yalnızca bir kabuk etkin olabilir
-
-Kullanıcılar yalnızca başlatabilir bir kabuk türünü bir kerede ya da **Bash** veya **PowerShell**. Ancak, Bash veya PowerShell aynı anda çalışan birden çok örneği olabilir. Hangi mevcut oturumlarını sonlandırır Bash veya PowerShell nedenleri arasında yeniden başlatmak için Cloud Shell değiştirme.
-
 ### <a name="usage-limits"></a>Kullanım sınırları
 
 Cloud Shell'de etkileşimli kullanım durumları için tasarlanmıştır. Sonuç olarak, herhangi bir uzun süre çalışan etkileşimli olmayan oturum uyarı vermeden sonlandırılır.
@@ -140,10 +136,6 @@ Bunun yapılması, .bashrc düzenleme beklenmeyen hatalar Cloud Shell'de neden o
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Azure sürücüsünden oluşturduğunuzda varsayılan dosya konumu
 
 PowerShell cmdlet'lerini kullanarak, kullanıcılar Azure sürücüsü altındaki dosyalar oluşturamaz. Kullanıcıların yeni dosyaları vim veya nano gibi diğer araçları kullanarak oluşturduğunuzda, dosyalar için kaydedilir `$HOME` varsayılan olarak.
-
-### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>GUI açılır pencereleri oluşturma komutları desteklenmiyor
-
-Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırıyorsa `Connect-AzureAD`, `Connect-AzureRmAccount`, veya `Connect-AzAccount`, bir gördüğü hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Sekme tamamlama PSReadline durum oluşturabilir
 

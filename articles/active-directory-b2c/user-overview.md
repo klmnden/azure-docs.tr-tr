@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a901072875d6810711cb0b23d17555d9492c240a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157984"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100134"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Kullanıcı hesapları Azure Active Directory B2C, genel bakış
 
@@ -47,21 +47,21 @@ Yeni bir iş hesabı eklediğinizde, aşağıdaki yapılandırma ayarları dikka
 Yeni bir iş hesabı oluşturmak için aşağıdaki bilgileri kullanabilirsiniz:
 
 - [Azure portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Bir kullanıcı profilini güncelleştirme
 
 Bir kullanıcının profilini güncelleştirmek için aşağıdaki bilgileri kullanabilirsiniz:
 
 - [Azure portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Bir kullanıcı için bir parola sıfırlama
 
 Bir kullanıcının parolasını sıfırlamak için aşağıdaki bilgileri kullanabilirsiniz: 
 
 - [Azure portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Konuk kullanıcı
 
@@ -69,7 +69,7 @@ Dış kullanıcılar kiracınıza Konuk kullanıcı olarak davet edebilirsiniz. 
 
 Kiracınıza Konuk kullanıcı davet ettiğinizde, alıcı ve daveti açıklayan bir ileti e-posta adresini sağlayın. Onay sayfası kullanıcıyı davet bağlantısını götürür burada **Başlarken** düğmesi seçili ve izinleri gözden geçirmesini kabul edilir. Bir gelen kutusu e-posta adresine bağlı değilse, davet edilen kimlik bilgilerini kullanarak Microsoft sayfasına giderek bir onay sayfasına gidebilirsiniz. Kullanıcı e-postadaki bağlantıya tıklayarak olarak aynı şekilde davetini zorlanır. Örneğin: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Ayrıca [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/invitation_post) Konuk kullanıcı davet etme.
+Ayrıca [Microsoft Graph API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) Konuk kullanıcı davet etme.
 
 ## <a name="consumer-user"></a>Tüketici kullanıcı
 

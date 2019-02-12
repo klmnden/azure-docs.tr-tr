@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332311"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097657"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Ağ güvenlik grupları için akış günlüğü giriş
 
@@ -287,5 +287,6 @@ Aşağıdaki metni, bir akış günlüğü örneğidir. Gördüğünüz gibi ön
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Akış günlüklerini etkinleştirme hakkında bilgi için bkz: [etkinleştirme NSG akış günlüğü](network-watcher-nsg-flow-logging-portal.md).
+- Akış günlüklerini okuma hakkında bilgi almak için bkz: [NSG akış günlüklerini okuma](network-watcher-read-nsg-flow-logs.md).
 - NSG günlüğe kaydetme hakkında daha fazla bilgi için bkz: [Log analytics için ağ güvenlik grupları (Nsg'ler)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Trafiğin izin verilen veya için veya bir VM'den reddedildi olup olmadığını belirlemek için bkz: [bir VM ağ trafik filtresi sorununu tanılama](diagnose-vm-network-traffic-filtering-problem.md)

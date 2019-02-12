@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/28/2018
 ms.author: troyhop
-ms.openlocfilehash: 12f993f606fc1ef44280142d5acfa2687cd4e043
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 84b232b175d45a12bb6e0f8b462849282144c19b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601602"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097585"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Hızlı Başlangıç: Dağıtın ve bir IOT cihaz benzetimi Azure'da çalıştırın
 
@@ -44,7 +44,7 @@ Cihaz Benzetimi açıklama sayfasındaki **Şimdi Deneyin**’e tıklayın:
 
 Cihaz Benzetimi çözümünüzle kullanabileceğiniz bir IoT hub’ı dağıtmak için kutuyu işaretleyin. Benzetiminizin kullandığı IoT hub’ını istediğiniz zaman değiştirebilirsiniz.
 
-Çözümünüzü sağlamaya başlamak için **Çözüm Oluştur**’a tıklayın. Bu işlemin çalışması en az beş dakika sürer:
+Tıklayın **Oluştur** çözümünüzü hazırlamaya başlamak için. Bu işlemin çalışması en az beş dakika sürer:
 
 ![Cihaz Benzetimi çözümü ayrıntıları](./media/quickstart-device-simulation-deploy/createform.png)
 

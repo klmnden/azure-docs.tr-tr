@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2018
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f58bb8a1a3a0f0593513570355b8d3ba46816b9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9a399b78ed4afa0391f8e1479a22cfb2a2fd8ffd
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825842"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098859"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Öğretici: Zendesk ile Azure Active Directory Tümleştirme
 
@@ -108,7 +108,12 @@ Azure AD çoklu oturum açma Zendesk ile yapılandırmak için aşağıdaki adı
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.zendesk.com`
 
-    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `<subdomain>.zendesk.com`
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    | |
+    |-|-|
+    | `<subdomain>.zendesk.com` |
+    | `https://<subdomain>.zendesk.com` |
+    | |
 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [Zendesk istemci Destek ekibine](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
@@ -162,7 +167,7 @@ Azure AD çoklu oturum açma Zendesk ile yapılandırmak için aşağıdaki adı
 
 11. Uzantı tarayıcıya ekledikten sonra tıklayarak **Kurulum Zendesk** Zendesk uygulamaya yönlendirir. Burada, Zendesk oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve bölüm otomatikleştirmek **yapılandırma Zendesk çoklu oturum açma**.
 
-     ![image](./media/zendesk-tutorial/d2_saml.png)
+    ![image](./media/zendesk-tutorial/d2_saml.png)
 
 ### <a name="configure-zendesk-single-sign-on"></a>Zendesk tek oturum açmayı yapılandırın
 
@@ -190,7 +195,7 @@ Azure AD çoklu oturum açma Zendesk ile yapılandırmak için aşağıdaki adı
 
     f. **Kaydet**’e tıklayın.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
@@ -278,5 +283,4 @@ Erişim paneli Zendesk kutucuğa tıkladığınızda, size otomatik olarak SSO'y
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Kullanıcı sağlamayı yapılandırma](zendesk-provisioning-tutorial.md) 
-
+- [Kullanıcı sağlamayı yapılandırma](zendesk-provisioning-tutorial.md)

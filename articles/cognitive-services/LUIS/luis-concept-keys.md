@@ -1,6 +1,6 @@
 ---
 title: Abonelik anahtarları
-titleSuffix: Language Understadning - Azure Cognitive Services
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS, tahmin uç noktası kullanıcı Konuşma ile sorgulama için iki anahtar, modelinizi oluşturmak için ücretsiz geliştirme anahtarı ve tarifeli uç noktası anahtarı kullanır.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 0bb535a75d1eefcb835d25d28dc65c565655d2c5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1898d6e5119d3cbc2061aff8d4a7e673abd83198
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881817"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097466"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS yazma ve sorgu tahmin uç nokta anahtarları
 LUIS, iki anahtar kullanır: [yazma](#programmatic-key) ve [uç nokta](#endpoint-key). LUIS hesabınızı oluşturduğunuzda yazma anahtar sizin için otomatik olarak oluşturulur. LUIS uygulamanızı yayımlamaya hazır olduğunuzda yapmanız [uç nokta oluşturma](luis-how-to-azure-subscription.md), [atayabilirsiniz](luis-how-to-azure-subscription.md) LUIS uygulamanıza ve [ile uç nokta sorgu kullanın](#use-endpoint-key-in-query). 

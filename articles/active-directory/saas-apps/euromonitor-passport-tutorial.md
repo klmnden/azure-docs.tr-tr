@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bdc3b88109a8d8c46f0a6a09297b0ca197165
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 95d61ac5fc1f7bcafb09107034c7b1588003f8cc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479214"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Öğretici: Euromonitor Passport ile Azure Active Directory Tümleştirme
 
@@ -66,7 +66,7 @@ Azure AD'de Euromonitor Passport tümleştirmesini yapılandırmak için Euromon
 
 4. Arama kutusuna **Euromonitor Passport**seçin **Euromonitor Passport** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![Sonuç listesinde Euromonitor Passport](common/search-new-app.png)
+    ![Sonuç listesinde Euromonitor Passport](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -104,17 +104,17 @@ Azure AD çoklu oturum açma Euromonitor Passport ile yapılandırmak için aşa
 
     ![Euromonitor Passport etki alanı ve URL'ler tek oturum açma bilgileri](common/preintegrated.png)
 
-5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+5. Uygulamada yapılandırmak istiyorsanız **SP** başlatılan modunu, oturum açma URL'si formun almanız gereken [Euromonitor Passport Destek ekibine](mailto:passport.support@euromonitor.com). Oturum açma URL'si Euromonitor Passport destek ekibinden aldıktan sonra tıklayın **ek URL'lerini ayarlayın** ve aşağıdaki adımı uygulayın:
 
     ![Euromonitor Passport etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  `https://portal.euromonitor.com`
+    Elde edilen oturum açma URL değeri Euromonitor Passport destek ekibinden oturum açma URL'si metin kutusuna yapıştırın.
 
 6. Euromonitor Passport uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
     ![image](./media/euromonitor-passport-tutorial/attribute1.png)
 
-7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin: 
+7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
     | Ad | Kaynak özniteliği|
     | ---------------| --------- |

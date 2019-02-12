@@ -1,5 +1,5 @@
 ---
-title: Mobile Apps’te Evrensel Windows Platformu (UWP) oluşturma | Microsoft Belgeleri
+title: Azure Mobile Apps kullanan bir evrensel Windows Platformu (UWP) oluşturma | Microsoft Docs
 description: C#, Visual Basic ya da JavaScript’te Evrensel Windows Platformu (UWP) uygulaması geliştirme için Azure mobil uygulama arka uçlarını kullanmaya başlamak üzere bu öğreticiyi izleyin.
 services: app-service\mobile
 documentationcenter: windows
@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: c8bd6430b362fde81c3133c2c16cf369aa050103
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 00b635853d0dfad73a258ddc8ef9b168559fc5df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999386"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098434"
 ---
-# <a name="create-a-windows-app"></a>Windows uygulaması oluşturma
+# <a name="create-a-windows-app-with-an-azure-backend"></a>Bir Azure arka uç ile bir Windows uygulaması oluşturma
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
@@ -38,7 +38,9 @@ Bu öğreticiyi tamamlamak UWP uygulamalarına ilişkin tüm Mobil Uygulama öğ
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinebilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+* Windows 10.
 * [Visual Studio Community 2017].
+* UWP uygulama geliştirme ile aşinalık. Ziyaret [UWP belgeleri](https://docs.microsoft.com/windows/uwp/) bilgi edinmek için nasıl [ayarlanmasını](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) UWP uygulamaları oluşturmak için.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Yeni bir Azure Mobil Uygulama arka ucu oluşturma
 

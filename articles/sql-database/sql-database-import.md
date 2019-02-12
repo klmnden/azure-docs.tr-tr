@@ -7,17 +7,17 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
-ms.reviewer: carlrab
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 5b717e26e61a6633ea51817bcb21ebeb15a20969
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/11/2019
+ms.openlocfilehash: 7ea1de4719d171605a49727d6924cb4b617b04bc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892012"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097872"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Hızlı Başlangıç: Yeni bir Azure SQL veritabanına BACPAC dosyasını içeri aktarma
 
@@ -37,7 +37,7 @@ Azure portalında bir veritabanını içeri aktarmak için içeri aktarma barın
 
    ![Veritabanı içeri aktarma](./media/sql-database-import/import.png)
 
-Depolama hesabı, kapsayıcı ve BACPAC dosyasını içeri aktarmak istediğiniz seçin. Yeni veritabanı boyutu (genellikle kaynak aynı) belirtin ve hedef SQL Server kimlik bilgilerini sağlayın. 
+Depolama hesabı, kapsayıcı ve BACPAC dosyasını içeri aktarmak istediğiniz seçin. Yeni veritabanı boyutu (genellikle kaynak aynı) belirtin ve hedef SQL Server kimlik bilgilerini sağlayın. Yeni bir Azure SQL veritabanı için olası değerler listesi için bkz. [Create Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
 ### <a name="monitor-imports-progress"></a>Alma işleminin ilerleme durumunu izleyin
 
@@ -120,5 +120,5 @@ Bu sihirbazlar de kullanabilirsiniz.
 
 - Bağlanmak ve içeri aktarılan bir SQL veritabanını sorgulama hakkında bilgi edinmek için [hızlı başlangıç: Azure SQL Veritabanı: Verileri bağlama ve sorgulama için SQL Server Management Studio kullanın](sql-database-connect-query-ssms.md).
 - BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
-- Performans önerileri de dahil olmak üzere tüm SQL Server veritabanı geçiş işlemi, hakkında ayrıntılı bilgi için bkz. [Azure SQL veritabanı için SQL Server veritabanı geçişi](sql-database-cloud-migrate.md).
+- Performans önerileri de dahil olmak üzere tüm SQL Server veritabanı geçiş işlemi, hakkında ayrıntılı bilgi için bkz. [Azure SQL veritabanı için SQL Server veritabanı geçişi](sql-database-single-database-migrate.md).
 - Depolama anahtarları ve paylaşılan erişim imzaları güvenli bir şekilde, bkz: yönetmek ve paylaşmak hakkında bilgi edinmek için [Azure depolama Güvenlik Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

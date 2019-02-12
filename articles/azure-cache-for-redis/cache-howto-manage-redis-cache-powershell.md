@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: ffbd785126bbc204191554e5d62d642a582a3c8d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2c2f76c967becc0e07f6b3c2d82507b759d0aaf2
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822570"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099930"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure önbelleği için Redis Azure PowerShell ile yönetme
 > [!div class="op_single_selector"]
@@ -28,7 +28,9 @@ ms.locfileid: "55822570"
 > 
 > 
 
-Bu konuda, oluşturma gibi ortak görevleri gerçekleştirmek için nasıl güncelleştirmek ve, Azure önbelleği için Redis önbelleklerinizi hakkındaki bilgileri görüntülemek nasıl örnekleri ve erişim anahtarlarını yeniden oluşturmak nasıl ölçeklendirme gösterilmektedir. Bir tam listesi Azure önbelleği için Redis PowerShell cmdlet'leri için bkz: [Azure önbelleği için Redis cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Bu konuda, oluşturma gibi ortak görevleri gerçekleştirmek için nasıl güncelleştirmek ve, Azure önbelleği için Redis önbelleklerinizi hakkındaki bilgileri görüntülemek nasıl örnekleri ve erişim anahtarlarını yeniden oluşturmak nasıl ölçeklendirme gösterilmektedir. Bir tam listesi Azure önbelleği için Redis PowerShell cmdlet'leri için bkz: [Azure önbelleği için Redis cmdlet'leri](https://docs.microsoft.com/powershell/module/az.rediscache).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -37,22 +39,22 @@ Klasik dağıtım modeli hakkında daha fazla bilgi için bkz: [Azure Resource M
 ## <a name="prerequisites"></a>Önkoşullar
 Azure PowerShell'i zaten yüklediyseniz, Azure PowerShell sürüm 1.0.0 olmalıdır veya üzeri. Azure PowerShell, Azure PowerShell komut isteminde bu komutu ile yüklü olan sürümü denetleyebilirsiniz.
 
-    Get-Module azure | format-table version
+    Get-Module Az | format-table version
 
 
 İlk olarak, Azure'a bu komutla oturum açmalısınız.
 
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
 Microsoft Azure oturum açma iletişim kutusunda Azure hesabınızı ve kendi parola e-posta adresini belirtin.
 
 Ardından, birden çok Azure aboneliğiniz varsa, Azure aboneliğinizi ayarlama gerekir. Geçerli aboneliklerinizin bir listesini görmek için şu komutu çalıştırın.
 
-    Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
+    Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
 
 Aboneliği belirtmek için aşağıdaki komutu çalıştırın. Aşağıdaki örnekte, abonelik addır `ContosoSubscription`.
 
-    Select-AzureRmSubscription -SubscriptionName ContosoSubscription
+    Select-AzSubscription -SubscriptionName ContosoSubscription
 
 Azure Resource Manager ile Windows PowerShell kullanmadan önce aşağıdakiler gerekir:
 
@@ -62,23 +64,23 @@ Bu öğreticide gördüğünüz herhangi bir cmdlet'in ayrıntılı yardım alma
 
     Get-Help <cmdlet-name> -Detailed
 
-Örneğin, Yardım almak için `New-AzureRmRedisCache` cmdlet'i, türü:
+Örneğin, Yardım almak için `New-AzRedisCache` cmdlet'i, türü:
 
-    Get-Help New-AzureRmRedisCache -Detailed
+    Get-Help New-AzRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>Diğer bulutlara bağlanma
-Azure varsayılan olarak ortamıdır `AzureCloud`, Azure genel bulut örneği temsil eder. Farklı bir örneğine bağlanmak için `Connect-AzureRmAccount` komutunu `-Environment` veya -`EnvironmentName` komut satırı anahtarıyla istenen ortama veya ortam adı.
+Azure varsayılan olarak ortamıdır `AzureCloud`, Azure genel bulut örneği temsil eder. Farklı bir örneğine bağlanmak için `Connect-AzAccount` komutunu `-Environment` veya -`EnvironmentName` komut satırı anahtarıyla istenen ortama veya ortam adı.
 
-Kullanabileceğiniz ortamların listesini görmek için şunu çalıştırın `Get-AzureRmEnvironment` cmdlet'i.
+Kullanabileceğiniz ortamların listesini görmek için şunu çalıştırın `Get-AzEnvironment` cmdlet'i.
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>Azure kamu Bulutuna bağlanmak için
 Azure kamu Bulutuna bağlanmak için aşağıdaki komutlardan birini kullanın.
 
-    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
+    Connect-AzAccount -EnvironmentName AzureUSGovernment
 
 or
 
-    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureUSGovernment)
 
 Azure kamu bulutunda bir önbellek oluşturmak için aşağıdaki konumlardan birini kullanın.
 
@@ -90,11 +92,11 @@ Azure kamu Bulutu hakkında daha fazla bilgi için bkz: [Microsoft Azure kamu](h
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Azure Çin buluta bağlama
 Azure Çin buluta bağlamak için aşağıdaki komutlardan birini kullanın.
 
-    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzAccount -EnvironmentName AzureChinaCloud
 
 or
 
-    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureChinaCloud)
 
 Azure Çin bulutunda bir önbellek oluşturmak için aşağıdaki konumlardan birini kullanın.
 
@@ -106,12 +108,12 @@ Azure Çin bulut hakkında daha fazla bilgi için bkz. [AzureChinaCloud için Az
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Microsoft Azure Almanya için bağlanmak için
 Microsoft Azure Almanya için bağlanmak için aşağıdaki komutlardan birini kullanın.
 
-    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
+    Connect-AzAccount -EnvironmentName AzureGermanCloud
 
 
 or
 
-    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureGermanCloud)
 
 Microsoft Azure Almanya'da bir önbellek oluşturmak için aşağıdaki konumlardan birini kullanın.
 
@@ -156,35 +158,35 @@ Aşağıdaki tabloda, özellikleri ve oluşturma ve yönetme, Azure önbelleği 
 | veritabanları |Veritabanı sayısı yapılandırır. Bu özellik yalnızca önbellek oluşturma sırasında yapılandırılabilir. |Standart ve Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis oluşturmak için
-Yeni Azure önbelleği için Redis örneği kullanılarak oluşturulur [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet'i.
+Yeni Azure önbelleği için Redis örneği kullanılarak oluşturulur [yeni AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) cmdlet'i.
 
 > [!IMPORTANT]
-> İlk kez bir Azure önbelleği için Redis Azure portalını kullanarak bir aboneliği oluşturmak, portal kaydeder `Microsoft.Cache` Bu abonelik için ad alanı. İlk Azure önbelleği için Redis PowerShell kullanarak bir Abonelikteki oluşturmaya çalışırsanız, aşağıdaki komutu kullanarak bu ad alanı kaydetmeniz gerekir; Aksi takdirde cmdlet'leri gibi `New-AzureRmRedisCache` ve `Get-AzureRmRedisCache` başarısız.
+> İlk kez bir Azure önbelleği için Redis Azure portalını kullanarak bir aboneliği oluşturmak, portal kaydeder `Microsoft.Cache` Bu abonelik için ad alanı. İlk Azure önbelleği için Redis PowerShell kullanarak bir Abonelikteki oluşturmaya çalışırsanız, aşağıdaki komutu kullanarak bu ad alanı kaydetmeniz gerekir; Aksi takdirde cmdlet'leri gibi `New-AzRedisCache` ve `Get-AzRedisCache` başarısız.
 > 
-> `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
+> `Register-AzResourceProvider -ProviderNamespace "Microsoft.Cache"`
 > 
 > 
 
-Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `New-AzureRmRedisCache`, aşağıdaki komutu çalıştırın.
+Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `New-AzRedisCache`, aşağıdaki komutu çalıştırın.
 
-    PS C:\> Get-Help New-AzureRmRedisCache -detailed
+    PS C:\> Get-Help New-AzRedisCache -detailed
 
     NAME
-        New-AzureRmRedisCache
+        New-AzRedisCache
 
     SYNOPSIS
         Creates a new Azure Cache for Redis.
 
 
     SYNTAX
-        New-AzureRmRedisCache -Name <String> -ResourceGroupName <String> -Location <String> [-RedisVersion <String>]
+        New-AzRedisCache -Name <String> -ResourceGroupName <String> -Location <String> [-RedisVersion <String>]
         [-Size <String>] [-Sku <String>] [-MaxMemoryPolicy <String>] [-RedisConfiguration <Hashtable>] [-EnableNonSslPort
         <Boolean>] [-ShardCount <Integer>] [-VirtualNetwork <String>] [-Subnet <String>] [-StaticIP <String>]
         [<CommonParameters>]
 
 
     DESCRIPTION
-        The New-AzureRmRedisCache cmdlet creates a new Azure Cache for Redis.
+        The New-AzRedisCache cmdlet creates a new Azure Cache for Redis.
 
 
     PARAMETERS
@@ -241,47 +243,47 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
 
 Varsayılan parametreleri bir önbellek oluşturmak için aşağıdaki komutu çalıştırın.
 
-    New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
+    New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
 
 `ResourceGroupName`, `Name`, ve `Location` Gerekli Parametreler, ancak geri kalan isteğe bağlıdır ve varsayılan değerlere sahip. Önceki komut çalıştıran standart bir SKU Azure Cache Redis örneği için SSL olmayan bağlantı noktası devre dışı boyutu 1 GB olan belirtilen ad, konum ve kaynak grubu oluşturur.
 
 Premium önbellek oluşturmak, P1'in (6 GB - 60 GB), ö2 (13 GB - 130 GB'a), bir boyut belirlemek için P3 (26 GB - 260 GB) veya P4 (53 GB - 530 GB). Kümeleme'ı etkinleştirmek üzere, kullanarak bir parça sayısı belirtin `ShardCount` parametresi. Aşağıdaki örnek, P1 premium önbellek ile 3 parçalar oluşturur. P1 premium önbellek 6 GB boyutundadır ve üç parça belirlemiş bu yana toplam boyutu 18 (3 x 6 GB) GB'dir.
 
-    New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
+    New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
 Değerlerini belirtmek için `RedisConfiguration` parametresi içindeki değerleri içine `{}` anahtar/değer çiftleri ister `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. Aşağıdaki örnek, bir standart 1 GB önbellek ile oluşturur `allkeys-random` maxmemory İlkesi ve anahtar alanı bildirimleri ile yapılandırılmış `KEA`. Daha fazla bilgi için [(Gelişmiş ayarlar) anahtar alanı bildirimleri](cache-configure.md#keyspace-notifications-advanced-settings) ve [bellek ilkeleri](cache-configure.md#memory-policies).
 
-    New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
+    New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
 <a name="databases"></a>
 
 ## <a name="to-configure-the-databases-setting-during-cache-creation"></a>Önbellek oluşturma işlemi sırasında ayarlama veritabanlarını yapılandırmak için
-`databases` Ayarı yalnızca önbellek oluşturma işlemi sırasında yapılandırılabilir. Aşağıdaki örnek, bir premium P3 oluşturur (26 GB) önbellek kullanarak 48 veritabanlarıyla [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/New-AzureRmRedisCache?view=azurermps-6.6.0) cmdlet'i.
+`databases` Ayarı yalnızca önbellek oluşturma işlemi sırasında yapılandırılabilir. Aşağıdaki örnek, bir premium P3 oluşturur (26 GB) önbellek kullanarak 48 veritabanlarıyla [yeni AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/New-azRedisCache) cmdlet'i.
 
-    New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
+    New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Daha fazla bilgi için `databases` özelliğine bakın [varsayılan Azure önbelleği için Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration). Kullanarak bir önbellek oluşturma hakkında daha fazla bilgi için [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet'in önceki bir Azure önbelleği için Redis bölüm oluşturmak için bkz.
+Daha fazla bilgi için `databases` özelliğine bakın [varsayılan Azure önbelleği için Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration). Kullanarak bir önbellek oluşturma hakkında daha fazla bilgi için [yeni AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) cmdlet'in önceki bir Azure önbelleği için Redis bölüm oluşturmak için bkz.
 
 ## <a name="to-update-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis güncelleştirmek için
-Azure önbelleği için Redis örneği kullanılarak güncelleştirilir [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Set-AzureRmRedisCache?view=azurermps-6.6.0) cmdlet'i.
+Azure önbelleği için Redis örneği kullanılarak güncelleştirilir [kümesi AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/Set-azRedisCache) cmdlet'i.
 
-Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Set-AzureRmRedisCache`, aşağıdaki komutu çalıştırın.
+Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Set-AzRedisCache`, aşağıdaki komutu çalıştırın.
 
-    PS C:\> Get-Help Set-AzureRmRedisCache -detailed
+    PS C:\> Get-Help Set-AzRedisCache -detailed
 
     NAME
-        Set-AzureRmRedisCache
+        Set-AzRedisCache
 
     SYNOPSIS
         Set Azure Cache for Redis updatable parameters.
 
     SYNTAX
-        Set-AzureRmRedisCache -Name <String> -ResourceGroupName <String> [-Size <String>] [-Sku <String>]
+        Set-AzRedisCache -Name <String> -ResourceGroupName <String> [-Size <String>] [-Sku <String>]
         [-MaxMemoryPolicy <String>] [-RedisConfiguration <Hashtable>] [-EnableNonSslPort <Boolean>] [-ShardCount
         <Integer>] [<CommonParameters>]
 
     DESCRIPTION
-        The Set-AzureRmRedisCache cmdlet sets Azure Cache for Redis parameters.
+        The Set-AzRedisCache cmdlet sets Azure Cache for Redis parameters.
 
     PARAMETERS
         -Name <String>
@@ -319,16 +321,16 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-`Set-AzureRmRedisCache` Cmdlet'i gibi özellikleri güncelleştirmek için kullanılabilir `Size`, `Sku`, `EnableNonSslPort`ve `RedisConfiguration` değerleri. 
+`Set-AzRedisCache` Cmdlet'i gibi özellikleri güncelleştirmek için kullanılabilir `Size`, `Sku`, `EnableNonSslPort`ve `RedisConfiguration` değerleri. 
 
 Aşağıdaki komut politikası myCache adlı Redis için Azure Cache için güncelleştirir.
 
-    Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
+    Set-AzRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
 <a name="scale"></a>
 
 ## <a name="to-scale-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis ölçeklendirme
-`Set-AzureRmRedisCache` bir Azure önbelleği için Redis ölçeklendirmek için kullanılabilir olduğunda örnek `Size`, `Sku`, veya `ShardCount` özellikleri değiştirilemez. 
+`Set-AzRedisCache` bir Azure önbelleği için Redis ölçeklendirmek için kullanılabilir olduğunda örnek `Size`, `Sku`, veya `ShardCount` özellikleri değiştirilemez. 
 
 > [!NOTE]
 > PowerShell kullanarak bir önbellek ölçeklendirme aynı sınırlamaları ve yönergeleri, Azure portalından bir önbellek ölçeklendirme olarak tabidir. Aşağıdaki kısıtlamalarla birlikte farklı bir fiyatlandırma katmanına ölçeklendirebilirsiniz.
@@ -346,11 +348,11 @@ Aşağıdaki komut politikası myCache adlı Redis için Azure Cache için günc
 
 Aşağıdaki örnekte adlı önbellek ölçeklendirme gösterilmiştir `myCache` 2,5 GB önbellek için. Bu komut bir temel veya standart bir önbellek için çalıştığını unutmayın.
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-Bu komut verildikten sonra önbellek durumu döndürülür (arama benzer `Get-AzureRmRedisCache`). Unutmayın `ProvisioningState` olduğu `Scaling`.
+Bu komut verildikten sonra önbellek durumu döndürülür (arama benzer `Get-AzRedisCache`). Unutmayın `ProvisioningState` olduğu `Scaling`.
 
-    PS C:\> Set-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup -Size 2.5GB
+    PS C:\> Set-AzRedisCache -Name myCache -ResourceGroupName myGroup -Size 2.5GB
 
 
     Name               : mycache
@@ -379,28 +381,28 @@ Bu komut verildikten sonra önbellek durumu döndürülür (arama benzer `Get-Az
 
 Ölçeklendirme işlemi tamamlandığında, `ProvisioningState` değişikliklerini `Succeeded`. Temel katmandan standart olarak değiştirmeyi ve ardından boyutu değiştirme gibi sonraki bir ölçeklendirme işlemi yapmanız gerekirse aşağıdakine benzer bir hata alırsanız veya önceki işlemi tamamlanana kadar beklemeniz gerekir.
 
-    Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
+    Set-AzRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
 ## <a name="to-get-information-about-an-azure-cache-for-redis"></a>Redis için bir Azure önbelleği hakkında bilgi almak için
-Bir önbellek kullanma hakkında bilgi alabilirsiniz [Get-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/get-azurermrediscache?view=azurermps-6.6.0) cmdlet'i.
+Bir önbellek kullanma hakkında bilgi alabilirsiniz [Get-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/get-azrediscache) cmdlet'i.
 
-Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Get-AzureRmRedisCache`, aşağıdaki komutu çalıştırın.
+Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Get-AzRedisCache`, aşağıdaki komutu çalıştırın.
 
-    PS C:\> Get-Help Get-AzureRmRedisCache -detailed
+    PS C:\> Get-Help Get-AzRedisCache -detailed
 
     NAME
-        Get-AzureRmRedisCache
+        Get-AzRedisCache
 
     SYNOPSIS
         Gets details about a single cache or all caches in the specified resource group or all caches in the current
         subscription.
 
     SYNTAX
-        Get-AzureRmRedisCache [-Name <String>] [-ResourceGroupName <String>] [<CommonParameters>]
+        Get-AzRedisCache [-Name <String>] [-ResourceGroupName <String>] [<CommonParameters>]
 
     DESCRIPTION
-        The Get-AzureRmRedisCache cmdlet gets the details about a cache or caches depending on input parameters. If both
-        ResourceGroupName and Name parameters are provided then Get-AzureRmRedisCache will return details about the
+        The Get-AzRedisCache cmdlet gets the details about a cache or caches depending on input parameters. If both
+        ResourceGroupName and Name parameters are provided then Get-AzRedisCache will return details about the
         specific cache name provided.
 
         If only ResourceGroupName is provided than it will return details about all caches in the specified resource group.
@@ -409,12 +411,12 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
 
     PARAMETERS
         -Name <String>
-            The name of the cache. When this parameter is provided along with ResourceGroupName, Get-AzureRmRedisCache
+            The name of the cache. When this parameter is provided along with ResourceGroupName, Get-AzRedisCache
             returns the details for the cache.
 
         -ResourceGroupName <String>
             The name of the resource group that contains the cache or caches. If ResourceGroupName is provided with Name
-            then Get-AzureRmRedisCache returns the details of the cache specified by Name. If only the ResourceGroup
+            then Get-AzRedisCache returns the details of the cache specified by Name. If only the ResourceGroup
             parameter is provided, then details for all caches in the resource group are returned.
 
         <CommonParameters>
@@ -423,17 +425,17 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-Geçerli abonelikte tüm önbellekleri hakkında bilgi döndürmek için çalıştırın `Get-AzureRmRedisCache` hiçbir parametre olmadan.
+Geçerli abonelikte tüm önbellekleri hakkında bilgi döndürmek için çalıştırın `Get-AzRedisCache` hiçbir parametre olmadan.
 
-    Get-AzureRmRedisCache
+    Get-AzRedisCache
 
-Belirli bir kaynak grubu tüm önbellekleri hakkında bilgi döndürmek için çalıştırın `Get-AzureRmRedisCache` ile `ResourceGroupName` parametresi.
+Belirli bir kaynak grubu tüm önbellekleri hakkında bilgi döndürmek için çalıştırın `Get-AzRedisCache` ile `ResourceGroupName` parametresi.
 
-    Get-AzureRmRedisCache -ResourceGroupName myGroup
+    Get-AzRedisCache -ResourceGroupName myGroup
 
-Belirli bir önbellek hakkında bilgi döndürmek için çalıştırma `Get-AzureRmRedisCache` ile `Name` önbelleğin adını içeren bir parametre ve `ResourceGroupName` önbelleğin içeren kaynak grubunu parametresiyle.
+Belirli bir önbellek hakkında bilgi döndürmek için çalıştırma `Get-AzRedisCache` ile `Name` önbelleğin adını içeren bir parametre ve `ResourceGroupName` önbelleğin içeren kaynak grubunu parametresiyle.
 
-    PS C:\> Get-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
+    PS C:\> Get-AzRedisCache -Name myCache -ResourceGroupName myGroup
 
     Name               : mycache
     Id                 : /subscriptions/12ad12bd-abdc-2231-a2ed-a2b8b246bbad4/resourceGroups/myGroup/providers/Mi
@@ -458,24 +460,24 @@ Belirli bir önbellek hakkında bilgi döndürmek için çalıştırma `Get-Azur
     ShardCount         :
 
 ## <a name="to-retrieve-the-access-keys-for-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis için erişim anahtarlarını alınamadı
-Önbelleğinizi erişim anahtarlarını almak için kullanabileceğiniz [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-6.6.0) cmdlet'i.
+Önbelleğinizi erişim anahtarlarını almak için kullanabileceğiniz [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-azRedisCacheKey) cmdlet'i.
 
-Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Get-AzureRmRedisCacheKey`, aşağıdaki komutu çalıştırın.
+Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Get-AzRedisCacheKey`, aşağıdaki komutu çalıştırın.
 
-    PS C:\> Get-Help Get-AzureRmRedisCacheKey -detailed
+    PS C:\> Get-Help Get-AzRedisCacheKey -detailed
 
     NAME
-        Get-AzureRmRedisCacheKey
+        Get-AzRedisCacheKey
 
     SYNOPSIS
         Gets the accesskeys for the specified Azure Cache for Redis.
 
 
     SYNTAX
-        Get-AzureRmRedisCacheKey -Name <String> -ResourceGroupName <String> [<CommonParameters>]
+        Get-AzRedisCacheKey -Name <String> -ResourceGroupName <String> [<CommonParameters>]
 
     DESCRIPTION
-        The Get-AzureRmRedisCacheKey cmdlet gets the access keys for the specified cache.
+        The Get-AzRedisCacheKey cmdlet gets the access keys for the specified cache.
 
     PARAMETERS
         -Name <String>
@@ -490,31 +492,31 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-Önbelleğinizi anahtarlarını almak için arama `Get-AzureRmRedisCacheKey` cmdlet'i ve önbelleği içeren kaynak grubunu adını önbelleğinizi adını geçirin.
+Önbelleğinizi anahtarlarını almak için arama `Get-AzRedisCacheKey` cmdlet'i ve önbelleği içeren kaynak grubunu adını önbelleğinizi adını geçirin.
 
-    PS C:\> Get-AzureRmRedisCacheKey -Name myCache -ResourceGroupName myGroup
+    PS C:\> Get-AzRedisCacheKey -Name myCache -ResourceGroupName myGroup
 
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : ABhfB757JgjIgt785JgKH9865eifmekfnn649303JKL=
 
 ## <a name="to-regenerate-access-keys-for-your-azure-cache-for-redis"></a>Erişim anahtarları, Azure önbelleği için Redis için yeniden oluşturmak için
-Önbelleğinizi için erişim anahtarlarını yeniden oluşturmak için kullanabileceğiniz [yeni AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/New-AzureRmRedisCacheKey?view=azurermps-6.6.0) cmdlet'i.
+Önbelleğinizi için erişim anahtarlarını yeniden oluşturmak için kullanabileceğiniz [yeni AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/New-azRedisCacheKey) cmdlet'i.
 
-Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `New-AzureRmRedisCacheKey`, aşağıdaki komutu çalıştırın.
+Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `New-AzRedisCacheKey`, aşağıdaki komutu çalıştırın.
 
-    PS C:\> Get-Help New-AzureRmRedisCacheKey -detailed
+    PS C:\> Get-Help New-AzRedisCacheKey -detailed
 
     NAME
-        New-AzureRmRedisCacheKey
+        New-AzRedisCacheKey
 
     SYNOPSIS
         Regenerates the access key of an Azure Cache for Redis.
 
     SYNTAX
-        New-AzureRmRedisCacheKey -Name <String> -ResourceGroupName <String> -KeyType <String> [-Force] [<CommonParameters>]
+        New-AzRedisCacheKey -Name <String> -ResourceGroupName <String> -KeyType <String> [-Force] [<CommonParameters>]
 
     DESCRIPTION
-        The New-AzureRmRedisCacheKey cmdlet regenerate the access key of an Azure Cache for Redis.
+        The New-AzRedisCacheKey cmdlet regenerate the access key of an Azure Cache for Redis.
 
     PARAMETERS
         -Name <String>
@@ -535,9 +537,9 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-Önbellek hesabınız için birincil veya ikincil anahtarı yeniden oluşturmak için çağrı `New-AzureRmRedisCacheKey` cmdlet'i seçeneklerinden birini belirtin ve kaynak grubu adı olarak oldfashionedgoat `Primary` veya `Secondary` için `KeyType` parametresi. Aşağıdaki örnekte, bir önbellek için ikincil erişim anahtarını yeniden oluşturulur.
+Önbellek hesabınız için birincil veya ikincil anahtarı yeniden oluşturmak için çağrı `New-AzRedisCacheKey` cmdlet'i seçeneklerinden birini belirtin ve kaynak grubu adı olarak oldfashionedgoat `Primary` veya `Secondary` için `KeyType` parametresi. Aşağıdaki örnekte, bir önbellek için ikincil erişim anahtarını yeniden oluşturulur.
 
-    PS C:\> New-AzureRmRedisCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
+    PS C:\> New-AzRedisCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
 
     Confirm
     Are you sure you want to regenerate Secondary key for Azure Cache for Redis 'myCache'?
@@ -548,23 +550,23 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
     SecondaryKey : c53hj3kh4jhHjPJk8l0jji785JgKH9865eifmekfnn6=
 
 ## <a name="to-delete-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis silmek için
-Bir Azure önbelleği için Redis silmek için kullanın [Remove-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/remove-azurermrediscache?view=azurermps-6.6.0) cmdlet'i.
+Bir Azure önbelleği için Redis silmek için kullanın [Remove-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/remove-azrediscache) cmdlet'i.
 
-Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Remove-AzureRmRedisCache`, aşağıdaki komutu çalıştırın.
+Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Remove-AzRedisCache`, aşağıdaki komutu çalıştırın.
 
-    PS C:\> Get-Help Remove-AzureRmRedisCache -detailed
+    PS C:\> Get-Help Remove-AzRedisCache -detailed
 
     NAME
-        Remove-AzureRmRedisCache
+        Remove-AzRedisCache
 
     SYNOPSIS
         Remove Azure Cache for Redis if exists.
 
     SYNTAX
-        Remove-AzureRmRedisCache -Name <String> -ResourceGroupName <String> [-Force] [-PassThru] [<CommonParameters>
+        Remove-AzRedisCache -Name <String> -ResourceGroupName <String> [-Force] [-PassThru] [<CommonParameters>
 
     DESCRIPTION
-        The Remove-AzureRmRedisCache cmdlet removes an Azure Cache for Redis if it exists.
+        The Remove-AzRedisCache cmdlet removes an Azure Cache for Redis if it exists.
 
     PARAMETERS
         -Name <String>
@@ -577,8 +579,8 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             When the Force parameter is provided, the cache is removed without any confirmation prompts.
 
         -PassThru
-            By default Remove-AzureRmRedisCache removes the cache and does not return any value. If the PassThru par
-            is provided then Remove-AzureRmRedisCache returns a boolean value indicating the success of the operatio
+            By default Remove-AzRedisCache removes the cache and does not return any value. If the PassThru par
+            is provided then Remove-AzRedisCache returns a boolean value indicating the success of the operatio
 
         <CommonParameters>
             This cmdlet supports the common parameters: Verbose, Debug,
@@ -588,7 +590,7 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
 
 Aşağıdaki örnekte, önbellek adlı `myCache` kaldırılır.
 
-    PS C:\> Remove-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
+    PS C:\> Remove-AzRedisCache -Name myCache -ResourceGroupName myGroup
 
     Confirm
     Are you sure you want to remove Azure Cache for Redis 'myCache'?
@@ -596,31 +598,31 @@ Aşağıdaki örnekte, önbellek adlı `myCache` kaldırılır.
 
 
 ## <a name="to-import-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis içeri aktarmak için
-Bir Azure Cache, Redis örneğinin kullanılması için veri içe aktarabilirsiniz `Import-AzureRmRedisCache` cmdlet'i.
+Bir Azure Cache, Redis örneğinin kullanılması için veri içe aktarabilirsiniz `Import-AzRedisCache` cmdlet'i.
 
 > [!IMPORTANT]
 > İçeri/dışarı aktarma için kullanılabilir, yalnızca [premium katmanı](cache-premium-tier-intro.md) önbelleğe alır. İçeri/dışarı aktarma hakkında daha fazla bilgi için bkz: [içeri ve dışarı aktarma verileri Azure önbelleği için Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
-Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Import-AzureRmRedisCache`, aşağıdaki komutu çalıştırın.
+Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Import-AzRedisCache`, aşağıdaki komutu çalıştırın.
 
-    PS C:\> Get-Help Import-AzureRmRedisCache -detailed
+    PS C:\> Get-Help Import-AzRedisCache -detailed
 
     NAME
-        Import-AzureRmRedisCache
+        Import-AzRedisCache
 
     SYNOPSIS
         Import data from blobs to Azure Cache for Redis.
 
 
     SYNTAX
-        Import-AzureRmRedisCache -Name <String> -ResourceGroupName <String> -Files <String[]> [-Format <String>] [-Force]
+        Import-AzRedisCache -Name <String> -ResourceGroupName <String> -Files <String[]> [-Format <String>] [-Force]
         [-PassThru] [<CommonParameters>]
 
 
     DESCRIPTION
-        The Import-AzureRmRedisCache cmdlet imports data from the specified blobs into Azure Cache for Redis.
+        The Import-AzRedisCache cmdlet imports data from the specified blobs into Azure Cache for Redis.
 
 
     PARAMETERS
@@ -640,8 +642,8 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             When the Force parameter is provided, import will be performed without any confirmation prompts.
 
         -PassThru
-            By default Import-AzureRmRedisCache imports data in cache and does not return any value. If the PassThru
-            parameter is provided then Import-AzureRmRedisCache returns a boolean value indicating the success of the
+            By default Import-AzRedisCache imports data in cache and does not return any value. If the PassThru
+            parameter is provided then Import-AzRedisCache returns a boolean value indicating the success of the
             operation.
 
         <CommonParameters>
@@ -653,34 +655,34 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
 
 Aşağıdaki komut SAS URI tarafından Azure önbelleğine Redis için belirtilen blob verileri alır.
 
-    PS C:\>Import-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.windows.net/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
+    PS C:\>Import-AzRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.windows.net/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
 
 ## <a name="to-export-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis dışarı aktarmak için
-Redis örneği kullanmak için bir Azure önbelleğindeki verileri dışarı aktarabilirsiniz `Export-AzureRmRedisCache` cmdlet'i.
+Redis örneği kullanmak için bir Azure önbelleğindeki verileri dışarı aktarabilirsiniz `Export-AzRedisCache` cmdlet'i.
 
 > [!IMPORTANT]
 > İçeri/dışarı aktarma için kullanılabilir, yalnızca [premium katmanı](cache-premium-tier-intro.md) önbelleğe alır. İçeri/dışarı aktarma hakkında daha fazla bilgi için bkz: [içeri ve dışarı aktarma verileri Azure önbelleği için Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
-Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Export-AzureRmRedisCache`, aşağıdaki komutu çalıştırın.
+Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Export-AzRedisCache`, aşağıdaki komutu çalıştırın.
 
-    PS C:\> Get-Help Export-AzureRmRedisCache -detailed
+    PS C:\> Get-Help Export-AzRedisCache -detailed
 
     NAME
-        Export-AzureRmRedisCache
+        Export-AzRedisCache
 
     SYNOPSIS
         Exports data from Azure Cache for Redis to a specified container.
 
 
     SYNTAX
-        Export-AzureRmRedisCache -Name <String> -ResourceGroupName <String> -Prefix <String> -Container <String> [-Format
+        Export-AzRedisCache -Name <String> -ResourceGroupName <String> -Prefix <String> -Container <String> [-Format
         <String>] [-PassThru] [<CommonParameters>]
 
 
     DESCRIPTION
-        The Export-AzureRmRedisCache cmdlet exports data from Azure Cache for Redis to a specified container.
+        The Export-AzRedisCache cmdlet exports data from Azure Cache for Redis to a specified container.
 
 
     PARAMETERS
@@ -700,8 +702,8 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             Format for the blob.  Currently "rdb" is the only supported, with other formats expected in the future.
 
         -PassThru
-            By default Export-AzureRmRedisCache does not return any value. If the PassThru parameter is provided
-            then Export-AzureRmRedisCache returns a boolean value indicating the success of the operation.
+            By default Export-AzRedisCache does not return any value. If the PassThru parameter is provided
+            then Export-AzRedisCache returns a boolean value indicating the success of the operation.
 
         <CommonParameters>
             This cmdlet supports the common parameters: Verbose, Debug,
@@ -712,36 +714,36 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
 
 Aşağıdaki komutu, bir Azure önbelleği için SAS URI tarafından belirtilen kapsayıcı içine bir Redis örneğinden gelen verileri dışarı aktarır.
 
-        PS C:\>Export-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Prefix "blobprefix"
+        PS C:\>Export-AzRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Prefix "blobprefix"
         -Container "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2015-04-05&sr=c&sig=HezZtBZ3DURmEGDduauE7
         pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
 
 ## <a name="to-reboot-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis yeniden başlatmak için
-Azure Redis örneği kullanmak için önbelleğinizi başlatmanız `Reset-AzureRmRedisCache` cmdlet'i.
+Azure Redis örneği kullanmak için önbelleğinizi başlatmanız `Reset-AzRedisCache` cmdlet'i.
 
 > [!IMPORTANT]
 > Yeniden başlatma, yalnızca kullanılabilir [premium katmanı](cache-premium-tier-intro.md) önbelleğe alır. Önbelleğinizi yeniden başlatma hakkında daha fazla bilgi için bkz. [önbelleğe alma, yönetim - reboot](cache-administration.md#reboot).
 > 
 > 
 
-Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Reset-AzureRmRedisCache`, aşağıdaki komutu çalıştırın.
+Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek için `Reset-AzRedisCache`, aşağıdaki komutu çalıştırın.
 
-    PS C:\> Get-Help Reset-AzureRmRedisCache -detailed
+    PS C:\> Get-Help Reset-AzRedisCache -detailed
 
     NAME
-        Reset-AzureRmRedisCache
+        Reset-AzRedisCache
 
     SYNOPSIS
         Reboot specified node(s) of an Azure Cache for Redis instance.
 
 
     SYNTAX
-        Reset-AzureRmRedisCache -Name <String> -ResourceGroupName <String> -RebootType <String> [-ShardId <Integer>]
+        Reset-AzRedisCache -Name <String> -ResourceGroupName <String> -RebootType <String> [-ShardId <Integer>]
         [-Force] [-PassThru] [<CommonParameters>]
 
 
     DESCRIPTION
-        The Reset-AzureRmRedisCache cmdlet reboots the specified node(s) of an Azure Cache for Redis instance.
+        The Reset-AzRedisCache cmdlet reboots the specified node(s) of an Azure Cache for Redis instance.
 
 
     PARAMETERS
@@ -761,8 +763,8 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             When the Force parameter is provided, reset will be performed without any confirmation prompts.
 
         -PassThru
-            By default Reset-AzureRmRedisCache does not return any value. If the PassThru parameter is provided
-            then Reset-AzureRmRedisCache returns a boolean value indicating the success of the operation.
+            By default Reset-AzRedisCache does not return any value. If the PassThru parameter is provided
+            then Reset-AzRedisCache returns a boolean value indicating the success of the operation.
 
         <CommonParameters>
             This cmdlet supports the common parameters: Verbose, Debug,
@@ -773,14 +775,14 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
 
 Aşağıdaki komut, belirtilen önbellek her iki düğüm yeniden başlatır.
 
-        PS C:\>Reset-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -RebootType "AllNodes"
+        PS C:\>Reset-AzRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -RebootType "AllNodes"
         -Force
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure ile Windows PowerShell kullanma hakkında daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın:
 
-* [Azure önbelleği için Redis cmdlet belgeleri MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
+* [Azure önbelleği için Redis cmdlet belgeleri MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)
 * [Azure Resource Manager cmdlet'leri](https://go.microsoft.com/fwlink/?LinkID=394765): Azure Resource Manager modüldeki cmdlet'ler kullanmayı öğrenin.
 * [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-template-deploy-portal.md): Azure portalında kaynak gruplarını oluşturma ve yönetme hakkında bilgi edinin.
 * [Azure blogu](https://azure.microsoft.com/blog/): Azure'da yeni özellikler hakkında bilgi edinin.

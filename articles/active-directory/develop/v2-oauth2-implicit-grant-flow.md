@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c569d1be9a301b2282ad1b4fd6e21130f7de2575
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ae589cdf1ef7df054bbbbe393cc2ebe8454937e5
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103539"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099760"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak Spa'lar
 
@@ -79,7 +79,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `client_id` | gerekli |Uygulama kimliği, kayıt portalı ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uygulamanızı atanmış. |
 | `response_type` | gerekli |İçermelidir `id_token` Openıd Connect oturum açma için. Response_type içerebilir `token`. Kullanarak `token` hemen bir erişim belirteci ikinci bir istek için Authorize son noktası yapmak zorunda kalmadan Authorize son noktası almak üzere uygulamanızı buraya izin verir. Kullanırsanız `token` response_type, `scope` parametresi için bir belirteç vermek üzere hangi kaynak belirten bir kapsam içermelidir. |
 | `redirect_uri` | Önerilen |Burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan uygulamanızın redirect_uri. Bu url olarak kodlanmış olması dışında Portalı'nda kayıtlı redirect_uris biri tam olarak eşleşmesi gerekir. |
-| `scope` | gerekli |Kapsamları boşlukla ayrılmış listesi. Openıd Connect için kapsamı içermesi gerekir `openid`, onay için UI "oturumunuzu açma" izni çevirir. İsteğe bağlı olarak ayrıca eklemek isteyebileceğiniz `email` veya `profile` [kapsamları](v2-permissions-and-consent.md) erişmek için ek kullanıcı verileri. Bu isteği çeşitli kaynaklara onay isteme diğer kapsamları da içerebilir. |
+| `scope` | gerekli |Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md). Openıd Connect için kapsamı içermesi gerekir `openid`, onay için UI "oturumunuzu açma" izni çevirir. İsteğe bağlı olarak ayrıca eklemek isteyebileceğiniz `email` veya `profile` ek kullanıcı verilerine erişim kazanmak için kapsamları. Bu isteği çeşitli kaynaklara onay isteme diğer kapsamları da içerebilir. |
 | `response_mode` | isteğe bağlı |Uygulamanıza elde edilen belirteç geri göndermek için kullanılması gereken yöntemini belirtir. İstek bir id_token içeriyorsa, bir erişim belirteci ancak parça için sorgulamak için varsayılan değeri. |
 | `state` | Önerilen |Belirteç yanıtta döndürülecek isteğinde bulunan bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](https://tools.ietf.org/html/rfc6749#section-10.12). Durum, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
 | `nonce` | gerekli |Sonuçta elde edilen id_token talep olarak dahil edilecek uygulama tarafından oluşturulan bu isteği dahil bir değer. Uygulama, belirteç yeniden yürütme saldırıları azaltmak için bu değer daha sonra doğrulayabilirsiniz. Genellikle istek kaynağı tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. Yalnızca bir id_token istendiğinde gereklidir. |
@@ -100,7 +100,7 @@ GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
 &expires_in=3599
-&scope=https%3a%2f%2fgraph.microsoft.com%2fmail.read 
+&scope=https%3a%2f%2fgraph.microsoft.com%2fuser.read 
 &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
 ```
@@ -156,7 +156,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment
 &state=12345&nonce=678910
 &prompt=none
 &domain_hint=organizations
@@ -166,9 +166,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 URL'deki sorgu parametreleri hakkında daha fazla bilgi için bkz: [oturum açma isteği Gönder](#send-the-sign-in-request).
 
 > [!TIP]
-> Kopyalama ve yapıştırma deneyin isteği bir tarayıcı sekmesi içine aşağıdaki! (Değiştirmeyi unutmayın `domain_hint` ve `login_hint` kullanıcınız için doğru değerlerle değerler)
+> Kopyalama ve yapıştırma deneyin isteği bir tarayıcı sekmesi içine aşağıdaki! (Değiştirmeyi unutmayın `login_hint` değerleri, kullanıcı için doğru değeri ile)
 >
->`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=consumers-or-organizations&login_hint=your-username`
+>`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2user.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint=your-username`
 >
 
 Performanstan `prompt=none` parametresi, bu isteği ya da başarılı olması veya hemen başarısız olur ve uygulamanıza dönün. Başarılı yanıt, belirtilen uygulamanızı gönderilecek `redirect_uri`, bölümünde belirtilen yöntemi kullanarak `response_mode` parametresi.

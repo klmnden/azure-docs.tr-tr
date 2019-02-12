@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 904c96d71194a097f2750ad2c1076b30b80f3745
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105211"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100236"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure önbelleği için Redis ölçeklendirme
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Önbellek oluşturulduktan sonra uygulamanızın gereksinimlerini değiştirirseniz, boyutu ve fiyatlandırma katmanı önbellek ölçeklendirebilirsiniz. Bu makalede Azure portalı ve Azure PowerShell ve Azure CLI gibi araçları kullanarak, önbellek ölçeklendirme gösterilmektedir.
@@ -69,9 +69,12 @@ Azure portalında önbelleği örneklerinizin ölçeklendirme yanı sıra PowerS
 * [Aynı anda MAML kullanarak ölçek](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>PowerShell kullanarak ölçek
-PowerShell ile Azure önbelleği için Redis örneği kullanarak ölçeğini [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) cmdlet'i, `Size`, `Sku`, veya `ShardCount` özellikleri değiştirildiğinde. Aşağıdaki örnekte adlı önbellek ölçeklendirme gösterilmiştir `myCache` 2,5 GB önbellek için. 
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+PowerShell ile Azure önbelleği için Redis örneği kullanarak ölçeğini [kümesi AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) cmdlet'i, `Size`, `Sku`, veya `ShardCount` özellikleri değiştirildiğinde. Aşağıdaki örnekte adlı önbellek ölçeklendirme gösterilmiştir `myCache` 2,5 GB önbellek için. 
+
+    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 PowerShell ile ölçeklendirme hakkında daha fazla bilgi için bkz. [bir Azure önbelleği için Redis Powershell kullanarak ölçeklendirmek için](cache-howto-manage-redis-cache-powershell.md#scale).
 

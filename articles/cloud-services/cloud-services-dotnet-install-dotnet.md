@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 698cae13b9e78de6318c28bde998e195540c513c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 87c55634b6502a8a0c00fe52c7740a60f3afd80d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256808"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098291"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services rollerinde .NET yükleme
 Bu makalede, Azure konuk işletim sistemi ile birlikte gelmeyen .NET Framework sürümlerini yüklemek açıklar. Konuk işletim sisteminde .NET bulut hizmeti web ve çalışan rolleri yapılandırmak için kullanabilirsiniz.
@@ -183,10 +183,11 @@ Başlangıç görevleri rol başlamadan önce işlemleri gerçekleştirmek için
        if %ERRORLEVEL%== 3010 goto restart
        if %ERRORLEVEL%== 1641 goto restart
        echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-   
+       goto exit
+       
    :restart
    echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
-   EXIT /B %ERRORLEVEL%
+   shutdown.exe /r /t 5 /c "Installed .NET framework" /f /d p:2:4
    
    :installed
    echo .NET (%netfx%) is installed >> %startuptasklog%

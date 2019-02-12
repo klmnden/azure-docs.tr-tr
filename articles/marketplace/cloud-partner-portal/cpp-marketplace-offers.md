@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658717"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100906"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure ve AppSource Market teklifleri
 
@@ -32,6 +32,18 @@ Aşağıdaki videoda, çeşitli özellikleri ve Azure Market veya Appsource'ta k
 **Yapı uygulamalar ve hizmetler için Azure Market ve AppSource - oluşturun 2018**
 
 Bu Market hakkında daha fazla bilgi için bkz. [Azure Market'te ve Appsource'ta yayımlama Kılavuzu](../marketplace-publishers-guide.md).
+
+
+## <a name="common-offer-operations"></a>Sık kullanılan teklif işlemler
+
+Yeni bir teklif oluşturma işlemini büyük ölçüde teklif türleri arasında örneğin arasında farklı bir [Azure uygulaması teklif](./azure-applications/cpp-azure-app-offer.md) ve [danışmanlık hizmet teklifinin](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Buna karşılık, diğer işlemlerinin birçoğu bir teklife gerçekleştirdiğiniz [bulut iş ortağı portalı](https://cloudpartner.azure.com) teklif türleri arasında oldukça standartlaştırılmıştır.  Bu yaygın işlemler — yayımlama, Görünüm durumu, güncelleştirme ve silme de dahil olmak üzere — bölümünde ele alınmıştır [teklifler yönetme](./manage-offers/cpp-manage-offers.md)
+
+
+## <a name="test-drive"></a>Test Sürüşü
+
+*Sürücü test* "satın almadan önce deneyin" tanıtım seçeneği etkin şekilde her teklif için müşteri sağlayan bir Market özelliğidir.  Teklif türleri aşağıdaki alt kümesi için Test Sürüşü yeteneği sınırlıdır: [Azure uygulamaları](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 müşteri katılımı için](./dyn365ce/cpp-customer-engagement-offer.md), [Finans ve operasyon için Dynamics 365](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ SaaS uygulamaları](./saas-app/cpp-saas-offer.md), ve [sanal makineler](./virtual-machine/cpp-virtual-machine-offer.md).  Bu yetenek, yayımcı, teklif için özelleştirilmiş bir Test Sürüşü şablonu oluşturmak gereklidir.  Daha fazla bilgi için konudaki [Test Sürüşü](../cloud-partner-portal-orig/what-is-test-drive.md).
+
+Test Sürüşü tanıtımlar uygulayarak sahip mevcut Market tekliflerini göz atabilirsiniz [test sürücü filtre](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Azure Market ve AppSource türleri sunulur.

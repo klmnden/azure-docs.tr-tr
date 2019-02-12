@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769330"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098111"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile web hizmetlerinin güvenliğini sağlamak için SSL kullan
 
@@ -82,6 +82,16 @@ Dağıtın (veya yeniden dağıtmak için) SSL etkin hizmetiyle ayarlayın `ssl_
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
++ **Alanda programlanabilir kapı dizileri (FPGA) dağıtma**
+
+  FPGA için dağıtımı sırasında SSL ile ilgili parametreler için kod parçacığında gösterilen değerleri sağlayın:
+
+    ```python
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
+    ```
+
 ## <a name="update-your-dns"></a>Güncelleştirin
 
 Ardından, DNS sunucunuzun web hizmetine işaret edecek şekilde güncelleştirmeniz gerekir.
@@ -97,10 +107,6 @@ Ardından, DNS sunucunuzun web hizmetine işaret edecek şekilde güncelleştirm
   "Genel IP adresi" görüntüde gösterildiği gibi AKS kümesi "Yapılandırma" sekmesi altındaki DNS güncelleştirin. AKS aracı düğümleri ve diğer ağ kaynakları içeren kaynak grubu altında oluşturulan kaynak türlerini biri olarak genel IP adresini bulabilirsiniz.
 
   ![Azure Machine Learning hizmeti: Web Hizmetleri SSL ile güvenli hale getirme](./media/how-to-secure-web-service/aks-public-ip-address.png)
-
-+ **FPGA için**:
-
-FPGA için dağıtılan hizmetlerle SSL kullanarak şu anda desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Şunları nasıl yapacağınızı öğrenin:

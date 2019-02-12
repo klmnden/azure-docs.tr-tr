@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 46ea73e0a0c2dd14dcafcaa332c7feb1c70445df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602656"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098894"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Hızlı Başlangıç: Deneyin My endüstriyel IOT cihazları yönetmek için bulut tabanlı bir çözüm
 
@@ -42,7 +42,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Bu hızlı başlangıçta **Visual Studio Enterprise** ve **Doğu ABD** kullanıyoruz. Abonelikte [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) olmanız gerekir.
 
-Dağıtımı başlatmak için **Çözüm oluştur**'a tıklayın. Bu işlemin çalışması en az beş dakika sürer:
+Tıklayın **Oluştur** dağıtımınıza başlamak için. Bu işlemin çalışması en az beş dakika sürer:
 
 ![Bağlı Fabrika çözümünün ayrıntıları](./media/quickstart-connected-factory-deploy/createform.png)
 
@@ -54,7 +54,7 @@ Azure aboneliğinize dağıtım tamamlandığında, çözüm dosyasında yeşil 
 
 ![Yeni çözümü seçme](./media/quickstart-connected-factory-deploy/choosenew.png)
 
-Açılan panelden Bağlı Fabrika çözüm hızlandırıcınızla ilgili bilgileri görüntüleyebilirsiniz. Bağlı Fabrika çözüm hızlandırıcınızı görüntülemek için **Çözüm panosu** öğesini seçin:
+Bağlı Fabrika çözüm hızlandırıcınız görünen sayfasında ilgili bilgileri görüntüleyebilirsiniz. Seçin **çözüm hızlandırıcınız Git** bağlı Fabrika çözüm hızlandırıcınız görüntülemek için:
 
 ![Çözüm paneli](./media/quickstart-connected-factory-deploy/solutionpanel.png)
 

@@ -4,14 +4,14 @@ description: Sosyal ağlar için Azure Cosmos DB ve diğer Azure hizmetleriyle d
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/11/2019
 ms.author: maquaran
-ms.openlocfilehash: 8d6dfa292bd597c2e37f7111e3a068010dc4653c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 36b77ff6666c2c8b0d27cbdc8552ade15b21d005
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042693"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100372"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile iletişim
 
@@ -222,7 +222,7 @@ Başka bir seçenek kullanmaktır [Azure Bilişsel Hizmetler](https://www.micros
 
 Son yoktur, ancak önemli bir makale miyim, ele almalıdır: **ölçeklenebilirlik**. Bir mimari tasarlarken, her bileşen kendi üzerinde ölçeklendirmeniz gerekir. Daha büyük bir coğrafi kapsama sahip olmasını istediğiniz veya daha fazla veriyi işlemek sonunda gerekir. Her iki görevi gerçekleştirmekten ne olduğunu bir **yapmanız** Cosmos DB ile.
 
-Cosmos DB destekleyen [dinamik bölümlemeyi](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) kullanıma hazır. Bölümler göre otomatik olarak oluşturur bir verilen **bölüm anahtarı**, belgelerinizi özniteliği olarak tanımlanır. Tasarım zamanında doğru bölüm anahtarı tanımlayarak yapılmalıdır. Daha fazla bilgi için [doğru bölüm anahtarı seçmek](partitioning-overview.md#choose-partitionkey) makalesi.
+Cosmos DB, dinamik bölümleme,-hazır destekler. Bölümler göre otomatik olarak oluşturur bir verilen **bölüm anahtarı**, belgelerinizi özniteliği olarak tanımlanır. Tasarım zamanında doğru bölüm anahtarı tanımlayarak yapılmalıdır. Daha fazla bilgi için [Azure Cosmos DB'de bölümleme](partitioning-overview.md).
 
 Sosyal deneyimi için bölümleme stratejisinde, sorgu ve yol ile hizalamanız gerekir. (Örneğin, aynı bölüm içindeki okuma istenen ve çok sayıda bölüme yazma işlemleri yayılma tarafından "etkin nokta" kaçının.) Bazı seçenekler şunlardır: bölümler içerik kategorisi, coğrafi bölge veya kullanıcı tarafından zamana bağlı bir anahtar (gün/ay/hafta) bağlı. Tüm gerçekten nasıl verileri sorgulamak ve sosyal deneyiminizi verileri gösterme bağlıdır.
 

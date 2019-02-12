@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 7c35961894cbc8fb33f15b36910021f8ad38fac8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3d97f84ba7809ba54fe7a5670fc1602f1ed6e180
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976401"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100901"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG akış günlüklerini okuma
 
@@ -185,6 +185,6 @@ Bu senaryo, tüm günlük ayrıştırma gerek kalmadan girişleri NSG akış gü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret [açık kaynak araçlar kullanarak Azure Ağ İzleyicisi NSG akış günlüklerini görselleştirme](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) NSG akış günlüklerini görüntülemek için diğer yollar hakkında daha fazla bilgi için.
+Ziyaret [kullanım Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [kullanım Grafana](network-watcher-nsg-grafana.md), ve [kullanım Graylog](network-watcher-nsg-graylog.md) NSG akış günlüklerini görüntülemek için yolları hakkında daha fazla bilgi edinmek için. BLOB'ları doğrudan kullanmayı ve çeşitli günlük analizi tüketicilere yayan bir açık kaynak Azure işlevi yaklaşım burada bulunabilir: [Azure Ağ İzleyicisi NSG akış günlükleri bağlayıcı](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
 Bilgi edinmek için depolama BLOB'ları hakkında daha fazla ziyaret edin: [Azure işlevleri Blob Depolama bağlamaları](../azure-functions/functions-bindings-storage-blob.md)

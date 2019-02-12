@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e763c1512e52111e1294c5cad8b4bea46ff0406
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3ae46578132cb128b249b72f344cd788a69a49a0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100626"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099126"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 ve Openıd Connect Protokolü
 
@@ -109,12 +109,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| kiracı |Gereklidir |Kullanabileceğiniz `{tenant}` değeri için uygulamada oturum denetimi için istek yolu. İzin verilen değerler `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları. Daha fazla bilgi için [protokolü temel](active-directory-v2-protocols.md#endpoints). |
-| client_id |Gereklidir |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
-| response_type |Gereklidir |İçermelidir `id_token` Openıd Connect oturum açma için. Bu ayrıca diğer içerebilir `response_type` gibi değerleri `code`. |
+| kiracı |Gerekli |Kullanabileceğiniz `{tenant}` değeri için uygulamada oturum denetimi için istek yolu. İzin verilen değerler `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları. Daha fazla bilgi için [protokolü temel](active-directory-v2-protocols.md#endpoints). |
+| client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
+| response_type |Gerekli |İçermelidir `id_token` Openıd Connect oturum açma için. Bu ayrıca diğer içerebilir `response_type` gibi değerleri `code`. |
 | redirect_uri |Önerilen |Yeniden yönlendirme URI'si uygulamanızın, burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alındı. Bu URL olarak kodlanmış olması dışında tam olarak yeniden yönlendirme URI'leri Portalı'nda kayıtlı biriyle eşleşmelidir. |
-| scope |Gereklidir |Kapsamları boşlukla ayrılmış listesi. Openıd Connect için kapsamı içermesi gerekir `openid`, onay için UI "oturumunuzu açma" izni çevirir. Bu isteği onayı isteyen için diğer kapsamları de içerebilir. |
-| nonce |Gereklidir |Sonuç id_token değerini talep olarak dahil edilecek uygulama tarafından oluşturulan isteğinde bulunan bir değer. Uygulamanın belirteç yeniden yürütme saldırıları azaltmak için bu değer doğrulayabilirsiniz. Genellikle istek kaynağı tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. |
+| scope |Gerekli |Kapsamları boşlukla ayrılmış listesi. Openıd Connect için kapsamı içermesi gerekir `openid`, onay için UI "oturumunuzu açma" izni çevirir. Bu isteği onayı isteyen için diğer kapsamları de içerebilir. |
+| nonce |Gerekli |Sonuç id_token değerini talep olarak dahil edilecek uygulama tarafından oluşturulan isteğinde bulunan bir değer. Uygulamanın belirteç yeniden yürütme saldırıları azaltmak için bu değer doğrulayabilirsiniz. Genellikle istek kaynağı tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. |
 | response_mode |Önerilen |Ortaya çıkan bir yetkilendirme kodu uygulamanıza geri göndermek için kullanılması gereken yöntemini belirtir. `form_post` veya `fragment` olabilir. Web uygulamaları için kullanılması önerilir `response_mode=form_post`, uygulamanız için en güvenli belirteçleri aktarımını sağlamak için. |
 | durum |Önerilen |Belirteç yanıtta döndürülecek isteğinde bulunan bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılır [siteler arası istek sahteciliğini saldırılarını](https://tools.ietf.org/html/rfc6749#section-10.12). Durumu, uygulama kullanıcının durumu hakkında bilgi sayfası ya da kullanıcı açıktı görünümü gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
 | istemi |İsteğe bağlı |Gerekli olan kullanıcı etkileşimi türünü belirtir. Şu anda yalnızca geçerli değerler `login`, `none`, ve `consent`. `prompt=login` Talep çoklu oturum açma olumsuz duruma getirir, isteği kimlik bilgilerini girmesini zorlar. `prompt=none` Talep karşıtı olduğu. Bu talep, kullanıcının hiçbir etkileşimli istemi olmadan sunulmayan sağlar. İstek sessizce çoklu oturum açma işleminin neden tamamlanamadığına v2.0 uç noktasına bir hata döndürür. `prompt=consent` Talep, kullanıcı oturum açtıktan sonra OAuth onay iletişim tetikler. İletişim kutusu, uygulamaya izinleri vermek için kullanıcıya sorar. |
@@ -228,14 +228,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 &response_mode=form_post                              // 'form_post' or 'fragment'
 &scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
 offline_access%20                                         
-https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345                                          // Any value, provided by your app
 &nonce=678910                                         // Any value, provided by your app
 ```
 
 > [!TIP]
-> Bu isteğin yürütülmesi için aşağıdaki bağlantıya tıklayın. Oturum açtıktan sonra tarayıcının yönlendirildiği https://localhost/myapp/kimlik belirteci ve adres çubuğuna bir kod. Bu istek kullanan Not `response_mode=fragment` (yalnızca tanıtım amacıyla). Kullanmanızı öneririz `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> Bu isteğin yürütülmesi için aşağıdaki bağlantıya tıklayın. Oturum açtıktan sonra tarayıcının yönlendirildiği https://localhost/myapp/kimlik belirteci ve adres çubuğuna bir kod. Bu istek kullanan Not `response_mode=fragment` yalnızca tanıtım amacıyla. Kullanmanızı öneririz `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 

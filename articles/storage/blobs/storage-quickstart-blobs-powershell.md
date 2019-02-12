@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: 3bf6fae2b539ee3a21b4a96071fed67dd8bd1597
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4a8c3a1291faad6b952b5fddacde1ded1f4be7ca
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983619"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098077"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Azure PowerShell kullanarak blobları Listele
 
@@ -74,7 +74,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Blob’ları indirme
 
-Blobları yerel diskinize indirin. İndirmek istediğiniz her bir blob kümesi için ad ve çağrı [Get-AzStorageBlobConten](/powershell/module/az.storage/get-AzStorageblobcontent) blobu indirmek için.
+Blobları yerel diskinize indirin. İndirmek istediğiniz her bir blob kümesi için ad ve çağrı [Get-AzStorageBlobContent](/powershell/module/az.storage/get-AzStorageblobcontent) blobu indirmek için.
 
 Bu örnekte, bloblar yerel diskteki *D:\\_TestImages\Downloads* klasörüne indirilir. 
 

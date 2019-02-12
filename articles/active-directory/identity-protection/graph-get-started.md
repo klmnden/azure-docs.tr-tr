@@ -17,20 +17,20 @@ ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 4ee2f0387ee3c56dda7cd1a89f5c808f55699856
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 47786ac687272cc2a88c3fa885fece9c858a3c2b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658632"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099080"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Microsoft Graph ve Azure Active Directory kimlik koruması ile çalışmaya başlama
 
 Microsoft Graph olan Microsoft unified API uç noktası ve giriş, [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) API'leri. Riskli kullanıcılar ve oturum açma işlemleri hakkındaki bilgilerin açığa çıkmasına neden üç API vardır. İlk API **identityRiskEvents**, Microsoft Graph listesi için sorgu sağlar [risk olayları](../reports-monitoring/concept-risk-events.md) ve ilişkili bilgileri. İkinci bir API **riskyUsers**, kullanıcıların algılanan risk kimlik koruması hakkında daha fazla bilgi için Microsoft Graph sorguya izin verir. Üçüncü API **Signın**risk durumuyla ilgili belirli özellikleri olan Azure AD oturum açma işlemleri hakkında bilgi için Microsoft Graph sorgu sağlar ayrıntılı ve düzey. Bu makale, kullanmaya başlamanızı [bağlanmak için Microsoft Graph](#Connect-to-Microsoft-Graph) ve [bu API'leri sorgulama](#Query-the-APIs). Bir ayrıntılı giriş, tüm belgeler ve Graph Gezgini erişimi için bkz. [Microsoft Graph site](https://graph.microsoft.io/) veya bu API'leri için belirli başvuru belgeleri:
 
-* [identityRiskEvents API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/identityriskevent)
-* [riskyUsers API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/riskyuser)
-* [Signın API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
+* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
+* [Signın API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
 
 
 ## <a name="connect-to-microsoft-graph"></a>Microsoft Graph'a bağlanma
@@ -217,7 +217,7 @@ Kiracı etki alanı istemci Kimliğinizi ve gizli anahtarı eklemeniz yeterlidir
 
 ## <a name="query-the-apis"></a>Sorgu API'leri
 
-Bu üç API'leri, çok sayıda riskli kullanıcılar ve oturum açma, kuruluşunuzdaki hakkında bilgi almak için çeşitli fırsatlar sağlar. Aşağıda bu API'ler ve ilişkili örnek istekler için bazı ortak kullanım durumları verilmiştir. Yukarıda veya kullanarak örnek kodu kullanarak aşağıdaki sorguları çalıştırabilirsiniz [Graph Gezgini](https://developer.microsoft.com/en-us/graph/graph-explorer).
+Bu üç API'leri, çok sayıda riskli kullanıcılar ve oturum açma, kuruluşunuzdaki hakkında bilgi almak için çeşitli fırsatlar sağlar. Aşağıda bu API'ler ve ilişkili örnek istekler için bazı ortak kullanım durumları verilmiştir. Yukarıda veya kullanarak örnek kodu kullanarak aşağıdaki sorguları çalıştırabilirsiniz [Graph Gezgini](https://developer.microsoft.com/graph/graph-explorer).
 
 ### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>Yüksek riskli ve orta risk olayları (identityRiskEvents API)
 
@@ -251,7 +251,7 @@ Tebrikler, ilk çağrınızı Microsoft Graph için yaptığınız!
 Artık kimlik risk olayları sorgulamak ve gördüğünüz ancak verileri kullanın.
 
 
-Microsoft Graph ve Graph API'sini kullanarak uygulamalar oluşturma hakkında daha fazla bilgi edinmek için kullanıma [belgeleri](https://docs.microsoft.com/graph/overview) ve çok daha fazlasını [Microsoft Graph site](https://developer.microsoft.com/en-us/graph). 
+Microsoft Graph ve Graph API'sini kullanarak uygulamalar oluşturma hakkında daha fazla bilgi edinmek için kullanıma [belgeleri](https://docs.microsoft.com/graph/overview) ve çok daha fazlasını [Microsoft Graph site](https://developer.microsoft.com/graph). 
 
 
 İlgili bilgiler için bkz:

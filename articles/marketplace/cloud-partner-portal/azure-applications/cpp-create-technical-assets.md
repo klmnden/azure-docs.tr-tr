@@ -14,18 +14,23 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6050ad98c87dbe38516a6ee3c4862495ad868031
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 78aa65614920d093b6ba0b8fa43614fd7f3c5176
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414389"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100440"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Azure uygulaması teknik varlıklarınızı hazırlama
 
 Bu makalede, Azure uygulama teklifiniz için teknik varlıkları hazırlığı kaynaklar açıklanır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
+
+Aşağıdaki videoyu inceleyin [yapı çözüm şablonları ve yönetilen uygulamalar, Azure Market'te](https://channel9.msdn.com/Events/Build/2018/BRK3603), bir Azure uygulama çözümü ve sonra nasıl tanımlamak için bir Azure Resource Manager şablonu yazmak nasıl bir genel bakış Daha sonra uygulama teklifi Azure Marketinde yayımlama.
+
+>[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
+
 
 Hızlı Başlangıç kılavuzlarımız, Öğreticilerimiz ve Örneklerimizle sağlayan aşağıdaki Azure uygulama belgelerini inceleyin.
 

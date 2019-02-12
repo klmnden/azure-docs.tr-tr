@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 110397e8399d153356a574b00d34a4cb781ec1b5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2ff0266faae102dcd6bc89644503e911971fc482
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811571"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099795"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory erişim belirteçleri
 
@@ -87,7 +87,7 @@ Yalnızca doldurmak için bir değer varsa, mevcut taleplerdir. Bu nedenle, uygu
 |-----|--------|-------------|
 | `aud` | Dize, bir uygulama kimliği URI'si | Amaçladığınız alıcının belirtecin tanımlar. Erişim belirteçlerinde, hedef kitlesi, uygulamanızın uygulama kimliği, Azure portalında uygulamanıza atanan ' dir. Uygulamanız, bu değeri doğrulamak ve belirteç değeri eşleşmiyorsa reddet. |
 | `iss` | Dize, bir STS URI | Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndürür güvenlik belirteci hizmeti (STS) tanımlar. Verilen belirtecin bir v2.0 belirteç ise (bkz `ver` talep), URI içinde sona erecek `/v2.0`. Kullanıcının bir Microsoft hesabı tüketici kullanıcıdan olduğunu gösteren GUID `9188040d-6c67-4c5b-b112-36a304b66dad`. Uygulamanız varsa, uygulamaya oturum açabilirsiniz kiracılar kümesini sınırlandırmak için talep GUID kısmını kullanmanız gerekir. |
-|`idp`|Dize, genellikle bir STS URI | Belirtecin öznesinin kimliğini doğrulayan kimlik sağlayıcısını kaydeder. -Veren olarak aynı kiracıda değil kullanıcı hesabının konukların sürece örneği için bu değer veren talep değeri için aynıdır. Talep mevcut değilse, değeri anlamına `iss` bunun yerine kullanılabilir.  Kişisel hesapları orgnizational bağlamda (bir Azure AD kiracısına davet örneği için bir kişisel hesap) kullanılan `idp` talep 'live.com' veya Microsoft hesabı kiracısının içeren bir STS URI olabilir `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
+|`idp`|Dize, genellikle bir STS URI | Belirtecin öznesinin kimliğini doğrulayan kimlik sağlayıcısını kaydeder. -Veren olarak aynı kiracıda değil kullanıcı hesabının konukların sürece örneği için bu değer veren talep değeri için aynıdır. Talep mevcut değilse, değeri anlamına `iss` bunun yerine kullanılabilir.  Bir kuruluş (Azure AD kiracısına davet örneği için bir kişisel hesap) bağlamında kullanılan kişisel hesapları için `idp` talep 'live.com' veya Microsoft hesabı kiracısının içeren bir STS URI olabilir `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, UNIX zaman damgası | "Konumunda verilen" kimlik doğrulaması için bu belirteci gerçekleştiği gösterir. |
 | `nbf` | int, UNIX zaman damgası | "Nbf" (önce değil) talep işlem önüne JWT değil kabul edilmesi gereken zamanı tanımlar. |
 | `exp` | int, UNIX zaman damgası | "Exp" (süre) talep veya daha sonra JWT işleme için kabul edilmesi gereken değil sona erme zamanı tanımlar. Kaynak belirteci de, bu süreden önce bir değişiklik kimlik doğrulaması gerekli olduğunda gibi reddedebilir veya belirteç iptali algılandı dikkat edin önemlidir. |
@@ -101,16 +101,15 @@ Yalnızca doldurmak için bir değer varsa, mevcut taleplerdir. Bu nedenle, uygu
 | `groups` | JSON dizisi GUID'leri | Öznenin grup üyeliklerini temsil eden nesne kimlikleri sağlar. Bu değerler benzersiz (nesne kimliği bakın) ve güvenli bir şekilde bir kaynağa erişim yetkisi zorlama gibi erişimi yönetmek için kullanılabilir. Grupları talepte bulunan gruplarını aracılığıyla uygulama başına temelinde, yapılandırılan `groupMembershipClaims` özelliği [uygulama bildirimini](reference-app-manifest.md). Bir null değeri tüm grupları hariç, yalnızca güvenlik grupları ve Office 365 dağıtım listeleri Active Directory güvenlik grubu üyelikleri ve bir değeri "Tüm" dahil "IDAP" değerini içerecektir. <br><br>Bkz: `hasgroups` kullanımıyla ilgili ayrıntılar için aşağıda talep `groups` örtük vermeyi ile talep. <br>Kullanıcının grup sayısı (SAML 150, JWT için 200) bir limitini aşması durumunda diğer akışlar için daha sonra bir fazla kullanım talep kullanıcı gruplarının listesini içeren Graph uç noktası işaret talep kaynaklarına eklenir. |
 | `hasgroups` | Boole | Varsa, her zaman `true`, olan en az bir gruba kullanıcı belirten. Öğesinin yerine kullanılmalıdırlar `groups` Jwt'ler için bir talep tam grupları talep varsa örtük vermeyi akışlardaki URI parçası (şu anda, 6 veya daha fazla grup) URL uzunluk sınırları ötesinde genişletin. Kullanıcının grupları belirlemek için istemci Graph kullanmanız gerektiğini belirtir (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | JSON nesnesi | Uzunluğu sınırlı olmayan belirteç istekleri için (bkz `hasgroups` yukarıda), ancak yine de çok büyük belirteç için bir bağlantı kullanıcı için tam grupları listesine eklenir. SAML yerine yeni bir talep olarak için Dağıtılmış bir talep olarak jwt'lerinin `groups` talep. <br><br>**Örnek JWT değer**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
-| `preferred_name` | String | Yalnızca v2.0 belirteçlerinde sunar. Kullanıcıyı temsil eden birincil kullanıcı adı. Bir e-posta adresi, telefon numarası veya belirli bir biçimdeki olmadan genel bir kullanıcı adı olabilir. Değerini değişebilir ve zaman içinde değişebilir. Değişebilir olduğundan, bu değer yetkilendirme kararları vermek için kullanılmamalıdır. `profile` Kapsamı, bu talebi için gereklidir. |
+| `preferred_username` | String | Kullanıcıyı temsil eden birincil kullanıcı adı. Bir e-posta adresi, telefon numarası veya belirli bir biçimdeki olmadan genel bir kullanıcı adı olabilir. Değerini değişebilir ve zaman içinde değişebilir. Değişebilir olduğundan, bu değer yetkilendirme kararları vermek için kullanılmamalıdır.  Bu ancak kullanıcı adı ipuçları için kullanılabilir. `profile` Kapsamı, bu talebi için gereklidir. |
 | `name` | String | Belirtecin konu tanımlayan insanlar tarafından okunabilen bir değer sağlar. Değerin benzersiz olması garanti edilmez, değişebilir ve yalnızca görüntüleme amaçları için kullanılmak üzere tasarlanmıştır. `profile` Kapsamı, bu talebi için gereklidir. |
 | `oid` | Dize, bir GUID | Microsoft kimlik platformu, bu durumda, bir kullanıcı hesabı, bir nesne değişmez tanımlayıcısı. Ayrıca, veritabanı tablolarında güvenli bir şekilde ve bir anahtar olarak yetkilendirme denetimleri gerçekleştirmek için de kullanılabilir. Bu kimliği kullanıcı uygulamalar arasında benzersiz olarak tanımlayan - aynı kullanıcı imzalama iki farklı uygulama aynı değeri alacak `oid` talep. Bu nedenle, `oid` yapma gibi çevrimiçi Microsoft hizmetlerine, Microsoft Graph sorguladığında kullanılabilir. Microsoft Graph, bu kimliği olarak döndüreceği `id` özelliği için belirtilen kullanıcı hesabı. Çünkü `oid` kullanıcılar ilişkilendirmek birden fazla uygulama sağlayan `profile` kapsamı, bu talebi için gereklidir. Tek bir kullanıcı birden fazla Kiracı varsa, kullanıcının her Kiracı farklı nesne Kimliğinde içereceğini unutmayın - kullanıcının her hesap aynı kimlik bilgileriyle oturum açtığı olsa bile farklı hesaplar kabul edilir. |
 | `rh` | Donuk dize | Belirteçleri düzeltin için Azure tarafından kullanılan bir iç talep. Kaynakları bu talep kullanmamanız gerekir. |
 | `scp` | Dize, boşlukla ayrılmış kapsam listesi | Kendisi için istemci uygulaması istenen (ve alınan), uygulamanız tarafından kullanıma sunulan kapsamları kümesini onayı. Uygulamanız bu kapsamları, uygulamanız tarafından kullanıma sunulan geçerli olanlardır ve bu kapsamları değerine göre yetkilendirme kararları doğrulamanız gerekir. İçin yalnızca dahil edilen [kullanıcı belirteçleri](#user-and-application-tokens). |
-| `roles`| Dize, boşlukla ayrılmış izinler listesi | İstekte bulunan uygulamayla çağırmak için izin verilen, uygulamanız tarafından kullanıma sunulan izinleri kümesi. Bu sırasında kullanılan [istemci kimlik bilgileri](v1-oauth2-client-creds-grant-flow.md) akış yerine kullanıcı kapsamları ve yalnızca mevcut [uygulamaları belirteçleri](#user-and-application-tokens). |
+| `roles`| Dize, boşlukla ayrılmış izinler listesi | İstekte bulunan uygulamayla çağırmak için izin verilen, uygulamanız tarafından kullanıma sunulan izinleri kümesi. Bu sırasında kullanılan [istemci kimlik bilgileri](v1-oauth2-client-creds-grant-flow.md) akış yerine kullanıcı kapsamları ve yalnızca mevcut [uygulama belirteçleri](#user-and-application-tokens). |
 | `sub` | Dize, bir GUID | Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Bu belirteci bir kaynağa erişmek için kullanıldığında gibi güvenli bir şekilde, yetkilendirme denetimleri gerçekleştirmek için kullanılabilir ve veritabanı tablolarındaki bir anahtar olarak kullanılabilir. Her zaman konudur çünkü Azure AD sorunları, bu değer bir genel amaçlı yetkilendirme sistemde kullanmanızı öneririz, belirteçleri sunar. Benzersiz bir uygulama belirli kimliğe - konu, ancak ikili bir tanımlayıcıdır. Bu nedenle, tek bir kullanıcı iki farklı uygulamalara iki farklı istemci kimliklerini kullanarak oturum açtığında, bu uygulamaların konu talebi için iki farklı değerler alır. Bu olabilir veya mimari ve gizlilik gereksinimlerinize bağlı olarak gerekli değildir. |
 | `tid` | Dize, bir GUID | Kullanıcı dandır Azure AD kiracısı temsil eder. İş ve Okul hesapları için kullanıcının ait olduğu kuruluş sabit Kiracı kimliği bir GUID'dir. Kişisel hesapları için değerdir `9188040d-6c67-4c5b-b112-36a304b66dad`. `profile` Kapsamı, bu talebi için gereklidir. |
 | `unique_name` | String | Yalnızca v1.0 belirteçlerinde sunar. Belirtecin konusunu tanımlayan ve okunabilir bir değer sunar. Bu değer, bir kiracıda benzersiz olması garanti edilmez ve yalnızca görüntüleme amaçları için kullanılmalıdır. |
-| `upn` | String | Kullanıcının kullanıcı adı. Bir telefon numarası, e-posta adresi veya biçimlendirilmemiş dize olabilir. Yalnızca görüntüleme amaçları ve yeniden kimlik doğrulaması senaryolarda sağlayarak kullanıcı adı ipuçları için kullanılmalıdır. |
 | `uti` | Donuk dize | Belirteçleri düzeltin için Azure tarafından kullanılan bir iç talep. Kaynakları bu talep kullanmamanız gerekir. |
 | `ver` | Dize, 1.0 veya 2.0 | Erişim belirteci sürümünü gösterir. |
 
@@ -128,6 +127,7 @@ Aşağıdaki talep v1.0 belirteçleri varsa dahil edilir, ancak v2.0 belirteçle
 | `nickname`| String | İlk veya son adından ayrı kullanıcı için ek bir ad.|
 | `family_name` | String | Kullanıcı nesnesindeki tanımlandığı şekilde, son adını, soyadını veya kullanıcının aile adı sağlar. |
 | `given_name` | String | İlk sağlar veya kullanıcı nesnesindeki belirlenen kullanıcının verilen adı. |
+| `upn` | String | Kullanıcının kullanıcı adı. Bir telefon numarası, e-posta adresi veya biçimlendirilmemiş dize olabilir. Yalnızca görüntüleme amaçları ve yeniden kimlik doğrulaması senaryolarda sağlayarak kullanıcı adı ipuçları için kullanılmalıdır. |
 
 #### <a name="the-amr-claim"></a>`amr` Talep
 

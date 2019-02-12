@@ -1,6 +1,6 @@
 ---
-title: SAP HANA azure'da (büyük örnekler) için işletim sistemi yükseltme | Microsoft Docs
-description: SAP HANA azure'da (büyük örnekler) için işletim sistemi yükseltme gerçekleştirin.
+title: İşletim sistemi yükseltme (büyük örnekler) azure'da SAP HANA için | Microsoft Docs
+description: (Büyük örnekler) Azure üzerinde SAP HANA için işletim sistemi yükseltmesi gerçekleştirin
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,33 +14,42 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff9be3b074dde4a0335675663133a8df81ae62d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d7d451f3831309b4755170915b35a23da8910510
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114601"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100763"
 ---
 # <a name="operating-system-upgrade"></a>İşletim sistemi yükseltmesi
-Bu belgede işletim sistemi yükseltmeleri HANA büyük örneklerinde ayrıntıları açıklar.
+Bu belgede, işletim sistemi yükseltmeleri HANA büyük örnekleri hakkında ayrıntılar açıklanmaktadır.
 
 >[!NOTE]
->İşletim sistemi yükseltme müşteriler sorumluluk, Microsoft operations destek yükseltme sırasında dikkat edilmesi gereken önemli alanlar için yönlendirebilir. Yükseltme için planlama önce de işletim sistemi satıcınıza danışmalısınız.
+>İşletim sistemi yükseltme, müşterilerin sorumluluğundadır, Microsoft operations desteğine yükseltme sırasında dikkat edilmesi gereken temel alanlar için rehberlik sağlayabilir. Yükseltme için planlama önce de işletim sistemi satıcınıza danışmalısınız.
 
-Sağlama HLI birim zaman Microsoft işletim ekibi işletim sistemini yükleyin. Zamanla, işletim sistemi sürdürmek için gerekli (örnek: düzeltme eki uygulama, ayarlama, yükseltme vb.) HLI birim üzerinde.
+Sağlama HLI birim zaman Microsoft Operasyon ekibinin işletim sistemini yükleyin. Zamanla, işletim sistemi tutmaları zorunludur (örnek: Düzeltme eki uygulama, ayarlama, yükseltme vs.) HLI birim üzerinde.
 
-İşletim sistemi (örneğin, SP2'ye yükseltme SP1) yapılan değişiklikler birincil önce başvurun için bir destek bileti açılarak Microsoft Operations takım başvurmanız gerekir.
+İşletim sistemine (örneğin, SP2'ye yükseltme SP1) değişiklikleri ana önce başvurmanız bir destek bileti açarak Microsoft Operations team başvurmanız gerekir.
+
+Lütfen, anahtar şunlardır:
+
+* HLI abonelik kimliğinizi
+* Sunucu adınız.
+* Düzeltme eki düzeyi uygulamak için planlama.
+* Bu değişiklik planladığınıza tarih. 
+
+En az bir hafta bir üretici yazılımını yükseltme, sunucusu dikey penceresinde gerekli olursa denetimi operasyon ekibinin olması nedeniyle istenen yükseltme tarihinden önce bu bilet öneririz.
 
 
-Farklı Linux sürümleri ile farklı SAP HANA sürümleri için destek matrisi bkz [SAP Not #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+Farklı SAP HANA sürümleriyle farklı Linux sürümleri için destek matrisi bkz [SAP notu #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-Bazı sık karşılaşılan bilinen sorunlar yükseltme sırasında şunlardır:
-- İşletim sistemi yükseltme yaptıktan sonra SKU türü II sınıfı SKU, yazılım foundation yazılımı (SFS) kaldırılır. İşletim sistemi yükseltme yaptıktan sonra uyumlu SFS yeniden yüklemeniz gerekir.
-- Ethernet kartı sürücüleri (ENIC ve FNIC), eski sürüme geri alındı. Sürücüleri uyumlu bir sürümü yükseltme sonrasında yeniden yüklemeniz gerekir.
+Aşağıda yükseltme sırasında bazı sık karşılaşılan bilinen sorunlar verilmiştir:
+- İşletim sistemi yükseltme yaptıktan sonra SKU türü II sınıfı SKU, software foundation yazılımı (SFS) kaldırılır. İşletim sistemi yükseltme yaptıktan sonra uyumlu SFS yeniden yüklemeniz gerekir.
+- Ethernet Kart sürücüleri (ENIC ve FNIC) daha eski bir sürümüne geri alındı. Yükseltmeden sonra sürücüleri'nın uyumlu sürümünü yeniden yüklemeniz gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Başvuru [yedekleme ve geri yükleme](hana-overview-high-availability-disaster-recovery.md) işletim sistemi için yedekleme türü ı SKU sınıfı.
-- Başvuru [OS yedekleme türü II SKU'ları için](os-backup-type-ii-skus.md) türü II SKU sınıfı için.
+- Başvuru [Type II SKU'lara yönelik işletim sistemi yedeklemesi](os-backup-type-ii-skus.md) türü II SKU sınıfı için.

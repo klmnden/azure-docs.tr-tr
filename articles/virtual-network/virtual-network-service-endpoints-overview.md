@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 0f36439cba4a946fb05466f2d961e537196f0095
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7cbfb8ec55d79f47b4f0aa4ec1e95e01a44c5448
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818609"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099318"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -34,7 +34,7 @@ Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 - **[PostgreSQL sunucusu için Azure veritabanı](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmeti kullanılabilir olduğu Azure bölgelerinde genel olarak kullanılabilir.
 - **[MySQL sunucusu için Azure veritabanı](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmeti kullanılabilir olduğu Azure bölgelerinde genel olarak kullanılabilir.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
-- **[Azure anahtar kasası](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
+- **[Azure anahtar kasası](.../key-vault/key-vault-overview-vnet-service-endpoints)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: ADLS Gen1 kullanılabilir olduğu tüm Azure bölgelerinde genel olarak kullanılabilir.

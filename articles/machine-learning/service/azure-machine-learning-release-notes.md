@@ -11,18 +11,40 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: cea5f2a3eaa7bddb523d95936fbe0a50e0fd16ed
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4e7cc1340a85e1d00c2f64abeb35a99052184c52
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564349"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100185"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  Her bir SDK tam bir açıklaması için başvuru belgelerini ziyaret edin:
 + Azure Machine Learning'ın [ **Python için ana SDK'sı**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-11"></a>2019-02-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1015"></a>Azure Machine SDK için Python v1.0.15 Learning
+
++ **Yeni Özellikler**
+  + Azure Machine Learning işlem hatlarını AzureBatchStep eklendi ([not defteri](https://aka.ms/pl-azbatch)), HyperDriveStep ([not defteri](https://aka.ms/pl-hyperdrive)) ve zamanlama fuctionality zamana dayalı ([not defteri](https://aka.ms/pl-schedule)).
+  +  PostgreSQL için Azure veritabanı ve Azure SQL Server ile çalışmak için DataTranferStep güncelleştirilir ([not defteri](https://aka.ms/pl-data-trans)).
+
++ **Değişiklikleri**
+  + Kullanım dışı `PublishedPipeline.get_published_pipeline` sunulmasıyla `PublishedPipeline.get`.
+  + Kullanım dışı `Schedule.get_schedule` sunulmasıyla `Schedule.get`.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning veri hazırlama SDK v1.0.12
+
++ **Yeni Özellikler**
+  + Veri deposu kullanarak bir Azure SQL veritabanından okumayla veri hazırlığı destekler.
+ 
++ **Değişiklikleri**
+  + Büyük veriler üzerinde belirli işlemlerin bellek performansını önemli ölçüde geliştirildi.
+  + `read_pandas_dataframe()` artık ıntune hizmetini kullanabilmeleri `temp_folder` belirtilmelidir.
+  + `name` Özelliği `ColumnProfile` olmuştur kullanım dışı - kullanın `column_name` yerine.
 
 ## <a name="2019-01-28"></a>2019-01-28
 

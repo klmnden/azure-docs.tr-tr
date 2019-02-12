@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 77493782802eeb29313b57d11442535f1734c12e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251308"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097394"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Azure Stack altyapısını yedekleme hizmetiyle için yedekleme ve veri kurtarma
 
@@ -52,12 +52,16 @@ Hizmetler aşağıdaki özellikleri içerir.
   Bir dosya paylaşımı erişilebilir yedi yedek içeren bir Azure Stack gerekir. Her yedekleme yaklaşık 10 GB'dir. Paylaşımınızın 140 GB'lık yedeklemeleri depolamak gerekir. Azure Stack altyapısını yedekleme hizmeti için bir depolama konumu seçme hakkında daha fazla bilgi için bkz. [yedeği denetleyicisi gereksinimleri](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Kimlik Bilgileri**  
   Bir etki alanı kullanıcı hesabı ve kimlik bilgileri gerekir, örneğin, Azure Stack yönetici kimlik bilgilerini kullanabilir.
-- **Şifreleme anahtarı**  
-  Yedekleme dosyaları, bu anahtarı kullanılarak şifrelenir. Bu anahtarı güvenli bir konuma depoladığınızdan emin olun. Bu anahtar ilk kez ayarlayın veya anahtarı gelecekte Döndür sonra bu anahtar bu arabirimden görüntüleyemezsiniz. Önceden paylaşılan anahtar oluşturmak daha fazla bilgi için komut dosyalarını izleyin [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](azure-stack-backup-enable-backup-powershell.md).
+- **Şifreleme sertifikası**  
+  Yedekleme dosyaları, sertifikanın ortak anahtarı kullanılarak şifrelenir. Bu sertifikayı güvenli bir konuma depoladığınızdan emin olun. 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [Yönetim Portalı'ndan Azure Stack için yedeklemeyi etkinleştir](azure-stack-backup-enable-backup-console.md).
-- Bilgi edinmek için nasıl [PowerShell ile Azure Stack için yedekleme etkinleştir](azure-stack-backup-enable-backup-powershell.md).
-- Bilgi edinmek için nasıl [Azure Stack yedekleme](azure-stack-backup-back-up-azure-stack.md )
-- Bilgi edinmek için nasıl [geri dönülemez veri kaybından kurtarma](azure-stack-backup-recover-data.md)
+Bilgi edinmek için nasıl [Yönetim Portalı'ndan Azure Stack için yedeklemeyi etkinleştir](azure-stack-backup-enable-backup-console.md).
+
+Bilgi edinmek için nasıl [PowerShell ile Azure Stack için yedekleme etkinleştir](azure-stack-backup-enable-backup-powershell.md).
+
+Bilgi edinmek için nasıl [Azure Stack yedekleme](azure-stack-backup-back-up-azure-stack.md )
+
+Bilgi edinmek için nasıl [geri dönülemez veri kaybından kurtarma](azure-stack-backup-recover-data.md)

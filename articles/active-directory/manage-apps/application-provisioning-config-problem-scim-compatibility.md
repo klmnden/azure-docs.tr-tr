@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: d0176cde824346c80fff097b87c107b7052e822f
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3588496a2f41af0af273497ea3952d138385f0af
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959570"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100876"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Bilinen sorunlar ve çözümleri ile Azure AD kullanıcı sağlama hizmetinin SCIM 2.0 protokol uyumluluğu
 
@@ -59,7 +59,7 @@ Evet. Bu uygulama örneği için çoklu oturum açmayı zaten kullanıyorsunuz v
 1. Adresinden Azure portalında oturum https://portal.azure.com.
 2. İçinde **Azure Active Directory > Kurumsal uygulamalar** bölümü Azure Portalı'nın, bulun ve mevcut SCIM uygulamanızı seçin.
 3.  İçinde **özellikleri** mevcut SCIM uygulamanızı kopyalama bölümünü **nesne kimliği**.
-4.  Yeni bir web tarayıcısı penceresinde Git https://developer.microsoft.com/en-us/graph/graph-explorer ve uygulamanızı nerede eklendiğinde Azure AD kiracısı için yönetici olarak oturum açın.
+4.  Yeni bir web tarayıcısı penceresinde Git https://developer.microsoft.com/graph/graph-explorer ve uygulamanızı nerede eklendiğinde Azure AD kiracısı için yönetici olarak oturum açın.
 5. Graph Explorer'da sağlama iş Kimliğini bulmak için aşağıdaki komutu çalıştırın. "[Object-id]" hizmet sorumlusu kimliği (nesne kimliği) Üçüncü adımda kopyaladığınız değiştirin.
  
  `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -99,7 +99,7 @@ Evet. Düzeltmeleri önce mevcut ve yeni bir örneğini dağıtmak ihtiyaç eski
 1.  Adresinden Azure portalında oturum https://portal.azure.com.
 2. içinde **Azure Active Directory > Kurumsal uygulamalar > uygulama oluşturma** bölümde Azure portalı, yeni bir oluşturma **galeri dışı** uygulama.
 3.  İçinde **özellikleri** yeni özel uygulamanızı, kopya bölümünü **nesne kimliği**.
-4.  Yeni bir web tarayıcısı penceresinde Git https://developer.microsoft.com/en-us/graph/graph-explorer ve uygulamanızı nerede eklendiğinde Azure AD kiracısı için yönetici olarak oturum açın.
+4.  Yeni bir web tarayıcısı penceresinde Git https://developer.microsoft.com/graph/graph-explorer ve uygulamanızı nerede eklendiğinde Azure AD kiracısı için yönetici olarak oturum açın.
 5. Graph Explorer'da, uygulamanız için sağlama Yapılandırması'nı başlatmak için aşağıdaki komutu çalıştırın.
 "[Object-id]" hizmet sorumlusu kimliği (nesne kimliği) Üçüncü adımda kopyaladığınız değiştirin.
 

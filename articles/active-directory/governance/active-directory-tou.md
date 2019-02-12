@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2019
+ms.date: 02/09/2019
 ms.author: rolyon
-ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d063fd27d4de2fa37825294cd10f4f9a69731f63
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822519"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099998"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede kullanım koşulları ile çalışmaya başlama işlemini açıklamaktadır.
@@ -266,7 +266,7 @@ Cihaz başına kullanım koşulları aşağıdaki sınırlamalara sahiptir:
 
 - Bir cihaz, yalnızca tek bir kiracı katılabilir.
 - Bir kullanıcının kendi cihazı alanına katma izinleri olması gerekir.
-- Intune kayıt uygulaması desteklenmez.
+- Intune kaydı uygulaması desteklenmez.
 
 Kullanıcının cihazı alanına katılmamışsa, bunların cihazlarını katılmak için ihtiyaç duydukları bir ileti alırsınız. Deneyimlerini platform ve yazılım bağımlı olacaktır.
 
@@ -333,6 +333,9 @@ Azure Information Protection uygulaması için bir koşullu erişim ilkesi yapı
 Microsoft Intune kaydı uygulama için bir koşullu erişim ilkesini yapılandırma ve ıntune'da bir cihaz kaydetmeden önce kullanım koşulları gerektirir. Daha fazla bilgi için bkz: Okuma [koşulları, kuruluş blog gönderisi için çözüm seçme hakkını](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ![Microsoft Intune bulut uygulaması](./media/active-directory-tou/cloud-app-intune.png)
+
+> [!NOTE]
+> Intune kaydı uygulama için desteklenmiyor [cihaz başına kullanım koşullarını](#per-device-terms-of-use).
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 

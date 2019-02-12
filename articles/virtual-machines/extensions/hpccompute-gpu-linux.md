@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: fe730c826e082f26ce7b4604a5fbf46692ef0bed
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982514"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100270"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux için NVIDIA GPU sürücüsünün uzantısı
 
@@ -85,7 +85,7 @@ Tüm ayarlar isteğe bağlıdır. Varsayılan davranış çekirdek güncelleşti
 | Ad | Açıklama | Varsayılan Değer | Geçerli Değerler | Veri Türü |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Çekirdek sürücüsü yüklemesi için gerekli değildir, güncelleştirme | false | TRUE, false | boole |
-| driverVersion | NV: Kılavuz sürücü sürümü<br> NC/ND: CUDA Araç Seti sürüm. Seçilen CUDA için en son sürücüleri otomatik olarak yüklenir. | en son | KILAVUZ: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | dize |
+| driverVersion | NV: Kılavuz sürücü sürümü<br> NC/ND: CUDA Araç Seti sürüm. Seçilen CUDA için en son sürücüleri otomatik olarak yüklenir. | en son | KILAVUZ: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | dize |
 | installCUDA | CUDA Toolkit'i yükle. NC/ND serisi VM'ler için yalnızca ilgilidir. | true | TRUE, false | boole |
 
 

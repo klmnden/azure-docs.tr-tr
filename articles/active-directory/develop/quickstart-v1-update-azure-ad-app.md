@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 49aa4751ce5e9b5addfc1b1d131d5287cce77154
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819102"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098621"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de bir uygulamayı güncelleştirme
 
@@ -144,7 +144,7 @@ Uygulama bildirimi kavramları hakkında daha fazla genel bilgi için bkz. [Azur
 
 Yukarıda da bahsettiğimiz üzere kendi uygulamalarınızın API'lerini kullanıma sunmaya ve erişim sağlamaya ek olarak istemci uygulamanızı Microsoft kaynakları tarafından kullanıma sunulan API'lere erişecek şekilde kaydedebilirsiniz. Portalın kaynak/API listesinde “Microsoft Graph” olarak geçen Microsoft Graph API'si, Azure AD'ye kayıtlı tüm uygulamalar tarafından kullanılabilir. İstemci uygulamanızı Office 365 aboneliğine kaydolmuş hesapların bulunduğu bir kiracıda kaydediyorsanız çeşitli Office 365 kaynakları tarafından kullanıma sunulan kapsamlara da erişebilirsiniz.
 
-Microsoft Graph API tarafından kullanıma sunulan kapsamlarla ilgili ayrıntılı bilgi için [Microsoft Graph izinleri başvurusu](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) makalesine bakın.
+Microsoft Graph API tarafından kullanıma sunulan kapsamlarla ilgili ayrıntılı bilgi için [Microsoft Graph izinleri başvurusu](https://docs.microsoft.com/graph/permissions-reference) makalesine bakın.
 
 > [!NOTE]
 > Mevcut bir sınırlama nedeniyle yerel istemci uygulamaları yalnızca “Kuruluşunuzun dizinine erişin” iznini kullanarak Azure AD Graph API'sine çağrı gönderebilir. Bu kısıtlama web uygulamaları için geçerli değildir.

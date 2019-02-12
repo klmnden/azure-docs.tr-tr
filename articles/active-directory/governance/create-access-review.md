@@ -14,12 +14,12 @@ ms.subservice: compliance
 ms.date: 11/15/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 1c71333a49643647bae3730e4f14f26939388c4f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2393aaec32f2813860ab422b42772eef11ccd8a3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153752"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099165"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD ile uygulama erişimi ve Grup üyeleri erişim gözden geçirmesi oluşturma
 
@@ -115,7 +115,7 @@ Tamamlama ayarlarını üzerinde yaptığınız seçimlere bağlı olarak, otoma
 
 ## <a name="create-reviews-via-apis"></a>Gözden geçirmeler API'leri aracılığıyla oluşturma
 
-Erişim gözden geçirmeleri API'lerini kullanarak da oluşturabilirsiniz. Erişimi yönetmek için bunu gruplarını gözden geçirir ve uygulama kullanıcıları Azure portalında da yapılabilir Microsoft Graph API'leri kullanılarak. Daha fazla bilgi için [Azure AD erişim gözden geçirmeleri API başvuru](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/accessreviews_root). Bir kod örneği için bkz. [Microsoft Graph aracılığıyla Azure AD erişim gözden geçirmeleri alma örnek](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+Erişim gözden geçirmeleri API'lerini kullanarak da oluşturabilirsiniz. Erişimi yönetmek için bunu gruplarını gözden geçirir ve uygulama kullanıcıları Azure portalında da yapılabilir Microsoft Graph API'leri kullanılarak. Daha fazla bilgi için [Azure AD erişim gözden geçirmeleri API başvuru](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Bir kod örneği için bkz. [Microsoft Graph aracılığıyla Azure AD erişim gözden geçirmeleri alma örnek](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

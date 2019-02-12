@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751948"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099743"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -310,7 +310,7 @@ SQL veritabanı otomatik olarak ve herhangi bir veri kaybı olmadan belirli sın
 Bunu başarmak için birkaç yolunuz vardır:
 
 - **[Veri eşitleme](sql-database-sync-data.md)**  – bu özellik çift birden çok şirket içi SQL Server veritabanları ve SQL veritabanı arasında verileri eşitleyebilmeniz yardımcı olur. Şirket içi SQL Server veritabanları ile eşitlemek için yüklemeniz, giden TCP bağlantı noktası 1433'ü açın ve ve yerel bilgisayarda eşitleme Aracısı yapılandırmanız gerekir.
-- **[İşlem çoğaltma](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – işlem çoğaltma ile şirket içi verilerinizi Azure SQL DB'ye yayımcısı ve abonesi olan Azure SQL DB ile şirket içi eşitleyebilirsiniz. Şu an için yalnızca bu kurulum desteklenir. Verilerinizin şirket içinden en az kapalı kalma süresi ile Azure SQL'e geçirme hakkında daha fazla bilgi için bkz: [İşlem çoğaltma kullanma](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[İşlem çoğaltma](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – işlem çoğaltma ile şirket içi verilerinizi Azure SQL DB'ye yayımcısı ve abonesi olan Azure SQL DB ile şirket içi eşitleyebilirsiniz. Şu an için yalnızca bu kurulum desteklenir. Verilerinizin şirket içinden en az kapalı kalma süresi ile Azure SQL'e geçirme hakkında daha fazla bilgi için bkz: [İşlem çoğaltma kullanma](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

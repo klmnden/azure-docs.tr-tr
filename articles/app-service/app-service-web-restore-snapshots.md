@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
-ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726570"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100511"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Uygulamayı azure'daki bir anlık görüntüden geri yükleme
 Bu makalede, uygulamanızı geri yükleme işlemini göstermektedir [Azure App Service](../app-service/overview.md) anlık görüntüden. Uygulamanız, uygulamanızın anlık görüntüleri birini temel alan bir önceki durumuna geri yükleyebilirsiniz. Anlık görüntüleri yedeklemeyi etkinleştirme gerekmez, platform otomatik olarak veri kurtarma amacıyla tüm uygulamalara anlık görüntüsünü kaydeder.
@@ -38,6 +38,7 @@ Anlık görüntülerden geri çalışan uygulamalar için kullanılabilir **Prem
 - App Service, geri yükleme yaparken, hedef uygulama veya hedef yuva durdurur.
 - App Service, üç ay değerinde anlık görüntüleri platform veri kurtarma amacıyla tutar.
 - Yalnızca son 30 güne ait anlık görüntü geri yükleyebilirsiniz.
+- Bir App Service ortamında çalışan uygulama hizmetleri anlık görüntülerini desteklemez.
  
 
 ## <a name="restore-an-app-from-a-snapshot"></a>Uygulamayı bir anlık görüntüden geri yükleme

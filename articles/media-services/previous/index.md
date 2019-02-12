@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 02/08/2018
 ms.author: carolz
-ms.openlocfilehash: 742e6a556045874d57c810373f2297582ca8140e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: dce69041176840765817d561f61a0d5f3d2b9a66
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979678"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998040"
 ---
-# <a name="media-services-documentation-legacy"></a>Media Services Belgeleri (eski)
+# <a name="media-services-documentation"></a>Media Services Belgeleri  
 
 Genişletilebilir bir bulut platformu olan Media Services ile yayın kalitesindeki videoların akışını yapma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
 

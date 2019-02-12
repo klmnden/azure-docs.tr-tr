@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 55c1aa4a478031ebc49ec5ab7ea5744d9d980470
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2089f600d89d1b072829976e2b3257bbf086bafa
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825764"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098055"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Öğretici: Atlassian bulut ile Azure Active Directory Tümleştirme
 
@@ -39,6 +39,7 @@ Azure AD tümleştirmesi Atlassian Bulutla yapılandırmak için aşağıdaki ö
 
 * Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
 * Atlassian bulut çoklu oturum açma abonelik etkin.
+* Güvenlik onaylama işlemi biçimlendirme dili (SAML) çoklu oturum açma için Atlassian bulut ürünleri etkinleştirmek için Atlassian erişimi ayarlamak gerekir. Daha fazla bilgi edinin [Atlassian erişim]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
@@ -124,29 +125,15 @@ Azure AD çoklu oturum açma Atlassian Bulutla yapılandırmak için aşağıdak
     > [!NOTE]
     > Önceki oturum açma URL değeri, gerçek değil. Değeri, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Atlassian bulut istemci Destek ekibine](https://support.atlassian.com/) bu değeri alınamıyor.
 
-6. Özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bulmak Atlassian bulut uygulamanızın bekliyor.
-
-    Varsayılan olarak, **kullanıcı tanımlayıcısı** değeri için user.userprincipalname eşlenir. İçin User.Mail eşlemek için bu değeri değiştirin. Diğer uygun değere göre kuruluşunuzun Kurulum de seçebilirsiniz, ancak bir e-posta taleplerini çoğunda çalışması gerekir. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+6. Atlassian bulut uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. Atlassian bulut uygulaması bekliyor **NameIdentifier** ile eşlenecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşlemesi.
 
     ![image](common/edit-attribute.png)
 
-7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    a. Tıklayın **düzenleme simgesi** açmak için **yönetmek, kullanıcı talepleri** iletişim.
-
-    ![image](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
-
-    ![image](./media/atlassian-cloud-tutorial/tutorial_usermailedit.png)
-
-    b. Gelen **kaynak özniteliği** listesinden **user.mail**.
-
-    c. **Kaydet**’e tıklayın.
-
-8. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+7. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-9. Üzerinde **Atlassian bulut kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+8. Üzerinde **Atlassian bulut kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 

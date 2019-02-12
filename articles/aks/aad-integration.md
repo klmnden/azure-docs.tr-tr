@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 78f00b00465b6d834f30411485a874d6d2116ea4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081254"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099267"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
@@ -220,7 +220,9 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 
 İşlem tamamlandıktan sonra kimlik doğrulama belirteci önbelleğe alınır. Yalnızca ne zaman belirtecinin süresi doldu veya yeniden oluşturulduğunda Kubernetes yapılandırma dosyasında oturum reprompted.
 
-Başarıyla oturum açtıktan sonra bir yetkilendirme hata iletisini görüyorsanız, bir konuk (farklı bir dizin Federasyon oturum açma kullanıyorsanız, genellikle böyledir) Azure ad'deki olduğu gibi kullanıcı, oturum açan olduğunu denetleyin.
+Başarıyla oturum açtıktan sonra bir yetkilendirme hata iletisini görüyorsanız, kontrol olmadığını:
+1. Bir konuk değil (farklı bir dizin Federasyon oturum açma kullanıyorsanız, genellikle böyledir) Azure AD örneğinde olduğu gibi kullanıcı, oturum açan.
+2. Kullanıcı, 200'den fazla grupların bir üyesi değil.
 
 ```console
 error: You must be logged in to the server (Unauthorized)

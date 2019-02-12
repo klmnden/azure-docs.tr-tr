@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766104"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099148"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 güncelleştirme
 
@@ -118,6 +118,18 @@ Bu güncelleştirme, aşağıdaki yeni özellikleri ve Azure Stack için gelişt
 - Yönetilen diskler artık varsayılan olarak etkindir Azure Stack portalını kullanarak sanal makineler oluştururken. Bkz: [bilinen sorunlar](#known-issues-post-installation) yönetilen VM oluşturma hataları önlemek diskleri için gerekli ek adımlar bölümüne.
 
 - Bu sürüm uyarı tanıtır **onarım** Azure Stack operatörü eylemleri. 1811 içinde bazı uyarılarda sağlayan bir **onarım** sorunu çözmek için seçebileceğiniz uyarı düğmesi. Daha fazla bilgi için [izleme sistem durumu ve Uyarıları Azure Stack'te](azure-stack-monitor-health.md).
+
+- Azure Stack'te güncelleştirme deneyimini güncelleştirmeleri. Güncelleştirme geliştirmeler şunları içerir: 
+    - Güncelleştirme geçmişini daha iyi izleme güncelleştirme işlemleri sürüyor güncelleştirmeleri bölün ve güncelleştirmeleri tamamlandı sekmeler.
+    - Temel Parçalar bölümünde yeni simgeler ve son yanı sıra geçerli ve OEM sürümleri için Düzen ile geliştirilmiş durum görselleştirmeler tarih güncelleştirildi.
+    - **Görünüm** için sürüm notları sütun kullanıcıyı doğrudan belgeler genel güncelleştirme sayfası yerine bu güncelleştirmeyi belirli götürür bağlayın.
+    - **Güncelleştirme geçmişi** sekmesini her güncelleştirmelerin çalıştırma zamanlarını belirlemek için kullanılan yanı sıra gelişmiş filtreleme yetenekleri.  
+    - Bağlı azure Stack ölçek birimleri otomatik olarak hala alacağı **güncelleştirme kullanılabilir** kullanılabilir oldukça.
+    - Bağlı olmadığınız azure Stack ölçek birimleri güncelleştirmeleri önce olduğu gibi aktarabilirsiniz. 
+    - Portaldan JSON günlükleri indirmek için işlemindeki bir değişiklik bulunmamaktadır. Azure Stack operatörleri, ilerleme ifade adımları genişletme görürsünüz.
+
+    Daha fazla bilgi için [güncelleştirmelerini Azure Stack'te](azure-stack-apply-updates.md).
+
 
 ## <a name="fixed-issues"></a>Düzeltilen sorunlar
 

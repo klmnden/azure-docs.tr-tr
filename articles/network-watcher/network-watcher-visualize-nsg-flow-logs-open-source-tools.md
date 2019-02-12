@@ -1,6 +1,6 @@
 ---
-title: Açık kaynak araçlar kullanarak Azure Ağ İzleyicisi NSG akış günlüklerini Görselleştirme | Microsoft Docs
-description: Bu sayfa, NSG akış günlüklerini görselleştirme için açık kaynak araçları kullanmayı açıklar.
+title: Ağ İzleyicisi ve Elastic Stack kullanarak ağ güvenlik grubu akış günlüklerini analiz etme ve yönetme | Microsoft Docs
+description: Yönetme ve Ağ İzleyicisi ve Elastic Stack kullanarak azure'da ağ güvenlik grubu akış günlüklerini analiz edin.
 services: network-watcher
 documentationcenter: na
 author: mattreatMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822917"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099012"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Açık kaynak araçlar kullanarak Azure Ağ İzleyicisi NSG akış günlüklerini Görselleştirme
 

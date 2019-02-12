@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: fdb481961680d5f84170a25c7a76bffa8423e0cc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604346"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097176"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Hızlı Başlangıç: Bulut tabanlı bir çözüm bağlı cihazlarım bir Tahmine dayalı bakım analizini Çalıştır'ı deneyin
 
@@ -42,7 +42,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Bu hızlı başlangıçta **Visual Studio Enterprise** ve **Doğu ABD** kullanıyoruz. Abonelikte [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) olmanız gerekir.
 
-Dağıtımı başlatmak için **Create Solution** (Çözüm Oluştur) öğesine tıklayın. Bu işlemin çalışması en az beş dakika sürer:
+Tıklayın **Oluştur** dağıtımına başlamak için. Bu işlemin çalışması en az beş dakika sürer:
 
 ![Tahmine Dayalı Bakım çözümü ayrıntıları](./media/quickstart-predictive-maintenance-deploy/createform.png)
 
@@ -50,9 +50,13 @@ Dağıtımı başlatmak için **Create Solution** (Çözüm Oluştur) öğesine 
 
 Azure aboneliğinize dağıtım tamamlandığında, çözüm dosyasında yeşil bir onay işareti ve **Hazır** yazısı görürsünüz. Tahmine Dayalı Bakım çözüm hızlandırıcısı panonuzda artık oturum açabilirsiniz.
 
-**Sağlanan Çözümler** sayfasında yeni Tahmine Dayalı Bakım çözümü hızlandırıcınıza tıklayın. Açılan panelde çözüm hızlandırıcınızla ilgili bilgileri görüntüleyebilirsiniz. Tahmine Dayalı Bakım çözümü hızlandırıcısını görüntülemek için **Çözüm panosu**'nu seçin:
+**Sağlanan Çözümler** sayfasında yeni Tahmine Dayalı Bakım çözümü hızlandırıcınıza tıklayın.
 
-![Çözüm paneli](./media/quickstart-predictive-maintenance-deploy/solutionpanel.png)
+![Çözüm paneli](./media/quickstart-predictive-maintenance-deploy/solution.png)
+
+ Çözüm Hızlandırıcısını hakkında bilgi görüntülenen sayfasında görüntüleyebilirsiniz. Seçin **çözüm hızlandırıcınız Git** Tahmine dayalı bakım çözüm hızlandırıcınız görüntülemek için:
+
+![Çözüm paneli](./media/quickstart-predictive-maintenance-deploy/solutionpaneldetails.png)
 
 İzin isteğini kabul etmek için **Kabul Et**'e tıklayın. Tahmine Dayalı Bakım çözümü panosu tarayıcınızda görüntülenir:
 

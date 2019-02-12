@@ -16,19 +16,19 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: ce1940d0b83e0713ce41d84e8d4bfeff6cb75954
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2c95e19fe47e23cda6d14fc047fbe6c30100d78e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075865"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097773"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API'si
 
 > [!IMPORTANT]
 > Azure Active Directory kaynaklarına erişmek için Azure AD Graph API'si yerine [Microsoft Graph](https://developer.microsoft.com/graph/) kullanmanız önemle tavsiye edilir. Geliştirme çalışmalarımız şu anda Microsoft Graph üzerine yoğunlaşmıştır ve Azure AD Graph API’si için başka bir geliştirme planlanmamaktadır. Azure AD Graph API’sinin hala uygun olabileceği senaryo sayısı çok sınırlıdır; daha fazla bilgi için Office Geliştirici Merkezi’ndeki [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog gönderisine bakın.
 
-Bu makale, Azure AD Graph API için geçerlidir. Microsoft Graph API için ilgili benzer bilgileri için bkz. [Microsoft Graph API'sini](https://developer.microsoft.com/en-us/graph/docs/concepts/use_the_api). 
+Bu makale, Azure AD Graph API için geçerlidir. Microsoft Graph API için ilgili benzer bilgileri için bkz. [Microsoft Graph API'sini](https://docs.microsoft.com/graph/use-the-api). 
 
 Azure Active Directory Graph API, Azure AD'ye REST API uç noktaları yoluyla programlı erişim sağlar. Uygulamalar Azure AD Graph API'si gerçekleştirmek için kullanabileceğiniz oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri dizin verileri ve nesneleri. Örneğin, Azure AD Graph API, bir kullanıcı nesnesi için şu ortak işlemleri destekler:
 

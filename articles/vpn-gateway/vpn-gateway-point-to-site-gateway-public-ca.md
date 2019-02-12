@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: c6d696f8bf5f649321ee0be93ae13571a7ba3019
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a5634054746d7e60aff154165f651f7c815c39a3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896740"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100831"
 ---
 # <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Geçiş için ortak CA sertifikaları P2S ağ geçitleri için otomatik imzalı
 
@@ -23,14 +23,14 @@ Daha önce ağ geçidi için kendinden imzalı bir sertifika her 18 ay güncelle
 Yalnızca eski ağ geçitleri bu değişiklikten etkilenmez. Ağ geçidi sertifikanızı geçmiş olması gerekiyorsa, Azure portalında iletişimi veya bildirim alırsınız. Ağ geçidiniz bu makaledeki adımları kullanarak etkilenir bakabilirsiniz.
 
 >[!IMPORTANT]
->Geçiş için Mart zamanlandı 18:00 UTC'de 09,2019 başlatılıyor. Farklı zaman penceresi tercih ederseniz bir destek talebi oluşturabilirsiniz. Aşağıdaki windows isteyebilirsiniz:
+>Geçiş için Mart zamanlandı 18:00 UTC'de 12,2019 başlatılıyor. Farklı zaman penceresi tercih ederseniz bir destek talebi oluşturabilirsiniz. Aşağıdaki windows isteyebilirsiniz:
 >
 >* 25 Şubat 06:00 UTC
 >* 25 Şubat 18:00 UTC
 >* 1 Mart'ta 06:00 UTC
 >* 1 Mart'ta 18:00 UTC
 >
->**Kalan tüm ağ geçitleri 09 Mart 18:00 UTC'de başlangıç 2019 tarihinde geçeceğiyle**.
+>**Kalan tüm ağ geçitleri 12 Mart 18:00 UTC'de başlangıç 2019 tarihinde geçeceğiyle**.
 >
 
 ## <a name="1-verify-your-certificate"></a>1. Sertifikanızı doğrulayın

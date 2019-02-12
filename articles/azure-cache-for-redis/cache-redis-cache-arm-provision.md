@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: 8e0b0572f0d728474c17b41a0f92948451f4ef3f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 69f40a482997e7cafa665ab1cb53e26d8653e45e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746957"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099880"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Şablon kullanarak Redis için bir Azure önbelleği oluşturma
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu konu başlığında, bir Azure önbelleği için Redis dağıtan bir Azure Resource Manager şablonunun nasıl oluşturulacağını öğrenin. Önbellek ile mevcut bir depolama hesabı Tanılama verileri tutmak için kullanılabilir. Ayrıca tanımlamak için hangi kaynaklara dağıtılır ve parametrelerin nasıl dağıtıldığının ve dağıtım yürütülürken belirtilen nasıl öğrenin. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
 Şu anda, tanılama ayarları için bir abonelik için aynı bölgede tüm önbellekleri paylaşılır. Bir önbellek bölgede güncelleştirme bölgesindeki tüm önbellekleri etkiler.
@@ -127,7 +130,8 @@ Azure önbelleği için Redis oluşturur.
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
+
+    New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
 
 ### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup

@@ -4,17 +4,17 @@ description: Kaynak ilke tanımı hangi etkili olması için zaman ilkelerin hi�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 14c5a9a5d9e3bd71ca1fdaf3545af3e74b3973c2
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698301"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100660"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -90,8 +90,20 @@ Parametreler, ilkeleri oluştururken aynı şekilde çalışır. İlke tanımın
 > [!NOTE]
 > Parametreler, var olan ve atanmış tanımına eklenebilir. Yeni bir parametre içermelidir **defaultValue** özelliği. Bu, ilke veya girişim mevcut atamaları dolaylı olarak geçersiz yapılmasını önler.
 
-Örneğin, kaynakların dağıtıldığı konumları sınırlamak için bir ilke tanımlayabilirsiniz.
-İlkenizi oluşturduğunuzda aşağıdaki parametreleri bildirmeniz:
+### <a name="parameter-properties"></a>Parametre özellikleri
+
+Bir parametre ilke tanımında kullanılan aşağıdaki özelliklere sahiptir:
+
+- **Ad**: Parametrenin adı. Tarafından kullanılan `parameters` ilke kuralı içinde dağıtım işlevi. Daha fazla bilgi için [bir parametre değeri kullanarak](#using-a-parameter-value).
+- `type`: Parametre olup olmadığını belirleyen bir **dize** veya **dizi**.
+- `metadata`: Öncelikli olarak kullanıcı dostu bilgileri görüntülemek için Azure portal tarafından kullanılan alt tanımlar:
+  - `description`: Hangi parametre açıklaması için kullanılır. Örnekler, kabul edilebilir değerler sağlamak için kullanılabilir.
+  - `displayName`: Parametre için Portalı'nda gösterilen kolay adı.
+  - `strongType`: (İsteğe bağlı) Portal üzerinden ilke tanımlarının atamasını yaparken kullanılır. Bağlam kullanan listesini sağlar. Daha fazla bilgi için [strongType](#strongtype).
+- `defaultValue`: (İsteğe bağlı) Hiçbir değer sağlanmışsa atamadaki parametresinin değerini ayarlar. Atanan var olan bir ilke tanımı güncelleştirilirken gereklidir.
+- `allowedValues`: (İsteğe bağlı) Atama sırasında parametre kabul eden bir değer listesi sağlar.
+
+Örneğin, kaynakların dağıtıldığı konumları sınırlamak için bir ilke tanımı tanımlayabilirsiniz. Bu ilke tanımı için bir parametre olabilir **allowedLocations**. Bu parametre her ilke tanımı atama tarafından kabul edilen değerler sınırlamak için kullanılacak. Kullanımını **strongType** Portalı aracılığıyla atanabilecek tamamlarken Gelişmiş bir deneyim sağlar:
 
 ```json
 "parameters": {
@@ -102,21 +114,17 @@ Parametreler, ilkeleri oluştururken aynı şekilde çalışır. İlke tanımın
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-Bir parametrenin türü dize veya dizi olabilir. Meta veri özelliği, Azure portalı gibi araçları için kullanıcı dostu bilgileri görüntülemek için kullanılır.
-
-Meta veri özelliği içinde kullanabileceğiniz **strongType** çoklu seçim listesini Azure portalındaki seçenekleri sağlamak için. İzin verilen değerler için **strongType** şu anda içerir:
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>Bir parametre değeri kullanma
 
 Aşağıdaki parametrelerle ilke kuralında başvuru `parameters` dağıtım değer işlev sözdizimi:
 
@@ -126,6 +134,19 @@ Aşağıdaki parametrelerle ilke kuralında başvuru `parameters` dağıtım de�
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+Bu örnek başvuran **allowedLocations** içinde devremenin parametre [parametre özellikleri](#parameter-properties).
+
+### <a name="strongtype"></a>strongType
+
+İçinde `metadata` kullanabileceğiniz özelliği **strongType** çoklu seçim listesini Azure portalındaki seçenekleri sağlamak için. İzin verilen değerler için **strongType** şu anda içerir:
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>Tanım konumu
 

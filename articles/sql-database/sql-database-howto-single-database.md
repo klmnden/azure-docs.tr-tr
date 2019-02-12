@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 195afabc0f512f1202904ab7ebf1471b34e2377f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c85a7106e9567859c34345528c6549bcd752f1c6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989279"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100474"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek bir veritabanını kullanma
 
@@ -25,7 +25,7 @@ Bu bölümde, çeşitli kılavuzları, betikler ve yönetmenizi ve Azure SQL ver
 
 ## <a name="migrate"></a>Geçiş
 
-- [SQL veritabanı'na geçirme](sql-database-cloud-migrate.md) – yönetilen örneğe geçiş araçları ve önerilen geçiş işlemi hakkında bilgi edinin.
+- [SQL veritabanı'na geçirme](sql-database-single-database-migrate.md) – yönetilen örneğe geçiş araçları ve önerilen geçiş işlemi hakkında bilgi edinin.
 - Bilgi edinmek için nasıl [geçişten sonra SQL veritabanını yönetme](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Yapılandırma özellikleri

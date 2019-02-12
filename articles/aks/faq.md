@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: a7a7c8a6f16183d677aeb09ca62ac601cbd01289
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2366bd5543a7c3ee4a45eff74f71232a9c60989f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694049"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098553"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) hakkında sık sorulan sorular
 
@@ -60,7 +60,7 @@ Depolama hesapları veya ayrılmış genel IP adresleri gibi bir AKS kümesi ile
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Etiketleri ve diğer özellikleri AKS kaynakları MC_ * kaynak grubunda değişiklik yapabilirsiniz?
 
-Değiştirme ve silme Azure tarafından oluşturulmuş etiketleri ve diğer özellikleri kaynakların *MC_** kaynak grubu ölçekleme ve yükseltme hataları gibi beklenmeyen sonuçlara yol açabilir. Oluşturma ve bir iş birimi veya maliyet merkezi atamak gibi ek özel etiketler değiştirme desteklenir. Kaynakları altındaki değiştirme *MC_** AKS kümesi SLO keser.
+Değiştirme ve silme Azure tarafından oluşturulmuş etiketleri ve diğer özellikleri kaynakların *MC_** kaynak grubu ölçekleme ve yükseltme hataları gibi beklenmeyen sonuçlara yol açabilir. Oluşturma ve bir iş birimi veya maliyet merkezi atamak gibi ek özel etiketler değiştirme desteklenir. Kaynakları altındaki değiştirme *MC_** AKS kümesi hizmet düzeyi hedefi (SLO) keser. Daha fazla bilgi için [sunan bir hizmet düzeyi sözleşmesi AKS mu?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Hangi Kubernetes giriş denetleyicileri AKS destekliyor mu? Giriş denetleyicileri eklendiğinde veya kaldırıldığında?
 

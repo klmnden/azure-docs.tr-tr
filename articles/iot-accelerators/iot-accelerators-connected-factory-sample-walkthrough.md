@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 19e340609e80998037938bdad59e9e6e74894bad
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140409"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098315"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Bağlı Fabrika çözüm hızlandırıcısı adım adım kılavuzu
 
@@ -46,7 +46,7 @@ Aşağıdaki diyagram, çözüm hızlandırıcısının mantıksal bileşenlerin
 
 Çözüm, OPC UA telemetri verilerini JSON biçiminde IoT Hub’a göndermek için [OPC UA Pub/Sub belirtimini](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) kullanır. Çözüm bu amaçla [OPC Yayımcısı](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge modülünü kullanır.
 
-Çözüm ayrıca şirket içi OPC UA sunucuları ile bağlantı kurabilen bir web uygulaması ile tümleşik OPC UA istemcisine sahiptir. İstemci bir [ters proxy](https://wikipedia.org/wiki/Reverse_proxy) kullanır ve şirket içi güvenlik duvarında bağlantı noktası açmayı gerektirmeksizin bağlantıyı oluşturmak için IoT Hub’dan yardım alır. Bu iletişim deseni [hizmet destekli iletişim](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/) olarak adlandırılır. Çözüm bu amaçla [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge modülünü kullanır.
+Çözüm ayrıca şirket içi OPC UA sunucuları ile bağlantı kurabilen bir web uygulaması ile tümleşik OPC UA istemcisine sahiptir. İstemci bir [ters proxy](https://wikipedia.org/wiki/Reverse_proxy) kullanır ve şirket içi güvenlik duvarında bağlantı noktası açmayı gerektirmeksizin bağlantıyı oluşturmak için IoT Hub’dan yardım alır. Bu iletişim deseni hizmet destekli iletişim çağrılır. Çözüm bu amaçla [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge modülünü kullanır.
 
 
 ## <a name="simulation"></a>Benzetim

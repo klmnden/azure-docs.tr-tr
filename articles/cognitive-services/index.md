@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 389dd4e8b6f2157c1c53528506435a97a07a493e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ceb5bb59f65e0f01d04d1aa9726b2494384b4a67
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872943"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998967"
 ---
 <h1>Azure Bilişsel Hizmetler Belgeleri</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.</p>
@@ -316,7 +316,6 @@ ms.locfileid: "55872943"
                         <p><a href="/azure/cognitive-services/speech-service">Konuşma Hizmeti API’si</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Konuşmacı Tanıma&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>Bing Konuşma API'si&nbsp;<sup style="font-size:70%">KULLANIMDAN KALDIRILIYOR</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Özel Konuşma Tanıma Hizmeti&nbsp;<sup style="font-size:70%">KULLANIMDAN KALDIRILIYOR</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/translator-speech/"><span>Translator Konuşma Çevirisi&nbsp;<sup style="font-size:70%">KULLANIMDAN KALDIRILIYOR</sup></span></a></p>
                      </div>
                 </div>

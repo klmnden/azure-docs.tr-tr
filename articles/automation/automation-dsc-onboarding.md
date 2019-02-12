@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1076ddfb840ba845718c5ca0deea8c5788e7d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096713"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100338"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Makineleri Azure Otomasyon durum yapılandırması tarafından Yönetim için hazırlama
 
@@ -24,7 +24,8 @@ Gibi [PowerShell Desired State Configuration](/powershell/dsc/overview), tüm Bu
 
 Azure Otomasyonu durum yapılandırması, çeşitli makineleri yönetmek için kullanılabilir:
 
-- Azure sanal makineler (Klasik ve Azure Resource Manager dağıtım modeli dağıtılır)
+- Azure sanal makineleri
+- Azure sanal makineler (Klasik)
 - Amazon Web Services (AWS) EC2 örnekleri
 - Fiziksel/sanal Windows makineleri şirket içinde veya Azure/AWS dışındaki bir bulutta bulunan
 - Şirket içi, azure'da veya Azure dışındaki bir bulutta bulunan fiziksel/sanal Linux makineleri
@@ -35,6 +36,31 @@ Ayrıca, makine yapılandırması buluttan yönetmek hazır değilseniz, Azure O
 > Durum yapılandırması ile Azure Vm'lerini yönetme yüklü sanal makine DSC uzantısı 2.70 büyükse, ek ücret alınmadan dahil edilir. Başvurmak [ **Fiyatlandırma sayfasında Otomasyon** ](https://azure.microsoft.com/pricing/details/automation/) daha fazla ayrıntı için.
 
 Aşağıdaki bölümlerde, her makine için Azure Otomasyon durum yapılandırması türü yerleşik getirmeyi özetler.
+
+## <a name="azure-virtual-machines"></a>Azure sanal makineleri
+
+Azure Otomasyonu durum yapılandırması Azure portal, Azure Resource Manager şablonları veya PowerShell kullanarak Azure sanal makine yapılandırma yönetimi için kolayca ekleme sağlar. Başlık altında ve yönetici VM uzaktan zorunda olmadan Azure VM Desired State Configuration uzantısı ile Azure Otomasyonu durum yapılandırması VM kaydeder.
+Azure VM Desired State Configuration uzantısı zaman uyumsuz olarak çalıştığından, ilerleme durumunu izlemek ve bu sorun giderme adımları aşağıda sağlanan [ **sorun giderme Azure sanal makine ekleme** ](#troubleshooting-azure-virtual-machine-onboarding) bölümü.
+
+### <a name="azure-portal"></a>Azure portal
+
+İçinde [Azure portalında](https://portal.azure.com/), sanal makine ekleme için istediğiniz Azure Otomasyonu hesabı gidin. Durum Yapılandırması sayfasında ve **düğümleri** sekmesinde **+ Ekle**.
+
+Bir Azure sanal makine eklemek için seçin.
+
+Makine yoksa PowerShell istenen durum uzantısı yüklü ve güç durumunu çalışıyor **Connect**.
+
+Altında **kayıt**, girin [PowerShell DSC Local Configuration Manager değerleri](/powershell/dsc/metaconfig4) , kullanım örneği ve bir düğüm yapılandırması için isteğe bağlı olarak sanal Makineye atamak için gerekli.
+
+![Ekleme](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+
+### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
+
+Azure sanal makinelerine dağıtılabilir ve Azure Resource Manager şablonları aracılığıyla Azure Otomasyonu durumu yapılandırmasına eklenmedi. Bkz: [DSC uzantısı yoluyla bir sanal makine ve Azure Otomasyonu DSC yapılandırma](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) örnek şablonu için ekleme yapan Azure Otomasyon durum yapılandırması mevcut bir VM'ye. Kayıt URL'si geçen ve kayıt anahtarını bulmak için bu şablona giriş olarak aşağıdaki bakın [ **güvenli kayıt** ](#secure-registration) bölümü.
+
+### <a name="powershell"></a>PowerShell
+
+[Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet'i, sanal makine PowerShell aracılığıyla Azure portalında kullanılabilir.
 
 ## <a name="azure-virtual-machines-classic"></a>Azure sanal makineler (Klasik)
 
@@ -116,31 +142,6 @@ $VM | Update-AzureVM
 
 > [!NOTE]
 > Durum yapılandırması düğüm yapılandırması adı portalda büyük küçük harfe duyarlı. Eşleşmeyen durumda düğüm altında gösterilmez **düğümleri** sekmesi.
-
-## <a name="azure-virtual-machines"></a>Azure sanal makineleri
-
-Azure Otomasyonu durum yapılandırması Azure portal, Azure Resource Manager şablonları veya PowerShell kullanarak Azure sanal makine yapılandırma yönetimi için kolayca ekleme sağlar. Başlık altında ve yönetici VM uzaktan zorunda olmadan Azure VM Desired State Configuration uzantısı ile Azure Otomasyonu durum yapılandırması VM kaydeder.
-Azure VM Desired State Configuration uzantısı zaman uyumsuz olarak çalıştığından, ilerleme durumunu izlemek ve bu sorun giderme adımları aşağıda sağlanan [ **sorun giderme Azure sanal makine ekleme** ](#troubleshooting-azure-virtual-machine-onboarding) bölümü.
-
-### <a name="azure-portal"></a>Azure portal
-
-İçinde [Azure portalında](https://portal.azure.com/), sanal makine ekleme için istediğiniz Azure Otomasyonu hesabı gidin. Durum Yapılandırması sayfasında ve **düğümleri** sekmesinde **+ Ekle**.
-
-Bir Azure sanal makine eklemek için seçin.
-
-Makine yoksa PowerShell istenen durum uzantısı yüklü ve güç durumunu çalışıyor **Connect**.
-
-Altında **kayıt**, girin [PowerShell DSC Local Configuration Manager değerleri](/powershell/dsc/metaconfig4) , kullanım örneği ve bir düğüm yapılandırması için isteğe bağlı olarak sanal Makineye atamak için gerekli.
-
-![Ekleme](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
-
-### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
-
-Azure sanal makinelerine dağıtılabilir ve Azure Resource Manager şablonları aracılığıyla Azure Otomasyonu durumu yapılandırmasına eklenmedi. Bkz: [DSC uzantısı yoluyla bir sanal makine ve Azure Otomasyonu DSC yapılandırma](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) örnek şablonu için ekleme yapan Azure Otomasyon durum yapılandırması mevcut bir VM'ye. Kayıt URL'si geçen ve kayıt anahtarını bulmak için bu şablona giriş olarak aşağıdaki bakın [ **güvenli kayıt** ](#secure-registration) bölümü.
-
-### <a name="powershell"></a>PowerShell
-
-[Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet'i, sanal makine PowerShell aracılığıyla Azure portalında kullanılabilir.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Amazon Web Services (AWS) sanal makineler
 

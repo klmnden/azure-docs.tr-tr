@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/16/2018
+ms.date: 02/11/2019
 ms.author: stbaron
-ms.openlocfilehash: 7121087d9d9699a73b88e07599f70e0c7c40c1eb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6054b33e4068d36c5bfbb80120086a92a03525c8
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308289"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097517"
 ---
 # <a name="azure-status"></a>Azure durumu
-[Azure durumu](https://azure.microsoft.com/status/) Azure hizmetlerinin durumuna dair genel bir görünümünü sağlar. Azure durumu ile hizmet kullanılabilirliği hakkında güncel bilgi edinebilirsiniz. Azure durum herkes erişebilir ve görünümü tüm hizmetleri, hizmetin sistem durumunu raporlayabilirsiniz. 
+[Azure durumu](https://azure.microsoft.com/status/) Azure Hizmetleri ve bölgeleri durumunu genel bir görünümünü sağlar. Azure durumu ile hizmet kullanılabilirliği hakkında güncel bilgi edinebilirsiniz. Azure durumu, herkes kendi hizmet durumu yanı sıra kapsamlı etkisi olan olaylar rapor veren tüm hizmetleri görüntülemek için kullanılabilir. Geçerli bir Azure kullanıcısı değilseniz ancak kişiselleştirilmiş bir deneyimi kullanmanızı önemle öneririz [Azure hizmet durumu](https://aka.ms/azureservicehealth). Azure hizmet durumu, tüm kesintileri, yaklaşan planlı bakım etkinlikleri ve hizmet önerileri içerir.
 
 ![Azure durumu sayfası](./media/azure-status-overview/azure-status.PNG)
 

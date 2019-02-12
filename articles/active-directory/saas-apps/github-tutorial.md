@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 5afcec7a1dfd306cb87989e1a24cc662af183b5e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6a4ed4da4edd29819def4328b8264ad7ed118881
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826267"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Öğretici: GitHub ile Azure Active Directory Tümleştirme
 
@@ -113,40 +113,15 @@ Azure AD çoklu oturum açma ile GitHub yapılandırmak için aşağıdaki adım
     > [!NOTE]
     > Bunlar gerçek değerleri olmadığına dikkat edin. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirmeniz gerekiyor. Burada benzersiz dize değeri tanımlayıcıda kullanmanızı öneririz. Bu değerleri almak için GitHub yönetici bölümüne gidin.
 
-5. GitHub uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir. Varsayılan değer olan **benzersiz kullanıcı tanımlayıcısı** olduğu **user.userprincipalname** ancak GitHub bu kullanıcının e-posta adresi ile eşlenmesini bekliyor. Bunun için kullanabileceğiniz **user.mail** listeden öznitelik veya kuruluş yapılandırmanıza göre uygun öznitelik değeri kullanın.
+5. GitHub uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. GitHub uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşleme.
 
     ![image](common/edit-attribute.png)
 
-6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
-    
-    | Ad | Kaynak özniteliği|
-    | ---------------| --------------- |
-    | Benzersiz Kullanıcı Tanımlayıcısı | User.Mail |
-    | | |
-
-    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
-
-    c. Bırakın **Namespace** boş.
-
-    d. Kaynağı olarak **özniteliği**.
-
-    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
-
-    f. Tıklayın **Tamam**
-
-    g. **Kaydet**’e tıklayın.
-
-4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-6. Üzerinde **GitHub'ı ayarlama** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+7. Üzerinde **GitHub'ı ayarlama** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 

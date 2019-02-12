@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c31711b5b8972187449807fd2cc6ea750208e5d2
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453902"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098128"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Öğretici: Expensify ile Azure Active Directory Tümleştirme
 
@@ -104,9 +104,12 @@ Azure AD çoklu oturum açma ile Expensify yapılandırmak için aşağıdaki ad
 
     ![Etki alanı ve URL'ler tek oturum açma bilgileri expensify](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL yazın: `https://www.expensify.com/authentication/saml/login`
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak URL'yi yazın: `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL yazın: `https://www.expensify.com`
+
+    > [!NOTE]
+    > Oturum açma URL değeri, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Expensify istemci Destek ekibine](mailto:help@expensify.com) bu değeri alınamıyor.
 
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -125,18 +128,18 @@ Azure AD çoklu oturum açma ile Expensify yapılandırmak için aşağıdaki ad
 ### <a name="configure-expensify-single-sign-on"></a>Yapılandırma Expensify çoklu oturum açma
 
 İçinde Expensify SSO'yu etkinleştirmek için önce etkinleştirmeniz gerekir **etki alanı denetim** uygulama. Listelenen adımları uygulama etki alanı denetim etkinleştirebilirsiniz [burada](https://help.expensify.com/domain-control). Çalışmak için ek destek, [Expensify istemci Destek ekibine](mailto:help@expensify.com). Etki alanı denetim etkin olduktan sonra aşağıdaki adımları izleyin:
-   
+
 ![Çoklu oturum açmayı yapılandırın](./media/expensify-tutorial/tutorial_expensify_51.png)
-    
+
 1. Expensify uygulamanız için oturum açın.
-    
+
 2. Sol bölmede bulunan tıklayın **ayarları** gidin **SAML**.
-    
+
 3. İki durumlu **SAML oturum açma** olarak seçeneğini **etkin**.
-    
+
 4. İndirilen Federasyon meta verileri Azure AD'den Not Defteri'nde açın, içeriği kopyalayın ve ardından yapıştırın **kimlik sağlayıcısı meta verileri** metin.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
@@ -191,7 +194,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Expensify erişim verere
 
 Bu bölümde, Britta Simon Expensify içinde adlı bir kullanıcı oluşturun. Çalışmak [Expensify istemci Destek ekibine](mailto:help@expensify.com) Expensify platform kullanıcıları eklemek için.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -204,4 +207,3 @@ Erişim paneli Expensify kutucuğa tıkladığınızda, size otomatik olarak SSO
 - [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

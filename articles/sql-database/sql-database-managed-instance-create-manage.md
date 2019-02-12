@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 26445017553435454e929d9852dfd9fc173c3b2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d9952581049198131e30cd7d0ba0ebf6a14cc54
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460106"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098877"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL veritabanı yönetilen örnekleri için yönetilen API Başvurusu
 
@@ -93,5 +93,5 @@ Yönetilen örnekleri oluşturma ve yönetme için bu REST API istekleri'ni kull
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bir SQL Server veritabanını Azure'a geçirme hakkında bilgi edinmek için [Azure SQL veritabanına geçirme](sql-database-cloud-migrate.md).
+- Bir SQL Server veritabanını Azure'a geçirme hakkında bilgi edinmek için [Azure SQL veritabanına geçirme](sql-database-single-database-migrate.md).
 - Desteklenen özellikler hakkında bilgi edinmek için bkz. [Özellikler](sql-database-features.md).

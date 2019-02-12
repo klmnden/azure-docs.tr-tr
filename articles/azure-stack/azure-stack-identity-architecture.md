@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/07/2018
+ms.date: 02/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: b739db654a182433bbe1f47528d1ab99f1b10c08
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: e0f6e3068a26eef3b6cca79cffbb98614eb44a34
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242170"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100168"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack için kimlik mimarisi
-Azure Stack ile kullanmak için bir kimlik sağlayıcısı seçmeden önce Azure Active Directory (Azure AD) seçeneklerini ve Active Directory Federasyon Hizmetleri (AD FS) arasındaki önemli farklar anlayın. 
+
+Azure Stack ile kullanmak için bir kimlik sağlayıcısı seçerken önemli farkları seçenekler Azure Active Directory (Azure AD) ve Active Directory Federasyon Hizmetleri (AD FS) anlamanız gerekir.
 
 ## <a name="capabilities-and-limitations"></a>Özellikler ve sınırlamalar 
 Seçtiğiniz kimlik sağlayıcısı, çok kiracılı desteği dahil olmak üzere seçeneklerinizi sınırlayabilirsiniz. 

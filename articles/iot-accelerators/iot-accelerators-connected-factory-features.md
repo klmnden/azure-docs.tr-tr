@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: af2a2c84f9eb420a7ca9a8bd5909cbf856d29a5e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b54331e644d55497a7c7d33344cf29a82404847e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309204"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56096921"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Bağlı Fabrika IOT Çözüm Hızlandırıcısı nedir?
 
@@ -25,21 +25,21 @@ Bağlı Fabrika çözüm Hızlandırıcısını [kodu Github'da kullanılabilir]
 
 Bağlı Fabrika, aşağıdaki özellikleri içerir:
 
-## <a name="industrial-device-interoperability"></a>Endüstriyel cihaz birlikte çalışabilirlik
+## <a name="industrial-device-interoperability"></a>Endüstriyel cihaz birlikte çalışabilirliği
 
-- Bir OPC UA arabirimiyle endüstriyel varlıklarına bağlanın.
+- Bir OPC UA arabirimiyle endüstriyel varlıklara bağlanın.
 - Sanal Üretim hattını (OPC UA sunucuları Docker kapsayıcılarında çalışan), bunlardan alınan Canlı telemetri görmek için kullanın.
 - Bir bulut panosundan OPC UA sunucuları OPC UA bilgi modelinin göz atın.
 
-## <a name="remote-management"></a>Uzaktan Yönetim
+## <a name="remote-management"></a>Uzaktan yönetim
 
-- OPC UA varlıklarınızı bulut panosundan (yöntemler, okuma ve yazma veri çağrısı) yapılandırın.
-- Yayımlama ve OPC UA varlıklarınızı bulut panosundan telemetri verilerini Yayımdan Kaldır.
+- OPC UA varlıklarınızı bulut panosundan yapılandırın (yöntem çağırma, veri okuma ve yazma).
+- OPC UA varlıklarınızdan toplanan telemetri varlıklarını bir bulut panosundan yayımlayın ve yayından kaldırın.
 
-## <a name="cloud-dashboard"></a>Bulut Panosu
+## <a name="cloud-dashboard"></a>Bulut panosu
 
 - Telemetri önizlemeleri, doğrudan bir bulut Panoda görüntüleyin.
-- Telemetri verileri eğilimleri görüntülemek ve bağıntılar Time Series Insights Gezgini Panoyu kullanarak oluşturun.
+- Time Series Insights Gezgini panosunu kullanarak Telemetri verilerindeki eğilimleri görün ve bağıntılar oluşturun.
 - Genel donanım verimliliğini (OEE) ve ana performans göstergeleri (KPI) hesaplanan bir bulut panodan bakın.
 - Görünüm endüstriyel varlık hiyerarşileri etkileşimli bir harita yanı sıra bir ağaç topolojisi içinde.
 - Görüntülemek, kabul etme ve bulut Panosu uyarıları kapatın.
@@ -53,9 +53,9 @@ Bağlı Fabrika, aşağıdaki özellikleri içerir:
 
 [Eşik tabanlı uyarılar kurallarını yapılandırmak](iot-accelerators-connected-factory-configure.md).
 
-## <a name="end-to-end-security"></a>Baştan sona güvenlik
+## <a name="end-to-end-security"></a>Uçtan uca güvenlik
 
-- Rol tabanlı erişim denetimi (RBAC) kullanarak kullanıcıların güvenlik izinlerini yapılandırın.
+- Rol Tabanlı Erişim Denetimi’ni (RBAC) kullanarak kullanıcılar için güvenlik izinlerini yapılandırın.
 - OPC UA kimlik doğrulama (X.509 sertifikaları kullanarak) ve bunun yanı sıra güvenlik belirteçleri kullanarak uçtan uca şifreleme uygulanır.
 
 ## <a name="customizability"></a>Özelleştirmeyi ölçme

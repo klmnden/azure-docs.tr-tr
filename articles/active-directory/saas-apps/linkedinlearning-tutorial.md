@@ -4,7 +4,7 @@ description: Azure Active Directory ve LinkedIn Learning arasında çoklu oturum
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d5857070-bf79-4bd3-9a2a-4c1919a74946
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: be5dd0a0fd1eb45c505a2f0ddf1489d21bfd38e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0b742ec14dfb40d941fab68594d4bb45f6e37f55
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821205"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Öğretici: LinkedIn Learning ile Azure Active Directory Tümleştirme
 
@@ -118,11 +118,11 @@ Azure AD çoklu oturum açma ile LinkedIn Learning yapılandırmak için aşağ�
     > [!NOTE]
     > Bu değerler gerçek değeri değildir. Bu değerler gerçek tanımlayıcısı ve daha sonra açıklanan yanıt URL'si ile güncelleştirir **yapılandırma LinkedIn Learning çoklu oturum açma** öğretici bölümü.
 
-5. LinkedIn Learning uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir. Varsayılan değer olan **benzersiz kullanıcı tanımlayıcısı** olduğu **user.userprincipalname** ancak LinkedIn Learning bu kullanıcının e-posta adresi ile eşlenmesini bekliyor. Bunun için kullanabileceğiniz **user.mail** listeden öznitelik veya kuruluş yapılandırmanıza göre uygun öznitelik değeri kullanın. 
+5. LinkedIn Learning uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. LinkedIn Learning uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşlemesi.
 
     ![image](common/edit-attribute.png)
 
-6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
+6. Yukarıdaki için Ayrıca, LinkedIn Learning uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
     
     | Ad | Kaynak özniteliği |
     | ---------------| --------------- |
@@ -133,9 +133,9 @@ Azure AD çoklu oturum açma ile LinkedIn Learning yapılandırmak için aşağ�
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![image](./media/linkedinlearning-tutorial/tutorial_usermail.png)
+    ![image](common/new-save-attribute.png)
 
-    ![image](./media/linkedinlearning-tutorial/tutorial_usermailedit.png)
+    ![image](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 

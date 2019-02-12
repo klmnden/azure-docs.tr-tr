@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: wesmc
-ms.openlocfilehash: 68c533235480ec49e3c561d99095d5722f6f69a4
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 30288c338785c45b860b4b2b29a646662572e179
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106333"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100640"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Redis komut satırı aracı Azure önbelleği için Redis kullanma
 
@@ -30,10 +30,12 @@ Komut satırı aracı başka bir platform üzerinde çalıştırmasını istiyor
 
 ## <a name="gather-cache-access-information"></a>Önbellek erişim bilgileri toplama
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Üç yöntemi kullanarak önbelleğe erişmek için gereken bilgiler toplayabilir:
 
 1. Azure CLI kullanarak [az redis anahtarlarını Listele](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Azure PowerShell kullanarak [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-4.4.1)
+2. Azure PowerShell kullanarak [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Azure portalını kullanarak.
 
 Bu bölümde, Azure portalından anahtarları alır.

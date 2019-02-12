@@ -14,16 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1fe847bd0cdceec7eccab8218ccf787d8f4366ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197246"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097799"
 ---
 # <a name="azure-application-prerequisites"></a>Azure uygulama önkoşulları
 
-Bu makalede, Azure Market'te bir yönetilen uygulama teklif yayımlamak için teknik ve işletmeye önkoşulları açıklanır.
+Bu makalede, Azure Market'te bir yönetilen uygulama teklif yayımlamak için teknik ve işletmeye önkoşulları açıklanır.  Zaten yapmadıysanız, videoyu görüntülemek [yapı çözüm şablonları ve yönetilen uygulamalar, Azure Market'te](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+
 
 ## <a name="technical-requirements"></a>Teknik gereksinimler
 
@@ -36,6 +37,7 @@ Teknik gereksinimler, aşağıdaki öğeleri ekleyin:
   * [GitHub: Azure Resource Manager hızlı başlangıç şablonları](https://github.com/azure/azure-quickstart-templates). Bu depo, topluluk tarafından katkıda bulunulan tüm şu anda kullanılabilir Azure Resource Manager şablonlarını içerir. Aranabilir şablon dizin konumunda tutulur https://azure.microsoft.com/en-us/documentation/templates/.
 * UI tanımı oluşturma<br>
 Daha fazla bilgi için [yönetilen uygulamanız için oluşturma Azure portal kullanıcı arabirimi](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Bu makalede createUiDefinition.json dosyasının temel kavramlar tanıtılmaktadır. Azure portalı, yönetilen bir uygulama oluşturmak için kullanılan kullanıcı arabirimi oluşturmak için bu dosyayı kullanır.
+
 
 ## <a name="business-requirements"></a>İş gereksinimleri
 
@@ -54,6 +56,7 @@ Aşağıdaki yordam, sözleşmeye dayalı ve yasal yükümlülüklerin yerine i�
 * Yayımcı anlaşması ve Microsoft Azure Marketi katılım ilkeleri, koşulları kabul etmelisiniz.
 * Microsoft Azure Web sitesi kullanım koşulları, Microsoft gizlilik bildirimi ve Microsoft Azure sertifikası Program Sözleşmesi ile uyumlu olmalıdır.
 
+
 ## <a name="publishing-requirements"></a>Yayımlama gereksinimleri
 
 Yeni bir Azure uygulaması teklif yayımlamak için aşağıdaki gereksinimleri karşılaması gerekir:
@@ -62,10 +65,12 @@ Yeni bir Azure uygulaması teklif yayımlamak için aşağıdaki gereksinimleri 
   * Bir başlık
   * Bir açıklama (HTML biçiminde)
   * Bir logo görüntüsü (PNG biçiminde) ve bu resim boyutları düzelttik: 40 x 40 piksel, 90 x 90 piksel, 115 x 115 piksel ve 255 x 115 piksel.
-* Kullanım koşulları ve gizlilik ilkesi
+* A *kullanım koşullarını* ve *gizlilik ilkesi*
 * Belgeler
 * Destek kişileri
 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure uygulama teklif oluşturma](./cpp-create-offer.md) 
+Tüm gereksinimlerini karşılamanızın ardından hazır olacaksınız [Azure uygulaması teklif oluşturma](./cpp-create-offer.md). 
+ 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177041"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098230"
 ---
 # <a name="publish-azure-application-offer"></a>Azure uygulama teklifi yayımlama
 
@@ -46,7 +46,6 @@ Aşağıdaki tabloda, listeler ve her yayımlama adımlarını açıklar ve her 
 | Canlı                           | < 1 gün | Teklif serbest, belirli bölgelerde çoğaltılır ve genel kullanıma sunulan. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
 
- 
 Yayımlama işlemini izleyebilirsiniz **durumu** bulut iş ortağı Portalı'nda teklifinizi için sekmesinde.
 
 ![Bir Azure uygulaması teklif durumu sekmesi](./media/offer-status-tab.png)
@@ -54,38 +53,13 @@ Yayımlama işlemini izleyebilirsiniz **durumu** bulut iş ortağı Portalı'nda
 Yayımlama işlemini tamamladıktan sonra teklifinizi listelenir [Microsoft Azure Marketi'nde uygulama kategorisi](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 
-
 ## <a name="errors-and-review-feedback"></a>Hatalar ve gözden geçirme geri bildirimi
 
-Teklifiniz, Yayımlama durumunu görüntüleme yanı sıra **durumu** sekmesi de görüntülenir hata iletileri ve görüşleri **Microsoft gözden geçirme** adım.  Genellikle, gözden geçirme sorunlar, çekme isteği (PR) başvurulur.  Her çekme isteği, bir çevrimiçi Visual Studio Team Services için bağlı (VSTS, olarak yeniden adlandırıldı [Azure DevOps](https://azure.microsoft.com/services/devops/)) sorun hakkında ayrıntılar içeren öğe.  Aşağıdaki resimde PR gözden geçirme başvuru örneği görüntüler.  Daha karmaşık durumlarda, gözden geçirme ve destek ekipleri size e-posta. 
-
-![Durum sekmesinde görüntüleme gözden geçirme geri bildirim](./media/status-tab-ms-review.png)
-
-Teklifi yayımlama işlemine devam etmeden önce rapor edilen her sorun incelemeniz gerekir.  Aşağıdaki diyagram, bu geri bildirim süreci için yayımlama işlemi ilişkisini gösterir.
-
-![VSTS görüş yayımlama adımları](./media/pub-flow-vsts-access.png)
-
-
-### <a name="vsts-access"></a>VSTS erişim
-
-Gözden geçirme geri bildirim başvurulan VSTS öğeleri görüntülemek için uygun yetkilendirme yayımcılar verilmesi gerekir.  Aksi takdirde, yeni yayımcılar almak bir `401 - Not Authorized` yanıt sayfası.  Teklif gözden geçirme VSTS sisteme erişim izni istemek için aşağıdaki adımları gerçekleştirin:
-
-1. Aşağıdaki bilgileri toplayın:
-    - Yayımcı adı ve kimliği
-    - Teklif türü (Azure uygulamasına), adı ve SKU kimliği
-    - Çekme isteği bağlantı, örneğin: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`  Bu URL, bildirim iletisini veya 401 yanıt sayfasının adresini alınabilir.
-    - Yayımlama kuruluşunuzdan için erişim izni istediğiniz kişilerin e-posta adresi.  Bu, bulut iş ortağı Portalı'nda bir yayımcı olarak kaydolurken sağladığınız sahibi adresleri içermelidir.
-2. Bir destek olayı oluşturun.  Bulut iş ortağı portalı başlık çubuğunda **yardımcı** düğmesine ve ardından **Destek** menüsünde.  Web varsayılan tarayıcıyı başlatın ve Microsoft yeni destek olay sayfasına gidin.  (Oturum açmanız gerekebilir.)
-3. Belirtin **sorun türü** olarak **Market ekleme** ve **kategori** olarak **erişim sorunu**, ardından **Başlat İstek**.
-
-    ![Destek bileti kategorisi](./media/support-incident1.png)
-
-4. İçinde **adım 1 / 2** sayfasında, iletişim bilgilerinizi girin ve seçin **devam**.
-5. İçinde **adım 2 / 2** sayfasında, bir olay başlığı belirtin (örneğin `Request VSTS access`) ve (yukarıda) İlk adımda toplanan bilgileri sağlayın.  Okuma ve sözleşmesini kabul edin ve ardından **Gönder**.
-
-Olay oluşturma başarılı olduysa, bir onay sayfası görüntülenir.  Onay bilgileri daha sonra başvurmak üzere kaydedin.  Microsoft desteğine erişim isteğiniz birkaç iş günü içinde yanıt.
+Teklifiniz, Yayımlama durumunu görüntüleme yanı sıra **durumu** sekmesi de hata iletileri ve nerede bir sorunla karşılaştık. herhangi bir yayımlama adım görüşleri görüntüler.  Sorun önemlidir, ardından yayımlama iptal edildi.  Ardından, bildirilen sorunları düzeltin ve teklif yeniden yayımlamanız gerekir.  Çünkü **Microsoft gözden geçirme** adımı temsil eden ilgili teknik varlıkları (özellikle Azure Resource Manager şablonu) teklifiniz ve kapsamlı bir gözden geçirme, sorunları çekme isteği (PR) bağlantıları gibi tipik olarak sunulur.  Görüntülemek ve bu Pr'ler için yanıt vermek bir açıklama görmek [işleme İnceleme geri](./cpp-handling-review-feedback.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure uygulama yayınlandıktan sonra yapabilecekleriniz [mevcut teklifi güncelleştirme](./cpp-update-existing-offer.md) değişen iş ya da teknik gereksinimlerine yansıtacak şekilde. 
+Bir veya daha yayımlama adımları hatalarla, bunları düzeltin ve teklifinizi yeniden yayımlayın.  Kritik sorunlar karşılaşılırsa **Microsoft gözden geçirme** adım gerekir [gözden geçirme geri bildirimi işlemek](./cpp-handling-review-feedback.md) Microsoft erişerek ekibin Azure DevOps deposunda gözden geçirin.
+
+Bir Azure uygulamasına başarıyla yayımlandıktan sonra yapabilecekleriniz [mevcut teklifi güncelleştirme](./cpp-update-existing-offer.md) değişen iş ya da teknik gereksinimlerine yansıtacak şekilde. 

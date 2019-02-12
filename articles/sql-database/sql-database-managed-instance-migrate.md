@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 8127abf19c31b8a50079f416e73c98efebfd0983
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 02/11/2019
+ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999428"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098367"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server örneği geçiş Azure SQL veritabanı yönetilen örneği
 
-Bu makalede, bir SQL Server 2005 veya üzeri sürümü örneğine geçirmek için yöntemler hakkında bilgi [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md).
+Bu makalede, bir SQL Server 2005 veya üzeri sürümü örneğine geçirmek için yöntemler hakkında bilgi [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). Bir tek veritabanı veya elastik Havuzu'nu geçirme hakkında daha fazla bilgi için bkz: [tek veya havuza alınmış bir veritabanı geçiş](sql-database-cloud-migrate.md). Diğer platformlardan geçirme hakkında geçiş için bilgi [Azure veritabanı Geçiş Kılavuzu](https://datamigration.microsoft.com/).
 
 Yüksek düzeyde, veritabanı geçiş işlemi aşağıdaki gibi görünür:
 
@@ -34,7 +34,7 @@ Yüksek düzeyde, veritabanı geçiş işlemi aşağıdaki gibi görünür:
 - [Uygulama izleme](#monitor-applications)
 
 > [!NOTE]
-> Tek bir veritabanını tek veritabanı veya elastik havuzun geçirmek için bkz [bir SQL Server veritabanını Azure SQL veritabanı'na geçirme](sql-database-cloud-migrate.md).
+> Tek bir veritabanını tek veritabanı veya elastik havuzun geçirmek için bkz [bir SQL Server veritabanını Azure SQL veritabanı'na geçirme](sql-database-single-database-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Yönetilen örnek uyumluluğunu değerlendirmek
 
