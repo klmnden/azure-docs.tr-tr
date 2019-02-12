@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264419"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990181"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, günlük ve ölçüm verilerini Azure İzleyici'de depolanan görselleştirmek için kullanılabilen yöntemler bir özetini sağlar.
 
 Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanımlamak için izleme verilerinizi analiz etmenize yardımcı olabilir. Kullandığınız araç bağlı olarak, görselleştirmeler içinde hem de kuruluşunuz dışındaki diğer kullanıcılarla paylaşmak için seçenek olabilir.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="azure-dashboards"></a>Azure panoları
 [Azure panoları](../azure-portal/azure-portal-dashboards.md) Azure için birincil yönelik Kompozit teknolojileridir. Bunlar bölmeden cam hizmetlerini önemli sorunları hızlıca tanımlamanıza olanak sağlar ve Azure altyapı sağlama konusunda özellikle yararlıdır.
@@ -30,9 +32,9 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 ![Pano](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Yararları
-- Azure kapsamlı tümleştirme. Görselleştirmeler, ölçümleri analiz, log analytics ve Application Insights da dahil olmak üzere birden çok Azure sayfalarından panolara sabitlenebilir.
+- Azure kapsamlı tümleştirme. Görselleştirmeler, ölçüm Gezgini, log analytics ve Application Insights da dahil olmak üzere birden çok Azure sayfalarından panolara sabitlenebilir.
 - Ölçüm ve günlükleri hem destekler.
-- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](../azure-monitor/platform/metrics-charts.md), [Log Analytics sorguları](../azure-monitor/log-query/log-query-overview.md), ve [eşler](../azure-monitor/app/app-map.md) ve Application ınsights kullanılabilirlik.
+- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](platform/metrics-charts.md), [oturum sorguları](log-query/log-query-overview.md), ve [eşler](app/app-map.md) ve [kullanılabilirlik]() içinde Application Insights.
 - Kişisel veya paylaşılan panolar için seçenek. Azure ile tümleşik [rol tabanlı kimlik doğrulaması (RBAC)](../role-based-access-control/overview.md).
 - Otomatik yenileme. Ölçümleri Yenile zaman aralığı en az beş dakika ile bağlıdır. Günlükleri bir dakikada yenileyin.
 - Zaman damgası ve özel parametrelerle parametreli ölçümleri panolar.
@@ -49,14 +51,14 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 - Sınırlı bağlamsal detaya gitme.
 
 ## <a name="azure-monitor-views"></a>Azure İzleyici görünümleri
-[Azure İzleyici görünümlerde](../log-analytics/log-analytics-view-designer.md) günlük verileri ile özel görselleştirmeler oluşturmanıza imkan tanır. Tarafından kullanılan [izleme çözümleri](insights/solutions.md) bunlar topladığı verileri sunmak için.
+[Azure İzleyici görünümlerde](platform/view-designer.md) günlük verileri ile özel görselleştirmeler oluşturmanıza imkan tanır. Tarafından kullanılan [izleme çözümleri](insights/solutions.md) bunlar topladığı verileri sunmak için.
 
 ![Görünüm](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Yararları
 - Günlük verileri için zengin görselleştirmeler.
 - Dışarı aktarma ve diğer kaynak gruplarında ve Aboneliklerde aktarmak için görünümler içeri aktarın.
-- Çalışma alanları ve izleme çözümlerinin günlük analitik yönetim modeliyle tümleştirir.
+- Azure İzleyici yönetim modeliyle çalışma alanları ve izleme çözümlerinin tümleştirir.
 - [Filtreler](platform/view-designer-filters.md) özel parametreler için.
 - Etkileşimli, destekleyen çok düzeyli ayrıntıya içinde (başka bir görünüme ayrıntılı açıklanmıştır görünümü)
 
@@ -71,9 +73,9 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 
 ## <a name="application-insights-workbooks"></a>Application Insights çalışma kitapları
-[Çalışma kitapları](../azure-monitor/app/usage-workbooks.md) , veri araştırma ve ekip içindeki işbirliğini derin Öngörüler sağlayan etkileşimli belgelerdir. Çalışma kitapları kullanışlı olduğu belirli örnekler, Kılavuzlar ve olay postmortem giderirken.
+[Çalışma kitapları](../application-insights/app-insights-usage-workbooks.md) , veri araştırma ve ekip içindeki işbirliğini derin Öngörüler sağlayan etkileşimli belgelerdir. Çalışma kitapları kullanışlı olduğu belirli örnekler, Kılavuzlar ve olay postmortem giderirken.
 
-![Çalışma Kitabı](media/visualizations/workbook.png)
+![Çalışma kitabı](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Yararları
 - Ölçüm ve günlükleri hem destekler.
@@ -89,7 +91,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) iş odaklı panolar ve raporların yanı sıra, uzun vadeli KPI eğilimlerini çözümleme raporları oluşturmak için özellikle yararlıdır. Yapabilecekleriniz [günlük sorgusu sonuçlarını alma](../log-analytics/log-analytics-powerbi.md) Power BI kümesine böylece farklı kaynaklardan verileri birleştirme ve raporları Web'de ve mobil cihazlarda paylaşma gibi özelliklerinden yararlanabilir.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) iş odaklı panolar ve raporların yanı sıra, uzun vadeli KPI eğilimlerini çözümleme raporları oluşturmak için özellikle yararlıdır. Yapabilecekleriniz [günlük sorgusu sonuçlarını alma](platform/powerbi.md) Power BI kümesine böylece farklı kaynaklardan verileri birleştirme ve raporları Web'de ve mobil cihazlarda paylaşma gibi özelliklerinden yararlanabilir.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -109,7 +111,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) işletimsel panolar excels açık bir platformdur. Algılama ve yalıtma ve işletimsel olaylar önceliklendirmek için özellikle yararlıdır. Ekleyebileceğiniz [Grafana Azure İzleyicisi veri kaynağı eklentisi](../azure-monitor/platform/grafana-plugin.md) Azure aboneliğinizde Azure ölçüler verilerinizi görselleştirmek için.
+[Grafana](https://grafana.com/) işletimsel panolar excels açık bir platformdur. Algılama ve yalıtma ve işletimsel olaylar önceliklendirmek için özellikle yararlıdır. Ekleyebileceğiniz [Grafana Azure İzleyicisi veri kaynağı eklentisi](platform/grafana-plugin.md) Azure aboneliğinizde Azure ölçüler verilerinizi görselleştirmek için.
 
 ![Grafana](media/visualizations/grafana.png)
 
@@ -140,7 +142,6 @@ Kendi özel Web siteleri ve uygulamalar oluşturmanıza olanak sağlayan bir RES
 - Hakkında bilgi edinin [Azure İzleyici tarafından toplanan veriler](platform/data-collection.md).
 - Hakkında bilgi edinin [Azure panoları](../azure-portal/azure-portal-dashboards.md).
 - Hakkında bilgi edinin [Azure İzleyici görünümlerde](platform/view-designer.md).
-- Hakkında bilgi edinin [Application Insights çalışma kitaplarında](../azure-monitor/app/usage-workbooks.md).
-- Hakkında bilgi edinin [günlük verilerini Power BI'a aktarma](../azure-monitor/platform/powerbi.md).
-- Hakkında bilgi edinin [Grafana Azure İzleyicisi veri kaynağı eklentisi](../azure-monitor/platform/grafana-plugin.md).
-
+- Hakkında bilgi edinin [Application Insights çalışma kitaplarında](app/usage-workbooks.md).
+- Hakkında bilgi edinin [günlük verilerini Power BI'a aktarma](platform/powerbi.md).
+- Hakkında bilgi edinin [Grafana Azure İzleyicisi veri kaynağı eklentisi](platform/grafana-plugin.md).

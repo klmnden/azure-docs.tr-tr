@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098039"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002009"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -28,6 +28,7 @@ Azure İzleyici bulut alınan telemetri üzerinde çalışan toplama ve analiz i
 ## <a name="overview"></a>Genel Bakış
 Aşağıdaki diyagram, Azure İzleyici üst düzey bir görünümünü sağlar. Diyagram merkezde, ölçüm ve günlükleri, Azure İzleyici tarafından veri kullanımı iki temel türler için veri depolarıdır. Solda [veri izleme kaynakları](platform/data-sources.md) , doldurmak bu [veri depoları](platform/data-collection.md). Sağ tarafta, uyarı ve dış sisteme akışı toplanan verileri analiz gibi Azure İzleyici gerçekleştiren farklı işlevlerdir.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Azure İzleyiciye Genel Bakış](media/overview/overview.png)
 
@@ -39,7 +40,7 @@ Birçok Azure kaynağı için kendi genel bakış sayfasında Azure portalında 
 
 ![Ölçümler](media/overview/metrics.png)
 
-Azure İzleyici tarafından toplanan günlük verilerini içeren Log Analytics'e depolanan bir [zengin sorgu dili](log-query/log-query-overview.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [Log Analytics sayfa](log-query/portals.md) ile kullanılmak üzere sorguları kaydedebilir ya da doğrudan Azure portalını sonra da bu araçları kullanarak verileri analiz ederek [görselleştirmeler](visualizations.md) veya [ Uyarı kuralları](platform/alerts-overview.md).
+Azure İzleyici tarafından toplanan günlük verilerini analiz ile [sorguları](log-query/log-query-overview.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [günlük analizi](log-query/portals.md) Azure portalında ve ardından ya da doğrudan bu araçları kullanarak verileri analiz etmek veya ile kullanmak için sorguları Kaydet [görselleştirmeler](visualizations.md) veya [Uyarısı kuralları](platform/alerts-overview.md).
 
 Azure İzleyici, bir sürümünü kullanan [Veri Gezgini sorgu dili](/azure/kusto/query/) , uygun basit günlük sorgular ancak toplamalar, birleştirmeler ve akıllı analiz gibi gelişmiş işlevleri de içerir. Sorgu dilini kullanarak hızla edinebilirsiniz [birden çok dersleri](log-query/get-started-queries.md).  [SQL](log-query/sql-cheatsheet.md) ve [Splunk](log-query/splunk-cheatsheet.md)’u önceden bilen kullanıcılara belirli yönergeler sağlanır.
 
@@ -54,7 +55,7 @@ Azure İzleyici, çeşitli kaynaklardan veri toplayabilir. Uygulamanız, herhang
 - **İzleme verileri bir azure aboneliği**: Azure işlem ve sistem durumu hakkında veriler yanı sıra, işlem ve bir Azure aboneliğinin yönetim verileri kendisini. 
 - **İzleme verileri bir azure kiracısı**: Azure Active Directory gibi Azure hizmetlerinin Kiracı düzeyinde çalışması hakkında veriler.
 
-Bir Azure aboneliği ve sanal makineler ve web uygulamaları gibi kaynakları eklemeye başlayın oluşturduğunuz hemen sonra Azure İzleyici, veri toplamaya başlar.  [Etkinlik günlükleri](platform/activity-logs-overview.md) kaynakları, oluşturulacak veya değiştirilecek kayıt. [Ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md) kaynak nasıl performans gösterdiğini ve onu kullanan kaynakları söyleyin. 
+Bir Azure aboneliği ve sanal makineler ve web uygulamaları gibi kaynakları eklemeye başlayın oluşturduğunuz hemen sonra Azure İzleyici, veri toplamaya başlar.  [Etkinlik günlükleri](platform/activity-logs-overview.md) kaynakları, oluşturulacak veya değiştirilecek kayıt. [Ölçümleri](platform/data-collection.md) kaynak nasıl performans gösterdiğini ve onu kullanan kaynakları söyleyin. 
 
 Gerçek işlem kaynakları tarafından içine toplama verileri genişletmek [tanılamayı etkinleştirme](platform/diagnostic-logs-overview.md) ve [aracı ekleme](platform/agent-windows.md) işlem kaynakları için. Bu kaynağın iç işlem için telemetri toplar ve yapılandırmak farklı izin [veri kaynakları](platform/agent-data-sources.md) Windows ve Linux konuk işletim sisteminden günlükleri ve ölçümleri toplamak için. 
 

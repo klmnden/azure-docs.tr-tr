@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.date: 02/08/2019
+ms.openlocfilehash: d08deda0483516180b9923838104cfb6596e7495
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756657"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003304"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL veritabanı sunucuları ve bunların yönetimi
 
 ## <a name="what-is-an-azure-sql-database-server"></a>Azure SQL veritabanı sunucusu nedir
 
-SQL veritabanı sunucusu için birden fazla tek başına merkezi bir yönetim noktası görevi gören mantıksal bir yapıdır veya [havuza alınmış](sql-database-elastic-pool.md) veritabanları [oturumları](sql-database-manage-logins.md), [güvenlik duvarı kuralları](sql-database-firewall-configure.md), [kuralları denetim](sql-database-auditing.md), [tehdit algılama ilkeleri](sql-database-threat-detection.md), ve [yük devretme grupları](sql-database-auto-failover-group.md) bir SQL veritabanı sunucusu, kaynak grubu farklı bir bölgede olabilir. SQL veritabanı sunucusu, Azure SQL veritabanı oluşturmadan önce mevcut olması gerekir. SQL veritabanı sunucusu tarafından yönetilen tüm veritabanları, SQL veritabanı sunucusu olarak aynı bölge içinde oluşturulur.
+SQL veritabanı sunucusu için birden çok tek bir merkezi yönetim noktası olarak davranan mantıksal bir yapıdır veya [havuza alınmış](sql-database-elastic-pool.md) veritabanları [oturumları](sql-database-manage-logins.md), [güvenlik duvarı kuralları](sql-database-firewall-configure.md), [kuralları denetim](sql-database-auditing.md), [tehdit algılama ilkeleri](sql-database-threat-detection.md), ve [yük devretme grupları](sql-database-auto-failover-group.md) bir SQL veritabanı sunucusu, kaynak grubu farklı bir bölgede olabilir. SQL veritabanı sunucusu, Azure SQL veritabanı oluşturmadan önce mevcut olması gerekir. SQL veritabanı sunucusu tarafından yönetilen tüm veritabanları, SQL veritabanı sunucusu olarak aynı bölge içinde oluşturulur.
 
 SQL veritabanı sunucusu şirket içi dünyada alışkın olabileceğiniz bir SQL Server örneği'den farklıdır. Özellikle, SQL veritabanı hizmeti veritabanlarının bunları yönetir ve örnek düzeyinde erişim ya da özellik sunmaz SQL veritabanı sunucusu ile ilgili olarak ilgili garanti sağlar. Buna karşılık, örnek veritabanları bir yönetilen örnek, tüm ortak-aynı şekilde, SQL Server şirket içi dünyanın aşina olduğunuzu bulunur.
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: e103124b2b0e720517106f9b4453ee8a76688eca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b538e1b2d37c92e1712da517ab5f3c46f5e2c3a3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977227"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992201"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts-legacy"></a>Birden çok depolama hesabında (eski) Media Services varlıklarını yönetme
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Birden çok depolama hesabı arasında Media Services varlıklarını yönetme  
 
 Tek bir Media Services hesabına birden çok depolama hesapları ekleyebilirsiniz. Bir Media Services hesabına birden çok depolama hesabı ekleme olanağı aşağıdaki avantajları sağlar:
 

@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 086816bdb93873a39575564496cf043797f3a530
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078109"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993274"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Konum koşulu Azure Active Directory koşullu erişim nedir? 
 
@@ -34,9 +34,9 @@ Bu makalede konum koşulu yapılandırmak gereken bilgileri sağlar.
 
 Azure AD çoklu oturum açma cihazları ve uygulamaları etkinleştirir ve hizmetlere her yerden genel internet'te. Konum koşulu ile bir kullanıcının ağ konumuna dayalı bulut uygulamalarınıza erişimi denetleyebilirsiniz. Konum koşulu için yaygın kullanım örnekleri şunlardır:
 
-- Şirket ağı devre dışı olduklarında hizmet erişen kullanıcılar için çok faktörlü kimlik doğrulaması gerektiren  
+- Şirket ağı devre dışı olduklarında hizmet erişen kullanıcılar için çok faktörlü kimlik doğrulaması gerektiren.
 
-- Bir hizmetin belirli ülke veya bölgelerden erişen kullanıcılar için erişimi engelliyor. 
+- Bir hizmetin belirli ülke veya bölgelerden erişen kullanıcılar için erişimi engelliyor.
 
 Güvenilen IP'ler bir ağ konumu ya da temsil ettiğini belirtilen konum veya çok faktörlü kimlik doğrulaması için bir konum bir etikettir.
 
@@ -62,9 +62,9 @@ Adlandırılmış bir konuma aşağıdaki bileşenlere sahiptir:
 
 - **Güvenilen konum olarak işaretle** -güvenilen bir konum belirtmek adlandırılmış bir konum için ayarlayabileceğiniz bir bayrak. Genellikle, güvenilen konumları BT departmanınız tarafından denetlenen ağ alanlardır. Koşullu erişim yanı sıra güvenilen adlandırılmış konumlar ayrıca Azure kimlik koruması ve Azure AD güvenlik raporları tarafından azaltmak için kullanılan [hatalı pozitif sonuçları](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
-- **Ülke / Bölge** -bu seçenek, bir veya daha fazla ülke veya bölge adlandırılmış bir konuma tanımlamak için seçmenize olanak sağlar. 
+- **Ülkeler/bölgeler** -bu seçenek, bir veya daha fazla ülke veya bölge adlandırılmış bir konuma tanımlamak için seçmenize olanak sağlar. 
 
-- **Bilinmeyen alanları dahil et** -bazı IP adreslerini belirli bir ülkeye eşlenmedi. Bu seçenek, bu IP adresleri adlandırılmış bir konumda dahil edilip edilmeyeceğini seçmenize olanak tanır. Belirtilen konum kullanarak ilke bilinmeyen konumlara uygulanacağı onay olması olabilir.
+- **Bilinmeyen alanları dahil et** -bazı IP adreslerini belirli bir ülkeye eşlenmedi. Bu seçenek, bu IP adresleri adlandırılmış bir konumda dahil edilip edilmeyeceğini seçmenize olanak tanır. Belirtilen konum kullanarak ilke bilinmeyen konumlara uygulanmasını gerektiren bu ayarı kullanın.
 
 Adlandırılmış konumlar yapılandırabileceğiniz sayısı, Azure AD'de ilgili nesne boyutu tarafından sınırlanır. Aşağıdakileri yapılandırabilirsiniz:
 
@@ -87,7 +87,7 @@ Yapılandırılan güvendiyseniz, bunlar olarak görünmesini **MFA güvenilen I
 
 Bu seçenek denetledikten sonra adlandırılmış konumu dahil olmak üzere **MFA güvenilen IP'ler** tüm ilkeler için bu seçili uygulanır.
 
-Oturum süreleri uzun ömürlü, mobil ve Masaüstü uygulamalar için koşullu erişim düzenli aralıklarla yeniden değerlendirilir. Varsayılan bir kez bir saattir. İç şirket ağına talebi ve ilk kimlik doğrulaması yapıldığı sırada verilen yalnızca güvenilen IP aralıkları listesini Azure AD'ye sahip olmayabilir. Bu durumda, kullanıcı hala şirket ağında olup olmadığını belirlemek daha zordur:
+Oturum süreleri uzun ömürlü, mobil ve Masaüstü uygulamalar için koşullu erişim düzenli aralıklarla yeniden değerlendirilir. Varsayılan bir kez bir saattir. İç şirket ağına talep yalnızca ilk kimlik doğrulaması yapıldığı sırada verilen, güvenilen IP aralıkları listesini Azure AD'ye sahip olmayabilir. Bu durumda, kullanıcı hala şirket ağında olup olmadığını belirlemek daha zordur:
 
 1. Kullanıcının IP adresi güvenilen IP aralıkları birinde olup olmadığını denetleyin.
 
@@ -150,7 +150,7 @@ Oluşturma veya güncelleştirme adlandırılmış konumlar, toplu güncelleşti
 
 ### <a name="cloud-proxies-and-vpns"></a>Bulut Ara sunucuları ve VPN 
 
-Bulutta barındırılan proxy ya da VPN çözümü kullandığınızda, bir ilke değerlendirmesi proxy IP adresi olduğu IP adresini Azure AD kullanır. Genel IP adresi olmadığı için güvenilir bir kaynaktan gelen doğrulama kullanılmaz kullanıcıları içeren X-Forwarded-For (XFF) üst bilgisi bu nedenle var. bir IP adresi faking yöntemi 
+Bulutta barındırılan proxy ya da VPN çözümü kullandığınızda, bir ilke değerlendirmesi proxy IP adresi olduğu IP adresini Azure AD kullanır. Bir IP adresi faking bir yöntem sunmak şekilde güvenilir bir kaynaktan geldiği doğrulama olduğundan kullanıcının genel IP adresini içeren X-Forwarded-For (XFF) üst bilgisi kullanılmaz. 
 
 Bir yerde, bir etki alanına katılmış cihaz kullanılabilir zorunlu tutmak için kullanılan bir ilke veya içeriden bir bulut proxy olduğunda talebi AD fs'den.
 

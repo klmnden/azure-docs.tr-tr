@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 23faf3b88584f8031b4a2fdbc6d94ac2ae861431
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cca3c69997865f22d22fc5b86565ae9f206b9aee
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104463"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990147"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute ile PowerApps için App Service ortamı için ağ yapılandırma ayrıntıları
 
@@ -59,9 +59,9 @@ App Service ortamı düzgün şekilde çalışabilmesi aşağıdaki ağ bağlant
 
 * App Service ortamı için gerekli bağlantı noktalarına gelen ağ erişimini izin verilmesi gerekir. Ayrıntılar için bkz [App Service ortamına gelen trafiği denetleme][requiredports].
 
-DNS gereksinimlerini karşılamak için geçerli bir DNS altyapısının yapılandırılmış ve sanal ağ için tutulan emin olun. App Service ortamı oluşturduktan sonra DNS yapılandırması değiştiyse, geliştiricilerin yeni DNS yapılandırmasını seçmek için App Service ortamı zorlayabilirsiniz. Sıralı bir ortamı yeniden tetikleyebilirsiniz **yeniden** App Service ortamı yönetim [Azure portalı] kapsamında simgesi [NewPortal]. Yeniden başlatma yeni DNS yapılandırmasını seçmek için ortamı neden olur.
+DNS gereksinimlerini karşılamak için geçerli bir DNS altyapısının yapılandırılmış ve sanal ağ için tutulan emin olun. App Service ortamı oluşturduktan sonra DNS yapılandırması değiştiyse, geliştiricilerin yeni DNS yapılandırmasını seçmek için App Service ortamı zorlayabilirsiniz. Sıralı bir ortamı yeniden tetikleyebilirsiniz **yeniden** App Service ortamı yönetim kapsamında simgesi [Azure portalında][NewPortal]. Yeniden başlatma yeni DNS yapılandırmasını seçmek için ortamı neden olur.
 
-Gelen ağ erişim gereksinimlerini karşılamak için yapılandırma bir [ağ güvenlik grubu (NSG)][NetworkSecurityGroups] App Service ortamı alt ağda. NSG gerekli erişimi sağlayan [App Service ortamına gelen trafiği denetleme][requiredports].
+Gelen ağ erişim gereksinimlerini karşılamak için yapılandırma bir [ağ güvenlik grubu (NSG)] [ NetworkSecurityGroups] App Service ortamı alt ağda. NSG gerekli erişimi sağlayan [App Service ortamına gelen trafiği denetleme][requiredports].
 
 ## <a name="outbound-network-connectivity"></a>Giden ağ bağlantısını
 
@@ -87,7 +87,7 @@ Bu yapılandırma etkilerini, alt düzey UDR ExpressRoute zorlamalı tüneli üz
 
 Kullanıcı tanımlı yollar hakkında bilgi için bkz: [sanal ağ trafiği yönlendirme][UDROverview].  
 
-[PowerShell kullanarak bir yönlendirme tablosu ile ağ trafiğini yönlendirme] nasıl oluşturabilir ve kullanıcı tanımlı yollar yapılandırabilirsiniz öğrenmek için bkz [UDRHowTo].
+Oluşturma ve kullanıcı tanımlı yolları yapılandırmanız hakkında bilgi edinmek için [PowerShell kullanarak bir yönlendirme tablosu ile ağ trafiğini yönlendirmek][UDRHowTo].
 
 ## <a name="udr-configuration"></a>UDR yapılandırma
 
@@ -95,7 +95,7 @@ Bu bölümde, App Service ortamı için örnek bir UDR yapılandırma gösterilm
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-* Azure PowerShell'i yükleme [Azure indirmeleri sayfasından] [AzureDownloads]. Bir indirme Haziran 2015 veya sonraki bir tarihi seçin. Altında **komut satırı araçları** > **Windows PowerShell**seçin **yükleme** en son PowerShell cmdlet'lerini yüklemek için.
+* Azure Powershell'den yükleme [Azure indirmeler sayfasına][AzureDownloads]. Bir indirme Haziran 2015 veya sonraki bir tarihi seçin. Altında **komut satırı araçları** > **Windows PowerShell**seçin **yükleme** en son PowerShell cmdlet'lerini yüklemek için.
 
 * App Service ortamı tarafından özel kullanım için benzersiz bir alt ağ oluşturun. Benzersiz bir alt ağ, alt ağ açık giden trafiği yalnızca App Service ortamı için uygulanan Udr'ler sağlar.
 
@@ -118,7 +118,7 @@ Giden internet erişimi yapılandırın. 0.0.0.0/0 için bir rota Bu kod parçac
 
 0.0.0.0/0 geniş adres aralığıdır. Aralığın daha belirli olduğundan, Expressroute'un tanıtılan adres aralıklarını tarafından geçersiz kılındı. UDR 0.0.0.0/0 yol ile yalnızca 0.0.0.0/0 bildirir. bir ExpressRoute yapılandırması ile birlikte kullanılmalıdır. 
 
-Alternatif olarak, Azure tarafından kullanılan CIDR aralıkları geçerli, kapsamlı bir listesini indirin. Tüm Azure IP adres aralıkları için XML dosyası [Microsoft Download Center'dan gelen] [DownloadCenterAddressRanges] kullanılabilir.  
+Alternatif olarak, Azure tarafından kullanılan CIDR aralıkları geçerli, kapsamlı bir listesini indirin. Tüm Azure IP adres aralıkları için XML dosyası kullanılabilir [Microsoft Download Center][DownloadCenterAddressRanges].  
 
 > [!NOTE]
 >
@@ -148,16 +148,23 @@ App Service ortamı dağıtmak artık hazırsınız!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-PowerApps için App Service ortamı ile çalışmaya başlamak için [App Service ortamı giriş] bkz [IntroToAppServiceEnvironment].
+PowerApps için App Service ortamı ile çalışmaya başlamak için bkz. [App Service Ortamı'na giriş][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
 [ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [requiredports]: app-service-app-service-environment-control-inbound-traffic.md
-[networkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: [AzureDownloads] app-service-web-how-to-create-an-app-service-environment.md: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ [IntroToAppServiceEnvironment]: [NewPortal] app-service-app-service-environment-intro.md:  https://portal.azure.com
+<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
+
+[UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell
+[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
+[AzureDownloads]: https://azure.microsoft.com/downloads/ 
+[DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
+[NewPortal]:  https://portal.azure.com
 
 
 <!-- IMAGES -->

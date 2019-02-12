@@ -1,10 +1,10 @@
 ---
-title: Azure Media Services telemetri ile REST yapılandırma | Microsoft Docs
-description: Bu makalede REST API kullanarak Azure Media Services telemetri kullanmayı gösterir..
+title: REST ile Azure Media Services telemetri yapılandırma | Microsoft Docs
+description: Bu makalede REST API kullanarak Azure Media Services telemetri kullanma gösterilmektedir...
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
@@ -12,39 +12,39 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: ceb2eafdb3df0d24a98d0d3b4afc7d1d9424b4de
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b2028b16c395b770e935fdba47dc0e965284fc2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790359"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993684"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Azure Media Services telemetri REST ile yapılandırma
+# <a name="configuring-azure-media-services-telemetry-with-rest"></a>REST ile Azure Media Services telemetri yapılandırma
 
-Bu konuda, REST API kullanarak Azure Media Services (AMS) telemetri yapılandırırken sürebilir genel adımlar açıklanmaktadır. 
+Bu konu, REST API kullanarak Azure Media Services (AMS) telemetri yapılandırırken sürebilir genel adımları açıklar. 
 
 >[!NOTE]
->Ayrıntılı bir açıklama ne AMS telemetri ve bunu kullanma için bkz: [genel bakış](media-services-telemetry-overview.md) konu.
+>Ayrıntılı bir açıklama ne AMS telemetri ve nasıl tüketicilerimizin kullanmak için bkz. [genel bakış](media-services-telemetry-overview.md) konu.
 
 Bu konuda açıklanan adımlar şunlardır:
 
-- Bir Media Services hesabı ile ilişkilendirilmiş depolama hesabına alma
+- Bir Media Services hesabıyla ilişkili depolama hesabı alma
 - Bildirim uç noktalarını alma
-- İzleme için bir bildirim uç noktası oluşturuluyor. 
+- Bildirim uç noktası izleme için oluşturuluyor. 
 
-    Bildirim uç noktası oluşturmak için AzureTable (2) ve depolama tabloya ayarlamak endPontAddress EndPointType ayarlayın (örneğin, https://telemetryvalidationstore.table.core.windows.net/).
+    Bildirim uç noktası oluşturmak için AzureTable (2) ve depolama tablosuna ayarlamak endPontAddress EndPointType ayarlayın (örneğin, https://telemetryvalidationstore.table.core.windows.net/).
   
 - İzleme yapılandırmalarını alma
 
-    İzleme yapılandırmasını izlemek istediğiniz hizmetleri ayarlarını oluşturun. Birden fazla yapılandırma ayarları izleme izin verilir. 
+    Ayarları izlemek istediğiniz hizmetleri için izleme yapılandırmasını oluşturun. En fazla bir izleme yapılandırma ayarlarını izin verilir. 
 
 - İzleme Yapılandırması Ekle
 
 
  
-## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Bir Media Services hesabı ile ilişkilendirilmiş depolama hesabına Al
+## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Bir Media Services hesabıyla ilişkili depolama hesabı edinin
 
 ### <a name="request"></a>İstek
 
@@ -126,7 +126,7 @@ Bu konuda açıklanan adımlar şunlardır:
     }
 
 >[!NOTE]
->Değiştirmeyi unutmayın "https://telemetryvalidationstore.table.core.windows.net" değeri, depolama hesabı.
+>Değiştirmeyi unutmayın "https://telemetryvalidationstore.table.core.windows.net" depolama hesabınıza değeri.
 
 ### <a name="response"></a>Yanıt
 
@@ -233,9 +233,9 @@ Bu konuda açıklanan adımlar şunlardır:
     Content-Type: application/json; charset=utf-8
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-## <a name="consuming-telemetry-information"></a>Telemetri bilgileri kullanma
+## <a name="consuming-telemetry-information"></a>Telemetri bilgilerini kullanma
 
-Süren telemetri bilgileri hakkında daha fazla bilgi için bkz: [bu](media-services-telemetry-overview.md) konu.
+Alıcı telemetri bilgileri hakkında daha fazla bilgi için bkz. [bu](media-services-telemetry-overview.md) konu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 02/08/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: be78c91a4fb5c1e79e7b58620f65c9f17bfb4bae
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 14678ed789b611c0226d98fe11b3c9bacb993208
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226494"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991489"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux (Önizleme) üzerinde Azure App Service'te bir Python uygulaması oluşturma
 
@@ -39,7 +39,7 @@ Bu hızlı başlangıcı tamamlamak için:
 * <a href="https://www.python.org/downloads/" target="_blank">Python 3.7 sürümünü yükleme</a>
 * <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
 
-## <a name="download-the-sample"></a>Örneği indirme
+## <a name="download-the-sample-locally"></a>Örnekleri yerel makineye indirme
 
 Bir terminal penceresinde, örnek uygulamayı yerel makinenize kopyalamak ve örnek kodun bulunduğu dizine gitmek için aşağıdaki komutları çalıştırın.
 
@@ -79,49 +79,80 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
+## <a name="download-the-sample"></a>Örneği indirme
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
+Cloud Shell'de bir quickstart dizini oluşturun ve o dizine geçin.
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Ardından, örnek uygulama deposunu quickstart dizininize kopyalamak için aşağıdaki komutu çalıştırın.
+
+```bash
+git clone https://github.com/Azure-Samples/python-docs-hello-world
+```
+
+Çalıştırıldığında, aşağıdaki örneğe benzer bilgiler görüntüler:
+
+```bash
+Cloning into 'python-docs-hello-world'...
+remote: Enumerating objects: 43, done.
+remote: Total 43 (delta 0), reused 0 (delta 0), pack-reused 43
+Unpacking objects: 100% (43/43), done.
+Checking connectivity... done.
+```
 
 ## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+Örnek kodu içeren dizine geçin ve `az webapp up` komutunu çalıştırın.
 
-Yerleşik görüntü ile yeni oluşturulmuş uygulamanızı görmek için siteye göz atın. Değiştirin  _&lt;uygulama adı >_ uygulamanızın adıyla.
+Aşağıdaki komutta <app_name> kısmını benzersiz uygulama adıyla değiştirin.
 
 ```bash
-http://<app_name>.azurewebsites.net
+cd python-docs-hello-world
+
+az webapp up -n <app_name>
 ```
 
-İşte yeni uygulamanız aşağıdaki gibi görünmelidir:
+Bu komutun çalıştırılması birkaç dakika sürebilir. Çalıştırıldığında, aşağıdaki örneğe benzer bilgiler görüntüler:
 
-![Boş uygulama sayfası](media/quickstart-php/app-service-web-service-created.png)
+```json
+The behavior of this command has been altered by the following extension: webapp
+Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
+Resource group creation complete
+Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
+App service plan creation complete
+Creating app '<app_name>' ....
+Webapp creation complete
+Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
+Preparing to deploy contents to app.
+All done.
+{
+  "app_url": "https:/<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Linux",
+  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
+  "serverfarm": "appsvc_asp_Linux_CentralUS",
+  "sku": "BASIC",
+  "src_path": "/home/username/quickstart/python-docs-hello-world ",
+  "version_detected": "-",
+  "version_to_create": "python|3.7"
+}
+```
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+`az webapp up` komutu şu eylemleri gerçekleştirir:
 
-```bash
-Counting objects: 42, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (39/39), done.
-Writing objects: 100% (42/42), 9.43 KiB | 0 bytes/s, done.
-Total 42 (delta 15), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'c40efbb40e'.
-remote: Generating deployment script.
-remote: Generating deployment script for python Web Site
-.
-.
-.
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
-To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
- * [new branch]      master -> master
- ```
+- Varsayılan kaynak grubunu oluşturur.
+
+- Bir varsayılan uygulama hizmeti planı oluşturur.
+
+- Belirtilen adla bir uygulama oluşturur.
+
+- [Zip dağıtma](https://docs.microsoft.com/azure/app-service/deploy-zip) dosyaları uygulamanın geçerli çalışma dizini.
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
@@ -139,17 +170,22 @@ Python örnek kodu, bir yerleşik görüntü ile Linux üzerinde App Service'te 
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Kodu yerel makinede güncelleştirme ve yeniden dağıtma
 
-Yerel depoda, `application.py` dosyasını açın ve son satırdaki metinde küçük bir değişiklik yapın:
+Cloud Shell'de yazın `code application.py` Cloud Shell düzenleyiciyi açın.
+
+![Kod application.py](media/quickstart-python/code-applicationpy.png)
+
+ `return` çağrısında metinde küçük bir değişiklik yapın:
 
 ```python
 return "Hello Azure!"
 ```
 
-Değişikliklerinizi Git’e işleyin ve ardından kod değişikliklerini Azure’a gönderin.
+Yaptığınız değişiklikleri kaydedin ve düzenleyiciden çıkın. Kaydetmek için `^S` ve çıkmak için `^Q` komutunu kullanın.
+
+Şimdi uygulamayı yeniden dağıtacaksınız. Yedek `<app_name>` uygulamanızla.
 
 ```bash
-git commit -am "updated output"
-git push azure master
+az webapp up -n <app_name>
 ```
 
 Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464390"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998129"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini kullanma
 
@@ -70,7 +70,7 @@ Klasik Machine Learning Web hizmeti için API anahtarını almak için:
 ## <a id="connect"></a>Bir Machine Learning Web hizmetine bağlanma
 HTTP istek ve yanıt destekleyen herhangi bir programlama dilini kullanarak bir Machine Learning Web hizmetine bağlanabilirsiniz. Örneklerde görüntüleyebileceğiniz C#, Python ve R bir Machine Learning Web hizmeti Yardım sayfası.
 
-**Machine Learning API Yardım** Machine Learning API Yardım, bir Web hizmetini dağıttığınızda oluşturulur. Bkz: [Azure Machine Learning izlenecek yol - Web hizmeti dağıtma](walkthrough-5-publish-web-service.md).
+**Machine Learning API Yardım** Machine Learning API Yardım, bir Web hizmetini dağıttığınızda oluşturulur. Bkz: [öğretici 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md).
 Machine Learning API Yardım bir tahmin Web hizmeti hakkındaki ayrıntıları içerir.
 
 1. Web hizmeti ile çalıştığınız tıklayın.

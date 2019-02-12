@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
 ms.date: 12/06/2018
-ms.openlocfilehash: 14a39d283d9ec4f8d5267e6a6628609ac79879ee
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 45cd4e884530836d515e0c6cce8a6fc9be109d88
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567511"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992016"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak saydam veri şifrelemesi (TDE) koruyucu Döndür
 
@@ -35,26 +35,13 @@ Bu kılavuz, sunucuda TDE koruyucusuna döndürmek için iki seçenek açıklan�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bu nasıl yapılır kılavuzunda, zaten Azure Key vault'tan bir anahtar TDE koruyucusu olarak bir Azure SQL veritabanı veya veri ambarı için kullandığınızı varsayar. Bkz: [BYOK destekli saydam veri şifrelemesi](transparent-data-encryption-byok-azure-sql.md).
+- Bu nasıl yapılır kılavuzunda, zaten Azure Key vault'tan bir anahtar TDE koruyucusu olarak bir Azure SQL veritabanı veya veri ambarı için kullandığınızı varsayar. Bkz: [Azure Key Vault tümleştirmesi - BYOK destekli saydam veri şifrelemesi](transparent-data-encryption-byok-azure-sql.md).
 - Azure PowerShell sürüm 3.7.0 olmalıdır veya üzerinin yüklü ve çalışıyor. 
 - [İsteğe bağlı ancak önerilen] Bir donanım güvenlik modülü (HSM) anahtar malzemesi için TDE koruyucusu oluşturun veya yerel anahtarı ilk depolamak ve anahtar malzemesi Azure anahtar Kasası'na içeri aktarın. İzleyin [bir donanım güvenlik modülü (HSM) ve anahtar kasası kullanmaya yönelik yönergeler](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) daha fazla bilgi için.
 
-## <a name="option-1-auto-rotation"></a>1. seçenek: Otomatik döndürme
+## <a name="manual-key-rotation"></a>El ile anahtar döndürme
 
-Yeni bir sürümü mevcut TDE koruyucusu anahtarı anahtar Kasası'nda aynı anahtar adını ve anahtar kasası altında oluşturur. 24 saat içinde bu yeni sürümü kullanarak Azure SQL hizmetini başlatır. 
-
-Kullanarak koruyucusu TDE yeni bir sürümünü oluşturmak için [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet:
-
-   ```powershell
-   Add-AzureKeyVaultKey `
-   -VaultName <KeyVaultName> `
-   -Name <KeyVaultKeyName> `
-   -Destination <HardwareOrSoftware>
-   ```
-
-## <a name="option-2-manual-rotation"></a>2. seçenek: El ile döndürme
-
-Seçenek kullandığı [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey), [Ekle AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey), ve [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) eklemek için cmdlet'leri Yeni bir anahtar adı veya hatta başka bir anahtar kasası altında olabilecek tamamen yeni bir anahtar. 
+El ile anahtar döndürme kullanan [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey), [Ekle AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey), ve [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) Yeni bir anahtar adı veya hatta başka bir anahtar kasası altında tamamen yeni bir anahtar eklemek için cmdlet'ler. Bu yaklaşımı kullanarak, aynı anahtarı yüksek oranda kullanılabilir ve coğrafi-dr senaryoları desteklemek için farklı anahtar kasalarına eklenmesini destekler.
 
 >[!NOTE]
 >Birleşik anahtar adını ve anahtar kasası adı için 94 karakter uzunluğunda olabilir.
@@ -107,4 +94,4 @@ Seçenek kullandığı [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvaul
 
 - Bir güvenlik riski olması durumunda, riskli olabilecek TDE koruyucusu kaldırma işlemleri gerçekleştirmeyi öğreneceksiniz: [Riskli olabilecek bir anahtarı Kaldır](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
 
-- Destek TDE için kendi anahtarını Getir ile kullanmaya başlayın: [PowerShell kullanarak Key vault'tan kendi anahtarınızı kullanarak TDE Aç](transparent-data-encryption-byok-azure-sql-configure.md)
+- TDE için kendi anahtarını Getir destek ve Azure anahtar kasası tümleştirme ile kullanmaya başlayın: [PowerShell kullanarak Key vault'tan kendi anahtarınızı kullanarak TDE Aç](transparent-data-encryption-byok-azure-sql-configure.md)

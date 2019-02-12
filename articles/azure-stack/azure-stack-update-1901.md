@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: cf86fafc1fcb0ffd6513abc9d02da16d1f00f22b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: MT
+ms.openlocfilehash: 45905b5180ac248394e52b1d03a034acc47e8dbc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978970"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993606"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 güncelleştirme
 
@@ -68,6 +68,35 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
 Bu güncelleştirme, aşağıdaki yeni özellikleri ve Azure Stack için geliştirmeler içerir:
 
 - Azure Stack etkinleştir yönetilen görüntülerinde sunulacağından Vm'leri, yalnızca yönetilen oluşturabilirsiniz (hem de yönetilmeyen ve yönetilen) bir genelleştirilmiş sanal makine üzerinde bir yönetilen bir görüntü nesnesi oluşturmak için disk. Daha fazla bilgi için [Azure Stack yönetilen diskler](user/azure-stack-managed-disk-considerations.md#managed-images).
+
+- **AzureRm 2.4.0**
+   * **AzureRm.Profile**  
+         Hata düzeltmesi - `Import-AzureRmContext` kaydedilen belirteç doğru bir şekilde seri durumdan çıkarılacak.  
+   * **AzureRm.Resources**  
+         Hata düzeltmesi - `Get-AzureRmResource` sorgu çalışmasına insensitively kaynak türüne göre.  
+   * **Azure.Storage**  
+         AzureRm toplama modülü artık içerir zaten yayımlanmış sürüm 4.5.0 destekleyen **API Sürüm 2017-07-29**.  
+   * **AzureRm.Storage**  
+         AzureRm toplama modülü artık içerir zaten yayımlanmış sürüm 5.0.4 destekleyen **API Sürüm 2017-10-01**.  
+   * **AzureRm.Compute**  
+         Eklenen basit parametre kümelerine `New-AzureRMVM` ve `NewAzureRMVMSS`, `-ImageName` parametresini belirten kullanıcı görüntüleri destekler.  
+   * **AzureRm.Insights**  
+         AzureRm toplama modülü artık içerir zaten yayımlanmış sürüm 5.1.5 destekleyen **api sürümü 2018-01-01** ölçümler, ölçüm tanımlarını kaynak türleri için.
+
+- **AzureStack 1.7.0** bu önemli bir değişiklik bırakın. Bozucu değişiklikler hakkında daha fazla bilgi için bakın https://aka.ms/azspshmigration170
+   * **Azs.Backup.Admin Modülü**  
+         Yeni değişiklik: Yedekleme, sertifika tabanlı şifreleme moduna değiştirir. Simetrik anahtarlar için destek kullanım dışı bırakılmıştır.  
+   * **Azs.Fabric.Admin Modülü**  
+         `Get-AzsInfrastructureVolume` kullanım dışıdır. Yeni cmdlet kullanma `Get-AzsVolume`.  
+         `Get-AzsStorageSystem` kullanım dışıdır.  Yeni yeni cmdlet'ini kullanın `Get-AzsStorageSubSystem`.  
+         `Get-AzsStoragePool` kullanım dışıdır. `StorageSubSystem` Nesne kapasite özelliği içerir.  
+   * **Azs.Compute.Admin Modülü**  
+         Hata düzeltmesi - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Çağırma `ConvertTo-PlatformImageObject` yalnızca başarı yolunda.  
+         BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Yalnızca başarı yolunda ConvertTo-VmExtensionObject çağrılıyor.  
+   * **Azs.Storage.Admin Modülü**  
+         Hata düzeltmesi - yeni depolama kotası yoksa sağlanan varsayılan değerleri kullanır.
+
+Güncelleştirilmiş modüller için başvuru incelemesi için bkz: [Azure Stack modül başvurusu](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
 
 ## <a name="fixed-issues"></a>Düzeltilen sorunlar
 

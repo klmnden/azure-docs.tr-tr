@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564145"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994906"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Azure sanal makine yedeklemelerini yönetme
 
@@ -142,7 +142,7 @@ Bir sanal makine korumasını durdurmayı seçerseniz, Kurtarma noktalarını tu
 
 Kurtarma noktalarını depolama alanında bırakmanın bir maliyeti yoktur. Ancak, Kurtarma noktalarını bırakmanın avantajı, daha sonra sanal makine geri yükleyebilmenizdir. Kurtarma noktalarını bırakmanın maliyeti hakkında bilgi için [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/backup/). Tüm kurtarma noktalarını silmeyi seçerseniz, sanal makineyi geri yükleyemezsiniz.
 
-Veri yedekleme ile korumak durdurmanız her kurtarma noktası bekletme ilkesi uyarınca dolacak ancak açıkça yedekleme verilerini sil kadar Azure yedekleme her zaman bir son kurtarma noktası tutar. Benzer şekilde yedeklemeyi Durdur yapmadan bir veri kaynağını silerseniz, yeni yedeklemeler başarısız olmaya başlar ve eski kurtarma noktaları, bir yedeklemeyi Durdur ile gerçekleştirdiğiniz kadar her zaman son kurtarma noktası korunur ancak bir bekletme ilkesi uyarınca dolacak verileri silin.
+Kurtarma noktası süresiz yedekleme öğesi bir bekletme ilkesi veya StopProtection ile Delete verilerle yeniden korumaya alınmış kadar korunur. Yeniden koruma olması durumunda kurtarma noktalarının bekletme ilişkili yeni ilkeyi belirler. Benzer şekilde yedeklemeyi Durdur yapmadan bir veri kaynağını silerseniz, yeni yedeklemeler başarısız olmaya başlar ve eski kurtarma noktaları, bir yedeklemeyi Durdur ile gerçekleştirdiğiniz kadar her zaman son kurtarma noktası korunur ancak bir bekletme ilkesi uyarınca dolacak verileri silin.
 
 Bir sanal makine için korumayı durdurmak için:
 

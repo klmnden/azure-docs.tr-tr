@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı işlem çoğaltması | "Microsoft Docs
-description: Havuza alınmış, tek başına ile SQL Server işlem çoğaltma kullanma hakkında bilgi edinin ve Azure SQL veritabanı'nda veritabanları örnek.
+description: Havuza alınmış, tek ve Azure SQL veritabanı'nda örnek veritabanları ile SQL Server işlem çoğaltma kullanma hakkında öğrenin.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,15 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/08/2019
+ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814121"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993818"
 ---
-# <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>İşlem çoğaltma ile tek başına, havuza alınmış ve Azure SQL veritabanı'nda veritabanları örnek
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>İşlem çoğaltma, tek bir havuzda ve Azure SQL veritabanı'nda veritabanları örnek
 
 İşlem çoğaltması, Azure SQL veritabanı ve SQL Server, Azure SQL veritabanındaki bir tablodan veri çoğaltmanıza olanak sağlar veya uzak veritabanlarında yerleştirilmiş tablolar için SQL Server özelliğidir. Bu özellik, birden fazla tablo farklı veritabanlarındaki eşitlemenize olanak tanır.
 
@@ -37,22 +37,21 @@ ms.locfileid: "55814121"
 
 ![SQL veritabanı ile çoğaltma](media/replication-to-sql-database/replication-to-sql-database.png)
 
-
 **Yayımcı** dağıtımcı güncelleştirmeleri göndererek örneği veya bazı tablolar (makaleler) yapılan değişiklikler yayımlayan sunucusunu olduğu. Yayımlama için herhangi bir Azure SQL veritabanı bir şirket içi SQL Server'dan SQL Server'ın aşağıdaki sürümleriyle desteklenir:
 
-   - SQL Server 2019 (Önizleme)
-   - SQL Server 2016 SQL 2017
-   - SQL Server 2014 SP1 CU3 veya büyük (12.00.4427)
-   - SQL Server 2014 RTM CU10 (12.00.2556)
-   - SQL Server 2012 SP3 veya büyük (11.0.6020)
-   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-   - Azure'da yayımlama nesnelere desteklemeyen başka SQL Server sürümleri için kullanmak mümkün [verileri yeniden yayımlayarak](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) daha yeni SQL Server sürümleri için verileri taşımak için yöntemi. 
+- SQL Server 2019 (Önizleme)
+- SQL Server 2016 SQL 2017
+- SQL Server 2014 SP1 CU3 veya büyük (12.00.4427)
+- SQL Server 2014 RTM CU10 (12.00.2556)
+- SQL Server 2012 SP3 veya büyük (11.0.6020)
+- SQL Server 2012 SP2 CU8 (11.0.5634.0)
+- Azure'da yayımlama nesnelere desteklemeyen başka SQL Server sürümleri için kullanmak mümkün [verileri yeniden yayımlayarak](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) daha yeni SQL Server sürümleri için verileri taşımak için yöntemi. 
 
 **Dağıtıcı** bir örneği ya da bir yayımcıdan değişiklikleri makalelerinde toplar ve bunları abonelere dağıtan bir sunucu. Dağıtımcısı, Azure SQL veritabanı yönetilen örneği veya SQL Server'ın (yayımcı sürümden daha yüksek veya ona eşit, uzun gibi herhangi bir sürüm) olabilir. 
 
-**Abone** bir örneği veya yayımcı üzerinde yapılan değişiklikleri alan bir sunucu. Aboneler, havuza alınmış, tek başına, olması ve veritabanlarını Azure SQL veritabanı veya SQL Server veritabanı örneği. Abone tek başına veya sorgulu veritabanı üzerinde anında iletme abonesi olarak yapılandırılması gerekir. 
+**Abone** bir örneği veya yayımcı üzerinde yapılan değişiklikleri alan bir sunucu. Aboneleri veya havuza alınmış, tek ve Azure SQL veritabanı veya SQL Server veritabanları örneği olabilir. Abone tek veya havuza alınmış bir veritabanı üzerinde anında iletme abonesi olarak yapılandırılması gerekir. 
 
-| Rol | Tek başına ve havuza alınan veritabanları | Örnek veritabanları |
+| Rol | Tek ve havuza alınmış veritabanları | Örnek veritabanları |
 | :----| :------------- | :--------------- |
 | **Yayımcı** | Hayır | Evet | 
 | **Dağıtıcı** | Hayır | Evet|
@@ -63,7 +62,7 @@ ms.locfileid: "55814121"
 Vardır farklı [çoğaltma türleri](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
 
 
-| Çoğaltma | Tek başına ve havuza alınan veritabanları | Örnek veritabanları|
+| Çoğaltma | Tek ve havuza alınmış veritabanları | Örnek veritabanları|
 | :----| :------------- | :--------------- |
 | [**işlem**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Evet (yalnızca abonesi olarak) | Evet | 
 | [**Anlık görüntü**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Evet (yalnızca abonesi olarak) | Evet|
@@ -107,11 +106,11 @@ Bu yapılandırmada, bir yönetilen örnek başka bir yönetilen hizmet birçok 
 - Hem yönetilen örnekler aynı konumda olan.
 - Yayımlanan barındıran yönetilen örnekleri ve dağıtımcısı veritabanları [coğrafi olarak çoğaltılmış otomatik yük devretme grupları kullanarak](sql-database-auto-failover-group.md).
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-standalone-pooled-and-instance-database"></a>Yayımcı ve dağıtıcı ile şirket içi bir tek başına abonede havuza ve veritabanı örneği 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Yayımcı ve dağıtıcı ile şirket içi bir abone tek bir havuzda ve veritabanı örneği 
 
 ![Abone olarak Azure SQL DB](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-Bu yapılandırmada, Azure SQL veritabanı (tek başına, havuza alınmış ve veritabanı örneği) abone durumda. Bu yapılandırma şirket içinden azure'a geçişi destekler. Abone tek başına veya havuza veritabanı üzerinde ise, gönderim modunda olması gerekir.  
+Bu yapılandırmada, Azure SQL veritabanı (tek bir havuzda ve veritabanı örneği) abone durumda. Bu yapılandırma şirket içinden azure'a geçişi destekler. Bir tek veya havuza alınmış veritabanının abone ise gönderim modunda olması gerekir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: a2e7c45615c1f9d07ef3392ee10579a1b5e3588f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31005077c9c149f9aff055432d9577a63bac8e1c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477990"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992307"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio'da model denemeden bir çalışır hale getirilen Web hizmetine nasıl ilerlediğini
 Azure Machine Learning Studio geliştirin, çalıştırın, test etme ve yineleme olanak tanıyan etkileşimli bir tuvale sağlayan bir ***deneme*** Tahmine dayalı bir modeli temsil eden. Çok çeşitli için modüller vardır:
@@ -46,7 +46,7 @@ Tipik bir çözüm geliştirin ve Machine Learning Studio kullanarak dağıtma g
 *Şekil 1 - Tipik Tahmine dayalı analiz modeli aşamaları*
 
 ### <a name="the-training-experiment"></a>Eğitim denemesini
-***Eğitim denemesini*** Geliştirme Web hizmetini Machine Learning Studio'da ilk aşamasıdır. Eğitim deneyde amaç, geliştirme, test, yineleme ve sonunda bir machine learning modeli eğitmek için bir yer vermektir. Sizi bile birden çok modeli eşzamanlı olarak en uygun çözümü arayın, ancak bitirdiğinizde, denemeler tek bir eğitim seçersiniz eğitebilirsiniz model ve denemeyi geri kalanından ortadan kaldırın. Tahmine dayalı bir analiz denemesi geliştirmek ilişkin bir örnek için bkz [bir Azure Machine learning'de kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md).
+***Eğitim denemesini*** Geliştirme Web hizmetini Machine Learning Studio'da ilk aşamasıdır. Eğitim deneyde amaç, geliştirme, test, yineleme ve sonunda bir machine learning modeli eğitmek için bir yer vermektir. Sizi bile birden çok modeli eşzamanlı olarak en uygun çözümü arayın, ancak bitirdiğinizde, denemeler tek bir eğitim seçersiniz eğitebilirsiniz model ve denemeyi geri kalanından ortadan kaldırın. Tahmine dayalı bir analiz denemesi geliştirmek ilişkin bir örnek için bkz [bir Azure Machine learning'de kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirme](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>Tahmine dayalı denemeye
 Eğitilen bir modelin eğitim denemenizi oluşturduktan sonra tıklayın **Web hizmetinin ayarı** seçip **Tahmine dayalı Web hizmeti** eğitim dönüştürme işlemini başlatmak için Machine Learning Studio'da için deneme bir ***Tahmine dayalı denemeye***. Tahmine dayalı deneyde amaç, sonunda bir Azure Web hizmeti olarak kullanıma hazır hale getirdiniz olma amacıyla yeni verileri puanlamak için eğitilen model kullanmaktır.
@@ -104,7 +104,7 @@ Machine learning modeli tutmak istiyor ancak yeni verilerle çağırma istiyorsa
 
 Çalışan farklı eğitim yöntemi vb. özgün, Tahmine dayalı denemeye, farklı bir makine öğrenme algoritmasına, seçme gibi değişiklikler yapmak istediğiniz sonra modelinizi yeniden eğitme için yukarıda açıklanan ikinci yordamı izlemeniz gerekir: açın deneme, eğitim tıklayın **Kaydet** bir kopyasını oluşturun ve ardından, model geliştirmenize, Tahmine dayalı denemeye oluşturma ve web Hizmeti'ni dağıtma yeni yolunu başlatmak için. Bu hizmet, hangi biri veya her ikisi de çalıştırmaya devam etmek için karar vermek için özgün bir - ilgisi olmayan bir yeni Web oluşturur.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Geliştirme ve deneme işlemi hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * denemeyi - dönüştürme [modelinizin Azure Machine Learning Studio'da dağıtımı için hazırlama](convert-training-experiment-to-scoring-experiment.md)
@@ -114,5 +114,5 @@ Geliştirme ve deneme işlemi hakkında daha fazla bilgi için aşağıdaki maka
 Bu işlem örnekleri için bkz:
 
 * [Machine learning Öğreticisi: Azure Machine Learning Studio'da ilk denemenizi oluşturma](create-experiment.md)
-* [İzlenecek yol: Bir Azure Machine learning'de kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)
+* [İzlenecek yol: Bir Azure Machine learning'de kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirin](tutorial-part1-credit-risk.md)
 

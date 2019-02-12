@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/15/2019
-ms.openlocfilehash: edc6e651c3ec352115e360e50f98a3e36cd287c0
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/11/2019
+ms.openlocfilehash: 39a7f7ce6660016f00e36c5f6619eba2fa461023
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904089"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993172"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumu
 Azure veritabanı geçiş hizmeti çeşitli geçiş senaryoları (kaynak/hedef çiftleri) için hem de çevrimdışı destekleyecek şekilde tasarlanmıştır (tek seferlik) ve çevrimiçi (sürekli eşitleme) geçişi. Azure veritabanı geçiş hizmeti tarafından sağlanan senaryo kapsamı zamanla genişletilir. Yeni senaryolar düzenli olarak eklenmektedir. Bu makalede, Azure veritabanı geçiş hizmeti ve durum tarafından şu anda desteklenen geçiş senaryoları tanımlar (özel [ya da sınırlı] Önizleme, genel Önizleme veya genel kullanıma sunuldu) veya her bir senaryo.
@@ -25,7 +25,7 @@ Azure veritabanı geçiş hizmeti çeşitli geçiş senaryoları (kaynak/hedef �
 Veritabanları, Azure veritabanı geçiş hizmetini kullanarak Azure'a geçirirken, çevrimdışı veya çevrimiçi bir geçiş gerçekleştirebilirsiniz. İle *çevrimdışı* geçişler, uygulama kapalı kalma süresi, geçişi başlatan aynı anda başlar. İçin *çevrimiçi* geçiş kapalı kalma süresi üzerinden geçiş tamamlandığında yeni ortama kesmek için gereken süre sınırlı. Çevrimdışı bir geçiş kapalı kalma süresinin kabul edilebilir olup olmadığını belirlemek için test etmek için önerilir; Aksi durumda, bir çevrimiçi geçiş gerçekleştirin.
 
 ## <a name="migration-scenario-status"></a>Geçiş senaryosu durumu
-Azure veritabanı geçiş hizmeti tarafından desteklenen her geçiş senaryosu durumunu zaman ile olarak değişir. Genel olarak, senaryolar ilk olarak yayımlanan **özel Önizleme**, ve işlevselliği yararlanarak gerektiren bir müşteri aracılığıyla ADAYLIK gönderme [DMS Önizleme site](https://aka.ms/dms-preview). Özel önizleme tamamlandığında senaryo durumu değişerek **genel Önizleme**. Geçiş senaryoları genel önizlemede olan tüm Azure veritabanı geçiş hizmeti kullanıcıların yararlanabilirsiniz. Ancak, geçiş senaryosu tüm bölgelerde kullanılamayabilir ve işlevselliği son sürüm önce ek değişiklikler meydana gelebilir. Bir geçiş senaryosunda olduğunda **sunuldu**, son, serbest bırakılan durum eksiksiz ve tüm Azure veritabanı geçiş hizmeti kullanıcıların erişebileceği bir işlevdir. 
+Azure veritabanı geçiş hizmeti tarafından desteklenen her geçiş senaryosu durumunu zaman ile olarak değişir. Genel olarak, senaryolar ilk olarak yayımlanan **özel Önizleme**, ve işlevselliği yararlanarak müşteri aracılığıyla ADAYLIK gönderme gerektirir [DMS Önizleme site](https://aka.ms/dms-preview). Özel önizleme tamamlandığında senaryo durumu değişerek **genel Önizleme**. Geçiş senaryoları genel önizlemede olan tüm Azure veritabanı geçiş hizmeti kullanıcıların yararlanabilirsiniz. Ancak, geçiş senaryosu tüm bölgelerde kullanılamayabilir ve işlevselliği son sürüm önce ek değişiklikler meydana gelebilir. Bir geçiş senaryosunda olduğunda **sunuldu**, en son yayımlanan durumu, tam ve tüm Azure veritabanı geçiş hizmeti kullanıcıların erişebileceği bir işlevdir. 
 
 ## <a name="migration-scenario-support"></a>Geçiş senaryosu desteği
 
@@ -50,7 +50,7 @@ Aşağıdaki tablo, çevrimdışı geçişleri için Azure veritabanı geçiş h
 | **Azure Cosmos DB**  | MongoDB | ✔ |
 | **MySQL için Azure DB**  | MySQL |  |
 |   | RDS MySQL  |  |
-| **PostgresSQL için Azure DB**  | PostgreSQL |  |
+| **PostgreSQL için Azure DB**  | PostgreSQL |  |
 |  | RDS PostgreSQL  |  |
 
 ### <a name="online-continuous-sync-migration-support"></a>Çevrimiçi (sürekli eşitleme) geçiş desteği
@@ -69,7 +69,7 @@ Aşağıdaki tabloda çevrimiçi geçişleri için Azure veritabanı geçiş hiz
 | **Azure Cosmos DB**  | MongoDB  | ✔ |
 | **MySQL için Azure DB**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
-| **PostgresSQL için Azure DB**  | PostgreSQL | ✔ |
+| **PostgreSQL için Azure DB**  | PostgreSQL | ✔ |
 |  | RDS PostgreSQL  | ✔ |
 
 ## <a name="next-steps"></a>Sonraki adımlar

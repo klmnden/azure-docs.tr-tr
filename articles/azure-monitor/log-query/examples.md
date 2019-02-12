@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici Log Analytics sorgu örnekleri | Microsoft Docs
-description: Kusto dilini kullanarak Log analytics'te sorgu örnekleri.
+title: Azure İzleyici Azure İzleyici günlük sorgu örnekleri | Microsoft Docs
+description: Azure İzleyici Veri Gezgini'ni kullanarak günlük sorgularda örnekleri sorgu dili.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883496"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993206"
 ---
-# <a name="log-analytics-query-examples"></a>Günlük analizi sorgu örnekleri
-Bu makalede, çeşitli örneklerini içerir [sorguları](../../azure-monitor/log-query/log-query-overview.md) kullanarak [Kusto dil](https://docs.microsoft.com/azure/kusto/query/) Log Analytics'ten farklı veri türleri alınamadı. Farklı yöntemleri, birleştirmek ve bu örnekleri kendi gereksinimleriniz için kullanabileceğiniz farklı stratejiler tanımlamak için kullanabileceğiniz şekilde, verileri analiz etmek için kullanılır.  
+# <a name="azure-monitor-log-query-examples"></a>Azure İzleyici günlük sorgu örnekleri
+Bu makalede, çeşitli örneklerini içerir [sorguları](log-query-overview.md) kullanarak [Veri Gezgini sorgu dili](https://docs.microsoft.com/azure/kusto/query/) Azure İzleyici'den farklı türde günlük verileri alınamadı. Farklı yöntemleri, birleştirmek ve bu örnekleri kendi gereksinimleriniz için kullanabileceğiniz farklı stratejiler tanımlamak için kullanabileceğiniz şekilde, verileri analiz etmek için kullanılır.  
 
-Bkz: [Kusto dil başvurusu](https://docs.microsoft.com/azure/kusto/query/) Bu örneklerde kullanılan farklı anahtar sözcükler hakkında ayrıntılı bilgi için. Git aracılığıyla bir [sorguları oluşturma Ders](get-started-queries.md) Log Analytics'e yeniyseniz.
+Bkz: [Kusto dil başvurusu](https://docs.microsoft.com/azure/kusto/query/) Bu örneklerde kullanılan farklı anahtar sözcükler hakkında ayrıntılı bilgi için. Git aracılığıyla bir [sorguları oluşturma Ders](get-started-queries.md) Azure İzleyici yeniyseniz.
 
 ## <a name="events"></a>Olaylar
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Uygulama düzeyinde olaylar "Şifreli" açıklanan arama
-Bu örnek, **Olaylar** tablosunda, **EventLog** değerinin _Application_ olduğu ve **RenderedDescription**'ın _cryptographic_ değerini içerdiği kayıtları arar ve son 24 saate ilişkin kayıtları içerir.
+Bu örnekte arama **olayları** olduğu kayıtlar için tablo **EventLog** olduğu _uygulama_ ve **RenderedDescription** içerir _şifreleme_. Son 24 saat kayıtları içerir.
 
 ```Kusto
 Event
@@ -208,7 +208,7 @@ Perf
 ## <a name="protection-status"></a>Koruma durumu
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Koruma durumu süresi raporlama yapmayan bilgisayarlar
-Bu örnekte, koruma durumu _Not Reporting_ olan bilgisayarlar ve bilgisayarların bu durumda kaldığı süre gösterilmektedir.
+Bu örnekte koruma durumu olan bilgisayarları listeleyen _raporlama_ ve bu durumda oldukları süresi.
 
 ```Kusto
 ProtectionStatus
@@ -237,7 +237,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Etkinlik Kimliğine göre güvenlik olay sayısı
 
 
-Bu örnekte sabit yapısına bağlıdır **etkinlik** sütun: \<kimliği\>-\<adı\>.
+Bu örnekte sabit yapısına bağlıdır **etkinlik** sütun: \<Kimliği\>-\<adı\>.
 Bunu ayrıştırır **etkinlik** iki yeni sütunlara, değer ve her oluşumu sayılarını **ActivityID**.
 
 ```Kusto
@@ -249,7 +249,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>İzinlerle ilgili güvenlik olay sayısı
-Bu örnekte, **Activity** sütununda _Permissions_ ifadesinin tam olarak yer aldığı **securityEvent** kayıtlarının sayısı gösterilmektedir. Sorgu, son 30 dakika içinde oluşturulan kayıtlar için geçerlidir.
+Bu örnek sayısını gösterir **securityEvent** olan kayıtları **etkinlik** sütun içeren tüm terimi _izinleri_. Son 30 dakika boyunca oluşturulan kayıtları uygular.
 
 ```Kusto
 SecurityEvent
@@ -278,7 +278,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Etkinlik adı ve kimliği ayrıştırılamıyor
-Aşağıdaki iki örnek sabit yapısına kullanan **etkinlik** sütun: \<kimliği\>-\<adı\>. İlk örnekte **ayrıştırma** iki yeni sütun için değer atamak için işleç: **ActivityID** ve **activityDesc**.
+Aşağıdaki iki örnek sabit yapısına kullanan **etkinlik** sütun: \<Kimliği\>-\<adı\>. İlk örnekte **ayrıştırma** iki yeni sütun için değer atamak için işleç: **ActivityID** ve **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -440,4 +440,4 @@ Update
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Başvurmak [Kusto dil başvurusu](/azure/kusto/query) dili hakkında ayrıntılı bilgi için.
-- İzlenecek yol bir [Log Analytics'te sorgu yazmakla ilgili Ders](get-started-queries.md).
+- İzlenecek yol bir [Azure İzleyici'de günlük sorguları yazma Ders](get-started-queries.md).

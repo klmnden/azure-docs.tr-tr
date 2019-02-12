@@ -5,15 +5,15 @@ services: load balancer
 author: KumudD
 ms.service: load-balancer
 ms.topic: include
-ms.date: 01/09/2018
+ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: c4989016d31880e1c1990c0eb46091c8f50018bc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 1d3ce900f7354b31e999c12b8e1eb0e23d391fcb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211924"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56078655"
 ---
 | | Standart SKU | Temel SKU |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "54211924"
 | HA bağlantı noktaları | İç Yük Dengeleyici | Kullanılamıyor. |
 | Varsayılan olarak güvenli | Genel IP, genel yük dengeleyici uç noktaları, uç noktaları olan kapalı olarak gelen akışlar sürece iç Load Balancer izin verilenler listesinde bir ağ güvenlik grubu. | Varsayılan olarak, ağ güvenliği açık grubu isteğe bağlı. |
 | [Giden bağlantılar](../articles/load-balancer/load-balancer-outbound-connections.md) | Giden NAT havuzu tabanlı ile açıkça tanımlayabileceğiniz [giden kuralları](../articles/load-balancer/load-balancer-outbound-rules-overview.md). Yük Dengeleme kuralı çevirme başına birden çok ön uç ile kullanabilirsiniz. Giden bir senaryo _gerekir_ oluşturulabilir sanal makine için kullanılabilirlik kümesi, sanal makine ölçek kümesi giden bağlantı kullanmak için.  Sanal ağ hizmet uç noktalarına giden bağlantı tanımlamadan erişilebilir ve doğru işlenen veri sayılmaz.  Sanal ağ hizmet uç noktaları kullanılabilir değil Azure PaaS Hizmetleri dahil olmak üzere tüm genel IP adresleri, giden bağlantı ve işlenen veri doğrultusunda sayısı üzerinden erişilmesi gereken. Bir sanal makine yalnızca bir iç yük dengeleyici hizmet veren, kullanılabilirlik kümesi veya sanal makine ölçek kümesi, giden bağlantılara varsayılan SNAT aracılığıyla kullanılamaz; kullanma [giden kuralları](../articles/load-balancer/load-balancer-outbound-rules-overview.md) yerine. Giden SNAT programlama gelen Yük Dengeleme kuralı protokolü temel aktarım belirli protokolüdür. | Birden çok ön uç mevcut olduğunda rastgele seçilmiş tek ön uç.  İç Load Balancer, bir sanal makine hizmet kullanılabilirlik kümesi veya sanal makine ölçek kümesi, varsayılan SNAT kullanılır. |
-| [Giden kuralları](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Genel IP adresleri veya ortak IP ön ekleri veya her ikisi de kullanarak, bildirim temelli giden NAT yapılandırma yapılandırılabilir giden boşta kalma zaman aşımı, özel SNAT bağlantı noktası ayırma | Kullanılamıyor. |
+| [Giden kuralları](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Genel IP adresleri veya ortak IP ön ekleri veya her ikisi de kullanarak, bildirim temelli giden NAT yapılandırma yapılandırılabilir giden boşta kalma zaman aşımı (4-120 dakika), özel SNAT bağlantı noktası ayırma | Kullanılamıyor. |
 |  [Boşta kalma TCP Sıfırla](../articles/load-balancer/load-balancer-tcp-reset.md) | Herhangi bir kural TCP boşta kalma zaman aşımı üzerinde (TCP k) sıfırlama etkinleştirme | Kullanılamaz |
 | [Birden çok ön uç](../articles/load-balancer/load-balancer-multivip-overview.md) | Gelen ve [giden](../articles/load-balancer/load-balancer-outbound-connections.md) | Yalnızca gelen |
 | Yönetim işlemleri | Çoğu operations < 30 saniye | 60-90 saniye tipik. |

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 707cd7e72245ce47289c0a744d7103c713acecb9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765492"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997111"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes için Azure Stack Marketini Ekle
 
@@ -65,15 +65,15 @@ Bir plan, teklif ve Kubernetes Market öğesi için bir abonelik oluşturun. Ayr
 
 Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD FS) kullanıyorsanız, bir hizmet sorumlusu kullanıcıların bir Kubernetes kümesini dağıtırken oluşturmak gerekir.
 
-1. Oluşturun ve hizmet sorumlusu oluşturmak için kullanılacak bir sertifika verin. Aşağıdaki kod parçacığı, otomatik olarak imzalanan bir sertifika oluşturma işlemi gösterilmektedir. 
+1. Oluşturun ve hizmet sorumlusu oluşturmak için kullanılan otomatik olarak imzalanan bir sertifika verin. 
 
     - Şu bilgilere ihtiyacınız vardır:
 
        | Değer | Açıklama |
        | ---   | ---         |
-       | Parola | Sertifika parolası. |
-       | Yerel sertifika yolu | Sertifika yolu ve dosya adı. Örneğin, `path\certfilename.pfx` |
-       | Sertifika adı | Sertifika adı. |
+       | Parola | Sertifika için yeni bir parola girin. |
+       | Yerel sertifika yolu | Sertifika yolu ve dosya adını girin. Örneğin, `c:\certfilename.pfx` |
+       | Sertifika adı | Sertifika adını girin. |
        | Sertifika depolama konumu |  Örneğin, `Cert:\LocalMachine\My` |
 
     - PowerShell ile yükseltilmiş istemi açın. Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
@@ -82,8 +82,7 @@ Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
-        $certificateName = "<certificate name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certificateName = "CN=<certificate name>"
         $certStoreLocation="<certificate store location>"
         
         $params = @{
@@ -105,24 +104,33 @@ Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Hizmet sorumlusu sertifikasını kullanarak oluşturun.
+2.  PowerShell oturumunuzda, görüntülenen yeni sertifika kimliği Not `1C2ED76081405F14747DC3B5F76BB1D83227D824`. Kimliğinde hizmet sorumlusu oluştururken kullanılacak.
+
+    ```PowerShell  
+    VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
+    ```
+
+3. Hizmet sorumlusu sertifikasını kullanarak oluşturun.
 
     - Şu bilgilere ihtiyacınız vardır:
 
        | Değer | Açıklama                     |
        | ---   | ---                             |
        | ERCS IP | ASDK normalde ayrıcalıklı uç noktadır `AzS-ERCS01`. |
-       | Uygulama adı | Uygulama hizmet sorumlusu için basit bir ad. |
-       | Sertifika depolama konumu | Bilgisayarınızdaki sertifika depoladığınız yolu. Örneğin, `Cert:\LocalMachine\My\<someuid>` |
+       | Uygulama adı | Uygulama hizmet sorumlusu için basit bir ad girin. |
+       | Sertifika depolama konumu | Bilgisayarınızdaki sertifika depoladığınız yolu. Bu depolama konumu belirtilir ve sertifika kimliği ilk adımda oluşturulur. Örneğin, `Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
 
-    - PowerShell ile yükseltilmiş istemi açın. Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
+       İstendiğinde, ayrıcalık uç noktaya bağlanmak için aşağıdaki kimlik bilgilerini kullanın. 
+        - Kullanıcı adı: CloudAdmin hesabı, belirttiğiniz biçimde <Azure Stack domain>\cloudadmin. (ASDK için kullanıcı azurestack\cloudadmin adıdır.)
+        - Parola: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
+
+    - Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
 
         ```PowerShell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
-        $certStoreLocation="<certificate store location>"
+        $certStoreLocation="<certificate location>"
         
         # Get certificate information
         $cert = Get-Item $certStoreLocation
@@ -189,7 +197,7 @@ Ubuntu Server aşağıda Market'te ekleyin:
 
 1. Seçin **+ Azure'dan Ekle**.
 
-1. `UbuntuServer` yazın.
+1. `Ubuntu Server` yazın.
 
 1. Sunucu en yeni sürümünü seçin. Tam sürümünü denetleyin ve en yeni sürümüne sahip olduğunuzdan emin olun:
     - **Yayımcı**: Canonical

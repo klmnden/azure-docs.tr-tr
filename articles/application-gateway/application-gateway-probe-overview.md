@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018724"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998629"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Uygulama ağ geçidi sistem durumu izlemeye genel bakış
 
@@ -27,7 +27,7 @@ Varsayılan sistem durumu izleme yoklaması kullanmanın yanı sıra durum yokla
 
 Özel araştırma yapılandırmaların ayarlamazsanız, bir uygulama ağ geçidi varsayılan durum araştırması otomatik olarak yapılandırır. Davranış izleme, arka uç havuzu için yapılandırılmış IP adresleri için bir HTTP isteği yaparak çalışır. Arka uç http ayarları, HTTPS için yapılandırılmış olması halinde varsayılan araştırmaları için araştırma de arka uçları durumunu test etmek için HTTPS kullanır.
 
-Örneğin: uygulama ağ geçidinizin bağlantı noktası 80 üzerinde HTTP ağ trafiği almak için arka uç sunucularının A, B ve C kullanmak için yapılandırın. Varsayılan sistem durumu izlemeyi her 30 saniyede sağlıklı bir HTTP yanıtı için üç sunucu sınar. Sağlıklı bir HTTP yanıtı sahip bir [durum kodu](https://msdn.microsoft.com/library/aa287675.aspx) 200 399 arasındaki.
+Örneğin: Uygulama ağ geçidinizin bağlantı noktası 80 üzerinde HTTP ağ trafiği almak için arka uç sunucularının A, B ve C kullanmak için yapılandırın. Varsayılan sistem durumu izlemeyi her 30 saniyede sağlıklı bir HTTP yanıtı için üç sunucu sınar. Sağlıklı bir HTTP yanıtı sahip bir [durum kodu](https://msdn.microsoft.com/library/aa287675.aspx) 200 399 arasındaki.
 
 Bir sunucu için varsayılan araştırma denetimi başarısız olursa, application gateway, arka uç havuzundan kaldırır ve bu sunucuya giden ağ trafiğini durdurur. Varsayılan araştırma, yine de her 30 saniyede bir sunucu için denetlemeye devam eder. Sunucu varsayılan durum araştırması başarıyla bir isteğe yanıt verdiğinde, bu geri sağlıklı olarak arka uç havuzuna eklenir ve sunucuya yeniden akan trafiği başlatır.
 
@@ -44,7 +44,7 @@ Eşleşme ölçütlerini kullanılarak belirtilebilir `New-AzureRmApplicationGat
 
 Örneğin:
 
-```
+```powershell
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
@@ -55,7 +55,7 @@ Eşleşme ölçütlerini belirtilen sonra bu yapılandırmayı kullanarak araşt
 | Araştırma özelliği | Değer | Açıklama |
 | --- | --- | --- |
 | Yoklama URL'si |http://127.0.0.1:\<port\>/ |URL yolu |
-| Aralık |30 |Sonraki durum araştırması önce beklenecek saniye cinsinden süreyi gönderilir.|
+| Interval |30 |Sonraki durum araştırması önce beklenecek saniye cinsinden süreyi gönderilir.|
 | Zaman aşımı |30 |Süreyi saniye cinsinden, uygulama ağ geçidi araştırma sağlıksız olarak işaretlemek için bir araştırma yanıt bekler. Bir araştırma sağlıklı olarak döndürürse, karşılık gelen arka uç hemen sağlıklı olarak işaretlenir.|
 | Sağlıksız durum eşiği |3 |Kaç yoktur normal durum yoklaması bir arıza durumunda gönderilecek araştırmaları yönetir. Bu ek sistem durumu araştırmaları, sayfayı hızlı bir şekilde arka uç durumunu hızlı bir şekilde belirlemek için gönderilir ve araştırma aralığı için beklemez. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
 
@@ -84,7 +84,7 @@ Aşağıdaki tabloda, bir özel durum araştırması özelliklerini tanımların
 | Protokol |Araştırma göndermek için kullanılan protokol. Araştırma arka uç HTTP Ayarları'nda tanımlanan protokolünü kullanır. |
 | Host |Araştırma göndermek için ana bilgisayar adı. Geçerli çok siteli, yalnızca uygulama ağ geçidinde yapılandırılan, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM'nin ana bilgisayar adından farklıdır. |
 | Yol |Araştırma göreli yolu. Geçerli yol başlatılır '/'. |
-| Aralık |Aralık saniye cinsinden araştırma. İki ardışık araştırmaları arasındaki zaman aralığını değerdir. |
+| Interval |Aralık saniye cinsinden araştırma. İki ardışık araştırmaları arasındaki zaman aralığını değerdir. |
 | Zaman aşımı |Zaman aşımını saniye cinsinden araştırma. Bu zaman aşımı süresi içinde geçerli bir yanıt alınmazsa, araştırma başarısız olarak işaretlenir.  |
 | Sağlıksız durum eşiği |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
 

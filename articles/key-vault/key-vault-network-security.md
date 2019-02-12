@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: d95ede3b6e99d6791a2642c6059281dedca3fcf2
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: caf649c51346f63aa05d8f2d460e2870493b1587
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423169"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991625"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault güvenlik duvarları ve sanal ağları yapılandırma
 
@@ -38,11 +38,11 @@ Azure portalını kullanarak Key Vault güvenlik duvarları ve sanal ağları ya
 
 Ayrıca yeni sanal ağlar ve alt ağlar ekleyin ve ardından yeni oluşturulan sanal ağlar ve alt ağlar için hizmet uç noktası seçerek etkinleştirin **+ yeni sanal ağ Ekle**. Ardından yönergeleri izleyin.
 
-## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanma
+## <a name="use-the-azure-cli"></a>Azure CLI kullanma 
 
-Azure CLI 2.0 kullanarak anahtar kasası güvenlik duvarları ve sanal ağları yapılandırma aşağıda verilmiştir:
+İşte Azure CLI'yi kullanarak Key Vault güvenlik duvarları ve sanal ağları yapılandırma
 
-1. [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) ve [oturum](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+1. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) ve [oturum](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
 2. Kullanılabilir sanal ağ kuralları listesi. Bu anahtar kasası için herhangi bir kuralın ayarlamadıysanız listesi boş olur.
    ```azurecli
@@ -77,45 +77,47 @@ Azure CLI 2.0 kullanarak anahtar kasası güvenlik duvarları ve sanal ağları 
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell kullanma
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 PowerShell kullanarak Key Vault güvenlik duvarları ve sanal ağları yapılandırma aşağıda verilmiştir:
 
-1. Son yükleme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps), ve [oturum](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Son yükleme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps), ve [oturum](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. Kullanılabilir sanal ağ kuralları listesi. Bu anahtar kasası için herhangi bir kuralın ayarlamadıysanız listesi boş olur.
    ```PowerShell
-   (Get-AzureRmKeyVault -VaultName "mykeyvault").NetworkAcls
+   (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
 
 3. Hizmet uç noktası, bir var olan sanal ağı ve alt ağ üzerinde anahtar kasası için etkinleştirin.
    ```PowerShell
-   Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzureRmVirtualNetwork
+   Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
 4. Bir sanal ağ ve alt ağ için bir ağ kuralı ekleyin.
    ```PowerShell
-   $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-   Add-AzureRmKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
+   $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
 5. Bir IP adresi aralığı, trafiğe izin verecek şekilde ekleyin.
    ```PowerShell
-   Add-AzureRmKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
+   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
 6. Bu anahtar kasası güvenilir hizmetlerin tarafından erişilebilir olması gereken verilirse `bypass` için `AzureServices`.
    ```PowerShell
-   Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
+   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
 7. Varsayılan eylem ayarlayarak ağ kurallarını açma `Deny`.
    ```PowerShell
-   Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
+   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 
 ## <a name="references"></a>Başvurular
 
-* Azure CLI 2.0 komutlarını: [az keyvault ağ-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
-* Azure PowerShell cmdlet'leri: [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault), [Add-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule), [Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule), [Update-AzureRmKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
+* Azure CLI komutları: [az keyvault ağ-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Azure PowerShell cmdlet'leri: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

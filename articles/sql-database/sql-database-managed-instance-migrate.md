@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: ce7892401b2b04565a00c33c5301b9c0cd05d5f5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: MT
+ms.date: 02/08/2019
+ms.openlocfilehash: 8127abf19c31b8a50079f416e73c98efebfd0983
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732762"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999428"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server örneği geçiş Azure SQL veritabanı yönetilen örneği
 
@@ -47,7 +47,7 @@ Varsa bazı bildirilen yönetilen örnek dağıtım seçeneğiyle kaldırılmaz 
 - İşletim sistemi veya dosya sistemi, yükleme üçüncü taraf veya özel aracıları aynı sanal makinede SQL Server örneği için doğrudan erişim gerekiyorsa.
 - Yine, FILESTREAM gibi desteklenmeyen özelliklerle ilgili katı bağımlılığı varsa / FileTable, PolyBase ve çapraz örnek işlemleri.
 - Kesinlikle, belirli bir SQL Server sürümünde kalmak ihtiyacınız varsa (2012 örneği için).
-- Bilgi işlem gereksinimlerinizi çok daha düşük olduğunda bu yönetilen örnek genel önizlemede sunar (bir sanal çekirdek, örneği için) ve veritabanı birleştirme kabul edilebilir bir seçenek değil.
+- Bu yönetilen örneği, bilgi işlem gereksinimlerinizi çok daha düşük olduğunda sunar (bir sanal çekirdek, örneği için) ve veritabanı birleştirme kabul edilebilir bir seçenek değil.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>En iyi şekilde boyutlandırılmış yönetilen örneğine dağıtma
 

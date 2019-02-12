@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 06/28/2018
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e496e4e2e7e2f66033d090a0534911bff4c53baa
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 524c1a6d083db02349c7dae9a0131228613dc170
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310307"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997619"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure arama hizmeti REST API Sürüm 2017-11-11-Önizleme
 Bu makalede `api-version=2017-11-11-Preview` Azure Search Hizmeti REST API, Deneysel özellikler değil henüz genel kullanıma sunan bir sürümü.
@@ -28,7 +28,7 @@ Bu makalede `api-version=2017-11-11-Preview` Azure Search Hizmeti REST API, Dene
 
 ## <a name="new-in-2017-11-11-preview"></a>Yeni 2017-11-11-Önizleme
 
-[**Otomatik Tamamlama** ](search-autocomplete-tutorial.md) birleştirir varolan [öneriler API'si](https://docs.microsoft.com/rest/api/searchservice/suggestions) yazarken tamamlanan tamamlayıcı karşılaştığında Arama çubuğuna eklenecek. Otomatik Tamamlama bir kullanıcı bir sonraki arama için sorgu dizesi olarak seçebilir sorgu terimleriyle aday döndürür. Öneriler yanıt kısmi girişleri olarak gerçek belgeler döndürür: arama sonuçlarını hemen ve arama terimi girişi uzunluğu ve ayrıntısıyla büyüdükçe dinamik olarak değiştirebilirsiniz.
+[**Otomatik Tamamlama** ](search-autocomplete-tutorial.md) birleştirir varolan [öneriler API'si](https://docs.microsoft.com/rest/api/searchservice/suggestions) yazarken tamamlanan tamamlayıcı karşılaştığında Arama çubuğuna eklenecek. Otomatik Tamamlama, bir kullanıcı bir sonraki arama için sorgu dizesi olarak seçebilir sorgu terimleriyle aday döndürür. Öneriler yanıt kısmi girişleri olarak gerçek belgeler döndürür: arama sonuçlarını hemen ve arama terimi girişi uzunluğu ve ayrıntısıyla büyüdükçe dinamik olarak değiştirebilirsiniz.
 
 [**Bilişsel arama**](cognitive-search-concept-intro.md), yeni bir zenginleştirme özellik Azure Search metin olmayan kaynakları ve Azure Search'te tam metin aranabilir içeriğe dönüştürmek protokole metin görünmeyen bilgileri bulur. Aşağıdaki kaynaklar sunulan veya REST API Önizleme aşamasında değiştirdi. Genel kullanıma sunulan çağırın ya da Önizleme sürümü diğer tüm REST API'leri aynıdır.
 

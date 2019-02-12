@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 3f358be630d9a50d0f048d66c9f79e168c8adcdf
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2d36b10adbe277331eafdf1b68d0f5711508cc05
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230208"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992221"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Hız ve tutarlılık, kodlama yönetme
+#  <a name="manage-speed-and-concurrency-of-your-encoding-legacy"></a>Hız ve (eski) kodlama eşzamanlılığı yönetme
 
 Bu makalede, hız ve kodlama işleri/görevleri eşzamanlılığı nasıl yönetebileceğinizi kısa genel bakış sağlar.
 
 ## <a name="overview"></a>Genel Bakış
 
-Medya Hizmetleri'nde bir **ayrılmış birim türünü** ile medya işleme görevlerinizin işlenme hızını belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: **S1**, **S2** veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır. [Kodlama birimleri ölçeklendirme](media-services-scale-media-processing-overview.md) konu farklı kodlama hızlarını arasında seçim yaparken kararı vermenize yardımcı olan bir tablo gösterir.
+Medya Hizmetleri'nde bir **ayrılmış birim türünü** ile medya işleme görevlerinizin işlenme hızını belirler. Şu ayrılmış birim türlerinden seçebilirsiniz: **S1**, **S2**, veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır. [Kodlama birimleri ölçeklendirme](media-services-scale-media-processing-overview.md) konu farklı kodlama hızlarını arasında seçim yaparken kararı vermenize yardımcı olan bir tablo gösterir.
 
 Ayrılmış birim türünü belirtmenin yanı sıra, hesabınızla sağlamak için belirtebileceğiniz **ayrılmış birim**. Sağlanan ayrılmış birim sayısı, verili bir hesapta eşzamanlı olarak işlenebilecek medya görevlerinin sayısını belirler. Örneğin, beş medya görevi aynı anda uzun çalışacağı beş ayrılmış birim, hesabınız varsa, olarak işlenmek üzere görevleri vardır. Kalan görevlerin kuyrukta bekler ve sıralı olarak çalışan bir görev tamamlandığında işlemek için toplanmış. Sağlanan herhangi bir ayrılmış birim hesabınız yoksa, ardından görevleri sıralı olarak seçilir. Bu durumda, bir görev tamamlama ve ileri bir başlangıç arasındaki bekleme süresini sistemde kaynaklarının kullanılabilirliğine bağlıdır.
 

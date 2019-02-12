@@ -1,6 +1,6 @@
 ---
-title: Toplama ve performans sayaçları Log analytics'te çözümleme | Microsoft Docs
-description: Windows ve Linux aracılarını performansını analiz etmek için Log Analytics tarafından toplanan performans sayaçlarını.  Bu makalede her iki Windows performans sayaçlarını toplamayı yapılandırma ve Linux aracıları, bunlar ayrıntılarını çalışma ve bunları Azure portalında çözümlemek nasıl depolanır.
+title: Toplama ve performans sayaçları Azure İzleyici'de çözümleme | Microsoft Docs
+description: Performans sayaçları, Windows ve Linux aracılarını performansını analiz etmek için Azure İzleyici tarafından toplanır.  Bu makalede her iki Windows performans sayaçlarını toplamayı yapılandırma ve Linux aracıları, bunlar ayrıntılarını çalışma ve bunları Azure portalında çözümlemek nasıl depolanır.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: 8359dda2521773145f9e3e870c3c21db1546004b
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103715"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001928"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log analytics'te Windows ve Linux performans veri kaynakları
-Windows ve Linux performans sayaçları, performans donanım bileşenleri, işletim sistemleri ve uygulamalar hakkında bilgi sağlar.  Log Analytics uzun süreli analiz için performans verilerini toplama ve raporlama ek olarak, neredeyse gerçek zamanlı (NRT) analiz için sık sık aralıklarla performans sayaçları toplayabilirsiniz.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure İzleyici'de Windows ve Linux performans veri kaynakları
+Windows ve Linux performans sayaçları, performans donanım bileşenleri, işletim sistemleri ve uygulamalar hakkında bilgi sağlar.  Azure İzleyici, neredeyse gerçek zamanlı (NRT) analiz uzun süreli analiz için performans verilerini toplama ve raporlama yanı sıra sık aralıklarla performans sayaçları toplayabilirsiniz.
 
 ![Performans sayaçları](media/data-sources-performance-counters/overview.png)
 
@@ -88,7 +88,7 @@ Bu öğe içindeki parametreler aşağıdaki tabloda açıklanmıştır.
 | interval | Toplanan ve nesnenin sayaçları sıklığı. |
 
 
-Aşağıdaki tabloda, nesneleri ve yapılandırma dosyasında belirttiğiniz sayaçları listeler.  Kullanılabilir ek sayaçları belirli uygulamalar için açıklandığı [Log analytics'te Linux uygulamaları için performans sayaçları toplamak](data-sources-linux-applications.md).
+Aşağıdaki tabloda, nesneleri ve yapılandırma dosyasında belirttiğiniz sayaçları listeler.  Kullanılabilir ek sayaçları belirli uygulamalar için açıklandığı [Azure İzleyici'de Linux uygulamaları için performans sayaçları toplamak](data-sources-linux-applications.md).
 
 | Nesne Adı | Sayaç Adı |
 |:--|:--|
@@ -182,7 +182,7 @@ Performans ölçümleri için varsayılan yapılandırma aşağıda verilmiştir
     </source>
 
 ## <a name="data-collection"></a>Veri toplama
-Log Analytics, sayaç yüklü olan tüm aracıları, belirtilen örnekleme aralığında tüm performans sayaçlarını toplar.  Veriler değil toplanır ve ham veriler, aboneliğinizi tarafından belirtilen süre için tüm günlük sorgu görünümlerde kullanılabilir.
+Azure İzleyici, sayaç yüklü olan tüm aracıları, belirtilen örnekleme aralığında tüm performans sayaçlarını toplar.  Veriler değil toplanır ve ham veriler, aboneliğinizi tarafından belirtilen süre için tüm günlük sorgu görünümlerde kullanılabilir.
 
 ## <a name="performance-record-properties"></a>Performans kayıt özellikleri
 Performans kayıtları sahip bir tür **Perf** ve aşağıdaki tabloda gösterilen özelliklere sahiptir.
@@ -218,7 +218,7 @@ Aşağıdaki tabloda farklı performans kayıtları almak günlük sorguları ö
 | Perf &#124; CounterName burada "% işlemci zamanı" ve InstanceName == "_Toplam" == &#124; Summarize aggregatedvalue = avg(CounterValue) bin (TimeGenerated, 1 saat), bilgisayar tarafından |Saatlik tüm bilgisayarlardaki CPU kullanımı ortalaması |
 | Perf &#124; nerede bilgisayar "Bilgisayarım" ve CounterName startswith_cs "%" ve InstanceName == "_Toplam" == &#124; Summarize aggregatedvalue göre gruplama (TimeGenerated, 1 saat), CounterName yüzdebirlik (Ort, 70) = | Belirli bir bilgisayar için her % yüzde sayacın saatlik 70 yüzdebirlik |
 | Perf &#124; CounterName burada "% işlemci zamanı" ve InstanceName == "_Toplam" ve bilgisayar == "Bilgisayarım" == &#124; ["min(CounterValue)"] özetlemek min(CounterValue), = ["avg(CounterValue)"] avg(CounterValue), = ["percentile75(CounterValue)"] yüzdebirlik (Ort, 75), = ["max(CounterValue)"] max(CounterValue) bin (TimeGenerated, 1 saat), bilgisayar tarafından = |Saatlik ortalama, minimum, maksimum ve 75 yüzdebirlik CPU kullanımı belirli bir bilgisayar için |
-| Perf &#124; nerede ObjectName == "MSSQL$ INST2: veritabanları" ve InstanceName "ana" == | Adlandırılmış SQL Server örneğinden INST2 ana veritabanı için veritabanı performans nesnesinden tüm performans verileri.  
+| Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | Adlandırılmış SQL Server örneğinden INST2 ana veritabanı için veritabanı performans nesnesinden tüm performans verileri.  
 
 
 

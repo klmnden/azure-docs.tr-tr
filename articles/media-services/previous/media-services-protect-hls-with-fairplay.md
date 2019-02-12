@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 32f3f4fd3f4f299c9b084ab8604b56ea70e639a4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49b763cba505a3423b47e5a2601db53b8e47a5fe
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368243"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993988"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>HLS Apple FairPlay veya Microsoft PlayReady ile içerik koruma
 Azure Media Services dinamik olarak şu biçimlerden kullanarak HTTP canlı akışı (HLS) içeriğinizi şifrelemenizi sağlar:  
@@ -54,7 +54,7 @@ Media Services HLS ile FairPlay şifrelenmiş sunmak için ve FairPlay lisanslar
 
 Media Services anahtar teslim tarafında aşağıdakiler ayarlanmalıdır:
 
-  * **App Cert (AC)**: Bu özel anahtarı içeren bir .pfx dosyasıdır. Bu dosya oluşturur ve bir parola ile şifrelemek.
+  * **App Cert (AC)**: Bu özel anahtarı içeren .pfx dosyasıdır. Bu dosya oluşturur ve bir parola ile şifrelemek.
 
        Bir anahtar teslim ilkesini yapılandırırken, parola ve Base64 biçiminde .pfx dosyası sağlamanız gerekir.
 
@@ -69,11 +69,11 @@ Media Services anahtar teslim tarafında aşağıdakiler ayarlanmalıdır:
     3. Komut satırından aşağıdaki komutu çalıştırın. Bu .pem dosyası özel anahtara sahip bir .pfx dosyasına dönüştürür. .Pfx dosyası için parolayı ardından OpenSSL tarafından istenir.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-dışarı aktarma - FairPlay out.pfx-inkey privatekey.pem-FairPlay out.pem - passin file:privatekey-pem-pass.txt içinde
-  * **App Cert parola**: .pfx dosyasını oluşturmak için parola.
-  * **App Cert parola kimliği**: parola, bunlar diğer Media Services anahtarları nasıl yüklemek için benzer yüklemeniz gerekir. Kullanım **ContentKeyType.FairPlayPfxPassword** medya Hizmetleri Kimliği almak için sabit listesi değeri Anahtar teslim İlkesi seçeneği kullanmak gereksinim duydukları şeyleri budur.
-  * **IV**: 16 bayt rastgele bir değer budur. Varlık teslim ilkesini de IV ile eşleşmesi gerekir. IV oluşturma ve her iki yerde de yerleştirin: Varlık teslim ilkesini ve anahtar teslim İlkesi seçeneği.
-  * **SORUN**: Apple Geliştirici Portalı'nı kullanarak sertifika oluşturduğunuzda bu anahtarı alınır. Her geliştirme ekibi bir benzersiz ASK alır. ASK bir kopyasını kaydedin ve güvenli bir yerde saklayın. Daha sonra Media Services'e FairPlayAsk olarak ASK yapılandırmanız gerekir.
-  * **SORUN kimliği**: Media Services'e ASK karşıya yüklediğinizde bu kimliği elde edilir. ASK kullanarak yüklemelisiniz **ContentKeyType.FairPlayAsk** enum değeri. Sonuç olarak, medya Hizmetleri kimliği döndürülür ve ne anahtar teslim İlkesi seçeneği ayarlarken kullanılması gereken budur.
+  * **App Cert parola**: .Pfx dosyasını oluşturmak için parola.
+  * **App Cert parola kimliği**: Parola, bunlar diğer Media Services anahtarları nasıl yüklemek için benzer yüklemeniz gerekir. Kullanım **ContentKeyType.FairPlayPfxPassword** medya Hizmetleri Kimliği almak için sabit listesi değeri Anahtar teslim İlkesi seçeneği kullanmak gereksinim duydukları şeyleri budur.
+  * **IV**: Bu, 16 bayt rastgele bir değerdir. Varlık teslim ilkesini de IV ile eşleşmesi gerekir. IV oluşturma ve her iki yerde de yerleştirin: Varlık teslim ilkesini ve anahtar teslim İlkesi seçeneği.
+  * **SORUN**: Apple Geliştirici Portalı'nı kullanarak sertifika oluşturduğunuzda, bu anahtarı alınır. Her geliştirme ekibi bir benzersiz ASK alır. ASK bir kopyasını kaydedin ve güvenli bir yerde saklayın. Daha sonra Media Services'e FairPlayAsk olarak ASK yapılandırmanız gerekir.
+  * **SORUN KİMLİĞİ**: Media Services'e ASK karşıya yüklediğinizde bu kimliği elde edilir. ASK kullanarak yüklemelisiniz **ContentKeyType.FairPlayAsk** enum değeri. Sonuç olarak, medya Hizmetleri kimliği döndürülür ve ne anahtar teslim İlkesi seçeneği ayarlarken kullanılması gereken budur.
 
 FPS istemci tarafından aşağıdakiler ayarlanmalıdır:
 
@@ -138,7 +138,7 @@ Aşağıdaki maddeler geçerlidir:
 * Şifreleme türünün yalnızca varlık için bir şifreleme uygulandı URL'nin belirtilmesi gerekmez.
 * Şifreleme türü büyük küçük harfe duyarlı değil.
 * Aşağıdaki şifreleme türlerini belirtilebilir:  
-  * **cenc**: ortak şifreleme (PlayReady veya Widevine)
+  * **cenc**:  Ortak şifreleme (PlayReady veya Widevine)
   * **cbcs-aapl**: FairPlay
   * **CBC**: AES zarfı şifreleme
 

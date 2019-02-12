@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: jdial
-ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e145642a12db941d52c55081032e247b6d65d38b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488103"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997339"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
@@ -71,7 +71,7 @@ SKU'ların kullanıma sunulmasından önce oluşturulan tüm genel IP adresleri 
 Standart SKU genel IP adresleri:
 
 - Her zaman statik ayırma yöntemini kullanın.
-- Bir Mimarın gelen kaynaklı ve giden orginated akış boşta kalma zaman aşımı 66 4 dakikalık 4 dakikalık varsayılan vardır.
+- Bir Mimarın gelen kaynaklı ve giden orginated akış boşta kalma zaman aşımı 4-30 dakika, varsayılan değer 4 dakikalık vardır.
 - Varsayılan olarak güvenlidir ve gelen trafiğe kapalıdır. İzin verilen trafiği bir [ağ güvenlik grubu](security-overview.md#network-security-groups) ile özellikle beyaz listeye almanız gerekir.
 - Ağ arabirimleri, ortak standart Load Balancer, uygulama ağ geçitleri veya VPN ağ geçitleri için atanmış. Standard Load Balancer hakkında daha fazla bilgi için bkz: [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - (Bir belirli bir kullanılabilirlik alanı'nda, Bölgesel ve kesin oluşturulabilir) bölge yedekli varsayılan ve isteğe bağlı olarak bölgesel. Kullanılabilirlik alanları hakkında daha fazla bilgi için bkz. [Kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Standart Yük Dengeleyici ve Kullanılabilirlik Alanları](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

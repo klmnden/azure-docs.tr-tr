@@ -13,34 +13,36 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 48f1789d4909a1c3af9e9ca01d0b9d0a8e6e09f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: aac58cc0887c566c7377edf08f5a86e2d12cdf28
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299649"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993250"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure yönetim çözümlerine için veri koleksiyonu ayrıntıları
-Bu makalede bir listesini içerir [yönetim çözümleri](solutions.md) kullanımına Microsoft gelen bağlantılarla ilgili ayrıntılı belgelere.  Ayrıca kendi yöntemi ve Log Analytics ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. 
+Bu makalede bir listesini içerir [yönetim çözümleri](solutions.md) kullanımına Microsoft gelen bağlantılarla ilgili ayrıntılı belgelere.  Ayrıca kendi yöntemi ve Azure İzleyici ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="list-of-management-solutions"></a>Yönetim çözümleri listesi
 
-Aşağıdaki tabloda [yönetim çözümleri](solutions.md) Microsoft tarafından sağlanan Azure. Çözüm, Log Analytics'e veri toplar sütununda bir girişe bu yöntemi kullanmak anlamına gelir.  Seçili sütun yok bir çözümü varsa, ardından bunu doğrudan Log Analytics'e başka bir Azure hizmet yazar. Daha fazla bilgi için ayrıntılı belgelere her biri için bağlantıyı izleyin.
+Aşağıdaki tabloda [yönetim çözümleri](solutions.md) Microsoft tarafından sağlanan Azure. Çözüm, Azure İzleyici ile veri toplar sütununda bir girişe bu yöntemi kullanmak anlamına gelir.  Seçili sütun yok bir çözümü varsa, ardından, doğrudan Azure İzleyici için başka bir Azure hizmet yazar. Daha fazla bilgi için ayrıntılı belgelere her biri için bağlantıyı izleyin.
 
 Sütunların açıklamaları aşağıdaki gibidir:
 
-- **Microsoft İzleme Aracısı** -aracı Yönetim Paketi SCOM ve yönetim çözümleri azure'dan çalıştırılacağı Windows ve Linux üzerinde kullanılan. Bu yapılandırmada, bir Operations Manager yönetim grubuna bağlı olmadan doğrudan Log Analytics'e aracı bağlandı. 
-- **Operations Manager** -Microsoft monitoring agent olarak aynı aracı. Bu yapılandırmada bulunan [bir Operations Manager yönetim grubuna bağlı](../../azure-monitor/platform/om-agents.md) Log Analytics'e bağlı. 
+- **Microsoft İzleme Aracısı** -aracı Yönetim Paketi SCOM ve yönetim çözümleri azure'dan çalıştırılacağı Windows ve Linux üzerinde kullanılan. Bu yapılandırmada, bir Operations Manager yönetim grubuna bağlı olmadan doğrudan Azure İzleyici aracı bağlandı. 
+- **Operations Manager** -Microsoft monitoring agent olarak aynı aracı. Bu yapılandırmada bulunan [bir Operations Manager yönetim grubuna bağlı](../../azure-monitor/platform/om-agents.md) Azure İzleyicisi'ne bağlı. 
 -  **Azure depolama** -çözüm, bir Azure depolama hesabından veri toplar. 
 - **Operations Manager gerekli?** Bağlı Operations Manager yönetim grubu için veri toplama yönetim çözümü tarafından gereklidir. 
-- **Operations Manager aracısı veri yönetim grubu gönderilen** - aracı [bir SCOM yönetim grubuna bağlı](../../azure-monitor/platform/om-agents.md), ardından veri yönetim sunucusundaki verileri Log Analytics'e gönderilir. Bu durumda, aracıyı doğrudan Log Analytics'e bağlama gerekmez. Bu kutusu seçili değilse, aracı bir SCOM yönetim grubuna bağlı olsa bile ardından veriler Aracıdan doğrudan Log Analytics'e gönderilir. Log analytics'e iletişim kurabilmesi gerekir [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
+- **Operations Manager aracısı veri yönetim grubu gönderilen** - aracı [bir SCOM yönetim grubuna bağlı](../../azure-monitor/platform/om-agents.md), ardından veri için Azure İzleyici, yönetim sunucusundan gönderilir. Bu durumda, aracıyı doğrudan Azure İzleyicisi ile bağlantı gerekmez. Bu kutusu seçili değilse, aracı bir SCOM yönetim grubuna bağlı olsa bile ardından veriler Aracıdan doğrudan Azure İzleyici gönderilir. Azure İzleyicisi iletişim kurabilmesi gerekir [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
 - **Toplama sıklığı** -sıklığı belirtir verileri yönetim çözümü tarafından toplanır. 
 
 
 
 | **Yönetim çözümü** | **Platform** | **Microsoft İzleme Aracısı** | **Operations Manager Aracısı** | **Azure depolama alanı** | **Operations Manager gerekli?** | **Operations Manager aracısı veri yönetim grubu gönderilir.** | **Toplama sıklığı** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | bildirim |
+| [Etkinlik günlüğü analizi](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | bildirim |
 | [AD Değerlendirmesi](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 gün |
 | [AD Çoğaltma Durumu](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 gün |
 | [Aracı Durumu](solution-agenthealth.md) | Windows ve Linux | &#8226; | &#8226; | | | &#8226; | 1 dakika |

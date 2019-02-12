@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: c97fd915e9022171125c7c0f687413e433f82871
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d601425ee5641c1bb07c47dcc0f9a1d94ff3dc87
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983854"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990386"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma
 Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz için öznitelik eşlemelerini türdeki bir ifade eşleme biridir. Bu, kullanıcılarınızın verileri fazla SaaS uygulaması için kabul edilebilir biçimlere dönüştürme olanak tanıyan bir betik gibi ifade yazmanız gerekir.
@@ -37,7 +37,7 @@ Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz i
 * Dize sabitleri için bir ters eğik çizgi (\) veya tırnak işareti (") dizedeki gerekiyorsa, eğik çizgi (\) simgesiyle kaçınılmalıdır. Örneğin: "Şirket adı: \\"Contoso\\" "
 
 ## <a name="list-of-functions"></a>İşlevlerin listesi
-[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılın](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [değiştirin](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Anahtar](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılın](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [değiştirin](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Bölünmüş](#split) &nbsp; &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [anahtar](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Ekle
@@ -128,7 +128,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 
 * Zaman **oldValue** ve **replacementValue** sağlanır:
   
-  * Tüm oluşumlarını değiştirir **oldValue** içinde **kaynak** ile *replacementValue**
+  * İle replacementValue oldValue kaynaktaki tüm oluşumlarını değiştirir
 * Zaman **oldValue** ve **şablon** sağlanır:
   
   * Tüm oluşumlarını değiştirir **oldValue** içinde **şablon** ile **kaynak** değeri
@@ -183,6 +183,19 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | **[appRoleAssignments]** |Gerekli |Dize |**[appRoleAssignments]**  nesne. |
 
 - - -
+### <a name="split"></a>Böl
+**İşlev:**<br> Böl (kaynağı, sınırlayıcı)
+
+**Açıklama:**<br> Belirtilen sınırlayıcı karakteri kullanarak bir mulit değerli diziye, bir dizeyi böler.
+
+**Parametreler:**<br> 
+
+| Ad | Gerekli / yinelenen | Tür | Notlar |
+| --- | --- | --- | --- |
+| **Kaynak** |Gerekli |Dize |**Kaynak** güncelleştirmek için değer. |
+| **Sınırlayıcı** |Gerekli |String |Dizeyi bölmek için kullanılan karakteri belirtir (örnek: ",") |
+
+- - -
 ### <a name="stripspaces"></a>StripSpaces
 **İşlev:**<br> StripSpaces(source)
 
@@ -219,7 +232,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
-| **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı. |
+| **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı |
 | **Kültür** |İsteğe bağlı |String |RFC 4646 üzerinde temel kültür adı biçimi *languagecode2-ülke/regioncode2*burada *languagecode2* iki harfli dil kodu ve *ülke/regioncode2*iki harfli alt koddur. Ja-JP Japonca (Japonya) ve en-US için İngilizce (ABD) için verilebilir. Burada iki harfli dil kodunu kullanılabilir olmadığı durumlarda, ISO 639-2 ' türetilmiş bir üç harfli kod kullanılır.|
 
 - - -
@@ -282,8 +295,18 @@ NormalizeDiacritics([givenName])
 * **Giriş** (givenName): "Zoë"
 * **ÇIKIŞ**:  "Zoe"
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Belirli bir biçimde bir dize olarak çıkış tarihi
+### <a name="split-a-string-into-a-multi-valued-array"></a>Birden çok değerli bir diziye bir dizeyi Böl
+Dizelerin virgülle ayrılmış bir listesini almak ve bunları bir Salesforce'nın PermissionSets öznitelik gibi birden çok değerli öznitelik takılı bir dizi bölün gerekir. Bu örnekte, Azure AD'de extensionAttribute5 içinde izin kümeleri listesini doldurulmadı.
 
+**İfade:** <br>
+Böl ([extensionAttribute5] ",")
+
+**Örnek giriş/çıkış:** <br>
+
+* **Giriş** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **Çıkış**: ["PermissionSetOne", "PermissionSetTwo"]
+
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Belirli bir biçimde bir dize olarak çıkış tarihi
 Belirli bir biçimdeki bir SaaS uygulamasına tarihleri göndermek istediğiniz. <br>
 Örneğin, tarihleri biçimlendirmek için ServiceNow istiyorsunuz.
 
@@ -302,7 +325,6 @@ Azure AD'de depolanan eyalet koduna göre kullanıcının saat dilimi tanımlama
 Önceden tanımlanmış seçeneklerden herhangi biri durum kodu eşleşmiyorsa, "Avustralya/Sidney" varsayılan değeri kullanın.
 
 **İfade:** <br>
-
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **Örnek giriş/çıkış:**
@@ -310,8 +332,19 @@ Azure AD'de depolanan eyalet koduna göre kullanıcının saat dilimi tanımlama
 * **Giriş** (durum): "QLD"
 * **ÇIKIŞ**: "Avustralya/Brisbane"
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Oluşturulan userPrincipalName (UPN) değeri küçük harfe Dönüştür
+### <a name="replace-characters-using-a-regular-expression"></a>Bir normal ifade kullanarak karakterler değiştirin
+Eşleşen bir normal ifade değeri ve bunları kaldırmak karakterler bulmak gerekir.
 
+**İfade:** <br>
+
+Değiştir ([mailNickname], "[a-zA-Z_] *", "",)
+
+**Örnek giriş/çıkış:**
+
+* **Giriş** (mailNickname: "john_doe72"
+* **ÇIKIŞ**: "72"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Oluşturulan userPrincipalName (UPN) değeri küçük harfe Dönüştür
 Aşağıdaki örnekte, UPN değerini PreferredFirstName ve PreferredLastName kaynak alanları ile birleştirerek oluşturulur ve tüm karakterleri küçük harfe dönüştürmek için oluşturulan dizesini ToLower işlevi çalışır. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -323,7 +356,6 @@ Aşağıdaki örnekte, UPN değerini PreferredFirstName ve PreferredLastName kay
 * **ÇIKIŞ**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>UserPrincipalName (UPN) özniteliği için benzersiz bir değer oluşturur
-
 Bağlı kullanıcının ilk adını, ikinci adı ve Soyadı, UPN özniteliği için değer atamadan önce hedef AD dizininde UPN özniteliği için bir değer ve kendi benzersizlik denetimi oluşturmanız gerekiyor.
 
 **İfade:** <br>
@@ -349,4 +381,3 @@ Bağlı kullanıcının ilk adını, ikinci adı ve Soyadı, UPN özniteliği i�
 * [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](use-scim-to-provision-users-and-groups.md)
 * [Hesap sağlama bildirimleri](user-provisioning.md)
 * [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)
-

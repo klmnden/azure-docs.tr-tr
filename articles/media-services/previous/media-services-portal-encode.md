@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 958c53108c024cb349922a1bd10b2cdc2dba41a3
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 90a94612248dead5b57ebff67562dda083d8669f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247291"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996143"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Azure portalında Media Encoder Standard kullanarak bir varlığı kodlama
 
@@ -28,7 +28,7 @@ ms.locfileid: "50247291"
 > 
 > 
 
-Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri bit hızı Uyarlamalı akış istemcilerinize sağlıyor. Media Services, aşağıdaki hızı Uyarlamalı akış teknolojilerini destekler: Apple HTTP canlı akış (HLS), Microsoft kesintisiz akış ve Dynamic Adaptive Streaming http (DASH, MPEG-DASH olarak da bilinir). Videolarınızı Uyarlamalı bit hızı akışına hazırlamak için önce kaynak videonuzu Çoklu bit hızı dosyaları kodlayın. Videolarınızı kodlamak için Azure Medya Kodlayıcısı standart kullanabilirsiniz.  
+Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri bit hızı Uyarlamalı akış istemcilerinize sağlıyor. Media Services şu hızı Uyarlamalı akış teknolojilerini destekler: Apple HTTP canlı akış (HLS), Microsoft kesintisiz akış ve Dynamic Adaptive Streaming http (DASH, ayrıca çağrılan MPEG-DASH). Videolarınızı Uyarlamalı bit hızı akışına hazırlamak için önce kaynak videonuzu Çoklu bit hızı dosyaları kodlayın. Videolarınızı kodlamak için Azure Medya Kodlayıcısı standart kullanabilirsiniz.  
 
 Media Services dinamik paketleme olanağı sağlar. Dinamik paketleme ile bu akış biçimlerine yeniden paketleme olmadan, Çoklu bit hızına sahip MP4 HLS, kesintisiz akış ve MPEG-DASH teslim edebilirsiniz. Dinamik paketleme kullandığınızda, depolayın ve tek bir depolama biçimindeki dosyaları için ödeme yaparsınız. Media Services istemci isteğe göre uygun yanıtı derler ve sunar.
 

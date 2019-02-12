@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 3f01d5342fbeeb5cb5e19af63a0dd91128778859
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7358f259d4c38157a203369e9eadae28710f4290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823241"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993716"
 ---
-# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>İş Akışı Tasarımcısı ile Gelişmiş Kodlama İş Akışları Oluşturma
+# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>İş Akışı Tasarımcısı ile Gelişmiş Kodlama İş Akışları Oluşturma  
 ## <a name="overview"></a>Genel Bakış
 **İş akışı Tasarımcısı** tasarım ve kodlama ile için özel iş akışlarını oluşturmak için kullanılan bir Windows Masaüstü aracı olan **Media Encoder Premium iş akışı**.
 İş Akışı Tasarımcısı araç gücünü kullanarak, tasarım ve çalışacak karmaşık iş akışları oluşturmak **Medya Kodlayıcısı Premium**.  

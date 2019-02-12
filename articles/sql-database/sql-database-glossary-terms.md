@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d773d270b3b352bcaef189d201d824695b42bcef
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980151"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990079"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL veritabanı terimler sözlüğü
 
@@ -30,7 +30,7 @@ ms.locfileid: "55980151"
 |Sunucu nesneleri|SQL veritabanı sunucusu veya veritabanı sunucusu|[Veritabanı sunucusu](sql-database-servers.md)|
 ||SQL veritabanı yönetilen örnek sunucusu, yönetilen örnek sunucusu veya server örneği|[Yönetilen örnek](sql-database-managed-instance.md)|
 Veritabanı nesneleri|Azure SQL veritabanı|Azure SQL veritabanı'nda herhangi bir veritabanı|
-||Tek veritabanı|Tek veritabanı dağıtım seçeneğini kullanarak tek başına veritabanı oluşturulmuş bir veritabanı|
+||Tek veritabanı|Tek veritabanı dağıtım seçeneği kullanılarak oluşturulmuş bir veritabanı|
 ||Havuza veritabanı|Bir veritabanı içinde oluşturulan veya esnek havuza taşındı|
 ||Örnek veritabanı|Yönetilen örnek içinde oluşturulmuş bir veritabanı|
 ||Temel veritabanı|Bir veritabanı içinde oluşturulan veya DTU tabanlı satın alma modeli temel hizmet katmanına taşınan|
@@ -39,7 +39,7 @@ Veritabanı nesneleri|Azure SQL veritabanı|Azure SQL veritabanı'nda herhangi b
 ||Genel amaçlı veritabanı|Bir veritabanı içinde oluşturulan veya genel amaçlı sanal çekirdek tabanlı satın alma modeli hizmet katmanına taşınan|
 ||Hiper ölçekli veritabanı|Bir veritabanı içinde oluşturulan veya sanal çekirdek tabanlı satın alma modeli hiper ölçekli hizmet katmanına taşınan|
 ||İş kritik veritabanı|Bir veritabanı içinde oluşturulan veya sanal çekirdek tabanlı satın alma modeli iş kritik hizmet katmanına taşınan|
-|[Satın alma modelleri ve kaynakları](sql-database-service-tiers.md)|DTU tabanlı satın alma modeli|[DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)|
+|[Satın alma modelleri ve kaynakları](sql-database-purchase-models.md)|DTU tabanlı satın alma modeli|[DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)|
 ||Sanal çekirdek tabanlı satın alma modeli|[Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md)|
 ||Sanal Çekirdek|Konuk işletim sistemi hiper yönetici tarafından sağlanan bir çekirdek.|
 ||Hizmet katmanı|Bir hizmet satın alma modeli içinde düzeyini|

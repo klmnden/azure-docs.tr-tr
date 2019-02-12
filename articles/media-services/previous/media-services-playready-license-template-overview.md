@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 780fa37351ec590beff6fd2d9e80ec8f22afa84d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6e5e8597ef5f080f557e40d9f053f13daee1ffd0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228513"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989364"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady lisans şablonuna genel bakış
 Azure Media Services PlayReady lisans sunma için bir hizmet artık sağlar. Oyuncu (örneğin, Silverlight) PlayReady korumalı içeriğinizi oynatma çalıştığında, bir lisans almak için bir istek için lisans teslimat hizmetinin gönderilir. Lisans hizmeti isteği onaylarsa, istemciye gönderilen ve şifresini çözmek ve belirtilen içeriğin yürütmek için kullanılan lisans verir.
@@ -66,7 +66,7 @@ Media Services PlayReady lisans şablonları yapılandırmak için kullanılan a
 [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) sınıfı için ve Media Services lisans şablonu XML seri hale getrime ve için kullanılır.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx): Bu sınıf şablonu kullanıcıya geri gönderilen yanıtı temsil eder. Lisans sunucusu ve (özel uygulama mantığını için yararlı olabilir) uygulama arasında bir özel verileri dize için bir alan içeriyor. Ayrıca, bir veya daha fazla lisans şablonlarının bir listesini içerir.
+[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx): Bu sınıf, kullanıcıya geri gönderilen yanıtta şablonu temsil eder. Lisans sunucusu ve (özel uygulama mantığını için yararlı olabilir) uygulama arasında bir özel verileri dize için bir alan içeriyor. Ayrıca, bir veya daha fazla lisans şablonlarının bir listesini içerir.
 
 Şablon hiyerarşideki "üst düzey" sınıf olarak yanıt şablon lisans şablonlarının bir listesini içerir. Lisans şablonları (doğrudan veya dolaylı olarak) içerir. şablon verileri seri hale yapmak diğer tüm sınıflar.
 

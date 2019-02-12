@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 5ddee0ca94535688a0634ef8575f3aedad649a43
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a863915ceef437957170d87ac4cc452d651a8dab
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037507"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994965"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>.NET ile Media Services iş bildirimlerini izlemek için Azure kuyruk depolama kullanma
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>Media Services .NET (eski) ile iş bildirimlerini izlemek için Azure kuyruk depolama kullanma
+
 Kodlama işi çalıştırdığınızda, işin ilerleme durumunu izlemek için bir yol genellikle gerektirir. Media Services'ı için bildirimleri göndermeyi yapılandırabilirsiniz [Azure kuyruk depolama](../../storage/storage-dotnet-how-to-use-queues.md). Kuyruk Depolama'yı bildirim alarak, işin ilerleme durumunu izleyebilirsiniz. 
 
 Mesajlar için kuyruk depolama alanından herhangi bir dünyada erişilebilir. Kuyruk depolama Mesajlaşma mimarisi, güvenilir ve yüksek düzeyde ölçeklenebilir. Kuyruk depolama iletiler için yoklama diğer yöntemleri kullanmayı üzerinden önerilir.
@@ -338,7 +339,7 @@ namespace JobNotification
 }
 ```
 
-Yukarıdaki örnek aşağıdaki çıktıyı üretilen: değerlerinize göre değişir.
+Yukarıdaki örnek aşağıdaki çıktıyı üretilen: Değerlerinize göre değişir.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

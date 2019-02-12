@@ -1,10 +1,10 @@
 ---
 title: Media Services varlıklar - Azure bilgisayarınıza | Microsoft Docs
-description: Varlıklar bilgisayarınıza karşıdan yüklemek üzere öğrenin. Kod örnekleri, C# dilinde yazılmıştır ve .NET için Media Services SDK'sını kullanın.
+description: İlgili varlıklar bilgisayarınıza indirmek öğrenin. İçinde yazılan kod örneklerini C# ve .NET için Media Services SDK'sını kullanın.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed53fe191dcf740f949b2d9cdcc3c97e30d85544
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 798c7e4b5efa3ca016f5e1b7e5c0967599fa6436
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788231"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993121"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Nasıl yapılır: bir varlık indirme tarafından teslim
-Bu makalede medya varlıklar Media Services'e teslim etmek için seçenekleri açıklar. Medya Hizmetleri içerik çok sayıda uygulama senaryolarında sunabilir. Kodlama sonra oluşturulan ortam varlıkları indirin veya akış Bulucusu kullanarak erişim. Bir içerik teslim ağı (CDN) kullanarak, Gelişmiş performans ve ölçeklenebilirlik için içerik sunabilir.
+# <a name="how-to-deliver-an-asset-by-download"></a>Nasıl yapılır: Bir varlık indirme ile teslim etme  
+Bu makalede, medya varlıklar Media Services'e sunmaya yönelik seçenekler açıklanmaktadır. Çok sayıda uygulama senaryolarında Media Services içerik teslim edebilirsiniz. Kodlama sonra oluşturulan medya varlıkları veya akış Bulucusu kullanarak erişebilir. Bir içerik teslim ağı (CDN) kullanarak, Gelişmiş performans ve ölçeklenebilirlik için içerik sunabilirsiniz.
 
-Bu örnek, medya varlıklar Media Services'den yerel bilgisayarınıza indirin gösterilmektedir. İş kimliği ve erişim tarafından Media Services hesabınızla ilişkili işleri kodu sorgular kendi **OutputMediaAssets** (bir işi çalışmasını sonuçlanır bir veya daha fazla çıkış ortam varlıkları kümesi olan) koleksiyon. Bu örnek bir işinden çıkış ortam varlıkları indirmek nasıl gösterir, ancak diğer varlıklar indirmek için aynı yaklaşımı uygulayabilirsiniz.
+Bu örnekte, medya varlıkları Media Services'den yerel bilgisayarınıza indirmek gösterilmektedir. İş kimliği ve erişim ile Media Services hesabıyla ilişkili işleri kod sorgular, **OutputMediaAssets** (olan bir işin çalıştırılmasının sonuçlarını kümesi bir veya daha fazla çıkış medya varlıklarının) koleksiyonu. Bu örnek, bir işten Çıkış medya varlıklarının indirmek gösterilmektedir, ancak diğer varlıklar indirmek için aynı yaklaşımı uygulayabilirsiniz.
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Aynı gün / erişim izinleri, örneğin, ilkeleri kalmasına yerinde uzun bir süre (karşıya yükleme olmayan ilkeleri) yöneliktir bulucular için her zaman aynı ilke kimliği kullanın. Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Aynı günleri / erişim izinlerini, örneğin, ilkeleri kalmasına yerinde uzun bir süredir (karşıya yükleme olmayan ilkeler) yöneliktir bulucular için her zaman aynı ilke Kimliğini kullanın. Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 
 ```csharp
     // Download the output asset of the specified job to a local folder.
@@ -88,5 +88,5 @@ Bu örnek, medya varlıklar Media Services'den yerel bilgisayarınıza indirin g
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-[Akış içerik dağıtımı](media-services-deliver-streaming-content.md)
+[İçerik akışı sağlama](media-services-deliver-streaming-content.md)
 

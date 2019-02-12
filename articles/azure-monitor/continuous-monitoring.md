@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fdccb4e94d9b9fd8b698575c890efad56a115a3e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452828"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994032"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Sürekli Azure İzleyici ile izleme
 
@@ -64,7 +64,7 @@ Sürekli Tümleştirme / sürekli dağıtım sayesinde otomatik olarak tümleşt
 
 - Kullanım [Azure işlem hatları](/azure/devops/pipelines) sürekli dağıtımı uygulamak ve, kod tamamlama kadar tüm süreci, CI/CD testleri temel üretime otomatikleştirmek için.
 - Kullanım [kalite kapıları](/azure/devops/pipelines/release/approvals/gates) , dağıtım öncesi veya dağıtım sonrası izleme tümleştirmek için. Bu, temel sistem durumu/performans ölçümlerini (KPI'ler) uygulamalarınızı, üretim ve farkları altyapı ortamında geliştirme taşıdığınızda veya ölçek olumsuz Kpı'lerinizi etkileyen değil ulaşmanızı sağlar.
-- [Ayrı izleme örnekleri korumak](../azure-monitor/app/separate-resources.md) , geliştirme, Test, Kanarya ve üretim gibi farklı dağıtım ortamları arasında. Bu, toplanan veriler ilişkili uygulama ve altyapı arasında uygun olmasını sağlar. Ortamlar arasında verilerin bağıntısını gerekiyorsa, kullanabileceğiniz [ölçüm Gezgini'nde birden çok kaynak grafikleri](../azure-monitor/platform/metrics-charts.md) veya oluşturma [kaynaklar arası sorgular Log analytics'te](log-query/cross-workspace-query.md).
+- [Ayrı izleme örnekleri korumak](../azure-monitor/app/separate-resources.md) , geliştirme, Test, Kanarya ve üretim gibi farklı dağıtım ortamları arasında. Bu, toplanan veriler ilişkili uygulama ve altyapı arasında uygun olmasını sağlar. Ortamlar arasında verilerin bağıntısını gerekiyorsa, kullanabileceğiniz [ölçüm Gezgini'nde birden çok kaynak grafikleri](../azure-monitor/platform/metrics-charts.md) veya oluşturma [Azure İzleyici'de kaynaklar arası sorgular](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Eyleme dönüştürülebilir uyarı eylemleri ile oluşturma

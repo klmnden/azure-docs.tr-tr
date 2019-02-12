@@ -1,59 +1,71 @@
 ---
 title: İstek birimleri ve Azure Cosmos DB'de aktarım hızı
-description: Nasıl belirtileceği hakkında bilgi edinin ve Azure Cosmos DB'de istek birimi gereksinimlerini tahmin etme
+description: Belirtin ve Azure Cosmos DB'de istek birimi gereksinimlerini tahmin etme hakkında bilgi edinin
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: rimman
-ms.openlocfilehash: dd9fb81b37627518af1375aa9876e6c509b917c9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 3801c19fbef70bf5d67670c4d9acc950291853e6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033936"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990164"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>İstek birimi olarak Azure Cosmos DB'de
+# <a name="request-units-in-azure-cosmos-db"></a>İstek birimleri Azure cosmos DB
 
-Azure Cosmos DB ile aktarım hızı için kullandığınız sağlama ve saatlik olarak tükettiğiniz depolama ödeme yaparsınız. Yeterli sistem kaynaklarına her zaman karşıladığında veya Azure Cosmos DB SLA'sı için Azure Cosmos veritabanı için kullanılabilir olmasını sağlamak için aktarım hızı sağlanmış olması gerekir.
+Azure Cosmos DB ile aktarım hızı için kullandığınız sağlama ve saatlik olarak tükettiğiniz depolama ödeme yaparsınız. Her zaman yeterli sistem kaynaklarına, Azure Cosmos veritabanı için kullanılabilir olmasını sağlamak için aktarım hızı sağlanmış olması gerekir. Azure Cosmos DB SLA karşıladığında veya yeterli kaynaklar ihtiyacınız vardır.
 
-Azure Cosmos DB API'leri (SQL, MongoDB, Cassandra, Gremlin ve tablo) çeşitli destekler. Her API, basit noktasından arasında değişen okur ve yazar karmaşık sorgular için kendi veritabanı işlemleri kümesine sahiptir. Her veritabanı işlemi, işlemi karmaşıklığına olarak sistem kaynaklarını tüketir.  Tüm veritabanı işlemlerinin maliyetini Azure Cosmos DB tarafından normalleştirilmiş ve istek birimi (RU) cinsinden ifade edilir. 1 istek birimi bir 1 KB'lik öğe okunacak maliyeti, (1 RU) ve 1 GB depolama alanı kullanmak için gereken en düşük RU 40. Diğer tüm veritabanı işlemleri, maliyet açısından RU benzer şekilde atanır. Azure Cosmos kapsayıcınızı ve veritabanı işlemi (okuma, yazma, sorgu) ile etkileşim kurmak için kullandığınız API bağımsız olarak, maliyetleri her zaman RU açısından ölçülür.
+Azure Cosmos DB SQL, MongoDB, Cassandra, Gremlin ve tablo gibi birçok API'leri destekler. Her API, kendi veritabanı işlemleri kümesine sahiptir. Bu işlem aralığı basit noktasından okur ve karmaşık sorgular için yazar. Her veritabanı işlemi, bir işlem karmaşıklığı sistem kaynaklarını tüketir. 
 
-RU/sn aktarım hızı için para birimi olarak düşünebilirsiniz. RU/sn Azure Cosmos DB tarafından desteklenen veritabanı işlemlerini gerçekleştirmek için gereken CPU, IOPS ve bellek gibi sistem kaynaklarının soyutlayan bir oranı tabanlı para birimidir. Aşağıdaki görüntüde, farklı bir veritabanı işlemleri tarafından kullanılan istek birimleri gösterir:
+Tüm veritabanı işlemlerinin maliyetini Azure Cosmos DB tarafından normalleştirilmiş ve istek birimi (RU) ifade edilir. Bir 1 KB'lik öğe okumak için 1 istek birimi (RU) maliyetidir. Diğer tüm veritabanı işlemleri, RU'ları kullanarak maliyet benzer şekilde atanır. Azure Cosmos kapsayıcınızı ile etkileşim kurmak için kullanın, API ne olursa olsun, maliyetleri her zaman RU'ları tarafından ölçülür. Veritabanı işlemi yazma olup okuma ya da sorgu maliyetleri her zaman RU ölçülür.
 
-![İstek birimleri veritabanı işlemleri kullanma](./media/request-units/request-units.png)
+RU aktarım hızı için para birimi olarak saniyede düşünebilirsiniz. RU / saniye oranı tabanlı bir para birimi olur. Bu, Azure Cosmos DB tarafından desteklenen veritabanı işlemlerini gerçekleştirmek için gereken CPU, IOPS ve bellek gibi sistem kaynaklarının soyutlar. Aşağıdaki görüntüde, farklı bir veritabanı işlemleri tarafından tüketilen RU miktarı gösterilmektedir:
 
-Kapasite planlama ve yönetmek için Azure Cosmos DB, RU sayısı için belirli bir veri kümesi üzerinde bir verilen veritabanı işlemi belirlenimci olmasını sağlar. Yanıt üst bilgisi inceleyerek herhangi bir veritabanı işlemi tarafından tüketilen RU sayısını takip edebilirsiniz. İstek birimi ücreti ve uygulamanızın aktarım hızı gereksinimleri etkileyen faktörler anladığınızda, uygulamanızı hesaplı bir şekilde çalıştırabilirsiniz.
+![İstek birimi veritabanı işlemleri kullanma](./media/request-units/request-units.png)
 
-Saatlik olarak faturalandırılır ancak RU sayısı 100 RU/sn artışlarla saniye başına temelinde uygulama için sağlama. Uygulamanız için sağlanan aktarım hızı ölçeklendirmek için artırabilir veya programlama yoluyla veya Azure portalını kullanarak herhangi bir zamanda (artırır veya azaltır 100 RU) cinsinden RU sayısını azaltın.
+Kapasite planlama ve yönetmek için Azure Cosmos DB, RU sayısı için belirli bir veri kümesi üzerinde bir verilen veritabanı işlemi belirlenimci olmasını sağlar. Herhangi bir veritabanı işlemi tarafından tüketilen RU sayısını izlemek için yanıt üst bilgisi inceleyin. RU ücretleri ve uygulamanızın aktarım hızı gereksinimleri etkileyen faktörler anladığınızda, uygulama maliyetinizi etkili bir şekilde çalıştırabilirsiniz.
+
+Saatlik olarak faturalandırılırsınız. Saniye başına temelinde halinde uygulamanız 100 RU / saniye için RU sayısını sağlayın. Uygulamanız için sağlanan aktarım hızı ölçeklendirmek için artırabilir veya herhangi bir zamanda RU sayısını azaltın. Artırır veya azaltır 100 RU değişikliklerinizi yapın. Değişikliklerinizi programlama yoluyla veya Azure portalını kullanarak yapabilirsiniz.
 
 Aktarım hızını iki farklı ayrıntı düzeylerinde sağlayabilirsiniz: 
 
-* **Kapsayıcıları**. Daha fazla bilgi için [nasıl bir Azure Cosmos kapsayıcısında aktarım hızını sağlamak.](how-to-provision-container-throughput.md)
-* **Veritabanları**. Daha fazla bilgi için [nasıl bir Azure Cosmos veritabanı aktarım hızını sağlamak.](how-to-provision-database-throughput.md)
+* **Kapsayıcıları**. Daha fazla bilgi için [bir Azure Cosmos kapsayıcısında aktarım hızını sağlama](how-to-provision-container-throughput.md).
+* **Veritabanları**. Daha fazla bilgi için [bir Azure Cosmos veritabanı sağlama aktarım hızını](how-to-provision-database-throughput.md).
 
 ## <a name="request-unit-considerations"></a>İstek birimi konuları
 
-RU/sn sayısı sağlamak için tahmini çalışırken, aşağıdaki faktörleri dikkate almak önemlidir:
+RU sayısını sağlamak için saniyede tahmin ederken aşağıdaki etmenleri dikkate alın:
 
-* **Öğe boyutunu** - bir öğe boyutu arttıkça, okumak veya öğeyi de artar yazmak için tüketilen RU sayısı.
+* **Öğe boyutunu**: Bir öğenin boyutu arttıkça, okuma veya yazma öğesi için tüketilen RU sayısı da artar.
 
-* **Öğe dizini oluşturma** -varsayılan olarak, her bir öğe otomatik olarak dizine alınır. Bir kapsayıcıda, öğelerin bazıları dizin kullanılamıyor seçerseniz istek birimi daha az tüketilir.
+* **Öğe dizini oluşturma**: Varsayılan olarak, her bir öğe otomatik olarak dizine alınır. Bir kapsayıcıda, öğelerin bazıları dizin kullanılamıyor seçerseniz, daha az RU tüketilir.
 
-* **Öğe özellik sayısı** -varsayılan dizinleme tüm özelliklerde varsayıldığında, RU sayısı bir öğe, öğe özelliği sayısı arttıkça artırır yazmak için kullanılan.
+* **Öğe özellik sayısı**: Varsayılan dizinleme tüm özelliklerde varsayıldığında, RU sayısını öğesi özellik sayısı arttıkça öğeyi artırır yazmak için kullanılan.
 
-* **Dizinli Özellikler** -her kapsayıcı bir dizin İlkesi hangi özellikleri varsayılan olarak dizinlenir belirler. Dizinli Özellikler sayısını sınırlayarak yazma işlemleri için istek birimi tüketimini azaltabilirsiniz.
+* **Dizin oluşturulmuş özellikleri**: Her kapsayıcı bir dizin İlkesi, hangi özellikleri varsayılan olarak dizinlenir belirler. Yazma işlemleri için RU kullanımını azaltmak için Dizinlenmiş özelliklerin sayısını sınırlayın.
 
-* **Veri tutarlılığı** -diğer tutarlılık düzeyleri rahat karşılaştırıldığında okuma işlemleri gerçekleştirilirken yaklaşık 2 kat daha fazla RU güçlü ve sınırlanmış eskime durumu tutarlılık düzeylerini kullanma.
+* **Veri tutarlılığı**: Güçlü ve sınırlanmış eskime durumu tutarlılık düzeyi, diğer tutarlılık düzeyleri rahat karşılaştırıldığında okuma işlemleri gerçekleştirilirken yaklaşık iki kat daha fazla RU tüketir.
 
-* **Sorgu desenleri** -kaç tane istek birimi bir işlem için kullanılan bir sorgu karmaşıklığı etkiler. Sorgu sonuçları, koşullar sayısı, koşullarına yapısını, kullanıcı tanımlı işlev sayısı, kaynak verilerin boyutu, sonucunun boyutuna sayısını ayarlayın ve projeksiyonları sorgu işlemlerinin maliyetini etkiler. Azure Cosmos DB, aynı sorgu aynı verileri her zaman aynı sayıda RU yineleme yürütmeleri üzerinde maliyet garanti eder.
+* **Sorgu desenleri**: Kaç tane RU bir işlem için kullanılan bir sorgu karmaşıklığı etkiler. Sorgu işlemlerinin maliyetini etkileyen faktörler aşağıda verilmiştir: 
+    
+    - Sorgu sonuç sayısı.
+    - Koşullar sayısı.
+    - Koşullarına yapısı.
+    - Kullanıcı tanımlı işlevleri sayısı.
+    - Kaynak verilerin boyutu.
+    - Sonuç kümesinin boyutu.
+    - Projeksiyonlar.
 
-* **Betik kullanımı** - gibi sorgularla, saklı yordamları ve Tetikleyicileri gerçekleştirilmekte olan işlemlerin kapsamına bağlı RU tüketir. Uygulamanızı geliştirirken, her bir işlemin tükettiği istek birimi kapasite ne kadar daha iyi anlamak için istek ücret üstbilgisi inceleyin.
+  Azure Cosmos DB, aynı sorgu aynı verileri her zaman aynı sayıda RU'ları üzerinde yinelenen yürütme maliyetlerini garanti eder.
+
+* **Betik kullanımı**: Sorgularla olduğu gibi saklı yordamları ve Tetikleyicileri üzerinde gerçekleştirilen işlemleri karmaşıklığına göre RU kullanır. Uygulamanızı geliştirirken, her işlem tüketir, RU kapasite için ne kadar daha iyi anlamak için istek ücret üstbilgisi inceleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Daha fazla bilgi edinin [Azure Cosmos kapsayıcılar ve veritabanları için sağlama aktarım hızı](set-throughput.md)
-* Daha fazla bilgi edinin [mantıksal bölümler](partition-data.md)
-* Daha fazla bilgi edinin [küresel olarak ölçekleme sağlanan aktarım hızı](scaling-throughput.md)
-* Bilgi [bir Azure Cosmos kapsayıcısında aktarım hızını sağlamasını yapma](how-to-provision-container-throughput.md)
-* Bilgi [bir Azure Cosmos veritabanı aktarım hızını sağlamasını yapma](how-to-provision-database-throughput.md)
+* Kullanma hakkında daha fazla bilgi edinin [Azure Cosmos kapsayıcılar ve veritabanları için sağlama aktarım hızı](set-throughput.md).
+* Daha fazla bilgi edinin [mantıksal bölümler](partition-data.md).
+* Kullanma hakkında daha fazla bilgi edinin [genel olarak sağlanan aktarım hızını ölçeklendirme](scaling-throughput.md).
+* Bilgi edinmek için nasıl [bir Azure Cosmos kapsayıcısında aktarım hızını sağlama](how-to-provision-container-throughput.md).
+* Bilgi edinmek için nasıl [bir Azure Cosmos veritabanı sağlama aktarım hızını](how-to-provision-database-throughput.md).

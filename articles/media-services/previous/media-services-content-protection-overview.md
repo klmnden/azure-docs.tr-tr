@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 89e28a9b70d078c3fe385225af305252ececefce
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3ac07b06e1cf7b5b24956c10e202f9baeab60b2b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249942"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992255"
 ---
-# <a name="content-protection-overview"></a>Content protection genel bakış
- Azure Media Services, depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdaki güvenliğini sağlamak için kullanabilirsiniz. Media Services sayesinde, Gelişmiş Şifreleme Standardı (AES-128) veya üç ana dijital hak yönetimi (DRM) sistemlerinden ile dinamik olarak şifrelenmiş canlı ve isteğe bağlı içerik teslim edebilirsiniz: Microsoft PlayReady ve Google Widevine Apple FairPlay. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere. 
+# <a name="content-protection-overview"></a>Content protection genel bakış 
+
+ Azure Media Services, depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdaki güvenliğini sağlamak için kullanabilirsiniz. Media Services sayesinde, Gelişmiş Şifreleme Standardı (AES-128) veya üç ana dijital hak yönetimi (DRM) sistemlerinden ile dinamik olarak şifrelenmiş canlı ve isteğe bağlı içerik teslim edebilirsiniz: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere. 
 
 Aşağıdaki resimde Media Services content protection iş akışı gösterilmektedir: 
 
@@ -80,9 +81,9 @@ Aşağıdaki maddeler geçerlidir:
 * Şifreleme türü yalnızca varlık için bir şifreleme uygulandı URL'nin belirtilmesi gerekmez.
 * Şifreleme türü büyük/küçük harfe duyarlıdır.
 * Aşağıdaki şifreleme türlerini belirtilebilir:
-  * **cenc**: için PlayReady veya Widevine (ortak şifreleme)
-  * **cbcs-aapl**: için FairPlay (AES-CBC şifreleme)
-  * **CBC**: için AES zarfı şifreleme
+  * **cenc**: PlayReady veya Widevine (ortak şifreleme)
+  * **cbcs-aapl**: HLS için FairPlay (AES-CBC şifreleme)
+  * **CBC**: AES zarfı şifreleme
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki makalelerde, content protection ile çalışmaya başlamanıza yardımcı olmak için sonraki adımlar açıklanmaktadır:

@@ -4,128 +4,125 @@ description: Azure Active Directory ve dmarcian arasında çoklu oturum açmayı
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a04b9383-3a60-4d54-9412-123daaddff3b
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/21/2018
+ms.topic: tutorial
+ms.date: 01/30/2019
 ms.author: jeedes
-ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 810214ee751de575b0f27e10f2cb93fa99ad7883
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095660"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993954"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Öğretici: Dmarcian ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile dmarcian tümleştirme konusunda bilgi edinin.
-
 Azure AD ile dmarcian tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Dmarcian erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanan için dmarcian (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Dmarcian erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) dmarcian için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile dmarcian yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik dmarcian çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik dmarcian çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden dmarcian ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* dmarcian destekler **SP** ve **IDP** tarafından başlatılan
 
 ## <a name="adding-dmarcian-from-the-gallery"></a>Galeriden dmarcian ekleme
+
 Azure AD'de dmarcian tümleştirmesini yapılandırmak için dmarcian Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden dmarcian eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar][2]
-    
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
 4. Arama kutusuna **dmarcian**seçin **dmarcian** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![sonuç listesinde dmarcian](./media/dmarcian-tutorial/tutorial_dmarcian_addfromgallery.png)
+     ![sonuç listesinde dmarcian](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı dmarcian sınayın.
-
-Tek iş için oturum açma için Azure AD ne dmarcian karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının dmarcian ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma dmarcian adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının dmarcian ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma dmarcian ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Dmarcian test kullanıcısı oluşturma](#create-a-dmarcian-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı dmarcian içinde bir karşılığı vardır.
+2. **[Çoklu oturum açma dmarcian yapılandırma](#configure-dmarcian-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+5. **[Dmarcian test kullanıcısı oluşturma](#create-dmarcian-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı dmarcian içinde bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve dmarcian uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile dmarcian yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile dmarcian yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **dmarcian** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **dmarcian** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/dmarcian-tutorial/tutorial_dmarcian_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-3. Üzerinde **dmarcian etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![dmarcian etki alanı ve URL'ler tek oturum açma bilgileri](./media/dmarcian-tutorial/tutorial_dmarcian_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
+
+4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
+
+    ![dmarcian etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
+
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın:
     | |
     | -- |
     | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
     | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
     | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
     | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
     | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
 
-4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-    ![dmarcian etki alanı ve URL'ler tek oturum açma bilgileri](./media/dmarcian-tutorial/tutorial_dmarcian_url1.png)
+    ![dmarcian etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
@@ -135,76 +132,93 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve d
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma, öğreticinin ilerleyen bölümlerinde açıklanan URL'si ile güncelleştirir. 
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
-    ![Sertifika indirme bağlantısı](./media/dmarcian-tutorial/tutorial_dmarcian_certificate.png) 
+    ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
 
-6. Tıklayın **Kaydet** düğmesi.
+### <a name="configure-dmarcian-single-sign-on"></a>Çoklu oturum açma dmarcian yapılandırın
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/dmarcian-tutorial/tutorial_general_400.png)
-    
-7. Farklı bir web tarayıcı penceresinde dmarcian için bir güvenlik yöneticisi olarak oturum açın.
+1. Farklı bir web tarayıcı penceresinde dmarcian için bir güvenlik yöneticisi olarak oturum açın.
 
-8. Tıklayarak **profili** sağ üst köşe ve gidin **tercihleri**.
+2. Tıklayarak **profili** üzerinde sağ üst köşe ve gidin **tercihleri**.
 
     ![Tercihleri ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
-9. Ekranı aşağı kaydırın ve tıklayarak **çoklu oturum açma** bölümüne ve ardından tıklayarak **yapılandırma**.
+3. Ekranı aşağı kaydırın ve tıklayarak **çoklu oturum açma** bölümüne ve ardından tıklayarak **yapılandırma**.
 
     ![Tek ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
-10. Üzerinde **SAML çoklu oturum açma** sayfasında kümesi **durumu** olarak **etkin** ve aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **SAML çoklu oturum açma** sayfasında kümesi **durumu** olarak **etkin** ve aşağıdaki adımları gerçekleştirin:
 
     ![Kimlik doğrulaması ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * Altında **kimlik sağlayıcınız dmarcian ekleme** bölümünde **kopyalama** kopyalamak için **onay belgesi tüketici hizmeti URL'si** örneğinizin yapıştırın  **Yanıt URL'si** metin kutusunda **dmarcian etki alanı ve URL'ler bölüm** Azure portalında.
+    * Altında **kimlik sağlayıcınız dmarcian ekleme** bölümünde **kopyalama** kopyalamak için **onay belgesi tüketici hizmeti URL'si** örneğinizin yapıştırın  **Yanıt URL'si** metin kutusunda **temel SAML yapılandırma bölümü** Azure portalında.
 
-    * Altında **kimlik sağlayıcınız dmarcian ekleme** bölümünde **kopyalama** kopyalamak için **varlık kimliği** örneğinizin yapıştırın ** Tanımlayıcı** metin kutusunda **dmarcian etki alanı ve URL'ler bölüm** Azure portalında.
+    * Altında **kimlik sağlayıcınız dmarcian ekleme** bölümünde **kopyalama** kopyalamak için **varlık kimliği** örneğinizin yapıştırın **tanımlayıcı**metin kutusunda **temel SAML yapılandırma bölümü** Azure portalında.
 
     * Altında **kimlik doğrulamasını ayarlama** bölümünde **kimlik sağlayıcısı meta verileri** textbox Yapıştır **uygulama Federasyon meta verileri URL'sini**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    * Altında **kimlik doğrulamasını ayarlama** bölümünde **özniteliği deyimleri** metin URL'sini yapıştırın `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    * Altında **kimlik doğrulamasını ayarlama** bölümünde **özniteliği deyimleri** metin URL'yi yapıştırın `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    * Altında **oturum açma URL'sini ayarlayın** bölümünde, kopya **oturum açma URL'si** örneğinizin yapıştırın **oturum açma URL'si** metin kutusunda **dmarcian etki alanı ve URL'ler bölüm** Azure portalında.
+    * Altında **oturum açma URL'sini ayarlayın** bölümünde, kopya **oturum açma URL'si** örneğinizin yapıştırın **oturum açma URL'si** metin kutusunda **temelSAMLyapılandırmabölümü** Azure portalında.
 
         > [!Note]
         > Değiştirebileceğiniz **oturum açma URL'si** kuruluşunuz göre.
 
     * **Kaydet**’e tıklayın.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/dmarcian-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/dmarcian-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alanına **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/dmarcian-tutorial/create_aaduser_03.png)
-
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/dmarcian-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="create-a-dmarcian-test-user"></a>Dmarcian test kullanıcısı oluşturma
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma dmarcian erişim vererek kullanmak Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **dmarcian**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **dmarcian**.
+
+    ![Uygulamalar listesinde dmarcian bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim kutusunda, tıklayın **atama** düğmesi.
+
+### <a name="create-dmarcian-test-user"></a>Dmarcian test kullanıcısı oluşturma
 
 Dmarcian için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların dmarcian sağlanması gerekir. Dmarcian içinde sağlama bir el ile gerçekleştirilen bir görevdir.
 
@@ -212,7 +226,7 @@ Dmarcian için oturum açmak Azure AD kullanıcılarının etkinleştirmek için
 
 1. Dmarcian için bir güvenlik yöneticisi olarak oturum açın.
 
-2. Tıklayarak **profili** sağ üst köşe ve gidin **Kullanıcıları Yönet**.
+2. Tıklayarak **profili** üst sağ köşedeki gidin **Kullanıcıları Yönet**.
 
     ![Kullanıcı ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
@@ -230,61 +244,17 @@ Dmarcian için oturum açmak Azure AD kullanıcılarının etkinleştirmek için
 
     c. Tıklayın **kullanıcı ekleme**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
-
-Bu bölümde, Azure çoklu oturum açma dmarcian erişim vererek kullanmak Britta Simon etkinleştirin.
-
-![Kullanıcı rolü atayın][200] 
-
-**Britta Simon dmarcian için atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
-
-2. Uygulamalar listesinde **dmarcian**.
-
-    ![Uygulamalar listesinde dmarcian bağlantı](./media/dmarcian-tutorial/tutorial_dmarcian_app.png)  
-
-3. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
-
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Atama Ekle bölmesi][203]
-
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde dmarcian kutucuğa tıkladığınızda, otomatik olarak dmarcian uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli dmarcian kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama dmarcian için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/dmarcian-tutorial/tutorial_general_01.png
-[2]: ./media/dmarcian-tutorial/tutorial_general_02.png
-[3]: ./media/dmarcian-tutorial/tutorial_general_03.png
-[4]: ./media/dmarcian-tutorial/tutorial_general_04.png
-
-[100]: ./media/dmarcian-tutorial/tutorial_general_100.png
-
-[200]: ./media/dmarcian-tutorial/tutorial_general_200.png
-[201]: ./media/dmarcian-tutorial/tutorial_general_201.png
-[202]: ./media/dmarcian-tutorial/tutorial_general_202.png
-[203]: ./media/dmarcian-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

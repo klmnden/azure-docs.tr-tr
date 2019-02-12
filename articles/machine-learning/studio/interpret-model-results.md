@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488552"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997014"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da model sonuçlarını yorumlama
 Bu konuda, görselleştirin ve Azure Machine Learning Studio'da tahmin sonuçlarını yorumlama açıklanmaktadır. Bir modeli eğitilir ve Öngörüler, ("modeli puanlanmış") üzerinde yapılan sonra anlamak ve yorumlamak tahmin sonuç gerekir.
@@ -74,7 +74,7 @@ Sonuçlar tablosunda altı sütunları vardır. Sol dört sütun dört özellikl
 
 **Web hizmet yayımlama**
 
-Tahmin sonuçlarını anladım ve ses materyali sonra deneme, çeşitli uygulamaları dağıtmak ve yeni bir süsen Çiçeği sınıfı tahminleri almak üzere çağrı bir web hizmeti olarak yayımlanabilir. Puanlama bir denemenin bir eğitim denemesini değiştirmek ve bir web hizmeti olarak yayımlama bilgi edinmek için [Azure Machine Learning web hizmeti yayımlama](walkthrough-5-publish-web-service.md). Bu yordam ile bir Puanlama deney, Şekil 3'te gösterildiği gibi sağlar.
+Tahmin sonuçlarını anladım ve ses materyali sonra deneme, çeşitli uygulamaları dağıtmak ve yeni bir süsen Çiçeği sınıfı tahminleri almak üzere çağrı bir web hizmeti olarak yayımlanabilir. Puanlama bir denemenin bir eğitim denemesini değiştirmek ve bir web hizmeti olarak yayımlama bilgi edinmek için [Tutorial 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md). Bu yordam ile bir Puanlama deney, Şekil 3'te gösterildiği gibi sağlar.
 
 ![Deneme Puanlama ekran görüntüsü](./media/interpret-model-results/3.png)
 

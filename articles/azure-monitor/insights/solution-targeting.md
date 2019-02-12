@@ -1,6 +1,6 @@
 ---
-title: Azure yönetim çözümlerine hedefleme | Microsoft Docs
-description: Yönetim çözümlerini hedefleyen yönetim çözümleri belirli bir aracılar kümesi sınırlamanıza olanak sağlar.  Bu makalede bir kapsam yapılandırması oluşturma ve bunu bir çözüm uygulayabilirsiniz.
+title: Azure İzleyici'de çözümlerini izleme hedefleme | Microsoft Docs
+description: İzleme çözümleri hedefleyen belirli bir aracılar kümesi için izleme çözümleri sınırlamanıza olanak sağlar.  Bu makalede bir kapsam yapılandırması oluşturma ve bunu bir çözüm uygulayabilirsiniz.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192762"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989194"
 ---
-# <a name="targeting-management-solutions-in-azure-preview"></a>(Önizleme) Azure yönetim çözümlerine hedefleme
-Aboneliğiniz için bir yönetim çözümü eklediğinizde, Log Analytics çalışma alanınıza bağlı tüm Windows ve Linux aracıları için varsayılan olarak otomatik olarak dağıtılır.  Maliyetlerinizi yönetin ve belirli bir aracılar kümesi için sınırlayarak bir çözüm için toplanan veri miktarını sınırlamak isteyebilirsiniz.  Bu makalede nasıl kullanılacağını **çözüm hedefleme** çözümlerinize bir kapsam uygulamanıza imkan sağlayan bir özelliği olan.
+# <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) hedefleme izleme çözümleri
+Aboneliğinize bir izleme çözümü eklediğinizde, Log Analytics çalışma alanınıza bağlı tüm Windows ve Linux aracıları için varsayılan olarak otomatik olarak dağıtılır.  Maliyetlerinizi yönetin ve belirli bir aracılar kümesi için sınırlayarak bir çözüm için toplanan veri miktarını sınırlamak isteyebilirsiniz.  Bu makalede nasıl kullanılacağını **çözüm hedefleme** çözümlerinize bir kapsam uygulamanıza imkan sağlayan bir özelliği olan.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="how-to-target-a-solution"></a>Nasıl bir çözümü hedeflemek için
 Aşağıdaki bölümlerde açıklandığı gibi bir çözüm hedefleme için üç adım vardır. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Bir bilgisayar grubu oluşturun
-Bir kapsamda oluşturarak dahil etmek istediğiniz bilgisayarları belirttiğiniz bir [bilgisayar grubu](../../azure-monitor/platform/computer-groups.md) Log analytics'te.  Bilgisayar grubunu bir günlük arama tabanlı veya Active Directory veya WSUS grupları gibi diğer kaynaklardan içeri aktarılabilir. Olarak [aşağıda açıklanan](#solutions-and-agents-that-cant-be-targeted), doğrudan Log Analytics'e bağlı olan bilgisayarları kapsamda dahil edilir.
+Bir kapsamda oluşturarak dahil etmek istediğiniz bilgisayarları belirttiğiniz bir [bilgisayar grubu](../platform/computer-groups.md) Azure İzleyici'de.  Bilgisayar grubu, bir günlük temelli veya Active Directory veya WSUS grupları gibi diğer kaynaklardan içeri aktarılabilir. Olarak [aşağıda açıklanan](#solutions-and-agents-that-cant-be-targeted), Azure İzleyici doğrudan bağlanan bilgisayarlar kapsamda dahil edilir.
 
 Bir veya daha fazla çözüm için uygulanabilir bir kapsam yapılandırmasında dahil sonra çalışma alanınızda oluşturduğunuz bilgisayar grubu olduğunda.
  
@@ -38,7 +40,7 @@ Bir veya daha fazla çözüm için uygulanabilir bir kapsam yapılandırmasında
  
  Aşağıdaki işlemi kullanarak bir kapsam yapılandırması oluşturun.  
 
- 1. Azure portalında gidin **Log Analytics** ve çalışma alanınızı seçin.
+ 1. Azure portalında gidin **Log Analytics çalışma alanları** ve çalışma alanınızı seçin.
  2. Çalışma alanı altında özelliklerinde **çalışma alanı veri kaynakları** seçin **kapsam yapılandırmaları**.
  3. Tıklayın **Ekle** yeni bir kapsam yapılandırması oluşturmak için.
  4. Tür a **adı** kapsam yapılandırması için.
@@ -52,7 +54,7 @@ Ardından kapsam yapılandırması aldıktan sonra bunu için bir veya daha fazl
 
 Aşağıdaki işlemi kullanarak bir kapsam yapılandırması uygulanır.  
 
- 1. Azure portalında gidin **Log Analytics** ve çalışma alanınızı seçin.
+ 1. Azure portalında gidin **Log Analytics çalışma alanları** ve çalışma alanınızı seçin.
  2. Çalışma alanı özelliklerini seçin **çözümleri**.
  3. Kapsama istediğiniz çözümü tıklayın.
  4. Çözüm için özelliklerde **çalışma alanı veri kaynakları** seçin **çözüm hedefleme**.  Seçenek kullanılabilir değilse, ardından [Bu çözüm hedeflenemez](#solutions-and-agents-that-cant-be-targeted).
@@ -65,7 +67,7 @@ Aracıları ve çözüm hedefleme ile kullanılamaz çözümleri ölçütlerini 
 
 - Çözüm hedefleme yalnızca aracılar için dağıtım çözümleri için geçerlidir.
 - Çözüm hedefleme yalnızca Microsoft tarafından sağlanan çözümleri için geçerlidir.  Çözümleri uygulanmaz [kendiniz veya iş ortakları tarafından oluşturulan](solutions-creating.md).
-- Yalnızca doğrudan Log Analytics'e bağlama aracıları filtreleyebilirsiniz.  Çözümler, bunlar bir kapsam yapılandırmasına dahil edilip edilmeyeceğini bağlı bir Operations Manager yönetim grubunun parçası olan tüm aracılara otomatik olarak dağıtır.
+- Yalnızca Azure İzleyicisi ile doğrudan bağlantı aracıları filtreleyebilirsiniz.  Çözümler, bunlar bir kapsam yapılandırmasına dahil edilip edilmeyeceğini bağlı bir Operations Manager yönetim grubunun parçası olan tüm aracılara otomatik olarak dağıtır.
 
 ### <a name="exceptions"></a>Özel durumlar
 Bunlar belirtilen ölçütlere uyan olsa bile çözüm hedefleme aşağıdaki çözümleri ile kullanılamaz.
@@ -73,5 +75,5 @@ Bunlar belirtilen ölçütlere uyan olsa bile çözüm hedefleme aşağıdaki ç
 - Aracı sistem durumu değerlendirmesi
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Ortamınızda yükleme kullanılabilir çözümleri dahil olmak üzere yönetim çözümleri hakkında daha fazla bilgi [çalışma alanınıza eklemek Azure Log Analytics yönetim çözümleri](solutions.md).
-- Bilgisayar grupları oluşturma hakkında daha fazla bilgi [bilgisayar grupları Log analytics'te günlük aramaları](../../azure-monitor/platform/computer-groups.md).
+- Ortamınızda yüklemek açık olan çözümler gibi çözümlerle izleme hakkında daha fazla [Azure günlük izleme çözümleri çalışma alanınıza Analytics](solutions.md).
+- Bilgisayar grupları oluşturma hakkında daha fazla bilgi [bilgisayar grupları Azure İzleyici'de oturum sorguları](../platform/computer-groups.md).

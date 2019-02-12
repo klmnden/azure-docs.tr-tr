@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 0c574aab722cdce91cd5a2569c14c4f1710483ed
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/08/2019
+ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965231"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995080"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Etkin coğrafi çoğaltmayı kullanarak okunabilir ikincil veritabanı oluşturma
 
@@ -102,7 +102,7 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **İkincil veritabanının yapılandırılabilir işlem boyutu**
 
-  Birincil ve ikincil veritabanları aynı hizmet katmanı için gereklidir. Aynı işlem boyutu (Dtu veya sanal çekirdekler) olarak birincil ile ikincil veritabanı oluşturulan de önemle tavsiye edilir. İkincil bir alt işlem boyutu ile olası olmadığından, ikincil bir artan çoğaltma gecikmesi'nin süresi, risk altındadır ve sonuç olarak bir yük devretme sonrasında önemli veri kaybı riski. Sonuç olarak, yayımlanan RPO = 5 sn olamaz garanti edilir. Diğer sorununa neden daha yüksek bir işlem boyutu için yükseltilene kadar yük devretmeden sonra uygulama performansını işlem kapasitesi yeni birincil eksikliği nedeniyle etkilenecek emin olur. Yükseltme süresini veritabanı boyutuna bağlıdır. Ayrıca, şu anda bu tür yükseltme birincil ve ikincil veritabanları çevrimiçi olduğundan ve bu nedenle, kesinti giderildikten kadar tamamlanamıyor, gerektirir. Alt işlem boyutu ile ikincil oluşturmaya karar verirseniz, Azure portalında günlük g/ç yüzdesi grafik ikincil çoğaltma yükü sürdürebilmek için gereken en düşük işlem boyutunu tahmin etmek için iyi bir yol sağlar. Örneğin, birincil veritabanınız P6 ise (1000 DTU) ve kendi günlük g/ç yüzdesi 50 ikincil en az olması gerekir % P4 (500 DTU). Kullanarak günlük GÇ veri de alabilirsiniz [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) veya [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) veritabanı görünümleri.  SQL veritabanı işlem boyutları hakkında daha fazla bilgi için bkz. [SQL veritabanı hizmet katmanları nelerdir](sql-database-service-tiers.md).
+  Birincil ve ikincil veritabanları aynı hizmet katmanı için gereklidir. Aynı işlem boyutu (Dtu veya sanal çekirdekler) olarak birincil ile ikincil veritabanı oluşturulan de önemle tavsiye edilir. İkincil bir alt işlem boyutu ile olası olmadığından, ikincil bir artan çoğaltma gecikmesi'nin süresi, risk altındadır ve sonuç olarak bir yük devretme sonrasında önemli veri kaybı riski. Sonuç olarak, yayımlanan RPO = 5 sn olamaz garanti edilir. Diğer sorununa neden daha yüksek bir işlem boyutu için yükseltilene kadar yük devretmeden sonra uygulama performansını işlem kapasitesi yeni birincil eksikliği nedeniyle etkilenecek emin olur. Yükseltme süresini veritabanı boyutuna bağlıdır. Ayrıca, şu anda bu tür yükseltme birincil ve ikincil veritabanları çevrimiçi olduğundan ve bu nedenle, kesinti giderildikten kadar tamamlanamıyor, gerektirir. Alt işlem boyutu ile ikincil oluşturmaya karar verirseniz, Azure portalında günlük g/ç yüzdesi grafik ikincil çoğaltma yükü sürdürebilmek için gereken en düşük işlem boyutunu tahmin etmek için iyi bir yol sağlar. Örneğin, birincil veritabanınız P6 ise (1000 DTU) ve kendi günlük g/ç yüzdesi 50 ikincil en az olması gerekir % P4 (500 DTU). Kullanarak günlük GÇ veri de alabilirsiniz [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) veya [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) veritabanı görünümleri.  SQL veritabanı işlem boyutları hakkında daha fazla bilgi için bkz. [SQL veritabanı hizmet katmanları nelerdir](sql-database-purchase-models.md).
 
 - **Kullanıcı tarafından denetlenen bir yük devretme ve yeniden çalışma**
 
@@ -130,7 +130,7 @@ Geniş alan ağları yüksek gecikme nedeniyle, sürekli kopyalama bir zaman uyu
 
 Daha önce açıklandığı gibi etkin coğrafi çoğaltma ayrıca Azure PowerShell ve REST API'sini kullanarak program aracılığıyla yönetilebilir. Aşağıdaki tabloda kullanılabilir komut kümesi açıklanmaktadır. Etkin coğrafi çoğaltma içeren bir Azure Resource Manager API'leri kümesi yönetimi için de dahil olmak üzere [Azure SQL veritabanı REST API](https://docs.microsoft.com/rest/api/sql/) ve [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/azure/overview). Bu API'ler, kaynak gruplarının kullanımı gerektirir ve rol tabanlı güvenlik (RBAC) desteği. Uygulama erişim rolleri hakkında daha fazla bilgi için bkz. [Azure rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: Yük devretme tek başına ve havuza alınmış veritabanlarını yönetme
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Yük devretme işlemlerini tek ve havuza alınmış veritabanlarını yönetme
 
 > [!IMPORTANT]
 > Yalnızca şu Transact-SQL komutlarını uygulamak için etkin coğrafi çoğaltma ve yük devretme grupları için geçerli değildir. Yalnızca Yük devretme grupları destekledikleri olarak bu nedenle, bunlar da yönetilen örnekleri için geçerli değildir.
@@ -146,7 +146,7 @@ Daha önce açıklandığı gibi etkin coğrafi çoğaltma ayrıca Azure PowerSh
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |tüm kaydedilmiş işlemleri çoğaltılır ve etkin ikincil veritabanı tarafından onaylanır kadar beklenecek uygulamanın neden olur. |
 |  | |
 
-### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: Yük devretme tek başına ve havuza alınmış veritabanlarını yönetme
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Yük devretme işlemlerini tek ve havuza alınmış veritabanlarını yönetme
 
 | Cmdlet | Açıklama |
 | --- | --- |
@@ -160,7 +160,7 @@ Daha önce açıklandığı gibi etkin coğrafi çoğaltma ayrıca Azure PowerSh
 > [!IMPORTANT]
 > Örnek betikler için bkz: [yapılandırın ve yük devretme etkin coğrafi çoğaltmayı kullanarak tek veritabanı](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) ve [yapılandırın ve yük devretme etkin coğrafi çoğaltmayı kullanarak havuza alınmış bir veritabanı](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>REST API: Yük devretme tek başına ve havuza alınmış veritabanlarını yönetme
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: Yük devretme işlemlerini tek ve havuza alınmış veritabanlarını yönetme
 
 | API | Açıklama |
 | --- | --- |

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 59322e303824d3a0db89e9e1252476d52106ba56
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810295"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991353"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -310,7 +310,7 @@ Klasik kaynakları için yeni bir aboneliği taşımak, Klasik kaynakları için
 
 ### <a name="recovery-services-limitations"></a>Kurtarma Hizmetleri sınırlamalarını
 
- Bir kurtarma Hizmetleri kasasına taşımak için bir özel önizlemeye kaydolmanız gerekir. Denemek için yazma AskAzureBackupTeam@microsoft.com.
+ Bir kurtarma Hizmetleri kasasına taşımak için içinde kaydedilmesi gereken bir [sınırlı genel Önizleme](../backup/backup-azure-move-recovery-services-vault.md).
 
 Şu anda bir kurtarma Hizmetleri kasası, bölge başına aynı anda taşıyabilirsiniz. Azure dosyaları, Azure dosya eşitleme veya SQL Iaas sanal makinelerini yedekleme kasaları taşıyamazsınız.
 

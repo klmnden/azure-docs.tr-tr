@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 9c62f4c58742c2c3247ff19b76575d1ca11499cb
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a6542838acba3143123dc90d96746179a2b4469b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101642"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989177"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Azure portalı ile bir Azure Log Analytics çalışma alanını silme
 Bu makalede artık gerektirebilecek bir Log Analytics çalışma alanını silmek için Azure portalını kullanmayı gösterir. 
@@ -39,7 +39,7 @@ Tüm aracıları ve çalışma alanına rapor için yapılandırılmış System 
 Bir yöneticiyseniz ve çalışma alanıyla ilişkilendirilmiş birden çok kullanıcı varsa bu kullanıcılar ve çalışma alanı arasındaki ilişki kaybolur. Kullanıcılar başka çalışma alanlarıyla ilişkilendirilmişse bu diğer çalışma alanlarıyla Log Analytics'i kullanmaya devam edebilirler. Kullanıcılar başka çalışma alanlarıyla ilişkili olmamaları durumunda ancak ardından bunlar Log Analytics'i kullanmak için bir çalışma alanı oluşturmanız gerekir. 
 
 1. [Azure portal](https://portal.azure.com) oturum açın. 
-2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
+2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **Log Analytics çalışma alanları**.
 3. Log Analytics abonelikleri bölmesinde, bir çalışma alanı seçin ve ardından **Sil** Orta Bölmenin üst.<br><br> ![Çalışma alanı özellikleri bölmesinden Sil seçeneği](media/delete-workspace/log-analytics-delete-workspace.png)<br>  
 4. Çalışma alanını silme işlemini onaylamak için isteyen onay iletisi penceresi görüntülendiğinde, **Evet**.<br><br> ![Çalışma alanının Silmeyi Onayla](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
 

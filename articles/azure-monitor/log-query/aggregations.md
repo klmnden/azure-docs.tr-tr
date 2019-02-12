@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorguları toplamalara | Microsoft Docs
-description: Verilerinizi analiz etmek için faydalı teklif Log Analytics sorgu toplama işlevleri açıklar.
+title: Azure İzleyici toplamaları sorguları oturum | Microsoft Docs
+description: Verilerinizi analiz etmek için faydalı sunan Azure İzleyici günlük sorguları toplama işlevleri açıklanmaktadır.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f5ecd68c1538fb9e21345221aa22c28217002271
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185758"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000856"
 ---
-# <a name="aggregations-in-log-analytics-queries"></a>Log Analytics sorguları toplamaları
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları toplamaları
 
 > [!NOTE]
 > Tamamlamanız gereken [Analytics portalı ile çalışmaya başlama](get-started-portal.md) ve [sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Bu makalede, verilerinizi analiz etmek için faydalı teklif Log Analytics sorgu toplama işlevleri açıklanmaktadır. Tüm bu işlevler çalışmak `summarize` işleci girdi tablosunun toplu sonuçları içeren bir tablo oluşturur.
+Bu makalede, verilerinizi analiz etmek için faydalı sunan Azure İzleyici günlük sorguları toplama işlevleri açıklanmaktadır. Tüm bu işlevler çalışmak `summarize` işleci girdi tablosunun toplu sonuçları içeren bir tablo oluşturur.
 
 ## <a name="counts"></a>Sayılan
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Log Analytics sorgu dilini kullanarak için diğer dersler bakın:
+Diğer dersler kullanmak için bkz. [Veri Gezgini sorgu dili](/azure/kusto/query/) Azure İzleyici ile günlük verilerini:
 
 - [Dize işlemleri](string-operations.md)
 - [Tarih ve saat işlemleri](datetime-operations.md)
