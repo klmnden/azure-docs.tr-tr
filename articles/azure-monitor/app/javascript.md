@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fee172eccd79fd28e281b2beece9702630ac39b5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661522"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001196"
 ---
 # <a name="application-insights-for-web-pages"></a>Web sayfaları için Application Insights
-Web sayfanızın veya uygulamanızın performansı ve kullanımı hakkında bilgi edinin. Sayfa betiğinize [Application Insights](../../azure-monitor/app/app-insights-overview.md)’ı ekleyerek, sayfa yüklemelerinin ve AJAX çağrılarının zamanlamalarının yanı sıra, tarayıcı özel durumları ile AJAX hatalarının sayılarını ve ayrıntılarını, ayrıca kullanıcı ve oturum sayılarını elde edebilirsiniz. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında uyarı ayarlayabilirsiniz. Ayrıca JavaScript kodunuza izleme çağrıları ekleyerek web sayfası uygulamanızın farklı özelliklerinin nasıl kullanıldığını izleyebilirsiniz.
+Web sayfanızın veya uygulamanızın performansı ve kullanımı hakkında bilgi edinin. Sayfa betiğinize [Application Insights](app-insights-overview.md)’ı ekleyerek, sayfa yüklemelerinin ve AJAX çağrılarının zamanlamalarının yanı sıra, tarayıcı özel durumları ile AJAX hatalarının sayılarını ve ayrıntılarını, ayrıca kullanıcı ve oturum sayılarını elde edebilirsiniz. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında uyarı ayarlayabilirsiniz. Ayrıca JavaScript kodunuza izleme çağrıları ekleyerek web sayfası uygulamanızın farklı özelliklerinin nasıl kullanıldığını izleyebilirsiniz.
 
-Application Insights tüm web sayfalarıyla kullanılabilir; kısa bir JavaScript eklemeniz yeterlidir. Web hizmetinizin [Java](java-get-started.md) veya [ASP.NET](../../azure-monitor/app/asp-net.md) olması halinde, sunucunuzdan ve istemcilerinizden telemetri tümleştirebilirsiniz.
+Application Insights tüm web sayfalarıyla kullanılabilir; kısa bir JavaScript eklemeniz yeterlidir. Web hizmetinizin [Java](java-get-started.md) veya [ASP.NET](asp-net.md) olması halinde, sunucunuzdan ve istemcilerinizden telemetri tümleştirebilirsiniz.
 
-![portal.azure.com adresinde uygulamanızın kaynağını açıp Tarayıcı’ya tıklayın](./media/javascript/03.png)
+![portal.azure.com adresinde uygulamanızın kaynağını açıp Tarayıcı’ya tıklayın](media/javascript/03.png)
 
 Bir [Microsoft Azure](https://azure.com) aboneliğine ihtiyacınız olacaktır. Takımınızın kurumsal bir aboneliği varsa sahibinden Microsoft Hesabınızı eklemesini isteyin.
 
@@ -38,13 +38,13 @@ Sayfanızın performansı ve kullanımı hakkında verilerin görüntülendiği 
 
 Uygulamanız sunucu tarafı için izlemeyi zaten ayarladıysanız zaten bir kaynağınız vardır:
 
-![Gözat, Geliştirici Hizmetleri, Application Insights’ı seçin.](./media/javascript/01-find.png)
+![Gözat, Geliştirici Hizmetleri, Application Insights’ı seçin.](media/javascript/01-find.png)
 
 Yoksa, bir tane oluşturun:
 
-![Yeni, Geliştirici Hizmetleri, Application Insights’ı seçin.](./media/javascript/01-create.png)
+![Yeni, Geliştirici Hizmetleri, Application Insights’ı seçin.](media/javascript/01-create.png)
 
-*Hala sorularınız mı var?* [Kaynak oluşturma hakkında daha fazla bilgi](../../azure-monitor/app/create-new-resource.md ).
+*Hala sorularınız mı var?* [Kaynak oluşturma hakkında daha fazla bilgi](create-new-resource.md ).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Uygulamanıza veya web sayfalarınıza SDK betiği ekleme
 
@@ -70,7 +70,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 Betiği, izlemek istediğiniz her sayfanın `</head>` etiketinin hemen önüne ekleyin. Web sayfanızda bir ana sayfa varsa betiği buraya koyabilirsiniz. Örneğin:
 
 * ASP.NET MVC projesinde `View\Shared\_Layout.cshtml` içine koyabilirsiniz
-* SharePoint sitesinde, denetim masasında [Site Ayarları / Ana Sayfa](../../azure-monitor/app/sharepoint.md)’yı açın.
+* SharePoint sitesinde, denetim masasında [Site Ayarları / Ana Sayfa](sharepoint.md)’yı açın.
 
 Betikte, verileri Application Insights kaynağınıza yönlendiren izleme anahtarı bulunur. 
 
@@ -118,9 +118,9 @@ Kullanıcılarınızın tarayıcılarından toplanan performans verilerini göst
 
 ![portal.azure.com adresinde uygulamanızın kaynağını açıp Ayarlar, Tarayıcı’ya tıklama](./media/javascript/03.png)
 
-Henüz veri yok? Sayfanın üstündeki **Yenile**'ye tıklayın. Hala hiçbir şey yok mu? Bkz. [Sorun giderme](../../azure-monitor/app/troubleshoot-faq.md).
+Henüz veri yok? Sayfanın üstündeki **Yenile**'ye tıklayın. Hala hiçbir şey yok mu? Bkz. [Sorun giderme](troubleshoot-faq.md).
 
-Tarayıcı dikey penceresi, hazır filtrelerin ve grafik seçimlerinin bulunduğu [Ölçüm Gezgini dikey penceresidir](../../azure-monitor/app/metrics-explorer.md). İsterseniz zaman aralığını, filtreleri ve grafik yapılandırmasını düzenleyebilir ve sonucu sık kullanılan olarak kaydedebilirsiniz. Asıl dikey pencere yapılandırmasına dönmek için **Varsayılanları geri yükle**’ye tıklayın.
+Tarayıcı dikey penceresi, hazır filtrelerin ve grafik seçimlerinin bulunduğu [Ölçüm Gezgini dikey penceresidir](metrics-explorer.md). İsterseniz zaman aralığını, filtreleri ve grafik yapılandırmasını düzenleyebilir ve sonucu sık kullanılan olarak kaydedebilirsiniz. Asıl dikey pencere yapılandırmasına dönmek için **Varsayılanları geri yükle**’ye tıklayın.
 
 ## <a name="page-load-performance"></a>Sayfa yükleme performansı
 Üst kısım sayfa yükleme sürelerinin bölümlenmiş bir grafiğidir. Grafiğin toplam yüksekliği yüklenecek ortalama süreyi ve kullanıcılarınızın tarayıcılarda uygulamanızdan görüntülenecek sayfaları temsil eder. Süre, düzen ve çalışma betikleri de dahil tüm zaman uyumlu yük etkinlikleri işlenene kadar tarayıcının ilk HTTP isteğini gönderdiği zamandan ölçülür. AJAX çağrılarından web bölümleri yükleme gibi zaman uyumsuz görevleri içermez.
@@ -178,7 +178,6 @@ Belirli ayrıntılar için herhangi bir satıra tıklayın.
 
 ![](./media/javascript/37.png)
 
-
 Ajax çağrısıyla ilgili tam telemetri için `...` seçeneğine tıklayın.
 
 ### <a name="no-ajax-calls-reported"></a>Hiç Ajax çağrısı bildirilmedi mi?
@@ -202,7 +201,7 @@ Tanılama Ara dikey penceresinde Filtreler’i Sayfa Görünümü olarak ayarlay
 Daha fazla ayrıntı için herhangi bir olayı seçin. Daha da fazla ayrıntı görmek için, ayrıntılar sayfasında "..." öğesine tıklayın.
 
 > [!NOTE]
-> Kullanırsanız [arama](../../azure-monitor/app/diagnostic-search.md), tam sözcükleri eşleştirmeye olduğunu fark edeceksiniz: "Abou" ve "bout" "Hakkında" eşleşmiyor.
+> Kullanırsanız [arama](diagnostic-search.md), tam sözcükleri eşleştirmeye olduğunu fark edeceksiniz: "Abou" ve "bout" "Hakkında" eşleşmiyor.
 > 
 > 
 
@@ -227,8 +226,8 @@ Sayfa adında,URL’deki karakterlerin aynısı bulunabilir, ancak "#" veya "?" 
 ## <a name="usage-tracking"></a>Kullanımı izleme
 Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 
-* [Kullanıcı davranış analizi araçları hakkında bilgi edinin](../../azure-monitor/app/usage-overview.md)
-* [Özel etkinlikler ve ölçüm API’si hakkında bilgi edinin](../../azure-monitor/app/api-custom-events-metrics.md).
+* [Kullanıcı davranış analizi araçları hakkında bilgi edinin](usage-overview.md)
+* [Özel etkinlikler ve ölçüm API’si hakkında bilgi edinin](api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
 
@@ -238,7 +237,7 @@ Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 
 
 ## <a name="next"></a> Sonraki adımlar
-* [Kullanımı izleme](../../azure-monitor/app/usage-overview.md)
-* [Özel etkinlikler ve ölçümler](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Build-measure-learn](../../azure-monitor/app/usage-overview.md)
+* [Kullanımı izleme](usage-overview.md)
+* [Özel etkinlikler ve ölçümler](api-custom-events-metrics.md)
+* [Build-measure-learn](usage-overview.md)
 

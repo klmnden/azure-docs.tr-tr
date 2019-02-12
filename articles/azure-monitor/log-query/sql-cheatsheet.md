@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorgu dil kuralları sayfası SQL | Microsoft Docs
-description: Log Analytics sorgu farklı senaryolar için kullanılacak ortak işlevler.
+title: Azure İzleyici günlük sorgu kopya kağıdı SQL | Microsoft Docs
+description: SQL ile ilgili bilgi sahibi olan kullanıcılar için Azure İzleyici'de günlük sorguları yazma yardımcı olur.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 35438644842d5280bd789efa135805ba9943cb8b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183056"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993679"
 ---
-# <a name="sql-to-log-analytics-query-language-cheat-sheet"></a>SQL için Log Analytics sorgu dil kuralları sayfası 
+# <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL Azure İzleyici günlük sorgu kopya kağıdı 
 
-Aşağıdaki tabloda, Log Analytics sorgu dili öğrenmek için SQL ile ilgili bilgi sahibi olan kullanıcılara yardımcı olur. Yaygın senaryolar ve Log Analytics kullanarak eşdeğer çözmek için T-SQL komutunu göz vardır.
+Aşağıdaki tabloda, Azure İzleyici'de günlük sorguları yazma için Veri Gezgini'ni sorgu dili öğrenmek için SQL ile ilgili bilgi sahibi olan kullanıcılara yardımcı olur. Yaygın senaryolar ve bir Azure İzleyici günlük sorgusu eşdeğer çözmek için T-SQL komutunu göz vardır.
 
-## <a name="sql-to-log-analytics"></a>Log analytics'e SQL
+## <a name="sql-to-azure-monitor"></a>SQL Azure izleme
 
-Açıklama                             |SQL sorgusu                                                                                          |Azure Log Analytics sorgusu
+Açıklama                             |SQL sorgusu                                                                                          |Azure İzleyici günlük sorgusu
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Tüm verileri bir tablo seçin            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Belirli sütunları tablodan seçin    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -50,4 +50,4 @@ Birleştir                                    |`SELECT * FROM dependencies JOIN 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ders ile devam [Log Analytics'te sorgu yazma](get-started-queries.md).
+- Ders ile devam [Azure İzleyici'de günlük sorguları yazma](get-started-queries.md).

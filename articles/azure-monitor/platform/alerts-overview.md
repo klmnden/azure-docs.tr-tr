@@ -8,22 +8,24 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486309"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003321"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft azure'da uyarılara genel bakış 
 
 Bu makalede, hangi, avantajları, uyarılar ve bunları kullanmaya başlamak nasıl açıklar.  
 
 
+
+
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft azure'da uyarılar nedir?
 Uyarılar önemli olduğunda koşulları izleme verilerinizi bulunan proaktif olarak size bildirir. Sorunları tanımlamanıza ve sisteminizin kullanıcılar bunları fark önce ele olanak sağlar. 
 
-Bu makalede, birleştirilmiş uyarı deneyimi artık Log Analytics ve Application Insights'ı içeren Azure İzleyici'de açıklanmaktadır. [Önceki uyarı deneyimi](alerts-classic.overview.md) ve uyarı türleri çağrılır **Klasik uyarılar**. Bu eski deneyimi ve eski uyarı türü tıklayarak görüntüleyebilirsiniz **Klasik uyarıları görüntüleyip** uyarı sayfanın üstünde. 
+Bu makalede, birleştirilmiş uyarı deneyimi Log Analytics ve Application Insights tarafından yönetiliyordu uyarıları artık içeren Azure İzleyici'de açıklanmaktadır. [Önceki uyarı deneyimi](alerts-classic.overview.md) ve uyarı türleri çağrılır **Klasik uyarılar**. Bu eski deneyimi ve eski uyarı türü tıklayarak görüntüleyebilirsiniz **Klasik uyarıları görüntüleyip** uyarı sayfanın üstünde. 
 
 ## <a name="overview"></a>Genel Bakış
 

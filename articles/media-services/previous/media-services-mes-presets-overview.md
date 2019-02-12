@@ -1,8 +1,8 @@
 ---
-title: Görev hazır Medya Kodlayıcısı standart (MES) | Microsoft Docs
-description: Hizmet tanımlı örnek hazır için Medya Kodlayıcısı standart (MES) genel bakış ve konu sağlar.
+title: Görev ön ayarları için medya Kodlayıcı standart (MES) | Microsoft Docs
+description: Hizmet tarafından tanımlanan örnek hazır için medya Kodlayıcı standart (MES) genel bakış ve konu sağlar.
 author: Juliako
-manager: cfow
+manager: femila
 editor: johndeu
 services: media-services
 documentationcenter: ''
@@ -12,78 +12,78 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4c518771d95dcb571da294f8a752e7b5740ef19f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9d32397773a5ede4ddc2a27c367f2750078e28c6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788595"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998174"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Medya Kodlayıcısı standart (MES) için örnek hazır
 
-**Medya Kodlayıcısı standart** önceden tanımlanmış sistem kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesini tanımlar. "Uyarlamalı Media Services ile akış için video kodlamak istiyorsanız önceden akış" kullanılması önerilir. Bu önceden belirlenmiş, Medya Kodlayıcısı standart işlem belirttiğinizde [bit hızı Merdiveni otomatik oluşturma](media-services-autogen-bitrate-ladder-with-mes.md). 
+**Media Encoder Standard** önceden tanımlanmış sistem önayarlarını kodlama işi oluştururken kullanabileceğiniz kodlama kümesi tanımlar. "Uyarlamalı kodlama için Media Services ile akış video istiyorsanız hazır akış" kullanmak için önerilir. Bu önceden oluşturulmuş, Media Encoder Standard olacak belirttiğinizde [hızı Merdivenini otomatik oluşturma](media-services-autogen-bitrate-ladder-with-mes.md). 
 
-### <a name="creating-custom-presets-from-samples"></a>Özel hazır örnekleri oluşturma
-Media Services, belirli kodlama ihtiyaçları ve gereksinimleri karşılamak üzere hazır içindeki tüm değerleri özelleştirme tam olarak destekler. Bir kodlama hazır özelleştirmeniz gerekiyorsa, biri ile başlamalıdır Bu bölümde özel yapılandırmanız için bir şablon olarak sağlanan sistem önayarlarını aşağıda. Her öğe için hangi her bir öğe bu hazır anlamına gelir ve geçerli değerleri açıklamalar için bkz [Medya Kodlayıcısı standart şema](media-services-mes-schema.md) konu.  
+### <a name="creating-custom-presets-from-samples"></a>Özel önayarların kullanılmasına örnekleri oluşturma
+Media Services kodlama özgü ihtiyaçları ve gereksinimleri karşılamak için hazır olarak tüm değerleri özelleştirme tam olarak destekler. Bir kodlama Önayarı özelleştirmeniz gerekirse, biri ile başlamalıdır, bu bölümde özel yapılandırmanız için şablon olarak sağlanan sistem önayarlarını aşağıda. Bu hazır anlamına gelir ve geçerli değerler her hangi bir öğenin her öğe için açıklamalar için bkz [Media Encoder Standard şeması](media-services-mes-schema.md) konu.  
   
 > [!NOTE]
->  4 k kodlar için bir hazır kullanırken, alması gereken `S3` ayrılmış birim türü. Daha fazla bilgi için bkz: [ölçek kodlama nasıl](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  4 k kodlar için önceden ayarlanmış kullanırken almalısınız `S3` ayrılmış birim türü. Daha fazla bilgi için [ölçek kodlama nasıl](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
 
-#### <a name="video-rotation-default-setting-in-presets"></a>Hazır video döndürme varsayılan ayarı:
-Medya Kodlayıcısı standart ile çalışırken, video döndürme varsayılan olarak etkindir. Videonuzu dikey modunda bir mobil cihazda kayıtlı değilse, ardından bu hazır bunları kodlamadan önce yatay modu için döndürüleceğini.
+#### <a name="video-rotation-default-setting-in-presets"></a>Ekran döndürme varsayılan ayarı hazır:
+Media Encoder Standard ile çalışırken, ekran döndürme, varsayılan olarak etkindir. Bir mobil cihazda dikey modda videonuz kaydedilmiş, ardından bu hazır bunları kodlama önce yatay modda döndürüleceğini.
  
-## <a name="available-presets"></a>Kullanılabilir hazır ayarlar: 
+## <a name="available-presets"></a>Kullanıma hazır: 
 
- [H264 Çoklu bit hızı 1080p ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) 6000 kbps ila 400 kbps ve AAC 5.1 ses arasında değişen 8 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 1080p ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) 400 KB/sn ve AAC 5.1 ses 6000 KB/sn arasında 8 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md) 6000 kbps ila 400 kbps ve stereo AAC ses arasında değişen 8 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md) 400 KB/sn ve stereo AAC ses 6000 KB/sn arasında 8 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 16 x 9 iOS için](media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md) 8500 kbps ila 200 KB/sn ile stereo AAC ses arasında değişen 8 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 16 x 9 iOS için](media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md) 8500 kbps ila 200 KB/sn ve stereo AAC ses arasında değişen 8 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 16 x 9 SD ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md) 1900 kbps ila 400 kbps ve AAC 5.1 ses arasında değişen 5 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 16 x 9 SD ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md) 400 KB/sn ve AAC 5.1 ses 1900 KB/sn arasında değişen 5 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 16 x 9 SD](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md) 1900 kbps ila 400 kbps ve stereo AAC ses arasında değişen 5 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 16 x 9 SD](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md) 400 KB/sn ve stereo AAC ses 1900 KB/sn arasında değişen 5 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 4K ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md) 20000 kbps ila 1000 KB/sn ve AAC 5.1 ses arasında değişen 12 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 4K ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md) 20000 kbps ila 1000 KB/sn ve AAC 5.1 ses arasında değişen 12 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 4K](media-services-mes-preset-H264-Multiple-Bitrate-4K.md) 20000 kbps ila 1000 KB/sn ile stereo AAC ses arasında değişen 12 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 4K](media-services-mes-preset-H264-Multiple-Bitrate-4K.md) 20000 kbps ila 1000 KB/sn ve stereo AAC ses arasında değişen 12 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 4 x 3 iOS için](media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md) 8500 kbps ila 200 KB/sn ile stereo AAC ses arasında değişen 8 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 4 x 3 iOS için](media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md) 8500 kbps ila 200 KB/sn ve stereo AAC ses arasında değişen 8 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 4 x 3 SD ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md) 1600 kbps ila 400 kbps ve AAC 5.1 ses arasında değişen 5 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 4 x 3 SD ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md) 400 KB/sn ve AAC 5.1 ses 1600 KB/sn arasında değişen 5 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 4 x 3 SD](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md) 1600 kbps ila 400 kbps ve stereo AAC ses arasında değişen 5 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 4 x 3 SD](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md) 400 KB/sn ve stereo AAC ses 1600 KB/sn arasında değişen 5 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 720p ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md) 3400 kbps ila 400 kbps ve AAC 5.1 ses arasında değişen 6 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 720p ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md) 400 KB/sn ve AAC 5.1 ses 3400 KB/sn arasında değişen 6 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 3400 kbps ila 400 kbps ve stereo AAC ses arasında değişen 6 GOP hizalı MP4 dosyaları kümesi üretir.  
+ [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 400 KB/sn ve stereo AAC ses 3400 KB/sn arasında değişen 6 GOP hizalı MP4 dosyaları kümesini oluşturur.  
   
- [H264 Çoklu bit hızı 1080p ses 5.1](media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md) 6750 kbps ve AAC 5.1 ses bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 1080p ses 5.1](media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md) 6750 KB/sn ve AAC 5.1 ses bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- [H264 Çoklu bit hızı 1080p](media-services-mes-preset-H264-Single-Bitrate-1080p.md) 6750 kbps stereo AAC ses ve bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 1080p](media-services-mes-preset-H264-Single-Bitrate-1080p.md) 6750 kbps stereo AAC ses ve bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- [H264 Çoklu bit hızı 4K ses 5.1](media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md) 18000 kbps ve AAC 5.1 ses bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 4K ses 5.1](media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md) 18000 KB/sn ve AAC 5.1 ses bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- [H264 Çoklu bit hızı 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md) 18000 kbps stereo AAC ses ve bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md) 18000 kbps stereo AAC ses ve bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- [H264 Çoklu bit hızı 4 x 3 SD ses 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md) 1800 kbps ve AAC 5.1 ses bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 4 x 3 SD ses 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md) 1800 KB/sn ve AAC 5.1 ses bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- [H264 Çoklu bit hızı 4 x 3 SD](media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md) 1800 kbps stereo AAC ses ve bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 4 x 3 SD](media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md) 1800 kbps stereo AAC ses ve bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- [H264 Çoklu bit hızı 16 x 9 SD ses 5.1](media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md) 2200 kbps ve AAC 5.1 ses bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 16 x 9 SD ses 5.1](media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md) 2200 KB/sn ve AAC 5.1 ses bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- [H264 Çoklu bit hızı 16 x 9 SD](media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md) 2200 kbps stereo AAC ses ve bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 16 x 9 SD](media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md) 2200 kbps stereo AAC ses ve bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- [H264 Çoklu bit hızı 720p ses 5.1](media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md) 4500 kbps ve AAC 5.1 ses bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 720p ses 5.1](media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md) 4500 KB/sn ve AAC 5.1 ses bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- [H264 Çoklu bit hızı Android 720p](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md) hazır bir bit hızı 2000 kbps ve stereo AAC ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 720p Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md) önceden ayarlanmış bir bit hızı 2000 KB/sn ve stereo AAC ile tek bir MP4 dosyası üretir.  
   
- [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Single-Bitrate-720p.md) 4500 kbps stereo AAC ses ve bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 tekli bit hızı 720p](media-services-mes-preset-H264-Single-Bitrate-720p.md) 4500 kbps stereo AAC ses ve bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- [H264 Çoklu bit hızı yüksek kaliteli SD Android için](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md) 500 Kb/sn ve stereo AAC ses bit hızı ile tek bir MP4 dosyası üreten...  
+ [H264 Çoklu bit hızı yüksek kaliteli SD Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md) 500 Kb/sn ve stereo AAC ses bir bit hızı ile tek bir MP4 dosyası üretir...  
   
- [H264 Çoklu bit hızı düşük kalite SD Android için](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) 56 kbps stereo AAC ses ve bit hızı ile tek bir MP4 dosyası oluşturur.  
+ [H264 Çoklu bit hızı düşük kaliteli SD Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) 56 Kb/sn ve stereo AAC ses bir bit hızı ile tek bir MP4 dosyası oluşturur.  
   
- Media Services kodlayıcıya ilgili daha fazla bilgi için bkz: [kodlama isteğe bağlı Azure Media Services ile](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).
+ Media Services kodlayıcıya ilgili daha fazla bilgi için bkz. [kodlama isteğe bağlı Azure Media Services ile](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).

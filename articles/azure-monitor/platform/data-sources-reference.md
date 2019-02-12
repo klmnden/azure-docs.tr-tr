@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885805"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002021"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure izleme verilerini kullanma
 
 Azure platformu üzerinde size izleme verilerini tek bir yerde Azure İzleyici ile işlem hattı, ancak pratikte bugün tüm izleme verilerini, işlem hattında kullanılabilir olduğunu henüz kabul araya. Bu makalede, sizi Azure hizmetlerinden izleme verileri program aracılığıyla erişebileceğiniz çeşitli şekillerde özetler.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="options-for-data-consumption"></a>Veri tüketimi seçeneklerini
 
@@ -40,7 +42,7 @@ Azure platformu üzerinde size izleme verilerini tek bir yerde Azure İzleyici i
 | Azure İzleyici ölçüm uyarıları | Bildirimler | [Listesine buradan bakın](metrics-supported.md) | <ul><li>**Web kancası:** [Azure ölçüm uyarıları](alerts-webhooks.md)</li></ul> |
 | Azure İzleyici etkinlik günlüğü uyarıları | Bildirimler | Tüm Azure Hizmetleri | <ul><li>**Web kancası:** Azure etkinlik günlüğü uyarıları</li></ul> |
 | Otomatik ölçeklendirme bildirimleri | Bildirimler | [Listesine buradan bakın](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Web kancası:** [Otomatik ölçeklendirme bildirim Web kancası yükü şeması](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Günlük arama sorgusu uyarıları | Bildirimler | Log Analytics | <ul><li>**Web kancası:** [Günlük uyarı kuralları için Web kancası eylemi](alerts-log-webhook.md)</li></ul> |
+| Günlük arama sorgusu uyarıları | Bildirimler | Azure izleme günlükleri | <ul><li>**Web kancası:** [Günlük uyarı kuralları için Web kancası eylemi](alerts-log-webhook.md)</li></ul> |
 | Application Insights ölçüm uyarıları | Bildirimler | Application Insights | <ul><li>**Web kancası:** [Application Insights uyarıları](../../azure-monitor/app/alerts.md)</li></ul> |
 | Application Insights web testleri | Bildirimler | Application Insights | <ul><li>**Web kancası:** [Application Insights uyarıları](../../azure-monitor/app/alerts.md)</li></ul> |
 

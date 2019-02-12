@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorgu dizeleri ile çalışma | Microsoft Docs
-description: Bu makale, Log Analytics'te sorgu yazmak için Analytics portalı kullanmaya yönelik bir öğretici sağlar.
+title: Azure İzleyici günlük sorguları dizelerle çalışma | Microsoft Docs
+description: Düzenleme, karşılaştırın, içinde arama ve çeşitli diğer işlemleri dizeler Azure İzleyici günlük sorguları gerçekleştirmek nasıl açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 729d98dda1ae0a1410a15ee1e40c670ca211d864
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186251"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995416"
 ---
-# <a name="working-with-strings-in-log-analytics-queries"></a>Log Analytics sorgu dizeleri ile çalışma
+# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları dizelerle çalışma
 
 
 > [!NOTE]
-> Tamamlamanız gereken [Analytics portalı ile çalışmaya başlama](get-started-portal.md) ve [sorguları ile çalışmaya başlama](get-started-queries.md) Bu öğreticiyi tamamlamadan önce.
+> Tamamlamanız gereken [Azure İzleyici log analytics ile çalışmaya başlama](get-started-portal.md) ve [Azure İzleyici günlük sorguları ile çalışmaya başlama](get-started-queries.md) Bu öğreticiyi tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Bu makalede, Düzenle, karşılaştırın, içinde arama ve çeşitli dizelerle ilgili diğer işlemleri gerçekleştirmek açıklar. 
+Bu makalede, Düzenle, karşılaştırın, içinde arama ve çeşitli dizelerle ilgili diğer işlemleri gerçekleştirmek açıklar.
 
 Bir dizedeki her karakterin konumuna göre bir dizin numarası var. Dizin 0 ilk karakter, 1 ve bu nedenle bir sonraki karakteri. Aşağıdaki bölümlerde gösterildiği gibi farklı dize işlevleri dizin numaralarını kullanın. Çok sayıda Aşağıdaki örnekler **yazdırma** belirli bir veri kaynağına kullanmadan dize düzenlemesi göstermek için komutu.
 

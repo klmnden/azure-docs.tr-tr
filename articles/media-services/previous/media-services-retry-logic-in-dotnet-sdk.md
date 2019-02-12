@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: a5171484bb4377e0f9cd84dc0a517f4ea84123e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 909a68ff0fd78fbdd4870506d1ad579392036dbf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228326"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999207"
 ---
-# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET için Media Services SDK'sı mantığı yeniden deneyin
+# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET için Media Services SDK'sı mantığı yeniden deneyin  
+
 Microsoft Azure Hizmetleri ile çalışırken, geçici hatalar oluşabilir. Geçici bir hata oluşursa, çoğu durumda, birkaç denemeden sonra işlemi başarılı olur. .NET için Media Services SDK'sı, sorgular, değişiklikler ve depolama işlemleri kaydediliyor yürütme özel durumları ve web istekleri, oluşan hataları ile ilgili geçici hataları işlemek için yeniden deneme mantığını uygular.  Varsayılan olarak, .NET için Media Services SDK'sını uygulamanıza özel durumu yeniden atamadan önce dört yeniden denemenin yürütür. Uygulamanızdaki kod bu özel durumun ardından düzgün şekilde işlemelidir.  
 
  Web isteği, depolama, sorgu ve SaveChanges ilkelerin kısa bir kılavuz aşağıda verilmiştir:  

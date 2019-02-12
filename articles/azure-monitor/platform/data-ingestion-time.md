@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics veri alımı sürede | Microsoft Docs
-description: Farklı Azure Log Analytics veri toplama, gecikme süresini etkileyen faktörleri açıklar.
+title: Azure İzleyici'de veri alma süresini oturum | Microsoft Docs
+description: Azure İzleyici'de günlük verilerini toplamak, gecikme süresini etkileyen faktörleri farklı açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,26 +12,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 329472f3edee66db6b12e369ee8f944546ad4734
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900451"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000055"
 ---
-# <a name="data-ingestion-time-in-log-analytics"></a>Log analytics'te veri alım zamanı
-Azure Log Analytics, binlerce müşteri terabaytlarca veriyi her ay büyüyen bir hızda gönderme yapan bir Azure İzleyici'de büyük ölçekli veri hizmetidir. Genellikle verileri toplandıktan sonra Log Analytics'te kullanılabilir olana kadar geçen süreyi hakkında sorular vardır. Bu makalede, bu gecikme süresini etkileyen faktörleri farklı açıklanmaktadır.
+# <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure İzleyici'de günlük veri alım zamanı
+Azure İzleyici binlerce müşteri terabaytlarca veriyi her ay büyüyen bir hızda gönderme yapan bir büyük ölçekli veri hizmetidir. Çoğunlukla için günlük verileri toplandıktan sonra kullanılabilir olana kadar geçen süreyi hakkında sorular vardır. Bu makalede, bu gecikme süresini etkileyen faktörleri farklı açıklanmaktadır.
 
 ## <a name="typical-latency"></a>Tipik bir gecikme süresi
-Gecikme süresi verileri izlenen sistemde oluşturulduğu tarih ve analiz Log analytics'te gelen süreyi ifade eder. Log Analytics'e veri almak için tipik bir gecikme süresi arasında 2 ve 5 dakikadır. Herhangi bir veri belirli gecikme sürelerini faktörler aşağıda açıklanan çeşitli bağlı olarak değişir.
+Gecikme süresi verileri izlenen sistemde oluşturulduğu tarih ve analiz Azure İzleyici'de gelen süreyi ifade eder. Günlük verisi alımı için tipik bir gecikme süresi arasında 2 ve 5 dakikadır. Herhangi bir veri belirli gecikme sürelerini faktörler aşağıda açıklanan çeşitli bağlı olarak değişir.
 
 
 ## <a name="factors-affecting-latency"></a>Gecikme süresini etkileyen faktörler
 Toplam alım zaman belirli bir veri kümesi aşağıdaki üst düzey alanlarına ayrılabilir. 
 
-- Aracı saati - bir olay bulmak, toplamak ve Log Analytics alma noktası günlük kaydı olarak gönderin. Çoğu durumda, bu işlem bir aracı tarafından işlenir.
+- Aracı saati - bir olay bulmak, toplamak ve Azure İzleyici alma noktası günlük kaydı olarak gönderin. Çoğu durumda, bu işlem bir aracı tarafından işlenir.
 - İşlem hattı saati - günlük kaydı işlenecek alım işlem hattının. Bu olay özelliklerini ayrıştırma ve potansiyel olarak hesaplanan bilgi eklemeyi içerir.
-- Dizin oluşturma saati – Log Analytics, büyük veri deposuna bir günlük kaydı alabilmek için harcanan süre.
+- Dizin oluşturma saati-günlük kaydı Azure İzleyici büyük veri deposuna veri alımı için harcanan süre.
 
 Bu işlemde sunulan farklı gecikme süresi ile ilgili ayrıntılar aşağıda açıklanmıştır.
 
@@ -39,11 +39,11 @@ Bu işlemde sunulan farklı gecikme süresi ile ilgili ayrıntılar aşağıda a
 Aracılar ve yönetim çözümleri farklı stratejiler gecikme süresini etkileyebilir bir sanal makine verileri toplamak için kullanın. Belirli bazı örnekler şunlardır:
 
 - Windows olayları, syslog olayları ve performans ölçümlerini hemen toplanır. Linux performans sayaçlarıyla 30 saniyelik aralıklarla yoklama.
-- Zaman değiştikten sonra IIS günlükler ve özel günlükleri toplanır. IIS günlükler için bunu tarafından etkilenir [IIS üzerinde yapılandırılmış rollover zamanlaması](../../azure-monitor/platform/data-sources-iis-logs.md). 
+- Zaman değiştikten sonra IIS günlükler ve özel günlükleri toplanır. IIS günlükler için bunu tarafından etkilenir [IIS üzerinde yapılandırılmış rollover zamanlaması](data-sources-iis-logs.md). 
 - Active Directory çoğaltma çözümü, Active Directory değerlendirmesi çözümü, Active Directory altyapınızın haftalık bir değerlendirme gerçekleştirirken, değerlendirme beş günde gerçekleştirir. Yalnızca değerlendirme tamamlandıktan sonra aracı bu günlükleri toplar.
 
 ### <a name="agent-upload-frequency"></a>Aracı karşıya yükleme frekansı
-Log Analytics aracısını basit olmasını sağlamak için aracı günlüklerini arabelleğe alır ve bunları düzenli aralıklarla Log Analytics'e gönderir. Karşıya yükleme ve veri türüne bağlı olarak 2 dakika 30 saniye arasında sıklığı değişir. 1 dakika içinde en çok veriyi karşıya yüklendi. Ağ koşulları, bu veriler, Log Analytics alma noktası ulaşmak için gecikme süresini olumsuz yönde etkileyebilir.
+Log Analytics aracısını basit olmasını sağlamak için aracı günlüklerini arabelleğe alır ve bunları Azure İzleyici düzenli aralıklarla gönderir. Karşıya yükleme ve veri türüne bağlı olarak 2 dakika 30 saniye arasında sıklığı değişir. 1 dakika içinde en çok veriyi karşıya yüklendi. Ağ koşulları, Azure İzleyici alma noktası ulaşmak için bu verileri gecikme süresini olumsuz yönde etkileyebilir.
 
 ### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure etkinlik günlükleri, tanılama günlükleri ve ölçümler
 Azure veri işleme için Log Analytics alma noktasında kullanılabilir olana kadar ek zaman ekler:
@@ -54,7 +54,6 @@ Azure veri işleme için Log Analytics alma noktasında kullanılabilir olana ka
 
 Alma noktasında kullanılabilir olduktan sonra veri sorgulama için kullanılabilir olması için ek 2-5 dakika sürer.
 
-
 ### <a name="management-solutions-collection"></a>Yönetim çözümleri toplama
 Bazı çözümler verilerine bir Aracıdan toplamaz ve ek gecikme sağlayan bir koleksiyon yöntemi kullanabilir. Bazı çözümler, neredeyse gerçek zamanlı koleksiyon denemeden, düzenli aralıklarla veri toplayın. Belirli örnekler aşağıdakileri içerir:
 
@@ -64,16 +63,16 @@ Bazı çözümler verilerine bir Aracıdan toplamaz ve ek gecikme sağlayan bir 
 Koleksiyon sıklığının belirlenmesi her bir çözüm için belgelere bakın.
 
 ### <a name="pipeline-process-time"></a>İşlem hattı işlem süresi
-Log Analytics işlem hattı'nda günlük kayıtları içe alınan sonra geçici depolama birimine Kiracı yalıtımı sağlamak ve veri kaybı olmadığından emin olmak için yazılan. Bu işlem genellikle 5-15 saniye ekler. Bazı yönetim çözümleri, veri toplama daha ağır algoritmalarını uygulayan ve içindeki veri akış içgörülere sahip olun. Örneğin, ağ performansı izleme gelen veri 3 dakikalık aralıklarında etkili bir şekilde 3 dakikalık bir gecikme ekleme toplar. Gecikme süresi ekler, başka bir işlem özel günlükleri işleyen işlemidir. Bazı durumlarda, bu işlem birkaç dakika gecikme dosyalarından aracısı tarafından toplanan günlükleri ekleyebilir.
+Azure İzleyici ardışık düzende içe alınan günlük kayıtları sonra geçici depolama birimine Kiracı yalıtımı sağlamak ve veri kaybı olmadığından emin olmak için yazılan. Bu işlem genellikle 5-15 saniye ekler. Bazı yönetim çözümleri, veri toplama daha ağır algoritmalarını uygulayan ve içindeki veri akış içgörülere sahip olun. Örneğin, ağ performansı izleme gelen veri 3 dakikalık aralıklarında etkili bir şekilde 3 dakikalık bir gecikme ekleme toplar. Gecikme süresi ekler, başka bir işlem özel günlükleri işleyen işlemidir. Bazı durumlarda, bu işlem birkaç dakika gecikme dosyalarından aracısı tarafından toplanan günlükleri ekleyebilir.
 
 ### <a name="new-custom-data-types-provisioning"></a>Sağlama, yeni özel veri türleri
 Öğesinden yeni bir özel veri türü oluşturulduğunda bir [özel günlük](data-sources-custom-logs.md) veya [veri toplayıcı API'sini](data-collector-api.md), sistem bir adanmış depolama kapsayıcısı oluşturur. Bu, bu veri türü yalnızca ilk görünümünü oluşan tek seferlik bir ek yüktür.
 
 ### <a name="surge-protection"></a>Aşırı yükleme talebiyle koruma
-Log Analytics üst önceliğini sistem veri dalgalanmalarına için yerleşik koruma bulunur şekilde müşteri veri kaybı, olduğundan emin olmaktır. Bu, büyük yükü altında bile, sistemin çalışıp tutmak emin emin olmak için arabellek içerir. Normal yük altında bu denetimlerin bir dakikadan az ekleyebilirsiniz, ancak aşırı koşullar ve bunlar veri sağlarken önemli zaman ekleyebilirsiniz hataları güvenlidir.
+Azure İzleyicisi'nin en önemli öncelik sistem veri dalgalanmalarına için yerleşik koruma bulunur şekilde müşteri veri kaybı, olduğundan emin olmaktır. Bu, büyük yükü altında bile, sistemin çalışıp tutmak emin emin olmak için arabellek içerir. Normal yük altında bu denetimlerin bir dakikadan az ekleyebilirsiniz, ancak aşırı koşullar ve bunlar veri sağlarken önemli zaman ekleyebilirsiniz hataları güvenlidir.
 
 ### <a name="indexing-time"></a>Dizin oluşturma zamanı
-Analiz ve Gelişmiş arama özellikleri aksine verilere hemen erişim sağlamaya sağlamaya arasındaki her büyük veri platformu için yerleşik bir denge yoktur. Azure Log Analytics kayıtları milyarlarca üzerinde güçlü sorgular çalıştırın ve birkaç saniye içinde sonuçları almak sağlar. Altyapı ve verileri kendi alımı sırasında önemli ölçüde dönüştüren ve benzersiz compact yapılarını depolar olduğundan bu mümkün olur. Sistem, yeterli miktarı kadar bu yapıları oluşturmak için kullanılabilir veri arabelleğe alır. Arama sonuçlarında günlük kaydı görünmeden önce bu tamamlanması gerekir.
+Analiz ve Gelişmiş arama özellikleri aksine verilere hemen erişim sağlamaya sağlamaya arasındaki her büyük veri platformu için yerleşik bir denge yoktur. Azure İzleyici, kayıt milyarlarca üzerinde güçlü sorgular çalıştırın ve birkaç saniye içinde sonuçları almak sağlar. Altyapı ve verileri kendi alımı sırasında önemli ölçüde dönüştüren ve benzersiz compact yapılarını depolar olduğundan bu mümkün olur. Sistem, yeterli miktarı kadar bu yapıları oluşturmak için kullanılabilir veri arabelleğe alır. Arama sonuçlarında günlük kaydı görünmeden önce bu tamamlanması gerekir.
 
 Bu işlem şu anda yaklaşık 5 dakika sürer. daha yüksek veri fiyatları üzerinden ancak daha az zaman veri düşük hacim olduğunda. Bu, birlikte değişkenlik mantığa aykırı görünüyor, ancak bu işlem gecikme süresi yüksek hacimli üretim iş yükleri için en iyi duruma getirilmesi sağlar.
 
@@ -136,5 +135,5 @@ Heartbeat
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Okuma [hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) Log Analytics için.
+* Okuma [hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) Azure İzleyici için.
 

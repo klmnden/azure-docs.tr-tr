@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 8d2cac7635b9d97561b3cebf517c95855407cbe3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 27a8e160fc33729c5b5266dffeb346f0296276fd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462792"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005293"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 
@@ -71,7 +71,7 @@ Geri yükleme toplu olarak yerleşik işlevi yoktur. [Azure SQL veritabanı: Tam
 
 ## <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
 
-Havuza alınmış, tek başına geri yükleme ya da zaman yeni bir veritabanı Azure portalını kullanarak aynı sunucuda veritabanı daha önceki bir noktaya örnek [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases). Bir veritabanı herhangi bir hizmet katmanına geri yüklenebilir veya işlem boyutu. Veritabanını geri yüklediğiniz sunucuda yeterli kaynaklara sahip olun. Tamamlandıktan sonra geri yüklenen veritabanı bir normal, tam olarak erişilebilir, çevrimiçi veritabanı hizmetidir. Geri yüklenen veritabanı, hizmet katmanı ve işlem boyutuna bağlı olarak normal fiyatlarıyla ücretlendirilir. Veritabanı geri yükleme işlemi tamamlanana kadar bir ücrete tabi değildir.
+Tek bir geri yükleyebilirsiniz, havuza alınmış veya Azure portalını kullanarak aynı sunucuda yeni bir veritabanı olarak zaman içinde veritabanını daha önceki bir noktaya örnek [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases). Bir veritabanı herhangi bir hizmet katmanına geri yüklenebilir veya işlem boyutu. Veritabanını geri yüklediğiniz sunucuda yeterli kaynaklara sahip olun. Tamamlandıktan sonra geri yüklenen veritabanı bir normal, tam olarak erişilebilir, çevrimiçi veritabanı hizmetidir. Geri yüklenen veritabanı, hizmet katmanı ve işlem boyutuna bağlı olarak normal fiyatlarıyla ücretlendirilir. Veritabanı geri yükleme işlemi tamamlanana kadar bir ücrete tabi değildir.
 
 Bir veritabanını daha önceki bir noktaya kurtarma amacıyla genellikle geri. Bunun yapılması, yerine özgün veritabanını geri yüklenen veritabanı işle veya verileri almak ve sonra özgün veritabanını güncellemek için kullanın.
 
@@ -83,7 +83,7 @@ Bir veritabanını daha önceki bir noktaya kurtarma amacıyla genellikle geri. 
 
   Bir kullanıcı veya uygulama hatasından kurtarmak için geri yüklenen veritabanından veri almak planlama, yazma ve özgün veritabanına geri yüklenen veritabanından verileri ayıklamak için gerekli verileri kurtarma betiklerini yürütmek gerekir. Geri yükleme işleminin tamamlanması uzun zaman alabilir ancak geri yüklenen veritabanının geri yükleme işlemi boyunca veritabanı listesinde görünür. Veritabanını geri yükleme sırasında silmeniz halinde, geri yükleme işlemi iptal edildi ve geri yükleme işlemi tamamlanamadı veritabanı için ücretlendirilmez.
 
-Havuza alınmış, tek başına kurtarmak veya Azure portalını kullanarak bir noktaya veritabanı örneği için veritabanı sayfasını açın ve **geri** araç.
+Tek bir, kurtarılır havuza, veya Azure portalını kullanarak örnek bir noktasının veritabanına, veritabanı sayfasını açın ve tıklayın **geri** araç.
 
 ![noktası içinde belirli bir geri yükleme](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -139,7 +139,7 @@ Daha önce bahsedildiği gibi Azure portalına ek olarak, veritabanı kurtarma A
 
 ### <a name="powershell"></a>PowerShell
 
-- Tek başına veya havuza alınmış veritabanını geri yüklemek için bkz: [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
+- Tek veya havuza alınmış veritabanını geri yüklemek için bkz: [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
 
   | Cmdlet | Açıklama |
   | --- | --- |
@@ -155,7 +155,7 @@ Daha önce bahsedildiği gibi Azure portalına ek olarak, veritabanı kurtarma A
 
 ### <a name="rest-api"></a>REST API
 
-Tek başına veya REST API'yi kullanarak havuza alınmış veritabanını geri yüklemek için:
+REST API kullanarak bir tek veya havuza alınmış veritabanını geri yüklemek için:
 
 | API | Açıklama |
 | --- | --- |
@@ -164,7 +164,7 @@ Tek başına veya REST API'yi kullanarak havuza alınmış veritabanını geri y
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Tek başına veya Azure CLI kullanarak havuza alınmış veritabanını geri yüklemek için bkz: [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+Azure CLI kullanarak tek veya havuza alınmış veritabanını geri yüklemek için bkz: [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
 
 ## <a name="summary"></a>Özet
 

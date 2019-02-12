@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7ff4a4d64b69809c53ad70edf1455880da24d52a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892516"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990454"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme
 
@@ -106,8 +106,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
     Birkaç dakika içinde uyarı etkin ve daha önce açıklandığı gibi tetikler.
 
-Kullanıcılar ayrıca kendi analytics sorgunuzda kesin [Azure portalında günlüklerini analiz sayfası](../../azure-monitor/log-query/portals.md#log-analytics-page
-) ve aracılığıyla bir uyarı oluşturmak için anında iletme '+ Yeni uyarı kuralı' düğmesini - sonra adım 6'dan başlayarak yukarıdaki öğreticide talimatları.
+Kullanıcılar ayrıca kendi analytics sorgunuzda kesin [günlük analizi](../log-query/portals.md) ve Ayarla'uyarı ' düğmesiyle - bir uyarı oluşturmak için anında iletme sonra adım 6'dan başlayarak yukarıdaki öğreticide talimatları.
 
  ![Log Analytics - uyarı ayarlama](media/alerts-log/AlertsAnalyticsCreate.png)
 

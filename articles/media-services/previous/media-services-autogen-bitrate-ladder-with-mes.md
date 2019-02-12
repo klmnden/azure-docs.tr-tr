@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1d02f64cce5e539dd43a9372a00cd3ec1ddd5f0c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 5ccd53ac03235bd114218135488bef25891754be
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246985"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004071"
 ---
-#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Otomatik olarak bit hızı Merdiveni oluşturmak için Azure Medya Kodlayıcısı standart'ı kullanın
+#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Otomatik olarak bit hızı Merdiveni oluşturmak için Azure Medya Kodlayıcısı standart'ı kullanın  
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -174,7 +174,7 @@ Bu bölümde sonucunda kodlama ile MES tarafından üretilen çıkış katmanlar
 ### <a name="example-1"></a>Örnek 1
 Yükseklik "1080" ve "29.970" kare hızını kaynağıyla 6 video katmanları üretir:
 
-|Katman|Yükseklik|Genişlik|Bitrate(Kbps)|
+|Katman|Yükseklik|Genişlik|Bitrate(kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -186,7 +186,7 @@ Yükseklik "1080" ve "29.970" kare hızını kaynağıyla 6 video katmanları ü
 ### <a name="example-2"></a>Örnek 2
 Yükseklik "720" ve "23.970" kare hızını kaynağıyla 5 video katmanları üretir:
 
-|Katman|Yükseklik|Genişlik|Bitrate(Kbps)|
+|Katman|Yükseklik|Genişlik|Bitrate(kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -197,7 +197,7 @@ Yükseklik "720" ve "23.970" kare hızını kaynağıyla 5 video katmanları ür
 ### <a name="example-3"></a>Örnek 3
 Yükseklik "360" ve "29.970" kare hızını kaynağıyla 3 video katmanları üretir:
 
-|Katman|Yükseklik|Genişlik|Bitrate(Kbps)|
+|Katman|Yükseklik|Genişlik|Bitrate(kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

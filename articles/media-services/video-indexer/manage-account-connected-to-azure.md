@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 43e08298618f059ff706d11ce6bbb3d486642872
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 1515a026ae297a960f220a97449d2258c0b75e58
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292491"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004556"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabına yönetme
 
@@ -75,6 +75,6 @@ Hesabınızda bazı ayarlamalar gerekiyorsa ilgili hatalar ve uyarılar, hesap y
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Deneme hesabınız ile ve/veya'ndaki yönergeleri takip ederek azure'a bağlı Video Indexer hesaplarınızı ile program aracılığıyla etkileşim kurabilir: [kullanım API'leri](video-indexer-use-apis.md).
+Program aracılığıyla, deneme hesabıyla ve/veya'ndaki yönergeleri takip ederek azure'a bağlı Video Indexer hesaplarınızı ile etkileşim kurabilirsiniz: [API'leri kullanan](video-indexer-use-apis.md).
 
 Azure'a bağlanırken kullandığınız aynı Azure AD kullanıcı kullanmanız gerekir.

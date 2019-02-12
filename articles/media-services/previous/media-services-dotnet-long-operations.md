@@ -1,10 +1,10 @@
 ---
 title: Uzun süre çalışan işlemleri yoklama | Microsoft Docs
-description: Bu konu, uzun süre çalışan işlemleri yoklamak gösterilmektedir.
+description: Bu konuda, uzun süre çalışan işlemleri yoklamak gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
@@ -12,29 +12,29 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: fa456a2d0bb427af80d67a0b971fe8bd41bb7868
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f5098b2691f7c73be5df6b44479082bf25effde7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788427"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998051"
 ---
-# <a name="delivering-live-streaming-with-azure-media-services"></a>Azure Media Services ile canlı akış teslim etme
+# <a name="delivering-live-streaming-with-azure-media-services"></a>Azure Media Services ile canlı akış sunma
 
 ## <a name="overview"></a>Genel Bakış
 
-Microsoft Azure Media Services işlemleri başlatmak için Media Services istekleri göndermek API'ler sunar (örneğin: oluşturma, başlatma, durdurma veya kanal silme). Bu uzun süre çalışan işlemlerdir.
+Microsoft Azure Media Services istekleri gönderme işlemleri başlatmak için Media Services için API'ler sunar (örneğin: oluşturma, başlatma, durdurma veya bir kanalı Sil). Bu uzun süre çalışan işlemlerdir.
 
-Media Services .NET SDK'sı işlemin tamamlanmasını bekleyin ve isteği Gönder API'ler sağlar (dahili olarak, API işlem ilerlemesi için bazı aralıklarla yoklama). Örneğin, kanal çağırdığınızda. Kanal başlatıldıktan sonra Start(), yöntemi döndürür. Zaman uyumsuz sürümü de kullanabilirsiniz: kanal bekler. StartAsync() (görev tabanlı zaman uyumsuz desen hakkında daha fazla bilgi için bkz: [DOKUNUN](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). İşlem isteği gönderin ve işlemi tamamlanana kadar durumunun yoklaması API'leri "yoklama yöntemleri" adı verilir. Bu yöntemler (özellikle zaman uyumsuz sürümü) zengin istemci uygulamaları ve/veya durum bilgisi olan hizmetler için önerilir.
+Media Services .NET SDK'sı, istek gönderebilir ve işlemin tamamlanmasını bekleyin API'ler sağlar (dahili olarak, API işlem ilerleme durumunu için bazı aralıklarla yoklama). Örneğin, kanal çağırdığınızda. Kanal başlatıldıktan sonra Start() yöntemi döndürür. Zaman uyumsuz sürümü de kullanabilirsiniz: kanal bekler. StartAsync() (görev tabanlı zaman uyumsuz desen hakkında daha fazla bilgi için bkz. [DOKUNUN](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). Bir operation isteğini gönderin ve ardından, işlemi tamamlanana kadar durumunu yoklamak API'leri "yoklama yöntemleri" adı verilir. Bu yöntemler (özellikle zaman uyumsuz sürümü) zengin istemci uygulamaları ve/veya durum bilgisi olan hizmetler için önerilir.
 
-Burada bir uygulama uzun süre çalışan bir http isteği için Bekleyemez ve işlem ilerlemesi için el ile yoklamaya istediği senaryo vardır. Tipik bir örnek durum bilgisiz web hizmetiyle etkileşim kurarken bir tarayıcı olabilir: tarayıcı bir kanal oluşturmak isterse, web hizmeti uzun süren bir işlem başlatır ve işlem kimliği tarayıcıya döndürür. Tarayıcı sonra kimliğine göre işlem durumunu almak için web hizmeti isteyebilirsiniz Media Services .NET SDK'sı, bu senaryo için yararlı olan API'ler sağlar. Bu API'leri "yoklama olmayan yöntemleri" adı verilir.
-Aşağıdaki adlandırma deseni "Yoklama olmayan yöntemler" sahiptir: gönderme*OperationName*işlemi (örneğin, SendCreateOperation). Gönderme*OperationName*işlemi yöntemleri döndürür **IOperation** nesne; döndürülen nesnesi işlemi izlemek için kullanılan bilgileri içerir. Gönderme*OperationName*OperationAsync yöntemleri döndürür **görev<IOperation>**.
+Burada bir uygulamayı uzun süre çalışan bir http isteği için sabırsızlanıyoruz ve işlemi ilerleme durumu el ile yoklamaya istediği senaryo vardır. Örnek durum bilgisi olmayan web hizmetiyle etkileşim kurmanın bir tarayıcı olacaktır: tarayıcı bir kanal oluşturmak istediğinde, web hizmeti uzun süren bir işlem başlatır ve işlem kimliği tarayıcıya döndürür. Tarayıcı kimliğini temel alan işlem durumunu almak için web hizmeti ardından sorabilirsiniz Media Services .NET SDK, bu senaryo için faydalı olan API'leri sağlar. Bu API'ler, "yoklama olmayan yöntemleri" adı verilir.
+"Yoklama olmayan yöntemler" aşağıdaki adlandırma deseni sahiptir: Gönderme*OperationName*işlemi (örneğin, SendCreateOperation). Gönderme*OperationName*işlemi yöntemleri dönüş **IOperation** nesne; döndürülen nesnesi işlemi izlemek için kullanılan bilgileri içerir. Gönderme*OperationName*OperationAsync yöntemleri dönüş **görev<IOperation>**.
 
-Şu anda aşağıdaki sınıflar yoklama olmayan yöntemlerini destekler: **kanal**, **StreamingEndpoint**, ve **Program**.
+Şu anda aşağıdaki sınıflar, yoklama olmayan yöntemleri destekler:  **Kanal**, **StreamingEndpoint**, ve **Program**.
 
-İçin işlem durumunu yoklamak için **GetOperation** yöntemi **OperationBaseCollection** sınıfı. İşlem durumunu denetlemek için şu aralıklar kullanın: için **kanal** ve **StreamingEndpoint** işlemleri, 30 saniye kullanın; **Program** işlemleri, 10 saniye kullanın.
+İçin işlem durumunu yoklamak için **GetOperation** metodunda **OperationBaseCollection** sınıfı. İşlem durumunu denetlemek için şu aralıklar kullanın: için **kanal** ve **StreamingEndpoint** işlemleri, 30 saniye kullanın; **Program** işlemleri, 10 saniye kullanın.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
@@ -42,9 +42,9 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
 ## <a name="example"></a>Örnek
 
-Aşağıdaki örnek adlı bir sınıf tanımlar **ChannelOperations**. Bu sınıf tanımını web hizmet sınıf tanımı için bir başlangıç noktası olabilir. Kolaylık olması için aşağıdaki örneklerde yöntemlerinin olmayan zaman uyumsuz sürümlerini kullanın.
+Aşağıdaki örnek adlı bir sınıf tanımlar **ChannelOperations**. Bu sınıf tanımı, web hizmeti sınıfı tanımınız için bir başlangıç noktası olabilir. Kolaylık olması için aşağıdaki örnekleri yöntemlerinin olmayan zaman uyumsuz sürümlerini kullanın.
 
-Örnek, ayrıca istemciyi bu sınıfın nasıl kullanabilir gösterir.
+Bu sınıf istemci nasıl kullanacağınız örnek ayrıca gösterir.
 
 ### <a name="channeloperations-class-definition"></a>ChannelOperations sınıf tanımı
 

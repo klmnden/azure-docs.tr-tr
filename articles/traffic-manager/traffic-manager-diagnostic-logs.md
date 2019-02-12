@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: abdc50d6d3d27ab7611994089345a997afc72cae
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d4d4420e2d38b1418a08ad1ca51dd0f75f3fe7b9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082560"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001111"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Azure Traffic Manager'da tanılama günlük kaydını etkinleştirme
 
@@ -26,29 +26,31 @@ Azure Traffic Manager tanılama günlükleri, Traffic Manager profili kaynak dav
 
 ## <a name="enable-diagnostic-logging"></a>Tanılama günlüğünü etkinleştirme
 
-İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell bilgisayarınızdan çalıştırırsanız, gereksinim duyduğunuz *AzureRM* PowerShell modülü, 6.13.1 veya üzeri. Çalıştırabileceğiniz `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Login-AzureRmAccount` için Azure'da oturum açın.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell bilgisayarınızdan çalıştırırsanız, Azure PowerShell modülü, 1.0.0 gerekir veya üzeri. Çalıştırabileceğiniz `Get-Module -ListAvailable Az` yüklü sürümü bulmak için. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-az-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Login-AzAccount` için Azure'da oturum açın.
 
 1. **Traffic Manager profilini Al:**
 
-    Tanılama günlük kaydını etkinleştirmek için bir Traffic Manager profili kimliği gerekir. Tanılama ile günlük etkinleştirmek istediğiniz bir Traffic Manager profili almak [Get-AzureRmTrafficManagerProfile](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile). Çıktı, Traffic Manager profilinin kimlik bilgilerini içerir.
+    Tanılama günlük kaydını etkinleştirmek için bir Traffic Manager profili kimliği gerekir. Tanılama ile günlük etkinleştirmek istediğiniz bir Traffic Manager profili almak [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). Çıktı, Traffic Manager profilinin kimlik bilgilerini içerir.
 
     ```azurepowershell-interactive
-    Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
+    Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
 2. **Traffic Manager profili için tanılama günlüğüne kaydetmeyi etkinleştir:**
 
-    Traffic Manager profili önceki adımda elde edilen kimliği kullanarak için tanılama günlüğünü etkinleştirme [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). Aşağıdaki komut, belirtilen Azure depolama hesabı için Traffic Manager profili için ayrıntılı günlükleri depolar. 
+    Traffic Manager profili önceki adımda elde edilen kimliği kullanarak için tanılama günlüğünü etkinleştirme [kümesi AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/set-azdiagnosticsetting?view=latest). Aşağıdaki komut, belirtilen Azure depolama hesabı için Traffic Manager profili için ayrıntılı günlükleri depolar. 
 
       ```azurepowershell-interactive
-    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Tanılama ayarlarını doğrulayın:**
 
-      Traffic Manager profilini kullanarak tanılama ayarlarını doğrulayın [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). Aşağıdaki komut, bir kaynak için oturum açmış olan kategorileri görüntüler.
+      Traffic Manager profilini kullanarak tanılama ayarlarını doğrulayın [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/get-azdiagnosticsetting?view=latest). Aşağıdaki komut, bir kaynak için oturum açmış olan kategorileri görüntüler.
 
      ```azurepowershell-interactive
-     Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+     Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
      ```  
       Tüm kategoriler etkin olarak Traffic Manager profili kaynak görüntü ile ilişkili oturum emin olun. Ayrıca, depolama hesabı düzgün şekilde ayarlandığını doğrulayın.
 
@@ -70,8 +72,8 @@ Aşağıdaki tablo, Azure Traffic Manager profili kaynağa özel günlükleri ş
 |||||
 |----|----|---|---|
 |**Alan adı**|**Alan türü**|**Tanım**|**Örnek**|
-|EndpointName|Dize|Sistem durumu kaydedilen Traffic Manager uç noktası adı.|*myPrimaryEndpoint*|
-|Durum|Dize|Araştırılan Traffic Manager uç nokta sistem durumu. Durum ya da olabilir **yukarı** veya **aşağı**.|**Ayarlama**|
+|EndpointName|String|Sistem durumu kaydedilen Traffic Manager uç noktası adı.|*myPrimaryEndpoint*|
+|Durum|String|Araştırılan Traffic Manager uç nokta sistem durumu. Durum ya da olabilir **yukarı** veya **aşağı**.|**Ayarlama**|
 |||||
 
 ## <a name="next-steps"></a>Sonraki adımlar

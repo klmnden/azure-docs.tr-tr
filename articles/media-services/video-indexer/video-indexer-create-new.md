@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4a65e88e3f94f64a56bde882b535030968ae354d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197560"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991285"
 ---
 # <a name="create-highlights-from-existing-videos"></a>Mevcut videolardan öne çıkan özellikleri oluşturma
 
@@ -27,17 +27,14 @@ Bu konuda, başka bir videodan video içgörüleri oluşturma ve yayımlama aç�
     Sayfada videoya ilişkin özetlenmiş içgörüler gösterilir. 
 
     ![Insights](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
-
 3. **Düzenle** düğmesine basın.
 
     Bu sayfada videonun tam bir çözümlemesi gösterilir. Çözümleme bloklara ayrılır. Bloklara ayrılması, verileri daha kolayca incelemenize olanak tanır. Örneğin, blok ne zaman konuşmacının değiştiğine ya da uzun duraklamalar olduğuna bağlı olarak çözümlenebilir. Sadece istediğiniz satırları içeren kendi oynatma listenizi oluşturabilirsiniz. Kaynak videonun yalnızca belirli bölümlerini göstermek için konular/anahtar sözcükler, yaklaşımlar, kişiler veya konuşmacılara göre filtreleyebilirsiniz. Videonun yalnızca transkriptini veya OCR’sini görüntülemeyi seçebilirsiniz.    
 
     ![Insights](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
-
 4. Oynatma listenizi oluşturun.
 
     Oynatma listenize satır eklemek veya listeden satır kaldırmak için **+**/**-** düğmelerine basın.
-
 5. Oynatma listenizin önizlemesini görüntüleyin.
 
     Oynatma listesini oluşturmayı tamamladığınızda **Önizleme**’ye basın.

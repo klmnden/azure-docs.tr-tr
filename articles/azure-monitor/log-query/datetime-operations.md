@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorgu tarih saat değerleri ile çalışma | Microsoft Docs
-description: Log Analytics sorguları tarih ve saat verilerini ile nasıl çalışılacağını açıklar.
+title: Azure İzleyici günlük sorguları tarih saat değerleri ile çalışma | Microsoft Docs
+description: Azure İzleyici günlük sorguları tarih ve saat verilerini ile nasıl çalışılacağını açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 15767107a5c535cfda98da2a5177e15ca221f35d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214703"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999258"
 ---
-# <a name="working-with-date-time-values-in-log-analytics-queries"></a>Log Analytics sorgu tarih saat değerleri ile çalışma
+# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları tarih saat değerleri ile çalışma
 
 > [!NOTE]
 > Tamamlamanız gereken [Analytics portalı ile çalışmaya başlama](get-started-portal.md) ve [sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Bu makalede, tarih ve saat verilerini Log Analytics sorgu ile nasıl çalışılacağı açıklanır.
+Bu makalede, Azure İzleyici günlük sorguları tarih ve saat verilerini ile nasıl çalışılacağı açıklanır.
 
 
 ## <a name="date-time-basics"></a>Tarih saat temelleri
-Log Analytics sorgu dili, tarihler ve saatler ile ilişkili iki ana veri türü vardır: datetime ve TimeSpan değeri. Tüm tarihler UTC cinsinden ifade edilir. Birden fazla tarih/saat biçimleri desteklenir, ancak ISO8601 biçimini tercih edilir. 
+Veri Gezgini sorgu dili tarihler ve saatler ile ilişkili iki ana veri türü vardır: datetime ve TimeSpan değeri. Tüm tarihler UTC cinsinden ifade edilir. Birden fazla tarih/saat biçimleri desteklenir, ancak ISO8601 biçimini tercih edilir. 
 
 Timespans zaman birimi tarafından izlenen bir ondalık sayı olarak ifade edilir:
 
@@ -161,7 +161,7 @@ Event
 | Bir tarih değerine göre Al  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Log Analytics sorgu dilini kullanarak için diğer dersler bakın:
+Diğer dersler kullanmak için bkz. [Veri Gezgini sorgu dili](/azure/kusto/query/) Azure İzleyici ile günlük verilerini:
 
 - [Dize işlemleri](string-operations.md)
 - [Toplama işlevleri](aggregations.md)

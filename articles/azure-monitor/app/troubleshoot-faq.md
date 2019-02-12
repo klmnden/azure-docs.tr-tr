@@ -12,47 +12,47 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4400873e337c6003d2115afd77c40a31db1d5889
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 17774ea74c2462cb5b8a9dfe638b3dec02499d81
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895967"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999173"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık Sorulan Sorular
 
 ## <a name="configuration-problems"></a>Yapılandırma sorunları
 *Ayarlama konusunda sorun yaşıyorum my:*
 
-* [.NET uygulaması](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
-* [Zaten çalışan bir uygulamayı izleme](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)
+* [.NET uygulaması](asp-net-troubleshoot-no-data.md)
+* [Zaten çalışan bir uygulamayı izleme](monitor-performance-live-website-now.md#troubleshoot)
 * [Azure tanılama](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Java web uygulaması](../../azure-monitor/app/java-troubleshoot.md)
+* [Java web uygulaması](java-troubleshoot.md)
 
 *Benim sunucumdan veri alabilirim*
 
-* [Küme güvenlik duvarı özel durumları](../../azure-monitor/app/ip-addresses.md)
-* [Bir ASP.NET sunucusu ayarlama](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Bir Java sunucusu ayarlama](../../azure-monitor/app/java-agent.md)
+* [Küme güvenlik duvarı özel durumları](ip-addresses.md)
+* [Bir ASP.NET sunucusu ayarlama](monitor-performance-live-website-now.md)
+* [Bir Java sunucusu ayarlama](java-agent.md)
 
 ## <a name="can-i-use-application-insights-with-"></a>Application Insights ile kullanabilir miyim...?
 
-* [Web uygulamaları - şirket içi bir IIS sunucusunda veya VM](../../azure-monitor/app/asp-net.md)
-* [Java web uygulamaları](../../azure-monitor/app/java-get-started.md)
-* [Node.js uygulamaları](../../azure-monitor/app/nodejs.md)
-* [Azure'da Web uygulamaları](../../azure-monitor/app/azure-web-apps.md)
-* [Azure'da bulut Hizmetleri](../../azure-monitor/app/cloudservices.md)
-* [Docker'ı çalıştıran uygulama sunucuları](../../azure-monitor/app/docker.md)
-* [Tek sayfa web uygulamaları](../../azure-monitor/app/javascript.md)
+* [Web uygulamaları - şirket içi bir IIS sunucusunda veya VM](asp-net.md)
+* [Java web uygulamaları](java-get-started.md)
+* [Node.js uygulamaları](nodejs.md)
+* [Azure'da Web uygulamaları](azure-web-apps.md)
+* [Azure'da bulut Hizmetleri](cloudservices.md)
+* [Docker'ı çalıştıran uygulama sunucuları](docker.md)
+* [Tek sayfa web uygulamaları](javascript.md)
 * [SharePoint](sharepoint.md)
-* [Windows masaüstü uygulaması](../../azure-monitor/app/windows-desktop.md)
-* [Diğer platformlar](../../azure-monitor/app/platforms.md)
+* [Windows masaüstü uygulaması](windows-desktop.md)
+* [Diğer platformlar](platforms.md)
 
 ## <a name="is-it-free"></a>Ücretsiz mi?
 
 Evet, Deneysel için kullanın. Temel fiyatlandırma planı, uygulamanızın bir belirli kullanım hakkı her ay ücretsiz olarak gönderebilir. Ücretsiz Kullanım Hakkı kapak geliştirme ve az sayıda kullanıcı için bir uygulama yayımlama için yeteri kadar büyük. Belirtilen veri miktarından fazla işlenmekte olan önlemek için üst sınır ayarlayabilirsiniz.
 
-Daha büyük miktarda telemetri Gb ile ücretlendirilir. Nasıl yapılır ilgili bazı ipuçları sağlıyoruz [ücretlerinizin sınırlamak](../../azure-monitor/app/pricing.md).
+Daha büyük miktarda telemetri Gb ile ücretlendirilir. Nasıl yapılır ilgili bazı ipuçları sağlıyoruz [ücretlerinizin sınırlamak](pricing.md).
 
 Kurumsal plan, her web sunucusu düğümüne telemetri gönderen her gün için bir ücret doğurur. Büyük ölçekte sürekli dışarı aktarma'yı kullanmak istiyorsanız uygundur.
 
@@ -86,7 +86,7 @@ Ayrıntılar projenin türüne bağlıdır. Bir web uygulaması için:
 * (Yeni, yalnızca - projelerin, [var olan bir projeye Application Insights ekleme][start], bu el ile yapmanız gerekir.) Application Insights kaynak kimliği ile bunları başlatmak için istemci ve sunucu kod parçacıkları ekler Örneğin, bir MVC uygulamasında kodu ana sayfaya Views/Shared/_Layout.cshtml eklenir
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Daha eski SDK sürümlerinden nasıl yükseltebilirim?
-Bkz: [sürüm notları](../../azure-monitor/app/release-notes.md) uygulama türüne uygun SDK'sı.
+Bkz: [sürüm notları](release-notes.md) uygulama türüne uygun SDK'sı.
 
 ## <a name="update"></a>Hangi Azure kaynak Projem için veri gönderen nasıl değiştirebilirim?
 Çözüm Gezgini'nde sağ `ApplicationInsights.config` ve **güncelleştirme Application Insights**. Azure'da mevcut veya yeni bir kaynak veri gönderebilir. Güncelleştirme Sihirbazı'nı izleme anahtarını sunucu SDK'sı verilerinizi göndereceği yeri belirler applicationınsights.config dosyasını değiştirir. "Tümünü Güncelleştir" kaldırmadıysanız, web sayfaları'nda göründüğü anahtarı da değişecektir.
@@ -95,33 +95,33 @@ Bkz: [sürüm notları](../../azure-monitor/app/release-notes.md) uygulama tür�
 
 IIS web sunucunuza Application Insights web apps'te yapılandırmak için kullanabileceğiniz bir masaüstü uygulaması. Telemetri toplama yoktur: uygulama yapılandırırken değil durdurabilirsiniz. 
 
-[Daha fazla bilgi edinin](../../azure-monitor/app/monitor-performance-live-website-now.md#questions).
+[Daha fazla bilgi edinin](monitor-performance-live-website-now.md#questions).
 
 ## <a name="what-telemetry-is-collected-by-application-insights"></a>Application Insights tarafından hangi telemetri toplanır?
 
 Sunucu web uygulamaları:
 
 * HTTP istekleri
-* [Bağımlılıkları](../../azure-monitor/app/asp-net-dependencies.md). Çağrı: SQL veritabanı; Dış hizmetler için HTTP çağrıları; Azure Cosmos DB, tablo, blob depolama ve kuyruk. 
-* [Özel durumlar](../../azure-monitor/app/asp-net-exceptions.md) ve Yığın izlemeleri.
-* [Performans sayaçları](../../azure-monitor/app/performance-counters.md) - kullanırsanız [Durum İzleyicisi](../../azure-monitor/app/monitor-performance-live-website-now.md), [Azure izleme](../../azure-monitor/app/azure-web-apps.md), veya [Application Insights toplanan yazıcı](../../azure-monitor/app/java-collectd.md).
-* [Özel olaylar ve ölçümler](../../azure-monitor/app/api-custom-events-metrics.md) , kod.
-* [İzleme günlükleri](../../azure-monitor/app/asp-net-trace-logs.md) uygun Toplayıcı yapılandırırsanız.
+* [Bağımlılıkları](asp-net-dependencies.md). Çağrı: SQL veritabanı; Dış hizmetler için HTTP çağrıları; Azure Cosmos DB, tablo, blob depolama ve kuyruk. 
+* [Özel durumlar](asp-net-exceptions.md) ve Yığın izlemeleri.
+* [Performans sayaçları](performance-counters.md) - kullanırsanız [Durum İzleyicisi](monitor-performance-live-website-now.md), [Azure izleme](azure-web-apps.md), veya [Application Insights toplanan yazıcı](java-collectd.md).
+* [Özel olaylar ve ölçümler](api-custom-events-metrics.md) , kod.
+* [İzleme günlükleri](asp-net-trace-logs.md) uygun Toplayıcı yapılandırırsanız.
 
-Gelen [istemci web sayfaları](../../azure-monitor/app/javascript.md):
+Gelen [istemci web sayfaları](javascript.md):
 
 * [Sayfa görüntüleme sayıları](usage-overview.md)
-* [AJAX çağrıları](../../azure-monitor/app/asp-net-dependencies.md) istekte bir çalışan komut dosyasından.
+* [AJAX çağrıları](asp-net-dependencies.md) istekte bir çalışan komut dosyasından.
 * Sayfa görüntüleme yükleme verileri
 * Kullanıcı ve oturum sayıları
-* [Kimliği doğrulanmış kullanıcı kimlikleri](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)
+* [Kimliği doğrulanmış kullanıcı kimlikleri](api-custom-events-metrics.md#authenticated-users)
 
 Yapılandırmadan, diğer kaynaklardan:
 
-* [Azure tanılama](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Analiz için içeri aktarma](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
-* [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
-* [Logstash](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Azure tanılama](../platform/diagnostics-extension-to-application-insights.md)
+* [Analiz için içeri aktarma](../platform/data-collector-api.md)
+* [Log Analytics](../platform/data-collector-api.md)
+* [Logstash](../platform/data-collector-api.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Filtreleme veya miyim bazı telemetri Değiştir?
 
@@ -130,7 +130,7 @@ Evet, sunucuda şunu yazabilirsiniz:
 * Filtre veya uygulamanızdan gönderilmeden önce özellikleri seçili telemetri öğelerini eklemek için telemetri işlemcisi'ni kullanın.
 * Tüm telemetri öğeleri için özellikler eklemek için telemetri başlatıcısını.
 
-Daha fazla bilgi edinin [ASP.NET](../../azure-monitor/app/api-filtering-sampling.md) veya [Java](../../azure-monitor/app/java-filter-telemetry.md).
+Daha fazla bilgi edinin [ASP.NET](api-filtering-sampling.md) veya [Java](java-filter-telemetry.md).
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Şehir, ülke ve diğer coğrafi konum verilerini nasıl hesaplanır?
 
@@ -141,7 +141,7 @@ IP adresini kullanarak web istemcisi (IPv4 veya IPv6) baktığımızda [GeoLite2
 
 Yapılandırabileceğiniz `ClientIpHeaderTelemetryInitializer` farklı bir üst bilgisinden IP adresini almak için. Bazı sistemlerde, örneğin, bir proxy tarafından taşınması, yük dengeleyici veya CDN `X-Originating-IP`. [Daha fazla bilgi edinin](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-Yapabilecekleriniz [Power BI](../../azure-monitor/app/export-power-bi.md ) isteği telemetrinizi bir haritada görüntülemek için.
+Yapabilecekleriniz [Power BI](export-power-bi.md ) isteği telemetrinizi bir haritada görüntülemek için.
 
 
 ## <a name="data"></a>Veri, portalda ne kadar süreyle tutulduğunu? Güvenli mi?
@@ -149,7 +149,7 @@ Bir göz atın [veri saklama ve gizlilik][data].
 
 ## <a name="could-personal-data-be-sent-in-the-telemetry"></a>Kişisel verileri telemetri gönderilebilir mi?
 
-Bu, kodunuzu tür veri gönderiyorsa mümkündür. Yığın izlemelerini değişkenlerinde kişisel veri içeriyorsa de oluşabilir. Geliştirme ekibiniz, kişisel verileri doğru şekilde işlediğinden emin olmak için risk değerlendirmeleri yürütmeniz gerekir. [Veri saklama ve gizlilik hakkında daha fazla bilgi edinin](../../azure-monitor/app/data-retention-privacy.md).
+Bu, kodunuzu tür veri gönderiyorsa mümkündür. Yığın izlemelerini değişkenlerinde kişisel veri içeriyorsa de oluşabilir. Geliştirme ekibiniz, kişisel verileri doğru şekilde işlediğinden emin olmak için risk değerlendirmeleri yürütmeniz gerekir. [Veri saklama ve gizlilik hakkında daha fazla bilgi edinin](data-retention-privacy.md).
 
 **Tüm** coğrafi konum özniteliklerini aranır sonra istemci web adresinin sekizlik tabanda 0 olarak her zaman ayarlanmış.
 
@@ -173,35 +173,35 @@ Gönderme verisi otomatik olarak oturum yok, ancak bir TrackTrace çağrı kulla
 Tek bir kaynak tüm bileşenleri veya rolleri için tek bir iş sisteminde kullanın. Bağımsız uygulamaların yanı sıra, geliştirme, test ve yayın sürümleri için ayrı kaynaklar kullanın.
 
 * [Buraya bakın](separate-resources.md)
-* [Örnek - worker ve web rolleri ile bulut hizmeti](../../azure-monitor/app/cloudservices.md)
+* [Örnek - worker ve web rolleri ile bulut hizmeti](cloudservices.md)
 
 ## <a name="how-do-i-dynamically-change-the-instrumentation-key"></a>İzleme anahtarını dinamik olarak nasıl değiştirebilirim?
 
 * [Tartışması](separate-resources.md)
-* [Örnek - worker ve web rolleri ile bulut hizmeti](../../azure-monitor/app/cloudservices.md)
+* [Örnek - worker ve web rolleri ile bulut hizmeti](cloudservices.md)
 
 ## <a name="what-are-the-user-and-session-counts"></a>Kullanıcı ve oturum nelerdir sayılır?
 
 * JavaScript SDK'sı, etkinlikleri gruplandırmak için gelen kullanıcıları tanımlamak için web istemcisi, bir kullanıcı tanımlama bilgisinde ve oturum tanımlama bilgisini ayarlar.
 * İstemci tarafı komut dosyası varsa, [sunucu tanımlama bilgilerini ayarlama](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Farklı tarayıcılar veya içinde InPrivate/gizli Tarama modunda sitenizdeki bir gerçek kullanıcı kullanır veya farklı makineler sonra birden çok kez sayılır olur.
-* Makineleri ve tarayıcılar arasında bir oturum açma kullanıcı tanımlamak için bir çağrı ekleyin [setAuthenticatedUserContext()](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
+* Makineleri ve tarayıcılar arasında bir oturum açma kullanıcı tanımlamak için bir çağrı ekleyin [setAuthenticatedUserContext()](api-custom-events-metrics.md#authenticated-users).
 
 ## <a name="q17"></a> Application Insights içinde her şeyi etkinleştirdiniz mi?
 | Görmeniz gereken | Bunu alma | İstediğiniz neden |
 | --- | --- | --- |
-| Kullanılabilirlik grafikleri |[Web testleri](../../azure-monitor/app/monitor-web-app-availability.md) |Web uygulamanız çalışıyor bildirin |
-| Server app perf: yanıt süreleri... |[Projenize Application Insights ekleme](../../azure-monitor/app/asp-net.md) veya [sunucuda AI Durum İzleyicisi yükleyin](../../azure-monitor/app/monitor-performance-live-website-now.md) (veya kendi kodunuzu yazma [bağımlılıkları izlemek](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)) |Performans sorunları tespit edin |
-| Bağımlılık telemetrisi |[Sunucu üzerinde yapay ZEKA Durum İzleyicisi'ni yükleyin](../../azure-monitor/app/monitor-performance-live-website-now.md) |Veritabanları veya diğer dış bileşenlere sorunları tanılayın |
-| Özel durumlardan yığın izlemelerini alın |[Kodunuzda TrackException çağrıları eklemenize](../../azure-monitor/app/asp-net-exceptions.md) (ancak bazı otomatik olarak raporlanır) |Algılama ve özel durumları tanılama |
-| Günlük izlemelerini arama |[Günlüğe kaydetme bağdaştırıcı ekleme](../../azure-monitor/app/asp-net-trace-logs.md) |Özel durumlar, performans sorunlarını tanılayın |
-| İstemci kullanım temelleri: sayfa görüntülemeleri, oturumlar... |[Web sayfalarında JavaScript Başlatıcı](../../azure-monitor/app/javascript.md) |Kullanım analizi |
-| İstemci özel ölçümler |[Web sayfaları'nda izleme çağrıları](../../azure-monitor/app/api-custom-events-metrics.md) |Kullanıcı deneyimini geliştirin |
-| Sunucu özel ölçümler |[Sunucu izleme çağrıları](../../azure-monitor/app/api-custom-events-metrics.md) |İş zekası |
+| Kullanılabilirlik grafikleri |[Web testleri](monitor-web-app-availability.md) |Web uygulamanız çalışıyor bildirin |
+| Server app perf: yanıt süreleri... |[Projenize Application Insights ekleme](asp-net.md) veya [sunucuda AI Durum İzleyicisi yükleyin](monitor-performance-live-website-now.md) (veya kendi kodunuzu yazma [bağımlılıkları izlemek](api-custom-events-metrics.md#trackdependency)) |Performans sorunları tespit edin |
+| Bağımlılık telemetrisi |[Sunucu üzerinde yapay ZEKA Durum İzleyicisi'ni yükleyin](monitor-performance-live-website-now.md) |Veritabanları veya diğer dış bileşenlere sorunları tanılayın |
+| Özel durumlardan yığın izlemelerini alın |[Kodunuzda TrackException çağrıları eklemenize](asp-net-exceptions.md) (ancak bazı otomatik olarak raporlanır) |Algılama ve özel durumları tanılama |
+| Günlük izlemelerini arama |[Günlüğe kaydetme bağdaştırıcı ekleme](asp-net-trace-logs.md) |Özel durumlar, performans sorunlarını tanılayın |
+| İstemci kullanım temelleri: sayfa görüntülemeleri, oturumlar... |[Web sayfalarında JavaScript Başlatıcı](javascript.md) |Kullanım analizi |
+| İstemci özel ölçümler |[Web sayfaları'nda izleme çağrıları](api-custom-events-metrics.md) |Kullanıcı deneyimini geliştirin |
+| Sunucu özel ölçümler |[Sunucu izleme çağrıları](api-custom-events-metrics.md) |İş zekası |
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Neden arama ve ölçümler grafiklerde sayıları eşit?
 
-[Örnekleme](../../azure-monitor/app/sampling.md) gerçekten portala uygulamanızdan gönderilen telemetri öğelerinin (istekler, özel olaylar vb.) sayısını azaltır. Aramada, gerçekte alınan öğe sayısını görürsünüz. Olayların sayısını görüntüleyen ölçüm grafiklerde oluştu özgün olay sayısını görürsünüz. 
+[Örnekleme](sampling.md) gerçekten portala uygulamanızdan gönderilen telemetri öğelerinin (istekler, özel olaylar vb.) sayısını azaltır. Aramada, gerçekte alınan öğe sayısını görürsünüz. Olayların sayısını görüntüleyen ölçüm grafiklerde oluştu özgün olay sayısını görürsünüz. 
 
 Her öğe taşıyan iletilen bir `itemCount` kaç tane özgün olay öğeyi gösteren bir özelliği temsil eder. Örnekleme işleminde gözlemlemek için Analytics'te bu sorguyu çalıştırabilirsiniz:
 
@@ -214,7 +214,7 @@ Her öğe taşıyan iletilen bir `itemCount` kaç tane özgün olay öğeyi gös
 
 ### <a name="configuring-application-insights"></a>Application Insights'ı yapılandırma
 
-Yapabilecekleriniz [PowerShell betikleri yazma](../../azure-monitor/app/powershell.md) için Azure Kaynak İzleyicisi'ni kullanma:
+Yapabilecekleriniz [PowerShell betikleri yazma](powershell.md) için Azure Kaynak İzleyicisi'ni kullanma:
 
 * Oluşturun ve Application Insights kaynaklarını güncelleştirin.
 * Fiyatlandırma planı ayarlayın.
@@ -226,7 +226,7 @@ Yapabilecekleriniz [PowerShell betikleri yazma](../../azure-monitor/app/powershe
 
 ### <a name="querying-the-telemetry"></a>Telemetri sorgulama
 
-Kullanım [REST API](https://dev.applicationinsights.io/) çalıştırılacak [Analytics](../../azure-monitor/app/analytics.md) sorgular.
+Kullanım [REST API](https://dev.applicationinsights.io/) çalıştırılacak [Analytics](analytics.md) sorgular.
 
 ## <a name="how-can-i-set-an-alert-on-an-event"></a>Bir olay hakkında bir uyarı nasıl ayarlayabilirim?
 
@@ -241,7 +241,7 @@ Bu işlem, Application Insights kaynağınız burada barındırılan bağımlı 
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Application ınsights'ı portala telemetri gönderebilir miyim?
 
-SDK'larımızda kullanın ve kullanmak öneririz [SDK API'si](../../azure-monitor/app/api-custom-events-metrics.md). Çeşitli için SDK çeşitlerini vardır [platformları](../../azure-monitor/app/platforms.md). Bu SDK'ları, arabelleğe alma, sıkıştırma, azaltma, yeniden denemeler ve benzeri işler. Ancak, [alımı şema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) ve [uç nokta Protokolü](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) ortaktır.
+SDK'larımızda kullanın ve kullanmak öneririz [SDK API'si](api-custom-events-metrics.md). Çeşitli için SDK çeşitlerini vardır [platformları](platforms.md). Bu SDK'ları, arabelleğe alma, sıkıştırma, azaltma, yeniden denemeler ve benzeri işler. Ancak, [alımı şema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) ve [uç nokta Protokolü](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) ortaktır.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Bir intranet web sunucusu izleyebilirim?
 
@@ -293,9 +293,9 @@ _Not ApplicationIdProvider v2.6.0 içinde itibaren kullanılabilir_
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Bir intranet sunucusunda kullanılabilirlik web testleri çalıştırabilir miyim?
 
-Bizim [web testleri](../../azure-monitor/app/monitor-web-app-availability.md) dünyanın dört bir yanında dağıtılan varlık noktaları çalıştırın. İki çözümü vardır:
+Bizim [web testleri](monitor-web-app-availability.md) dünyanın dört bir yanında dağıtılan varlık noktaları çalıştırın. İki çözümü vardır:
 
-* Güvenlik Duvarı kapı - sunucunuzdan istekleri olanak [web test aracıları uzun ve değiştirilebilir listesini](../../azure-monitor/app/ip-addresses.md).
+* Güvenlik Duvarı kapı - sunucunuzdan istekleri olanak [web test aracıları uzun ve değiştirilebilir listesini](ip-addresses.md).
 * Sunucunuzdan intranetinize içinde düzenli aralıklarla istekler göndermek için kendi kodunuzu yazın. Bu amaç için Visual Studio web testleri çalıştırabilir. Test edicinin TrackAvailability() API'sini kullanarak sonuçları Application Insights'a gönderebilir.
 
 ## <a name="how-long-does-it-take-for-telemetry-to-be-collected"></a>Ne kadar süre için toplanacak telemetri sürer?
@@ -307,7 +307,7 @@ Bizim [web testleri](../../azure-monitor/app/monitor-web-app-availability.md) d�
 
 <!--Link references-->
 
-[data]: ../../azure-monitor/app/data-retention-privacy.md
-[platforms]: ../../azure-monitor/app/platforms.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[data]: data-retention-privacy.md
+[platforms]: platforms.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

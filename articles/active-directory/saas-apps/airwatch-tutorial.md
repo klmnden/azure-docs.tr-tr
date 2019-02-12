@@ -4,7 +4,7 @@ description: Azure Active Directory ve AirWatch arasında çoklu oturum açmayı
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 96a3bb1c-96c6-40dc-8ea0-060b0c2a62e5
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 366ffa560cb16f6445eca93e79068fba6cc31e6d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 11e1278451e484336c9f35935f03bbeb0a8c6414
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813126"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004511"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Öğretici: AirWatch ile Azure Active Directory Tümleştirme
 
@@ -78,8 +78,8 @@ Yapılandırma ve Azure AD çoklu oturum açma AirWatch ile test etmek için aş
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[AirWatch çoklu oturum açmayı yapılandırma](#configure-airwatch-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[AirWatch test kullanıcısı oluşturma](#create-airwatch-test-user)**  - kullanıcı Azure AD gösterimini bağlı AirWatch Britta simon'un bir karşılığı vardır.
+4. **[AirWatch test kullanıcısı oluşturma](#create-airwatch-test-user)**  - kullanıcı Azure AD gösterimini bağlı AirWatch Britta simon'un bir karşılığı vardır.
+5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -111,11 +111,40 @@ Azure AD çoklu oturum açma ile AirWatch yapılandırmak için aşağıdaki ad�
     > [!NOTE]
     > Bu değer, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [AirWatch istemci Destek ekibine](https://www.air-watch.com/company/contact-us/) bu değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+5. AirWatch uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+
+    ![image](common/edit-attribute.png)
+
+6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
+
+    | Ad |  Kaynak özniteliği|
+    |---------------|----------------|
+    | UID | User.userPrincipalName |
+    | | |
+
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
+    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
+
+    c. Bırakın **Namespace** boş.
+
+    d. Kaynağı olarak **özniteliği**.
+
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+
+    f. Tıklayın **Tamam**
+
+    g. **Kaydet**’e tıklayın.
+
+7. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-6. Üzerinde **AirWatch kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+8. Üzerinde **AirWatch kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 

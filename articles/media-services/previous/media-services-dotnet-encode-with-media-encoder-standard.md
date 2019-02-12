@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e557b7220077be7fcca418f0c2cf8aceeace1eb5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2d910c5f031329e952f4892431877ec690c2a5a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809590"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991201"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Bir varlık kullanarak Media Encoder .NET Standard ile kodlama 
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Bir varlık kullanarak Media Encoder .NET Standard ile kodlama  
+
 Kodlama işleri, Media Services’da en sık gerçekleştirilen işlemler arasındadır. Kodlama işleri oluşturarak, medya dosyalarını bir kodlamadan diğerine dönüştürebilirsiniz. Kodlarken, Media Services yerleşik Medya Kodlayıcısı kullanabilirsiniz. Bir Media Services iş ortağı tarafından verilen bir kodlayıcı da kullanabilirsiniz; üçüncü taraf Kodlayıcı Azure Marketi aracılığıyla kullanılabilir. 
 
 Bu makalede, .NET, varlıkları ile Medya Kodlayıcısı standart (MES) kodlama için nasıl kullanılacağını gösterir. Media Encoder Standard yapılandırılmış kodlayıcılar hazır birini kullanarak açıklanan [burada](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).

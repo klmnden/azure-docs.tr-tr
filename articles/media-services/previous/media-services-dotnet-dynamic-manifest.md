@@ -1,10 +1,10 @@
 ---
 title: Azure Media Services .NET SDK ile Filtre Oluşturma
-description: Bu konuda, istemci akış belirli bölümlerine bir akış için kullanabilmeniz için filtreleri oluşturmayı açıklar. Media Services bu seçmeli akış elde etmek için dinamik bildirimleri oluşturur.
+description: Bu konuda, istemci akışı için bir stream'ın belirli bölümlerine kullanabilmesi için filtreler oluşturmayı açıklar. Media Services, bu seçmeli akış elde etmek için olan dinamik bildirimler oluşturur.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
 ms.service: media-services
@@ -12,40 +12,40 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/09/2019
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 04e6a1ac9b1fc94388580f03c6767da3da226c3a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2ee2e85188c4294060ef3effdc2d443f604aff61
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788546"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003338"
 ---
-# <a name="creating-filters-with-azure-media-services-net-sdk"></a>Azure Media Services .NET SDK ile Filtre Oluşturma
+# <a name="creating-filters-with-media-services-net-sdk-legacy"></a>Media Services .NET SDK ile filtre (eski) oluşturma
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)
 > 
 > 
 
-2.17 sürümünden başlayarak, Media Services, varlıklarınızı filtrelerini tanımlamanızı sağlar. Bu filtreler gibi şeyler seçim yapmasını sağlayan sunucu tarafı kurallardır: kayıttan yürütme (yerine tüm video oynatma), bir video yalnızca bir bölümünü veya yalnızca bir alt kümesini (yerine, müşterinizin aygıt işleyebilir ses ve video yorumlama belirtin varlık ile ilişkili tüm yorumlama). Bu varlıklarınızı filtreleme aracılığıyla elde edilen **dinamik bildirim**video akışını sağlamak için Müşteri'nin istek üzerine oluşturulan s tabanlı üzerinde belirtilen filtreler.
+2.17 sürümünden başlayarak, Media Services, varlıklarınız için filtrelerini tanımlamanızı sağlar. Bu filtreler müşterileriniz gibi şeyler seçmesine izin veren sunucu tarafı kurallar şunlardır: yalnızca bir bölümünü (yerine tüm video oynatma), bir video kayıttan yürütme ya da yalnızca bir alt kümesini (yerine, müşterinizin cihaz işleyebilir ses ve video yorumlama belirtin bir varlıkla ilişkilendirilen tüm yorumlama). Bu varlıklarınızı filtreleme yoluyla elde edilir **dinamik bildirim**müşterinizin istek üzerine video akışı oluşturan s üzerinde belirtilen filtreleri temel.
 
-Daha ayrıntılı filtreler ve dinamik bildirim ilgili bilgi için bkz: [dinamik bildirimleri genel bakış](media-services-dynamic-manifest-overview.md).
+Daha ayrıntılı filtreler ve dinamik bildirim ilgili bilgi için bkz. [dinamik bildirimlerin genel bakış](media-services-dynamic-manifest-overview.md).
 
-Bu makalede, Media Services .NET SDK'sı oluşturmak, güncelleştirmek ve filtreleri silmek için nasıl kullanılacağı gösterilmektedir. 
+Bu makalede, oluşturmak, güncelleştirmek ve filtreleri silmek için Media Services .NET SDK'sını kullanmayı gösterir. 
 
-Bir filtre güncelleştirirseniz, akış kuralları yenilemek için uç noktası için iki dakika sürebilir unutmayın. İçerik bu filtre kullanarak sunulduğu (ve proxy'ler ve CDN önbellekleri önbelleğe alınmış), bu filtre güncelleştiriliyor player hatalarına neden olabilir. Her zaman filtresi güncelleştirdikten sonra önbelleğini temizleyebilirsiniz. Bu seçenek yoksa, başka bir filtre kullanmayı düşünün. 
+Bir filtre güncelleştirirseniz, akış uç kuralları yenilemek için iki dakika sürebilir unutmayın. İçerik için bu filtreyi kullanarak hizmet (ve bu önbellekler proxy'leri ve CDN önbelleğe), bu filtre güncelleştirme player hatalarına neden olabilir. Her zaman filtresi güncelleştirdikten sonra önbelleğini temizleyin. Bu seçenek, mümkün değildir. farklı bir filtre kullanmayı düşünün. 
 
-## <a name="types-used-to-create-filters"></a>Filtreleri oluşturmak için kullanılan türleri
-Aşağıdaki türlerden filtreleri oluşturulurken kullanılır: 
+## <a name="types-used-to-create-filters"></a>Filtreler oluşturmak için kullanılan türleri
+Aşağıdaki türleri filtreler oluşturulurken kullanılır: 
 
-* **IStreamingFilter**.  Bu tür aşağıdaki REST API tabanlı [filtresi](https://docs.microsoft.com/rest/api/media/operations/filter)
-* **IStreamingAssetFilter**. Bu tür aşağıdaki REST API tabanlı [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* **PresentationTimeRange**. Bu tür aşağıdaki REST API tabanlı [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* **IStreamingFilter**.  Bu tür, aşağıdaki REST API ile ilgili temel [filtresi](https://docs.microsoft.com/rest/api/media/operations/filter)
+* **IStreamingAssetFilter**. Bu tür, aşağıdaki REST API ile ilgili temel [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
+* **PresentationTimeRange**. Bu tür, aşağıdaki REST API ile ilgili temel [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * **FilterTrackSelectStatement** ve **IFilterTrackPropertyCondition**. Aşağıdaki REST API'leri temel alarak bu tür [FilterTrackSelect ve FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 ## <a name="createupdatereaddelete-global-filters"></a>Genel filtrelerin oluşturma/güncelleştirme/okuma/silme
-Aşağıdaki kod, oluştur, Güncelleştir, okumak için .NET kullanın ve varlık filtreleri silmek gösterilmektedir.
+Aşağıdaki kod, .NET oluşturma, güncelleştirme, okuma ve varlık filtreleri silme gösterilmektedir.
 
 ```csharp
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
@@ -75,7 +75,7 @@ Aşağıdaki kod, oluştur, Güncelleştir, okumak için .NET kullanın ve varl�
 ```
 
 ## <a name="createupdatereaddelete-asset-filters"></a>Oluşturma/güncelleştirme/okuma/silme varlık filtreleri
-Aşağıdaki kod, oluştur, Güncelleştir, okumak için .NET kullanın ve varlık filtreleri silmek gösterilmektedir.
+Aşağıdaki kod, .NET oluşturma, güncelleştirme, okuma ve varlık filtreleri silme gösterilmektedir.
 
 ```csharp
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
@@ -106,10 +106,10 @@ Aşağıdaki kod, oluştur, Güncelleştir, okumak için .NET kullanın ve varl�
 ```
 
 
-## <a name="build-streaming-urls-that-use-filters"></a>Akış filtreleri kullanın URL'lerini derleme
-Yayımlama ve varlıklarınızı teslim etmek hakkında daha fazla bilgi için bkz: [müşteriler genel bakış için içerik teslim](media-services-deliver-content-overview.md).
+## <a name="build-streaming-urls-that-use-filters"></a>Akış Filtreleri kullanan URL'lerini oluşturun
+Yayımlama ve varlıklarınızı teslim hakkında daha fazla bilgi için bkz: [müşterilerin genel bakış için içerik teslim](media-services-deliver-content-overview.md).
 
-Aşağıdaki örnekler, akış URL'leri filtreleri ekleme gösterir.
+Aşağıdaki örnekler, akış URL'leri için filtreleri ekleyin gösterilmektedir.
 
 **MPEG DASH** 
 
@@ -135,5 +135,5 @@ Aşağıdaki örnekler, akış URL'leri filtreleri ekleme gösterir.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-[Dinamik bildirimleri genel bakış](media-services-dynamic-manifest-overview.md)
+[Dinamik bildirimlere genel bakış](media-services-dynamic-manifest-overview.md)
 

@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 9689854d9a28debbfbcf908391806fffac6a2006
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450192"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005531"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Nasıl iş ölçüm uyarıları anlamak Azure İzleyici'de
 
-Azure İzleyici ölçüm uyarıları çok boyutlu ölçümler üzerinde çalışır. Bu ölçümler platform ölçümleri olabilir [özel ölçümler](../../azure-monitor/platform/metrics-custom-overview.md), [Log Analytics popüler günlüklerinden dönüştürülen ölçümlerini](../../azure-monitor/platform/alerts-metric-logs.md), Application Insights standart ölçümler. Ölçüm uyarıları olmadığını denetlemek için düzenli aralıklarla değerlendirin koşullara göre bir veya daha fazla ölçüm zaman serisi doğruysa ve değerlendirmeleri karşılandığında size bildirir. Ölçüm Uyarıları durum bilgisi olan, durumu değiştiğinde diğer bir deyişle, bunlar yalnızca bildirimleri gönderin.
+Azure İzleyici ölçüm uyarıları çok boyutlu ölçümler üzerinde çalışır. Bu ölçümler platform ölçümleri olabilir [özel ölçümler](../../azure-monitor/platform/metrics-custom-overview.md), [popüler günlüklerinden Azure İzleyici ölçümlerine dönüştürülen](../../azure-monitor/platform/alerts-metric-logs.md), Application Insights standart ölçümleri. Ölçüm uyarıları olmadığını denetlemek için düzenli aralıklarla değerlendirin koşullara göre bir veya daha fazla ölçüm zaman serisi doğruysa ve değerlendirmeleri karşılandığında size bildirir. Ölçüm Uyarıları durum bilgisi olan, durumu değiştiğinde diğer bir deyişle, bunlar yalnızca bildirimleri gönderin.
 
 ## <a name="how-do-metric-alerts-work"></a>Ölçüm uyarıları nasıl çalışır?
 

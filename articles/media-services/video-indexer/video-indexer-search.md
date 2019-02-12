@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bbe26b19f9467034a4612ac1b40124122bee7f0c
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292466"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004562"
 ---
 # <a name="find-exact-moments-within-videos"></a>Videoların içinde belirli anları bulma
 
@@ -26,7 +26,6 @@ Bu konu, videolar için belirli anları bulmanıza olanak sağlamak arama seçen
     Aşağıdaki örnekte, biz Channel9 Scott hanselman'la tarafından oluşturulan tüm videolar için arama yapılır.
 
     ![Arama](./media/video-indexer-search/video-indexer-search01.png)
-    
 3. Özetlenen ınsights video arayın.
 
     Ardından, tıklayarak videonun içindeki arayabilirsiniz **Play** videoyla ilgili. Ardından, seçerek video içinde arama yapabilirsiniz **arama** sekmesi. Örneğin, "kimlik koruması" metin kullanıldığı her yerde için aranır. 
@@ -34,8 +33,6 @@ Bu konu, videolar için belirli anları bulmanıza olanak sağlamak arama seçen
     ![Arama](./media/video-indexer-search/video-indexer-search02.png)
 
     Sonuçlardan birini tıklarsanız, oyuncunun, o an için videoda getirir. Uygulamanızda eşitleme ve oynatıcı/görünümü elde edebilirsiniz. Daha fazla bilgi için [uygulamanıza ekleme Video Indexer pencere öğeleri](video-indexer-embed-widgets.md). 
-
-    
 4. Ayrıntılı bir dökümü video arayın.
 
     Kendi oluşturmak istiyorsanız dökümünü temel bulunan video, basın **Düzenle** düğmesi. Bu sayfada videonun tam bir çözümlemesi gösterilir. İçinde yalnızca gösterilecek dökümü ilgilendiğiniz satırları arama yapabilirsiniz. Daha fazla bilgi için [görünümü ve düzenleme Video dizinleyici öngörülerini](video-indexer-view-edit.md).

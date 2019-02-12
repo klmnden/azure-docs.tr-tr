@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 300673ffd62324de1207a29551694f12dd84ea93
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: bb64aff27aaacc3523552beb9eada12bdeb37ca8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366378"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995722"
 ---
-# <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>AES anahtarları ya da DRM lisanslarını teslim etmek için Azure Media Services'i kullanma
+# <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>DRM lisansları veya AES anahtarları sunmak için Media Services'i kullanma 
 
 Azure Media Services, içe alma, kodlama, içerik koruma Ekle ve içeriğinizin akışını sağlar. Daha fazla bilgi için [kullanım PlayReady ve/veya Widevine dinamik ortak şifreleme](media-services-protect-with-playready-widevine.md). Bazı müşteriler, yalnızca lisans ve/veya anahtarlarının sunma ve kodlama, şifreleme ve kendi şirket içi sunucular kullanarak akış Media Services'ı kullanmak istiyorsunuz. Bu makale, PlayReady ve/veya Widevine lisansları teslim ancak geri kalan işlemleri şirket içi sunucularınız ile Media Services nasıl kullanabileceğinizi açıklar. 
 

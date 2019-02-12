@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827457"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991336"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
-Azure İzleyici ölçüm Gezgini'ni grafikler çizme, görsel olarak eğilimleri ilişkilendirme ve ani araştırma sağlar ve düşüşler ölçümleri değerleri Microsoft Azure portalının bir bileşenidir. Ölçüm Gezgini çeşitli performans ve Azure'da barındırılan veya Azure izleme hizmetleri tarafından izlenen altyapı ve uygulamalar ile kullanılabilirlik sorunları araştırma için bir temel başlangıç noktasıdır.
+Azure İzleyici ölçüm Gezgini'ni çizim grafikleri, görsel olarak eğilimleri ilişkilendirme ve ani araştırma sağlar ve düşüşler ölçümleri değerleri Microsoft Azure portalının bir bileşenidir. Ölçüm Gezgini çeşitli performans ve Azure'da barındırılan veya Azure izleme hizmetleri tarafından izlenen altyapı ve uygulamalar ile kullanılabilirlik sorunları araştırma için bir temel başlangıç noktasıdır.
 
 ## <a name="metrics-in-azure"></a>Azure ölçümleri
 
-Microsoft azure'da ölçümleri ölçülen değerleri ve toplanan ve zaman içinde depolanmış olan sayıları oluşur. Standart (veya "platformu") ölçüm ve özel ölçüm vardır. Standart ölçümler, Azure platformu tarafından kendisi sağlanır. Standart ölçümler, Azure kaynaklarınızın durumunu ve kullanım istatistikleri yansıtır. Özel ölçüm kullanarak uygulamalarınızı tarafından Azure'a gönderilir ancak [özel olaylar için Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Özel ölçümler Application Insights kaynakları diğer uygulama belirli ölçümleri birlikte depolanır.
+[Azure İzleyicisi'nde ölçümler](data-collection.md#metrics) ölçülen değerleri ve toplanan ve zaman içinde depolanmış olan sayıları dizi. Standart (veya "platformu") ölçüm ve özel ölçüm vardır. Standart ölçümler, Azure platformu tarafından kendisi sağlanır. Standart ölçümler, Azure kaynaklarınızın durumunu ve kullanım istatistikleri yansıtır. Özel ölçüm kullanarak uygulamalarınızı tarafından Azure'a gönderilir ancak [özel olaylar için Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Özel ölçümler Application Insights kaynakları diğer uygulama belirli ölçümleri birlikte depolanır.
 
 ## <a name="create-a-new-chart"></a>Yeni bir grafik oluşturun
 

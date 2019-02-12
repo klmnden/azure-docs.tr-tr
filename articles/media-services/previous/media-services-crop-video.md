@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: anilmur;juliako;
-ms.openlocfilehash: 3a8888148e1f58cdf2b1893c624b74ec6d6c93da
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 34db659232a27a18344ed492897641b92c0c1fa9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282552"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001350"
 ---
-# <a name="crop-videos-with-media-encoder-standard"></a>Media Encoder Standard ile videoları kırpma
+# <a name="crop-videos-with-media-encoder-standard"></a>Media Encoder Standard ile videoları kırpma  
+
 Giriş video kırpmak için medya Kodlayıcı standart (MES) kullanabilirsiniz. Kırpma video çerçevesinde dikdörtgen bir pencere seçmek ve yalnızca söz konusu pencerede piksel kodlama işlemidir. Aşağıdaki diyagram işlemin açıklanmasına yardımcı olur.
 
 ![Videoyu Kırp](./media/media-services-crop-video/media-services-crop-video01.png)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: d034bf130440fdb5b783db41161ab5a21a306478
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103125"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994825"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Application Insights verileri özel veri kaynakları ile ilişkilendirme
 
@@ -28,19 +28,19 @@ Application Insights, birçok farklı veri türlerini toplar: özel durumlar, iz
 
 - Veri zenginleştirme veya arama tabloları: Örneğin, sunucu ve içinde bulunabilir Laboratuvar konumunu sahip bir sunucu adı tamamlar 
 - Application Insights veri kaynaklarıyla bağıntı: Örneğin, web mağazası bilgileri satın alma yerine getirme hizmetinizden ne kadar doğru sevkiyat zaman tahminleri belirlemek için üzerinde bir satın alma hakkında verilerin ilişkilendirilmesini olan 
-- Tamamen özel veri: birçok müşterimizin sevdiğiniz sorgu dili ve Application Insights yedekler Log Analytics Veri Platformu performansını ve Application ınsights'ı hiç ilgili veri kullanmak istiyorsanız. Örneğin, bir akıllı ana yükleme olarak bir parçası olarak Güneş paneli performansını izlemek için ana hatlarıyla belirtilen [burada]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Tamamen özel veri: birçok müşterimizin sevdiğiniz sorgu dili ve Application Insights yedekler Azure izleyici günlüğü platformun performansı ve Application ınsights'ı hiç ilgili verileri sorgulamak için kullanmak istiyorsanız. Örneğin, bir akıllı ana yükleme olarak bir parçası olarak Güneş paneli performansını izlemek için ana hatlarıyla belirtilen [burada]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Application Insights verilerini özel verilerle ilişkilendirmek nasıl 
 
-Application Insights güçlü Log Analytics Veri Platformu tarafından desteklenen olduğundan, bu verileri almak için Log Analytics'ın tüm gücünden kullanabilmek için duyuyoruz. Ardından, biz Log Analytics'te kullanımımıza açıktır verilere sahip özel bu verilerin bağıntısını "birleştirme" işleci kullanarak sorgu yazacağız. 
+Application Insights güçlü Azure izleyici günlüğü platformu tarafından desteklenen olduğundan, bu verileri almak için Azure İzleyici'nın tüm gücünden kullanabilmek için duyuyoruz. Ardından, biz Azure İzleyici günlüklerine kullanımımıza açıktır verilere sahip özel bu verilerin bağıntısını "birleştirme" işleci kullanarak sorgu yazacağız. 
 
 ## <a name="ingesting-data"></a>Veri alma
 
-Bu bölümde, biz verilerinizi Log Analytics'e alma inceleyin.
+Bu bölümde, biz verilerinizi Azure İzleyici günlüklerine alma inceleyin.
 
-İzleyerek yeni bir Log Analytics çalışma alanı zaten yoksa, sağlama [bu yönergeleri]( https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm) ile ve "çalışma alanı oluşturma" adım dahil.
+İzleyerek yeni bir Log Analytics çalışma alanı zaten yoksa, sağlama [bu yönergeleri](../learn/quick-collect-azurevm.md) ile ve "çalışma alanı oluşturma" adım dahil.
 
-Log Analytics'e veri göndermeye başlamak için. Çeşitli seçenekler mevcuttur:
+Azure İzleyici ile günlük veri göndermeye başlamak için. Çeşitli seçenekler mevcuttur:
 
 - Zaman uyumlu bir mekanizma, ya da doğrudan çağırabilirsiniz [veri toplayıcı API'si](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) veya bizim mantıksal uygulama bağlayıcısı kullanın – yalnızca "Azure Log Analytics" bulun ve "Veri gönderme" seçeneğini seçin:
 
@@ -50,9 +50,9 @@ Log Analytics'e veri göndermeye başlamak için. Çeşitli seçenekler mevcuttu
 
 ## <a name="correlating-data"></a>Verileri ilişkilendirme
 
-Application Insights ve Log Analytics veri platformda dayanır. Bu nedenle kullanabiliriz [kaynaklar arası birleştirmeler](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) Application Insights verilerimizi biz alınan Log Analytics'e tüm veriler ilişkilendirmek için.
+Application Insights Azure izleyici günlüğü platformuna dayanır. Bu nedenle kullanabiliriz [kaynaklar arası birleştirmeler](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) Application Insights verilerimizi biz alınan Azure İzleyici ile tüm veriler ilişkilendirmek için.
 
-Örneğin, size sunduğumuz Laboratuvar Envanter ve konumları "myLA" adlı bir Log Analytics çalışma alanında "LabLocations_CL" adlı bir tabloya alabilen. Ardından "myAI" adlı Application Insights uygulamada izlenen gönderdiğimiz istekleri gözden geçirin ve yukarıda açıklanan özel tablosunda depolanan bu makinelerde konumları isteklerine hizmet makine adları bağıntısını istedik, aşağıdaki sorgusunun çalıştırılacağı Application Insights veya Log Analytics içerik:
+Örneğin, size sunduğumuz Laboratuvar Envanter ve konumları "myLA" adlı bir Log Analytics çalışma alanında "LabLocations_CL" adlı bir tabloya alabilen. Ardından "myAI" adlı Application Insights uygulamada izlenen gönderdiğimiz istekleri gözden geçirin ve yukarıda açıklanan özel tablosunda depolanan bu makinelerde konumları isteklerine hizmet makine adları bağıntısını istedik, aşağıdaki sorgusunun çalıştırılacağı Application ınsights'ı veya Azure İzleyici Bağlam:
 
 ```
 app('myAI').requests

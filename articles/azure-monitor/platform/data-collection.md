@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: efc5fb022d117caeaec9da014252b501f2d06769
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6fc568546721511f6289600148919d28773058f4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450038"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002308"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure İzleyici tarafından toplanan verileri izleme
 [Azure İzleyici](../overview.md) yardımcı olan bir hizmeti izlemek, uygulamalarınızın ve bunların bağımlı kaynakları olduğundan. Telemetri ve diğer verileri izlenen kaynaklardan bu işleve merkezi depolamadır. Bu makalede, Azure İzleyici tarafından kullanılan bu veriler nasıl depolanır ve kapsamlı bir açıklama sağlar.
@@ -81,7 +81,7 @@ Tek tek ölçüler genellikle küçük hakkında fikir, kendi sağlar. Basit eş
 ### <a name="sources-of-metric-data"></a>Ölçüm veri kaynakları
 Azure İzleyici tarafından toplanan ölçümleri üç temel kaynakları vardır. Tüm Bu ölçümler nerede bunlar birlikte kaynaklarını bağımsız olarak değerlendirilebilen ölçüm Mağazası'nda mevcuttur.
 
-**Platform ölçümleri** Azure kaynakları tarafından oluşturulur ve bunların sistem durumu ve performans görünürlük sağlar. Her kaynak türünü oluşturur bir [farklı ölçüm kümesini](../../azure-monitor/platform/metrics-supported.md) gerekli herhangi bir yapılandırma olmadan.
+**Platform ölçümleri** Azure kaynakları tarafından oluşturulur ve bunların sistem durumu ve performans görünürlük sağlar. Her kaynak türünü oluşturur bir [farklı ölçüm kümesini](metrics-supported.md) gerekli herhangi bir yapılandırma olmadan. 
 
 **Uygulama ölçümleri** performans sorunları tespit edin ve eğilimler, uygulamanızın nasıl kullanıldığını izlemenize yardımcı olur ve izlenen uygulamalar için Application Insights tarafından oluşturulur. Bu tür değerleri olarak içerir _sunucu yanıt süresi_ ve _tarayıcı özel durumları_.
 
@@ -96,32 +96,39 @@ Azure İzleyici tarafından toplanan ölçümleri üç temel kaynakları vardır
 ### <a name="what-can-you-do-with-metrics"></a>Ölçümler ile neler?
 Ölçümler ile gerçekleştirebileceğiniz görevler aşağıdakileri içerir:
 
-- Kullanım [ölçüm Gezgini](../../azure-monitor/platform/metrics-charts.md) toplanan ölçümlerin analiz etmek ve bunları bir vykreslit v grafu için. Grafiklere sabitleyerek (örneğin, bir sanal makine, Web sitesi veya mantıksal uygulama) kaynak performansını izleyen bir [Azure panosuna](../../azure-portal/azure-portal-dashboards.md).
+- Kullanım [ölçümleri analiz](metrics-charts.md) toplanan ölçümlerin analiz etmek ve bunları bir vykreslit v grafu için. Grafiklere sabitleyerek (örneğin, bir sanal makine, Web sitesi veya mantıksal uygulama) kaynak performansını izleyen bir [Azure panosuna](../../azure-portal/azure-portal-dashboards.md).
 - Yapılandırma bir [ölçüm uyarısı kuralının](alerts-metric.md) bildirim gönderen veya alan [eylemi otomatik](action-groups.md) ne zaman bir eşiği aştığında ölçümü.
-- Kullanım [otomatik ölçeklendirme](../../azure-monitor/platform/autoscale-overview.md) artırabilir veya azaltabilirsiniz bir Eşiği aşan bir ölçüme göre kaynakları.
-- Yol ölçümlerinin Log analytics'e günlük verileriyle birlikte ölçüm verilerini analiz etmek ve ölçüm değerleri 93 günden daha uzun süre saklamak için.
-- Stream için ölçümleri bir [olay hub'ı](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) kendisine yönlendirmek için [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) veya harici sistemlere bağlanma.
+- Kullanım [otomatik ölçeklendirme](autoscale-overview.md) artırabilir veya azaltabilirsiniz bir Eşiği aşan bir ölçüme göre kaynakları.
+- Yol ölçümlerinin günlüklerine günlük verileriyle birlikte ölçüm verilerini analiz etmek ve ölçüm değerleri 93 günden daha uzun süre saklamak için. 
+- Stream için ölçümleri bir [olay hub'ı](stream-monitoring-data-event-hubs.md) kendisine yönlendirmek için [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) veya harici sistemlere bağlanma.
 - [Arşiv](../../azure-monitor/learn/tutorial-archive-data.md) kaynağınızın denetim ya da çevrimdışı raporlamaya uyumluluk, performans veya sistem durumu geçmişi.
-- Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) veya [REST API](../../azure-monitor/platform/rest-api-walkthrough.md).
+- Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) veya [REST API](rest-api-walkthrough.md).
+
+
 
 ### <a name="viewing-metrics"></a>Ölçümleri görüntüleme
 Azure İzleyici'de ölçümleri bir zaman serisi içinde depolanan veritabanı 93 gün boyunca hızlı alma ve depoları ölçüm değerleri için en iyi duruma getirilmiş. Uzun süreli analiz ve eğilimler için günlükleri ölçümleri kopyalayın.
 
-Ölçüm verilerini yukarıda açıklandığı gibi çeşitli şekillerde kullanılır. Kullanım [ölçüm Gezgini](../../azure-monitor/platform/metrics-charts.md) doğrudan ölçüm mağazanızdaki verileri analiz etmek ve zaman içinde birden çok ölçüm değerleri grafik. Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Ölçümleri kullanarak da alabilirsiniz [Azure REST API izleme](../../azure-monitor/platform/rest-api-walkthrough.md).
+Ölçüm verilerini yukarıda açıklandığı gibi çeşitli şekillerde kullanılır. Kullanım [ölçümleri analiz](metrics-charts.md) doğrudan ölçüm mağazanızdaki verileri analiz etmek ve zaman içinde birden çok ölçüm değerleri grafik. Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Ölçümleri kullanarak da alabilirsiniz [Azure REST API izleme](rest-api-walkthrough.md).
 
-![Ölçüm Gezgini](media/data-collection/metrics-explorer.png)
+![Ölçümleri analiz](media/data-collection/metrics-explorer.png)
 
 ## <a name="logs"></a>Günlükler
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 Farklı türlerde veri kayıtlarını her türü için farklı özellik kümeleri ile düzenlenir ve günlükleri içerir. Günlükler, ölçümler gibi sayısal değerleri içeren ancak genellikle ayrıntılı açıklamalar içeren metin verileri içerir. Bunlar daha fazla ölçüm arasından kendi yapısında farklılık, farklı ve düzenli aralıklarla toplanır değildir.
 
 Ortak günlük girişi tutularak toplanan bir olay türüdür. Bunlar, bir uygulama veya hizmet tarafından oluşturulan ve genellikle kendi başlarına tüm bağlam sağlamak için yeterli bilgi içerir. Örneğin, bir olay belirli bir kaynağa oluşturulmuş veya değiştirilmiş, artan trafiğe yanıt olarak başlatılan yeni bir ana bilgisayar veya bir uygulamada bir hata algılandı olduğunu gösterebilir.
 
 Günlükler, çeşitli kaynaklardan alınan verilerin birleştirilmesi için karmaşık bir analiz ve zaman içindeki eğilimleri belirlemek için özellikle yararlı olur. Veri biçimi farklılık gösterebileceğinden, ihtiyaç duydukları yapısını kullanarak özel günlükleri uygulamalar oluşturabilirsiniz. Ölçümler, eğilimleri belirlemek için diğer izleme verilerinin ve diğer veri analizi ile birleştirmek için günlüklerinde bile çoğaltılır.
 
+
+
 ### <a name="sources-of-log-data"></a>Günlük verisi kaynakları
 Azure İzleyici, çeşitli kaynaklardan hem de azure'daki ve şirket içi kaynaklardan gelen günlük verilerini toplayabilir. Günlük veri kaynakları şunları içerir:
 
-- [Etkinlik günlükleri](collect-activity-logs.md) Azure kaynaklarından, yapılandırmaları ve sistem durumu hakkında bilgiler içerir ve [tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) işleyişlerini Öngörüler sağlayın.
+- [Etkinlik günlükleri](collect-activity-logs.md) Azure kaynaklarından, yapılandırmaları ve sistem durumu hakkında bilgiler içerir ve [tanılama günlükleri](diagnostic-logs-stream-log-store.md) işleyişlerini Öngörüler sağlayın.
 - Aracılarda [Windows](agent-windows.md) ve [Linux](../learn/quick-collect-linux-computer.md) konuk işletim sistemi ve uygulamaları için Azure İzleyici'ayarına göre telemetri gönderen sanal makineler [veri kaynakları](data-sources.md) , siz yapılandırırsınız.
 - Uygulama verileri tarafından toplanan [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Belirli bir uygulama veya hizmetten Öngörüler sağlayan veri [izleme çözümleri](../insights/solutions.md) veya kapsayıcı öngörüleri, VM Insights veya kaynak grubu Insights gibi özellikleri.
@@ -159,12 +166,12 @@ Azure kaynaklardan ölçümleri toplamaya yönelik rehberlik alabilirsiniz [topl
 ### <a name="logs-to-metrics"></a>Ölçümler için günlükleri
 Daha düşük gecikme süresi ve daha düşük bir maliyetle uyarılar oluşturmak için yukarıda açıklandığı gibi günlükleri, daha hızlı yanıt ölçümleridir. Sayısal veri önemli ölçüde, ölçümler için uygun olabilir ancak ölçümleriniz Azure İzleyici'de depolanan değil günlükleri olarak depolanır. Aracılar ve yönetim çözümlerinden toplanan performans verilerini buna yaygın bir örnektir. Bu değerlerden bazıları burada ölçüm Gezgini ile analizi ve Uyarılar için kullanılabilir ölçümleri, kopyalanabileceği.
 
-Bu özellik açıklaması kullanılabilir [Azure İzleyici günlükler için ölçüm uyarıları oluşturma](../../azure-monitor/platform/alerts-metric-logs.md). Değerleri destek listesi kullanılabilir [Azure İzleyici ile desteklenen ölçümler](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces).
+Bu özellik açıklaması kullanılabilir [Azure İzleyici günlükler için ölçüm uyarıları oluşturma](alerts-metric-logs.md). Değerleri destek listesi kullanılabilir [Azure İzleyici ile desteklenen ölçümler](metrics-supported.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Stream veri harici sistemlere bağlanma
 İzleme verilerini analiz etmek için Azure'da araçlarını kullanabilmenin yanı sıra güvenlik bilgileri ve Olay yönetimi (SIEM) ürün gibi bir dış araç iletmek için bir gereksinim olabilir. Bu iletme genellikle doğrudan izlenen kaynakları üzerinden yapılır [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 
-Veri izleme farklı türleri için rehberlik alma [Stream dış bir araç tarafından izleme verileri tüketim için olay hub'ına Azure](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+Veri izleme farklı türleri için rehberlik alma [Stream dış bir araç tarafından izleme verileri tüketim için olay hub'ına Azure](stream-monitoring-data-event-hubs.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

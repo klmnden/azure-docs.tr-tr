@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 4da18fffc98367f24ec95bd27617e7638e3d5705
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464747"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003678"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL veritabanı istemci uygulamaları için SQL hata kodları: Veritabanı bağlantı hataları ve diğer sorunlar
 
@@ -99,8 +99,8 @@ Azure SQL veritabanı ile çalışırken kaynakların aşırı kullanımı şu h
 
 | Hata kodu | Severity | Açıklama |
 | ---:| ---:|:--- |
-| 10928 |20 |Kaynak Kimliği: %d. Veritabanı %s sınırı %d şeklindedir ve üst sınırına ulaşıldı. Daha fazla bilgi için [tek başına ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](sql-database-resource-limits-database-server.md).<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumlarının kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Kaynak Kimliği: %d. %S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Daha fazla bilgi için [tek başına ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](sql-database-resource-limits-database-server.md). Aksi halde, lütfen daha sonra tekrar deneyin.<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumlarının kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Kaynak Kimliği: %d. Veritabanı %s sınırı %d şeklindedir ve üst sınırına ulaşıldı. Daha fazla bilgi için [tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](sql-database-resource-limits-database-server.md).<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumlarının kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Kaynak Kimliği: %d. %S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Daha fazla bilgi için [tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](sql-database-resource-limits-database-server.md). Aksi halde, lütfen daha sonra tekrar deneyin.<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumlarının kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak limitleri](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |Veritabanı boyut kotasına ulaştı. Verileri bölün veya silin, dizinleri bırakın veya olası çözümler için belgelere bakın. |
 | 40549 |16 |Uzun süre çalışan bir işlemin olduğundan oturum sonlandırıldı. İşleminiz kısaltmayı deneyin. |
 | 40550 |16 |Oturum, çok fazla sayıda kilit aldığından sonlandırıldı. Try okuma veya tek bir işlemde daha az sayıda satır değiştirme. |

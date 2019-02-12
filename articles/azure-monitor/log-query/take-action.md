@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809643"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005361"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Log Analytics günlük araması sonuç Otomasyon Runbook'u ile bir eylem
 
-Azure Log Analytics'da bir günlük Arama sonuçlarından artık seçebilirsiniz **harekete** Otomasyon runbook'u çalıştırmak için. Runbook, sorunu düzeltmek veya bu gibi sorun giderme bilgilerini toplarken bir e-posta gönderebilir veya bir hizmet isteği oluşturduğunuzda bazı diğer eylemler için kullanılabilir. 
+> [!NOTE]
+> Arama sonuçlarından bir runbook başlatma, 15 Şubat 2019 kullanım dışı bırakılacak Klasik günlük araması Portalı'nın bir özelliğidir. Diğer Eylemler yanı sıra bir runbook başlatabilirsiniz bir eylem grubu yapılandırabileceğiniz bir [uyarı kuralı](../platform/alerts-log.md) Azure İzleyici'de.
+
+Azure Log Analytics'da bir günlük Arama sonuçlarından artık seçebilirsiniz **harekete** Otomasyon runbook'u çalıştırmak için.  Runbook, sorunu düzeltmek veya bu gibi sorun giderme bilgilerini toplarken bir e-posta gönderebilir veya bir hizmet isteği oluşturduğunuzda bazı diğer eylemler için kullanılabilir. 
+
 
 ## <a name="components-and-features-used"></a>Kullanılan bileşenler ve özellikler
 * [Azure Otomasyon hesabı](../../automation/automation-quickstart-create-account.md)

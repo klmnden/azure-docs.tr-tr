@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 64481be769cf7506508a0d06e10fe0f59e975f16
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/08/2019
+ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895882"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997147"
 ---
 # <a name="automated-backups"></a>Otomatik yedeklemeler
 
@@ -63,7 +63,7 @@ DTU tabanlı satın alma modeli kullanılarak oluşturulmuş bir veritabanı iç
 
 #### <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli
 
-Kullanıyorsanız [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md), varsayılan yedekleme Bekletme dönemi 7 (tek başına için havuza ve örnek veritabanları) gündür. Tüm Azure SQL veritabanları (tek başına, havuza alınmış ve örnek veritabanları, yapabilecekleriniz [için 35 gün yedekleme bekletme süresi değiştirme](#how-to-change-the-pitr-backup-retention-period).
+Kullanıyorsanız [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md), varsayılan yedekleme Bekletme dönemi 7 (için tek bir havuzda ve örnek veritabanları) gündür. Tüm Azure SQL veritabanları (havuza alınmış, tek ve örnek veritabanları yapabilecekleriniz [için 35 gün yedekleme bekletme süresi değiştirme](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Geçerli saklama süresinin azaltılırsa, yeni bir bekletme değerinden daha eski tüm mevcut yedekleme süresi olan artık kullanılabilir. Geçerli saklama süresini artırmak istiyorsanız, SQL veritabanı uzun bekletme süresine ulaşılana kadar mevcut yedeklemeler tutar.
@@ -80,7 +80,7 @@ Daha fazla bilgi için [-belirli bir noktaya geri yükleme](sql-database-recover
 
 ### <a name="backups-for-long-term-retention"></a>Uzun süreli saklama yedeklerini
 
-Tek başına ve havuza alınmış veritabanlarını uzun süreli saklama (LTR) yapılandırma seçeneğini tam yedekleri Azure Blob Depolama alanında 10 yıla kadar sunar. LTR ilkesi etkinleştirilirse, haftalık tam yedeklemeler için farklı bir RA-GRS depolama kapsayıcısını otomatik olarak kopyalanır. Farklı bir uyumluluk gereksinimini karşılamak için haftalık, aylık ve/veya yıllık yedeklemeler için farklı bekletme sürelerinin seçebilirsiniz. Depolama alanı tüketimi, yedekleme ve bekletme period(s) seçili sıklığına bağlıdır. Kullanabileceğiniz [LTR fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/?service=sql-database) LTR depolama maliyetini tahmin etmek için.
+Tek ve havuza alınmış veritabanları, Azure Blob Depolama alanında 10 yıla kadar tam yedekleri uzun süreli saklama (LTR) yapılandırma seçeneğini sunar. LTR ilkesi etkinleştirilirse, haftalık tam yedeklemeler için farklı bir RA-GRS depolama kapsayıcısını otomatik olarak kopyalanır. Farklı bir uyumluluk gereksinimini karşılamak için haftalık, aylık ve/veya yıllık yedeklemeler için farklı bekletme sürelerinin seçebilirsiniz. Depolama alanı tüketimi, yedekleme ve bekletme period(s) seçili sıklığına bağlıdır. Kullanabileceğiniz [LTR fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/?service=sql-database) LTR depolama maliyetini tahmin etmek için.
 
 Coğrafi olarak yedekli ve korunan PITR gibi LTR yedekleme [Azure depolama bölgeler arası çoğaltma](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 

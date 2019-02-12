@@ -1,10 +1,10 @@
 ---
-title: Azure Media Services Telemetri | Microsoft Docs
-description: Bu makalede Azure Media Services telemetri genel bir bakış sağlar.
+title: Azure Media Services'ı Telemetri | Microsoft Docs
+description: Bu makalede, Azure Media Services telemetri genel bir bakış sağlar.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -12,82 +12,82 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 97df0876afd8b7258f985ab375b14f4aabde6e22
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48b88aed833b0cd15f47195c67be80fe75fe153f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790569"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005191"
 ---
-# <a name="azure-media-services-telemetry"></a>Telemetri Azure medya Hizmetleri
+# <a name="azure-media-services-telemetry"></a>Azure Media Services telemetri  
 
-Azure Media Services (AMS) hizmetlerinin telemetri/ölçüm verilerini erişmenizi sağlar. AMS geçerli sürümü Canlı telemetri verilerini toplamanıza olanak tanır **kanal**, **StreamingEndpoint**ve canlı **arşiv** varlıklar. 
+Azure Media Services (AMS), telemetri/ölçüm verilerini hizmetlerinin erişmenize olanak tanır. AMS'ın geçerli sürümü Canlı telemetri verilerini toplamanıza olanak tanır **kanal**, **StreamingEndpoint**ve canlı **arşiv** varlıklar. 
 
-Telemetri, belirttiğiniz bir Azure depolama hesabı depolama tablosuna yazılır (genellikle, AMS hesabınızla ilişkili depolama hesabı kullanırsınız). 
+Telemetri, belirlediğiniz bir Azure depolama hesabındaki bir depolama tablosuna yazılır (genellikle, AMS hesabınızla ilişkili depolama hesabını kullanırsınız). 
 
-Telemetri sistem veri saklama yönetmez. Depolama tabloları silerek eski telemetri verilerini kaldırabilirsiniz.
+Telemetri sisteminin veri saklama yönetmez. Depolama tabloları silerek eski telemetri verilerini kaldırabilirsiniz.
 
-Bu konuda nasıl yapılandırılacağı ve AMS telemetri tüketen anlatılmaktadır.
+Bu konu başlığı altında yapılandırmak ve AMS telemetri kullanma anlatılmaktadır.
 
 ## <a name="configuring-telemetry"></a>Telemetri yapılandırma
 
-Bir bileşen düzeyinde ayrıntı telemetri yapılandırabilirsiniz. İki ayrıntı düzeyi "Normal" ve "Ayrıntılı" vardır. Şu anda, her iki düzeyleri aynı bilgileri döndürün. "Normal. kullanmak için önerilir. 
+Telemetri üzerinde bir bileşen düzeyinde ayrıntı düzeyi yapılandırabilirsiniz. İki ayrıntı düzeyi "Normal" ve "Ayrıntılı" vardır. Şu anda, hem düzeyleri aynı bilgileri döndürün. "Normal. kullanmak için önerilir 
 
-Aşağıdaki konular telemetri etkinleştirme gösterir:
+Aşağıdaki konular, telemetri nasıl etkinleştirilir gösterir:
 
 [.NET ile telemetri etkinleştirme](media-services-dotnet-telemetry.md) 
 
-[REST telemetriyle etkinleştirme](media-services-rest-telemetry.md)
+[REST ile telemetri etkinleştirme](media-services-rest-telemetry.md)
 
-## <a name="consuming-telemetry-information"></a>Telemetri bilgileri kullanma
+## <a name="consuming-telemetry-information"></a>Telemetri bilgilerini kullanma
 
-Telemetri, bir Azure depolama tabloya telemetri Media Services hesabı için yapılandırıldığında, belirttiğiniz depolama hesabındaki yazılır. Bu bölümde, ölçümler için depolama tabloları açıklanmaktadır.
+Telemetri, Media Services hesabı için telemetri yapılandırıldığında belirttiğiniz depolama hesabı bir Azure depolama tablosuna yazılır. Bu bölümde, depolama tabloları ölçümler açıklanmıştır.
 
 Telemetri verileri aşağıdaki yollardan birini kullanabilir:
 
-- Verileri doğrudan Azure Table (örn. depolama SDK'yı kullanarak) depolama alanından okuyun. Telemetri depolama tabloları açıklaması için bkz: **telemetri bilgileri tüketen** içinde [bu](https://msdn.microsoft.com/library/mt742089.aspx) konu.
+- Verileri doğrudan Azure tablo (örneğin depolama SDK'sını kullanarak) depolama'yı okuyun. Telemetri depolama tabloları açıklaması için bkz: **telemetri bilgilerini kullanan** içinde [bu](https://msdn.microsoft.com/library/mt742089.aspx) konu.
 
 Veya
 
-- Media Services .NET SDK'ın depolama verileri okumak için açıklandığı gibi kullanmanızı [bu](media-services-dotnet-telemetry.md) konu. 
+- Media Services .NET SDK depolama veri okumak için açıklandığı gibi kullanmanızı [bu](media-services-dotnet-telemetry.md) konu. 
 
 
-Aşağıda açıklanan telemetri şema Azure Table Storage sınırları içinde iyi bir performans sağlamak üzere tasarlanmıştır:
+Aşağıda açıklanan telemetri şema, Azure tablo depolama sınırları dahilinde iyi bir performans kazancı sunmak üzere tasarlanmıştır:
 
-- Veri Hizmeti Kimliğinde ve her hizmetinden telemetri izin vermek için bağımsız olarak Sorgulanacak hesabı tarafından bölümlenmiş.
+- Veri bağımsız olarak Sorgulanacak kimliği ve hizmet kimliği her bir hizmetten alınan telemetri izin vermek için hesaba göre bölümlenir.
 - Bölümler bölüm boyutu makul bir üst sınır vermek tarihini içerir.
-- Belirli bir hizmeti için Sorgulanacak en son telemetri öğeleri izin vermek için ters zaman sırayla satır anahtarları şunlardır.
+- Belirli bir hizmet için Sorgulanacak en son telemetri öğeye izin vermek için geriye doğru zaman sırayla satır anahtarı var.
 
-Bu çok verimli olmasını genel sorgular izin vermesi gerekir:
+Bu, birçok ortak sorguların verimli olması için izin vermelidir:
 
-- Paralel, bağımsız veri ayrı Hizmetleri Yükleniyor.
-- Bir tarih aralığındaki belirli bir hizmeti için tüm veriler alınıyor.
-- Bir hizmet için en son veriler alınıyor.
+- Paralel, bağımsız ayrı hizmetler için veri yükleniyor.
+- Belirli bir hizmetin bir tarih aralığındaki tüm verileri alınıyor.
+- Bir hizmet için en son verileri alınıyor.
 
 ### <a name="telemetry-table-storage-output-schema"></a>Telemetri tablo depolama çıkış şeması
 
-Telemetri verileri bir tabloda "" 20160321"oluşturulmuş bir tabloyu tarihi olduğu TelemetryMetrics20160321" aggregate depolanır. Telemetri sistem yeni her gün 00:00 UTC temel için ayrı bir tablo oluşturur. Tablo yinelenen değerleri depolamak için kullanılan bit hızı içinde belirli bir pencere süresi, gönderilen bayt sayısı, vb. gibi alma. 
+Telemetri verilerini toplama bir tablodaki "nerede"20160321"oluşturulmuş bir tabloyu tarihidir TelemetryMetrics20160321" depolanır. Telemetri sisteminin, 00:00 UTC'de dayalı yeni her gün için ayrı bir tablo oluşturur. Tablo yinelenen değerleri depolamak için kullanılan zaman, gönderilen bayt sayısı, vb. belirli bir pencere içinde hızı gibi alma. 
 
 Özellik|Değer|Örnekler/notları
 ---|---|---
-PartitionKey|{Hesap Kimliği} _ {varlık kimliği}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66 < br /<br/>Hesap Kimliği iş akışları birden çok Media Services hesabı için aynı depolama hesabındaki burada yazıyorsanız basitleştirmek için bölüm anahtarı dahil edilir.
-RowKey|{gece saniyeye} _ {rastgele bir değeri}|01688_00199<br/><br/>Satır anahtarı bölüm içinde üst n stili sorguları izin vermek için gece yarısına saniye sayısını başlar. Daha fazla bilgi için [bu makaleye](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) bakın. 
-Zaman damgası|Tarih/Saat|Zaman damgası 2016 Azure tablosundan otomatik-09-09T22:43:42.241Z
-Tür|Telemetri verileri sağlayan varlık türü|StreamingEndpoint/kanal/arşiv<br/><br/>Olay türü yalnızca bir dize değeridir.
-Ad|Telemetri olayın adı|ChannelHeartbeat/StreamingEndpointRequestLog
-ObservedTime|(UTC) telemetri olayın gerçekleştiği zaman|2016-09-09T22:42:36.924Z<br/><br/>Gözlemlenen süre (örneğin bir kanal) telemetri göndermesini varlık tarafından sağlanır. Bu değer için bileşenler arasındaki eşitleme sorunlarını yaklaşık bir saat olabilir
-ServiceId|{Hizmet kimliği}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-Varlık özgü özellikleri|Olay için tanımlanan|StreamName: stream1, bit hızı 10123...<br/><br/>Kalan özellikleri belirtilen olay türü için tanımlanır. Azure tablo anahtar değer çifti içeriktir.  (diğer bir deyişle, tablodaki farklı satırlarla farklı özellik kümelerine sahip).
+PartitionKey|{hesabı kimliği} _ {varlık kimliği}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Hesap Kimliği iş akışları birden çok Media Services hesapları için aynı depolama hesabını burada yazıyorsanız basitleştirmek için bölüm anahtarını dahil edilir.
+RowKey|{seconds yarısından} _ {rastgele değer}|01688_00199<br/><br/>Satır anahtarı bölüm üst n stili sorgulara izin vermek için gece saniye sayısı ile başlar. Daha fazla bilgi için [bu makaleye](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) bakın. 
+Zaman damgası|Tarih/Saat|Azure tablo 2016 itibaren zaman damgası auto-09-09T22:43:42.241Z
+Type|Telemetri verilerini sağlayan varlık türü|StreamingEndpoint/kanal/arşivleme<br/><br/>Olay türü yalnızca bir dize değeridir.
+Ad|Telemetri olayı adı|ChannelHeartbeat/StreamingEndpointRequestLog
+ObservedTime|(UTC) telemetrisi olayın gerçekleştiği zaman|2016-09-09T22:42:36.924Z<br/><br/>Gözlemlenen saat (örneğin bir kanal) telemetri gönderdiği varlık tarafından sağlanır. Bu değer, bu nedenle bileşenler arasındaki eşitleme sorunlarını yaklaşık bir saat olabilir
+ServiceId|{service} kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+Varlığa özgü özellikleri|Olay tarafından tanımlandığı şekilde|StreamName: stream1, bit hızı 10123...<br/><br/>Diğer özellikler, belirli bir olay türü için tanımlanır. Azure tablo içeriğini anahtar-değer çiftlerinin ' dir.  (diğer bir deyişle, tablo içindeki farklı satırlar farklı özellik kümelerine sahip).
 
-### <a name="entity-specific-schema"></a>Varlık özgü şeması
+### <a name="entity-specific-schema"></a>Varlığa özgü şeması
 
-Üç tür varlık özgü telemetric veri girişi aşağıdaki sıklığı gönderilen vardır:
+Üç tür varlık özel telemetri verileri girişleri aşağıdaki sıklığı gönderilen vardır:
 
-- Akış uç noktaları: her 30 saniye
-- Canlı kanallar: dakikada
-- Canlı arşiv: dakikada
+- Akış uç noktaları: Her 30 saniyede
+- Canlı kanallar: Her dakika
+- Canlı arşiv: Her dakika
 
 **Akış uç noktası**
 
@@ -95,17 +95,17 @@ Varlık özgü özellikleri|Olay için tanımlanan|StreamName: stream1, bit hız
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Zaman damgası|Zaman damgası|Zaman damgası Azure tablo 2016'dan otomatik-09-09T22:43:42.241Z
-Tür|Tür|StreamingEndpoint
+Zaman damgası|Zaman damgası|Azure tablo 2016 itibaren zaman damgası auto-09-09T22:43:42.241Z
+Type|Type|StreamingEndpoint
 Ad|Ad|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceId|Hizmet kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-Ana bilgisayar adı|Uç noktanın ana bilgisayar adı|builddemoserver.origin.mediaservices.Windows.NET
-statusCode|HTTP kayıtlar durumu|200
+ServiceId|Hizmet Kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+ana bilgisayar adı|Uç nokta konak adı|builddemoserver.origin.mediaservices.Windows.NET
+statusCode|Kayıtları HTTP durumu|200
 ResultCode|Sonuç kodu ayrıntısı|S_OK
 RequestCount|Toplamadaki toplam istek|3
-BytesSent|Gönderilen toplam bayt sayısı|2987358
-ServerLatency|Ortalama sunucu gecikme süresi (depolama alanıyla birlikte)|129
+BytesSent|Gönderilen toplam bayt|2987358
+ServerLatency|Ortalama sunucu gecikme süresi (depolama dahil)|129
 E2ELatency|Ortalama uçtan uca gecikme süresi|250
 
 **Canlı kanal**
@@ -114,24 +114,24 @@ E2ELatency|Ortalama uçtan uca gecikme süresi|250
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Zaman damgası|Zaman damgası|Zaman damgası 2016 Azure tablosundan otomatik-09-09T22:43:42.241Z
-Tür|Tür|Kanal
+Zaman damgası|Zaman damgası|Azure tablo 2016 itibaren zaman damgası auto-09-09T22:43:42.241Z
+Type|Type|Kanal
 Ad|Ad|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceId|Hizmet kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-TrackType|İzleme video/ses/metin türü|video/ses
+ServiceId|Hizmet Kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+TrackType|İzleme görüntü/ses/metin türü|Görüntü/ses
 TrackName|İzleme adı|Video/audio_1
-Bit hızı|İzleme bit hızı|785000
+Bit hızı|İzleme hızı|785000
 CustomAttributes||   
-IncomingBitrate|Gerçek gelen bit hızı|784548
-OverlapCount|Alma çakışıyor|0
+IncomingBitrate|Gelen gerçek hızı|784548
+OverlapCount|Çakışma içinde alma|0
 DiscontinuityCount|Süreksizlik izlemek için|0
-LastTimestamp|En son alınan veri zaman damgası|1800488800
+LastTimestamp|Son alınan veri zaman damgası|1800488800
 NonincreasingCount|Parçaların sayısı atılan nedeniyle olmayan artan zaman damgası|2
-UnalignedKeyFrames|(Kalitesi düzeylerini) fragment(s) aldık olup olmadığını hizalı değil çerçeveler burada anahtar |True
-UnalignedPresentationTime|Olup fragment(s) (kalitesi düzeylerini/parçaları arasında) burada sunu zamanını hizalanmadıysa aldık|True
-UnexpectedBitrate|Ses/video için hesaplanan/gerçek hızı > en fazla 40.000 bps ve IncomingBitrate izlerseniz doğru == veya IncomingBitrate ve actualBitrate % 50 farklı 0 |True
-Sorunsuz|Gerekirse true, <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> Tüm 0|True<br/><br/>Aşağıdaki koşullardan herhangi biri tuttuğunuzda false döndüren bileşik bir işlev iyi durumda:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames gerekmektedir<br/>-UnalignedPresentationTime gerekmektedir<br/>-UnexpectedBitrate gerekmektedir
+UnalignedKeyFrames|Çerçeve hizalı değil (kalite düzeylerine) fragment(s) aldık olup olmadığını burada anahtar |True
+UnalignedPresentationTime|Aldık mı (kalite düzeylerine/parçaları arasında) burada sunu zamanını hizalanmamış fragment(s).|True
+UnexpectedBitrate|Ses/video için hesaplanan/gerçek hızı > 40.000 bps ve IncomingBitrate izlerseniz true, == 0 veya IncomingBitrate ve actualBitrate % 50'ye farklılık gösterir. |True
+Sorunsuz|Gerekirse true, <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> Tüm 0|True<br/><br/>Aşağıdaki koşullardan herhangi biri tuttuğunuzda false döndüren bir bileşik işlev iyi durumda:<br/><br/>-OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames == True<br/>-UnalignedPresentationTime == True<br/>-UnexpectedBitrate == True
 
 **Canlı arşiv**
 
@@ -139,78 +139,78 @@ Sorunsuz|Gerekirse true, <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonInc
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Zaman damgası|Zaman damgası|Zaman damgası 2016 Azure tablosundan otomatik-09-09T22:43:42.241Z
-Tür|Tür|Arşiv
+Zaman damgası|Zaman damgası|Azure tablo 2016 itibaren zaman damgası auto-09-09T22:43:42.241Z
+Type|Type|Arşiv
 Ad|Ad|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceId|Hizmet kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-ManifestName|Program URL'si|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4BD2-8c01-a92a2b38c9ba.ism
+ServiceId|Hizmet Kimliği|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+manifestName|Program URL'si|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
 TrackName|İzleme adı|audio_1
 TrackType|İzleme türü|Ses/video
-CustomAttribute|Aynı ada sahip farklı izlemek ve bit hızı (çoklu Kamera Açısı) arasında ayıran dize onaltılı|
-Bit hızı|İzleme bit hızı|785000
-Sorunsuz|Gerekirse true, FragmentDiscardedCount == 0 & & ArchiveAcquisitionError == False|TRUE (Bu iki değer Ölçümde mevcut olmayan, ancak kaynak olayda var)<br/><br/>Aşağıdaki koşullardan herhangi biri tuttuğunuzda false döndüren bileşik bir işlev iyi durumda:<br/><br/>-FragmentDiscardedCount > 0<br/>-ArchiveAcquisitionError gerekmektedir
+CustomAttribute|Aynı ada sahip farklı izlemek ve bit hızı (çoklu kamera açısını) arasında ayırır dize onaltılık|
+Bit hızı|İzleme hızı|785000
+Sorunsuz|Gerekirse true, FragmentDiscardedCount == 0 & & ArchiveAcquisitionError == False|TRUE (Bu iki değerler ölçümü mevcut değildir, ancak kaynak olayı yok)<br/><br/>Aşağıdaki koşullardan herhangi biri tuttuğunuzda false döndüren bir bileşik işlev iyi durumda:<br/><br/>- FragmentDiscardedCount > 0<br/>-ArchiveAcquisitionError == True
 
 ## <a name="general-qa"></a>Genel soru- cevap
 
-### <a name="how-to-consume-metrics-data"></a>Ölçümleri verileri kullanmak üzere nasıl?
+### <a name="how-to-consume-metrics-data"></a>Ölçüm verilerini kullanmak nasıl?
 
-Ölçüm verilerini Azure tabloları bir dizi müşterinin depolama hesabındaki olarak depolanır. Bu veriler, aşağıdaki araçları kullanarak tüketilebilir:
+Ölçüm verileri bir dizi Azure tabloları müşterinin depolama hesabında depolanır. Bu veriler, aşağıdaki araçları kullanarak kullanılabilir:
 
 - AMS SDK'SI
-- Microsoft Azure Storage Gezgini (virgülle ayrılmış değer biçimindedir ve içinde işlenen Excel Excel'e destekler)
+- Microsoft Azure Depolama Gezgini (virgülle ayrılmış değer biçimindedir ve işlenen, Excel dışarı aktarma destekler)
 - REST API
 
-### <a name="how-to-find-average-bandwidth-consumption"></a>Ortalama bant genişliği tüketimi bulmak nasıl?
+### <a name="how-to-find-average-bandwidth-consumption"></a>Ortalama bant genişliği tüketiminizi nasıl?
 
-Ortalama bant genişliği tüketimini BytesSent ortalama zaman dilimi içinde ' dir.
+Ortalama bant genişliği tüketimini BytesSent bir zaman aralığı boyunca ortalamasıdır.
 
-### <a name="how-to-define-streaming-unit-count"></a>Akış birim sayısını tanımlamak nasıl?
+### <a name="how-to-define-streaming-unit-count"></a>Akış birimi sayısı tanımlamak nasıl?
 
-Akış birim sayısını bir akış uç noktası tarafından en yüksek verimlilik bölünmüş hizmetin akış uç noktalarını yoğun akışından olarak tanımlanabilir. Bir akış uç noktası en yüksek kullanılabilir verimini 160 MB / sn'dir.
-Örneğin, bir müşterinin hizmetinden en yüksek verimlilik 40 MB/sn (en büyük değerini BytesSent zaman dilimi üzerinden) olduğunu varsayın. Ardından, akış birimi sayısı (40 MBps) eşittir * (8 bit/bayt) /(160 Mbps) 2 akış birimleri =.
+Akış birimi sayısı en yüksek aktarım hızı bir akış uç noktası en yüksek aktarım hızı tarafından ayrılmış hizmetin akış uç noktalarından olarak tanımlanabilir. Bir akış uç noktası en yüksek kullanılabilir verimini 160 MB / sn'dir.
+Örneğin, bir müşterinin hizmetten en yüksek aktarım hızı 40 MB/sn (en yüksek değer BytesSent bir zaman aralığı üzerinde) olduğunu varsayın. Ardından, akış birimi sayısı (40 MB/sn ile) eşittir * (8 bit/bayt) /(160 Mbps) = 2 akış birimi.
 
 ### <a name="how-to-find-average-requestssecond"></a>Ortalama İstek/saniye bulmak nasıl?
 
-İstek/saniye ortalama sayısını bulmak için bir zaman aralığı (RequestCount) isteklerinin ortalama sayısı işlem.
+Ortalama İstek/saniye bulmak için bir zaman aralığı (RequestCount) istekleri ortalama sayısı işlem.
 
 ### <a name="how-to-define-channel-health"></a>Kanal durumu tanımlamak nasıl?
 
-Aşağıdaki koşullardan herhangi biri tuttuğunuzda yanlış olacak şekilde, kanal durumu bileşik Boolean işlevi olarak tanımlanabilir:
+Aşağıdaki koşullardan herhangi biri tuttuğunuzda yanlış şekilde kanal sistem durumu bir bileşik Boole işlevi tanımlanabilir:
 
 - OverlapCount > 0
 - DiscontinuityCount > 0
 - NonincreasingCount > 0
-- UnalignedKeyFrames gerekmektedir 
-- UnalignedPresentationTime gerekmektedir 
-- UnexpectedBitrate gerekmektedir
+- UnalignedKeyFrames == True 
+- UnalignedPresentationTime == True 
+- UnexpectedBitrate == True
 
 
-### <a name="how-to-detect-discontinuities"></a>Discontinuities algılamak nasıl?
+### <a name="how-to-detect-discontinuities"></a>Discontinuities nasıl?
 
-Discontinuities algılamak için tüm kanal veri girişi bulun burada DiscontinuityCount > 0. Karşılık gelen ObservedTime zaman damgası discontinuities gerçekleştiği kez gösterir.
+Tüm kanal veri girişleri discontinuities algılamak için bulma burada DiscontinuityCount > 0. Karşılık gelen ObservedTime zaman damgası discontinuities oluştuğu süreleri gösterir.
 
-### <a name="how-to-detect-timestamp-overlaps"></a>Zaman damgası algılamak nasıl çakışıyor?
+### <a name="how-to-detect-timestamp-overlaps"></a>Zaman damgası nasıl çakışıyor?
 
-Zaman damgası çakışmalar algılamak için tüm kanal veri girişi bulun burada OverlapCount > 0. Karşılık gelen ObservedTime zaman damgası, zaman damgası çakışıyor kez oluştu gösterir.
+Zaman damgası çakışıyor algılamak için tüm kanal veri girişi bulunamadı. burada OverlapCount > 0. Karşılık gelen ObservedTime zaman damgası, zaman damgası çakışıyor kez oluştu gösterir.
 
-### <a name="how-to-find-streaming-request-failures-and-reasons"></a>Akış istek hataları ve nedeni bulmak nasıl?
+### <a name="how-to-find-streaming-request-failures-and-reasons"></a>Akış istek hataları ve nedenlerini bulmak nasıl?
 
-Akış istek hataları ve nedeni bulmak için burada ResultCode S_OK için eşit değil tüm akış uç noktası veri girişi bulun. Karşılık gelen StatusCode alan isteği hatanın nedenini gösterir.
+Akış istek hataları ve nedenlerini bulmak için ResultCode S_OK için eşit olduğu tüm akış uç noktası veri girişi bulun. Karşılık gelen StatusCode alan isteği hatanın nedenini gösterir.
 
-### <a name="how-to-consume-data-with-external-tools"></a>Verileri dış araçları ile kullanmak üzere nasıl?
+### <a name="how-to-consume-data-with-external-tools"></a>Dış araçları ile veri tüketmek nasıl?
 
-Telemetric veriler işlenir ve aşağıdaki araçları ile görselleştirilen:
+Telemetri veriler işlenir ve aşağıdaki araçlarla görselleştirilmiş:
 
 - PowerBI
 - Application Insights
-- Azure İzleyicisi'ni (önceki adıyla Shoebox)
+- Azure İzleyici (eski adıyla ayakkabı)
 - AMS Canlı Panosu
-- Azure Portal (bekleyen sürüm)
+- Azure portalı (bekleyen sürüm)
 
 ### <a name="how-to-manage-data-retention"></a>Veri saklama yönetmek nasıl?
 
-Telemetri sistem veri saklama Yönetimi veya otomatik silme eski kayıtları sağlamaz. Bu nedenle, yönetmek ve depolama alanı tablosundan eski kayıtları el ile silmeniz gerekir. Depolama SDK'sı nasıl yapılacağını için başvurabilirsiniz.
+Telemetri sisteminin veri saklama Yönetimi veya otomatik silme eski kayıtları sağlamaz. Bu nedenle, yönetmek ve eski kayıt depolama tablosundan el ile silmeniz gerekir. Depolama SDK'sı için bunu nasıl başvurabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

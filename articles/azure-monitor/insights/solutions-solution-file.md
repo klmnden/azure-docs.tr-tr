@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105806"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999377"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure'da (Önizleme) bir yönetim çözümü dosyası oluşturma
 > [!NOTE]
@@ -53,7 +53,7 @@ Bir yönetim çözümü dosyasının temel yapısı ile aynı olan bir [Resource
 ## <a name="parameters"></a>Parametreler
 [Parametreleri](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) yönetimi çözümü yükledikleri sırada, kullanıcıdan gerektiren değerlerdir.  Tüm çözümler olan standart parametreler vardır ve ek parametreler gerektiği gibi belirli çözümünüz için ekleyebilirsiniz.  Çözümünüzü yükledikleri sırada kullanıcılar parametre değerlerini nasıl sağlayacak, belirli bir parametre ve çözümün nasıl yüklendiği bağlı olacaktır.
 
-Bir kullanıcı [yönetim çözümünüzü yükleyen](solutions.md#install-a-management-solution) Azure Market veya Azure hızlı başlangıç şablonları bunlar seçmeniz istenirse bir [Log Analytics çalışma alanını ve Otomasyon hesabı](solutions.md#log-analytics-workspace-and-automation-account).  Bu değerlerin her birinin standart parametreler doldurmak için kullanılır.  Doğrudan standart parametreler için değerler sağlamak için kullanıcıya sorulmaz, ancak ek parametreler için değer sağlamanız istenir.
+Bir kullanıcı [yönetim çözümünüzü yükleyen](solutions.md#install-a-monitoring-solution) Azure Market veya Azure hızlı başlangıç şablonları bunlar seçmeniz istenirse bir [Log Analytics çalışma alanını ve Otomasyon hesabı](solutions.md#log-analytics-workspace-and-automation-account).  Bu değerlerin her birinin standart parametreler doldurmak için kullanılır.  Doğrudan standart parametreler için değerler sağlamak için kullanıcıya sorulmaz, ancak ek parametreler için değer sağlamanız istenir.
 
 
 Bir örnek parametre aşağıda gösterilmiştir.  
@@ -83,7 +83,7 @@ Aşağıdaki tabloda, tüm yönetim çözümleri için standart parametreler lis
 >
 >
 
-| Parametre | Tür | Açıklama |
+| Parametre | Type | Açıklama |
 |:--- |:--- |:--- |
 | accountName |dize |Azure Otomasyon hesabı adı. |
 | pricingTier |dize |Log Analytics çalışma alanı hem de Azure Otomasyon hesabı fiyatlandırma katmanı. |

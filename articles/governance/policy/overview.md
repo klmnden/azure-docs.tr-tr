@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 11384d1bbffb675bd322469d129464f58a48bb6b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1cfe7dab907a332f1a38560c39d4f6476cee81aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311840"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004769"
 ---
 # <a name="what-is-azure-policy"></a>Azure İlkesi nedir?
 
@@ -135,7 +135,7 @@ Bir girişim tanımındaki değer seçenekleri oluştururken, listenin bir parç
 
 - Girişim ataması değerlendirildiğinde, girişim dahilindeki tüm ilkeleri ayrıca değerlendirilir. Ayrı ayrı bir ilke değerlendirmeniz gerekiyorsa, içinde bir girişim içermeyecek şekilde daha iyidir.
 
-## <a name="video-overview"></a>Genel Bakış Videosu
+## <a name="video-overview"></a>Genel bakış videosu
 
 Aşağıdaki Azure İlkesi genel bakış videosu Build 2018 etkinliğinde kaydedilmiştir. Slayt veya video indirme için ziyaret [Azure İlkesi aracılığıyla Azure ortamınızı yöneten](https://channel9.msdn.com/events/Build/2018/THR2030) Channel 9.
 

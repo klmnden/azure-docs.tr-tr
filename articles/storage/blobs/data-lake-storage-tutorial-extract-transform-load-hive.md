@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jamesbak
-ms.openlocfilehash: 977d3535ad6c06b5dacd786905585d27f6d3d996
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: cfe06720d0afa0f9f5cf22552ba7ab21d4e617c0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964280"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993155"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Ayıklama, dönüştürme ve Azure HDInsight üzerinde Apache Hive'ı kullanarak veri yükleme
 
@@ -42,28 +42,33 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 * **Azure CLI**: Azure CLI'yi yüklemediyseniz, bkz. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **Bir SSH istemcisi**: Daha fazla bilgi için [SSH kullanarak HDInsight (Hadoop) bağlanma](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Güvenli Kabuk (SSH) istemcisi**: Daha fazla bilgi için [SSH kullanarak HDInsight (Hadoop) bağlanma](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 > [!IMPORTANT]
 > Bu makaledeki adımlarda Linux kullanan bir HDInsight kümesi gerektirir. Linux üzerinde Azure HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemi ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-### <a name="download-the-flight-data"></a>Uçuş verilerini indirme
+## <a name="download-the-flight-data"></a>Uçuş verilerini indirme
 
 Bu öğreticide, nakliye büro istatistikleri uçuş verileri bir ETL işlemi gerçekleştirmek nasıl göstermek için kullanılır. Bu öğreticiyi tamamlamak için bu verileri indirmeniz gerekir.
 
 1. Git [araştırma ve yenilikçi teknoloji yönetim, nakliye istatistikleri bürosu](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
-2. Seçin **Prezipped dosya** tüm veri alanlarını seçmek için onay kutusunu.
+1. Sayfada aşağıdaki değerleri seçin:
 
-3. Seçin **indirme** düğmesine tıklayın ve sonuçlar bilgisayarınıza kaydedin. 
+   | Adı | Değer |
+   | --- | --- |
+   | **Süresi filtre** |Ocak |
+   | **Alanları** |FlightDate, OriginCityName, WeatherDelay |
 
-4. Sıkıştırılmış dosyanın içeriğini sıkıştırmasını ve dosya adını not ve dosyanın yolu. Bu bilgiler sonraki adımda ihtiyacınız var.
+1. Diğer tüm alanları temizleyin.
+
+1. **Download** (İndir) seçeneğini belirleyin. Bir .zip dosyası, seçtiğiniz veri alanlara sahip olursunuz.
 
 ## <a name="extract-and-upload-the-data"></a>Ayıklama ve verileri yükleme
 
-Bu bölümde, kullandığınız `scp` HDInsight kümenize verileri yüklemek için.
+Bu bölümde, HDInsight kümenize veri yükleyeceksiniz. 
 
-1. Bir komut istemi açın ve aşağıdaki komutu kullanarak .zip dosyasını HDInsight kümesinin baş düğümüne yükleyin:
+1. Bir komut istemi açın ve HDInsight küme baş düğümüne .zip dosyasını karşıya yüklemek için aşağıdaki güvenli kopya (Scp) komutunu kullanın:
 
    ```bash
    scp <file-name>.zip <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net:<file-name.zip>
@@ -73,7 +78,7 @@ Bu bölümde, kullandığınız `scp` HDInsight kümenize verileri yüklemek iç
    * Değiştirin `<ssh-user-name>` SSH oturum açma HDInsight kümesi için yer tutucu.
    * Değiştirin `<cluster-name>` yer tutucu ile HDInsight kümesinin adı.
 
-   SSH oturum açma bilgilerinizi doğrulamak için bir parola kullanıyorsanız parola girmeniz istenir. 
+   SSH oturum açma bilgilerinizi doğrulamak için bir parola kullanıyorsanız parola girmeniz istenir.
 
    Ortak anahtar kullanıyorsanız, eşleşen özel anahtarın yolunu belirtmek için `-i` parametresini kullanmanız gerekebilir. Örneğin, `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
 
@@ -96,7 +101,7 @@ Bu bölümde, kullandığınız `scp` HDInsight kümenize verileri yüklemek iç
    ```bash
    hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
    ```
-   
+
    Değiştirin `<file-system-name>` dosya sisteminize vermek istediğiniz adla yer tutucu.
 
    Değiştirin `<storage-account-name>` depolama hesabınızın adıyla yer tutucu.
@@ -132,28 +137,9 @@ Apache Hive işi bir parçası olarak, verileri .csv dosyasından adlı bir Apac
    ```hiveql
    DROP TABLE delays_raw;
     CREATE EXTERNAL TABLE delays_raw (
-       YEAR string,
        FL_DATE string,
-       UNIQUE_CARRIER string,
-       CARRIER string,
-       FL_NUM string,
-       ORIGIN_AIRPORT_ID string,
-       ORIGIN string,
        ORIGIN_CITY_NAME string,
-       ORIGIN_CITY_NAME_TEMP string,
-       ORIGIN_STATE_ABR string,
-       DEST_AIRPORT_ID string,
-       DEST string,
-       DEST_CITY_NAME string,
-       DEST_CITY_NAME_TEMP string,
-       DEST_STATE_ABR string,
-       DEP_DELAY_NEW float,
-       ARR_DELAY_NEW float,
-       CARRIER_DELAY float,
-       WEATHER_DELAY float,
-       NAS_DELAY float,
-       SECURITY_DELAY float,
-      LATE_AIRCRAFT_DELAY float)
+       WEATHER_DELAY float)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
@@ -162,26 +148,9 @@ Apache Hive işi bir parçası olarak, verileri .csv dosyasından adlı bir Apac
    CREATE TABLE delays
    LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
    AS
-   SELECT YEAR AS Year,
-       FL_DATE AS FlightDate,
-       substring(UNIQUE_CARRIER, 2, length(UNIQUE_CARRIER) -1) AS Reporting_Airline,
-       substring(CARRIER, 2, length(CARRIER) -1) AS  IATA_CODE_Reporting_Airline,
-       substring(FL_NUM, 2, length(FL_NUM) -1) AS  Flight_Number_Reporting_Airline,
-       ORIGIN_AIRPORT_ID AS OriginAirportID,
-       substring(ORIGIN, 2, length(ORIGIN) -1) AS Origin,
+   SELECT FL_DATE AS FlightDate,
        substring(ORIGIN_CITY_NAME, 2) AS OriginCityName,
-       substring(ORIGIN_STATE_ABR, 2, length(ORIGIN_STATE_ABR) -1)  AS OriginStateName,
-       DEST_AIRPORT_ID AS DestAirportID,
-       substring(DEST, 2, length(DEST) -1) AS Dest,
-       substring(DEST_CITY_NAME,2) AS DestCityName,
-       substring(DEST_STATE_ABR, 2, length(DEST_STATE_ABR) -1) AS DestState,
-       DEP_DELAY_NEW AS DepDelay,
-       ARR_DELAY_NEW AS ArrDelay,
-       CARRIER_DELAY AS CarrierDelay,
        WEATHER_DELAY AS WeatherDelay
-       NAS_DELAY AS NASDelay,
-       SECURITY_DELAY AS SecurityDelay,
-       LATE_AIRCRAFT_DELAY AS LateAircraftDelay
    FROM delays_raw;
    ```
 

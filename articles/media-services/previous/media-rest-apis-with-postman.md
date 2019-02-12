@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d9db9cd83e0775ac71a852069cdf13c01fefea1d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 71f96420fe99ec230c9b25936fb6af4c993f615c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981069"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001002"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls-legacy"></a>Media Services REST API çağrıları (eski) için Postman'ı yapılandırma
+# <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API çağrıları için Postman'ı yapılandırma  
 
 Bu öğreticide nasıl yapılandırılacağı gösterilmektedir **Postman** böylece Azure Media Services (AMS) REST API'leri çağırmak için kullanılabilir. Bu öğreticide, ortam ve koleksiyon dosyasına aktarmak gösterilmektedir **Postman**. Koleksiyon, Azure Media Services (AMS) REST API'lerini çağırma HTTP isteklerinin gruplandırılmış tanımları içerir. Koleksiyon tarafından kullanılan değişkenleri ortam dosyası içerir.
 

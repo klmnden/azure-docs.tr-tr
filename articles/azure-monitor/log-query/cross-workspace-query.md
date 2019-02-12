@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics ile kaynakları genelinde arama yapma | Microsoft Docs
+title: Azure İzleyici ile kaynak arasında sorgu | Microsoft Docs
 description: Bu makalede nasıl birden çok çalışma alanları ve App Insights uygulama kaynaklarda aboneliğinizde Sorgulayabileceğiniz açıklanır.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 42191b21faec7bb1929a12e6bc1a724d269acb1d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298883"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998966"
 ---
-# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics'te kaynaklar arası günlük aramaları gerçekleştirme  
+# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Azure İzleyici'de kaynaklar arası günlük sorguları gerçekleştirme  
 
-Daha önce Azure Log Analytics ile yalnızca geçerli çalışma alanındaki verileri çözümleyebilir ve aboneliğinizde tanımlanmış birden çok çalışma alanında sorgu yapabilmenizi sınırlıdır.  Ayrıca, Application ınsights'ta doğrudan Application Insights ile web tabanlı uygulamanızın içinden veya Visual Studio'dan toplanan telemetri öğelerinin yalnızca arama yapabilirsiniz.  Bu ayrıca yerel olarak operasyonel analiz etmek için sınama ve uygulama verileri birlikte hale.   
+Daha önce Azure İzleyici ile yalnızca geçerli çalışma alanındaki verileri çözümleyebilir ve aboneliğinizde tanımlanmış birden çok çalışma alanında sorgu yapabilmenizi sınırlıdır.  Ayrıca, Application ınsights'ta doğrudan Application Insights ile web tabanlı uygulamanızın içinden veya Visual Studio'dan toplanan telemetri öğelerinin yalnızca arama yapabilirsiniz.  Bu ayrıca yerel olarak operasyonel analiz etmek için sınama ve uygulama verileri birlikte hale.   
 
-Artık yalnızca birden fazla Log Analytics çalışma alanları, aynı zamanda aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından verileriniz üzerinde sorgulama yapabilirsiniz. İle verilerinizin sistem genelinde bir görünüm sağlar.  Yalnızca bu tür bir sorgu gerçekleştirebileceğiniz [Log Analytics](portals.md#log-analytics-page). 100'e (Log Analytics çalışma alanları ve Application Insights uygulaması), tek bir sorguda dahil edebileceğiniz kaynak sayısı sınırlıdır. 
+Artık yalnızca birden fazla Log Analytics çalışma alanları, aynı zamanda aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından verileriniz üzerinde sorgulama yapabilirsiniz. İle verilerinizin sistem genelinde bir görünüm sağlar.  Yalnızca bu tür bir sorgu gerçekleştirebileceğiniz [Log Analytics](portals.md). 100'e (Log Analytics çalışma alanları ve Application Insights uygulaması), tek bir sorguda dahil edebileceğiniz kaynak sayısı sınırlıdır. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Application ınsights ve Log Analytics çalışma alanları arasında sorgulama
 Sorgunuzu başka bir çalışma alanı başvurmak için kullanma [ *çalışma* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) tanımlayıcısı ve Application ınsights'tan bir uygulama için [ *uygulama* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)tanımlayıcısı.  
@@ -101,9 +101,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Kaynaklar arası sorgu için birden çok kaynakları kullanma
-Kaynaklar arası sorgular birden fazla Log Analytics ve Application Insights kaynakları verileri ilişkilendirmek için kullanılırken, sorgu karmaşık ve sürdürülmesi zor hale gelebilir. Faydalanın [Log analytics'te işlevleri](../../azure-monitor/log-query/functions.md) kapsamı sorgu yapısı basitleştiren sorgu kaynaklarından gelen sorgu mantığının ayırmak için. Aşağıdaki örnek nasıl birden fazla Application Insights kaynaklarını izleyebilir ve uygulama adına göre başarısız istek sayısını görselleştirmek gösterir. 
+Kaynaklar arası sorgular birden fazla Log Analytics çalışma alanları ve Application Insights kaynakları verileri ilişkilendirmek için kullanılırken, sorgu karmaşık ve sürdürülmesi zor hale gelebilir. Faydalanın [işlevleri Azure İzleyici'de oturum sorguları](functions.md) kapsamı sorgu yapısı basitleştiren sorgu kaynaklarından gelen sorgu mantığının ayırmak için. Aşağıdaki örnek nasıl birden fazla Application Insights kaynaklarını izleyebilir ve uygulama adına göre başarısız istek sayısını görselleştirmek gösterir. 
 
-Application Insights kaynakları kapsamını başvuran aşağıdaki gibi bir sorgu oluşturun. `withsource= SourceApp` Komut, uygulama adını belirten bir sütun gönderilen günlük ekler. [İşlevi sorguyu kaydetmek](../../azure-monitor/log-query/functions.md#create-a-function) takma ad ile _applicationsScoping_.
+Application Insights kaynakları kapsamını başvuran aşağıdaki gibi bir sorgu oluşturun. `withsource= SourceApp` Komut, uygulama adını belirten bir sütun gönderilen günlük ekler. [İşlevi sorguyu kaydetmek](functions.md#create-a-function) takma ad ile _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -131,4 +131,5 @@ applicationsScoping
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Gözden geçirme [Log Analytics günlük araması başvuru](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) tüm kullanılabilir Log Analytics'te sorgu söz dizimi seçeneklerini görüntüleyin.    
+- Gözden geçirme [analiz günlük verilerini Azure İzleyici'de](log-query-overview.md) günlük sorguları ve Azure İzleyici günlük verilerini nasıl yapılandırıldığını genel bakış.
+- Gözden geçirme [Azure İzleyici günlük sorguları](query-language.md) tüm kaynaklar için Azure İzleyici günlük sorguları görüntüleyin.

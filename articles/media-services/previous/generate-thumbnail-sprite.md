@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b4d760d8520f43b223665f17c85d3932761ebe17
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190754"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003117"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>Küçük resim sprite oluştur 
+# <a name="generate-a-thumbnail-sprite"></a>Küçük resim sprite oluştur  
 
 VTT dosyası ile birlikte tek bir (büyük) görüntüsü birbirine birleştirilmiş birden çok küçük çözümleme küçük resimleri içeren bir JPEG dosyası olan bir küçük resim sprite oluşturmak için Media Encoder Standard kullanabilirsiniz. Bu VTT dosyası boyutu ve büyük JPEG dosyası içinde küçük resim koordinatlarını birlikte her küçük resmi temsil eden giriş videosunun zaman aralığını belirtir. Video oynatıcı VTT dosyası ve sprite görüntünün geri temizleme sırasında bir Görüntüleyici ile görsel geri bildirim sağlayarak bir 'visual' seekbar göstermek ve video zaman çizelgesi boyunca iletmek için kullanın.
 

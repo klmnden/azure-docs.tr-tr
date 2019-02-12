@@ -1,59 +1,50 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle eLuminate | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile eLuminate | Microsoft Docs'
 description: Azure Active Directory ve eLuminate arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 94c28db4-dbca-446b-8eef-9b728f18ca9a
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/16/2018
+ms.topic: tutorial
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: d2798f3638192604d0912f50a8b1c43f4a1939fb
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 7ecb9f1abfd6a48e9c91bf404fb0c05af3e74672
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40226045"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998275"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-eluminate"></a>Öğretici: Azure Active Directory eLuminate ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-eluminate"></a>Öğretici: ELuminate ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile eLuminate tümleştirme konusunda bilgi edinin.
-
 Azure AD ile eLuminate tümleştirme ile aşağıdaki avantajları sağlar:
 
-- ELuminate erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanan için eLuminate (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* ELuminate erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) eLuminate için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md)
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile eLuminate yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik eLuminate çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik eLuminate çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-1. Galeriden eLuminate ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+* eLuminate destekler **SP** tarafından başlatılan
 
 ## <a name="adding-eluminate-from-the-gallery"></a>Galeriden eLuminate ekleme
 
@@ -61,159 +52,139 @@ Azure AD'de eLuminate tümleştirmesini yapılandırmak için eLuminate Galeride
 
 **Galeriden eLuminate eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
 4. Arama kutusuna **eLuminate**seçin **eLuminate** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![sonuç listesinde eLuminate](./media/eluminate-tutorial/tutorial_eluminate_addfromgallery.png)
+     ![sonuç listesinde eLuminate](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı eLuminate sınayın.
-
-Tek iş için oturum açma için Azure AD ne eLuminate karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının eLuminate ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma eLuminate adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının eLuminate ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma eLuminate ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[ELuminate test kullanıcısı oluşturma](#create-a-eluminate-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı eLuminate içinde bir karşılığı vardır.
+2. **[Çoklu oturum açma eLuminate yapılandırma](#configure-eluminate-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+5. **[ELuminate test kullanıcısı oluşturma](#create-eluminate-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı eLuminate içinde bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve eLuminate uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile eLuminate yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile eLuminate yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **eLuminate** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **eLuminate** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açma iletişim kutusu](./media/eluminate-tutorial/tutorial_eluminate_samlbase.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-3. Üzerinde **eLuminate etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![eLuminate etki alanı ve URL'ler tek oturum açma bilgileri](./media/eluminate-tutorial/tutorial_eluminate_url.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://ClientShortName.eluminate.ca/azuresso/account/SignIn`
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `Eluminate/ClientShortName`
+    ![eLuminate etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://ClientShortName.eluminate.ca/azuresso/account/SignIn`
+
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `Eluminate/ClientShortName`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [eLuminate istemci Destek ekibine](mailto:support@intellimedia.ca) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [eLuminate istemci Destek ekibine](mailto:support@intellimedia.ca) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
-    ![Sertifika indirme bağlantısı](./media/eluminate-tutorial/tutorial_eluminate_certificate.png) 
+    ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
 
-5. Tıklayın **Kaydet** düğmesi.
+### <a name="configure-eluminate-single-sign-on"></a>Çoklu oturum açma eLuminate yapılandırın
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/eluminate-tutorial/tutorial_general_400.png)
+Çoklu oturum açmayı yapılandırma **eLuminate** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [eLuminate Destek ekibine](mailto:support@intellimedia.ca). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
-6. Çoklu oturum açmayı yapılandırma **eLuminate** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [eLuminate Destek ekibine](mailto:support@intellimedia.ca). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
-
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/eluminate-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/eluminate-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/eluminate-tutorial/create_aaduser_03.png)
-
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/eluminate-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
-
-### <a name="create-a-eluminate-test-user"></a>ELuminate test kullanıcısı oluşturma
-
-Bu bölümde, Britta Simon eLuminate içinde adlı bir kullanıcı oluşturun. Çalışmak [eLuminate Destek ekibine](mailto:support@intellimedia.ca) eLuminate platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma eLuminate erişim vererek kullanmak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200]
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **eLuminate**.
 
-**Britta Simon eLuminate için atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 2. Uygulamalar listesinde **eLuminate**.
 
-    ![Uygulamalar listesinde eLuminate bağlantı](./media/eluminate-tutorial/tutorial_eluminate_app.png)  
+    ![Uygulamalar listesinde eLuminate bağlantı](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Atama Ekle bölmesi][203]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="create-eluminate-test-user"></a>ELuminate test kullanıcısı oluşturma
+
+Bu bölümde, Britta Simon eLuminate içinde adlı bir kullanıcı oluşturun. Çalışmak [eLuminate Destek ekibine](mailto:support@intellimedia.ca) eLuminate platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde eLuminate kutucuğa tıkladığınızda, otomatik olarak eLuminate uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
+Erişim paneli eLuminate kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama eLuminate için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/eluminate-tutorial/tutorial_general_01.png
-[2]: ./media/eluminate-tutorial/tutorial_general_02.png
-[3]: ./media/eluminate-tutorial/tutorial_general_03.png
-[4]: ./media/eluminate-tutorial/tutorial_general_04.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/eluminate-tutorial/tutorial_general_100.png
-
-[200]: ./media/eluminate-tutorial/tutorial_general_200.png
-[201]: ./media/eluminate-tutorial/tutorial_general_201.png
-[202]: ./media/eluminate-tutorial/tutorial_general_202.png
-[203]: ./media/eluminate-tutorial/tutorial_general_203.png

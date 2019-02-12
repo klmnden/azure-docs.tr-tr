@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: c08759f4682c6010c2338ff7aaf61cda92eb0484
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3dac469c2932276a903a516b71caa860f8870fa6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232096"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989347"
 ---
-# <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure üzerinde isteğe bağlı medya kodlayıcılarına karşılaştırması
+# <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure üzerinde isteğe bağlı medya kodlayıcılarına karşılaştırması  
 
 Bu konuda kodlama yeteneklerini karşılaştırır **Media Encoder Standard** ve **Media Encoder Premium iş akışı**.
 
@@ -91,7 +91,7 @@ Aşağıdaki tabloda, Media Encoder Premium iş akışı (MEPW) ile Medya Kodlay
 | --- | --- | --- |
 | AES (SMPTE 331 M ve 302 M, AES3-2003) |Hayır |Evet |
 | Dolby® E |Hayır |Evet |
-| Dolby® dijital (AC3) |Hayır |Evet |
+| Dolby® Digital (AC3) |Hayır |Evet |
 | Dolby® dijital artı (E-AC3) |Hayır |Evet |
 | AAC (AAC-LC, AAC-HE ve AAC-HEv2; en fazla 5.1) |Evet |Evet |
 | MPEG Katman 2 |Evet |Evet |
@@ -132,7 +132,7 @@ Aşağıdaki tabloda, Media Encoder Premium iş akışı (MEPW) ile Medya Kodlay
 | Çıkış ses codec bileşenleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
 | --- | --- | --- |
 | AES (SMPTE 331 M ve 302 M, AES3-2003) |Hayır |Evet |
-| Dolby® dijital (AC3) |Hayır |Evet |
+| Dolby® Digital (AC3) |Hayır |Evet |
 | Dolby® dijital artı (E-AC3) kadar 7.1 |Hayır |Evet |
 | AAC (AAC-LC, AAC-HE ve AAC-HEv2; en fazla 5.1) |Evet |Evet |
 | MPEG Katman 2 |Hayır |Evet |

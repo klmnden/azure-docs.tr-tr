@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d664c33c4535d25ec93fd1f36c990f2764a4e071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729277"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000822"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'yi kullanmak için JavaScript örnekleri
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C uygulamalarınızın, kendi JavaScript istemci tarafı kod ekleyebilirsiniz. Bu makalede, nasıl değiştirebileceğiniz açıklanır, [özel ilke](active-directory-b2c-overview-custom.md) betiğin yürütülmesini sağlamak.
+Azure Active Directory (Azure AD) B2C uygulamalarınızın, kendi JavaScript istemci tarafı kod ekleyebilirsiniz. Bu makalede, nasıl değiştirebileceğiniz açıklanır, [kullanıcı akışı](user-flow-javascript-overview.md) veya [özel ilke](active-directory-b2c-overview-custom.md) betiğin yürütülmesini sağlamak.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Seçin bir [sayfa sözleşme](page-contract.md) uygulamanızın kullanıcı arabirimi öğeleri için. JavaScript kullanmak istiyorsanız, özel ilkeniz tüm içerik tanımları için bir sayfa sözleşme sürümü tanımlamak gerekir.
+Seçin bir [sayfa sözleşme](page-contract.md) uygulamanızın kullanıcı arabirimi öğeleri için. JavaScript kullanmak istiyorsanız, bir sayfa sözleşme sürümü tüm içerik tanımları için kullanıcı akışı veya özel İlkesi tanımlamanız gerekir.
 
 ## <a name="add-the-scriptexecution-element"></a>ScriptExecution öğe ekleyin
 

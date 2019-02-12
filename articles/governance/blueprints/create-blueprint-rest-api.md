@@ -4,17 +4,17 @@ description: Yapıt oluşturmak, tanımlamak ve dağıtmak için Azure Blueprint
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566997"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989975"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API ile Azure Blueprint Tanımlama ve Atama
 
@@ -329,6 +329,12 @@ Yapıtları ekledikten sonra şemayı yayımlayabilirsiniz. Yayımladığınızd
 
 REST API kullanarak yayımlanan şemaları bir aboneliğe atayabilirsiniz. Oluşturduğunuz şemayı yönetim grubu hiyerarşinizdeki aboneliklerden birine atayın. Blueprint bir abonelik için kaydedilmiş durumda ise, yalnızca bu aboneliğe atanabilir. **İstek Gövdesi** atanacak şemayı belirtir, şema tanımındaki kaynak gruplarının adını ve konumunu sağlar ve şemada tanımlanıp ekli yapıtların biri veya daha fazlası tarafından kullanılan tüm parametreleri sağlar.
 
+Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değişkenler bulunur:
+
+- `{tenantId}` -Kiracı Kimliğinizle değiştirin.
+- `{YourMG}` -Yönetim grubunuzun kimliği ile değiştirin.
+- `{subscriptionId}` - Abonelik kimliğinizle değiştirin
+
 1. Azure Blueprints hizmet sorumlusuna hedef abonelikte **Sahip** rolünü atayın. AppId değeri statiktir (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`) ancak hizmet sorumlusu kimliği kiracıya göre değişir. Aşağıdaki REST API ile kiracınıza ait ayrıntılı bilgileri isteyebilirsiniz. Farklı bir yetkilendirme sistemine sahip olan [Azure Active Directory Graph API'sini](../../active-directory/develop/active-directory-graph-api.md) kullanır.
 
    - REST API URI'si
@@ -387,6 +393,25 @@ REST API kullanarak yayımlanan şemaları bir aboneliğe atayabilirsiniz. Oluş
          "location": "westus"
      }
      ```
+
+   - Kullanıcı tarafından atanan yönetilen kimlik
+
+     Şema atamasını kullanabilirsiniz bir [yönetilen kullanıcı tarafından atanan kimliği](../../active-directory/managed-identities-azure-resources/overview.md). Bu durumda, **kimlik** istek gövdesi bölümü şu şekilde değişir.  Değiştirin `{yourRG}` ve `{userIdentity}` sırasıyla adı ve kullanıcı tarafından atanan yönetilen kimliğinizi adını kaynağınızı grup.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     **Yönetilen kullanıcı tarafından atanan kimliği** herhangi bir abonelikte olabilir ve kaynak grubu şema atama kullanıcı izni vardır.
+
+     > [!IMPORTANT]
+     > Blueprint değil kullanıcı tarafından atanan bir yönetilen kimlik yönetin. Yeterli rolleri atamak için sorumlu kullanıcılar ve izinler veya şema atamasını başarısız olur.
 
 ## <a name="unassign-a-blueprint"></a>Şema atamasını kaldırma
 

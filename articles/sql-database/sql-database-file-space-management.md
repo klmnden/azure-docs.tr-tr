@@ -11,15 +11,16 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: cf73708682a8434ffabaff101d6d6928671af4b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468640"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003729"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
+
 Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
 
 ## <a name="overview"></a>Genel Bakış
@@ -33,11 +34,14 @@ Aşağıdaki senaryolarda dosya alanı kullanımının izlenmesi ve veri dosyala
 - Tek bir veritabanının veya elastik havuzun daha düşük maksimum boyuta sahip farklı bir hizmet katmanına veya performans katmanına geçmesine izin verilmesi.
 
 ### <a name="monitoring-file-space-usage"></a>Dosya alanı kullanımı izleme
+
 Azure portalı ve aşağıdaki API'leri gösterilen Çoğu depolama alanı ölçümleri yalnızca kullanılan veri sayfaların boyutu ölçü:
+
 - Azure Resource Manager tabanlı ölçümleri API'leri PowerShell dahil olmak üzere [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Ancak aşağıdaki API'leri veritabanları ve elastik için ayrılan alanı boyutu da ölçüm havuzları:
+
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
@@ -62,13 +66,14 @@ Aşağıdaki depolama alanı miktarları anlama bir veritabanının dosya alanı
 
 Aşağıdaki diyagramda, farklı bir veritabanı için depolama alanı türleri arasındaki ilişkiyi gösterir.
 
-![depolama alanı türleri ve ilişkiler](./media/sql-database-file-space-management/storage-types.png) 
+![depolama alanı türleri ve ilişkiler](./media/sql-database-file-space-management/storage-types.png)
 
 ## <a name="query-a-database-for-storage-space-information"></a>Depolama alanı bilgisi için bir veritabanını sorgulama
 
 Aşağıdaki sorgularda, bir veritabanı için depolama alanı miktarları belirlemek için kullanılabilir.  
 
 ### <a name="database-data-space-used"></a>Kullanılan veritabanı veri alanı
+
 Kullanılan veritabanı veri alanı miktarı aşağıdaki sorguyu değiştirin.  MB cinsinden sorgu sonucu birimleridir.
 
 ```sql
@@ -81,6 +86,7 @@ ORDER BY end_time DESC
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Ayrılan veritabanı veri alanı ve kullanılmayan bir ayrılmış alanı
+
 Veritabanı veri alan ayrılan miktarı ve ayrılan kullanılmayan alanı miktarını döndürmek için aşağıdaki sorguyu kullanın.  MB cinsinden sorgu sonucu birimleridir.
 
 ```sql
@@ -94,6 +100,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### <a name="database-data-max-size"></a>Veritabanı veri en büyük boyutu
+
 Veritabanı veri en büyük boyutu döndürmek için aşağıdaki sorguyu değiştirin.  Bayt cinsinden sorgu sonucu birimleridir.
 
 ```sql

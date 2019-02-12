@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: cd680f24eafe61bc73fa6eb91df4b4dfa5f5399b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 24f725f7b83c4f043ec2b977917d5bb09665c96d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073441"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990334"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Bir anahtar kasasına çeşitli uygulamaları erişimi verme
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Erişim denetimi İlkesi, bir anahtar kasası çeşitli uygulamalar erişim vermek için kullanılabilir. Bir erişim denetimi ilkesi en fazla 1024 uygulamaları destekler ve aşağıdaki gibi yapılandırılır:
 
@@ -28,12 +30,16 @@ Erişim denetimi İlkesi, bir anahtar kasası çeşitli uygulamalar erişim verm
 2. Hizmet sorumlularını güvenlik grubunun ilişkili tüm uygulamalar ekleyin.
 3. Güvenlik grubu, anahtar Kasası'na erişim.
 
-Ön koşullar şunlardır:
-* [Azure Active Directory V2 PowerShell modülünü yükleme](https://www.powershellgallery.com/packages/AzureAD).
-* [Azure PowerShell'i yükleme](/powershell/azure/overview).
-* Aşağıdaki komutları çalıştırmanız grupları Azure Active Directory kiracısı oluşturma/düzenleme izni gerekir. İzinleriniz yoksa, Azure Active Directory yöneticinize başvurmanız gerekebilir. Bkz: [Azure Key Vault hakkında anahtarlara, parolalara ve sertifikalara](about-keys-secrets-and-certificates.md) Key Vault hakkında ayrıntılı bilgi için erişim ilkesi izinleri.
+## <a name="prerequisites"></a>Önkoşullar
 
-Artık PowerShell'de aşağıdaki komutları çalıştırın:
+Önkoşullar şunlardır:
+* [Azure PowerShell'i yükleme](/powershell/azure/overview).
+* [Azure Active Directory V2 PowerShell modülünü yükleme](https://www.powershellgallery.com/packages/AzureAD).
+* Azure Active Directory kiracısı grupları oluştur/Düzenle için izinler. İzinleriniz yoksa, Azure Active Directory yöneticinize başvurmanız gerekebilir. Bkz: [Azure Key Vault hakkında anahtarlara, parolalara ve sertifikalara](about-keys-secrets-and-certificates.md) Key Vault hakkında ayrıntılı bilgi için erişim ilkesi izinleri.
+
+## <a name="granting-key-vault-access-to-applications"></a>Uygulamalar için Key Vault erişim izni verme
+
+PowerShell'de aşağıdaki komutları çalıştırın:
 
 ```powershell
 # Connect to Azure AD 
@@ -49,7 +55,7 @@ Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId
 # You can add several members to this group, in this fashion. 
  
 # Set the Key Vault ACLs 
-Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
+Set-AzKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
 -PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update,create,import,delete,backup,restore,recover,purge `
 –PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge `
 –PermissionsToCertificates get,list,delete,create,import,update,managecontacts,getissuers,listissuers,setissuers,deleteissuers,manageissuers,recover,purge,backup,restore `

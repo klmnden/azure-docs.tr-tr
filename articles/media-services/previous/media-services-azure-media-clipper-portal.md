@@ -1,44 +1,45 @@
 ---
-title: Portalda Azure medya Kırpıcıyı kullanın | Microsoft Docs
-description: Azure Portal'da Azure medya Kırpıcıyı kullanarak Klip Oluştur
+title: Portalda Azure Media Clipper'ı kullanma | Microsoft Docs
+description: Azure Portalı'ndan Azure Media Clipper'ı kullanarak küçük resimleri oluşturun
 services: media-services
-keywords: küçük; subclip; kodlama; ortam
+keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 510176331a1b79a1069b42afabb63b6b326951cc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788224"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992330"
 ---
-# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Küçük resimleri portalda Azure medya Kırpıcıyı ile oluşturma
-Portalda Azure medya Kırpıcıyı klipleri varlıklarından media services hesaplarınızı oluşturmak için kullanabilirsiniz. Başlamak için Portalı'nda media services hesabınıza gidin. Ardından, **Subclip** sekmesi.
+# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Portalda Azure Media Clipper'ı ile klip oluşturma  
 
-Üzerinde **Subclip** sekmesinde, klipleri oluşturmaya başlamak kullanabilirsiniz. Portalda, tek bit hızında MP4s, Çoklu bit hızlı MP4s ve geçerli akış Bulucusu ile yayımlanan Canlı arşivler Kırpıcıyı yükler. Yayımdan varlıklar yüklü değil.
+Portalda Azure Media Clipper'ı klipleri varlıklarından, media services hesapları oluşturmak için kullanabilirsiniz. Başlamak için portalında media services hesabınıza gidin. Ardından, **alt klip** sekmesi.
 
-Kırpıcıyı şu anda genel önizlemede değil. Azure portalında Kırpıcıyı erişmek için bu gidin [genel Önizleme sayfası](https://portal.azure.com/?feature.subclipper=true).
+Üzerinde **alt klip** sekmesinde, klipleri oluşturmaya başlayabilir. Portalda, tek bit hızlı MP4 Çoklu bit hızına sahip MP4'ler göndermenizi ve geçerli bir akış Bulucusu ile yayımlanan Canlı arşivlerinizin Clipper'ı yükler. Yayımlanmamış varlıklar yüklü değil.
 
-Aşağıdaki görüntü media services hesabınızı Kırpıcıyı giriş sayfasında gösterilmektedir: ![Azure portalında Azure medya Kırpıcıyı](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
+Clipper'ı, şu anda genel Önizleme aşamasındadır. Azure portalında Clipper erişmek için şuna Git [genel Önizleme sayfası](https://portal.azure.com/?feature.subclipper=true).
+
+Aşağıdaki resimde media services hesabınızda Clipper giriş sayfası gösterilmektedir: ![Azure Media Clipper'ı Azure portalında](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
 
 ## <a name="producing-clips"></a>Küçük resimleri üretme
-Küçük resim oluşturmak için sürükleyip bir varlık küçük arabirim. İşareti kez biliniyorsa, bunları arabirimine el ile girebilirsiniz. Aksi takdirde kayıttan yürütme varlık veya istenen işareti bileşenini Bul ve işareti çıkış saati oynatma sürükleyin. İşaretleme veya işaretini out birer sağlanmazsa, küçük baştan başlatır veya sırasıyla Giriş varlık sonuna kadar devam eder.
+Küçük resim oluşturmak için sürükleyin ve bir varlık küçük arabirimi bırakın. İşareti kez biliniyorsa, bunları arabirimine el ile girebilirsiniz. Aksi durumda, kayıttan yürütme varlık veya istenen işareti açma bulma ve işareti genişletme zaman oynatma kafasını sürükleyin. İşaretleme veya işaretini genişletme zaman sağlanmazsa, küçük başından başlar veya sırasıyla Giriş varlığı sonuna dek devam eder.
 
-Çerçeve-doğruluğu/GOP-doğruluk ile gezinmek için çerçeve İleri/GOP iletme veya çerçeve-geriye dönük/GOP-geriye dönük düğmelerini kullanın. Kırpma birden çok varlığı karşı için sürükleyin ve varlık Seçim Bölmesi küçük arabiriminden içine birden çok varlığı bırakın. Seçin ve yeniden sıralamak istediğiniz sırayı arabiriminde varlıklar. Varlık seçim bölmesi, her varlık için varlık süresi, türü ve çözümleme meta veriler sağlar. Birden çok varlığı birlikte birleştirme, her girdi dosyası kaynak çözünürlüğü göz önünde bulundurun. Kaynak çözümleri farklıysa, en yüksek çözünürlük varlık çözümleme karşılamak üzere daha düşük çözünürlük giriş upscaled. Kırpma iş çıktısı önizlemek için seçilen işareti sürelerinden Önizleme düğmesini ve küçük yürütür'ı seçin.
+Çerçeve-doğruluğu/GOP-doğruluğa sahip gitmek için kare ileri/GOP İleri veya çerçeveyi geriye dönük/GOP-dönük düğmeleri kullanın. Kırpma karşı birden çok varlığı için sürükleyin ve birden çok varlığı varlık seçim paneli küçük arabiriminden bırakın. Seçin ve yeniden sıralamak istediğiniz arabiriminde varlıklar. Varlık seçim paneli her varlık için varlık süresi, türü ve çözüm meta veri sağlar. Birden çok varlığı birlikte birleştirme, her giriş dosyasının kaynak çözme göz önünde bulundurun. Kaynak çözümler farklıysa, en yüksek çözünürlüğü varlık çözünürlüğünü karşılamak için daha düşük bir çözümleme girişi upscaled. Kırpma tanımlı işlemin çıktısını önizlemek için seçilen işareti sürelerinden Önizleme düğmesi ve klibi yürütür'ı seçin.
 
 ## <a name="producing-dynamic-manifest-filters"></a>Dinamik bildirim filtreleri üretme
-[Dinamik bildirim filtreleri](https://azure.microsoft.com/blog/dynamic-manifest/) bildirim öznitelikleri ve varlık zaman çizelgesi dayalı kurallar açıklanmaktadır. Akış uç noktanızı çıkış çalma listesi (bildirim) nasıl değiştirdiğinde bu kurallar belirler. Filtre, hangi kesimleri kayıttan yürütme için akışı değiştirmek için kullanılabilir. Kırpıcıyı tarafından üretilen filtreler yerel filtreler ve kaynak varlık özeldir. İşlenmiş klip, farklı filtreler yeni varlıklar değildir ve oluşturmak için bir kodlama işi gerektirmez. Aracılığıyla hızlı oluşturulabilir [.NET SDK'sı](https://docs.microsoft.com/azure/media-services/media-services-dotnet-dynamic-manifest) veya [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest), ancak yalnızca GOP doğru olduğundan. Genellikle, akış için kodlanmış varlıklar iki saniye GOP boyutuna sahiptir.
+[Dinamik bildirim filtreleri](https://azure.microsoft.com/blog/dynamic-manifest/) bildirim öznitelikleri ve varlık zaman çizelgesi dayalı kurallar açıklanmaktadır. Bu kurallar, akış uç noktanızı çıkış çalma listesi (manifest) nasıl yönetir belirler. Filtre, hangi segmentlerin kayıttan yürütme için akışı değiştirmek için kullanılabilir. Clipper tarafından üretilen filtreleri yerel filtreler ve kaynak varlığa özgüdür. İşlenmiş klipleri aksine filtreleri yeni varlıkları değildir ve oluşturmak için bir kodlama işi gerektirmez. Aracılığıyla kolayca oluşturulabilir [.NET SDK'sı](https://docs.microsoft.com/azure/media-services/media-services-dotnet-dynamic-manifest) veya [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest), ancak yalnızca GOP doğru değildir. Genellikle, akış için kodlanmış varlıklar iki saniye GOP boyutuna sahiptir.
 
-Dinamik bir bildirim filtresi oluşturmak için gidin **varlıklar** sekmesinde ve istediğiniz varlığı seçin. Seçin **Subclip** üst menü düğmesi. Gelişmiş Ayarlar menüsünden kırpma modu olarak dinamik bildirim filtreyi seçin. Ardından, filtre oluşturmak için işlenen küçük üretmek için aynı işlemi izleyebilirsiniz. Filtreler yalnızca tek bir varlık üretilebilir.
+Bir dinamik bildirim filtresi oluşturmak için gidin **varlıklar** sekmesinde ve istediğiniz varlığı seçin. Seçin **alt klip** üst menü düğmesi. Dinamik bildirim filtresi Gelişmiş Ayarlar menüsünden kırpma modu seçin. Ardından filtreyi oluşturmak için bir işlenen küçük üretmek için aynı işlem takip edebilirsiniz. Filtreler yalnızca tek bir varlığından üretilebilir.
 
-Aşağıdaki resim Azure portalında dinamik bildirim Filtresi modunda Kırpıcıyı gösterilmektedir: ![dinamik bildirim Filtresi modunda Azure portalında Azure medya Kırpıcıyı](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
+Aşağıdaki görüntüde, Azure portalında dinamik bildirim Filtresi modunda Clipper gösterilmektedir: ![Azure Media Clipper'ı Azure portalında dinamik bildirim Filtresi modunda](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 
 ## <a name="submitting-clipping-jobs"></a>Kırpma işlerini gönderme
-Küçük resim oluşturma işiniz bittiğinde, başlatma için gönderme iş düğmesi karşılık gelen kırpma iş veya dinamik bildirim çağrısı seçin.
+Küçük resim oluşturma işlemini tamamladığınızda, dinamik bildirim çağrı ve karşılık gelen kırpma iş başlatma için gönderme iş düğmesi seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Media Kırpıcıyı kullanmaya başlamak için okuma [Başlarken](media-services-azure-media-clipper-getting-started.md) makale pencere öğesi dağıtma hakkında ayrıntılı bilgi için.
+Azure Media Clipper'ı kullanmaya başlamak için okuma [Başlarken](media-services-azure-media-clipper-getting-started.md) pencere dağıtma hakkında daha fazla ayrıntı için makaleyi.

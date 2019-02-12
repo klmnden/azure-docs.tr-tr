@@ -16,16 +16,16 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2c889368afe601bc7188f3b0989e7799c88131b4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b6738496a25c49a74d3156b5dfba1ba2a91f102c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081968"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002056"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişim ile bir oturumu risk algılandığında erişimi engelleme  
 
-Ortamınızın korumasını sürdürün için insign açma etkinliği imzalama Şüpheli kullanıcıların engellemek isteyebilirsiniz. [Azure Active Directory (Azure AD) kimlik koruması](../active-directory-identityprotection.md) her oturum açma analiz eder ve bir kullanıcı hesabının meşru sahibi tarafından bir oturum açma denemesi olasılığını gerçekleştirilmediği hesaplar. Olasılığını (düşük, Orta, yüksek) adında bir hesaplanan değer biçiminde belirtilir [oturum açma risk düzeyleri](conditions.md#sign-in-risk). Oturum açma riski koşuluna ayarlayarak, belirli oturum açma risk düzeyleri için yanıt vermek için koşullu erişim ilkesi yapılandırabilirsiniz. 
+Ortamınızın korumasını sürdürün için şüpheli kullanıcılardan oturum açma engellemek isteyebilirsiniz. [Azure Active Directory (Azure AD) kimlik koruması](../active-directory-identityprotection.md) her oturum açma analiz eder ve bir kullanıcı hesabının meşru sahibi tarafından bir oturum açma denemesi olasılığını gerçekleştirilmediği hesaplar. Olasılığını (düşük, Orta, yüksek) adında bir hesaplanan değer biçiminde belirtilir [oturum açma risk düzeyleri](conditions.md#sign-in-risk). Oturum açma riski koşuluna ayarlayarak, belirli oturum açma risk düzeyleri için yanıt vermek için koşullu erişim ilkesi yapılandırabilirsiniz. 
 
 Bu hızlı başlangıçta nasıl yapılandırılacağını gösteren bir [koşullu erişim ilkesi](../active-directory-conditional-access-azure-portal.md) , engelleyen bir oturum açma yapılandırılmış oturum açma risk düzeyini tespit edildiğinde. 
 

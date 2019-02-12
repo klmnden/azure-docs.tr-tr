@@ -4,23 +4,23 @@ description: Bu konuda, Azure medya Analizi ile yüzleri özgürlüğü gösteri
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 910cc246aa19e19b109fc660682c6b2dc239cbb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "33789386"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004902"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Azure medya Analizi ile yüzleri özgürlüğü
+# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Azure medya analizi (eski) ile yüzleri özgürlüğü
 ## <a name="overview"></a>Genel Bakış
 **Azure Media Redactor** olduğu bir [Azure medya analizi](media-services-analytics-overview.md) medya işlemci (MP) bulutta ölçeklenebilir yüz flulaştırma sunar. Yüz flulaştırma seçilen kişilerin yüzlerini bulanıklaştıran için videonuzu değiştirmenize olanak sağlar. Yüz flulaştırma hizmet kamu güvenliği ve haber medya senaryolarında kullanmak isteyebilirsiniz. El ile özgürlüğü saat birden fazla yüzeye içeren görüntülerini, birkaç dakika sürebilir, ancak bu hizmet ile yalnızca birkaç basit adımda yüz flulaştırma işlemi gerektirir. Daha fazla bilgi için [bu](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
 
@@ -135,7 +135,7 @@ Bu, seçilen bir Kimliğe sahip bir IDList çıktısı bulunmaktadır.
 
 ## <a name="blur-types"></a>Bulanıklaştırma türleri
 
-İçinde **birleştirilmiş** veya **Redact** modu, seçim yapabileceğiniz bir JSON giriş yapılandırma ile 5 farklı Bulanıklaştırma mod vardır: **düşük**, **Med**, **Yüksek**, **kutusu**, ve **siyah**. Varsayılan olarak **Med** kullanılır.
+İçinde **birleştirilmiş** veya **Redact** modu, seçim yapabileceğiniz bir JSON giriş yapılandırma ile 5 farklı Bulanıklaştırma mod vardır: **Düşük**, **Med**, **yüksek**, **kutusu**, ve **siyah**. Varsayılan olarak **Med** kullanılır.
 
 Bulanıklaştırma türlerinin örnekleri bulabilirsiniz.
 
@@ -367,7 +367,7 @@ namespace FaceRedaction
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirim gönder
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>İlgili bağlantılar

@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: be52f5fbe6c7d282a50e53c4326478b937ea8081
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0275eb83feec46f21b55ca36e5d77c5b1fcd6f28
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488397"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997294"
 ---
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Öğretici: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
@@ -329,9 +329,9 @@ Tek bir denemede birden çok modeli karşılaştırma örneği için [Azure AI G
 
 [publish]: publish-a-machine-learning-web-service.md
 
-Daha fazla bilgi almak ister misiniz? Modeli oluşturma, eğitme, puanlama ve dağıtma sürecinin daha kapsamlı ve ayrıntılı kılavuzu için bkz. [Azure Machine Learning kullanarak tahmine dayalı bir çözüm geliştirme][walkthrough].
+Daha fazla bilgi almak ister misiniz? Oluşturma, eğitim, Puanlama ve bir modeli dağıtma sürecinin daha kapsamlı ve Ayrıntılı Kılavuzu için bkz: [öğretici 1: Kredi riskini tahmin ] [ walkthrough].
 
-[walkthrough]: walkthrough-develop-predictive-solution.md
+[walkthrough]: tutorial-part1-credit-risk.md
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png

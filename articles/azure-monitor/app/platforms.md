@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 0aee18115f34c86e84054f1aeddcc99d563f5f64
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 825f51742a65ead545f7c7fcb0a53d1a82a08b1a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116526"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992815"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Geliştirici analizleri: programlama dilleri, platformlar ve tümleştirmeler
 Bu öğeler, bildiğimiz [Application Insights](../../azure-monitor/app/app-insights-overview.md) uygulamalardır. Bunlardan bazıları üçüncü taraflar aracılığıyla sunulur.
@@ -68,9 +68,9 @@ Bu öğeler, bildiğimiz [Application Insights](../../azure-monitor/app/app-insi
 * [Semantik Günlük (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - [Semantik Günlük Uygulama Bloğu](https://msdn.microsoft.com/library/dn440729.aspx) ile tümleşir
 * [Bulut tabanlı yük testi](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash eklentisi](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 * [Logrus](https://github.com/jjcollinge/logrus-appinsights)
+* [Azure İzleyici](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## <a name="content-management-systems"></a>İçerik Yönetim Sistemleri
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)

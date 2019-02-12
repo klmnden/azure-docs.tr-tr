@@ -12,17 +12,17 @@ ms.author: jovanpop-msft
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d8a7ffd680ab38d78fa3675f49569dd79b91efe4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 83be636317299adf820a60716866aa35d318d6dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895117"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997371"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Genel amaçlı hizmet katmanı - Azure SQL veritabanı
 
 > [!NOTE]
-> Genel amaçlı sanal çekirdek tabanlı satın alma modeli hizmet katmanında standart Hizmet katmanını DTU tabanlı satın alma modeli çağrılır. Sanal çekirdek tabanlı satın alma modeli DTU tabanlı satın alma modeli ile bir karşılaştırması için bkz: [Azure SQL veritabanı'nın modelleri ve kaynakları satın alma](sql-database-service-tiers.md).
+> Genel amaçlı sanal çekirdek tabanlı satın alma modeli hizmet katmanında standart Hizmet katmanını DTU tabanlı satın alma modeli çağrılır. Sanal çekirdek tabanlı satın alma modeli DTU tabanlı satın alma modeli ile bir karşılaştırması için bkz: [Azure SQL veritabanı'nın modelleri ve kaynakları satın alma](sql-database-purchase-models.md).
 
 Azure SQL veritabanı, SQL Server veritabanı altyapısı mimarisi altyapı hataları durumda bile % 99,99 kullanılabilirlik sağlamak üzere bulut ortamı için uyarlanmış dayanır. Azure SQL veritabanı, her biri farklı bir mimari modelleri kullanılan üç hizmet katmanı vardır. Bu hizmet katmanlarıdır:
 

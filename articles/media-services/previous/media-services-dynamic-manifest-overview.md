@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/25/2018
+ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312978"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000019"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimlere
 
@@ -35,7 +35,7 @@ Bu konuda, yaygın senaryoları tartışır filtreleri kullanarak filtreler prog
 İçeriğinizi (Canlı etkinlik veya isteğe bağlı video akışı) müşterilere teslim ederken hedefiniz, farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli video teslim sağlamaktır. Bu hedef şunları yapmanız elde etmek için:
 
 * kullanarak akışınızı Çoklu bit hızlı kodlama ([bit hızı Uyarlamalı](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (Bu halleder kaliteyi ve ağ koşullarını) video akışına ve 
-* Media Services'i kullanma [dinamik paketleme](media-services-dynamic-packaging-overview.md) dinamik olarak akışınız içine farklı protokollere (Bu halleder farklı cihazlarda akış) yeniden paketler. Media Services dağıtımını aşağıdaki hızı Uyarlamalı akış teknolojilerini destekler: HTTP canlı akışı (HLS), kesintisiz akış ve MPEG DASH. 
+* Media Services'i kullanma [dinamik paketleme](media-services-dynamic-packaging-overview.md) dinamik olarak akışınız içine farklı protokollere (Bu halleder farklı cihazlarda akış) yeniden paketler. Media Services teslim aşağıdaki hızı Uyarlamalı akış teknolojilerini destekler: HTTP canlı akış (HLS), kesintisiz akış ve MPEG DASH. 
 
 ### <a name="manifest-files"></a>Bildirim dosyaları
 Bir varlığı, bit hızı Uyarlamalı akış için kodlarken bir **bildirim** (çalma listesi) dosyası oluşturulur (metin tabanlı veya XML tabanlı dosyasıdır). **Bildirim** dosya ekleme gibi meta veri akış: izleme türü (ses, video veya metin), izleme adı, başlangıç ve bitiş zamanı, bit hızı (kalitelerini), izleme diller Sunu penceresini (sabit süre kayan pencere), video codec bileşeni ( FourCC). Sonraki yürütülebilir video parçalar kullanılabilir ve bulundukları konumlar ilgili bilgi sağlayarak bir sonraki parça almak için player talimatı verir. Parçaları (veya parçaları) gerçek "" bir video içeriğinizi öbekleridir.
@@ -130,7 +130,7 @@ Varlıklarınızı birden fazla ses dili İngilizce, İspanyolca, Fransızca, vb
 ![Filtreleme dili izler][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Bir varlığın başlangıç kırpma
-Çoğu canlı akış olayları, işleçler, gerçek olayın önce bazı testler çalıştırın. Örneğin, olay başlamadan önce böyle bir maskeleme görüntüsü içerebilir: "Program kısa bir süre içinde başlayacak". Program arşivleme, test ve maskeleme görüntüsü veri arşivlenmiş da sunuda. Ancak, bu bilgileri istemcilere gösterilmeyecek. Dinamik bildirim başlangıç süresi filtre oluşturabilir ve bildirim istenmeyen verileri kaldırın.
+Çoğu canlı akış olayları, işleçler, gerçek olayın önce bazı testler çalıştırın. Örneğin, şunun gibi bir maskeleme görüntüsü olay başlamadan önce şunlar olabilir: "Program kısa bir süre içinde başlayacak". Program arşivleme, test ve maskeleme görüntüsü veri arşivlenmiş da sunuda. Ancak, bu bilgileri istemcilere gösterilmeyecek. Dinamik bildirim başlangıç süresi filtre oluşturabilir ve bildirim istenmeyen verileri kaldırın.
 
 ![Kırpma Başlat][trim_filter]
 

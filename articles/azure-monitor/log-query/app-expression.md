@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorgu ifadesinde App() | Microsoft Docs
-description: Uygulama ifadesi bir Log Analytics sorgu aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından veri almak için kullanılır.
+title: Azure İzleyici günlük sorguları App() ifadesinde | Microsoft Docs
+description: Uygulama ifadesi, Azure izleyici günlüğü sorguda aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından veri almak için kullanılır.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: db92db315875348ff05ec3a34b1a9fa946479c27
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104669"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998544"
 ---
-# <a name="app-expression-in-log-analytics-query"></a>app() expression in Log Analytics query
+# <a name="app-expression-in-azure-monitor-query"></a>Azure İzleyici sorgu ifadesinde App()
 
-`app` İfade, aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından veri almak için bir Log Analytics sorgu kullanılır. Uygulama verileri bir Application Insights sorgu birden çok uygulama arasında bir Log Analytics sorgu ve veri eklemek kullanışlıdır.
+`app` İfade, aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından veri almak için Azure İzleyici sorgusu kullanılır. Uygulama verileri bir Application Insights sorgu birden çok uygulama arasında bir Azure İzleyici günlük sorgu ve veri eklemek kullanışlıdır.
 
 
 
@@ -78,5 +78,6 @@ union
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bkz: [çalışma ifade](workspace-expression.md) Log Analytics çalışma alanına başvurmak için.
-- Nasıl çalıştıracağınızı okuyun [Log Analytics verilerini](../../azure-monitor/log-query/log-query-overview.md) depolanır.
+- Bkz: [çalışma ifade](workspace-expression.md) bir Log Analytics çalışma alanına başvurmak için.
+- Nasıl çalıştıracağınızı okuyun [Azure İzleyici veri](../../azure-monitor/log-query/log-query-overview.md) depolanır.
+- Erişim için tüm belgeler [Veri Gezgini sorgu dili](/azure/kusto/query/).

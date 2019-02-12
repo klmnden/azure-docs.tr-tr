@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/10/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 710ec72e9867ad180afcae8273a093f48933112a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251841"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991523"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>İOS için çevrimdışı FairPlay Streaming 
  Azure Media Services sağlar, iyi tasarlanmış bir dizi [içerik koruma hizmetleri](https://azure.microsoft.com/services/media-services/content-protection/) kapsayan:
@@ -116,13 +116,13 @@ Media Services hesabınız çevrimdışı FairPlay lisansları vermek için art�
 FPS çevrimdışı modu desteği yalnızca bulunan iOS 10 ve üzeri. Belge ve FPS çevrimdışı modu için örnek FPS sunucu SDK'sını (sürüm 3.0 veya üstü) içerir. Özellikle, FPS sunucu SDK'sı (sürüm 3.0 veya üstü) çevrimdışı moda ilgili aşağıdaki iki öğeyi içerir:
 
 * Belge: "FairPlay akışı ile çevrimdışı kayıttan yürütme ve HTTP canlı akış." Apple, 14 Eylül 2016'i tıklatın. FPS sunucu SDK sürüm 4.0, bu belgenin ana FPS belgeye birleştirilir.
-* Örnek kod: \FairPlay akış sunucu SDK'sı sürüm 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\ çevrimdışı modda FPS için HLSCatalog örneği. HLSCatalog örnek uygulamada, aşağıdaki kod dosyalarını çevrimdışı modda özellikleri uygulamak için kullanılır:
+* Örnek kod: Çevrimdışı modda \FairPlay akış sunucu SDK'sı sürüm 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\ FPS için HLSCatalog örneği. HLSCatalog örnek uygulamada, aşağıdaki kod dosyalarını çevrimdışı modda özellikleri uygulamak için kullanılır:
 
     - AssetPersistenceManager.swift kod dosyası: AssetPersistenceManager gösteren Bu örnekte ana sınıftır nasıl yapılır:
 
         - İndirme HLS akış API'leri başlatıp yüklemeler iptal ve cihazları devre dışı varolan varlıkları silmek için kullanılan gibi yönetin.
         - İndirme ilerleme durumunu izleyin.
-    - Kod dosyaları AssetListTableViewController.swift ve AssetListTableViewCell.swift: AssetListTableViewController olduğundan bu örnek, temel arabirim. Bu yürütmek, indirin, silin veya karşıdan yükleme iptal için örnek kullanabilirsiniz varlıklar listesini sağlar. 
+    - AssetListTableViewController.swift ve AssetListTableViewCell.swift kod dosyaları: AssetListTableViewController bu örneğe ilişkin ana arabirimidir. Bu yürütmek, indirin, silin veya karşıdan yükleme iptal için örnek kullanabilirsiniz varlıklar listesini sağlar. 
 
 Bu adımları, çalışan bir iOS player ayarlama işlemini göstermektedir. FPS sunucu SDK'sı sürüm 4.0.1'in HLSCatalog örnekte başlangıç varsayarsak, aşağıdaki kod değişiklikleri yapın:
 

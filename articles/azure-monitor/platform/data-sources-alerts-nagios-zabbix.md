@@ -1,6 +1,6 @@
 ---
-title: Log analytics'te Nagios ve Zabbix uyarıları Topla | Microsoft Docs
-description: Nagios ve Zabbix izleme araçları açık kaynaklıdır. Diğer kaynaklardan gelen uyarıların yanı sıra bunları analiz etmek için yararlı Log Analytics'e bu Araçları'ndan uyarılar toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
+title: Azure İzleyici'de Nagios ve Zabbix uyarıları Topla | Microsoft Docs
+description: Nagios ve Zabbix izleme araçları açık kaynaklıdır. Diğer kaynaklardan gelen uyarıların yanı sıra bunları analiz etmek için yararlı Azure İzleyici ile bu Araçları'ndan uyarılar toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ae719237cb1afee6d2340e1734d008799da8a86
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ac8e214df6b6990e2b27b5897350c85e0a944e0c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107540"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997966"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı'ndan Nagios ve Zabbix'ten Azure İzleyicisi'nde uyarılarını Topla 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Diğer kaynaklardan günlük verileri çözümlemek için yararlı Log Analytics'e bu Araçları'ndan uyarılar toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
+[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Diğer kaynaklardan günlük verileri çözümlemek için yararlı Azure İzleyici ile bu Araçları'ndan uyarılar toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
 
 
 > [!NOTE]
-> [Azure İzleyici tarafından oluşturulan uyarıların](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) günlük verilerinden ayrı olarak depolanan ve günlük sorgularından erişilebilir değil.
+> [Azure İzleyici tarafından oluşturulan uyarıların](alerts-overview.md) günlük verilerinden ayrı olarak depolanan ve günlük sorgularından erişilebilir değil.
 
  
 ## <a name="prerequisites"></a>Önkoşullar
@@ -84,7 +84,7 @@ Nagios sunucuda uyarıları toplamak için aşağıdaki adımları gerçekleşti
 
 
 ## <a name="alert-records"></a>Uyarı kayıtları
-Nagios ve Zabbix uyarı kayıtları alabilir kullanarak [oturum sorguları](../log-query/log-query-overview.md) Log analytics'te.
+Nagios ve Zabbix uyarı kayıtları alabilir kullanarak [oturum sorguları](../log-query/log-query-overview.md) Azure İzleyici'de.
 
 ### <a name="nagios-alert-records"></a>Nagios uyarı kayıtları
 
@@ -122,5 +122,5 @@ Zabbix tarafından toplanan kayıtlarına sahip uyarı bir **türü** , **uyarı
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [uyarılar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) Azure İzleyici'de.
+* Hakkında bilgi edinin [uyarılar](alerts-overview.md) Azure İzleyici'de.
 * Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 

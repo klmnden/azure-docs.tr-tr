@@ -1,6 +1,6 @@
 ---
-title: Toplamak ve Log analytics'te Windows olay günlüklerini çözümleme | Microsoft Docs
-description: Windows olay günlüklerini Log Analytics tarafından koleksiyonunu ve oluşturdukları kayıtları ayrıntılarını nasıl yapılandırılacağını açıklar.
+title: Toplayıp Azure İzleyici'de Windows olay günlüklerini analiz | Microsoft Docs
+description: Azure İzleyici tarafından Windows olay günlükleri koleksiyonunu ve oluşturdukları kayıtları ayrıntılarını nasıl yapılandırılacağını açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: a60c5c41c3f7f0c26788aa9f986af076d9e82c2f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102610"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001128"
 ---
-# <a name="windows-event-log-data-sources-in-log-analytics"></a>Log analytics'te Windows olay günlüğü veri kaynakları
+# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure İzleyici Windows olay günlüğü veri kaynağı
 Windows olay günlükleri, en sık kullanılan bir [veri kaynakları](agent-data-sources.md) birçok uygulama Windows olay günlüğüne yazma beri Windows aracılarını kullanarak veri toplama için.  İzlemeniz gereken uygulamaları tarafından oluşturulan tüm özel günlükleri belirtmenin yanı sıra sistem ve uygulama gibi standart günlüklerinden olayları toplayabilir.
 
 ![Windows olayları](media/data-sources-windows-events/overview.png)     
@@ -28,17 +28,17 @@ Windows olay günlükleri, en sık kullanılan bir [veri kaynakları](agent-data
 ## <a name="configuring-windows-event-logs"></a>Yapılandırma Windows olay günlükleri
 Windows olay günlüklerini yapılandırma [Gelişmiş ayarlar veri menüde](agent-data-sources.md#configuring-data-sources).
 
-Log Analytics'e yalnızca ayarlarında belirttiğiniz Windows olay günlükleri olayları toplar.  Bir olay günlüğü, günlük adını yazarak ve tıklayarak ekleyebilirsiniz **+**.  Her günlük için yalnızca seçilen önem dereceleri olayları toplanır.  Toplamak istediğiniz belirli bir günlük için önem derecelerini işaretleyin.  Olayları Filtrele için herhangi bir ek ölçüt sağlayamaz.
+Azure İzleyici yalnızca ayarlarında belirttiğiniz Windows olay günlükleri olayları toplar.  Bir olay günlüğü, günlük adını yazarak ve tıklayarak ekleyebilirsiniz **+**.  Her günlük için yalnızca seçilen önem dereceleri olayları toplanır.  Toplamak istediğiniz belirli bir günlük için önem derecelerini işaretleyin.  Olayları Filtrele için herhangi bir ek ölçüt sağlayamaz.
 
-Bir olay günlüğü adı yazarken, Log Analytics ortak olay günlüğü adlarının önerileri sağlar. Eklemek istediğiniz günlük listede görünmüyorsa, günlüğün tam adını yazarak yine de ekleyebilirsiniz. Günlük tam adı, Olay Görüntüleyicisi'ni kullanarak bulabilirsiniz. Olay Görüntüleyicisi'nde açın *özellikleri* dizeden kopyalayın ve sayfa için günlüğe *tam adı* alan.
+Bir olay günlüğü adı yazarken, Azure İzleyici ortak olay günlüğü adlarının öneriler sağlar. Eklemek istediğiniz günlük listede görünmüyorsa, günlüğün tam adını yazarak yine de ekleyebilirsiniz. Günlük tam adı, Olay Görüntüleyicisi'ni kullanarak bulabilirsiniz. Olay Görüntüleyicisi'nde açın *özellikleri* dizeden kopyalayın ve sayfa için günlüğe *tam adı* alan.
 
 ![Windows olayları Yapılandır](media/data-sources-windows-events/configure.png)
 
 ## <a name="data-collection"></a>Veri toplama
-Log Analytics, olay oluşturulurken, seçilen bir önem derecesi izlenen bir olay günlüğünden eşleşen her olay toplar.  Aracı, onun yerine toplar, her olay günlüğüne kaydeder.  Aracıyı bir süre için çevrimdışı olursa, bu olayları aracının çevrimdışı durumdayken oluşturulmuş olsalar bile ardından bu olayları son devre dışı kaldığı toplar.  Bu olayları olay günlüğüne aracının çevrimdışı durumdayken üzerine yazılmasını uncollected olaylarla sarmalar, toplanmayan olasılığı yoktur.
+Azure İzleyici, izlenen bir olay günlüğünden seçili bir önem derecesi olay oluşturulurken eşleşen her olay toplar.  Aracı, onun yerine toplar, her olay günlüğüne kaydeder.  Aracıyı bir süre için çevrimdışı olursa, bu olayları aracının çevrimdışı durumdayken oluşturulmuş olsalar bile ardından bu olayları son devre dışı kaldığı toplar.  Bu olayları olay günlüğüne aracının çevrimdışı durumdayken üzerine yazılmasını uncollected olaylarla sarmalar, toplanmayan olasılığı yoktur.
 
 >[!NOTE]
->Log Analytics, kaynak SQL Server tarafından oluşturulan denetim olaylarının toplamak değil *MSSQLSERVER* anahtar sözcükleri - içeren, olay kimliği 18453 *Klasik* veya *denetim başarı* ve anahtar sözcüğü *0xa0000000000000*.
+>Azure İzleyici, kaynak SQL Server tarafından oluşturulan denetim olaylarının toplamak değil *MSSQLSERVER* anahtar sözcükleri - içeren, olay kimliği 18453 *Klasik* veya *denetim başarı* ve anahtar sözcüğü *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Windows olay kayıtları özellikleri
@@ -52,7 +52,7 @@ Windows olay kayıtlarını bir türü sahip **olay** ve aşağıdaki tabloda g�
 | EventID |Olay sayısı. |
 | eventLevel |Sayısal biçimde olayın önem derecesi. |
 | EventLevelName |Metin biçiminde etkinliğin önem derecesi. |
-| Olay günlüğü |Olay toplanan olay günlüğü adı. |
+| EventLog |Olay toplanan olay günlüğü adı. |
 | ParameterXml |XML biçiminde olay parametre değerleri. |
 | ManagementGroupName |System Center Operations Manager aracıları için yönetim grubunun adı.  Diğer aracılar için bu değer AOI -:<workspace ID> |
 | RenderedDescription |Parametre değerleri ile olay açıklaması |
@@ -74,5 +74,5 @@ Aşağıdaki tabloda, Windows olay kayıtları almak günlük sorguları farklı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Diğer toplamak için log Analytics'i yapılandırma [veri kaynakları](agent-data-sources.md) analiz.
-* Hakkında bilgi edinin [oturum sorguları](../../log-analytics/log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
+* Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
 * Yapılandırma [performans sayaçlarını toplamayı](data-sources-performance-counters.md) Windows aracılarınızdan.

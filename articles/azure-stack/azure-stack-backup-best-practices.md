@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: d2568a4dfc4fefe9628fc63dcc0526b0876fde00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241161"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993886"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Altyapı Backup hizmeti en iyi uygulamalar
 
@@ -43,9 +43,18 @@ Yolu için Evrensel Adlandırma Kuralı (UNC) dizesi, bir tam etki alanı adı (
 
 ### <a name="encryption"></a>Şifreleme
 
+#### <a name="version-1901-and-newer"></a>1901 ve daha yeni sürümü
+
+Şifreleme sertifikası, dış depolama birimine dışarı, yedekleme verilerini şifrelemek için kullanılır. Sertifika yalnızca anahtarları taşımak için kullanıldığından, sertifika otomatik olarak imzalanan bir sertifika olabilir. Bir sertifika oluşturma hakkında daha fazla bilgi için New-SelfSignedCertificate bakın.  
+Anahtarı güvenli bir konuma (örneğin, genel Azure Key Vault sertifikası) depolanması gerekir. Sertifikanın CER biçiminde, verileri şifrelemek için kullanılır. PFX biçimi Azure Stack bulut recovery dağıtımı sırasında yedek verilerin şifresini çözmek için kullanılması gerekir.
+
+![Sertifikayı güvenli bir konumda depolanır.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### <a name="1811-and-older"></a>1811 ve eski
+
 Şifreleme anahtarı, dış depolama birimine dışarı, yedekleme verilerini şifrelemek için kullanılır. Anahtar parçası olarak oluşturulan [PowerShell ile Azure Stack için yedeklemeyi etkinleştirme](azure-stack-backup-enable-backup-powershell.md).
 
-Anahtarı güvenli bir konuma (örneğin, ortak Azure Key Vault gizli) depolanması gerekir. Azure Stack yeniden dağıtım sırasında bu anahtarı kullanılması gerekir. 
+Anahtarı güvenli bir konuma (örneğin, Azure Key Vault gizli genel) depolanması gerekir. Azure Stack yeniden dağıtım sırasında bu anahtarı kullanılması gerekir. 
 
 ![Anahtarı güvenli bir konuma depolanır.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
@@ -74,7 +83,7 @@ Bölge: nyc
 
 Azure Stack yedekleme verilerini depoladığı MASBackup klasörü olur. Kendi verilerinizi depolamak için bu klasör kullanmamanız gerekir. OEM ya tüm yedekleme verilerini depolamak için bu klasör kullanmamalısınız. 
 
-OEM'lerin bileşenlerinin bölge klasörü altındaki yedekleme verilerini depolamak için önerilir. Her ağ anahtarları, donanım yaşam döngüsü ana bilgisayar (HLH) ve benzeri kendi alt klasöründe depolanabilir. Örneğin:
+OEM'lerin bileşenlerinin bölge klasörü altındaki yedekleme verilerini depolamak için önerilir. Her ağ anahtarları, donanım yaşam döngüsü konak (HLH) ve benzeri, kendi alt klasöründe depolanabilir. Örneğin:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -95,6 +104,6 @@ Aşağıdaki uyarıları, sistem tarafından desteklenir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Gözden geçirme için başvuru materyalleri [altyapı Backup hizmeti](azure-stack-backup-reference.md).
+Gözden geçirme için başvuru materyalleri [altyapısını yedekleme hizmeti](azure-stack-backup-reference.md)
 
-Etkinleştirme [altyapısını yedekleme hizmeti](azure-stack-backup-enable-backup-console.md).
+Etkinleştirme [altyapısını yedekleme hizmeti](azure-stack-backup-enable-backup-console.md)

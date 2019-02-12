@@ -6,17 +6,18 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 227a312839950652924e75f0bafb474ce7bac588
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: def72c1bb42d083c38640f7c6165c305a5820c75
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448678"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003287"
 ---
-# <a name="configure-localization"></a>Yerelleştirmeyi yapılandırma
+# <a name="configure-localization-legacy"></a>Yerelleştirme (eski) yapılandırma
+
 Azure Media Clipper'ı 18 dilde kullanılabilir. Pencere öğesi dilini ayarlamak amacıyla, tanımlamalısınız `language` başlatma sırasında parametre. İstediğiniz dil kodu dizesinde aşağıdaki listeden geçirin:
 - Çince (Basitleştirilmiş): zh-hans
 - Çince (Geleneksel): zh-hant

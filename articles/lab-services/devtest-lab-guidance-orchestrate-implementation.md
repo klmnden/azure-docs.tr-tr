@@ -3,21 +3,23 @@ title: Azure DevTest Labs uygulaması düzenleyin
 description: Bu makalede işlemlerini uygulaması için Azure DevTest Labs, kuruluşunuzdaki yönergeleri sağlanır.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: spelluru
+author: christianreddington
 manager: femila
+editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 61ec9d0639f4bee950be69ee951492974ac95c64
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 02/11/2019
+ms.author: chredd
+ms.reviewer: anthdela,juselph
+ms.openlocfilehash: 1e657260eeb36dc813f856ab172882a396324450
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867486"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004443"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Azure DevTest Labs uygulamasını düzenleyin
 Bu makalede, hızlı dağıtım ve Azure DevTest Labs uygulaması için önerilen bir yaklaşım sağlar. Aşağıdaki görüntüde, genel işlem sırasında çeşitli sektör gereklilikleri ve senaryoları desteklemek için esneklik gözleme normatif bir Rehber olarak vurgular.
@@ -27,11 +29,11 @@ Bu makalede, hızlı dağıtım ve Azure DevTest Labs uygulaması için önerile
 ## <a name="assumptions"></a>Varsayımlar
 Bu makalede, DevTest Labs pilot uygulamadan önce aşağıdakilerin yerinde olduğunu varsayar:
 
-- **Azure aboneliği**: pilot ekip bir Azure aboneliğine kaynak dağıtmaya erişimine sahiptir. Yalnızca geliştirme ve test iş yükleri olduğundan, ek kullanılabilir görüntüler ve Windows sanal makinelerinde daha düşük fiyatlar için Kurumsal geliştirme ve test teklifini seçebilmek için önerilir.
-- **Şirket içi erişim**: gerekirse, şirket içi erişim zaten yapılandırılıp yapılandırılmadığını. Express Route veya siteden siteye VPN bağlantısı aracılığıyla şirket içi erişim gerçekleştirilebilir. Express Route üzerinden bağlantıyı genellikle kurmak için birçok hafta sürebilir, Express Route Proje başlamadan önce oluşturmuş olmanız önerilir.
-- **Pilot takımlar**: DevTest Labs kullanan ilk geliştirme proje takımları uygun geliştirme ve test etkinlikleri birlikte belirlenmiştir ve bu takımlar için gereksinimleri/hedefleri/hedeflerini oluştur.
+- **Azure aboneliği**: Pilot ekip bir Azure aboneliğine kaynak dağıtmaya erişimine sahiptir. Yalnızca geliştirme ve test iş yükleri olduğundan, ek kullanılabilir görüntüler ve Windows sanal makinelerinde daha düşük fiyatlar için Kurumsal geliştirme ve test teklifini seçebilmek için önerilir.
+- **Şirket içi erişim**: Gerekirse, şirket içi erişim zaten yapılandırıldı. Express Route veya siteden siteye VPN bağlantısı aracılığıyla şirket içi erişim gerçekleştirilebilir. Express Route üzerinden bağlantıyı genellikle kurmak için birçok hafta sürebilir, Express Route Proje başlamadan önce oluşturmuş olmanız önerilir.
+- **Pilot takımlar**: DevTest Labs kullanan ilk geliştirme proje takımları, geçerli geliştirme ve test etkinlikleri birlikte belirlenmiştir ve hedefleri/gereksinimleri/hedefleri bu takımlar için oluşturun.
 
-## <a name="milestone-1-establish-initial-network-topology-and-design"></a>1. Aşama: ilk ağ topolojisi ve tasarım oluşturun
+## <a name="milestone-1-establish-initial-network-topology-and-design"></a>1. Aşama: İlk ağ topolojisi ve tasarım
 Azure DevTest Labs çözümünü dağıtırken odak ilk alan sanal makineler için planlı bağlantı oluşturmaktır. Aşağıdaki adımlar, gerekli yordamları özetlemektedir:
 
 1. Tanımlama **başlangıç IP adresi aralıklarını** Azure DevTest Labs aboneliği atanmış. Bu adım, sanal makinelerin sayısı beklenen kullanım, büyük yeterli blok gelecekteki genişleme için sağlayabilmesi tahmin gerektirir.
@@ -39,7 +41,7 @@ Azure DevTest Labs çözümünü dağıtırken odak ilk alan sanal makineler iç
 3. Tanımlamak ve kurmak **bağlantı yöntemlerinin** Azure geri kalanı ile bulut ortamı ve şirket içi. Express Route ile zorlamalı yönlendirme etkinleştirilirse sanal makinelerin Kurumsal Güvenlik Duvarı'nı geçirmek için uygun proxy yapılandırmaları gerekir olasıdır.
 4. VM olması durumunda **etki alanına katılmış**, bir bulut tabanlı etki alanına (örneğin AAD Dizin Hizmetleri) veya bir şirket içi etki alanı katılmaları belirleyin. Şirket içi, sanal makinelerin katıldığı active Directory'de hangi kuruluş birimi (OU) belirler. Ayrıca, kullanıcıların katılın (veya etki alanında makine kayıtları oluşturma yeteneği olan bir hizmet hesabı oluşturmak için) erişimi olmasını onaylayın
 
-## <a name="milestone-2-deploy-the-pilot-lab"></a>2. Aşama: pilot Laboratuvar dağıtma
+## <a name="milestone-2-deploy-the-pilot-lab"></a>2. Aşama: Pilot Laboratuvar dağıtma
 Ağ topolojisini yerleştirildikten sonra ilk/pilot Laboratuvar aşağıdaki yararlanarak oluşturulabilir adımları:
 
 1. İlk DevTest Labs ortam oluşturma (adım adım yönergeler bulunabilir [burada](https://github.com/Azure/fta-devops/blob/master/devtest-labs/articles/devtest-labs-walkthrough-it.md))
@@ -60,4 +62,4 @@ Ağ topolojisini yerleştirildikten sonra ilk/pilot Laboratuvar aşağıdaki yar
 5. Uygun uyumluluk ve güvenlik incelemelerini tamamlandığından emin olunmasını
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu serideki sonraki makaleye bakın: [Azure DevTest Labs idare altyapı](devtest-lab-guidance-governance-resources.md)
+Bu serideki sonraki makaleye bakın: [Azure DevTest Labs altyapı İdaresi](devtest-lab-guidance-governance-resources.md)

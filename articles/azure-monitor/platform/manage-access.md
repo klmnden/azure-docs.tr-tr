@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics ve OMS portalında çalışma alanlarını yönetme | Microsoft Docs
-description: Kullanıcılar, hesaplar, çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanarak Azure Log Analytics’teki çalışma alanlarını ve OMS portalını yönetebilirsiniz.
+title: Azure İzleyici'de log Analytics çalışma alanlarını yönetme | Microsoft Docs
+description: Azure İzleyici'nın kullanıcılar, hesaplar, çalışma alanları ve Azure hesapları çeşitli yönetim görevlerini kullanarak Log Analytics çalışma alanlarını yönetebilirsiniz.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,18 +11,17 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 32a31a87bacbb13cd3b2cb4561ac04e54d51ba46
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 4a777c2bd57d40b4bb6c8d36c996b655cb019e5f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656762"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005380"
 ---
-# <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
-
-Log Analytics'e erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevleri gerçekleştirirsiniz. Bu makalede, önerileri ve çalışma alanlarını yönetmeye yönelik yordamları sağlar. Çalışma alanı, temelde hesap bilgilerini ve hesaba ilişkin basit yapılandırma bilgilerini içeren bir kapsayıcıdır. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
+# <a name="manage-log-analytics-workspaces-in-azure-monitor"></a>Azure İzleyici'de log Analytics çalışma alanlarını yönetme
+Azure İzleyici depoları, temelde verileri ve yapılandırma bilgilerini içeren bir kapsayıcı ve Log Analytics çalışma alanında verilerini günlüğe kaydedebilirsiniz. Verileri günlüğe kaydetmek için erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevlerini gerçekleştirin. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
 
 Bir çalışma alanı oluşturmak için şunlar gereklidir:
 
@@ -32,11 +31,11 @@ Bir çalışma alanı oluşturmak için şunlar gereklidir:
 4. Coğrafi bir konum seçmeniz.
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>İhtiyacınız olan çalışma alanı sayısını belirleme
-Çalışma alanı, bir Azure kaynağıdır. Bu alan, verilerin toplandığı, derlendiği, çözümlendiği ve Azure portalında sunulduğu bir kapsayıcıdır.
+Bir Log Analytics çalışma alanı, bir Azure kaynağıdır ve verilerin toplanan, toplu, analiz ve Azure İzleyici'de sunulan bir kapsayıcıdır.
 
-Azure aboneliği başına birden çok çalışma alanına sahip olabilir ve aralarında kolayca sorgulama yapma olanağı ile birden çok çalışma alanına erişebilirsiniz. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
+Azure aboneliği başına birden çok çalışma alanına sahip olabilir ve bunların arasında kolayca sorgulama olanağı ile birden fazla çalışma alanına erişim sahibi olabilir. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
 
-Günümüzde bir çalışma alanı aşağıdakileri sağlar:
+Bir Log Analytics çalışma alanı sağlar:
 
 * Veri depolama için coğrafi bir konum
 * Farklı kullanıcı erişim haklarını tanımlamak için veri yalıtımı
@@ -44,7 +43,7 @@ Günümüzde bir çalışma alanı aşağıdakileri sağlar:
 
 Tüketimi açısından, mümkün olduğunca az çalışma alanları oluşturma öneririz. Yönetim ve sorgu deneyimi daha kolay ve hızlı kolaylaştırır. Ancak, önceki özelliklere bağlı olarak, durumlarda birden çok çalışma alanı oluşturmak isteyebilirsiniz:
 
-* Global bir şirketseniz ve veri bağımsızlığı veya uyumluluk nedenleriyle verilerin belirli bölgelerde depolanmasına gerek duyuyorsanız.
+* Global bir şirketseniz ve veri bağımsızlığı veya uyumluluk nedenleriyle verilerin belirli bölgelerde depolanan oturum açmanız gerekir.
 * Azure kullanıyorsanız ve çalışma alanını, yönettiği Azure kaynaklarıyla aynı bölgede bulundurarak giden veri aktarımı ücretlerini ortadan kaldırmak istiyorsanız.
 * Ücretleri farklı departmanlara veya iş gruplarına kendi Azure aboneliğinde her departman veya iş grubu için bir çalışma alanı oluşturarak kendi kullanımınıza göre ayırmak istiyorsanız.
 * Yönetilen bir hizmet sağlayıcısıysanız ve yönettiğiniz her bir müşteriye ilişkin Log Analytics verilerini diğer müşterilerin verilerinden yalıtmak istiyorsanız.
@@ -55,16 +54,14 @@ Verileri toplamak için Windows aracılarını kullanıyorsanız [her bir aracı
 System Center Operations Manager'ı kullanıyorsanız her bir Operations Manager yönetim grubu yalnızca bir çalışma alanıyla bağlantılı olabilir. Operations Manager tarafından yönetilen bilgisayarlara Microsoft İzleme Aracısını yükleyebilir ve hem Operations Manager hem de farklı bir Log Analytics çalışma alanı için aracı raporu alabilirsiniz.
 
 ## <a name="workspace-information"></a>Çalışma alanı bilgileri
+Log Analytics çalışma alanında verileri çözümlerken **Azure İzleyici** menüsünde Azure portalında, oluşturabilir ve çalışma alanlarını yönetebilirsiniz **Log Analytics çalışma alanları** menüsü.
+ 
 
-Azure portalında çalışma alanınızla ilgili bilgileri görüntüleyebilirsiniz. 
-
-1. Önceden yapmadıysanız, [Azure portal](https://portal.azure.com)da oturum açın
-
-2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.  
+1. Oturum [Azure portalında](https://portal.azure.com) tıklatıp **tüm hizmetleri**. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **Log Analytics** çalışma alanları.  
 
     ![Azure portal](media/manage-access/azure-portal-01.png)  
 
-3. Log Analytics abonelikleri bölmesinde, bir çalışma alanı seçin.
+3. Çalışma alanınızı listeden seçin.
 
 4. Çalışma sayfası, Başlarken, yapılandırma ve ek bilgi bağlantıları hakkında ayrıntıları gösterir.  
 
@@ -84,10 +81,10 @@ Her çalışma alanı kendisiyle ilişkilendirilmiş birden çok hesap içerebil
 | Azure portalında bir çalışma alanı oluşturma                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Azure izinlerini kullanarak Log Analytics’e erişimi yönetme
+### <a name="managing-access-to-log-analytics-workspace-using-azure-permissions"></a>Azure izinlerini kullanarak Log Analytics çalışma alanına erişimi yönetme
 Azure izinlerini kullanarak Log Analytics çalışma alanına izin vermek için, [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../../role-based-access-control/role-assignments-portal.md) bölümündeki adımları izleyin.
 
-Azure Log Analytics için iki yerleşik kullanıcı rolüne sahiptir:
+Azure Log Analytics çalışma alanları için iki yerleşik kullanıcı rolüne sahiptir:
 - Log Analytics Okuyucusu
 - Log Analytics Katkıda Bulunan
 
@@ -149,5 +146,4 @@ Doğru erişim denetimi sağlamak için atamaları kaynak düzeyinde (çalışma
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bkz: [Log Analytics Aracısı genel bakış](../../azure-monitor/platform/log-analytics-agent.md) veri merkezinizde veya diğer bulut ortamında bulunan bilgisayarlardaki verileri toplamak için.
 * Azure VM’lerden veri toplamayı yapılandırmak için bkz. [Azure Sanal Makineler hakkında veri toplama](../../azure-monitor/learn/quick-collect-azurevm.md).  
-* İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](../../azure-monitor/insights/solutions.md).
 

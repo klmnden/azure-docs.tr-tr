@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c81701dff8d7eebf08aa6b16c61e6915a905c729
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 767e64d4d53702ede7b55edc747366ab3d32ae4d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172723"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996108"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C hakkında kullanıcı arabirimi özelleştirme
 
@@ -24,17 +24,19 @@ ms.locfileid: "55172723"
 Bu deneyimler geldiğinde gereksinimlerinize bağlı olarak, uygulamanızın kullanıcı arabirimini farklı şekilde özelleştirin. Örneğin:
 
 - Kullanıyorsanız [kullanıcı akışları](active-directory-b2c-reference-policies.md) kaydolma veya oturum açma parolasını sıfırlama veya profil düzenleme deneyimlerini uygulamanızdaki sağlamak için kullandığınız [Azure portalı kullanıcı arabirimini özelleştirme](tutorial-customize-ui.md).
+- V2 kullanıcı akışı kullanıyorsanız, kullanabileceğiniz bir [sayfa düzeni şablonu](#page-layout-templates) kullanıcı akışı sayfalarınızın daha fazla özelleştirme olmadan görünümünü değiştirmek için. Örneğin, kullanıcı akışınızı tüm sayfalar için Okyanus mavi veya maskeleme görüntüsü gri bir tema uygulayabilirsiniz.
 - Oturum açma yalnızca sağladığınızı, eşlik eden parolasını sıfırlama sayfası ve doğrulama e-postalar, için kullanılan özelleştirme adımların aynısını kullanırsanız bir [Azure AD oturum açma sayfasının](../active-directory/fundamentals/customize-branding.md).
 - Müşterilerin kendi profili oturum açmadan önce düzenlemeye çalışırsanız, Azure AD oturum açma sayfasının özelleştirmek için kullanılan aynı adımları kullanarak özelleştirme bir sayfaya yönlendirilirsiniz.
 - Kullanıyorsanız [özel ilkeler](active-directory-b2c-overview-custom.md) kaydolma veya oturum açma, parola sıfırlama veya profil düzenleme, uygulamanızda kullanmak [kullanıcı arabirimini özelleştirmek için ilke dosyaları](active-directory-b2c-ui-customization-custom.md).
 - Bir müşterinin karar temel alınarak dinamik içerik sağlamanız gerekiyorsa, kullandığınız [değiştirebilirsiniz özel ilkeler, içerik sayfasında](active-directory-b2c-ui-customization-custom-dynamic.md) bağlı bir sorgu dizesi içinde gönderilen bir parametre olarak. Örneğin, web veya mobil uygulama geçirdiğiniz parametre dayalı bir Azure AD B2C kaydolma veya oturum açma sayfasında arka plan resmi değiştirir.
+- Azure AD B2C'de JavaScript istemci tarafı kod etkinleştirebilirsiniz [kullanıcı akışları](user-flow-javascript-overview.md) veya [özel ilkeler](page-contract.md).
 
 Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/). Çalışma zamanında, bir kullanıcı akışı veya ilkede belirttiğiniz URL'den içerik yüklendi. Farklı sayfaları için farklı URL'ler belirtmeniz. İçerik, URL'den yüklendikten sonra Azure AD B2C'den eklenen ve ardından müşterinize görüntülenen bir HTML parçasını ile birleştirilir.
 
-Başlamadan önce aşağıdaki yönergeleri gözden geçirin:
+Başlamadan önce kullanıcı arabirimini özelleştirmek için kendi HTML ve CSS dosyaları kullanırken aşağıdaki yönergeleri gözden geçirin:
 
 - Azure AD B2C sayfalarınıza HTML içeriğini birleştirir. Yoksa, kopyalama ve Azure AD B2C sağlar varsayılan içerik değiştirmeyi deneyin. HTML içeriğinizi sıfırdan oluşturmak ve varsayılan içerik referans olarak kullanmak en iyisidir.
-- Güvenlik nedenleriyle, JavaScript, içeriğinizi dahil etmek için izin verilmez.
+- JavaScript, artık özel içeriğinize eklenebilir.
 - Desteklenen bir tarayıcı sürümleri şunlardır: 
     - Internet Explorer 11, 10 ve Microsoft Edge
     - Internet Explorer 9 ve 8 için sınırlı destek
@@ -42,9 +44,23 @@ Başlamadan önce aşağıdaki yönergeleri gözden geçirin:
     - Mozilla Firefox 38.0 ve üzeri
 - Azure AD B2C eklenen HTML tarafından oluşturulan sonrası işlemleri ile engellemesi nedeniyle, form etiketleri, HTML biçiminde eklemediğinizden emin olun.
 
+## <a name="page-layout-templates"></a>Sayfa düzeni şablonları
+
+V2 kullanıcı akışları için varsayılan sayfalarınızı daha iyi bir görünüm sunar ve kendi özelleştirme için iyi bir temel görevi gören bir önceden tasarlanmış şablonu seçebilirsiniz.
+
+Soldaki menüde altında **Özelleştir**seçin **sayfa düzenleri**. Ardından **şablonu (Önizleme)**.
+
+![Bir sayfa Düzen şablonunu seçin](media/customize-ui-overview/template.png)
+
+Listeden bir şablon seçin. Örneğin, **Okyanusu mavi** şablon kullanıcı akışı sayfalarınıza aşağıdaki düzeni uygular:
+
+![Okyanusu mavi şablonu](media/customize-ui-overview/ocean-blue.png)
+
+Bir şablon seçin, seçilen düzeni, kullanıcı akışınızı tüm sayfalara uygulanır ve her sayfanın URI'sini görülebilir **özel sayfa URI'si** alan.
+
 ## <a name="where-do-i-store-ui-content"></a>Kullanıcı Arabirimi içeriği nereye depoluyor?
 
-Kullanıcı Arabirimi üzerindeki her yerden gibi içerik barındırabilir [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md), web sunucuları, CDN, AWS S3 veya dosya paylaşım sistemi. Önemli barındırdığınız CORS'yi ile genel kullanıma açık bir HTTPS uç noktasının içerik noktasıdır. İçeriğinizi belirttiğinizde, mutlak bir URL kullanmanız gerekir.
+Kullanıcı arabirimini özelleştirmek için kendi HTML ve CSS dosyaları kullanırken, içeriği her yerde ve gibi kullanıcı Arabirimi barındırabilir [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md), web sunucuları, CDN, AWS S3 veya dosya paylaşım sistemi. Önemli barındırdığınız CORS'yi ile genel kullanıma açık bir HTTPS uç noktasının içerik noktasıdır. İçeriğinizi belirttiğinizde, mutlak bir URL kullanmanız gerekir.
 
 ## <a name="how-do-i-get-started"></a>Nasıl kullanmaya başlayabilirim?
 

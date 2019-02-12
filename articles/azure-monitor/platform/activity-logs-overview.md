@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883781"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002125"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -83,7 +83,7 @@ Azure portalında etkinlik günlüğünüz bu alanlara göre filtreleyebilirsini
 
 Bir filtre kümesi tanımlandıktan sonra bir sorgu her zaman belirli olayları takip etmek için Azure panonuza sabitleyebilirsiniz.
 
-Daha fazla güç için tıklayabilirsiniz **günlükleri** etkinlik günlüğü verilerinizi gösteren bir simge [Log Analytics Activity Log Analytics çözümünü](../../azure-monitor/platform/collect-activity-logs.md). Etkinlik günlüğü dikey günlükleri bir temel filtre/göz atma deneyimini sunar, ancak Log Analytics, Özet, sorgu ve daha güçlü şekilde verilerinizi görselleştirmek sağlar.
+Daha fazla güç için tıklayabilirsiniz **günlükleri** etkinlik günlüğü verilerinizi gösteren bir simge [toplayıp analiz etkinlik günlükleri çözümü](../../azure-monitor/platform/collect-activity-logs.md). Etkinlik günlüğü dikey penceresi, günlükleri, ancak Özet için sorgu ve daha güçlü şekilde görselleştirin Azure İzleyici günlükleri özelliğini etkinleştirir temel filtreleme/göz atma deneyimi sunar.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Günlük profilini ile Etkinlik günlüğünü dışarı aktarma
 A **günlük profilini** etkinlik günlüğünüzü nasıl verilir denetimleri. Günlük profilini kullanarak, aşağıdakileri yapılandırabilirsiniz:
@@ -140,9 +140,9 @@ Get-AzureRmLogProfile
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
-| Özellik | Gereklidir | Açıklama |
+| Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
-| Ad |Evet |Günlük profilinin adı. |
+| Name |Evet |Günlük profilinin adı. |
 | StorageAccountId |Hayır |Etkinlik günlüğünün kaydedileceği depolama hesabı kaynak kimliği. |
 | serviceBusRuleId |Hayır |Service Bus kural kimliği oluşturulan olay hub'ları olmasını istediğiniz Service Bus ad alanı. Şu biçime sahip bir dizedir: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Konum |Evet |Etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin virgülle ayrılmış listesi. |

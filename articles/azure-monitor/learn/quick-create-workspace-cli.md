@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: bc3b96ee55ccd28cce89b1f37494b836851977f1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 18cb4aae9470766b75c3c6519473660ac24ad4f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259256"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003814"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Azure CLI 2.0 ile Log Analytics çalışma alanı oluşturma
 
-Azure CLI 2.0, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta Azure CLI 2.0 bir Log Analytics çalışma alanını kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir ortamı olan azure'da dağıtmak için nasıl kullanılacağını gösterir.  Bu makalede açıklanan adımları aşağıdaki kaynaklardan veri toplama işlemini istiyorsanız gereklidir:
+Azure CLI 2.0, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta Azure CLI 2.0, Azure İzleyici'de bir Log Analytics çalışma alanı dağıtım yapma gösterilmektedir. Bir Log Analytics çalışma alanı, Azure İzleyici günlük verileri için benzersiz bir ortamdır. Kendi veri deposu ve yapılandırma her çalışma alanına sahiptir ve veri kaynakları ve çözümleri belirli bir çalışma alanında, verilerini depolamak için yapılandırılır. Aşağıdaki kaynaklardan veri toplama işlemini düşünüyorsanız, Log Analytics çalışma gerektirir:
 
 * Aboneliğinizdeki Azure kaynakları  
 * Şirket içi bilgisayarlar System Center Operations Manager tarafından izlenen  
@@ -31,8 +31,8 @@ Azure CLI 2.0, komut satırından veya betik içindeki Azure kaynaklarını olu�
  
 Azure sanal makinelerini ve Windows veya Linux Vm'leri, ortamınızda gibi diğer kaynakları için aşağıdaki konulara bakın:
 
-* [Azure sanal makinelerden veri toplama](../../azure-monitor/learn/quick-collect-azurevm.md)
-* [Karma Linux bilgisayarından verileri toplama](../../azure-monitor/learn/quick-collect-linux-computer.md)
+* [Azure sanal makinelerden veri toplama](../learn/quick-collect-azurevm.md)
+* [Karma Linux bilgisayarından verileri toplama](../learn/quick-collect-linux-computer.md)
 * [Karma Windows bilgisayardan veri topla](quick-collect-windows-computer.md)
 
 Azure aboneliğiniz yoksa, oluşturma [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce.
@@ -126,7 +126,7 @@ Dağıtımın tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonu�
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir çalışma alanı kullanılabilir olduğuna göre telemetri izleme koleksiyonunu yapılandırma, bu verileri çözümlemek için günlük aramaları çalıştıran ve ek veriler ve hakkında analitik bilgiler sağlamak için bir yönetim çözümünü ekleyin.  
 
-* Azure Tanılama veya Azure depolama ile Azure kaynaklarından veri toplamayı etkinleştirmek için bkz: [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
-* Ekleme [System Center Operations Manager veri kaynağı olarak](../../azure-monitor/platform/om-agents.md) , Operations Manager yönetim grubuna bildirimde bulunan aracılardan veri toplamak ve Log Analytics çalışma alanınızda depolamak için.  
-* Connect [Configuration Manager](../../azure-monitor/platform/collect-sccm.md) hiyerarşideki koleksiyona üye olan bilgisayarlara aktarmak için.  
-* Gözden geçirme [yönetim çözümleri](../../azure-monitor/insights/solutions.md) kullanılabilir ve ekleme veya bir çözüm çalışma alanınızdan kaldırın.
+* Azure Tanılama veya Azure depolama ile Azure kaynaklarından veri toplamayı etkinleştirmek için bkz: [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](../platform/collect-azure-metrics-logs.md).  
+* Ekleme [System Center Operations Manager veri kaynağı olarak](../platform/om-agents.md) , Operations Manager yönetim grubuna bildirimde bulunan aracılardan veri toplamak ve Log Analytics çalışma alanınızda depolamak için.  
+* Connect [Configuration Manager](../platform/collect-sccm.md) hiyerarşideki koleksiyona üye olan bilgisayarlara aktarmak için.  
+* Gözden geçirme [izleme çözümleri](../insights/solutions.md) kullanılabilir ve ekleme veya bir çözüm çalışma alanınızdan kaldırın.

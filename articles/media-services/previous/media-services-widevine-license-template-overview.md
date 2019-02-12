@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 065845bb2abd02f02fe2050780bc0613cbd2f12c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4b5196a995576e5b00a988e14183eb720d5b2eae
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036011"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989886"
 ---
-# <a name="widevine-license-template-overview"></a>Widevine lisans şablonuna genel bakış
+# <a name="widevine-license-template-overview"></a>Widevine lisans şablonuna genel bakış 
 Azure Media Services'ı yapılandırmak ve Google Widevine lisans istemek için kullanabilirsiniz. Player, Widevine korumalı içeriğini oynatmak çalıştığında, bir lisans almak için bir istek için lisans teslimat hizmetinin gönderilir. Lisans hizmeti isteği onaylarsa, hizmet lisansı verir. Bu, istemciye gönderilen ve şifresini çözmek ve belirtilen içeriğin yürütmek için kullanılır.
 
 Widevine lisans isteği bir JSON iletisi olarak biçimlendirilir.  

@@ -1,6 +1,6 @@
 ---
-title: Azure Log analytics'te metin verileri ayrıştırmak | Microsoft Docs
-description: Veriler alınır, Log Analytics kayıtlardaki veriler ayrıştırma ve bir sorgu alındığında göreli her biri için karşılaştırması için farklı seçenekler açıklanır.
+title: Azure İzleyici günlüklerine metin verileri ayrıştırmak | Microsoft Docs
+description: Günlük verilerini Azure İzleyici kayıtlardaki veriler alınır ve her biri için göreli avantajları karşılaştırma sorguda alındığında ayrıştırmak için farklı seçenekler açıklanır.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214139"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002240"
 ---
-# <a name="parse-text-data-in-log-analytics"></a>Log analytics'te metin verileri ayrıştırma
-Bazı veriler, log Analytics tarafından toplanan bilgilerin birden çok parça içinde tek bir özellik içerir. Bu veriler birden çok özelliklerini ayrıştırma kolaylaştıran sorguları kullanın. Bir ortak örnek bir [özel günlük](../../log-analytics/log-analytics-data-sources-custom-logs.md) , tek bir özellikte birden çok değer içeren bir tüm günlük girdisi toplar. Farklı değerleri için ayrı özellikler oluşturarak, arama yapabilirsiniz ve her toplama.
+# <a name="parse-text-data-in-azure-monitor-logs"></a>Azure İzleyici günlüklerine metin verileri ayrıştırılamadı
+Bazı günlük verilerini Azure İzleyici tarafından toplanan bilgilerin birden çok parça içinde tek bir özellik içerir. Bu veriler birden çok özelliklerini ayrıştırma kolaylaştıran sorguları kullanın. Bir ortak örnek bir [özel günlük](../../log-analytics/log-analytics-data-sources-custom-logs.md) , tek bir özellikte birden çok değer içeren bir tüm günlük girdisi toplar. Farklı değerleri için ayrı özellikler oluşturarak, arama yapabilirsiniz ve her toplama.
 
-Bu makalede, veriler alınır, Log Analytics kayıtlardaki veriler ayrıştırma ve bir sorgu alındığında göreli her biri için karşılaştırması için farklı seçenekler açıklanır.
+Bu makalede, Azure İzleyici'de günlük verilerini veriler alınır ve her biri için göreli avantajları karşılaştırma sorguda alındığında ayrıştırmak için farklı seçenekler açıklanır.
 
 
 ## <a name="parsing-methods"></a>Yöntemleri ayrıştırma
@@ -60,7 +60,7 @@ Bu yöntemin dezavantajları şunlardır:
 - Karmaşık mantık çok büyük kayıt karşı çalışan (kayıtları milyarlarca) belirlediğinde yükü oluşturabilirsiniz.
 
 ## <a name="parse-data-as-its-collected"></a>Verileri toplandıktan olarak ayrıştırılamadı
-Bkz: [Log Analytics'te özel alanlar oluşturma](../../log-analytics/log-analytics-custom-fields.md) toplandıktan gibi veri ayrıştırma ilişkin ayrıntılar için. Bu özel özellikler sorgular gibi diğer herhangi bir özelliği tarafından kullanılan bir tablo oluşturur.
+Bkz: [Azure İzleyici'de özel alanlar oluşturma](../platform/custom-fields.md) toplandıktan gibi veri ayrıştırma ilişkin ayrıntılar için. Bu özel özellikler sorgular gibi diğer herhangi bir özelliği tarafından kullanılan bir tablo oluşturur.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Sorgu desenleri kullanarak verileri ayrıştırılamadı
 Ayrıştırılacak istediğiniz verilerin kayıtlarda yinelenen bir desen tarafından belirlenebildiğinde farklı işleçleri kullanabilirsiniz [Veri Gezgini sorgu dili](/azure/kusto/query/) bir veya daha fazla yeni özellikler belirli veri parçası ayıklanamadı.
@@ -106,7 +106,7 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-Etkinleştirmek için verimli büyük ölçekte, ayrıştırma Log Analytics re2 sürümünü normal ifadeler, benzer, ancak bazı diğer normal ifade çeşitler aynı olduğu kullanır. Başvurmak [re2 ifadesi söz dizimi](https://aka.ms/kql_re2syntax) Ayrıntılar için.
+Etkinleştirmek için verimli büyük ölçekte, ayrıştırma Azure İzleyici re2 sürümünü normal ifadeler, benzer, ancak bazı diğer normal ifade çeşitler aynı olduğu kullanır. Başvurmak [re2 ifadesi söz dizimi](https://aka.ms/kql_re2syntax) Ayrıntılar için.
 
 
 ## <a name="parse-delimited-data-in-a-query"></a>Bir sorgudaki sınırlandırılmış verileri ayrıştırma

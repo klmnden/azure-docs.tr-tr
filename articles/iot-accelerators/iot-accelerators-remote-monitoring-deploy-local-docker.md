@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 208526b745a117c9ee14bab21f8a5ce05accd1fe
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 252aacfeb85f23699c6a2e2ac1f457f9e2b59b0e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382235"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997196"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Docker dağıtma
 
@@ -54,6 +54,8 @@ set PCS
 Komutu ayarlanmış olan tüm ortam değişkenlerini gösterir **start.cmd** betiği.
 
 Docker yerel makinenizde çalıştığından emin olun.
+> [!NOTE]
+> Docker çalıştırmalıdır [Linux kapsayıcıları](https://docs.docker.com/docker-for-windows/) Windows üzerinde çalışıyorsa.
 
 Azure bulut hizmetlerine erişmek yerel Docker kapsayıcılarda çalıştırılan mikro hizmetler gerekir. Bir kapsayıcı içinde bir Internet adresi ping işlemi yapmak için aşağıdaki komutu kullanarak Docker ortamınızın internet bağlantısını test edebilirsiniz:
 
@@ -66,6 +68,9 @@ docker run --rm -ti library/alpine ping google.com
 ```cmd/sh
 docker-compose up
 ```
+
+> [!NOTE] 
+> Emin olun [yerel bir sürücüyü paylaşmak](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) çalıştırmadan önce Docker ile `docker-compose up`.
 
 İlk defa bu komutu çalıştırdığınızda Docker kapsayıcıları yerel olarak oluşturmak için Docker hub'ından mikro hizmet görüntüleri yükler. Aşağıdaki çalışır, Docker kapsayıcıları hemen çalıştırılır.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorguları grafikleri ve diyagramları oluşturma | Microsoft Docs
-description: Azure Log Analytics, verilerinizi farklı şekillerde göstermek için çeşitli görselleştirmeler açıklar.
+title: Azure izleyici günlüğü sorgularından grafikleri ve diyagramları oluşturma | Microsoft Docs
+description: Günlük verilerinizi farklı şekillerde göstermek için Azure İzleyici'de çeşitli görselleştirmeler açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 049e50f5800194c4126003f7e5ff7ae60b3de768
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186234"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993012"
 ---
-# <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Log Analytics sorguları grafikleri ve diyagramları oluşturma
+# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Azure izleyici günlüğü sorgularından grafikleri ve diyagramları oluşturma
 
 > [!NOTE]
-> Tamamlamanız gereken [Log Analytics sorguları toplamalara Gelişmiş](advanced-aggregations.md) dersin tamamlamadan önce.
+> Tamamlamanız gereken [Azure İzleyici günlük sorguları toplamalara Gelişmiş](advanced-aggregations.md) dersin tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Bu makalede, Azure Log Analytics, verilerinizi farklı şekillerde göstermek için çeşitli görselleştirmeler açıklanır.
+Bu makalede, çeşitli görselleştirmeler günlük verilerinizi farklı şekillerde göstermek için Azure İzleyici'de açıklanmaktadır.
 
 ## <a name="charting-the-results"></a>Sonuç grafiği
 Son bir saat işletim sistemi vardır kaç bilgisayarın gözden geçirerek başlayın:
@@ -93,7 +93,7 @@ Sütun adıyla açılır menüyü seçerek arasında geçiş yapabilirsiniz.
 ![Çubuk grafik AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Log Analytics sorgu dilini kullanarak için diğer dersler bakın:
+Diğer dersler kullanmak için bkz. [Veri Gezgini sorgu dili](/azure/kusto/query/) Azure İzleyici ile günlük verilerini:
 
 - [Dize işlemleri](string-operations.md)
 - [Tarih ve saat işlemleri](datetime-operations.md)

@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 5a328e64128503f98476deccf33a4395f99eeeb0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 9423fc844e766129ad81a8a286cb5bbdc722e2ca
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985172"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989330"
 ---
-# <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Microsoft Azure Site Recovery sağlayıcısı yükseltme sorunlarını giderme
+# <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Microsoft Azure Site Recovery Sağlayıcısını yükseltme hatalarını giderme
 
 Bu makalede yükseltme sırasında bir Microsoft Azure Site Recovery sağlayıcısı hatalara neden olabilen sorunları çözmenize yardımcı olur.
 
@@ -64,5 +64,5 @@ Bu sorunu çözmek için.
     CX_THIRDPARTY_SETUP. EXE /VERYSILENT /SUPPRESSMSGBOXES/NORESTART
 
 5. Yüklemenin ilerleme durumunu izlemek için Görev Yöneticisi'ni kullanın. Zaman CX_THIRDPARTY_SETUP işlemi. EXE artık Görev Yöneticisi'nde göründüğünden, sonraki adıma geçin.
-6. C:\thirdparty var olan ve klasör RRD kitaplıkları içerdiğini doğrulayın.
+6. C:\thirdparty var olduğundan ve klasörün RRD kitaplıkları içerdiğini doğrulayın.
 1. Birleşik Kurulum yüklediğiniz klasöre geri dönmek ve MicrosoftAzureSiteRecoveryUnifiedSetup.exe yükseltmeyi tamamlamak için çalıştırın. 

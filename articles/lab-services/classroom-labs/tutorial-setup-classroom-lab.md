@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 1e2511ed22cfc6e81844bfdc4672d5fc67ea744f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893230"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998527"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Öğretici: Bir sınıf laboratuvarı ayarlama 
 Bu öğreticide, sınıftaki öğrenciler tarafından kullanılan sanal makinelerle bir sınıf laboratuvarı ayarlayacaksınız.  
@@ -28,7 +28,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 
 > [!div class="checklist"]
 > * Sınıf laboratuvarı oluşturma
-> * Sınıf laboratuvarını yapılandırma
+> * Kullanıcılar laboratuvara ekleme
 > * Öğrencilere kayıt bağlantısı gönderme
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -76,7 +76,7 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
     5. Şablon için bir **açıklama** girin
 9. Şablon sayfasında **İleri**'yi seçin. 
 10. **Şablonu yayımla** sayfasında aşağıdaki işlemleri gerçekleştirin. 
-    1. Şablonu hemen yayımlamak için *Şablonu yayımladıktan sonra değiştiremeyeceğimi anlıyorum. Bu işlem yalnızca bir kez gerçekleştirilebilir ve bir saat sürebilir* onay kutusunu işaretleyip **Yayımla**'yı seçin.  
+    1. Şablon hemen Yayımla ve **Yayımla**.  
 
         > [!WARNING]
         > Yayımlama işlemini geri alamazsınız. 

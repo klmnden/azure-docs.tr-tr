@@ -10,18 +10,21 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 637cdb338496764e64c18a887673808ef4e8415a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fa48d3825b5b942497b1eabd19a1eeb7e0141058
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203462"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003151"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Özel ilkeleri kullanarak, Azure Active Directory B2C, bir sayfa sözleşme seçin
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Projeyi yapılandırarak Azure Active Directory (Azure AD) B2C'de bir sayfa sözleşme seçebilirsiniz bir [özel ilkeler](active-directory-b2c-overview-custom.md). Azure AD B2C sağlayan öğeleri ve sağladığınız içeriği ilişkilendirme sayfa sözleşmedir. Kullanmayı planlıyorsanız [Javascript](javascript-samples.md), özel ilkeniz tüm içerik tanımları için bir sayfa sözleşme sürümü gerekir.
+Kullanıcı akışları veya özel ilkeler kullanıyor olursanız olun, Azure Active Directory (Azure AD) B2C ilkelerinizi JavaScript istemci tarafı kod etkinleştirebilirsiniz. Bu makalede, projeyi yapılandırarak Azure AD B2C'de bir sayfa sözleşme seçmek anlatılmaktadır bir [özel ilke](active-directory-b2c-overview-custom.md). Bir sayfa sözleşme, Azure AD B2C sağlayan öğeleri ve sağladığınız içeriği işbirliğidir. Kullanmayı planlıyorsanız [Javascript](javascript-samples.md), özel ilkeniz tüm içerik tanımları için bir sayfa sözleşme sürümü gerekir.
+
+> [!NOTE]
+> Kullanıcı akışları için JavaScript etkinleştirmek istiyorsanız, bkz. [kullanıcı akışı JavaScript ve sayfa sözleşme sürümlerini kullanma hakkında](user-flow-javascript-overview.md).
 
 ## <a name="replace-datauri-values"></a>DataUri değerleri Değiştir
 

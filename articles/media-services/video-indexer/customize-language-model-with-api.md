@@ -7,14 +7,14 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 95334ac326b346da23f17d3a9d494120235abace
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5f77857c82846fe9c3d2ad4f5f82572d18401691
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285371"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003610"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Video Indexer API'ları ile bir dil modelini özelleştirin
 
@@ -303,7 +303,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |location|dize|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|dize|Evet|Hesap için genel benzersiz tanıtıcısı|
 |ModelID|dize|Evet|(Dil modeli oluştururken oluşturulan) dosyası tutar dil modeli kimliği|
-|Fileıd|dize|Evet|(Dosya karşıya yüklenen oluşturma sırasında veya dil modelinin güncelleştirme olduğunda oluşturulan) güncelleştirilmekte dosyanın kimliği|
+|fileId|dize|Evet|(Dosya karşıya yüklenen oluşturma sırasında veya dil modelinin güncelleştirme olduğunda oluşturulan) güncelleştirilmekte dosyanın kimliği|
 |accessToken|dize|Evet|Erişim belirteci (kapsamı olmalıdır [hesap erişim belirteci](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) karşı çağrı kimliğini doğrulamak için. Erişim belirteci 1 saat içinde süresi dolar.|
 |fileName|dize|Hayır|Dosya adına güncelleştirme adı|
 |etkinleştir|boole|Hayır|Bu dosya olup olmadığını güncelleştirin (true) etkin veya dil modeli (false) devre dışı||
@@ -489,7 +489,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 |location|dize|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|dize|Evet|Hesap için genel benzersiz tanıtıcısı|
 |ModelID|dize|Evet|(Dil modeli oluştururken oluşturulan) dosyası tutar dil modeli kimliği|
-|Fileıd|dize|Evet|(Dosya karşıya yüklenen oluşturma sırasında veya dil modelinin güncelleştirme olduğunda oluşturulan) güncelleştirilmekte dosyanın kimliği|
+|fileId|dize|Evet|(Dosya karşıya yüklenen oluşturma sırasında veya dil modelinin güncelleştirme olduğunda oluşturulan) güncelleştirilmekte dosyanın kimliği|
 |accessToken|dize|Evet|Erişim belirteci (kapsamı olmalıdır [hesap erişim belirteci](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) karşı çağrı kimliğini doğrulamak için. Erişim belirteci 1 saat içinde süresi dolar.|
 
 ### <a name="request-body"></a>İstek gövdesi
@@ -526,7 +526,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |location|dize|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|dize|Evet|Hesap için genel benzersiz tanıtıcısı|
 |ModelID|dize|Evet|(Dil modeli oluştururken oluşturulan) dosyası tutar dil modeli kimliği|
-|Fileıd|dize|Evet|(Dosya karşıya yüklenen oluşturma sırasında veya dil modelinin güncelleştirme olduğunda oluşturulan) güncelleştirilmekte dosyanın kimliği|
+|fileId|dize|Evet|(Dosya karşıya yüklenen oluşturma sırasında veya dil modelinin güncelleştirme olduğunda oluşturulan) güncelleştirilmekte dosyanın kimliği|
 |accessToken|dize|Evet|Erişim belirteci (kapsamı olmalıdır [hesap erişim belirteci](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) karşı çağrı kimliğini doğrulamak için. Erişim belirteci 1 saat içinde süresi dolar.|
 
 ### <a name="request-body"></a>İstek gövdesi
@@ -575,7 +575,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |location|dize|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|dize|Evet|Hesap için genel benzersiz tanıtıcısı|
 |ModelID|dize|Evet|(Dil modeli oluştururken oluşturulan) dosyası tutar dil modeli kimliği|
-|Fileıd|dize|Evet|(Dosya karşıya yüklenen oluşturma sırasında veya dil modelinin güncelleştirme olduğunda oluşturulan) güncelleştirilmekte dosyanın kimliği|
+|fileId|dize|Evet|(Dosya karşıya yüklenen oluşturma sırasında veya dil modelinin güncelleştirme olduğunda oluşturulan) güncelleştirilmekte dosyanın kimliği|
 |accessToken|dize|Evet|Erişim belirteci (kapsamı olmalıdır [hesap erişim belirteci](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) karşı çağrı kimliğini doğrulamak için. Erişim belirteci 1 saat içinde süresi dolar.|
 
 ### <a name="request-body"></a>İstek gövdesi 

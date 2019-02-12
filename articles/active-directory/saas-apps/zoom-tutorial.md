@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: ace02a0cb93cf3e56e4b895524b9e2d35440aecb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7dcf77a34179f6ab71e1b48e088d364393258e5a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812995"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Öğretici: Azure Active Directory Tümleştirmesi ile yakınlaştırma
 
@@ -124,6 +124,10 @@ Azure AD çoklu oturum açma ile yakınlaştırma yapılandırmak için aşağı
     | Soyadı  | User.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
     | Telefon numarası  | User.telephoneNumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
     | Bölüm  | User.Department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
+    | rol |    User.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+
+    > [!NOTE]
+    > Lütfen tıklayın [burada](https://docs.microsoft.com/en-gb/azure/role-based-access-control/role-assignments-portal) Azure AD'de rol yapılandırma bilmek
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
@@ -141,11 +145,14 @@ Azure AD çoklu oturum açma ile yakınlaştırma yapılandırmak için aşağı
 
     f. **Kaydet**’e tıklayın.
 
-4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+    > [!NOTE]
+    > Yakınlaştırma beklediğiniz grup talebi SAML yükteki herhangi bir grup oluşturduysanız sonra lütfen şekilde kişi [yakınlaştırma istemci Destek ekibine](https://support.zoom.us/hc/en-us) grubu bilgilerle böylece bunlar bu grubu bilgileri kendi sonunda da yapılandırabilirsiniz. Ayrıca nesne kimliği için sağlamanız gereken [yakınlaştırma istemci Destek ekibine](https://support.zoom.us/hc/en-us) böylece kendi sonunda yapılandırabilirler. Lütfen izleyin [belge](https://support.zoom.us/hc/en-us/articles/115005887566) nesne kimliğini almak için
+
+7. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-6. Üzerinde **yakınlaştırma kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+8. Üzerinde **yakınlaştırma kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
@@ -160,29 +167,29 @@ Azure AD çoklu oturum açma ile yakınlaştırma yapılandırmak için aşağı
 1. Farklı bir web tarayıcı penceresinde yakınlaştırma şirketinizin sitesi için bir yönetici olarak oturum açın.
 
 2. Tıklayın **çoklu oturum açma** sekmesi.
-   
-    ![Çoklu oturum açma sekmesini](./media/zoom-tutorial/IC784700.png "çoklu oturum açma")
+
+    ![Çoklu oturum açma sekmesini](./media/zoom-tutorial/ic784700.png "çoklu oturum açma")
 
 3. Tıklayın **güvenlik denetimi** sekmesine ve ardından Git **çoklu oturum açma** ayarları.
 
 4. Çoklu oturum açma bölümünde aşağıdaki adımları gerçekleştirin:
-   
-    ![Çoklu oturum açma bölümüne](./media/zoom-tutorial/IC784701.png "çoklu oturum açma")
-   
+
+    ![Çoklu oturum açma bölümüne](./media/zoom-tutorial/ic784701.png "çoklu oturum açma")
+
     a. İçinde **oturum açma sayfası URL'si** metin değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
-   
+
     b. İçinde **sayfa oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si** , Azure Portalı'ndan kopyaladığınız.
-     
+
     c. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **kimlik sağlayıcısı sertifikası** metin.
 
     d. İçinde **veren** metin değerini yapıştırın **Azure Ad tanımlayıcısı** , Azure Portalı'ndan kopyaladığınız. 
 
     e. **Kaydet**’e tıklayın.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Daha fazla bilgi için yakınlaştırma belgeleri sayfasını ziyaret edin. [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
@@ -240,17 +247,17 @@ Yakınlaştırmak için oturum açmak Azure AD kullanıcılarının etkinleştir
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:
 
 1. Oturum açın, **yakınlaştırma** yönetici olarak şirketin site.
- 
+
 2. Tıklayın **hesap yönetimi** sekmesine ve ardından **kullanıcı yönetimi**.
 
 3. Kullanıcı Yönetimi bölümünde tıklayın **kullanıcı ekleme**.
-   
-    ![Kullanıcı Yönetimi](./media/zoom-tutorial/IC784703.png "kullanıcı yönetimi")
+
+    ![Kullanıcı Yönetimi](./media/zoom-tutorial/ic784703.png "kullanıcı yönetimi")
 
 4. Üzerinde **kullanıcı ekleme** sayfasında, aşağıdaki adımları gerçekleştirin:
-   
-    ![Kullanıcı ekleme](./media/zoom-tutorial/IC784704.png "kullanıcı ekleme")
-   
+
+    ![Kullanıcı ekleme](./media/zoom-tutorial/ic784704.png "kullanıcı ekleme")
+
     a. Olarak **kullanıcı türü**seçin **temel**.
 
     b. İçinde **e-postaları** metin kutusu, türü e-posta adresi geçerli bir Azure ad hesabına sağlamak istiyor.
@@ -260,7 +267,7 @@ Yakınlaştırmak için oturum açmak Azure AD kullanıcılarının etkinleştir
 > [!NOTE]
 > Herhangi diğer yakınlaştırma kullanıcı hesabı oluşturma araçları kullanabilir veya kullanıcı hesapları yakınlaştırma sağlama Azure Active Directory tarafından sağlanan API'leri.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -273,4 +280,3 @@ Erişim paneli yakınlaştırma kutucuğa tıkladığınızda, size otomatik ola
 - [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

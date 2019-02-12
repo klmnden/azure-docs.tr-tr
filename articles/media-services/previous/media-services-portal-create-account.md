@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7b944d387d26f7cee769d765077b8d90e1f6e5b5
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 5e7fa81330c0f1f0e44a423f3e2fa42b1a91c119
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981171"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990096"
 ---
-# <a name="create-an-azure-media-services-account-using-the-azure-portal-legacy"></a>(Eski) Azure portalını kullanarak bir Azure Media Services hesabı oluşturma
+# <a name="create-a-media-services-account-using-the-azure-portal"></a>Azure portalını kullanarak bir Media Services hesabı oluşturma
 
 Azure portalı bir Azure Media Services (AMS) hesabını hızlıca oluşturmanın yolunu sağlar. Azure’da medya içeriği depolamanıza, şifrelemenize, kodlamanıza, yönetmenize ve akış yapmanıza imkan tanıyan Media Services’e erişmek için hesabınızı kullanabilirsiniz. Bir Media Services hesabı oluşturma zamanında, ayrıca ilişkili bir depolama hesabı oluşturun (veya var olanı kullanın). Bir Media Services hesabını silerseniz ilişkili depolama hesabınızdaki blob’lar silinmez.
 

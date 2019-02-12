@@ -1,59 +1,52 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Dovetale | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Dovetale | Microsoft Docs'
 description: Azure Active Directory ve Dovetale arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 81da50c3-df94-458a-8b6a-a30827ee6358
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/09/2018
+ms.topic: tutorial
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: dd2aa699c22518ebbe7f29ba8dfd296da7385476
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 44ac37522e486771ad3f09342d12aa6fa37dd16d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40162228"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991591"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dovetale"></a>Öğretici: Azure Active Directory Dovetale ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-dovetale"></a>Öğretici: Dovetale ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Dovetale tümleştirme konusunda bilgi edinin.
-
 Azure AD ile Dovetale tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Dovetale erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanan için Dovetale (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Dovetale erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) Dovetale için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md)
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Dovetale yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik Dovetale çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik Dovetale çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-1. Galeriden Dovetale ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+* Dovetale destekler **SP** ve **IDP** tarafından başlatılan
+
+* Dovetale destekler **zamanında** kullanıcı sağlama
 
 ## <a name="adding-dovetale-from-the-gallery"></a>Galeriden Dovetale ekleme
 
@@ -61,195 +54,175 @@ Azure AD'de Dovetale tümleştirmesini yapılandırmak için Dovetale Galeriden 
 
 **Galeriden Dovetale eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
 4. Arama kutusuna **Dovetale**seçin **Dovetale** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuç listesinde Dovetale](./media/dovetale-tutorial/tutorial_dovetale_addfromgallery.png)
+     ![Sonuç listesinde Dovetale](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Dovetale sınayın.
-
-Tek iş için oturum açma için Azure AD ne Dovetale karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Dovetale ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Dovetale adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Dovetale ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Dovetale ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Dovetale test kullanıcısı oluşturma](#create-a-dovetale-test-user)**  - kullanıcı Azure AD gösterimini bağlı Dovetale Britta simon'un bir karşılığı vardır.
+2. **[Dovetale çoklu oturum açmayı yapılandırma](#configure-dovetale-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+5. **[Dovetale test kullanıcısı oluşturma](#create-dovetale-test-user)**  - kullanıcı Azure AD gösterimini bağlı Dovetale Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Dovetale uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile Dovetale yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile Dovetale yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Dovetale** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Dovetale** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açma iletişim kutusu](./media/dovetale-tutorial/tutorial_dovetale_samlbase.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-3. Üzerinde **Dovetale etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, kullanıcı uygulamaya zaten Azure ile önceden tümleştirilmiş olduğu gibi tüm adımları gerçekleştirmek sahip değil:
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![Dovetale etki alanı ve URL'ler tek oturum açma bilgileri](./media/dovetale-tutorial/tutorial_dovetale_url1.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+4. Üzerinde **temel SAML yapılandırma** bölümünde kullanıcısının clonedatabase'i uygulama zaten Azure ile önceden tümleşik olarak herhangi bir adımı gerçekleştirmek.
 
-    ![Dovetale etki alanı ve URL'ler tek oturum açma bilgileri](./media/dovetale-tutorial/tutorial_dovetale_url2.png)
+    ![Dovetale etki alanı ve URL'ler tek oturum açma bilgileri](common/preintegrated.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `<COMPANYNAME>.dovetale.com`
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+
+    ![Dovetale etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
+
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `<COMPANYNAME>.dovetale.com`
 
     > [!NOTE]
-    > Bu değer, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Dovetale istemci Destek ekibine](mailto:support@dovetale.com) bu değeri alınamıyor.
+    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Dovetale istemci Destek ekibine](mailto:support@dovetale.com) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. Dovetale uygulama belirli bir biçimde SAML onaylamalarını bekler. Lütfen bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/dovetale-tutorial/tutorial_attribute.png)
+5. Dovetale uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
-6. Tıklayın **görünümü ve diğer tüm kullanıcı özniteliklerini düzenleyin** onay kutusu **kullanıcı öznitelikleri** bölüm öznitelikleri genişletin. Her birini görüntülenen öznitelikleri - aşağıdaki adımları gerçekleştirin
+    ![image](common/edit-attribute.png)
 
-    | Öznitelik Adı | Öznitelik Değeri |
+6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin: 
+
+    | Ad | Kaynak özniteliği|
     | ---------------| --------------- |
     | e-posta | User.Mail |
     | first_name | User.givenName |
     | ad | User.userPrincipalName |
     | Soyadı | User.surname |
 
-    a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/dovetale-tutorial/tutorial_attribute_04.png)
+    ![image](common/new-save-attribute.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/dovetale-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-attribute-details.png)
 
-    b. İçinde **adı** metin kutusuna **öznitelik adı** ilgili satır için gösterilen.
+    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
-    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    c. Bırakın **Namespace** boş.
 
-    d. Bırakın **ad alanı** değeri boş.
+    d. Kaynağı olarak **özniteliği**.
 
-    e. **Tamam**’a tıklayın.
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-7. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+    f. Tıklayın **Tamam**
 
-    ![Sertifika indirme bağlantısı](./media/dovetale-tutorial/tutorial_dovetale_certificate.png) 
+    g. **Kaydet**’e tıklayın.
 
-8. Tıklayın **Kaydet** düğmesi.
+7. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/dovetale-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
 
-9. Üzerinde **Dovetale yapılandırma** bölümünde **yapılandırma Dovetale** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+### <a name="configure-dovetale-single-sign-on"></a>Dovetale tek oturum açmayı yapılandırın
 
-    ![Dovetale yapılandırma](./media/dovetale-tutorial/tutorial_dovetale_configure.png)
+Çoklu oturum açmayı yapılandırma **Dovetale** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [Dovetale Destek ekibine](mailto:support@dovetale.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
-10. Çoklu oturum açmayı yapılandırma **Dovetale** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta veri URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** için [Dovetale Destek ekibine](mailto:support@dovetale.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
-
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/dovetale-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/dovetale-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alanına **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/dovetale-tutorial/create_aaduser_03.png)
-
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/dovetale-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
-
-### <a name="create-a-dovetale-test-user"></a>Dovetale test kullanıcısı oluşturma
-
-Bu bölümün amacı Dovetale Britta Simon adlı bir kullanıcı oluşturmaktır. Dovetale tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Dovetale erişme denemesi sırasında oluşturulur.
-
-> [!Note]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Dovetale Destek ekibine](mailto:support@dovetale.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için Dovetale erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200]
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Dovetale**.
 
-**Britta Simon Dovetale için atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 2. Uygulamalar listesinde **Dovetale**.
 
-    ![Uygulamalar listesinde Dovetale bağlantı](./media/dovetale-tutorial/tutorial_dovetale_app.png)  
+    ![Uygulamalar listesinde Dovetale bağlantı](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Atama Ekle bölmesi][203]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+7. İçinde **atama Ekle** iletişim kutusunda, tıklayın **atama** düğmesi.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="create-dovetale-test-user"></a>Dovetale test kullanıcısı oluşturma
+
+Bu bölümde, Britta Simon adlı bir kullanıcı Dovetale oluşturulur. Dovetale destekler **just-ın-time kullanıcı sağlamayı**, varsayılan olarak etkindir. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı Dovetale içinde zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
+
+> [!Note]
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Dovetale Destek ekibine](mailto:support@dovetale.com).
+
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Dovetale kutucuğa tıkladığınızda, otomatik olarak Dovetale uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
+Erişim paneli Dovetale kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Dovetale için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/dovetale-tutorial/tutorial_general_01.png
-[2]: ./media/dovetale-tutorial/tutorial_general_02.png
-[3]: ./media/dovetale-tutorial/tutorial_general_03.png
-[4]: ./media/dovetale-tutorial/tutorial_general_04.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/dovetale-tutorial/tutorial_general_100.png
-
-[200]: ./media/dovetale-tutorial/tutorial_general_200.png
-[201]: ./media/dovetale-tutorial/tutorial_general_201.png
-[202]: ./media/dovetale-tutorial/tutorial_general_202.png
-[203]: ./media/dovetale-tutorial/tutorial_general_203.png

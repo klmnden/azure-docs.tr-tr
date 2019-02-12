@@ -2,19 +2,19 @@
 title: Azure Media Services tarafından önerilen kodlayıcılar hakkında bilgi edinin | Microsoft Docs
 description: Media services tarafından önerilen kodlayıcılar hakkında bilgi edinin
 services: media-services
-keywords: kodlama; kodlayıcılar; medya
+keywords: encoding;encoders;media
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
-ms.date: 09/13/2018
+ms.date: 02/09/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c90d6a5784fe9d80df4fab304b6122d3fa24d0b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f07b2d128bd770854b7c240fd3c964d880029d3c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605173"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999020"
 ---
 # <a name="recommended-on-premises-encoders"></a>Önerilen şirket içi kodlayıcılar
 Canlı, Azure Media Services ile akış, giriş akışını almak için kanal nasıl istediğinizi belirtebilirsiniz. Canlı kodlama kanal ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, kodlayıcınız çıktı olarak bir yüksek kaliteli tek bit hızında akışa anında iletme. Bir geçiş kanalı üzerinden ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, tüm istenen çıkış kalitelerini çıktı olarak kodlayıcınız Çoklu bit hızında akışa anında. Daha fazla bilgi için [şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md).

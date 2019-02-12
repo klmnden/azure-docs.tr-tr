@@ -2,21 +2,22 @@
 title: Azure Media Clipper'ı ile küçük resimleri oluşturun | Microsoft Docs
 description: Medya klipleri varlıklarından oluşturmaya yönelik bir araç olan Azure Media Clipper'ne genel bakış
 services: media-services
-keywords: küçük alt klip; kodlama; medya
+keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0fc04fb64e6d34c46f20b4ba5ff8a1ffc8da9c31
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d306bc3b9e206e5f21f9c16c0cd32bc599f1b6d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237919"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003168"
 ---
-# <a name="create-clips-with-azure-media-clipper"></a>Küçük resimleri ile Azure Media Clipper'ı oluşturma
+# <a name="create-clips-with-azure-media-clipper"></a>Küçük resimleri ile Azure Media Clipper'ı oluşturma 
+
 Azure Media Clipper'ı kullanıcılarının medya klipler oluşturmak için bir arabirim sağlamak, web geliştiricilerin sağlayan ücretsiz bir JavaScript kitaplığıdır. Bu araç, herhangi bir web sayfasında tümleştirilebilir ve varlıklar yükleniyor ve kırpma işlerini gönderme için API'ler sağlar.
 
 Azure Media Clipper'ı ile yapabilecekleriniz:
@@ -41,11 +42,11 @@ Clipper blog gönderisinde, çeşitli bilinen sorunlar ve changelog Clipper'ı e
 ## <a name="browser-support"></a>Tarayıcı desteği
 Azure Media Clipper'ı modern HTML5 teknolojiler kullanılarak oluşturulmuştur ve aşağıdaki tarayıcılardan destekler:
 
-- Microsoft Edge 13 +
-- Internet Explorer 11 +
-- Chrome 54 +
-- Safari 10 +
-- Firefox 50 +
+- Microsoft Edge 13+
+- Internet Explorer 11+
+- Chrome 54+
+- Safari 10+
+- Firefox 50+
 
 > [!NOTE]
 > Yalnızca HTML5 kayıttan yürütme akışları Azure Media Services tarafından şu anda desteklenmiyor.
@@ -53,7 +54,7 @@ Azure Media Clipper'ı modern HTML5 teknolojiler kullanılarak oluşturulmuştur
 ## <a name="language-support"></a>Dil desteği
 Clipper pencere 18 aşağıdaki dillerde kullanılabilir:
 - Çince (Basitleştirilmiş)
-- Çince (Geleneksel)
+- seçenekleri yerine
 - Çekçe
 - Hollanda dili, Flemish
 - Türkçe

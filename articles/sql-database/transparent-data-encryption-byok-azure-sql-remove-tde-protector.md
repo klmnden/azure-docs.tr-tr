@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/12/2018
-ms.openlocfilehash: 8ffda7fd1b987e34dc0e8157b535ccef65571247
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 95a86dafc4705d58ac459ff57e4f221d19fb7a37
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567902"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990300"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak bir saydam veri şifrelemesi (TDE) koruyucusu Kaldır
 
@@ -25,11 +25,11 @@ ms.locfileid: "55567902"
 
 - Bir Azure aboneliğiniz varsa ve bu abonelik bir yönetici olması gerekir
 - Azure PowerShell sürümü 4.2.0 olmalıdır veya üzerinin yüklü ve çalışıyor. 
-- Bu nasıl yapılır kılavuzunda, zaten Azure Key vault'tan bir anahtar TDE koruyucusu olarak bir Azure SQL veritabanı veya veri ambarı için kullandığınızı varsayar. Bkz: [BYOK destekli saydam veri şifrelemesi](transparent-data-encryption-byok-azure-sql.md) daha fazla bilgi için.
+- Bu nasıl yapılır kılavuzunda, zaten Azure Key vault'tan bir anahtar TDE koruyucusu olarak bir Azure SQL veritabanı veya veri ambarı için kullandığınızı varsayar. Bkz: [Azure Key Vault tümleştirmesi - BYOK destekli saydam veri şifrelemesi](transparent-data-encryption-byok-azure-sql.md) daha fazla bilgi için.
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu nasıl yapılır kılavuzunda, bir Azure SQL veritabanı veya TDE Getir bilgisayarınızı kendi anahtarını (BYOK) destekli kullanan veri ambarı için bir riskli olabilecek TDE koruyucusuna yanıt açıklar. TDE için BYOK destekli hakkında daha fazla bilgi için bkz: [genel bakış sayfasında](transparent-data-encryption-byok-azure-sql.md). 
+Bu nasıl yapılır kılavuzunda, bir Azure SQL veritabanı veya müşteri tarafından yönetilen anahtarları Azure Key vault'taki - Getir bilgisayarınızı kendi anahtarını (BYOK) desteği ile TDE kullanarak veri ambarı için bir riskli olabilecek TDE koruyucusuna yanıt açıklar. TDE için BYOK destekli hakkında daha fazla bilgi için bkz: [genel bakış sayfasında](transparent-data-encryption-byok-azure-sql.md). 
 
 Aşağıdaki yordamlar, yalnızca olağanüstü durumlarda veya test ortamlarında yapılmalıdır. Nasıl yapılır kılavuzunda dikkatle gözden geçirin, etkin olarak kullanılan TDE silme olarak Azure anahtar Kasası'ndaki koruyucuları sonuçlanabilir **veri kaybı**. 
 

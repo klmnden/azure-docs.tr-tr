@@ -1,6 +1,6 @@
 ---
-title: Sorgular, Azure Log Analytics ile çalışmaya başlama | Microsoft Docs
-description: Bu makale, Log Analytics'te başlatılan yazma sorguları almaya yönelik bir öğretici sağlar.
+title: Azure İzleyici'de günlük sorguları kullanmaya başlama | Microsoft Docs
+description: Bu makalede, başlarken bir öğretici sağlar. Azure İzleyici'de günlük sorguları yazma.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 326e12444067e950b9d6ae0862424589d444b83d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883372"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994896"
 ---
-# <a name="get-started-with-queries-in-log-analytics"></a>Log Analytics sorguları kullanmaya başlama
+# <a name="get-started-with-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları kullanmaya başlama
 
 
 > [!NOTE]
-> Tamamlamanız gereken [Analytics portalı ile çalışmaya başlama](get-started-portal.md) Bu öğreticiyi tamamlamadan önce.
+> Tamamlamanız gereken [Azure İzleyici log analytics ile çalışmaya başlama](get-started-portal.md) Bu öğreticiyi tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Bu öğreticide, Azure Log Analytics sorguları yazma öğreneceksiniz. Size nasıl yardımcı olacak için:
+Bu öğreticide, Azure LMonitor günlük sorguları yazma öğreneceksiniz. Size nasıl yardımcı olacak için:
 
 - Sorguları yapısı anlama
 - Sorgu sonuçlarını sıralama
@@ -43,10 +43,10 @@ Bu öğreticide, Azure Log Analytics sorguları yazma öğreneceksiniz. Size nas
 Sorgular, bir tablo adı ile başlatabilir veya *arama* komutu. Sorgu için açık bir kapsam tanımlar ve sorgu performansı hem sonuçlarının ilgi düzeyi artıran bir tablo adı ile başlamanız gerekir.
 
 > [!NOTE]
-> Azure Log Analytics sorgu dili, büyük/küçük harf duyarlıdır. Dil anahtar sözcükleri genellikle küçük yazıldığı. Tablo veya sütun adları bir sorguda kullanırken, şema bölmesinde gösterildiği gibi doğru harf kullandığınızdan emin olun.
+> Azure İzleyici tarafından kullanılan veri Gezgini sorgu dili, büyük/küçük harf duyarlıdır. Dil anahtar sözcükleri genellikle küçük yazıldığı. Tablo veya sütun adları bir sorguda kullanırken, şema bölmesinde gösterildiği gibi doğru harf kullandığınızdan emin olun.
 
 ### <a name="table-based-queries"></a>Tablo tabanlı sorgular
-Azure Log Analytics tablolardaki verileri düzenler, her birden çok sütundan oluşan. Tüm tabloları ve sütunları Analytics portalında şema bölmesinde gösterilir. İlginizi çeken ve ardından veri göz atın, bir tablo tanımlayın:
+Azure İzleyici günlük verileri tablolarda düzenler, her birden çok sütundan oluşan. Tüm tabloları ve sütunları analiz portalı Log analytics'te şema bölmesinde gösterilir. İlginizi çeken ve ardından veri göz atın, bir tablo tanımlayın:
 
 ```Kusto
 SecurityEvent
@@ -112,7 +112,7 @@ Filtre koşulları yazarken, aşağıdaki ifadeler kullanabilirsiniz:
 |:---|:---|:---|
 | == | Eşitlik denetleyin<br>(büyük-küçük harfe duyarlı) | `Level == 8` |
 | =~ | Eşitlik denetleyin<br>(büyük-küçük harf duyarsız) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| ! =, <> | Eşitsizlik denetleyin<br>(her iki ifade de aynıdır) | `Level != 4` |
+| !=, <> | Eşitsizlik denetleyin<br>(her iki ifade de aynıdır) | `Level != 4` |
 | *ve*, *veya* | Koşullar arasında gerekli| `Level == 16 or CommandLine != ""` |
 
 Birden çok koşullarına göre filtre uygulamak için kullanabilir **ve**:
@@ -164,7 +164,7 @@ SecurityEvent
 
 Yukarıdaki örnek aşağıdaki çıkışı üretir:
 
-![Analytics proje sonuçları günlüğü](media/get-started-queries/project.png)
+![Sorgu proje sonuçları](media/get-started-queries/project.png)
 
 Ayrıca **proje** sütunları yeniden adlandırma ve yenilerini tanımlamak için. Aşağıdaki örnek proje, aşağıdakileri yapmak için kullanır:
 
@@ -236,7 +236,7 @@ Perf
 
 Çıktı daha anlaşılır hale getirmek için bir zaman grafiği görüntülemek için zaman içinde kullanılabilir bellek gösteren seçin:
 
-![Log Analytics bellek zamanla](media/get-started-queries/chart.png)
+![Zaman içinde sorgu bellek](media/get-started-queries/chart.png)
 
 
 

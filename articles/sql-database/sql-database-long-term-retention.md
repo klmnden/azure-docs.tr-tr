@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 3d6010df64c4e3c75bd05e2eb9828c07cf3fb342
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 68bcddeee2cec1a77f20f8f470669f170fa50743
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471394"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992492"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL veritabanı yedeklemeleri için 10 yıla kadar Store
 
-Birçok uygulama yasal yoksa, uyumluluk veya diğer iş amaçlı veritabanı yedeklemelerini Azure SQL veritabanı tarafından sağlanan 7-35 gün dışında tutulacak gerektiren [otomatik yedeklemeler](sql-database-automated-backups.md). Uzun süreli saklama (LTR) özelliğini kullanarak, belirtilen SQL veritabanı tam yedeklemelerde depolayabilirsiniz [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob depolama için 10 yıla kadar. Ardından, yeni bir veritabanı olarak herhangi bir yedekleme geri yükleyebilirsiniz.
+Birçok uygulama yasal yoksa, uyumluluk veya diğer iş amaçlı veritabanı yedeklemelerini Azure SQL veritabanı tarafından sağlanan 7-35 gün dışında tutulacak gerektiren [otomatik yedeklemeler](sql-database-automated-backups.md). Uzun süreli saklama (LTR) özelliğini kullanarak, belirtilen SQL veritabanı tam yedeklemelerde depolayabilirsiniz [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob depolama için 10 yıla kadar. Daha sonra herhangi bir yedeklemeyi yeni bir veritabanı olarak geri yükleyebilirsiniz.
 
 > [!NOTE]
-> LTR tek başına için etkinleştirilebilir ve havuza alınmış veritabanları. Mevcut örneği için yönetilen örnekleri'nde veritabanlarını değil henüz bu değil. SQL Aracısı işleri zamanlamak için kullanabileceğiniz [yalnızca kopya yedekleri](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) 35 gün ötesinde LTR alternatif olarak.
+> LTR tek ve havuza alınmış veritabanları için etkinleştirilebilir. Mevcut örneği için yönetilen örnekleri'nde veritabanlarını değil henüz bu değil. SQL Aracısı işleri zamanlamak için kullanabileceğiniz [yalnızca kopya yedekleri](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) 35 gün ötesinde LTR alternatif olarak.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL veritabanı uzun süreli saklama nasıl çalışır?

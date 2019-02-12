@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 64e353bbb83c7696960fc1d2e478478afbc94241
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0a8cb1178ec70d4e50f2a45834f9592c4708c5af
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249246"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998646"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Nasıl yapılır: bir medya işlemci örneği Al
+# <a name="how-to-get-a-media-processor-instance"></a>Nasıl yapılır: Medya işlemci örneği Al
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -40,7 +40,7 @@ Aşağıdaki konuda medya işlemcileri listesi sağlar:
 
 ## <a name="get-media-processor"></a>Medya işlemcisi Al
 
-Aşağıdaki yöntemi, bir medya işlemci örneği alma işlemi gösterilmektedir. Kod örneğinde adlı Modül düzeyinde bir değişkene kullanımını varsayar **_bağlamı** bölümünde açıklandığı gibi sunucu bağlamı başvurmak için [nasıl yapılır: Medya Hizmetleri programsal olarak bağlanma](media-services-use-aad-auth-to-access-ams-api.md).
+Aşağıdaki yöntemi, bir medya işlemci örneği alma işlemi gösterilmektedir. Kod örneğinde adlı Modül düzeyinde bir değişkene kullanımını varsayar **_bağlamı** bölümünde açıklandığı gibi sunucu bağlamı başvurmak için [nasıl yapılır: Media Services'e program aracılığıyla bağlanmak](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 48180d4a9dcf7219815b5bc397647d7d97467cf7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: da43d1261b0ba9bd65998fbaa9fe9e364e686071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961797"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992135"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Sanal çekirdek hizmet katmanları, Azure hibrit avantajı ve geçiş
 
@@ -29,7 +29,7 @@ Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depola
 Donanım 4. nesil sanal çekirdek başına önemli ölçüde daha fazla bellek sunar. Ancak, 5. nesil donanım çok daha yüksek bilgi işlem kaynaklarını ölçeklendirme olanak tanır.
 
 > [!NOTE]
-> DTU tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [DTU tabanlı hizmet katmanları](sql-database-service-tiers-dtu.md). DTU tabanlı hizmet katmanları ve sanal çekirdek tabanlı hizmet katmanları ayrım yapma hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı'nın satın alma modeli](sql-database-service-tiers.md).
+> DTU tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [DTU tabanlı hizmet katmanları](sql-database-service-tiers-dtu.md). DTU tabanlı hizmet katmanları ve sanal çekirdek tabanlı hizmet katmanları ayrım yapma hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı'nın satın alma modeli](sql-database-purchase-models.md).
 
 ## <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 

@@ -1,6 +1,6 @@
 ---
-title: Log Analytics'te Ara sorgular | Microsoft Docs
-description: Bu makalede, başlarken bir öğretici sağlar Log Analytics arama sorgu yazma.
+title: Azure İzleyici günlüklerine arama sorguları | Microsoft Docs
+description: Bu makalede almaya yönelik bir öğretici sağlar. Azure izleyici günlüğü sorgularda arama kullanmaya.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 1f3131585a8f6581690eda777b8ffc96768b3cc6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cda66b91a0e829ec3bc84a82c190b9d856827ad3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883307"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004460"
 ---
-# <a name="search-queries-in-log-analytics"></a>Log Analytics arama sorguları
+# <a name="search-queries-in-azure-monitor-logs"></a>Azure İzleyici günlüklerinde arama sorguları
 
 > [!NOTE]
-> Tamamlamanız gereken [sorgular, Log Analytics ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
+> Tamamlamanız gereken [Azure İzleyici günlük sorguları kullanmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Azure Log Analytics sorguları bir tablo adı veya bir arama komutunu ile başlayabilirsiniz. Bu öğretici, arama tabanlı sorgular kapsar. Her yöntemin avantajları vardır.
+Azure İzleyici günlük sorguları bir tablo adı veya bir arama komutunu ile başlayabilirsiniz. Bu öğretici, arama tabanlı sorgular kapsar. Her yöntemin avantajları vardır.
 
 Tablo tabanlı sorgular, sorgu kapsamı tarafından başlatın ve bu nedenle arama sorguları daha etkili olma eğilimindedir. Arama sorguları, küçük, daha iyi bir seçenek için belirli bir değer sütunları veya tabloları arasında ararken yaptığına yapılandırılmış ' dir. **Arama** tüm tablolar, belirtilen değere veya bir tablodaki tüm sütunları tarayabilirsiniz. İşlenen veri miktarı bu sorgular daha uzun sürebilir ve çok büyük sonuç kümelerini döndürme olasılığı neden olduğu devasa, olabilir.
 
@@ -144,4 +144,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla ilgili öğreticiler bakın [Log Analytics sorgu dili site](https://aka.ms/LogAnalyticsLanguage).
+- Daha fazla ilgili öğreticiler bakın [Veri Gezgini sorgu dili site](/azure/kusto/query/).

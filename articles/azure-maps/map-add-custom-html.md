@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231743"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993751"
 ---
 # <a name="add-html-markers-to-the-map"></a>HTML işaretçileri haritaya eklemek
 
@@ -68,20 +68,11 @@ Bu örnek bir HTML işaret sürüklenebilir yapmak nasıl gösterir. HTML işare
 
 ## <a name="add-mouse-events-to-html-markers"></a>Fare olayları HTML işaretlerine ekleyin
 
-Bu örnekler nasıl işaret HTML içeriğini standart JavaScript olayları ekleyerek bir HTML işaretçiye fare olayları gösterir. 
-
-Varsa `htmlContent` işaret DOM öğesi (div, img...), olayları kendilerine doğrudan ekleyebilirsiniz. 
+Bu örnekler, fare ekleme ve olaylar için bir HTML işaret sürükleyin gösterir.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Fare olayları HTML işaretleyicileri ekleme' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>fare olayları HTML işaretlerine ekleyerek</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-Varsa `htmlContent` (yani bir dizesi benzer varsayılan), bir DOM öğesi oluşturun ve dize innerHTML ekleyin ardından htmlContent DOM öğesi ekleyin. Varsa `htmlContent` şablonlu bir dize Bul/Değiştir ihtiyacınız olacak `{text}` ve `{color}` dizedeki ilk değerleri.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='Varsayılan HTML işaret fare olaylar ekleme' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>ekleme fare olayları varsayılan HTML işaret</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Sonraki adımlar

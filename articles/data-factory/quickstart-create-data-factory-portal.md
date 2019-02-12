@@ -11,19 +11,20 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
-ms.translationtype: HT
+ms.openlocfilehash: 6f5a4e04c0d135e85624b04dbcdcda6b7d15a427
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018256"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989398"
 ---
-# <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Azure Data Factory UI kullanarak veri fabrikası oluşturma
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Hızlı Başlangıç: Azure Data Factory UI kullanarak veri fabrikası oluşturma
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Sürüm 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Geçerli sürüm](quickstart-create-data-factory-portal.md)
 
-Bu hızlı başlangıçta, Azure Data Factory UI kullanarak veri fabrikasını oluşturma ve izleme işlemi açıklanır. Bu veri fabrikasında oluşturduğunuz işlem hattı, verileri Azure Blob depolama alanındaki bir klasörden başka bir klasöre *kopyalar*. Azure Data Factory kullanarak verileri *dönüştürme* hakkında bir öğretici için bkz. [Öğretici: Spark kullanarak verileri dönüştürme](tutorial-transform-data-spark-portal.md).
+Bu hızlı başlangıçta, Azure Data Factory UI kullanarak veri fabrikasını oluşturma ve izleme işlemi açıklanır. Bu veri fabrikasında oluşturduğunuz işlem hattı, verileri Azure Blob depolama alanındaki bir klasörden başka bir klasöre *kopyalar*. Hakkında bir öğretici için *dönüştürme* Azure Data Factory kullanarak verileri görmek [Öğreticisi: Spark kullanarak verileri dönüştürme](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Azure Data Factory'yi kullanmaya yeni başlıyorsanız, bu hızlı başlangıçtaki işlemleri gerçekleştirmeden önce [Azure Data Factory'ye giriş](data-factory-introduction.md) konusuna bakın. 
@@ -91,7 +92,7 @@ Bu yordamda, Azure depolama hesabınızı veri fabrikasına bağlamak için bağ
    ![Azure Depolama bağlı hizmeti ayarları](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
 ## <a name="create-datasets"></a>Veri kümeleri oluşturma
-Bu yordamda iki veri kümesi oluşturursunuz: **InputDataset** ve **OutputDataset**. Bu veri kümeleri **AzureBlob** türündedir. Bunlar, önceki bölümde oluşturduğunuz Azure Depolama bağlı hizmetine başvurur. 
+Bu yordamda, iki veri kümesi oluşturursunuz: **Inputdataset** ve **OutputDataset**. Bu veri kümeleri **AzureBlob** türündedir. Bunlar, önceki bölümde oluşturduğunuz Azure Depolama bağlı hizmetine başvurur. 
 
 Giriş veri kümesi, giriş klasöründeki kaynak verileri temsil eder. Giriş veri kümesi tanımında, kaynak verileri içeren blob kapsayıcısını (**adftutorial**), klasörü (**input**) ve dosyayı (**emp.txt**) belirtirsiniz. 
 
@@ -117,7 +118,8 @@ Bağlı hizmet ayarlarında, kaynak verileri içeren Azure depolama hesabını b
 
     ![Giriş dosyası için Gözat](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
     
-   d. (isteğe bağlı) Emp.txt dosyasındaki verilerin önizlemesini görmek için **Verileri önizle**'yi seçin.     
+    d. (isteğe bağlı) Emp.txt dosyasındaki verilerin önizlemesini görmek için **Verileri önizle**'yi seçin.     
+
 1. Çıktı veri kümesini oluşturmak için adımları yineleyin:  
 
    a. **+** (artı) düğmesini seçip **Veri Kümesi**'ni seçin.

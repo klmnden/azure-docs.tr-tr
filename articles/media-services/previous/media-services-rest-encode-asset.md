@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ada3210a59e0c3044551bee54b0a705b4b513594
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254443"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005157"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Media Encoder Standard kullanarak bir varlığı kodlama
 > [!div class="op_single_selector"]
@@ -30,6 +30,7 @@ ms.locfileid: "51254443"
 >
 
 ## <a name="overview"></a>Genel Bakış
+
 Internet üzerinden dijital video teslim etmek için medyayı sıkıştırmanız gerekir. Dijital video dosyaları büyük ve Internet üzerinden veya müşterilerinizin cihazlar düzgün görüntülenmesi sunmak için çok büyük olabilir. Kodlama, müşterilerinizin ortamınızı görüntülemek için video ve ses sıkıştırma işlemidir.
 
 Kodlama işleri, Azure Media Services'da en sık gerçekleştirilen işlemler biridir. Kodlama işleri oluşturarak, medya dosyalarını bir kodlamadan diğerine dönüştürebilirsiniz. Kodlarken, yerleşik medya Hizmetleri Kodlayıcı (Media Encoder Standard) kullanabilirsiniz. Bir Media Services iş ortağı tarafından verilen bir kodlayıcı de kullanabilirsiniz. Üçüncü taraf Kodlayıcı Azure Marketi aracılığıyla kullanılabilir. Kodlayıcınız için tanımlanan Önayar dizeleri kullanarak veya önceden belirlenmiş yapılandırma dosyalarını kullanarak kodlama görevlerine ilişkin ayrıntılar belirtebilirsiniz. Kullanıma hazır türlerini görmek için bkz: [Media Encoder Standard için görev ön ayarları](https://msdn.microsoft.com/library/mt269960).
@@ -54,12 +55,13 @@ Medya işlemcileri başvuran başlamadan önce doğru medya gördüğünüzden e
 AMS API'ye bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Tek bir kodlama görevi bir iş oluşturma
+
 > [!NOTE]
 > Media Services REST API'si ile çalışırken, aşağıdaki maddeler geçerlidir:
 >
 > Varlıklar Media Services erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 >
-> Zaman JSON kullanan ve kullanılacağını belirtme **__metadata** anahtar sözcüğü ayarlamanız gerekir (örneğin,'başvurusu bağlı nesnede) istekte **kabul** başlığına [ayrıntılıJSONbiçimi](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Kabul: application/json; odata ayrıntılı =.
+> Zaman JSON kullanan ve kullanılacağını belirtme **__metadata** anahtar sözcüğü ayarlamanız gerekir (örneğin,'başvurusu bağlı nesnede) istekte **kabul** başlığına [ayrıntılıJSONbiçimi](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Kabul et: application/json; odata ayrıntılı =.
 >
 >
 

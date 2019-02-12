@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 37701313b32c6e277c79be4031d145c3ad6b4e76
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 0f500ec776d90755d6738af80c34866105d354f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976760"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999411"
 ---
-# <a name="managing-media-services-entities-with-rest-legacy"></a>REST (eski) ile Media Services varlıkları yönetme
+# <a name="managing-media-services-entities-with-rest"></a>Media Services REST ile varlıkları yönetme  
 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)

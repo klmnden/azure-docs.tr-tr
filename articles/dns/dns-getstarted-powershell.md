@@ -7,14 +7,16 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: db6ac089f11477ecdb1568195855fae00d3eac61
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 839c97ccccbc1ce2cf646afcd27894a190eda1b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888367"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000906"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Hızlı başlangıç: Azure PowerShell’i kullanarak Azure DNS bölgesi ve kaydı oluşturma
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Hızlı Başlangıç: Bir Azure DNS bölgesi ve kaydı Azure PowerShell kullanarak oluşturma
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bu hızlı başlangıçta PowerShell kullanarak ilk DNS bölgenizi ve kaydını oluşturursunuz. Ayrıca, [Azure portal](dns-getstarted-portal.md) veya [Azure CLI](dns-getstarted-cli.md)'sini kullanarak aşağıdaki adımları gerçekleştirebilirsiniz. 
 
@@ -31,23 +33,23 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 DNS bölgesini oluşturmadan önce, DNS bölgesini içerecek kaynak grubunu oluşturun.
 
 ```powershell
-New-AzureRMResourceGroup -name MyResourceGroup -location "eastus"
+New-AzResourceGroup -name MyResourceGroup -location "eastus"
 ```
 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
-DNS bölgesi, `New-AzureRmDnsZone` cmdlet’i kullanılarak oluşturulur. Aşağıdaki örnek, *MyResourceGroup* adlı kaynak grubunda *contoso.com* adlı bir DNS bölgesi oluşturur. Değerleri kendinizinkilerle değiştirerek DNS bölgesini oluşturmak için örneği kullanın.
+DNS bölgesi, `New-AzDnsZone` cmdlet’i kullanılarak oluşturulur. Aşağıdaki örnek, *MyResourceGroup* adlı kaynak grubunda *contoso.com* adlı bir DNS bölgesi oluşturur. Değerleri kendinizinkilerle değiştirerek DNS bölgesini oluşturmak için örneği kullanın.
 
 ```powershell
-New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="create-a-dns-record"></a>DNS kaydı oluşturma
 
-`New-AzureRmDnsRecordSet` cmdlet’ini kullanarak kayıt kümeleri oluşturabilirsiniz. Aşağıdaki örnekte, "MyResourceGroup" kaynak grubu içindeki "contoso.com" DNS Bölgesinde göreli adı "www" olan bir kaynak oluşturulmaktadır. "www.contoso.com", kayıt kümesinin tam adıdır. Kayıt türü "A", IP adresi "1.2.3.4" ve TTL 3600 saniyedir.
+`New-AzDnsRecordSet` cmdlet’ini kullanarak kayıt kümeleri oluşturabilirsiniz. Aşağıdaki örnekte, "MyResourceGroup" kaynak grubu içindeki "contoso.com" DNS Bölgesinde göreli adı "www" olan bir kaynak oluşturulmaktadır. "www.contoso.com", kayıt kümesinin tam adıdır. Kayıt türü "A", IP adresi "1.2.3.4" ve TTL 3600 saniyedir.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4")
+New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4")
 ```
 
 ## <a name="view-records"></a>Kayıtları görüntüleme
@@ -55,17 +57,17 @@ New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceG
 Bölgenizdeki DNS kayıtlarını listelemek için şu seçenekleri kullanın:
 
 ```powershell
-Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="update-name-servers"></a>Ad sunucularını güncelleştirme
 
 DNS bölgenizin ve kayıtlarınızın doğru şekilde ayarlandığına karar verdikten sonra, Azure DNS ad sunucularını kullanmak için etki alanınızın adını yapılandırmanız gerekir. Bunun yapılması, İnternet üzerindeki diğer kullanıcıların DNS kayıtlarınızı bulmasını sağlar.
 
-Bölgenizin ad sunucuları `Get-AzureRmDnsZone` cmdlet’i tarafından belirtilir:
+Bölgenizin ad sunucuları `Get-AzDnsZone` cmdlet’i tarafından belirtilir:
 
 ```powershell
-Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+Get-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 
 Name                  : contoso.com
 ResourceGroupName     : myresourcegroup
@@ -76,14 +78,14 @@ NumberOfRecordSets    : 3
 MaxNumberOfRecordSets : 5000
 ```
 
-Bu ad sunucuları, etki alanı adı kayıt şirketi (etki alanı adını satın aldığınız şirket) ile birlikte yapılandırılmalıdır. Kayıt şirketiniz, etki alanı için ad sunucularını ayarlama seçeneğini sunar. Daha fazla bilgi için [Öğreticisi: etki alanınızı Azure DNS'de konak](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+Bu ad sunucuları, etki alanı adı kayıt şirketi (etki alanı adını satın aldığınız şirket) ile birlikte yapılandırılmalıdır. Kayıt şirketiniz, etki alanı için ad sunucularını ayarlama seçeneğini sunar. Daha fazla bilgi için [Öğreticisi: Etki alanınızı Azure DNS'de konak](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## <a name="delete-all-resources"></a>Tüm kaynakları silme
 
 Artık gerekmediğinde, kaynak grubunu silerek bu hızlı başlangıçta oluşturulan tüm kaynakları silebilirsiniz:
 
 ```powershell
-Remove-AzureRMResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

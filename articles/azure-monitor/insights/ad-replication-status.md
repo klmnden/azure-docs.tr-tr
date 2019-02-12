@@ -1,5 +1,5 @@
 ---
-title: Active Directory çoğaltma durumu Azure Log Analytics ile izleme | Microsoft Docs
+title: Active Directory çoğaltma durumu Azure İzleyici ile izleme | Microsoft Docs
 description: Active Directory çoğaltma durumu çözüm paketi, Active Directory ortamınızı çoğaltma hataları için düzenli olarak izler.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d597a3491f80bc09c3e0676d17971f2509ba47a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3b7aa932d24b7879ee3f46419afa2327ee48b403
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818745"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001009"
 ---
-# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics ile Active Directory çoğaltma durumunu izleme
+# <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure İzleyici ile Active Directory çoğaltma durumunu izleme
 
 ![AD çoğaltma durumu simgesi](./media/ad-replication-status/ad-replication-status-symbol.png)
 
@@ -28,11 +28,26 @@ Active Directory kuruluş BT ortamında önemli bir bileşenidir. Yüksek kullan
 
 AD çoğaltma durumu çözüm paketi, Active Directory ortamınızı çoğaltma hataları için düzenli olarak izler.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
+
 ## <a name="installing-and-configuring-the-solution"></a>Çözümünü yükleme ve yapılandırma
 Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
-* Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinde aracıları yüklemeniz gerekir. Veya üye sunuculara aracıları yükleyin ve AD çoğaltma verilerini Log Analytics'e göndermek için aracıları yapılandırmanız gerekir. Windows bilgisayarlarını Log Analytics'e bağlama anlamak için bkz. [bağlanmak Windows bilgisayarlarını Log Analytics'e](../../azure-monitor/platform/agent-windows.md). Etki alanı denetleyicinizi Log Analytics'e bağlama, görmek istediğiniz mevcut bir System Center Operations Manager ortamının bir parçası ise [Log Analytics için Operations Manager'ı bağlama](../../azure-monitor/platform/om-agents.md).
-* Active Directory çoğaltma durumu çözümü, açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../../azure-monitor/insights/solutions.md).  Başka bir yapılandırma işlemi gerekmez.
+### <a name="install-agents-on-domain-controllers"></a>Etki alanı denetleyicilerinde aracıları yükleyin
+Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinde aracıları yüklemeniz gerekir. Veya üye sunuculara aracıları yükleyin ve aracılar için Azure İzleyici AD çoğaltma verileri göndermek için yapılandırmanız gerekir. Windows bilgisayarları Azure İzleyicisi'ne bağlanma hakkında bilgi almak için bkz. [Azure İzleyici bağlanmak Windows bilgisayarlara](../../azure-monitor/platform/agent-windows.md). Etki alanı denetleyicisine bağlanmak için Azure İzleyici, görmek istediğiniz mevcut bir System Center Operations Manager ortamın parçası ise [Azure İzleyici için Operations Manager'ı bağlama](../../azure-monitor/platform/om-agents.md).
+
+### <a name="enable-non-domain-controller"></a>Olmayan etki alanı denetleyicisi etkinleştir
+Herhangi bir etki alanı denetleyicilerinizin doğrudan Azure İzleyici bağlanmak istemiyorsanız, herhangi bir bilgisayarda etki alanınızı Azure İzleyicisi'ne bağlı olarak AD çoğaltma durumu çözüm paketi için veri toplamak ve bu verileri göndermek için kullanabilirsiniz.
+
+1. Bilgisayarı AD çoğaltma durumu çözümünü kullanarak izlemek istediğiniz etki alanının bir üyesi olduğunu doğrulayın.
+2. [Azure İzleyicisi ile Windows bilgisayarı bağlantı](../../azure-monitor/platform/om-agents.md) veya [mevcut Operations Manager ortamınızı Azure İzleyicisi'ni kullanarak bağlanma](../../azure-monitor/platform/om-agents.md), zaten bağlı değil.
+3. Bu bilgisayarda, aşağıdaki kayıt defteri anahtarını ayarlayın:<br>Anahtar: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Değer: **IsTarget**<br>Değer verisi: **true**
+
+   > [!NOTE]
+   > Bu değişiklikler, yeniden başlatmaya kadar Microsoft Monitoring Agent hizmeti (HealthService.exe) etkili olmaz.
+### <a name="install-solution"></a>Çözüm yükleme
+Açıklanan işlemi izleyin [bir izleme çözümü yükleme](solutions.md#install-a-monitoring-solution) eklemek için **Active Directory çoğaltma durumu** Log Analytics çalışma alanınıza çözüm. Başka bir yapılandırma işlemi gerekmez.
+
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD çoğaltma durumu verileri toplama ayrıntıları
 Veri toplama metotlarını ve verileri için AD çoğaltma durumu nasıl toplanır hakkında diğer ayrıntıları aşağıdaki tabloda gösterilmektedir.
@@ -41,28 +56,15 @@ Veri toplama metotlarını ve verileri için AD çoğaltma durumu nasıl toplan�
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |beş günde bir |
 
-## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>İsteğe bağlı olarak, AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştir
-Herhangi bir etki alanı denetleyicilerinizin doğrudan Log Analytics'e bağlanmak istemiyorsanız, herhangi bir bilgisayarda etki alanınızda Log Analytics'e bağlı AD çoğaltma durumu çözüm paketi için veri toplamak ve bu verileri göndermek için kullanabilirsiniz.
 
-### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirmek için
-1. Bilgisayarı AD çoğaltma durumu çözümünü kullanarak izlemek istediğiniz etki alanının bir üyesi olduğunu doğrulayın.
-2. [Windows bilgisayarı Log Analytics'e bağlayın](../../azure-monitor/platform/om-agents.md) veya [kullanarak mevcut Operations Manager ortamınızı Log analytics'e bağlanma](../../azure-monitor/platform/om-agents.md), zaten bağlı değil.
-3. Bu bilgisayarda, aşağıdaki kayıt defteri anahtarını ayarlayın:
-
-   * Anahtar: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Değer: **IsTarget**
-   * Değer verisi: **true**
-
-   > [!NOTE]
-   > Bu değişiklikler, yeniden başlatmaya kadar Microsoft Monitoring Agent hizmeti (HealthService.exe) etkili olmaz.
-   >
-   >
 
 ## <a name="understanding-replication-errors"></a>Çoğaltma hatalarını anlama
-AD çoğaltma durumu verilerini Log Analytics'e gönderilen oluşturduktan sonra şu anda kaç çoğaltma hataları belirten Log analytics'te aşağıdaki görüntüye benzer bir kutucuk görürsünüz.  
-![AD çoğaltma durumu kutucuğu](./media/ad-replication-status/oms-ad-replication-tile.png)
 
-**Kritik çoğaltma hataları** veya % 75'ini üzerindeki hatalar [ömründen](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) , Active Directory ormanı için.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
+AD çoğaltma durumu kutucuğu şu anda kaç çoğaltma hataları görüntüler. **Kritik çoğaltma hataları** veya % 75'ini üzerindeki hatalar [ömründen](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) , Active Directory ormanı için.
+
+![AD çoğaltma durumu kutucuğu](./media/ad-replication-status/oms-ad-replication-tile.png)
 
 Kutucuğa tıkladığınızda, hatalar hakkında daha fazla bilgi görüntüleyebilirsiniz.
 ![AD çoğaltma durumu Panosu](./media/ad-replication-status/oms-ad-replication-dash.png)
@@ -104,11 +106,11 @@ AD çoğaltma durumu çözümü sayısını gösterir. Pano kutucuğu daha önce
 >
 
 ### <a name="ad-replication-status-details"></a>AD çoğaltma durumu ayrıntıları
-Bu listelerden birine herhangi bir öğeye tıkladığınızda, günlük arama özelliğini kullanarak hakkındaki ek ayrıntıları bakın. Sonuçları yalnızca bu öğe ile ilgili hataları gösterecek şekilde filtrelenir. Tıklayarak etki alanı denetleyicisine altında listelendiğinden **hedef sunucu durumu (ADDC02)**, arama sonuçları için filtre gördüğünüz show hata etki alanı denetleyicisi ile hedef sunucu olarak listelenen:
+Herhangi bir öğeyi, listelerden birine tıkladığınızda, bir günlük sorgusu kullanarak hakkındaki ek ayrıntıları bakın. Sonuçları yalnızca bu öğe ile ilgili hataları gösterecek şekilde filtrelenir. Tıklayarak etki alanı denetleyicisine altında listelendiğinden **hedef sunucu durumu (ADDC02)**, sorgu sonuçları için filtre gördüğünüz show hata etki alanı denetleyicisi ile hedef sunucu olarak listelenen:
 
-![Arama sonuçlarında AD çoğaltma durumu hataları](./media/ad-replication-status/oms-ad-replication-search-details.png)
+![Sorgu sonuçlarında AD çoğaltma durumu hataları](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-Buradan daha fazla filtrelemek, arama sorguyu değiştirin ve benzeri. Günlük araması'nı kullanma hakkında daha fazla bilgi için bkz. [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md).
+Buradan daha fazla filtrelemek, günlük sorguyu değiştirin ve benzeri. Azure İzleyici'de günlük sorguları kullanma hakkında daha fazla bilgi için bkz. [analiz günlük verilerini Azure İzleyici'de](../../azure-monitor/log-query/log-query-overview.md).
 
 **HelpLink** alan belirli hata hakkında ek ayrıntılar ile TechNet sayfanın URL'sini gösterir. Kopyalayın ve bu bağlantı sorunlarını giderme ve hata düzeltme hakkında bilgi için tarayıcı pencerenizi yapıştırın.
 
@@ -124,10 +126,11 @@ C: Bilgiler, beş günde bir güncelleştirilir.
 C: Şu anda değil.
 
 **S: Tüm etki alanı denetleyicilerine my çoğaltma durumunu görmek için Log Analytics çalışma alanıma Ekle gerekiyor mu?**
-C: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. Log Analytics çalışma alanınızda birden çok etki alanı denetleyiciniz varsa, bunların tümünün verileri Log Analytics'e gönderilir.
+C: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. Log Analytics çalışma alanınızda birden çok etki alanı denetleyiciniz varsa, bunları tüm veriler Azure İzleyicisi'ne gönderilir.
 
 **S: Herhangi bir etki alanı denetleyicileri Log Analytics çalışma alanıma Ekle istemiyorum. AD çoğaltma durumu çözümü kullanabilir miyim?**
-C: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Görmek için AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirin.
+
+C: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Bkz: [etkin olmayan etki alanı denetleyicisi](#enable-non-domain-controller).
 
 **S: Veri koleksiyonu yapan işlemin adı nedir?**
 C: AdvisorAssessment.exe
@@ -147,9 +150,9 @@ C: Active Directory normal kullanıcı izinlerini yeterlidir.
 ## <a name="troubleshoot-data-collection-problems"></a>Veri toplama sorunlarını giderme
 Veri toplamak için Log Analytics çalışma alanınıza bağlı için en az bir etki alanı denetleyicisi AD çoğaltma durumu çözüm paketi gerektirir. Bir etki alanı denetleyicisine bağlanmak kadar belirten bir ileti görünür **veri hala toplanmakta olan**.
 
-Etki alanı denetleyicilerinizden biri bağlama konusunda yardıma ihtiyacınız varsa, belgeleri görüntüleyebilirsiniz [bağlanmak Windows bilgisayarlarını Log Analytics'e](../../azure-monitor/platform/om-agents.md). Alternatif olarak, etki alanı denetleyicinize bir System Center Operations Manager ortamı için zaten bağlıysa, belgeleri görüntüleyebilirsiniz [System Center Operations Manager'a bağlama Log analytics'e](../../azure-monitor/platform/om-agents.md).
+Etki alanı denetleyicilerinizden biri bağlama konusunda yardıma ihtiyacınız varsa, belgeleri görüntüleyebilirsiniz [Azure İzleyici bağlanmak Windows bilgisayarlara](../../azure-monitor/platform/om-agents.md). Alternatif olarak, etki alanı denetleyicinize bir System Center Operations Manager ortamı için zaten bağlıysa, belgeleri görüntüleyebilirsiniz [System Center Operations Manager bağlanmak için Azure İzleyici](../../azure-monitor/platform/om-agents.md).
 
-Herhangi bir etki alanı denetleyicilerinizin doğrudan Log Analytics veya System Center Operations Manager bağlanmak istemiyorsanız, AD verilerini Log Analytics'e göndermek olmayan etki alanı denetleyicisi etkinleştirmek için bkz.
+Herhangi bir etki alanı denetleyicilerinizin doğrudan Azure İzleyici veya System Center Operations Manager bağlanmak istemiyorsanız bkz [etkin olmayan etki alanı denetleyicisi](#enable-non-domain-controller).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı Active Directory çoğaltma Durumu verisini görüntülemek için.
+* Kullanım [sorgular Azure İzleyici'de oturum](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı Active Directory çoğaltma Durumu verisini görüntülemek için.

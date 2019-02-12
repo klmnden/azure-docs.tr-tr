@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0903756ba7df34e7dba20301d45cbd4b6cc4d5ea
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471326"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992526"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB ile yüksek kullanılabilirlik
 
@@ -34,8 +34,8 @@ Global olarak dağıtılmış bir veritabanı olarak Cosmos DB, aktarım hızı,
 
 |İşlem türü  | Tek bölge |Çok bölgeli (tek bölge yazar)|Çok bölgeli (çok bölgeli yazar) |
 |---------|---------|---------|-------|
-|Yazar    | 99.99    |99.99   |99.999|
-|Okur     | 99.99    |99.999  |99.999|
+|Yazma    | 99.99    |99.99   |99.999|
+|Okuma     | 99.99    |99.999  |99.999|
 
 > [!NOTE]
 > Uygulamada, sınırlanmış eskime durumu, oturum, tutarlı ön ek ve nihai tutarlılık modeli gerçek yazma kullanılabilirliği yayımlanan Sla'lardan önemli ölçüde büyük/küçük harf yüksektir. Gerçek okuma kullanılabilirliği için tüm tutarlılık düzeyi yayımlanan SLA'lar yüksektir.
@@ -63,6 +63,20 @@ Bölgesel kesintiler nadir değildir ve Azure Cosmos DB, veritabanının her zam
 - Bir yazma tek bölge ile yapılandırılmış olan çok bölgeli Cosmos hesapları için [otomatik yük devretme, Azure CLI veya Azure portalını kullanarak etkinleştirmeniz](how-to-manage-database-account.md#automatic-failover). Bölgesel bir olağanüstü durumda olduğunda otomatik yük devretme etkinleştirdikten sonra Cosmos DB devreder otomatik olarak hesabınızı.  
 
 - Cosmos hesabınızı yüksek oranda kullanılabilir olsa bile, uygulamanızın doğru bir şekilde yüksek oranda kullanılabilir kalmasını tasarlanmamış olabilir. Uçtan uca yüksek kullanılabilirlik için uygulamanızı test etmek için düzenli aralıklarla çağırma [Azure CLI veya Azure portalını kullanarak el ile yük devretme](how-to-manage-database-account.md#manual-failover), uygulamayı test etmek veya olağanüstü durum kurtarma (DR) bir parçası olarak gidilmesini sağlar.
+
+
+İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarır önce kabul edilebilen maksimum süre anlamanız gerekir. Bir uygulamanın tamamen kurtarmak için gereken süre, Kurtarma süresi hedefi (RTO) bilinir. Ayrıca uygulama edilebilecek son veri güncelleştirmelerinin maksimum süreyi anlamanız gereken bir kesintiden sonra kurtarılırken. Zaman dilimi kaybetmeyi göze güncelleştirmeleri, kurtarma noktası hedefi (RPO) bilinir.
+
+Aşağıdaki tabloda en yaygın senaryolar için RTO ve RPO gösterilmektedir.
+
+|Sayı, bölgeler |Yapılandırma |Tutarlılık Düzeyi|RPO |RTO |
+|---------|---------|---------|-------|-------|
+|1    | *    |*   | < 240 dakika | < 1 hafta |
+|>1     | Tek yöneticili çoğaltma | Oturum, tutarlı ön ek, nihai | < 15 dakika | < 15 dakika |
+|>1     | Tek yöneticili çoğaltma | Sınırlanmış Eskime Durumu | K &AMP; T | < 15 dakika |
+|>1     | Çok yöneticili çoğaltma | Oturum, tutarlı ön ek, nihai | < 15 dakika | 0 |
+|>1     | Çok yöneticili çoğaltma | Sınırlanmış Eskime Durumu | K &AMP; T | 0 |
+|>1     | * | Güçlü | 0 | < 15 dakika |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics'e İşlevler | Microsoft Docs
-description: Bu makalede, başka bir sorgu Log analytics'te sorgu çağırmanıza işlevler kullanılacağını açıklar.
+title: Azure İzleyici günlük sorguları işlevleri | Microsoft Docs
+description: Bu makalede, Azure İzleyici'de başka bir günlük sorgusundan bir sorgu çağırmak için işlevleri kullanmayı açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 8f2855ed56d298ec4c6abee02dd59ce9471f0d2e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6c6bd31961022957ec1a09fef6058ad32476e1c7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883313"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005106"
 ---
-# <a name="using-functions-in-azure-monitor-log-analytics"></a>Azure İzleyici Log Analytics'te işlevlerini kullanma
+# <a name="using-functions-in-azure-monitor-log-queries"></a>Azure izleyici günlüğü sorgularda işlevlerini kullanma
 
 > [!NOTE]
 > Tamamlamanız gereken [Analytics portalı ile çalışmaya başlama](get-started-portal.md) ve [sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
@@ -28,11 +28,11 @@ ms.locfileid: "52883313"
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 
-Başka bir sorguyla Log Analytics sorgusu kullanmak için bir işlev olarak kaydedebilirsiniz. Bu, karmaşık sorgular parçaya bölerek basitleştirmenize olanak sağlar ve birden fazla sorgu içeren ortak kodun yeniden kullanmanıza izin verir.
+Günlük sorgusu başka bir sorgu ile kullanmak için bir işlev olarak kaydedebilirsiniz. Bu, karmaşık sorgular parçaya bölerek basitleştirmenize olanak sağlar ve birden fazla sorgu içeren ortak kodun yeniden kullanmanıza izin verir.
 
 ## <a name="create-a-function"></a>İşlev oluşturma
 
-Tıklayarak Azure portalında bir işlev oluşturma **Kaydet** ve ardından aşağıdaki tablodaki bilgileri girdikten.
+Tıklayarak log analytics'te Azure portalında işlev oluşturma **Kaydet** ve ardından aşağıdaki tablodaki bilgileri girdikten.
 
 | Ayar | Açıklama |
 |:---|:---|
@@ -42,10 +42,10 @@ Tıklayarak Azure portalında bir işlev oluşturma **Kaydet** ve ardından aşa
 | Kategori       | Kaydedilmiş Sorgular ve işlevlerde düzenlemek için bir kategori **sorgu Gezgini**. |
 
 > [!NOTE]
-> Log analytics'te bir işlev, başka bir işlev içeremez.
+> Azure İzleyici'de bir işlev, başka bir işlev içeremez.
 
 > [!NOTE]
-> Bir işlev kaydetmek için sorgular Application ınsights'ı Log Analytics sorguları, ancak şu anda mümkündür.
+> Bir işlev kaydetmek için sorgular Application ınsights'ı Azure izleyici günlüğü sorgularda, ancak şu anda mümkündür.
 
 
 
@@ -69,7 +69,7 @@ security_updates_last_day | where Title contains "SQL"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Log Analytics sorgu dilini kullanarak için diğer dersler bakın:
+Azure İzleyici günlük sorguları yazma diğer dersler bakın:
 
 - [Dize işlemleri](string-operations.md)
 - [Tarih ve saat işlemleri](datetime-operations.md)

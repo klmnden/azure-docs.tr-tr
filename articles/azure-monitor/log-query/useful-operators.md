@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorguları yararlı işleçler | Microsoft Docs
-description: Log Analytics sorgu farklı senaryolar için kullanılacak ortak işlevler.
+title: Azure İzleyici'de faydalı işleçleri oturum sorgular | Microsoft Docs
+description: Azure İzleyici günlük sorguları farklı senaryolar için kullanılacak ortak işlevler.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 060b1e469a31c335f062ccd332157d13e64f9318
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183991"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000157"
 ---
-# <a name="useful-operators-in-log-analytics-queries"></a>Log Analytics sorguları yararlı işleçleri
+# <a name="useful-operators-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları yararlı işleçleri
 
-Aşağıdaki tabloda, Log Analytics sorgu farklı senaryolar için kullanılacak ortak bazı işlevler sağlar.
+Aşağıdaki tabloda, farklı senaryolarda Azure İzleyici günlük sorguları için kullanılacak ortak bazı işlevler sağlar.
 
 ## <a name="useful-operators"></a>Yararlı işleçler
 
@@ -46,4 +46,4 @@ Makine öğrenimi                        |`evaluate autocluster`, `basket`, `dif
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ders ile devam [Log Analytics'te sorgu yazma](get-started-queries.md).
+- Ders ile devam [Azure İzleyici'de günlük sorguları yazma](get-started-queries.md).

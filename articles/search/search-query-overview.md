@@ -9,16 +9,29 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.custom: seodec2018
-ms.openlocfilehash: 9b682b9cd17c174363dcd04707a11075e30cc8e1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214836"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005055"
 ---
-# <a name="query-types-and-composition-in-azure-search"></a>Sorgu türleri ve Azure Search oluşturma
+# <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search'te bir sorgu oluşturmak nasıl
 
-Azure Search'te bir sorgu tam bir gidiş dönüş işlemi belirtimi ' dir. Parametreleri, belgelere dizin, yürütme yönergeleriyle altyapısı ve yanıt şekillendirmek için yönergeler için bulmak için eşleşme ölçütlerini girin. Kapsam, arama yapma, sıralama veya filtreleme için iade vb. için hangi alanların hangi alanların olduğunu daha kesin bir şekilde belirtebilirsiniz. Belirtilmezse, rastgele sırayla kümesi puanlanmayan bir sonuç döndüren bir tam metin arama işlemi olarak tüm aranabilir alanları karşı bir sorgu çalıştırır.
+Azure Search'te bir sorgu tam bir gidiş dönüş işlemi belirtimi ' dir. İstekte parametreler belgelere dizin, yürütme yönergeleriyle altyapısı ve yanıt şekillendirmek için yönergeler için bulmak için eşleştirme ölçütü belirtin. 
+
+Bir sorgu isteği kapsam, arama yapma, sıralama veya filtreleme için iade vb. için hangi alanların hangi alanların olduğunu belirten zengin bir yapıdır. Belirtilmezse, rastgele sırayla kümesi puanlanmayan bir sonuç döndüren bir tam metin arama işlemi olarak tüm aranabilir alanları karşı bir sorgu çalıştırır.
+
+### <a name="apis-and-tools-for-testing"></a>API'ler ve test araçları
+
+Aşağıdaki tabloda sorguları gönderme aracı tabanlı yaklaşımlar ve API'ları listeler.
+
+| Yöntemi | Açıklama |
+|-------------|-------------|
+| [Arama Gezgini (portal)](search-explorer.md) | Arama çubuğu ve dizin ve API sürümü seçimleri için seçenekler sağlar. Sonuçlar, JSON belgeleri olarak döndürülür. <br/>[Daha fazla bilgi edinin.](search-get-started-portal.md#query-index) | 
+| [Postman veya diğer HTTP test aracı](search-fiddler.md) | Bir HTTP isteği üst bilgisi ve gövdesi sorgular Azure Search'e göndermek için nasıl ayarlanacağı açıklanır.  |
+| [Searchındexclient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Bir Azure Search dizinini sorgulama için kullanılan istemci.  <br/>[Daha fazla bilgi edinin.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Search belgeleri (REST API'si)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET veya POST yöntemleri için ek giriş sorgu parametrelerini kullanarak, bir dizin üzerinde.  |
 
 ## <a name="a-first-look-at-query-requests"></a>Sorgu istekleri ilk göz
 
@@ -52,7 +65,7 @@ Bu sorguyu çalıştırmak için kullanın [arama Gezgini ve tanıtım Emlak diz
 
 Bu sorgu dizesi explorer'ın arama çubuğuna yapıştırabilirsiniz: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
 
-### <a name="how-query-operations-are-enabled-by-the-index"></a>Dizine göre sorgu işlemleri nasıl etkinleştirilir
+## <a name="how-query-operations-are-enabled-by-the-index"></a>Dizine göre sorgu işlemleri nasıl etkinleştirilir
 
 Dizin tasarımı ve tasarım Azure Search'te sıkıca sorgu. Önden bilmek önemli bir olgu olan *dizin şeması*, her bir alan özniteliklerinde ile sorgu yapı türünü belirler. 
 
@@ -148,17 +161,6 @@ Azure Search arama puanı dışında bir değere göre sıralı kullanabileceği
 
 ### <a name="hit-highlighting"></a>İsabet vurgulama
 Azure Search'te arama sonuçlarının arama sorgusuyla eşleşen tam bölümü vurgulama kullanarak kolaylaştırılmıştır **`highlight`**, **`highlightPreTag`**, ve **`highlightPostTag`** parametreleri. Hangi *aranabilir* alanların eşleşen metninin vurgulanacağının yanı sıra Azure Search'ün döndürdüğü eşleşen metnin başına ve sonuna eklenecek dize etiketlerini tam olarak belirtebilirsiniz.
-
-## <a name="apis-and-tools-for-testing"></a>API'ler ve test araçları
-
-Aşağıdaki tabloda sorguları gönderme aracı tabanlı yaklaşımlar ve API'ları listeler.
-
-| Yöntemi | Açıklama |
-|-------------|-------------|
-| [Searchındexclient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Bir Azure Search dizinini sorgulama için kullanılan istemci.  <br/>[Daha fazla bilgi edinin.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Search belgeleri (REST API'si)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET veya POST yöntemleri için ek giriş sorgu parametrelerini kullanarak, bir dizin üzerinde.  |
-| [Fiddler veya Postman diğer HTTP test aracı](search-fiddler.md) | İstek üst bilgisi ve gövdesi sorgular Azure Search'e göndermek için nasıl ayarlanacağı açıklanır.  |
-| [Azure portalında arama Gezgini](search-explorer.md) | Arama çubuğu ve dizin ve API sürümü seçimleri için seçenekler sağlar. Sonuçlar, JSON belgeleri olarak döndürülür. <br/>[Daha fazla bilgi edinin.](search-get-started-portal.md#query-index) | 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

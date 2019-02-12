@@ -1,5 +1,5 @@
 ---
-title: Azure portalında log Analytics ile çalışmaya başlama | Microsoft Docs
+title: Azure İzleyici log analytics ile çalışmaya başlama | Microsoft Docs
 description: Bu makale, Log Analytics sorguları yazma Azure Portalı'nda kullanmaya yönelik bir öğretici sağlar.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 6ed8906066d66b6e16ec482a53137f9ca70ae9c7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b9a5c78ff9d6c1e2c7194f5b92511e94dfafb058
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000043"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990505"
 ---
-# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Azure portalında log Analytics ile çalışmaya başlama
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Azure İzleyici log analytics ile çalışmaya başlama
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Bu öğreticide, Log Analytics sorguları yazma (şu anda önizlemede) Azure portalında Log Analytics sayfa kullanmayı öğreneceksiniz. Size nasıl yardımcı olacak için:
+Bu öğreticide, Azure İzleyici log analytics Azure portalında Azure İzleyici günlük sorguları yazma için nasıl kullanılacağını öğreneceksiniz. Size nasıl yardımcı olacak için:
 
 - Basit Sorgu yazma
 - Verilerinizin şemasını anlama
@@ -35,8 +35,8 @@ Bu öğreticide, Log Analytics sorguları yazma (şu anda önizlemede) Azure por
 - Verme ve sorguları paylaşma
 
 
-## <a name="meet-the-log-analytics-page"></a>Log Analytics sayfanın karşılamak 
-Log Analytics, yazma ve Azure Log Analytics sorgularını yürütmek için kullanılan bir web aracını sayfasıdır. Seçerek açın **günlükleri (Önizleme)** Log Analytics menüsünde. Yeni bir boş sorgu ile başlar.
+## <a name="meet-log-analytics"></a>Log analytics'e karşılamak
+Log analytics, yazma ve Azure İzleyici günlük sorguları yürütmek için kullanılan web bir araçtır. Seçerek açın **günlükleri** Azure İzleyici menüsünde. Yeni bir boş sorgu ile başlar.
 
 ![Giriş sayfası](media/get-started-portal/homepage.png)
 
@@ -64,8 +64,8 @@ Bu örnekte, **arama** kapsamı _olay_ tablo ve bu tablodaki tüm kayıtları "e
 ## <a name="running-a-query"></a>Bir sorgu çalıştırma
 Tıklayarak bir sorgu çalıştırın **çalıştırma** düğme veya tuşlarına basarak **Shift + Enter**. Çalıştırılacak kod ve döndürülen verileri belirleyen aşağıdaki ayrıntıları göz önünde bulundurun:
 
-- Satır sonları: tek bir kesme sorgunuzu daha anlaşılır hale getirir. Birden çok satır sonları ayrı sorgulara bölün.
-- İmleç: imlecinizi sorgusunda çalıştırmak üzere bir yere yerleştirin. Geçerli sorgu boş bir satır bulunana kadar kodu olarak kabul edilir.
+- Satır sonları: Tek bir kesme sorgunuzu daha anlaşılır hale getirir. Birden çok satır sonları ayrı sorgulara bölün.
+- İmleç: İmlecinizi sorgusunda çalıştırmak üzere bir yere yerleştirin. Geçerli sorgu boş bir satır bulunana kadar kodu olarak kabul edilir.
 - Zaman aralığı - bir zaman aralığı _son 24 saat_ varsayılan olarak ayarlanır. Farklı bir aralık kullanmak için Saat Seçici kullanın veya açık bir zaman Ekle sorgunuz için Aralık filtresi.
 
 
@@ -83,10 +83,10 @@ Her şeyi alınırken Start _olay_ tablo.
 Event
 ```
 
-Log Analytics sayfasında, sonuçları otomatik olarak kapsamları:
+Log Analytics otomatik olarak kapsamları sonuçları:
 
-- Zaman aralığı: varsayılan olarak, sorgular son 24 saat sınırlıdır.
-- Sonuç sayısı: sonucu olan sınırlı en fazla 10.000 kaydeder.
+- Zaman aralığı:  Varsayılan olarak, sorgular son 24 saat sınırlıdır.
+- Sonuç sayısı: Sonuçları en fazla 10.000 kaydı için sınırlıdır.
 
 Bu sorgu çok genel ve kullanışlı olması için çok fazla sonuç döndürür. Tablo öğeleri aracılığıyla ya da açıkça sorguya bir filtre eklemeden sonuçlarını filtreleyebilirsiniz. Sorgu filtre yeni filtre uygulanmış bir sonuç ayarlamak ve bu nedenle daha doğru sonuçlar üretebilir döndürürken Tablo öğeleri aracılığıyla sonuçları filtrelemek mevcut sonuç kümesi için geçerlidir.
 
@@ -121,7 +121,7 @@ Sonuçlar tablosu, genellikle çok sayıda sütun içerir. Geri dönen sütunlar
 
 
 ## <a name="select-a-time-range"></a>Bir zaman aralığı seçin
-Varsayılan olarak, Log Analytics sayfa geçerlidir _son 24 saat_ zaman aralığı. Farklı bir aralık kullanmak için Saat Seçici başka bir değer seçin ve **çalıştırma**. Önceden oluşturulmuş değerlere ek olarak, kullandığınız _özel zaman aralığı_ sorgunuz için mutlak bir aralık seçmek için seçenek.
+Varsayılan olarak, log analytics'e uygular _son 24 saat_ zaman aralığı. Farklı bir aralık kullanmak için Saat Seçici başka bir değer seçin ve **çalıştırma**. Önceden oluşturulmuş değerlere ek olarak, kullandığınız _özel zaman aralığı_ sorgunuz için mutlak bir aralık seçmek için seçenek.
 
 ![Saat Seçici](media/get-started-portal/time-picker.png)
 
@@ -142,7 +142,7 @@ Event
 
 Varsayılan olarak, bir tablodaki sonuçlar görüntülenir. Tıklayın _grafik_ sonuçları bir grafik görünümde görmek için:
 
-![Çubuk grafik](media/get-started-portal/bar-chart.png)
+![Çubuk grafiği](media/get-started-portal/bar-chart.png)
 
 Sonuçlar, yığılmış çubuk grafik olarak görüntülenir. Tıklayın _yığılmış sütun_ seçip _pasta_ sonuçları başka bir görünümünü göstermek için:
 
@@ -164,9 +164,9 @@ Bir diyagram veya tabloya bir paylaşılan Azure panolarınızı sabitlemek içi
 
 Panoya sabitleme belirli basitleştirme grafiğe uygulanır:
 
-- Tablo satırları ve sütunları: bir tabloyu panoya sabitlemek için dört veya daha az sütun olması gerekir. Yalnızca üst yedi satırlar görüntülenir.
-- Kısıtlama süresi: sorguları için son 14 gün otomatik olarak sınırlı.
-- Depo sayısı kısıtlaması: çok sayıda ayrı bir depo olan grafik görüntülerseniz, daha az doldurulmuş depo tek bir otomatik olarak gruplandırılır _başkalarının_ depo.
+- Tablo sütunları ve satırları: Bir tabloyu panoya sabitlemek için dört veya daha az sütun olması gerekir. Yalnızca üst yedi satırlar görüntülenir.
+- Zaman kısıtlaması: Sorgular için son 14 gün otomatik olarak sınırlıdır.
+- Depo sayısı kısıtlaması: Çok sayıda ayrı bir depo olan grafik görüntülerseniz, daha az doldurulmuş depo tek bir otomatik olarak gruplandırılır _başkalarının_ depo.
 
 ## <a name="save-queries"></a>Sorguları Kaydet
 Yararlı bir sorgu oluşturduktan sonra kaydedin veya başkalarıyla paylaşmak isteyebilirsiniz. **Kaydet** üst çubuğunda simgedir.
@@ -175,7 +175,7 @@ Tüm sorgu sayfası ya da tek bir sorgu işlevi olarak kaydedebilirsiniz. Diğer
 
 ![İşlev Kaydet](media/get-started-portal/save-function.png)
 
-Log Analytics sorgu her zaman bir seçilen çalışma alanına kaydedilir ve bu çalışma alanının diğer kullanıcılarla paylaşılan.
+Log analytics sorgu her zaman bir seçilen çalışma alanına kaydedilir ve bu çalışma alanının diğer kullanıcılarla paylaşılan.
 
 ## <a name="load-queries"></a>Sorguları
 Sorgu Gezgini simgesine sağ üst alandır. Bu, tüm kaydedilmiş sorgular kategoriye göre listeler. Ayrıca, belirli sorguları hızla gelecekte bulmak için sık kullanılan olarak işaretlemek sağlar. Kaydedilmiş bir sorgu için geçerli pencere eklemek için çift tıklayın.
@@ -183,12 +183,12 @@ Sorgu Gezgini simgesine sağ üst alandır. Bu, tüm kaydedilmiş sorgular kateg
 ![Sorgu gezgini](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Dışarı aktarma ve bağlantı olarak paylaşın
-Log Analytics sayfanın birkaç verme yöntemleri destekler:
+Log Analytics'i birkaç verme yöntemleri destekler:
 
-- Excel: sonuçları bir CSV dosyası olarak kaydedin.
-- Power BI: sonuçları bir power BI dışarı aktarın. Bkz: [alma Azure Log Analytics verilerini Power bı'a](../../azure-monitor/platform/powerbi.md) Ayrıntılar için.
-- Bir bağlantı paylaşabilirsiniz: sorgu daha sonra gönderilen ve aynı çalışma alanına erişimi olan diğer kullanıcılar tarafından yürütülen bir bağlantı olarak paylaşılabilir.
+- Excel: Sonuçları CSV dosyası olarak kaydedin.
+- Power BI: Sonuçları power BI dışarı aktarın. Bkz: [alma Azure İzleyici günlük verilerini Power bı'a](../../azure-monitor/platform/powerbi.md) Ayrıntılar için.
+- Bir bağlantıyı Paylaş: Sorgu, ardından gönderilen ve aynı çalışma alanına erişimi olan diğer kullanıcılar tarafından yürütülen bir bağlantı olarak paylaşılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [Log Analytics sorguları yazma](get-started-queries.md).
+- Daha fazla bilgi edinin [Azure İzleyici günlük sorguları yazma](get-started-queries.md).

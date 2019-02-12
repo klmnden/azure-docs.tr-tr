@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885856"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002022"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -40,7 +40,9 @@ Tanılama günlükleri ile yapabileceklerinizden bazıları şunlardır:
 
 * Kaydetmek için bir [ **depolama hesabı** ](../../azure-monitor/platform/archive-diagnostic-logs.md) denetim veya el ile İnceleme. Bekletme süresi (gün cinsinden) kullanarak belirtebilirsiniz **kaynak tanılama ayarlarını**.
 * [Bunları Stream **Event Hubs** ](diagnostic-logs-stream-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
-* Bunları analiz [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md), verileri hemen Log Analytics'e ilk veri depolama alanına yazma gerek yazıldığı.  
+* Bunları analiz [Azure İzleyici](../../azure-monitor/platform/collect-azure-metrics-logs.md), verileri hemen Azure İzleyici ile ilk veri depolama alanına yazmaya gerek yazıldığı.  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Günlükleri yayan biri ile aynı abonelikte değil Event Hubs ad alanı veya bir depolama hesabını kullanabilirsiniz. Ayarı yapılandıran kullanıcının her iki aboneliğin uygun RBAC erişiminiz olması gerekir.
 
@@ -56,7 +58,7 @@ Günlükleri yayan biri ile aynı abonelikte değil Event Hubs ad alanı veya bi
 
 Kaynak tanılama günlükleri, kaynak tanılama ayarlarını kullanarak yapılandırılır. Kiracı tanılama günlükleri, Kiracı tanılama ayarı kullanılarak yapılandırılır. **Tanılama ayarları** hizmet denetimi için:
 
-* (Depolama hesabı, olay hub'ları ve/veya Log Analytics) burada tanılama günlükleri ve ölçümleri gönderilir.
+* (Depolama hesabı, olay hub'ları ve/veya Azure İzleyici) burada tanılama günlükleri ve ölçümleri gönderilir.
 * Ölçüm verilerini de gönderilip ve hangi günlük kategorileri gönderilir.
 * Bir depolama hesabında günlük kategorileri ne kadar süre tutulacağını
     - Bekletme günü sayısının sıfır günlükler süresiz olarak tutulur anlamına gelir. Aksi takdirde, değeri herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir.
@@ -235,5 +237,4 @@ Tanılama ayarı ekleme nerede etkinleştirebilir, devre dışı bırakmak veya 
 
 * [Kaynak tanılama günlükleri için Stream **olay hub'ları**](diagnostic-logs-stream-event-hubs.md)
 * [Azure İzleyici REST API'sini kullanarak kaynak tanılama ayarlarını değiştirme](https://docs.microsoft.com/rest/api/monitor/)
-* [Log Analytics ile Azure depolama biriminden günlüklerini çözümleme](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-
+* [Azure İzleyici ile Azure depolama biriminden günlüklerini çözümleme](collect-azure-metrics-logs.md)

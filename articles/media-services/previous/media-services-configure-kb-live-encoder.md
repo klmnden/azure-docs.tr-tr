@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/04/2018
+ms.date: 02/08/2019
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: f6d4fcf5e6ec8029bb0e7c303849fdceef5bace7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1672eb2ef0db36c9b30ca444fa4224eb1afbe828
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012097"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998493"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Haivision KB gerçek zamanlı Kodlayıcı, tek bit hızlı canlı akış göndermek için kullanın
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Haivision KB gerçek zamanlı Kodlayıcı, tek bit hızlı canlı akış göndermek için kullanın  
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
@@ -60,29 +60,29 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
 Video:
 -   Codec: H.264
 -   Profil: Yüksek (düzeyi 4.0)
--   Bit hızı: 5000 KB/sn
+-   Bit hızı: 5000 kbps
 -   Ana kare: 2 saniye (60 çerçeve)
--   Kare oranı: 30
+-   Kare hızı: 30
 
 Ses:
 -   Codec: AAC (LC)
--   Bit hızı: 192 Kb/sn
+-   Bit hızı: 192 kbps
 -   Örnek Hızı: 44,1 kHz
 
 ## <a name="configuration-steps"></a>Yapılandırma adımları
 1.  Haivision KB kullanıcı arabirimine oturum açın.
 2.  Tıklayarak **menü düğmesine** kanal denetim merkezi seçip **Kanal Ekle**  
-    ![Ekran görüntüsü 2017-08-14 9.15.09 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step2.png)
+    ![Ekran 2017-08-14 9.15.09 AM](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  Tür **kanal adı** ad alanı ve sonraki tıklayın.  
-    ![Ekran görüntüsü 2017-08-14 9.19.07 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step3.png)
+    ![Ekran 2017-08-14 9.19.07 AM](./media/media-services-configure-kb-live-encoder/step3.png)
 4.  Seçin **kanal giriş kaynağı** gelen **giriş kaynağı** açılır ve sonraki tıklayın.
-    ![Ekran görüntüsü 2017-08-14 9.20.44 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step4.png)
+    ![Ekran 2017-08-14 9.20.44 AM](./media/media-services-configure-kb-live-encoder/step4.png)
 5.  Gelen **Encoder şablonunu** açılan seçin **720 AAC 192 H264** ve sonraki tıklayın.
-    ![Ekran görüntüsü 2017-08-14 9.23.15 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step5.png)
+    ![Ekran 2017-08-14 9.23.15 AM](./media/media-services-configure-kb-live-encoder/step5.png)
 6.  Gelen **seçin yeni çıkış** açılan seçin **RTMP** ve sonraki tıklayın.  
-    ![Ekran görüntüsü 2017-08-14 9.27.51 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step6.png)
+    ![Ekran 2017-08-14 9.27.51 AM](./media/media-services-configure-kb-live-encoder/step6.png)
 7.  Gelen **kanal çıkış** penceresinde Azure akış bilgileri doldurun. Yapıştırma **RTMP** ilk kanal kurulumunda bağlantıdan **sunucu** alan. İçinde **çıkış adı** kanal adını alan yazın. Stream adı şablon bölümünde, şablonu RTMPStreamName_ video_bitrate % Akış adı için kullanın.
-    ![Ekran görüntüsü 2017-08-14 9.33.17 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step7.png)
+    ![Ekran 2017-08-14 9.33.17 AM](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  İleri'yi ve sonra Bitti'ye tıklayın tıklatın.
 9.  Tıklayın **YÜRÜT düğmesine** Kodlayıcı kanalı başlatmak.  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)

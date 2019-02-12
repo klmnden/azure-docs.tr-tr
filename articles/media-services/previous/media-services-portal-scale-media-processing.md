@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2aabdc503a694de46796b7c3afeedfcdb2f39ca9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 810d1bf6a550539b402721d089d8b041cfb48634
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037881"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991472"
 ---
 # <a name="change-the-reserved-unit-type"></a>Ayrılmış birim türünü değiştirme
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "51037881"
 
 ## <a name="overview"></a>Genel Bakış
 
-Media Services hesabı bir Ayrılmış Birim Türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: **S1**, **S2** veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır.
+Media Services hesabı bir Ayrılmış Birim Türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden seçebilirsiniz: **S1**, **S2**, veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır.
 
 Ayrılmış birim türünü belirtmenin yanı sıra, hesabınızın **Ayrılmış Birimler** (RU) ile sağlanmasını da belirtebilirsiniz. Sağlanan RU sayısı, verili bir hesapta eşzamanlı olarak işlenebilecek medya görevlerinin sayısını belirler.
 
@@ -53,7 +53,7 @@ Ayrılmış birim türünü ve ayrılmış birim sayısını değiştirmek için
    
     Seçilen ayrılmış birim türünü ayrılmış birim sayısını değiştirmek için kullanın **medya hizmet birimi** kaydırıcı ekranın üstünde.
    
-    Değiştirilecek **AYRILMIŞ birim TÜRÜNÜ**, tıklayarak **ayrılmış işleme birimlerinin hızı** çubuğu. Ardından istediğiniz fiyatlandırma katmanını seçin: S1, S2 veya S3.
+    Değiştirilecek **AYRILMIŞ birim TÜRÜNÜ**, tıklayarak **ayrılmış işleme birimlerinin hızı** çubuğu. Ardından, gerek duyduğunuz fiyatlandırma katmanını seçin: S1, S2 veya S3.
    
 3. Yaptığınız değişiklikleri kaydetmek için KAYDET düğmesine basın.
    

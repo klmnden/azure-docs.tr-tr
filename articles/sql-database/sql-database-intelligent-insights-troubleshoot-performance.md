@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455074"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993648"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
@@ -237,7 +237,7 @@ Daha fazla bilgi için [giriş bellek için iyileştirilmiş tablolara](https://
 
 Bu algılanabilir performans deseni bir düşüş son yedi günlük taban çizgisine göre geçerli veritabanı iş yükü performansını gösterir. Aboneliğinizin esnek Havuzda kullanılabilir Dtu'lar yetersizliği kaynaklanır. 
 
-SQL veritabanı'nda kaynaklar genellikle denir [DTU kaynaklarını](sql-database-service-tiers.md#dtu-based-purchasing-model), harmanlanmış bir CPU ve g/ç (veri ve işlem günlüğü g/ç) kaynakları oluşur. [Azure elastik havuzu kaynakları](sql-database-elastic-pool.md) amacıyla ölçeklendirme için birden çok veritabanı arasında paylaşılan kullanılabilir eDTU kaynaklarını oluşan bir havuz olarak kullanılır. Kullanılabilir eDTU kaynaklarını, elastik havuzdaki tüm veritabanlarının havuzdaki desteklemek için yeterli büyüklükte değil, sistem tarafından bir elastik havuz DTU eksik performans sorunu algılandı.
+SQL veritabanı'nda kaynaklar genellikle denir [DTU kaynaklarını](sql-database-purchase-models.md#dtu-based-purchasing-model), harmanlanmış bir CPU ve g/ç (veri ve işlem günlüğü g/ç) kaynakları oluşur. [Azure elastik havuzu kaynakları](sql-database-elastic-pool.md) amacıyla ölçeklendirme için birden çok veritabanı arasında paylaşılan kullanılabilir eDTU kaynaklarını oluşan bir havuz olarak kullanılır. Kullanılabilir eDTU kaynaklarını, elastik havuzdaki tüm veritabanlarının havuzdaki desteklemek için yeterli büyüklükte değil, sistem tarafından bir elastik havuz DTU eksik performans sorunu algılandı.
 
 ### <a name="troubleshooting"></a>Sorun giderme
 

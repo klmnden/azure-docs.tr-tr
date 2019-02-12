@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorgu ifadesinde Workspace() | Microsoft Docs
-description: Çalışma alanı ifade bir Log Analytics sorgu, aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir çalışma alanını veri almak için kullanılır.
+title: Azure İzleyici günlük sorgusu Workspace() ifadesinde | Microsoft Docs
+description: Çalışma alanı ifade bir Azure İzleyici günlük sorgusu, aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir çalışma alanını veri almak için kullanılır.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 24a737a728b0a249fda76cbff481bea284ac24aa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182953"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993011"
 ---
-# <a name="workspace-expression-in-log-analytics-query"></a>Log Analytics sorgu ifadesinde Workspace()
+# <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure İzleyici günlük sorgusu Workspace() ifadede
 
-`workspace` İfade, aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir çalışma alanını veri almak için bir Log Analytics sorgu kullanılır. Günlük verileri log sorguda birden çok çalışma alanında bir Application Insights sorgu ve veri eklemek kullanışlıdır.
+`workspace` İfade, aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir çalışma alanını veri almak için Azure İzleyici sorgusu kullanılır. Günlük verileri log sorguda birden çok çalışma alanında bir Application Insights sorgu ve veri eklemek kullanışlıdır.
 
 
 ## <a name="syntax"></a>Sözdizimi
@@ -37,7 +37,7 @@ ms.locfileid: "53182953"
 |:---|:---|:---|
 | Kaynak Adı | İnsan tarafından okunabilir çalışma alanının adını (AKA "bileşen adı") | Workspace("contosoretail") |
 | Tam adı | Formunda çalışma alanının tam adı: "resourceGroup/subscriptionName/componentName" | Workspace('Contoso/ContosoResource/ContosoWorkspace') |
-| Kimlik | Çalışma alanının GUID | Workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| Kimlik | Çalışma alanının GUID | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
 | Azure kaynak kimliği | Azure kaynak tanımlayıcısı | Workspace("/Subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/Workspaces/contosoretail") |
 
 
@@ -71,5 +71,6 @@ union
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bkz: [uygulama ifade](workspace-expression.md) Application Insights uygulamaya başvurmak için.
-- Nasıl çalıştıracağınızı okuyun [Log Analytics verilerini](../../azure-monitor/log-query/log-query-overview.md) depolanır.
+- Bkz: [uygulama ifade](app-expression.md) bir Application Insights uygulamaya başvurmak için.
+- Nasıl çalıştıracağınızı okuyun [Azure İzleyici veri](log-query-overview.md) depolanır.
+- Erişim için tüm belgeler [Veri Gezgini sorgu dili](/azure/kusto/query/).

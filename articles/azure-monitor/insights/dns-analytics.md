@@ -1,6 +1,6 @@
 ---
-title: Azure Log analytics'te DNS analizi çözümü | Microsoft Docs
-description: Ayarlama ve DNS analizi çözümü, DNS altyapısı güvenlik, performans ve işlemleri hakkında Öngörüler toplayın için Log Analytics'te kullanın.
+title: Azure İzleyici'de DNS analizi çözümü | Microsoft Docs
+description: Ayarlama ve DNS altyapısında güvenlik, performans ve işlem öngörüleri toplamak için Azure İzleyici'de DNS analizi çözümü kullanın.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 21b44b1c739818206fdba9d10250a2976f1d90db
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746872"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992730"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS analizi Önizleme çözümü, DNS altyapısıyla ilgili Öngörüler toplayın
 
 ![DNS analizi simgesi](./media/dns-analytics/dns-analytics-symbol.png)
 
-Bu makalede, ayarlama ve Azure DNS analizi çözümü, DNS altyapısı güvenlik, performans ve işlemleri hakkında Öngörüler elde etmek Azure Log Analytics'te kullanın. açıklar.
+Bu makalede, ayarlama ve Azure DNS analizi çözümü, DNS altyapısı güvenlik, performans ve işlemleri hakkında Öngörüler elde etmek Azure İzleyici'de kullanın. açıklar.
 
 DNS analiz etmenize yardımcı olur:
 
@@ -42,21 +42,21 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 | **Bağlı kaynak** | **Destek** | **Açıklama** |
 | --- | --- | --- |
-| [Windows aracıları](../../azure-monitor/platform/agent-windows.md) | Evet | Çözüm, Windows aracılarından DNS bilgilerini toplar. |
-| [Linux aracıları](../../azure-monitor/learn/quick-collect-linux-computer.md) | Hayır | Çözüm, doğrudan Linux aracılarından DNS bilgi toplamaz. |
-| [System Center Operations Manager yönetim grubu](../../azure-monitor/platform/om-agents.md) | Evet | Çözüm, bağlı Operations Manager yönetim grubundaki aracılardan DNS bilgilerini toplar. Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekmez. Verileri yönetim grubundan Log Analytics çalışma alanına iletilir. |
-| [Azure depolama hesabı](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Hayır | Azure depolama çözümü tarafından kullanılmaz. |
+| [Windows aracıları](../platform/agent-windows.md) | Evet | Çözüm, Windows aracılarından DNS bilgilerini toplar. |
+| [Linux aracıları](../learn/quick-collect-linux-computer.md) | Hayır | Çözüm, doğrudan Linux aracılarından DNS bilgi toplamaz. |
+| [System Center Operations Manager yönetim grubu](../platform/om-agents.md) | Evet | Çözüm, bağlı Operations Manager yönetim grubundaki aracılardan DNS bilgilerini toplar. Azure İzleyici Operations Manager Aracısı'ndan doğrudan bir bağlantı gerekli değildir. Verileri yönetim grubundan Log Analytics çalışma alanına iletilir. |
+| [Azure depolama hesabı](../platform/collect-azure-metrics-logs.md) | Hayır | Azure depolama çözümü tarafından kullanılmaz. |
 
 ### <a name="data-collection-details"></a>Veri koleksiyonu ayrıntıları
 
-Çözüm, Log Analytics aracısını yüklendiği DNS sunucularından DNS envanteri ve DNS ilgili olay verilerini toplar. Bu veriler daha sonra Log Analytics'e karşıya ve çözüm panosunda görüntülenir. DNS sunucuları, bölge ve kaynak kayıtları sayısı gibi envanterle ilişkili veri DNS PowerShell cmdlet'lerini çalıştırarak toplanır. Verileri iki günde bir kez güncelleştirilir. İlgili olay verileri neredeyse gerçek zamanlı olarak toplanan [analiz ve Denetim günlükleri](https://technet.microsoft.com/library/dn800669.aspx#enhanc) Gelişmiş DNS günlüğe kaydetme ve tanılama Windows Server 2012 R2 tarafından sağlanan.
+Çözüm, Log Analytics aracısını yüklendiği DNS sunucularından DNS envanteri ve DNS ilgili olay verilerini toplar. Bu veriler daha sonra Azure İzleyici karşıya ve çözüm panosunda görüntülenen. DNS sunucuları, bölge ve kaynak kayıtları sayısı gibi envanterle ilişkili veri DNS PowerShell cmdlet'lerini çalıştırarak toplanır. Verileri iki günde bir kez güncelleştirilir. İlgili olay verileri neredeyse gerçek zamanlı olarak toplanan [analiz ve Denetim günlükleri](https://technet.microsoft.com/library/dn800669.aspx#enhanc) Gelişmiş DNS günlüğe kaydetme ve tanılama Windows Server 2012 R2 tarafından sağlanan.
 
 ## <a name="configuration"></a>Yapılandırma
 
 Çözümü yapılandırmak için aşağıdaki bilgileri kullanın:
 
-- Olmalıdır bir [Windows](../../azure-monitor/platform/agent-windows.md) veya [Operations Manager](../../azure-monitor/platform/om-agents.md) aracıyı izlemek istediğiniz her bir DNS sunucusunda.
-- DNS analizi çözümü Log Analytics çalışma alanınızdan ekleyebileceğiniz [Azure Marketi](https://aka.ms/dnsanalyticsazuremarketplace). Açıklanan işlemi ayrıca kullanabileceğiniz [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../../azure-monitor/insights/solutions.md).
+- Olmalıdır bir [Windows](../platform/agent-windows.md) veya [Operations Manager](../platform/om-agents.md) aracıyı izlemek istediğiniz her bir DNS sunucusunda.
+- DNS analizi çözümü Log Analytics çalışma alanınızdan ekleyebileceğiniz [Azure Marketi](https://aka.ms/dnsanalyticsazuremarketplace). Açıklanan işlemi ayrıca kullanabileceğiniz [Azure İzleyici'yi ekleyin çözüm galeri'sinden](solutions.md).
 
 Çözüm, daha fazla yapılandırma gerek olmadan veri toplamaya başlar. Ancak, veri toplamayı Özelleştir için şu yapılandırmayı kullanabilirsiniz.
 
@@ -64,7 +64,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 Çözüm panosunda **yapılandırma** DNS analizi yapılandırma sayfasını açın. Yaptığınız değişikliklerin iki tür vardır:
 
-- **Güvenilen etki alanı adları**. Çözüm, tüm arama sorguları işlemez. Bu, etki alanı adı son eklerini bir beyaz liste tutar. Bu beyaz liste etki alanı adı sonekleri eşleşen etki alanı adlarını çözümlemeye arama sorguları, çözüm tarafından işlenmez. İzin verilenler listesinde etki alanı adları işlenmiyor Log Analytics'e gönderilen verileri En İyileştir yardımcı olur. Varsayılan Güvenilenler listesinde popüler genel etki alanı adları, www.google.com ve www.facebook.com gibi içerir. Kaydırarak tam varsayılan listesini görüntüleyebilir.
+- **Güvenilen etki alanı adları**. Çözüm, tüm arama sorguları işlemez. Bu, etki alanı adı son eklerini bir beyaz liste tutar. Bu beyaz liste etki alanı adı sonekleri eşleşen etki alanı adlarını çözümlemeye arama sorguları, çözüm tarafından işlenmez. Azure İzleyici gönderilen verilerin iyileştirmek için izin verilenler listesinde etki alanı adları işlenmiyor yardımcı olur. Varsayılan Güvenilenler listesinde popüler genel etki alanı adları, www.google.com ve www.facebook.com gibi içerir. Kaydırarak tam varsayılan listesini görüntüleyebilir.
 
  Arama Öngörüler için görüntülemek istediğiniz herhangi bir etki alanı adı soneki eklemek üzere listeden değiştirebilirsiniz. İçin arama öngörülerini görüntülemek istemediğiniz herhangi bir etki alanı adı sonekini de kaldırabilirsiniz.
 
@@ -83,13 +83,14 @@ Operations Manager yönetim grubunuzu Log Analytics çalışma alanınıza bağl
 - Microsoft DNS veri toplayıcı akıllı paketi (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analizi Yapılandırması (Microsoft.IntelligencePack.Dns.Configuration)
 
-Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../../azure-monitor/platform/om-agents.md).
+Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../platform/om-agents.md).
 
 ## <a name="use-the-dns-analytics-solution"></a>DNS analizi çözümü kullanın
 
-Bu bölümde, tüm Pano açıklanmaktadır işlevleri ve bunların nasıl kullanıldığı.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-Çalışma alanınıza çözüm ekledikten sonra Azure portalındaki Log Analytics'e genel bakış sayfasını içeren bir **çözümleri görüntüle** kısa bir Özet DNS altyapınızın bağlantısı. Bu, verilerin toplandığı DNS sunucularının sayısını içerir. Ayrıca, istemciler tarafından son 24 saatte kötü niyetli alanları çözmek için yapılan isteklerinin sayısı da içerir. Kutucuğa tıkladığınızda, çözüm panosu açılır.
+
+DNS kutucuğu, verilerin toplandığı DNS sunucularının sayısını içerir. Ayrıca, istemciler tarafından son 24 saatte kötü niyetli alanları çözmek için yapılan isteklerinin sayısı da içerir. Kutucuğa tıkladığınızda, çözüm panosu açılır.
 
 ![DNS analizi kutucuğu](./media/dns-analytics/dns-tile.png)
 
@@ -188,4 +189,4 @@ Geri bildirim size iki yolu vardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Arama günlüklerini](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı DNS günlük kayıtları görüntülemek için.
+[Sorgu günlükleri](../log-query/log-query-overview.md) ayrıntılı DNS günlük kayıtları görüntülemek için.

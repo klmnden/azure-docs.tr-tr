@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: 2abe6c11b2a6fe9a9146f5c5689597fe3e29fa82
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.openlocfilehash: 638d6c5740f999af2f1dac7cbc51e0b6aeb38c0b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41918550"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996364"
 ---
-# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Öğretici: Bir web uygulaması için özel etki alanında DNS kaydı oluşturma 
+# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Öğretici: Bir web uygulaması için özel bir etki alanında DNS kayıtları oluşturma 
 
 Azure DNS'yi web uygulamalarınız için özel etki alanı barındıracak şekilde yapılandırabilirsiniz. Örneğin bir Azure web uygulaması oluşturabilir ve kullanıcılarınızın buna www.contoso.com adresini veya contoso.com tam etki alanı adını (FQDN) kullanarak erişmesini sağlayabilirsiniz.
 
@@ -43,7 +43,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - [Bir App Service uygulaması oluşturun](../app-service/app-service-web-get-started-html.md) veya başka bir öğretici için oluşturduğunuz bir uygulamayı kullanın.
 
@@ -71,9 +73,9 @@ Azure portaldaki Uygulama Hizmetleri sayfasının sol tarafından **Özel etki a
 ### <a name="create-the-a-record"></a>A kaydı oluşturma
 
 ```powershell
-New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
+New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
- -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "<your web app IP address>")
+ -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
 ```
 
 ### <a name="create-the-txt-record"></a>TXT kaydını oluşturma
@@ -81,9 +83,9 @@ New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 Uygulama Hizmetleri, bu kaydı yalnızca yapılandırma sırasında, özel etki alanının sahibi olduğunuzu doğrulamak için kullanır. Özel etki alanınız doğrulandıktan ve Uygulama Hizmetleri'nde yapılandırıldıktan sonra, bu TXT kaydını silebilirsiniz.
 
 ```powershell
-New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
+New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
  -Name `"@" -RecordType "txt" -Ttl 600 `
- -DnsRecords (New-AzureRmDnsRecordConfig -Value  "contoso.azurewebsites.net")
+ -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
 ```
 
 ## <a name="create-the-cname-record"></a>CNAME kaydı oluşturma
@@ -95,9 +97,9 @@ Azure PowerShell'i açın ve yeni bir CNAME kaydı oluşturun. Bu örnekte CNAME
 ### <a name="create-the-record"></a>Kaydı oluşturma
 
 ```powershell
-New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
+New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
  -Name "www" -RecordType "CNAME" -Ttl 600 `
- -DnsRecords (New-AzureRmDnsRecordConfig -cname "contoso.azurewebsites.net")
+ -DnsRecords (New-AzDnsRecordConfig -cname "contoso.azurewebsites.net")
 ```
 
 Yanıt aşağıdaki örnek olur:
@@ -157,7 +159,7 @@ contoso.com text =
 Artık web uygulamanıza özel ana bilgisayar adları ekleyebilirsiniz:
 
 ```powershell
-set-AzureRmWebApp `
+set-AzWebApp `
  -Name contoso `
  -ResourceGroupName MyAzureResourceGroup `
  -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
@@ -169,7 +171,7 @@ Bir tarayıcı açıp `http://www.<your domainname>` ve `http://<you domain name
 > [!NOTE]
 > `http://` ön ekini eklediğinizden emin olun, aksi halde tarayıcı sizin için bir URL tahmininde bulunabilir!
 
-İki URL'de de aynı sayfayı görmeniz gerekir. Örnek:
+İki URL'de de aynı sayfayı görmeniz gerekir. Örneğin:
 
 ![Contoso uygulama hizmeti](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

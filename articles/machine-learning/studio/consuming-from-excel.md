@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 95206d0e3cb7bdb619524237ca1e466414c5acf5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492896"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989432"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Bir Azure Machine Learning Studio Web hizmetini Excel'den kullanma
 
@@ -26,7 +26,7 @@ Excel 2013 (veya üzeri) veya Excel Online kullanıyorsanız, sonra Excel kullan
 
 
 ## <a name="steps"></a>Adımlar
-Web hizmeti yayımlama. [Bu sayfa](walkthrough-5-publish-web-service.md) nasıl yapılacağı açıklanır. Şu anda Excel çalışma kitabını özelliği yalnızca tek bir çıkış (diğer bir deyişle, tek bir Puanlama etiketi) sahip istek/yanıt hizmetler için desteklenir. 
+Web hizmeti yayımlama. [Öğretici 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md) nasıl yapılacağı açıklanır. Şu anda Excel çalışma kitabını özelliği yalnızca tek bir çıkış (diğer bir deyişle, tek bir Puanlama etiketi) sahip istek/yanıt hizmetler için desteklenir. 
 
 Bir web hizmeti oluşturduktan sonra tıklayarak **WEB Hizmetleri** studio sol tarafında bölümüne ve ardından web hizmetini Excel'den kullanma.
 

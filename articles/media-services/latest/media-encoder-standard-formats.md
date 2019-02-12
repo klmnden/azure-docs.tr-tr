@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 22603de40e2ebafb1354377898f5a0432e4f6129
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3bc42bf5b83f9ff983c3d8d88a9a496cc395096c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389018"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992594"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard biçimleri ve codec bileşenleri
 
@@ -29,12 +29,12 @@ Bu makalede en yaygın içeri aktarma ve ile kullanabileceğiniz dışarı aktar
 | Dosya biçimleri (dosya uzantıları) | Desteklenen |
 | --- | --- | --- | --- |
 | FLV (H.264 ve AAC codec) (.flv) |Evet |
-| MXF (.mxf) |Evet |
-| GXF (.gxf) |Evet |
+| MXF    (.mxf) |Evet |
+| GXF    (.gxf) |Evet |
 | MPEG2-PS, MPEG2-TS 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Evet |
 | Windows Media Video (WMV) / ASF (.wmv, .asf) |Evet |
 | AVI (sıkıştırılmamış 8 bit/10 bit) (.avi) |Evet |
-| MP4 (.mp4, .m4a, .m4v) / ISMV (.isma, .ismv) |Evet |
+| MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Evet |
 | [Microsoft Dijital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr ms) |Evet |
 | Matroska/WebM (.mkv) |Evet |
 | WAVE/WAV (.wav) |Evet |
@@ -91,7 +91,7 @@ or
 | AMR (Uyarlamalı çok ücret) |Evet |
 | AES (SMPTE 331 M ve 302 M, AES3-2003) |Hayır |
 | Dolby® E |Hayır |
-| Dolby® dijital (AC3) |Hayır |
+| Dolby® Digital (AC3) |Hayır |
 | Dolby® dijital artı (E-AC3) |Hayır |
 
 ## <a name="output-formats-and-codecs"></a>Çıkış biçimleri ve codec bileşenleri

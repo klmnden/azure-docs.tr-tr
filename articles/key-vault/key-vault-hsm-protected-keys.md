@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 928ed383c08dd87cb003d1f729bc3fecce0c6935
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693893"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999241"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarlar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Ek güvence için Azure anahtar Kasası'nı kullandığınızda alabilir veya HSM sınırını asla terk donanım güvenlik modüllerinde (HSM'ler) anahtarları oluşturun. Bu senaryo, genellikle olarak adlandırılır *kendi anahtarını Getir*, bYok. HSM'ler, FIPS 140-2 Düzey 2 doğrulanmasına sahiptir. Azure Key Vault, anahtarlarınızı korumak için Thales nShield ailesi Hsm'leri kullanır.
 
@@ -78,21 +80,19 @@ Birinci adım için Internet'e bağlı iş istasyonunuzu üzerinde aşağıdaki 
 
 ### <a name="step-11-install-azure-powershell"></a>Adım 1.1: Azure PowerShell'i yükleme
 
-İnternet'e bağlı iş istasyonundan indirin ve Azure anahtar Kasası'nı yönetmek için cmdlet'ler içeren Azure PowerShell modülünü yükleyin. Bu 0.8.13 ve üstünü gerektirir.
-
-Yükleme yönergeleri için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
+İnternet'e bağlı iş istasyonundan indirin ve Azure anahtar Kasası'nı yönetmek için cmdlet'ler içeren Azure PowerShell modülünü yükleyin. Yükleme yönergeleri için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Adım 1.2: Azure abonelik Kimliğinizi alın
 
 Azure PowerShell oturumu başlatın ve aşağıdaki komutu kullanarak Azure hesabınızda oturum açın:
 
 ```Powershell
-   Add-AzureRMAccount
+   Connect-AzAccount
 ```
-Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Ardından, [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) komutu:
+Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Ardından, [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) komutu:
 
 ```powershell
-   Get-AzureRMSubscription
+   Get-AzSubscription
 ```
 Çıkışı, Azure anahtar kasası için kullanacağınız abonelik Kimliğini bulun. Bu abonelik kimliği daha sonra gerekecektir.
 
@@ -493,10 +493,10 @@ Başarıyla tamamlandığında, bu görüntüler **sonucu: Başarı** ve geçerl
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>5. Adım: Azure Key Vault'a anahtar aktarma
 
-Bu son adım İnternet'e bağlı iş istasyonunda, kullanın [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet'i için Azure Key Vault HSM'SİNDE bağlantısı kesilmiş iş istasyonundan kopyaladığınız anahtar aktarma paketini karşıya yüklemek için:
+Bu son adım İnternet'e bağlı iş istasyonunda, kullanın [Ekle AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet'i için Azure Key Vault HSM'SİNDE bağlantısı kesilmiş iş istasyonundan kopyaladığınız anahtar aktarma paketini karşıya yüklemek için:
 
    ```powershell
-        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+        Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
    ```
 
 Karşıya yükleme başarılı olursa, gördüğünüz eklediğiniz anahtar özelliklerini görüntülenir.

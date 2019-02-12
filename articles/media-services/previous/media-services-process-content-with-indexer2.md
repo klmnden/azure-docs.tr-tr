@@ -1,43 +1,43 @@
 ---
-title: Azure Media Indexer 2 Önizleme ile medya dosyalarını dizin oluşturma | Microsoft Docs
-description: Azure Media Indexer medya dosyalarınızı içeriğini aranabilir yapmanıza ve kapalı açıklamalı alt yazı ve anahtar sözcükler için tam metin dökümü oluşturmak üzere sağlar. Bu konu, Media Indexer 2 Önizleme kullanmayı gösterir.
+title: Azure Media Indexer 2 Önizleme ile medya dosyalarının dizinini oluşturarak | Microsoft Docs
+description: Azure Media Indexer, medya dosyalarınızın içeriklerini aranabilir yapmanıza ve Kapalı Açıklamalı Altyazı veya anahtar sözcükler için bir tam metin dökümü oluşturmak için sağlar. Bu konuda, Media Indexer 2 Önizleme kullanma işlemini gösterir.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae06f397fd0ed3f1a1b5ebbdc418abc02789fe91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790247"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000924"
 ---
-# <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 Önizleme ile medya dosyalarını dizin oluşturma
+# <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 Önizleme ile medya dosyalarının dizinini oluşturarak
 ## <a name="overview"></a>Genel Bakış
-**Azure Media Indexer 2 Önizleme** medya işlemcisi (MP) yanı sıra medya dosyaları ve içerik aranabilir yapmanıza kapalı açıklamalı alt yazı parçaları oluşturmak olanak sağlar. Önceki sürümü karşılaştırıldığında [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Önizleme** daha hızlı dizin oluşturma işlemi gerçekleştirir ve daha geniş dil desteği sunar. Desteklenen diller, İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince (Mandarin, Basitleştirilmiş), Portekizce, Arapça, Rusça ve Japonca içerir.
+**Azure Media Indexer 2 Önizleme** medya işlemci (MP) kapalı açıklamalı alt yazı parçaları oluşturmak yanı sıra medya dosyalarını ve içerik aranabilir yapmanıza olanak tanır. Önceki sürüme kıyasla [Azure Media Indexer'ın](media-services-index-content.md), **Azure Media Indexer 2 Önizleme** dizin daha hızlı gerçekleştirir ve daha geniş bir dil desteği sunar. Desteklenen diller şunlardır: İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince (Mandarin, Basitleştirilmiş), Portekizce, Arapça, Rusça ve Japonca.
 
-**Azure Media Indexer 2 Önizleme** MP şu anda önizlemede.
+**Azure Media Indexer 2 Önizleme** MP şu anda Önizleme aşamasındadır.
 
-Bu makalede ile dizin oluşturma işleri oluşturmak nasıl gösterilmektedir **Azure Media Indexer 2 Önizleme**.
+Bu makalede, dizin oluşturma işleri ile oluşturma işlemi gösterilmektedir **Azure Media Indexer 2 Önizleme**.
 
 > [!NOTE]
 > Aşağıdaki maddeler geçerlidir:
 > 
-> Dizin Oluşturucu 2 Azure Çin ve Azure kamu desteklenmiyor.
+> Dizin Oluşturucu 2 Azure Çin'de hem de Azure Kamu'da desteklenmiyor.
 > 
-> İçerik dizin oluştururken açıkça konuşma (olmadan, arka plan müzik, parazit, efektleri veya mikrofon hiss) sahip medya dosyalarını kullandığınızdan emin olun. Uygun içeriğin bazı örnekleri şunlardır: kaydedilen toplantılar, dersleri veya sunuları. Aşağıdaki içerik dizin oluşturma işlemi için uygun olmayabilir: filmler, TV programları karma ses ve ses efekti ile herhangi bir şey kötü içeriği arka plan gürültü (hiss) ile kaydedilmiş.
+> İçerik dizinleme, çok konuşma (olmadan, arka plan müzik, parazit, etkileri veya mikrofon hiss) sahip medya dosyalarını kullanan emin olun. Uygun içerik bazı örnekleri şunlardır: kaydedilen toplantılar, dersler ve sunumlar. Aşağıdaki içerik dizinleme için uygun olmayabilir: filmler, TV programları, sonraki her şey karma ses ve ses efektleri ile kötü içeriği (hiss) arka plan gürültüsü ile kaydedilmiş.
 > 
 > 
 
-Bu makalede, ilgili ayrıntıları verir **Azure Media Indexer 2 Önizleme** ve .NET için Media Services SDK'sı ile kullanmak nasıl gösterir
+Bu makalede, ilgili ayrıntıları verir. **Azure Media Indexer 2 Önizleme** ve .NET için Media Services SDK ile kullanma işlemi gösterilmektedir
 
 ## <a name="input-and-output-files"></a>Giriş ve çıkış dosyaları
 ### <a name="input-files"></a>Giriş dosyaları
@@ -53,9 +53,9 @@ Bir dizin oluşturma işi kapalı açıklamalı alt yazı dosyaları aşağıdak
 Bu biçimler dosyalarında ses ve video dosyaları işitme engelli kişiler için erişilebilir hale getirmek için kullanılan açıklamalı alt yazı (CC) kapatıldı.
 
 ## <a name="task-configuration-preset"></a>Görev yapılandırması (hazır)
-Bir dizin oluşturma, görev ile **Azure Media Indexer 2 Önizleme**, bir yapılandırma hazır belirtmeniz gerekir.
+Bir dizin oluşturma, görev ile **Azure Media Indexer 2 Önizleme**, yapılandırma hazır belirtmeniz gerekir.
 
-Aşağıdaki JSON kullanılabilir parametreleri ayarlar.
+Kullanılabilir parametrelerin aşağıdaki JSON ayarlar.
 
 ```json
     {
@@ -74,7 +74,7 @@ Aşağıdaki JSON kullanılabilir parametreleri ayarlar.
 ```
 
 ## <a name="supported-languages"></a>Desteklenen diller
-Azure Media Indexer 2 Önizleme konuşma metin (dil adı görev yapılandırmasında, kullanım 4 karakter kodu köşeli aşağıda gösterildiği gibi belirtirken) için şu dilleri destekler:
+Azure Media Indexer 2 Önizleme konuşma metin (dil adı köşeli ayraçlar içindeki kullanım 4 karakterli kodu görev yapılandırması aşağıda gösterildiği gibi belirtirken) için aşağıdaki dilleri desteklemektedir:
 
 * İngilizce [en-us]
 * İspanyolca [EsEs]
@@ -83,22 +83,22 @@ Azure Media Indexer 2 Önizleme konuşma metin (dil adı görev yapılandırmas�
 * Almanca [DeDe]
 * İtalyanca [ItIt]
 * Portekizce [PtBr]
-* Arapça (Mısır) [ArEg]
+* Arabic (Egyptian) [ArEg]
 * Japonca [JaJp]
 * Rusça [RuRu]
 * İngiliz İngilizce [EnGb]
-* Meksika İspanyolca [EsMx] 
+* Meksika İspanyolca [EsMx] 
 
 ## <a name="supported-file-types"></a>Desteklenen dosya türleri
 
-Desteklenen dosya türleri hakkında daha fazla bilgi için bkz: [desteklenen codec bileşenleri/biçimleri](media-services-media-encoder-standard-formats.md#input-containerfile-formats) bölümü.
+Desteklenen dosya türleri hakkında daha fazla bilgi için bkz. [desteklenen codec'ler/biçimleri](media-services-media-encoder-standard-formats.md#input-containerfile-formats) bölümü.
 
-## <a name="net-sample-code"></a>.NET örnek kod
+## <a name="net-sample-code"></a>.NET örnek kodu
 
 Aşağıdaki program gösterir nasıl yapılır:
 
-1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
-2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir dizin oluşturma görevini içeren bir iş oluşturun:
+1. Bir varlık oluşturun ve varlığa bir medya dosyası yükleyin.
+2. Aşağıdaki json hazır içeren bir yapılandırma dosyasını temel alan bir dizin oluşturma görevini içeren bir proje oluşturun:
 
     ```json
             {
@@ -116,7 +116,7 @@ Aşağıdaki program gösterir nasıl yapılır:
             }
     ```
     
-3. Çıktı dosyalarını indirin. 
+3. Çıkış dosyalarını indirin. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
@@ -299,7 +299,7 @@ namespace IndexContent
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>İlgili bağlantılar
-[Azure Media Services Analytics a genel bakış](media-services-analytics-overview.md)
+[Azure Media Services Analizi'ne genel bakış](media-services-analytics-overview.md)
 
-[Azure medya analizi gösterileri](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure medya analizi tanıtımları](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

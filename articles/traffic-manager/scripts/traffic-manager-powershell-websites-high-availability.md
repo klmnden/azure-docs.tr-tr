@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell komut dosyası örneği - uygulamaların yüksek kullanılabilirlik için trafiği yönlendirme | Microsoft Docs
-description: Azure PowerShell komut dosyası örneği - uygulamaların yüksek kullanılabilirlik için trafiği yönlendirme
+title: Azure PowerShell betik örneği - yüksek kullanılabilirlik uygulamaları için trafiği yönlendirme | Microsoft Docs
+description: Azure PowerShell betik örneği - yüksek kullanılabilirlik uygulamaları için trafiği yönlendirme
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
@@ -15,22 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: kumud
-ms.openlocfilehash: 13c24c31606d99f27ed2607fec71b381160624dd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4991be7ecb252001245a0bcde8551d8432b0794b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313058"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998510"
 ---
-# <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Azure PowerShell kullanılarak uygulamaların yüksek kullanılabilirlik için trafiği yönlendirme
+# <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Azure PowerShell kullanarak uygulamaların yüksek kullanılabilirlik için trafiği yönlendirme
 
-Bu komut dosyası, bir kaynak grubu, iki uygulama hizmeti planları, iki web uygulamaları, trafik Yöneticisi profili ve iki trafik Yöneticisi uç noktaları oluşturur. Birincil bölge uygulamada kullanılamadığında trafik Yöneticisi bir bölgede birincil bölge olarak uygulama ve ikincil bölge trafiğini yönlendirir. Komut yürütülmeden önce Azure arasında benzersiz değerler mywebapp şeklindedir, MyWebAppL1 ve MyWebAppL2 değerleri değiştirmelisiniz. Betiği çalıştırdıktan sonra uygulama URL'si mywebapp.trafficmanager.net ile birincil bölgede erişebilir.
+Bu betik bir kaynak grubu, iki app service planı, iki web uygulaması, traffic manager profili ve iki traffic manager uç noktası oluşturur. Uygulama birincil bölge kullanılamaz duruma geldiğinde, traffic Manager trafiği birincil bölgeye olarak tek bir bölge içinde uygulamaya ve ikincil bölgeye yönlendirir. Betiği çalıştırmadan önce mywebapp şeklindedir ve MyWebAppL1 MyWebAppL2 değerleri Azure genelinde benzersiz değerlerle değiştirmelisiniz. Betiği çalıştırdıktan sonra uygulama URL'si mywebapp.trafficmanager.net ile birincil bölgedeki erişebilirsiniz.
 
-Gerekirse, [Azure PowerShell kılavuzunda](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırın.
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bağlantı oluşturmak için `Connect-AzAccount` komutunu çalıştırın.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Örnek betik
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-powershell[main](../../../powershell_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.ps1 "Route traffic for high availability")]
 
@@ -38,8 +40,8 @@ Gerekirse, [Azure PowerShell kılavuzunda](https://docs.microsoft.com/powershell
 Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup1
-Remove-AzureRmResourceGroup -Name myResourceGroup2
+Remove-AzResourceGroup -Name myResourceGroup1
+Remove-AzResourceGroup -Name myResourceGroup2
 ```
 
 
@@ -49,15 +51,15 @@ Bu betik bir kaynak grubu, web uygulaması, traffic manager profili ve tüm ilgi
 
 | Komut | Notlar |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)  | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | App Service planı oluşturur. Bu, Azure web uygulamanız için bir sunucu grubu gibidir. |
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Uygulama hizmeti planı içinde Azure web uygulaması oluşturur. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Uygulama hizmeti planı içinde Azure web uygulaması oluşturur. |
-| [AzureRmTrafficManagerProfile yeni](/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile) | Bir Azure Traffic Manager profili oluşturur. |
-| [AzureRmTrafficManagerEndpoint yeni](/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerendpoint) | Bir uç noktası için bir Azure Traffic Manager profili ekler. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [Yeni AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service planı oluşturur. Azure web uygulamanız için bir sunucu grubu gibi budur. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | App Service planı içinde bir Azure web uygulaması oluşturur. |
+| [Set-AzResource](/powershell/module/az.resources/new-azresource) | App Service planı içinde bir Azure web uygulaması oluşturur. |
+| [Yeni AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Bir Azure Traffic Manager profili oluşturur. |
+| [Yeni AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Bir Azure Traffic Manager profiline bir uç nokta ekler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure PowerShell hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](https://docs.microsoft.com/powershell/azure/overview).
 
-Ek ağ PowerShell komut dosyası örnekleri bulunabilir [Azure ağ genel görünümü belgelerine](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Ek ağ PowerShell betiği örnekleri, [Azure Ağına Genel Bakış belgeleri](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json) içinde bulunabilir.

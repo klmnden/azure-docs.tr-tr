@@ -1,5 +1,5 @@
 ---
-title: Active Directory ortamınızı Azure Log Analytics ile en iyi duruma getirme | Microsoft Docs
+title: Active Directory ortamınızı Azure İzleyici ile en iyi duruma getirme | Microsoft Docs
 description: Düzenli bir aralıkta, ortamlarının sistem durumunu ve riskini değerlendirmek için Active Directory sistem durumu denetimi çözümü kullanabilirsiniz.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 063cedc679c3365e6352549e78c75ecff903cae7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8a1e08263790f1a04e672fd9d5a17c2bd1b45ce8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193017"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999037"
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Log analytics'te Active Directory sistem durumu denetimi çözümü ile Active Directory ortamınızı en iyi duruma getirme
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Active Directory ortamınızı Azure İzleyici'de Active Directory sistem durumu denetimi çözümü ile en iyi duruma getirme
 
 ![AD sistem durumu denetimi simgesi](./media/ad-assessment/ad-assessment-symbol.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Düzenli bir aralıkta, server ortamlarının sistem durumunu ve riskini değerlendirmek için Active Directory sistem durumu denetimi çözümü kullanabilirsiniz. Bu makalede, yükleme ve çözüm kullanabilir, böylece olası sorunlar için düzeltici eylemleri gerçekleştirebilirsiniz yardımcı olur.
 
@@ -40,22 +42,22 @@ Bu çözüm, Önceliklendirilmiş öneriler dağıtılan sunucu altyapınızı b
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Active Directory sistem durumu denetimi çözümü, desteklenen bir .NET Framework 4.5.2 sürümü gerekir veya yukarıda Microsoft Monitoring Agent (yüklenmiş MMA) olan her bilgisayarda yüklü.  MMA aracısını, System Center 2016 - Operations Manager ve Operations Manager 2012 R2 ve Log Analytics hizmeti tarafından kullanılır.
+* Active Directory sistem durumu denetimi çözümü, desteklenen bir .NET Framework 4.5.2 sürümü gerekir veya yukarıda Microsoft Monitoring Agent (yüklenmiş MMA) olan her bilgisayarda yüklü.  MMA aracısını, System Center 2016 - Operations Manager ve Operations Manager 2012 R2 ve Azure İzleyici tarafından kullanılır.
 * Çözüm, Windows Server 2008 ve 2008 R2, Windows Server 2012 ve 2012 R2 ve Windows Server 2016 çalıştıran etki alanı denetleyicilerini destekler.
 * Azure portalında Azure Market'ten Active Directory sistem durumu denetimi çözümü eklemek için bir Log Analytics çalışma alanı.  Başka bir yapılandırma işlemi gerekmez.
 
   > [!NOTE]
-  > Çözüm ekledikten sonra aracılar sunucularıyla AdvisorAssessment.exe dosyası eklenir. Yapılandırma verilerini okuyun ve sonra işleme için buluttaki Log Analytics hizmetine gönderilir. Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder.
+  > Çözüm ekledikten sonra aracılar sunucularıyla AdvisorAssessment.exe dosyası eklenir. Yapılandırma verilerini okuyun ve ardından Azure İzleyici bulutta işleme için gönderilen. Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder.
   >
   >
 
-Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinizin sistem durumu denetimi gerçekleştirmek için bunlar bir aracı ve aşağıdaki desteklenen yöntemlerden birini kullanarak Log analytics'e bağlantı gerektirir:
+Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinizin sistem durumu denetimi gerçekleştirmek için bunlar bir aracı ve Azure İzleyici'de aşağıdaki desteklenen yöntemlerden birini kullanarak bağlantı gerektirir:
 
 1. Yükleme [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) , etki alanı denetleyicisi zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izlenmiyor.
-2. System Center 2016 - Operations Manager veya Operations Manager 2012 R2 ile izlenir ve yönetim grubunu Log Analytics hizmeti ile tümleştirilmiş değil, etki alanı denetleyicisi veri toplamak ve iletmek için Log Analytics ile birden çok girişli olabilir Hizmet ve Operations Manager tarafından yine de izlenmelidir.  
+2. System Center 2016 - Operations Manager veya Operations Manager 2012 R2 ile izlenir ve yönetim grubu, Azure İzleyici ile tümleşiktir değil, etki alanı denetleyicisi verileri toplamak ve hala Hizmeti'ne iletmek için Azure İzleyici ile birden çok girişli olabilir Operations Manager tarafından izlenecek.  
 3. Operations Manager yönetim grubunuzun hizmeti ile tümleşikse, aksi takdirde, etki alanı denetleyicileri için veri toplama altındaki adımları izleyerek hizmet eklemek ihtiyacınız [aracıyla yönetilen bilgisayarlar ekleme](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) seçeneğini etkinleştirdikten sonra çalışma alanınızda çözümün.  
 
-Etki alanı denetleyicinize bir Operations Manager yönetim grubu için hangi raporların verileri toplayan aracıda kendi atanan yönetim sunucusuna iletir ve ardından yönetim sunucusundan doğrudan Log Analytics hizmetine gönderilir.  Operations Manager veritabanları için veriler yazılmaz.  
+Etki alanı denetleyicinize bir Operations Manager yönetim grubu için hangi raporların verileri toplayan aracıda kendi atanan yönetim sunucusuna iletir ve doğrudan yönetim sunucusundan Azure İzleyicisi'ne gönderilir.  Operations Manager veritabanları için veriler yazılmaz.  
 
 ## <a name="active-directory-health-check-data-collection-details"></a>Active Directory sistem durumu denetimi veri koleksiyonu ayrıntıları
 
@@ -73,7 +75,7 @@ Active Directory sistem durumu denetimi veri etkinleştirdiğiniz aracısını k
 - Dosya Çoğaltma Hizmeti (NTFRS) API'si
 - Özel C# kodu
 
-Veriler etki alanı denetleyicisinde toplanır ve her yedi günde Log Analytics'e iletilir.  
+Veri etki alanı denetleyicisinde toplanır ve Azure İzleyici her yedi günde iletilir.  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Öneriler nasıl önceliklendirilir anlama
 Yaptığınız her öneri, öneri göreceli önemini tanımlayan bir ağırlık değeri verilir. Yalnızca en önemli 10 önerileri gösterilir.
@@ -107,30 +109,33 @@ Yüklendikten sonra çözüm sayfasında Azure portalındaki sistem durumu denet
 Altyapınız ve ardından-ayrıntıya önerileri için Özet uyumluluk değerlendirmesi görüntüleyin.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için önerileri görüntüleme ve düzeltme eylemi
-3. Tıklayın **genel bakış** kutucuğunda Azure portalında Log Analytics çalışma alanınız için.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 4. Üzerinde **genel bakış** sayfasında **Active Directory sistem durumu denetimi** Döşe.
 5. Üzerinde **sistem durumu denetimi** sayfasında odak alanı dikey pencereleri biriyle özet bilgilerini gözden geçirin ve ardından bu odak alanı için önerileri görmek için tıklatın.
 6. Herhangi bir odak alanı sayfalar üzerinde ortamınız için yapılan Önceliklendirilmiş öneriler görüntüleyebilirsiniz. Altında bir öneriye tıklayabilir **etkilenen nesneler** öneri neden yapılır hakkında ayrıntılı bilgi görüntülemek için.<br><br> ![Sistem durumu denetimi önerileri görüntüsü](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Öğe ele alındığında, önerilen eylemler sonraki değerlendirmeler kayıtları alınan ve uyumluluk puanınız artacaktır. Düzeltilen öğeler görünür olarak **geçirilen nesneleri**.
 
 ## <a name="ignore-recommendations"></a>Öneriler yoksay
-Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değerlendirme sonuçlarında görüntülenmesini önlemek için kullanacağı bir metin dosyası oluşturabilirsiniz.
+Yok saymak için istediğiniz önerilerini varsa, Azure İzleyici, öneriler, değerlendirme sonuçlarında görüntülenmesini önlemek için kullanacağı bir metin dosyası oluşturabilirsiniz.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Göz ardı eder önerileri tanımlamak için
-1. Log Analytics çalışma sayfasında seçilen çalışma alanınız için Azure portalında **günlük araması** Döşe.
-2. Ortamınızdaki bilgisayarları için başarısız olan liste öneriler için aşağıdaki sorguyu kullanın.
+[!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
-    ```
-    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
-    ```
-    Günlük araması sorgusuna gösteren ekran görüntüsü aşağıda verilmiştir:<br><br> ![başarısız önerileri](./media/ad-assessment/ad-failed-recommendations.png)
+Ortamınızdaki bilgisayarları için başarısız olan liste öneriler için aşağıdaki sorguyu kullanın.
 
-3. Yok saymak için istediğiniz önerilerini seçin. Sonraki yordamda Recommendationıd için değerleri kullanacaksınız.
+```
+ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
+```
+
+Günlük sorgusu gösteren ekran görüntüsü aşağıda verilmiştir:<br><br> ![başarısız önerileri](media/ad-assessment/ad-failed-recommendations.png)
+
+Yok saymak için istediğiniz önerilerini seçin. Sonraki yordamda Recommendationıd için değerleri kullanacaksınız.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Oluşturma ve bir IgnoreRecommendations.txt metin dosyası kullanma
 1. IgnoreRecommendations.txt adlı bir dosya oluşturun.
-2. Yapıştırın veya ayrı bir satıra yoksay ve sonra dosyayı kaydedip kapatın için Log Analytics'i istediğiniz her bir öneri için her Recommendationıd yazın.
-3. Dosya, aşağıdaki klasörde, önerileri yok saymak için Log Analytics istediğiniz her bilgisayara yerleştirin.
+2. Yapıştırın veya Azure İzleyici'nın ayrı bir satıra yoksay ve sonra dosyayı kaydedip kapatın istediğiniz her bir öneri için her Recommendationıd yazın.
+3. Dosya, aşağıdaki klasörde, önerileri yok saymak için Azure İzleyici istediğiniz her bilgisayara yerleştirin.
    * Bilgisayarlarda Microsoft izleme (doğrudan veya Operations Manager üzerinden bağlı) aracısı ile - *SystemDrive*: \Program Monitoring Agent\Agent
    * Operations Manager 2012 R2 yönetim sunucusunda - *SystemDrive*: \Program System Center 2012 R2\Operations Manager\Server
    * Operations Manager 2016 yönetim sunucusunda - *SystemDrive*: \Program System Center 2016\Operations Manager\Server
@@ -138,7 +143,7 @@ Yok saymak için istediğiniz önerilerini varsa, Log Analytics, öneriler, değ
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Öneriler göz ardı edilir doğrulamak için
 Sonraki, varsayılan olarak yedi günde sistem durumu denetimi çalıştırır, zamanlanmış sonra belirtilen önerileri işaretlenmiş *yoksayıldı* ve Panoda görünmez.
 
-1. Yoksayılan tüm önerilere listelemek için aşağıdaki günlük arama sorgularını kullanabilirsiniz.
+1. Yoksayılan tüm önerilere listelemek için aşağıdaki günlük sorguları kullanabilirsiniz.
 
     ```
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
@@ -177,11 +182,11 @@ Sonraki, varsayılan olarak yedi günde sistem durumu denetimi çalıştırır, 
 
 *Neden yalnızca ilk 10 önerileri görüntülensin mi?*
 
-* Büyük kapsamlı bir liste görevlerin vermek yerine, Önceliklendirilmiş öneriler adresleme odaklanmak öneririz. Bunları adres sonra ek öneriler kullanılabilir hale gelir. Ayrıntılı listesini görmek isterseniz, günlük arama özelliğini kullanarak tüm önerileri görüntüleyebilirsiniz.
+* Büyük kapsamlı bir liste görevlerin vermek yerine, Önceliklendirilmiş öneriler adresleme odaklanmak öneririz. Bunları adres sonra ek öneriler kullanılabilir hale gelir. Ayrıntılı listesini görmek isterseniz, bir günlük sorgusu kullanarak tüm önerileri görüntüleyebilirsiniz.
 
 *Bir öneri yok saymak için bir yol var mı?*
 
 * Evet, bkz: [önerileri yoksay](#ignore-recommendations) yukarıdaki bölümde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [Log Analytics'te günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı veri AD sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.
+* Kullanım [Azure İzleyici günlük sorguları](../log-query/log-query-overview.md) ayrıntılı veri AD sistem durumunu denetleyin ve önerileri çözümleme hakkında bilgi edinmek için.

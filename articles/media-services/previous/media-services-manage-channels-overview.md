@@ -4,7 +4,7 @@ description: Bu konu Azure Media Services'i kullanarak canlı akış genel bir b
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3814041359884fc2862b0e90a58aabd1ad26c4cb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 318ec5a4f9aceaf02048768cbf630eff08feff6b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382134"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998017"
 ---
-# <a name="overview-of-live-streaming-using-azure-media-services"></a>Azure Media Services'i kullanarak canlı akış genel bakış
+# <a name="overview-of-live-streaming-using-media-services"></a>Media Services'i kullanarak canlı akış genel bakış
 
 > [!NOTE]
 > Canlı kanallar 12 Mayıs 2018 tarihinden itibaren artık RTP/MPEG-2 aktarım akışı destek alma protokolü. Lütfen RTP/MPEG-2'den RTMP veya parçalanmış MP4'e geçiş (kesintisiz akış) alma protokolleri.

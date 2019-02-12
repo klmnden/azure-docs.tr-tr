@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bd09205d4bdc60891044728cf0dcafa092ae9846
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 3615bd88cfadf2f59942fab7678d36d4d20d8c9f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377455"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992747"
 ---
 # <a name="widevine-license-template-overview"></a>Widevine lisans şablonuna genel bakış 
 

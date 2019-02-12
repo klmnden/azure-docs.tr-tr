@@ -7,26 +7,26 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807006"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002026"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Tutarlılık düzeyleri ve Azure Cosmos DB API’leri
 
-Azure Cosmos DB tarafından sunulan beş tutarlılık modeli yerel olarak Azure Cosmos DB SQL API tarafından desteklenir. Azure Cosmos DB kullandığınızda, SQL API'si varsayılandır. 
+Azure Cosmos DB tarafından sunulan beş tutarlılık modeli yerel olarak SQL API'si tarafından desteklenir. Azure Cosmos DB kullandığınızda, SQL API'si varsayılandır. 
 
-Azure Cosmos DB ayrıca kablo için yerel destek sağlar popüler veritabanları için protokolü ile uyumlu API'leri. Veritabanlarını, MongoDB, Apache Cassandra, Gremlin ve Azure tablo depolama alanı içerir. Bu veritabanları, tam olarak tanımlanmış tutarlılık modeli veya tutarlılık düzeyleri için SLA destekli garantileri sunmamaktadır. Bunlar genellikle yalnızca bir alt kümesini Azure Cosmos DB tarafından sunulan beş tutarlılık modeli sunar. SQL API, Gremlin API ve tablo API'si için Azure Cosmos DB hesabı yapılandırılmış varsayılan tutarlılık düzeyini kullanılır. 
+Azure Cosmos DB ayrıca kablo için yerel destek sağlar popüler veritabanları için protokolü ile uyumlu API'leri. Veritabanlarını, MongoDB, Apache Cassandra, Gremlin ve Azure tablo depolama alanı içerir. Bu veritabanları, tam olarak tanımlanmış tutarlılık modeli veya tutarlılık düzeyleri için SLA destekli garantileri sunmamaktadır. Bunlar genellikle yalnızca bir alt kümesini Azure Cosmos DB tarafından sunulan beş tutarlılık modeli sunar. SQL API, Gremlin API ve tablo API'si için Azure Cosmos hesabında yapılandırılmış varsayılan tutarlılık düzeyini kullanılır. 
 
-Aşağıdaki bölümlerde OSS istemci sürücü tarafından istenen Apache Cassandra için veri tutarlılığı arasındaki eşlemeyi Göster 4.x ve MongoDB 3.4. Bu belge, ayrıca Apache Cassandra ve MongoDB için karşılık gelen Azure Cosmos DB tutarlılık düzeyleri gösterilmektedir.
+Aşağıdaki bölümlerde, Apache Cassandra, MongoDB ve Azure Cosmos DB'de karşılık gelen tutarlılık düzeyi için bir OSS istemci sürücü tarafından istenen veri tutarlılığı arasındaki eşlemeyi gösterir.
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra ve Azure Cosmos DB tutarlılık düzeyleri arasında eşleme
 
-Bu tablo, Azure Cosmos DB'de Apache Cassandra ve tutarlılık düzeyleri tutarlılık eşlemesini gösterir. Her Cassandra okuma ve yazma tutarlılık düzeyleri için karşılık gelen bir Cosmos DB tutarlılık düzeyi daha güçlü sağlayan başka bir deyişle, katı garanti eder.
+Aşağıdaki tabloda bir Cassandra API'si ve Cosmos DB eşdeğer yerel tutarlılık düzeyi eşleme karşı kullanabileceğiniz çeşitli tutarlılık birleşimi açıklar. Apache Cassandra yazma ve okuma modları tüm birleşimi Cosmos DB tarafından yerel olarak desteklenir. Apache Cassandra yazma ve okuma tutarlılık modelini her bileşimlerde Cosmos DB Apache Cassandra eşit veya daha yüksek tutarlılık garantileri sağlar. Ayrıca, Cosmos DB Apache Cassandra yazma zayıf modunda bile daha yüksek bir dayanıklılık garanti sağlar.
 
-Aşağıdaki tabloda **tutarlılık eşleme yazma** Azure Cosmos DB ile Cassandra arasında:
+Aşağıdaki tabloda **yazma tutarlılığı eşleme** Azure Cosmos DB ile Cassandra arasında:
 
 | Cassandra | Azure Cosmos DB | Garantisi |
 | - | - | - |
@@ -42,7 +42,7 @@ Aşağıdaki tabloda **tutarlılık eşleme yazma** Azure Cosmos DB ile Cassandr
 | LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ    | Sınırlanmış Eskime Durumu | <ul><li>Sınırlanmış eskime durumu.</li><li>En fazla K sürümleri veya t saatten.</li><li>Son yürütülen değere bölgede okuyun.</li></ul> |
 | BİR LOCAL_ONE, TÜM   | Tutarlı Ön Ek | Bölge başına tutarlı ön ek |
 
-Aşağıdaki tabloda **tutarlılık eşleme okuma** Azure Cosmos DB ile Cassandra arasında:
+Aşağıdaki tabloda **okuma tutarlılığı eşleme** Azure Cosmos DB ile Cassandra arasında:
 
 | Cassandra | Azure Cosmos DB | Garantisi |
 | - | - | - |

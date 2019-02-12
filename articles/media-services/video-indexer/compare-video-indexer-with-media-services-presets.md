@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 968614d183fe6857336ea92791ba4f1d279a5016
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: b4c74a67c66b12e3a7333f3e679e7c61a750cf7e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198108"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002400"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Azure Media Services v3 hazır ve Video Indexer'ı karşılaştırma 
 
@@ -30,7 +30,7 @@ Bu makalede yeteneklerini karşılaştırır **Video Indexer API** ve **Media Se
 
 |Özellik|Video Indexer API |Video Çözümleyicisi ve ses Çözümleyicisi hazır<br/>Media Services v3 API'lerindeki|
 |---|---|---|
-|Medya öngörüleri|[Gelişmiş](video-indexer-output-json-v2.md) |[Temel Konular](../latest/intelligence-concept.md)|
+|Media Insights|[Gelişmiş](video-indexer-output-json-v2.md) |[Temel Konular](../latest/intelligence-concept.md)|
 |Deneyimleri|Desteklenen özelliklerin tam listesine bakın: <br/> [Genel Bakış](video-indexer-overview.md)|Video içgörüleri yalnızca döndürür|
 |Faturalandırma|[Media Services fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Uyumluluk|[Azure uyumluluk](https://aka.ms/AzureCompliance)|Media Services, birçok sertifikaları ile uyumludur. Kullanıma [Azure uyumluluk Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) ve ilgilendiğiniz bir sertifika ile uyumlu olmadığını görmek "Media Services" için arama yapın.|

@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/08/2018
+ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 24a911978d6c9f9a33c81254a5e2f5951029ff3a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120895"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004528"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights analiz
-Analytics, güçlü arama ve sorgulama aracı [Application Insights](../../azure-monitor/app/app-insights-overview.md). Analytics web aracı olduğundan kurulum gerekli değildir. Application Insights uygulamalarınızı biri için yapılandırmış sonra uygulamanızın Analytics açarak uygulamanızın verilerini çözümleyebilirsiniz [genel bakış dikey penceresinde](../../azure-monitor/app/app-insights-dashboards.md).
+Analytics, güçlü arama ve sorgulama aracı [Application Insights](app-insights-overview.md). Analytics web aracı olduğundan kurulum gerekli değildir.
+Application Insights uygulamalarınızı biri için yapılandırmış sonra uygulamanızın Analytics açarak uygulamanızın verilerini çözümleyebilirsiniz [genel bakış dikey penceresinde](app-insights-dashboards.md).
 
 ![Portal.Azure.com açın, Application Insights kaynağınızı açın ve analiz tıklayın.](./media/analytics/001.png)
 
@@ -28,6 +29,12 @@ Ayrıca [Analytics playground](https://go.microsoft.com/fwlink/?linkid=859557) b
 <br>
 <br>
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+## <a name="relation-to-azure-monitor-logs"></a>Azure İzleyici günlüklerine ilişkisi
+Application Insights analytics temel [Azure Veri Gezgini](/azure/data-explorer) gibi Azure izleme günlükleri ve ayrıca kullanan [Veri Gezgini sorgu dili](/azure/kusto/query). Aynı kullanan [log analytics portalı](../log-query/get-started-portal.md) verilerini ayrı bir bölümde depolanır ancak Azure İzleyici günlükleri gibi.
+
+Application Insights analiz doğrudan Log Analytics çalışma alanındaki veri erişilemiyor veya uygulama verilerini doğrudan log analytics'ten erişebilirsiniz. Her iki veri kümesini birlikte sorgulamak için yazma bir [log analytics'te sorgu](../log-query/log-query-overview.md) ve kullanımı [app() ifade](../log-query/app-expression.md) uygulama verilerine erişmek için.
+
 
 ## <a name="query-data-in-analytics"></a>Analytics'te sorgu verileri
 Tipik bir sorgu bir dizi tarafından izlenen bir tablo adı ile başlayan *işleçleri* ayırarak `|`.

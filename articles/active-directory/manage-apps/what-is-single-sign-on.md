@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 7903094efc75ec54811bf565f407752f958498b7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 2e70746de4b744daf7242e91c51a3ccc1b331878
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959214"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997311"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 Kullanıcılar uygulamalara, Azure Active Directory'de (Azure AD) oturum çoklu oturum açma (SSO) güvenlik ve kolaylık ekler. Bu makalede tek oturum açma yöntemleri açıklar ve uygulamalarınızı yapılandırırken en uygun SSO yöntemi seçmenize yardımcı olur.
@@ -27,7 +27,7 @@ Kullanıcılar uygulamalara, Azure Active Directory'de (Azure AD) oturum çoklu 
 
 ## <a name="choosing-a-single-sign-on-method"></a>Tek bir oturum açma yöntemi seçme
 
-Bir uygulama için çoklu oturum açmayı yapılandırmak için birkaç yolu vardır. Çoklu oturum açma yöntemini seçme uygulama kimlik doğrulaması için nasıl yapılandırıldığına bağlıdır. 
+Bir uygulama için çoklu oturum açmayı yapılandırmak için birkaç yolu vardır. Tek bir oturum açma yöntemini seçme uygulama kimlik doğrulaması için nasıl yapılandırıldığına bağlıdır. 
 
 - Bulut uygulamaları için çoklu oturum açmayı Openıd Connect, OAuth, SAML, parola tabanlı, bağlantılı veya devre dışı yöntemler kullanabilirsiniz. 
 - Şirket içi uygulamaları, parola tabanlı, tümleşik Windows kimlik doğrulaması, çoklu oturum açma için üst bilgi tabanlı, bağlantılı veya devre dışı yöntemleri kullanabilir. Uygulamalar, uygulama proxy'si için yapılandırıldığında, şirket içi seçenekler çalışır.
@@ -58,7 +58,7 @@ Daha fazla bilgi için bkz.
 - [Azure Active Directory Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 ## <a name="saml-sso"></a>SAML SSO
-İle **SAML çoklu oturum açma**, Azure AD, kullanıcının Azure AD hesabı kullanarak uygulamaya kimliğini doğrular. Azure AD oturum açma bilgileri uygulamaya bir bağlantı protokolü üzerinden iletişim kurar. SAML tabanlı çoklu oturum açma ile kullanıcılar, SAML Taleplerde tanımladığınız kurallarına göre belirli uygulama rollerine eşleyebilirsiniz
+İle **SAML çoklu oturum açma**, Azure AD, kullanıcının Azure AD hesabı kullanarak uygulamaya kimliğini doğrular. Azure AD oturum açma bilgileri uygulamaya bir bağlantı protokolü üzerinden iletişim kurar. SAML tabanlı çoklu oturum açma ile kullanıcılar, SAML Taleplerde tanımladığınız kurallarına göre belirli uygulama rolleri eşleyebilirsiniz.
 
 Uygulama destekliyorsa SAML tabanlı çoklu oturum açma seçin.
 
@@ -85,7 +85,7 @@ Parola tabanlı tek seçin ne zaman oturum:
 Parola tabanlı çoklu oturum açma bir HTML tabanlı oturum açma sayfası olan tüm bulut tabanlı uygulama için desteklenir. Kullanıcı aşağıdaki tarayıcılardan herhangi birini kullanabilirsiniz:
 
 - Internet Explorer 11 Windows 7 veya üzeri
-- Windows 10 Anniversary Edition veya sonrası, Microsoft Edge 
+- Windows 10 Anniversary Edition veya sonrası, Microsoft Edge
 - Chrome Windows 7 ve daha sonra ve MacOS x veya sonrası
 - Firefox 26,0 veya daha sonra Windows XP SP2 veya üzeri ve Mac OS X 10.6 üzerinde veya üzeri
 

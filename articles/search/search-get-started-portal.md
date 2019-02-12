@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9bdc2e197b4d7aea270c954305a96a01a1371945
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121558"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991319"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Hızlı Başlangıç: Azure Search içeri aktarma, dizin oluşturma ve sorgular için yerleşik portal araçlarını kullanma
 
@@ -83,7 +83,7 @@ Biz şimdilik bu adımı atlayın ve doğrudan geçin **hedef dizini Özelleşti
 
 ### <a name="step-3---configure-index"></a>3. adım: dizin yapılandırın
 
-Genellikle dizin oluşturma, veriler yüklenmeden önce tamamlanan kod tabanlı bir alıştırma, oluşur. Ancak, bu öğreticide da anlaşılacağı gibi sihirbaz gezinebileceği tüm veri kaynağı için temel bir dizin oluşturabilirsiniz. Dizin için en azından bir ad ve alan koleksiyonu gerekir ve her belgenin benzersiz olarak tanımlanabilmesi için bir alanın belge anahtarı olarak işaretlenmiş olması gerekir. Otomatik Tamamlama istiyorsanız buna ek olarak, dil Çözümleyicileri veya öneri araçları belirtebilirsiniz veya önerilen sorgular.
+Genellikle dizin oluşturma, veriler yüklenmeden önce tamamlanan kod tabanlı bir alıştırma, oluşur. Ancak, bu öğreticide da anlaşılacağı gibi sihirbaz gezinebileceği tüm veri kaynağı için temel bir dizin oluşturabilirsiniz. Dizin için en azından bir ad ve alan koleksiyonu gerekir ve her belgenin benzersiz olarak tanımlanabilmesi için bir alanın belge anahtarı olarak işaretlenmiş olması gerekir. Ayrıca, otomatik tamamlama veya önerilen sorgular istiyorsanız dil Çözümleyicileri veya öneri araçları belirtebilirsiniz.
 
 Alanların veri türleri ve öznitelikleri vardır. Üstteki onay kutuları, alanın nasıl kullanılacağını denetleyen *dizin öznitelikleridir*.
 

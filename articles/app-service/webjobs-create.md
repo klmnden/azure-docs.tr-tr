@@ -15,17 +15,20 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: d21d588660b67da024491151fe4f4376cebba46f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731439"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001179"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure uygulama Hizmeti'nde WebJobs ile arka plan görevleri çalıştırma
 
 ## <a name="overview"></a>Genel Bakış
 WebJobs'ın bir özelliğidir [Azure App Service](https://docs.microsoft.com/azure/app-service/) programları veya betikleri bir web uygulaması, API uygulaması veya mobil uygulama olarak aynı bağlamda çalıştırmanızı sağlayan. WebJobs'ı kullanmak için hiçbir ek ücret yoktur.
+
+> [!IMPORTANT]
+> Web işleri, Linux'ta App Service için henüz desteklenmiyor.
 
 Bu makalede kullanarak Web işleri dağıtma işlemi gösterilmektedir [Azure portalında](https://portal.azure.com) bir yürütülebilir veya betik yüklenecek. Geliştirin ve Visual Studio kullanarak Web işleri dağıtma hakkında daha fazla bilgi için bkz. [Visual Studio kullanarak Web işleri dağıtma](webjobs-dotnet-deploy-vs.md).
 

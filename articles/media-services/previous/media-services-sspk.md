@@ -4,7 +4,7 @@ description: Hakkında bilgi edinmek için Microsoft® kesintisiz akış istemci
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: xpouyat
-ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1954ccf07badbd4632c653bb1af4d6e96153e1fb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243905"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000089"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Lisans Microsoft® kesintisiz akış istemci taşıma kitini
+# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Lisans Microsoft® kesintisiz akış istemci taşıma kitini 
 ## <a name="overview"></a>Genel Bakış
 Microsoft kesintisiz akış istemci taşıma Kiti (**SSPK** kısaca) katıştırılmış cihaz üreticileri, kablo ve mobil işleçleri, içerik hizmet sağlayıcıları, ahize yardımcı olmak için optimize edilmiş bir kesintisiz akış istemci uygulaması Üreticiler, bağımsız yazılım satıcılarına (ISV) ve çözüm sağlayıcıları ürünleri ve Hizmetleri için kesintisiz akış biçiminde Uyarlamalı içerik akışı oluşturmak için. Bir cihaz ve platformdan bağımsız uygulama tarafından bir lisans herhangi bir cihaz ve platform için unity'nin kesintisiz akış istemci SSPK olduğu. 
 
@@ -83,28 +83,28 @@ Teknik sorular için lisans sahipleri için geçici ve son SSPK gönderebildiği
 * AirTies Kablosuz Iletism Sanayive Dış Ticaret A.S.
 * Albis Technologies Ltd.
 * Alticast Corporation
-* Amazon dijital hizmetler, Inc.
+* Amazon Digital Services, Inc.
 * Arion teknolojisi, Inc.
-* AVC multimedya yazılım Co., Ltd.
+* AVC Multimedia Software Co., Ltd.
 * Cavium, Inc.
 * EchoStar Corporation'ın satın alma
 * Enseo, Inc.
-* Fluendo Güney Amerika
+* Fluendo S.A.
 * HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
-* Irdeto ABD Inc.
+* Irdeto USA Inc.
 * iWEDIA Güney Amerika 
 * Serbest genel Hizmetleri BV
 * MediaTek Inc.
-* MStar ortak, Ltd
+* MStar Co, Ltd
 * Nintendo Co., Ltd.
 * OpenTV, Inc.
 * Saffron dijital sınırlı
-* Sichuan Changhong elektrik Co., Ltd.
+* Sichuan Changhong Electric Co., Ltd
 * SoftAtHome
 * Sony Corporation
 * Tatung teknoloji Inc.
-* Ukazovat teknoloji (Huizhou) Electronics Co., Ltd.
+* TCL Technology Electronics (Huizhou) Co., Ltd.
 * Üst sırrı Yatırımlar, Ltd.
 * Ticaret A.S. Vestel Elektronik Sanayi Kaydet
 * VisualOn, Inc.
@@ -114,7 +114,7 @@ Teknik sorular için lisans sahipleri için geçici ve son SSPK gönderebildiği
 * Gelişmiş dijital yayın SA
 * AirTies Kablosuz Iletism Sanayive Dış Ticaret A.S.
 * Albis Technologies Ltd.
-* Amazon dijital hizmetler, Inc.
+* Amazon Digital Services, Inc.
 * AmTRAN teknoloji Co., Ltd.
 * Arcadyan teknoloji Corporation
 * Arion teknolojisi, Inc.
@@ -122,17 +122,17 @@ Teknik sorular için lisans sahipleri için geçici ve son SSPK gönderebildiği
 * İngiliz Sky yayın sınırlı
 * CastPal teknoloji Inc. Shenzhen
 * Compal Electronics, Inc.
-* Dongguan dijital AV teknoloji Corp., Ltd.
+* Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Corporation'ın satın alma
 * Enseo, Inc.
-* Filmflex filmler sınırlı
-* Fluendo Güney Amerika
+* Filmflex Movies Limited
+* Fluendo S.A.
 * Gibson yeniliklerini sınırlı
 * Haier bilgi Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
-* Hisense uluslararası Co., Ltd. 
-* Homecast Co., Ltd.
-* Hon Hai duyarlık Industry Co., Ltd.
+* Hisense International Co., Ltd. 
+* Homecast Co., Ltd
+* Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
 * Kaonmedia Co., Ltd.
 * KDDI Corporation
@@ -140,13 +140,13 @@ Teknik sorular için lisans sahipleri için geçici ve son SSPK gönderebildiği
 * Turuncu SA
 * Saffron dijital sınırlı
 * Sagemcom geniş bant SAS
-* Shenzhen Coship Electronics CO., Ltd.
-* Shenzhen Jiuzhou elektrik Co., Ltd.
-* Shenzhen Skyworth dijital teknoloji Co., Ltd.
-* Sichuan Changhong elektrik Co., Ltd.
+* Shenzhen Coship Electronics CO., LTD
+* Shenzhen Jiuzhou Electric Co., Ltd
+* Shenzhen Skyworth Digital Technology Co., Ltd
+* Sichuan Changhong Electric Co., Ltd.
 * Skardin endüstriyel Corp.
 * Gök Deutschland Fernsehen GmbH & Co. KG
-* SmarDTV Güney Amerika
+* SmarDTV S.A.
 * SoftAtHome
 * Sony Corporation
 * Ukazovat deniz aşırı pazarlama (Macau ticari Offshore) sınırlı
@@ -154,7 +154,7 @@ Teknik sorular için lisans sahipleri için geçici ve son SSPK gönderebildiği
 * Tongfang genel Ltd.
 * Üst sırrı Yatırımlar, Ltd.
 * Toshiba yaşam ürünler ve hizmetler Corporation
-* Evrensel medya Corporation /Slovakia/ s.r.o.
+* Universal Media Corporation /Slovakia/ s.r.o.
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation

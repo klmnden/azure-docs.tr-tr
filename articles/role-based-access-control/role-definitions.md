@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ecfcfd5026f310a617f81af42483c29d89385288
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700732"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991370"
 ---
 # <a name="understand-role-definitions"></a>Rol tanımlarını anlama
 
@@ -147,7 +147,7 @@ Depolama Blob Verileri Katkıda Bulunan (Önizleme)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Alice, joker karakter olduğundan (`*`) eylem bir abonelik kapsamda kendi devralmak aşağı tüm yönetim eylemleri gerçekleştirmek her etkinleştirmek için. Ancak, Esra'nın veri işlemleri gerçekleştiremezsiniz. Örneğin, varsayılan olarak, bir kapsayıcı içinde BLOB'ları Alice okunamıyor, ancak Filiz okuma, yazma ve kapsayıcıları silmek.
+Alice, joker karakter olduğundan (`*`) eylem bir abonelik kapsamda kendi devralmak aşağı tüm yönetim eylemleri gerçekleştirmek her etkinleştirmek için. Alice, okuma, yazma ve kapsayıcıları silin. Ancak, Alice, ek adımların atılmasından olmadan veri işlemleri gerçekleştiremezsiniz. Örneğin, varsayılan olarak, bir kapsayıcı içinde BLOB'ları Alice okunamıyor. Alice blobları okumak için depolama erişim tuşlarını almak ve bunları bloblara erişmek için gerekir.
 
 Bob'ın izinler için yalnızca sınırlı `Actions` ve `DataActions` belirtilen [depolama Blob verileri katkıda bulunan (Önizleme)](built-in-roles.md#storage-blob-data-contributor-preview) rol. Rol tabanlı, Bob hem yönetim hem de veri işlemleri gerçekleştirebilirsiniz. Örneğin, Bob okumak, yazma ve belirtilen depolama hesabında kapsayıcıları silmek ve he ayrıca okuma, yazma ve blobları silin.
 

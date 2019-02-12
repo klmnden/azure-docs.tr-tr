@@ -2,10 +2,8 @@
 title: SQL Server Azure VM sürüm notları | Microsoft Docs
 description: Azure VM'de SQL Server'ın geliştirmeleri ve yeni özellikleri hakkında bilgi edinin
 services: virtual-machines-windows
-documentationcenter: ''
 author: MashaMSFT
 manager: craigg
-editor: ''
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
@@ -13,37 +11,53 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/13/2018
+ms.date: 2/5/2019
 ms.author: mathoma
-ms.openlocfilehash: 7c854759e9a0ba13b698dd07dabb25100895bc85
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: MT
+ms.openlocfilehash: e6640725c1c2de4676cbaad2698f77887d4f0547
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766886"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004698"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server Azure sanal makine sürüm notları
 
-Azure SQL Server'ın yerleşik görüntü ile bir sanal makine dağıtmanıza olanak tanır. Bu makalede, dağıtılan Azure sanal makinesinde SQL Server'ın en son sürümünde bekleyebileceğiniz yenilikleri ve yeni özellikleri listeler. 
+Azure SQL Server'ın yerleşik görüntü ile bir sanal makine dağıtmanıza olanak tanır. Bu makalede yeni özellikler ve geliştirmeler son sürümlerinde özetlenir [Azure sanal makineler'de SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/). Diğer Azure Hizmetleri için geliştirmeler için bkz. [hizmet güncelleştirmeleri](https://azure.microsoft.com/updates)
 
 ## <a name="december-2018"></a>Aralık 2018
 
-| **Değişiklik** | Ayrıntılar |
+### <a name="service-improvements"></a>Hizmet geliştirmeleri
+
+| Hizmet geliştirmeleri | Ayrıntılar |
 | --- | --- |
-| **Yeni SQL kümesine Grup kaynak sağlayıcısı** | Windows Yük devretme kümesi hakkındaki meta verileri tanımlayan yeni bir kaynak sağlayıcısı (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) yoktur. Bir SQL Server VM'si için birleştirme *SqlVirtualMachineGroups* Windows Yük devretme kümesi hizmeti bootstraps ve VM kümeye ekler.  |
+| **Yeni SQL kümesine Grup kaynak sağlayıcısı** | Windows Yük devretme kümesi meta verileri tanımlayan yeni bir kaynak sağlayıcısı (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups). Bir SQL Server VM'si için birleştirme *SqlVirtualMachineGroups* Windows Yük devretme kümesi hizmeti bootstraps ve VM kümeye ekler.  |
 |**Azure hızlı başlangıç şablonları ile bir kullanılabilirlik grubu dağıtımı ayarlama otomatikleştirin** |Artık, Windows Yük devretme kümesi oluşturma, SQL Server Vm'leri için katılın, dinleyiciyi oluşturun ve iç Load Balancer iki Azure hızlı başlangıç şablonları ile yapılandırmak mümkündür. Daha fazla bilgi için [WSFC oluşturmak, dinleyiciyi ve ILB Azure Hızlı Başlangıç şablonu ile bir SQL Server VM'de Always On kullanılabilirlik grubu için yapılandırma](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
 | **Otomatik SQL VM kaynak Sağlayıcısı kaydı** | SQL Server Vm'leri bu ay otomatik olarak kayıtlı sonra yeni SQL Server Kaynak sağlayıcısı ile dağıtılabilir. SQL Server bu ay önce dağıtılan Vm'leri yine de el ile kayıtlı olması gerekir. Daha fazla bilgi için [mevcut bir SQL VM ile yeni kaynak sağlayıcısını kaydetme](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).|
 | &nbsp; | &nbsp; |
 
+### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
+
+| Belgeleri geliştirmeleri | Ayrıntılar |
+| --- | --- |
+|yok | |
+| | |
 
 ## <a name="november-2018"></a>Kasım 2018
 
-| **Değişiklik** | Ayrıntılar |
+### <a name="service-improvements"></a>Hizmet geliştirmeleri
+
+| Hizmet geliştirmeleri | Ayrıntılar |
 | --- | --- |
-| **Yeni SQL VM kaynak sağlayıcısı** |  İçin SQL Server VM'nize daha iyi yönetimine olanak tanıyan SQL Server Vm'leri (Microsoft.SqlVirtualMachine) için yeni bir kaynak sağlayıcısı yok. VM'nizi kaydetme ile ilgili daha fazla bilgi için bkz: [mevcut bir SQL VM ile yeni kaynak sağlayıcısını kaydetme](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider). |
+| **Yeni SQL VM kaynak sağlayıcısı** |  SQL Server VM'nize daha iyi yönetimine olanak sağlayan SQL Server Vm'leri (Microsoft.SqlVirtualMachine) için yeni bir kaynak sağlayıcısı. VM'nizi kaydetme ile ilgili daha fazla bilgi için bkz: [mevcut bir SQL VM ile yeni kaynak sağlayıcısını kaydetme](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider). |
 |**Anahtar lisanslama modeli** |Şimdi Azure CLI veya Powershell kullanarak SQL vm'nizin kullanım başına ödeme ve Getir kendi lisans modeli arasında geçiş yapabilirsiniz. Daha fazla bilgi için [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md). | 
 | &nbsp; | &nbsp; |
 
+### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
+
+| Belgeleri geliştirmeleri | Ayrıntılar |
+| --- | --- |
+|yok | |
+| | |
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -59,6 +73,6 @@ Azure SQL Server'ın yerleşik görüntü ile bir sanal makine dağıtmanıza ol
 **Linux Vm'leri**:
 
 * [Bir Linux sanal makinesinde SQL Server'a genel bakış](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
-* [SQL Server Linux VM'si sağlama](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+* [Bir SQL Server Linux sanal makinesi sağlama](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [SSS (Linux)](../../linux/sql/sql-server-linux-faq.md)
 * [Linux üzerinde SQL Server belgeleri](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

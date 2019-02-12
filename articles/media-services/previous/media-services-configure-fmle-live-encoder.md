@@ -4,7 +4,7 @@ description: Bu konuda, tek bit hızlı akış gerçek zamanlı kodlama için et
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665894"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003746"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>FMLE Kodlayıcı tek bit hızlı canlı akış göndermektir.
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>FMLE Kodlayıcı tek bit hızlı canlı akış (eski) göndermek için kullanın
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -33,7 +33,7 @@ Bu makalede nasıl yapılacağı gösterilmektedir [Flash Media Live Encoder](ht
 
 Bu öğreticide, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Services (AMS) yönetilecek gösterilmektedir. Bu araç yalnızca Windows bilgisayarda çalışır. Mac veya Linux bilgisayarda ise oluşturmak için Azure portalını kullanma [kanalları](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) ve [programlar](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Bu öğreticide, AAC kullanmayı açıklar. Ancak, FMLE değil destekler AAC varsayılan olarak. AAC MainConcept gelenler gibi kodlaması için bir eklenti satın almanız gerekecektir: [AAC eklentisi](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Bu öğreticide, AAC kullanmayı açıklar. Ancak, FMLE değil destekler AAC varsayılan olarak. AAC gibi MainConcept kodlama için bir eklenti satın almanız gerekecektir: [AAC eklentisi](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [Azure Media Services hesabı oluşturma](media-services-portal-create-account.md)
@@ -78,14 +78,14 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
 
 * Codec: H.264
 * Profil: Yüksek (düzeyi 4.0)
-* Bit hızı: 5000 KB/sn
+* Bit hızı: 5000 kbps
 * Ana kare: 2 saniye (60 saniye)
-* Kare oranı: 30
+* Kare hızı: 30
 
 **Ses**:
 
 * Codec: AAC (LC)
-* Bit hızı: 192 Kb/sn
+* Bit hızı: 192 kbps
 * Örnek Hızı: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Yapılandırma adımları
@@ -93,7 +93,7 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
 
     Bir ana sayfa ayarlarını arabirimidir. FMLE kullanarak akışa başlamak için önerilen ayarları aşağıdakileri not alın.
 
-   * Biçim: H.264 kare hızı: 30,00
+   * Biçim: H.264 kare oranı: 30.00
    * Giriş boyutu: 1280 x 720
    * Bit hızı: 5000 (ağ sınırlamalar göre ayarlanabilir) KB/sn  
 
@@ -102,7 +102,7 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
      Onay işareti "Taramasız Hale Getir'i" seçeneğini kullanarak kaynakları aralıklı, lütfen
 2. Biçim yanındaki İngiliz anahtarı simgesini seçin, bu ek ayarlar şöyle olmalıdır:
 
-   * Profil: ana
+   * Profil: Ana
    * Düzey: 4.0
    * Ana kare sıklığı: 2 saniye
 
@@ -111,7 +111,7 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
 
    * Biçim: AAC
    * Örnek Hızı: 44100 Hz
-   * Bit hızı: 192 Kb/sn
+   * Bit hızı: 192 Kbps
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 4. Kanal alma giriş URL FMLE için 's atamak için **RTMP uç nokta**.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: d0fc922191dbcdf35e3f9d1dee4af32e50dd27a7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: e0e0c0654905245502fa4cf6647ee3a93d2e4833
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076697"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002229"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Özellikler ve Azure Cloud Shell için Araçlar
 
@@ -60,12 +60,12 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 |Kategori   |Ad   |
 |---|---|
 |Linux araçları            |Bash<br> zsh<br> Göster<br> tmux<br> dıg<br>               |
-|Azure Araçları            |[Azure CLI](https://github.com/Azure/azure-cli) ve [Klasik Azure CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Metin düzenleyiciler           |vim<br> nano<br> emacs<br> kod       |
+|Azure Araçları            |[Azure CLI](https://github.com/Azure/azure-cli) ve [Klasik Azure CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Metin düzenleyiciler           |kod (Cloud Shell Düzenleyicisi)<br> vim<br> nano<br> emacs    |
 |Kaynak denetimi         |git                    |
 |Derleme araçları            |Olun<br> Maven<br> npm<br> pip         |
 |Kapsayıcılar             |[Docker Makinesi](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI'Sİ](https://github.com/dcos/dcos-cli)         |
-|Veritabanları              |MySQL istemci<br> PostgreSql istemcisi<br> [SQLCMD yardımcı programı](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|Veritabanları              |MySQL istemci<br> PostgreSql istemcisi<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Diğer                  |Ipython istemci<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)|
 
 ## <a name="language-support"></a>Dil desteği
@@ -76,7 +76,7 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 |Başlayın         |1.9        |
 |Java       |1,8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.1](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.2](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 ve 3.5 (varsayılan)|
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 457f64b9ae9101628df5347c921bfa057a7cb754
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475202"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991438"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL dil başvurusu 
 
@@ -493,7 +493,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**Aritmetik**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Ayrıca.<br /><br /> Çıkarma.<br /><br /> Çarpma.<br /><br /> Bölme.<br /><br /> Modülasyon.|  
 |**bit düzeyinde**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bit düzeyinde OR.<br /><br /> Bit düzeyinde and<br /><br /> Bit düzeyinde XOR.<br /><br /> Sola kaydırma.<br /><br /> Sağa kaydırma.<br /><br /> Sıfır dolgu sağa kaydırma.|  
-|**Mantıksal**|**VE**<br /><br /> **VEYA**|Mantıksal ve işlecini. Döndürür **true** her iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.<br /><br /> Mantıksal ve işlecini. Döndürür **true** her iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.|  
+|**Mantıksal**|**VE**<br /><br /> **VEYA**|Mantıksal ve işlecini. Döndürür **true** her iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.<br /><br /> Mantıksal veya işlecini uygular. Döndürür **true** herhangi bir bağımsız değişken varsa **true**, döndürür **false** Aksi takdirde.|  
 |**Karşılaştırma**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Eşittir. Döndürür **true** bağımsız değişkenlerin eşit olup olmadığını döndürür **false** Aksi takdirde.<br /><br /> Eşit değildir. Döndürür **true** bağımsız değişkenleri eşit değilse döndürür **false** Aksi takdirde.<br /><br /> Büyüktür. Döndürür **true** ilk bağımsız değişken ikinci sürümden daha büyük ise, dönüş **false** Aksi takdirde.<br /><br /> Büyüktür veya eşittir. Döndürür **true** ilk bağımsız değişken büyüktür veya eşittir ikincisi için ise, dönüş **false** Aksi takdirde.<br /><br /> Küçüktür. Döndürür **true** ilk bağımsız değişken küçükse değerinden ikinci bir dönüş **false** Aksi takdirde.<br /><br /> Küçüktür veya eşittir. Döndürür **true** ilk bağımsız değişken ikinci bir veya daha az ise, dönüş **false** Aksi takdirde.<br /><br /> Birleşim. İlk bağımsız değişken ikinci bağımsız değişkeni döndürür bir **tanımlanmamış** değeri.|  
 |**dize**|**&#124;&#124;**|Birleştirme. Her iki bağımsız değişkenler birleşimi döndürür.|  
   
@@ -620,7 +620,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|kesme işareti (')|U + 0027|  
 |\\"|tırnak işareti (")|U + 0022|  
-|\\\|Ters solidus (\\)|U + 005C|  
+|\\\ |Ters solidus (\\)|U + 005C|  
 |\\/|solidus (/)|U + 002F|  
 |\b|Geri Al|U + 0008|  
 |\f|form besleme|U + 000C|  

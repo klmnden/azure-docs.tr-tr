@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 6b6c64d82f4e4d48178b2b0a4f8f02b99d0f0b77
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6c45c7d70a1a091440d33ba76aa430c9a9252144
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982480"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998000"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
@@ -78,7 +78,7 @@ Bir denemeyi sıfırdan oluşturabilir veya var olan bir örnek denemeyi şablon
 
 Basit bir deneme oluşturma örneği için bkz. [Azure Machine Learning Studio'da basit bir deneme oluşturma](create-experiment.md).
 
-Tahmine dayalı bir analiz çözümünün daha kapsamlı bir kılavuzu için bkz. [Azure Machine Learning ile tahmine dayalı bir analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md).
+Tahmine dayalı bir analiz çözümünün daha kapsamlı bir kılavuzu için bkz. [Azure Machine Learning ile tahmine dayalı bir analiz çözümü geliştirme](tutorial-part1-credit-risk.md).
 
 ### <a name="datasets"></a>Veri kümeleri
 Bir veri kümesi, model oluşturma işleminde kullanılabilmesi için Machine Learning Studio'ya yüklenen verilerdir. Machine Learning Studio'da deneme yapabileceğiniz birçok örnek veri kümesi bulunur ve ihtiyaç duyarsanız daha çok veri kümesi yükleyebilirsiniz. Dahil olan veri kümelerine aşağıda birkaç örnek verilmiştir:

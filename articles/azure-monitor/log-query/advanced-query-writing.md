@@ -1,6 +1,6 @@
 ---
-title: Gelişmiş sorgular Azure Log analytics'te | Microsoft Docs
-description: Bu makale, Log Analytics'te sorgu yazmak için Analytics portalı kullanmaya yönelik bir öğretici sağlar.
+title: Gelişmiş Azure Azure İzleyicisi'nde sorgular | Microsoft Docs
+description: Bu makalede, Azure İzleyicisi'nde sorgular yazmak için Analytics portalı kullanmaya yönelik bir öğretici sağlar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: b8441d72f85c2160cf756df37722fa6037441236
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191555"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993223"
 ---
-# <a name="writing-advanced-queries-in-log-analytics"></a>Gelişmiş Log Analytics sorguları yazma
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Gelişmiş sorgular Azure İzleyici'de yazma
 
 > [!NOTE]
-> Tamamlamanız gereken [Analytics portalı ile çalışmaya başlama](get-started-portal.md) ve [sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
+> Tamamlamanız gereken [Azure İzleyici log analytics ile çalışmaya başlama](get-started-portal.md) ve [sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Log Analytics sorgu dilini kullanarak için diğer dersler bakın:
+Diğer dersler kullanmak için bkz. [Veri Gezgini sorgu dili](/azure/kusto/query/) Azure İzleyici ile günlük verilerini:
 
 - [Dize işlemleri](string-operations.md)
 - [Tarih ve saat işlemleri](datetime-operations.md)

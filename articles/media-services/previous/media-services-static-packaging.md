@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1ea4639d547616f2cfdf1d5e2b78c1388ef09dc4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 80c9f1c7e2bec3e3f3fa696134a23f0760598a29
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826131"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001145"
 ---
-# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Statik paketleme görevlerini gerçekleştirmek üzere Azure Media Packager'ı kullanma
+# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Statik paketleme görevlerini gerçekleştirmek üzere Azure Media Packager'ı kullanma  
 > [!NOTE]
 > 1 Mart 2017'ye tarihi Microsoft Azure medya Paketleyici ve Microsoft Azure medya Şifreleyici yaşam sonuna genişletilmiştir. Bu tarihten önce bu işlemci işlevlerini medya Kodlayıcı standart (MES için) eklenir. Müşteriler için MES işleri göndermek için iş akışlarını geçirme hakkında yönergeler sağlanır. Biçim dönüştürme ve şifreleme özellikleri de dinamik paketleme ve dinamik şifreleme yapılabilir.
 > 

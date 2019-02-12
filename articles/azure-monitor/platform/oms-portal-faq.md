@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883407"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990437"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -105,7 +105,7 @@ Bilgisayar grupları yönetmek **Gelişmiş ayarlar** çalışma alanı için me
 Çözümleri yönetme **çözümleri** çalışma alanı için menü. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Nasıl yükleyin ve yönetim çözümleri Kaldır?
-OMS portalındaki çözüm galerisinden yönetim çözümlerini yükleme ve bunları kaldırıldı **ayarları**. Azure portalında [yönetim çözümlerini yükleme](../insights/solutions.md#install-a-management-solution) Azure Market'ten. [Çözümleri kaldırma](../insights/solutions.md#remove-a-management-solution) yüklü çözümleri listesinden.
+OMS portalındaki çözüm galerisinden yönetim çözümlerini yükleme ve bunları kaldırıldı **ayarları**. Azure portalında [yönetim çözümlerini yükleme](../insights/solutions.md#install-a-monitoring-solution) Azure Market'ten. [Çözümleri kaldırma](../insights/solutions.md#remove-a-monitoring-solution) yüklü çözümleri listesinden.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Nasıl oluştururum ve Uyarıları yönetme?
 Uyarı kuralları log Analytics sorgularına dayalı yönetilen artık [deneyimi uyarı birleşik](../../azure-monitor/platform/alerts-metric.md). Bkz: [uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme](../../azure-monitor/platform/alerts-extend-tool.md) yapılandırma ve Azure portalında uyarıları kullanma hakkında bilgi.

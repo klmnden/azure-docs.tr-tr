@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: f9f8d9fcdca649494088ad9c53415429c5232384
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 131b003a75849aba32fe1cce57603eb508db7c39
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978536"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003985"
 ---
-# <a name="import-a-postman-collection-with-on-demand-streaming-operations-legacy"></a>İsteğe bağlı Akış işlemleri (eski) ile bir Postman koleksiyonunu içeri aktarma
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>İsteğe bağlı Akış işlemleri bir Postman koleksiyonunu içeri aktarma 
 
 Bu makalede bir tanımını içeren **Postman** gruplandırılmış Azure Media Services REST API'lerini çağırma HTTP isteklerini içeren koleksiyon. Yapılandırma hakkında daha fazla bilgi için **Postman** da kullanılabilmesi için Media Services REST API'leri çağırmak için bkz [Postman yapılandırmak için Media Services REST API çağrıları](media-rest-apis-with-postman.md) öğretici.
 

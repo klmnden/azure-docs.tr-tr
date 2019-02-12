@@ -4,7 +4,7 @@ description: Bu makalede, içerik koruma ilkelerini yapılandırmak için Azure 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc5439c98b5abc69b6cb1ba144e015426bb887ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423571"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996980"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Azure portalı kullanarak içerik koruma ilkelerini yapılandırma
  Azure Media Services ile depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdaki güvenliğini sağlayabilirsiniz. Media Services, dinamik olarak Gelişmiş Şifreleme Standardı (AES ile) 128 bit şifreleme anahtarları kullanılarak şifrelenir, içeriğinizi teslim etmek için kullanabilirsiniz. Ayrıca, ortak şifreleme (CENC) ile PlayReady ve/veya Widevine dijital hak yönetimi (DRM) ve Apple FairPlay kullanarak kullanabilirsiniz. 
@@ -93,7 +93,7 @@ Varlıklarınızın tümünü görmek için seçin **ayarları** > **varlıklar*
 Seçtiğinizde, **şifrele** bir varlık için iki seçenek görürsünüz: **AES** veya **DRM**. 
 
 #### <a name="aes"></a>AES
-AES anahtar şifrelemesi tüm akış protokollerinde etkin Temizle: kesintisiz akış, HLS ve MPEG-DASH.
+AES anahtar şifrelemesi tüm akış protokollerinde etkin temizleyin: Kesintisiz akış, HLS ve MPEG-DASH.
 
 ![Şifreleme yapılandırması](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 

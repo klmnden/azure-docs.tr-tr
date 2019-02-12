@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585446"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997032"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Kaynak grupları, Azure İzleyici (Önizleme) ile izleme
 
@@ -93,9 +93,9 @@ Bir dizi **Düzenle** kutuları çalışma kitabında çeşitli öğelerin yanı
 
 ![Düzenleme kutularının ekran görüntüsü](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-Bu tablo görselleştirmesine yönlendiren temel alınan Log Analytics sorgusu ortaya çıkarır.
+Bu tablo görselleştirmesine yönlendiren temel alınan günlük sorgusu ortaya çıkarır.
 
- ![Log analytics Sorgu penceresinin ekran görüntüsü](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Günlük Sorgu penceresinin ekran görüntüsü](./media/resource-group-insights/0010-failure-edit-query.png)
 
 Sorguyu doğrudan değiştirebilirsiniz. Referans olarak kullanın ve bundan kendi özel parametreli çalışma kitabı tasarlarken ödünç alın.
 

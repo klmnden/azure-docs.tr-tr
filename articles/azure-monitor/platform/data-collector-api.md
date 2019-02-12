@@ -1,6 +1,6 @@
 ---
-title: Günlük analizi HTTP veri toplayıcı API'si | Microsoft Docs
-description: POST JSON verileri REST API çağrısı herhangi bir istemciden Log Analytics deposuna eklemek için Log Analytics HTTP veri toplayıcı API'sini kullanabilirsiniz. Bu makalede API'SİNİN nasıl kullanılacağı açıklanır ve farklı programlama dillerini kullanarak veri yayımlama örnekleri vardır.
+title: Azure İzleyici HTTP veri toplayıcı API'si | Microsoft Docs
+description: POST JSON verileri REST API çağrısı herhangi bir istemciden bir Log Analytics çalışma alanınıza eklemek için Azure İzleyici HTTP veri toplayıcı API'sini kullanabilirsiniz. Bu makalede API'SİNİN nasıl kullanılacağı açıklanır ve farklı programlama dillerini kullanarak veri yayımlama örnekleri vardır.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,23 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: bwren
-ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 918cfb36c3afb9fc5c9a3f2c25b7c14b04354db1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211109"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002236"
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API'sini (genel Önizleme) ile Log Analytics veri Gönder
-Bu makalede REST API istemcisinden Log Analytics'e veri göndermek için HTTP veri toplayıcı API'sini kullanmayı gösterir.  Bu betik ya da uygulama tarafından toplanan verileri biçimlendirme, bir isteğe ekleyin ve bu istek Log Analytics tarafından yetkilendirilmiş olması açıklar.  PowerShell, C# ve Python için örnek verilmiştir.
+# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Azure İzleyici HTTP veri toplayıcı API'sini (genel Önizleme) ile günlük verileri gönderin
+Bu makalede günlük verilerini Azure İzleyici için bir REST API istemcisinden göndermek için HTTP veri toplayıcı API'sini kullanmayı gösterir.  Bu betik ya da uygulama tarafından toplanan verileri biçimlendirme, bir isteğe ekleyin ve bu isteği Azure İzleyici tarafından yetkilendirilmiş olması açıklar.  PowerShell, C# ve Python için örnek verilmiştir.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
-> Log Analytics HTTP veri toplayıcı API'sini genel Önizleme aşamasındadır.
+> Azure İzleyici HTTP veri toplayıcı API'si genel önizlemeye sunuldu.
 
 ## <a name="concepts"></a>Kavramlar
-Bir REST API'sine çağrı yapmadan herhangi bir istemciden Log Analytics'e veri göndermek için HTTP veri toplayıcı API'sini kullanabilirsiniz.  Bu runbook olabilir yönetim toplar Azure Automation'da Azure veya başka bir bulut ya da verileri birleştirmek ve verileri çözümlemek için Log Analytics kullanan bir alternatif yönetim sistemi olabilir.
+Günlük verileri Log Analytics çalışma alanına Azure İzleyici REST API'sine çağrı yapmadan herhangi bir istemciden göndermek için HTTP veri toplayıcı API'sini kullanabilirsiniz.  Bu runbook olabilir yönetim toplar Azure Automation'da Azure veya başka bir bulut ya da verileri birleştirmek ve günlük verilerini analiz etmek için Azure İzleyici kullanan bir alternatif yönetim sistemi olabilir.
 
-Log Analytics deposunda tüm verileri, belirli bir kayıt türü içeren bir kayıt olarak depolanır.  HTTP veri toplayıcı API'si için birden çok kayıt JSON olarak göndermek için veri biçimi.  Veri gönderdiğinde, depo istek yükü her kayıt için tek bir kayıt oluşturulur.
+Log Analytics çalışma alanındaki tüm verileri, belirli bir kayıt türü içeren bir kayıt olarak depolanır.  HTTP veri toplayıcı API'si için birden çok kayıt JSON olarak göndermek için veri biçimi.  Veri gönderdiğinde, depo istek yükü her kayıt için tek bir kayıt oluşturulur.
 
 
 ![HTTP veri toplayıcı genel bakış](media/data-collector-api/overview.png)
@@ -62,7 +64,7 @@ HTTP veri toplayıcı API'sini kullanmak için JavaScript nesne gösterimi (JSON
 | saat oluşturulan alanı |Zaman damgası veri öğesinin içerdiği verileri bir alanın adı. Bir alanı belirtmeniz sonra içeriği için kullanılan **TimeGenerated**. Bu alan belirtilmezse, varsayılan **TimeGenerated** ileti alınan zamandır. Mesaj alanına içeriğini ISO 8601 biçimi YYYY izlemelidir-aa-ssZ. |
 
 ## <a name="authorization"></a>Yetkilendirme
-Log Analytics HTTP veri toplayıcı API'sini yapılan tüm istekleri bir yetkilendirme üst bilgisi içermesi gerekir. Bir isteğin kimliğini doğrulamak için birincil veya ikincil anahtarı isteği yapan çalışma alanı için istekle oturum açmanız gerekir. Ardından, bu imza, isteğin bir parçası geçirin.   
+Azure İzleyici HTTP veri toplayıcı API'sini yapılan tüm istekleri bir yetkilendirme üst bilgisi içermesi gerekir. Bir isteğin kimliğini doğrulamak için birincil veya ikincil anahtarı isteği yapan çalışma alanı için istekle oturum açmanız gerekir. Ardından, bu imza, isteğin bir parçası geçirin.   
 
 Yetkilendirme üst bilgisi biçimi şu şekildedir:
 
@@ -130,24 +132,24 @@ Aşağıdaki biçimi kullanarak tek bir istekte birden çok kayıt toplu iş. T�
 ```
 
 ## <a name="record-type-and-properties"></a>Kayıt türü ve özellikleri
-Günlük analizi HTTP veri toplayıcı API'si aracılığıyla veri gönderdiğinde, özel bir kayıt türü tanımlarsınız. Şu anda, diğer veri türleri ve çözümler tarafından oluşturulan mevcut kayıt türlerinin veri yazamıyor. Log Analytics, gelen verileri okur ve ardından girdiğiniz değer veri türleri eşleşen özelliklere oluşturur.
+Azure İzleyici HTTP veri toplayıcı API'si aracılığıyla veri gönderdiğinde, özel bir kayıt türü tanımlarsınız. Şu anda, diğer veri türleri ve çözümler tarafından oluşturulan mevcut kayıt türlerinin veri yazamıyor. Azure İzleyici, gelen verileri okur ve girdiğiniz değer veri türleri eşleşen özelliklere oluşturur.
 
-Log Analytics API'sine yapılan her isteği içermelidir bir **günlük türü** üstbilgiyle kayıt türünün adı. Sonek **_CL** otomatik olarak eklenir adı için özel bir günlük günlük diğer türlerden ayırt etmek için bilgi girin. Örneğin adını girin, **MyNewRecordType**, Log Analytics ile tür kayıt oluşturur **MyNewRecordType_CL**. Bu kullanıcı tarafından oluşturulan tür adları hem de geçerli veya gelecek Microsoft çözümleri sevk arasında çakışmalar olduğundan emin olun yardımcı olur.
+Veri Toplayıcı API'sini kullanarak her isteğin içermelidir bir **günlük türü** üstbilgiyle kayıt türünün adı. Sonek **_CL** otomatik olarak eklenir adı için özel bir günlük günlük diğer türlerden ayırt etmek için bilgi girin. Örneğin adını girin, **MyNewRecordType**, Azure izleyici türü ile bir kayıt oluşturur **MyNewRecordType_CL**. Bu kullanıcı tarafından oluşturulan tür adları hem de geçerli veya gelecek Microsoft çözümleri sevk arasında çakışmalar olduğundan emin olun yardımcı olur.
 
-Bir özelliğin veri türünü tanımlamak için Log Analytics için özellik adını bir sonek ekler. Bir özellik null bir değer içeriyorsa, bu kayıt özelliği dahil edilmez. Bu tabloda, karşılık gelen sonek ve özellik verilerinin türü listelenmiştir:
+Azure İzleyici bir özelliğin veri türünü tanımlamak için özellik adına bir sonek ekler. Bir özellik null bir değer içeriyorsa, bu kayıt özelliği dahil edilmez. Bu tabloda, karşılık gelen sonek ve özellik verilerinin türü listelenmiştir:
 
 | Özellik verilerinin türü | Sonek |
 |:--- |:--- |
-| Dize |_s |
+| String |_s |
 | Boole |_b |
-| çift |_d |
+| Double |_d |
 | Tarih/saat |_t |
 | GUID |_g |
 
-İster yeni kayıt için kayıt türü zaten var. her bir özellik için Log Analytics kullanan veri türüne bağlıdır.
+Yeni kayıt için kayıt türü zaten var olup üzerinde her özelliği için Azure İzleyici kullanan veri türüne bağlıdır.
 
-* Kayıt türü yoksa yeni bir Log Analytics oluşturur. Log Analytics'e JSON tür çıkarımı yeni kayıt için her bir özellik için veri türünü belirlemek için kullanır.
-* Kayıt türü mevcut değilse mevcut özelliklerine bağlı olarak yeni bir kayıt oluşturmak Log Analytics çalışır. Yeni kayıttaki bir özellik için veri türü eşleşmiyor ve mevcut türüne dönüştürülemiyor veya kayıt mevcut olmayan bir özellik varsa, Log Analytics ilgili sonekine sahip yeni bir özellik oluşturur.
+* Azure İzleyici, kayıt türü yoksa yeni kayıt için her bir özellik için veri türünü belirlemek için JSON tür çıkarımı kullanarak yeni bir oluşturur.
+* Kayıt türü yoksa, Azure İzleyici mevcut özelliklerine bağlı olarak yeni bir kayıt oluşturmak çalışır. Yeni kayıttaki bir özellik için veri türü eşleşmiyor ve mevcut türüne dönüştürülemiyor veya kayıt mevcut olmayan bir özellik varsa, Azure İzleyici ilgili sonekine sahip yeni bir özellik oluşturur.
 
 Örneğin, bu gönderme giriş üç özellik ile bir kayıt oluşturacak **number_d**, **boolean_b**, ve **string_s**:
 
@@ -157,18 +159,18 @@ Bu sonraki giriş ardından tüm değerleri dize olarak biçimlendirilmiş gönd
 
 ![Örnek kaydı 2](media/data-collector-api/record-02.png)
 
-Ancak, ardından bu sonraki gönderim yaptıysanız, Log Analytics yeni özellikleri oluşturacak **boolean_d** ve **string_d**. Bu değerleri dönüştürülemez:
+Ancak, ardından bu sonraki gönderim yaptıysanız, Azure İzleyici'yeni özellikleri oluşturacak **boolean_d** ve **string_d**. Bu değerleri dönüştürülemez:
 
 ![Örnek kayıt 3](media/data-collector-api/record-03.png)
 
-Kayıt türü oluşturulmadan önce şu girişi, ardından gönderdiyseniz, Log Analytics üç özellik bir kayıt oluşturacak **başarı sayısı**, **boolean_s**, ve **string_s**. Bu girdiye her ilk değeri bir dize olarak biçimlendirilmiş:
+Kayıt türü oluşturulmadan önce şu girişi, ardından gönderdiyseniz, Azure İzleyici üç özellik bir kayıt oluşturacak **başarı sayısı**, **boolean_s**, ve **string_s**. Bu girdiye her ilk değeri bir dize olarak biçimlendirilmiş:
 
 ![Örnek kayıt 4](media/data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>Veri sınırları
-Log Analytics veri toplama API'si gönderilen veriler etrafında bazı kısıtlamalar vardır.
+Azure İzleyicisi veri koleksiyonu API'sini için gönderilen veriler etrafında bazı kısıtlamalar vardır.
 
-* Log Analytics Veri Toplayıcı API'sini gönderi başına en fazla 30 MB. Tek bir gönderi için boyut sınırı budur. Tek bir veri gönderirseniz 30 MB aşıyor, daha küçük boyutlu öbeklere verileri bölün ve eşzamanlı olarak gönderin.
+* Azure İzleyici, veri toplayıcı API'sini gönderi başına en fazla 30 MB. Tek bir gönderi için boyut sınırı budur. Tek bir veri gönderirseniz 30 MB aşıyor, daha küçük boyutlu öbeklere verileri bölün ve eşzamanlı olarak gönderin.
 * En fazla 32 KB sınırını alan değerleri için. Alan değeri, 32 KB'den büyükse, verileri kesilecek.
 * Verilen tür için alanları önerilen en yüksek sayısını 50'dir. Bu, bir kullanılabilirlik ve arama deneyimi açısından pratik bir sınırdır.  
 
@@ -196,15 +198,10 @@ Bu tabloda eksiksiz hizmet döndürebilir durum kodları listelenmiştir:
 | 503 |Hizmet Kullanılamıyor |ServiceUnavailable |Hizmet isteklerini almak şu anda kullanılamıyor. Lütfen isteğinizi yeniden deneyin. |
 
 ## <a name="query-data"></a>Verileri sorgulama
-Log Analytics HTTP veri toplayıcı API'sini, arama ile kayıt tarafından gönderilen veri **türü** eşit olan **LogType** , belirttiğiniz değer eklenmiş olan **_CL**. Örneğin, kullandıysanız **MyCustomLog**, tüm kayıtları döndürecekti sonra **türü MyCustomLog_CL =**.
-
->[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](../../azure-monitor/log-query/log-query-overview.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
-
-> `MyCustomLog_CL`
+Azure İzleyici HTTP veri toplayıcı API'sini, arama ile kayıt tarafından gönderilen veri **türü** eşit olan **LogType** , belirttiğiniz değer eklenmiş olan **_CL**. Örneğin, kullandıysanız **MyCustomLog**, tüm kayıtları döndürecekti sonra `MyCustomLog_CL`.
 
 ## <a name="sample-requests"></a>Örnek istekler
-Sonraki bölümlerde, farklı programlama dillerini kullanarak Log Analytics HTTP veri toplayıcı API'sini kullanarak veri göndermek nasıl örnekleri bulabilirsiniz.
+Sonraki bölümlerde, farklı programlama dillerini kullanarak Azure İzleyici HTTP veri toplayıcı API'sini kullanarak veri göndermek nasıl örnekleri bulabilirsiniz.
 
 Her örnek için yetkilendirme üst bilgisi için değişkenleri ayarlamak için aşağıdaki adımları uygulayın:
 
@@ -226,7 +223,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -321,10 +318,10 @@ namespace OIAPIExample
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-        // LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of the event type that is being submitted to Azure Monitor
         static string LogName = "DemoExample";
 
-        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
         static string TimeStampField = "";
 
         static void Main()
@@ -468,6 +465,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Kullanım [günlük arama API'si](../../azure-monitor/log-query/log-query-overview.md) Log Analytics depodan veri alınamadı.
+- Kullanım [günlük arama API'si](../log-query/log-query-overview.md) Log Analytics çalışma alanından veri alınamadı.
 
-- Hakkında daha fazla bilgi [veri işlem hattı ile veri toplayıcı API'sini oluşturma](../../azure-monitor/platform/create-pipeline-datacollector-api.md) Log analytics'e Logic Apps iş akışı kullanarak.
+- Hakkında daha fazla bilgi [veri işlem hattı ile veri toplayıcı API'sini oluşturma](create-pipeline-datacollector-api.md) Azure İzleyici için Logic Apps iş akışı kullanarak.

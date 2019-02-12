@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 843bc3c070435b6d49480ea269090641e0ebd007
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: af5246c452478dddaaa33b9575fc5a065121a343
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456485"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001043"
 documentType: LandingData
 title: 'Azure SQL Veritabanı: İzleme ve ayarlama'
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 01/25/2019
+  ms.date: 02/08/2019
   ms.author: jovanpop
 sections:
 - items:
@@ -31,7 +31,7 @@ sections:
     items:
     - title: Sorgu performansı öngörüleri
       href: /azure/sql-database/sql-database-query-performance
-      html: <p>Azure portalında yerleşik izleme işlevlerini kullanarak kolayca (tek başına veya havuza veritabanı) Azure SQL veritabanı kaynak kullanımı izleyin.</p>
+      html: <p>Azure portalında yerleşik izleme işlevlerini kullanarak kolayca (tek veya havuza veritabanı) Azure SQL veritabanı kaynak kullanımı izleyin.</p>
     - title: Azure SQL Analytics
       href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json
       html: <p>Azure SQL Analytics izleme büyük veritabanları, elastik havuzlar ve tek bir bölme durumlarda cam filosundan kolayca izlemenize olanak sağlar.</p>

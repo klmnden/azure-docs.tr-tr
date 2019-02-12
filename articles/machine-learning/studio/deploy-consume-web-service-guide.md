@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 64276047410280f8e818cf695f1fbb0c80fdd693
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2add42e56f939dbfeb33ac2774d404411b1fefb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497681"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997260"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web Hizmetleri: Dağıtım ve kullanım
 Machine learning iş akışları ve Modellerinizi web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, ardından, makine öğrenme modellerini uygulamalardan gerçek zamanlı olarak veya toplu iş modunda tahminleri yapmak için Internet üzerinden çağırmak için de kullanılabilir. RESTful web hizmetleri olduğu için bunları çeşitli programlama dilleri ve platformları, .NET ve Java gibi ve Excel gibi uygulamaları çağırabilirsiniz.
@@ -31,10 +31,10 @@ Aşağıdaki bağlantılar, yeni bir web hizmeti dağıtma hakkında genel bilgi
 
 * Azure Resource Manager'a bağlı yeni bir web hizmeti dağıtma hakkında genel bir bakış için bkz. [yeni bir web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
 * Bir web hizmeti dağıtma hakkında kılavuz için bkz. [bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
-* Bir web hizmeti oluşturma ve dağıtma konusunda tam bir kılavuz için bkz: [1. adım izlenecek yol: Machine Learning çalışma alanı oluşturma](walkthrough-1-create-ml-workspace.md).
+* İle bir web hizmeti oluşturma ve dağıtma konusunda tam bir kılavuz için başlangıç [ öğretici 1: Kredi riskini tahmin](tutorial-part1-credit-risk.md).
 * Bir web hizmetini dağıtma belirli örnekler için bkz:
 
-  * [Kılavuz adımı 5: Azure Machine Learning web hizmetini dağıtma](walkthrough-5-publish-web-service.md)
+  * [Öğretici 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
   * [Bir web hizmetini birden fazla bölgeye dağıtma](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Web Hizmetleri kaynak sağlayıcı API'leri (Azure Resource Manager API'leri)
@@ -84,7 +84,7 @@ Azure Machine Learning Web Hizmetleri portalında web hizmetini test edebilirsin
 
 * [Yeni bir web hizmeti dağıtma](publish-a-machine-learning-web-service.md)
 * [Bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md)
-* [Kılavuz adımı 5: Azure Machine Learning web hizmetini dağıtma](walkthrough-5-publish-web-service.md)
+* [Öğretici 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Excel'den
 Web hizmeti bir Excel şablonu indirebilirsiniz:

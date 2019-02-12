@@ -4,165 +4,169 @@ description: Azure Active Directory ve Druva arasında çoklu oturum açmayı ya
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/23/2017
+ms.topic: tutorial
+ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 0429a7d0845b8590570dfb8ffc513ca3bb0ce998
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d0c8f41e1f7de9b2059e9be2c003c5ba44bcfe1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195962"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Öğretici: Druva ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Druva tümleştirme konusunda bilgi edinin.
-
 Azure AD ile Druva tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Druva erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanan için Druva (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Druva erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) için Druva kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Druva yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik Druva çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik Druva çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Druva ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Druva destekler **SP** ve **IDP** tarafından başlatılan
 
 ## <a name="adding-druva-from-the-gallery"></a>Galeriden Druva ekleme
+
 Azure AD'de Druva tümleştirmesini yapılandırmak için Druva Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Druva eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **Druva**seçin **Druva** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Sonuç listesinde Druva](./media/druva-tutorial/tutorial_druva_addfromgallery.png)
+4. Arama kutusuna **Druva**seçin **Druva** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Sonuç listesinde Druva](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Druva "Britta Simon" adlı bir test kullanıcı tabanlı Azure AD çoklu oturum açmayı sınayın.
-
-Tek iş için oturum açma için Azure AD ne Druva karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve Druva ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
-
-Druva içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Druva adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve Druva ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Druva ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Druva test kullanıcısı oluşturma](#create-a-druva-test-user)**  - kullanıcı Azure AD gösterimini bağlı Druva Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Druva çoklu oturum açmayı yapılandırma](#configure-druva-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Druva test kullanıcısı oluşturma](#create-druva-test-user)**  - kullanıcı Azure AD gösterimini bağlı Druva Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Druva uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile Druva yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile Druva yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Druva** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Druva** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/druva-tutorial/tutorial_druva_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **Druva etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/druva-tutorial/tutorial_druva_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    İçinde **tanımlayıcı** metin dizesi değeri yazın: `druva-cloud`
-    
-1. Denetleme **Gelişmiş URL ayarlarını göster**. Uygulamada yapılandırmak istiyorsanız **SP** başlatılan modu:
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/druva-tutorial/tutorial_druva_url1.png)
-    
-    İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın: `https://cloud.druva.com/home`
+4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** modunda başlatılan aşağıdaki adımı uygulayın:
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    ![Druva etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-identifier.png)
 
-    ![Sertifika indirme bağlantısı](./media/druva-tutorial/tutorial_druva_certificate.png) 
+    İçinde **tanımlayıcı** metin kutusunda, bir dize değeri yazın:  `druva-cloud`
 
-1. Özel öznitelik eşlemeleri eklemek gerektiren belirli bir biçimde SAML onaylamalarını Druva uygulamanızı bekliyor, **SAML belirteci öznitelikleri** yapılandırma. 
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/druva-tutorial/tutorial_druva_attribute.png)
+    ![image](common/both-preintegrated-signon.png)
 
-1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, önceki görüntüde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
+    İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  `https://cloud.druva.com/home`
 
-    | Öznitelik Adı      | Öznitelik Değeri      |
+6. Druva uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+
+    ![image](common/edit-attribute.png)
+
+7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin: 
+
+    | Ad | Kaynak özniteliği|
     | ------------------- | -------------------- |
     | ınsync\_auth\_belirteci |Oluşturulan belirteç değeri girin |
-    
-    a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/druva-tutorial/tutorial_attribute_04.png)
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/druva-tutorial/tutorial_attribute_05.png)
-    
+
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
-    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın. Oluşturulan belirteç değeri, bu öğreticinin sonraki bölümlerinde açıklanmıştır.
-    
-    d. **Tamam**’a tıklayın.    
+    c. Bırakın **Namespace** boş.
 
-1. Tıklayın **Kaydet** düğmesi.
+    d. Kaynağı olarak **özniteliği**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/druva-tutorial/tutorial_general_400.png)
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-1. Üzerinde **Druva yapılandırma** bölümünde **yapılandırma Druva** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    f. Tıklayın **Tamam**
 
-    ![Çoklu oturum açmayı yapılandırın](./media/druva-tutorial/tutorial_druva_configure.png) 
+    g. **Kaydet**’e tıklayın.
+
+8. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
+
+9. Üzerinde **Druva kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-druva-single-sign-on"></a>Druva tek oturum açmayı yapılandırın
 
 1. Farklı bir web tarayıcı penceresinde Druva şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-1. Git **yönetme \> ayarları**.
+2. Git **yönetme \> ayarları**.
 
     ![Ayarları](./media/druva-tutorial/ic795091.png "ayarları")
 
-1. Çoklu oturum açma ayarları iletişim kutusunda aşağıdaki adımları gerçekleştirin:
+3. Çoklu oturum açma ayarları iletişim kutusunda aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açma ayarları](./media/druva-tutorial/ic795092.png "çoklu oturum açma ayarları")
     
-    a. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+    a. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
         
     b. İçinde **kimlik sağlayıcısı oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si**, hangi Azure Portalı'ndan kopyaladığınız
         
@@ -170,11 +174,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve D
      
     d. Açmak için **ayarları** sayfasında **Kaydet**.
 
-1. Üzerinde **ayarları** sayfasında **SSO belirteci üretmek**.
+4. Üzerinde **ayarları** sayfasında **SSO belirteci üretmek**.
 
     ![Ayarları](./media/druva-tutorial/ic795093.png "ayarları")
 
-1. Üzerinde **tek oturum açma kimlik doğrulaması belirteci** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+5. Üzerinde **tek oturum açma kimlik doğrulaması belirteci** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![SSO belirteci](./media/druva-tutorial/ic795094.png "SSO belirteci")
     
@@ -182,43 +186,58 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve D
     
     b. **Kapat**’a tıklayın.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
- 
-
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/druva-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/druva-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/druva-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/druva-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="create-a-druva-test-user"></a>Druva test kullanıcısı oluşturma
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma kullanmak için Druva erişim vererek Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Druva**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **Druva**.
+
+    ![Uygulamalar listesinde Druva bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-druva-test-user"></a>Druva test kullanıcısı oluşturma
 
 Azure AD kullanıcıları için Druva oturum açmayı etkinleştirmek için bunların Druva sağlanması gerekir. Druva söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
 
@@ -226,80 +245,38 @@ Azure AD kullanıcıları için Druva oturum açmayı etkinleştirmek için bunl
 
 1. Oturum açın, **Druva** şirketinizin sitesi yöneticisi olarak.
 
-1. Git **yönetme \> kullanıcılar**.
+2. Git **yönetme \> kullanıcılar**.
    
-   ![Kullanıcıları Yönet](./media/druva-tutorial/ic795097.png "kullanıcıları yönetme")
+    ![Kullanıcıları Yönet](./media/druva-tutorial/ic795097.png "kullanıcıları yönetme")
 
-1. Tıklayın **Yeni Oluştur**.
+3. Tıklayın **Yeni Oluştur**.
    
-   ![Kullanıcıları Yönet](./media/druva-tutorial/ic795098.png "kullanıcıları yönetme")
+    ![Kullanıcıları Yönet](./media/druva-tutorial/ic795098.png "kullanıcıları yönetme")
 
-1. Yeni kullanıcı oluşturma iletişim kutusunda aşağıdaki adımları gerçekleştirin:
+4. Yeni kullanıcı oluşturma iletişim kutusunda aşağıdaki adımları gerçekleştirin:
    
-   ![NewUser oluşturma](./media/druva-tutorial/ic795099.png "NewUser oluşturma")
+    ![NewUser oluşturma](./media/druva-tutorial/ic795099.png "NewUser oluşturma")
    
-   a. İçinde **e-posta adresi** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
+    a. İçinde **e-posta adresi** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
    
-   b. İçinde **adı** metin gibi kullanıcı adını girin **BrittaSimon**.
+    b. İçinde **adı** metin gibi kullanıcı adını girin **BrittaSimon**.
    
-   c. Tıklayın **oluşturacağı**.
+    c. Tıklayın **oluşturacağı**.
 
 >[!NOTE]
 >Herhangi diğer Druva kullanıcı hesabı oluşturma araçları kullanabilir veya API Azure AD'ye kullanıcı hesapları sağlamak için Druva tarafından sağlanan.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
-
-Bu bölümde, Azure çoklu oturum açma kullanmak için Druva erişim vererek Britta Simon etkinleştirin.
-
-![Kullanıcı rolü atayın][200] 
-
-**Britta Simon için Druva atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
-
-1. Uygulamalar listesinde **Druva**.
-
-    ![Uygulamalar listesinde Druva bağlantı](./media/druva-tutorial/tutorial_druva_app.png)  
-
-1. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
-
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Atama Ekle bölmesi][203]
-
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Druva kutucuğa tıkladığınızda, otomatik olarak Druva uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Druva kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Druva için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/druva-tutorial/tutorial_general_01.png
-[2]: ./media/druva-tutorial/tutorial_general_02.png
-[3]: ./media/druva-tutorial/tutorial_general_03.png
-[4]: ./media/druva-tutorial/tutorial_general_04.png
-
-[100]: ./media/druva-tutorial/tutorial_general_100.png
-
-[200]: ./media/druva-tutorial/tutorial_general_200.png
-[201]: ./media/druva-tutorial/tutorial_general_201.png
-[202]: ./media/druva-tutorial/tutorial_general_202.png
-[203]: ./media/druva-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

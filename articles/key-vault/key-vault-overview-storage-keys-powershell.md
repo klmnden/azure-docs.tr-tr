@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 11/28/2018
-ms.openlocfilehash: 1c0502458a5c20991ada6f5a33d067a38596752b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d6cb019ff01a1e6df5361c62629aa2e7b52523f7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817572"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999292"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure anahtar kasası yönetilen depolama hesabı - PowerShell
 
@@ -21,6 +21,8 @@ ms.locfileid: "55817572"
 > - Depolama hesabı kimlik bilgileri yerine bir uygulama veya kullanıcıya kimlik kullanarak istemci uygulamanızın kimlik doğrulaması. 
 > - Kullanım bir [Azure AD kimlik yönetilen](/azure/active-directory/managed-identities-azure-resources/) Azure'da çalıştırırken. Kimlikleri Kaldır hep birlikte istemci kimlik doğrulaması için gereken ve depolama kimlik bilgileri veya uygulamanız ile yönetilir.
 > - Key Vault tarafından da desteklenen, yetkilendirme için rol tabanlı erişim denetimi (RBAC) kullanın.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bir [Azure depolama hesabı](/azure/storage/storage-create-storage-account) bir hesap adı ve anahtar oluşan bir kimlik bilgisi kullanır. Bu anahtar, otomatik olarak oluşturulan ve daha farklı bir şifreleme anahtarı "parola" olarak görev yapar. Key Vault depolayarak bunları olarak bu depolama hesabı anahtarları yönetebilir [Key Vault gizli dizileri](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
 
@@ -61,13 +63,13 @@ $keyVaultName = "kvContoso"
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # See "IMPORTANT" block above for information on Key Vault Application IDs
 
 # Authenticate your PowerShell session with Azure AD, for use with Azure Resource Manager cmdlets
-$azureProfile = Connect-AzureRmAccount
+$azureProfile = Connect-AzAccount
 
 # Get a reference to your Azure storage account
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
 
 # Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
-New-AzureRmRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
+New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
 Başarılı bir rol ataması sırasında aşağıdaki örneğe benzer bir çıktı görmeniz gerekir:
@@ -95,7 +97,8 @@ Aynı PowerShell oturumunda kullanarak, yönetilen depolama hesapları için ana
 
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
+
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
 ```
 
 Depolama hesapları için izinleri Azure portalında depolama hesabı "Erişim ilkeleri" sayfasında kullanılabilir olmadığını unutmayın.
@@ -106,7 +109,7 @@ Aynı PowerShell oturumunda kullanarak Key Vault Örneğinizde bir yönetilen de
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
-Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
+Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
 
 Hiçbir anahtarını yeniden üretme depolama hesabıyla başarılı eklenmesi sırasında aşağıdaki örneğe benzer bir çıktı görmeniz gerekir:
@@ -131,7 +134,7 @@ Key Vault, depolama hesabı anahtarlarınızı düzenli aralıklarla yeniden olu
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
-Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
+Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 
 Depolama hesabı anahtarını yeniden üretme sırasında başarılı eklenmesi için aşağıdaki örneğe benzer bir çıktı görmeniz gerekir:

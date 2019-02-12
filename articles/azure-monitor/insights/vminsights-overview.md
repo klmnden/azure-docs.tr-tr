@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856392"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005004"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Azure İzleyici VM'ler (Önizleme) nedir?
 
@@ -41,7 +41,7 @@ VM'ler için Azure İzleyici, bir çözüm olarak, başka bir bulut sağlayıcı
 >[!NOTE]
 >Şu anda, sistem durumu özelliği yalnızca Azure sanal makineler ve sanal makine ölçek kümeleri sunulur. Performans ve harita özellikleri, ortamınızda veya diğer bulut sağlayıcısı Azure Vm'leri hem de barındırılan sanal makinelerin destekler.
 
-Log Analytics ile tümleştirme, güçlü toplama ve filtreleme sunar ve zaman içinde veri eğilimlerini çözümleyebilirsiniz. Kapsamlı iş yükü izleme gibi Azure İzleyici, hizmet eşlemesi ya da yalnızca Log Analytics ile elde edilemeyecek.  
+Azure İzleyici günlüklerine ile tümleştirme, güçlü toplama ve filtreleme sunar ve zaman içinde veri eğilimlerini çözümleyebilirsiniz. Kapsamlı iş yükü izleme gibi Azure İzleyici ya da tek başına hizmet eşlemesi ile elde edilemeyecek.  
 
 Bu veriler tek bir sanal makinede sanal makineden doğrudan görüntüleyebileceğiniz veya sanal makinelerinizin toplu bir görünümünü sunmak için Azure İzleyicisi'ni kullanabilirsiniz. Bu görünüm, her özelliğin perspektif dayanır:
 

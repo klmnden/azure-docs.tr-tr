@@ -3,7 +3,7 @@ title: Azure SQL veritabanı DTU tabanlı kaynak sınırları tek veritabanları
 description: Bu sayfa, Azure SQL veritabanı'nda tek veritabanları için bazı ortak DTU tabanlı kaynak sınırları açıklar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ef16b0ebf41225ed820e7289132d0f556226a969
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/08/2019
+ms.openlocfilehash: bf4c823d42d26d9fa97ee6eb5ee6ea20b857cde8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965384"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993032"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları
 
 Bu makalede, Azure SQL veritabanı tek veritabanı DTU tabanlı satın alma modeli kullanarak için ayrıntılı kaynak sınırları sağlar.
 
-DTU tabanlı satın alma modeli kaynak sınırları için elastik havuzlar için bkz: [DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md). Sanal çekirdek tabanlı kaynak sınırları için bkz: [sanal çekirdek tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md). Farklı satın alma modeli hakkında daha fazla bilgi için bkz. [modelleri ve hizmet katmanlarını satın](sql-database-service-tiers.md).
+DTU tabanlı satın alma modeli kaynak sınırları için elastik havuzlar için bkz: [DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md). Sanal çekirdek tabanlı kaynak sınırları için bkz: [sanal çekirdek tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md). Farklı satın alma modeli hakkında daha fazla bilgi için bkz. [modelleri ve hizmet katmanlarını satın](sql-database-purchase-models.md).
 
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorguları toplamalara Gelişmiş | Microsoft Docs
-description: Log Analytics sorguları daha gelişmiş toplama seçeneklerini bazılarını açıklar.
+title: Azure İzleyici günlük sorguları toplamalara Gelişmiş | Microsoft Docs
+description: Azure İzleyici günlük sorguları için daha gelişmiş toplama seçeneklerini bazılarını açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 1116d03fc9c2328365b0bde29cf9ea900e58b7ed
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186370"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005429"
 ---
-# <a name="advanced-aggregations-in-log-analytics-queries"></a>Log Analytics sorguları Gelişmiş toplamaları
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları toplamalara Gelişmiş
 
 > [!NOTE]
-> Tamamlamanız gereken [Log Analytics sorguları Toplamalara](./aggregations.md) dersin tamamlamadan önce.
+> Tamamlamanız gereken [Azure İzleyici sorguları Toplamalara](./aggregations.md) dersin tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Bu makale, Log Analytics sorguları daha gelişmiş toplama seçeneklerini bazılarını açıklar.
+Bu makalede, Azure İzleyici sorguları daha gelişmiş toplama seçeneklerini bazılarını açıklar.
 
 ## <a name="generating-lists-and-sets"></a>Listeler ve kümeleri oluşturma
 Kullanabileceğiniz `makelist` özet verileri belirli bir sütundaki değerleri sıraya göre. Örneğin, en yaygın sipariş olaylar gerçekleştiğinde makinelerinizde incelemek isteyebilirsiniz. Aslında, her makinede Eventıds sıraya göre veri Özet. 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Log Analytics sorgu dilini kullanarak için diğer dersler bakın:
+Diğer dersler kullanmak için bkz. [Veri Gezgini sorgu dili](/azure/kusto/query/) Azure İzleyici ile günlük verilerini:
 
 - [Dize işlemleri](string-operations.md)
 - [Tarih ve saat işlemleri](datetime-operations.md)

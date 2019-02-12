@@ -6,17 +6,18 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 415f58d9c6880bc7ef9ba6b6ba3f575fae382f04
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 016238305e12435b740da45da4ad600152cf04ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806904"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003848"
 ---
-# <a name="loading-assets-into-azure-media-clipper"></a>Azure Media Clipper'a varlık yükleme
+# <a name="loading-assets-into-azure-media-clipper"></a>Azure Media Clipper'a varlık yükleme  
+
 Varlıklar Azure Media Clipper'a iki yöntemle yüklenebilir:
 1. Varlıkların kitaplığa statik olarak geçirme
 2. Dinamik olarak bir API aracılığıyla varlıkların listesi oluşturma

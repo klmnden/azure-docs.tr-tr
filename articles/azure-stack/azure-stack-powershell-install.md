@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: f249f5e975ce046a3e19da93534d99ff675b8391
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 72c4bfc4151e8120f8641c743c0da3896bd71fe1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961491"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995039"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack için PowerShell'i yükleme
 
@@ -28,7 +28,7 @@ ms.locfileid: "55961491"
 
 Bulut ile çalışmak için Azure Stack uyumlu PowerShell modülleri yüklemeniz gerekir. Uyumluluk adlı bir özellik üzerinden etkin *API profillerini*.
 
-API profillerini Azure ve Azure Stack arasında sürümü farkları yönetmek için bir yol sağlar. Bir API Sürüm profili belirli API sürümleri ile Azure Resource Manager PowerShell modüllerini kümesidir. Her bulut platformu desteklenen API sürümü profillerini kümesi vardır. Örneğin, Azure Stack gibi bir özel profil sürümünü destekler **2.4.0**. Belirtilen profiliyle Azure Resource Manager PowerShell modülleri, bir profil yükleme sırasında yüklenir.
+API profillerini Azure ve Azure Stack arasında sürümü farkları yönetmek için bir yol sağlar. Bir API Sürüm profili belirli API sürümleri ile Azure Resource Manager PowerShell modüllerini kümesidir. Her bulut platformu desteklenen API sürümü profillerini kümesi vardır. Örneğin, Azure Stack gibi bir özel profil sürümünü destekler **2018-03-01-karma**. Belirtilen profiliyle Azure Resource Manager PowerShell modülleri, bir profil yükleme sırasında yüklenir.
 
 Internet uyumlu PowerShell modülleri bağlı, kısmen bağlantılı veya bağlantısız senaryoları Azure Stack yükleyebilirsiniz. Bu makale, bu senaryolar için Azure Stack için PowerShell yüklemeye yönelik ayrıntılı yönergeleri size.
 
@@ -133,7 +133,7 @@ Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerS
     ```
 
 > [!Note]  
-> Azure Powershell'den yükseltmek **2.3.0** (Ayrıca olarak gösterilen **2017-03-09-profile**) için **2.4.0**, lütfen bkz [Geçiş Kılavuzu](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
+> Azure Powershell'den yükseltmek **2017-03-09-profile** için **2018-03-01-karma**, lütfen [Geçiş Kılavuzu](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
 ### <a name="enable-additional-storage-features"></a>Ek depolama alanı özelliklerini etkinleştirme
 

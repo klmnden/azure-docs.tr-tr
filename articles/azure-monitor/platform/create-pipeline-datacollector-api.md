@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics Veri Toplayıcı API'sini ile veri işlem hattı oluşturma | Microsoft Docs
-description: POST JSON verileri REST API çağrısı herhangi bir istemciden Log Analytics deposuna eklemek için Log Analytics HTTP veri toplayıcı API'sini kullanabilirsiniz. Bu makalede, otomatik bir şekilde dosyalarında depolanan verileri karşıya yükleme işlemini açıklar.
+title: Azure Azure İzleyici veri toplayıcı API'si ile veri işlem hattı oluşturma | Microsoft Docs
+description: POST JSON verileri REST API çağrısı herhangi bir istemciden Log Analytics çalışma alanınıza eklemek için Azure İzleyici HTTP veri toplayıcı API'sini kullanabilirsiniz. Bu makalede, otomatik bir şekilde dosyalarında depolanan verileri karşıya yükleme işlemini açıklar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 94d026ce1d055d18a615919df6ed5021b15bf108
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186081"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003865"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Veri Toplayıcı API'si ile veri işlem hattı oluşturma
 
-[Log Analytics Veri Toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) Log Analytics'e herhangi bir özel veri almanızı sağlar. Verileri JSON biçimli ve 30 MB veya parçaları daha az Böl tek gerekenlerdir. İçine birçok şekilde takılabilen tamamen esnek bir mekanizma budur: doğrudan uygulamanızdan gönderilen verilerden için tek seferlik geçici yükler. Bu makalede, yaygın bir senaryo için bazı başlangıç noktaları özetler: normal, otomatik olarak dosyalarında depolanan verileri karşıya yüklemek için gereken. İşlem hattı sunulan burada kullanılamaz en yüksek performanslı veya aksi halde en iyi duruma getirilmiş, bu bir üretim hattının kendi oluşturmaya yönelik bir başlangıç noktası olarak hizmet verecek içindir.
+[Azure İzleyici, veri toplayıcı API'sini](data-collector-api.md) Azure İzleyici'de bir Log Analytics çalışma alanına herhangi bir özel günlük veri almanızı sağlar. Verileri JSON biçimli ve 30 MB veya parçaları daha az Böl tek gerekenlerdir. İçine birçok şekilde takılabilen tamamen esnek bir mekanizma budur: doğrudan uygulamanızdan gönderilen verilerden için tek seferlik geçici yükler. Bu makalede, yaygın bir senaryo için bazı başlangıç noktaları özetler: normal, otomatik olarak dosyalarında depolanan verileri karşıya yüklemek için gereken. İşlem hattı sunulan burada kullanılamaz en yüksek performanslı veya aksi halde en iyi duruma getirilmiş, bu bir üretim hattının kendi oluşturmaya yönelik bir başlangıç noktası olarak hizmet verecek içindir.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Örnek sorun
 Bu makalenin geri kalanında için sayfa görüntüleme verilerini Application ınsights'da inceleyeceğiz. Coğrafi bilgiler nerede biz en çok harcama belirlemek amacıyla dünyanın her ülkesinde popülasyonunu içeren özel verileri için varsayılan olarak Application Insights SDK'sı tarafından toplanan ilişkilendirmek istediğimiz kuramsal senaryomuzdaki ise Pazarlama dolar. 
@@ -42,13 +44,13 @@ Bu makalede veri oluşturma kapsamaz veya [bir Azure Blob Depolama hesabına yü
 
 1. İşlem, yeni verilerin yüklendiğini algılar.  Örneğimizde bir [Azure Logic App](../../logic-apps/logic-apps-overview.md), kullanılabilir olan yeni veriler bir blob olarak karşıya yüklenen algılamak için bir tetikleyici.
 
-2. Bir işlemci bu yeni verileri okur ve JSON, Log Analytics tarafından gereken biçime dönüştürür.  Bu örnekte bir [Azure işlevi](../../azure-functions/functions-overview.md) işleme kodumuz yürütmenin basit ve ekonomik bir yolu olarak. İşlev algılamak için kullandığımız aynı mantıksal uygulama tarafından başlatılır yeni bir veri.
+2. Bir işlemci bu yeni verileri okur ve JSON değerine dönüştüren, biçimi Azure İzleyici ile bu örnek gerekli, kullandığımız bir [Azure işlevi](../../azure-functions/functions-overview.md) işleme kodumuz yürütmenin basit ve ekonomik bir yolu olarak. İşlev algılamak için kullandığımız aynı mantıksal uygulama tarafından başlatılır yeni bir veri.
 
-3. Son olarak, JSON nesnesi kullanılabilir duruma geldikten sonra Log Analytics'e gönderilir. Aynı mantıksal uygulama, oluşturulmuş bir Log Analytics Veri Toplayıcı etkinliği kullanarak Log Analytics'e veri gönderir.
+3. Son olarak, JSON nesnesi kullanılabilir duruma geldikten sonra Azure İzleyicisi'ne gönderilir. Aynı mantıksal uygulama, Azure İzleyici oluşturulmuş bir Log Analytics Veri Toplayıcı etkinliği kullanarak verileri gönderir.
 
 Blob depolama, mantıksal uygulama veya Azure işlevi, ayrıntılı Kurulum, bu makalede belirtilmeyen karşın, belirli ürünlerin sayfalarında ayrıntılı yönergeler kullanılabilir.
 
-Bu işlem hattını izlemek için Application Insights, Azure işlevi izlemek için kullanırız [burada ayrıntıları](../../azure-functions/functions-monitoring.md)ve mantıksal uygulamamızı izlemek için Log Analytics [burada ayrıntıları](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
+Bu işlem hattını izlemek için Application Insights, Azure işlevi izlemek için kullanırız [burada ayrıntıları](../../azure-functions/functions-monitoring.md)ve mantıksal uygulamamızı izlemek için Azure İzleyici [burada ayrıntıları](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
 
 ## <a name="setting-up-the-pipeline"></a>İşlem hattı ayarlama
 İşlem hattı ayarlamak için ilk oluşturduğunuza ve yapılandırdığınıza, blob kapsayıcısına sahip emin olun. Benzer şekilde, veri göndermesini istediğiniz Log Analytics çalışma alanı oluşturulduktan emin olun.
@@ -136,10 +138,10 @@ Bu örnekte, biz bir CSV dosyası ayrıştırılamadı, ancak herhangi bir dosya
 ![Logic Apps iş akışı tam örnek](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
 ## <a name="testing-the-pipeline"></a>İşlem hattını test etme
-Şimdi yeni bir dosya önceden yapılandırdığınız bloba yüklemek ve mantıksal uygulamanız tarafından izlenen sahip. Yakında, mantıksal uygulama clark'i yeni bir örneğini görmek Azure işlevinizi duyurmak ve verileri Log Analytics'e başarıyla gönderme gerekir. 
+Şimdi yeni bir dosya önceden yapılandırdığınız bloba yüklemek ve mantıksal uygulamanız tarafından izlenen sahip. Yakında, mantıksal uygulama clark'i yeni bir örneğini görmek Azure işlevinizi duyurmak ve verileri Azure İzleyicisi'ne başarıyla Gönder gerekir. 
 
 >[!NOTE]
->Bu verilerin Log Analytics ilk zaman yeni bir veri türü gönderdiğiniz görünmesi 30 dakikaya kadar sürebilir.
+>Bu, verilerin Azure İzleyici'de yeni bir veri türü gönderdiğiniz ilk kez görünmesi 30 dakikaya kadar sürebilir.
 
 
 ## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Log Analytics ve Application Insights diğer verilerle ilişkilendirmek
@@ -163,7 +165,7 @@ Bu makalede, ardındaki mantığı doğru üretim kalitesinde çözüm uygulanab
 
 * Hata işleme ekleyin ve yeniden deneme mantığı, mantıksal uygulama ve işlev.
 * 30 MB/tek Log Analytics alımı API çağrısı sınırı aşılmadığını emin olmak için mantık ekleyin. Gerekirse, verileri daha küçük parçalara bölün.
-* Blob depolama alanınızın bir temizleme İlkesi ayarlama. Log Analytics için ham verileri arşivleme amacıyla tutmak istediğiniz sürece başarıyla gönderdikten sonra depolamak için bir neden yoktur. 
+* Blob depolama alanınızın bir temizleme İlkesi ayarlama. Ham verileri arşivleme amacıyla tutmak istediğiniz sürece Log Analytics çalışma alanına başarıyla gönderdikten sonra bunu depolamak için bir neden yoktur. 
 * İzleme ve izleme noktaları ekleme tam işlem hattı etkin uyarıları uygun şekilde doğrulayın.
 * Mantıksal uygulama ve işlev kodunu yönetmek için kaynak denetimi yararlanın.
 * Şema değişirse, işlevi ve Logic Apps uygun şekilde değiştirilir, uygun değişiklik yönetimi ilke düzenin uygulandığından emin olun.
@@ -171,4 +173,4 @@ Bu makalede, ardındaki mantığı doğru üretim kalitesinde çözüm uygulanab
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinin [veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.
+Daha fazla bilgi edinin [veri toplayıcı API'sini](data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics çalışma alanına veri yazmak için.

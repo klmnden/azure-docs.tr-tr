@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 9f717f0ae70c503d3527d5df2e6556c120146f3b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 430e3f0db2f053a2d5a6ea2a3e2a2d1c4418b501
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249358"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995144"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Media Encoder Standard ve .NET kullanarak küçük resim oluşturma
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Media Encoder Standard ve .NET kullanarak küçük resim oluşturma 
 
 Giriş video gelen bir veya daha fazla küçük resim oluşturma Media Encoder Standard kullanabilirsiniz [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), veya [BMP](https://en.wikipedia.org/wiki/BMP_file_format) resim dosya biçimlerinde. Yalnızca görüntü üretmek görevler gönderebilir veya kodlama ile küçük resim oluşturma birleştirebilirsiniz. Bu makalede, bu tür senaryolar için birkaç örnek XML ve JSON küçük resim hazır sağlar. Makalenin sonunda, var olan bir [örnek kod](#code_sample) eden kodlama görevi gerçekleştirmek için Media Services .NET SDK'sını kullanmayı gösterir.
 
@@ -551,15 +551,15 @@ Aşağıdaki maddeler geçerlidir:
 * Başlangıç/adım/aralığı için açık zaman damgaları kullanımını giriş kaynağı en az 1 dakika uzunluğunda olduğunu varsayar.
 * Png/jpg/BmpImage öğeleri başlatma, adım ve dize öznitelikleri aralığı – bunlar olarak yorumlanabilir:
   
-  * Çerçeve numarası negatif olmayan tamsayılar olmaları durumunda, örneğin "Başlat": "120"
-  * Göreli süre olarak % tam sayıysa kaynağı, örneğin "Başlat": "%15", veya
-  * Ss zaman damgası... biçimi. Örneğin "Başlat": "00: 01:00"
+  * Örneğin "Başlangıç" negatif olmayan tamsayılar olmaları durumunda çerçeve numarası: "120",
+  * Süre olarak % tam sayıysa kaynağı, örneğin "Başlat" göreli: "%15", VEYA
+  * Ss zaman damgası... biçimi. Örneğin "Başlat": "00:01:00"
     
     Karışık ve yazarken gösterimler Lütfen eşleşen.
     
-    Ayrıca, başlangıç özel makro de destekler: {, hangi içerik Not ilk "ilginç" çerçevesini belirlemeye çalışır en iyi}: (adım ve aralığı dikkate alınmaz başlangıç {iyi} olarak ayarlandığında)
-  * Varsayılan: Başlatın: {en iyi}
-* Çıkış biçimi için her görüntü biçimi açıkça sağlanması gerekiyor: Jpg/Png/BmpFormat. MES JpgVideo JpgFormat için mevcut olduğunda, vb. ile eşleşir. Yeni bir görüntü codec bileşeni belirli makrosu OutputFormat sunar: {Index} olması gereken sunar (bir kez ve yalnızca bir kez) görüntü için Çıkış biçimleri.
+    Ayrıca, başlangıç özel makro de destekler: {, hangi içerik Not ilk "ilginç" çerçevesini belirlemeye çalışır en iyi}: (Başlangıç {iyi} olarak ayarlandığında adım ve aralığı göz ardı edilir)
+  * Varsayılanlar: Başlangıç: {en iyi}
+* Çıkış biçimi için her görüntü biçimi açıkça sağlanması gerekir: Jpg/Png/BmpFormat. MES JpgVideo JpgFormat için mevcut olduğunda, vb. ile eşleşir. Yeni bir görüntü codec bileşeni belirli makrosu OutputFormat sunar: {Index} olması gereken sunar (bir kez ve yalnızca bir kez) görüntü için Çıkış biçimleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

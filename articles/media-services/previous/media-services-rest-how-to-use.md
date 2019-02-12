@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159749"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005463"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Media Services işlemlerini REST API'si genel bakış
+# <a name="media-services-operations-rest-api-overview"></a>Media Services işlemlerini REST API'si genel bakış 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 **Medya hizmetleri işlemlerini REST** API, işleri, varlıklar, Canlı Kanallar ve diğer kaynakları bir Media Services hesabı oluşturmak için kullanılır. Daha fazla bilgi için [Media Services işlemlerini REST API'si başvurusu](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
@@ -55,12 +55,12 @@ REST kullanırken aşağıdaki maddeler geçerlidir.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Media Services tarafından desteklenen standart HTTP isteği üstbilgileri
 Media Services'e olun, her çağrı için gerekli üst bilgileri İsteğinizde içermelidir bir dizi yoktur ve aynı zamanda bir dizi isteğe bağlı üst bilgiler dahil etmek istediğiniz. Aşağıdaki tabloda gerekli üst bilgileri listeler:
 
-| Üst bilgi | Tür | Değer |
+| Üst bilgi | Type | Değer |
 | --- | --- | --- |
 | Yetkilendirme |Taşıyıcı |Taşıyıcı yalnızca kabul edilen yetkilendirme mekanizmadır. Değer, Azure Active Directory tarafından sağlanan erişim belirtecini de içermelidir. |
-| x-ms-version |Onluk |2.17 (veya en son sürüm)|
-| DataServiceVersion |Onluk |3.0 |
-| MaxDataServiceVersion |Onluk |3.0 |
+| x-ms-version |Decimal |2.17 (veya en son sürüm)|
+| DataServiceVersion |Decimal |3.0 |
+| MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
 > Media Services REST API'lerini kullanıma sunmak için OData kullandığından, içindeki tüm istekleri DataServiceVersion ve MaxDataServiceVersion üstbilgileri eklenmelidir; değilse, ancak daha sonra şu anda Media Services DataServiceVersion değeri kullanılıyor 3.0 olduğunu varsayar.
@@ -69,24 +69,24 @@ Media Services'e olun, her çağrı için gerekli üst bilgileri İsteğinizde i
 
 Aşağıdaki isteğe bağlı bir üst kümesidir:
 
-| Üst bilgi | Tür | Değer |
+| Üst bilgi | Type | Değer |
 | --- | --- | --- |
 | Tarih |RFC 1123 tarihi |İstek zaman damgası |
-| Kabul |İçerik türü |Aşağıdaki gibi yanıtı için istenen içerik türü:<p> -application/json; odata ayrıntılı =<p> -application/atom + xml şeklindedir<p> Yanıtlar, burada başarılı bir yanıt yükü olarak blob akışı içeren bir blob getirme gibi farklı bir içerik türü olabilir. |
+| Kabul |İçerik türü |Aşağıdaki gibi yanıtı için istenen içerik türü:<p> -application/json;odata=verbose<p> -application/atom + xml şeklindedir<p> Yanıtlar, burada başarılı bir yanıt yükü olarak blob akışı içeren bir blob getirme gibi farklı bir içerik türü olabilir. |
 | Kabul kodlama |Gzip, deflate |GZIP ve DEFLATE, uygun olduğunda kodlama. Not: Büyük kaynaklar için Media Services ve bu başlığı yoksay küçülen verileri döndürür. |
 | Kabul dil |"en", "es" ve benzeri. |Yanıt için tercih edilen dili belirtir. |
 | Accept-Charset |"UTF-8" gibi Charset türü |Varsayılan UTF-8'dir. |
 | X-HTTP-Method |HTTP yöntemi |İstemciler veya bir GET çağrısı tünel, bu yöntemleri kullanmak için PUT ya da DELETE gibi HTTP yöntemleri desteklemez güvenlik duvarları sağlar. |
 | Content-Type |İçerik türü |İçerik türü istek gövdesinde PUT veya POST istekleri. |
-| İstemci istek kimliği |Dize |Belirtilen istek tanımlayan bir çağıranın tanımlı bir değer. Belirtilmişse bu değer yanıt iletisinde istek eşleştirmek için bir yol dahil edilir. <p><p>**Önemli**<p>Değerleri 2096b tavan (2k). |
+| İstemci istek kimliği |String |Belirtilen istek tanımlayan bir çağıranın tanımlı bir değer. Belirtilmişse bu değer yanıt iletisinde istek eşleştirmek için bir yol dahil edilir. <p><p>**Önemli**<p>Değerleri 2096b tavan (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services tarafından desteklenen standart HTTP yanıt üst bilgileri
 Aşağıdakileri yapmanızı isteyen kaynak ve gerçekleştirmek istediğiniz eylemi bağlı olarak döndürülen üst bilgiler kümesidir.
 
-| Üst bilgi | Tür | Değer |
+| Üst bilgi | Type | Değer |
 | --- | --- | --- |
-| İstek Kimliği |Dize |Geçerli işlem, oluşturulan hizmet için benzersiz bir tanımlayıcı. |
-| İstemci istek kimliği |Dize |Varsa özgün istekteki çağıran tarafından belirtilen bir tanımlayıcı. |
+| İstek Kimliği |String |Geçerli işlem, oluşturulan hizmet için benzersiz bir tanımlayıcı. |
+| İstemci istek kimliği |String |Varsa özgün istekteki çağıran tarafından belirtilen bir tanımlayıcı. |
 | Tarih |RFC 1123 tarihi |İsteği işleyen tarih. |
 | Content-Type |Değişir |Yanıt gövdesi içerik türü. |
 | İçerik kodlama |Değişir |Gzip veya deflate uygun şekilde. |
@@ -100,7 +100,7 @@ HTTP yapmak istediğinde kullanılabilir HTTP fiilleri tam bir listesi verilmiş
 | POST |Sağlanan verileri temel alan bir nesne oluşturur veya bir komut gönderir. |
 | PUT |Nesneyle değiştirir ve (varsa) adlı bir nesne oluşturur. |
 | DELETE |Nesneyi siler. |
-| BİRLEŞTİRME |Var olan bir nesne belirtilen özellik değişikliklerle güncelleştirir. |
+| MERGE |Var olan bir nesne belirtilen özellik değişikliklerle güncelleştirir. |
 | HEAD |Bir nesnenin GET yanıt meta verileri döndürür. |
 
 ## <a name="discover-and-browse-the-media-services-entity-model"></a>Media Services varlık modeli Gözat ve Bul

@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230633"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994110"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim  
  
 Azure Media Services API'sine bir RESTful API'dir. Kullanılabilir istemci SDK'ları kullanarak ya da REST API'yi kullanarak medya kaynaklar üzerinde işlem gerçekleştirmek için kullanabilirsiniz. Azure Media Services, Microsoft .NET için Media Services istemci SDK'sı sunar. Media Services kaynakları ve Media Services API'sine erişim iznine sahip olması için önce kimliğinin doğrulanması gerekir. 
 
@@ -138,9 +138,9 @@ Media Services .NET İstemci SDK'sı kullanmıyorsanız, 1. adımda açıklanan 
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Özel durum: "uzak sunucu bir hata döndürdü: (401) yetkisiz."
+Özel durum: "Uzak sunucu bir hata döndürdü: (401) yetkisiz."
 
-Çözüm: Medya Hizmetleri REST isteği başarılı olması erişmeye çalışıyor Media Services hesabına katkıda bulunan veya sahip bir rol çağıran kullanıcı olması gerekir. Daha fazla bilgi için [erişim denetimi](media-services-use-aad-auth-to-access-ams-api.md#access-control) bölümü.
+Çözüm: Media Services REST isteği başarılı olması çağıran kullanıcı bir katkıda bulunan veya sahip rolü Media Services hesabına erişmeye çalışıyor olması gerekir. Daha fazla bilgi için [erişim denetimi](media-services-use-aad-auth-to-access-ams-api.md#access-control) bölümü.
 
 ## <a name="resources"></a>Kaynaklar
 

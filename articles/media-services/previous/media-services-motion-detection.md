@@ -4,21 +4,21 @@ description: Azure medya hareket algılayıcısı medya işlemci (MP) faiz yoksa
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 26090067923c468b7102ac5b7bb78b9d7b7960bb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820980"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995621"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure medya Analizi ile hareketlerin algılayın
 ## <a name="overview"></a>Genel Bakış
@@ -103,7 +103,7 @@ Aşağıdaki tabloda, çıkış JSON dosyasının öğeleri açıklar.
 | Süre |"Ticks" cinsinden uzunluğu. |
 | Interval |Her giriş olayı, "ticks" aralığı. |
 | Olaylar |Her olay parça bu süre içinde algılanan hareket içerir. |
-| Tür |Geçerli sürümde, bu her zaman genel hareket ' 2' dir. Bu etiket verir kategorilere ayırmak için Video API'lerini esnekliği gelecek sürümleri Ara. |
+| Type |Geçerli sürümde, bu her zaman genel hareket ' 2' dir. Bu etiket verir kategorilere ayırmak için Video API'lerini esnekliği gelecek sürümleri Ara. |
 | RegionID |Yukarıda açıklandığı gibi bu her zaman bu sürümde 0 olur. Bu etiket, Video API'si gelecekteki sürümlerde çeşitli bölgelerdeki hareket bulmak için esnekliği sunar. |
 | Bölgeler |Videonuzu hareket hakkında burada ilgilendiğiniz alanı ifade eder. <br/><br/>-"id" temsil Bölge alanı – bu sürümde yalnızca bir tane olduğunu, 0 kimliği. <br/>-"tür", önem verdiğiniz hareket bölge şeklini temsil eder. Şu anda "rectangle" ve "Çokgen" desteklenir.<br/> "Rectangle" belirttiyseniz, bölge, X boyuta sahiptir. Y, genişlik ve yükseklik. X ve Y koordinatları 0,0-1,0 normalleştirilmiş ölçeğini bölgede üst sol XY koordinatları temsil eder. Genişlik ve yükseklik 0.0 ile 1.0 normalleştirilmiş ölçeğini bölgede boyutunu temsil eder. Geçerli sürümde X, Y, genişlik ve yükseklik her zaman sabittir 0, 0 ve 1, 1. <br/>"Çokgen" belirttiyseniz, bölge boyutları noktaları vardır. <br/> |
 | Fragments |Meta verileri ayarlama parçaları olarak adlandırılan farklı parçalara öbekli. Her parçada başlangıç, süre, aralık sayısı ve olaylar vardır. Olay içermeyen bir parça, başlangıç zamanını ve süresini sırasında hiçbir hareket algılandı anlamına gelir. |

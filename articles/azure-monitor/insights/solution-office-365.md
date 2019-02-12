@@ -1,6 +1,6 @@
 ---
 title: Azure'da Office 365 yönetim çözümü | Microsoft Docs
-description: Bu makalede, yapılandırma ve azure'da Office 365 çözüm kullanımı hakkında ayrıntılı bilgi sağlar.  Log Analytics'te oluşturulan Office 365 kayıtları ayrıntılı açıklamasını içerir.
+description: Bu makalede, yapılandırma ve azure'da Office 365 çözüm kullanımı hakkında ayrıntılı bilgi sağlar.  Azure İzleyici'de oluşturulan Office 365 kayıtları ayrıntılı açıklamasını içerir.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216621"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999309"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
 ![Office 365 logosu](media/solution-office-365/icon.png)
 
-Office 365 yönetim çözümü, Log Analytics, Office 365 ortamınızda izlemenize olanak sağlar.
+Office 365 yönetim çözümü, Azure İzleyici'de, Office 365 ortamı izlemenize olanak sağlar.
 
 - Kullanıcı etkinlikleri Office 365 hesaplarınızın yanı sıra kullanım düzenlerini çözümleme için davranış eğilimlerini izleyin. Örneğin, kuruluşunuz ya da en popüler SharePoint siteleri dışında paylaşılan dosyalar gibi belirli kullanım senaryoları ayıklayabilirsiniz.
 - Yapılandırma değişiklikleri veya yüksek ayrıcalıklı işlemleri izlemek için yönetici etkinliklerini izler.
 - Algılama ve kuruluş gereksinimlerinize özelleştirilebilen istenmeyen kullanıcı davranışı araştırın.
 - Denetim ve uyumluluk gösterir. Örneğin, dosya erişim işlemleri ve denetim ve uyumluluk işlemiyle size gibi gizli bilgiler içeren dosyaları üzerinde izleyebilirsiniz.
-- Kullanarak işletimsel sorun giderme işlemleri uygulayabilirsiniz [günlük aramaları](../log-query/log-query-overview.md) kuruluşunuzun Office 365 etkinlik verileri üzerinde.
+- Kullanarak işletimsel sorun giderme işlemleri uygulayabilirsiniz [oturum sorguları](../log-query/log-query-overview.md) kuruluşunuzun Office 365 etkinlik verileri üzerinde.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Yüklenmiş ve yapılandırılmış bu çözüm olan önce gerekli verilmiştir.
@@ -43,7 +43,7 @@ Yüklenmiş ve yapılandırılmış bu çözüm olan önce gerekli verilmiştir.
 Bu çözüm, tüm yönetim paketlerinde yüklemez [bağlı Yönetim grupları](../platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Yükleme ve yapılandırma
-Başlangıç ekleyerek [aboneliğinizi Office 365 çözüme](solutions.md#install-a-management-solution). Eklendikten sonra Office 365 aboneliğinize erişimi vermek için bu bölümdeki yapılandırma adımları gerçekleştirmeniz gerekir.
+Başlangıç ekleyerek [aboneliğinizi Office 365 çözüme](solutions.md#install-a-monitoring-solution). Eklendikten sonra Office 365 aboneliğinize erişimi vermek için bu bölümdeki yapılandırma adımları gerçekleştirmeniz gerekir.
 
 ### <a name="required-information"></a>Gerekli bilgileri
 Bu yordama başlamadan önce aşağıdaki bilgileri toplayın.
@@ -375,7 +375,7 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>Kaldırma
-Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabilirsiniz [bir yönetim çözümünü Kaldır](solutions.md#remove-a-management-solution). Bu, Office 365'ten Log Analytics'e ancak toplanan verilerin durdurmaz. Office 365'ten aboneliği ve veri toplamayı durdurmak için aşağıdaki yordamı izleyin.
+Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabilirsiniz [bir yönetim çözümünü Kaldır](solutions.md#remove-a-monitoring-solution). Bu, Office 365'ten Azure İzleyici ile ancak toplanan verilerin durdurmaz. Office 365'ten aboneliği ve veri toplamayı durdurmak için aşağıdaki yordamı izleyin.
 
 1. Aşağıdaki betik olarak Kaydet *office365_unsubscribe.ps1*.
 
@@ -479,9 +479,12 @@ Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabil
 Office 365 çözüm herhangi bir veri almıyorsa [Log Analytics aracılarını](../platform/agent-data-sources.md).  Office 365'ten doğrudan verileri alır.
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
-Bu, başlangıçta Toplanacak veriler için birkaç saat sürebilir. Toplama başladığında, Office 365 gönderen bir [Web kancası bildirim](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) ayrıntılı ile verileri Log analytics'e her bir kayıt oluşturulur. Bu kayıt alınan sonra birkaç dakika içinde Log Analytics'te kullanılabilir.
+Bu, başlangıçta Toplanacak veriler için birkaç saat sürebilir. Toplama başladığında, Office 365 gönderen bir [Web kancası bildirim](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) ayrıntılı veriler ile Azure İzleyici için her bir kayıt oluşturulur. Bu kayıt alınan sonra birkaç dakika içinde Azure İzleyici'de kullanılabilir.
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
+
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 Log Analytics çalışma alanınıza, Office 365 çözümü eklediğinizde **Office 365** kutucuk, panonuza eklenir. Bu kutucukta, ortamınızdaki bilgisayarların sayısına ve güncelleştirme uyumluluğuna ilişkin bir sayı ve grafik gösterimi görüntülenir.<br><br>
 ![Office 365 Özet kutucuğu](media/solution-office-365/tile.png)  
 
@@ -501,9 +504,9 @@ Pano aşağıdaki tabloda gösterilen sütunları içerir. Her bir sütunun Beli
 
 
 
-## <a name="log-analytics-records"></a>Log Analytics kayıtları
+## <a name="azure-monitor-log-records"></a>Azure İzleyici kayıtlarını günlüğe kaydet
 
-Log Analytics çalışma alanında Office 365 çözüm tarafından oluşturulan tüm kayıtları bir **türü** , **OfficeActivity**.  **OfficeWorkload** özelliği, Exchange, AzureActiveDirectory, SharePoint veya OneDrive için - kayıt başvuruyor hangi Office 365 hizmet belirler.  **RecordType** özelliği, işlem türünü belirtir.  Özellikler, her işlem türü için farklılık gösterir ve aşağıdaki tablolarda gösterilmiştir.
+Azure İzleyici'de Log Analytics çalışma alanında Office 365 çözüm tarafından oluşturulan tüm kayıtları bir **türü** , **OfficeActivity**.  **OfficeWorkload** özelliği, Exchange, AzureActiveDirectory, SharePoint veya OneDrive için - kayıt başvuruyor hangi Office 365 hizmet belirler.  **RecordType** özelliği, işlem türünü belirtir.  Özellikler, her işlem türü için farklılık gösterir ve aşağıdaki tablolarda gösterilmiştir.
 
 ### <a name="common-properties"></a>Ortak Özellikler
 Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
@@ -708,6 +711,6 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../log-query/log-query-overview.md)’te Günlük Aramalarını kullanın.
+* Kullanım [sorgular Azure İzleyici'de oturum](../log-query/log-query-overview.md) ayrıntılı güncelleştirme verilerini görüntülemek için.
 * [Kendi panolarınızı oluşturun](../learn/tutorial-logs-dashboards.md) , sık kullanılan Office 365 arama sorgularını görüntülemek için.
 * [Uyarı oluşturma](../platform/alerts-overview.md) önemli Office 365 etkinliklerini proaktif olarak gönderilecek.  

@@ -1,6 +1,6 @@
 ---
 title: Çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services aracılığıyla canlı akış | Microsoft Docs
-description: 'Bu konuda, bir şirket içi Kodlayıcı tek bit hızlı canlı akış alan ve ardından Media Services ile bit hızı Uyarlamalı akış için gerçek zamanlı kodlama gerçekleştiren bir kanalı ayarlama işlemi açıklanmaktadır. Akış ardından bir veya daha fazla akış uç noktaları aracılığıyla, istemci kayıttan yürütme uygulamalara aşağıdaki Uyarlamalı akış protokollerine birini kullanarak edinebilir: HLS, kesintisiz Stream, MPEG DASH.'
+description: 'Bu konuda, bir şirket içi Kodlayıcı tek bit hızlı canlı akış alan ve ardından Media Services ile bit hızı Uyarlamalı akış için gerçek zamanlı kodlama gerçekleştiren bir kanalı ayarlama işlemi açıklanmaktadır. Akış ardından bir veya daha fazla akış uç noktaları aracılığıyla, istemci kayıttan yürütme uygulamalara aşağıdaki Uyarlamalı akış protokollerine biri kullanılarak teslim edilebilir: HLS, kesintisiz Stream, MPEG DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682665"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003355"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services aracılığıyla canlı akış gerçekleştirerek çoklu bit hızına sahip akışlar oluşturma
 
@@ -29,7 +29,7 @@ ms.locfileid: "52682665"
 ## <a name="overview"></a>Genel Bakış
 Azure Media Services (AMS) bir **kanal** için canlı akış içeriğinin işleneceği bir işlem hattını temsil eder. A **kanal** iki yoldan biriyle Canlı giriş akışları alır:
 
-* Bir şirket içi Canlı Kodlayıcı aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
+* Bir şirket içi Canlı Kodlayıcı, aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
 * Çoklu bit hızına sahip bir şirket içi Canlı Kodlayıcı gönderir **RTMP** veya **kesintisiz akış** (parçalanmış MP4) kanala AMS ile live encoding özelliğinin etkin değil. Alınan akışların **kanal**herhangi başka bir işlemeye olmadan s. Bu yöntem çağrılır **doğrudan**. Çoklu bit hızlı kesintisiz akış çıktısı sağlayan şu gerçek zamanlı Kodlayıcıları kullanabilirsiniz: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ve Elemental. Şu gerçek zamanlı kodlayıcılar RTMP çıktısı: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek ve Tricaster kodlayıcılar.  Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızlı bir akış da gönderebilir, ancak bu işlem önerilmez. İstendiğinde, Media Services akışı müşterilere teslim eder.
   
   > [!NOTE]
@@ -80,7 +80,7 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 Kullanılmayan bir süre için eşik olup 12 saati geçmez, ancak değiştirilebilir.
 
 ## <a name="live-encoding-workflow"></a>Canlı kodlama iş akışı
-Burada bir kanal aldığı tek bit hızlı akış aşağıdaki protokollerden birini bir canlı akış iş akışı aşağıdaki diyagramda temsil eder: RTMP veya kesintisiz akış; Ardından, Çoklu bit hızında akışa akışa kodlar. 
+Aşağıdaki diyagramda, burada bir kanala tek bit hızlı akış aşağıdaki protokollerden birini alır bir canlı akış iş akışı temsil eder: RTMP veya kesintisiz akış. Ardından, Çoklu bit hızında akışa akışa kodlar. 
 
 ![Canlı iş akışı][live-overview]
 
@@ -92,7 +92,7 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
 > 
 > 
 
-1. Bilgisayara bir video kamera bağlayın. Başlatma ve çıkışı bir şirket içi Canlı Kodlayıcı yapılandırma bir **tek** aşağıdaki protokollerden birini hızı stream'de: RTMP veya kesintisiz akış. 
+1. Bilgisayara bir video kamera bağlayın. Başlatma ve çıkışı bir şirket içi Canlı Kodlayıcı yapılandırma bir **tek** aşağıdaki protokollerden birini bit hızı akışı: RTMP veya kesintisiz akış. 
    
     Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
 2. Bir Kanal oluşturup başlatın. 

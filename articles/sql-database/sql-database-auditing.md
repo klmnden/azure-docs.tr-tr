@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 26517e55685de6e1fd9174bb1892b877f0e263d6
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 26e131ef598feae099e789bc51909c4eb249bd79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895661"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002029"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -125,6 +125,7 @@ Denetim günlüklerini Log Analytics'e yazmak isterseniz:
 Denetim günlükleri Olay Hub'ına yazma seçerseniz:
 
 - Denetim günlükleri verileri olay hub'ı kullanmak için olayları kullanma ve bir hedef yazmak için bir akış ayarlamanız gerekir. Daha fazla bilgi için [Azure Event Hubs belgeleri](https://docs.microsoft.com/azure/event-hubs/).
+- Denetim günlükleri Olay Hub'ındaki gövdesinde yakalanan [Apache Avro](http://avro.apache.org/) olayları ve UTF-8 kodlaması ile JSON biçimlendirme kullanılarak depolanabilir. Denetim günlüklerini okumak için kullanabileceğiniz [Avro Araçları](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) veya bu biçim işleme benzer araçları.
 
 Denetim günlükleri bir Azure depolama hesabına yazma seçerseniz, günlükleri görüntülemek için kullanabileceğiniz birkaç yöntem vardır:
 

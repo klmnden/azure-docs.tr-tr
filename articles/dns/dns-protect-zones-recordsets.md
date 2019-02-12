@@ -7,14 +7,16 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: 137d8e1c1477d5b9c88cecc39316d62a79a4cab8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873937"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997388"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS bölgelerini ve kayıtlarını koruma
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 DNS bölgelerini ve kayıtlarını kritik kaynaklardır. Bir DNS bölgesi veya hatta yalnızca tek bir DNS kaydı silindiğinde, toplam kesintisi neden olabilir.  Bu nedenle kritik DNS bölgeleri ve kayıtları, yetkilendirilmemiş veya yanlışlıkla yapılan değişikliklere karşı korumalı önemlidir.
 
@@ -38,7 +40,7 @@ RBAC izinlerinin atamak için en basit yolu [Azure portalından](../role-based-a
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
 Eşdeğer komut ayrıca olduğundan [Azure CLI aracılığıyla](../role-based-access-control/role-assignments-cli.md):
@@ -62,7 +64,7 @@ Azure portalı üzerinden bir bölge düzeyinde RBAC izinlerinin verilmesi.  Aç
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
 Eşdeğer komut ayrıca olduğundan [Azure CLI aracılığıyla](../role-based-access-control/role-assignments-cli.md):
@@ -84,7 +86,7 @@ Kayıt kümesi düzeyi RBAC izinlerinin de olabilir [Azure PowerShell kullanarak
 
 ```azurepowershell
 # Grant permissions to a specific record set
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
 Eşdeğer komut ayrıca olduğundan [Azure CLI aracılığıyla](../role-based-access-control/role-assignments-cli.md):
@@ -140,7 +142,7 @@ Kalan eylemleri kopyalandığı [yerleşik DNS bölgesi katkıda bulunanı rolü
 
 ```azurepowershell
 # Create new role definition based on input file
-New-AzureRmRoleDefinition -InputFile <file path>
+New-AzRoleDefinition -InputFile <file path>
 ```
 
 Ayrıca Azure CLI oluşturulabilir:
@@ -172,7 +174,7 @@ Bölge düzeyi kaynak kilitleri, Azure PowerShell oluşturulabilir:
 
 ```azurepowershell
 # Lock a DNS zone
-New-AzureRmResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
+New-AzResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
 ```
 
 Azure kaynak kilitlerinin yapılandırılması, Azure CLI şu anda desteklenmiyor.
@@ -188,7 +190,7 @@ Kayıt kümesi düzeyinde kaynak kilitleri için şu anda yalnızca Azure PowerS
 
 ```azurepowershell
 # Lock a DNS record set
-New-AzureRmResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
 ```
 
 ### <a name="protecting-against-zone-deletion"></a>Bölge silinmeye karşı koruma
@@ -203,7 +205,7 @@ Aşağıdaki PowerShell komutu belirli bir bölgenin SOA kaydı CanNotDelete Kil
 
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 Bölgenin yanlışlıkla silinmesini engellemek için başka bir işleç emin olmak için özel bir rolü kullanarak yoludur ve bölgelerinizi yönetmek için kullanılan hizmet hesaplarını bölge izinlerini silme izniniz yok. Bir bölge silmeniz gerekirse, bir iki adımlı silme, ilk ekibi tarafından verilmesinin bölge silme izinlerine (yanlış bölgeyi silmeden önlemek için kapsamında bölge,) ve ikinci bölgesini silmek için zorunlu kılabilir.

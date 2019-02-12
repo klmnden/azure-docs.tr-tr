@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3dac11ac4409ddde5264307439533bd583d75a9d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888660"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993068"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI kullanarak DNS bölge dosyasını içeri ve dışarı 
 
@@ -116,7 +116,7 @@ DNS bölgesi dosyasını içeri aktardıktan sonra doğrulamak için aşağıdak
     az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
-* PowerShell cmdlet'ini kullanarak kayıtları listeleyebilirsiniz `Get-AzureRmDnsRecordSet`.
+* Azure CLI komutunu kullanarak kayıtları listeleyebilirsiniz `az network dns record-set ns list`.
 * Kullanabileceğiniz `nslookup` kayıtlar için ad çözümlemesini doğrulayın. Bölge henüz temsilci değildir çünkü doğru Azure DNS ad sunucularını açıkça belirtmeniz gerekir. Aşağıdaki örnek bölgesi için atanmış ad sunucusu adlarını almak nasıl gösterir. Ayrıca bu sorguyu kullanarak "www" kayıt işlemini gösterir `nslookup`.
 
     ```azurecli
@@ -188,6 +188,6 @@ Olarak bölge içeri ile ilk oturum açma için aboneliğinizi seçin ve Resourc
 
 Mevcut Azure DNS bölgesi dışarı aktarmak için **contoso.com** kaynak grubundaki **myresourcegroup** dosyasına **contoso.com.txt** (geçerli), çalışma klasörü `azure network dns zone export`. Bu komut, bölgedeki kayıt kümelerini listeleme ve sonuçları bir bağlama ile uyumlu bölge dosyasına dışarı aktarmak için Azure DNS hizmeti çağırır.
 
-    ```
-    az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
-    ```
+```
+az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
+```

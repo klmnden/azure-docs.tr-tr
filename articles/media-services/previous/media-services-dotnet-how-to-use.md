@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 5f111fea8fa1ef9f6e07c01f507e487c992729d5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: fb6f492f465f6570afea911dfca8a92d4ed3dc7c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233540"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001418"
 ---
-# <a name="media-services-development-with-net"></a>.NET ile Media Services Geliştirme
+# <a name="media-services-development-with-net-legacy"></a>Media Services geliştirme ile .NET (eski)
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 Bu makalede, .NET ile Media Services uygulama geliştirmeye başlamanın anlatılmaktadır.

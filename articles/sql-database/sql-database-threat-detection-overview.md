@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729515"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001894"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL veritabanı tehdit algılama
 
@@ -77,7 +77,7 @@ Tıklayın **tehdit algılaması Uyarısı** Azure Güvenlik Merkezi'ni başlatm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [tehdit algılama tek başına ve havuza alınmış veritabanlarını](sql-database-threat-detection.md).
+- Daha fazla bilgi edinin [tehdit algılama tek ve havuza alınmış veritabanları](sql-database-threat-detection.md).
 - Daha fazla bilgi edinin [içinde yönetilen örnek tehdit algılama](sql-database-managed-instance-threat-detection.md).
 - Daha fazla bilgi edinin [gelişmiş veri güvenliği](sql-database-advanced-data-security.md).
 - Daha fazla bilgi edinin [Azure SQL veritabanı denetimi](sql-database-auditing.md)

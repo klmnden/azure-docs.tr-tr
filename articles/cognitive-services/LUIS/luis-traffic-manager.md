@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: ba3ca363afe96c137a4a9eecdeda33e0f9129111
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868438"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997915"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Uç nokta kota anahtarlarını yönetmek için Microsoft Azure Traffic Manager'ı kullanma
 Language Understanding (LUIS), tek bir anahtarın kota dışında uç nokta isteği Kotayı artırmak olanağı sunar. LUIS için daha fazla anahtarları oluşturma ve bunları LUIS uygulamaya ekleme tarafından yapıldığını **Yayımla** sayfasını **kaynakları ve anahtarları** bölümü. 
@@ -362,6 +362,9 @@ LUIS uç noktasıyla başarılı yanıt şöyledir:
 ## <a name="use-the-traffic-manager-parent-profile"></a>Traffic Manager ana profilini kullanın
 Uç noktalar genelinde trafiği yönetmek için Traffic Manager DNS LUIS uç noktasını bulmak için bir çağrı eklemeniz gerekir. Bu çağrı için her LUIS uç nokta isteği yapılır ve coğrafi konum LUIS istemci uygulamasının kullanıcının benzetimini yapmak gerekiyor. LUIS istemci uygulamanız ile istek aralığındaki DNS yanıt kodu için uç nokta tahmin için LUIS ekleyin. 
 
+## <a name="resolving-a-degraded-state"></a>Düzeyi düşürülmüş durumunu çözme
+
+Etkinleştirme [tanılama günlükleri](../../traffic-manager/traffic-manager-diagnostic-logs.md) neden uç nokta durumu düzeyi düşürüldü görmek için Traffic Manager'için.
 
 ## <a name="clean-up"></a>Temizleme
 İki LUIS uç noktası anahtarı, üç Traffic Manager profillerini ve beş bu kaynakları içeren kaynak grubunu kaldırın. Bu, Azure portalından gerçekleştirilir. Beş kaynakları kaynakları listeden silin. Kaynak grubunu silin. 

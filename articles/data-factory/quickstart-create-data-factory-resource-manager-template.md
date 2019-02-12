@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 279588e63000883d60b159f56e8c0b4686dee5b4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: bb6c3281ffc434bd31f901b2b7f6e540f893ca76
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888788"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001911"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak bir Azure veri fabrikası oluşturma
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Geçerli sürüm](quickstart-create-data-factory-resource-manager-template.md)
@@ -32,9 +33,11 @@ Bu hızlı başlangıçta, Azure Resource Manager şablonu kullanarak bir Azure 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### <a name="azure-powershell"></a>Azure PowerShell
+
 [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
 
 ## <a name="resource-manager-templates"></a>Resource Manager şablonları
+
 Azure Resource Manager şablonları hakkında genel bir bilgi almak için bkz. [Azure Resource Manager Şablonları Yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Aşağıdaki bölümde, öğreticiyi hızlıca geçip şablonu test etmeniz için Data Factory varlıklarını tanımlamaya yönelik tam bir Resource Manager şablonu verilmektedir. Her bir Data Factory varlığının nasıl tanımlandığını anlamak için [Şablondaki Data Factory varlıkları](#data-factory-entities-in-the-template) bölümüne bakın.
@@ -42,6 +45,7 @@ Aşağıdaki bölümde, öğreticiyi hızlıca geçip şablonu test etmeniz içi
 Data Factory kaynaklarını bir şablonda özelliklerini ve JSON söz dizimi hakkında bilgi edinmek için bkz. [Microsoft.DataFactory kaynak türleri](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>Data Factory JSON
+
 **C:\ADFTutorial** klasöründe aşağıdaki içeriğe sahip **ADFTutorialARM.json** adlı bir JSON dosyası oluşturun:
 
 ```json
@@ -265,6 +269,7 @@ Data Factory kaynaklarını bir şablonda özelliklerini ve JSON söz dizimi hak
 ```
 
 ## <a name="parameters-json"></a>Parametreler JSON
+
 Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFTutorialARM-Parameters.json** adlı bir JSON dosyası oluşturun.
 
 > [!IMPORTANT]
@@ -319,6 +324,7 @@ Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFTutorialAR
 > Aynı Data Factory JSON şablonuyla birlikte kullanabileceğiniz geliştirme, test ve üretim ortamları için ayrı parametre JSON dosyalarına sahip olabilirsiniz. Bir Power Shell komut dosyası kullanarak, bu ortamlarda Data Factory varlıklarını dağıtmayı otomatik hale getirebilirsiniz.
 
 ## <a name="deploy-data-factory-entities"></a>Data Factory varlıklarını dağıtma
+
 PowerShell’de, bu hızlı başlangıcın önceki bölümlerinde oluşturduğunuz Resource Manager şablonunu kullanarak Data Factory varlıklarını dağıtmak için aşağıdaki komutu çalıştırın.
 
 ```PowerShell
@@ -327,7 +333,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 Aşağıdaki örneğe benzer bir çıktı görürsünüz:
 
-```
+```console
 DeploymentName          : MyARMDeployment
 ResourceGroupName       : ADFTutorialResourceGroup
 ProvisioningState       : Succeeded
@@ -369,7 +375,7 @@ Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yol
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-1. Veri fabrikasının adını tutacak bir değişken oluşturun. ADFTutorialARM-Parameters.json dosyasında belirttiğiniz adın aynısını belirtin.
+2. Veri fabrikasının adını tutacak bir değişken oluşturun. ADFTutorialARM-Parameters.json dosyasında belirttiğiniz adın aynısını belirtin.
 
     ```powershell
     $dataFactoryName = "<yourdatafactoryname>"
@@ -404,7 +410,7 @@ Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yol
     
     Örnek çıktı aşağıdaki gibidir:
     
-    ```
+    ```console
     Confirm
     Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
@@ -418,7 +424,7 @@ Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yol
     
     Örnek çıktı aşağıdaki gibidir:
     
-    ```
+    ```console
     TriggerName       : ArmTemplateTestTrigger
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : ARMFactory1128
@@ -427,31 +433,37 @@ Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yol
     ```
 
 ## <a name="monitor-the-pipeline"></a>İşlem hattını izleme
+
 1. [Azure portalında](https://portal.azure.com/) oturum açtıktan sonra **Tüm hizmetler**’e tıklayın, **veri fa** gibi bir anahtar sözcükle arama yapın ve **Veri fabrikaları**’nı seçin.
 
     ![Veri fabrikaları menüsüne göz atma](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
+
 2. **Veri Fabrikaları** sayfasında, oluşturduğunuz veri fabrikasına tıklayın. Gerekirse, veri fabrikanızın adıyla listeyi filtreleyin.
 
     ![Veri fabrikası seçme](media/quickstart-create-data-factory-resource-manager-template/select-data-factory.png)
+
 3. Veri fabrikası sayfasında **İzleme ve Yönetme** kutucuğuna tıklayın.
 
     ![İzleme ve yönetme kutucuğu](media/quickstart-create-data-factory-resource-manager-template/monitor-manage-tile.png)
+
 4. **Veri Tümleştirme Uygulaması**, web tarayıcısının ayrı bir sekmesinde açılmalıdır. İzleme sekmesi etkin değilse **izleme sekmesine** geçiş yapın. İşlem hattı çalıştırmasının bir **zamanlayıcı tetikleyicisi** ile tetiklendiğine dikkat edin.
 
     ![İşlem hattı çalıştırmasını izleme](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)
 
     > [!IMPORTANT]
     > İşlem hattı çalıştırmaları yalnızca saat başı çalıştığını görürsünüz (örneğin: 4'te, 5'te, 6 AM, vs.). Zaman sonraki saate ulaştığında listeyi yenilemek için araç çubuğunda **Yenile**’ye tıklayın.
+
 5. **Eylemler** sütunundaki bağlantıya tıklayın.
 
     ![İşlem hattı eylemleri bağlantısı](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
+
 6. İşlem hattı çalıştırmasıyla ilişkili etkinlik çalıştırmalarını görürsünüz. Bu hızlı başlangıçta, işlem hattı yalnızca bir etkinlik türü içerir: Kopyalayın. Bu nedenle, bu etkinliğe ait bir çalıştırma görürsünüz.
 
     ![Etkinlik çalıştırmaları](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-1. **Çıktı** sütunu altındaki bağlantıya tıklayın. Kopyalama işleminin çıktısını bir **Çıktı** penceresinde görürsünüz. Tam çıktıyı görmek için ekranı kapla düğmesine tıklayın. Ekranı kaplayan çıktı penceresini veya çıktıyı kapatabilirsiniz.
+7. **Çıktı** sütunu altındaki bağlantıya tıklayın. Kopyalama işleminin çıktısını bir **Çıktı** penceresinde görürsünüz. Tam çıktıyı görmek için ekranı kapla düğmesine tıklayın. Ekranı kaplayan çıktı penceresini veya çıktıyı kapatabilirsiniz.
 
     ![Çıktı penceresi](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
-7. Başarılı/başarısız çalıştırma gördüğünüzde tetikleyiciyi durdurun. Tetikleyici, işlem hattını saatte bir kez çalıştırır. İşlem hattı her çalıştırma için aynı dosyayı girdi klasöründen çıktı klasörüne kopyalar. Tetikleyiciyi durdurmak için PowerShell penceresinde aşağıdaki komutu çalıştırın.
+8. Başarılı/başarısız çalıştırma gördüğünüzde tetikleyiciyi durdurun. Tetikleyici, işlem hattını saatte bir kez çalıştırır. İşlem hattı her çalıştırma için aynı dosyayı girdi klasöründen çıktı klasörüne kopyalar. Tetikleyiciyi durdurmak için PowerShell penceresinde aşağıdaki komutu çalıştırın.
     
     ```powershell
     Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
@@ -460,6 +472,7 @@ Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yol
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## <a name="data-factory-entities-in-the-template"></a> Varlıklar için JSON tanımları
+
 Aşağıdaki Data Factory varlıkları JSON şablonunda tanımlanır:
 
 - [Azure Storage bağlı hizmeti](#azure-storage-linked-service)
@@ -469,6 +482,7 @@ Aşağıdaki Data Factory varlıkları JSON şablonunda tanımlanır:
 - [Tetikleyici](#trigger)
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage bağlı hizmeti
+
 AzureStorageLinkedService, Azure depolama hesabınızı veri fabrikasına bağlar. Bir kapsayıcı oluşturup verileri ön koşulların parçası olarak bu depolama hesabına yüklediniz. Bu bölümde Azure depolama hesabınızın adını ve anahtarını belirtirsiniz. Bir Azure Storage bağlı hizmetini tanımlamak için kullanılan JSON özelliklerine ilişkin ayrıntılar için bkz. [Azure Storage bağlı hizmeti](connector-azure-blob-storage.md#linked-service-properties).
 
 ```json
@@ -495,6 +509,7 @@ AzureStorageLinkedService, Azure depolama hesabınızı veri fabrikasına bağla
 ConnectionString, storageAccountName ve storageAccountKey parametrelerini kullanır. Bu parametrelerin değerleri bir yapılandırma dosyası kullanılarak geçirilir. Tanım ayrıca şu değişkenleri kullanır: şablonda tanımlanan azureStorageLinkedService ve dataFactoryName.
 
 #### <a name="azure-blob-input-dataset"></a>Azure blob girdi veri kümesi
+
 Azure Depolama bağlı hizmeti, Data Factory hizmetinin Azure depolama hesabınıza bağlanmak için çalışma zamanında kullandığı bağlantı dizesini belirtir. Azure blob veri kümesi tanımında blob kapsayıcısını, klasörü ve giriş verilerini içeren dosyanın adını belirtirsiniz. Bir Azure Blob veri kümesini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob veri kümesi özellikleri](connector-azure-blob-storage.md#dataset-properties).
 
 ```json
@@ -518,10 +533,10 @@ Azure Depolama bağlı hizmeti, Data Factory hizmetinin Azure depolama hesabın�
         }
     }
 },
-
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Azure blob çıktı veri kümesi
+
 Azure Blob Depolamada girdi klasöründen kopyalanmış verileri tutan klasörün adını belirtin. Bir Azure Blob veri kümesini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob veri kümesi özellikleri](connector-azure-blob-storage.md#dataset-properties).
 
 ```json
@@ -548,6 +563,7 @@ Azure Blob Depolamada girdi klasöründen kopyalanmış verileri tutan klasörü
 ```
 
 #### <a name="data-pipeline"></a>Veri işlem hattı
+
 Verileri bir Azure blob veri kümesinden başka bir Azure blob veri kümesine kopyalayan bir işlem hattı tanımlayın. Bu örnekte bir işlem hattı tanımlamak için kullanılan JSON öğelerinin açıklamaları için bkz. [İşlem Hattı JSON](concepts-pipelines-activities.md#pipeline-json).
 
 ```json
@@ -587,6 +603,7 @@ Verileri bir Azure blob veri kümesinden başka bir Azure blob veri kümesine ko
 ```
 
 #### <a name="trigger"></a>Tetikleyici
+
 İşlem hattını saatte bir kez çalıştıran bir tetikleyici tanımlayın. Dağıtılan tetikleyici durdurulmuş durumdadır. **Start-AzureRmDataFactoryV2Trigger** cmdlet’ini kullanarak tetikleyiciyi başlatın. Tetikleyiciler hakkında daha fazla bilgi için [İşlem hattı yürütme ve tetikleyicileri](concepts-pipeline-execution-triggers.md#triggers) makalesine bakın.
 
 ```json
@@ -624,6 +641,7 @@ Verileri bir Azure blob veri kümesinden başka bir Azure blob veri kümesine ko
 ```
 
 ## <a name="reuse-the-template"></a>Şablonu yeniden kullanma
+
 Bu öğreticide, Data Factory varlıkları tanımlamaya yönelik bir şablon ve parametrelerin değerlerini geçirmeye yönelik bir şablon oluşturdunuz. Data Factory varlıklarını farklı ortamlara dağıtmak üzere aynı şablonu kullanmak için, her bir ortama yönelik bir parametre dosyası oluşturur ve bu ortama dağıtırken kullanırsınız.
 
 Örnek:
@@ -635,9 +653,11 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
+
 Birinci komut geliştirme ortamına, ikinci komut test ortamına ve üçüncü komut üretim ortamına yönelik parametre dosyasını kullanır.
 
 Ayrıca tekrarlanan görevleri gerçekleştirmek için şablonu yeniden kullanabilirsiniz. Örneğin, aynı mantığı uygulamasına karşın her veri fabrikasının farklı Azure depolama hesaplarını kullandığı bir veya daha fazla işlem hattı ile çok sayıda veri fabrikası oluşturun. Bu senaryoda, aynı şablonu veri fabrikaları oluşturmaya yönelik farklı parametre dosyaları ile aynı ortamda (geliştirme, test veya üretim) kullanırsınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu örnekteki işlem hattı, verileri bir konumdan Azure blob depolama alanındaki başka bir konuma kopyalar. Daha fazla senaryoda Data Factory’yi kullanma hakkında bilgi almak için [öğreticileri](tutorial-copy-data-dot-net.md) okuyun.

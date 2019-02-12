@@ -1,6 +1,6 @@
 ---
-title: Log analytics'te, toplanan verileri toplamanızı | Microsoft Docs
-description: Toplanan, uygulamalar ve sistem düzeyindeki bilgileri düzenli aralıklarla verileri toplar bir açık kaynak Linux daemon ' dir.  Bu makale, Log analytics'te, toplanan veri toplanmasına hakkında bilgi sağlar.
+title: Azure İzleyici'de toplanan verileri toplamanızı | Microsoft Docs
+description: Toplanan, uygulamalar ve sistem düzeyindeki bilgileri düzenli aralıklarla verileri toplar bir açık kaynak Linux daemon ' dir.  Bu makalede, Azure İzleyici'de toplanan veri toplanmasına hakkında bilgi sağlar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 3ccb307eb028170f2dc65fd7cf90edf3115ae9a7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b6785dc06107424344f0a6af775abe9b1c956f70
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102695"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999326"
 ---
-# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Log Analytics Linux aracıda toplanan verileri toplamak
-[Toplanan](https://collectd.org/) olduğu bir açık kaynak Linux daemon, düzenli aralıklarla uygulama ve sistem düzeyindeki bilgileri performans ölçümleri toplar. Örnek uygulamalar, Java sanal makinesi (JVM), MySQL sunucusu ve Ngınx içerir. Bu makale, Log analytics'te, toplanan performans veri toplanmasına hakkında bilgi sağlar.
+# <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure İzleyici'de Linux aracıları hakkında toplanan veri topla
+[Toplanan](https://collectd.org/) olduğu bir açık kaynak Linux daemon, düzenli aralıklarla uygulama ve sistem düzeyindeki bilgileri performans ölçümleri toplar. Örnek uygulamalar, Java sanal makinesi (JVM), MySQL sunucusu ve Ngınx içerir. Bu makalede, Azure İzleyici'de toplanan performans veri toplanmasına hakkında bilgi sağlar.
 
 Kullanılabilen eklentileri tam bir listesi şu yolda bulunabilir: [tablo, eklentileri](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
@@ -57,7 +57,7 @@ Varsayılan toplanan yapılandırması kullanır`write_http` performans ölçüm
 > [!NOTE]
 > Gerekirse, bu bağlantı noktası özel tanımlı bir bağlantı noktası için yapılandırılabilir.
 
-Linux için Log Analytics aracısını da toplanan ölçümler için 26000 numaralı bağlantı noktasında dinler ve bunları Log Analytics şema ölçümlerini dönüştürür. Linux yapılandırma için Log Analytics aracısını verilmiştir `collectd.conf`.
+Linux için Log Analytics aracısını da toplanan ölçümler için 26000 numaralı bağlantı noktasında dinler ve bunları Azure İzleyici şema ölçümleri için dönüştürür. Linux yapılandırma için Log Analytics aracısını verilmiştir `collectd.conf`.
 
     <source>
       type http
@@ -71,12 +71,12 @@ Linux için Log Analytics aracısını da toplanan ölçümler için 26000 numar
 
 
 ## <a name="versions-supported"></a>Desteklenen sürümler
-- Log Analytics toplanan sürüm 4.8 destekler ve üstü.
+- Azure İzleyici şu anda toplanan sürüm 4.8 destekler ve üstü.
 - Toplanan ölçüm koleksiyonu için log Analytics aracısını Linux v1.1.0-217 veya üzeri gereklidir.
 
 
 ## <a name="configuration"></a>Yapılandırma
-Log Analytics toplanan verileri toplamayı yapılandırmak için temel adımlar verilmiştir.
+Azure İzleyici'de toplanan verileri toplamayı yapılandırmak için temel adımlar verilmiştir.
 
 1. Toplanan write_http eklentisi kullanarak Linux için Log Analytics aracısını veri göndermek için yapılandırın.  
 2. Toplanan verileri uygun bağlantı noktasında dinlemek Linux için Log Analytics aracısını yapılandırın.
@@ -107,10 +107,10 @@ Log Analytics toplanan verileri toplamayı yapılandırmak için temel adımlar 
 
     sudo hizmeti toplanan yeniden sudo /opt/microsoft/omsagent/bin/service_control yeniden başlatma
 
-## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Log Analytics şema dönüştürme için toplanan ölçümleri
+## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Azure İzleyici şema dönüştürme için toplanan ölçümleri
 Linux için Log Analytics aracısını yeni ölçümler ile toplanmış altyapı ölçümleri arasında tanıdık bir model tarafından toplanan aşağıdaki şema eşleme toplanan korumak için kullanılır:
 
-| Toplanan ölçüm alan | Log Analytics alan |
+| Toplanan ölçüm alan | Azure İzleyici alan |
 |:--|:--|
 | konak | Bilgisayar |
 | Eklentisi | None |
@@ -122,5 +122,5 @@ Linux için Log Analytics aracısını yeni ölçümler ile toplanmış altyapı
 | değerler] | Ort |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [oturum sorguları](../../log-analytics/log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
-* Kullanım [özel alanlar](../../log-analytics/log-analytics-custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
+* Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
+* Kullanım [özel alanlar](custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.

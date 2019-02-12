@@ -2,7 +2,7 @@
 title: Video oynatıcı uygulamaları geliştirme
 description: Konu, oynatıcı çerçeveleri ve Media Services akış medyadan kullanabilecek kendi istemci uygulamalarınızı geliştirmek için kullanabileceğiniz eklentileri için bağlantılar sağlar.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237052"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004851"
 ---
 # <a name="develop-video-player-applications"></a>Video oynatıcı uygulamaları geliştirme
 ## <a name="overview"></a>Genel Bakış
@@ -53,7 +53,7 @@ Aşağıdaki Sdk'lardan birini kullanabilirsiniz:
 * [XBOX Video uygulaması geliştirme](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>Reklam
-Azure Media Services, Windows Media platformu aracılığıyla reklam ekleme için destek sağlar: oynatıcı çerçeveleri. Ad desteğiyle oynatıcı çerçeveleri, Windows 8, Silverlight, Windows Phone 8 ve iOS cihazlar için kullanılabilir. Her player çerçevesi player uygulamasının nasıl uygulanacağını gösteren örnek kodunu içerir. Medyanızı ekleyebileceğiniz reklam üç farklı tür vardır:
+Azure Media Services, Windows Media platformu aracılığıyla reklam ekleme için destek sağlar: Oynatıcı çerçeveleri. Ad desteğiyle oynatıcı çerçeveleri, Windows 8, Silverlight, Windows Phone 8 ve iOS cihazlar için kullanılabilir. Her player çerçevesi player uygulamasının nasıl uygulanacağını gösteren örnek kodunu içerir. Medyanızı ekleyebileceğiniz reklam üç farklı tür vardır:
 
 Doğrusal – ana videoyu Duraklat tam çerçeve reklamları
 
@@ -61,7 +61,7 @@ Doğrusal – ana videoyu oynatmaya olarak görüntülenen katmana reklam, genel
 
 Yardımcısı – dışında player görüntülenen reklamları
 
-Reklam ana video zaman çizelgesi içinde herhangi bir noktada yerleştirilebilir. Ad yürütmek ne zaman ve hangi reklam yürütmek için player söylemeniz gerekir. Bu işlemi standart XML tabanlı dosyalar kümesi kullanılarak: Video Ad hizmet şablonu (VAST), Dijital Video birden çok Ad çalma listesi (VMAP), medya soyut sıralaması şablonu (a) ve Dijital Video Oynatıcı Ad arabirim tanımı (VPAID). BÜYÜK dosyaları görüntülemek için hangi reklam belirtin. VMAP dosyaları çeşitli reklam yürütmek ve geniş XML içeren ne zaman belirtin. A dosyaları büyük XML de içerebilen dizisi reklam için başka bir yoludur. VPAID dosyaları, video oynatıcı ad veya ad sunucusu arasında bir arabirim tanımlar. Daha fazla bilgi için [reklam ekleme](https://msdn.microsoft.com/library/dn387398.aspx).
+Reklam ana video zaman çizelgesi içinde herhangi bir noktada yerleştirilebilir. Ad yürütmek ne zaman ve hangi reklam yürütmek için player söylemeniz gerekir. Bu işlemi standart XML tabanlı dosyalar kümesi kullanarak: Video Ad hizmet şablonu (VAST), Dijital Video birden çok Ad çalma listesi (VMAP), medya sıralama şablonu (a) ve Dijital Video Oynatıcı Ad arabirim tanımı (VPAID) soyut. BÜYÜK dosyaları görüntülemek için hangi reklam belirtin. VMAP dosyaları çeşitli reklam yürütmek ve geniş XML içeren ne zaman belirtin. A dosyaları büyük XML de içerebilen dizisi reklam için başka bir yoludur. VPAID dosyaları, video oynatıcı ad veya ad sunucusu arasında bir arabirim tanımlar. Daha fazla bilgi için [reklam ekleme](https://msdn.microsoft.com/library/dn387398.aspx).
 
 Kapalı Açıklamalı Altyazı ve canlı akış video de reklam desteği hakkında daha fazla bilgi için bkz: [desteklenen Kapalı Açıklamalı Altyazı ve Ad ekleme standartları](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 

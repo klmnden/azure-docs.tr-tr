@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 10e60076fe527e6e773e966ccdae52a7fe99c4b2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077717"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997218"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Azure anahtar kasası anahtar döndürme ve denetleme ile ayarlama
 
 ## <a name="introduction"></a>Giriş
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Bir anahtar kasası oluşturduktan sonra anahtarları ve parolaları saklamak için kullanmaya başlayabilirsiniz. Uygulamalarınız artık anahtarları veya gizli kalıcı hale getirmek gerekmez ancak bunları gerektiği şekilde kasadan talep edebilir. Bu anahtarları ve gizli anahtarı ve gizli dizi yönetimi olanakları kapsamını ayarlama açılır uygulamanızın davranışını etkilemeden güncelleştirmenizi sağlar.
 
@@ -45,7 +47,7 @@ Bu makalede açıklanmaktadır:
 Key Vault'tan bir gizli dizi almak bir uygulamanın işlemesini etkinleştirmek için ilk gizli dizi oluşturun ve kasanıza karşıya yükleyin. Bu, bir Azure PowerShell oturumu başlatarak ve aşağıdaki komutla Azure hesabınızda oturum açarken gerçekleştirilebilir:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. PowerShell Bu hesapla ilişkili tüm abonelikleri alır. PowerShell, varsayılan olarak birinciyi kullanır.
@@ -53,19 +55,19 @@ Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parola
 Birden fazla aboneliğiniz varsa, anahtar kasanızı oluşturmak için kullanılan bir tane belirtmeniz gerekebilir. Hesabınız için abonelikleri görmek için aşağıdakileri girin:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Günlüğünü anahtar kasasıyla ilişkili aboneliği belirtmek için şunu girin:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscriptionID>
+Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
 Bu makalede bir gizli dizi bir depolama hesabı anahtarını depolamak gösterir çünkü bu depolama hesabı anahtarı almanız gerekir.
 
 ```powershell
-Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
+Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
 Gizli anahtarı (Bu durumda, depolama hesabı anahtarınızı) aldıktan sonra bir güvenli dizeye dönüştürün ve anahtar kasanıza'da bu değerle bir gizli dizi oluşturmak gerekir.
@@ -73,13 +75,13 @@ Gizli anahtarı (Bu durumda, depolama hesabı anahtarınızı) aldıktan sonra b
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
-Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
+Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
 Ardından, oluşturduğunuz için gizli anahtar URI'sini alın. Gizli anahtarı almak için anahtar kasası çağırdığınızda bu daha sonraki bir adımda kullanılır. Aşağıdaki PowerShell komutunu çalıştırın ve gizli URI kimlik değerini not edin:
 
 ```powershell
-Get-AzureKeyVaultSecret –VaultName <vaultName>
+Get-AzKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>Uygulamasını ayarlama
@@ -110,7 +112,7 @@ Ardından, Azure Active Directory ile etkileşim kurabilmesi uygulamanız için 
 Anahtar kasası uygulamanıza çağrıları oluşturmadan önce anahtar kasası uygulamanızı ve izinlerini bildirmeniz gerekir. Kasa adı ve uygulama kimliği verir ve Azure Active Directory uygulaması aşağıdaki komutu alır **alma** uygulaması için anahtar kasanıza erişim.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
 Bu noktada, uygulama çağrılarınızı oluşturmaya başlamak hazırsınız. Uygulamanızda Azure anahtar kasası ve Azure Active Directory ile etkileşim kurmak için gerekli NuGet paketlerini yüklemeniz gerekir. Visual Studio Paket Yöneticisi konsolundan aşağıdaki komutları girin. Bu makalede yazılmasını ve Azure Active Directory paketinin geçerli sürümü 3.10.305231913, olduğundan, en son sürümünü onaylamak ve buna uygun güncelleştirmek isteyebilirsiniz.
@@ -188,7 +190,7 @@ Anahtar kasanızda gizli değerlerini ayarlamak Azure Otomasyonu izin vermek iç
 Azure Otomasyonu bağlantınız için uygulama Kimliğini aldıktan sonra bu uygulamayı kasanızdaki gizli anahtarları güncelleştirme erişimi olduğunu, anahtar kasanıza söylemeniz gerekir. Bu, aşağıdaki PowerShell komutu ile gerçekleştirilebilir:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
 Ardından, **runbook'ları** Azure Otomasyonu örneği ve ardından altındaki **Runbook Ekle**. **Hızlı Oluştur**’u seçin. Seçin ve runbook'unuzu ad **PowerShell** runbook türü. Bir açıklama eklemek için seçeneğiniz vardır. Son olarak, tıklayın **Oluştur**.
@@ -205,7 +207,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -230,12 +232,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 Düzenleyici bölmesinden seçin **Test bölmesi** kodunuzu test etmek için. Komut hatasız çalışır duruma geçtikten sonra seçebileceğiniz **Yayımla**, ve ardından geri runbook yapılandırma bölmesinde runbook için bir zamanlama uygulayabilirsiniz.
@@ -246,9 +248,9 @@ Bir anahtar kasası ayarlama, anahtar Kasası'na erişim isteklerini üzerinde g
 İlk olarak, anahtar kasanızı günlüğünü etkinleştirmeniz gerekir. Bu aşağıdaki PowerShell komutları yapılabilir (en ayrıntılı görülebilir [anahtar kasası günlüğü](key-vault-logging.md)):
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
-$kv = Get-AzureRmKeyVault -VaultName '<vaultName>'
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
+$kv = Get-AzKeyVault -VaultName '<vaultName>'
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 Bu etkinleştirildikten sonra belirtilen depolama hesabına toplama başlangıç denetim günlükleri. Bu günlükler, anahtar kasalarınıza nasıl ve ne zaman erişildiğini ve kim tarafından olayları içerir.

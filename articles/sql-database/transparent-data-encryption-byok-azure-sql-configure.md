@@ -1,5 +1,5 @@
 ---
-title: "PowerShell ve CLI: SQL TDE'nin - key - Azure SQL veritabanı'nı etkinleştirme | Microsoft Docs"
+title: "PowerShell ve CLI: Azure Key Vault ile SQL TDE'nin - enable - kendi anahtarınızı - Azure SQL veritabanı getirin | Microsoft Docs"
 description: Bir Azure SQL veritabanı ve veri ambarı bekleyen şifreleme için saydam veri şifrelemesi (TDE) kullanmaya başlamak için yapılandırmayı öğrenin PowerShell veya CLI kullanarak.
 services: sql-database
 ms.service: sql-database
@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: be73f5cb7db232538f301b2eb56bf61267fce5d5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b6abfa24d790554de239171ffef1899cdc135d26
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566729"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996262"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell ve CLI: Kendi anahtarınızı Azure anahtar Kasası'ndaki kullanarak saydam veri şifrelemesini etkinleştirme
+# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell ve CLI: Azure Key vault'tan müşteri tarafından yönetilen anahtarla saydam veri şifrelemesini etkinleştirme
 
-Bu makalede Azure Key vault'tan bir anahtar için saydam veri şifrelemesi (TDE) bir SQL veritabanı veya veri ambarı kullanma konusunda yol göstermektedir. TDE Getir bilgisayarınızı kendi anahtarını (BYOK) destekli hakkında daha fazla bilgi edinmek için [TDE kendi anahtarını Getir için Azure SQL](transparent-data-encryption-byok-azure-sql.md). 
+Bu makalede Azure Key vault'tan bir anahtar için saydam veri şifrelemesi (TDE) bir SQL veritabanı veya veri ambarı kullanma konusunda yol göstermektedir. Azure Key Vault tümleştirmesi - Getir bilgisayarınızı kendi anahtarını (BYOK) desteği ile TDE hakkında daha fazla bilgi edinmek için [müşteri tarafından yönetilen anahtarları Azure Key vault'taki TDE](transparent-data-encryption-byok-azure-sql.md). 
 
 ## <a name="prerequisites-for-powershell"></a>PowerShell için Önkoşullar
 

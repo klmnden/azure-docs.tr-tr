@@ -4,7 +4,7 @@ description: Azure Media Services kesintisiz akış eklentisi Adobe açık kayna
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1664dc16e93fa825962690ec3ed5681478005d59
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cfabc068e801c610c9e393eea50213a3c5ad26ea
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229637"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000106"
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Eklenti için Adobe açık kaynak medya çerçevesi akış Microsoft kesintisiz kullanma
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Eklenti için Adobe açık kaynak medya çerçevesi akış Microsoft kesintisiz kullanma  
 ## <a name="overview"></a>Genel Bakış
 Açık kaynak Media Framework 2.0 (OSMF için SS) için Microsoft kesintisiz akış eklentisi, OSMF varsayılan yeteneklerini genişletir ve Microsoft kesintisiz akış içeriği oynatmayı yeni ve mevcut OSMF oyuncular ekler. Eklenti, kesintisiz akış özelliklerinden kayıttan yürütme Strobe Media Playback'te (SMP) de ekler.
 
@@ -52,8 +52,8 @@ Desteklenen özellikler, desteklenmeyen özellikler ve bilinen sorunların tam l
 ## <a name="loading-the-plugin"></a>Eklentisi yükleniyor
 OSMF eklentileri statik (derleme zamanında) yüklenebilir veya dinamik olarak (çalışma zamanında). İndirme OSMF için kesintisiz akış eklentisi, dinamik ve statik sürümlerini içerir.
 
-* Statik yükleme: statik olarak yüklemek için bir statik kitaplık (SWC) dosyası gereklidir. Statik eklentileri varsayılan olarak, derleme zamanında projeleri ve birleştirme son çıktı dosyası içinde bir başvuru olarak eklenir.
-* Dinamik yükleniyor: dinamik olarak yüklemek için önceden derlenmiş bir (SWF) dosyası gereklidir. Dinamik eklentileri çalışma zamanında yüklenen ve proje çıkışına dahil değildir. (Derlenmiş çıkış) Dinamik eklentileri, HTTP ve dosya protokolleri kullanılarak yüklenebilir.
+* Statik yükleme: Statik olarak yüklemek için bir statik kitaplık (SWC) dosyası gereklidir. Statik eklentileri varsayılan olarak, derleme zamanında projeleri ve birleştirme son çıktı dosyası içinde bir başvuru olarak eklenir.
+* Dinamik yükleniyor: Dinamik olarak yüklemek için önceden derlenmiş bir (SWF) dosyası gereklidir. Dinamik eklentileri çalışma zamanında yüklenen ve proje çıkışına dahil değildir. (Derlenmiş çıkış) Dinamik eklentileri, HTTP ve dosya protokolleri kullanılarak yüklenebilir.
 
 Statik ve dinamik yükleme hakkında daha fazla bilgi için bkz: resmi [OSMF eklentisini sayfa](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 

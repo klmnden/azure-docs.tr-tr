@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486903"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997092"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio web hizmetleri için Excel Eklentisi
 Excel web hizmetleri herhangi bir kod yazmak zorunda kalmadan doğrudan çağırmak kolaylaştırır.
@@ -24,8 +24,8 @@ Excel web hizmetleri herhangi bir kod yazmak zorunda kalmadan doğrudan çağır
 
 1. Açık [örnek Excel dosyasını](https://aka.ms/amlexcel-sample-2), Excel eklentisi ve Yolcuların Kurtulacağını üzerinde hakkındaki verileri içerir. 
  
-> [!NOTE]
-> Web Hizmetleri listesi dosyasına ve altındaki bir onay kutusu "Otomatik-tahmin etmek için" ilgili görürsünüz. Etkinleştirirseniz, otomatik-tahminler tahmin **tüm** var. her zaman bir değişiklik girişleri hizmetlerinizi güncelleştirilir. İşaretli değilse, "Tahmin"'ye tıklayın yenileme için gerekir. Etkinleştirmek için otomatik-6. adım bir hizmet düzeyi gidin, tahmin edin.
+    > [!NOTE]
+    > Web Hizmetleri listesi dosyasına ve altındaki bir onay kutusu "Otomatik-tahmin etmek için" ilgili görürsünüz. Etkinleştirirseniz, otomatik-tahminler tahmin **tüm** var. her zaman bir değişiklik girişleri hizmetlerinizi güncelleştirilir. İşaretli değilse, "Tahmin"'ye tıklayın yenileme için gerekir. Etkinleştirmek için otomatik-6. adım bir hizmet düzeyi gidin, tahmin edin.
 
 2. Web hizmeti tıklayarak seçin-"Titanic hayatta tahmin unsuru (Excel Eklentisi örneği) [puan]" Bu örnekte.
    
@@ -37,7 +37,7 @@ Excel web hizmetleri herhangi bir kod yazmak zorunda kalmadan doğrudan çağır
    
     ![Bölüm tahmin edin][02]
 
-Bir web hizmeti dağıtın veya mevcut bir Web hizmetini kullanın. Bir web hizmeti dağıtma hakkında daha fazla bilgi için bkz. [5. adım izlenecek yol: Azure Machine Learning Web hizmetini dağıtma](walkthrough-5-publish-web-service.md).
+Bir web hizmeti dağıtın veya mevcut bir Web hizmetini kullanın. Bir web hizmeti dağıtma hakkında daha fazla bilgi için bkz. [Tutorial 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md).
 
 Web hizmetiniz için API anahtarını alın. Gerçekleştirdiğiniz durumlarda bu eylemi yeni Machine Learning web hizmeti bir Machine Learning Klasik web hizmeti mi yayımlanan bağlıdır.
 
@@ -65,7 +65,7 @@ Web hizmetiniz için API anahtarını alın. Gerçekleştirdiğiniz durumlarda b
 
 ## <a name="steps-to-add-a-new-web-service"></a>Yeni bir web hizmeti eklemek için adımları
 
-1. Bir web hizmeti dağıtın veya mevcut bir Web hizmetini kullanın. Bir web hizmeti dağıtma hakkında daha fazla bilgi için bkz. [5. adım izlenecek yol: Azure Machine Learning Web hizmetini dağıtma](walkthrough-5-publish-web-service.md).
+1. Bir web hizmeti dağıtın veya mevcut bir Web hizmetini kullanın. Bir web hizmeti dağıtma hakkında daha fazla bilgi için bkz. [Tutorial 3: Kredi riski model dağıtma](tutorial-part3-credit-risk-deploy.md).
 2. Tıklayın **tüketen**.
 3. Aranacak **temel tüketim bilgileri** bölümü. Kopyalayıp kaydedin **birincil anahtar** ve **istek-yanıt** URL'si.
 4. Excel'de, Git **Web Hizmetleri** bölümü (açıksa **Predıct** bölümünde, web hizmetleri listesine dönmek için geri okuna tıklayın).

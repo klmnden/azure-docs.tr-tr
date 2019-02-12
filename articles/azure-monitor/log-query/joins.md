@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorguları birleşimler | Microsoft Docs
-description: Bu makale, Log Analytics sorgu dili birleşimlerde'ı kullanarak bir ders içerir.
+title: Azure izleyici günlüğü sorgularda birleşimler | Microsoft Docs
+description: Bu makale, Azure İzleyici günlük sorguları birleşimlerde'ı kullanarak bir ders içerir.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c1f578c11fff963ee4bec47bd3737cd224b14720
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883339"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004664"
 ---
-# <a name="joins-in-log-analytics-queries"></a>Log Analytics sorguları birleştirir
+# <a name="joins-in-azure-monitor-log-queries"></a>Azure izleyici günlüğü sorgularda birleştirir
 
 > [!NOTE]
-> Tamamlamanız gereken [Analytics portalı ile çalışmaya başlama](get-started-portal.md) ve [sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
+> Tamamlamanız gereken [Azure İzleyici log analytics ile çalışmaya başlama](get-started-portal.md) ve [Azure İzleyici günlük sorguları](get-started-queries.md) dersin tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -105,7 +105,7 @@ En iyi performans için aşağıdaki noktaları göz önünde bulundurun:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Log Analytics sorgu dilini kullanarak için diğer dersler bakın:
+Azure İzleyici günlük sorguları kullanmaya yönelik diğer dersler bakın:
 
 - [Dize işlemleri](string-operations.md)
 - [Toplama işlevleri](aggregations.md)

@@ -1,5 +1,5 @@
 ---
-title: Linux uygulama performansı Log analytics'te toplamak | Microsoft Docs
+title: Azure İzleyici'de Linux uygulama performansı toplamak | Microsoft Docs
 description: Bu makalede, MySQL ve Apache HTTP Server için performans sayaçları toplamak Linux için Log Analytics aracısını yapılandırmak için ayrıntıları sağlar.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: bf14e06f52f1b5a32ea3922083cc1f9bdbfb2aae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 453e66934b93ab4368c4d3816d3db1a4588ae660
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104854"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001345"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Log analytics'te Linux uygulamaları için performans sayaçlarını Topla 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Azure İzleyici'de Linux uygulamaları için performans sayaçlarını Topla 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Yapılandırma ayrıntıları bu makalede sağlar [Linux için Log Analytics aracısını](https://github.com/Microsoft/OMS-Agent-for-Linux) Log Analytics'e belirli uygulamalar için performans sayaçları toplamak için.  Bu makalede bulunan uygulamalar şunlardır:  
+Yapılandırma ayrıntıları bu makalede sağlar [Linux için Log Analytics aracısını](https://github.com/Microsoft/OMS-Agent-for-Linux) Azure İzleyici ile belirli uygulamalar için performans sayaçları toplamak için.  Bu makalede bulunan uygulamalar şunlardır:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
@@ -101,7 +101,7 @@ MySQL kullanıcı MySQL sunucusu performans verilerini toplamak için aşağıda
 MySQL kullanıcı ayrıca aşağıdaki varsayılan tablolar için seçme erişimi gerektirir.
 
 - INFORMATION_SCHEMA
-- MySQL. 
+- mysql. 
 
 Bu ayrıcalıkları verme aşağıdaki komutları çalıştırarak verilebilir.
 
@@ -114,7 +114,7 @@ Bu ayrıcalıkları verme aşağıdaki komutları çalıştırarak verilebilir.
 
 ### <a name="define-performance-counters"></a>Performans sayaçları tanımlayın
 
-Verileri Log Analytics'e göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Log analytics'te Windows ve Linux performans veri kaynakları](data-sources-performance-counters.md) aşağıdaki tabloda sayaçlarla.
+Azure İzleyici için veri göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Azure İzleyici'de Windows ve Linux performans veri kaynakları](data-sources-performance-counters.md) aşağıdaki tabloda sayaçlarla.
 
 | Nesne Adı | Sayaç Adı |
 |:--|:--|
@@ -150,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Performans sayaçları tanımlayın
 
-Verileri Log Analytics'e göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Log analytics'te Windows ve Linux performans veri kaynakları](data-sources-performance-counters.md) aşağıdaki tabloda sayaçlarla.
+Azure İzleyici için veri göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Azure İzleyici'de Windows ve Linux performans veri kaynakları](data-sources-performance-counters.md) aşağıdaki tabloda sayaçlarla.
 
 | Nesne Adı | Sayaç Adı |
 |:--|:--|
@@ -168,4 +168,4 @@ Verileri Log Analytics'e göndermek Linux için Log Analytics aracısını yapı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Performans sayaçlarını Topla](data-sources-performance-counters.md) Linux aracılardan.
-* Hakkında bilgi edinin [oturum sorguları](../../log-analytics/log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
+* Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 

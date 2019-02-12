@@ -4,7 +4,7 @@ description: Bu konuda, Azure portalını kullanarak medya analizi medya işlemc
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 02b972c0591bb05f72887e3e1c3d057d373ff48c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666179"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004885"
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Azure portalını kullanarak medyanızı analiz etme
+# <a name="analyze-your-media-using-the-azure-portal-legacy"></a>(Eski) Azure portalını kullanarak medyanızı analiz etme
 > [!NOTE]
 > Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
 > 
@@ -53,7 +53,7 @@ Bu konuda, Azure portalını kullanarak medya analizi medya işlemcileri (MP'ler
 ### <a name="language"></a>Dil
 Multimedya dosyasında tanınacak doğal dili. Örneğin, İngilizce veya İspanyolca. 
 
-### <a name="captions"></a>açıklamalı alt yazılar
+### <a name="captions"></a>Açıklamalı alt yazılar
 İçeriğinizi oluşturulan açıklamalı alt yazı biçimi seçebilirsiniz. Bir dizin oluşturma işi kapalı açıklamalı alt yazı dosyaları aşağıdaki biçimlerde oluşturabilirsiniz:  
 
 * **SAMI**
@@ -65,7 +65,7 @@ Bu biçimler dosyalarında ses ve video dosyaları işitme engelli kişiler içi
 ### <a name="aib-file"></a>AIB dosyası
 Özel SQL Server IFilter ile kullanılacak ses dizini Blob dosyasını oluşturmak istiyorsanız bu seçeneği belirleyin. Daha fazla bilgi için [bu](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blogu.
 
-### <a name="keywords"></a>Anahtar sözcükler
+### <a name="keywords"></a>Anahtar Sözcükler
 Bir anahtar sözcük XML dosyası oluşturmak istiyorsanız bu seçeneği belirleyin. Bu dosya, sıklık ve uzaklık bilgilerini konuşma içeriğinden ayıklanan anahtar sözcükler içerir.
 
 ### <a name="job-name"></a>İş adı

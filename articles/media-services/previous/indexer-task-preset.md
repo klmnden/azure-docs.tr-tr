@@ -4,23 +4,23 @@ description: Bu konu Azure Media Indexer'ın hazır görev genel bir bakış sa�
 services: media-services
 documentationcenter: ''
 author: Asolanki
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 02/08/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 65b4e2da2cb019c46ee566cd14f0a576c2376db2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8790a5dd596a98409db9a3470b17461359882a38
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463098"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994362"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Azure Media Indexer'ın hazır görev
+# <a name="task-preset-for-azure-media-indexer"></a>Azure Media Indexer'ın hazır görev 
 
 Azure Media Indexer, aşağıdaki görevleri gerçekleştirmek için kullandığınız Medya işleyicisi olduğu: ortam dosyaları ve içerik aranabilir hale getirin, kapalı açıklamalı alt yazı izleyen ve anahtar sözcükler üretmek, varlığınız bir parçası olan varlık dosyaları dizini.
 

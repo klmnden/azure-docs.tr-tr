@@ -4,7 +4,7 @@ description: 'Bu konuda, tek bit hızlı akış gerçek zamanlı kodlama için e
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/09/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c734c8033947c4f4d5636bc8d82d38a3d871bdbd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138965"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998578"
 ---
-# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Wirecast Kodlayıcı tek bit hızlı canlı akış göndermektir.
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Wirecast Kodlayıcı tek bit hızlı canlı akış göndermektir. 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -76,14 +76,14 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
 
 * Codec: H.264
 * Profil: Yüksek (düzeyi 4.0)
-* Bit hızı: 5000 KB/sn
+* Bit hızı: 5000 kbps
 * Ana kare: 2 saniye (60 saniye)
-* Kare oranı: 30
+* Kare hızı: 30
 
 **Ses**:
 
 * Codec: AAC (LC)
-* Bit hızı: 192 Kb/sn
+* Bit hızı: 192 kbps
 * Örnek Hızı: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Yapılandırma adımları
@@ -104,14 +104,14 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
     **Video**
 
    * Kodlayıcı: MainConcept H.264
-   * Saniyedeki: 30
-   * Ortalama bit hızı: 5000 kbit/sn (ayarlanabilir ağ sınırlamalar tabanlı)
-   * Profil: ana
+   * Saniyedeki çerçeve sayısı: 30
+   * Ortalama bit oranı: 5000 kbit/sn (ağ sınırlamalar göre ayarlanabilir)
+   * Profil: Ana
    * Anahtar çerçeve her: 60 çerçeveler
 
     **Ses**
 
-   * Hedef bit hızı: 192 kbit/sn
+   * Hedef bit oranı: 192 kbit/sn
    * Örnek Hızı: 44.100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)

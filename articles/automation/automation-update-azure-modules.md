@@ -6,24 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/06/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 637cf4b0e53055e114536e591b334d51d5ddcc92
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d8f57310cf4dbc2a27761fc44cfde6c8fd2791a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883908"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005548"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
-Azure modüllerini Otomasyon hesabınızı güncelleştirmek için bu, artık kullanmak önerilir [güncelleştirme Azure modülleri runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), şimdi açık kaynak olan. Ayrıca, yardımcı runbook kullanmaya devam edebilirsiniz [güncelleştirme AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) veya **Azure modüllerini Güncelleştir** portalında, Azure modüllerini Güncelleştir düğmesi. Açık kaynak runbook kullanma hakkında daha fazla bilgi edinmek için [açık kaynak runbook ile Azure modüllerini güncelleştirme](#open-source).
+Azure modüllerini Otomasyon hesabınızı güncelleştirmek için bu, artık kullanmak önerilir [güncelleştirme Azure modülleri runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), şimdi açık kaynak olan. Ayrıca, kullanmaya devam edebilirsiniz **Azure modüllerini Güncelleştir** portalında, Azure modüllerini Güncelleştir düğmesi. Açık kaynak runbook kullanma hakkında daha fazla bilgi edinmek için [açık kaynak runbook ile Azure modüllerini güncelleştirme](#open-source).
 
 En yaygın Azure PowerShell modüllerinin her Otomasyon hesabında varsayılan olarak sağlanır. Azure ekibi, Azure modüllerini düzenli olarak güncelleştirir. Otomasyon hesabınızı portaldan yeni sürümler kullanılabilir olduğunda hesabı modülleri güncelleştirmek için bir yol sunulur.
-
-> [!NOTE]
-> Yeni [Az Azure PowerShell Modülü](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) Azure Automation'da desteklenmez.
 
 Modüller düzenli olarak ürün grubu tarafından güncelleştirildiğinden, değişiklikleri dahil edilen cmdlet'ler ile ortaya çıkabilir. Bu eylem, bir parametre yeniden adlandırma ya da tamamen bir cmdlet kullanım dışı bırakılıyor gibi değişiklik türüne bağlı olarak runbook'larınızı olumsuz yönde etkileyebilir.
 
@@ -88,18 +85,6 @@ Bu işlem, Azure modüllerini güncelleştir kullanırken dikkate almanız gerek
 
 Bu Azure PowerShell modülleri cmdlet'leri, runbook'ları kullanırsanız, her ay bu güncelleştirme işlemini çalıştırmak için veya bu nedenle en son modülleri sahip olduğunuzdan emin olmak için istiyorsunuz. Azure Otomasyonu kullanan `AzureRunAsConnection` modülleri güncelleştirirken kimliğini doğrulamak için bağlantı. Hizmet sorumlusu süresi doldu veya abonelik düzeyinde artık modülü güncelleştirme başarısız olur.
 
-## <a name="alternative-ways-to-update-your-modules"></a>Modüllerinizi güncelleştirmesi için alternatif yöntemler
-
-Belirtildiği gibi **Azure modüllerini güncelleştirme** düğmesi bağımsız bulutlarda kullanılamaz, yalnızca Azure genel bulutunda kullanılabilir. Azure PowerShell modülleri PowerShell Galerisi'nden en son sürümünü şu anda bu bulutlara dağıtılan Resource Manager kaynaklarını ile çalışmayabilir Bunun nedeni, budur.
-
-Yine de içeri aktarıp çalıştırmak [güncelleştirme AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) Otomasyon hesabınızı Azure modüllerini güncelleştirme girişimi için runbook. Ancak kullanmanızı tavsiye edilir **güncelleştirme AutomationAzureModulesForAccount** runbook, Azure modüllerini güncelleştir. Buradan indirebileceğiniz [güncelleştirme Azure modülleri runbook depo](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Açık kaynak runbook kullanma hakkında daha fazla bilgi edinmek için [açık kaynak runbook ile Azure modüllerini güncelleştirme](#open-source).
-
-Aynı anda tüm Azure modüllerini güncelleştirmek için genellikle iyi bir fikirdir. Ancak bu işlem olmayan Galeriden almaya çalıştığınız sürümleri, geçerli hedef Azure ortamına dağıtılan Azure hizmetleriyle uyumlu başarısız olabilir. Bu modüller uyumlu sürümlerini runbook parametrelerinde belirtilen doğrulamanızı gerektirebilir.
-
-Kullanım `AzureRmEnvironment` parametresini kullanarak doğru ortamı runbook'una geçirebilirsiniz.  Kabul edilebilir değerler **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, ve **AzureUSGovernment**. Bu değerleri kullanarak alınabilir `Get-AzureRmEnvironment | select Name`. Bu parametre için bir değer geçirmezseniz runbook, Azure ortak bulutuna varsayılacaktır **AzureCloud**
-
-Belirli bir Azure PowerShell modülü sürüm yerine en son kullanılabilir PowerShell galerisinde kullanmak istiyorsanız, bu sürümleri için isteğe bağlı geçirmek `ModuleVersionOverrides` parametresinin **güncelleştirme AzureModule** runbook. Örnekler için bkz [güncelleştirme AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. İçinde belirtilmeyen azure PowerShell modüllerini `ModuleVersionOverrides` parametresi ve PowerShell Galerisi'ndeki son modülü sürümleriyle güncelleştirilir. Nothing olarak geçirirseniz `ModuleVersionOverrides` parametresi, tüm modülleri en son modülü PowerShell Galerisi sürümlerinde güncelleştirilir. Bu aynı, davranıştır **Azure modüllerini güncelleştirme** düğmesi.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Ziyaret [güncelleştirme Azure modülleri runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) hakkında daha fazla bilgi edinmek için.
+Açık kaynak ziyaret [güncelleştirme Azure modülleri runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) hakkında daha fazla bilgi edinmek için.

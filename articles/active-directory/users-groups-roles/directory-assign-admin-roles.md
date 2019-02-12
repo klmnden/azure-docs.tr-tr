@@ -9,22 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/08/19
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6fc85bd96294650eb2bbf9495642851ade7c7868
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: b38be081a7fefe465f0b6fa3683c183891c6e7bf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731521"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002315"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü izinleri
 
 Azure Active Directory (Azure AD) kullanarak, farklı işlevler sunmak için ayrı yöneticileri atayabilirsiniz. Yöneticiler, ekleme veya kullanıcıları için değiştirme, yönetici rolleri atama, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme ve etki alanı adlarını yönetme gibi görevleri gerçekleştirmek için Azure AD Portalı'nda belirlenebilir.
 
-Genel yönetici, tüm yönetim özelliklerine erişebilir. Varsayılan olarak, bir Azure aboneliği için kaydolan kişi dizin için genel Yönetici rolüne atanır. Yalnızca genel Yöneticiler ve ayrıcalıklı rol yöneticileri, yönetici rollerini devredebilirsiniz.
+Genel yönetici, tüm yönetim özelliklerine erişebilir. Varsayılan olarak, bir Azure aboneliği için kaydolan kişi dizin için genel Yönetici rolüne atanır. Yalnızca genel Yöneticiler ve ayrıcalıklı rol yöneticileri, yönetici rollerini devredebilirsiniz. Risk iş riskinizi azaltmak için şirketinizde yalnızca birkaç kişinin bu role atamak öneririz.
+
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atamayı veya kaldırmayı yönetici rolleri
 
@@ -86,6 +87,9 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   > [!NOTE]
   > Azure'da Exchange ActiveSync koşullu erişim ilkesi dağıtmak için kullanıcının da genel yönetici olması gerekir.
   
+* **[Müşteri kasası erişim onaylayıcı](#customer-lockbox-access-approver)**: Yöneten [müşteri kasa istekleri](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) kuruluşunuzdaki. Bunlar müşteri kasa istekleri için e-posta bildirimleri almak ve onaylayabilir ve Microsoft 365 Yönetim merkezinden istekleri reddetme. Bunlar ayrıca müşteri kasa özelliğini açıp kapatabilirsiniz. Yalnızca genel Yöneticiler, bu role atanan kişi parolalarını sıfırlayabilir.
+<!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
+
 * **[Cihaz yöneticileri](#device-administrators)**: Bu rol ataması yalnızca ek yerel yönetici olarak kullanılabilir [cihaz ayarları](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Bu role sahip kullanıcılar, Azure Active Directory'ye katılan tüm Windows 10 cihazları üzerinde yerel makine yöneticisi olur. Azure Active Directory'de cihaz nesnelerini yönetme olanağına sahip değildir. 
 
 * **[Dizin okuyucular](#directory-readers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Herhangi bir kullanıcıya atanmamalıdır.
@@ -96,11 +100,12 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Dynamics 365 Yönetici / CRM yönetici](#crm-service-administrator)**: Bu role sahip kullanıcılar Microsoft Dynamics 365 hizmet mevcut olduğunda Online içinde genel izinlere sahip olmanın yanı sıra destek biletlerini yönetebilir ve hizmet durumunu izleyebilir. Daha fazla bilgiye [kiracınızı yönetmek için Hizmet Yöneticisi rolü kullanmak](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
   > [!NOTE] 
-  > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Dynamics 365 Hizmet Yöneticisi" tanımlanır. "Dynamics 365 Yönetici" olarak [Azure portalında](https://portal.azure.com).
+  > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Hizmet Yöneticisi olarak Dynamics 365" tanımlanır. "Dynamics 365 Yönetici" olarak [Azure portalında](https://portal.azure.com).
 
-* **[Exchange Yöneticisi](#exchange-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Exchange Online içinde genel izinlere sahiptir. tüm Office 365 grupları oluşturma ve yönetme olanağı, yanı sıra destek biletlerini yönetebilir ve hizmet durumunu izleyebilir. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Exchange Yöneticisi](#exchange-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Exchange Online içinde genel izinlere sahiptir. Ayrıca, oluşturmak ve tüm Office 365 grupları yönetme, destek biletlerini yönetebilir ve hizmet durumunu izlemek için özelliğine sahiptir. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Exchange Hizmet Yöneticisi" olarak tanımlanır. "Exchange Yöneticisi" olarak [Azure portalında](https://portal.azure.com).
+  > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Exchange Hizmet Yöneticisi" olarak tanımlanır. "Exchange Yöneticisi" olarak [Azure portalında](https://portal.azure.com). "Exchange Online Yönetici" olarak [Exchange yönetici merkezini](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
+
 
 * **[Genel yönetici / şirket Yöneticisi](#company-administrator)**: Bu role sahip kullanıcılar gibi Microsoft 365 Güvenlik Merkezi, Azure Active Directory kimlikleri kullanmak hizmetlerinin yanı sıra Azure Active Directory, tüm yönetim özelliklerine erişim sahibi Microsoft 365 Uyumluluk Merkezi, Exchange Online, SharePoint Online ve Skype Kurumsal çevrimiçi. Azure Active Directory kiracısı için kaydolan kişi genel yönetici olur. Yalnızca genel Yöneticiler diğer yönetici rollerini atayabilir. Şirketinizde birden fazla genel yönetici olabilir. Genel Yöneticiler, herhangi bir kullanıcı ve diğer tüm yöneticilerin parolasını sıfırlayabilirsiniz.
 
@@ -511,7 +516,7 @@ Dynamics 365 ürününün tüm özelliklerini yönetebilir.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Office 365 destek biletleri oluşturun ve yönetin. |
 
-### <a name="customer-lockbox-access-approver"></a>Müşteri Kasası Erişim Onaylayıcı
+### <a name="customer-lockbox-access-approver"></a>Müşteri kasası erişim onaylayıcı
 Müşterinin kuruluş verilerine erişmek için Microsoft destek isteklerini onaylayabilir. Bu rol, görüntülemek, oluşturmak veya destek biletlerini yönetme erişimi vardır.
 
   > [!NOTE]

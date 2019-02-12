@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics sorgu dizeleri ile çalışma | Microsoft Docs
-description: Bu makale, Log Analytics'te sorgu yazmak için Analytics portalı kullanmaya yönelik bir öğretici sağlar.
+title: Azure İzleyici günlük sorguları dizeler ile çalışma | Microsoft Docs
+description: Bu makalede, sorgulamak ve Azure İzleyici'de günlük verilerini analiz etmek için Azure portalında Azure İzleyici log Analytics'i kullanmaya yönelik bir öğretici sağlar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 24f22d659ccfb6923ad2a038e12454716b2c5445
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263892"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993733"
 ---
-# <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>JSON ve veri yapıları Log Analytics sorguları çalışma
+# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>JSON ve veri yapıları Azure İzleyici günlük sorguları içinde çalışma
 
 > [!NOTE]
-> Tamamlamanız gereken [Analytics portalı ile çalışmaya başlama](get-started-portal.md) ve [sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
+> Tamamlamanız gereken [Azure İzleyici log analytics ile çalışmaya başlama](get-started-portal.md) ve [Azure İzleyici günlük sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -131,7 +131,7 @@ print hosts_object
 ![Şema derleme](media/json-data-structures/buildschema.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Log Analytics sorgu dilini kullanarak için diğer dersler bakın:
+Azure İzleyici'de günlük sorguları kullanmaya yönelik diğer dersler bakın:
 
 - [Dize işlemleri](string-operations.md)
 - [Tarih ve saat işlemleri](datetime-operations.md)

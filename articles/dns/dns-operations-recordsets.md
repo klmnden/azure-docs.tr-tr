@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: c60dded96df091b1a715fb7b972e9d7a23608d44
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6907382fccaa463fe305ac5049b3858e59b8631b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818830"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991404"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS kayıtlarını ve Azure PowerShell kullanarak Azure DNS kayıt kümelerini yönetme
 
@@ -35,6 +35,8 @@ Bu makaledeki örneklerde varsayılmaktadır [, oturum açtığınız, Azure Pow
 
 ## <a name="introduction"></a>Giriş
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure DNS’de DNS kayıtlarını oluşturmadan önce Azure DNS’nin DNS kayıtlarını DNS kayıt kümeleri şeklinde nasıl düzenlediğini kavramanız gerekir.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
@@ -48,41 +50,41 @@ Yeni kaydınızı aynı ada ve türe varolan bir kaydı olarak varsa yapmanız [
 
 ### <a name="create-a-records-in-a-new-record-set"></a>Yeni bir kayıt kümesindeki 'A' kaydı oluşturma
 
-`New-AzureRmDnsRecordSet` cmdlet’ini kullanarak kayıt kümeleri oluşturabilirsiniz. Kayıt, Canlı (TTL) için ad, bölge, zaman kümesi belirtmenize gerek kayıt kümesi oluştururken kayıt türünü ve kayıtları oluşturulacak.
+`New-AzDnsRecordSet` cmdlet’ini kullanarak kayıt kümeleri oluşturabilirsiniz. Kayıt, Canlı (TTL) için ad, bölge, zaman kümesi belirtmenize gerek kayıt kümesi oluştururken kayıt türünü ve kayıtları oluşturulacak.
 
 Bir kayıt kümesine kayıt eklemeye yönelik parametreler, kayıt kümesinin türüne bağlı olarak farklılık gösterir. Örneğin, 'A' türünde bir kayıt kümesi kullanırken, parametre kullanarak IP adresini belirtmeniz gerekir `-IPv4Address`. Diğer parametreler, diğer kayıt türleri için kullanılır. Ek kayıt türü örnekleri Ayrıntılar için bkz.
 
 Aşağıdaki örnek, "contoso.com" DNS bölgesinde göreli adı "www" ile ayarlanmış bir kayıt oluşturur. Kayıt kümesinin tam adı "www.contoso.com" dir. 'A' kaydı türüdür ve TTL 3600 saniyedir. Tek kayıtlı, IP adresi '1.2.3.4' kayıt kümesi içerir.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
+New-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
 Ayarla '' bir bölgenin tepesinde bir kayıt oluşturmak için (Bu durumda "contoso.com"), kayıt kümesi adını kullan '\@' (çift tırnak işaretlerini atarak):
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
+New-AzDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Bir kayıt kümesi birden fazla kayıt içeren oluşturmanız gerekiyorsa, önce yerel bir dizi oluşturmak ve kayıtları eklemek ve ardından diziye geçirmek `New-AzureRmDnsRecordSet` gibi:
+Bir kayıt kümesi birden fazla kayıt içeren oluşturmanız gerekiyorsa, önce yerel bir dizi oluşturmak ve kayıtları eklemek ve ardından diziye geçirmek `New-AzDnsRecordSet` gibi:
 
 ```powershell
 $aRecords = @()
-$aRecords += New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4"
-$aRecords += New-AzureRmDnsRecordConfig -IPv4Address "2.3.4.5"
-New-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName MyResourceGroup -Ttl 3600 -RecordType A -DnsRecords $aRecords
+$aRecords += New-AzDnsRecordConfig -IPv4Address "1.2.3.4"
+$aRecords += New-AzDnsRecordConfig -IPv4Address "2.3.4.5"
+New-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName MyResourceGroup -Ttl 3600 -RecordType A -DnsRecords $aRecords
 ```
 
 [Kayıt kümesi meta verileri](dns-zones-records.md#tags-and-metadata) uygulamaya özgü verileri, anahtar-değer çiftleri olarak her bir kayıt kümesi ile ilişkilendirmek için kullanılabilir. Aşağıdaki örnek, iki meta veri girdileri ile kayıt oluşturma işlemi gösterilmektedir ' bölüm Finans =' ve ' ortamında Üretim ='.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") -Metadata @{ dept="finance"; environment="production" } 
+New-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4") -Metadata @{ dept="finance"; environment="production" } 
 ```
 
 Azure DNS, DNS kayıtlarını oluşturmadan önce bir DNS adını ayırmak için bir yer tutucu olarak görev yapabilir 'empty' kayıt kümelerini de destekler. Boş kayıt kümeleri, Azure DNS denetimi düzlemde görünür, ancak Azure DNS ad sunucularında görünür. Aşağıdaki örnek, boş bir kayıt kümesi oluşturur:
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords @()
+New-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords @()
 ```
 
 ## <a name="create-records-of-other-types"></a>Diğer tür kayıtları oluşturma
@@ -96,13 +98,13 @@ SOAs oluşturulduğundan bir SOA kayıt kümesi oluşturmak için örnek atamay�
 ### <a name="create-an-aaaa-record-set-with-a-single-record"></a>Tek kayıtlı bir AAAA kayıt kümesi oluşturma
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ipv6Address "2607:f8b0:4009:1803::1005") 
+New-AzDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ipv6Address "2607:f8b0:4009:1803::1005") 
 ```
 
 ### <a name="create-a-caa-record-set-with-a-single-record"></a>CAA kaydı ile tek bir kayıt kümesi oluşturma
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "test-caa" -RecordType CAA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Caaflags 0 -CaaTag "issue" -CaaValue "ca1.contoso.com") 
+New-AzDnsRecordSet -Name "test-caa" -RecordType CAA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Caaflags 0 -CaaTag "issue" -CaaValue "ca1.contoso.com") 
 ```
 
 ### <a name="create-a-cname-record-set-with-a-single-record"></a>Tek kayıtlı bir CNAME kayıt kümesi oluşturma
@@ -114,7 +116,7 @@ New-AzureRmDnsRecordSet -Name "test-caa" -RecordType CAA -ZoneName "contoso.com"
 
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Cname "www.contoso.com") 
+New-AzDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Cname "www.contoso.com") 
 ```
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Tek kayıtlı bir MX kayıt kümesi oluşturma
@@ -123,13 +125,13 @@ Bu örnekte, kayıt kümesi adını kullanıyoruz '\@' bölgenin tepesinde bir M
 
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "@" -RecordType MX -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Exchange "mail.contoso.com" -Preference 5) 
+New-AzDnsRecordSet -Name "@" -RecordType MX -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Exchange "mail.contoso.com" -Preference 5) 
 ```
 
 ### <a name="create-an-ns-record-set-with-a-single-record"></a>Tek kayıtlı bir NS kayıt kümesi oluşturma
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Nsdname "ns1.contoso.com") 
+New-AzDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Nsdname "ns1.contoso.com") 
 ```
 
 ### <a name="create-a-ptr-record-set-with-a-single-record"></a>Tek kayıtlı bir PTR kaydı kümesi oluşturma
@@ -137,7 +139,7 @@ New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName "contoso.com" -
 Bu durumda ' my-arpa-Zone ' IP aralığınızı temsil eden ARPA geriye doğru arama bölgesini temsil eder. Bu bölgedeki her PTR kaydı bu IP aralığındaki bir IP adresine karşılık gelir. Kayıt adı '10' IP adresinin bu kayıt tarafından temsil edilen bu IP aralığındaki son sekizli ' dir.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "myservice.contoso.com") 
+New-AzDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "myservice.contoso.com") 
 ```
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Tek kayıtlı bir SRV kayıt kümesi oluşturma
@@ -145,7 +147,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 Oluştururken bir [SRV kayıt kümesi](dns-zones-records.md#srv-records), belirtin  *\_hizmet* ve  *\_Protokolü* kayıt kümesi adı. Eklemenize gerek yoktur '\@' bir SRV kaydı bölge tepesinde kümesi oluştururken kayıt kümesi adı.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
+New-AzDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
 ```
 
 
@@ -154,56 +156,56 @@ New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com
 Aşağıdaki örnek, bir TXT kaydı oluşturma işlemi gösterilmektedir. TXT kayıtlarının desteklenen maksimum dize uzunluğu hakkında daha fazla bilgi için bkz: [TXT kayıtlarının](dns-zones-records.md#txt-records).
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record") 
+New-AzDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Value "This is a TXT record") 
 ```
 
 
 ## <a name="get-a-record-set"></a>Kayıt kümesi Al
 
-Mevcut bir kayıt kümesi almak için kullanın `Get-AzureRmDnsRecordSet`. Bu cmdlet, kayıt kümesine Azure DNS'de temsil eden yerel bir nesne döndürür.
+Mevcut bir kayıt kümesi almak için kullanın `Get-AzDnsRecordSet`. Bu cmdlet, kayıt kümesine Azure DNS'de temsil eden yerel bir nesne döndürür.
 
-Olduğu gibi `New-AzureRmDnsRecordSet`, verilen kayıt kümesi adı olmalıdır bir *göreli* ad, bölge adı dışarıda gerekir anlamına gelir. Ayrıca kayıt türünü belirtmeniz gerekir ve kaydın bulunduğu bölgeye ayarlayın.
+Olduğu gibi `New-AzDnsRecordSet`, verilen kayıt kümesi adı olmalıdır bir *göreli* ad, bölge adı dışarıda gerekir anlamına gelir. Ayrıca kayıt türünü belirtmeniz gerekir ve kaydın bulunduğu bölgeye ayarlayın.
 
 Aşağıdaki örnek, bir kayıt kümesi almak gösterilmektedir. Bu örnekte, bölgenin kullanarak belirtilen `-ZoneName` ve `-ResourceGroupName` parametreleri.
 
 ```powershell
-$rs = Get-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
+$rs = Get-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
 Alternatif olarak, ayrıca iletilen bir bölge nesnesini kullanarak bölgeyi belirtin `-Zone` parametresi.
 
 ```powershell
-$zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
-$rs = Get-AzureRmDnsRecordSet -Name "www" -RecordType A -Zone $zone
+$zone = Get-AzDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
+$rs = Get-AzDnsRecordSet -Name "www" -RecordType A -Zone $zone
 ```
 
 ## <a name="list-record-sets"></a>Kayıt kümeleri listesi
 
-Ayrıca `Get-AzureRmDnsZone` atlama tarafından bir bölgedeki kayıt kümeleri listesi için `-Name` ve/veya `-RecordType` parametreleri.
+Ayrıca `Get-AzDnsZone` atlama tarafından bir bölgedeki kayıt kümeleri listesi için `-Name` ve/veya `-RecordType` parametreleri.
 
 Aşağıdaki örnek, tüm kayıt bölgeyi ayarlar döndürür:
 
 ```powershell
-$recordsets = Get-AzureRmDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
+$recordsets = Get-AzDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
 Aşağıdaki örnek, tüm kaydı kümeleri belirli bir türden nasıl gösterir. kaydı atlayarak adı ayarlanırken, kayıt türünü belirterek alınabilir:
 
 ```powershell
-$recordsets = Get-AzureRmDnsRecordSet -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
+$recordsets = Get-AzDnsRecordSet -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
 Kayıt türleri arasında belirli bir ada sahip tüm kayıt kümelerini almak için tüm kayıt kümelerini almak ve sonra sonuçları filtrelemek gerekir:
 
 ```powershell
-$recordsets = Get-AzureRmDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | where {$_.Name.Equals("www")}
+$recordsets = Get-AzDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | where {$_.Name.Equals("www")}
 ```
 
 Tüm Yukarıdaki örneklerde, bölge kullanarak ya da belirtilebilir `-ZoneName` ve `-ResourceGroupName`(gösterildiği gibi) parametreleri veya bölge nesnesi belirterek:
 
 ```powershell
-$zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
-$recordsets = Get-AzureRmDnsRecordSet -Zone $zone
+$zone = Get-AzDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
+$recordsets = Get-AzDnsRecordSet -Zone $zone
 ```
 
 ## <a name="add-a-record-to-an-existing-record-set"></a>Bir kaydı var olan bir kayıt kümesine ekleyin.
@@ -213,30 +215,30 @@ Var olan bir kayıt kümesine bir kayıt eklemek için aşağıdaki üç adımı
 1. Var olan kayıt kümesine Al
 
     ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
+    $rs = Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
     ```
 
 2. Yeni kayıt yerel kayıt kümesine ekleyebilirsiniz. Bu bir çevrimdışı bir işlemdir.
 
     ```powershell
-    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
+    Add-AzDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
     ```
 
 3. Azure DNS hizmetine değişikliği işleyin. 
 
     ```powershell
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+    Set-AzDnsRecordSet -RecordSet $rs
     ```
 
-Kullanarak `Set-AzureRmDnsRecordSet` *değiştirir* mevcut kayıt belirtilen kayıt kümesi ile Azure DNS (ve içerdiği tüm kayıtları) kümesi. [ETag denetimleri](dns-zones-records.md#etags) eşzamanlı değişiklikleri yazılmaz emin olmak için kullanılır. Kullanabileceğiniz isteğe bağlı `-Overwrite` bu denetimleri bastırmak için anahtar.
+Kullanarak `Set-AzDnsRecordSet` *değiştirir* mevcut kayıt belirtilen kayıt kümesi ile Azure DNS (ve içerdiği tüm kayıtları) kümesi. [ETag denetimleri](dns-zones-records.md#etags) eşzamanlı değişiklikleri yazılmaz emin olmak için kullanılır. Kullanabileceğiniz isteğe bağlı `-Overwrite` bu denetimleri bastırmak için anahtar.
 
 Bu işlemlerin sırasını da olabilir *yöneltilen*, bir parametre olarak geçirerek yerine kanal kullanarak kayıt kümesi nesnesi geçirdiğiniz anlamına gelir:
 
 ```powershell
-Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
+Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Yukarıdaki örneklerde, mevcut bir kayıt kümesine 'A' türünde bir 'A' kaydı ekleme işlemini göstermektedir. Benzer bir dizi işlem değiştirerek, diğer türlerinin kayıt kümelerine kayıt eklemek için kullanılan `-Ipv4Address` parametresinin `Add-AzureRmDnsRecordConfig` belirli kayıt türlerinin diğer parametrelere sahip. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzureRmDnsRecordConfig` ek kayıt türü Yukarıdaki örneklerde gösterildiği gibi cmdlet'i.
+Yukarıdaki örneklerde, mevcut bir kayıt kümesine 'A' türünde bir 'A' kaydı ekleme işlemini göstermektedir. Benzer bir dizi işlem değiştirerek, diğer türlerinin kayıt kümelerine kayıt eklemek için kullanılan `-Ipv4Address` parametresinin `Add-AzDnsRecordConfig` belirli kayıt türlerinin diğer parametrelere sahip. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzDnsRecordConfig` gösterildiği cmdlet'i [ek kayıt türü örnekleri](#additional-record-type-examples) yukarıda.
 
 'CNAME' veya 'SOA' türündeki kayıt kümesi birden fazla kayıtla içeremez. Bu kısıtlama, DNS standartları ortaya çıkar. Azure DNS bir kısıtlaması değil.
 
@@ -247,19 +249,19 @@ Kayıt kümesinden bir kaydı kaldırma işlemini işlemi var olan bir kayıt k�
 1. Var olan kayıt kümesine Al
 
     ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
+    $rs = Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
     ```
 
 2. Kaydı yerel kayıt kümesi nesneden kaldırın. Bu bir çevrimdışı bir işlemdir. Kaldırılmakta olan kaydı varolan bir kaydı ile tam eşleşmiyorsa tüm parametreleri arasında olmalıdır.
 
     ```powershell
-    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
+    Remove-AzDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
     ```
 
 3. Azure DNS hizmetine değişikliği işleyin. İsteğe bağlı `-Overwrite` bastırmak için anahtar [Etag denetler](dns-zones-records.md#etags) eş zamanlı değişiklikler.
 
     ```powershell
-    Set-AzureRmDnsRecordSet -RecordSet $Rs
+    Set-AzDnsRecordSet -RecordSet $Rs
     ```
 
 Kayıt kümesindeki en son kaydını kaldırmak için yukarıdaki dizisi kullanarak kayıt kümesi silinmez, bunun yerine, boş bir kayıt kümesi bırakır. Bir kayıt kümesi tamamen kaldırmak için bkz: [kayıt kümesini Sil](#delete-a-record-set).
@@ -267,33 +269,33 @@ Kayıt kümesindeki en son kaydını kaldırmak için yukarıdaki dizisi kullana
 Benzer şekilde bir kayıt kümesine kayıt eklemeye kayıt kümesi kaldırmak için işlem dizisi ayrıca yöneltilebilir:
 
 ```powershell
-Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
+Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Farklı kayıt türleri, uygun türe özgü parametrelerle geçirerek desteklenir `Remove-AzureRmDnsRecordSet`. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzureRmDnsRecordConfig` ek kayıt türü Yukarıdaki örneklerde gösterildiği gibi cmdlet'i.
+Farklı kayıt türleri, uygun türe özgü parametrelerle geçirerek desteklenir `Remove-AzDnsRecordSet`. Tüm kayıt türlerine ait parametreleri aynıdır `New-AzDnsRecordConfig` gösterildiği cmdlet'i [ek kayıt türü örnekleri](#additional-record-type-examples) yukarıda.
 
 
 ## <a name="modify-an-existing-record-set"></a>Mevcut bir kayıt kümesini değiştirme
 
 Mevcut bir kayıt kümesini değiştirme adımları ekleyerek veya kayıt kümesindeki kayıtları kaldırırken adımlar benzerdir:
 
-1. Ayarlamak için mevcut kaydı almak `Get-AzureRmDnsRecordSet`.
+1. Ayarlamak için mevcut kaydı almak `Get-AzDnsRecordSet`.
 2. Yerel kayıt kümesi nesnesiyle değiştirin:
     * Ekleme veya kaldırma kayıtları
     * Var olan kayıtların parametrelerinin değiştirilmesi
     * Kayıt değiştirme meta verileri ve zamanını ayarlayıp Canlı (TTL)
-3. Kullanarak değişikliklerinizi işleyin `Set-AzureRmDnsRecordSet` cmdlet'i. Bu *değiştirir* mevcut kayıt belirtilen kayıt kümesi ile Azure DNS'de kümesi.
+3. Kullanarak değişikliklerinizi işleyin `Set-AzDnsRecordSet` cmdlet'i. Bu *değiştirir* mevcut kayıt belirtilen kayıt kümesi ile Azure DNS'de kümesi.
 
-Kullanırken `Set-AzureRmDnsRecordSet`, [Etag denetler](dns-zones-records.md#etags) eşzamanlı değişiklikleri yazılmaz emin olmak için kullanılır. Kullanabileceğiniz isteğe bağlı `-Overwrite` bu denetimleri bastırmak için anahtar.
+Kullanırken `Set-AzDnsRecordSet`, [Etag denetler](dns-zones-records.md#etags) eşzamanlı değişiklikleri yazılmaz emin olmak için kullanılır. Kullanabileceğiniz isteğe bağlı `-Overwrite` bu denetimleri bastırmak için anahtar.
 
 ### <a name="to-update-a-record-in-an-existing-record-set"></a>Var olan bir kayıt kümesine bir kaydı güncelleştirmek için
 
 Bu örnekte biz varolan 'A' kaydı, IP adresini değiştirin:
 
 ```powershell
-$rs = Get-AzureRmDnsRecordSet -name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
+$rs = Get-AzDnsRecordSet -name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 $rs.Records[0].Ipv4Address = "9.8.7.6"
-Set-AzureRmDnsRecordSet -RecordSet $rs
+Set-AzDnsRecordSet -RecordSet $rs
 ```
 
 ### <a name="to-modify-an-soa-record"></a>SOA kaydı değiştirmek için
@@ -303,9 +305,9 @@ Ekleyemez veya otomatik olarak oluşturulan SOA kaydı bölgenin tepesinde küme
 Aşağıdaki örnek nasıl değiştirileceğini gösterir *e-posta* SOA kaydı özelliği:
 
 ```powershell
-$rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
+$rs = Get-AzDnsRecordSet -Name "@" -RecordType SOA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 $rs.Records[0].Email = "admin.contoso.com"
-Set-AzureRmDnsRecordSet -RecordSet $rs
+Set-AzDnsRecordSet -RecordSet $rs
 ```
 
 ### <a name="to-modify-ns-records-at-the-zone-apex"></a>NS kayıtları bölgenin tepesindeki değiştirmek için
@@ -319,9 +321,9 @@ Bu bölge tepesinde yalnızca NS kayıt kümesi için geçerli olduğunu unutmay
 Aşağıdaki örnekte bölgenin tepesinde ayarlayın NS kaydı ek ad sunucusu ekleme gösterir:
 
 ```powershell
-$rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
-Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname ns1.myotherdnsprovider.com
-Set-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzDnsRecordSet -Name "@" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
+Add-AzDnsRecordConfig -RecordSet $rs -Nsdname ns1.myotherdnsprovider.com
+Set-AzDnsRecordSet -RecordSet $rs
 ```
 
 ### <a name="to-modify-record-set-metadata"></a>Kayıt kümesi meta verileri değiştirmek için
@@ -332,7 +334,7 @@ Aşağıdaki örnek, mevcut bir kayıt kümesi meta verileri değiştirmek göst
 
 ```powershell
 # Get the record set
-$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
+$rs = Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 
 # Add 'dept=finance' name-value pair
 $rs.Metadata.Add('dept', 'finance') 
@@ -341,13 +343,13 @@ $rs.Metadata.Add('dept', 'finance')
 $rs.Metadata.Remove('environment')  
 
 # Commit changes
-Set-AzureRmDnsRecordSet -RecordSet $rs
+Set-AzDnsRecordSet -RecordSet $rs
 ```
 
 
 ## <a name="delete-a-record-set"></a>Bir kayıt kümesini Sil
 
-Kullanarak kayıt kümelerini silinebilir `Remove-AzureRmDnsRecordSet` cmdlet'i. Kayıt kümesi sildiğinizde, kayıt kümesindeki tüm kayıtlar da silinir.
+Kullanarak kayıt kümelerini silinebilir `Remove-AzDnsRecordSet` cmdlet'i. Kayıt kümesi sildiğinizde, kayıt kümesindeki tüm kayıtlar da silinir.
 
 > [!NOTE]
 > SOA silemezsiniz ve NS kayıt kümeleri bölgenin tepesinde (`-Name '@'`).  Azure DNS bölgesi oluşturuldu ve bölge silindiğinde bunları otomatik olarak siler. Bunlar otomatik olarak oluşturulur.
@@ -355,21 +357,21 @@ Kullanarak kayıt kümelerini silinebilir `Remove-AzureRmDnsRecordSet` cmdlet'i.
 Aşağıdaki örnek, bir kayıt kümesini silmek gösterilmektedir. Bu örnekte, kayıt kümesi adını, kayıt kümesi türü, bölge adını ve kaynak grubu her açıkça belirtilir.
 
 ```powershell
-Remove-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
+Remove-AzDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
 Alternatif olarak, kayıt kümesi adını ve türünü ve kullanarak bir nesneyi belirtilen bölge tarafından belirtilebilir:
 
 ```powershell
-$zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
-Remove-AzureRmDnsRecordSet -Name "www" -RecordType A -Zone $zone
+$zone = Get-AzDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
+Remove-AzDnsRecordSet -Name "www" -RecordType A -Zone $zone
 ```
 
 Üçüncü bir seçenek olarak öğesi kendisine ayarlanmış kaydı, bir kayıt kümesi nesnesi kullanılarak belirtilebilir:
 
 ```powershell
-$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
-Remove-AzureRmDnsRecordSet -RecordSet $rs
+$rs = Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
+Remove-AzDnsRecordSet -RecordSet $rs
 ```
 
 Kayıt kümesi bir kayıt kümesi nesnesini kullanarak silinecek belirttiğinizde [Etag denetler](dns-zones-records.md#etags) eşzamanlı değişiklikleri silinmediğinden emin olmak için kullanılır. Kullanabileceğiniz isteğe bağlı `-Overwrite` bu denetimleri bastırmak için anahtar.
@@ -377,12 +379,12 @@ Kayıt kümesi bir kayıt kümesi nesnesini kullanarak silinecek belirttiğinizd
 Kayıt kümesi nesnesi, ayrıca bir parametre olarak geçirilen yerine yöneltilebilir:
 
 ```powershell
-Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | Remove-AzureRmDnsRecordSet
+Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | Remove-AzDnsRecordSet
 ```
 
 ## <a name="confirmation-prompts"></a>Onay istemleri
 
-`New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet` ve `Remove-AzureRmDnsRecordSet` cmdlet’lerinin tamamı onay istemlerini destekler.
+`New-AzDnsRecordSet`, `Set-AzDnsRecordSet` ve `Remove-AzDnsRecordSet` cmdlet’lerinin tamamı onay istemlerini destekler.
 
 Her cmdlet'i, onay ister `$ConfirmPreference` PowerShell tercih değişkeni değerine sahip `Medium` veya daha düşük. İçin varsayılan değer beri `$ConfirmPreference` olan `High`, bu komut istemlerini ayarlarıyla PowerShell kullanırken sunulmaz.
 
