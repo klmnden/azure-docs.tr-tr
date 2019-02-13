@@ -15,12 +15,13 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: 0cd3515c9df8cc5588523c51a82e16ee8ecf5e45
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8b7616eed4a17f33ad3b490c625c69cebb32a3f8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747637"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164552"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -49,7 +50,7 @@ Azure AD gibi başka bir yolla, bir Microsoft hesabı (MSA) veya Google Federasy
 
 Daha fazla bilgi için [e-posta bir kerelik geçiş kodu kimlik doğrulama (Önizleme)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) ve blog [Azure AD'ye yapar paylaşım ve işbirliği sorunsuz herhangi bir kullanıcı herhangi bir hesap için](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-makes-sharing-and-collaboration-seamless-for-any-user/ba-p/325949).
 
-### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Yeni Azure AD uygulama ara sunucusu tanımlama bilgisi ayarları
+### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Yeni Azure AD Uygulama Ara Sunucusu tanımlama bilgisi ayarları
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Uygulama Proxy'si  
@@ -67,7 +68,7 @@ Yeni tanımlama hakkında daha fazla bilgi için bkz: [Azure Active Directory'de
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Ocak 2019
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Azure AD uygulama galerisinde yeni Federasyon Uygulamaları kullanıma sunuldu - Ocak 2019
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Kurumsal Uygulamalar  
@@ -81,7 +82,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 
 ---
 
-### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Azure AD kimlik koruması yenilikleri (genel Önizleme)
+### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Yeni Azure AD Identity Protection geliştirmeleri (Genel önizleme)
 
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** Kimlik Koruması  
@@ -101,10 +102,10 @@ Biz Azure AD kimlik koruması genel önizlemeye sunuldu teklifin aşağıdaki ge
 
 ---
 
-### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>Microsoft Authenticator uygulamasını iOS ve Android cihazları için yeni bir uygulama kilidi özelliği
+### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>iOS ve Android cihazlarda Microsoft Authenticator uygulaması için yeni Uygulama Kilidi özelliği
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Microsoft Authenticator uygulaması  
+**Hizmet kategorisi:** Microsoft Authenticator Uygulaması  
 **Ürün özelliği:** Kimlik Güvenliği ve Koruması
 
 Bir kerelik geçiş kodları, uygulama bilgilerini ve uygulama ayarlarını daha güvenli tutmak için Microsoft Authenticator uygulamasını Uygulama kilidi özelliğini kapatabilirsiniz. Uygulama kilidi açma, Microsoft Authenticator uygulamasını her açışlarında PIN'İNİZİ kullanarak kimlik doğrulaması için sorulan veya biyometrik olacaksınız anlamına gelir.
@@ -113,7 +114,7 @@ Daha fazla bilgi için [Microsoft Authenticator uygulaması hakkında SSS](https
 
 ---
 
-### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Gelişmiş Azure AD Privileged Identity Management (PIM) özellikleri Dışarı Aktar
+### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Gelişmiş Azure AD Privileged Identity Management (PIM) dışarı aktarma özellikleri
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Privileged Identity Management  
@@ -127,7 +128,7 @@ Daha fazla bilgi için [PIM Azure kaynak rolleri için etkinlik ve denetim geçm
 
 ## <a name="novemberdecember-2018"></a>Kasım/aralık 2018
 
-### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Kullanıcıları eşitleme kapsamından uzun anahtarı olmadan yalnızca bulutta yer alan hesaplarına kaldırıldı
+### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Eşitleme kapsamından kaldırılan kullanıcılar artık yalnızca bulut hesaplarına geçmez
 
 **Türü:** Sabit  
 **Hizmet kategorisi:** Kullanıcı Yönetimi  
@@ -188,7 +189,7 @@ Aşağıdaki alanları, oturum açma şemada değiştiriyorsunuz:
 
 ---
 
-### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Kimlik koruması geliştirmeleri için denetimli makine öğrenimi modeli ve risk puanı altyapısı
+### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Denetimli makine öğrenimi modeli ve risk puanı altyapısına yönelik Identity Protection geliştirmeleri
 
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** Kimlik Koruması  
@@ -200,7 +201,7 @@ Risk algılama artık, denetimli makine öğrenimi, kullanıcının oturum açma
 
 ---
 
-### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Yöneticiler, Microsoft Authenticator uygulamasını (genel Önizleme) kullanarak kendi parolalarını sıfırlayabilir
+### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Yöneticiler Microsoft Authenticator uygulamasını kullanarak kendi parolalarını sıfırlayabilir (Genel önizleme)
 
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** Self Servis Parola Sıfırlama  
@@ -222,7 +223,7 @@ Parola sıfırlama için Microsoft Authenticator uygulamasını kullanma hakkın
 
 ---
 
-### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Yeni Azure AD bulut cihaz yöneticisi rolü (genel Önizleme)
+### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Yeni Azure AD Bulut Cihaz Yöneticisi rolü (Genel önizleme)
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Cihaz Kaydı ve Yönetimi  
@@ -234,7 +235,7 @@ Rolleri ve izinleri hakkında daha fazla bilgi için bkz: [Azure Active Director
 
 ---
 
-### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Yeni Etkinlik zaman damgası Azure AD'de (genel Önizleme) kullanarak cihazlarınızı yönetme
+### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Azure AD'de yeni etkinlik zaman damgasını kullanarak cihazlarınızı yönetin (Genel önizleme)
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Cihaz Kaydı ve Yönetimi  
@@ -246,7 +247,7 @@ Alın ve bu zaman damgasından kullanma hakkında daha fazla bilgi için bkz. [n
 
 ---
 
-### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Yöneticileri, kullanıcıların her cihazda kullanım koşullarını kabul etmesini zorunlu kılabilir
+### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Yöneticiler kullanıcıların her cihazda bir Kullanım Koşulları'nı kabul etmesini gerektirebilir
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Kullanım Koşulları  
@@ -258,7 +259,7 @@ Daha fazla bilgi için [cihaz başına kullanım özelliği, Azure Active Direct
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Yöneticiler, yinelenen bir zamanlamaya göre süresi dolacak şekilde kullanım koşulları yapılandırabilirsiniz
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Yöneticiler Kullanım Koşulları'nı yinelenen bir zamanlamaya göre süresi dolacak şekilde yapılandırabilir
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Kullanım Koşulları  
@@ -283,7 +284,7 @@ Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları
  
 ---
 
-### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Yeni Azure AD Privileged Identity Management (PIM) Azure Active Directory rolleri için e-posta gönderir.
+### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Azure Active Directory rolleri için yeni Azure AD Privileged Identity Management (PIM) e-postaları
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Privileged Identity Management  
@@ -317,7 +318,7 @@ Grup tabanlı lisanslama hakkında daha fazla bilgi için bkz. [grup tabanlı Az
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Kasım 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Azure AD uygulama galerisinde yeni Federasyon Uygulamaları kullanıma sunuldu - Kasım 2018
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Kurumsal Uygulamalar  

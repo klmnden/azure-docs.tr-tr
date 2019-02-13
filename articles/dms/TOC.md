@@ -11,6 +11,7 @@
 ## [SQL Server’ı Azure SQL DB’ye çevrimiçi geçirme](tutorial-sql-server-azure-sql-online.md)
 ## [SQL Server’ı Azure SQL DB Yönetilen Örneğine çevrimdışı geçirme](tutorial-sql-server-to-managed-instance.md)
 ## [SQL Server’ı Azure SQL DB Yönetilen Örneğine çevrimiçi geçirme](tutorial-sql-server-managed-instance-online.md)
+## [RDS SQL Server’ı Azure SQL DB veya Azure SQL DB Yönetilen Örneğine çevrimiçi geçirme](tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md)
 ## [MySQL’i MySQL için Azure DB’ye çevrimiçi geçirme](tutorial-mysql-azure-mysql-online.md)
 ## [PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure DB‘ye geçirme](tutorial-postgresql-azure-postgresql-online.md)
 ## [MongoDB'yi çevrimdışı ortamda Azure Cosmos DB Mongo API'sine geçirme](tutorial-mongodb-cosmos-db.md)

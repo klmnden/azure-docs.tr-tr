@@ -1,5 +1,5 @@
 items:
-- name: SQL DB Belgeleri
+- name: SQL Veritabanı Belgeleri
   href: index.yml
 - name: SQL Veritabanı Hizmeti
   items:
@@ -67,23 +67,23 @@ items:
   expanded: true
 - name: Öğreticiler
   items:
-  - name: Azure SQL Veritabanı tasarlama
+  - name: SQL Veritabanı’nda veritabanı tasarlama
     items:
     - name: SMSS kullanarak veritabanı tasarlama
       href: sql-database-design-first-database.md
     - name: .NET kullanarak veritabanı tasarlama
       href: sql-database-design-first-database-csharp.md
-  - name: Azure SQL Veritabanı'na geçiş
+  - name: SQL Veritabanına geçiş
     items:
     - name: DMS kullanarak tek/havuza alınmış veritabanına geçiş
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: DMS kullanarak yönetilen örneğe geçiş
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Azure SQL Veritabanı’nda güvenlik
+  - name: SQL Veritabanı’nda güvenlik
     items:
-    - name: Tek veritabanı güvenliği
+    - name: Tekli ve havuz veritabanı güvenliği
       href: sql-database-security-tutorial.md
-    - name: Azure AD oturum açma bilgileri ile yönetilen örnek güvenliği
+    - name: Yönetilen örnek güvenliği
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Coğrafi olarak dağıtılmış bir veritabanı uygulama
     href: sql-database-implement-geo-distributed-database.md
@@ -104,10 +104,10 @@ items:
   - name: Satın alma modelleri
     items:
     - name: Genel Bakış
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: vCore tabanlı model
       href: sql-database-service-tiers-vcore.md
-    - name: DTU modeli
+    - name: DTU hizmet katmanları
       href: sql-database-service-tiers-dtu.md
     - name: Ayrılmış kapasite için ön ödeme yapma
       href: sql-database-reserved-capacity.md
@@ -351,8 +351,8 @@ items:
     items:
     - name: Genel Bakış
       href: sql-database-howto-single-database.md
-    - name: SQL Veritabanına geçiş
-      href: sql-database-cloud-migrate.md
+    - name: Tekli/havuz veritabanına geçiş
+      href: sql-database-single-database-migrate.md
     - name: Geçişten sonra SQL veritabanını yönetme
       href: sql-database-manage-after-migration.md
     - name: Çoğaltmayı yapılandırma
@@ -421,7 +421,7 @@ items:
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: Farklı şemalarla tablolar üzerinden sorgulama
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Elastik Veritabanı İşleri
+    - name: Esnek işler
       items:
       - name: Oluşturma ve yönetme (PowerShell)
         href: elastic-jobs-powershell.md
@@ -459,11 +459,11 @@ items:
       href: sql-database-managed-instance-connect-app.md
   - name: Verileri yükleme ve taşıma
     items:
-    - name: Azure içinde bir veritabanı kopyalama
+    - name: Azure’da bir veritabanını kopyalama
       href: sql-database-copy.md
-    - name: BACPAC’ten veritabanını içeri aktarma
+    - name: BACPAC dosyasından veritabanını içeri aktarma
       href: sql-database-import.md
-    - name: Veritabanını BACPAC’e dışarı aktarma
+    - name: BACPAC dosyasından veritabanını dışarı aktarma
       href: sql-database-export.md
     - name: Veri eşitleme
       items:
@@ -605,9 +605,9 @@ items:
             href: saas-tenancy-cross-tenant-reporting.md
           - name: Kiracı analizi
             items:
-            - name: SQL DB ile
+            - name: SQL Veritabanı ile
               href: saas-tenancy-tenant-analytics.md
-            - name: SQL DW ile
+            - name: SQL Veri Ambarı ile
               href: saas-tenancy-tenant-analytics-adf.md
         - name: Coğrafi geri yüklemeyi kullanarak olağanüstü durum kurtarma
           href: saas-dbpertenant-dr-geo-restore.md
@@ -714,9 +714,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastik işin yüklemesini kaldırma (kullanım dışı)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9b11a1bd8cc68aabc8881636d5fcdfe5cbaec034
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: bf8a32ede6ce782bc0ff5ac58cd12ba70283289e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960556"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100049"
