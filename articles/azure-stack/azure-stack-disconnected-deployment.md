@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4481bcf7a794423f98f45e4a21a139dbe4c32b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691176"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210790"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure bağlantısı kesilmiş dağıtım planlama kararları için Azure Stack tümleşik sistemleri
-Karar verdim sonra [Azure Stack, hibrit bulut ortamına nasıl tümleştirilecek](azure-stack-connection-models.md), Azure Stack dağıtım kararlarınızı sonra sonlandır.
+Karar verdim sonra [Azure Stack, hibrit bulut ortamına nasıl tümleştirilecek](azure-stack-connection-models.md), Azure Stack dağıtım kararlarınızı son haline getir.
 
-Dağıtma ve Azure Stack internet bağlantısı olmadan kullanın. Ancak, bağlantısı kesilmiş bir dağıtım ile bir AD FS kimlik deposunu ve kapasite tabanlı faturalandırma modeli için sınırlı olursunuz. Çok kiracılı mimari Azure AD kullanımı gerektirdiğinden, çoklu müşteri mimarisi, bağlantısı kesilmiş dağıtımları için desteklenmiyor. 
+Dağıtma ve Azure Stack internet bağlantısı olmadan kullanın. Ancak, bağlantısı kesilmiş bir dağıtım ile bir AD FS kimlik deposunu ve kapasite tabanlı faturalandırma modeli için sınırlı olursunuz. Çok kiracılı mimari Azure Active Directory (Azure AD) gerektirir, çünkü çok kiracılı mimari bağlantısı kesilmiş dağıtımları için desteklenmiyor. 
 
 Bu seçeneği belirleyin:
 - Güvenlik veya Internet'e bağlı olmayan bir ortamda Azure Stack dağıtmak ihtiyaç duyduğunuz başka kısıtlamalar vardır.
@@ -34,9 +34,9 @@ Bu seçeneği belirleyin:
 - Yalnızca şirket intranetinize dağıtılır ve karma senaryolar ilginizi olmayan bir özel bulut çözümü olarak Azure Stack kullanmak istiyorsunuz.
 
 > [!TIP]
-> Bazı durumlarda, bu ortam türünü de "Denizaltı senaryosu" olarak adlandırılır.
+> Bazı durumlarda, bu ortam türünü de verilir bir *Denizaltı senaryo*.
 
-Bağlantısı kesilmiş bir dağıtım, daha sonra Azure Stack Örneğiniz için Azure hibrit Kiracı VM senaryoları için bağlanamadığını kesinlikle gelmez. Dağıtım sırasında Azure bağlantısı yoksa veya Azure Active Directory, kimlik deposu olarak kullanmak istemediğiniz anlamına gelir.
+Bağlantısı kesilmiş bir dağıtım, daha sonra Azure Stack Örneğiniz için Azure hibrit Kiracı VM senaryoları için bağlanmasını kısıtlamaz. Dağıtım sırasında Azure bağlantısı yoksa veya Azure AD, kimlik deposu olarak kullanmak istemediğiniz anlamına gelir.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Engelli ya da kaldırılmış bağlantısı kesilmiş dağıtımları olan özellikler 
 Azure Stack, bazı özellikler ve İşlevler engelli veya bağlantı kesik modda tamamen kullanılamaz olduğunu dikkate almak önemlidir, Azure'a bağlıyken en iyi çalışacak şekilde tasarlanmıştır. 

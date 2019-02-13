@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e47bb293d53df658641a50a1399ead85667e3225
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692780"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117657"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>RBAC değişiklikler için etkinlik günlüklerini görüntüleme
 
@@ -55,7 +55,7 @@ Etkinlik günlükleri hakkında daha fazla bilgi için bkz. [etkinlik günlüğ�
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-Azure PowerShell ile etkinlik günlüklerini görüntülemek için kullanın [Get-AzLog](/powershell/module/az.insights/get-azlog) komutu.
+Azure PowerShell ile etkinlik günlüklerini görüntülemek için kullanın [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog) komutu.
 
 Bu komut, bir abonelikte son yedi güne ait tüm rol atama değişiklikleri listeler:
 

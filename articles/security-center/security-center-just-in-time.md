@@ -4,7 +4,7 @@ description: Bu belge Azure Güvenlik Merkezi yardımcı nasıl tam zamanında V
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5c42c0d5597e1e14bbb7814ad635abcd086db804
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94364a54a5a0994cc3de3a2fe014b556d438b2c2
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339051"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114918"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
 
@@ -123,7 +123,7 @@ Bir sanal makinenin mevcut just-ın-time ilkesini düzenlemek için:
 1. İçinde **yapılandırıldı** sekmesindeki **Vm'leri**, o sanal makine için satır içinde üç noktaya tıklayarak bir bağlantı noktası eklenecek bir VM seçin. 
 2. **Düzenle**’yi seçin.
 3. Altında **JIT VM erişimi Yapılandırması**, mevcut zaten korumalı olan bir bağlantı noktası ayarlarını düzenleyebilir veya yeni bir özel bağlantı noktasını ekleyin. Daha fazla bilgi için [tam zamanında erişim ilkesini yapılandırma](#jit-config). 
-  ![JIT vm erişimi](./media/security-center-just-in-time/edit-policy.png)
+  ![jit vm access](./media/security-center-just-in-time/edit-policy.png)
 
 ## Bir Azure VM dikey penceresinde JIT erişim kullanma <a name="jit-vm"></a>
 

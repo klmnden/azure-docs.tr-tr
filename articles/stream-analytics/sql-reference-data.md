@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d79e423dd617a498aee09cff6b774bbe90eeaa83
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701834"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118029"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics işi (Önizleme) için bir SQL veritabanı başvuru verilerini kullanma
 
@@ -154,7 +154,7 @@ Delta sorgu kullanarak [zamana bağlı tablolarda Azure SQL veritabanı'nda](../
 
 **Ek ücret Azure Stream Analytics'te SQL başvuru veri girişi kullanarak neden olur?**
 
-Vardır hiç [akış birimi başına maliyet](https://azure.microsoft.com/pricing/details/stream-analytics/) Stream Analytics işinde. Ancak, Stream Analytics işi, ilişkili Azure depolama hesabınız olması gerekir. Stream Analytics işi SQL DB sorgular (işi sırasında başlatmak ve yenileme aralığı) başvuru veri kümesi ve anlık görüntü depolama hesabında depoları alınamadı. Bu anlık görüntüler depolama ayrıntılı belirlenen ek ücretleri ödemesi [fiyatlandırma sayfası](https://azure.microsoft.compricing/details/storage/) Azure depolama hesabı için.
+Vardır hiç [akış birimi başına maliyet](https://azure.microsoft.com/pricing/details/stream-analytics/) Stream Analytics işinde. Ancak, Stream Analytics işi, ilişkili Azure depolama hesabınız olması gerekir. Stream Analytics işi SQL DB sorgular (işi sırasında başlatmak ve yenileme aralığı) başvuru veri kümesi ve anlık görüntü depolama hesabında depoları alınamadı. Bu anlık görüntüler depolama ayrıntılı belirlenen ek ücretleri ödemesi [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/) Azure depolama hesabı için.
 
 **Başvuru veri anlık görüntü okunuyor nasıl bilebilirim SQL Veritabanından sorgulanabilir ve Azure Stream Analytics işinde kullanılır?**
 

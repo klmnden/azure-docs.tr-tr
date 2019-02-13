@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: baad12379c01ac955f1b0e036398e5889f3681b2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9e8930c95495673c0082a82757ed6d8137900b6f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203207"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110906"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>Bir yönetilen kaynak grubundaki kaynakları alma ve Vm'leri PowerShell ile yeniden boyutlandırma
 
@@ -26,6 +26,8 @@ Bu betik bir yönetilen kaynak grubundan kaynakları alır ve bu kaynak grubunda
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Örnek betik
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-powershell[main](../../../powershell_scripts/managed-applications/get-application/get-application.ps1 "Get application")]
 
@@ -36,9 +38,9 @@ Bu betik, yönetilen uygulamayı dağıtmak için aşağıdaki komutları kullan
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureRmManagedApplication](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermmanagedapplication) | Yönetilen uygulamaları listeler. Sonuçlara odaklanmak için kaynak grubu adını belirtin. |
-| [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresource) | Kaynakları listeler. Sonuca odaklanmak için bir kaynak grubu ve kaynak türü sağlar. |
-| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) | Sanal makinenin boyutunu güncelleştirir. |
+| [Get-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/get-azmanagedapplication) | Yönetilen uygulamaları listeler. Sonuçlara odaklanmak için kaynak grubu adını belirtin. |
+| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Kaynakları listeler. Sonuca odaklanmak için bir kaynak grubu ve kaynak türü sağlar. |
+| [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) | Sanal makinenin boyutunu güncelleştirir. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

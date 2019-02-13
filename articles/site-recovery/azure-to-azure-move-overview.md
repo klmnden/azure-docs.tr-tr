@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 55ab80dc0d914810ad430f59acc304620a7054d4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882990"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112555"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye taşıma
 
@@ -97,7 +97,7 @@ Yukarıdaki bilgilere bağlı temel bahsedilen [mimarileri](#typical-architectur
 
 2. **Kullanılabilirlik kümesi dağıtılan her bir katmandaki Vm'leri** -kullanılabilirlik ayrı kullanılabilirlik alanına, sanal Makineye yönelik çoğaltmayı etkinleştirmek Azure Site Recovery kullanarak seçtiğinizde kümesi Vm'lerinizin yerleştirmek için yapılandırmayı seçebilirsiniz. Taşıma işlemini tamamladıktan sonra % 99,9 oranında kullanılabilirlik SLA'sı olacaktır.
 
-      ![aset Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+     ![aset Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

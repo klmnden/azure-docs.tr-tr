@@ -8,19 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
-ms.openlocfilehash: 233325f0032dc31445bbaa9d9e522f401f43c093
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 9ec6760e790bc540554cf18a9f85f24048becbed
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488773"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114680"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Azure Backup kullanarak şifreli VM'ler için Key Vault anahtarını ve gizli anahtarı geri yükleme
 Bu makalede, anahtar ve gizli anahtar kasasında mevcut değilse Azure VM yedeklemesi şifrelenmiş Azure Vm'lerini geri yükleme gerçekleştirmek için kullanma hakkında konuşuyor. Geri yüklenen VM için ayrı bir anahtar (anahtar şifreleme anahtarı) ve gizli dizi (BitLocker şifreleme anahtarı) kopyasını tutmak istiyorsanız şu adımları da kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **Şifrelenmiş Vm'leri yedekleme** - şifrelenmiş Azure Vm'lerini yedeklenir Azure Backup kullanarak. Makaleye bakın [yedekleme ve geri yükleme, Azure PowerShell kullanarak Vm'leri yönetme](backup-azure-vms-automation.md) şifrelenmiş Azure Vm'lerini yedekleme hakkında ayrıntılı bilgi için.
-* **Azure Key Vault yapılandırma** – için anahtarları ve gizli anahtarları gereken geri yüklenmesi, anahtar kasası zaten mevcut olduğundan emin olun. Makaleye bakın [Azure anahtar kasası ile çalışmaya başlama](../key-vault/key-vault-get-started.md) anahtar kasası yönetimi hakkındaki ayrıntılar için.
+* **Şifrelenmiş Vm'leri yedekleme** - şifrelenmiş Azure Vm'lerini yedeklenir Azure Backup kullanarak. Makalesine bakın [yedekleme ve geri yükleme, Azure PowerShell kullanarak Vm'leri yönetme](backup-azure-vms-automation.md) şifrelenmiş Azure Vm'lerini yedekleme hakkında ayrıntılı bilgi için.
+* **Azure Key Vault yapılandırma** – için anahtarları ve gizli anahtarları gereken geri yüklenmesi, anahtar kasası zaten mevcut olduğundan emin olun. Makalesine bakın [Azure anahtar kasası nedir?](../key-vault/key-vault-overview.md) anahtar kasası yönetimi hakkındaki ayrıntılar için.
 * **Diski geri yükleme** -VM şifreli kullanmak için diskleri geri yüklemek için geri yükleme işi tetiklemesi olun [PowerShell adımları](backup-azure-vms-automation.md#restore-an-azure-vm). Bu iş, depolama hesabınızda anahtarlar ve gizli diziler için geri yüklenmesi şifrelenmiş sanal Makineyi içeren bir JSON dosyası oluşturur. olmasıdır.
 
 ## <a name="get-key-and-secret-from-azure-backup"></a>Azure yedeklemeden anahtar ve gizli dizi alma

@@ -3,7 +3,7 @@ title: Azure önbelleği için Redis izleme | Microsoft Docs
 description: Azure önbelleği için Redis örneği durumunu ve performansını izleme hakkında bilgi edinin
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: wesmc
-ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 3884d45eadb6ea373a511442c024d1d368f0b80a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105126"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115173"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure önbelleği için Redis izleme
 Azure önbelleği için Redis kullandığı [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) önbelleği örneklerinizin izlemek için çeşitli seçenekler sağlayacak. Ölçümleri görüntüleyin, ölçüm grafikleri başlangıç panosuna sabitlemek, tarih ve saat aralığı grafikleri izleme özelleştirme, ekleyin ve ölçümleri grafikten kaldırabileceğiniz ve belirli koşullar karşılandığında uyarılar ayarlayın. Bu araçlar, Azure önbelleği için Redis örneği ve önbelleğe alma uygulamalarınızı yönetmenize yardımcı durumunu izlemenize olanak tanır.

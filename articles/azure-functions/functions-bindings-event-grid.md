@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: d865028a2ddc7315192030b704a77a332dab14aa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: cf972075aeeb780f44972e5b9134261fef33817f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822723"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118318"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -46,7 +46,7 @@ Event Grid tetikleyicisinin sağlanan [Microsoft.Azure.WebJobs.Extensions.EventG
 
 Bir olay Kılavuzu tetikleyicisi için dile özgü örneğe bakın:
 
-* [C#](#c-example)
+* C#
 * [C# betiği (.csx)](#c-script-example)
 * [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)

@@ -463,8 +463,12 @@ items:
     href: how-to-manage-database-account.md
   - name: Genel dağıtım
     items:
+    - name: Çoklu ana kaynağı yapılandırma
+      href: how-to-multi-master.md
     - name: Tutarlılık düzeylerini yönetme
       href: how-to-manage-consistency.md
+    - name: Özel eşitlemeyi uygulama
+      href: how-to-custom-synchronization.md
     - name: Çakışma çözme ilkelerini yapılandırma
       href: how-to-manage-conflicts.md
   - name: Sağlanan aktarım hızı
@@ -595,10 +599,10 @@ items:
     items:
     - name: Toplu yürütücü kitaplığı hakkında
       href: bulk-executor-overview.md
-- name: Sorun giderme kılavuzları
-  items:
-  - name: Java Async SDK sorunlarını giderme
-    href: troubleshoot-java-async-sdk.md
+  - name: Sorun giderme
+    items:
+    - name: Java Async SDK sorunlarını giderme
+      href: troubleshoot-java-async-sdk.md
 - name: Kaynaklar
   items:
   - name: Microsoft Learn ile becerilerinizi geliştirin
@@ -627,9 +631,9 @@ items:
       href: use-cases.md
     - name: Sosyal medya uygulamaları
       href: social-media-apps.md
-ms.openlocfilehash: da87cea310f5bda952cfa014d7b45e23e555efcf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 72a6dced29f09379453d0e33131f78e875b2c9f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746192"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163505"

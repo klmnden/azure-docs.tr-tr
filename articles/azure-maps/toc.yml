@@ -21,10 +21,14 @@ items:
     href: tutorial-prioritized-routes.md
   - name: 4 - Depo bulucu oluşturma
     href: tutorial-create-store-locator.md
+  - name: 5 - Bir bölge sınırı ayarlama
+    href: tutorial-geofence.md
 - name: Kavramlar
   items:
   - name: Yakınlaştırma düzeyleri ve kutucuk kılavuzu
     href: zoom-levels-and-tile-grid.md
+  - name: Azure Haritalar Event Grid tümleştirmesi
+    href: azure-maps-event-grid-integration.md
   - name: Doğru fiyatlandırma katmanını seçin
     href: choose-pricing-tier.md
   - name: Kapsam
@@ -103,6 +107,8 @@ items:
       href: consumption-model.md
     - name: GeoJSON biçimini genişletme
       href: extend-geojson.md
+    - name: Bölge sınırı GEOJSON biçimi
+      href: geofence-geojson.md
     - name: Desteklenen arama kategorileri
       href: supported-search-categories.md
   - name: REST
@@ -177,9 +183,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videolar
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: ae2a50b68465bae422b27f1eaa6b5bf0fed10971
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0fb1d864dd18a781d0eeba4c8dea610e3ccb07f2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199909"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999462"

@@ -55,22 +55,55 @@
 ### [Denetim geçmişi sayfası](./cloud-partner-portal/portal-tour/cpp-history-page.md)
 ### [İçgörüler sayfası](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
+
 ## Portal yönetimi
 ### [Geliştirme merkezi hesabı kaydı](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [Özel SKU’lar](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [SEO kılavuzu](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [Yayımcı profilini yönetme](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
 ### [Kullanıcıları yönetme](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+
+
+## İş yönetimi
+### [SEO kılavuzu](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [GDPR uyumluluğu](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+### [Özel SKU’lar](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+<!--  Under development: 
+### Pricing considerations
+#### Simplified currency pricing
+#### Information on taxes and price
+#### Export-import pricing
+-->
+
+### Müşteri adaylarını yönetme
+#### [Müşteri adaylarını yapılandırma](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+#### [Azure tablosu](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+#### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+#### [HTTPS Uç Noktası](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+#### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+#### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
+
+### Seller Insights
+#### [Başlarken](./cloud-partner-portal-orig/si-getting-started.md)
+#### [Yenilikler](./cloud-partner-portal-orig/si-changes.md)
+#### [Web analizi](./cloud-partner-portal-orig/web-analytics.md)
+#### [Tanımlar](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
+#### [İçgörüler hakkında SSS](./cloud-partner-portal-orig/si-faqs.md)
+
 
 ## [Market teklifleri](./cloud-partner-portal/cpp-marketplace-offers.md)
-
 ### [Teklifleri yönetme](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Teklif oluşturma](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
 #### [Teklif yayımlama](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [Teklif durumunu görüntüleme](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Teklifi güncelleştirme](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Teklifi silme](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
+
+### Test Sürüşü
+#### [Test Sürüşü nedir?](./cloud-partner-portal-orig/what-is-test-drive.md)
+#### [Azure Resource Manager Test Sürüşü](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
+#### [Barındırılan Test Sürüşü](./cloud-partner-portal-orig/hosted-test-drive.md)
+#### [Mantıksal uygulama Test Sürüşü](./cloud-partner-portal-orig/logic-app-test-drive.md)
+#### [Test Sürüşü örnekleri dönüştürme](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
+#### [Pazarlama ve en iyi yöntemler](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
 ### [Azure uygulama teklifi](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [Önkoşullar](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
@@ -82,6 +115,7 @@
 ##### [Destek sekmesi](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
 #### [Teknik varlıklar oluşturma](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 #### [Azure uygulama teklifini yayımlama](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+#### [İnceleme geri bildirimlerini işleme](./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md)
 #### [Mevcut teklifi güncelleştirme](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
 ### [Danışmanlık hizmetleri](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
@@ -195,29 +229,6 @@
 #### [VM teklifi yayımlama](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 #### [Mevcut teklifi güncelleştirme](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-
-## Test Sürüşü
-### [Test Sürüşü nedir?](./cloud-partner-portal-orig/what-is-test-drive.md)
-### [Azure Resource Manager Test Sürüşü](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-### [Barındırılan Test Sürüşü](./cloud-partner-portal-orig/hosted-test-drive.md)
-### [Mantıksal uygulama Test Sürüşü](./cloud-partner-portal-orig/logic-app-test-drive.md)
-### [Test Sürüşü örnekleri dönüştürme](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-### [Pazarlama ve en iyi yöntemler](./cloud-partner-portal-orig/marketing-and-best-practices.md)
-
-## Müşteri adaylarını yönetme
-### [Müşteri adaylarını yapılandırma](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Azure tablosu](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [HTTPS Uç Noktası](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
-## Seller Insights
-### [Başlarken](./cloud-partner-portal-orig/si-getting-started.md)
-### [Yenilikler](./cloud-partner-portal-orig/si-changes.md)
-### [Web analizi](./cloud-partner-portal-orig/web-analytics.md)
-### [Tanımlar](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
-### [İçgörüler hakkında SSS](./cloud-partner-portal-orig/si-faqs.md)
 
 ## API Başvurusu
 ### [Genel Bakış](./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md)

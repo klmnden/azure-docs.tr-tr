@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2e71cf90c6e894946a2f3a1c8bfce2179f214a29
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 953f2cdac41dcd610afbde39a318c0237b0b9099
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453663"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114748"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process'in çalışması: SQL Server'ı kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak makine öğrenme modeli dağıtma sürecinde size yol-- [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi iş akışı yordamdan sonraki: alma ve verileri, mühendislik işlevlerini, öğrenme süreçlerini kolaylaştırmasına sonra yapı ve model dağıtma keşfedin.
@@ -624,7 +624,7 @@ Bu örnek gözden geçirme ve kendi eşlik eden betikleri ve Ipython notebook(s)
 ### <a name="references"></a>Başvurular
 • [Andrés Monroy NYC taksi Gelişlerin indirme sayfası](http://www.andresmh.com/nyctaxitrips/)  
 • [FOILing NYC'ın taksi seyahat verilerini Chris Whong tarafından](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC taksi ve Limousine komisyon araştırma ve istatistikleri](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+• [NYC taksi ve Limousine komisyon araştırma ve istatistikleri](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sql-walkthrough/sql-walkthrough_28_1.png
