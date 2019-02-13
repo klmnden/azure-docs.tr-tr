@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320099"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817397"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları listelenmektedir.
@@ -82,7 +82,7 @@ Bir uç noktaya bağlanmak için gereken bilgileri kapsüllemek için uygulama k
 Oluşturabileceğiniz özel [uç noktaları](iot-hub-devguide-endpoints.md) tarafından gönderilen iletileri sunmak için bir IOT hub'ındaki bir [yönlendirme kuralı](#routing-rules). Özel uç noktalar, doğrudan bir olay hub'ı, Service Bus kuyruğu veya Service Bus konu bağlanın.
 
 ## <a name="custom-gateway"></a>Özel bir ağ geçidi
-Bir ağ geçidi bağlantısını doğrudan bağlanamıyor cihazlar için etkinleştirir [IOT hub'ı](#iot-hub). Kullanabileceğiniz [Azure IOT Edge](#azure-iot-edge) edge üzerinde başka bir işlem iletileri ve özel dönüştürmeler işlemek için özel mantığı uygulamasına özel bir ağ geçidi oluşturmak için.
+Bir ağ geçidi bağlantısını doğrudan bağlanamıyor cihazlar için etkinleştirir [IOT hub'ı](#iot-hub). Azure IOT Edge, iletileri ve özel dönüştürmeler edge üzerinde başka bir işleme işlemek için özel mantığı uygulamasına özel bir ağ geçidi oluşturmak için kullanabilirsiniz.
 
 ## <a name="data-point-message"></a>Veri noktası iletisi
 Bir veri noktasının ileti bir [CİHAZDAN buluta](#device-to-cloud) içeren ileti [telemetri](#telemetry) Rüzgar hızı veya sıcaklık gibi verileri.
@@ -224,7 +224,7 @@ Bağlamında bir [cihaz ikizi](iot-hub-devguide-device-twins.md), özellikleri i
 Yapılandırdığınız [yönlendirme kuralları](iot-hub-devguide-messages-read-custom.md) CİHAZDAN buluta iletileri yönlendirmek için IOT hub'ınızda bir [yerleşik uç nokta](#built-in-endpoints) veya [özel uç noktalar](#custom-endpoints) çözüm arka ucunuz tarafından işlenmek .
 
 ## <a name="sasl-plain"></a>SASL DÜZ
-SASL DÜZ bir protokolüdür, [AMQP](#advanced-message-queue-protocol) güvenlik belirteçleri aktarmak için protokolünü kullanır.
+SASL DÜZ güvenlik belirteçleri aktarmak için AMQP protokolünü kullanan bir protokoldür.
 
 ## <a name="service-rest-api"></a>Hizmet REST API'si
 Kullanabileceğiniz [hizmeti REST API'si](https://docs.microsoft.com/rest/api/iothub/service) çözüm arka ucu, cihazlarınızı yönetmek için. API almak ve güncelleştirmenize olanak tanır [cihaz ikizi](#device-twin) özelliklerini çağırmak [doğrudan yöntemler](#direct-method)ve zamanlama [işleri](#job). Genellikle, üst düzey birini kullanmalıdır [hizmet SDK'ları](#azure-iot-service-sdks) IOT hub'ı öğreticilerde gösterildiği gibi.
@@ -251,7 +251,7 @@ Bağlamında bir [cihaz ikizi](iot-hub-devguide-device-twins.md), Sistem özelli
 Bağlamında bir [cihaz ikizi](iot-hub-devguide-device-twins.md), etiketleri, cihaz meta verilerini depolanır ve bir JSON Belgesi biçiminde çözüm arka ucu tarafından alınır. Etiketler, bir cihazdaki uygulamalar için görünür değildir.
 
 ## <a name="telemetry"></a>Telemetri
-Cihazları Rüzgar hızı veya sıcaklık, gibi telemetri verileri toplama ve kullanma [veri noktası iletileri](#data-point-messages) bir IOT hub'ına telemetri göndermek için.
+Cihazlar gibi Rüzgar hızı veya sıcaklık, telemetri verilerini toplamak ve bir IOT hub'ına telemetri göndermek için veri noktası iletileri kullanın.
 
 ## <a name="token-service"></a>Belirteç Hizmeti
 Cihazlarınız için bir kimlik doğrulama mekanizması uygulamak için bir belirteç hizmeti kullanabilirsiniz. IOT hub'ı kullanan [paylaşılan erişim ilkesi](#shared-access-policy) ile **DeviceConnect** oluşturma izni *cihaz kapsamlı* belirteçleri. Bu belirteçler, bir cihaz IOT hub'ınıza bağlanmak etkinleştirin. Bir cihaz, belirteç hizmeti ile kimlik doğrulaması için bir özel kimlik doğrulama mekanizması kullanır. Belirteç Hizmeti, cihazın kimliğini başarıyla doğrulayan, IOT hub'ınıza erişmek için kullanılacak cihaz için bir SAS belirteci verir.
