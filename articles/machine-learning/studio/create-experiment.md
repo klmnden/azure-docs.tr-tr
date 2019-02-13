@@ -1,228 +1,170 @@
 ---
-title: Basit bir deneme
+title: 'Hızlı Başlangıç: Bir veri bilimi deneme oluşturma'
 titleSuffix: Azure Machine Learning Studio
-description: Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz.
+description: Bu makine öğrenimi hızlı bir kolayca veri bilimi deneyinde size kılavuzluk eder. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: tutorial
+ms.topic: quickstart
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
-ms.date: 03/20/2017
-ms.openlocfilehash: 0275eb83feec46f21b55ca36e5d77c5b1fcd6f28
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/06/2019
+ms.openlocfilehash: 5daedcc931732e916a47ab857f489ebff0184101
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997294"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204466"
 ---
-# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Öğretici: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Hızlı Başlangıç: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
-Daha önce **Azure Machine Learning Studio** kullanmadıysanız, bu öğretici sizin için hazırlanmıştır.
+Bu hızlı başlangıçta, bir machine learning denemesi oluşturma [Azure Machine Learning Studio](what-is-ml-studio.md) marka ve teknik belirtimler gibi farklı değişkenleri dayalı bir araba fiyatını tahmin eder.
 
-Bu öğreticide, Studio’yu bir makine öğrenimi denemesi oluşturmak için ilk kullanma adımları gösterilmektedir. Deney, marka ve teknik belirtimler gibi farklı değişkenleri esas alarak otomobil fiyatını tahmin eden analitik bir modeli test eder.
+Machine learning, video serisi için yeni [yeni başlayanlar için veri bilimi](data-science-for-beginners-the-5-questions-data-science-answers.md) gündelik dil ve kavramlarla makine öğrenimine harika bir giriş niteliğindedir.
 
-> [!NOTE]
-> Bu öğreticide denemenize modülleri sürükleyip bırakma, birbirine bağlama, denemeyi çalıştırma ve sonuçları görme konularında temel bilgiler verilmektedir. Genel olarak makine öğrenimi konusu veya Studio’ya dahil edilen 100’den fazla yerleşik algoritmanın nasıl seçileceği veya kullanılacağı konuları ele alınmamaktadır.
->
->Makine öğrenimine yeni başladıysanız, [Yeni Başlayanlar için Veri Bilimi](data-science-for-beginners-the-5-questions-data-science-answers.md) video serisi iyi bir başlangıç noktası olabilir. Günlük dilin ve genel kavramların kullanıldığı videolardan oluşan bu seri, makine öğrenimine harika bir giriş yapmanızı sağlar.
->
->Makine öğrenimi hakkında bilgi sahibiyseniz ancak Machine Learning Studio ve içerdiği makine öğrenimi algoritmaları hakkında daha genel bilgiler arıyorsanız, aşağıda faydalı olabilecek bazı kaynaklar verilmiştir:
->
-- [Machine Learning Studio nedir?](what-is-ml-studio.md) - Bu Studio’ya yönelik ileri seviye bir genel bakıştır.
-- [Algoritma örnekleri ile makine öğrenimi temelleri](basics-infographic-with-algorithm-examples.md) - Bu bilgi grafiği Machine Learning Studio ile birlikte gelen farklı makine öğrenimi algoritması türleri hakkında daha fazla bilgi almak istiyorsanız kullanışlıdır.
-- [Machine Learning Kılavuzu](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) - Bu kılavuz yukarıdaki bilgi grafiği ile benze bilgileri kapsar ancak etkileşimli bir biçimdedir.
-- [Makine öğrenimi algoritması bilgi sayfası](algorithm-cheat-sheet.md) ve [Microsoft Azure Machine Learning için algoritma seçme](algorithm-choice.md) - Bu indirilebilir poster ve tamamlayıcı makale Studio algoritmaları hakkında ayrıntılı bilgiler içerir.
-- [Machine Learning Studio: Algoritma ve modül Yardımı](https://msdn.microsoft.com/library/azure/dn905974.aspx) -bu makine öğrenimi algoritması da dahil tüm Studio modülleri için tam başvurudur.
+Bu hızlı başlangıçta, bir deneme için varsayılan iş akışı aşağıdaki gibidir:
 
+1. **Bir model oluşturma**
+    - [Veri alma]
+    - [Verileri hazırlama]
+    - [Özellikleri tanımlama]
+1. **Modeli eğitme**
+    - [Bir algoritması seçme ve uygulama]
+1. **Modeli puanlama ve test etme**
+    - [Yeni otomobil fiyatlarını tahmin etme]
 
+[Veri alma]: #get-the-data
+[Verileri hazırlama]: #prepare-the-data
+[Özellikleri tanımlama]: #define-features
+[Bir algoritması seçme ve uygulama]: #choose-and-apply-an-algorithm
+[Yeni otomobil fiyatlarını tahmin etme]: #predict-new-automobile-prices
 
-## <a name="how-does-machine-learning-studio-help"></a>Machine Learning Studio yardımı nasıl çalışır?
+Studio hesabı yoksa, Git [Studio giriş sayfası](https://studio.azureml.net) seçip **buradan kaydolun** ücretsiz bir hesap oluşturmak için. Bu Hızlı Başlangıç için ihtiyacınız olan tüm özellikleri ücretsiz olacaktır.
 
-Machine Learning Studio tahmine dayalı modelleme teknikleriyle önceden programlanmış sürükle ve bırak modüllerini kullanarak bir deneme oluşturmayı kolaylaştırır.
+## <a name="get-the-data"></a>Verileri alma
 
-Etkileşimli, görsel bir çalışma alanı kullanarak ***veri kümeleri*** ve analiz ***modüllerini*** etkileşimli bir tuvale sürükleyip bırakın. Machine Learning Studio’da çalıştırılabilen bir ***deneme*** oluşturmak için bunları birbirine bağlayın.
-***Model oluşturun***, ***modeli eğitin*** ve ***modeli puanlayın ve test edin***.
-
-İstediğiniz sonuçları alana kadar model tasarımını yineleyebilir, denemeyi düzenleyebilir ve çalıştırabilirsiniz. Modeliniz hazır olduğunda, başkalarının yeni veriler göndererek tahminler alabilmesi için bir ***web hizmeti*** olarak yayımlayabilirsiniz.
-
-## <a name="open-machine-learning-studio"></a>Machine Learning Studio’yu açma
-
-Studio ile çalışmaya başlamak için [https://studio.azureml.net](https://studio.azureml.net) adresine gidin. Machine Learning Studio’da daha önce oturum açtıysanız **Oturum Aç**’a tıklayın. Veya **Buradan kaydolun**’a tıklayıp ücretsiz ve ücretli seçenekler arasından seçim yapın.
-
-![Machine Learning Studio’da oturum açın][sign-in-to-studio]
-<br/>
-***Machine Learning Studio’da oturum açın***
-
-## <a name="five-steps-to-create-an-experiment"></a>Bir deneme oluşturmanın beş adımı
-
-Bu makine öğrenimi öğreticisinde, modelinizi oluşturmak, eğitmek ve puanlamak amacıyla Machine Learning Studio'da bir deneme oluşturmak için beş temel adımı izleyeceksiniz.
-
-- **Bir model oluşturma**
-    - [1. adım: Veri alma]
-    - [2. adım: Verileri hazırlama]
-    - [3. adım: Özellikleri tanımlama]
-- **Modeli eğitme**
-    - [4. adım: Bir öğrenme algoritması seçme ve uygulama]
-- **Modeli puanlama ve test etme**
-    - [5. adım: Yeni otomobil fiyatlarını tahmin etme]
-
-[1. adım: Veri alma]: #step-1-get-data
-[2. adım: Verileri hazırlama]: #step-2-prepare-the-data
-[3. adım: Özellikleri tanımlama]: #step-3-define-features
-[4. adım: Bir öğrenme algoritması seçme ve uygulama]: #step-4-choose-and-apply-a-learning-algorithm
-[5. adım: Yeni otomobil fiyatlarını tahmin etme]: #step-5-predict-new-automobile-prices
-
-> [!TIP] 
-> Aşağıdaki denemenin çalışan bir kopyasını [Azure AI Gallery](https://gallery.cortanaintelligence.com)’de bulabilirsiniz. **[İlk veri bilimi denemeniz - Otomobil fiyat tahmini](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**’ne gidin ve denemenin bir kopyasını Machine Learning Studio çalışma alanınıza indirmek için **Studio’da Aç**’a tıklayın.
-
-
-## <a name="step-1-get-data"></a>1. Adım: Verileri alma
-
-Makine öğrenimi için ihtiyacınız olan ilk şey verilerdir.
-Machine Learning Studio'da kullanabileceğiniz birçok örnek veri kümesi bulunur ve birçok kaynaktan verileri içeri aktarabilirsiniz. Bu örnekte, **Otomobil fiyat verileri (Ham)** adlı çalışma alanınıza dahil edilmiş örnek veri kümesini kullanacağız.
+Machine learning'de gereken ilk şey verilerdir.
+Studio ile kullanabileceğiniz birçok örnek veri kümesi vardır ve birçok kaynaktan verileri içeri aktarabilirsiniz. Bu örnekte, **Otomobil fiyat verileri (Ham)** adlı çalışma alanınıza dahil edilmiş örnek veri kümesini kullanacağız.
 Bu veri kümesi; marka, model, teknik belirtimler ve fiyat gibi bilgiler dahil olmak üzere birçok ayrı otomobil için giriş içerir.
+
+> [!TIP]
+> Aşağıdaki denemenin çalışan bir kopyasını [Azure AI Gallery](https://gallery.cortanaintelligence.com)’de bulabilirsiniz. **[İlk veri bilimi denemeniz - Otomobil fiyat tahmini](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**’ne gidin ve denemenin bir kopyasını Machine Learning Studio çalışma alanınıza indirmek için **Studio’da Aç**’a tıklayın.
 
 Veri kümesini denemenize aşağıdaki gibi aktarabilirsiniz.
 
-1. Machine Learning Studio penceresinin alt kısmındaki **+NEW (+YENİ)** seçeneğine tıklayarak yeni bir deneme oluşturun, **EXPERIMENT (DENEME)** seçeneğini belirletin ve ardından **Blank Experiment (Boş Deneme)** öğesini seçin.
+1. Tıklayarak yeni bir deneme oluşturma **+ yeni** Machine Learning Studio penceresinin alt kısmındaki. Seçin **deneme** >  **boş deneme**.
 
-2. Denemenize tuvalin üzerinde görebileceğiniz bir varsayılan ad verilir. Bu adı seçerek anlamlı bir adla değiştirin, örneğin, **Otomobil fiyat tahmini**. Adın benzersiz olması gerekmez.
+1. Denemenize tuvalin üzerinde görebileceğiniz bir varsayılan ad verilir. Bu adı seçerek anlamlı bir adla değiştirin, örneğin, **Otomobil fiyat tahmini**. Adın benzersiz olması gerekmez.
 
     ![Denemeyi yeniden adlandırma][rename-experiment]
 
-2. Deneme tuvalinin sol tarafında bir veri kümesi ve modül paleti bulunur. **Otomobil fiyat verileri (Ham)** etiketli veri kümesini bulmak için bu paletin en üst kısmındaki Arama kutusuna **otomobil** yazın. Bu veri kümesini deneme tuvaline sürükleyin.
+1. Deneme tuvalinin sol tarafında bir veri kümesi ve modül paleti bulunur. **Otomobil fiyat verileri (Ham)** etiketli veri kümesini bulmak için bu paletin en üst kısmındaki Arama kutusuna **otomobil** yazın. Bu veri kümesini deneme tuvaline sürükleyin.
 
     ![Otomobil veri kümesini bulun ve deneme tuvaline sürükleyin][type-automobile]
-    <br/>
-    ***Otomobil veri kümesini bulun ve deneme tuvaline sürükleyin***
 
-Bu verinin nasıl göründüğünü görmek için, otomobil veri kümesinin alt kısmındaki çıkış bağlantı noktasına tıklayın ve ardından **Görselleştir**'i seçin.
+Ardından bu verileri otomobil veri kümesini alt kısmındaki çıkış bağlantı noktasına tıklayın gibi göründüğünü görmek **Görselleştir**.
 
-![Çıkış bağlantı noktasına tıklayın ve “Görselleştir”i seçin][select-visualize]
-<br/>
-***Çıkış bağlantı noktasına tıklayın ve “Görselleştir”i seçin***
+![Çıkış bağlantı noktasına tıklayın ve "Görselleştir" i seçin][select-visualize]
 
 > [!TIP]
 > Veri kümeleri ve modülleri küçük dairelerle gösterilen giriş ve çıkış bağlantı noktalarına sahiptir. Giriş bağlantı noktaları yukarıda, çıkış bağlantı noktaları aşağıdadır.
 Denemeniz üzerinden veri akışı oluşturmak için bir modülün çıkış bağlantı noktasını bir diğerinin giriş bağlantı noktasına bağlayacaksınız.
 Herhangi bir zamanda bir veri kümesi veya modülün çıkış bağlantı noktasına tıklayarak, veri akışında bu noktadaki verileri görebilirsiniz.
 
-Örnek veri kümesinde, bir otomobilin her örneği bir satır olarak görünür ve her otomobille ilişkili değişkenler sütun olarak görünür. Belirli bir otomobil için değişkenleri kullanarak en sağdaki sütundaki (“fiyat” başlıklı sütun 26) fiyatı tahmin etmeye çalışacağız.
+Bu veri kümesi her satır bir otomobili temsil eder ve her Otomobille ilişkili değişkenler sütun olarak görünür. Biz, belirli bir otomobil için değişkenleri kullanarak en sağdaki sütun (başlıklı sütun 26 "price") fiyatı tahmin edeceğiz.
 
 ![Veri görselleştirme penceresinde otomobil verilerini görüntüleme][visualize-auto-data]
-<br/>
-***Veri görselleştirme penceresinde otomobil verilerini görüntüleme***
 
 Sağ üst köşedeki "**x**" işaretine tıklayarak görselleştirme penceresini kapatın.
 
-## <a name="step-2-prepare-the-data"></a>2. Adım: Verileri hazırlama
+## <a name="prepare-the-data"></a>Verileri hazırlama
 
-Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Örneğin, çeşitli satırların sütunlarında bulunan eksik değerleri fark etmiş olabilirsiniz. Modelin verileri doğru şekilde analiz edebilmesi için bu eksik değerlerin temizlenmesi gerekir. Örneğimizde eksik değerleri olan satırları kaldıracağız. Ayrıca, **normalleştirilmiş kayıplar** sütununun büyük kısmı eksik değerlere sahiptir; bu nedenle bu sütunu modelin tamamen dışında bırakacağız.
+Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Çeşitli satırların sütunlarında bulunan eksik değerleri fark etmiş olabilirsiniz. Modelin verileri doğru şekilde analiz edebilmesi için bu eksik değerlerin temizlenmesi gerekir. Eksik değerleri olan satırları kaldıracağız. Ayrıca, **normalleştirilmiş kayıplar** sütununun büyük kısmı eksik değerlere sahiptir; bu nedenle bu sütunu modelin tamamen dışında bırakacağız.
 
 > [!TIP]
 > Giriş verilerinden eksik değerleri temizleme, çoğu modülü kullanmanın bir önkoşuludur.
 
-Önce **normalized-losses** sütununu tamamen kaldıran bir modül ekleyecek ve ardından eksik veriler içeren satırları kaldıran diğer bir modülü ekleyeceğiz.
+İlk olarak kaldıran bir modül ekleriz **normalized-losses** sütun tamamen. Ardından eksik veriler içeren satırları kaldıran başka bir modülü ekleyeceğiz.
 
-1. [Veri Kümesindeki Sütunları Seçme][select-columns] modülünü bulmak için modül paletinin en üst kısmındaki Arama kutusuna **sütun seçme** yazın, ardından bunu deneme tuvaline sürükleyin. Bu modül, modele hangi veri sütunlarını dahil etmek veya dışarıda bırakmak istediğimizi seçmemizi sağlar.
+1. Tür **sütunları seçme** bulmak için modül paletinin üst kısmındaki arama kutusuna [kümesindeki sütunları seçme] [ select-columns] modülü. Ardından bunu deneme tuvaline sürükleyin. Bu modül, modele hangi veri sütunlarını dahil etmek veya dışarıda bırakmak istediğimizi seçmemizi sağlar.
 
-2. **Otomobil fiyat verileri (Ham)** veri kümesinin çıkış bağlantı noktasını [Veri Kümesindeki Sütunları Seçme][select-columns] modülündeki giriş bağlantı noktasına bağlayın.
+1. **Otomobil fiyat verileri (Ham)** veri kümesinin çıkış bağlantı noktasını [Veri Kümesindeki Sütunları Seçme][select-columns] modülündeki giriş bağlantı noktasına bağlayın.
 
-    !["Veri Kümesindeki Sütunları Seçme" modülünü deneme tuvaline ekleyin ve bağlayın][type-select-columns]
-    <br/>
-    ***"Veri Kümesindeki Sütunları Seçme" modülünü deneme tuvaline ekleyin ve bağlayın***
+    !["Kümesindeki sütunları seçme" modülünü deneme tuvaline ekleyin ve bağlayın][type-select-columns]
 
-3. [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülüne tıklayın ve **Özellikler** bölmesinde **Sütun seçiciyi başlat** seçeneğine tıklayın.
+1. [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülüne tıklayın ve **Özellikler** bölmesinde **Sütun seçiciyi başlat** seçeneğine tıklayın.
 
     - Sol tarafta **Kurallar ile**’ye tıklayın
-    - **Şununla Başla** altında **Tüm sütunlar**’a tıklayın. Bu, [Veri Kümesindeki Sütunları Seçme][select-columns] modülünü tüm sütunlardan geçmeye yönlendirir (dışarıda bırakacağımız sütunlar hariç).
+    - **Şununla Başla** altında **Tüm sütunlar**’a tıklayın. Bu kurallar doğrudan [kümesindeki sütunları seçme] [ select-columns] (dışarıda bu sütunlar hariç) tüm sütunlardan geçmeye.
     - Açılan menülerden **Hariç Tut** ve **sütun adlarını** seçerek metin kutusuna tıklayın. Sütun listesi görüntülenir. **Normalleştirilmiş kayıplar**’ı seçin; böylece metin kutusuna eklenir.
-    - Sütun seçiciyi kapatmak için onay işareti (Tamam) düğmesine tıklayın (sağ alt köşede).
+    - (Sağ alt köşede üzerinde) sütun seçiciyi kapatmak için onay işareti (Tamam) düğmesine tıklayın.
 
     ![Sütun seçiciyi başlatın ve "normalized-losses" sütununu hariç tutun][launch-column-selector]
-    <br/>
-    ***Sütun seçiciyi başlatın ve "normalized-losses" sütununu hariç tutun***
 
     Artık **Select Columns in Dataset (Veri Kümesinde Sütun Seçme)** için özellikler bölmesi, **normalleştirilmiş kayıplar** dışındaki tüm veri kümelerindeki tüm sütunlardan geçeceğini belirtir.
 
     ![Özellikler bölmesinde "normalized-losses" sütununun hariç tutulduğu gösterilir][showing-excluded-column]
-    <br/>
-    ***Özellikler bölmesinde "normalized-losses" sütununun hariç tutulduğu gösterilir***
 
-    > [!TIP]
-    Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. Bu durumda, [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne çift tıklayın ve "Normalleştirilmiş kayıpları dışarıda bırak" yorumunu yazın.
+    > [!TIP] 
+    > Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. Bu durumda, [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne çift tıklayın ve "Normalleştirilmiş kayıpları dışarıda bırak" yorumunu yazın.
 
     ![Açıklama eklemek için bir modüle çift tıklayın][add-comment]
-    <br/>
-    ***Açıklama eklemek için bir modüle çift tıklayın***
 
-3. [Eksik Verileri Temizleme][clean-missing-data] modülünü deneme tuvaline sürükleyin ve bunu [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne bağlayın. **Özellikler** bölmesinde, **Temizleme modu** altında **Tüm satırı kaldır**’ı seçin. Bu [Eksik Verileri Temizleme][clean-missing-data] öğesini eksi değer içeren satırları kaldırarak verileri temizlemesi için yönlendirir. Modüle çift tıklayın ve "Eksik değerli satırları kaldır" yorumunu yazın.
+1. [Eksik Verileri Temizleme][clean-missing-data] modülünü deneme tuvaline sürükleyin ve bunu [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne bağlayın. **Özellikler** bölmesinde, **Temizleme modu** altında **Tüm satırı kaldır**’ı seçin. Bu seçenekleri doğrudan [eksik verileri temizleme] [ clean-missing-data] değer içeren satırları kaldırarak verileri temizlemesi için. Modüle çift tıklayın ve "Eksik değerli satırları kaldır" yorumunu yazın.
 
-    !["Eksik Verileri Temizleme" için temizleme modunu "Tüm satırı kaldır" olarak ayarlayın][set-remove-entire-row]
-    <br/>
-    ***"Eksik Verileri Temizleme" için temizleme modunu "Tüm satırı kaldır" olarak ayarlayın***
+    !["" Eksik verileri temizleme"modülüne için tüm satırı Kaldır" için temizleme modunu ayarlayın][set-remove-entire-row]
 
-4. Sayfanın en altında yer alan **ÇALIŞTIR**'a tıklayarak denemeyi çalıştırın.
+1. Sayfanın en altında yer alan **ÇALIŞTIR**'a tıklayarak denemeyi çalıştırın.
 
     Deneme çalıştırma bittiğinde, tüm modüllerin başarıyla tamamlandığını göstermek için yeşil bir onay işareti bulunur. Sağ üst köşede **Çalıştırma tamamlandı** durumunun olduğuna da dikkat edin.
 
-![Çalıştırdıktan sonra, deneme aşağıdakine benzer görünmelidir][early-experiment-run]
-<br/>
-***Çalıştırdıktan sonra, deneme aşağıdakine benzer görünmelidir***
+    ![Çalıştırdıktan sonra deneme aşağıdakine benzer görünmelidir][early-experiment-run]
 
 > [!TIP]
 > Denemeyi neden şimdi çalıştırdık? Deneme çalıştırılarak, verilerimizin sütun tanımları [Veri Kümesindeki Sütunları Seçme][select-columns] modülü ve [Eksik Verileri Temizleme][clean-missing-data] modülü aracılığıyla veri kümesinden geçer. Bu, [Eksik Verileri Temizleme][clean-missing-data] öğesine bağladığımız modüllerin de aynı bilgilere sahip olacağı anlamına gelir.
 
-Denemede bu noktaya kadar yalnızca verileri temizledik. Temizlenen veri kümesini görüntülemek istiyorsanız [Eksik Verileri Temizleme][clean-missing-data] modülünün sol çıkış bağlantı noktasına tıklayın ve **Görselleştir**'i seçin. **Normalleştirilmiş kayıplar** sütununun artık dahil olmadığına ve eksik değerlerin yok olduğuna dikkat edin.
+Artık verileri temizleme sahibiz. Temizlenen veri kümesini görüntülemek istiyorsanız [Eksik Verileri Temizleme][clean-missing-data] modülünün sol çıkış bağlantı noktasına tıklayın ve **Görselleştir**'i seçin. **Normalleştirilmiş kayıplar** sütununun artık dahil olmadığına ve eksik değerlerin yok olduğuna dikkat edin.
 
 Artık veriler temizlendiğine göre, tahmine dayalı modelde hangi özellikleri kullanacağımızı belirtmeye hazırız.
 
-## <a name="step-3-define-features"></a>3. Adım: Özellikleri tanımlama
+## <a name="define-features"></a>Özellikleri tanımlama
 
 Machine learning'de *özellikler*, ilgilendiğiniz bir şeyin tek tek ölçülebilir özellikleridir. Veri kümemizde her bir satır bir otomobili temsil eder ve her bir sütun da bu otomobilin bir özelliğidir.
 
-Tahmine dayalı bir model oluşturmaya yönelik iyi bir özellikler kümesi bulmak için, deneme ve çözmek istediğiniz sorun hakkında bilgi gerekir. Bazı özellikler, hedefi tahmin etmede diğerlerinden daha uygundur. Ayrıca, bazı özelliklerin diğer özelliklerle güçlü bir bağıntısı vardır ve kaldırılabilirler. Örneğin, city-mpg ve highway-mpg yakından ilişkilidir, bu nedenle tahmini önemli ölçüde etkilemeden birini tutabilir ve diğerini kaldırabiliriz.
+Tahmine dayalı bir model oluşturmaya yönelik iyi bir özellikler kümesi bulmak için, deneme ve çözmek istediğiniz sorun hakkında bilgi gerekir. Bazı özellikler, hedefi tahmin etmede diğerlerinden daha uygundur. Bazı özelliklerin diğer özelliklerle güçlü bir bağıntısı vardır ve kaldırılabilir. Örneğin, city-mpg ve highway-mpg yakından ilişkilidir, bu nedenle tahmini önemli ölçüde etkilemeden birini tutabilir ve diğerini kaldırabiliriz.
 
 Veri kümemizdeki bir alt özellikler kümesini kullanan bir model oluşturalım. Daha sonra geri dönüp farklı özellikler seçebilir, denemeyi tekrar çalıştırabilir ve daha iyi sonuçlar elde edip etmeyeceğinizi görebilirsiniz. Ancak başlarken aşağıdaki özellikleri deneyelim:
 
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-
 1. Deneme tuvaline başka bir [Veri Kümesindeki Sütunları Seçme][select-columns] modülü sürükleyin. [Eksik Verileri Temizleme][clean-missing-data] modülünün sol çıkış bağlantı noktasını [Veri Kümesindeki Sütunları Seçme][select-columns] modülünün girişine bağlayın.
 
-    !["Veri Kümesindeki Sütunları Seçme" modülünü "Eksik Verileri Temizleme" modülüne bağlayın][connect-clean-to-select]
-    <br/>
-    ***"Veri Kümesindeki Sütunları Seçme" modülünü "Eksik Verileri Temizleme" modülüne bağlayın***
+    !["Kümesindeki sütunları seçme" modülünü "Eksik verileri temizleme" modülüne bağlayın][connect-clean-to-select]
 
-2. Modüle çift tıklayın ve "Tahmin için özellik seç" yazın.
+1. Modüle çift tıklayın ve "Tahmin için özellik seç" yazın.
 
-2. **Properties (Özellikler)** bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** seçeneğine tıklayın.
+1. **Properties (Özellikler)** bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** seçeneğine tıklayın.
 
-3. **Kurallar ile**’ye tıklayın.
+1. **Kurallar ile**’ye tıklayın.
 
-4. **Şununla Başla** altında **Sütun yok**’a tıklayın. Filtre satırında, **Dahil et** ve **sütun adları** öğelerini seçin ve metin kutusunda sütun adları listemizi seçin. Bu, modülü özellikle belirttiklerimiz dışında hiçbir sütunu (özelliği) geçirmemesi için yönlendirir.
+1. **Şununla Başla** altında **Sütun yok**’a tıklayın. Filtre satırında, **Dahil et** ve **sütun adları** öğelerini seçin ve metin kutusunda sütun adları listemizi seçin. Bu filtre, özellikle belirttiklerimiz dışında hiçbir sütunu (özelliği) geçirmemesi için modülü yönlendirir.
 
-5. Onay işareti (Tamam) düğmesine tıklayın.
+1. Onay işareti (Tamam) düğmesine tıklayın.
 
     ![Tahmine dahil edilecek sütunları (özellikleri) seçin][select-columns-to-include]
-    <br/>
-    ***Tahmine dahil edilecek sütunları (özellikleri) seçin***
 
-Bu yalnızca bir sonraki adımda kullanacağımız öğrenim algoritmasına geçirmek istediğimiz özellikleri içeren filtrelenmiş bir veri kümesi üretir. Daha sonra geri dönüp farklı özellikler seçerek yeniden deneyebilirsiniz.
+Bu modül, yalnızca bir sonraki adımda kullanacağız öğrenim algoritmasına geçirmek istediğimiz özellikleri içeren filtrelenmiş bir veri kümesi oluşturur. Daha sonra geri dönüp farklı özellikler seçerek yeniden deneyebilirsiniz.
 
-## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>4. Adım: Bir öğrenme algoritması seçme ve uygulama
+## <a name="choose-and-apply-an-algorithm"></a>Bir algoritması seçme ve uygulama
 
 Artık veriler hazır olduğuna göre, tahmine dayalı bir model oluşturmak için eğitim ve test etme gerekir. Modeli eğitmek ve sonra fiyatları tahmin etmeye ne kadar yaklaştığını görmek üzere modeli test etmek için verilerimizi kullanacağız.
 <!-- For now, don't worry about *why* we need to train and then test a model.-->
 
 *Sınıflandırma* ve *regresyon*, denetimli makine öğrenimi algoritmasının iki türüdür. Sınıflandırma; renk gibi (kırmızı, mavi veya yeşil) tanımlanmış bir kategori kümesinden yanıt tahmin eder. Bir sayıyı tahmin etmek için regresyon kullanılır.
 
-Bir sayı olan fiyatı tahmin etmek istediğimizden bir regresyon algoritması kullanırız. Bu örnek için, basit bir *çizgisel regresyon* modeli kullanacağız.
+Bir sayı olan fiyatı tahmin etmek istediğimizden bir regresyon algoritması kullanırız. Bu örnekte, kullanacağız bir *doğrusal regresyon* modeli.
 
-> [!TIP]
-> Farklı makine öğrenimi algoritması türleri ve bunların ne zaman kullanılacağı hakkında daha fazla bilgi edinmek için, Yeni Başlayanlar için Veri Bilimi serisindeki ilk video olan [Veri biliminin yanıtladığı beş soru](data-science-for-beginners-the-5-questions-data-science-answers.md)’yu izleyebilirsiniz. Ayrıca [Algoritma örnekleriyle makine öğrenimi temelleri](basics-infographic-with-algorithm-examples.md) bilgi grafiğine bakabilir veya [Makine öğrenimi algoritma bilgi sayfasına göz atabilirsiniz](algorithm-cheat-sheet.md).
 
 Modele fiyatı da içeren bir veri kümesi vererek modeli eğitiriz. Model verileri tarar ve otomobilin özellikleri ile fiyatı arasındaki bağlantıları arar. Daha sonra modeli test edeceğiz. Bildiğimiz otomobiller için bir özellik kümesi vererek modelin bilinen fiyatı tahmin etmeye ne kadar yaklaştığını göreceğiz.
 
@@ -230,70 +172,54 @@ Verilerimizi modeli eğitmek ve verileri ayrı eğitim ve test kümelerine ayır
 
 1. [Verileri Bölme][split] modülünü seçip deneme tuvaline sürükleyin ve bunu son [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne bağlayın.
 
-2. Seçmek için [Verileri Bölme][split] modülüne tıklayın. **İlk çıkış veri kümesinde satır kesiri**’ni bulun (tuvalin sağ tarafında **Özellikler** bölmesinde) ve 0,75 olarak ayarlayın. Bu şekilde, modeli eğitmek için verilerin yüzde 75'ini kullanıp test etmek için yüzde 25'ini ayıracağız (daha sonra farklı oranlarla deneme yapabilirsiniz).
+1. Seçmek için [Verileri Bölme][split] modülüne tıklayın. **İlk çıkış veri kümesinde satır kesiri**’ni bulun (tuvalin sağ tarafında **Özellikler** bölmesinde) ve 0,75 olarak ayarlayın. Bu şekilde, modeli eğitmek için verilerin yüzde 75'ini kullanıp test etmek için yüzde 25'ini ayıracağız.
 
-    !["Verileri Bölme" modülünün bölüm kesirini 0,75 olarak ayarlayın][set-split-data-percentage]
-    <br/>
-    ***"Verileri Bölme" modülünün bölüm kesirini 0,75 olarak ayarlayın***
+    !["Verileri bölme" modülünün kesirini 0,75 olarak ayarlayın.][set-split-data-percentage]
 
     > [!TIP]
     > **Rastgele doldurma** parametresini değiştirerek eğitim ve test etme için farklı rastgele örnekler oluşturabilirsiniz. Bu parametre, sözde rastgele sayı üreticisinin doldurulmasını denetler.
 
-2. Denemeyi çalıştırın. Deneme çalıştırıldığında [Veri Kümesindeki Sütunları Seçme][select-columns] ve [Verileri Bölme][split] modüllerinin sütun tanımlarını sonra ekleyeceğimiz modüllere geçirmesine olanak sağlanır.  
+1. Denemeyi çalıştırın. Deneme çalıştırıldığında [Veri Kümesindeki Sütunları Seçme][select-columns] ve [Verileri Bölme][split] modüllerinin sütun tanımlarını sonra ekleyeceğimiz modüllere geçirmesine olanak sağlanır.  
 
-3. Öğrenme algoritmasını seçmek için, tuvalin solundaki modül paletindeki **Machine Learning** kategorisini genişletin ve ardından **Modeli Başlat**'ı genişletin. Böylece makine öğrenimi algoritmalarını başlatmak için kullanılabilecek çeşitli modül kategorileri görüntülenir. Bu deneme için, **Regresyon** kategorisinin altında [Doğrusal Regresyon][linear-regression] modülünü seçin ve bunu deneme tuvaline sürükleyin.
-(Modülü bulmak için palet Arama kutusuna “doğrusal regresyon” da yazabilirsiniz.)
+1. Öğrenme algoritmasını seçmek için, tuvalin solundaki modül paletindeki **Machine Learning** kategorisini genişletin ve ardından **Modeli Başlat**'ı genişletin. Böylece makine öğrenimi algoritmalarını başlatmak için kullanılabilecek çeşitli modül kategorileri görüntülenir. Bu deneme için, **Regresyon** kategorisinin altında [Doğrusal Regresyon][linear-regression] modülünü seçin ve bunu deneme tuvaline sürükleyin. (Modülü bulmak için palet Arama kutusuna “doğrusal regresyon” da yazabilirsiniz.)
 
-4. [Modeli Eğitme][train-model] modülünü bulup deneme tuvaline sürükleyin. [Doğrusal Regresyon][linear-regression] modülünün çıkışını [Modeli Eğitme][train-model] modülünün sol girişine bağlayın ve [Verileri Bölme][split] modülünün eğitim verileri çıkışını (sol bağlantı noktası) [Modeli Eğitme][train-model] modülünün sağ girişine bağlayın.
+1. [Modeli Eğitme][train-model] modülünü bulup deneme tuvaline sürükleyin. [Doğrusal Regresyon][linear-regression] modülünün çıkışını [Modeli Eğitme][train-model] modülünün sol girişine bağlayın ve [Verileri Bölme][split] modülünün eğitim verileri çıkışını (sol bağlantı noktası) [Modeli Eğitme][train-model] modülünün sağ girişine bağlayın.
 
-    !["Modeli Eğitme" modülünü "Çizgisel Regresyon" ve "Verileri Bölme" modüllerine bağlayın][connect-train-model]
-    <br/>
-    ***"Modeli Eğitme" modülünü "Çizgisel Regresyon" ve "Verileri Bölme" modüllerine bağlayın***
+    !["Modeli eğitme" modülünü "Çizgisel regresyon" ve "Verileri bölme" modüllerine bağlayın][connect-train-model]
 
-5. [Modeli Eğitme][train-model] modülüne tıklayın, **Özellikler** bölmesinde **Sütun seçiciyi başlat** seçeneğine tıklayın ve ardından **fiyat** sütununu seçin. Bu, modelimizin tahmin edeceği değerdir.
+1. [Modeli Eğitme][train-model] modülüne tıklayın, **Özellikler** bölmesinde **Sütun seçiciyi başlat** seçeneğine tıklayın ve ardından **fiyat** sütununu seçin. **Fiyat** modelimizi tahmin etmek için gittiği değerdir.
 
     Sütun seçicide **fiyat** sütununu **Kullanılabilir sütunlar** listesinden **Seçili sütunlar** listesine taşıyarak seçersiniz.
 
-    !["Modeli Eğitme" modülü için fiyat sütununu seçin][select-price-column]
-    <br/>
-    ***"Modeli Eğitme" modülü için fiyat sütununu seçin***
+    !["Modeli eğitme" modülü için fiyat sütununu seçin][select-price-column]
 
-6. Denemeyi çalıştırın.
+1. Denemeyi çalıştırın.
 
 Şimdi, fiyat tahmininde bulunmak amacıyla yeni otomobil verilerini puanlamak için kullanılabilecek eğitilmiş bir regresyon modeli oluşturduk.
 
-![Çalıştırdıktan sonra, deneme şimdi aşağıdakine benzer görünmelidir][second-experiment-run]
-<br/>
-***Çalıştırdıktan sonra, deneme şimdi aşağıdakine benzer görünmelidir***
+![Çalıştırdıktan sonra deneme şimdi aşağıdakine benzer görünmelidir][second-experiment-run]
 
-## <a name="step-5-predict-new-automobile-prices"></a>5. Adım: Yeni otomobil fiyatlarını tahmin etme
+## <a name="predict-new-automobile-prices"></a>Yeni otomobil fiyatlarını tahmin etme
 
 Verilerimizin yüzde 75'ini kullanarak modeli eğittiğimize göre, modelimizin ne kadar iyi işlediğini görmek için verilerimizin diğer yüzde 25'ini puanlama amacıyla kullanabiliriz.
 
 1. [Model Puanlama][score-model] modülünü bulup deneme tuvaline sürükleyin. [Modeli Eğitme][train-model] modülünün çıkışını [Model Puanlama][score-model] modülünün sol giriş bağlantı noktasına bağlayın. [Verileri Bölme][split] modülünün test verileri çıkışını (sağ bağlantı noktası) [Model Puanlama][score-model] modülünün sağ giriş bağlantı noktasına bağlayın.
 
-    !["Model Puanlama" modülünü "Modeli Eğitme" ve "Verileri Bölme" modüllerine bağlayın][connect-score-model]
-    <br/>
-    ***"Model Puanlama" modülünü "Modeli Eğitme" ve "Verileri Bölme" modüllerine bağlayın***
+    !["Model Puanlama" modülünü "Modeli eğitme" ve "Verileri bölme" modüllerine bağlayın][connect-score-model]
 
-2. Denemeyi çalıştırın ve [Model Puanlama][score-model] modülünü görüntüleyin ([Model Puanlama][score-model] modülünün çıkış bağlantı noktasına tıklayın ve **Görselleştir**’i seçin). Çıkış, fiyat için tahmin edilen değerleri ve test verileri için bilinen değerleri gösterir.  
+1. Denemeyi çalıştırın ve çıkışı görüntülemek [Score Model] [ score-model] modülünün çıkış bağlantı noktasına tıklayarak [Score Model] [ score-model] seçin **Görselleştirme**. Çıkış, fiyat için tahmin edilen değerleri ve test verileri için bilinen değerleri gösterir.  
 
     !["Model Puanlama" modülü çıkışı][score-model-output]
-    <br/>
-    ***"Model Puanlama" modülü çıkışı***
 
-3. Son olarak, sonuç kalitesini test edeceğiz. [Model Değerlendirme][evaluate-model] modülünü seçip deneme tuvaline sürükleyin ve [Model Puanlama][score-model] modülünün çıkışını [Model Değerlendirme][evaluate-model] modülünün sol giriş bağlantı noktasına bağlayın.
+1. Son olarak, sonuç kalitesini test edeceğiz. [Model Değerlendirme][evaluate-model] modülünü seçip deneme tuvaline sürükleyin ve [Model Puanlama][score-model] modülünün çıkışını [Model Değerlendirme][evaluate-model] modülünün sol giriş bağlantı noktasına bağlayın. Son deneme şuna benzer şekilde görünecektir:
 
-    > [!TIP]
-    > [Model Değerlendirme][evaluate-model] modülü iki modeli yan yana karşılaştırmak için kullanılabildiğinden, iki giriş bağlantı noktası bulunur. Daha sonra, denemeye başka bir algoritma ekleyebilir ve hangisinin daha iyi sonuç verdiğini öğrenmek için [Model Değerlendirme][evaluate-model] modülünü kullanabilirsiniz.
+    ![Son deneme][complete-linear-regression-experiment]
 
-4. Denemeyi çalıştırın.
+1. Denemeyi çalıştırın.
 
 [Model Değerlendirme][evaluate-model] modülünden çıkışı görüntülemek için, çıkış bağlantı noktasına tıklayın ve ardından **Görselleştir**'i seçin.
 
 ![Deneme için değerlendirme sonuçları][evaluation-results]
-<br/>
-***Deneme için değerlendirme sonuçları***
 
 Modelimiz için aşağıdaki istatistikler gösterilir:
 
@@ -305,33 +231,16 @@ Modelimiz için aşağıdaki istatistikler gösterilir:
 
 Her bir hata istatistiği ne kadar küçük olursa o kadar iyidir. Daha küçük olan bir değer, tahminlerin gerçek değerlerle daha yakından eşleştiğini gösterir. **Coefficient of Determination (Determinasyon Katsayısı)** değeri bire (1.0) ne kadar yakınsa tahminler o kadar iyi olur.
 
-## <a name="final-experiment"></a>Son deneme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Son deneme şuna benzer şekilde görünecektir:
-
-![Son deneme][complete-linear-regression-experiment]
-<br/>
-***Son deneme***
+[!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Artık ilk makine öğrenimi öğreticinizi tamamladığınıza ve denemenizi kurduğunuza göre, modeli iyileştirmeye devam edebilir ve ardından tahmine dayalı web hizmeti olarak dağıtabilirsiniz.
+Bu hızlı başlangıçta, bir örnek veri kullanarak basit bir deneme oluşturulur. Oluşturma ve daha ayrıntılı bir model dağıtma işlemini keşfetmek için Tahmine dayalı bir çözüm öğreticiye devam edin.
 
-- **Modeli geliştirmek için yineleme** - Örneğin, tahmininizde kullandığınız özellikleri değiştirebilirsiniz. Veya [Doğrusal Regresyon][linear-regression] algoritmasının özelliklerini değiştirebilir veya tamamen farklı bir algoritma deneyebilirsiniz. Ayrıca, denemenize tek bir seferde birden çok makine öğrenimi algoritması ekleyebilir ve [Model Değerlendirme][evaluate-model] modülünü kullanarak ikisini karşılaştırabilirsiniz.
-Tek bir denemede birden çok modeli karşılaştırma örneği için [Azure AI Gallery](https://gallery.cortanaintelligence.com)’de [Regresörleri Karşılaştırma](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5)’ya bakın.
-
-    > [!TIP]
-    > Denemenizin herhangi bir yinelemesini kopyalamak için sayfanın en altındaki **FARKLI KAYDET** düğmesini kullanın. Sayfanın en altındaki **ÇALIŞTIRMA GEÇMİŞİNİ GÖRÜNTÜLE** seçeneğine tıklayarak denemenizin tüm yinelemelerini görebilirsiniz. Daha fazla ayrıntı için bkz. [Azure Machine Learning Studio'da deneme yinelemelerini yönetme][runhistory].
-
-[runhistory]: manage-experiment-iterations.md
-
-- **Modeli tahmine dayalı web hizmeti olarak dağıtma** - Modelinizi istediğiniz zaman, yeni veriler aracılığıyla otomobil fiyatlarını tahmin etmek için kullanılacak bir web hizmeti olarak dağıtabilirsiniz. Daha fazla ayrıntı için bkz. [Bir Azure Machine Learning web hizmetini dağıtma][publish].
-
-[publish]: publish-a-machine-learning-web-service.md
-
-Daha fazla bilgi almak ister misiniz? Oluşturma, eğitim, Puanlama ve bir modeli dağıtma sürecinin daha kapsamlı ve Ayrıntılı Kılavuzu için bkz: [öğretici 1: Kredi riskini tahmin ] [ walkthrough].
-
-[walkthrough]: tutorial-part1-credit-risk.md
+> [!div class="nextstepaction"]
+> [Öğretici: Studio'da öngörülebilir bir çözüm geliştirin](tutorial-part1-credit-risk.md)
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
@@ -347,7 +256,7 @@ Daha fazla bilgi almak ister misiniz? Oluşturma, eğitim, Puanlama ve bir model
 [evaluation-results]:./media/create-experiment/evaluation-results.png
 [complete-linear-regression-experiment]:./media/create-experiment/complete-linear-regression-experiment.png
 
-<!-- temporarily switching GIFs to PNGs to remove animation --> 
+<!-- temporarily switching GIFs to PNGs to remove animation -->
 [type-automobile]:./media/create-experiment/type-automobile.png
 [type-select-columns]:./media/create-experiment/type-select-columns.png
 [launch-column-selector]:./media/create-experiment/launch-column-selector.png
@@ -356,7 +265,7 @@ Daha fazla bilgi almak ister misiniz? Oluşturma, eğitim, Puanlama ve bir model
 
 [set-split-data-percentage]:./media/create-experiment/set-split-data-percentage.png
 
-<!-- temporarily switching GIFs to PNGs to remove animation --> 
+<!-- temporarily switching GIFs to PNGs to remove animation -->
 [connect-train-model]:./media/create-experiment/connect-train-model.png
 [select-price-column]:./media/create-experiment/select-price-column.png
 

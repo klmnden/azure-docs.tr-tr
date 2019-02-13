@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: f960e03cf7e904d64d9cfccd0314b635ef80ce9d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 74df7bd7073716dbbb372a43af809bf56c6cd32c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55204108"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Öğretici: Atomik öğrenme ile Azure Active Directory Tümleştirme
 

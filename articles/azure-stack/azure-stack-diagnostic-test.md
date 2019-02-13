@@ -10,22 +10,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 82a691c0e0b6280a168605d56ee628d81f10823f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: eca66bc2e737b0f9a9954cad21a446e82d753f84
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245659"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203820"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack sistem durumu doğrulama
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack operatörü, sistem durumunu ve sistem steğe bağlı durumunu bilmeniz yeteneğine sahip olmanın da önemlidir. Azure Stack doğrulama aracını (**Test AzureStack**) olanak tanıyan bir PowerShell cmdlet'i bir dizi test hataları tanımlamak için sisteminizde çalıştırılır. Genellikle bu aracı istenir [ayrıcalıklı uç noktasına (CESARETLENDİRİCİ)](azure-stack-privileged-endpoint.md) , sizinle Microsoft Müşteri Hizmetleri desteği (CSS) ile ilgili bir sorun. Sistem genelinde durumunu ve durum bilgilerini en el ile CSS toplamak ve ayrıntılı günlükleri analiz ederek, burada bir hata oluştu. ve sorunu çözmek için sizinle çalışma alanı odaklanmak yapabilirsiniz.
+Azure Stack operatörü, sistem durumunu ve sistem steğe bağlı durumunu belirlemek için gereklidir. Azure Stack doğrulama aracını (**Test AzureStack**) olanak tanıyan bir PowerShell cmdlet'i bir dizi test hataları tanımlamak için sisteminizde çalıştırılır. Genellikle bu aracı istenir [ayrıcalıklı uç noktasına (CESARETLENDİRİCİ)](azure-stack-privileged-endpoint.md) , sizinle Microsoft Müşteri Hizmetleri desteği (CSS) ile ilgili bir sorun. Sistem genelinde durumunu ve durum bilgilerini en el ile CSS toplamak ve ayrıntılı günlükleri analiz ederek, burada bir hata oluştu. ve sorunu çözmek için sizinle çalışma alanı odaklanmak yapabilirsiniz.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Doğrulama aracını çalıştırma ve sonuçları erişme
 
@@ -93,7 +93,6 @@ Bu düşük etki testleri, bir altyapı düzeyinde çalışmak ve çeşitli sist
 
 Yukarıdaki altyapı testleri yanı sıra ayrıca altyapı bileşenlerinde işlevselliği kontrol etmek için bulut senaryosu testleri çalıştırma olanağı vardır. Bulut Yöneticisi kimlik bilgileri, kaynak dağıtımını ilgili olarak bu testleri çalıştırmak için gereklidir. 
     > [!NOTE]
-    >
     > Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
 Aşağıdaki bulut senaryoları doğrulama aracı tarafından test edilen:

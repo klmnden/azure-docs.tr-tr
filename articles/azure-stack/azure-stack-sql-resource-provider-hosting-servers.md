@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239477"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210535"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 
-İçinde bir SQL örneğini bir sanal makine'de (VM) barındırabilir [Azure Stack](azure-stack-poc.md), veya bir VM'de SQL kaynak sağlayıcısı örneği bağlanabilir sürece, Azure Stack ortamınıza dışında.
+SQL Server veritabanını barındıran sunucu bir sanal makine'de (VM) oluşturabileceğiniz [Azure Stack](azure-stack-poc.md), veya bir VM'de SQL kaynak sağlayıcısı örneği bağlanabilir sürece, Azure Stack ortamınıza dışında.
 
 > [!NOTE]
-> SQL veritabanları SQL kaynak sağlayıcısı sunucusunda oluşturulmalıdır. SQL barındırma sunucuları Faturalanabilir, bir kullanıcı abonelikte oluşturulmalıdır sırada SQL kaynak sağlayıcısı varsayılan sağlayıcı abonelikte oluşturulmalıdır. Kaynak sağlayıcısı sunucunun kullanıcı veritabanını barındırmak için kullanılmamalıdır.
+> SQL barındırma sunucuları Faturalanabilir, bir kullanıcı abonelikte oluşturulmalıdır sırada SQL kaynak sağlayıcısı varsayılan sağlayıcı abonelikte oluşturulmalıdır. Kaynak sağlayıcısı sunucunun kullanıcı veritabanını barındırmak için kullanılmamalıdır.
 
 ## <a name="overview"></a>Genel Bakış
 

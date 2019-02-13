@@ -15,12 +15,13 @@ ms.workload: Identity
 ms.date: 07/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8c998426b95b108e9b619ca48b88a4dd85236893
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 437577ec68ee825bd0815735fef08e8297dad756
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490167"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180548"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Önceki bir sürümden en son sürüme yükseltme
 Bu konuda, Azure Active Directory (Azure AD) Connect yüklemenizi en son sürüme yükseltmek için kullanabileceğiniz farklı yöntemler açıklanır. Kendi Azure AD Connect'in sürümlerinde geçerli tutmanızı öneririz. Ayrıca adımlarda kullandığınız [Swing geçişi](#swing-migration) bölümünde önemli bir yapılandırma değişikliği yaptığınızda.

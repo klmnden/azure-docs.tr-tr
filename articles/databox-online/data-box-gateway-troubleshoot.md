@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b542ca2876149b9a60e5c5b9e3fa17284477864f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: d94e2db66c8c5dac2b4d8551ae34a07cd68fd635
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241609"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106996"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway sorunlarınızı giderme 
 
@@ -103,6 +103,7 @@ Yükleme ve yenileme işlemlerinde karşılaşılan hatalar ilgili hata dosyalar
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    Hesap veya paylaşım devre dışı olduğundan hesaba veri yüklenemedi.                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    Hesap izinleri yanlış olduğundan veya güncel olmadığından kapsayıcı bağlantısı kurulamadı. Erişiminizi kontrol edin.                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    Kapsayıcı dolu olduğundan yeni veri eklenemedi. Türe göre desteklenen kapsayıcı boyutları için Azure özelliklerine bakın. Örneğin Azure Dosyaları en fazla 5 TB büyüklüğündeki dosyaları kabul eder.                                     |
+    |    2997            |    ERROR_ITEM_CANCELED                                     |    Beklenmeyen bir hata oluştu. Kendi geçici bir hatadır.                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    Beklenmeyen bir hata oluştu. Bu hata kendiliğinden çözülebilir ancak 24 saatten uzun bir süre devam ederse Microsoft Desteği ile iletişim kurun.                                                                                                     |
     |    16000           |    RefreshException                                        |    Bu dosya indirilemedi.                                                                                                                                                                                                        |
     |    16001           |    RefreshAlreadyExistsException                           |    Yerel sisteminizde mevcut olduğundan bu dosya indirilemedi.                                                                                                                                                         |

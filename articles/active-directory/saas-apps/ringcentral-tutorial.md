@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle RingCentral | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile RingCentral | Microsoft Docs'
 description: Azure Active Directory ve RingCentral arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 35033e52fb54177428f8869ebcc462bd9465ad4c
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48871775"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173309"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Öğretici: Azure Active Directory RingCentral ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Öğretici: RingCentral ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile RingCentral tümleştirme konusunda bilgi edinin.
 
@@ -231,7 +232,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-ringcentral-test-user"></a>RingCentral test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon içinde RingCentral adlı bir kullanıcı oluşturun. Çalışmak [RingCentral istemci Destek ekibine](https://success.ringcentral.com/RCContactSupp) RingCentral platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon içinde RingCentral adlı bir kullanıcı oluşturun. Çalışmak [RingCentral istemci Destek ekibine](https://success.ringcentral.com/RCContactSupp) RingCentral platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

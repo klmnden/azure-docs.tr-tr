@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0fa487e1ecd419780243b04a273110f3cf43761c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 03e15532d04a4c62796aad884c5e344688814672
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633972"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209243"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Apache Hive ve HiveQL Azure HDInsight üzerinde nedir?
 
@@ -204,11 +204,7 @@ Bu deyimler, aşağıdaki eylemleri gerçekleştirin:
 
 [Apache Hive Tez tasarım belgelerinde](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) uygulama seçeneklerine ve ayarlama yapılandırmalar hakkında ayrıntılar içerir.
 
-Tez kullanarak işleri hata ayıklamaya yardımcı olmak için çalışan, HDInsight'ı aşağıdaki web Tez işlerinin ayrıntılarını görmenize izin veren kullanıcı arabirimleri sunar:
-
-* [Linux tabanlı HDInsight üzerinde Apache Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
-
-* [Windows tabanlı HDInsight üzerinde Apache Tez kullanıcı Arabirimi kullanma](../hdinsight-debug-tez-ui.md)
+Tez kullanarak işleri hata ayıklamaya yardımcı olmak için çalışan, HDInsight'ı aşağıdaki web Tez işlerinin ayrıntılarını görüntülemek izin veren bir kullanıcı Arabirimi sağlar: [Linux tabanlı HDInsight üzerinde Apache Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md).
 
 ### <a name="low-latency-analytical-processing-llap"></a>Düşük gecikme süresi analitik işlem (LLAP)
 

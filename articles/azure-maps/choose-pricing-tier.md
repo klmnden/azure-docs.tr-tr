@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 56f9226f1bee630895725eb0b3806e294e9a5b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063242"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218151"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Azure haritalar fiyatlandırma katmanı sağ seçin
 
@@ -34,15 +34,14 @@ S0 ve S1 fiyatlandırma katmanları farklı miktarda veri aktarım hızı işley
 | İşleme                                  |        ✓           |     ✓    |
 | Trafik                                 |        ✓           |     ✓    |
 | Saat dilimleri                              |        ✓           |     ✓    |
-| * Tanımayı yanı sıra karma resimler (Önizleme)  |        ✓           |     ✓    |
-| * Rota aralığı (Önizleme)                  |        ✓           |     ✓    |
-| * IP 2 konumu (Önizleme)                |        ✓           |     ✓    |
-| * Çokgenler arama (Önizleme)         |        ✓           |     ✓    |
-| * Toplu coğrafi kodlama (Önizleme)              |        ✓           |     ✓    |
-| * Batch (Önizleme) yönlendirme                |        ✓           |     ✓    |
-| * Matris (Önizleme) yönlendirme               |        ✓           |     ✓    |
+| Gözünüzde yanı sıra karma resimler    |            |     ✓    |
+| Rota aralığı                    |                   |     ✓    |
+| IP 2 konumu (Önizleme)                |        ✓           |     ✓    |
+| Aramaya ilişkin çokgenler          |                   |     ✓    |
+| Batch coğrafi kodlama (Önizleme)              |                   |     ✓    |
+| Toplu iş (Önizleme) yönlendirme                |                   |     ✓    |
+| Matris (Önizleme) yönlendirme               |                   |     ✓    |
 
-\* Fiyatlandırma katmanı S0 bu özelliklerden erişimi 4 Şubat 2019 sonra kullanımdan kaldırılacaktır.
 
 Bu ek veri noktaları, dikkate değer vardır:
 * Ne tür bir kurumsal var mı?

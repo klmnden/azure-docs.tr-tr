@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247808"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211453"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Depolama (Önizleme) yaşam döngüsünü yönetme
 
@@ -37,7 +37,7 @@ Yaşam döngüsü yönetim ilkesi hem genel amaçlı v2 ile kullanılabilir (GPv
 Yaşam döngüsü yönetimi ücretsiz önizleme olarak özelliğidir. Müşteriler normal işlem maliyetini ücretlendirilir [Blobları listeleme](https://docs.microsoft.com/rest/api/storageservices/list-blobs) ve [Blob katmanını ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API çağrıları. Fiyatlandırma hakkında daha fazla bilgi için bkz. [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>Önizleme için kaydolun 
-Genel önizlemeye kaydolmak için aboneliğinize bu özelliği kaydetmek için bir istek göndermeniz gerekir. İki hafta içinde genellikle onaylanmış istekleri. Onay sonrasında, tüm mevcut ve yeni GPv2 veya Blob Depolama hesapları şu bölgelerde özellikler şunları içerir: Batı ABD 2, Batı Orta ABD, Doğu ABD 2 ve Batı Avrupa. Önizleme, yalnızca blok blob destekler. Tarife ulaşana kadar gibi çoğu Önizleme ile bu özelliği üretim iş yükleri için kullanmamanız gerekir
+Genel önizlemeye kaydolmak için aboneliğinize bu özelliği kaydetmek için bir istek göndermeniz gerekir. 72 saat içinde istek genellikle onaylanmış. Onay sonrasında, tüm mevcut ve yeni GPv2 veya Blob Depolama hesapları şu bölgelerde özellikler şunları içerir: Batı ABD 2, Batı Orta ABD, Doğu ABD 2 ve Batı Avrupa. Önizleme, yalnızca blok blob destekler. Tarife ulaşana kadar gibi çoğu Önizleme ile bu özelliği üretim iş yükleri için kullanmamanız gerekir
 
 Bir istek göndermek için aşağıdaki PowerShell veya CLI komutları çalıştırın.
 
@@ -136,7 +136,7 @@ Her bir kural ilke içinde üç parametreler gereklidir:
 
 | Parametre adı | Parametre türü | Notlar |
 |----------------|----------------|-------|
-| Name           | Dize | Kural adı, alfasayısal karakterlerin herhangi bir birleşimini içerebilir. Kural adı büyük/küçük harf duyarlıdır. Bir ilke içinde benzersiz olmalıdır. |
+| Ad           | String | Kural adı, alfasayısal karakterlerin herhangi bir birleşimini içerebilir. Kural adı büyük/küçük harf duyarlıdır. Bir ilke içinde benzersiz olmalıdır. |
 | type           | Bir sabit listesi değeri | Geçerli Önizleme değeri `Lifecycle`. |
 | tanım     | Yaşam döngüsü kuralı tanımlayan bir nesne | Her tanım, bir filtre kümesi ve bir eylem kümesinden oluşur. |
 

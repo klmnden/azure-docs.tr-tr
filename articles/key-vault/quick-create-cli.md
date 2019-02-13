@@ -3,7 +3,7 @@ title: "Azure Hızlı Başlangıç: Azure CLI kullanarak Key Vault'tan gizli diz
 description: Azure CLI kullanarak Azure Key Vault'tan gizli dizi ayarlamayı ve almayı gösteren hızlı başlangıç
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/08/2019
 ms.author: barclayn
-ms.openlocfilehash: a78cc79031a8dc9b0c98beddf759fbc8674c6dd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8065f670da6614db8c3524fd351a31ad095f8257
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168269"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113048"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Hızlı Başlangıç: Ayarlayın ve Azure CLI kullanarak Azure Key Vault gizli dizi alma
 
@@ -67,12 +67,12 @@ Bu noktada Azure hesabınız, bu yeni anahtar kasasında herhangi bir işlemi ge
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault’a gizli dizi ekleme
 
-Kasaya bir gizli dizi eklemek için birkaç ek adım uygulamanız gerekir. Bu parola bir uygulama tarafından kullanılabilir. Parola **ExamplePassword** şeklindedir ve içinde **Pa$$w0rd** değerini depolar.
+Kasaya bir gizli dizi eklemek için birkaç ek adım uygulamanız gerekir. Bu parola bir uygulama tarafından kullanılabilir. Parola **ExamplePassword** ve değerini depolayacak **hVFkk965BuUv** da.
 
-Key Vault’ta **Pa$$w0rd** değerini depolayacak **ExamplePassword** adlı bir gizli dizi oluşturmak için aşağıdaki komutları yazın:
+Adlı Key Vault'ta bir gizli dizi oluşturmak için aşağıdaki komutları yazın **ExamplePassword** değerini depolayacak **hVFkk965BuUv** :
 
 ```azurecli
-az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
 Artık Azure Key Vault'a eklediğiniz bu parolaya URI'sini kullanarak başvurabilirsiniz. Geçerli sürümü almak için **https://ContosoVault.vault.azure.net/secrets/ExamplePassword** komutunu kullanın. 

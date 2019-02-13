@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 52e0521217fb99bc5fac3fdde8f43f9c80f86ac7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752101"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194248"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -70,7 +70,7 @@ Reset-StorageSyncServer
 Bu sorun oluşur, **Gelişmiş Internet Explorer güvenlik** ilke, sunucu kaydı sırasında etkinleştirilir. Doğru bir şekilde devre dışı bırakma hakkında daha fazla bilgi için **Gelişmiş Internet Explorer güvenlik** İlkesi bkz [Azure dosya eşitleme ile kullanmak için Windows Server hazırlama](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) ve [Azure dosya dağıtma Eşitleme](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Eşitleme Grup Yönetimi
-<a id="cloud-endpoint-using-share"></a>**Bulut uç noktası oluşturma, şu hatayla başarısız olur: "Belirtilen Azure dosya paylaşımı zaten farklı bir CloudEndpoint tarafından kullanılıyor"**  
+<a id="cloud-endpoint-using-share"></a>**Bulut uç noktası oluşturma, şu hatayla başarısız olur: "Belirtilen Azure dosya paylaşımı farklı bir bulut uç noktası tarafından kullanılıyor"**  
 Azure dosya paylaşımının zaten başka bir bulut uç noktası tarafından kullanılmakta olması durumunda bu sorun oluşur. 
 
 Bu iletiyi görürseniz ve Azure dosya paylaşımı şu anda bir bulut uç noktası tarafından kullanılmadığından, Azure dosya paylaşımında Azure dosya eşitleme meta verileri temizlemek için aşağıdaki adımları tamamlayın:
@@ -145,12 +145,12 @@ Sunucu uç noktasını eşitleme etkinliği son iki saat içinde açtı değil "
 
 Sunucu uç noktası eşitleme etkinliği aşağıdaki nedenlerden dolayı kaydedebilir değil:
 
-- Sunucu, etkin bir VSS eşitleme oturumu (SnapshotSync) sahiptir. Sunucu uç noktası için bir VSS eşitleme oturumu etkinken, diğer sunucu uç noktaları aynı birimde VSS eşitleme oturumu tamamlanana kadar bir Başlangıç eşitleme oturumu başlatılamıyor.
+- Aracı sürümü 4.3.0.0 veya eski yüklü olduğundan ve sunucunun bir etkin bir VSS eşitleme oturumu (SnapshotSync) vardır. Sunucu uç noktası için bir VSS eşitleme oturumu etkinken, diğer sunucu uç noktaları aynı birimde VSS eşitleme oturumu tamamlanana kadar bir Başlangıç eşitleme oturumu başlatılamıyor. Bu sorunu çözmek için aracı sürümü 5.0.2.0 yükleyin ya da daha yeni etkin olan bir birimde bir VSS oturumu eşitlenirken eşitleme birden çok sunucu uç noktalarını destekler.
 
     Sunucudaki geçerli eşitleme etkinliği denetlemek için bkz [nasıl geçerli eşitleme oturumunun ilerleme izlerim?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 - Sunucu, en fazla eşzamanlı bir eşitleme oturum sayısını ulaştı. 
-    - Aracı sürümü 4.x ve daha sonra: Kullanılabilir sistem kaynaklarına göre değişiklik gösterir.
+    - Aracı sürümü 4.x ve daha yeni sürümler: Kullanılabilir sistem kaynaklarına göre değişiklik gösterir.
     - Aracı sürümü 3.x: her işlemci veya en fazla 8 active eşitleme oturumu sunucu başına 2 active sync oturumları.
 
 > [!Note]  
@@ -538,7 +538,7 @@ Değişiklikleri Azure dosya paylaşımında doğrudan ve değişiklik algılama
 | **Hata dizesi** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Düzeltme gerekli** | Evet |
 
-Durumlarda olduğu dosya eşitleme hatalarını çok sayıda, Eşitleme oturumları başarısız olmaya başlar. Bu durum için sorun giderme için bkz: [dosya/dizin eşitleme hatalarını giderme]().
+Durumlarda olduğu dosya eşitleme hatalarını çok sayıda, Eşitleme oturumları başarısız olmaya başlar. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > Azure dosya eşitleme, günde bir kez açık tanıtıcıları içeren dosyaları eşitleyin sunucudaki geçici bir VSS anlık görüntüsü oluşturur.

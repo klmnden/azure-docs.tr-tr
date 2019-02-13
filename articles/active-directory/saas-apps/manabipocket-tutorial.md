@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Manabi Pocket | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Manabi Pocket | Microsoft Docs'
 description: Azure Active Directory ve Manabi Pocket arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0116cac7d0e44efee0112d57aedd4f5ee02833b3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3f5dd7012d280580dca76e50290bc2de4322d55c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430724"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198431"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Öğretici: Azure Active Directory Manabi Pocket ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Öğretici: Manabi Pocket ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Manabi Pocket tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Manabi Pocket yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Manabi Pocket çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Azure AD'de Manabi Pocket tümleştirmesini yapılandırmak için Manabi Pocket 
 
 **Galeriden Manabi Pocket eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -158,7 +159,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-manabi-pocket-test-user"></a>Manabi Pocket test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Manabi Pocket adlı bir kullanıcı oluşturun. Çalışmak [Manabi Pocket Destek ekibine](mailto:info-ed-cl@ntt.com) Manabi Pocket platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Manabi Pocket adlı bir kullanıcı oluşturun. Çalışmak [Manabi Pocket Destek ekibine](mailto:info-ed-cl@ntt.com) Manabi Pocket platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

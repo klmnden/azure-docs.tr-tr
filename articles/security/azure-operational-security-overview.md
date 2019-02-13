@@ -4,7 +4,7 @@ description: Bu makalede, Azure operasyonel güvenliğine genel bakış sağlar.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 478228ccb12fbfe3ca527bf4d16af05735b7ba92
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238548"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116482"
 ---
 # <a name="azure-operational-security-overview"></a>Azure operasyonel güvenliğine genel bakış
 
@@ -139,15 +139,15 @@ Ağ İzleyicisi, izleme ve Tanılama, Azure ağı basitleştirir. Ağ İzleyicis
 
 Ağ İzleyicisi şu anda aşağıdaki özellikleri içerir:
 
-- [Topoloji](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): çeşitli bağlantılar ve bir kaynak grubundaki ağ kaynakları arasındaki ilişkileri bir görünümünü sağlar.
-- [Değişken paket yakalama](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): bir sanal makine içine ve dışına paket verilerini yakalar. Zaman ve boyut sınırlamaları ayarlama gibi gelişmiş filtreleme seçenekleriyle ince ayarlı denetimler çok yönlülük getirir. Paket verileri blob depolama veya yerel diskte .cap biçimde depolanabilir.
-- [IP akışı doğrulama](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): 5-tuple paket parametrelerinin akış bilgileri (hedef IP, kaynak IP, hedef bağlantı noktası, kaynak bağlantı noktası ve protokol) için temel bir paket izin verilip verilmediğini denetler. Bir güvenlik grubu paket reddederse, kural ve paketi reddeden Grup döndürülür.
-- [Sonraki atlama](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): kullanıcı tanımlı yollar Azure ağ dokusunda herhangi tanılayabilirsiniz yönlendirilen paketleri yanlış sonraki atlama belirler.
-- [Güvenlik grubu görünümü](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): bir sanal makine üzerinde uygulanan etkili ve uygulanan güvenlik kuralları alır.
-- [Ağ güvenlik grupları için NSG akış günlüklerini](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview): izin verilen veya grubu güvenlik kuralları tarafından engellenen trafik ilgili günlükleri tutmak sağlar. Akış 5-tuple bilgilere göre tanımlanır: kaynak IP, hedef IP, kaynak bağlantı noktası, hedef bağlantı noktası ve protokol.
-- [Sanal ağ geçidi ve bağlantı sorunlarını giderme](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): sanal ağ geçitleri ve bağlantı sorunlarını giderme özelliği sağlar.
-- [Ağ aboneliği sınırı](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): ağ kaynak kullanımı sınırlarını karşı görüntülemenizi sağlar.
-- [Tanılama günlükleri](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): etkinleştirme veya devre dışı bir kaynak grubundaki ağ kaynakları için tanılama günlüklerini tek bir panel sağlar.
+- [Topoloji](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): Çeşitli bağlantılar ve bir kaynak grubundaki ağ kaynakları arasındaki ilişkileri bir görünümünü sağlar.
+- [Değişken paket yakalama](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Bir sanal makine içine ve dışına paket verilerini yakalar. Zaman ve boyut sınırlamaları ayarlama gibi gelişmiş filtreleme seçenekleriyle ince ayarlı denetimler çok yönlülük getirir. Paket verileri blob depolama veya yerel diskte .cap biçimde depolanabilir.
+- [IP akışı doğrulama](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Akış bilgileri (hedef IP, kaynak IP, hedef bağlantı noktası, kaynak bağlantı noktası ve protokol) için 5 tanımlama grubu paket parametreleri temel paket izin verilip verilmediğini denetler. Bir güvenlik grubu paket reddederse, kural ve paketi reddeden Grup döndürülür.
+- [Sonraki atlama](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Paketler Azure ağ dokusunda, yanlış yapılandırılmış tüm kullanıcı tanımlı yollar tanılayabilirsiniz yönlendirilmek için sonraki atlama belirler.
+- [Güvenlik grubu görünümü](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Bir VM'de uygulanan etkili ve uygulanan güvenlik kuralları alır.
+- [Ağ güvenlik grupları için NSG akış günlüklerini](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview): İzin verilen veya grubu güvenlik kuralları tarafından engellenen trafik ilgili günlükleri tutmak etkinleştirin. Akış 5-tuple bilgilere göre tanımlanır: kaynak IP, hedef IP, kaynak bağlantı noktası, hedef bağlantı noktası ve protokol.
+- [Sanal ağ geçidi ve bağlantı sorunlarını giderme](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Sanal ağ geçitleri ve bağlantı sorunlarını giderme özelliği sağlar.
+- [Ağ aboneliği sınırı](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Ağ kaynak kullanımı sınırlarını karşı görüntülemenizi sağlar.
+- [Tanılama günlükleri](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Etkinleştirme veya devre dışı bir kaynak grubundaki ağ kaynakları için tanılama günlüklerini tek bir panel sağlar.
 
 Daha fazla bilgi için [yapılandırma Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 

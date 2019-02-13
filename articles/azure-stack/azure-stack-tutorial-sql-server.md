@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aba9014e74b8ba0cd1b528cf570d3651950c6d5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240820"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207067"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Öğretici: SQL veritabanları, Azure Stack kullanıcılar için kullanılabilir yap
 
@@ -35,7 +35,7 @@ Azure Stack bulut yönetici olarak, kullanıcılarınızın sağlayan teklifler 
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>SQL Server Kaynak sağlayıcısı dağıtma
 
-Dağıtım işlemi ayrıntılı olarak açıklanan [Use SQL veritabanlarında Azure Stack makale](azure-stack-sql-resource-provider-deploy.md)ve birincil aşağıdaki adımlardan oluşur:
+Dağıtım işlemi ayrıntılı olarak açıklanan [Azure Stack makale üzerinde SQL veritabanlarını kullanmayı](azure-stack-sql-resource-provider-deploy.md)ve birincil aşağıdaki adımlardan oluşur:
 
 1. [SQL kaynak sağlayıcısı dağıtma](azure-stack-sql-resource-provider-deploy.md).
 2. [Dağıtımı doğrulama](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).

@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251886"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207543"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack tümleşik sistemleri için veri merkezi tümleştirme konuları
-Bir Azure Stack tümleşik sisteminde ilgileniyorsanız, bazı önemli planlama konuları dağıtım ve sistem Merkezinizde nasıl uyduğunu anlamanız gerekir. Bu makalede, Azure Stack çok düğümlü sisteminiz için önemli altyapısı kararları vermenize yardımcı olmak için bu konuları üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması, veri merkezinizi Azure Stack dağıtırken OEM donanım satıcınız ile çalışırken yardımcı olur.  
+Bir Azure Stack tümleşik sisteminde ilgileniyorsanız, dağıtım ve sistem Merkezinizde nasıl uyduğunu önemli planlama konuları anlamanız gerekir. Bu makalede, Azure Stack çok düğümlü sisteminiz için önemli altyapısı kararları vermenize yardımcı olmak için bu konuları üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması, veri merkezinizi Azure Stack dağıtırken OEM donanım satıcınız ile çalışırken yardımcı olur.  
 
 > [!NOTE]
 > Azure Stack çok düğümlü sistemleri, yalnızca yetkili donanım satıcıları tarafından alınabilir. 
@@ -53,8 +53,6 @@ Uyarı dolayımlama adımlarla çözülebilecek olmayan sorunlarını gidermek i
 
 ### <a name="choose-identity-provider"></a>Kimlik sağlayıcısı seçin
 Azure Stack dağıtımı, ya da Azure AD veya AD FS için kullanmak istediğiniz hangi kimlik sağlayıcısına göz önünde bulundurmanız gerekir. Kimlik sağlayıcıları, tam bir sistem yeniden dağıtım olmadan dağıtımdan sonra geçiş yapamazsınız. Azure AD hesabı sahibi olmadığınız ve size, bulut hizmet sağlayıcısı tarafından sağlanan bir hesap kullanıyorsanız ve sağlayıcı geçmek ve farklı bir Azure AD kullanmak karar verirseniz hesap, bu noktada f çözümü yeniden dağıtmak için çözüm sağlayıcınıza başvurun gerekecektir veya, ücret ödemeden.
-
-
 
 Katılabilmesi için bir Active Directory etki alanı, vb. olup kimlik sağlayıcısı seçtiğiniz Kiracı sanal makineleri, kimlik sistemi ve kullandıkları, hesapları ilgisi yoktur. Ayrı budur.
 
@@ -110,9 +108,9 @@ Hangi PKI hakkında daha fazla bilgi için sertifikaları Azure Stack ve onları
 
 
 ## <a name="time-synchronization"></a>Zaman eşitleme
-Azure Stack eşitlenecek sunucuyla birlikte kullanılan belirli bir zaman seçmelisiniz.  İç Hizmetleri birbirleri ile kimlik doğrulaması için kullanılan Kerberos bileti oluşturmak için kullanılan zaman symbolization Azure Stack ve kendi altyapısı rollerinin için önemlidir.
+Azure Stack eşitlenecek sunucuyla birlikte kullanılan belirli bir zaman seçmelisiniz.  Birbiriyle iç Hizmetleri kimlik doğrulaması için kullanılan Kerberos bileti oluşturmak için kullanılan zaman eşitleme için Azure Stack ve kendi altyapısı rollerinin önemlidir.
 
-Altyapı bileşenleri çoğunu bir URL çözümlemek için zaman eşitleme sunucusu için bir IP bazı yalnızca IP adresleri destekleyebilir ancak belirtmeniz gerekir. Size olan bağlantısı kesilmiş dağıtım seçeneğini kullanarak, bir saat sunucusu olduğunuz Kurumsal ağınızdaki emin ulaşılabilir Azure Stack'te altyapı ağdan belirtmelisiniz.
+Altyapı bileşenleri çoğunu bir URL çözümlemek için zaman eşitleme sunucusu için bir IP bazı yalnızca IP adresleri destekleyebilir ancak belirtmeniz gerekir. Bağlantısı kesilmiş dağıtım seçeneğini kullanıyorsanız, bir saat sunucusu olduğunuz Kurumsal ağınızdaki emin Azure Stack'te altyapı ağdan erişilebildiğini belirtmeniz gerekir.
 
 ## <a name="connect-azure-stack-to-azure"></a>Azure Stack Azure'a bağlanma
 

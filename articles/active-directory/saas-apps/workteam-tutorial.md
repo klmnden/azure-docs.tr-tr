@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Workteam | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Workteam | Microsoft Docs'
 description: Azure Active Directory ve Workteam arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d6ca6395e4f5e1aca361c56e21afc4e6bd1fc0c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132901"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185783"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Öğretici: Azure Active Directory Workteam ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Öğretici: Workteam ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Workteam tümleştirme konusunda bilgi edinin.
 
@@ -145,7 +146,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve W
 
     c. İçinde **SAML varlık kimliği** metin değerini yapıştırın **SAML varlık kimliği**, hangi Azure portaldan kopyaladığınız.
 
-    d. Not Defteri'nde açın **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz, içeriğini kopyalayın ve ardından yapıştırın **SAML imzalama sertifikası (Base64)** kutusu.
+    d. Not Defteri'nde açın **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz, içeriğini kopyalayın ve ardından yapıştırın **SAML imzalama sertifikası (Base64)** kutusu.
 
     e. **Tamam** düğmesine tıklayın.
 

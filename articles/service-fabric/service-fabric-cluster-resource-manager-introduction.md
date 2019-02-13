@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e3cf87ca49ae39966cffbb768dc1c191991d4036
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096917"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203208"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Service Fabric Küme Kaynak Yöneticisi ile tanışın
 Geleneksel BT sistemleri veya çevrimiçi hizmetleri yönetmek için kullanılan belirli bir fiziksel veya sanal makineler bu belirli hizmetler veya sistemleri ayrılması geliyordu. Hizmet katmanları desteklemesi için. Bir "web" katmanı ve bir "veri" veya "alanı" katmanı olacaktır. Uygulamaları nerede istekleri giriş ve çıkış önbelleğe alma için adanmış makineler kümesi yanı sıra aktarılan bir Mesajlaşma katmanına sahip olması gerekir. Her bir katmanı veya iş yükü türü için ayrılmış belirli makinelere vardı: veritabanı, birkaç web sunucuları dedicated birkaç makineler alındı. Belirli türde bir iş yükü için olan makineleri neden olursa söz konusu katman için daha fazla makine, aynı yapılandırmaya sahip eklemek çok sık erişimli çalıştırın. Ancak, tüm iş yükleri şekilde kolayca ölçeği - özellikle veri katmanı ile genellikle daha büyük makinelere makinelerle değiştirirsiniz. Kolay. Bir makine başarısız olursa, genel uygulama bu bölümü makinesi geri yüklenemedi kadar alt kapasitede çalıştı. Yine de oldukça kolay (değil gerekmeyen eğlenceli varsa).
@@ -43,10 +43,6 @@ Küme Kaynak Yöneticisi düzenleme Service fabric'te işleyen sistem bileşendi
 1. Kuralları zorlama
 2. Ortamınızı en iyi duruma getirme
 3. Diğer işlemlerle yardımcı olma
-
-Küme Kaynak Yöneticisi nasıl çalıştığını görmek için aşağıdaki Microsoft Virtual Academy video izleyin: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
-<img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="what-it-isnt"></a>Ne desteklenmez
 Geleneksel N katmanlı uygulamalarda olduğu her zaman bir [yük dengeleyici](https://en.wikipedia.org/wiki/Load_balancing_(computing)). Bu genellikle bir ağ yük dengeleyicisi (NLB) veya bir uygulama yük dengeleyici (burada, ağ yığınını CTS bağlı olarak ALB) oluştu. Bazı yük Dengeleyiciler F5 Bigıp teklifi gibi donanım tabanlı, diğerleri ise, yazılım tabanlı gibi Microsoft NLB. Diğer ortamlarda, bir şey HAProxy, ngınx, Istio veya Envoy gibi bu rolde görebilirsiniz. Bu mimaride, durum bilgisiz iş yükleri (yaklaşık) aynı miktarda iş aldığınızdan emin olmak için Yük Dengeleme işi silinir. Dengeleme stratejileri, çeşitli yükler. Bazı Dengeleyiciler farklı bir sunucuya farklı her çağrının gönderir. Diğer oturum sabitleme/sürekliliği sağlanır. Daha gelişmiş Dengeleyiciler, beklenen maliyet ve geçerli makine yükü temel alarak bir çağrı yönlendirmek için gerçek yükü tahmini veya Raporlama kullanın.

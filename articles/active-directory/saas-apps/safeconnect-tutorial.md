@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle SafeConnect | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile SafeConnect | Microsoft Docs'
 description: Azure Active Directory ve SafeConnect arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: f011b9ef7229ba1e588e488be8b4fc5b098ee5ac
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cbb94c28d56b0492fe3488d7c9e2e1257a8b9388
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40025164"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183811"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Öğretici: Azure Active Directory SafeConnect ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Öğretici: SafeConnect ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile SafeConnect tümleştirme konusunda bilgi edinin.
 
@@ -59,7 +60,7 @@ Azure AD'de SafeConnect tümleştirmesini yapılandırmak için SafeConnect Gale
 
 **Galeriden SafeConnect eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde ** [Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -83,11 +84,11 @@ Tek iş için oturum açma için Azure AD ne SafeConnect karşılığı kullanı
 
 Yapılandırma ve Azure AD çoklu oturum açma SafeConnect ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on) ** - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) ** - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[SafeConnect test kullanıcısı oluşturma](#create-a-safeconnect-test-user) ** - kullanıcı Azure AD gösterimini bağlı SafeConnect Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) ** - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on) ** - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[SafeConnect test kullanıcısı oluşturma](#create-a-safeconnect-test-user)**  - kullanıcı Azure AD gösterimini bağlı SafeConnect Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -153,7 +154,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-safeconnect-test-user"></a>SafeConnect test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon SafeConnect içinde adlı bir kullanıcı oluşturun. Çalışmak [SafeConnect Destek ekibine](mailto:support@impulse.com) SafeConnect platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Britta Simon SafeConnect içinde adlı bir kullanıcı oluşturun. Çalışmak [SafeConnect Destek ekibine](mailto:support@impulse.com) SafeConnect platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

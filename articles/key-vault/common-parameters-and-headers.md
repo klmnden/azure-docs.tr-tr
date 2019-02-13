@@ -4,7 +4,7 @@ description: Key Vault kaynaklarla ilgili bunu tüm işlemler için ortak üst b
 services: key-vault
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: de9243a0a95c14a048be124976b07853a48a9a08
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3fb11ad74e3d1628cbf3f00e2aae648be3eea437
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075235"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107693"
 ---
 # <a name="common-parameters-and-headers"></a>Ortak parametreler ve üst bilgiler
 
@@ -41,7 +41,7 @@ Hizmet, başarıyı veya başarısızlığı göstermek için HTTP durum kodlar�
      }  
    }  
 
-|Öğe adı | Tür | Açıklama |
+|Öğe adı | Type | Açıklama |
 |---|---|---|
 | kod | dize | Konusu hatanın türü.|
 | message | dize | Hataya neden olan durum açıklaması. |

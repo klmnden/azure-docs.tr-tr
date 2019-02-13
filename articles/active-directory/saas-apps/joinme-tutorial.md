@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle join.me | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile join.me | Microsoft Docs'
 description: Azure Active Directory ve join.me arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: dc393b8701bd72ea7f9de543de33116ea3cb5653
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f61520994bdeeab75b6d26731dee9af15b4ccda6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48871740"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209549"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Öğretici: Azure Active Directory join.me ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Öğretici: Join.me ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile join.me tümleştirme konusunda bilgi edinin.
 
@@ -148,7 +149,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
   
 ### <a name="create-a-joinme-test-user"></a>Join.me test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon join.me içinde adlı bir kullanıcı oluşturun. Çalışmak [join.me Destek ekibine](https://help.join.me/s/?language) join.me platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon join.me içinde adlı bir kullanıcı oluşturun. Çalışmak [join.me Destek ekibine](https://help.join.me/s/?language) join.me platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

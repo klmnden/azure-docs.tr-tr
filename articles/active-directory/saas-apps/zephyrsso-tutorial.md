@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle ZephyrSSO | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile ZephyrSSO | Microsoft Docs'
 description: Azure Active Directory ve ZephyrSSO arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 47bbdc1c50f0d96f1f26d5595a9e54814fa85188
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3be3008367f5c405f65dfd37b4384726ab2456c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307859"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209536"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Öğretici: Azure Active Directory ZephyrSSO ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Öğretici: ZephyrSSO ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile ZephyrSSO tümleştirme konusunda bilgi edinin.
 
@@ -160,7 +161,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
   
 ### <a name="create-a-zephyrsso-test-user"></a>ZephyrSSO test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon ZephyrSSO içinde adlı bir kullanıcı oluşturun. Çalışmak [ZephyrSSO Destek ekibine](https://support.getzephyr.com) ZephyrSSO platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon ZephyrSSO içinde adlı bir kullanıcı oluşturun. Çalışmak [ZephyrSSO Destek ekibine](https://support.getzephyr.com) ZephyrSSO platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

@@ -14,12 +14,13 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 2063f9fcd3e001f4f8f175bd6031c9d31313f9e6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bb89d3eee87c0796bcd21914e719784756bc288e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092205"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165748"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Yardım bulma ve Azure Active Directory için bir destek bileti açın
 Microsoft, genel teknik, satış öncesi, faturalandırma ve abonelik desteği için Azure Active Directory (Azure AD) sağlar. Hem çevrimiçi hem de Microsoft Azure Ücretli ve ücretsiz deneme abonelikleri için telefonla destek kullanılabilir. Telefon ve çevrimiçi faturalandırma desteği, ek dillerde mevcuttur. 

@@ -14,23 +14,26 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277480"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109903"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir ASE oluşturma
 
 ## <a name="overview"></a>Genel Bakış
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure App Service ortamları (ase), İnternet'ten erişilebilen bir uç nokta veya bir iç adresi bir Azure sanal ağı (VNet) içinde bir noktadaki ile oluşturulabilir. Bir iç uç nokta ile oluşturduğunuzda tarafından bir Azure iç yük dengeleyici (ILB) bileşeni olarak adlandırılan bu uç noktaya bulunur. Bir iç IP adresi üzerindeki ASE, ILB ASE olarak adlandırılır. ASE bir genel uç noktası ile dış ASE olarak adlandırılır. 
 
 Azure portal veya Azure Resource Manager şablonu kullanarak bir ASE oluşturulabilir. Bu makalede Resource Manager şablonları ile bir dış ASE veya ILB ASE oluşturmak için ihtiyacınız olan sözdizimini ve adımları gösterilmektedir. Azure portalında bir ASE oluşturmayı öğrenmek için bkz: [dış ASE olun] [ MakeExternalASE] veya [ILB ASE olun][MakeILBASE].
 
 Azure portalında bir ASE oluşturduğunuzda, sanal ağınızı aynı anda oluşturmak ya da uygulamasına dağıtmak için önceden var olan bir VNet seçin. Şablondan ASE oluşturma zaman ile başlaması gerekir: 
 
-* Bir Resource Manager sanal ağı.
+* A Resource Manager VNet.
 * Bu sanal ağ içindeki alt ağ. Bir ASE alt ağ boyutunu öneririz `/24` gelecekteki büyümeye ve ölçekleme gereksinimlerine uyum sağlamak için 256 adreslerine sahip. ASE oluşturulduktan sonra boyutunu değiştiremezsiniz.
 * Ağınızdan kaynak kimliği. Bu bilgiler, sanal ağ özellikleri altında Azure portalından alabilirsiniz.
 * Uygulamasına dağıtmak istediğiniz abonelik.
@@ -60,7 +63,7 @@ Sonra *azuredeploy.parameters.json* PowerShell kod parçacığını kullanarak A
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 Bu işlem yaklaşık bir saat ASE, oluşturulmaya götürür. Ardından ASE Ase'ler listesi için dağıtım tetiklenen abonelik portalında gösterilir.
@@ -146,7 +149,7 @@ Sonra *azuredeploy.parameters.json* dosya doldurulur, PowerShell kod parçacığ
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 Değişikliği uygulamak için ön uç ASE başına yaklaşık 40 dakika sürer. Örneğin, iki ön uçlar kullanan bir varsayılan boyutlu ASE'yi için tamamlanması yaklaşık bir saat ve 20 dakika şablonunu alır. Şablon çalışırken, ASE ölçeklendirilemez.  

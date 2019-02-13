@@ -1,10 +1,10 @@
 ---
-title: Azure güvenlik genel bakış | Microsoft Docs
-description: Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik sorularınıza Azure güvenliği için yerdir.
+title: Azure güvenliğine genel bakış | Microsoft Docs
+description: Azure.com Microsoft Azure güvenlik bilgileri sitesinde teknik sorularınızın yanıtlarını Azure güvenliği için yerdir.
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2fd82e9f-7072-4548-a888-82bd7e9c729c
 ms.service: security
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 1b89679d88e3e4ce9912da81faebfccfcf23096f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752189"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110294"
 ---
 # <a name="azure-security-overview"></a>Azure güvenliğine genel bakış
 
-Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik sorularınıza Azure güvenliği için yerdir. Azure uyumluluk ve Azure kendi altyapısını nasıl korur ilgileniyorsanız, ziyaret [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+Azure.com Microsoft Azure güvenlik bilgileri sitesinde teknik sorularınızın yanıtlarını Azure güvenliği için yerdir. Azure uyumluluk ve Azure'nın kendi altyapısını nasıl korur ilgileniyorsanız, ziyaret [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
-Güvenlik bulutta iş ve nasıl önemli Azure güvenliği hakkında doğru ve güncel bilgi bulma olduğunu olduğunu biliyoruz. Çeşitli güvenlik araçları ve yetenekler yararlanmak için uygulamalar ve hizmetler için Azure kullanmak için en iyi nedenlerinden biridir. Bu araçları ve yetenekleri güvenli Azure platformunda güvenli çözümler oluşturmak mümkün kılar yardımcı olur.
+Güvenlik bulutta iş ve nasıl önemli Azure güvenliği hakkında doğru ve güncel bilgi bulmak olduğunu olduğunu biliyoruz. Azure uygulamaları ve Hizmetleri için kullanılacak en iyi nedenlerden biri dolayısıyla çeşit güvenlik araçları ve özellikleri yararlanmak sağlamaktır. Güvenli Azure platformunda güvenli çözümleri kolayca oluşturmasına olanak sağlar, bu araçları ve özellikleri yardımcı olur.
 
-Bu sayfa ve bu site, yeni Azure Hizmetleri çevrimiçi olması ve var olan hizmetleri güncelleştirilir gelişmesi. Güvenlik tekliflerimiz sürekli geliştirmek ve bu geliştirmelerine teknik ayrıntıları paylaşmak. Bu siteye düzenli olarak dönün ve nelerin yeni olduğunu görmek öneririz!
+Bu sayfada ve bu site, yeni Azure hizmetlerini çevrimiçi olması ve var olan hizmetleri güncelleştirildi evrilir. Güvenlik tekliflerimizi sürekli gelişir ve biz de bu geliştirmelerine teknik ayrıntılarını sahip olacaksınız. Bu siteye düzenli olarak iade ve nelerin yeni olduğunu görmek önerilir!
 
-## <a name="using-the-azure-security-information-site"></a>Site Azure güvenlik bilgileri kullanma
+## <a name="using-the-azure-security-information-site"></a>Azure güvenlik bilgileri sitesinde kullanma
 
-Sayfanın sol tarafında baktığınızda, güvenlik konuları kategorilerini koleksiyonu bakın. ' A tıklayın veya bu kategori için sahip olduğumuz makaleleri görmek için konuya dokunun.
+Sayfanın sol tarafında baktığınızda kategorileri güvenlik konuları koleksiyonunu bakın. Tıklayarak veya dokunarak konu kategori sahibiz makalelerine bakın.
 
-Her kategoride bir genel bakış makalesi vardır. Genel Bakış makalesi Azure bu kategori için güvenlik açısından sunmak sahip özetini sağlamak üzere hedefidir. Genel Bakış makaleler ürünleri, hizmetleri ve özellikler, dağıtımlarınızın güvenliğini artırmak için kullanabileceğiniz Azure'da anlamanıza yardımcı. Böylece konuları ve bunların nasıl uygulandığı hakkında daha fazla bilgiyi bu genel bakış makaleler teknik içeriği çok sayıda bağlantılar içerir.
+Her kategorinin bir genel bakış makalesi vardır. Genel Bakış makalenin hedefi Azure kategori için güvenlik açısından sunmak olan bir özeti, sağlamaktır. Genel Bakış makalelerini ürünleri, hizmetleri ve özellikler, dağıtımlarınızın güvenliğini artırmak için kullanabileceğiniz Azure'da anlamanıza yardımcı olur. Konular ve bunların nasıl uygulanacağı hakkında daha fazla bilgi için bu genel bakış makalelerini teknik içerik çok sayıda bağlantılar içerir.
 
 Azure güvenlik bilgileri site şu anda aşağıdaki kategorilerde ele alır:
 
@@ -45,12 +45,12 @@ Azure güvenlik bilgileri site şu anda aşağıdaki kategorilerde ele alır:
 * Güvenlik yönetimi ve izleme
 * Kimlik yönetimi
 * PaaS hizmetleri
-* Endüstri belirli
+* Sektöre özgü
 * Mimari
 
 > [!NOTE]
-> Azure güvenlik bilgileri sitede sahip olduğumuz tüm makaleler sayfanın sol taraftaki gezinti bölmesinde görünür. Tüm makaleler görmek istiyorsanız, tıklayın veya dokunun **daha görmek** alt kategorileri listesi.
+> Azure güvenlik bilgileri sitesinde sahibiz tüm makaleler sayfanın sol tarafındaki gezinti görünür. Tüm makaleler görmek istiyorsanız, tıklayın veya dokunun **daha fazla** kategori listesinin sonuna.
 >
 >
 
-Giriş istiyoruz! Kategoriler varsa eklenmesini istediğiniz, bize bildirin! Var olan bir kategori eklenmesini istediğiniz makaleleri varsa, bize, çok bildirin! Aşağıdaki Açıklamalar bölümüne kullanın veya adresinden bize yazma [ azsecinfosite@microsoft.com ](mailto:azsecinfosite@microsoft.com) ve biz önerilerinizi planlarımızı dahil.
+Girişinizi istiyoruz! Kategorileri varsa eklenmesini istediğiniz, bize bildirin! Var olan bir kategori eklenmesini istediğiniz makaleleri varsa bize, çok bildirin! Aşağıdaki yorumlar bölümünü kullanın veya numaralı telefondan bizi yazma [ azsecinfosite@microsoft.com ](mailto:azsecinfosite@microsoft.com) ve biz önerilerinizi planlarımızı birleştirmek.

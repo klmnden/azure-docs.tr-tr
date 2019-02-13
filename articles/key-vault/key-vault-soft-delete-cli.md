@@ -2,17 +2,17 @@
 title: Azure Key Vault - CLI ile geçici silmeyi kullanma
 description: Geçici silmeyi CLI kod parçalarını ile büyük/küçük harf örnekleri kullan
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663953"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116732"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault geçici silmeyi CLI ile kullanma
 
@@ -226,5 +226,5 @@ Silinen anahtar kasasını nesnelerin listesini, ayrıca, bunlar Key Vault taraf
 ## <a name="other-resources"></a>Diğer kaynaklar
 
 - Key Vault geçici silme özelliği genel bakış için bkz. [Azure Key Vault geçici silmeyi genel bakış](key-vault-ovw-soft-delete.md).
-- Azure Key Vault kullanımı genel bir bakış için bkz: [Azure anahtar kasası ile çalışmaya başlama](key-vault-get-started.md).
+- Azure Key Vault kullanımı genel bir bakış için bkz: [Azure anahtar kasası nedir?](key-vault-overview.md).
 

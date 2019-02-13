@@ -4,7 +4,7 @@ description: Kullanıcılarınızın erişim etkinliğini ve kimlikle ilgili sor
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012080"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105561"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Kimlik ve erişim (Önizleme) Azure Güvenlik Merkezi'nde izleme
 Bu makale kullanıcılarınızın kimliğini ve erişim etkinliğini izleme amacıyla Azure Güvenlik Merkezi'ni kullanmanıza yardımcı olur.
@@ -118,7 +118,7 @@ Aşağıdaki tabloda kullanılabilir kimlik ve erişim öneriler ve uygulamanız
 |Abonelik|20|Sahip izinleri ile kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Sahip izinleri ile kullanım dışı bırakılmış hesapların aboneliklerinizden kaldırın.|
 |Abonelik|5|Kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Kullanım dışı bırakılmış hesapların aboneliklerinizden yalnızca geçerli kullanıcılara erişimi etkinleştirmek için kaldırın. |
 |Abonelik|5|Aboneliğinizde birden çok sahip belirleyin|Yönetici erişimi fazlalığı sağlamak için birden fazla abonelik sahibi belirleyin.|
-|Abonelik|5|Aboneliğinizde en fazla 3 sahipleri belirleyin|Güvenliği aşılmış bir sahip tarafından ihlal olasılığını azaltmak için 3'ten az abonelik sahipleri belirleyin.|
+|Abonelik|5|Aboneliğinizde en fazla 3 sahip belirleyin|Güvenliği aşılmış bir sahip tarafından ihlal olasılığını azaltmak için 3'ten az abonelik sahipleri belirleyin.|
 |Key Vault|5|Anahtar Kasası'nda tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
 |Abonelik|15|Okuma izinleri olan dış hesapları aboneliğinizden kaldırın|Okuma ayrıcalıklarına sahip dış hesapların aboneliğinizden izlenmeyen erişimi engellemek için kaldırın.|
 |Abonelik|1|Güvenlik ilgili kişi bilgilerini belirtin|Her aboneliğiniz için güvenlik kişi bilgilerini sağlayın. Bir e-posta adresi ve telefon numarası iletişim bilgileridir. Bilgileri güvenlik ekibimizin kaynaklarınızın tehlikede olduğunu tespit olursa sizinle iletişim kurmak için kullanılır|

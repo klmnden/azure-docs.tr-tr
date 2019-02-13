@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 26268c892b0e900c410cd669454b8b6f02ee8886
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211925"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102598"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure yönetilen disklere genel bakış
 
@@ -71,19 +71,19 @@ Premium yönetilen disk için kullanılabilir disk boyutları İşte, yıldız i
 
 | **Yönetilen premium SSD <br>Disk türü** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Disk Boyutu        | 32 GiB  | 64 GiB  | 128 GiB | 256 giB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
+| Disk Boyutu        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
 
 İşte yönetilen disk için bir standart SSD disk boyutu, bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır:
 
-| **Standart SSD yönetilen <br>Disk türü** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
-|------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Disk Boyutu        | 128 GiB | 256 giB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
+| **Standart SSD yönetilen <br>Disk türü** | **E4** | **E6** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Disk Boyutu        | 32 GiB | 64 GiB | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
 
 İşte yönetilen disk için standart bir HDD kullanılabilir disk boyutu, bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır:
 
 | **Yönetilen standart HDD <br>Disk türü** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Disk Boyutu        | 32 GiB  | 64 GiB  | 128 GiB | 256 giB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
+| Disk Boyutu        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
 
 **İşlem sayısı**: Standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılırsınız.
 

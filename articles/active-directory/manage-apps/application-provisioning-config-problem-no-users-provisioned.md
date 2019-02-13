@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: e4a33aba906fe782c4c13760aa033fce5c1fe1d9
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a6e74ad04f10865a830d27c1814be10eeff3ad59
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964636"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182978"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Azure AD galeri uygulaması için hiçbir kullanıcı sağlanmıyor
 Otomatik sağlama (uygulamaya bağlanmak için Azure AD'ye sağlanan uygulama kimlik bilgilerinin geçerli olduğunu doğrulama dahil) bir uygulama için yapılandırıldıktan sonra uygulamaya kullanıcı ve/veya grupları sağlanır. Sağlama aşağıdakiler tarafından belirlenir:

@@ -13,12 +13,13 @@ ms.subservice: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f80eadf15148865f62e2d0f51e2e9d96ac4d147a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8c7b3905d05e62bd3f11ef4de7f966e6bf9340f0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190539"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178915"
 ---
 # <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>PIM'de erişim gözden geçirmesi Azure AD dizin rollerim gerçekleştirin
 Azure Active Directory (AD) Privileged Identity Management, kuruluşlara ayrıcalıklı Azure ad'deki ve Office 365 veya Microsoft Intune gibi diğer Microsoft çevrimiçi hizmetlerine erişimi yönetme basitleştirir.  

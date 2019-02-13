@@ -16,12 +16,13 @@ ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6df19f8d20853b569a2bc357e6c1115976a7de2c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 716f48a5db437ef1dc865aca66fbac1c1d51aec3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097980"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207441"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>Azure Active Directory v2.0 ve OAuth 2.0 kaynak sahibi parola kimlik bilgisi
 
@@ -58,10 +59,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| `tenant` | Gereklidir | Kullanıcının oturumunu günlüğe kaydetmek istediğiniz dizin Kiracı. Bu GUID veya kolay adı biçiminde olabilir. Bu parametre değerine ayarlanamaz `common` veya `consumers`, ancak ayarlanmış olabilir `organizations`. |
-| `grant_type` | Gereklidir | Ayarlanmalıdır `password`. |
-| `username` | Gereklidir | Kullanıcının e-posta adresi. |
-| `password` | Gereklidir | Kullanıcının parolası. |
+| `tenant` | Gerekli | Kullanıcının oturumunu günlüğe kaydetmek istediğiniz dizin Kiracı. Bu GUID veya kolay adı biçiminde olabilir. Bu parametre değerine ayarlanamaz `common` veya `consumers`, ancak ayarlanmış olabilir `organizations`. |
+| `grant_type` | Gerekli | Ayarlanmalıdır `password`. |
+| `username` | Gerekli | Kullanıcının e-posta adresi. |
+| `password` | Gerekli | Kullanıcının parolası. |
 | `scope` | Önerilen | Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md), ya da uygulamanın gerektirdiği izinler. Bu kapsam için önceden bir yönetici veya etkileşimli bir iş akışında kullanıcı onaylı gerekir. |
 
 ### <a name="successful-authentication-response"></a>Başarılı kimlik doğrulaması yanıtını
@@ -81,7 +82,7 @@ Aşağıda, başarılı bir token yanıt örneğini gösterilmiştir:
 
 | Parametre | Biçimlendir | Açıklama |
 | --------- | ------ | ----------- |
-| `token_type` | Dize | Her zaman `Bearer`. |
+| `token_type` | String | Her zaman `Bearer`. |
 | `scope` | Ayrılmış boşluk dizeleri | Bu parametre, bir erişim belirteci döndürdüyse kapsamlar için erişim belirteci geçerliyse listeler. |
 | `expires_in`| int | Dahil edilen erişim belirteci için geçerli olan saniye sayısı. |
 | `access_token`| Donuk dize | Çıkarılan [kapsamları](v2-permissions-and-consent.md) , istendi. |

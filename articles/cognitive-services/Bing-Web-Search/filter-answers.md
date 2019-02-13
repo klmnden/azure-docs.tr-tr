@@ -9,18 +9,18 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 945f89633060df7f57aa937be392149340acc21d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856011"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199502"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Arama yanıtı içeren yanıtlar filtreleme  
 
-Web sorguladığınızda, Bing, gördüğü tüm içeriği aramayla ilgili döndürür. Örneğin, arama sorgusu "yelken açmaya ne dersiniz + dinghies" ise, yanıt aşağıdaki soruların yanıtlarını içerebilir:
+Web sorguladığınızda, Bing arama bulduğu tüm ilgili içeriği döndürür. Örneğin, arama sorgusu "yelken açmaya ne dersiniz + dinghies" ise, yanıt aşağıdaki soruların yanıtlarını içerebilir:
 
 ```json
 {
@@ -44,8 +44,16 @@ Web sorguladığınızda, Bing, gördüğü tüm içeriği aramayla ilgili dönd
     }
 }    
 ```
+(Örnek görüntüleri, videolar ve haberler için) alırsınız içerik türlerini kullanarak filtreleyebilirsiniz [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) sorgu parametresi. Bing, ilgili içeriği için belirtilen yanıtları bulursa, döndürülür. Yanıt filtresi yanıtların virgülle ayrılmış bir listedir. 
 
-Belirli türlerdeki içerik görüntü, video ve haber gibi ilginizi çekiyorsa kullanarak yalnızca bu yanıtlar isteyebilirsiniz [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) sorgu parametresi. Bing, Bing, ilgili içeriği için belirtilen yanıtları bulursa, onu döndürür. Yanıt filtresi yanıtların virgülle ayrılmış bir listedir. Aşağıdakileri nasıl kullanılacağını gösterir `responseFilter` isteği görüntüleri, videolar ve Haberler Yelkenli dinghies. Sorgu dizesini kodlayın, virgül, %2 C değiştirin.  
+Belirli türlerdeki görüntüleri gibi içerikleri yanıttan dışlanacak ekleyebileceğiniz bir `-` başlangıcına karakter `responseFilter` değeri. Dışlanan türler virgül ile ayırın (`,`). Örneğin:
+
+```
+&responseFilter=-images,-videos
+```
+
+
+Aşağıdakileri nasıl kullanılacağını gösterir `responseFilter` isteği görüntüleri, videolar ve Haberler Yelkenli dinghies. Sorgu dizesini kodlayın, virgül, %2 C değiştirin.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -57,7 +65,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Aşağıda, bir önceki sorgunun yanıtı gösterilmektedir. Gördüğünüz gibi yanıt onları içermez. Bu nedenle Bing ilgili video ve haber sonuçları bulunamadı.
+Aşağıda, bir önceki sorgunun yanıtı gösterilmektedir. İlgili video ve haber sonuçları Bing bulamadı çünkü yanıt onları içermez.
 
 ```json
 {
@@ -80,12 +88,6 @@ Aşağıda, bir önceki sorgunun yanıtı gösterilmektedir. Gördüğünüz gib
         }
     }
 }
-```
-
-Gelen yanıt içeriği, resimler gibi belirli türlerdeki dışlamak istiyorsanız, kısa çizgi (eksi) responseFilter değere ön eki ile hariç tutabilirsiniz. Virgül ile ayrı dışlanan türleri:
-
-```
-&responseFilter=-images,-videos
 ```
 
 Bing video ve haber sonuçları önceki yanıtta döndürmedi olsa da, video ve haber içeriği yok gelmez. Yalnızca sayfanın bunları eklemediğiniz anlamına gelir. Ancak, varsa, [sayfa](./paging-webpages.md) daha fazla sonuç, sonraki sayfalarda büyük olasılıkla bunları verilebilir. Ayrıca, eğer [Video arama API'si](../bing-video-search/search-the-web.md) ve [haber arama API'si](../bing-news-search/search-the-web.md) doğrudan uç noktaları yanıt sonuçları büyük olasılıkla içerecektir.

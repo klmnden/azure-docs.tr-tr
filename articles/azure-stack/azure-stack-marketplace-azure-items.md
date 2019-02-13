@@ -16,12 +16,12 @@ ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: c9f6ad48f6c2e3b2ed60833f0cba111cc96a8a54
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b48977cb2d8aa56c48b276475ac5205456022d99
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240769"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118539"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -89,7 +89,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![CoreOS tarafından Linux kapsayıcısı](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS tarafından Linux kapsayıcısı](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Kapsayıcı Linux kapsayıcıları çalıştırmak, kümeleri yönetmek ve sunucularınızı sorunsuz bir şekilde güncelleştirmek için kolay bir yol sağlayan bir modern ve minimal Linux dağıtımı olan - ambar ölçeğinde işlemleri etkinleştiren tüm bileşenleri işlem. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu, dünyanın en popüler Linux bulut ortamları için sunucusudur. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux en popüler Linux dağıtımları biridir. | credativ |
-| ![CentOS tabanlı 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic)  |
+| ![CentOS tabanlı 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 6.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased65) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic)  |
 | ![CentOS tabanlı 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic)  |
 | ![CentOS tabanlı 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic) |
 | ![CentOS tabanlı 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic) |

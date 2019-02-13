@@ -6,17 +6,17 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 13525fffb7e6720fe81759876ffd0fe71559279c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252328"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182859"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack veri merkezi tümleştirmesi - DNS
 Azure Stack uç noktaları erişebilmesi için (**portalı**, **adminportal**, **Yönetim**, **adminmanagement**vb..)  Dış Azure yığını, Azure Stack'te kullanmak istediğiniz DNS bölgeleri barındıran bir DNS sunucuları ile Azure Stack DNS hizmetleri tümleştirmeniz gerekir.
@@ -114,9 +114,9 @@ Azure Stack DNS sunucuları için FQDN'lerin aşağıdaki biçime sahiptir:
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-Bu bilgiler ayrıca sonunda, tüm Azure Stack dağıtımlarda adlı bir dosya oluşturulur `AzureStackStampDeploymentInfo.json`. Bu dosya bulunan `C:\CloudDeployment\logs` dağıtım sanal makinenin klasör. Azure Stack dağıtımınız için değerleri kullanılan emin değilseniz, buradan değerleri alabilirsiniz.
+Bu bilgiler ayrıca sonunda, tüm Azure Stack dağıtımlarda adlı bir dosya oluşturulur `AzureStackStampInformation.json`. Bu dosya bulunan `C:\CloudDeployment\logs` dağıtım sanal makinenin klasör. Azure Stack dağıtımınız için değerleri kullanılan emin değilseniz, buradan değerleri alabilirsiniz.
 
-Dağıtım sanal makine artık kullanılamaz veya erişilemez durumda, ayrıcalıklı uç noktaya bağlanmak ve çalıştırarak değerlerini edinebilirsiniz `Get-AzureStackInfo` PowerShell cmdlet'i. Daha fazla bilgi için [ayrıcalıklı uç nokta](azure-stack-privileged-endpoint.md).
+Dağıtım sanal makine artık kullanılamaz veya erişilemez durumda, ayrıcalıklı uç noktaya bağlanmak ve çalıştırarak değerlerini edinebilirsiniz `Get-AzureStackStampInformation` PowerShell cmdlet'i. Daha fazla bilgi için [ayrıcalıklı uç nokta](azure-stack-privileged-endpoint.md).
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Azure Stack koşullu iletme ayarlama
 

@@ -4,7 +4,7 @@ description: AD için Key Vault'u kullanarak kimlik doğrulaması
 services: key-vault
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 4d897512e5c53222cb77906200e1a33e2eeec78e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 57f04a79396cd286ea87e6a8cc7b37f5459fa14c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074062"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111535"
 ---
 # <a name="authentication-requests-and-responses"></a>Kimlik doğrulaması, istekler ve yanıtlar
 
@@ -91,7 +91,7 @@ Bu konu, Azure Key Vault hizmeti için özellikleri kapsar. Azure REST arabiriml
 
 ```  
 
-## <a name="authentication"></a>Kimlik Doğrulaması  
+## <a name="authentication"></a>Authentication  
  Tüm istekler için Azure anahtar kasası gerekir. kimlik doğrulaması. Azure Key Vault, oauth2'yi kullanarak elde edilebilir Azure Active Directory erişim belirteçleri destekleyen [[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
  
  Uygulamanızı kaydetmek ve Azure anahtar kasası kullanılacak kimlik doğrulaması hakkında daha fazla bilgi için bkz. [istemci uygulamanızı Azure AD'ye kaydetme](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).

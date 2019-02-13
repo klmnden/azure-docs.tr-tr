@@ -12,14 +12,15 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241681"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209753"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Nasıl yapılır: bir kiracıdaki (Önizleme) belirli bir uygulamayı belirteçlerinde yayılan talep özelleştirme
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Nasıl yapılır: Bir kiracıdaki (Önizleme) belirli bir uygulamayı belirteçlerinde yayılan talep özelleştirme
 
 > [!NOTE]
 > Bu özellik değiştirir ve yerine geçen [özelleştirme talep](active-directory-saml-claims-customization.md) bugün Portalı aracılığıyla sunulan. Bu belgede ayrıntılandırılan graf/PowerShell yöntemin yanı sıra portalı kullanarak talep özelleştirirseniz aynı uygulama için uygulama yapılandırma Portalı'nda yoksayacak verilen belirteçler. Bu belgede ayrıntılandırılan yöntemleri aracılığıyla yapılan yapılandırmalar portalda yansıtılmaz.
@@ -49,7 +50,7 @@ Belirli nasıl ve ne zaman belirteçlerinde kullanıldıklarından tanımlayan t
 | Temel talep kümesi | Belirteçleri (ek olarak çekirdek talep kümesi) için varsayılan olarak yayılan talepleri içerir. İlkeleri eşleme talep kullanarak talepleri temel değiştirmek ya da atlayın. |
 | Kısıtlı talep kümesi | İlke kullanılarak değiştirilemez. Veri kaynağı değiştirilemez ve hiçbir dönüştürme yapılmadı, bu talepler oluştururken uygulanır. |
 
-### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tablo 1: JSON Web Token (JWT) talep kümesi kısıtlanmış.
+### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tablo 1: JSON Web Token (JWT) talep kümesi kısıtlı
 
 |Talep türü (ad)|
 | ----- |
@@ -86,7 +87,7 @@ Belirli nasıl ve ne zaman belirteçlerinde kullanıldıklarından tanımlayan t
 |cloud_graph_host_name|
 |cloud_instance_name|
 |cnf|
-|Kod|
+|kod|
 |denetimler|
 |credential_keys|
 |CSR|
@@ -133,7 +134,7 @@ Belirli nasıl ve ne zaman belirteçlerinde kullanıldıklarından tanımlayan t
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
 |nameıd|
-|NBF|
+|nbf|
 |netbios_name|
 |nonce|
 |OID|
@@ -184,7 +185,7 @@ Belirli nasıl ve ne zaman belirteçlerinde kullanıldıklarından tanımlayan t
 |wids|
 |win_ver|
 
-### <a name="table-2-saml-restricted-claim-set"></a>Tablo 2: SAML talep kümesi kısıtlanmış.
+### <a name="table-2-saml-restricted-claim-set"></a>Tablo 2: SAML talep kümesi kısıtlı
 
 |Talep türü (URI)|
 | ----- |
@@ -243,9 +244,9 @@ Hangi talepleri gönderilir ve verilerin nereden geldiğini denetlemek için bir
 
 **Dize:** IncludeBasicClaimSet
 
-**Veri türü:** Boolean (True veya False)
+**Veri türü:** Boole (True veya False)
 
-**Özet:** bu özellik, bu ilkeden etkilenen belirteçleri temel talep kümesine dahil olup olmadığını belirler. 
+**Özet:** Bu özellik, bu ilkeden etkilenen belirteçleri temel talep kümesine dahil olup olmadığını belirler. 
 
 - TRUE olarak temel talep kümesindeki tüm talepler ilkeden etkilenen belirteçlerinde çıkarılırsa. 
 - Tek tek aynı ilkeyi talep şema özelliğinde eklenen sürece temel talep kümesine talep False olarak ayarlanırsa belirteçleri, değilse.
@@ -257,31 +258,31 @@ Hangi talepleri gönderilir ve verilerin nereden geldiğini denetlemek için bir
 
 **Dize:** ClaimsSchema
 
-**Veri türü:** JSON blob bir veya daha fazla talep şema girişi
+**Veri türü:** Bir veya daha fazla talep şema girişi JSON blob
 
-**Özet:** çekirdek talep kümesini ve hangi taleplerin ilke tarafından ayrıca temel talep kümesine etkilenen belirteçleri varsa bu özelliği tanımlar.
+**Özet:** Bu özellik, hangi taleplerin temel talep kümesine hem de çekirdek talep kümesine ek olarak, ilke tarafından etkilenen simgelerin yok tanımlar.
 Bu özellikte tanımlanan her talep şema giriş için belirli bilgileri gereklidir. Gelen verilerin nereden geldiğini belirtin (**değer** veya **kaynak/ID çifti**), ve hangi veri talep olarak gösterilir (**talep türü**).
 
 ### <a name="claim-schema-entry-elements"></a>Talep şema girişi öğeleri
 
-**Değer:** Değer öğesini talebi yayılan verileri olarak statik bir değer tanımlar.
+**Değer:** Değer öğesini statik bir değer olarak talebi yayılan verileri tanımlar.
 
-**Kaynak/ID çifti:** kaynak ve kimliği öğeleri tanımlamak gelen talep verileri nereden kaynaklanıyor. 
+**Kaynak/çifti kimliği:** Gelen talep verileri nerede kaynağı kaynak ve kimliği öğelerini tanımlayın. 
 
 Kaynak öğesi aşağıdaki değerlerden birine ayarlayın: 
 
-- "kullanıcı": talep verileri kullanıcı nesnesindeki bir özelliktir. 
-- "uygulama": talep verileri uygulama (istemci) hizmet sorumlusu üzerindeki bir özelliktir. 
-- "kaynak": talep verileri kaynak hizmet sorumlusu üzerindeki bir özelliktir.
-- "audience": talep verileri hedef kitlesi belirtecin (istemci veya kaynak hizmet sorumlusu) hizmet sorumlusu üzerindeki bir özelliktir.
-- "Şirket": talep verileri kaynak kiracının şirket nesne üzerindeki bir özelliktir.
-- "dönüştürme": talepleri dönüştürme talep verilerdir (Bu makalenin sonraki bölümlerinde "talep dönüştürme" bölümüne bakın).
+- "kullanıcı": Kullanıcı nesnesindeki bir özellik talep verilerdir. 
+- "uygulama": Talep verileri, uygulama (istemci) hizmet sorumlusu üzerindeki bir özelliktir. 
+- "kaynak": Talep verileri kaynak hizmet sorumlusu üzerindeki bir özelliktir.
+- "audience": Talep verileri hedef kitlesi belirtecin (istemci veya kaynak hizmet sorumlusu) hizmet sorumlusu üzerindeki bir özelliktir.
+- "Şirket": Talep verileri kaynak kiracının şirket nesne üzerindeki bir özelliktir.
+- "dönüştürme": Talep dönüştürme talep verilerdir (Bu makalenin sonraki bölümlerinde "talep dönüştürme" bölümüne bakın).
 
 Kaynak, dönüştürme işlemi ise **TransformationID** öğesi bu talep tanımında de dahil edilir.
 
 Kaynak hangi özelliğinin değeri için talep sağlar. kimlik öğesi tanımlar. Aşağıdaki tabloda, her kaynak değeri için geçerli kimlik değerleri listelenmektedir.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tablo 3: Geçerli kimlik değerleri kaynak başına
+#### <a name="table-3-valid-id-values-per-source"></a>Tablo 3: Kaynak başına geçerli kimlik değerleri
 
 |Kaynak|Kimlik|Açıklama|
 |-----|-----|-----|
@@ -294,7 +295,7 @@ Kaynak hangi özelliğinin değeri için talep sağlar. kimlik öğesi tanımlar
 |Kullanıcı|Bölüm|Bölüm|
 |Kullanıcı|onpremisessamaccountname|Şirket içi Sam hesabı adı|
 |Kullanıcı|netbiosname|NetBIOS adı|
-|Kullanıcı|DNSEtkiAlanıAdı|DNS etki alanı adı|
+|Kullanıcı|dnsdomainname|DNS etki alanı adı|
 |Kullanıcı|onpremisesecurityidentifier|Şirket içi güvenlik tanımlayıcısı|
 |Kullanıcı|Şirket adı|Kuruluş Adı|
 |Kullanıcı|streetAddress|Posta Adresi|
@@ -329,7 +330,7 @@ Kaynak hangi özelliğinin değeri için talep sağlar. kimlik öğesi tanımlar
 |Uygulama, kaynak, hedef kitle|etiketler|Hizmet sorumlusu etiketi|
 |Şirket|tenantcountry|Kiracının ülke|
 
-**TransformationID:** yalnızca kaynak öğesi "Dönüşümü" olarak ayarlanırsa TransformationID öğesi sağlanmalıdır.
+**TransformationID:** Yalnızca kaynak öğesi "Dönüşümü" olarak ayarlanırsa TransformationID öğesi sağlanmalıdır.
 
 - Bu öğe dönüştürme girişin kimlik öğesi eşleşmelidir **ClaimsTransformation** özelliği bu talep verileri nasıl oluşturulacağını tanımlar.
 
@@ -345,13 +346,13 @@ Kaynak hangi özelliğinin değeri için talep sağlar. kimlik öğesi tanımlar
 
 **Dize:** ClaimsTransformation
 
-**Veri türü:** bir veya daha fazla dönüştürme girişi JSON blob 
+**Veri türü:** Bir veya daha fazla dönüştürme girişi JSON blob 
 
-**Özet:** kaynak verileri, talepleri talep şemasında belirtilen için çıktı verilerini oluşturmak için yaygın dönüşümleri uygulamak için bu özelliği kullanın.
+**Özet:** Kaynak verileri, talepleri talep şemasında belirtilen için çıktı verilerini oluşturmak için yaygın dönüşümleri uygulamak için bu özelliği kullanın.
 
-**ID:** bu dönüştürme giriş TransformationID talep şema giriş başvurmak için kimlik öğesi kullanın. Bu değer, bu ilke içinde her dönüştürme giriş için benzersiz olmalıdır.
+**KİMLİĞİ:** Bu dönüştürme giriş TransformationID talep şema giriş başvurmak için kimlik öğesi kullanın. Bu değer, bu ilke içinde her dönüştürme giriş için benzersiz olmalıdır.
 
-**TransformationMethod:** tanımlayan TransformationMethod öğe talebi için verileri oluşturmak için hangi işlem gerçekleştirilir.
+**TransformationMethod:** Tanımlayan TransformationMethod öğe talebi için verileri oluşturmak için hangi işlem gerçekleştirilir.
 
 Seçtiğiniz yönteme bağlı olarak, bir dizi giriş ve çıkışları bekleniyor. Giriş ve çıkışları kullanarak tanımladığınız **InputClaims**, **InputParameters** ve **OutputClaims** öğeleri.
 
@@ -362,26 +363,26 @@ Seçtiğiniz yönteme bağlı olarak, bir dizi giriş ve çıkışları bekleniy
 |Birleştir|dize1 dize2, ayırıcı|outputClaim|Birleştirmeler arasında bir ayırıcı kullanarak dizeleri girin. Örneğin: Dize1: "foo@bar.com", dize2: "korumalı alan", ayırıcı: "." outputClaim sonuçları: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|posta|outputClaim|Yerel bir e-posta adresi bölümünü ayıklar. Örneğin: posta: "foo@bar.com" outputClaim sonuçları: "foo". Hayır ise \@ oturum varsa ve ardından özgün giriş dizesi olarak döndürülür.|
 
-**InputClaims:** InputClaims öğenin veri dönüştürme için bir talep şema girdisinden geçirmek için kullanın. İki öznitelikleri: **ClaimTypeReferenceId** ve **TransformationClaimType**.
+**InputClaims:** Veri dönüştürme için bir talep şema girdisinden geçirmek için bir InputClaims öğesini kullanın. Bu iki öznitelikleri: **ClaimTypeReferenceId** ve **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** uygun giriş talep bulmak için talep şema giriş öğesinin kimliği ile birleştirilir. 
 - **TransformationClaimType** bu giriş için benzersiz bir ad vermek için kullanılır. Bu ad, dönüştürme yöntemi için beklenen girişleri biriyle eşleşmelidir.
 
-**InputParameters:** InputParameters öğenin dönüştürme için sabit bir değer geçirmek için kullanın. İki öznitelikleri: **değer** ve **kimliği**.
+**InputParameters:** Dönüştürme için sabit bir değer geçirmek için bir InputParameters öğesini kullanın. Bu iki öznitelikleri: **Değer** ve **kimliği**.
 
 - **Değer** geçirilecek gerçek sabit değer.
 - **Kimliği** girişi benzersiz bir ad vermek için kullanılır. Adı bir dönüştürme yöntemi için beklenen girişleri eşleşmelidir.
 
-**OutputClaims:** dönüştürme tarafından oluşturulan verileri tutmak için bir OutputClaims öğesini kullanın ve bir talep şema girişine bağlayın. İki öznitelikleri: **ClaimTypeReferenceId** ve **TransformationClaimType**.
+**OutputClaims:** Bir talep şema girişine bağlayın ve OutputClaims öğenin dönüştürme tarafından oluşturulan verileri tutmak için kullanın. Bu iki öznitelikleri: **ClaimTypeReferenceId** ve **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** uygun çıkış talep bulmak için şema giriş talep Kimliğini ile birleştirilir.
 - **TransformationClaimType** çıkış için benzersiz bir ad vermek için kullanılır. Adı dönüştürme yöntemi için beklenen çıkış biriyle eşleşmelidir.
 
 ### <a name="exceptions-and-restrictions"></a>Özel durumlar ve kısıtlamaları
 
-**SAML Nameıd ve UPN:** içinden kaynağı Nameıd ve UPN değerleri ve izin verilen talep dönüştürmeleri öznitelikler sınırlıdır. Tablo 5 ve 6 izin verilen değerleri görmek için tablo bakın.
+**SAML Nameıd ve UPN:** İçinden Nameıd ve UPN değerleri ve izin verilen talep dönüştürmeleri kaynağı öznitelikleri sınırlıdır. Tablo 5 ve 6 izin verilen değerleri görmek için tablo bakın.
 
-#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tablo 5: bir veri kaynağı olarak izin verilen SAML Nameıd için öznitelikler
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tablo 5: Veri kaynağı olarak izin verilen SAML Nameıd için öznitelikler
 
 |Kaynak|Kimlik|Açıklama|
 |-----|-----|-----|
@@ -447,7 +448,7 @@ Başlamak için aşağıdaki adımları uygulayın:
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Örnek: Oluşturup bir hizmet sorumlusu için verilen belirteçlere gelen temel talepleri atlamak için bir ilke atayabilirsiniz.
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Örnek: Oluşturun ve hizmet sorumlusu için verilen belirteçlere gelen temel talepleri atlamak için bir ilke atayın.
 Bu örnekte, temel talep kümesine bağlı hizmet sorumlusu için verilen belirteçlere kaldırır. bir ilke oluşturun.
 
 1. Bir talep İlkesi eşlemesi oluşturun. Bu ilke, belirli bağlı hizmet sorumlularını belirteçleri temel talep kaldırır.
@@ -469,7 +470,7 @@ Bu örnekte, temel talep kümesine bağlı hizmet sorumlusu için verilen belirt
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
 
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Örnek: Oluşturma ve EmployeeID ve TenantCountry bir hizmet sorumlusu için verilen belirteçlere talep olarak dahil etmek için ilke atama
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Örnek: EmployeeID ve TenantCountry bir hizmet sorumlusu için verilen belirteçlere talep olarak dahil etmek için bir ilkesi oluşturma ve atama
 
 Bu örnekte, bağlı hizmet sorumlusu için verilen belirteçlere EmployeeID ve TenantCountry ekleyen bir ilke oluşturun. EmployeeID SAML belirteçlerini hem Jwt'ler adı talep türü olarak yayınlanır. SAML belirteçleri hem Jwt'ler ülke talep türü olarak TenantCountry yayılır. Bu örnekte, belirteçleri ayarlamak temel talep içerecek şekilde devam ediyoruz.
 
@@ -493,7 +494,7 @@ Bu örnekte, bağlı hizmet sorumlusu için verilen belirteçlere EmployeeID ve 
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Örnek: Oluşturma ve hizmet sorumlusu için verilen belirteçlere talep dönüştürme kullanan ilke atama
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Örnek: Bir hizmet sorumlusu için verilen belirteçlere talep dönüştürme kullanan bir ilkesi oluşturma ve atama
 
 Bu örnekte, "JoinedData" bağlı hizmet sorumlusu için verilen Jwt'ler için bir özel talep yayan bir ilke oluşturun. Bu talep extensionattribute1 özniteliğinde ".sandbox" ile kullanıcı nesnesinde depolanan verileri birleştirilerek oluşturulan bir değer içerir. Bu örnekte, belirteçleri ayarlamak temel talep tutarız.
 

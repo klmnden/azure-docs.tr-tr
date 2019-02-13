@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Sauce Labs - mobil ve Web testi ile Azure Active Directory Tümleştirme | Microsoft Docs'
+title: 'Öğretici: Görüntünüzün Labs - mobil ve Web testi ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve Tariflerinizden Labs - mobil ve Web testi arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 55d84256f408e80600308ede22dbaa903b070d90
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c4e3d074ad241ec6add6fe43b77413ce283e389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266102"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207016"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Öğretici: Sauce Labs - mobil ve Web testi ile Azure Active Directory Tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Öğretici: Görüntünüzün Labs - mobil ve Web testi ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Tariflerinizden Laboratuvarlarla - mobil ve Web testi Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Görüntünüzün Laboratuvarlarla - mobil ve Web testi, Azure AD tümleştirmesi yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir adım öne Geçiren sır Labs - mobil ve Web çoklu oturum açmayı test etkin
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Görüntünüzün Labs - mobil ve Web testi Azure AD'ye tümleştirmesini yapıl
 
 **Görüntünüzün Labs - mobil ve Web testi galerisinden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -175,7 +176,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümün amacı, Britta Simon Tariflerinizden Labs - mobil ve Web testi adlı bir kullanıcı oluşturmaktır. Labs - Mobile tariflerinizden ve Web testi varsayılan olarak etkin olan tam zamanında sağlama, destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı Tariflerinizden Labs - mobil ve henüz mevcut değilse Web testi erişme denemesi sırasında oluşturulur.
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Tariflerinizden Labs - mobil ve Web testi Destek ekibine](mailto:support@saucelabs.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Tariflerinizden Labs - mobil ve Web testi Destek ekibine](mailto:support@saucelabs.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

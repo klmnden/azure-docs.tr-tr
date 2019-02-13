@@ -4,7 +4,7 @@ description: Anahtar döndürme ve izleme anahtar kasası günlükleri ile ayarl
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 10e60076fe527e6e773e966ccdae52a7fe99c4b2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997218"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106129"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Azure anahtar kasası anahtar döndürme ve denetleme ile ayarlama
 
@@ -38,7 +38,7 @@ Bu makalede açıklanmaktadır:
 - Bu anahtar kasası denetim günlüklerini izleyin ve beklenmeyen bir istek yapıldığında oluşturulacak gösterilmektedir.
 
 > [!NOTE]
-> Bu öğreticide ilk anahtar kasanızı kurulumunun ayrıntılı olarak açıklayan yönelik değildir. Bu bilgi için bkz. [Azure Anahtar Kasası ile çalışmaya başlama](key-vault-get-started.md). Platformlar arası komut satırı arabirimi yönergeleri için bkz: [yönetme CLI ile anahtar kasası](key-vault-manage-with-cli2.md).
+> Bu öğreticide ilk anahtar kasanızı kurulumunun ayrıntılı olarak açıklayan yönelik değildir. Bu bilgi için bkz. [Azure anahtar kasası nedir?](key-vault-overview.md). Platformlar arası komut satırı arabirimi yönergeleri için bkz: [yönetme CLI ile anahtar kasası](key-vault-manage-with-cli2.md).
 >
 >
 

@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 032b39846d19e34f2eb87c1311feeb4bb890cb24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a14b0f2b01a0566a47cbcb02ee4315adcba9a90f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467467"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200811"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure Dosya Eşitleme’yi izleme
 
@@ -29,7 +29,7 @@ Azure portalında ölçümleri kayıtlı sunucu sistem durumu ve sunucu uç nokt
 
 ### <a name="storage-sync-service"></a>Depolama Eşitleme Hizmeti
 
-Kayıtlı sunucu ve sunucu uç noktası durumu görüntülemek için Azure portalında depolama eşitleme hizmeti gidin. Kayıtlı sunucu sağlığı kayıtlı sunucuları dikey pencerede görülebilir. Eşitleme grupları dikey penceresinde sunucu uç noktası durumu görülebilir.
+Kayıtlı sunucu sistem durumu, sunucu uç noktası durumu ve ölçümleri görüntülemek için Azure portalında depolama eşitleme hizmeti gidin. Kayıtlı sunucu sağlığı kayıtlı sunucuları dikey pencerede görülebilir. Eşitleme grupları dikey penceresinde sunucu uç noktası durumu görülebilir.
 
 Kayıtlı sunucu durumu
 - Kayıtlı sunucu durumu çevrimiçi ise, sunucunun başarıyla hizmetiyle iletişim kuruyor.
@@ -38,6 +38,23 @@ Kayıtlı sunucu durumu
 Sunucu uç noktası durumu
 - Sunucu uç noktası durumu Portalı'nda sunucunun (ID 9102 ve 9302) Telemetri olay günlüğüne kaydedilir eşitleme olayları temel alır. Eşitleme oturumu (örneğin, hata iptal edildi) geçici bir hata nedeniyle başarısız olursa, geçerli eşitleme oturumu (olay kimliği 9302 dosyaları uygulanmış olup olmadığını belirlemek için kullanılır) ilerleme kaydediyor mu sürece eşitleme hala portalda sağlıklı gösterebilir. Daha fazla bilgi için aşağıdaki belgelere bakın: [Eşitleme durumu](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [eşitleme ilerleme](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Portal bir eşitleme hatası değil yapmayı ilerleme eşitlenecek son gösterir, denetleyin [sorun giderme belgelerinin](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) Kılavuzu.
+
+Ölçümler
+- Aşağıdaki ölçümler depolama eşitleme hizmeti Portalı'nda görüntülenebilir:
+
+  | Ölçüm adı | Açıklama | Portal blade(s) | 
+  |-|-|-|
+  | Eşitlenen bayt | (Karşıya yükleme ve indirme) aktarılan verilerin boyutu | Eşitleme grubu, sunucu uç noktası |
+  | Bulut katmanlaması geri çağırma | Geri veri boyutu | Kayıtlı sunucular |
+  | Dosyalar eşitlenmiyor | Eşitleme başarısız olan dosya sayısı | Sunucu uç noktası |
+  | Eşitlenmiş dosyaları | Dosya sayısı (karşıya yükleme ve indirme) aktarılan | Eşitleme grubu, sunucu uç noktası |
+  | Sunucu sinyali | Sunucudan alınan sinyal sayısı | Kayıtlı sunucular |
+
+- Daha fazla bilgi için bkz. [Azure İzleyici](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor) bölümü. 
+
+  > [!Note]  
+  > Depolama eşitleme hizmeti Portalı'nda grafikleri, 24 saatlik bir zaman aralığı vardır. Farklı tarih aralıkları veya boyutlar görüntülemek için Azure İzleyici'yi kullanın.
+
 
 ### <a name="azure-monitor"></a>Azure İzleyici
 
@@ -52,7 +69,7 @@ Aşağıdaki ölçümler Azure dosya eşitleme için Azure İzleyici'de kullanı
 | Eşitlenen bayt | (Karşıya yükleme ve indirme) aktarılan verilerin boyutu.<br><br>Birim: Bayt<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
 | Bulut katmanlaması geri çağırma | Geri verilerin boyutu.<br><br>Birim: Bayt<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu Adı |
 | Dosyalar eşitlenmiyor | Eşitleme başarısız olan dosya sayısı.<br><br>Birim: Sayı<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
-| Eşitlenmiş dosyaları | Karşıya yüklenen ve indirilen dosyaların sayısı.<br><br>Birim: Sayı<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
+| Eşitlenmiş dosyaları | Dosya sayısı (karşıya yükleme ve indirme) aktardı.<br><br>Birim: Sayı<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
 | Sunucu sinyali | Sunucudan alınan sinyal sayısı.<br><br>Birim: Sayı<br>Toplama türü: Maksimum<br>Geçerli boyut: Sunucu Adı |
 | Eşitleme oturumu sonucu | Eşitleme oturumu sonucu (1 = başarılı eşitleme oturumu; 0 başarısız eşitleme oturumu =)<br><br>Birim: Sayı<br>Toplama türleri: Maksimum<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
 

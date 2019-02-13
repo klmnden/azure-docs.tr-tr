@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Meta ağları Bağlayıcısı ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Meta ağları Bağlayıcısı ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve Meta ağları bağlayıcı arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a3f40624e51ef287d70bed547eba7ec9e0882b0e
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3c4d702a33742da5501be208154cbdd593fa0524
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669204"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199723"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Öğretici: Azure Active Directory Tümleştirme Meta ağları Bağlayıcısı
+# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Öğretici: Meta ağları Bağlayıcısı ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Meta ağları bağlayıcı Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -240,7 +241,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı, Britta Simon'un Meta ağları bağlayıcısında adlı bir kullanıcı oluşturmaktır. Meta ağları bağlayıcı varsayılan olarak etkin olan tam zamanında sağlama, destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Meta ağları bağlayıcı erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Meta ağları bağlayıcı istemci Destek ekibine](mailto:support@metanetworks.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Meta ağları bağlayıcı istemci Destek ekibine](mailto:support@metanetworks.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
-ms.openlocfilehash: eebc19f5bd14e835b8174695b2d0d87fe8ddc4bc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d05f6006476cb17cbe751caf9c830fe3e10047c9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822060"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172697"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Bir erişim belirteci almak için bir Azure sanal makinesinde Azure kaynakları için yönetilen kimliklerini kullanma 
 
@@ -370,7 +371,7 @@ Bir hata oluşursa, karşılık gelen HTTP yanıt gövdesi JSON ile hata ayrınt
 
 Bu bölümde, olası hata yanıtları belgeler. Bir "200 Tamam" durumu başarılı bir yanıt ve access_token öğesi yanıt gövdesinde JSON, erişim belirtecini bulunur.
 
-| Durum kodu | Hata | Hata açıklaması | Çözüm |
+| Durum kodu | Hata | Hata Açıklaması | Çözüm |
 | ----------- | ----- | ----------------- | -------- |
 | 400 Hatalı istek | invalid_resource | AADSTS50001: Adlı uygulama *\<URI\>* adlı kiracıda bulunamadı  *\<KİRACI-kimliği\>*. Uygulama değil Kiracı Yöneticisi tarafından yüklenmemiş veya kiracıdaki herhangi bir kullanıcı tarafından onay varsa bu durum oluşabilir. Kimlik doğrulaması isteğinizi yanlış kiracıya göndermiş olabilirsiniz. \ | (Yalnızca Linux) |
 | 400 Hatalı istek | bad_request_102 | Gerekli meta veriler üst bilgisi belirtilmedi | Her iki `Metadata` isteği üstbilgisi alanının isteğinizden eksik veya hatalı biçimlendirilmiş. Değer olarak belirtilmelidir `true`, tüm alt durumda. "Örnek istek" bir örnek için önceki REST bölümüne bakın.|

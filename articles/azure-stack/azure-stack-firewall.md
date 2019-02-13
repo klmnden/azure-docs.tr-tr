@@ -12,30 +12,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246451"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207152"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack güvenlik duvarı tümleştirmesi
-Güvenli Azure yığını için bir güvenlik duvarı cihaz kullanmanız önerilir. Güvenlik duvarları ile dağıtılmış hizmet engelleme (DDOS) saldırıları, izinsiz giriş algılama ve içerik İnceleme gibi yardımcı olsa da ayrıca bloblar, tablolar ve Kuyruklar gibi Azure depolama hizmetleri için bir aktarım hızı performans sorunu haline gelebilir.
+Güvenli Azure yığını için bir güvenlik duvarı cihaz kullanmanız önerilir. Güvenlik duvarları, içerik denetleme dağıtılmış--hizmet reddi (DDOS) saldırıları ve izinsiz giriş algılama gibi şeyler karşı korumanıza yardımcı olur. Ancak, bunlar da bloblar, tablolar ve Kuyruklar gibi Azure depolama hizmetleri için bir aktarım hızı performans sorunu haline gelebilir.
 
-Azure Active Directory (Azure AD) veya Windows Server Active Directory Federasyon Hizmetleri (AD FS) kimlik modele dayalı, AD FS uç noktasına yayımlama gerekebilir. Bağlantısı kesilmiş dağıtım modu kullandıysanız, AD FS uç noktasına yayımlamanız gerekir. Daha fazla bilgi için [veri merkezi tümleştirmesi kimlik makale](azure-stack-integrate-identity.md).
+ Bağlantısı kesilmiş dağıtım modu kullandıysanız, AD FS uç noktasına yayımlamanız gerekir. Daha fazla bilgi için [veri merkezi tümleştirmesi kimlik makale](azure-stack-integrate-identity.md).
 
-Azure Resource Manager (Yönetici), Yönetici portalı ve anahtar Kasası'nı (Yönetici) uç noktalar dış yayımlama mutlaka gerektirmez. Örneğin, bir hizmet sağlayıcısı olarak, saldırı yüzeyini sınırlayabilir ve yalnızca Azure yığını ağınızdaki ve internet'ten yönetmek isteyebilirsiniz.
+Azure Resource Manager (Yönetici), Yönetici portalı ve anahtar Kasası'nı (Yönetici) uç noktalar dış yayımlama mutlaka gerektirmez. Örneğin, bir hizmet sağlayıcısı olarak, ağınızdaki ve internet'ten Azure yığını yalnızca yöneterek saldırı yüzeyini sınırlayabilir.
 
-Büyük kuruluşlar için var olan kurumsal ağ ve dış ağa olabilir. Böyle bir senaryoda, Azure Stack ve şirket ağından çalışması için bu Uç noktalara yayımlamanız gerekir.
+Büyük kuruluşlar için var olan kurumsal ağ ve dış ağa olabilir. Bu senaryoda, Azure Stack ve şirket ağından çalışılacak uç noktaları yayımlamanız gerekir.
 
 ### <a name="network-address-translation"></a>Ağ Adresi Çevirisi
-Ağ adresi çevirisi (NAT) dağıtım sanal makine Acil Durum Kurtarma Konsolu (ERCS) sanal makinelerin yanı sıra, dış kaynaklara ve dağıtım sırasında İnternet'e erişmek için (DVM) ya da ayrıcalıklı uç noktasına (CESARETLENDİRİCİ) sırasında izin vermek için önerilen yöntemdir kayıt ve sorun giderme.
+Ağ adresi çevirisi (NAT) dağıtım sanal makine (dış kaynaklara erişmeyi DVM) ve dağıtım sırasında internet yanı sıra Acil Durum Kurtarma Konsolu (ERCS) Vm'leri ya da ayrıcalıklı uç noktasına (CESARETLENDİRİCİ) sırasında izin vermek için önerilen yöntemdir kayıt ve sorun giderme.
 
-NAT dış ağdaki veya genel VIP genel IP adresleri için bir alternatif de olabilir. Ancak, Kiracı Kullanıcı deneyimini sınırlar ve karmaşıklık artar çünkü bunu yapmanız önerilmez. İki seçenek 1:1 NAT IP havuzu kullanıcı başına bir genel IP ya da birden çok hala gerektiren olacaktır: Tüm ilişkilendirmeleri içeren VIP kullanıcı başına bir NAT kuralı için gerekli 1 NAT, bir kullanıcı kullanıyor olabilir.
+NAT dış ağdaki veya genel VIP genel IP adresleri için bir alternatif de olabilir. Ancak, Kiracı Kullanıcı deneyimini sınırlar ve karmaşıklık artar çünkü bunu yapmanız önerilmez. Bire bir NAT IP havuzu kullanıcı başına bir genel IP gerektiren bir seçenek olacaktır. Bir kullanıcı için tüm bağlantı VIP kullanıcı başına bir NAT kuralı gerektiren bir NAT için birçok başka bir seçenektir.
 
 Bazı genel VIP için NAT kullanmanın olumsuzlukları şunlardır:
 - NAT, kullanıcıların kendi uç noktaları ve yazılım tanımlı ağ (SDN) yığınında kendi yayımlama kuralları denetlemek için güvenlik duvarı kuralları yönetirken yükü ekler. Kullanıcıların yayımlanan kendi VIP'ler almak ve bağlantı noktası listesini güncelleştirmek için Azure Stack operatörü başvurmanız gerekir.
@@ -48,7 +48,7 @@ Bazı genel VIP için NAT kullanmanın olumsuzlukları şunlardır:
 ## <a name="edge-firewall-scenario"></a>Kenar güvenlik duvarı senaryosu
 Bir edge dağıtımı, Azure Stack doğrudan sınır yönlendiricisi veya güvenlik duvarı arkasında dağıtılır. Bu senaryolarda, burada hem aktif-aktif veya Aktif-Pasif güvenlik duvarı yapılandırmaları veya (2. Senaryo) kenarlık cihaz olarak burada etkin-etkin güvenlik duvarı yalnızca destekler acting destekler kenarlık (Senaryo 1) olacak şekilde güvenlik duvarı için desteklenir üzerinde eşit maliyet çoklu yol (ECMP) BGP ya da yük devretme için statik yönlendirme ile bağlı olan yapılandırma.
 
-Genellikle, genel olarak yönlendirilebilir IP adresleri için dış ağ genel VIP havuzundan dağıtım sırasında belirtilir. Bir edge senaryosunda, genel olarak yönlendirilebilir IP'leri herhangi bir ağ üzerindeki güvenlik amacıyla kullanmak için önerilmez. Bu senaryo Azure gibi genel bulut olduğu gibi tam Self denetimli bulut deneyimi deneyimi sağlar.  
+Genel olarak yönlendirilebilir IP adresleri için dış ağ genel VIP havuzundan dağıtım sırasında belirtilir. Bir edge senaryosunda, genel olarak yönlendirilebilir IP'leri herhangi bir ağ üzerindeki güvenlik amacıyla kullanmak için önerilmez. Bu senaryo Azure gibi genel bulut olduğu gibi tam Self denetimli bulut deneyimi deneyimi sağlar.  
 
 ![Azure Stack kenar güvenlik duvarı örneği](./media/azure-stack-firewall/firewallScenarios.png)
 

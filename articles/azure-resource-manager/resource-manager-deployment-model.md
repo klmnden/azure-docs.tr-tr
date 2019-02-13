@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: cb888367e3204d6750c533eb8952c80947f90c11
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e7d271ce37209a49e1c75d6114ed07b11558df44
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486818"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105001"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager ve klasik dağıtım: Dağıtım modellerini ve kaynaklarınızın durumunu anlama
 
@@ -48,6 +48,9 @@ Azure, kaynak grubu kavramını ortaya çıkaran Resource Manager’ı 2014 yıl
 Resource Manager eklendiğinde, tüm kaynaklar geriye dönük olarak varsayılan kaynak gruplarına eklenmiştir. Artık klasik dağıtım modeliyle bir kaynak oluşturursanız, bir kaynak grubunu dağıtımda belirtmemiş olsanız bile, kaynak söz konusu hizmetin varsayılan kaynak grubu içinde otomatik olarak oluşturulur. Ancak, yalnızca bir kaynak grubu içinde var olması kaynağın Resource Manager modeline dönüştürüldüğü anlamına gelmez.
 
 ## <a name="understand-support-for-the-models"></a>Modellere yönelik desteği anlama
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Dikkat edilmesi gereken üç senaryo vardır:
 
 1. Cloud Services, Resource Manager dağıtım modelini desteklemez.

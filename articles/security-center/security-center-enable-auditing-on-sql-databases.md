@@ -4,7 +4,7 @@ description: Bu belge Azure Güvenlik Merkezi önerinin nasıl uygulanacağını
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 224b6755-2b36-4ecd-9af8-139a198e0df1
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3de11b88f0bbf10cc0f1716cc0cefd128797cd5f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1108265101f37433860d0112e4e80aee0002ab5c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341584"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111586"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-databases-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde SQL veritabanlarında denetim ve tehdit algılamayı etkinleştirme
 Azure Güvenlik Merkezi, Denetim, tüm SQL veritabanları için Denetim ve tehdit algılamayı etkinleştirmek ve tehdit algılama zaten etkin önerir. Denetim ve tehdit algılama, mevzuatla uyumluluk, veritabanı etkinliğini anlama ve ifade eden tutarsızlıklar ve anomaliler, elde yardımcı olabilir işletme sorunlarını veya şüpheli güvenlik ihlallerini.

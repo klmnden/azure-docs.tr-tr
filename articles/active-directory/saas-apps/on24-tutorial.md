@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle ON24 sanal ortam SAML bağlantı | Microsoft Docs'
+title: 'Öğretici: Sanal ortam SAML bağlantı ON24 ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ile ON24 sanal ortam SAML bağlantısı arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 1ec18f0013a7fa640395a8b8bedd9df8b0924c3a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0827895d58b0b7633ee4543495014c62b5394312
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071324"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209498"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Öğretici: Azure Active Directory tümleştirmesiyle ON24 sanal ortam SAML bağlantı
+# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Öğretici: Sanal ortam SAML bağlantı ON24 ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile ON24 sanal ortam SAML bağlantı tümleştirme konusunda bilgi edinin.
 
@@ -194,7 +195,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-an-on24-virtual-environment-saml-connection-test-user"></a>Bir sanal ortam SAML bağlantı ON24 test kullanıcısı oluşturma
 
-Bu bölümde, sanal ortamı SAML bağlantı ON24 Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [ON24 sanal ortam SAML bağlantı Destek ekibine](https://www.on24.com/about-us/support/) ON24 sanal ortam SAML bağlantı platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, sanal ortamı SAML bağlantı ON24 Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [ON24 sanal ortam SAML bağlantı Destek ekibine](https://www.on24.com/about-us/support/) ON24 sanal ortam SAML bağlantı platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

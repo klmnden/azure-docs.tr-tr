@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory belirli yönetici SSO ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Belirli yönetim SSO ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve belirli yönetim SSO arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 40bdba8e7ce699f0fd6ca589c753f51b550fae05
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7d85e8dbac47bd41c759e9c225df5544c659cc05
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439462"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205537"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Öğretici: Azure Active Directory belirli yönetici SSO ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Öğretici: Belirli yönetim SSO ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, belirli yönetici SSO Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Belirli yönetim SSO ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Belirli yönetim SSO çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Azure AD'de belirli yönetici SSO tümleştirmesini yapılandırmak için belirl
 
 **Belirli yönetim SSO Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -162,7 +163,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-certain-admin-sso-test-user"></a>Belirli yönetim SSO test kullanıcısı oluşturma
 
-Bu bölümde, belirli yönetici SSO'ya Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [belirli yönetici SSO Destek ekibine](mailto:integrations@certain.com) belirli yönetici SSO platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, belirli yönetici SSO'ya Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [belirli yönetici SSO Destek ekibine](mailto:integrations@certain.com) belirli yönetici SSO platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

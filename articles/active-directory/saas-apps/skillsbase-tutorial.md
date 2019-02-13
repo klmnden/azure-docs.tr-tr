@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory temel beceriler ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory temel beceriler ile tümleştirmesi | Microsoft Docs'
 description: Azure Active Directory temel beceriler arasındaki çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8bc0353453cf5fe689eec398f6a7d73fb356b178
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205383"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190849"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Öğretici: Azure Active Directory temel beceriler ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Öğretici: Azure Active Directory temel beceriler ile tümleştirmesi
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile temel becerileri tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile temel becerileri yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir temel becerileri çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Azure AD temel becerileri tümleştirilmesi yapılandırmak için temel becerile
 
 **Galeriden becerileri temel eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -220,7 +221,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -3,7 +3,7 @@ title: Bilgi edinmek için hızlı başlangıç Cache nasıl kullanılır Azure 
 description: Bu hızlı başlangıçta, Azure Cache, Redis için .NET uygulamalarınızdan erişmeyi öğrenin
 services: azure-cache-for-redis,app-service
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: c502f74c-44de-4087-8303-1b1f43da12d5
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2018
-ms.author: wesmc
+ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 6b2ab1ba89fbc2b271ede177a906a1919c14023d
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b86bbc1fd25f3dea6981d1828c316208f43b7382
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557674"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112488"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>Hızlı Başlangıç: Azure Cache, Redis için bir .NET uygulamasını kullanın.
 

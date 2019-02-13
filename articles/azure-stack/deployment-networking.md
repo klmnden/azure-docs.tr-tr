@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 3e53d79682772be7eacb649148ceeaec7d9f2865
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5f4f76f87718ddcc81f8fae8b043b73a4dbd6b0a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247587"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189285"
 ---
 # <a name="about-deployment-network-traffic"></a>Dağıtım ağ trafiğini hakkında
 Azure Stack sırasında ağa trafiğin nasıl akacağını anlama dağıtım başarılı bir dağıtım sağlamak için önemlidir. Bu makalede beklenmesi gerekenler bir anlayış sağlamak için dağıtım işlemi sırasında beklenen ağ trafiğinin gösterilmektedir.

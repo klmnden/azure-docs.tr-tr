@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile yayını-O-Matic | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle yayını-O-Matic | Microsoft Docs'
 description: Azure Active Directory ve yayını-O-Matic arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 20c0acebde232bd50e6e5befed0facc96ee11b4d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040958"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190832"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Öğretici: Azure Active Directory Tümleştirme ile yayını-O-Matic
+# <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Öğretici: Yayını-O-Matic ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile yayını-O-Matic tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi yayını-O-Matic ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir yayını-O-Matic çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Yayını-O-Matic, Azure AD'de tümleştirmesini yapılandırmak için ekran kayd
 
 **Yayını-O-Matic Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -140,7 +141,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve y
 
     * Altında **IDP meta veri XML dosyasını karşıya yükle**, tıklayın **Dosya Seç** Azure portalından indirdiğiniz metaveri yüklenecek.
 
-    * **Tamam**’a tıklayın. 
+    * **Tamam** düğmesine tıklayın. 
 
     ![Erişim](./media/screencast-tutorial/tutorial_screencast_save.png)
 
@@ -181,7 +182,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı, Britta Simon yayını-O-Matic içinde adlı bir kullanıcı oluşturmaktır. Yayını-O-Matic tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa yayını-O-Matic erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [yayını-O-Matic istemci Destek ekibine](mailto:support@screencast-o-matic.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [yayını-O-Matic istemci Destek ekibine](mailto:support@screencast-o-matic.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -223,7 +224,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

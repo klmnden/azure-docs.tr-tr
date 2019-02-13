@@ -17,12 +17,13 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: dd9bdc4638d1c055706026798acba08d6add08c7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a46bc954d137ad610310d83d3ad7f54370b9177b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098760"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184049"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Çoklu oturum açma SAML Protokolü
 
@@ -48,9 +49,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| Kimlik | Gereklidir | Azure AD doldurmak için bu özniteliği kullanan `InResponseTo` döndürülen yanıtın özniteliği. Bir GUID dize gösterimi için "id" gibi bir dize önüne eklediğinizden ortak bir strateji, bu nedenle kimliği bir sayı ile başlayamaz. Örneğin, `id6c1c178c166d486687be4aaf5e482730` geçerli kimliğidir. |
-| Sürüm | Gereklidir | Bu parametre ayarlanmalıdır **2.0**. |
-| IssueInstant | Gereklidir | DateTime UTC değeri dize budur ve [gidiş dönüş biçim ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD, bu türde bir DateTime değeri Bekliyor ancak değil değerlendirmek veya değeri kullanın. |
+| Kimlik | Gerekli | Azure AD doldurmak için bu özniteliği kullanan `InResponseTo` döndürülen yanıtın özniteliği. Bir GUID dize gösterimi için "id" gibi bir dize önüne eklediğinizden ortak bir strateji, bu nedenle kimliği bir sayı ile başlayamaz. Örneğin, `id6c1c178c166d486687be4aaf5e482730` geçerli kimliğidir. |
+| Sürüm | Gerekli | Bu parametre ayarlanmalıdır **2.0**. |
+| IssueInstant | Gerekli | DateTime UTC değeri dize budur ve [gidiş dönüş biçim ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD, bu türde bir DateTime değeri Bekliyor ancak değil değerlendirmek veya değeri kullanın. |
 | AssertionConsumerServiceUrl | İsteğe bağlı | Bu parametre belirtilmezse, eşleşmelidir `RedirectUri` Azure ad bulut hizmeti. |
 | ForceAuthn | İsteğe bağlı | Bir boolean değer budur. TRUE ise, Azure AD ile geçerli bir oturum olsa bile yeniden kimlik doğrulaması için kullanıcı zorlanır anlamına gelir. |
 | IsPassive | İsteğe bağlı | Azure AD kullanıcı sessizce, kullanıcı etkileşimi olmadan oturum tanımlama bilgisi varsa kullanarak kimlik doğrulamalıdır olup olmadığını belirten bir Boole değeri budur. True ise, Azure AD oturum tanımlama bilgisini kullanarak kullanıcı kimlik doğrulaması yapmayı deneyeceksiniz. |

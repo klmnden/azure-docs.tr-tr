@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Nuclino | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Nuclino | Microsoft Docs'
 description: Azure Active Directory ve Nuclino arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a5346b98de48b1a2f8928c3c2bf30730588e9c1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 655ac490e528680f779eeca54899a022ddf3b89a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145922"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189571"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Öğretici: Azure Active Directory Nuclino ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Öğretici: Nuclino ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Nuclino tümleştirme konusunda bilgi edinin.
 
@@ -229,7 +230,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı Nuclino Britta Simon adlı bir kullanıcı oluşturmaktır. Nuclino tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Nuclino erişme denemesi sırasında oluşturulur.
 
 > [!Note]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Nuclino Destek ekibine](mailto:contact@nuclino.com).
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Nuclino Destek ekibine](mailto:contact@nuclino.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
