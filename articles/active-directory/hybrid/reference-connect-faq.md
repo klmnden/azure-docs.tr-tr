@@ -14,12 +14,13 @@ ms.topic: reference
 ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f15556596063a09f68f024346e9fbe08663436c9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 594fb736b8ec4b49cf1525047ff8a7ce5e5dc959
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497817"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194980"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect SSS
 
@@ -155,10 +156,10 @@ Hangi sürümün Azure AD Connect sunucunuzda yüklendiğini doğrulamak için D
 ![Denetim Masası'nda Azure AD Connect sürümü](./media/reference-connect-faq/faq1.png)
 
 **S: Azure AD Connect'in en son sürüme nasıl yükseltebilirim?**  
-En son sürüme yükseltme öğrenmek için bkz: [Azure AD Connect: En son önceki sürümden yükseltme](how-to-upgrade-previous-version.md). 
+En son sürüme yükseltme öğrenmek için bkz: [Azure AD Connect: Önceki bir sürümden en son sürüme yükseltme](how-to-upgrade-previous-version.md) makalesine bakın. 
 
 **S: Biz, Azure AD Connect'in en son sürüme geçen yıl zaten yükseltildi. Yeniden yükseltmeye gerekiyor mu?**  
-Azure AD Connect takım sık sık güncelleştirme hizmetine yapar. Hata düzeltmeleri ve güvenlik güncelleştirmeleri yeni özellikleri de yararlanmak için sunucunuzun en son sürümüyle güncel tutmak önemlidir. Otomatik yükseltme etkinleştirirseniz, Yazılım sürümünüzün otomatik olarak güncelleştirilir. Azure AD Connect sürüm yayımlama geçmişi bulmak için bkz: [Azure AD Connect: Sürüm yayınlama geçmişi](reference-connect-version-history.md).
+Azure AD Connect takım sık sık güncelleştirme hizmetine yapar. Hata düzeltmeleri ve güvenlik güncelleştirmeleri yeni özellikleri de yararlanmak için sunucunuzun en son sürümüyle güncel tutmak önemlidir. Otomatik yükseltme etkinleştirirseniz, Yazılım sürümünüzün otomatik olarak güncelleştirilir. Azure AD Connect sürüm yayımlama geçmişi bulmak için bkz: [Azure AD Connect: Sürüm yayınlama geçmişi](reference-connect-version-history.md) makalesine bakın.
 
 **S: Ne kadar yükseltmeyi gerçekleştirmek için sürer ve kullanıcılar üzerindeki etkisi nedir?**  
 Yükseltme için gereken süre, Kiracı boyutuna bağlıdır. Büyük kuruluşlarda, akşam veya hafta sonu yükseltmeyi gerçekleştirmek en iyi yöntem olabilir. Yükseltme sırasında hiçbir eşitleme etkinliği gerçekleşir.

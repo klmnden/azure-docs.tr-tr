@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: cdc48cf278fdd68bacf74c2d6d762c8d731949e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745598"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111580"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
 
@@ -217,7 +217,7 @@ Değişkenleri tanımlama hakkında daha fazla bilgi için bkz: [değişkenler b
 Bir kullanıcı işlevi tanımlanırken, bazı kısıtlamalar vardır:
 
 * İşlev değişkenleri erişemez.
-* İşlev şablonu parametreleri erişemez. Diğer bir deyişle, [parametreleri işlevi](resource-group-template-functions-deployment.md#parameters) işlev parametrelerini sınırlıdır.
+* İşlev, yalnızca işlev içinde tanımlanan parametrelerini kullanabilirsiniz. Kullanırken [parametreleri işlevi](resource-group-template-functions-deployment.md#parameters) kullanıcı tanımlı bir işlev içinde bu işlevin parametreleri kısıtlanır.
 * İşlev diğer kullanıcı tanımlı işlevleri çağrılamaz.
 * İşlev kullanamazsınız [başvuru işlevi](resource-group-template-functions-resource.md#reference).
 * İşlev parametrelerini varsayılan değerlere sahip olamaz.
@@ -298,9 +298,23 @@ Koşullu olarak dahil edin veya bir kaynak dağıtım sırasında hariç tutmak 
 
 Daha fazla bilgi için [çıktısını alır, Azure Resource Manager şablonları bölümünü](resource-manager-templates-outputs.md).
 
-## <a name="comments"></a>Yorumlar
+<a id="comments" />
 
-Açıklama şablonunuza eklemek için birkaç seçeneğiniz vardır.
+## <a name="comments-and-metadata"></a>Açıklamaları ve meta verileri
+
+Açıklamaları ve meta verileri şablonunuza eklemek için birkaç seçeneğiniz vardır.
+
+Ekleyebileceğiniz bir `metadata` şablonunuzda neredeyse her yerden nesne. Kaynak Yöneticisi nesnesi yok sayar, ancak JSON düzenleyiciniz özelliği geçerli değil uyar. Gerek duyduğunuz özellikleri nesnesi tanımlayın.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
 
 İçin **parametreleri**, ekleme bir `metadata` nesnesi ile bir `description` özelliği.
 
@@ -342,18 +356,6 @@ Açıklama şablonunuza eklemek için birkaç seçeneğiniz vardır.
     "properties": {}
   }
 ]
-```
-
-Ekleyebileceğiniz bir `metadata` şablonunuzda neredeyse her yerden nesne. Kaynak Yöneticisi nesnesi yok sayar, ancak JSON düzenleyiciniz özelliği geçerli değil uyar. Gerek duyduğunuz özellikleri nesnesi tanımlayın.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
 ```
 
 İçin **çıkarır**, çıkış değeri için bir meta veri nesnesi ekleyin.

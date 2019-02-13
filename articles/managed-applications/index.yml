@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 353616141e37e8024695fad81a16c9c2f3b82625
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107353"
 documentType: LandingData
 title: Azure Tarafından Yönetilen Uygulamalarla İlgili Belgeler
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/25/2017
   ms.author: tomfitz
-  ms.openlocfilehash: 85f4d5d37dabfa5a8781a4f9ed0fb52d7c6e0297
-  ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-  ms.translationtype: HT
-  ms.contentlocale: tr-TR
-  ms.lasthandoff: 01/12/2018
-  ms.locfileid: "27779576"
 abstract:
   description: Azure Tarafından Yönetilen Uygulamalar, bulut çözümlerinizi iç ve dış müşterilere sunmanıza olanak tanır. Çözümün altyapısını ve sürekli yönetimine ilişkin koşulları siz tanımlarsınız. Çözümünüzün faturalandırma işlemi, Azure faturalandırması aracılığıyla gerçekleştirilir.
 sections:
@@ -49,7 +49,7 @@ sections:
     className: cardsD
     items:
     - title: Komut Satırı
-      html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
+      html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
     - title: REST API'leri
       html: <p><a href="/rest/api/resources/">REST</a></p>
     - title: Kullanıcı arabirimi

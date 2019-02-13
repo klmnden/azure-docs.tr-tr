@@ -4,7 +4,7 @@ description: Microsoft Azure yeni destek isteği dosyasını karşıya yükleme 
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: ''
 editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 015d5bcdb7ab4e4e666471163bb027c74c9bb377
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 949d6b00b4e04921ea745dd4efa1b8a58c49f534
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418033"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108441"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Yeni Microsoft Azure destek isteği dosyasını karşıya yükleme yardımcı programı yönergeleri
 Olduğunda, [bir destek isteği oluşturma](https://portal.azure.com/#create/Microsoft.Support), dosya karşıya yükleme yardımcı programı yardımcı olabilir kolayca Tanılama dosyalarını karşıya yükleme veya olayla ilgili olduğunu düşündüğünüz diğer tüm dosyalar.  
@@ -41,27 +41,27 @@ Dosyayı karşıya yüklemeyi yardımcı programını kullanırken aşağıdaki 
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | .dat  | .hwl        | .odx  | .RAR     | .tdb       | .xlam   |
-| .a          | .DB   | .ics        | .oft  | .rdl     | .tdf       | .XLR    |
-| .ABC        | . DMP  | .ini        | eski  | .RDLC    | .Text      | .xls    |
+| .a          | .db   | .ics        | .oft  | .rdl     | .tdf       | .XLR    |
+| .abc        | . DMP  | .ini        | eski  | .rdlc    | .Text      | .xls    |
 | .adm        | .do_  | .java       | .one  | .re_     | .thmx      | .xlsb   |
 | .aspx       | .doc  | .jpg        | .osd  | .reg     | .tif       | .xlsm   |
 | . ATF        | .docm | . LDF        | . KULLANIMA AL  | .Remove  | .trc       | .xlsx   |
-| .b          | .docx | .Letterhead | .P1   | .ren     | . TTD       | .xlt    |
+| .b          | .docx | .letterhead | .p1   | .ren     | . TTD       | .xlt    |
 | .ba_        | .dotm | .lnk        | .pcap | .Rename  | .tx_       | .xltx   |
 | .bak        | .dotx | .lo_        | .pdb  | .RFT     | .txt       | .XML    |
 | .bat        | .dtsx | .log        | .pdf  | .rpt     | .uccapilog | .xmla   |
 | .blg        | .EDS  | .lpk        | .piz  | .RTE     | .uccplog   | .XPS    |
 | .CA_        | .emf  | .manifest   | .pmls | .rtf     | .udcx      | .xsd    |
-| . CAB        | .eml  | .master     | .PNG  | .Run     | .vb_       | .xsn    |
+| . CAB        | .eml  | .master     | .png  | .Run     | .vb_       | .xsn    |
 | .cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | .xxx    |
-| .catx       | .err  | .mof        | .ppt  | .SQL     | .vcf       | .z_     |
+| .catx       | .err  | .mof        | .ppt  | .sql     | .vcf       | .z_     |
 | . CFG        | .etl  | .mp3        | .pptm | .sqlplan | .vsd       | .z01    |
 | .Compressed | .evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
 | . Yapılandırma     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
 | .cpk        | . EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
 | .cpp        | .ex_  | .msi        | .pst  |  -        | .wmv       | .zip    |
 | .cs         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
-| . CSV        | . FRD  | .msu        | -      |-          | .wps       | .zipp   |
+| .CSV        | . FRD  | .msu        | -      |-          | .wps       | .zipp   |
 | .cvr        | .gif  | .nfo        | -      |-          | .wpt       | .zipped |
 | -            | .Guid | -            | -      | -         | .wsdl      | .zippy  |
 | -            | .gz   | -            | -      | -         | .wsp       | .zipx   |

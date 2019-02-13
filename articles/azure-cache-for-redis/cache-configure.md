@@ -3,7 +3,7 @@ title: Azure Cache, Redis için yapılandırma | Microsoft Docs
 description: Azure önbelleği için Redis için varsayılan Redis yapılandırması anlamak ve Redis örneği için Azure önbelleğinizi yapılandırma hakkında bilgi edinin
 services: azure-cache-for-redis
 documentationcenter: na
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: wesmc
-ms.openlocfilehash: c9158eebb876f5c3349528ffb7707629791421ce
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.author: yegu
+ms.openlocfilehash: 37b2b740f850b2c3c1cc81049e81a153b5db9905
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099947"
+ms.locfileid: "56110880"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure önbelleği için Redis yapılandırma
 Bu konuda, Azure önbelleği için Redis örneği için yapılandırmaları açıklanmaktadır. Bu konuda, Azure Cache Redis örneği için varsayılan Redis sunucu yapılandırması da kapsar.

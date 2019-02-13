@@ -4,7 +4,7 @@ description: Bu makalede, Azure SQL veritabanı azure'da müşteri verilerini na
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: cce1ff1102c42bd1627caeba7b2c86432b228607
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: cd2ad16f910f5d2b3b801c8d54e9df7660751462
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170863"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103957"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL veritabanı güvenlik özellikleri    
 Azure SQL veritabanı, azure'da bir ilişkisel veritabanı hizmetidir. Müşteri verilerinin korunmasına ve müşterilerin bir ilişkisel veritabanı hizmetine beklediğiniz güçlü güvenlik özellikleri sağlamak için SQL veritabanı kendi güvenlik özellikleri kümesi vardır. Bu özellikler, Azure'dan devralınan denetimler üzerine oluşturun.
@@ -61,9 +61,9 @@ Yapı denetleyicisi (FC) merkezi orchestrator Azure yapısı olduğundan, öneml
 ### <a name="vlan-isolation"></a>VLAN yalıtımı
 Azure üretim ağı, üç birincil VLAN mantıksal olarak ayrılır:
 
-- Ana VLAN: güvenilmeyen müşteri düğümleri eşitliyor.
-- FC VLAN: güvenilen FCs ve destekleyici sistemlere içerir.
-- Cihaz VLAN: güvenilir ağ ve diğer altyapı cihazları içerir.
+- Ana VLAN: Güvenilmeyen müşteri düğümleri eşitliyor.
+- FC VLAN: Güvenilen FCs ve destekleyici sistemlere içerir.
+- Cihaz VLAN: Güvenilen ağ ve diğer altyapı cihazları içerir.
 
 ### <a name="packet-filtering"></a>Paket filtreleme
 IPFilter ve kök işletim sistemi ve konuk işletim sistemi düğümlerinin uygulanan yazılım güvenlik duvarları bağlantı kısıtlamalarını zorla ve sanal makineler arasında yapılan izinsiz trafiği engeller.

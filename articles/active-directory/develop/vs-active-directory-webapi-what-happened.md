@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 04732d6541fd6132360d4c235b35979c70772922
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056358"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161941"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Webapı projeme ne oldu (Visual Studio Azure Active Directory bağlı hizmet)
 
@@ -33,7 +34,7 @@ Bağlı hizmet ile çalışma hakkında daha fazla bilgi için bkz: [Başlarken]
 
 Proje dosyası *.NET başvuruları etkiler) ve `packages.config` (NuGet başvurularını).
 
-| Tür | Başvuru |
+| Type | Başvuru |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -46,7 +47,7 @@ Proje dosyası *.NET başvuruları etkiler) ve `packages.config` (NuGet başvuru
 
 Seçtiyseniz, ek başvurular **dizin verilerini okuma** seçeneği:
 
-| Tür | Başvuru |
+| Type | Başvuru |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 yalnızca) |
@@ -60,7 +61,7 @@ Seçtiyseniz, ek başvurular **dizin verilerini okuma** seçeneği:
 
 Aşağıdaki başvurular kaldırılır (ASP.NET 4 projeleri yalnızca, Visual Studio 2015 olduğu gibi):
 
-| Tür | Başvuru |
+| Type | Başvuru |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -84,7 +85,7 @@ Aşağıdaki başvurular kaldırılır (ASP.NET 4 projeleri yalnızca, Visual St
     </appSettings>
     ```
 
-- Yalnızca Visual Studio 2017: altında aşağıdaki giriş de ekledik `<appSettings>`"
+- Yalnızca Visual Studio 2017 için: Ayrıca şu girdiyi altında eklendi `<appSettings>`"
 
     ```xml
     <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />

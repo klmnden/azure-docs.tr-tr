@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle SmartLPA | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile SmartLPA | Microsoft Docs'
 description: Azure Active Directory ve SmartLPA arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jeedes
-ms.openlocfilehash: eedec7de74f3bdd7ae43d1b1eb0decd5fe83ebf6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 01d8a52d18bb3b6317f843eb6c30061e730ee3ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076498"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161095"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Öğretici: Azure Active Directory SmartLPA ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Öğretici: SmartLPA ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile SmartLPA tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile SmartLPA yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik SmartLPA çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Azure AD'de SmartLPA tümleştirmesini yapılandırmak için SmartLPA Galeriden 
 
 **Galeriden SmartLPA eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -162,7 +163,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-smartlpa-test-user"></a>SmartLPA test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon SmartLPA içinde adlı bir kullanıcı oluşturun. Çalışmak [SmartLPA Destek ekibine](mailto:support@smartlpa.com) SmartLPA platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon SmartLPA içinde adlı bir kullanıcı oluşturun. Çalışmak [SmartLPA Destek ekibine](mailto:support@smartlpa.com) SmartLPA platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -204,7 +205,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -17,12 +17,13 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: df45ec1478314e0d60f2c66a42a48801f1ce0643
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093096"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170203"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 cihaz kod akışı
 
@@ -62,8 +63,8 @@ scope=user.read%20openid%20profile
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| kiracı |Gereklidir |İzni istemek için istediğiniz dizinin Kiracı. Bu GUID veya kolay adı biçiminde olabilir.  |
-| client_id |Gereklidir |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
+| kiracı |Gerekli |İzni istemek için istediğiniz dizinin Kiracı. Bu GUID veya kolay adı biçiminde olabilir.  |
+| client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
 | scope | Önerilen | Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md) onay kullanıcıya istiyor.  |
 
 ### <a name="device-authorization-response"></a>Cihaz kimlik doğrulama yanıtı
@@ -72,13 +73,13 @@ Başarılı yanıt, oturum açmak izin vermek için gerekli bilgileri içeren bi
 
 | Parametre | Biçimlendir | Açıklama |
 | ---              | --- | --- |
-|`device_code`     |Dize| Yetkilendirme sunucusu ile istemci arasında oturum doğrulamak için kullanılan bir uzun dize.  Yetkilendirme sunucusundan erişim belirteci istemek için bu istemci tarafından kullanılır. |
-|`user_code`       |Dize| İkincil bir cihazda oturum tanımlamak için kullanılan kullanıcıya gösterilen kısa bir dize.|
+|`device_code`     |String| Yetkilendirme sunucusu ile istemci arasında oturum doğrulamak için kullanılan bir uzun dize.  Yetkilendirme sunucusundan erişim belirteci istemek için bu istemci tarafından kullanılır. |
+|`user_code`       |String| İkincil bir cihazda oturum tanımlamak için kullanılan kullanıcıya gösterilen kısa bir dize.|
 |`verification_uri`|URI| Kullanıcı Git ile URI `user_code` oturum açmak için. |
 |`verification_uri_complete`|URI| Bir URI birleştirme `user_code` ve `verification_uri`metinsel olmayan iletilmesi kullanıcı (örneğin, Bluetooth aracılığıyla bir cihaz için veya bir QR kodu aracılığıyla) için kullanılır.  |
 |`expires_in`      |int| Saniye önce `device_code` ve `user_code` süresi dolar. |
 |`interval`        |int| İstemci yoklama istekleri arasında beklemesi gereken saniye sayısı. |
-| `message`        |Dize| Kullanıcı için yönergeler insanlar tarafından okunabilen bir dize.  Bu dahil ederek yerelleştirilebilen bir **sorgu parametresi** istek formunun `?mkt=xx-XX`, uygun dil kültür kodu doldurma. |
+| `message`        |String| Kullanıcı için yönergeler insanlar tarafından okunabilen bir dize.  Bu dahil ederek yerelleştirilebilen bir **sorgu parametresi** istek formunun `?mkt=xx-XX`, uygun dil kültür kodu doldurma. |
 
 ## <a name="authenticating-the-user"></a>Kullanıcı kimlik doğrulaması
 
@@ -95,11 +96,11 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-|Parametre | Gereklidir | Açıklama|
+|Parametre | Gerekli | Açıklama|
 | -------- | -------- | ---------- |
-|`grant_type` | Gereklidir| olmalıdır `urn:ietf:params:oauth:grant-type:device_code`|
-|`client_id`  | Gereklidir| Eşleşmelidir `client_id` ilk istekte kullanılan. |
-|`device_code`| Gereklidir| `device_code` Cihaz yetkilendirme isteğine döndürdü.  |
+|`grant_type` | Gerekli| olmalıdır `urn:ietf:params:oauth:grant-type:device_code`|
+|`client_id`  | Gerekli| Eşleşmelidir `client_id` ilk istekte kullanılan. |
+|`device_code`| Gerekli| `device_code` Cihaz yetkilendirme isteğine döndürdü.  |
 
 ### <a name="expected-errors"></a>Beklenen hataları
 
@@ -130,7 +131,7 @@ Başarılı bir token yanıt şöyle görünecektir:
 
 | Parametre | Biçimlendir | Açıklama |
 | --------- | ------ | ----------- |
-|`token_type` | Dize| Her zaman "Bearer. |
+|`token_type` | String| Her zaman "Bearer. |
 |`scope` | Ayrılmış boşluk dizeleri | Bu, bir erişim belirteci döndürdüyse kapsamlar için erişim belirteci geçerliyse listeler. |
 |`expires_in`| int | Dahil edilen erişim belirtecinin saniye için geçerlidir. |
 |`access_token`| Donuk dize | Çıkarılan [kapsamları](v2-permissions-and-consent.md) , istendi.  |

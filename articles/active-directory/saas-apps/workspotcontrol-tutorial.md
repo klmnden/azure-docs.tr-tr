@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Workspot denetimiyle | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi Workspot denetimiyle | Microsoft Docs'
 description: Azure Active Directory ile Workspot denetimi arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 520e625ba9689ebf35e985fe95609c62102e2493
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312984"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211164"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Öğretici: Azure Active Directory Tümleştirme Workspot denetimi ile
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Öğretici: Azure Active Directory Tümleştirmesi Workspot denetimi ile
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Workspot denetimi tümleştirme konusunda bilgi edinin.
 
@@ -142,7 +143,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve W
 
 7. Bir başka web tarayıcı penceresinde Workspot denetimi bir güvenlik yöneticisi olarak oturum açın.
 
-8. Sayfanın üst kısmındaki araç çubuğunda **Kurulum**, ardından gidin **SAML**.
+8. Sayfanın üst kısmındaki araç çubuğunda **Kurulum**, ardından gidin **SAML**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -150,7 +151,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve W
  
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. İçinde **varlık kimliği** metin değerini yapıştırın **Azure Ad tanımlayıcısı** hangi Azure portaldan kopyaladığınız.   
+    a. İçinde **varlık kimliği** metin değerini yapıştırın **Azure Ad tanımlayıcısı** hangi Azure portaldan kopyaladığınız.   
 
     b.In **oturum açma hizmeti URL'si** metin değerini yapıştırın **oturum açma URL'si** hangi Azure portaldan kopyaladığınız.
 
@@ -193,7 +194,7 @@ Workspot denetimine oturum açmak Azure AD kullanıcılarının etkinleştirmek 
 
 1. Workspot denetimine bir güvenlik yöneticisi olarak oturum açın.
 
-2. Sayfanın üst kısmındaki araç çubuğunda **kullanıcılar**, ardından gidin **Kullanıcı Ekle**.
+2. Sayfanın üst kısmındaki araç çubuğunda **kullanıcılar**, ardından gidin **Kullanıcı Ekle**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 

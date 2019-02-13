@@ -1,10 +1,10 @@
 ---
 title: Microsoft Güvenlik Yanıt Merkezi | Microsoft Docs
-description: Makaleyi seçkin MSRC yöntemler ve öneriler hakkında daha fazla bilgi edinmek için kullanılan Microsoft Güvenlik Yanıt Merkezi (MSRC) kaynakların listesini sağlar.
+description: Makaleyi MSRC yöntemler ve öneriler hakkında daha fazla bilgi almak için kullanılan Microsoft Güvenlik Yanıt Merkezi (MSRC) kaynakları düzenlenmiş bir listesini sağlar.
 services: security
 documentationcenter: na
 author: barclayn
-manager: Mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 6293b13f-55d0-4d85-a993-4f1cd3c103c0
 ms.service: security
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 08bc037817be92ea19cf126a9f4db4adea136cad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bacfbae3e4c9750798b8df739706d9c9b9850d45
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182451"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113964"
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft Güvenlik Yanıt Merkezi
 
-Microsoft Güvenlik Yanıt Merkezi (MSRC) bazı dünyanın en deneyimli güvenlik uzmanları tarafından kılavuzluk edilir. Bunlar tanımlamak, izlemek, yanıt, güvenlik olayları ve şirket içi çözümlemek ve yılın her günü saat geçici güvenlik açıkları bulut.
+Microsoft Güvenlik Yanıt Merkezi (MSRC) dünyanın en deneyimli güvenlik uzmanlarından bazılarının liderliğindeki. Bunlar tanımlamak, izleme, yanıt, güvenlik olayları ve şirket içi Çözümle ve çevresinde saatin, güvenlik açıklarını yılın her günü bulut.
 
-Böylece Azure varlıklar ve dağıtımları daha etkili bir şekilde güvenli hale getirmek nasıl anlayabilirsiniz sürekli çalışmasını ek olarak, çeşitli kaynaklar kullanabileceğiniz MSRC takım sahiptir.
+Azure varlıkları ve dağıtımları daha etkili bir şekilde güvenli hale getirmeyi anlayabilmeniz sürekli çalışmasını yanı sıra, çok çeşitli kaynaklar kullanabileceğiniz MSRC takım sahiptir.
 
 ## <a name="the-msrc-blog"></a>MSRC blogu
 
-[MSRC blog](https://blogs.technet.microsoft.com/msrc/) MSRC bulut tehditlere karşı korumaya yardımcı olmak için yaptıklarını üzerindeki en son haberleri almak için Git yerdir.
+[MSRC blog](https://blogs.technet.microsoft.com/msrc/) MSRC bulut tehditlere karşı korumaya yardımcı olmak için yaptığı hakkında en son haberleri almak için Git yerdir.
 
 ## <a name="white-papers"></a>Teknik İncelemeler
 
-Bir dizi MSRC yayımladıktan [teknik incelemeler](https://technet.microsoft.com/library/bb969102.aspx) ne yaptıklarını ve ne yaptıklarını anlamanıza yardımcı olacak. Bazı Microsoft bulut güvenliğini nasıl biz içine Öngörüler sağlamak ve aynı güvenlik yapılandırmalarını nasıl uygulayabileceğiniz hakkında yararlı bilgiler içerir.
+MSRC birkaç yayımladığı [teknik incelemeler](https://technet.microsoft.com/library/bb969102.aspx) neye yaradıkları ve nasıl yaptıklarını anlamanıza yardımcı olacak. Bazı Microsoft bulut güvenliğini nasıl içine ayrıntılı bilgiler sağlar ve aynı güvenlik yapılandırmalarını nasıl dağıtabileceklerinizle hakkında yararlı bilgiler içerir.
 
-## <a name="security-researcher-engagement-and-bounty-programs"></a>Güvenlik araştırmacı katılımı ve cömertliğini programlar
+## <a name="security-researcher-engagement-and-bounty-programs"></a>Güvenlik araştırmacı Engagement ve cömertliğini programlar
 
-MSRC işbirliği ve genel Microsoft Ürün güvenlik ilerletmek için güvenlik araştırmacılarının ilişkileri destekler.
+MSRC, işbirliği ve güvenlik Araştırmacıları, dünya çapında Microsoft Ürün güvenlik ilerlemek için ilişkileri destekler.
 
-Microsoft cömertliğini programları araştırmacılarının için ödeme:
+Microsoft cömertliğini programlar için Araştırmacıları ödeme:
 
-- Yeni istismarı teknikleri
-- Yeni açıkları azaltmak savunma fikirleri
-- Kritik güvenlik açıkları Microsoft tanımlaması şirket içi ve yazılım bulut.
+- Özgün istismarıyla teknikleri
+- Yeni alan yararlanma saldırılarını hafifletmeye savunma fikir
+- Microsoft kritik güvenlik açıklarını tanımlaması şirket içi ve bulut yazılım.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu programlar hakkında daha fazla bilgi [MSRC hata cömertliğini](https://technet.microsoft.com/security/dn425036) sayfa ve [MSRC blog](https://blogs.technet.microsoft.com/msrc/).
+Sırasında bu programları hakkında daha fazla bilgi [MSRC hata cömertliğini](https://technet.microsoft.com/security/dn425036) sayfası ve [MSRC blog](https://blogs.technet.microsoft.com/msrc/).
 
-MSRC hakkında daha fazla bilgi için lütfen ziyaret edin [MSRC giriş sayfası](https://technet.microsoft.com/library/dn440717.aspx).
+MSRC hakkında daha fazla bilgi edinmek için lütfen bkz [MSRC giriş sayfası](https://technet.microsoft.com/library/dn440717.aspx).

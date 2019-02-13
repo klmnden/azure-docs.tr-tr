@@ -1,21 +1,21 @@
 ---
-title: Özel bir ilke tanımı oluşturma
+title: Özel ilke tanımı oluşturma
 description: Azure İlkesi, özel iş kurallarını uygulamak için özel bir ilke tanımı oluşturabilir.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bb9ead3dc10c7f3b5e561196624c4798775d5c3d
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962987"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112102"
 ---
-# <a name="create-a-custom-policy-definition"></a>Özel bir ilke tanımı oluşturma
+# <a name="create-a-custom-policy-definition"></a>Özel ilke tanımı oluşturma
 
 Özel bir ilke tanımı, müşterilerin Azure'ı kullanarak kendi kuralları tanımlamak olanak tanır. Genellikle, bu kurallar uygular:
 
@@ -149,7 +149,7 @@ Bu bilgileri bize özellik türü gösterir ve ayrıca onaylar **supportsHttpsTr
 #### <a name="resource-reference-docs"></a>Kaynak başvuru belgeleri
 
 Doğrulanacak **supportsHttpsTrafficOnly** olan özellik düzeltmek için Resource Manager şablon başvurusu için denetleyin [depolama hesabı kaynağı](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) depolama sağlayıcısı.
-Özellikleri nesnesi geçerli parametrelerin bir listesi vardır. Seçme [StorageAccountPropertiesCreateParameters nesne](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters) bağlantı kabul edilebilir özelliklerinin bir tablo gösterir. **supportsHttpsTrafficOnly** mevcut olduğundan ve hangi iş gereksinimlerini karşılamak üzere arıyoruz açıklama eşleşir.
+Özellikleri nesnesi geçerli parametrelerin bir listesi vardır. Seçme [StorageAccountPropertiesCreateParameters nesne](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) bağlantı kabul edilebilir özelliklerinin bir tablo gösterir. **supportsHttpsTrafficOnly** mevcut olduğundan ve hangi iş gereksinimlerini karşılamak üzere arıyoruz açıklama eşleşir.
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Manager
 

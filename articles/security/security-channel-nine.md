@@ -1,10 +1,10 @@
 ---
-title: Azure güvenlik videolar Channel 9 | Microsoft Docs
-description: Bu makalede Azure güvenlik sunuları seçkin listesi kanal 9'sağlar. Kanal 9 Ürünlerimiz arkasında kişilerle Ürünlerimiz kullanan kişilerin bağlanan bir topluluktur.
+title: Azure güvenlik Channel 9 videoları | Microsoft Docs
+description: Bu makalede, Channel 9'da Azure güvenlik sunumlar düzenlenmiş bir listesini sağlar. Channel 9 Ürünlerimizin arkasındaki kişileri ile ürünlerimizi kullanan kişilerin bağlanan bir topluluktur.
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a
 ms.service: security
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: b6e4539be76449093de0587e43b0e97243602967
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 148b26cc694abaa09bf5016f3c2f2fe3a1c12a70
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540144"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109818"
 ---
-# <a name="azure-security-videos-on-channel-9"></a>Azure güvenlik videolar Channel 9
-[Kanal 9](https://channel9.msdn.com/) Ürünlerimiz arkasında kişiler öne getirir ve bunları müşterilerle bağlayan bir topluluktur.
+# <a name="azure-security-videos-on-channel-9"></a>Azure güvenlik Channel 9 videoları
+[Channel 9](https://channel9.msdn.com/) Ürünlerimizin arkasındaki kişileri öne getirir ve bunları müşterilerle bağlayan bir topluluktur.
 
-Bunlar, yazılım harika gelecekteki yoktur ve bu konuda Çoğalması düşünün. Kanal 9, devam eden konuşmada katılmak için bir topluluktur.
+Bunlar, yazılımda büyük bir gelecek olduğunu ve bunlar bu konuda heyecan duyuyoruz düşünün. Channel 9, devam eden konuşmaya katılmasını bir topluluktur.
 
-Azure güvenlik sunuları Channel 9 seçkin listesi verilmiştir. Bu sayfa yeni videolar için aylık denetlediğinizden emin olun.
+Azure güvenlik sunumlar Channel 9 seçkin bir listesi verilmiştir. Bu sayfa yeni videolar için aylık denetlediğinizden emin olun.
 
-[Barracuda güvenlik Azure tüketimiyle hızlandırma](https://channel9.msdn.com/events/Microsoft-Azure-Marketplace-ISV-Solutions-Webinar-Series/Webinar-1-Accelerating-Azure-Consumption-with-Barracuda-Security/Webinar-1-Accelerating-Azure-Consumption-with-Barracuda-Security)
+[Azure tüketim Barracuda güvenlik ile daha hızlı sunabilirsiniz.](https://channel9.msdn.com/events/Microsoft-Azure-Marketplace-ISV-Solutions-Webinar-Series/Webinar-1-Accelerating-Azure-Consumption-with-Barracuda-Security/Webinar-1-Accelerating-Azure-Consumption-with-Barracuda-Security)
 
 Barracuda güvenlik Azure dağıtımlarınızın güvenliğini sağlamak için nasıl kullanabileceğinizi öğrenin.
 
 [Azure Güvenlik Merkezi - tehdit algılama](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Security-Center-Threat-Detection)
 
-Azure Güvenlik Merkezi ile tüm Azure kaynaklarınızın güvenlik durumunu merkezi bir görünümünü alın. Tek bir bakışta, uygun güvenlik denetimlerinin uygulandığını ve doğru yapılandırıldığını doğrulayın. Tan kimin Güvenlik Merkezi tehdit algılama nasıl tümleşik çalıştığını açıklar Sarah Fender alınmaktadır.
+Azure Güvenlik Merkezi ile genel bir görünüm tüm Azure kaynaklarınızın güvenlik durumunu alın. Tek bir bakışta, uygun güvenlik denetimlerinin uygulandığını ve doğru yapılandırıldığını doğrulayın. Scott, Güvenlik Merkezi'nin tehdit algılama nasıl tümleştirildiğini bodin Sarah Fender anlatıyor.
 
 [Azure Güvenlik Merkezi'ne genel bakış](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Security-Center-Overview)
 
-Azure Güvenlik Merkezi ile tüm Azure kaynaklarınızın güvenlik durumunu merkezi bir görünümünü alın. Tek bir bakışta, uygun güvenlik denetimlerinin uygulandığını ve doğru yapılandırıldığını doğrulayın. Tan kimin tümünü açıklar Sara Fender ettiği!
+Azure Güvenlik Merkezi ile genel bir görünüm tüm Azure kaynaklarınızın güvenlik durumunu alın. Tek bir bakışta, uygun güvenlik denetimlerinin uygulandığını ve doğru yapılandırıldığını doğrulayın. Scott Sara Fender için hiç bodin ile konuşuyor ve!
 
-[Canlı Demo: karşı koruma, algılama ve tehditlerine yanıt verme](https://channel9.msdn.com/events/Virtual-Security-Summit/Virtual-Security-Summit-2016/Live-Demo-Protecting-against-Detecting-and-Responding-to-Threats)
+[Canlı tanıtım: Karşı koruma, algılama ve tehditlerine yanıt verme](https://channel9.msdn.com/events/Virtual-Security-Summit/Virtual-Security-Summit-2016/Live-Demo-Protecting-against-Detecting-and-Responding-to-Threats)
 
-Microsoft Güvenlik platformu uygulamada görmek için bu oturuma katılın. Genel Manager bulut & Enterprise, Jale beyaz için Windows 10, Azure ve Office 365, kuruluşunuzun güvenliğini sağlamanıza yardımcı olabilecek güvenlik özelliklerini gösterir.
+Microsoft Güvenlik platform uygulamada görmek için bu oturuma katılın. Cloud & Enterprise, Julia White'nın, genel müdür, Windows 10, Azure ve Office 365, kuruluşunuzun güvenliğini sağlamanıza yardımcı olabilecek güvenlik özelliklerini gösterir.
 
-[Daha iyi güvenlik için şifreleme, SQL Server azure'da sanal makineler](https://channel9.msdn.com/Shows/Azure-Friday/Encryption-in-SQL-Azure-for-better-security)
+[Daha iyi güvenlik için SQL Server sanal makineleri azure'da şifreleme](https://channel9.msdn.com/Shows/Azure-Friday/Encryption-in-SQL-Azure-for-better-security)
 
-Prizine Richins öğretilmektedir [Scott](https://channel9.msdn.com/Niners/Glucose) nasıl sanal makine Azure örnekleri üzerinde kendi SQL Server veritabanlarını kolayca şifrelenir. Düşünme daha kolay!
+Jack Richins öğretir [Scott](https://channel9.msdn.com/Niners/Glucose) nasıl kolayca kendi SQL Server veritabanlarını Azure sanal makine örneklerinde şifrelenir. De sandığınızdan daha kolay!
 
 Bu videoda ele alanlar:
 
 * Şifrelemeyi anlama ve SQL Server
-* Veri koruma API'si, ana anahtarlar ve sertifikalar anlama
-* Ana anahtar ve sertifikalar oluşturmak ve veritabanı şifrelemek için SQL komutlarını kullanma
+* Veri koruma API'si, ana anahtarları ve sertifikalar anlama
+* Ana anahtar ve sertifikalar oluşturmak ve veritabanı şifrelemek için SQL komutları kullanma
 
 [DevTest Labs'de güvenlik ayarlama](https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab)
 
-Laboratuvarınızı sahibi olarak, iki Laboratuvar rolleri aracılığıyla lab erişim tarafından güvenli hale getirebilirsiniz: sahip ve DevTest Labs kullanıcı. Bir kişi DevTest Labs kullanıcı rolünün Sınırlı erişime sahiptir ancak bir kişi sahip rolünü laboratuar ortamında tam erişimi vardır. Bu videoda, bir kişinin bu rolleri birini laboratuvara ekleme gösteriyoruz.
+Laboratuvarınızı sahibi olarak, iki Laboratuvar rolleri aracılığıyla Laboratuvar erişiminin güvenliğini sağlayabilirsiniz: Sahibi ve DevTest Labs kullanıcısı. DevTest Labs kullanıcısı rolü bir kişi Sınırlı erişime sahiptir ancak bir sahip rolü kişi laboratuar ortamında tam erişimi vardır. Bu videoda, bir kişi ya da bu rollerin bir laboratuvara ekleme gösteriyoruz.
 
-[Azure uygulamaları için parolaları yönetme](https://channel9.msdn.com/events/Build/2016/P456)
+[Azure uygulamaları için gizli anahtarları yönetme](https://channel9.msdn.com/events/Build/2016/P456)
 
-Azure üzerinde dağıttığınız her ciddi uygulamanın kritik gizli – bağlantı dizeleri, sertifikaları, anahtarları yok. Bu gizliliklerin yönetilmesindeki saçma hatalar önemli sonuçları için – sızıntıları, kesintiler, uyumluluk ihlallerini yol açar. Birden çok son anketler noktasında gibi saçma hataları rakiplerin daha dört kat daha fazla veri ihlallerini neden. Bu oturumda, önemli uygulama parolaları yönetmek için bazı en iyi uygulamalar gidin. Bu en iyi uygulamaları sağduyunuzu gibi görünebilir, ancak çoğu Geliştirici bunları ihmal. Biz de Azure anahtar kasası bu en iyi yöntemleri uygulamak için nasıl kullanılacağı üzerine gidin. Bir avantaj olarak SOC. gibi standartlar ile uyumluluğun gösteren bu yöntemler yardımcı olur İlk 10 dakika oturumunun düzeyindedir 100 ve herhangi bir platformda geliştirme herhangi bir bulut uygulama için geçerlidir. Kalan düzeyi 200-300 ve uygulamaları Azure platformunda yapı odaklanmaktadır.
+Azure'da dağıttığınız her uygulama, kritik gizli – bağlantı dizeleri, sertifikaları, anahtarlar vardır. Bu gizli anahtarları yönetme saçma hataları önemli sonuçlar için – sızıntılarını, kesintiler, uyum ihlalleri yol açar. Birden çok son anket tablonuzu gibi dört kat daha fazla veri ihlallerini saldırganlar daha saçma hatalarına neden. Bu oturumda, size önemli uygulama gizli anahtarlarınızı yönetmek için bazı en iyi yöntemler üzerinde gidin. Bu en iyi uygulamaları sağduyunuzu gibi görünebilir, ancak bunları birçok geliştiricinin ihmal. Biz de bu en iyi yöntemleri uygulamak için Azure anahtar kasası kullanmaya nasıl gerçekleştirileceği gidin. Ek bir avantaj olarak listelenerek gibi standartlarıyla uyumluluğu gösteren bu yöntemler yardımcı olur İlk 10 dakika oturumun düzeyi 100 olan ve tüm platformlarda geliştirme herhangi bir bulut uygulaması için geçerlidir. Kalan 200-300 düzeyi ve uygulamaları Azure platformunda derleme odaklanır.
 
-[Azure sanal ağ güvenlik grupları ile Narayan Annamalai kullanılarak ağınızın güvenliğini sağlama](https://channel9.msdn.com/Shows/Azure-Friday/Sucruing-your-Azure-Virtual-Network-using-Network-ACLs-with-Narayan-Annamalai)
+[Azure sanal ağ güvenlik gruplarını kullanarak Narayan Annamalai ile ağınızın güvenliğini sağlama](https://channel9.msdn.com/Shows/Azure-Friday/Sucruing-your-Azure-Virtual-Network-using-Network-ACLs-with-Narayan-Annamalai)
 
-Üst düzey Program Yöneticisi Narayan Annamalai Scott bir Azure sanal ağ içindeki ağ güvenlik grupları kullanmayı öğretir. Alt ağ ve ağ Azure içinde nesnelere erişimi denetleme oluşturabilirsiniz! Erişimi denetlemek ve PowerShell kullanarak Azure içinde grupları oluşturma hakkında bilgi edinin.
+Üst düzey Program Yöneticisi Narayan Annamalai Scott bir Azure sanal ağ içindeki ağ güvenlik grupları kullanmayı öğretir. Alt ağ ve ağ ile Azure içindeki nesnelere erişimi denetleme oluşturabilirsiniz! Erişim denetimi ve PowerShell kullanarak Azure içinde gruplar oluşturmak öğrenin.
 
-[Azure AD Privileged Identity Management: Güvenlik Sihirbazı, uyarılar, incelemeleri](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Privileged-Identity-Management-Security-Wizard-Alerts-Reviews)
+[Azure AD Privileged Identity Management: Güvenlik Sihirbazı, Uyarıları gözden geçirmeleri](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Privileged-Identity-Management-Security-Wizard-Alerts-Reviews)
 
-Azure Active Directory (AD) Privileged Identity Management bulmak, kısıtlama ve ayrıcalıklı kimliklerinizi ve bunların kaynaklara erişimi izlemenize olanak tanıyan premium bir işlevdir. Ayrıca, isteğe bağlı, gerektiğinde yalnızca zaman yönetimsel erişim zorlar. Hakkında bilgi edinin:
+Azure Active Directory (AD) Privileged Identity Management bulmak, kısıtlamak ve ayrıcalıklı kimlikleri ve bu kimliklerin kaynaklara erişimini izlemenize olanak tanıyan premium bir işlevdir. Ayrıca isteğe bağlı, gerektiğinde tam zamanlı yönetimsel erişim de uygular. Hakkında bilgi edinin:
 
 * Koruma için Office 365 iş yüküne özgü yönetici rollerini yönetme
-* Azure çok faktörlü Authentication(MFA) ayrıcalıklı rol etkinleştirmesi için yapılandırma
-* Ölçme ve Kiracı güvenlikle ilgili tutumunuzu artırma
-* İzleme ve güvenlik bulgularını çözme
+* Azure multi-Factor Authentication Authentication(MFA) ayrıcalıklı rol etkinleştirmesi için yapılandırma
+* Ölçme ve Kiracı güvenlik duruşunuzu geliştirme
+* İzleme ve güvenlik bulguları düzeltme
 * Düzenli aralıklarla yeniden sertifikalandırılmasını iş akışları için ayrıcalıklı rolleri kalmasına gerek duyan gözden geçirme
 
-[Azure anahtar kasası Amit Bapat ile](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
+[Azure Key Vault ile Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
-Amit Bapat Scott Azure anahtar Kasası'na tanıtır. Azure Key Vault, donanım güvenlik modülleri (HSM'ler) içinde depolanan anahtarları kullanarak anahtarları ve parolalar gibi küçük gizli anahtarları şifrelemenize olanak tanır. Microsoft Azure için bulut tabanlı, donanım tabanlı gizli yönetim kadar!
+Amit Bapat Scott Azure anahtar Kasası'na tanıtır. Azure Key Vault, donanım güvenlik modülleri (HSM'ler) içinde depolanan anahtarları kullanarak anahtarları ve parolalar gibi küçük gizli anahtarları şifrelemenize olanak tanır. Microsoft Azure için bulut tabanlı, donanım tabanlı gizli dizi Yönetimi sunuluyor

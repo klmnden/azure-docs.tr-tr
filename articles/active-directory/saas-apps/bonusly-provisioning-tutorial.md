@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 9d9ad137ed8b42c388fdb2dac63846e27f884d56
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 74c14de0d09006aefb342590f613edb129ab5016
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348999"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173717"
 ---
-# <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Öğretici: Bonusly otomatik kullanıcı hazırlama için yapılandırma
+# <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Bonusly yapılandırın
 
 Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya gruplara Bonusly sağlamasını Bonusly ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için gerçekleştirilmesi gereken adımlar göstermektir.
 

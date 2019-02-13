@@ -9,14 +9,14 @@ ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: reference
-ms.date: 01/15/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 74afd08aaa2e512ae3bcae302f50585eb8024306
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8e5876c9141a3eb85593b12f45b0bde4c7984adf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864086"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175345"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Yükseltme Bing Web arama API'si v5 için v7
 
@@ -26,7 +26,7 @@ Bu Yükseltme Kılavuzu, sürüm 5 ve Bing Web araması API'si 7 sürümü aras�
 
 ### <a name="endpoints"></a>Uç Noktalar
 
-- Uç noktanın sürüm numarası için v7 v5 değiştirildi. Örneğin, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**  /arama.
+- Uç noktanın sürüm numarası için v7 v5 değişti. Örneğin, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**  /arama.
 
 ### <a name="error-response-objects-and-error-codes"></a>Hata yanıtı nesneleri ve hata kodları
 

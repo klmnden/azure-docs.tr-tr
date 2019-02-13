@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory yolu yaptığımız ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Yaptığımız yolu ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory arasında yaptığımız gibi çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: bc415ec7c577e221a1ab5af585dff5b4fc9ab7dc
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5dc6d8e2cf7ac4786f30484325406a1fe696dff3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259974"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165136"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Öğretici: Azure Active Directory yolu yaptığımız ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Öğretici: Yaptığımız yolu ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, yaptığımız gibi Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi gibi biz yaparız ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir şekilde size çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Yaptığımız gibi Azure AD'de tümleştirmesini yapılandırmak için yaptığ
 
 **Galeriden yaptığımız yolu eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -198,7 +199,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı, şu şekilde yaptığınız Britta Simon adlı bir kullanıcı oluşturmaktır. Yol yaptığımız tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa yaptığımız gibi erişme denemesi sırasında oluşturulur.
 
 > [!Note]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [şekilde biz yapmak istemci Destek ekibine](mailto:support@waywedo.com).
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [şekilde biz yapmak istemci Destek ekibine](mailto:support@waywedo.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

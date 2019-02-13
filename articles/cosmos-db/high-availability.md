@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0903756ba7df34e7dba20301d45cbd4b6cc4d5ea
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992526"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109767"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB ile yüksek kullanılabilirlik
 
@@ -58,7 +58,7 @@ Bölgesel kesintiler nadir değildir ve Azure Cosmos DB, veritabanının her zam
 
 ## <a name="building-highly-available-applications"></a>Yüksek düzeyde erişilebilir uygulamalar oluşturma
 
-- Yüksek yazma emin olun ve Okunabilirlik için birden çok yazma bölgeleri ile en az iki bölgeleri yayılmasını Cosmos hesabınızı yapılandırın. Bu yapılandırma veririz en düşük gecikme süresi, kullanılabilirlik ve ölçeklenebilirlik için her ikisi de okur ve SLA'lar ile desteklenen yazar. Daha fazla bilgi için bkz. nasıl [Cosmos hesabınız ile birden çok yazma bölgeleri yapılandırma](tutorial-global-distribution-sql-api.md).
+- Yüksek yazma emin olun ve Okunabilirlik için birden çok yazma bölgeleri ile en az iki bölgeleri yayılmasını Cosmos hesabınızı yapılandırın. Bu yapılandırma veririz en düşük gecikme süresi, kullanılabilirlik ve ölçeklenebilirlik için her ikisi de okur ve SLA'lar ile desteklenen yazar. Daha fazla bilgi için bkz. nasıl [Cosmos hesabınız ile birden çok yazma bölgeleri yapılandırma](tutorial-global-distribution-sql-api.md). Çok yöneticili uygulamalarınızda yapılandırmak için bkz [çok ana yapılandırma](how-to-multi-master.md).
 
 - Bir yazma tek bölge ile yapılandırılmış olan çok bölgeli Cosmos hesapları için [otomatik yük devretme, Azure CLI veya Azure portalını kullanarak etkinleştirmeniz](how-to-manage-database-account.md#automatic-failover). Bölgesel bir olağanüstü durumda olduğunda otomatik yük devretme etkinleştirdikten sonra Cosmos DB devreder otomatik olarak hesabınızı.  
 
@@ -86,3 +86,4 @@ Ardından aşağıdaki makalede aktarım hızını ölçeklendirme hakkında bil
 * [Genel olarak sağlanan aktarım hızı ölçeklendirme](scaling-throughput.md)
 * [Genel dağıtım - başlık altında](global-dist-under-the-hood.md)
 * [Azure Cosmos DB'deki tutarlılık düzeyleri](consistency-levels.md)
+* [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md)

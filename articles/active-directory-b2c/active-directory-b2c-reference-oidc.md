@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39a3164c27fa30250fe08e864db889eac844f646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c27be7da2aceea8581fd4a5baef96103faa0c1d4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173012"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107319"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: OpenID Connect ile web oturumu açma
 Openıd Connect, kullanıcıların web uygulamalarına güvenli bir şekilde oturum açmak için kullanılan OAuth 2.0 üzerinde yerleşik bir kimlik doğrulama protokolü olan. Azure Active Directory B2C kullanarak Openıd Connect (Azure AD B2C) uygulaması, devredebilir kaydolma, oturum açma ve web uygulamalarınızı Azure Active Directory (Azure AD) içinde diğer kimlik yönetimi deneyimleri. Bu kılavuz dilden bağımsız bir şekilde bunu nasıl gösterir. Bu, HTTP iletileri gönderip bizim açık kaynak kitaplıkları hiçbirini kullanmadan nasıl açıklar.
@@ -27,7 +27,7 @@ Ayrıca, OAuth 2.0 genişlettiğinden, güvenli bir şekilde almak uygulamalar s
 Basit kimlik doğrulaması ve yetkilendirme birden yapmak için standart olan Openıd Connect protokolü, Azure AD B2C'yi genişletir. Tanıttığı [kullanıcı akışı parametre](active-directory-b2c-reference-policies.md), Openıd Connect gibi kullanıcı deneyimlerini--eklemek için kullanmanıza olanak sağlayan kaydolma, oturum açma ve profil yönetimi--uygulamanıza. Burada, Openıd Connect ve kullanıcı akışları her biri bu deneyimler, web uygulamalarınızda uygulamak için nasıl kullanılacağını göstereceğiz. Ayrıca web API'leri erişmek için erişim belirteçlerini almak nasıl göstereceğiz.
 
 Bizim örnek B2C dizini, fabrikamb2c.onmicrosoft.com yanı sıra örnek uygulamamız örnek HTTP istekleri sonraki bölümde kullanmak https://aadb2cplayground.azurewebsites.netve kullanıcı akışları. İstekleri bu değerleri kullanarak kendiniz denemek ücretsiz veya bunları kendi değerlerinizle değiştirebilirsiniz.
-Bilgi edinmek için nasıl [kendi B2C Kiracı, uygulama ve kullanıcı Akışları Al](#use-your-own-b2c-directory).
+Bilgi edinmek için nasıl [kendi B2C Kiracı, uygulama ve kullanıcı Akışları Al](#use-your-own-b2c-tenant).
 
 ## <a name="send-authentication-requests"></a>Kimlik doğrulama isteği gönder
 Web uygulamanız, kullanıcının kimliğini doğrulamak ve kullanıcı akışı yürütmek gerektiğinde kullanıcıya yönlendirebilir `/authorize` uç noktası. Bu etkileşimli akış burada kullanıcı, kullanıcı akışı bağlı olarak bir eylemde bölümüdür.
@@ -75,14 +75,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parametre | Gerekli mi? | Açıklama |
 | --- | --- | --- |
-| client_id |Gereklidir |Uygulama Kimliği [Azure portalında](https://portal.azure.com/) uygulamanıza atanan. |
-| response_type |Gereklidir |Yanıt türü için Openıd Connect kimlik belirteci içermelidir. Ayrıca web uygulamanızı bir web API'sini çağırmak için belirteçleri erişmesi gerekiyorsa, kullanabileceğiniz `code+id_token`burada yaptığımız gibi. |
+| client_id |Gerekli |Uygulama Kimliği [Azure portalında](https://portal.azure.com/) uygulamanıza atanan. |
+| response_type |Gerekli |Yanıt türü için Openıd Connect kimlik belirteci içermelidir. Ayrıca web uygulamanızı bir web API'sini çağırmak için belirteçleri erişmesi gerekiyorsa, kullanabileceğiniz `code+id_token`burada yaptığımız gibi. |
 | redirect_uri |Önerilen |`redirect_uri` Uygulamanızın, burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan parametresi. Bu tam olarak biri eşleşmelidir `redirect_uri` URL olarak kodlanmış olması dışında Portalı'nda kayıtlı parametreleri. |
-| scope |Gereklidir |Kapsamları boşlukla ayrılmış listesi. Tek bir kapsam değeri, talep edilen hem izinleri Azure AD'ye gösterir. `openid` Kapsamı kullanıcının oturum açmasını ve kullanıcı kimliği belirteçleri (Bu makalenin sonraki bölümlerinde gelmesini daha) biçiminde hakkında veri alma izni gösterir. `offline_access` Kapsamı, web uygulamaları için isteğe bağlıdır. Uygulamanıza gerekecek gösteren bir *yenileme belirteci* kaynaklarına uzun süreli erişim için. |
+| scope |Gerekli |Kapsamları boşlukla ayrılmış listesi. Tek bir kapsam değeri, talep edilen hem izinleri Azure AD'ye gösterir. `openid` Kapsamı kullanıcının oturum açmasını ve kullanıcı kimliği belirteçleri (Bu makalenin sonraki bölümlerinde gelmesini daha) biçiminde hakkında veri alma izni gösterir. `offline_access` Kapsamı, web uygulamaları için isteğe bağlıdır. Uygulamanıza gerekecek gösteren bir *yenileme belirteci* kaynaklarına uzun süreli erişim için. |
 | response_mode |Önerilen |Ortaya çıkan bir yetkilendirme kodu uygulamanıza geri göndermek için kullanılması gereken yöntemini. Ya da olabilir `query`, `form_post`, veya `fragment`.  `form_post` Yanıt modu, en iyi güvenlik için önerilir. |
 | durum |Önerilen |Ayrıca belirteci yanıtta döndürülen isteğinde bulunan bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Rastgele oluşturulmuş bir benzersiz değeri, genellikle siteler arası istek sahteciliği saldırılarına önlemek için kullanılır. Durumu, uygulama kullanıcının durumu hakkında bilgi, bulunduğunuz sayfaya gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
-| nonce |Gereklidir |Sonuçta elde edilen kimlik belirtecinde talep olarak dahil edilecek (uygulama tarafından oluşturulan) istek içindeki bir değer. Uygulama, belirteç yeniden yürütme saldırıları azaltmak için bu değer daha sonra doğrulayabilirsiniz. Genellikle istek kaynağı tanımlamak için kullanılan benzersiz bir rastgele dize değeridir. |
-| p |Gereklidir |Yürütülecek kullanıcı akışı. B2C kiracınızda oluşturulan kullanıcı akışı adıdır. Kullanıcı akışı ad değer ile başlaması gereken `b2c\_1\_`. İlkeleri hakkında daha fazla bilgi edinin ve [Genişletilebilir kullanıcı akışı çerçevesi](active-directory-b2c-reference-policies.md). |
+| nonce |Gerekli |Sonuçta elde edilen kimlik belirtecinde talep olarak dahil edilecek (uygulama tarafından oluşturulan) istek içindeki bir değer. Uygulama, belirteç yeniden yürütme saldırıları azaltmak için bu değer daha sonra doğrulayabilirsiniz. Genellikle istek kaynağı tanımlamak için kullanılan benzersiz bir rastgele dize değeridir. |
+| p |Gerekli |Yürütülecek kullanıcı akışı. B2C kiracınızda oluşturulan kullanıcı akışı adıdır. Kullanıcı akışı ad değer ile başlaması gereken `b2c\_1\_`. İlkeleri hakkında daha fazla bilgi edinin ve [Genişletilebilir kullanıcı akışı çerçevesi](active-directory-b2c-reference-policies.md). |
 | istemi |İsteğe bağlı |Gerekli olan kullanıcı etkileşimi türü. Şu anda geçerli olan `login`, bu isteği kimlik bilgilerini girmesini zorlar. Çoklu oturum açma etkili olmaz. |
 
 Bu noktada, kullanıcı kullanıcı Akış iş akışı tamamlamanız istenir. Bu dizinin veya herhangi bir kullanıcı akışı nasıl tanımlandığını bağlı olarak, adım sayısı kaydolma bir sosyal kimlik bilgilerinizle oturum, kullanıcı adını ve parolasını girerek kullanıcı gerektirebilir.
@@ -169,13 +169,13 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parametre | Gerekli mi? | Açıklama |
 | --- | --- | --- |
-| p |Gereklidir |Yetkilendirme kodunu almak için kullanılan kullanıcı akışı. Bu istekte farklı kullanıcı akışı kullanamazsınız. Bu parametre sorgu dizesi için eklediğiniz Not `POST` gövdesi. |
-| client_id |Gereklidir |Uygulama Kimliği [Azure portalında](https://portal.azure.com/) uygulamanıza atanan. |
-| grant_type değeri |Gereklidir |Olmalıdır verme türünü `authorization_code` yetkilendirme kod akışı için. |
+| p |Gerekli |Yetkilendirme kodunu almak için kullanılan kullanıcı akışı. Bu istekte farklı kullanıcı akışı kullanamazsınız. Bu parametre sorgu dizesi için eklediğiniz Not `POST` gövdesi. |
+| client_id |Gerekli |Uygulama Kimliği [Azure portalında](https://portal.azure.com/) uygulamanıza atanan. |
+| grant_type değeri |Gerekli |Olmalıdır verme türünü `authorization_code` yetkilendirme kod akışı için. |
 | scope |Önerilen |Kapsamları boşlukla ayrılmış listesi. Tek bir kapsam değeri, talep edilen hem izinleri Azure AD'ye gösterir. `openid` Kapsamı kullanıcının oturum açmasını ve id_token parametreleri biçiminde bir kullanıcı hakkında veri alma izni gösterir. Aynı uygulama kimliği istemci tarafından temsil edilen uygulamanın kendi arka uç Web API'si, belirteçlerini almak için kullanılabilir. `offline_access` Kapsamını belirtir uygulamanızı kaynaklarına uzun süreli erişim için bir yenileme belirteci gerekir. |
-| kod |Gereklidir |Akışın ilk oluşturan içinde alınan yetkilendirme kodu. |
-| redirect_uri |Gereklidir |`redirect_uri` Yetkilendirme kodu aldığınız uygulama parametresi. |
-| client_secret |Gereklidir |İçinde oluşturulan uygulama gizli anahtarı [Azure portalında](https://portal.azure.com/). Bu uygulama gizli anahtarı önemli güvenlik bir yapıdır. Onu güvenli bir şekilde sunucunuzda depolamanız gerekir. Ayrıca, düzenli aralıklarla bu gizli döndürme. |
+| kod |Gerekli |Akışın ilk oluşturan içinde alınan yetkilendirme kodu. |
+| redirect_uri |Gerekli |`redirect_uri` Yetkilendirme kodu aldığınız uygulama parametresi. |
+| client_secret |Gerekli |İçinde oluşturulan uygulama gizli anahtarı [Azure portalında](https://portal.azure.com/). Bu uygulama gizli anahtarı önemli güvenlik bir yapıdır. Onu güvenli bir şekilde sunucunuzda depolamanız gerekir. Ayrıca, düzenli aralıklarla bu gizli döndürme. |
 
 Başarılı bir token yanıt şu şekilde görünür:
 
@@ -232,15 +232,15 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parametre | Gereklidir | Açıklama |
+| Parametre | Gerekli | Açıklama |
 | --- | --- | --- |
-| p |Gereklidir |Özgün yenileme belirteci almak için kullanılan kullanıcı akışı. Bu istekte farklı kullanıcı akışı kullanamazsınız. Bu parametre eklediğiniz sorgu dizesi için değil, POST gövdesini not edin. |
-| client_id |Gereklidir |Uygulama Kimliği [Azure portalında](https://portal.azure.com/) uygulamanıza atanan. |
-| grant_type değeri |Gereklidir |Bu oluşturan yetkilendirme kod akışı için bir yenileme belirteci olmalıdır verme türü. |
+| p |Gerekli |Özgün yenileme belirteci almak için kullanılan kullanıcı akışı. Bu istekte farklı kullanıcı akışı kullanamazsınız. Bu parametre eklediğiniz sorgu dizesi için değil, POST gövdesini not edin. |
+| client_id |Gerekli |Uygulama Kimliği [Azure portalında](https://portal.azure.com/) uygulamanıza atanan. |
+| grant_type değeri |Gerekli |Bu oluşturan yetkilendirme kod akışı için bir yenileme belirteci olmalıdır verme türü. |
 | scope |Önerilen |Kapsamları boşlukla ayrılmış listesi. Tek bir kapsam değeri, talep edilen hem izinleri Azure AD'ye gösterir. `openid` Kapsamı kullanıcının oturum açmasını ve kullanıcı kimliği belirteçleri şeklinde hakkında veri alma izni gösterir. Aynı uygulama kimliği istemci tarafından temsil edilen uygulamanın kendi arka uç Web API'si, belirteçlerini almak için kullanılabilir. `offline_access` Kapsamını belirtir uygulamanızı kaynaklarına uzun süreli erişim için bir yenileme belirteci gerekir. |
 | redirect_uri |Önerilen |`redirect_uri` Yetkilendirme kodu aldığınız uygulama parametresi. |
-| refresh_token |Gereklidir |Akışın ikinci oluşturan içinde alınan özgün bir yenileme belirteci. Kapsam kullanılan gerekir Not `offline_access` yetkilendirme ve belirteç isteklerinin bir yenileme belirteci almak için. |
-| client_secret |Gereklidir |İçinde oluşturulan uygulama gizli anahtarı [Azure portalında](https://portal.azure.com/). Bu uygulama gizli anahtarı önemli güvenlik bir yapıdır. Onu güvenli bir şekilde sunucunuzda depolamanız gerekir. Ayrıca, düzenli aralıklarla bu gizli döndürme. |
+| refresh_token |Gerekli |Akışın ikinci oluşturan içinde alınan özgün bir yenileme belirteci. Kapsam kullanılan gerekir Not `offline_access` yetkilendirme ve belirteç isteklerinin bir yenileme belirteci almak için. |
+| client_secret |Gerekli |İçinde oluşturulan uygulama gizli anahtarı [Azure portalında](https://portal.azure.com/). Bu uygulama gizli anahtarı önemli güvenlik bir yapıdır. Onu güvenli bir şekilde sunucunuzda depolamanız gerekir. Ayrıca, düzenli aralıklarla bu gizli döndürme. |
 
 Başarılı bir token yanıt şu şekilde görünür:
 
@@ -290,7 +290,7 @@ p=b2c_1_sign_in
 
 | Parametre | Gerekli mi? | Açıklama |
 | --- | --- | --- |
-| p |Gereklidir |Kullanıcının uygulamanızı imzalamak için kullanmak istediğiniz kullanıcı akışı. |
+| p |Gerekli |Kullanıcının uygulamanızı imzalamak için kullanmak istediğiniz kullanıcı akışı. |
 | post_logout_redirect_uri |Önerilen |Kullanıcı için sonra yeniden yönlendirilmesi gereken URL'yi başarılı oturum kapatma. Dahil edilmezse, Azure AD B2C kullanıcı genel bir ileti gösterilir. |
 
 > [!NOTE]

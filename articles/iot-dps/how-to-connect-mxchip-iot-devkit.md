@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 513d4e51ced798f5fe49e2e1e59fcc8ec02d9c2c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 07614147189732223f972c1f66bb6562280d3f39
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699202"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118369"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>MXChip IOT DevKit IOT Hub'ınızla kaydolmak için Azure IOT Hub cihazı sağlama hizmeti otomatik sağlama kullanın
 
@@ -30,7 +30,7 @@ Bu makalede, Azure IOT Hub cihazı sağlama hizmeti kullanmayı açıklar [otoma
 
 Bu öğreticideki adımları tamamlamak için önce aşağıdaki görevleri yapın:
 
-* İçindeki adımları izleyerek, DevKit hazırlama [IOT DevKit AZ3166 bulutta Azure IOT hub'a bağlanma](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md).
+* İçindeki adımları izleyerek, DevKit hazırlama [IOT DevKit AZ3166 bulutta Azure IOT hub'a bağlanma](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 * En son üretici yazılımı yükseltin (1.3.0 veya üzeri) ile [güncelleştirme DevKit bellenim](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) öğretici.
 * Oluşturma ve adımları izleyerek bir IOT hub'a bir cihaz sağlama hizmeti örneği ile bağlantı [IOT Hub cihazı sağlama hizmeti Azure portalıyla ayarlama](/azure/iot-dps/quick-setup-auto-provision).
 

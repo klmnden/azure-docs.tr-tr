@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: e8cf814399661c62d38b0d95a0074a2d36c9b4b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f3b6476fcedf849fb3305517ecfdcf29d07f545c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187649"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181550"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Öğretici: LogicMonitor ile Azure Active Directory Tümleştirme
 

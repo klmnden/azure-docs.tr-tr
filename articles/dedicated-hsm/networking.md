@@ -3,7 +3,7 @@ title: İlgili ağ konuları - Azure ayrılmış HSM | Microsoft Docs
 description: Ağ konuları Azure ayrılmış HSM dağıtımlar için geçerli genel bakış
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 46a4cc5e48a9fe239a3c62bd72cf6a99e9bf76d8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d872c4eff3d55ddf5d98243055e831a7a223a8ef
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092900"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115462"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure ayrılmış HSM ağ
 
@@ -39,7 +39,7 @@ Ayrılmış HSM cihaz sağlamadan önce müşterilerin, Azure'da bir sanal ağ o
 
 ### <a name="subnets"></a>Alt ağlar
 
-Alt ağlar, sanal ağ yerleştirebilirsiniz, Azure kaynaklarını kullanılabilir ayrı adres alanları ölçütü. Ayrılmış Hsm'lerin sanal ağdaki bir alt ağa dağıtılır. Müşterinin alt ağında dağıtılan her bir ayrılmış HSM cihaz bu alt ağdan özel IP adresi alır. HSM cihazını dağıtıldığı alt ağ, bu hizmete açıkça temsilci gerekiyor: Microsoft.HardwareSecurityModules/dedicatedHSMs. Bu alt ağa dağıtım için HSM hizmeti belirli izinleri verir. Ayrılmış HSM'ler için temsilci seçme, alt ağdaki belirli ilke kısıtlamalarını uygular. Şu anda temsilci alt ağlarda ağ güvenlik grupları (Nsg'ler) ve kullanıcı tanımlı yollar (Udr) desteklenmez. Bir alt ağ için ayrılmış Hsm'lerin temsilci sonra sonuç olarak, yalnızca HSM kaynakları dağıtmak için kullanılabilir. Alt ağa herhangi bir müşteri kaynakları dağıtımı başarısız olur.
+Alt ağlar, sanal ağ yerleştirebilirsiniz, Azure kaynaklarını kullanılabilir ayrı adres alanları ölçütü. Ayrılmış Hsm'lerin sanal ağdaki bir alt ağa dağıtılır. Müşterinin alt ağında dağıtılan her bir ayrılmış HSM cihaz bu alt ağdan özel IP adresi alır. Bu hizmete açıkça temsilci için HSM cihazını dağıtıldığı alt ağ gerekir: Microsoft.HardwareSecurityModules/dedicatedHSMs. Bu alt ağa dağıtım için HSM hizmeti belirli izinleri verir. Ayrılmış HSM'ler için temsilci seçme, alt ağdaki belirli ilke kısıtlamalarını uygular. Şu anda temsilci alt ağlarda ağ güvenlik grupları (Nsg'ler) ve kullanıcı tanımlı yollar (Udr) desteklenmez. Bir alt ağ için ayrılmış Hsm'lerin temsilci sonra sonuç olarak, yalnızca HSM kaynakları dağıtmak için kullanılabilir. Alt ağa herhangi bir müşteri kaynakları dağıtımı başarısız olur.
 
 
 ### <a name="expressroute-gateway"></a>ExpressRoute ağ geçidi

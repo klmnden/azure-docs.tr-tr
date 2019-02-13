@@ -1,6 +1,6 @@
 ---
-title: Azure haritalar hesabı ve anahtarları yönetme | Microsoft Docs
-description: Azure haritalar hesabınızda yönetmek ve erişim anahtarlarınızı yönetmek için Azure portalını kullanabilirsiniz.
+title: Azure haritalar hesabınızda yönetme | Microsoft Docs
+description: Azure haritalar hesabınızda yönetmek için Azure portalını kullanabilirsiniz.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/12/2018
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 81746279e935f9fa5b6ef00bc8d31e75f4d3bd20
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 488167b4893c314af99b354a2422204ebbf34c5e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103053"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113705"
 ---
-# <a name="manage-your-azure-maps-account-and-keys"></a>Azure haritalar hesabı ve anahtarları yönetme
+# <a name="manage-your-azure-maps-account"></a>Azure haritalar hesabınızı yönetin
 
-Azure haritalar hesabı ve anahtarları Azure Portalı aracılığıyla yönetebilirsiniz. Hesabınız ve anahtarı oluşturduktan sonra Web sitesi veya mobil uygulama API'leri uygulayabilirsiniz.
+Azure haritalar hesabınız Azure Portalı aracılığıyla yönetebilirsiniz. Bir hesap oluşturduktan sonra Web sitesi veya mobil uygulama API'leri uygulayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -32,16 +32,6 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 4. Yeni hesabınızın bilgilerini girin.
 
 ![Portalda hesap bilgilerini girin](./media/how-to-manage-account-keys/new-account-portal.png)
-
-## <a name="manage-keys-on-the-account-page"></a>Hesap sayfasındaki anahtarları Yönet
-
-Bir hesap oluşturduktan sonra iki rastgele oluşturulmuş bir anahtar alın. Harita verileri alma veya yeni bir JavaScript harita örneği oluşturmak için Azure haritalar API karşı kimlik doğrulaması için anahtarları kullanın.
-
-Anahtarlarınızı Azure portalında bulabilirsiniz. Hesabınıza gidin. Ardından **anahtarları** menüsünde.
-
-![Portalında hesap anahtarlarını yönetme](./media/how-to-manage-account-keys/account-keys-portal.png)
-
-Bu sayfadan anahtarlarınızı kopyalayın veya yenilerini oluşturun.
 
 ## <a name="delete-an-account"></a>Hesap silme
 

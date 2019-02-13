@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory JDA bulut ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi JDA bulutla | Microsoft Docs'
 description: Azure Active Directory ve JDA bulut arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 371ff15121e3da0bec5be6159fea9c6764b0aeda
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f2dfaf281130115ff04ff84b413e224f54cfcf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703760"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168349"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Öğretici: Azure Active Directory JDA bulut ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Öğretici: JDA bulut ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile JDA bulut tümleştirme konusunda bilgi edinin.
 
@@ -170,7 +171,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="create-a-jda-cloud-test-user"></a>JDA bulut test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon JDA bulutta adlı bir kullanıcı oluşturun. Çalışmak [JDA bulut Destek ekibine](https://support.jda.com/) JDA bulut platformunda kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon JDA bulutta adlı bir kullanıcı oluşturun. Çalışmak [JDA bulut Destek ekibine](https://support.jda.com/) JDA bulut platformunda kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

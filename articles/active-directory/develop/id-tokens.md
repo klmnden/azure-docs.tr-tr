@@ -16,12 +16,13 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74f071d91003c63fd8db590572a7c9dea1b8915b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: de9db7abe17fc41907582ec32d3e916d0536e543
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092792"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175121"
 ---
 # <a name="id-tokens"></a>Kimlik belirteçleri
 
@@ -56,9 +57,9 @@ Bu v2.0 örnek belirtecinde görüntülemek [jwt.ms](https://jwt.ms/#id_token=ey
 |İste | Biçimlendir | Açıklama |
 |-----|--------|-------------|
 |`typ` | Dize - her zaman "JWT" | JWT belirteci olduğunu gösterir.|
-|`alg` | Dize | Belirteç imzalamak için kullanılan algoritmayı belirtir. Örnek: "RS256" |
-|`kid` | Dize | Bu belirteç imzalamak için kullanılan ortak anahtar için parmak izi. Hem v1.0 hem de v2.0 yayılan `id_tokens`. |
-|`x5t` | Dize | Aynı (kullanın ve değerini) olarak `kid`. Ancak, bu yalnızca v1.0 yayılan eski bir talep, `id_tokens` uyumluluk amacıyla. |
+|`alg` | String | Belirteç imzalamak için kullanılan algoritmayı belirtir. Örnek: "RS256" |
+|`kid` | String | Bu belirteç imzalamak için kullanılan ortak anahtar için parmak izi. Hem v1.0 hem de v2.0 yayılan `id_tokens`. |
+|`x5t` | String | Aynı (kullanın ve değerini) olarak `kid`. Ancak, bu yalnızca v1.0 yayılan eski bir talep, `id_tokens` uyumluluk amacıyla. |
 
 ### <a name="payload-claims"></a>Yükü talepleri
 
@@ -70,18 +71,18 @@ Bu v2.0 örnek belirtecinde görüntülemek [jwt.ms](https://jwt.ms/#id_token=ey
 |`idp`|Dize, genellikle bir STS URI | Belirtecin öznesinin kimliğini doğrulayan kimlik sağlayıcısını kaydeder. -Veren olarak aynı kiracıda değil kullanıcı hesabının konukların sürece örneği için bu değer veren talep değeri için aynıdır. Talep mevcut değilse, değeri anlamına `iss` bunun yerine kullanılabilir.  Kişisel hesapları orgnizational bağlamda (bir Azure AD kiracısına davet örneği için bir kişisel hesap) kullanılan `idp` talep 'live.com' veya Microsoft hesabı kiracısının içeren bir STS URI olabilir `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, UNIX zaman damgası | "Nbf" (önce değil) talep işlem önüne JWT değil kabul edilmesi gereken zamanı tanımlar.|
 |`exp` |  int, UNIX zaman damgası | "Exp" (süre) talep veya daha sonra JWT gerekir işleme için kabul sona erme zamanı tanımlar.  Kaynak belirteci de - bu süreden önce örneğin kimlik değişikliği gerekli değildir veya belirteç iptali algılandı reddedebilir olduğunu unutmayın. |
-| `c_hash`| Dize |Yalnızca bir OAuth 2.0 yetkilendirme kodu ile kimlik belirteci verildiğinde kod karma kimlik belirteçleri bulunur. Bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| Dize |Belirteç karması Kimliğinde bulunan erişim yalnızca zaman kimlik belirteci bir OAuth 2.0 erişim belirteci ile verilen belirteçler. Bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html). |
+| `c_hash`| String |Yalnızca bir OAuth 2.0 yetkilendirme kodu ile kimlik belirteci verildiğinde kod karma kimlik belirteçleri bulunur. Bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| String |Belirteç karması Kimliğinde bulunan erişim yalnızca zaman kimlik belirteci bir OAuth 2.0 erişim belirteci ile verilen belirteçler. Bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Donuk dize | Belirteci yeniden kullanım için verileri kaydetmek üzere Azure AD tarafından kullanılan bir iç talep. Yoksayılacak.|
-|`preferred_username` | Dize | Kullanıcıyı temsil eden birincil kullanıcı adı. Bir e-posta adresi, telefon numarası veya belirli bir biçimdeki olmadan genel bir kullanıcı adı olabilir. Değerini değişebilir ve zaman içinde değişebilir. Değişebilir olduğundan, bu değer yetkilendirme kararları vermek için kullanılmamalıdır. `profile` Kapsamı, bu talebi için gereklidir.|
-|`email` | Dize | `email` Talep bir e-posta adresine sahip Konuk hesapları için varsayılan olarak mevcut.  Uygulamanız için yönetilen kullanıcılar (Bu aynı kiracıda kaynak olarak) e-posta talebi isteyebilir kullanarak `email` [isteğe bağlı bir talep](active-directory-optional-claims.md).  V2.0 uç noktası ile uygulamanızı da isteğinde bulunabilirsiniz `email` Openıd Connect kapsam - isteğe bağlı bir talep ve kapsam talebi almak için isteği gerekmez.  E-posta talebi yalnızca kullanıcının profil bilgilerini adreslenebilir posta destekler. |
-|`name` | Dize | `name` Talep belirtecinin konu tanımlayan insanlar tarafından okunabilen bir değer sağlar. Değerin benzersiz olması garanti edilmez, değişebilir ve yalnızca görüntüleme amaçları için kullanılmak üzere tasarlanmıştır. `profile` Kapsamı, bu talebi için gereklidir. |
-|`nonce`| Dize | Nonce özgün dahil parametreyle eşleşen / IDP isteğine yetki. Eşleşmiyorsa, uygulamanızın belirteci reddetme. |
+|`preferred_username` | String | Kullanıcıyı temsil eden birincil kullanıcı adı. Bir e-posta adresi, telefon numarası veya belirli bir biçimdeki olmadan genel bir kullanıcı adı olabilir. Değerini değişebilir ve zaman içinde değişebilir. Değişebilir olduğundan, bu değer yetkilendirme kararları vermek için kullanılmamalıdır. `profile` Kapsamı, bu talebi için gereklidir.|
+|`email` | String | `email` Talep bir e-posta adresine sahip Konuk hesapları için varsayılan olarak mevcut.  Uygulamanız için yönetilen kullanıcılar (Bu aynı kiracıda kaynak olarak) e-posta talebi isteyebilir kullanarak `email` [isteğe bağlı bir talep](active-directory-optional-claims.md).  V2.0 uç noktası ile uygulamanızı da isteğinde bulunabilirsiniz `email` Openıd Connect kapsam - isteğe bağlı bir talep ve kapsam talebi almak için isteği gerekmez.  E-posta talebi yalnızca kullanıcının profil bilgilerini adreslenebilir posta destekler. |
+|`name` | String | `name` Talep belirtecinin konu tanımlayan insanlar tarafından okunabilen bir değer sağlar. Değerin benzersiz olması garanti edilmez, değişebilir ve yalnızca görüntüleme amaçları için kullanılmak üzere tasarlanmıştır. `profile` Kapsamı, bu talebi için gereklidir. |
+|`nonce`| String | Nonce özgün dahil parametreyle eşleşen / IDP isteğine yetki. Eşleşmiyorsa, uygulamanızın belirteci reddetme. |
 |`oid` | Dize, bir GUID | Microsoft kimlik sistemi, bu durumda, bir kullanıcı hesabı, bir nesne değişmez tanımlayıcısı. Bu kimliği kullanıcı uygulamalar arasında benzersiz olarak tanımlayan - aynı kullanıcı imzalama iki farklı uygulama aynı değeri alacak `oid` talep. Microsoft Graph, bu kimliği olarak döndüreceği `id` özelliği için belirtilen kullanıcı hesabı. Çünkü `oid` kullanıcılar ilişkilendirmek birden fazla uygulama sağlayan `profile` kapsamı, bu talebi için gereklidir. Tek bir kullanıcı birden fazla Kiracı varsa, kullanıcının her Kiracı farklı nesne Kimliğinde içereceğini unutmayın - kullanıcının her hesap aynı kimlik bilgileriyle oturum açtığı olsa bile farklı hesaplar kabul edilir. |
 |`rh` | Donuk dize |Belirteçleri düzeltin için Azure tarafından kullanılan bir iç talep. Yoksayılacak. |
 |`sub` | Dize, bir GUID | Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Konu ikili bir tanımlayıcıdır - benzersiz bir uygulama belirli kimliğe Bu nedenle, tek bir kullanıcı iki farklı uygulamalara iki farklı istemci kimliklerini kullanarak oturum açtığında, bu uygulamaların konu talebi için iki farklı değerler alır. Bu olabilir veya mimari ve gizlilik gereksinimlerinize bağlı olarak gerekli değildir. |
 |`tid` | Dize, bir GUID | Kullanıcı dandır Azure AD kiracısı temsil eden bir GUID. İş ve Okul hesapları için kullanıcının ait olduğu kuruluş sabit Kiracı kimliği bir GUID'dir. Kişisel hesapları için değerdir `9188040d-6c67-4c5b-b112-36a304b66dad`. `profile` Kapsamı, bu talebi için gereklidir. |
-|`unique_name` | Dize | Belirtecin konusunu tanımlayan ve okunabilir bir değer sunar. Bu değer, bir kiracıda benzersiz olması garanti edilmez ve yalnızca görüntüleme amaçları için kullanılmalıdır. V1.0 yalnızca verilen `id_tokens`. |
+|`unique_name` | String | Belirtecin konusunu tanımlayan ve okunabilir bir değer sunar. Bu değer, bir kiracıda benzersiz olması garanti edilmez ve yalnızca görüntüleme amaçları için kullanılmalıdır. V1.0 yalnızca verilen `id_tokens`. |
 |`uti` | Donuk dize | Belirteçleri düzeltin için Azure tarafından kullanılan bir iç talep. Yoksayılacak. |
 |`ver` | Dize, 1.0 veya 2.0 | İd_token sürümünü gösterir. |
 

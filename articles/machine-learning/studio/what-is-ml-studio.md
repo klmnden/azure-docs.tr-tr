@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 6c45c7d70a1a091440d33ba76aa430c9a9252144
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b9a546cf4c822f63d9d07a1f23ec5f13285653af
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998000"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164134"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
@@ -157,7 +157,7 @@ Bir modeli eğittikten sonra, kalan test verilerini kullanarak modeli değerlend
 * **örnek**: Tüm temsilcisi olmaya yönelik bir veri kümesinin bir parçası. Örnekler, rastgele veya veri kümesinin belirli özellikleri temel alınarak seçilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tahmine dayalı analizin ve makine öğreniminin temellerini, [adım adım öğretici](create-experiment.md) kullanarak ve [örnekler üzerinden giderek](sample-experiments.md) öğrenebilirsiniz.
+Tahmine dayalı analiz temellerini öğrenin ve makine öğreniminin bir [adım adım hızlı](create-experiment.md) ve [örnekler üzerinden giderek](sample-experiments.md).
 
 
 <!-- Module References -->

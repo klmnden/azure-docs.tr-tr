@@ -13,22 +13,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: aaf2f400d9c620e8087015a9fa1529c3c1b4e633
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8a839d33d66ed434fe04b2c0df742606c11dff2c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003705"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217947"
 ---
-# <a name="azure-media-services-overview-legacy"></a>Azure Media Services'a Genel Bakış (eski)
+# <a name="azure-media-services-overview"></a>Azure Media Services’a genel bakış 
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Sürüm 2](media-services-overview.md)
 > * [Sürüm 3](../latest/media-services-overview.md)
+> * [Sürüm 2](media-services-overview.md)
 
 Microsoft Azure Media Services (AMS), geliştiricilerin ölçeklenebilir medya yönetimi ve teslimi uygulamaları oluşturmalarına olanak tanıyan genişletilebilir bir bulut tabanlı platformdur. Media Services, çeşitli istemcilere (TV, PC ve mobil cihazlar gibi) isteğe bağlı olarak veya canlı akış halinde teslim amacıyla video ve ses içeriklerini güvenli bir şekilde yüklemenizi, depolamanızı, kodlamanızı ve paketlemenizi sağlayan REST API'lerini temel alır.
 
 Yalnızca Media Services’i kullanarak uçtan uca iş akışları oluşturabilirsiniz. Ayrıca, iş akışınızın bazı bölümleri için üçüncü taraf bileşenleri kullanmayı da tercih edebilirsiniz. Örneğin, bir üçüncü taraf kodlayıcısı kullanarak kodlayın. Daha sonra Media Services’i kullanarak yükleyin, koruyun, paketleyin ve teslim edin. İçeriğinizi canlı akışla aktarmayı veya isteğe bağlı içerik teslimini tercih edebilirsiniz. 
+
+> [!NOTE]
+> Hiçbir yeni özellikler veya işlevsellikler eklenmektedir Media Services v2 ile. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 40f7f15c85d5676fefe8daff0aa6a6fb5d95cf53
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498259"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117077"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Aboneliklere erişmek için Kaynak Yöneticisi'ni kullanın kimlik doğrulama API'si
 
@@ -75,6 +75,8 @@ Kodlama başlamadan önce web uygulamanızı Azure Active Directory (AD ile) kay
 Uygulamanız başka bir aboneliğe eriştiğinden, çok kiracılı bir uygulama yapılandırmanız gerekir. Doğrulama geçirmek için Azure Active Directory ile ilişkili bir etki alanı sağlar. Azure Active Directory ile ilişkili etki alanları görmek için portalda oturum açın.
 
 Aşağıdaki örnek, Azure PowerShell kullanarak uygulamayı kaydetmek gösterilmektedir. Bu komutun çalışması Azure PowerShell'in en son sürümünü (Ağustos 2016) olması gerekir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true

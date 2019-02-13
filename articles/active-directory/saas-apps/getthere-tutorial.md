@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle GetThere | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile GetThere | Microsoft Docs'
 description: Azure Active Directory ve GetThere arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: bcefa3966a6c854f02ce7b3a75306b3d1c888ecd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b132da4a763490fa6c7a73c80f8e2e3a11b42e9b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431762"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173139"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Öğretici: Azure Active Directory GetThere ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Öğretici: GetThere ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile GetThere tümleştirme konusunda bilgi edinin.
 
@@ -131,7 +132,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
-    | Ad |  Kaynak özniteliği |  Ad Alanı |
+    | Ad |  Kaynak özniteliği |  Ad alanı |
     | ---------------| --------------- | --------------- |
     | Site adı | "Kuruluşunuz göre değeri sağla" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
     | Kullanıcı adı |  User.Mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |
@@ -197,7 +198,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-getthere-test-user"></a>GetThere test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon GetThere içinde adlı bir kullanıcı oluşturun. Çalışmak [GetThere istemci Destek ekibine](mailto:dataintegration@sabre.com) GetThere platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon GetThere içinde adlı bir kullanıcı oluşturun. Çalışmak [GetThere istemci Destek ekibine](mailto:dataintegration@sabre.com) GetThere platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

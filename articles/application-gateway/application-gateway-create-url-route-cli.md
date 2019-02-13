@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: a1fadb098fdb4262ee73725ec96c3c9602b1b68d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 782869906f260fc8b47375f4d45f8558780a2aa8
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734241"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108152"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Azure CLI kullanarak URL yolu tabanlı yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturma
 
@@ -99,7 +99,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Görüntü ve video arka uç havuzlarını ve bağlantı noktasını ekleme
 
-Adlı arka uç havuzları ekleyebilirsiniz *imagesBackendPool* ve *videoBackendPool* kullanarak uygulama ağ geçidi için [az ağ uygulama ağ geçidi adres havuzu oluşturma](/cli/azure/network/application-gatewaywork_application_gateway_address-pool_create). [az network application-gateway frontend-port create](/cli/azure/network/application-gatewaywork_application_gateway_frontend_port_create) kullanarak havuzlara ön uç bağlantı noktasını ekleyebilirsiniz. 
+Adlı arka uç havuzları ekleyebilirsiniz *imagesBackendPool* ve *videoBackendPool* kullanarak uygulama ağ geçidi için [az ağ uygulama ağ geçidi adres havuzu oluşturma](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create). [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) kullanarak havuzlara ön uç bağlantı noktasını ekleyebilirsiniz. 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -157,7 +157,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-routing-rule"></a>Yönlendirme kuralı ekleme
 
-Yönlendirme kuralı URL eşlemelerini oluşturduğunuz dinleyici ile ilişkilendirir. Adlı bir kural ekleyebileceğiniz *bağlanma2* kullanarak [az ağ uygulama ağ geçidi kuralı oluşturma](/cli/azure/network/application-gatewaywork_application_gateway_rule_create).
+Yönlendirme kuralı URL eşlemelerini oluşturduğunuz dinleyici ile ilişkilendirir. Adlı bir kural ekleyebileceğiniz *bağlanma2* kullanarak [az ağ uygulama ağ geçidi kuralı oluşturma](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

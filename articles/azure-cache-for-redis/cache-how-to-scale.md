@@ -3,7 +3,7 @@ title: Azure önbelleği için Redis ölçeklendirme | Microsoft Docs
 description: Azure önbelleği için Redis örneği ölçeklendirmeyi öğrenin
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: wesmc
-ms.openlocfilehash: 904c96d71194a097f2750ad2c1076b30b80f3745
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.author: yegu
+ms.openlocfilehash: 1b6239f1d9c9d6563fda1b72391461595abd6318
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100236"
+ms.locfileid: "56113626"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure önbelleği için Redis ölçeklendirme
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Önbellek oluşturulduktan sonra uygulamanızın gereksinimlerini değiştirirseniz, boyutu ve fiyatlandırma katmanı önbellek ölçeklendirebilirsiniz. Bu makalede Azure portalı ve Azure PowerShell ve Azure CLI gibi araçları kullanarak, önbellek ölçeklendirme gösterilmektedir.

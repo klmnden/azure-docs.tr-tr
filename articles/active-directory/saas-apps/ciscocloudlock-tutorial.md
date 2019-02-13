@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory bulut güvenlik yapısı tümleştirmesiyle | Microsoft Docs'
+title: 'Öğretici: Bulut güvenlik yapısı ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve bulut güvenlik doku arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 1fe0db2f0c7fea4b24cc23aaa52deb16376012b2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a556b38ca4947b71555ba7b023607b392900bdaf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092018"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210399"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Öğretici: Azure Active Directory bulut güvenlik yapısı tümleştirmesiyle
+# <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Öğretici: Bulut güvenlik yapısı ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile bulut güvenlik yapısı tümleştirme konusunda bilgi edinin.
 

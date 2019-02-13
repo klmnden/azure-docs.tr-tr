@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52280005"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56213245"
 ---
 >[!NOTE]
 >Sabitlenmemiş kaynaklar için bir destek bileti açarak kotaların yükseltilmesini isteyebilirsiniz. Daha yüksek sınırlar elde etmek için başka Azure Media Services hesapları **oluşturmayın**.
@@ -27,7 +27,7 @@ ms.locfileid: "52280005"
 | AMS hesabı başına canlı kanal sayısı |5|
 | Kanal başına durdurulmuş durumdaki program sayısı |50|
 | Kanal başına çalışır durumdaki program sayısı |3|
-| AMS hesabı başına çalışır durumdaki akış uç noktaları|2|
+| Akış uç noktaları (durduruldu veya çalışıyor) Media Services hesabı başına|2|
 | Akış uç noktası başına akış birimleri |10 |
 | Depolama hesapları | 1,000<sup>(5)</sup> (sabit) |
 | İlkeler | 1,000,000<sup>(6)</sup> |

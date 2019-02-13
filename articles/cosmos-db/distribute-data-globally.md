@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.openlocfilehash: 28c945223d225d7e91df1041bcbe02ee87b93c6a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 75940f9c3c8022c5445eb998b133a156dacde9b5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475066"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106877"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Genel veri dağıtım ile bir Azure Cosmos DB - genel bakış
 
@@ -22,6 +22,8 @@ Azure Cosmos DB, düşük gecikme süresi, aktarım hızı, esnek ölçeklenebil
 Veritabanlarınızı, tüm Azure bölgelerinde genel olarak dağıtılmış ve kullanılabilir olmasını yapılandırabilirsiniz. Gecikme süresini azaltmak için kullanıcılarınızın bulunduğu konumlara veri yakın yerleştirin. Gerekli bölgelerini seçme çaplı uygulamanız ve kullanıcılarınızın bulunduğu yere bağlıdır. Azure Cosmos DB hesabınızdaki veriler, hesabınızla ilişkili tüm bölgelere şeffaf biçimde çoğaltır. Bu, küresel olarak dağıtılan Azure Cosmos veritabanı ve uygulamanızı okuma ve yerel olarak yazma kapsayıcıları tek bir sistem görüntüsü sağlar. 
 
 Azure Cosmos DB ile ekleyebilir veya herhangi bir zamanda hesabınızla ilişkili bölgelerle kaldırın. Uygulamanızı duraklatıldı ya da eklemek veya bir bölgeyi kaldırmak için yeniden gerekmez. Her zaman hizmeti sağlayan birden çok girişe atanması özellikleri nedeniyle yüksek düzeyde kullanılabilir olmaya devam eder.
+
+![Yüksek oranda kullanılabilir bir dağıtım topolojisi](./media/distribute-data-globally/deployment-topology.png)
 
 ## <a name="key-benefits-of-global-distribution"></a>Genel dağıtım kilit yararları
 
@@ -50,6 +52,7 @@ Birçok uygulama, çok bölgeli (yerel) yazma işlemleri gerçekleştirme olana�
 Hakkında daha fazla küresel dağıtım için aşağıdaki makalelere bakın:
 
 * [Genel dağıtım - başlık altında](global-dist-under-the-hood.md)
+* [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md)
 * [Birden çok giriş için istemcileri yapılandırma](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Bölge ekleme veya Azure Cosmos DB hesabınızdan kaldırma](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [SQL API hesabı için bir özel çakışma çözüm ilkesi oluşturma](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

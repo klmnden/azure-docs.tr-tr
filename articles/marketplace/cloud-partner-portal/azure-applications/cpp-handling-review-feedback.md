@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 0d3102a269d41fded112b0704c28ca2cf5df71a6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101242"
+ms.locfileid: "56106980"
 ---
 # <a name="handling-review-feedback"></a>İşleme gözden geçirme geri bildirimi
 
@@ -71,7 +71,7 @@ Olay oluşturma başarılı olduysa, bir onay sayfası görüntülenir.  Başvur
 4. Her bir açıklama düğümü açıklamaya çevreleyen kod bağlamı içinde gezinmek için sol ağaçta tıklayın.  Takımınızın projesinde açıklamaya göre açıklanan sorunu gidermek için kaynak kodunuzu düzeltin.
 
 > [!Note]
-> Teklife ilişkin teknik varlıkları içinde düzenleyemezsiniz gözden geçirme takımın Azure DevOps ortamlarından.  Yayımcılar için bağımsız kaynak kodu için salt okunur bir ortamı budur.  Ancak, yanıtları, okuyan kişinin yararına olması Microsoft gözden geçirme ekibi yorum bırakabilir.
+> Gözden geçirme takımın Azure DevOps ortamında teknik varlıkları ürününüzün düzenleyemezsiniz.  Yayımcılar için bağımsız kaynak kodu için salt okunur bir ortamı budur.  Ancak, yanıtları, okuyan kişinin yararına olması Microsoft gözden geçirme ekibi yorum bırakabilir.
 
    Aşağıdaki örnekte, yayımcı gözden düzeltildi ve ilk sorunla cevap verdi.
 

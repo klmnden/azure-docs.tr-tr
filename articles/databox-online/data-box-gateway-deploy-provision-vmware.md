@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 604f135cc3dffdb9ac6533826eff6926ad5467df
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099167"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117757"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Öğretici: Sağlama Azure veri kutusu ağ geçidi VMware (Önizleme)
 
@@ -66,7 +66,7 @@ Sanal cihazı dağıtmadan önce şunlardan emin olun:
 
 Başlamadan önce:
 
-- Data Box Gateway dağıtma ağ gereksinimlerini gözden geçirin ve veri merkezi ağını gereksinimlere göre yapılandırın. Daha fazla bilgi için bkz. [Data Box Gateway ağ gereksinimleri](data-box-gateway-system-requirements.md#networking-requirements).
+- Data Box Gateway dağıtma ağ gereksinimlerini gözden geçirin ve veri merkezi ağını gereksinimlere göre yapılandırın. Daha fazla bilgi için bkz. [Data Box Gateway ağ gereksinimleri](data-box-gateway-system-requirements.md#networking-port-requirements).
 - Cihazın en iyi şekilde çalışması için Internet bant genişliğinin en az 20 Mb/sn olduğundan emin olun.
 
 ## <a name="check-the-host-system"></a>Ana bilgisayar sistemini denetleyin
@@ -77,7 +77,7 @@ Sanal cihaz oluşturmak için şunlara ihtiyacınız vardır:
  
   * En az 4 çekirdek.
   * En az 8 GB RAM. 
-  * İnternet trafiği için ağa bağlı bir ağ arabirimi. 
+  * İnternet trafiği için ağa bağlı bir ağ arabirimi.
   * 250 GB işletim sistemi diski.
   * Veriler için 2 TB sanal disk.
 * ESXi ana bilgisayarını yönetmek için sisteminizde VMware vSphere istemcisi yüklü.
@@ -89,7 +89,7 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 
 1. Sanal cihaz görüntüsünü sisteminize kopyalayın. Bu sanal görüntüyü (iki dosya) Azure portaldan indirmiştiniz. Bu görüntüyü yordamın ilerleyen bölümlerinde kullanacağınız için kopyaladığınız konumu not edin.
 
-2. VSphere web istemcisi kullanarak ESXi sunucusuna oturum açın. Sanal makine oluşturmak için yönetici ayrıcalıklarınızın olması gerekir.
+2. Bu URL'de bir tarayıcı aracılığıyla ESXi sunucusuna oturum açın: `https://<IP address of the ESXi server>`. Sanal makine oluşturmak için yönetici ayrıcalıklarınızın olması gerekir.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -149,20 +149,24 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
-    **New hard disk** (Yeni sabit disk) girişini görene kadar sayfayı kaydırın ve girişi genişleterek ayarları görüntüleyin. **Virtual Device Node** (Sanal Cihaz Düğümü) ayarını **IDE controller 0** (IDE denetleyicisi 0) olarak belirleyin. **İleri**’ye tıklayın.
+    **New hard disk** (Yeni sabit disk) girişini görene kadar sayfayı kaydırın ve girişi genişleterek ayarları görüntüleyin. **Virtual Device Node** (Sanal Cihaz Düğümü) ayarını **IDE controller 0** (IDE denetleyicisi 0) olarak belirleyin.
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
-27. **Ready to Complete** (Tamamlanmak İçin Hazır) sayfasında yeni sanal makineyle ilgili tüm ayarları gözden geçirin. CPU için 4, bellek için 8192 MB, ağ arabirimi için 1 ve Sabit disk 2 için IDE denetleyicisi 0 değerlerinin seçili olduğunu doğrulayın. **Son**'a tıklayın. 
+17. (İsteğe bağlı) *Yalnızca VMware ESXi Server 6.7 çalıştırıyorsanız, bu adımı gerçekleştirmeniz*. Üzerinde **ayarlarını özelleştirme** sayfasında **VM seçeneklerini**. Git **Önyükleme Seçenekleri > bellenim** ve değiştirmek için **BIOS**. Varsayılan olarak, EFI için değer ayarlanır. **İleri**’ye tıklayın.
+
+    ![](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+
+18. **Ready to Complete** (Tamamlanmak İçin Hazır) sayfasında yeni sanal makineyle ilgili tüm ayarları gözden geçirin. CPU için 4, bellek için 8192 MB, ağ arabirimi için 1 ve Sabit disk 2 için IDE denetleyicisi 0 değerlerinin seçili olduğunu doğrulayın. **Son**'a tıklayın.
    
     ![](./media/data-box-gateway-deploy-provision-vmware/image16.png)
     ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-Sanal makineniz sağlanır. Durumu belirten bir ileti görüntülenir ve yeni sanal makine VM listesine eklenir. 
+Sanal makineniz sağlanır. Durumu belirten bir ileti görüntülenir ve yeni sanal makine VM listesine eklenir.
 
 ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-Bir sonraki adım bu makineyi açmak ve IP adresini almaktır.
+Sonraki adım, bu VM'yi açın ve IP adresini alma oluşturmaktır.
 
 > [!NOTE]
 > Sanal makinenize (yukarıda sağlanan) VMware araçlarını yüklememenizi öneririz. VMware araçlarının yüklenmesi desteklenmeyen bir yapılandırmaya neden olabilir.

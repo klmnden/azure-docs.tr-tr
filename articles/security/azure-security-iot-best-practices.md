@@ -1,10 +1,10 @@
 ---
-title: En iyi güvenlik uygulamalarını, noktalar, Internet | Microsoft Docs
-description: Makaleyi seçkin Microsoft Internet şeyler en iyi güvenlik uygulamaları ve genel öneriler listesini sağlar.
+title: Nesnelerin interneti en iyi güvenlik uygulamaları | Microsoft Docs
+description: Makalede, Microsoft Internet şeyleri en iyi güvenlik uygulamaları ve genel öneriler düzenlenmiş bir listesini sağlar.
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2d5598c5-4c30-481d-b8f4-51ee024ea9a7
 ms.service: security
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 804dd6828931ca2801360ab18be938c8bacf2bfa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9413c0503c1b78550776d1c2f6ab8239205a788b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185349"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117876"
 ---
-# <a name="internet-of-things-security-best-practices"></a>En iyi güvenlik uygulamalarını, noktalar, Internet
+# <a name="internet-of-things-security-best-practices"></a>Nesnelerin interneti en iyi güvenlik uygulamaları
 
-Nesnelerin interneti (IOT) altyapısını koruma çözümlere dahil herkes için kritik bir iş değil. Cihazı dahil sayısı ve bu cihazların dağıtılan yapı, nedeniyle bir güvenlik olayı IOT cihazları milyonlarca tehlikeye ilgili etkisi Önemsiz olmayan ve yaygın etkisi olabilir.
+Nesnelerin interneti (IOT) altyapısını koruma ile IOT çözümleri dahil herkes için önemli bir iştir. Dahil olan cihazların sayısını ve bu cihazlara dağıtılmış doğası nedeniyle milyonlarca IOT cihazı'nın güvenliğini aşmak için bir güvenlik olayı ilgili etkisi önemsiz değil ve yaygın bir etkisi olabilir.
 
-Bu nedenle, bir güvenlik derinlemesine yaklaşım IOT güvenlik gerekir. Verileri bulutta güvenli olması gerekir ve özel ve genel ağları üzerinden hareket ederken. Yöntemleri IOT cihazları güvenli bir şekilde sağlamak için karşılanması gerekir. Her katman, aygıttan ağına arka uç bulut güçlü güvenlik çıkışların gerekir.
+Bu nedenle, IOT güvenlik ayrıntılı güvenlik yaklaşımı gerekiyor. Verileri bulutta güvenli olması gerekir ve özel ve ortak ağlar üzerinden taşır. Yöntemi, IOT cihazları kendilerini güvenli bir şekilde sağlamak için karşılanması gerekir. Her katman, bir CİHAZDAN ağına arka uç bulut güçlü güvenlik Güvenceleri gerekir.
 
-IOT en iyi yöntemler aşağıdaki gibi kategorilere ayrılabilir:
+IOT en iyi uygulamalar, aşağıdaki şekilde kategorilere ayrılabilir:
 
-* IOT donanım üreticisi veya Tümleştirici
-* IOT Çözüm geliştiricisi
+* IOT donanım üreticisinden veya entegratörü
+* IOT çözümü geliştirme
 * IOT çözüm dağıtıcı
-* IOT çözüm işleci
+* IOT çözümü işleci
 
-Bu makalede özetlenmektedir [Internet, şeyler en iyi güvenlik uygulamaları](../iot-suite/iot-security-best-practices.md). Lütfen daha ayrıntılı bilgi için bu makalesine bakın.
+Bu makalede özetlenir [Internet, şeyleri en iyi güvenlik uygulamaları](../iot-suite/iot-security-best-practices.md). Bu makalede daha ayrıntılı bilgi için bkz.
 
-## <a name="iot-hardware-manufacturer-or-integrator"></a>IOT donanım üreticisi veya Tümleştirici
+## <a name="iot-hardware-manufacturer-or-integrator"></a>IOT donanım üreticisinden veya entegratörü
 
-Bir IOT donanım üreticisine veya donanım Tümleştirici ise en iyi uygulamaları izleyin:
+Bir IOT donanım üretim veya donanım entegratörü varsa aşağıdaki en iyi uygulamaları izleyin:
 
-* **Kapsam en düşük gereksinimler için donanım**: donanım tasarımı donanım ve hiçbir şey daha fazla işlem için gereken en düşük özellikleri içermelidir. 
-* **Kanıt değiştirmesine donanım olun**: fiziksel aygıt, vb. parçası kaldırarak cihaz Kapak açma gibi donanım, izinsiz algılamak için mekanizmaları oluşturun. 
-* **Güvenli donanım yapı**: varsa [SMM](https://en.wikipedia.org/wiki/Cost_of_goods_sold) izin, güvenli ve şifrelenmiş depolama ve Güvenilir Platform Modülü TPM tabanlı önyükleme işlevleri gibi güvenlik özellikleri yapı.
-* **Yükseltmeler güvenli hale**: cihaz ömrü boyunca bellenimi yükseltmek kaçınılmaz.
+* **Kapsam en düşük gereksinimlere donanım**: donanım tasarımı, donanım ve hiçbir şey daha fazla işlem için gereken en düşük özellikleri içermelidir. 
+* **Kavram değiştirmesine donanım olun**: cihaz, vb. bir parçası kaldırma cihaz Kapak açma gibi donanım, fiziksel oynama algılamak için mekanizmaları oluşturun. 
+* **Güvenli donanım yapı**: varsa [COGS](https://en.wikipedia.org/wiki/Cost_of_goods_sold) izin, güvenli ve şifrelenmiş depolama ve Güvenilir Platform Modülü TPM tabanlı önyükleme işlevleri gibi güvenlik özelliklerini oluşturun.
+* **Yükseltmeler güvenli hale getirmek**: cihaz yaşam süresi boyunca bellenimi yükseltmek kaçınılmazdır.
 
-## <a name="iot-solution-developer"></a>IOT Çözüm geliştiricisi
+## <a name="iot-solution-developer"></a>IOT çözümü geliştirme
 
-Bir IOT çözüm geliştirici varsa en iyi uygulamaları izleyin:
+Bir IOT çözümü geliştiriciyseniz, aşağıdaki en iyi uygulamaları izleyin:
 
-* **Güvenli yazılım geliştirme metodolojisini izleyin**: Güvenli yazılım geliştirme, kendi uygulama, test ve dağıtım için tüm proje başlangıcından güvenlik başından başlayarak yukarı düşünmek gerektirir.
-* **Açık kaynak yazılımının dikkatle seçin**: açık kaynak yazılımının hızla çözümleri geliştirmek için bir fırsat sağlar.
-* **Dikkatli tümleştirmek**: çoğu yazılım güvenlik açıkları kitaplıklarını ve API'lerini sınırında mevcut. 
+* **Güvenli bir yazılım geliştirme metodolojisinin izleyin**: güvenli bir yazılım geliştirme, en başından başlayarak, uygulama, test ve dağıtımı için tüm proje yeni güvenlik düşünmek gerektirir.
+* **Açık kaynak yazılım dikkatle seçin**: açık kaynak yazılım çözümlerinizi hızla geliştirin fırsatı sağlar.
+* **Dikkatli tümleştirme**: birçok yazılım güvenlik açıkları, kitaplıklarını ve API'lerini sınırında mevcut. 
 
 ## <a name="iot-solution-deployer"></a>IOT çözüm dağıtıcı
 
-Bir IOT çözüm dağıtıcı varsa en iyi uygulamaları izleyin:
+Bir IOT çözümü dağıtıcı varsa aşağıdaki en iyi uygulamaları izleyin:
 
-* **Donanım güvenli bir şekilde dağıtmak**: IOT dağıtımları ortak alanları ya da Denetimsiz yerel ayarlara olduğu gibi güvenli olmayan konumlarda dağıtılacak donanım gerektirebilir.
-* **Kimlik doğrulama anahtarlarını güvenli kalmasına**: dağıtım sırasında her cihaz cihaz kimlikleri gerektirir ve kimlik doğrulaması anahtarları bulut hizmeti tarafından oluşturulan ilişkili. Bu anahtarları daha sonra dağıtım fiziksel olarak güvenli tutun. Güvenliği aşılmış bir tuşa kötü amaçlı bir aygıt tarafından geçici var olan bir cihaz için kullanılabilir.
+* **Donanım güvenli bir şekilde dağıtmak**: IOT dağıtımları gibi ortak alanları ya da Denetimsiz yerel ayarlara güvenli olmayan konumlardaki dağıtılacak donanım gerektirebilir.
+* **Kimlik doğrulama anahtarlarını güvende tutun**: dağıtım sırasında her bir cihaz cihaz kimlikleri gerektirir ve kimlik doğrulaması anahtarları bulut hizmeti tarafından oluşturulan ilişkili. Bu anahtarları dağıtımdan sonra bile, fiziksel olarak güvenli tutun. Güvenliği aşılmış bir tuşa kötü amaçlı bir cihaz tarafından geçici var olan bir cihaz için kullanılabilir.
 
-## <a name="iot-solution-operator"></a>IOT çözüm işleci
+## <a name="iot-solution-operator"></a>IOT çözümü işleci
 
-Bir IOT çözüm işleç varsa en iyi uygulamaları izleyin:
+Bir IOT çözümü işleci varsa aşağıdaki en iyi uygulamaları izleyin:
 
-* **Sistemleri güncel tutmak**: cihaz işletim sistemleri ve tüm aygıt sürücülerini en son sürümüne güncelleştirilir emin olun. 
-* **Kötü amaçlı etkinliği karşı koruma**: işletim sistemi izin veriliyorsa, her cihaz işletim sisteminde en son virüsten koruma ve kötü amaçlı yazılımdan özellikleri yerleştirin. 
-* **Sık denetim**: güvenlik sorunları olduğunda anahtar güvenlik olaylarını yanıtlama ilgili IOT altyapı denetleme.
-* **Fiziksel olarak IOT altyapısını koruma**: cihazlara fiziksel erişim kullanarak IOT altyapı kötü güvenlik saldırıları başlatılabilir.
-* **Bulut kimlik bilgileri korumaya**: Bulut kimlik doğrulaması kimlik bilgilerini yapılandırmak ve bir IOT dağıtım işletim için kullanılan olan büyük olasılıkla erişebilir ve bir IOT sistemden yapmanın en kolay yolu. 
+* **Sistemlerinizi güncel korumayı**: cihaz işletim sistemleri ve tüm cihaz sürücülerini en son sürümüne güncelleştirildiğinden emin olun. 
+* **Kötü amaçlı etkinliklere karşı korumaya**: işletim sistemi izin veriyorsa, en son virüsten koruma ve kötü amaçlı yazılımdan koruma özelliklerinden her cihaz işletim sistemine yerleştirin. 
+* **Sık denetim**: güvenlik sorunları olduğunda anahtarı güvenlik olaylarını yanıtlama ilgili IOT altyapısı denetimi.
+* **Fiziksel olarak IOT altyapısını koruma**: cihazlara fiziksel erişim kullanarak IOT altyapısı kötü güvenlik saldırıları başlatılabilir.
+* **Bulut kimlik bilgilerini koruyun**: Bulut kimlik doğrulaması yapılandırma ve işletim IOT dağıtım için kullanılan kimlik bilgileri olan büyük olasılıkla erişmek ve bir IOT sisteminin riske en kolay yolu. 
 

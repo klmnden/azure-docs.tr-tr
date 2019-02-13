@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b6abfa24d790554de239171ffef1899cdc135d26
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f1cb99799e3aa5c0b37643112f8644d1aabfd666
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996262"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108101"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell ve CLI: Azure Key vault'tan müşteri tarafından yönetilen anahtarla saydam veri şifrelemesini etkinleştirme
 
@@ -29,8 +29,8 @@ Bu makalede Azure Key vault'tan bir anahtar için saydam veri şifrelemesi (TDE)
 - [İsteğe bağlı ancak önerilen] Bir donanım güvenlik modülü (HSM) veya TDE koruyucusuna anahtar malzemesi yerel bir kopyasını oluşturmak için depolama yerel anahtar vardır.
 - Azure PowerShell sürümü 4.2.0 olmalıdır veya üzerinin yüklü ve çalışıyor. 
 - TDE için kullanılacak bir Azure Key Vault ve anahtarı oluşturun.
-   - [Key vault'tan PowerShell yönergeleri](../key-vault/key-vault-get-started.md)
-   - [Bir donanım güvenlik modülü (HSM) ve anahtar Kasası'nı kullanma yönergeleri](../key-vault/key-vault-get-started.md#HSM)
+   - [Key vault'tan PowerShell yönergeleri](../key-vault/key-vault-overview.md)
+   - [Bir donanım güvenlik modülü (HSM) ve anahtar Kasası'nı kullanma yönergeleri](../key-vault/key-vault-hsm-protected-keys.md)
  - Anahtar kasası TDE için kullanılacak özelliğine sahip olmalıdır:
    - [Geçici silme](../key-vault/key-vault-ovw-soft-delete.md)
    - [Key Vault geçici silmeyi PowerShell ile kullanma](../key-vault/key-vault-soft-delete-powershell.md) 
@@ -196,7 +196,7 @@ Bir sorun oluşursa aşağıdakileri denetleyin:
 - Komut satırı arabirimi 2.0 veya sonraki bir sürümü. En son sürümünü yükleyin ve Azure aboneliğinize bağlanmak için bkz: [yükleme ve yapılandırma Azure platformlar arası komut satırı arabirimi 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 - TDE için kullanılacak bir Azure Key Vault ve anahtarı oluşturun.
    - [CLI 2.0 kullanarak Key Vault yönetme](../key-vault/key-vault-manage-with-cli2.md)
-   - [Bir donanım güvenlik modülü (HSM) ve anahtar Kasası'nı kullanma yönergeleri](../key-vault/key-vault-get-started.md#HSM)
+   - [Bir donanım güvenlik modülü (HSM) ve anahtar Kasası'nı kullanma yönergeleri](../key-vault/key-vault-hsm-protected-keys.md)
  - Anahtar kasası TDE için kullanılacak özelliğine sahip olmalıdır:
    - [Geçici silme](../key-vault/key-vault-ovw-soft-delete.md)
    - [Key Vault geçici silmeyi CLI ile kullanma](../key-vault/key-vault-soft-delete-cli.md) 

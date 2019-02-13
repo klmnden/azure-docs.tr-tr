@@ -3,7 +3,7 @@ title: Yeni bir Azure Stack Kiracı hesabı Azure Active Directory'ye ekleme | M
 description: Microsoft Azure Stack geliştirme Seti'ni dağıttıktan sonra Kiracı portalında keşfedebilirsiniz için en az bir Kiracı Kullanıcı hesabı oluşturmanız gerekir.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: patricka
 manager: femila
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
-ms.author: jeffgilb
+ms.date: 02/12/2019
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: c0f457955bd8df7fe07e2a96469fde0a751417bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240328"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163232"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Azure Active Directory'de yeni bir Azure Stack Kiracı hesabı Ekle
 
@@ -56,14 +56,12 @@ Azure portalını kullanmak üzere bir Azure aboneliğine sahip olmalıdır.
 7. Microsoft Azure portalında yeni hesapla oturum açın. İstendiğinde parolayı değiştirin.
 8. Oturum `https://portal.local.azurestack.external` Kiracı portalında görmek için yeni bir hesap ile.
 
-## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>PowerShell kullanarak bir Azure Stack Kiracı hesabı oluşturma
+## <a name="create-an-azure-stack-user-account-using-powershell"></a>PowerShell kullanarak bir Azure Stack kullanıcı hesabı oluşturma
 
 Azure aboneliğiniz yoksa, bir Kiracı Kullanıcı hesabı eklemek için Azure portal'ı kullanamazsınız. Bu durumda, bunun yerine Azure Active Directory için Windows PowerShell modülü kullanabilirsiniz.
 
 > [!NOTE]
 > Azure Stack geliştirme Seti'ni dağıtmak için Microsoft Account (Live ID) kullanıyorsanız, Kiracı hesabı oluşturmak için AAD PowerShell kullanamazsınız. 
-> 
-> 
 
 1. Yükleme [Microsoft Çevrimiçi Hizmetler oturum açma Yardımcısı BT uzmanları RTW için](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
 2. Yükleme [Azure Active Directory için Windows PowerShell Modülü (64-bit sürüm)](https://go.microsoft.com/fwlink/p/?linkid=236297) ve açın.
@@ -85,3 +83,6 @@ Azure aboneliğiniz yoksa, bir Kiracı Kullanıcı hesabı eklemek için Azure p
 1. Microsoft Azure'da yeni bir hesapla oturum açın. İstendiğinde parolayı değiştirin.
 2. Oturum `https://portal.local.azurestack.external` Kiracı portalında görmek için yeni bir hesap ile.
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+[AD FS, Azure Stack kullanıcıları ekleme](azure-stack-add-users-adfs.md)

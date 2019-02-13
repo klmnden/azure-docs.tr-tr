@@ -4,7 +4,7 @@ description: Azure'da çeşitli şifreleme seçenekleri hakkında bilgi edinin
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: dc1ca62ce184ac290f289975ff609b8240351099
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035105"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114663"
 ---
 # <a name="azure-encryption-overview"></a>Azure şifrelemeye genel bakış
 
@@ -50,11 +50,11 @@ Bulut hizmeti sağlayıcıları, istemci tarafı şifreleme ile şifreleme anaht
 
 Üç sunucu tarafı şifrelemesi model gereksinimlerinize göre seçebileceğiniz farklı anahtar yönetimi özellikleri sağlar:
 
-- **Hizmet tarafından yönetilen anahtarlar**: düşük yüklerle denetimi ve kolaylık sağlar.
+- **Hizmet tarafından yönetilen anahtarlar**: Denetim ve kullanışlı bir birleşimini düşük yüklerle sağlar.
 
-- **Müşteri tarafından yönetilen anahtarlar**: verir Getir bilgisayarınızı kendi anahtarlar (BYOK) desteği de dahil olmak üzere anahtarlarını denetlemek veya yenilerini oluşturmanızı sağlar.
+- **Müşteri tarafından yönetilen anahtarlar**: Verir Getir bilgisayarınızı kendi anahtarlar (BYOK) desteği de dahil olmak üzere anahtarlarını denetlemek veya yenilerini oluşturmanızı sağlar.
 
-- **Hizmet tarafından yönetilen anahtarlar müşteri tarafından denetlenen donanımda**: Microsoft denetimi dışında özel deponuzda anahtarları yönetmenizi sağlar. Bu özellik, ana bilgisayarınızı kendi anahtarını Taşı (HYOK) denir. Ancak, yapılandırma karmaşıktır ve çoğu Azure hizmeti bu modeli desteklemez.
+- **Hizmet tarafından yönetilen anahtarlar müşteri tarafından denetlenen donanımda**: Microsoft denetim dışında özel deponuzda anahtarları yönetmenizi sağlar. Bu özellik, ana bilgisayarınızı kendi anahtarını Taşı (HYOK) denir. Ancak, yapılandırma karmaşıktır ve çoğu Azure hizmeti bu modeli desteklemez.
 
 ### <a name="azure-disk-encryption"></a>Azure disk şifrelemesi
 
@@ -78,7 +78,7 @@ Daha fazla bilgi edinin ve Azure depolama istemci kitaplığı için .NET NuGet 
 
 İstemci tarafı şifreleme anahtar kasası ile kullandığınızda, verilerinizi, bir kerelik simetrik içerik şifreleme anahtarını (Azure depolama istemci SDK'sı tarafından oluşturulan CEK) kullanılarak şifrelenir. CEK simetrik anahtar veya asimetrik anahtar çifti olabilen anahtar şifreleme anahtarı (KEK) kullanılarak şifrelenir. Key Vault'ta depolamak ya da yerel olarak yönetin. Şifrelenmiş veriler, ardından Azure depolama alanına yüklenir.
 
-Key Vault ile istemci tarafı şifreleme hakkında daha fazla bilgi edinmek ve nasıl yapılır yönergeleri ile çalışmaya başlama hakkında bilgi için bkz: [Öğreticisi: şifreleme ve anahtar Kasası'nı kullanarak Azure Depolama'daki blobları şifre çözme](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
+Key Vault ile istemci tarafı şifreleme hakkında daha fazla bilgi edinmek ve nasıl yapılır yönergeleri ile çalışmaya başlama hakkında bilgi için bkz: [Öğreticisi: Şifreleme ve anahtar Kasası'nı kullanarak Azure Depolama'daki blobları şifre çözme](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Son olarak, Java için Azure depolama istemci kitaplığı Azure Storage'a veri karşıya yüklemeden önce istemci tarafı şifreleme gerçekleştirmek ve istemciye indirirken verilerin şifresini çözmek için kullanabilirsiniz. Bu kitaplık ayrıca ile tümleştirmeyi destekler [Key Vault](https://azure.microsoft.com/services/key-vault/) depolama hesabı anahtarı yönetimi için.
 

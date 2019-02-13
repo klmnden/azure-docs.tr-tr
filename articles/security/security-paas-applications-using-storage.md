@@ -4,7 +4,7 @@ description: Azure depolama güvenliği hakkında PaaS web ve mobil uygulamalar�
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451876"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108934"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>PaaS web ve mobil uygulamalarının Azure depolama kullanarak güvenliğini sağlamaya yönelik en iyi yöntemler
 Bu makalede, Azure depolama güvenlik en iyi uygulamaları hizmet olarak platform (PaaS) web ve mobil uygulamalarınızın güvenliğini sağlamak için koleksiyonu ele alır. Bu en iyi Azure ile deneyimimizi ve sizin gibi müşteri deneyimleri türetilmiştir.
 
 Azure depolama yollarla dağıtılacağı ve kullanılacağı mümkün kılar şirket kolayca ulaşılabilir. Azure depolama ile yüksek düzeyde ölçeklenebilirlik ve kullanılabilirlik görece az çabayla ulaşabilirsiniz. Yalnızca temel Azure depolama, Windows ve Linux Azure sanal makineleri için ayrıca büyük dağıtılmış uygulamaları destekleyebilir.
 
-Azure depolama şu dört hizmeti sunar: Blob Depolama, tablo depolama, kuyruk depolama ve dosya depolama. Daha fazla bilgi için bkz. [Microsoft Azure Storage'a giriş](../storage/storage-introduction.md).
+Azure depolama, şu dört hizmeti sunar: BLOB Depolama, tablo depolama, kuyruk depolama ve dosya depolama. Daha fazla bilgi için bkz. [Microsoft Azure Storage'a giriş](../storage/storage-introduction.md).
 
 [Azure depolama Güvenlik Kılavuzu](../storage/common/storage-security-guide.md) Azure depolama ve güvenlikle ilgili ayrıntılı bilgi için harika bir kaynaktır. Bu en iyi yöntemler makalesi yüksek düzeyde bazı güvenlik kılavuzu ve daha fazla bilgi için diğer kaynakları yanı sıra güvenlik kılavuzu bağlantıları bulunan kavramlar yöneliktir.
 

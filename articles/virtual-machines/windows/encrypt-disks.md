@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 56d637fd1aec05089e4f20c9205f648934594cc6
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4875464d7e7a7f49c1532871a69f4d2224b271a6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981256"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108254"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Bir Windows VM'de sanal diskleri şifreleme
 Azure'da sanal diskler, sanal makine (VM) geliştirilmiş güvenlik ve uyumluluk için şifrelenebilir. Diskler, bir Azure Key Vault'ta güvenli şifreleme anahtarları kullanılarak şifrelenir. Bu şifreleme anahtarlarını denetlemek ve bunların kullanılması denetleyebilirsiniz. Bu makalede, Azure PowerShell kullanarak bir Windows VM'de sanal diskleri şifreleme açıklar. Ayrıca [Azure CLI kullanarak Linux VM şifreleme](../linux/encrypt-disks.md).
@@ -87,7 +87,7 @@ New-AzKeyVault -Location $location `
 
 Şifreleme anahtarlarını, yazılım veya donanım güvenlik modeli (HSM) koruması kullanarak depolayabilirsiniz.  Standart bir Key Vault, yazılım korumalı anahtarlar yalnızca depolar. HSM kullanmanın ek bir ücret ödemeden anahtar kasası premium gerektirir. Anahtar kasası premium oluşturmak için önceki adımda ekleme *- Sku "Premium"* parametresi. Aşağıdaki örnek, standart bir Key Vault oluşturduğumuz bu yana yazılım korumalı anahtarlar kullanır. 
 
-Her iki koruma modeli için Azure platformu sanal disklerin şifresini çözmek için VM önyükleme yaptığında, şifreleme anahtarlarını istemek için erişim verilmesi gerekir. Bir şifreleme anahtarı ile anahtar Kasası'nda oluşturma [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey). Aşağıdaki örnekte adlı bir anahtar oluşturur *myKey*:
+Her iki koruma modeli için Azure platformu sanal disklerin şifresini çözmek için VM önyükleme yaptığında, şifreleme anahtarlarını istemek için erişim verilmesi gerekir. Bir şifreleme anahtarı ile anahtar Kasası'nda oluşturma [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey). Aşağıdaki örnekte adlı bir anahtar oluşturur *myKey*:
 
 ```azurepowershell-interactive
 Add-AzureKeyVaultKey -VaultName $keyVaultName `

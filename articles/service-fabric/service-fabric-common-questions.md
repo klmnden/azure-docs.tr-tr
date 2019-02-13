@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a63a10225f4dc55092c62e39b22cdf15d7f7ca5e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104091"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217522"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan sorular Service Fabric
 
@@ -189,4 +189,4 @@ Biz [kısa süre önce duyurulan](https://blogs.msdn.microsoft.com/azureservicef
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Service Fabric kavramları ve en iyi uygulamalar hakkında bilgi edinin](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+Hakkında bilgi edinin [Service Fabric kavramları çekirdek](service-fabric-technical-overview.md) ve [en iyi uygulamalar](service-fabric-best-practices-overview.md)

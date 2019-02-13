@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: fddd54e7c4e88b85f6e6fa8f7319661db96e9524
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877550"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116907"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Batch örnek konuşma bir dizi testi
 
- Toplu test LUIS, performansı ölçmek için geçerli eğitilen modelinizde kapsamlı bir testtir. Toplu test etmek için kullanılan veri kümeleri değil dahil edilecek öğeleri konuşma amacı veya konuşma tahmini çalışma zamanı uç noktasından alınan örnek. 
+ Toplu test LUIS, performansı ölçmek için geçerli eğitilen modelinizde kapsamlı bir testtir. Toplu test etmek için kullanılan veri kümeleri, amaçlarını veya tahmin çalışma zamanı uç noktasından alınan konuşma örnek konuşma içermemelidir. 
 
 <a name="batch-testing"></a>
 

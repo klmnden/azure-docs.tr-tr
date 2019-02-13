@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 44f12c72716e98e2f28796359467685e0af579dd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 42b67ae9b715670f1a0c6e0fed004487a52817d3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238256"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206489"
 ---
 # <a name="connect-to-the-asdk"></a>İçin ASDK bağlanma
 
 Kaynakları yönetmek için Azure Stack geliştirme Seti'ni (ASDK) için önce bağlanmanız gerekir. Bu makalede, biz ASDK için aşağıdaki bağlantı seçeneklerini kullanarak bağlanmak için attığınız adımlar açıklanmaktadır:
 
 * [Uzak Masaüstü Bağlantısı (RDP)](#connect-with-rdp). Uzak Masaüstü bağlantısı kullanarak bağlandığınızda, tek bir kullanıcı için Geliştirme Seti hızlı bir şekilde bağlanabilirsiniz.
-* [Sanal özel ağ (VPN)](#connect-with-vpn). Bir VPN kullanarak bağlandığınızda, birden çok kullanıcı eşzamanlı olarak Azure Stack altyapısının dışında istemcilerden bağlanabilirsiniz. Bir VPN bağlantısı bazı kurulum gerektirir.
+* [Sanal özel ağ (VPN)](#connect-with-vpn). Bir VPN kullanarak bağlandığınızda, birden çok kullanıcı için Azure Stack portalı Azure Stack altyapısının dışında istemcilerden eşzamanlı olarak bağlanabilir. Bir VPN bağlantısı bazı kurulum gerektirir.
 
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>RDP kullanarak Azure Stack'e bağlanma

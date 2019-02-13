@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 7d5cd8aab0f368ffec636e6dfcacf127c910dafc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 45e5c43cf5eb8df1df5b26ffae50d2881bb086e4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190179"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115207"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Bir ağ sanal Gerecinin trafik faaliyetidir için sanal Hub yönlendirme tablosu oluşturma
 
@@ -36,7 +36,7 @@ Aşağıdaki ölçütleri karşıladığınızı doğrulayın:
 
 1. Bir ağ sanal Gereci (NVA) sahip ettiğiniz bir sanal ağda Azure Marketi'nden (bağlantı) genellikle sağlandığında bir üçüncü taraf yazılım.
 2. NVA ağ arabirimine atanan bir özel IP var. 
-3. NVA sanal hub'ı dağıtılamıyor. Ayrı bir Vnet'te dağıtılması gerekir. Bu makale için sanal ağ 'DMZ VNet' adlandırılır.
+3. NVA sanal hub'ı dağıtılamıyor. Ayrı bir Vnet'te dağıtılması gerekir. Bu makale için NVA sanal ağ 'DMZ VNet' adlandırılır.
 4. Bir 'DMZ VNet' olabilir veya birçok sanal ağa bağlı. Bu makalede, bu sanal ağ 'Dolaylı bağlı sanal ağ' denir. Bu sanal ağlar DMZ VNet eşlemesi kullanarak sanal ağa bağlanabilir.
 5. 2 sanal ağ zaten oluşturulmuş olduğunu doğrulayın. Bu uç sanal ağları kullanılır. Bu makale için sanal ağ uç adres alanlarının 10.0.2.0/24 ve 10.0.3.0/24 var. Sanal ağ oluşturma hakkında bilgi gerekirse bkz [PowerShell kullanarak sanal ağ oluşturma](../virtual-network/quick-create-powershell.md).
 6. Tüm sanal ağlarda hiçbir sanal ağ geçitleri olduğundan emin olun.

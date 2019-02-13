@@ -15,20 +15,22 @@ ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: caee00130efdea253ced16d090eafeee22c16ac3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aca7f700dc7004f682430d0794f8bc9b024f41b3
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585235"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113507"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Bir web uygulaması, Azure PowerShell kullanarak bir yedekten geri yükleyin
 
 Bu örnek betik, mevcut bir web uygulamasından önceden tamamlanmış bir yedekleme alır ve içeriğinin üzerine yazarak geri yükler. 
 
-Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırın. 
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bağlantı oluşturmak için `Connect-AzAccount` komutunu çalıştırın. 
 
 ## <a name="sample-script"></a>Örnek betik
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-restore/backup-restore.ps1?highlight=1-2 "Restore a web app from a backup")]
 
@@ -37,7 +39,7 @@ Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan y
 Web uygulaması düşünmüyorsanız, kaynak grubu, web uygulaması ve tüm ilgili kaynakları kaldırmak için aşağıdaki komutu kullanın.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroupName -Force
+Remove-AzResourceGroup -Name $resourceGroupName -Force
 ```
 
 ## <a name="script-explanation"></a>Betik açıklaması
@@ -46,8 +48,8 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Bir web uygulamasının yedekleme listesini alır. |
-| [Geri yükleme-AzureRmWebAppBackup](/powershell/module/azurerm.websites/restore-azurermwebappbackup) | Bir web uygulaması önceden tamamlanmış bir yedekten geri yükler. |
+| [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Bir web uygulamasının yedekleme listesini alır. |
+| [Geri yükleme-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Bir web uygulaması önceden tamamlanmış bir yedekten geri yükler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

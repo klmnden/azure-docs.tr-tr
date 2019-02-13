@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c9bdbcfe07eeee39733b39c074001f5caaa98ba
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700686"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106180"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>RBAC ve Azure PowerShell kullanarak erişimini yönetme
 
@@ -221,7 +221,7 @@ RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir.
 
 Bir rol atamak için hem nesne (kullanıcı, Grup veya uygulama) ve kapsamını tanımlamak gerekir.
 
-Abonelik kimliği bilmiyorsanız, içinde bulabilirsiniz **abonelikleri** dikey penceresinde Azure portalını veya kullanabileceğiniz [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+Abonelik kimliği bilmiyorsanız, içinde bulabilirsiniz **abonelikleri** dikey penceresinde Azure portalını veya kullanabileceğiniz [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 Bir Azure AD grubu nesne kimliği almak için kullanın [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup):
 

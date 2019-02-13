@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0695a705d436430edda0c6bf88e18b0a4b36ee4f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: b30f23dd22f3045a985e031fbfb0e1f8913874b0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496780"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116602"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Öğretici: Azure Resource Manager şablonlarını koşul kullanın
 
@@ -128,6 +128,8 @@ Değişiklik yapmak için aşağıdaki adımları izleyin:
 7. Değişiklikleri kaydedin.
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [Şablonu dağıtma](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) bölümündeki yönergeleri izleyerek şablonu dağıtın.
 

@@ -1,30 +1,30 @@
 ---
-title: Tüm Azure yöneticileri için MFA'yı etkinleştirin
+title: Tüm Azure yöneticileri için mfa'yı etkinleştirme
 description: Genel yönetici etkinleştirmek için yönergeler
 ms.service: security
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: a7a08c54fe0c59e1e100e1c46e7a640da0692077
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2dcd7f42d86000dd3b642c10f6d3db0b0d0fcb03
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181023"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116346"
 ---
-# <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Abonelik yöneticileri için çok faktörlü kimlik doğrulaması (MFA) zorunlu
+# <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Abonelik yöneticileri için multi-Factor authentication (MFA) zorunlu
 
-Genel Yönetici hesabınızla dahil olmak üzere yöneticilerinizle oluşturduğunuzda, çok güçlü kimlik doğrulama yöntemleri kullanmanızı gereklidir.
+Genel yönetici hesabınız dahil olmak üzere yöneticilerinize oluşturduğunuzda, çok güçlü kimlik doğrulama yöntemleri kullanmanızı gereklidir.
 
-Özel yönetici rolleri atama tarafından günlük yönetim gerçekleştirebilirsiniz — Exchange Yöneticisi veya parola Yöneticisi gibi — gerektiğinde BT personeli, kullanıcı hesaplarına.
-Ayrıca, etkinleştirme [Azure çok faktörlü kimlik doğrulama (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) , Yöneticiler için kullanıcı oturum açmaları ve işlemleri için ikinci bir güvenlik katmanı ekler. Ayrıca, Azure MFA yardımcı BT güvenliği aşılmış bir kimlik bilgisi kuruluşunuzun veri erişimi olmasını olasılığını azaltır.
+Günlük yönetim özel yönetici rolleri atayarak gerçekleştirebileceğiniz — Exchange yönetici veya yönetici parolası gibi — kullanıcı hesaplarını gerektiği gibi BT personeli için.
+Ayrıca, etkinleştirme [Azure multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) kullanıcı oturum açma ve işlemler için Yöneticiler için ikinci bir güvenlik katmanı ekler. Azure mfa'yı da yardımcı olan BT güvenliği aşılmış bir kimlik bilgisi kuruluş verilerine erişimi olmasını olasılığını azaltır.
 
-Örneğin: kullanıcılarınız için Azure MFA zorlamak ve bir telefon araması veya kısa mesaj doğrulama kullanacak şekilde yapılandırın. Kullanıcının kimlik bilgilerinin güvenliği aşıldığında saldırgan kendisinin kullanıcının telefonuna erişemeyecektir beri herhangi bir kaynağa erişim mümkün olmayacaktır. Ek kimlik koruma katmanları eklemeyin kuruluşlar veri güvenliğinin aşılmasına neden kimlik bilgisi hırsızlığı saldırısına daha açıktır.
+Örneğin: kullanıcılarınız için Azure MFA zorlamak ve telefon görüşmesi veya SMS mesajı doğrulaması kullanacak şekilde yapılandırın. Saldırgan, kullanıcının kimlik bilgilerini aşılırsa, o kullanıcının telefonuna erişimi olmayacaktır bu yana herhangi bir kaynağa erişmek mümkün olmayacaktır. Ek kimlik koruma katmanları eklemeyin kuruluşlar, veri güvenliğinin aşılmasına yol açabilir kimlik bilgisi hırsızlığı saldırısına için daha açıktır.
 
-Tüm kimlik doğrulama denetimi içi tutmak istediğiniz kuruluşlar için bir alternatif kullanmaktır [Azure çok faktörlü kimlik doğrulama sunucusu](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server), "MFA şirket içi" olarak da bilinir. Bu yöntemi kullanarak, çok faktörlü kimlik doğrulaması, MFA sunucusu şirket içi korurken zorlayabilir devam edersiniz.
+Bir alternatif için tüm denetim şirket içi kimlik doğrulaması tutmak isteyen kuruluşların kullanmaktır [Azure multi-Factor Authentication sunucusu](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server), "Şirket içi MFA" olarak da bilinir. Bu yöntemi kullanarak, multi-Factor authentication sunucusu şirket içi MFA tutarken uygulayabilmektir devam edersiniz.
 
 Kimin kuruluşunuzda denetlemek için aşağıdaki Microsoft Azure AD V2 PowerShell komutunu kullanarak doğrulayabilirsiniz yönetim ayrıcalıklarına sahiptir:
 
@@ -32,7 +32,7 @@ Kimin kuruluşunuzda denetlemek için aşağıdaki Microsoft Azure AD V2 PowerSh
 Get-AzureADDirectoryRole | Where { $_.DisplayName -eq "Company Administrator" } | Get-AzureADDirectoryRoleMember | Ft DisplayName
 ```
 
-## <a name="enabling-mfa"></a>MFA etkinleştirme
+## <a name="enabling-mfa"></a>Mfa'yı etkinleştirme
 
 Gözden geçirme nasıl [MFA](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) devam etmeden önce çalışır.
 
@@ -44,5 +44,5 @@ Kullanıcıların Azure Multi-Factor Authentication içeren lisansları olduğu 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Kullanıcılar için iki aşamalı doğrulamayı açma
 
-Listelenen yordamlardan birini kullanın [iki aşamalı doğrulama gerektirecek şekilde nasıl](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) Azure MFA kullanmaya başlamak için bir kullanıcı veya grup için. Tüm oturum açma işlemleri için iki aşamalı doğrulama uygulamayı seçebilir ya da yalnızca önem verdiğiniz durumlarda iki aşamalı kimlik doğrulaması uygulamak için koşullu erişim ilkeleri oluşturabilirsiniz.
+Bölümünde listelenen yordamlardan birini kullanın [iki aşamalı doğrulama gerektirme](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) Azure mfa'yı kullanmaya başlamak için bir kullanıcı veya grup için. Tüm oturum açma işlemleri için iki aşamalı doğrulama uygulamayı seçebilir ya da yalnızca önem verdiğiniz durumlarda iki aşamalı kimlik doğrulaması uygulamak için koşullu erişim ilkeleri oluşturabilirsiniz.
 

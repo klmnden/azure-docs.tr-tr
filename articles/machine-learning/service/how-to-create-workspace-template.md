@@ -1,7 +1,7 @@
 ---
 title: Bir çalışma alanı oluşturmak için şablon kullanma
 titleSuffix: Azure Machine Learning service
-description: Yeni bir Azure Machine Learning hizmeti çalışma alanı oluşturmak için Azure resource manager şablonu kullanmayı öğrenin.
+description: Yeni bir Azure Machine Learning hizmeti çalışma alanı oluşturmak için bir Azure Resource Manager şablonu kullanmayı öğrenin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: haining
 author: hning86
 ms.date: 02/11/2019
-ms.openlocfilehash: 71513c91d83f54359e43a41e178d91fe97a4ce82
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: b9d05e8de01178fd8731e492d2aeefd28f3ef4cf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101235"
+ms.locfileid: "56105714"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Bir şablonu kullanarak bir Azure Machine Learning hizmeti çalışma alanı oluşturma
 

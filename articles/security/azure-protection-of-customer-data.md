@@ -4,7 +4,7 @@ description: Bu makalede, Azure müşteri verilerini nasıl koruduğu yönelikti
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 0b702cec6113e6b31e34750872479dce162e4cb6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173076"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104508"
 ---
 # <a name="azure-customer-data-protection"></a>Azure müşteri verilerini koruma   
 Microsoft Operasyon ve destek personelinin müşteri verilerine erişimi varsayılan olarak reddedilir. Müşteri verilerine erişim verildiğinde liderlik onay gereklidir ve ardından erişim dikkatli bir şekilde yönetilir ve günlüğe kaydedilen. Erişim denetimi gereksinimleri aşağıdaki Azure güvenlik ilkesi tarafından oluşturulur:
@@ -35,18 +35,18 @@ Tüm erişim denemesi izlenir ve temel bir raporlar kümesi görüntülenebilir.
 ## <a name="data-protection"></a>Veri koruma
 Azure müşterileri ile güçlü veri güvenliği, hem varsayılan hem de müşteri seçenekleri sağlar.
 
-**Veriler arasında ayrım yapma**: Azure, birden çok müşteri dağıtımları anlamına gelir. çok kiracılı bir hizmet olduğundan ve VM aynı fiziksel donanımda depolandığı. Azure, her müşteriye ait verileri diğer verilerden ayırmak için mantıksal yalıtım kullanır. Ayırma titizlikle başka birinin verilere erişimi müşteriler önlenirken ölçek ve çok kiracılı hizmetlerinin ekonomik avantajlarını sağlar.
+**Veriler arasında ayrım yapma**: Azure, birden çok müşteri dağıtımları anlamına gelir çok kiracılı bir hizmettir ve Vm'leri aynı fiziksel donanımda depolandığı. Azure, her müşteriye ait verileri diğer verilerden ayırmak için mantıksal yalıtım kullanır. Ayırma titizlikle başka birinin verilere erişimi müşteriler önlenirken ölçek ve çok kiracılı hizmetlerinin ekonomik avantajlarını sağlar.
 
-**Bekleyen veri koruma**: müşterilerin kendi standartlara uygun olarak Azure'da depolanan verilerin şifrelenmesini sağlamaktan sorumludur. Azure, çok çeşitli şifreleme özellikleri, müşterilerin ihtiyaçlarını en iyi karşılayan çözümü seçme esnekliğini sunar. Azure Key Vault, müşterilerin kolayca bulut uygulamaları ve Hizmetleri tarafından verileri şifrelemek için kullanılan anahtarları denetiminizde tutmanıza yardımcı olur. Azure Disk şifrelemesi, müşterilerin Vm'lerini şifrelemesini sağlar. Azure depolama hizmeti şifrelemesi, bir müşterinin depolama hesabına yerleştirilen tüm verileri şifrelemek mümkün kılar.
+**Bekleyen veri koruma**: Müşteriler, standartlara uygun olarak Azure'da depolanan verilerin şifrelendiğinden emin olmak sizin sorumluluğunuzdadır. Azure, çok çeşitli şifreleme özellikleri, müşterilerin ihtiyaçlarını en iyi karşılayan çözümü seçme esnekliğini sunar. Azure Key Vault, müşterilerin kolayca bulut uygulamaları ve Hizmetleri tarafından verileri şifrelemek için kullanılan anahtarları denetiminizde tutmanıza yardımcı olur. Azure Disk şifrelemesi, müşterilerin Vm'lerini şifrelemesini sağlar. Azure depolama hizmeti şifrelemesi, bir müşterinin depolama hesabına yerleştirilen tüm verileri şifrelemek mümkün kılar.
 
-**Aktarım sırasında veri koruması**: müşterilerin kendi Vm'lerini ve son kullanıcılar arasındaki trafik için şifrelemeyi etkinleştirebilirsiniz. Azure için veya dış Bileşenler'den Aktarımdaki verileri korur ve veri dahili olarak, örneğin iki sanal ağ arasında geçiş. Azure sektör standardı Aktarım Katmanı Güvenliği (TLS) 1.2 veya sonraki Protokolü 2.048 bit RSA/SHA256 şifreleme anahtarlarıyla CESG/NCSC tarafından önerilen şekilde arasındaki iletişimi şifrelemek için kullanır:
+**Aktarım sırasında veri koruması**: Müşteriler, kendi Vm'leri ve son kullanıcılar arasındaki trafiği şifreleyebilirsiniz. Azure için veya dış Bileşenler'den Aktarımdaki verileri korur ve veri dahili olarak, örneğin iki sanal ağ arasında geçiş. Azure sektör standardı Aktarım Katmanı Güvenliği (TLS) 1.2 veya sonraki Protokolü 2.048 bit RSA/SHA256 şifreleme anahtarlarıyla CESG/NCSC tarafından önerilen şekilde arasındaki iletişimi şifrelemek için kullanır:
 
 - Müşteri ve bulut.
 - Dahili olarak Azure sistemleri ve veri merkezleri arasında.
 
-**Şifreleme**: veri depolama ve aktarım şifreleme gizlilik ve veri bütünlüğünü sağlamaya yönelik en iyi uygulama olarak müşteriler tarafından dağıtılabilir. Müşterilerin, Azure bulut Hizmetleri, internet'ten ve hatta kendi Azure'da barındırılan sanal makineler arasındaki iletişimi korumak için SSL kullanacak şekilde yapılandırmak açıktır.
+**Şifreleme**: Veri depolama ve aktarım şifreleme, gizlilik ve veri bütünlüğünü sağlamaya yönelik en iyi uygulama olarak müşteriler tarafından dağıtılabilir. Müşterilerin, Azure bulut Hizmetleri, internet'ten ve hatta kendi Azure'da barındırılan sanal makineler arasındaki iletişimi korumak için SSL kullanacak şekilde yapılandırmak açıktır.
 
-**Veri yedekliği**: Microsoft yardımcı cyberattack veya bir veri merkezinin fiziksel zarar olması durumunda verilerin korunduğundan emin olun. Müşterilerin tercih:
+**Veri yedekliği**: Microsoft, cyberattack veya bir veri merkezinin fiziksel zarar olması durumunda verilerin korunduğundan emin olun yardımcı olur. Müşterilerin tercih:
 
 - Uyumluluk veya gecikme süresi konuları için ülke içinde depolama.
 - Güvenlik ve olağanüstü durum kurtarma amacıyla ülke dışı depolama.
@@ -55,11 +55,11 @@ Veri yedekleme için seçilen bir coğrafi alanda çoğaltılabilir ancak dış�
 
 Depolama hesabınızı oluşturduğunuzda şu çoğaltma seçeneklerinden birini seçin:
 
-- **Yerel olarak yedekli depolama (LRS)**: yerel olarak yedekli depolama verilerinizin üç kopyasını tutar. LRS, tek bir bölgedeki tek bir tesis içinde üç kez çoğaltılır. LRS, tek bir tesis bir hata değil, ancak normal donanım arızalarına karşı verilerinizi korur.
-- **Bölgesel olarak yedekli depolama (ZRS)**: bölgesel olarak yedekli depolama verilerinizin üç kopyasını tutar. ZRS, lrs'ye daha yüksek bir dayanıklılık düzeyi sunabilmek için üç tesis üzerinde üç kez çoğaltılır. Çoğaltma, tek bir bölgede veya iki bölge arasında oluşur. ZRS, verilerinizi tek bir bölge içinde dayanıklı olmasına yardımcı olur.
-- **Coğrafi olarak yedekli depolama (GRS)**: coğrafi olarak yedekli depolama, depolama hesabınız için varsayılan olarak etkindir oluşturduğunuzda. GRS verilerinizin altı kopyasını tutar. GRS ile verileriniz birincil bölge içinde üç kez çoğaltılır. Verilerinizi ayrıca ikincil bir bölgede yüzlerce mil uzaktaki en yüksek dayanıklılık düzeyini sağlar. birincil bölgede üç kez çoğaltılır. Birincil bölgede bir arıza olması durumunda Azure Storage ikincil bölgeye devreder. GRS verilerinizin iki ayrı bölge içinde dayanıklı olmasını sağlar.
+- **Yerel olarak yedekli depolama (LRS)**: Yerel olarak yedekli depolama verilerinizin üç kopyasını tutar. LRS, tek bir bölgedeki tek bir tesis içinde üç kez çoğaltılır. LRS, tek bir tesis bir hata değil, ancak normal donanım arızalarına karşı verilerinizi korur.
+- **Bölgesel olarak yedekli depolama (ZRS)**: Bölgesel olarak yedekli depolama verilerinizin üç kopyasını tutar. ZRS, lrs'ye daha yüksek bir dayanıklılık düzeyi sunabilmek için üç tesis üzerinde üç kez çoğaltılır. Çoğaltma, tek bir bölgede veya iki bölge arasında oluşur. ZRS, verilerinizi tek bir bölge içinde dayanıklı olmasına yardımcı olur.
+- **Coğrafi olarak yedekli depolama (GRS)**: Coğrafi olarak yedekli depolama, depolama hesabınızı oluşturduğunuzda hesabınız için varsayılan olarak etkinleştirilir. GRS verilerinizin altı kopyasını tutar. GRS ile verileriniz birincil bölge içinde üç kez çoğaltılır. Verilerinizi ayrıca ikincil bir bölgede yüzlerce mil uzaktaki en yüksek dayanıklılık düzeyini sağlar. birincil bölgede üç kez çoğaltılır. Birincil bölgede bir arıza olması durumunda Azure Storage ikincil bölgeye devreder. GRS verilerinizin iki ayrı bölge içinde dayanıklı olmasını sağlar.
 
-**Veri yok etme**: müşterilerin verileri silmek ya da Azure bırakın Microsoft depolama kaynaklarını fiziksel yok etme yetkisi alınan donanımın yanı sıra kendi yeniden önce üzerine yazmak için katı standartlar izler. Microsoft, müşteri talebindeki ve sözleşmeyi sonlandırma verilerin tam bir silme işlemi yürütür.
+**Veri yok etme**: Microsoft, müşterilerin verileri silmek ya da Azure bırakın fiziksel yok etme yetkisi alınan donanımın yanı sıra kendi yeniden önce depolama kaynaklarını üzerine yazmak için katı standartlar izler. Microsoft, müşteri talebindeki ve sözleşmeyi sonlandırma verilerin tam bir silme işlemi yürütür.
 
 ## <a name="customer-data-ownership"></a>Müşteri veri sahipliği
 Microsoft olmayan inceleyin, onaylayın veya müşterilerin Azure'a dağıttığınız uygulamaları izleyin. Üstelik, Microsoft ne tür veri müşterilerin Azure'da depolamayı tercih bilmez. Microsoft Veri sahipliği üzerinden Azure'a girilen müşteri bilgileri iddia etmez.

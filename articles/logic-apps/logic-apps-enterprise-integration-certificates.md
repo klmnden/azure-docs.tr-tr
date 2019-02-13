@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 5ae69d365a183f7d2a219d853241e73c1e27212b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: fa2ae313ab18d6e474f1dd0953a3b0a0d094c7c3
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42061106"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111824"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Sertifikaları güvenli B2B iletileri
 
@@ -60,14 +60,14 @@ Kullanılacak bir *ortak sertifika* B2B özelliklerine sahip logic apps'te, önc
 
 ## <a name="upload-a-private-certificate"></a>Özel bir sertifika yükleyin
 
-Kullanılacak bir *özel sertifika* B2B özelliklerine sahip logic apps'te, önce sertifika tümleştirme hesabınıza yüklemeniz gerekir. Ayrıca ilk eklediğiniz bir özel anahtara sahip gerekir [Azure anahtar kasası](../key-vault/key-vault-get-started.md). 
+Kullanılacak bir *özel sertifika* B2B özelliklerine sahip logic apps'te, önce sertifika tümleştirme hesabınıza yüklemeniz gerekir. Ayrıca ilk eklediğiniz bir özel anahtara sahip gerekir [Azure anahtar kasası](../key-vault/key-vault-overview.md). 
 
 Özelliklerinde tanımladıktan sonra [sözleşmeleri](logic-apps-enterprise-integration-agreements.md) oluşturduğunuz, B2B iletilerinizi güvenli hale getirmeye yardımcı olmak sertifika kullanılabilir.
 
 > [!NOTE]
 > Özel sertifikaları için görünür karşılık gelen bir ortak sertifika eklediğinizden emin olun [AS2 anlaşması](logic-apps-enterprise-integration-as2.md) **gönderip** imzalama ve iletileri şifrelemek için ayarlar.
 
-1. [Özel anahtarınızı Azure anahtar Kasası'na ekleme](../key-vault/key-vault-get-started.md#add) ve sağlayan bir **anahtar adı**.
+1. [Özel anahtarınızı Azure anahtar Kasası'na ekleme](../key-vault/quick-create-cli.md#add-a-secret-to-key-vault) ve sağlayan bir **anahtar adı**.
    
 2. Azure Logic Apps, Azure anahtar kasası işlemleri gerçekleştirmek için yetkilendirin. Mantıksal uygulamalar hizmet sorumlusu için erişim vermek için PowerShell komutunu kullanın. [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), örneğin:
 

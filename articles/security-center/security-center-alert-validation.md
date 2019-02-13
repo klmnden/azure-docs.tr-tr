@@ -4,7 +4,7 @@ description: Bu belge, Azure Güvenlik Merkezi'nde güvenlik uyarılarını doğ
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2c0bb2a68eaaa8183463efbdc2848567ab67d1b9
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 009f5fe7243b8ce597c2be9f9c6874cdb56d103c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619753"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108554"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde Uyarıları Doğrulama
 Bu belge, sisteminizin Azure Güvenlik Merkezi uyarıları için doğru yapılandırılıp yapılandırılmadığını doğrulamayı öğrenmenize yardımcı olur.
@@ -32,7 +32,7 @@ Güvenlik Merkezi aracısı bilgisayarınıza yüklendikten sonra uyarının sal
 
 1. Bilgisayarın masaüstüne veya sizin için uygun olan başka bir dizinine yürütülebilir bir dosya (örneğin, calc.exe) kopyalayın.
 2. Bu dosyayı **ASC_AlertTest_662jfi039N.exe** olarak yeniden adlandırın.
-3. Komut istemini açın ve bu dosyayı şunun gibi bir bağımsız değişkenle (sahte bir bağımsız değişken adı yeterlidir) yürütün: *ASC_AlertTest_662jfi039N.exe -foo*
+3. Bir komut istemi açın ve bir bağımsız değişken (sadece sahte bir bağımsız değişken adı), bu dosyayla gibi yürütün: *ASC_AlertTest_662jfi039N.exe -foo*
 4. 5-10 dakika bekleyin ve Güvenlik Merkezi Uyarılarını açın. Burada şuna benzer bir uyarı görmeniz gerekir:
 
     ![Uyarı Doğrulaması](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 59322e303824d3a0db89e9e1252476d52106ba56
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991353"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108781"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -28,7 +28,7 @@ Kaynak grubu hem de hedef grubu taşıma işlemi sırasında kilitlenir. Yazma v
 Bir kaynak taşıma yalnızca bu yeni bir kaynak grubuna taşınır. Taşıma işlemi, kaynağın yerini değiştiremezsiniz. Yeni kaynak grubu farklı bir konuma sahip olabilir, ancak, kaynak konumunu değiştirmez.
 
 > [!NOTE]
-> Bu makale, mevcut bir Azure içinde kaynaklar teklifi hesap taşıma açıklamaktadır. Aslında (boş Kullandıkça Öde aboneliğine yükseltme gibi) sunarak Azure hesabınızı değiştirmek istiyorsanız, aboneliğinizin dönüştürmeniz gerekir.
+> Bu makalede, kaynakları var olan Azure abonelikler arasında taşıma açıklar. Gerçekte Azure aboneliğiniz (örneğin, boş, Kullandıkça Öde aboneliğine geçiş) yükseltmek istiyorsanız, aboneliğinizin dönüştürmeniz gerekir.
 > * Ücretsiz deneme sürümü yükseltmek için bkz: [ücretsiz deneme sürümü ya da Microsoft Imagine Azure aboneliğinizi Kullandıkça Öde aboneliğine yükseltme](..//billing/billing-upgrade-azure-subscription.md).
 > * Bir Kullandıkça Öde hesabına değiştirmek için bkz [Azure Kullandıkça Öde aboneliğinizi değiştirmek için farklı bir teklif](../billing/billing-how-to-switch-azure-offer.md).
 > * Abonelik dönüştüremezse [bir Azure destek isteği oluşturma](../azure-supportability/how-to-create-azure-support-request.md). Seçin **abonelik yönetimi** sorun türü için.
@@ -102,7 +102,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Portalı panoları
 * Power BI - hem Power BI Embedded ve Power BI çalışma alanı koleksiyonu
 * Genel IP - temel SKU ortak IP'sine taşınabilir. Standart SKU ortak IP'sine taşınamaz.
-* Kurtarma Hizmetleri kasası - kaydolun bir [özel Önizleme](#recovery-services-limitations).
+* Kurtarma Hizmetleri kasası - kaydolun bir [Önizleme](#recovery-services-limitations).
 * Azure önbelleği için Redis - sanal ağ sayesinde, örnek Azure Cache Redis örneği için yapılandırılmışsa, farklı bir aboneliğe taşınamaz. Bkz: [sanal ağlar sınırlamaları](#virtual-networks-limitations).
 * Scheduler
 * Arama - tek bir işlemde farklı bölgelerdeki birden çok arama kaynaklar taşınamıyor. Bunun yerine, bunları ayrı işlemlerde taşıyın.

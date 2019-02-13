@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 0fed6751d326c5da4431e953f7ded9c12688871f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c42490b7d46df77bffd13fdda02884704fb13b67
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250053"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210314"
 ---
 # <a name="back-up-azure-stack"></a>Azure yığını yedekleme
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-İsteğe bağlı yedekleme yerinde yedekleme ile Azure Stack üzerinde gerçekleştirin. PowerShell ortamını yapılandırma ile ilgili yönergeler için bkz: [Azure Stack için PowerShell yükleme ](azure-stack-powershell-install.md). Azure Stack'e oturum açmak için bkz: [Yönetici portalını kullanarak Azure Stack'te](azure-stack-manage-portals.md).
+Azure Stack üzerinde talep üzerine yedekleme gerçekleştirin. PowerShell ortamını yapılandırma ile ilgili yönergeler için bkz: [Azure Stack için PowerShell yükleme ](azure-stack-powershell-install.md). Azure Stack'e oturum açmak için bkz: [Yönetici portalını kullanarak Azure Stack'te](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Azure Stack yedekleme Başlat
 
@@ -121,4 +121,4 @@ Aşağıdaki adımları izleyerek bu Yedekleme başarıyla tamamlandığını do
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir veri kaybı olayından kurtarmak için iş akışı hakkında daha fazla bilgi edinin. Bkz: [geri dönülemez veri kaybından kurtarma](azure-stack-backup-recover-data.md).
+İş akışı hakkında daha fazla bilgi [bir veri kaybı olayından kurtarma](azure-stack-backup-recover-data.md).

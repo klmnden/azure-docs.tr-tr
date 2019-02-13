@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e9a99fcbe161e0b6cdabf1363ab3121a77869df7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024867"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111331"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Azure Data Factory varlıkları oluşturmak için şablonları kullanma
 > [!NOTE]
@@ -236,7 +236,7 @@ Kümesini parametreleştirme en iyi uygulamalar için bkz: [Azure Resource Manag
 * Ayarları ortamı tarafından farklılık gösterir (örnek: geliştirme, test ve üretim)
 * Gizli anahtarları (parolalar gibi)
 
-Gizli diziler çekme gerekiyorsa [Azure anahtar kasası](../../key-vault/key-vault-get-started.md) şablonları kullanarak Azure Data Factory varlıklarını dağıtırken belirtin **anahtar kasası** ve **gizli dizi adı** gösterildiği gibi Aşağıdaki örnekte:
+Gizli diziler çekme gerekiyorsa [Azure anahtar kasası](../../key-vault/key-vault-overview.md) şablonları kullanarak Azure Data Factory varlıklarını dağıtırken belirtin **anahtar kasası** ve **gizli dizi adı** gösterildiği gibi Aşağıdaki örnekte:
 
 ```JSON
 "parameters": {

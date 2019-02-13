@@ -3,18 +3,18 @@ title: Azure haritalar kullanan bir bölge sınırının oluştur | Microsoft Do
 description: Azure haritalar'ı kullanarak bir bölge sınırının ayarlayın.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/08/2019
+ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bddaad9bd85d85bd18e8084e2e7f0127b08a07ea
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a991fbde8ce1ae43f18be4f13ae7edc5f60044bf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007993"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108713"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir bölge sınırının ayarlayın
 
@@ -25,7 +25,7 @@ Event Grid hakkında daha fazla bilgi için bkz: [Azure Event Grid](https://docs
 Bu öğreticide, öğreneceksiniz, nasıl yapılır:
 
 > [!div class="checklist"]
-* Harita veri hizmeti harita verileri karşıya yükleme API'sini kullanarak Azure haritalar döndürürüz alanında karşıya yükleme
+* Azure haritalar, karşıya yükleme veri API'sini kullanarak veri hizmeti döndürürüz alanında karşıya yükleyin.
 *   Döndürürüz olayları işlemek için bir olay ızgarası ayarlama.
 *   Kurulum döndürürüz olay işleyicisi.
 *   Logic Apps kullanarak döndürürüz olaylara yanıt olarak uyarılar ayarlayın.
@@ -40,7 +40,7 @@ Bu öğreticideki adımları tamamlamak için önce görmek ihtiyacınız [hesap
 
 ## <a name="upload-geofences"></a>Bölge sınırlarının karşıya yükleme
 
-Harita verileri karşıya yükleme API'sini kullanarak yapı sitenin döndürürüz karşıya yüklemek için postman uygulama kullanacağız. Bu öğretici için yapı ekipman değil ihlal sabit bir parametre bir genel yapı site alanı yok varsayıyoruz. Bu sınır ihlalleri olan ciddi bir red ve Operations Manager'a raporlanır. Ek sınırlar en iyi duruma getirilmiş bir dizi farklı bir yapım izleyen kullanılabilir alanları genel yapı alan zamanlamaya göre. Ana Bölge sınırının süre sonu Ayarla sahip bir subsite1 olduğunu varsayıyoruz saat ve bundan sonra dolar. Gereksinimlerinize göre daha fazla iç içe geçmiş bölge sınırlarının oluşturabilirsiniz. Örneğin, burada iş zamanlamasını 1-4 hafta gerçekleşen ve alt site 2 iş 5-7 hafta içinde gerçekleştiği subsite1 olabilir. Tüm dilimleri proje başına tek bir veri kümesi olarak yüklenir ve kuralları zaman ve yer göre izlemek için kullanılır. Bkz: [Döndürürüz GeoJSON veri](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) döndürürüz veri biçimi hakkında daha fazla bilgi için. Gördüğünüz [veri - karşıya yükleme API belgeleri](https://docs.microsoft.com/rest/api/maps/mapdata/uploadpreview) Azure haritalar hizmetine harita verileri karşıya yükleme hakkında daha fazla bilgi.
+Karşıya veri API'si kullanarak yapı sitenin döndürürüz karşıya yüklemek için postman uygulama kullanacağız. Bu öğretici için yapı ekipman değil ihlal sabit bir parametre bir genel yapı site alanı yok varsayıyoruz. Bu sınır ihlalleri olan ciddi bir red ve Operations Manager'a raporlanır. Ek sınırlar en iyi duruma getirilmiş bir dizi farklı bir yapım izleyen kullanılabilir alanları genel yapı alan zamanlamaya göre. Ana Bölge sınırının süre sonu Ayarla sahip bir subsite1 olduğunu varsayıyoruz saat ve bundan sonra dolar. Gereksinimlerinize göre daha fazla iç içe geçmiş bölge sınırlarının oluşturabilirsiniz. Örneğin, burada iş zamanlamasını 1-4 hafta gerçekleşen ve alt site 2 iş 5-7 hafta içinde gerçekleştiği subsite1 olabilir. Tüm dilimleri proje başına tek bir veri kümesi olarak yüklenir ve kuralları zaman ve yer göre izlemek için kullanılır. Bkz: [Döndürürüz GeoJSON veri](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) döndürürüz veri biçimi hakkında daha fazla bilgi için. Gördüğünüz [veri - karşıya yükleme API belgeleri](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) Azure haritalar hizmetine karşıya veri yükleme hakkında daha fazla bilgi.
 
 Postman uygulamasını açın ve Azure haritalar harita verileri karşıya yükleme API'sini kullanarak yapı site döndürürüz karşıya yüklemek için aşağıdaki adımları izleyin.
 
@@ -258,8 +258,7 @@ Donanım farklı karşılık gelen konum koordinatlarını ile beş HTTP alma b�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şunları öğrendiniz, nasıl Azure haritalar, harita verileri hizmet harita verileri karşıya yükleme API'sini kullanarak karşıya yükleyerek döndürürüz ayarlanır. Ayrıca Azure haritalar olayları Grid abone olma ve bölge sınırının olayları işlemek için nasıl kullanılacağını öğrendiniz. 
+Bu öğreticide şunları öğrendiniz, nasıl Azure haritalar, karşıya yükleme veri API'sini kullanarak veri hizmeti yükleyerek döndürürüz ayarlanır. Ayrıca Azure haritalar olayları Grid abone olma ve bölge sınırının olayları işlemek için nasıl kullanılacağını öğrendiniz. 
 
-> [!div class="checklist"]
 * Bkz: [Azure Logic apps'te içerik türlerini işleme](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type), Logic Apps, daha karmaşık bir mantık oluşturmak için JSON ayrıştırmak için kullanmayı öğrenin.
 * Event Grid olay işleyicileri hakkında daha fazla bilgi edinmek için bkz: [Event Grid olay işleyicilerini desteklenen](https://docs.microsoft.com/azure/event-grid/event-handlers).

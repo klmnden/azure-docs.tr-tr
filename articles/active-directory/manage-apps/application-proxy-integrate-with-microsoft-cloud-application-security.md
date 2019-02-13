@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: fe35f91d9b27d9ac5ab511de99fc2bf1dc74bdce
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 21c197dace3088ceb89270b7e3e8a1b91e9c8ebc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958831"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176569"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Microsoft Cloud App Security ve Azure Active Directory ile gerçek zamanlı uygulama erişim izlemeyi yapılandırma
 Microsoft Cloud App Security (MCAS) kullanmak için bir şirket içi uygulamanızı Azure Active Directory'de (Azure AD), gerçek zamanlı izleme için yapılandırma. İzlemek için koşullu erişim uygulaması denetimi MCAS kullanır ve gerçek zamanlı denetim oturumları koşullu erişim ilkelerine bağlı. Azure Active Directory (Azure AD) uygulama ara sunucusu kullanan şirket içi uygulamalar için bu ilkeler uygulayabilirsiniz.

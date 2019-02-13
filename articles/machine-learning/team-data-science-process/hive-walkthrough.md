@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 57f20a6b3a8d2845b0459f05e7b9d9ccd8d44424
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463302"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108730"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process'in çalışması: Azure HDInsight Hadoop kümelerini kullanma
 Bu kılavuzda kullandığımız [Team Data Science işlem (TDSP)](overview.md) uçtan uca bir senaryoda. Kullandığımız bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi verileri genel olarak kullanılabilir ve [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) dataset ve aşağı örnek veriler için. İkili ve çok sınıflı sınıflandırma ve regresyon Tahmine dayalı görevler işlemek üzere Azure Machine Learning ile veri modelleri ekleriz. 
@@ -824,7 +824,7 @@ Bu örnek gözden geçirme ve eşlik eden kodlarını MIT lisansı altında Micr
 ## <a name="references"></a>Başvurular
 • [Andrés Monroy NYC taksi Gelişlerin indirme sayfası](http://www.andresmh.com/nyctaxitrips/)  
 • [FOILing NYC'ın taksi seyahat verilerini Chris Whong tarafından](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC taksi ve Limousine komisyon araştırma ve istatistikleri](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+• [NYC taksi ve Limousine komisyon araştırma ve istatistikleri](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

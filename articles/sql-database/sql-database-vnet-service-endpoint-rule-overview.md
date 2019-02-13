@@ -1,5 +1,5 @@
 ---
-title: Sanal ağ hizmet uç noktaları ve Azure SQL veritabanı ve SQL veri ambarı için kural | Microsoft Docs
+title: Sanal ağ uç noktaları ve tek ve havuza alınmış Azure SQL veritabanlarına yönelik kuralları | Microsoft Docs
 description: Bir alt ağ, sanal ağ hizmet uç noktası olarak işaretleyin. Ardından uç noktası olarak Azure SQL veritabanınızda ACL uygulamak için bir sanal ağ kuralı. SQL veritabanı, ardından tüm sanal makineler ve alt ağdaki diğer düğümlere gelen iletişimi kabul eder.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453936"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118386"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Azure SQL için sanal ağ hizmet uç noktaları ve kuralları kullanma
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Veritabanı sunucuları için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
-*Sanal ağ kuralları* olduğunu denetleyen bir güvenlik duvarı olup Azure [SQL veritabanı](sql-database-technical-overview.md) veya [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) sunucu uygulamasından gönderilen iletişimi kabul eder sanal ağlar içindeki belirli alt ağlar. Bu makalede, sanal ağ kuralı özelliği bazen Azure SQL veritabanı ve SQL veri ambarı iletişimi güvenli bir şekilde izin vermek için en iyi seçenek olup neden açıklar.
+*Sanal ağ kuralları* olduğunu denetleyen bir güvenlik duvarı olup olmadığını tek veritabanlarının ve azure'daki esnek havuz için veritabanı sunucusu [SQL veritabanı](sql-database-technical-overview.md) veya veritabanlarınızı [SQL veri Ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) belirli alt ağları sanal ağlardaki gönderildiği iletişimi kabul eder. Bu makalede, sanal ağ kuralı özelliği bazen Azure SQL veritabanı ve SQL veri ambarı iletişimi güvenli bir şekilde izin vermek için en iyi seçenek olup neden açıklar.
 
 > [!IMPORTANT]
-> Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır. Bu makale *değil* uygulamak **Azure SQL veritabanı yönetilen örneği**.
+> Bu makale, Azure SQL server ve Azure SQL sunucusu üzerinde oluşturulmuş olan hem SQL veritabanı ve SQL veri ambarı veritabanları için geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır. Bu makale *değil* geçerli bir **yönetilen örnek** Azure SQL veritabanı'nda dağıtım çünkü kendisiyle ilişkilendirilmiş bir hizmet uç noktası yok.
 
 Bir sanal ağ kuralı oluşturmak için öncelikle olmalıdır bir [sanal ağ hizmet uç noktası] [ vm-virtual-network-service-endpoints-overview-649d] kuralın başvurmak.
 

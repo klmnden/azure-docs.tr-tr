@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Nimblex | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Nimblex | Microsoft Docs'
 description: Azure Active Directory ve Nimblex arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 7b5dc6d892741f63596589a48ad5d45891b14c21
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d7801b5ea73cf94439ae2974f91d2032f9bf8a3b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040414"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166751"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Öğretici: Azure Active Directory Nimblex ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Öğretici: Nimblex ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Nimblex tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Nimblex yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Nimblex çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Azure AD'de Nimblex tümleştirmesini yapılandırmak için Nimblex Galeriden y�
 
 **Galeriden Nimblex eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -148,7 +149,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve N
 
     a. İçinde **açıklama** metin örneği adınızı yazın.
 
-    b. Not Defteri'nde, Azure portalından indirdiğiniz base-64 kodlanmış sertifika açın, içeriğini kopyalayın ve ardından yapıştırın **sertifika** kutusu.
+    b. Not Defteri'nde, Azure portalından indirdiğiniz base-64 kodlanmış sertifika açın, içeriğini kopyalayın ve ardından yapıştırın **sertifika** kutusu.
 
     c. İçinde **kimlik sağlayıcısı Sso hedef URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure portaldan kopyaladığınız.
 
@@ -191,7 +192,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı Nimblex Britta Simon adlı bir kullanıcı oluşturmaktır. Nimblex tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Nimblex erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Nimblex istemci Destek ekibine](mailto:support@ebms.com.au).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Nimblex istemci Destek ekibine](mailto:support@ebms.com.au).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -233,7 +234,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

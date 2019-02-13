@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f336f6fdb5cde638fe62d1410a9f993492be21ed
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6f91ccc93dcd2ac9b96379c4aa94d1f430faaf66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747569"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118301"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 
@@ -961,7 +961,7 @@ Bu durumda veya bilginiz olmaksızın bir işletim sisteminde, bir VHD'yi karş�
 * Aboneliğinizde oturum açın *az oturum açma*
 * Aboneliğinizi seçin *az hesabı set--abonelik `<subscription name or id`>*
 * VHD'yi karşıya yükleme *az storage blob upload* -bkz [Azure depolama ile Azure CLI kullanma][storage-azure-cli]
-* (İsteğe bağlı) İle bir VHD'den yönetilen Disk oluşturma *az disk oluşturma* -bakın https://docs.microsoft.com/cli/azure/disk#az_disk_create
+* (İsteğe bağlı) İle bir VHD'den yönetilen Disk oluşturma *az disk oluşturma* -bakın https://docs.microsoft.com/cli/azure/disk
 * Karşıya yüklenen VHD veya yönetilen Disk ile işletim sistemi diski olarak belirterek yeni bir VM oluşturma *az vm oluşturma* ve parametre *--ekleme-işletim sistemi diski*
 * İle yeni bir VM'ye veri diski ekleme *az vm disk ekleme* ve parametre *--yeni*
 
@@ -990,7 +990,7 @@ Böyle bir VM veya VHD gerekir bölümde listelenen gereksinimlerini karşılama
 * Aboneliğinizde oturum açın *az oturum açma*
 * Aboneliğinizi seçin *az hesabı set--abonelik `<subscription name or id`>*
 * VHD'yi karşıya yükleme *az storage blob upload* -bkz [Azure depolama ile Azure CLI kullanma][storage-azure-cli]
-* (İsteğe bağlı) İle bir VHD'den yönetilen Disk görüntüsü oluşturma *az görüntü oluşturma* -bakın https://docs.microsoft.com/cli/azure/image#az_image_create
+* (İsteğe bağlı) İle bir VHD'den yönetilen Disk görüntüsü oluşturma *az görüntü oluşturma* -bakın https://docs.microsoft.com/cli/azure/image
 * Karşıya yüklenen VHD veya yönetilen Disk görüntüsü ile işletim sistemi diski olarak belirterek yeni bir VM oluşturma *az vm oluşturma* ve parametre *--görüntüsü*
 
 **Şablon**

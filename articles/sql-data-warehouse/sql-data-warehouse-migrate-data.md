@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 11d41f9839456020ab65f11661c21f1e679cd76f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 77e4500b20be844dfad31db284a9c77ad7ec6bb7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770661"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118131"
 ---
 # <a name="migrate-your-data"></a>Verilerinizi geçirme
 Farklı kaynaktaki verileri çeşitli araçlarla, SQL veri ambarı'na taşınabilir.  ADF kopyalama, SSIS ve bcp tüm bu hedefe ulaşmak için kullanılabilir. Ancak, veri arttıkça miktarda veri geçiş işlemi adımlara bölmek hakkında düşünmelisiniz. Her adım için performans ve esneklik kesintisiz veri geçişini sağlamak için en iyi duruma getirme olanağı verir.
@@ -29,7 +29,7 @@ Verilerinizi düz dosyaları başlar, sonra Yük başlatmadan önce Azure storag
 
 PolyBase Ayrıca, veri yükleme için yüksek performanslı seçeneği sağlar. Ancak, bir yerine iki araçlarını kullanarak geliyor. En iyi performansa gerek sonra PolyBase kullanma Tek bir araç deneyimi istediğiniz (ve veri çok büyük değilse) sonra ADF aradığınız cevaptır.
 
-İzleyin [Bu öğreticide]( /articles/data-factory/load-azure-sql-data-warehouse.md) ADF verileri veri ambarınıza yüklemek için nasıl kullanılacağını öğrenin.
+İzleyin [Bu öğreticide](../data-factory/load-azure-sql-data-warehouse.md) ADF verileri veri ambarınıza yüklemek için nasıl kullanılacağını öğrenin.
 
 ## <a name="integration-services"></a>Tümleştirme Hizmetleri
 Integration Services (SSIS) karmaşık iş akışları, veri dönüştürme ve birkaç veri yükleme seçeneklerini destekleyen bir güçlü ve esnek ayıklama, dönüştürme ve yükleme (ETL) aracıdır. SSIS yalnızca azure'a ya da daha geniş bir geçişin parçası olarak veri aktarmak için kullanın.

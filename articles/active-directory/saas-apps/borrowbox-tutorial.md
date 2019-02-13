@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2018
 ms.author: jeedes
-ms.openlocfilehash: efb905364e5ae4736b058472e66b3a8850a99fe3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a36b87f0a440bb2bf8d8d75cf0d29dbd521ff43f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167853"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Öğretici: BorrowBox ile Azure Active Directory Tümleştirme
 

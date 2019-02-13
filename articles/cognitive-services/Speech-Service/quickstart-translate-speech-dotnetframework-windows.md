@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: f39012b02174cd5a14032efccdc1977579b7ff70
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: db0ff8b8cc305bb9f7b4625cf060de72a5c7d276
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860006"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109801"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Hızlı Başlangıç: .NET Framework için konuşma Speech SDK'sı ile Çevir
 
@@ -38,99 +38,7 @@ Bu hızlı başlangıç şunları gerektirir:
 
 1. `Program.cs` dosyasını açın ve tüm kodu aşağıdakiyle değiştirin.
 
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.CognitiveServices.Speech;
-    using Microsoft.CognitiveServices.Speech.Translation;
-
-    namespace helloworld
-    {
-        class Program
-        {
-            public static async Task TranslationContinuousRecognitionAsync()
-            {
-                // Creates an instance of a speech translation config with specified subscription key and service region.
-                // Replace with your own subscription key and service region (e.g., "westus").
-                var config = SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-
-                // Sets source and target languages.
-                string fromLanguage = "en-US";
-                config.SpeechRecognitionLanguage = fromLanguage;
-                config.AddTargetLanguage("de");
-
-                // Sets voice name of synthesis output.
-                const string GermanVoice = "de-DE-Hedda";
-                config.VoiceName = GermanVoice;
-                // Creates a translation recognizer using microphone as audio input.
-                using (var recognizer = new TranslationRecognizer(config))
-                {
-                    // Subscribes to events.
-                    recognizer.Recognizing += (s, e) =>
-                    {
-                        Console.WriteLine($"RECOGNIZING in '{fromLanguage}': Text={e.Result.Text}");
-                        foreach (var element in e.Result.Translations)
-                        {
-                            Console.WriteLine($"    TRANSLATING into '{element.Key}': {element.Value}");
-                        }
-                    };
-
-                    recognizer.Recognized += (s, e) =>
-                    {
-                        if (e.Result.Reason == ResultReason.TranslatedSpeech)
-                        {
-                            Console.WriteLine($"\nFinal result: Reason: {e.Result.Reason.ToString()}, recognized text in {fromLanguage}: {e.Result.Text}.");
-                            foreach (var element in e.Result.Translations)
-                            {
-                                Console.WriteLine($"    TRANSLATING into '{element.Key}': {element.Value}");
-                            }
-                        }
-                    };
-
-                    recognizer.Synthesizing += (s, e) =>
-                    {
-                        var audio = e.Result.GetAudio();
-                        Console.WriteLine(audio.Length != 0
-                            ? $"AudioSize: {audio.Length}"
-                            : $"AudioSize: {audio.Length} (end of synthesis data)");
-                    };
-
-                    recognizer.Canceled += (s, e) =>
-                    {
-                        Console.WriteLine($"\nRecognition canceled. Reason: {e.Reason}; ErrorDetails: {e.ErrorDetails}");
-                    };
-
-                    recognizer.SessionStarted += (s, e) =>
-                    {
-                        Console.WriteLine("\nSession started event.");
-                    };
-
-                    recognizer.SessionStopped += (s, e) =>
-                    {
-                        Console.WriteLine("\nSession stopped event.");
-                    };
-
-                    // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
-                    Console.WriteLine("Say something...");
-                    await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
-
-                    do
-                    {
-                        Console.WriteLine("Press Enter to stop");
-                    } while (Console.ReadKey().Key != ConsoleKey.Enter);
-
-                    // Stops continuous recognition.
-                    await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
-                }
-            }
-
-            static void Main(string[] args)
-            {
-                TranslationContinuousRecognitionAsync().Wait();
-            }
-        }
-    }
-    ```
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
 1. Aynı dosyada `YourSubscriptionKey` dizesini abonelik anahtarınız ile değiştirin.
 

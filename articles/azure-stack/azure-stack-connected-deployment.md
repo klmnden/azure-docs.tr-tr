@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a39ab2eb6d08f478ed68aed2bc753e5225185fe3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243190"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175396"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure bağlı dağıtım planlama kararları için Azure Stack tümleşik sistemleri
-Karar verdim sonra [Azure Stack, hibrit bulut ortamına nasıl tümleştirilecek](azure-stack-connection-models.md), Azure Stack dağıtım kararlarınızı sonra sonlandır.
+Karar verdim sonra [Azure Stack, hibrit bulut ortamına nasıl tümleştirilecek](azure-stack-connection-models.md), Azure Stack dağıtım kararlarınızı son haline getir.
 
 Azure Stack ile Azure'a bağlı dağıtma, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kimlik deponuz için olamayacağı anlamına gelir. Her iki faturalandırma modeli de seçebilirsiniz:-,-kullandıkça veya kapasite tabanlı. Bağlı bir dağıtım olduğundan varsayılan seçenek olan müşterilerin en çok değer dışında Azure Stack, özellikle hem Azure hem de Azure Stack içeren hibrit bulut senaryoları için alma olanak tanır. 
 

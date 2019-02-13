@@ -3,7 +3,7 @@ title: Event Hubs'ı kullanarak Azure Key vault'tan günlükleri tümleştirme |
 description: Anahtar kasası günlükleri için bir SIEM Azure günlük Tümleştirmesi'ni kullanarak kullanılabilmesi için gerekli adımlar sağlanmaktadır Öğreticisi
 services: security
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: f9eb4489894632502b7df97cd1149bd027164d19
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 21a1cd6d0326c834a05681ffe98555ea52858e6e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437428"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106571"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirme Öğreticisi: Event Hubs kullanarak Azure Key Vault olayları işleyin
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: a9883edc712b1524561f3bac3efd1608da695313
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c8dfbe7fbeacdb42fd9b96b62e7da25084c4aabe
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477293"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105748"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de Çakışma çözümlemesi ilkelerini yönetme
 
@@ -278,6 +278,6 @@ while conflict:
 
 Aşağıdaki Azure Cosmos DB kavramları hakkında bilgi edinin:
 
+* [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md).
 * [Bölümleme ve veri dağıtımı](partition-data.md)
 * [Azure Cosmos DB'yi dizine ekleme](indexing-policies.md)
-

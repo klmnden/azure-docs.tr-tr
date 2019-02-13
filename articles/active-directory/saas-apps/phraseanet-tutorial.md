@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Phraseanet | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Phraseanet | Microsoft Docs'
 description: Azure Active Directory ve Phraseanet arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeedes
-ms.openlocfilehash: cfeadbf1d46d9e36f8619cafe29d9dd69aad6eec
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 49a311b74fbc48f414f530e962af39d17a346353
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49118762"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175549"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Öğretici: Azure Active Directory Phraseanet ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Öğretici: Phraseanet ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Phraseanet tümleştirme konusunda bilgi edinin.
 
@@ -149,7 +150,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-phraseanet-test-user"></a>Phraseanet test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Phraseanet içinde adlı bir kullanıcı oluşturun. Çalışmak [Phraseanet Destek ekibine](mailto:support@alchemy.fr) Phraseanet platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Phraseanet içinde adlı bir kullanıcı oluşturun. Çalışmak [Phraseanet Destek ekibine](mailto:support@alchemy.fr) Phraseanet platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

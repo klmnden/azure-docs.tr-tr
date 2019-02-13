@@ -4,7 +4,7 @@ description: Azure anahtar kasası REST arabirimi ve geliştirici ayrıntıları
 services: key-vault
 documentationcenter: ''
 author: BryanLa
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 0dcfd1bd75fa54a1bbea93497a0cc872ad6d5184
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 49879d36937a0f0d7ccf1a82cf8b6ca09453894d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078380"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106992"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
@@ -40,7 +40,7 @@ Aşağıdaki bölümlerde, Key Vault hizmeti, uygulama ilgili genel bilgiler sun
 JavaScript nesne gösterimi (JSON) ve JavaScript nesne imzalama ve şifreleme (JOSE) belirtimleri önemli bilgiler var.  
 
 -   [JSON Web anahtarı (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON Web şifreleme (jwe ile)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
+-   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web algoritmalar (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web imza (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
@@ -95,7 +95,7 @@ Konumlar:
 
 Key Vault RSA ve Eliptik Eğri anahtarlar yalnızca destekler. 
 
--   **EC**: "Soft" Eliptik Eğri anahtar.
+-   **EC**: "Soft" Elliptic Curve key.
 -   **HSM EC**: "Sabit" Eliptik Eğri anahtar.
 -   **RSA**: "Soft" RSA anahtarı.
 -   **RSA HSM**: "Sabit" RSA anahtarı.
@@ -481,4 +481,4 @@ Daha fazla bilgi için [depolama hesabı anahtar kasası REST API Başvurusu iş
 
 - [Kimlik doğrulama istekleri ve yanıtları](authentication-requests-and-responses.md)
 - [Key Vault sürümleri](key-vault-versions.md)
-- [Anahtar kasası Geliştirici Kılavuzu](/azure/key-vault/key-vault-developers-guide)
+- [Key Vault Geliştirici Kılavuzu](/azure/key-vault/key-vault-developers-guide)

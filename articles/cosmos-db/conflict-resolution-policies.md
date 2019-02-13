@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 31e6fa596bb053ee8cd19f641349f02ee169b6eb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6b168efc2314e21f381d55f6ac79cda8b426e66d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472346"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110311"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Çakışma türleri ve çözme ilkeleri
 
@@ -50,6 +50,7 @@ Azure Cosmos DB güncelleştirme çakışmaları çözümlemek için esnek bir i
 
 Çakışma çözümlemesi ilkelerinin nasıl yapılandırılacağını öğrenin. Aşağıdaki makalelere bakın:
 
+* [Çok yöneticili uygulamalarınızda yapılandırma](how-to-multi-master.md)
 * [LWW çakışma çözümü İlkesi kullanın](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [Özel çakışma çözümü İlkesi kullanın](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [Akış çakışmaları kullanın](how-to-manage-conflicts.md#read-from-conflict-feed)

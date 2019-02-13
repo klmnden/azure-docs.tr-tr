@@ -10,20 +10,17 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: fe7825922d9333d058d9a33d5643850c368d3457
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 474355088a339741b8dd1917fb354d55df4990f6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511403"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189200"
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Azure Machine Learning Studio modellerini programlama yoluyla yeniden eğitme
 Bu izlenecek yolda, program aracılığıyla bir Azure Machine Learning Studio web hizmeti kullanarak yeniden eğitme hakkında bilgi edineceksiniz C# ve Machine Learning Batch Execution hizmeti.
 
-Model retrained sonra aşağıdaki izlenecek yollar, Tahmine dayalı web hizmeti olarak modeli güncelleştirmek nasıl göster:
-
-* Machine Learning Web Hizmetleri portalında bir Klasik web hizmetini dağıttıysanız bkz [bir Klasik web hizmetini yeniden eğitme](retrain-a-classic-web-service.md). 
-* Yeni bir web hizmetini dağıttıysanız bkz [Machine Learning Yönetimi cmdlet'lerini kullanarak yeni bir web hizmetini yeniden eğitme](retrain-new-web-service-using-powershell.md).
+Model retrained edildikten [Machine Learning Yönetimi cmdlet'lerini kullanarak yeni bir web hizmetini yeniden eğitme](retrain-new-web-service-using-powershell.md) Tahmine dayalı web hizmeti olarak modeli güncelleştirmek için:
 
 Yeniden eğitme sürecinin genel bakış için bkz. [makine öğrenme modeli yeniden eğitme](retrain-machine-learning-model.md).
 
@@ -165,9 +162,8 @@ Yeni eğitim modeli yeterince iyi var olan dosyayla gerçekleştirip gerçekleş
 Kopyalama *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* çıktı sonuçları, bunları yeniden eğitme işlemi sırasında kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tıklayarak Tahmine dayalı web hizmetini dağıttıysanız **Web hizmeti dağıtma [Klasik]**, bkz: [bir Klasik web hizmetini yeniden eğitme](retrain-a-classic-web-service.md).
 
-Tıklayarak Tahmine dayalı web hizmetini dağıttıysanız **Web hizmeti dağıtma [Yeni]**, bkz: [Machine Learning Yönetimi cmdlet'lerini kullanarak yeni bir web hizmetini yeniden eğitme](retrain-new-web-service-using-powershell.md).
+ [Machine Learning Yönetimi cmdlet'lerini kullanarak yeni bir web hizmetini yeniden eğitme](retrain-new-web-service-using-powershell.md).
 
 <!-- Retrain a New web service using the Machine Learning Management REST API -->
 

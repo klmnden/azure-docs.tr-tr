@@ -4,7 +4,7 @@ description: Çeşitli bilgi işlem örnekleri dahil bulut tabanlı bilgi işlem
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405982"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111297"
 ---
 # <a name="azure-network-security"></a>Azure ağ güvenliği
 
@@ -88,11 +88,11 @@ Azure sanal ağlar, sanal ağlar gibi şirket içi Microsoft Hyper-V veya VMware
 
 Sanal ağlar birbiriyle sanal ağlarda birbirleri ile iletişim kurmak için herhangi bir sanal ağa bağlı kaynaklara etkinleştirme bağlanabilirsiniz. Vnet'leri birbirine bağlamak için veya her ikisini aşağıdaki seçeneklerden birini kullanabilirsiniz:
 
-- **Eşleme:** farklı Azure birbirleri ile iletişim kurmak için sanal ağlar aynı Azure konumunda içinde bağlı kaynakları sağlar. Sanal ağ arasında gecikme süresi ve bant genişliği var. aynı kaynakları aynı sanal ağa bağlı olmasıyla Eşlemesi hakkında daha fazla bilgi edinmek için [sanal ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Eşleme:** Farklı Azure birbirleri ile iletişim kurmak için sanal ağlar aynı Azure konumunda içinde bağlı kaynakları sağlar. Sanal ağ arasında gecikme süresi ve bant genişliği var. aynı kaynakları aynı sanal ağa bağlı olmasıyla Eşlemesi hakkında daha fazla bilgi edinmek için [sanal ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
  ![Eşleme](media/azure-network-security/azure-network-security-fig-3.png)
 
-- **VNet-VNet bağlantısı:** aynı veya farklı Azure konumları içinde farklı Azure sanal ağa bağlı kaynaklar sağlar. Bir Azure VPN ağ geçidi üzerinden trafik akışı gerekir çünkü eşleme aksine, bant genişliği sanal ağlar arasında sınırlıdır.
+- **VNet-VNet bağlantısı:** Aynı veya farklı Azure konumları içinde farklı Azure sanal ağa bağlı kaynaklar sağlar. Bir Azure VPN ağ geçidi üzerinden trafik akışı gerekir çünkü eşleme aksine, bant genişliği sanal ağlar arasında sınırlıdır.
 
 ![VNet-VNet bağlantısı](media/azure-network-security/azure-network-security-fig-4.png)
 
@@ -151,9 +151,9 @@ Bir sanal ağa sanal makineler (VM), bulut Hizmetleri, App Service ortamları ve
 
 Sanal ağlar birbiriyle sanal ağlarda birbirleri ile iletişim kurmak için herhangi bir sanal ağa bağlı kaynaklara etkinleştirme bağlanabilirsiniz. Vnet'leri birbirine bağlamak için veya her ikisini aşağıdaki seçeneklerden birini kullanabilirsiniz:
 
-- **Eşleme:** farklı Azure birbirleri ile iletişim kurmak için sanal ağlar aynı Azure konumunda içinde bağlı kaynakları sağlar. Sanal ağlar arasında gecikme süresi ve bant genişliği olan aynı kaynakları için aynı VNet.To bağlıymış gibi hakkında daha fazla bilgi eşlemesi, okuma [sanal ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Eşleme:** Farklı Azure birbirleri ile iletişim kurmak için sanal ağlar aynı Azure konumunda içinde bağlı kaynakları sağlar. Sanal ağlar arasında gecikme süresi ve bant genişliği olan aynı kaynakları için aynı VNet.To bağlıymış gibi hakkında daha fazla bilgi eşlemesi, okuma [sanal ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-- **VNet-VNet bağlantısı:** aynı veya farklı Azure konumları içinde farklı Azure sanal ağa bağlı kaynaklar sağlar. Bir Azure VPN ağ geçidi üzerinden trafik akışı gerekir çünkü eşleme aksine, bant genişliği sanal ağlar arasında sınırlıdır. Bir VNet-VNet bağlantısı ile sanal ağları bağlama hakkında daha fazla bilgi edinmek için. Daha fazla bilgi edinmek için [bir VNet-VNet bağlantısını yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
+- **VNet-VNet bağlantısı:** Aynı veya farklı Azure konumları içinde farklı Azure sanal ağa bağlı kaynaklar sağlar. Bir Azure VPN ağ geçidi üzerinden trafik akışı gerekir çünkü eşleme aksine, bant genişliği sanal ağlar arasında sınırlıdır. Bir VNet-VNet bağlantısı ile sanal ağları bağlama hakkında daha fazla bilgi edinmek için. Daha fazla bilgi edinmek için [bir VNet-VNet bağlantısını yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
 **Şirket içi bağlantı**
 
@@ -161,11 +161,11 @@ Sanal ağlara bağlanabilir [şirket içi](https://docs.microsoft.com/azure/virt
 
 Şirket içi ağınıza aşağıdaki seçeneklerden herhangi bir birleşimini kullanarak bir sanal ağa bağlanabilir:
 
-- **Noktadan siteye sanal özel ağ (VPN):** , ağ ve sanal ağa bağlı tek bir bilgisayar arasında kurulan. Azure’ı kullanmaya yeni başladıysanız bu bağlantı türü mükemmeldir. Mevcut ağınız üzerinde çok az bir değişiklik gerektirdiğinden veya hiç değişiklik gerektirmediğinden geliştiriciler için de mükemmeldir. Bağlantı, PC ve sanal ağ arasında Internet üzerinden şifrelenmiş iletişim sağlamak üzere SSTP protokolünü kullanır. Trafik Internet'ten gönderilir. bu yana bir noktadan siteye VPN için gecikme süresini tahmin edilemez.
+- **Noktadan siteye sanal özel ağ (VPN):** Tek bir PC bağlı, ağ ve VNet arasında kurdu. Azure’ı kullanmaya yeni başladıysanız bu bağlantı türü mükemmeldir. Mevcut ağınız üzerinde çok az bir değişiklik gerektirdiğinden veya hiç değişiklik gerektirmediğinden geliştiriciler için de mükemmeldir. Bağlantı, PC ve sanal ağ arasında Internet üzerinden şifrelenmiş iletişim sağlamak üzere SSTP protokolünü kullanır. Trafik Internet'ten gönderilir. bu yana bir noktadan siteye VPN için gecikme süresini tahmin edilemez.
 
-- **Siteden siteye VPN:** VPN cihazınız ile bir Azure VPN ağ geçidi arasında kurulan. Bu bağlantı türü, bir sanal ağa erişebilmesi için yetkilendirme herhangi bir şirket içi kaynak sağlar. Cihazınız şirket içi ve Azure VPN ağ geçidi arasında Internet üzerinden şifrelenmiş iletişimi sağlayan bir IPSec/IKE VPN bağlantısıdır. Trafik Internet'ten gönderilir. bu yana bir siteden siteye bağlantı için gecikme süresini tahmin edilemez.
+- **Siteden siteye VPN:** Bir Azure VPN ağ geçidi ile VPN cihazınız arasında kurdu. Bu bağlantı türü, bir sanal ağa erişebilmesi için yetkilendirme herhangi bir şirket içi kaynak sağlar. Cihazınız şirket içi ve Azure VPN ağ geçidi arasında Internet üzerinden şifrelenmiş iletişimi sağlayan bir IPSec/IKE VPN bağlantısıdır. Trafik Internet'ten gönderilir. bu yana bir siteden siteye bağlantı için gecikme süresini tahmin edilemez.
 
-- **Azure ExpressRoute:** Bir ExpressRoute iş ortağı aracılığıyla ağınız ile Azure arasında oluşur. Bu bağlantı özeldir. Trafik Internet'i dolaşmaz. ExpressRoute bağlantısı için gecikme süresini tahmin edilebilir olduğu trafiği İnternet'e geçiş değil. Önceki bağlantı seçenekleri hakkında daha fazla bilgi edinmek için [bağlantı topolojisi diyagramları](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** Bir ExpressRoute iş ortağı aracılığıyla ağınız ve Azure arasında kurdu. Bu bağlantı özeldir. Trafik Internet'i dolaşmaz. ExpressRoute bağlantısı için gecikme süresini tahmin edilebilir olduğu trafiği İnternet'e geçiş değil. Önceki bağlantı seçenekleri hakkında daha fazla bilgi edinmek için [bağlantı topolojisi diyagramları](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Trafik filtreleme**
 
@@ -173,9 +173,9 @@ VM ve bulut Hizmetleri rol örnekleri [ağ trafiği](https://docs.microsoft.com/
 
 Aşağıdaki seçeneklerden birini veya her ikisini de kullanarak alt ağlar arasındaki ağ trafiğini filtreleyebilirsiniz:
 
-- **Ağ güvenlik grupları (NSG):** her NSG, kaynak ve hedef IP adresi, bağlantı noktası ve protokol giden trafiği filtrelemek için olanak sağlayan birden çok gelen ve giden güvenlik kuralı içerebilir. Bir VM'deki her NIC, bir NSG uygulayabilirsiniz. NSG'yi alt ağa bir NIC uygulayabilirsiniz veya diğer Azure kaynaklarında bağlı olduğu. Nsg'ler hakkında daha fazla bilgi edinmek için [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- **Ağ güvenlik grupları (NSG):** Her NSG'de kaynak ve hedef IP adresi, bağlantı noktası ve protokol olarak giden trafiği filtrelemek için olanak tanıyan birden fazla gelen ve giden güvenlik kuralları içerir. Bir VM'deki her NIC, bir NSG uygulayabilirsiniz. NSG'yi alt ağa bir NIC uygulayabilirsiniz veya diğer Azure kaynaklarında bağlı olduğu. Nsg'ler hakkında daha fazla bilgi edinmek için [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
-- **Sanal ağ Gereçleri:** sanal ağ Gereci gibi bir güvenlik duvarı bir ağ işlevi gerçekleştiren yazılımı çalıştıran bir vm'dir. Azure Marketi'nde kullanılabilir nva'ların listesini görüntüleyin. Nva'ları WAN iyileştirme ve diğer ağ trafiği işlevleri sağlar. Ayrıca kullanılabilir durumdadır. Nva genellikle kullanılan kullanıcı tanımlı olan veya BGP yolları. Bir NVA, sanal ağlar arasındaki trafiği filtrelemek için de kullanabilirsiniz.
+- **Sanal ağ Gereçleri:** Sanal ağ Gereci, güvenlik duvarı gibi bir ağ işlevi gerçekleştiren yazılımı çalıştıran bir vm'dir. Azure Marketi'nde kullanılabilir nva'ların listesini görüntüleyin. Nva'ları WAN iyileştirme ve diğer ağ trafiği işlevleri sağlar. Ayrıca kullanılabilir durumdadır. Nva genellikle kullanılan kullanıcı tanımlı olan veya BGP yolları. Bir NVA, sanal ağlar arasındaki trafiği filtrelemek için de kullanabilirsiniz.
 
 **Yönlendirme**
 
@@ -183,11 +183,11 @@ Aşağıdaki seçeneklerden birini veya her ikisini de kullanarak alt ağlar ara
 
 Azure, varsayılan olarak birbirleri ile iletişim kurmak için herhangi bir sanal ağ içindeki herhangi bir alt ağa bağlı kaynaklara sağlayan rota tabloları oluşturur. Azure’ın oluşturduğu varsayılan rotaları geçersiz kılmak için aşağıdaki seçeneklerden birini veya her ikisini uygulayabilirsiniz:
 
-- **Kullanıcı tanımlı yollar:** trafiğin nereye yönlendirileceğini için her alt ağ için denetleyen rotalarla özel rota tabloları oluşturabilirsiniz. Kullanıcı tanımlı yollar hakkında daha fazla bilgi edinmek için [kullanıcı tanımlı yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+- **Kullanıcı tanımlı yollar:** Trafiği için her alt ağ için yönlendirildiği denetleyen rotalarla özel rota tabloları oluşturabilirsiniz. Kullanıcı tanımlı yollar hakkında daha fazla bilgi edinmek için [kullanıcı tanımlı yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-- **BGP yolları:** sanal ağınızı bir Azure VPN Gateway veya ExpressRoute bağlantısı kullanarak şirket içi ağınıza bağlanırsa BGP yolları sanal ağlarınıza yayabilirsiniz.
+- **BGP yolları:** Sanal ağınızı bir Azure VPN Gateway veya ExpressRoute bağlantısı kullanarak şirket içi ağınıza bağlanırsa BGP yolları sanal ağlarınıza yayabilirsiniz.
 
-### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Karma internet bağlantısı: bir şirket içi ağa bağlanma
+### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Karma internet bağlantısı: Bir şirket içi ağa bağlanma
 Şirket içi ağınıza aşağıdaki seçeneklerden herhangi bir birleşimini kullanarak bir sanal ağa bağlanabilir:
 
 -   İnternet bağlantısı
@@ -282,13 +282,13 @@ Başka bir deyişle, tüm alt ağlar arasında veya tek bir VM ve VM veya başka
 
 Bir NSG farkında olmanız gereken bazı yerleşik kurallar ile birlikte gelir. Bunlar:
 
--   **Belirli bir sanal ağ içindeki tüm trafiğe izin:** tüm VM'lerin aynı Azure sanal ağ kurabilir birbiriyle.
+-   **Belirli bir sanal ağ içindeki tüm trafiğe izin ver:** Tüm VM'lerin aynı Azure sanal ağı üzerinde birbirleriyle iletişim kurabilir.
 
 -   **Azure Yük Dengeleme için gelen izin ver:** bu kural Azure yük dengeleyici için herhangi bir hedef adresi herhangi bir kaynak adresinden gelen trafiği sağlar.
 
 -   **Gelenlerin tümünü Reddet:** bu kural açıkça izin Internet'ten kaynağını tüm trafiği engeller.
 
--   **İnternet'e giden tüm trafiğe izin:** İnternet'e yönelik bağlantıları başlatmasını VM'lerin bu kural sağlar. Başlatılan bu bağlantıları istemiyorsanız, bu bağlantıları engelle veya zorlamalı tünel zorlamak için bir kural oluşturmanız gerekir.
+-   **İnternet'e giden tüm trafiğe izin:** Bu kural, VM'lerin İnternet'e yönelik bağlantıları başlatmasını sağlar. Başlatılan bu bağlantıları istemiyorsanız, bu bağlantıları engelle veya zorlamalı tünel zorlamak için bir kural oluşturmanız gerekir.
 
 #### <a name="system-routes-and-user-defined-routes"></a>Sistem yolları ve kullanıcı tanımlı yollar
 
@@ -320,11 +320,11 @@ Aşağıdaki bölümde, Azure sanal ağı için yönlendirme tablosu ve yol geç
 
 -   Her sanal ağ alt ağı, yerleşik bir sistem yönlendirme tablosu vardır. Sistem yönlendirme tablosu yolların aşağıdaki üç grup vardır:
 
- -  **Yerel sanal ağ yolları:** doğrudan hedef Vm'leri aynı sanal ağ için
+ -  **Yerel sanal ağ yolları:** Doğrudan hedefe Vm'leri aynı sanal ağda
 
- - **Şirket içi yolları:** için Azure VPN ağ geçidi
+ - **Şirket içi yollara:** Azure VPN ağ geçidi
 
- -  **Varsayılan yol:** doğrudan Internet'e. Önceki iki yol tarafından kapsandığından değil özel IP adreslerini hedefleyen paketler bırakılır.
+ -  **Varsayılan yol:** Doğrudan Internet'e. Önceki iki yol tarafından kapsandığından değil özel IP adreslerini hedefleyen paketler bırakılır.
 
 -   Kullanıcı tanımlı yollar'ın yayınlanmasıyla birlikte, varsayılan bir yol eklemek için bir yönlendirme tablosu oluşturun ve ardından bu alt ağlarda zorlamalı tüneli etkinleştirmek için sanal ağ alt ağına yönlendirme tablosunu ilişkilendirme.
 
@@ -645,9 +645,9 @@ Aşağıdaki ölçümler Application Gateway'ler için desteklenir:
 
 İçin aşağıdaki günlüklere desteklenen [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
-- **NetworkSecurityGroupEvent:** hangi NSG kuralları Vm'lere uygulanır ve örnek MAC adresini temel alarak rolleri girişler içeriyor. Bu kurallar durumu, 60 saniyede toplanır.
+- **NetworkSecurityGroupEvent:** Vm'lere ve örnek rollerinizin MAC adresini temel alarak için hangi NSG kuralları uygulanır girişler içeriyor. Bu kurallar durumu, 60 saniyede toplanır.
 
-- **NetworkSecurityGroupRuleCounter:** içerir girişleri için kaç kez her NSG kuralı trafiğine izin vermek veya reddetmek için uygulanır.
+- **NetworkSecurityGroupRuleCounter:** Girişleri için kaç kez trafiğine izin vermek veya reddetmek için uygulanan her bir NSG kuralı içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Güvenlik hakkında daha fazla müşterilerimize kapsamlı güvenlik konuları okuyarak öğrenin:
@@ -656,7 +656,7 @@ Güvenlik hakkında daha fazla müşterilerimize kapsamlı güvenlik konuları o
 
 -   [Bulut kesintisi sürücü ağ yenilikleri](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 
--   [SONiC: Ağ geçiş yazılım destek veren Microsoft Genel bulut](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
+-   [SONiC: Ağ anahtarı yazılım destek veren Microsoft Genel bulut](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
 
 -   [Microsoft, hızlı ve güvenilir bir global ağda nasıl derler](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 

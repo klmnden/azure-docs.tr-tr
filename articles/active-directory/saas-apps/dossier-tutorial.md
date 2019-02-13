@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Dossier | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Dossier | Microsoft Docs'
 description: Azure Active Directory ve Dossier arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 932a832d4717a788f2d9adfd98ce1ba0c4ca07a1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dd69616fa544c1d13e14eb8eebb92adb6350d9e8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506482"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217539"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Öğretici: Azure Active Directory Dossier ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Öğretici: Dossier ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Dossier tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Dossier yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Dossier çoklu oturum açma etkin
 
 > [!NOTE]
@@ -61,7 +62,7 @@ Azure AD'de Dossier tümleştirmesini yapılandırmak için Dossier Galeriden y�
 
 **Galeriden Dossier eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi][1]
 
@@ -176,7 +177,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="create-a-dossier-test-user"></a>Dossier test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Dossier içinde adlı bir kullanıcı oluşturun. Çalışmak [Dossier Destek ekibine](mailto:support@intellimedia.ca) Dossier platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Dossier içinde adlı bir kullanıcı oluşturun. Çalışmak [Dossier Destek ekibine](mailto:support@intellimedia.ca) Dossier platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

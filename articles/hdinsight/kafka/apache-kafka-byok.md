@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314380"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109507"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>(Önizleme) Azure HDInsight üzerinde Apache Kafka için kendi anahtarını Getir
 
@@ -39,7 +39,7 @@ Anahtarları key vault'ta güvenli bir şekilde döndürmek için Azure portal v
 
    HDInsight yalnızca Azure anahtar kasası destekler. Anahtar kasanız varsa, Azure Key Vault'a anahtarlarınızı içeri aktarabilirsiniz. Anahtarları "Geçici silme" ve "Yapmak değil etkin temizleme" olması gerektiğini unutmayın. "Geçici silme" ve "Temizleme değil" Özellikler .NET REST üzerinden kullanılabilir / C#, PowerShell ve Azure CLI arabirimleri.
 
-   Yeni bir anahtar kasası oluşturmak için takip [Azure anahtar kasası](../../key-vault/key-vault-get-started.md) hızlı başlangıç. Mevcut anahtarları içeri aktarma hakkında daha fazla bilgi için ziyaret [anahtarlara, parolalara ve sertifikalara hakkında](../../key-vault/about-keys-secrets-and-certificates.md).
+   Yeni bir anahtar kasası oluşturmak için takip [Azure anahtar kasası](../../key-vault/key-vault-overview.md) hızlı başlangıç. Mevcut anahtarları içeri aktarma hakkında daha fazla bilgi için ziyaret [anahtarlara, parolalara ve sertifikalara hakkında](../../key-vault/about-keys-secrets-and-certificates.md).
 
    Yeni bir anahtar oluşturmak için Seç **Oluştur/içeri aktarma** gelen **anahtarları** menüsünün altında **ayarları**.
 
@@ -120,4 +120,4 @@ Anahtarları key vault'ta güvenli bir şekilde döndürmek için Azure portal v
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Azure Key Vault hakkında daha fazla bilgi için bkz. [Azure anahtar kasası nedir](../../key-vault/key-vault-whatis.md)?
-* Azure anahtar kasası ile çalışmaya başlamak için bkz. [Azure anahtar kasası ile çalışmaya başlama](../../key-vault/key-vault-get-started.md).
+* Azure anahtar kasası ile çalışmaya başlamak için bkz. [Azure anahtar kasası ile çalışmaya başlama](../../key-vault/key-vault-overview.md).

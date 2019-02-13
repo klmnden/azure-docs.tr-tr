@@ -4,7 +4,7 @@ description: Bu makalede, Microsoft Azure şifreleme bekleyen veri için genel b
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994411"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117910"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure veri şifreleme bekleyen
 
@@ -201,7 +201,7 @@ Müşteri tarafından denetlenen donanımda hizmet tarafından yönetilen anahta
 
 ## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Microsoft bulut hizmetlerinde bekleme sırasında şifreleme
 
-Microsoft Cloud services, tüm üç bulut modellerinde kullanılır: Iaas, PaaS, SaaS. Aşağıda, bunlar her model üzerinde nasıl uyduğunu örnekleri vardır:
+Microsoft Cloud services, tüm üç bulut modellerinde kullanılır: IaaS, PaaS, SaaS. Aşağıda, bunlar her model üzerinde nasıl uyduğunu örnekleri vardır:
 
 - Yazılım Hizmetleri, sunucu veya Office 365 gibi bulut tarafından sağlanan uygulama olan SaaS olarak yazılım olarak adlandırılır.
 - Platform Hizmetleri, depolama, analiz ve hizmet veri yolu işlevselliğini gibi şeyler için Bulutu kullanarak kendi uygulamalarını bulutta hangi müşteriler yararlanın.

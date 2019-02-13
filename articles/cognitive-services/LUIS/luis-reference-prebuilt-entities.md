@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 60acd381015a513873c4c414d6f1d9f3adc54b84
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 880c825ab8923dbdf17277a51378b6f4b624e091
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870325"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179905"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Varlıkları aracılığıyla LUIS modelinize kültürün başına
 
@@ -34,6 +34,7 @@ Language Understanding (LUIS), önceden oluşturulmuş varlıklar sağlar. Uygul
 |Korece|[ko-KR](#korean-entity-support)|
 |Portekizce|[pt-BR (Brezilya)](#portuguese-brazil-entity-support)|
 |İspanyolca |[es-ES (İspanya)](#spanish-spain-entity-support), [es-MX (Meksika)](#spanish-mexico-entity-support)|
+|Türkçe|[Türkçe](#turkish-entity-support)|
 
 ## <a name="chinese-entity-support"></a>Çince varlık desteği
 
@@ -51,7 +52,7 @@ Aşağıdaki varlıkların desteklenir:
 [Sayı](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Sıra](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Yüzdesi](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Telefon numarası](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Sıcaklık](luis-reference-prebuilt-temperature.md):<br>Fahrenhayt<br>Kelvin<br>rankine<br>delisle<br>Celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
@@ -169,7 +170,7 @@ Aşağıdaki varlıkların desteklenir:
 ------|:------:|
 [Yaş](luis-reference-prebuilt-age.md):<br>yıl<br>ay<br>hafta<br>gün   |    ✔   |
 [Currency (para)](luis-reference-prebuilt-currency.md):<br>dolar<br>kesirli birimi (örn: kuruş)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
 [Boyut](luis-reference-prebuilt-dimension.md):<br>birim<br>Alan<br>ağırlığı<br>bilgi (örn: bit/bayt)<br>uzunluk (örn: ölçüm)<br>Hız (örn: mil saat başına)  |    ✔   | 
 [E-posta](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -190,7 +191,7 @@ Aşağıdaki varlıkların desteklenir:
 ------|:------:|
 [Yaş](luis-reference-prebuilt-age.md):<br>yıl<br>ay<br>hafta<br>gün   |    ✔   |
 [Currency (para)](luis-reference-prebuilt-currency.md):<br>dolar<br>kesirli birimi (örn: kuruş)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
 [Boyut](luis-reference-prebuilt-dimension.md):<br>birim<br>Alan<br>ağırlığı<br>bilgi (örn: bit/bayt)<br>uzunluk (örn: ölçüm)<br>Hız (örn: mil saat başına)  |    ✔   | 
 [E-posta](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -290,6 +291,32 @@ Aşağıdaki varlıkların desteklenir:
 Notları bakın [önceden oluşturulmuş varlıklarla kullanım dışı](luis-reference-prebuilt-deprecated.md)
 
 Anahtar cümlesi, Portekizce (Brezilya) - tüm subcultures içinde kullanılabilir değil ```pt-BR```.
+
+## <a name="turkish-entity-support"></a>Türkçe varlık desteği
+
+Aşağıdaki varlıkların desteklenir:
+
+|Önceden oluşturulmuş varlık|```tr-tr``` |
+------|:------:|
+[Yaş](luis-reference-prebuilt-age.md):<br>yıl<br>ay<br>hafta<br>gün   |    -   |
+[Currency (para)](luis-reference-prebuilt-currency.md):<br>dolar<br>kesirli birimi (örn: kuruş)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Boyut](luis-reference-prebuilt-dimension.md):<br>birim<br>Alan<br>ağırlığı<br>bilgi (örn: bit/bayt)<br>uzunluk (örn: ölçüm)<br>Hız (örn: mil saat başına)  |    -   | 
+[E-posta](luis-reference-prebuilt-email.md)   |    -   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[Anahtar cümlesi](luis-reference-prebuilt-keyphrase.md)   |    -   | 
+[Sayı](luis-reference-prebuilt-number.md)   |    -   |  
+[Sıra](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Yüzdesi](luis-reference-prebuilt-percentage.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Telefon numarası](luis-reference-prebuilt-phonenumber.md)   |    -   | 
+[Sıcaklık](luis-reference-prebuilt-temperature.md):<br>Fahrenhayt<br>Kelvin<br>rankine<br>delisle<br>Celsius   |    -   | 
+[URL](luis-reference-prebuilt-url.md)   |    -   |
+
+Notları bakın [önceden oluşturulmuş varlıklarla kullanım dışı](luis-reference-prebuilt-deprecated.md)
+
+Anahtar cümlesi kullanılamıyor.
+
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Önceden oluşturulmuş varlık kültürler için katkıda bulunan
 Önceden oluşturulmuş varlıklarla tanıyıcıları metin açık kaynak projenin geliştirilir. [Katkıda bulunan](https://github.com/Microsoft/Recognizers-Text) projeye. Bu proje, para birimi başına kültür örneklerini içerir. 

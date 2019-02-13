@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615197"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213233"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(KULLANIM DIŞI) Kapsayıcı hizmeti sık sorulan sorular
 
@@ -85,7 +85,7 @@ Azure portalı, Azure Kaynak Gezgini veya diğer Azure araçlarında kümeniz i�
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Dağıtımdan sonra orchestrator’ı nasıl yükseltirim?
 
-Şu anda, Azure Container Service kümenizde dağıttığınız orchestrator sürümünü yükseltmek için araçlar sağlamamaktadır. Kapsayıcı Hizmeti sonraki bir sürümü destekliyorsa, yeni bir küme dağıtabilirsiniz. Başka bir seçenek, bir kümeyi yerinde yükseltmek üzere kullanılabilir olmaları durumunda orchestrator’a özgü araçlar kullanmaktır. Örneğin, bkz. [DC/OS Yükseltme](https://dcos.io/docs/1.8/administration/upgrading/).
+Şu anda, Azure Container Service kümenizde dağıttığınız orchestrator sürümünü yükseltmek için araçlar sağlamamaktadır. Kapsayıcı Hizmeti sonraki bir sürümü destekliyorsa, yeni bir küme dağıtabilirsiniz. Başka bir seçenek, bir kümeyi yerinde yükseltmek üzere kullanılabilir olmaları durumunda orchestrator’a özgü araçlar kullanmaktır. Örneğin, bkz. [DC/OS Yükseltme](http://docs.mesosphere.com/1.12/installing/production/upgrading).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Kümemin SSH bağlantı dizesini nerede bulabilirim?
 

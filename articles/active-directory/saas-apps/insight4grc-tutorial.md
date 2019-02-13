@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Insight4GRC | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Insight4GRC | Microsoft Docs'
 description: Azure Active Directory ve Insight4GRC arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 256550dc6aaa832599747f6fe39c2ca77ed3f8d7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 08913fc2e12026d70976ea8e2169c190378f4054
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441590"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193739"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Öğretici: Azure Active Directory Insight4GRC ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Öğretici: Insight4GRC ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Insight4GRC tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Insight4GRC yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir Insight4GRC çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Azure AD'de Insight4GRC tümleştirmesini yapılandırmak için Insight4GRC Gale
 
 **Galeriden Insight4GRC eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -167,7 +168,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı Insight4GRC Britta Simon adlı bir kullanıcı oluşturmaktır. Insight4GRC tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Insight4GRC erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Insight4GRC istemci Destek ekibine](mailto:support.ss@rsmuk.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Insight4GRC istemci Destek ekibine](mailto:support.ss@rsmuk.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

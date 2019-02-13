@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a197a366d70958859eed47a9d66606adf80344e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: c2ef0d34897171e04d0982405909183634ebb696
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891281"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115411"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Kubernetes kullanarak Active Directory Federasyon Hizmetleri Azure Stack'e dağıtma
 
@@ -43,13 +43,19 @@ Başlamak için doğru izinlere sahip ve Azure Stack hazır olduğundan emin olu
 
     Küme için bir Azure Stack dağıtılamıyor **yönetici** abonelik. Kullanmanız gereken bir **kullanıcı** abonelik. 
 
-1. Kubernetes kümesi, Market'te yoksa, Azure Stack yöneticinizle görüşün.
+1. Anahtar kasası hizmeti, Azure Stack aboneliğinize gerekir.
+
+1. Kubernetes kümesi, Market'te gerekir. 
+
+Key Vault hizmetine ve Kubernetes kümesi Market öğesi yoksa, Azure Stack yöneticinizle görüşün.
 
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
 AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak için Azure Stack yöneticinizle birlikte çalışmanız gerekiyor. Hizmet sorumlusu, uygulamanın Azure Stack kaynaklarına erişmenizi sağlar.
 
-1. Azure Stack yöneticinize bir sertifika ve hizmet sorumlusu bilgilerini sağlar. Bu bilgiler gibi görünmelidir:
+1. Azure Stack yöneticinize bir sertifika ve hizmet sorumlusu bilgilerini sağlar.
+
+    - Hizmet sorumlusu bilgileri gibi görünmelidir:
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -60,9 +66,11 @@ AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak iç
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
+    - Sertifikanızı uzantılı bir dosya olacaktır `.pfx`. Sertifikanızı bir keyvault'ta gizli olarak depolar.
+
 2. Yeni hizmet sorumlunuzu Aboneliğinize bir katkıda bulunan olarak bir rol atayın. Yönergeler için [rol atama](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
-3. Dağıtım için sertifikanızın depolanacağı key vault oluşturma.
+3. Dağıtım için sertifikanızın depolanacağı key vault oluşturma. Portal yerine aşağıdaki PowerShell betikleri kullanın.
 
     - Şu bilgilere ihtiyacınız vardır:
 
@@ -70,12 +78,12 @@ AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak iç
         | ---   | ---         |
         | Azure Resource Manager uç noktası | Microsoft Azure Resource Manager dağıtma, yönetme ve Azure kaynaklarını izleme olanağı tanıyan bir yönetim çerçevesidir. Azure Resource Manager, bir grup olarak yerine tek tek bir işlemde bu görevleri işleyebilir.<br>Azure Stack geliştirme Seti'ni (ASDK) uç noktası şöyledir: `https://management.local.azurestack.external/`<br>Tümleşik sistemlerde uç noktadır: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Abonelik Kimliğiniz | [Abonelik kimliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) nasıl, teklifler eriştiği Azure Stack'te. |
-        | Kullanıcı adınız | Kullanıcı adınız. |
+        | Kullanıcı adınız | Yalnızca kullanıcı adı yerine etki alanı adı ve kullanıcı adı gibi kullanın `username` yerine `azurestack\username`. |
         | Kaynak grubu adı  | Mevcut bir kaynak grubu seçin ya da yeni kaynak grubu adı. Kaynak adı alfasayısal ve küçük harf olması gerekir. |
         | Keyvault adı | Kasa adı.<br> Regex deseni: `^[a-zA-Z0-9-]{3,24}$` |
         | Kaynak grubu Konumu | Kaynak grubu konumu. Bu, Azure Stack yüklemeniz için seçtiğiniz bölgedir. |
 
-    - PowerShell ile yükseltilmiş istemi açın. Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
+    - Yükseltilmiş bir İstemi ile PowerShell'i açın ve [Azure Stack'e bağlanma](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
 
     ```PowerShell  
         $armEndpoint="<Azure Resource Manager Endpoint>"
@@ -111,12 +119,12 @@ AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak iç
         | ---   | ---         |
         | Sertifika yolu | Sertifika FQDN veya dosya yolu. |
         | Sertifika parolası | Sertifika parolası. |
-        | Gizli dizi adı | Gizli dizi önceki adımda oluşturulan. |
-        | Keyvault adı | Önceki adımda rdoc keyvault adı. |
+        | Gizli dizi adı | Kasada depolanan sertifika başvurmak için kullanılan gizli dizi adı. |
+        | Anahtar kasası adı | Önceki adımda oluşturduğunuz anahtar kasasının adı. |
         | Azure Resource Manager uç noktası | Azure Stack geliştirme Seti'ni (ASDK) uç noktası şöyledir: `https://management.local.azurestack.external/`<br>Tümleşik sistemlerde uç noktadır: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Abonelik Kimliğiniz | [Abonelik kimliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) nasıl, teklifler eriştiği Azure Stack'te. |
 
-    - PowerShell ile yükseltilmiş istemi açın. Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
+    - Yükseltilmiş bir İstemi ile PowerShell'i açın ve [Azure Stack'e bağlanma](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
 
     ```PowerShell  
         
@@ -124,7 +132,7 @@ AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak iç
     $tempPFXFilePath = "<certificate path>"
     $password = "<certificate password>"
     $keyVaultSecretName = "<secret name>"
-    $keyVaultName = "<keyvault name>"
+    $keyVaultName = "<key vault name>"
     $armEndpoint="<Azure Resource Manager Endpoint>"
     $subscriptionId="<Your Subscription ID>"
     # Login Azure Stack Environment
@@ -194,11 +202,11 @@ AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak iç
 
 1. Girin **hizmet sorumlusu ClientID** bu Kubernetes Azure bulut sağlayıcısı tarafından kullanılır. Azure Stack yöneticinize hizmet sorumlusu oluştururken uygulama kimliği olarak tanımlanan istemci kimliği.
 
-1. Girin **Key Vault kaynak grubu**. 
+1. Girin **Key Vault kaynak grubu** sertifikanızı içeren anahtar kasası kaynakları.
 
-1. Girin **Key Vault adı**.
+1. Girin **Key Vault adı** sertifikanızı bir gizli dizi olarak içeren anahtar kasası adı. 
 
-1. Girin **Key Vault gizli**.
+1. Girin **Key Vault gizli**. Gizli dizi adı, sertifikanızın başvuruyor.
 
 1. Girin **Kubernetes Azure bulut sağlayıcısı sürümü**. Kubernetes Azure sağlayıcısı sürümüdür. Azure Stack, her Azure Stack sürümü için özel bir Kubernetes yapı serbest bırakır.
 

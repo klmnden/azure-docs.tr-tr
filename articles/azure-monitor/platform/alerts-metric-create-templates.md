@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0c7e0e539ca884739f5bf633946a4704d29b132b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9f8d6488d12b5550c3390699b9c34380b51b60f9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448237"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112606"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile ölçüm uyarısı oluşturma
 
 Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-authoring-templates.md) yapılandırmak için [yeni ölçüm uyarılarının](../../azure-monitor/platform/alerts-metric-near-real-time.md) Azure İzleyici'de. Resource Manager şablonları, program aracılığıyla uyarıları ortamlarınızda tutarlı ve tekrarlanabilir bir şekilde ayarlamak etkinleştirin. Yeni ölçüm uyarılarının şu anda kullanılabilir [bu kaynak türleri kümesini](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resource Manager şablonu için ölçüm uyarısı belirtilen kaynak türü için çalışmaz: Microsoft.OperationalInsights/workspaces; Ölçümler ile Log Analytics için desteği Önizleme aşamasındadır. Kaynak şablonu ile Önizleme işlevselliğine kullanmakla ilgilenen kullanıcılar başvurabilirler [Azure uyarıları geri bildirim](mailto:azurealertsfeedback@microsoft.com)
+> Kaynak türü için ölçüm uyarıları oluşturma için kaynak şablonu: Azure Log Analytics çalışma alanı (örn.)) `Microsoft.OperationalInsights/workspaces`, ek adımlar gerektirir. Ayrıntılar için makaleye bakın [günlükleri - kaynak şablonu için ölçüm Uyarısı](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 Temel adımlar aşağıdaki gibidir:
 

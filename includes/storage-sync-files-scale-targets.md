@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: fea31bf1c5869164dde1eb7014b2aacc8fcc5e9c
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: c82717be3791a1bc397bbbdb369c55cd2ba04439
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55757600"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56213244"
 ---
 | Kaynak | Hedef | Sabit sınırı |
 |----------|--------------|------------|
@@ -25,8 +25,8 @@ ms.locfileid: "55757600"
 | Sunucu başına sunucu uç noktaları | 30 sunucu uç noktaları | Evet |
 | Uç nokta boyutu | 4 TiB | Hayır |
 | Dosya sistemi nesneleri (dizinler ve dosyalar) her bir eşitleme grubu | 25 milyon nesneleri | Hayır |
-| Dosya sistemi nesneleri (dizinleri ve dosyaları) bir dizinde en fazla sayısı | 200.000 nesneleri | Evet |
+| Dosya sistemi nesneleri (dizinleri ve dosyaları) bir dizinde en fazla sayısı | 1.000.000 nesneleri | Evet |
 | En büyük nesne (dizinler ve dosyalar) güvenlik tanımlayıcısı boyutu | 4 KiB | Evet |
 | Dosya boyutu | 100 GiB | Hayır |
 | Katmanlanmış bir dosyanın en küçük dosya boyutu | 64 KiB | Evet |
-| Eşzamanlı bir eşitleme oturumları | V4 aracı: Kullanılabilir sistem kaynaklarına göre değişiklik gösterir. <BR> V3 aracı: her işlemci veya en fazla 8 active eşitleme oturumu sunucu başına 2 active sync oturumları | Evet
+| Eşzamanlı bir eşitleme oturumları | V4 aracı ve daha sonra: Kullanılabilir sistem kaynaklarına göre değişiklik gösterir. <BR> V3 aracı: her işlemci veya en fazla 8 active eşitleme oturumu sunucu başına 2 active sync oturumları | Evet

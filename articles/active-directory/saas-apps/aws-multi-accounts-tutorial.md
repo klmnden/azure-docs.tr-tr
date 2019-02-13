@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 48d8516a1923aaacc26db2eb9a9acfd0ddff737e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1961ed4114ac1aecb63dd4e56febbd5ab2a8d20d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197526"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Öğretici: Birden çok Amazon Web Services (AWS) hesapları ile Azure Active Directory Tümleştirme
 

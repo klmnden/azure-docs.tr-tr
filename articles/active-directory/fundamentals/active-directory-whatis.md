@@ -9,12 +9,13 @@ ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 251161fbb5213c765463835e4537f1b443699670
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: be8b443dc2d25558343fb8cad3fd5e9734a672e1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491748"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187398"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory nedir? 
 Azure Active Directory (Azure AD), Microsoft'un bulut tabanlı kimlik ve erişim yönetimi hizmetidir. Azure AD, çalışanlarınızın oturum açın ve kaynaklara erişmesine yardımcı olur:

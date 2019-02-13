@@ -4,7 +4,7 @@ description: Bu makalede, Azure veritabanı genel bir bakış güvenlik özellik
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584783"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116329"
 ---
 # <a name="azure-database-security-overview"></a>Azure veritabanı güvenliğine genel bakış
 
@@ -110,11 +110,11 @@ Veri koruma, verilerinize erişimi denetleme ile başlar. Verilerinizi barındı
 
 Azure SQL veritabanı hizmeti yalnızca 1433 numaralı TCP bağlantı kullanılabilir. Bilgisayarınızdan bir SQL veritabanına erişmek için istemci bilgisayar Güvenlik Duvarı'nın 1433 numaralı TCP bağlantı noktasını giden TCP iletişimine izin verdiğinden emin olun. Diğer uygulamalar için gelen bağlantı gerekli değilse 1433 numaralı TCP bağlantı noktasını engelleyebilirsiniz.
 
-#### <a name="authentication"></a>Kimlik Doğrulaması
+#### <a name="authentication"></a>Authentication
 
 Kimlik doğrulaması, veritabanına bağlanırken kimliğinizi nasıl kanıtlayacağınızı belirtir. SQL Veritabanı iki kimlik doğrulaması türünü destekler:
 
--   **SQL Server kimlik doğrulamasını**: mantıksal bir SQL örneği oluşturulduğunda SQL veritabanı abone hesabı olarak adlandırılan bir çoklu oturum açma hesabı oluşturulur. Bu hesabı kullanarak bağlanır [SQL Server kimlik doğrulamasını](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (kullanıcı adı ve parola). Bu hesap mantıksal sunucu örneğinde ve bu örneğe ekli tüm kullanıcı hesaplarında yöneticidir. Abone hesabının izinleri kısıtlanamaz. Bu hesaplardan yalnızca biri mevcut olabilir.
+-   **SQL Server kimlik doğrulamasını**: Mantıksal bir SQL örneği oluşturulduğunda SQL Veritabanı Abone Hesabı adıyla tek bir oturum açma hesabı oluşturulur. Bu hesabı kullanarak bağlanır [SQL Server kimlik doğrulamasını](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (kullanıcı adı ve parola). Bu hesap mantıksal sunucu örneğinde ve bu örneğe ekli tüm kullanıcı hesaplarında yöneticidir. Abone hesabının izinleri kısıtlanamaz. Bu hesaplardan yalnızca biri mevcut olabilir.
 -   **Azure Active Directory kimlik doğrulaması**: [Azure AD kimlik doğrulaması](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) Azure SQL veritabanı ve Azure SQL veri ambarı için Azure AD'de kimlik kullanarak bağlanma bir mekanizmadır. Veritabanı kullanıcıları kimliklerini merkezi olarak yönetmek için kullanabilirsiniz.
 
 ![SQL veritabanı ile Azure AD kimlik doğrulaması](./media/azure-databse-security-overview/azure-database-fig2.png)
@@ -176,8 +176,8 @@ SQL veritabanı için denetim kullanabilirsiniz:
 
 Denetim iki yöntem vardır:
 
--   **BLOB denetimi**: günlükleri, Azure Blob depolama alanına yazılır. Daha yeni bir denetim yöntem budur. Daha yüksek performans sağlar, daha yüksek ayrıntı düzeyi nesne düzeyinde denetimi destekler ve daha uygun maliyetlidir.
--   **Tablo denetimi**: günlükleri, Azure tablo depolama alanına yazılır.
+-   **BLOB denetimi**: Günlükler Azure Blob depolamaya yazılır. Daha yeni bir denetim yöntem budur. Daha yüksek performans sağlar, daha yüksek ayrıntı düzeyi nesne düzeyinde denetimi destekler ve daha uygun maliyetlidir.
+-   **Tablo denetimi**: Günlükleri, Azure tablo depolama alanına yazılır.
 
 ### <a name="threat-detection"></a>Tehdit algılama
 

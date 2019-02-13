@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 81df0a776cd22490342230567deacb23097cd12e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094198"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113235"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure veri kutusu ağ geçidi sistem gereksinimleri (Önizleme)
 
@@ -42,22 +42,11 @@ Temel alınan bir konak sistemi veri kutusu ağ geçidi için sanal cihazınız�
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Cihaz için bağlanan istemciler için desteklenen işletim sistemi
 
-İstemciler veya veri kutusu ağ geçidine bağlı konaklar için desteklenen işletim sistemlerinin bir listesi aşağıda verilmiştir.
-
-| **İşletim sistemi/platform** | **Sürümleri** |
-| --- | --- |
-| Windows Server |2012 R2 <br> 2016 <br> 2019 |
-| Windows |8, 10 |
-| SUSE Linux |Kuruluş Sunucusu 12 (x86_64)|
-| Ubuntu |16.04.3 LTS|
-| CentOS | 7.0 |
+[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
 
 ## <a name="supported-protocols-for-clients-accessing-device"></a>Cihaz erişen istemciler için Desteklenen protokoller
 
-|**Protokol** |**Sürümleri**   |**Notlar**  |
-|---------|---------|---------|
-|SMB    | 2.X 3.X      | SMB 1 desteklenmiyor.|
-|NFS     | V3 hem de V4        |         |
+[!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Cihaz desteklenen sanallaştırma platformları
 
@@ -69,49 +58,22 @@ Temel alınan bir konak sistemi veri kutusu ağ geçidi için sanal cihazınız�
 
 ## <a name="supported-storage-accounts"></a>Desteklenen depolama hesapları
 
-Veri kutusu ağ geçidi için desteklenen depolama hesaplarının listesi aşağıda verilmiştir.
-
-| **Depolama hesabı** | **Notlar** |
-| --- | --- |
-| Klasik | Standart |
-| Genel Amaçlı  |Standart; V1 ve V2 desteklenir. Sık ve seyrek erişimli katmanları desteklenir. |
+[!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
 
 ## <a name="supported-storage-types"></a>Desteklenen depolama türleri
 
-Veri kutusu ağ geçidi için desteklenen depolama türlerinin bir listesi aşağıda verilmiştir.
-
-| **Dosya biçimi** | **Notlar** |
-| --- | --- |
-| Azure blok blobu | |
-| Azure sayfa blobu  | |
-| Azure Dosyaları | |
+[!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
 ## <a name="supported-browsers-for-local-web-ui"></a>Yerel web kullanıcı Arabirimi ile desteklenen tarayıcılar
 
-Sanal cihaz için yerel web kullanıcı Arabirimi için desteklenen tarayıcıların listesi aşağıda verilmiştir.
+[!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-|Tarayıcı  |Sürümler  |Ek gereksinimler/Notlar  |
-|---------|---------|---------|
-|Google Chrome   |En son sürümü         |         |
-|Microsoft Edge    | En son sürümü        |         |
-|Internet Explorer     | En son sürümü        |         |
-|FireFox    |En son sürümü         |         |
-
-
-## <a name="networking-requirements"></a>Ağ gereksinimleri
+## <a name="networking-port-requirements"></a>Ağ bağlantı noktası gereksinimleri
 
 Aşağıdaki tabloda, SMB, Bulut ve yönetim trafiği için izin vermek için güvenlik duvarını açılması gereken bağlantı noktalarını listeler. Bu tabloda *içinde* veya *gelen* hangi gelen istemci istekleri erişimden Cihazınızı yönü belirtir. *Çıkış* veya *giden* hangi veri kutusu ağ geçidi Cihazınızı gönderir dışarıdan, veri dağıtımı dışında yön ifade eder: Örneğin, Internet'e giden.
 
-| Bağlantı noktası yok.| Daraltma veya genişletme | Bağlantı noktası kapsamı| Gereklidir|   Notlar                                                             |                                                                                     |
-|--------|---------|----------|--------------|----------------------|---------------|
-| TCP 80 (HTTP)|Çıkan|WAN |Hayır|Giden bağlantı noktası, güncelleştirmeleri almak için Internet erişimi için kullanılır. <br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur. |                          
-| TCP 443 (HTTPS)|Çıkan|WAN|Evet|Giden bağlantı noktası, bulut veri erişimi için kullanılır.<br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur.|   
-| UDP 53 (DNS)|Çıkan|WAN|Bazı durumlarda<br>Notlara bakın|Yalnızca bir Internet tabanlı bir DNS sunucusu kullanıyorsanız bu bağlantı noktası gereklidir.<br>Yerel DNS sunucusunu kullanmanızı öneririz. |
-| UDP 123 (NTP)|Çıkan|WAN|Bazı durumlarda<br>Notlara bakın|Yalnızca bir Internet tabanlı bir NTP sunucusu kullanıyorsanız bu bağlantı noktası gereklidir.  |
-| UDP 67 (DHCP)|Çıkan|WAN|Bazı durumlarda<br>Notlara bakın|Yalnızca bir DHCP sunucusu kullanıyorsanız bu bağlantı noktası gereklidir.  |
-| TCP 80 (HTTP)|İçinde|LAN|Evet|Bu, yerel yönetim için cihazda yerel kullanıcı Arabirimi için gelen bağlantı noktasıdır. <br>HTTP üzerinden yerel UI erişme, HTTPS için otomatik olarak yönlendirir.  | 
-| TCP 443 (HTTPS)|İçinde|LAN|Evet|Bu, yerel yönetim için cihazda yerel kullanıcı Arabirimi için gelen bağlantı noktasıdır. | 
+[!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
 ## <a name="url-patterns-for-firewall-rules"></a>URL desenleri için güvenlik duvarı kuralları
 
@@ -123,26 +85,11 @@ Veri kutusu liberally çoğu zaman sabit IP adresleri, ağ geçidi temel giden t
 > - (Kaynak) IP'ler cihaz her zaman tüm bulut özellikli ağ arabirimleri için ayarlanması gerekir.
 > - IP'ler ayarlanmalıdır hedef [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
-|     URL deseni                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Bileşen/işlevi                                                                             |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure veri kutusu ağ geçidi hizmeti<br>Azure Service Bus<br>Kimlik Doğrulama Hizmeti    |
-|    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Cihaz etkinleştirme                                                                                    |
-|    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Sertifika iptal etme                                                                               |
-|    https://*.core.windows.net/* https://*. data.microsoft.com http://*. msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Azure depolama hesapları ve izleme                                                                |
-|    http://windowsupdate.microsoft.com<br>http://*. windowsupdate.microsoft.com<br>https://*. windowsupdate.microsoft.com<br>http://*. update.microsoft.com<br>https://*. update.microsoft.com<br>http://*. windowsupdate.com<br>http://download.microsoft.com<br>http://*. download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://*. ws.microsoft.com<br>https://*. ws.microsoft.com<br>http://*.MP.microsoft.com        |    Microsoft Update sunucularına                                                                             |
-|    http://*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                             |    Akamai CDN                                                                                           |
-|    https://*.partners.extranet.microsoft.com/*                                                                                                                                                                                                                                                                                                                                                                                                        |    Destek paketi                                                                                      |
-|    http://*.Data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                        |    Telemetri hizmeti, Windows müşteri deneyimini ve tanılama telemetrisi güncelleştirmesi bakın      |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                         |
-
-
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ## <a name="internet-bandwidth"></a>Internet bant genişliği
 
-Veri kutusu ağ geçidi cihazlarınız için kullanılabilir minimum Internet bant genişliği için aşağıdaki gereksinimler geçerlidir.
-
-- Data Box Gateway'inize her zaman ayrılmış 20 Mb/sn İnternet bant genişliği (veya daha fazlası) sağlanıyor. Bu bant genişliği başka hiçbir uygulamayla paylaşılmamalıdır. 
-- Veri kutusu ağ geçidinizi ayrılmış 32 MB/sn Internet bant genişliği (veya daha fazla) sahip ağ kapasitesi azaltma kullanırken.
+[!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>Sonraki adım
 

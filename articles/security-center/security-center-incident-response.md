@@ -4,7 +4,7 @@ description: Bu belgede bir olay yanıtı senaryosu için Azure Güvenlik Merkez
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 684098dd2780e827ccc74b7fbbb16a2be75fa3e1
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619886"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114306"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Olay yanıtı için Azure Güvenlik Merkezi’ni kullanma
 Birçok kuruluş güvenlik olaylarına nasıl yanıt vereceğini ancak bir saldırıya uğradıktan sonra öğrenir. Maliyetini ve zararını azaltmak için bir saldırı gerçekleşmeden önce olay yanıtı planınızın olması önemlidir. Bir olay yanıtının farklı aşamalarında Azure Güvenlik Merkezi’ni kullanabilirsiniz.
@@ -84,7 +84,7 @@ Zehra Azure portalında oturum açmıştır ve Güvenlik Merkezi konsolunda çal
    > Bu senaryoda Zehra, önceki şekilde görünen Kötü Amaçlı SQL etkinliği uyarısı üzerinde bir değerlendirme yapacaktır.
    >
    >
-2. **Kötü Amaçlı SQL etkinliği** uyarısına tıklayın ve **Kötü Amaçlı SQL etkinliği** dikey penceresi: ![Olay ayrıntıları](./media/security-center-incident-response/security-center-incident-response-fig5.png) için saldırılan kaynakları gözden geçirin
+2. Tıklayın **kötü amaçlı SQL etkinliği** için saldırılan kaynakları gözden geçirin ve uyarı **kötü amaçlı SQL etkinliği** dikey penceresinde:  ![Olay Ayrıntıları](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     Bu dikey pencerede Zehra, saldırıya uğrayan kaynaklar, bu saldırının kaç kez gerçekleştiği ve ne zaman algılandığı ile ilgili notlar alabilir.
 3. Bu saldırı hakkında daha fazla bilgi almak için **saldırıya uğrayan kaynak** öğesine tıklayın.

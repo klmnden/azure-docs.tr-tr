@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977756"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117285"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack veri merkezi tümleştirmesi - uç noktalarını yayımlama
 
@@ -66,7 +66,7 @@ Bunlar yayımlama Azure Stack için gerekli değil çünkü VIP'ler listelenmemi
 Azure Stack, yalnızca saydam proxy sunucuları destekler. Bir dağıtımda saydam proxy yukarı bağlantılar burada geleneksel proxy sunucusu için aşağıdaki bağlantı noktaları ve URL'ler giden iletişime izin vermeniz gerekir:
 
 > [!Note]  
-> Azure Stack aşağıdaki tabloda listelenen Azure hizmetlerine erişmek için Expressroute kullanma desteği olmamasıdır.
+> Azure Stack aşağıdaki tabloda listelenen Azure hizmetlerine erişmek için ExpressRoute kullanma desteği olmamasıdır.
 
 |Amaç|Hedef URL|Protokol|Bağlantı Noktaları|Kaynak Ağ|
 |---------|---------|---------|---------|---------|
@@ -75,7 +75,7 @@ Azure Stack, yalnızca saydam proxy sunucuları destekler. Bir dağıtımda sayd
 |Düzeltme Eki & Güncelleştir|https://&#42;.azureedge.net|HTTPS|443|Genel VIP - en az/27|
 |Kayıt|https://management.azure.com|HTTPS|443|Genel VIP - en az/27|
 |Kullanım|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|Genel VIP - en az/27|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Genel VIP - en az/27<br>Ortak ağ alt yapısı|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Genel VIP - en az/27<br>Ortak ağ alt yapısı|
 |NTP|(IP, NTP sunucusu dağıtımı için sağlanan)|UDP|123|Genel VIP - en az/27|
 |DNS|(IP, DNS sunucusu dağıtımı için sağlanan)|TCP<br>UDP|53|Genel VIP - en az/27|
 |CRL|(URL, sertifikadaki CRL dağıtım noktaları altında)|HTTP|80|Genel VIP - en az/27|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620549"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106146"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure portalını kullanarak Azure'da bir Service Fabric kümesi oluşturma
 > [!div class="op_single_selector"]
@@ -46,8 +46,8 @@ Bu ilk kez kullanıyorsanız, service fabric kümesi oluşturma veya test iş y�
 #### <a name="cluster-and-server-certificate-required"></a>Küme ve sunucu sertifikası (gerekli)
 Bu sertifika, küme güvenliğini sağlama ve yetkisiz erişimi önlemek için gereklidir. Küme güvenliği birkaç yolla olanakları sunar:
 
-* **Küme kimlik doğrulaması:** düğümden düğüme iletişim için küme Federasyon kimlik doğrulaması yapar. Bu sertifika ile kimliğini kanıtlamak düğüm kümesine katılabilirsiniz.
-* **Sunucu kimlik doğrulaması:** böylece onu konuştuğu gerçek bir küme yönetimi istemci bildiği bir yönetim istemcisinde küme yönetimi Uç noktalara kimliğini doğrular. Bu sertifika da SSL için HTTPS yönetim API'si ve Service Fabric Explorer için HTTPS üzerinden sağlar.
+* **Küme kimlik doğrulaması:** Düğümden düğüme iletişim için küme Federasyon kimlik doğrulaması yapar. Bu sertifika ile kimliğini kanıtlamak düğüm kümesine katılabilirsiniz.
+* **Sunucu kimlik doğrulaması:** Böylece gerçek bir küme Bahsediyor yönetim istemci bildiği bir yönetim istemcisinde küme yönetimi Uç noktalara kimliğini doğrular. Bu sertifika da SSL için HTTPS yönetim API'si ve Service Fabric Explorer için HTTPS üzerinden sağlar.
 
 Bu amaçla için sertifikanın aşağıdaki gereksinimleri karşılamalıdır:
 
@@ -216,7 +216,7 @@ Bu noktada, yönetim kimlik doğrulaması için sertifikaları kullanarak güven
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.com/
-[key-vault-get-started]: ../key-vault/key-vault-get-started.md
+[key-vault-get-started]: ../key-vault/key-vault-overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md

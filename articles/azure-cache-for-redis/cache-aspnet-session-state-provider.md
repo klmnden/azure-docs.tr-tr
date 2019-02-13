@@ -3,7 +3,7 @@ title: Cache ASP.NET oturum durumu sağlayıcısı | Microsoft Docs
 description: Azure önbelleği için Redis kullanarak ASP.NET oturumu durumu depolama hakkında bilgi edinin
 services: azure-cache-for-redis
 documentationcenter: na
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: tysonn
 ms.assetid: 192f384c-836a-479a-bb65-8c3e6d6522bb
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/01/2017
-ms.author: wesmc
-ms.openlocfilehash: a7f3e23cd74baa2e1fdef178be8c5b213a3905ef
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 09be5cc75d72a47071f7e3256fd3354a5041993e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105296"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117723"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Redis Azure Cache için ASP.NET oturum durumu sağlayıcısı
 Azure önbelleği için Redis, oturum durumu ile bellek içi Azure önbelleği için Redis yerine SQL Server veritabanını depolamak için kullanabileceğiniz bir oturum durumu sağlayıcısı sağlar. Önbelleğe alma oturum durumu sağlayıcısı kullanmak için önbelleğinizi önce yapılandırın ve ardından ASP.NET uygulamanız Azure önbelleği için Redis oturum durumu NuGet paketi kullanarak bir önbellek için yapılandırın.

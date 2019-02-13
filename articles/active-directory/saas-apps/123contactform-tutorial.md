@@ -4,251 +4,222 @@ description: Azure Active Directory ve 123ContactForm arasında çoklu oturum a�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b91a3e2a100c9c355dd3e47851f95c4d3884b51a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2a91c5c67706c648af7eacedbc8093d5db8c6a55
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195333"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Öğretici: 123ContactForm ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile 123ContactForm tümleştirme konusunda bilgi edinin.
-
 Azure AD ile 123ContactForm tümleştirme ile aşağıdaki avantajları sağlar:
 
-- 123ContactForm erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan 123ContactForm için açma, kullanıcılarınızın etkinleştirebilirsiniz (çoklu oturum açma) ile Azure AD hesaplarına
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+* 123ContactForm erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak 123ContactForm için oturum açmış, kullanıcıların etkinleştirebilirsiniz (çoklu oturum açma) ile Azure AD hesaplarına.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile 123ContactForm yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik 123ContactForm çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik 123ContactForm çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden 123ContactForm ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* 123ContactForm destekler **SP ve IDP** tarafından başlatılan
+* 123ContactForm destekler **zamanında** kullanıcı sağlama
 
 ## <a name="adding-123contactform-from-the-gallery"></a>Galeriden 123ContactForm ekleme
+
 Azure AD'de 123ContactForm tümleştirmesini yapılandırmak için 123ContactForm Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden 123ContactForm eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
-    
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **123ContactForm**.
+4. Arama kutusuna **123ContactForm**seçin **123ContactForm** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/123contactform-tutorial/tutorial_123contactform_search.png)
+     ![Sonuç listesinde 123ContactForm](common/search-new-app.png)
 
-5. Sonuçlar panelinde seçin **123ContactForm**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/123contactform-tutorial/tutorial_123contactform_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." adlı bir test kullanıcı tabanlı 123ContactForm ile test etme
-
-Tek iş için oturum açma için Azure AD ne 123ContactForm karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının 123ContactForm ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-123ContactForm içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma 123ContactForm adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının 123ContactForm ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma 123ContactForm ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[123ContactForm test kullanıcısı oluşturma](#creating-a-123contactform-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı 123ContactForm içinde bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[123ContactForm çoklu oturum açmayı yapılandırma](#configure-123contactform-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[123ContactForm test kullanıcısı oluşturma](#create-123contactform-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı 123ContactForm içinde bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve 123ContactForm uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile 123ContactForm yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile 123ContactForm yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **123ContactForm** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **123ContactForm** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/123contactform-tutorial/tutorial_123contactform_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-3. Üzerinde **123ContactForm etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **IDP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/123contactform-tutorial/url1.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
+4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
 
-4. Uygulamada yapılandırmak istiyorsanız **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
+    ![123ContactForm etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/123contactform-tutorial/url2.png)
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
-    a. Tıklayın **Gelişmiş URL ayarlarını göster** seçeneği
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
-    b. İçinde **işareti bulunan URL'si** metin kutusuna bir URL: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-    > [!NOTE] 
+    ![123ContactForm etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
+
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
+
+    > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerini gerçek URL'leri ve öğreticinin sonraki bölümlerinde açıklanan tanımlayıcısı güncelleştirmeniz gerekir.
-    
-5. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/123contactform-tutorial/tutorial_123contactform_certificate.png) 
+6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-6. Tıklayın **Kaydet** düğmesi.
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/123contactform-tutorial/tutorial_general_400.png)
+7. Üzerinde **123ContactForm kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-7. Çoklu oturum açmayı yapılandırma **123ContactForm** tarafı, Git [ https://www.123contactform.com/form-2709121/ ](https://www.123contactform.com/form-2709121/) ve aşağıdaki adımları gerçekleştirin:
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-123contactform-single-sign-on"></a>123ContactForm çoklu oturum açmayı yapılandırın
+
+1. Çoklu oturum açmayı yapılandırma **123ContactForm** tarafı, Git [ https://www.123contactform.com/form-2709121/ ](https://www.123contactform.com/form-2709121/) ve aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/123contactform-tutorial/submit.png) 
 
-    a. İçinde **e-posta** metin kullanıcı yani e-postası girin **BrittaSimon@Contoso.com**.
+    a. İçinde **e-posta** metin kutusuna kullanıcı e-posta türü ister **BrittaSimon@Contoso.com**.
 
-    b. Tıklayın **karşıya** ve Azure portalından indirdiğiniz meta veri XML dosyasını bulun.
+    b. Tıklayın **karşıya** ve Azure portalından indirdiğiniz indirilen meta veri XML dosyasını bulun.
 
     c. Tıklayın **gönderme FORM**.
 
-8. Üzerinde **Microsoft Azure AD çoklu oturum açma - uygulama ayarlarını yapılandırma** aşağıdaki adımları gerçekleştirin:
-    
+2. Üzerinde **Microsoft Azure AD çoklu oturum açma - uygulama ayarlarını yapılandırma** aşağıdaki adımları gerçekleştirin:
+
     ![Çoklu oturum açmayı yapılandırın](./media/123contactform-tutorial/url3.png)
 
-    a. Uygulamada yapılandırmak istiyorsanız **IDP tarafından başlatılan modu**, kopyalama **TANIMLAYICI** yapıştırın ve değer Örneğiniz için **tanımlayıcı** metin kutusunda  **123ContactForm etki alanı ve URL'ler** bölümü Azure portalı.
-    
-    b. Uygulamada yapılandırmak istiyorsanız **IDP tarafından başlatılan modu**, kopyalama **yanıt URL'si** yapıştırın ve değer Örneğiniz için **yanıt URL'si** metin kutusunda  **123ContactForm etki alanı ve URL'ler** bölümü Azure portalı.
+    a. Uygulamada yapılandırmak istiyorsanız **IDP tarafından başlatılan modu**, kopyalama **TANIMLAYICI** yapıştırın ve değer Örneğiniz için **tanımlayıcı** metin kutusunda  **Temel bir SAML yapılandırma** bölümü Azure portalı.
 
-    c. Uygulamada yapılandırmak istiyorsanız **SP tarafından başlatılan modu**, kopyalama **oturum açık URL'si** yapıştırın ve değer Örneğiniz için **işareti bulunan URL'si** metin kutusunda  **123ContactForm etki alanı ve URL'ler** bölümü Azure portalı.
+    b. Uygulamada yapılandırmak istiyorsanız **IDP tarafından başlatılan modu**, kopyalama **yanıt URL'si** yapıştırın ve değer Örneğiniz için **yanıt URL'si** metin kutusunda  **Temel bir SAML yapılandırma** bölümü Azure portalı.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    c. Uygulamada yapılandırmak istiyorsanız **SP tarafından başlatılan modu**, kopyalama **oturum açık URL'si** yapıştırın ve değer Örneğiniz için **işareti bulunan URL'si** metin kutusunda  **Temel bir SAML yapılandırma** bölümü Azure portalı.
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/123contactform-tutorial/create_aaduser_01.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/123contactform-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/123contactform-tutorial/create_aaduser_03.png) 
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/123contactform-tutorial/create_aaduser_04.png) 
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="creating-a-123contactform-test-user"></a>123ContactForm test kullanıcısı oluşturma
 
-Uygulama, zaman kullanıcı sağlamayı ve kimlik doğrulaması kullanıcılar uygulamaya otomatik olarak oluşturulacak sonra sadece destekler.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma 123ContactForm erişim vererek kullanmak Britta Simon etkinleştirin.
 
-![Kullanıcı Ata][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **123ContactForm**.
 
-**Britta Simon 123ContactForm için atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 2. Uygulamalar listesinde **123ContactForm**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/123contactform-tutorial/tutorial_123contactform_app.png) 
+    ![Uygulamalar listesinde 123ContactForm bağlantı](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı Ata][202] 
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Kullanıcı Ata][203]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-123contactform-test-user"></a>123ContactForm test kullanıcısı oluşturma
+
+Bu bölümde, Britta Simon adlı bir kullanıcı 123ContactForm oluşturulur. 123ContactForm just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı 123ContactForm içinde zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
+
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde 123ContactForm kutucuğa tıkladığınızda, otomatik olarak 123ContactForm uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
+Erişim paneli 123ContactForm kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama 123ContactForm için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/123contactform-tutorial/tutorial_general_01.png
-[2]: ./media/123contactform-tutorial/tutorial_general_02.png
-[3]: ./media/123contactform-tutorial/tutorial_general_03.png
-[4]: ./media/123contactform-tutorial/tutorial_general_04.png
-
-[100]: ./media/123contactform-tutorial/tutorial_general_100.png
-
-[200]: ./media/123contactform-tutorial/tutorial_general_200.png
-[201]: ./media/123contactform-tutorial/tutorial_general_201.png
-[202]: ./media/123contactform-tutorial/tutorial_general_202.png
-[203]: ./media/123contactform-tutorial/tutorial_general_203.png
-
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

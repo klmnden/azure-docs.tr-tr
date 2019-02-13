@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: f83f7afa4173316f127c76f20967054bf13c9a6b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 91e7fdd215d246156f601d3b5e6e05b7f8f71f59
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097920"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116465"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric uygulaması ve hizmet güvenliği
 Bir mikro hizmet mimarisi getirebilirsiniz [birçok avantaj](service-fabric-overview-microservices.md). Mikro hizmetler, güvenliğini yönetme ancak sınama ve geleneksel tek parçalı uygulamalarla güvenliğini yönetme farklı olabilir. 
@@ -31,7 +31,7 @@ Bu makalede, mikro hizmetler Güvenlik Kılavuzu değil, kullanılabilir birçok
 ## <a name="authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme
 Genellikle, gerekli kaynak ve hizmet tarafından sunulan API'ler belirli güvenilen kullanıcıların veya istemciler için sınırlı olur. Kimlik doğrulaması güvenilir bir şekilde bir kullanıcının kimliğini ascertaining işlemidir.  Yetki API'leri yapan veya kullanılabilir hizmetleri işlemi, bazı kullanıcılar, ancak diğerlerini kimlik doğrulaması.
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 Kimlik doğrulama API düzeyinde güven kararları için ilk adımdır. Kimlik doğrulaması güvenilir bir şekilde bir kullanıcının kimliğini ascertaining işlemidir.  Mikro hizmet senaryolarda, kimlik doğrulaması genellikle merkezi olarak yönetilir. Bir API ağ geçidi kullanıyorsanız, yapabilecekleriniz [kimlik doğrulaması boşaltma](/azure/architecture/patterns/gateway-offloading) ağ geçidine. Bu yaklaşımı kullanın, ek güvenlik iletileri kimlik doğrulaması yerinde olup olmadığını ağ geçidinden veya geldikleri olmadıkça tek tek Hizmetleri doğrudan (API ağ geçidi) ulaşılamıyor emin olun.
 
 Hizmetleri doğrudan erişilebilir, kimlik doğrulama hizmeti Azure Active Directory veya bir güvenlik belirteci hizmeti (STS), kullanıcıların kimliklerini doğrulamak için kullanılabilir davranan bir özel kimlik doğrulama mikro hizmet gibi. Güven kararları güvenlik belirteçleri veya tanımlama bilgileri ile hizmetler arasında paylaşılır. 
@@ -110,7 +110,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 * [Küme güvenliği hakkında bilgi edinin](service-fabric-cluster-security.md)
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-get-started.md
+[key-vault-get-started]:../key-vault/key-vault-overview.md
 [config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 

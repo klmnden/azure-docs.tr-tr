@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 3275fb0e40e7cdd6f02ec96fb949ec4e4e673f26
-ms.sourcegitcommit: 902aae1b5f872993185cbf1e35a4f7bb93748226
-ms.translationtype: HT
+ms.openlocfilehash: 01c879618ed96d193821b476cdd4772da9cf539b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35656326"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118760"
 ---
 `myAppServicePlan` App Service planında bir [web uygulaması](../articles/app-service/containers/app-service-linux-intro.md) oluşturun. 
 
-Cloud Shell'de, [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutunu kullanabilirsiniz. Aşağıdaki örnekte `<app_name>` kısmını genel olarak benzersiz bir uygulama adıyla değiştirin (geçerli karakterler `a-z`, `0-9` ve `-` şeklindedir). 
+Cloud Shell'de, [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) komutunu kullanabilirsiniz. Aşağıdaki örnekte `<app_name>` kısmını genel olarak benzersiz bir uygulama adıyla değiştirin (geçerli karakterler `a-z`, `0-9` ve `-` şeklindedir). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-local-git

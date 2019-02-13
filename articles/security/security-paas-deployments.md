@@ -4,7 +4,7 @@ description: " Paas'nin avantajlarını güvenlik ve diğer bulut hizmeti modeli
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: techlake
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488416"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117809"
 ---
 # <a name="securing-paas-deployments"></a>PaaS dağıtımlarının güvenliğini sağlama
 
@@ -111,7 +111,7 @@ Aşağıdaki tabloda STRIDE tehditler listesi ve Azure özelliklerini kullanmak 
 
 | Tehdit | Güvenlik özelliği | Azure platformu hafifletmelerle |
 | --- | --- | --- |
-| Kimlik sahtekarlığı | Kimlik Doğrulaması | HTTPS bağlantıları gerektirir. |
+| Kimlik sahtekarlığı | Authentication | HTTPS bağlantıları gerektirir. |
 | Bozma | Bütünlük | SSL sertifikaları doğrulayın. |
 | Red | İnkar edilemez | Azure'ı etkinleştirme [izleme ve tanılama](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Bilgilerin açığa çıkması | Gizliliği | Bekleyen hassas verileri kullanarak şifrelenip şifrelenmeyeceğinizi [hizmet sertifikaları](https://docs.microsoft.com/rest/api/appservice/certificates). |

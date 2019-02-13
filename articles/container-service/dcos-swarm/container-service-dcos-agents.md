@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ee1a2a75d6a003a6bc53c5216dd01d379193ea77
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 03cacda1aa405cb2d0ded579c8ddb5f6011ce3bb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994948"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113796"
 ---
 # <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(KULLANIM DIŞI) Azure Container Service için DC/OS aracı havuzları
 
@@ -23,11 +23,11 @@ ms.locfileid: "52994948"
 Azure Container Service'te DC/OS kümelerini iki havuz, genel bir havuz ve özel bir havuz içindeki aracı düğümlerinin içerir. Bir uygulama, kapsayıcı hizmetinizde makineler arasında erişilebilirlik etkileyen iki havuzuna dağıtılabilir. Makineleri internet'e (ortak) açık veya dahili (özel) tutulur. Bu makalede, genel ve özel havuzların yüzden kısa bir genel bakış sağlar.
 
 
-* **Özel aracılar**: özel aracı düğümleri yönlendirilemeyen bir ağ üzerinden çalıştırın. Bu ağ, yalnızca yönetim bölgesi veya bölge genel uç yönlendiricisinde aracılığıyla erişilebilir. Varsayılan olarak, DC/OS, uygulamaları özel aracı düğümlerinde başlatır. 
+* **Özel aracılar**: Özel aracı düğümleri yönlendirilemeyen bir ağ üzerinden çalıştırın. Bu ağ, yalnızca yönetim bölgesi veya bölge genel uç yönlendiricisinde aracılığıyla erişilebilir. Varsayılan olarak, DC/OS, uygulamaları özel aracı düğümlerinde başlatır. 
 
-* **Ortak**: Genel aracı düğümleri DC/OS uygulamaları ve Hizmetleri ortak olarak erişilebilen bir ağ üzerinden çalıştırın. 
+* **Ortak**: Genel aracı düğümleri, DC/OS uygulamaları ve Hizmetleri ortak olarak erişilebilen bir ağ üzerinden çalıştırın. 
 
-DC/OS ağ güvenliği hakkında daha fazla bilgi için bkz: [DC/OS belgelerine](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
+DC/OS ağ güvenliği hakkında daha fazla bilgi için bkz: [DC/OS belgelerine](https://docs.mesosphere.com/).
 
 ## <a name="deploy-agent-pools"></a>Aracı havuzları dağıtma
 

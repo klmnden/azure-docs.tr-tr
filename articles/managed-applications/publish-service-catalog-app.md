@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e9db85fb91dd0c9a33cc8205bdb30a648dfd38a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: dc86943924cd0c47c465e9d3bac4ca91b73a3ff5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438754"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112793"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Yönetilen uygulama tanımı oluşturma ve yayımlama
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Kuruluşunuzun üyelerine yönelik Azure [yönetilen uygulamaları](overview.md) oluşturup yayımlayabilirsiniz. Örneğin, BT departmanı kurumsal standartlara uymak için yönetilen uygulamalar yayımlayabilir. Bu yönetilen uygulamalara Azure marketten değil, hizmet kataloğu üzerinden erişilebilir.
 
@@ -30,7 +32,7 @@ Yönetilen bir uygulamayı hizmet kataloğu için yayımlamak istiyorsanız şun
 
 Bu makale için, yönetilen uygulamanız yalnızca bir depolama hesabı içerir. Yönetilen bir uygulamayı yayımlama adımlarını göstermeye yöneliktir. Tam örnekler için bkz. [Azure yönetilen uygulamaları için örnek projeler](sample-projects.md).
 
-Bu makaledeki PowerShell örnekleri Azure PowerShell’in 6.2 veya üzerini gerektirir. Gerekirse [sürümünüzü güncelleştirin](/powershell/azure/azurerm/install-azurerm-ps).
+Bu makaledeki PowerShell örnekleri Azure PowerShell’in 6.2 veya üzerini gerektirir. Gerekirse [sürümünüzü güncelleştirin](/powershell/azure/install-Az-ps).
 
 ## <a name="create-the-resource-template"></a>Kaynak şablonunu oluşturma
 
@@ -149,8 +151,8 @@ createUiDefinition.json dosyasını kaydedin.
 Paketi, tüketilebileceği erişilebilir bir konuma yükleyin. 
 
 ```powershell
-New-AzureRmResourceGroup -Name storageGroup -Location eastus
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
+New-AzResourceGroup -Name storageGroup -Location eastus
+$storageAccount = New-AzStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
@@ -158,9 +160,9 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
 
 $ctx = $storageAccount.Context
 
-New-AzureStorageContainer -Name appcontainer -Context $ctx -Permission blob
+New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
 
-Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
+Set-AzStorageBlobContent -File "D:\myapplications\app.zip" `
   -Container appcontainer `
   -Blob "app.zip" `
   -Context $ctx 
@@ -175,7 +177,7 @@ Sonraki adım, müşteri adına kaynakları yönetmeye yönelik bir kullanıcı 
 Kaynakları yönetmek için kullanılacak kullanıcı grubunun nesne kimliği gerekir. 
 
 ```powershell
-$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+$groupID=(Get-AzADGroup -DisplayName mygroup).Id
 ```
 
 ### <a name="get-the-role-definition-id"></a>Rol tanımı kimliği oluşturma
@@ -183,7 +185,7 @@ $groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
 Bundan sonra kullanıcıya, kullanıcı grubuna ya da uygulamaya erişim izni vermek istediğiniz RBAC yerleşik rolünün rol tanımı kimliği gerekir. Genellikle, Sahip, Katkıda Bulunan veya Okuyucu rolünü kullanırsınız. Aşağıdaki komut, Sahip rolünün rol tanımı kimliğinin nasıl alınacağını gösterir:
 
 ```powershell
-$ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
+$ownerID=(Get-AzRoleDefinition -Name Owner).Id
 ```
 
 ### <a name="create-the-managed-application-definition"></a>Yönetilen uygulama tanımı oluşturma
@@ -191,15 +193,15 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 Yönetilen uygulama tanımınızı depolamak için henüz bir kaynak grubunuz yoksa şimdi bir tane oluşturun:
 
 ```powershell
-New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
+New-AzResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
 Şimdi, yönetilen uygulama tanımı kaynağını oluşturun.
 
 ```powershell
-$blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
+$blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
-New-AzureRmManagedApplicationDefinition `
+New-AzManagedApplicationDefinition `
   -Name "ManagedStorage" `
   -Location "westcentralus" `
   -ResourceGroupName appDefinitionGroup `

@@ -10,12 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc18a523ff7c275b249704fb3928f2ebde6c81a9
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 108b188b0bbb63a4c9faea936360cf2fa3edc806
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074898"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211623"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Mevcut NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -105,7 +106,7 @@ Bu adım zaten kiracınızda tam olabilir, ancak Azure AD Connect'in son veritab
 2. Seçin **Azure Active Directory** > **Azure AD'ye bağlanma**
 3. Eşitleme durumunuzu doğrulayın **etkin** ve bu, son eşitleme bir saatten önce gerçekleştirildi.
 
-Eşitleme, bize yönergeleri yeni bir gidiş istiyorsanız gerekiyorsa, [Azure AD Connect eşitleme: Zamanlayıcı](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
+Eşitleme, bize yönergeleri yeni bir gidiş istiyorsanız gerekiyorsa, [Azure AD Connect eşitleme: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler) makalesindeki adımlara bakın.
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>Kullanıcılarınızın hangi kimlik doğrulama yöntemlerini belirleme
 
@@ -247,7 +248,7 @@ Bu hata çeşitli nedenlerden biri nedeniyle olabilir. Sorun gidermek için aşa
 1. NPS sunucunuzu yeniden başlatın.
 2. Bu istemci sertifikası, beklendiği gibi yüklendiğini doğrulayın.
 3. Sertifikanın Azure AD kiracınız ile ilişkili olduğunu doğrulayın.
-4. Doğrulayın https://login.microsoftonline.com/ uzantıyı çalıştıran sunucudan erişilebilir.
+4. Uzantıyı çalıştıran sunucudan https://login.microsoftonline.com/ adresine erişilebildiğini doğrulayın.
 
 -------------------------------------------------------------
 
@@ -259,7 +260,7 @@ AD Connect'in çalıştığını ve kullanıcının hem Windows Active Directory
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Günlüklerde başarısız olan tüm my kimlik doğrulamaları ile bağlanma HTTP neden görüyorum?
 
-Doğrulayın https://adnotifications.windowsazure.com NPS uzantısını çalıştıran sunucudan erişilebilir.
+NPS uzantısını çalıştıran sunucudan https://adnotifications.windowsazure.com adresine ulaşılabildiğini doğrulayın.
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL Protokollerini ve Şifre Paketlerini yönetme
 

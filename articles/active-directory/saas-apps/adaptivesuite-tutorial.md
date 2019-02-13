@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Uyarlamalı öngörülerle | Microsoft Docs'
+title: 'Öğretici: Uyarlamalı Insights ile Azure Active Directory Tümleştirmesi | Microsoft Docs'
 description: Azure Active Directory ve Uyarlamalı Insights arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 74f38ef3043cfa0e6df40c264b72cc5eae38544e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e334795a63ff298ff8f0695340f35fdff1ad03e0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430298"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166530"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Öğretici: Azure Active Directory Tümleştirme Uyarlamalı öngörülerle
+# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Öğretici: Uyarlamalı Insights ile Azure Active Directory Tümleştirmesi
 
 Bu öğreticide, Uyarlamalı Insights Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -220,7 +221,7 @@ Uyarlamalı Insights'a oturum açmak Azure AD kullanıcılarının etkinleştirm
 
    b. Seçin bir **rol**.
 
-   c. Tıklayın **gönderme**.
+   c. **Gönder**'e tıklayın.
 
 >[!NOTE]
 >Herhangi diğer Uyarlamalı Insights kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak Uyarlamalı Insights tarafından sağlanan.

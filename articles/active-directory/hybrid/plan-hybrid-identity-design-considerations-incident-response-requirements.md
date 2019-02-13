@@ -16,12 +16,13 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 2b10dc9fd96a1e4c06fbd153a2f1dc4e92e58906
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491868"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161502"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için olay yanıtlama gereksinimlerini belirleme
 Büyük ve orta ölçekli kuruluşlar büyük olasılıkla olacaktır bir [güvenlik olayı yanıt](https://technet.microsoft.com/library/cc700825.aspx) yardımcı olmak için BT uygun şekilde eylemleri için olay düzeyi. Kimlik yönetimi sistemi olay yanıt işlemi önemli bir bileşenidir çünkü hedefe karşı belirli bir eylemi gerçekleştiren tanımlamaya yardımcı olmak için kullanılabilir. Karma kimlik çözümü tarafından yararlanılabilir izleme ve raporlama özellikleri sağlayabilir olası tehdidi azaltmak üzere eylemleri mümkün KILAR. Tipik bir olay yanıtlama planında planının bir parçası aşağıdaki aşamaları olacaktır:
@@ -51,7 +52,7 @@ Kimlik yönetimi sistemi tanımlamak ve bu şüpheli etkinlikleri bildirmek içi
 * Şirketiniz kullanıcının erişim ve işlem denetim gerekiyor mu?
 * Şirketiniz, bir kullanıcının parolasını sıfırlamak bilmeniz gerekiyor mu?
 
-## <a name="policy-enforcement"></a>İlke uygulama
+## <a name="policy-enforcement"></a>İlke zorlama
 Zarar denetimi ve risk azaltma-aşaması sırasında hızlı bir şekilde gerçek ve potansiyel bir saldırının etkilerini azaltmak önemlidir. Sizi bu eylem, bu noktada arasındaki küçük ve büyük bir fark yapabilirsiniz. Tam tepki, kuruluşunuz ve karşılaştığınız saldırının yapısını bağlıdır. Bir hesap aşılmış ilk değerlendirmeyi adlı yönelik, bu hesap engellemek için ilkeyi uygulamak gerekir. Kimlik yönetimi sistemi yararlanılarak burada yalnızca bir örnektir. Devam eden bir olaya tepki vermek için ilkeleri nasıl zorlanır dikkate alarak, karma kimlik çözümü tasarlamanıza yardımcı olması için aşağıdaki soruları kullanın:
 
 * Şirketinizin ilkeleri yerinde blok kullanıcılara erişimden ağ gerekirse var mı?

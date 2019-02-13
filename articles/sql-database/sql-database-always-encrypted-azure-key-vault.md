@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: fa37a83799ec50c7a8a87a0ac8a3232035a49234
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 670bdd43a4a581f349ca84c17ead67975fa0232e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755671"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110175"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: Hassas verilerin korunmasına ve şifreleme anahtarları Azure Key Vault'ta depolama
 
@@ -53,7 +53,7 @@ Alınacak *uygulama kimliği* ve *anahtarı*, adımları [bir Azure Active Direc
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Anahtarlarınızı depolamak için key vault oluşturma
 İstemci uygulamanızı yapılandırılır ve uygulamanızın uygulama Kimliğine sahip olduğunu, anahtar kasası oluşturma ve kasanın gizli anahtarları (her zaman şifreli anahtarları) hem de uygulamanızın erişebilmesi için kendi erişim ilkesini yapılandırmak için zaman var. *Oluşturma*, *alma*, *listesi*, *oturum*, *doğrulayın*, *wrapKey*, ve *unwrapKey* izinler yeni bir sütun ana anahtarı oluşturma ve SQL Server Management Studio ile şifreleme ayarlama gerekli değil.
 
-Aşağıdaki betiği çalıştırarak, bir anahtar kasası hızlıca oluşturabilirsiniz. Bu cmdlet'ler ve oluşturma ve bir anahtar Kasası'nı yapılandırma hakkında daha fazla bilgi ayrıntılı bir açıklaması için bkz. [Azure anahtar kasası ile çalışmaya başlama](../key-vault/key-vault-get-started.md).
+Aşağıdaki betiği çalıştırarak, bir anahtar kasası hızlıca oluşturabilirsiniz. Bu cmdlet'ler ve oluşturma ve bir anahtar Kasası'nı yapılandırma hakkında daha fazla bilgi ayrıntılı bir açıklaması için bkz. [Azure anahtar kasası nedir?](../key-vault/key-vault-overview.md).
 
 ```powershell
     $subscriptionName = '<your Azure subscription name>'

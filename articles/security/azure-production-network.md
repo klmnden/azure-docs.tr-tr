@@ -4,7 +4,7 @@ description: Bu makalede, Azure üretim ağı genel bir açıklamasını sağlar
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 710792c890c3e48fc54507f93eeaee529ca839f8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114037"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116941"
 ---
 # <a name="the-azure-production-network"></a>Azure üretim ağı
 Kendi Azure uygulamaları ve üretim ağı yönetmek iç Azure destek personeli erişen hem de dış müşterilere Azure üretim ağı kullanıcıları içerir. Bu makalede, Azure üretim ağ bağlantı kurma için koruma mekanizmaları ve güvenlik erişim yöntemleri açıklanmaktadır.
@@ -58,14 +58,14 @@ Azure ana bilgisayar tabanlı bir yazılım güvenlik duvarları üretim ağı i
 
 Burada programlanan iki kural kategorisi:
 
-- **Makine Yapılandırması veya altyapı kuralları**: varsayılan olarak, tüm iletişim engellenir. Özel durumlar, dinamik konak Yapılandırma Protokolü (DHCP) iletişimleri ve DNS bilgilerini göndermek ve almak için bir VM sağlayan ve "Genel" internet'e işletim sistemi aktivasyon sunucularına ve FC küme içindeki diğer vm'lere giden trafik yok. Sanal makinelerin listesi, giden izin verilen hedefleri Azure yönlendirici alt ağları ve diğer Microsoft özellikleri içermez, kuralları bir koruma katmanı olarak bunlar için harekete.
-- **Rol yapılandırma dosyası kuralları**: kiracıların hizmet modelini temel alarak gelen ACL'leri tanımlar. Örneğin, bir kiracı, belirli bir VM'nin 80 numaralı bağlantı noktasında web ön ucu varsa, 80 numaralı bağlantı noktasını tüm IP adreslerine açılır. VM çalıştıran bir çalışan rolü varsa, çalışan rolü yalnızca aynı Kiracı içindeki VM için açıldı.
+- **Makine Yapılandırması veya altyapı kuralları**: Varsayılan olarak, tüm iletişim engellenir. Özel durumlar, dinamik konak Yapılandırma Protokolü (DHCP) iletişimleri ve DNS bilgilerini göndermek ve almak için bir VM sağlayan ve "Genel" internet'e işletim sistemi aktivasyon sunucularına ve FC küme içindeki diğer vm'lere giden trafik yok. Sanal makinelerin listesi, giden izin verilen hedefleri Azure yönlendirici alt ağları ve diğer Microsoft özellikleri içermez, kuralları bir koruma katmanı olarak bunlar için harekete.
+- **Rol yapılandırma dosyası kuralları**: Kiracıların hizmet modelini temel alarak gelen ACL'leri tanımlar. Örneğin, bir kiracı, belirli bir VM'nin 80 numaralı bağlantı noktasında web ön ucu varsa, 80 numaralı bağlantı noktasını tüm IP adreslerine açılır. VM çalıştıran bir çalışan rolü varsa, çalışan rolü yalnızca aynı Kiracı içindeki VM için açıldı.
 
 **Yerel ana bilgisayar güvenlik duvarı**: Azure Service Fabric ve Azure depolama, hiper yönetici bulunmayan bir yerel işletim sisteminde çalıştırmak ve bu nedenle, Windows Güvenlik Duvarı Yukarıdaki iki kural kümesiyle yapılandırılmıştır.
 
-**Ana bilgisayar güvenlik duvarı**: ana bilgisayar güvenlik duvarı hiper yöneticiyi çalıştıran ana bilgisayar bölümü korur. Kurallar, yalnızca FC izin vermek ve atlama kutularının ana bölüme belirli bir bağlantı noktasını kurmak için programlanmıştır. Diğer özel durumlar, DHCP ve DNS yanıtlarına izin vermek üzeresiniz. Azure ana bilgisayar bölümü için güvenlik duvarı kuralları şablonu içeren bir makine yapılandırma dosyasını kullanır. Bir ana bilgisayar güvenlik duvarı özel durumu bileşenlerini barındıracak, kablo sunucu ve belirli protokol/bağlantı noktası aracılığıyla meta veri sunucusu iletişim kurmak Vm'leri veren bulunmaktadır.
+**Ana bilgisayar güvenlik duvarı**: Konak güvenlik duvarı hiper yöneticiyi çalıştıran ana bilgisayar bölümü korur. Kurallar, yalnızca FC izin vermek ve atlama kutularının ana bölüme belirli bir bağlantı noktasını kurmak için programlanmıştır. Diğer özel durumlar, DHCP ve DNS yanıtlarına izin vermek üzeresiniz. Azure ana bilgisayar bölümü için güvenlik duvarı kuralları şablonu içeren bir makine yapılandırma dosyasını kullanır. Bir ana bilgisayar güvenlik duvarı özel durumu bileşenlerini barındıracak, kablo sunucu ve belirli protokol/bağlantı noktası aracılığıyla meta veri sunucusu iletişim kurmak Vm'leri veren bulunmaktadır.
 
-**Konuk Güvenlik Duvarı**: Müşteri VM ve depolama kullanan müşteriler tarafından yapılandırılabilir olan konuk işletim sistemi, Windows Güvenlik Duvarı parça.
+**Konuk Güvenlik Duvarı**: Müşteri VM ve depolama kullanan müşteriler tarafından yapılandırılabilir olan Windows Güvenlik Duvarı parçası konuk işletim sistemi.
 
 Azure özelliklerini oluşturulan ek güvenlik özellikleri içerir:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 5e7fa81330c0f1f0e44a423f3e2fa42b1a91c119
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d5b3af2b950dd33c797af874d56806de8049b358
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990096"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210688"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Azure portalını kullanarak bir Media Services hesabı oluşturma
 
@@ -27,7 +27,7 @@ Azure portalı bir Azure Media Services (AMS) hesabını hızlıca oluşturmanı
 
 Birincil depolama hesabınız Genel Amaçlı v1 veya Genel Amaçlı v2 olabilir. Şu an için Azure portal ile yalnızca v1 seçebilirsiniz ancak hesabı API veya PowerShell kullanarak oluşturduğunuzda v2 seçebilirsiniz. Depolama türleri hakkında daha fazla bilgi için bkz. [Azure Storage hesapları hakkında](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-Media Services hesabı ve tüm ilişkili depolama hesapları aynı Azure aboneliğinde olması gerekir. Media Services hesabıyla aynı konumda depolama hesaplarını kullanmak için önerilir.
+Media Services hesabı ve tüm ilişkili depolama hesapları aynı Azure aboneliğinde olması gerekir. Depolama hesapları Media Services hesabıyla aynı konumda ek gecikme süresi ve veri kullanım maliyetleri önlemek için önemle tavsiye edilir.
 
 Bu makalede, Azure portalını kullanarak Media Services hesabı oluşturma işlemini gösterir.
 

@@ -4,7 +4,7 @@ description: Bu makalede, Microsoft Azure merkezlerimize güvenli işleyişi anl
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 9385c6ea8d2a04e9a8595a22e6e2ff7638394b41
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: dc9b4db37e811d8bac6df2d532fd3629d98c9650
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172981"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104784"
 ---
 # <a name="azure-infrastructure-security"></a>Azure Altyapı güvenliği
 Microsoft Azure, yönetilen ve Microsoft tarafından işletilen veri merkezlerinde çalışır. Bu coğrafi olarak dağınık veri merkezleri, ISO/IEC 27001: 2013 ve güvenlik ve güvenilirlik için NIST SP 800-53'ü gibi temel sektör standartlarıyla uyumlu. Veri Merkezi yönetilen, izlenen ve Microsoft Operasyon personeli tarafından yönetilir. Operasyon personeli, dünyanın en büyük çevrimiçi hizmetlerini 24 x 7 süreklilikle teslim deneyim vardır.
@@ -31,7 +31,7 @@ Bu makale serisi, Microsoft Azure altyapısının güvenliğini sağlamak için 
 - [Bileşenleri ve sınırlar](azure-infrastructure-components.md)
 - [Ağ mimarisi](azure-infrastructure-network.md)
 - [Üretim ağı](azure-production-network.md)
-- [SQL Database](azure-infrastructure-sql.md)
+- [SQL Veritabanı](azure-infrastructure-sql.md)
 - [İşlemler](azure-infrastructure-operations.md)
 - [İzleme](azure-infrastructure-monitoring.md)
 - [Bütünlüğü](azure-infrastructure-integrity.md)

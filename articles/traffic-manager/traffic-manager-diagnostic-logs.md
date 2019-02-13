@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: d4d4420e2d38b1418a08ad1ca51dd0f75f3fe7b9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001111"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106470"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Azure Traffic Manager'da tanılama günlük kaydını etkinleştirme
 
@@ -40,14 +40,14 @@ Azure Traffic Manager tanılama günlükleri, Traffic Manager profili kaynak dav
 
 2. **Traffic Manager profili için tanılama günlüğüne kaydetmeyi etkinleştir:**
 
-    Traffic Manager profili önceki adımda elde edilen kimliği kullanarak için tanılama günlüğünü etkinleştirme [kümesi AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/set-azdiagnosticsetting?view=latest). Aşağıdaki komut, belirtilen Azure depolama hesabı için Traffic Manager profili için ayrıntılı günlükleri depolar. 
+    Traffic Manager profili önceki adımda elde edilen kimliği kullanarak için tanılama günlüğünü etkinleştirme [kümesi AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Aşağıdaki komut, belirtilen Azure depolama hesabı için Traffic Manager profili için ayrıntılı günlükleri depolar. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Tanılama ayarlarını doğrulayın:**
 
-      Traffic Manager profilini kullanarak tanılama ayarlarını doğrulayın [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/get-azdiagnosticsetting?view=latest). Aşağıdaki komut, bir kaynak için oturum açmış olan kategorileri görüntüler.
+      Traffic Manager profilini kullanarak tanılama ayarlarını doğrulayın [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). Aşağıdaki komut, bir kaynak için oturum açmış olan kategorileri görüntüler.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>

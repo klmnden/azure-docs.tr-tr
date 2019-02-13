@@ -15,20 +15,22 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: dcba93561f1f3488c8849ea419bd94765102f849
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8103777b85d8e11416811c694103c58755f1a23a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585211"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114442"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Bir web uygulaması oluşturma ve yerel Git deposundan kod dağıtma
 
 Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra web uygulaması kodunuzu yerel bir Git deposundan dağıtır.
 
-Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeyi kullanarak en son Azure PowerShell’e güncelleştirin ve sonra Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` çalıştırın. Ayrıca uygulama kodunuzun yerel bir Git deposuna yürütülmesi gerekir.
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeyi kullanarak en son Azure PowerShell’e güncelleştirin ve sonra Azure ile bağlantı oluşturmak için `Connect-AzAccount` çalıştırın. Ayrıca uygulama kodunuzun yerel bir Git deposuna yürütülmesi gerekir.
 
 ## <a name="sample-script"></a>Örnek betik
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-local-git/deploy-local-git.ps1?highlight=1 "Create a web app and deploy code from a local Git repository")]
 
@@ -37,7 +39,7 @@ Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan y
 Betik örneği çalıştırıldıktan sonra, kaynak grubunu, web uygulamasını ve ilişkili tüm kaynakları kaldırmak için aşağıdaki komut kullanılabilir.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $webappname -Force
+Remove-AzResourceGroup -Name $webappname -Force
 ```
 
 ## <a name="script-explanation"></a>Betik açıklaması
@@ -46,7 +48,7 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Gerekli kaynak grubu ve App Service grubu ile bir web uygulaması oluşturur. Geçerli dizin bir Git deposu içerdiğinde ayrıca uzak bir `azure` ekleyin. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Gerekli kaynak grubu ve App Service grubu ile bir web uygulaması oluşturur. Geçerli dizin bir Git deposu içerdiğinde ayrıca uzak bir `azure` ekleyin. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f08f4cc74c37ccbbcab071b82f67f912e9fd9fd1
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b87fa166f82e4302b5430064d41c293731c60470
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065333"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107710"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Azure haritalar hesabınızda fiyatlandırma katmanını yönetme
 
@@ -34,7 +34,7 @@ Azure haritalar hesabınızı oluşturduktan sonra yükseltme ya da Azure harita
 ![Fiyatlandırma katmanını değiştirme](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
 
 > [!NOTE]
-> Yükseltme ya da Azure haritalar hesabınız için fiyatlandırma katmanını düşürme Yeni Abonelik anahtarları oluşturmak zorunda değilsiniz.
+> Yeni Abonelik anahtarları veya istemci kimliği (Azure AD kimlik doğrulaması) yükseltin ya da Azure haritalar hesabınız için fiyatlandırma katmanını düşürme oluşturmak zorunda değilsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

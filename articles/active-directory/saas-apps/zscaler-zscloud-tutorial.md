@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: c3eb96c15991c3b470164bf504c68fbc266e69a8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c70d58669fe6351c67a54c282ee1310fb52ed50a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193426"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Öğretici: Zscaler ZSCloud ile Azure Active Directory Tümleştirme
 

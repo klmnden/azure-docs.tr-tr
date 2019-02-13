@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 21eec258b14bb0524170c9307d06fee7b7abc644
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8d9e59a11957e8d108ae86ebba157a06129efa58
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466652"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111560"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process'in çalışması: SQL veri ambarı kullanma
 Bu öğreticide, derlemeye ve dağıtmaya SQL veri ambarı'nı (SQL DW) kullanarak makine öğrenme modeli aracılığıyla genel kullanıma açık bir veri kümesi için--inceleyeceğiz [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Oluşturulan ikili sınıflandırma modelinde, bir ipucu bir seyahat için ödeme yapılır ve çok sınıflı sınıflandırma ve regresyon modellerini ayrıca dağıtım Ücretli ipucu tutarlarının tahmin açıklanan olup olmadığını tahmin eder.
@@ -881,7 +881,7 @@ Ne Bu izlenecek yol öğreticide uyguladığımız özeti için büyük genel k�
 Bu örnek gözden geçirme ve kendi eşlik eden betikleri ve Ipython notebook(s) paylaşılır Microsoft tarafından MIT lisansı altında. LICENSE.txt dosyasına örnek kod dizini github'da daha fazla ayrıntı için lütfen denetleyin.
 
 ## <a name="references"></a>Başvurular
-• [Andrés Monroy NYC taksi Gelişlerin indirme sayfasına](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC'ın taksi seyahat verilerini Chris Whong tarafından](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC taksi ve Limousine komisyon araştırma ve istatistikleri](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+• [Andrés Monroy NYC taksi Gelişlerin indirme sayfasına](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC'ın taksi seyahat verilerini Chris Whong tarafından](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC taksi ve Limousine komisyon araştırma ve istatistikleri](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

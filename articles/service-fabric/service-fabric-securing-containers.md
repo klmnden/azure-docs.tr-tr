@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: d49c16741f581b2ad09dc173e8380fdf77391dbe
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: deb8eacb1e9c55feba6b356eedc61ba57c3a6566
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299070"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110329"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Service Fabric üzerinde çalışan bir kapsayıcı içine bir sertifika dosyasını içe
 
-Bir sertifika belirterek, kapsayıcı Hizmetleri güvenli hale getirebilirsiniz. Service Fabric Hizmetleri (sürüm 5.7 veya daha yüksek) bir Windows veya Linux küme düğümlerinde yüklü bir sertifika erişmek için bir kapsayıcı içinde bir mekanizma sağlar. Sertifikayı LocalMachine kümenin tüm düğümlerine yüklenmelidir. Sertifika bilgileri altındaki uygulama bildirimini sağlanan `ContainerHostPolicies` etiketi aşağıdaki kod parçacığında gösterildiği gibi:
+Bir sertifika belirterek, kapsayıcı Hizmetleri güvenli hale getirebilirsiniz. Service Fabric Hizmetleri (sürüm 5.7 veya daha yüksek) bir Windows veya Linux küme düğümlerinde yüklü bir sertifika erişmek için bir kapsayıcı içinde bir mekanizma sağlar. Kümenin tüm düğümlerinde altında LocalMachine sertifika deposunda sertifika yüklü olmalıdır. Sertifikanın özel anahtar karşılık gelen, mevcut, erişilebilir ve - Windows - dışarı aktarılabilir olmalıdır. Sertifika bilgileri altındaki uygulama bildirimini sağlanan `ContainerHostPolicies` etiketi aşağıdaki kod parçacığında gösterildiği gibi:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,7 +31,7 @@ Bir sertifika belirterek, kapsayıcı Hizmetleri güvenli hale getirebilirsiniz.
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Uygulama başlatılırken Windows kümeleri, çalışma zamanı sertifikaları okur ve bir PFX dosyası ve her sertifika için parola oluşturur. Bu PFX dosyasını ve parola, aşağıdaki ortam değişkenlerini kullanarak kapsayıcı içinde erişilebilir: 
+Windows kümeleri uygulama başlatılırken bir PFX dosyasına rastgele oluşturulmuş bir parolayla korunan her başvurulan sertifikası ve karşılık gelen özel anahtarıyla çalışma zamanı verir. PFX ve parola dosyaları, sırasıyla aşağıdaki ortam değişkenlerini kullanarak kapsayıcı içinde erişilebilir: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password

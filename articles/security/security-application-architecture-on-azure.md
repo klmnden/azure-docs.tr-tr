@@ -4,7 +4,7 @@ description: " Bu makalede, tasarım ve uygulama güvenlik tümleştirme daha ko
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 4f2d9386-bda3-4ec8-8b1a-cd0c11242ffc
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 78746324c240e0a1bfab81ca1e45f231909328c0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 76f5627a28c2c0ab326197893a9b9739628af0fb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661199"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108085"
 ---
 # <a name="application-architecture-on-azure"></a>Azure’da uygulama mimarisi
 Güvenliğini sağlamaya yardımcı olmak için bulut tabanlı çözümlerinizi Microsoft azure'da güçlü bir mimari temel önemlidir. Mimarları, tasarımcılar ve uygulayıcılar sağlam bir uygulama ve Hizmetleri mimarisi bilgilerden yararlanın. Bu temel bilgi, bulut tabanlı çözümler tüm bileşenlerini anlayın ve güvenlik tasarımı ve uygulaması tüm yönlerini tümleştirmeyi kolaylaştırmak yardımcı olur.

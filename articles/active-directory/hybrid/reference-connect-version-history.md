@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: caff4973515d3866b94dba2e89d089ff042de43b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a3851e4c35b333e862ead296ad1e8448c3317228
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813254"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210501"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -686,7 +687,7 @@ CBool(
 * Aşağıdaki şema değişiklikleri, sAMAccountName, domainNetBios ve Grup nesneleri için domainFQDN yanı sıra, kullanıcı nesnelerinin distinguishedName flow için özel bir eşitleme kuralları oluşturmak kanıtlayabilecekleri sunulmuştur:
 
   * Aşağıdaki öznitelikler MV şemaya eklenmiştir:
-    * Grup: accountName
+    * Grup: Hesap adı
     * Group: domainNetBios
     * Grup: domainFQDN
     * Kişi: distinguishedName
@@ -843,7 +844,7 @@ Doğrudan Kimlik Doğrulama
 * Azure AD Connect Sihirbazı aracılığıyla başarılı kimlik doğrulaması seçildiğinde ancak kendi bağlayıcı kaydı başarısız olursa başarısız olmasına neden olan sorun düzeltildi.
 * Neden olur, Masaüstü SSO özelliği etkinleştirilmişse seçilen oturum açma yöntemi üzerinde doğrulama atlama için Azure AD Connect Sihirbazı'nı denetler bir sorun düzeltildi.
 
-Parola sıfırlama
+Parola Sıfırlama
 * Azure AAD Connect sunucusu bağlantısı bir güvenlik duvarı veya Ara sunucu tarafından sonlandırıldı. yeniden bağlanmak kullanmamanız neden olabilecek bir sorun düzeltildi.
 
 **Yeni özellikler/iyileştirmeleri:**
@@ -858,7 +859,7 @@ AD FS Yönetimi
 * Şimdi, AD FS yükleme sırasında mevcut gmsa'yı (Grup yönetilen hizmet hesabı) belirtebilirsiniz.
 * Şimdi, Azure AD bağlı olan taraf güveni için imza karma algoritma olarak SHA-256'yı da yapılandırabilirsiniz.
 
-Parola sıfırlama
+Parola Sıfırlama
 * İşlev ürüne daha sıkı güvenlik duvarı kuralları içeren ortamlarda izin vermek için sunulan geliştirmeler.
 * Azure Service Bus geliştirilmiş bağlantı güvenilirlik.
 

@@ -3,7 +3,7 @@ title: Premium Azure önbelleği için Redis veri kalıcılığı yapılandırma
 description: Yapılandırma ve Azure Cache Redis örneği için Premium katman veri kalıcılığı yönetme hakkında bilgi edinin
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
-ms.author: wesmc
-ms.openlocfilehash: 903fd465ce2a88e94b821c9a1b4c6c531083180a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: yegu
+ms.openlocfilehash: 8a98d82f00ebf6288ab35681a665d56557bbde4a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819068"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107795"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Premium Azure önbelleği için Redis veri kalıcılığı yapılandırma
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, kümeleme, Kalıcılık ve sanal ağ desteği gibi Premium katman özellikleri dahil olmak üzere tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Bu makalede de Redis örneği için bir premium Azure Cache kalıcılığı yapılandırma açıklanır.
