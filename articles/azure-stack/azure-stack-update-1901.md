@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0865227a05d5cb25a44114fc053f61b8f70ffb94
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100100"
+ms.locfileid: "56115717"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 güncelleştirme
 
@@ -89,7 +89,7 @@ Bu güncelleştirme, aşağıdaki yeni özellikleri ve Azure Stack için gelişt
          Yeni değişiklik: Yedekleme, sertifika tabanlı şifreleme moduna değiştirir. Simetrik anahtarlar için destek kullanım dışı bırakılmıştır.  
    * **Azs.Fabric.Admin Modülü**  
          `Get-AzsInfrastructureVolume` kullanım dışıdır. Yeni cmdlet kullanma `Get-AzsVolume`.  
-         `Get-AzsStorageSystem` kullanım dışıdır.  Yeni yeni cmdlet'ini kullanın `Get-AzsStorageSubSystem`.  
+         `Get-AzsStorageSystem` kullanım dışıdır.  Yeni cmdlet kullanma `Get-AzsStorageSubSystem`.  
          `Get-AzsStoragePool` kullanım dışıdır. `StorageSubSystem` Nesne kapasite özelliği içerir.  
    * **Azs.Compute.Admin Modülü**  
          Hata düzeltmesi - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Çağırma `ConvertTo-PlatformImageObject` yalnızca başarı yolunda.  
@@ -134,7 +134,7 @@ Güncelleştirilmiş modüller için başvuru incelemesi için bkz: [Azure Stack
 - Yönetilen diskler kotalar altında değeri ayarlanırken bir sorun düzeltildi [kota türleri işlem](azure-stack-quota-types.md#compute-quota-types) 0, 2048 GiB varsayılan değerine eşdeğer olan. Sıfır kota değeri artık uyulduğundan.
 
 <!-- 2724873 - IS --> 
-- PowerShell cmdlet'lerini kullanırken bir sorun düzeltildi **başlangıç AzsScaleUnitNode** veya **Stop-AzsScaleunitNode** ölçek birimleri, başlatma veya durdurma ölçek birimi için yapılan ilk girişim başarısız olabilir, yönetilecek.
+- PowerShell cmdlet'lerini kullanırken bir sorun düzeltildi **başlangıç AzsScaleUnitNode** veya **Stop-AzsScaleUnitNode** ölçek birimleri, başlatma veya durdurma ölçek birimi için yapılan ilk girişim başarısız olabilir, yönetilecek.
 
 <!-- 2724961- IS ASDK --> 
 - İçinde kayıtlı bir sorun düzeltildi **Microsoft.Insight** kaynak sağlayıcısındaki bir abonelik ayarları ve bir Windows VM konuk işletim sistemi etkin Tanılama ile oluşturuldu, ancak CPU yüzdesi grafiğin VM genel bakış sayfasında gösterme Ölçüm verileri. Veriler artık doğru şekilde görüntülenir.

@@ -1,5 +1,5 @@
 ---
-title: Sanal ağ hizmet uç noktaları ve Azure SQL kuralları için PowerShell | Microsoft Docs
+title: Sanal ağ uç noktaları ve tek ve havuza alınmış Azure SQL veritabanlarına yönelik kuralları için PowerShell | Microsoft Docs
 description: Oluşturma ve Azure SQL veritabanı ve SQL veri ambarı için sanal hizmet uç noktaları yönetmek için PowerShell komut dosyaları sağlar.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/11/2019
+ms.openlocfilehash: b30240620e3a8d3dea1849e895ec021c96fc11c6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566304"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117621"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  SQL sanal hizmet uç noktası ve sanal ağ kuralı oluşturma
 
-Hem Azure [SQL veritabanı](sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) sanal hizmet uç noktalarını destekler.
+*Sanal ağ kuralları* olduğunu denetleyen bir güvenlik duvarı olup olmadığını tek veritabanlarının ve azure'daki esnek havuz için veritabanı sunucusu [SQL veritabanı](sql-database-technical-overview.md) veya veritabanlarınızı [SQL veri Ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) belirli alt ağları sanal ağlardaki gönderildiği iletişimi kabul eder.
 
-> [!NOTE]
-> Bu makale, Azure SQL server ve Azure SQL sunucusu üzerinde oluşturulmuş olan hem SQL veritabanı ve SQL veri ambarı veritabanları için geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır. Bu makale *değil* uygulamak **Azure SQL veritabanı yönetilen örneği** bir yönetilen örnek alt ağla ilişkili bir hizmet uç noktasına sahip.
+> [!IMPORTANT]
+> Bu makale, Azure SQL server ve Azure SQL sunucusu üzerinde oluşturulmuş olan hem SQL veritabanı ve SQL veri ambarı veritabanları için geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır. Bu makale *değil* geçerli bir **yönetilen örnek** Azure SQL veritabanı'nda dağıtım çünkü kendisiyle ilişkilendirilmiş bir hizmet uç noktası yok.
 
 Bu makale sağlar ve aşağıdaki işlemleri yapar bir PowerShell Betiği açıklanmaktadır:
 

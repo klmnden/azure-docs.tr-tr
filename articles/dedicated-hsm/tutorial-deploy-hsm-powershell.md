@@ -4,7 +4,7 @@ description: PowerShell kullanarak mevcut bir sanal ağa ayrılmış bir HSM da�
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fd701c92ea2cf1447f0c3ea14db6a968ac8910e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086322"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115683"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Öğretici: PowerShell kullanarak mevcut sanal ağına HSM'ler dağıtma
 
@@ -37,7 +37,7 @@ Bu öğreticide HSM'ler çifti üzerinde odaklanır ve gerekli ExpressRoute (bkz
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure ayrılmış HSM Azure portalında şu anda kullanılamıyor, bu nedenle tüm etkileşim hizmeti ile komut satırı veya kullanarak PowerShell olur. Bu öğreticide, Azure Cloud Shell'de PowerShell kullanacaksınız. PowerShell için yeni başladıysanız, buradaki yönergeleri izleme ile çalışmaya başlama: [Azure PowerShell kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
+Azure ayrılmış HSM Azure portalında şu anda kullanılamıyor, bu nedenle tüm etkileşim hizmeti ile komut satırı veya kullanarak PowerShell olur. Bu öğreticide, Azure Cloud Shell'de PowerShell kullanacaksınız. PowerShell için yeni başladıysanız, izleme Buradaki yönergeleri Başlarken: [Azure PowerShell kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
 
 Varsayımlar:
 

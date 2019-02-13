@@ -2,19 +2,19 @@
 title: Azure anahtar kasası Geliştirici Kılavuzu
 description: Geliştiriciler, Azure anahtar kasası, Microsoft Azure ortamında şifreleme anahtarlarını yönetmek için kullanabilirsiniz.
 services: key-vault
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/05/2018
-ms.author: bryanla
-ms.openlocfilehash: 9ab399ae50f9b04acad411b225797f89547a2824
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 02/11/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 274ba6d6a1ce2e9c8f2cae0ca29de8442525391e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237545"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106498"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure anahtar kasası Geliştirici Kılavuzu
 
@@ -23,7 +23,7 @@ Key Vault, uygulamalarınızın içinden hassas bilgilere güvenli bir şekilde 
 - Kodu kendiniz yazmak zorunda kalmadan anahtarları ve gizli dizileri korunur ve bunları uygulamalarınızdan kolayca kullanabilirsiniz.
 - Çekirdek yazılım özelliklerini sağlamaya hakkında yoğunlaşabilirsiniz. böylece kendi anahtarlarınızı yönetme ve müşterilerinize kendi sahip olursunuz. Bu şekilde, uygulamalarınızı müşterilerinizin Kiracı anahtarları ve gizli anahtarları olası bir yükümlülük ve Sorumluluk sahibi değil.
 - Uygulamanızı imzalamak için anahtar kullanabilirsiniz ve henüz şifreleme anahtar yönetimi çözümünüz, coğrafi olarak dağıtılmış bir uygulama olarak uygun olmasını sağlar, uygulamanızın dış tutar.
-- Key Vault Eylül 2016 sürümü itibarıyla, uygulamalarınızın artık sertifikaları Key Vault yönetebilirsiniz. Daha fazla bilgi için [anahtarlara, parolalara ve sertifikalara hakkında](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
+- Key Vault Eylül 2016 sürümü itibarıyla, uygulamalarınızın artık sertifikaları Key Vault yönetebilirsiniz. Daha fazla bilgi için [anahtarlara, parolalara ve sertifikalara hakkında](/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 Azure Key Vault hakkında daha fazla genel bilgi için bkz. [Key Vault nedir](key-vault-whatis.md).
 
@@ -36,7 +36,7 @@ Periyodik olarak yeni bir Key Vault özelliği genel Önizleme bırakın. Bu den
 >[!NOTE]
 >Azure Key Vault Bu güncelleştirme yalnızca **depolama hesabı anahtarlarını** özelliği önizlemededir.
 
-Bu önizleme, yeni depolama hesabı anahtarlarını özelliğimiz, bu arabirimler kullanılabilir içerir; [.NET / C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) ve [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+Bu önizleme, yeni depolama hesabı anahtarlarını özelliğimiz, bu arabirimler kullanılabilir içerir; [.NET / C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) ve [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
 
 Yeni depolama hesabı anahtarlarını özelliği hakkında daha fazla bilgi için bkz. [Azure Key Vault depolama hesabı anahtarlarına genel bakış](key-vault-ovw-storage-keys.md).
 
@@ -55,19 +55,19 @@ Yukarıdaki videoda belirtilen kaynaklar:
 
 Azure Key Vault kimlik bilgilerini ve diğer anahtarlarla gizli dizileri güvenle depolamak için bir yol sağlar, ama bunları alabilmek için kodunuzun Key Vault'ta kimlik doğrulaması yapması gerekir. Azure kaynakları için yönetilen kimlikleri, Azure hizmetleri otomatik olarak yönetilen bir kimlik Azure Active Directory (Azure AD) sağlayarak bu sorunu daha basit çözme hale getirir. Bu kimliği kullanarak, Key Vault da dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz. 
 
-Azure kaynakları için yönetilen kimlikleri hakkında daha fazla bilgi için bkz. [yönetilen kimlikleri genel bakış](../active-directory/managed-identities-azure-resources/overview.md). AAD ile çalışma hakkında daha fazla bilgi için bkz. [uygulamaları Azure Active Directory ile tümleştirme](/azure/active-directory/develop/active-directory-integrating-applications).
+Azure kaynakları için yönetilen kimlikleri hakkında daha fazla bilgi için bkz. [yönetilen kimlikleri genel bakış](../active-directory/managed-identities-azure-resources/overview.md). AAD ile çalışma hakkında daha fazla bilgi için bkz. [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/active-directory-integrating-applications.md).
 
 Anahtar kasanızda anahtarları, gizli dizileri veya sertifikalar ile çalışmaya başlamadan önce oluşturacak ve CLI, PowerShell, Resource Manager şablonları ya da, REST üzerinden anahtar kasanıza aşağıdaki makalelerde açıklanan şekilde yönetin:
 
 - [Oluşturma ve CLI ile anahtar kasalarını yönetme](key-vault-manage-with-cli2.md)
-- [Oluşturma ve PowerShell ile anahtar kasalarını yönetme](key-vault-get-started.md)
+- [Oluşturma ve PowerShell ile anahtar kasalarını yönetme](key-vault-overview.md)
 - [Key vault oluşturma ve bir Azure Resource Manager şablonu aracılığıyla bir gizli dizi ekleme](../azure-resource-manager/resource-manager-template-keyvault.md)
-- [REST ile anahtar kasalarını yönetme ve oluşturma](https://docs.microsoft.com/rest/api/keyvault/)
+- [REST ile anahtar kasalarını yönetme ve oluşturma](/rest/api/keyvault/)
 
 
 ## <a name="coding-with-key-vault"></a>Key Vault ile kodlama
 
-Anahtar kasası yönetim sistemi programcıları için birkaç arabirimleri oluşur. Bu bölümde, tüm diller yanı sıra bazı kod exampls bağlantılar içerir. 
+Anahtar kasası yönetim sistemi programcıları için birkaç arabirimleri oluşur. Bu bölüm, tüm diller yanı sıra bazı kod örnekleri bağlantılarını içerir. 
 
 ### <a name="supported-programming-and-scripting-languages"></a>Desteklenen dilleri komut dosyası ve programlama
 
@@ -75,37 +75,37 @@ Anahtar kasası yönetim sistemi programcıları için birkaç arabirimleri olu�
 
 Tüm anahtar kasası kaynaklarınızın REST arabirimi aracılığıyla erişilebilen; kasaları, anahtarları, gizli dizileri, vb. 
 
-[Anahtar kasası REST API Başvurusu](https://docs.microsoft.com/rest/api/keyvault/). 
+[Anahtar kasası REST API Başvurusu](/rest/api/keyvault/).
 
 #### <a name="net"></a>.NET
 
-[Key Vault için .NET API refence](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+[Key Vault için .NET API Başvurusu](/dotnet/api/microsoft.azure.keyvault).
 
 .NET SDK 2.x sürümü hakkında daha fazla bilgi için bkz. [sürüm notları](key-vault-dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
-[Java SDK'sı için anahtar kasası](https://docs.microsoft.com/java/api/overview/azure/keyvault)
+[Java SDK'sı için anahtar kasası](/java/api/overview/azure/keyvault)
 
 #### <a name="nodejs"></a>Node.js
 
 Node.js'de Key Vault Yönetimi API'si ve API Key Vault nesne ayrıdır. Aşağıdaki genel bakış makalesi hem de erişmenizi sağlar. 
 
-[Node.js için Azure Key Vault modülleri](https://docs.microsoft.com/nodejs/api/overview/azure/key-vault)
+[Node.js için Azure Key Vault modülleri](/nodejs/api/overview/azure/key-vault)
 
 #### <a name="python"></a>Python
 
-[Python için Azure Key Vault kitaplıkları](https://docs.microsoft.com/python/api/overview/azure/key-vault)
+[Python için Azure Key Vault kitaplıkları](/python/api/overview/azure/key-vault)
 
 #### <a name="azure-cli-2"></a>Azure CLI 2
 
-[Key Vault için Azure CLI](https://docs.microsoft.com/cli/azure/keyvault)
+[Key Vault için Azure CLI](/cli/azure/keyvault)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Key Vault için Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
+[Key Vault için Azure PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
 
-### <a name="quick-start-guides"></a>Hızlı Başlangıç kılavuzları
+### <a name="quick-start-guides"></a>Hızlı başlangıç kılavuzları
 
 - [Anahtar kasası oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Node.js'de Key Vault'u kullanmaya başlama](https://github.com/Azure-Samples/key-vault-node-getting-started)
@@ -139,7 +139,7 @@ Aşağıdaki makaleler ve senaryoları Azure anahtar kasası ile çalışmaya y�
 Bu makaleler diğer senaryolar ve kullanabilir veya Key Vault ile tümleştirme hizmetleri üzeresiniz.
 
 - [Azure Disk şifrelemesi](../security/azure-security-disk-encryption.md) endüstri standardı yararlanır [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) Windows özelliğidir ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) Linux işletim sistemi ve veri diskleri için birim şifrelemesi sağlamak için bir özelliğidir. Denetim ve disk şifreleme anahtarlarını ve gizli dizileri sanal makine disklerini tüm veriler Azure depolama alanınızda bekleme sırasında şifrelenir sağlarken, anahtar kasası aboneliğinizdeki yönetmenize yardımcı olması için Azure Key Vault ile tümleşik bir çözüm.
-- [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) hesapta depolanan verilerin şifrelenmesi için seçenek sunar. Anahtar Yönetimi için Data Lake Store, Data Lake Store içinde depolanan tüm verilerin şifresini çözmek için gerekli olan, ana şifreleme anahtarlarının (Mek'ler) yönetimi için iki mod sağlar. Data Lake Store, Mek'leri yönetmek veya Azure anahtar kasası hesabınızı kullanarak Mek'ler sahipliğini tutmayı seçin ya da sağlayabilirsiniz. Anahtar Yönetimi modunda, bir Data Lake Store hesabı oluşturma sırasında belirtin. 
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) hesapta depolanan verilerin şifrelenmesi için seçenek sunar. Anahtar Yönetimi için Data Lake Store, Data Lake Store içinde depolanan tüm verilerin şifresini çözmek için gerekli olan, ana şifreleme anahtarlarının (Mek'ler) yönetimi için iki mod sağlar. Data Lake Store, Mek'leri yönetmek veya Azure anahtar kasası hesabınızı kullanarak Mek'ler sahipliğini tutmayı seçin ya da sağlayabilirsiniz. Anahtar Yönetimi modunda, bir Data Lake Store hesabı oluşturma sırasında belirtin.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) kendi Kiracı anahtarınızı yöneticisine sağlar. Örneğin, Microsoft Kiracı anahtarınızı (varsayılan) yerine, kuruluşunuz için geçerli olan belirli düzenlemelere uymak üzere kendi Kiracı anahtarınızı yönetebilirsiniz. Kendi Kiracı anahtarınızı yönetme olarak kendi anahtarını Getir veya BYOK için de denir.
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault genel bakışlar ve kavramları
@@ -158,5 +158,3 @@ Bu makaleler diğer senaryolar ve kullanabilir veya Key Vault ile tümleştirme 
 
 - [Microsoft Azure anahtar kasası çekirdek Kitaplığı](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) sağlar **IKey** ve **IKeyResolver** tanımlayıcıları anahtarlarını bulma ve anahtarlarla işlemleri gerçekleştirmek için arabirim.
 - [Microsoft Azure anahtar kasası uzantıları](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) Azure anahtar kasası için genişletilmiş özellikler sunar.
-
-

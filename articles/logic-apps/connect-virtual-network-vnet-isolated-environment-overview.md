@@ -8,20 +8,20 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 02/12/2019
+ms.openlocfilehash: 204138e7b8b3846e2d50607b3c5ec0836abefe24
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54061032"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162382"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Tümleştirme service ortamları (ISEs) kullanarak Azure sanal ağ kaynakları için Azure Logic Apps gelen erişimi
 
 > [!NOTE]
-> Bu özellik bulunduğu *özel Önizleme*. Erişim talep etmek [burada katılma isteğiniz oluşturma](https://aka.ms/iseprivatepreview).
+> Bu özellik bulunduğu *özel Önizleme*. Özel önizlemeye katılmak için [isteğiniz buraya oluşturma](https://aka.ms/iseprivatepreview).
 
-Bazı durumlarda, logic apps ve tümleştirme hesapları sanal makineleri (VM'ler) ve diğer sistemler veya hizmetleri gibi güvenli kaynaklara erişmeye ihtiyacınız bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bu erişimi ayarlamak için [oluşturmak bir *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) logic apps ve tümleştirme hesapları çalıştırma. 
+Bazı durumlarda, logic apps ve tümleştirme hesapları sanal makineleri (VM'ler) ve diğer sistemler veya hizmetleri gibi güvenli kaynaklara erişmeye ihtiyacınız bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bu erişimi ayarlamak için [oluşturmak bir *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) logic apps ve tümleştirme hesapları çalıştırma.
 
 ![Tümleştirme hizmeti ortamı seçin](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
@@ -33,10 +33,10 @@ Bu genel bakış, nasıl bir işe logic apps sağlar ve tümleştirme hesapları
 
 ## <a name="isolated-versus-global"></a>Genel karşı yalıtılmış
 
-Azure'da bir tümleşik service ortamı (ISE) oluşturduğunuzda, istediğiniz Azure sanal ağı seçin *ekleme* , işe. Azure Logic Apps hizmetinin sanal ağınızda özel bir örneği dağıtır. Bu eylem, oluşturduğunuz ve ayrılmış kaynakları mantıksal uygulamalarınızı çalıştırmak için yalıtılmış bir ortam oluşturur. Mantıksal uygulama oluşturduğunuzda, mantıksal uygulama doğrudan erişim sağlayan, sanal ağınızda bulunan kaynaklar için uygulamanızın konumu olarak bu ortamı seçin. 
+Azure'da bir tümleşik service ortamı (ISE) oluşturduğunuzda, istediğiniz Azure sanal ağı seçin *ekleme* , işe. Azure Logic Apps hizmetinin sanal ağınızda özel bir örneği dağıtır. Bu eylem, oluşturduğunuz ve ayrılmış kaynakları mantıksal uygulamalarınızı çalıştırmak için yalıtılmış bir ortam oluşturur. Mantıksal uygulama oluşturduğunuzda, mantıksal uygulama doğrudan erişim sağlayan, sanal ağınızda bulunan kaynaklar için uygulamanızın konumu olarak bu ortamı seçin.
 
 Logic apps'te bir işe genel Logic Apps hizmet olarak aynı kullanıcı deneyimleri ve benzer özellikleri sağlar. Yalnızca genel Logic Apps hizmetinde aynı yerleşik Eylemler ve bağlayıcılar kullanabilirsiniz, ancak işe özel bağlayıcılar da kullanabilirsiniz. Örneğin, bir ISE'de çalıştıran sürümler sunduğu bazı standart bağlayıcılar şu şekildedir:
- 
+
 * Azure Blob Depolama, dosya depolama ve tablo depolama
 * Azure kuyrukları, Azure Service Bus, Azure olay hub'ları ve IBM MQ
 * FTP ve SFTP-SSH
@@ -45,15 +45,15 @@ Logic apps'te bir işe genel Logic Apps hizmet olarak aynı kullanıcı deneyiml
 
 ISE ve ISE olmayan bağlayıcıları arasındaki fark tetikleyiciler ve Eylemler çalıştırdığı konumlarda bulunur:
 
-* ISE'de yerleşik tetikleyiciler ve Eylemler HTTP gibi her zaman aynı işe olarak mantıksal uygulamanızı çalıştırın. 
+* ISE'de yerleşik tetikleyiciler ve Eylemler HTTP gibi her zaman aynı işe olarak mantıksal uygulamanızı çalıştırın.
 
 * Başka bir sürüm genel Logic Apps hizmetinde çalışırken iki sürümü teklif bağlayıcıları, bir ISE'de bir sürümü çalışır.  
 
-  Sahip bağlayıcıları **ISE** her zaman aynı işe olarak mantıksal uygulamanızı çalıştırma etiketleyin. Bağlayıcılar olmadan **ISE** etiket genel Logic Apps hizmetinde çalıştırın. 
+  Sahip bağlayıcıları **ISE** her zaman aynı işe olarak mantıksal uygulamanızı çalıştırma etiketleyin. Bağlayıcılar olmadan **ISE** etiket genel Logic Apps hizmetinde çalıştırın.
 
   ![ISE bağlayıcıları seçme](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
-* Bir ISE'de çalışan bağlayıcılar ayrıca genel Logic Apps hizmetinde kullanılabilir. 
+* Bir ISE'de çalışan bağlayıcılar ayrıca genel Logic Apps hizmetinde kullanılabilir.
 
 > [!IMPORTANT]
 > Logic apps, yerleşik Eylemler ve bağlayıcılar, ISE'de çalıştıran farklı bir fiyatlandırma planı, değil tüketim tabanlı fiyatlandırma planı kullanın. Daha fazla bilgi için [Logic Apps fiyatlandırma](../logic-apps/logic-apps-pricing.md).
@@ -62,13 +62,13 @@ ISE ve ISE olmayan bağlayıcıları arasındaki fark tetikleyiciler ve Eylemler
 
 ## <a name="permissions-for-virtual-network-access"></a>Sanal ağ erişim izinleri
 
-Bir tümleştirme hizmeti ortamı (ISE) oluşturduğunuzda, yeri bir Azure sanal ağı seçin, *ekleme* ortamınızı. Ekleme, sanal ağınızda özel bir Logic Apps hizmetinin örneğini dağıtır. Bu eylem, oluşturduğunuz ve ayrılmış kaynakları mantıksal uygulamalarınızı çalıştırmak için yalıtılmış bir ortam sonuçlanır. Oluşturduğunuz logic apps, işe uygulamalarınızın konum olarak seçin. Bu mantıksal uygulamalar daha sonra doğrudan sanal ağa erişmek ve bu ağdaki kaynaklara da bağlayın. 
+Bir tümleştirme hizmeti ortamı (ISE) oluşturduğunuzda, yeri bir Azure sanal ağı seçin, *ekleme* ortamınızı. Ekleme, sanal ağınızda özel bir Logic Apps hizmetinin örneğini dağıtır. Bu eylem, oluşturduğunuz ve ayrılmış kaynakları mantıksal uygulamalarınızı çalıştırmak için yalıtılmış bir ortam sonuçlanır. Oluşturduğunuz logic apps, işe uygulamalarınızın konum olarak seçin. Bu mantıksal uygulamalar daha sonra doğrudan sanal ağa erişmek ve bu ağdaki kaynaklara da bağlayın.
 
-Bir sanal ağa bağlı sistemler için logic apps doğrudan bu sistemleri bu öğelerden herhangi birini kullanarak erişebilmesi için bu sanal ağa bir işe ekleyemezsiniz: 
+Bir sanal ağa bağlı sistemler için logic apps doğrudan bu sistemleri bu öğelerden herhangi birini kullanarak erişebilmesi için bu sanal ağa bir işe ekleyemezsiniz:
 
 * Örneğin, SQL Server sistem için işe Bağlayıcısı
 
-* HTTP eylemi 
+* HTTP eylemi
 
 * Özel bağlayıcı
 

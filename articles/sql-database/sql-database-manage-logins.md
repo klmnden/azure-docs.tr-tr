@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 436dbccfe8d5b732bc64b58ff79dc772ac8b2bce
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964194"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164626"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Denetleme ve SQL veritabanı ve SQL veri ambarı veritabanına erişim izni verme
 
@@ -87,7 +87,7 @@ Daha önce anlatılan sunucu düzeyi yönetim rollerine ek olarak SQL Veritaban�
 Bu yönetici rollerinden biri, **dbmanager** rolüdür. Bu rolün üyeleri yeni veritabanları oluşturabilir. Bu rolü kullanmak için `master` veritabanında bir kullanıcı oluşturmanız ve bu kullanıcıyı **dbmanager** veritabanı rolüne eklemeniz gerekir. Bir veritabanı oluşturmak için kullanıcının, ana veritabanındaki SQL Server oturumunu temel alan bir kullanıcı ya da Azure Active Directory kullanıcısını temel alan bağımsız bir veritabanı kullanıcısı olması gerekir.
 
 1. Bir yönetici hesabını kullanarak ana veritabanına bağlanın.
-2. İsteğe bağlı adım: Bir SQL Server kimlik doğrulama oturumu kullanarak [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) deyimi. Örnek deyim:
+2. Bir SQL Server kimlik doğrulama oturumu kullanarak [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) deyimi. Örnek deyim:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';

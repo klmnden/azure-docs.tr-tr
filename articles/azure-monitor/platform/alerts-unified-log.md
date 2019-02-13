@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 70f53ed06daad8adf10ef5a88f0672f86d6a8b48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004137"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106419"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
 Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](../platform/alerts-overview.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
@@ -99,14 +99,28 @@ Burada herhangi bir bilgisayarda, % 90'ın işlemci kullanımı üç kez tekrar 
 - **Sorgu:** Perf | Burada ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" == | Summarize aggregatedvalue = avg(CounterValue) bin (TimeGenerated, 5 milyon), bilgisayar tarafından<br>
 - **Zaman aralığı:** 30 dakika<br>
 - **Uyarı sıklığı:** beş dakika<br>
-- **Toplam değer:** 90'dan büyük<br>
+- **Alert Logic - koşul & eşiği:** 90'dan büyük<br>
+- **Alan (toplama üzerinde):** Bilgisayar
 - **Bağlı olarak uyarıyı Tetikle:** 2'den büyük toplam ihlal sayısı<br>
 
-Sorguyu 5 dakikalık aralıklarla her bilgisayar için ortalama bir değer oluşturur.  Bu sorgu, önceki 30 dakika boyunca 5 dakikada bir toplanan veriler için çalıştırılmaz.  Örnek verileri varsayılan olarak, üç bilgisayar için aşağıda gösterilmiştir.
+Sorguyu 5 dakikalık aralıklarla her bilgisayar için ortalama bir değer oluşturur.  Bu sorgu, önceki 30 dakika boyunca 5 dakikada bir toplanan veriler için çalıştırılmaz. Seçilen alan (toplam açma) sütunlu 'bilgisayara' - olduğundan AggregatedValue 'Bilgisayara' çeşitli değerleri için ayrılır ve ortalama işlemci kullanımını her bilgisayar için 5 dakikalık bir zaman depo belirlenir.  Örnek sorgu sonucu için (örneğin üç bilgisayar) olacak şekilde aşağıda.
+
+
+|TimeGenerated [UTC] |Bilgisayar  |AggregatedValue  |
+|---------|---------|---------|
+|20xx-xx-xxT01:00:00Z     |   Srv01.contoso.com      |    72     |
+|20xx-xx-xxT01:00:00Z     |   SRV02.contoso.com      |    91     |
+|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|...     |   ...      |    ...     |
+|20xx-xx-xxT01:30:00Z     |   Srv01.contoso.com      |    88     |
+|20xx-xx-xxT01:30:00Z     |   SRV02.contoso.com      |    84     |
+|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+
+Sorgu sonucu çizilmek üzere olsaydınız olarak görünür.
 
 ![Örnek sorgu sonuçları](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-Bunlar üç kez zaman aralığında toplanan % 90 eşiğini ihlal olduğundan bu örnekte, ayrı uyarılar srv02 srv03 için oluşturulmuş olması.  Varsa **bağlı olarak uyarıyı Tetikle:** üzere değiştirilmiştir **art arda** sonra üç ardışık örnekler eşiği ihlal olduğundan bir uyarı yalnızca srv03 için oluşturulacak.
+Bu örnekte, 5 dakika depo her üç bilgisayar - 5 dakika için ortalama işlemci kullanımı olarak hesaplanan görüyoruz. Yalnızca bir kez srv01 tarafından 1:25 ihlal 90 eşiğini depo. Buna karşılık, srv02 1: 10'da 90 eşiğini aşan 1:15 ve 1:25 depo; srv03 1: 10'da, 1:15, 90 eşiğini aşıyor ancak 1:20 ve 1:30. Uyarı şekilde yapılandırıldığından toplam ihlal sayısı üzerinde tetiklenecek ikiden, srv02 ve srv03 yalnızca ölçütlere uyan olduğunu görüyoruz. Bunlar birden çok zaman depo % 90 eşiğini ihlal olduğundan bu nedenle ayrı uyarılar srv02 srv03 için oluşturulmuş olması.  Varsa *bağlı olarak uyarıyı Tetikle:* parametresi için bunun yerine yapılandırıldıysa *sürekli ihlallerini* uyarı tetiklendi seçeneğini **yalnızca** bunu ihlal beri srv03 için üç ardışık zaman depo 1: 10'dan 1:20 eşiği. Ve **değil** srv02 için olarak ihlal 1: 10'dan 1:15 iki ardışık zaman depo eşiği.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Günlük araması uyarı kuralı - Açmadığınızda ve durumu
 

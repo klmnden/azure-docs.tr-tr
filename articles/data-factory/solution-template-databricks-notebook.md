@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: bb9277a9e8f5e8bacb6b7aab7b9a5b411c86edbd
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3d7fd9b3e7ab8e5f193fd3b34a804b9ed0780d66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967724"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105697"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Azure Data Factory'de Databricks kullanarak verileri dönüştürme
 
@@ -89,13 +89,13 @@ Bu şablon basit tutmak için zamanlanmış bir tetikleyici şablonu oluşturmaz
 
     1.  **Havuz** : verileri kopyalamak için.
 
-        Oluşturulan bir depolama alanını seçin [önkoşul 1](#prerequisite), havuza bağlı hizmeti.
+        ' % S'önkoşul 1, havuz bağlantılı hizmet olarak oluşturulan bir depolama alanını seçin.
 
         ![7](media/solution-template-Databricks-notebook/Databricks-tutorial-image07.png)
 
     1.  **Databricks** – Databricks kümesine bağlanma
 
-        Bir Databricks bağlı hizmeti erişim anahtarı kullanılarak oluşturulan oluşturma [önkoşul 2.c](#prerequisite). Varsa bir *etkileşimli küme*, şunları seçebilirsiniz. (Bu örnekte *yeni iş küme* seçeneği.)
+        Önkoşul 2.c içinde oluşturulan erişim anahtarı kullanarak bir Databricks bağlı hizmeti oluşturun. Varsa bir *etkileşimli küme*, şunları seçebilirsiniz. (Bu örnekte *yeni iş küme* seçeneği.)
 
         ![8](media/solution-template-Databricks-notebook/Databricks-tutorial-image08.png)
 

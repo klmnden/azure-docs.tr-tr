@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240605"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109326"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kümesi güvenlik senaryoları
 Bir Azure Service Fabric kümesine sahip olduğunuz bir kaynaktır. Yetkisiz kullanıcıların bunlara bağlanmasını önlemeye yardımcı olmak için kümeleri güvenli hale getirmek için sizin sorumluluğunuzdur. Üretim iş yükleri küme üzerinde çalışan, güvenli bir kümeye özellikle önemlidir. Kümenin yönetim uç noktalarını genel İnternet'e sunarsa, güvenli olmayan bir kümeye oluşturmak mümkün olsa da, anonim kullanıcılar için bağlanabilir. Güvenli olmayan kümelerini üretim iş yükleri için desteklenmez. 
@@ -78,14 +78,14 @@ Düğümden düğüme güvenlik için Azure kümelerinde, istemciler ve sertifik
 Windows Server 2012 R2 ve Windows Active Directory, varsa, tek başına Windows Server kümeleri için Windows Güvenlik Grup yönetilen hizmet hesapları ile kullanmanızı öneririz. Aksi takdirde, Windows Güvenlik ile Windows hesapları kullanın.
 
 ## <a name="role-based-access-control-rbac"></a>Rol Tabanlı Erişim Denetimi (RBAC)
-Erişim denetimi, belirli küme işlemleri farklı kullanıcı grupları için erişimi sınırlamak için kullanabilirsiniz. Bu, küme daha güvenli olmasına yardımcı olur. Bir kümeye bağlanma istemcileri için desteklenen iki erişim denetimi türleri: Yönetici rolü ve kullanıcı rolü.
+Erişim denetimi, belirli küme işlemleri farklı kullanıcı grupları için erişimi sınırlamak için kullanabilirsiniz. Bu, küme daha güvenli olmasına yardımcı olur. İstemciler bir kümeye bağlanmak için iki erişim denetim türleri desteklenir: Yönetici rolü ve kullanıcı rolü.
 
 Yönetici rolüne atanan kullanıcıların, okuma ve yazma özellikleri dahil olmak üzere yönetim özelliklerine tam erişime sahiptir. Varsayılan olarak, kullanıcı rolüne atanan kullanıcıların yalnızca okuma erişimi yönetim özelliklerine (örneğin, sorgu işlevleri) sahip. Uygulamalar ve hizmetler de çözebilirsiniz.
 
 Kümeyi oluşturduğunuzda, yönetici ve kullanıcı istemci rolleri ayarlayın. Rolleri ayrı kimlikleri (örneğin, sertifikalar veya Azure AD kullanarak) için her rol türü sağlayarak atayın. Varsayılan erişim denetimi ayarları ve varsayılan ayarlarının nasıl değiştirileceği hakkında daha fazla bilgi için bkz. [rol tabanlı Access Control Service Fabric istemciler için](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 sertifikaları ve Service Fabric
-X.509 dijital sertifikalar, istemciler ve sunucular kimliğini doğrulamak için yaygın olarak kullanılır. Bunlar iletileri dijital olarak imzalamak ve şifrelemek için kullanılır. Service Fabric küme güvenliğini sağlama ve uygulama güvenlik özellikler sağlamak için X.509 sertifikaları kullanır. X.509 dijital sertifikalar hakkında daha fazla bilgi için bkz. [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx). Kullandığınız [Key Vault](../key-vault/key-vault-get-started.md) azure'da Service Fabric kümelerine ait sertifikaları yönetmek için.
+X.509 dijital sertifikalar, istemciler ve sunucular kimliğini doğrulamak için yaygın olarak kullanılır. Bunlar iletileri dijital olarak imzalamak ve şifrelemek için kullanılır. Service Fabric küme güvenliğini sağlama ve uygulama güvenlik özellikler sağlamak için X.509 sertifikaları kullanır. X.509 dijital sertifikalar hakkında daha fazla bilgi için bkz. [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx). Kullandığınız [Key Vault](../key-vault/key-vault-overview.md) azure'da Service Fabric kümelerine ait sertifikaları yönetmek için.
 
 Dikkate alınması gereken bazı önemli noktalar:
 

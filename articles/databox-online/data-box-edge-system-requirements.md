@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 60c4b22fb34a66a0ff68db26030be0e0ea3c0066
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470257"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113779"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Azure veri kutusu Edge sistem gereksinimleri (Önizleme)
 
@@ -47,19 +47,21 @@ Veri kutusu Edge için sistem gereksinimleri şunlardır:
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## <a name="port-configuration-for-data-box-edge"></a>Veri kutusu Edge için bağlantı noktası yapılandırması
+## <a name="networking-port-requirements"></a>Ağ bağlantı noktası gereksinimleri
+
+### <a name="port-requirements-for-data-box-edge"></a>Veri kutusu Edge için bağlantı noktası gereksinimleri
 
 Aşağıdaki tabloda, SMB, Bulut ve yönetim trafiği için izin vermek için güvenlik duvarını açılması gereken bağlantı noktalarını listeler. Bu tabloda *içinde* veya *gelen* hangi gelen istemci istekleri erişimden Cihazınızı yönü belirtir. *Çıkış* veya *giden* içinde veri kutusu Edge cihazınıza gönderir dışarıdan, veri dağıtımı dışında Örneğin, internet'e giden yön ifade eder.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
-## <a name="port-configuration-for-iot-edge"></a>IOT Edge için bağlantı noktası yapılandırması
+### <a name="port-requirements-for-iot-edge"></a>IOT Edge için bağlantı noktası gereksinimleri
 
 Azure IOT Edge, IOT hub'ı Desteklenen protokoller kullanarak Azure bulutuna bir şirket içi uç CİHAZDAN giden iletişim sağlar. Gelen iletişim istekleri, yalnızca cihaz Mesajlaşma (bulut) Örneğin, Azure IOT Edge cihazı için iletileri göndermek için Azure IOT hub'ı gereken yere belirli senaryolar için gereklidir.
 
 Azure IOT Edge çalışma zamanı barındırma sunucuları için bağlantı noktası yapılandırması için aşağıdaki tabloyu kullanın:
 
-| Bağlantı noktası yok. | Daraltma veya genişletme | Bağlantı noktası kapsamı | Gereklidir | Rehber |
+| Bağlantı noktası yok. | Daraltma veya genişletme | Bağlantı noktası kapsamı | Gerekli | Rehber |
 |----------|-----------|------------|----------|----------|
 | TCP 5671 (AMQP)| Çıkan       | WAN        | Evet      | IOT Edge için varsayılan iletişim protokolü. Azure IOT Edge, diğer Desteklenen protokoller için yapılandırılmadı veya AMQP istenen iletişim protokolü, açık olması gerekir. <br>AMQP için 5672, IOT Edge tarafından desteklenmiyor. <br>Azure IOT Edge kullanan farklı bir IOT Hub protokol desteklendiğinde, bu bağlantı noktası engelleyin. |
 | TCP 443 (HTTPS)| Çıkan       | WAN        | Evet      | IOT Edge sağlama için giden açın. Yöntem isteği gönderebilir yaprak cihazlar ile saydam bir ağ geçidi varsa. Bu durumda, bağlantı noktası 443 IOT hub'a bağlama ya da IOT Hub, Azure IOT Edge üzerinden hizmetleri sağlamak için dış ağlara açık olması gerekmez. Bu nedenle gelen kuralı yalnızca iç ağdan gelen açmak için kısıtlı olabilir. |
@@ -80,25 +82,14 @@ Veri kutusu liberally çoğu zaman sabit IP adreslerinin, Edge temel giden trafi
 
 ### <a name="url-patterns-for-gateway-feature"></a>Ağ geçidi özelliği için URL desenleri
 
-|    URL deseni                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Bileşen veya işlevi                                                                           |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Azure veri kutusu Edge hizmeti<br>Azure Service Bus<br>Kimlik Doğrulama Hizmeti                           |
-|    http://\*. backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                                |    Cihaz etkinleştirme                                                                                    |
-|    http://crl.microsoft.com/pki/\*<br>http://www.microsoft.com/pki/\*                                                                                                                                                                                                                                                                                                                                                                                                  |    Sertifika iptal etme                                                                               |
-|    https://\*.core.windows.net/\*<br>https://\*. data.microsoft.com<br>http://\*. msftncsi.com                                                                                                                                                                                                                                                                                                                                                                            |    Azure depolama hesapları ve izleme                                                                |
-|    http://windowsupdate.microsoft.com<br>http://\*. windowsupdate.microsoft.com<br>https://\*. windowsupdate.microsoft.com<br>http://\*. update.microsoft.com<br>https://\*. update.microsoft.com<br>http://\*. windowsupdate.com<br>http://download.microsoft.com<br>http://\*. download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://\*. ws.microsoft.com<br>https://\*. ws.microsoft.com<br>http://\*. mp.microsoft.com |    Microsoft Update sunucularına                                                                             |
-|    http://\*. deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                                          |    Akamai CDN                                                                                           |
-|    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Destek paketi                                                                                      |
-|    http://\*. data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Telemetri hizmeti, Windows müşteri deneyimini ve tanılama telemetrisi güncelleştirmesi bakın      |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
-
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ### <a name="url-patterns-for-compute-feature"></a>İşlem özelliği için URL desenleri
 
 | URL deseni                      | Bileşen veya işlevi                     |   |
 |----------------------------------|---------------------------------------------|---|
 | `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft kapsayıcı kayıt defteri (gerekli)               |   |
-| https://\*.azurecr.io                     | Kişisel ve 3. taraf kapsayıcı kayıt defterleri (isteğe bağlı) |   |
+| https://\*.azurecr.io                     | Kişisel ve üçüncü taraf kapsayıcı kayıt defterleri (isteğe bağlı) |   |
 | https://\*.azure devices.net              | IOT hub'ı erişim (gerekli)                             |   |
 
 ## <a name="internet-bandwidth"></a>Internet bant genişliği
@@ -107,4 +98,4 @@ Veri kutusu liberally çoğu zaman sabit IP adreslerinin, Edge temel giden trafi
 
 ## <a name="next-step"></a>Sonraki adım
 
-* [Azure veri kutusu Ucunuzdaki dağıtma](data-box-Edge-deploy-prep.md)
+- [Azure veri kutusu Ucunuzdaki dağıtma](data-box-Edge-deploy-prep.md)

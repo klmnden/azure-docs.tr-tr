@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e3687ac5941d4f4fda70f96fa9df1ec1904e102e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 783f8006ba19622761beef0ff931bcbb80edde46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822485"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115904"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>VMware VM’lerde ve çoğaltılmış fiziksel sunucularda Azure Site Recovery’ye yük devretme ve yeniden çalışma
 
@@ -98,7 +98,7 @@ Yük devretme sonrasında karşılaştığınız bağlantı sorunlarını giderm
 > [!IMPORTANT]
 > Şirket içi ortamınız ile Azure arasında bir VPN bağlantınız varsa yeniden koruma ve yeniden çalışma için işlem sunucusu olarak bir Azure VM’si kurmanız gerekir. Azure’da bir işlem sunucusu ayarlamak için [bu makaledeki](vmware-azure-set-up-process-server-azure.md) yönergeleri uygulayın.
 
-Yeniden koruma ve yeniden çalışmaya yönelik önkoşullar hakkında daha fazla bilgi için şu bölüme başvurun: [section] ](vmware-azure-reprotect.md##before-you-begin). 
+Yeniden koruma ve yeniden çalışma için önkoşullar hakkında daha fazla bilgi için bu başvuru [bölümü](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Ana hedef sunucuyu yapılandırma
 

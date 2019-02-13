@@ -14,26 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 58db410fe5a6c2b081507eae2ccad3a258ec0864
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 226fea2df2b4a5d6dd428c1d28d8c09f47bca7de
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427599"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162297"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle, Service Fabric hakkında öğrenmek ister misiniz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, Service Fabric, büyük bir yüzey alanı vardır ve öğreneceğiniz çok şey yoktur.  Bu makale, Service fabric'in bir özeti sağlar ve programlama modellerini, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme temel kavramları açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro hizmetler nedir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro hizmetler oluşturmak için nasıl kullanılabilir. Bu makalede, kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve Service Fabric için her bir alanı Başlarken makaleleri bağlantı. 
 
 ## <a name="core-concepts"></a>Temel kavramlar
 [Service Fabric terminolojisi](service-fabric-technical-overview.md), [uygulama modeli](service-fabric-application-model.md), ve [desteklenen programlama modelleri](service-fabric-choose-framework.md) kavramları ve açıklamaları daha fazla sağlar, ancak temel bilgiler aşağıda verilmiştir.
-
-<table><tr><th>Temel kavramlar</th><th>Tasarım zamanı</th><th>Çalışma zamanı</th></tr>
-<tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
-<img src="./media/service-fabric-content-roadmap/CoreConceptsVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965"><img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">
-<img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td></tr>
-</table>
 
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Tasarım zamanı: uygulama türü, hizmet türü, uygulama paketini ve bildirimi, hizmet paketi ve bildirimi
 Hizmet türlerinin bir koleksiyona atanan adı/sürümü bir uygulama türüdür. Bu tanımlanan bir *ApplicationManifest.xml* dosyasını bir uygulama paketi dizinine eklenir. Uygulama paketi daha sonra Service Fabric kümenin görüntü deposuna kopyalanır. Ardından, ardından kümede çalışan uygulama türünden adlandırılmış bir uygulama oluşturabilirsiniz. 
@@ -106,10 +98,6 @@ Diğer platformlar ile Service fabric'te uygulama genellikle aşağıdaki aşama
 
 Tüm uygulama yaşam döngüsü kullanılarak yönetilebilir [PowerShell cmdlet'leri](/powershell/module/ServiceFabric/), [CLI komutları](service-fabric-sfctl.md), [C# API](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/overview/azure/servicefabric), ve [ REST API'leri](/rest/api/servicefabric/). Gibi araçları kullanarak sürekli tümleştirme/sürekli dağıtım işlem hatlarını de ayarlayabilirsiniz [Azure işlem hatları](service-fabric-set-up-continuous-integration.md) veya [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
-Aşağıdaki Microsoft Virtual Academy video, uygulama yaşam döngünüz yönetme işlemi açıklanmaktadır: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
-<img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
-
 ## <a name="test-applications-and-services"></a>Uygulama ve hizmetleri test etme
 Gerçek anlamda bulut ölçekli hizmetler oluşturmak için uygulamalarınızı ve hizmetlerinizi gerçek hataları dayanabilir doğrulamak önemlidir. Hata analizi hizmeti, Service Fabric'te yerleşik hizmetlere test etmek için tasarlanmıştır. İle [hata analizi hizmeti](service-fabric-testability-overview.md), anlamlı hataları anlamına ve uygulamalarınızı karşı tam test senaryoları çalıştırın. Bu hataları ve senaryoları çalışma ve çeşitli durumları ve hizmet ömrü boyunca, tüm denetimli, güvenli ve tutarlı bir şekilde yaşar geçişleri doğrulayın.
 
@@ -129,10 +117,6 @@ Gerçek anlamda bulut ölçekli hizmetler oluşturmak için uygulamalarınızı 
 [Service Fabric kümesi](service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir. Kümeler binlerce makine içerecek şekilde ölçeklendirilebilir. Bir makine ya da bir kümenin parçası olan sanal makine bir küme düğümü adı verilir. Her düğüme bir düğüm adı (bir dize) atanır. Düğümlerin yerleşim özellikleri gibi özellikleri vardır. Her bir makine veya sanal makine bir otomatik başlatılan hizmet sahip `FabricHost.exe`, önyükleme sırasında çalışmaya başlar ve ardından iki yürütülebilir dosyaları başlatır: Fabric.exe ve FabricGateway.exe. Bu iki yürütülebilir dosyalar düğümü olun. Senaryolarını test etmek için tek bir makine veya sanal makine üzerinde birden fazla düğüm birden çok örneğini çalıştırarak barındırabilirsiniz `Fabric.exe` ve `FabricGateway.exe`.
 
 Windows Server veya Linux çalıştıran sanal veya fiziksel makinelere Service Fabric kümeleri oluşturulabilir. Dağıtmak ve Service Fabric uygulamaları birbirlerine bağlanış Windows Server veya Linux bilgisayarlar kümesi sahip olduğu herhangi bir ortamda çalıştırmak için: şirket içi, Microsoft Azure üzerinde veya tüm bulut sağlayıcıları.
-
-Aşağıdaki Microsoft Virtual Academy videosunda, Service Fabric kümeleri açıklanmaktadır: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
-<img src="./media/service-fabric-content-roadmap/ClusterOverview.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="clusters-on-azure"></a>Azure’da kümeler
 Service Fabric kümeleri Azure üzerinde çalışan işlemleri ve küme yönetimi daha kolay ve daha güvenilir olmasını sağlayan diğer Azure özellikleri ve Hizmetleri ile tümleştirme sağlar. Bir kümenin bir Azure Resource Manager kaynağı olduğundan kümeleri gibi azure'daki diğer kaynakları modelleyebilirsiniz. Kaynak Yöneticisi, ayrıca tek bir birim olarak küme tarafından kullanılan tüm kaynakları kolay yönetim sağlar. Azure'da kümeler, Log Analytics ve Azure Tanılama ile tümleştirilmiştir. Küme düğümü türleri [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/index), otomatik ölçeklendirme işlevine oluşturulmuştur.
@@ -187,10 +171,6 @@ Service Fabric için birden çok yol sağlar [sistem durumu raporları görünt�
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) veya diğer görselleştirme araçları.
 * Sistem durumu sorgularının sayısı (aracılığıyla [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), [C# FabricClient API'leri](/dotnet/api/system.fabric.fabricclient.healthclient) ve [Java FabricClient API'leri](/java/api/system.fabric), veya [REST API'leri](/rest/api/servicefabric)).
 * Genel sistem durumu özellikleri (aracılığıyla, PowerShell, CLI, API'leri veya REST) biri olarak varlıklar listesi, dönüş sorgular.
-
-Aşağıdaki Microsoft Virtual Academy videosunda, Service Fabric sistem durumu modeli ve nasıl kullanıldığını açıklar: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ## <a name="monitoring-and-diagnostics"></a>İzleme ve tanılama
 [İzleme ve tanılama](service-fabric-diagnostics-overview.md) geliştirme, test ve uygulamaları ve Hizmetleri her türlü ortamda dağıtmak için kritik öneme sahiptir. Service Fabric çözümlerini planlama ve izleme uygulayın ve yardımcı olan tanılama uygulamaları sağlamak ve hizmetler, yerel geliştirme ortamında veya üretim beklendiği gibi çalışıyor en iyi çalışır.

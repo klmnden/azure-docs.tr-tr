@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: cec6da78ae47b509e2bb5f8ba0007208545062e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478075"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165340"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure dosya eşitleme ile kayıtlı sunucuları yönetme
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunu Windows sunucularınızı Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürerek yapar. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -165,7 +165,10 @@ Azure dosya eşitleme, veri merkezinde çalışan tek hizmet nadiren olacağınd
 > Sınırları çok düşük ayarlanması, Azure dosya eşitleme eşitleme ve geri çağırma performansını etkiler.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Azure dosya eşitleme ağ sınırlarını ayarlama
-Kullanarak Azure dosya eşitleme ağ kullanımını daraltabilir `StorageSyncNetworkLimit` cmdlet'leri. 
+Kullanarak Azure dosya eşitleme ağ kullanımını daraltabilir `StorageSyncNetworkLimit` cmdlet'leri.
+
+> [!Note]  
+> Ağ sınırları katmanlanmış bir dosyanın erişilebilir veya Invoke-StorageSyncFileRecall cmdlet'i kullanıldığında geçerli değildir.
 
 Örneğin, Azure dosya eşitleme 09: 00 ve 17: 00 (17:00 h) çalışma haftası boyunca arasında fazla 10 MB/sn kullanmadığından emin olmak için yeni bir kısıtlama sınırı oluşturabilirsiniz: 
 

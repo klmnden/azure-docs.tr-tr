@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 09bb74ead0ff52cc7a70170357ddc54a91bf00d9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239416"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116108"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Öğretici: Şifreleme ve şifre çözme Azure anahtar Kasası'nı kullanarak Microsoft Azure depolama BLOB'ları
 ## <a name="introduction"></a>Giriş
@@ -43,7 +43,7 @@ Aşağıda, istemci tarafı şifreleme nasıl çalışır hakkında kısa bir a�
 4. Şifrelenmiş veriler, ardından Azure depolama hizmetine yüklenir.
 
 ## <a name="set-up-your-azure-key-vault"></a>Azure anahtar kasası ayarlama
-Öğreticide gösterilen aşağıdaki adımları gerçekleştirmeniz gereken bu öğreticiyle devam edebilmek için [Azure anahtar kasası ile çalışmaya başlama](../../key-vault/key-vault-get-started.md):
+Öğreticide gösterilen aşağıdaki adımları gerçekleştirmeniz gereken bu öğreticiyle devam edebilmek için [Azure anahtar kasası nedir?](../../key-vault/key-vault-overview.md):
 
 * Bir anahtar kasası oluşturma.
 * Bir anahtar veya gizli anahtar Kasası'na ekleyin.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d16214bf08b0e0b5a95acae380f8d644fc4461ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55757506"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213231"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Depolama: Yüksek Performans Tasarımı
 
@@ -63,7 +63,7 @@ Bu nedenle, uygulamanızın ihtiyaç duyduğu en iyi aktarım hızı ve IOPS de�
 
 ## <a name="latency"></a>Gecikme süresi
 
-Gecikme süresi uygulamanın tek bir istek alma, depolama diskleri gönderin ve yanıtı istemciye göndermek için gereken süre anlamına gelmektedir. Bu, IOPS ve aktarım hızı yanı sıra uygulama performansının kritik bir ölçüdür. Bir premium depolama disk gecikme süresini, bir istek için bilgi almak ve uygulamanıza geri iletişim için gereken süredir. Premium depolama, tutarlı düşük gecikme süreleri sağlar. Salt okunur konak üzerinde premium depolama diskleri önbelleğe almayı etkinleştirirseniz, çok daha düşük okuma gecikme süresi elde edebilirsiniz. Diski önbelleğe alma işlemi sonraki bölümünde daha ayrıntılı üzerinde ele alınacaktır *uygulama performansını en iyi duruma getirme*.
+Gecikme süresi uygulamanın tek bir istek alma, depolama diskleri gönderin ve yanıtı istemciye göndermek için gereken süre anlamına gelmektedir. Bu, IOPS ve aktarım hızı yanı sıra uygulama performansının kritik bir ölçüdür. Bir premium depolama disk gecikme süresini, bir istek için bilgi almak ve uygulamanıza geri iletişim için gereken süredir. Premium depolama, tutarlı düşük gecikme süreleri sağlar. Premium diskler çoğu g/ç işlemleri için Tek haneli milisaniyelik gecikme süreleri sağlamak için tasarlanmıştır. Salt okunur konak üzerinde premium depolama diskleri önbelleğe almayı etkinleştirirseniz, çok daha düşük okuma gecikme süresi elde edebilirsiniz. Diski önbelleğe alma işlemi sonraki bölümünde daha ayrıntılı üzerinde ele alınacaktır *uygulama performansını en iyi duruma getirme*.
 
 Uygulamanıza daha yüksek IOPS ve aktarım hızı alma iyileştirirken, uygulamanızın gecikme süresini etkiler. Uygulama performansı ayarlama sonra gecikme süresi yüksek oranda gecikme süreleri beklenmeyen davranışları önlemek için uygulamanın her zaman değerlendirin.
 

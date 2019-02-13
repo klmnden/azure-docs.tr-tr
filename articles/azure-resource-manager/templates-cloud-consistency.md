@@ -12,14 +12,16 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 5e9d2746c223c679d30c31b3bd6f1e5cbfafbe1d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4d5c7f8a91bb63cdd80a6f70603e34f8130b92ef
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498106"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106690"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Azure Resource Manager şablon bulut tutarlılık için geliştirme
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 Azure'nın önemli bir avantajı, tutarlılık olur. Bir konum için geliştirme yatırımlarından başka bir programda yeniden kullanılabilir. Bir şablon dağıtımlarınızı genel Azure, Azure bağımsız bulutlarda ve Azure Stack gibi ortamlar genelinde tutarlı ve tekrarlanabilir yapar. Şablonları Bulutlar arasında yeniden kullanmak için ancak, bu kılavuzda açıklandığı gibi buluta özel bağımlılıklar dikkate almanız gerekir.
 
@@ -61,14 +63,14 @@ Azure Resource Manager özellikleri her zaman genel Azure'a ilk sunulacaktır. Y
 
 1. Depo yerel kopyasını oluşturduktan sonra için hedef Azure Resource Manager PowerShell ile bağlanın.
 
-1. Psm1 modülünü içeri aktarın ve Test AzTemplateFunctions cmdlet'ini yürütün:
+1. Psm1 modülünü içeri aktarın ve Test AzureRmureRmTemplateFunctions cmdlet'ini yürütün:
 
   ```powershell
   # Import the module
   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzTemplateFunctions cmdlet
-  Test-AzTemplateFunctions -path <path to local clone>
+  # Execute the Test-AzureRmTemplateFunctions cmdlet
+  Test-AzureRmTemplateFunctions -path <path to local clone>
   ```
 
 Birden çok betik dağıtır şablonları, her biri yalnızca benzersiz şablon işlevlerini içeren simge. Komut çıktısı, desteklenen ve kullanılabilir şablon işlevleri bildirir.
@@ -211,7 +213,7 @@ Bir yapıtın mutlak URI oluşturmak için tercih edilen yöntem URI şablon iş
 }
 ```
 
-Bu yaklaşımda, yapılandırma betiklerini içeren tüm dağıtım yapıtları şablonu ile aynı konumda saklanabilir. Tüm bağlantıları konumunu değiştirmek için yalnızca _artifactsLocation parametreler için farklı bir temel URL'si belirtmeniz gerekir.
+Bu yaklaşımda, yapılandırma betiklerini içeren tüm dağıtım yapıtları şablonu ile aynı konumda saklanabilir. Tüm bağlantıları konumunu değiştirmek için yalnızca farklı temel URL'sini belirtmeniz gerekir _artifactsLocation parametreleri_.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Bölgesel özellikleri farklı etmeni
 
@@ -232,7 +234,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 Kullanılabilir kaynak sağlayıcılarını görmek için aşağıdaki PowerShell cmdlet'ini de kullanabilirsiniz:
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 ### <a name="verify-the-version-of-all-resource-types"></a>Tüm kaynak türleri sürümünü doğrulayın
@@ -250,7 +252,7 @@ az provider list --query "[].{namespace:namespace, resourceType:resourceType[]}"
 Aşağıdaki PowerShell cmdlet'ini de kullanabilirsiniz:
 
 ```azurepowershell-interactive
-Get-AzResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
+Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
 ```
 
 ### <a name="refer-to-resource-locations-with-a-parameter"></a>Bir parametre ile kaynak konumları bakın
@@ -493,10 +495,10 @@ Kullanılabilir VM görüntüleri bir konumda bir listesini almak için aşağı
 az vm image list -all
 ```
 
-Azure PowerShell cmdlet'i ile aynı listesini alabilirsiniz [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) ile istediğiniz konumu belirtin `-Location` parametresi. Örneğin:
+Azure PowerShell cmdlet'i ile aynı listesini alabilirsiniz [Get-Azurermvmımagepublisher](/powershell/module/az.compute/get-azvmimagepublisher) ile istediğiniz konumu belirtin `-Location` parametresi. Örneğin:
 
 ```azurepowershell-interactive
-Get-AzVMImagePublisher -Location "West Europe" | Get-AzVMImageOffer | Get-AzVMImageSku | Get-AzureRMVMImage
+Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
 ```
 
 Bu komut birkaç genel Azure bulutunun Batı Avrupa bölgesinde kullanılabilir tüm görüntüleri döndürülecek dakika sürer.
@@ -529,7 +531,7 @@ az vm list-sizes --location "West Europe"
 Azure PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-Get-AzVMSize -Location "West Europe"
+Get-AzureRmVMSize -Location "West Europe"
 ```
 
 Kullanılabilir hizmetlerin tam listesi için bkz. [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable).
@@ -596,10 +598,10 @@ Belirli bir bölgede kullanılabilen VM uzantılarının bir listesini almak iç
 az vm extension image list --location myLocation
 ```
 
-Ayrıca Azure PowerShell yürütebilir [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet'i ve `-Location` sanal makine görüntüsünün konumunu belirtmek için. Örneğin:
+Ayrıca Azure PowerShell yürütebilir [Get-Azurermvmımagepublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet'ini kullanıp `-Location` sanal makine görüntüsünün konumunu belirtmek için. Örneğin:
 
 ```azurepowershell-interactive
-Get-AzVmImagePublisher -Location myLocation | Get-AzVMExtensionImageType | Get-AzVMExtensionImage | Select Type, Version
+Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
 ```
 
 #### <a name="ensure-that-versions-are-available"></a>Sürümler kullanılabilir olduğundan emin olun
@@ -617,16 +619,16 @@ VM uzantıları birinci taraf Resource Manager kaynaklarını olduğundan, kendi
 
 VM uzantısı kaynağı API sürümünün şablonunuzla birlikte hedef planladığınız tüm konumlarda mevcut olması gerekir. Konum bağımlılık kaynak sağlayıcısı API sürümü, kullanılabilirlik, daha önce "Tüm kaynak türleri sürümünü doğrulama" bölümünde açıklandığı gibi çalışır.
 
-VM uzantısı kaynağın kullanılabilir API sürümlerinin listesini almak için kullanın [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) cmdlet'iyle **Microsoft.Compute** gösterildiği gibi kaynak sağlayıcısı:
+VM uzantısı kaynağın kullanılabilir API sürümlerinin listesini almak için kullanın [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) cmdlet'iyle **Microsoft.Compute** gösterildiği gibi kaynak sağlayıcısı:
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
+Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
 ```
 
 Sanal makine ölçek kümeleri VM uzantılarını de kullanabilirsiniz. Aynı konum koşulları geçerlidir. Bulut tutarlılık için şablonunuzu geliştirmek için API sürümleri için dağıtmayı planladığınız tüm konumlarda kullanılabilir olduğundan emin olun. Ölçek kümeleri için VM uzantısı kaynağının API sürümlerini almak için önce olarak aynı cmdlet'i kullanın, ancak kaynak türü, gösterildiği gibi sanal makine ölçek kümeleri belirtin:
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
+Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
 Her özel de tutulan uzantısıdır. Bu sürüm gösterilen `typeHandlerVersion` VM uzantısı özelliği. Sürüm olarak belirttiğinizden emin olun. `typeHandlerVersion` VM uzantılarının, şablonun öğe şablonu dağıtmayı planladığınız konumlarda kullanılabilir. Örneğin, aşağıdaki kod, sürüm 1.7 belirtir:
@@ -647,13 +649,13 @@ Her özel de tutulan uzantısıdır. Bu sürüm gösterilen `typeHandlerVersion`
         ...   
 ```
 
-Belirli bir VM uzantısı için kullanılabilir sürümlerin listesini almak için kullanın [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet'i. Aşağıdaki örnek, kullanılabilir sürümler için PowerShell DSC (Desired State Configuration) sanal makine uzantısını alır. **double**:
+Belirli bir VM uzantısı için kullanılabilir sürümlerin listesini almak için kullanın [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet'i. Aşağıdaki örnek, kullanılabilir sürümler için PowerShell DSC (Desired State Configuration) sanal makine uzantısını alır. **double**:
 
 ```azurepowershell-interactive
-Get-AzVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
+Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-Yayımcıların listesini almak için kullanın [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) komutu. İstek türü için kullanın [Get-AzVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) commend.
+Yayımcıların listesini almak için kullanın [Get-Azurermvmımagepublisher](/powershell/module/az.compute/get-azvmimagepublisher) komutu. İstek türü için kullanın [Get-AzureRmVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) commend.
 
 ## <a name="tips-for-testing-and-automation"></a>Test ve Otomasyon için ipuçları
 

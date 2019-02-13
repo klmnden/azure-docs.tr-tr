@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: f56b1b06e8be46c1a111e920cfb98bc58d4f6636
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee0dc1bec39bf95cbf4f3bf7ecea92b877a78b88
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466872"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113762"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>Tutarlılık, kullanılabilirlik ve performans seçenekleri 
+# <a name="consistency-availability-and-performance-tradeoffs"></a>Tutarlılık, kullanılabilirlik ve performans dengeleri 
 
-Yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi için çoğaltma kullanan dağıtılmış veritabanları ödünler yapmanız gerekir. Kullanılabilirlik, gecikme süresi ve aktarım hızı ve okuma tutarlılığı dengelemeleri arasındadır. 
+Yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi için çoğaltma kullanan dağıtılmış veritabanları ödünler yapmanız gerekir. Kullanılabilirlik, gecikme süresi ve aktarım hızı ve okuma tutarlılığı dengelemeleri arasındadır.
 
 Azure Cosmos DB, veri tutarlılığı seçenek yelpazesi olarak ele almaktadır. Bu yaklaşım, güçlü ve nihai tutarlılık iki uç nokta değerinden daha fazla seçenek içerir. İyi tanımlanmış beş tutarlılık spektrumu modellerde arasından seçim yapabilirsiniz. Öğesinden model güçlüden zayıfa doğru şunlardır:
 
-- Güçlü 
-- Sınırlanmış eskime durumu 
-- Oturum 
-- Tutarlı ön ek 
-- Nihai 
+- Güçlü
+- Sınırlanmış eskime durumu
+- Oturum
+- Tutarlı ön ek
+- Nihai
 
 Her model, kullanılabilirlik ve performans seçenekleri sağlar ve kapsamlı bir SLA ile desteklenir.
 
@@ -32,9 +32,9 @@ Her model, kullanılabilirlik ve performans seçenekleri sağlar ve kapsamlı bi
 
 - Okuma gecikme süresi tüm tutarlılık düzeyi için her zaman 10 milisaniyeden kısa 99. yüzdebirlik olması sağlanır. Bu okuma gecikme süresi, SLA ile desteklenir. Okuma gecikme süresi, 50. yüzdebirlik ortalama genellikle 2 milisaniyeden kısadır veya daha az. Çeşitli bölgeleri kapsayan ve güçlü tutarlılık ile yapılandırılmış olan azure Cosmos hesapları bu garantisi için bir özel durumdur.
 
--  Yazma gecikme süresi kalan tutarlılık düzeyleri için her zaman 10 milisaniyeden kısa 99. yüzdebirlik olması sağlanır. Bu yazma gecikme süresi, SLA ile desteklenir. 50. yüzdebirlik ortalama yazma gecikme süresi, genellikle 5 mili saniye olan veya daha az.
+- Yazma gecikme süresi kalan tutarlılık düzeyleri için her zaman 10 milisaniyeden kısa 99. yüzdebirlik olması sağlanır. Bu yazma gecikme süresi, SLA ile desteklenir. 50. yüzdebirlik ortalama yazma gecikme süresi, genellikle 5 mili saniye olan veya daha az.
 
-Bazı Azure Cosmos hesapları çeşitli bölgeleri güçlü tutarlılık ile yapılandırılmış olabilir. Bu durumda, yazma gecikme süresi yanı sıra, 99. yüzdebirlik dilimde 10 milisaniyeden kısa iki kez gidiş dönüş süresini (RTT) olması sağlanır. RTT herhangi birini en uzak iki bölgeleri arasında Azure Cosmos hesabınızla ilişkilendirilmiş olması gerekir. Herhangi bir Azure Cosmos hesabınızla ilişkili en uzak iki bölgeleri arasında RTT eşittir. Bu seçenek şu anda Önizleme aşamasındadır. 
+Bazı Azure Cosmos hesapları çeşitli bölgeleri güçlü tutarlılık ile yapılandırılmış olabilir. Bu durumda, yazma gecikme süresi yanı sıra, 99. yüzdebirlik dilimde 10 milisaniyeden kısa iki kez gidiş dönüş süresini (RTT) olması sağlanır. RTT herhangi birini en uzak iki bölgeleri arasında Azure Cosmos hesabınızla ilişkilendirilmiş olması gerekir. Herhangi bir Azure Cosmos hesabınızla ilişkili en uzak iki bölgeleri arasında RTT eşittir. Bu seçenek şu anda Önizleme aşamasındadır.
 
 Tam RTT gecikme süresi, ışık hızı uzaklık işlevi ve Azure ağ topolojisi ' dir. Azure ağı, herhangi iki Azure bölgeleri arasında RTT için herhangi bir gecikme SLA sağlamaz. Azure Cosmos hesabınız için çoğaltma gecikmeleri, Azure portalında görüntülenir. Hesabınızla ilişkili çeşitli bölgeler arasında çoğaltma gecikmeleri izlemek için Azure portalını kullanabilirsiniz.
 
@@ -44,10 +44,27 @@ Tam RTT gecikme süresi, ışık hızı uzaklık işlevi ve Azure ağ topolojisi
 
 - Yazma işlemi, ekleme, değiştirme, upsert ve silme gibi belirli bir tür için tüm tutarlılık düzeyleri için yazma üretimi için istek birimi aynıdır.
 
+## <a name="consistency-levels-and-data-durability"></a>Tutarlılık düzeyleri ve veri dayanıklılığı
+
+Bir Global olarak dağıtılmış veritabanı ortam içinde bir bölge çapında kesinti varsa tutarlılık düzeyi ve veri dayanıklılığı arasında doğrudan bir ilişki yoktur. Tablo tutarlılık modeli ve veri dayanıklılığı bölge geniş kesinti varsa arasındaki ilişki arasındaki ilişkiyi tanımlar. Bile güçlü tutarlılık ile dağıtılmış bir sistemde, dağıtılmış bir veritabanı ve RPO ve RTO CAP Teoremi nedeniyle sıfır mümkün olduğunu unutmayın. Neden hakkında daha fazla bilgi edinmek için [Azure Cosmos DB'deki tutarlılık düzeyleri](consistency-levels.md).
+
+|**Bölgeler**|**Çoğaltma modu**|**Tutarlılık düzeyi**|**RPO**|**RTO**|
+|---------|---------|---------|---------|---------|
+|1|Tek veya çok yöneticili|Herhangi bir tutarlılık düzeyi|< 240 dakika|< 1 hafta|
+|>1|Tek yönetici|Oturum, tutarlı ön ek, nihai|< 15 dakika|< 15 dakika|
+|>1|Tek yönetici|Sınırlanmış Eskime Durumu|K &AMP; T *|< 15 dakika|
+|>1|Çok yöneticili|Oturum, tutarlı ön ek, nihai|< 15 dakika|0|
+|>1|Çok yöneticili|Sınırlanmış Eskime Durumu|K &AMP; T *|0|
+|>1|Tek veya çok yöneticili|Güçlü|0|< 15 dakika|
+
+* K & T = "K" Sürüm (güncelleştirmeleri) bir öğe sayısı. Veya "T" zaman aralığı.
+
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Genel dağıtım ve genel tutarlılık seçenekleri hakkında daha fazla dağıtılmış sistemlerde öğrenin. Aşağıdaki makalelere bakın:
 
-* [Modern dağıtılmış bir veritabanı sistemleri tasarım tutarlılık seçenekleri](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* [Yüksek kullanılabilirlik](high-availability.md)
-* [Azure Cosmos DB SLA'sı](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [Modern dağıtılmış bir veritabanı sistemleri tasarım tutarlılık seçenekleri](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Yüksek kullanılabilirlik](high-availability.md)
+- [Azure Cosmos DB SLA'sı](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

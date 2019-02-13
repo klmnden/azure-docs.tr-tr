@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 2e986e26f22e41e1cbf7b8d1c1af694522a01d06
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821584"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169981"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -253,11 +253,11 @@ Zorlamalı tünel bir kullanıcı tanımlı yönlendirme burada tüm trafiğin b
 >
 > Bu bölümde, trafiği denetlemek için ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanmazsanız, yoksayabilirsiniz.
 
-Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, HDInsight ulaşmak için Azure sistem durumu ve Yönetim hizmetlerinden gelen trafiğe izin vermeniz gerekir. Alt ağ içindeki VM'ler arasında trafiği de izin vermeniz gerekir. İzin verilmiş olmalıdır IP adreslerini bulmak için aşağıdaki adımları kullanın:
+Ağ güvenlik grupları kullanırsanız, HDInsight kümeleri bağlantı noktası 443 üzerinden erişmek için Azure sistem durumu ve Yönetim hizmetlerinden gelen trafiğe izin vermeniz gerekir. Alt ağ içindeki VM'ler arasında trafiği de izin vermeniz gerekir. İzin verilmiş olmalıdır IP adreslerini bulmak için aşağıdaki adımları kullanın:
 
 1. Her zaman aşağıdaki IP adreslerinden gelen trafiğe izin vermeniz gerekir:
 
-    | IP adresi | İzin verilen bağlantı noktası | Yön |
+    | Kaynak IP adresi | Hedef bağlantı noktası | Yön |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | Gelen |
     | 23.99.5.239 | 443 | Gelen |
@@ -269,7 +269,7 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, HDI
     > [!IMPORTANT]  
     > Kullanmakta olduğunuz Azure bölgesi listede yoksa, yalnızca adım 1'deki dört IP adreslerini kullanır.
 
-    | Ülke | Bölge | İzin verilen IP adresleri | İzin verilen bağlantı noktası | Yön |
+    | Ülke | Bölge | İzin verilen kaynak IP adresleri | Hedef bağlantı noktası izin verilen | Yön |
     | ---- | ---- | ---- | ---- | ----- |
     | Asya | Doğu Asya | 23.102.235.122</br>52.175.38.134 | 443 | Gelen |
     | &nbsp; | Güneydoğu Asya | 13.76.245.160</br>13.76.136.249 | 443 | Gelen |
@@ -306,15 +306,13 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, HDI
 
 Daha fazla bilgi için [ağ trafiğini denetleme](#networktraffic) bölümü.
 
+NSG kuralları için giden, "Desitnation IP adresleri" olarak yukarıdaki adreslerine ulaşmak için sanal ağ içindeki herhangi bir kaynaktan izin verecek.
+
+Kullanıcı tanımlı routes(UDRs) kullanıyorsanız, bir yol belirtin ve "Internet" sanal ağdan giden trafik sonraki atlama yukarıdaki IP'ler için ayarlanmış izin gerekir.
+    
 ## <a id="hdinsight-ports"></a> Gerekli bağlantı noktaları
 
-Kullanmayı planlıyorsanız bir **Güvenlik Duvarı** güvenli sanal ağ ve küme üzerinde belirli bağlantı noktalarına erişmek için senaryonuz için gerekli bağlantı noktası üzerinde trafiğe izin vermeniz. Varsayılan olarak, bu bağlantı noktalarına izin verilenler listesine gerekmez:
-
-* 53
-* 443
-* 1433
-* 11000-11999
-* 14000-14999
+Kullanmayı planlıyorsanız bir **Güvenlik Duvarı** ve küme dışındaki belirli noktalarına erişmek için senaryonuz için gerekli olan bu bağlantı noktalarında trafiğe izin verecek şekilde gerekebilir. Önceki bölümde açıklanan azure yönetim trafiğini küme bağlantı noktası 443 üzerinden erişmek için izin verilen sürece varsayılan olarak, hiçbir özel beyaz listeye ekleme bağlantı noktası gereklidir.
 
 Belirli hizmetlere yönelik bağlantı noktalarının listesi için bkz. [HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](hdinsight-hadoop-port-settings-for-services.md) belge.
 
