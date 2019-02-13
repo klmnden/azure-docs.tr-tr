@@ -4,7 +4,7 @@ description: Bu makalede Azure veritabanı güvenliği için en iyi yöntemler k
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: cceea9fa613d2a2428427bfe73eb50550db6c69a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281634"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117978"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure veritabanı en iyi güvenlik uygulamaları
 Güvenlik veritabanlarını yönetmek için güvenliğin çok önemli olduğu ve her zaman için bir öncelik olmuştur [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/). Veritabanlarınızı sıkı bir şekilde en yasal karşılamak amacıyla güvenli hale getirilebilir veya güvenlik gereksinimleri, HIPAA, ISO 27001/27002 ve PCI DSS düzey 1 gibi. Güvenlik uyumluluk sertifikaları güncel bir listesi kullanılabilir [Microsoft Trust Center site](https://azure.microsoft.com/support/trust-center/services/). Ayrıca, Mevzuat gereksinimlerine göre belirli Azure veri merkezlerinde veritabanlarınızı yerleştirmek seçebilirsiniz.
@@ -77,7 +77,7 @@ SQL Server kimlik doğrulamasını kullanıyorsanız, şunları yapmalısınız:
 
 - Güçlü kimlik bilgileri kendiniz yönetirsiniz.
 - Bağlantı dizesindeki kimlik bilgilerini koruyun.
-- Ağ üzerinden web sunucusu vm'sinden veritabanı geçirilen kimlik bilgileri (büyük olasılıkla) koruyun. Daha fazla bilgi için [nasıl yapılır: SQL Server kullanarak SQL kimlik doğrulaması, ASP.NET 2.0 bağlanma](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
+- Ağ üzerinden web sunucusu vm'sinden veritabanı geçirilen kimlik bilgileri (büyük olasılıkla) koruyun. Daha fazla bilgi için [nasıl yapılır: ASP.NET 2.0 SQL kimlik doğrulaması kullanarak SQL sunucusuna bağlanmak](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Azure Active Directory (AD) kimlik doğrulaması*
 Azure AD kimlik doğrulaması, Azure SQL veritabanı'na bağlanma mekanizması olduğundan ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Azure AD'de kimlik kullanarak. Azure AD kimlik doğrulaması ile veritabanı kullanıcılarının kimliklerini ve diğer Microsoft Hizmetleri tek bir merkezi konumda yönetebilir. Merkezi kimlik yönetimi, veritabanı kullanıcıları yönetmek için tek bir yerde sağlar ve izin yönetimini kolaylaştırır.
@@ -100,7 +100,7 @@ Avantajları şunlardır:
 Yapılandırma adımları yapılandırmak ve Azure AD kimlik doğrulamasını kullanmak için aşağıdaki yordamları içerir:
 
 - Oluşturma ve Azure AD doldurabilirsiniz.
-- İsteğe bağlı: İlişkilendirmek veya şu anda Azure aboneliğinizle ilişkili Active Directory örneğine değiştirin.
+- İsteğe bağlı: İlişkilendirme veya şu anda Azure aboneliğinizle ilişkili Active Directory örneğine değiştirin.
 - Azure SQL veritabanı için bir Azure Active Directory Yöneticisi oluşturma veya [Azure SQL veri ambarı](https://azure.microsoft.com/services/sql-data-warehouse/).
 - İstemci bilgisayarlarınızın yapılandırın.
 - Azure AD kimlikleri için eşlenmiş veritabanında bağımsız veritabanı kullanıcılarını oluşturun.
@@ -150,18 +150,18 @@ Tehdit koruması algılama gider. Veritabanı tehdit koruması içerir:
 - Veritabanınızın korumasını sağlayacak şekilde güvenli yapılandırma veritabanınızda uygulama.
 - Algılama ve olası tehditleri hızlı şekilde ortaya çıktıkları yanıt vereceğini ve düzeltin.
 
-**En iyi yöntem**: bulmak, sınıflandırmak ve veritabanlarınızı hassas verileri etiketleyin.   
-**Ayrıntı**: etkinleştirerek SQL veritabanınızdaki verileri sınıflandırmak [veri bulma ve sınıflandırma](../sql-database/sql-database-data-discovery-and-classification.md) Azure SQL veritabanı'nda. Hassas verileriniz üzerinde Azure panosuna erişim İzleyicisi veya raporları indirin.
+**En iyi yöntem**: Bulma, sınıflandırmak ve veritabanlarınızı hassas verileri etiketleyin.   
+**Ayrıntı**: Etkinleştirerek SQL veritabanınızdaki verileri sınıflandırmak [veri bulma ve sınıflandırma](../sql-database/sql-database-data-discovery-and-classification.md) Azure SQL veritabanı'nda. Hassas verileriniz üzerinde Azure panosuna erişim İzleyicisi veya raporları indirin.
 
-**En iyi yöntem**: veritabanı güvenlik proaktif olarak azaltabilmesi veritabanı güvenlik açıklarını izleyin.   
+**En iyi yöntem**: Veritabanı güvenlik proaktif olarak azaltabilmesi veritabanı güvenlik açıklarını izleyin.   
 **Ayrıntı**: Azure SQL veritabanı [güvenlik açığı değerlendirmesi](../sql-database/sql-vulnerability-assessment.md) hizmeti, olası veritabanı güvenlik açıklarını tarar. Hizmet, güvenlik açıklarını bayrak ve yanlış yapılandırmalar, aşırı izinleri ve korumasız hassas veriler gibi iyi uygulamalardan sapmaları Göster kurallarından oluşan bir Bilgi Bankası kullanır.
 
 Microsoft en iyi yanı sıra, veritabanınızı ve değerli verileri büyük riskleri sunan güvenlik sorunlarını kuralları dayanır. Bunlar, hem veritabanı düzeyinde bir sorun hem de sunucu güvenlik duvarı ayarları ve sunucu düzeyi izinleri gibi sunucu düzeyi güvenlik sorunları kapsar. Bu kurallar, uyumluluk standartlarını karşılamak için yasal kurumların gereksinimlerinden çoğunu gösterir.
 
-**En iyi yöntem**: tehdit algılamayı etkinleştirme.  
-**Ayrıntı**: Azure SQL veritabanı'nı etkinleştirme [tehdit algılama](../sql-database/sql-database-threat-detection.md) araştırmak ve tehditleri nasıl güvenlik uyarıları ve öneriler almak için. Uyarılar hakkında şüpheli veritabanı etkinlikleri, potansiyel açıklar ve SQL ekleme saldırılarına karşı yanı sıra anormal veritabanı erişim ve sorgu desenleri olursunuz.
+**En iyi yöntem**: Tehdit algılamayı etkinleştirme.  
+**Ayrıntı**:  Azure SQL veritabanı'nı etkinleştirme [tehdit algılama](../sql-database/sql-database-threat-detection.md) araştırmak ve tehditleri nasıl güvenlik uyarıları ve öneriler almak için. Uyarılar hakkında şüpheli veritabanı etkinlikleri, potansiyel açıklar ve SQL ekleme saldırılarına karşı yanı sıra anormal veritabanı erişim ve sorgu desenleri olursunuz.
 
-[Gelişmiş tehdit koruması](../sql-database/sql-advanced-threat-protection.md) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Daha önce bahsedilen hizmetleri içerir: veri bulma ve Sınıflandırma, güvenlik açığı değerlendirmesi ve tehdit algılama. Etkinleştirme ve bu özellikleri yönetmek için tek bir konum sağlar.
+[Gelişmiş tehdit koruması](../sql-database/sql-advanced-threat-protection.md) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Daha önce bahsedilen hizmetleri içerir: Veri bulma ve Sınıflandırma, güvenlik açığı değerlendirmesi ve tehdit algılama. Etkinleştirme ve bu özellikleri yönetmek için tek bir konum sağlar.
 
 Bu özelliklerin yardımcı olur:
 

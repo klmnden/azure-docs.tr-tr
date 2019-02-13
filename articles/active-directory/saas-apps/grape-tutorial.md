@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle gri Pe | Microsoft Docs'
+title: 'Öğretici: Gri Pe ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve gri Pe arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e642cba3354f4f8589e44d975c0cecf5692c5b5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 02df0a5d13aeb90049383f61d743e8a11e93fc79
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431873"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188538"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Öğretici: Azure Active Directory gri Pe ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Öğretici: Gri Pe ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile gri Pe tümleştirme konusunda bilgi edinin.
 
@@ -121,7 +122,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve g
 
     a. Oturum Açma URL'si:
 
-    b. Azure AD tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
@@ -156,7 +157,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-gra-pe-test-user"></a>Gri Pe test kullanıcısı oluşturma
 
-Bu bölümde, gri PE'de Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [gri Pe Destek ekibine](https://www.toppantravel.com/inquiry/) gri Pe platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, gri PE'de Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [gri Pe Destek ekibine](https://www.toppantravel.com/inquiry/) gri Pe platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

@@ -4,7 +4,7 @@ description: Bu makalede bulut hizmetleri, Sanal Makineler ve özel uygulamalar 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: c2b7935cc110b2ad05f4af2773158c2e1b658d4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6d1d121e41b0446e7f63b9aa530df89697ef67
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242016"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117933"
 ---
 # <a name="security-management-in-azure"></a>Azure’da Güvenlik Yönetimi
 Azure aboneleri yönetim iş istasyonları, geliştirici PC’leri ve hatta göreve özel izinleri bulunan ayrıcalıklı son kullanıcı cihazları dahil birden fazla cihazda kendi bulut ortamlarını yönetebilir. Bazı durumlarda, yönetim işlevleri [Azure portal](https://azure.microsoft.com/features/azure-portal/) gibi web tabanlı konsollar aracılığıyla gerçekleştirilir Diğer durumlarda, Sanal Özel Ağlar (VPN), Terminal Hizmetleri, istemci uygulaması protokolleri ya da (programlı olarak) Azure Service Management API (SMAPI) üzerinden şirket için sistemlerden Azure’a bağlantılar olabilir. Ayrıca, istemci uç noktaları ya da etki alanına katılmış veya yalıtılmış ve yönetilmeyen olabilir, tabletler veya akıllı telefonlar gibi.
@@ -117,7 +117,7 @@ Uzak Masaüstü Ağ geçidi, güvenlik gereksinimlerini uygulayan ilke tabanlı 
 ## <a name="security-guidelines"></a>Güvenlik yönergeleri
 Genel olarak, bulutla kullanıma yönelik olarak yönetici iş istasyonlarının güvenliğini sağlamaya yardımcı olmak, şirket içi iş istasyonları için kullanılan uygulamalara benzerdir. Örneğin, en aza indirilmiş yapı ve kısıtlayıcı izinler. Bulut yönetiminin bazı benzersiz yönleri uzaktan ya da bant dışı kurumsal yönetime daha yakındır. Bunlar kimlik bilgilerini, gelişmiş güvenlikli uzaktan erişimin ve tehdit algılama ve yanıtın denetlenmesini içerir.
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 Yönetim araçlarına ve denetim erişim isteklerine erişim için kaynak IP adreslerini sınırlamak amacıyla Azure oturum açma kısıtlamalarını kullanabilirsiniz. Azure’un yönetim istemcilerini (iş istasyonları ve/veya uygulamalar) tanımlamasına yardımcı olmak için, SSL sertifikalarının yanı sıra, istemci tarafı yönetim sertifikalarının yüklenmesini gerekli kılmaya yönelik olarak SMAPI (Windows PowerShell cmdlet’leri gibi müşteri tarafından geliştirilen araçlar aracılığıyla) ve Azure portalını yapılandırabilirsiniz. Yönetici erişiminin multi-factor authentication gerektirmesine de öneriyoruz.
 
 Azure’a dağıttığınız bazı uygulamalar veya hizmetler hem son kullanıcı hem de yönetici erişimi için kendi kimlik doğrulama mekanizmalarına sahip olabilirken, diğerleri Azure AD’den faydalanabilir. Kimlik bilgilerini Active Directory Federasyon Hizmetleri (AD FS) aracılığıyla birleştirip birleştirmemenize bağlı olarak, dizin eşitlemeyi kullanmak veya bulutta yalnızca kullanıcı hesaplarını tutmak, [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (Azure AD Premium’un parçası) kullanmak kaynaklar arasında kimlik yaşam döngülerini yönetmenize yardımcı olur.

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Hornbill | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Hornbill | Microsoft Docs'
 description: Azure Active Directory ve Hornbill arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 30fdb55758d5fbac41452236ebaa9f96ab9bba6b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f23a1520175827f775553e1ba949c62567cf83
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39164157"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201933"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Öğretici: Azure Active Directory Hornbill ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Öğretici: Hornbill ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Hornbill tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Hornbill yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Hornbill çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Azure AD'de Hornbill tümleştirmesini yapılandırmak için Hornbill Galeriden 
 
 **Galeriden Hornbill eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -195,7 +196,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı Hornbill Britta Simon adlı bir kullanıcı oluşturmaktır. Hornbill tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Hornbill erişme denemesi sırasında oluşturulur.
 
 > [!Note]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Hornbill istemci Destek ekibine](https://www.hornbill.com/support/?request/).
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Hornbill istemci Destek ekibine](https://www.hornbill.com/support/?request/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -237,7 +238,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

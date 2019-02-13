@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 37c2374738cbebceb11dbaeb973c6713c87ff4b0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 25b69f13cbf742c2bb98367a3181e45162715d67
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150657"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Öğretici: Zscaler iki ile Azure Active Directory Tümleştirme
 
@@ -125,7 +126,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Z
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Name  | Kaynak özniteliği  |
+    | Ad  | Kaynak özniteliği  |
     | ---------| ------------ |
     | İz     | User.assignedroles |
 

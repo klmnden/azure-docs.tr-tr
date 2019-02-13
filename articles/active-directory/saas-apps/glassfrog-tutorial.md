@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle GlassFrog | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile GlassFrog | Microsoft Docs'
 description: Azure Active Directory ve GlassFrog arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 1fdd1e8acf446ba3e409e2ff0bf9ca18f581c299
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d6bdc9f2214f8a23ffd1a126905faf00f2fc4264
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431781"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199649"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Öğretici: Azure Active Directory GlassFrog ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Öğretici: GlassFrog ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile GlassFrog tümleştirme konusunda bilgi edinin.
 
@@ -149,7 +150,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-glassfrog-test-user"></a>GlassFrog test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon GlassFrog içinde adlı bir kullanıcı oluşturun. Çalışmak [GlassFrog Destek ekibine](https://support.glassfrog.com/support/solutions/9000107654) GlassFrog platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon GlassFrog içinde adlı bir kullanıcı oluşturun. Çalışmak [GlassFrog Destek ekibine](https://support.glassfrog.com/support/solutions/9000107654) GlassFrog platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

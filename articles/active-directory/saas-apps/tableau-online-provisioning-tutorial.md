@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için Tableau çevrimiçi yapılandırma | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için Tableau Online yapılandırma | Microsoft Docs'
 description: Otomatik olarak sağlama ve sağlamasını Tableau çevrimiçi kullanıcı hesapları için Azure Active Directory yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 4f6297fa8477ff4794bee589737e047993427c06
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345871"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194878"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Öğretici: Tableau çevrimiçi otomatik kullanıcı hazırlama için yapılandırma
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Öğretici: Tableau çevrimiçi yapılandırmak için otomatik kullanıcı hazırlama
 
 Bu öğreticinin amacı, Tableau çevrimiçi ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için otomatik olarak sağlamak ve kullanıcılara ve/veya gruplara Tableau çevrimiçi sağlamasını için gerçekleştirilmesi gereken adımlar göstermektir.
 
@@ -117,7 +118,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Tableau i
 
     *   **Etki alanı** Tableau çevrimiçi için hesap URL'sinin bu bölümünden kopyalanabilir: ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
 
-    *   **İçerik URL'si** Tableau çevrimiçi için hesap sayfasından Bu bölüm kopyalanabilir ve hesap kurulumu sırasında tanımlanan bir değer. Bu örnekte, "contoso" değerdir: ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+    *   **İçerik URL'si** Tableau çevrimiçi için hesap sayfasından Bu bölüm kopyalanabilir ve hesap kurulumu sırasında tanımlanan bir değer. Bu örnekte, "contoso" değeridir: ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
         > **Etki alanı** burada gösterilen farklı olabilir. 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 3a338e882a909bca01baa461e0609f23e308b08d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 23a14129b7a50bdf2ec33c112fc02fd97f83c3f8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000941"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186939"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Öğretici: BitaBIZ ile Azure Active Directory Tümleştirme
 
