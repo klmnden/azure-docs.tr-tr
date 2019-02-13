@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194296"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193773"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric sistem durumu izlemeye giriş
 Azure Service Fabric, zengin, esnek ve Genişletilebilir bir sistem durumu değerlendirme ve raporlama sağlar bir sistem durumu modeli sunar. Model, küme ve içinde çalışan hizmetleri durumunu neredeyse gerçek zamanlı izlenmesini sağlar. Kolayca sağlık bilgilerini almak ve düzeltmek yayılmadığını ve devasa kesintilerine neden önce olası sorunlar. Tipik modelinde, hizmetleri kendi yerel görünümleri temel alan raporlar gönderin ve genel bir sağlamak için bu bilgileri de toplanır küme görünümü düzeyi.
 
 Service Fabric bileşenleri bu zengin sistem durumu modeli geçerli durumlarını bildirmek için kullanın. Uygulamalarınızı için rapor sistem durumu, mekanizma kullanabilirsiniz. Özel koşullarınızı yakalayan yüksek kaliteli sistem durumu raporlama yatırım yaparsanız, algılayın ve çalışan uygulamanız için çok daha kolay sorunları giderin.
-
-Aşağıdaki Microsoft Virtual Academy videosunda da Service Fabric sistem durumu modeli ve nasıl kullanıldığını açıklar: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > Sistem durumu alt sistemini yükselten için bir gereksinimi ele Başladık. Service Fabric tam kullanılabilirlik, kapalı kalma süresi olmadan izlenen uygulama ve Küme yükseltme sağlar ve kullanıcı müdahalesi olmadan için en az. Bu hedeflere ulaşmak için yapılandırılmış yükseltme ilkelere dayalı sistem durumu yükseltme denetler. Yalnızca sistem durumu istediğiniz eşikleri uyar, yükseltmeye devam edebilirsiniz. Aksi halde, yükseltme otomatik olarak geri veya Yöneticiler sorunları gidermek için bir fırsat vermek için duraklatıldı. Uygulama yükseltmeleri hakkında daha fazla bilgi için bkz: [bu makalede](service-fabric-application-upgrade.md).

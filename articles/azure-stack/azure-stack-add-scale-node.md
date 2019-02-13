@@ -12,23 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247655"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172408"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack'te ek ölçek birimi düğümleri Ekle
 
 Azure Stack operatörleri, başka bir fiziksel bilgisayar ekleyerek mevcut bir ölçek birimi genel kapasitesini artırabilir. Fiziksel bilgisayar ölçek birimi düğüm olarak adlandırılır. Eklediğiniz her yeni ölçek birimi düğüm homojen CPU türü, bellek ve disk numarası ve ölçek birimi varsa düğümlerin boyutu olmalıdır.
-
-> [!NOTE]  
-Birim düğümleri ek ölçek eklemek için Azure Stack 1807 veya üzeri çalıştırmanız gerekir.
 
 Bir ölçek birimi düğümü eklemek için Azure Stack'te hareket ve, donanım ekipman üreticisi (OEM) Araçları'nı çalıştırın. OEM araçları, konakta yeni fiziksel bilgisayar var olan düğümleri aynı üretici yazılımı düzeyinde eşleştiğinden emin olmak için donanım yaşam döngüsü (HLH) çalıştırır.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 37f956606075cb21075d6f50bb53e04075936997
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: bc4e4c9137003dad9cfd96772b7ebe231cd6eace
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999042"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171732"
 ---
 # <a name="reliable-services-overview"></a>Reliable Services özelliğine genel bakış
 Azure Service Fabric, yazma ve durum bilgisiz ve durum bilgisi olan Reliable Services yönetme kolaylaştırır. Bu konu şunları içerir:
@@ -45,12 +45,6 @@ Reliable Services uygulamanızı önemli express yardımcı olması için bir ba
 * Kendi kodunuzu çalıştıran basit bir model programlama modellerini olduğunuz gibi görünüyor. Kodunuz, iyi tanımlanmış bir giriş noktası ve kolayca yönetilen yaşam döngüsü vardır.
 * Bir iletişim takılabilir modeli. HTTP ile gibi tercih ettiğiniz bir aktarım kullanın [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, özel TCP protokolleri ya da başka bir şey. Reliable Services Giden kutusu seçenekleri kullanabilirsiniz veya kendi sağlayabilir bazı harika sağlar.
 * Durum bilgisi olan hizmetler için Reliable Services programlama modeli kullanarak, hizmet içinde durumunu tutarlı ve güvenilir bir şekilde depolamak sağlar [güvenilir koleksiyonlar](service-fabric-reliable-services-reliable-collections.md). Güvenilir koleksiyonlar kullanan herkese tanıdık gelecektir yüksek kullanılabilirliğe sahip ve güvenilir koleksiyon sınıfları daha basit bir dizi olan C# koleksiyonları. Geleneksel olarak, hizmetleri güvenilir durum yönetimi için dış sistemler gerekli. Güvenilir koleksiyonlar ile aynı yüksek kullanılabilirlik ve güvenilirlik, yüksek oranda kullanılabilir bir dış mağazalardan beklenir karşılaşmışsınızdır yanındaki işlem durumunuzu depolayabilirsiniz. İşlem ve çalışması için durum birlikte bulundurmak için bu modeli gecikme süresi de artırır.
-
-Reliable services özelliğinin genel bir bakış için bu Microsoft Virtual Academy videosunu izleyin. <center>
-<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
-<img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
-</a>
-</center>
 
 ## <a name="what-makes-reliable-services-different"></a>Reliable Services farklı yapan nedir?
 Service Fabric güvenilir hizmetler önce yazılmış hizmetlerinden farklıdır. Service Fabric, güvenilirlik, kullanılabilirlik, tutarlılık ve ölçeklenebilirlik sağlar.

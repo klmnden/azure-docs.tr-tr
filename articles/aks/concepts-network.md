@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820139"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176246"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ağ kavramları
 
@@ -102,9 +102,17 @@ Başka bir ortak giriş SSL/TLS sonlandırma özelliğidir. Giriş kaynağı yer
 
 ## <a name="network-security-groups"></a>Ağ güvenlik grupları
 
-Bir ağ güvenlik grubu filtresi trafiği VM'ler için AKS düğümleri gibi. Bir yük dengeleyici gibi hizmetleri oluştururken Azure platformu, gerekli olan tüm ağ güvenlik grubu kuralları otomatik olarak yapılandırır. El ile bir AKS kümesi pod'ların trafiğini filtrelemek için ağ güvenlik grubu kuralları yapılandırmayın. Tüm gerekli bağlantı noktaları ve iletme Kubernetes hizmeti bildirimlerinizi bir parçası olarak tanımlayın ve Azure platform oluşturma veya güncelleştirme olarak uygun kuralları sağlar.
+Bir ağ güvenlik grubu, AKS düğümleri gibi VM'ler için trafiği filtreler. Bir yük dengeleyici gibi hizmetleri oluştururken Azure platformu, gerekli olan tüm ağ güvenlik grubu kuralları otomatik olarak yapılandırır. El ile bir AKS kümesi pod'ların trafiğini filtrelemek için ağ güvenlik grubu kuralları yapılandırmayın. Tüm gerekli bağlantı noktaları ve iletme Kubernetes hizmeti bildirimlerinizi bir parçası olarak tanımlayın ve Azure platform oluşturma veya güncelleştirme olarak uygun kuralları sağlar. Sonraki bölümde açıklandığı gibi ağ ilkelerini de kullanabilirsiniz otomatik olarak trafik filtresi kuralları pod'ları için geçerlidir.
 
 Varsayılan olarak ağ güvenlik grubu kuralları gibi SSH trafiği için mevcut. Bu varsayılan kuralları küme yönetimi ve erişim sorunlarını giderme içindir. Bu varsayılan kuralların silinmesi AKS yönetim sorunlara neden olabilir ve hizmet düzeyi hedefi (SLO) keser.
+
+## <a name="network-policies"></a>Ağ ilkeleri
+
+Varsayılan olarak, bir AKS kümesindeki tüm pod'ların gönderebilir ve trafiği kısıtlama olmadan alabilirsiniz. Gelişmiş güvenlik için trafik akışını denetleyen kuralları tanımlamak isteyebilirsiniz. Arka uç uygulamaları genellikle yalnızca gerekli ön uç Hizmetleri için sunulan ve veritabanı bileşenlerini yalnızca bunlara uygulama katmanları tarafından erişilebilir.
+
+Ağ İlkesi pod'ları arasındaki trafik akışını denetlemenize olanak sağlayan bir Kubernetes özelliğidir. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Ağ güvenlik grupları değil pod'ların AKS düğümleri için daha fazla. Ağ ilkeleri kullanımı, trafik akışını denetlemek için daha uygun, bulutta yerel bir yoludur. Pod'ların bir AKS kümesinde dinamik olarak oluşturulmuş gibi gerekli ağ ilkeleri otomatik olarak uygulanabilir.
+
+Daha fazla bilgi için [güvenli ağ ilkelerini Azure Kubernetes Service (AKS) kullanarak pod'ları arasındaki trafiği][use-network-policies].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -139,3 +147,4 @@ Ağ AKS ile çalışmaya başlama, oluşturun ve kendi IP adresi aralıkları ku
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[use-network-policies]: use-network-policies.md

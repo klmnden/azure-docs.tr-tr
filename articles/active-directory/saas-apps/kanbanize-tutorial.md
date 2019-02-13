@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Kanbanize | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Kanbanize | Microsoft Docs'
 description: Azure Active Directory ve Kanbanize arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 746eaadcdb9a588087367c4c70237922cf0f14bf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 22c136225e5a8526afd482e5ef8400198947422f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059602"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199696"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Öğretici: Azure Active Directory Kanbanize ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Öğretici: Kanbanize ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Kanbanize tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Kanbanize yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Kanbanize çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Azure AD'de Kanbanize tümleştirmesini yapılandırmak için Kanbanize Galeride
 
 **Galeriden Kanbanize eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -168,7 +169,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve K
     > [!Note]
     > Azure portalındaki kullanıcı öznitelikleri bölümünden ilgili öznitelik ad alanı ve ad değerlerini bir araya getirerek, bu değerleri alabilirsiniz.
 
-    g. Not Defteri'nde, Azure portalından indirdiğiniz base-64 kodlanmış sertifika açın, içeriğini (olmadan, başlangıç ve bitiş işaretleri) kopyalayın ve ardından yapıştırın **IDP X.509 sertifikası** kutusu.
+    g. Not Defteri'nde, Azure portalından indirdiğiniz base-64 kodlanmış sertifika açın, içeriğini (olmadan, başlangıç ve bitiş işaretleri) kopyalayın ve ardından yapıştırın **IDP X.509 sertifikası** kutusu.
 
     h. Denetleme **etkinleştir oturum açma SSO hem Kanbanize**.
     
@@ -211,7 +212,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı Kanbanize Britta Simon adlı bir kullanıcı oluşturmaktır. Kanbanize tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Kanbanize erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Kanbanize istemci Destek ekibine](mailto:support@ms.kanbanize.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Kanbanize istemci Destek ekibine](mailto:support@ms.kanbanize.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -253,7 +254,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

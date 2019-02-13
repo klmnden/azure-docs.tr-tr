@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: e691913daabb832b2a3b51dac5d4a5b0e1f53871
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509584"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165089"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Bir Azure Machine Learning Studio modeli yeniden eğitme
 Azure Machine Learning, machine learning modellerini, operasyonel hale getirme sürecinin bir parçası olarak, modelinizi eğitilmiş ve kaydedilir. Ardından, bir Tahmine dayalı Web hizmeti oluşturmak için kullanabilirsiniz. Web hizmeti web siteleri, panolar ve mobil uygulamalarda tüketilebilir. 
@@ -63,8 +63,6 @@ Bir Klasik Web hizmetini dağıttıysanız:
 * Tahmine dayalı Web hizmetinde yeni bir uç nokta oluşturma
 * URL düzeltme ve kodu alma
 * Yeni uç nokta retrained modeli işaret edecek şekilde düzeltme eki uygulama URL'sini kullanın. 
-
-Önceki bir gözden geçirme adımları için bkz: [bir Klasik Web hizmetini yeniden eğitme](retrain-a-classic-web-service.md).
 
 Klasik Web hizmetini yeniden eğitme zorluklarla çalıştırırsanız, bkz. [bir Azure Machine Learning Klasik Web hizmetini yeniden eğitme sorun giderme](troubleshooting-retraining-models.md).
 

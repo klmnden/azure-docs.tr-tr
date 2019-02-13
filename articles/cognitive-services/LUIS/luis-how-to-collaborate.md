@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 4ccf703ffde0d4a5a0961135e81259519b0a0e41
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878978"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167605"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Yazarlar ve ortak çalışanlar yönetme 
 
@@ -44,14 +44,13 @@ LUIS sahipliğin aktarılması şu anda desteklemiyor, ancak uygulamanızı dı�
 
 ## <a name="azure-active-directory-resources"></a>Azure Active Directory kaynakları
 
-LUIS kullanmak istedikleri zaman LUIS, kuruluşunuzda Azure Active Directory (Azure AD) kullanırsanız, kullanıcılarınızla ilgili bilgilere erişmek için izne gerek duyar. LUIS gerektirdiği kaynakların düşüktür. 
+Kullanırsanız [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) LUIS kullanmak istediğinizde, kuruluşunuzda, Language Understanding (LUIS) kullanıcılarınızın erişim hakkında bilgi için izne ihtiyacı vardır. LUIS gerektirdiği kaynakların düşüktür. 
 
 Yönetici onayı sahip veya yönetici onayı gibi yönetici onayı gerektirmeyen bir hesapla oturum açmaya çalıştığında ayrıntılı açıklamasına bakın:
 
-* Uygulamada Kurumsal hesabınızla oturum açın ve profilinizi okuyabilmesine sağlar. Temel şirket bilgilerini okumasına izin verir.
-* Uygulamanın bakın ve bile uygulama kullanmakta olduğunuz değil, verilerinizin güncelleştirmesine izin verir.
+* Uygulamada Kurumsal hesabınızla oturum açın ve profilinizi okuyabilmesine sağlar. Temel şirket bilgilerini okumasına izin verir. Bu LUIS kullanıcı kimliği, e-posta, adı gibi temel profil verileri okuma izni verir
+* Uygulamanın bakın ve bile uygulama kullanmakta olduğunuz değil, verilerinizin güncelleştirmesine izin verir. İzin, kullanıcının erişim belirtecini yenilemek için gereklidir.
 
-LUIS, kullanıcı kimliği, e-posta, adı gibi temel profil verileri okuma izni olan ilk izin verir. İkinci izin kullanıcının erişim belirtecini yenilemek için gereklidir.
 
 ## <a name="azure-active-directory-tenant-user"></a>Azure Active Directory Kiracı Kullanıcı
 
@@ -59,11 +58,8 @@ LUIS standart Azure Active Directory (Azure AD) onay akışı kullanır.
 
 Kiracı yönetici, doğrudan Azure AD'de LUIS kullanmak için verilen erişmesi gereken kullanıcı ile çalışması gerekir. 
 
-İlk olarak, kullanıcı HLUISimzalar ve yönetici onayı gerek açılan iletişim görür. Kullanıcı, Kiracı Yöneticisi devam etmeden önce bağlantı kurar. 
-
-İkinci olarak, Kiracı yönetici HLUISimzalar ve bir onay akış açılan iletişim görür. Yönetici kullanıcı için izin vermek için gereken iletişim budur. Yönetici izni kabul ettiğinde, kullanıcı ile LUIS devam edebilirsiniz.
-
-Kiracı yönetici LUIS için oturum açacak değil, yönetici erişebilir [onayı](https://account.activedirectory.windowsazure.com/r#/applications) LUIS için. 
+* İlk olarak, kullanıcı HLUISimzalar ve yönetici onayı gerek açılan iletişim görür. Kullanıcı, Kiracı Yöneticisi devam etmeden önce bağlantı kurar. 
+* İkinci olarak, Kiracı yönetici HLUISimzalar ve bir onay akış açılan iletişim görür. Yönetici kullanıcı için izin vermek için gereken iletişim budur. Yönetici izni kabul ettiğinde, kullanıcı ile LUIS devam edebilirsiniz. Kiracı Yöneticisi için LUIS oturum açacak değil, yöneticinin erişebilir [onay](https://account.activedirectory.windowsazure.com/r#/applications) LUIS için aşağıdaki ekran görüntüsünde gösterilen. Listenin adı içeren öğeleri için filtre fark `LUIS`.
 
 ![Uygulama Web sitesi tarafından Azure active directory izni](./media/luis-how-to-collaborate/tenant-permissions.png)
 

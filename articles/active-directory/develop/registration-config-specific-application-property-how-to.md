@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 90b7638acf6df721a16bdcca6ceebb6f9d65ca2c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1e4362e45ff8eee13b9203b9103266c60b4833a9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096832"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173207"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Nasıl için özel olarak geliştirilmiş bir uygulamada belirli alanları doldurun
 
@@ -40,7 +41,7 @@ Bu makalede, kullanılabilir tüm alanları uygulama kayıt formunda kısa bir a
 
 | Alan            | Açıklama                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Name             | Uygulamanın adı. Bu, en az dört karakter olmalıdır.                |
+| Ad             | Uygulamanın adı. Bu, en az dört karakter olmalıdır.                |
 | Uygulama Türü | **Web uygulaması/Web API'si**: Bir web uygulaması, bir web API'sini veya her ikisini temsil eden bir uygulama 
 | |**Yerel**: Bir kullanıcının cihazına veya bilgisayarına yüklenebilen bir uygulama           |
 | Oturum açma URL'si      | Kullanıcıların uygulamanızı kullanmak için oturum içinde URL'si                                  |

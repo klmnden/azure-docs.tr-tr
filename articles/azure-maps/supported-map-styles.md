@@ -3,17 +3,17 @@ title: Eşleme stilleri Azure eşlemelerinde desteklenen | Microsoft Docs
 description: Azure haritalar tarafından desteklenen eşleme stilleri
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/02/2018
+ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923b9fef75fa610ee817a86ce0b4d6b322153f01
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888469"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113440"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure haritalar desteklenen eşleme stilleri
 Azure haritalar, aşağıda açıklandığı gibi birçok farklı yerleşik eşleme stilleri destekler.
@@ -56,7 +56,16 @@ Yollar ve etiketleri uydu ve hava tanımayı üzerine yayılan karma bu harita s
 ## <a name="night"></a>gece
 **gece** koyu renkli yollar ve semboller yol haritası stiliyle sürümüdür.
 
-![gece](./media/supported-map-styles/night.PNG)
+![gece](./media/supported-map-styles/night.png)
 
 **İlgili API'ler:**
-* JS harita denetimi 
+* JS harita denetimi
+
+## <a name="roadshadedrelief"></a>road_shaded_relief
+**yol gölgeli Tahliye** olduğu bir Azure haritalar ana stili dağılımlarını dünya ile tamamlandı.
+
+![Gölgeli Tahliye](./media/supported-map-styles/shaded-relief.png)
+
+**İlgili API'ler:**
+* JS harita denetimi
+* [Harita kutucuğunu](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

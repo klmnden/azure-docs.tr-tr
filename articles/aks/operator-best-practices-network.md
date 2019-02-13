@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699134"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175464"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Ağ bağlantısını ve güvenlik Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -120,6 +120,34 @@ Bir web uygulaması Güvenlik Duvarı (WAF), gelen trafiği filtreleyerek, ek bi
 
 Yük Dengeleyici veya giriş kaynakları, daha fazla trafik dağılımı iyileştirmek için AKS kümenizin çalışmaya devam eder. Uygulama ağ geçidi olarak bir giriş denetleyicisine kaynak tanımıyla merkezi olarak yönetilebilir. Başlamak için [bir uygulama ağ geçidi giriş denetleyicisine oluşturma][app-gateway-ingress].
 
+## <a name="control-traffic-flow-with-network-policies"></a>Ağ ilkeleri ile trafik akışını denetleme
+
+**En iyi uygulama kılavuzunu** -izin ver veya Reddet pod'ların trafiği için ağ ilkelerini kullanın. Varsayılan olarak, bir küme içindeki pod'ları arasındaki tüm trafik izin. Gelişmiş güvenlik için pod iletişimi sınırlayan kuralları tanımlayın.
+
+Ağ İlkesi pod'ları arasındaki trafik akışını denetlemenize olanak sağlayan bir Kubernetes özelliğidir. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Ağ ilkeleri kullanımını trafik akışını denetlemek için bulutta yerel bir yol sağlar. Pod'ların bir AKS kümesinde dinamik olarak oluşturulmuş gibi gerekli ağ ilkeleri otomatik olarak uygulanabilir. Azure ağ güvenlik grupları kullanmayın pod pod trafiği denetlemek için ağ ilkeleri kullanın.
+
+Bir AKS kümesi oluşturduğunuzda, Ağ İlkesi'ni kullanmak için özelliğin etkinleştirilmesi gerekir. Ağ İlkesi var olan bir AKS kümesi üzerinde etkinleştirilemiyor. Ağ ilkesini kümelerde etkinleştirmek ve bunları gerektiği şekilde kullanabileceğiniz emin olmak önceden planlayın.
+
+Ağ İlkesi YAML bir bildiri kullanarak bir Kubernetes kaynak olarak oluşturulur. Tanımlanan pod'ların ilkeleri uygulanır ve trafiğin nasıl akış girişi veya çıkışı kuralları tanımlar. Aşağıdaki örnek pod'ları ile ağ ilkenin uygulanacağı *uygulama: arka uç* uygulanmış etiketi. Giriş kural sonra yalnızca pod'ları ile gelen trafiğe izin *uygulama: ön uç* etiketi:
+
+```yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: backend-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+```
+
+İlkeleri kullanmaya başlama hakkında bilgi için bkz: [güvenli ağ ilkelerini Azure Kubernetes Service (AKS) kullanarak pod'ları arasındaki trafiği][use-network-policies].
+
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Düğümleri Burcu ana bilgisayarı arasında güvenli bir şekilde bağlanma
 
 **En iyi uygulama kılavuzunu** -uzaktan bağlantı, AKS düğümleri sunmayın. Atlama kutusunda Yönetim sanal ağ veya Burcu ana bilgisayarı oluşturun. Kale ana bilgisayarı güvenli bir şekilde, AKS kümesinde uzak yönetim görevleri için trafiği yönlendirmek için kullanın.
@@ -155,5 +183,6 @@ Bu makalede, ağ bağlantısını ve güvenlik odaklı. Kubernetes temel ağ bil
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
+[use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md

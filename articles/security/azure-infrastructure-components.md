@@ -4,7 +4,7 @@ description: Bu makalede, Microsoft Azure mimarisinin ve Yönetime genel bir aç
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: b2e8ef232e1b25c7d000f4683830ff2e188047fb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186485"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118148"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Azure Information sistem bileşenleri ve sınırlar
 Bu makalede, Azure mimarisinin ve Yönetime genel bir açıklamasını sağlar. Azure sistem ortam aşağıdaki ağlar oluşur:
@@ -56,7 +56,7 @@ Fabric yönetilen işletim sistemi görüntüleri üç tür vardır:
 
 - Ana bilgisayar: Bir özelleştirilmiş VM'ler ana bilgisayarda çalışan işletim sistemi.
 - Yerel: Bir yerel kiracılar (örneğin, Azure depolama) üzerinde çalışan işletim sistemi. Bu işletim sistemi, tüm hiper yönetici yok.
-- Konuk: Bir konuk Konuk Vm'lerde çalışan işletim sistemi.
+- Konuk: Konuk Vm'lerde çalışan bir konuk işletim sistemi.
 
 Konak ve yerel FC yönetilen işletim sistemi bulutta kullanmak için tasarlanmıştır ve genel olarak erişilebilir değildir.
 
@@ -81,7 +81,7 @@ Hizmet ekipleri şunlardır:
 - Azure İşlem
 - Azure ağ
 - Bulut Hizmetleri Mühendisliği
-- ISSD: güvenlik
+- ISSD: Güvenlik
 - Çok Faktörlü Kimlik Doğrulama
 - SQL Veritabanı
 - Depolama

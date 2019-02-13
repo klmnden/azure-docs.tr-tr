@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: jeedes
-ms.openlocfilehash: ed5107d581c880d130901bfb31d34afb9e986635
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ec8085d2d3ac4cc338ab9c0c36eec481a5d4fbc9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190097"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200352"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Öğretici: TextMagic ile Azure Active Directory Tümleştirme
 
@@ -122,7 +123,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve T
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri ve talepler** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Name  | Kaynak özniteliği  | Ad alanı |
+    | Ad  | Kaynak özniteliği  | Ad alanı |
     | --------------- | --------------- | --------------- |
     | Şirket | User.CompanyName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | FirstName               | User.givenName |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |

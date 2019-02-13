@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239681"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164031"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack yönetim temel bilgileri
-Azure Stack Yönetim için yeni bilmeniz gereken birkaç şey vardır. Bu kılavuz, Azure Stack operatörü olarak sizin rolünüze genel bir bakış ve hızlı bir şekilde üretken olmak için bunları kullanıcılarınıza söylemeniz gerekenler sağlar.
+Azure Stack Yönetim için yeni bilmeniz gereken birkaç şey vardır. Bu makalede, Azure Stack operatörü olarak sizin rolünüze genel bir bakış ve hızlı bir şekilde üretken olmak için bunları kullanıcılarınıza söylemeniz gerekenler sağlar.
 
 ## <a name="understand-the-builds"></a>Yapıları anlama
 
 ### <a name="integrated-systems"></a>Tümleşik sistemler
 
-Bir Azure Stack tümleşik sistemi kullanıyorsanız, Azure Stack güncelleştirilmiş sürümlerini güncelleştirme paketleri dağıtılır. Bu paketleri içeri aktarmak ve güncelleştirmeleri kutucuk Yönetici portalı'nda kullanarak uygulayabilirsiniz.
+Bir Azure Stack tümleşik sistemi kullanıyorsanız, Azure Stack güncelleştirilmiş sürümlerini güncelleştirme paketleri dağıtılır. Bu paketleri içeri aktarmak ve güncelleştirmeleri kutucuk Yönetici portalı'nda kullanarak uygulayabilirsiniz. Güncelleştirme ASDK yüklemeleri için desteklenmiyor. 
  
 ### <a name="development-kit"></a>Geliştirme Seti
 

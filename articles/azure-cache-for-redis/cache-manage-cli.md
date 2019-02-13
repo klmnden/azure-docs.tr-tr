@@ -3,7 +3,7 @@ title: Azure Cache için Redis Klasik Azure CLI kullanarak yönetme | Microsoft 
 description: Herhangi bir platformda Klasik Azure CLI yükleme, Azure hesabınıza bağlanmak için kullanma ve oluşturmak ve bir Azure önbelleği için Redis Klasik clı'dan yönetmek nasıl öğrenin.
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: wesmc
-ms.openlocfilehash: 9b9ad2f4fd3b0ccf928dcec58b7c55778bcbdc95
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.author: yegu
+ms.openlocfilehash: 7ad60291b0e16b658856b47c013a3f5b207832da
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558711"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109411"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Oluşturma ve Azure Cache için Redis Klasik Azure CLI kullanarak yönetme
 > [!div class="op_single_selector"]
@@ -46,20 +46,20 @@ Aşağıdaki özellikler, oluşturma ve Azure Cache, Redis örneği için günce
 
 | Özellik | Anahtar | Açıklama |
 | --- | --- | --- |
-| ad |n-,--adı |Adı Azure önbelleği için Redis. |
+| ad |-n, --name |Adı Azure önbelleği için Redis. |
 | kaynak grubu |g-,--resource-group |Kaynak grubunun adı. |
 | location |m-,--konum |Önbellek oluşturmak için konum. |
-| boyut |z-,--boyutu |Azure önbelleği için boyutunu Redis. Geçerli değerler: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| boyut |-z, --size |Azure önbelleği için boyutunu Redis. Geçerli değerler: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, --sku |Redis SKU. Şunlardan biri olmalıdır: [temel, standart, Premium] |
-| enableNonSslPort |e-,--enable-olmayan-ssl-bağlantı noktası |Azure önbelleği için Redis EnableNonSslPort özelliği. Bu bayrağı olmayan SSL bağlantı noktası önbellek hesabınız için etkinleştirmek istiyorsanız ekleyin |
-| Redis yapılandırması |c-,--redis yapılandırması |Redis yapılandırması. Yapılandırma anahtarları ve değerleri burada içeren bir JSON biçimli dizeyi girin. Biçim: "{" ":""," ":" "}" |
+| EnableNonSslPort |-e, --enable-non-ssl-port |Azure önbelleği için Redis EnableNonSslPort özelliği. Bu bayrağı olmayan SSL bağlantı noktası önbellek hesabınız için etkinleştirmek istiyorsanız ekleyin |
+| Redis yapılandırması |-c, --redis-configuration |Redis yapılandırması. Yapılandırma anahtarları ve değerleri burada içeren bir JSON biçimli dizeyi girin. Biçim: "{" ":""," ":" "}" |
 | Redis yapılandırması |f-,--redis yapılandırma dosyası |Redis yapılandırması. Yapılandırma anahtarları ve değerleri burada içeren bir dosyanın yolunu girin. Dosya giriş biçimi: {"": "","": ""} |
 | Parça sayısı |r-,--parça sayısı |Kümeleme ile Premium küme önbelleği oluşturmak için parça sayısı. |
-| Sanal Ağ |v-,--sanal ağ |Azure Cache için dağıtmak için tam ARM kaynak kimliği sanal ağın belirtir bir VNET önbelleğinize barındırırken, Redis. Örnek Biçim: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Sanal Ağ |-v, --virtual-network |Azure Cache için dağıtmak için tam ARM kaynak kimliği sanal ağın belirtir bir VNET önbelleğinize barındırırken, Redis. Örnek Biçim: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Anahtar türü |t-,--anahtar türü |Yenilemek için anahtar türü. Geçerli değerler: [birincil, ikincil] |
 | StaticIP |-p,--statik IP < statik IP > |Bir vnet'teki önbelleğinizi barındırırken, benzersiz bir IP adresi alt ağ için önbellek belirtir. Sağlanmazsa, bir, alt ağdan seçilir. |
 | Alt ağ |t,--alt ağ <subnet> |Bir vnet'teki önbelleğinizi barındırırken, önbellek dağıtacağınız bir alt ağ adını belirtir. |
-| VirtualNetwork |v-,--sanal ağ < sanal ağ > |Azure Cache için dağıtmak için tam ARM kaynak kimliği sanal ağın belirtir bir VNET önbelleğinize barındırırken, Redis. Örnek Biçim: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| VirtualNetwork |-v, --virtual-network <virtual-network> |Azure Cache için dağıtmak için tam ARM kaynak kimliği sanal ağın belirtir bir VNET önbelleğinize barındırırken, Redis. Örnek Biçim: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Abonelik |s-,--abonelik |Abonelik tanımlayıcısı. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Bkz: tüm Azure önbelleği için Redis komutları

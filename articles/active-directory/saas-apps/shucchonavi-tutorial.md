@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Shuccho kayıt | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Shuccho kayıt | Microsoft Docs'
 description: Azure Active Directory ve Shuccho kayıt arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f90af5b57fcb9ed7f02bba0a184dacb17570136b
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1709abdf1d5e90cb253e67b29c0e48f6aa29a712
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312979"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209685"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Öğretici: Azure Active Directory Shuccho kayıt ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Öğretici: Shuccho kayıt ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Shuccho kayıt tümleştirme konusunda bilgi edinin.
 
@@ -149,7 +150,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-shuccho-navi-test-user"></a>Shuccho kayıt test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Shuccho kayıt içinde adlı bir kullanıcı oluşturun. Çalışmak [Shuccho kayıt Destek ekibine](mailto:sys_ntabtm@nta.co.jp) Shuccho kayıt platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Shuccho kayıt içinde adlı bir kullanıcı oluşturun. Çalışmak [Shuccho kayıt Destek ekibine](mailto:sys_ntabtm@nta.co.jp) Shuccho kayıt platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

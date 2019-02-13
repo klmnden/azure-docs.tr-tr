@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: b76907057dba2b117dcccaeb59935b6199ec36f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 431fa7c1fefbdaf05e2a0be7228a6365f18ccd1a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992832"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Öğretici: Envoy ile Azure Active Directory Tümleştirme
 

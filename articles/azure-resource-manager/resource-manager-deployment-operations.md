@@ -13,14 +13,16 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fbf94d0430685ea5791aaaa83669a730986e665c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770223"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111314"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Azure Resource Manager ile dağıtım işlemlerini görüntüleme
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Azure portalı üzerinden bir dağıtım için işlemleri görüntüleyebilirsiniz. En çok başarısız olan işlemleri görüntülemek için bu makalede odaklanır. Bu nedenle dağıtım sırasında bir hata aldınız, işlemleri görüntülemek istiyorsanız olabilir. Portal, kolayca hataları bulmak ve olası düzeltmeleri belirlemek için etkinleştiren bir arayüz sağlar.
 
@@ -68,13 +70,13 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-1. Bağıntı Kimliğini almak için kullanın:
+2. Bağıntı Kimliğini almak için kullanın:
 
   ```powershell
   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Her dağıtım, birden çok işlem içerir. Her işlem, dağıtım işleminde bir adımı temsil eder. Bir dağıtım ile sorun nedir bulmak için genellikle dağıtım işlemleri hakkındaki ayrıntıları görmek gerekir. İşlemlerle durumunu görebilirsiniz **Get-AzResourceGroupDeploymentOperation**.
+3. Her dağıtım, birden çok işlem içerir. Her işlem, dağıtım işleminde bir adımı temsil eder. Bir dağıtım ile sorun nedir bulmak için genellikle dağıtım işlemleri hakkındaki ayrıntıları görmek gerekir. İşlemlerle durumunu görebilirsiniz **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -92,7 +94,7 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-1. Başarısız işlemler hakkında daha fazla bilgi almak için işlem özelliklerini almak **başarısız** durumu.
+4. Başarısız işlemler hakkında daha fazla bilgi almak için işlem özelliklerini almak **başarısız** durumu.
 
   ```powershell
   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -115,7 +117,7 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
   ```
 
     ServiceRequestId ve işlemi için izleme kimliğini not edin. ServiceRequestId bir dağıtım sorunlarını gidermek için teknik destek ile çalışırken yararlı olabilir. Belirli bir işlem odaklanmak için sonraki adımda Trackingıd kullanır.
-1. Başarısız olan belirli bir işlemi durum iletisini almak için aşağıdaki komutu kullanın:
+5. Başarısız olan belirli bir işlemi durum iletisini almak için aşağıdaki komutu kullanın:
 
   ```powershell
   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -128,7 +130,7 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-1. Her Azure dağıtım işleminde istek ve yanıt içeriği de bulunmaktadır. Hangi, dağıtım sırasında Azure için gönderilen istek içeriği olan (örneğin, bir VM oluşturun. işletim sistemi diski ve diğer kaynaklar). Azure dağıtım isteğinizden geri gönderilen yanıt içeriktir. Dağıtım sırasında kullandığınız **DeploymentDebugLogLevel** parametresini kullanarak istek ve/veya yanıt günlüğünde tutulduğu belirtin. 
+6. Her Azure dağıtım işleminde istek ve yanıt içeriği de bulunmaktadır. Hangi, dağıtım sırasında Azure için gönderilen istek içeriği olan (örneğin, bir VM oluşturun. işletim sistemi diski ve diğer kaynaklar). Azure dağıtım isteğinizden geri gönderilen yanıt içeriktir. Dağıtım sırasında kullandığınız **DeploymentDebugLogLevel** parametresini kullanarak istek ve/veya yanıt günlüğünde tutulduğu belirtin. 
 
   Günlük bilgileri alın ve aşağıdaki PowerShell komutlarını kullanarak yerel olarak kaydedin:
 
@@ -146,13 +148,13 @@ Dağıtım işlemlerini görmek için aşağıdaki adımları kullanın:
   az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-1. Döndürülen değerlerden biri **Correlationıd**. Bu değer, ilgili olayları izlemek için kullanılır ve bir dağıtım sorunlarını gidermek için teknik destek ile çalışırken yararlı olabilir.
+2. Döndürülen değerlerden biri **Correlationıd**. Bu değer, ilgili olayları izlemek için kullanılır ve bir dağıtım sorunlarını gidermek için teknik destek ile çalışırken yararlı olabilir.
 
   ```azurecli
   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-1. Bir dağıtım için işlemleri görmek için bu seçeneği kullanın:
+3. Bir dağıtım için işlemleri görmek için bu seçeneği kullanın:
 
   ```azurecli
   az group deployment operation list -g ExampleGroup -n ExampleDeployment

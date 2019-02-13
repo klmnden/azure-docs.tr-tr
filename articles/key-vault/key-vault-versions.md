@@ -4,7 +4,7 @@ description: Azure Key Vault çeşitli sürümleri
 services: key-vault
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e8622dcc-59a3-4f4b-9f63-cd2232515a65
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 7671452e8b5226d3c3779bbe86e23b8cffe1a769
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d74bf8603e3d5a394935994bc61fa0e96905ed25
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079060"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115038"
 ---
 # <a name="key-vault-versions"></a>Key Vault sürümleri
 
@@ -26,7 +26,7 @@ ms.locfileid: "54079060"
 
 Yaz 2017 - Azure depolama ile kolay tümleştirme depolama hesabı anahtarlarını özelliği eklendi. Daha fazla bilgi için genel bakış konusuna [yönetilen depolama hesabı anahtarlarına genel bakış](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
 
-## <a name="2016-10-01---soft-delete"></a>2016-10-01-geçici silme
+## <a name="2016-10-01---soft-delete"></a>2016-10-01 - Soft-delete
 
 Yaz 2017 - geçici silme özelliği nesneleri anahtar kasalarını ve anahtar kasası geliştirilmiş veri koruma için eklendi. Daha fazla bilgi için genel bakış konusuna [geçici silmeyi genel bakış](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
 

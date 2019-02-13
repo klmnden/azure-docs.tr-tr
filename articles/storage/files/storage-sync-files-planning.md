@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751421"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200505"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -167,10 +167,14 @@ Windows Server Yük Devretme Kümelemesi için "Genel kullanım için dosya sunu
 > Her düğümde düzgün çalışması için bir yük devretme kümesinde eşitleme için Azure dosya eşitleme aracısının yüklenmesi gerekir.
 
 ### <a name="data-deduplication"></a>Yinelenen verileri kaldırma
-Bulut katmanlaması etkin olmayan birimler için Windows Server yinelenen verileri birimde etkinleştiriliyor kaldırma Azure dosya eşitleme destekler. Şu anda, Azure dosya eşitleme bulut katmanlaması etkin olan ve yinelenen verileri kaldırma birlikte çalışabilirliği desteklemiyoruz.
+**Aracı sürümü 5.0.2.0**   
+Yinelenen verileri kaldırma, Windows Server 2016 ve Windows Server 2019 üzerinde etkin katmanlama bulutla birimlerde desteklenir. Bulut katmanlaması etkin bir birimde yinelenen verileri kaldırma etkinleştirme, daha fazla depolama alanı sağlama olmadan daha fazla dosyaları şirket içi önbellek olanak tanır.
+
+**Windows Server 2012 R2 veya daha eski Aracı sürümleri**  
+Bulut katmanlaması etkin olmayan birimler için Windows Server yinelenen verileri birimde etkinleştiriliyor kaldırma Azure dosya eşitleme destekler.
 
 ### <a name="distributed-file-system-dfs"></a>Dağıtılmış dosya sistemi (DFS)
-Azure dosya eşitleme DFS ad alanları (DFS-N) ve DFS Çoğaltma (DFS-R) ile başlayan ile birlikte desteklediği [Azure dosya eşitleme aracısının 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+Azure dosya eşitleme DFS ad alanları (DFS-N) ve DFS Çoğaltma (DFS-R) ile birlikte çalışabilirliği destekler.
 
 **DFS ad alanları (DFS-N)**: Azure dosya eşitleme DFS-N sunucularına tam olarak desteklenir. Bir veya daha fazla DFS-N üye sunucu uç noktaları ve bulut uç noktası arasında verileri eşitleme için Azure dosya eşitleme aracısını yükleyebilirsiniz. Daha fazla bilgi için [DFS ad alanlarına genel bakış](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  

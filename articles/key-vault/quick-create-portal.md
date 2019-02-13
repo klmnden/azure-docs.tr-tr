@@ -3,7 +3,7 @@ title: "Azure Hızlı Başlangıç: Azure portalı kullanarak Key Vault'tan gizl
 description: Azure portalı kullanarak Azure Key Vault'tan gizli dizi ayarlamayı ve almayı gösteren hızlı başlangıç
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078397"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117111"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Hızlı Başlangıç: Ayarlayın ve Azure portalını kullanarak Azure Key Vault gizli dizi alma
 
@@ -58,14 +58,14 @@ Bu noktada Azure hesabınız, bu yeni anahtar kasasında işlemler gerçekleşti
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault’a gizli dizi ekleme
 
-Kasaya bir gizli dizi eklemek için birkaç ek adım uygulamanız gerekir. Bu örnekte, bir uygulama tarafından kullanılabilecek bir gizli dizi ekleyeceğiz. Parola **ExamplePassword** şeklindedir ve içinde **Pa$$w0rd** değeri depolanır.
+Kasaya bir gizli dizi eklemek için birkaç ek adım uygulamanız gerekir. Bu örnekte, bir uygulama tarafından kullanılabilecek bir gizli dizi ekleyeceğiz. Parola olarak adlandırılır **ExamplePassword** ve değerini depolarız **hVFkk965BuUv** da.
 
 1. Key Vault özellikleri sayfalarında **Gizli Diziler**’i seçin.
 2. **Oluştur/İçeri Aktar**’a tıklayın.
 3. **Bir gizli dizi oluştur** ekranında aşağıdaki değerleri seçin:
     - **Karşıya yükleme seçenekleri**: El ile.
     - **Ad**: ExamplePassword.
-    - **Değer**: Pa$ $w0rd.
+    - **Değer**: hVFkk965BuUv
     - Diğer değerleri varsayılan değerlerinde bırakın. **Oluştur**’a tıklayın.
 
 Gizli dizinin başarıyla oluşturulduğunu belirten iletiyi aldıktan sonra listede gizli diziye tıklayabilirsiniz. Ondan sonra bazı özellikleri görebilirsiniz. Geçerli sürüme tıklarsanız önceki adımda belirtilen değeri görebilirsiniz.

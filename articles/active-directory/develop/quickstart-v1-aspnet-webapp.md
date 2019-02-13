@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816280"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185325"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -229,7 +230,7 @@ Bu senaryo genellikle iş kolu uygulamalarında tercih edilir.
 Uygulamanızın yalnızca belirli bir Azure AD örneğine ait olan hesaplardan gelen oturum açma isteklerini kabul etmesini istiyorsanız (bu örneğin *konuk hesapları* dahil olmak üzere) şu adımları izleyin:
 
 1. *web.config* dosyasındaki `Tenant` parametresinde `Common` yerine kuruluşun kiracı adını (*contoso.onmicrosoft.com* gibi) kullanın.
-1. [*OWIN Başlangıç sınıfınızdaki*](#configure-the-authentication-pipeline) `ValidateIssuer` bağımsız değişkenini `true` olarak değiştirin.
+1. [*OWIN Başlangıç sınıfınızdaki*](#step-4-configure-the-authentication-pipeline) `ValidateIssuer` bağımsız değişkenini `true` olarak değiştirin.
 
 Yalnızca belirli kuruluşların kullanıcılarına izin vermek için şu adımları izleyin:
 

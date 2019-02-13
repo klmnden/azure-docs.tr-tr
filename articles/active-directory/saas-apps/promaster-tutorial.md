@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory ProMaster (tarafından Inlogik) ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: ProMaster (tarafından Inlogik) ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve ProMaster (tarafından Inlogik) arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 218f0c8a49d99c611219a43cc4b51214e4087012
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017663"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205248"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Öğretici: Azure Active Directory ProMaster (tarafından Inlogik) ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Öğretici: ProMaster (tarafından Inlogik) ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile ProMaster (tarafından Inlogik) tümleştirme konusunda bilgi edinin.
 

@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fe128e37103fc913b97f8ac8b9f0395ad74c4198
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1285a9262221dbd8e46d07e384697ddea853f9fc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496986"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163062"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect ve Azure AD Connect Health yükleme yol haritası
 
@@ -76,12 +77,12 @@ Azure AD Connect, isteğe bağlı olarak açabileceğiniz veya varsayılan olara
 ### <a name="next-steps-to-configure-sync-features"></a>Eşitleme özelliklerini yapılandırmak için sonraki adımlar
 |Konu |Bağlantı|  
 | --- | --- |
-|Filtrelemeyi yapılandırma | [Azure AD Connect eşitlemesi: Filtrelemeyi Yapılandırma](how-to-connect-sync-configure-filtering.md)|
+|Filtrelemeyi yapılandırma | [Azure AD Connect eşitlemesi: Filtrelemeyi yapılandırma](how-to-connect-sync-configure-filtering.md)|
 |Parola karması eşitleme | [Parola karması eşitleme](how-to-connect-password-hash-synchronization.md)|
 |Doğrudan Kimlik Doğrulama | [Doğrudan kimlik doğrulama](how-to-connect-pta.md)
 |Parola geri yazma | [Parola yönetimine başlarken](../authentication/quickstart-sspr.md)|
 |Cihaz geri yazma | [Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](how-to-connect-device-writeback.md)|
-|Yanlışlıkla silmeleri engelleme | [Azure AD Connect eşitlemesi: Yanlışlıkla silmeleri engelleme](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
+|Yanlışlıkla silmeleri engelleme | [Azure AD Connect eşitlemesi: ](how-to-connect-sync-feature-prevent-accidental-deletes.md)Yanlışlıkla silmeleri engelleme|
 |Otomatik yükseltme | [Azure AD Connect: Otomatik yükseltme](how-to-connect-install-automatic-upgrade.md)|
 
 ## <a name="customize-azure-ad-connect-sync"></a>Azure AD Connect Eşitleme'yi özelleştirme
@@ -97,10 +98,10 @@ Eşitlemedeki yapılandırma modeli, [bildirim temelli hazırlama](concept-azure
 |Konu |Bağlantı|  
 | --- | --- |
 |Tüm Azure AD Connect Eşitleme makaleleri | [Azure AD Connect eşitleme](how-to-connect-sync-whatis.md)|
-|Teknik kavramlar | [Azure AD Connect eşitlemesi: Teknik kavramlar](how-to-connect-sync-technical-concepts.md)|
+|Teknik kavramlar | [Azure AD Connect eşitlemesi: Teknik Kavramlar](how-to-connect-sync-technical-concepts.md)|
 |Varsayılan yapılandırmayı anlama | [Azure AD Connect eşitlemesi: Varsayılan yapılandırmayı anlama](concept-azure-ad-connect-sync-default-configuration.md)|
 |Kullanıcıları ve kişileri anlama | [Azure AD Connect eşitlemesi: Kullanıcıları ve kişileri anlama](concept-azure-ad-connect-sync-user-and-contacts.md)|
-|Bildirim temelli hazırlama | [Azure AD Connect eşitleme: Bildirim temelli sağlama ifadelerini anlama](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
+|Bildirim temelli hazırlama | [Azure AD Connect eşitleme: Bildirim Temelli Sağlama İfadelerini Anlama](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
 |Varsayılan yapılandırmayı değiştirme | [Varsayılan yapılandırmanın değiştirilmesine ilişkin önerilen yöntemler](how-to-connect-sync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Federasyon özelliklerini yapılandırma

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory SecureW2 JoinNow Bağlayıcısı ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: SecureW2 JoinNow Bağlayıcısı ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: SecureW2 JoinNow Bağlayıcısı ile Azure Active Directory arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 283f8c935556006a21812578d0638b72adb6eed0
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908234"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175328"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>Öğretici: Azure Active Directory Tümleştirme SecureW2 JoinNow Bağlayıcısı
+# <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>Öğretici: SecureW2 JoinNow Bağlayıcısı ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile SecureW2 JoinNow bağlayıcı tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi SecureW2 JoinNow Bağlayıcısı ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik SecureW2 JoinNow bağlayıcı çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Azure AD'de SecureW2 JoinNow bağlayıcı tümleştirmesini yapılandırmak içi
 
 **Galeriden SecureW2 JoinNow bağlayıcı eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -158,7 +159,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-securew2-joinnow-connector-test-user"></a>SecureW2 JoinNow bağlayıcı test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon SecureW2 JoinNow bağlayıcısında adlı bir kullanıcı oluşturun. Çalışmak [SecureW2 JoinNow bağlayıcı istemci Destek ekibine](mailto:support@securew2.com) SecureW2 JoinNow bağlayıcı platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon SecureW2 JoinNow bağlayıcısında adlı bir kullanıcı oluşturun. Çalışmak [SecureW2 JoinNow bağlayıcı istemci Destek ekibine](mailto:support@securew2.com) SecureW2 JoinNow bağlayıcı platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -203,7 +204,7 @@ c. Başarılı kimlik doğrulamasını SecureW2 JoinNow bağlayıcı ilk giriş 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

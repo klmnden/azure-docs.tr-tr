@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 8a2a1b70290f48b3189bfae2f67dd19c5ef4c9f2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093266"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203718"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric Explorer ile kümenizi görselleştirme
 
@@ -62,17 +62,6 @@ Bir Service Fabric kümesine bağlanmak için küme yönetim uç noktası'nı (F
 Service Fabric kümenize sertifikalar veya Azure Active Directory (AAD) kullanarak istemci erişimi denetleyebilirsiniz.
 
 Güvenli bir kümeye bağlanmayı denerseniz, ardından küme yapılandırmasına bağlı olarak, bir istemci sertifikası sunmak veya AAD kullanarak oturum gerekecektir.
-
-## <a name="video-tutorial"></a>Video öğretici
-
-Service Fabric Explorer'ı kullanmayı öğrenmek için aşağıdaki Microsoft Virtual Academy video izleyin:
-
-> [!NOTE]
-> Bu video, Service Fabric Explorer barındırılan Service Fabric kümesinde değil Masaüstü sürümünü gösterir.
->
->
-
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Service Fabric Explorer düzenini anlama
 Soldaki ağaç kullanarak Service Fabric Explorer gidebilirsiniz. Ağaç kökünde, küme Panosu, kümenize uygulama ve düğüm durumunun özetini de dahil olmak üzere, genel bir bakış sağlar.

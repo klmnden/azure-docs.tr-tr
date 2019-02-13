@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4f7d4e586dcb90153fb4d037c9c9821cd3ea3182
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097070"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176722"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API'sini çağırmak bir evrensel Windows platformu uygulaması (XAML)
 
@@ -360,7 +361,7 @@ Aracılığıyla edinilen belirteci hakkında temel bilgileri de görebilirsiniz
 |**Ad** |Kullanıcının tam adı|Kullanıcı adı ve soyadı.|
 |**Kullanıcı Adı** |<span>user@domain.com</span> |Kullanıcıyı tanımlayan kullanıcı adı.|
 |**Belirteç süre sonu** |DateTime |Belirtecin süresinin sona erdiği zaman. MSAL, gerekirse belirteci yenilemeye tarafından sona erme tarihini genişleten.|
-|**Erişim belirteci** |Dize |HTTP için gönderilen belirteç dizesini gerektiren istekleri bir *yetkilendirme üst bilgisi*.|
+|**Erişim belirteci** |String |HTTP için gönderilen belirteç dizesini gerektiren istekleri bir *yetkilendirme üst bilgisi*.|
 
 #### <a name="see-whats-in-the-access-token-optional"></a>Erişim belirtecinde (isteğe bağlı) yenilikleri öğrenin
 İsteğe bağlı olarak, değeri kopyalayabilir **erişim belirteci** yapıştırın https://jwt.ms çözülmesi ve talepleri listesini görmek için.

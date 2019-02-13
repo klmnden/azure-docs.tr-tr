@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 34278e02c62bda18a4b4d2f404417e8844dd5fc4
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156689"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107387"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Azure Resource Manager Şablonlarını kullanarak ILB ASE oluşturma
 
 > [!NOTE] 
 > Bu makale, App Service ortamı v1 hakkında yöneliktir. App Service ortamı, kullanımı daha kolay ve daha güçlü bir altyapı üzerinde çalışan daha yeni bir sürümü var. Yeni sürüm başlama hakkında daha fazla bilgi edinmek için [App Service ortamı giriş](intro.md).
 >
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Genel Bakış
 App Service ortamları, genel VIP yerine bir sanal ağ iç adresi ile oluşturulabilir.  Bu iç adresi, iç yük dengeleyici (ILB) adlı bir Azure bileşen tarafından sağlanır.  ILB ASE, Azure portalını kullanarak oluşturulabilir.  Bu, Azure Resource Manager şablonları ile Otomasyon kullanarak da oluşturulabilir.  Bu makalede Azure Resource Manager şablonları ile ILB ASE oluşturmak için gerekli sözdizimi ve adımları gösterilmektedir.
@@ -51,7 +53,7 @@ Bir kez *azuredeploy.parameters.json* dosya doldurulur için ILB ASE, ILB ASE da
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 Sonra Azure Resource Manager şablonu, ILB ASE, oluşturulmaya birkaç saat sürer gönderilir.  Oluşturma işlemi tamamlandıktan sonra App Service ortamları listesi için dağıtım tetiklenen abonelik portalında UX ILB ASE gösterilir.
 
@@ -124,7 +126,7 @@ Bir kez *azuredeploy.parameters.json* dosya doldurulur, varsayılan SSL sertifik
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 Sonra Azure Resource Manager şablonu, değişikliği uygulamak için ön uç ASE başına kabaca kırk dakika sürer gönderilir.  Örneğin, tamamlanması iki ön uç kullanarak, bir boyutta varsayılan ASE ile şablon yaklaşık bir saat ve 20 dakika sürer.  ASE, şablon çalışırken ölçeği mümkün olmayacaktır.  
 

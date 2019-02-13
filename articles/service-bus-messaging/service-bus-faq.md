@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0b419343829e7e7bbbd31260b9cd0c8d93cd255d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847824"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210603"
 ---
 # <a name="service-bus-faq"></a>Hizmet Veri Yolu SSS
 
@@ -83,6 +83,9 @@ Diğer hizmetler gibi Azure üzerinde ile Service Bus kaynakların adil kullanı
 Service Bus Mesajlaşma Hizmetleri (kuyruklar ve konular/abonelikler) kadar boyutta iletileri göndermek uygulama izin 256 KB (standart katman) veya 1 MB (premium katman). Boyutu 1 MB'den büyük iletileri ile uğraşıyorsanız, açıklanan talep denetim desenini kullanın [bu blog gönderisini](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Sorun giderme
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Neden başka abonelikten sildikten sonra bir ad alanı oluşturmak gönderemiyorum? 
+Bir abonelikten bir ad alanı sildiğinizde, başka bir Abonelikteki aynı adla yeniden önce 4 saat bekleyin. Aksi takdirde, aşağıdaki hata iletisini alabilirsiniz: `Namespace already exists`. 
+
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure Service Bus API'lerine ve önerilen eylemlerinin tarafından oluşturulan özel durumları bazıları nelerdir?
 Olası Service Bus özel durumları listesi için bkz. [özel durumlar genel bakış][Exceptions overview].
 

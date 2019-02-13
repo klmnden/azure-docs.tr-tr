@@ -3,7 +3,7 @@ title: Yüksek kullanılabilirlik - Azure ayrılmış HSM | Microsoft Docs
 description: Azure ayrılmış HSM yüksek kullanılabilirlik örneği ve temel konuları
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 991482d3d6be4d09b37014e5bb03708987e0f74e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d8975827a17dbf5d5eda2b9eb90e99ea1c03d698
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078183"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111818"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Azure ayrılmış HSM yüksek kullanılabilirlik
 

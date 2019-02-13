@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Uberflip | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Uberflip | Microsoft Docs'
 description: Azure Active Directory ve Uberflip arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: bb1f53895fcd91a9474302fcf8c9e0040fe91961
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 28add36dedcd942150a96d32508246ee03da60f1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920489"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182587"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Öğretici: Azure Active Directory Uberflip ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Öğretici: Uberflip ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Uberflip tümleştirme konusunda bilgi edinin.
 

@@ -16,12 +16,13 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d3ded429e960679b6bb252bdcec67c5a1d833ac1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496015"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201712"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Dizin eşitleme gereksinimlerini belirleme
 Eşitleme, kullanıcıların bulutta, şirket içi kimliğine dayalı bir kimlik tüm sağlamakla ilgilidir. Kimlik doğrulama veya Federasyon kimlik doğrulaması için eşitlenmiş hesabı kullanacakları olsun veya olmasın, kullanıcıların bulutta bir kimlik sağlamak yine de gerekir.  Bu kimlik bakımı yapılan ve düzenli aralıklarla güncelleştirilen gerekecektir.  Güncelleştirmeleri, parola değişiklikleri için başlık değişikliklerden birçok biçimde olabilir.  

@@ -4,7 +4,7 @@ description: Bu makalede, Azure sanal makineler ile kullanılabilir Azure güven
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 5e024161b55db9662aa288a4d3ff6a7c2b7e6266
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 15ac70891f23d95709d1998bca1ce29ad735cb87
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969694"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109087"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure sanal makineleri güvenliğine genel bakış
 
@@ -48,15 +48,15 @@ Azure için Microsoft Antimalware, uygulamalar ve Kiracı ortamları için bir t
 Aşağıdaki temel özellikleri dağıtma ve Azure için Microsoft Antimalware etkinleştirmek, kullanılabilir:
 
 * **Gerçek zamanlı koruma**: Bulut Hizmetleri ve sanal makinelere algılanmasına ve kötü amaçlı yazılım çalıştırma etkinliği izler.
-* **Zamanlanmış tarama**: düzenli olarak etkin olarak çalışan programlar da dahil olmak üzere kötü amaçlı yazılımları algılamak için hedeflenen tarama yapar.
-* **Kötü amaçlı yazılım düzeltme**: otomatik olarak algılanan kötü amaçlı yazılım gibi silme veya kötü amaçlı dosyaları karantinaya ve kötü amaçlı kayıt defteri girdilerini temizleme eylemi alır.
-* **İmza güncelleştirme**: koruma üzerinde önceden belirlenmiş bir sıklık güncel olduğundan emin olmak için en son (virüs tanımları) koruması imzaları otomatik olarak yükler.
-* **Kötü amaçlı yazılımdan koruma Altyapısı güncelleştirmeleri**: Microsoft Antimalware Azure altyapısı için otomatik olarak güncelleştirir.
+* **Zamanlanmış tarama**: Düzenli olarak etkin olarak çalışan programlar da dahil olmak üzere kötü amaçlı yazılımları algılamak için hedeflenen tarama yapar.
+* **Kötü amaçlı yazılım düzeltme**: Otomatik olarak algılanan kötü amaçlı yazılım gibi silme veya kötü amaçlı dosyaları karantinaya ve kötü amaçlı kayıt defteri girdilerini temizleme eylemi alır.
+* **İmza güncelleştirme**: Otomatik olarak koruma üzerinde önceden belirlenmiş bir sıklık güncel olduğundan emin olmak için en son (virüs tanımları) koruması imzaları yükler.
+* **Kötü amaçlı yazılımdan koruma Altyapısı güncelleştirmeleri**: Microsoft Azure altyapısı Antimalware otomatik olarak güncelleştirir.
 * **Kötü amaçlı yazılımdan koruma platformu güncelleştirmeleri**: Microsoft Azure platformu Antimalware otomatik olarak güncelleştirir.
-* **Etkin koruma**: raporlar telemetri hakkındaki meta verileri azure'a algılanan Tehditler ve şüpheli kaynakları hızlı yanıt vermek. Gerçek zamanlı zaman uyumlu imzası teslim aracılığıyla Microsoft etkin koruma sistemi (MAPS) sağlar.
-* **Örnekleri raporlama**: sağlar ve Microsoft hizmet iyileştirmek ve sorun giderme etkinleştirmek amacıyla Antimalware için Azure hizmet örnekleri bildirir.
-* **Dışlamalar**: uygulama ve hizmet yöneticileri belirli dosyaları, işlemler, yapılandırma izin verir ve koruma ve performans ve diğer nedenlerle için tarama dışında tutmak için sürücüler.
-* **Kötü amaçlı yazılımdan koruma olay toplama**: kötü amaçlı yazılımdan koruma hizmet durumu, şüpheli etkinlikleri ve işletim sistemi olay günlüğünde gerçekleştirilen düzeltme eylemleri kaydeder ve bunları Azure depolama hesabınızdaki toplar.
+* **Etkin koruma**: Algılanan Tehditler ve şüpheli kaynakları hakkında hızlı yanıt vermek, telemetri meta verileri Azure'a bildirir. Gerçek zamanlı zaman uyumlu imzası teslim aracılığıyla Microsoft etkin koruma sistemi (MAPS) sağlar.
+* **Örnekleri raporlama**: Ve Microsoft hizmet iyileştirmek ve sorun giderme etkinleştirmek amacıyla Antimalware için Azure hizmet örnekleri raporlar sağlar.
+* **Dışlamalar**: Koruma ve performans ve diğer nedenlerle için tarama dışında tutmak uygulama ve hizmet yöneticileri belirli dosyaları, işlemler ve sürücüleri yapılandırmanıza olanak sağlar.
+* **Kötü amaçlı yazılımdan koruma olay toplama**: Kötü amaçlı yazılımdan koruma hizmet durumu, şüpheli etkinlikleri ve işletim sistemi olay günlüğünde gerçekleştirilen düzeltme eylemleri kaydeder ve bunları Azure depolama hesabınızdaki toplar.
 
 Sanal makinelerinizi korumaya yardımcı olmak için kötü amaçlı yazılımdan koruma yazılımı hakkında daha fazla bilgi edinin:
 
@@ -90,8 +90,7 @@ Key Vault, anahtarlarınızı FIPS 140-2 2. Düzey standartlarıyla sertifikalan
 
 Daha fazla bilgi edinin:
 
-* [Azure anahtar kasası nedir?](../key-vault/key-vault-whatis.md)
-* [Azure anahtar kasası ile çalışmaya başlama](../key-vault/key-vault-get-started.md)
+* [Azure anahtar kasası nedir?](../key-vault/key-vault-overview.md)
 * [Azure Key Vault blogu](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Sanal makine disk şifrelemesi
@@ -103,7 +102,7 @@ Disk şifreleme anahtarlarını ve gizli anahtar kasası aboneliğinizi yönetme
 Daha fazla bilgi edinin:
 
 * [Iaas VM'ler için Azure Disk şifrelemesi](../security/azure-security-disk-encryption-overview.md)
-* [Hızlı Başlangıç: Azure PowerShell ile Windows Iaas VM şifreleme](../security/quick-encrypt-vm-powershell.md)
+* [Hızlı Başlangıç: Azure PowerShell ile bir Windows Iaas VM'LERİNİ şifreleme](../security/quick-encrypt-vm-powershell.md)
 
 ## <a name="virtual-machine-backup"></a>Sanal makine yedekleme
 
@@ -120,11 +119,11 @@ Kuruluşunuzun BCDR stratejisinin önemli bir bölümü kurumsal iş yüklerini 
 
 Site Recovery:
 
-* **BCDR stratejinize basitleştirir**: Site Recovery çoğaltma, yük devretme ve kurtarma, birden çok iş yükleri ve uygulamalar tek bir konumdan işlemek kolaylaştırır. Site Recovery çoğaltma ve yük devretme işlemlerini düzenler ancak değil, uygulama verilerinize müdahale veya hakkında tüm bilgiler toplamaz.
+* **BCDR stratejinize basitleştirir**: Site Recovery, çoğaltma, yük devretme ve kurtarma, birden çok iş yükleri ve uygulamalar tek bir konumdan işlemek kolaylaştırır. Site Recovery çoğaltma ve yük devretme işlemlerini düzenler ancak değil, uygulama verilerinize müdahale veya hakkında tüm bilgiler toplamaz.
 * **Esnek çoğaltma sağlar**: Site Recovery kullanarak Hyper-V sanal makinelerini, VMware sanal makinelerini ve Windows/Linux fiziksel sunucularında çalışan iş yüklerini çoğaltabilirsiniz.
 * **Yük devretme ve kurtarma destekler**: Site Recovery, üretim ortamlarını etkilemeden olağanüstü durum kurtarma ayrıntılarını desteklemek için yük devretme testleri sunar. Ayrıca, beklenen kesintilere yönelik olarak sıfır veri kaybı sunan planlanan yük devretmeler veya beklenmeyen olağanüstü durumlar için minimum düzeyde veri kaybıyla sonuçlanan (çoğaltma sıklığına bağlı olarak) planlanmamış yük devretmeler çalıştırabilirsiniz. Yük devretmenin ardından birincil sitelerinizde başarısız olabilir. Yük devretme işlemini özelleştirebilmeniz ve çok katmanlı uygulamaları kurtarabilmeniz için Site Recovery, betikleri ve Azure otomasyonu çalışma kitaplarını içeren kurtarma planları sunar.
-* **İkincil veri merkezleri ortadan**: bir ikincil şirket içi siteye veya azure'a çoğaltabilirsiniz. Azure olağanüstü durum kurtarma için hedef olarak kullanarak, maliyet ve ikincil bir site kullanmanın karmaşıklığını ortadan kaldırır. Çoğaltılan veriler Azure Depolama'da saklanır.
-* **Mevcut BCDR teknolojileri ile tümleşen**: Site Recovery, diğer uygulama BCDR özellikleriyle ortak. Örneğin, kurumsal iş yüklerinin SWL Server arka ucunu korumak için Site RECOVERY'yi kullanabilirsiniz. Bu SQL Server her zaman yük devretme kullanılabilirlik grupları yönetmek şirket için yerel destek içerir.
+* **İkincil veri merkezleri ortadan**: Bir ikincil şirket içi siteye veya azure'a çoğaltabilirsiniz. Azure olağanüstü durum kurtarma için hedef olarak kullanarak, maliyet ve ikincil bir site kullanmanın karmaşıklığını ortadan kaldırır. Çoğaltılan veriler Azure Depolama'da saklanır.
+* **Mevcut BCDR teknolojileri ile tümleşen**: Site Recovery, diğer uygulama BCDR özellikleriyle iş ortakları. Örneğin, kurumsal iş yüklerinin SWL Server arka ucunu korumak için Site RECOVERY'yi kullanabilirsiniz. Bu SQL Server her zaman yük devretme kullanılabilirlik grupları yönetmek şirket için yerel destek içerir.
 
 Daha fazla bilgi edinin:
 
@@ -165,7 +164,7 @@ Azure sanal makineleri FISMA, FedRAMP, HIPAA, PCI DSS düzey 1 ve diğer önemli
 
 Daha fazla bilgi edinin:
 
-* [Microsoft Güven Merkezi: uyumluluk](https://www.microsoft.com/en-us/trustcenter/compliance)
+* [Microsoft Güven Merkezi: Uyumluluk](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Güvenilir bulut: Microsoft Azure güvenlik, gizlilik ve uyumluluk](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
 ## <a name="confidential-computing"></a>Gizli bilgi işlem

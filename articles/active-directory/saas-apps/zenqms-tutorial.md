@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle ZenQMS | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile ZenQMS | Microsoft Docs'
 description: Azure Active Directory ve ZenQMS arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 57a8c698133b2b5516a1f5d352f28148afe6f3d2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f9804dee56e9f099654359e7c336f706cedbd1f7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447395"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204874"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Öğretici: Azure Active Directory ZenQMS ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Öğretici: ZenQMS ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile ZenQMS tümleştirme konusunda bilgi edinin.
 
@@ -172,7 +173,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="create-a-zenqms-test-user"></a>ZenQMS test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon ZenQMS içinde adlı bir kullanıcı oluşturun. Çalışmak [ZenQMS Destek ekibine](mailto:help@zenqms.com) ZenQMS platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon ZenQMS içinde adlı bir kullanıcı oluşturun. Çalışmak [ZenQMS Destek ekibine](mailto:help@zenqms.com) ZenQMS platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 7644940418b7322e5ec4b02b793219b44ae3aa97
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ed17d7cd887df6d8bd749ba4426d1a791b58d457
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885158"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171239"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında sanal makine ölçek kümesi oluşturma
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki sanal makine sayısını el ile ölçeklendirebilir veya CPU, bellek talebi ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Azure Load Balancer daha sonra ölçek kümesindeki sanal makine örneklerine trafiği dağıtır. Bu hızlı başlangıçta, Azure portalında sanal makine ölçek kümesi oluşturacaksınız.
@@ -46,11 +46,12 @@ RHEL, CentOS, Ubuntu veya SLES gibi bir Linux görüntüsü ya da Windows Server
     - **Parola** en az 12 karakter uzunluğunda olmalı ve şu dört karmaşıklık gereksiniminden üçünü karşılamalıdır: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. Daha fazla bilgi için [kullanıcı adı ve parola gereksinimlerine](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) bakın.
     - Bir Linux OS disk görüntüsü seçerseniz bunun yerine **SSH genel anahtarını** seçebilirsiniz. Yalnızca genel anahtarınızı sağlayın (örn. *~/.ssh/id_rsa.pub*). [SSH anahtarları oluşturmak ve kullanmak](../virtual-machines/linux/mac-create-ssh-keys.md) için portaldan Azure Cloud Shell’i kullanabilirsiniz.
 
-7. Bir **Genel IP adresi adı** girin (örn. *myPublicIP*).
-8. Benzersiz bir **Etki alanı adı etiketi** girin (örn. *myuniquedns*). Bu DNS etiketi, ölçek kümesinin önünde yük dengeleyici için FQDN temelini oluşturur.
-9. Ölçek kümesi seçeneklerini onaylamak için **Oluştur**’u seçin.
+    ![Azure portalında sanal makine ölçek oluşturmak için temel ayrıntılarını ayarlayın](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+1. Seçeneğini aşağıdaki gibi bir yük dengelemeyi seçin *yük dengeleyici*altında **seçin Yük Dengeleme seçeneklerini**. Yük Dengeleme seçenek için kalan ayrıntıları girin. Örneğin, *yük dengeleyici* girmeniz gerekir. bir **genel IP adresi adı** ve **etki alanı adı etiketi**.
+1. Altında sanal ağ ayrıntılarını girin **sanal ağları yapılandırma**. Örneğin, yeni bir sanal ağ oluşturabilirsiniz *myVirtualNetwork*ve yeni bir alt ağ *varsayılan*.
+1. Ölçek kümesi seçeneklerini onaylamak için **Oluştur**’u seçin.
+    ![Azure portalında sanal makine ölçek oluşturmak için ayrıntıları ağ ayarlama](./media/virtual-machine-scale-sets-create-portal/create-scale-set-networking-details.png)
 
-    ![Azure portalında sanal makine ölçek kümesi oluşturma](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)
 
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>Ölçek kümesindeki bir sanal makineye bağlanma

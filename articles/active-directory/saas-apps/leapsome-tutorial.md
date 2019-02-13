@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Leapsome | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Leapsome | Microsoft Docs'
 description: Azure Active Directory ve Leapsome arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37549cc76e1490b0758de8e296523b0e70c98dbf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824020"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191240"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Öğretici: Azure Active Directory Leapsome ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Öğretici: Leapsome ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Leapsome tümleştirme konusunda bilgi edinin.
 
@@ -126,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
 
 1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
-    | Öznitelik Adı | Öznitelik Değeri | Ad Alanı |
+    | Öznitelik Adı | Öznitelik Değeri | Ad alanı |
     | ---------------| --------------- | --------- |   
     | firstName | User.givenName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | Soyadı | User.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |

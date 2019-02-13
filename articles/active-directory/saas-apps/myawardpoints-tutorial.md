@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle ödül noktaları üst alt/üst Ekibim | Microsoft Docs'
+title: 'Öğretici: My ödül noktaları üst alt/üst ekibi ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve ödül noktaları üst alt/üst Ekibim arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 19ed1c12768eed0265f65388984a5859b8f0630b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247763"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210739"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Öğretici: Azure Active Directory My ödül noktaları üst alt/üst ekibi ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Öğretici: My ödül noktaları üst alt/üst ekibi ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, My ödül noktaları üst alt/üst ekibi Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -161,7 +162,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="create-a-my-award-points-top-subtop-team-test-user"></a>My ödül noktaları üst alt/üst takım test kullanıcısı oluşturma
 
-Bu bölümde, My ödül noktaları üst alt/üst ekibi Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [ödül noktaları üst alt/üst Ekibim Destek ekibine](mailto:myawardpoints@biworldwide.com) ödül noktaları üst alt/üst Ekibim platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, My ödül noktaları üst alt/üst ekibi Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [ödül noktaları üst alt/üst Ekibim Destek ekibine](mailto:myawardpoints@biworldwide.com) ödül noktaları üst alt/üst Ekibim platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

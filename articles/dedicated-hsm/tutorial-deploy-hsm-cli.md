@@ -4,7 +4,7 @@ description: CLI kullanarak mevcut bir sanal ağa ayrılmış bir HSM dağıtmay
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c8713c4d3f6bd7835fed8e668407ea9ee55cc712
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080325"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111841"
 ---
-# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Öğretici: CLI kullanarak mevcut bir sanal ağa HSM'ler dağıtma
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Öğretici: CLI kullanarak HSM'leri mevcut sanal ağa dağıtma
 
 Azure ayrılmış HSM fiziksel bir cihaz için tam yönetim denetimi ve tam yönetim sorumluluk ile tek bir müşterinin kullanım sağlar. Fiziksel cihazlar kullanımını kapasite etkili bir şekilde yönetildiğinden emin olmak için cihaz ayırma denetlemek Microsoft gereksinimini oluşturur. Sonuç olarak, bir Azure aboneliğinde, ayrılmış HSM hizmetini normalde kaynak sağlama için görünür olmaz. Ayrılmış HSM hizmetine erişim gerektiren herhangi bir Azure müşterisi ilk başvurmalısınız, Microsoft hesap yöneticinize istek kayıt için ayrılmış HSM hizmeti. Yalnızca bu işlemi başarıyla tamamlandıktan sonra sağlama mümkün olacaktır. 
 
@@ -38,7 +38,7 @@ Bu öğreticide HSM'ler çifti üzerinde odaklanır ve gerekli ExpressRoute (bkz
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure ayrılmış HSM, Azure portalında şu anda kullanılabilir değil. Tüm etkileşim hizmeti ile komut satırı veya kullanarak PowerShell olacaktır. Bu öğreticide, Azure Cloud shell'de komut satırı (CLI) arabirimini kullanır. Azure CLI'yı yeniyseniz, buradaki yönergeleri izleme ile çalışmaya başlama: [Azure CLI 2.0 kullanmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+Azure ayrılmış HSM, Azure portalında şu anda kullanılabilir değil. Tüm etkileşim hizmeti ile komut satırı veya kullanarak PowerShell olacaktır. Bu öğreticide, Azure Cloud shell'de komut satırı (CLI) arabirimini kullanır. Azure CLI'yı yeniyseniz izleyin Buradaki yönergeleri Başlarken: [Azure CLI 2.0 Başlarken](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
 Varsayımlar:
 
@@ -177,7 +177,7 @@ Bu dağıtım yaklaşık 25 için HSM cihazlarına olan bu süreyi toplu ile tam
 
 ![sağlama durumu](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-Dağıtım tamamlandığında başarıyla "provisioningState": "Başarılı" görüntülenir. Mevcut sanal makinenize bağlanın ve HSM cihazını kullanılabilirliğini sağlamak için SSH kullanın.
+Dağıtım başarıyla "provisioningState" tamamlandığında: "Başarılı" görüntülenir. Mevcut sanal makinenize bağlanın ve HSM cihazını kullanılabilirliğini sağlamak için SSH kullanın.
 
 ## <a name="verifying-the-deployment"></a>Dağıtımı doğrulama
 

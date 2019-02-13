@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 82e80b9dd4d20709fc8598e0fed3323046c21cfa
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751132"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189421"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Öğretici: Jenkins, GitHub ve Docker ile azure'da bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturma
 
@@ -59,7 +59,7 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - apt install default-jre -y
+  - apt install openjdk-8-jre-headless -y
   - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
   - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
@@ -109,6 +109,21 @@ Güvenlik nedeniyle, Jenkins yüklemesini başlatmak için VM’nizde bir metin 
 ssh azureuser@<publicIps>
 ```
 
+Jenkins kullanarak çalıştığını doğrulamak `service` komutu:
+
+```bash
+$ service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Tue 2019-02-12 16:16:11 UTC; 55s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 4103)
+   CGroup: /system.slice/jenkins.service
+
+Feb 12 16:16:10 myVM systemd[1]: Starting LSB: Start Jenkins at boot time...
+...
+```
+
 Jenkins yüklemenizin `initialAdminPassword` değerini görüntüleyin ve kopyalayın:
 
 ```bash
@@ -125,7 +140,7 @@ Dosya henüz kullanılamıyorsa cloud-init tarafından Jenkins ve Docker yüklem
 - **Kaydet ve Bitir**’i seçin
 - Jenkins hazır olduktan sonra **Jenkins kullanmaya başla**’yı seçin
   - Jenkins kullanmaya başladığınızda web tarayıcınız boş bir sayfa görüntülerse, Jenkins hizmetini yeniden başlatın. SSH oturumundan `sudo service jenkins restart` yazın ve web tarayıcınızı yenileyin.
-- Oluşturduğunuz kullanıcı adı ve parola ile Jenkins’te oturum açın.
+- Gerekirse, Jenkins için kullanıcı adı ve oluşturduğunuz parola ile oturum açın.
 
 
 ## <a name="create-github-webhook"></a>GitHub web kancası oluşturma
@@ -133,11 +148,13 @@ GitHub tümleştirmesini yapılandırmak için Azure örnek deposundan [Node.js 
 
 Oluşturduğunuz çatalın içinde bir web kancası oluşturun:
 
-- **Ayarlar**’ı seçip sol taraftan **Tümleştirmeler ve hizmetler**’i seçin.
-- **Hizmet ekle**’yi seçip filtre kutusuna *Jenkins* yazın.
-- *Jenkins (GitHub eklentisi)* seçeneğini belirleyin
-- **Jenkins kanca URL’si** için şunu girin: `http://<publicIps>:8080/github-webhook/`. Sondaki / karakterini eklemeyi unutmayın
-- **Hizmet ekle**’yi seçin
+- Seçin **ayarları**, ardından **Web kancaları** sol taraftaki.
+- Seçin **Web kancası Ekle**, enter *Jenkins* filtre kutusuna.
+- İçin **yük URL'si**, girin `http://<publicIps>:8080/github-webhook/`. Sondaki / karakterini eklemeyi unutmayın
+- İçin **içerik türü**seçin *application/x-www-form-urlencoded işlemek*.
+- İçin **hangi olayların bu Web kancası tetiklemenin ister misiniz?** seçin *yalnızca anında iletme olay.*
+- Ayarlama **etkin** için işaretlenmiş.
+- Tıklayın **Web kancası Ekle**.
 
 ![GitHub web kancasını çatalı oluşturulan deponuza ekleyin](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -166,7 +183,7 @@ response.end("Hello World!");
 
 Değişikliklerinizi işlemek için alttaki **Değişiklikleri işle** düğmesini seçin.
 
-Jenkins’de işinizin bulunduğu sayfanın sol alt köşesindeki **Derleme geçmişi** bölümünün altında yeni bir derleme başlar. Derleme numarası bağlantısını seçip sol taraftan **Konsol çıktısı**’nı seçin. Kodunuz GitHub’dan çekilirken ve derleme eylemi tarafından konsola çıktı olarak `Testing` mesajı iletilirken Jenkins’in uyguladığı adımları görebilirsiniz. GitHub’da her işleme gerçekleştirildiğinde web kancası bu şekilde Jenkins’e ulaşır ve yeni bir derleme tetikler.
+Jenkins’de işinizin bulunduğu sayfanın sol alt köşesindeki **Derleme geçmişi** bölümünün altında yeni bir derleme başlar. Derleme numarası bağlantısını seçip sol taraftan **Konsol çıktısı**’nı seçin. Kodunuz GitHub’dan çekilirken ve derleme eylemi tarafından konsola çıktı olarak `Test` mesajı iletilirken Jenkins’in uyguladığı adımları görebilirsiniz. GitHub’da her işleme gerçekleştirildiğinde web kancası bu şekilde Jenkins’e ulaşır ve yeni bir derleme tetikler.
 
 
 ## <a name="define-docker-build-image"></a>Docker derleme görüntüsünü tanımlama
