@@ -17,12 +17,13 @@ ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cfc1ba6250a2d246c2dcf9a0128097b64896732d
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098519"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204432"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>İzinler ve onay Azure Active Directory v2.0 uç noktası
 
@@ -58,13 +59,13 @@ OAuth 2. 0'da, bu tür izinler adlandırılır *kapsamları*. Bunlar çoğunlukl
 * Kullanarak bir kullanıcının takvime yazma `Calendars.ReadWrite`
 * Kullanarak bir kullanıcı tarafından olarak posta gönderme `Mail.Send`
 
-Uygulama, v2.0 isteklerinde kapsamları belirterek bu izinleri son noktanın yetkilendirilmesi en yaygın olarak ister. Ancak, bazı yüksek ayrıcalıklı izinlere yalnızca yönetici onayı ve genellikle istenen/verilen kullanılarak verilebilir [yönetici onay uç noktası](v2-permissions-and-consent.md#admin-restricted-scopes). Daha fazla bilgi için okumaya devam edin.
+Uygulama, v2.0 isteklerinde kapsamları belirterek bu izinleri son noktanın yetkilendirilmesi en yaygın olarak ister. Ancak, bazı yüksek ayrıcalıklı izinlere yalnızca yönetici onayı ve genellikle istenen/verilen kullanılarak verilebilir [yönetici onay uç noktası](v2-permissions-and-consent.md#admin-restricted-permissions). Daha fazla bilgi için okumaya devam edin.
 
 ## <a name="permission-types"></a>İzin türleri
 
 Microsoft kimlik platformu destekleyen iki tür izinler: **temsilci izinleri** ve **uygulama izinleri**.
 
-* **Temsilci izinleri** oturum açmış kullanıcı var olan uygulamaları tarafından kullanılır. Bu uygulamalar için kullanıcı veya yönetici izinleri uygulama istekleri ve uygulama olduğunu temsilci atanmış izin, hedef kaynağın çağrı yaparken oturum açmış kullanıcı olarak davranacak şekilde toplanmasına onay verir. Bazı izinleri devralmış yönetici olmayan kullanıcılar tarafından onay, ancak bazı daha yüksek ayrıcalıklı izinlere gerektiren [yönetici onayı](v2-permissions-and-consent.md#admin-restricted-scopes). Hangi yönetici rolleri için temsilci izinleri izin alma bilgi edinmek için [Azure AD'de Yönetici rolü izinleri](../users-groups-roles/directory-assign-admin-roles.md).
+* **Temsilci izinleri** oturum açmış kullanıcı var olan uygulamaları tarafından kullanılır. Bu uygulamalar için kullanıcı veya yönetici izinleri uygulama istekleri ve uygulama olduğunu temsilci atanmış izin, hedef kaynağın çağrı yaparken oturum açmış kullanıcı olarak davranacak şekilde toplanmasına onay verir. Bazı izinleri devralmış yönetici olmayan kullanıcılar tarafından onay, ancak bazı daha yüksek ayrıcalıklı izinlere gerektiren [yönetici onayı](v2-permissions-and-consent.md#admin-restricted-permissions). Hangi yönetici rolleri için temsilci izinleri izin alma bilgi edinmek için [Azure AD'de Yönetici rolü izinleri](../users-groups-roles/directory-assign-admin-roles.md).
 
 * **Uygulama izinleri** uygulamaları tarafından kullanılan bir oturum açmış kullanıcı mevcut çalıştırın; Örneğin, uygulamaları çalıştıran arka plan Hizmetleri veya daemon'ları olarak.  Uygulama izinleri yalnızca olabilir [bir yönetici tarafından onaylı](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
