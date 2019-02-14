@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f75b14ce2ca860ee894fe0a2ef501066b91f8e8a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c9fb24cd6bcfae273c5430eee8d1fa8df58c6202
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755654"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236320"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Öğretici: Bir Azure CDN özel etki alanı üzerinde HTTPS yapılandırma
 
@@ -45,6 +45,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > - Özel etki alanınızda HTTPS protokolünü devre dışı bırakma.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
 Bu öğreticideki adımları tamamlayabilmeniz için öncelikle bir CDN profili ve en az bir CDN uç noktası oluşturmanız gerekir. Daha fazla bilgi için [hızlı başlangıç: Bir Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md).
 
@@ -103,11 +105,11 @@ HTTPS özelliğini etkinleştirmek için kendi sertifikanızı kullanabilirsiniz
 
 PowerShell aracılığıyla Azure CDN’yi Azure Active Directory’nizdeki bir uygulama olarak kaydedin.
 
-1. Gerekirse yerel makinenizdeki PowerShell’de [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0)’i yükleyin.
+1. Gerekirse, yükleme [Azure PowerShell](/powershell/azure/install-az-ps) yerel makinenizde.
 
 2. PowerShell’de aşağıdaki komutu çalıştırın:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
 
     ![PowerShell’de Azure CDN’ye kaydolun](./media/cdn-custom-ssl/cdn-register-powershell.png)
               
