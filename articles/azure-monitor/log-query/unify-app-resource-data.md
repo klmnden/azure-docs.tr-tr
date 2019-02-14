@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766021"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237680"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Birden çok Azure İzleyici Application Insights kaynaklarını birleştirin 
 Bu makalede, sorgu ve farklı Azure aboneliklerinde Application Insights Bağlayıcısı kullanımdan bir ardılı olarak olduklarında bile tüm Application Insights uygulama günlük verilerini tek bir yerde görüntüleyin açıklar. 100 olarak kaynakları tek bir sorgu ekleyebilirsiniz, Application Insights kaynakları sayısı sınırlıdır.  
@@ -32,7 +32,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Uygulamaların listesini birleşim işleci kullanarak bir işlev oluşturun ve ardından işlev diğer adı ile Sorguyu Kaydet *applicationsScoping*.  
+Uygulamaların listesini birleşim işleci kullanarak bir işlev oluşturun ve ardından sorguyu işlev diğer adı ile çalışma alanınızda Kaydet *applicationsScoping*.  
 
 ```
 union withsource=SourceApp 
@@ -45,7 +45,7 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->Listelenen uygulamalar günlükleri portalı ve işlev düzenleme veya kullanarak, sorgu Gezgini giderek dilediğiniz zaman değiştirebilirsiniz `SavedSearch` PowerShell cmdlet'i. `withsource= SourceApp` Komutu sonuçları uygulama belirten bir sütuna gönderilen günlük ekler. 
+>Listelenen uygulamalar portalında herhangi bir zamanda çalışma alanınızdaki sorgu Gezgini giderek ve düzenleme ve ardından kaydetme ya da kullanarak işlevi seçerek değiştirebileceğiniz `SavedSearch` PowerShell cmdlet'i. `withsource= SourceApp` Komutu sonuçları uygulama belirten bir sütuna gönderilen günlük ekler. 
 >
 >Application Insights veri yapısı applicationsScoping işlevi döndürdüğünden çalışma alanında sorgu yürütülür, ancak sorgu Application Insights şema kullanılır. 
 >

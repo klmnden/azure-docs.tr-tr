@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c70c7e8b893c511aae36f122c5983fd0958eac8e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 161778c921026547c532b05474a60dd0d3e9fa7a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975398"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237809"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Azure App Service'te bir Python ve PostgreSQL uygulaması oluşturma
 
@@ -33,6 +33,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Uygulamayı Azure’da dağıtma
 > * Tanılama günlüklerini görüntüleme
 > * Uygulamayı Azure portalında yönetme
+
+> [!NOTE]
+> PostgreSQL için Azure veritabanı oluşturmadan önce lütfen denetleyin [burada](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) nesil Bölgenizde kullanılabilir bilgi işlem görmek için.
 
 Bu makaledeki adımları macOS üzerinde izleyebilirsiniz. Linux ve Windows yönergeleri çoğu durumda aynıdır, ancak bu öğreticide farkları konusunda ayrıntıya girilmemiştir.
 

@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 08/30/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 4021d1ac5a0b3d9d9bf19e9fb7f74952f2471c30
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: fe1227d91c0d039a94e5b9a3046b879f4f17355a
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "49458877"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247204"
 ---
 | Kaynak | Temel | Standart | Premium |
 |---|---|---|---|---|
-| Depolama<sup>1</sup> | 10 giB | 100 giB| 500 giB |
-| En büyük görüntü katman boyutu | 20 giB | 20 giB | 50 giB |
+| Depolama<sup>1</sup> | 10 GiB | 100 GiB| 500 giB |
+| En büyük görüntü katman boyutu | 20 GiB | 20 GiB | 50 giB |
 | Dakika başına okuma işlemleri:<sup>2, 3</sup> | 1000 | 3.000 | 10,000 |
 | Yazma işlemleri: dakika başına<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | MB/sn bant genişliği indirme<sup>2</sup> | 30 | 60 | 100 |

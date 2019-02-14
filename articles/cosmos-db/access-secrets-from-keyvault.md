@@ -1,20 +1,20 @@
 ---
 title: Azure Cosmos DB anahtarlara erişmek ve depolamak için Key Vault'u kullanın
 description: Depolamak ve Azure Cosmos DB bağlantı dizesi, anahtar, uç noktalarına erişmek için Azure Key Vault'u kullanın.
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: rafats
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 770e1e543a16bb54acc216aa550c44be26ab7a1a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 36b0a2f18cf2917251a87405456980811af1bc3d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858460"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242201"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Cosmos anahtarları Azure Key Vault'u kullanarak güvenli hale getirme 
 

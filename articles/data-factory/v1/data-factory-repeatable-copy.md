@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 450e6a180b104d8f384fd08cc7c4cafcd53b4453
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fa08e6da6b87de5878f099709563fb90e8669e77
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021348"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237612"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data factory'de tekrarlanabilir kopyalama
 
@@ -114,7 +114,7 @@ Bu sütun yinelenebilirliği amacıyla Azure Data Factory tarafından kullanıl�
 1. Türünde bir sütun tanımlayın **ikili (32)** hedef SQL tablosu. Bu sütunda hiçbir kısıtlama olmalıdır. Şimdi bu sütun, bu örnekte AdfSliceIdentifier adlandırın.
 
 
-    Kaynak Tablo:
+Kaynak Tablo:
 
     ```sql
     CREATE TABLE [dbo].[Student](
@@ -123,7 +123,7 @@ Bu sütun yinelenebilirliği amacıyla Azure Data Factory tarafından kullanıl�
     )
     ```
 
-    Hedef Tablo: 
+Hedef Tablo: 
 
     ```sql
     CREATE TABLE [dbo].[Student](

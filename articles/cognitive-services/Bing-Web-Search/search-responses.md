@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: db7ac84b5ce1f3ee2558bbc5ce14332aecd578c7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860652"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232901"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web araması API'si yanıt yapısı ve yanıt türleri  
 
@@ -42,7 +42,7 @@ Genellikle, Bing Web araması yanıtlar bir alt kümesi döndürür. Örneğin, 
 
 ## <a name="webpages-answer"></a>Web sayfası yanıt
 
-[Web sayfalarını](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) yanıt, Bing Web araması sorgu ile ilgili olan belirlenen Web sayfalarına bağlantılar listesini içerir. Her [web sayfası](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) içinde liste sayfanın adı, url, görüntü URL'sini içerir, içerik ve Bing tarih kısa açıklamasını içeriği bulunamadı.
+[Web sayfalarını](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) yanıt, Bing Web araması sorgu ile ilgili olan belirlenen Web sayfalarına bağlantılar listesini içerir. Her [web sayfası](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) listesinde içerecektir: sayfanın adı, url, URL, içerik ve Bing içerik bulunan tarih kısa bir açıklamasını görüntüler.
 
 ```json
 {
@@ -91,7 +91,7 @@ The following shows an example of how you might display the webpage in a search 
 }, ...
 ```
 
-Kullanıcının cihaza bağlı olarak kullanıcının kalan resimleri görüntülemek bir seçenek ile küçük bir alt kümesi genelde görüntülenecekti.
+Kullanıcının cihazına bağlı olarak, kullanıcı için bir seçenek ile küçük bir alt kümesi genelde görüntüleyecektir [aracılığıyla sayfasında](paging-webpages.md) kalan görüntüler.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -314,7 +314,7 @@ Matematik ifadesi aşağıdaki işlevleri içerebilir:
 
 |Sembol|Açıklama|
 |------------|-----------------|
-|Sqrt|Karekök|
+|Sırala|Karekök|
 |Sin [x], Cos [x], Bronz [x]<br />CSC [x], [x] sn Cot [x]|Trigonometrik işlevler (ile radyan cinsinden bağımsız değişkenler)|
 |ArcSin [x], [x] ArcCos ArcTan [x]<br />ArcCsc [x], [x] ArcSec ArcCot [x]|Ters trigonometrik işlevler (radyan cinsinden sonuçları vermiş)|
 |Exp [x] E ^ x|Üstel işlevi|
@@ -428,6 +428,48 @@ Bing belirlerse, kullanıcının farklı bir şey için aranacak hedeflenen, yan
     }]
 }, ...
 ```
+
+Bing yazım önerisi nasıl kullandığını gösterir.
+
+![Bing yazım önerisi örneği](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+
+## <a name="response-headers"></a>Yanıt üst bilgileri
+
+Bing Web araması API'si alınan yanıtları aşağıdaki üst bilgiler içerebilir:
+
+|||
+|-|-|
+|`X-MSEdge-ClientID`|Bing kullanıcıya atanmış benzersiz kimliği|
+|`BingAPIs-Market`|İsteği gerçekleştirmek için kullanılan Pazar|
+|`BingAPIs-TraceId`|Bu istek (desteği gibi) için Bing API'si sunucusundaki günlük girişi|
+
+İstemci kimliği kalıcı hale getirmek ve sonraki istekleri ile döndürmek özellikle önemlidir. Bunu yaptığınızda, arama, arama sonuçlarını sıralamasını bağlamını geçmiş kullanın ve tutarlı bir kullanıcı deneyimi de sağlar.
+
+Bing Web araması API'si JavaScript'ten çağırdığınızda, ancak, tarayıcınızın yerleşik güvenlik özellikleri (CORS), bu üstbilgi değerlerini erişmesini engelleyebilir.
+
+Üst bilgilerine erişmek için Bing Web araması API'si isteği bir CORS Ara sunucu aracılığıyla yapabilirsiniz. Böyle bir ara sunucudan gelen yanıtta, yanıt üst bilgilerini beyaz listeye alan ve JavaScript’in kullanımına sunan `Access-Control-Expose-Headers` üst bilgisi bulunur.
+
+İzin vermek için bir CORS Ara Sunucusu'nun yükleneceği kolaydır bizim [öğretici uygulama](tutorial-bing-web-search-single-page-app.md) isteğe bağlı istemci üstbilgileri erişmek için. İlk olarak, henüz yüklemediyseniz [Node.js'yi yükleyin](https://nodejs.org/en/download/). Ardından bir komut isteminde aşağıdaki komutu girin.
+
+    npm install -g cors-proxy-server
+
+Ardından, Bing Web araması API'si uç nokta HTML dosyasındaki değiştirin:
+
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+
+Son olarak, aşağıdaki komutla CORS ara sunucusunu başlatın:
+
+    cors-proxy-server
+
+Öğretici uygulamasını kullanırken komut penceresini açık bırakın; pencere kapatılırsa ara sunucu durdurulur. Arama sonuçlarının altındaki genişletilebilir HTTP Üst Bilgileri bölümünde artık `X-MSEdge-ClientID` üst bilgisini (diğerleriyle birlikte) görebilir ve bunun her istekte aynı olduğunu doğrulayabilirsiniz.
+
+## <a name="response-headers-in-production"></a>Üretimde yanıt üstbilgileri
+
+Önceki yanıtında açıklanan CORS Ara yaklaşımı, geliştirme, test ve öğrenme için uygundur.
+
+Bir üretim ortamında, Bing Web araması API'si kullanan Web sayfası olarak aynı etki alanında bir sunucu tarafı betik barındırmamalısınız. Bu betik, Web sayfası JavaScript'ten istek API çağrıları yapabilir ve istemciye üst bilgiler dahil olmak üzere tüm sonuçları geçirin. Bir kaynak (sayfa ve komut dosyası) iki Kaynakları paylaşarak CORS kullanılmaz ve özel üstbilgi JavaScript Web sayfasındaki erişilebilir.
+
+Sunucu tarafı betik ihtiyaç duyduğu yalnızca bu yaklaşım ayrıca API anahtarınızı genel maruz kalma riskinizi beri önler. Betik, isteğin yetkilendirilip emin olmak için başka bir yöntemi kullanabilirsiniz.
 
 Bing yazım önerisi nasıl kullandığını gösterir.
 

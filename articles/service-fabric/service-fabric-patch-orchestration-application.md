@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732320"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234757"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -133,7 +133,7 @@ Onarım Yöneticisi hizmetini etkinleştirmek için:
 
 3. Küme bildiriminizi güncelleştirilmiş küme bildiriminde kullanarak bu değişikliklerle güncelleştirmek [yeni küme oluşturma](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) veya [küme yapılandırmasını yükseltme](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Güncelleştirilmiş küme bildirimi ile küme çalışmaya başladıktan sonra çağrılır, kümede çalışan onarım Yöneticisi sistem hizmeti artık görebilirsiniz `fabric:/System/RepairManagerService`altında Service Fabric explorer bölümünde sistem hizmetleri.
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>Tüm düğümlerde otomatik Windows güncelleştirme devre dışı bırak
+### <a name="configure-windows-updates-for-all-nodes"></a>Tüm düğümler için Windows güncelleştirmelerini yapılandırma
 
 Aynı anda birden çok küme düğümüne yeniden başlatabilirsiniz çünkü Windows Otomatik Güncelleştirmeler kullanılabilirlik kaybına neden olabilir. Düzeltme eki düzenleme uygulama varsayılan olarak, her küme düğümünde otomatik Windows güncelleştirme devre dışı bırakmak çalışır. Ancak, ayarları Grup İlkesi veya bir yönetici tarafından yönetiliyorsa, "Bildirim önce indirin" için Windows Update ilke açık olarak ayarlama öneririz.
 

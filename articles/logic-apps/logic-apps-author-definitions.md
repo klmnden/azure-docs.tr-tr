@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5c51fe4e3d8b432e80a2d437c299b33af557d936
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732932"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245822"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Oluşturmak, düzenlemek veya JSON için mantıksal uygulama tanımları Azure Logic apps'te genişletin.
 
-Kurumsal tümleştirme çözümleri ile oluşturduğunuzda, otomatik iş akışları [Azure Logic Apps](../logic-apps/logic-apps-overview.md), temel alınan mantıksal uygulama tanımları basit ve bildirim temelli JavaScript nesne gösterimi (JSON) ile birlikte kullanmak [ İş akışı tanımı dili (WDL) şeması](../logic-apps/logic-apps-workflow-definition-language.md) açıklaması ve doğrulama. Bu biçimler mantıksal uygulama tanımları okumanız ve anlamanız kod hakkında pek fazla bilmeden kolaylaştırır. Oluşturma ve logic apps dağıtımı otomatik hale getirmek istediğinizde, mantıksal uygulama tanımları olarak dahil edebileceğiniz [Azure kaynaklarını](../azure-resource-manager/resource-group-overview.md) içinde [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-overview.md#template-deployment). Oluşturma, yönetme ve logic apps dağıtmak için daha sonra [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), veya [Azure Logic Apps REST API'lerini](https://docs.microsoft.com/rest/api/logic/).
+Kurumsal tümleştirme çözümleri ile oluşturduğunuzda, otomatik iş akışları [Azure Logic Apps](../logic-apps/logic-apps-overview.md), temel alınan mantıksal uygulama tanımları basit ve bildirim temelli JavaScript nesne gösterimi (JSON) ile birlikte kullanmak [ İş akışı tanımı dili (WDL) şeması](../logic-apps/logic-apps-workflow-definition-language.md) açıklaması ve doğrulama. Bu biçimler mantıksal uygulama tanımları okumanız ve anlamanız kod hakkında pek fazla bilmeden kolaylaştırır. Oluşturma ve logic apps dağıtımı otomatik hale getirmek istediğinizde, mantıksal uygulama tanımları olarak dahil edebileceğiniz [Azure kaynaklarını](../azure-resource-manager/resource-group-overview.md) içinde [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-overview.md#template-deployment). Oluşturma, yönetme ve logic apps dağıtmak için daha sonra [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), veya [Azure Logic Apps REST API'lerini](https://docs.microsoft.com/rest/api/logic/).
 
 Mantıksal uygulama tanımları json'da çalışmak için Azure portalında veya Visual Studio çalışırken kod görünüm düzenleyicisini açmak veya tanımını istediğiniz herhangi bir düzenleyiciye kopyalayın. Logic apps kullanmaya yeni başladıysanız gözden [ilk mantıksal uygulamanızı oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

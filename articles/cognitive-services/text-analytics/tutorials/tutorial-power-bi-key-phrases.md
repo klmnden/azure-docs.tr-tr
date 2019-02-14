@@ -1,21 +1,21 @@
 ---
-title: 'Öğretici: Power BI ile Metin Analizi'
+title: 'Öğretici: Power BI ile metin analizi Bilişsel hizmet tümleştirme'
 titleSuffix: Azure Cognitive Services
 description: Power BI'da depolanan metindeki anahtar ifadeleri ayıklamak için Metin Analizi'ni nasıl kullanacağınızı öğrenin.
 services: cognitive-services
-author: luiscabrer
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: luisca
-ms.openlocfilehash: 93c524f933251e94ded36dc3a6bd66d376e76a81
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884044"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245839"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Öğretici: Power BI ile metin analizi Bilişsel hizmet tümleştirme
 

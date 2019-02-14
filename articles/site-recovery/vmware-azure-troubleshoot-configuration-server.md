@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435983"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245737"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Yapılandırma sunucusu sorunlarını giderme
 
@@ -60,7 +60,7 @@ Mobility Aracısı'nı yükleme ve yapılandırma sunucusu ile kayıt hizmet ta�
 
 ## <a name="vcenter-discovery-failures"></a>vCenter bulma hatası
 
-VCenter bulma hataları çözmek için vCenter sunucusu için atlama listesi proxy ayarları eklenir emin olun. Bu etkinlik gerçekleştirmek için
+VCenter bulma hataları çözmek için atlama listesi proxy ayarları için vCenter sunucusu ekleyin. 
 
 - PsExec aracını indirin [burada](https://aka.ms/PsExec) sistem kullanıcı içeriğe erişmek için.
 - Internet Explorer açın sistem kullanıcı içeriği aşağıdaki komut satırı psexec -s çalıştırarak -i "%ProgramFiles%\Internet Explorer\iexplore.exe"
@@ -80,6 +80,11 @@ Bu hatayı önlemek için bu, sistem saati 15 dakikadan fazla kaynağından yere
 
 Site Recovery kimlik doğrulaması için gereken sertifika oluşturulamıyor. Kurulum yerel bir yönetici olarak çalıştırıyorsanız emin olduktan sonra kurulumu yeniden çalıştırın.
 
+## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Sunucu standart Windows lisans sunucusu standart değerlendirme etkinleştirme hatası
+
+1. OVF ile Configuration server dağıtımının bir parçası olarak, 180 gün boyunca geçerli olduğu bir değerlendirme lisans kullanılır. Bu lisans bu süresi önce etkinleştirmeniz gerekir. Aksi takdirde, bu yapılandırma sunucusunun sık kapatma neden ve bu nedenle çoğaltma etkinliklere hinderance neden.
+2. Windows Lisansı Etkinleştirme bulamıyorsanız, ulaşın [Windows Destek ekibine](https://aka.ms/Windows_Support) sorunu çözmek için.
+
 ## <a name="register-source-machine-with-configuration-server"></a>Kaynak makinenin yapılandırma sunucusuna kaydedin
 
 ### <a name="if-the-source-machine-runs-windows"></a>Kaynak makine Windows çalıştırıyorsa
@@ -89,7 +94,7 @@ Kaynak makine üzerinde aşağıdaki komutu çalıştırın:
 ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
-  ```
+```
 
 Ayar | Ayrıntılar
 --- | ---
@@ -112,3 +117,140 @@ Kullanım | CD /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i 
 -i | Zorunlu parametre. Yapılandırma sunucusunun IP adresini belirtir. Herhangi bir geçerli IP adresi kullanın.
 -P |  Zorunlu. Parola kaydedildiği dosyasının tam dosya yolu. Herhangi bir geçerli klasörü kullanın.
 
+## <a name="unable-to-configure-the-configuration-server"></a>Yapılandırma sunucusu yapılandırılamıyor.
+
+Sanal makinede yapılandırma sunucusu dışındaki uygulamalar yüklerseniz, ana hedef yapılandıramıyor.%n olabilir. 
+
+Yapılandırma sunucusu, tek amaçlı bir sunucu ve bir paylaşılan sunucuyu desteklenmeyen olduğundan kullanılarak olması gerekir. 
+
+Daha fazla bilgi için bkz: ' % s'yapılandırması SSS içinde [yapılandırma sunucusunu dağıtma](vmware-azure-deploy-configuration-server.md#faq). 
+
+## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>Korumalı öğeler için eski girişler yapılandırma sunucusu veritabanı bağlantısını Kaldır 
+
+Yapılandırma sunucusundaki eski korunan makinenin kaldırmak için aşağıdaki adımları kullanın. 
+ 
+1. Kaynak makine ve eski bir girişe IP adresini belirlemek için: 
+
+    1. MYSQL komut satırı, Yönetici modunda açın. 
+    2. Aşağıdaki komutları yürütün. 
+   
+        ```
+        mysql> use svsdb1;
+        mysql> select id as hostid, name, ipaddress, ostype as operatingsystem, from_unixtime(lasthostupdatetime) as heartbeat from hosts where name!='InMageProfiler'\G;
+        ```
+
+        Bu IP adresleri ve son sinyal birlikte kayıtlı makinelerin listesini döndürür. Eski çoğaltma çiftlerinin olan konak bulun.
+
+2. Yükseltilmiş bir komut istemi açın ve C:\ProgramData\ASR\home\svsystems\bin için gidin. 
+4. Yapılandırma sunucusunun kayıtlı konakları ayrıntıları ve eski giriş bilgilerini kaldırmak için kaynak makine ve eski bir girişe IP adresini kullanarak şu komutu çalıştırın. 
+   
+    `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
+ 
+    "VM01 OnPrem" 10.0.0.4 bir IP adresi ile bir kaynak sunucu girişi varsa ardından aşağıdaki komutu kullanın.
+ 
+    `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
+ 
+5. Yapılandırma sunucusu ile yeniden kaydettirmek için kaynak makinedeki aşağıdaki hizmetleri yeniden başlatın. 
+ 
+    - Inmage Scout uygulama hizmeti
+    - Inmage Scout VX Aracısı - Sentinel/Outpost
+
+## <a name="upgrade-fails-when-the-services-fail-to-stop"></a>Hizmetleri durdurma başarısız olduğunda, yükseltme başarısız oluyor
+
+Bazı hizmetler değil durdurduğunuzda yapılandırma sunucusu yükseltme başarısız olur. 
+
+Sorunu tanımlamak için yapılandırma sunucusu için C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile gidin. Hatalar görürseniz, sorunu çözmek için aşağıdaki adımları kullanın: 
+
+    2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+    2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+    2018-06-28 14:28:12.944   Stopping svagents service.
+    2018-06-28 14:31:32.949   Unable to stop svagents service.
+    2018-06-28 14:31:32.949   Stopping svagents service.
+    2018-06-28 14:34:52.960   Unable to stop svagents service.
+    2018-06-28 14:34:52.960   Stopping svagents service.
+    2018-06-28 14:38:12.971   Unable to stop svagents service.
+    2018-06-28 14:38:12.971   Rolling back the install changes.
+    2018-06-28 14:38:12.971   Upgrade has failed.
+
+Bu sorunu çözmek için:
+
+Aşağıdaki hizmetler el ile durdurun:
+
+- cxprocessserver
+- Inmage Scout VX Aracısı-Sentinel/Outpost, 
+- Microsoft Azure kurtarma Hizmetleri Aracısı, 
+- Microsoft Azure Site Recovery hizmeti 
+- tmansvc
+  
+Yapılandırma sunucusunu güncelleştirmek için çalıştırın [birleşik Kurulumu](service-updates-how-to.md#links-to-currently-supported-update-rollups) yeniden.
+
+## <a name="azure-active-directory-application-creation-failure"></a>Azure Active Directory Uygulama oluşturma hatası
+
+Azure Active Directory (AAD) kullanarak bir uygulama oluşturmak için yeterli izinlere sahip [açık sanallaştırma uygulama (OVA)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
+) şablonu.
+
+Bu sorunu çözmek için Azure portalında oturum açın ve aşağıdaki işlemlerden birini yapın:
+
+- Aad'de uygulama geliştiricisi rol isteyin. Uygulama geliştiricisi rolü hakkında daha fazla bilgi için bkz. [Azure Active Directory'de Yönetici rolü izinleri](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+- Doğrulayın **kullanıcı, uygulama oluşturabilir** bayrağı ayarlandığında *true* aad'de. Daha fazla bilgi için [nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+
+## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>İşlem sunucusu/ana hedef yapılandırma sunucusu ile iletişim kuramıyor 
+
+İşlem Sunucusu (PS) ve ana hedef (MT) modülleri (CS) yapılandırma sunucusu ile iletişim kuramadı ve durumlarını üzerinde bağlı Azure portalı olarak gösterilir.
+
+Genellikle bu bağlantı noktası 443 ile bir hata nedeniyle oluşur. Bağlantı noktasının engelini kaldırmak ve CS ile iletişimi yeniden etkinleştirmek için aşağıdaki adımları kullanın.
+
+**MARS Aracısı ana hedef aracı tarafından çağrılan doğrulayın**
+
+Ana hedef aracısı için yapılandırma sunucusu IP'si TCP oturumu oluşturabilirsiniz doğrulamak için ana hedef aracı günlüklerinde aşağıdakine benzer bir izleme bakın:
+
+TCP <Replace IP with CS IP here>: 52739 <Replace IP with CS IP here>: 443 SYN_SENT 
+
+TCP 192.168.1.40:52739 192.168.1.40:443 SYN_SENT / / CS IP'sini buraya IP değiştirin
+
+İzlemeleri MT aracı günlüklerinde aşağıdakine benzer fark ederseniz, MT Aracısı bağlantı noktası 443 üzerinden hata bildiriyor:
+
+    #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+    #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+ 
+Diğer uygulamalara da bağlantı noktası 443 veya bağlantı noktası engelleyen bir güvenlik duvarı ayarı nedeniyle kullandığınızda bu hata ile.
+
+Bu sorunu çözmek için:
+
+- 443 numaralı bağlantı noktası güvenlik duvarı tarafından engellenmediğinden emin olun.
+- Bağlantı noktası Bu bağlantı noktasını kullanarak başka bir uygulama nedeniyle ulaşılamaz durumdaysa durdurun ve uygulamayı kaldırın.
+  - Uygulamayı durdurma yapmak uygun değilse, yeni bir temiz CS ayarlayın.
+- Yapılandırma sunucusunu yeniden başlatın.
+- IIS hizmetini yeniden başlatın.
+
+### <a name="configuration-server-is-not-connected-due-to-incorrect-uuid-entries"></a>Yanlış UUID girişler nedeniyle yapılandırma sunucusu bağlı değil
+
+Veritabanında birden çok yapılandırma sunucusu (CS) örneği UUID girişi olduğunda bu hata oluşabilir. VM yapılandırma Sunucusu'na kopyaladığınızda, sorun genellikle oluşur.
+
+Bu sorunu çözmek için:
+
+1. Eski/old CS VM, Vcenter'dan kaldırın. Daha fazla bilgi için [kaldırmak, sunucuları ve korumayı devre dışı](site-recovery-manage-registration-and-protection.md).
+2. VM yapılandırma sunucusuna oturum açın ve MySQL svsdb1 veritabanına bağlanın. 
+3. Aşağıdaki sorguyu yürütün:
+
+    > [!IMPORTANT]
+    >
+    > UUID Ayrıntılar kopyalanan yapılandırma sunucusunun veya eski bir girişe artık sanal makineleri korumak için kullanılan yapılandırma sunucusunun girip girmediğinizi denetleyin. Bir yanlış UUID girerek tüm mevcut korumalı öğeler için bilgi kesilmesine neden olur.
+   
+    ```
+        MySQL> use svsdb1;
+        MySQL> delete from infrastructurevms where infrastructurevmid='<Stale CS VM UUID>';
+        MySQL> commit; 
+    ```
+4. Portal sayfayı yenileyin.
+
+## <a name="an-infinite-sign-in-loop-occurs-when-entering-your-credentials"></a>Kimlik bilgilerinizi girdikten sonsuz bir döngü oturum gerçekleşir
+
+Azure'da oturum açın doğru kullanıcı adını ve parolayı yapılandırma sunucusunda OVF girdikten sonra doğru kimlik bilgilerini soracak şekilde devam eder.
+
+Sistem saatini yanlış olduğunda bu sorun oluşabilir.
+
+Bu sorunu çözmek için:
+
+Bilgisayarda doğru saatini ayarlayın ve oturum açma yeniden deneyin. 
+ 

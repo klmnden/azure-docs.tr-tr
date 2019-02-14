@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493006"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56241453"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Seri yeni başlayanlar için veri bilimi
@@ -52,7 +52,7 @@ Bir veri bilimi, ticari sırlar, başkalarının çalışmanıza sizin için ger
 
 Sahip adı verilen bir bulut tabanlı hizmeti Microsoft [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) ücretsiz denemeye Hoş Geldiniz. Size bir çalışma alanıyla farklı makine öğrenimi algoritmalarıyla denemeler yapabilir ve, çözümünüzü çalışılan süreyi bulduğunuzda, sağlar, web hizmeti olarak başlatın.
 
-Bu hizmetin bir parçası olan bir şey adlı  **[Azure AI Gallery](https://gallery.cortanaintelligence.com/)**. Bu, Azure Machine Learning denemeleri veya kişilerin oluşturduğu ve başkalarının kullanması için katkıda bulunan modelleri koleksiyonu gibi kaynakları içerir. Bu denemeler, kendi çözümlerinizi başlamanıza yardımcı olmak için başkalarının çalışmalarını sabit ve düşünce yararlanmak için harika bir yoludur. Herkesin göz atmak Hoş Geldiniz.
+Bu hizmetin bir parçası olan bir şey adlı  **[Azure AI Gallery](https://gallery.azure.ai/)**. Bu, Azure Machine Learning denemeleri veya kişilerin oluşturduğu ve başkalarının kullanması için katkıda bulunan modelleri koleksiyonu gibi kaynakları içerir. Bu denemeler, kendi çözümlerinizi başlamanıza yardımcı olmak için başkalarının çalışmalarını sabit ve düşünce yararlanmak için harika bir yoludur. Herkesin göz atmak Hoş Geldiniz.
 
 ![Azure Yapay Zeka Galerisi](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -82,11 +82,11 @@ Benim için doğru sürer ve üzerinde tıklayabilirsiniz **Azure Machine Learni
 Ve bir başlangıç noktası artık sahibim. Ben için kendi verilerini takas ve kendi modelini ince ayar yapma yapın. Bana bir çalıştırma başlangıç sağlar ve bana gerçekten ne yaptıklarını bilmeniz kişilerin çalışmalarını yapı olanak tanır.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Makine öğrenimi tekniklerinden gösteren denemeleri bulma
-İçindeki diğer denemeleri vardır [Azure AI Gallery](https://gallery.cortanaintelligence.com) , katkıda özellikle veri bilimi için yeni olan kişiler için nasıl yapılır örnekleri sağlamak için. Örneğin, bir deneme eksik değerleri nasıl ele alınacağını gösteren galeri yoktur ([eksik değerleri işlemek için yöntemler](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Boş değerleri değiştirerek 15 farklı yollar için size ve her yöntem ve ne zaman kullanacağınız avantajları hakkında konuşuyor.
+İçindeki diğer denemeleri vardır [Azure AI Gallery](https://gallery.azure.ai) , katkıda özellikle veri bilimi için yeni olan kişiler için nasıl yapılır örnekleri sağlamak için. Örneğin, bir deneme eksik değerleri nasıl ele alınacağını gösteren galeri yoktur ([eksik değerleri işlemek için yöntemler](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1)). Boş değerleri değiştirerek 15 farklı yollar için size ve her yöntem ve ne zaman kullanacağınız avantajları hakkında konuşuyor.
 
 ![Machine Learning Studio'da - yöntemleri eksik değerler için Galeri denemeleri açın](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Azure AI Gallery](https://gallery.cortanaintelligence.com) kendi çözümlerinizi için başlangıç noktası olarak kullanabileceğiniz çalışma denemeleri bulmak için bir yerdir.
+[Azure AI Gallery](https://gallery.azure.ai) kendi çözümlerinizi için başlangıç noktası olarak kullanabileceğiniz çalışma denemeleri bulmak için bir yerdir.
 
 "Veri bilimi için yeni başlayanlar" Microsoft Azure Machine learning'in diğer videoları kullanıma emin olun.
 

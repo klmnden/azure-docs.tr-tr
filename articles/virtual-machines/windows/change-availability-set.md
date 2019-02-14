@@ -13,17 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 02/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 4276a557d760811efc2b024ebb55555b918c62f7
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1935286d94b0d72a59fc5d478705e23a7f7425e9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976615"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236615"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Bir Windows VM'nin kullanılabilirlik kümesini değiştirme
 Aşağıdaki adımlar, Azure PowerShell kullanarak bir sanal makinenin kullanılabilirlik kümesini değiştirme açıklanmaktadır. Bir VM oluşturulduğunda bir kullanılabilirlik için yalnızca eklenebilir. Kullanılabilirlik değiştirmek için ayarla, silin ve ardından sanal makineyi yeniden oluşturmanız gerekir. 
+
+Bu makalede son 2/12/2019 kullanarak test [Azure Cloud Shell](https://shell.azure.com/powershell) ve [Az PowerShell Modülü](https://docs.microsoft.com/powershell/azure/install-az-ps) sürümü 1.2.0 olarak güncelleştirilir.
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -83,11 +85,20 @@ Aşağıdaki betiği, gerekli bilgileri toplama, orijinal VM'yi silme ve yeni bi
        -CreateOption Attach
     }
     
-# Add NIC(s)
-    foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {
-        Add-AzVMNetworkInterface `
-           -VM $newVM `
-           -Id $nic.Id
+# Add NIC(s) and keep the same NIC as primary
+    foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {    
+    if ($nic.Primary -eq "True")
+        {
+            Add-AzVMNetworkInterface `
+            -VM $newVM `
+            -Id $nic.Id -Primary
+            }
+        else
+            {
+              Add-AzVMNetworkInterface `
+              -VM $newVM `
+              -Id $nic.Id 
+                }
     }
 
 # Recreate the VM

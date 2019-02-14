@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a1a6b31c1500c51dbbc32683d9e0e911b60dcae4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440497"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247211"
 ---
 Kuruluşların büyük ölçekli bilgi işlem gereksinimlerini vardır. Bu Big Compute iş yükleri, mühendislik tasarımı ve analizi, finansal risk hesaplamaları, görüntü işleme, karmaşık modelleme, Monte Carlo simülasyonları ve daha fazlasını içerir. 
 
@@ -25,12 +25,12 @@ Azure Bulutu, verimli bir şekilde paralel toplu işlemler için geleneksel HPC 
     * Kendi Azure sanal makineleri küme ortamında ayarlama veya [sanal makine ölçek kümeleri](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
     * Lift ve bir şirket içi kümesini kaydırma veya ek kapasite için azure'da yeni bir kümeye dağıtma. 
     * Önde gelen dağıtmak için Azure Resource Manager şablonlarını kullanma [iş yükü yöneticileri](#workload-managers), altyapı ve [uygulamaları](#hpc-applications). 
-    * Seçin [HPC ve GPU VM boyutları](#hpc-and-gpu-sizes) MPI veya GPU iş yükleri için özel donanım ve ağ bağlantılarını içerir. 
+    * Seçin [HPC ve GPU VM boyutları](#hpc-and-gpu-vm-sizes) MPI veya GPU iş yükleri için özel donanım ve ağ bağlantılarını içerir. 
     * Ekleme [yüksek performanslı depolama](#hpc-storage) g/Ç açısından yoğun iş yükleri için.
 * **Hibrit çözümler**
     * ("Patlama") yoğun iş yüklerini Azure altyapısına yük boşaltması için şirket içi çözümünüzü genişletin
-    * Bulut bilgi işlem isteğe bağlı, var olan kullanın [iş yükü Yöneticisi](#workload-manager).
-    * Yararlanmak [HPC ve GPU VM boyutları](#hpc-and-gpu-sizes) MPI veya GPU iş yükleri için.
+    * Bulut bilgi işlem isteğe bağlı, var olan kullanın [iş yükü Yöneticisi](#workload-managers).
+    * Yararlanmak [HPC ve GPU VM boyutları](#hpc-and-gpu-vm-sizes) MPI veya GPU iş yükleri için.
 * **Hizmet olarak Big Compute çözümleri**
     * Özel Big Compute çözümleri ve iş akışlarını kullanarak geliştirme [Azure CycleCloud](#azure-cyclecloud), [Azure Batch](#azure-batch)ve ilgili [Azure Hizmetleri](#related-azure-services).
     * Azure mühendislik ve simülasyon çözümler dahil olmak üzere satıcılardan çalıştırma [Altair](http://www.altair.com/), [yeniden ölçeklendirmek](https://www.rescale.com/azure/), ve [Cycle Computing](https://cyclecomputing.com/) (artık [katılabileceği Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).

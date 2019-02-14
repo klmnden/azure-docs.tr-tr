@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 752be8270f3eb0bcc018cfcb7f87f30f5afbc60a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5f3d884720bce5777a358a27dc477eabd5263d0c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753104"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245193"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -178,7 +178,7 @@ Azure VM'nin işletim sistemi diski, veri diski ve geçici disk desteği bu tabl
 **Bileşen** | **Destek** | **Ayrıntılar**
 --- | --- | ---
 İşletim sistemi disk maksimum boyutu | 2048 GB | [Daha fazla bilgi edinin](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) VM diskleri hakkında.
-Geçici disk | Desteklenmiyor | Geçici disk her zaman çoğaltmadan dışlandı.<br/><br/> Geçici disk üzerinde herhangi bir kalıcı veri yok. [Daha fazla bilgi edinin](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+Geçici disk | Desteklenmiyor | Geçici disk her zaman çoğaltmadan dışlandı.<br/><br/> Herhangi bir kalıcı veri, geçici diskte depolamayın. [Daha fazla bilgi edinin](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
 Veri diski maksimum boyutu | 4095 GB |
 Veri diski sayısı | En fazla 64 içinde belge belirli bir Azure VM boyutu için destek | [Daha fazla bilgi edinin](../virtual-machines/windows/sizes.md) VM boyutları hakkında.
 Veri disk değişim hızı | Premium depolama için disk başına 10 MB/sn sayısı. Standart depolama için disk başına 2 MB/sn sayısı. | Üzerindeki ortalama veri değişim oranı disk sürekli olarak en yüksek değerden yüksek olduğundan, çoğaltma catch olmaz.<br/><br/>  Ancak, en fazla tutularak aşılıyorsa, çoğaltma yakalayabilir, ancak biraz Gecikmeli kurtarma noktalarını görebilirsiniz.

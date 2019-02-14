@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476045"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234195"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid olay kaynakları
 
@@ -131,6 +131,16 @@ Blob oluşturulur ve Silinen olayları yanıtlamak için Blob Depolama olayları
 | [Resource Manager şablonu: BLOB Depolama ve abonelik oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Bir Azure Blob depolama hesabı dağıtır ve o depolama hesabı için olaylara abone olur. Bu, bir Web kancası için olaylar gönderir. |
 | [Genel Bakış: Blob Depolama olaylarına tepki verme](../storage/blobs/storage-blob-event-overview.md) | Blob Depolama, Event Grid ile tümleştirme genel bakış. |
 | [Olay şeması](event-schema-blob-storage.md) | Blob Depolama olaylarına alanları gösterir. |
+
+## <a name="maps"></a>Haritalar
+Azure haritalar olayları döndürürüz olaylara yanıt vermek için abone olun. Örneğin, bir cihaz girer ya da bir bölge sınırının çıkar her zaman bir uygulama bir e-posta bildirimi teslim edebilen.
+
+|Unvan  |Açıklama  |
+|---------|---------|
+| [Event Grid kullanarak Azure haritalar olaylarına tepki verme](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure haritalar'ı Event Grid ile tümleştirme genel bakış. |
+| [Öğretici: Bir bölge sınırının ayarlayın](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Bu öğreticide Azure haritalar'ı kullanarak döndürürüz ayarlamak için temel adımlarında size kılavuzluk eder. Azure Event Grid döndürürüz sonuçları akış ve bölge sınırının sonuçlarına dayalı bir bildirim ayarlamak için kullanın. |
+| [Olay şeması](event-schema-azure-maps.md) | Azure haritalar olayları alanları gösterir. |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

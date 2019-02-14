@@ -10,13 +10,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/28/2018
-ms.openlocfilehash: b3fe6e0249143b27cb763401a8d328922ed1fe99
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/12/2019
+ms.openlocfilehash: af2e711cef6e97935c2e4dc90557ef4f127d1caa
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173930"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237443"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: PHP kullanarak Azure SQL veritabanı sorgulama
 
@@ -26,19 +26,39 @@ Bu makalede nasıl yapılacağı açıklanır [PHP](http://php.net/manual/en/int
 
 Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Bir Azure SQL veritabanı. Şu hızlı başlangıçlardan biriyle oluşturmak ve ardından bir veritabanını Azure SQL veritabanı'nda yapılandırmak için kullanabilirsiniz:
+
+  || Tek veritabanı | Yönetilen örnek |
+  |:--- |:--- |:---|
+  | Oluştur| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Yapılandırma | [sunucu düzeyinde IP güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md)| [Bir VM bağlantısı](sql-database-managed-instance-configure-vm.md)|
+  |||[Şirket içi bağlantısı](sql-database-managed-instance-configure-p2s.md)
+  |Veri yükleme|Adventure Works hızlı başlangıç yüklendi|[Wide World Importers geri yükleme](sql-database-managed-instance-get-started-restore.md)
+  |||Geri yükleme ya da Adventure Works'den içe [BACPAC](sql-database-import.md) dosya [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > Komut bu makalede, Adventure Works veritabanı kullanmak için yazılır. Yönetilen örnek sayesinde, Adventure Works veritabanı bir örneği veritabanına aktarmak veya betiklerde Wide World Importers veritabanını kullanmak için bu makaleyi değiştirin.
 
 - Yüklü işletim sisteminiz için PHP ile ilgili yazılım:
 
-    - **MacOS**, PHP, ODBC sürücüsünü yükledikten sonra SQL Server için PHP sürücüsü yükleyin. Bkz: [1, 2 ve 3. adım](/sql/connect/php/installation-tutorial-linux-mac).
+  - **MacOS**, PHP, ODBC sürücüsünü yükledikten sonra SQL Server için PHP sürücüsü yükleyin. Bkz: [1, 2 ve 3. adım](/sql/connect/php/installation-tutorial-linux-mac).
 
-    - **Linux**, PHP, ODBC sürücüsünü yükledikten sonra SQL Server için PHP sürücüsü yükleyin. Bkz: [1, 2 ve 3. adım](/sql/connect/php/installation-tutorial-linux-mac).
+  - **Linux**, PHP, ODBC sürücüsünü yükledikten sonra SQL Server için PHP sürücüsü yükleyin. Bkz: [1, 2 ve 3. adım](/sql/connect/php/installation-tutorial-linux-mac).
 
-    - **Windows**, IIS Express ve Chocolatey için PHP'yi yükleyin ve ardından ODBC sürücüsü ile SQLCMD'yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
+  - **Windows**, IIS Express ve Chocolatey için PHP'yi yükleyin ve ardından ODBC sürücüsü ile SQLCMD'yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
-## <a name="get-database-connection"></a>Veritabanı bağlantı Al
+## <a name="get-sql-server-connection-information"></a>SQL server bağlantı bilgilerini alma
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Yaklaşan yordamlar için tam sunucu adını veya ana bilgisayar adı, veritabanı adını ve oturum açma bilgileri gerekir.
+
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+
+2. Gidin **SQL veritabanları** veya **SQL yönetilen örnekler** sayfası.
+
+3. Üzerinde **genel bakış** sayfasında, tam sunucu adını gözden **sunucu adı** tek bir veritabanı veya tam sunucu adı yanındaki **konak** yönetilen bir örneği. Sunucu adı veya ana bilgisayar adı kopyalamak için üzerine gelin ve seçin **kopyalama** simgesi.
 
 ## <a name="add-code-to-query-database"></a>Veritabanını sorgula için kod ekleyin
 

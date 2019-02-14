@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e021a1b109f735dee16d75c05c26ab35e599a3d9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: 61082333afc88abef0a8d8a57d1f1b1d893b6148
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197712"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246204"
 ---
 ### <a name="to-view-local-network-gateways"></a>Yerel ağ geçitlerini görüntülemek için
 
-Yerel ağ geçitlerinin bir listesini görüntülemek için [az network local gateway list](https://docs.microsoft.com/cli/azure/network/local-gateway#az_network_local_gateway_list) komutunu kullanın.
+Yerel ağ geçitlerinin bir listesini görüntülemek için [az network local gateway list](https://docs.microsoft.com/cli/azure/network/local-gateway) komutunu kullanın.
 
 ```azurecli
 az network local-gateway list --resource-group TestRG1
@@ -29,14 +29,14 @@ az network local-gateway list --resource-group TestRG1
 
 ### <a name="to-verify-the-shared-key-values"></a>Paylaşılan anahtar değerlerini doğrulamak için
 
-Paylaşılan anahtar değerinin, VPN cihaz yapılandırmanızda kullandığınız değerle aynı olduğunu doğrulayın. Aynı değilse, cihazdan alınan değeri kullanarak bağlantıyı yeniden çalıştırın veya cihazı dönüş değeriyle güncelleştirin. Değerler eşleşmelidir. Paylaşılan anahtarı görüntülemek için [az network vpn-connection-list](https://docs.microsoft.com/cli/azure/network/vpn-connection#az_network_vpn_connection_list) komutunu kullanın.
+Paylaşılan anahtar değerinin, VPN cihaz yapılandırmanızda kullandığınız değerle aynı olduğunu doğrulayın. Aynı değilse, cihazdan alınan değeri kullanarak bağlantıyı yeniden çalıştırın veya cihazı dönüş değeriyle güncelleştirin. Değerler eşleşmelidir. Paylaşılan anahtarı görüntülemek için [az network vpn-connection-list](https://docs.microsoft.com/cli/azure/network/vpn-connection) komutunu kullanın.
 
 ```azurecli
 az network vpn-connection shared-key show --connection-name VNet1toSite2 --resource-group TestRG1
 ```
 ### <a name="to-view-the-vpn-gateway-public-ip-address"></a>VPN ağ geçidi Genel IP Adresini görüntülemek için
 
-Sanal ağ geçidinizin genel IP adresini bulmak için [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) komutunu kullanın. Kolay okunması için, bu örneğin çıktısı genel IP’lerin tablo biçiminde gösterileceği şekilde biçimlendirilmiştir.
+Sanal ağ geçidinizin genel IP adresini bulmak için [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) komutunu kullanın. Kolay okunması için, bu örneğin çıktısı genel IP’lerin tablo biçiminde gösterileceği şekilde biçimlendirilmiştir.
 
 ```azurecli
 az network public-ip list --resource-group TestRG1 --output table

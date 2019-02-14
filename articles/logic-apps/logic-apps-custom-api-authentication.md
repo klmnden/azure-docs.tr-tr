@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: d83a27d87ffadd15a27196a11ae3f69d84232efa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719615"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245958"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan özel API'lere giden çağrıların güvenliğini sağlama
 
@@ -94,13 +94,15 @@ Mantıksal uygulamanızı karşı Azure AD kimlik doğrulaması için bu Azure A
 
 **PowerShell'de mantıksal uygulamanız için uygulama kimliği oluşturma**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 PowerShell ile Azure Resource Manager aracılığıyla bu görevi gerçekleştirebilirsiniz. PowerShell'de şu komutları çalıştırın:
 
-1. `Add-AzureRmAccount`
+1. `Add-AzAccount`
 
 2. `$SecurePassword = Read-Host -AsSecureString` (Bir parola girin ve ENTER tuşuna basın)
 
-3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Kopyaladığınızdan emin olun **Kiracı kimliği** (GUID), Azure AD kiracınız için **uygulama kimliği**ve parolayı.
 
@@ -186,7 +188,7 @@ Açık mantıksal uygulama tanımınızı kod Görünümü'nde Git **HTTP** eyle
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Öğe | Gereklidir | Açıklama | 
+| Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
 | kiracı | Evet | Azure AD kiracısı için GUID | 
 | Hedef kitle | Evet | İstemci kimlik, web veya API uygulaması için uygulama kimliği, erişmek istediğiniz hedef kaynağı için GUID | 
@@ -232,7 +234,7 @@ Web uygulamanızı veya API uygulaması için mantıksal uygulamadan gelen istek
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Öğe | Gereklidir | Açıklama | 
+| Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
 | type | Evet | Kimlik doğrulaması türü. SSL istemci sertifikaları için bir değer olmalıdır `ClientCertificate`. | 
 | password | Evet | İstemci sertifikası (PFX dosyası) erişmek için parola | 
@@ -249,7 +251,7 @@ Web uygulamanızı veya API uygulaması, mantıksal uygulamadan gelen istekleri 
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Öğe | Gereklidir | Açıklama | 
+| Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
 | type | Evet | Kullanmak istediğiniz kimlik doğrulaması türü. Temel kimlik doğrulaması için bir değer olmalıdır `Basic`. | 
 | kullanıcı adı | Evet | Kimlik doğrulaması için kullanmak istediğiniz kullanıcı adı | 

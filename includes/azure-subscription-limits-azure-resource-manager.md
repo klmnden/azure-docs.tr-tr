@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4cc115d068736f61f9edb4ec609ac592607e7fa0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458895"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247219"
 ---
 | Kaynak | Varsayılan Sınır | Üst Sınır |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "49458895"
 
 <sup>2</sup>Buna hem Standart hem de Premium depolama hesapları dahildir. 200'den fazla depolama hesabı gerekiyorsa, [Azure Destek](https://azure.microsoft.com/support/faq/) üzerinden bir istek oluşturun. Azure Depolama ekibi, işinizin durumunu inceler ve 250’ye kadar depolama hesabı için onay verebilir.
 
-<sup>3</sup>Abonelik başına sınırsız sayıda etiket uygulayabilirsiniz. Kaynak ya da kaynak grubu başına etiket sayısı 15 ile sınırlıdır. Etiket sayısı 10.000 veya daha az olduğunda Resource Manager yalnızca abonelikteki [benzersiz etiket adı ve değerlerinin listesini](/rest/api/resources/tags#Tags_List) döndürür. Ancak, sayı 10.000’i aştığında bile etikete göre bir kaynak bulabilirsiniz.  
+<sup>3</sup>Abonelik başına sınırsız sayıda etiket uygulayabilirsiniz. Kaynak ya da kaynak grubu başına etiket sayısı 15 ile sınırlıdır. Etiket sayısı 10.000 veya daha az olduğunda Resource Manager yalnızca abonelikteki [benzersiz etiket adı ve değerlerinin listesini](/rest/api/resources/tags) döndürür. Ancak, sayı 10.000’i aştığında bile etikete göre bir kaynak bulabilirsiniz.  
 
 <sup>4</sup>Bu özellikler artık Azure Kaynak Grupları ve Azure Resource Manager ile gerekli değildir.
 

@@ -3,18 +3,18 @@ title: Azure haritalar kullanan bir bölge sınırının oluştur | Microsoft Do
 description: Azure haritalar'ı kullanarak bir bölge sınırının ayarlayın.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a991fbde8ce1ae43f18be4f13ae7edc5f60044bf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 55dc0fa31398bcc04d9793c8cffc9258dc29e4c7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108713"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244462"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir bölge sınırının ayarlayın
 
@@ -40,9 +40,9 @@ Bu öğreticideki adımları tamamlamak için önce görmek ihtiyacınız [hesap
 
 ## <a name="upload-geofences"></a>Bölge sınırlarının karşıya yükleme
 
-Karşıya veri API'si kullanarak yapı sitenin döndürürüz karşıya yüklemek için postman uygulama kullanacağız. Bu öğretici için yapı ekipman değil ihlal sabit bir parametre bir genel yapı site alanı yok varsayıyoruz. Bu sınır ihlalleri olan ciddi bir red ve Operations Manager'a raporlanır. Ek sınırlar en iyi duruma getirilmiş bir dizi farklı bir yapım izleyen kullanılabilir alanları genel yapı alan zamanlamaya göre. Ana Bölge sınırının süre sonu Ayarla sahip bir subsite1 olduğunu varsayıyoruz saat ve bundan sonra dolar. Gereksinimlerinize göre daha fazla iç içe geçmiş bölge sınırlarının oluşturabilirsiniz. Örneğin, burada iş zamanlamasını 1-4 hafta gerçekleşen ve alt site 2 iş 5-7 hafta içinde gerçekleştiği subsite1 olabilir. Tüm dilimleri proje başına tek bir veri kümesi olarak yüklenir ve kuralları zaman ve yer göre izlemek için kullanılır. Bkz: [Döndürürüz GeoJSON veri](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) döndürürüz veri biçimi hakkında daha fazla bilgi için. Gördüğünüz [veri - karşıya yükleme API belgeleri](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) Azure haritalar hizmetine karşıya veri yükleme hakkında daha fazla bilgi.
+Karşıya veri API'si kullanarak yapı sitenin döndürürüz karşıya yüklemek için postman uygulama kullanacağız. Bu öğretici için yapı ekipman değil ihlal sabit bir parametre bir genel yapı site alanı yok varsayıyoruz. Bu sınır ihlalleri olan ciddi bir red ve Operations Manager'a raporlanır. Ek sınırlar en iyi duruma getirilmiş bir dizi farklı bir yapım izleyen kullanılabilir alanları genel yapı alan zamanlamaya göre. Ana Bölge sınırının süre sonu Ayarla sahip bir subsite1 olduğunu varsayıyoruz saat ve bundan sonra dolar. Gereksinimlerinize göre daha fazla iç içe geçmiş bölge sınırlarının oluşturabilirsiniz. Örneğin, burada iş zamanlamasını 1-4 hafta gerçekleşen ve alt site 2 iş 5-7 hafta içinde gerçekleştiği subsite1 olabilir. Tüm dilimleri proje başına tek bir veri kümesi olarak yüklenir ve kuralları zaman ve yer göre izlemek için kullanılır. Bölge sınırının veri biçimi hakkında daha fazla bilgi için bkz. [Döndürürüz GeoJSON veri](https://docs.microsoft.com/azure/azure-maps/geofence-geojson). Azure haritalar hizmetine karşıya veri yükleme ile ilgili daha fazla bilgi için bkz: [verileri karşıya yükleme API belgeleri](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) .
 
-Postman uygulamasını açın ve Azure haritalar harita verileri karşıya yükleme API'sini kullanarak yapı site döndürürüz karşıya yüklemek için aşağıdaki adımları izleyin.
+Postman uygulamasını açın ve Azure haritalar, verileri karşıya yükleme API kullanan yapı site döndürürüz karşıya yüklemek için aşağıdaki adımları izleyin.
 
 1. Postman uygulamasını açıp yeni tıklayın | Yeni oluştur ve istek'i seçin. Bir koleksiyon ya da kaydedin ve klasör kaydetmek karşıya yükleme döndürürüz veriler için select bir istek adı girin.
 

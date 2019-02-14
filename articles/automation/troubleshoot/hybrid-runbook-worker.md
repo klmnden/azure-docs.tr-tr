@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ec099e0f210fc267a0a34f76136a517e0ae6ccc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744526"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234550"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Karma Runbook çalışanları sorunlarını giderme
 
@@ -187,6 +187,26 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 
 Start-Service -Name HealthService
 ```
+
+### <a name="already-registered"></a>Senaryo: Karma Runbook çalışanı eklenemiyor
+
+#### <a name="issue"></a>Sorun
+
+Bir karma Runbook çalışanı kullanarak eklenmeye çalışılırken şu iletiyi alıyorsunuz `Add-HybridRunbookWorker` cmdlet'i.
+
+```
+Machine is already registered to a different account
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bu makinede zaten farklı bir Otomasyon hesabı ile kayıtlı değilse veya karma Runbook çalışanı bir makineden kaldırdıktan sonra yeniden eklemeyi denerseniz neden olabilir.
+
+#### <a name="resolution"></a>Çözüm
+
+Bu sorunu çözmek için aşağıdaki kayıt defteri anahtarını kaldırın ve deneyin `Add-HybridRunbookWorker` cmdlet'ini yeniden:
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
