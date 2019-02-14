@@ -1,6 +1,6 @@
 ---
-title: Excel'i SQL Veritabanı'na bağlama | Microsoft Belgeleri
-description: Microsoft Excel'i bulut üzerinde Azure SQL veritabanına nasıl bağlayacağınızı öğrenin. Raporlama ve veri araştırması için Excel'e veri aktarın.
+title: Excel Azure SQL veritabanı'nda tek bir veritabanına bağlanma | Microsoft Docs
+description: Microsoft Excel Azure SQL veritabanı'nda tek bir veritabanına bağlanmayı öğreneceksiniz. Raporlama ve veri araştırması için Excel'e veri aktarın.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,19 +11,21 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 552293b402c697073587e887522d2daa3e33cdb6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754592"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237030"
 ---
-# <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Excel kullanarak Azure SQL veritabanına bağlanan ve rapor oluşturma
+# <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Excel Azure SQL veritabanı'nda tek bir veritabanına bağlanma ve rapor oluşturma
 
-Excel buluttaki SQL veritabanına bağlanma ve verileri içeri aktarın ve tablolar ve grafikler veritabanı değerlere göre oluşturun. Bu öğreticide, Excel ile bir veritabanı tablosu arasındaki bağlantıyı ayarlayacak, Excel'e ilişkin verilerin ve bağlantı bilgilerinin depolandığı dosyayı kaydedecek ve ardından veritabanı değerlerini kullanarak bir özet grafik oluşturacaksınız.
+Azure SQL veritabanı'nda tek bir veritabanı Excel bağlanmak ve verileri içeri aktarın ve tablolar ve grafikler veritabanı değerlere göre oluşturun. Bu öğreticide, Excel ile bir veritabanı tablosu arasındaki bağlantıyı ayarlayacak, Excel'e ilişkin verilerin ve bağlantı bilgilerinin depolandığı dosyayı kaydedecek ve ardından veritabanı değerlerini kullanarak bir özet grafik oluşturacaksınız.
 
-Başlayabilmek için Azure'da bir SQL veritabanınızın olması gerekir. Henüz bir veritabanınız yoksa birkaç dakika içinde çalışır durumda olan, örnek veriler içeren bir veritabanı edinmek üzere [İlk SQL veritabanınızı oluşturma](sql-database-single-database-get-started.md) adlı makaleye göz atın. Bu makalede, örnek verileri ilgili makaleden Excel'e içeri aktaracaksınız ancak kendi verilerinizle benzer adımları izleyebilirsiniz.
+Başlamadan önce tek bir veritabanı gerekir. Yoksa, bkz. [tek veritabanı oluşturma](sql-database-single-database-get-started.md) ve [sunucu düzeyinde IP Güvenlik Duvarı oluşturma](sql-database-server-level-firewall-rule.md) örnek verilerle tek bir veritabanı birkaç dakika içinde çalışmaya başlamanızı sağlayacak.
+
+Bu makalede, örnek verileri ilgili makaleden Excel'e içeri aktaracaksınız ancak kendi verilerinizle benzer adımları izleyebilirsiniz.
 
 Ayrıca, bir Excel kopyanızın olması gerekir. Bu makalede [Microsoft Excel 2016](https://products.office.com/) kullanılmıştır.
 

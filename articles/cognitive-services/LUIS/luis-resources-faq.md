@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 1f13c5220eee19b6cf8b56e4b55922acc1b2c6b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b8bcdc57996e04b613a2196cb505c3f59edb953
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865038"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237289"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -59,6 +59,15 @@ Amaç için örnek konuşma olarak farklı çeşitlemeleri ekleyebilir veya ekle
 
 Cortana önceden oluşturulmuş uygulamalar, 2017'de kullanım dışı bırakıldı. Bunlar artık desteklenir.
 
+### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Bir LUIS uygulaması sahipliğini nasıl aktarabilir?
+Bir LUIS uygulaması için farklı bir Azure aboneliği aktarmayı LUIS uygulaması dışarı aktarma ve yeni bir hesap kullanarak içe aktarın. Çağıran istemci uygulamasındaki LUIS uygulama kodunu güncelleştirin. Yeni uygulamayı biraz daha farklı LUIS özgün uygulamadan puanları döndürebilir.
+
+## <a name="luis-collaborating"></a>LUIS işbirliği yapma
+
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Nasıl miyim ortak çalışanlar LUIS ile Azure Active Directory (Azure AD) veya rol tabanlı erişim denetimi (RBAC) erişmesini?
+
+Bkz: [Azure Active Directory kaynaklarını](luis-how-to-collaborate.md#azure-active-directory-resources) ve [Azure Active Directory Kiracı Kullanıcı](luis-how-to-collaborate.md#azure-active-directory-tenant-user) ortak çalışanlar erişmesini hakkında bilgi edinmek için. 
+
 ## <a name="luis-endpoint"></a>LUIS uç noktası
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Uç nokta Sorgum beklenmeyen bir sonuç döndürdü. Ne yapmalıyım?
@@ -67,7 +76,7 @@ Beklenmeyen sorgu tahmin sonuçlarını yayımlanan model durumuna dayanır. Mod
 
 Model düzeltme ile başlayan [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md).
 
-Güncelleştirerek belirleyici eğitim kaldırabilirsiniz [uygulama sürümü ayarları API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) tüm eğitim verilerini kullanmak için. 
+Güncelleştirerek belirleyici eğitim kaldırabilirsiniz [uygulama sürümü ayarları API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) tüm eğitim verilerini kullanmak için.
 
 Gözden geçirme [en iyi uygulamalar](luis-concept-best-practices.md) diğer ipuçları için. 
 
@@ -152,10 +161,23 @@ Her LUIS uygulaması yazma başlangıç anahtarı kolaylık uç nokta listesinde
 
 LUIS genel kullanıma (GA) şeklindeydi uygulamanız varsa, aboneliğinizdeki LUIS uç nokta anahtarları otomatik olarak atanır. Bu, GA geçiş kolaylaştırmak için yapıldı. Azure portalında yeni bir LUIS uç nokta anahtarlar _değil_ LUIS otomatik atanmış.
 
-## <a name="app-management"></a>Uygulama Yönetimi
+## <a name="key-management"></a>Anahtar yönetimi
 
-### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Bir LUIS uygulaması sahipliğini nasıl aktarabilir?
-Bir LUIS uygulaması için farklı bir Azure aboneliği aktarmayı LUIS uygulaması dışarı aktarma ve yeni bir hesap kullanarak içe aktarın. Çağıran istemci uygulamasındaki LUIS uygulama kodunu güncelleştirin. Yeni uygulamayı biraz daha farklı LUIS özgün uygulamadan puanları döndürebilir.
+### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Hangi anahtar gerekiyor, bunu nereden bulabilirim nasıl bilebilirim ve onunla neler yapabilirim? 
+
+Bkz: [LUIS yazma ve sorgu tahmin uç nokta anahtarlarını](luis-concept-keys.md) arasındaki farklar hakkında bilgi edinmek için [anahtar yazma](luis-how-to-account-settings.md) ve [uç noktası tahmin anahtarı](luis-how-to-azure-subscription.md). 
+
+### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Yetersiz kota ilgili bir hata aldım. Bunu nasıl düzeltirim? 
+
+Bkz, [anahtar fiyatlandırma katmanı kullanımı aştığında Kota aşımı hataları düzeltmek nasıl](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) daha fazla bilgi için.
+
+### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Daha fazla uç nokta sorguları işlemek gerekir. Bu ne yapmalıyım? 
+
+Bkz, [anahtar fiyatlandırma katmanı kullanımı aştığında Kota aşımı hataları düzeltmek nasıl](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) daha fazla bilgi için.
+
+
+
+## <a name="app-management"></a>Uygulama yönetimi
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Kullanıcı konuşma günlüğünü nasıl indiririm?
 Varsayılan olarak, kullanıcıların konuşma LUIS uygulamanızı günlüğe kaydeder. LUIS uygulamanızı kullanıcılara gönderme konuşma günlüğünü indirmek için Git **uygulamalarım**ve uygulamayı seçin. Bağlamsal araç çubuğunda, seçin **uç nokta günlükleri dışarı aktar**. Günlük bir virgülle ayrılmış değer (CSV) dosyası olarak biçimlendirilir.

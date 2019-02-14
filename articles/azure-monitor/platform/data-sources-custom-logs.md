@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 7a25686ffa80b831e5d459a8795595a00f869fda
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997601"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234807"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure İzleyici'de özel günlükler
 Azure İzleyici'de özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek. Toplandığında, verileri ayrı ayrı alanlara sorgularınızdaki ayrıştırmak veya sırasında ayrı alanlar koleksiyonuna olan verileri ayıklayın.
@@ -43,7 +43,11 @@ Günlük dosyaları toplanacak, aşağıdaki ölçütlere uymalıdır.
 >
 
 >[!NOTE]
-> Log Analytics çalışma alanı en fazla 500 özel günlükleri oluşturulabilir. 
+> Bir Log Analytics çalışma alanı aşağıdaki sınırları destekler:
+> 
+> * Yalnızca 500 özel günlükleri oluşturulabilir.
+> * Bir tablo yalnızca en fazla 500 sütunları destekler. 
+> * Sütun adı karakter sayısı 500'dür. 
 >
 
 ## <a name="defining-a-custom-log"></a>Özel günlük tanımlama
