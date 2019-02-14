@@ -1,52 +1,50 @@
 ---
-title: Aralık 2018'den Azure SQL veri ambarı sürüm notları | Microsoft Docs
+title: Azure SQL veri ambarı sürüm notları | Microsoft Docs
 description: Azure SQL veri ambarı için sürüm notları.
 services: sql-data-warehouse
-author: twounder
-manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/12/2018
-ms.author: mausher
-ms.reviewer: twounder
-ms.openlocfilehash: 8e82e352ebea4634b1b99864245adcf606352657
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/09/2019
+author: mlee3gsd
+ms.author: anumjs
+ms.reviewer: jrasnick
+manager: craigg
+ms.openlocfilehash: 51932ebf7d5bdc6830098ce7136a3eee7255ffe1
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469354"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245516"
 ---
-# <a name="whats-new-in-azure-sql-data-warehouse-version---100101060"></a>Yeni Azure SQL veri ambarı sürümü - 10.0.10106.0 nedir?
-Azure SQL veri ambarı (SQL DW) sürekli olarak geliştirme. Bu makalede SQL DW sürümü 10.0.10106.0 sürümünde değişiklikleri ve yeni özellikleri açıklar.
+# <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL veri ambarı sürüm notları
+Bu makalede yeni özellikler ve geliştirmeler son sürümlerinde özetlenir [Azure sanal makineler'de SQL Server](sql-data-warehouse-overview-what-is.md). Makale ayrıca sürüme ilgili ancak aynı zaman çerçevesinde yayımlanan direclty olmayan önemli içerik güncelleştirmeleri listelenir. Diğer Azure Hizmetleri için geliştirmeler için bkz. [hizmet güncelleştirmeleri](https://azure.microsoft.com/updates)
 
-## <a name="query-restartability---ctas-and-insertselect"></a>Sorgu Restartability - CTAS ve ekleme/seçin
-Nadir durumlarda (diğer bir deyişle, aralıklı ağ bağlantı sorunları, düğüm hatalarının) sorguları, Azure SQL DW yürütme başarısız olabilir. Artık ifadeleri gibi çalışır [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) ve INSERT SELECT işlemleri daha olası sorunun sunulur. Bu sürümle birlikte, Azure SQL DW CTAS ve INSERT SELECT deyimleri (SELECT deyimleri daha önce duyurulduğu gibi) ek olarak, bu geçici sorunlar şeffaf bir şekilde işlemek sistem ve sorguları başarısız olmasını önleme için yeniden deneme mantığını uygular. Yeniden deneme sayısı ve geçici hataları ele listesi yapılandırılmış sistemi ' dir.
+## <a name="sql-data-warehouse-version-100101060-january"></a>SQL veri ambarı sürümü 10.0.10106.0 (Ocak)
 
-## <a name="return-order-by-optimization"></a>Dönüş sırasına göre en iyi duruma getirme
-SEÇİN... ORDER BY sorguları bu sürümde performans artışının alın.  Daha önce sorgu yürütme altyapısı, sonuçları her işlem düğümü ve bunları daha sonra sonuçları birleştirme kontrol düğümü için akışa sipariş. Bu geliştirme ile tüm düğümleri gönderin sonuçlarını tek bir işlem daha sonra bunları birleştirir ve işlem düğümü kullanıcıya sıralanmış sonuçları döndürür düğümü işlem.  Sorgu sonucu kümesini çok sayıda satır içerdiğinde bu önemli bir performans kazancı sağlar.
+### <a name="service-improvements"></a>Hizmet geliştirmeleri
 
-## <a name="data-movement-enhancements-for-partitionmove-and-broadcastmove"></a>Veri taşıma iyileştirmeleri PartitionMove ve BroadcastMove
-Azure SQL veri ambarı Gen2 ' veri taşıma adımları türü ShuffleMove yararlanarak özetlenen anında veri taşıma tekniklerini [performans geliştirmeleri burada blog](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/).  Bu sürümle birlikte, veri taşıma türleri PartitionMove ve BroadcastMove şimdi de aynı anında veri taşıma tekniklerini tarafından desteklenir.  Bu tür veri taşıma adımları kullanan kullanıcı sorgularının performans artışının görürsünüz.  Bu performans artışı yararlanmak için hiçbir kod değişikliği gerekir.
+| Hizmet geliştirmeleri | Ayrıntılar |
+| --- | --- |
+| **Sorgu Restartability - CTAS ve ekleme/seçin** | Nadir görülen durumlarda (diğer bir deyişle, aralıklı ağ bağlantı sorunları, düğüm hatalarının), Azure SQL DW sorgu yürütülürken başarısız olabilir. Artık ifadeleri gibi çalışır [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) ve INSERT SELECT işlemleri daha olası sorunun sunulur. Bu sürümle birlikte, Azure SQL DW, daha önce duyurulduğu gibi SELECT deyimleri yanı sıra CTAS ve INSERT SELECT deyimleri için yeniden deneme mantığını uygular. Değişiklikleri şeffaf bir şekilde geçici sorunlar işlemek ve sorguları başarısız olmasını engellemek bir hizmet sağlar. Yeniden deneme sayısı ve geçici hataları ele listesi yapılandırılmış sistemi ' dir.|
+|**Dönüş sırasına göre en iyi duruma getirme**|SEÇİN... ORDER BY sorguları bu sürümde performans artışının alın.   Şimdi tüm düğümleri sonuçlarını tek bir işlem birleştirir ve işlem düğümü kullanıcı tarafından döndürülen sonuçları sıralayan düğümü gönderme işlem.  Sorgu sonucu kümesini çok sayıda satır içerdiğinde aracılığıyla tek işlem düğümü sonuçlarında önemli bir performans kazancı birleştiriliyor. Daha önce sorgu yürütme altyapısı, sonuçları her işlem düğümü ve bunları daha sonra sonuçları birleştirme kontrol düğümü için akışa sipariş.|
+|**Veri taşıma iyileştirmeleri PartitionMove ve BroadcastMove**|Azure SQL veri ambarı Gen2 içinde veri taşıma adımları türü ShuffleMove, özetlenen anında veri taşıma tekniklerini kullanın [performans geliştirmeleri blog](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/). Bu sürümle birlikte, veri taşıma türleri PartitionMove ve BroadcastMove şimdi de aynı anında veri taşıma tekniklerini tarafından desteklenir. Bu tür veri taşıma adımları kullanan kullanıcı sorgularına performansı ile çalışır. Bu performans iyileştirmelerinden yararlanmak için hiçbir kod değişikliği gerekir.|
+
+### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
+
+| Belgeleri geliştirmeleri | Ayrıntılar |
+| --- | --- |
+|yok | |
+| | |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızlı bir şekilde [SQL veri ambarı oluşturma][create a SQL Data Warehouse]. Azure'da yeniyseniz, bulabilirsiniz [Azure sözlüğünü] [ Azure glossary] yararlı yeni terimlerle öğrenin. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
+[SQL Veri Ambarı oluşturma](./create-data-warehouse-portal.md)
 
-* [Müşteri başarı hikayeleri]
-* [Bloglar]
-* [Özellik istekleri]
-* [Videolar]
-* [Müşteri Danışma Ekibi blogları]
-* [Stack Overflow forumu]
-* [Twitter]
-
-
-[Bloglar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Müşteri Danışma Ekibi blogları]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Müşteri başarı hikayeleri]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
-[Özellik istekleri]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
+## <a name="more-information"></a>Daha fazla bilgi
+- [Blog - Azure SQL veri ambarı](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+- [Müşteri Danışma Ekibi blogları](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+- [Müşteri başarı hikayeleri](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
+- [Stack Overflow forumu](http://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Twitter](https://twitter.com/hashtag/SQLDW)
+- [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+- [Azure sözlüğü](../azure-glossary-cloud-terminology.md)

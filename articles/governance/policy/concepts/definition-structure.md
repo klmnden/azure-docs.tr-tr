@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 14c5a9a5d9e3bd71ca1fdaf3545af3e74b3973c2
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100660"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237426"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -208,7 +208,7 @@ Mantıksal işleçler iç içe yerleştirebilirsiniz. Aşağıdaki örnekte gös
 
 ### <a name="conditions"></a>Koşullar
 
-Bir koşulu değerlendirir olup olmadığını bir **alan** belirli kriterlere uyan. Desteklenen koşullar şunlardır:
+Bir koşulu değerlendirir olup olmadığını bir **alan** veya **değer** erişimci belirli ölçütleri karşılayan. Desteklenen koşullar şunlardır:
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -252,7 +252,53 @@ Aşağıdaki alanları desteklenir:
   - Bir süresine sahip etiket adları bu parantez sözdizimini destekler.
   - Burada **\<tagName\>** doğrulamak için bir koşul için etiket adıdır.
   - Örnek: `tags[Acct.CostCenter]` burada **Acct.CostCenter** etiketin adı.
+
 - özellik diğer adları - bir listesi için bkz [diğer adlar](#aliases).
+
+### <a name="value"></a>Değer
+
+Koşullar de biçimlendirilmiş kullanarak **değer**. **değer** koşullar karşı denetler [parametreleri](#parameters), [şablon işlevleri desteklenen](#policy-functions), ya da değişmez.
+**değer** desteklenen herhangi biri ile eşleştirilmiş [koşul](#conditions).
+
+#### <a name="value-examples"></a>Değer örnekleri
+
+Bu ilke kuralı örnekte **değer** sonucunu karşılaştırmak için `resourceGroup()` işlevi ve döndürülen **adı** özelliğini bir **gibi** koşulu`*netrg`. Kural olmayan herhangi bir kaynağa engellediği `Microsoft.Network/*` **türü** adı biten içinde herhangi bir kaynak grubunda `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Bu ilke kuralı örnekte **değer** birden çok sonuç, iç içe geçmiş denetlemek için işlevleri **eşittir** `true`. Kural, en az üç etiket yok herhangi bir kaynağa reddeder.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>Etki
 
@@ -295,12 +341,15 @@ Değerlendirme, özellikler ve örnekler de sırasını her etkisi hakkında tü
 
 ### <a name="policy-functions"></a>İlke işlevleri
 
-Birkaç [Resource Manager şablonu işlevleri](../../../azure-resource-manager/resource-group-template-functions.md) bir ilke kuralı içinde kullanılabilir. Şu anda desteklenen işlevler şunlardır:
+Aşağıdaki dağıtım ve kaynak işlevleri hariç tüm [Resource Manager şablonu işlevleri](../../../azure-resource-manager/resource-group-template-functions.md) bir ilke kuralı içinde kullanılabilir:
 
-- [parametreler](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [aboneliği](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyındex)
+- deployment()
+- Liste *
+- providers()
+- Reference()
+- resourceId()
+- variables()
 
 Ayrıca, `field` işlevi ilke kuralları için kullanılabilir. `field` ile kullanılır **AuditIfNotExists** ve **Deployıfnotexists** değerlendirilmekte kaynak başvurusu alanlarında. Bu kullanım örneği görülebilir [Deployıfnotexists örnek](effects.md#deployifnotexists-example).
 

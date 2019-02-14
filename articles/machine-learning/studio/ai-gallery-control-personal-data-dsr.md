@@ -11,12 +11,12 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 85d7286c1fd075da7034a2a43d46a158550d2fe9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: efdadd29c6fba4ed0a0f7f7df8d7956713d113ec
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247723"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245482"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Ve Azure AI Gallery ürün içi kullanıcı verilerini silme
 
@@ -45,7 +45,7 @@ Yazar Kimliği için Azure AI Gallery yayımlama sırasında kullanılan e-posta
 
 1.  Oturum [Azure AI Gallery](https://gallery.azure.ai/).
 2.  Profil resmi sağ üst köşedeki ve hesap adını, böylece profil sayfanızı yüklemek için tıklayın.
-3.  Alfasayısal kimliği aşağıdaki adres çubuğundaki URL'yi görüntüler `authorId=`. Örneğin, URL için: `https://gallery.cortanaintelligence.com/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+3.  Alfasayısal kimliği aşağıdaki adres çubuğundaki URL'yi görüntüler `authorId=`. Örneğin, URL için: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     Yazar Kimliği: `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: f0f929e7caece9bea10dbe09e237bc987ad93d44
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159664"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234009"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama 
 Kapsayıcılar için Azure İzleyici ile sistem durumu ve performans grafiklerini doğrudan bir AKS kümesi veya Azure aboneliğindeki tüm AKS kümeleri, iki perspektiften, Azure Kubernetes Service (AKS) kümesinin ve iş yükünü izlemek için kullanabilirsiniz İzleyici. Belirli bir AKS kümesi izlerken Azure Container Instances'a (ACI) görüntüleme olanağı da sağlar.
@@ -275,5 +275,5 @@ Genellikle, bir örnek veya iki ile başlayıp ardından bunları gereksinimleri
 | **Çizgi grafik görüntüleme seçeneğini**:<br> Perf<br> &#124;Burada ObjectName "K8SContainer" ve CounterName == "cpuUsageNanoCores" == &#124; AvgCPUUsageNanoCores özetlemek avg(CounterValue) tarafından bin (TimeGenerated, 30 dakika), InstanceName = | Kapsayıcı CPU | 
 | **Çizgi grafik görüntüleme seçeneğini**:<br> Perf<br> &#124;Burada ObjectName "K8SContainer" ve CounterName == "memoryRssBytes" == &#124; AvgUsedRssMemoryBytes özetlemek avg(CounterValue) tarafından bin (TimeGenerated, 30 dakika), InstanceName = | Kapsayıcı belleği |
 
-## <a name="alerting"></a>Uyarı
-Kapsayıcılar için Azure İzleyici, önceden tanımlanmış birtakım kopyalayın ve Destek süreçleri ve yordamları göre değiştirmek uyarıları içermez. Bu arada, kullanıma [Azure İzleyici ile günlüğü uyarıları oluşturma](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json) ve Uyarıları kendi kümesi oluşturmayı öğrenin.  
+## <a name="next-steps"></a>Sonraki adımlar
+Kapsayıcılar için Azure İzleyici, kopyalamak ve Destek süreçleri ve yordamları göre değiştirmek için uyarılar önceden tanımlanmış bir dizi içermez. Gözden geçirme [performans uyarıları, kapsayıcılar için Azure İzleyici ile oluşturma](container-insights-alerts.md) yüksek CPU ve bellek kullanımı için önerilen uyarılar oluşturma hakkında bilgi edinmek için.  

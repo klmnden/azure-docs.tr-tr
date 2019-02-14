@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: a5634054746d7e60aff154165f651f7c815c39a3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: ac1ae4125418a9c0b3e9587cd03a44e752ac8f82
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100831"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236966"
 ---
 # <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Geçiş için ortak CA sertifikaları P2S ağ geçitleri için otomatik imzalı
 
@@ -23,7 +23,7 @@ Daha önce ağ geçidi için kendinden imzalı bir sertifika her 18 ay güncelle
 Yalnızca eski ağ geçitleri bu değişiklikten etkilenmez. Ağ geçidi sertifikanızı geçmiş olması gerekiyorsa, Azure portalında iletişimi veya bildirim alırsınız. Ağ geçidiniz bu makaledeki adımları kullanarak etkilenir bakabilirsiniz.
 
 >[!IMPORTANT]
->Geçiş için Mart zamanlandı 18:00 UTC'de 12,2019 başlatılıyor. Farklı zaman penceresi tercih ederseniz bir destek talebi oluşturabilirsiniz. Aşağıdaki windows isteyebilirsiniz:
+>Geçiş için Mart zamanlandı 18:00 UTC'de 12,2019 başlatılıyor. Farklı zaman penceresi tercih ederseniz bir destek talebi oluşturabilirsiniz. Yapın ve en az 24 saat önceden isteğiniz sonlandır.  Aşağıdaki windows isteyebilirsiniz:
 >
 >* 25 Şubat 06:00 UTC
 >* 25 Şubat 18:00 UTC

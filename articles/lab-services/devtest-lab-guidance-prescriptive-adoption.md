@@ -3,8 +3,7 @@ title: Kuruluşunuz için Azure DevTest Labs benimseyin
 description: Bu makalede, kuruluşunuzda Azure DevTest Labs'nu benimseme normatif bir Rehber sağlanır.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: christianreddington
-editor: spelluru
+author: spelluru
 manager: femila
 ms.service: lab-services
 ms.workload: na
@@ -12,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/11/2019
-ms.author: chredd
-ms.reviewer: anthdela,juselph
-ms.openlocfilehash: b237162e2371888ed38ffbf5bd8b9e987cf60ed5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: f16bdb8b89c2ce72c2a31a320d2dedbc4df09c81
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993325"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242796"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Azure DevTest Labs altyapı kuruluşunuzdaki ayarlama
 Kuruluşların hızla çeviklik, esneklik ve ekonomik perspektif aboneliğin avantajları nedeniyle bulut geliştirilmektedir. Buluta normal bir ilk adım, geliştirme ve test iş yükleri geçiriyor. Bu iş yükleri aşağıdaki sorguyu gibi geçiş sırasında sorunları ortak bir dizi şöyledir: 

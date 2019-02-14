@@ -1,26 +1,26 @@
 ---
 title: Azure önbelleği için Redis Node.js ile kullanma hakkında bilgi edinmek için hızlı başlangıç | Microsoft Docs
 description: Bu hızlı başlangıçta, Azure önbelleği için Redis ile Node.js ve node_redis nasıl kullanıldığını öğreneceksiniz.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: v-lincan
 ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
 ms.service: cache
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5459ed5bd3b9cb9b297c27e3fd5c3a1c462b8313
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 739f0bd6381e872b5f989f9ecb4dd97fdbdb52c9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109514"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238105"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>Hızlı Başlangıç: Redis ile Node.js için Azure önbellek kullanma
 

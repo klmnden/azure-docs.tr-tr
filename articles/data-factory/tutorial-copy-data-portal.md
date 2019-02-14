@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c7e6a4da9880677fbc4aad76b820ba596058bb6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1aca53c876b6cc982c141d74cdf727f9c966adfe
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025258"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233872"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Blob depolama alanında SQL veritabanına veri kopyalama
 Bu öğreticide, Azure Data Factory kullanıcı arabirimini (UI) kullanarak bir veri fabrikası oluşturursunuz. Bu veri fabrikasındaki işlem hattı, verileri Azure Blob Depolama alanından SQL veritabanına kopyalar. Bu öğreticideki yapılandırma düzeni, dosya tabanlı bir veri deposundan ilişkisel bir veri deposuna kopyalama için geçerlidir. Kaynak ve havuz olarak desteklenen veri depolarının listesi için [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablosuna bakın.
@@ -36,7 +36,7 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 > * İşlem hattı ve etkinlik çalıştırmalarını izleme.
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **Azure aboneliği**. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
+* **Azure aboneliği**. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 * **Azure depolama hesabı**. Blob depolama alanını *kaynak* veri deposu olarak kullanabilirsiniz. Depolama hesabınız yoksa, oluşturma adımları için bkz. [Azure depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md).
 * **Azure SQL Veritabanı**. Veritabanını *havuz* veri deposu olarak kullanabilirsiniz. SQL veritabanınız yoksa, oluşturma adımları için bkz. [SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md).
 
@@ -82,30 +82,30 @@ Aşağıdaki adımları uygulayarak öğretici için Blob depolama alanınızı 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 Bu adımda, bir veri fabrikası oluşturacak ve veri fabrikasında bir işlem hattı oluşturmak için Data Factory kullanıcı arabirimini başlatacaksınız. 
 
-1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
-1. Soldaki menüden **Yeni** > **Veri ve Analiz** > **Data Factory**’yi seçin. 
+1. Açık **Microsoft Edge** veya **Google Chrome**. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
+2. Sol menüden **kaynak Oluştur** > **Analytics** > **Data Factory**. 
   
    ![Yeni veri fabrikası oluşturma](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
-1. **Yeni veri fabrikası** sayfasında **Ad** bölümüne **ADFTutorialDataFactory** girin. 
+3. **Yeni veri fabrikası** sayfasında **Ad** bölümüne **ADFTutorialDataFactory** girin. 
       
      ![Yeni veri fabrikası](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
    Azure data factory adı *küresel olarak benzersiz* olmalıdır. Ad alanı için aşağıdaki hata iletisini görürseniz veri fabrikasının adını değiştirin (örneğin, adınızADFTutorialDataFactory). Data Factory yapıtlarının adlandırma kuralları için bkz.[Data Factory adlandırma kuralları](naming-rules.md).
   
    ![Hata iletisi](./media/tutorial-copy-data-portal/name-not-available-error.png)
-1. Veri fabrikasını oluşturmak istediğiniz Azure **aboneliğinizi** seçin. 
-1. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
+4. Veri fabrikasını oluşturmak istediğiniz Azure **aboneliğinizi** seçin. 
+5. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
      
     a. **Var olanı kullan**’ı seçin ve ardından açılır listeden var olan bir kaynak grubu belirleyin.
 
     b. **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin. 
          
     Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md). 
-1. **Sürüm** bölümünde **V2**'yi seçin.
-1. **Konum** bölümünden veri fabrikası için bir konum seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları (örneğin, Azure Depolama ve SQL Veritabanı) ve işlemler (örneğin, Azure HDInsight) başka bölgelerde olabilir.
-1. **Panoya sabitle**’yi seçin. 
-1. **Oluştur**’u seçin. 
-1. Panoda, **Data Factory Dağıtılıyor** durumuna sahip aşağıdaki kutucuğu görürsünüz: 
+6. **Sürüm** bölümünde **V2**'yi seçin.
+7. **Konum** bölümünden veri fabrikası için bir konum seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları (örneğin, Azure Depolama ve SQL Veritabanı) ve işlemler (örneğin, Azure HDInsight) başka bölgelerde olabilir.
+8. **Panoya sabitle**’yi seçin. 
+9. **Oluştur**’u seçin. 
+10. Panoda, **Data Factory Dağıtılıyor** durumuna sahip aşağıdaki kutucuğu görürsünüz: 
 
     ![Veri fabrikası dağıtılıyor kutucuğu](media/tutorial-copy-data-portal/deploying-data-factory.png)
 1. Oluşturma işlemi bittikten sonra, resimde gösterildiği gibi **Veri Fabrikası** sayfası görüntülenir.
@@ -127,7 +127,7 @@ Bu öğreticide işlem hattını oluşturmaya başlayacaksınız. Daha sonra iş
    ![İşlem hattı oluşturma](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
 1. İşlem hattının **Genel** sekmesinde **Ad** alanına **CopyPipeline** yazın.
 
-1. **Etkinlikler** araç kutusunda **Veri Akışı** kategorisini genişletin ve **Kopyalama** etkinliğini araç kutusundan sürükleyip işlem hattı tasarımcı yüzeyine bırakın. **Ad** için **CopyFromBlobToSql** adını belirtin.
+1. İçinde **etkinlikleri** araç kutusunda **taşıma andTransform** kategorisi ve sürükle ve bırak **veri kopyalama** işlem hattı tasarımcısının yüzeyine etkinliğini araç kutusundan. **Ad** için **CopyFromBlobToSql** adını belirtin.
 
     ![Kopyalama etkinliği](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 

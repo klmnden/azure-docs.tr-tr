@@ -11,7 +11,7 @@ items:
   expanded: true
 - name: Hızlı Başlangıçlar
   items:
-  - name: REST API'sini kullanarak arama sorgusu gönderme
+  - name: REST API
     items:
     - name: C# kullanma
       href: quickstarts/csharp.md
@@ -25,7 +25,7 @@ items:
       href: quickstarts/python.md
     - name: Ruby'yi kullanma
       href: quickstarts/ruby.md
-  - name: SDK’yı kullanarak resim arama
+  - name: SDK
     items:
     - name: C# kullanma
       href: image-search-sdk-quickstart.md
@@ -116,9 +116,9 @@ items:
     href: language-support.md
   - name: Bing Resim Arama API’si analizleri
     href: bing-image-stats.md
-ms.openlocfilehash: 0dce6494fb86f32e86e280d7e9faf701d532cf32
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d75e08e7430b3474fc5e3a354d3c4a559899957a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509737"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237228"

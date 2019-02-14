@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5f9af39616e45983a7ec592f33c3f2ffd34ea34f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091689"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233413"
 ---
-# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Öğretici: Azure Event Hubs'a gönderilen gerçek zamanlı olaylardaki veri anomalilerini görselleştirme
+# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Öğretici: Gerçek zamanlı olayları Azure Event Hubs için gönderilen veri anomaliler görselleştirin
 
 Azure Event Hubs ile Azure Stream Analytics'i kullanarak gelen verileri denetleyebilir, anomalileri ayırabilir ve Power BI'da görselleştirebilirsiniz. Bir olay hub'ına sürekli olarak gerçek zamanlı veriler göndererek saniyede milyonlarca olay ekleyen binlerce cihaza sahip olduğunuzu düşünelim. Bu kadar fazla verideki anomalileri veya hataları nasıl denetleyebilirsiniz? Örneğin cihazlar kredi kartı işlemlerini gönderiyorsa ve 5 saniyelik bir zaman aralığında birden fazla ülkeden birden fazla işlem gönderilmesi durumunu yakalamanız gerekiyorsa ne yaparsınız? Bu durum birisi kredi kartı bilgilerini çalıp dünyanın farklı yerlerinden aynı anda alışveriş yapmak için kullandığında ortaya çıkabilir. 
 
@@ -33,6 +33,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Bu öğreticiyi tamamlamak için bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun][].
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -112,7 +114,7 @@ Genel olarak benzersiz olması gereken değişkenlere `$(Get-Random)` eklenmişt
 
 ```azurepowershell-interactive
 # Log in to Azure account.
-Login-AzureRMAccount
+Login-AzAccount
 
 # Set the values for the location and resource group.
 $location = "West US"
@@ -120,7 +122,7 @@ $resourceGroup = "ContosoResourcesEH"
 
 # Create the resource group to be used  
 #   for all resources for this tutorial.
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # The Event Hubs namespace name must be globally unique, so add a random number to the end.
 $eventHubNamespace = "contosoEHNamespace$(Get-Random)"
@@ -131,12 +133,12 @@ $eventHubName = "contosoEHhub$(Get-Random)"
 Write-Host "Event hub Name is " $eventHubName
 
 # Create the Event Hubs namespace.
-New-AzureRmEventHubNamespace -ResourceGroupName $resourceGroup `
+New-AzEventHubNamespace -ResourceGroupName $resourceGroup `
      -NamespaceName $eventHubNamespace `
      -Location $location
 
 # Create the event hub.
-$yourEventHub = New-AzureRmEventHub -ResourceGroupName $resourceGroup `
+$yourEventHub = New-AzEventHub -ResourceGroupName $resourceGroup `
     -NamespaceName $eventHubNamespace `
     -Name $eventHubName `
     -MessageRetentionInDays 3 `
@@ -144,7 +146,7 @@ $yourEventHub = New-AzureRmEventHub -ResourceGroupName $resourceGroup `
 
 # Get the event hub key, and retrieve the connection string from that object.
 # You need this to run the app that sends test messages to the event hub.
-$eventHubKey = Get-AzureRmEventHubKey -ResourceGroupName $resourceGroup `
+$eventHubKey = Get-AzEventHubKey -ResourceGroupName $resourceGroup `
     -Namespace $eventHubNamespace `
     -AuthorizationRuleName RootManageSharedAccessKey
 
@@ -174,13 +176,13 @@ Artık olay hub'ınıza veri akışını başlatabilirsiniz. Bu verileri bir Pow
 
 2. İş için aşağıdaki bilgileri girin:
 
-   **İş adı**: **contosoEHjob** yazın. Bu alan işin adıdır ve genel olarak benzersiz olmalıdır.
+   **İş adı**: Kullanım **contosoEHjob**. Bu alan işin adıdır ve genel olarak benzersiz olmalıdır.
 
    **Abonelik**: Aboneliğinizi seçin.
 
-   **Kaynak grubu**: Olay hub'ınız (**ContosoResourcesEH**) tarafından kullanılan kaynak grubunun aynısını kullanın.
+   **Kaynak grubu**: Olay hub'ınıza tarafından kullanılan aynı kaynak grubunu kullanın (**ContosoResourcesEH**).
 
-   **Konum**: Kurulum betiğinde kullanılan konumun (**Batı ABD**) aynısını kullanın.
+   **Konum**: Kurulum komut dosyasında kullandığınız konumun aynısını kullanın (**Batı ABD**).
 
    ![Yeni bir Azure Stream Analytics işi oluşturma işleminin gösterildiği ekran görüntüsü.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -199,17 +201,17 @@ Steam Analytics işinin girişleri, olay hub'ından gelen kredi kartı işlemler
 
 2. **Girişler** bölmesinde **Akış girişi ekle**'ye tıklayın ve Event Hubs'ı seçin. Açılan ekranda aşağıdaki alanları doldurun:
 
-   **Giriş diğer adı**: **contosoinputs** yazın. Bu alan, veri sorgusu tanımlanırken kullanılan giriş akışının adıdır.
+   **Giriş diğer adı**: Kullanım **contosoinputs**. Bu alan, veri sorgusu tanımlanırken kullanılan giriş akışının adıdır.
 
    **Abonelik**: Aboneliğinizi seçin.
 
-   **Event Hubs ad alanı**: Event Hub ad alanınızı ($**eventHubNamespace**) seçin. 
+   **Event Hubs ad alanı**: Olay hub'ı ad alanınızı seçin ($**eventHubNamespace**). 
 
-   **Olay Hub'ı adı**: **Var olanı kullan**'a tıklayıp olay hub'ınızı ($**eventHubName**) seçin.
+   **Olay hub'ı adı**: Tıklayın **var olanı kullan** ve olay hub'ınızı seçin ($**eventHubName**).
 
-   **Event Hubs ilkesi adı**: **RootManageSharedAccessKey**'i seçin.
+   **Event hubs'ı ilke adı**: Seçin **RootManageSharedAccessKey**.
 
-   **Event Hubs tüketici grubu**: Varsayılan tüketici grubunu kullanmak için bu alanı boş bırakın.
+   **Event hubs'ı tüketici grubu**: Bu alan varsayılan bir tüketici grubu kullanmak için boş bırakın.
 
    Kalan alanlarda varsayılan değerleri kabul edin.
 
@@ -223,11 +225,11 @@ Steam Analytics işinin girişleri, olay hub'ından gelen kredi kartı işlemler
 
 2. **Çıkışlar** bölmesinde **Ekle**'ye tıklayın ve **Power BI**'ı seçin. Açılan ekranda aşağıdaki alanları doldurun:
 
-   **Çıkış diğer adı**: **contosooutputs** yazın. Bu alan çıkışın benzersiz diğer adıdır. 
+   **Çıkış diğer adı**: Kullanım **contosooutputs**. Bu alan çıkışın benzersiz diğer adıdır. 
 
-   **Veri kümesi adı**: **contosoehdataset** yazın. Bu alan Power BI'da kullanılacak veri kümesinin adıdır. 
+   **Veri kümesi adı**: Kullanım **contosoehdataset**. Bu alan Power BI'da kullanılacak veri kümesinin adıdır. 
 
-   **Tablo adı**: **contosoehtable** yazın. Bu alan Power BI'da kullanılacak tablonun adıdır. 
+   **Tablo adı**: Kullanım **contosoehtable**. Bu alan Power BI'da kullanılacak tablonun adıdır. 
 
    Kalan alanlarda varsayılan değerleri kabul edin.
 
@@ -361,10 +363,10 @@ az group delete --name $resourceGroup
 
 ### <a name="clean-up-resources-using-powershell"></a>PowerShell kullanarak kaynakları temizleme
 
-Kaynak grubunu kaldırmak için [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanın.
+Kaynak grubunu kaldırmak için [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) komutu.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

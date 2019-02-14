@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995800"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56247203"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Nesnelerin interneti (IOT) güvenlik mimarisi
 
@@ -225,7 +225,7 @@ Cihazlar, cihazlar ve alan ağ geçitleri ve cihaz ve bulut ağ geçidi arasınd
 | **Bileşen** | **Tehdit** | **Risk azaltma** | **Risk** | **Uygulama** |
 | --- | --- | --- | --- | --- |
 | Cihaz IOT hub'ı |TID |(D) TLS trafiğini şifrelemek için (PSK/RSA) |Gizlice veya cihaz ve ağ geçidi arasındaki iletişimi engelliyor |Protokol düzeyinde güvenlik. Özel protokoller ile korumak nasıl gerekir. Çoğu durumda, iletişimin (cihaz ve bağlantıyı başlatan) IOT Hub'ına CİHAZDAN yer alır. |
-| Cihaz cihaz |TID |(D) TLS trafiğini şifrelemek için (PSK/RSA). |Cihazlar arasında Taşınmakta olan veriler okunuyor. Verilerinize müdahale. Cihazı yeni bağlantıları ile aşırı yükleme |(MQTT/AMQP/HTTP/CoAP protokol düzeyinde güvenlik. Özel protokoller ile korumak nasıl gerekir. DoS tehdit azaltma, Bulut veya alan ağ geçidi aracılığıyla cihazları eş ve bunları yalnızca istemciler ağ doğru olarak kalanları oluşturmaktır. Ağ Geçidi tarafından aracılı sonra eşler arasında doğrudan bağlantı eşlemesi sonuçlanabilir |
+| Cihaz için cihaz |TID |(D) TLS trafiğini şifrelemek için (PSK/RSA). |Cihazlar arasında Taşınmakta olan veriler okunuyor. Verilerinize müdahale. Cihazı yeni bağlantıları ile aşırı yükleme |(MQTT/AMQP/HTTP/CoAP protokol düzeyinde güvenlik. Özel protokoller ile korumak nasıl gerekir. DoS tehdit azaltma, Bulut veya alan ağ geçidi aracılığıyla cihazları eş ve bunları yalnızca istemciler ağ doğru olarak kalanları oluşturmaktır. Ağ Geçidi tarafından aracılı sonra eşler arasında doğrudan bağlantı eşlemesi sonuçlanabilir |
 | Dış varlık cihaz |TID |Dış varlık cihaza tanımlayıcı eşleştirme |Cihaz bağlantısı gizlice. Cihazla iletişimi engelliyor |Dış varlık ' % s'cihazına NFC/Bluetooth LE güvenli bir şekilde eşleştirilmiş. Cihaz (fiziksel) işletimsel panelini denetleme |
 | Alan ağ geçidi bulut ağ geçidi |TID |TLS trafiğini şifrelemek için (PSK/RSA). |Gizlice veya cihaz ve ağ geçidi arasındaki iletişimi engelliyor |Güvenlik protokol düzeyinde (MQTT/AMQP/HTTP/CoAP). Özel protokoller ile korumak nasıl gerekir. |
 | Cihaz bulut ağ geçidi |TID |TLS trafiğini şifrelemek için (PSK/RSA). |Gizlice veya cihaz ve ağ geçidi arasındaki iletişimi engelliyor |Güvenlik protokol düzeyinde (MQTT/AMQP/HTTP/CoAP). Özel protokoller ile korumak nasıl gerekir. |

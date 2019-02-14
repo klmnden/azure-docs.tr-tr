@@ -4,17 +4,19 @@ description: Etiketlerin hangi Azure kaynak türlerini destekleyen gösterir. Ay
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509924"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246060"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure kaynakları için etiketi desteği
 Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etiketleri](resource-group-using-tags.md).
+
+Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [etiketi support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Kaynak türü | Etiketleri destekler |
@@ -1123,13 +1125,14 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | sunucuları/communicationLinks | Hayır | 
 | sunucuları/veritabanları | Evet (aşağıdaki nota bakın) | 
 | sunucuları/encryptionProtector | Hayır | 
+| sunucuları/firewallRules | Hayır | 
 | sunucuları/anahtarları | Hayır | 
 | sunucuları/restorableDroppedDatabases | Hayır | 
 | sunucuları/serviceobjectives | Hayır | 
 | sunucuları/tdeCertificates | Hayır | 
 
 > [!NOTE]
-> Asıl veritabanı etiketleri desteklemez, ancak etiketleri diğer veritabanlarını destekler.
+> Asıl veritabanı etiketleri desteklemez, ancak etiketleri veri ambarı veritabanları dahil olmak üzere, diğer veritabanlarını destekler.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

@@ -2,28 +2,27 @@
 title: Azure SQL veri ambarı sürüm notları | Microsoft Docs
 description: Azure SQL veri ambarı için sürüm notları.
 services: sql-data-warehouse
-author: twounder
-manager: craigg
+author: mlee3gsd
+ms.author: anumjs
+ms.reviewer: jrasnick
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/11/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: 7a131429d8f70255e47efaac0c4b5fa99a6df7d6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/09/2019
+ms.openlocfilehash: 2ac60287c9d92ab6230e1dd6777504036e54492d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460820"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244683"
 ---
-# <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL veri ambarı sürüm notları
+# <a name="azure-sql-data-warehouse-release-notes-and-documentation-updates"></a>Azure SQL veri ambarı sürüm notları ve belge güncelleştirmeleri
 
 Azure SQL veri ambarı (SQL DW) bulut tabanlı kurumsal veri yüksek düzeyde paralel işleme (hızlıca petabaytlarca veri üzerinde karmaşık sorgular çalıştırmak için MPP) yararlanan ambarıdır. SQL Veri Ambarı'nı büyük veri çözümünün temel bileşenlerinden biri olarak kullanabilirsiniz. Basit PolyBase T-SQL sorguları kullanarak büyük verileri SQL Veri Ambarı'na aktarıp MPP gücünü kullanarak yüksek performanslı analizler gerçekleştirebilirsiniz. Tümleştirme ve analiz işlemleri sırasında veri ambarı, işletmenizin öngörüler için güvenebileceği tek veri sürümü haline gelir.
 
 Azure SQL veri ambarı'nın en yeni sürümünde beklediğiniz geliştirmeleri ve yeni özellikleri hakkında daha fazla bilgi için aşağıdaki bağlantıları tıklatın. Tanımlanan bakım zamanlamanızı sırasında bu hizmet güncelleştirmeleri almasını bekleyebilirsiniz.
 
-- [SQL DW sürümü 10.0.10106.0](./release-notes-10-0-10106-0.md)
+- [SQL veri ambarı sürümü 10.0.10106.0 (Ocak)](./release-notes-10-0-10106-0.md)
 - [Aralık 2018'e](./release-notes-december-2018.md)
 - [Ekim 2018](./release-notes-october-2018.md)
 - [Eylül 2018](./release-notes-september-2018.md)

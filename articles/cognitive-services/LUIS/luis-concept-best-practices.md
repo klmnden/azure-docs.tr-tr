@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/13/2019
 ms.author: diberry
-ms.openlocfilehash: e307f258f4bf4c6aec6a0932f0787ef56f2b0d46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859309"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243425"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bilişsel hizmetler dil anlama uygulamayla oluşturmaya yönelik en iyi uygulamalar
 LUIS uygulamanızı oluşturmak için yazma işleminin hızlandırılmasının uygulamayı kullanın. 
@@ -59,6 +59,12 @@ Aşağıdaki örnek konuşma göz önünde bulundurun:
 
 "Bir kitap" ve "bir otel kitap" aynı sözlüğünü kullanın "kitap bir". Uçuş ve Otel farklı sözcük ile aynı amaç ayıklanan varlıklar olarak olması gerektiği için bu biçim aynıdır. 
 
+Daha fazla bilgi için:
+* Kavram: [LUIS uygulamanızda hedefleri hakkında kavramları](luis-concept-intent.md)
+* Öğretici: [Kullanıcı amaçları belirlemek için LUIS uygulaması oluşturma](luis-quickstart-intents-only.md)
+* Nasıl yapılır: [Konuşma kullanıcı amacınıza belirlemek için hedef ekleme](luis-how-to-add-intents.md)
+
+
 ## <a name="do-find-sweet-spot-for-intents"></a>Tatlı nokta hedefleri için Bul
 LUIS verilerden öngörü, hedefleri örtüşmez belirlemek için kullanın. Çakışan bir ıntents LUIS aklını karıştırabilir. Hedefi Puanlama en yakın olduğunu sonucudur başka bir amaç. LUIS her zaman eğitim verilerde aynı tam yolunu kullanmadığından, ilk veya ikinci eğitim olma şansı çakışan bir amacı vardır. Utterance'nın puanı bu Çevir/flop gerçekleşmez birbirinden olması, her amaç için kullanmanız gerekir. İyi ayrım hedefleri için beklenen üst amaca her seferinde neden olur. 
  
@@ -67,6 +73,9 @@ Ayrı olarak kullanılmayan konuşma birtakım tutmak [örnek konuşma](luis-con
 
 Geliştiriciler, üç veri kümesi olması gerekir. Model oluşturmak için örnek konuşma davranıştır. Uç nokta modeli test etmek için saniyedir. Üçüncü blind test kullanılan verileri olduğu [toplu test](luis-how-to-batch-test.md). Bu son kümesi olmayan uygulama eğitim içinde kullanılan ya da uç noktada gönderilir.  
 
+Daha fazla bilgi için:
+* Kavram: [LUIS uygulama döngüsü yazma](luis-concept-app-iteration.md)
+
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>İfade listeleri ve desenler sonraki yinelemelerde ekleme
 [Tümcecik listeleri](luis-concept-feature.md) sözlükleri bir kelimelerin uygulama etki alanınızla ilişkili tanımlamanızı sağlar. Çekirdek, ifade listesi ile birkaç sözcük sonra uygulamanıza LUIS hakkında daha fazla sözcük içindeki belirli kelime bilmesi Öner özelliğini kullanın. Her sözcük, tümcecik listesi değil tam bir eşleşme olduğundan sözlüğü eklemeyin. 
 
@@ -74,11 +83,22 @@ Gerçek kullanıcı konuşma birbirine çok benzer uç noktasından word seçim 
 
 Kullanım deseninin [isteğe bağlı söz dizimi](luis-concept-patterns.md) noktalama göz ardı edilebilir şekilde noktalama. Kullanım [açık listesi](luis-concept-patterns.md#explicit-lists) pattern.any söz dizimi sorunları için dengelemek için. 
 
-Bu yöntemler, güvenirlik eğriltir çünkü uygulamanızı uç nokta isteği aldı önce geçerli değildir.  
+Uç nokta isteği aldı ve uygulamanızı önce bu uygulamaları geçerli değildir. İfade listeleri ve desenleri eklemeden önce uygulamanın davranışını anlamanız gerekir. Uygulamanızın bu nasıl davrandığını anladıktan sonra bu özelliklerin her biri, uygulamanız için geçerli olan ekleyin. 
+
+Model tasarımınızı başında eklemeden hiçbir zarar yoktur ancak her bir özelliğin uygulama ile gerçek trafiği kullandıktan sonra eklerseniz sonuçları nasıl değiştiğini görmek daha kolaydır. 
+
+Her yineleme ile bu özellikler eklemek veya özellikleri her sürümüyle değiştirmek gerekmez. 
+
+Daha fazla bilgi için:
+* Kavram: [LUIS uygulama döngüsü yazma](luis-concept-app-iteration.md)
+* Kavram: [LUIS uygulamanızı ifade listesi özellikleri](luis-concept-feature.md)
+* Kavram: [Desenlerini tahmin doğruluğunu artırmak](luis-concept-patterns.md)
+* Nasıl yapılır: [Kullanım deyimi word listesinin boost sinyale listeler](luis-how-to-add-features.md)
+* Nasıl yapılır: [Nasıl tahmin doğruluğunu artırmak için düzenleri ekleyin](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Tüm hedefleri arasında konuşma Bakiye
 
-Doğru olması için sırada LUIS tahminler elde etmek için örnek konuşma (dışında hiçbiri hedefi), her amaç, miktarı oldukça eşit olmalıdır. 
+Doğru olmasını LUIS tahminler elde etmek için sırada (dışında hiçbiri hedefi), her amaç, örnek konuşma miktarı oldukça eşit olmalıdır. 
 
 100 örnek Konuşma ile bir hedefi ve 20 örnek Konuşma ile bir hedefi varsa, 100 utterance hedefi tahmin daha yüksek fiyatı olacaktır.  
 
@@ -86,9 +106,17 @@ Doğru olması için sırada LUIS tahminler elde etmek için örnek konuşma (d�
 
 Geri dönüş Bu hedefi olan amacı, uygulamanızın dışında her şeyi gösterilir. Bir örnek utterance hiçbiri LUIS uygulamanızı geri kalanında her 10 örnek konuşma için hedefi ekleyin.
 
+Daha fazla bilgi için:
+* Kavram: [LUIS uygulamanızı iyi konuşma neler olduğunu anlama](luis-concept-utterance.md)
+
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Etkin öğrenme için Öner özelliğinden yararlanın
 
 Kullanım [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md)'s **gözden geçirin, konuşma uç noktası** hedefleri için daha fazla örnek konuşma eklemek yerine düzenli olarak. Uygulamayı sürekli olarak konuşma uç noktası almak için bu listeyi artan ve değiştirme.
+
+Daha fazla bilgi için:
+* Kavram: [Etkin öğrenme konuşma uç noktası inceleyerek etkinleştirmek için kavramları](luis-concept-review-endpoint-utterances.md)
+* Öğretici: [Öğretici: Konuşma uç noktası inceleyerek emin değilseniz Öngörüler Düzelt](luis-tutorial-review-endpoint-utterances.md)
+* Nasıl yapılır: [LUIS portalında konuşma uç noktası İnceleme](luis-how-to-review-endoint-utt.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Uygulamanızın performansını izleyin
 
@@ -133,6 +161,11 @@ Ekleme çok fazla [desenleri](luis-concept-patterns.md). LUIS, daha az sayıda �
 ## <a name="do-use-versions-for-each-app-iteration"></a>Her uygulama yineleme için sürümleri kullanın
 
 Her geliştirme döngüsü içinde yeni bir olmalıdır [sürüm](luis-concept-version.md), var olan bir sürümünden kopyalanan. LUIS, sürümler için sınır yoktur. Dolayısıyla bir URL'de izin yanı sıra bir sürümü için 10 karakter sayısı içinde tutarak karakter seçmek önemli bir sürüm adı API yolun bir parçası olarak kullanılır. Sürümlerinizi düzenli tutmak için bir sürüm adı strateji geliştirin. 
+
+Daha fazla bilgi için:
+* Kavram: [Nasıl ve ne zaman anlamak LUIS sürümünü kullanmak için](luis-concept-version.md)
+* Nasıl yapılır: [Düzenle ve hazırlık veya üretim uygulamaları etkilemeden test sürümleri kullanın](luis-how-to-manage-versions.md)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

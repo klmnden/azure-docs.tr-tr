@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6d47f22b4c7b29457de18593e38548aa818205a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205639"
+ms.locfileid: "56237884"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD galeri uygulaması eklenirken sorun oluştu
 
@@ -28,13 +28,13 @@ Bu makalede Azure AD galeri uygulamaları ve bunların çözülmesine yönelik y
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>"Ekle" düğmesi tıkladım ve uygulamamın görünür uzun sürdü
 
-Bazı durumlarda, 1-2 dakika sürebilir (ve bazı durumlarda daha uzun) bir uygulama dizininize eklendikten sonra görünür. Bu normal beklenen performans olmamasına karşın, uygulama eklenmesi devam ederken tıklayarak görebilirsiniz **bildirimleri** simgesine (zil) sağ üst kısmındaki [Azure portalında](https://portal.azure.com/) ve aranıyor için bir **sürüyor** veya **tamamlandı** etiketli bildirim **uygulaması oluşturun.**
+Bazı durumlarda, 1-2 dakika sürebilir (ve bazı durumlarda daha uzun) bir uygulama dizininize eklendikten sonra görünür. Bu normal beklenen performans olmamasına karşın, uygulama eklenmesi devam ederken tıklayarak görebilirsiniz **bildirimleri** simgesine (zil) sağ üst kısmındaki [Azure portalında](https://portal.azure.com/) ve aranıyor için bir **sürüyor** veya **tamamlandı** etiketli bildirim **uygulama ekleniyor.**
 
 Uygulamanızı hiçbir zaman eklenir veya tıklandığında hatayla karşılaşan **Ekle** düğmesi, gördüğünüz bir **bildirim** içinde bir **hata** durumu. Bir destek mühendisiyle paylaşın veya daha fazla bilgi için hata hakkındaki ayrıntılar istiyorsanız, içindeki adımları izleyerek hata hakkında daha fazla bilgi görebilirsiniz [portal bildirimi ayrıntılarını görmek nasıl](#how-to-see-the-details-of-a-portal-notification) bölümü.
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>"Ekle" düğmesi tıkladım ve uygulamamın görünmedi
 
-Bazı durumlarda, geçici bir sorun nedeniyle ağ sorunlarını veya bir hata, bir uygulama başarısız ekleniyor. ' A tıkladığınızda böyle söyleyebilirsiniz **bildirimleri** simgesine (zil) sağ üst köşesinde Azure portalı ve kırmızı (!) simgesi yanındaki bakın, **uygulama oluşturma** bildirim. Bu, uygulama oluştururken bir hata oluştu gösterir.
+Bazı durumlarda, geçici bir sorun, ağ sorunlarını veya bir hata nedeniyle, bir uygulama ekleme başarısız. ' A tıkladığınızda böyle söyleyebilirsiniz **bildirimleri** simgesine (zil) sağ üst köşesinde Azure portalı ve kırmızı (!) simgesi yanındaki bakın, **uygulamasını ekleme** bildirim. Bu, uygulama oluştururken bir hata oluştu gösterir.
 
 Tıklandığında bir hatayla karşılaşırsanız **Ekle** düğmesi, gördüğünüz bir **bildirim** içinde bir **hata** durumu. Bir destek mühendisiyle paylaşın veya daha fazla bilgi için hata hakkındaki ayrıntılar istiyorsanız, içindeki adımları izleyerek hata hakkında daha fazla bilgi görebilirsiniz [portal bildirimi ayrıntılarını görmek nasıl](#how-to-see-the-details-of-a-portal-notification) bölümü.
 
@@ -42,13 +42,13 @@ Tıklandığında bir hatayla karşılaşırsanız **Ekle** düğmesi, gördüğ
 
 Öğrenimi uygulamaları hakkında yardıma ihtiyacınız olursa [nasıl Azure Active Directory ile SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) makale başlatmak için iyi bir yerdir.
 
-Bu, ek olarak [Azure AD uygulamaları belge kitaplığı](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) Azure AD ile çoklu oturum açma ve nasıl çalıştığı hakkında daha fazla bilgi için Yardım.
+Bu, ek olarak [Azure AD uygulamaları belge kitaplığı](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) , Azure AD ile çoklu oturum açma ve nasıl çalıştığı hakkında daha fazla bilgi edinmek için yardımcı olur.
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Portal bildirimi ayrıntılarını görme
 
 Aşağıdaki adımları izleyerek, herhangi bir portal bildirim ayrıntılarını görebilirsiniz:
 
-1.  tıklayın **bildirimleri** simgesine (zil) Azure portalının sağ üst
+1.  Seçin **bildirimleri** simgesine (zil) Azure portalının sağ üst
 
 2.  Herhangi bir bildirim seçin bir **hata** durumu (yanında bir kırmızı (!) sahip olanlar).
 
@@ -61,7 +61,7 @@ Aşağıdaki adımları izleyerek, herhangi bir portal bildirim ayrıntıların�
 
 5.  Hala yardıma ihtiyacınız varsa, bu bilgiler sorununuzu Yardım almak için bir destek mühendisi veya ürün grubu ile paylaşabilirsiniz.
 
-6.  Tıklayın **kopyalama** **simgesi** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendisiyle paylaşın için tüm bildirim ayrıntılarını kopyalamak için metin kutusu
+6.  Tıklayın **kopyalama** **simgesi** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendisiyle paylaşın için tüm bildirim ayrıntılarını kopyalamak için metin kutusu.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Bir destek mühendisiyle bildirim ayrıntılarını göndererek Yardım alma
 

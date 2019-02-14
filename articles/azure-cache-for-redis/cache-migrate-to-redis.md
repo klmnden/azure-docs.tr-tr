@@ -1,25 +1,25 @@
 ---
 title: Redis - Azure yönetilen önbellek hizmeti uygulamalarını geçirme | Microsoft Docs
 description: Redis için yönetilen önbellek hizmeti ve rol içi önbellek uygulamaları Azure Cache geçirmeyi öğrenin
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: a98b6b426ee1bf9784394ce4a83dca83179f7c28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110889"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237036"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Yönetilen önbellek Hizmeti'nden Azure önbelleği için Redis için geçirme
 Azure önbelleği için Redis için Azure yönetilen önbellek hizmeti kullanan, uygulamaları geçirme uygulamanızın, önbelleğe alma uygulamanız tarafından kullanılan yönetilen önbellek hizmeti özelliklere bağlı olarak küçük değişiklikler ile gerçekleştirilebilir. API'leri tam olarak aynı olsa da benzemez ve yönetilen önbellek hizmeti bir önbelleğe erişmek için kullandığı mevcut kodunuzu çoğunu minimum değişikliklerle yeniden kullanılabilir. Bu makalede, gerekli yapılandırma yapma gösterilmektedir ve uygulama, Azure önbelleği için Redis kullanmak üzere yönetilen önbellek hizmeti uygulamalarınızı geçirmeyi değiştirir ve nasıl bazı özellikleri Azure önbelleği için Redis işlevselliğini uygulamak için kullanılabileceğini gösterir bir yönetilen önbellek hizmeti önbelleği.

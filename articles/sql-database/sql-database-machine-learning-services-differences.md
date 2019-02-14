@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 01/31/2019
-ms.openlocfilehash: adc303e9b375aaa6f37e9e79ea5434675c75523d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824259"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237493"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Azure SQL veritabanı'nda Machine Learning Hizmetleri ve SQL Server arasındaki farklar
 
@@ -25,7 +25,7 @@ Azure SQL Veritabanı'nda sunulan Machine Learning Services (R ile) işlevleri, 
 
 ## <a name="language-support"></a>Dil desteği
 
-SQL Server, R ve Python aracılığıyla desteği olan [Genişletilebilirlik Çerçevesi](https://docs.microsoft.com/en-us/sql/advanced-analytics/concepts/extensibility-framework). SQL veritabanı, her iki dil desteklemez. Temel farklılıklar şunlardır:
+SQL Server, R ve Python aracılığıyla desteği olan [Genişletilebilirlik Çerçevesi](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). SQL veritabanı, her iki dil desteklemez. Temel farklılıklar şunlardır:
 
 - R SQL veritabanı'nda yalnızca desteklenen dilidir. Python desteği yoktur.
 - R 3.4.4 sürümüdür.

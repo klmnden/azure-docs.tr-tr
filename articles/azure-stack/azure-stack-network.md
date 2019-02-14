@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 56884f2299df35c1565804a92fc404b6ed9e2f9a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97fcfa20e474edb8108474ef02c6542688d627ff
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185018"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243497"
 ---
 # <a name="network-connectivity"></a>Ağ bağlantısı
 Bu makalede, Azure Stack mevcut ağ ortamınıza en iyi şekilde tümleştirmek nasıl karar vermenize yardımcı olmak için Azure Stack ağ altyapı bilgileri sağlar. 
@@ -67,9 +67,6 @@ Bu /24 (254 ana bilgisayarı IP'ler) ağ (Azure Stack bölgesinin kenarlık anah
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack altyapı ağı
 Bu/24 ağ iletişim kurmak ve aralarında veri değişimi iç Azure Stack bileşenleri için ayrılmış. Bu alt ağ yönlendirilebilir IP adreslerinin gerektirir, ancak erişim denetim listeleri (ACL'ler) kullanarak çözüme özel tutulur. Kenarlık anahtarlar için bir/27 boyutu eşdeğer küçük bir aralık dışında ötesinde yönlendirilmesini beklenen değil, dış kaynaklara ve/veya internet erişimi gerektirdiğinde bu hizmetlerden bazıları tarafından kullanılan ağ. 
-
-### <a name="public-infrastructure-network"></a>Ortak altyapı ağı
-Bunun/27 ağdır küçük bir aralık daha önce bahsedilen Azure Stack altyapısını alt ağ, genel IP adresleri olması gerekmez, ancak bir NAT veya saydam Ara sunucu üzerinden internet erişimi gerektirmez. Bu ağ, Acil Durum Kurtarma konsolunu sistemini (ERCS) için atanacak, azure'a kayıt sırasında ve altyapı yedekleme sırasında ERCS VM Internet erişimi gerektirir. ERCS VM sorun giderme amacıyla yönetim ağınıza yönlendirilebilir olmalıdır.
 
 ### <a name="public-vip-network"></a>Genel VIP ağları
 Genel VIP ağları Ağ denetleyicisi Azure Stack'te atanır. Bir mantıksal ağ anahtarı üzerindeki değil. SLB adres havuzu kullanır ve atar/Kiracı İş yükleri için 32 ağlar. Geçiş yönlendirme tablosunda 32 bu IP'lerin BGP aracılığıyla kullanılabilir olan bir yol olarak bildirildiğini. Bu ağa harici erişilebilir veya genel IP adreslerini içerir. Azure Stack altyapısının kalan Vm'leri Kiracı tarafından kullanılırken bu genel VIP ağları ilk 31 adreslerinden saklı tutar. Bu alt ağ boyutu en fazla /22 (1022 ana) en az /26 (64 ana) değişebilir, için bir/24 planlamanızı öneririz ağ.

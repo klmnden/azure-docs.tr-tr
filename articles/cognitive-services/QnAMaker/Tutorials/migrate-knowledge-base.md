@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 56d79ce236dac4659bd863b645cc6780752091da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865371"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245924"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>İçeri dışarı aktarma kullanarak Bilgi Bankası geçirme
 
@@ -56,7 +56,7 @@ Bilgi Bankası geçiş, bir Bilgi Bankası dışarı aktarma ve ardından başka
     Bu noktada, tüm Bilgi Bankası içerikleri - soruları yanıtlar ve kaynak dosyaları ve URL'leri adlarını yanı sıra meta veri yeni Bilgi Bankası'na aktarılır. 
 
 ## <a name="chat-logs-and-alterations"></a>Sohbet günlükleri ve değişiklikleri
-Değişiklikleri (eş anlamlılar) otomatik olarak içeri aktarılmaz. Kullanım [V2 API](https://aka.ms/qnamaker-v2-apis) eski bilgilerden değişiklikleri aktarmak ve [V4 API'leri](https://aka.ms/qnamaker-v4-apis) değişiklikleri yeni Bilgi Bankası'ndaki taşımak için.
+Büyük küçük harf duyarsız değişiklikleri (eş anlamlılar) otomatik olarak içeri aktarılmaz. Kullanım [V2 API](https://aka.ms/qnamaker-v2-apis) eski bilgilerden değişiklikleri aktarmak ve [V4 API'leri](https://aka.ms/qnamaker-v4-apis) değişiklikleri yeni Bilgi Bankası'ndaki taşımak için.
 
 Sohbet günlükleri, yeni Bilgi Bankası sohbet günlükleri depolamak için Application Insights kullandığından geçirmek için hiçbir yolu yoktur. 
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/06/2018
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19a771d75cd1f2a2a18a3a4c42fcc34e55afb111
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5ab50bd5a2b5b1b0e63060986d4336774be7875b
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438856"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245873"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Bir Web kancası ile bir Azure Otomasyonu runbook'u başlatma
 
@@ -29,16 +29,16 @@ Aşağıdaki tabloda, bir Web kancası için yapılandırmanız gereken özellik
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Ad |İstemciye gösterilmez bu yana bir Web kancası için istediğiniz herhangi bir ad sağlayabilirsiniz. Yalnızca sizin için Azure Otomasyonu'nda runbook tanımlamak için kullanılır. <br> En iyi uygulama, Web kancası kullanan istemcisiyle ilgili bir ad vermesi gerekir. |
+| Ad |Bu istemciye kullanıma bu yana bir Web kancası için istediğiniz herhangi bir ad sağlayabilirsiniz. Yalnızca sizin için Azure Otomasyonu'nda runbook tanımlamak için kullanılır. <br> En iyi uygulama, Web kancası kullanan istemcisiyle ilgili bir ad vermesi gerekir. |
 | URL'si |Web kancası URL'si, Web kancası'na bağlı bir runbook başlatmak için bir HTTP POST ile bir istemci çağrıları benzersiz adresidir. Web kancasını oluşturduğunuzda otomatik olarak oluşturulur. Özel bir URL belirtemezsiniz. <br> <br> URL, başka bir kimlik doğrulaması ile üçüncü taraf sistemleri tarafından çağrılacak runbook izin veren bir güvenlik belirteci içeriyor. Bu nedenle, bir parola gibi düşünülmelidir. Güvenlik nedeniyle, Web kancası oluşturulduğunda Azure portalında yalnızca URL'yi görüntüleyebilirsiniz. Gelecekte kullanım için güvenli bir konumda URL'yi not alın. |
-| Son kullanma tarihi |Bir sertifikanın gibi her Web kancası aynı zamanda artık kullanılabilir bir sona erme tarihi vardır. Web kancası süresinin dolmadığını sürece Web kancası oluşturulduktan sonra bu sona erme tarihi değiştirilebilir. |
-| Etkin |Bir Web kancası, oluşturulduğunda varsayılan olarak etkindir. Devre dışı olarak ayarlarsanız, hiçbir istemci kullanabilmek için. Ayarlayabileceğiniz **etkin** özelliği, Web kancası veya dilediğiniz zaman bir kez oluşturduğunuzda oluşturulur. |
+| Son kullanma tarihi |Bir sertifikanın gibi her Web kancası aynı zamanda artık kullanılabilir bir sona erme tarihi vardır. Bu süre sonu tarihi, Web kancasının süresi dolmuş değil sürece Web kancası oluşturulduktan sonra değiştirilebilir. |
+| Etkin |Bir Web kancası, oluşturulduğunda varsayılan olarak etkindir. Devre dışı olarak ayarlarsanız, hiçbir istemci bunu kullanabilirsiniz. Ayarlayabileceğiniz **etkin** özelliği, Web kancası veya dilediğiniz zaman bir kez oluşturduğunuzda oluşturulur. |
 
 ### <a name="parameters"></a>Parametreler
 
 Bir Web kancası, Web kancası tarafından runbook başlatılırken kullanılan runbook parametreleri için değerleri tanımlayabilirsiniz. Web kancası runbook'un zorunlu parametreler için değerler içermelidir ve isteğe bağlı parametreler için değerler içerebilir. Bir Web kancası için yapılandırılmış bir parametre değeri, Web kancası oluşturduktan sonra bile değiştirilebilir. Birden çok Web kancaları için tek bir runbook bağlı her farklı parametre değerlerini kullanabilirsiniz.
 
-Bir istemciyi bir Web kancası kullanarak bir runbook'u başlattığında, Web kancasının tanımlanan parametre değerlerini geçersiz kılamazsınız. İstemciden veri almak, runbook adı verilen tek bir parametre kabul edebilir **$WebhookData** [object] türünde POST isteğinde istemci içeren verileri içerir.
+Bir istemciyi bir Web kancası kullanarak bir runbook'u başlattığında, Web kancasının tanımlanan parametre değerlerini geçersiz kılamazsınız. İstemciden veri almak, runbook adı verilen tek bir parametre kabul edebilir **$WebhookData**. Bu parametre istemci POST isteğinde içeren verileri içeren bir tür [object] içindir.
 
 ![Webhookdata özellikleri](media/automation-webhooks/webhook-data-properties.png)
 
@@ -124,13 +124,13 @@ http://<Webhook Server>/token?=<Token Value>
 
 ## <a name="renew-webhook"></a>Bir Web kancasını yenileme
 
-Bir Web kancası oluşturulduğu sırada bir yıllık bir geçerlilik süresi vardır. Bu yıl saatten sonra Web kancasını otomatik olarak sona erer. Bir Web kancası süresi dolduktan yeniden etkinleştirilen olamaz, bu kaldırılmış ve yeniden oluşturulması gerekir. Bir Web kancası, süre sonu olmayan ulaştıysa genişletilebilir.
+Bir Web kancası oluşturulurken bir yıllık bir geçerlilik süresi vardır. Bu yıl saatten sonra Web kancasını otomatik olarak sona erer. Bir Web kancası süresi dolduktan bunu etkinleştirilemez, onu kaldırıldı ve yeniden oluşturulması gerekir. Bir Web kancası, süre sonu ulaşılmamış, genişletilebilir.
 
-Bir Web kancasını genişletmek için Web kancası içeren runbook'a gidin. Seçin **Web kancaları** altında **kaynakları**. Genişletmek istediğiniz Web kancası'ı tıklatın, bu açılır **Web kancası** sayfası.  Yeni sona erme tarihi ve saati seçin ve tıklayın **Kaydet**.
+Bir Web kancasını genişletmek için Web kancası içeren runbook'a gidin. Seçin **Web kancaları** altında **kaynakları**. Genişletmek istediğiniz Web kancası'ı tıklatın, bu eylem açar **Web kancası** sayfası.  Yeni sona erme tarihi ve saati seçin ve tıklayın **Kaydet**.
 
 ## <a name="sample-runbook"></a>Örnek runbook
 
-Aşağıdaki örnek runbook'u webhook verilerini kabul eder ve istek gövdesinde belirtilen sanal makineleri başlatır. Bu runbook Otomasyon hesabınız kapsamında test **runbook'ları**, tıklayın **+ runbook Ekle**. Bir runbook oluşturmak nasıl bilmiyorsanız bkz [runbook oluşturma](automation-quickstart-create-runbook.md).
+Aşağıdaki örnek runbook'u webhook verilerini kabul eder ve istek gövdesinde belirtilen sanal makineleri başlatır. Bu runbook Otomasyon hesabınız kapsamında test **runbook'ları**, tıklayın **+ runbook Ekle**. Bir runbook oluşturmak nasıl bilmiyorsanız, bkz. [runbook oluşturma](automation-quickstart-create-runbook.md).
 
 ```powershell
 param
@@ -189,7 +189,7 @@ else {
 
 Aşağıdaki örnek, bir Web kancası ile bir runbook başlatmak için Windows PowerShell kullanır. Bir HTTP isteği yapabilen herhangi bir dilde bir Web kancası kullanabilirsiniz; Windows PowerShell kullanılan bir örnek burada.
 
-Runbook, isteğin gövdesindeki JSON biçimli sanal makinelerin bir listesini bekliyor. Runbook yanı üstbilgileri özellikle tanımlanan içerdiğini doğrular ileti Web kancası çağrıyı doğrulamak için geçerlidir.
+Runbook, isteğin gövdesindeki JSON biçimli sanal makinelerin bir listesini bekliyor. Runbook de üstbilgileri tanımlanan içerdiğini doğrular ileti Web kancası çağrıyı doğrulamak için geçerlidir.
 
 ```azurepowershell-interactive
 $uri = "<webHook Uri>"
@@ -200,11 +200,11 @@ $vms  = @(
         )
 $body = ConvertTo-Json -InputObject $vms
 $header = @{ message="StartedbyContoso"}
-$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $header
+$response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $header
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
-Aşağıdaki örnek, bir runbook'ta kullanılabilir isteğin gövdesini gösterir **ıncludesearchresults: true** özelliği **WebhookData**. Bu, istek gövdesinde eklenmiştir biçimde olduğundan bu JSON olarak biçimlendirilir.
+Aşağıdaki örnek, bir runbook'ta kullanılabilir isteğin gövdesini gösterir **ıncludesearchresults: true** özelliği **WebhookData**. Bu, istek gövdesinde eklenmiştir biçimde olduğundan bu değer JSON olarak biçimlendirilir.
 
 ```json
 [

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817631"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242824"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları
 
@@ -34,6 +34,10 @@ ms.locfileid: "54817631"
 
 Daha fazla bilgi için [Media Services v2'den v3 taşımak için geçiş kılavuzunu](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="february-2019"></a>Şubat 2019
+
+Media Services v3, Ulusal Azure bulutlarında upported sunulmuştur. Tüm özellikler tüm bulutlara henüz kullanılabilir. Ayrıntılar için bkz [Bulutlar ve hangi Azure Media Services v3 mevcut bölgeleri](azure-clouds-regions.md).
+
 ## <a name="january-2019"></a>Ocak 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard ve MPI dosyaları 
@@ -46,7 +50,7 @@ Değiştirme veya MPI dosyayı kaldırmak veya gerekir (veya etkinleştirmezsini
 
 GA sürümündeki V3 API'yi güncelleştirmeleri içerir:
        
-* **PresentationTimeRange** özellikleri gereklidir artık ' için ' **AssetFilters** ve **AccountFilters**. 
+* **PresentationTimeRange** özellikleri gereklidir artık ' için ' **varlık filtreleri** ve **hesap filtreleri**. 
 * $Top ve $skip sorgu seçeneklerini **işleri** ve **dönüştüren** kaldırıldı ve $orderby eklendi. Yeni sipariş işlevselliği ekleme bir parçası olarak uygulanan değil olsa da $top ve $skip seçeneklerini yanlışlıkla daha önce açığa bulundu.
 * Numaralandırma genişletilebilirliği tekrar etkinleştirilecektir. Bu özellik SDK preview sürümleri etkinleştirildikten ve yanlışlıkla GA sürümünde devre dışı.
 * Önceden tanımlanmış iki akış ilke yeniden adlandırıldı. **SecureStreaming** artık **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** artık **Predefined_MultiDrmStreaming**.
@@ -67,7 +71,7 @@ CLI 2.0 modülü için kullanıma sunuldu [Azure Media Services v3 GA](https://d
 - [az ams Canlı çıkış](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [az ams akış uç noktası](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [Akış az ams-Bulucu](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams hesabınızı mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -medya ayrılmış birimi yönetmenizi sağlar
+- [az ams hesabınızı mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -medya ayrılmış birimi yönetmenizi sağlar. Daha fazla bilgi için [ölçek medya ayrılmış birimi](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Yeni özellikler ve bozucu değişiklikler
 
@@ -141,7 +145,7 @@ Aşağıdaki Canlı kodlama güncelleştirmeler yapılmıştır:
 - Geliştirilmiş RTMP desteği (daha fazla kararlılık ve daha fazla kaynak Kodlayıcı desteği).
 - Güvenli RTMPS alın.
 
-    Bir Livestream oluşturduğunuzda, artık 4 alma URL'leri alma. 4 alma URL'leri neredeyse aynıdır, yalnızca bir bağlantı noktası numarası bölümü farklı aynı akış belirteci (AppID) sahip. URL'lerin ikisinin, birincil ve yedek RTMPS için. 
+    Canlı bir olay oluşturduğunuzda, artık 4 alma URL'leri alma. 4 alma URL'leri neredeyse aynıdır, yalnızca bir bağlantı noktası numarası bölümü farklı aynı akış belirteci (AppID) sahip. URL'lerin ikisinin, birincil ve yedek RTMPS için. 
 - 24 saatlik biçim dönüştürme desteği. 
 - RTMP SCTE35 aracılığıyla ad sinyal desteği geliştirildi.
 
@@ -149,7 +153,7 @@ Aşağıdaki Canlı kodlama güncelleştirmeler yapılmıştır:
 
 İyileştirmeleri desteği aşağıdaki Event Grid görebilirsiniz:
 
-- Logic Apps ve Azure işlevleri ile daha kolay geliştirme için Azure EventGrid tümleştirmesi. 
+- Logic Apps ve Azure işlevleri ile daha kolay geliştirme için Azure Event Grid tümleştirmesi. 
 - Olayları kodlama, Canlı Kanallar ve daha fazlası için abone olun.
 
 ### <a name="cmaf-support"></a>CMAF desteği
@@ -174,16 +178,16 @@ Varlıklar veya hesap filtreleri 09/28 ile 10 arasında oluşturduğunuz, / 12 i
 
 ## <a name="may-2018---preview"></a>Mayıs 2018 - Önizleme
 
-### <a name="net-sdk"></a>.NET SDK'sı
+### <a name="net-sdk"></a>.Net SDK
 
 .Net SDK'sı aşağıdaki özellikler mevcuttur:
 
 * **Dönüşümler** ve **işleri** kodlayın veya medya içeriği çözümlemek için. Örnekler için bkz [Stream dosyaları](stream-files-tutorial-with-api.md) ve [Çözümle](analyze-videos-tutorial-with-api.md).
-* **StreamingLocators** yayımlama ve son kullanıcı cihazlarına içerik akışı yapmak için
-* **StreamingPolicies** ve **ContentKeyPolicies** içerik sunarken anahtar teslim ve content protection (DRM) yapılandırmak için.
-* **LiveEvents** ve **LiveOutputs** alma ve canlı akış içeriğini arşivleme yapılandırmak için.
+* **Akış bulucuları** yayımlama ve son kullanıcı cihazlarına içerik akışı yapmak için
+* **İlkeleri akış** ve **içeriği anahtar ilkeleri** içerik sunarken anahtar teslim ve content protection (DRM) yapılandırmak için.
+* **Canlı olayları** ve **Canlı çıkışları** alma ve canlı akış içeriğini arşivleme yapılandırmak için.
 * **Varlıklar** depolamak ve Azure Depolama'da medya içeriği yayımlamak için. 
-* **Akış** yapılandırmak ve dinamik paketleme, şifreleme ve canlı ve isteğe bağlı medya içeriği akışı ölçeklendirin.
+* **Akış uç noktaları** yapılandırmak ve dinamik paketleme, şifreleme ve canlı ve isteğe bağlı medya içeriği akışı ölçeklendirin.
 
 ### <a name="known-issues"></a>Bilinen sorunlar
 

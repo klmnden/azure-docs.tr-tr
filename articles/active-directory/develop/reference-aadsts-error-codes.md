@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/23/2019
+ms.date: 02/13/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8807f3dd888e3bf53e58ec896f824e6ecbf6273b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163368"
+ms.locfileid: "56234297"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Kimlik doğrulaması ve yetkilendirme hata kodları
 
@@ -191,7 +191,7 @@ Azure Active Directory (Azure AD) güvenlik belirteci Hizmeti'nden (STS) döndü
 | AADSTS90016 | MissingRequiredClaim - erişim belirteci geçerli değil. Gerekli talebi eksik. |
 | AADSTS90019 | MissingTenantRealm - Azure AD Kiracı tanımlayıcısı istek belirleyemedi. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - asıl adı biçimi geçerli değil veya beklenen karşılamıyor `name[/host][@realm]` biçimi. Asıl adı gereklidir, konak ve bölge isteğe bağlıdır ve ayarlanmış olabilir null. |
-| AADSTS90023 | InvalidRequest |
+| AADSTS90023 | Kimlik doğrulama hizmet talebi InvalidRequest - geçerli değil. |
 | AADSTS90024 | RequestBudgetExceededError - geçici bir hata oluştu. Yeniden deneyin. |
 | AADSTS90033 | MsodsServiceUnavailable - Microsoft çevrimiçi dizin hizmeti (MSODS) kullanılamıyor. |
 | AADSTS90036 | MsodsServiceUnretryableFailure - MSODS'un tarafından barındırılan bir WCF hizmeti beklenmeyen, denenemez bir hata oluştu. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md). |

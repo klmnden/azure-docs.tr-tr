@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 84b78dc65e4f2e859e5c8f1e92daa6dfbfd4cbcb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6789e1d6e514ce107ab96fddbaa582ccbe922bbb
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008173"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243731"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>1. Öğretici: Kredi riskini - Azure Machine Learning Studio tahmin
 
@@ -47,7 +47,7 @@ Hiç kullanmadıysanız **Azure Machine Learning Studio** hızlı ile başlamak 
 
 
 > [!TIP] 
-> Bu öğreticide, geliştirdiğiniz denemenin çalışan bir kopyasını bulabilirsiniz [Azure AI Gallery](https://gallery.cortanaintelligence.com). Git **[Öğreticisi - kredi riski tahmini](https://gallery.cortanaintelligence.com/Experiment/tutorial-Credit-risk-prediction-1)** tıklatıp **Studio'da Aç** Machine Learning Studio çalışma alanınıza denemenin bir kopyasını indirmek için.
+> Bu öğreticide, geliştirdiğiniz denemenin çalışan bir kopyasını bulabilirsiniz [Azure AI Gallery](https://gallery.azure.ai). Git **[Öğreticisi - kredi tahmin risk](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** tıklatıp **Studio'da Aç** Machine Learning Studio çalışma alanınıza denemenin bir kopyasını indirmek için.
 > 
 
 

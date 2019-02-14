@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 9ff23ab0314012c32e75e667997a2e6c8f61ecb7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e732417daada836dc7de58fadf69e8edb4ebcb14
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865769"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244649"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Soru-cevap Oluşturucu REST API ile Python kullanma
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturu
 - [Bilgi bankasını silme.](#Delete)
 - [Geçerli uç nokta anahtarlarını alma.](#GetKeys)
 - [Geçerli uç nokta anahtarlarını yeniden oluşturma.](#PutKeys)
-- [Geçerli sözcük değişiklikleri kümesini alma.](#GetAlterations)
-- [Geçerli sözcük değişiklikleri kümesini değiştirme.](#PutAlterations)
+- [Büyük küçük harf duyarsız word değişiklikleri geçerli kümesini alın.](#GetAlterations)
+- [Büyük küçük harf duyarsız word değişiklikleri geçerli kümesini değiştirin.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 

@@ -15,18 +15,18 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: 5e1505794097ac6d67997841cade46013686377f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f1e905b0b67048a10f6eb455d77275375a99dbd0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53627768"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245414"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Bir blob kapsayıcısı toplam fatura boyutunu Hesapla
 
 Bu betik, faturalandırma maliyetlerini tahmin etmek amacıyla Azure Blob depolamadaki bir kapsayıcıda boyutunu hesaplar. Betik, bir kapsayıcıdaki blobları boyutunu toplar.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -84,7 +84,7 @@ Aşağıdaki hesaplamaları blob başına kullanılan depolama miktarı tahmin e
 Dökümü aşağıda verilmiştir:
 
 * 124 bayt yük içeren blob için:
-    - Son Değiştirme Zamanı
+    - Son Değiştirme Tarihi
     - Boyut
     - Önbellek denetimi
     - Content-Type

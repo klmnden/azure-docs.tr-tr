@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a14b0f2b01a0566a47cbcb02ee4315adcba9a90f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5a0d02768b0fbd23e33d13c5e5c3fe84a41cdc52
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200811"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243663"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure Dosya Eşitleme’yi izleme
 
@@ -48,7 +48,7 @@ Sunucu uç noktası durumu
   | Bulut katmanlaması geri çağırma | Geri veri boyutu | Kayıtlı sunucular |
   | Dosyalar eşitlenmiyor | Eşitleme başarısız olan dosya sayısı | Sunucu uç noktası |
   | Eşitlenmiş dosyaları | Dosya sayısı (karşıya yükleme ve indirme) aktarılan | Eşitleme grubu, sunucu uç noktası |
-  | Sunucu sinyali | Sunucudan alınan sinyal sayısı | Kayıtlı sunucular |
+  | Sunucu çevrimiçi durumu | Sunucudan alınan sinyal sayısı | Kayıtlı sunucular |
 
 - Daha fazla bilgi için bkz. [Azure İzleyici](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor) bölümü. 
 
@@ -70,7 +70,7 @@ Aşağıdaki ölçümler Azure dosya eşitleme için Azure İzleyici'de kullanı
 | Bulut katmanlaması geri çağırma | Geri verilerin boyutu.<br><br>Birim: Bayt<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu Adı |
 | Dosyalar eşitlenmiyor | Eşitleme başarısız olan dosya sayısı.<br><br>Birim: Sayı<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
 | Eşitlenmiş dosyaları | Dosya sayısı (karşıya yükleme ve indirme) aktardı.<br><br>Birim: Sayı<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
-| Sunucu sinyali | Sunucudan alınan sinyal sayısı.<br><br>Birim: Sayı<br>Toplama türü: Maksimum<br>Geçerli boyut: Sunucu Adı |
+| Sunucu çevrimiçi durumu | Sunucudan alınan sinyal sayısı.<br><br>Birim: Sayı<br>Toplama türü: Maksimum<br>Geçerli boyut: Sunucu Adı |
 | Eşitleme oturumu sonucu | Eşitleme oturumu sonucu (1 = başarılı eşitleme oturumu; 0 başarısız eşitleme oturumu =)<br><br>Birim: Sayı<br>Toplama türleri: Maksimum<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
 
 ## <a name="windows-server"></a>Windows Server
