@@ -12,13 +12,13 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: d00909eed037e4d2d414ef3121ce11f5ca489736
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/12/2019
+ms.openlocfilehash: e16d68f8c30b54c24e091d1b0c7317bf74aadeba
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564774"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234586"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Hızlı Başlangıç: Bağlanmak ve veri sorgulamak için Azure portalında SQL sorgu Düzenleyicisi'ni kullanın
 
@@ -28,7 +28,15 @@ SQL sorgu Düzenleyicisi, Azure SQL veritabanı veya Azure SQL veri ambarı üze
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Bir Azure SQL veritabanı. Şu hızlı başlangıçlardan biriyle oluşturmak ve ardından bir veritabanını Azure SQL veritabanı'nda yapılandırmak için kullanabilirsiniz:
+
+  || Tek veritabanı |
+  |:--- |:--- |
+  | Oluştur| [Portal](sql-database-single-database-get-started.md) | 
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
+  | Yapılandırma | [sunucu düzeyinde IP güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md)| 
+  |||
 
 > [!NOTE]
 > Emin olun **Azure hizmetlerine erişime izin ver** seçeneği **ON** SQL server güvenlik duvarı ayarlarınızda. Bu seçenek, SQL sorgu Düzenleyicisi erişimi veritabanlarınıza ve veri ambarlarınıza erişmesini sağlar.

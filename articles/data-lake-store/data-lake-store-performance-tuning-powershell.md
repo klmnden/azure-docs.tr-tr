@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: fff26406b036edeb48371b89f7e585160ddc58e0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123326"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235611"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Performans ayarlama Kılavuzu, Azure Data Lake depolama Gen1 ile PowerShell kullanma
 
 Bu makalede Azure Data Lake depolama Gen1 ile çalışmak için PowerShell'i kullanırken daha iyi bir performans elde etmek için ayarlanabilecek özellikler listelenmektedir:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="performance-related-properties"></a>Performans ile ilgili Özellikler
 
@@ -33,13 +35,13 @@ Bu makalede Azure Data Lake depolama Gen1 ile çalışmak için PowerShell'i kul
 
 Bu komut, kullanıcının yerel sürücüsüne dosya ve 100 eşzamanlı dosya başına 20 iş parçacığı kullanarak Data Lake depolama Gen1 dosyaları indirir.
 
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+    Export-AzDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## <a name="how-do-i-determine-the-value-for-these-properties"></a>Bu özellikleri için değer nasıl belirlerim?
 
 Sonraki soruya sahip olabileceğiniz için performans ile ilgili özellikler sağlamak için hangi değerin nasıl belirlenir. Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
 
-* **1. Adım: Toplam iş parçacığı sayısını belirleyin** - İlk olarak kullanılması gereken toplam iş parçacığı sayısını hesaplayabilirsiniz. Genel bir kural olarak her fiziksel çekirdek için altı iş parçacığı kullanmanız gerekir.
+* **1. adım: Toplam iş parçacığı sayısını belirleyin** -kullanılacak toplam iş parçacığı sayısını hesaplayarak başlamanız gerekir. Genel bir kural olarak her fiziksel çekirdek için altı iş parçacığı kullanmanız gerekir.
 
         Total thread count = total physical cores * 6
 
@@ -50,7 +52,7 @@ Sonraki soruya sahip olabileceğiniz için performans ile ilgili özellikler sa�
         Total thread count = 16 cores * 6 = 96 threads
 
 
-* **2. Adım: PerFileThreadCount değerini hesaplayın**  - Kendi PerFileThreadCount değerimizi dosyaların boyutunu temel olarak hesaplıyoruz. 2,5 GB'den küçük dosyalar için varsayılan değer olan 10 yeterli olduğundan bu parametreyi değiştirmek için gerek yoktur. 2,5 GB'den büyük olan dosyalar için 10 iş parçacığı ilk 2,5 GB için temel olarak kullanın ve dosya boyutundaki her ek 256 MB'lık artış için 1 iş parçacığı ekleyin. Birçok farklı boyutta dosya içeren bir klasörü kopyalıyorsanız dosyaları benzer dosya boyutları halinde gruplandırmayı göz önünde bulundurun. Dosya boyutlarının benzer olmaması performansın düşmesine neden olabilir. Benzer boyutlu dosyaları gruplandırmanız mümkün değilse PerFileThreadCount değerini en büyük dosya boyutuna göre ayarlamanız gerekir.
+* **2. adım: Perfilethreadcount değerini hesaplayın** -biz dosyaların boyutuna hesaplıyoruz. 2,5 GB'den küçük dosyalar için varsayılan değer olan 10 yeterli olduğundan bu parametreyi değiştirmek için gerek yoktur. 2,5 GB'den büyük olan dosyalar için 10 iş parçacığı ilk 2,5 GB için temel olarak kullanın ve dosya boyutundaki her ek 256 MB'lık artış için 1 iş parçacığı ekleyin. Birçok farklı boyutta dosya içeren bir klasörü kopyalıyorsanız dosyaları benzer dosya boyutları halinde gruplandırmayı göz önünde bulundurun. Dosya boyutlarının benzer olmaması performansın düşmesine neden olabilir. Benzer boyutlu dosyaları gruplandırmanız mümkün değilse PerFileThreadCount değerini en büyük dosya boyutuna göre ayarlamanız gerekir.
 
         PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
 
@@ -84,9 +86,9 @@ Dosya boyutlarınızın dağılımına göre **PerFileThreadCount** değerini ar
 
 ### <a name="limitation"></a>Sınırlama
 
-* **Dosya sayısı ConcurrentFileCount değerinden az**: Karşıya yüklemekte olduğunuz dosyaların sayısı hesapladığınız **ConcurrentFileCount** değerinden azsa **ConcurrentFileCount** değerini dosya sayısına eşit olacak şekilde azaltmanız gerekir. **PerFileThreadCount** değerini artırmak için kalan iş parçacıklarından dilediğinizi kullanabilirsiniz.
+* **Dosya sayısı ConcurrentFileCount değerinden az olduğu**: Karşıya yüklediğiniz dosyalarının sayısını daha küçük olup olmadığını **ConcurrentFileCount** hesaplanmış ve ardından azaltmanız gerekir **ConcurrentFileCount** dosya sayısına eşit olacak şekilde. **PerFileThreadCount** değerini artırmak için kalan iş parçacıklarından dilediğinizi kullanabilirsiniz.
 
-* **Çok fazla iş parçacığı**: Kümenizin boyutunu artırmadan iş parçacığı sayısını çok fazla artırırsanız düşük performans riskiyle karşılaşabilirsiniz. CPU’da bağlam değişimi sırasında çekişme sorunları olabilir.
+* **Çok fazla iş parçacığı**: Çok fazla kümenizin boyutunu artırmadan iş parçacığı sayısını artırmak için performansın düşmesine neden riskini çalıştırın. CPU’da bağlam değişimi sırasında çekişme sorunları olabilir.
 
 * **Yetersiz eşzamanlılık**: Eşzamanlılık yeterli değilse kümeniz çok küçük olabilir. Daha fazla eşzamanlılık sağlar, kümedeki düğüm sayısını artırabilirsiniz.
 

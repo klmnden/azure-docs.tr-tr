@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 2e8b2753a441b0d7f27745fdf622b26dcee7784a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572863"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247222"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler
 
@@ -51,7 +51,7 @@ Premium depolama özelliklerinden bazıları şunlardır:
 
 * **Premium depolama diskleri**
 
-    Premium depolama için belirli boyut serisi VM'ler eklenebilecek VM disklerini destekler. Premium depolama, çok çeşitli Azure Vm'leri destekler. Sekiz GA disk boyutları seçeneğiniz: P4 (32 GiB) P6 (64 GiB) P10 (128 Gib'a) P15 (256 GiB), P20 (512 Gib'a) P30 (1024 GiB), P40 (2.048 GiB) P50 (4.095 GiB). Yanı sıra üç disk boyutunda önizleme: P60 olmak üzere 8.192 GiB (8 tib'a kadar), P70 16,348 GiB (16 tib'a kadar), P80 32.767 GiB (32 tib'a kadar). P4, P6, P15, P60, P70 ve P80 disk boyutları şu anda yalnızca yönetilen diskler için desteklenir. Her disk boyutu, kendi performans özellikleri vardır. Uygulama gereksinimlerinize bağlı olarak, sanal makinenizde bir veya daha fazla disk ekleyebilirsiniz. Özellikleri daha ayrıntılı olarak açıklanmaktadır [Premium depolama ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
+    Premium depolama için belirli boyut serisi VM'ler eklenebilecek VM disklerini destekler. Premium depolama, çok çeşitli Azure Vm'leri destekler. Sekiz GA disk boyutları vardır:  P4 (32 GiB) P6 (64 GiB) P10 (128 Gib'a) P15 (256 GiB), P20 (512 Gib'a) P30 (1024 GiB), P40 (2.048 GiB) P50 (4.095 GiB). Yanı sıra, üç Önizleme disk boyutları: P60 olmak üzere 8.192 GiB (8 tib'a kadar), P70 16,348 GiB (16 tib'a kadar), P80 32.767 GiB (32 tib'a kadar). P4, P6, P15, P60, P70 ve P80 disk boyutları şu anda yalnızca yönetilen diskler için desteklenir. Her disk boyutu, kendi performans özellikleri vardır. Uygulama gereksinimlerinize bağlı olarak, sanal makinenizde bir veya daha fazla disk ekleyebilirsiniz. Özellikleri daha ayrıntılı olarak açıklanmaktadır [Premium depolama ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
 
 * **Premium sayfa blobları**
 
@@ -67,7 +67,7 @@ Premium depolama özelliklerinden bazıları şunlardır:
     - [Azure depolama için Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [Azure depolama kaynak sağlayıcısı REST API'si](https://docs.microsoft.com/rest/api/storagerp) (Azure Resource Manager dağıtımları için) veya bir Azure depolama kaynak sağlayıcısı istemci kitaplığı
 
-    Premium depolama hesabı sınırları hakkında bilgi edinmek için [Premium depolama ölçeklenebilirlik ve performans hedefleri](#premium-storage-scalability-and-performance-targets).
+    Premium depolama hesabı sınırları hakkında bilgi edinmek için Premium depolama ölçeklenebilirlik ve performans hedefleri konusuna bakın.
 
 * **Premium yerel olarak yedekli depolama**
 
@@ -149,18 +149,18 @@ Daha fazla bilgi için [Azure depolama ölçeklenebilirlik ve performans hedefle
 Yönetilmeyen diskler için premium depolama hesapları kullandığınız ve uygulamanızı bir tek bir depolama hesabı ölçeklenebilirlik hedefleri aşarsa, yönetilen disklere geçirmek isteyebilirsiniz. Yönetilen disklere geçirmek istemiyorsanız, birden çok depolama hesaplarını kullanmak için uygulamanızı oluşturun. Ardından, bu depolama hesabı arasında veri bölümleme. Örneğin, birden çok VM arasında 51 TB disk eklemek istiyorsanız, bunları iki depolama hesabı arasında yayılabilir. Tek bir premium depolama hesabı için belirlenen sınırı 35 TB'dir. Tek bir premium depolama hesabı hiçbir zaman sağlanan diskleri 35 TB'den fazla olduğundan emin olun.
 
 ### <a name="premium-storage-disk-limits"></a>Premium depolama disk limitleri
-Premium depolama disk sağlarken, diskin maksimum IOPS ve aktarım hızı (bant) belirler. Azure premium depolama disklerini sekiz GA türlerini sunar: P4 (yönetilen diskler yalnızca), P6 (yönetilen diskler yalnızca), P10, P15 (yönetilen diskler yalnızca), P20, P30, P40 ve P50. Yanı sıra üç disk boyutunda önizleme: P60 P70 ve P80. Her premium depolama disk türüne, IOPS ve aktarım hızı için belirli sınırları vardır. Disk türleri için sınırlar aşağıdaki tabloda açıklanmıştır:
+Premium depolama disk sağlarken, diskin maksimum IOPS ve aktarım hızı (bant) belirler. Azure premium depolama disklerini sekiz GA türlerini sunar: P4 (yönetilen diskler yalnızca), P6 (yönetilen diskler yalnızca), P10, P15 (yönetilen diskler yalnızca), P20, P30, P40 ve P50. Yanı sıra, üç Önizleme disk boyutları: P60 P70 ve P80. Her premium depolama disk türüne, IOPS ve aktarım hızı için belirli sınırları vardır. Disk türleri için sınırlar aşağıdaki tabloda açıklanmıştır:
 
 Bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır.
 
 | Premium disk türü  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
-| Disk boyutu           | 32 giB| 64 giB| 128 GiB| 256 giB| 512 GiB| 1024 (1 TiB) giB | 2048 giB (2 tib'a kadar)| 4095 giB (4 tib'a kadar)| 8192 giB (8 tib'a kadar)| 16,384 giB (16 tib'a kadar)| 32.767 giB (32 tib'a kadar)|
-| Disk başına IOPS       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12.500          | 15.000             | 20,000             |
+| Disk boyutu           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 (1 TiB) giB | 2048 giB (2 tib'a kadar)| 4095 giB (4 tib'a kadar)| 8192 giB (8 tib'a kadar)| 16,384 giB (16 tib'a kadar)| 32.767 giB (32 tib'a kadar)|
+| Disk başına IOPS       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12,500          | 15.000             | 20.000             |
 | Disk başına aktarım hızı | Saniye başına 25 MB | Saniye başına 50 MB | Saniye başına 100 MB | Saniye başına 125 MB | 150 MB / saniye | Saniye başına 200 MB | Saniye başına 250 MB | Saniye başına 250 MB | 480 MB / saniye | Saniye başına 750 MB | Saniye başına 750 MB |
 
 > [!NOTE]
-> Açıklanan şekilde yeterli bant genişliği sürücü diski trafiği, sanal makinenizde kullanılabilir olduğundan emin olun [Vm'leri Premium Depolama tarafından desteklenen](#premium-storage-supported-vms). Aksi takdirde, disk aktarım hızı ve IOPS je omezeno değerleri daha düşük. En fazla aktarım hızı ve IOPS sınırları VM, yukarıdaki tabloda açıklanan disk limitleri değil temel alır.  
+> Açıklanan şekilde yeterli bant genişliği sürücü diski trafiği, sanal makinenizde kullanılabilir olduğundan emin olun [Vm'leri Premium Depolama tarafından desteklenen](). Aksi takdirde, disk aktarım hızı ve IOPS je omezeno değerleri daha düşük. En fazla aktarım hızı ve IOPS sınırları VM, yukarıdaki tabloda açıklanan disk limitleri değil temel alır.  
 > Azure Premium depolama platformu yüksek düzeyde paralel olacak şekilde tasarlanmıştır. Uygulamanızın çok iş parçacıklı olacak şekilde tasarlama büyük disk boyutları sunulan yüksek performanslı hedef elde etmek için yardımcı olur.
 
 Premium depolama ölçeklenebilirlik ve performans hedefleri hakkında bilmeniz gereken bazı önemli noktalar şunlardır:
@@ -263,8 +263,8 @@ Aşağıdaki Linux dağıtımları için Azure Premium depolama doğrulandı. Da
 
 | Dağıtım | Sürüm | Desteklenen bir çekirdek | Ayrıntılar |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-Server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-Server-20150123-en-us-30GB |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
 | Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
 | SUSE | SLES 12| 3.12.36-38.1+| SuSE-sles-12-öncelik-v20150213 <br> sles 12 v20150213 SuSE |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
@@ -294,7 +294,7 @@ Premium depolama kullandığınızda, aşağıdaki fatura değerlendirmeleri ge�
 
 * **Premium depolama diski ve blob boyutu**
 
-    Bir premium depolama disk veya blob faturalandırması sağlanan blobu ve disk boyutuna bağlıdır. Azure en yakın premium depolama disk seçeneğine (yuvarlanır) sağlanan boyut eşler. Ayrıntılar için bölümündeki tabloya bakın [Premium depolama ölçeklenebilirlik ve performans hedefleri](#premium-storage-scalability-and-performance-targets). Her disk desteklenen sağlanan disk boyutuna eşlenir ve buna göre faturalandırılır. Sağlanmış bir diski için faturalama, saatlere Premium depolama teklif için aylık fiyat kullanılarak eşit olarak dağıtılır. Örneğin, bir P10 disk sağlanır ve 20 saat sonra silindi, P10 teklif 20 saat eşit olarak için fatura edilir. Disk veya IOPS ve aktarım hızı kullanılan yazılan gerçek veri miktarından bağımsız olarak budur.
+    Bir premium depolama disk veya blob faturalandırması sağlanan blobu ve disk boyutuna bağlıdır. Azure en yakın premium depolama disk seçeneğine (yuvarlanır) sağlanan boyut eşler. Ayrıntılar için bölümündeki tabloya bakın [Premium depolama ölçeklenebilirlik ve performans hedefleri](). Her disk desteklenen sağlanan disk boyutuna eşlenir ve buna göre faturalandırılır. Sağlanmış bir diski için faturalama, saatlere Premium depolama teklif için aylık fiyat kullanılarak eşit olarak dağıtılır. Örneğin, bir P10 disk sağlanır ve 20 saat sonra silindi, P10 teklif 20 saat eşit olarak için fatura edilir. Disk veya IOPS ve aktarım hızı kullanılan yazılan gerçek veri miktarından bağımsız olarak budur.
 
 * **Premium yönetilmeyen diskler, anlık görüntüler**
 

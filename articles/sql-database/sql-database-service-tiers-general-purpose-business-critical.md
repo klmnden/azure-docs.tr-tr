@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 2a9b84b20ab1480c9b0222980cb36c40e8017973
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/13/2019
+ms.openlocfilehash: 59eb0b842392faa2adfcd99b028f1e283a7e8db7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989324"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243838"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL veritabanı hizmet katmanları
 

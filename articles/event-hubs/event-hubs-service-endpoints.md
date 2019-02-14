@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273519"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232612"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs ile sanal ağ hizmet uç noktaları kullanma
 
@@ -29,7 +29,7 @@ Sonuç, alt ağ ve ilgili Event Hubs ad alanı, Mesajlaşma Hizmeti uç noktası
 >[!WARNING]
 > Sanal ağlar tümleştirme uygulama diğer Azure Hizmetleri, Event Hubs ile etkileşim engelleyebilirsiniz.
 >
-> Microsoft sanal ağlara uygulanır ve yakında kullanıma sunulacaktır, hizmetleri desteklenmez güvenilir.
+> Sanal ağlar uygulandığında Hizmetleri desteklenmez Microsoft güvenilir.
 >
 > Sanal ağlar ile çalışmayan genel Azure senaryoları (liste Not **değil** kapsamlı)-
 > - Azure İzleyici

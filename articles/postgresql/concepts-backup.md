@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 49277fc260743d0179c40374241edeece0a0e1e2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814342"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236762"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Yedekleme ve PostgreSQL için Azure veritabanı'nda geri yükleme
 
@@ -50,7 +50,7 @@ Geri yükleme iki tür vardır:
 Tahmini kurtarma süresi, veritabanı boyutu, işlem günlüğü boyutu, ağ bant genişliğini ve aynı anda aynı bölgede kurtarılan veri tabanı toplam sayısı dahil olmak üzere birçok faktöre bağlıdır. Kurtarma zamanı, genellikle daha az 12 saati geçmez.
 
 > [!IMPORTANT]
-> Silinen sunucuları **olamaz** geri yüklenemiyor. Sunucu silerseniz sunucusuna ait tüm veritabanlarını da silinir ve kurtarılamaz. Sunucu kaynaklarını korumak için dağıtım sonrasında, yanlışlıkla silme veya beklenmeyen değişiklikleri, yöneticiler yararlanabilir [yönetim kilitleri](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
+> Silinen sunucuları **olamaz** geri yüklenemiyor. Sunucu silerseniz sunucusuna ait tüm veritabanlarını da silinir ve kurtarılamaz. Sunucu kaynaklarını korumak için dağıtım sonrasında, yanlışlıkla silme veya beklenmeyen değişiklikleri, yöneticiler yararlanabilir [yönetim kilitleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
 

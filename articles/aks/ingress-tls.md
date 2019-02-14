@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: ab8905a53ac1e8511750bc9624a698f7890e8fcf
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: cb441aeab8f6f2cfbaa099ee17a3af9e767fc218
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100848"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235708"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) bir HTTPS giriş denetleyicisini oluşturma
 
@@ -91,6 +91,8 @@ NGINX giriş denetleyicisine TLS sonlandırma destekler. Almak ve HTTPS için se
 Sertifika Yöneticisi denetleyicisi RBAC özellikli bir kümede yüklemek için aşağıdakileri kullanın `helm install` komutu:
 
 ```console
+kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+
 kubectl apply \
     -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
     
@@ -104,6 +106,8 @@ helm install stable/cert-manager \
 Bunun yerine, kümenizin RBAC etkin değilse, aşağıdaki komutu kullanın:
 
 ```console
+kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+
 kubectl apply \
     -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
     

@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: ba7ac806a74cd0b378c39eb3873e7d64435bcf4f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f3ca140fd8606f60a07b71db32cf2d3987ed7860
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105663"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233608"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager dağıtım modları
 
 Kaynaklarınızı dağıtırken dağıtım Artımlı güncelleştirme ya da tam güncelleştirme olduğunu belirtin.  Bu iki mod arasındaki başlıca fark, Resource Manager şablonunda olmayan mevcut kaynaklar kaynak grubunda nasıl işlediğini ' dir. Artımlı varsayılan moddur.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Yalnızca kök düzeyinde şablonu tam dağıtım modunu destekler. İçin [bağlı veya iç içe şablonlar](resource-group-linked-templates.md), artımlı modu kullanmanız gerekir. 
 
 ## <a name="incremental-and-complete-deployments"></a>Artımlı ve tam dağıtımları
 
@@ -63,8 +63,6 @@ Dağıtılmış olduğunda **tam** modu, kaynak C silinir. Kaynak grubu vardır:
 
 ## <a name="set-deployment-mode"></a>Dağıtım modunu ayarlama
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 PowerShell ile dağıtım yaparken, dağıtım modu ayarlamak için kullanın `Mode` parametresi.
 
 ```azurepowershell-interactive
@@ -86,7 +84,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Kullanırken bir [bağlantılı veya iç içe geçmiş şablon](resource-group-linked-templates.md), ayarlamalısınız `mode` özelliğini `Incremental`. Yalnızca kök düzeyinde şablonu tam dağıtım modunu destekler.
+Aşağıdaki örnek, artımlı dağıtım moduna bağlı bir şablon gösterir:
 
 ```json
 "resources": [

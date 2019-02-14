@@ -1,25 +1,25 @@
 ---
 title: Sanal ağ yapılandırma için bir Premium Azure Redis önbelleğini | Microsoft Docs
 description: Oluşturma ve Redis örneği için Premium katman Azure Cache için sanal ağ desteğini yönetme hakkında bilgi edinin
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: ''
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 399c6ef1d14137708ef37d4265517d41432e2dd2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: dafa9f09b6aed1f61facf3737c7e03c81b2a0e7d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106504"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238258"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Sanal ağ desteği için bir Premium Azure önbelleği için Redis yapılandırma
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, kümeleme, Kalıcılık ve sanal ağ desteği gibi Premium katman özellikleri dahil olmak üzere tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Bir sanal ağ, bulutta özel bir ağdır. Bir Azure önbelleği için Redis örneği bir VNet ile yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içindeki uygulamalardan erişilebilir. Bu makalede, Redis örneği için bir premium Azure Cache için sanal ağ desteğini yapılandırma açıklanır.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439111"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243612"
 ---
 # <a name="load-balancer-outbound-rules"></a>Yük Dengeleyici giden kuralları
 
@@ -34,7 +34,7 @@ Giden kuralları denetimine izin ver:
 - genel IP adresleri, hangi sanal makinelerin çevrilmesi gerekir. 
 - nasıl [giden SNAT bağlantı noktaları](load-balancer-outbound-connections.md#snat) ayrılmalıdır.
 - Giden çeviri sağlamak için hangi protokollerin.
-- Giden bağlantı için boşta kalma zaman aşımı kullanmak için hangi süresi.
+- Giden bağlantı boşta kalma zaman aşımı için (4-120 dakika) kullanmak için hangi süresi.
 - boşta kalma zaman aşımı (genel Önizleme) üzerinde bir TCP Sıfırla'ı gönderilip gönderilmeyeceğini belirtir. 
 
 Giden kuralları genişletin [Senaryo 2](load-balancer-outbound-connections.md#lb) içinde açıklanan [giden bağlantılar](load-balancer-outbound-connections.md) olarak kalır makale ve senaryo öncelik-olduğu.
@@ -90,7 +90,7 @@ Geri döndürebilirsiniz [otomatik SNAT bağlantı noktası ayırma arka uç hav
 
 ### <a name="idletimeout"></a> Denetim giden akış boşta kalma zaman aşımı
 
-Giden kuralları giden akış boşta kalma zaman aşımını denetleme ve uygulamanızın ihtiyaçlarını eşleştirmek için bir yapılandırma parametresi sağlayın.  4 dakikalık varsayılan giden boşta kalma zaman aşımı.  Parametre 66 belirli belirli bu kurala uyan akışlar için boşta kalma zaman aşımı için dakika sayısı ile 4 arasında bir değer kabul eder.
+Giden kuralları giden akış boşta kalma zaman aşımını denetleme ve uygulamanızın ihtiyaçlarını eşleştirmek için bir yapılandırma parametresi sağlayın.  4 dakikalık varsayılan giden boşta kalma zaman aşımı.  Parametresi, 120 dakika boşta kalma zaman aşımı için bu belirli bir kural eşleşen akışlar için belirli ile 4 arasında bir değer kabul eder.
 
 Giden boşta kalma zaman aşımı 1 saate ayarlamak için aşağıdaki parametresini kullanın:
 
@@ -205,7 +205,7 @@ Giden bağlantı açıkça bildirilen kadar iç bir Standard Load Balancer kulla
 ## <a name="limitations"></a>Sınırlamalar
 
 - En fazla ön uç IP adresi başına kullanılabilir kısa ömürlü bağlantı noktaları 51,200 sayısıdır.
-- 4 66'sı için dakika (240 için 4000 saniye) yapılandırılabilir giden boşta kalma zaman aşımı aralığı.
+- 4 ila 120 dakika (240 için 7200 saniye) yapılandırılabilir giden boşta kalma zaman aşımı aralığı.
 - Yük Dengeleyici giden NAT için ICMP desteklemiyor
 - Portal, yapılandırma veya giden kuralları görüntülemek için kullanılamaz.  Bunun yerine şablonları, REST API, Az CLI 2. 0'ı veya PowerShell kullanın.
 - Giden kuralları, yalnızca birincil NIC ve birincil IP yapılandırması için uygulanabilir.

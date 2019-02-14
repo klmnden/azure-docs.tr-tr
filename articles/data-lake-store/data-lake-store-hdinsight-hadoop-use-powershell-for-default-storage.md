@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6100a77d3c0bd1ac5e012651f1e7d359c4c67443
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 84bed7031307316545cc8e468196c6b12cde7bb7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954462"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237070"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Varsayılan depolama alanı olarak Azure Data Lake depolama Gen1 ile PowerShell kullanarak HDInsight kümeleri oluşturma
 
@@ -39,12 +39,14 @@ HDInsight PowerShell kullanarak Data Lake depolama Gen1 ile çalışacak şekild
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşıladığından emin olun:
 
 * **Bir Azure aboneliğine**: Git [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 veya üstü**: bkz [PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
+* **Azure PowerShell 1.0 veya üstü**: Bkz: [PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 * **Windows Yazılım Geliştirme Seti (SDK)**: Windows SDK'sını yüklemek için Git [Windows 10 için indirmeler ve Araçlar](https://dev.windows.com/downloads). SDK, bir güvenlik sertifikası oluşturmak için kullanılır.
-* **Azure Active Directory Hizmet sorumlusu**: Bu öğretici, Azure Active Directory (Azure AD) bir hizmet sorumlusu oluşturmak açıklar. Ancak, bir hizmet sorumlusu oluşturmak için Azure AD yönetici olmanız gerekir. Bir yöneticiyseniz, bu önkoşulu atlayabilirsiniz ve öğreticiyle devam edin.
+* **Azure Active Directory Hizmet sorumlusu**: Bu öğretici, bir hizmet sorumlusu, Azure Active Directory'de (Azure AD) oluşturma işlemini açıklamaktadır. Ancak, bir hizmet sorumlusu oluşturmak için Azure AD yönetici olmanız gerekir. Bir yöneticiyseniz, bu önkoşulu atlayabilirsiniz ve öğreticiyle devam edin.
 
     >[!NOTE]
     >Yalnızca bir Azure AD Yöneticisi olduğunuz bir hizmet sorumlusu oluşturabilirsiniz. Azure AD yöneticinizin bir HDInsight kümesi ile Data Lake depolama Gen1 oluşturabilmeniz için önce bir hizmet sorumlusu oluşturmanız gerekir. Bölümünde anlatıldığı gibi bir sertifika ile hizmet sorumlusu oluşturulmalıdır [sertifika ile hizmet sorumlusu oluşturma](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
@@ -57,25 +59,25 @@ Bir Data Lake depolama Gen1 hesabı oluşturmak için aşağıdakileri yapın:
 1. Masaüstünüzde bir PowerShell penceresi açın ve ardından aşağıdaki kod parçacıkları girin. Sorulduğunda, oturum açmak için bir abonelik yöneticileri veya sahipleri oturum açın. 
 
         # Sign in to your Azure account
-        Connect-AzureRmAccount
+        Connect-AzAccount
 
         # List all the subscriptions associated to your account
-        Get-AzureRmSubscription
+        Get-AzSubscription
 
         # Select a subscription
-        Set-AzureRmContext -SubscriptionId <subscription ID>
+        Set-AzContext -SubscriptionId <subscription ID>
 
         # Register for Data Lake Storage Gen1
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+        Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
     > [!NOTE]
-    > Data Lake depolama Gen1 kaynak sağlayıcısını kaydedin ve benzer şekilde bir hatayla karşılaştıysanız `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, aboneliğinizi izin verilenler listesinde için Data Lake depolama Gen1 olmayabilir. Data Lake depolama Gen1 için Azure aboneliğinizi etkinleştirmek için yönergeleri izleyin. [Azure portalını kullanarak Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md).
+    > Data Lake depolama Gen1 kaynak sağlayıcısını kaydedin ve benzer şekilde bir hatayla karşılaştıysanız `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, aboneliğinizi izin verilenler listesinde için Data Lake depolama Gen1 olmayabilir. Data Lake depolama Gen1 için Azure aboneliğinizi etkinleştirmek için yönergeleri izleyin. [Azure portalını kullanarak Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md).
     >
 
 2. Bir Data Lake depolama Gen1 hesabı bir Azure kaynak grubu ile ilişkilidir. Bir kaynak grubu oluşturarak başlayın.
 
         $resourceGroupName = "<your new resource group name>"
-        New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
+        New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
 
     Bu gibi bir çıktı görmeniz gerekir:
 
@@ -88,7 +90,7 @@ Bir Data Lake depolama Gen1 hesabı oluşturmak için aşağıdakileri yapın:
 3. Bir Data Lake depolama Gen1 hesabı oluşturun. Belirttiğiniz hesap adı yalnızca küçük harf ve rakam içermelidir.
 
         $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 name>"
-        New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
+        New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
 
     Aşağıdaki gibi bir çıktı görmeniz gerekir:
 
@@ -110,7 +112,7 @@ Bir Data Lake depolama Gen1 hesabı oluşturmak için aşağıdakileri yapın:
 4. Varsayılan depolama alanı olarak Data Lake depolama Gen1 kullanarak küme oluşturma sırasında kopyalanır kümeye özgü dosyaları için bir kök yol belirtmenizi gerektirir. Olan bir kök yolu oluşturmak için **/kümeleri/hdiadlcluster** kod parçacığında, aşağıdaki cmdlet'leri kullanın:
 
         $myrootdir = "/"
-        New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/clusters/hdiadlcluster
+        New-AzDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/clusters/hdiadlcluster
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-storage-gen1"></a>Data Lake depolama Gen1 için rol tabanlı erişim için kimlik doğrulaması ayarlama
@@ -152,7 +154,7 @@ Bu bölümde, Azure AD uygulaması için hizmet sorumlusu oluşturma, hizmet sor
 
         $credential = [System.Convert]::ToBase64String($rawCertificateData)
 
-        $application = New-AzureRmADApplication `
+        $application = New-AzADApplication `
             -DisplayName "HDIADL" `
             -HomePage "https://contoso.com" `
             -IdentifierUris "https://mycontoso.com" `
@@ -163,14 +165,14 @@ Bu bölümde, Azure AD uygulaması için hizmet sorumlusu oluşturma, hizmet sor
         $applicationId = $application.ApplicationId
 2. Uygulama kimliğini kullanarak bir hizmet sorumlusu oluşturma
 
-        $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
+        $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId
 
         $objectId = $servicePrincipal.Id
 3. Data Lake depolama Gen1 kök ve daha önce belirttiğiniz kök yolundaki tüm klasörler için hizmet sorumlusu erişimi verin. Aşağıdaki cmdlet'leri kullanın:
 
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters -AceType User -Id $objectId -Permissions All
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters/hdiadlcluster -AceType User -Id $objectId -Permissions All
+        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
+        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters -AceType User -Id $objectId -Permissions All
+        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters/hdiadlcluster -AceType User -Id $objectId -Permissions All
 
 ## <a name="create-an-hdinsight-linux-cluster-with-data-lake-storage-gen1-as-the-default-storage"></a>Bir HDInsight Linux kümesi, varsayılan depolama alanı olarak Data Lake depolama Gen1 ile oluşturma
 
@@ -178,7 +180,7 @@ Bu bölümde, bir HDInsight Hadoop Linux kümesi varsayılan depolama alanı ola
 
 1. Abonelik Kiracı Kimliğini almak ve daha sonra kullanmak üzere saklayın.
 
-        $tenantID = (Get-AzureRmContext).Tenant.TenantId
+        $tenantID = (Get-AzContext).Tenant.TenantId
 
 2. Aşağıdaki cmdlet'leri kullanarak HDInsight kümesi oluşturun:
 
@@ -192,7 +194,7 @@ Bu bölümde, bir HDInsight Hadoop Linux kümesi varsayılan depolama alanı ola
         $httpCredentials = Get-Credential
         $sshCredentials = Get-Credential
 
-        New-AzureRmHDInsightCluster `
+        New-AzHDInsightCluster `
                -ClusterType Hadoop `
                -OSType Linux `
                -ClusterSizeInNodes $clusterNodes `

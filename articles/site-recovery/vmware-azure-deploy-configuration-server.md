@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 4a8ab770eef1c8d95ea2fb6340480089ded0218b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863151"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235895"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -44,7 +44,7 @@ Yapılandırma sunucusu boyutlandırma gereksinimlerini olası veri değişikli�
 
 Birden fazla VMware VM çoğaltma yapıyorsanız okuma [kapasite planlaması konuları](site-recovery-plan-capacity-vmware.md). Çalıştırma [dağıtım Planlayıcısı aracını](site-recovery-deployment-planner.md) VMWare çoğaltması için.
 
-## <a name="download-the-template"></a>Şablon indirme
+## <a name="download-the-template"></a>Şablonu indirme
 
 1. Kasada **Altyapıyı Hazırlama** > **Kaynak** seçeneğine gidin.
 2. **Kaynağı hazırla** bölümünde **+Yapılandırma sunucusu**’nu seçin.
@@ -130,38 +130,42 @@ Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir k
 
 ## <a name="faq"></a>SSS
 
-1. Yapılandırma sunucusu, farklı amaçlara yönelik yüklendiği VM kullanabilir miyim?
+1. Ne kadar süreyle OVF dağıtılan yapılandırma sunucusunda sağlanan lisans geçerli değil mi? Lisans etkinleştirilmiyor ne olur?
+
+    OVA şablonu ile sağlanan lisans bir deneme lisans 180 gün boyunca geçerli olur. Geçerlilik süresi dolmadan lisans etkinleştirmeniz gerekir. Aksi takdirde, bu yapılandırma sunucusunun sık kapatma neden ve bu nedenle çoğaltma etkinliklere hinderance neden.
+
+2. Yapılandırma sunucusu, farklı amaçlara yönelik yüklendiği VM kullanabilir miyim?
 
     **Hayır**, yapılandırma sunucusunun amacı VM kullanmanızı öneririz. Belirtilen tüm belirtimleri izleyin olun [önkoşulları](#prerequisites) verimli olağanüstü durum kurtarma yönetimi için.
-2. Yeni oluşturulan bir kasa yapılandırma sunucusuyla zaten kayıtlı kasa geçiş yapabilir miyim?
+3. Yeni oluşturulan bir kasa yapılandırma sunucusuyla zaten kayıtlı kasa geçiş yapabilir miyim?
 
     **Hayır**, yapılandırma sunucusu ile bir kasaya kaydedildikten sonra değiştirilemez.
-3. Aynı yapılandırma sunucusuna hem fiziksel hem de sanal makineleri korumak için kullanabilir miyim?
+4. Aynı yapılandırma sunucusuna hem fiziksel hem de sanal makineleri korumak için kullanabilir miyim?
 
     **Evet**, aynı yapılandırma sunucusuna, fiziksel ve sanal makineleri çoğaltmak için kullanılabilir. Ancak, fiziksel makine başarısız geriye yalnızca bir VMware VM.
-4. Yapılandırma sunucusunun amacı ve kullanıldığı nedir?
+5. Yapılandırma sunucusunun amacı ve kullanıldığı nedir?
 
     Başvurmak [Vmware'den Azure'a çoğaltma mimarisi](vmware-azure-architecture.md) yapılandırma sunucusu ve onun işlevler hakkında daha fazla bilgi edinmek için.
-5. Yapılandırma sunucusunun en son sürümünü nereden bulabilirim?
+6. Yapılandırma sunucusunun en son sürümünü nereden bulabilirim?
 
     Portal üzerinden yapılandırma sunucusunu yükseltmek adımlar için bkz: [yapılandırma sunucusunu yükseltme](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Tüm Site Recovery bileşenlerini yükseltme hakkında ayrıntılı yönergeler için bkz [burada](https://aka.ms/asr_how_to_upgrade).
-6. Yapılandırma sunucusu için parola nereden indirebilirim?
+7. Yapılandırma sunucusu için parola nereden indirebilirim?
 
     Başvurmak [bu makalede](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) parola indirilemedi.
-7. Parola değiştirebilirim?
+8. Parola değiştirebilirim?
 
     **Hayır**, işiniz **parolayı değiştiremez önemle önerilir** yapılandırma sunucusu. Parola değişikliği korunan makinelerin çoğaltılması keser ve kritik sistem durumuna yol açıyor.
-8. Kasa kayıt anahtarlarının nereden indirebilirim?
+9. Kasa kayıt anahtarlarının nereden indirebilirim?
 
     İçinde **kurtarma Hizmetleri kasası**, **yönetme** > **Site Recovery altyapısı** > **yapılandırmasunucusu**. Sunucularda seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
-9. Var olan bir yapılandırma sunucusu kopyalayın ve miyim çoğaltma düzenleme işlemi için kullanılmakta?
+10. Var olan bir yapılandırma sunucusu kopyalayın ve miyim çoğaltma düzenleme işlemi için kullanılmakta?
 
     **Hayır**, klonlanmış bir yapılandırma sunucusu bileşeni kullanımı desteklenmiyor.
 
-10. Yapılandırma sunucusu IP'si değiştirebilirim?
+11. Yapılandırma sunucusu IP'si değiştirebilirim?
 
     **Hayır**, yapılandırma sunucusunun IP adresini değiştirmek için kesinlikle önerilir. Yapılandırma sunucusuna atanan tüm IP'lere statik IP ve değil DHCP IP'ler olduğundan emin olun.
-11. Yapılandırma sunucusu azure'da ayarlayabilir miyim?
+12. Yapılandırma sunucusu azure'da ayarlayabilir miyim?
 
     Yapılandırma sunucusu ile doğrudan satır görüş v-Center ile şirket içi ortamda ayarlama ve veri aktarımı gecikme süreleri en aza indirmek için önerilir. Zamanlanmış yedeklemeleri yapılandırma sunucusu için uygulayabileceğiniz [yeniden çalışma amacıyla](vmware-azure-manage-configuration-server.md#failback-requirements).
 

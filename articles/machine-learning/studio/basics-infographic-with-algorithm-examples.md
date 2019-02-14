@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: 12af8cd2fb46bf61324ddfb8e9a396e53e308a6d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2db14056b6b5ccf16c8009c21bfcff00954a7802
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978621"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242912"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir bilgi grafiği: Makine öğrenimi algoritma örnekleri ile temelleri
 
@@ -23,7 +23,7 @@ Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak 
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Machine Learning Studio'da popüler algoritmaları
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) algoritmaları Tahmine dayalı analiz için büyük bir kitaplık ile birlikte gelir. Bilgi grafiğini dört popüler aileleri algoritmaları - regresyon, anomali algılama, kümeleme ve sınıflandırma - tanımlar ve çalışan örnekler için bağlantılar sağlar [Azure AI Gallery](https://gallery.cortanaintelligence.com/). Galeri, örnek denemeleri ve bu algoritmalar pek çok gerçek dünya çözümleri nasıl uygulanabileceğini gösteren öğreticileri içerir.
+[Azure Machine Learning Studio](https://studio.azureml.net/) algoritmaları Tahmine dayalı analiz için büyük bir kitaplık ile birlikte gelir. Bilgi grafiğini dört popüler aileleri algoritmaları - regresyon, anomali algılama, kümeleme ve sınıflandırma - tanımlar ve çalışan örnekler için bağlantılar sağlar [Azure AI Gallery](https://gallery.azure.ai/). Galeri, örnek denemeleri ve bu algoritmalar pek çok gerçek dünya çözümleri nasıl uygulanabileceğini gösteren öğreticileri içerir.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Algoritma örnekleri ile bilgi Grafiği'ni indirin
 

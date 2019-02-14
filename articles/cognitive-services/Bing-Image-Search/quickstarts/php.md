@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5a6cdc5912936b4b73fb45f37e30958b30dbcf0f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cca6fba401d8673cf97897c24a9d6de2329f19a4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876632"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232498"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Hızlı Başlangıç: PHP ve Bing resim arama REST API'si kullanarak resimler için arama yapın
 
@@ -49,9 +49,9 @@ Bu uygulamayı çalıştırmak için şu adımları izleyin.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-a-http-request"></a>Bir HTTP isteği oluşturma ve gerçekleştirme
+## <a name="construct-and-perform-an-http-request"></a>Oluşturun ve bir HTTP isteği gerçekleştirin
 
-1. Resim Arama API’sine HTTP isteği hazırlamak için son adımdaki değişkenleri kullanın.
+1. Değişkenleri ve son adımda, resim arama API'si için bir HTTP isteği hazırlamak için kullanın.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -59,7 +59,7 @@ Bu uygulamayı çalıştırmak için şu adımları izleyin.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. Web isteğini gerçekleştirin ve JSON yanıtını alın.
+2. Web isteği gönderme ve JSON yanıtını alın.
 
     ```php
     $context = stream_context_create($options);
@@ -81,7 +81,7 @@ Döndürülen JSON yanıtını işleyin ve yazdırın.
         return array($headers, $result);
     ```
 
-## <a name="sample-json-response"></a>Örnek JSON yanıtı
+## <a name="example-json-response"></a>Örnek JSON yanıtı
 
 Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
 
@@ -125,7 +125,7 @@ Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yan�
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -137,7 +137,8 @@ Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yan�
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Bing Resim Arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) Bing arama API'leri. 
 * [Ücretsiz bir Bilişsel Hizmetler erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Bilişsel Hizmetler Belgeleri](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Resim Arama API’si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 2/7/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: fb4add1194f7fe6d10859f76f244f027b35ad92d
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 83c9a0baa4d853c8afcb5afe1c4e5cc4ed1e0073
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960590"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235233"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -31,8 +31,6 @@ Gözden geçirme [Azure Site Recovery fiyatlandırma](https://azure.microsoft.co
 - **Olağanüstü durum kurtarma**: Tam olağanüstü durum kurtarması da ayarlayabilirsiniz. Bu senaryoda, şirket içi VMware Vm'lerini Azure depolama alanına çoğaltın. Şirket içi altyapınızı kullanılamıyorsa, daha sonra Azure'a devredebilir. Yük devretme, çoğaltılan verileri kullanarak Azure Vm'leri oluşturulur. Şirket içi veri merkezinizi tekrar kullanılabilir hale gelene kadar uygulamaları ve iş yüklerini Azure vm'lerinde erişebilirsiniz. Ardından, Azure'dan şirket içi sitenize başarısız olabilir.
 - **Geçiş**: Şirket içi VMware Vm'leri Azure'a geçirmek için Site RECOVERY'yi kullanabilirsiniz. Bu senaryoda, şirket içi VMware Vm'lerini Azure depolama alanına çoğaltın. Ardından, şirket içinden Azure'a yük devretme. Yük devretme sonrasında kullanılabilir ve Azure vm'lerinde çalışan iş yükleri ve uygulamalar.
 
-
-
 ## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>Azure'da ne yapmalıyım?
 Bir Azure aboneliği, bir kurtarma Hizmetleri kasası, bir depolama hesabı ve sanal ağ gerekir. Kasa, depolama hesabı ve ağ aynı bölgede olması gerekir.
@@ -44,7 +42,33 @@ Bir LRS veya GRS depolama hesabı gerekir. Bölgesel bir kesintinin meydana gelm
 Bir abonelik yöneticisi değilseniz, ihtiyaç duyduğunuz çoğaltma izinleri sahip. Değilseniz, bir Azure VM kaynak grubu ve Site Recovery yapılandırırken belirttiğiniz sanal ağ oluşturmak için izinler ve seçili depolama hesabına yazma izni gerekir. [Daha fazla bilgi edinin](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Konuk işletim sistemi sunucu lisansı Azure üzerinde kullanabilir miyim?
-Microsoft Yazılım Güvencesi müşterileri lisanslama maliyetlerini kaydetmek için Azure hibrit avantajı Evet, kullanabilirsiniz **Windows Server makineleri** azure'a veya Azure olağanüstü durum kurtarma için kullanılacak geçirilir.
+Evet, Microsoft Yazılım Güvencesi müşterileri kullanabilir [Azure hibrit avantajı](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) lisanslama maliyetlerini kaydetmek için **Windows Server makineleri** azure'a veya Azure olağanüstü durum kurtarma için kullanılacak geçirilir.
+
+## <a name="pricing"></a>Fiyatlandırma
+
+### <a name="how-are-licensing-charges-handled-during-replication-after-failover"></a>Lisans ücretleri, yük devretme sonrasında çoğaltma sırasında nasıl işlenir?
+
+Lisanslama SSS bölümümüzü edinmek [burada](https://aka.ms/asr_pricing_FAQ) daha fazla bilgi için.
+
+### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Nasıl miyim yaklaşık ücretleri Site Recovery kullanım sırasında hesaplayabilirsiniz?
+
+Kullanabileceğiniz [fiyatlandırma hesaplayıcısını](https://aka.ms/asr_pricing_calculator) Azure Site RECOVERY'yi kullanırken maliyetlerini tahmin etmek için. Maliyetleri ayrıntılı tahmin için dağıtım Planlayıcısı aracını çalıştırın (https://aka.ms/siterecovery_deployment_planner) ve analiz edeceğinizi [maliyet tahmini raporunu](https://aka.ms/asr_DP_costreport).
+
+### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Bir aydan uzun süredir Azure Site Recovery kullanıcısıyım. Yine de korunan her örnek için ilk 31 gün ücretsiz mi olacak?
+
+Evet, Azure Site Recovery'yi ne kadar süredir kullandığınız önemli değildir. Korunan örneklerden ilk 31 gün boyunca Azure Site Recovery ücreti alınmaz. Örneğin, son 6 ay boyunca 10 örnek koruduysanız ve Azure Site Recovery’ye 11. örneği bağlıyorsanız, 11. örnek için ilk 31 gün boyunca Azure Site Recovery ücreti alınmaz. İlk 10 örnek 31 günden uzun süredir korunduğundan, bunlar için Azure Site Recovery ücreti alınmaya devam edilir.
+
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>İlk 31 gün boyunca başka herhangi bir Azure hizmeti için ücretlendirilir miyim?
+
+Evet. Korunan bir örnek için ilk 31 gün boyunca Azure Site Recovery ücretsizdir ancak Azure Depolama, depolama işlemleri ve veri aktarımı için ücret alınabilir. Korunan bir sanal makine için de Azure işlem ücretleri alınabilir.
+
+### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Azure Site Recovery’yi kullanırken ödemem gereken ücretler nelerdir?
+
+Başvurmak bizim [maliyetleri hakkında SSS](https://aka.ms/asr_pricing_FAQ) ayrıntılı bilgi için.
+
+### <a name="is-there-a-cost-associated-to-perform-dr-drillstest-failover"></a>DR Tatbikatları/yük devretme testi gerçekleştirmek için ilişkili bir maliyeti var mı?
+
+DR tatbikatı için ayrı bir ücret ödemeden yoktur. Test yük devretme sonrasında sanal makine oluşturulduktan sonra işlem ücret uygulanmaz.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery bileşenlerini yükseltme
 
@@ -87,8 +111,12 @@ Verileri Azure depolama alanına çoğaltır. Bir yük devretme çalıştırdı�
 
 ## <a name="replication"></a>Çoğaltma
 
-### <a name="what-apps-can-i-replicate"></a>Hangi uygulamaların çoğaltabilirim?
+### <a name="what-applications-can-i-replicate"></a>Hangi uygulamaların çoğaltabilirim?
 Herhangi bir uygulamayı veya ile uyumlu bir VMware VM'de çalışan iş yüklerini çoğaltabilirsiniz [çoğaltma gereksinimlerini](vmware-physical-azure-support-matrix.md##replicated-machines). Site kurtarma uygulamayla tutarlı çoğaltma için destek sağlar, böylece uygulamalar üzerinde başarısız oldu ve akıllı bir duruma başarısız oldu. Site Recovery, SharePoint, Exchange, Dynamics, SQL Server ve Active Directory gibi Microsoft uygulamalarıyla tümleşir ve Oracle, SAP, IBM ve Red Hat gibi önde gelen satıcılarla yakın bir tümleştirmede çalışır. İş yükü koruması hakkında [daha fazla bilgi edinin](site-recovery-workload.md).
+
+### <a name="can-i-protect-a-virtual-machine-that-has-docker-disk-configuration"></a>Docker disk yapılandırması olan bir sanal makine koruyabilirim?
+
+Hayır, desteklenmeyen bir senaryo budur.
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>Siteden siteye VPN ile azure'a çoğaltabilir miyim?
 Site kurtarma verileri, şirket içinden genel bir uç nokta veya ExpressRoute genel eşlemesi kullanarak Azure depolama alanına çoğaltır. Siteden siteye VPN ağ üzerinden çoğaltma desteklenmez.
@@ -96,11 +124,13 @@ Site kurtarma verileri, şirket içinden genel bir uç nokta veya ExpressRoute g
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute kullanarak azure'a çoğaltabilir miyim?
 Evet, ExpressRoute Vm'lerini Azure'a çoğaltma için kullanılabilir. Site Recovery, genel bir uç nokta bir Azure depolama hesabına veri çoğaltır. Kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) Site Recovery çoğaltması için ExpressRoute kullanmak için. Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Emin [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma için de karşılandığından. Bir Azure sanal ağı için sanal makineleri yük devretme sonra erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
+### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Makine korunduktan sonra depolama hesabını nasıl değiştirebilirim?
+
+Depolama hesabı yalnızca Premium'a yükseltilebilir. Farklı bir depolama hesabı kullanmak istiyorsanız, kaynak makinenin çoğaltmasını devre dışı bırakın ve korumayı yeni depolama hesabı ile yeniden etkinleştirmeniz gerekir. Bu dışında koruma etkinleştirildikten sonra depolama hesabı değiştirmek için bir diğer yolu yoktur.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN üzerinden neden çoğaltma yapamaz?
 
 Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure depolama hesabının ulaştığında, bu nedenle, yalnızca ExpressRoute (genel eşdüzey hizmet sağlama) ile genel internet üzerinden çoğaltma yapabilirsiniz ve VPN çalışmaz.
-
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Çoğaltılmış sanal makine gereksinimleri nelerdir?
 

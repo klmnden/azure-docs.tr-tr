@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: c20f455a0a325dadd3eeeb77dea7026de4834c56
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4522914f249413300ffa5bb1545d840711777bff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757701"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235929"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Bir web API uygulaması Azure Active Directory B2C kiracınıza ekleyin
 
@@ -38,20 +38,20 @@ Kapsamlar korumalı kaynaklara erişimi yönetmenin bir yolunu sağlar. Kapsamla
 
 1. Seçin **uygulamaları**ve ardından *webapi1*.
 2. Seçin **yayımlanan kapsamlar**.
-3. İçin **kapsam**, girin `Hello.Read`ve açıklama yazın `Read access to hello`.
-4. İçin **kapsam**, girin `Hello.Write`ve açıklama yazın `Write access to hello`.
+3. İçin **kapsam**, girin `Read`ve açıklama yazın `Read access to the application`.
+4. İçin **kapsam**, girin `Write`ve açıklama yazın `Write access to the application`.
 5. **Kaydet**’e tıklayın.
 
 Yayımlanan kapsamlar istemci vermek için kullanılan Web API'sine uygulama izni.
 
 ## <a name="grant-permissions"></a>İzinleri verme
 
-Bir uygulamadan korumalı web API'sini çağırmak için API'ye uygulama izinleri vermeniz gerekir. Önkoşul öğreticisinde, Azure AD B2C'adlı bir web uygulamasında oluşturulan *webapp1*. Web API'sini çağırmak için bu uygulamayı kullanın.
+Bir uygulamadan korumalı web API'sini çağırmak için API'ye uygulama izinleri vermeniz gerekir. Örneğin, [Öğreticisi: Azure Active Directory B2C'de bir uygulamayı kaydetme](tutorial-register-applications.md), bir web uygulamasını Azure AD adlı B2C'de oluşturulan *webapp1*. Web API'sini çağırmak için bu uygulamayı kullanabilirsiniz.
 
 1. Seçin **uygulamaları**ve ardından web uygulamanızı seçin.
 2. Seçin **API erişimi**ve ardından **Ekle**.
 3. İçinde **API seçin** açılır menüsünde, select *webapi1*.
-4. İçinde **kapsamları seçin** açılır menüsünde, select **Hello.Read** ve **Hello.Write** daha önce tanımladığınız kapsamları.
+4. İçinde **kapsamları seçin** açılır menüsünde, select **okuma** ve **yazma** daha önce tanımladığınız kapsamları.
 5. **Tamam** düğmesine tıklayın.
 
 Uygulamanız korumalı web API'sini çağırmak için kaydedilir. Bir kullanıcının uygulamayı kullanmak için Azure AD B2C ile kimliğini doğrular. Uygulama, korumalı web API'sine erişmek için Azure AD B2C bir yetkilendirme izni alır.

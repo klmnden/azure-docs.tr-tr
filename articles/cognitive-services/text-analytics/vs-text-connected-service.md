@@ -1,23 +1,23 @@
 ---
-title: 'Öğretici: İle metin analiziC#'
+title: "Öğretici: Visual Studio'da bağlı hizmetler ile metin analizi hizmetine bağlanma"
 titleSuffix: Azure Cognitive Services
-description: Bir ASP.NET Core web uygulamasından Metin Analizine bağlanın.
+description: Metin analizi için bir ASP.NET Core web uygulamasından bağlanmayı öğreneceksiniz.
 services: cognitive-services
-author: ghogen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: ghogen
-ms.openlocfilehash: bcd0d68119d141f02f77d4d8828d55b1d984be0e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: a37ea5fdad941e1559e470ccb22303a8e3c7ca3d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869815"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243901"
 ---
-# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Öğretici: Visual Studio bağlı Hizmetler'i kullanarak metin analizi Bilişsel hizmete bağlanın
+# <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Öğretici: Visual Studio'da bağlı hizmetler ile metin analizi hizmetine bağlanma
 
 Metin Analizi Hizmeti’ni kullanarak görsel verileri kategorilere ayırıp işlemenin yanı sıra hizmetlerinizi oluşturmanıza yardımcı olan makine yardımlı görüntü denetimi gerçekleştirmek için zengin bilgileri ayıklayabilirsiniz.
 

@@ -3,19 +3,19 @@ title: Metin Analizi API’sini çağırma
 titlesuffix: Azure Cognitive Services
 description: Metin analizi REST API'nin nasıl çağrılacağını öğrenin.
 services: cognitive-services
-author: ashmaka
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 60aa51e4dac796e034b7b0506be0e205951226de
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870784"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244037"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Metin analizi REST API'nin nasıl çağrılacağını
 
@@ -30,9 +30,7 @@ Metin analizi yönetmek için hiçbir veri varlıklarını zorlaştırıyorsa du
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-**Metin Analizi API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. 
-
-Olmalıdır [uç noktası ve erişim anahtarı](text-analytics-how-to-access-key.md) , oluşturulan, Bilişsel hizmetler için kaydolduğunuzda. 
+Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) metin analizi API'si ile ve [uç noktası ve erişim anahtarı](text-analytics-how-to-access-key.md) , oluşturulan, Bilişsel hizmetler için kaydolduğunuzda. 
 
 <a name="json-schema"></a>
 

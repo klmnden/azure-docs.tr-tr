@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: 30174051c0d26595c65a79724cf3d08465a4cab7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/12/2019
+ms.openlocfilehash: bea32acf4028a4ab43fcc8cd967a31ea397babf3
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566998"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234229"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Ruby kullanarak Azure SQL veritabanı sorgulama
 
@@ -27,7 +27,21 @@ Bu hızlı başlangıçta nasıl kullanılacağını gösterir [Ruby](https://ww
 
 Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşullar gerekir:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Bir Azure SQL veritabanı. Şu hızlı başlangıçlardan biriyle oluşturmak ve ardından bir veritabanını Azure SQL veritabanı'nda yapılandırmak için kullanabilirsiniz:
+
+  || Tek veritabanı | Yönetilen örnek |
+  |:--- |:--- |:---|
+  | Oluştur| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Yapılandırma | [sunucu düzeyinde IP güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md)| [Bir VM bağlantısı](sql-database-managed-instance-configure-vm.md)|
+  |||[Şirket içi bağlantısı](sql-database-managed-instance-configure-p2s.md)
+  |Veri yükleme|Adventure Works hızlı başlangıç yüklendi|[Wide World Importers geri yükleme](sql-database-managed-instance-get-started-restore.md)
+  |||Geri yükleme ya da Adventure Works'den içe [BACPAC](sql-database-import.md) dosya [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > Komut bu makalede, Adventure Works veritabanı kullanmak için yazılır. Yönetilen örnek sayesinde, Adventure Works veritabanı bir örneği veritabanına aktarmak veya betiklerde Wide World Importers veritabanını kullanmak için bu makaleyi değiştirin.
   
 - İşletim sisteminiz için Ruby ve ilgili yazılım:
   
@@ -39,7 +53,13 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşullar gerekir:
 
 ## <a name="get-sql-server-connection-information"></a>SQL server bağlantı bilgilerini alma
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Yaklaşan yordamlar için tam sunucu adını veya ana bilgisayar adı, veritabanı adını ve oturum açma bilgileri gerekir.
+
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+
+2. Gidin **SQL veritabanları** veya **SQL yönetilen örnekler** sayfası.
+
+3. Üzerinde **genel bakış** sayfasında, tam sunucu adını gözden **sunucu adı** tek bir veritabanı veya tam sunucu adı yanındaki **konak** yönetilen bir örneği. Sunucu adı veya ana bilgisayar adı kopyalamak için üzerine gelin ve seçin **kopyalama** simgesi. 
 
 ## <a name="create-code-to-query-your-sql-database"></a>SQL veritabanınızı sorgulamak için kod oluşturun
 

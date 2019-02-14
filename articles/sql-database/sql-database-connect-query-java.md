@@ -10,13 +10,13 @@ author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 12/01/2018
-ms.openlocfilehash: 3a036ac1260923a5030b8b0c3345482346c183fe
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/12/2019
+ms.openlocfilehash: d172abd05dae63e7da47f6477df2893793933e2b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563141"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235489"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Java kullanarak Azure SQL veritabanı sorgulama
 
@@ -26,7 +26,21 @@ Bu makalede nasıl yapılacağı açıklanır [Java](/sql/connect/jdbc/microsoft
 
 Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Bir Azure SQL veritabanı. Şu hızlı başlangıçlardan biriyle oluşturmak ve ardından bir veritabanını Azure SQL veritabanı'nda yapılandırmak için kullanabilirsiniz:
+
+  || Tek veritabanı | Yönetilen örnek |
+  |:--- |:--- |:---|
+  | Oluştur| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Yapılandırma | [sunucu düzeyinde IP güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md)| [Bir VM bağlantısı](sql-database-managed-instance-configure-vm.md)|
+  |||[Şirket içi bağlantısı](sql-database-managed-instance-configure-p2s.md)
+  |Veri yükleme|Adventure Works hızlı başlangıç yüklendi|[Wide World Importers geri yükleme](sql-database-managed-instance-get-started-restore.md)
+  |||Geri yükleme ya da Adventure Works'den içe [BACPAC](sql-database-import.md) dosya [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > Komut bu makalede, Adventure Works veritabanı kullanmak için yazılır. Yönetilen örnek sayesinde, Adventure Works veritabanı bir örneği veritabanına aktarmak veya betiklerde Wide World Importers veritabanını kullanmak için bu makaleyi değiştirin.
 
 - Yüklü işletim sisteminiz için Java ile ilgili yazılım:
 
@@ -36,9 +50,15 @@ Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından em
 
   - **Windows**Java yükleyin ve ardından Maven'i yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
 
-## <a name="get-database-connection"></a>Veritabanı bağlantı Al
+## <a name="get-sql-server-connection-information"></a>SQL server bağlantı bilgilerini alma
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Yaklaşan yordamlar için tam sunucu adını veya ana bilgisayar adı, veritabanı adını ve oturum açma bilgileri gerekir.
+
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+
+2. Gidin **SQL veritabanları** veya **SQL yönetilen örnekler** sayfası.
+
+3. Üzerinde **genel bakış** sayfasında, tam sunucu adını gözden **sunucu adı** tek bir veritabanı veya tam sunucu adı yanındaki **konak** yönetilen bir örneği. Sunucu adı veya ana bilgisayar adı kopyalamak için üzerine gelin ve seçin **kopyalama** simgesi. 
 
 ## <a name="create-the-project"></a>Proje oluşturma
 

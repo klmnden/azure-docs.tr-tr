@@ -1,22 +1,22 @@
 ---
-title: Metin analizi REST API (Azure üzerinde Microsoft Bilişsel hizmetler) ile ilgili nasıl yapılır yaklaşım analizi | Microsoft Docs
-description: İzlenecek yol Bu öğreticide Azure üzerinde Microsoft Bilişsel hizmetler metin analizi REST API kullanarak duyarlılığını algılamak nasıl.
+title: Azure Bilişsel Hizmetler'in sunduğu metin analizi kullanarak yaklaşım analizi | Microsoft Docs
+description: Metin Analizi REST API’sini kullanarak yaklaşımın nasıl algılanacağını öğrenin.
 services: cognitive-services
-author: HeidiSteen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: 4c5b55a5e11bddd6eac8155c2e49ccbd80d3164e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856385"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242145"
 ---
-# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Örnek: Metin analizi yaklaşım tespit etme
+# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Örnek: Metin analiziyle duyguları algılamak nasıl
 
 [Yaklaşım Analizi API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9), metin girişini değerlendirir ve her belge için 0 (negatif) - 1 (pozitif) aralığında bir yaklaşım döndürür.
 

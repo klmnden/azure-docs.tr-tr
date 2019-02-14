@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/08/2019
+ms.date: 02/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 427f3f498ac04c68ef0b335b50c60db46b46d042
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189488"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243863"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 
@@ -140,19 +140,21 @@ DirectQuery modu*, depolama ve sorgu yürütme için arka uç ilişkisel veritab
 
 \* Özellik kullanılabilirliği katmana bağlıdır.
 
-## <a name="supported-datasources"></a>Desteklenen veri kaynakları
+## <a name="supported-data-sources"></a>Desteklenen veri kaynakları
 
 Azure Analysis Services’te tablolu modeller, basit metin dosyalarından Azure Data Lake Store’daki Büyük Verilere varan çeşitlilikte veri kaynağını destekler. Daha fazla bilgi edinmek için bkz. [Azure Analysis Services'ta desteklenen veri kaynakları](analysis-services-datasource.md).
 
 ## <a name="your-data-is-secure"></a>Verileriniz güvende
 
-Azure Analysis Services, birden fazla düzeyde hassas verileriniz için güvenlik sağlar. Sunucu düzeyinde: Güvenlik Duvarı, Azure kimlik doğrulaması, sunucu yöneticisi rolleri ve sunucu tarafı şifreleme. Veri modeli düzeyinde, kullanıcı rollerinde, satır düzeyinde ve nesne düzeyi güvenlikte verilerinizin güvenli olduğundan ve yalnızca görmesi amaçlanan kullanıcılar tarafından görüldüğünden emin olun.
+Azure Analysis Services, birden fazla düzeyde hassas verileriniz için güvenlik sağlar. Bir Azure hizmeti olduğundan, Analysis Services sağlar **temel** dağıtılmış Azure platformunun bir parçası olarak otomatik olarak etkin hizmet engelleme (DDoS) saldırılarının düzeyini. Daha fazla bilgi için bkz. [Azure DDoS koruması standart genel bakış](../virtual-network/ddos-protection-overview.md). 
+
+Analysis Services, sunucu düzeyinde güvenlik duvarı, Azure kimlik doğrulaması, sunucu yöneticisi rolleri ve sunucu tarafı şifrelemesi sağlar. Veri modeli düzeyinde kullanıcı rolleri, satır düzeyinde ve nesne düzeyinde güvenlik verileriniz güvendedir ve yalnızca yöneliktir kullanıcılara sunulmadan tarafından görülen olun.
 
 ### <a name="firewall"></a>Güvenlik duvarı
 
-Azure Analysis Services Güvenlik Duvarı, kurallarda belirtilen IP adresleri dışındaki tüm istemci bağlantılarını engeller. İstemci IP’lerine veya aralığa göre izin verilen IP adreslerini belirten kuralları yapılandırın. Power BI (hizmet) bağlantılarına da izin verilebilir veya bağlantılar engellenebilir. Güvenlik duvarı ve kuralları portaldan ya da PowerShell kullanarak yapılandırın. Daha fazla bilgi için bkz. [Sunucu güvenlik duvarı yapılandırma](analysis-services-qs-firewall.md).
+Azure Analysis Services Güvenlik Duvarı, kurallarda belirtilen IP adresleri dışındaki tüm istemci bağlantılarını engeller. Varsayılan olarak, yeni sunucular için güvenlik duvarı koruması etkin değil. Güvenlik duvarı koruması etkinleştirilir ve hemen sunucu oluşturulduktan sonra kuralları parçası olarak sunucu betik sağlama veya Portalı'nda yapılandırılır önerilir. İstemci IP’lerine veya aralığa göre izin verilen IP adreslerini belirten kuralları yapılandırın. Power BI (hizmet) bağlantılarına da izin verilebilir veya bağlantılar engellenebilir. Güvenlik duvarı ve kuralları portaldan ya da PowerShell kullanarak yapılandırın. Daha fazla bilgi için bkz. [Sunucu güvenlik duvarı yapılandırma](analysis-services-qs-firewall.md).
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 Kullanıcı kimlik doğrulaması, [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) tarafından işlenir. Kullanıcılar oturum açarken veritabanına rol tabanlı erişim ile bir kuruluş hesabı kimliği kullanır. Kullanıcı kimlikleri, sunucunun içinde bulunduğu abonelik için varsayılan Azure Active Directory’nin üyesi olmalıdır. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
 

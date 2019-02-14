@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/24/2018
+ms.date: 02/11/2019
 ms.author: juliako
-ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789238"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243994"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services olayları Azure Event Grid şemaları
 
@@ -24,15 +24,13 @@ Bu makalede, Media Services olaylarını şemaları ve özellikleri sağlar.
 
 Örnek betikler ve öğreticiler listesi için bkz: [Media Services olay kaynağı](../../event-grid/event-sources.md#azure-subscriptions).
 
-## <a name="available-event-types"></a>Kullanılabilir olay türleri
-
-### <a name="job-related-event-types"></a>İş ilgili olay türleri
+## <a name="job-related-event-types"></a>İş ilgili olay türleri
 
 Media Services yayan **iş** ilgili olay türleri aşağıda açıklanmıştır. İçin iki kategorisi vardır **iş** ilgili olaylar: "İzleme iş durumu" ve "İzleme iş Çıkış durumu değiştirir". 
 
 Tüm olaylar için JobStateChange olaya abone olarak kaydedebilirsiniz. Veya yalnızca belirli olaylar (örneğin, son durumlarını JobErrored JobFinished ve JobCanceled gibi) için abone olabilirsiniz. 
 
-#### <a name="monitoring-job-state-changes"></a>İzleme iş durumu değiştirir.
+### <a name="monitoring-job-state-changes"></a>İş durumu değişiklikleri izleme
 
 | Olay türü | Açıklama |
 | ---------- | ----------- |
@@ -44,7 +42,9 @@ Tüm olaylar için JobStateChange olaya abone olarak kaydedebilirsiniz. Veya yal
 | Microsoft.Media.JobCanceled| İş iptal edilmiş duruma geçtiğinde bir olay alırsınız. Bu iş çıkışları içeren son bir durumdur.|
 | Microsoft.Media.JobErrored| İş hata durumuna geçtiğinde bir olay alırsınız. Bu iş çıkışları içeren son bir durumdur.|
 
-#### <a name="monitoring-job-output-state-changes"></a>İzleme iş Çıkış durumu değiştirir.
+[Şema örnekler](#event-schema-examples) izleyin.
+
+### <a name="monitoring-job-output-state-changes"></a>Durum değişikliklerini İzleme işi çıkışı
 
 | Olay türü | Açıklama |
 | ---------- | ----------- |
@@ -56,11 +56,13 @@ Tüm olaylar için JobStateChange olaya abone olarak kaydedebilirsiniz. Veya yal
 | Microsoft.Media.JobOutputCanceled| Proje çıkış geçişi için durum iptal ettiğinizde, bir olay alırsınız.|
 | Microsoft.Media.JobOutputErrored| Hata durumu geçişleri iş çıkışı, bir olay alırsınız.|
 
-### <a name="live-event-types"></a>Canlı etkinlik türleri
+[Şema örnekler](#event-schema-examples) izleyin.
+
+## <a name="live-event-types"></a>Canlı etkinlik türleri
 
 Medya Hizmetleri de yayan **canlı** olay türleri aşağıda açıklanmıştır. İçin iki kategorisi vardır **canlı** olayları: akış düzeyinde olaylar ve izleme düzeyi olaylar. 
 
-#### <a name="stream-level-events"></a>Stream düzeyinde olaylar
+### <a name="stream-level-events"></a>Stream düzeyinde olaylar
 
 Stream düzeyinde olaylar, akış veya bağlantı oluşturulur. Her olayda bir `StreamId` bağlantı veya akış tanımlayan bir parametre. Her akış veya bağlantı farklı türde bir veya daha fazla parça vardır. Örneğin, bir bağlantıdan bir kodlayıcı, bir ses kaydı ve dört video parçaları sahip olabilir. Akış olayı türü şunlardır:
 
@@ -70,7 +72,9 @@ Stream düzeyinde olaylar, akış veya bağlantı oluşturulur. Her olayda bir `
 | Microsoft.Media.LiveEventEncoderConnected | Kodlayıcı Canlı etkinlik ile bağlantı kurar. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Kodlayıcı bağlantısını keser. |
 
-#### <a name="track-level-events"></a>İzleme düzeyi olayları
+[Şema örnekler](#event-schema-examples) izleyin.
+
+### <a name="track-level-events"></a>İzleme düzeyi olayları
 
 İzleme düzeyi olaylar, parça oluşturulur. İzleme olay türleri şunlardır:
 
@@ -83,7 +87,9 @@ Stream düzeyinde olaylar, akış veya bağlantı oluşturulur. Her olayda bir `
 | Microsoft.Media.LiveEventIngestHeartbeat | Canlı etkinlik çalıştırıldığında, her parça için her 20 saniyede yayımladı. Sağlar sistem durumu özetini alın. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Medya sunucusu süreksizlik gelen izde algılar. |
 
-## <a name="event-schemas-and-properties"></a>Olay şemaları ve özellikleri
+[Şema örnekler](#event-schema-examples) izleyin.
+
+## <a name="event-schema-examples"></a>Olay Şeması Örnekleri
 
 ### <a name="jobstatechange"></a>JobStateChange
 
@@ -618,7 +624,7 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | Bit hızı | integer | İzleme hızı. |
 | PreviousTimestamp | dize | Önceki parça zaman damgası. |
 | NewTimestamp | dize | Zaman damgası geçerli parça. |
-| DiscontinuityGap | dize | Yukarıdaki iki zaman damgaları arasındaki boşluk. |
+| discontinuityGap | dize | Yukarıdaki iki zaman damgaları arasındaki boşluk. |
 | Zaman Çizelgesi | dize | Hangi zaman damgası hem süreksizlik boşluk ölçeğinde temsil edilir. |
 
 ### <a name="common-event-properties"></a>Ortak olay özellikleri

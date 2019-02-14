@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 88cb9f18002f15ea926fe5ded3a5ac9af7a99cbe
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 80bf9247bbb07fa61b7153e321b1991b82a9d616
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716290"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247216"
 ---
 <!-- N.B. no header, language-agnostic -->
 
@@ -28,4 +28,4 @@ Microsoft Bilişsel Hizmetler [Speech SDK'sı](~/articles/cognitive-services/spe
 Aşağıdaki kod parçacıkları Speech SDK'sı kullanan niyeti tanıma senaryolar için bkz. Örnek değerleri kendi LUIS abonelik anahtarı (uç noktası anahtarı) ile değiştirin [aboneliğinizin bölgesi](~/articles/cognitive-services/speech-service/regions.md#intent-recognition)ve **AppID** hedefi modelinizin.
 
 > [!NOTE]
-> Speech SDK'sı tarafından desteklenen diğer hizmetleri aksine niyeti tanıma bir (LUIS uç noktası anahtarı) belirli bir abonelik anahtarı gerektirir. Amaç tanıma teknolojisi hakkında daha fazla bilgi için bkz: [LUIS Web sitesi](https://www.luis.ai). Alma hakkında bilgi için **uç noktası anahtarı**, bkz: [LUIS uç noktası anahtarı oluşturma](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
+> Speech SDK'sı tarafından desteklenen diğer hizmetleri aksine niyeti tanıma bir (LUIS uç noktası anahtarı) belirli bir abonelik anahtarı gerektirir. Amaç tanıma teknolojisi hakkında daha fazla bilgi için bkz: [LUIS Web sitesi](https://www.luis.ai). Alma hakkında bilgi için **uç noktası anahtarı**, bkz: [LUIS uç noktası anahtarı oluşturma](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription).

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8d99a52b500377e02af339588fe7155e26cf588c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548604"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233401"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure İşlevleri için sürekli dağıtım
 Azure işlevleri işlev uygulamanızı App Service'e sürekli tümleştirme kullanarak dağıtma kolaylaştırır. İşlevleri, BitBucket, Dropbox, GitHub ve Azure DevOps ile tümleşir. Bu, Azure'a bu tümleşik hizmetler tetikleyici dağıtımı birini kullanarak yapılan işlev kodunu burada güncelleştirmeleri bir iş akışı sağlar. Azure işlevleri'ne yeni başladıysanız, başlayan [Azure işlevlerine genel bakış](functions-overview.md).
@@ -29,7 +29,7 @@ Sürekli dağıtım, birden fazla ve sık gerçekleşen katkıların tümleştir
 * [Yerel Git deposu](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Azure DevOps Hizmetleri](https://www.visualstudio.com/team-services/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
 Dağıtımları, bir işlev başına uygulama başına yapılandırılır. Sürekli dağıtım etkinleştirildikten sonra portalda işlev kodunu erişimi kümesine *salt okunur*.
 
@@ -93,9 +93,9 @@ Oluşturduğunuz ve portalda tutulan, FTP kullanarak, mevcut işlev kod dosyası
 > [!NOTE]
 > Sürekli tümleştirmeyi yapılandırdıktan sonra artık kaynak dosyalarınızı işlevler portalından düzenlemeniz mümkün olacaktır.
 
-- [Nasıl Yapılır: Dağıtım kimlik bilgilerini yapılandırma](#credentials)
-- [Nasıl Yapılır: FTP kullanarak dosyaları indirme](#downftp)
-- [Nasıl Yapılır: Yerel Git deposunu kullanarak dosyaları indirme](#downgit)
+- [Nasıl yapılır: Dağıtım kimlik bilgilerini yapılandırma](#credentials)
+- [Nasıl yapılır: FTP kullanarak dosyaları indirme](#downftp)
+- [Nasıl yapılır: Yerel Git deposunu kullanarak dosyaları indirme](#downgit)
 
 <a name="credentials"></a>
 #### <a name="how-to-configure-deployment-credentials"></a>Nasıl yapılır: Dağıtım kimlik bilgilerini yapılandırma

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: db3723fe4a17559b6b2583cfe4d85f8d9824030c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0e91aefb800eba42b715cb70d42ce09ad134fabb
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866891"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243815"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-java"></a>Java ile soru-cevap Oluşturucu REST API'si kullanma 
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturu
 - [Bilgi bankasını silme.](#Delete)
 - [Geçerli uç nokta anahtarlarını alma.](#GetKeys)
 - [Geçerli uç nokta anahtarlarını yeniden oluşturma.](#PutKeys)
-- [Geçerli sözcük değişiklikleri kümesini alma.](#GetAlterations)
-- [Geçerli sözcük değişiklikleri kümesini değiştirme.](#PutAlterations)
+- [Büyük küçük harf duyarsız word değişiklikleri geçerli kümesini alın.](#GetAlterations)
+- [Büyük küçük harf duyarsız word değişiklikleri geçerli kümesini değiştirin.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 

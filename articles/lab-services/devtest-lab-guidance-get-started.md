@@ -3,23 +3,22 @@ title: Azure DevTest Labs'i kullanmaya başlama
 description: Bu makale, kuruluşunuzda Hizmeti'ni kullanmaya başlamak için Azure DevTest Labs ve iki genel yolu kullanmak için birincil scnearios sağlar.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: christianreddington
+author: spelluru
 manager: femila
-editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/11/2019
-ms.author: chredd
-ms.reviewer: anthdela,juselph
-ms.openlocfilehash: dfb73778a9d30ba50e69bff6414381235ad8b1d1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 21837265a963829539f12cf7911191a61be43fbc
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005242"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243065"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Azure DevTest Labs'i kullanmaya başlama
 DevTest Labs'i keşfedin almaya karar verdiğinizde ilet – iki genel yol vardır kavram kanıtı vs ölçeklendirilmiş dağıtım. 

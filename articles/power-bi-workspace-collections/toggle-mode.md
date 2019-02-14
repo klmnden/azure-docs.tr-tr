@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 9a12940f08a11b66a0d09937d5ab8fab7304734f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 892ea129a57e77c59f37b305b96b42aa85dba32b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754345"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232716"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Düzenleme modundan Power BI çalışma alanı koleksiyonları'raporların ve görünüm arasında geçiş
 
@@ -30,7 +30,7 @@ Hem görüntüleme hem de rapor düzenleme olanağı sunan bir erişim belirteci
 > [!NOTE]
 > Bu, düzenlemek ve değişiklikler için var olan bir raporu kaydetmek sağlar. Ayrıca destekleme işlevi isterseniz **Kaydet**, ek izinler sağlamanız gerekir. Daha fazla bilgi için [kapsamları](app-token-flow.md#scopes).
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -46,9 +46,10 @@ var token = embedToken.Generate("{access key}");
 
 Örneğin, JavaScript içinde:
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -74,6 +75,7 @@ var token = embedToken.Generate("{access key}");
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 Bu görünüm modunda göre Raporu eklemek için gösterir **viewMode** ayarlamak **modelleri. ViewMode.View**.
@@ -82,7 +84,7 @@ Bu görünüm modunda göre Raporu eklemek için gösterir **viewMode** ayarlama
 
 Görünüm moduna geçiş, açıksa düzenleme modu için aşağıdaki JavaScript kullanabilirsiniz.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
@@ -98,7 +100,7 @@ report.switchMode("view");
 
 Görünüm modu değilseniz düzenleme moduna geçmek için aşağıdaki JavaScript kullanabilirsiniz.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 

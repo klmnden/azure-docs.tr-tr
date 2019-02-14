@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 32b72444c620b542262db322c5af94e69c49521e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bfc80318eb43992e292159a0cd99a9b2f4a3c041
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048682"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233111"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>JavaScript API’sini kullanarak Power BI raporlarıyla etkileşim kurma
 
@@ -63,7 +63,7 @@ JavaScript API’si katıştırılmış raporlar ve rapor sayfaları için temel
 #### <a name="basic-filters"></a>Temel filtreler
 Temel filtre bir sütuna veya hiyerarşi düzeyine yerleştirilir ve dahil edilecek ya da hariç tutulacak değerler listesini içerir.
 
-```
+```typescript
 const basicFilter: pbi.models.IBasicFilter = {
   $schema: "http://powerbi.com/product/schema#basic",
   target: {
@@ -92,7 +92,7 @@ Gelişmiş filtreler AND veya OR mantıksal işlecini kullanır ve her biri kend
 * IsBlank
 * IsNotBlank
 
-```
+```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
   $schema: "http://powerbi.com/product/schema#advanced",
   target: {

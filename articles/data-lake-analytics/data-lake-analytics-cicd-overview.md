@@ -10,16 +10,18 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 68691430621c0055b3465b9428a8206c6a544a97
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 937e261405634e88ab234d2fe43ee660a3acc417
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412538"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233668"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics için bir CI/CD işlem hattı ayarlama  
 
 Bu makalede, bir sürekli tümleştirme ve dağıtım (CI/CD) işlem hattı U-SQL işleri ve U-SQL veritabanları için ayarlama konusunda bilgi edinin.  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-cicd-for-u-sql-jobs"></a>U-SQL işleri için CI/CD kullanma
 
@@ -181,12 +183,12 @@ Function SubmitAnalyticsJob()
 
         Write-Output "Submitting job for '{$usqlFile}'"
 
-        $jobToSubmit = Submit-AzureRmDataLakeAnalyticsJob -Account $ADLAAccountName -Name $scriptName -ScriptPath $usqlFile -DegreeOfParallelism $DegreeOfParallelism
+        $jobToSubmit = Submit-AzDataLakeAnalyticsJob -Account $ADLAAccountName -Name $scriptName -ScriptPath $usqlFile -DegreeOfParallelism $DegreeOfParallelism
         
         LogJobInformation $jobToSubmit
         
         Write-Output "Waiting for job to complete. Job ID:'{$($jobToSubmit.JobId)}', Name: '$($jobToSubmit.Name)' "
-        $jobResult = Wait-AzureRmDataLakeAnalyticsJob -Account $ADLAAccountName -JobId $jobToSubmit.JobId  
+        $jobResult = Wait-AzDataLakeAnalyticsJob -Account $ADLAAccountName -JobId $jobToSubmit.JobId  
         LogJobInformation $jobResult
     }
 }
@@ -261,7 +263,7 @@ Function UploadResources()
     foreach($file in $files)
     {
         Write-Host "Uploading file: $($file.Name)"
-        Import-AzureRmDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DestinationFolder $file)" -Force
+        Import-AzDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DestinationFolder $file)" -Force
     }
 }
 
@@ -452,7 +454,7 @@ Bir veritabanı dağıtım görevi Azure işlem hatları ayarlamak için aşağ�
 
 #### <a name="common-parameters"></a>Ortak parametreleri
 
-| Parametre | Açıklama | Varsayılan Değer | Gereklidir |
+| Parametre | Açıklama | Varsayılan Değer | Gerekli |
 |---------|-----------|-------------|--------|
 |Paket|Dağıtılacak U-SQL veritabanı dağıtım paketi yolu.|null |true|
 |Database|Dağıtılan ya da oluşturulan veritabanı adı.|ana|false|
@@ -461,13 +463,13 @@ Bir veritabanı dağıtım görevi Azure işlem hatları ayarlamak için aşağ�
 
 #### <a name="parameter-for-local-deployment"></a>Parametresi için yerel dağıtımı
 
-|Parametre|Açıklama|Varsayılan Değer|Gereklidir|
+|Parametre|Açıklama|Varsayılan Değer|Gerekli|
 |---------|-----------|-------------|--------|
 |DataRoot|Yerel veri kök klasörünün yolu.|null |true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Azure Data Lake Analytics dağıtımı için parametreleri
 
-|Parametre|Açıklama|Varsayılan Değer|Gereklidir|
+|Parametre|Açıklama|Varsayılan Değer|Gerekli|
 |---------|-----------|-------------|--------|
 |Hesap|Hesap adına göre dağıtmak için Azure Data Lake Analytics hesabını belirtir.|null |true|
 |ResourceGroup|Azure Data Lake Analytics hesabı için Azure kaynak grubu adı.|null |true|

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6f0f9202a02acf5e6f7d6fe3fba2b68e8b266090
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dd2bf11781a6dd013f033fc535b068d449dd04d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882196"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238139"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>Hızlı Başlangıç: Bing resim arama için SDK'sı Java görüntüleri için arama yapın
 
@@ -45,7 +45,7 @@ Maven, Gradle veya başka bir bağımlılık dosyası yönetim sistemini kullana
 
 ## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
 
-1. Sık kullandığınız IDE ortamında veya düzenleyicide yeni bir Java projesi oluşturun ve sınıf uygulamanıza aşağıdaki içe aktarmaları ekleyin:
+1. Sık kullandığınız IDE veya düzenleyici yeni bir Java projesi oluşturun ve sınıf uygulamanız aşağıdaki içeri aktarmaları ekleyin:
 
     ```java
     import com.microsoft.azure.cognitiveservices.search.imagesearch.BingImageSearchAPI;
@@ -63,9 +63,10 @@ Maven, Gradle veya başka bir bağımlılık dosyası yönetim sistemini kullana
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## <a name="send-a-search-request-to-the-bing-image-search-api"></a>Bing Resim Arama API’sine arama sorgusu gönderme
+## <a name="send-a-search-request-to-the-api"></a>API için bir arama isteği gönder
 
 1. `bingImages().search()` kullanarak, arama sorgusunu içeren HTTP isteğini gönderin. Yanıtı `ImagesModel` olarak kaydedin.
+
    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
@@ -76,7 +77,7 @@ Maven, Gradle veya başka bir bağımlılık dosyası yönetim sistemini kullana
 ## <a name="parse-and-view-the-result"></a>Sonucu ayrıştırma ve görüntüleme
 
 Yanıtta döndürülen resim sonuçlarını ayrıştırın.
-Yanıt arama sonuçları içeriyorsa, ilk sonucu depolayın ve döndürülen toplam görüntü sayısının yanı sıra bu ilk sonucun küçük resim URL'si, asıl URL gibi ayrıntılarını yazdırın.  
+Yanıt arama sonuçları içeriyorsa, ilk sonucu depolar ve bir küçük resim gibi ayrıntılarını yazdırmak URL, toplam sayısını özgün URL'yi döndürülen görüntüler.  
 
 ```java
 if (imageResults != null && imageResults.value().size() > 0) {

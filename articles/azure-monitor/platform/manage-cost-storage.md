@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: d6b0093e396e87b528bd8ccbdb8b5454c06dfac1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106299"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236117"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Log Analytics için kullanımı ve maliyetleri yönetme
 
@@ -118,7 +118,7 @@ Log Analytics çalışma alanınızın eski fiyatlandırma katmanları arasında
 > Çalışma alanınız bir Otomasyon hesabıyla bağlantılıysa, *Tek Başına (GB başına)* fiyatlandırma katmanını seçebilmeniz için tüm **Otomasyon ve Denetim** çözümlerini silmeniz ve Otomasyon hesabının bağlantısını kaldırmanız gerekir. Çalışma alanı dikey penceresindeki **Genel** altında **Çözümler**’e tıklayıp çözümleri silin. Bir Otomasyon hesabının bağlantısını kaldırmak için **Fiyatlandırma katmanı** dikey penceresinde Otomasyon hesabının adına tıklayın.
 
 > [!NOTE]
-> (ARM aracılığıyla fiyatlandırma katmanını ayarlama) hakkında daha fazla bilgi edinin [https://docs.microsoft.com/en-us/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] ve nasıl emin olup abonelik eski veya yeni fiyatlandırma modeli olduğundan bağımsız olarak, ARM dağıtım başarılı olacağıdır. 
+> (ARM aracılığıyla fiyatlandırma katmanını ayarlama) hakkında daha fazla bilgi edinin [https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] ve nasıl emin olup abonelik eski veya yeni fiyatlandırma modeli olduğundan bağımsız olarak, ARM dağıtım başarılı olacağıdır. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics, artık veri topluyor neden sorunlarını giderme

@@ -10,17 +10,17 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: de809ef1455e4c8c4c2284c2139e962f1829770b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 55cf124baf7614813620602212856cc586b721df
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510179"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244343"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets
 
-Birkaç örnek veri kümeleri ve denemeleri, Azure Machine Learning'de yeni bir çalışma alanı oluşturduğunuzda, varsayılan olarak dahil edilir. Bu örnek veri kümeleri birçoğu örnek modellerinde tarafından kullanılan [Azure AI Gallery](http://gallery.cortanaintelligence.com/). Diğer çeşitli genellikle machine learning'de kullanılan verilere ilişkin örnekler dahil edilir.
+Birkaç örnek veri kümeleri ve denemeleri, Azure Machine Learning'de yeni bir çalışma alanı oluşturduğunuzda, varsayılan olarak dahil edilir. Bu örnek veri kümeleri birçoğu örnek modellerinde tarafından kullanılan [Azure AI Gallery](http://gallery.azure.ai/). Diğer çeşitli genellikle machine learning'de kullanılan verilere ilişkin örnekler dahil edilir.
 
 Bu veri kümelerini bazıları, Azure Blob Depolama alanında kullanılabilir. Bu veri kümeleri için aşağıdaki tabloda, doğrudan bir bağlantı sağlar. Bu veri kümelerini kullanarak denemelerinizi kullanabilirsiniz [verileri içeri aktarma] [ import-data] modülü.
 

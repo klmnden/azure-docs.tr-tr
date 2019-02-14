@@ -1,22 +1,22 @@
 ---
-title: Nasıl yapılır anahtar ifade ayıklama metin Analytics REST API (Azure'da Microsoft Bilişsel hizmetler) | Microsoft Docs
-description: İzlenecek yol Bu öğreticide Azure üzerinde Microsoft Bilişsel hizmetler metin analizi REST API kullanarak anahtar tümcecikleri ayıklayın yapma.
+title: Metin analizi REST API kullanarak anahtar ifade ayıklama | Microsoft Docs
+description: Azure Bilişsel Hizmetler'in sunduğu metin analizi REST API kullanarak anahtar tümcecikleri ayıklayın yapma.
 services: cognitive-services
-author: HeidiSteen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: d6e3223b4f7931f250e422f1f30edcb375407c8c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865709"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245618"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Örnek: Metin analizi, anahtar ifadeleri ayıklama
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Örnek: Metin analizi kullanarak anahtar ifadeleri ayıklama
 
 [Anahtar İfade Ayıklama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6), yapılandırılmamış metni değerlendirir ve her bir JSON belgesi için bir anahtar ifade listesi döndürür. 
 
@@ -29,13 +29,13 @@ Bir belge koleksiyonundaki ana noktaları hızlı şekilde belirlemeniz gerekiyo
 
 ## <a name="preparation"></a>Hazırlık
 
-Anahtar ifade ayıklama, üzerinde çalışılacak büyük metin öbekleri girdiğinizde en iyi şekilde çalışır. Bu, küçük metin öbekleri üzerinde daha iyi performans gösteren yaklaşım analizinin tersidir. Her iki işlemden de en iyi sonuçları elde etmek için girişleri uygun şekilde yeniden yapılandırın.
+Metin üzerinde çalışmak için daha büyük miktarda verdiğinizde anahtar ifade ayıklama en iyi şekilde çalışır. Bu ters, yaklaşımı analiz gerçekleştiren daha iyi daha küçük miktarlarda metin. Her iki işlemden de en iyi sonuçları elde etmek için girişleri uygun şekilde yeniden yapılandırın.
 
 JSON belgeleri kimlik, metin, dil biçiminde olmalıdır.
 
 Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyon başına en fazla 1000 öğeniz olabilir. Koleksiyon, istek gövdesinde gönderilir. Aşağıdaki örnek, anahtar ifade ayıklaması için gönderebileceğiniz içeriğin bir gösterimidir.
 
-```
+```json
     {
         "documents": [
             {
@@ -94,9 +94,9 @@ Tüm POST istekleri, kimlikler ve algılanan özelliklerle JSON tarafından biç
 
 Hemen çıktı döndürülür. Sonuçları, JSON kabul eden bir uygulamada akışa alabilir veya çıktıyı yerel sistemde bir dosyaya kaydedebilir, sonra da verileri sıralamanıza, aramanıza ve işlemenize olanak sağlayan bir uygulamaya içeri aktarabilirsiniz.
 
-Aşağıda, anahtar ifade ayıklaması için çıktı örneği gösterilmektedir:
+Anahtar ifade ayıklama için çıktının bir örneği aşağıda gösterilmiştir:
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [

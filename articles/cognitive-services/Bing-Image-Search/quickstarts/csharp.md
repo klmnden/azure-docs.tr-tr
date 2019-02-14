@@ -8,31 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 02/06/2019
 ms.author: aahi
-ms.openlocfilehash: bcef3ec07b6190ee6564fb43f0950ce8c0ec6b8b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7051c8e6cc6464e8ff274e92bdb543638c9af46a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864341"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238202"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Hızlı Başlangıç: Bing resim arama REST API'si kullanarak görüntüleri arayın veC#
 
-Bing Resim Arama API’sine ilk çağrınızı yapmak ve JSON yanıtından bir arama sonucunu görüntülemek için bu hızlı başlangıcı kullanın. Bu basit C# uygulaması, API’ye bir HTTP görüntü arama sorgusu gönderir ve döndürülen ilk görüntünün URL’sini görüntüler.
+Bu hızlı başlangıçta, Bing resim arama API'si için arama istekleri gönderirken başlatmak için kullanın. Bu C# uygulama API için bir arama sorgusu gönderir ve ilk görüntünün URL'sini sonuçları görüntüler. Bu uygulamanın yazıldığı sırada C#, çoğu programlama dilleri ile uyumlu bir RESTful web hizmeti API'dir.
 
-Bu uygulama C# ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
-
-Bu örneğin kaynak kodu, ek hata işleme ve kod açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs)’da bulunabilir.
+Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs)’da bulunabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
 * NuGet paketi olarak kullanılabilen [Json.NET](https://www.newtonsoft.com/json) çerçevesi.
-* Linux/MacOS kullanıyorsanız bu uygulama, [Mono](http://www.mono-project.com/) kullanılarak çalıştırılabilir.
+* Linux/MacOS kullanıyorsanız, bu uygulamanın kullanılarak çalıştırılabilir [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
-
-Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Proje oluşturma ve başlatma
 
@@ -101,7 +97,7 @@ namespace BingSearchApisQuickstart
 
 `BingImageSearch` yönteminde aşağıdaki adımları gerçekleştirin.
 
-1. Arama isteği için URI oluşturun. `SearchTerm` arama teriminin dizeye eklenmeden önce biçimlendirilmesi gerektiğini unutmayın.
+1. Arama isteği için URI oluşturun. Arama terimi `SearchTerm` dizesine eklenen önce biçimlendirilmiş olması gerekir.
 
     ```csharp
     static SearchResult BingImageSearch(string SearchTerm){
@@ -110,7 +106,7 @@ namespace BingSearchApisQuickstart
     //...
     ```
 
-2. Web isteğini gerçekleştirin ve yanıtı JSON dizesi olarak alın.
+2. Web isteği göndermek ve yanıtın JSON dize olarak alın.
 
     ```csharp
     WebRequest request = WebRequest.Create(uriQuery);
@@ -157,7 +153,7 @@ namespace BingSearchApisQuickstart
     ```  
 
 
-## <a name="json-response"></a>JSON yanıtı
+## <a name="example-json-response"></a>Örnek JSON yanıtı
 
 Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
 
@@ -201,7 +197,7 @@ Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yan�
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -213,7 +209,8 @@ Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yan�
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Bing Resim Arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) Bing arama API'leri. 
 * [Ücretsiz bir Bilişsel Hizmetler erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Bilişsel Hizmetler Belgeleri](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Resim Arama API’si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

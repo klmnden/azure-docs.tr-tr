@@ -15,12 +15,12 @@ ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427c8b35f66b9b17d3da917b632d41cba5ddc99f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4a8311e359b5afa84020227de309e8b153a7ccda
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171528"
+ms.locfileid: "56238071"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Nasıl yapılır: Bir Azure AD uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma
 
@@ -137,7 +137,7 @@ Bir uygulamayı Azure AD kiracınızı kaydetmek için yeterli izinlere sahip ve
 
    ![Uygulama kayıtları görüntüle](./media/howto-create-service-principal-portal/view-app-registrations.png)
 
-Uygulama kayıtları ayarı ayarlanırsa **Hayır**, yalnızca [genel Yöneticiler](../users-groups-roles/directory-assign-admin-roles.md) uygulamalar kaydolabilir. Hesabınız için kullanıcı rolü atanmış, ancak uygulama kayıt ayarının yönetici kullanıcıyla sınırlıdır, ya da yöneticinizi atamak, size, genel Yönetici rolüne ya da uygulamaları kaydetme olanağı isteyin.
+Uygulama kayıtları ayarı ayarlanırsa **Hayır**yalnızca Yönetici rolüne sahip kullanıcılar bu tür uygulamaları kaydedebilir. Bkz: [kullanılabilir roller](../users-groups-roles/directory-assign-admin-roles.md#available-roles) ve [rol izinleri](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) kullanılabilir yönetici rolleri ve Azure AD'de her role verilen belirli izinleri hakkında bilgi edinmek için. Hesabınız için kullanıcı rolü atanmış, ancak uygulama kayıt ayarının yönetici kullanıcıyla sınırlıdır, yöneticinize ya da atama, oluşturma ve uygulama kayıtları veya kullanıcılara etkinleştirmek için tüm özelliklerini yönetebilir yönetici rollerinden isteyin uygulamaları kaydedin.
 
 ### <a name="check-azure-subscription-permissions"></a>Azure aboneliği izinlerini denetleyin
 

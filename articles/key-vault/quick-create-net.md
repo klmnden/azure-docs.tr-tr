@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8127a7a10c117edaefc4a215366990d847a165ec
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565556"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238292"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Hızlı Başlangıç: .NET web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma ve ayarlama
 
@@ -176,7 +176,7 @@ Uygulamayı çalıştırdığınızda gizli dizi değerinizin alındığını g�
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Artık ihtiyacınız kalmadığında kaynak grubunu, sanal makine ve tüm ilgili kaynakları silin. Bunu yapmak için kaynak grubunu seçin ve sanal makine için seçin **Sil**.
 
-Anahtar kasasını kullanarak silme [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) komutu:
+Anahtar kasasını kullanarak silme [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) komutu:
 
 ```azurecli
 az keyvault delete --name

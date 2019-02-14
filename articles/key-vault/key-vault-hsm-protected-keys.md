@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 76943c89cd4c0a283dc36a2a0d28c907cef0ad28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cc7d9a8e0d2689be4a8beb5d42c43b9e18157472
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114697"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238122"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarlar
 
@@ -246,7 +246,6 @@ USB sürücü veya başka bir taşınabilir depolama BYOK araç takımı paketin
 
 Bu üçüncü adım için bağlantısı kesilmiş iş istasyonunda aşağıdaki yordamları gerçekleştirin. Bu adımı tamamlamak için HSM tedarikçinize başlatma modunda olması gerekir. 
 
-
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Adım 3.1: 'I' HSM modunu değiştirme
 
 Modu değiştirmek için Thales nShield Edge kullanıyorsanız: 1. Gerekli modu vurgulamak için Modu düğmesini kullanın. 2. Birkaç saniye içinde basın ve Temizle düğmesine birkaç saniye basılı tutun. Modu değişirse, yeni modun LED yanıp durdurur ve aydınlatılmış kalır. Durum LED birkaç saniye düzensiz flash ve düzenli olarak cihaz hazır olduğunda, ardından yanıp. Aksi takdirde cihaz kalır LED uygun moduyla geçerli modunda aydınlatma.
@@ -256,13 +255,13 @@ Modu değiştirmek için Thales nShield Edge kullanıyorsanız: 1. Gerekli modu 
 Bir komut istemi başlatın ve Thales yeni dünya programını çalıştırın.
 
    ```cmd
-    new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+    new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
 Bu programın oluşturduğu bir **güvenlik Dünyası** % NFAST_KMDATA%\local\world, C:\ProgramData\nCipher\Key Management Data\local klasörüne karşılık gelen dosya. Çekirdek için farklı değerler kullanabilirsiniz, ancak örneğimizde her biri için biri üç boş kart ve PIN girmeniz istenir. Ardından, herhangi iki kart güvenlik dünyasına tam erişim verin. Bu kartların haline **yönetici kart Seti** yeni güvenlik Dünyası için.
 
 > [!NOTE]
-> Yeni şifre paketi DLf3072s256mRijndael HSM'NİZDE destekliyorsa, değiştirebilirsiniz--şifre paketi DLf1024s160mRijndael şifre paketi ile--= DLf3072s256mRijndael =
+> HSM'NİZDE yeni şifre paketi DLf3072s256mRijndael desteklemiyorsa değiştirebilirsiniz--şifre paketi DLf3072s256mRijndael şifre paketi ile--= DLf1024s160mRijndael =
 
 Ardından şunları yapın:
 

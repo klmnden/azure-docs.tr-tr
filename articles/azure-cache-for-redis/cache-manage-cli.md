@@ -1,25 +1,25 @@
 ---
 title: Azure Cache için Redis Klasik Azure CLI kullanarak yönetme | Microsoft Docs
 description: Herhangi bir platformda Klasik Azure CLI yükleme, Azure hesabınıza bağlanmak için kullanma ve oluşturmak ve bir Azure önbelleği için Redis Klasik clı'dan yönetmek nasıl öğrenin.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: ''
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 7ad60291b0e16b658856b47c013a3f5b207832da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 99148332a8310428cb73287d861ef71c35d59a26
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109411"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233209"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Oluşturma ve Azure Cache için Redis Klasik Azure CLI kullanarak yönetme
 > [!div class="op_single_selector"]

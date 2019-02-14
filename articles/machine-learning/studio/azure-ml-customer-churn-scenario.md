@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 47d267a2c4c122d8acbb2d3bf40e6858b4d6b77c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244190"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243555"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio'yu kullanarak müşteri değişim sıklığını çözümleme
 ## <a name="overview"></a>Genel Bakış
@@ -25,7 +25,7 @@ Bu makalede, Azure Machine Learning kullanılarak oluşturulan bir müşteri kar
 Bu deneyde geliştirildiği ve Serge Berger, Microsoft'ta asıl veri uzmanı ve eski Microsoft Azure Machine Learning için ürün yöneticisi olan Roger Barga test. Azure belgeleri takımının minnettar uzmanlıklarını bildirir ve bu teknik incelemeyi paylaşmak için teşekkürler.
 
 > [!NOTE]
-> Bu deneme için kullanılan verileri genel olarak kullanılabilir değil. Değişim sıklığı analiz için makine öğrenme modeli oluşturma örneği için bkz: [Perakende karmaşıklığı model şablonunun](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) içinde [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
+> Bu deneme için kullanılan verileri genel olarak kullanılabilir değil. Değişim sıklığı analiz için makine öğrenme modeli oluşturma örneği için bkz: [Perakende karmaşıklığı model şablonunun](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) içinde [Azure AI Gallery](http://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ Aşağıdaki diyagramlarda kullanılan verileri gösterilmektedir.
  
 
 > Bu veriler özeldir ve bu nedenle modeli ve veri paylaşılamaz unutmayın.
-> Ancak bu örnek deneme herkese verileri kullanarak benzer bir model için bkz [Azure AI Gallery](http://gallery.cortanaintelligence.com/): [Telekomünikasyon müşteri dalgalanması](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Ancak bu örnek deneme herkese verileri kullanarak benzer bir model için bkz [Azure AI Gallery](http://gallery.azure.ai/): [Telekomünikasyon müşteri dalgalanması](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Cortana Intelligence Suite'i kullanarak bir değişim analiz modeli nasıl uygulayacağınıza dair hakkında daha fazla bilgi için ayrıca öneririz [bu videoyu](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) Kıdemli Program Yöneticisi Wee Hyong Tok tarafından. 
 > 
@@ -219,7 +219,7 @@ Bu yazıda, genel framework kullanarak genel müşteri karmaşıklığı sorunun
 
 [4] [büyük veri pazarlama: Müşterileriniz daha etkili bir şekilde etkileşim kurun ve değer sürücü](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco karmaşıklığı model şablonunun](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) içinde [Azure AI Gallery](http://gallery.cortanaintelligence.com/) 
+[5] [Telco karmaşıklığı model şablonunun](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) içinde [Azure AI Gallery](http://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Ek

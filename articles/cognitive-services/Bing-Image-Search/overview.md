@@ -9,26 +9,23 @@ ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 10/11/2017
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b5fc297850ef4b8bfbc0e4bdcf21877e1b94ffe1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861760"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237323"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Bing Resim Arama API’si nedir?
 
-Bing Resim Arama API'si uygulamanızda Bing'in bilişsel resim arama özellikleri kullanmanıza olanak tanır. API ile kullanıcı arama sorguları göndererek [Bing Resimler](https://www.bing.com/images)'e benzeyen ilgili ve yüksek kaliteli resimler alıp görüntüleyebilirsiniz.
+Bing resim arama API'si, uygulamanızda Bing'in görüntü arama özellikleri kullanmanıza olanak sağlar. API için arama sorguları gönderdiğinizde, yüksek kaliteli görüntü benzer şekilde alabilirsiniz [bing.com/images](https://www.bing.com/images).
 
-Bing Resim Arama API'sinin yalnızca resim sonuçları sağladığını unutmayın. Diğer türdeki web içerikleri için [Bing Web Araması API](../bing-web-search/search-the-web.md)'sini, [Video Arama API](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search)'sini ve [Haber Arama API](https://review.docs.microsoft.com/azure/cognitive-services/bing-news-search)'sini kullanın.
+Bing resim arama API'si yalnızca görüntü arama sonuçlarını sağlarken, birleştirme veya diğer kullanılabilir [Bing arama API'leri](../bing-web-search/bing-api-comparison.md) türlerde içeriği web üzerinde bulunacak.
 
 ## <a name="bing-image-search-features"></a>Bing Resim Arama özellikleri
-
-Bing Resim Arama öncelikle bir arama sorgusundaki ilgili resimleri bulur ve gösterir, hizmet ayrıca web'de akıllı ve odaklı resim alma için çeşitli ek özellikler de sağlar.
-
 
 | Özellik                                                                                                                                                                                 | Açıklama                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,7 +48,7 @@ Bing Resim Arama API'si HTTP istekleri yapabilen ve JSON ayrıştırabilen tüm 
 İlk olarak, Bing Resim Arama API'sinin [etkileşimli tanıtımını](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) deneyin.
 Bu tanırım arama sorgusunu hızlı bir şekilde özelleştirmeyi ve web'de resim aramayı göstermektedir.
 
-API'yi çağırmaya hazır olduğunuzda, bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) oluşturun. Azure aboneliğiniz yoksa ücretsiz olarak [hesap oluşturabilirsiniz](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+API'yi çağırmak hazır olduğunuzda, oluşturun bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Azure aboneliğiniz yoksa ücretsiz olarak [hesap oluşturabilirsiniz](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
 İlk API isteğinize hızlı bir şekilde başlamak için aşağıdakileri öğrenebilirsiniz:
 
@@ -60,10 +57,12 @@ API'yi çağırmaya hazır olduğunuzda, bir [Bilişsel hizmetler API hesabı](h
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bing Resim Arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) başvuru bölümü tanımları ve uç noktalar, üst bilgiler, API yanıtları ve görüntü tabanlı arama sonuçları istemek için kullanabileceğiniz sorgu parametreleri hakkında bilgi içerir.
+* [Fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) Bing arama API'leri. 
+
+* [Bing resim arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) başvuru bölümünde API uç noktaları, üst bilgileri, API yanıtları ve sorgu parametreleri hakkında bilgi içerir.
 
 * Bing Arama API'leri ile edinilen içeriğin ve bilgilerin kabul edilebilir kullanımları [Bing Kullanımı ve Görüntü Gereksinimleri](./useanddisplayrequirements.md) konusunda belirtilmektedir.
 
-* [Getting images from the web with the Bing Image Search API](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) (Bing Resim Arama API'si ile web'den resim alma) konusu resimlerin web'den nasıl aranacağını ve alınacağını açıklamaktadır.
+* [Bing resim arama API'si ile Web'den görüntüleri alma](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) makalede nasıl arama ve web görüntü alma.
 
-* [Arama sorguları gönderme ve bunlarla çalışma](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) konusu arama sorgusu yapmayı, özelleştirmeyi ve özetlemeyi açıklamaktadır.
+* [Gönderme ve çalışma ile arama sorguları](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) makalede nasıl olun, özelleştirme ve arama sorgularını Özet.

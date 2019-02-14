@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886368"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247209"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell, dosyaların kalıcı olması
 Cloud Shell'i dosyaları oturumlarda kalıcı hale getirilmesi için Azure dosya depolama kullanır. İlk Başlat, Cloud Shell'i dosyaları oturumlarda kalıcı hale getirmek için yeni veya varolan bir dosya paylaşımını ilişkilendirmek isteyip istemediğinizi sorar.
@@ -40,7 +40,7 @@ Gelişmiş seçeneğini kullanarak, mevcut kaynaklar ilişkilendirebilirsiniz. C
 Depolama Kurulum istemi göründüğünde seçin **Gelişmiş ayarları göster** ek seçenekleri görmek için. Yerel olarak yedekli depolama (LRS), coğrafi olarak yedekli depolama (GRS) ve bölgesel olarak yedekli depolama (ZRS) hesapları için doldurulmuş depolama seçenekleri filtre. 
 
 > [!NOTE]
-> GRS veya ZRS kullanan depolama hesapları, yedekleme dosya paylaşımı için ek dayanıklılık için önerilir. Yedeklilik türü, hedefler ve fiyat tercih bağlıdır. [Azure depolama hesapları için çoğaltma seçenekleri hakkında daha fazla bilgi](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
+> GRS veya ZRS kullanan depolama hesapları, yedekleme dosya paylaşımı için ek dayanıklılık için önerilir. Yedeklilik türü, hedefler ve fiyat tercih bağlıdır. [Azure depolama hesapları için çoğaltma seçenekleri hakkında daha fazla bilgi](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
 ![Kaynak grubu ayarı](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

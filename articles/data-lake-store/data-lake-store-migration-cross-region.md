@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: 0d27ae79ab2c14cc5fd5ca81b8b7f089e7fa294e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126233"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233057"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Azure Data Lake depolama Gen1 bölgeler arasında geçirme
 
@@ -46,7 +46,7 @@ Geçişinizi planlarken dikkate alınması gereken diğer önemli ayrıntıları
 
 * **Bant genişliği ücretleri**. [Bant genişliği ücretleri](https://azure.microsoft.com/pricing/details/bandwidth/) bir Azure bölgesinin dışına aktarılan veriler için geçerlidir.
 
-* **Verilerinizi ACL'lerin**. Yeni bölgede dosya ve klasörler için ACL'ler uygulayarak güvenli hale getirin. Daha fazla bilgi için [Azure Data Lake depolama Gen1 depolanan verilerin güvenliğini sağlama](data-lake-store-secure-data.md). Geçiş, ACL'ler ayarlamak ve güncelleştirmek için kullanmanızı öneririz. Geçerli ayarlarınızı benzer ayarları kullanmak isteyebilirsiniz. Azure portalını kullanarak herhangi bir dosyaya uygulanan ACL'leri görüntüleyebileceğiniz [PowerShell cmdlet'leri](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), ya da SDK'ları.  
+* **Verilerinizi ACL'lerin**. Yeni bölgede dosya ve klasörler için ACL'ler uygulayarak güvenli hale getirin. Daha fazla bilgi için [Azure Data Lake depolama Gen1 depolanan verilerin güvenliğini sağlama](data-lake-store-secure-data.md). Geçiş, ACL'ler ayarlamak ve güncelleştirmek için kullanmanızı öneririz. Geçerli ayarlarınızı benzer ayarları kullanmak isteyebilirsiniz. Azure portalını kullanarak herhangi bir dosyaya uygulanan ACL'leri görüntüleyebileceğiniz [PowerShell cmdlet'leri](/powershell/module/az.datalakestore/get-azdatalakestoreitempermission), ya da SDK'ları.  
 
 * **Analiz Hizmetleri konumunu**. En iyi performans için Azure Data Lake Analytics veya Azure HDInsight gibi analiz hizmetlerinizi verilerinizi aynı bölgede olması gerekir.  
 

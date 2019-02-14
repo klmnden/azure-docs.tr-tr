@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728411"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235997"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -98,7 +98,7 @@ Tehdit algılama, olağan dışı davranış için denetim günlüklerini analiz
 
 ### <a name="transport-layer-security-tls-encryption-in-transit"></a>Aktarım Katmanı Güvenliği TLS (şifreleme yolda)
 
-SQL veritabanı ile Hareket halindeki verileri şifreleyerek müşteri verilerini korur [Aktarım Katmanı Güvenliği](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+SQL veritabanı ile Hareket halindeki verileri şifreleyerek müşteri verilerini korur [Aktarım Katmanı Güvenliği](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
 > [!IMPORTANT]
 > Azure SQL veritabanı şifreleme (SSL/TLS), her zaman tüm bağlantılar için tüm veriler "taşıma durumunda" şifrelenir, veritabanı ve istemci arasında sağlar zorlar. Bu ayarı bağımsız olarak gerçekleşir **şifrele** veya **TrustServerCertificate** bağlantı dizesindeki.

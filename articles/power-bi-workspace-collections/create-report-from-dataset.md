@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 78834f1f12d2c748cb885e437496f2acf11b69ee
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170428"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232796"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI çalışma alanı koleksiyonları'nda bir veri kümesinden yeni rapor oluşturma
 
@@ -40,13 +40,13 @@ Bu örnekte, yeni bir rapor oluşturmak istediğimiz bizim veri kümesi kimliği
 
 **NuGet paketi yüklemesi**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **C# kodu**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -65,15 +65,16 @@ Yeni bir rapor oluşturmak için oluşturma yapılandırmasını sağlanmalıdı
 
 **NuGet paketi yüklemesi**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **JavaScript kodu**
 
-```
+```html
 <div id="reportContainer"></div>
-  
+
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -85,6 +86,7 @@ var embedCreateConfiguration = {
 
     // Create report
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
+</script>
 ```
 
 Çağırma *powerbi.createReport()* içinde görünen boş bir tuval düzenleme modunda yapar *div* öğesi.
@@ -95,7 +97,7 @@ var embedCreateConfiguration = {
 
 Rapor, çağırana kadar oluşturulmaz **Kaydet** işlemi. Bu dosya menüsünden veya JavaScript yapılabilir.
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -116,9 +118,9 @@ Rapor, çağırana kadar oluşturulmaz **Kaydet** işlemi. Bu dosya menüsünden
 
 Yani uygulama normal bir raporda katıştırır aynı şekilde ekleme gerek yeni raporla etkileşim kurmak için yeni bir belirteç özellikle yeni rapor için verilmiş olması gerekir ve ardından ekleme yöntemini çağırın.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -130,13 +132,14 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Kaydetme otomatikleştirin ve "kaydedildi" olayını kullanarak yeni bir rapor yükleme
 
 "Farklı Kaydet" işlemini otomatik hale getirmek için ve ardından yeni bir rapor yüklenirken "kaydedildi" olayının kullanabilir. Bu olay, ne zaman tetiklenir kaydetme işlemi tamamlandığında ve yeni Reportıd, rapor adı, eski Reportıd (varsa) içeren bir Json nesnesi döndürür ve Farklı Kaydet işlemi varsa veya kaydedebilirsiniz.
 
-```
+```json
 {
   "reportObjectId": "5dac7a4a-4452-46b3-99f6-a25915e0fe54",
   "reportName": "newReport",
@@ -147,9 +150,9 @@ var embedConfiguration = {
 
 "Kaydedildi" olayı dinleyebilir işlemini otomatikleştirmek için yeni Reportıd almak, yeni belirteç oluştur ve ile yeni bir rapor ekleme.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -192,6 +195,7 @@ var embedCreateConfiguration = {
    // report.off removes a given event handler if it exists.
    report.off("saved");
     });
+</script>
 ```
 
 ## <a name="see-also"></a>Ayrıca bkz.

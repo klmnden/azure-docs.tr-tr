@@ -3,25 +3,25 @@ title: Metin Analizi nedir?
 titleSuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler'deki Metin Analizi hizmeti yaklaşım analizi, anahtar ifade ayıklama, dil algılama ve varlık bağlama özellikleri sunar.
 services: cognitive-services
-author: ashmaka
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 6e14d1b6d9bec4409ca2a1e57c7d2fb018ccce53
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869458"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242949"
 ---
 # <a name="what-is-text-analytics"></a>Metin Analizi nedir?
 
 Metin Analizi API’si ham metin üzerinde gelişmiş doğal dil işleme sağlayan bulut tabanlı bir hizmettir ve dört ana işlev içerir: Yaklaşım analizi, anahtar ifade ayıklama, dil algılama ve varlık bağlama.
 
-Bu API, geliştirme projelerinizde kullanılmaya hazır olan buluttaki makine öğrenimi ve yapay zeka algoritmaları koleksiyonu [Microsoft Bilişsel Hizmetler](https://docs.microsoft.com/azure/cognitive-services/)'in bir parçasıdır.
+API parçasıdır [Azure Bilişsel Hizmetler](https://docs.microsoft.com/azure/cognitive-services/), makine öğrenimi ve yapay ZEKA algoritmalarının geliştirme projeleriniz için bulutta bir koleksiyonu.
 
 ## <a name="capabilities-in-text-analytics"></a>Metin Analizi Özellikleri
 

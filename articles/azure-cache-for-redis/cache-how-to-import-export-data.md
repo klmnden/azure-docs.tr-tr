@@ -1,25 +1,25 @@
 ---
 title: İçeri ve dışarı aktarma verileri Azure önbelleği için Redis | Microsoft Docs
 description: Ve, ' % s'premium Azure önbelleği için Redis örneği ile blob depolama alanından verileri dışarı ve içeri aktarma hakkında bilgi edinin
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: ''
 ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 518e65f8e44fdaedc1a5dec536cdb37d5469b7e3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: dfa8b47ced70386efa1daa44af318f1da55f49e1
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107507"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235742"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>İçeri ve dışarı aktarma verileri Azure önbelleği için Redis
 İçeri/dışarı aktarma olan Azure önbelleği için Redis içine veri aktarmak veya Azure önbelleği için Redis içeri ve dışarı aktarma bir Azure önbelleği için Redis veritabanı (RDB) anlık görüntü için bir premium önbelleğinden tarafından verileri dışarı aktarma olanak tanıyan Redis veri yönetimi işlemi için bir Azure önbelleği bir bir Azure depolama hesabında blob. 

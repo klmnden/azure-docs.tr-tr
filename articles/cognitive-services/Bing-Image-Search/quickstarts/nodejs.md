@@ -9,23 +9,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a41ea44409682c6586a9e5cfab81052a21dd6677
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e7ff8fc10e8f714acac2dd77f8d8628f3a3ebf9e
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878145"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238207"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Hızlı Başlangıç: Node.js ve Bing resim arama REST API'si kullanarak resimler için arama yapın
 
-İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit JavaScript uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
+Bu hızlı başlangıçta, Bing resim arama API'si için arama istekleri gönderirken başlatmak için kullanın. JavaScript uygulaması bu API için bir arama sorgusu gönderir ve ilk görüntünün URL'sini sonuçları görüntüler. Bu uygulamanın, JavaScript'te yazılmış olsa da çoğu programlama dilleri ile uyumlu bir RESTful web hizmeti API'dir.
 
-Bu uygulama JavaScript ile yazılmış ve Node.js’de çalışıyor olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
-
-Bu örneğin kaynak kodu, ek hata işleme ve kod açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js)’da bulunabilir.
+Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js)’da bulunabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -55,7 +53,7 @@ Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https:/
 
 ## <a name="construct-the-search-request-and-query"></a>Arama isteği ve sorgu oluşturun.
 
-1. API isteğine yönelik bir arama URL’sini biçimlendirmek için son adımdaki değişkenleri kullanın. Arama teriminizin API’ye gönderilmeden önce URL olarak kodlanmış olması gerektiğini unutmayın.
+1. API isteğine yönelik bir arama URL’sini biçimlendirmek için son adımdaki değişkenleri kullanın. Arama API'sine gönderilmeden önce URL kodlamalı olmalıdır.
 
     ```javascript
     let request_params = {
@@ -76,7 +74,7 @@ Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https:/
 
 ## <a name="handle-and-parse-the-response"></a>Yanıtı işleme ve ayrıştırma
 
-1. HTTP çağrısı (`response`) alan `response_handler` adlı bir işlevi parametre olarak tanımlayın. Bu işlev içinde aşağıdaki adımları gerçekleştirin:
+1. HTTP çağrısı (`response`) alan `response_handler` adlı bir işlevi parametre olarak tanımlayın. Bu işlev içinde aşağıdaki adımları uygulayın:
 
     1. JSON yanıtının gövdesini içerecek bir değişken tanımlayın.  
         ```javascript
@@ -92,7 +90,7 @@ Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https:/
         });
         ```
 
-    3. Bir **son** işareti verildiğinde JSON işlenebilir ve döndürülen toplam görüntü sayısı ile birlikte görüntünün URL’si yazdırılabilir.
+    3. Olduğunda bir **son** bayrağı sinyal, JSON yanıtı ilk sonucu alın. Döndürülen görüntüleri toplam sayısı ile birlikte ilk görüntünün URL'sini yazdırın.
 
         ```javascript
         response.on('end', function () {
@@ -103,7 +101,7 @@ Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https:/
          });
         ```
 
-## <a name="json-response"></a>JSON yanıtı
+## <a name="example-json-response"></a>Örnek JSON yanıtı
 
 Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
 
@@ -147,19 +145,20 @@ Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yan�
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing Resim Arama tek sayfalı uygulama öğreticisi](../tutorial-bing-image-search-single-page-app.md)
+> [Bir tek sayfalı uygulama oluşturma](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Bing Resim Arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) Bing arama API'leri. 
 * [Ücretsiz bir Bilişsel Hizmetler erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Bilişsel Hizmetler Belgeleri](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Resim Arama API’si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

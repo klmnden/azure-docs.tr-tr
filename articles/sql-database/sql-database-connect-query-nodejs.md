@@ -10,13 +10,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/26/2018
-ms.openlocfilehash: 250f03809a182e541fb58f73469f46d2b281b69f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: 49fe9f51026c4cb096fd8248b53d2e5b5b574923
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756062"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236031"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Node.js kullanarak Azure SQL veritabanı sorgulama
 
@@ -26,7 +26,22 @@ Bu makalede nasıl yapılacağı açıklanır [Node.js](https://nodejs.org) bir 
 
 Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Bir Azure SQL veritabanı. Şu hızlı başlangıçlardan biriyle oluşturmak ve ardından bir veritabanını Azure SQL veritabanı'nda yapılandırmak için kullanabilirsiniz:
+
+  || Tek veritabanı | Yönetilen örnek |
+  |:--- |:--- |:---|
+  | Oluştur| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Yapılandırma | [sunucu düzeyinde IP güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md)| [Bir VM bağlantısı](sql-database-managed-instance-configure-vm.md)|
+  |||[Şirket içi bağlantısı](sql-database-managed-instance-configure-p2s.md)
+  |Veri yükleme|Adventure Works hızlı başlangıç yüklendi|[Wide World Importers geri yükleme](sql-database-managed-instance-get-started-restore.md)
+  |||Geri yükleme ya da Adventure Works'den içe [BACPAC](sql-database-import.md) dosya [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > Komut bu makalede, Adventure Works veritabanı kullanmak için yazılır. Yönetilen örnek sayesinde, Adventure Works veritabanı bir örneği veritabanına aktarmak veya betiklerde Wide World Importers veritabanını kullanmak için bu makaleyi değiştirin.
+
 
 - İşletim sisteminiz için node.js ile ilgili yazılım:
 
@@ -36,12 +51,15 @@ Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından em
   
   - **Windows**, Chocolatey ve Node.js yükleyin ve ardından ODBC sürücüsü ile SQLCMD'yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
-## <a name="get-database-connection"></a>Veritabanı bağlantı Al
+## <a name="get-sql-server-connection-information"></a>SQL server bağlantı bilgilerini alma
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Yaklaşan yordamlar için tam sunucu adını veya ana bilgisayar adı, veritabanı adını ve oturum açma bilgileri gerekir.
 
-> [!IMPORTANT]
-> Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için bir güvenlik duvarı kuralınız olmalıdır. Farklı bir bilgisayarda olduğunuz veya farklı bir genel IP adresine sahip yoksa, oluşturun bir [Azure portalını kullanarak sunucu düzeyinde güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md).
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+
+2. Gidin **SQL veritabanları** veya **SQL yönetilen örnekler** sayfası.
+
+3. Üzerinde **genel bakış** sayfasında, tam sunucu adını gözden **sunucu adı** tek bir veritabanı veya tam sunucu adı yanındaki **konak** yönetilen bir örneği. Sunucu adı veya ana bilgisayar adı kopyalamak için üzerine gelin ve seçin **kopyalama** simgesi. 
 
 ## <a name="create-the-project"></a>Proje oluşturma
 

@@ -1,25 +1,25 @@
 ---
 title: Azure önbelleği için Redis Premium katmanına giriş | Microsoft Docs
 description: Oluşturma ve yönetme Redis kalıcılığı, Redis Kümeleme ve sanal ağ desteği, Azure Cache Premium katmanı Redis örneği için bilgi edinin
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: ''
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 35ecb5156a8b81fa9e10123f7700cf91af91aa0a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115857"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237749"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure önbelleği için Redis Premium katmanına giriş
 Redis için Azure Cache, verilerinize çok hızlı erişim sağlayarak üst düzeyde ölçeklenebilir ve hızlı yanıt veren uygulamalar geliştirmenize yardımcı olan dağıtılmış, yönetilen bir önbellektir. 

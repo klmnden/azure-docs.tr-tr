@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 40a43fd8ea1f47b564d0c0ee2b5e67fd011f2ff9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895984"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235844"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -30,7 +30,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- **VMware**: Geçirmeyi planladığınız VM'ler vCenter Server çalışan sürümü tarafından 5.5, 6.0 veya 6.5 ile yönetilmelidir. Ayrıca, 5.5 veya Toplayıcı VM'yi dağıtmak için daha yüksek bir ESXi ana çalışan sürümü gerekir.
+- **VMware**: Geçirmeyi planladığınız VM'ler sürümünü çalıştıran vCenter Server tarafından 5.5, 6.0, 6.5 veya 6.7 yönetilmesi gerekir. Ayrıca, 5.5 veya Toplayıcı VM'yi dağıtmak için daha yüksek bir ESXi ana çalışan sürümü gerekir.
 - **vCenter Server hesabı**: VCenter Server'a erişmek için salt okunur bir hesap gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
 - **İzinleri**: VCenter Server'da, bir dosyada içeri aktararak VM oluşturma izni gerekir. OVA biçimi.
 

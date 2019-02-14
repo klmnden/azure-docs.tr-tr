@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: e93c51365adfc867082e180d8e4db804d02003ca
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 945d8690ccb61916455ba4137f59c67c9a3d9f76
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297739"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237697"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup raporlarını yapılandırma
 Bu makalede, bir kurtarma Hizmetleri kasası kullanarak Azure Backup için raporları yapılandırmak için izlemeniz gereken adımlar açıklanır. Ayrıca, Power BI'ı kullanarak raporlara erişmek nasıl gösterir. Bu adımları tamamladıktan sonra doğrudan görüntülemek, özelleştirme ve raporlar oluşturmak için Power BI'da gidebilirsiniz.
 
 > [!IMPORTANT]
-> 1 Kasım 2018 tarihinden itibaren Azure yedekleme belirten "JSON girişi sonunda fazladan karakterler bulduk. Power BI uygulamasında verileri yüklenirken karşılaşılan sorunları bazı müşteriler görebilirsiniz Özel durum, IDataReader arabirimi tarafından tetiklendi." iletisiyle karşılaşabilir.
+> 1 Kasım 2018 tarihinden itibaren bazı müşteriler Power BI'da Azure Backup uygulaması verilerini yükleme sırasında sorun yaşayabilir ve "JSON girişinin sonunda fazladan karakterler bulduk. Özel durum, IDataReader arabirimi tarafından tetiklendi." iletisiyle karşılaşabilir.
 Bunun nedeni, verilerin depolama hesabına yüklenmesi sırasında kullanılan biçimin değiştirilmesidir.
 Lütfen bu sorunu önlemek için en son uygulama (sürüm 1.8) indirin.
 >
@@ -38,6 +38,7 @@ Lütfen bu sorunu önlemek için en son uygulama (sürüm 1.8) indirin.
 
 ## <a name="configure-storage-account-for-reports"></a>Raporlar için depolama hesabı yapılandırın
 Azure portalını kullanarak bir kurtarma Hizmetleri kasası için depolama hesabı yapılandırmak için aşağıdaki adımları izleyin. Bu tek seferlik bir yapılandırmadır. Depolama hesabını yapılandırdıktan sonra doğrudan içerik paketini görüntüleyebilir ve raporları kullanmak için Power BI'da gidebilirsiniz.
+
 1. Açık kurtarma Hizmetleri kasası zaten varsa sonraki adıma gidin. Açık, Azure portalında kurtarma Hizmetleri kasası yoksa seçin **tüm hizmetleri**.
 
    * Kaynak listesinde girin **kurtarma Hizmetleri**.
@@ -54,7 +55,7 @@ Azure portalını kullanarak bir kurtarma Hizmetleri kasası için depolama hesa
 3. Üzerinde **Backup raporları** dikey penceresinde **tanılama ayarları** bağlantı. Bu bağlantıyı açar **tanılama ayarları** bir müşterinin depolama hesabına veri göndermek için kullanılan kullanıcı Arabirimi.
 
       ![Adım 3 tanılamayı etkinleştir](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
-4. Seçin **tanılamayı Aç** bir depolama hesabı yapılandırmak için kullanılacak bir kullanıcı arabirimini açın. 
+4. Seçin **tanılamayı Aç** bir depolama hesabı yapılandırmak için kullanılacak bir kullanıcı arabirimini açın.
 
       ![Tanılama adım 4 Aç](./media/backup-azure-configure-reports/enable-diagnostics.png)
 5. İçinde **adı** kutusunda, bir ayar adı girin. Seçin **bir depolama hesabında arşivle** raporlama verilerini depolama hesabına akar başlayabilir, onay kutusunu işaretleyin.
@@ -73,11 +74,11 @@ Azure portalını kullanarak bir kurtarma Hizmetleri kasası için depolama hesa
       ![Tanılama ayarını adım 9 görüntüleme](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Depolama hesabı kaydederek raporları yapılandırdıktan sonra *için 24 saat bekleyin* tamamlamak ilk veri gönderimi için. Azure yedekleme uygulamasını Power BI yalnızca bundan sonra içeri aktarın. Daha fazla bilgi için [SSS bölümüne](#frequently-asked-questions). 
+> Depolama hesabı kaydederek raporları yapılandırdıktan sonra *için 24 saat bekleyin* tamamlamak ilk veri gönderimi için. Azure yedekleme uygulamasını Power BI yalnızca bundan sonra içeri aktarın. Daha fazla bilgi için [SSS bölümüne](#frequently-asked-questions).
 >
 >
 
-## <a name="view-reports-in-power-bi"></a>Power BI raporlarını görüntüle 
+## <a name="view-reports-in-power-bi"></a>Power BI raporlarını görüntüle
 Bir kurtarma Hizmetleri Kasası'nı kullanarak bir depolama hesabı raporlar için yapılandırdıktan sonra yaklaşık 24 saat içeriye başlatmak raporlama verilerini alır. Bir depolama hesabı kurarak 24 saat sonra Power BI'da raporları görüntülemek için aşağıdaki adımları izleyin.
 İsterseniz özelleştirme ve rapor paylaşma, bir çalışma alanı oluşturun ve aşağıdaki adımları uygulayın
 
@@ -90,20 +91,20 @@ Bir kurtarma Hizmetleri Kasası'nı kullanarak bir depolama hesabı raporlar iç
 4. Önceki adımda 5 yapılandırılan depolama hesabı adını girin ve seçin **sonraki**.
 
     ![Depolama hesabı adını girin](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Kimlik doğrulama yöntemi "Anahtarını" kullanarak, bu depolama hesabı için depolama hesabı anahtarını girin. İçin [görüntüleme ve depolama erişim anahtarlarını kopyalama](../storage/common/storage-account-manage.md#access-keys), Azure portalında depolama hesabınıza gidin. 
+5. Kimlik doğrulama yöntemi "Anahtarını" kullanarak, bu depolama hesabı için depolama hesabı anahtarını girin. İçin [görüntüleme ve depolama erişim anahtarlarını kopyalama](../storage/common/storage-account-manage.md#access-keys), Azure portalında depolama hesabınıza gidin.
 
      ![Depolama hesabı girin](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
-     
+
 6. Seçin **oturum**. Oturum açma başarılı olduktan sonra bir içeri aktarma verileri bildirim görürsünüz.
 
     ![İçerik paketini içeri aktarma](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
-    
+
     Gördüğünüz içeri aktarma tamamlandıktan sonra bir **başarı** bildirim. Depolama hesabındaki veri miktarı büyükse, içerik paketini içeri aktarmak için biraz daha uzun sürebilir.
-    
+
     ![Başarı içerik paketini içeri aktarma](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
-    
+
 7. Veriler başarıyla içeri aktarıldıktan sonra **Azure Backup** içerik paketi görünür **uygulamaları** Gezinti bölmesinde. Altında **panolar**, **raporları**, ve **veri kümeleri**, liste Azure Backup artık gösterir.
-     
+
 8. Altında **panolar**seçin **Azure Backup**, sabitlenmiş anahtar raporlar kümesi gösterir.
 
       ![Azure Backup Panosu](./media/backup-azure-configure-reports/azure-backup-dashboard.png) <br/>
@@ -117,38 +118,32 @@ Bir kurtarma Hizmetleri Kasası'nı kullanarak bir depolama hesabı raporlar iç
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-**Raporlama verileri bir depolama hesabına akar başlatılmış olup olmadığını nasıl denetlerim?**
-    
-   Yapılandırdığınız depolama hesabına gidin ve kapsayıcılar'ı seçin. Kapsayıcı öngörüleri günlükleri azurebackupreport için bir girdi varsa, veri raporlama akan başlatıldığını gösterir.
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Raporlama verileri bir depolama hesabına akar başlatılmış olup olmadığını nasıl denetlerim?
+Yapılandırdığınız depolama hesabına gidin ve kapsayıcılar'ı seçin. Kapsayıcı öngörüleri günlükleri azurebackupreport için bir girdi varsa, veri raporlama akan başlatıldığını gösterir.
 
-**Bir depolama hesabı ve Azure Backup içerik Paketi'ne Power bı'daki veri gönderme sıklığı nedir?**
+### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Bir depolama hesabı ve Azure Backup içerik Paketi'ne Power bı'daki veri gönderme sıklığı nedir?
+  0. gün kullanıcılar için bunu bir depolama hesabına veri göndermeye ilişkin yaklaşık 24 saat sürer. Bu ilk gönderme tamamlandıktan sonra verileri aşağıdaki şekilde gösterilen sıklıkta yenilenir.
 
-   0. gün kullanıcılar için bunu bir depolama hesabına veri göndermeye ilişkin yaklaşık 24 saat sürer. Bu ilk gönderme tamamlandıktan sonra verileri aşağıdaki şekilde gösterilen sıklıkta yenilenir. 
-      
-* İlgili verileri **işleri**, **uyarılar**, **yedekleme öğeleri**, **kasaları**, **korumalı sunucuların**ve  **İlkeleri** gibi ve günlüğe bir müşterinin depolama hesabına gönderilir.
-      
-* İlgili verileri **depolama** 24 saatte bir müşterinin depolama hesabına gönderilir.
-   
-   ![Azure Backup raporları veri gönderme sıklığı](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+  * İlgili verileri **işleri**, **uyarılar**, **yedekleme öğeleri**, **kasaları**, **korumalı sunucuların**ve  **İlkeleri** gibi ve günlüğe bir müşterinin depolama hesabına gönderilir.
 
-* Power bı'da bir [zamanlanmış yenileme günde bir kez](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Power BI'da İçerik Paketi için verileri el ile yenileme gerçekleştirebilirsiniz.
+  * İlgili verileri **depolama** 24 saatte bir müşterinin depolama hesabına gönderilir.
 
-**Raporlar ne kadar süreyle tutabilir miyim?**
+       ![Azure Backup raporları veri gönderme sıklığı](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 
-   Bir depolama hesabı yapılandırmak, depolama hesabında bir rapor verileri saklama süresini seçebilirsiniz. Önceki bölümde "Raporlar için depolama hesabı Yapılandır" 6. Adım'ı izleyin. Ayrıca [raporları Excel'de Çözümle](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) ve bunları ihtiyaçlarınıza göre daha uzun bir bekletme dönemi için kaydedin.
+  * Power bı'da bir [zamanlanmış yenileme günde bir kez](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Power BI'da İçerik Paketi için verileri el ile yenileme gerçekleştirebilirsiniz.
 
-**Raporlardaki tüm Verilerimin, depolama hesabı yapılandırabilirim sonra görür müyüm?**
+### <a name="how-long-can-i-retain-reports"></a>Raporlar ne kadar süreyle tutabilir miyim?
+Bir depolama hesabı yapılandırmak, depolama hesabında bir rapor verileri saklama süresini seçebilirsiniz. İzleme adımı 6 [raporlar için depolama hesabı yapılandırma](backup-azure-configure-reports.md#configure-storage-account-for-reports) bölümü. Ayrıca [raporları Excel'de Çözümle](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) ve bunları ihtiyaçlarınıza göre daha uzun bir bekletme dönemi için kaydedin.
 
-   Bir depolama hesabı yapılandırdıktan sonra oluşturulan tüm veriler depolama hesabına gönderilir ve raporlarında kullanılabilir. Raporlama için devam eden işleri gönderilmez. İşin tamamlanana veya başarısız olduktan sonra Bu raporlar için gönderilir.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Raporlardaki tüm Verilerimin, depolama hesabı yapılandırabilirim sonra görür müyüm?
+ Bir depolama hesabı yapılandırdıktan sonra oluşturulan tüm veriler depolama hesabına gönderilir ve raporlarında kullanılabilir. Raporlama için devam eden işleri gönderilmez. İşin tamamlanana veya başarısız olduktan sonra Bu raporlar için gönderilir.
 
-**Depolama hesabı, raporları görüntülemek için yapılandırılmış, başka bir depolama hesabı kullanmak üzere yapılandırma değiştirebilirim?**
+### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Depolama hesabı, raporları görüntülemek için yapılandırılmış, başka bir depolama hesabı kullanmak üzere yapılandırma değiştirebilirim?
+Evet, farklı bir depolama hesabına işaret edecek şekilde yapılandırmasını değiştirebilirsiniz. Azure Backup içerik Paketi'ne bağlanmak yeni yapılandırılan depolama hesabı kullanın. Ayrıca, farklı bir depolama hesabı yapılandırdıktan sonra yeni veriler bu depolama hesabına akar. (Yapılandırmayı değiştirmemeden önce) daha eski verilere hala eski depolama hesabında kalır.
 
-   Evet, farklı bir depolama hesabına işaret edecek şekilde yapılandırmasını değiştirebilirsiniz. Azure Backup içerik Paketi'ne bağlanmak yeni yapılandırılan depolama hesabı kullanın. Ayrıca, farklı bir depolama hesabı yapılandırdıktan sonra yeni veriler bu depolama hesabına akar. (Yapılandırmayı değiştirmemeden önce) daha eski verilere hala eski depolama hesabında kalır.
+### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Raporları kasaları ve Aboneliklerde görüntüleyebilir miyim?
+Evet, kasa arası raporları görüntülemek için çeşitli kasaları aynı depolama hesabı yapılandırabilirsiniz. Ayrıca, abonelikler arasında kasaları için aynı depolama hesabı yapılandırabilirsiniz. Power bı'da raporları görüntülemek için Azure Backup içerik Paketi'ne bağlanırken, bu depolama hesabı kullanabilirsiniz. Seçilen depolama hesabına kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
 
-**Raporları kasaları ve Aboneliklerde görüntüleyebilir miyim?**
-
-   Evet, kasa arası raporları görüntülemek için çeşitli kasaları aynı depolama hesabı yapılandırabilirsiniz. Ayrıca, abonelikler arasında kasaları için aynı depolama hesabı yapılandırabilirsiniz. Power bı'da raporları görüntülemek için Azure Backup içerik Paketi'ne bağlanırken, bu depolama hesabı kullanabilirsiniz. Seçilen depolama hesabına kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
-   
 ## <a name="troubleshooting-errors"></a>Hatalarda sorun giderme
 | Hata Ayrıntıları | Çözüm |
 | --- | --- |
@@ -161,4 +156,3 @@ Depolama hesabı yapılandırın ve Azure Backup içerik paketini içeri aktarma
 * [Veri modeli raporlama bir Azure Backup kullanın](backup-azure-reports-data-model.md)
 * [Power BI raporları](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Power BI'da raporlar oluşturma](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-

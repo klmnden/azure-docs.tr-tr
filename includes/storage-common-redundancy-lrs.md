@@ -5,17 +5,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/24/2018
+ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a948a40e638b5f6e042c62ab58c2b7b65a49cd4e
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 32032f729283cb3f2a786412b563fdee88ba4c8a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741989"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238576"
 ---
-Yerel olarak yedekli depolama (LRS), en az %99,999999999 (11 dokuzlu) sağlayan belirli bir yıl boyunca nesnelerin dayanıklılık. LRS, verilerinizi depolama Ölçek birimine çoğaltarak bu nesne dayanıklılık sağlar. Depolama hesabınızı oluşturduğunuz bölge içinde bulunan bir veri merkezi depolama ölçek birimi barındırır. Tüm çoğaltmalar için verileri yalnızca yazıldıktan sonra bir LRS depolama hesabı için bir yazma isteği başarıyla döndürür. Her çoğaltma ayrı hata etki alanları ve güncelleme etki alanlarının bir depolama ölçek birimi içinde bulunur.
+Yerel olarak yedekli depolama (LRS), en az %99,999999999 (11 dokuzlu) sağlayan belirli bir yıl boyunca nesnelerin dayanıklılık. LRS, verilerinizi depolama Ölçek birimine çoğaltarak bu nesne dayanıklılık sağlar. Depolama hesabınızı oluşturduğunuz bölge içinde bulunan bir veri merkezi depolama ölçek birimi barındırır. Tüm çoğaltmalar için verileri yalnızca yazıldıktan sonra bir LRS depolama hesabı için bir yazma isteği başarıyla döndürür. Her çoğaltma ayrı hata etki alanları ve yükseltme etki alanlarının bir depolama ölçek birimi içinde bulunur.
 
 Bir depolama ölçek birimi, raflar depolama düğümünden bir koleksiyonudur. Hata etki alanı (FD) temsil eden bir fiziksel birimi hata düğümleri grubudur. Hata etki alanı aynı fiziksel dolaba Sürgülü ait düğümleri olarak düşünün. Bir yükseltme etki alanını (UD) birlikte (ürün) bir hizmet yükseltme işlemi sırasında yükseltilir düğümleri grubudur. Çoğaltmalar, UD ve Fd'ler bir depolama ölçek birimi içinde yayılır. Bu mimari, tek bir raf üstü bir donanım hatası etkilerse veya düğüm, hizmet yükseltme sırasında yükseltildiğinde verilerinizin kullanılabilir olmasını sağlar.
 

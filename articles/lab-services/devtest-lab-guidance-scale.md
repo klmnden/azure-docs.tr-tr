@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: ed6c21762fed331e2f11378ec9b6d91cba9bec11
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251147"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244888"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Azure DevTest Labs altyapınızın ölçeğini
 DevTest Labs Kurumsal ölçekte uygulamadan önce birkaç temel karar noktaları vardır. Bu karar noktaları yüksek bir düzeyde anlamak, tasarım kararlarını gelecekte bir kuruluşla yardımcı olur. Ancak, bu noktaları geri bir kavram kanıtı başlatılmasını bir kuruluş tutmak zorunda değil. Ölçek büyütme ilk planlama için ilk üç alanlar şunlardır:

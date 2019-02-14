@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820445"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236983"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -253,3 +253,6 @@ Noktaları, kaynak grubundaki kilit nedeniyle temizlenmez koleksiyonu geri yükl
 
 5. Tıklayın **Sil**, geri yükleme noktası koleksiyonunu temizlemek için.
 6. Yedekleme işlemi yeniden deneyin.
+
+> [!NOTE]
+ >Kaynak (RP koleksiyonu) büyük varsa, ardından aynı portaldan silinmesi geri yükleme noktası sayısı zaman aşımına uğrayabilir ve başarısız. Burada tüm geri yükleme noktaları görünürlüğe sürede silinmez ve işlem zaman aşımına bilinen bir CRP sorun budur; ancak silme işlemi genellikle 2 veya 3 denemeden sonra başarılı olur.

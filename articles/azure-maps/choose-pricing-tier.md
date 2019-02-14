@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 56f9226f1bee630895725eb0b3806e294e9a5b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218151"
+ms.locfileid: "56234689"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Azure haritalar fiyatlandırma katmanı sağ seçin
 
@@ -30,17 +30,21 @@ S0 ve S1 fiyatlandırma katmanları farklı miktarda veri aktarım hızı işley
 | Özellik                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Arama                                  |        ✓           |     ✓    |
-| Yönlendirme                                 |        ✓           |     ✓    |
-| İşleme                                  |        ✓           |     ✓    |
-| Trafik                                 |        ✓           |     ✓    |
-| Saat dilimleri                              |        ✓           |     ✓    |
-| Gözünüzde yanı sıra karma resimler    |            |     ✓    |
-| Rota aralığı                    |                   |     ✓    |
-| IP 2 konumu (Önizleme)                |        ✓           |     ✓    |
-| Aramaya ilişkin çokgenler          |                   |     ✓    |
 | Batch coğrafi kodlama (Önizleme)              |                   |     ✓    |
+| Aramaya ilişkin çokgenler          |                   |     ✓    |
+| Yönlendirme                                 |        ✓           |     ✓    |
+| Rota aralığı                    |                   |     ✓    |
 | Toplu iş (Önizleme) yönlendirme                |                   |     ✓    |
 | Matris (Önizleme) yönlendirme               |                   |     ✓    |
+| İşleme                                  |        ✓           |     ✓    |
+| Gözünüzde yanı sıra karma resimler    |            |     ✓    |
+| Trafik                                 |        ✓           |     ✓    |
+| Saat dilimleri                              |        ✓           |     ✓    |
+| Coğrafi konum (Önizleme)                |        ✓           |     ✓    |
+| Veri (Önizleme)               |                   |     ✓    |
+| Uzamsal (Önizleme)               |                   |     ✓    |
+| Bölge sınırlaması (Önizleme)               |                   |     ✓    |
+
 
 
 Bu ek veri noktaları, dikkate değer vardır:

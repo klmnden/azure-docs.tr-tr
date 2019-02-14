@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 43b482324f0244baf52edbb8989a56dd12833331
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 98cad0873c4ba687948dc404abc19655319bdc36
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104507"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232276"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veri çevrimdışı kopyalama için Azure içeri/dışarı aktarma hizmetini kullanma
 Bu makalede, büyük veri kümelerini kopyalama hakkında bilgi edineceksiniz (> 200 GB) gibi çevrimdışı kopya yöntemleri kullanarak Azure Data Lake depolama Gen1 içine [Azure içeri/dışarı aktarma hizmeti](../storage/common/storage-import-export-service.md). Özellikle, bu makaledeki örnek olarak kullanılan 339,420,860,416 bayt veya yaklaşık 319 GB disk üzerinde dosyasıdır. Bu dosya 319GB.tsv adlandıralım.
@@ -190,21 +190,24 @@ Bu bölümde, veri kopyalamak için bir Azure Data Factory işlem hattı oluştu
 Daha fazla bilgi için [Azure Data Factory kullanarak Azure depolama blobu'ndan Azure Data Lake depolama Gen1 için veri taşıma](../data-factory/connector-azure-data-lake-store.md).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veri dosyaları yeniden yapılandırma
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bir dosyayla 319 GB ve böylece Azure içeri/dışarı aktarma hizmetini kullanarak aktarılabilir, aşağı daha küçük boyut dosyalarına kesildi Başladık. Verileri Azure Data Lake depolama Gen1 olduğuna göre biz dosyanın özgün boyutuna yeniden oluşturabilir. Bunu yapmak için aşağıdaki Azure PowerShell cmdlet'lerini kullanabilirsiniz.
 
 ```
 # Login to our account
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # List your subscriptions
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # Switch to the subscription you want to work with
-Set-AzureRmContext -SubscriptionId
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+Set-AzContext -SubscriptionId
+Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
-Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
+Join-AzDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 630413d15df04d27599389f647c57876fff9d295
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094436"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237969"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI çalışma alanı koleksiyonları örnek ile kullanmaya başlama
 
@@ -73,7 +73,7 @@ Web uygulaması örneği içeri aktarılan raporlar işleyen bir örnek uygulama
 1. İçinde **Power BI embedded** Visual Studio çözümünü sağ **EmbedSample** seçin ve web uygulaması **başlangıç projesi olarak ayarla**.
 2. İçinde **web.config**, **EmbedSample** web uygulaması, Düzen **appSettings**: **AccessKey**, **WorkspaceCollection** adı ve **Workspaceıd**.
 
-    ```
+    ```xml
     <appSettings>
         <add key="powerbi:AccessKey" value="" />
         <add key="powerbi:ApiUrl" value="https://api.powerbi.com" />
@@ -106,19 +106,23 @@ Bir rapor tıkladıktan sonra **EmbedSample** web uygulaması görünmelidir bir
 
 **ReportsViewModel.cs**: Power BI raporları temsil eder.
 
-    public class ReportsViewModel
-    {
-        public List<Report> Reports { get; set; }
-    }
+```csharp
+public class ReportsViewModel
+{
+    public List<Report> Reports { get; set; }
+}
+```
 
 **ReportViewModel.cs**: Power BI raporuna temsil eder.
 
-    public classReportViewModel
-    {
-        public IReport Report { get; set; }
+```csharp
+public class ReportViewModel
+{
+    public IReport Report { get; set; }
 
-        public string AccessToken { get; set; }
-    }
+    public string AccessToken { get; set; }
+}
+```
 
 ### <a name="connection-string"></a>Bağlantı dizesi
 
@@ -140,92 +144,100 @@ Genel sunucu ve veritabanı kullanarak başarısız öznitelikler. Örneğin: Se
 | --- | --- |
 | Unvan |Raporun adı. |
 | QueryString |Bir bağlantı Raporu Kimliği |
-
-    <div id="reports-nav" class="panel-collapse collapse">
-        <div class="panel-body">
-            <ul class="nav navbar-nav">
-                @foreach (var report in Model.Reports)
-                {
-                    var reportClass = Request.QueryString["reportId"] == report.Id ? "active" : "";
-                    <li class="@reportClass">
-                        @Html.ActionLink(report.Name, "Report", new { reportId = report.Id })
-                    </li>
-                }
-            </ul>
-        </div>
+```cshtml
+<div id="reports-nav" class="panel-collapse collapse">
+    <div class="panel-body">
+        <ul class="nav navbar-nav">
+            @foreach (var report in Model.Reports)
+            {
+                var reportClass = Request.QueryString["reportId"] == report.Id ? "active" : "";
+                <li class="@reportClass">
+                    @Html.ActionLink(report.Name, "Report", new { reportId = report.Id })
+                </li>
+            }
+        </ul>
     </div>
-
+</div>
+```
 Report.cshtml: Ayarlama **Model.AccessToken**ve Lambda ifadesi **PowerBIReportFor**.
 
-    @model ReportViewModel
+```cshtml
+@model ReportViewModel
 
-    ...
+...
 
-    <div class="side-body padding-top">
-        @Html.PowerBIAccessToken(Model.AccessToken)
-        @Html.PowerBIReportFor(m => m.Report, new { style = "height:85vh" })
-    </div>
+<div class="side-body padding-top">
+    @Html.PowerBIAccessToken(Model.AccessToken)
+    @Html.PowerBIReportFor(m => m.Report, new { style = "height:85vh" })
+</div>
+```
 
 ### <a name="controller"></a>Denetleyici
 
 **DashboardController.cs**: PowerBIClient geçirme oluşturur bir **uygulama belirteci**. Bir JSON Web Token (JWT) oluşturulduğu **imzalama anahtarı** almak için **kimlik bilgilerini**. **Kimlik bilgilerini** bir örneğini oluşturmak için kullanılan **PowerBIClient**. Örneğini oluşturduktan sonra **PowerBIClient**, GetReports() ve GetReportsAsync() çağırabilirsiniz.
 
+
 CreatePowerBIClient()
 
-    private IPowerBIClient CreatePowerBIClient()
+```csharp
+private IPowerBIClient CreatePowerBIClient()
+{
+    var credentials = new TokenCredentials(accessKey, "AppKey");
+    var client = new PowerBIClient(credentials)
     {
-        var credentials = new TokenCredentials(accessKey, "AppKey");
-        var client = new PowerBIClient(credentials)
-        {
-            BaseUri = new Uri(apiUrl)
-        };
+        BaseUri = new Uri(apiUrl)
+    };
 
-        return client;
-    }
+    return client;
+}
+```
 
 ActionResult Reports()
 
-    public ActionResult Reports()
+```csharp
+public ActionResult Reports()
+{
+    using (var client = this.CreatePowerBIClient())
     {
-        using (var client = this.CreatePowerBIClient())
+        var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
+
+        var viewModel = new ReportsViewModel
         {
-            var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
+            Reports = reportsResponse.Value.ToList()
+        };
 
-            var viewModel = new ReportsViewModel
-            {
-                Reports = reportsResponse.Value.ToList()
-            };
-
-            return PartialView(viewModel);
-        }
+        return PartialView(viewModel);
     }
-
+}
+```
 
 Görev<ActionResult> rapor (dize Reportıd)
 
-    public async Task<ActionResult> Report(string reportId)
+```csharp
+public async Task<ActionResult> Report(string reportId)
+{
+    using (var client = this.CreatePowerBIClient())
     {
-        using (var client = this.CreatePowerBIClient())
+        var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
+        var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
+        var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+
+        var viewModel = new ReportViewModel
         {
-            var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
-            var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
-            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+            Report = report,
+            AccessToken = embedToken.Generate(this.accessKey)
+        };
 
-            var viewModel = new ReportViewModel
-            {
-                Report = report,
-                AccessToken = embedToken.Generate(this.accessKey)
-            };
-
-            return View(viewModel);
-        }
+        return View(viewModel);
     }
+}
+```
 
 ### <a name="integrate-a-report-into-your-app"></a>Bir raporu uygulamanızla tümleştirmek
 
 Sonra bir **rapor**, kullandığınız bir **IFrame** Power BI katıştırmak için **rapor**. Bir kod parçacığı içinde powerbi.js gelen işte **Microsoft Power BI çalışma alanı koleksiyonları** örnek.
 
-```
+```javascript
 init: function() {
     var embedUrl = this.getEmbedUrl();
     var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 

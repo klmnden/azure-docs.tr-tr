@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428248"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236014"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Yönetme öncesi ve sonrası betikler (Önizleme)
 
@@ -26,7 +26,7 @@ Otomasyon hesabınızda (öncesi görev) önce PowerShell runbook'ları çalış
 
 ## <a name="using-a-prepost-script"></a>Ön/son betik kullanarak
 
-Bir güncelleştirme dağıtımına öncesi ve/veya sonrası bir betik kullanmak için yalnızca güncelleştirme dağıtımı oluşturarak başlayın. Seçin **ön betiklerini + sonrası betikler (Önizleme)**. Bu açılır **seçin Ön betiklerini + sonrası betikler** sayfası.  
+Değiştirmek için bir öncesi kullanın ve post bir güncelleştirme dağıtımına komut dosyası, güncelleştirme dağıtımı oluşturarak başlayın. Seçin **ön betiklerini + sonrası betikler (Önizleme)**. Bu eylem açar **seçin Ön betiklerini + sonrası betikler** sayfası.  
 
 ![Komut dosyaları seçin](./media/pre-post-scripts/select-scripts.png)
 
@@ -42,17 +42,19 @@ Bu işlem için yineleme **UpdateManagement TurnOffVms** betiği. Ancak seçerke
 
 Güncelleştirme dağıtımınızı yapılandırma tamamlayın.
 
-Güncelleştirme dağıtımınıza tamamlandığında gidebilirsiniz **güncelleştirme dağıtımları** sonuçlarını görüntülemek için. Sağlanan betik öncesi ve betik sonrası olan durumunu görebileceğiniz gibi.
+Güncelleştirme dağıtımınıza tamamlandığında gidebilirsiniz **güncelleştirme dağıtımları** sonuçlarını görüntülemek için. Gördüğünüz gibi betik öncesi ve betik sonrası durumunu sağlanır.
 
 ![Güncelleştirme Sonuçları](./media/pre-post-scripts/update-results.png)
 
-Güncelleştirme dağıtımının çalıştırdığınız tıklayarak öncesi ve sonrası betikler için ek ayrıntılar verilmiştir. Çalışma zamanında betik kaynağı için bir bağlantı sağlanır.
+Güncelleştirme dağıtımını çalıştırmak tıklayarak öncesi ve sonrası betikler için ek ayrıntılar sunulur. Çalışma zamanında betik kaynağı için bir bağlantı sağlanır.
 
 ![Dağıtım sonuçları çalıştırma](./media/pre-post-scripts/deployment-run.png)
 
 ## <a name="passing-parameters"></a>Parametreleri geçirme
 
-Yapılandırırken runbook'u zamanlama parametrelerinde yalnızca geçirebilirsiniz öncesi ve sonrası betikler gibi. Parametreler, güncelleştirme dağıtımı oluşturma zamanında tanımlanır. Ek olarak standart runbook parametrelerini, ek bir parametre olarak sağlanır. Bu parametre **SoftwareUpdateConfigurationRunContext**. Bu bir JSON dizesi parametresidir ve parametresi önceki veya sonraki betiğinizde tanımlarsanız, bu otomatik olarak güncelleştirme dağıtımından geçirilir. Parametre bir alt kümesi olan bir güncelleştirme dağıtımı hakkında bilgi içeren tarafından döndürülen bilgilerin [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) aşağıdaki tabloda değişkeninde sağlanan özelliklerini gösterir:
+Ne zaman önceden yapılandırdığınız ve sonrası betikler, runbook zamanlama gibi parametreleri geçirebilirsiniz. Parametreler, güncelleştirme dağıtımı oluşturma zamanında tanımlanır. Öncesi ve sonrası betikler parametreleri türünde olmasını gerektir `String`. Başka bir nesne türü gerekiyorsa, bunu kullanarak başka bir türüne çevirebilirsiniz `[System.Convert]` veya kendi tanıtıcı.
+
+Standart runbook parametrelerini ek olarak, ek bir parametre olarak sağlanır. Bu parametre **SoftwareUpdateConfigurationRunContext**. Bu bir JSON dizesi parametresidir ve parametresi önceki veya sonraki betiğinizde tanımlarsanız, bu otomatik olarak güncelleştirme dağıtımından geçirilir. Parametre bir alt güncelleştirme dağıtımı hakkında bilgi içeren tarafından döndürülen bilgilerin [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) aşağıdaki tabloda değişkeninde sağlanan özelliklerini gösterir:
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext properties
 
@@ -70,7 +72,7 @@ Yapılandırırken runbook'u zamanlama parametrelerinde yalnızca geçirebilirsi
 |azureVirtualMachines     | Güncelleştirme dağıtımındaki Azure Vm'leri için Resourceıds listesi        |
 |nonAzureComputerNames|Güncelleştirme dağıtımındaki FQDN'leri Azure dışı bilgisayarlar listesi|
 
-İçin geçirilen bir JSON dizesi örneği verilmiştir **SoftwareUpdateConfigurationRunContext** parametresi:
+Aşağıdaki örnek, bir JSON dizesi için geçirilen **SoftwareUpdateConfigurationRunContext** parametresi:
 
 ```json
 "SoftwareUpdateConfigurationRunContext":{
@@ -119,7 +121,7 @@ Veya, bunlar için komut dosyası adlarına göre aşağıda görüldüğü gibi
 > [!IMPORTANT]
 > Runbook'ları içeri aktardıktan sonra yapmanız gerekenler **Yayımla** kullanılabilmesi için önce bunları. Yapmak için Otomasyon hesabınızda, select runbook'u bulun **Düzenle**, tıklatıp **Yayımla**.
 
-Örnekleri, aşağıdaki örnekte tanımlanan temel şablondaki tüm temel alır. Bu şablon, öncesi ve sonrası betikleri ile kullanmak için kendi runbook'unuzu oluşturmak için kullanılabilir. Azure ile kimlik doğrulaması hem de işleme için gerekli mantığı `SoftwareUpdateConfigurationRunContext` parametresi dahil edilir.
+Örnekleri, aşağıdaki örnekte tanımlanan temel şablondaki tüm temel alır. Bu şablon, öncesi ve sonrası betikleri ile kullanmak için kendi runbook'unuzu oluşturmak için kullanılabilir. Azure ile kimlik doğrulama ve işleme için gerekli mantığı `SoftwareUpdateConfigurationRunContext` parametresi dahil edilir.
 
 ```powershell
 <# 
@@ -174,14 +176,14 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-non-azure-machines"></a>Azure olmayan makineler ile etkileşim kurma
 
-Öncesi ve sonrası görevleri Azure bağlamında çalışır ve Azure olmayan makineler için erişimi yoktur. Azure olmayan makineler ile etkileşim kurmak için aşağıdakilere sahip olmanız gerekir:
+Öncesi ve sonrası görevleri Azure bağlamında çalışır ve Azure olmayan makineler erişiminiz yok. Azure olmayan makineler ile etkileşimde bulunmak üzere, aşağıdaki öğelere sahip olmanız gerekir:
 
 * Bir farklı çalıştır hesabı
 * Karma Runbook çalışanı makinede yüklü
 * Yerel olarak çalıştırmak istediğiniz runbook'u
 * Üst runbook
 
-İle etkileşim kurmak için Azure olmayan makineler üst runbook Azure bağlamında çalıştı. Bu runbook'u ile bir alt runbook'u çağırır [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet'i. Belirtmelisiniz `-RunOn` parametresi ve karma Runbook çalışanı üzerinde çalışacak bir betik için adını belirtin.
+Azure olmayan makineler ile etkileşimde bulunmak üzere üst runbook Azure bağlamında çalıştırılır. Bu runbook'u ile bir alt runbook'u çağırır [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet'i. Belirtmelisiniz `-RunOn` parametresi ve karma Runbook çalışanı üzerinde çalışacak bir betik için adını belirtin.
 
 ```powershell
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'

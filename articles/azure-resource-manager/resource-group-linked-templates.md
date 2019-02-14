@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 69dd9374f32dbea7ab6f11beec0204ac26e299bc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 92e5fb782eed3344a55178d6ba74dfd6d7b8cafd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104457"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235923"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlı, şablonları Azure kaynakları dağıtılırken iç içe kullanma
 
@@ -31,7 +31,9 @@ Bağlı şablonlar kullanırken, dağıtım sırasında parametre değerleri ala
 
 Bir öğretici için bkz. [Öğreticisi: bağlı bir Azure Resource Manager şablonları oluşturma](./resource-manager-tutorial-create-linked-templates.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> Bağlantılı veya iç içe geçmiş şablonlar için yalnızca kullanabilirsiniz [artımlı](deployment-modes.md) dağıtım modu.
+>
 
 ## <a name="link-or-nest-a-template"></a>Bir şablonu içe veya bağlantı
 
@@ -52,8 +54,6 @@ Başka bir şablona bağlamak için ekleme bir **dağıtımları** ana şablon k
 ```
 
 Dağıtım kaynağı için sağladığınız özellikleri, dış bir şablona bağlama veya iç içe bir ana şablon satır içi şablonunda göre değişir.
-
-Hem bağlantılı hem de iç içe şablonlar için yalnızca kullanabilirsiniz [artımlı](deployment-modes.md) dağıtım modu.
 
 ### <a name="nested-template"></a>İç içe geçmiş şablon
 

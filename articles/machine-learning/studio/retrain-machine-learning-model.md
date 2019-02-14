@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: e691913daabb832b2a3b51dac5d4a5b0e1f53871
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165089"
+ms.locfileid: "56236269"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Bir Azure Machine Learning Studio modeli yeniden eğitme
 Azure Machine Learning, machine learning modellerini, operasyonel hale getirme sürecinin bir parçası olarak, modelinizi eğitilmiş ve kaydedilir. Ardından, bir Tahmine dayalı Web hizmeti oluşturmak için kullanabilirsiniz. Web hizmeti web siteleri, panolar ve mobil uygulamalarda tüketilebilir. 
@@ -53,8 +53,6 @@ Web hizmetini yeniden eğitme:
 * Yeniden eğitme web hizmetini dağıtma
 * Modeli yeniden eğitme için toplu yürütme hizmeti kodu kullanın
 
-Önceki bir gözden geçirme adımları için bkz: [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](retrain-models-programmatically.md).
-
 > [!NOTE] 
 > Yeni bir web hizmetini dağıtmak için yeterli olan aboneliği, web hizmetini dağıtma olması gerekir. Daha fazla bilgi edinmek, [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md). 
 
@@ -74,8 +72,6 @@ Yeni Web hizmetini dağıttıysanız:
 * Başvuru güncelleştirme `ilearner` JSON blob
 * Web hizmet tanımı JSON dosyasını içe
 * Yeni Web hizmeti tanımıyla Web hizmetini güncelleştirmek
-
-Önceki bir gözden geçirme adımları için bkz: [Machine Learning Yönetimi PowerShell cmdlet'lerini kullanarak bir yeni Web hizmetini yeniden eğitme](retrain-new-web-service-using-powershell.md).
 
 İşlem için bir Klasik Web hizmetini yeniden eğitme yukarı ayarlamak için aşağıdaki adımları içerir:
 

@@ -1,5 +1,5 @@
 ---
-title: "SSMS: Azure SQL veritabanı'nda verileri bağlama ve sorgulama | Microsoft Docs"
+title: 'SSMS: Bir Azure SQL veritabanında verileri bağlama ve sorgulama | Microsoft Docs'
 description: SQL Server Management Studio (SSMS) kullanarak Azure'da SQL Database'e nasıl bağlanılacağını öğrenin. Ardından, verileri sorgulamak ve düzenlemek için Transact-SQL (T-SQL) deyimleri çalıştırın.
 keywords: sql veritabanına bağlanma,sql server management studio
 services: sql-database
@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 095d7cf43d071d3857160d05e721bf7ac165cba2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: 5c5b32eaf3066abe4489d909e224d2aa65e884a7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756793"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238037"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: Bağlanmak ve bir Azure SQL veritabanı sorgulamak için SQL Server Management Studio'yu kullanın.
 
@@ -26,19 +26,35 @@ Bu hızlı başlangıçta kullanacaksınız [SQL Server Management Studio] [ ssm
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+- Bir Azure SQL veritabanı. Şu hızlı başlangıçlardan biriyle oluşturmak ve ardından bir veritabanını Azure SQL veritabanı'nda yapılandırmak için kullanabilirsiniz:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  || Tek veritabanı | Yönetilen örnek |
+  |:--- |:--- |:---|
+  | Oluştur| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Yapılandırma | [sunucu düzeyinde IP güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md)| [Bir VM bağlantısı](sql-database-managed-instance-configure-vm.md)|
+  |||[Şirket içi bağlantısı](sql-database-managed-instance-configure-p2s.md)
+  |Veri yükleme|Adventure Works hızlı başlangıç yüklendi|[Wide World Importers geri yükleme](sql-database-managed-instance-get-started-restore.md)
+  |||Geri yükleme ya da Adventure Works'den içe [BACPAC](sql-database-import.md) dosya [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
 
-* Yapılandırılmış sunucu düzeyinde güvenlik duvarı kuralı. Daha fazla bilgi için [sunucu düzeyinde güvenlik duvarı kuralı oluşturma](sql-database-server-level-firewall-rule.md).
+  > [!IMPORTANT]
+  > Komut bu makalede, Adventure Works veritabanı kullanmak için yazılır. Yönetilen örnek sayesinde, Adventure Works veritabanı bir örneği veritabanına aktarmak veya betiklerde Wide World Importers veritabanını kullanmak için bu makaleyi değiştirin.
 
 ## <a name="install-the-latest-ssms"></a>En son SSMS’yi yükleyin
 
 Başlamadan önce en son yüklediğinizden emin olun [SSMS][ssms-install-latest-84g]. 
 
-## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
+## <a name="get-sql-server-connection-information"></a>SQL server bağlantı bilgilerini alma
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Yaklaşan yordamlar için tam sunucu adını veya ana bilgisayar adı, veritabanı adını ve oturum açma bilgileri gerekir.
+
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+
+2. Gidin **SQL veritabanları** veya **SQL yönetilen örnekler** sayfası.
+
+3. Üzerinde **genel bakış** sayfasında, tam sunucu adını gözden **sunucu adı** tek bir veritabanı veya tam sunucu adı yanındaki **konak** yönetilen bir örneği. Sunucu adı veya ana bilgisayar adı kopyalamak için üzerine gelin ve seçin **kopyalama** simgesi.
 
 ## <a name="connect-to-your-database"></a>Veritabanınıza bağlanın
 
