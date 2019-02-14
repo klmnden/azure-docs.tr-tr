@@ -15,6 +15,7 @@
 ## [MySQL’i MySQL için Azure DB’ye çevrimiçi geçirme](tutorial-mysql-azure-mysql-online.md)
 ## [PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure DB‘ye geçirme](tutorial-postgresql-azure-postgresql-online.md)
 ## [MongoDB'yi çevrimdışı ortamda Azure Cosmos DB Mongo API'sine geçirme](tutorial-mongodb-cosmos-db.md)
+## [MongoDB'yi çevrimiçi ortamda Azure Cosmos DB Mongo API'sine geçirme](tutorial-mongodb-cosmos-db-online.md)
 
 # Nasıl yapılır kılavuzları
 ## [SQL Server’ı Azure SQL DB'ye geçirmek için PowerShell kullanma](howto-sql-server-to-azure-sql-powershell.md)

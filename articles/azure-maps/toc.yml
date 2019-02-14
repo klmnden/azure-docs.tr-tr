@@ -31,6 +31,8 @@ items:
     href: azure-maps-event-grid-integration.md
   - name: Doğru fiyatlandırma katmanını seçin
     href: choose-pricing-tier.md
+  - name: Azure Haritalar ile kimlik doğrulaması
+    href: azure-maps-authentication.md
   - name: Kapsam
     items:
     - name: Coğrafi kodlama kapsamı
@@ -49,8 +51,10 @@ items:
   items:
   - name: Haritalar hesaplarını yönetme
     items:
-    - name: Hesapları ve anahtarları yönetme
+    - name: Hesapları yönetme
       href: how-to-manage-account-keys.md
+    - name: Kimlik doğrulamasını yönetme
+      href: how-to-manage-authentication.md
     - name: Fiyatlandırma katmanını yönetme
       href: how-to-manage-pricing-tier.md
     - name: Kullanım ölçümlerini görüntüleme
@@ -59,6 +63,8 @@ items:
     items:
     - name: Adres arama
       href: how-to-search-for-address.md
+    - name: Statik haritada özel veri işleme
+      href: how-to-render-custom-data.md
   - name: JavaScript haritaları oluşturma
     items:
     - name: Harita denetimini kullanma
@@ -99,6 +105,10 @@ items:
       href: map-events.md
     - name: Erişilebilir harita uygulamaları
       href: map-accessibility.md
+  - name: Android haritaları oluşturma
+    items:
+    - name: Android harita denetimini kullanma
+      href: how-to-use-android-map-control-library.md
 - name: Başvuru
   items:
   - name: API ve parametre uzantıları
@@ -183,9 +193,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videolar
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: 0fb1d864dd18a781d0eeba4c8dea610e3ccb07f2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6a657596cb266db20404d7f2ec1074834d181772
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999462"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111059"
