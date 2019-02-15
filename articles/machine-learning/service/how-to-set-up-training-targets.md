@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 292063183561722eae76c3d30ce242facd22df26
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a0d20d6cdb719f34a50052ff2eb693071c7ece96
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981460"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268167"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
@@ -177,7 +177,7 @@ Azure veri bilimi sanal makinesi (DSVM), bu senaryo için tercih ettiğiniz Azur
                                                     username='<username>',
                                                     password="<password>")
 
- # If you use SSH instead of a password, use this code:
+ # If you authenticate with SSH keys instead, use this code:
  #                                                  ssh_port=22,
  #                                                  username='<username>',
  #                                                  password=None,

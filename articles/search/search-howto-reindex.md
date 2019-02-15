@@ -6,21 +6,21 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 55de72b2a82dea3dfe763d786966565beb229042
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1d9dffe9d311674aeb043fcc4c35110775f420af
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745100"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300814"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Nasıl bir Azure Search dizini yeniden oluşturma
 
 Bu makalede, Azure Search dizini altında yeniden oluşturulması gereken durumlar ve devam eden bir sorgu isteği yeniden etkisini Azaltıcı öneriler yeniden açıklanmaktadır.
 
-A *yeniden* bırakılıyor ve alan tabanlı tüm ters dizinleri dahil olmak üzere bir dizin ile ilişkili fiziksel veri yapılarını yeniden ifade eder. Azure Search'te, bırak ve belirli alanları yeniden oluşturun. Bir dizini yeniden oluşturma için tüm alan depolama silinmesi gerekir, yeniden bir mevcut ya da düzeltilmiş dizin şemasını temel alan ve sonra dizini atıldığında veya dış kaynaklardan alınıp verilerle yeniden. Dizinleri yeniden oluştur geliştirme sırasında yaygın bir uygulamadır, ancak karmaşık türler ekleme gibi yapısal değişiklikler, uyum sağlamak için bir üretim düzeyinde dizini yeniden oluşturmanız gerekebilir.
+A *yeniden* bırakılıyor ve alan tabanlı tüm ters dizinleri dahil olmak üzere bir dizin ile ilişkili fiziksel veri yapılarını yeniden ifade eder. Azure Search'te, bırakma ve her bir alanı yeniden oluşturun. Bir dizini yeniden oluşturma için tüm alan depolama silinmesi gerekir, yeniden bir mevcut ya da düzeltilmiş dizin şemasını temel alan ve sonra dizini atıldığında veya dış kaynaklardan alınıp verilerle yeniden. Dizinleri yeniden oluştur geliştirme sırasında yaygın bir uygulamadır, ancak karmaşık türleri ekleme veya öneri araçları için alanlar ekleme gibi yapısal değişiklikler, uyum sağlamak için bir üretim düzeyinde dizini yeniden oluşturmanız gerekebilir.
 
 Dizin çevrimdışına yeniden kullanılmasının *veri yenileme* arka plan görevi olarak çalışır. Eklemek, kaldırmak ve sorguları genellikle tamamlanması uzun zaman rağmen belgeleri sorgu iş yükleri için en az kesinti değiştirin. Dizin içeriği güncelleştirme hakkında daha fazla bilgi için bkz: [ekleme, güncelleştirme veya silme belgeleri](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -28,7 +28,9 @@ Dizin çevrimdışına yeniden kullanılmasının *veri yenileme* arka plan gör
 
 | Koşul | Açıklama |
 |-----------|-------------|
-| Bir alan tanımı değiştirme | Ad, veri türü veya özel düzeltilmesi [dizin öznitelikleridir](https://docs.microsoft.com/rest/api/searchservice/create-index) (aranabilir, filtrelenebilir, sıralanabilir, modellenebilir) tam yeniden derleme gerektirir. |
+| Bir alan tanımı değiştirme | Bir alan adı, veri türü veya özel düzeltilmesi [dizin öznitelikleridir](https://docs.microsoft.com/rest/api/searchservice/create-index) (aranabilir, filtrelenebilir, sıralanabilir, modellenebilir) tam yeniden derleme gerektirir. |
+| Bir alana bir çözümleyici ekleme | [Çözümleyiciler](search-analyzers.md) dizin içinde tanımlanır ve ardından alanlara atanmış. Bir dizin için herhangi bir zamanda bir çözümleyici ekleyebilirsiniz, ancak alanı oluşturulduğunda yalnızca bir çözümleyici atayabilirsiniz. Bunun için her ikisi de true **Çözümleyicisi** ve **indexAnalyzer** özellikleri. **SearchAnalyzer** özelliği bir özel durum.
+| Bir alan için bir öneri aracı ekleme | Bir alan zaten var ve eklemek istiyorsanız bir [öneri Araçları](index-add-suggesters.md) oluşturmak, dizini yeniden oluşturmanız gerekir. |
 | Bir alan silme | Bir alanın tüm izlemeleri fiziksel olarak kaldırın için dizini yeniden oluşturmanız gerekir. Hemen bir yeniden oluşturma uygulaması olmadığında, geliştiricilerin çoğu "silindi" alanına erişimi devre dışı bırakma, uygulama kodu değiştirin. Fiziksel alan tanımı ve içeriği dizine alan atlar bir şemayı kullanarak bir sonraki yeniden kadar söz konusu kalır. |
 | Katmanları arasında geçiş | Daha fazla kapasiteye ihtiyaç duyuyorsanız, yerinde yükseltme yoktur. Yeni Kapasite noktada yeni bir hizmet oluşturuldu ve sıfırdan yeni hizmette dizinler oluşturulmalıdır. |
 
@@ -36,10 +38,10 @@ Mevcut fiziksel yapıları etkilemeden diğer herhangi bir değişiklik yapılab
 
 + Yeni alan ekleme
 + Ayarlama **alınabilir** varolan bir alan özniteliği
-+ Varolan bir alana bir çözümleyici ayarlayın
++ Ayarlanmış bir **searchAnalyzer** varolan bir alanı
++ Eklemek, güncelleştirmek ya da bir çözümleyici yapısı içinde bir dizini silme
 + Eklemek, güncelleştirmek ya da Puanlama profilleri Sil
 + Ekleme, güncelleştirme veya silme CORS ayarları
-+ Ekleme, güncelleştirme veya öneri araçları silme
 + Ekleme, güncelleştirme veya synonymMaps Sil
 
 Yeni bir alan eklediğinizde, var olan dizini oluşturulan belgeler yeni alan için bir null değer verilir. Gelecekteki veri yenileme, dış kaynak veri değerleri, Azure Search tarafından eklenen null değerlere değiştirin.
@@ -76,7 +78,7 @@ Dizin güncelleştirmeleri hizmet düzeyinde okuma / yazma izinleri gereklidir. 
 
 5. [Belgeler dizinde yük](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) bir dış kaynaktan. Bu API, bir var olan ve değiştirilmemiş bir dizin şemasını güncelleştirilmiş belgeleri ile yeniliyorsanız de kullanabilirsiniz.
 
-Dizin oluşturma, fiziksel depolama dizin şeması içindeki her alan için aranabilir her alan için oluşturulan bir ters dizini ile ayrılır. Alanlar, aranabilir değil can filtreleri veya ifadeleri, kullanılacak ancak değil sahip ters dizinleri ve tam metin olmayan aranabilir. Bir dizinin yeniden oluşturulması bu ters dizinleri silindiğinde ve yeniden sağladığınız dizin şemasını temel alan.
+Dizin oluşturma, fiziksel depolama dizin şeması içindeki her alan için aranabilir her alan için oluşturulan bir ters dizini ile ayrılır. Aranabilir olmayan alanlar filtreleri veya ifadelerinde kullanılabilir, ancak değil sahip ters dizinleri ve değil tam metin veya benzer olan aranabilir. Bir dizinin yeniden oluşturulması bu ters dizinleri silindiğinde ve yeniden sağladığınız dizin şemasını temel alan.
 
 Dizin yüklediğinizde, her bir alanın ters dizin tüm kimlikleri karşılık gelen Belge Haritası ile her belgenin benzersiz, parçalanmış sözcükleri doldurulur. Örneğin, Oteller veri kümesi dizin oluşturulurken bir şehir alan için oluşturulan ters dizin koşulları Seattle, Portland ve benzeri içerebilir. Seattle veya Portland Şehir alanına içeren belgeleri terimi yanı sıra listede, belge kimliği gerekir. Tüm [ekleme, güncelleştirme veya silme](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) işlemi, hüküm ve belge kimliği listesi güncelleştirilir uygun şekilde.
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 52b42e964e7abe207064aff49f7f8f27f8476ef4
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 52653252df3efd3e12fa974ed82cd2557eee93d0
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092851"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301256"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS diğer ad kayıtlarını genel bakış
 
@@ -52,11 +52,11 @@ Diğer ad kayıtlarını bu senaryoyla ilişkili neden olduğu karmaşadan kurtu
 
 ### <a name="update-dns-zones-automatically-when-application-ips-change"></a>Uygulama IP'ler değiştirdiğinizde, DNS bölgelerini otomatik olarak güncelleştirin
 
-Bu senaryo, Öncekine benzer. Belki de bir uygulama taşınır veya temel sanal makine yeniden başlatılır. Bir diğer ad kaydı daha sonra otomatik olarak IP adresi için temel alınan genel IP kaynağı değiştiğinde güncelleştirir. Olası güvenlik risklerini önlemek için kullanıcılara eski IP adresine sahip başka bir uygulamaya doğrudan.
+Bu senaryo, Öncekine benzer. Belki de bir uygulama taşınır veya temel sanal makine yeniden başlatılır. Bir diğer ad kaydı daha sonra otomatik olarak IP adresi için temel alınan genel IP kaynağı değiştiğinde güncelleştirir. Bu, kullanıcılar eski IP adresine sahip başka bir uygulamaya yönlendiren, olası güvenlik risklerini ortadan kaldırır.
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Konak yük dengeli uygulamalarda bölgenin tepesindeki
 
-DNS protokolü, bir A veya AAAA kaydı bölgenin tepesindeki dışında herhangi bir şeyi atamayı engeller. Contoso.com buna bir örnektir. Bu kısıtlama, yük dengeli uygulamalarda arkasında Traffic Manager sahip uygulama sahipleri için bir sorunu gösterir. Traffic Manager profilinde bölgenin tepesinde kaydını işaret etmek mümkün değildir. Sonuç olarak, uygulama sahipleri, geçici bir çözüm kullanmanız gerekir. Uygulama katmanındaki bir yeniden yönlendirme başka bir etki bölge tepesinde yeniden yönlendirmeniz gerekir. Contoso.com yeniden yönlendirme www.contoso.com için buna bir örnektir. Bu düzenleme tek bir yeniden yönlendirme işlevine yönelik bir hata noktası sunar.
+DNS protokolü, bir A veya AAAA kaydı bölgenin tepesindeki dışında herhangi bir şeyi atamayı engeller. Örneğin: contoso.com. Bu kısıtlama, yük dengeli uygulamalarda arkasında Traffic Manager sahip uygulama sahipleri için bir sorunu gösterir. Traffic Manager profilinde bölgenin tepesinde kaydını işaret etmek mümkün değildir. Sonuç olarak, uygulama sahipleri, geçici bir çözüm kullanmanız gerekir. Uygulama katmanındaki bir yeniden yönlendirme başka bir etki bölge tepesinde yeniden yönlendirmeniz gerekir. Contoso.com yeniden yönlendirme www.contoso.com için buna bir örnektir. Bu düzenleme tek bir yeniden yönlendirme işlevine yönelik bir hata noktası sunar.
 
 Diğer ad kayıtlarını ile bu sorun artık yok. Artık uygulama sahipleri kendi bölge tepesinde kayıt dış uç noktaları olan bir Traffic Manager profiline işaret edebilir. Uygulama sahibi kendi DNS bölgesi içinde başka bir etki alanı için kullanılan aynı Traffic Manager profilini işaret edebilir. Örneğin, contoso.com ve www.contoso.com aynı Traffic Manager profiline işaret edebilir. Traffic Manager profilini yapılandırılmış yalnızca harici son noktaları olduğu sürece bu durum geçerlidir.
 
@@ -64,6 +64,6 @@ Diğer ad kayıtlarını ile bu sorun artık yok. Artık uygulama sahipleri kend
 
 Diğer ad kayıtları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Öğretici: Azure genel IP adresine başvurmak için bir diğer ad kaydı yapılandırma](tutorial-alias-pip.md)
-- [Öğretici: bir diğer ad kaydı apex etki alanı adları ile Traffic Manager'ı destekleyecek şekilde yapılandırma](tutorial-alias-tm.md)
+- [Öğretici: Bir Azure genel IP adresini belirtmek için bir diğer ad kaydı yapılandırma](tutorial-alias-pip.md)
+- [Öğretici: Bir diğer ad kaydı Apex etki alanı adları ile Traffic Manager'ı destekleyecek şekilde yapılandırma](tutorial-alias-tm.md)
 - [DNS SSS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)

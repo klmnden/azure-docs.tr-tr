@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 8d99a52b500377e02af339588fe7155e26cf588c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: fd8fa690c508b8bf748490668c1e9aaa811ac247
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233401"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300288"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure İşlevleri için sürekli dağıtım
 Azure işlevleri işlev uygulamanızı App Service'e sürekli tümleştirme kullanarak dağıtma kolaylaştırır. İşlevleri, BitBucket, Dropbox, GitHub ve Azure DevOps ile tümleşir. Bu, Azure'a bu tümleşik hizmetler tetikleyici dağıtımı birini kullanarak yapılan işlev kodunu burada güncelleştirmeleri bir iş akışı sağlar. Azure işlevleri'ne yeni başladıysanız, başlayan [Azure işlevlerine genel bakış](functions-overview.md).

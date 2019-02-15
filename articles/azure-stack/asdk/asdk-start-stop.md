@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0073427028d20ab969b8d0135b1c831d7fdf8c73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b821c5cfa0dd9ea605d0d0a73e0b98a64a7502b7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191983"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268660"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Azure Stack geliştirme Seti'ni (ASDK) başlatıp
 Yalnızca ASDK ana bilgisayarı yeniden başlatmak için önerilmez. Bunun yerine, düzgün bir şekilde kapatılmasını ve ASDK hizmetleri yeniden başlatmak için bu makaleyi yordamlarını izlemelisiniz. 
@@ -29,7 +29,7 @@ Yalnızca ASDK ana bilgisayarı yeniden başlatmak için önerilmez. Bunun yerin
 ## <a name="stop-azure-stack"></a>Azure Stack Durdur 
 Azure Stack hizmetlerinin ve ASDK ana bilgisayar doğru kapatmak için aşağıdaki PowerShell komutlarını kullanın:
 
-1. AzureStack\CloudAdmin ASDK ana bilgisayarda oturum açın.
+1. AzureStack\AzureStackAdmin ASDK ana bilgisayarda oturum açın.
 2. PowerShell'i yönetici olarak (PowerShell ISE değil) açın.
 3. Ayrıcalıklı uç noktası (CESARETLENDİRİCİ) oturum oluşturmak için aşağıdaki komutları çalıştırın: 
 
@@ -49,7 +49,7 @@ ASDK Hizmetleri, ana bilgisayar başlatıldığında otomatik olarak başlayacak
 ASDK nasıl kapatıldığı bağımsız olarak ana bilgisayar açılana sonra tüm Azure Stack hizmetleri kullanmaya başlama ve tam olarak işlevsel olduğunu doğrulamak için aşağıdaki adımları kullanmalısınız: 
 
 1. Güç ASDK ana bilgisayarda. 
-2. AzureStack\CloudAdmin ASDK ana bilgisayarda oturum açın.
+2. AzureStack\AzureStackAdmin ASDK ana bilgisayarda oturum açın.
 3. PowerShell'i yönetici olarak (PowerShell ISE değil) açın.
 4. Ayrıcalıklı uç noktası (CESARETLENDİRİCİ) oturum oluşturmak için aşağıdaki komutları çalıştırın:
 
@@ -68,7 +68,7 @@ Düzgün bir şekilde kapatılmasını ve Azure Stack hizmetlerini yeniden başl
 ## <a name="troubleshoot-startup-and-shutdown"></a>Başlatma ve kapatma sorunlarını giderme 
 Azure Stack hizmetlerini, power ASDK ana bilgisayarınızda iki saat içinde başarıyla başlatma, aşağıdaki adımları gerçekleştirin:
 
-1. AzureStack\CloudAdmin ASDK ana bilgisayarda oturum açın.
+1. AzureStack\AzureStackAdmin ASDK ana bilgisayarda oturum açın.
 2. PowerShell'i yönetici olarak (PowerShell ISE değil) açın.
 3. Ayrıcalıklı uç noktası (CESARETLENDİRİCİ) oturum oluşturmak için aşağıdaki komutları çalıştırın:
 

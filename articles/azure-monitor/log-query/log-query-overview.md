@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002297"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269969"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Azure İzleyici'de günlük verilerini çözümleme
 
-Azure İzleyici tarafından toplanan günlük verilerini temel aldığı bir Log Analytics çalışma alanında depolanan [Azure Veri Gezgini](/azure/data-explorer). Çeşitli kaynaklardan telemetri toplar ve kullandığı [sorgu dilini veri Gezgini'nde](/azure/kusto/query) almak ve verileri çözümlemek için.
+Azure İzleyici tarafından toplanan günlük verilerini temel aldığı bir Log Analytics çalışma alanında depolanan [Azure Veri Gezgini](/azure/data-explorer). Çeşitli kaynaklardan telemetri toplar ve kullandığı [Kusto sorgu dili](/azure/kusto/query) almak ve verileri çözümlemek için Veri Gezgini tarafından kullanılır.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -47,7 +47,7 @@ Azure İzleyici'de günlük sorguları kullanacağını farklı yollar şunlard�
 ![Günlük aramaları](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Bir sorgu yazma
-Azure İzleyicisi'ni kullanan [Veri Gezgini sorgu dil sürümünü](get-started-queries.md) almak ve günlük verilerini çeşitli şekillerde analiz etmek için.  Temel sorgular genellikle başlatmak ve gereksinimlerinizi daha karmaşık bir HAL aldıkça daha gelişmiş işlevleri kullanmak için ilerleme durumu.
+Azure İzleyicisi'ni kullanan [Kusto sorgu dil sürümünü](get-started-queries.md) almak ve günlük verilerini çeşitli şekillerde analiz etmek için.  Temel sorgular genellikle başlatmak ve gereksinimlerinizi daha karmaşık bir HAL aldıkça daha gelişmiş işlevleri kullanmak için ilerleme durumu.
 
 Bir sorgu temel yapısı bir dikey çizgi karakteriyle ayırarak işleçleri dizi arkasından bir kaynak tablodur `|`.  Verilerin oluşturulup geliştirilmesi ve gelişmiş işlevleri gerçekleştirmek için birden çok işleç araya zincirleyebilirsiniz.
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/11/2019
+ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243994"
+ms.locfileid: "56268796"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services olayları Azure Event Grid şemaları
 
@@ -42,7 +42,7 @@ Tüm olaylar için JobStateChange olaya abone olarak kaydedebilirsiniz. Veya yal
 | Microsoft.Media.JobCanceled| İş iptal edilmiş duruma geçtiğinde bir olay alırsınız. Bu iş çıkışları içeren son bir durumdur.|
 | Microsoft.Media.JobErrored| İş hata durumuna geçtiğinde bir olay alırsınız. Bu iş çıkışları içeren son bir durumdur.|
 
-[Şema örnekler](#event-schema-examples) izleyin.
+Bkz: [Şeması Örnekleri](#event-schema-examples) anlatılmaktadır.
 
 ### <a name="monitoring-job-output-state-changes"></a>Durum değişikliklerini İzleme işi çıkışı
 
@@ -56,7 +56,15 @@ Tüm olaylar için JobStateChange olaya abone olarak kaydedebilirsiniz. Veya yal
 | Microsoft.Media.JobOutputCanceled| Proje çıkış geçişi için durum iptal ettiğinizde, bir olay alırsınız.|
 | Microsoft.Media.JobOutputErrored| Hata durumu geçişleri iş çıkışı, bir olay alırsınız.|
 
-[Şema örnekler](#event-schema-examples) izleyin.
+Bkz: [Şeması Örnekleri](#event-schema-examples) anlatılmaktadır.
+
+### <a name="monitoring-job-output-progress"></a>İlerleme İzleme işi çıkışı
+
+| Olay türü | Açıklama |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputProgress| Bu olay işleme ilerleme durumu %0 ile % 100'den iş yansıtır. %5 olmuştur ya da büyük artış ilerleme değeri veya son olayın (sinyal aralığı) itibaren 30 saniyeden uzun süredir olay göndermek hizmet çalışır. %0 başlatmak için ya da % 100 ulaşmaya devam eden değer garanti edilmez ya da sabit bir fiyat karşılığında zamanla artacağını garanti edilir. Bu olayın işlenmesi tamamlandı-durum değişikliği olayları kullanmalısınız belirlemek için kullanılmamalıdır.|
+
+Bkz: [Şeması Örnekleri](#event-schema-examples) anlatılmaktadır.
 
 ## <a name="live-event-types"></a>Canlı etkinlik türleri
 
@@ -72,7 +80,7 @@ Stream düzeyinde olaylar, akış veya bağlantı oluşturulur. Her olayda bir `
 | Microsoft.Media.LiveEventEncoderConnected | Kodlayıcı Canlı etkinlik ile bağlantı kurar. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Kodlayıcı bağlantısını keser. |
 
-[Şema örnekler](#event-schema-examples) izleyin.
+Bkz: [Şeması Örnekleri](#event-schema-examples) anlatılmaktadır.
 
 ### <a name="track-level-events"></a>İzleme düzeyi olayları
 
@@ -87,7 +95,7 @@ Stream düzeyinde olaylar, akış veya bağlantı oluşturulur. Her olayda bir `
 | Microsoft.Media.LiveEventIngestHeartbeat | Canlı etkinlik çalıştırıldığında, her parça için her 20 saniyede yayımladı. Sağlar sistem durumu özetini alın. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Medya sunucusu süreksizlik gelen izde algılar. |
 
-[Şema örnekler](#event-schema-examples) izleyin.
+Bkz: [Şeması Örnekleri](#event-schema-examples) anlatılmaktadır.
 
 ## <a name="event-schema-examples"></a>Olay Şeması Örnekleri
 
@@ -245,6 +253,29 @@ Her JobOutput durum değişikliği için şema örneği aşağıdaki gibi görü
       "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+### <a name="joboutputprogress"></a>JobOutputProgress
+
+Şema örneği, aşağıdakine benzer olacaktır:
+
+ ```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
+  "eventType": "Microsoft.Media.JobOutputProgress",
+  "eventTime": "2018-12-10T18:20:12.1514867",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "data": {
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    },
+    "label": "VideoAnalyzerPreset_0",
+    "progress": 86
   },
   "dataVersion": "1.0",
   "metadataVersion": "1"

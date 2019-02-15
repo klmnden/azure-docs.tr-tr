@@ -1,6 +1,6 @@
 ---
-title: Azure Maps tüketim modelini | Microsoft Docs
-description: Azure Maps tüketim modeli hakkında bilgi edinin
+title: Azure haritalar tüketim modelinde | Microsoft Docs
+description: Azure haritalar tüketim modelleri hakkında bilgi edinin
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,38 +8,38 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: cf20c7dbfbf7cd3f09579b03b835148c1c295137
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600638"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301154"
 ---
 # <a name="consumption-model"></a>Tüketim modeli
 
-Çevrimiçi yönlendirme araç özgü tüketim modelini ayrıntılı bir açıklaması için bir parametre kümesi sağlar.
-**vehicleEngineType** değerine bağlı olarak iki asıl Tüketim Modeli desteklenmektedir: _Combustion_ ve _Electric_. Aynı istekte farklı modellere ait parametrelerin belirtilmesi hataya neden olur.
+Çevrimiçi yönlendirme vehicle özgü kullanım modeli ayrıntılı bir açıklaması için bir parametre kümesi sağlar.
+Değerine bağlı olarak **vehicleEngineType**, iki asıl tüketim modelleri desteklenmektedir: _Yanmalı_ ve _elektrik_. Aynı istekte farklı modellere ait parametrelerin belirtilmesi hataya neden olur.
 Tüketim Modeli, _bicycle_ ve _pedestrian_ **travelMode** değerleriyle birlikte kullanılamaz.
 
-## <a name="parameter-constraints-for-consumption-model"></a>Tüketim modelini parametresi kısıtlamaları
+## <a name="parameter-constraints-for-consumption-model"></a>Kullanım modeli için parametresi kısıtlamaları
 
-Her iki tüketim modellerinde bazı parametreler açıkça belirtilmesi diğerlerinin de belirtilmesi gerekir. Bu bağımlılıklar şunlardır:
+Her iki tüketim modelleri bazı parametreler açıkça belirtilmesi bazıları de belirtilmesi gerekir. Bu bağımlılıklar şunlardır:
 
-* Tüm parametreler gerektiren **constantSpeedConsumption** kullanıcı tarafından belirtilmelidir. Dışında herhangi diğer tüketim modelini parametresini belirtmek için bir hata olduğunu **vehicleWeight**, **constantSpeedConsumption*** belirtilmedi.
-* **accelerationEfficiency** ve **decelerationEfficiency** (yani her ikisini birden veya hiçbiri) bir çift her zaman belirtilmesi gerekir.
-* Varsa **accelerationEfficiency** ve **decelerationEfficiency** belirtilirse, bunların değerleri çarpımını (perpetual hareket önlemek için) 1'den büyük olmamalıdır.
-* **uphillEfficiency** ve **downhillEfficiency** (yani her ikisini birden veya hiçbiri) bir çift her zaman belirtilmesi gerekir.
-* Varsa **uphillEfficiency** ve **downhillEfficiency** belirtilirse, bunların değerleri çarpımını (perpetual hareket önlemek için) 1'den büyük olmamalıdır.
-* Varsa \* **verimliliği** parametreleri belirtildi kullanıcı tarafından sonra **vehicleWeight** de belirtilmesi gerekir. Zaman **vehicleEngineType** olan _yanmalı_, **fuelEnergyDensityInMJoulesPerLiter** de belirtilmesi gerekir.
-* **maxChargeInkWh** ve **currentChargeInkWh** (yani her ikisini birden veya hiçbiri) bir çift her zaman belirtilmesi gerekir.
+* Tüm parametreler gerektiren **constantSpeedConsumption** kullanıcı tarafından belirtilmelidir. Dışında herhangi diğer tüketim modelini parametresini belirtmek için bir hata olduğunu **vehicleWeight**, **constantSpeedConsumption** belirtilmedi.
+* **accelerationEfficiency** ve **decelerationEfficiency** (her ikisi de veya hiçbiri) bir çift olarak her zaman belirtilmesi gerekir.
+* Varsa **accelerationEfficiency** ve **decelerationEfficiency** belirtilirse, değerin çarpımını (perpetual hareket önlemek için) 1'den büyük olmamalıdır.
+* **uphillEfficiency** ve **downhillEfficiency** (her ikisi de veya hiçbiri) bir çift olarak her zaman belirtilmesi gerekir.
+* Varsa **uphillEfficiency** ve **downhillEfficiency** belirtilirse, değerin çarpımını (perpetual hareket önlemek için) 1'den büyük olmamalıdır.
+* Varsa \* __verimliliği__ parametreleri belirtildi kullanıcı tarafından ardından **vehicleWeight** de belirtilmelidir. Zaman **vehicleEngineType** olduğu _yanmalı_, **fuelEnergyDensityInMJoulesPerLiter** de belirtilmelidir.
+* **maxChargeInkWh** ve **currentChargeInkWh** (her ikisi de veya hiçbiri) bir çift olarak her zaman belirtilmesi gerekir.
 
 > [!NOTE]
-> Yalnızca **constantSpeedConsumption** belirtilirse, hiçbir tüketim yönleriyle slopes ve araç hızlandırma gibi tüketim hesaplamaları için dikkate alınır.
+> Yalnızca **constantSpeedConsumption** belirtilirse, herhangi bir tüketim yönleri slopes ve araç hızlandırma gibi tüketim hesaplamalar için dikkate alınır.
 
-## <a name="combustion-consumption-model"></a>Yanmalı tüketim modeli
+## <a name="combustion-consumption-model"></a>Yanmalı kullanım modeli
 
 **vehicleEngineType** değeri _combustion_ olarak ayarlandığında Combustion Tüketim Modeli kullanılır.
-Bu modele ait parametre listesi olan aşağıda. Ayrıntılı açıklama parametreleri bölümüne bakın.
+Bu modele ait parametrelerin listesi aşağıda verilmiştir. Ayrıntılı bir açıklaması için parametreleri bölümüne bakın.
 
 * constantSpeedConsumptionInLitersPerHundredkm
 * VehicleWeight
@@ -51,10 +51,10 @@ Bu modele ait parametre listesi olan aşağıda. Ayrıntılı açıklama paramet
 * uphillEfficiency
 * downhillEfficiency
 
-## <a name="electric-consumption-model"></a>Elektrik tüketim modeli
+## <a name="electric-consumption-model"></a>Elektrik kullanım modeli
 
 **vehicleEngineType** değeri _electric_ olarak ayarlandığında Electric Tüketim Modeli kullanılır.
-Bu modele ait parametre listesi olan aşağıda. Ayrıntılı açıklama parametreleri bölümüne bakın.
+Bu modele ait parametrelerin listesi aşağıda verilmiştir. Ayrıntılı bir açıklaması için parametreleri bölümüne bakın.
 
 * constantSpeedConsumptionInkWhPerHundredkm
 * VehicleWeight
@@ -66,7 +66,7 @@ Bu modele ait parametre listesi olan aşağıda. Ayrıntılı açıklama paramet
 * uphillEfficiency
 * downhillEfficiency
 
-## <a name="sensible-values-of-consumption-parameters"></a>Tüketim parametrelerinin duyarlı değerleri
+## <a name="sensible-values-of-consumption-parameters"></a>Tüketim parametrelerinin mantıklı değerleri
 
-Yukarıda belirtilen tüm açık gereksinimleri karşılamanız olsa bile, belirli bir tüketim parametreleri kümesini reddedilebilir. Belirli bir parametre veya birkaç parametrelerinin değerleri bileşimini değerini tüketim değerleri için aşırı magnitudes için sağlama kabul oluşuyor. Bu durumda, uygun bakım tüketim parametrelerinin tüm duyarlı değerlerini alacak şekilde gerçekleştirilir gibi büyük olasılıkla Giriş bir hata gösterir. Belirli bir tüketim parametreleri kümesini reddedilir durumda ekteki hata iletisine nedenlerden metinsel açıklaması içerir.
-Parametrelerin ayrıntılı açıklamaları için her iki modeli duyarlı değeri örnekleri vardır.
+Yukarıda belirtilen tüm açık gereksinimlerini karşılayan olsa da, belirli bir tüketim parametreleri kümesini reddedilebilir. Tüketim değerlerin mantıksız massively için müşteri adayı olarak kabul değeri belirli bir parametre veya birkaç parametre değerlerinin bir birleşimini gerçekleşir. Bu durumda, tüm mantıklı tüketim parametre değerlerini uyum sağlamak için uygun bakım alınmış gibi büyük olasılıkla Giriş bir hata gösterir. Belirli bir tüketim parametreleri kümesini reddedilmesi durumunda belirten ekteki hata iletisine neden(ler) metinsel bir açıklama içerir.
+Parametrelerin ayrıntılı açıklamaları için iki modeli de mantıklı değeri örnekleri vardır.

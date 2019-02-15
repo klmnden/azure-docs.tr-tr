@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 83ee548befdc7ef0a4e7ed2d4b4e61b42a217f12
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247077"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267158"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning hizmeti AKS ve ACI dağıtım sorunlarını giderme
 
@@ -196,12 +196,15 @@ $ docker run -p 8000:5001 <image_id>
 Genellikle, `init()` Puanlama betiği işlevinde `Model.get_model_path()` işlevi, bir model dosyası veya bir model dosya klasörü kapsayıcıda bulmak için çağrılır. Model dosya veya klasörün bulunamazsa genellikle bir başarısızlık kaynağıdır, budur. Çalıştırmak için bu hata ayıklama için en kolay yolu olan Python kodu kapsayıcı Kabuğu'nda aşağıdaki:
 
 ```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
 Bu yerel yolu yazdırır (göreli `/var/azureml-app`) burada Puanlama betiğinizi bekliyor model dosyası veya klasörü bulmak için kapsayıcıda. Ardından, dosya veya klasörün aslında burada olması beklenmektedir olup olmadığını doğrulayabilirsiniz.
 
+Hata ayıklama için günlüğe kaydetme düzeyini ayarlama hatası tanımlanmasına yararlı olabilecek günlüğe kaydedilecek neden ek bilgi sağlayabilir.
 
 ## <a name="function-fails-runinputdata"></a>İşlevi başarısız: run(input_data)
 Hizmet başarıyla dağıtıldı, ancak Puanlama uç noktası veri göndermek çöküyor deyiminde yakalama hata ekleyebilirsiniz, `run(input_data)` ayrıntılı hata iletisi yerine döndürür, böylece işlev. Örneğin:

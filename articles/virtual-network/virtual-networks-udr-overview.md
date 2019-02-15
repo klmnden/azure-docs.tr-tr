@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 86e4720f001f05534bc9af703f0f98d7ca5d95e4
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812795"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268847"
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -121,7 +121,7 @@ Sonraki atlama türleri için gösterilen ve başvurulan ad, Azure portalı ile 
 
 BGP kullanarak Azure ile yolları değiştirdiğinizde, tanıtılan her ön ek için bir sanal ağdaki tüm alt ağların yol tablosuna ayrı bir yol eklenir. Yol, kaynak ve sonraki atlama türü olarak *Sanal ağ geçidi* listelenerek eklenir. 
 
-Bir yol tablosundaki özellik kullanılarak bir alt ağ üzerindeki BGP yol yayma özelliği devre dışı bırakılabilir. BGP kullanarak Azure ile yolları değiştirdiğinizde, yollar BGP yayma özelliği devre dışıyken tüm alt ağların yol tablosuna eklenmez. VPN bağlantıları, sonraki atlama türü *Sanal ağ geçidi* olan [özel yollar](#custom-routes) kullanılarak gerçekleştirilir. Ayrıntılar için bkz. [BGP yol yaymayı devre dışı bırakma](manage-route-table.md#create-a-route-table).
+ER ve VPN ağ geçidi rota yayma bir yol tablosundaki özellik kullanılarak bir alt ağ üzerinde devre dışı bırakılabilir. BGP kullanarak Azure ile yolları değiştirdiğinizde, yollar BGP yayma özelliği devre dışıyken tüm alt ağların yol tablosuna eklenmez. VPN bağlantıları, sonraki atlama türü *Sanal ağ geçidi* olan [özel yollar](#custom-routes) kullanılarak gerçekleştirilir. Ayrıntılar için bkz. [BGP yol yaymayı devre dışı bırakma](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Azure yolu nasıl seçer?
 

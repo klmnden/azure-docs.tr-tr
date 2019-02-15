@@ -6,17 +6,66 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef2a782a19dd319de346f14d6189759d0a26686c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d8ef70088d904720a81ac558206a3140d7bbecd6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666761"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270008"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Vm'leri başlatma/durdurma sırasında saat çözümü kapatmak sorun giderme
+
+## <a name="deployment-failure"></a>Senaryo: Düzgün bir şekilde dağıtmak Başlat/Durdur VM çözümü başarısız
+
+### <a name="issue"></a>Sorun
+
+Dağıtırken [saat çözümü Kapat Vm'leri başlatma/durdurma sırasında](../automation-solution-vm-management.md), aşağıdaki hatalardan birini alıyorsunuz:
+
+```
+Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
+```
+
+```
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.OperationsManagement'.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.Insights'.
+```
+
+```
+The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
+```
+
+### <a name="cause"></a>Nedeni
+
+Dağıtımları, aşağıdaki nedenlerden biri nedeniyle başlatılamayabilir:
+
+1. Seçili bölgesinde aynı ada sahip bir Otomasyon hesabı zaten var.
+2. Vm'leri başlatma/durdurma çözümün dağıtımı izin vermeyen bir yerde bir ilkedir.
+3. `Microsoft.OperationsManagement`, `Microsoft.Insights`, Veya `Microsoft.Automation` kaynak türleri kayıtlı değil.
+4. Log Analytics çalışma alanınızda bir kilit üzerinde sahiptir.
+
+### <a name="resolution"></a>Çözüm
+
+Sorun veya aramak için yerler olası çözümler için aşağıdaki listeyi gözden geçirin:
+
+1. Otomasyon hesapları farklı kaynak gruplarında bulunan olsalar bile bir Azure bölgesi içinde benzersiz olması gerekir. Hedef bölgede var olan Otomasyon hesaplarınız denetleyin.
+2. Mevcut bir ilkenin dağıtılması Başlat/Durdur VM çözümü için gerekli olan bir kaynak engeller. Azure portalında, ilke atamaları gidin ve bu kaynak dağıtımına izin vermeyen bir ilke ataması gerekip gerekmediğini kontrol edin. Bunun hakkında daha fazla bilgi edinmek için [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md).
+3. VM Başlat/Durdur çözümü dağıtmak için aboneliğiniz için aşağıdaki Azure kaynağı ad kayıtlı olması gerekir:
+    * `Microsoft.OperationsManagement`
+    * `Microsoft.Insights`
+    * `Microsoft.Automation`
+
+   Bkz, [çözmek için kaynak Sağlayıcısı kaydı hataları](../../azure-resource-manager/resource-manager-register-provider-errors.md) sağlayıcıları kaydedilirken hata hakkında daha fazla bilgi edinmek için.
+4. Kilit varsa, Log Analytics çalışma alanınızda, Azure portalındaki çalışma alanınıza gidin ve kaynak kilitli kaldırın.
 
 ## <a name="all-vms-fail-to-startstop"></a>Senaryo: Tüm sanal makineleri başlatma/durdurma başarısız
 

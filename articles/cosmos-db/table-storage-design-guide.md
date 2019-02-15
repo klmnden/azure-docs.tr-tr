@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6495a4e4da9330cba562c7fd6530369c09d180da
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820972"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302072"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure depolama Tablo Tasarımı Kılavuzu: Tasarlama ölçeklenebilir ve performansa yönelik tablolar
 
@@ -721,6 +721,9 @@ Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir
 
 ### <a name="log-tail-pattern"></a>Günlük kuyruğu deseni
 Alma *n* varlıkları kullanarak bir bölüm için en son eklenen bir **RowKey** geriye doğru tarih ve saat sipariş sıralar değeri.  
+
+> [!NOTE]
+> Sorgu sonuçlarını Azure Cosmso DB'de Azure tablo API'si tarafından döndürülen bölüm anahtarı veya satır anahtarı sıralanmaz. Bu nedenle, bu düzen Azure tablo depolama ve Azure Cosmos DB için uygundur. Özellik farkları ayrıntılı bir listesi için bkz. [Azure Cosmos DB tablo API'si ile Azure tablo depolama arasındaki farklar](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Bağlam ve sorun
 Sık karşılaşılan bir gereksinimdir en son oluşturulan varlıkları almak için örneğin on en son bir çalışan tarafından gönderilen talepleri gider. Tablo sorguları destek bir **$top** sorgulama işlemi ilk döndürülecek *n* bir kümesindeki varlıkların: küme içindeki son n varlıkları döndürülecek eşdeğer sorgu işlemi yok.  

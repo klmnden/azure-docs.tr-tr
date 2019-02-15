@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993427"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270156"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure İzleyici çalışma kitapları ile etkileşimli raporlar oluşturun
 
@@ -77,7 +77,7 @@ Sorgu bölümler son derece esnektir ve aşağıdaki gibi sorulara yanıt için 
 
 * Kaç özel bir reddetme kullanımı ile aynı süre boyunca sitenizin durumunu oluşturamadı?
 * Sayfa yükleme sürelerinin sayfa görüntüleme kullanıcılar için dağıtım neydi?
-* Kaç kullanıcının bazı sayfalar kümesi sitenizde görüntülenebilir, ancak olmayan bazı diğer sayfalarında ayarlanmış? Bu kümeleri farklı alt kümelerinde sitenizin işlevselliği kullanan kullanıcı olup olmadığını anlamak yararlı olabilir (kullanın `join` işleciyle `kind=leftanti` değiştiricisi Veri Gezgini sorgu dilinde).
+* Kaç kullanıcının bazı sayfalar kümesi sitenizde görüntülenebilir, ancak olmayan bazı diğer sayfalarında ayarlanmış? Bu kümeleri farklı alt kümelerinde sitenizin işlevselliği kullanan kullanıcı olup olmadığını anlamak yararlı olabilir (kullanın `join` işleciyle `kind=leftanti` değiştiricisi [Kusto sorgu dili](/azure/kusto/query/)).
 
 Siz de yalnızca sınırlı olmayan çalışma kitabından veri başlatılan uygulama bağlamında, sorgulama. Bu kaynaklara erişim iznine sahip olduğu sürece birden fazla Application Insights'ın izlenen uygulamalar olarak Log Analytics çalışma alanlarını sorgulayabilirsiniz.
 

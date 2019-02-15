@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0c52a10aa806962ee54fe6058f236ea9bd86414b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300740"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268354"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -31,7 +31,7 @@ Kasa başına 1000'e kadar Azure sanal makineleri kaydedebilirsiniz. Microsoft A
 Birlikte kurtarmak istediğiniz sunucu verilerini yedekleme aynı parolayı kullanmalıdır. Belirli bir sunucu veya sunuculara kurtarma yalıtmak isterseniz, bu sunucu veya yalnızca sunucular için bir parola kullanın. Örneğin, insan kaynakları sunucuları bir şifreleme parolası kullanırken, muhasebe sunucuları ve depolama sunucuları farklı birer şifreleme parolası kullanabilir.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>My kasa abonelikler arasında taşıyabilir miyim?
-Hayır. Kasa abonelik düzeyinde oluşturulur ve başka bir aboneliğe yeniden atanamaz.
+Evet. Bu başvuran bir kurtarma Hizmetleri kasasına taşımak için [makale](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Başka bir kasa için yedekleme verileri taşıyabilir miyim?
 Hayır. Bir kasada depolanan yedekleme verileri, farklı bir kasaya taşınamaz.
@@ -148,7 +148,6 @@ Hayır. Yedekleme işi iptal edilmeden önce kasaya aktarılan tüm veriler kasa
 Bir Azure VM’ye yönelik bir yedekleme işini iptal ederseniz aktarılan tüm veriler yoksayılır. Bir sonraki yedekleme işi, son başarılı yedekleme işinden artımlı verileri aktarır.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Neden veri boyutu, yedekleme için seçilen verileri daha küçük kurtarma Hizmetleri kasasına aktarılır?
-
  Azure Backup aracısını, DPM, yedeklenen verileri ve Azure Backup sunucusu sıkıştırılır ve aktarılmadan önce şifrelenir. İle sıkıştırma ve şifreleme uygulandığında, kasasındaki veriler % 30-40 daha küçük.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Tek tek dosyaları kasasında bir kurtarma noktasından silebilir misiniz?
@@ -156,8 +155,8 @@ Hayır, Azure Backup, silme veya tek tek öğeleri depolanan yedeklerden temizle
 
 
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Başladıktan sonra bir yedekleme işini iptal, aktarılan yedekleme verileri silindi mi?
-
 Hayır. Yedekleme işinin önce kasaya aktarılan tüm veriler kasada kalır iptal edildi.
+
 - Azure Backup, yedekleme işlemi sırasında yedekleme verilerine zaman zaman denetim noktaları eklemek üzere bir denetim noktası mekanizması kullanır.
 - Yedekleme verilerinde denetim noktaları bulunduğundan, sonraki yedekleme işlemi dosyaların bütünlüğünü doğrulayabilir.
 - Bir sonraki yedekleme işi, daha önce yedeklenen verilerin üzerine artımlı olarak gerçekleşir. Artımlı yedekleme işlemlerinin yalnızca yeni veya değiştirilmiş verileri aktarması, bant genişliğinin daha iyi kullanılması anlamına gelir.
@@ -177,7 +176,7 @@ Hayır. Bekletme ilkeleri, yalnızca yedekleme noktalarında uygulanabilir. Örn
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>Bir yedekleme uzun bir süre tutulur, eski bir veri noktasının kurtarılması daha uzun sürer? <br/>
-Hayır, en eski veya en yeni noktanın kurtarılması için gereken süre aynıdır. Her kurtarma noktası bir tam nokta gibi davranır.
+Hayır. En eski kurtarma süresi veya en yeni noktanın aynıdır. Her kurtarma noktası bir tam nokta gibi davranır.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Her kurtarma noktası bir tam nokta gibiyse bu durum toplam faturalanabilir yedekleme alanını etkiler mi?
 Genel uzun vadeli bekletme noktası ürünleri, yedekleme verilerini tam noktalar olarak depolar.
@@ -203,7 +202,7 @@ Hayır. Kurtarma işlemi ücretsizdir ve çıkış trafiği için ücretlendiril
 Yeni bir ilke uygulandığında yeni ilkenin zamanlama ve ardından.
 
 - Bekletme süresi uzatıldıysa, yeni ilkeye göre tutulması için mevcut kurtarma noktaları işaretlenir.
-- - Bekletme süresi kısaltıldıysa, bunlar sonraki temizleme işleminde kesilmek üzere işaretlenir ve sonra silinir.
+- Bekletme süresi kısaltıldıysa, bunlar sonraki temizleme işleminde kesilmek üzere işaretlenir ve sonra silinir.
 
 ## <a name="encryption"></a>Şifreleme
 

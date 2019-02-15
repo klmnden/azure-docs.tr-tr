@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ad6ea26535190d2fc5798e1223c2196d3d5a5d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1fde586563c142690078a693970a9a24bd5cacb4
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211147"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302004"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Öğretici: SAP NetWeaver ile Azure Active Directory Tümleştirme
 
@@ -175,7 +175,14 @@ SAP NetWeaver ile Azure AD çoklu oturum açmayı yapılandırmak için aşağı
 
     ![SAP NetWeaver etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier-reply.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<your company instance of SAP NetWeaver>`
+    d. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<your company instance of SAP NetWeaver>`
+
+    > [!NOTE]
+    > Kendi örneklerine yapılandırılmış yanlış yanıt URL'sinin bir hata bildirimi, bazı müşterilerin gördük. Herhangi bir hata alırsanız, PowerShell Betiği bir iş yaklaşık Örneğiniz için doğru yanıt URL'sini ayarlamak için kullanabilirsiniz.:
+    ```
+    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+    ``` 
+    > ServicePrincipal nesne kimliği kendiniz ayarlanması ya da, ayrıca burada geçirebilirsiniz.
 
 12. SAP NetWeaver uygulaması belirli bir biçimde SAML onaylamalarını bekliyor. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
@@ -374,4 +381,3 @@ Bu bölümde, Britta Simon SAP NetWeaver adlı bir kullanıcı oluşturun. Lütf
 - [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

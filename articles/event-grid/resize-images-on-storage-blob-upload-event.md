@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0bd602ff6c6d42730439dac2b898899b07dcb2cc
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756878"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301460"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Öğretici: Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme
 
@@ -27,7 +27,19 @@ Bu öğretici, Depolama öğreticileri serisinin ikinci bölümüdür. [Önceki 
 
 Var olan bir görüntü yükleme uygulamasına yeniden boyutlandırma işlevini eklemek için Azure CLI ve Azure portalını kullanabilirsiniz.
 
-![Microsoft Edge tarayıcısında yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
+![Tarayıcıda yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[node.js V2 SDK'sı](#tab/nodejs)
+
+![Tarayıcıda yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+![Tarayıcıda yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+---
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -46,10 +58,6 @@ Bu öğreticiyi tamamlamak için:
 
 Event Grid kaynak sağlayıcısını önceden aboneliğinize kaydetmediyseniz burada kaydettiğinizden emin olun.
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
-```
-
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid
 ```
@@ -62,33 +70,30 @@ Cloud Shell kullanmıyorsanız önce `az login` kullanarak oturum açmanız gere
 
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
 
-Azure İşlevleri, genel bir depolama hesabı gerektirir. Kaynak grubunda [az storage account create](/cli/azure/storage/account#az-storage-account-create) komutunu kullanarak ayrı bir genel depolama hesabı oluşturun.
-
-Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir. 
-
-Aşağıdaki komutta, genel depolama hesabına ilişkin kendi genel benzersiz adınızı `<general_storage_account>` yer tutucusunu gördüğünüz yere yerleştirin. 
+Azure İşlevleri, genel bir depolama hesabı gerektirir. Önceki öğreticide oluşturduğunuz Blob Depolama hesabına ek olarak ayrı bir genel depolama hesabı kullanarak kaynak grubunu oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account) komutu. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir. 
 
 1. Önceki öğreticide oluşturduğunuz kaynak grubunun adını tutacak bir değişken ayarlayın. 
 
     ```azurecli-interactive
-    resourceGroupName=<Name of the resource group that you created in the previous tutorial>
+    resourceGroupName=myResourceGroup
     ```
-2. Azure işlevi gerektirir depolama hesabının adı için bir değişken ayarlayın. 
+2. Azure işlevleri gerektiren yeni bir depolama hesabı adı için bir değişken ayarlayın. 
 
     ```azurecli-interactive
-    functionstorage=<name of the storage account to be used by function>
+    functionstorage=<name of the storage account to be used by the function>
     ```
-3. Depolama hesabı için Azure işlevi oluşturun. Bu görüntüleri içeren depolama alanından farklıdır. 
+3. Depolama hesabı için Azure işlevi oluşturun. 
 
     ```azurecli-interactive
-    az storage account create --name $functionstorage --location eastus --resource-group $resourceGroupName --sku Standard_LRS --kind storage
+    az storage account create --name $functionstorage --location southeastasia \
+    --resource-group $resourceGroupName --sku Standard_LRS --kind storage
     ```
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma  
 
-İşlevinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, işlev kodunuzun sunucusuz yürütülmesine yönelik bir ortam sağlar. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) komutunu kullanarak bir işlev uygulaması oluşturun. 
+İşlevinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, işlev kodunuzun sunucusuz yürütülmesine yönelik bir ortam sağlar. [az functionapp create](/cli/azure/functionapp) komutunu kullanarak bir işlev uygulaması oluşturun. 
 
-Aşağıdaki komutta kendi benzersiz işlev uygulamanızın adını `<function_app>` yer tutucusunun yerine ekleyin. İşlev uygulaması adı, işlev uygulamasının varsayılan DNS etki alanı olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. `<general_storage_account>` için, oluşturduğunuz genel depolama hesabının adını kullanın.
+Aşağıdaki komutta kendi benzersiz işlev uygulamanızın adını sağlayın. İşlev uygulaması adı, işlev uygulamasının varsayılan DNS etki alanı olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. 
 
 1. Oluşturulması gereken işlev uygulaması için bir ad belirtin. 
 
@@ -98,29 +103,62 @@ Aşağıdaki komutta kendi benzersiz işlev uygulamanızın adını `<function_a
 2. Azure işlevi oluşturun. 
 
     ```azurecli-interactive
-    az functionapp create --name $functionapp --storage-account  $functionstorage --resource-group $resourceGroupName --consumption-plan-location eastus
+    az functionapp create --name $functionapp --storage-account $functionstorage \
+    --resource-group $resourceGroupName --consumption-plan-location southeastasia
     ```
 
 Şimdi, işlev uygulamasını [önceki öğreticide][previous-tutorial] oluşturduğunuz Blob depolama hesabına bağlanacak şekilde yapılandırmanız gerekir.
 
 ## <a name="configure-the-function-app"></a>İşlev uygulamasını yapılandırma
 
-İşlevin Blob depolama hesabına bağlanması için bağlantı dizesi gerekir. Aşağıdaki adımda Azure'a dağıttığınız işlev kodu, myblobstorage_STORAGE uygulama ayarında bağlantı dizesini arar ve myContainerName uygulama ayarında da küçük resim görüntüsü kapsayıcı adını arar. [az storage account show-connection-string](/cli/azure/storage/account) komutu ile bağlantı dizesini alın. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) komutuyla uygulama ayarlarını belirleyin.
+İşlevi kullanarak işlev uygulaması, uygulama ayarları eklenen Blob Depolama hesabı için kimlik bilgileri gerekiyor. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) komutu.
 
-Aşağıdaki CLI komutlarında `<blob_storage_account>`, önceki öğreticide oluşturduğunuz Blob depolama hesabının adıdır.
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-1. Görüntüleri içeren depolama hesabı için bağlantı dizesini alın. 
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
 
-    ```azurecli-interactive
-    storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
-    ```
-2. İşlev uygulamasını yapılandırın. 
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails \
+THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
 
-    ```azurecli-interactive
-    az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
-    ```
+# <a name="nodejs-v2-sdktabnodejs"></a>[node.js V2 SDK'sı](#tab/nodejs)
 
-    `FUNCTIONS_EXTENSION_VERSION=~2` ayarı işlev uygulamasının Azure İşlevleri çalışma zamanının 2.x sürümünde çalışmasını sağlar.
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString \
+THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+-n $blobStorageAccount --query [0].value --output tsv)
+
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails \
+AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey \
+AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+```
+
+---
+
+`FUNCTIONS_EXTENSION_VERSION=~2` ayarı işlev uygulamasının Azure İşlevleri çalışma zamanının 2.x sürümünde çalışmasını sağlar.
 
 Bu işlev uygulamasına bir işlev kodu projesi dağıtabilirsiniz.
 
@@ -128,23 +166,30 @@ Bu işlev uygulamasına bir işlev kodu projesi dağıtabilirsiniz.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-Örnek C# (.csx) yeniden boyutlandırma betiği [GitHub](https://github.com/Azure-Samples/function-image-upload-resize) üzerinde mevcuttur. [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) komutunu kullanarak bu İşlevler kod projesini işlev uygulamasına dağıtın. 
-
-Aşağıdaki komutta `<function_app>`, daha önce oluşturduğunuz işlev uygulamasının adıdır.
+Örnek C# yeniden boyutlandırma işlevi, üzerinde kullanılabilir [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Bu kod projesini kullanarak işlev uygulamasına dağıtın [az functionapp deployment kaynak yapılandırma](/cli/azure/functionapp/deployment/source) komutu. 
 
 ```azurecli-interactive
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs-v2-sdktabnodejs"></a>[node.js V2 SDK'sı](#tab/nodejs)
+
 Örnek Node.js yeniden boyutlandırma işlevi [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node) üzerinde mevcuttur. [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) komutunu kullanarak bu İşlevler kod projesini işlev uygulamasına dağıtın.
 
-Aşağıdaki komutta `<function_app>`, daha önce oluşturduğunuz işlev uygulamasının adıdır.
+```azurecli-interactive
+az functionapp deployment source config --name $functionapp \
+--resource-group $resourceGroupName --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+```
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+Örnek Node.js yeniden boyutlandırma işlevi [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10) üzerinde mevcuttur. [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) komutunu kullanarak bu İşlevler kod projesini işlev uygulamasına dağıtın.
 
 ```azurecli-interactive
-az functionapp deployment source config --name <function_app> \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+az functionapp deployment source config --name $functionapp \
+--resource-group $resourceGroupName --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
 ---
 
@@ -152,10 +197,22 @@ Görüntüyü yeniden boyutlandırma işlevi, Event Grid hizmetinden gönderilen
 
 Event Grid bildiriminden işleve geçirilen veriler, blobun URL'sini içerir. Ardından karşıya yüklenen görüntüyü Blob depolamadan almak için bu URL giriş bağlamasına geçirilir. İşlev bir küçük resim görüntüsü oluşturur ve elde edilen akışı Blob depolama içinde ayrı bir kapsayıcıya yazar. 
 
-Bu proje, tetikleyici türü olarak `EventGridTrigger` kullanır. Genel HTTP tetikleyicileri yerine Event Grid tetikleyicisinin kullanılması önerilir. Event Grid, Event Grid İşlevi tetikleyicilerini otomatik olarak doğrular. Genel HTTP tetikleyicileri ile [doğrulama yanıtını](security-authentication.md#webhook-event-delivery) uygulamanız gerekir.
+Bu proje, tetikleyici türü olarak `EventGridTrigger` kullanır. Genel HTTP tetikleyicileri yerine Event Grid tetikleyicisinin kullanılması önerilir. Event Grid, Event Grid İşlevi tetikleyicilerini otomatik olarak doğrular. Genel HTTP tetikleyicileri ile [doğrulama yanıtını](security-authentication.md) uygulamanız gerekir.
 
-Bu işlev hakkında daha fazla bilgi edinmek için bkz. [function.json ve run.csx dosyaları](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/imageresizerfunc).
- 
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
+Bu işlev hakkında daha fazla bilgi edinmek için bkz. [function.json ve run.csx dosyaları](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/ImageFunctions).
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[node.js V2 SDK'sı](#tab/nodejs)
+
+Bu işlev hakkında daha fazla bilgi için bkz. [function.json ve index.js dosyaları](https://github.com/Azure-Samples/storage-blob-resize-function-node/tree/master/Thumbnail).
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+Bu işlev hakkında daha fazla bilgi için bkz. [function.json ve index.js dosyaları](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail).
+
+---
+
 İşlev proje kodu, doğrudan ortak örnek depodan dağıtılır. Azure İşlevleri’ne ilişkin dağıtım seçenekleri hakkında daha fazla bilgi için bkz. [Azure İşlevleri için sürekli dağıtım](../azure-functions/functions-continuous-deployment.md).
 
 ## <a name="create-an-event-subscription"></a>Olay aboneliği oluşturma
@@ -197,11 +254,25 @@ Arka uç hizmetleri yapılandırıldıktan sonra, görüntü yeniden boyutlandı
 
 Web uygulamasında görüntü yeniden boyutlandırmayı test etmek için, yayımlanan uygulamanızın URL'sine gidin. Web uygulamasının varsayılan URL'si `https://<web_app>.azurewebsites.net` şeklindedir.
 
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
 **Karşıya fotoğraf yükle** bölgesine tıklayarak bir dosyayı seçip karşıya yükleyin. Ayrıca bu bölgeye fotoğraf sürükleyebilirsiniz. 
 
 Karşıya yüklenen görüntü kaybolduktan sonra **Oluşturulan küçük resimler** döngüsünde karşıya yüklenen görüntünün bir kopyasının gösterildiğine dikkat edin. Bu görüntü, işlev tarafından yeniden boyutlandırılmış, *thumbnails* kapsayıcısına eklenmiş ve web istemcisi tarafından indirilmiştir.
 
-![Microsoft Edge tarayıcısında yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Tarayıcıda yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[node.js V2 SDK'sı](#tab/nodejs)
+
+Tıklayın **Dosya Seç** bir dosya seçmek için ardından **karşıya resim**. Karşıya yükleme başarılı olduğunda, tarayıcının bir başarı sayfasına götürür. Giriş sayfasına dönmek için bağlantıya tıklayın. Karşıya yüklenen görüntüyü bir kopyasını görüntülenen **oluşturulan küçük resimler** alan. (İlk olarak görüntüyü görünmüyorsa, sayfayı yeniden yüklemeyi deneyin.) Bu görüntü, işlev tarafından yeniden boyutlandırılmış, *thumbnails* kapsayıcısına eklenmiş ve web istemcisi tarafından indirilmiştir.
+
+![Tarayıcıda yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+Tıklayın **Dosya Seç** bir dosya seçmek için ardından **karşıya resim**. Karşıya yükleme başarılı olduğunda, tarayıcının bir başarı sayfasına götürür. Giriş sayfasına dönmek için bağlantıya tıklayın. Karşıya yüklenen görüntüyü bir kopyasını görüntülenen **oluşturulan küçük resimler** alan. (İlk olarak görüntüyü görünmüyorsa, sayfayı yeniden yüklemeyi deneyin.) Bu görüntü, işlev tarafından yeniden boyutlandırılmış, *thumbnails* kapsayıcısına eklenmiş ve web istemcisi tarafından indirilmiştir.
+
+![Tarayıcıda yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

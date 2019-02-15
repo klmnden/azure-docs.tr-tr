@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 3fb11ad74e3d1628cbf3f00e2aae648be3eea437
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1ac0f54aa4dfdc9db4724629c4dbfe7a4982838f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107693"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301239"
 ---
 # <a name="common-parameters-and-headers"></a>Ortak parametreler ve üst bilgiler
 
@@ -34,12 +34,14 @@ Aşağıdaki bilgiler, Key Vault kaynaklarla ilgili bunu tüm işlemler için or
 ## <a name="common-error-response"></a>Genel hata yanıtı
 Hizmet, başarıyı veya başarısızlığı göstermek için HTTP durum kodları kullanır. Ayrıca, aşağıdaki biçimde bir yanıt hatalar içerir:
 
+```
    {  
      "error": {  
-     "code": "BadRequest"  
-     "message": "Anahtar kasası SKU'su geçersiz."  
+     "code": "BadRequest",  
+     "message": "The key vault sku is invalid."  
      }  
    }  
+```
 
 |Öğe adı | Type | Açıklama |
 |---|---|---|

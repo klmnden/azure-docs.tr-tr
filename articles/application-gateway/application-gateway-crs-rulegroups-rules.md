@@ -12,12 +12,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 4/16/2018
 ms.author: victorh
-ms.openlocfilehash: 15a86410e8ca853c2ca2431cb9a62de628972703
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320110"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302051"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Sunulan web uygulaması güvenlik duvarı CRS kural gruplarının ve kuralların listesi
 
@@ -27,6 +27,11 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 
 ## <a name="owasp30"></a> OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">Genel</p>
+
+|RuleId|Açıklama|
+|---|---|
+|200004|Olası çok bölümlü eşleşmeyen sınır.|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">İSTEK 911 YÖNTEMİ ZORLAMA</p>
 
@@ -61,7 +66,7 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |913017|Kural 913017|
 |913018|Kural 913018|
 
-### <a name="crs920"></a> <p x-ms-format-detection="none">İSTEK 920 PROTOKOLÜ ZORLAMA</p>
+### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
 |RuleId|Açıklama|
 |---|---|
@@ -115,7 +120,7 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |920274|İstek üstbilgilerini (dışında çok sıkı kümesi) içinde geçersiz karakter|
 |920460|Kural 920460|
 
-### <a name="crs921"></a> <p x-ms-format-detection="none">İSTEK 921 PROTOKOLÜ SALDIRI</p>
+### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
 |RuleId|Açıklama|
 |---|---|
@@ -191,7 +196,7 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |932017|Kural 932017|
 |932018|Kural 932018|
 
-### <a name="crs933"></a> <p x-ms-format-detection="none">İSTEK-933-UYGULAMASI-SALDIRI-PHP</p>
+### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
 |RuleId|Açıklama|
 |---|---|
@@ -239,6 +244,8 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |941290|IE XSS filtreleri - saldırısı algılandı.|
 |941300|IE XSS filtreleri - saldırısı algılandı.|
 |941310|US-ASCII hatalı kodlama XSS filtre - saldırısı algılandı.|
+|941330|IE XSS filtreleri - saldırısı algılandı.|
+|941340|IE XSS filtreleri - saldırısı algılandı.|
 |941350|UTF-7 kodlama IE XSS - saldırısı algılandı.|
 |941013|Kural 941013|
 |941014|Kural 941014|
@@ -248,25 +255,36 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 |941017|Kural 941017|
 |941018|Kural 941018|
 
-### <a name="crs942"></a> <p x-ms-format-detection="none">İSTEK-942-UYGULAMASI-SALDIRI-SQLI</p>
+### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
 |RuleId|Açıklama|
 |---|---|
 |942011|Kural 942011|
 |942012|Kural 942012|
 |942100|SQL ekleme saldırısı algılandı libinjection aracılığıyla|
+|942110|SQL ekleme saldırısına: Algılanan test ortak ekleme|
+|942130|SQL ekleme saldırısına: SQL Tautology algılandı.|
 |942140|SQL ekleme saldırısına ortak DB adları algılandı =|
 |942160|Sleep() veya benchmark() kullanarak görme sqli testlerini algılar.|
 |942170|Koşullu sorguları da dahil olmak üzere SQL Kıyaslama ve uyku ekleme denemesi algılar|
+|942190|MSSQL kod yürütme ve bilgi toplama girişimleri algılar.|
+|942200|MySQL yorum olarak algılar / alanı gizlenmiş eklemelerini ve vurgulamasını belirtir sonlandırma|
 |942230|Koşullu SQL ekleme girişimlerini algılar|
+|942260|2/3 temel SQL kimlik doğrulaması atlama çalışır algılar|
 |942270|Temel sql ekleme aranıyor. Mysql oracle ve diğerleri için ortak saldırı dizesi.|
 |942290|Temel MongoDB SQL ekleme girişimlerini bulur|
+|942300|MySQL açıklamalar, koşullar ve ch (a) r eklemelerini algılar|
 |942320|MySQL ve PostgreSQL algılar depolanan yordam/işlev ekleme|
+|942330|Klasik SQL ekleme probings 1/2 algılar|
+|942340|3/3 temel SQL kimlik doğrulaması atlama çalışır algılar|
 |942350|MySQL UDF ekleme ve diğer veri/yapısı düzenleme algılar çalışır|
+|942360|Birleştirilmiş temel SQL ekleme ve SQLLFI girişimleri algılar.|
+|942370|Klasik SQL ekleme probings 2/2 algılar|
 |942013|Kural 942013|
 |942014|Kural 942014|
 |942150|SQL ekleme saldırısına|
 |942410|SQL ekleme saldırısına|
+|942430|SQL karakter Anomali algılama (args) kısıtlı: özel karakter sayısı aşıldı (12)|
 |942440|SQL açıklama dizisi algılandı.|
 |942450|Belirtilen SQL onaltılık kodlama|
 |942015|Kural 942015|
@@ -550,6 +568,6 @@ Aşağıdaki tablolarda kural gruplarının ve Application Gateway web uygulamas
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-WAF kurallarını ederek devre dışı bırakma hakkında bilgi edinin: [özelleştirme WAF kuralları](application-gateway-customize-waf-rules-portal.md)
+WAF kurallarını ederek devre dışı bırakma işlemleri gerçekleştirmeyi öğreneceksiniz: [WAF kurallarını özelleştirme](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 880b4e4ce09fec3caf70586c2cfb54236d13b668
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8bcb00029acbe8c64e29addbc9291a694f1de98b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996313"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267726"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application ınsights'ı ayarlayın: Bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşen. Bu genellikle adlı HTTP veya bir veritabanı veya dosya sistemi kullanılarak bir hizmettir. [Application Insights](../../azure-monitor/app/app-insights-overview.md) ne sıklıkta bağımlılık çağrı başarısız olur ve uygulama bağımlılıkları için bekleyeceği süreyi ölçer. Belirli çağrıları incelemek ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -133,7 +133,7 @@ Başarısız istekler başarısız bağımlılık çağrıları ile ilişkili ol
 ![Bir istek türünü tıklatın, örneği aynı örnek farklı bir görünüm almak için özel durum ayrıntıları almak için tıklayın.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analiz
-Bağımlılıkları izleyebilirsiniz [Veri Gezgini sorgu dili](https://aka.ms/LogAnalyticsLanguage). Bazı örnekler aşağıda verilmiştir.
+Bağımlılıkları izleyebilirsiniz [Kusto sorgu dili](/azure/kusto/query/). Bazı örnekler aşağıda verilmiştir.
 
 * Tüm başarısız bağımlılık çağrılarını bulun:
 

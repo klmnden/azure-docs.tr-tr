@@ -10,54 +10,38 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 09/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: b5959e014b7e531b8f52fcbe6f6492576eedd61a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c7ac631ded5d781b2d2949d65f6197e194521055
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875680"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268932"
 ---
 # <a name="what-is-bing-autosuggest"></a>Bing Otomatik Öneri nedir?
 
-Bing Arama API’lerinden herhangi birine sorgular gönderirseniz, arama kutusu deneyiminizi iyileştirmek için Bing Otomatik Öneri API’sini kullanabilirsiniz. Bing Otomatik Öneri API’si, kullanıcının arama kutusuna girdiği kısmi sorgu dizesine göre önerilen sorguların bir listesini döndürür. Arama kutusunun açılır listesinde öneriler görüntülenir. Önerilen terimler, diğer kullanıcıların aradığı ve kullanıcının amaçladığı önerilen sorguları temel alır.
+Uygulamanızın tüm Bing arama API'leri sorguları gönderirse, Bing otomatik öneri API'si kullanıcılarınızın arama deneyimini geliştirmek için kullanabilirsiniz. Bing otomatik öneri API'si, bir arama kutusu kısmi sorgu dizesine göre önerilen sorgular listesi döndürür. Arama kutusuna girilen karakterler gibi aşağı açılan listede önerileri görüntüleyebilirsiniz.
 
-Genellikle kullanıcı arama kutusuna her yeni karakter yazdığında bu API’yi çağırırsınız. Sorgu dizesinin eksiksiz olması, API’nin döndürdüğü önerilen sorgu terimlerinin alakasını etkiler. Sorgu dizesi ne kadar eksiksizse, önerilen sorgu terimlerinin listesi de o kadar alakalıdır. Örneğin, API’nin *s* için döndürebileceği öneriler, *sailing dinghies* için döndürdüğü sorgulardan daha az alakalıdır.
+## <a name="bing-autosuggest-api-features"></a>Bing otomatik öneri API'si özellikleri
 
-## <a name="getting-suggested-search-terms"></a>Önerilen arama terimlerini alma
+| Özellik                                                                                                                                                                                 | Açıklama                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Gerçek zamanlı arama terimleri önerme](concepts/get-suggestions.md) | Bunlar yazıldığı gibi önerilen arama terimlerini görüntülemek için otomatik öneri API'si kullanarak uygulama deneyiminizi geliştirin. |
 
-Aşağıdaki örnekte, *sail* için önerilen sorgu dizelerini döndüren bir istek gösterilmektedir. [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query) sorgu parametresini ayarladığınızda, kullanıcının kısmi sorgu terimini URL kodlamayı unutmayın. Örneğin, kullanıcı *sailing dinghies* terimini girdiyse, `q` öğesini `sailing+les` veya `sailing%20les` olarak ayarlayın.
+## <a name="workflow"></a>İş akışı
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-X-MSEdge-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
+Bing otomatik öneri API'si bir RESTful web HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağırmak kolay hizmettir. 
 
-Aşağıdaki yanıt, önerilen sorgu terimlerini içeren [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction) nesnelerinin bir listesini içerir.
+1. Bing Arama API'lerine erişimi olan bir [Bilişsel Hizmetler API'si hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) oluşturun. Azure aboneliğiniz yoksa ücretsiz olarak [hesap oluşturabilirsiniz](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+2. Bir istek, bir kullanıcı, uygulamanızın arama kutusuna yeni karakter türleri her zaman bu API'ye gönderin.
+3. Döndürülen JSON iletisini ayrıştırarak API yanıtını işleyin.
 
-```json
-{
-    "url" : "https:\/\/www.bing.com\/search?q=sailing+lessons+seattle&FORM=USBAPI",
-    "displayText" : "sailing lessons seattle",
-    "query" : "sailing lessons seattle",
-    "searchKind" : "WebSearch"
-}, ...
-```
+Genellikle, her seferinde kullanıcı, uygulamanızın arama kutusuna yeni karakter türleri bu API çağrısıyla sonlandırmalısınız. Daha fazla karakter girdiniz gibi API'nin daha ilgili önerilen arama sorguları döndürür. Öneriler API'si için tek bir örnek döndürebilir `s` için daha az ilgili olasılığı `sail`.
 
-Her öneri, `displayText`, `query` ve `url` alanını içerir. `displayText` alanı, arama kutunuzun açılır listesini doldurmak için kullandığınız önerilen sorguyu içerir. Yanıtın içerdiği tüm önerileri, verilen sırada görüntülemeniz gerekir.
-
-Aşağıda, önerilen sorgu terimlerini içeren açılır arama kutusunun bir örneği gösterilmektedir.
+Aşağıdaki örnek, Bing otomatik öneri API'si bir açılan arama kutusuna önerilen sorgu terimleri gösterir.
 
 ![Otomatik öneri açılır arama kutusu listesi](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-Kullanıcı, açılır listeden bir önerilen sorgu seçerse, `query` alanındaki sorgu terimini kullanarak [Bing Web Araması API](../bing-web-search/search-the-web.md)’sini çağırır ve sonuçları kendiniz görüntülersiniz. Veya bunun yerine kullanıcıyı Bing arama sonuçları sayfasına göndermek için `url` alanındaki URL’yi kullanabilirsiniz.
-
-## <a name="throttling-requests"></a>İstekleri azaltma
-
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+Bir kullanıcının açılan listeden bir öneri seçtiğinde, Bing arama API'leri biriyle aramaya başlanacak kullanın veya doğrudan Bing arama sonuçları sayfasına gidin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

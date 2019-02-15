@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41771db4ff674b2f0df941286358d3154034ea1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e6f1174351f0907ce2bef21324c7ba81c81498b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194368"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266722"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim nedir?
 
@@ -109,11 +109,7 @@ Koşullu erişimi kullanabilmek için Azure AD Premium lisansına ihtiyacınız 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Aşağıdaki konularda daha fazla bilgi edinmek için ilgili sayfaları inceleyin:
-    - Koşullar hakkında daha fazla bilgi için bkz. [Azure Active Directory koşullu erişim özelliğindeki koşullar](conditions.md).
+Koşullu erişim, ortamınızda uygulama hakkında bilgi edinmek için bkz: [Azure Active Directory'de koşullu erişim dağıtımınızı planlama](plan-conditional-access.md).
 
-    - Erişim denetimleri hakkında daha fazla bilgi için bkz. [Azure Active Directory koşullu erişim özelliğindeki erişim denetimleri](controls.md).
 
-- Koşullu erişim ilkelerini yapılandırma konusunda deneyim edinmek istiyorsanız bkz. [Azure Active Directory koşullu erişim özelliğiyle belirli uygulamalar için MFA isteme](app-based-mfa.md).
 
-- Önerilen ilkelere sahip ayrıntılı bir dağıtım planına ihtiyacınız varsa bkz. [koşullu erişim dağıtım planı](https://aka.ms/conditionalaccessdeploymentplan)

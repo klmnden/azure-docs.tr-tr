@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002009"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270377"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -42,7 +42,7 @@ Birçok Azure kaynağı için kendi genel bakış sayfasında Azure portalında 
 
 Azure İzleyici tarafından toplanan günlük verilerini analiz ile [sorguları](log-query/log-query-overview.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [günlük analizi](log-query/portals.md) Azure portalında ve ardından ya da doğrudan bu araçları kullanarak verileri analiz etmek veya ile kullanmak için sorguları Kaydet [görselleştirmeler](visualizations.md) veya [Uyarısı kuralları](platform/alerts-overview.md).
 
-Azure İzleyici, bir sürümünü kullanan [Veri Gezgini sorgu dili](/azure/kusto/query/) , uygun basit günlük sorgular ancak toplamalar, birleştirmeler ve akıllı analiz gibi gelişmiş işlevleri de içerir. Sorgu dilini kullanarak hızla edinebilirsiniz [birden çok dersleri](log-query/get-started-queries.md).  [SQL](log-query/sql-cheatsheet.md) ve [Splunk](log-query/splunk-cheatsheet.md)’u önceden bilen kullanıcılara belirli yönergeler sağlanır.
+Azure İzleyici, bir sürümünü kullanan [Kusto sorgu dili](/azure/kusto/query/) basit günlük sorgular ancak ayrıca toplamalar, birleştirmeler ve akıllı analiz gibi gelişmiş işlevleri içerir, uygun olan Azure Veri Gezgini tarafından kullanılır. Sorgu dilini kullanarak hızla edinebilirsiniz [birden çok dersleri](log-query/get-started-queries.md).  [SQL](log-query/sql-cheatsheet.md) ve [Splunk](log-query/splunk-cheatsheet.md)’u önceden bilen kullanıcılara belirli yönergeler sağlanır.
 
 ![Günlükler](media/overview/logs.png)
 

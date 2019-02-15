@@ -1,5 +1,5 @@
 ---
-title: Geçişten sonra - Azure SQL veritabanı'nı yönetme | Microsoft Docs
+title: Geçişten sonra - Azure SQL veritabanı tek ve havuza alınmış veritabanlarını yönetme | Microsoft Docs
 description: Azure SQL veritabanına geçişten sonra veritabanınızı yönetmeyi öğrenin.
 services: sql-database
 ms.service: sql-database
@@ -11,28 +11,31 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/13/2019
+ms.openlocfilehash: 8c0c4ac6ce09ce92851b532b226dadfd8b9f7e18
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099743"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270445"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı'nda, tek ve havuza alınmış veritabanlarını yönetme
 
-Geleneksel yönetimden kendi kendine yönetilen bir PaaS ortamı için kendiliğinden denetimli bir ortamda görünen biraz zor taşıma ilk. Bir uygulama geliştiricisi veya DBA olarak, uygulamanızın kullanılabilir durumda tutmanıza yardımcı olacak Platform, yüksek performanslı, güvenli ve dayanıklı - çekirdek özellikler her zaman bilmek istersiniz. Bu makalede, tam olarak bunu amaçlar. Makale temellerini kaynakları düzenler ve nasıl en iyi şekilde yönetmek ve uygulamanızın verimli bir şekilde çalışmaya devam etmesi ve bulutta en iyi sonuçları elde etmek için SQL veritabanı'nın anahtar özelliklerini kullanmaya yönelik bazı yönergeler sağlar. Bu makale için tipik İzleyici bu olacak olan:
+Geleneksel yönetimden kendi kendine yönetilen bir PaaS ortamı için kendiliğinden denetimli bir ortamda görünen biraz zor taşıma ilk. Bir uygulama geliştiricisi veya DBA olarak, uygulamanızın kullanılabilir durumda tutmanıza yardımcı olacak Platform, yüksek performanslı, güvenli ve dayanıklı - çekirdek özellikler her zaman bilmek istersiniz. Bu makalede, tam olarak bunu amaçlar. Makale temellerini kaynakları düzenler ve nasıl en iyi şekilde yönetmek ve uygulamanızın verimli bir şekilde çalışmaya devam etmesi ve bulutta en iyi sonuçları elde etmek için tek ve havuza alınmış veritabanları ile SQL veritabanı'nın anahtar özelliklerini kullanmaya yönelik bazı yönergeler sağlar. Bu makale için tipik İzleyici bu olacak olan:
 
-- Azure SQL DB'ye, uygulamaları Modernleştirme – kendi uygulamaları geçişini Değerlendiriyorlar.
+- Azure SQL veritabanı, uygulamaları Modernleştirme – kendi uygulamaları geçişini Değerlendiriyorlar.
 - Kullanıcıların uygulamaları – devam eden geçiş senaryosu geçiş sürecinde olduğundan.
 - Azure SQL DB – yeni DBA bulut geçişi yakın zamanda tamamladınız.
 
-Bu makalede, Azure SQL DB temel özelliklerinden bazıları kolayca yararlanabileceğiniz bir platform anlatılmaktadır. Bunlar aşağıda verilmiştir:
+Bu makalede Azure SQL veritabanı'nın temel özelliklerinden bazıları kolayca çalışırken yararlanabileceğiniz bir platform ele alınmaktadır ile tek veritabanları ve elastik havuza alınmış veritabanları. Bunlar aşağıda verilmiştir:
 
 - İş sürekliliği ve olağanüstü durum kurtarma (BCDR)
 - Güvenlik ve uyumluluk
 - Akıllı veritabanı izleme ve Bakım
 - Veri taşıma
+
+> [!NOTE]
+> Bu makale Azure SQL veritabanı'nda aşağıdaki dağıtım seçenekleri için geçerlidir: tek veritabanları ve elastik havuzlar. SQL veritabanı yönetilen örnek dağıtım seçeneği geçerli değil.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR)
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9517ccac4006edec473e25c5e6524ce62d4e1259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210111"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269068"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
@@ -157,7 +157,11 @@ Daha önce oturum yaramadı silinmiş veya devre dışı bırakılmış kullanı
 
 **Y:** Bir kullanıcı katılın veya multi-Factor Authentication'ı kullanarak bir cihazı Azure AD'ye kaydetme. Daha sonra cihaz söz konusu kullanıcı için güvenilir bir ikinci faktör olur. Aynı kullanıcı oturum açtığında cihaza ve uygulamaya erişen her Azure AD cihaz ikinci bir faktör olarak dikkate alır. Bu ek çok faktörlü kimlik doğrulama istemleri olmadan uygulamalara sorunsuz bir şekilde erişmek bu kullanıcı sağlar. 
 
-Bu davranış, söz konusu cihaza açan diğer bir kullanıcı için geçerli değildir. Bu cihaz erişim kadar tüm diğer kullanıcılar, çok faktörlü kimlik doğrulaması sınaması alın. Ardından bunlar çok faktörlü kimlik doğrulaması gerektiren uygulamalarda erişebilirsiniz.
+Bu davranışı:
+
+- Geçerli Azure AD'ye katılmış ve Azure AD cihazları - kayıtlı ancak cihazlar için hibrit Azure AD'ye katılmamış.
+
+- Bu cihaza açan diğer bir kullanıcı için geçerli değildir. Bu cihaz erişim kadar tüm diğer kullanıcılar, çok faktörlü kimlik doğrulaması sınaması alın. Ardından bunlar çok faktörlü kimlik doğrulaması gerektiren uygulamalarda erişebilirsiniz.
 
 ---
 

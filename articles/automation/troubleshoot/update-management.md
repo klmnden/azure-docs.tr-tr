@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 01f72b8d41c1a973c7d187f519a43ce62929a23e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359366"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270275"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
@@ -43,7 +43,11 @@ Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 #### <a name="resolution"></a>Çözüm
 
 1. Ziyaret [ağ planlaması](../automation-hybrid-runbook-worker.md#network-planning) hakkında adresler ve bağlantı noktaları çalışacak şekilde güncelleştirme yönetimi için izin verilmesi gereken öğrenin.
-2. Kopyalanan bir görüntü sysprep görüntüsü kullanarak ve olaydan sonra MMA aracısını yükleme durumunda.
+2. Kopyalanmış görüntüsünü kullanıyorsanız:
+   1. Log Analytics çalışma alanınızda kayıtlı arama kapsamı yapılandırması için VM kaldırma `MicrosoftDefaultScopeConfig-Updates`. Kayıtlı aramalar, altında bulunabilir **genel** çalışma alanınızdaki.
+   2. `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force` öğesini çalıştırın
+   3. Çalıştırma `Restart-Service HealthService` yeniden `HealthService`. Bu anahtarı yeniden oluşturun ve yeni UUID oluşturur.
+   4. Bu işe yaramazsa, görüntü sysprep ilk ve olaydan sonra MMA aracısını yükleyin.
 
 ### <a name="multi-tenant"></a>Senaryo: Makineler için Güncelleştirme dağıtımı başka bir Azure kiracısı oluştururken, bağlı abonelik hata alırsınız.
 

@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2019
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: aadc92c232d32d827644caa52b3c362d9c8d4c9b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92e5dd5190a76bd09e33ea4c40a5b5cc2d66bc7b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691040"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301148"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarında çıkış bölümü
 
-Çıkış bölümünde dağıtımdan döndürülen değerlerini belirtin. Örneğin, dağıtılmış bir kaynağa erişmek için URI döndürebilir.
+Çıkış bölümünde dağıtımdan döndürülen değerlerini belirtin. Örneğin, dağıtılmış bir kaynağa erişmek için URI döndürebilir. İsteğe bağlı `condition` çıkış değeri döndürülür olup olmadığını belirlemek için özellik.
 
 ## <a name="define-and-use-output-values"></a>Tanımlama ve çıkış değerlerini kullanma
 
@@ -31,6 +31,18 @@ Aşağıdaki örnek, kaynak kimliği için bir genel IP adresi döndürülecek g
 ```json
 "outputs": {
   "resourceID": {
+    "type": "string",
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+  }
+}
+```
+
+Sonraki örnek, yeni bir olup bir dağıtıldığı kaynak kimliği için bir genel IP adresi göre koşullu olarak döndürülecek gösterilmektedir:
+
+```json
+"outputs": {
+  "resourceID": {
+    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
     "type": "string",
     "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
   }
@@ -70,6 +82,7 @@ Aşağıdaki örnek, bir çıkış tanımı yapısını gösterir:
 ```json
 "outputs": {
     "<outputName>" : {
+        "condition": "<boolean-value-whether-to-output-value>",
         "type" : "<type-of-output-value>",
         "value": "<output-value-expression>"
     }
@@ -79,6 +92,7 @@ Aşağıdaki örnek, bir çıkış tanımı yapısını gösterir:
 | Öğe adı | Gerekli | Açıklama |
 |:--- |:--- |:--- |
 | outputName |Evet |Çıkış değeri adı. Geçerli bir JavaScript tanımlayıcı olmalıdır. |
+| koşul |Hayır | Bu değeri çıktı olup olmadığını gösteren Boole değeri döndürülür. Zaman `true`, değer çıktısı için dağıtım dahildir. Zaman `false`, çıkış değeri bu dağıtım için atlandı. Belirtilmediğinde varsayılan değer: `true`. |
 | type |Evet |Çıkış değeri türü. Çıkış değerleri şablon giriş parametreleri aynı türlerini destekler. |
 | değer |Evet |Değerlendirilen ve çıkış değeri döndürülen şablon dili ifadesi. |
 

@@ -2,21 +2,21 @@
 title: Azure Application Gateway özel hata sayfaları oluşturma
 description: Bu makalede Application Gateway özel hata sayfaları oluşturma işlemini gösterir.
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/14/2019
 ms.author: victorh
-ms.openlocfilehash: 2f76347105743538e9fc1d7588ecb949f2675696
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071295"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301613"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Application Gateway özel hata sayfaları oluşturma
 
-Uygulama ağ geçidi, varsayılan hata sayfalarını görüntüleme yerine özel hata sayfaları oluşturmanıza olanak sağlar. Kendi marka ve özel hata sayfasını kullanarak Düzen kullanabilirsiniz.
+Application Gateway, varsayılan hata sayfalarını göstermek yerine özel hata sayfaları oluşturmanızı sağlar. Özel hata sayfası sayesinde kendi logonuzu ve sayfa düzeninizi kullanabilirsiniz.
 
 Örneğin, web uygulamanızı ulaşılabilir değilse, kendi Bakım Sayfası tanımlayabilirsiniz. Veya bir web uygulaması için kötü amaçlı bir istek gönderirse, yetkisiz erişim sayfası oluşturabilirsiniz.
 
@@ -34,6 +34,7 @@ Daha sonra bir hata arka uç sunuculardan kaynaklanıyorsa, çağırana değişt
 - **Her ikisi de** -dinleyici düzeyinde tanımlanan özel hata sayfası ayarlanan genel düzeyde geçersiz kılar.
 
 Özel hata sayfası oluşturmak için şunlara sahip olmalısınız:
+
 - HTTP yanıtı durum kodu.
 - hata sayfası için karşılık gelen konum. 
 - Genel olarak erişilebilen Azure depolama blobu konumu için.
@@ -59,5 +60,19 @@ Bir hata sayfası belirttikten sonra uygulama ağ geçidi depolama blob konumdan
 4. Belirtilen hata durum kodu Genel olarak erişilebilir blob URL'sini belirtin ve tıklayın **Kaydet**. Application Gateway, özel hata sayfası ile yapılandırılmıştır.
 
    ![Uygulama ağ geçidi hata kodları](media/custom-error/ag-error-codes.png)
+
+## <a name="azure-powershell-configuration"></a>Azure PowerShell yapılandırması
+
+Özel hata sayfasını yapılandırmak için Azure PowerShell kullanabilirsiniz. Örneğin, genel bir özel hata sayfası:
+
+`$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+Veya bir dinleyici düzeyi hata sayfası:
+
+`$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+Daha fazla bilgi için [Ekle AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) ve [Ekle AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Application Gateway Tanılama hakkında daha fazla bilgi için bkz. [arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway](application-gateway-diagnostics.md).

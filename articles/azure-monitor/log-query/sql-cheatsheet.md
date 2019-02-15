@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c9e143a4127807bfffa879103fca42d2d27e71
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993679"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268337"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL Azure İzleyici günlük sorgu kopya kağıdı 
 
-Aşağıdaki tabloda, Azure İzleyici'de günlük sorguları yazma için Veri Gezgini'ni sorgu dili öğrenmek için SQL ile ilgili bilgi sahibi olan kullanıcılara yardımcı olur. Yaygın senaryolar ve bir Azure İzleyici günlük sorgusu eşdeğer çözmek için T-SQL komutunu göz vardır.
+Aşağıdaki tabloda, Azure İzleyici'de günlük sorguları yazma Kusto sorgu dili öğrenmek için SQL ile ilgili bilgi sahibi olan kullanıcılara yardımcı olur. Yaygın senaryolar ve bir Azure İzleyici günlük sorgusu eşdeğer çözmek için T-SQL komutunu göz vardır.
 
 ## <a name="sql-to-azure-monitor"></a>SQL Azure izleme
 

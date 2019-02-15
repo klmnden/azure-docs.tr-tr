@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 180780c3a3a644a8da0fa544c37bc8cd252c982f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 32c47233946dacf4e80a9ff3ba25388e1231d7c9
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469507"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301069"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -28,7 +28,7 @@ Sertifika hataları aşağıdaki durumlardan biri nedeniyle:
 1. Uygulamayı "bir sunucuya (örneğin, şirket sunucunuzun) HTTPS trafiğini kesintiye, şifresini ve otomatik olarak imzalanan bir sertifika kullanarak şifreleme saydam proxy" bağlandı.
 2. Aldığınız HTTPS iletilerine otomatik olarak imzalanan bir SSL sertifikası çalıştırıyorsunuzdur uygulamanın çalışıyor. Sertifikalar ekleme uygulamalara örnek olarak, virüsten koruma ve ağ trafiğini incelemesi yazılım içerir.
 
-Depolama Gezgini imzalı bir kendi kendini gördüğünde veya güvenilmeyen sertifika artık alınan aldığı HTTPS iletisinin değiştirilmiş olup olmadığını bilebilirsiniz. Otomatik olarak imzalanan sertifikanın bir kopyasını varsa, Depolama Gezgini bildirebilirsiniz aşağıdaki adımları uygulayarak güven:
+Depolama Gezgini otomatik olarak imzalanan veya güvenilmeyen bir sertifika gördüğünde artık alınan aldığı HTTPS iletisinin değiştirilmiş olup olmadığını bilebilirsiniz. Otomatik olarak imzalanan sertifikanın bir kopyasını varsa, Depolama Gezgini bildirebilirsiniz aşağıdaki adımları uygulayarak güven:
 
 1. Elde Base-64 kodlanmış X.509 (.cer) sertifikanın kopyasını
 2. Tıklayın **Düzenle** > **SSL sertifikaları** > **sertifikaları içeri aktar**ve ardından bulmak, seçmek ve .cer dosyasını açmak için dosya seçiciyi kullanın
@@ -53,6 +53,18 @@ Nereden sertifika geldiğini emin değilseniz bulmak için aşağıdaki adımlar
 Yukarıdaki adımları kullanarak herhangi bir otomatik olarak imzalanan sertifika bulamazsanız daha fazla yardım için geri bildirim aracı üzerinden bize ulaşın. Alternatif olarak, Depolama Gezgini ile komut satırından başlatmak seçebilirsiniz `--ignore-certificate-errors` bayrağı. Depolama Gezgini ile bu bayrağı başlatıldığında, sertifika hataları göz ardı eder.
 
 ## <a name="sign-in-issues"></a>Oturum açma sorunları
+
+### <a name="blank-sign-in-dialog"></a>Boş bir oturum açma iletişim kutusu
+Boş bir oturum açma iletişim kutuları genellikle AD FS tarafından Depolama Gezgini isteyen Elektron tarafından desteklenmeyen bir yeniden yönlendirme gerçekleştirmek için neden olur. Bu sorunu çözmek için oturum açmak için cihaz kod akış kullanmayı deneyebilirsiniz. Bunu yapmak için aşağıdaki adımları gerçekleştirin:
+1. "Deneysel Git", "Cihaz kodunu oturum açma kullan" ->.
+2. Bağlan iletişim kutusu (ya da sol dikey çubuk Tak simgesine ya da hesabı panosunda "hesabı ekle" aracılığıyla) açın.
+3. İçin oturum açmak istediğiniz hangi ortamı seçin.
+4. "Oturum açma" düğmesine tıklayın.
+5. Sonraki panelinde yönergeleri izleyin.
+
+Kendiniz bulursanız hesapla açma sorunları mı yaşıyorsunuz varsayılan tarayıcınızı zaten yapabilirsiniz veya farklı bir hesaba imzalanmadığı için kullanmak istediğiniz:
+1. El ile özel bir oturuma tarayıcınızın bağlantıyı ve kodu kopyalayın.
+2. El ile bağlantıyı ve kodu farklı bir tarayıcıya kopyalayın.
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Yeniden kimlik doğrulaması döngü veya UPN değiştirme
 Yeniden kimlik doğrulamanın bir döngüde olan veya hesaplarınızı birinin UPN'sini değiştirilmiştir aşağıdakileri deneyin:
@@ -90,7 +102,7 @@ Bu yöntemlerin hiçbiri çalışıyorsanız [github'da bir sorun açın](https:
 Başarıyla oturum açtıktan sonra aboneliklerinizi alınamıyor, aşağıdaki sorun giderme yöntemleri deneyin:
 
 * Hesabınızı beklediğiniz aboneliklerinize erişiminin olduğunu doğrulayın. Kullanmayı denemekte olduğunuz Azure ortamı için portalda oturum açarak erişimi doğrulayabilirsiniz.
-* Doğru Azure kullanarak oturum açmış olduğundan emin olun (Azure, Azure Çin'de, Azure Almanya, Azure ABD kamu veya özel ortam) ortamı.
+* Doğru Azure kullanarak oturum açmış olduğundan emin olun (Azure, Azure Çin 21Vianet, Azure Almanya, Azure ABD kamu veya özel ortam) ortamı.
 * Bir proxy'nin arkasındayken, Depolama Gezgini Ara sunucusunu düzgün şekilde yapılandırdığınızdan emin olun.
 * Deneyin ve hesabı yeniden eklemeyi.
 * Varsa bir "Daha fazla bilgi" bağlantısına bakın ve başarısız olan kiracılar için hangi hata iletileri bildirilen bakın. İle yapmanız gerekenler emin değilseniz hataya bakın, sonra kullanım için ücretsiz iletiniz [github'da bir sorun açın](https://github.com/Microsoft/AzureStorageExplorer/issues).
@@ -116,7 +128,7 @@ Bir ekli hesabı veya kullanıcı Arabirimi aracılığıyla depolama kaynağı 
 * Proxy URL'si ve bağlantı noktası numarası
 * Kullanıcı adı ve parola tarafından proxy gerekliyse
 
-Depolama Gezgini .pac dosya proxy ayarlarını yapılandırmak için desteklemediğini unutmayın.
+Depolama Gezgini proxy otomatik yapılandırma dosyaları için Ara sunucu ayarlarını yapılandırma desteklemediğini unutmayın.
 
 ### <a name="common-solutions"></a>Yaygın çözümleri
 

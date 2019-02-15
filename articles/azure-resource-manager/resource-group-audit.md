@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0bc53edb00ea13fdfcab3cfc398e122e6ecd7632
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e7bcfce4e9d23839c623be3b54e97d931e6454cb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106333"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268303"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Kaynaklara uygulanan eylemleri denetlemek için etkinlik günlüklerini görüntüleme
 
@@ -34,9 +34,6 @@ Etkinlik günlüğü, kaynaklarınız üzerinde gerçekleştirilen tüm yazma i�
 Etkinlik günlükleri, 90 gün boyunca tutulur. Başlangıç tarihi geçmiş 90 günden daha uzun olmadığı sürece herhangi bir tarih aralığı için sorgulayabilirsiniz.
 
 Portal, PowerShell, Azure CLI, Insights REST API aracılığıyla etkinlik günlüklerinden bilgi almak veya [Insights .NET kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="the-azure-portal"></a>Azure portal
 

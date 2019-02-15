@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: faeba611dfc55307f8f855ee45a1a8d37603f2f5
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0c7f248023a97bdad09c2c51e9e9a28073def086
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117393"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300134"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights ile ayrıntılı web uygulaması ve hizmet tanılama
 ## <a name="why-do-i-need-application-insights"></a>Application Insights neden gerekiyor?
-Application Insights çalışan web uygulamanızı izler. Hataları ve performans sorunları hakkında size bildirir ve müşterilerin uygulamanızı kullanımını analiz etmenize yardımcı olur. Bu, birçok platformda (ASP.NET, J2EE, Node.js,...) üzerinde çalışan uygulamalar için çalışır ve Bulut veya şirket içinde barındırılan. 
+Application Insights çalışan web uygulamanızı izler. Hataları ve performans sorunları hakkında size bildirir ve müşterilerin uygulamanızı kullanımını analiz etmenize yardımcı olur. Bu, birçok platformda (ASP.NET, Java EE, Node.js,...) üzerinde çalışan uygulamalar için çalışır ve Bulut veya şirket içinde barındırılan. 
 
 ![Web uygulamaları sunmaya karmaşıklığı yönleri](./media/devops/010.png)
 

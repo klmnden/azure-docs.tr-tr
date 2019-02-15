@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f0c9c06e953df16199acda5f821fdac35b86f07f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bbd73035993d3a981744eb5377fe0bf2c9d55b63
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477565"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268864"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Linux (Ubuntu) için veri bilimi sanal makinesi sağlama
 
@@ -31,7 +31,7 @@ Linux için veri bilimi sanal makinesi, Azure üzerinde derin öğrenme dahil ol
   * [Caffe2](https://github.com/caffe2/caffe2): Caffe çapraz platform sürümü
   * [Microsoft Bilişsel Araç Seti](https://github.com/Microsoft/CNTK): Bir derin Microsoft Research'nden yazılımları Araç Seti öğrenme
   * [H2O](https://www.h2o.ai/): Bir açık kaynaklı büyük veri platformu ve grafik kullanıcı arabirimi
-  * [Keras](https://keras.io/): Python'da Theano ve TensorFlow için üst düzey sinir ağı API
+  * [Keras](https://keras.io/): TensorFlow, Microsoft Bilişsel Araç Seti ve Theano python'da üst düzey sinir ağı API
   * [MXNet](http://mxnet.io/): Birçok dil bağlamaları ile bir esnek ve verimli derin öğrenme kitaplığı
   * [NVIDIA BASAMAK](https://developer.nvidia.com/digits): Derin öğrenme yaygın görevleri basitleştirir grafik bir sistem
   * [PyTorch](http://pytorch.org/): Dinamik ağları için desteği olan üst düzey bir Python kitaplığı
@@ -177,7 +177,7 @@ Bazı örnek not defterleri JupyterHub içinde kullanılabilir.
 H2O bir hızlı, bellek içi, dağıtılmış bir makine öğrenimi ve Tahmine dayalı analiz platformudur. Bir Python paketi kök ve py35 Anaconda ortamlarda yüklenir. Bir R paketi de yüklenir. H2O komut satırından başlatmak için Çalıştır `java -jar /dsvm/tools/h2o/current/h2o.jar`; vardır çeşitli [komut satırı seçenekleri](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) yapılandırmak istediğiniz. Flow Web kullanıcı arabirimini göz atarak erişilebilir http://localhost:54321 kullanmaya başlamak için. Örnek Not defterleri de JupyterHub de mevcuttur.
 
 #### <a name="keras"></a>Keras
-Keras TensorFlow ya da Theano üstte çalıştırabilen python'da üst düzey sinir ağı API ' dir. Kök ve py35 Python ortamlarında kullanılabilir. 
+Keras TensorFlow, Microsoft Bilişsel Araç Seti ya da Theano üstte çalıştırabilen python'da üst düzey sinir ağı API ' dir. Kök ve py35 Python ortamlarında kullanılabilir. 
 
 #### <a name="mxnet"></a>MXNet
 MXNet hem verimlilik hem de esneklik için tasarlanmış bir derin öğrenme çerçevedir. DSVM'nin dahil, R ve Python bağlamaları var. Örnek Not Defterleri JupyterHub dahildir ve örnek kod, /dsvm/samples/mxnet içinde kullanılabilir.

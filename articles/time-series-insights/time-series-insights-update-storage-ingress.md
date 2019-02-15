@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: f0326e6f05f44b5f2c4416a1c1db09bc5816a297
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558320"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301681"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Veri depolama ve Azure zaman serisi öngörüleri önizlemesinde giriş
 
@@ -189,7 +189,7 @@ Zaman serisi öngörüleri Önizleme, bir blob boyutu iyileştirme stratejisi ku
 
 ### <a name="scale"></a>Ölçek
 
-Zaman serisi öngörüleri Önizleme en fazla 6 megabit (Mbps) her ortam bir ilk giriş ölçeği destekler. Gelişmiş ölçeklendirme desteği devam ediyor. Bu geliştirmeler yansıtacak şekilde belgelerimize güncelleştirmeyi planlıyoruz.
+Zaman serisi öngörüleri Önizleme 6 Mega bayt / saniye (Mbps) ortam başına en fazla bir ilk giriş ölçeğini destekler. Gelişmiş ölçeklendirme desteği devam ediyor. Bu geliştirmeler yansıtacak şekilde belgelerimize güncelleştirmeyi planlıyoruz
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

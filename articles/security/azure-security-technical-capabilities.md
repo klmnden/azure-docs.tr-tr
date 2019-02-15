@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c94a078e77f1e3e5b70d2d95016b8417fe2172d5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e7f8eef2c3422084846462e2f6159a8b8be7167f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118488"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301834"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 
@@ -462,7 +462,7 @@ Ağ güvenlik denetimi, ağ güvenlik açıklarını algılama ve BT güvenlik v
 
 ### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) birden çok platformlardaki web geliştiricilerine yönelik genişletilebilir bir uygulama performans yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Bu, uygulamanızla kullanıcıların ne yaptığını anlamanıza ve sorunları tanılamanıza yardımcı olması için güçlü analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. DevOps işleminizle tümleştirilir ve bağlantı noktaları için bir çeşitli geliştirme araçlarına sahiptir.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) birden çok platformlardaki web geliştiricilerine yönelik genişletilebilir bir uygulama performans yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Bu, uygulamanızla kullanıcıların ne yaptığını anlamanıza ve sorunları tanılamanıza yardımcı olması için güçlü analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. Uygulamalar için .NET, Node.js ve Java EE gibi platforma birçok, şirket içinde barındırılan veya bulutta. DevOps işleminizle tümleştirilir ve bağlantı noktaları için bir çeşitli geliştirme araçlarına sahiptir.
 
 Şunları izler:
 

@@ -1,7 +1,7 @@
 ---
 title: Öneri Araçları eklemek için Azure Search dizini
 description: Önerilen sorgular Azure Search dizini alanlarındaki metin burada oluşur alanları yazarken tamamlanan sorgu eylemler için etkinleştirir.
-ms.date: 01/31/2019
+ms.date: 02/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 35025d69865aa6890e1cd921e31ac6c26c015789
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008415"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269935"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Öneri Araçları eklemek için Azure Search dizini
 
@@ -34,9 +34,12 @@ Ancak bir **öneri aracı** birçok özelliğe sahiptir, öncelikle bir alan iç
 
 Tek sahip **öneri aracı** kaynak her dizin için (özellikle bir **öneri aracı** içinde **öneri Araçları** koleksiyonu).
 
-Oluşturabileceğiniz bir **öneri aracı** herhangi bir zamanda ancak dizininizi üzerindeki etkiyi alanlarda göre değişir. Yeni alanlar için bir öneri aracı aynı güncelleştirmenin bir parçası eklenmiş olan en az etkili içeren hiçbir dizinin yeniden oluşturulması gerekiyor. Var olan alanları ekleme, ancak tam bir dizini yeniden araya alan tanımı değiştirir.
+## <a name="creating-a-suggester"></a>Bir öneri aracı oluşturma 
 
-## <a name="usage"></a>Kullanım  
+Oluşturabileceğiniz bir **öneri aracı** herhangi bir zamanda ancak dizininizi üzerindeki etkiyi alanlarda göre değişir. 
+
++ Yeni alanlar için bir öneri aracı aynı güncelleştirmenin bir parçası eklenmiş olan en az etkili içeren hiçbir dizinin yeniden oluşturulması gerekiyor.
++ Var olan bir öneri aracı için alanları eklendi ancak tam bir dizini yeniden araya alan tanımı değiştirir.
 
  **Öneri Araçları** belirli belgeleri yerine gevşek koşulları ya da tümcelere önermek için kullanıldığında en iyi şekilde çalışır. En iyi aday başlıklar, adları ve öğeyi tanımlayan diğer görece kısa deyimlerin alanlardır. Kategoriler ve etiketler gibi yinelenen alanlar veya çok uzun alanlar açıklamaları ya da yorumlarınız alanları gibi daha az etkilidir.  
 

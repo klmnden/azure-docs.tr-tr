@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c3b27291fc413310393cd0270ec750de14a4985b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117285"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270071"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack veri merkezi tümleştirmesi - uç noktalarını yayımlama
 
@@ -34,6 +34,9 @@ Bunlar yayımlama Azure Stack için gerekli değil çünkü VIP'ler listelenmemi
 
 > [!Note]  
 > Azure Stack operatörü tarafından hiçbir denetimiyle kullanıcıların kendileri tarafından tanımlanan kullanıcı VIP'ler dinamik.
+
+> [!Note]
+> 1811 güncelleştirmesi itibarıyla 12495 30015 çeşitli nda bağlantı noktaları artık eklenmesi nedeniyle açık olması gerekmez [uzantısı konağı](azure-stack-extension-host-prepare.md).
 
 |Uç nokta (VIP)|DNS ana bilgisayar bir kaydı|Protokol|Bağlantı Noktaları|
 |---------|---------|---------|---------|

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002240"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268201"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Azure İzleyici günlüklerine metin verileri ayrıştırılamadı
 Bazı günlük verilerini Azure İzleyici tarafından toplanan bilgilerin birden çok parça içinde tek bir özellik içerir. Bu veriler birden çok özelliklerini ayrıştırma kolaylaştıran sorguları kullanın. Bir ortak örnek bir [özel günlük](../../log-analytics/log-analytics-data-sources-custom-logs.md) , tek bir özellikte birden çok değer içeren bir tüm günlük girdisi toplar. Farklı değerleri için ayrı özellikler oluşturarak, arama yapabilirsiniz ve her toplama.
@@ -63,7 +63,7 @@ Bu yöntemin dezavantajları şunlardır:
 Bkz: [Azure İzleyici'de özel alanlar oluşturma](../platform/custom-fields.md) toplandıktan gibi veri ayrıştırma ilişkin ayrıntılar için. Bu özel özellikler sorgular gibi diğer herhangi bir özelliği tarafından kullanılan bir tablo oluşturur.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Sorgu desenleri kullanarak verileri ayrıştırılamadı
-Ayrıştırılacak istediğiniz verilerin kayıtlarda yinelenen bir desen tarafından belirlenebildiğinde farklı işleçleri kullanabilirsiniz [Veri Gezgini sorgu dili](/azure/kusto/query/) bir veya daha fazla yeni özellikler belirli veri parçası ayıklanamadı.
+Ayrıştırılacak istediğiniz verilerin kayıtlarda yinelenen bir desen tarafından belirlenebildiğinde farklı işleçleri kullanabilirsiniz [Kusto sorgu dili](/azure/kusto/query/) bir veya daha fazla yeni özellikler belirli veri parçası ayıklanamadı.
 
 ### <a name="simple-text-patterns"></a>Basit metin desenleri
 
@@ -139,7 +139,7 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>Önceden tanımlanmış bir sorgu yapılarda Ayrıştır
-Verilerinizi bilinen bir yapıda biçimlendirilmişse işlevlerin kullanmayı mümkün olabilir [Veri Gezgini sorgu dili](/azure/kusto/query/) önceden tanımlanmış yapıları ayrıştırmak için:
+Verilerinizi bilinen bir yapıda biçimlendirilmişse işlevlerin kullanmayı mümkün olabilir [Kusto sorgu dili](/azure/kusto/query/) önceden tanımlanmış yapıları ayrıştırmak için:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

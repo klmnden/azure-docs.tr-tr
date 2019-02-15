@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: c682bca1f3d4f0e2659ed107a2b15e4e4e28b0d9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0ffa917aa6bcfb642cd672d0a51a70b13f041635
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492496"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267572"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Azure Machine Learning Studio Web Hizmetleri portalını kullanarak bir web hizmetini yönetme
 Machine Learning yeni ve Klasik Web Hizmetleri Microsoft Azure Machine Learning Web Hizmetleri portalını kullanarak yönetebilirsiniz. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel teknolojileri aldığından, biraz farklı yönetim özellikleri bunların her biri için sizde.
@@ -28,7 +28,8 @@ Machine Learning Web Hizmetleri portalında şunları yapabilirsiniz:
 * (Yalnızca yeni), delete veya update faturalandırma planları oluşturun.
 * Ekleme ve silme uç noktaları (yalnızca klasik)
 
-
+>[!NOTE]
+>Klasik web Hizmetleri içinde de yönetebilirsiniz [Machine Learning Studio](http://studio.azureml.net) üzerinde **Web Hizmetleri** sekmesi.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Yeni Kaynak Yöneticisi'ni yönetmek için izinleri tabanlı web Hizmetleri
 

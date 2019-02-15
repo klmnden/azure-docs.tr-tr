@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1724454ff67f6cfe3646b59e8302a3dd099081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217454"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301188"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması nedir?
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
@@ -59,11 +59,11 @@ Kimlik doğrulama işlemini tamamlamak için bir PIN kullanıyorsanız, bunun ye
 ## <a name="who-decides-if-you-use-this-feature"></a>Olan bu özellik kullanırsanız karar verir?
 Hesap türüne bağlı olarak, iki Faktörlü doğrulama kullanmalısınız veya kendiniz karar verebilirsiniz olabilir, kuruluşunuzun karar verebilirsiniz.
 
-- **İş veya Okul hesabı.** Bir iş veya Okul hesabı kullanıyorsanız (örneğin, alain@contoso.com), kuruluşunuz için belirli doğrulama yöntemleriyle birlikte, iki Faktörlü doğrulama kullanmanız gerekir olduğu. İş veya Okul hesabınız için Microsoft Authenticator uygulamasını ekleme hakkında daha fazla bilgi için bkz. [, iş veya Okul hesapları ekleme](microsoft-authenticator-app-add-work-account.md).
+- **İş veya Okul hesabı.** Bir iş veya Okul hesabı kullanıyorsanız (örneğin, alain@contoso.com), kuruluşunuz için belirli doğrulama yöntemleriyle birlikte, iki Faktörlü doğrulama kullanmanız gerekir olduğu. İş veya Okul hesabınız için Microsoft Authenticator uygulamasını ekleme hakkında daha fazla bilgi için bkz. [, iş veya Okul hesapları ekleme](user-help-auth-app-add-work-school-account.md).
 
-- **Kişisel Microsoft hesabı.** Kişisel Microsoft hesaplarınız için iki aşamalı doğrulama ayarlamak seçebilirsiniz (örneğin, alain@outlook.com). Kişisel Microsoft hesabınızı ekleme hakkında daha fazla bilgi için bkz. 
+- **Kişisel Microsoft hesabı.** Kişisel Microsoft hesaplarınız için iki aşamalı doğrulama ayarlamak seçebilirsiniz (örneğin, alain@outlook.com). Kişisel Microsoft hesabınızı ekleme hakkında daha fazla bilgi için bkz. [kişisel hesaplarınız ekleme](user-help-auth-app-add-personal-ms-account.md).
 
-- **Microsoft olmayan hesaplar.** Microsoft dışı hesaplarınız için iki aşamalı doğrulama ayarlamak seçebilirsiniz (örneğin, alain@gmail.com). Microsoft olmayan hesapların kullanamayabilir terimi, iki aşamalı doğrulama, ancak özelliğin Bul olmalıdır **güvenlik** veya **oturum** ayarları. Microsoft Authenticator uygulamasını TOTP standartlarını destekleyen herhangi bir hesaplarıyla çalışır.
+- **Microsoft olmayan hesaplar.** Microsoft dışı hesaplarınız için iki aşamalı doğrulama ayarlamak seçebilirsiniz (örneğin, alain@gmail.com). Microsoft olmayan hesapların kullanamayabilir terimi, iki aşamalı doğrulama, ancak özelliğin Bul olmalıdır **güvenlik** veya **oturum** ayarları. Microsoft Authenticator uygulamasını TOTP standartlarını destekleyen herhangi bir hesaplarıyla çalışır. Microsoft olmayan hesapların ekleme hakkında daha fazla bilgi için bkz. [ekleyin, Microsoft olmayan hesapların](user-help-auth-app-add-non-ms-account.md).
 
 ## <a name="in-this-section"></a>Bu bölümde
 
@@ -71,7 +71,8 @@ Hesap türüne bağlı olarak, iki Faktörlü doğrulama kullanmalısınız veya
 |------|------------|
 |[Uygulamayı indirme ve yükleme](user-help-auth-app-download-install.md)|Nerede tanımlar ve nasıl alınacağını ve Android ve iOS çalıştıran cihazlar için Microsoft Authenticator uygulamasını yükleyin.|
 |[İş veya Okul hesapları ekleme](user-help-auth-app-add-work-school-account.md)|Çeşitli iş veya Okul ve kişisel hesaplar için Microsoft Authenticator uygulamasını eklemeyi açıklar.|
-|[Kişisel hesaplarınızın Ekle](user-help-auth-app-add-personal-ms-account.md)|Kişisel Microsoft ve Microsoft dışı hesaplar için Microsoft Authenticator uygulamasını eklemeyi açıklar.|
+|[Kişisel hesaplarınızın Ekle](user-help-auth-app-add-personal-ms-account.md)|Kişisel Microsoft hesaplarınız için Microsoft Authenticator uygulamasını eklemeyi açıklar.|
+|[Microsoft olmayan hesapların Ekle](user-help-auth-app-add-non-ms-account.md)|Microsoft dışı hesaplarınız için Microsoft Authenticator uygulamasını eklemeyi açıklar.|
 |[Hesaplarınızı el ile Ekle](user-help-auth-app-add-account-manual.md)|Sağlanan QR kodunu tarayın yapamıyorsanız el ile hesaplarınızı Microsoft Authenticator uygulamasına eklemeyi açıklar.|
 |[Uygulamayı kullanarak oturum açın](user-help-auth-app-sign-in.md)|Microsoft Authenticator uygulamasını kullanarak, çeşitli hesaplarında oturum açıklar.|
 |[Hesap kimlik bilgilerini yedekleme ve kurtarma](user-help-auth-app-backup-recovery.md)| Microsoft Authenticator uygulamasını kullanarak hesap kimlik bilgilerinizi yedekleme ve kurtarma hakkında bilgi sağlar.|

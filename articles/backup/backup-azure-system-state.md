@@ -9,17 +9,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: a28e3fb18f2c0b65557034e388d08918c622b8f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255873"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268732"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager dağıtımında Windows sistem durumu yedekleme
 Bu makalede Windows Server Sistem durumunuzu Azure'a nasıl yedekleyeceğiniz açıklanmaktadır. Bu, size temel işlemler boyunca yol göstermeye yönelik bir öğreticidir.
 
-Azure Backup hakkında daha fazla bilgi edinmek istiyorsanız bu [genel bakışı](backup-introduction-to-azure-backup.md) okuyun.
+Azure Backup hakkında daha fazla bilgi edinmek istiyorsanız bu [genel bakışı](backup-overview.md) okuyun.
 
 Azure aboneliğiniz yoksa istediğiniz Azure hizmetine erişmenizi sağlayan [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
@@ -131,7 +131,7 @@ Bir kasa oluşturduğunuza göre Windows sistem durumunu yedekleme için yapıla
 
     ![kasa kimlik bilgilerini indirme tamamlandı](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
-> Kasa kimlik bilgilerini yalnızca Windows Aracısı'nı kullanmak istediğiniz sunucu için yerel bir konuma kaydedilmesi gerekir. 
+> Kasa kimlik bilgilerini yalnızca Windows Aracısı'nı kullanmak istediğiniz sunucu için yerel bir konuma kaydedilmesi gerekir.
 >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -163,7 +163,7 @@ Bir kasa oluşturduğunuza göre Windows sistem durumunu yedekleme için yapıla
 
 Aracı artık yüklenmiş ve makineniz kasaya kaydedilmiştir. Yedeklemenizi yapılandırıp zamanlamak için hazırsınız.
 
-## <a name="back-up-windows-server-system-state"></a>Windows Server Sistem Durumunu yedekleme 
+## <a name="back-up-windows-server-system-state"></a>Windows Server Sistem Durumunu yedekleme
 İlk yedekleme iki görevleri içerir:
 
 * Yedeklemeyi zamanlama
@@ -194,7 +194,7 @@ Aracı artık yüklenmiş ve makineniz kasaya kaydedilmiştir. Yedeklemenizi yap
 
 6. **İleri**’ye tıklayın.
 
-7. Gerekli yedekleme sıklığı ve bekletme ilkesi, sistem durumu yedeklemeleri için ilerleyen sayfalarında seçin. 
+7. Gerekli yedekleme sıklığı ve bekletme ilkesi, sistem durumu yedeklemeleri için ilerleyen sayfalarında seçin.
 
 8. Onay sayfasında bilgileri gözden geçirin ve ardından **Son**'a tıklayın.
 

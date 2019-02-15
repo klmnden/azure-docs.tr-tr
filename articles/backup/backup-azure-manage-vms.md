@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 118e32994ed6471c52726e826ecfd42620bd3a91
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994906"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269595"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Azure sanal makine yedeklemelerini yönetme
 
@@ -216,4 +216,6 @@ Aşağıdaki yordam, sanal makine için yedekleme işinin durdurulmuş veya devr
     Bir bildirim iletisi, yedekleme verileri silindi bilmenizi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir kurtarma noktasından bir sanal makine yeniden oluşturma hakkında daha fazla bilgi için kullanıma [Azure Vm'leri geri yükleme](backup-azure-arm-restore-vms.md). Sanal makinelerinizi koruma hakkında daha fazla bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). Olayları izleme hakkında daha fazla bilgi için bkz. [Azure sanal makine yedeklemeleri için uyarıları izleme](backup-azure-monitor-vms.md).
+* Bir kurtarma noktasından bir sanal makine yeniden oluşturma hakkında daha fazla bilgi için kullanıma [Azure Vm'leri geri yükleme](backup-azure-arm-restore-vms.md).
+* Sanal makinelerinizi koruma hakkında daha fazla bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md).
+* Olayları izleme hakkında daha fazla bilgi için bkz. [Azure sanal makine yedeklemeleri için uyarıları izleme](backup-azure-monitor-vms.md).

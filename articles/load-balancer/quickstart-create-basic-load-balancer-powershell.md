@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: c8c7d94e216f45551ed869b2ba921f3c79e6307a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: d3f8ae94cd6896aba1db29a00f6f45c81995bbd1
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452692"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301273"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir genel yük dengeleyici oluşturma
 Bu hızlı başlangıçta, Azure PowerShell kullanarak Temel Yük Dengeleyici oluşturma işlemi gösterilmektedir. Yük dengeleyiciyi test etmek için, Windows sunucusu çalıştıran iki sanal makine (VM) dağıtın ve sanal makineler arasında bir web uygulamasının yük dengelemesini yapın.
@@ -72,7 +72,8 @@ Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum 
 
 Aşağıdaki örnek bir TCP araştırması oluşturur. Ayrıca daha ayrıntılı sistem durumu denetimleri için özel HTTP araştırmaları oluşturabilirsiniz. Özel bir HTTP yoklaması kullanırken *healthcheck.aspx* gibi bir durum denetimi sayfası oluşturmanız gerekir. Yük dengeleyicinin konağı rotasyonda tutması için yoklamanın **HTTP 200 OK** yanıtını döndürmesi gerekir.
 
-TCP durumu araştırması oluşturmak için [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig) komutunu kullanın. Aşağıdaki örnek her VM’yi *80* numaralı *HTTP* bağlantı noktasında izleyen *myHealthProbe* adında bir durum yoklaması oluşturur:
+TCP durum araştırması oluşturmak için kullandığınız [New-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/new-azurermloadbalancerprobeconfig).
+Aşağıdaki örnek her VM’yi *80* numaralı *HTTP* bağlantı noktasında izleyen *myHealthProbe* adında bir durum yoklaması oluşturur:
 
 ```azurepowershell-interactive
 $probe = New-AzureRmLoadBalancerProbeConfig `

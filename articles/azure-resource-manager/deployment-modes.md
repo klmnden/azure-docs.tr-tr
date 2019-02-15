@@ -11,24 +11,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: f3ca140fd8606f60a07b71db32cf2d3987ed7860
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: bc28349e1bfc935ac8298f991575c1e0cb42d38c
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233608"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299240"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager dağıtım modları
 
 Kaynaklarınızı dağıtırken dağıtım Artımlı güncelleştirme ya da tam güncelleştirme olduğunu belirtin.  Bu iki mod arasındaki başlıca fark, Resource Manager şablonunda olmayan mevcut kaynaklar kaynak grubunda nasıl işlediğini ' dir. Artımlı varsayılan moddur.
 
-Yalnızca kök düzeyinde şablonu tam dağıtım modunu destekler. İçin [bağlı veya iç içe şablonlar](resource-group-linked-templates.md), artımlı modu kullanmanız gerekir. 
-
-## <a name="incremental-and-complete-deployments"></a>Artımlı ve tam dağıtımları
-
 Her iki mod için Resource Manager şablonunda belirtilen tüm kaynakları oluşturmaya çalışır. Kaynağın kaynak grubunda zaten mevcut ve ayarlarına aynıdır, işlem bu kaynak için alınır. Kaynak, bir kaynak için özellik değerlerini değiştirirseniz, bu yeni değerleri ile güncelleştirilir. Konum veya mevcut bir kaynak türünü güncelleştirmek çalışırsanız, dağıtım bir hata ile başarısız olur. Bunun yerine, yeni bir kaynak konumu ile dağıtın veya sizi gereken yazın.
 
+## <a name="complete-mode"></a>Tam modda
+
 Tam modda, Resource Manager **siler** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları. Şablonda belirtilen olan ancak çünkü dağıtılan kaynakları bir [koşul](resource-manager-templates-resources.md#condition) yanlış olarak değerlendirilir, silinmez.
+
+Kaynak türleri tam modda silme işlemlerinin nasıl işleneceğini içinde bazı fark vardır. Bir şablon değil, tam modunda dağıtıldığında üst kaynaklar otomatik olarak silinir. Bazı alt kaynakları değil, şablon, otomatik olarak silinmez. Ancak, bu alt kaynak silinir üst kaynak silinir. 
+
+Kaynak grubunuz bir DNS bölgesi (Microsoft.Network/dnsZones kaynak türü) ve bir CNAME kaydı (Microsoft.Network/dnsZones/CNAME kaynak türü) içeriyorsa, örneğin, DNS bölgesini üst CNAME kaydını kaynaktır. Tam modda ile dağıtma ve DNS bölgesini, şablonunuzda içermez, DNS bölgesi ve CNAME kaydı, hem de silinir. Varsa DNS bölgesi, şablona dahil ancak CNAME kaydı içermez, CNAME silinmez. 
+
+Kaynak türleri silme nasıl gerçekleştirdiğine ilişkin bir listesi için bkz: [tam modda dağıtımlar için silme işlemi, Azure kaynaklarını](complete-mode-deletion.md).
+
+> [!NOTE]
+> Yalnızca kök düzeyinde şablonu tam dağıtım modunu destekler. İçin [bağlı veya iç içe şablonlar](resource-group-linked-templates.md), artımlı modu kullanmanız gerekir. 
+>
+
+## <a name="incremental-mode"></a>Artımlı modu
 
 Artımlı modda, Resource Manager **değişmeden kalır** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları. Artımlı modda bir kaynak dağıtarak, yalnızca güncelleştirmekte olanlara kaynak için tüm özellik değerlerini belirtin. Bazı özellikler belirtmezseniz, Resource Manager güncelleştirme bu değerlerin üzerine yazar olarak yorumlar.
 

@@ -14,16 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: 837effaa2b699d51a420609415396a11a0d9892c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 818aa63ced56d7cf382536f10bb6150199ab74e9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113218"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268949"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>SAS belirteci ve Azure PowerShell ile özel Resource Manager şablonu dağıtma
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Şablonunuzu bir depolama hesabında bulunduğunda, şablona erişimini kısıtlamak ve dağıtım sırasında bir paylaşılan erişim imzası (SAS) belirteci sağlayın. Bu konu, Azure PowerShell Resource Manager şablonları ile dağıtım sırasında bir SAS belirteci sağlamak için nasıl kullanılacağını açıklar. 
 

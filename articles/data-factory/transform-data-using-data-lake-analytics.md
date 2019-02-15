@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9918dd55181eb82257f23f8974159ed5e762fedd
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016503"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268111"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betikleri çalıştırarak verileri dönüştürme 
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-usql-activity.md)
 > * [Geçerli sürüm](transform-data-using-data-lake-analytics.md)
 
@@ -34,11 +34,11 @@ Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics
 
 Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri için açıklamalar sağlar. 
 
-| Özellik                 | Açıklama                              | Gereklidir                                 |
+| Özellik                 | Açıklama                              | Gerekli                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. | Evet                                      |
 | **accountName**          | Azure Data Lake Analytics hesap adı.  | Evet                                      |
-| **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI'si.           | Hayır                                       |
+| **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Hayır                                       |
 | **Subscriptionıd**       | Azure abonelik kimliği                    | Hayır                                       |
 | **resourceGroupName**    | Azure kaynak grubu adı                | Hayır                                       |
 
@@ -53,7 +53,7 @@ Hizmet sorumlusu izni kullanarak Azure Data Lake Anatlyics [kullanıcı ekleme s
 
 Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
 
-| Özellik                | Açıklama                              | Gereklidir |
+| Özellik                | Açıklama                              | Gerekli |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Uygulamanın istemci kimliği belirtin.     | Evet      |
 | **serviceprincipalkey değerleri** | Uygulama anahtarını belirtin.           | Evet      |
@@ -117,7 +117,7 @@ Aşağıdaki JSON kod parçacığında, bir Data Lake Analytics U-SQL etkinliği
 
 Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özellikleri açıklanmaktadır. 
 
-| Özellik            | Açıklama                              | Gereklidir |
+| Özellik            | Açıklama                              | Gerekli |
 | :------------------ | :--------------------------------------- | :------- |
 | ad                | İşlem hattındaki etkinliğin adı     | Evet      |
 | açıklama         | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
@@ -131,7 +131,7 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özel
 | runtimeVersion      | Çalışma zamanı sürümünü kullanmak için U-SQL altyapısı. | Hayır       |
 | CompilationMode     | <p>U-SQL derleme modu. Şu değerlerden biri olmalıdır: **Anlam:** Yalnızca anlam denetimleri ve gerekli sağlamlık denetimleri gerçekleştirmek **tam:** Sözdizimi denetimi, en iyi duruma getirme, kod oluşturma, vb. dahil olmak üzere tam derleme gerçekleştirmek **SingleBox:** TargetType ayarıyla SingleBox tam derleme gerçekleştirin. Bu özellik için bir değer belirtmezseniz, sunucunun en iyi derleme modu belirler. | Hayır |
 
-Veri Fabrikası gönderen bakın [SearchLogProcessing.txt betik tanımı](#sample-u-sql-script) betik tanımı. 
+Bkz: [SearchLogProcessing.txt](#sample-u-sql-script) betik tanımı. 
 
 ## <a name="sample-u-sql-script"></a>Örnek U-SQL betiği
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994896"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269865"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları kullanmaya başlama
 
@@ -43,7 +43,7 @@ Bu öğreticide, Azure LMonitor günlük sorguları yazma öğreneceksiniz. Size
 Sorgular, bir tablo adı ile başlatabilir veya *arama* komutu. Sorgu için açık bir kapsam tanımlar ve sorgu performansı hem sonuçlarının ilgi düzeyi artıran bir tablo adı ile başlamanız gerekir.
 
 > [!NOTE]
-> Azure İzleyici tarafından kullanılan veri Gezgini sorgu dili, büyük/küçük harf duyarlıdır. Dil anahtar sözcükleri genellikle küçük yazıldığı. Tablo veya sütun adları bir sorguda kullanırken, şema bölmesinde gösterildiği gibi doğru harf kullandığınızdan emin olun.
+> Azure İzleyici tarafından kullanılan Kusto sorgu dili, büyük/küçük harf duyarlıdır. Dil anahtar sözcükleri genellikle küçük yazıldığı. Tablo veya sütun adları bir sorguda kullanırken, şema bölmesinde gösterildiği gibi doğru harf kullandığınızdan emin olun.
 
 ### <a name="table-based-queries"></a>Tablo tabanlı sorgular
 Azure İzleyici günlük verileri tablolarda düzenler, her birden çok sütundan oluşan. Tüm tabloları ve sütunları analiz portalı Log analytics'te şema bölmesinde gösterilir. İlginizi çeken ve ardından veri göz atın, bir tablo tanımlayın:
