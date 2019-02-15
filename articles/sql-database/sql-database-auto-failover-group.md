@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 2857b7f5347cf546a9745dcbea02f636a798f4a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004256"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301936"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma
 
@@ -60,14 +60,18 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
   SQL veritabanı sunucu veya yük devretme grubundaki ikincil veritabanlarını barındıran yönetilen örneği. İkincil birincil olarak aynı bölgede olamaz.
 
-- **Veritabanları, SQL veritabanı sunucusu yük devretme grubuna ekleme**
+- **Tek veritabanları yük devretme grubuna ekleme**
 
-  Çeşitli tek bir veritabanı veya veritabanı içinde bir elastik havuz aynı SQL veritabanı sunucusunda aynı yük devretme grubuna koyabilirsiniz. Tek bir veritabanı yük devretme grubuna eklerseniz, otomatik olarak aynı sürümü ve işlem boyutu kullanarak ikincil bir veritabanı oluşturur. Birincil veritabanını bir elastik havuzda, aynı ada sahip bir elastik havuzdaki ikincil otomatik olarak oluşturulur. İkincil bir veritabanı ikincil sunucuya zaten olan bir veritabanının eklerseniz, söz konusu coğrafi çoğaltma grubu tarafından devralınır. Yeni bir ikincil, ikincil sunucuya eklediğinizde, ikincil veritabanına yük devretme grubunun parçası olmayan bir Server'da zaten bir veritabanı oluşturulur.
+  Birden fazla tek veritabanı aynı SQL veritabanı sunucusunda aynı yük devretme grubuna koyabilirsiniz. Tek bir veritabanı yük devretme grubuna eklerseniz, otomatik olarak ikincil sunucuda aynı sürümü ve işlem boyutu kullanarak ikincil bir veritabanı oluşturur.  Yük devretme grubu oluşturulduğunda bu sunucu belirtildi. İkincil bir veritabanı ikincil sunucuya zaten olan bir veritabanının eklerseniz, söz konusu coğrafi çoğaltma bağlantısı grubu tarafından devralınır. Yeni bir ikincil, ikincil sunucuya eklediğinizde, ikincil veritabanına yük devretme grubunun parçası olmayan bir Server'da zaten bir veritabanı oluşturulur.
   
 > [!IMPORTANT]
   > Bir yönetilen örnek, tüm kullanıcı veritabanlarına çoğaltılır. Kullanıcı veritabanı çoğaltması için bir alt kümesi yük devretme grubunda seçemezsiniz.
 
-- **Yük devretme grubu okuma / yazma dinleyici**
+- **Veritabanları, elastik havuzunda yük devretme grubuna ekleme**
+
+  İçinde bir elastik havuz tüm veya birden fazla veritabanı aynı yük devretme grubuna koyabilirsiniz. Birincil veritabanını bir elastik havuzda ise ikincil (ikincil havuzu) aynı ada sahip bir elastik havuzdaki otomatik olarak oluşturulur. İkincil sunucu yük devretme grubu tarafından oluşturulacak ikincil veritabanlarını barındırmak için yeterli kapasite ve aynı tam adını içeren bir elastik havuzun içerdiğinden emin olmanız gerekir. Bir veritabanı zaten ikincil havuzda ikincil veritabanına sahip havuzun eklerseniz, söz konusu coğrafi çoğaltma bağlantısı grubu tarafından devralınır. İkincil veritabanına yük devretme grubunun parçası olmayan bir Server'da zaten bir veritabanı eklediğinizde, yeni bir ikincil ikincil havuzunda oluşturulur.
+  
+  - **Yük devretme grubu okuma / yazma dinleyici**
 
   Geçerli birincil ait URL işaret eden DNS CNAME kaydı oluşturulmuş. Yük devretme sonrasında birincil değiştiğinde şeffaf bir şekilde birincil veritabanına bağlanmak okuma-yazma SQL uygulamalar sağlar.
 
