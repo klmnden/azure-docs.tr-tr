@@ -25,6 +25,8 @@ items:
     href: quickstart-create-data-factory-rest-api.md
   - name: Veri fabrikası oluşturma - Resource Manager şablonu
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Veri akışı oluşturma
+    href: data-flow-create.md
   expanded: true
 - name: Öğreticiler
   items:
@@ -408,6 +410,42 @@ items:
       href: control-flow-wait-activity.md
     - name: Web Etkinliği
       href: control-flow-web-activity.md
+  - name: Veri akışı dönüşümleri
+    items:
+    - name: Toplama
+      href: data-flow-aggregate.md
+    - name: Koşullu bölme
+      href: data-flow-conditional-split.md
+    - name: Türetilmiş sütun
+      href: data-flow-derived-column.md
+    - name: Var
+      href: data-flow-exists.md
+    - name: Filtre
+      href: data-flow-filter.md
+    - name: Birleştir
+      href: data-flow-join.md
+    - name: Arama
+      href: data-flow-lookup.md
+    - name: Yeni dal
+      href: data-flow-new-branch.md
+    - name: Pivot
+      href: data-flow-pivot.md
+    - name: 'Şunu seçin:'
+      href: data-flow-select.md
+    - name: Havuz
+      href: data-flow-sink.md
+    - name: Sırala
+      href: data-flow-sort.md
+    - name: Kaynak
+      href: data-flow-source.md
+    - name: Vekil anahtar
+      href: data-flow-surrogate-key.md
+    - name: Birleşim
+      href: data-flow-union.md
+    - name: Özetlemeyi açma
+      href: data-flow-unpivot.md
+    - name: Pencere
+      href: data-flow-window.md
   - name: Parametreleştirme
     items:
     - name: Bağlı hizmetleri parametreleştirme
@@ -528,9 +566,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Destek seçenekleri
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 535abc50cd27693da90aaaddcfdf8950d6abc59d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ee5cd120a8f1ecb8a1f685c1fa2332a9d9c5dd1
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174427"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270428"
