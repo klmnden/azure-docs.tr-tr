@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery Azure'dan Azure'a çoğaltma sorunlarını ve hataları için sorun giderme | Microsoft Docs
+title: Azure Site Recovery için devam eden Azure'dan Azure'a çoğaltma sorunlarını giderme | Microsoft Docs
 description: Olağanüstü durum kurtarma için Azure sanal makineleri çoğaltırken hatalarını ve sorunlarını giderme
 services: site-recovery
 author: asgang
@@ -8,46 +8,41 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 4a18e009f7defc8d41846b867f9b7a65d2b853dd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 9ff756270c368d39b7ef78d7c1046f7c91169668
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993340"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299608"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Azure'dan Azure'a VM devam eden çoğaltma sorunlarını giderme
+# <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Azure'dan Azure'a VM çoğaltması devam eden sorunlarını giderme
 
-Bu makalede Azure Site Recovery çoğaltma ve Azure sanal makineleri bir bölgesinden başka bir bölgeye kurtarma giren yaygın sorunların ve bunları nasıl giderebileceğinizden açıklar. Desteklenen yapılandırmalar hakkında daha fazla bilgi için bkz. [Azure Vm'lerini çoğaltma için destek matrisi](site-recovery-support-matrix-azure-to-azure.md).
+Çoğaltma ve Azure sanal makineleri bir bölgesinden başka bir bölgeye kurtarma Bu makale Azure Site recovery'de yaygın sorunları açıklar. Ayrıca, bunları nasıl giderebileceğinizden açıklar. Desteklenen yapılandırmalar hakkında daha fazla bilgi için bkz. [Azure Vm'lerini çoğaltma için destek matrisi](site-recovery-support-matrix-azure-to-azure.md).
 
+Azure Site Recovery, tutarlı bir şekilde veri kaynak bölgesi olağanüstü durum kurtarma bölgeye çoğaltır. ve 5 dakikada bir kilitlenme ile tutarlı kurtarma noktası oluşturur. Site Recovery kurtarma noktaları için 60 dakika oluşturamıyorsanız, bu bilgileri kullanarak uyarıları:
 
-## <a name="recovery-points-not-getting-generated"></a>Kurtarma noktaları oluşturulmuyor
+Hata iletisi: "Kilitlenme tutarlı kurtarma noktası yok son 60 dakika içinde VM için kullanılabilir."</br>
+Hata Kimliği: 153007 </br>
 
-HATA İLETİSİ: Kilitlenme tutarlı kurtarma noktası yok son 60 dakika içinde VM için kullanılabilir.</br>
-HATA KİMLİĞİ: 153007 </br>
+Aşağıdaki bölümlerde, nedenler ve çözümler açıklanmaktadır.
 
-Azure Site Recovery, tutarlı bir şekilde veri kaynak bölgesinden olağanüstü durum kurtarma bölgeye çoğaltır. ve 5 dakikada kilitlenmeyle tutarlı noktası oluşturur. Site Recovery 60 dakika için kurtarma noktaları oluşturamıyor, ardından kullanıcıyı uyarır. Aşağıda bu hataya neden nedenleri şunlardır:
-
-**1. neden: [Kaynak sanal makinedeki yüksek veri değişim hızı](#high-data-change-rate-on-the-source-virtal-machine)**    
-**2. neden: [Ağ bağlantısı sorunu ](#Network-connectivity-issue)**
-
-## <a name="causes-and-solutions"></a>Nedenler ve çözümler
-
-### <a name="high-data-change-rate-on-the-source-virtal-machine"></a>Yüksek veri değişim oranı kaynak sanal makine
-Azure Site Recovery, kaynak sanal makinede veri değişim hızı desteklenen sınırları yüksek ise bir olay tetikler. Sorunu nedeniyle yüksek değişim sıklığı olup olmadığını denetlemek için çoğaltılan öğelerine gidin > VM > tıklayarak "olaylar-son 72 saat".
-Aşağıdaki ekran görüntüsünde gösterildiği gibi olay "veri değişim hızı desteklenen sınırları aşıyor" görmeniz gerekir
+## <a name="high-data-change-rate-on-the-source-virtal-machine"></a>Kaynak sanal makinedeki yüksek veri değişim hızı
+Azure Site Recovery, kaynak sanal makinede veri değişim hızı desteklenen sınırları yüksek ise bir olay tetikler. Sorunu nedeniyle yüksek değişim sıklığı olup olmadığını denetlemek için Git **çoğaltılan öğeler** > **VM** > **olaylar-son 72 saat**.
+"Veri hızı desteklenen sınırları aşıyor Değiştir" olay görmeniz gerekir:
 
 ![data_change_rate_high](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png)
 
-Olayda tıklarsanız aşağıdaki ekran görüntüsünde gösterildiği gibi tam disk bilgilerini görmelisiniz
+Olay seçerseniz, tam disk bilgileri görmeniz gerekir:
 
 ![data_change_rate_event](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png)
 
 
-#### <a name="azure-site-recovery-limits"></a>Azure Site Recovery limitleri
-Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. Biz de, veri değişim sıklığı ve sanal makinenin veri değişim sıklığı disk başına dikkate alınması gereken iki sınır olmadığını unutmamalısınız.
-Örneğin, P20 Premium disk baktığımızda aşağıdaki tabloda, en fazla beş tür disk VM başına 25 MB/sn toplam değişim sıklığı, VM sınırı nedeniyle disk ile 5 MB/sn değişim işlemek için Site kurtarma yapabilirsiniz.
+### <a name="azure-site-recovery-limits"></a>Azure Site Recovery limitleri
+Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel temel alır, ancak bunlar tüm olası uygulama g/ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. 
 
-**Çoğaltma depolama hedefi** | **Ortalama kaynak disk G/Ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
+Dikkate alınması gereken iki sınır, disk başına veri değişim sıklığı ve sanal makine başına veri değişim sıklığı vardır. Örneğin, aşağıdaki tabloda P20 Premium disk göz atalım. Site Recovery, 5 MB/sn değişim disk başına en fazla beş tür diskler, VM başına 25 MB/sn'lik toplam değişim sıklığı, VM sınırı nedeniyle başa çıkabilir.
+
+**Çoğaltma depolama hedefi** | **Kaynak disk için ortalama g/ç boyutu** |**Kaynak disk için ortalama veri değişim sıklığı** | **Kaynak veri diski için günlük toplam veri değişim sıklığı**
 ---|---|---|---
 Standart depolama | 8 KB | 2 MB/sn | Disk başına 168 GB
 Premium P10 veya P15 disk | 8 KB  | 2 MB/sn | Disk başına 168 GB
@@ -57,29 +52,27 @@ Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 MB/sn | Disk başına 
 Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |10 MB/sn | Disk başına 842 GB
 
 ### <a name="solution"></a>Çözüm
-Azure Site Recovery disk türüne göre oran sınırlarını değiştirme verisine sahip olduğunu anlamanız gerekir. Bu sorunu yinelenen veya olmayabileceği bulmak önemli olan bilmek oranı düzeni etkilenen sanal makinenin veri değiştirin.
-Veri değişikliği oranı etkilenen sanal makinenin bulunacak. Kaynak sanal makinenin gidin > İzleme bölümünden ölçümleri ve ölçümler, aşağıda gösterildiği gibi ekleyin.
+Azure Site Recovery veri değişim hızı, disk türüne göre üzerinde limitleri vardır. Bu sorunun yinelenen veya kopan olup olmadığını öğrenmek için veri değişikliği oranı etkilenen sanal makinenin bulun. Kaynak sanal makineye gidin, ölçümleri altında bulabilirsiniz **izleme**, bu ekran görüntüsünde gösterildiği gibi ölçümleri ekleyin:
 
-![high_data_change_rate](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)
+![Veri değişikliği hızını bulmak için üç adımlık bir işlemdir](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)
 
-1. "Üzerinde ölçüm Ekle"'a tıklayın ve "İşletim sistemi diski yazma bayt/sn" ve "Veri diski yazma bayt/sn" ekleyin.
+1. Seçin **ölçüm Ekle**ve ekleme **işletim sistemi diski yazma bayt/sn** ve **veri diski yazma bayt/sn**.
 2. Depo, ekran görüntüsünde gösterildiği gibi izleyin.
-3. İşletim sistemi diski ve tüm veri diskleri birleştirilmiş arasında gerçekleştirilecek işlem toplam Yazar gösterilir. Artık Bu ölçümler, disk düzeyi bilgileri söyleyebilir değil ancak toplam veri değişim sıklığı iyi bir göstergesidir.
+3. Görünüm toplam yazma işlemlerini işletim sistemi diskleri ve tüm veri diskleri birleştirilmiş arasında'olmuyor. Bu ölçüm disk başına düzeyinde bilgi sağlamayabilir, ancak bunlar toplam veri değişim sıklığı desenini gösterir.
 
-Gibi durumlarda bir arada sırada veri veri bloğu ise ve veri değişim hızı (Premium için) 10 MB/sn ile 2 MB/sn (standart için) bir süre değerinden büyükse ve aşağı, gelen çoğaltma Kaçırdığınız. Değişim sıklığı, çoğu zaman iyi desteklenen sınırı aşan ise, ancak ardından aşağıdakilerden birini dikkate almanız gereken mümkünse seçeneği altında:
+Bir depo olan veri bloğu bir arada sırada veri ve veri değiştirirseniz oranıdır 10 MB/sn (Premium için) 2 MB'dan büyük ve/bazı (standart) s saat ve gelir, çoğaltma yakalar. Değişim sıklığı da desteklenen dışında olup olmadığını, ancak çoğu zaman limit, mümkünse bu seçeneklerden birini göz önünde bulundurun:
 
-**1. seçenek:** Yüksek veri değişim hızı neden olan disk hariç tut: </br>
-Kullanarak disk şu anda hariç tutabilirsiniz [Site Recovery Powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)
+* **Bir yüksek veri değişim hızı neden olan bir diski hariç**: Kullanarak bir diski hariç tutabilirsiniz [PowerShell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine).
+* **Olağanüstü Durum Kurtarma Depolama diski katmanını değiştirme**: Bu seçenek yalnızca disk veri değişim sıklığı, 10 MB/sn olması durumunda mümkündür. Bir VM ile bir P10 disk 8 MB/sn ancak 10 MB/sn'den büyük bir veri değişim sıklığı yaşıyor varsayalım. Koruma sırasında müşteri P30 disk için hedef depolama kullanabilir, sorun çözülebilir.
 
-**2. seçenek:** Olağanüstü Durum Kurtarma Depolama diski katmanını değiştirin: </br>
-Disk veri değişim sıklığı, 10 MB/sn ise bu seçenek yalnızca mümkündür. Bir VM ile P10 söyleyin izin disk 8 MB/sn ancak 10 MB/sn'den büyük bir veri değişim sıklığı yaşıyor. Müşteri P30 disk için hedef depolama sırasında koruma kullanıyorsanız, sorun çözülebilir.
+## <a name="Network-connectivity-problem"></a>Ağ bağlantısı sorunları
 
-### <a name="Network-connectivity-issue"></a>Ağ bağlantısı sorunu
+### <a name="network-latency-to-a-cache-storage-account"></a>Bir önbellek depolama hesabına ağ gecikmesi
+Site Recovery, önbellek depolama hesabına çoğaltılan verileri gönderir. Bir sanal makineden önbellek depolama hesabı için verileri karşıya yükleme, ağ gecikmesi 3 saniye içinde 4 MB'den daha yavaş olup olmadığını görebilirsiniz. 
 
-#### <a name="network-latency-to-cache-storage-account-"></a>Önbellek depolama hesabına ağ gecikmesi:
- Site Recovery, önbellek depolama hesabına çoğaltılan veriler gönderir ve daha yavaş sanal makineden önbellek depolama hesabı için verileri karşıya yükleme sorunu meydana gelebilir 3 saniye, 4 MB. Herhangi bir sorun olup olmadığını denetlemek için gecikme kullanımıyla ilgili [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) verileri sanal makineden önbellek depolama hesabına yüklemek için.<br>
-Gecikme süresi yüksek ise vm'lerden giden ağ trafiğinizi denetlemek için bir ağ sanal Gereçleri kullandığınızı kontrol edin. Tüm çoğaltma trafiğinin NVA üzerinden geçerse gereç kısıtlanan. Çoğaltma trafiği için NVA geçmez, bir ağ hizmet uç noktaları sanal ağınızda bulunan "Depolama için" oluşturmanızı öneririz. Başvuru [ağ sanal Gereci yapılandırması](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+Gecikme süresi için ilgili bir sorun denetlemek için kullanmak [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) verileri sanal makineden önbellek depolama hesabına yüklemek için. Gecikme süresi yüksek ise vm'lerden giden ağ trafiğinizi denetlemek için bir ağ sanal Gereci (NVA) kullanıp kullanmadığınızı kontrol edin. Tüm çoğaltma trafiğinin NVA üzerinden geçerse gereç kısıtlanan. 
 
-#### <a name="network-connectivity"></a>Ağ bağlantısı
-Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP aralıkları VM'den gerekli. Sanal makinenize bir güvenlik duvarının arkasındaysa ya da giden bağlantıyı denetlemek için ağ güvenlik grubu (NSG) kuralları kullanıyorsa bu sorunlardan biri karşılaşıyor.</br>
-Başvurmak [Site kurtarma URL'ler için giden bağlantı](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) tüm URL'leri bağlandığınızdan emin olmak için 
+Çoğaltma trafiği için NVA Git değil, bir ağ hizmet uç noktaları sanal ağınızda bulunan "Depolama için" oluşturmanızı öneririz. Daha fazla bilgi için [ağ sanal Gereci Yapılandırması](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
+
+### <a name="network-connectivity"></a>Ağ bağlantısı
+Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP aralıkları VM'den gerekli. Sanal makinenize bir güvenlik duvarının arkasındaysa ya da giden bağlantıyı denetlemek için ağ güvenlik grubu (NSG) kuralları kullanıyorsa bu sorunlarından biri, yüz tanıma. Tüm URL'leri bağlandığınızdan emin olmak için bkz: [Site kurtarma URL'ler için giden bağlantı](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: a7fbd9eb70c50f3bbd154726bdaa807c2bc41818
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863967"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267181"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Bing Video Arama API'si nedir?
 
@@ -29,7 +29,7 @@ Bing Video arama API'si, hizmetler ve uygulamalar, video arama özellikleri ekle
 | [Filtre ve video sonuçları kısıtlama](concepts/get-videos.md#filtering-videos)                      | Sorgu parametreleri düzenleyerek döndürülen videoları filtreleyin.                                                                                                       |
 | [Küçük resimleri kırpma, yeniden boyutlandırma ve görüntüleme](resize-and-crop-thumbnails.md)                                                | Düzenle ve küçük resim önizlemeleri için Bing Video arama API'si tarafından döndürülen videoları görüntüleyin.                                                                                      |
 | [Popüler videolar Al](trending-videos.md) | Dünyanın dört bir yanındaki popüler videoları arayın.                                                                                                          |
-| [Video Öngörüler elde edin](video-insights.md) | Dünyanın her yanından popüler resimler için bir aramayı özelleştirin.                                                                                                          |
+| [Video Öngörüler elde edin](video-insights.md) | Dünyanın dört bir yanındaki popüler videolar için arama özelleştirin.                                                                                                          |
 
 ## <a name="workflow"></a>İş akışı
 

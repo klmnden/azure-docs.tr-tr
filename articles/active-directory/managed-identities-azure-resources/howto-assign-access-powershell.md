@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a001cdafbd608aa2ad06976ec345c612197036d8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fc910ad51984204c8fc072ce49ebdfe4695be4a0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189965"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268025"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>PowerShell kullanarak bir kaynak için bir yönetilen kimlik erişim atama
 
@@ -48,7 +48,7 @@ Yönetilen bir Azure kaynak kimliğini etkinleştirdikten sonra [Azure VM'deki g
 2. Bu örnekte biz bir depolama hesabı için bir Azure VM erişimini vermiş olursunuz. Önce kullandığımız [Get-AzVM](/powershell/module/az.compute/get-azvm) adlı VM için hizmet sorumlusu almak için `myVM`, biz etkinleştirildiğinde oluşturulduğu yönetilen kimliği. Ardından, [yeni AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) VM vermek **okuyucu** adlı bir depolama hesabı erişim `myStorageAcct`:
 
     ```powershell
-    $spID = (Get-Az -ResourceGroupName myRG -Name myVM).identity.principalid
+    $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
     New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
 

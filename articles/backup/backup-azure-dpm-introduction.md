@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bb13e507e7992f4cd4d767a7a18850739b8dccf2
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301076"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270207"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM ile azure'a iş yüklerini yedeklemek hazırlama
 
-Bu makalede, System Center Data Protection Manager (DPM) yedekleri Azure Yedekleme hizmetini kullanarak azure'a hazırlamak açıklanmaktadır. 
+Bu makalede, System Center Data Protection Manager (DPM) yedekleri Azure Yedekleme hizmetini kullanarak azure'a hazırlamak açıklanmaktadır.
 
 Makaleyi sağlar:
 
@@ -25,7 +25,7 @@ Makaleyi sağlar:
 - Önkoşullar ve sınırlamalar Azure yedekleme ile DPM'yi kullanma.
 - Azure, bir kurtarma Hizmetleri yedekleme kasası ayarlama ve isteğe bağlı olarak Azure depolama kasası türünü değiştirme dahil olmak üzere hazırlama adımları.
 - Yükleme dahil olmak üzere DPM sunucusu, hazırlama adımları, Azure Backup aracısını yükleyerek ve DPM sunucusunu kasaya kaydetmeyi kimlik bilgileri kasası.
-- Sık karşılaşılan hatalar için sorun giderme ipuçları. 
+- Sık karşılaşılan hatalar için sorun giderme ipuçları.
 
 
 ## <a name="why-back-up-dpm-to-azure"></a>Neden DPM'den Azure'a yedekleme?
@@ -42,11 +42,11 @@ DPM sunucularını Azure'a yedekleme iş avantajları şunlardır:
 
 ## <a name="prerequisites-and-limitations"></a>Önkoşullar ve sınırlamalar
 
-**Ayar** | **Gereksinim** 
+**Ayar** | **Gereksinim**
 --- | ---
 Bir Azure VM'de DPM | System Center 2012 R2 DPM 2012 R2 güncelleştirme paketi 3 veya sonraki bir sürümü.
-DPM fiziksel sunucu üzerinde | System Center 2012 SP1 veya üzeri; System Center 2012 R2. 
-DPM bir Hyper-V sanal makinesi üzerinde | System Center 2012 SP1 veya üzeri; System Center 2012 R2. 
+DPM fiziksel sunucu üzerinde | System Center 2012 SP1 veya üzeri; System Center 2012 R2.
+DPM bir Hyper-V sanal makinesi üzerinde | System Center 2012 SP1 veya üzeri; System Center 2012 R2.
 Bir VMware VM'de DPM | System Center 2012 R2 Güncelleştirme Paketi 5 veya üzeri.
 Bileşenler | DPM sunucusunda Windows PowerShell ve .net olması Framework 4.5 yüklü.
 Desteklenen uygulamalar | [Bilgi](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) ne DPM yedekleme yapabilirsiniz.
@@ -54,7 +54,7 @@ Desteklenen dosya türleri | Bu dosya türlerini, Azure Backup ile yedeklenebili
 Desteklenmeyen dosya türleri | Büyük küçük harfe duyarlı dosya sistemlerindeki sunucular; sabit bağlantılar (atlanır); yeniden ayrıştırma noktaları (atlanır); şifrelenmiş ve sıkıştırılmış (atlanır); şifrelenmiş ve aralıklı (atlanır); Sıkıştırılmış akış; akışı ayrıştıramadı.
 Yerel depolama | Yedeklemek istediğiniz her makine yedeklenmekte verilerin boyutunu % 5'en az yerel boş depolama alanı olması gerekir.  Örneğin, 100 GB veri yedekleme, en az 5 GB boş alan karalama konumu gerektirir.
 Depolama kasası | Bir Azure Backup vault'a Yedekleyebileceğiniz veri miktarı için bir sınır yoktur ancak (örneğin bir sanal makine veya veritabanı) bir veri kaynağının boyutunu 54400 GB uzun olmaması gerekir.
-Azure Backup aracısı | DPM, System Center 2012 SP1'de çalışıyorsa, paketi 2 veya üzeri için DPM SP1 yükleyin. Bu, aracı yüklemesi için gereklidir.<br/><br/> Bu makalede, Azure Backup Aracısı, Microsoft Azure kurtarma hizmeti (MARS) aracısı olarak da bilinen en son sürümünü dağıtmayı açıklar. Dağıtılan bir önceki sürümüne sahipseniz, bu yedekleme beklendiği gibi çalıştığından emin olmak için en son sürüme güncelleştirin. 
+Azure Backup aracısı | DPM, System Center 2012 SP1'de çalışıyorsa, paketi 2 veya üzeri için DPM SP1 yükleyin. Bu, aracı yüklemesi için gereklidir.<br/><br/> Bu makalede, Azure Backup Aracısı, Microsoft Azure kurtarma hizmeti (MARS) aracısı olarak da bilinen en son sürümünü dağıtmayı açıklar. Dağıtılan bir önceki sürümüne sahipseniz, bu yedekleme beklendiği gibi çalıştığından emin olmak için en son sürüme güncelleştirin.
 
 
 Başlamadan önce Azure yedekleme özelliği etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Hakkında bilgi edinin [Azure Backup fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/).
@@ -85,14 +85,14 @@ Depolama çoğaltma ayarını düzenlemek için:
 
 ## <a name="download-vault-credentials"></a>Kasa kimlik bilgilerini indirme
 
-DPM sunucusunu kasaya kaydettiğinizde kasa kimlik bilgilerini kullanın. 
+DPM sunucusunu kasaya kaydettiğinizde kasa kimlik bilgilerini kullanın.
 
 - Kasa kimlik bilgileri dosyası, her bir yedekleme kasası için portal tarafından oluşturulan bir sertifikadır.
 - Portal daha sonra ortak anahtarı Access Control Service'e (ACS) yükler.
 - Makine kayıt iş akışı sırasında sertifikanın özel anahtarı makinenin kimliğini doğrular kullanıcıya kullanılabilir hale getirilir.
 - Azure Backup hizmeti kimlik doğrulamasına göre tanımlanan kasaya verileri gönderir.
 
- ### <a name="best-practices-for-vault-credentials"></a>Kasa kimlik bilgileri için en iyi uygulamalar
+### <a name="best-practices-for-vault-credentials"></a>Kasa kimlik bilgileri için en iyi uygulamalar
 
 Kimlik bilgilerini almak için kasa kimlik bilgilerini güvenli bir kanal aracılığıyla Azure portalından indirin:
 
@@ -102,7 +102,7 @@ Kimlik bilgilerini almak için kasa kimlik bilgilerini güvenli bir kanal aracı
     - Ancak, var olan yedekleme verilerinin gizliliği tehlikeye giremez şekilde müşteriye ait bir parolayı kullanarak yedekleme verileri şifrelenir.
 - Bu dosya, DPM sunucusundan erişilebilen bir konuma kaydedildiğinden emin olun. Bir dosya paylaşımı/SMB depolandığı için erişim izinlerini denetleyin.
 - Kasa kimlik bilgilerinin süresi 48 sonra saat. Yeni kasa kimlik bilgileri gerektiği birçok indirebilirsiniz. Ancak kayıt iş akışı sırasında yalnızca en son kasa kimlik bilgileri dosyası kullanılabilir.
-- Azure Backup hizmeti sertifikanın özel anahtarı farkında değildir ve özel anahtar, portal veya hizmet kullanılamıyor. 
+- Azure Backup hizmeti sertifikanın özel anahtarı farkında değildir ve özel anahtar, portal veya hizmet kullanılamıyor.
 
 Kasa kimlik bilgileri dosyası gibi bir yerel makineye indirme:
 
@@ -121,7 +121,7 @@ Kasa kimlik bilgileri dosyası gibi bir yerel makineye indirme:
 
 ## <a name="install-the-backup-agent"></a>Yedekleme aracısını yükleme
 
-Azure Backup tarafından yedeklenen her makineler yedekleme aracı (Microsoft Azure kurtarma hizmeti (MARS) aracısı olarak da bilinir) üzerinde yüklü olmalıdır. Aracıyı DPM sunucusuna aşağıdaki gibi yükleyin:
+Azure Backup tarafından yedeklenen her makineye yedekleme aracı (Microsoft Azure kurtarma hizmeti (MARS) aracısı olarak da bilinir) üzerinde yüklü olmalıdır. Aracıyı DPM sunucusuna aşağıdaki gibi yükleyin:
 
 1. DPM sunucusunu kaydetmek istediğiniz kasaya açın.
 2. İçinde **ayarları**, tıklayın **özellikleri**.
@@ -132,7 +132,7 @@ Azure Backup tarafından yedeklenen her makineler yedekleme aracı (Microsoft Az
     ![İndirme](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 
-4. İndirdikten sonra MARSAgentInstaller.exe çalıştırın. DPM makinesinde aracıyı yüklemek için. 
+4. İndirdikten sonra MARSAgentInstaller.exe çalıştırın. DPM makinesinde aracıyı yüklemek için.
 5. Aracı için bir yükleme klasörü ve önbellek klasörü seçin. Yedekleme verilerinin en az % 5'si önbellek konumu boş alan olması gerekir.
 6. İnternet'e bağlanmak üzere bir proxy sunucusu kullanıyorsanız **Proxy Yapılandırması** ekranında, proxy sunucusu ayrıntıları girin. Kimliği doğrulanmış bir ara sunucu kullanıyorsanız kullanıcı adı ve parola ayrıntıları bu ekranda girin.
 7. (Bunlar yüklü değilse) .NET Framework 4.5 ve Windows PowerShell Azure Backup aracısını yükler ve yüklemeyi tamamlamak için.
@@ -151,7 +151,7 @@ Azure Backup tarafından yedeklenen her makineler yedekleme aracı (Microsoft Az
 
     ![Kasa kimlik bilgileri](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
-10. İçinde **daraltma ayarları**, isteğe bağlı olarak bant genişliği azaltma yedeklemeler için etkinleştirebilirsiniz. Hız sınırlarını ayarlayabilirsiniz için çalışma saatleri ve günleri belirtin. 
+10. İçinde **daraltma ayarları**, isteğe bağlı olarak bant genişliği azaltma yedeklemeler için etkinleştirebilirsiniz. Hız sınırlarını ayarlayabilirsiniz için çalışma saatleri ve günleri belirtin.
 
     ![Daraltma ayarları](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
 
@@ -168,12 +168,12 @@ Azure Backup tarafından yedeklenen her makineler yedekleme aracı (Microsoft Az
     - Parola, buluta yedeklemeleri şifrelemek için kullanılır.
     - En az 16 karakter belirtin.
     - Güvenli bir konumda dosyayı kaydederseniz, kurtarma için gereklidir.
-    
+
     ![Şifreleme](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
     > Şifreleme parolası sahibi ve Microsoft bunu görünürlüğe sahip olmayacağı.
-    > Parola kaybolur veya unutulursa; Microsoft, yedekleme verileri kurtarmada yardımcı olamaz. 
+    > Parola kaybolur veya unutulursa; Microsoft, yedekleme verileri kurtarmada yardımcı olamaz.
 
 13. Tıklayın **kaydetme** DPM sunucusunu kasaya kaydetmek için.  
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c59ef72f6e836b9cdf6899d917701555fc5e1988
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989262"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268779"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları
-Azure İzleyici günlüklerine Azure Veri Gezgini oluşturulur ve Azure İzleyici günlük sorguları aynı sorgu dil sürümünü kullanır. [Azure Veri Gezgini sorgu dili belgeleri](/azure/kusto/query) tüm dil ayrıntılarını sahiptir ve Azure İzleyici günlük sorguları yazmak için birincil kaynak olmalıdır. Bu sayfa, sorgu yazmayı öğrenmek ve farkları dilinin Azure İzleyici uygulaması ile diğer kaynakların bağlantılarını sağlar.
+Azure İzleyici günlüklerine Azure Veri Gezgini oluşturulur ve Azure İzleyici günlük sorguları aynı Kusto sorgu dil sürümü kullanın. [Azure Veri Gezgini sorgu dili belgeleri](/azure/kusto/query) tüm dil ayrıntılarını sahiptir ve Azure İzleyici günlük sorguları yazmak için birincil kaynak olmalıdır. Bu sayfa, sorgu yazmayı öğrenmek ve farkları dilinin Azure İzleyici uygulaması ile diğer kaynakların bağlantılarını sağlar.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,8 +36,8 @@ Azure İzleyici günlüklerine Azure Veri Gezgini oluşturulur ve Azure İzleyic
 
 ## <a name="reference"></a>Başvuru
 
-- [Sorgu dili başvurusu](/azure/kusto/query) Veri Gezgini sorgu dili için tam dil başvurudur.
-- [Azure İzleyici günlük sorgu dili farklılıkları](data-explorer-difference.md) Veri Gezgini sorgu dil sürümü arasındaki farkları açıklar.
+- [Sorgu dili başvurusu](/azure/kusto/query) Kusto sorgu dili için tam dil başvurudur.
+- [Azure İzleyici günlük sorgu dili farklılıkları](data-explorer-difference.md) Kusto sorgu dil sürümü arasındaki farkları açıklar.
 - [Azure İzleyici'de standart özellikler günlük kayıtlarının](../../azure-monitor/platform/log-standard-properties.md) tüm Azure İzleyici günlük verileri için standart özellikler açıklanmaktadır.
 - [Azure İzleyici'de kaynaklar arası günlük sorguları gerçekleştirmek](../../azure-monitor/log-query/cross-workspace-query.md) verileri birden fazla Log Analytics çalışma alanları ve Application Insights uygulamaları kullanarak günlük sorguları yazma işlemini açıklamaktadır.
 
@@ -65,4 +65,4 @@ Azure İzleyici günlüklerine Azure Veri Gezgini oluşturulur ve Azure İzleyic
  
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Tam erişim [başvuru belgeleri için Veri Gezgini'ni sorgu dili](/azure/kusto/query/).
+- Tam erişim [başvuru belgeleri Kusto sorgu dili için](/azure/kusto/query/).

@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 94c7b5c81785c3d6fba31396f5812a1308817e33
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115717"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301120"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 güncelleştirme
 
@@ -199,7 +199,9 @@ Güncelleştirilmiş modüller için başvuru incelemesi için bkz: [Azure Stack
            "autoUpgradeMinorVersion": "true"
    ```
 
-- Doğru bir şekilde Azure Stack kapasite planlaması için yeni bir durum yoktur. Biz, Azure Stack içinde ın iç hizmetlerimizin tüm müşteriler çalıştığı ölçek karşılamak sağlamak için dağıtılabilecek sanal makinelerin toplam sayısı sınırları ayarladınız. (Konak başına 60 ulaşılırsa) tüm damga 700 en fazla bir ana bilgisayar başına 60 VM sınırıdır. Daha fazla bilgi için [kapasite Planlayıcısı'nın yeni sürümüne](http://aka.ms/azstackcapacityplanner).
+- Doğru bir şekilde Azure Stack kapasite planlaması için yeni bir durum yoktur. 1901 güncelleştirmeyle, artık sanal makinelerin oluşturulabilir toplam sayısına bir sınır yoktur.  Bu sınır, çözüm kararsızlığı engellemek için geçici olması amaçlanmıştır. Kaynak konumunda VM'ler daha yüksek sayıda kararlılık sorunun ele ancak belirli bir zaman çizelgesi düzeltme için değil henüz karar verilmemiştir. 1901 güncelleştirme vardır, artık bir başına 60 VM'lerin sunucu sınırı 700 toplam çözüm sınırına sahip.  Örneğin, bir 8 sunucu Azure Stack VM sınırı 480 (8 * 60) olacaktır.  12-16 sunucusu için Azure Stack çözüm sınırı 700 olacaktır. Bu sınır, tüm işlem kapasiteyle alakalı durumlar dayanıklılık ayırma ve CPU gibi göz önünde bir işleç damgada sağlamak istediğiniz fiziksel/oranı sanal tutma oluşturuldu. Daha fazla bilgi için kapasite Planlayıcı'nın yeni sürümüne bakın.  
+Aşağıdaki hata kodları, sonuç olarak, VM ölçek sınırına ulaşıldı, olay, döndürülürdü: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - İşlem API Sürüm 2017-12-01 arttı.
 

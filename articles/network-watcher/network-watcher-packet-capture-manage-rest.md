@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a429bfae001cad044da9ef729c021c8128cbfefe
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: c773aae4fa4e530b563c1ae084bf05b8b5c5c12f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090019"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299828"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Paket yakalama işlemlerini Azure REST API'sini kullanarak Azure Ağ İzleyicisi ile yönetme
 
@@ -38,7 +38,7 @@ Bu makalede paket yakalaması için şu anda kullanılabilir olan farklı yönet
 - [**Paket yakalaması durumu sorgu**](#query-packet-capture-status)
 - [**Paket Yakalamayı Başlat**](#start-packet-capture)
 - [**Paket Yakalamayı Durdur**](#stop-packet-capture)
-- [**Bir paket yakalamasını Sil**](#delete-packet-capture)
+- [**bir paket yakalamasını Sil**](#delete-packet-capture)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -210,11 +210,12 @@ armclient get "https://management.azure.com/subscriptions/${subscriptionId}/Reso
 
 ```json
 {
-    "name": "vm1PacketCapture",     "id": "/subscriptions/{guid}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatche rName}/packetCaptures/{packetCaptureName}",
-   "captureStartTime" : "9/7/2016 12:35:24PM",
-   "packetCaptureStatus" : "Stopped",
-   "stopReason" : "TimeExceeded"
-   "packetCaptureError" : [ ]
+    "name": "vm1PacketCapture",
+    "id": "/subscriptions/{guid}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures/{packetCaptureName}",
+    "captureStartTime" : "9/7/2016 12:35:24PM",
+    "packetCaptureStatus" : "Stopped",
+    "stopReason" : "TimeExceeded",
+    "packetCaptureError" : [ ]
 }
 ```
 
@@ -300,7 +301,7 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure depolama hesaplarından dosyaları indirme ile ilgili yönergeler için başvurmak [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanılabilen başka bir Depolama Gezgini aracıdır. Aşağıdaki bağlantıda Depolama Gezgini hakkında daha fazla bilgi burada bulunabilir: [Depolama Gezgini](http://storageexplorer.com/)
+Azure depolama hesaplarından dosyaları indirme ile ilgili yönergeler için başvurmak [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanılabilen başka bir Depolama Gezgini aracıdır. Depolama Gezgini hakkında daha fazla bilgi aşağıdaki bağlantıda burada bulunabilir: [Depolama Gezgini](http://storageexplorer.com/)
 
 Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenme [uyarı tetiklendi paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: d6065420b9081333fc257501ace868f64220ca63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dafafa8ff5d721034b3b10bdeb1a2fc09cd32835
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005259"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267589"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Azure İzleyici günlük sorgusu için Splunk
 
-Bu makale, Azure İzleyici'de günlük sorguları yazma için Veri Gezgini'ni sorgu dili öğrenmek Splunk hakkında bilgi sahibi olan kullanıcılara yardımcı olmak için hazırlanmıştır. Doğrudan karşılaştırmalar iki önemli farkları ve ayrıca benzerlikler arasında burada mevcut bilginiz yararlanabileceğiniz yapılır.
+Bu makale, Azure İzleyici'de günlük sorguları yazma Kusto sorgu dili öğrenmek Splunk hakkında bilgi sahibi olan kullanıcılara yardımcı olmak için hazırlanmıştır. Doğrudan karşılaştırmalar iki önemli farkları ve ayrıca benzerlikler arasında burada mevcut bilginiz yararlanabileceğiniz yapılır.
 
 ## <a name="structure-and-concepts"></a>Yapı ve kavramları
 

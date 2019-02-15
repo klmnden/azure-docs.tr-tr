@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 2f401290a4a9150d27685c06c2d4cd9dc2f06f0d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bbae6d4b727f3e3dc51bd57e8badbc6e87814a51
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730297"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267895"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Eğitim verilerinizi çeşitli veri kaynaklarından Azure Machine Learning Studio’ya alma
 
@@ -77,6 +77,29 @@ Veri tablosu dışında biçimlerini kabul eden herhangi bir modülü verilerini
 
 Gerekirse, verileri tablo biçiminde geri CSV, TSV, ARFF'ye veya diğer dönüştürme modüllerini kullanarak SVMLight biçimine dönüştürebilirsiniz.
 Konum **veri biçim dönüştürmelerini** bu işlevleri gerçekleştirmek modüller için modül paletinin bölümü.
+
+## <a name="data-capacities"></a>Veri kapasitesi
+
+Machine Learning Studio'daki modüller, ortak kullanım durumları için en fazla 10 GB boyutunda yoğun sayısal verili veri kümelerini destekler. Bir modülün birden fazla giriş aldığı durumlarda 10 GB değeri tüm giriş boyutlarının toplamıdır. Hive veya Azure SQL veritabanı sorguları kullanarak daha büyük veri kümelerinden örnek veya veri bazında sayılar, içeri aktarmadan önce ön işleme öğrenme kullanabilirsiniz.  
+
+Aşağıdaki veri türleri, özellik normalleştirme sırasında daha büyük veri kümelerine genişleyebilir ve boyutu 10 GB’den az olacak şekilde sınırlıdır:
+
+* Seyrek
+* Kategorik
+* Dizeler
+* İkili veriler
+
+Aşağıdaki modüller, boyutu 10 GB'den az veri kümeleriyle sınırlıdır:
+
+* Öneren modüller
+* Synthetic Minority Oversampling Technique (SMOTE) modülü
+* Betik modülleri: R, Python, SQL
+* Katılma veya Özellik Karma gibi çıkış veri boyutunun giriş veri boyutundan büyük olabileceği modüller
+* Yineleme sayısının çok büyük olduğu durumlarda Çapraz doğrulama, Model Ayarlama Hiperparametreleri, Sıralı Regresyon ve Tek veya Tüm Çoklu Sınıflar
+
+Birkaç GB'den büyük olan veri kümeleri için Azure depolama veya Azure SQL veritabanına veri yükleme veya doğrudan yerel dosyadan yüklemek yerine Azure HDInsight'ı kullanın.
+
+Görüntü verileri hakkında bilgi bulabilirsiniz [görüntüleri içeri aktarma](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) modül başvurusu.
 
 ## <a name="import-from-a-local-file"></a>Yerel bir dosyadan içeri aktar
 
