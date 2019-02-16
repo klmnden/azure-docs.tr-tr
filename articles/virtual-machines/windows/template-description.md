@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6821c2000efa4a03f803871d9b33272175f1265c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113252"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327774"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Sanal makineler bir Azure Resource Manager şablonu
 
@@ -290,7 +290,7 @@ Birkaç profil öğeleri, bir sanal makine kaynağı tanımlarken kullanılır. 
 
 ## <a name="disks-and-images"></a>Diskleri ve görüntüleri
    
-Azure'da, vhd dosyalarını temsil edebilen [disk veya görüntü](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Belirli bir VM'ye olması için işletim sistemi vhd dosyasındaki özel olduğunda, bir disk olarak adlandırılır. Çok sayıda VM oluşturmak için kullanılacak genelleştirilmiş bir vhd dosyasındaki işletim sistemi, bunu bir görüntü olarak adlandırılır.   
+Azure'da, vhd dosyalarını temsil edebilen [disk veya görüntü](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Belirli bir VM'ye olması için işletim sistemi vhd dosyasındaki özel olduğunda, bir disk olarak adlandırılır. Çok sayıda VM oluşturmak için kullanılacak genelleştirilmiş bir vhd dosyasındaki işletim sistemi, bunu bir görüntü olarak adlandırılır.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Yeni sanal makineler ve yeni diskler bir platform görüntüsünden oluşturma
 

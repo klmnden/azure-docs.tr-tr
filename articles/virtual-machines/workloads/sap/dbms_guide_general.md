@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 54511ac4dfdc05ec1880695b1ae2360f0b5e8162
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246883"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328376"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -106,12 +106,12 @@ Iaas görüştükten rağmen genel olarak Windows, Linux ve DBMS yükleme ve yap
 
 
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>RDBMS dağıtımlar için bir VM depolama yapısı
-Bu bölümde takip etmek için hangi sunulup sunulmadığı anlamak için gerekli olduğu [bu] [ deployment-guide-3] bölüm [Dağıtım Kılavuzu][deployment-guide]. Farklı VM serisi ve farkları ve Azure Standard'ın farklar hakkında daha fazla bilgi ve [Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) bu bölümü okumadan önce bilinen ve anlaşılması gerekir.
+Bu bölümde takip etmek için hangi sunulup sunulmadığı anlamak için gerekli olduğu [bu] [ deployment-guide-3] bölüm [Dağıtım Kılavuzu][deployment-guide]. Farklı VM serisi ve farkları ve premium depolama ile standart depolama ve farklılıkları hakkında bilgi anladım ve bu bölümü okumadan önce bilinen. İçin
 
 Azure sanal makineler için Azure depolama açısından makalelerle bilgi sahibi olmanız gerekir:
 
-- [Azure Windows Vm'leri için diskleri depolama hakkında](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
-- [Azure Linux Vm'leri için diskleri depolama hakkında](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds)
+- [Azure Windows Vm'leri için yönetilen disklere giriş](../../windows/managed-disks-overview.md)
+- [Azure Linux VM'ler için yönetilen disklere giriş](../../linux/managed-disks-overview.md)
 
 Temel bir yapılandırmada, genellikle bir işletim sistemi, DBMS ve nihai SAP ikili dosyaları veritabanı dosyalarından ayrı olduğu dağıtım yapısı öneririz. Bu nedenle, SAP sistemlerini içinde Azure yüklü işletim sistemi, veritabanı yönetim sistemi yürütülebilir dosyalarının ve SAP yürütülebilir dosyaları temel VHD (veya disk) için çalışan sanal makineler için önerilir. DBMS veri ve günlük dosyalarını ayrı disklerin (standart veya Premium depolama) Azure Depolama'da depolanan ve özgün Azure işletim sistemi görüntüsüne VM bağlı mantıksal diskleri. Özellikle Linux dağıtımlarında, belgelenen farklı önerileri olabilir. Özellikle SAP HANA geçici bir çözüm.
 
@@ -134,10 +134,8 @@ Azure, bir veri disk başına IOPS kotası zorlar. Bu kotalar, Azure standart de
 > [!NOTE]
 > Azure'dan yararlanmak için benzersiz [tek bir sanal makine SLA'sı](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) bağlı tüm diskleri temel VHD dahil olmak üzere, Azure Premium depolama türünde olması gerekir.
 
-
 > [!NOTE]
 > Konak ana veritabanı dosyalarını (veri ve günlük dosyaları) SAP veritabanlarının Azure veri merkezlerine bitişik üçüncü taraf birlikte bulunan veri merkezlerinde bulunan depolama donanımı için desteklenmiyor. Yerel Azure temsil edilen SAP iş yükü yalnızca depolama için hizmet veri ve işlem günlük dosyaları SAP veritabanları için desteklenir.
-> 
 
 Veritabanı dosyalarını ve günlük/Yinele dosyaları ve Azure kullanılan depolamanın türü yerleşimini IOPS, gecikme ve üretilen iş gereksinimlerine göre tanımlanmalıdır. Yeterli IOPS sahip olmak için birden çok diskler'den yararlanmaya ya da daha büyük bir Premium depolama disk kullanmak üzere zorlanabilirsiniz. Birden çok disk kullanarak olması durumunda, veri dosyalarını içeren veya günlük/dosyaları Yinele disklerde yazılım stripe oluşturmayı tercih. Böyle durumlarda, IOPS ve disk aktarım hızı SLA'ları temel alınan Premium depolama diskleri veya ulaşılabilir maksimum IOPS, Azure standart depolama diskleri için sonuç kümesi biriktirici.
 

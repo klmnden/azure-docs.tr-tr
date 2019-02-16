@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bd6531bc950e006f15924bb9a0d6428f9e69d544
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460735"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330843"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Eylül 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Eylül 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -24,6 +24,9 @@ Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Eyl�
 Nisan 2018'de [Microsoft tarafından Duyuruldu](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL veri ambarı Gen2 sunduğu performans x 5, 5 x işlem ölçeği, 4 x eşzamanlılık ve sınırsız depolama. Belirtilen [Kıyaslama bulut veri ambarında](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) Gigaom, SQL veri ambarı Gen2'ye göre **%42 Amazon Redshift çok daha iyi**.
 
 2. nesil bir alt giriş noktası, daha küçük boyutlu veri ambarı veya geliştirme/test ortamları tüm yapılan en son hizmet geliştirmeleri ile çalıştırmanıza izin vererek DWU500c en genel kullanıma sunulmuştur. Yeni giriş noktası da dahil olmak üzere 2. nesil özelliklerin tümünü korur [Uyarlamalı önbelleğe alma](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [aydınlatma hızlı veri karıştırma](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), için ve Destek [gerçek zamanlı veri ambarı](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
+
+## <a name="sql-vulnerability-assessment"></a>SQL Güvenlik Açığı Değerlendirmesi
+[SQL güvenlik açığı değerlendirmesi (VA)](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/25/sql-vulnerability-assessment-now-supports-azure-sql-data-warehouse-and-azure-sql-database-managed-instance/) veri Ambarınızı sürekli olarak izleyen bir kullanımı kolay hizmetidir. Her zaman yüksek düzeyde güvenlik olmanıza yardımcı olur ve kuruluş ilkelerinizin karşılanması. Bu, bulunan her sorun için bir eyleme dönüştürülebilir düzeltme adımlarının yanı sıra kapsamlı güvenlik raporu sağlar. Bir güvenlik olmasanız bile bu rapor, proaktif olarak, veritabanı güvenliği stature yönetmek ve en yüksek etkisi eylemleri ilgilenmeniz odaklanmak için uzman kolaylaştırır. Dinamik ortamlarda değişiklikleri sık ve izlemek zor olduğu, VA veri Ambarınızı saldırılarına karşı savunmasız bırakabilir ayarları algılamada her zaman benzersizdir.
 
 ## <a name="improved-availability-with-query-restartability"></a>Sorgu restartability ile geliştirilmiş kullanılabilirlik
 Sorgu yürütme sırasında herhangi bir sayıda sorunları ortaya çıkabilir sorgunun başarısız olmasına neden olabilir. Bir ağ kesintisi, bir donanım hatası veya diğer bağlantı kesilmesi bir kesintiye neden olabilir. SQL veri ambarı sorgu restartability adım veya deyimi düzeyi SELECT sorgusu için artık desteklemektedir. 

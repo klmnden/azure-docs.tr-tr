@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 6a731750da4edfb4a71c00156c5ff527dee30941
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5597f3c017ccf2dbb58b7b6b046720c8f49803c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823416"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312302"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Kullanılabilirlik alanına Azure sanal makineleri taşıma
 Azure kullanılabilirlik alanları, uygulamalarınızın ve verilerinizin veri merkezi arızasına karşı korur. Her kullanılabilirlik alanları, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. Kullanılabilirlik alanı, bölgelerde desteklenir, belirtildiği gibi [burada](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). 
@@ -95,7 +95,7 @@ Aşağıdaki adımlar hedef bölgeye veri çoğaltma işleminin sonunda kullanı
 2. Hedef subscriptiom, hedef VM kaynak grubu ve sanal ağ için appropraite değerleri seçin.
 3. İçinde **kullanılabilirlik** bölümünde, istediğiniz sanal Makineyi taşımak kullanılabilirlik bölgesi seçin. 
 > [!NOTE]
-> Kullanılabilirlik kümesi veya kullanılabilirlik bölgesi seçeneğini görmüyorsanız, lütfen snore [önkoşulları](#prepare-the-source-vms) sağlandığından ve [hazırlık](#prepare-the-source-vms) kaynağını Vm'leri getirildiğinden.
+> Kullanılabilirlik kümesi veya kullanılabilirlik bölgesi seçeneğini görmüyorsanız, lütfen emin [önkoşulları](#prepare-the-source-vms) karşılandığından ve [hazırlık](#prepare-the-source-vms) kaynağını Vm'leri getirildiğinden.
 
    ![etkinleştir-rep-2. PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
 

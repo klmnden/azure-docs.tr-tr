@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: bb7fbdeea9c19b8a6fabe06687261296110b4064
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301817"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328308"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Dil Çözümleyicileri için bir Azure Search dizini Ekle
 
@@ -51,9 +51,9 @@ Varsayılan çözümleyici için İngilizce, ancak belki de değil yanı sıra L
 
 ## <a name="configuring-analyzers"></a>Çözümleyicilerini yapılandırma
 
-Dil Çözümleyicileri olarak kullanılan-olduğu. Dizin tanımındaki her alan için ayarladığınız **Çözümleyicisi** özelliğini hangi dil ve satıcı belirten bir çözümleyici ad. Aynı analyzer, dizin oluşturma ve bu alan için arama yaparken uygulanır. Örneğin, yan yana aynı dizinde mevcut İngilizce, Fransızca ve İspanyolca otel açıklamaları için ayrı alanlara sahip olabilir.  
+Dil Çözümleyicileri olarak kullanılan-olduğu. Dizin tanımındaki her alan için ayarladığınız **Çözümleyicisi** özelliğini dil ve linguistik yığını (Microsoft veya Lucene) belirten bir çözümleyici ad. Aynı analyzer, dizin oluşturma ve bu alan için arama yaparken uygulanır. Örneğin, yan yana aynı dizinde mevcut İngilizce, Fransızca ve İspanyolca otel açıklamaları için ayrı alanlara sahip olabilir. Alternatif olarak, yerine, **Çözümleyicisi**, kullanabileceğiniz **indexAnalyzer** ve **searchAnalyzer** saati ve sorgu saati dizin oluşturma sırasında farklı analiz kuralları için. 
 
-Kullanım **searchFields** sorgu parametresi sorgularınızdaki arama için dile özgü alanı belirtmek için. Arama belgeleri Çözümleyicisi özelliğini içeren sorgu örnekleri gözden geçirebilirsiniz. 
+Kullanım **searchFields** sorgu parametresi sorgularınızdaki arama için dile özgü alanı belirtmek için. Çözümleyici özelliğini içeren sorgu örnekleri inceleyebilirsiniz [arama belgeleri](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Dizin özellikleri hakkında daha fazla bilgi için bkz: [Create Index &#40;Azure arama hizmeti REST API'si&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Azure Search'te çözümleme hakkında daha fazla bilgi için bkz. [Azure Search'te çözümleyiciler](https://docs.microsoft.com/azure/search/search-analyzers).
 

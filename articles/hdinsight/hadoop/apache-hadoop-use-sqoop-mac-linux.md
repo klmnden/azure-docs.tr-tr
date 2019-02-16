@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: cf4895220c19e029952d5bf76aa9baa41250f692
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635707"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309353"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>HDInsight üzerinde Apache Hadoop ile SQL veritabanı arasında verileri dışarı aktarma ve içeri aktarmak için Apache Sqoop'u kullanma
 
@@ -105,7 +105,7 @@ GO
     Veri alanları bir sekme karakteriyle ayrılır ve satırların bir yeni satır karakteri tarafından sonlandırılır.
 
     > [!IMPORTANT]  
-    > `wasb:///` Yolu varsayılan küme depolama alanı olarak Azure depolama kullanan kümeler ile birlikte çalışır. Azure Data Lake depolama kullanan kümeler için kullanma `adl:///` yerine.
+    > `wasb:///` Yolu varsayılan küme depolama alanı olarak Azure depolama kullanan kümeler ile birlikte çalışır. Azure Data Lake depolama Gen1 kullanan kümeler için kullanma `adl:///` yerine.
 
 2. İçeri aktarma tamamlandıktan sonra yeni dizine veri listesini aşağıdaki komutu kullanın:
 

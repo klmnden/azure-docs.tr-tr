@@ -8,47 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 85a8bcaeecc998a2020a657e6944a18c82a0159e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c29ea46513624215421845b99bd8306b73a5a9ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860176"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309021"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme Python ve REST API kullanarak küçük resim oluşturma
 
-Bu hızlı başlangıçta, Görüntü İşleme REST API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız. [Küçük Resim Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) yöntemi ile bir görüntünün küçük resmini alabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü işleme, akıllı bir şekilde ilgi belirlemek ve söz konusu bölgeyi temel alan kırpma koordinatları oluşturmak için akıllı kırpma kullanır.
-
-[MyBinder](https://mybinder.org) üzerinde bir Jupyter not defteri kullanarak bu hızlı başlangıcı adım adım görüntülenecek şekilde çalıştırabilirsiniz. Bağlayıcıyı başlatmak için aşağıdaki düğmeyi seçin:
-
-[![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+Bu hızlı başlangıçta, görüntü işleme'nın REST API kullanarak bir görüntüden bir küçük resim oluşturur. İle [küçük resim alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) yöntemi, istenen yüksekliğini ve genişliğini ve görüntü işleme kullanan bu bölgede dayalı akıllı bir şekilde ilgi tanımlamak ve kırpma koordinatları oluşturmak için akıllı kırpma belirtebilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
-
-## <a name="prerequisites"></a>Önkoşullar
-
-- Örneği yerel olarak çalıştırmak istiyorsanız [Python](https://www.python.org/downloads/) yüklenmiş olmalıdır.
 - Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Bir kod Düzenleyicisi gibi [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 
-Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Aşağıdaki kodu bir metin düzenleyicisine kopyalayın.
-1. Gerektiğinde kodda aşağıdaki değişiklikleri yapın:
-    1. `subscription_key` değerini abonelik anahtarınızla değiştirin.
-    1. Gerekirse `vision_base_url` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesindeki Görüntü İşleme kaynağının uç nokta URL’si ile değiştirin.
-    1. İsteğe bağlı olarak `image_url` değerini, küçük resmini oluşturmak istediğiniz başka bir görüntünün URL’si ile değiştirin.
-1. Kodu, `.py` uzantısıyla bir dosya olarak kaydedin. Örneğin, `get-thumbnail.py`.
-1. Bir komut istemi penceresi açın.
-1. İstemde, örneği çalıştırmak için `python` komutunu kullanın. Örneğin, `python get-thumbnail.py`.
+Oluşturup örneği çalıştırmak için kod düzenleyicisine şu kodu kopyalayın. 
 
 ```python
 import requests
@@ -92,13 +75,27 @@ plt.axis("off")
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 ```
 
+Ardından, aşağıdakileri yapın:
+1. `subscription_key` değerini abonelik anahtarınızla değiştirin.
+1. Gerekirse `vision_base_url` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesindeki Görüntü İşleme kaynağının uç nokta URL’si ile değiştirin.
+1. İsteğe bağlı olarak `image_url` değerini, küçük resmini oluşturmak istediğiniz başka bir görüntünün URL’si ile değiştirin.
+1. Kodu, `.py` uzantısıyla bir dosya olarak kaydedin. Örneğin, `get-thumbnail.py`.
+1. Bir komut istemi penceresi açın.
+1. İstemde, örneği çalıştırmak için `python` komutunu kullanın. Örneğin, `python get-thumbnail.py`.
+
 ## <a name="examine-the-response"></a>Yanıtı inceleme
 
-Küçük resmin görüntü verilerini temsil eden ikili veri halinde başarılı bir yanıt döndürülür. İstek başarılı olursa, yanıttaki ikili verilerden küçük resim oluşturulur ve örnek tarafından görüntülenir. İstek başarısız olursa yanıt, komut istemi penceresinde görüntülenir. Başarısız isteğin yanıtı, neyin yanlış gittiğini belirlemeye yardımcı olması için bir hata kodu ve bir ileti içerir.
+Küçük resim görüntü verilerini temsil eden bir ikili veri olarak başarılı bir yanıt döndürdü. Örnek, bu görüntüyü görüntülemelidir. İstek başarısız olursa, yanıt komut istemi penceresinde görüntülenir ve hata kodu içermesi gerekir.
+
+## <a name="run-in-jupyter-optional"></a>Jupyter (isteğe bağlı) çalıştırın
+
+İsteğe bağlı olarak bu hızlı başlangıçta bir Jupyter Not Defteri kullanarak adım adım bir biçimde çalıştırabileceğiniz [MyBinder](https://mybinder.org). Bağlayıcıyı başlatmak için aşağıdaki düğmeyi seçin:
+
+[![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Optik karakter tanıma (OCR) gerçekleştirmek için Görüntü İşleme kullanan bir Python uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturun. Buna ek olarak, bir görüntüdeki yüzler gibi görsel özellikleri algılayın, kategorilere ayırın, etiketleyin ve açıklayın. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
+Ardından, küçük resim oluşturma özelliği hakkında daha ayrıntılı bilgi edinin.
 
 > [!div class="nextstepaction"]
-> [Görüntü İşleme API'si Python Öğreticisi](../Tutorials/PythonTutorial.md)
+> [Küçük resimler oluşturma](../concept-generating-thumbnails.md)

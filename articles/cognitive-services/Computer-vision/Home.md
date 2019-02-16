@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/22/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ae421ac3f87a16fc6fd2e5f3e89c13fcae50dbf8
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872655"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311639"
 ---
 # <a name="what-is-computer-vision"></a>Görüntü İşleme nedir?
 
-Azure'un görüntü işleme hizmeti, bu görüntüleri işlemek ve döndüren bilgi geliştiricilere erişim gelişmiş algoritmalar sağlar. Bir görüntüyü analiz etmek için görüntü yükleyebilir veya görüntü URL'si belirtebilirsiniz. Görüntü işleme algoritmaları, ilgilendiğiniz görsel özelliklere bağlı olarak birkaç farklı yolla içeriği çözümleyebilirsiniz. Örneğin, görüntü işleme, görüntü, yetişkinlere yönelik veya müstehcen içerikli veya bir resimdeki İnsan yüzlerini tümünün bulabilirsiniz belirleyebilirsiniz.
+Azure'un görüntü işleme hizmeti, geliştiricilerin erişimine resimleri işleyen ve döndürmesini gelişmiş algoritmalar sağlar. Bir görüntüyü analiz etmek için görüntü yükleyebilir veya görüntü URL'si belirtebilirsiniz. Görüntü işleme algoritmaları, ilgilendiğiniz görsel özelliklere bağlı olarak birkaç farklı yolla içeriği çözümleyebilirsiniz. Örneğin, görüntü işleme, görüntü, yetişkinlere yönelik veya müstehcen içerikli veya bir resimdeki İnsan yüzlerini tümünün bulabilirsiniz belirleyebilirsiniz.
 
 Görüntü işleme, uygulamanızda kullanarak yerel bir SDK veya REST API'sini doğrudan çağırmak kullanabilirsiniz. Bu sayfa problem görüntü işleme ile yapabilecekleriniz ele alınmaktadır.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b30e9da523e564f531ec8e9cebe5b16653e579f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858884"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312779"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Hızlı Başlangıç: Yüz tanıma REST API'si ve Node.js ile bir resimdeki yüz algılama
 
@@ -26,12 +26,21 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
+- Bir kod Düzenleyicisi gibi [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="create-the-nodejs-script"></a>Node.js komut dosyası oluşturma
+## <a name="set-up-the-node-environment"></a>Düğüm ortamını ayarlama
 
-Aşağıdaki kod yüz tanıma API'sini çağırmak ve bir görüntüden yüz özniteliği veri alın. İlk olarak, kodu bir metin düzenleyicisine kopyalayın&mdash;çalışabilmesi için önce bazı değişiklikler yapmanız gerekir.
+İstediğiniz yeni bir dosya oluşturun ve projenizi oluşturmak için klasörüne gidin *facedetection.js*. Yüklemeyi `requests` bu projeye modülü. Bu, HTTP isteğinde bulunmak, komut dosyaları sağlar.
 
-```nodejs
+```shell
+npm install request --save
+```
+
+## <a name="write-the-nodejs-script"></a>Node.js komut dosyası yazma
+
+Aşağıdaki kodu yapıştırın *facedetection.js*. Bu alanlar, yüz hizmete bağlanma ve giriş verilerinin alınacağı konumu belirtin. Güncellemeniz gerekecektir `subscriptionKey` alan abonelik anahtarınız ve değeri ile değiştirmek gerekebilir `uriBase` doğru bölge tanımlayıcısı içeren dize (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge listesi uç noktaları). Değiştirmek istediğiniz `imageUrl` kendi giriş görüntüsünü işaret özgüdür.
+
+```javascript
 'use strict';
 
 const request = require('request');
@@ -46,7 +55,12 @@ const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/det
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+```
 
+Ardından, yüz tanıma API'sini çağırın ve giriş görüntüden yüz özniteliği veri almak için aşağıdaki kodu ekleyin. `returnFaceAttributes` Alanı almak için hangi yüz öznitelikleri belirtir. Öngörülen kullanımınıza bağlı olarak bu dize değiştirmek isteyebilirsiniz.
+
+
+```javascript
 // Request parameters.
 const params = {
     'returnFaceId': 'true',
@@ -76,26 +90,12 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-### <a name="subscription-key"></a>Abonelik anahtarı
-Değiştirin `<Subscription Key>` geçerli yüz abonelik anahtarınız ile.
-
-### <a name="face-endpoint-url"></a>Yüz tanıma uç nokta URL'si
-
-URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` Azure yüz uç noktaya sorgu gösterir. Bu URL, abonelik anahtarınızı karşılık gelen bölge eşleştirilecek ilk bölümünü değiştirmeniz gerekebilir (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi).
-
-### <a name="url-query-string"></a>URL sorgu dizesi
-
-`returnFaceAttributes` Alanı almak için hangi yüz öznitelikleri belirtir. Öngörülen kullanımınıza bağlı olarak bu dize değiştirmek isteyebilirsiniz.
-
-### <a name="image-source-url"></a>Görüntü kaynağı URL'si
-`imageUrl` Alan, giriş olarak kullanılacak görüntüyü gösterir. Bu, çözümlemek istediğiniz herhangi bir görüntüye işaret edecek şekilde değiştirebilirsiniz.
-
 ## <a name="save-and-run-the-script"></a>Kaydet ve betiği çalıştırın
 
-Değişikliklerinizi yaptıktan sonra dosyayı bir JavaScript (.js) dosyası olarak kaydedin. Ardından bir komut istemi açın ve ile çalıştırır `node` komutu.
+Değişikliklerinizi yaptıktan sonra bir komut istemi açın ve dosyasını çalıştırmak `node` komutu.
 
 ```
-node myfile.js
+node facedetection.js
 ```
 
 Konsol penceresinde JASON verileri olarak görüntülenen yüz bilgileri görmeniz gerekir. Örneğin:
@@ -281,7 +281,7 @@ Konsol penceresinde JASON verileri olarak görüntülenen yüz bilgileri görmen
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bir resimdeki yüz algılama ve onların öznitelikleri döndürmek için Azure yüz tanıma API'si çağıran bir cURL komutu yazıldı. Ardından, daha fazla bilgi için yüz API başvuru belgeleri keşfedin.
+Bu hızlı başlangıçta, bir resimdeki yüz algılama ve onların öznitelikleri döndürmek için Azure yüz tanıma API'si çağıran bir Node.js komut dosyası yazıldı. Ardından, daha fazla bilgi için yüz API başvuru belgeleri keşfedin.
 
 > [!div class="nextstepaction"]
 > [Yüz Tanıma API’si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

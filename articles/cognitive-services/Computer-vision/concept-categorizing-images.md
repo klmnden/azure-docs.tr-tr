@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1967ba60088cae2b946cfcfe1467c2de5aebccdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879960"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308868"
 ---
-# <a name="image-categorization-with-computer-vision"></a>Görüntü işleme ile görüntü kategorilere ayırma
+# <a name="categorize-images"></a>Görüntüleri kategorilere ayırma
 
-Görüntü işleme, etiketleme ve açıklamaları ek olarak, önceki sürümlerde tanımlanmış sınıflandırma tabanlı kategorileri döndürür. Bu kategoriler, üst/alt kalıtsal hiyerarşileriyle bir taksonomi olarak düzenlenmiştir. Tüm kategoriler İngilizcedir. Tek başına veya birlikte yeni modeli etiketleme kullanılabilir.
+Etiketler ve bir açıklama ek olarak, görüntü işleme görüntüdeki algılanan sınıflandırma tabanlı kategorileri döndürür. Aksine, etiketler, kategoriler, üst/alt hereditary hiyerarşik olarak düzenlenir ve daha az (etiketler binlerce aksine, 86) vardır. Tüm kategori adları, İngilizce'dir. Kategori, tek başına ya da yeni etiketler modelin yanı sıra yapılabilir.
 
 ## <a name="the-86-category-concept"></a>86 kategori kavramı
 
-Aşağıdaki diyagramda görüldüğü 86 kavramları listesini bağlı olarak, görüntü geniş özel arasında değişen sınıflandırılabilir. Metin biçiminde tam taksonomi için bkz. [Kategori Taksonomisi](category-taxonomy.md).
+Görüntü işleme görüntü problem veya özellikle, aşağıdaki diyagramda 86 categroies listesini kullanarak kategorilere ayırabilirsiniz. Metin biçiminde tam taksonomi için bkz. [Kategori Taksonomisi](category-taxonomy.md).
 
 ![Kategori sınıflandırma tüm kategorilerde gruplanmış listesi](./Images/analyze_categories-v2.png)
 

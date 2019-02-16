@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0793f572e043248af409e65cca4fd854f1371900
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880899"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313084"
 ---
 # <a name="detect-color-schemes-in-images"></a>Görüntüleri renk düzenleri algılayın
 
-Görüntü işleme, bir resimden renkleri ayıklar. Renkleri, sonra üç farklı bağlamda analiz edilir: baskın ön plan rengi, baskın arka plan rengini ve bir bütün olarak görüntü için baskın renkler. Bunlar 12 baskın vurgu rengine ayrılarak gruplandırılır. Bu vurgu renkleri beyaz, deniz mavisi, gri, kahverengi, kırmızı, mavi, mor, pembe, sarı, siyah, turuncu ve yeşildir. Görüntü işleme, izleyiciler, birlikte baskın renk doygunluğu ve görüntü için en canlı rengi temsil eden bir Vurgu rengi döndürülecek bir görüntüden ayıklanan renkleri analiz eder. Görüntüdeki renklere bağlı olarak, basit siyah ve beyaz veya vurgu renkleri onaltılık renk kodlarıyla döndürülebilir. Görüntü işleme, ayrıca bir resmin siyah olmadığını gösteren bir Boole değeri döndürür ve beyaz.
+Görüntü işleme, üç farklı öznitelikler sağlamak için bir görüntü renkleri Çözümler: görüntüyü bir bütün olarak baskın renkler kümesi baskın ön plan rengini ve baskın arka plan rengi. Renkler kümeye ait döndürdü: siyah, mavi, brown, gri, yeşil, orange, pembe, mor, red, Deniz Mavisi, teknik ve sarı. 
+
+Görüntü işleme, ayrıca bir bileşimine baskın renk doygunluğu ve dayalı görüntüde, en canlı rengi temsil eder bir Vurgu rengi ayıklar. Vurgu rengi, onaltılık bir HTML renk kodu döndürülür. 
+
+Görüntü işleme, ayrıca bir resmin siyah beyaz olmadığını gösteren bir Boole değeri döndürür.
 
 ## <a name="color-scheme-detection-examples"></a>Renk şeması algılama örnekleri
 
-Aşağıdaki örnek, örnek görüntüde renk düzenini tespit edilirken, görüntü işleme tarafından döndürülen JSON yanıtı gösterir. Bu durumda, örnek görüntüde Siyah & beyaz bir görüntü değil ancak baskın ön ve arka plan renkleri siyah olur ve baskın bir bütün olarak resmin siyah beyaz renklerdir.
+Aşağıdaki örnek, örnek görüntüde renk düzenini tespit edilirken, görüntü işleme tarafından döndürülen JSON yanıtı gösterir. Bu durumda, örnek görüntüde siyah beyaz bir resim değil ancak baskın ön plan ve arka plan rengini siyah olur ve baskın bir bütün olarak resmin siyah beyaz renklerdir.
 
 ![Dış Mekanda Dağ](./Images/mountain_vista.png)
 
@@ -48,7 +52,7 @@ Aşağıdaki örnek, örnek görüntüde renk düzenini tespit edilirken, görü
 
 ### <a name="dominant-color-examples"></a>Baskın renk örnekleri
 
-Aşağıdaki tabloda, baskın ön plan, arka plan ve görüntü işleme tarafından döndürülen her bir örnek görüntü için görüntü renkleri açıklanmaktadır.
+Aşağıdaki tablo döndürülen ön plan, arka plan ve her bir örnek görüntü için görüntü renkleri gösterir.
 
 | Görüntü | Baskın renkler |
 |-------|-----------------|
@@ -57,7 +61,7 @@ Aşağıdaki tabloda, baskın ön plan, arka plan ve görüntü işleme tarafın
 
 ### <a name="accent-color-examples"></a>Vurgu rengi örnekleri
 
- Aşağıdaki tabloda görüntü işleme tarafından döndürülen her bir örnek görüntü için onaltılık bir HTML renk değeri olarak bir Vurgu rengi açıklar.
+ Aşağıdaki tabloda, her bir örnek görüntü için onaltılık bir HTML renk değeri olarak döndürülen Vurgu rengi gösterilmektedir.
 
 | Görüntü | Vurgu rengi |
 |-------|--------------|
@@ -67,7 +71,7 @@ Aşağıdaki tabloda, baskın ön plan, arka plan ve görüntü işleme tarafın
 
 ### <a name="black--white-detection-examples"></a>Siyah & Beyaz algılama örnekleri
 
-Aşağıdaki tabloda, her bir örnek görüntü siyah olup olmadığını belirtir ve görüntü işleme tarafından döndürülen beyaz.
+Aşağıdaki tablo, görüntü işleme'nın siyah beyaz değerlendirme örnek görüntüleri gösterir.
 
 | Görüntü | Siyah & Beyaz? |
 |-------|----------------|

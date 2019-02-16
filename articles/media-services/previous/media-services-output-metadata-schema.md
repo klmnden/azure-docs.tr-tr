@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ec4b03629b56c09973c1ecc5c55930c33c24990b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997584"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312591"
 ---
 # <a name="output-metadata"></a>Çıkış meta verileri
 ## <a name="overview"></a>Genel Bakış
@@ -29,7 +29,7 @@ Media Services meta verileri oluşturmak için giriş varlıklar bilindiğinde t
 
 Meta veri dosyası incelemek isterseniz, oluşturabileceğiniz bir **SAS** Bulucu ve dosyayı yerel bilgisayarınıza indirin.  
 
-Bu makalede öğeleri ve XML Şeması türleri üzerinde anlatılmaktadır çıkış metada (&lt;source_file_name&gt;_manifest.xml) temel alır. Giriş varlığı hakkında meta veriler içeren bir dosya hakkında daha fazla bilgi için bkz. [giriş meta verileri](media-services-input-metadata-schema.md).  
+Bu makalede öğeleri ve XML Şeması türleri üzerinde anlatılmaktadır çıkış metada (&lt;source_file_name&gt;_manifest.xml) temel alır. Giriş meta verileri giriş varlığı hakkında meta veriler içeren bir dosya hakkında daha fazla bilgi için bkz.  
 
 Tam şeması kod ve bu makalenin sonunda XML örneği bulabilirsiniz.  
 
@@ -39,10 +39,10 @@ Kodlama işinin AssetFile girişleri koleksiyonu.
 ### <a name="child-elements"></a>Alt öğeleri
 | Ad | Açıklama |
 | --- | --- |
-| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Bir [AssetFile öğesi](media-services-output-metadata-schema.md) AssetFiles koleksiyonun parçası olan. |
+| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |AssetFiles koleksiyonun parçası AssetFile öğesi. |
 
 ## <a name="AssetFile "></a> AssetFile öğesi
-Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-schema.md#xml).  
+Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
@@ -54,24 +54,24 @@ Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-sc
 ### <a name="child-elements"></a>Alt öğeleri
 | Ad | Açıklama |
 | --- | --- |
-| **Kaynakları** |Bu AssetFile üretmek için işlenmiş giriş/kaynak medya dosyalarını, koleksiyonu. Daha fazla bilgi için [kaynak öğesi](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Sıfır veya daha fazla video içinde her fiziksel AssetFile içerebilir bir uygun bir kapsayıcı biçimine aralıklı izler. Daha fazla bilgi için [VideoTracks öğesi](media-services-output-metadata-schema.md). |
-| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Her fiziksel AssetFile içinde uygun bir kapsayıcı biçimi aralıklı sıfır veya daha fazla ses izleri içerebilir. Bu ses parçaları koleksiyonudur. Daha fazla bilgi için [AudioTracks öğesi](media-services-output-metadata-schema.md). |
+| **Kaynakları** |Bu AssetFile üretmek için işlenmiş giriş/kaynak medya dosyalarını, koleksiyonu. Kaynak öğesi daha fazla bilgi için bkz. |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Sıfır veya daha fazla video içinde her fiziksel AssetFile içerebilir bir uygun bir kapsayıcı biçimine aralıklı izler. VideoTracks daha fazla bilgi için bkz. |
+| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Her fiziksel AssetFile içinde uygun bir kapsayıcı biçimi aralıklı sıfır veya daha fazla ses izleri içerebilir. Bu ses parçaları koleksiyonudur. AudioTracks daha fazla bilgi için bkz. |
 
 ## <a name="Sources "></a> Sources öğesi
 Bu AssetFile üretmek için işlenmiş giriş/kaynak medya dosyalarını, koleksiyonu.  
 
-Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-schema.md#xml).  
+Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
 
 ### <a name="child-elements"></a>Alt öğeleri
 | Ad | Açıklama |
 | --- | --- |
-| **Kaynak**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Bu varlık oluşturulurken kullanılan bir giriş/kaynak dosyası. Daha fazla bilgi için [kaynak öğesi](media-services-output-metadata-schema.md). |
+| **Kaynak**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Bu varlık oluşturulurken kullanılan bir giriş/kaynak dosyası. Kaynak öğesi daha fazla bilgi için bkz. |
 
 ## <a name="Source "></a> Kaynak öğesi
 Bu varlık oluşturulurken kullanılan bir giriş/kaynak dosyası.  
 
-Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-schema.md#xml).  
+Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
@@ -81,17 +81,17 @@ Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-sc
 ## <a name="VideoTracks "></a> VideoTracks öğesi
 Sıfır veya daha fazla video içinde her fiziksel AssetFile içerebilir bir uygun bir kapsayıcı biçimine aralıklı izler. **VideoTracks** öğesi video tüm parçaları bir koleksiyonunu temsil eder.  
 
-Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-schema.md#xml).  
+Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
 
 ### <a name="child-elements"></a>Alt öğeleri
 | Ad | Açıklama |
 | --- | --- |
-| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Üst AssetFile belirli bir video izleyin. Daha fazla bilgi için [VideoTrack öğesi](media-services-output-metadata-schema.md#VideoTrack). |
+| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Üst AssetFile belirli bir video izleyin. VideoTrack daha fazla bilgi için bkz. |
 
 ## <a name="VideoTrack"></a> VideoTrack öğesi
 Üst AssetFile belirli bir video izleyin.  
 
-Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-schema.md#xml).  
+Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
@@ -113,17 +113,17 @@ Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-sc
 ## <a name="AudioTracks "></a> AudioTracks öğesi
 Her fiziksel AssetFile içinde uygun bir kapsayıcı biçimi aralıklı sıfır veya daha fazla ses izleri içerebilir. **AudioTracks** öğesi bu ses parçaları koleksiyonunu temsil eder.  
 
-Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-schema.md#xml).  
+Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
 
 ### <a name="child-elements"></a>Alt öğeleri
 | Ad | Açıklama |
 | --- | --- |
-| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Belirli bir ses üst AssetFile izleyin. Daha fazla bilgi için [AudioTrack öğesi](media-services-output-metadata-schema.md). |
+| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Belirli bir ses üst AssetFile izleyin. AudioTrack daha fazla bilgi için bkz. |
 
 ## <a name="AudioTrack "></a> AudioTrack öğesi
 Belirli bir ses üst AssetFile izleyin.  
 
-Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-schema.md#xml).  
+Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
@@ -139,12 +139,12 @@ Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-sc
 ### <a name="child-elements"></a>Alt öğeleri
 | Ad | Açıklama |
 | --- | --- |
-| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Sonuç parametreleri ölçüm ses yüksekliği. Daha fazla bilgi için [LoudnessMeteringResultParameters öğesi](media-services-output-metadata-schema.md). |
+| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Sonuç parametreleri ölçüm ses yüksekliği. LoudnessMeteringResultParameters daha fazla bilgi için bkz. |
 
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters öğesi
 Sonuç parametreleri ölçüm ses yüksekliği.  
 
-Bir XML örneği bulabilirsiniz [XML örneği](media-services-output-metadata-schema.md#xml).  
+Bir XML örneği bulabilirsiniz [XML örneği](#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |

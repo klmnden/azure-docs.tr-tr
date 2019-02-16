@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: ee7ebb151653b611c652c072b8cb4c07754d9b68
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5e5a6f32eeac674a6527d333b981bbdac20a9958
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269711"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309770"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup sunucusu ile VMware sanal makinelerini yedekleme
 
@@ -39,7 +39,7 @@ Varsayılan olarak, Azure Backup sunucusu VMware sunucularıyla HTTPS üzerinden
 
 ### <a name="before-you-start"></a>Başlamadan önce
 
-- HTTPS kullanmak istemiyorsanız yapabilecekleriniz [varsayılan ayarı devre dışı](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol).
+- HTTPS kullanmak istemiyorsanız yapabilecekleriniz [varsayılan ayarı devre dışı](backup-azure-backup-server-vmware.md).
 - Genellikle Azure Backup sunucusu makinesindeki bir tarayıcıdan vSphere Web istemcisi kullanarak vCenter/ESXi sunucusuna bağlanırsınız. Bağlantı bunu ilk kez güvenli değildir ve şunu verecektir.
 - Azure Backup sunucusu yedekleme nasıl işlediğini anlamanız önemlidir.
     - İlk adım olarak, Azure Backup sunucusu yerel disk depolama alanına verileri yedekler. Azure Backup sunucusu, bir depolama havuzu, diskler ve birimlerle Azure Backup sunucusu, korunan verilerin kurtarma noktalarını disk depoladığı kümesi kullanır. Depolama havuzu, doğrudan bağlı depolama (DAS), bir fiber kanal SAN veya iSCSI depolama cihazı veya SAN olabilir. Yerel arka için yeterli depolama alanı VMware VM verilerinizi sağlamak önemlidir.
@@ -245,7 +245,7 @@ VCenter Server için Azure Backup sunucusu ekleyin.
 
      ![Üretim Sunucusu Ekleme Sihirbazı](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-3. İçinde **bilgisayarları seçin****sunucu adı/IP adresi**, VMware sunucusu için FQDN veya IP adresini belirtin.   Tüm ESXi sunucuları aynı vCenter tarafından yönetiliyorsa, vCenter adını belirtin. Aksi takdirde ESXi ana bilgisayar ekleyin.
+3. İçinde **bilgisayarları seçin****sunucu adı/IP adresi**, VMware sunucusu için FQDN veya IP adresini belirtin. Tüm ESXi sunucuları aynı vCenter tarafından yönetiliyorsa, vCenter adını belirtin. Aksi takdirde ESXi ana bilgisayar ekleyin.
 
     ![VMware sunucusu belirtin](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 

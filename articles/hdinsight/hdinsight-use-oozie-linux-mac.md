@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 11c5d44d44bf66bc7f50dac13c1c7cf0ae7acfff
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: aca64ce3d965d03ecc6fe6da0f372f355a48bed5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994394"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311877"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Apache Hadoop ile Apache Oozie kullanma
 
@@ -301,7 +301,7 @@ SQL veritabanı oluşturmak için adımları [SQL veritabanı oluşturma](../sql
     ```
 
     > [!NOTE]  
-    > HDInsight küme varsayılan depolama alanı olarak Azure depolama kullanıyorsa `<value>` öğenin içeriği ile başlayan `wasb://`. Bunun yerine Azure Data Lake Storage kullanılıyorsa, ile başlayan `adl://`.
+    > HDInsight küme varsayılan depolama alanı olarak Azure depolama kullanıyorsa `<value>` öğenin içeriği ile başlayan `wasb://`. Azure Data Lake depolama Gen1 yerine kullanılıyorsa ile başlayan `adl://`.
 
     İçeriği Kaydet `<value>` öğesi, sonraki adımda kullanılır.
 
@@ -508,7 +508,7 @@ Oozie REST API ile Oozie ile çalışan kendi araçları oluşturabilirsiniz. HD
 
 Oozie REST API'SİNİN nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [Apache Oozie Web Servisleri API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-## <a name="oozie-web-ui"></a>Oozie web kullanıcı Arabirimi
+## <a name="oozie-web-ui"></a>Oozie web UI
 
 Oozie web kullanıcı Arabirimi, küme üzerinde Oozie işlerin durumunu web tabanlı bir görünüm sağlar. Web kullanıcı Arabirimi ile aşağıdaki bilgileri görüntüleyebilirsiniz:
 

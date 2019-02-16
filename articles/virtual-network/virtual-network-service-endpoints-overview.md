@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 60296400c40a1e79758dc53d60d2f1c61d79fd88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 51374876f84f40e055f4149a5b28dffe208c452f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108203"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327842"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -33,11 +33,15 @@ Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 - **[Azure SQL veri ambarı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
 - **[PostgreSQL sunucusu için Azure veritabanı](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmeti kullanılabilir olduğu Azure bölgelerinde genel olarak kullanılabilir.
 - **[MySQL sunucusu için Azure veritabanı](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmeti kullanılabilir olduğu Azure bölgelerinde genel olarak kullanılabilir.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
-- **[Azure anahtar kasası](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
-- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
-- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde genel olarak kullanılabilir.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
+- **[Azure anahtar kasası](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel olarak kullanılabilir.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: ADLS Gen1 kullanılabilir olduğu tüm Azure bölgelerinde genel olarak kullanılabilir.
+
+**Genel önizlemeye sunuldu**
+
+- **[MariaDB için Azure veritabanı](https://docs.microsoft.com/en-us/azure/mariadb/concepts-data-access-security-vnet)**: MariaDB için Azure veritabanı kullanılabilir olduğu tüm Azure bölgelerinde kullanılabilir Önizleme.
 
 En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 

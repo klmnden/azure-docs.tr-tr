@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c4a7239110e0d3e712c97007ecc858f104811cc
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 53f1e8edc4286c2afbdf3b6909499a2e3fccfa5d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301698"
+ms.locfileid: "56313271"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Aracısı Yüklemesi
 Bu belge, Azure AD Connect Health Aracılarını yüklemenize ve yapılandırmanıza yardımcı olur. Aracıları [buradan](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent) indirebilirsiniz.
@@ -42,7 +42,7 @@ Aşağıdaki tabloda Azure AD Connect Health kullanımına ilişkin gereksinimle
 |FIPS’yi devre dışı bırakma|FIPS, Azure AD Connect Health aracıları tarafından desteklenmez.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure hizmet uç noktalarına giden bağlantı
- Yükleme ve çalışma zamanı sırasında, aracı ile Azure AD Connect Health hizmet uç noktaları arasında bağlantı kurulması gerekir. Giden bağlantı Güvenlik Duvarları kullanılarak engellenirse aşağıdaki uç noktaların izin verilenler listesine eklendiğinden emin olun. [giden bağlantıyı denetleme](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) hakkında daha fazla bilgi edinin
+ Yükleme ve çalışma zamanı sırasında, aracı ile Azure AD Connect Health hizmet uç noktaları arasında bağlantı kurulması gerekir. Giden bağlantı güvenlik duvarları kullanılarak engellenirse aşağıdaki URL'ler varsayılan tarafından engellenmediğinden emin olun. Bu URL'ler İnceleme güvenlik izleme veya devre dışı bırakmayın, ancak diğer internet trafiğine gibi izin. Bunlar, Azure AD Connect Health hizmet uç noktaları ile iletişim izin verir. [giden bağlantıyı denetleme](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) hakkında daha fazla bilgi edinin
 
 | Etki Alanı Ortamı | Gerekli Azure hizmet uç noktaları |
 | --- | --- |

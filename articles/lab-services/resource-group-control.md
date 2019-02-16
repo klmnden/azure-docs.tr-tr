@@ -10,21 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 2903228a3257abe9c454c6e0720a1e228b905290
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 94e5f5b29e93409df2373cf6c56e8185dc5373a2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300049"
+ms.locfileid: "56312984"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs'de Laboratuvar sanal makineler için bir kaynak grubu belirtin
-Laboratuvar sahibi olarak, belirli bir kaynak grubunda oluşturulması için laboratuvar sanal makinelerinizi yapılandırabilirsiniz. Kaynak grubu sınırlarını Azure aboneliğinize göre ulaşana yoksa, bu özelliği kullanın. Bu özellik, tüm Laboratuvar kaynaklarını tek bir kaynak grubu içinde birleştirmenize olanak tanır. Ayrıca bu kaynakları izleme ve uygulama basitleştirir [ilkeleri](../governance/policy/overview.md) kaynak grubu düzeyinde yönetilecek.
+Laboratuvar sahibi olarak, belirli bir kaynak grubunda oluşturulması için laboratuvar sanal makinelerinizi yapılandırabilirsiniz. Bu özellik, aşağıdaki senaryolarda yardımcı olur: 
+
+- Aboneliğinizdeki labs tarafından oluşturulan daha az kaynak grubunuz olur.
+- Kaynak grupları sizin tarafınızdan yapılandırılan sabit bir dizi içinde çalışması laboratuvarlarınızı sahip
+- Geçici çözüm kısıtlamaları ve Azure aboneliğinizde bir kaynak grubu oluşturmak için gerekli onay.
+- Bu kaynakları izleme ve uygulama basitleştirmek için tek kaynak grup içindeki tüm Laboratuvar kaynaklarını birleştirmek [ilkeleri](../governance/policy/overview.md) kaynak grubu düzeyinde yönetilecek.
 
 Bu özellik sayesinde, yeni belirtmek için bir komut dosyası veya mevcut bir kaynak grubu, Azure aboneliğinde tüm laboratuvarınız için Vm'leri kullanabilirsiniz. Şu anda bu özellik bir API aracılığıyla DevTest Labs destekler. 
 
-## <a name="api-to-configure-a-resource-group-for-labs-vms"></a>API labs VM'ler için bir kaynak grubu yapılandırmak için
+## <a name="api-to-configure-a-resource-group-for-lab-virtual-machines"></a>API Laboratuvar sanal makineler için bir kaynak grubu yapılandırmak için
 Şimdi bu API kullanırken Laboratuvar sahibi olarak sahip seçenekleri aracılığıyla atalım: 
 
 - Seçebileceğiniz **Laboratuvar kaynak grubu** tüm sanal makineler için.
@@ -86,7 +91,7 @@ Laboratuvar oluşturmak için Azure Resource Manager şablonu kullanıyorsanız,
                 "labStorageType": "Premium",
                 "premiumDataDisks": "Disabled",
                 "provisioningState": "Succeeded",
-                "uniqueIdentifier": "6e6f668f-992b-435c-bac3-d328b745cd25"
+                "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
             },
             "dependsOn": []
         },

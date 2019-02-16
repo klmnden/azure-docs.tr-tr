@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5719d5c49d3061acd167f51f74aac109dc22ec49
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961414"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326519"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Azure Stack'te sanal makine disk depolama alanı oluşturma
 
@@ -32,9 +32,9 @@ Bu makalede Azure Stack portalını kullanarak veya PowerShell kullanarak sanal 
 
 Azure Stack 1808 sürümünden başlayarak, sanal makinelerde bir işletim sistemi (OS) hem de veri diski olarak yönetilen ve yönetilmeyen disklerle kullanımını destekler. 1808 sürümünden önce yalnızca yönetilmeyen diskleri desteklenir. 
 
-**[Yönetilen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  VM diskleriyle ilişkili depolama hesaplarını yöneterek Azure Iaas Vm'leri için disk yönetimini basitleştirin. Yalnızca boyutu belirtmek zorunda duyduğunuz disk ve Azure Stack oluşturur ve diski oluşturup yönetebilmesi.
+**[Yönetilen diskler](../../virtual-machines/windows/managed-disks-overview.md)**  VM diskleriyle ilişkili depolama hesaplarını yöneterek Azure Iaas Vm'leri için disk yönetimini basitleştirin. Yalnızca boyutu belirtmek zorunda duyduğunuz disk ve Azure Stack oluşturur ve diski oluşturup yönetebilmesi.
 
-**[Yönetilmeyen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, oluşturmanızı gerektiren bir [depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) disklerini depolamak için. Oluşturduğunuz diskler, VM diskleri adlandırılır ve depolama hesabındaki kapsayıcıları depolanır.
+Yönetilmeyen diskler gerektiren disklerini depolamak için bir depolama hesabı oluşturun. Oluşturduğunuz diskler, VM diskleri adlandırılır ve depolama hesabındaki kapsayıcıları depolanır.
 
 ### <a name="best-practice-guidelines"></a>En iyi uygulama kılavuzları
 
@@ -97,7 +97,7 @@ Eklediğiniz her bir yönetilmeyen disk içinde ayrı bir kapsayıcıya koymanı
 
     -  Seçin **kaynak türünü**.
 
-       Başka bir disk, depolama hesabındaki bir blob anlık görüntüden disk oluşturma ya da boş bir disk oluşturun.
+       Farklı bir diskin anlık görüntüsünden ya da depolama hesabındaki bir blobdan bir disk oluşturun veya boş bir disk oluşturun.
 
         **Anlık görüntü**  
         Varsa, bir anlık görüntü seçin. Anlık görüntü olmalıdır sanal makinenin abonelik ve konumdaki kullanılabilir.

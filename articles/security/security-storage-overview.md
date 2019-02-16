@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 5d8c9ae52152df6a0e016c12234afe4ae780b251
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115445"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326765"
 ---
 # <a name="azure-storage-security-overview"></a>Azure depolama güvenliğine genel bakış
 
@@ -79,7 +79,7 @@ Birçok kuruluşta [bekleyen verileri şifreleme](https://cloudblogs.microsoft.c
 
 Depolama hizmeti şifrelemesi hakkında daha fazla bilgi edinin:
 
-* [Azure depolama hizmeti şifrelemesi](https://azure.microsoft.com/services/storage/) kullanılabilir [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/). Diğer Azure depolama türleri hakkında daha fazla bilgi için bkz: [Azure dosyaları](https://azure.microsoft.com/services/storage/files/), [Disk (Premium depolama)](https://azure.microsoft.com/services/storage/premium-storage/), [tablo depolama](https://azure.microsoft.com/services/storage/tables/), ve [kuyruk depolama](https://azure.microsoft.com/services/storage/queues/).
+* [Azure depolama hizmeti şifrelemesi](https://azure.microsoft.com/services/storage/) kullanılabilir [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/). Diğer Azure depolama türleri hakkında daha fazla bilgi için bkz: [Azure dosyaları](https://azure.microsoft.com/services/storage/files/), [tablo depolama](https://azure.microsoft.com/services/storage/tables/), ve [kuyruk depolama](https://azure.microsoft.com/services/storage/queues/).
 * [Bekleyen veri için Azure depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure Disk Şifrelemesi

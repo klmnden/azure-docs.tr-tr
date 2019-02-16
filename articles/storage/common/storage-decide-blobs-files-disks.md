@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509142"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327019"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blobları, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme
 Microsoft Azure, verilerinizi bulutta erişmek ve depolamak için Azure Depolama'da birçok özellik sunar. Bu makalede, Azure dosyaları, Blobları ve diskleri kapsar ve bu özellikler arasında seçmenize yardımcı olmak için tasarlanmıştır.
@@ -56,7 +56,7 @@ Aşağıdaki tabloda, Azure dosyaları Azure diskleri ile karşılaştırır.
 |Kapsam|Tek bir sanal makine özel|Birden çok sanal makineye paylaşılan erişim|  
 |Anlık görüntüler ve kopyalama|Evet|Evet|  
 |Yapılandırma|Sanal makinenin başlangıçta bağlı|Sanal makine başlatıldıktan sonra bağlı|  
-|Kimlik Doğrulaması|Yerleşik|NET kullanım ile ayarlama|  
+|Authentication|Yerleşik|NET kullanım ile ayarlama|  
 |REST kullanarak erişimi|İçindeki VHD dosyaları erişilemiyor|Bir paylaşımda depolanan dosyalara erişilebilir|  
 |En Yüksek Boyut|4 TiB disk|5 TiB dosya paylaşımını ve 1 TiB dosya paylaşımı içinde|  
 |En fazla IOPS|500 IOPS|1000 IOPS|  
@@ -67,4 +67,4 @@ Verilerinizin nasıl depolandığını ve erişilen ilişkin kararların, aynı 
   
 SMB özelliklerinden bazıları bulut için geçerli değildir. Daha fazla bilgi için [Azure dosya hizmeti tarafından desteklenmeyen özellikler](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-Diskler hakkında daha fazla bilgi için bkz. [diskleri ve görüntüleri yönetme](../../virtual-machines/windows/about-disks-and-vhds.md) ve [bir Windows sanal makinesine veri diski ekleme](../../virtual-machines/windows/attach-managed-disk-portal.md).
+Diskler hakkında daha fazla bilgi için bkz. bizim [yönetilen disklere giriş](../../virtual-machines/windows/managed-disks-overview.md) ve [bir Windows sanal makinesine veri diski ekleme](../../virtual-machines/windows/attach-managed-disk-portal.md).

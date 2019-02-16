@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077480"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313492"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure sanal ağına Container Instances'ı dağıtma
 
@@ -35,6 +35,7 @@ Kapsayıcı grupları bir sanal ağa dağıttığınız zaman, bazı sınırlama
 
 * Kapsayıcı grubu bir alt ağa dağıtmak için alt ağdaki diğer kaynak türlerini içeremez. Kapsayıcı grubu için dağıtmadan önce var olan bir alt ağdan var olan tüm kaynakları kaldırın veya yeni bir alt ağ oluşturun.
 * Kapsayıcı grupları dağıtılan bir sanal ağa, genel IP adresleri veya DNS adı etiketleri şu anda desteklemez.
+* Kullanamazsınız bir [yönetilen kimliği](container-instances-managed-identity.md) bir kapsayıcı grubunda dağıtılan bir sanal ağa.
 * Ek ağ kaynakları nedeniyle dahil, bir kapsayıcı grubu için bir sanal ağ dağıtma genellikle bir standart kapsayıcı örneği dağıtmaya oranla biraz daha yavaştır.
 
 ## <a name="preview-limitations"></a>Önizleme sınırlamaları
@@ -253,7 +254,7 @@ appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-### <a name="delete-container-instances"></a>Azure Container Instances
+### <a name="delete-container-instances"></a>Kapsayıcı örneklerini sil
 
 İşiniz bittiğinde kapsayıcı örnekleri ile çalışma, oluşturduğunuz ve aşağıdaki komutlarla silin:
 

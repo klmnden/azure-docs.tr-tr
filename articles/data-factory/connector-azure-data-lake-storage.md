@@ -1,6 +1,6 @@
 ---
-title: Data Factory (Önizleme) kullanarak Azure Data Lake depolama Gen2 önizlemesi için veya veri kopyalama | Microsoft Docs
-description: Azure Data Factory kullanarak Azure Data Lake depolama Gen2 önizlemesi gelen ve giden veri kopyalama hakkında bilgi edinin.
+title: Data Factory kullanarak Azure Data Lake depolama Gen2'ye gelen veya veri kopyalama | Microsoft Docs
+description: Azure Data Lake depolama Gen2'ye gelen ve giden veri kopyalama hakkında bilgi edinin Azure Data Factory kullanarak.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -8,18 +8,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e8bc85a309a8c6755f1efae1ca702720cf01477
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7a01b4baa9dafba4f0193c7a73dc1ae44214f501
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662323"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311596"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure Data Lake depolama Gen2 önizlemesi için veya veri kopyalama
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Lake depolama Gen2'ye gelen veya veri kopyalama kullanarak Azure Data Factory
 
-Azure Data Lake depolama Gen2 önizlemesi yerleşik, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md). Her iki dosya sistemi ve nesne depolama paradigmalarını kullanarak verilerinizi ile arabirim oluşturmasını sağlar.
+Azure Data Lake depolama Gen2 yerleşik, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md). Her iki dosya sistemi ve nesne depolama paradigmalarını kullanarak verilerinizi ile arabirim oluşturmasını sağlar.
 
 Bu makalede, kopyalama etkinliği Azure Data Factory'de veri ve Data Lake depolama Gen2 kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliğine genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 

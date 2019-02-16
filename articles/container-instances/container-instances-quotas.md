@@ -1,38 +1,49 @@
 ---
 title: Azure Container Instances kotaları ve bölge kullanılabilirliği
-description: Azure Container Instances hizmetinin varsayılan kotaları ve bölge kullanılabilirliği.
+description: Kotalar, sınırlar ve Azure Container Instances hizmetinin bölge kullanılabilirliği.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/08/2019
+ms.date: 02/15/2019
 ms.author: danlep
-ms.openlocfilehash: 35e846aa5954e3714d301c9c75cf42b31961fdfe
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c676989b4b882f2b1887a1b6a5091b60027f61d0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160586"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328421"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances için kotalar ve bölge kullanılabilirliği
 
-Tüm Azure hizmetleri, kaynak ve özelliklere yönelik bazı varsayılan limitler ve kotalar içerir. Aşağıdaki bölümler birkaç Azure Container Instances (ACI) kaynağına ilişkin varsayılan kaynak limitlerinin yanı sıra Azure bölgelerindeki ACI hizmeti kullanılabilirliğini açıklamaktadır.
+Tüm Azure hizmetleri, kaynak ve özelliklere yönelik bazı varsayılan limitler ve kotalar içerir. Aşağıdaki bölümler birkaç Azure Container Instances kaynakları yanı sıra Azure bölgelerindeki hizmeti kullanılabilirliğini ilişkin varsayılan kaynak limitlerinin ayrıntılı olarak açıklanmaktadır.
 
 ## <a name="service-quotas-and-limits"></a>Hizmet kotaları ve limitleri
 
 [!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
 
+## <a name="feature-availability"></a>Özellik kullanılabilirliği
+
+Azure Container Instances, aynı API ile hem Windows hem de Linux kapsayıcıları zamanlayabilir. Ancak, aşağıdaki özellikler yalnızca Linux kapsayıcı grupları şu anda kullanılabilir. Windows desteği planlanmaktadır.
+
+* Kapsayıcı grubu başına birden çok kapsayıcı
+* Birim bağlama (Azure dosyaları, emptyDir, GitRepo, gizli)
+* Sanal ağ (Önizleme)
+* GPU kaynakları (Önizleme)
+
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
 
-Azure Container Instances aşağıdaki bölgelerde belirtilen CPU ve bellek sınırları dahilinde kullanılabilir. Geçerli yayın zamanında değerlerdir. Güncel bilgiler için kullanın [listesi özellikleri](/rest/api/container-instances/listcapabilities/listcapabilities) API. Azure Container Instances ile kullanırken, kullanılabilirlik ve kaynak sınırları değişebilir bir [sanal ağ](container-instances-vnet.md) (Önizleme) ile veya [GPU kaynakları](container-instances-gpu.md) (Önizleme).
+Azure Container Instances aşağıdaki bölgelerde belirtilen CPU ve bellek sınırları her kapsayıcı grubu için kullanılabilir. Geçerli yayın zamanında değerlerdir. Güncel bilgiler için kullanın [listesi özellikleri](/rest/api/container-instances/listcapabilities/listcapabilities) API. 
+
+Azure Container Instances ile kullanırken, kullanılabilirlik ve kaynak sınırları değişebilir bir [sanal ağ](container-instances-vnet.md) (Önizleme) ile veya [GPU kaynakları](container-instances-gpu.md) (Önizleme).
 
 | Konum | İşletim Sistemi | CPU | Bellek (GB) |
 | -------- | -- | :---: | :-----------: |
-| Kanada Orta, Orta ABD, Doğu ABD 2 | Linux | 4 | 16 |
+| Kanada Orta, Orta ABD, Doğu ABD 2, Orta Güney ABD | Linux | 4 | 16 |
 | Doğu ABD, Kuzey Avrupa, Batı Avrupa, Batı ABD, Batı ABD 2 | Linux | 4 | 14 |
 | Japonya Doğu | Linux | 2 | 8 |
 | Doğu Avustralya, Güneydoğu Asya | Linux | 2 | 7 |
-| Orta Hindistan, Doğu Asya, Kuzey Orta ABD, Güney Orta ABD, Güney Hindistan | Linux | 2 | 3,5 |
+| Orta Hindistan, Doğu Asya, Kuzey Orta ABD, Güney Hindistan | Linux | 2 | 3,5 |
 | Doğu ABD, Batı Avrupa, Batı ABD | Windows | 4 | 14 |
 | Avustralya Doğu, Kanada Orta, Orta Hindistan, Orta ABD, Doğu Asya, Doğu ABD 2, Japonya Doğu, Kuzey Orta ABD, Kuzey Avrupa, Güney Orta ABD, Güney Hindistan, Güneydoğu Asya, Batı ABD 2 | Windows | 2 | 3,5 |
 

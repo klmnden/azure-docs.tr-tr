@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7b937158be39f9a1f7f9374611a150fd11837f02
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910275"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309126"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight üzerinde ML Hizmetleri için Azure depolama çözümleri
 
@@ -119,9 +119,9 @@ Hizmet sorumlusu bir ad verin ve bunun için bir parola oluşturduktan sonra tı
 
 Küme oluşturma aşağıdaki bir veya daha fazla Data Lake Storage hesaplarını için küme erişim eklemek mümkündür. Bir Data Lake Storage için Azure portal girişinde açın ve gidin **Veri Gezgini > erişim > Ekle**. 
 
-### <a name="how-to-access-data-lake-storage-from-ml-services-on-hdinsight"></a>Data Lake Storage HDInsight ML hizmetlerden erişme
+### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>Data Lake depolama Gen1 HDInsight ML hizmetlerden erişme
 
-Data Lake depolamaya erişim verilen sonra depolama ML Hizmetleri HDInsight kümesinde bir ikincil Azure depolama hesabınız olduğu gibi kullanabilirsiniz. Tek fark eden önekidir **wasb: / /** değişikliklerini **adl: / /** gibi:
+Data Lake depolama Gen1 için erişim verilen sonra depolama ML Hizmetleri HDInsight kümesinde bir ikincil Azure depolama hesabınız olduğu gibi kullanabilirsiniz. Tek fark eden önekidir **wasb: / /** değişikliklerini **adl: / /** gibi:
 
 
     # Point to the ADL Storage (e.g. ADLtest)
@@ -143,7 +143,7 @@ Data Lake depolamaya erişim verilen sonra depolama ML Hizmetleri HDInsight küm
     # Specify the input file in HDFS to analyze
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-Aşağıdaki komutları RevoShare dizini ile Data Lake Storage hesabını yapılandırın ve önceki örnekte örnek .csv dosyası eklemek için kullanılır:
+Aşağıdaki komutları RevoShare dizini ile Data Lake depolama Gen1 hesabı yapılandırın ve önceki örnekte örnek .csv dosyası eklemek için kullanılır:
 
 
     hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

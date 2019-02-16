@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: e983ae549664abf46de256e987e09191a2a44c0f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728529"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327384"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure’da Linux VM’nizi iyileştirme
 Bir Linux sanal makinesini (VM) oluşturma, komut satırından veya portalından yapmak kolaydır. Bu öğreticide, Microsoft Azure platformunda performansı iyileştirmek için ayarlamış olduğunuz emin olmak nasıl gösterir. Bu konuda bir Ubuntu Server VM kullanır, ancak Linux kullanarak sanal makine oluşturabilirsiniz [şablonları olarak kendi görüntülerinizi](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -34,7 +34,7 @@ Bu konu, çalışan bir Azure aboneliği zaten sahip olduğunuzu varsayar ([ücr
 Azure'da bir Linux VM oluşturduktan sonra onunla ilişkili iki disk var. **/ dev/sda** , işletim sistemi diski **/dev/sdb** , geçici disk.  Ana işletim sistemi diski kullanmayın (**/dev/sda**) olarak işletim sistemi dışındaki her şey için optimize için hızlı VM önyükleme saati ve iş yükleriniz için iyi bir performans sağlamaz. VM'nize kalıcı almak için bir veya daha fazla disk eklemek istediğiniz ve depolama için verilerinizi en iyi duruma getirilmiş. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Boyut ve performans hedefleri için disk ekleme
-VM boyutuna göre A serisi, D serisi 32 disklerde en fazla 16 ek disklerde ekleyebilirsiniz ve G serisi 64 disklerde makine - boyutu 1 TB'ye kadar her. Ek disk IOPS gereksinimleri ve alan gerektiği gibi ekleyin. Her disk için Premium depolama standart depolama ve disk başına 5000 Iops'yi kadar 500 IOPS performans hedefinin sahiptir.  Premium depolama diskler hakkında daha fazla bilgi için bkz. [Premium Depolama: Azure sanal makineler için yüksek performanslı depolama](../windows/premium-storage.md)
+VM boyutuna göre A serisi, D serisi 32 disklerde en fazla 16 ek disklerde ekleyebilirsiniz ve G serisi 64 disklerde makine - boyutu 1 TB'ye kadar her. Ek disk IOPS gereksinimleri ve alan gerektiği gibi ekleyin. Her disk için Premium depolama standart depolama ve disk başına 5000 Iops'yi kadar 500 IOPS performans hedefinin sahiptir.
 
 Burada kendi önbellek ayarlarını ayarlanan olarak Premium depolama diskleri üzerinde en yüksek IOPS elde etmek için **salt okunur** veya **hiçbiri**, devre dışı bırakmanız gerekir **engelleri** bağlama sırasında Linux'ta dosya sistemi. Desteklenen Premium depolama diskleri yazma işlemleri için bu önbellek ayarlarını dayanıklı olduğundan engelleri gerekmez.
 
@@ -131,9 +131,8 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ## <a name="next-steps"></a>Sonraki Adımlar
 Önce ve değişikliğin etkisini ölçmek için her değişiklikten sonra testleri gerçekleştirmek gereken tüm en iyi duruma getirme tartışmaların unutmayın.  En iyi duruma getirme farklı sonuçlar ortamınızdaki farklı makineler arasında olan bir adım adım işlemidir.  Bir yapılandırma için neyin işe yaradığını başkaları için çalışmayabilir.
 
-Ek kaynaklar için yararlı olabilecek bağlantıları: 
+Ek kaynaklar için yararlı olabilecek bağlantıları:
 
-* [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](premium-storage.md)
 * [Azure Linux Aracısı Kullanım Kılavuzu](../extensions/agent-linux.md)
 * [Azure Linux vm'lerde MySQL performansını iyileştirme](classic/optimize-mysql.md)
 * [Linux'ta yazılım RAID yapılandırma](configure-raid.md)

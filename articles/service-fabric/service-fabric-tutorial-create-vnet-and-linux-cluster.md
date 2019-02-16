@@ -1,6 +1,6 @@
 ---
 title: Azure'da Linux Service Fabric Kümesi oluşturma | Microsoft Docs
-description: Bu öğreticide, Azure CLI kullanarak mevcut bir Azure sanal ağına Linux Service Fabric kümesi dağıtmayı öğrenirsiniz.
+description: Azure CLI kullanarak mevcut bir Azure sanal ağına Linux Service Fabric kümesi dağıtmayı öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -9,70 +9,33 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: tutorial
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/27/2018
+ms.date: 02/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 265e99d18d8660f149d33b1b4a37a7d32eae794d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bef2e5da1a151fd6178298f3b993337fd07bd294
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755205"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313340"
 ---
-# <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Öğretici: Azure sanal ağına Linux Service Fabric kümesi dağıtma
+# <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Azure sanal ağına Linux Service Fabric kümesi dağıtma
 
-Bu öğretici, bir dizinin birinci bölümüdür. Öğreticide Azure CLI ve bir şablon kullanarak bir [Azure sanal ağına (VNET)](../virtual-network/virtual-networks-overview.md) Linux Service Fabric kümesi dağıtma hakkında bilgi edinilebilir. Öğreticiyi tamamladığınızda, bulutta çalışan ve uygulama dağıtabileceğiniz bir kümeniz olur. PowerShell kullanarak Windows kümesi oluşturmak için bkz. [Azure’da güvenli bir Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
-
-> [!div class="checklist"]
-> * Azure CLI kullanarak Azure’da VNet oluşturma
-> * Azure CLI kullanarak Azure’da güvenli bir Service Fabric kümesi oluşturma
-> * X.509 sertifikasıyla kümenin güvenliğini sağlama
-> * Service Fabric CLI kullanarak kümeye bağlanma
-> * Bir kümeyi kaldırma
-
-Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
-> [!div class="checklist"]
-> * Azure’da güvenli bir küme oluşturma
-> * [Bir kümenin ölçeğini daraltma veya genişletme](service-fabric-tutorial-scale-cluster.md)
-> * [Bir kümenin çalışma zamanını yükseltme](service-fabric-tutorial-upgrade-cluster.md)
-> * [Küme silme](service-fabric-tutorial-delete-cluster.md)
+Bu makalede bir Linux Service Fabric kümesi dağıtmayı öğrenirsiniz bir [Azure sanal ağı (VNET)](../virtual-network/virtual-networks-overview.md) Azure CLI ile bir şablon kullanarak. Öğreticiyi tamamladığınızda, bulutta çalışan ve uygulama dağıtabileceğiniz bir kümeniz olur. PowerShell kullanarak Windows kümesi oluşturmak için bkz. [Azure’da güvenli bir Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiye başlamadan önce:
+Başlamadan önce:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
 * [Service Fabric CLI](service-fabric-cli.md)'yı yükleyin
 * [Azure CLI](/cli/azure/install-azure-cli)'yı yükleme
+* Küme temel kavramlarını öğrenmek için [kümeleri Azure genel bakış](service-fabric-azure-clusters-overview.md)
 
-Aşağıdaki yordamlarda beş düğümlü bir Service Fabric kümesi oluşturulur. Azure’da Service Fabric kümesi çalıştırmaktan kaynaklanan maliyetleri hesaplamak için [Azure Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/)’nı kullanın.
-
-## <a name="key-concepts"></a>Önemli kavramlar
-
-[Service Fabric kümesi](service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir. Kümeler binlerce makine içerecek şekilde ölçeklendirilebilir. Bir kümenin parçası olan makine veya VM’lere düğüm denir. Her düğüme bir düğüm adı (bir dize) atanır. Düğümlerin yerleşim özellikleri gibi özellikleri vardır.
-
-Düğüm türü, kümedeki bir grup sanal makinenin boyutunu, sayısını ve özelliklerini tanımlar. Tanımlanan her düğüm türü, bir sanal makine koleksiyonunu küme halinde yönetmek için kullandığınız bir Azure işlem kaynağı olan [sanal makine ölçek kümesi](/azure/virtual-machine-scale-sets/) olarak ayarlanır. Daha sonra, her düğüm türünün ölçeği birbirinden bağımsız olarak artırılabilir veya azaltılabilir, her düğüm türünde farklı bağlantı noktası kümeleri açık olabilir ve farklı kapasite ölçümleri yapılabilir. Düğüm türleri, bir düğüm kümesinin "ön uç" veya "arka uç" şeklindeki rolünün tanımlanması için kullanılır.  Kümenizde birden çok düğüm türü olabilir, ancak üretim kümeleri için birincil düğüm türünde en az beş VM (veya test kümeleri için en az üç VM) olmalıdır.  [Service Fabric sistem hizmetleri](service-fabric-technical-overview.md#system-services), birincil düğüm türündeki düğümlere yerleştirilir.
-
-Kümenin güvenliği bir küme sertifikası ile sağlanır. Küme sertifikası, düğümler arası iletişimin güvenliğini sağlamak ve bir yönetim istemcisinde küme yönetimi uç noktalarının kimliğini doğrulamak için kullanılan bir X.509 sertifikasıdır.  Küme sertifikası ayrıca, HTTPS üzerinden HTTPS yönetim API’si ve Service Fabric Explorer için SSL sağlar. Otomatik olarak imzalanan sertifikalar, test kümeleri için kullanışlıdır.  Üretim kümeleri için küme sertifikası olarak bir sertifika yetkilisinden (CA) alınan bir sertifika kullanın.
-
-Küme sertifikası:
-
-* Özel anahtar içermelidir.
-* Bir Kişisel Bilgi Değişimi (.pfx) dosyasına aktarılabilen anahtar değişimi için oluşturulmuş olmalıdır.
-* Service Fabric kümesine erişmek için kullandığınız etki alanıyla eşleşen bir konu adına sahip olmalıdır. Kümenin HTTPS yönetim uç noktalarına ve Service Fabric Explorer’a yönelik SSL sağlanması için bu eşleşme gereklidir. Bir sertifika yetkilisinden (CA) .cloudapp.azure.com etki alanı için SSL sertifikası edinemezsiniz. Kümeniz için özel bir etki alanı adı edinmeniz gerekir. CA’dan sertifika istediğinizde sertifikanın konu adı, kümeniz için kullandığınız özel etki alanı adıyla eşleşmelidir.
-
-Azure’da Service Fabric kümelerine ait sertifikaları yönetmek için Azure Key Vault kullanılır.  Azure’da bir küme dağıtıldığında, Azure Service Fabric kümeleri oluşturmaktan sorumlu Azure kaynak sağlayıcısı sertifikaları Key Vault’tan çeker ve küme VM’lerine yükler.
-
-Bu öğreticide tek bir küme türündeki beş düğüme sahip bir küme dağıtılır. Bununla birlikte, tüm küme dağıtımları için [kapasite planlaması](service-fabric-cluster-capacity.md) önemli bir adımdır. Bu süreç kapsamında dikkat etmeniz gerekenler şunlardır:
-
-* Kümeniz için gerekli düğüm sayısı ve türleri
-* Her düğüm türünün özellikleri (örneğin boyut, birincil, İnternet’e yönelik ve VM sayısı)
-* Kümenin güvenilirlik ve dayanıklılık özellikleri
+Aşağıdaki yordamlar yedi düğümlü bir Service Fabric küme oluşturun. Azure’da Service Fabric kümesi çalıştırmaktan kaynaklanan maliyetleri hesaplamak için [Azure Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/)’nı kullanın.
 
 ## <a name="download-and-explore-the-template"></a>Şablonu indirin ve keşfedin
 
@@ -81,14 +44,14 @@ Aşağıdaki Resource Manager şablonu dosyalarını indirin:
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
 
-Bu şablon sanal bir ağa beş sanal makineden ve tek bir düğüm türünden oluşan güvenli bir küme dağıtır.  Diğer örnek şablonlar [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)'da bulunabilir. [AzureDeploy.json][template] aşağıdakiler dahil bir grup kaynak dağıtır.
+Bu şablon, üç düğüm türleri ve yedi sanal makineleri bir sanal ağa güvenli bir küme dağıtır.  Diğer örnek şablonlar [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)'da bulunabilir. [AzureDeploy.json][template] aşağıdakiler dahil bir grup kaynak dağıtır.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric kümesi
 
 **Microsoft.ServiceFabric/clusters** kaynağında şu özelliklere sahip bir Linux kümesi dağıtılır:
 
-* tek bir düğüm türü
-* birincil düğüm türünde beş düğüm (şablon parametrelerinden yapılandırılabilir)
+* üç düğüm türleri
+* (şablon parametrelerinde yapılandırılabilir) birincil düğüm türünde beş düğüm, bir düğüm her bir düğüm türleri
 * İşletim Sistemi: Ubuntu 16.04 LTS (şablon parametrelerinde yapılandırılabilir)
 * sertifikanın güvenliğinin sağlanması (şablon parametrelerinde yapılandırılabilir)
 * [DNS hizmeti](service-fabric-dnsservice.md) etkin
@@ -134,6 +97,8 @@ Başka bir uygulama bağlantı noktası gerekiyorsa, gelen trafiğe izin vermek 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Sanal ağı ve kümeyi dağıtma
 
 Ardından, ağ topolojisini ayarlayın ve Service Fabric kümesini dağıtın. [AzureDeploy.json] [ template] Resource Manager şablonu Service Fabric için bir sanal ağ (VNET) ve bir alt ağ oluşturur. Şablon tarafından sertifika güvenliği etkin bir küme de dağıtılır.  Üretim kümeleri için küme sertifikası olarak bir sertifika yetkilisinden (CA) alınan bir sertifika kullanın. Test kümelerinin güvenliğinin sağlanması için otomatik olarak imzalanan bir sertifika kullanılabilir.
+
+Bu makalede şablonda küme sertifikayı belirlemek için sertifika parmak izi'ni kullanan bir kümesi dağıtın.  İki sertifika, sertifika yönetimi zorlaştırır aynı parmak olabilir. Sertifika ortak adları kullanarak sertifika parmak izleri kullanarak dağıtılan bir kümenin geçiş sertifika yönetimi çok daha kolay hale getirir.  Sertifika Yönetim sertifikası ortak adlarının kullanmak için küme güncelleştirme hakkında bilgi edinmek için okumaya devam [küme sertifikası ortak adı yönetim değiştirme](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Mevcut bir sertifikayı kullanarak küme oluşturma
 
@@ -194,22 +159,13 @@ sfctl cluster health
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğretici serisindeki diğer makalelerde, az önce oluşturduğunuz küme kullanılır. Hemen bir sonraki makaleye geçmeyecekseniz ücret alınmaması için [kümeyi silmeniz](service-fabric-cluster-delete.md) iyi olur.
+Hemen bir sonraki makaleye geçmeyecekseniz ücret alınmaması için [kümeyi silmeniz](service-fabric-cluster-delete.md) iyi olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
+Bilgi edinmek için nasıl [bir kümenin ölçeğini](service-fabric-tutorial-scale-cluster.md).
 
-> [!div class="checklist"]
-> * Azure CLI kullanarak Azure’da VNet oluşturma
-> * Azure CLI kullanarak Azure’da güvenli bir Service Fabric kümesi oluşturma
-> * X.509 sertifikasıyla kümenin güvenliğini sağlama
-> * Service Fabric CLI kullanarak kümeye bağlanma
-> * Bir kümeyi kaldırma
+Bu makalede şablonda küme sertifikayı belirlemek için sertifika parmak izi'ni kullanan bir kümesi dağıtın.  İki sertifika, sertifika yönetimi zorlaştırır aynı parmak olabilir. Sertifika ortak adları kullanarak sertifika parmak izleri kullanarak dağıtılan bir kümenin geçiş sertifika yönetimi çok daha kolay hale getirir.  Sertifika Yönetim sertifikası ortak adlarının kullanmak için küme güncelleştirme hakkında bilgi edinmek için okumaya devam [küme sertifikası ortak adı yönetim değiştirme](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
-Ardından, kümenizi nasıl ölçeklendirebileceğinizi öğrenmek üzere aşağıdaki öğreticiye geçin.
-> [!div class="nextstepaction"]
-> [Küme Ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
-
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

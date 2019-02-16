@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: b27dd1b9aec89f259649b313d3ba7f944ea647f1
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6d82410e07e725b13385f6ff2b57218c1146a80a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765730"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329305"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack'te Azure CLI ile API Sürüm profillerini kullanma
 
@@ -114,7 +114,12 @@ CLI kullanarak sanal makineleri oluşturmadan önce Azure Stack operatörü baş
 
 Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
 
-1. Azure Stack ortamınıza çalıştırarak kayıt `az cloud register` komutu.
+1. Azure Stack ortamınıza çalıştırarak kayıt `az cloud register` komutu. Bazı senaryolarda, doğrudan giden internet bağlantısı, bir proxy veya SSL durdurma zorlar güvenlik duvarı yönlendirilir. Bu gibi durumlarda, `az cloud register` komut "uç noktalar buluttan alınamıyor." şeklinde bir hata ile başarısız olabilir Bu hatayı çözmek için aşağıdaki ortam değişkenlerini ayarlayabilirsiniz:
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
     a. Kaydedilecek *bulut Yönetim* ortamı kullanın:
 

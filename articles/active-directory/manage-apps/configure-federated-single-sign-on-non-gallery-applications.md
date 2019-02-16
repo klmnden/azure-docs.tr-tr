@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99fa8cbc211469185f2503718c84bc1b12db44c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 56c992b1cc0e8f1d9743ff8226ab48852afc1168
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178235"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313135"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Federasyon çoklu oturum açma galeri dışı bir uygulama için yapılandırma
 
@@ -29,13 +29,13 @@ Galeri dışı bir uygulama için çoklu oturum açmayı yapılandırmak için *
 ## <a name="overview-of-steps-required"></a>Gerekli adımlara genel bakış
 SAML 2.0 ile Federasyon çoklu oturum açma için (örneğin özel) bir galeri dışı uygulama yapılandırmak için gerekli adımları üst düzey bir genel bakış aşağıda verilmiştir.
 
--   [(Oturum açma URL'si, tanımlayıcı, yanıt URL'si) Azure AD'de uygulama meta verileri değerlerini yapılandırma](#_Configuring_single_sign-on)
+-   (Oturum açma URL'si, tanımlayıcı, yanıt URL'si) Azure AD'de uygulama meta verileri değerlerini yapılandırma
 
 -   [Kullanıcı tanımlayıcısı'nı seçin ve uygulamaya gönderilecek kullanıcı öznitelikleri ekleme](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Azure AD meta verileri ve sertifika alma](#download-the-azure-ad-metadata-or-certificate)
 
--   [(Oturum açma URL'si, veren, oturum kapatma URL'si ve sertifikasını'de) uygulamasında Azure AD meta verileri değerlerini yapılandırma](#_Configuring_single_sign-on)
+-   (Oturum açma URL'si, veren, oturum kapatma URL'si ve sertifikasını'de) uygulamasında Azure AD meta verileri değerlerini yapılandırma
 
 -   Uygulamaya kullanıcı atama
 

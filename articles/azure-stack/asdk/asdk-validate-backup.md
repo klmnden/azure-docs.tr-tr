@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 02/15/2019
+ms.openlocfilehash: 6fdec992b19a5615a35955a46fd90102890cde16
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965333"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329362"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Azure Stack yedekleme doğrulamak için ASDK kullanın
 Azure Stack dağıtma ve kullanıcı kaynaklarını tekliflerini, planları, kotalar ve abonelikler gibi sağlama sonra yapmanız gerekenler [Azure Stack altyapısını yedekleme etkinleştir](../azure-stack-backup-enable-backup-console.md). Zamanlama ve normal altyapı yedeklemeleri geri dönülemez bir donanım veya Hizmeti hatası olması durumunda altyapı Yönetimi veri kaybı olmadığından sağlayacaktır.
@@ -52,11 +52,11 @@ ASDK bulut kurtarma dağıtımı başlatmadan önce aşağıdaki bilgilere sahip
 
 |Önkoşul|Açıklama|
 |-----|-----|
-|Yedekleme paylaşım yolu.|Azure Stack altyapısını bilgilerini kurtarmak için kullanılacak en son Azure Stack yedekleme UNC dosya paylaşım yolu. Bulut kurtarma dağıtım işlemi sırasında yerel Bu paylaşımı oluşturulur.|
-|Yedek şifreleme anahtarı.|Azure Stack yönetim portalını kullanarak çalıştırmak için altyapı yedeklemeyi zamanlamak için kullanılan şifreleme anahtarı.|
-|Geri yüklemek için yedekleme kimliği.|Bulut Kurtarma sırasında geri yüklenecek yedek tanımlayan "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" alfasayısal biçiminde yedekleme kimliği.|
-|Zaman sunucu IP'si.|Azure Stack dağıtımı için 132.163.97.2 gibi geçerli zaman bir sunucu IP'si gerekiyor.|
-|Dış sertifika parolası.|Azure yığını tarafından kullanılan dış sertifika için parola. CA yedekleme bu parolayla geri yüklenmesi gereken dış sertifikaları içerir.|
+|Yedekleme paylaşım yolu|Azure Stack altyapısını bilgilerini kurtarmak için kullanılacak en son Azure Stack yedekleme UNC dosya paylaşım yolu. Bulut kurtarma dağıtım işlemi sırasında yerel Bu paylaşımı oluşturulur.|
+|Şifreleme anahtarı yedekleme|İsteğe bağlı. Yalnızca Azure Stack için 1901 veya sonraki bir sürümü önceki bir sürümünü Azure Stack yedekleme özelliği etkin yükseltmişseniz durumunda gereklidir.|
+|Geri yüklemek için yedekleme kimliği|Bulut Kurtarma sırasında geri yüklenecek yedek tanımlayan "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" alfasayısal biçiminde yedekleme kimliği.|
+|Zaman sunucu IP'si|Azure Stack dağıtımı için 132.163.97.2 gibi geçerli zaman bir sunucu IP'si gerekiyor.|
+|Dış sertifika parolası|Yedekleme güvenliğini sağlamak için kullanılan otomatik olarak imzalanan sertifikanın özel anahtarı (.pfx) parolası.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Ana bilgisayar hazırlama 
@@ -133,11 +133,12 @@ $certPass = Read-Host -AsSecureString
 ## <a name="restore-infrastructure-data-from-backup"></a>Altyapı verileri yedekten geri yükleyin
 Başarılı bir bulut kurtarma dağıtımdan sonra geri yükleme kullanarak tamamlamanız gereken **geri yükleme-AzureStack** cmdlet'i. 
 
-Azure Stack operatör olarak oturum açtıktan sonra [Azure Stack PowerShell'i yükleme](asdk-post-deploy.md#install-azure-stack-powershell) ve ardından yedekleme Kimliğinizi değiştirerek `Name` parametresi, aşağıdaki komutu çalıştırın:
+Azure Stack operatör olarak oturum açtıktan sonra [Azure Stack PowerShell'i yükleme](asdk-post-deploy.md#install-azure-stack-powershell) ve yedekten geri yüklenirken kullanılacak parola ve sertifika belirtmek için aşağıdaki komutları çalıştırın:
 
 ```powershell
 Restore-AzsBackup -Name "<BackupID>"
 ```
+
 Bulutta yedekleme verilerinin doğrulaması başlatmak için bu cmdlet'i çağırma ASDK kurtarılan sonra 60 dakika bekleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar

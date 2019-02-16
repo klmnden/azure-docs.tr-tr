@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50f2c174f21243a70c830c1c30127e0629c81972
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110260"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310749"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Dosya bütünlüğünü Azure Güvenlik Merkezi'nde izleme
 Dosya bütünlüğünü izleme (FIM), Azure Güvenlik Merkezi'nde bu kılavuzu kullanarak yapılandırmayı öğrenin.
@@ -88,7 +88,7 @@ Bir çalışma alanında FIM etkinleştirmek için:
 4. Seçin **dosya bütünlüğünü izleme uygulamak** FIM etkinleştirmek için.
 
 > [!NOTE]
-> Ayarları istediğiniz zaman değiştirebilirsiniz. Bkz [düzenleme izlenen varlık](security-center-file-integrity-monitoring.md#edit-monitored-items) aşağıda daha fazla bilgi edinin.
+> Ayarları istediğiniz zaman değiştirebilirsiniz. Daha fazla bilgi edinmek için aşağıdaki varlıkların düzenleme izlenen bakın.
 >
 >
 

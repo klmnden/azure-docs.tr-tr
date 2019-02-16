@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 25b29f6e6f8a4aa99d8ac83ca2cf27d8a5810bfc
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 4d5c7c592bae32586922531781803db6622e6515
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267980"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310755"
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama günlüğüne kaydetmeyi ayarlama
 
@@ -159,6 +159,28 @@ Log Analytics çalışma alanında tanılama verilerinizi görüntülemek için 
 ![Azure portalında günlük arama seçenekleri](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
 Sorgu Oluşturucu'da genişletin **LogManagement** > **AzureDiagnostics**. AzureDiagnostics altyapısı ve hizmet olaylarını içerir. Bir sorgu üzerinde anında oluşturulan dikkat edin. EventClass\_s alanında xEvent adları, günlüğe kaydetme için şirket içi Xevent'ler kullandıysanız tanıdık gelmiş. Tıklayın **EventClass\_s** veya Log Analytics ve olay adları birini devam bir sorgu oluşturma. Sorgularınızı daha sonra kullanmak üzere kaydettiğinizden emin olun.
+
+### <a name="example-query"></a>Örnek sorgu
+Bu sorgu, hesaplar ve her sorgu bitiş/yenileme bitiş olayı bir model veritabanı ve sunucu için CPU döndürür:
+
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+window
+| where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
+| where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
+| extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
+| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
+| join kind=leftouter (
+window
+    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
+    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
+    ) on RootActivityId_g
+| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
+
+```
+
 
 Sorguları kullanabileceğiniz yüzlerce vardır. Sorgular hakkında daha fazla bilgi için bkz: [Azure İzleyici günlük sorguları kullanmaya başlama](../azure-monitor/log-query/get-started-queries.md).
 

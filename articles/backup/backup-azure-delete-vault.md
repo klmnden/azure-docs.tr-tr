@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d15e3773a9b6e3dceb0799d206070730675c211d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492292"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310975"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 
@@ -31,7 +31,7 @@ Açık kurtarma Hizmetleri kasası zaten varsa ikinci bir adıma atlayın.
 
    ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   Kurtarma Hizmetleri kasalarının listesi görüntülenir. 
+   Kurtarma Hizmetleri kasalarının listesi görüntülenir.
 
    ![listeden kasayı seçin](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -50,7 +50,7 @@ Açık kurtarma Hizmetleri kasası zaten varsa ikinci bir adıma atlayın.
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Force tarafından kurtarma Hizmetleri kasasını silme
 
-Bir kurtarma Hizmetleri kasası tarafından zorla silmek için PowerShell kullanabilirsiniz. Zorla yöntemlerle kurtarma Hizmetleri kasasını ve ilişkili tüm yedekleme verileri kalıcı olarak silinir. 
+Bir kurtarma Hizmetleri kasası tarafından zorla silmek için PowerShell kullanabilirsiniz. Zorla yöntemlerle kurtarma Hizmetleri kasasını ve ilişkili tüm yedekleme verileri kalıcı olarak silinir.
 
 > [!Warning]
 > Bir kurtarma Hizmetleri kasasını silmek için PowerShell kullanırken kasasındaki tüm yedekleme verileri kalıcı olarak silmek istediğinizden emin olun.
@@ -95,7 +95,7 @@ Bir kurtarma Hizmetleri kasasını silmek için:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Aboneliğiniz Azure portalında oturum açın ve kasa silinir doğrulayın.
 
 
@@ -106,7 +106,6 @@ Kasa bağımlılıkları el ile kaldırmak için her bir öğe veya sunucu aras�
 * Azure depolama (Azure dosyaları) yedekleri
 * SQL Server Azure VM yedeklemeleri
 * Azure sanal makineleri yedekleme
-* Microsoft Azure kurtarma Hizmetleri Aracısı yedekleme
 
 Kullanım **Yedekleme Altyapısı** menü (resme bakın) için:
 
@@ -125,7 +124,7 @@ Kullanım **Yedekleme Altyapısı** menü (resme bakın) için:
 
 1. Tüm öğeleri listesinde bir öğeye sağ tıklayın ve bağlam menüsünden seçin **yedeklemeyi Durdur**.
 
-    ![Yedekleme türünü seçin](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![Yedekleme türünü seçin](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     Yedeklemeyi Durdur menüsünü açar.
 
@@ -154,9 +153,9 @@ Kullanım **Yedekleme Altyapısı** menü (resme bakın) için:
 
 ## <a name="removing-azure-backup-server-or-dpm"></a>Azure Backup sunucusu veya DPM kaldırılıyor
 
-1. Kasa Panosu menüsünden Yönet bölümüne inin ve tıklayın **Yedekleme Altyapısı**. 
+1. Kasa Panosu menüsünden Yönet bölümüne inin ve tıklayın **Yedekleme Altyapısı**.
 
-1. Alt menüde tıklayın **yedekleme yönetim sunucuları** Azure Backup sunucusu ve System Center DPM sunucusu görüntülemek için. Durdur ve Azure dosya sunucuları, Azure VM ve Azure sanal makineler'de SQL Server'ı silin. 
+1. Alt menüde tıklayın **yedekleme yönetim sunucuları** Azure Backup sunucusu ve System Center DPM sunucusu görüntülemek için. Durdur ve Azure dosya sunucuları, Azure VM ve Azure sanal makineler'de SQL Server'ı silin.
 
     ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

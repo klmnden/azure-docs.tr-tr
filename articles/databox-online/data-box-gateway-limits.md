@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f785e9e540af01b74678cf75159775cd2888e09e
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 34aac9a589516ace080906095ef3c14b34469bbd
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959587"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311197"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure veri kutusu ağ geçidi sınırları (Önizleme)
 
@@ -36,7 +36,7 @@ Veri kutusu ağ geçidi cihazı için sınırlar aşağıdaki tabloda açıklanm
 |---|---|
 |Hayır. cihaz başına dosyaları |100 milyon <br> Sınır ~ her 2 TB disk alanı ile en fazla 100 milyon sınırında 25 milyon dosya |
 |Hayır. cihaz başına paylaşılma sayısı |24 |
-|Hayır. kapsayıcı başına paylaşılma sayısı |1 |
+|Hayır. Azure depolama kapsayıcısı başına paylaşılma sayısı |1 |
 |Bir paylaşıma yazılan en büyük dosya boyutu|2 TB sanal cihaz için en büyük dosya boyutu 500 GB'dir. <br> En çok 5 TB ulaşana kadar önceki oranını veri disk boyutu ile maksimum dosya boyutu artar. |
 
 ## <a name="azure-storage-limits"></a>Azure depolama sınırları

@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: fd5f58a03ffd054e79f1ff4ea6d61c33c06b6e7c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9cd43172fc57443cc89f238e1d4ffaae45301936
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268558"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330571"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search'te bir temel dizin oluşturma
 
@@ -110,7 +110,10 @@ Schematically, Azure Search dizini aşağıdaki öğelerden oluşur.
 }
 ```
 
-## <a name="fields-collection-and-attribution"></a>Alanlar koleksiyonu ve atıf
+<a name="fields-collection"></a>
+
+## <a name="fields-collection-and-field-attributes"></a>Alanlar koleksiyonu ve alan öznitelikleri
+
 Şemanızı tanımlarken, dizininizdeki her bir alan için ad, tür ve öznitelikler belirtmeniz gerekir. Alan türü, bu alanda depolanan verileri sınıflandırır. Öznitelikler, alanın nasıl kullanıldığını belirtmek için tek tek alanlarda ayarlanır. Aşağıdaki tablolar belirtebileceğiniz türleri ve öznitelikleri numaralandırır.
 
 ### <a name="data-types"></a>Veri türleri
@@ -139,7 +142,7 @@ Azure Search'ün [desteklediği veri türleri hakkında burada](https://docs.mic
 
 Azure Search'ün [dizin öznitelikleri hakkında burada](https://docs.microsoft.com/rest/api/searchservice/Create-Index) daha ayrıntılı bilgiler edinebilirsiniz.
 
-## <a name="storage-implications-of-index-attributes"></a>Dizin özniteliklerini depolama etkileri
+## <a name="storage-implications"></a>Depolama etkileri
 
 Öznitelikleri depolama etkisi. Aşağıdaki ekran görüntüsünde, dizin depolama düzeni özniteliklerin çeşitli birleşimler kaynaklanan bir örnektir. Dizin dayanır [yerleşik realestate örnek](search-get-started-portal.md) dizine ekleyebilir, veri kaynağı ve Portalı'nda sorgu.
 
@@ -147,7 +150,9 @@ Belgeleri bozulmadan saklanan şekilde tam eşleşme filtreleme ve sıralama iş
 
 ![Dizin öznitelik seçimi temel alınarak boyut](./media/search-what-is-an-index/realestate-index-size.png "dizin öznitelik seçimi temel alınarak boyutu")
 
-Depolama uygulaması, Azure Search'ün bir uygulama ayrıntısı kabul edilir ve uyarı değişebilir. Şu anki davranışı gelecekte kalıcı bir garanti yoktur.
+Birkaç aşağıdaki bileşimler yapay, bir nokta illuminating için kullanışlı, ancak uygun bir dizinde neden değil. Uygulamada, hiçbir zaman tek her alan için bir öneri aracı eklediğinizde veya aranabilir ancak değil alınabilir bir dizin oluşturun.
+
+Depolama mimarisi, Azure Search'ün bir uygulama ayrıntısı kabul edilir ve uyarı değişebilir. Şu anki davranışı gelecekte kalıcı bir garanti yoktur.
 
 ## <a name="suggesters"></a>Öneri Araçları
 Bir öneri aracı hangi alanlarda dizin aramaları otomatik tamamlamayı veya yazarken tamamlanan sorgu desteklemek için kullanılan tanımlayan şemayı bölümüdür. Genellikle kısmi arama dizelerini önerileri (Azure Search Hizmeti REST API'si) kullanıcı arama sorgusu yazıyor ve API, önerilen ifadelerden bir dizi döndürür gönderilir. 

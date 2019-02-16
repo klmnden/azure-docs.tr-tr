@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742397"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312296"
 ---
 # <a name="http-application-routing"></a>HTTP uygulaması yönlendirme
 
@@ -38,6 +38,9 @@ HTTP uygulama yönlendirme eklentisi, Azure CLI ile bir AKS kümesi dağıtırke
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
+
+> [!TIP]
+> Birden çok eklenti etkinleştirmek istiyorsanız, bunları bir virgülle ayrılmış liste olarak belirtin. Örneğin, HTTP uygulama Yönlendirme ve izlemeyi etkinleştirmek için biçimini kullanın. `--enable-addons http_application_routing,monitoring`.
 
 HTTP kullanarak varolan bir AKS kümesi üzerinde yönlendirme de etkinleştirebilirsiniz [az aks enable-addons] [ az-aks-enable-addons] komutu. Var olan bir kümede HTTP yönlendirme etkinleştirmek için eklemeniz `--addons` parametresi belirtin *http_application_routing* aşağıdaki örnekte gösterildiği gibi:
 

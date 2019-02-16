@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 61cad318dbbe55ef5ecf1b8167b6594ab6e57553
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 901afc8f28b617eb5bada2a0f58761ddb9f67607
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247546"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327424"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>Azure üzerinde IBM DB2 pureScale
 
@@ -89,7 +89,7 @@ Bu mimari uygulama, depolama ve veri katmanları Azure sanal makinelerde çalı�
 
 ### <a name="storage-considerations"></a>Depolama hakkında dikkat edilmesi gerekenler
 
-Oracle RAC gibi bir yüksek performanslı blok g/ç genişleme veritabanı DB2 pureScale olur. En büyük kullanmanızı öneririz [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) gereksinimlerinize uyan seçeneği. Üretim ortamları genellikle daha fazla depolama kapasitesi gerekirken depolama seçenekleri daha küçük geliştirme ve test ortamları için uygun olabilir. Örnek mimarisi kullanır [P30](https://azure.microsoft.com/pricing/details/managed-disks/) IOPS kendi oranını boyutuna ve fiyat nedeniyle. Boyutundan bağımsız olarak, en iyi performans için Premium depolama kullanın.
+Oracle RAC gibi bir yüksek performanslı blok g/ç genişleme veritabanı DB2 pureScale olur. En büyük kullanmanızı öneririz [Azure premium SSD](disks-types.md) gereksinimlerinize uyan seçeneği. Üretim ortamları genellikle daha fazla depolama kapasitesi gerekirken depolama seçenekleri daha küçük geliştirme ve test ortamları için uygun olabilir. Örnek mimarisi kullanır [P30](https://azure.microsoft.com/pricing/details/managed-disks/) IOPS kendi oranını boyutuna ve fiyat nedeniyle. Boyutundan bağımsız olarak, en iyi performans için Premium depolama kullanın.
 
 DB2 pureScale paylaşılan kullanır-her şeyi mimarisi, tüm verilerin bulunduğu tüm küme düğümlerinden erişilebilir. Premium depolama örneklerinde, isteğe bağlı olup olmadığını veya ayrılmış örnek paylaşılabilir olmalıdır.
 

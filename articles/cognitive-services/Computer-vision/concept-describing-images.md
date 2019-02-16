@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7919a84ffe948c9b6a8f68fc1372f1976c09bc79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864290"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312200"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Kullanıcı tarafından okunabilen bir dil ile görüntü açıklayın
 
-Görüntü işleme'nın algoritmaları, görüntü içeriği analiz edin. Bu analiz, tam tümceler halinde insan tarafından okunabilir dilde görüntülenen bir 'açıklamanın' temelini oluşturur. Açıklama, görüntüde nelerin bulunduğunu özetler. Görüntü işleme'nın algoritmaları görüntüde tanımlanmış görsel özelliklere bağlı olarak çeşitli açıklamaları oluşturur. Her açıklaması değerlendirilir ve bir güven puanı oluşturulur. Ardından, güvenilirlik puanı için azalan düzende sıralı bir liste döndürülür.
+Görüntü işleme, bir resmi çözümleme ve içeriğini açıklayan insanlar tarafından okunabilen bir cümle oluşturur. Farklı görsel özellikleri ve her açıklaması retruns birkaç açıklamaları gerçekten göre algoritması bir güven puanı verilir. Son çıkış açıklamaları en yüksek öncelikten en düşük güven için sıralanmış bir listesidir.
 
 ## <a name="image-description-example"></a>Resim Açıklama örneği
 

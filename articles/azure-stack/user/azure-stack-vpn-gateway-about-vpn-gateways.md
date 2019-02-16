@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 62a0e763913ea1ca27edf88d7560c9400043bf27
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7bf7034d30a8aac187fb2eeae6569f2f495e4439
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251376"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327264"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure Stack için VPN gateway hakkında
 
@@ -74,11 +74,11 @@ Diyagramları ve açıklamaları aşağıdaki bölümlerde, gereksinimlerinize u
 
 ### <a name="site-to-site"></a>Siteden siteye
 
-A *siteden siteye* (S2S) VPN ağ geçidi bağlantısı, IPSec/IKE (Ikev1 veya Ikev2) VPN tüneli üzerinden kurulan bağlantı olduğu. Bu tür bir bağlantı, şirket içinde ve genel bir IP adresi atanmış bir VPN cihazı gerektirir. Bu cihazı bir NAT'nin arkasında olamaz S2S bağlantıları, şirket içi ve dışı yapılandırmalar ile birlikte karma yapılandırmalar için kullanılabilir.
+A *siteden siteye* (S2S) VPN ağ geçidi bağlantısı, IPSec/IKE (Ikev2) VPN tüneli üzerinden kurulan bağlantı olduğu. Bu tür bir bağlantı, şirket içinde ve genel bir IP adresi atanmış bir VPN cihazı gerektirir. Bu cihazı bir NAT'nin arkasında olamaz S2S bağlantıları, şirket içi ve dışı yapılandırmalar ile birlikte karma yapılandırmalar için kullanılabilir.
 
 ![Siteden siteye VPN bağlantısı yapılandırma örneği](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a>Çok siteli
+### <a name="multi-site"></a>Çoklu site
 
 A *çok siteli* siteden siteye bağlantı çeşitlemesi bağlantısıdır. Sanal ağ geçidinizden genellikle birden fazla şirket içi siteye bağlanan birden fazla VPN bağlantısı oluşturursunuz. Birden fazla bağlantıyla çalışırken (Klasik sanal ağlar ile çalışırken dinamik ağ geçidi bilinir) bir rota tabanlı VPN türü kullanmalısınız. Her sanal ağın yalnızca bir VPN ağ geçidi olabileceğinden, ağ geçidi boyunca tüm bağlantılar mevcut bant genişliğini paylaşır.
 

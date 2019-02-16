@@ -4,15 +4,15 @@ description: Azure Cosmos DB'de çeşitli tutarlılık düzeyleri için kullanı
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ee0dc1bec39bf95cbf4f3bf7ecea92b877a78b88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113762"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309209"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Tutarlılık, kullanılabilirlik ve performans dengeleri 
 
@@ -44,22 +44,23 @@ Tam RTT gecikme süresi, ışık hızı uzaklık işlevi ve Azure ağ topolojisi
 
 - Yazma işlemi, ekleme, değiştirme, upsert ve silme gibi belirli bir tür için tüm tutarlılık düzeyleri için yazma üretimi için istek birimi aynıdır.
 
-## <a name="consistency-levels-and-data-durability"></a>Tutarlılık düzeyleri ve veri dayanıklılığı
+## <a id="rto"></a>Tutarlılık düzeyleri ve veri dayanıklılığı
 
-Bir Global olarak dağıtılmış veritabanı ortam içinde bir bölge çapında kesinti varsa tutarlılık düzeyi ve veri dayanıklılığı arasında doğrudan bir ilişki yoktur. Tablo tutarlılık modeli ve veri dayanıklılığı bölge geniş kesinti varsa arasındaki ilişki arasındaki ilişkiyi tanımlar. Bile güçlü tutarlılık ile dağıtılmış bir sistemde, dağıtılmış bir veritabanı ve RPO ve RTO CAP Teoremi nedeniyle sıfır mümkün olduğunu unutmayın. Neden hakkında daha fazla bilgi edinmek için [Azure Cosmos DB'deki tutarlılık düzeyleri](consistency-levels.md).
+Bir Global olarak dağıtılmış veritabanı ortam içinde bir bölge çapında kesinti varsa tutarlılık düzeyi ve veri dayanıklılığı arasında doğrudan bir ilişki yoktur. İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarır önce kabul edilebilen maksimum süre anlamanız gerekir. Bir uygulamanın tamamen kurtarmak için gereken süre, Kurtarma süresi hedefi (RTO) bilinir. Ayrıca uygulama edilebilecek son veri güncelleştirmelerinin maksimum süreyi anlamanız gereken bir kesintiden sonra kurtarılırken. Zaman dilimi kaybetmeyi göze güncelleştirmeleri, kurtarma noktası hedefi (RPO) bilinir.
+
+Tablo tutarlılık modeli ve veri dayanıklılığı bölge geniş kesinti varsa arasındaki ilişki arasındaki ilişkiyi tanımlar. Daha güçlü tutarlılık ile dağıtılmış bir sistemde, dağıtılmış bir veritabanı bir RPO ve RTO CAP Teoremi nedeniyle sıfır olması mümkün olduğunu unutmayın. Neden hakkında daha fazla bilgi edinmek için [Azure Cosmos DB'deki tutarlılık düzeyleri](consistency-levels.md).
 
 |**Bölgeler**|**Çoğaltma modu**|**Tutarlılık düzeyi**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Tek veya çok yöneticili|Herhangi bir tutarlılık düzeyi|< 240 dakika|< 1 hafta|
 |>1|Tek yönetici|Oturum, tutarlı ön ek, nihai|< 15 dakika|< 15 dakika|
-|>1|Tek yönetici|Sınırlanmış Eskime Durumu|K &AMP; T *|< 15 dakika|
+|>1|Tek yönetici|Sınırlanmış Eskime Durumu|K &AMP; T|< 15 dakika|
 |>1|Çok yöneticili|Oturum, tutarlı ön ek, nihai|< 15 dakika|0|
-|>1|Çok yöneticili|Sınırlanmış Eskime Durumu|K &AMP; T *|0|
+|>1|Çok yöneticili|Sınırlanmış Eskime Durumu|K &AMP; T|0|
 |>1|Tek veya çok yöneticili|Güçlü|0|< 15 dakika|
 
-* K & T = "K" Sürüm (güncelleştirmeleri) bir öğe sayısı. Veya "T" zaman aralığı.
-
-
+Bin = "K" Sürüm (güncelleştirmeleri) bir öğe sayısı.
+T son güncelleştirmeden bu yana saat "T" zaman aralığı =.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

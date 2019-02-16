@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358159"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327560"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Azure portalından Chef İstemcisi'ni yükleme
 Azure portalından Chef istemci uzantısını doğrudan üzerine bir Linux veya Windows makinesi ekleyebilirsiniz. Bu makalede yeni bir Linux sanal makine kullanarak işlemi boyunca size yol gösterir.
@@ -53,7 +53,7 @@ Bu bölümde, bir Linux makine oluşturmak için öncelikle Azure portalını ku
 1. Üzerinde **Temelleri** sekmesinde, aşağıdaki değerleri belirtin ve ardından **Tamam**.
 
     - **Ad** -yeni bir sanal makine için bir ad girin.
-    - **VM disk türü** -seçeneklerinden birini belirtin **SSD** veya **HDD** depolama disk türü. Azure'da sanal makine disk türleri hakkında daha fazla bilgi için bkz [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](/azure/virtual-machines/windows/premium-storage).
+    - **VM disk türü** -seçeneklerinden birini belirtin **SSD** veya **HDD** depolama disk türü. Azure'da sanal makine disk türleri hakkında daha fazla bilgi için bkz [bir disk türü seçin](../virtual-machines/windows/disks-types.md).
     - **Kullanıcı adı** -sanal makinede yönetici ayrıcalıkları verilmiş bir kullanıcı adı girin.
     - **Kimlik doğrulama türü** - seçin **parola**. Belirleyebilirsiniz **SSH ortak anahtarı**ve bir SSH ortak anahtar değeri sağlayın. Bu Tanıtım (ve ekran görüntüleri), amacıyla **parola** seçilir.
     - **Parola** ve **parolayı onayla** -kullanıcı için bir parola girin.

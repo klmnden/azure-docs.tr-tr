@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cb868da60d56728e5d0c450ab362d6f381b90ea
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6ef8498ae1aa9be0322f508b3723778311e2cdd5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756572"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327791"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü Azure sanal makineleri DBMS dağıtım
 
@@ -249,7 +249,7 @@ ms.locfileid: "55756572"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -357,7 +357,7 @@ Doğru geçicidosyalar alan miktarını belirlemek için mevcut sistemlerde geç
 ### <a name="storage-configuration"></a>Depolama yapılandırması
 Tek Örnekli Oracle NTFS kullanılarak biçimlendirilmiş diskler yalnızca desteklenir. Tüm veritabanı dosyaları (önerilen) yönetilen diskler veya VHD'ler NTFS dosya sisteminde depolanmış olması gerekir. Bu diskler Azure VM'sine bağlanmış ve dayalı [Azure sayfa blob'u depolama](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) veya [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
-Kullanmanızı öneririz [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Güçlü bir şekilde kullanmanızı öneririz [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) Oracle veritabanı dağıtımlarınız için.
+Kullanmanızı öneririz [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Güçlü bir şekilde kullanmanızı öneririz [premium SSD](../../windows/disks-types.md) Oracle veritabanı dağıtımlarınız için.
 
 Oracle veritabanı dosyaları için ağ sürücülerine veya Azure Dosya Hizmetleri gibi uzak paylaşımlar desteklenmez. Daha fazla bilgi için bkz.
 
@@ -444,11 +444,11 @@ Bu durumda, bulma yükleme/Oracle giriş, aşama, saptrace, saparch, sapbackup, 
 
 ### <a name="storage-configuration"></a>Depolama yapılandırması
 
-Dosya sistemleri ext4, xfs veya Oracle ASM, azure'da Oracle veritabanı dosyaları için desteklenir. Tüm veritabanı dosyaları, VHD'leri veya yönetilen diskleri temel alan bu dosya sistemlerine depolanmalıdır. Bu diskler Azure VM'sine bağlanmış ve dayalı [Azure sayfa blob'u depolama](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) veya [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Dosya sistemleri ext4, xfs veya Oracle ASM, azure'da Oracle veritabanı dosyaları için desteklenir. Tüm veritabanı dosyaları, VHD'leri veya yönetilen diskleri temel alan bu dosya sistemlerine depolanmalıdır. Bu diskler Azure VM'sine bağlanmış ve dayalı [Azure sayfa blob'u depolama](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) veya [Azure yönetilen diskler](../../windows/managed-disks-overview.md).
 
-Oracle Linux UEK çekirdekleri için en az sürüm 4 UEK desteklemek için gereken [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
+Oracle Linux UEK çekirdekleri için en az sürüm 4 UEK desteklemek için gereken [Azure premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching).
 
-Kullanmanızı öneririz [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Güçlü bir şekilde kullanmanızı öneririz [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) Oracle veritabanı dağıtımlarınız için.
+Kullanılacak önemle tavsiye edilir [Azure yönetilen diskler](../../windows/managed-disks-overview.md). Ayrıca kullanarak önerilir [Azure premium SSD](../../windows/disks-types.md) Oracle veritabanı dağıtımlarınız için.
 
 Oracle veritabanı dosyaları için ağ sürücülerine veya Azure Dosya Hizmetleri gibi uzak paylaşımlar desteklenmez. Daha fazla bilgi için, aşağıdakilere bakın: 
 

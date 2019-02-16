@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 160d42725abdb91af4f83696c2bceae38bbab67d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dd9429ade750810138335c522d68df5cd595f320
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869339"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310992"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>Hızlı Başlangıç: C ve REST API kullanarak resimlerdeki el yazısı metinleri ayıklamak&#35; , görüntü işleme
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>Hızlı Başlangıç: REST API kullanarak resimlerdeki el yazısı metinleri ayıklamak ve C# , görüntü işleme
 
-Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak bir görüntüden el yazısı metni ayıklayacaksınız. [Metin Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ve [Metin Tanıma İşlemi Sonucunu Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) yöntemleri ile, bir görüntüdeki el yazısı metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+Bu hızlı başlangıçta, görüntü işleme'nın REST API'sini kullanarak resimlerdeki el yazısı bir görüntüden ayıklayacaksınız. İle [metni tanı](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ve [tanımak metin işleminin sonucunu Al](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) yöntemleri görüntüdeki el yazısı metni algılayın ve tanınan karakterleri makine tarafından okunabilir bir karakter akışı halinde ayıklayın.
 
 > [!IMPORTANT]
 > [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) yönteminden farklı olarak [Metin Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) yöntemi zaman uyumsuz olarak çalıştırılır. Bu yöntem, başarılı bir yanıt gövdesinde herhangi bir bilgi döndürmez. Bunun yerine, Metin Tanıma yöntemi, `Operation-Content` yanıt üst bilgisi alanının değerindeki bir URI’yi döndürür. Daha sonra hem durumu denetlemek hem de Metin Tanıma yöntem çağrısının sonuçlarını döndürmek için [Metin Tanıma İşlemi Sonucunu Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) yöntemini temsil eden bu URI’yi çağırırsınız.
@@ -425,7 +425,7 @@ Artık gerekli değilse Visual Studio çözümünü silin. Bunu yapmak için Dos
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Optik karakter tanıma (OCR) gerçekleştirmek için Görüntü İşleme kullanan temel bir Windows uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturun. Buna ek olarak, bir görüntüdeki yüzler gibi görsel özellikleri algılayın, kategorilere ayırın, etiketleyin ve açıklayın. Görüntü İşleme API'lerini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna göz atın.
+Optik karakter tanıma (OCR) gerçekleştirmek için görüntü işleme kullanan temel bir Windows uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturma artı algılamak, kategorilere ayırmak, etiketi ve bir resimdeki yüz, dahil olmak üzere, görsel özellikleri açıklanmaktadır.
 
 > [!div class="nextstepaction"]
-> [Görüntü İşleme API’si C# Öğreticisi](../Tutorials/CSharpTutorial.md)
+> [Görüntü işleme API'si C# Öğreticisi](../Tutorials/CSharpTutorial.md)

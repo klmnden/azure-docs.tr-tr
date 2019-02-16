@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4698268d8e7798d0664d9eb6c33862d9641ff9fc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: f5d453fbacb44105c491c9e69085a219099943fa
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895593"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326917"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
@@ -339,7 +339,7 @@ Bir işlem hattı çalıştırma için farklı girişlerle daha sonra yeniden ya
 
 Tüm yayınlanan işlem hatları bir REST uç noktası vardır. Bu uç nokta, işlem hattının çalıştırma Python olmayan istemciler gibi dış sistemlerden çağırır. Bu uç nokta "Puanlama ve senaryoları yeniden eğitme batch'de yinelenebilirliği yönetilen" sağlar.
 
-Önceki işlem hattının çalıştırma başlatmak için bir Azure Active Directory kimlik doğrulama üst bilgisi belirteç açıklandığı ihtiyacınız [AzureCliAuthentication sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
+Önceki işlem hattının çalıştırma başlatmak için bir Azure Active Directory kimlik doğrulama üst bilgisi belirteç açıklandığı ihtiyacınız [AzureCliAuthentication sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) ya da daha fazla bilgi edinin [Azure makinede kimlik doğrulaması Öğrenme](https://aka.ms/pl-restep-auth) dizüstü bilgisayar.
 
 ```python
 response = requests.post(published_pipeline1.endpoint, 

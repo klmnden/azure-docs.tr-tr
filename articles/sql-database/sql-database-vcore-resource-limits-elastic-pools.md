@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/072019
-ms.openlocfilehash: 1040c2018e7e18ed2d2bb401dd0052c6851fa544
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.date: 02/15/2019
+ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270479"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328682"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Sanal çekirdek tabanlı satın alma modeli sınırlarını kullanarak elastik havuzlar için kaynak sınırları
 
@@ -59,7 +59,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
-\* Max geçerli çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md)
+\* En fazla eş zamanlı çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md). Örneğin, elastik havuzun 5. nesil ve veritabanı başına en fazla kendi sanal çekirdek kullanıyorsa, maks. eş zamanlı çalışan sonra 200 2 ' dir.  Veritabanı başına en çok sanal çekirdek 0,5 ardından maks. eş zamanlı çalışan ise, 50 üzerinde 5. nesil olduğundan sanal çekirdek başına 100 eşzamanlı çalışan en fazla.  Diğer en çok sanal çekirdek ayarlarını daha az 1 sanal çekirdek olan veritabanı başına ya da daha az, en fazla eş zamanlı çalışan sayısı için benzer şekilde içerik yeniden ölçeklenir.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Genel amaçlı hizmet katmanı: 4. nesil işlem platformu (2. bölüm)
 
@@ -85,7 +85,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
-\* Max geçerli çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md)
+\* En fazla eş zamanlı çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md). Örneğin, elastik havuzun 5. nesil ve veritabanı başına en fazla kendi sanal çekirdek kullanıyorsa, maks. eş zamanlı çalışan sonra 200 2 ' dir.  Veritabanı başına en çok sanal çekirdek 0,5 ardından maks. eş zamanlı çalışan ise, 50 üzerinde 5. nesil olduğundan sanal çekirdek başına 100 eşzamanlı çalışan en fazla.  Diğer en çok sanal çekirdek ayarlarını daha az 1 sanal çekirdek olan veritabanı başına ya da daha az, en fazla eş zamanlı çalışan sayısı için benzer şekilde içerik yeniden ölçeklenir.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Genel amaçlı hizmet katmanı: 5. nesil işlem platformu (1. bölüm)
 
@@ -111,7 +111,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
-\* Max geçerli çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md)
+\* En fazla eş zamanlı çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md). Örneğin, elastik havuzun 5. nesil ve veritabanı başına en fazla kendi sanal çekirdek kullanıyorsa, maks. eş zamanlı çalışan sonra 200 2 ' dir.  Veritabanı başına en çok sanal çekirdek 0,5 ardından maks. eş zamanlı çalışan ise, 50 üzerinde 5. nesil olduğundan sanal çekirdek başına 100 eşzamanlı çalışan en fazla.  Diğer en çok sanal çekirdek ayarlarını daha az 1 sanal çekirdek olan veritabanı başına ya da daha az, en fazla eş zamanlı çalışan sayısı için benzer şekilde içerik yeniden ölçeklenir.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Genel amaçlı hizmet katmanı: 5. nesil işlem platformu (2. bölüm)
 
@@ -136,7 +136,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
-\* Max geçerli çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md)
+\* En fazla eş zamanlı çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md). Örneğin, elastik havuzun 5. nesil ve veritabanı başına en fazla kendi sanal çekirdek kullanıyorsa, maks. eş zamanlı çalışan sonra 200 2 ' dir.  Veritabanı başına en çok sanal çekirdek 0,5 ardından maks. eş zamanlı çalışan ise, 50 üzerinde 5. nesil olduğundan sanal çekirdek başına 100 eşzamanlı çalışan en fazla.  Diğer en çok sanal çekirdek ayarlarını daha az 1 sanal çekirdek olan veritabanı başına ya da daha az, en fazla eş zamanlı çalışan sayısı için benzer şekilde içerik yeniden ölçeklenir.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>İş kritik hizmet katmanı: Depolama boyutlarına ve işlem boyutları
 
@@ -164,7 +164,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
-\* Max geçerli çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md)
+\* En fazla eş zamanlı çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md). Örneğin, elastik havuzun 5. nesil ve veritabanı başına en fazla kendi sanal çekirdek kullanıyorsa, maks. eş zamanlı çalışan sonra 200 2 ' dir.  Veritabanı başına en çok sanal çekirdek 0,5 ardından maks. eş zamanlı çalışan ise, 50 üzerinde 5. nesil olduğundan sanal çekirdek başına 100 eşzamanlı çalışan en fazla.  Diğer en çok sanal çekirdek ayarlarını daha az 1 sanal çekirdek olan veritabanı başına ya da daha az, en fazla eş zamanlı çalışan sayısı için benzer şekilde içerik yeniden ölçeklenir.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>İş kritik hizmet katmanı: 4. nesil işlem platformu (2. bölüm)
 
@@ -190,7 +190,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
-\* Max geçerli çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md)
+\* En fazla eş zamanlı çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md). Örneğin, elastik havuzun 5. nesil ve veritabanı başına en fazla kendi sanal çekirdek kullanıyorsa, maks. eş zamanlı çalışan sonra 200 2 ' dir.  Veritabanı başına en çok sanal çekirdek 0,5 ardından maks. eş zamanlı çalışan ise, 50 üzerinde 5. nesil olduğundan sanal çekirdek başına 100 eşzamanlı çalışan en fazla.  Diğer en çok sanal çekirdek ayarlarını daha az 1 sanal çekirdek olan veritabanı başına ya da daha az, en fazla eş zamanlı çalışan sayısı için benzer şekilde içerik yeniden ölçeklenir.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>İş kritik hizmet katmanı: 5. nesil işlem platformu (1. bölüm)
 
@@ -216,7 +216,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
-\* Max geçerli çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md)
+\* En fazla eş zamanlı çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md). Örneğin, elastik havuzun 5. nesil ve veritabanı başına en fazla kendi sanal çekirdek kullanıyorsa, maks. eş zamanlı çalışan sonra 200 2 ' dir.  Veritabanı başına en çok sanal çekirdek 0,5 ardından maks. eş zamanlı çalışan ise, 50 üzerinde 5. nesil olduğundan sanal çekirdek başına 100 eşzamanlı çalışan en fazla.  Diğer en çok sanal çekirdek ayarlarını daha az 1 sanal çekirdek olan veritabanı başına ya da daha az, en fazla eş zamanlı çalışan sayısı için benzer şekilde içerik yeniden ölçeklenir.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>İş kritik hizmet katmanı: 5. nesil işlem platformu (2. bölüm)
 
@@ -242,7 +242,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
-\* Max geçerli çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md)
+\* En fazla eş zamanlı çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md). Örneğin, elastik havuzun 5. nesil ve veritabanı başına en fazla kendi sanal çekirdek kullanıyorsa, maks. eş zamanlı çalışan sonra 200 2 ' dir.  Veritabanı başına en çok sanal çekirdek 0,5 ardından maks. eş zamanlı çalışan ise, 50 üzerinde 5. nesil olduğundan sanal çekirdek başına 100 eşzamanlı çalışan en fazla.  Diğer en çok sanal çekirdek ayarlarını daha az 1 sanal çekirdek olan veritabanı başına ya da daha az, en fazla eş zamanlı çalışan sayısı için benzer şekilde içerik yeniden ölçeklenir.
 
 Tüm sanal çekirdek, bir elastik havuzun meşgul ise, havuzdaki her bir veritabanı eşit miktarda sorguları işlemek için işlem kaynaklarını alır. SQL Veritabanı hizmeti, eşit dilimlerde işlem süresi sunarak veritabanları arasında kaynak paylaşım eşitliğini sağlar. Elastik havuz kaynak paylaşımı eşitliği, herhangi bir kaynak yoksa veritabanı başına en düşük vCore değeri, sıfır olmayan bir değere ayarlandığında her veritabanı için garanti edilen miktarda'ek niteliğindedir.
 

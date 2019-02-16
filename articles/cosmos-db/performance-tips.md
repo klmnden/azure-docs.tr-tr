@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: f05935f73f385b076741d2e856af8316a74e9d2f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 68378342769618c2b0e1096fbf5a2d28d0cb4b0e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042504"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309905"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB ile .NET için performans ipuçları
 
@@ -30,7 +30,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
 1. **Bağlantı İlkesi: Doğrudan bağlantı modunu kullan**
 
-    Bir istemci, Azure Cosmos DB'ye nasıl bağlanır? performansını gözlemler istemci tarafı gecikme süresi açısından özellikle önemli etkilere sahiptir. İstemci bağlantı İlkesi – bağlantı yapılandırmak için kullanılabilen iki anahtar yapılandırma ayarları vardır *modu* ve [bağlantı *Protokolü*](#connection-protocol).  Kullanılabilir iki mod şunlardır:
+    Bir istemci, Azure Cosmos DB'ye nasıl bağlanır? performansını gözlemler istemci tarafı gecikme süresi açısından özellikle önemli etkilere sahiptir. İstemci bağlantı İlkesi – bağlantı yapılandırmak için kullanılabilen iki anahtar yapılandırma ayarları vardır *modu* ve bağlantı *Protokolü*.  Kullanılabilir iki mod şunlardır:
 
    * Ağ geçidi modu (varsayılan)
       
@@ -49,7 +49,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
     |---------|---------|---------|---------|
     |Ağ geçidi  |   HTTPS    |  Tüm SDK'lar    |   Mongo (10250, 10255 olarak, 10256), Table(443), Cassandra(443), Graph(443) SQL(443)    |
     |Doğrudan    |    HTTPS     |  .NET ve Java SDK'sı    |    SQL(443)   |
-    |Doğrudan    |     TCP    |  .NET SDK'sı    | 10.000 20.000 aralıkta bağlantı noktaları |
+    |Doğrudan    |     TCP    |  .Net SDK    | 10.000 20.000 aralıkta bağlantı noktaları |
 
     Azure Cosmos DB, HTTPS üzerinden bir basit ve açık RESTful programlama modeli sunar. Ayrıca, aynı zamanda RESTful kendi iletişim modelinde yer alır ve .NET İstemci SDK'sı kullanılabilen verimli bir TCP protokolü sunar. Hem doğrudan TCP hem de HTTPS, SSL ilk kimlik doğrulaması ve şifreleme trafiği için kullanın. En iyi performans için mümkün olduğunda'de TCP protokolünü kullanır.
 

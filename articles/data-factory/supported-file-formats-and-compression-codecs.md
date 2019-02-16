@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e1a928711a596c159ac920f11c123b73b72d3aa2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888575"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313424"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure Data factory'de sıkıştırma codec bileşenleri
 
-*Bu konu, aşağıdaki bağlayıcılar için geçerlidir: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake depolama Gen1](connector-azure-data-lake-store.md), [Azure Data Lake depolama Gen2](connector-azure-data-lake-storage.md), [Azure dosya depolama](connector-azure-file-storage.md), [Dosya sistemi](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), ve [SFTP](connector-sftp.md).*
+*Bu makale aşağıdaki bağlayıcılar için geçerlidir: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake depolama Gen1](connector-azure-data-lake-store.md), [Azure Data Lake depolama Gen2](connector-azure-data-lake-storage.md), [Azure dosya depolama](connector-azure-file-storage.md), [Dosya sistemi](connector-file-system.md), [FTP](connector-ftp.md), [Google bulut depolama](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)ve [ SFTP](connector-sftp.md).*
 
 İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. İsterseniz **ayrıştırmak veya belirli bir biçime sahip dosyaları oluşturmak**, Azure Data Factory, dosya şu biçim türlerini destekler:
 
@@ -427,6 +427,13 @@ Parquet dosyası serileştirme/seri kaldırma ile şirket içinde barındırıla
 
 - **JRE kullanılacak**: 64-bit IR 64 bit JRE gerekir. Buradan bulabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **OpenJDK kullanılacak**: sürüm 3.13 IR itibaren desteklenir. Paketi diğer tüm jvm.dll OpenJDK derlemelerinin şirket içinde barındırılan IR makine ve JAVA_HOME ortam değişken Ayarla sistem uygun şekilde gerekli.
+
+>[!TIP]
+>Kopyalarsanız veri gönderip buralardan veri Parquet biçimi kullanılarak şirket içinde barındırılan tümleştirme çalışma zamanı ve hata bildiren isabet "java çağrılırken bir hata oluştu. ileti: **java.lang.OutOfMemoryError:Java yığın alanı**", bir ortam değişkeni ekleyebilirsiniz. `_JAVA_OPTIONS` böyle kopyalama olanağı JVM için en düşük/en yüksek yığın boyutunu ayarlamak için şirket içinde barındırılan IR barındıran makine, işlem hattını yeniden. 
+
+![Şirket içinde barındırılan IR üzerinde JVM öbek boyutunu Ayarla](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+
+Örnek: değişken Ayarla `_JAVA_OPTIONS` değerle `-Xms256m -Xmx16g`. Bayrağı `Xms` bir Java sanal makinesi (JVM için), ilk bellek ayırma havuzu belirtir ancak `Xmx` maksimum bellek ayırma havuzu belirtir. Bu JVM ile başlayacağı anlamına gelir `Xms` bellek miktarı ve en fazla kullanabilmek için `Xmx` bellek miktarı. Varsayılan olarak, ADF en az 64 MB'ı kullanın ve en fazla 1 G.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Eşleme Parquet dosyalarını için veri türü
 

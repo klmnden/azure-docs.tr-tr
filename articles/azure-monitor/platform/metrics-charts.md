@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991336"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310952"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
@@ -100,20 +100,6 @@ Bir ölçüm bölme ölçütü: ölçüm karşılaştırma birbirleriyle nasıl 
    > [!NOTE]
    > Filtreleme hem de aynı boyutta bölme senaryonuz için ilgisi olmayan ve grafikleri okunmalarını kolaylaştırmak segmentleri gizlemek için kullanın.
 
-### <a name="new-alert-rule"></a>Yeni uyarı kuralı
-
-Uyarı kuralı bir ölçüm temel mantığını temel alarak gibi ölçümlerinizi görselleştirmek için ayarlanan ölçütlerle de kullanabilirsiniz. 
-
-Tıklarsanız **yeni uyarı kuralı**
-
-![Kırmızı renkte vurgulanmış yeni uyarı kuralı düğmesi](./media/metrics-charts/015.png)
-
-Temel alınan ölçü boyutları ile uyarı kuralı oluşturma bölmesine özel uyarı kuralları oluşturma daha kolay hale getirmek için önceden doldurulmuş grafiğinizi alınır.
-
-![Uyarı kuralı oluştur](./media/metrics-charts/016.png)
-
-Göz atın [makale](alerts-metric.md) ölçüm uyarılarını ayarlama hakkında daha fazla bilgi edinmek için.
-
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Grafik y ekseni sınırlarını kilidi
 
 Grafiğin büyük değerler daha küçük dalgalanmaları gösterdiğinde y ekseni aralığını kilitleme önemli hale gelir. 
@@ -138,6 +124,20 @@ Yapılandırılmış bir grafik bir panoya sabitlemek için:
 Grafiğinizi yapılandırdıktan sonra tıklayarak **grafik Eylemler** menüsü sağ üst köşe grafiğin ve tıklayın **panoya Sabitle**.
 
 ![Ölçüm görüntüsü](./media/metrics-charts/00013.png)
+
+## <a name="create-alert-rules"></a>Uyarı kuralları oluşturma
+
+Uyarı kuralı için temel bir ölçüm tabanlı olarak ölçümlerinizi görselleştirmek için ayarlanan ölçütlerle kullanabilirsiniz. Yeni uyarı verme kuralı, hedef kaynak, ölçüm, bölme ve grafik filtresi boyutlardan içerir. Uyarı kuralı oluşturma bölmesi daha sonra bu ayarları değiştirmek mümkün olacaktır.
+
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Yeni bir uyarı kuralı oluşturmak için tıklayın **yeni uyarı kuralı**
+
+![Kırmızı renkte vurgulanmış yeni uyarı kuralı düğmesi](./media/metrics-charts/015.png)
+
+Temel alınan ölçü boyutları ile uyarı kuralı oluşturma bölmesine özel uyarı kuralları oluşturma daha kolay hale getirmek için önceden doldurulmuş grafiğinizi alınır.
+
+![Uyarı kuralı oluştur](./media/metrics-charts/016.png)
+
+Göz atın [makale](alerts-metric.md) ölçüm uyarılarını ayarlama hakkında daha fazla bilgi edinmek için.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

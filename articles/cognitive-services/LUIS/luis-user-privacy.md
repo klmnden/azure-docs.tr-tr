@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 62d6dce4ccb5d4badbcf9b02cbbcda576ee63212
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: add526d8c09d2aa557ddd645e9016cb9c3b225a3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869262"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328206"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Language Understanding (LUIS) Bilişsel hizmetler, müşteri verilerini silebilir ve dışarı aktarma
 
@@ -30,7 +30,7 @@ Müşteri içeriği, Microsoft bölgesel Azure depolamada şifrelenmiş olarak d
 - Kayıt sırasında toplanan kullanıcı hesabı içerik
 - Eğitim verilerini (yani hedefi & varlıklar) modelleri oluşturmak için gerekli
 - Çalışma zamanında kullanıcı modelleri geliştirmeye yardımcı olmak için oturum açmış kullanıcı sorguları
-  - Kullanıcılar, sorgu günlüğünü devre dışı ekleyerek kapatabilir `&log=false` isteğine ayrıntıları [burada](luis-resources-faq.md#how-can-i-disable-the-logging-of-utterances)
+  - Kullanıcılar, sorgu günlüğünü devre dışı ekleyerek kapatabilir `&log=false` isteğine ayrıntıları [burada](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>Müşteri verileri silme
 LUIS kullanıcılar LUIS web portalı veya LUIS programlı API'leri aracılığıyla, tüm kullanıcı içeriği silmek için tam denetime sahiptir. Aşağıdaki tabloda, her ikisi de Yardım bağlantıları görüntüler:

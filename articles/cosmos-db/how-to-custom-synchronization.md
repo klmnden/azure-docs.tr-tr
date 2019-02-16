@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9033a7502919c8dc05053048272f3fa62f81b31d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 05432097ee80a01458a1f2e95c48123bf7f05d57
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56119296"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309582"
 ---
 # <a name="how-to-implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Daha yüksek kullanılabilirlik ve performans için en iyi duruma getirmek için özel eşitlemeyi uygulama
 
-Azure Cosmos DB, tutarlılık, performans ve kullanılabilirlik etmekten dengelemek, içinden seçim yapabileceğiniz için beş iyi tanımlanmış tutarlılık düzeyi sunar. Veriler zaman uyumlu olarak çoğaltılır ve Cosmos hesabı ile yapılandırılmış her bölgede dayanıklılık kalıcı güçlü tutarlılık sağlar. Bu yapılandırma, ancak en yüksek dayanıklılık düzeyini sağlar performans ve kullanılabilirlik karşılığında sunulur. Uygulama denetimi/kullanılabilirlik ödün vermeden uygulama ihtiyaçlarını uyacak şekilde veri dayanıklılığını hafifletin isterse, istenen dayanıklılık düzeyi sağlamak için uygulama katmanında özel eşitleme tercih edebilirsiniz.
+Azure Cosmos DB, tutarlılık, performans ve kullanılabilirlik etmekten dengelemek, içinden seçim yapabileceğiniz için beş iyi tanımlanmış tutarlılık düzeyi sunar. Veriler zaman uyumlu olarak çoğaltılır ve Azure Cosmos hesabı kullanılabilir olduğu her bölgede dayanıklılık kalıcı güçlü tutarlılık sağlar. Bu yapılandırma, ancak en yüksek dayanıklılık düzeyini sağlar performans ve kullanılabilirlik karşılığında sunulur. Uygulama denetimi/kullanılabilirlik ödün vermeden uygulama ihtiyaçlarını uyacak şekilde veri dayanıklılığını hafifletin isterse, istenen dayanıklılık düzeyi sağlamak için uygulama katmanında özel eşitleme tercih edebilirsiniz.
 
 Aşağıdaki diyagramda görsel olarak özel bir eşitleme modeli gösterilmektedir.
 
 ![Özel eşitleme](./media/how-to-custom-synchronization/custom-synchronization.png)
 
-Bu senaryoda Cosmos kapsayıcı birden çok kıtada birçok bölgede küresel olarak çoğaltılır. Bu senaryoda tüm bölgeler için güçlü tutarlılık kullanarak performansı etkiler. Uygulama yazma gecikmesi ödün vermeden yüksek veri dayanıklılık düzeyi sağlamak için aynı oturum belirteci paylaşan iki istemcileri kullanabilirsiniz.
+Bu senaryoda, bir Azure Cosmos kapsayıcı birden çok kıtada birçok bölgede küresel olarak çoğaltılır. Bu senaryoda tüm bölgeler için güçlü tutarlılık kullanarak performansı etkiler. Uygulama yazma gecikmesi ödün vermeden yüksek veri dayanıklılık düzeyi sağlamak için aynı oturum belirteci paylaşan iki istemcileri kullanabilirsiniz.
 
 İlk istemci, yerel bölge (örneğin, ABD Batı) veri yazabilirsiniz. İkinci bir istemci (örneğin, ABD Doğu'daki), eşitleme sağlamak için kullanılan salt okunur bir istemcidir. Akışı sağlama Thread.CurrentPrincipal z tokenu relace tarafından aşağıdaki okuma yazma yanıtını, okuma, ABD Doğu yazma işlemlerini eşitlemesini garanti eder. Azure Cosmos DB yazma en az bir bölgeye göre görüldüğünde ve gitmek için özgün yazma bölgesi varsa bölgesel bir kesinti varlığını sürdürmesi için garantili sağlayacaktır. Bu senaryoda, ABD Doğu, güçlü tutarlılık kullanan tüm bölgeler arasında gecikme süresini azaltmak için her yazma eşitlenir. Yazma her bölgede nerede oluştuğunu gösteriyorsa, çok yöneticili bir senaryoda, bu model, birden çok bölgede paralel eşitlemek için genişletilebilir.
 

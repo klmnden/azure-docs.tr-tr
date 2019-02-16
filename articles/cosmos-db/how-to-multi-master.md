@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: effe6fa942ce0cabace08e72dba90baf8646680e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56119289"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312149"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-in-azure-cosmos-db"></a>Azure Cosmos DB'de uygulamalarınızdaki çok ana yapılandırma
+# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Uygulamalarınızda Azure Cosmos DB kullanmayı çok ana yapılandırma
 
-Uygulamanızda çok bölgeli yazma etkinleştirmek ve uygulamanın geçerli bölge ayarlayarak birden çok girişe atanması özelliğini yapılandırmak için ihtiyaç duyduğunuz uygulamalarınızdaki çok yöneticili özelliklerini kullanmayı içinde dağıtılır.
+Çok yöneticili özellikleri uygulamalarınızda kullanmak için çok bölgeli yazma etkinleştirmek ve birden çok girişe atanması özelliğini yapılandırmak gerekir. Birden çok giriş, geçerli uygulamanın dağıtıldığı bölge ayarlayarak yapılandırılır.
 
 ## <a id="netv2"></a>.NET SDK'sı v2
 
-Çok yöneticili uygulamaları kümenizdeki etkinleştirmek için `UseMultipleWriteLocations` true ve yapılandırmak için `SetCurrentLocation` bölgeye uygulama dağıtılır ve Cosmos DB çoğaltılır.
+Çok yöneticili uygulamaları kümenizdeki etkinleştirmek için `UseMultipleWriteLocations` true ve yapılandırmak için `SetCurrentLocation` bölgeye uygulama dağıtılır ve Azure Cosmos DB çoğaltılır.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy

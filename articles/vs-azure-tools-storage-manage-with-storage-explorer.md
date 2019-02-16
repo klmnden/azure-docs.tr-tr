@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756827"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311214"
 ---
 # <a name="get-started-with-storage-explorer"></a>Depolama Gezgini ile çalışmaya başlama
 
@@ -221,7 +221,7 @@ Bu senaryoyu göstermek üzere; KullanıcıA’nın bir Azure aboneliği yöneti
 
 3. Kullanıcıb, sağlanan SAS'ı kullanarak kullanıcıa'ya ait hesabı eklemek için Depolama Gezgini'ni kullanır.
 
-### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Paylaşmak istediğiniz hesap için bir SAS bağlantı dizesi oluştur
+### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>Paylaşmak istediğiniz hesap için bir SAS sorgu dizesini oluştur
 
 1. Depolama Gezgini'nde paylaşın ve ardından istediğiniz depolama hesabına sağ tıklayın **paylaşılan erişim imzası Al...** .
 
@@ -231,7 +231,7 @@ Bu senaryoyu göstermek üzere; KullanıcıA’nın bir Azure aboneliği yöneti
 
     ![SAS alma iletişim kutusu][15]
 
-3. Yanındaki **bağlantı dizesi** metin kutusunda **kopyalama** panonuza kopyalayın ve ardından **Kapat**.
+3. Yanındaki **sorgu dizesi** metin kutusunda **kopyalama** panonuza kopyalayın ve ardından **Kapat**.
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Depolama hesabı için bir SAS bağlantı dizesi kullanarak ekleme
 

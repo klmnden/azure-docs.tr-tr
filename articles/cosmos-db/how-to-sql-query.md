@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1ca2b032497298bab5bedbf8ddc73987fa08c7df
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822417"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313560"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorgu örnekleri
 
@@ -1369,13 +1369,13 @@ Matematiksel işlevler her bağımsız değişken olarak sağlanan ve sayısal b
 | TAVAN (num_expr) | Büyüktür veya eşittir, belirtilen sayısal ifadenin en küçük tamsayı değerini döndürür. |
 | KATI (num_expr) | Belirtilen sayısal ifade küçük veya eşit en büyük tamsayı döndürür. |
 | EXP (num_expr) | Belirtilen sayısal ifadenin üssünü döndürür. |
-| [Günlük (num_expr [, temel])](#bk_log) | Belirtilen sayısal ifade veya kullanarak belirtilen tabanda logaritmasını doğal logaritmasını döndürür |
+| Günlük (num_expr, temel) | Belirtilen sayısal ifade veya kullanarak belirtilen tabanda logaritmasını doğal logaritmasını döndürür |
 | Log10 (num_expr) | 10 tabanında Logaritmik belirtilen sayısal ifadenin değerini döndürür. |
 | ROUND (num_expr) | En yakın tamsayı değerine yuvarlanır sayısal bir değer döndürür. |
 | TRUNC (num_expr) | En yakın tamsayı değerine kesilmiş sayısal bir değer döndürür. |
 | SQRT (num_expr) | Belirtilen sayısal ifadenin kare kökünü döndürür. |
 | KARE (num_expr) | Belirtilen sayısal ifade karesini döndürür. |
-| [GÜÇ (num_expr, num_expr)](#bk_power) | Belirtilen sayısal ifade gücünü belirtilen değeri döndürür. |
+| POWER (num_expr, num_expr) | Belirtilen sayısal ifade gücünü belirtilen değeri döndürür. |
 | OTURUM (num_expr) | Oturum (-1, 0, 1) belirtilen sayısal ifadenin değerini döndürür. |
 | ACOS (num_expr) | Kosinüsü belirtilen sayısal ifadesidir radyan cinsinden açı döndürür; arkkosinüsünü olarak da adlandırılır. |
 | ASIN (num_expr) | Açının sinüsü belirtilen sayısal ifadesidir radyan cinsinden döndürür. Bu işlev, arksinüsünü olarak da adlandırılır. |

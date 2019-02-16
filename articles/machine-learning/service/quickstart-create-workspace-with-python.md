@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0c235a9fd3898fa4525651d514c77432627603c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1962cef85c5e663de640f296a6e8e9efd5a1f4d6
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238967"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310364"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Python SDK'sını kullanma
 
@@ -89,7 +89,7 @@ SDK'yı yüklemeden yalıtılmış bir Python ortamı oluşturmanızı öneririz
 1. Jupyter Notebook sunucusu conda ortamınıza yükleyin.
 
   ```shell
-    conda install nb_conda
+    conda install -y nb_conda
     ```
 
 1. Azure Machine Learning öğreticileri için bu ortamı kullanmak için bu paketleri yükleyin.

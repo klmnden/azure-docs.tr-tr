@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816195"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326832"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Depolama kaynağı silme hatalarını giderme
 
@@ -28,7 +28,7 @@ Bazı senaryolarda, aşağıdakilerden birini karşılaşabileceğiniz hatalar, 
 
 >**# Dışında # bloblar silinemedi:<br>BlobName.vhd: Blob üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.**
 
-Azure Vm'lerinde kullanılan VHD'ler, azure'daki standart veya premium depolama hesabında sayfa blobları olarak depolanan .vhd dosyalarıdır. Azure diskleri hakkında daha fazla bilgi için bkz: [yönetilmeyen ve yönetilen disk depolama için Microsoft Azure Linux Vm'leri](../linux/about-disks-and-vhds.md). 
+Azure Vm'lerinde kullanılan VHD'ler, azure'daki standart veya premium depolama hesabında sayfa blobları olarak depolanan .vhd dosyalarıdır. Azure diskleri hakkında daha fazla bilgi için bkz. bizim [yönetilen disklere giriş](../linux/managed-disks-overview.md).
 
 Azure bozulmasını önlemek için bir sanal Makineye bağlı bir disk silinmesini engeller. Ayrıca, kapsayıcılar ve bir VM'ye bağlı bir sayfa blobu olduğu depolama hesaplarında silinmesini engeller. 
 

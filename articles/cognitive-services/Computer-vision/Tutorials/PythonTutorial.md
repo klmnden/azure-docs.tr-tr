@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: afb937f1be780c35ef44023acfedeb38a6b6a877
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b55b1fdf3b93d3865bdb115e43ff8583af61b45d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875079"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326434"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>Öğretici: Bilgisayar görüntü işleme API'si Python
 
-Bu öğreticide, Python’da Görüntü İşleme API’sinin nasıl kullanılacağı ve popüler kitaplıklar kullanılarak sonuçlarınızın nasıl görselleştirileceği gösterilir. Öğreticiyi çalıştırmak için Jupyter kullanacaksınız. Etkileşimli Jupyter notebook’larını nasıl kullanmaya başlayacağınızı öğrenmek için [Jupyter Belgeleri](https://jupyter.readthedocs.io/en/latest/index.html)’ne bakın.
+Bu öğreticide, Python’da Görüntü İşleme API’sinin nasıl kullanılacağı ve popüler kitaplıklar kullanılarak sonuçlarınızın nasıl görselleştirileceği gösterilir. Öğreticiyi çalıştırmak için Jupyter kullanacaksınız. Etkileşimli Jupyter not defterleri ile çalışmaya başlama konusunda bilgi için bkz [Jupyter belgeleri](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: c9c336b9aed06095849f33060ff6969e8b7bfcaf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881715"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309650"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Bilgi Keşfetme Hizmeti'ni kullanmaya başlama
 
@@ -228,7 +228,7 @@ Azure dışında, [`kes.exe host_service`](CommandLine.md#host_service-command) 
 
 Azure hesabına `kes.exe` erişimi izni vermek için, Azure portalından [Azure Yayımlama Ayarları dosyasını indirin](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). İstenirse, dilediğiniz Azure hesabıyla oturum açın. Dosyayı *AzurePublishSettings.xml* adıyla `kes.exe` dosyasının çalıştırıldığı çalışma dizinine kaydedin.
 
-Büyük dizinleri oluşturmanın ve barındırmanın iki yolu vardır. İlk yol, şema ve veri dosyalarını Azure'da Windows VM'sinde hazırlayın. Ardından, dizini hiçbir boyut kısıtlaması olmadan yerel olarak VM'de oluşturmak için [`kes.exe build_index`](#building-index) komutunu çalıştırın. Sonuçta elde edilen dizin, hızlı prototip için [`kes.exe host_service`](#hosting-service) kullanarak yine hiçbir kısıtlama olmadan VM'de yerel olarak barındırılabilir. Ayrıntılı adımlar için bkz. [Azure VM öğreticisi](../../../articles/virtual-machines/windows/quick-create-portal.md).
+Büyük dizinleri oluşturmanın ve barındırmanın iki yolu vardır. İlk yol, şema ve veri dosyalarını Azure'da Windows VM'sinde hazırlayın. Ardından çalıştırın `kes.exe build_index` dizin yerel olarak herhangi bir boyut kısıtlama olmadan bir VM oluşturmak için. Sonuçta elde edilen dizin yerel olarak VM'de kullanarak barındırılabilir `kes.exe host_service` için herhangi bir kısıtlama olmadan yeniden hızlı prototip oluşturma. Ayrıntılı adımlar için bkz. [Azure VM öğreticisi](../../../articles/virtual-machines/windows/quick-create-portal.md).
 
 İkinci yöntem, [`kes.exe build_index`](CommandLine.md#build_index-command) komutunu `--remote` parametresiyle kullanarak uzaktan Azure derlemesi yapmaktır. Bu, Azure VM boyutunu belirtir. `--remote` parametresi belirtildiğinde, komut bu boyutta geçici bir Azure VM oluşturur. Ardından VM'de dizini oluşturur, dizini hedef blob depolamaya yükler ve işlem tamamlandıktan sonra VM'yi siler. Dizin oluşturulurken Azure aboneliğiniz VM'nin maliyeti tutarında ücretlendirilir.
 

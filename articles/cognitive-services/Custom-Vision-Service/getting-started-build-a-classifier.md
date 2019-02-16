@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 6b39d01266cdde0316d1a660429d5ccab546dac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd6f533bcd32a307facc781c3b2207a337fc8a34
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873640"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309174"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Özel görüntü ile bir sınıflandırıcı oluşturma
 
@@ -95,6 +95,11 @@ Bu bölümde karşıya yükleme ve sınıflandırıcı eğitmenize yardımcı ol
     ![İlerleme çubuğu, tamamlanan tüm görevleri gösterir.](./media/getting-started-build-a-classifier/add-images04.png)
 
 Başka bir dizi görüntüleri karşıya yüklemek için bu bölümde dön ve adımları yineleyin. Projenizdeki belirli bir noktada eklemeniz gerekebilir _negatif örnekleri_ sınıflandırıcınızı daha doğru hale getirilmesine yardımcı olacak. Negatif örnekleri diğer etiketlerden herhangi birini eşleşmeyen olanlardır. Bu görüntüleri karşıya yüklediğinizde, özel uygulama **negatif** için bunları etiketleyin.
+
+> [!NOTE]
+> Custom Vision Service'e bazı otomatik negatif görüntü işlemeyi destekler. Bir üzüm Muz sınıflandırıcı karşılaştırması oluşturmaya ve tahmin için bir ayakkabı görüntüsü göndermek, örneğin, sınıflandırıcı %0 yakın olarak bu görüntüyü üzüm ve Muz için Puanlama.
+
+> Öte yandan, negatif görüntüler yalnızca eğitim kullanılan görüntülerin çeşitlemesi olduğu durumlarda, model negatif görüntüleri harika benzerlikler nedeniyle etiketli bir sınıf olarak sınıflandırır olasılığı yüksektir. Clementine özelliklerinin çoğu bu portakallar benzer çünkü gibi turuncu grapefruit sınıflandırıcı karşılaştırması sahip ve bir clementine görüntüdeki akışı, onu clementine turuncu puan. Negatif görüntülerinizi bu yapısı varsa, bir veya daha fazla ek etiketler oluşturma öneririz (gibi **diğer**) ve bu sınıflar arasında daha iyi ayırt etmek model izin vermek eğitim sırasında negatif görüntüler bu etikete sahip etiket .
 
 ## <a name="train-the-classifier"></a>Sınıflandırıcıyı eğitme
 

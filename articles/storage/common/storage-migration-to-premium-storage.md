@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 36889fc6cb8dbec77136dc8cea08416e51837243
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564842"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330588"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>(Yönetilmeyen diskler) Azure Premium depolamaya geçiş
 
@@ -32,7 +32,7 @@ Bu kılavuzun amacı, Premium depolama, geçerli sisteminden sorunsuz bir geçi�
 Azure Premium Depolama'ya diğer platformlardan Vm'leri geçirme veya var olan Azure Vm'lerinin standart depolamadan Premium depolamaya geçiş. Bu kılavuz, her iki iki senaryo için adımları kapsar. Senaryonuza bağlı olarak ilgili bölümdeki belirtilen adımları izleyin.
 
 > [!NOTE]
-> Özelliklere genel bir bakış ve Premium depolama, Premium Storage fiyatlandırma bulabilirsiniz: [Azure sanal makine iş yükleri için yüksek performanslı depolama](../../virtual-machines/windows/premium-storage.md). Uygulamanız için en iyi performans için Azure Premium Depolama'ya yüksek IOPS gerektiren herhangi bir sanal makine disk geçiş öneririz. Yüksek IOPS, disk gerektirmiyorsa, Sabit Disk sürücülerinin (HDD'ler) yerine SSD üzerinde sanal makine disk verilerini depolayan standart depolama bulundurmak yoluyla maliyetleri sınırlayabilirsiniz.
+> Özelliklere genel bir bakış ve premium SSD fiyatlandırma bulabilirsiniz: [Iaas VM'ler için bir disk türü seçin](../../virtual-machines/windows/disks-types.md#premium-ssd). Uygulamanız için en iyi performans için Azure Premium Depolama'ya yüksek IOPS gerektiren herhangi bir sanal makine disk geçiş öneririz. Yüksek IOPS, disk gerektirmiyorsa, Sabit Disk sürücülerinin (HDD'ler) yerine SSD üzerinde sanal makine disk verilerini depolayan standart depolama bulundurmak yoluyla maliyetleri sınırlayabilirsiniz.
 >
 
 Ek eylemleri okumalıdır geçiş işlemini tamamlama öncesinde ve sonrasında bu kılavuzda sağlanan adımlar gerektirebilir. Sanal ağlara veya uç noktaları yapılandırmak veya uygulamanızdaki miktar kapalı kalma süresi gerektiren uygulamanın kendisinin içindeki kod değişikliği yapmadan örneklerindendir. Bu eylemlerin her uygulama için benzersiz olan ve tam geçiş için Premium depolama mümkün olduğunca sorunsuz hale getirmek için bu kılavuzda sağlanan adımları birlikte tamamlanmalıdır.
@@ -69,7 +69,7 @@ Premium depolama hesaplarına sahip ek olarak aşağıdaki ölçeklenebilirlik h
 |:--- |:--- |
 | Disk kapasitesi: 35TB<br />Anlık görüntü kapasitesi: 10 TB |En çok 50 Gigabit / saniye için gelen ve giden |
 
-Premium depolama özellikleri hakkında daha fazla bilgi için kullanıma [ölçeklenebilirlik ve performans Premium depolamayı kullanırken hedefleri](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
+Premium depolama özellikleri hakkında daha fazla bilgi için kullanıma [Azure depolama ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md#premium-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Diski önbelleğe alma İlkesi
 Varsayılan olarak, önbelleğe alma İlkesi disktir *salt okunur* tüm Premium veri disklerinde, ve *okuma-yazma* Premium işletim sistemi diski, VM'ye bağlı. Bu yapılandırma ayarının, uygulamanızın IOs için en iyi performans elde etmek için önerilir. (Örneğin, SQL Server günlük dosyası) yazma yoğunluklu veya salt yazılır veri diskleri için daha iyi uygulama performansı elde etmek için disk önbelleğe almayı devre dışı bırakın. Mevcut veri diskleri için önbellek ayarları kullanılarak güncelleştirilebilir [Azure portalı](https://portal.azure.com) veya *- HostCaching* parametresinin *kümesi AzureDataDisk* cmdlet'i.
@@ -748,7 +748,7 @@ Geçerli VM yapılandırmanızı, özellikle de standart diskler ile çalışaca
 2. Geçerli birim birime eşleştiren yeni diske oturumu açma VM ve veri kopyalama. Yeni bir disk için eşlemek için gereken tüm geçerli birimler için bunu yapın.
 3. Ardından, yeni diskler için geçiş yapmak için uygulama ayarları değiştirin ve eski birimleri ayır.
 
-Uygulama için daha iyi disk performansı ayarlamak için bkz [uygulama performansını en iyi duruma getirme](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance).
+Uygulama için daha iyi disk performansı ayarlamak için lütfen en iyi duruma getirme uygulama performans bölümüne bakın bizim [yüksek performans için tasarlama](../../virtual-machines/windows/premium-storage-performance.md) makalesi.
 
 ### <a name="application-migrations"></a>Uygulama geçişleri
 Veritabanları ve diğer karmaşık uygulamalar geçiş için uygulama sağlayıcısı tarafından tanımlanan özel adımlar gerektirebilir. Lütfen ilgili uygulama belgelerine başvurun. Örneğin veritabanlarını yedekleme genellikle geçirilebilir ve geri yükleme.
@@ -765,7 +765,7 @@ Ayrıca, Azure depolama ve Azure sanal makineler hakkında daha fazla bilgi içi
 
 * [Azure Depolama](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Sanal Makineler](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../../virtual-machines/windows/premium-storage.md)
+* [Iaas VM'ler için bir disk türü seçin](../../virtual-machines/windows/disks-types.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

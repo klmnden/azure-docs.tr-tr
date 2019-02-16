@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 50feca90d375d6afd3b04afe019ad9f9025f19dc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712755"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308590"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Değişkenler bölümünde Azure Resource Manager şablonları
 Değişkenler bölümünde kullanılabilir değerler, şablonun tamamında oluşturun. Değişkenleri tanımlamanız gerekmez, ancak bunlar karmaşık ifadeleri azaltarak genellikle şablonunuzu basitleştirin.
@@ -58,9 +58,7 @@ Yukarıdaki örnekte, bir değişken tanımlamak için bir yol gösterilmiştir.
             {
                 "name": "<name-of-array-property>",
                 "count": <number-of-iterations>,
-                "input": {
-                    <properties-to-repeat>
-                }
+                "input": <object-or-value-to-repeat>
             }
         ]
     },
@@ -68,9 +66,7 @@ Yukarıdaki örnekte, bir değişken tanımlamak için bir yol gösterilmiştir.
         {
             "name": "<variable-array-name>",
             "count": <number-of-iterations>,
-            "input": {
-                <properties-to-repeat>
-            }
+            "input": <object-or-value-to-repeat>
         }
     ]
 }
@@ -117,38 +113,45 @@ Geçerli ayarlarla aldığınız:
 
 ## <a name="use-copy-element-in-variable-definition"></a>Copy öğesinde değişken tanımında kullanın
 
-Kullanabileceğiniz **kopyalama** çeşitli öğelerin bir dizisi bir değişken oluşturmak için söz dizimi. Öğe sayısı için sayısını sağlar. Her öğe içinde özellikleri içeren **giriş** nesne. İçinde bir değişken veya değişken oluşturmak için kopyalama kullanabilirsiniz. Ne zaman bir değişken tanımlayın ve kullanın **kopyalama** bu değişkenin içinde oluşturduğunuz bir dizi özelliği olan bir nesne. Kullanırken **kopyalama** en üst düzeyde ve tanımlayan bir veya daha fazla değişkenleri içindeki bir veya daha fazla dizi oluşturma. Her iki yaklaşım, aşağıdaki örnekte gösterilmiştir:
+Bir değişken birden çok örneğini oluşturmak için kullanın `copy` değişkenler bölümünde özelliği. Bir dizi değeri oluşturulan öğeleri oluşturma `input` özelliği. Kullanabileceğiniz `copy` özelliği içinde bir değişken veya en üst düzeyinde değişkenler bölümü. Kullanırken `copyIndex` içinde değişken bir yineleme, yinelemede adı sağlamanız gerekir.
+
+Aşağıdaki örnek, kopyalama işlemi gösterilir:
 
 ```json
 "variables": {
-    "disk-array-on-object": {
-        "copy": [
-            {
-                "name": "disks",
-                "count": 3,
-                "input": {
-                    "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-                    "diskSizeGB": "1",
-                    "diskIndex": "[copyIndex('disks')]"
-                }
-            }
-        ]
-    },
+  "disk-array-on-object": {
     "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
+      {
+        "name": "disks",
+        "count": 3,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks')]"
         }
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "disks-top-level-array",
+      "count": 3,
+      "input": {
+        "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+        "diskSizeGB": "1",
+        "diskIndex": "[copyIndex('disks-top-level-array')]"
+      }
+    },
+    {
+      "name": "top-level-string-array",
+      "count": 5,
+      "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+    }
+  ]
 },
 ```
 
-Değişken **nesne üzerindeki disk dizisi** şu nesne adlı bir diziyi içeren **diskleri**:
+Kopyalama ifade değerlendirildikten sonra değişkeni **nesne üzerindeki disk dizisi** şu nesne adlı bir diziyi içeren **diskleri**:
 
 ```json
 {
@@ -194,34 +197,19 @@ Değişken **üst düzey dizi diskleri** aşağıdaki dizi içeriyor:
 ]
 ```
 
-Birden fazla nesne, kopya değişkenleri oluşturmak üzere kullanırken de belirtebilirsiniz. Aşağıdaki örnek, iki dizi değişkenleri olarak tanımlar. Bir adlandırılmış **üst düzey dizi diskleri** ve beş öğeye sahiptir. Diğer adlı **a farklı-dizi** ve üç öğe vardır.
+Değişken **top-düzey-dize-dizisi** aşağıdaki dizi içeriyor:
 
 ```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
-},
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
-Bu yaklaşım da parametre değerleri alır ve bunlar için bir şablon değeri doğru biçimde olduğundan emin olun, ihtiyacınız olduğunda çalışır. Aşağıdaki örnek, güvenlik kuralları tanımlama kullanılacak parametre değerlerini biçimlendirir:
+Kopyalama kullanarak da parametre değerlerini alıp bunları kaynak değerlerine eşlemek, ihtiyacınız olduğunda çalışır. Aşağıdaki örnek, güvenlik kuralları tanımlama kullanılacak parametre değerlerini biçimlendirir:
 
 ```json
 {

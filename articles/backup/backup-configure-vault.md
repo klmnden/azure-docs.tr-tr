@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 006d47d397bab0869ae8a75d6c17d239e71608c3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382755"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310584"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager dağıtım modelini kullanarak Windows Server veya istemcisini Azure’a yedekleme
 Bu makalede, Windows Server (veya Windows istemcisi) nasıl yedekleyeceğiniz açıklanmaktadır dosya ve klasörleri Azure Resource Manager dağıtım modelini kullanarak Azure Backup ile.
@@ -72,7 +72,7 @@ Bir Kurtarma Hizmetleri kasasını ilk oluşturduğunuzda depolamanın nasıl ç
 
     ![Kurtarma Hizmetleri kasası listesinden yeni kasayı seçin](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Kasayı seçtiğinizde, dikey penceresi daralır, Kurtarma Hizmetleri kasası ve **genel bakış** dikey (*en üstünde kasanın adı olan*) Kasa ayrıntıları dikey penceresini açın.
+    Kasayı seçtiğinizde, dikey penceresi daralır, Kurtarma Hizmetleri kasası ve **genel bakış** dikey (*en üstünde kasanın adı olan*) ve kasa ayrıntıları dikey penceresi açılır.
 
     ![Yeni kasa için depolama yapılandırmasını görüntüleme](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 

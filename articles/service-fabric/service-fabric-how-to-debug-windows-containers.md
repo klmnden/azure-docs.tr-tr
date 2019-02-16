@@ -11,14 +11,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 02/14/2019
 ms.author: twhitney, mikhegn
-ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300073"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311231"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Nasıl yapılır: Visual Studio 2017'yi kullanarak Azure Service fabric'te Windows kapsayıcılarını hata ayıklama
 
@@ -37,10 +37,10 @@ Visual Studio 2017 güncelleştirme 7 ile (15.7), Service Fabric Hizmetleri kaps
 1. Kapsayıcılar arasında DNS çözümlemesi desteklemek için kendi yerel geliştirme kümesi ayarlama makine adını kullanarak gerekir. Bu adımlar, ayrıca ters proxy adresi hizmetleriyle istiyorsanız gereklidir.
     1. Yönetici olarak PowerShell'i açın
     2. Genellikle SDK'sı küme kurulum klasörüne gidin `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-    3. Betiği çalıştırmak `DevClusterSetup.ps1` parametresi `-UseMachineName`
+    3. Betiği çalıştırın `DevClusterSetup.ps1`
 
        ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
        ```
 
     > [!NOTE]
@@ -54,18 +54,18 @@ Visual Studio 2017 güncelleştirme 7 ile (15.7), Service Fabric Hizmetleri kaps
 Hata ayıklama kapsayıcıları Service Fabric ve olası çözümleri ile bilinen kısıtlamaların listesi aşağıdadır:
 
 * Localhost için ClusterFQDNorIP kullanarak DNS çözümlemesi kapsayıcılarda desteklemez.
-    * Çözüm: makine adı (yukarıya bakın) kullanarak yerel küme oluşturma
+    * Çözüm: Makine adı (yukarıya bakın) kullanarak yerel küme oluşturma
 * Windows 10 çalıştıran bir sanal makinede DNS yanıtı geri kapsayıcı almazsınız.
-    * Çözüm: UDP Sağlama boşaltması sanal makineler NIC'de IPv4 için devre dışı bırak
+    * Çözüm: Sanal makineler NIC'de IPv4 için UDP Sağlama boşaltması devre dışı bırak
     * Lütfen bu makinedeki ağ performansı bozar unutmayın.
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * Docker Compose kullanarak uygulamayı dağıtıldıysa DNS kullanarak aynı uygulama Hizmetleri'nde çözümleme hizmet adını Windows 10 üzerinde çalışmıyor
-    * Çözüm: servicename.applicationname hizmet uç noktaları çözümlemek için kullanın.
+    * Çözüm: Hizmet uç noktaları çözümlenecek ServiceName.ApplicationName kullanın
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * IP adresi için ClusterFQDNorIP kullanıyorsanız, konaktaki birincil IP değiştirme DNS işlevselliğinin keser.
-    * Çözüm: ana bilgisayarda yeni birincil IP kullanarak bir küme oluşturun veya makine adını kullanın. Bu tasarım gereğidir.
+    * Çözüm: Konakta yeni birincil IP kullanarak bir küme oluşturun veya makine adı kullanın. Bu tasarım gereğidir.
 * Küme oluşturulurken FQDN ağ üzerinde çözümlenebilen değil, DNS başarısız olur.
-    * Çözüm: ana bilgisayarın birincil IP kullanarak yerel kümeye yeniden oluşturun. Bu tasarım gereğidir.
+    * Çözüm: Ana bilgisayarın birincil IP kullanarak yerel kümeye yeniden oluşturun. Bu tasarım gereğidir.
 * Bir kapsayıcı hata ayıklarken docker günlükleri yalnızca Service Fabric Explorer dahil olmak üzere Service Fabric API'leri üzerinden değil Visual Studio çıktı penceresinde kullanılabilir
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Docker kapsayıcıları Service Fabric üzerinde çalışan bir .NET uygulamasında hata ayıklama

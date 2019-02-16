@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 21be01219f412d190fe3a8d4b03ac0789f9deda9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c1904d271bc10639eac0d9611ca74a4e3fcc536f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881384"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310636"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme Python ve REST API kullanarak yazdırılan metin (OCR) ayıklayın
 
@@ -207,10 +207,6 @@ Başarılı bir yanıt JSON biçiminde döndürülür. Örnek web sayfası, aşa
   ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Artık gerekli değilse dosyayı silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

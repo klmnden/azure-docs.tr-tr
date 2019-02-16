@@ -16,24 +16,21 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 750bb275ef936b3911503cd4c0f50674d3dff2d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bd91607260d47d37bc3ce94ec63f700082416b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981154"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329908"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Nasıl bir Windows sanal makinesinden veri diski çıkarma
 
 Sanal makineye bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayca ayırabilirsiniz. Bu diski sanal makineden kaldırır, ancak depolama alanından kaldırmaz.
 
 > [!WARNING]
-> Disk ayırma, otomatik olarak silinmez. Premium depolamaya abone olduğunuz, disk için depolama ücretleri uygulanmaya devam edecektir. Daha fazla bilgi için [fiyatlandırma ve Premium depolama kullanırken faturalama](premium-storage.md#pricing-and-billing).
->
->
+> Disk ayırma, otomatik olarak silinmez. Premium depolamaya abone olduğunuz, disk için depolama ücretleri uygulanmaya devam edecektir. Daha fazla bilgi için [fiyatlandırma ve Premium depolama kullanırken faturalama](disks-types.md#billing).
 
 Disk üzerinde var olan verileri yeniden kullanmak isterseniz bu verileri aynı sanal makineye veya başka birine yeniden ekleyebilirsiniz.
-
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -51,11 +48,10 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 
 Disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildir.
 
-
 ## <a name="detach-a-data-disk-using-the-portal"></a>Portalı kullanarak veri diski çıkarma
 
 1. Sol menüde **sanal makineler**.
-2. Önce ayırmak istediğiniz veri diskinin bulunduğu sanal makineyi seçin **Durdur** için VM'yi serbest bırakın.
+2. Önce ayırmak istediğiniz veri diskinin bulunduğu sanal makineyi seçin **Durdur** VM ayırmayı iptal etmek için.
 3. Sanal makine bölmesinde seçin **diskleri**.
 4. Üst kısmındaki **diskleri** bölmesinde **Düzenle**.
 5. İçinde **diskleri** bölmesinde, en sağdaki ayırmak için istediğiniz veri diskinin ![Ayır düğmesi](./media/detach-disk/detach.png) düğmesi ayırma.
@@ -65,5 +61,5 @@ Disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildi
 Disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri diskini yeniden kullanmak istiyorsanız, eklediğiniz [başka bir VM ekleme](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
+Veri diskini yeniden kullanmak istiyorsanız, eklediğiniz [başka bir VM ekleme](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

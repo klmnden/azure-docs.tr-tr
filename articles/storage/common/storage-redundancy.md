@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ea6d94ff1ee8c27c1642f24660a6ab4f276137a8
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506796"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330792"
 ---
 # <a name="azure-storage-redundancy"></a>Azure depolama yedekliliği
 
@@ -48,7 +48,7 @@ Fiyatlandırma bilgileri her yedekliliği seçeneği için bkz: [Azure depolama 
 Azure depolama hakkında bilgi için dayanıklılık ve kullanılabilirlik garanti eder için bkz: [Azure depolama SLA'sı](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Premium depolama yalnızca yerel olarak yedekli depolama (LRS) destekler. Premium depolama hakkında daha fazla bilgi için bkz: [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../../virtual-machines/windows/premium-storage.md).
+> Premium depolama yalnızca yerel olarak yedekli depolama (LRS) destekler.
 
 ## <a name="changing-replication-strategy"></a>Çoğaltma stratejisi değiştirme
 Biz kullanarak depolama hesabınızın çoğaltma stratejinizi değiştirmenize izin [Azure portalında](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), veya çok [ Azure istemci kütüphaneleri](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Depolama hesabınızın çoğaltma türünü değiştirme, süresini sonuçlanmaz.

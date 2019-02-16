@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235581"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313441"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure önbelleği için Redis ölçeklendirme
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Önbellek oluşturulduktan sonra uygulamanızın gereksinimlerini değiştirirseniz, boyutu ve fiyatlandırma katmanı önbellek ölçeklendirebilirsiniz. Bu makalede Azure portalı ve Azure PowerShell ve Azure CLI gibi araçları kullanarak, önbellek ölçeklendirme gösterilmektedir.
@@ -115,7 +115,7 @@ Aşağıdaki liste, Redis ölçeklendirmeye yönelik Azure önbelleği hakkında
 * [My önbellekten ölçeklendirme sırasında miyim veriyi kaybedeceksiniz?](#will-i-lose-data-from-my-cache-during-scaling)
 * [My özel veritabanlarını ölçeklendirme sırasında etkilenen ayarlıyor?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Önbelleğimin ölçeklendirme sırasında kullanıma sunulacak?](#will-my-cache-be-available-during-scaling)
-* [Yapılandırılmış, coğrafi çoğaltma ile neden önbelleğimin ölçeklemek ya da bir kümedeki parça değiştirmek gönderemiyorum?](#scaling-limitations-with-geo-relication)
+* Yapılandırılmış, coğrafi çoğaltma ile neden önbelleğimin ölçeklemek ya da bir kümedeki parça değiştirmek gönderemiyorum?
 * [Desteklenmeyen işlemleri](#operations-that-are-not-supported)
 * [Nasıl ölçekleme kadar sürer?](#how-long-does-scaling-take)
 * [Ölçeklendirme tamamlandığında nasıl anlayabilirim?](#how-can-i-tell-when-scaling-is-complete)

@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813169"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312863"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Hizmet sorumluları oluşturma tarafından Azure Stack kaynaklara uygulamaları erişimi verin
 
@@ -50,7 +50,7 @@ Azure Stack için Active Directory yapılandırdığınız şekilde, bir hizmet 
 * Bir hizmet sorumlusu için oluşturma [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
 * Bir hizmet sorumlusu için oluşturma [Active Directory Federasyon Hizmetleri (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-Hizmet sorumlusuna bir rol aynı Azure için atama adımlarını AD ve AD FS. Hizmet sorumlusu oluşturduktan sonra [temsilci izinleri](azure-stack-create-service-principals.md#assign-role-to-service-principal) role atayarak.
+Hizmet sorumlusuna bir rol aynı Azure için atama adımlarını AD ve AD FS. Hizmet sorumlusu oluşturduktan sonra [temsilci izinleri](azure-stack-create-service-principals.md) role atayarak.
 
 ## <a name="create-service-principal-for-azure-ad"></a>Azure AD hizmet sorumlusu oluşturma
 
@@ -85,7 +85,7 @@ Anahtar, anahtar kaydettikten sonra **değer** görüntülenir. Daha sonra anaht
 
 ![Anahtar değeri uyarısı için kaydedilen anahtarı.](./media/azure-stack-create-service-principal/image15.png)
 
-Son adım [uygulamanızı rol atama](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+Son adım [uygulamanızı rol atama](azure-stack-create-service-principals.md).
 
 ## <a name="create-service-principal-for-ad-fs"></a>AD FS için hizmet sorumlusu oluşturma
 

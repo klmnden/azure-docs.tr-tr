@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262600"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313000"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
 [Power BI](https://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -26,7 +26,7 @@ Application Insights verilerini Power BI'a verme üç yöntem vardır:
 
 * [**Analiz sorguları dışarı aktar**](#export-analytics-queries). Tercih edilen yöntem budur. Herhangi bir yazma sorgu istediğiniz ve Power BI'a aktarın. Bu sorgu, herhangi bir veri yanı sıra bir Pano üzerinde yerleştirebilirsiniz.
 * [**Sürekli dışarı aktarma ve Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Bu yöntem, verilerinizi uzun sürelerle depolamak istiyorsanız kullanışlıdır. Bir genişletilmiş veri saklama gereksinimine sahip değilseniz, dışarı aktarma analytics sorgu yöntemini kullanın. Sürekli dışarı aktarma ve Stream Analytics, daha fazla ayarlamak için iş ve ek depolama ek yükü içerir.
-* [**Power BI bağdaştırıcısı**](#power-pi-adapter). Grafikler dizi önceden tanımlanmış, ancak diğer kaynaklardan gelen kendi sorgularınızı ekleyebilirsiniz.
+* **Power BI bağdaştırıcısı**. Grafikler dizi önceden tanımlanmış, ancak diğer kaynaklardan gelen kendi sorgularınızı ekleyebilirsiniz.
 
 > [!NOTE]
 > Power BI artık bağdaştırıcısıdır **kullanım dışı**. Bu çözüm için önceden tanımlanmış grafikleri statik düzenlenemez sorgular tarafından doldurulur. Bu sorguları düzenleme olanağına sahip değildir ve verilerinizin belirli özelliklerini bağlı olarak Power BI'ın başarılı olması için bağlantı mümkündür, ancak hiçbir veri doldurulur. Bu, sabit kodlanmış sorgu içinde ayarlanan hariç tutma kriterleri kaynaklanır. Bu çözüm, yine de bazı müşteriler için çalışabilir ancak esneklik bağdaştırıcısının eksikliği nedeniyle kullanmak için önerilen çözüm olduğunu [ **Analytics sorgusu dışarı** ](#export-analytics-queries) işlevselliği.

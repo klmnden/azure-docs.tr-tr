@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c85d405502890253bcdb80c652ed53f58546de9c
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 32c326ff7bef98f9d8f4f20664889109d291a6ea
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747059"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328852"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>SAP HANA altyapısı yapılandırmaları ve işlemleri Azure üzerinde
 Bu belge, Azure altyapı yapılandırma ve işletim dağıtılan Azure yerel sanal makinelerinde (VM'ler) SAP HANA sistemleri için yönergeler sağlar. Belge ayrıca SAP HANA ölçeklendirme M128s VM SKU için yapılandırma bilgilerini içerir. Bu belge aşağıdaki içeriği için standart bir SAP belgelerindeki değiştirin yönelik değildir:
@@ -68,10 +68,10 @@ Azure sanal makineleri kullanarak dağıtın:
 Ayrıca Azure VM Hizmetleri aracılığıyla bir tam yüklü SAP HANA platforma dağıtabilirsiniz [SAP Cloud platform](https://cal.sap.com/). Yükleme işlemi açıklanmıştır [dağıtma SAP S/4HANA veya BW/4hana'yı Azure üzerindeki](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) veya serbest Otomasyon [burada](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 ### <a name="choose-azure-storage-type"></a>Azure depolama türü seçin
-Azure, Azure Vm'leri için SAP HANA çalıştırmayı uygun olan iki depolama türlerini sağlar:
+Azure, Azure Vm'leri için SAP HANA çalıştırmayı uygun olan iki depolama türlerini sağlar: Standart sabit disk sürücülerinin (HDD) ve premium katı hal sürücülerine (SSD). Şu disk türleri hakkında bilgi edinmek için bkz: makalemizi [bir disk türü seçin](../../windows/disks-types.md)
 
-- [Azure standart depolama](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Standart sabit disk sürücülerinin (HDD)
+- Premium katı hal sürücülerine (SSD)
 
 Azure, Azure standart ve Premium depolama alanına VHD'ler için iki dağıtım yöntemleri sunar. Genel senaryo veriyorsa yararlanmak [Azure yönetilen disk](https://azure.microsoft.com/services/managed-disks/) dağıtımları.
 
@@ -408,7 +408,7 @@ DT 2.0 en iyi uygulama kılavuzunu göre disk g/ç aktarım hızı fiziksel çek
 
 Birden çok Azure diski DT 2.0 VM ve VM başına disk aktarım hızı sınırını elde etmek için işletim sistemi düzeyinde yazılım RAID (şeritleme) oluşturmak için gereklidir. Tek bir Azure diskinin VM sınırını bu bağlamda ulaşmak için aktarım hızı sağlayamaz. Azure Premium depolama DT 2.0 çalıştırmak için zorunludur. 
 
-- Kullanılabilir Azure disk türleri hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Kullanılabilir Azure disk türleri hakkında daha fazla bilgi bulunabilir [burada](../../windows/disks-types.md)
 - Yazılım RAID mdadm yoluyla oluşturma hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
 - En fazla aktarım hızı bulunabilir şeritli birim oluşturmak için LVM'yi yapılandırma hakkında ayrıntılı bilgiler [burada](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
 

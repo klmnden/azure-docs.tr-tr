@@ -7,16 +7,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: danlep
-ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 42790905509e2ea8bbba87587ed01b1929221db5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857763"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329328"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure kapsayıcı kayıt defteri Web kancası başvurusu
 
-Yapabilecekleriniz [Web kancalarını yapılandırma](container-registry-webhook.md) belirli eylemleri karşı gerçekleştirildiğinde olay oluşturan kapsayıcı kayıt defterinizin. Örneğin, kapsayıcı görüntüsü üzerinde tetiklenen Web kancaları etkinleştirebilirsiniz `push` ve `delete` operations. Azure Container Registry, bir Web kancası tetiklendiğinde belirttiğiniz bir uç noktaya olayla ilgili bilgileri içeren bir HTTP veya HTTPS isteğini verir. Uç noktanız Web kancası işlemek ve buna göre hareket.
+Yapabilecekleriniz [Web kancalarını yapılandırma](container-registry-webhook.md) belirli eylemleri karşı gerçekleştirildiğinde olay oluşturan kapsayıcı kayıt defterinizin. Örneğin, kapsayıcı görüntüsü üzerinde tetiklenen Web kancalarını etkinleştirmek `push` ve `delete` operations. Azure Container Registry, bir Web kancası tetiklendiğinde belirttiğiniz bir uç noktaya olayla ilgili bilgileri içeren bir HTTP veya HTTPS isteğini verir. Uç noktanız Web kancası işlemek ve buna göre hareket.
 
 Aşağıdaki bölümlerde desteklenen olaylar tarafından oluşturulan Web kancası isteği şemasını ayrıntılı olarak açıklanmaktadır. Olay, olay türü, bir örnek istek yükü ve Web kancasını tetikleyip bir veya daha fazla örnek komutlar için yükü şema bölümler.
 
@@ -40,33 +40,33 @@ Bir kapsayıcı görüntüsü bir depoya gönderildiğinde tetiklenen bir Web ka
 
 ### <a name="push-event-payload"></a>Anında iletme olay yükü
 
-|Öğe|Tür|Açıklama|
+|Öğe|Type|Açıklama|
 |-------------|----------|-----------|
-|`id`|Dize|Web kancası olay kimliği.|
+|`id`|String|Web kancası olay kimliği.|
 |`timestamp`|DateTime|Saat, Web kancası olayı tetiklendi.|
-|`action`|Dize|Web kancası olayı tetikleyen eylemi.|
+|`action`|String|Web kancası olayı tetikleyen eylemi.|
 |[Hedef](#target)|Karmaşık Tür|Web kancası olayı tetikleyen olayı hedefi.|
 |[İstek](#request)|Karmaşık Tür|Web kancası olayı oluşturan istek.|
 
 ### <a name="target"></a>hedef
 
-|Öğe|Tür|Açıklama|
+|Öğe|Type|Açıklama|
 |------------------|----------|-----------|
-|`mediaType`|Dize|Başvurulan nesnenin MIME türü.|
+|`mediaType`|String|Başvurulan nesnenin MIME türü.|
 |`size`|Int32|İçeriğin bayt sayısı. Uzunluk alanı ile aynıdır.|
-|`digest`|Dize|Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet.|
+|`digest`|String|Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet.|
 |`length`|Int32|İçeriğin bayt sayısı. Boyut alanına ile aynıdır.|
-|`repository`|Dize|Depo adı.|
-|`tag`|Dize|Görüntü etiketi adı.|
+|`repository`|String|Depo adı.|
+|`tag`|String|Görüntü etiketi adı.|
 
 ### <a name="request"></a>istek
 
-|Öğe|Tür|Açıklama|
+|Öğe|Type|Açıklama|
 |------------------|----------|-----------|
-|`id`|Dize|Olayı başlatan isteği kimliği.|
-|`host`|Dize|Harici olarak erişilebilen ana bilgisayar adını HTTP ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği.|
-|`method`|Dize|Olayı oluşturan istek yöntemi.|
-|`useragent`|Dize|İsteğin kullanıcı aracısını üstbilgisi.|
+|`id`|String|Olayı başlatan isteği kimliği.|
+|`host`|String|Harici olarak erişilebilen ana bilgisayar adını HTTP ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği.|
+|`method`|String|Olayı oluşturan istek yöntemi.|
+|`useragent`|String|İsteğin kullanıcı aracısını üstbilgisi.|
 
 ### <a name="payload-example-push-event"></a>Yükü örnek: anında iletme olay
 
@@ -104,30 +104,30 @@ Web kancası depo veya bildirimi silindiğinde tetiklenir. Bir etiketi silindiğ
 
 ### <a name="delete-event-payload"></a>Olay yükü Sil
 
-|Öğe|Tür|Açıklama|
+|Öğe|Type|Açıklama|
 |-------------|----------|-----------|
-|`id`|Dize|Web kancası olay kimliği.|
+|`id`|String|Web kancası olay kimliği.|
 |`timestamp`|DateTime|Saat, Web kancası olayı tetiklendi.|
-|`action`|Dize|Web kancası olayı tetikleyen eylemi.|
+|`action`|String|Web kancası olayı tetikleyen eylemi.|
 |[Hedef](#delete_target)|Karmaşık Tür|Web kancası olayı tetikleyen olayı hedefi.|
 |[İstek](#delete_request)|Karmaşık Tür|Web kancası olayı oluşturan istek.|
 
 ### <a name="delete_target"></a> Hedef
 
-|Öğe|Tür|Açıklama|
+|Öğe|Type|Açıklama|
 |------------------|----------|-----------|
-|`mediaType`|Dize|Başvurulan nesnenin MIME türü.|
-|`digest`|Dize|Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet.|
-|`repository`|Dize|Depo adı.|
+|`mediaType`|String|Başvurulan nesnenin MIME türü.|
+|`digest`|String|Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet.|
+|`repository`|String|Depo adı.|
 
 ### <a name="delete_request"></a> İstek
 
-|Öğe|Tür|Açıklama|
+|Öğe|Type|Açıklama|
 |------------------|----------|-----------|
-|`id`|Dize|Olayı başlatan isteği kimliği.|
-|`host`|Dize|Harici olarak erişilebilen ana bilgisayar adını HTTP ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği.|
-|`method`|Dize|Olayı oluşturan istek yöntemi.|
-|`useragent`|Dize|İsteğin kullanıcı aracısını üstbilgisi.|
+|`id`|String|Olayı başlatan isteği kimliği.|
+|`host`|String|Harici olarak erişilebilen ana bilgisayar adını HTTP ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği.|
+|`method`|String|Olayı oluşturan istek yöntemi.|
+|`useragent`|String|İsteğin kullanıcı aracısını üstbilgisi.|
 
 ### <a name="payload-example-delete-event"></a>Yükü örnek: olayı Sil
 
@@ -154,10 +154,10 @@ Web kancası depo veya bildirimi silindiğinde tetiklenir. Bir etiketi silindiğ
 
 ```azurecli
 # Delete repository
-az acr repository delete -n MyRegistry --repository MyRepository
+az acr repository delete --name MyRegistry --repository MyRepository
 
-# Delete manifest
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
+# Delete image
+az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564961"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313042"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -51,7 +51,7 @@ C: Liste Görünümü'ndeki yeni günlükleri kullanılamaz. Sonuçları tabloda
 
 ### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>S. Bir sorgu çalıştırdıktan sonra önerilen filtrelerinin listesi kullanılabilir. Filtreleri nasıl görebilirim? 
 
-C: Yeni filtreleri uygulamasının bir önizlemesini görmek için sol kaydırma 'Filtreler' tıklayın. Bu artık UI 10.000 kaydı sınırına göre sınırlı kalmak yerine tam Sonuç kümenizi temel alır. Şu anda en popüler filtreleri ve her filtre için en yaygın 10 değerleri listesi budur. 
+C: Yeni filtreleri uygulamasının bir önizlemesini görmek için sol bölmedeki 'Filtreler' tıklayın. Bu artık UI 10.000 kaydı sınırına göre sınırlı kalmak yerine tam Sonuç kümenizi temel alır. Şu anda en popüler filtreleri ve her filtre için en yaygın 10 değerleri listesi budur. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>S. Neden bir hata alıyorum: "Kaynak Sağlayıcısı 'Bu sorgu etkinleştirmek için Microsoft.Insights' Bu abonelik için günlüklere sonrası ayrıntılara VM'den Kaydet"? 
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f91ccc93dcd2ac9b96379c4aa94d1f430faaf66
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ac55d14f864698506610301ae46bd4b6573d4f92
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118301"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330673"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 
@@ -248,7 +248,7 @@ ms.locfileid: "56118301"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -870,7 +870,7 @@ Kendi Azure VM Disk hazırlanırken gereksinimleri şunlardır:
 
 * İlk olarak işletim sistemini içeren VHD yalnızca bir en büyük boyutu 127 GB olabilir. Bu sınırlama, Mart 2015 sonunda ortadan. Artık başka bir Azure depolama VHD de barındırılan olarak işletim sistemini içeren VHD boyutu 1 TB'ye kadar olabilir.
 * Sabit bir VHD biçiminde olması gerekir. Dinamik VHD veya VHDx biçiminde VHD'lerin Azure'da henüz desteklenmiyor. Dinamik VHD PowerShell commandlet'lerini VHD'yi veya CLI karşıya yüklediğinizde statik Vhd'lere dönüştürülür.
-* Bir sabit VHD biçiminde de VM gerek Azure'da yeniden bağlanmalıdır ve sanal Makineye bağlı VHD. Okuma [bu makalede (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) ve [bu makalede (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) veri disklerinin boyutu sınırları. Dinamik VHD PowerShell commandlet'lerini VHD'yi veya CLI karşıya yüklediğinizde statik Vhd'lere dönüştürülür.
+* Bir sabit VHD biçiminde de VM gerek Azure'da yeniden bağlanmalıdır ve sanal Makineye bağlı VHD. Okuma [bu makalede (Linux)](../../linux/managed-disks-overview.md) ve [bu makalede (Windows)](../../windows/managed-disks-overview.md)) için veri disklerinin boyutu sınırları. Dinamik VHD PowerShell commandlet'lerini VHD'yi veya CLI karşıya yüklediğinizde statik Vhd'lere dönüştürülür.
 * Microsoft desteği veya hangi hizmetlerin ve uygulamaların VM dağıtılana kadar çalıştırmak için bağlam olarak atanabilir ve daha uygun kullanıcı tarafından kullanılan yönetici ayrıcalıklarıyla başka bir yerel hesabı kullanılabilir ekleyin.
 * Bu belirli bir dağıtım senaryosu için gerekebilecek diğer yerel hesapları ekleyin.
 
@@ -897,7 +897,7 @@ Kendi Azure VM görüntünüzü hazırlarken gereksinimleri şunlardır:
 
 * İlk olarak işletim sistemini içeren VHD yalnızca bir en büyük boyutu 127 GB olabilir. Bu sınırlama, Mart 2015 sonunda ortadan. Artık başka bir Azure depolama VHD de barındırılan olarak işletim sistemini içeren VHD boyutu 1 TB'ye kadar olabilir.
 * Sabit bir VHD biçiminde olması gerekir. Dinamik VHD veya VHDx biçiminde VHD'lerin Azure'da henüz desteklenmiyor. Dinamik VHD PowerShell commandlet'lerini VHD'yi veya CLI karşıya yüklediğinizde statik Vhd'lere dönüştürülür.
-* Bir sabit VHD biçiminde de VM gerek Azure'da yeniden bağlanmalıdır ve sanal Makineye bağlı VHD. Lütfen okuma [bu makalede (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) ve [bu makalede (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) veri disklerinin boyutu sınırları için. Dinamik VHD PowerShell commandlet'lerini VHD'yi veya CLI karşıya yüklediğinizde statik Vhd'lere dönüştürülür.
+* Bir sabit VHD biçiminde de VM gerek Azure'da yeniden bağlanmalıdır ve sanal Makineye bağlı VHD. Lütfen okuma [bu makalede (Linux)](../../windows/managed-disks-overview.md) ve [bu makalede (Windows)](../../linux/managed-disks-overview.md) veri disklerinin boyutu sınırları için. Dinamik VHD PowerShell commandlet'lerini VHD'yi veya CLI karşıya yüklediğinizde statik Vhd'lere dönüştürülür.
 * Bu belirli bir dağıtım senaryosu için gerekebilecek diğer yerel hesapları ekleyin.
 * Görüntü yüklemesini SAP NetWeaver ve ana bilgisayar adının Azure dağıtım noktasında orijinal adı yeniden adlandırma içeriyorsa, SAP yazılım sağlama Manager DVD en son sürümlerine şablonuna eklenecek önerilir, olasıdır. Bu, kolayca uyum değiştirilen konak adı ve/veya yeni bir kopyasını başlatıldıktan hemen sonra dağıtılan sanal makine görüntüsünü SAP sisteminde SID'si değiştirmek için sağlanan SAP yeniden adlandırma işlevselliği kullanmanıza olanak sağlayacaktır.
 

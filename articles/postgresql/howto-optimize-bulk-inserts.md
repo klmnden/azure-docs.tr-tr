@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810251"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310300"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Geçici veri PostgreSQL sunucusu için Azure veritabanı üzerinde kullanın ve toplu eklemeler en iyi duruma getirme 
 Bu makalede, toplu ekleme işlemleri en iyi duruma getirmek ve geçici veri PostgreSQL sunucusu için Azure veritabanı üzerinde kullanmak nasıl açıklanmaktadır.
@@ -25,9 +25,9 @@ Bir kütüğe aktarılmamış tablo anlamına gelir, PostgreSQL ekleme hareket h
 
 Kütüğe aktarılmamış bir tablo oluşturmak için aşağıdaki seçenekleri kullanın:
 - Söz dizimi kullanarak yeni bir kütüğe aktarılmamış tablo oluşturma `CREATE UNLOGGED TABLE <tableName>`.
-- Mevcut bir dönüştürme kütüğe aktarılmamış bir tabloya sözdizimini kullanarak tablo oturum açmış `ALTER <tableName> SET UNLOGGED`.  
+- Mevcut bir dönüştürme kütüğe aktarılmamış bir tabloya sözdizimini kullanarak tablo oturum açmış `ALTER TABLE <tableName> SET UNLOGGED`.  
 
-İşlemi geri almak için söz dizimini kullanın `ALTER <tableName> SET LOGGED`.
+İşlemi geri almak için söz dizimini kullanın `ALTER TABLE <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Kütüğe aktarılmamış tablo düşüş
 Kütüğe aktarılmamış tabloları kilitlenme açısından güvenli değildir. Kütüğe aktarılmamış bir tablo, bir çökmeden sonra veya bir şekilde çoğaltamaması kapatma tabi otomatik olarak kesilir. Bir kütüğe aktarılmamış tablosunun ayrıca çoğaltılmadığından, bekleme sunucuları için. Bir kütüğe aktarılmamış tablosunda oluşturulan tüm dizinlerin de otomatik olarak kütüğe aktarılmamış. Sonra ekleme işlemi tamamlandıktan, oturum ekleme dayanıklı olmasını tabloya Dönüştür.

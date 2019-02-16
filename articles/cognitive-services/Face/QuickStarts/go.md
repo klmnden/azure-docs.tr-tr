@@ -8,42 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 06/25/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: d1384e22d5a036002d59c30755a8a0e5de648102
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 752f15fd730f1244f44ba3749bff3c5bb85ca02b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882973"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312608"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Hızlı Başlangıç: REST API ve Git ile bir resimdeki yüz algılama
 
-Bu hızlı başlangıçta, Yüz Tanıma API'sini kullanarak bir görüntüdeki insan yüzlerini algılayacaksınız.
+Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için Go ile Azure yüz REST API'sini kullanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
+- Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
+- Bir kod Düzenleyicisi gibi [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Yüz - Algılama isteği
+## <a name="write-the-script"></a>Komut dosyası yazma
 
-[Yüz - Algılama](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) yöntemini kullanarak bir görüntüdeki yüzleri algılayın ve aşağıdaki yüz özniteliklerini döndürün:
-
-* Face ID: Birkaç yüz tanıma API'si senaryoda kullanılan benzersiz kimliği.
-* Yüz dikdörtgeni: Sol, üst, genişlik ve yükseklik resimdeki yüz konumunu belirten.
-* Yer işareti: Yüz tanıma bileşenlerinin önemli konumlarına işaret eden 27 noktası yüz yer işareti dizisi.
-* Yaş, cinsiyet, gülümseme yoğunluğu, kafanın duruşu ve sakal ve bıyık gibi yüzdeki öznitelikler.
-
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Aşağıdaki kodu bir düzenleyicinin içine kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `uriBase` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
-1. İsteğe bağlı olarak, `imageUrl` öğesini analiz etmek istediğiniz görüntü olarak değiştirin.
-1. Dosyayı `.go` uzantısıyla kaydedin.
-1. Go yüklü bir bilgisayarda bir komut istemi açın.
-1. Dosyayı oluşturun, örneğin: `go build detect-face.go`.
-1. Dosyayı çalıştırın, örneğin: `detect-face`.
+Yeni bir dosya oluşturun _faceDetection.go_ve aşağıdaki kodu ekleyin. Bu, belirli bir görüntü URL'sini yüz tanıma API'sini çağırır.
 
 ```go
 package main
@@ -115,9 +100,25 @@ func main() {
 }
 ```
 
-## <a name="face---detect-response"></a>Yüz - Algılama yanıtı
+Güncellemeniz gerekecektir `subscriptionKey` abonelik anahtarınız ve bir değerle değiştirmek gerekebilir `uriBase` doğru bölge tanımlayıcısı içeren dize (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi) . 
 
-Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
+Değiştirmek isteyebilirsiniz `imageUrl` kendi giriş görüntüsünü işaret özgüdür. Ayrıca chang için hazırlandığını `returnFaceAttributes` alanı almak için hangi yüz öznitelikleri belirtir.
+
+## <a name="run-the-script"></a>Betiği çalıştırın
+
+Bir komut istemi açın ve aşağıdaki komutla bir program oluşturun:
+
+```shell
+go build faceDetection.go
+```
+
+Ardından bir programı çalıştır:
+
+```shell
+detect-face
+```
+
+Konsola yazdırılmasını algılanan yüz veri JSON dizesi görmeniz gerekir. Başarılı bir JSON yanıtı örneği verilmiştir.
 
 ```json
 [
@@ -300,7 +301,7 @@ Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir görüntüdeki insan yüzlerini algılamak, yüzleri dikdörtgenlerle ayırmak ve yaş ve cinsiyet gibi öznitelikleri döndürmek için kullanılan Yüz Tanıma API'sini keşfedin.
+Bu hızlı başlangıçta, bir resimdeki yüz algılama ve onların öznitelikleri döndürmek için Azure yüz tanıma API'si çağıran bir Ruby betiğinizi yazıldı. Ardından, daha fazla bilgi için yüz API başvuru belgeleri keşfedin.
 
 > [!div class="nextstepaction"]
-> [Yüz Tanıma API’leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Yüz Tanıma API’si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

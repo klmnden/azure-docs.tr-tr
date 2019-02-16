@@ -16,21 +16,17 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 4aefc8c033383125a803eb0c8a38e2f3de119540
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e9c3e10f9b48bfe2efa5396c9e64d3d87be3d826
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467926"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330656"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure Vm'leri azure'da yönetilen disklere geçirme
 
 Azure yönetilen diskler, ayrı ayrı depolama hesaplarını yönetme ihtiyacını ortadan kaldırarak depolama yönetimini basitleştirir.  Ayrıca mevcut Azure Vm'lerinizi bir kullanılabilirlik kümesindeki VM'ler, daha fazla güvenilirlik yararlanmasını yönetilen diskler geçirebilirsiniz. Bu, bir kullanılabilirlik kümesindeki farklı VM disklerinin yeterince ayrılmasını tek hata noktasını önlemek için olmasını sağlar. Bir kullanılabilirlik sınırlayan tek depolama ölçek birimi hatalarına neden nedeniyle donanım ve yazılım hataları etkisini kümesi'nde, farklı depolama ölçek birimi (damgaları ') farklı bir VM disklerinin otomatik olarak geçirir.
-Gereksinimlerinize bağlı olarak, iki depolama seçeneği türlerinden birini seçebilirsiniz:
-
-- [Premium yönetilen diskler](premium-storage.md) olan katı hal sürücüsü (SSD) tabanlı depolama medyası, bir yüksek performanslı, g/Ç açısından yoğun iş yüklerini çalıştıran sanal makineler için düşük gecikme süreli disk desteği sunar. Premium yönetilen disklere geçirerek hızını avantajlarından ve bu disklerin performans alabilir.
-
-- [Standart yönetilen diskler](standard-storage.md) Sabit Disk sürücüsü (HDD) tabanlı depolama medyası kullanır ve geliştirme/Test ve performans değişkenliğine karşı daha az duyarlı olan diğer sık erişilmeyen iş yükleri için uygundur.
+Gereksinimlerinize bağlı olarak, dört tür depolama seçeneği seçebilirsiniz. Kullanılabilir disk türleri hakkında bilgi edinmek için bkz: makalemizi [bir disk türü seçin](disks-types.md)
 
 Aşağıdaki senaryolarda yönetilen disklere geçirebilirsiniz:
 

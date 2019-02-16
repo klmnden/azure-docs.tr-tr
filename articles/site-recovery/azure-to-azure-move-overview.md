@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112555"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309871"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye taşıma
 
@@ -51,7 +51,7 @@ Sanal makinelerin taşınmasında aşağıdaki adımları içerir:
 > Şu anda Azure Site Recovery Vm'lerden bölgesinde diğerine taşınmasını destekler ve bir bölge içinde taşıma desteklemiyor. 
 
 > [!NOTE]
-> Bu adımlarla ilgili ayrıntılı yönergeler verilmiştir belgelerinde her senaryo için aşağıda belirtildiği gibi
+> Bu adımlarla ilgili ayrıntılı yönergeler verilmiştir her senaryo için belgelerinde belirtildiği gibi [burada](#next-steps)
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Çok katmanlı dağıtımı için tipik mimariler
 Bölümde en yaygın dağıtım mimarileri müşteriler aracılığıyla Yürüyüşü, azure'da çok katmanlı bir uygulama için benimseyin. Biz burada sürüp bir üç katmanlı uygulamanın bir genel IP ile örnektir. Her katman – Web, uygulama ve veritabanı 2 VM'ler sahiptir ve diğer Katmanlar bir yük dengeleyiciye bağlı. Veritabanı katmanı için yüksek kullanılabilirlik (HA) VM'ler arasında SQL Always ON çoğaltma vardır.

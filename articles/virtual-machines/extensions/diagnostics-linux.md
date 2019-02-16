@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387055"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313543"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Ölçüm ve günlükleri izlemek için Linux tanılama uzantısı kullanma
 
@@ -316,7 +316,7 @@ type | Ölçüm gerçek sağlayıcısı tanımlar.
 sınıf | Sağlayıcının ad alanındaki belirli ölçüm "sayaç" ile birlikte tanımlar.
 counter | "Class" ile birlikte, belirli bir ölçüm sağlayıcının ad alanı içinde tanımlar.
 counterSpecifier | Azure ölçümleri ad alanındaki belirli ölçüm tanımlar.
-koşul | (isteğe bağlı) Belirli bir ölçüm uygular veya toplama söz konusu nesne tüm örneklerinde seçer nesne örneğini seçer. Daha fazla bilgi için [ `builtin` ölçüm tanımlarını](#metrics-supported-by-builtin).
+koşul | (isteğe bağlı) Belirli bir ölçüm uygular veya toplama söz konusu nesne tüm örneklerinde seçer nesne örneğini seçer. Daha fazla bilgi için `builtin` ölçüm tanımları.
 sampleRate | Bu ölçüm için ham örnekleri toplanan oranı ayarlayan 8601 ARALIĞIDIR. Ayarlı değil, toplama aralığı değeri olarak ayarlanıp ayarlanmadığını [sampleRateInSeconds](#ladcfg). Kısa desteklenen Örnek 15 saniye (PT15S) oranıdır.
 birim | Bu dizelerin biri olmalıdır: "Say", "Bayt", "Saniye", "Yüzde", "CountPerSecond", "BytesPerSecond", "Milisaniyelik". Ölçüm için birimi tanımlar. Toplanan veri tüketicileri bu birimi eşleştirmek için toplanan verileri değerleri bekler. Bu alan LAD yoksayar.
 displayName | Etiket (ilişkili yerel ayar tarafından belirtilen dilde) bu verileri Azure ölçümleri eklenecek. Bu alan LAD yoksayar.

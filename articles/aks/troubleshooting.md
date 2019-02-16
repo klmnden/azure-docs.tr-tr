@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468844"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327570"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
 
@@ -34,7 +34,11 @@ Azure clı'da AKS kümesi dağıtıyorsanız en fazla düğüm başına pod'lar�
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Gelişmiş ağ ile bir AKS kümesi dağıtırken bir insufficientSubnetSize hata alıyorum. Ne yapmalıyım?
 
-AKS oluşturma sırasında ağ iletişimi için özel Azure sanal ağı seçeneğinde Azure kapsayıcı ağ arabirimi (CNI) IP adresi Yönetimi (IPAM) için kullanılır. Bir AKS kümesindeki düğüm sayısını, 1 ile 100 arasında herhangi bir yerde olabilir. Önceki bölümde üzerinde bağlı olarak, alt ağ boyutunu düğüm ve düğüm başına en fazla pod'ların sayısını çarpımını büyük olmalıdır. İlişkinin bu şekilde ifade edilebilir: alt ağ boyutu > kümedeki düğümlerin sayısı * düğüm başına en fazla pod'ları.
+Azure CNI (Gelişmiş ağ) kullanılıyorsa, AKS ele IP preallocates "max-pod'ların" yapılandırılmış düğüm başına göre. Bir AKS kümesindeki düğüm sayısını, 110 ve 1 arasında herhangi bir yerde olabilir. Düğüm başına en fazla yapılandırılmış pod temel, alt ağ boyutu "product" düğüm ve düğüm başına en fazla pod numarasının büyük olmalıdır. Aşağıdaki temel eşitliği bu özetlenmektedir:
+
+Alt ağ boyutu > (gelecekteki ölçeklendirme gereksinimlerini göz önünde bulundurarak) kümedeki düğümlerin sayısı * düğüm başına pod'ların maks.
+
+Daha fazla bilgi için [kümeniz için planlama IP adresleme](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>My pod CrashLoopBackOff modunda takıldı. Ne yapmalıyım?
 

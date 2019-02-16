@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1d9dffe9d311674aeb043fcc4c35110775f420af
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 907ab5cd3272a3d3f64dcfd7c9628a609f4db2f4
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300814"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327655"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Nasıl bir Azure Search dizini yeniden oluşturma
 
@@ -29,22 +29,23 @@ Dizin çevrimdışına yeniden kullanılmasının *veri yenileme* arka plan gör
 | Koşul | Açıklama |
 |-----------|-------------|
 | Bir alan tanımı değiştirme | Bir alan adı, veri türü veya özel düzeltilmesi [dizin öznitelikleridir](https://docs.microsoft.com/rest/api/searchservice/create-index) (aranabilir, filtrelenebilir, sıralanabilir, modellenebilir) tam yeniden derleme gerektirir. |
-| Bir alana bir çözümleyici ekleme | [Çözümleyiciler](search-analyzers.md) dizin içinde tanımlanır ve ardından alanlara atanmış. Bir dizin için herhangi bir zamanda bir çözümleyici ekleyebilirsiniz, ancak alanı oluşturulduğunda yalnızca bir çözümleyici atayabilirsiniz. Bunun için her ikisi de true **Çözümleyicisi** ve **indexAnalyzer** özellikleri. **SearchAnalyzer** özelliği bir özel durum.
+| Bir alana bir çözümleyici ekleme | [Çözümleyiciler](search-analyzers.md) dizin içinde tanımlanır ve ardından alanlara atanmış. Herhangi bir zamanda bir dizine yeni Çözümleyicisi ekleyebilirsiniz, ancak yalnızca *atama* alanı oluşturulduğunda bir çözümleyici. Bunun için her ikisi de true **Çözümleyicisi** ve **indexAnalyzer** özellikleri. **SearchAnalyzer** özelliği bir özel durum. |
+| Güncelleştirmeye veya silmeye Çözümleyicisi yapısı | Silemez veya tüm dizini yeniden sürece varolan analiz bileşenleri (Çözümleyicisi, tokenizer, belirteç filtre veya char filtre) değiştirin. |
 | Bir alan için bir öneri aracı ekleme | Bir alan zaten var ve eklemek istiyorsanız bir [öneri Araçları](index-add-suggesters.md) oluşturmak, dizini yeniden oluşturmanız gerekir. |
-| Bir alan silme | Bir alanın tüm izlemeleri fiziksel olarak kaldırın için dizini yeniden oluşturmanız gerekir. Hemen bir yeniden oluşturma uygulaması olmadığında, geliştiricilerin çoğu "silindi" alanına erişimi devre dışı bırakma, uygulama kodu değiştirin. Fiziksel alan tanımı ve içeriği dizine alan atlar bir şemayı kullanarak bir sonraki yeniden kadar söz konusu kalır. |
+| Bir alan silme | Bir alanın tüm izlemeleri fiziksel olarak kaldırın için dizini yeniden oluşturmanız gerekir. Hemen bir yeniden derleme pratik olmadığı durumlarda, "silindi" alanına erişimi devre dışı bırakma, uygulama kodu değiştirebilirsiniz. Fiziksel alan tanımı ve içeriği dizine alan atlar bir şemayı kullanarak bir sonraki yeniden kadar söz konusu kalır. |
 | Katmanları arasında geçiş | Daha fazla kapasiteye ihtiyaç duyuyorsanız, yerinde yükseltme yoktur. Yeni Kapasite noktada yeni bir hizmet oluşturuldu ve sıfırdan yeni hizmette dizinler oluşturulmalıdır. |
 
-Mevcut fiziksel yapıları etkilemeden diğer herhangi bir değişiklik yapılabilir. Özellikle, aşağıdaki değişiklikleri yapın *değil* bir dizini yeniden oluşturma gösterir:
+Mevcut fiziksel yapıları etkilemeden diğer herhangi bir değişiklik yapılabilir. Özellikle, aşağıdaki değişiklikleri yapın *değil* bir dizini yeniden derleme gerektirir:
 
 + Yeni alan ekleme
 + Ayarlama **alınabilir** varolan bir alan özniteliği
 + Ayarlanmış bir **searchAnalyzer** varolan bir alanı
-+ Eklemek, güncelleştirmek ya da bir çözümleyici yapısı içinde bir dizini silme
++ Yeni bir çözümleyici yapısı içinde bir dizin ekleyin
 + Eklemek, güncelleştirmek ya da Puanlama profilleri Sil
 + Ekleme, güncelleştirme veya silme CORS ayarları
 + Ekleme, güncelleştirme veya synonymMaps Sil
 
-Yeni bir alan eklediğinizde, var olan dizini oluşturulan belgeler yeni alan için bir null değer verilir. Gelecekteki veri yenileme, dış kaynak veri değerleri, Azure Search tarafından eklenen null değerlere değiştirin.
+Yeni bir alan eklediğinizde, var olan dizini oluşturulan belgeler yeni alan için bir null değer verilir. Gelecekteki veri yenileme, dış kaynak veri değerleri, Azure Search tarafından eklenen null değerlere değiştirin. Dizin içeriği güncelleştirme hakkında daha fazla bilgi için bkz: [ekleme, güncelleştirme veya silme belgeleri](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## <a name="partial-or-incremental-indexing"></a>Kısmi veya artımlı dizin oluşturma
 

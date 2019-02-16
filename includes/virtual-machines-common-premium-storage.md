@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9f0dbc549600ef2b931ee99a36c60cae57cc7a67
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247222"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56331390"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler
 
@@ -98,8 +98,6 @@ Bazı bunlar depolama özellikli VM'ler üzerinde premium desteklenen özellikle
 
     > [!NOTE]
     > Premium depolama diskleri kullanarak stripe varsa [depolama alanları](https://technet.microsoft.com/library/hh831739.aspx), depolama alanları ' için kullandığınız her disk 1 sütun kümesi. Aksi takdirde, genel performansını şeritli birim nedeniyle trafik düzensiz şekilde dağıtılmasının disklerde beklenenden daha düşük olabilir. Varsayılan olarak, Sunucu Yöneticisi'nde, 8 adede kadar disk sütunları ayarlayabilirsiniz. 8'den fazla disk varsa, birim oluşturmak için PowerShell kullanın. Sütun sayısını el ile belirtin. Daha fazla disk olsa bile Aksi takdirde, Sunucu Yöneticisi kullanıcı Arabirimi 8 sütunları kullanmaya devam eder. Örneğin, tek kümesi 32 diskiniz varsa, 32 sütunları belirtin. Sanal diski kullanan sütun sayısını belirtmek için [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet'ini kullanın *NumberOfColumns* parametresi. Daha fazla bilgi için [depolama alanlarına genel bakış](https://technet.microsoft.com/library/hh831739.aspx) ve [depolama alanları sık sorulan sorular](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-    >
-    > 
 
 * **Önbellek**
 

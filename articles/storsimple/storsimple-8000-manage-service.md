@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701929"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310066"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 serisi cihazlar için StorSimple cihaz Yöneticisi hizmetini dağıtma
 
@@ -32,7 +32,7 @@ Bu öğreticide, oluşturma, silme, geçiş hizmetinin ve hizmet kayıt anahtar�
 > [!NOTE]
 > -  Azure portalında güncelleştirme 5.0 veya sonraki sürümleri çalıştıran cihazları destekler. Güncelleştirme 5 hemen cihazınız güncel değilse, yükleyin. Daha fazla bilgi için Git [güncelleştirme 5'i yükleme](storsimple-8000-install-update-5.md). 
 > - StorSimple bulut Gereci (8010/8020) kullanıyorsanız, bir bulut gerecini güncelleştiremezsiniz. Güncelleştirme 5. 0'ile yeni bir bulut Gereci oluşturmak ve sonra oluşturulan yeni bulut gerecine yük devretme için yazılımın en son sürümünü kullanın. 
-> - Güncelleştirme 4.0 veya önceki sürümleri çalıştıran tüm cihazlara yaşar [yönetim işlevselliği azaltılmış](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> - Güncelleştirme 4.0 veya önceki sürümleri çalıştıran tüm cihazlara sınırlı yönetim işlevselliğine karşılaşırsınız. 
 
 ## <a name="create-a-service"></a>Hizmet oluşturma
 StorSimple cihaz Yöneticisi hizmeti oluşturmak için sahip olmanız gerekir:
@@ -93,7 +93,7 @@ Hizmet kayıt anahtarı almak için aşağıdaki adımları gerçekleştirin.
 
 Hizmet kayıt anahtarı güvenli bir yerde saklayın. Bu hizmetiyle ek cihazlar kaydetmek için hizmet veri şifreleme anahtarı, yanı sıra, bu anahtar gerekir. Hizmet kayıt anahtarını aldıktan sonra Windows PowerShell aracılığıyla cihazınızın StorSimple arabirimi için yapılandırmanız gerekir.
 
-Bu kayıt anahtarı kullanma hakkında daha fazla ayrıntı için bkz. [3. adım: StorSimple için Windows PowerShell üzerinden cihazı kaydetme ve yapılandırma](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Bu kayıt anahtarı kullanma hakkında daha fazla ayrıntı için bkz. [3. adım: Yapılandırma ve StorSimple için Windows PowerShell üzerinden cihazı kaydetme](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## <a name="regenerate-the-service-registration-key"></a>Hizmet kayıt anahtarını yeniden oluştur
 Anahtar döndürme gerçekleştirmek için gerekli olduğunda veya hizmet yöneticilerinin listesini değişmişse bir hizmet kayıt anahtarını yeniden oluşturmak gerekir. Anahtarı yeniden ürettiğinizde, yeni anahtar yalnızca sonraki cihazları kaydetmek için kullanılır. Bu işlem tarafından zaten kayıtlı cihazlar etkilenmez.
@@ -127,7 +127,7 @@ Hizmet veri şifreleme anahtarı değiştirilirken 3 adımlık bir işlemdir:
 2. StorSimple için Windows PowerShell kullanarak, hizmet veri şifreleme anahtarı değişikliği başlatın.
 3. Birden fazla StorSimple cihazınız varsa, hizmet veri şifreleme anahtarı diğer cihazlarda güncelleştirin.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>1. adım: hizmet veri şifreleme anahtarını değiştirmek için bir cihaz son noktanın yetkilendirilmesi için Windows PowerShell kullanarak betiği
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>1. Adım: Hizmet veri şifreleme anahtarını değiştirmek için bir cihaz son noktanın yetkilendirilmesi için Windows PowerShell betiğini kullanın.
 Genellikle, cihaz Yöneticisi hizmet Yöneticisi bir cihazın hizmet veri şifreleme anahtarlarını değiştirmek için yetki verdiğiniz ister. Hizmet Yöneticisi daha sonra anahtarı değiştirmek için cihaz yetkilendirirsiniz.
 
 Bu adım, Azure Resource Manager tabanlı betik kullanarak gerçekleştirilir. Hizmet Yöneticisi yetki verilmesi uygun olan bir cihaz seçebilirsiniz. Cihaz ardından hizmet veri şifreleme anahtar değiştirme işlemini başlatmak için yetkili. 
@@ -143,7 +143,7 @@ Bir cihaz, hizmet veri şifreleme anahtarı değişiklikleri başlatmak için ye
 * Hizmet veri şifreleme anahtarı geçiş işlemi devam ederken bir cihaz yetkilendirilemiyor.
 * Başkalarının yok ancak bazı hizmete kayıtlı cihazlar şifrelemeyi gezinirken bir cihaz yetki verebilir. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>2. adım: Hizmet veri şifreleme anahtar değişikliğini başlatmak StorSimple için Windows PowerShell kullanma
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>2. Adım: Hizmet veri şifreleme anahtarı'nı başlatmak StorSimple için Windows PowerShell kullanarak değiştirme
 Bu adım, yetkili StorSimple cihazında arabirimi StorSimple için Windows PowerShell'de gerçekleştirilir.
 
 > [!NOTE]
@@ -154,7 +154,7 @@ Cihaz seri konsoluna bağlanmak için Windows PowerShell arabirimi için kullan�
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>Hizmet veri şifreleme anahtar değişikliğini başlatmak için
 1. Tam erişimle oturum açmak için 1 seçeneğini belirleyin.
-2. Komut isteminde aşağıdakini yazın:
+2. Komut istemine şunları yazın:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 3. Cmdlet başarıyla tamamlandıktan sonra yeni bir hizmet veri şifreleme anahtarı alırsınız. Kopyalayın ve bu işlem 3. adımında kullanmak için bu anahtarı kaydedin. Bu anahtar, StorSimple Yöneticisi hizmetine kayıtlı tüm diğer cihazları güncelleştirmek için kullanılır.
@@ -168,7 +168,7 @@ Cihaz seri konsoluna bağlanmak için Windows PowerShell arabirimi için kullan�
    
    Hizmete kayıtlı tek bir cihaz varsa, geçiş işlemi tamamlanmıştır ve sonraki adıma atlayabilirsiniz. Birden çok cihaz hizmete kayıtlı varsa, 3. adıma geçin.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>3. adım: başka StorSimple cihazlar üzerinde hizmet veri şifreleme anahtarı güncelleştirme
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>3. Adım: Başka StorSimple cihazlar üzerinde hizmet veri şifreleme anahtarını güncelleştir
 Birden çok cihaz için StorSimple Yöneticisi hizmetine kayıtlı varsa bu adımlar StorSimple cihazınızın Windows PowerShell arabiriminde gerçekleştirilmesi gerekir. 2. adımda elde edilen anahtar, StorSimple Yöneticisi hizmetine kayıtlı tüm kalan StorSimple cihaz güncelleştirmek için kullanılmalıdır.
 
 Hizmet veri şifreleme Cihazınızda güncelleştirmek için aşağıdaki adımları gerçekleştirin.
@@ -176,7 +176,7 @@ Hizmet veri şifreleme Cihazınızda güncelleştirmek için aşağıdaki adıml
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Hizmet veri şifreleme anahtarı fiziksel cihazlarda güncelleştirmek için
 1. StorSimple için Windows PowerShell konsoluna bağlanmak için kullanın. Tam erişimle oturum açmak için 1 seçeneğini belirleyin.
 2. Komut isteminde aşağıdakini yazın:  `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Aldığınız hizmet veri şifreleme anahtarını sağlamalı [2. adım: hizmet veri şifreleme anahtar değişikliğini başlatmak StorSimple için Windows PowerShell kullanarak](#to-initiate-the-service-data-encryption-key-change).
+3. Aldığınız hizmet veri şifreleme anahtarını sağlamalı [2. adım: Hizmet veri şifreleme anahtar değişikliğini başlatmak için StorSimple için Windows PowerShell kullanmak](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>8010/8020 bulut Gereçleri üzerinde hizmet veri şifreleme anahtarını güncelleştirmek için
 1. Karşıdan yükleme ve Kurulum [güncelleştirme CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell Betiği. 

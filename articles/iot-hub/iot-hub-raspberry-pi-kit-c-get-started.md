@@ -1,21 +1,19 @@
 ---
-title: Bulut (C) - Azure IOT hub'a bağlanma Raspberry Pi'yi raspberry Pi | Microsoft Docs
-description: Kurulum ve Raspberry Pi Raspberry Pi, bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT hub'a bağlanma hakkında bilgi edinin.
+title: Raspberry Pi C kullanarak Azure IOT hub'a bağlanma | Microsoft Docs
+description: Ayarlama ve Raspberry Pi Raspberry Pi, Azure bulut platformuna veri göndermek için Azure IOT hub'a bağlanma hakkında bilgi edinin
 author: rangv
-manager: ''
-keywords: Azure IOT raspberry pi, raspberry pi IOT hub, bulut verilerini raspberry pi göndermek, buluta raspberry pi
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: c8b254656dcd94fd846336e9c9de3ca823691904
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1e96029b75c8168189dacdc420117e82387228d9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053509"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327261"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi için Azure IoT Hub (C) bağlanma
 
@@ -121,13 +119,13 @@ Algılayıcı sabitlemek için aşağıdaki bağlantı kullanın:
 
 | Başlangıç (sensör ve LED)     | Bitiş (Pano)            | Kablo rengi   |
 | -----------------------  | ---------------------- | ------------: |
-| LED VDD (PIN 5G)         | Bir GPIO'yu 4 (PIN 7)         | Beyaz kablosu   |
+| LED VDD (PIN 5G)         | GPIO 4 (Pin 7)         | Beyaz kablosu   |
 | LED GND (PIN 6G)         | GND (PIN 6)            | Siyah kablo   |
-| VDD (PIN 18F)            | 3, 3v PWR (PIN 17)      | Beyaz kablosu   |
+| VDD (PIN 18F)            | 3.3V PWR (Pin 17)      | Beyaz kablosu   |
 | GND (PIN 20F)            | GND (PIN 20)           | Siyah kablo   |
-| SCK (PIN 21F)            | SPI0 SCLK (PIN 23)     | Turuncu kablosu  |
+| SCK (PIN 21F)            | SPI0 SCLK (Pin 23)     | Turuncu kablosu  |
 | SDO (PIN 22F)            | SPI0 MISO (PIN 21)     | Sarı kablosu  |
-| SDI (PIN 23F)            | SPI0 MOSI (PIN 19)     | Yeşil kablosu   |
+| SDI (Pin 23F)            | SPI0 MOSI (Pin 19)     | Yeşil kablosu   |
 | CS (PIN 24F)             | SPI0 CS (PIN 24)       | Mavi kablosu    |
 
 Görüntülemek için tıklayın [Raspberry Pi 2 ve 3 PIN eşlemeleri](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) referans.

@@ -3,8 +3,8 @@ title: AWS ve diğer platformlardan azure'da yönetilen disklere geçirme | Micr
 description: AWS veya diğer sanallaştırma platformları gibi diğer bulut kaynaklardan yüklenen VHD kullanarak azure'da VM oluşturma ve Azure yönetilen diskler yararlanın.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2017
-ms.author: cynthn
+ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83e69cd488ab7e8b69895a25716350c8025c6c48
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 05e687ab31b6c19193076033e1350952549d26e0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074912"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330758"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Amazon Web Services (AWS) ve diğer platformlardan azure'da yönetilen disklere geçirme
 
@@ -46,11 +46,8 @@ Genelleştirilmiş ve özelleştirilmiş VHD yükleyebilirsiniz.
 
 ## <a name="overview-of-managed-disks"></a>Yönetilen disklere genel bakış
 
-Azure yönetilen diskler, depolama hesaplarını yönetme ihtiyacını ortadan kaldırarak VM Yönetimi basitleştirir. Ayrıca avantajı öğesinden daha fazla güvenilirlik bir kullanılabilirlik kümesindeki sanal makinelerin yönetilen diskler. Bir kullanılabilirlik kümesindeki farklı VM disklerinin yeterince bir tek hata noktasını önlemek için birbirinden yalıtılmasını sağlar. Bir kullanılabilirlik sınırlayan tek depolama ölçek birimi hatalarına neden nedeniyle donanım ve yazılım hataları etkisini kümesi'nde, farklı depolama ölçek birimi (damgaları ') farklı bir VM disklerinin otomatik olarak geçirir. Gereksinimlerinize bağlı olarak, iki depolama seçeneği türlerinden birini seçebilirsiniz: 
- 
-- [Premium yönetilen diskler](premium-storage.md) olan katı hal sürücüsü (SSD) tabanlı depolama ortamı, yüksek performanslı, g/Ç açısından yoğun iş yüklerini çalıştıran sanal makineler için düşük gecikme süreli disk desteği sunar. Premium yönetilen disklere geçirerek hızını avantajlarından ve bu disklerin performans alabilir.  
-
-- [Standart yönetilen diskler](standard-storage.md) Sabit Disk sürücüsü (HDD) tabanlı depolama medyası kullanır ve geliştirme/Test ve performans değişkenliğine karşı daha az duyarlı olan diğer sık erişilmeyen iş yükleri için uygundur.  
+Azure yönetilen diskler, depolama hesaplarını yönetme ihtiyacını ortadan kaldırarak VM Yönetimi basitleştirir. Ayrıca avantajı öğesinden daha fazla güvenilirlik bir kullanılabilirlik kümesindeki sanal makinelerin yönetilen diskler. Bir kullanılabilirlik kümesindeki farklı VM disklerinin yeterince bir tek hata noktasını önlemek için birbirinden yalıtılmasını sağlar. Bir kullanılabilirlik sınırlayan tek depolama ölçek birimi hatalarına neden nedeniyle donanım ve yazılım hataları etkisini kümesi'nde, farklı depolama ölçek birimi (damgaları ') farklı bir VM disklerinin otomatik olarak geçirir.
+Gereksinimlerinize bağlı olarak, dört tür depolama seçeneği seçebilirsiniz. Kullanılabilir disk türleri hakkında bilgi edinmek için bkz: makalemizi [bir disk türü seçin](disks-types.md).
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Yönetilen Diskler'e geçiş planlama
 

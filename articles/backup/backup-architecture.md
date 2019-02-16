@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4f26c805c42f027409127232fcfef9840939e8d9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812577"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329192"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup mimarisi
 
@@ -175,8 +175,8 @@ Yinelenenleri kaldırılmış diskleri yedekleme | | | ![Kısmi][yellow]<br/><br
 
 Daha fazla bilgi edinin:
 
-- Disk depolama hakkında daha fazla bilgi [Windows](../virtual-machines/windows/about-disks-and-vhds.md) ve [Linux](../virtual-machines/linux/about-disks-and-vhds.md) VM'ler.
-- Hakkında bilgi edinin [standart](../virtual-machines/windows/standard-storage.md) ve [premium](../virtual-machines/windows/premium-storage.md) depolama.
+- Disk depolama hakkında daha fazla bilgi [Windows](../virtual-machines/windows/managed-disks-overview.md) ve [Linux](../virtual-machines/linux/managed-disks-overview.md) VM'ler.
+- Kullanılabilir hakkında bilgi edinin [disk türleri](../virtual-machines/windows/disks-types.md) gibi standart ve premium.
 
 
 ### <a name="backing-up-and-restoring-azure-vms-with-premium-storage"></a>Yedekleme ve premium depolama ile Azure Vm'lerini geri yükleme 
@@ -184,9 +184,9 @@ Daha fazla bilgi edinin:
 Azure Backup ile premium depolama kullanarak Azure Vm'leri yedekleyebilir:
 
 - Premium depolama Vm'lerini yedeklerken, Backup hizmeti "AzureBackup-" adlı bir depolama hesabında geçici hazırlama konumu oluşturur. Hazırlama konumunun boyutu, kurtarma noktası anlık görüntüsünü boyutuna eşittir.
-- Premium depolama hesabında geçici hazırlama konumu barındırmak için yeterli boş alan olduğundan emin olun. [Daha fazla bilgi edinin](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Hazırlama konumunu değiştirmeyin.
+- Premium depolama hesabında geçici hazırlama konumu barındırmak için yeterli boş alan olduğundan emin olun. [Daha fazla bilgi edinin](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Hazırlama konumunu değiştirmeyin.
 - Yedekleme işi tamamlandıktan sonra hazırlama konumu silinir.
-- Hazırlama konumu için kullanılan depolama alanının fiyatı tutarlıdır [premium depolama fiyatlandırması](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+- Hazırlama konumu için kullanılan depolama alanının fiyatı tutarlıdır [premium depolama fiyatlandırması](../virtual-machines/windows/disks-types.md#billing).
 
 Azure premium depolama kullanarak Vm'leri geri yüklediğinizde, bunları premium veya standart depolama alanına geri yükleyebilirsiniz. Premium genellikle geri yüklenebilir, ancak yalnızca VM'den dosyaların bir alt kümesine ihtiyacınız varsa standart geri yüklemek için uygun maliyetli olabilir.
 

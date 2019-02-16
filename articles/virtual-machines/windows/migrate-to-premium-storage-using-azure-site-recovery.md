@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 6db263dcfc3195c9b2ab3afe7587845a4632fd1b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7c422d560341e51fad582439117533b7d9cd4c8
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456536"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327672"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak Premium depolamaya geçiş
 
-[Azure Premium depolama](premium-storage.md) , g/Ç açısından yoğun iş yüklerini çalıştıran sanal makineler (VM) için yüksek performanslı, düşük gecikme süreli disk desteği sunar. Bu kılavuz kullanarak sanal makine disklerinizi bir standart depolama hesabından premium depolama hesabına geçirmenize yardımcı olur. [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+[Azure premium SSD](disks-types.md) , g/Ç açısından yoğun iş yüklerini çalıştıran sanal makineler (VM) için yüksek performanslı, düşük gecikme süreli disk desteği sunar. Bu kılavuz kullanarak sanal makine disklerinizi bir standart depolama hesabından premium depolama hesabına geçirmenize yardımcı olur. [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Site Recovery, şirket içi fiziksel sunucuları ve Vm'leri buluta (Azure) veya ikincil veri merkezine çoğaltılmasını düzenleyerek iş sürekliliği ve olağanüstü durum kurtarma stratejiniz için katkıda bulunan bir Azure hizmetidir. Kesinti birincil konumunuzda meydana gelirse uygulamaları ve iş yüklerini kullanılabilir durumda tutmak için ikincil konuma yük devredersiniz. Normal çalışmasına geri döndüğünde birincil konumunuzda başarısız. 
 
@@ -222,7 +222,6 @@ Ayrıca, Azure depolama ve Azure sanal makineler hakkında daha fazla bilgi içi
 
 * [Azure Depolama](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Sanal Makineler](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4f50cc46244a4fb205e0ccf60665ba892d3aa8fc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821380"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310049"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>Data Lake Storage verilerini çözümlemek için HDInsight Spark kümesi kullanın
 
@@ -81,7 +81,7 @@ Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu ol
 
 5. Örnek verileri kullanarak bir geçici tablosuna yükleme **HVAC.csv** dosya için Data Lake Store hesabına kopyalanır. Aşağıdaki URL deseni kullanarak Data Lake Store hesabına verilerine erişebilir.
 
-    * Varsayılan depolama alanı olarak Data Lake Storage varsa HVAC.csv yolda aşağıdaki URL'ye benzer olacaktır:
+    * Varsayılan depolama alanı olarak Data Lake depolama Gen1 varsa HVAC.csv yolda aşağıdaki URL'ye benzer olacaktır:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 

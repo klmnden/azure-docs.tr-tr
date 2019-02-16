@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 31e02cd931b3c9ab2cc55a540841969488c0c5f7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 132909931291daf3aefddd5e1a44273050d98e06
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997519"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326179"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Xamarin.iOS uygulamanıza kimlik doğrulaması ekleyin
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -35,7 +35,7 @@ Bu konu bir App Service mobil uygulama istemci uygulamanızın kullanıcıların
 
 Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir. Bu kimlik doğrulama işlemi tamamlandıktan sonra uygulamanıza geri yönlendirmek bir kimlik doğrulama sistemi sağlar. Bu öğreticide, kullandığımız URL şeması _appname_ boyunca. Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz. Mobil uygulamanız için benzersiz olmalıdır. Sunucu tarafında yeniden yönlendirmeyi etkinleştirmek için:
 
-1. [Azure portalı] uygulama hizmetinizi seçin.
+1. İçinde [Azure portalında](https://portal.azure.com/), App Service'ı seçin.
 
 2. Tıklayın **kimlik doğrulama / yetkilendirme** menü seçeneği.
 
@@ -48,9 +48,9 @@ Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrula
 ## <a name="restrict-permissions-to-authenticated-users"></a>Kimliği doğrulanmış kullanıcılar için izinleri kısıtla
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. Visual Studio veya Xamarin Studio, bir cihaz veya öykünücü üzerinde istemci projesini çalıştırın. Uygulama başladıktan sonra işlenmeyen bir özel durum ile bir durum kodu 401 (yetkisiz) tetiklenir doğrulayın. Hata, hata ayıklayıcı konsoluna kaydedilir. Bu nedenle Visual Studio'da çıktı penceresinde bir hata görürsünüz.
+* Visual Studio veya Xamarin Studio, bir cihaz veya öykünücü üzerinde istemci projesini çalıştırın. Uygulama başladıktan sonra işlenmeyen bir özel durum ile bir durum kodu 401 (yetkisiz) tetiklenir doğrulayın. Hata, hata ayıklayıcı konsoluna kaydedilir. Bu nedenle Visual Studio'da çıktı penceresinde bir hata görürsünüz.
 
-&nbsp;&nbsp;Uygulama Kimliği doğrulanmamış bir kullanıcı olarak mobil uygulama arka ucunuzu erişmeye çünkü bu yetkisiz hatası gerçekleşir. *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
+    Uygulama Kimliği doğrulanmamış bir kullanıcı olarak mobil uygulama arka ucunuzu erişmeye çünkü bu yetkisiz hatası gerçekleşir. *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
 
 Ardından, istemci uygulaması isteği kaynaklarına mobil uygulama arka ucundan ile kimliği doğrulanmış bir kullanıcıyı güncelleştirir.
 
@@ -58,67 +58,82 @@ Ardından, istemci uygulaması isteği kaynaklarına mobil uygulama arka ucundan
 Bu bölümde, veri görüntülemeden önce oturum açma ekranında görüntülenmek üzere bir uygulama değiştirir. Uygulama başlatıldığında uygulama hizmetinize bağlanmak değildir ve herhangi bir veri görüntülenmez. İlk kez sonra kullanıcı oturum açma ekranı görünür yenileme hareketini gerçekleştirir; başarılı oturum açma işleminden sonra Yapılacaklar öğelerinin listesi görüntülenir.
 
 1. İstemci proje dosyasını açın **QSTodoService.cs** ve aşağıdaki using deyimi ve `MobileServiceUser` QSTodoService sınıfa erişimcisi ile:
- 
-        using UIKit;
-       
-        // Logged in user
-        private MobileServiceUser user;
-        public MobileServiceUser User { get { return user; } }
+
+    ```csharp
+    using UIKit;
+
+    // Logged in user
+    private MobileServiceUser user;
+    public MobileServiceUser User { get { return user; } }
+    ```
+
 2. Adlı yeni yöntemi ekleyin **doğrulaması** için **QSTodoService** aşağıdaki tanımıyla:
 
-        public async Task Authenticate(UIViewController view)
+    ```csharp
+    public async Task Authenticate(UIViewController view)
+    {
+        try
         {
-            try
-            {
-                AppDelegate.ResumeWithURL = url => url.Scheme == "zumoe2etestapp" && client.ResumeWithURL(url);
-                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
-            }
+            AppDelegate.ResumeWithURL = url => url.Scheme == "{url_scheme_of_your_app}" && client.ResumeWithURL(url);
+            user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
         }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+        }
+    }
+    ```
 
-    >[AZURE.NOTE] Bir Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değeri değiştirmek **LoginAsync** yukarıda aşağıdakilerden birine: _MicrosoftAccount_, _Twitter_,  _Google_, veya _WindowsAzureActiveDirectory_.
+    > [!NOTE]
+    > Bir Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değeri değiştirmek **LoginAsync** yukarıda için aşağıdakilerden biri: _MicrosoftAccount_, _Twitter_, _Google_, veya _WindowsAzureActiveDirectory_.
 
 3. Açık **QSTodoListViewController.cs**. Yöntem tanımını değiştirme **ViewDidLoad** çağrısını kaldırma **RefreshAsync()** sonlarında:
-   
-        public override async void ViewDidLoad ()
-        {
-            base.ViewDidLoad ();
-   
-            todoService = QSTodoService.DefaultService;
-            await todoService.InitializeStoreAsync();
-   
-            RefreshControl.ValueChanged += async (sender, e) => {
-                await RefreshAsync();
-            }
-   
-            // Comment out the call to RefreshAsync
-            // await RefreshAsync();
+
+    ```csharp
+    public override async void ViewDidLoad ()
+    {
+        base.ViewDidLoad ();
+
+        todoService = QSTodoService.DefaultService;
+        await todoService.InitializeStoreAsync();
+
+        RefreshControl.ValueChanged += async (sender, e) => {
+            await RefreshAsync();
         }
+
+        // Comment out the call to RefreshAsync
+        // await RefreshAsync();
+    }
+    ```
+
 4. Yöntemi Değiştir **RefreshAsync** , kimlik doğrulaması için **kullanıcı** özelliği null. Yöntem tanımını üstüne aşağıdaki kodu ekleyin:
-   
-        // start of RefreshAsync method
+
+    ```csharp
+    // start of RefreshAsync method
+    if (todoService.User == null) {
+        await QSTodoService.DefaultService.Authenticate(this);
         if (todoService.User == null) {
-            await QSTodoService.DefaultService.Authenticate(this);
-            if (todoService.User == null) {
-                Console.WriteLine("couldn't login!!");
-                return;
-            }
+            Console.WriteLine("couldn't login!!");
+            return;
         }
-        // rest of RefreshAsync method
+    }
+    // rest of RefreshAsync method
+    ```
+
 5. Açık **AppDelegate.cs**, aşağıdaki yöntemi ekleyin:
 
-        public static Func<NSUrl, bool> ResumeWithURL;
+    ```csharp
+    public static Func<NSUrl, bool> ResumeWithURL;
 
-        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
-        {
-            return ResumeWithURL != null && ResumeWithURL(url);
-        }
+    public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+    {
+        return ResumeWithURL != null && ResumeWithURL(url);
+    }
+    ```
+
 6. Açık **Info.plist** gidin, dosya **URL türleri** içinde **Gelişmiş** bölümü. Şimdi Yapılandır **tanımlayıcı** ve **URL şemalarını** URL türünü ve tıklatın **URL türü Ekle**. **URL şemaları** , {url_scheme_of_your_app} ile aynı olması gerekir.
 7. Visual Studio, Mac ana ya da Visual Studio Mac için bağlı bir cihaz veya öykünücü hedefleyen istemci projesi çalıştırın. Uygulama veri görüntülendiğini doğrulayın.
-   
+
     Görüntülenecek oturum açma ekranı açacak öğeleri listede aşağı çekerek yenileme hareketi gerçekleştirin. Geçerli kimlik bilgileri başarıyla girdikten sonra uygulama Yapılacaklar öğelerinin listesi görüntülenir ve veri güncelleştirmeleri yapabilirsiniz.
 
 <!-- URLs. -->

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 535a947f7a4b9c750d585ce854a14be80c4a135c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639970"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327315"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>VHD oluşturma (SSS) sırasında sık karşılaşılan sorunlar
 
@@ -27,7 +27,7 @@ Aşağıdaki sık sorulan sorular (SSS) teklifleri için sanal makine (VM) oluş
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Premium depolama alanına yüklenir VHD kullanılarak Azure portalından bir VM nasıl oluşturulur?
 
-Azure Market, VM Teklifler oluşturma yönetilen depolama alanında bulunan görüntülerinden ya da Azure Premium depolama şu anda desteklemiyor.  Bu depolama seçenekleri hakkında daha fazla bilgi için bkz. [Azure yönetilen disklere genel bakış](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) ve [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).
+Azure Market, VM Teklifler oluşturma yönetilen depolama alanında bulunan görüntülerinden ya da Azure Premium depolama şu anda desteklemiyor.  Bu depolama seçenekleri hakkında daha fazla bilgi için bkz. [Azure yönetilen disklere genel bakış](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>2. kuşak Vm'lerde teklifleri için kullanabilir miyim?
@@ -83,7 +83,7 @@ Genellikle yapamazsınız.  Azure sanal makineler için standart Hizmetleri ve d
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 - [32-bit uygulamaları çalıştırma](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
 - [Azure sanal makineler'de 32-bit işletim sistemleri için destek](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
-- [Microsoft Azure sanal makineler için Microsoft sunucu yazılımı desteği](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
+- [Microsoft Azure sanal makineleri için Microsoft sunucu yazılımı desteği](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 
 
 ## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>My Vhd'lerden bir görüntü oluşturmak çalıştığım her zaman şu hatayı alır `.VHD is already registered with image repository as the resource` PowerShell'de. Önce herhangi bir görüntü oluşturmadı ya da bu ada sahip herhangi bir görüntü Azure'da buldunuz. Bu sorunu nasıl giderebilirim?

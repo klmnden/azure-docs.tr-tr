@@ -1,23 +1,21 @@
 ---
 title: Azure tanılama uzantısını genel bakış
 description: Hata ayıklama, performansı ölçmek, izleme, bulut Hizmetleri, sanal makineler ve service fabric trafik analizi için Azure Tanılama'kullanma
-services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470520"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310466"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure tanılama uzantısı nedir
-Azure tanılama uzantısı, azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını etkinleştiren aracısıdır. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Şu anda desteklenen olan Azure bulut hizmeti (Klasik) Web ve çalışan rolleri, sanal makineler, sanal makine ölçek kümeleri ve Service Fabric. Diğer Azure Hizmetleri tanılama farklı yöntemleri vardır. Bkz: [Azure'da izlemeye genel bakış](../../azure-monitor/overview.md).
+Azure tanılama uzantısı, azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını etkinleştiren aracısıdır. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Azure bulut hizmeti (Klasik) Web ve çalışan rolleri, desteklenmekte olan sanal makineler, sanal makine ölçek kümeleri ve Service Fabric. Diğer Azure Hizmetleri tanılama farklı yöntemleri vardır. Bkz: [Azure'da izlemeye genel bakış](../../azure-monitor/overview.md).
 
 ## <a name="linux-agent"></a>Linux Aracısı
 A [uzantısının Linux sürümü](../../virtual-machines/extensions/diagnostics-linux.md) Linux çalıştıran sanal makineler için kullanılabilir. Toplanan istatistikleri ve davranışı Windows sürümünden farklılık gösterir.
@@ -27,30 +25,31 @@ Azure tanılama uzantısı, aşağıdaki veri türlerini toplayabilirsiniz:
 
 | Veri Kaynağı | Açıklama |
 | --- | --- |
-| Performans sayaçları |İşletim sistemi ve özel performans sayaçları |
-| Uygulama Günlükleri |Uygulamanız tarafından yazılan izleme iletileri |
+| Performans sayacı ölçümleri |İşletim sistemi ve özel performans sayaçları |
+| Uygulama günlükleri |Uygulamanız tarafından yazılan izleme iletileri |
 | Windows Olay günlükleri |Windows olay günlüğü sisteme gönderilen bilgiler |
-| .NET Olay Kaynağı |.NET kullanarak olayları yazma kod [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) sınıfı |
+| .NET EventSource günlükleri |.NET kullanarak olayları yazma kod [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) sınıfı |
 | IIS Günlükleri |IIS web siteleri hakkında bilgi |
-| Bildirim tabanlı ETW |Herhangi bir işlem tarafından oluşturulan olay izleme için Windows olayları. (1) |
-| Kilitlenme bilgi dökümleri |Bir uygulama çökmesi durumunda işlemin durumu hakkındaki bilgileri |
+| [Bildirim tabanlı ETW günlükleri](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Herhangi bir işlem tarafından oluşturulan olay izleme için Windows olayları. (1) |
+| Kilitlenme bilgi dökümleri (günlük) |Bir uygulama çökerse işlemin durumu hakkındaki bilgileri |
 | Özel hata günlükleri |Uygulamanız veya hizmetiniz tarafından oluşturulan günlükleri |
-| Azure Tanılama Altyapısı günlükleri |Tanılama kendisi hakkında bilgi |
+| Azure Tanılama Altyapısı günlükleri |Azure tanılama kendisi hakkında bilgi |
 
 (1) ETW sağlayıcıları listesini almak için şunu çalıştırın `c:\Windows\System32\logman.exe query providers` bilgileri toplamak istediğiniz makine üzerinde bir konsol penceresinde.
 
 ## <a name="data-storage"></a>Veri depolama
 Uzantı verilerini depolayan bir [Azure depolama hesabı](diagnostics-extension-to-storage.md) belirttiğiniz.
 
-Buna da gönderebilirsiniz [Application Insights](../../azure-monitor/app/cloudservices.md). Kendisine akış için başka bir seçenektir [olay hub'ı](../../event-hubs/event-hubs-about.md), daha sonra Azure dışı izleme hizmetlerine göndermek sağlar.
+Buna da gönderebilirsiniz [Application Insights](../../azure-monitor/app/cloudservices.md). 
 
-### <a name="azure-monitor"></a>Azure İzleyici
-Ayrıca, Azure İzleyici, veri gönderme seçeneğiniz de vardır. Şu anda bu havuz yalnızca performans sayaçları için geçerlidir. VM'NİZDE VMSS, toplanan performans sayaçlarını göndermek veya Bulut hizmeti için özel ölçümleriniz Azure İzleyici olanak tanır. Azure Monitor havuzu destekler:
+Kendisine akış için başka bir seçenektir [olay hub'ı](../../event-hubs/event-hubs-about.md), daha sonra Azure dışı izleme hizmetlerine göndermek sağlar.
+
+Ayrıca, verilerinizi Azure İzleyici ölçümleri zaman serisi veritabanına gönderme seçeneğiniz de vardır. Şu anda bu havuz yalnızca performans sayaçları için geçerlidir. Performans sayaçları özel ölçümler olarak göndermenize olanak sağlar. Bu özellik Önizleme aşamasındadır. Azure Monitor havuzu destekler:
 * Azure İzleyici aracılığıyla gönderilen tüm performans sayaçlarını alınırken [Azure İzleyici ölçümleri API'leri.](https://docs.microsoft.com/rest/api/monitor/)
-* Tüm performans sayaçlarını uyarı gönderilen Azure İzleyici ile [uyarı deneyimi birleşik](../../azure-monitor/platform/alerts-overview.md) Azure İzleyici'de
-* Joker karakter işleci, performans sayaçları "Örnek" boyutu, ölçüm olarak ele alınıyor.  Örneğin, toplanan "LogicalDisk (\*) / DiskWrites/sn" filtre olması ve her Mantıksal Disk (C:, D:, vb.) sanal makine için bölme çizim veya Disk Yazma/sn uyarısında "Örnek" boyutta sayacı
+* Azure İzleyici aracılığıyla gönderilen tüm performans sayaçlarını uyarı [ölçüm uyarıları](../../azure-monitor/platform/alerts-overview.md) Azure İzleyici'de
+* Joker karakter işleci, performans sayaçları "Örnek" boyutu, ölçüm olarak ele alınıyor.  Örneğin, toplanan "LogicalDisk (\*) / DiskWrites/sn" filtre olması ve her Mantıksal Disk (örneğin, C:) sanal makine için bölme çizim veya Disk Yazma/sn uyarısında "Örnek" boyutta sayacı
 
-Bu havuz yapılandırma hakkında daha fazla bilgi için lütfen başvurmak [Azure tanılama şeması belgeleri.](diagnostics-extension-schema-1dot3.md)
+Bu havuz yapılandırma hakkında daha fazla bilgi edinmek için bkz [Azure tanılama şeması belgeleri.](diagnostics-extension-schema-1dot3.md)
 
 ## <a name="versioning-and-configuration-schema"></a>Sürüm oluşturma ve yapılandırma şeması
 Bkz: [Azure tanılama sürüm geçmişi ve şema](diagnostics-extension-schema.md).

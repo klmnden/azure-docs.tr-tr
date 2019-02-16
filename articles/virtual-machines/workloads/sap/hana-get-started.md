@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976911"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328733"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Hızlı Başlangıç: Tek örnek SAP hana Azure vm'lerde el ile yükleme
 ## <a name="introduction"></a>Giriş
@@ -195,7 +195,7 @@ Temel [SAP HANA TDI depolama gereksinimlerini](https://www.sap.com/documents/201
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-Önerilen disk yapılandırması, HANA veri hacmi ve günlük birimi LVM veya MDADM şeritli Azure premium depolama diskleri aynı kümesine yerleştirilir. Azure Premium depolama disk artıklık için üç görüntü tuttuğundan, herhangi bir RAID yedeklilik düzeyi tanımlamak gerekli değildir. Yeterli depolama alanı yapılandırma emin olmak için başvurun [SAP HANA TDI depolama gereksinimlerini](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) ve [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Ayrıca farklı Azure premium depolama diskleri farklı sanal sabit disk (VHD) aktarım hızı birimlerini açıklandığı gibi göz önünde bulundurun [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
+Önerilen disk yapılandırması, HANA veri hacmi ve günlük birimi LVM veya MDADM şeritli Azure premium depolama diskleri aynı kümesine yerleştirilir. Azure Premium depolama disk artıklık için üç görüntü tuttuğundan, herhangi bir RAID yedeklilik düzeyi tanımlamak gerekli değildir. Yeterli depolama alanı yapılandırma emin olmak için başvurun [SAP HANA TDI depolama gereksinimlerini](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) ve [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Ayrıca farklı Azure premium depolama diskleri farklı sanal sabit disk (VHD) aktarım hızı birimlerini açıklandığı gibi göz önünde bulundurun [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](../../windows/disks-types.md). 
 
 Veritabanı veya işlem günlüğü yedeklemeleri depolamak için HANA DBMS VM'ler için daha fazla premium depolama diski ekleyebilirsiniz.
 
@@ -206,9 +206,7 @@ Veritabanı veya işlem günlüğü yedeklemeleri depolamak için HANA DBMS VM'l
 
 Azure konuk işletim sistemi olarak Linux çalıştıran Vm'leri için diskleri ekleme ile ilgili daha fazla bilgi için bkz: [bir Linux VM'ye disk ekleme](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Azure Premium depolama diski önbelleğe alma modu tanımlamanızı sağlar. /Hana/Data ve /hana/log şeritli kümesi için diski önbelleğe alma işlemi devre dışı bırakılmalıdır. Diğer birimleri için (diskler), önbelleğe alma modu ayarlanmalıdır **salt okunur**.
-
-Daha fazla bilgi için [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../../windows/premium-storage.md).
+Azure premium SSD disk modu önbellekleme tanımlamanıza olanak sağlar. /Hana/Data ve /hana/log şeritli kümesi için diski önbelleğe alma işlemi devre dışı bırakılmalıdır. Diğer birimleri için (diskler), önbelleğe alma modu ayarlanmalıdır **salt okunur**.
 
 VM oluşturmak için örnek JSON şablonları bulmak için Git [Azure hızlı başlangıç şablonları](https://github.com/Azure/azure-quickstart-templates).
 Bir temel şablon vm basit sles şablonudur. Bu, bir yazılım bölümünde listelenmişse ek 100 GB veri diski içerir. Bu şablon, temel olarak kullanılabilir. Şablon, belirli bir yapılandırma için uyarlayabilirsiniz.

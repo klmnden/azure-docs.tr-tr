@@ -8,38 +8,38 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4b5d2de2e9ccd44517e083a435e127bd5678f002
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736258"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56331317"
 ---
-# <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra yüksek SSD (Önizleme) yönetilen diskler için Azure sanal makine iş yükleri
+# <a name="ultra-disks-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Yönetilen diskler Azure sanal makine iş yükleri için Ultra yüksek diskler (Önizleme)
 
-Azure Ultra SSD (Önizleme), Azure Iaas Vm'leri için yüksek performans, yüksek IOPS ve tutarlı düşük gecikme süreli disk depolama alanı sunar. Bu yeni teklif, var olan diskleri tekliflerimizi aynı kullanılabilirlik düzeylerinde satırı performansının üst sağlar. Ultra yüksek SSD ek avantajları sanal makinelerinizi yeniden başlatmaya gerek kalmadan iş yüklerinizi yanı sıra disk performansını dinamik olarak değiştirme özelliği içerir. Ultra yüksek SSD, SAP HANA, en çok katmanı veritabanları ve işlem yoğunluklu iş yükleri gibi veri kullanımı yoğun iş yükleri için uygundur.
+Azure ultra diskler (Önizleme), Azure Iaas Vm'leri için yüksek performans, yüksek IOPS ve tutarlı düşük gecikme süreli disk depolama alanı sunar. Bu yeni teklif, var olan diskleri tekliflerimizi aynı kullanılabilirlik düzeylerinde satırı performansının üst sağlar. Ek avantajlar Ultra yüksek disk performansı diskin sanal makinelerinizi yeniden başlatmaya gerek kalmadan iş yüklerinizi yanı sıra dinamik olarak değiştirmenize olanak özelliğine sahiptir. Ultra yüksek diskler, SAP HANA, en çok katmanı veritabanları ve işlem yoğunluklu iş yükleri gibi veri kullanımı yoğun iş yükleri için uygundur.
 
-## <a name="ultra-ssd-features"></a>Ultra yüksek SSD özellikleri
+## <a name="ultra-disk-features"></a>Ultra yüksek disk özellikleri
 
-**Yönetilen diskler**: Ultra yüksek SSD'ler, yalnızca yönetilen diskler kullanılabilir. Ultra yüksek SSD'ler, bir yönetilmeyen Disk veya sayfa blobu olarak dağıtılamıyor. Bir yönetilen diski oluştururken, disk sku UltraSSD_LRS yazın ve IOPS disk boyutunu belirtmek ve ihtiyacınız olan aktarım hızı ve Azure oluşturur ve diski oluşturup yönetebilmesi belirtin.  
+**Yönetilen diskler**: Ultra yüksek diskler yalnızca yönetilen diskleri olarak kullanılabilir. Ultra yüksek diskleri, bir yönetilmeyen disk veya sayfa blobu olarak dağıtılamıyor. Yönetilen disk oluşturulurken disk sku UltraSSD_LRS yazın ve IOPS disk boyutunu belirtmek ve ihtiyacınız olan aktarım hızı ve Azure oluşturur ve diski oluşturup yönetebilmesi belirtin.  
 
-**Sanal makineler**: Ultra yüksek SSD'ler, etkin Azure sanal makine SKU'ları tüm Premium SSD ile çalışacak şekilde tasarlanmıştır; Ancak, şu anda Önizleme aşamasında olduğu gibi sanal makinelerin ES/DS v3 boyutlandırılır.
+**Sanal makineler**: Ultra yüksek diskler, etkin Azure sanal makine SKU'ları tüm Premium SSD ile çalışacak şekilde tasarlanmıştır; Ancak, şu anda Önizleme aşamasında olduğu gibi sanal makinelerin ES/DS v3 boyutlandırılır.
 
-**Dinamik performans Yapılandırması**: Ultra yüksek SSD sanal makinelerinizi yeniden başlatmaya gerek kalmadan diskin iş yükü gereksinimlerinize yanı sıra performans (IOPS ve aktarım hızı) dinamik olarak değiştirmenize izin verir.
+**Dinamik performans Yapılandırması**: Ultra diskler, sanal makinelerinizi yeniden başlatmaya gerek kalmadan diskin iş yükü gereksinimlerinize yanı sıra performans (IOPS ve aktarım hızı) dinamik olarak değiştirmenize olanak tanır.
 
 ## <a name="scalability-and-performance-targets"></a>Ölçeklenebilirlik ve performans hedefleri
 
-Ultra yüksek bir SSD sağladığınızda, kapasite ve performans diskin bağımsız olarak yapılandırma seçeneğiniz olur. Ultra yüksek SSD birkaç sabit boyutta 4 GiB 64 Tib'a kadar gelir ve IOPS ve aktarım hızını bağımsız olarak yapılandırmanıza olanak tanıyan esnek performans yapılandırma modeli özelliği. Ultra yüksek SSD'ler, yalnızca veri diskleri yararlanılabilir. İşletim sistemi diski Premium SSD kullanmanızı öneririz.
+Ultra yüksek bir diskler sağladığınızda, kapasite ve performans diskin bağımsız olarak yapılandırma seçeneğiniz olur. Ultra yüksek diskler birkaç sabit boyutta 4 GiB 64 Tib'a kadar gelir ve IOPS ve aktarım hızını bağımsız olarak yapılandırmanıza olanak tanıyan esnek performans yapılandırma modeli özelliği. Ultra yüksek diskler yalnızca veri diskleri yararlanılabilir. İşletim sistemi diski Premium SSD kullanmanızı öneririz.
 
-Ultra yüksek SSD, bazı temel işlevler şunlardır:
+Ultra yüksek disk bazı temel işlevler şunlardır:
 
-- Disk kapasitesi: Ultra yüksek SSD 4 GiB 64 Tib'a kadar bir dizi farklı disk boyutları sunar.
-- Disk IOPS: Ultra yüksek SSD 300 IOPS/GiB, 160 K IOPS disk başına en fazla IOPS sınırları destekler. Sağladığınız IOPS elde etmek için seçili Disk IOPS VM IOPS değerinden küçük olmasını sağlayın. Minimum IOPS 100 IOPS disktir.
-- Disk aktarım hızı: Her 2000 MB disk başına en fazla IOPS sağlanması için Ultra yüksek SSD'ler ile tek bir disk aktarım hızı sınırı 256 KiB/sn olan (burada MB/sn = 10 ^ 6 bayt / saniye). Minimum disk aktarım hızı 1 MiB ' dir.
+- Disk kapasitesi: Ultra yüksek diskleri sunar, bir dizi farklı disk boyutları 64 Tib'a kadar 4 GiB öğesinden.
+- Disk IOPS: Ultra yüksek diskler, 300 IOPS/GiB, 160 K IOPS disk başına en fazla IOPS sınırları destekler. Sağladığınız IOPS elde etmek için seçili Disk IOPS VM IOPS değerinden küçük olmasını sağlayın. Minimum IOPS 100 IOPS disktir.
+- Disk aktarım hızı: Her 2000 MB disk başına en fazla IOPS sağlanması için ultra disklerle olan tek bir disk aktarım hızı sınırı 256 KiB/sn olan (burada MB/sn = 10 ^ 6 bayt / saniye). Minimum disk aktarım hızı 1 MiB ' dir.
 
 Aşağıdaki tabloda farklı disk boyutları için farklı yapılandırmalar özetlenmiştir:  
 
-### <a name="ultra-ssd-managed-disk-offerings"></a>Ultra SSD Yönetilen Disk Teklifleri
+### <a name="ultra-disks-managed-disk-offerings"></a>Ultra yüksek diskler yönetilen disk teklifleri
 
 |Disk Boyutu (GiB)  |IOPS Caps  |Aktarım hızı sınırı (MB/sn)  |
 |---------|---------|---------|
@@ -55,18 +55,18 @@ Aşağıdaki tabloda farklı disk boyutları için farklı yapılandırmalar öz
 
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
 
-Ultra yüksek SSD kullanırken aşağıdaki fatura değerlendirmeleri uygulanacak:
+Ultra yüksek diskleri kullanırken aşağıdaki fatura değerlendirmeleri uygulanacak:
 
 - Yönetilen disk boyutu
 - Yönetilen diskin sağlanan IOPS
 - Yönetilen diskin sağlanan aktarım hızı
-- Ultra yüksek SSD VM ayırma ücreti
+- Ultra yüksek disk VM ayırma ücreti
 
 ### <a name="managed-disk-size"></a>Yönetilen disk boyutu
 
-Yönetilen diskler, yeni bir Azure sanal makine sağlanırken seçtiğiniz VM boyutlarına faturalandırılır. Azure sağlanan boyutu (yukarı yuvarlayarak) en yakın disk boyutu teklifiyle eşleştirir. Sağlanan disk boyutları Ayrıntılar için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Her disk için bir desteklenen sağlanan disk boyutu ve buna göre faturalandırılır eşler saatlik olarak. Örneğin, bir 200 GiB Ultra SSD Disk sağlanır ve 20 saat sonra silindi, 256 GiB disk boyutu teklifine eşler ve 256 GiB için 20 saat için faturalandırılırsınız. Bu faturalandırma gerçekten diske yazılan veri hacmi bağımsız olarak işlem saati tüketimine temel alınmıştır.
+Yönetilen diskler, yeni bir Azure sanal makine sağlanırken seçtiğiniz VM boyutlarına faturalandırılır. Azure sağlanan boyutu (yukarı yuvarlayarak) en yakın disk boyutu teklifiyle eşleştirir. Sağlanan disk boyutları Ayrıntılar için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Her disk için bir desteklenen sağlanan disk boyutu ve buna göre faturalandırılır eşler saatlik olarak. Örneğin, 200 GiB Ultra yüksek disk sağlanır ve 20 saat sonra silindi, 256 GiB disk boyutu teklifine eşler ve 256 GiB için 20 saat için faturalandırılırsınız. Bu faturalandırma gerçekten diske yazılan veri hacmi bağımsız olarak işlem saati tüketimine temel alınmıştır.
 
-### <a name="managed-disk-provisioned-iops"></a>Yönetilen diskin sağlanan IOPS
+### <a name="managed-disk-provisioned-iops"></a>Yönetilen disk IOPS sağlanması
 
 IOPS, uygulamanızın gönderdiği istekleri dizi için saniye başına disk sayısı. Bir giriş/çıkış işlemi, sıralı bir okuma veya yazma veya rastgele okuma veya yazma. Ortalama IOPS sayısı, disk boyutu veya VM'ye disk sayısına göre saatlik olarak faturalandırılır. Sağlanan IOPS disk ayrıntıları için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın.
 
@@ -78,20 +78,20 @@ Aktarım hızı ve IOPS aşağıdaki formülde gösterilen şekilde arasında bi
 
 Bu nedenle, uygulamanızın ihtiyaç duyduğu en iyi aktarım hızı ve IOPS değerlerini belirlemek önemlidir. Bir en iyi duruma getirmek çalışırken, diğeri de etkilenir. Aktarım hızı 16 KiB g/ç boyutuna karşılık gelen ile başlayan ve daha fazla aktarım hızı gerekirse ayarlama öneririz.
 
-Desteklenen disk aktarım hızı Ultra SSD üzerinde hakkında daha fazla bilgi için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Disk boyutu ve IOPS gibi sağlanan aktarım hızı sağlanmış MB/sn başına saatlik olarak faturalandırılır.
+Desteklenen disk aktarım hızı ultra disklerde hakkında daha fazla bilgi için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Disk boyutu ve IOPS gibi sağlanan aktarım hızı sağlanmış MB/sn başına saatlik olarak faturalandırılır.
 
-### <a name="ultra-ssd-vm-reservation-fee"></a>Ultra yüksek SSD VM ayırma ücreti
+### <a name="ultra-disk-vm-reservation-fee"></a>Ultra yüksek disk VM ayırma ücreti
 
-Sanal makinenizin Ultra SSD uyumlu olduğunu gösteren VM üzerinde bir özellik sunuyoruz. Ultra yüksek bir SSD uyumlu VM'nin ayrılmış bant genişliği kapasitesi işlem VM örneği arasındaki gecikme süresini azaltmak ve performansı iyileştirmek için blok depolama ölçek birimi ayırır. Bu özellik, VM sonuçlarına Ultra SSD disk eklemeden VM'de Ultra SSD özelliği etkinse, yalnızca uygulanan rezervasyon ücreti ekleniyor. Ultra yüksek SSD disk Ultra SSD uyumlu VM'ye bağlı olduğu zaman bu ücret uygulanır değil. Bu ücretlendirme, VM üzerinde sağlanan vCPU başına yapılır.
+VM'nizi Ultra yüksek disk uyumlu olduğunu gösteren VM üzerinde bir özellik sunuyoruz. Uyumlu sanal makine ayıran bir Ultra yüksek disk adanmış işlem VM örneği ve performansı iyileştirmek ve gecikme süresini azaltmak için blok depolama ölçek birimi arasında bant genişliği kapasitesi. Ultra yüksek bir disk eklemeden VM'de Ultra yüksek disk özelliği etkinse, yalnızca uygulanan rezervasyon ücreti VM sonuçları bu özellik ekleniyor. Ultra yüksek bir disk için Ultra yüksek uyumlu VM'nin bağlı olduğu zaman bu ücret uygulanır değil. Bu ücretlendirme, VM üzerinde sağlanan vCPU başına yapılır.
 
-Başvurmak [Azure fiyatlandırma sayfasını diskler](https://azure.microsoft.com/pricing/details/managed-disks/) yeni Ultra SSD diskleri fiyatı ayrıntıları sınırlı önizlemede kullanılabilir.
+Başvurmak [Azure fiyatlandırma sayfasını diskler](https://azure.microsoft.com/pricing/details/managed-disks/) yeni ultra diskleri fiyat ayrıntıları sınırlı önizlemede kullanılabilir.
 
-### <a name="ultra-ssd-preview-scope-and-limitations"></a>Ultra yüksek SSD Önizleme kapsamı ve sınırlamalar
+### <a name="ultra-disk-preview-scope-and-limitations"></a>Ultra yüksek disk Önizleme kapsamı ve sınırlamalar
 
-Önizleme süresince, Ultra SSD diskleri:
+Önizleme süresince, ultra diskler:
 
 - Doğu ABD 2 tek bir kullanılabilirlik alanında başlangıçta desteklenecektir.  
-- Yalnızca (kullanılabilirlik kümeleri ve Ultra yüksek bir SSD Disk ekleme yeteneğinin yok tek VM dağıtımları bölgeleri dışında) kullanılabilirlik alanları ile kullanılabilir
+- Yalnızca (kullanılabilirlik kümeleri ve bölgeleri dışında tek VM dağıtımları Ultra yüksek bir diski olanağına sahip değildir) kullanılabilirlik alanları ile kullanılabilir
 - ES/DS v3 Vm'lerde yalnızca desteklenir
 - Veri diskleri ve yalnızca destek 4 k fiziksel kesim boyutu yalnızca kullanılabilir  
 - Yalnızca boş diskler olarak oluşturulabilir  

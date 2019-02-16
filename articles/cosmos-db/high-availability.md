@@ -4,15 +4,15 @@ description: Bu makalede Azure Cosmos DB yüksek kullanılabilirliği nasıl sa�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b5e99b421e66f087a1793f5301736e192ef75c08
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109767"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311248"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB ile yüksek kullanılabilirlik
 
@@ -64,19 +64,7 @@ Bölgesel kesintiler nadir değildir ve Azure Cosmos DB, veritabanının her zam
 
 - Cosmos hesabınızı yüksek oranda kullanılabilir olsa bile, uygulamanızın doğru bir şekilde yüksek oranda kullanılabilir kalmasını tasarlanmamış olabilir. Uçtan uca yüksek kullanılabilirlik için uygulamanızı test etmek için düzenli aralıklarla çağırma [Azure CLI veya Azure portalını kullanarak el ile yük devretme](how-to-manage-database-account.md#manual-failover), uygulamayı test etmek veya olağanüstü durum kurtarma (DR) bir parçası olarak gidilmesini sağlar.
 
-
-İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarır önce kabul edilebilen maksimum süre anlamanız gerekir. Bir uygulamanın tamamen kurtarmak için gereken süre, Kurtarma süresi hedefi (RTO) bilinir. Ayrıca uygulama edilebilecek son veri güncelleştirmelerinin maksimum süreyi anlamanız gereken bir kesintiden sonra kurtarılırken. Zaman dilimi kaybetmeyi göze güncelleştirmeleri, kurtarma noktası hedefi (RPO) bilinir.
-
-Aşağıdaki tabloda en yaygın senaryolar için RTO ve RPO gösterilmektedir.
-
-|Sayı, bölgeler |Yapılandırma |Tutarlılık Düzeyi|RPO |RTO |
-|---------|---------|---------|-------|-------|
-|1    | *    |*   | < 240 dakika | < 1 hafta |
-|>1     | Tek yöneticili çoğaltma | Oturum, tutarlı ön ek, nihai | < 15 dakika | < 15 dakika |
-|>1     | Tek yöneticili çoğaltma | Sınırlanmış Eskime Durumu | K &AMP; T | < 15 dakika |
-|>1     | Çok yöneticili çoğaltma | Oturum, tutarlı ön ek, nihai | < 15 dakika | 0 |
-|>1     | Çok yöneticili çoğaltma | Sınırlanmış Eskime Durumu | K &AMP; T | 0 |
-|>1     | * | Güçlü | 0 | < 15 dakika |
+- Bir Global olarak dağıtılmış veritabanı ortam içinde bir bölge çapında kesinti varsa tutarlılık düzeyi ve veri dayanıklılığı arasında doğrudan bir ilişki yoktur. İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarır önce kabul edilebilen maksimum süre anlamanız gerekir. Bir uygulamanın tamamen kurtarmak için gereken süre, Kurtarma süresi hedefi (RTO) bilinir. Ayrıca uygulama edilebilecek son veri güncelleştirmelerinin maksimum süreyi anlamanız gereken bir kesintiden sonra kurtarılırken. Zaman dilimi kaybetmeyi göze güncelleştirmeleri, kurtarma noktası hedefi (RPO) bilinir. Azure Cosmos DB için RTO ve RPO için bkz [tutarlılık düzeyleri ve veri dayanıklılığı](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

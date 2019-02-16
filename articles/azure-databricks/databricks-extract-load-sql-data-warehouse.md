@@ -1,21 +1,19 @@
 ---
 title: 'Öğretici: Azure Databricks kullanarak ETL işlemleri gerçekleştirme'
 description: Verileri Data Lake depolama Gen2 ' Azure Databricks'e veri ayıklamayı, verileri dönüştürün ve ardından verileri Azure SQL Data Warehouse'a veri yükleme konusunda bilgi edinin.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
 ms.date: 01/24/2019
-ms.openlocfilehash: 57de2d9c63a4185997ac86056b9e3189ad66e478
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b48ac9cf8eff001e62f54e41b5f76a9d006bc5ba
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893146"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328937"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Öğretici: Ayıklama, dönüştürme ve Azure Databricks kullanarak verileri yüklemek
 

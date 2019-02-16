@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b5e3e84ce8f8b4b364b2fa69dda0b0091db25b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338711"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329788"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX yüklemek için hazırlama
 Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure'un destekledikleri **yalnızca 1. kuşak Vm'leri** VHD dosyası biçiminde ve sabit boyutlu bir diske sahip. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -200,11 +200,11 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
     
     | Hedef                                     | İlke                                                                                                                                                       | Değer                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
-    | RDP etkin                           | Bilgisayar Yapılandırması\İlkeler\Windows Settings\Administrative Templates\Components\Remote Masaüstü Hizmetleri\Uzak Masaüstü Oturumu Ana Bilgisayarı\Bağlantılar         | Kullanıcıların Uzak Masaüstü'nü kullanarak bağlanmasına izin ver                                  |
+    | RDP etkin                           | Computer Configuration\Policies\Windows Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Connections         | Kullanıcıların Uzak Masaüstü'nü kullanarak bağlanmasına izin ver                                  |
     | NLA Grup İlkesi                         | Settings\Administrative Templates\Components\Remote Masaüstü Hizmetleri\Uzak Masaüstü Oturumu Ana Bilgisayarı\Güvenlik                                                    | Ağ düzeyinde kimlik doğrulama kullanarak uzaktan bağlantılar için kullanıcı kimlik doğrulaması gerektir |
-    | Canlı ayarları tutun                      | Bilgisayar Yapılandırması\İlkeler\Windows Settings\Administrative Şablonları\Windows Bileşenleri\Uzak Masaüstü Hizmetleri\Uzak Masaüstü Oturumu Ana Bilgisayarı\Bağlantılar | Bağlantı tutma aralığı yapılandırın                                                 |
-    | Ayarları yeniden                       | Bilgisayar Yapılandırması\İlkeler\Windows Settings\Administrative Şablonları\Windows Bileşenleri\Uzak Masaüstü Hizmetleri\Uzak Masaüstü Oturumu Ana Bilgisayarı\Bağlantılar | Otomatik yeniden bağlanma                                                                   |
-    | Bağlantı ayarlarını sayısını sınırlayın | Bilgisayar Yapılandırması\İlkeler\Windows Settings\Administrative Şablonları\Windows Bileşenleri\Uzak Masaüstü Hizmetleri\Uzak Masaüstü Oturumu Ana Bilgisayarı\Bağlantılar | Bağlantı sayısını sınırla                                                              |
+    | Canlı ayarları tutun                      | Computer Configuration\Policies\Windows Settings\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections | Bağlantı tutma aralığı yapılandırın                                                 |
+    | Ayarları yeniden                       | Computer Configuration\Policies\Windows Settings\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections | Otomatik yeniden bağlanma                                                                   |
+    | Bağlantı ayarlarını sayısını sınırlayın | Computer Configuration\Policies\Windows Settings\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections | Bağlantı sayısını sınırla                                                              |
 
 ## <a name="configure-windows-firewall-rules"></a>Windows Güvenlik duvarı kuralları yapılandırma
 1. Üç profil (etki alanı, standart ve genel) üzerinde Windows Güvenlik duvarını açma:
@@ -234,11 +234,11 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
 
     | Hedef                                 | İlke                                                                                                                                                  | Değer                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-    | Windows Güvenlik duvarı profillerini etkinleştirme | Bilgisayar Yapılandırması\İlkeler\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows güvenlik duvarı   | Tüm ağ bağlantılarını korumaya         |
-    | RDP'yi etkinleştirin                           | Bilgisayar Yapılandırması\İlkeler\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows güvenlik duvarı   | Gelen Uzak Masaüstü özel durumlarına izin ver |
-    |                                      | Bilgisayar Yapılandırması\İlkeler\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Standard Profile\Windows güvenlik duvarı | Gelen Uzak Masaüstü özel durumlarına izin ver |
-    | ICMP V4 etkinleştir                       | Bilgisayar Yapılandırması\İlkeler\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows güvenlik duvarı   | ICMP özel durumlarına izin ver                   |
-    |                                      | Bilgisayar Yapılandırması\İlkeler\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Standard Profile\Windows güvenlik duvarı | ICMP özel durumlarına izin ver                   |
+    | Windows Güvenlik duvarı profillerini etkinleştirme | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Tüm ağ bağlantılarını korumaya         |
+    | RDP'yi etkinleştirin                           | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Gelen Uzak Masaüstü özel durumlarına izin ver |
+    |                                      | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Standard Profile\Windows Firewall | Gelen Uzak Masaüstü özel durumlarına izin ver |
+    | ICMP V4 etkinleştir                       | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | ICMP özel durumlarına izin ver                   |
+    |                                      | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Standard Profile\Windows Firewall | ICMP özel durumlarına izin ver                   |
 
 ## <a name="verify-vm-is-healthy-secure-and-accessible-with-rdp"></a>VM sağlam, güvenli ve RDP ile erişilebilir olduğunu doğrulayın 
 1. Disk sağlıklı ve tutarlı olduğundan emin olmak için VM yeniden başlatıldığında onay disk işlemi çalıştırın:
@@ -309,7 +309,7 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
 
 7. Yerleşik yönetici hesabı ve parolası, bilinmektedir emin olun. Geçerli yerel yönetici parolasını sıfırlayabilir ve Windows için RDP bağlantısı oturum açmak için bu hesabı kullanabilirsiniz emin olmak isteyebilirsiniz. Bu erişim izni "oturum Uzak Masaüstü Hizmetleri üzerinden izin ver" Grup İlkesi nesnesi tarafından denetlenir. Yerel Grup İlkesi Düzenleyicisi'nde altında bu nesne görüntüleyebilirsiniz:
 
-    Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması
+    Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
 
 8. RDP aracılığıyla ya da ağ üzerinden, RDP erişimini engelleme değil emin olmak için aşağıdaki AD ilkeleri denetleyin:
 
@@ -338,11 +338,11 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
 ### <a name="install-windows-updates"></a>Windows güncelleştirmeleri yükle
 İdeal Yapılandırması **makineyi en son düzeltme eki düzeyine sahip**. Bu mümkün değilse, aşağıdaki güncelleştirmelerinin yüklendiğinden emin olun:
 
-| Bileşen               | İkili         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 sürümü 1607Windows Server 2016 sürüm 1607'ye | Windows 10 Sürüm 1703    | Windows 10 1709 Windows Server 2016 sürüm 1709 | Windows 10 1803Windows Server 2016 sürümü 1803 |
+| Bileşen               | İkili         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8,Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 sürümü 1607Windows Server 2016 sürüm 1607'ye | Windows 10 Sürüm 1703    | Windows 10 1709 Windows Server 2016 sürüm 1709 | Windows 10 1803Windows Server 2016 sürümü 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Depolama                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | Storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
-|                         | NTFS.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
+|                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |
 |                         | Classpnp.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17061 / 6.2.9200.21180 - KB2995387 | 6.3.9600.18334 - KB3172614         | 10.0.14393.953 - KB4022715                              | -                          | -                                               | -                                               |
 |                         | Volsnap.sys    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17047 / 6.2.9200.21165 - KB2975331 | 6.3.9600.18265 - KB3145384         | -                                                       | 10.0.15063.0               | -                                               | -                                               |
@@ -350,7 +350,7 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
 |                         | volmgr.sys     |                                           |                                             |                                    |                                                         | 10.0.15063.0               | -                                               | -                                               |
 |                         | Volmgrx.sys    | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | 10.0.15063.0               | -                                               | -                                               |
 |                         | Msiscsi.sys    | 6.1.7601.23403 - KB3125574                | 6.2.9200.21006 - KB2955163                  | 6.3.9600.18624 - KB4022726         | 10.0.14393.1066 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
-|                         | MSDSM.sys      | 6.1.7601.23403 - KB3125574                | 6.2.9200.21474 - KB3046101                  | 6.3.9600.18592 - KB4022726         | -                                                       | -                          | -                                               | -                                               |
+|                         | Msdsm.sys      | 6.1.7601.23403 - KB3125574                | 6.2.9200.21474 - KB3046101                  | 6.3.9600.18592 - KB4022726         | -                                                       | -                          | -                                               | -                                               |
 |                         | Mpio.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.21190 - KB3046101                  | 6.3.9600.18616 - KB4022726         | 10.0.14393.1198 - KB4022715                             | -                          | -                                               | -                                               |
 |                         | vmstorfl.sys   | 6.3.9600.18907 - KB4072650                | 6.3.9600.18080 - KB3063109                  | 6.3.9600.18907 - KB4072650         | 10.0.14393.2007 - KB4345418                             | 10.0.15063.850 - KB4345419 | 10.0.16299.371 - KB4345420                      | -                                               |
 |                         | Fveapi.dll     | 6.1.7601.23311 - KB3125574                | 6.2.9200.20930 - KB2930244                  | 6.3.9600.18294 - KB3172614         | 10.0.14393.576 - KB4022715                              | -                          | -                                               | -                                               |
@@ -364,7 +364,7 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
 |                         | vmswitch.sys   | 6.1.7601.23727 - KB4022719                | 6.2.9200.22117 - KB4022724                  | 6.3.9600.18654 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.138             | -                                               | -                                               |
 | Çekirdek                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.483             | -                                               | -                                               |
 | Uzak Masaüstü Hizmetleri | rdpcorets.dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.0               | -                                               | -                                               |
-|                         | Termsrv.dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850         | 10.0.14393.0 - KB4022715                                | 10.0.15063.0               | -                                               | -                                               |
+|                         | termsrv.dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850         | 10.0.14393.0 - KB4022715                                | 10.0.15063.0               | -                                               | -                                               |
 |                         | termdd.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
 |                         | Win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726         | 10.0.14393.594 - KB4022715                              | -                          | -                                               | -                                               |
 |                         | rdpdd.dll      | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
@@ -406,6 +406,10 @@ Bu Genelleştirme, her rol ya da Windows tabanlı bir bilgisayarda yüklü uygul
 5. **Tamam** düğmesine tıklayın.
 6. Sysprep tamamlandığında, VM'yi kapatın. Kullanmayın **yeniden** sanal makineyi.
 7. Artık VHD yüklenmek hazırdır. Genelleştirilmiş bir diskten VM oluşturma hakkında daha fazla bilgi için bkz. [genelleştirilmiş VHD yükleme ve Azure'da yeni bir VM oluşturmak için bunu kullanın](sa-upload-generalized.md).
+
+
+>[!NOTE]
+> Özel bir unattend.xml desteklenmiyor. AdditionalUnattendContent özelliği destekliyoruz, ancak yalnızca sınırlı destek eklemek için sağlayan [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) Azure sağlama aracının kullandığı unattend.xml içine seçenekleri. Örneğin  kullanabilecekleri [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) FirstLogonCommands ve LogonCommands eklemek için. Ayrıca bkz: [additionalUnattendContent FirstLogonCommands örnek](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
 ## <a name="complete-recommended-configurations"></a>Önerilen yapılandırmaları tamamlayın

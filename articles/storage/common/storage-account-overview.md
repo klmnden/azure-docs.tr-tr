@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 880ae672409704ddcd5597ae758f8c786c3c0720
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244496"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327859"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -78,7 +78,7 @@ Depolama hesabınızı adlandırırken şu kuralları göz önünde bulundurun:
 Genel amaçlı depolama hesapları ya da aşağıdaki performans katmanları yapılandırılabilir:
 
 * Bloblar, dosyalar, tabloları, kuyrukları ve Azure sanal makine disklerini depolamak için standart performans katmanı.
-* Yalnızca Azure sanal makine disklerini depolamak için bir premium performans katmanı. Bkz: [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../../virtual-machines/windows/premium-storage.md) için Premium depolama ayrıntılı genel bakış.
+* Yalnızca yönetilmeyen sanal makine disklerini depolamak için bir premium performans katmanı.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Blok blobu veri erişim katmanları
 

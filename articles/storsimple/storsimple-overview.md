@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 946b5a568d98367daec0244968b962618f22ae76
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059650"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326936"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 serisi: bir hibrit bulut depolaması çözümü
 ## <a name="overview"></a>Genel Bakış
@@ -92,7 +92,7 @@ Bulut Gereci aşağıdaki özelliklere sahiptir:
 * Bulut Gereçleri, sınırsız sayıda bulutta oluşturun ve bunları açıp gerektiği şekilde açın.
 * Şirket içi ortamlarda olağanüstü durum kurtarma, geliştirme ve test senaryoları benzetimini yardımcı olabilir ve yedeklemelerden öğe düzeyinde alma yardımcı olabilir.
 
-StorSimple Cloud Appliance iki modellerinde kullanılabilir: (önceden 1100 model olarak biliniyordu) 8010 cihaz ve 8020 cihaz. 8010 cihaz 30 TB kapasiteye sahiptir. Azure premium depolama yararlanır, 8020 cihaz 64 TB'lık maksimum kapasiteye sahiptir. (Standart depolama Hdd'lerde veri depoladığı yerel katmanlarda, Azure premium depolama veri Ssd'de depolar.) Premium depolama kullanmak için bir Azure premium depolama hesabına sahip olmaları gerektiğini unutmayın. Premium depolama hakkında daha fazla bilgi için Git [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../virtual-machines/windows/premium-storage.md).
+StorSimple Cloud Appliance iki modellerinde kullanılabilir: (önceden 1100 model olarak biliniyordu) 8010 cihaz ve 8020 cihaz. 8010 cihaz 30 TB kapasiteye sahiptir. Azure premium depolama yararlanır, 8020 cihaz 64 TB'lık maksimum kapasiteye sahiptir. (Standart depolama Hdd'lerde veri depoladığı yerel katmanlarda, Azure premium depolama veri Ssd'de depolar.) Premium depolama kullanmak için bir Azure premium depolama hesabına sahip olmaları gerektiğini unutmayın.
 
 StorSimple Cloud Appliance hakkında daha fazla bilgi için Git [Dağıt ve azure'da bir StorSimple Cloud Appliance'ı yönetme](storsimple-8000-cloud-appliance-u2.md).
 
@@ -153,7 +153,7 @@ Daha fazla bilgi için Git [SharePoint için StorSimple bağdaştırıcısı](st
 Adanmış StorSimple cihazı, sanal cihaz ve diğer bileşenleri ek olarak, Microsoft Azure StorSimple veri hızlı erişim sağlar ve depolama tüketimini azaltmak için aşağıdaki yazılım teknolojilerini kullanır:
 
 * [Otomatik depolama katmanlamayı](#automatic-storage-tiering) 
-* [Ölçülü kaynak sağlama](#thin-provisioning) 
+* [ölçülü kaynak sağlama](#thin-provisioning) 
 * [Yinelenenleri kaldırma ve sıkıştırma](#deduplication-and-compression) 
 
 ### <a name="automatic-storage-tiering"></a>Otomatik depolama katmanlamayı
@@ -186,7 +186,7 @@ StorSimple, tüm anlık görüntüleri ve birincil veri (ana bilgisayar tarafın
 Başvuru verileri için olduğunda, veriler yalnızca buluttan silinir. Biz StorSimple cihazı ve sonra birincil veri silebilir bir bulut anlık görüntüsü tüm verilerin alırsa, biz gibi görür _birincil veri_ hemen bırakın. _Bulut veri_ katmanlı veriler ve yedeklemeler içeren aynı kalır. Bulut veri yine de başvuran bir anlık görüntü olduğundan budur. Sonra bulut anlık görüntüsü silinir (ve aynı verilere başvurduğu diğer tüm anlık görüntü), bulut tüketimi bırak. Biz bulut veri kaldırmadan önce anlık görüntü yok yine de bu verilere başvuruda denetleyin. Bu işlem çağrılırken _çöp toplama_ ve cihazda çalıştıran bir arka plan hizmeti. Bulut verilerini hemen değil silmeden önce bu verileri diğer başvurular atık toplama hizmetinin denetler. Çöp toplama hızı, anlık görüntüler ve toplam veri toplam sayısına bağlıdır. Genellikle, bulut verilerini bir hafta içinde temizlenir.
 
 
-### <a name="thin-provisioning"></a>Ölçülü kaynak sağlama
+### <a name="thin-provisioning"></a>ölçülü kaynak sağlama
 Ölçülü kaynak sağlama fiziksel kaynakları aşmayı kullanılabilir depolama alanı görünür bir sanallaştırma teknolojisidir. Önceden yeterli depolama alanı ayırmak yerine, StorSimple ölçülü kaynak sağlama geçerli gereksinimlerini karşılamak için yeterli alan ayırmak için kullanır. StorSimple artırabilir veya azaltabilirsiniz değişen taleplerini karşılamak üzere bulut depolama çünkü bu yaklaşım bulut depolama esnek yapısı kolaylaştırır.
 
 > [!NOTE]
@@ -235,7 +235,7 @@ Aşağıdaki desteklenen StorSimple altyapı bileşenlerini bir listesidir.
 | Senaryo | İş yükü | Desteklenen | Kısıtlamalar | Sürüm |
 | --- | --- | --- | --- | --- |
 | Genel |Express Route |Evet | |Tüm sürümler |
-| Genel |FC DataCore |Evet* |DataCore SANsymphony ile desteklenen |Tüm sürümler |
+| Genel |DataCore FC |Evet* |DataCore SANsymphony ile desteklenen |Tüm sürümler |
 | Genel |DFSR |Evet* |Yalnızca yerel olarak sabitlenmiş birimleri ile desteklenen |Tüm sürümler |
 | Genel |Dizinleme |Evet* |Katmanlı birimler için yalnızca meta veri dizinleme desteklenir (veri).<br>Yerel olarak sabitlenmiş birimler için dizin oluşturma tamamlandı desteklenir. |Tüm sürümler |
 | Genel |Virüsten koruma |Evet* |Katmanlı birimler için yalnızca tarama açık ve Kapat desteklenir.<br> Yerel olarak sabitlenmiş birimler için tam tarama desteklenir. |Tüm sürümler |
@@ -273,7 +273,7 @@ Microsoft Azure StorSimple çözümünüzle dağıtmadan önce aşağıdaki teri
 | Bulut depolama şifreleme anahtarı |Bir parola veya buluta cihazınız tarafından gönderilen şifrelenmiş verilere erişmek için StorSimple cihazınız tarafından kullanılan anahtar. |
 | Küme durumunu algılayan güncelleştirme |Güncelleştirmelerin en düşük böylece yük devretme kümesindeki sunucularda yazılım güncelleştirmelerini yönetme veya hizmet kullanılabilirliğini etkilemez. |
 | DataPath |Bir koleksiyonu arası bağlı veri işleme işlemleri işlevsel birimi. |
-| Devre dışı bırak |StorSimple cihazı ile ilişkili bir bulut hizmeti arasındaki bağlantıyı keser kalıcı bir eylem. Bulut anlık görüntüleri cihazın bu işlem kalır ve kopyalanmış veya olağanüstü durum kurtarma için kullanılan. |
+| devre dışı bırak |StorSimple cihazı ile ilişkili bir bulut hizmeti arasındaki bağlantıyı keser kalıcı bir eylem. Bulut anlık görüntüleri cihazın bu işlem kalır ve kopyalanmış veya olağanüstü durum kurtarma için kullanılan. |
 | Disk yansıtma |Mantıksal disk birimi ayrı sabit çoğaltılmasını sürekli kullanılabilirlik sağlamak için gerçek zamanlı olarak beraberinde getirir. |
 | dinamik disk yansıtma |Dinamik diskler mantıksal disk birimi çoğaltma. |
 | dinamik diskler |Birden çok fiziksel disklere verileri yönetmek için Mantıksal Disk Yöneticisi (LDM) kullanır. bir disk birimi biçimi. Daha fazla boş alan sağlamak için dinamik diskler büyütülebilir. |

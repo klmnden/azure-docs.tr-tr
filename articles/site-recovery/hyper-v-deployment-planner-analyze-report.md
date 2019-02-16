@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5fbcfd102518dc231ad61c54e626c14381bf5a02
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 0ee3ff8bb1ebfc276550cba3570fdf4360aabf72
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321628"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327876"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery dağıtım Planlayıcısı raporunu analiz etme
 Bu makalede, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporunda bulunan sayfalar ele alınmaktadır.
@@ -179,7 +179,7 @@ Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, 
 
 **VM adı**: Bir rapor oluşturulurken VMListFile içinde kullanılan VM adı. Bu sütunda ayrıca sanal makinelere bağlanan diskler de (VHD) listelenir. Adlar, profil oluşturma sırasında aracın sanal makineleri bulduğu Hyper-V konak adlarını içerir.
 
-**VM uyumluluğu**: Değerler **Evet** ve **Evet**\*. **Evet**\* değeri, VM’nin [Azure premium depolama](https://aka.ms/premium-storage-workload) için uygun olduğu örneklere yöneliktir. Burada, profili oluşturulan yüksek değişim sıklığı veya IOPS diski, diske eşlenen boyuttan daha büyük bir premium disk boyutuna sığar. Depolama hesabı, bir diskin boyutuna göre hangi premium depolama disk türüne eşleneceğine karar verir: 
+**VM uyumluluğu**: Değerler **Evet** ve **Evet**\*. **Evet** \* için sanal makine için uygun olduğu örneklere [premium SSD](../virtual-machines/windows/disks-types.md). Burada, profili oluşturulan yüksek değişim sıklığı veya IOPS diski, diske eşlenen boyuttan daha büyük bir premium disk boyutuna sığar. Depolama hesabı, bir diskin boyutuna göre hangi premium depolama disk türüne eşleneceğine karar verir: 
 * <128 GB bir P10’dur.
 * 128 GB ile 256 GB arası P15’tir.
 * 256 GB ile 512 GB arası P20'dir.

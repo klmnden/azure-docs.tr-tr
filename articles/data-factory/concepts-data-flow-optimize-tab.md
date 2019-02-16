@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: a83e95793563faab31e6b7183d657126c13ebb54
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31aca6f4ccfe9991a1dcf2808815a4543e2c6fe6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56213667"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326468"
 ---
-# <a name="azure-data-factory-data-flow-transformation-optimize-tab"></a>Azure Data Factory veri akışını dönüştürme için sekmesinde en iyi duruma
+# <a name="mapping-data-flow-transformation-optimize-tab"></a>Eşleme veri akışını dönüştürme iyileştirme sekmesi
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

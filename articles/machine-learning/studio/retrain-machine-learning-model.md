@@ -1,7 +1,7 @@
 ---
-title: Bir Machine Learning Studio modeli yeniden eğitme
+title: Yeniden eğitme ve bir web hizmetini dağıtma
 titleSuffix: Azure Machine Learning Studio
-description: Modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için Web hizmetini güncelleştirmek hakkında bilgi edinin.
+description: Yeni eğitilen makine öğrenme modeli Azure Machine Learning Studio'da kullanmak için bir web hizmetini güncelleştirmek hakkında bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,84 +9,186 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
-ms.date: 04/19/2017
-ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/14/2019
+ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236269"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330520"
 ---
-# <a name="retrain-an-azure-machine-learning-studio-model"></a>Bir Azure Machine Learning Studio modeli yeniden eğitme
-Azure Machine Learning, machine learning modellerini, operasyonel hale getirme sürecinin bir parçası olarak, modelinizi eğitilmiş ve kaydedilir. Ardından, bir Tahmine dayalı Web hizmeti oluşturmak için kullanabilirsiniz. Web hizmeti web siteleri, panolar ve mobil uygulamalarda tüketilebilir. 
+# <a name="retrain-and-deploy-a-machine-learning-model"></a>Yeniden eğitme ve makine öğrenme modeli dağıtma
 
-Machine Learning kullanarak oluşturduğunuz modelleri genellikle statik değildir. Yeni veriler kullanılabilir olduğunda ya da kendi veri tüketici API'si varsa, model eğitilebileceği gerekir. 
+Yeniden eğitme doğru ve bağlı kullanılabilir en alakalı verileri olarak makine öğrenimi modelleri kalmasını sağlamak için bir yoludur. Bu makalede, yeniden eğitme ve bir machine learning Studio'da yeni bir web hizmeti olarak modeli dağıtma gösterilmektedir. Bir Klasik web hizmetini yeniden eğitme arıyorsanız [bu nasıl yapılır makalesine bakın.](retrain-classic-web-service.md)
 
-Yeniden eğitme sık gerçekleşebilir. Programlı olarak yeniden eğitme API özelliğiyle, program aracılığıyla yeniden eğitme API'lerini kullanarak modeli yeniden eğitme ve Web hizmeti ile yeni eğitilen modeli güncelleştirmek. 
+Bu makalede, özel olarak dağıtılan bir Tahmine dayalı web hizmeti zaten sahip olduğunuzu varsayar. Tahmine dayalı web hizmeti, zaten yoksa [bir Studio web hizmeti dağıtma hakkında bilgi edinin.](publish-a-machine-learning-web-service.md)
 
-Bu belge, yeniden eğitme işlemini açıklar ve yeniden eğitme API'lerini kullanmayı gösterir.
+Yeniden eğitme ve bir machine learning yeni web hizmeti dağıtmak için aşağıdaki adımları:
 
-## <a name="why-retrain-defining-the-problem"></a>Neden yeniden eğitme: sorunu tanımlama
-Makine öğrenimi eğitim işleminin bir parçası olarak, bir veri kümesini kullanarak bir model çalıştırılır. Machine Learning kullanarak oluşturduğunuz modelleri genellikle statik değildir. Yeni veriler kullanılabilir olduğunda ya da kendi veri tüketici API'si varsa, model eğitilebileceği gerekir.
+1. Dağıtım bir **web hizmetini yeniden eğitme**
+1. Kullanarak yeni bir modeli eğitmek, **web hizmetini yeniden eğitme**
+1. Mevcut güncelleştirme **Tahmine dayalı denemeye** yeni modeli kullanmak için
 
-Bu senaryolarda, programlı bir API, veya tüketici apı'lerinizi tek seferlik veya normal temelinde kendi verilerini kullanarak modeldeki eğitebilir bir istemci oluşturmak izin vermek için kullanışlı bir yol sağlar. Bunlar daha sonra yeniden eğitme sonuçları değerlendirin ve yeni eğitilen modelini kullanmak için Web hizmeti API'si güncelleştirin.
+## <a name="deploy-the-retraining-web-service"></a>Yeniden eğitme web hizmetini dağıtma
 
-> [!NOTE]
-> Bir eğitim denemesini mevcut ve yeni Web hizmeti varsa, aşağıdaki bölümde belirtildiği izlenecek yolu takip yerine var olan bir Tahmine dayalı Web hizmeti Retrain denetlemek isteyebilirsiniz.
-> 
-> 
+Yeniden eğitme bir web hizmeti parametreleri gibi yeni veri kümesi modelinizi yeniden eğitme ve sonrası için Kaydet olanak sağlar. Bağladığınızda bir **Web hizmeti çıkış** için bir **modeli eğitme**, eğitim denemesini kullanabilmeniz için yeni bir modeli çıkarır.
 
-## <a name="end-to-end-workflow"></a>Uçtan uca iş akışı
-İşlemi aşağıdaki bileşenleri içerir: Eğitim denemesini ve öngörücü bir denemeye bir Web hizmeti olarak yayımlandı. Eğitilen bir modeli yeniden eğitme etkinleştirmek için eğitim denemesini eğitilen bir modelin çıktısı ile bir Web hizmeti olarak yayımlanması gerekir. Bu API yeniden eğitme için modele erişim sağlar. 
+Yeniden eğitme bir web hizmetini dağıtmak için aşağıdaki adımları kullanın:
 
-Hem yeni hem de klasik Web Hizmetleri için aşağıdaki adımları uygulayın:
+1. Bağlama bir **Web hizmeti giriş** modülü, veri girişi için. Genellikle, girişinizi özgün eğitim verilerinizi aynı şekilde işlendiğinden emin olmak istersiniz.
+1. Bağlama bir **Web hizmeti çıkış** çıktısına modülü, **modeli eğitme**.
+1. Varsa bir **Evaluate Model** modülü bağlanabilir bir **Web hizmeti çıkış** değerlendirme sonuçlarını çıkarmak için Modülü
+1. Denemenizi çalıştırın.
 
-İlk Tahmine dayalı Web hizmeti oluşturun:
+    Denemenizi çalıştırdıktan sonra elde edilen iş akışı aşağıdaki görüntüye benzer olmalıdır:
 
-* Eğitim denemenizi oluşturma
-* Tahmine dayalı web deneme oluşturma
-* Tahmine dayalı web hizmetini dağıtma
+    ![Sonuçta elde edilen iş akışı](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
-Web hizmetini yeniden eğitme:
+    Şimdi, eğitim denemesini eğitilen bir modelin ve model değerlendirme sonuçlarını veren bir yeniden eğitme web hizmeti olarak dağıtalım.
 
-* Yeniden eğitme için izin vermek için eğitim denemesini güncelleştir
-* Yeniden eğitme web hizmetini dağıtma
-* Modeli yeniden eğitme için toplu yürütme hizmeti kodu kullanın
+1. Deneme tuvalinin altındaki tıklatın **Web hizmeti ayarlama**
+1. Seçin **[Yeni] Web hizmetini dağıtma**. Azure Machine Learning Web Hizmetleri portalı açılır **Web hizmeti Dağıt** sayfası.
+1. Web hizmetiniz için bir ad yazın ve ödeme planı seçin.
+1. **Dağıt**'ı seçin.
 
-> [!NOTE] 
-> Yeni bir web hizmetini dağıtmak için yeterli olan aboneliği, web hizmetini dağıtma olması gerekir. Daha fazla bilgi edinmek, [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md). 
+## <a name="retrain-the-model"></a>Modeli yeniden eğitme
 
-Bir Klasik Web hizmetini dağıttıysanız:
+Bu örnekte, C# yeniden eğitme uygulama oluşturmak için kullanıyoruz. Python veya R örnek kod, bu görevi gerçekleştirmek için de kullanabilirsiniz.
 
-* Tahmine dayalı Web hizmetinde yeni bir uç nokta oluşturma
-* URL düzeltme ve kodu alma
-* Yeni uç nokta retrained modeli işaret edecek şekilde düzeltme eki uygulama URL'sini kullanın. 
+Yeniden eğitme API'lerini çağırmak için aşağıdaki adımları kullanın:
 
-Klasik Web hizmetini yeniden eğitme zorluklarla çalıştırırsanız, bkz. [bir Azure Machine Learning Klasik Web hizmetini yeniden eğitme sorun giderme](troubleshooting-retraining-models.md).
+1. Oluşturma bir C# konsol uygulaması Visual Studio'da: **Yeni** > **proje** > **Visual C#**   >  **Windows Klasik Masaüstü**  >   **Konsol uygulaması (.NET Framework)**.
+1. Machine Learning Web Hizmetleri portalında oturum açın.
+1. Üzerinde çalıştığınız web hizmeti.
+1. Tıklayın **tüketen**.
+1. Sayfanın alt kısmında **Tüket** sayfasında **örnek kodu** bölümünde **Batch**.
+1. Toplu iş yürütme için örnek C# kodu kopyalayın ve Program.cs dosyasına yapıştırın. Ad alanı değişmeden kalmasını sağlayın.
 
-Yeni Web hizmetini dağıttıysanız:
+Yorumlar bölümünde belirtildiği gibi System.NET.http.Formatting, NuGet paketini ekleyin. Microsoft.WindowsAzure.Storage.dll başvuru eklemek için yüklemeniz gerekebilir [Azure depolama hizmetleri için İstemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-* Azure Resource Manager hesabınızda oturum açın
-* Web servis tanımı Al
-* Web hizmet tanımı JSON olarak dışarı aktarma
-* Başvuru güncelleştirme `ilearner` JSON blob
-* Web hizmet tanımı JSON dosyasını içe
-* Yeni Web hizmeti tanımıyla Web hizmetini güncelleştirmek
+Aşağıdaki ekran görüntüsü gösterildiği **Tüket** Azure Machine Learning Web Hizmetleri portalında sayfası.
 
-İşlem için bir Klasik Web hizmetini yeniden eğitme yukarı ayarlamak için aşağıdaki adımları içerir:
+![Sayfa kullanma](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
 
-![Yeniden eğitme işlemine genel bakış][1]
+### <a name="update-the-apikey-declaration"></a>Apikey bildirimini güncelleştirin
 
-Yeni Web hizmeti olarak yeniden eğitme yukarı ayarlama işlemi aşağıdaki adımları içerir:
+Bulun **apikey** bildirimi:
 
-![Yeniden eğitme işlemine genel bakış][7]
+    const string apiKey = "abc123"; // Replace this with the API key for the web service
 
-## <a name="other-resources"></a>Diğer Kaynaklar
-* [Azure Data Factory ile yeniden eğitme ve güncelleştirme Azure Machine Learning modelleri](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
-* [Çok sayıda Machine Learning modeli ve web hizmet uç noktaları, PowerShell kullanarak bir denemeden oluşturun.](create-models-and-endpoints-with-powershell.md)
-* [AML yeniden eğitme modelleri kullanarak API'leri](https://www.youtube.com/watch?v=wwjglA8xllg) video gösterir, Azure Machine Learning'de oluşturulan Machine Learning modelleri yeniden eğitme nasıl yeniden eğitme API'lerini ve PowerShell kullanarak.
+İçinde **temel tüketim bilgileri** bölümünü **Tüket** sayfasında birincil anahtarını bulun ve kopyalayıp **apikey** bildirimi.
 
-<!--image links-->
-[1]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png
-[7]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE07.png
+### <a name="update-the-azure-storage-information"></a>Azure depolama bilgilerini güncelleştir
 
+BES örnek kodu (örneğin, "C:\temp\CensusInput.csv") yerel sürücüden bir dosyayı Azure Storage'a yükler, işler ve sonuçları, Azure Depolama'ya geri yazar.
+
+1. Azure portalda oturum açma
+1. Sol gezinti sütununda **diğer hizmetler**, arama **depolama hesapları**ve bu seçeneği belirleyin.
+1. Depolama hesapları listesinden bir retrained modelini depolamak için seçin.
+1. Sol gezinti sütununda **erişim anahtarları**.
+1. Kopyalayıp kaydedin **birincil erişim anahtarı**.
+1. Sol gezinti sütununda **kapsayıcıları**.
+1. Var olan bir kapsayıcıyı seçin veya yeni bir tane oluşturun ve adını kaydedin.
+
+Bulun *StorageAccountName*, *StorageAccountKey*, ve *StorageContainerName* bildirimleri ve Portalı'ndan kaydedilmiş değerleri güncelleştirin.
+
+    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
+    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
+    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
+
+Giriş dosyası, kod içinde belirttiğiniz konumda kullanılabilir olduğunu da emin olmanız gerekir.
+
+### <a name="specify-the-output-location"></a>Çıkış konumunu belirtme
+
+İstek yükünde belirtilen dosya uzantısını çıkış konumu belirttiğinizde *RelativeLocation* olarak belirtilmelidir `ilearner`.
+
+    Outputs = new Dictionary<string, AzureBlobDataReference>() {
+        {
+            "output1",
+            new AzureBlobDataReference()
+            {
+                ConnectionString = storageConnectionString,
+                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
+            }
+        },
+
+Yeniden eğitme çıktının bir örneği aşağıda verilmiştir:
+
+![Çıktı yeniden eğitme](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+
+### <a name="evaluate-the-retraining-results"></a>Yeniden eğitme sonuçları değerlendirin
+
+Uygulamayı çalıştırdığınızda, çıktı URL'yi ve değerlendirme sonuçlarını erişmek gerekli olan paylaşılan erişim imzaları belirteci içerir.
+
+Performans sonuçlarını retrained modelinin birleştirerek gördüğünüz *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* içinçıkışsonuçlarından*output2* ve tam URL'sini tarayıcınızın adres çubuğuna yapıştırma.
+
+Yeni eğitim modeli, var olan bir daha iyi sonuç verdiğini belirlemek için sonuçları inceleyin.
+
+Kaydet *BaseLocation*, *RelativeLocation*, ve *SasBlobToken* çıkış sonuçlarından.
+
+## <a name="update-the-predictive-experiment"></a>Tahmine dayalı denemeye güncelleştir
+
+### <a name="sign-in-to-azure-resource-manager"></a>Azure Resource Manager'a oturum açın
+
+İlk olarak, Azure hesabınıza PowerShell ortamında kullanarak oturum açın [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet'i.
+
+### <a name="get-the-web-service-definition-object"></a>Web hizmet tanımı nesnesini alın
+
+Ardından, Web hizmeti tanımı nesnesi çağırarak alın [Get-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice) cmdlet'i.
+
+    $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+
+Mevcut bir web hizmetini kaynak grubu adını belirlemek için aboneliğinizde web hizmetleri görüntülemek için herhangi bir parametre olmadan Get-AzureRmMlWebService cmdlet'ini çalıştırın. Web hizmeti bulun ve ardından, web hizmeti kimliğini arayın Kaynak grubu adını dördüncü kimliği hemen sonra öğedir *resourceGroups* öğesi. Aşağıdaki örnekte kaynak grubu adı varsayılan MachineLearning SouthCentralUS ' dir.
+
+    Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
+    Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+    Name : RetrainSamplePre.2016.8.17.0.3.51.237
+    Location : South Central US
+    Type : Microsoft.MachineLearning/webServices
+    Tags : {}
+
+Alternatif olarak, mevcut bir web hizmetini kaynak grubu adını belirlemek için Azure Machine Learning Web Hizmetleri portalında oturum açın. Web hizmeti seçin. Kaynak grubu adı beşinci web hizmetinin URL'sini hemen sonra öğesidir *resourceGroups* öğesi. Aşağıdaki örnekte kaynak grubu adı varsayılan MachineLearning SouthCentralUS ' dir.
+
+    https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+
+### <a name="export-the-web-service-definition-object-as-json"></a>Web servis tanımı nesnesi, JSON olarak dışarı aktarma
+
+Yeni eğitilen modelini kullanmak için eğitilen model tanımı değiştirmek için önce kullanmalısınız [dışarı aktarma AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) JSON biçiminde bir dosyaya vermek için cmdlet'i.
+
+    Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+
+### <a name="update-the-reference-to-the-ilearner-blob"></a>Güncelleştirme ilearner blob başvurusu
+
+[Eğitilen model] varlıkları bulun, güncelleştirme *URI* değerini *locationInfo* düğümle ilearner blob URI'si. URI birleştirerek oluşturulur *BaseLocation* ve *RelativeLocation* çağrı yeniden eğitme BES çıktısından.
+
+     "asset3": {
+        "name": "Retrain Sample [trained model]",
+        "type": "Resource",
+        "locationInfo": {
+          "uri": "https://mltestaccount.blob.core.windows.net/azuremlassetscontainer/baca7bca650f46218633552c0bcbba0e.ilearner"
+        },
+        "outputPorts": {
+          "Results dataset": {
+            "type": "Dataset"
+          }
+        }
+      },
+
+### <a name="import-the-json-into-a-web-service-definition-object"></a>JSON bir Web hizmeti tanımının nesnesine içe aktarın.
+
+Kullanma [alma AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) değiştirilmiş bir JSON dosyası predicative denemeyi güncelleştirmeniz kullanabileceğiniz geri bir Web hizmeti tanımının nesnesine dönüştürmek için cmdlet'i.
+
+    $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
+
+### <a name="update-the-web-service"></a>Web hizmetini güncelleştirmek
+
+Son olarak, [güncelleştirme AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) Tahmine dayalı denemeye güncelleştirmek için cmdlet.
+
+    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Web hizmetlerini yönetme veya birden çok denemeleri çalıştırması izlemek hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+
+* [Web Hizmetleri portalını keşfedin](manage-new-webservice.md)
+* [Deneme yinelemelerini yönetme](manage-experiment-iterations.md)

@@ -8,47 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c75745452ee819dbda75f7420c93a5629cef4e08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 93e3d9fa67cfb941abf97476e03f44a4b16e94e7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860399"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313169"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Hızlı Başlangıç: REST API ve PHP ile bir resimdeki yüz algılama
 
-Bu hızlı başlangıçta, Yüz Tanıma API'sini kullanarak bir görüntüdeki insan yüzlerini algılayacaksınız.
+Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için PHP ile Azure yüz REST API'sini kullanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
+- Yüz tanıma API'si abonelik anahtarı. Ücretsiz deneme aboneliği anahtarından alabilirsiniz [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Veya yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yüz tanıma API'si hizmete abone ve anahtarınızı alın.
+- Bir kod Düzenleyicisi gibi [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Yüz - Algılama isteği
+## <a name="initialize-the-html-file"></a>HTML dosyasını başlatın
 
-[Yüz - Algılama](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) yöntemini kullanarak bir görüntüdeki yüzleri algılayın ve aşağıdaki yüz özniteliklerini döndürün:
+Yeni bir HTML dosyası oluşturun *detectFaces.html*ve aşağıdaki kodu ekleyin.
 
-* Face ID: Birkaç yüz tanıma API'si senaryoda kullanılan benzersiz kimliği.
-* Yüz dikdörtgeni: Sol, üst, genişlik ve yükseklik resimdeki yüz konumunu belirten.
-* Yer işareti: Yüz tanıma bileşenlerinin önemli konumlarına işaret eden 27 noktası yüz yer işareti dizisi.
-* Yaş, cinsiyet, gülümseme yoğunluğu, kafanın duruşu ve sakal ve bıyık gibi yüzdeki öznitelikler.
+```html
+<html>
+    <head>
+        <title>Face Detect Sample</title>
+    </head>
+    <body></body>
+</html>
+```
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
+## <a name="write-the-php-script"></a>PHP komut dosyası yazma
 
-1. Aşağıdaki kodu bir düzenleyicinin içine kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `uriBase` değerini abonelik anahtarlarınızı aldığınız konumu kullanacak şekilde değiştirin.
-1. İsteğe bağlı olarak, `imageUrl` öğesini analiz etmek istediğiniz görüntü olarak ayarlayın.
-1. Dosyayı `.php` uzantısıyla kaydedin.
-1. Dosyayı PHP desteğiyle bir tarayıcı penceresinde açın.
+Aşağıdaki kodu ekleyin `body` öğesi belgenin. Bu URL alana sahip bir temel kullanıcı arabirimini ayarlar bir **yüz analiz** düğmesi, bir yanıtı bölme ve bir görüntü bölmesini görüntüle.
 
 ```php
-<html>
-<head>
-    <title>Face Detect Sample</title>
-</head>
-<body>
 <?php
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
@@ -102,13 +97,13 @@ catch (HttpException $ex)
     echo "<pre>" . $ex . "</pre>";
 }
 ?>
-</body>
-</html>
 ```
 
-## <a name="face---detect-response"></a>Yüz - Algılama yanıtı
+Güncellemeniz gerekecektir `subscriptionKey` alan abonelik anahtarınız ve değeri ile değiştirmek gerekebilir `uriBase` doğru bölge tanımlayıcısı içeren dize (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge listesi uç noktaları). `returnFaceAttributes` Alanı almak için hangi yüz öznitelikleri belirtir; Bu dize öngörülen kullanımınıza bağlı olarak değiştirmek isteyebilirsiniz.
 
-Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
+## <a name="run-the-script"></a>Betiği çalıştırın
+
+Dosyayı bir PHP özellikli bir web tarayıcısında açın. Yüz tanıma veri, aşağıdaki gibi bir JSON dizesi almanız gerekir.
 
 ```json
 [

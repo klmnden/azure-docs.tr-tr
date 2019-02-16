@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: d24dcc6f12347c66abc033f4c8b25c3b49870a44
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d5dd916f7e4434640db6dae6f8c5a73d1ff2d3e0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895780"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327968"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Bir Linux VM'ye veri diski için portalı kullanma 
 Bu makalede Azure portalı üzerinden bir Linux sanal makinesi için yeni ve var olan diskleri ekleme gösterilmektedir. Ayrıca [Azure portalında bir Windows sanal makinesine veri diski](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -29,8 +29,7 @@ Bu makalede Azure portalı üzerinden bir Linux sanal makinesi için yeni ve var
 Sanal makinenizde diski önce bu ipuçlarını gözden geçirin:
 
 * Sanal makinenin boyutunu, iliştirebilirsiniz kaç veri diskinin denetler. Ayrıntılar için bkz [sanal makine boyutları](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Premium depolama kullanmak için DS serisi veya GS serisi bir sanal makine gerekir. Bu sanal makineler ile hem Premium hem de standart diskler kullanabilirsiniz. Premium depolama belirli bölgelerde kullanılabilir. Ayrıntılar için bkz [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Sanal makinelere bağlanan diskler Azure'da depolanan gerçekten .vhd dosyalarıdır. Ayrıntılar için bkz [sanal makineler için diskler ve VHD'ler hakkında](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Sanal makinelere bağlanan diskler Azure'da depolanan gerçekten .vhd dosyalarıdır. Ayrıntılar için bkz. bizim [yönetilen disklere giriş](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Disk ekledikten sonra yapmanız [yeni disk bağlanacak Linux VM'ye bağlanmak](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 

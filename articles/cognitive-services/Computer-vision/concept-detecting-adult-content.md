@@ -8,27 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 64db05e5e40b76d219ea0e3214c20297f32da4b5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861281"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312559"
 ---
-# <a name="detecting-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içerikleri algılama
+# <a name="detect-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içerikleri algılama
 
-Çeşitli görsel kategoriler arasında yetişkinlere yönelik ve müstehcen içerik grubu, yetişkinlere yönelik malzemeleri algılamaya olanak tanır ve cinsel içerikli görüntülerin gösterilmesini kısıtlar. Yetişkinlere yönelik veya müstehcen içeriklerin algılanmasına yönelik filtre, kullanıcının tercihleri doğrultusunda bir kaydırıcı ölçeği üzerinde ayarlanabilir.
+Böylece geliştiriciler kendi yazılım görüntüleri görüntülenmesini kısıtlayabilirsiniz görüntü işleme görüntülerde yetişkinlere yönelik malzeme algılayabilir. Böylece geliştiriciler kendi tercihleri göre sonuçları çevirebilir içerik bayrakları arasında sıfır ve tek bir puanı ile uygulanır. 
 
-## <a name="defining-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içeriğin tanımlama
+> [!NOTE]
+> Bu özellik ayrıca tarafından sunulan [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) hizmeti. Bu alternatif çözümler için metin denetimi ve insan tarafından inceleme iş akışları gibi daha ayrıntılı içerik denetleme senaryolarına bakın.
 
-Tarafından kapsanan çeşitli görsel özellikleri arasında [analiz görüntü yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), yetişkinlere yönelik görsel özellik yetişkinlere yönelik ve müstehcen resim olanak tanır. "Yetişkinlere yönelik" görüntüleri doğası gereği pornografik olan ve çıplaklık ve cinsel eylem genellikle tarif bu tanımlanır. "Müstehcen" görüntülerini cinsel doğası gereği anlatan ve genellikle daha az "Yetişkin" etiketlenmiş görüntülerini cinsel içerikli içerik içeren bir görüntü olarak tanımlanır Yetişkinlere yönelik görsel özellik türü, ekran görüntülerini cinsel müstehcen içeren ve açıkça cinsel içerik kısıtlamak için yaygın olarak kullanılır.
+## <a name="content-flag-definitions"></a>İçeriği bayrağı tanımları
 
-## <a name="identifying-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içerikleri belirleme
+**Yetişkin** görüntüleri hangi doğası ve genellikle pornografik çıplaklık ve cinsel eylem tarif olarak tanımlanır. 
 
-İki özellik, analiz görüntüsü yöntemini döndürür `isAdultContent` ve `isRacyContent`, JSON yanıtındaki yöntemin sırasıyla yetişkinlere yönelik ve müstehcen içeriğin denetimi gösterir. Her iki özellik, bir Boole değeri true veya false döndürür. Yöntemi iki özellik de döndürür `adultScore` ve `racyScore`, temsil, sırasıyla, yetişkinlere yönelik ve müstehcen içeriğin denetimi tanımlamak için güven puanları. Yetişkinlere yönelik ve müstehcen içerik algılaması için bir güven filtre, belirli bir senaryoya göre tercihinizi uyum sağlamak için bir kaydırıcı ölçeğini üzerinde ayarlanabilir.
+**Müstehcen** görüntüleri doğası ve genellikle cinsel müstehcen resimleri görüntüleri olarak etiketlenmiş cinsel içerikli daha az içerik olarak tanımlanmış **yetişkinlere yönelik**. 
+
+## <a name="identify-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içeriği tanımlayın
+
+[Analiz](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
+
+İki boolean özelliği, analiz görüntüsü yöntemini döndürür `isAdultContent` ve `isRacyContent`, JSON yanıtındaki yöntemin yetişkinlere yönelik ve müstehcen içerik sırasıyla olduğunu gösterir. Yöntemi iki özellik de döndürür `adultScore` ve `racyScore`, yetişkinlere yönelik ve müstehcen içeriğin sırasıyla tanımlamak için güven puanları temsil eder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260389"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313577"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum yetkilisi kavram consortium
 
@@ -148,7 +148,7 @@ Herhangi bir türden idare DApp aracılığıyla işlemlerini gerçekleştirmek 
 MetaMask yükledikten sonra tarayıcıda idare DApp gidin.  URL, dağıtım onay e-posta veya dağıtım çıktıda Azure Portalı aracılığıyla bulabilirsiniz.  Yüklü bir tarayıcı içi Cüzdan yoksa; eylemleri gerçekleştirmek mümkün olmayacaktır Ancak, yine yönetici durumu okuyamadı mümkün olacaktır.  
 
 #### <a name="becoming-an-admin"></a>Bir yönetici olma
-Ağda dağıtılan ilk üye varsa, daha sonra otomatik olarak bir yönetici olur ve eşlik düğümlerinizi doğrulayıcıları listelenir.  Ağ birleştirilecekse, yönetici olarak varolan bir çoğunluğu tarafından (50 %'den büyük) yönetici Ayarla oy gerekecektir.  Düğümlerinizi hala eşitleme ve blok zinciri doğrulama bir yönetici olmayan bir duruma seçerseniz; ancak blok oluşturma işleminde katılmayacaktır. Bir yönetici olun oylama işlemini başlatmak için tıklatın __Nominate__ Ethereum adresi ve diğer ad girin.
+Ağda dağıtılan ilk üye varsa, daha sonra otomatik olarak bir yönetici olur ve eşlik düğümlerinizi doğrulayıcıları listelenir.  Ağ birleştirilecekse, yönetici olarak Çoğunluk (50 %'den büyük) oylayan gerekir Mevcut yönetim kümesi.  Düğümlerinizi hala eşitleme ve blok zinciri doğrulama bir yönetici olmayan bir duruma seçerseniz; ancak blok oluşturma işleminde katılmayacaktır. Bir yönetici olun oylama işlemini başlatmak için tıklatın __Nominate__ Ethereum adresi ve diğer ad girin.
 
 ![Belirle](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
@@ -258,9 +258,9 @@ Sanal makine ve depolama katmanı ağ performansını etkileyeceğini unutmayın
 
   Sanal makine SKU'su|Depolama katmanı|Fiyat|Aktarım hızı|Gecikme süresi
   ---|---|---|---|---
-  F1|Standart SSD|Düşük|Düşük|Yüksek
+  F1|Standart SSD|düşük|düşük|Yüksek
   D2_v3|Standart SSD|orta|orta|orta
-  F16s|Premium SSD|Yüksek|Yüksek|Düşük
+  F16s|Premium SSD|Yüksek|Yüksek|düşük
 
 Aşağıda bir örnek dağıtımı: ![ağ, boyut ve performans](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
@@ -359,7 +359,7 @@ Genel IP tabanlı bir dağıtım kullanarak bu ilk adım sorunsuz bağlıdır. V
 
     -  Kalan adil gösterimi emin olmak için ağ üzerinde üyeler aynı sayıda Doğrulayıcı düğümleri seçin
 
-    -  Sunulan aynı Ethereum adresini kullanmak [önceki adım](#step-1-add-the-new-admin)
+    -  Önceki adımda sağlanan aynı Ethereum adresini kullanın
 
     -  Sağlanan geçirmek *Consortium veri URL'si* üzerinde *Ethereum ayarları* sekmesi
 

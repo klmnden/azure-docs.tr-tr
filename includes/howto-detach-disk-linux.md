@@ -4,17 +4,17 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 7c9c52c5cda258908ac8463dd06044e244c75ee2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735903"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327929"
 ---
 Sanal makineye (VM) bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayca ayırabilirsiniz. VM’den bir diski ayırdığınızda disk depolama biriminden kaldırılmaz. Disk üzerinde var olan verileri yeniden kullanmak isterseniz bu verileri aynı VM’ye veya başka bir VM’ye yeniden ekleyebilirsiniz.  
 
 > [!NOTE]
-> Azure'da VM’ler işletim sistemi diski, yerel geçici disk ve isteğe bağlı veri diskleri gibi farklı tür diskler kullanır. Ayrıntılar için bkz. [Sanal Makinelerde Diskler ve VHD’ler Hakkında](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). VM’yi silmediğiniz sürece işletim sistemi diskini ayıramazsınız.
+> Azure'da VM’ler işletim sistemi diski, yerel geçici disk ve isteğe bağlı veri diskleri gibi farklı tür diskler kullanır. Ayrıntılar için bkz. [Sanal Makinelerde Diskler ve VHD’ler Hakkında](../articles/virtual-machines/linux/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). VM’yi silmediğiniz sürece işletim sistemi diskini ayıramazsınız.
 
 ## <a name="find-the-disk"></a>Diski bulma
 Bir diski VM’den ayırmadan önce LUN numarasını bulmanız gerekir. Bu numara ayrılacak disk için bir tanımlayıcıdır. Bunu yapmak için şu adımları uygulayın:

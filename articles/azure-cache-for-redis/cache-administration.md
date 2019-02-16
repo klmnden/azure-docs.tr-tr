@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: b75a2faa2030fc343cbabb17eb37b63c9ea34f70
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d36f2851f9c4f30725c8f8057d61970b6560009e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232390"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313220"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure önbelleği için Redis yönetme
 Bu konuda gibi yönetim görevlerini gerçekleştirmek kullanılan nasıl açıklanmaktadır [yeniden](#reboot) ve [güncelleştirmelerini zamanlama](#schedule-updates) , Azure önbelleği için Redis örneği için.
@@ -94,7 +94,7 @@ Yeniden başlatma, tüm fiyatlandırma katmanları için kullanılabilir.
 
 Bir bakım penceresi belirtmek için istenen gün işaretleyin ve her gün için bakım penceresi başlangıç saati belirleyin ve tıklayın **Tamam**. Bakım penceresi saati UTC biçiminde olduğunu unutmayın. 
 
-Güncelleştirmeler için varsayılan ve en düşük bakım penceresi beş saattir. Bu değer Azure Portalı'ndan yapılandırılabilir değildir, ancak PowerShell kullanarak yapılandırabilirsiniz `MaintenanceWindow` parametresinin [yeni AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet'i. Daha fazla bilgi için [PowerShell, CLI veya diğer yönetim araçlarını kullanarak zamanlanmış güncelleştirmeler yönetebilirim?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+Güncelleştirmeler için varsayılan ve en düşük bakım penceresi beş saattir. Bu değer Azure Portalı'ndan yapılandırılabilir değildir, ancak PowerShell kullanarak yapılandırabilirsiniz `MaintenanceWindow` parametresinin [yeni AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet'i. Daha fazla bilgi için bkz: PowerShell, CLI veya diğer yönetim araçlarını kullanarak zamanlanmış güncelleştirmeler yönetebilirim?
 
 
 ## <a name="schedule-updates-faq"></a>SSS güncelleştirmelerini zamanlama

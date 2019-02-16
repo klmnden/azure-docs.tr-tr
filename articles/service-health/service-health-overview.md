@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: b771e36344ff26c9a817a0314e0f223b6e809a17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871711"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328274"
 ---
 # <a name="service-health"></a>Hizmet Durumu
 Hizmet durumu, bunları kullandığınız bölgelerde Azure hizmetlerinizin durumunu izleyen özelleştirilebilir bir Pano sağlar. Bu Panoda, sürmekte olan bir hizmet sorunları, yaklaşan planlı Bakım veya ilgili bir sistem durumu danışmanları gibi etkin olayları izleyebilirsiniz. Olayları etkin olmayan duruma geldiğinde, 90 güne kadar sistem durumu geçmişinizde verdiklerine. Son olarak, hizmet durumu panosu oluşturmak ve hizmet sorunları, etkileşimimiz bağlandığınızda proaktif olarak size bildirim hizmeti sistem durumu Uyarıları yönetmek için kullanabilirsiniz.
@@ -24,6 +24,9 @@ Hizmet durumu, kaynaklarınızı etkileyebilecek sistem durumu olaylarını üç
 1. **Hizmet sorunları** -şu anda etkileyen Azure hizmetlerindeki sorunların. 
 2. **Planlı Bakım** -hizmetlerinizin kullanılabilirliğini gelecekte etkileyebilir yaklaşan Bakımı.  
 3. **Sistem durumu danışmanları** -Azure hizmetlerindeki dikkat etmeniz gereken değişiklikleri. Azure özellikleri kullanım dışı olduğunda veya bir kullanım kotası aşarsanız örneklerindendir.
+
+> [!NOTE]
+> Hizmet durumu olayları görüntülemek için kullanıcıların bir abonelikte okuyucu rolü olmalıdır.
 
 ## <a name="get-started-with-service-health"></a>Hizmet durumu ile çalışmaya başlama
 Hizmet durumu panonuzu başlatmak için hizmet durumu kutucuğunu portal panonuza seçin. "Diğer hizmetler" hizmeti sistem sağlığı Hizmeti'nde kutucuğu daha önce kaldırdığınız veya özel bir Pano kullanıyorsanız, arama (alt, sol Panonuzda).

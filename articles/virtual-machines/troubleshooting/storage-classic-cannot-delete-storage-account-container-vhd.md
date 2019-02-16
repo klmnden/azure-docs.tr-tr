@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 72493c6bba556314c3652be5251463d1d1e005bd
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383447"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330622"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Klasik depolama kaynağı silme hatalarını giderme
 Bu makalede, Azure Klasik depolama hesabı, kapsayıcı veya *.vhd sayfa blob dosyası silinmeye çalışılırken şu hatalar biri meydana geldiğinde sorun giderme kılavuzu verilmiştir. 
@@ -21,7 +21,7 @@ Bu makalede, Azure Klasik depolama hesabı, kapsayıcı veya *.vhd sayfa blob do
 
 Bu makalede, yalnızca klasik depolama kaynakları ile ilgili sorunları kapsar. Azure portalını kullanarak klasik bir sanal makine bir kullanıcıyı siler, PowerShell veya CLI ardından diskleri otomatik olarak silinmez. Kullanıcı, "Disk" kaynağı silme seçeneğini alır. Durumunda seçeneği seçili değilse, "Disk" kaynak depolama hesabı, kapsayıcı ve gerçek *.vhd sayfa blob dosyası silinmesini engeller.
 
-Azure diskleri hakkında daha fazla bilgi bulunabilir [burada](../../virtual-machines/windows/about-disks-and-vhds.md). Azure bozulmasını önlemek için bir sanal Makineye bağlı bir disk silinmesini engeller. Ayrıca, kapsayıcılar ve bir VM'ye bağlı bir sayfa blobu olan depolama hesapları silinmesini engeller. 
+Azure diskleri hakkında daha fazla bilgi bulunabilir [burada](../../virtual-machines/windows/managed-disks-overview.md). Azure bozulmasını önlemek için bir sanal Makineye bağlı bir disk silinmesini engeller. Ayrıca, kapsayıcılar ve bir VM'ye bağlı bir sayfa blobu olan depolama hesapları silinmesini engeller. 
 
 ## <a name="what-is-a-disk"></a>"Disk" nedir?
 "Disk" kaynağı, bir sanal makine *.vhd sayfa blob dosyasına bir işletim sistemi diski veya veri diski olarak bağlamak için kullanılır. Bir işletim sistemi diski veya veri diski kaynak silinene kadar kiralama *.vhd dosyada tutmak devam eder. "Disk" kaynağı için işaret ediyorsa, görüntü gösterilen yolundaki tüm depolama kaynağı silinemez.
@@ -79,7 +79,7 @@ PowerShell kullanarak silmek kullanıcı seçerse, şu hataya neden olur.
 
 ><span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
 
-><span style="color:red">Remove-AzureStorageContainer : Uzak sunucu bir hata döndürdü: (412) burada şu anda kapsayıcı üzerindeki kira ve istekte hiçbir kiralama kimliği belirtildi... HTTP durum kodu: 412 - HTTP hata iletisi: Kapsayıcı üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.</span>
+><span style="color:red">Remove-AzureStorageContainer : Uzak sunucu hata döndürdü: (412) burada şu anda kapsayıcı üzerindeki kira ve istekte hiçbir kiralama kimliği belirtildi... HTTP durum kodu: 412 - HTTP hata iletisi: Kapsayıcı üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>Bir vhd silinemedi 
 
@@ -101,7 +101,7 @@ PowerShell kullanarak silmek kullanıcı seçerse, şu hataya neden olur.
 
 ><span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
 
-><span style="color:red">Remove-AzureStorageBlob : Uzak sunucu bir hata döndürdü: (412) burada şu anda blob üzerinde kiralama ve istekte hiçbir kiralama kimliği belirtildi... HTTP durum kodu: 412 - HTTP hata iletisi: Blob üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.</span>
+><span style="color:red">Remove-AzureStorageBlob : Uzak sunucu hata döndürdü: (412) burada şu anda blob üzerinde kiralama ve istekte hiçbir kiralama kimliği belirtildi... HTTP durum kodu: 412 - HTTP hata iletisi: Blob üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.</span>
 
 
 ## <a name="resolution-steps"></a>Çözüm adımları

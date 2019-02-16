@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: dafa9f09b6aed1f61facf3737c7e03c81b2a0e7d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 15b7bae6116d05e7bf4cd76a1ba1b93bb127fef8
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238258"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313101"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Sanal ağ desteği için bir Premium Azure önbelleği için Redis yapılandırma
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, kümeleme, Kalıcılık ve sanal ağ desteği gibi Premium katman özellikleri dahil olmak üzere tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Bir sanal ağ, bulutta özel bir ağdır. Bir Azure önbelleği için Redis örneği bir VNet ile yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içindeki uygulamalardan erişilebilir. Bu makalede, Redis örneği için bir premium Azure Cache için sanal ağ desteğini yapılandırma açıklanır.
@@ -85,7 +85,7 @@ Aşağıdaki liste, Redis ölçeklendirmeye yönelik Azure önbelleği hakkında
 
 * Azure Cache, Redis ve sanal ağlar ile bazı yaygın hatalı yapılandırma sorunları nelerdir?
 * [Önbelleğimin sanal ağ içinde çalıştığını nasıl doğrulayabilirim?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
-* [Uzak sertifika geçersiz bildiren bir hata neden alıyorum bir VNET'te Azure Önbelleğimin bağlanmaya çalışırken Redis?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
+* Uzak sertifika geçersiz bildiren bir hata neden alıyorum bir VNET'te Azure Önbelleğimin bağlanmaya çalışırken Redis?
 * [Sanal ağlar bir standart veya temel önbellek ile kullanabilir miyim?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * Neden Azure önbelleği için Redis oluşturma bazı alt ağlar, ancak diğerlerini başarısız oluyor?
 * [Alt ağ adres alanı gereksinimleri nelerdir?](#what-are-the-subnet-address-space-requirements)

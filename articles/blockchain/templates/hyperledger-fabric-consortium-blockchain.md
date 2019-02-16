@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: 884f6a81796341e274027095691585212d5a3749
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830301"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328036"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric Konsorsiyum ağı
 
@@ -113,7 +113,7 @@ Abonelik aldıktan sonra Git [Azure portalında](https://portal.azure.com). Seç
 | Parametre Adı | Açıklama | İzin verilen değerler |
 |---|---|---|
 **Ölçek türü**|Tek bir sanal makine ile birden çok kapsayıcı ya da birden çok sanal makine ölçek genişletme modeli dağıtım türü.|Tek bir VM veya çoklu VM |
-**VM Disk türü**|Dağıtılan düğümler yedekleme depolama türü. <br/> Depolama hakkında daha fazla bilgi edinmek için [Microsoft Azure Storage'a giriş](https://docs.microsoft.com/azure/storage/common/storage-introduction) ve [Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standart SSD <br/> Premium SSD |
+**VM Disk türü**|Dağıtılan düğümler yedekleme depolama türü. <br/> Kullanılabilir disk türleri hakkında daha fazla bilgi edinmek için [bir disk türü seçin](../../virtual-machines/windows/disks-types.md).|Standart SSD <br/> Premium SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Birden çok VM dağıtımı (ek ayarları)
 

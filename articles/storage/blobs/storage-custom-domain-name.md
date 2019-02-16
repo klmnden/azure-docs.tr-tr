@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edd011509c9129e95bcf7ea49f5a84e17fffd176
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694593"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310559"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure depolama hesabınız için bir özel etki alanı adı yapılandırma
 
@@ -56,7 +56,7 @@ Doğrudan yöntem "özel etki alanı Kaydet" bölümünde ele alınmıştır.
 
 Bir blob uç noktasına özel etki alanınızı eşleme neden olabilecek kısa bir süre kapalı kalma süresi etki alanında kaydederken [Azure portalında](https://portal.azure.com). Etki alanı şu anda bir uygulamayı sıfır kapalı kalma süresi gerektiren bir hizmet düzeyi sözleşmesi (SLA) ile destekliyorsa, Azure kullanan *asverify* alt etki alanı kayıt ara adım olarak. Bu adım, DNS eşlemesi gerçekleşirken kullanıcıların etki alanınızı erişebilmesini sağlar.
 
-Aracı yöntemi ele alınmıştır [kullanarak özel bir etki alanı kayıt *asverify* alt etki alanı](#register-a-custom-domain-using-the-asverify-subdomain).
+Aracı yöntemi kapsamında özel bir etki alanı kullanarak kaydetmek *asverify* alt etki alanı.
 
 ## <a name="register-a-custom-domain"></a>Özel bir etki alanına kaydetme
 Etki alanı, aşağıdaki deyimleri uygularsanız, bu bölümdeki yordamı kullanarak kaydedin:
@@ -65,7 +65,7 @@ Etki alanı, aşağıdaki deyimleri uygularsanız, bu bölümdeki yordamı kulla
 
 Azure DNS, Azure Blob Depolama için özel DNS adını yapılandırmak için kullanabilirsiniz. Daha fazla bilgi için bkz. [Bir Azure hizmeti için özel etki alanı ayarları sağlamak üzere Azure DNS'yi kullanma](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage).
 
-Özel etki alanınız şu anda kapalı kalma süresi olamaz uygulamanın destekliyorsa, bu yordamı kullanın [kullanarak özel bir etki alanı kayıt *asverify* alt etki alanı](#register-a-custom-domain-using-the-asverify-subdomain).
+Özel etki alanınız şu anda kapalı kalma süresi olamaz uygulamanın destekliyorsa, kayıt yordamda özel bir etki alanı kullanarak *asverify* alt etki alanı.
 
 Özel etki alanı yapılandırmak için DNS'de yeni bir CNAME kaydı oluşturun. CNAME kaydı, bir etki alanı adı için bir diğer ad belirtir. Bizim örneğimizde, depolama hesabının Blob Depolama uç noktasına özel etki alanınızı adresiyle eşleşir.
 

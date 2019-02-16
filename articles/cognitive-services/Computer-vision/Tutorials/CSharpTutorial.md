@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Görüntü işleme uygulama oluşturma-C#'
+title: 'Örnek: Bir görüntü işleme uygulamada keşfedinC#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Microsoft Bilişsel hizmetler görüntü işleme API'sini kullanan basit bir Windows uygulaması keşfedin. OCR gerçekleştirin, küçük resimler oluşturun ve bir görüntüdeki görsel özelliklerle çalışın.
 services: cognitive-services
@@ -7,18 +7,18 @@ author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
-ms.date: 08/28/2018
+ms.topic: sample
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b944325287593a028d28545731370dc9ea6a5ac2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224930"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310958"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>Öğretici: App - C işleme bir görüntü oluşturun&#35;
+# <a name="sample-explore-an-image-processing-app-with-c"></a>Örnek: Bir görüntü işleme uygulaması keşfedinC#
 
 Optik karakter tanıma (OCR) gerçekleştirin, akıllı kırpılmış küçük resimler oluşturma artı algılamak, kategorilere ayırma, etiket için görüntü işleme kullanır ve bir resimdeki yüz, dahil olmak üzere, görsel özellikleri açıklayan temel bir Windows uygulaması keşfedin. Aşağıdaki örnek bir görüntü URL'si veya yerel ortamda depolanan dosya göndermenizi sağlar. Bu açık kaynak örneği ve görüntü işleme API'si, .NET Framework'ün bir parçası olan Windows Presentation Foundation (WPF) kullanarak Windows için kendi uygulamanızı oluşturmak için şablon olarak kullanabilirsiniz.
 

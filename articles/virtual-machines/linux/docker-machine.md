@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: f4be58d702b5d97722a3f9f1ee2df6b519ba4fab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: da0e393dc2ae0d93ecc49745a42ffac4669ed74b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731759"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326315"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Azure'da konakları oluşturmak için Docker Machine kullanma
 Bu makalede nasıl kullanılacağı ayrıntılı [Docker Machine](https://docs.docker.com/machine/) Azure'da konakları oluşturmak için. `docker-machine` Komut Azure'da bir Linux sanal makinesini (VM) oluşturur, ardından Docker'ı yükler. Daha sonra aynı yerel Araçlar ve iş akışlarını kullanarak azure'da Docker ana yönetebilirsiniz. Windows 10'da docker-machine kullanma için Linux bash kullanmanız gerekir.
@@ -137,4 +137,4 @@ Kapsayıcı iş başında görmek için bir web tarayıcısı açın ve önceki 
 ![Çalışan ngnix kapsayıcı](./media/docker-machine/nginx.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ayrıca konaklarla oluşturabilirsiniz [Docker VM uzantısını](dockerextension.md). Docker Compose kullanma hakkında daha fazla örnek için bkz: [Docker ve Compose azure'da kullanmaya başlama](docker-compose-quickstart.md).
+Docker Compose kullanma hakkında daha fazla örnek için bkz: [Docker ve Compose azure'da kullanmaya başlama](docker-compose-quickstart.md).

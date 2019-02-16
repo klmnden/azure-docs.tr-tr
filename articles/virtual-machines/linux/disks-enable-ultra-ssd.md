@@ -1,6 +1,6 @@
 ---
-title: Linux Vm'leri için Ultra yüksek SSD yönetilen diskler | Microsoft Docs
-description: Ultra hakkında bilgi edinin Azure VM'ler için SSD yönetilen diskleri
+title: Ultra yüksek disk - Linux VM'ler için Azure yönetilen diskler | Microsoft Docs
+description: Azure Vm'leri için Ultra yüksek yönetilen diskler hakkında bilgi edinin
 services: virtual-machines-linux
 author: roygara
 ms.service: virtual-machines-linux
@@ -12,11 +12,11 @@ ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: seodec18
 ms.subservice: disks
-ms.openlocfilehash: bc4a648bde1727b82c8edfbe44f7962e90d08d6b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c0642b9985b987b479da1d426a504e652cdee0b9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476556"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329396"
 ---
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]

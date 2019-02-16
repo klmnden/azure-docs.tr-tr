@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822791"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329959"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
@@ -88,7 +88,7 @@ Ardından, kaynak makinenin özelliklerini doğrulayın. Azure VM adının karş
 2. **Özellikler** kısmında VM'nin çoğaltma ve yük devretme bilgilerini inceleyebilirsiniz.
 3. İçinde **işlem ve ağ** > **işlem özellikleri**, birden çok VM propoerties değiştirebilirsiniz:
 * Azure VM name - gerekirse Azure gereksinimlerine uymak için adı değiştirin
-* Hedef VM boyutu veya türü - ' % s'varsayılan VM boyutu bağlı kaynak VM boyutu seçilir. Yük devretmeden önce dilediğiniz zaman gereksinimini göre farklı bir VM boyutu seçebilirsiniz. VM disk boyutu Ayrıca kaynak disk boyutu temel alınır ve yalnızca yük devretme sonrasında değişen olabilir unutmayın. Daha fazla bilgi [standart](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) ve [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) disk boyutları ve IOPS.
+* Hedef VM boyutu veya türü - ' % s'varsayılan VM boyutu bağlı kaynak VM boyutu seçilir. Yük devretmeden önce dilediğiniz zaman gereksinimini göre farklı bir VM boyutu seçebilirsiniz. VM disk boyutu Ayrıca kaynak disk boyutu temel alınır ve yalnızca yük devretme sonrasında değişen olabilir unutmayın. Disk boyutları ve IOP cinsinden üzerinde daha fazla bilgi bizim [diskler için ölçeklenebilirlik hedefleri](../virtual-machines/windows/disk-scalability-targets.md) makalesi.
 
     ![İşlem ve ağ özellikleri](./media/vmware-azure-enable-replication/vmproperties.png)
 

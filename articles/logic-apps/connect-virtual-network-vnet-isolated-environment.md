@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/15/2019
+ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176212"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311911"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
 
@@ -67,9 +67,10 @@ Erişilebilir kalmasını ve düzgün çalışması için tümleştirme hizmeti 
 | Azure Logic Apps ile iletişim <br>Azure Logic Apps gelen iletişimi | Gelen <br>Giden | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
 | Azure Active Directory | Giden | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
 | Azure depolama bağımlılık | Giden | * <br>80 & 443 | VIRTUAL_NETWORK <br>Depolama |
+| Mantıksal uygulamanızın çalıştırma geçmişi | Gelen | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
 | Bağlantı Yönetimi | Giden | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
 | Tanılama günlükleri ve ölçümleri yayımlama | Giden | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Logic Apps Tasarımcısı - dinamik özellikleri <br>Mantıksal uygulamanızın çalıştırma geçmişi <br>Bağlayıcı dağıtımı <br>İstek tetikleyicisi uç noktası | Gelen | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
+| Logic Apps Tasarımcısı - dinamik özellikleri <br>Bağlayıcı dağıtımı <br>İstek tetikleyicisi uç noktası | Gelen | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
 | App Service Management bağımlılık | Gelen | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
 | API Yönetimi - yönetim uç noktası | Gelen | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
 | Olay hub'ı İlkesi ve İzleme Aracısı günlüğünden bağımlılığı | Giden | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |

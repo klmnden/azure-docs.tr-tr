@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 482bfe41ebfec7353466f7e243e9e767caee7828
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8cd778762bebf4a9dda3688292ac0a3674e446e1
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228292"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330860"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Laboratuvar depolama hesabına AzCopy kullanarak karşıya VHD dosyası yükleme
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-Azure DevTest Labs'de sanal makineler sağlamak için kullanılan özel görüntüler oluşturmak için VHD dosyaları kullanılabilir. Aşağıdaki adımlarda bir laboratuvar depolama hesabına VHD dosyası yüklemek için AzCopy komut satırı yardımcı programını kullanarak aracılığıyla yol. VHD dosyasını yükledikten sonra [Bölümü'sonraki adımlar](#next-steps) karşıya yüklenen VHD dosyasından bir özel görüntü oluşturma işlemini göstermektedir bazı makaleler listeler. Diskler ve VHD'ler Azure hakkında daha fazla bilgi için bkz: [sanal makineler için diskler ve VHD'ler hakkında](../virtual-machines/linux/about-disks-and-vhds.md)
+Azure DevTest Labs'de sanal makineler sağlamak için kullanılan özel görüntüler oluşturmak için VHD dosyaları kullanılabilir. Aşağıdaki adımlarda bir laboratuvar depolama hesabına VHD dosyası yüklemek için AzCopy komut satırı yardımcı programını kullanarak aracılığıyla yol. VHD dosyasını yükledikten sonra [Bölümü'sonraki adımlar](#next-steps) karşıya yüklenen VHD dosyasından bir özel görüntü oluşturma işlemini göstermektedir bazı makaleler listeler. Diskler ve VHD'ler Azure hakkında daha fazla bilgi için bkz: [yönetilen disklere giriş](../virtual-machines/linux/managed-disks-overview.md)
 
 > [!NOTE] 
 >  

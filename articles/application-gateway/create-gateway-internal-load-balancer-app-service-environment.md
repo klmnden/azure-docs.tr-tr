@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 16cfe4c1db8fe9ba4c80f6451611237e3ee12c55
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ad52d2b1df458d04a1ca9bd52a99bab38ddabef1
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617884"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308596"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Arka uç sunucu sertifikası bir App Service ortamı ile bir iç Load Balancer'ı kullanarak uygulama ağ geçidi için izin verilenler listesinde değil.
 
-Bu makalede aşağıdaki sorunu giderir: Azure'da uçtan uca SSL kullanılırken arka uçtaki bir iç yük dengeleyici (ILB) bir App Service ortamı (ASE) ile birlikte kullanarak bir uygulama ağ geçidi oluşturduğunuzda, bir sertifika izin verilenler listesinde değil.
+Bu makalede aşağıdaki sorunu giderir: Azure'da uçtan uca SSL kullanılırken arka uçtaki bir iç yük dengeleyici (ILB) bir App Service ortamı (ASE) ile birlikte kullanarak bir uygulama ağ geçidi oluşturduğunuzda bir sertifika izin verilenler listesinde değil.
 
 ## <a name="symptoms"></a>Belirtiler
 
@@ -31,7 +31,7 @@ Bir ILB ASE arka kullanarak uygulama ağ geçidi oluşturduğunuzda, arka uç su
 
 **Uygulama ağ geçidi yapılandırması:**
 
-- **Dinleyici:** çok siteli
+- **Dinleyici:** Çoklu site
 - **Bağlantı noktası:** 443
 - **Ana bilgisayar adı:** test.appgwtestase.com
 - **SSL sertifikası:** CN=test.appgwtestase.com
@@ -39,9 +39,9 @@ Bir ILB ASE arka kullanarak uygulama ağ geçidi oluşturduğunuzda, arka uç su
 - **IP adresi:**: 10.1.5.11
 - **HTTP ayarları:** HTTPS
 - **Bağlantı noktası:**: 443
-- **Özel araştırma:** ana bilgisayar adı – test.appgwtestase.com
+- **Özel araştırma:** Ana bilgisayar adı – test.appgwtestase.com
 - **Kimlik doğrulama sertifikası:** test.appgwtestase.com, .cer
-- **Arka uç sistem durumu:** sağlıksız – arka uç sunucu sertifikası olmadığına uygulama ağ geçidi ile.
+- **Arka uç sistem durumu:** Sağlıksız – arka uç sunucu sertifikası ile Application Gateway izin verilenler listesinde değil.
 
 **ASE yapılandırma:**
 
@@ -56,20 +56,20 @@ Application gateway'e erişmek, arka uç sunucu uygun olmadığından aşağıda
 
 ## <a name="solution"></a>Çözüm
 
-Bir HTTPS Web sitesine erişmek için bir ana bilgisayar adı kullanmayın, arka uç sunucu varsayılan Web sitesinde yapılandırılan sertifikaya döndürür. ILB ASE, ILB sertifikası varsayılan sertifika gelir. ILB için yapılandırılmış hiçbir sertifika yoksa sertifika ASE uygulama sertifikası gelir.
+Bir HTTPS Web sitesine erişmek için bir ana bilgisayar adı kullanmayın, arka uç sunucu SNI devre dışı durumda varsayılan Web sitesinde yapılandırılan sertifikaya döndürür. ILB ASE, ILB sertifikası varsayılan sertifika gelir. ILB için yapılandırılmış hiçbir sertifika yoksa sertifika ASE uygulama sertifikası gelir.
 
-ILB erişmek için bir tam etki alanı adı (FQDN) kullandığınızda, arka uç sunucu HTTP ayarlarında karşıya yüklenen sertifikanın doğru döndürür. Bu durumda, aşağıdaki seçenekleri göz önünde bulundurun:
+ILB erişmek için bir tam etki alanı adı (FQDN) kullandığınızda, arka uç sunucu HTTP ayarlarında karşıya yüklenen sertifikanın doğru döndürür. Diğer bir deyişle Aksi halde, aşağıdaki seçenekleri göz önünde bulundurun:
 
 - FQDN, ILB IP adresine işaret edecek şekilde uygulama ağ geçidinin arka uç havuzunda kullanın. Bu seçenek, yalnızca özel bir DNS bölgesi varsa veya bir özel DNS yapılandırılmış çalışır. Aksi takdirde, bir "A" kaydı için bir genel DNS oluşturmak gerekir.
 
-- Karşıya yüklenen sertifikanın ILB veya HTTP ayarlarında varsayılan sertifikayı kullanın. Araştırma için ILB'nin IP eriştiğinde uygulama ağ geçidi sertifikası alır.
+- Karşıya yüklenen sertifikanın ILB veya HTTP ayarlarında varsayılan sertifika (ILB sertifikası) kullanın. Araştırma için ILB'nin IP eriştiğinde uygulama ağ geçidi sertifikası alır.
 
-- ILB ve arka uç sunucu üzerinde bir joker sertifikası kullanın.
+- Böylece tüm Web siteleri için sertifika ortak ILB ile arka uç sunucu üzerinde bir joker sertifikası kullanın. Ancak, bu çözüm yalnızca alt etki alanlarını olması durumunda mümkündür ve Web sitelerinin her farklı bir ana bilgisayar adları gerektirir durumunda gerekli değildir.
 
-- NET **App service için kullanım** application gateway için seçeneği.
+- NET **App service için kullanım** ILB IP adresi kullanıyorsanız application gateway için seçenek.
 
-Ek yükü azaltmak için iş yoklama yolu yapmak için HTTP ayarlarında ILB sertifikası yükleyebilirsiniz. (Bu adım yalnızca Güvenilenler listesine eklenmek için aynıdır. Bu SSL iletişimi için kullanılmayacak.) Daha sonra SSL verme Base-64 sertifikanın CER biçiminde ve ilgili HTTP ayarlarında sertifika karşıya yükleniyor kodlanmış ILB IP adresiyle HTTPS üzerinden erişerek ILB sertifikası alabilir.
+Ek yükü azaltmak için iş yoklama yolu yapmak için HTTP ayarlarında ILB sertifikası yükleyebilirsiniz. (Bu adım yalnızca Güvenilenler listesine eklenmek için aynıdır. Bu SSL iletişimi için kullanılmayacak.) HTTPS üzerinden tarayıcınızdan ILB IP adresiyle erişerek ILB sertifikası alabilir, ardından Base-64 olarak SSL sertifikasını dışarı aktarma kodlanmış CER biçiminde ve ilgili HTTP ayarlarında sertifika karşıya yükleniyor.
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
 
 Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

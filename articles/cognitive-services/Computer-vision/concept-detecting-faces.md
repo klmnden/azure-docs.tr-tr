@@ -8,23 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 81e846c6ffc0361b7154c962dbc047b9e5ae55e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1056b8be113d56342aea8f83d5325737f7ecb93b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872994"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308460"
 ---
 # <a name="face-detection-with-computer-vision"></a>Yüz algılama ile görüntü işleme
 
-Görüntü işleme, bir resimdeki İnsan yüzlerini algılar ve yaş, cinsiyet ve algılanan her yüz için dikdörtgen oluşturur. Görüntü İşleme, [Yüz Tanıma](/azure/cognitive-services/face/)'da bulunan işlevlerin bir alt kümesini sunar ve Yüz tanımanın yanı sıra poz algılama gibi daha ayrıntılı analiz işlemleri için Yüz Tanıma hizmetini kullanabilirsiniz.  
+Görüntü işleme, görüntü İnsan yüzlerini algılayın ve yaş, cinsiyet ve algılanan her yüz için dikdörtgen oluşturur. 
+
+> [!NOTE]
+> Bu özellik ayrıca Azure tarafından sunulan [yüz](/azure/cognitive-services/face/) hizmeti. Yüz tanıma gibi analiz, yüz tanıma ve algılama konusunda sizi uyarmayı bu seçenek daha ayrıntılı bakın. 
 
 ## <a name="face-detection-examples"></a>Yüz algılama örnekleri
 
-İlk örnek, tek bir insan yüz içeren bir görüntü için görüntü işleme tarafından döndürülen JSON yanıtı gösterir.
+Aşağıdaki örnek, tek bir insan yüz içeren bir görüntü için görüntü işleme tarafından döndürülen JSON yanıtı gösterir.
 
 ![Görüntü Analizi Damdaki Kadının Yüzü](./Images/woman_roof_face.png)
 
@@ -51,7 +54,7 @@ Görüntü işleme, bir resimdeki İnsan yüzlerini algılar ve yaş, cinsiyet v
 }
 ```
 
-İkinci örnek, birden fazla insan yüzlerini içeren bir görüntü için döndürülen JSON yanıtı gösterir.
+Sonraki örnek, birden fazla insan yüzlerini içeren bir görüntü için döndürülen JSON yanıtı gösterir.
 
 ![İşleme ailesi fotoğraf yüz analiz edin](./Images/family_photo_face.png)
 
@@ -110,4 +113,4 @@ Görüntü işleme, bir resimdeki İnsan yüzlerini algılar ve yaş, cinsiyet v
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kavramları hakkında bilgi edinin [etki alanına özgü içerik algılama](concept-detecting-domain-content.md).
+Bkz: [analiz görüntü](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) başvuru yüz algılama özelliğinin nasıl kullanılacağı hakkında daha fazla bilgi edinmek için belgeleri.

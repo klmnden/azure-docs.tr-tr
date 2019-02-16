@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9c1f8507cfa1f21214428e852e6ffed4d7703254
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564332"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312880"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Küme sertifikası parmak izini ortak ad olarak değiştirme
 İki sertifika küme sertifika geçişi veya yönetim zorlaştırır aynı parmak olabilir. Ancak, aynı ortak adı veya konu birden çok sertifika sahip olabilir.  Sertifika ortak adları kullanarak sertifika parmak izleri kullanarak dağıtılan bir kümenin geçiş sertifika yönetimi çok daha kolay hale getirir. Bu makalede, sertifika ortak adına sertifika parmak izi yerine kullanmak için çalışan bir Service Fabric kümesinin güncelleştirileceğini açıklar.
@@ -96,7 +96,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```
 
 >[!NOTE]
-> Her bir gizli dizi tutulan benzersiz bir kaynak olarak sanal makine ölçek kümesi gizli iki ayrı gizli dizileri için aynı kaynak kimliği desteği olmayan hesaplar. 
+> Ölçek kümesi gizli dizileri her gizli tutulan, benzersiz bir kaynak olarak iki ayrı gizli dizileri için aynı kaynak kimliği desteklemez. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>İndirin ve Portalı'ndan şablonunu güncelleştirme
 Sertifika temel ölçek kümesi üzerinde yüklü, ancak Ayrıca, sertifika ve ortak adı kullanmak için Service Fabric küme güncelleştirmeniz gerekir.  Şimdi, küme dağıtım için şablonu indirin.  Oturum [Azure portalında](https://portal.azure.com) ve küme barındırma kaynak grubuna gidin.  İçinde **ayarları**seçin **dağıtımları**.  En son dağıtım seçip tıklayın **görünüm şablonu**.

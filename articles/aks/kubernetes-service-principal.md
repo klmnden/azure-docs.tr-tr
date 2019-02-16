@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 2bc0579d3dd60d66a23a29dabff7e43ca8dfee76
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435404"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308763"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 
@@ -128,11 +128,10 @@ AKS ve Azure AD hizmet sorumlularını kullanılırken aşağıdaki noktalara di
 - Kubernetes kümesinin ana ve düğüm VM’lerinde, hizmet sorumlusu kimlik bilgileri `/etc/kubernetes/azure.json` dosyasında saklanır
 - Hizmet sorumlusunu otomatik olarak oluşturmak için [az aks create][az-aks-create] komutunu kullandığınızda, hizmet sorumlusu kimlik bilgileri komutun çalıştırıldığı makinede `~/.azure/aksServicePrincipal.json` dosyasına yazılır.
 - [az aks create][az-aks-create] komutu tarafından oluşturulan bir AKS kümesini sildiğinizde, otomatik olarak oluşturulan hizmet sorumlusu silinmez.
-    - Hizmet sorumlusunu silmek için, önce [az ad app list][az-ad-app-list]komutuyla hizmet sorumlusunun kimliğini alın. Aşağıdaki örnekte, *myAKSCluster* adlı küme sorgulanır ve [az ad app delete][az-ad-app-delete] ile uygulama kimliği silinir. Şu adları kendi değerlerinizle değiştirin:
+    - Sorgu kümeniz için hizmet sorumlusu silmek için *servicePrincipalProfile.clientId* ve delete ile [az ad app delete][az-ad-app-delete]. Aşağıdaki kaynak grubu ve küme adlarını kendi değerlerinizle değiştirin:
 
         ```azurecli
-        az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
-        az ad app delete --id <appId>
+        az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

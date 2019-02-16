@@ -1,5 +1,5 @@
 ---
-title: Ayıklanan metin OCR - görüntü işleme
+title: Ayıklanan metin ile optik karakter tanıma (OCR) - görüntü işleme
 titleSuffix: Azure Cognitive Services
 description: Optik karakter tanıma (OCR) görüntü işleme API'sini kullanarak metinle ayıklanması için ilgili kavramları.
 services: cognitive-services
@@ -8,39 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0f43724218994818908e87834ed1b70f4bca330b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: deb73eb9fdd6879a5fbe1fed820bf92b2d627b65
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873811"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310449"
 ---
-# <a name="extracting-text-with-optical-character-recognition"></a>Ayıklanan metin ile optik karakter tanıma
+# <a name="extract-text-with-optical-character-recognition"></a>Optik karakter tanıma ile metni Ayıkla
 
-Görüntü işleme optik karakter tanıma (OCR) teknolojisi, bir resimdeki metin içeriğini algılar ve tanımlanan metin bir makine tarafından okunabilir bir karakter akışı halinde ayıklar. Sonucu, arama yapmak için veya tıbbi kayıtlar, güvenlik ve bankacılık gibi çok çeşitli amaçlarla kullanabilirsiniz. Dili otomatik olarak algılar. OCR, zaman tasarrufu sağlar ve kullanıcılara, metni yazmak yerine bunların fotoğrafını çekme olanağı tanıyarak kolaylık sunar.
+Görüntü işleme'nın optik karakter tanıma (OCR) özelliği, bir resimdeki metin içeriğini algılar ve bir makine tarafından okunabilir bir karakter akışı halinde tanımlanan metin dönüştürür. Sonuç, arama, tıbbi kayıtları, güvenlik ve bankacılık gibi birçok amaç için kullanabilirsiniz. 
 
-OCR, 25 dili destekler. Bu diller şunlardır: Arapça, Çince, Geleneksel Çince, Basitleştirilmiş Çekçe, Danca, Felemenkçe, İngilizce, Fince, Fransızca, Almanca, Yunanca, Macarca, İtalyanca, Japonca, Korece, Norveççe, Lehçe, Portekizce, Rumence, Rusça, Sırpça (Kiril ve Latin), Slovakya, İspanyolca, İsveççe ve Türkçe.
+OCR, 25 dilleri destekler: Arapça, Çince, Geleneksel Çince, Basitleştirilmiş Çekçe, Danca, Felemenkçe, İngilizce, Fince, Fransızca, Almanca, Yunanca, Macarca, İtalyanca, Japonca, Korece, Norveççe, Lehçe, Portekizce, Rumence, Rusça, Sırpça (Kiril ve Latin), Slovakya, İspanyolca, İsveççe ve Türkçe. OCR, otomatik olarak algılanan metnin dilini algılar.
 
-Gerekirse, OCR tanınan metnin yönünü yatay görüntü ekseninde derece olarak düzeltir. OCR aşağıdaki çizimde görüldüğü gibi her bir sözcüğün çerçeve koordinatları sağlar.
+Gerekirse, OCR yatay görüntü eksen hakkında derece cinsinden döngüsel uzaklığı döndürerek tanınan metin döndürmesini düzeltir. OCR, aşağıdaki çizimde görüldüğü gibi her bir sözcüğün çerçeve koordinatları de sağlar.
 
 ![Döndürülmüş görüntüyü gösteren diyagram ve okuma ve makaleyle metin](./Images/vision-overview-ocr.png)
 
-## <a name="ocr-requirements"></a>OCR gereksinimleri
+## <a name="image-requirements"></a>Görüntü gereksinimleri
 
 Görüntü işleme, OCR aşağıdaki gereksinimleri karşılayan görüntüleri kullanarak metin ayıklayabilirsiniz:
 
 * Sunulan görüntünün JPEG, PNG, GIF veya BMP biçiminde olması gerekir
 * Girdi görüntüsünün boyutu 50 x 50 ile 4200 x 4200 piksel arasında olmalıdır
-
-
-Girdi görüntüsünün 90 derece birden fazla ve en fazla 40 derece küçük bir açısını tarafından döndürülebilir.
+* Görüntüdeki metnin birden fazla 90 derece yanı sıra en fazla 40 derece küçük bir açısını tarafından döndürülebilir.
 
 ## <a name="improving-ocr-accuracy"></a>OCR doğruluğunu artırma
 
-Metin tanımanın doğruluğu görüntünün kalitesine bağlıdır. Aşağıdaki durumlar yanlış okumaya yol açabilir:
+Metin tanımanın doğruluğu görüntünün kalitesine bağlıdır. Yanlış bir okuma aşağıdakilerden kaynaklanabilir:
 
 * Bulanık görüntüler.
 * El yazısı veya bitişik el yazısı metin.
@@ -52,8 +50,8 @@ Metin tanımanın doğruluğu görüntünün kalitesine bağlıdır. Aşağıdak
 
 ### <a name="ocr-limitations"></a>OCR sınırlamaları
 
-Metin baskın olduğu fotoğrafları üzerinde hatalı pozitif sonuçları kısmen tanınan sözcükleri gelebilir. Bazı fotoğraflar, özellikle fotoğraf olmadan herhangi bir metin üzerinde duyarlık çok görüntü türüne bağlı olarak farklılık gösterebilir.
+Metin baskın olduğu görüntülerde, hatalı pozitif sonuçları kısmen tanınan sözcükleri gelebilir. Özellikle fotoğraf herhangi bir metin olmadan bazı görüntülerindeki duyarlık çok görüntü türüne bağlı olarak farklılık gösterebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kavramları hakkında bilgi edinin [yazdırılan ve el yazısı metinleri tanıma](concept-recognizing-text.md).
+Bkz: [OCR başvuru belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) daha fazla bilgi için.

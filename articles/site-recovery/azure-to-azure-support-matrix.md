@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 5f3d884720bce5777a358a27dc477eabd5263d0c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4c58d053412b8f90b6423454fcda814e8cf6da75
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245193"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329022"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -177,8 +177,8 @@ Azure VM'nin işletim sistemi diski, veri diski ve geçici disk desteği bu tabl
 
 **Bileşen** | **Destek** | **Ayrıntılar**
 --- | --- | ---
-İşletim sistemi disk maksimum boyutu | 2048 GB | [Daha fazla bilgi edinin](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) VM diskleri hakkında.
-Geçici disk | Desteklenmiyor | Geçici disk her zaman çoğaltmadan dışlandı.<br/><br/> Herhangi bir kalıcı veri, geçici diskte depolamayın. [Daha fazla bilgi edinin](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+İşletim sistemi disk maksimum boyutu | 2048 GB | [Daha fazla bilgi edinin](../virtual-machines/windows/managed-disks-overview.md) VM diskleri hakkında.
+Geçici disk | Desteklenmiyor | Geçici disk her zaman çoğaltmadan dışlandı.<br/><br/> Herhangi bir kalıcı veri, geçici diskte depolamayın. [Daha fazla bilgi edinin](../virtual-machines/windows/managed-disks-overview.md).
 Veri diski maksimum boyutu | 4095 GB |
 Veri diski sayısı | En fazla 64 içinde belge belirli bir Azure VM boyutu için destek | [Daha fazla bilgi edinin](../virtual-machines/windows/sizes.md) VM boyutları hakkında.
 Veri disk değişim hızı | Premium depolama için disk başına 10 MB/sn sayısı. Standart depolama için disk başına 2 MB/sn sayısı. | Üzerindeki ortalama veri değişim oranı disk sürekli olarak en yüksek değerden yüksek olduğundan, çoğaltma catch olmaz.<br/><br/>  Ancak, en fazla tutularak aşılıyorsa, çoğaltma yakalayabilir, ancak biraz Gecikmeli kurtarma noktalarını görebilirsiniz.
@@ -194,7 +194,7 @@ Depolama alanları | Desteklenen |
 Windows işletim sistemi için Azure Disk şifrelemesi (ADE) | VM'ler için etkin [şifrelemesi ile Azure AD uygulaması](https://aka.ms/ade-aad-app) desteklenir |
 Linux işletim sistemi için Azure Disk şifrelemesi (ADE) | Desteklenmiyor |
 Sık erişimli Ekle/Kaldır disk | Desteklenmiyor | VM veri diski ekleyip, çoğaltmayı devre dışı bırakın ve yeniden sanal Makineye yönelik çoğaltmayı etkinleştirmek gerekir.
-Diski hariç tutma | Desteklenmiyor|   Geçici disk, varsayılan olarak çıkarılır.
+Diski hariç tutma | [PowerShell aracılığıyla desteklenir](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell?branch=pr-en-us-66458#replicate-azure-virtual-machine) |  Geçici disk, varsayılan olarak çıkarılır.
 Doğrudan Erişimli Depolama Alanları  | Kilitlenme tutarlı kurtarma noktaları için desteklenmiyor. Uygulama tutarlı kurtarma noktalarına desteklenmez. |
 Genişleme dosya sunucusu  | Kilitlenme tutarlı kurtarma noktaları için desteklenmiyor. Uygulama tutarlı kurtarma noktalarına desteklenmez. |
 LRS | Desteklenen |

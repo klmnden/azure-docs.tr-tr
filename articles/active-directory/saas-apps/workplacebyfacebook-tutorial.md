@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cdc7ef8ee991719153f6daed01fbb76f945a7a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e233de6f0909477e5033d2a0104f9165e86a9077
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194947"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Öğretici: Facebook ile çalışma alanı ile Azure Active Directory Tümleştirme
 
@@ -143,31 +143,38 @@ Facebook ile çalışma alanı ile Azure AD çoklu oturum açmayı yapılandırm
 
 1. Bir başka web tarayıcı penceresinde çalışma alanınızı Facebook şirket site yönetici olarak oturum açın.
   
-   > [!NOTE]
-   > SAML kimlik doğrulaması işleminin bir parçası olarak, çalışma alanı, parametreleri Azure AD'ye geçirmek için sorgu dizeleri en fazla boyutu 2,5 kilobayt değerlendirebilir.
+    > [!NOTE]
+    > SAML kimlik doğrulaması işleminin bir parçası olarak, çalışma alanı, parametreleri Azure AD'ye geçirmek için sorgu dizeleri en fazla boyutu 2,5 kilobayt değerlendirebilir.
 
-2. İçinde **yönetim paneli**Git **güvenlik** sekmesini, ardından **kimlik doğrulaması**.
+2. İçinde **yönetim paneli**Git **güvenlik** sekmesi.
 
-3. Altında **SAML kimlik doğrulaması**seçin **yalnızca SSO** aşağı açılan listeden.
+    ![Yönetim paneli](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-4. Öğesinden kopyalanan değerleri giriş **Facebook yapılandırmaya göre çalışma alanı** karşılık gelen alanlara Azure portal'ın bölüm:
+3. Altında **kimlik doğrulaması** sekmesinde **çoklu oturum açma (SSO)** ve aşağıdaki adımları gerçekleştirin:
 
-    * İçinde **SAML URL** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
-    * İçinde **SAML veren URL'si metin kutusuna**, değerini yapıştırın **Azure Ad tanımlayıcısı**, hangi Azure Portalı'ndan kopyaladığınız.
-    * İçinde **oturum kapatma SAML yönlendirme** (isteğe bağlı) değerini yapıştırın **oturum kapatma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
-    * Açık, **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **SAML sertifikası** metin.
+    ![Kimlik doğrulama sekmesi](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-5. Alıcı URL'si hedef kitle URL'yi girmeniz gerekebilir ve ACS (onaylama tüketici hizmeti) URL'si altında listelenen **temel SAML yapılandırma** bölümü.
+    a. İçinde **SAML URL** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
-6. Bölümünün altına ilerleyecek ve **Test SSO** düğmesi. Bu sonuçlar ile Azure AD oturum açma sayfasının görünen açılan pencerede gösterilir. Kimlik bilgilerinizi doğrulamak için normal olarak girin.
+    b. İçinde **SAML veren URI textbox**, değerini yapıştırın **Azure Ad tanımlayıcısı**, hangi Azure Portalı'ndan kopyaladığınız.
+
+    c. İçinde **oturum kapatma SAML yönlendirme** (isteğe bağlı) değerini yapıştırın **oturum kapatma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+
+    d. Açık, **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **SAML sertifikası** metin.
+
+    e. Kopyalama **İzleyici URL** örneğinizin yapıştırın **tanımlayıcı (varlık kimliği)** metin kutusunda **temel SAML yapılandırma** bölümü Azure portalı.
+
+    f. Kopyalama **alıcı URL** örneğinizin yapıştırın **oturum açma URL'si** metin kutusunda **temel SAML yapılandırma** bölümü Azure portalı.
+
+    g. Bölümünün altına ilerleyecek ve **Test SSO** düğmesi. Bu sonuçlar ile Azure AD oturum açma sayfasının görünen açılan pencerede gösterilir. Kimlik bilgilerinizi doğrulamak için normal olarak girin.
 
     **Sorun giderme:** Azure AD'den geri döndürülen e-posta adresi, oturum açmış olduğunuz çalışma alanı hesabı ile aynı olduğundan emin olun.
 
-7. Test başarıyla tamamlandıktan sonra sayfanın sonuna kaydırın ve tıklayın **Kaydet** düğmesi.
+    h. Test başarıyla tamamlandıktan sonra sayfanın sonuna kaydırın ve tıklayın **Kaydet** düğmesi.
 
-8. Çalışma alanı kullanan tüm kullanıcıları Azure AD oturum açma sayfasında kimlik doğrulaması için şimdi sunulur.
+    i. Çalışma alanı kullanan tüm kullanıcıları Azure AD oturum açma sayfasında kimlik doğrulaması için şimdi sunulur.
 
-9. **SAML oturum kapatma (isteğe bağlı) yönlendirme** -
+4. **SAML oturum kapatma (isteğe bağlı) yönlendirme** -
 
     İsteğe bağlı olarak Azure AD'nin oturum kapatma sayfasının işaret etmek için kullanılabilecek bir SAML oturum kapatma URL'si yapılandırmayı seçebilirsiniz. Bu ayar etkin ve yapılandırılmış olduğunda, kullanıcı artık çalışma alanına oturum kapatma sayfasına yönlendirilirsiniz. Bunun yerine, kullanıcı, oturum kapatma SAML yeniden yönlendirme ayarı eklendi URL'ye yönlendirilirsiniz.
 

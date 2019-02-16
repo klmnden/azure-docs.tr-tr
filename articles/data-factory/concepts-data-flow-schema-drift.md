@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 5799386b3ed725c610569caae8dfc72796c654b9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5a3d817f96770370615ff4ae953cb8655bd245c1
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56213655"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329056"
 ---
-# <a name="azure-data-factory-mapping-data-flow-schema-drift"></a>Azure veri fabrikası veri akışı şema değişikliklerini eşleme
+# <a name="mapping-data-flow-schema-drift"></a>Veri akışı şema değişikliklerini eşleme
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

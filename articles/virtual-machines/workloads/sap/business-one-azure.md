@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bb3c2a9cfc1bccf4656be83c6babbe9c7ec139fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745359"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329857"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>İş bir on Azure sanal makinelerinde SAP
 Bu belgede, SAP Business One Azure sanal Makineler'de dağıtma konusunda rehberlik sağlar. Belgeler yükleme belgelerine SAP iş yerine değil. Belgeler, bir iş uygulamaları çalıştırmak Azure altyapısı için temel planlama ve dağıtım yönergeleri kapsamalıdır.
@@ -119,7 +119,7 @@ Bu belgeleri depolama türleri ve yüksek kullanılabilirlik yapılandırması s
 
 İlkesi şunları yapmalısınız:
 
-- Kullanım [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) üzerinden [Azure standart depolama](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
+- Premium SSD üzerinde standart HDD'ler kullanın. Kullanılabilir disk türleri hakkında daha fazla bilgi için bkz: makalemizi [bir disk türü seçin](../../windows/disks-types.md)
 - Yönetilmeyen diskler üzerinde Azure yönetilen diskler kullanın
 - Disk yapılandırmanızı ile yapılandırılmış, yeterli IOPS ve g/ç aktarım hızı sahip olduğunuzdan emin olun
 - Maliyet açısından verimli depolama yapılandırması için/hana/birime veri ve /hana/log birleştirin
@@ -138,7 +138,6 @@ SQL Server için DBMS yan kaba boyutlandırma tahminleri şunlardır:
 | en fazla 150 | 32 | 128 GB | D32s_v3, E32s_v3 |
 
 Yukarıda listelenen boyutlandırma hakkında bir fikir başlamak burada vermeniz gerekir. Azure'da bir uyarlama kolaydır bu durumda daha az veya daha fazla kaynak gerekiyor olabilir. VM türleri arasındaki bir değişiklik, yalnızca sanal Makinenin yeniden başlatılması ile mümkündür.
-
 
 #### <a name="sap-hana-as-dbms"></a>SAP HANA DBMS olarak
 SAP HANA, DBMS aşağıdaki bölümleri kullanarak belge ilişkin konular izlemelidir [Azure işlemler kılavuzu üzerinde SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).

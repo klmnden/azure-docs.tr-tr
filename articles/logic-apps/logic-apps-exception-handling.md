@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686271"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308732"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hataları ve Azure Logic apps'te özel durumları işleme
 
@@ -29,12 +29,12 @@ En temel özel durum ve hata işleme için kullanabileceğiniz bir *yeniden dene
 
 Yeniden deneme ilkesi türleri şunlardır: 
 
-| Tür | Açıklama | 
+| Type | Açıklama | 
 |------|-------------| 
-| [**Varsayılan**](#default-retry) | Bu ilke, en fazla dört yeniden denemeleri gönderir [ *katlanarak artan* ](#exponential-retry) ölçeklendirme 7.5 saniye ancak 5-45 saniye arasında kapsanacaksınız aralıkları. | 
-| [**Üstel aralık**](#exponential-retry)  | Bu ilke, sonraki isteği göndermeden önce bir katlanarak artan aralığında seçilen rastgele bir aralığını bekler. | 
-| [**Sabit aralık**](#fixed-retry)  | Bu ilke, sonraki isteği göndermeden önce belirtilen zaman aralığı bekler. | 
-| [**Yok**](#no-retry)  | İsteği yeniden gönderin yok. | 
+| **Varsayılan** | Bu ilke, en fazla dört yeniden denemeleri gönderir *katlanarak artan* ölçeklendirme 7.5 saniye ancak 5-45 saniye arasında kapsanacaksınız aralıkları. | 
+| **Üstel aralık**  | Bu ilke, sonraki isteği göndermeden önce bir katlanarak artan aralığında seçilen rastgele bir aralığını bekler. | 
+| **Sabit aralık**  | Bu ilke, sonraki isteği göndermeden önce belirtilen zaman aralığı bekler. | 
+| **Yok.**  | İsteği yeniden gönderin yok. | 
 ||| 
 
 Yeniden deneme ilkesi sınırları hakkında daha fazla bilgi için bkz. [Logic Apps limitler ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
@@ -71,19 +71,19 @@ Veya el ile yeniden deneme ilkesinde belirtebileceğiniz `inputs` bölüm için 
 
 *Gerekli*
 
-| Değer | Tür | Açıklama |
+| Değer | Type | Açıklama |
 |-------|------|-------------|
-| <*yeniden deneme ilkesi türü*> | Dize | Kullanmak istediğiniz yeniden deneme ilkesi türü: `default`, `none`, `fixed`, veya `exponential` | 
-| <*yeniden deneme aralığı*> | Dize | Yeniden deneme aralığı değeri burada kullanmalıdır [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Varsayılan en düşük aralık `PT5S` ve en büyük aralık `PT1D`. Üstel aralık İlkesi kullandığınızda, farklı minimum ve maksimum değerleri belirtebilirsiniz. | 
+| <*yeniden deneme ilkesi türü*> | String | Kullanmak istediğiniz yeniden deneme ilkesi türü: `default`, `none`, `fixed`, veya `exponential` | 
+| <*yeniden deneme aralığı*> | String | Yeniden deneme aralığı değeri burada kullanmalıdır [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Varsayılan en düşük aralık `PT5S` ve en büyük aralık `PT1D`. Üstel aralık İlkesi kullandığınızda, farklı minimum ve maksimum değerleri belirtebilirsiniz. | 
 | <*yeniden deneme girişimleri*> | Tamsayı | 1 ile 90 arasında olmalıdır, yeniden deneme sayısı | 
 ||||
 
 *İsteğe bağlı*
 
-| Değer | Tür | Açıklama |
+| Değer | Type | Açıklama |
 |-------|------|-------------|
-| <*en düşük aralık*> | Dize | Üstel aralık İlkesi, rastgele Seçilen aralıktaki en küçük aralığını [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*en büyük aralık*> | Dize | Üstel aralık İlkesi, rastgele Seçilen aralıktaki en büyük aralığını [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*en düşük aralık*> | String | Üstel aralık İlkesi, rastgele Seçilen aralıktaki en küçük aralığını [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*en büyük aralık*> | String | Üstel aralık İlkesi, rastgele Seçilen aralıktaki en büyük aralığını [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 Farklı ilke türleri hakkında daha fazla bilgi aşağıda verilmiştir.

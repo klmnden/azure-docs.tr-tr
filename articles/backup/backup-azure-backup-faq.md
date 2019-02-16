@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 0c52a10aa806962ee54fe6058f236ea9bd86414b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: e780a78bb2cc341ef6b2f682cd51fedad3f08494
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268354"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310867"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -25,7 +25,6 @@ Evet. Azure Backup'ın desteklenen bir bölge başına abonelik başına en çok
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Her bir kasa için kaydedilebilen sunucu/makine sayısına yönelik sınırlar var mıdır?
 Kasa başına 1000'e kadar Azure sanal makineleri kaydedebilirsiniz. Microsoft Azure Yedekleme aracısı kullanıyorsanız, kasa başına en fazla 50 MAB aracıları kaydedebilirsiniz. Ve 50 MAB sunucuları/DPM sunucularını bir kasaya kaydedebilir.
-
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Kuruluşumun bir kasası varsa nasıl farklı sunuculardaki kasasındaki verileri verileri geri yüklerken ayırabilirim?
 Birlikte kurtarmak istediğiniz sunucu verilerini yedekleme aynı parolayı kullanmalıdır. Belirli bir sunucu veya sunuculara kurtarma yalıtmak isterseniz, bu sunucu veya yalnızca sunucular için bir parola kullanın. Örneğin, insan kaynakları sunucuları bir şifreleme parolası kullanırken, muhasebe sunucuları ve depolama sunucuları farklı birer şifreleme parolası kullanabilir.
@@ -76,10 +75,8 @@ Hayır. Bir DPM veya Azure Backup sunucusu yalnızca bir kasaya kaydedilebilir.
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Bir fiziksel sunucu için Tam Kurtarma (BMR) yedeklemesi oluşturmak üzere Azure Backup Sunucusu'nu kullanabilir miyim? <br/>
 Evet.
 
-
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Uygulamaları Azure Stack'te yedeklemek için DPM'yi kullanabilir miyim?
 Hayır. Uygulamaları Azure Stack'te yedeklemek için DPM'yi kullanarak Azure Backup desteklemiyor, Azure Stack korumak için Azure Backup'ı kullanabilirsiniz.
-
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Dosya ve klasörlerimi korumak için Azure Backup aracısını yükledim, şirket içi iş yüklerini Azure'a yedeklemek için System Center DPM'yi yükleyebilir miyim?
 Evet. Ancak önce DPM'yi ayarlayın ve ardından Azure Backup aracısını yüklemeniz gerekir.  Bileşenlerinin bu sırada yüklenmesi, Azure Backup aracısının DPM ile çalışmasını sağlar. Aracıyı DPM yüklenmeden önce yüklenmesi önerilmez veya değil.
@@ -138,14 +135,8 @@ SharePoint | Yedeklenmekte olan bir SharePoint grubu içinde içerik ve yapılan
 Exchange |Yedeklenmekte olan bir Exchange sunucusundaki tüm Exchange veritabanlarının toplamı.
 BMR/sistem durumu |Yedeklenmekte olan makinenin BMR'yi veya sistem durumunu tek tek her kopyası.
 
-
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası kullanılarak yedeklenen veri miktarına bir sınır var mıdır?
 Kurtarma Hizmetleri kasası kullanarak yedekleme veri miktarına bir sınır yoktur.
-
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Bir yedekleme işini başlatıldıktan sonra iptal edersem aktarılan yedekleme verileri silinir mi?
-Hayır. Yedekleme işi iptal edilmeden önce kasaya aktarılan tüm veriler kasada kalır. Azure Backup, yedekleme işlemi sırasında yedekleme verilerine zaman zaman denetim noktaları eklemek üzere bir denetim noktası mekanizması kullanır. Yedekleme verilerinde denetim noktaları bulunduğundan, sonraki yedekleme işlemi dosyaların bütünlüğünü doğrulayabilir. Bir sonraki yedekleme işi, daha önce yedeklenen verilerin üzerine artımlı olarak gerçekleşir. Artımlı yedekleme işlemlerinin yalnızca yeni veya değiştirilmiş verileri aktarması, bant genişliğinin daha iyi kullanılması anlamına gelir.
-
-Bir Azure VM’ye yönelik bir yedekleme işini iptal ederseniz aktarılan tüm veriler yoksayılır. Bir sonraki yedekleme işi, son başarılı yedekleme işinden artımlı verileri aktarır.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Neden veri boyutu, yedekleme için seçilen verileri daha küçük kurtarma Hizmetleri kasasına aktarılır?
  Azure Backup aracısını, DPM, yedeklenen verileri ve Azure Backup sunucusu sıkıştırılır ve aktarılmadan önce şifrelenir. İle sıkıştırma ve şifreleme uygulandığında, kasasındaki veriler % 30-40 daha küçük.
@@ -153,13 +144,14 @@ Bir Azure VM’ye yönelik bir yedekleme işini iptal ederseniz aktarılan tüm 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Tek tek dosyaları kasasında bir kurtarma noktasından silebilir misiniz?
 Hayır, Azure Backup, silme veya tek tek öğeleri depolanan yedeklerden temizleme desteklemiyor.
 
-
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Başladıktan sonra bir yedekleme işini iptal, aktarılan yedekleme verileri silindi mi?
 Hayır. Yedekleme işinin önce kasaya aktarılan tüm veriler kasada kalır iptal edildi.
 
 - Azure Backup, yedekleme işlemi sırasında yedekleme verilerine zaman zaman denetim noktaları eklemek üzere bir denetim noktası mekanizması kullanır.
 - Yedekleme verilerinde denetim noktaları bulunduğundan, sonraki yedekleme işlemi dosyaların bütünlüğünü doğrulayabilir.
 - Bir sonraki yedekleme işi, daha önce yedeklenen verilerin üzerine artımlı olarak gerçekleşir. Artımlı yedekleme işlemlerinin yalnızca yeni veya değiştirilmiş verileri aktarması, bant genişliğinin daha iyi kullanılması anlamına gelir.
+
+Bir Azure VM’ye yönelik bir yedekleme işini iptal ederseniz aktarılan tüm veriler yoksayılır. Bir sonraki yedekleme işi, son başarılı yedekleme işinden artımlı verileri aktarır.
 
 ## <a name="retention-and-recovery"></a>Elde tutma ve kurtarma
 
@@ -207,7 +199,7 @@ Yeni bir ilke uygulandığında yeni ilkenin zamanlama ve ardından.
 ## <a name="encryption"></a>Şifreleme
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Veriler Azure'a şifreli olarak mı gönderilir?
-Evet. Veriler AES256 kullanılarak şirket içi makinede şifrelenir. Veriler güvenli bir HTTPS bağlantısı üzerinden gönderilir. Bulutta aktarılan veri depolama ve kurtarma hizmeti arasında yalnızca HTTPS bağlantısı korunur. iSCSI protokolü kurtarma hizmeti ve kullanıcı makine arasında aktarılan verilerin güvenliğini sağlar. Güvenli bir tünel iSCSI kanalı korumak için kullanılır.
+Evet. Veriler AES256 kullanılarak şirket içi makinede şifrelenir. Veriler güvenli bir HTTPS bağlantısı üzerinden gönderilir. Buluta gönderilen verileri yalnızca depolama ve kurtarma hizmeti arasında HTTPS bağlantısı korunur. iSCSI protokolü kurtarma hizmeti ve kullanıcı makine arasında aktarılan verilerin güvenliğini sağlar. Güvenli bir tünel iSCSI kanalı korumak için kullanılır.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Azure üzerindeki yedekleme verileri de şifreli midir?
 Evet. Azure'da bekleyen şifrelenmiş verilerdir.

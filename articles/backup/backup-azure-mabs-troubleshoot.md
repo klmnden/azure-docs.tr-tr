@@ -8,24 +8,24 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/24/2017
 ms.author: kasinh
-ms.openlocfilehash: 830bf8603a495d1f2708f73cf090695f1b7a7c48
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f90650cc058697e4bf9e4a0710ada213fe3d9a1f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493941"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310840"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Sunucusu sorunlarını giderme
 
 Bilgileri aşağıdaki tablolarda Azure Backup sunucusu kullanırken karşılaştığınız hataları gidermek için kullanın.
 
-## <a name="invalid-vault-credentials-provided"></a>Sağlanan kasa kimlik bilgileri geçersiz 
+## <a name="invalid-vault-credentials-provided"></a>Sağlanan kasa kimlik bilgileri geçersiz
 
 Bu sorunu çözümlemek için izlediği [Bu sorun giderme adımlarını](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
-## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>Sunucusundaki DPM aracı Düzenleyicisi hizmeti ile iletişim hatası nedeniyle aracı işlemi başarısız oldu 
+## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>Sunucusundaki DPM aracı Düzenleyicisi hizmeti ile iletişim hatası nedeniyle aracı işlemi başarısız oldu
 
-Bu sorunu çözümlemek için izlediği [Bu sorun giderme adımlarını](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues). 
+Bu sorunu çözümlemek için izlediği [Bu sorun giderme adımlarını](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Kurulum, kayıt defteri meta verilerini güncelleştiremedi
 
@@ -56,7 +56,7 @@ Bu sorunu çözümlemek için izlediği [Bu sorun giderme adımlarını](https:/
 | Koruma gruplarını yapılandırma | DPM, korumalı uygulama bileşenini oluşturamadı bilgisayar (korunan bilgisayar adı). | Seçin **Yenile** yapılandırma koruma grubu kullanıcı Arabirimi ekranında ilgili veri kaynağı/bileşen düzeyinde. |
 | Koruma gruplarını yapılandırma | Koruma yapılandırılamıyor | Korumalı sunucu bir SQL server ise, sysadmin rolü izinleri korumalı bilgisayar üzerindeki sistem hesabına (ntauthority\system adlı) açıklanan şekilde sağlandığını doğrulamak [bu makalede](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx).
 | Koruma gruplarını yapılandırma | Bu koruma grubu için depolama havuzunda yeterli boş alan yok. | Depolama havuzuna eklenen disklerden [bir bölüm içermemelidir](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx). Disk üzerinde mevcut olan birimleri silin. Daha sonra bunları depolama havuzuna ekleyin.|
-| İlke değişikliği |Yedekleme İlkesi değiştirilemedi. Hata: Geçerli işlem bir [0x29834] iç hizmet hatası nedeniyle başarısız oldu. Lütfen bir süre geçtikten sonra işlemi yeniden deneyin. Sorun devam ederse Microsoft desteğine başvurun. |**Neden:**<br/>Bu hata koşulları altında üç oluşur: güvenlik ayarları etkinleştirildiğinde, önceden belirtilen minimum değerleri aşağıda bekletme aralığını azaltabilir çalıştığınızda ve desteklenmeyen bir sürümünde olduğunda. (Microsoft Azure Backup sunucusu sürümü olarak 2.0.9052 ve Azure Backup sunucusu güncelleştirmesi 1 altındaki desteklenmeyen sürümleri vardır.) <br/>**Önerilen eylem:**<br/> İlke ile ilgili güncelleştirme ile devam etmek için yukarıda belirtilen en düşük bekletme saklama süresi ayarlayın. (En düşük bekletme süresi yedi günlük, haftalık, üç hafta için dört hafta için aylık veya bir yıl için yıllık gündür.) <br><br>İsteğe bağlı olarak, başka bir yedekleme aracısı ve Azure Backup sunucusu tüm güvenlik güncelleştirmelerini yararlanmak için güncelleştirilecek bir yaklaşımdır tercih edilir. |
+| İlke değişikliği |Yedekleme İlkesi değiştirilemedi. Hata: Geçerli işlem bir [0x29834] iç hizmet hatası nedeniyle başarısız oldu. Lütfen bir süre geçtikten sonra işlemi yeniden deneyin. Sorun devam ederse Microsoft desteğine başvurun. | **Neden:**<br/>Bu hata koşulları altında üç oluşur: güvenlik ayarları etkinleştirildiğinde, önceden belirtilen minimum değerleri aşağıda bekletme aralığını azaltabilir çalıştığınızda ve desteklenmeyen bir sürümünde olduğunda. (Microsoft Azure Backup sunucusu sürümü olarak 2.0.9052 ve Azure Backup sunucusu güncelleştirmesi 1 altındaki desteklenmeyen sürümleri vardır.) <br/>**Önerilen eylem:**<br/> İlke ile ilgili güncelleştirme ile devam etmek için yukarıda belirtilen en düşük bekletme saklama süresi ayarlayın. (En düşük bekletme süresi yedi günlük, haftalık, üç hafta için dört hafta için aylık veya bir yıl için yıllık gündür.) <br><br>İsteğe bağlı olarak, başka bir yedekleme aracısı ve Azure Backup sunucusu tüm güvenlik güncelleştirmelerini yararlanmak için güncelleştirilecek bir yaklaşımdır tercih edilir. |
 
 ## <a name="backup"></a>Backup
 | İşlem | Hata Ayrıntıları | Geçici çözüm |
@@ -71,6 +71,11 @@ Bu sorunu çözümlemek için izlediği [Bu sorun giderme adımlarını](https:/
 | Backup | Yeni bir Microsoft Azure Backup sunucusu bir VMware VM yeniden koruma seçeneğini eklemek kullanılabilir olarak göstermez. | VMware özellikleri, eski, devre dışı bırakılan örneğini Microsoft Azure Backup sunucusu işaret ettiği. Bu sorunu çözmek için:<br><ol><li>VCenter (SC-VMM eşdeğeri), Git **özeti** sekmesini ve sonra **özel öznitelikler**.</li>  <li>Eski Microsoft Azure Backup sunucusu adından Sil **DPMServer** değeri.</li>  <li>Yeni Microsoft Azure Backup sunucusu geri dönün ve Syf değiştirme  Seçtikten sonra **Yenile** düğme VM koruma eklemek kullanılabilir olarak onay kutusu belirir.</li></ol> |
 | Backup | Dosyaları ve paylaşılan klasörleri erişirken hata oluştu | TechNet makalesinde önerildiği virüsten koruma ayarlarını değiştirmeyi deneyin [DPM sunucusunda virüsten koruma yazılımı çalıştırma](https://technet.microsoft.com/library/hh757911.aspx).|
 | Backup | VMware sanal makinesi için çevrimiçi kurtarma noktası oluşturma işleri başarısız. DPM, ChangeTracking bilgilerini almaya çalışırken vmware'den bir hatayla karşılaştı. Hata kodu - FileFaultFault (kimliği 33621) |  <ol><li> Etkilenen VM'ler için VMware üzerinde CTK sıfırlayın.</li> <li>Bu bağımsız disk yerinde VMware olmadığını denetleyin.</li> <li>Etkilenen VM'ler için korumayı durdurun ve yeniden koruma **Yenile** düğmesi. </li><li>Etkilenen VM'ler için bir bilgi çalıştırın.</li></ol>|
+
+## <a name="restore"></a>Geri Yükleme
+| İşlem | Hata Ayrıntıları | Geçici çözüm |
+| --- | --- | --- |
+| Geri Yükleme | **Hata kodu**: CBPServerRegisteredVaultDontMatchWithCurrent/kasa kimlik bilgileri hatası: 100110 <br/> <br/>**Hata iletisi**: Sağlanan kasa kimlik bilgileri, sunucunun kayıtlı olduğu kasadan farklı | **Neden**: Dosyaları alternatif sunucuda, dış DPM kurtarma seçeneğini kullanarak özgün sunucudan geri yüklemek çalışırken ve kurtarılmakta olan sunucu ve yedeklenen verilerin bulunduğu özgün sunucunun aynı ile ilişkili olmamaları durumunda bu sorun oluşur. Kurtarma Hizmetleri kasası.<br/> <br/>**Geçici çözüm** bu sorunu sağlamak hem özgün ve diğer sunucunun aynı kasaya kayıtlı çözümlenecek.|
 
 
 ## <a name="change-passphrase"></a>Parola Değiştir

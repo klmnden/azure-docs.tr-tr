@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 23c04f85c994a8b300ffec23b4660d3d431ef69b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740434"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329626"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri nedir?
 Azure sanal makine ölçek kümeleri sayesinde bir grup özdeş, yük dengeli sanal makineler oluşturup yönetebilirsiniz. Tanımlı bir zamanlamaya veya talebe yanıt olarak sanal makine örneği sayısı otomatik olarak artabilir ya da azalabilir. Ölçek kümeleri, uygulamalarınıza yönelik yüksek düzeyde kullanılabilirlik sağlar ve çok sayıda sanal makineyi merkezi olarak yönetmenize, yapılandırmanıza ve güncelleştirmenize imkan tanır. Sanal makine ölçek kümeleri ile, işlem, büyük veri ve kapsayıcı iş yükleri gibi alanlar için büyük ölçekli hizmetler derleyebilirsiniz.
@@ -47,7 +47,7 @@ Azure sanal makine ölçek kümeleri, birçok sanal makinede çalıştırılan u
 
 - **Büyük ölçekte çalışma**
     - Ölçek kümeleri, 1000 adede kadar sanal makine örneğini destekler. Kendi özel sanal makine görüntülerinizi oluşturur ve karşıya yüklerseniz, sınır 300 sanal makine örneğidir.
-    - Üretim iş yükleriyle en iyi performansı elde etmek için [Azure Yönetilen Diskler](../virtual-machines/windows/managed-disks-overview.md) ve [Premium Depolama](../virtual-machines/windows/premium-storage.md) seçeneğini kullanın.
+    - Üretim iş yükleri ile en iyi performans için kullanmak [Azure yönetilen diskler](../virtual-machines/windows/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Sanal makineler ile ölçek kümeleri arasındaki farklar

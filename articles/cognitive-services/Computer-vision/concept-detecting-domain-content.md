@@ -8,53 +8,132 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: df7e61bb9d064c4530c0212cc02fbdd849017612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872008"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312562"
 ---
-# <a name="detecting-domain-specific-content"></a>Etki alanına özgü içeriği algılama
+# <a name="detect-domain-specific-content"></a>Etki alanına özgü içerikleri algılama
 
-Buna ek olarak etiketleme ve üst düzey kategori, görüntü işleme, özelleştirilmiş (veya etki alanına özgü) bilgi de destekler. Özelleştirilmiş bilgiler tek başına bir yöntem olarak uygulanabileceği gibi, üst düzey kategorilerle de uygulanabilir. Etki alanına özgü modellerin eklenmesiyle 86 kategori taksonomisini daha da geliştirmek için bir araç işlevi görür.
+Buna ek olarak etiketleme ve üst düzey kategori, görüntü işleme, ayrıca daha fazla veri eğitilen modelleri kullanarak etki alanına özgü analiz destekler. 
 
-Etki alanına özgü modelleri kullanmak için iki seçenek vardır:
+Alana özgü modeller kullanmanın iki yolu vardır: tek başına (kapsamlı analizi) veya kategori özelliği için bir geliştirme olarak.
 
-* Kapsamlı analiz  
-  Seçilen bir model, bir HTTP POST çağrısına çağırarak analiz edin. Kullanmak istediğiniz hangi modelle biliyorsanız, modelin adı belirtin. Yalnızca bilgi ilgili Bu modele sahip olursunuz. Örneğin, bu seçeneği kullanarak yalnızca ünlü tanıma için arama yapabilirsiniz. Sonuç, eşleşen olası ünlülerin listesiyle birlikte bunların güvenilirlik puanını da içerir.
-* Gelişmiş analiz  
-  86 kategori taksonomisindeki kategorilerle ilgili ek ayrıntılar sağlamak için analiz edin. Bu seçenek bir veya daha fazla etki alanına özgü modelde yer alan ayrıntılara ek olarak kullanıcının genel görüntü analizi de almak istediği uygulamalarda kullanılmaya yöneliktir. Bu yöntem çağrıldığında, önce 86 kategori taksonomisinin sınıflandırıcısı çağrılır. Kategorilerden herhangi biri, bilinen ya da eşleşen modellerin eşleşirse, ikinci bir sınıflandırıcı çağrılarını geçişi izler. Örneğin, varsa `details` HTTP POST çağrısına parametresi ya da "tüm" ayarlı değil veya "ünlüleri" içerir, 86 kategori sınıflandırıcı çağrıldıktan sonra ünlü sınıflandırıcı yöntemini çağırır. Görüntü olarak sınıflandırılır varsa `people_` veya kategoriye ve ardından ünlü sınıflandırıcı kategorisidir çağrılır.
+### <a name="scoped-analysis"></a>Kapsamlı analiz
 
-## <a name="listing-domain-specific-models"></a>Alana özgü modeller listeleme
+Yalnızca seçilen etki alanına özgü modeli çağırarak kullanarak görüntü çözümleyebilirsiniz [modelleri /\<modeli\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API. 
 
-Görüntü işleme tarafından desteklenen alana özgü modeller listeleyebilirsiniz. Şu anda görüntü işleme, etki alanına özgü içerik algılamak için aşağıdaki alana özgü modeller destekler:
+Bir örnek tarafından döndürülen JSON yanıtı aşağıdaki gibidir **modelleri/ünlüleri/analiz** API belirtilen görüntü için:
+
+![Satya Nadella standing](./images/satya.jpeg)
+
+```json
+{
+  "result": {
+    "celebrities": [{
+      "faceRectangle": {
+        "top": 391,
+        "left": 318,
+        "width": 184,
+        "height": 184
+      },
+      "name": "Satya Nadella",
+      "confidence": 0.99999856948852539
+    }]
+  },
+  "requestId": "8217262a-1a90-4498-a242-68376a4b956b",
+  "metadata": {
+    "width": 800,
+    "height": 1200,
+    "format": "Jpeg"
+  }
+}
+```
+
+### <a name="enhanced-categorization-analysis"></a>Kategori Gelişmiş analiz  
+
+Alana özgü modeller, genel görüntü analizi desteklemek için de kullanabilirsiniz. Bir parçası olarak bunu [üst düzey kategori](concept-categorizing-images.md) etki alanına özgü modeller belirterek *ayrıntıları* parametresinin [Çözümle](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API çağrısı. 
+
+Bu durumda, 86 kategori sınıflandırma sınıflandırıcı önce çağrılır. Eşleşen bir etki alanına özgü modeli algılanan kategorilerden herhangi biri varsa, görüntü de modeli ve sonuçları eklenir üzerinden geçirilir. 
+
+Etki alanına özgü analiz aşağıdaki JSON yanıtı gösterilir olarak dahil edilebilir `detail` daha geniş bir kategori analizi düğümü.
+
+```json
+"categories":[  
+  {  
+    "name":"abstract_",
+    "score":0.00390625
+  },
+  {  
+    "name":"people_",
+    "score":0.83984375,
+    "detail":{  
+      "celebrities":[  
+        {  
+          "name":"Satya Nadella",
+          "faceRectangle":{  
+            "left":597,
+            "top":162,
+            "width":248,
+            "height":248
+          },
+          "confidence":0.999028444
+        }
+      ],
+      "landmarks":[  
+        {  
+          "name":"Forbidden City",
+          "confidence":0.9978346
+        }
+      ]
+    }
+  }
+]
+```
+
+## <a name="list-the-domain-specific-models"></a>Alana özgü modeller listesi
+
+Görüntü işleme şu anda aşağıdaki alana özgü modeller destekler:
 
 | Ad | Açıklama |
 |------|-------------|
 | ünlüleri | Ünlü tanıma, sınıflandırılan görüntüleri için desteklenen `people_` kategorisi |
 | Yer işareti | Önemli yer tanıma, sınıflandırılan görüntüleri için desteklenen `outdoor_` veya `building_` kategorileri |
 
-### <a name="domain-model-list-example"></a>Etki alanı modeli listesi örneği
-
-Etki alanına özgü modeller, görüntü işleme tarafından desteklenen aşağıdaki JSON yanıtı listeler.
+Çağırma [modelleri](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API her model uygulayabilir kategorileri birlikte bu bilgileri döndürür:
 
 ```json
-{
-    "models": [
-        {
-            "name": "celebrities",
-            "categories": ["people_", "人_", "pessoas_", "gente_"]
-        },
-        {
-            "name": "landmarks",
-            "categories": ["outdoor_", "户外_", "屋外_", "aoarlivre_", "alairelibre_",
-                "building_", "建筑_", "建物_", "edifício_"]
-        }
-    ]
+{  
+  "models":[  
+    {  
+      "name":"celebrities",
+      "categories":[  
+        "people_",
+        "人_",
+        "pessoas_",
+        "gente_"
+      ]
+    },
+    {  
+      "name":"landmarks",
+      "categories":[  
+        "outdoor_",
+        "户外_",
+        "屋外_",
+        "aoarlivre_",
+        "alairelibre_",
+        "building_",
+        "建筑_",
+        "建物_",
+        "edifício_"
+      ]
+    }
+  ]
 }
 ```
 

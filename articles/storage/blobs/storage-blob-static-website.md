@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 81e0e89a8ad17c92a707bae001d2861404cd0d10
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cff8b8af4ca40d428edf7c6e35976bcb154a28f1
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238848"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328699"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Depolama'da statik Web sitesi barındırma
 Azure depolama ve GPv2 hesapları doğrudan adlı bir depolama kapsayıcısındaki statik içerik (HTML, CSS, JavaScript ve görüntü dosyaları) sunmak izin *$web*. Azure Depolama'da barındırma yararlanma dahil olmak üzere sunucusuz mimarileri kullanmanıza olanak verir [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
@@ -109,7 +109,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_N
 
 - [AzCopy](../common/storage-use-azcopy.md)
 - [Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/)
-- [Azure işlem hatları](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Azure işlem hatları](https://azure.microsoft.com/services/devops/pipelines/)
 - [Visual Studio Code uzantısı](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 Her durumda, dosyaları kopyalamak emin *$web* kapsayıcı.

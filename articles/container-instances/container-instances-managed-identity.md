@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657034"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311572"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances ile yönetilen kimliklerini kullanma
 
@@ -27,6 +27,9 @@ Bu makalede, Azure Container ınstances'da yönetilen kimlikleri hakkında daha 
 > * Çalışan bir kapsayıcıdan bir anahtar kasasına erişmek için yönetilen kimliği kullanma
 
 Etkinleştirin ve diğer Azure hizmetlerine erişmek için Azure Container Instances'da kimlikleri kullanmak için örnekleri uyarlayın. Bu örnekler etkileşimlidir. Ancak, uygulamada kapsayıcı görüntülerinizi Azure hizmetlerine erişmek için kodu çalıştırın.
+
+> [!NOTE]
+> Şu anda dağıtılan bir sanal ağ için bir kapsayıcı grubundaki bir yönetilen kimlik kullanamazsınız.
 
 ## <a name="why-use-a-managed-identity"></a>Yönetilen bir kimlik neden kullanmalısınız?
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: c36572230387ffc33a46913dbcc1259ea65f84f5
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104242"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328590"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - ölçek azure'a geçiş
 
@@ -113,10 +113,10 @@ Contoso Envanter varlıkları sınıflandırmak için bazı genel kategorileri t
 **Kategori** | **Atanan değer** | **Ayrıntılar**
 --- | --- | ---
 İş grubu | İş grubu adları listesi | Hangi grubu için Envanter öğesini sorumlu mi?
-POC adayı | E/H | Uygulama POC veya erken benimseyen olarak buluta geçiş için kullanılabilir mi?
+POC adayı | Y/N | Uygulama POC veya erken benimseyen olarak buluta geçiş için kullanılabilir mi?
 Teknik Borç | Hiçbiri/bazı/ciddi | Envanter öğesini çalıştıran veya desteği ürün, platform veya işletim sistemini kullanarak?
-Güvenlik Duvarı uygulamaları | E/H | Uygulamanın trafiği dışında/Internet ile iletişim mu?  Bir güvenlik duvarı ile tümleştirilir?
-Güvenlik sorunları | E/H | Güvenlik bilinen sorunlar vardır uygulamasıyla?  Uygulama, şifrelenmemiş verileri veya güncel olmayan platformlar kullanıyor mu?
+Güvenlik Duvarı uygulamaları | Y/N | Uygulamanın trafiği dışında/Internet ile iletişim mu?  Bir güvenlik duvarı ile tümleştirilir?
+Güvenlik sorunları | Y/N | Güvenlik bilinen sorunlar vardır uygulamasıyla?  Uygulama, şifrelenmemiş verileri veya güncel olmayan platformlar kullanıyor mu?
 
 
 ### <a name="discover-app-dependencies"></a>Uygulama bağımlılıklarını keşfedin
@@ -142,10 +142,10 @@ Bu değerlendirme işlemi yakalamak için bunlar birkaç ek sınıflandırmalar�
 **Kategori** | **Atanan değer** | **Ayrıntılar**
 --- | --- | ---
 İş grubu | İş grubu adları listesi | Hangi grubu için Envanter öğesini sorumlu mi?
-POC adayı | E/H | Uygulama POC veya erken benimseyen olarak buluta geçiş için kullanılabilir mi?
+POC adayı | Y/N | Uygulama POC veya erken benimseyen olarak buluta geçiş için kullanılabilir mi?
 Teknik Borç | Hiçbiri/bazı/ciddi | Envanter öğesini çalıştıran veya desteği ürün, platform veya işletim sistemini kullanarak?
-Güvenlik Duvarı uygulamaları | E/H | Uygulamanın trafiği dışında/Internet ile iletişim mu?  Bir güvenlik duvarı ile tümleştirilir?
-Güvenlik sorunları | E/H | Güvenlik bilinen sorunlar vardır uygulamasıyla?  Uygulama, şifrelenmemiş verileri veya güncel olmayan platformlar kullanıyor mu?
+Güvenlik Duvarı uygulamaları | Y/N | Uygulamanın trafiği dışında/Internet ile iletişim mu?  Bir güvenlik duvarı ile tümleştirilir?
+Güvenlik sorunları | Y/N | Güvenlik bilinen sorunlar vardır uygulamasıyla?  Uygulama, şifrelenmemiş verileri veya güncel olmayan platformlar kullanıyor mu?
 Geçiş stratejisi | Rehost/düzenleme/yeniden oluşturma/yeniden oluşturma | Ne tür bir geçiş için uygulamanın gerekiyor? Uygulamayı Azure'da nasıl dağıtılır? [Daha fazla bilgi edinin](contoso-migration-overview.md#migration-strategies).
 Teknik karmaşıklığı | 1-5 | Geçiş nasıl karmaşık mı? Bu değer, Contoso DevOps ve ilgili iş ortakları tarafından tanımlanmalıdır.
 İş birbirleri ile olan önem | 1-5 | İş için uygulamanın ne kadar önemlidir? Örneğin, kuruluş kullanılan kritik bir uygulama bir puan beş atanabilir ancak küçük bir çalışma grubu uygulaması, bir puan atanabilir. Bu puanı geçiş öncelik düzeyi etkiler.
@@ -292,11 +292,10 @@ Contoso kapasite konularına göre bu bileşenleri dağıtmanın nasıl ekleyece
 **Yapılandırma sunucusu** | Contoso'nun tahminine 100 = 200 çoğaltmak dayanarak birlikte, VM'ler ve [yapılandırma sunucusu boyutlandırma gereksinimleri](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server), Contoso tahmin gibidir gereksinimlerini configuration server makinesi:<br/><br/> CPU: 16 Vcpu (2 yuva * @ 2.5 GHz 8 çekirdek)<br/><br/> Bellek: 32 GB<br/><br/> Önbellek diski: 1 TB<br/><br/> Veri değişiklik oranı: 1 TB ile 2 TB.<br/><br/> Gereksinimleri boyutlandırma ek olarak, yapılandırma sunucusuna geçirilecek vm'lerle LAN kesimi ve aynı ağ üzerinde en uygun şekilde yer olduğundan emin olmak Contoso gerekir.
 **İşlem sunucusu** | Contoso 100 200 Vm'lerini çoğaltma özelliği sayesinde tek başına adanmış işlem sunucusu dağıtır:<br/><br/> CPU: 16 Vcpu (2 yuva * @ 2.5 GHz 8 çekirdek)<br/><br/> Bellek: 32 GB<br/><br/> Önbellek diski: 1 TB<br/><br/> Veri değişiklik oranı: 1 TB ile 2 TB.<br/><br/> İşlem sunucusu sabit çalışma olacaktır ve bu nedenle bir ESXi konağındaki disk g/ç ve ağ trafiğini çoğaltma için gereken CPU işleyebilir bulunması gerekir. Contoso, bu amaç için adanmış bir ana bilgisayar dikkate alacaktır. 
 **Ağ** | Contoso, geçerli siteden siteye VPN altyapısı gözden geçirdi ve Azure ExpressRoute uygulamaya karar verdi. Bu daha düşük gecikme süresi ve Contoso'nun birincil Doğu ABD 2 Azure bölgesini bant genişliğini iyileştirmek için kritik bir uygulamasıdır.<br/><br/> **İzleme**: Contoso veri akışının işlem sunucusundan dikkatle izlemeniz gerekir. Veri Contoso dikkate alınır ağ bant genişliği aşırı varsa [işlem sunucusu bant genişliği azaltma](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
-**Azure depolama alanı** | Geçiş için doğru tür ve sayıda hedef Azure depolama hesabı, Contoso tanımlamanız gerekir.  Site Recovery, sanal makine verilerini Azure depolama alanına çoğaltır.<br/><br/> Site Recovery, standart veya premium (SSD) depolama hesaplarına çoğaltabilir.<br/><br/> Depolama hakkında karar vermek üzere Contoso gözden geçirmelisiniz [depolama sınırları](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)ve beklenen büyüme ve artan kullanım zaman içinde faktörü. Hız ve geçişlerin öncelik verildiğinde, Contoso, premium depolama hesapları kullanmaya karar verdi.<br/><br/> Bunlar, oluşturma ve birden fazla depolama hesabı geçiş işlemi sırasında yeniden.
-Contoso, Azure'da dağıtılan tüm VM'ler için yönetilen diskleri kullanmayı karar vermiştir.  Gerekli IOPS diskler (HDD) standart veya Premium (SSD) olup olmayacağını belirler.<br/>.<br/>
+**Azure depolama alanı** | Geçiş için doğru tür ve sayıda hedef Azure depolama hesabı, Contoso tanımlamanız gerekir.  Site Recovery, sanal makine verilerini Azure depolama alanına çoğaltır.<br/><br/> Site Recovery, standart veya premium (SSD) depolama hesaplarına çoğaltabilir.<br/><br/> Depolama hakkında karar vermek üzere Contoso gözden geçirmelisiniz [depolama sınırları](../virtual-machines/windows/disks-types.md)ve beklenen büyüme ve artan kullanım zaman içinde faktörü. Hız ve geçişlerin öncelik verildiğinde, Contoso premium SSD kullanmaya karar verdi<br/><br/>
+Contoso, Azure'da dağıtılan tüm VM'ler için yönetilen diskleri kullanmayı karar vermiştir.  Gerekli IOPS disk standart HDD, SSD standart veya Premium (SSD) olup olmayacağını belirler.<br/><br/>
 
-
-#### <a name="data-migration-service"></a>Veri geçiş hizmeti 
+#### <a name="data-migration-service"></a>Veri geçiş hizmeti
 
 Azure veritabanı geçiş hizmeti (DMS), birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure veri platformu sağlayan tam olarak yönetilen bir hizmettir.
 
